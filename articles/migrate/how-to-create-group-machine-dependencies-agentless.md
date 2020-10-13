@@ -4,10 +4,10 @@ description: Azure Migrate Server 평가에서 에이전트 없는 종속성 분
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667472"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>머신 종속성 분석(에이전트 없음)
@@ -50,7 +50,7 @@ ms.locfileid: "91667472"
 2. **VCenter 세부 정보 제공** 패널로 이동 합니다.
 3. **검색 응용 프로그램 및 vm에 대 한 종속성**에서 **자격 증명 추가** 를 클릭 합니다.
 3. **운영 체제**를 선택 하 고 계정의 이름을 입력 하 고 **사용자 이름** / **암호** 를 입력 합니다.
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 7. **저장 및 검색 시작을**클릭 합니다.
 
     ![VM 사용자 계정 추가](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -144,7 +144,7 @@ GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershe
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
-1. AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+1. Connect-AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
     ```PowerShell
     Connect-AzAccount
@@ -197,7 +197,7 @@ Azure Migrate는 여러 서버의 네트워크 연결을 한 번에 시각화 �
 1. GitHub의 [Azure PowerShell 샘플](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) 리포지토리에서 PowerShell 모듈 및 Power BI 템플릿을 다운로드 합니다.
 
 2. 아래 지침을 사용 하 여 Azure에 로그인 합니다. 
-- AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+- Connect-AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
     ```PowerShell
     Connect-AzAccount

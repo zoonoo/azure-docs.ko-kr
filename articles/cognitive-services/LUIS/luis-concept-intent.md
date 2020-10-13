@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536106"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
@@ -63,7 +63,7 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 
 ## <a name="none-intent"></a>None 의도
 
-**None** 의도가 생성되지만 고의로 비워 둡니다. **None** 의도는 필수 의도이며 삭제하거나 이름을 바꿀 수 없습니다. 이 의도를 도메인 외부에 있는 발화로 채웁니다.
+**None** 의도가 생성되지만 고의로 비워 둡니다. **없음** 의도는 필수 의도 이며 삭제 하거나 이름을 바꿀 수 없습니다. 이 의도를 도메인 외부에 있는 발화로 채웁니다.
 
 어떤 경우에 **도** 모든 앱에서 중요 한 대체 의도가 없으며 총 길이 발언의 10%가 있어야 합니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도의 발화를 추가하지 않으면 LUIS는 도메인 외부에 있는 발화를 도메인 의도 중 하나에 적용합니다. 이로 인해 LUIS가 발화의 잘못된 의도를 학습하게 되어 예측 점수가 왜곡됩니다.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
 ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825586"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech service로 마이그레이션
@@ -51,7 +51,7 @@ ms.locfileid: "91825586"
 | 간단한 의도 인식 | :heavy_minus_sign: | :heavy_check_mark: |
 | 긴 오디오 파일의 일괄 처리 기록 | :heavy_minus_sign: | :heavy_check_mark: |
 | 인식 모드 | 엔드포인트 URI 통해 수동 | 자동 | 인식 모드는 음성 서비스에서 사용할 수 없습니다. |
-| 엔드포인트 위치 | 전역 | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다. |
+| 엔드포인트 위치 | Global | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다. |
 | REST API | :heavy_check_mark: | :heavy_check_mark: | 음성 서비스 REST Api는 Bing Speech (다른 끝점)와 호환 됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다. |
 | WebSocket 프로토콜 | :heavy_check_mark: | :heavy_minus_sign: | Speech SDK는 서비스에 대 한 일정 연결을 요구 하는 기능에 대 한 웹 소켓 연결을 추상화 하므로 더 이상 수동으로 구독할 수 없습니다. |
 | 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다. |
@@ -75,7 +75,7 @@ Speech Devices SDK를 시작하려면
 1. 음성 서비스 [빠른 시작 가이드](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) 및 [자습서](how-to-recognize-intents-from-speech-csharp.md)를 진행 합니다. 또한 [코드 샘플](samples.md)을 살펴보고 새 API를 경험합니다.
 1. 음성 서비스를 사용 하도록 응용 프로그램을 업데이트 합니다.
 
-## <a name="support"></a>Support(지원)
+## <a name="support"></a>지원
 
 Bing Speech 고객은 [지원 티켓](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 개설하여 고객 지원 서비스에 문의해야 합니다. 지원을 받으려면 [기술 지원 플랜](https://azure.microsoft.com/support/plans/)이 필요한 경우에도 Microsoft로 연락 주시면 됩니다.
 
@@ -87,7 +87,7 @@ Speech service, SDK 및 API 지원이 필요한 경우 Speech service [지원 �
 * [음성 텍스트 변환 시작](get-started-speech-to-text.md)
 * [텍스트 음성 변환 시작](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Speech service 릴리스 정보](releasenotes.md)
 * [음성 서비스는 무엇 인가요?](overview.md)

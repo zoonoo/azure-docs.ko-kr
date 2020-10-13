@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280182"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
@@ -79,7 +79,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ### <a name="azure-government-cloud-prerequisite"></a>클라우드 필수 구성 요소 Azure Government
 2 단계를 통해 Azure AD Connect 통과 인증을 사용 하도록 설정 하기 전에 Azure Portal에서 PTA 에이전트의 최신 릴리스를 다운로드 합니다.  에이전트가 버전 1.5.1742.0 인지 확인 해야 **합니다.** 이상  에이전트를 확인 하려면 [인증 에이전트 업그레이드](how-to-connect-pta-upgrade-preview-authentication-agents.md) 를 참조 하세요.
 
-에이전트의 최신 릴리스를 다운로드 한 후에는 아래 지침을 진행 하 여 Azure AD Connect를 통해 통과 인증을 구성 합니다.
+최신 버전의 에이전트를 다운로드 한 후에는 아래 지침을 진행 하 여 Azure AD Connect를 통해 Pass-Through 인증을 구성 합니다.
 
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 

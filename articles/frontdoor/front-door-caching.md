@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535834"
 ---
 # <a name="caching-with-azure-front-door"></a>Azure Front 도어를 사용 하 여 캐싱
@@ -113,7 +113,7 @@ Front Door의 캐시 제거에서는 대/소문자를 구분하지 않습니다.
 2. Cache-control: max-age =\<seconds>
 3. 기간이 \<http-date>
 
-캐시 제어 응답 헤더는 캐시 제어: 전용, Cache-control: 캐시 없음 및 Cache-control: 저장소가 적용 되지 않음을 나타내는 응답을 캐시 하지 않습니다.  Cache-control이 없는 경우, 기본 동작은 Front 도어가 x 시간 동안 리소스를 캐시 하는 것입니다. 여기서 X는 1 ~ 3 일 사이에 임의로 선택 됩니다.
+캐시 제어와 같이 응답이 캐시 되지 않음을 나타내는 응답 헤더를 Cache-Control 합니다. 전용, Cache-control: 캐시 없음 및 Cache-control: 저장소가 적용 되지 않습니다.  Cache-Control 없는 경우, 기본 동작은 프런트 도어가 x 시간에 대 한 리소스를 캐시 합니다. 여기서 X는 1 ~ 3 일 사이에 임의로 선택 됩니다.
 
 ## <a name="request-headers"></a>요청 헤더
 

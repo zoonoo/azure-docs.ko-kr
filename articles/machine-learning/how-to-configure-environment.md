@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613716"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 개발 환경 설정
@@ -24,7 +24,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 다음 표에서는 이 문서에서 다루는 각 개발 환경을 장단점과 함께 보여 줍니다.
 
-| 환경 | 장점 | 단점 |
+| Environment | 장점 | 단점 |
 | --- | --- | --- |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
 | [Azure Machine Learning 컴퓨팅 인스턴스](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
@@ -37,7 +37,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Visual Studio Code: Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 영역입니다. 아직 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
@@ -131,7 +131,7 @@ Azure Machine Learning 및 Jupyter 노트북을 시작 하려면 [Azure Machine 
 
 Visual Studio Code 확장을 설치한 후에는 [Azure Machine Learning 리소스](how-to-manage-resources-vscode.md)를 관리 하 고, [실험을 실행 및 디버그](how-to-debug-visual-studio-code.md)하 고, [학습 된 모델을 배포할](tutorial-train-deploy-image-classification-model-vscode.md)수 있습니다.
 
-## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스
+## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Azure Machine Learning 계산 인스턴스
 
 Azure Machine Learning [계산 인스턴스](concept-compute-instance.md) 는 데이터 과학자에 Jupyter Notebook 서버, JupyterLab 및 완전히 관리 되는 Machine Learning 환경을 제공 하는 클라우드 기반 보안 워크스테이션입니다.
 

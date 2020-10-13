@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888779"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 Key vault는 키를 저장할 수 있는 안전한 장소입니다. 기업 사용자는 CI/CD 환경의 자격 증명을 제어 하는 범위 내에 저장 해야 합니다. 키 자격 증명 모음에서 자격 증명을 가져오는 키는 리소스 범위로 제한 되어야 합니다.  전체 Azure 범위가 아니라 key vault 범위에만 액세스할 수 있습니다. 이는 건물의 모든 도어를 열 수 있는 마스터 키가 아닌 강력한 상자를 열 수 있는 키와 같습니다. CICD 워크플로에서 유용한 다른 키를 사용 하 여 키를 가져오는 방법입니다. 
 
@@ -52,7 +52,7 @@ Azure Portal에서 **Key Vault** 대시보드로 이동 하 고 **Access control
 
 자격 증명 이름을 복사 합니다 (예:) `azure-cli-2020-01-19-04-39-02` . **액세스 정책** 메뉴를 열고 **+ 액세스 정책 추가** 링크를 클릭 합니다.  `Secret Management` **템플릿**에 대해를 선택 하 고 **보안 주체**를 선택 합니다. **보안 주체** / **선택** 입력 상자에 자격 증명 이름 붙여넣기:
 
- ![선택](./media/github-actions/key-vault2.png)
+ ![새 페이지를 추가하기 위해](./media/github-actions/key-vault2.png)
 
  **액세스 정책 추가** 대화 상자에서 **추가** 단추를 클릭 한 다음 **저장**을 클릭 합니다.
 

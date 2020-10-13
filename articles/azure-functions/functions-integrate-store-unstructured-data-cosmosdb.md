@@ -2,14 +2,14 @@
 title: Azure Cosmos DB 및 Functions를 사용하여 비정형 데이터 저장
 description: Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2828bf14b6965e87ef9547020e870333c4e839af
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987979"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91661162"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 
@@ -132,7 +132,7 @@ module.exports = async function (context, req) {
 
 ## <a name="test-the-function-and-database"></a>함수 및 데이터베이스 테스트
 
-1. **테스트**를 선택합니다. **쿼리** 아래에서 **+ 매개 변수 추가**를 선택하고 쿼리 문자열에 다음 매개 변수를 추가합니다.
+1. **테스트/실행**을 선택합니다. **쿼리** 아래에서 **+ 매개 변수 추가**를 선택하고 쿼리 문자열에 다음 매개 변수를 추가합니다.
 
     + `name`
     + `task`

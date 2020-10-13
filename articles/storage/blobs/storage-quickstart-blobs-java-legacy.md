@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323743"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>빠른 시작: Java v8 SDK를 사용 하 여 blob 관리
@@ -32,7 +32,7 @@ ms.locfileid: "87323743"
 
 [애플리케이션 예제](https://github.com/Azure-Samples/storage-blobs-java-quickstart)는 기본 콘솔 애플리케이션입니다.
 
-[Git](https://git-scm.com/) 을 사용 하 여 개발 환경에 응용 프로그램의 복사본을 다운로드 합니다.
+[git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git

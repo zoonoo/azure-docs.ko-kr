@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275050"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Linux 확장
@@ -25,7 +25,7 @@ Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하
 
 VMSnapshot 확장은 관리 되지 않는 Vm에 대해서만 Azure Portal에 나타납니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 지원되는 운영 체제 목록은 [Azure Backup에 지원되는 운영 체제](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.

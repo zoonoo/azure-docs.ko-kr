@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314320"
 ---
 # <a name="security-control-v2-data-protection"></a>보안 제어 V2: 데이터 보호
@@ -92,7 +92,7 @@ DLP (데이터 손실 방지)의 호환성을 위해 필요한 경우 호스트 
 
 **고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [응용 프로그램 보안 및 DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 

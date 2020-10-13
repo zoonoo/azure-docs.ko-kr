@@ -8,10 +8,10 @@ ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612764"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
@@ -29,8 +29,8 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 | 심각도 | 설명 |
 |:---|:---|
 | 위험 | 시스템 관리자의 즉각적인 주의가 필요한 이벤트입니다. 응용 프로그램 또는 시스템이 응답 하지 않거나 응답을 중지 했음을 나타낼 수 있습니다.
-| 오류 | 문제를 나타내는 이벤트 이며 즉각적인 주의가 필요 하지 않습니다.
-| 경고 | 실제 오류는 아니지만 잠재적인 문제를 forewarning 제공 하는 이벤트입니다. 리소스가 이상적인 상태가 아니고 나중에 오류 또는 중요 한 이벤트를 표시 하는 데 영향을 줄 수 있음을 표시 합니다.  
+| Error | 문제를 나타내는 이벤트 이며 즉각적인 주의가 필요 하지 않습니다.
+| Warning | 실제 오류는 아니지만 잠재적인 문제를 forewarning 제공 하는 이벤트입니다. 리소스가 이상적인 상태가 아니고 나중에 오류 또는 중요 한 이벤트를 표시 하는 데 영향을 줄 수 있음을 표시 합니다.  
 | 정보 제공 | 중요 하지 않은 정보를 관리자에 게 전달 하는 이벤트입니다. "정보에 대 한"와 유사 합니다. 
 
 각 리소스 공급자의 developers 리소스 항목의 심각도 수준을 선택 합니다. 결과적으로 응용 프로그램을 빌드하는 방법에 따라 실제 심각도가 달라질 수 있습니다. 예를 들어 isloation에서 수행 되는 특정 리소스에 대 한 "위험" 항목은 Azure 응용 프로그램의 핵심이 되는 리소스 종류의 "오류" 만큼 중요 하지 않을 수 있습니다. 경고할 이벤트를 결정할 때이 사실을 고려해 야 합니다.  
@@ -38,7 +38,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구�
 ## <a name="categories"></a>범주
 활동 로그의 각 이벤트에는 다음 표에서 설명하는 특정 범주가 있습니다. 포털, PowerShell, CLI 및 REST API에서 활동 로그에 액세스할 때 각 범주 및 해당 스키마에 대 한 자세한 내용은 아래 섹션을 참조 하세요. [활동 로그를 저장소 또는 Event Hubs로 스트리밍할](./resource-logs.md#send-to-azure-event-hubs)때 스키마가 다릅니다. [리소스 로그 스키마](./resource-logs-schema.md) 에 대 한 속성 매핑은 문서의 마지막 섹션에 제공 됩니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | [관리](#administrative-category) | Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 관리 이벤트의 예로는 가상 머신 만들기 및 네트워크 보안 그룹 삭제가 있습니다.<br><br>Resource Manager를 사용하여 사용자 또는 애플리케이션에서 수행하는 모든 작업은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 이벤트에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다. |
 | [Service Health](#service-health-category) | Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 서비스 상태 이벤트 예제로 미국 동부의 SQL Azure에서 가동 중지 시간 발생이 있습니다. <br><br>서비스 상태 이벤트는 6가지 형태로 제공됩니다. 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안입니다. 이러한 이벤트는 이벤트의 영향을 받는 구독에 리소스가 있는 경우에만 생성됩니다.
@@ -819,12 +819,12 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 | resultType | status.value | |
 | resultSignature | substatus.value | |
 | resultDescription | description |  |
-| durationMS | 해당 없음 | 항상 0 |
+| durationMS | N/A | 항상 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identity | 클레임 및 권한 부여 속성 |  |
 | Level | Level |  |
-| 위치 | 해당 없음 | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
+| 위치 | N/A | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
 | 속성 | properties.eventProperties |  |
 | properties.eventCategory | category | properties.eventCategory가 없을 경우, category는 “Administrative”입니다. |
 | properties.eventName | eventName |  |

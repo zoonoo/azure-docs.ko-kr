@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
 ms.openlocfilehash: e8f1b115f8a52b4352478f91dd5849c45bfebdc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274370"
 ---
-# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 Oracle WebLogic 서버를 실행 하기 위한 솔루션은 무엇 인가요?
+# <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 Oracle WebLogic Server를 실행하는 솔루션에는 무엇이 있습니까?
 
 이 페이지에서는 Azure virtual machines에서 Oracle WebLogic 서버 (WLS)를 실행 하기 위한 솔루션에 대해 설명 합니다. 이러한 솔루션은 Oracle 및 Microsoft에서 공동으로 개발 됩니다.
 
@@ -56,7 +56,7 @@ _엔지니어링 팀이 이러한 제품을 개발 하는 마이그레이션 시
 
 이 솔루션을 사용 하면 비교적 편리 하 게 다양 한 프로덕션 준비 배포 아키텍처를 사용할 수 있습니다. 비즈니스 응용 프로그램 개발에 집중 하 여 가능한 가장 생산적인 방법으로 대부분의 마이그레이션 사례를 충족할 수 있습니다.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Azure에서 복잡 한 WebLogic 서버 배포가 사용 됩니다.":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Azure Portal를 사용 하 여 Azure에서 WebLogic 서버를 배포할 수 있습니다.":::
 
 솔루션에 의해 자동으로 프로 비전 되는 것 외에도 고객은 배포를 더욱 유연 하 게 사용자 지정할 수 있습니다. 응용 프로그램을 배포할 때 고객이 더 많은 Azure 리소스를 배포와 통합 하 게 됩니다. 고객은 솔루션 향상에 대 한 피드백을 제공 하는 것이 좋습니다.
 

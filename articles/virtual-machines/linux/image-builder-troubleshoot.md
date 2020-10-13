@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661111"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969979"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Azure 이미지 작성기 서비스 문제 해결
 
@@ -40,7 +40,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>이미지 템플릿의 업데이트/업그레이드는 현재 지원 되지 않습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 'Conflict'. Details: Update/Upgrade of image templates is currently not supported
@@ -56,7 +56,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>리소스 작업이 ' 실패 ' 터미널 프로 비전 상태로 완료 되었습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' failed with message '{
@@ -84,7 +84,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 
 ### <a name="error-getting-managed-image"></a>관리 되는 이미지를 가져오는 동안 오류 발생
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
@@ -106,7 +106,7 @@ Status=403 Code="AuthorizationFailed" Message="The client '......' with object i
 
 ### <a name="build--step-failed-for-image-version"></a>이미지 버전에 대 한 빌드 단계가 실패 했습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 ```text
 Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
@@ -121,7 +121,7 @@ Azure 이미지 작성기에서 원본 이미지를 찾을 수 없습니다.
 
 ### <a name="downloading-external-file-to-local-file"></a>로컬 파일에 외부 파일을 다운로드 하는 중
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [attempt 1 of 10] failed: Error downloading '<myFile>' to 'xxxxx.0.customizer.fp'..
@@ -228,7 +228,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="packer-build-command-failure"></a>팩 er 빌드 명령 실패
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
   "provisioningState": "Succeeded",
@@ -263,7 +263,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="timeout-exceeded"></a>제한 시간 초과
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in building/customizing image: Failed while waiting for packerizer: Timeout waiting for microservice to complete: 'context deadline exceeded'
@@ -289,7 +289,7 @@ Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in bui
 
 ### <a name="long-file-download-time"></a>긴 파일 다운로드 시간
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 ```text
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 myBigFile.zip 826 B / 826000 B  1.00%
@@ -312,7 +312,7 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 
 ### <a name="error-waiting-on-shared-image-gallery"></a>공유 이미지 갤러리에서 대기 하는 동안 오류 발생
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
@@ -335,7 +335,7 @@ az resource show \
  
 ### <a name="low-windows-resource-information-events"></a>낮은 Windows 리소스 정보 이벤트
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT     azure-arm: Waiting for operation to complete (system performance: 1% cpu; 37% memory)...
@@ -390,7 +390,7 @@ az resource show \
 
 ### <a name="builds-finished-but-no-artifacts-were-created"></a>빌드가 완료 되었지만 생성 된 아티팩트가 없습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -417,7 +417,7 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 
 ### <a name="resource-not-found"></a>리소스를 찾을 수 없음
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
   "provisioningState": "Succeeded",
@@ -440,7 +440,7 @@ Azure 이미지 작성기 다시 확인은 필요한 모든 권한을가지고 �
 
 ### <a name="sysprep-timing"></a>Sysprep 타이밍
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT     azure-arm: Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
@@ -504,7 +504,7 @@ VM 크기를 늘립니다. 또는 타이밍 문제를 방지 하기 위해 60 �
 
 ### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>컨텍스트 취소 컨텍스트가 취소 된 후 작성기를 취소 하는 중
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 ```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
@@ -522,7 +522,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 이미지 작성기 서비스는 포트 22 (Linux) 또는 5986 (Windows)를 사용 하 여 빌드 VM에 연결 합니다 .이는 이미지를 빌드하는 동안 빌드 VM에서 서비스의 연결이 끊어질 때 발생 합니다. 연결 끊기의 이유는 다양할 수 있지만 스크립트에서 방화벽을 사용 하도록 설정 하거나 구성 하면 위의 포트를 차단할 수 있습니다.
 
 #### <a name="solution"></a>솔루션
-방화벽 변경/사용 또는 SSH 또는 WinRM 변경에 대 한 스크립트를 검토 하 고 위의 포트에서 서비스와 VM을 연결 하는 일정을 변경 해야 합니다. 이미지 작성기 네트워킹에 대 한 자세한 내용은 [요구 사항](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking)을 참조 하세요.
+방화벽 변경/사용 또는 SSH 또는 WinRM 변경에 대 한 스크립트를 검토 하 고 위의 포트에서 서비스와 VM을 연결 하는 일정을 변경 해야 합니다. 이미지 작성기 네트워킹에 대 한 자세한 내용은 [요구 사항](./image-builder-networking.md)을 참조 하세요.
 
 ## <a name="devops-task"></a>DevOps 작업 
 
@@ -547,14 +547,14 @@ template name:  t_1556938436xxx
 ### <a name="troubleshooting-successful-builds"></a>성공한 빌드 문제 해결
 성공적인 빌드를 조사 하 고 로그를 검토 해야 하는 경우도 있습니다. 앞서 언급 했 듯이, 이미지 빌드에 성공 하면 로그가 포함 된 준비 리소스 그룹이 정리의 일부로 삭제 됩니다. 그러나 수행할 수 있는 작업은 인라인 명령 후에 절전 모드를 도입 하 고 빌드가 일시 중지 될 때 로그를 가져옵니다. 이렇게 하려면 다음 단계를 수행 합니다.
  
-1. 인라인 명령을 업데이트 하 고: Write Host/Echo "Sleep"을 추가 합니다. 그러면 로그에서 검색할 수 있습니다.
+1. 인라인 명령을 업데이트 하 고: Write-Host/Echo "절전"을 추가 합니다. 이렇게 하면 로그에서 검색할 수 있습니다.
 2. 절전 모드를 10 분 이상 추가 합니다. [절전 모드 또는](/powershell/module/microsoft.powershell.utility/start-sleep)Linux 명령을 사용할 수 있습니다 `Sleep` .
 3. 위의 방법을 사용 하 여 로그 위치를 확인 한 다음, 절전 모드로 전환 될 때까지 로그를 다운로드 하 고 확인 합니다.
 
 
 ### <a name="operation-was-canceled"></a>작업이 취소되었습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
@@ -586,7 +586,7 @@ template name:  t_1556938436xxx
 
 사용자가 빌드를 취소 하지 않은 경우 Azure DevOps 사용자 에이전트에서 빌드를 취소 했습니다. Azure DevOps 기능으로 인해 1 시간 제한이 발생 했을 가능성이 높습니다. 개인 프로젝트 및 에이전트를 사용 하는 경우 60 분의 빌드 시간을 얻을 수 있습니다. 빌드가 시간 제한을 초과 하는 경우 DevOps는 실행 중인 작업을 취소 합니다.
 
-Azure DevOps 기능 및 제한 사항에 대 한 자세한 내용은 [Microsoft 호스팅 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations) 를 참조 하세요.
+Azure DevOps 기능 및 제한 사항에 대 한 자세한 내용은 [Microsoft 호스팅 에이전트](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations) 를 참조 하세요.
  
 #### <a name="solution"></a>솔루션
 
@@ -594,14 +594,14 @@ Azure DevOps 기능 및 제한 사항에 대 한 자세한 내용은 [Microsoft 
 
 ### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>저속 Windows 로그온: ' Windows 모듈 설치 관리자를 기다려 주세요. '
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 이미지 작성기를 사용 하 여 Windows 10 이미지를 만든 다음, RDP를 사용 하 여 이미지에서 VM을 만들고, 첫 번째 로그온 시 다음 메시지와 함께 파란색 화면을 표시 하는 데 몇 분 정도 기다려야 합니다.
 ```text
 Please wait for the Windows Modules Installer
 ```
 
 #### <a name="solution"></a>솔루션
-먼저 이미지 빌드에서 마지막 사용자 지정으로 Windows 다시 시작 사용자 지정을 추가 하 고 모든 소프트웨어 설치가 완료 되었는지 확인 하는 데 필요한 미해결 다시 부팅이 없는지 확인 합니다. 마지막으로 [/mode: vm](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) 옵션을 AIB에서 사용 하는 기본 sysprep에 추가 합니다. 아래를 참조 하십시오. ' AIB 이미지에서 만든 vm은 ' > ' 명령을 재정의 하지 않습니다. '  
+먼저 이미지 빌드에서 마지막 사용자 지정으로 Windows 다시 시작 사용자 지정을 추가 하 고 모든 소프트웨어 설치가 완료 되었는지 확인 하는 데 필요한 미해결 다시 부팅이 없는지 확인 합니다. 마지막으로 [/mode: vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) 옵션을 AIB에서 사용 하는 기본 sysprep에 추가 합니다. 아래를 참조 하십시오. ' AIB 이미지에서 만든 vm은 ' > ' 명령을 재정의 하지 않습니다. '  
 
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>AIB 이미지에서 만든 Vm을 만들지 못했습니다.

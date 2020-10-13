@@ -10,17 +10,17 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91661060"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Kubernetes 도구를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -169,7 +169,7 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 필요에 따라 다음을 편집 합니다.
 
-**필수**
+**REQUIRED**
 - **위치**: 데이터 컨트롤러에 대 한 _메타 데이터가_ 저장 될 Azure 위치로 변경 합니다.  [데이터 컨트롤러 만들기 개요](create-data-controller.md) 문서에서 사용 가능한 Azure 위치 목록을 볼 수 있습니다.
 - **resourceGroup**: Azure Resource Manager에서 데이터 컨트롤러 azure 리소스를 만들려는 azure 리소스 그룹입니다.  일반적으로이 리소스 그룹은 이미 존재 해야 하지만 데이터를 Azure에 업로드할 때 까지는 필요 하지 않습니다.
 - **구독**: azure 리소스를 만들려는 구독에 대 한 AZURE 구독 GUID입니다.

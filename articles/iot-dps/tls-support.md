@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
 ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761297"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Azure IoT Hub 장치 프로 비전 서비스 (DPS)의 TLS 지원

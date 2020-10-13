@@ -4,10 +4,10 @@ ms.topic: include
 ms.date: 10/02/2020
 ms.author: pabouwer
 ms.openlocfilehash: a02c17013a205ccc0da85536b491d467ef72fa48
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666722"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Istio istio 클라이언트 이진 파일을 다운로드 하 여 설치 합니다.

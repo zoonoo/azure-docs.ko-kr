@@ -7,10 +7,10 @@ author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-reference
 ms.openlocfilehash: f5d92a6a4fd2295d513bfa025baf3d6e3167dc26
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827409"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Azure 사용자 지정 리소스 공급자에 대한 Azure Policy 기본 제공 정의

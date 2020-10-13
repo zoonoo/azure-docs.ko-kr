@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 iOS 및 macOS 빠른 시작 | Azure
-description: iOS 및 macOS 애플리케이션에서 사용자를 로그인하고 Microsoft Graph를 쿼리하는 방법을 알아봅니다.
+title: '빠른 시작: iOS 또는 macOS 앱에 Microsoft로 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 iOS 또는 macOS 앱이 사용자를 로그인하고, Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출하는 방법에 대해 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6ab826b6816c8f1b71a28c6bf501b651baa2cfff
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115257"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613461"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -25,13 +26,16 @@ ms.locfileid: "88115257"
 
 이 빠른 시작은 iOS 및 macOS 앱 모두에 적용됩니다. 일부 단계는 iOS 앱에만 필요합니다. 이러한 단계를 iOS 전용이라고 합니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-ios/ios-intro.svg)
+## <a name="prerequisites"></a>필수 구성 요소
 
-> [!NOTE]
-> **필수 구성 요소**
-> * XCode 10 이상
-> * iOS 10 이상
-> * macOS 10.12 이상
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* XCode 10 이상
+* iOS 10 이상
+* macOS 10.12 이상
+
+## <a name="how-the-sample-works"></a>샘플 작동 방법
+
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-ios/ios-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
@@ -70,16 +74,16 @@ ms.locfileid: "88115257"
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-ios/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
-> 
+>
 > #### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
 > > [!div id="autoupdate_ios" class="nextstepaction"]
 > > [iOS용 코드 샘플 다운로드]()
-> 
+>
 > > [!div id="autoupdate_macos" class="nextstepaction"]
 > > [macOS용 코드 샘플 다운로드]()
 > [!div renderon="docs"]
 > #### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
-> 
+>
 > - [iOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 > - [macOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
 
@@ -262,13 +266,11 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 > | `scopes` | 요청된 범위(즉 Microsoft Graph의 경우 `[ "user.read" ]`, 사용자 지정 웹 API(`api://<Application ID>/access_as_user`)의 경우 `[ "<Application ID URL>/scope" ]`)가 포함됩니다. |
 > | `account` | 토큰을 요청하는 계정입니다. 이 빠른 시작은 단일 계정 애플리케이션에 대한 것입니다. 다중 계정 앱을 빌드하려면 `accountsFromDeviceForParameters:completionBlock:`를 사용하여 토큰 요청에 사용할 계정을 식별하고 올바른 `accountIdentifier`를 전달하는 논리를 정의해야 합니다. |
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에 대한 전체 설명을 포함하여 애플리케이션 빌드에 대한 완전한 단계별 가이드로서 iOS 및 macOS용 자습서를 사용해 보세요.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에서 사용되는 애플리케이션을 만드는 방법 알아보기
+Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, 이를 사용하여 Microsoft Graph API를 호출하는 iOS 또는 macOS 앱을 빌드하는 단계별 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [iOS 및 macOS용 Graph API 자습서 호출](./tutorial-v2-ios.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [자습서: iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출](tutorial-v2-ios.md)

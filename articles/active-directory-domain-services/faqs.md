@@ -12,17 +12,17 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: iainfou
 ms.openlocfilehash: 6e2daa60e99eb7aab34b11f240a2e2fb03c98582
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612407"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>AD (Azure Active Directory) 도메인 서비스에 대 한 Faq (질문과 대답)
 
 이 페이지는 Azure Active Directory Domain Services에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 * [단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)

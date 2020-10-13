@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 0f3c21d5c7f328ddef000ca7f1eaa9d5e18e6ca9
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 6c088188802590139ee895c45fb26959138db07e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761892"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939803"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버 관리
 
@@ -123,7 +123,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## <a name="delete-a-server"></a>서버 삭제
 
-PostgreSQL 유연한 서버를 삭제 하려는 경우 [az postgres 신축 서버 삭제](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete) 명령을 실행할 수 있습니다.
+PostgreSQL 유연한 서버를 삭제 하려는 경우 [az postgres 신축 서버 삭제](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

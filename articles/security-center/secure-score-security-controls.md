@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
 ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268267"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
@@ -57,7 +57,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
 
-[보안 점수 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공 하 고 시간에 따른 보안 점수에 대 한 자체 보고 메커니즘을 작성 합니다. 예를 들어 **보안 점수** API를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 **점수 컨트롤** API를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+[보안 점수 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져올 수 있습니다. 또한 **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
 
 ![API를 통해 단일 보안 점수 검색](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -95,17 +95,17 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 
 기본 제공 권장 사항만 보안 점수에 영향을 줍니다.
 
-**미리 보기로** 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다. 가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
+**미리 보기로** 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다. 미리 보기 기간이 종료되면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정해야 합니다.
 
-미리 보기 권장 사항의 예는 다음과 같습니다.
+미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그를 사용 하는 권장 사항":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
 
 ## <a name="improve-your-secure-score"></a>보안 점수 향상
 
 보안 점수를 향상시키려면 권장 사항 목록에서 보안 권장 사항을 수정하세요. 각 리소스에 대해 각 권장 사항을 수동으로 수정하거나 **빠른 수정!** 옵션(사용 가능한 경우)을 사용하여 권장 사항의 수정 작업을 리소스 그룹에 빠르게 적용할 수 있습니다. 자세한 내용은 [권장 사항에 따라 수정](security-center-remediate-recommendations.md)을 참조하세요.
 
-점수를 개선 하 고 사용자가 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하는 또 다른 방법은 관련 권장 사항에 대해 적용 및 거부 옵션을 구성 하는 것입니다. [권장 사항 적용/거부 권장 사항](prevent-misconfigurations.md)에 대 한 자세한 정보.
+점수를 개선 하 고 사용자가 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하는 또 다른 방법은 관련 권장 사항에 대해 적용 및 거부 옵션을 구성 하는 것입니다. [적용/거부 추천 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md)에서 자세히 알아보세요.
 
 ## <a name="security-controls-and-their-recommendations"></a>보안 제어 및 해당 권장 사항
 

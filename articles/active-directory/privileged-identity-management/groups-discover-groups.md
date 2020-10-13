@@ -15,10 +15,10 @@ ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68795033d36ad0bcb36b7cd81cea0d848ecd5113
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049012"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>권한 있는 액세스 그룹 (미리 보기)을 Privileged Identity Management로 가져오기

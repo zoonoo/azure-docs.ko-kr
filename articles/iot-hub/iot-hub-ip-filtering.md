@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
 ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87074722"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
@@ -47,11 +47,11 @@ IP 필터 설정 페이지로 이동하려면 **네트워킹**, **공용 액세�
 
 IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가**를 선택합니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IP 필터 규칙을 IoT 허브에 추가":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 **IP 필터 규칙 추가**를 선택한 후 필드를 입력합니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IP 필터 규칙 추가를 선택한 후":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 * IP 필터 규칙의 **이름**을 제공합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
 
@@ -61,7 +61,7 @@ IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가**를 선택합�
 
 필드를 채운 후 **저장**을 선택하여 규칙을 저장합니다. 업데이트가 진행 중임을 알리는 경고가 표시됩니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IP 필터 규칙 저장에 대한 알림":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
@@ -71,7 +71,7 @@ IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가**를 선택합�
 
 IP 필터 규칙을 삭제하려면 해당 행에서 휴지통 아이콘을 선택하고 **저장**을 선택합니다. 규칙이 제거되고 변경 내용이 저장됩니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub IP 필터 규칙 삭제":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI를 사용하여 IP 필터 검색 및 업데이트
 
@@ -161,7 +161,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 
 새 IP 필터 규칙 순서를 저장하려면 **저장**을 클릭합니다.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="IoT Hub IP 필터 규칙의 순서 변경":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 ## <a name="next-steps"></a>다음 단계
 

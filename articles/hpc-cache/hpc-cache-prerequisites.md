@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
 ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612985"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
@@ -67,7 +67,7 @@ Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기�
 
 Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)의 azure virtual NETWORK 및 DNS 서버 구성에 대해 자세히 알아보세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 캐시 만들기를 시작 하기 전에 이러한 사용 권한 관련 필수 구성 요소를 확인 하십시오.
 

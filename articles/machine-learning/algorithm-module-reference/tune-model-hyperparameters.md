@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/17/2020
-ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 10/10/2020
+ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907767"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940212"
 ---
 # <a name="tune-model-hyperparameters"></a>모델 하이퍼 매개 변수 튜닝
 
@@ -77,9 +77,9 @@ ms.locfileid: "90907767"
 
 교육이 완료 되 면 다음을 수행 합니다.
 
-+ 스윕 결과를 보려면 모듈을 마우스 오른쪽 단추로 클릭 한 다음 **시각화**를 선택 합니다.
++ 스윕 결과를 보려면 모듈을 마우스 오른쪽 단추로 클릭 한 다음 **시각화**를 선택 하거나 시각화할 모듈의 왼쪽 출력 포트를 마우스 오른쪽 단추로 클릭 합니다.
 
-    출력에는 모델 유형에 적용 되는 모든 매개 변수 스윕 및 정확도 메트릭이 포함 되어 있지만 순위에 대해 선택한 메트릭은 "최상"으로 간주 되는 모델을 결정 합니다.
+    **스윕 결과** 에는 모델 유형에 적용 되는 모든 매개 변수 스윕 및 정확도 메트릭이 포함 되며, 순위에 대해 선택한 메트릭은 "최상"으로 간주 되는 모델을 결정 합니다.
 
 + 학습 된 모델의 스냅숏을 저장 하려면 **모델 학습** 모듈의 오른쪽 패널에서 **출력 + 로그** 탭을 선택 합니다. **데이터 집합 등록** 아이콘을 선택 하 여 모델을 재사용 가능한 모듈로 저장 합니다.
 

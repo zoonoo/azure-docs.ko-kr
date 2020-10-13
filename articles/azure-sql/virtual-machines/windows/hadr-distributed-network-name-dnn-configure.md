@@ -15,10 +15,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317007"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>FCI에 대 한 분산 네트워크 이름 구성 
@@ -119,7 +119,7 @@ Start-ClusterResource -Name dnn-demo
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="속성 명령이 강조 표시 된 DNN 리소스에 대 한 바로 가기 메뉴입니다.":::
 1. 장애 조치 (failover) 클러스터 인스턴스에 참여 하지 않는 노드에 대 한 확인란의 선택을 취소 합니다. DNN 리소스에 대 한 가능한 소유자 목록은 SQL Server 인스턴스 리소스에 대 한 가능한 소유자 목록과 일치 해야 합니다. 예를 들어 Data3이 FCI에 참여 하지 않는다고 가정할 경우 다음 이미지는 DNN 리소스의 가능한 소유자 목록에서 Data3를 제거 하는 예제입니다. 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="DNN 리소스의 가능한 소유자에 대해 FCI에 참여 하지 않는 노드 옆의 확인란을 선택 취소 합니다.":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="속성 명령이 강조 표시 된 DNN 리소스에 대 한 바로 가기 메뉴입니다.":::
 
 1. **확인**을 선택하여 설정을 저장합니다. 
 

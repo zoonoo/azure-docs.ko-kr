@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855912"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970013"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
@@ -135,7 +135,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 유효성 검사를 마친 후 마이그레이션을 커밋할 수 있습니다. 리소스는 더 이상 클래식 배포 모델에서 표시되지 않으며 리소스 관리자 배포 모델에서만 사용할 수 있습니다. 새 포털에서는 마이그레이션된 리소스만 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 작업은 멱등원 작업입니다. 실패하면 작업을 다시 시도합니다. 계속 실패하는 경우 지원 티켓을 만들거나 [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)에서 포럼을 만듭니다.
+> 이 작업은 멱등원 작업입니다. 실패하면 작업을 다시 시도합니다. 계속 실패하는 경우 지원 티켓을 만들거나 [Microsoft Q&A](/answers/index.html)에서 포럼을 만듭니다.
 >
 >
 

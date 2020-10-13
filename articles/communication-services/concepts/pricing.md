@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460937"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761229"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -59,7 +59,7 @@ Communication Services를 사용하면 2명 이상의 사용자 간에 채팅 �
 
 ### <a name="price"></a>가격
 
-- 전송된 모든 채팅 메시지에 대해 $0.0008의 요금이 청구됩니다.
+전송된 모든 채팅 메시지에 대해 $0.0008의 요금이 청구됩니다.
 
 ### <a name="pricing-example-chat-between-two-users"></a>가격 책정 예: 두 사용자 간 채팅 
 
@@ -77,3 +77,46 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 **비용 계산** 
 
 - 전송된 메시지 수(20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
+
+
+## <a name="telephony-and-sms"></a>전화 통신 및 SMS
+
+## <a name="price"></a>가격 
+
+전화 통신 서비스는 분당 가격이 책정되는 반면 SMS는 메시지별로 가격이 책정됩니다. 가격은 사용 중인 번호의 유형과 위치뿐만 아니라 통화 및 SMS 메시지의 대상에 따라 결정됩니다.
+
+### <a name="telephone-calling"></a>전화 통화
+
+기존 전화 통화(공용 전화망을 통해 발생하는 통화)는 미국에 기반을 둔 전화 번호에 대해 종량제 가격으로 제공됩니다. 가격은 사용된 번호 유형과 통화 대상을 기준으로 하는 분당 요금입니다. 가장 인기 있는 통화 대상에 대한 가격 정보는 아래 표에 포함되어 있습니다. 전체 대상 목록은 [상세 가격 목록](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)을 참조하세요.
+
+
+#### <a name="united-states-calling-prices"></a>미국 통화 가격
+
+다음 가격에는 2021년 6월 30일까지 필요한 통신 세금 및 요금이 포함됩니다.
+
+|숫자 형식   |전화를 거는 대상   |전화를 받는 대상|
+|--------------|-----------|------------|
+|로컬     |시작가: $0.013/분       |$0.0085/분        |
+|수신자 부담 |$0.013/분   |$0.0220/분 |
+
+#### <a name="other-calling-destinations"></a>기타 통화 대상
+
+다음 가격에는 2021년 6월 30일까지 필요한 통신 세금 및 요금이 포함됩니다.
+
+|전화 걸기   |분당 가격|
+|-----------|------------|
+|캐나다     |시작가: $0.013/분   |
+|영국     |시작가: $0.015/분   |
+|독일     |시작가: $0.015/분   |
+|프랑스     |시작가: $0.016/분   |
+
+
+### <a name="sms"></a>SMS
+
+SMS는 종량제 가격을 제공합니다. 가격은 메시지 대상을 기준으로 하는 메시지당 요금입니다. 수신자 부담 전화 번호로 메시지를 미국 내에 있는 전화 번호로 보낼 수 있습니다. 로컬(지리적) 전화 번호는 SMS 메시지를 보내는 데 사용할 수 없습니다.
+
+다음 가격에는 2021년 6월 30일까지 필요한 통신 세금 및 요금이 포함됩니다.
+
+|국가   |메시지 보내기|메시지 받기|
+|-----------|------------|------------|
+|USA(수신자 부담)    |$0.0075/msg   | $0.0075/msg |

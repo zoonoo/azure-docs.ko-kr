@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
 ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612781"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대 한 DPS (Azure IoT Hub 장치 프로 비전 서비스) 지원
@@ -43,7 +43,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 개인 끝점은 Azure 리소스에 액세스할 수 있는 고객 소유의 VNET 내에 할당 된 개인 IP 주소입니다. DPS 리소스에 대 한 개인 끝점을 사용 하 여 VNET 내에서 작동 하는 장치가 공용 끝점에 대 한 트래픽을 허용 하지 않고 DPS 리소스에의 한 프로 비전을 요청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 다음과 같은 전제 조건을 충족하는지 확인하세요.
 

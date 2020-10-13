@@ -9,10 +9,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323403"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Azure Monitor의 모니터링 사용량 및 예상 비용
@@ -74,7 +74,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 Azure Monitor 사용을 볼 수 있는 또 다른 옵션은 모니터 허브의 **사용량 및 예상 비용** 페이지입니다. 이는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)및 [Azure 애플리케이션 Insights](https://azure.microsoft.com/pricing/details/application-insights/)와 같은 핵심 모니터링 기능을 사용 하는 방법을 보여 줍니다. 2018년 4월 이전 제공된 요금제 고객의 경우 Insights 및 Analytics 제안을 통해 구매한 Log Analytics 사용량도 여기에 포함됩니다.
 
-사용자는 이 페이지에서 구독별로 집계된 지난 31일 간의 리소스 사용량을 볼 수 있습니다. `Drill-ins`31 일 동안의 사용량 추세를 표시 합니다. 예상치를 내기 위해서는 상당한 데이터를 취합해야 하므로 페이지 로드에 다소 시간이 소요됩니다.
+사용자는 이 페이지에서 구독별로 집계된 지난 31일 간의 리소스 사용량을 볼 수 있습니다. `Drill-ins` 31 일 동안의 사용량 추세를 표시 합니다. 예상치를 내기 위해서는 상당한 데이터를 취합해야 하므로 페이지 로드에 다소 시간이 소요됩니다.
 
 이 예에서는 모니터링 사용량과 그에 따른 비용의 추정치를 보여 줍니다.
 

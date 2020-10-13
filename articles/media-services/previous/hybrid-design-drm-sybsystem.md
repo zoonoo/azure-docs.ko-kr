@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266904"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 하위 시스템의 하이브리드 디자인
@@ -101,9 +101,9 @@ DRM/CENC 하위 시스템 설계 및 구현에 대한 자세한 내용은 [다�
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|예|예|샘플 1|
 |AMS|AMS|타사|예|예|샘플 2|
-|AMS|타사|AMS|예|예|샘플 3|
-|AMS|타사|외부|예|예|샘플 4|
-|타사|타사|AMS|예|예|    
+|AMS|타사|AMS|예|아니요|샘플 3|
+|AMS|타사|외부|아니요|아니요|샘플 4|
+|타사|타사|AMS|예|아니요|    
 
 샘플에서 PlayReady 보호는 DASH 및 부드러운 스트리밍 모두에서 작동합니다. 아래의 비디오 URL은 부드러운 스트리밍 URL입니다. 해당 DASH URL을 얻으려면 "(format=mpd-time-csf)"를 추가합니다. [azure media test player](https://aka.ms/amtest)를 사용하여 브라우저에서 테스트할 수 있습니다. 그러면 어떤 기술에서 사용할 스트리밍 프로토콜을 구성할 수 있습니다. Windows 10의 IE11 및 Microsoft Edge는 EME를 통해 PlayReady를 지원합니다. 자세한 내용은 [테스트 도구에 대한 세부 정보(영문)](./offline-playready-streaming-windows-10.md)를 참조하세요.
 

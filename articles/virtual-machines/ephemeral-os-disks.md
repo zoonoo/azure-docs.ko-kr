@@ -9,10 +9,10 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: a79a030c4f57c3dabdd14c01aa2062cab7026cd3
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611523"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
@@ -40,7 +40,7 @@ ms.locfileid: "91611523"
 | **지역 지원**              | 모든 지역                                                                                  | 모든 지역                              |
 | **데이터 지속성**            | Os 디스크에 작성 된 OS 디스크 데이터는 Azure Storage에 저장 됩니다.                                  | OS 디스크에 기록 되는 데이터는 로컬 VM 저장소에 저장 되 고 Azure Storage에 유지 되지 않습니다. |
 | **중지-할당 취소 됨 상태**      | Vm 및 확장 집합 인스턴스는 중지-할당 취소 되 고 중지-할당 취소 됨 상태에서 다시 시작 될 수 있습니다. | Vm 및 확장 집합 인스턴스는 중지-할당 취소할 수 없습니다.                                  |
-| **특수 OS 디스크 지원** | 예                                                                                          | 예                                                                                 |
+| **특수 OS 디스크 지원** | 예                                                                                          | 아니요                                                                                 |
 | **OS 디스크 크기 조정**              | VM을 만드는 동안 및 VM이 중지 되 고 할당이 취소 된 후에 지원 됨                                | VM을 만드는 동안에만 지원 됨                                                  |
 | **새 VM 크기로 크기 조정**   | OS 디스크 데이터가 보존 됩니다.                                                                    | Os 디스크의 데이터가 삭제 되 고 OS가 다시 프로 비전 됩니다.                                      |
 

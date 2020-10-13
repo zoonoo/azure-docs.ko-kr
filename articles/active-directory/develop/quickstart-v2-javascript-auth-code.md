@@ -1,7 +1,7 @@
 ---
-title: JavaScript SPA(단일 페이지 앱)에서 인증 코드를 사용하여 사용자 로그인 | Azure
+title: '빠른 시작: JavaScript SPA(단일 페이지 앱)에서 인증 코드를 사용하여 사용자 로그인 | Azure'
 titleSuffix: Microsoft identity platform
-description: JavaScript 앱이 Microsoft ID 플랫폼을 사용하여 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 인증 코드 흐름을 사용하여 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 35362733849305ad2ad7e008840d53ba085fa987
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115189"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613444"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48808f762536390287bae40e8af3849da20b81c2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372207"
+ms.locfileid: "91874291"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>비디오 분석-개체 및 동작 검색 응용 프로그램 아키텍처
 
@@ -41,4 +41,4 @@ IoT Edge LVA 게이트웨이 모듈은 카메라를 새 장치로 인스턴스�
 
 ## <a name="next-steps"></a>다음 단계
 
-제안 된 다음 단계는 [Azure IoT Central에서 video analytics 응용 프로그램을 만드는](tutorial-video-analytics-create-app.md)방법을 설명 하는 것입니다.
+제안 된 다음 단계는 [비디오 분석-개체 및 동작 검색 응용 프로그램 템플릿을 사용 하 여 IoT Central 응용 프로그램을 배포](tutorial-video-analytics-deploy.md)하는 방법을 설명 하는 것입니다.
