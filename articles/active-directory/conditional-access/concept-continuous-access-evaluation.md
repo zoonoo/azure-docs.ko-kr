@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266062"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992811"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -103,7 +103,7 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 
 1. CAE 지원 클라이언트는 일부 리소스에 대 한 액세스 토큰을 요청 하는 자격 증명 또는 새로 고침 토큰을 Azure AD에 제공 합니다.
 1. 액세스 토큰은 클라이언트에 대 한 다른 아티팩트와 함께 반환 됩니다.
-1. 관리자는 [사용자에 대 한 모든 새로 고침 토큰을](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)명시적으로 해지 합니다. Azure AD에서 리소스 공급자로 해지 이벤트가 전송 됩니다.
+1. 관리자는 [사용자에 대 한 모든 새로 고침 토큰을](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)명시적으로 해지 합니다. Azure AD에서 리소스 공급자로 해지 이벤트가 전송 됩니다.
 1. 액세스 토큰이 리소스 공급자에 게 표시 됩니다. 리소스 공급자는 토큰의 유효성을 평가 하 고 사용자에 대 한 해지 이벤트가 있는지 여부를 확인 합니다. 리소스 공급자는이 정보를 사용 하 여 리소스에 대 한 액세스 권한을 부여 하도록 결정 합니다.
 1. 이 경우 리소스 공급자는 액세스를 거부 하 고 401 + 클레임 챌린지를 다시 클라이언트에 보냅니다.
 1. CAE 지원 클라이언트는 401 + 클레임 챌린지를 이해 합니다. 캐시를 우회 하 고 1 단계로 돌아가서 클레임 챌린지와 함께 새로 고침 토큰을 Azure AD로 다시 보냅니다. 그러면 Azure AD는 모든 조건을 다시 평가 하 고이 경우 사용자에 게 다시 인증 하 라는 메시지를 표시 합니다.
@@ -144,7 +144,7 @@ CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예:
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
@@ -159,7 +159,7 @@ Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있�
 | 반기 엔터프라이즈 채널 | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. |
 | 현재 채널 <br> 또는 <br> 월별 엔터프라이즈 채널 | CAE는 설정에 상관 없이 지원 됩니다. | CAE는 설정에 상관 없이 지원 됩니다. |
 
-Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 업데이트 채널 개요](https://docs.microsoft.com/deployoffice/overview-update-channels)를 참조 하세요. 조직에서는 WAM (웹 계정 관리자)를 사용 하지 않도록 설정 하는 것이 좋습니다.
+Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 업데이트 채널 개요](/deployoffice/overview-update-channels)를 참조 하세요. 조직에서는 WAM (웹 계정 관리자)를 사용 하지 않도록 설정 하는 것이 좋습니다.
 
 ### <a name="policy-change-timing"></a>정책 변경 타이밍
 
@@ -177,7 +177,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

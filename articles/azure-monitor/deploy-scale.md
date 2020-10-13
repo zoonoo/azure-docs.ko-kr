@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441457"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993248"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 Azure Monitor 배포
 일부 Azure Monitor 기능은 한 번 또는 여러 번 구성 되지만 모니터링 하려는 각 리소스에 대해 다른 기능을 반복 해야 합니다. 이 문서에서는 Azure Policy를 사용 하 여 모든 Azure 리소스에 대해 모니터링이 일관적이 고 정확 하 게 구성 되도록 하는 Azure Monitor을 구현 하는 방법을 설명 합니다.
@@ -33,7 +33,7 @@ Azure Policy은 다음 테이블의 개체로 구성 됩니다. 각에 대 한 �
 | 할당 | 정책 정의 또는 이니셔티브는 범위에 할당 될 때까지 적용 되지 않습니다. 예를 들어 리소스 그룹에 정책을 할당 하 여 해당 리소스에서 만든 모든 리소스에 적용 하거나 구독에 적용 하 여 해당 구독에 있는 모든 리소스에 정책을 적용 합니다.  자세한 내용은 [Azure Policy 할당 구조](../governance/policy/concepts/assignment-structure.md)를 참조 하세요. |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Azure Monitor에 대한 기본 제공 정책 정의
-Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정의가 포함 되어 있습니다. 이러한 정책 정의를 기존 구독에 할당 하거나 기본으로 사용 하 여 고유한 사용자 지정 정의를 만들 수 있습니다. **모니터링** 범주에 있는 기본 제공 정치의 전체 목록은 [Azure Policy 기본 제공 정책 정의 Azure Monitor를](samples/policy-samples.md)참조 하세요.
+Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정의가 포함 되어 있습니다. 이러한 정책 정의를 기존 구독에 할당 하거나 기본으로 사용 하 여 고유한 사용자 지정 정의를 만들 수 있습니다. **모니터링** 범주에 있는 기본 제공 정치의 전체 목록은 [Azure Policy 기본 제공 정책 정의 Azure Monitor를](./samples/policy-reference.md)참조 하세요.
 
 모니터링과 관련 된 기본 제공 정책 정의를 보려면 다음을 수행 합니다.
 
@@ -130,7 +130,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 
 VM용 Azure Monitor는 전체 모니터링을 사용 하기 위해 두 에이전트를 모두 설치 하는 다음과 같은 기본 제공 이니셔티브를 포함 합니다. 
 
-|Name |설명 |
+|속성 |설명 |
 |:---|:---|
 |VM용 Azure Monitor 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
 |가상 머신 확장 집합에 대 한 Azure Monitor 사용 | Azure 가상 머신 확장 집합에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
@@ -163,7 +163,7 @@ Log Analytics 에이전트를 설치 하지만 종속성 에이전트는 설치 
 > Log Analytics 에이전트가 Azure Monitor에 데이터를 전달 해야 하므로 종속성 에이전트를 자체에 배포할 이유가 없습니다.
 
 
-|Name |설명 |
+|속성 |설명 |
 |-----|------------|
 |감사 Log Analytics 에이전트 배포 – VM 이미지 (OS) 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않은 경우 vm을 비규격으로 보고 합니다. |
 |Linux Vm에 대 한 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258679"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992859"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -67,7 +67,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 조건부 액세스에 대해 알아볼 때 유용할 수 있는 리소스는 다음과 같습니다.
 
 
-#### <a name="videos"></a>동영상
+#### <a name="videos"></a>비디오
 
 * [조건부 액세스란?](https://youtu.be/ffMAw2IVO7A)
 * [조건부 액세스를 배포하는 방법](https://youtu.be/c_izIRNJNuk)
@@ -89,7 +89,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](https://aka.ms/deploymentplans)시키고 프로젝트 역할을 명확하게 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](../fundamentals/active-directory-deployment-plans.md)시키고 프로젝트 역할을 명확하게 해야 합니다.
 
 ### <a name="plan-communications"></a>통신 계획
 

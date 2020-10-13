@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: c78132ca85b87486e2fa8f41da6ae430c6eabba0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767659"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992875"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -124,12 +124,12 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 ![문제 해결 도구의 analyzer 변경](./media/change-analysis/analyze-recent-changes.png)
 
 ### <a name="activity-log-change-history"></a>활동 로그 변경 기록
-활동 로그의 [변경 기록 보기](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) 기능은 응용 프로그램 변경 분석 서비스 백 엔드를 호출 하 여 작업과 연결 된 변경 내용을 가져옵니다. [Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview) 를 직접 호출 하는 데 사용 되는 **변경** 내용 이지만, 백 엔드가 교체 되어 응용 프로그램 변경 분석을 호출 하는 경우, 반환 되는 변경 내용에는 [azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)의 리소스 수준 변경, [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)의 리소스 속성 및 App Services 웹 앱과 같은 PaaS 서비스에서 게스트 변경 내용이 포함 됩니다. 응용 프로그램 변경 분석 서비스에서 사용자 구독의 변경 내용을 검색할 수 있도록 하려면 리소스 공급자를 등록 해야 합니다. **변경 기록** 탭을 처음으로 입력 하면 도구에서 자동으로 **Microsoft. changeanalysis** 리소스 공급자를 등록 하기 시작 합니다. 등록 후 **Azure 리소스 그래프** 의 변경 내용이 즉시 제공 되며 지난 14 일이 포함 됩니다. 구독을 등록 한 후 4 시간 이내에 다른 원본의 변경 내용을 사용할 수 있습니다.
+활동 로그의 [변경 기록 보기](../platform/activity-log.md#view-change-history) 기능은 응용 프로그램 변경 분석 서비스 백 엔드를 호출 하 여 작업과 연결 된 변경 내용을 가져옵니다. [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 를 직접 호출 하는 데 사용 되는 **변경** 내용 이지만, 백 엔드가 교체 되어 응용 프로그램 변경 분석을 호출 하는 경우, 반환 되는 변경 내용에는 [azure 리소스 그래프](../../governance/resource-graph/overview.md)의 리소스 수준 변경, [Azure Resource Manager](../../azure-resource-manager/management/overview.md)의 리소스 속성 및 App Services 웹 앱과 같은 PaaS 서비스에서 게스트 변경 내용이 포함 됩니다. 응용 프로그램 변경 분석 서비스에서 사용자 구독의 변경 내용을 검색할 수 있도록 하려면 리소스 공급자를 등록 해야 합니다. **변경 기록** 탭을 처음으로 입력 하면 도구에서 자동으로 **Microsoft. changeanalysis** 리소스 공급자를 등록 하기 시작 합니다. 등록 후 **Azure 리소스 그래프** 의 변경 내용이 즉시 제공 되며 지난 14 일이 포함 됩니다. 구독을 등록 한 후 4 시간 이내에 다른 원본의 변경 내용을 사용할 수 있습니다.
 
 ![활동 로그 변경 기록 통합](./media/change-analysis/activity-log-change-history.png)
 
 ### <a name="vm-insights-integration"></a>VM Insights 통합
-[VM Insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) 를 사용 하도록 설정 된 사용자는 CPU 또는 메모리와 같은 메트릭 차트에서 스파이크를 발생 시킬 수 있는 가상 머신에서 변경 된 내용을 확인 하 고 그 원인을 궁금해 할 수 있습니다. 변경 데이터는 VM Insights 쪽 탐색 모음에 통합 되어 있습니다. 사용자는 VM에서 변경 된 내용이 있는지 확인 하 고 **변경 내용 조사** 를 클릭 하 여 응용 프로그램 변경 분석 독립 실행형 UI에서 변경 정보를 볼 수 있습니다.
+[VM Insights](../insights/vminsights-overview.md) 를 사용 하도록 설정 된 사용자는 CPU 또는 메모리와 같은 메트릭 차트에서 스파이크를 발생 시킬 수 있는 가상 머신에서 변경 된 내용을 확인 하 고 그 원인을 궁금해 할 수 있습니다. 변경 데이터는 VM Insights 쪽 탐색 모음에 통합 되어 있습니다. 사용자는 VM에서 변경 된 내용이 있는지 확인 하 고 **변경 내용 조사** 를 클릭 하 여 응용 프로그램 변경 분석 독립 실행형 UI에서 변경 정보를 볼 수 있습니다.
 
 [![VM insights 통합](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

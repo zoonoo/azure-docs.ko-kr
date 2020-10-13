@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030347"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993706"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -80,7 +80,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 - [이벤트 허브](../platform/resource-logs.md#send-to-azure-event-hubs) - 타사 SIEM 및 기타 로그 분석 솔루션과 같은 외부 시스템으로 데이터를 스트리밍합니다. 
 - [Azure 스토리지 계정](../platform/resource-logs.md#send-to-azure-storage) - 감사, 정적 분석 또는 백업에 유용합니다.
 
-[Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../platform/diagnostic-settings.md)의 절차에 따라 Azure Portal을 통해 진단 설정을 만들고 관리할 수 있습니다. 템플릿에서 진단 설정을 정의하고, 생성되는 리소스에 대한 완전한 모니터링이 가능하도록 설정하려면 [Azure에서 Resource Manager 템플릿을 사용하여 진단 설정 만들기](../platform/diagnostic-settings-template.md)를 참조하세요.
+[Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../platform/diagnostic-settings.md)의 절차에 따라 Azure Portal을 통해 진단 설정을 만들고 관리할 수 있습니다. 템플릿에서 진단 설정을 정의하고, 생성되는 리소스에 대한 완전한 모니터링이 가능하도록 설정하려면 [Azure에서 Resource Manager 템플릿을 사용하여 진단 설정 만들기](../samples/resource-manager-diagnostic-settings.md)를 참조하세요.
 
 
 ## <a name="monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링
@@ -160,5 +160,4 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다른 Azure 서비스에 해당하는 리소스 로그에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/resource-logs-schema.md)를 참조하세요.  
-
+* 다른 Azure 서비스에 해당하는 리소스 로그에 대한 자세한 내용은 [Azure 리소스 로그를 지원하는 서비스, 스키마 및 범주](../platform/resource-logs-schema.md)를 참조하세요.

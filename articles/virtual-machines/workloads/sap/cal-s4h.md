@@ -1,26 +1,18 @@
 ---
 title: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포 | Microsoft Docs
 description: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포
-services: virtual-machines-linux
-documentationcenter: ''
 author: hermanndms
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 116de28501b77262ef126ed420982d853376da4e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77616199"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993410"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Azure에서 SAP S/4HANA 또는 BW/4HANA 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 S/4HANA를 배포하는 방법을 설명합니다. BW/4HANA와 같은 다른 SAP HANA 기반 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -46,7 +38,7 @@ ms.locfileid: "77616199"
 
     b. Azure 구독을 입력합니다. SAP CAL 계정은 하나의 구독에만 할당될 수 있습니다. 둘 이상의 구독이 필요한 경우 다른 SAP CAL 계정을 만들어야 합니다.
 
-    다. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
+    c. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
 
    > [!NOTE]
    >  다음 단계에서는 리소스 관리자 배포를 위한 SAP CAL 계정을 만드는 방법을 보여 줍니다. 클래식 배포 모델에 연결된 SAP CAL 계정이 이미 있는 경우 다음 단계를 따라 새 SAP CAL 계정을 *만들어야* 합니다. 새 SAP CAL 계정을 리소스 관리자 모델에 배포해야 합니다.
@@ -57,7 +49,7 @@ ms.locfileid: "77616199"
 
     b. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
 
-    다. **21Vianet에서 운영하는 Windows Azure**는 클래식 배포 모델을 사용하는 중국의 옵션입니다.
+    c. **21Vianet에서 운영하는 Windows Azure**는 클래식 배포 모델을 사용하는 중국의 옵션입니다.
 
     리소스 관리자 모델을 배포하려면 **Microsoft Azure**를 선택합니다.
 
@@ -115,7 +107,7 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
     b. 인스턴스 **이름**을 입력합니다.
 
-    다. Azure **지역을**선택 합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
+    c. Azure **지역을**선택 합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
 
     d. 8자 또는 9자로 솔루션에 대한 마스터 **암호**를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
 

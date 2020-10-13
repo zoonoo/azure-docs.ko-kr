@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
-ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfa27b0df7febbfb8c97f11f69f87c352810699b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80585705"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993182"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 로그 쿼리 언어 차이점
 
@@ -29,11 +29,11 @@ ms.locfileid: "80585705"
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 함수
 
-* [cluster()](/azure/kusto/query/clusterfunction)
+* [cluster ()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
+* [데이터베이스 ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
@@ -56,5 +56,5 @@ ms.locfileid: "80585705"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 로그 쿼리 작성을 위한 다른 리소스](query-language.md)에 대한 참조를 가져옵니다.
+- [Azure Monitor 로그 쿼리 작성을 위한 다른 리소스](/azure/data-explorer/kusto/query/)에 대한 참조를 가져옵니다.
 - [Kusto 쿼리 언어에 대한 전체 참조 문서](/azure/kusto/query/)에 액세스합니다.

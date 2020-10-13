@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 652d63cbf71f7a998462780a5057ce8269463da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec25348c3056536a2e09fd889b48e1e63ea7bb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930386"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992783"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -24,7 +24,7 @@ ms.locfileid: "88930386"
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 적용됩니다.
 
 * [.NET Core SDK 2.1.2 이상](https://dotnet.microsoft.com/download/archives)을 설치합니다.
@@ -107,7 +107,7 @@ ms.locfileid: "88930386"
 
     ![Git 리포지토리 설정](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-배포 옵션에 대 한 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service)를 참조 하세요.
+배포 옵션에 대 한 자세한 내용은 [App Service 설명서](../../app-service/index.yml)를 참조 하세요.
 
 ## <a name="deploy-your-project"></a>프로젝트 배포
 
@@ -172,4 +172,3 @@ ms.locfileid: "88930386"
 Azure App Service에 의해 호스팅되는 사용자 지정 컨테이너를 사용하는 경우 [컨테이너화된 ASP.NET Core 애플리케이션에 대한 서비스 프로파일러 활성화](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp)의 지침을 따라 Application Insights Profiler를 활성화합니다.
 
 Application Insights GitHub 리포지토리([ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues))에 문제 또는 제안 사항을 보고합니다.
-

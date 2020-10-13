@@ -1,25 +1,18 @@
 ---
 title: Azure Vm (가상 머신)에서 IBM Db2 HADR 설정 | Microsoft Docs
 description: Azure Vm (가상 머신)에서 IBM Db2 LUW의 고가용성을 설정 합니다.
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: SAP
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
-ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 17df60cd039601d3f8036125c5c0098a8000667c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051999"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993296"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Pacemaker를 사용 하는 SUSE Linux Enterprise Server의 Azure Vm에서 IBM Db2 LUW의 고가용성
 
@@ -99,7 +92,7 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 
 배포를 실행 하기 전에 계획 프로세스를 완료 합니다. 계획은 Azure에서 HADR을 사용 하 여 Db2 구성을 배포 하기 위한 토대를 구축 합니다. IMB Db2 LUW (SAP 환경의 데이터베이스 부분) 계획에 포함 해야 하는 주요 요소는 다음 표에 나와 있습니다.
 
-| 항목 | 간단한 설명 |
+| 토픽 | 간단한 설명 |
 | --- | --- |
 | Azure 리소스 그룹 정의 | VM, VNet, Azure Load Balancer 및 기타 리소스를 배포 하는 리소스 그룹입니다. 기존 또는 신규 일 수 있습니다. |
 | 가상 네트워크/서브넷 정의 | IBM Db2 및 Azure Load Balancer에 대 한 Vm이 배포 되 고 있습니다. 기존 또는 새로 만들 수 있습니다. |
@@ -407,7 +400,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   다. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   c. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -419,7 +412,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백**엔드)을 입력 합니다.
 
-   다. **가상 머신 추가**를 선택합니다.
+   c. **가상 머신 추가**를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -433,7 +426,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   다. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
+   c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -443,7 +436,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP**로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트*를 입력 합니다.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904457"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992767"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Azure Stack Edge Pro 제한 사항
 
@@ -27,12 +27,16 @@ Microsoft Azure Stack Edge Pro 솔루션을 배포 하 고 작동할 때 이러�
 
 다음 표에서는 Azure Stack Edge Pro 장치에 대 한 제한을 설명 합니다. 
 
-| Description | 값 |
+다음 표에서는 Azure Stack Edge 장치에 대 한 제한을 설명 합니다.
+
+| 설명 | 값 |
 |---|---|
 |아니요. 디바이스당 파일 수 |1억 |
-|아니요. 디바이스당 공유 수 |24 |
 |아니요. 컨테이너당 공유 수 |1 |
+|최대 개수입니다. 장치 당 공유 끝점 및 REST 끝점| 24 |
+|최대 개수입니다. 장치당 계층화 된 저장소 계정| 24|
 |공유에 기록되는 최대 파일 크기| 5TB |
+|장치당 리소스 그룹의 최대 수| 800 |
 
 ## <a name="azure-storage-limits"></a>Azure Storage 제한
 

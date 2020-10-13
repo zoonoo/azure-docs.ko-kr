@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 10/12/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116070"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993166"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -62,7 +62,7 @@ ms.locfileid: "87116070"
     * `ClientEnabled="true"` 페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이**며 기본적으로로 설정 됩니다 `false` .
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예를 들면 다음과 같습니다.
+    예:
 
     ```xml
     <TrustFrameworkPolicy
@@ -89,7 +89,7 @@ ms.locfileid: "87116070"
 Application Insights에서 새 로그를 볼 수 있으려면 일반적으로 5 분 이내에 짧은 지연이 발생 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 만든 Application Insights 리소스를 엽니다.
-1. **개요** 메뉴에서 **분석**을 선택 합니다.
+1. **개요** 페이지에서 **로그**를 선택 합니다.
 1. Application Insights에서 새 탭을 엽니다.
 
 로그를 확인 하는 데 사용할 수 있는 쿼리 목록은 다음과 같습니다.
