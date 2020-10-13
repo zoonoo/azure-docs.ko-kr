@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758373"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
@@ -50,7 +50,7 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
 

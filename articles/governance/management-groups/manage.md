@@ -3,12 +3,12 @@ title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c10333e5be746aa0ca696d235f2d5fed75060e9d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531040"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951947"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -349,7 +349,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [관리 그룹을 만들어 Azure 리소스 구성](./create.md)
+- [관리 그룹을 만들어 Azure 리소스 구성](./create-management-group-portal.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](./manage.md)
 - [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
 - [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)

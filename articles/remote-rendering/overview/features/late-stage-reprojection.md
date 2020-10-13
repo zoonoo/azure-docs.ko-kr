@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022183"
+ms.locfileid: "91893206"
 ---
 # <a name="late-stage-reprojection"></a>후기 단계 다시 프로젝션
 
@@ -34,7 +34,9 @@ Unity 편집기에서로 이동 *:::no-loc text="File > Build Settings":::* 합�
 
 Depth LSR가 작동 하려면 클라이언트 응용 프로그램에서 LSR 중에 고려해 야 하는 모든 관련 기 하 도형을 포함 하는 유효한 깊이 버퍼를 제공 해야 합니다.
 
-깊이 LSR에서는 제공 된 깊이 버퍼의 내용에 따라 비디오 프레임을 안정화 하려고 시도 합니다. 결과적으로 투명 개체와 같이 렌더링 되지 않은 콘텐츠는 LSR에서 조정할 수 없으며 불안정성 및 reprojection 아티팩트가 표시 될 수 있습니다.
+깊이 LSR에서는 제공 된 깊이 버퍼의 내용에 따라 비디오 프레임을 안정화 하려고 시도 합니다. 결과적으로 투명 개체와 같이 렌더링 되지 않은 콘텐츠는 LSR에서 조정할 수 없으며 불안정성 및 reprojection 아티팩트가 표시 될 수 있습니다. 
+
+투명 개체의 reprojection 불안정을 완화 하기 위해 깊이 버퍼 쓰기를 강제로 수행할 수 있습니다. [색](color-materials.md) 및 *TransparencyWritesDepth* 자료에 대 [한 재질 플래그](pbr-materials.md) 를 참조 하세요. 그러나이 플래그를 사용 하도록 설정 하면 투명/불투명 개체 상호 작용의 시각적 품질이 저하 될 수 있습니다.
 
 ## <a name="planar-lsr"></a>평면 LSR
 

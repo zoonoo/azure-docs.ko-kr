@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946175"
+ms.locfileid: "91951687"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -186,10 +186,11 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 파일 기반 원본에서 복사 하는 경우 데이터를 가져온 파일에서 추적할 추가 열로 상대 파일 경로를 저장 합니다.
+- 지정한 원본 열을 다른 열로 복제 합니다. 
 - ADF 식으로 열을 추가 하 고, 파이프라인 이름/파이프라인 ID와 같은 ADF 시스템 변수를 연결 하거나, 업스트림 활동의 출력에서 다른 동적 값을 저장 합니다.
 - 정적 값을 사용 하 여 다운스트림 소비 요구를 충족 하는 열을 추가 합니다.
 
-복사 작업 원본 탭에서 다음 구성을 찾을 수 있습니다. 
+복사 작업 원본 탭에서 다음 구성을 찾을 수 있습니다. 또한 정의 된 열 이름을 사용 하 여 일반적으로 복사 활동 [스키마 매핑에서](copy-activity-schema-and-type-mapping.md#schema-mapping) 이러한 추가 열을 매핑할 수 있습니다. 
 
 ![복사 작업에서 열 추가](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`** -예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 예 |
+| additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`** -예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **$ $COLUMN: <source_column_name>** -예약 된 변수 패턴은 지정한 원본 열을 다른 열로 복제 함을 나타냅니다.<br>- **식**<br>- **정적 값** | 예 |
 
 **예:**
 
@@ -218,6 +219,10 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",

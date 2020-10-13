@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 02937c22cbc16defb0b7672ac7ebc56c2ae2beb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068782"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968364"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>온-프레미스 Azure AD 암호 보호 환경에 대 한 로그 모니터링 및 검토
 
@@ -236,7 +236,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Paramete
 
 DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 성능 카운터 개체를 설치합니다. 다음 성능 카운터는 현재 사용할 수 있습니다.
 
-|성능 카운터 이름 | 설명|
+|성능 카운터 이름 | Description|
 | --- | --- |
 |처리된 암호 |이 카운터는 마지막 다시 시작한 이후에 (승인 또는 거부) 처리된 암호의 총 수를 표시합니다.|
 |허용된 암호 |이 카운터는 마지막 다시 시작한 이후에 허용된 암호의 총 수를 표시합니다.|

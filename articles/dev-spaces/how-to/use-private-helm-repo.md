@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Azure Dev 공간에서 개인 투구 리포지토리를 사용 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너, 투구
 manager: gwallace
-ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5f28595df2e552fd48033b44e4e1f0ea4ec306
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80240464"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960340"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Azure Dev Spaces에서 개인 투구 리포지토리 사용
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 [투구][helm] 는 Kubernetes 패키지 관리자입니다. 투구는 [차트][helm-chart] 형식을 사용 하 여 종속성을 패키지 합니다. 투구 차트는 공개 또는 비공개 일 수 있는 리포지토리에 저장 됩니다. Azure Dev Spaces는 응용 프로그램을 실행할 때 공용 리포지토리에서 투구 차트를 검색 합니다. 투구 리포지토리가 개인 이거나 액세스할 수 Azure Dev Spaces 없는 경우 해당 리포지토리의 차트를 응용 프로그램에 직접 추가할 수 있습니다. 차트를 직접 추가 하면 개인 투구 리포지토리에 액세스할 필요 없이 응용 프로그램을 실행할 Azure Dev Spaces 있습니다.
 

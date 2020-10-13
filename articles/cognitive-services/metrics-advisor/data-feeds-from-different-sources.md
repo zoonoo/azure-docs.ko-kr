@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.author: aahi
-ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324470"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971951"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
 
@@ -133,7 +133,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer(Kusto)</span>
 
-* **연결 문자열**: Azure 데이터 탐색기 (Kusto)에서 연결 문자열을 검색 하는 방법에 대 한 자세한 내용은 [연결 문자열 보기 및 복사](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) 를 참조 하세요.
+* **연결 문자열**: 메트릭 관리자는 azure AD 응용 프로그램 인증을 사용 하 여 azure 데이터 탐색기 (Kusto)에 액세스할 수 있도록 지원 합니다. Azure AD 응용 프로그램을 만들고 등록 한 다음 Azure 데이터 탐색기 데이터베이스에 액세스 하도록 권한을 부여 해야 합니다. 연결 문자열을 가져오려면 [Azure 데이터 탐색기](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) 설명서를 참조 하세요.
 
 * **쿼리**: 다중 차원 시계열 데이터로 데이터를 가져오고 작성 하려면 [Kusto 쿼리 언어](https://docs.microsoft.com/azure/data-explorer/kusto/query) 를 참조 하세요. 쿼리에서 및 변수를 사용할 수 있습니다 `@StartTime` `@EndTime` . 형식을 지정 해야 합니다. `yyyy-MM-dd HH:mm:ss`
 

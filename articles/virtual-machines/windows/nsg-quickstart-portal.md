@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170051"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973991"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -78,4 +78,4 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 - [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
-- [보안 그룹](../../virtual-network/security-overview.md)
+- [보안 그룹](../../virtual-network/network-security-groups-overview.md)

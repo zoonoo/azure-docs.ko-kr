@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45eea7a6c4bccbdc6669752255469174493ab55
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090519"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938342"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
@@ -24,7 +24,7 @@ ms.locfileid: "90090519"
 
 **봇**
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [Bot 프레임 워크-관심 지점 기술](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | 관심 지점 기술은 Azure Bot Service 및 봇 프레임 워크와 함께 Azure Maps를 사용 하 여 가상 비서에 게 POI 관련 기능을 제공 합니다. |
 | [BotBuilder 위치](https://github.com/Microsoft/BotBuilder-Location) | Bing 지도 REST 서비스에서 제공 하는 Microsoft Bot Framework에 대 한 오픈 소스 위치 선택 컨트롤입니다. |
@@ -35,18 +35,20 @@ ms.locfileid: "90090519"
 
 다음은 Azure Maps 웹 SDK의 기능을 확장 하는 오픈 소스 프로젝트의 목록입니다.
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [Azure Maps 애니메이션 모듈](https://github.com/Azure-Samples/azure-maps-animations) | Azure Maps 웹 SDK와 함께 사용 하기 위한 풍부한 애니메이션 라이브러리입니다. |
 | [지리적 위치 제어 모듈 Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | 브라우저의 지리적 위치 API를 사용 하 여 맵에서 사용자를 찾는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
+| [Azure Maps Gridded 데이터 원본 모듈](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | 데이터 요소를 표 영역 셀로 클러스터링 하는 데이터 원본을 제공 하는 Azure Maps 웹 SDK 용 모듈입니다. 이 작업은 조각 맞춤, 데이터 바인딩, 16 진 bin 등의 여러 이름으로도 알려져 있습니다.  |
 | [Azure Maps 전체 화면 컨트롤 모듈](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | 지도를 전체 화면 모드로 표시 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
 | [Azure Maps Selection 컨트롤 모듈](https://github.com/Azure-Samples/azure-maps-selection-control) | 그리기 도구를 사용 하거나 경로 범위 다각형을 요청 하 여 데이터 소스에서 데이터를 선택 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
+| [Azure Maps 살짝 밀기 맵 모듈](https://github.com/Azure-Samples/azure-maps-swipe-map) | 두 개의 겹치는 데이터 집합을 비교 하는 데 이상적인 두 개의 겹치는 맵 간에 살짝 밀기 할 수 있는 Azure Maps 웹 SDK 용 모듈입니다. |
 | [Azure Maps 동기화 맵 모듈](https://github.com/Azure-Samples/azure-maps-sync-maps) | 두 개 이상의 지도의 카메라를 동기화 하는 Azure Maps 웹 SDK 모듈입니다. |
 | [Azure Maps Services UI 모듈](https://github.com/Azure-Samples/azure-maps-services-ui) | Azure Maps REST 서비스를 래핑하는 웹 UI 컨트롤의 집합입니다. |
 
 **샘플**
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [Azure Maps 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 웹 기반 앱에서 Azure Maps를 사용 하기 위한 코드 샘플 모음입니다. |
 | [Azure Maps .Gov 클라우드 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Azure Government 클라우드를 통해 Azure Maps를 사용 하는 코드 샘플 모음입니다. |
@@ -57,7 +59,7 @@ ms.locfileid: "90090519"
 
 **도구 및 리소스**
 
-| 프로젝트 이름 | 설명 |
+| 프로젝트 이름 | Description |
 |-|-|
 | [문서 Azure Maps](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | 모든 Azure Location Based Services 설명서의 원본입니다. |
 | [Azure Maps Creator 도구](https://github.com/Azure-Samples/AzureMapsCreator) | Azure Maps Creator tools 용 Python 도구 |

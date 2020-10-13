@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 예약 인스턴스를 사용 하 여 비용 절�
 description: Azure VMware 솔루션에 대 한 예약 인스턴스를 구매 하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91492489"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951420"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Azure VMware 솔루션을 사용 하 여 비용 절감
 
@@ -22,7 +22,7 @@ Azure VMware 솔루션의 예약 된 인스턴스로 커밋하는 경우 비용�
 
 -   **할당량 부족**   -단일/공유 구독으로 범위가 지정 된 예약에는 새 예약 인스턴스의 구독에서 사용할 수 있는 호스트 할당량이 있어야 합니다.  [할당량 증가 요청을 만들어](enable-azure-vmware-solution.md) 이 문제를 해결할 수 있습니다.
 
--   **제품 자격**-Microsoft와 함께 [AZURE 기업계약 (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)가 필요   합니다.
+-   **제품 자격**-Microsoft와 함께 [AZURE 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md)가 필요   합니다.
 
 -   **용량 제한**   -드문 경우 지만 Azure는 지역에 용량이 부족 하기 때문에 Azure VMware 솔루션 호스트 Sku에 대 한 새 예약 구매를 제한 합니다.
 

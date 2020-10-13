@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116446c2ca6512ac39b907e95a2c1ccdf70befda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d28ecfeb9312a6bf5a0b37e07919f9d781de50ea
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949289"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968585"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Azure MFA 서버 및 타사 VPN 솔루션을 사용한 고급 시나리오
 
@@ -34,7 +34,7 @@ Azure Multi-Factor Authentication 서버 (Azure MFA 서버)를 사용 하 여 �
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Cisco GLOBAL.ASA VPN 어플라이언스 및 Azure MFA 서버
 Azure MFA 서버는 cisco의 VPN 어플라이언스와 통합 되어 &reg; Cisco AnyConnect &reg; vpn 로그인 및 포털 액세스에 대 한 추가 보안을 제공 합니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
-| 구성 가이드 | 설명 |
+| 구성 가이드 | Description |
 | --- | --- |
 | [Anyconnect VPN을 사용한 Cisco ASA 및 LDAP를 위한 Azure MFA 구성](https://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | LDAP를 사용하는 Azure MFA와 Cisco ASA VPN 어플라이언스 통합 |
 | [Anyconnect VPN을 사용한 Cisco ASA 및 RADIUS를 위한 Azure MFA 구성](https://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | RADIUS를 사용하는 Azure MFA와 Cisco ASA VPN 어플라이언스 통합 |
@@ -42,7 +42,7 @@ Azure MFA 서버는 cisco의 VPN 어플라이언스와 통합 되어 &reg; Cisco
 ## <a name="citrix-netscaler-ssl-vpn-and-azure-mfa-server"></a>Citrix NetScaler SSL VPN 및 Azure MFA 서버
 Azure MFA 서버는 citrix NetScaler SSL VPN 어플라이언스와 통합 되어 Citrix NetScaler SSL VPN 로그인 및 포털 액세스에 대 한 추가 보안을 제공 합니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
-| 구성 가이드 | 설명 |
+| 구성 가이드 | Description |
 | --- | --- |
 | [Citrix NetScaler SSL VPN 및 LDAP를 위한 Azure MFA 구성](https://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | LDAP를 사용하는 Azure MFA와 Citrix NetScaler SSL VPN 어플라이언스 통합 |
 | [Citrix NetScaler SSL VPN 및 RADIUS를 위한 Azure MFA 구성](https://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | RADIUS를 사용하는 Azure MFA와 Citrix NetScaler SSL VPN 어플라이언스 통합 |
@@ -50,7 +50,7 @@ Azure MFA 서버는 citrix NetScaler SSL VPN 어플라이언스와 통합 되어
 ## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-mfa-server"></a>곱 향나무/펄스 보안 SSL VPN 어플라이언스 및 Azure MFA 서버
 Azure MFA 서버는 곱 향나무/펄스 보안 ssl vpn 어플라이언스와 통합 되어, 곱/펄스 보안 SSL VPN 로그인 및 포털 액세스에 대 한 추가 보안을 제공 합니다.  LDAP 또는 RADIUS 프로토콜을 사용할 수 있습니다.  자세한 단계별 구성 가이드를 다운로드하려면 다음 중 하나를 선택합니다.
 
-| 구성 가이드 | 설명 |
+| 구성 가이드 | Description |
 | --- | --- |
 | [Juniper/Pulse Secure SSL VPN 및 LDAP를 위한 Azure MFA 구성](https://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | LDAP를 사용하는 Azure MFA와 Juniper/Pulse Secure SSL VPN 어플라이언스 통합 |
 | [Juniper/Pulse Secure SSL VPN 및 RADIUS를 위한 Azure MFA 구성](https://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | RADIUS를 사용하는 Azure MFA와 Juniper/Pulse Secure SSL VPN 어플라이언스 통합 |

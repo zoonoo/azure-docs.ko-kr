@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450731"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973634"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
@@ -131,7 +131,7 @@ ANF를 사용 하 여 기본 인프라를 빌드하는 방법을 이해 하는 �
  
 
 ## <a name="backup"></a>Backup
-[Azure Virtual Machines의 SAP HANA에 대 한 백업 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)문서에서 설명 하는 것 처럼 스트리밍 백업과 azure 백 SAP HANA 서비스를 백업 하는 것 외에도 저장소 기반 스냅숏 백업을 수행할 수 Azure NetApp Files가 열립니다. 
+[Azure Virtual Machines의 SAP HANA에 대 한 백업 가이드](./sap-hana-backup-guide.md)문서에서 설명 하는 것 처럼 스트리밍 백업과 azure 백 SAP HANA 서비스를 백업 하는 것 외에도 저장소 기반 스냅숏 백업을 수행할 수 Azure NetApp Files가 열립니다. 
 
 SAP HANA 지원:
 
@@ -195,4 +195,4 @@ root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytes
 ## <a name="next-steps"></a>다음 단계
 문서를 참조 하세요.
 
-- [Azure Virtual Machines의 SAP HANA 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [Azure Virtual Machines의 SAP HANA 고가용성](./sap-hana-availability-overview.md)

@@ -2,20 +2,20 @@
 title: Azure AD Domain Services를 사용 하 여 도메인 가입 문제 해결 | Microsoft Docs
 description: VM을 도메인에 가입 하거나 응용 프로그램을 Azure Active Directory Domain Services에 연결 하려고 할 때 일반적인 문제를 해결 하는 방법에 대해 알아보고 관리 되는 도메인에 연결 하거나 인증할 수 없습니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 4a472f0d1e31faea6b62eec004543b42e6add4fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: ee60b684d64ef49fbb669de8c98203e2df5268bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039690"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967514"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 도메인 가입 문제 해결
 

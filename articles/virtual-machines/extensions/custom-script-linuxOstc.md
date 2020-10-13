@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 1fe915fd58f60e4ad5b1e28b51911678ef2f866c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b2099a6a48c9393b6e9e8b983a4acac2933bf06
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085710"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973838"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -58,7 +58,7 @@ ms.locfileid: "87085710"
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있는 경우 [저장소](../../virtual-network/security-overview.md#service-tags)에 대 한 AZURE Nsg 서비스 태그를 사용 하 여 액세스를 허용할 수 있습니다.
+외부 스크립트(예: GitHub 또는 Azure Storage)를 다운로드해야 하는 경우 추가 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있는 경우 [저장소](../../virtual-network/network-security-groups-overview.md#service-tags)에 대 한 AZURE Nsg 서비스 태그를 사용 하 여 액세스를 허용할 수 있습니다.
 
 스크립트가 로컬 서버에 있으면 추가 방화벽/네트워크 보안 그룹 포트도 열어야 합니다.
 

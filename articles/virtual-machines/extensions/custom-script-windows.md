@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426268"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973821"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -48,7 +48,7 @@ Windows용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드해야 하는 경우 추가 방화벽 및 네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있으면 [Storage](../../virtual-network/security-overview.md#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스하도록 허용할 수 있습니다.
+GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드해야 하는 경우 추가 방화벽 및 네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있으면 [Storage](../../virtual-network/network-security-groups-overview.md#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스하도록 허용할 수 있습니다.
 
 스크립트가 로컬 서버에 있으면 추가 방화벽 및 네트워크 보안 그룹 포트도 열어야 합니다.
 

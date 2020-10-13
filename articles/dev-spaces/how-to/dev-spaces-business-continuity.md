@@ -8,14 +8,16 @@ ms.topic: conceptual
 description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 4e47d4b05dedb981d55c527f76ae1c3a120f23d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 824eb1e65e7da5736080e47509aa163a868d8ec9
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232426"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973141"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 ## <a name="review-disaster-recovery-guidance-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)용 재해 복구 지침 검토
 
@@ -67,7 +69,7 @@ azds space select -n <space name>
 
 Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로젝트에 사용되는 클러스터를 전환할 수 있습니다.
 
-1. Visual Studio에서 프로젝트를 엽니다.
+1. Visual Studio에서 새 프로젝트를 엽니다.
 1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 1. 왼쪽 창에서 **디버그**를 클릭합니다.
 1. 디버그 속성 페이지에서 **프로필** 드롭다운 목록을 클릭하고 **Azure Dev Spaces**를 선택합니다.

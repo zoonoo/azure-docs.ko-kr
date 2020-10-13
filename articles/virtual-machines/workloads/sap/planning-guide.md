@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63378369b9924f01c5d0217746a8a2c330c88631
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361928"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970625"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -486,18 +486,18 @@ SAP 워크로드의 경우, 특히 SAP HANA 워크로드에 대해서는 적합�
 운영 체제 및 각 지역에 제공되는 각 서비스의 다양한 상품에 대한 각각의 요금은 [Linux Virtual Machines 요금](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows Virtual Machines 요금](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 사이트에서 확인할 수 있습니다. 1년 및 3년 예약 인스턴스에 대한 자세한 정보와 유연성은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Reserved VM Instances에서 가상 머신 크기 유연성](../../windows/reserved-vm-instance-size-flexibility.md)
+- [Reserved VM Instances에서 가상 머신 크기 유연성](../../reserved-vm-instance-size-flexibility.md)
 - [Azure 예약 할인이 가상 머신에 적용되는 방식](../../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 스폿 가격에 대한 자세한 정보는 [Azure 스폿 가상 머신](https://azure.microsoft.com/pricing/spot/) 문서를 참조하세요. 동일한 VM 유형이라도 Azure 지역에 따라 가격이 달라질 수 있습니다. 일부 고객은 더욱 저렴한 Azure 지역에 배포하는 편이 나을 수도 있습니다.
 
-또한, Azure는 전용 호스트 개념을 제공합니다. 전용 호스트 개념으로 Azure에서 제공하는 패칭 주기를 더욱 효과적으로 관리할 수 있습니다. 사용자는 자신의 일정에 맞게 패칭 시기를 결정할 수 있습니다. 이 제품은 일반적인 워크로드 주기를 따르지 않는 워크로드가 있는 고객을 대상으로 합니다. Azure 전용 호스트 제품의 개념에 대한 자세한 정보는 [Azure Dedicated Host](../../windows/dedicated-hosts.md)를 참조하세요. 이 제품은 SAP 워크로드에 대해 지원되며, Microsoft의 인프라 패칭 및 그에 따른 유지관리 계획을 더욱 효과적으로 관리하고자 하는 SAP 고객 다수가 이를 사용하고 있습니다. Microsoft가 가상 머신을 호스팅하는 Azure 인프라를 관리하고 패치하는 방법에 대한 자세한 정보는 [Azure에서 가상 머신 유지관리](../../maintenance-and-updates.md) 문서를 참조하세요.
+또한, Azure는 전용 호스트 개념을 제공합니다. 전용 호스트 개념으로 Azure에서 제공하는 패칭 주기를 더욱 효과적으로 관리할 수 있습니다. 사용자는 자신의 일정에 맞게 패칭 시기를 결정할 수 있습니다. 이 제품은 일반적인 워크로드 주기를 따르지 않는 워크로드가 있는 고객을 대상으로 합니다. Azure 전용 호스트 제품의 개념에 대한 자세한 정보는 [Azure Dedicated Host](../../dedicated-hosts.md)를 참조하세요. 이 제품은 SAP 워크로드에 대해 지원되며, Microsoft의 인프라 패칭 및 그에 따른 유지관리 계획을 더욱 효과적으로 관리하고자 하는 SAP 고객 다수가 이를 사용하고 있습니다. Microsoft가 가상 머신을 호스팅하는 Azure 인프라를 관리하고 패치하는 방법에 대한 자세한 정보는 [Azure에서 가상 머신 유지관리](../../maintenance-and-updates.md) 문서를 참조하세요.
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>1세대 및 2세대 가상 머신
-Microsoft의 하이퍼바이저는 2세대의 가상 머신을 처리할 수 있습니다. 이런 형식을 **1세대**와 **2세대**라고 합니다. **2세대**는 2012년에 Windows Server 2012 하이퍼바이저와 함께 도입되었습니다. Azure는 1세대 가상 머신을 사용하는 것으로 시작했습니다. Azure 가상 머신을 배포할 때의 기본값은 1세대 형식을 사용하는 것이지만 2세대 VM 형식도 배포할 수 있습니다. [Azure의 2세대 VM 지원](../../windows/generation-2.md) 문서에는 2세대 VM으로 배포할 수 있는 Azure VM 제품군이 나와 있습니다. 이 문서에는 Hyper-v 사설 클라우드 및 Azure에서 실행할 수 있는 2 세대 가상 컴퓨터의 중요 한 기능 차이가 나와 있습니다. 특히, Azure에서 실행될 때 1세대 가상 머신과 2세대 가상 머신의 기능적 차이도 설명합니다.
+Microsoft의 하이퍼바이저는 2세대의 가상 머신을 처리할 수 있습니다. 이런 형식을 **1세대**와 **2세대**라고 합니다. **2세대**는 2012년에 Windows Server 2012 하이퍼바이저와 함께 도입되었습니다. Azure는 1세대 가상 머신을 사용하는 것으로 시작했습니다. Azure 가상 머신을 배포할 때의 기본값은 1세대 형식을 사용하는 것이지만 2세대 VM 형식도 배포할 수 있습니다. [Azure의 2세대 VM 지원](../../generation-2.md) 문서에는 2세대 VM으로 배포할 수 있는 Azure VM 제품군이 나와 있습니다. 이 문서에는 Hyper-v 사설 클라우드 및 Azure에서 실행할 수 있는 2 세대 가상 컴퓨터의 중요 한 기능 차이가 나와 있습니다. 특히, Azure에서 실행될 때 1세대 가상 머신과 2세대 가상 머신의 기능적 차이도 설명합니다.
 
 > [!NOTE]
-> Azure에서 실행되는 1세대 및 2세대 VM은 기능적 차이가 있습니다. [Azure의 2세대 VM 지원](../../windows/generation-2.md) 문서에서 이러한 차이의 목록을 참조하세요.
+> Azure에서 실행되는 1세대 및 2세대 VM은 기능적 차이가 있습니다. [Azure의 2세대 VM 지원](../../generation-2.md) 문서에서 이러한 차이의 목록을 참조하세요.
 
 기존 VM을 다른 세대로 옮기는 것은 불가능합니다. 가상 머신 세대를 변경 하려면 원하는 세대의 새 VM을 배포 하 고 세대의 가상 머신에서 실행 중인 소프트웨어를 다시 설치 해야 합니다. 이 변경은 VM의 기본 VHD 이미지에만 영향을 주며 데이터 디스크나 연결 된 NFS 또는 SMB 공유에는 영향을 주지 않습니다. 예를 들어 1 세대 VM에서 원래 할당 된 데이터 디스크, NFS 또는 SMB 공유입니다.
 
@@ -767,7 +767,7 @@ Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 
 
 온-프레미스에서 Azure로 특정 SAP 시스템을 이동하려고 합니다. 이 작업은 OS, SAP 바이너리 및 DBMS 바이너리를 포함하는 VHD와 DBMS 데이터와 로그 파일이 있는 VHD를 Azure에 업로드하여 수행할 수 있습니다. [아래의 시나리오 2][planning-guide-5.1.2]와 달리 온-프레미스 환경에서 구성한 대로 Azure VM에서 호스트 이름, SAP SID 및 SAP 사용자 계정을 유지합니다. 그러므로 이미지 일반화는 필요하지 않습니다. 일반화되지 않은 VM 또는 VHD를 온-프레미스에서 준비하는 단계와 Azure로 업로드하는 방법에 대해서는 이 문서의 [일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비][planning-guide-5.2.1] 챕터를 참조하세요. Azure에서 이러한 이미지를 배포하는 자세한 단계에 대해서는 [시나리오 3: SAP][deployment-guide-3.4]에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스에서 VM 이동[(배포 가이드)][deployment-guide] 장을 읽어보세요.
 
-이 가이드에 자세히 설명 하지 않을 또 다른 옵션은 Azure Site Recovery를 사용 하 여 SAP NetWeaver 응용 프로그램 서버 및 SAP NetWeaver Central Services를 Azure에 복제 하는 것입니다. 데이터베이스 계층에는 Azure Site Recovery를 사용 하지 않는 것이 좋으며, HANA 시스템 복제와 같은 데이터베이스 특정 복제 메커니즘을 사용 하는 것은 권장 되지 않습니다. 자세한 내용은 [온-프레미스 앱에 대 한 재해 복구에 대](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) 한 [SAP 보호](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) 챕터 가이드를 참조 하세요.
+이 가이드에 자세히 설명 하지 않을 또 다른 옵션은 Azure Site Recovery를 사용 하 여 SAP NetWeaver 응용 프로그램 서버 및 SAP NetWeaver Central Services를 Azure에 복제 하는 것입니다. 데이터베이스 계층에는 Azure Site Recovery를 사용 하지 않는 것이 좋으며, HANA 시스템 복제와 같은 데이터베이스 특정 복제 메커니즘을 사용 하는 것은 권장 되지 않습니다. 자세한 내용은 [온-프레미스 앱에 대 한 재해 복구에 대](../../../site-recovery/site-recovery-workload.md) 한 [SAP 보호](../../../site-recovery/site-recovery-workload.md#protect-sap) 챕터 가이드를 참조 하세요.
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>고객별 이미지를 사용하여 VM 배포
 
@@ -1805,7 +1805,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 * 계획된 유지 관리 이벤트는 가상 머신이 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다.
 * 계획되지 않은 유지 관리 이벤트는 가상 컴퓨터의 기반이 되는 하드웨어 또는 물리적 인프라에 어떠한 식으로든지 오류가 있을 때 발생합니다. 여기에는 로컬 네트워크 오류, 로컬 디스크 오류 또는 기타 랙 수준의 오류가 포함될 수도 있습니다. 이러한 오류가 감지될 때 Azure 플랫폼은 가상 머신을 호스트 중인 비정상 물리적 서버에서 정상 물리적 서버로 가상 머신을 자동으로 마이그레이션합니다. 이러한 이벤트는 흔치 않지만 가상 머신이 재부팅되도록 할 수도 있습니다.
 
-자세한 내용은 [azure에서 Windows 가상 머신의 가용성](../../windows/manage-availability.md) 및 [azure에서 Linux 가상 머신의 가용성](../../linux/manage-availability.md)을 참조 하세요.
+자세한 내용은 [azure에서 Windows 가상 머신의 가용성](../../manage-availability.md) 및 [azure에서 Linux 가상 머신의 가용성](../../manage-availability.md)을 참조 하세요.
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 

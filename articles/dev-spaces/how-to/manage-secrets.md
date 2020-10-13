@@ -6,14 +6,16 @@ ms.topic: conceptual
 description: Azure Dev Spaces를 사용 하 여 응용 프로그램을 개발할 때 실행 또는 빌드 시에 Kubernetes 암호를 사용 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.custom: devx-track-js
-ms.openlocfilehash: b9a9ef2592e7b2aa3630f19e2bc1a47b2b9ef0f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8791480f420dfd76d5291ce82e8ebf7412a41326
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308727"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972971"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Azure Dev Space로 작업할 때 비밀을 관리하는 방법
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 서비스에는 데이터베이스 또는 기타 보안 Azure 서비스에 대한 특정 암호, 연결 문자열 및 기타 비밀이 필요할 수 있습니다. 구성 파일에서 이러한 비밀의 값을 설정하여 코드에서 환경 변수로 사용할 수 있습니다.  이러한 구성 파일은 암호의 보안을 손상 시 키 지 않도록 주의 해 서 처리 해야 합니다.
 

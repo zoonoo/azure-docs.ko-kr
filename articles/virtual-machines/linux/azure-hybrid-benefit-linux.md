@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279776"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962397"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>미리 보기: Azure 하이브리드 혜택-Linux Virtual Machines에 적용 되는 방법
 
@@ -126,7 +126,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-VM 자체 내에서 IMDS 증명 된 메타 데이터를 쿼리하여 VM의 licenseType을 확인할 수 있습니다. LicenseType 값 ' RHEL_BYOS ' 또는 ' SLES_BYOS '는 VM이 사용 하도록 설정 된 것을 의미 합니다. 증명 된 메타 데이터에 대 한 자세한 내용은 여기를 참조 [하세요](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data) .
+VM 자체 내에서 IMDS 증명 된 메타 데이터를 쿼리하여 VM의 licenseType을 확인할 수 있습니다. LicenseType 값 ' RHEL_BYOS ' 또는 ' SLES_BYOS '는 VM이 사용 하도록 설정 된 것을 의미 합니다. 증명 된 메타 데이터에 대 한 자세한 내용은 여기를 참조 [하세요](./instance-metadata-service.md#attested-data) .
 
 ## <a name="compliance"></a>규정 준수
 
@@ -150,7 +150,7 @@ A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 �
 ## <a name="common-errors"></a>일반 오류
 이 섹션에는 일반적인 오류 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
 
-| Error | 완화 방법 |
+| 오류 | 완화 방법 |
 | ----- | ---------- |
 | "구독이 Azure 하이브리드 혜택의 Linux 미리 보기에 등록 되어 있지 않습니다. 단계별 지침은 다음을 참조 하세요. https://aka.ms/ahb-linux | 에서 양식을 작성 하 여 https://aka.ms/ahb-linux-form Azure 하이브리드 혜택 Linux 미리 보기에 등록 합니다.
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.

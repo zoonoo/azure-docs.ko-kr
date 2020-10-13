@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5ca792c6dbc3c08847315b916913e8c38909a7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3adc3dd0e0b7e9f964326f5e637b0fefb2cd173
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637238"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938462"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -20,7 +20,7 @@ Azure Kubernetes Service에 대 한 Azure 보안 기준에는 배포의 보안 �
 
 이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](/azure/security/benchmarks/security-baselines-overview-v1)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -1235,7 +1235,7 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호에 대 한 정기적으로 자동화 된 백업을 수행 합니다. 
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다. 
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

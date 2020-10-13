@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에 대 한 보안 감사 사용 | Microsoft Docs
 description: 보안 감사를 사용 하 여의 분석 및 경고에 대 한 이벤트 로깅을 중앙 집중화 하는 방법에 대해 알아봅니다 Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 98e64f1ea1196b6fd773514d4dad5b6e178a6898
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722537"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967735"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -217,7 +217,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 
 다음 감사 이벤트 범주를 사용할 수 있습니다.
 
-| 감사 범주 이름 | 설명 |
+| 감사 범주 이름 | Description |
 |:---|:---|
 | 계정 로그온|감사는 도메인 컨트롤러 또는 로컬 SAM (보안 계정 관리자)의 계정 데이터를 인증 하려고 시도 합니다.</p>로그온 및 로그 오프 정책 설정 및 이벤트 트랙은 특정 컴퓨터에 대 한 액세스를 시도 합니다. 이 범주의 설정 및 이벤트는 사용 되는 계정 데이터베이스에 중점을 둡니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[자격 증명 유효성 검사 감사](/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Kerberos 인증 오류 감사](/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Kerberos 서비스 티켓 작업 감사](/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[기타 로그온/로그 오프 이벤트 감사](/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | 계정 관리|사용자 및 컴퓨터 계정 및 그룹에 대 한 변경 내용을 감사 합니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[애플리케이션 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[컴퓨터 계정 관리 감사](/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[메일 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[다른 계정 관리 감사](/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[보안 그룹 관리 감사](/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[사용자 계정 관리 감사](/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|

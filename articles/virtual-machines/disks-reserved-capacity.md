@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88752069"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968688"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용하여 비용 절감
 
@@ -67,7 +67,7 @@ ms.locfileid: "88752069"
 
 1. 다음 표에서 설명 하는 필수 값을 지정 합니다.
 
-   |요소  |설명  |
+   |요소  |Description  |
    |---------|---------|
    |**범위**   |  예약과 관련 된 청구 혜택을 사용할 수 있는 구독 수입니다. 또한이 값은 특정 구독에 예약이 적용 되는 방법을 지정 합니다. <br/><br/> **공유**를 선택 하면 청구 컨텍스트 내의 모든 구독에서 Azure Storage 용량에 예약 할인이 적용 됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종 량 제 고객의 경우 공유 범위에는 계정 관리자가 만든 종 량 제 요금이 포함 된 모든 개별 구독이 포함 됩니다.  <br/><br/>  **단일 구독**을 선택 하면 선택한 구독의 Azure Storage 용량에 예약 할인이 적용 됩니다. <br/><br/> **단일 리소스 그룹**을 선택 하는 경우 선택한 구독의 Azure Storage 용량과 해당 구독의 선택 된 리소스 그룹에 예약 할인이 적용 됩니다. <br/><br/> 예약을 구매한 후 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Storage 예약에 대해 지불 하는 데 사용 하는 구독입니다. 선택한 구독의 결제 방법을 사용 하 여 비용을 청구 합니다. 구독은 다음 형식 중 하나 여야 합니다.<br/><ul><li> 기업계약 (제품 번호 MS-AZR-0017P-0017P 및 MS-AZR-0017P-Ms-azr-0148p). Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다.</li><br/><li>종 량 제 요금이 있는 개별 구독 (제품 번호 MS-AZR-0017P-0003P 및 MS-AZR-0017P-0023P). 종 량 제 요금이 있는 개별 구독의 경우 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.</li></ul>    |
@@ -89,7 +89,7 @@ ms.locfileid: "88752069"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-특정 제한 내에서 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)을 참조하세요.
+특정 제한 내에서 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="expiration-of-a-reservation"></a>예약 만료
 

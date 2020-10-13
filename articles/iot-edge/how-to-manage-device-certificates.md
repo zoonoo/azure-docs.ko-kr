@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669035"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971798"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
@@ -33,10 +33,13 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-* [Windows](how-to-install-iot-edge-windows.md) 또는 [Linux](how-to-install-iot-edge-linux.md)에서 실행 되는 IoT Edge 장치
+* IoT Edge 장치입니다.
+
+  IoT Edge 장치를 설정 하지 않은 경우 Azure 가상 머신에서 만들 수 있습니다. 빠른 시작 문서 중 하나에 있는 단계에 따라 [가상 Linux 장치를 만들거나](quickstart-linux.md) [가상 Windows 장치를 만듭니다](quickstart.md).
+
 * 루트 CA (인증 기관) 인증서가 Baltimore, Verisign, DigiCert 또는 GlobalSign과 같은 신뢰할 수 있는 상용 인증 기관에서 구매한 CA (인증 기관) 인증서가 있어야 합니다.
 
-루트 인증 기관이 아직 없지만 프로덕션 인증서 (예: 게이트웨이 시나리오)가 필요한 IoT Edge 기능을 사용해 보려는 경우 [데모 인증서를 만들어 IoT Edge 장치 기능을 테스트할](how-to-create-test-certificates.md)수 있습니다.
+  루트 인증 기관이 아직 없지만 프로덕션 인증서 (예: 게이트웨이 시나리오)가 필요한 IoT Edge 기능을 사용해 보려는 경우 [데모 인증서를 만들어 IoT Edge 장치 기능을 테스트할](how-to-create-test-certificates.md)수 있습니다.
 
 ### <a name="create-production-certificates"></a>프로덕션 인증서 만들기
 
