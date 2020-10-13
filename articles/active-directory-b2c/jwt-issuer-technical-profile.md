@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8f5564f9e7e1176db1fed5fae38eee58874c2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b333c02c3db3e07ad10dc4e4365eb50aced694d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204204"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945195"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의
 
@@ -33,7 +33,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 ```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="OpenIdConnect" />
+  <Protocol Name="None" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
   <Metadata>
     <Item Key="client_id">{service:te}</Item>
@@ -54,7 +54,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | 예 | OAuth2 인증 코드 및 새로 고침 토큰 내에서 사용자 ID 클레임으로 사용해야 하는 클레임입니다. 기본적으로 다른 SubjectNamingInfo 클레임 형식을 지정하지 않는 한 `objectId`로 설정해야 합니다. |
 | SendTokenResponseBodyWithJsonNumbers | 아니요 | 항상 `true`로 설정합니다. 숫자 값이 JSON 번호 대신 문자열로 제공되는 레거시 형식의 경우 `false`로 설정합니다. 이 특성은 해당 속성을 문자열로 반환한 이전 구현에서 종속성을 사용한 클라이언트에 필요합니다. |
@@ -71,7 +71,7 @@ Azure AD B2C(Azure Active Directory B2C)는 각 인증 흐름을 처리할 때 �
 
 CryptographicKeys 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | issuer_secret | 예 | JWT 토큰에 서명하는 데 사용할 X509 인증서(RSA 키 집합)입니다. `B2C_1A_TokenSigningKeyContainer` [사용자 지정 정책을 시작](custom-policy-get-started.md)하기에서 구성 하는 키입니다. |
 | issuer_refresh_token_key | 예 | 새로 고침 토큰을 암호화하는 데 사용할 X509 인증서(RSA 키 집합)입니다. [사용자 지정 정책 시작`B2C_1A_TokenEncryptionKeyContainer`에서 ](custom-policy-get-started.md) 키를 구성했습니다. |

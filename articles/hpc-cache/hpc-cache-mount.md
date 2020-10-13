@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651431"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Azure HPC Cache 마운트
@@ -115,7 +115,7 @@ root@test-client:/tmp#
 
 > mount-o 하드, proto = tcp, mountproto = tcp, retry = 30 $ {CACHE_IP_ADDRESS}:/$ {NAMESPACE_PATH} $ {LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| 권장 탑재 명령 설정 | Description |
+| 권장 탑재 명령 설정 | 설명 |
 --- | ---
 ``hard`` | Azure HPC 캐시에 소프트 탑재는 응용 프로그램 오류 및 가능한 데이터 손실과 관련이 있습니다.
 ``proto=tcp`` | NFS 네트워크 오류를 적절하게 처리하도록 지원합니다.

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6f2c16730a9140fdbd1710a3aa0df0ee91795d6
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370881"
+ms.locfileid: "91874835"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -260,6 +260,10 @@ CosmosDB에 쓸 때 데이터 흐름을 실행 하는 동안 처리량과 일괄
 #### <a name="sorting-before-joins"></a>조인 전 정렬
 
 SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합 조인 작업이 아닙니다. 조인 키를 변환 하기 전에 정렬할 필요가 없습니다. Azure Data Factory 팀은 데이터 흐름 매핑에 정렬 변환을 사용 하지 않는 것이 좋습니다.
+
+### <a name="window-transformation-performance"></a>창 변환 성능
+
+[창 변환은](data-flow-window.md) ```over()``` 변환 설정에서 절의 일부로 선택 하는 열의 값을 기준으로 데이터를 분할 합니다. Windows 변환에는 많이 사용 되는 다양 한 집계 및 분석 함수가 있습니다. 그러나 사용 사례가 순위 또는 행 번호의 목적으로 전체 데이터 집합에 대 한 창을 생성 하는 경우에는 ```rank()``` ```rowNumber()``` 대신 [Rank 변환과](data-flow-rank.md) [서로게이트 키 변환을](data-flow-surrogate-key.md)사용 하는 것이 좋습니다. 이러한 변환은 해당 함수를 사용 하 여 전체 데이터 집합 작업을 다시 수행 합니다.
 
 ### <a name="repartitioning-skewed-data"></a>기울어진 데이터 다시 분할
 

@@ -127,6 +127,8 @@
               href: network-watcher-nsg-flow-logging-rest.md
             - name: Azure 리소스 관리자
               href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+            - name: 기본 제공 정책
+              href: nsg-flow-logs-policy-portal.md
         - name: NSG 흐름 로그 스토리지 Blob 삭제
           href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: NSG 흐름 로그 분석

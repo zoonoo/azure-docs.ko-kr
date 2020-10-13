@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7726a0f1acb8f7fde2b491979d478badeca1b384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400384"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978023"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
 
@@ -32,7 +32,7 @@ Windows Virtual Machines에 대 한 Azure 보안 기준에는 배포의 보안 �
 
 또는 중앙 방화벽에 대 한 특정 사용 사례가 있는 경우 Azure 방화벽을 사용 하 여 이러한 요구 사항을 충족할 수도 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](./network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../network-overview.md)
 
 * [Virtual Network를 만드는 방법](../../virtual-network/quick-create-portal.md)
 
@@ -80,7 +80,7 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 * [Azure 방화벽을 배포 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../../security-center/azure-defender.md)
 
 * [적응 네트워크 강화 Azure Security Center 이해](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../../governance/policy/samples/built-in-policies.md#network)
 
 * [Azure Blueprint를 만드는 방법](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Azure Policy를 사용 하 여 Windows Virtual Machines와 관련 된 네트워�
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -252,7 +252,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **참고**: 가상 머신 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에는 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 
-* [Azure에서 가상 머신을 모니터링하는 방법](./monitor.md)
+* [Azure에서 가상 머신을 모니터링하는 방법](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -458,7 +458,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
 
-* [Azure에서 가상 머신을 모니터링하는 방법](./monitor.md)
+* [Azure에서 가상 머신을 모니터링하는 방법](../../azure-monitor/insights/monitor-vm-azure.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -508,7 +508,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
@@ -610,7 +610,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Virtual Machines에서 취약점 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다. Azure 보안 권장 또는 타사 솔루션을 사용 하 여 가상 컴퓨터에 대 한 취약성 평가를 수행 합니다.
 
-* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -692,7 +692,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
@@ -775,7 +775,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -817,13 +817,13 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: azure 환경에 배포 된 위험도 높은 응용 프로그램은 가상 네트워크, 서브넷, 구독, 관리 그룹 등을 사용 하 여 격리 될 수 있으며, azure 방화벽, Waf (웹 응용 프로그램 방화벽) 또는 nsg (네트워크 보안 그룹)를 사용 하 여 충분히 안전 하 게 보호할 수 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](./network-overview.md)
+* [Azure의 가상 네트워크 및 가상 머신](../network-overview.md)
 
 * [Azure Firewall 개요](../../firewall/overview.md)
 
 * [웹 애플리케이션 방화벽 개요](../../web-application-firewall/overview.md)
 
-* [네트워크 보안 개요](../../virtual-network/security-overview.md)
+* [네트워크 보안 개요](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 

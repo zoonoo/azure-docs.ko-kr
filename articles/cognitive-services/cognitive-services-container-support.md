@@ -12,10 +12,10 @@ ms.date: 09/28/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
 ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665415"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
@@ -91,7 +91,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 

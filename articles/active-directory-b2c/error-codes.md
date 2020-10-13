@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91664854"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>오류 코드: Azure Active Directory B2C
@@ -101,7 +101,7 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90159` | ' ' 오류로 인해 자체 어설션된 확인 요청이 실패 했습니다 {0} . |
 | `AADB2C90161` | ' ' (으)로 인해 자체 어설션된 송신 응답이 실패 했습니다 {0} . |
 | `AADB2C90165` | 상태에서 id가 ' ' 인 SAML 시작 메시지를 {0} 찾을 수 없습니다. |
-| `AADB2C90168` | HTTP 리디렉션 요청에 {0} 서명 된 요청에 대 한 필수 매개 변수 ' '이 (가) 포함 되어 있지 않습니다. |
+| `AADB2C90168` | HTTP-Redirect 요청에 {0} 서명 된 요청에 대 한 필수 매개 변수 ' '이 (가) 포함 되어 있지 않습니다. |
 | `AADB2C90178` | 서명 인증서 ' {0} '에 개인 키가 없습니다. |
 | `AADB2C90182` | 제공 된 code_verifier 연결 된 code_challenge 일치 하지 않습니다. |
 | `AADB2C90183` | 제공 된 code_verifier 잘못 되었습니다. |

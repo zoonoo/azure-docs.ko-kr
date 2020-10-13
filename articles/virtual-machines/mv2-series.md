@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
 ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653556"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
 Mv2 시리즈는 2.5 GHz의 모든 코어 기본 주파수와 3.8 g h z의 최대 터보 주파수를 사용 하 여 하이퍼 스레드 Intel® Xeon® 플래티넘 8180M 2.5 g h z (Skylake) 프로세서에서 실행 되는 높은 처리량, 짧은 대기 시간 플랫폼을 갖추고 있습니다. 모든 Mv2 시리즈 가상 머신 크기는 standard 및 premium 영구 디스크를 모두 사용할 수 있습니다. Mv2 시리즈 인스턴스는 메모리 내 데이터베이스 및 워크 로드를 지원 하기 위해 뛰어난 계산 성능을 제공 하는 메모리 액세스에 최적화 된 VM 크기 이며, 관계형 데이터베이스 서버, 큰 캐시 및 메모리 내 분석에 적합 한 높은 메모리 대 CPU 비율을 제공 합니다.
 
-Mv2 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술
+Mv2 시리즈 VM의 기능 Intel® Hyper-Threading 기술
 
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>

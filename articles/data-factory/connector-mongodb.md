@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 08/12/2019
-ms.openlocfilehash: eba63ff500aad4538f5b30f11bac168cf14816c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 09/28/2020
+ms.openlocfilehash: bb9768c2a4d3be9ac0e06844c5ac0835707cf455
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84558156"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945875"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 
@@ -34,7 +34,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 특히 이 MongoDB 커넥터는 **버전 3.4까지** 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -51,7 +51,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |Type 속성은 **MongoDbV2** 로 설정 해야 합니다. |예 |
-| connectionString |MongoDB 연결 문자열을 지정합니다(예: `mongodb://[username:password@]host[:port][/[database][?options]]`). 자세한 내용은 [연결 문자열에 대한 MongoDB 설명서](https://docs.mongodb.com/manual/reference/connection-string/)를 참조하세요. <br/><br /> Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다  `password`   . 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. |예 |
+| connectionString |MongoDB 연결 문자열을 지정합니다(예: `mongodb://[username:password@]host[:port][/[database][?options]]`). 자세한 내용은 [연결 문자열에 대한 MongoDB 설명서](https://docs.mongodb.com/manual/reference/connection-string/)를 참조하세요. <br/><br /> Azure Key Vault에 연결 문자열을 넣을 수도 있습니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요. |예 |
 | 데이터베이스 | 액세스하려는 데이터베이스 이름입니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 

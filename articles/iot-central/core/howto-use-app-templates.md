@@ -9,17 +9,17 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: aec72644f708d6363a80da28c5e571d0165fcdfa
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651839"
 ---
 # <a name="export-your-application"></a>애플리케이션 내보내기
 
 이 문서에서는 솔루션 관리자가 IoT Central 응용 프로그램을 다시 사용할 수 있도록 내보내는 방법을 설명 합니다.
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+다음과 같은 두 가지 옵션이 있습니다.
 
 - 응용 프로그램의 복사본을 만들어야 하는 경우 응용 프로그램의 복사본을 만들 수 있습니다.
 - 여러 복사본을 만들 계획인 경우 응용 프로그램에서 응용 프로그램 템플릿을 만들 수 있습니다.

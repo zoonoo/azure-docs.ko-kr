@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906826"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945450"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -210,6 +210,8 @@ Spring Boot 버전 | Spring Cloud 버전 | Azure 스프링 클라우드 클라�
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> `server.port`구성에를 지정 하지 마십시오. Azure 스프링 클라우드는이 설정을 고정 포트 번호로 재정의 합니다. 또한이 설정을 준수 하 고 코드에서 서버 포트를 지정 하지 마십시오.
 
 ## <a name="other-recommended-dependencies-to-enable-azure-spring-cloud-features"></a>Azure Spring Cloud 기능을 사용하도록 설정하기 위한 기타 권장 종속성
 
@@ -227,6 +229,7 @@ Spring Boot 버전 | Spring Cloud 버전 | Azure 스프링 클라우드 클라�
 ```
 
 서비스 레지스트리 서버의 엔드포인트는 앱에 환경 변수로 자동 삽입됩니다. 애플리케이션이 서비스 레지스트리 서버에 자체적으로 등록되고, 기타 종속 마이크로서비스를 검색할 수 있습니다.
+
 
 #### <a name="enablediscoveryclient-annotation"></a>EnableDiscoveryClient 주석
 

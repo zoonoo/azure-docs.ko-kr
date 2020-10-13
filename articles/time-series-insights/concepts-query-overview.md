@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650904"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2에서 데이터 쿼리
@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2를 사용 하면 공용 surface Api를 통해 �
 Azure Time Series Insights Gen2에서 세 가지 기본 API 범주를 사용할 수 있습니다.
 
 * **환경 api**: 이러한 api는 Azure Time Series Insights Gen2 환경 자체에 대 한 쿼리를 사용 하도록 설정 합니다. 이러한 도구는 호출자가 및 환경 메타 데이터에 액세스할 수 있는 환경 목록을 수집 하는 데 사용할 수 있습니다.
-* **시계열 모델-쿼리 (TSM-Q) api**: 환경의 시계열 모델에 저장 된 메타 데이터에 대 한 CRUD (만들기, 읽기, 업데이트 및 삭제) 작업을 활성화 합니다. 인스턴스, 유형 및 계층 구조에 액세스 하 고 편집 하는 데 사용할 수 있습니다.
+* **시계열 Model-Query (TSM-Q) api**: 환경의 시계열 모델에 저장 된 메타 데이터에 대 한 CRUD (만들기, 읽기, 업데이트 및 삭제) 작업을 가능 하 게 합니다. 인스턴스, 유형 및 계층 구조에 액세스 하 고 편집 하는 데 사용할 수 있습니다.
 * **TSQ (Time Series Query) api**: 원본 공급자에서 기록 된 원격 분석 또는 이벤트 데이터를 검색 하 고 고급 스칼라 및 집계 함수를 사용 하 여 데이터에 대 한 성능 계산과 집계를 가능 하 게 합니다.
 
 Azure Time Series Insights Gen2는 시계열 [변수](./concepts-variables.md)에서 계산을 표현 하는 데 사용 되는 다양 한 문자열 기반 식 언어인 [TSX (시계열 식)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)를 사용 합니다.

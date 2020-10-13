@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터에 대한 보안 시나리오 및
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 258a6dd141ccc31516e37dac9f265328f981bbf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261070"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946198"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 
@@ -134,7 +134,7 @@ Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 
 
 ### <a name="client-authentication-certificates-optional"></a>클라이언트 인증 인증서(선택 사항)
 
-관리자 또는 사용자 클라이언트 작업에 임의 개수의 추가 인증서를 지정할 수 있습니다. 상호 인증이 필요한 경우 클라이언트에서는 이 인증서를 사용할 수 있습니다. 클라이언트 인증서는 일반적으로 타사 CA에서 발급되지 않습니다. 대신 현재 사용자 위치의 개인 저장소는 일반적으로 루트 인증 기관에서 넣은 클라이언트 인증서를 포함 합니다. 인증서에는 **클라이언트 인증**의 **용도** 값이 있어야 합니다.  
+관리자 또는 사용자 클라이언트 작업에 임의 개수의 추가 인증서를 지정할 수 있습니다. 상호 인증이 필요한 경우 클라이언트는 이러한 인증서를 사용할 수 있습니다. 클라이언트 인증서는 일반적으로 타사 CA에서 발급되지 않습니다. 대신 현재 사용자 위치의 개인 저장소는 일반적으로 루트 인증 기관에서 넣은 클라이언트 인증서를 포함 합니다. 인증서에는 **클라이언트 인증**의 **용도** 값이 있어야 합니다.  
 
 기본적으로 클러스터 인증서에는 관리자 클라이언트 권한이 있습니다. 이러한 추가 클라이언트 인증서는 클러스터에 설치 되지 않아야 하지만 클러스터 구성에서 허용되도록 지정됩니다.  그러나 클라이언트 인증서는 클라이언트 컴퓨터에 설치되어 클러스터에 연결하고 작업을 수행해야 합니다.
 
