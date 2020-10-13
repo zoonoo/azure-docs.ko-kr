@@ -3,12 +3,12 @@ title: 컨테이너 에이전트 데이터 컬렉션에 대 한 Azure Monitor �
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 수집을 제어 하기 위해 컨테이너 에이전트에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84299284"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994617"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor에 대한 에이전트 데이터 수집 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "84299284"
 
 다음은 데이터 수집을 제어 하도록 구성할 수 있는 설정입니다.
 
-| Key | 데이터 형식 | 값 | 설명 |
+| 키 | 데이터 형식 | 값 | 설명 |
 |--|--|--|--|
 | `schema-version` | 문자열 (대/소문자 구분) | v1 | 에이전트에서 사용 하는 스키마 버전입니다.<br> 이 ConfigMap을 구문 분석 하는 경우<br> 현재 지원 되는 스키마 버전은 v1입니다.<br> 이 값을 수정 하는 것은 지원 되지 않으며<br> ConfigMap을 평가할 때 거부 됩니다. |
 | `config-version` | String |  | 소스 제어 시스템/리포지토리에서이 구성 파일의 버전을 추적 하는 기능을 지원 합니다.<br> 허용 되는 최대 문자 수는 10이 고 다른 모든 문자는 잘립니다. |
@@ -134,7 +134,7 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 ## <a name="next-steps"></a>다음 단계
 
-- 컨테이너의 Azure Monitor에는 미리 정의 된 경고 집합이 포함 되지 않습니다. [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](container-insights-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대해 권장 되는 경고를 만드는 방법을 알아봅니다.
+- 컨테이너의 Azure Monitor에는 미리 정의 된 경고 집합이 포함 되지 않습니다. [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대해 권장 되는 경고를 만드는 방법을 알아봅니다.
 
 - 모니터링을 사용 하 여 AKS 또는 하이브리드 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아봅니다.
 

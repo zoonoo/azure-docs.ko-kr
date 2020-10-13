@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 072c02401a5d1ef49a3f25828f5b60fa8504d2ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c62967950d9f6d9ba9e3578357f65cc4988412c2
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555115"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>자습서:FilesAnywhere와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ FilesAnywhere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![FilesAnywhere 도메인 및 URL Single Sign-On 정보](common/both-replyurl.png)
+    !["회신 URL" 필드가 강조 표시되고 "저장" 단추가 선택된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/both-replyurl.png)
 
     **회신 URL** 텍스트 상자에 `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -116,9 +116,9 @@ FilesAnywhere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 
 
 6. FilesAnywhere 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. [편집] 아이콘을 클릭하여 특성을 추가합니다.
 
-    ![이미지](common/edit-attribute.png)
+    !["편집" 단추가 선택된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
 
-    사용자가 FilesAnywhere로 등록할 때 [FilesAnywhere 팀](mailto:support@FilesAnywhere.com)으로부터 **clientid** 특성 값을 받습니다. FilesAnywhere가 제공된 고유한 값을 사용하여 "클라이언트 ID" 특성을 추가해야 합니다.
+    사용자가 FilesAnywhere로 등록할 때 [FilesAnywhere 팀](mailto:support@FilesAnywhere.com)으로부터 **clientid** 특성 값을 받습니다. FilesAnywhere에서 제공하는 고유한 값을 사용하여 "클라이언트 ID" 특성을 추가해야 합니다.
 
 7. 위에서 언급한 특성 외에도, FilesAnywhere 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
@@ -128,7 +128,7 @@ FilesAnywhere에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    !["새 클레임 추가" 및 "저장"이 선택된 "사용자 클레임" 대화 상자를 보여주는 스크린샷.](common/new-save-attribute.png)
 
     ![이미지](common/new-attribute-details.png)
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: da1ada27b9420643f6f0b15f0986c245ba585acd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85921938"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742505"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 빌드
 
@@ -118,7 +118,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
 5. 드롭다운 목록에서 구독 키를 선택합니다. 구독 키를 수동으로 입력할 수도 있습니다.
   
-   ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
+   ![호스트된 UI 구독 키의 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -144,7 +144,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
   
 4. **새 ASP.NET Core 웹 애플리케이션** 창에서 **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.  
   
-   ![새 프로젝트 창의 스크린샷](./media/custom-search-new-webapp.png)  
+   ![새 웹앱 창의 스크린샷](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>index.cshtml 편집
 

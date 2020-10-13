@@ -6,19 +6,19 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: e6d464b415c956a0a8486f7c0d41c6e6a32b7c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16f4cfd70cf4dbeaeb1376368787b3fa0e4b9a52
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761603"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994033"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 
 > [!NOTE]
 > Application Insights Java SDK는 스프링 Webflux를 지원 하지 않습니다. 
 >
-> Webflux와 마이크로 측정기는 모두 [Application Insights Java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises) 에서 지원 되며, 계측은 필요 하지 않습니다. 
+> Webflux와 마이크로 측정기는 모두 [Application Insights Java 3.0 에이전트](./java-on-premises.md) 에서 지원 되며, 계측은 필요 하지 않습니다. 
 
 Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코드의 메트릭을 측정하며, 자주 사용하는 모니터링 시스템으로 데이터를 내보낼 수 있습니다. 이 문서에서는 Spring Boot 및 Spring Boot 이외 애플리케이션 모두에 대해 Application Insights에 Micrometer를 사용하는 방법을 안내합니다.
 
@@ -279,4 +279,3 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 * 마이크로 측정기에 대해 자세히 알아보려면 공식 [마이크로 측정기 설명서](https://micrometer.io/docs)를 참조 하세요.
 * Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.
-

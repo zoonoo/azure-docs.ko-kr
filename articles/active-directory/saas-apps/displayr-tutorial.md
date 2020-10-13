@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: a69b4a068e62c6376660a79b3a7c8ab5402b5704
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b91f24f9c1a2cedd4292d98fc66630c6b66d37b0
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536260"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775170"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>자습서: Displayr과 Azure Active Directory 통합
 
@@ -88,15 +88,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Displayr 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    !["편집" 아이콘이 강조 표시된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도, Displayr 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
     a. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
 
-    ![이미지](./media/displayr-tutorial/config04.png)
+    !["클레임에서 반환된 그룹" 옆에 "펜" 아이콘이 선택된 "사용자 특성 및 클레임" 섹션을 보여주는 스크린샷.](./media/displayr-tutorial/config04.png)
 
-    ![이미지](./media/displayr-tutorial/config05.png)
+    ![설정이 선택된 "그룹 클레임(미리 보기)" 창을 보여주는 스크린샷.](./media/displayr-tutorial/config05.png)
 
     b. 라디오 단추 목록에서 **모든 그룹**을 선택합니다.
 
@@ -126,11 +126,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **설정**을 클릭한 후 **계정**으로 이동합니다.
 
-    ![구성](./media/displayr-tutorial/config01.png)
+    !["설정" 아이콘과 선택된 "계정"을 보여주는 스크린샷.](./media/displayr-tutorial/config01.png)
 
 5. 맨 위 메뉴에서 **설정**으로 전환하고 페이지 아래로 스크롤하여 **Single Sign On 구성(SAML)** 을 클릭합니다.
 
-    ![구성](./media/displayr-tutorial/config02.png)
+    ![선택된 "설정" 탭과 선택된 "Single Sign On(SAML) 구성" 작업을 보여주는 스크린샷.](./media/displayr-tutorial/config02.png)
 
 6. **Single Sign-On(SAML)** 페이지에서 다음 단계를 수행합니다.
 
@@ -190,11 +190,11 @@ Azure AD 사용자가 Displayr에 로그인할 수 있으려면 해당 사용자
 
 2. **설정**을 클릭한 후 **계정**으로 이동합니다.
 
-    ![Displayr 구성](./media/displayr-tutorial/config01.png)
+    !["계정"이 선택된 "계정(코그)" 아이콘을 보여주는 스크린샷.](./media/displayr-tutorial/config01.png)
 
 3. 맨 위 메뉴에서 **설정**으로 전환하고 **사용자** 섹션까지 페이지 아래로 스크롤한 후 **새 사용자**를 클릭합니다.
 
-    ![Displayr 구성](./media/displayr-tutorial/config07.png)
+    !["사용자"가 강조 표시되고 "새 사용자" 단추가 선택된 "설정" 탭을 보여주는 스크린샷.](./media/displayr-tutorial/config07.png)
 
 4. **새 사용자** 페이지에서 다음 단계를 수행합니다.
 

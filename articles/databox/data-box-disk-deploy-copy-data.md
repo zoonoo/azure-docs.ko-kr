@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d33f53ef3d6ea0ef6a3040a82ec17b3089075949
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927116"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766848"
 ---
 ::: zone target="docs"
 
@@ -68,7 +68,7 @@ ms.locfileid: "87927116"
 
 다음 단계를 수행하여 컴퓨터에서 Data Box Disk로 데이터를 연결하고 복사합니다.
 
-1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 드라이브에서 사전 생성된 폴더 및 하위 폴더 목록은 Data Box Disk 주문 시 선택한 옵션에 따라 다릅니다.
+1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 드라이브에서 사전 생성된 폴더 및 하위 폴더 목록은 Data Box Disk 주문 시 선택한 옵션에 따라 다릅니다. 미리 만든 폴더가 없는 경우 사용자가 만든 폴더를 복사하면 Azure에서 업로드가 실패합니다.
 
     |선택한 스토리지 대상  |Storage 계정 유형|준비 스토리지 계정 유형 |폴더 및 하위 폴더  |
     |---------|---------|---------|------------------|
@@ -212,15 +212,15 @@ ms.locfileid: "87927116"
 3. 복사할 원본 데이터를 확인합니다. 예를 들어, 이 경우:
     - 다음 블록 Blob 데이터가 확인되었습니다.
 
-         ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![데이터 분할 복사 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - 다음 페이지 Blob 데이터가 확인되었습니다.
 
-         ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![데이터 분할 복사 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. 소프트웨어를 추출한 폴더로 이동합니다. 해당 폴더에서 `SampleConfig.json` 파일을 찾습니다. 이 파일은 수정하여 저장할 수 있는 읽기 전용 파일입니다.
 
-   ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![데이터 분할 복사 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. `SampleConfig.json` 파일을 수정합니다.
  
@@ -229,11 +229,11 @@ ms.locfileid: "87927116"
    - 대상 디스크에 해당하는 드라이브 문자를 입력합니다. 소스 경로의 데이터를 가져다가 여러 디스크에 복사됩니다.
    - 로그 파일에 대한 경로를 제공합니다. 기본적으로 `.exe` 파일이 있는 현재 디렉터리로 전송됩니다.
 
-     ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![데이터 분할 복사 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. 파일 형식의 유효성을 검사하려면 `JSONlint`로 이동합니다. 파일을 `ConfigFile.json`로 저장합니다. 
 
-     ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![데이터 분할 복사 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. 명령 프롬프트 창을 엽니다. 
 
@@ -241,24 +241,24 @@ ms.locfileid: "87927116"
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![데이터 분할 복사 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Enter 키를 눌러서 스크립트를 계속합니다.
 
-    ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![데이터 분할 복사 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. 데이터 세트가 분할되고 복사되면 복사 세션의 분할 복사 도구에 대한 요약이 표시됩니다. 샘플 출력은 다음과 같습니다.
 
-    ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![데이터 분할 복사 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. 데이터가 대상 디스크 전반에 분할되어 있는지 확인합니다. 
  
-    ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![데이터 분할 복사 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![데이터 분할 복사 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     `n:` 드라이브의 내용을 자세히 살펴보면 블록 Blob 및 페이지 Blob 형식 데이터에 해당하는 두 개의 하위 폴더가 생성된 것이 보입니다.
     
-     ![데이터 분할 복사](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![데이터 분할 복사 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. 복사 세션이 실패한 경우 복구하고 다시 시작하려면 다음 명령을 사용합니다.
 

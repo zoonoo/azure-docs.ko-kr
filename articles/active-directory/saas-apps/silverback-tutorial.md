@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 43f7cddfa6fb887fd421d1f90a41145c6182654d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4df9b28d7a0d3e6b96aca3c99b5dacda3d41a676
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517128"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>자습서: Silverback과 Azure Active Directory 통합
 
@@ -160,7 +160,7 @@ Silverback에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -213,7 +213,7 @@ Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverb
 
     다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    d. **이메일 주소** 텍스트 상자에 **Brittasimon@contoso.com** 과 같은 사용자의 이메일을 입력합니다.
+    d. **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **Brittasimon\@contoso.com**)을 입력합니다.
 
     e. **암호** 텍스트 상자에 암호를 입력합니다.
 

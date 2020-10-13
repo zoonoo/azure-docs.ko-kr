@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: fd82d3d2d2a76e0c0671c57d9254ff8c9030d3a3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7c1bd1b3f9931eff2f19eac7b78881d4f7ad8ae0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548290"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744324"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>자습서: Bonusly와 Azure Active Directory 통합
 
@@ -222,11 +222,11 @@ Azure AD 사용자가 Bonusly에 로그인하려면 Bonusly에 프로비저닝�
 
 1. **사용자 추가**를 클릭합니다.
 
-    ![사용자 추가](./media/bonus-tutorial/ic781044.png "사용자 추가")
+    ![스크린샷은 사용자 추가를 선택할 수 있는 사용자 관리를 보여줍니다.](./media/bonus-tutorial/ic781044.png "사용자 추가")
 
 1. **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![사용자 추가](./media/bonus-tutorial/ic781045.png "사용자 추가")  
+    ![스크린샷은 이 정보를 입력할 수 있는 사용자 추가 대화 상자를 보여줍니다.](./media/bonus-tutorial/ic781045.png "사용자 추가")  
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

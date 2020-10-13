@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c9e0b6a81742ea4022bb8db2dd8d933f917331b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b5739ea49bb9f5823538e9a41660a572a3cede04
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530106"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760730"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -130,19 +130,19 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하려면 다음 단�
 
 2. 왼쪽 탐색 창에서 **시스템 설정**을 클릭합니다. **보안 설정**으로 이동합니다. 그런 다음 **Single Sign-On 구성**으로 이동합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![[보안 설정] 및 [Single Sign-On 구성]이 선택된 Cezanne H R Software 테넌트를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. **다음 SSO(Single Sign-On) Service를 사용한 사용자 로그온 허용** 패널에서 **SAML 2.0** 상자를 선택하고 **고급 구성** 옵션을 선택합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![SAML 2.0 및 [고급 구성]이 선택된 [사용자 허용] 창을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. **새로 추가** 단추를 클릭합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+    ![[새로 추가] 단추를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. **SAML 2.0 ID 공급자** 섹션에서 다음 단계를 수행합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+    ![이 단계에서 설명한 값을 입력할 수 있는 창을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
     a. **표시 이름**으로 ID 공급자의 이름을 입력합니다.
 
@@ -160,7 +160,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하려면 다음 단�
 
 6. **저장** 단추를 클릭합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+    ![Single Sign-On 구성의 [저장] 단추를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -223,11 +223,11 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
 2. 왼쪽 탐색 창에서 **시스템 설정**을 클릭합니다. **사용자 관리**로 이동합니다. 그런 다음 **새 사용자 추가**로 이동합니다.
 
-    ![새 사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "새 사용자")
+    ![[사용자 관리] 및 [새 사용자 추가]가 선택된 Cezanne H R Software 테넌트를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "새 사용자")
 
 3. **사람 세부 정보** 섹션에서 다음 단계를 수행합니다.
 
-    ![새 사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "새 사용자")
+    ![이 단계에서 설명한 값을 입력할 수 있는 [사용자 세부 정보] 섹션을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "새 사용자")
 
     a. **내부 사용자** 를 OFF로 설정합니다.
 
@@ -239,7 +239,7 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
 4. **계정 정보** 섹션에서 다음 단계를 수행합니다.
 
-    ![새 사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "새 사용자")
+    ![이 단계에서 설명한 값을 입력할 수 있는 [계정 정보]를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "새 사용자")
 
     a. **사용자 이름** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 
@@ -251,15 +251,15 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
 5. **Single Sign-On** 탭으로 이동하고 **SAML 2.0 식별자** 영역에서 **새로 추가**를 선택합니다.
 
-    ![사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "사용자")
+    ![[새로 추가]를 선택할 수 있는 Single Sign-On 탭을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "사용자")
 
 6. **ID 공급자**에 대해 사용자의 ID 공급자를 선택하고 **사용자 식별자** 텍스트 상자에서 Britta Simon 계정의 전자 메일 주소를 입력합니다.
 
-    ![사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "사용자")
+    ![ID 공급자 및 사용자 식별자를 선택할 수 있는 SAML 2.0 식별자를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "사용자")
 
 7. **저장** 단추를 클릭합니다.
 
-    ![사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "사용자")
+    ![[사용자 설정]의 [저장] 단추를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "사용자")
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

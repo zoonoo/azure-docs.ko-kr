@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 0fe0dd43a59b0fb23a3a74509841402880b6fd69
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a6150093bd6735fe3ba6b2ff20aea89a3802bf21
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548160"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743474"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-creatio"></a>자습서: Creatio와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -93,11 +93,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![스크린샷은 base64 인증서에 대한 다운로드 링크가 있는 SAML 서명 인증서 페이지를 보여줍니다.](common/certificatebase64.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/copy-metadataurl.png)
+    ![스크린샷은 앱 페더레이션 메타데이터 URL을 복사할 수 있는 SAML 서명 인증서 페이지를 보여줍니다.](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

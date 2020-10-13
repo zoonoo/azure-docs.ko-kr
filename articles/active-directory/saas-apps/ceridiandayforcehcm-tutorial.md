@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 47e438b53f6aa3c9bc00da77c3532278b99e7269
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bfc370dbe1f44f353df4140de7a6136de9360423
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530378"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>자습서: Ceridian Dayforce HCM과 Azure Active Directory 통합
 
@@ -127,7 +127,7 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 5. Ceridian Dayforce HCM 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
@@ -137,9 +137,9 @@ Ceridian Dayforce HCM에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    ![스크린샷은 새 클레임을 추가하는 옵션이 있는 사용자 클레임을 보여줍니다.](common/new-save-attribute.png)
 
-    ![이미지](common/new-attribute-details.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 클레임 관리 대화 상자를 보여줍니다.](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 

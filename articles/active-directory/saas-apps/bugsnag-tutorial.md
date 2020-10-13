@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f5994aa4114f12b55f2e232ea5a35fa2df87626
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8f5a8abf4272cf90691e60f97416023a76252e41
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547735"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740550"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>자습서: Bugsnag와 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ Bugsnag에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Bugsnag 도메인 및 URL Single Sign-On 정보](common/both-replyurl.png)
+    ![스크린샷은 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/both-replyurl.png)
 
     **회신 URL** 텍스트 상자에 `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs` 패턴을 사용하여 URL을 입력합니다.
 
@@ -109,7 +109,7 @@ Bugsnag에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Bugsnag 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/both-signonurl.png)
 
     **로그온 URL** 텍스트 상자에 `https://app.bugsnag.com/user/identity_provider`를 입력합니다.
 

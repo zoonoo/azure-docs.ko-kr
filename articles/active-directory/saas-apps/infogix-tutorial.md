@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c46fe09691c270338e7ce60f8f0753e8c9b84948
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0f4874a16e12c5c9e7e5a0fd9858d3e42f2bb1cd
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553039"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>자습서: Azure Active Directory와 Infogix Data3Sixty Govern 통합
 
@@ -100,7 +100,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Infogix Data3Sixty Govern 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://data3sixty.com/ui`
 
@@ -108,7 +108,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Infogix Data3Sixty Govern 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<subdomain>.data3sixty.com` 패턴을 사용하여 URL을 입력합니다.
 
@@ -117,7 +117,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
 6. Infogix Data3Sixty Govern 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
 7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
@@ -129,9 +129,9 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    ![스크린샷은 새 클레임을 추가하는 옵션이 있는 사용자 클레임을 보여줍니다.](common/new-save-attribute.png)
 
-    ![이미지](common/new-attribute-details.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 클레임 관리 대화 상자를 보여줍니다.](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 

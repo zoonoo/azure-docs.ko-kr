@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: ab142b4e0a2d5486727ffc71fc94ae4944513052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935809"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996516"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure 애플리케이션 Insights](./app-insights-overview.md) 의 스냅숏 디버거는 웹 앱에서 예외 원격 분석을 모니터링 합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 를 포함 하 고 필요에 따라 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성 합니다. 스냅숏은 Application Insights 포털의 [예외](./asp-net-exceptions.md) 에 표시 됩니다.
 
-포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드를 사용 하 여 보다 강력한 디버깅 환경을 얻으려면 Visual Studio 2019 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅샷을 만들도록 설정](https://aka.ms/snappoint)할 수도 있습니다.
+포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 소스 코드를 사용 하 여 보다 강력한 디버깅 환경을 얻으려면 Visual Studio 2019 Enterprise에서 스냅숏을 엽니다. 또한 Visual Studio에서 예외를 기다리지 않고 [snappoint에서 대화형으로 스냅샷을 만들도록 설정](/visualstudio/debugger/debug-live-azure-applications)할 수도 있습니다.
 
 디버그 스냅숏은 15 일 동안 저장 됩니다. 이 보존 정책은 애플리케이션 단위로 설정됩니다. 이 값을 늘려야 하는 경우 Azure Portal에서 지원 사례를 열어 증가를 요청할 수 있습니다.
 
@@ -142,4 +142,3 @@ Application Insights 스냅숏 디버거 이상:
 * 예외를 기다리지 않고 스냅샷을 가져오기 위해 [코드에서 snappoint를 설정](/visualstudio/debugger/debug-live-azure-applications)합니다.
 * [웹앱의 예외 진단](./asp-net-exceptions.md)에서는 Application Insights에서 추가 예외를 표시하는 방법을 설명합니다.
 * [스마트 검색](./proactive-diagnostics.md)은 성능 예외를 자동으로 검색합니다.
-

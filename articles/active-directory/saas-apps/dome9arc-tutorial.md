@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9435a0eccff5a3be0dc9e0a2844bae175d753a5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9d0503b411577d4ecbfb65c4bdae42a571d175
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555881"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775144"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>자습서: Check Point CloudGuard Dome9 Arc와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -156,11 +156,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 오른쪽 위 모서리에서 **프로필 설정**을 클릭한 다음, **계정 설정**을 클릭합니다. 
 
-    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure1.png)
+    !["계정 설정"이 선택된 "프로필 설정" 메뉴를 보여주는 스크린샷.](./media/dome9arc-tutorial/configure1.png)
 
 3. **SSO**로 이동한 다음 **사용**을 클릭합니다.
 
-    ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure2.png)
+    !["SSO" 탭과 선택된 "사용"을 보여주는 스크린샷.](./media/dome9arc-tutorial/configure2.png)
 
 4. [SSO 구성] 섹션에서 다음 단계를 수행합니다.
 
@@ -189,11 +189,11 @@ Azure AD 사용자가 Check Point CloudGuard Dome9 Arc에 로그인할 수 있�
 
 2. **사용자 및 역할**을 클릭한 다음, **사용자**를 클릭합니다.
 
-    ![직원 추가](./media/dome9arc-tutorial/user1.png)
+    !["사용자" 작업이 선택된 "사용자 및 역할"을 보여주는 스크린샷.](./media/dome9arc-tutorial/user1.png)
 
 3. **사용자 추가**를 클릭합니다.
 
-    ![직원 추가](./media/dome9arc-tutorial/user2.png)
+    !["사용자 추가" 단추가 선택된 "사용자 및 역할"을 보여주는 스크린샷.](./media/dome9arc-tutorial/user2.png)
 
 4. **사용자 만들기** 섹션에서 다음 단계를 수행합니다.
 

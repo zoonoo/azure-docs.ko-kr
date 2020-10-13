@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 63db888419ee691e83ea456fcd7fc28a4d9909fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620327"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994544"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "91620327"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -41,7 +41,7 @@ ms.locfileid: "91620327"
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에 Azure *참가자* 역할이 있어야 하 고 컨테이너에 대 한 Azure Monitor를 사용 하 여 Log Analytics 작업 영역의 [*Log Analytics 참여자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
@@ -142,7 +142,7 @@ export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGrou
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 

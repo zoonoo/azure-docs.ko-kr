@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 7079ffd5cb2fe643d93dea0f5c9384a7931dc8a6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1754929629bd05dc48419e521fa8e07f7c873217
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550680"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823407"
 ---
 # <a name="tutorial-integrate-ey-globalone-with-azure-active-directory"></a>자습서: Azure Active Directory와 EY GlobalOne 통합
 
@@ -80,7 +80,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. EY GlobalOne 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    !["편집" 아이콘이 선택된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도, EY GlobalOne 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    !["새 클레임 추가" 및 "저장" 작업이 강조 표시된 "사용자 클레임" 섹션을 보여주는 스크린샷.](common/new-save-attribute.png)
 
     ![이미지](common/new-attribute-details.png)
 

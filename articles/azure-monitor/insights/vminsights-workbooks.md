@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449792"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996383"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용하여 대화형 보고서 VM용 Azure Monitor 만들기
 
-통합 문서는 텍스트, [로그 쿼리](../log-query/query-language.md), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
+통합 문서는 텍스트, [로그 쿼리](/azure/data-explorer/kusto/query/), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
 
 통합 문서는 다음과 같은 시나리오에 유용 합니다.
 

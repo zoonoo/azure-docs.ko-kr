@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f2b46e37241cf142f751f2f65a1ef9f092166ec8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86120639"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91716090"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션
 
@@ -62,7 +62,7 @@ AzCopy V10 실행 파일을 다운로드합니다.
 
 ## <a name="authenticate-with-azure-ad"></a>Azure AD를 사용하여 인증
 
-먼저, [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) 역할을 ID에 추가합니다. [Azure Portal에서 RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)를 참조하세요.
+먼저, [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) 역할을 ID에 추가합니다. [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)을 참조하세요.
 
 그런 다음, 명령 프롬프트를 열고 다음 명령을 입력한 다음, ENTER 키를 누릅니다.
 

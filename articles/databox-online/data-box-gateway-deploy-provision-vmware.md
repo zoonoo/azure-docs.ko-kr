@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 026caf101f58ff9d93e3306d0bd224f24e8af864
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371289"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743950"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>자습서: VMware에서 Azure Data Box Gateway 프로비저닝
 
@@ -145,11 +145,11 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 
     같은 페이지에서 **하드 디스크 추가**를 클릭한 다음, **기존 하드 디스크**를 선택합니다. 데이터 저장소에 VMDK 파일을 선택합니다. 그러면 OS 디스크가 추가됩니다. 
 
-     ![설정 사용자 지정 페이지](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![설정 사용자 지정 페이지 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     **새 하드 디스크**가 표시될 때까지 아래로 스크롤하고 확장하여 설정을 봅니다. **가상 디바이스 노드**를 **IDE 컨트롤러 0**으로 설정합니다.
 
-     ![설정 사용자 지정 페이지](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![설정 사용자 지정 페이지 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (선택 사항) *VMware ESXi Server 6.7을 실행하는 경우에만 이 단계를 수행합니다*. **설정 사용자 지정** 페이지에서 **VM 옵션**을 클릭합니다. **부팅 옵션 > 펌웨어**로 이동하여 **BIOS**로 변경합니다. 기본적으로 이 값은 EFI로 설정됩니다. **다음**을 클릭합니다.
 
@@ -158,7 +158,7 @@ VMware ESXi 6.0, 6.5 또는 6.7을 실행하는 호스트 시스템에 가상 �
 18. **Ready to Complete** (완료 준비) 페이지에서 새 가상 머신과 관련된 모든 설정을 검토합니다. CPU가 4개이고, 메모리가 8192MB이고, 네트워크 인터페이스가 1이고, 하드 디스크 2에 IDE 컨트롤러 0이 포함되어 있는지 확인합니다. **Finish**를 클릭합니다.
    
     ![완료 준비 페이지](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![완료 준비 페이지](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![완료 준비 페이지 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 가상 머신이 프로비전되어 있습니다. 결과에 대한 알림이 표시되고 새 가상 머신이 VM 목록에 추가됩니다.
 

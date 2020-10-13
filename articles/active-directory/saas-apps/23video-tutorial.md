@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d4271c2d298744f339ac577a0db585dd8c309b16
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc2aba6241ef498cd6802c7490e46552e7737ab
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538834"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708818"
 ---
 # <a name="tutorial-integrate-23-video-with-azure-active-directory"></a>자습서: Azure Active Directory와 23 Video 연결
 
@@ -138,11 +138,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. **사용자** 섹션에서 **구성**을 클릭합니다.
 
-    ![사용자 할당](./media/23video-tutorial/tutorial-23video-10.png)
+    ![사용자 섹션을 강조 표시하는 스크린샷.](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. **새 사용자 추가**를 클릭합니다.
 
-    ![사용자 할당](./media/23video-tutorial/tutorial-23video-11.png)
+    ![새 사용자 추가 단추를 강조 표시하는 스크린샷.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. **사람을 이 사이트에 가입하도록 초대** 섹션에서 다음 단계를 수행합니다.
 

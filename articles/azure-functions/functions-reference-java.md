@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89144926"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996497"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -151,7 +151,7 @@ Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 
 
 ### <a name="specify-the-deployment-version"></a>배포 버전 지정
 
-매개 변수를 사용 하 여 Maven 원형가 대상으로 하는 Java 버전을 제어할 수 있습니다 `-DjavaVersion` . 이 매개 변수 값은 에테르 스코프 또는 일 수 있습니다 `8` `11` . Java 11 지원은 현재 미리 보기 상태입니다. 
+매개 변수를 사용 하 여 Maven 원형가 대상으로 하는 Java 버전을 제어할 수 있습니다 `-DjavaVersion` . 이 매개 변수 값은 또는 중 하나일 수 있습니다 `8` `11` . Java 11 지원은 현재 미리 보기 상태입니다. 
 
 Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 합니다. pom.xml의 다음 요소는 사용할 Java 버전을 표시 합니다.
 
@@ -276,8 +276,8 @@ public class Function {
     @FunctionName("echo")
     public static String echo(
         @HttpTrigger(name = "req", methods = { HttpMethod.PUT }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
-        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData,
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData
     ) {
         testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
         return "Hello, " + inputReq + " and " + inputData.getKey() + ".";

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ef497439d77fef63f4b0c902aee06428a30c5ff5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276733"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666112"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -56,7 +56,7 @@ Azure에 가입하면 Azure AD(Active Directory) 테넌트가 자동으로 만�
 
 새 구독을 만들면 계정의 Azure AD 테넌트에 호스팅됩니다. 다른 사람에게 구독 또는 해당 리소스에 대한 액세스 권한을 제공하려면 테넌트에 가입하도록 초대해야 합니다. 이렇게 하면 구독과 리소스에 대한 액세스를 제어하는 데 도움이 됩니다.
 
-구독의 청구 소유권을 다른 Azure AD 테넌트의 계정에 양도할 때 구독을 새 계정의 테넌트에 양도할 수 있습니다. 이렇게 하면 구독 및 구독의 리소스를 관리하는 [Azure 역할이 할당된](../../role-based-access-control/role-assignments-portal.md) 모든 사용자, 그룹 또는 서비스 주체의 액세스 권한이 사라집니다. 양도 요청을 수락하는 새 계정의 사용자에게만 리소스를 관리할 수 있는 액세스 권한이 제공됩니다. 권한을 상실한 사용에 대한 액세스를 제공하려면 새 소유자가 이러한 사용자를 구독에 수동으로 추가해야 합니다. 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
+구독의 청구 소유권을 다른 Azure AD 테넌트의 계정에 양도할 때 구독을 새 계정의 테넌트에 양도할 수 있습니다. 이렇게 하면 구독 및 구독의 리소스를 관리하는 [Azure 역할이 할당된](../../role-based-access-control/role-assignments-portal.md) 모든 사용자, 그룹 또는 서비스 주체의 액세스 권한이 사라집니다. 양도 요청을 수락하는 새 계정의 사용자에게만 리소스를 관리할 수 있는 액세스 권한이 제공됩니다. 권한을 상실한 사용에 대한 액세스를 제공하려면 새 소유자가 이러한 사용자를 구독에 수동으로 추가해야 합니다. 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Visual Studio 및 파트너 네트워크 구독 양도
 

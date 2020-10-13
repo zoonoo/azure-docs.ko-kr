@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893767"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994667"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
-이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](https://docs.microsoft.com/answers/questions/topics/single/24223.html) 으로 이동 하 여 질문을 게시 합니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](/answers/questions/topics/single/24223.html) 으로 이동 하 여 질문을 게시 합니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 
 ## <a name="general"></a>일반

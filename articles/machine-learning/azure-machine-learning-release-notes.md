@@ -9,18 +9,61 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 189d6a57a17172f181e7375265960fe4f25f8ed1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940245"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996759"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 참조 페이지를 참조 하세요.
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2020-10-12"></a>2020-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v1160"></a>Azure Machine Learning SDK for Python v 1.16.0
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + AKSWebservice 및 AKSEndpoints는 이제 pod 수준 CPU 및 메모리 리소스 제한을 지원 합니다. 이러한 선택적 제한은 1을 통해 정의할 수 있습니다. `cpu_cores_limit` `memory_gb_limit` 및 메서드 2에서 및 매개 변수를 설정 `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` 합니다. `--cpu-cores-limit` `--memory-gb-limit` 적용 가능한 CLI의 설정 및 플래그는 3을 호출 합니다. `cpuLimit`배포 구성의에서 및를 설정 `memoryInGBLimit` `containerResourceRequirements` 합니다. json/.yml 파일 Kubernetes 리소스 및 제한에 대 한 자세한 내용은 다음에서 찾을 수 있습니다.https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-인-해석**
+    + azureml-해석, azureml-설명-모델, azureml-tensorboard 및 azureml를 위해 pypi에 업로드 오류가 발생 하는 패키지 설명을 수정 합니다.
+  + **azureml-k8s**
+    + ArcKubernetes 계산 연결에 대 한 지원이 추가 됨
+  + **azureml-mir**
+    + AKSWebservice 및 AKSEndpoints는 이제 pod 수준 CPU 및 메모리 리소스 제한을 지원 합니다. 이러한 선택적 제한은 1을 통해 정의할 수 있습니다. `cpu_cores_limit` `memory_gb_limit` 및 메서드 2에서 및 매개 변수를 설정 `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` 합니다. `--cpu-cores-limit` `--memory-gb-limit` 적용 가능한 CLI의 설정 및 플래그는 3을 호출 합니다. `cpuLimit`배포 구성의에서 및를 설정 `memoryInGBLimit` `containerResourceRequirements` 합니다. json/.yml 파일 Kubernetes 리소스 및 제한에 대 한 자세한 내용은 다음에서 찾을 수 있습니다.https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-서버**
+    + AKSWebservice 및 AKSEndpoints는 이제 pod 수준 CPU 및 메모리 리소스 제한을 지원 합니다. 이러한 선택적 제한은 1을 통해 정의할 수 있습니다. `cpu_cores_limit` `memory_gb_limit` 및 메서드 2에서 및 매개 변수를 설정 `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` 합니다. `--cpu-cores-limit` `--memory-gb-limit` 적용 가능한 CLI의 설정 및 플래그는 3을 호출 합니다. `cpuLimit`배포 구성의에서 및를 설정 `memoryInGBLimit` `containerResourceRequirements` 합니다. json/.yml 파일 Kubernetes 리소스 및 제한에 대 한 자세한 내용은 다음에서 찾을 수 있습니다.https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-core**
+    + Azureml의 직접 종속성 주 버전 고정-코어
+    + AKSWebservice 및 AKSEndpoints는 이제 pod 수준 CPU 및 메모리 리소스 제한을 지원 합니다. Kubernetes 리소스 및 제한에 대 한 자세한 내용은 다음에서 찾을 수 있습니다. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + 개별 행이 기록 될 수 있도록 run.log_table 업데이트 되었습니다.
+    + 작업 영역 `Run.get(workspace, run_id)` `Workspace.get_run(run_id)` 내에서 실행을 검색 하기 위해 작업 영역에 추가 된 인스턴스 메서드를 사용 하 여 실행만 검색 하는 정적 메서드를 추가 했습니다.
+    + 사용자가 스크립트 & 인수 대신 명령을 제출할 수 있게 해 주는 실행 구성의 명령 속성을 소개 합니다.
+  + **azureml-dataprep-기본**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` Python 3.8를 공식적으로 지원 합니다.
+  + **azureml-explain-model**
+    + azureml-해석, azureml-설명-모델, azureml-tensorboard 및 azureml를 위해 pypi에 업로드 오류가 발생 하는 패키지 설명을 수정 합니다.
+  + **azureml-interpret**
+    + 일정 설명 클라이언트 is_raw azureml의 동작 플래그 지정-해석
+    + azureml-해석, azureml-설명-모델, azureml-tensorboard 및 azureml를 위해 pypi에 업로드 오류가 발생 하는 패키지 설명을 수정 합니다.
+  + **azureml-pipeline-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` Python 3.8를 공식적으로 지원 합니다.
+  + **azureml-sdk**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` Python 3.8를 공식적으로 지원 합니다.
+  + **azureml-tensorboard**
+    + azureml-해석, azureml-설명-모델, azureml-tensorboard 및 azureml를 위해 pypi에 업로드 오류가 발생 하는 패키지 설명을 수정 합니다.
+  + **azureml-학습**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` Python 3.8를 공식적으로 지원 합니다.
+  + **azureml-train-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` Python 3.8를 공식적으로 지원 합니다.
+    + TensorFlow 2.3 큐 레이트 환경 추가
+    + 사용자가 스크립트 & 인수 대신 명령을 제출할 수 있게 해 주는 실행 구성의 명령 속성을 소개 합니다.
+  + **azureml-widgets**
+    + 스크립트 실행 위젯에 대해 다시 디자인 한 인터페이스입니다.
+
 
 ## <a name="2020-09-28"></a>2020-09-28
 
@@ -30,7 +73,7 @@ ms.locfileid: "91940245"
     + Azureml에서 이동 하는 라임 설명-설명에서 해석-커뮤니티 패키지 및 이미지 제거 합니다.
     + azureml에서 제거 된 시각화 대시보드-적용-패키지 해석, 설명 클라이언트가 azureml로 이동 됨-azureml에서 패키지를 해석 하 고 사용 되지 않음-azureml
     + azureml-해석, azureml-설명-모델, azureml-tensorboard 및 azureml에 대 한 pypi 패키지 설명 수정
-  + **azureml-전자 필기장**
+  + **azureml-contrib-notebook**
     + Nbcovert 종속성을 < 6에 고정 하 여 용지 밀링 1.x가 계속 작동 하도록 합니다.
   + **azureml-core**
     + TensorflowConfiguration 및 MpiConfiguration 생성자에 매개 변수를 추가 하 여 사용자가 각 개별 특성을 설정 하지 않고도 클래스 특성을 보다 효율적으로 초기화할 수 있도록 합니다. ScriptRunConfig에서 distributed PyTorch 작업을 구성 하기 위한 PyTorchConfiguration 클래스를 추가 했습니다.
@@ -92,7 +135,7 @@ ms.locfileid: "91940245"
     + MLflow 모델 레지스트리 지원
     + AzureML-MLflow 작업에 대 한 RBAC 지원이 추가 됨 
     
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + PipelineOutputFileDataset.parse_ * 메서드의 설명서가 향상 되었습니다.
     + 새 Kusto 단계 및 Kusto 계산 대상입니다.
     + 해당 사용자를 통해 파이프라인 끝점 엔터티에 대해 제공 된 Swaggerurl 속성은 게시 된 파이프라인 끝점에 대 한 스키마 정의를 볼 수 있습니다.
@@ -315,7 +358,7 @@ ms.locfileid: "91940245"
     + 사용 중단 _with_auth 매개 변수 ws.get_mlflow_tracking_uri ()
   + **azureml-opendatasets**
     + 최근 게시 된 Covid-19 추적 데이터 집합을 이제 SDK와 함께 사용할 수 있습니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + "Azureml-기본값"이 pip 종속성의 일부로 포함 되지 않은 경우 로그 아웃 경고
     + 메모 렌더링을 개선 합니다.
     + 구분 된 파일을 PipelineOutputFileDataset로 구문 분석할 때 따옴표로 묶인 줄 바꿈에 대 한 지원이 추가 되었습니다.
@@ -543,7 +586,7 @@ ms.locfileid: "91940245"
   + **azureml-opendatasets**
     + 반환 된 데이터가 없으면 None을 반환 합니다.
     + To_pandas_dataframe의 성능을 향상 시킵니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + YAML에서 로드가 중단 된 ParallelRunStep에 대 한 빠른 수정
     + ParallelRunStep는 일반 공급으로 릴리스 되었습니다. 즉, 사용 중단 알림이 있고 azureml로 이동 합니다.-새로운 기능은 다음과 같습니다. 1. PipelineParameter 2로 서의 데이터 집합. 새 매개 변수 run_max_retry 3입니다. 구성 가능한 append_row 출력 파일 이름
   + **azureml-pipeline-steps**
@@ -677,7 +720,7 @@ ms.locfileid: "91940245"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     Description  |
+| 웹 기반 도구  |     설명  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -742,7 +785,7 @@ ms.locfileid: "91940245"
     + 업데이트 된 azureml-해석 사용-커뮤니티 0.9. *
     + 스파스 평가 데이터가 포함 된 다운로드 설명의 문제를 해결 함
     + AutoML에서 설명 개체의 스파스 형식에 대 한 지원이 추가 됨
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 파이프라인에서 계산 대상으로 서 계산 Einstance 지원
   + **azureml-train-automl-client**
     + 사후 학습 작업에 대 한 추가 원격 분석을 추가 했습니다.
@@ -858,7 +901,7 @@ ms.locfileid: "91940245"
     + Keras 모델에 대 한 DeepScoringExplainer serialization 수정
   + **azureml.mlflow**
     + 소 버린 클라우드에 대 한 지원을 azureml mlflow에 추가 합니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + 이제 파이프라인 일괄 처리 점수 매기기 노트북에서 ParallelRunStep 사용
     + 인수 목록을 변경 하는 경우에도 PythonScriptStep 결과가 잘못 재사용 될 수 있는 버그를 수정 했습니다.
     + 에서 parse_ * 메서드를 호출할 때 열 형식을 설정 하는 기능이 추가 되었습니다. `PipelineOutputFileDataset`
@@ -939,7 +982,7 @@ ms.locfileid: "91940245"
   + **azureml-interpret**
     + azureml-해석에 azureml 스타일 예외를 추가 했습니다.
     + keras 모델에 대 한 DeepScoringExplainer serialization 수정
-  + **azureml-pipeline-core**
+  + **azureml 파이프라인-코어**
     + 이제 파이프라인 일괄 처리 점수 매기기 노트북에서 ParallelRunStep 사용
   + **azureml-pipeline-steps**
     + 패키지에서을 (를) 이동 `AutoMLStep` `azureml-pipeline-steps` 했습니다. 에서 사용 되지 않습니다 `AutoMLStep` `azureml-train-automl-runtime` .
@@ -1056,7 +1099,7 @@ ms.locfileid: "91940245"
     + `TabularDataset.to_pandas_dataframe`가 대체 판독기로 잘못 대체 되 고 경고를 출력 하는 버그를 수정 했습니다.
   + **azureml-explain-model**
     + shap 종속성을 해석 하 여 azureml의 community-해석
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + `NotebookRunnerStep`파이프라인의 한 단계로 로컬 노트북을 실행 하는 새 파이프라인 단계가 추가 되었습니다.
     + PublishedPipelines, 일정 및 PipelineEndpoints에 대해 사용 되지 않는 get_all 함수를 제거 했습니다.
   + **azureml-train-automl-client**
@@ -1101,7 +1144,7 @@ ms.locfileid: "91940245"
   + **azureml-automl-runtime**
     + 이제 AutoML은 이진 분류 태스크에 대 한 평균 스칼라 메트릭을 계산할 때 true 및 false 클래스를 모두 고려 합니다.
     + AzureML에서 기계 학습 및 교육 코드를 새 패키지 AzureML-AutoML-런타임으로 이동 했습니다.
-  + **azureml-contrib-dataset**
+  + **azureml-데이터 집합**
     + `to_pandas_dataframe`다운로드 옵션을 사용 하 여 레이블이 지정 된 데이터 집합에서 호출 하는 경우 이제 기존 파일을 덮어쓸지 여부를 지정할 수 있습니다.
     + 또는를 호출할 때 시계열 `keep_columns` `drop_columns` , 레이블 또는 이미지 열이 삭제 되는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
     + 개체 검색 태스크에 대 한 pytorch 로더의 문제를 수정 했습니다.
@@ -1172,7 +1215,7 @@ ms.locfileid: "91940245"
     + 로컬 실행이 중간에 실패 하도록 하는 예외의 로깅을 추가 합니다.
   + **azureml-train-core**
     + 자동화 된 하이퍼 매개 변수 튜닝 최상의 자식 실행의 계산에서 실행 resume_from을 고려 합니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + 파이프라인 인수 생성에서 매개 변수 처리가 수정 되었습니다.
     + 파이프라인 설명 및 단계 유형 yaml 매개 변수를 추가 했습니다.
     + 파이프라인 단계의 새 yaml 형식이 며 이전 형식에 대 한 사용 중단 경고가 추가 되었습니다.
@@ -1189,7 +1232,7 @@ ms.locfileid: "91940245"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | Description | 
+| 웹 기반 도구 | 설명 | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 
@@ -1692,7 +1735,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-opendatasets**
     + 자동 테스트 환경 검색 및 로깅을 지원 합니다.
     + 국가 및 zip을 기준으로 인구를 가져오도록 클래스를 추가 했습니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + 입력 및 출력 포트 정의에 레이블 속성을 추가 했습니다.
   + **azureml-telemetry**
     + 잘못 된 원격 분석 구성을 수정 했습니다.
@@ -1922,7 +1965,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + Azureml mlflow를 사용 하는 원격 실행의 리소스 사용률이 향상 되었습니다.
     + Azureml-mlflow 패키지의 설명서가 개선 되었습니다.
     + Mlflow.log_artifacts ("my_dir")이 "아티팩트 경로" 대신 "my_dir/경로"로 아티팩트를 저장 하는 문제를 해결 했습니다.
-  + **azureml 파이프라인-코어**
+  + **azureml-pipeline-core**
     + 모든 파이프라인 단계에 대 한 매개 변수 hash_paths은 더 이상 사용 되지 않으며 나중에 제거 될 예정입니다. 기본적으로 source_directory 내용은 또는에 나열 된 파일을 제외 하 고 해시 됩니다. `.amlignore` `.gitignore`
     + 파이프라인에서 계산 유형별 모듈 사용을 잠금 해제 하기 위해 RunConfiguration 통합 및 기타 변경 내용을 준비 하기 위해 모듈 및 ModuleStep를 지속적으로 개선 하 여 계산 형식 관련 모듈을 지원 합니다.
   + **azureml-pipeline-steps**

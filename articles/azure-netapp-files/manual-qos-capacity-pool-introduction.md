@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 14b905c69f0dab933159b414028db3e985d314a3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935842"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993990"
 ---
 # <a name="manual-qos-capacity-pool"></a>수동 QoS 용량 풀
 
@@ -34,6 +34,10 @@ ms.locfileid: "91935842"
 *자동* QoS 용량 풀에서 처리량은 볼륨에 할당 된 크기 할당량에 비례하여 풀의 볼륨에 자동으로 할당 됩니다.  
 
 QoS 형식에 대 한 고려 사항은 [Azure NetApp Files의 저장소 계층 구조](azure-netapp-files-understand-storage-hierarchy.md) 및 [Azure NetApp Files에 대 한 성능 고려 사항](azure-netapp-files-performance-considerations.md) 을 참조 하세요.
+
+## <a name="example-of-using-manual-qos"></a>수동 QoS 사용 예
+
+예를 들어 SAP HANA 시스템, Oracle 데이터베이스 또는 여러 볼륨이 필요한 다른 워크 로드와 함께 수동 QoS 용량 풀을 사용 하는 경우 용량 풀을 사용 하 여 이러한 응용 프로그램 볼륨을 만들 수 있습니다.  각 볼륨은 응용 프로그램 요구 사항을 충족 하기 위해 개별 크기와 처리량을 제공할 수 있습니다.  이점에 대 한 자세한 내용은 [수동 QoS 용량 풀에 있는 볼륨의 처리량 제한 예](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) 를 참조 하세요.  
 
 ## <a name="how-to-specify-the-manual-qos-type"></a>수동 QoS 유형을 지정 하는 방법
 

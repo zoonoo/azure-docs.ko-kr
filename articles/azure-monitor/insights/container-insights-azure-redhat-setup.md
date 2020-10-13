@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e462fb25672fa1912f7bb24efad4ea9a6d27d078
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816646"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994564"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성 
 
@@ -30,11 +30,11 @@ ms.locfileid: "88816646"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
@@ -244,4 +244,3 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 - 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [프로메테우스 메트릭 구성](container-insights-prometheus-integration.md) 을 검토 하세요.
 
 - 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터 모니터링을 중지 하는 방법을 알아보려면 [Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법](./container-insights-optout-openshift-v3.md)을 참조 하세요.
-

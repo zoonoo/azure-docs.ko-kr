@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 94b8a26a398ad8604a469486185d805fcbb6a8b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 43189d40c57ce6c300904207edc35011b0581ecc
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545406"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740452"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>자습서: BlueJeans for Azure AD와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -150,7 +150,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **관리자 \> 그룹 설정 \> 보안**으로 이동합니다.
 
-    ![관리자](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![스크린샷은 그룹 설정 및 보안이 선택된 상태에서 관리 탭이 선택된 브라우저 창의 일부를 보여줍니다.](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. **보안** 섹션에서 다음 단계를 수행합니다.
 
@@ -192,14 +192,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **관리자 \> 사용자 관리 \> 사용자 추가**로 이동합니다.
 
-    ![관리자](./media/bluejeans-tutorial/ic785877.png "Admin")
+    ![스크린샷은 사용자 관리 및 사용자 추가가 선택된 상태에서 관리 탭이 선택된 브라우저 창의 일부를 보여줍니다.](./media/bluejeans-tutorial/ic785877.png "Admin")
 
     > [!IMPORTANT]
     > **사용자 추가** 탭은 **보안 탭**에서 **자동 프로비저닝 사용**이 선택 취소된 경우에만 사용할 수 있습니다.
 
 3. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
 
-    ![사용자 추가](./media/bluejeans-tutorial/ic785886.png "사용자 추가")
+    ![스크린샷은 이 단계에서 설명한 정보를 입력하는 사용자 추가 섹션을 보여줍니다.](./media/bluejeans-tutorial/ic785886.png "사용자 추가")
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
@@ -219,7 +219,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     i. **계속**을 클릭합니다.
 
-    ![사용자 추가](./media/bluejeans-tutorial/ic785887.png "사용자 추가")
+    ![스크린샷은 사용자 추가 단추가 선택된 상태에서 설정 및 기능을 볼 수 있는 사용자 추가 섹션을 보여줍니다.](./media/bluejeans-tutorial/ic785887.png "사용자 추가")
 
     J. **사용자 추가**를 클릭합니다.
 

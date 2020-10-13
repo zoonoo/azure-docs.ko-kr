@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: dfe5351faa8d8f555fae6b4ef1bfa7d280920de1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3e18b088ed4b505517f95146813b399ba62504d1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550440"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>자습서: Insight4GRC와 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ Insight4GRC에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Insight4GRC 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.Insight4GRC.com/SAML` 패턴을 사용하여 URL을 입력합니다.
 
@@ -108,7 +108,7 @@ Insight4GRC에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Insight4GRC 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<subdomain>.Insight4GRC.com/Public/Login.aspx` 패턴을 사용하여 URL을 입력합니다.
 

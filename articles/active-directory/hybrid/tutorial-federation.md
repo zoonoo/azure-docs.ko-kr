@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00257dc549754f7466fdf1dd2d0293de944b0944
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4410708905610562feb15804277021950eb1edeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287035"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826519"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 단일 AD 포리스트 환경을 클라우드로 페더레이션
 
@@ -87,7 +87,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 4. Windows Server 시작 화면에서 언어를 선택하고 **다음**을 클릭합니다.
 5. **지금 설치**를 클릭합니다.
 6. 라이선스 키를 입력하고 **다음**을 클릭합니다.
-7. **사용 약관에 동의에 확인 표시를 한 후 **다음**을 클릭합니다.
+7. **사용 조건에 동의함**을 선택하고 **다음**을 클릭합니다.
 8. **사용자 지정:  Windows만 설치(고급)** 선택
 9. **다음**을 클릭합니다.
 10. 설치가 완료되고 나면 가상 머신을 다시 시작하고, 로그인한 후, Windows 업데이트를 실행하여 VM이 최신 버전이 되도록 합니다.  최신 업데이트를 설치합니다.

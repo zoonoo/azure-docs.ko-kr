@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7377c6ea92ea53ca14525938e7522448afac541c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548358"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713640"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -304,7 +304,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 18. 이 사용자에 대한 새 정책을 만듭니다.
 
-    ![사용자 추가의 스크린샷](./media/amazon-web-service-tutorial/adduser2.png)
+    ![스크린샷은 사용자에 대한 정책을 만들 수 있는 사용자 추가 페이지를 보여줍니다.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. **Attach existing policies directly**(기존 정책 직접 연결)를 선택합니다.
 
@@ -322,7 +322,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 20. 사용자의 사용자 자격 증명을 다운로드합니다.
 
-    ![사용자 추가의 스크린샷](./media/amazon-web-service-tutorial/adduser4.png)
+    ![스크린샷은 사용자 자격 증명을 가져오기 위한 다운로드 csv 단추가 있는 추가 페이지를 보여줍니다.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. 사용자 **액세스 키 ID** 및 **암호 액세스 키**를 복사합니다.
 

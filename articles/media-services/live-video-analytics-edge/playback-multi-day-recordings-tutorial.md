@@ -3,12 +3,12 @@ title: 여러 날 녹화본 재생 - Azure
 description: 이 자습서에서는 Azure Media Service API를 사용하여 여러 날 연속 비디오 녹화본을 재생하는 방법을 설명합니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: e01c8603869f17ef2d68a39861f11818a4cea975
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530576"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91803435"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>자습서: 여러 날 녹화본 재생  
 
@@ -70,22 +70,15 @@ ms.locfileid: "90530576"
 } 
 ```
 
-Visual Studio Code에서 왼쪽에 있는 실행 아이콘을 클릭하거나 Ctrl+ Shift+D를 눌러 실행할 수 있는 애플리케이션을 표시할 수 있습니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
 
-![스크린샷은 실행 항목이 선택된 Visual Studio Code의 메뉴를 표시합니다.](./media/playback-multi-day-recordings-tutorial/run.png)
- 
-아래와 같이 드롭다운 상자에서 AMS Asset Player 애플리케이션을 선택하고 F5 키를 눌러 디버깅을 시작합니다.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="확장 설정":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
-![스크린샷은 AMS Asset Player가 선택된 Visual Studio Code의 메뉴를 표시합니다.](./media/playback-multi-day-recordings-tutorial/debug.png)
-
-샘플 애플리케이션은 기본 브라우저 앱을 빌드 및 실행하고 AMS Asset Player 페이지를 엽니다.
-
-> [!NOTE]
-> 브라우저의 보안 설정에 따라 경고 메시지가 표시될 수 있습니다. 웹 페이지가 로컬로 실행되고 있으므로 경고를 무시하도록 선택할 수 있습니다.
-
-AMS Asset Player는 Media Service 자산의 이름을 입력하라는 메시지를 표시합니다. [자습서: 연속 비디오 녹화](continuous-video-recording-tutorial.md)에서 비디오를 녹화하는 데 사용한 자산의 이름을 사용해야 합니다.
-
-자산 이름을 입력하고 제출을 누르면 플레이어 코드가 스트리밍 URL을 로드합니다. 자세한 내용은 [방법 가이드: 녹화본 재생](playback-recordings-how-to.md)을 참조하세요. 권장한 대로 자산에 계속 녹화 중인 경우 플레이어가 이를 감지하고 녹화된 비디오의 가장 최근 부분으로 재생하라고 명령합니다. 플레이어의 왼쪽 위에 있는 타임스탬프(UTC 기준)를 볼 수 있습니다. 아래 스크린샷에서 "라이브" 단추를 선택하는 방법을 확인합니다.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="확장 설정" 단추를 선택하는 방법을 확인합니다.
 
 ![STREAM](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  

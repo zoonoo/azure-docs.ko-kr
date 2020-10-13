@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.openlocfilehash: adbadc14caad6594dc30f0f9fd9cb1cb49b47888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d3dccc8d34852b967bffcf57e2f3609d9786279
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544267"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826679"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>자습서: Egress와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -146,7 +146,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 메뉴에서 **사용자 초대**를 클릭하고 **단일 사용자 초대**를 클릭하여 사용자를 추가합니다.
 
-    ![Egress 테스트 사용자 만들기](./media/egress-tutorial/create-user-1.PNG)
+    !["단일 사용자 초대" 단추가 선택된 "사용자 초대" 페이지를 보여주는 스크린샷.](./media/egress-tutorial/create-user-1.PNG)
 
 1. 필수 필드를 입력하고 **초대**를 클릭합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43dfe3ad28417e13196c5ac1e75419906f6eae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a0fff21c85104498895c9de20de9961a77cffeb
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549159"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91820500"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hrworks-single-sign-on"></a>자습서: HRworks Single Sign-On과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -156,15 +156,15 @@ Azure AD 사용자가 HRworks Single Sign-On에 로그인할 수 있도록 하�
 
 1. 메뉴 모음 왼쪽에서 **관리자** > **Persons**(개인) > **Persons**(개인) > **New person**(새로운 개인)을 클릭합니다.
 
-     ![Single Sign-on 구성](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![스크린샷은 사람 및 새로운 사람이 선택된 HR 작업 페이지를 보여줍니다.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. 팝업에서 **다음**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/hrworks-single-sign-on-tutorial/configure03.png)
+    ![스크린샷은 사용자를 위해 선택할 수 있는 국가 목록을 보여줍니다.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. **Create new person with country for legal terms**(약관의 국가로 새로운 개인 만들기)에서 **이름**, **성**과 같은 해당 세부 정보를 채우고 **만들기**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/hrworks-single-sign-on-tutorial/configure04.png)
+    ![스크린샷은 사용자의 성과 이름을 입력할 수 있는 텍스트 상자를 보여줍니다.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## <a name="test-sso"></a>SSO 테스트
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 98740153def94742a8bbba1ee6f4f022b614ecfa
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 12c0647e0244464966c52bafe8c976eb4a35ddda
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537127"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741213"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-benselect"></a>자습서: BenSelect와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -89,15 +89,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. BenSelect 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 givenname user.givenname 및 emailaddress user.mail과 같은 특성이 있는 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
 1. **편집** 아이콘을 클릭하여 **이름 식별자 값**을 편집합니다.
 
-    ![이미지](media/benselect-tutorial/mail-prefix1.png)
+    ![스크린샷은 편집 아이콘이 호출된 사용자 특성 및 클레임 창을 보여줍니다.](media/benselect-tutorial/mail-prefix1.png)
 
 1. **사용자 클레임 관리** 섹션에서 다음 단계를 수행합니다.
 
-    ![이미지](media/benselect-tutorial/mail-prefix2.png)
+    ![스크린샷은 이 단계에서 설명한 값을 입력할 수 있는 사용자 클레임 관리를 보여줍니다.](media/benselect-tutorial/mail-prefix2.png)
 
     a. **변환**을 **원본**으로 선택합니다.
 

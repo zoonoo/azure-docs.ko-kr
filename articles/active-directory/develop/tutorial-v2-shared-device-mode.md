@@ -1,6 +1,7 @@
 ---
-title: MSAL Android에서 공유 디바이스 모드 사용 | Microsoft
-description: Android 디바이스를 공유 모드에서 실행하도록 준비하고 일선 직원 앱을 실행하는 방법을 알아봅니다.
+title: '자습서: Android용 MSAL(Microsoft 인증 라이브러리)에서 공유 디바이스 모드 사용 | Microsoft'
+titleSuffix: Microsoft identity platform
+description: 이 자습서에서는 Android 디바이스를 공유 모드에서 실행하도록 준비하고 일선 직원 앱을 실행하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,23 +13,35 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f49a5703b19a76095c8eafe358742b442725d3d0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 2aa786f78d3e730bb351d1fa84b0c7fbb32d6786
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118249"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611234"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>자습서: Android 애플리케이션에서 공유 디바이스 모드 사용
 
-> [!NOTE]
-> 이 기능은 공개 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+이 자습서에서는 개발자 및 테넌트 관리자가 Android 앱을 공유 디바이스 모드로 설정하고 지원하는 방법에 대한 지침을 제공합니다.
+
+이 자습서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * 코드 샘플 다운로드
+> * 공유 디바이스 모드 사용 및 탐지
+> * 단일 또는 다중 계정 모드 탐지
+> * 사용자 전환을 탐지하고 글로벌 로그인 및 로그아웃 사용
+> * Azure Portal에서 테넌트 설정 및 애플리케이션 등록
+> * Android 디바이스를 공유 디바이스 모드로 설정
+> * 샘플 앱 실행
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="developer-guide"></a>개발자 가이드
 
-이 가이드에서는 MSAL(Microsoft 인증 라이브러리)을 사용하여 Android 애플리케이션에서 공유 디바이스 모드를 구현하는 방법에 대한 개발자 지침을 제공합니다. [MSAL Android 자습서](./tutorial-v2-android.md)를 참조하여 MSAL을 Android 앱과 통합하고, 사용자를 로그인하고, Microsoft Graph를 호출하고, 사용자를 로그아웃하는 방법을 확인합니다.
+이 자습서의 이번 섹션에서는 MSAL(Microsoft 인증 라이브러리)을 사용하여 Android 애플리케이션에서 공유 디바이스 모드를 구현하는 방법에 대한 개발자 지침을 제공합니다. [MSAL Android 자습서](./tutorial-v2-android.md)를 참조하여 MSAL을 Android 앱과 통합하고, 사용자를 로그인하고, Microsoft Graph를 호출하고, 사용자를 로그아웃하는 방법을 확인합니다.
 
 ### <a name="download-the-sample"></a>샘플 다운로드
 
@@ -209,9 +222,11 @@ private void onSignOutClicked()
 > [!NOTE]
 > 앱을 등록하는 경우 왼쪽에 있는 빠른 시작 가이드를 사용하고 **Android**를 선택하세요. 그러면 **패키지 이름** 및 **서명 해시**를 앱에 제공하라는 페이지가 표시됩니다. 이러한 항목은 앱 구성이 작동하는지 확인하는 데 매우 중요합니다. 그런 다음, 앱에 사용할 수 있는 구성 개체를 받고 이를 잘라내어 auth_config.json 파일에 붙여넣습니다.
 
-![App 등록 화면](media/tutorial-v2-shared-device-mode/register-app.png) **Make this change for me(내게 맞게 변경)** 를 선택한 다음, 빠른 시작에서 요청하는 값을 Azure Portal에서 제공해야 합니다. 이 작업이 완료되면 필요한 모든 구성 파일이 생성됩니다.
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
-![앱 구성 정보 화면](media/tutorial-v2-shared-device-mode/config-info.png)
+**Make this change for me(내게 맞게 변경)** 를 선택한 다음, 빠른 시작에서 요청하는 값을 Azure Portal에서 제공해야 합니다. 이 작업이 완료되면 필요한 모든 구성 파일이 생성됩니다.
+
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
 ## <a name="set-up-a-tenant"></a>테넌트 설정
 
@@ -227,25 +242,25 @@ Google Play 스토어에서 Microsoft Authenticator 앱을 다운로드합니다
 
 Authenticator 앱을 시작하고, 주 계정 페이지로 이동합니다. **계정 추가** 페이지가 표시되면 디바이스를 공유할 준비가 되었습니다.
 
-![Authenticator 계정 추가 화면](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
- 오른쪽 메뉴 모음을 사용하여 **설정** 창으로 이동합니다. **회사 및 학교 계정** 아래에서 **디바이스 등록**을 선택합니다.
+오른쪽 메뉴 모음을 사용하여 **설정** 창으로 이동합니다. **회사 및 학교 계정** 아래에서 **디바이스 등록**을 선택합니다.
 
- ![Authenticator 계정 추가 화면](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
- 이 단추를 클릭하면 디바이스 연락처에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. 이는 디바이스에 대한 Android의 계정 통합 때문입니다. **허용**을 선택합니다.
+이 단추를 클릭하면 디바이스 연락처에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. 이는 디바이스에 대한 Android의 계정 통합 때문입니다. **허용**을 선택합니다.
 
- ![Authenticator 계정 추가 화면](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
 클라우드 디바이스 관리자는 **또는 공유 디바이스로 등록** 아래에서 조직 이메일을 입력해야 합니다. 그런 다음, **공유 디바이스로 등록** 단추를 클릭하고 해당 자격 증명을 입력합니다.
 
-![디바이스 등록 화면](media/tutorial-v2-shared-device-mode/register-device.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
-![로그인](media/tutorial-v2-shared-device-mode/sign-in.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
 디바이스는 이제 공유 모드에 있습니다.
 
-![디바이스 등록 화면](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
  디바이스의 로그인 및 로그아웃은 글로벌이므로 디바이스에서 MSAL 및 Microsoft Authenticator와 통합된 모든 앱에 적용됩니다. 이제 공유 디바이스 모드 기능을 사용하는 디바이스에 애플리케이션을 배포할 수 있습니다.
 
@@ -253,14 +268,17 @@ Authenticator 앱을 시작하고, 주 계정 페이지로 이동합니다. **�
 
 디바이스가 공유 모드로 전환되면 해당 디바이스가 조직에서 인식되고 조직 테넌트에서 추적됩니다. Azure Portal의 Azure Active Directory 블레이드에서 **조인 유형**을 살펴보면 공유 디바이스를 볼 수 있습니다.
 
-![Azure Portal의 모든 디바이스 블레이드](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
 ## <a name="running-the-sample-app"></a>샘플 앱 실행
 
 샘플 애플리케이션은 조직의 Graph API를 호출하는 간단한 앱입니다. 처음 실행하는 경우 애플리케이션이 직원 계정에서 새로운 것이므로 동의하라는 메시지가 표시됩니다.
 
-![앱 구성 정보 화면](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
 ## <a name="next-steps"></a>다음 단계
 
-[Android 디바이스의 공유 디바이스 모드](msal-android-shared-devices.md)에서 공유 모드에 대해 자세히 알아봅니다.
+Android 디바이스에서 Microsoft 인증 라이브러리 및 공유 디바이스 모드로 작업하는 방법에 대해 자세히 알아보세요.
+
+> [!div class="nextstepaction"]
+> [Android 디바이스의 공유 디바이스 모드](msal-android-shared-devices.md)

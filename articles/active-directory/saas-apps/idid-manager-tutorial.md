@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e656eb0062cafcf7a34008e0034ec0111242807d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ddc4e040824a7239aecbb24fc90123a88dc4e263
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545321"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824638"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>자습서: iDiD Manager와 Azure Active Directory 통합
 
@@ -99,11 +99,11 @@ iDiD Manager에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 4. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
 
-    ![iDiD Manager 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
+    ![스크린샷은 기본 SAML 구성을 보여줍니다.](common/preintegrated.png)
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![iDiD Manager 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://idid2.fi/saml/login/<domain>` 패턴을 사용하여 URL을 입력합니다.
 

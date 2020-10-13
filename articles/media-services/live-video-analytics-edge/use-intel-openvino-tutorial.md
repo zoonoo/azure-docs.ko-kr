@@ -4,12 +4,12 @@ description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: e620da1a4f0b7f782d478314fb0e2e83ab9a124a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d03737f43ee719b72860e7ffeff076e3f156cade
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906607"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776343"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -141,33 +141,15 @@ Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/
 ### <a name="run-the-sample-program-to-detect-vehicles"></a>샘플 프로그램을 실행하여 차량 감지
 이 자습서의 [그래프 토폴로지](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json)를 브라우저에서 열면 `inferencingUrl` 값이 `http://openvino:4000/vehicleDetection`으로 설정된 것이 보입니다. 따라서, 유추 서버가 라이브 비디오에서 차량을 감지하면 결과를 반환합니다.
 
-1. 디버깅 세션을 시작하려면 F5 키를 선택합니다. **터미널** 창에 메시지가 출력되어 표시됩니다.
-1. *operations.json* 코드가 `GraphTopologyList` 및 `GraphInstanceList` 직접 메서드를 호출하여 시작됩니다. 이전 빠른 시작이 완료된 후에 리소스를 정리한 경우 이 프로세스에서 빈 목록을 반환한 다음, 일시 중지합니다. 계속하려면 Enter 키를 선택합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
 
-    **터미널** 창에 직접 메서드 호출의 다음 세트가 표시됩니다.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="개요":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
-     * 이전 `topologyUrl`을 사용하는 `GraphTopologySet`에 대한 호출
-     * 다음 본문을 사용하는 `GraphInstanceSet`에 대한 호출
-
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph-1",
-           "properties": {
-             "topologyName": "InferencingWithOpenVINO",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="개요"
                }
              ]
            }

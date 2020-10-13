@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 2fadfac3fe9e66c3a05e2cceed19def607ff72c3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d980e0a5dd4b042f919775c205a20ea69e51f0bd
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539286"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91709005"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-123formbuilder-sso"></a>자습서: 123FormBuilder SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -133,7 +133,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **123FormBuilder SSO** 쪽에서 Single Sign-On을 구성하려면 [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/)로 이동하여 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/123formbuilder-tutorial/submit.png) 
+    ![SSO SAML - ID 공급자 구성 화면을 보여주는 스크린샷.](./media/123formbuilder-tutorial/submit.png) 
 
     a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: `B.Simon@Contoso.com`)를 입력합니다.
 

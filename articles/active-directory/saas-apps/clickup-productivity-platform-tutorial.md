@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 794a952ba719faa16e3584afaf8f2f292deb6c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8a8a9587fd50b63dc862f8b74bc99548699fa6e2
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551819"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>자습서: ClickUp Productivity 플랫폼과 Azure Active Directory 통합
 
@@ -118,17 +118,17 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
 
 2. **사용자 프로필**을 클릭한 다음, **설정**을 선택합니다.
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![스크린샷은 설정 아이콘이 선택된 ClickUp Productivity 테넌트를 보여줍니다.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure1.png)
+    ![스크린샷은 설정을 보여줍니다.](./media/clickup-productivity-platform-tutorial/configure1.png)
 
 3. SSO(Single Sign-On) 공급 기업에서 **Microsoft**를 선택합니다.
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure2.png)
+    ![스크린샷은 Microsoft에서 선택한 인증 창을 보여줍니다.](./media/clickup-productivity-platform-tutorial/configure2.png)
 
 4. **Microsoft Single Sign On 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure3.png)
+    ![스크린샷은 엔터티 ID를 복사하고 Azure 페더레이션 메타데이터 URL을 저장할 수 있는 Microsoft Single Sign On 구성 페이지를 보여줍니다.](./media/clickup-productivity-platform-tutorial/configure3.png)
 
     a. **복사**를 클릭하여 엔터티 ID 값을 복사하고 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
     
@@ -136,7 +136,7 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
 
 5. 설정을 완료하려면 **Microsoft로 인증하여 설정 완료**를 클릭하고 Microsoft 계정을 사용하여 인증합니다.
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure4.png)
+    ![스크린샷은 Microsoft로 인증하여 설정 완료 단추를 보여줍니다.](./media/clickup-productivity-platform-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -195,13 +195,13 @@ ClickUp Productivity 플랫폼에서 Azure AD Single Sign-On을 구성하려면 
 
 2. **사용자 프로필**을 클릭한 다음, **사람**을 선택합니다.
    
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/configure0.png)
+    ![스크린샷은 ClickUp Productivity 테넌트를 보여줍니다.](./media/clickup-productivity-platform-tutorial/configure0.png)
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/user1.png)
+    ![스크린샷은 선택된 사용자 링크를 보여줍니다.](./media/clickup-productivity-platform-tutorial/user1.png)
 
 3. 텍스트 상자에 사용자의 이메일 주소를 입력하고 **초대**를 클릭합니다.
 
-    ![ClickUp Productivity 구성](./media/clickup-productivity-platform-tutorial/user2.png)
+    ![스크린샷은 사용자를 이메일로 초대할 수 있는 팀 사용자 설정을 보여줍니다.](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
     > 사용자가 알림을 받고 계정을 활성화하려면 초대를 수락해야 합니다.

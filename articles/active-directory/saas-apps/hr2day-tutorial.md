@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 3c50e29e1373e9a9c01e9f5812c4146de070144a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 931a8463578468ec3a028d17b3f96d317c6fbe02
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553124"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>자습서: HR2day by Merces와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 5. HR2day by Merces 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
     > [!NOTE]
     > SAML 어설션을 구성하기 전에 [HR2day by Merces 클라이언트 지원 팀](mailto:servicedesk@merces.nl)에 문의하여 테넌트에 대한 고유 식별자 특성 값을 요청하세요. 다음 섹션의 단계를 완료하려면 이 값이 필요합니다.
@@ -124,9 +124,9 @@ HR2day by Merces에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    ![스크린샷은 새 클레임을 추가하는 옵션이 있는 사용자 클레임을 보여줍니다.](common/new-save-attribute.png)
 
-    ![이미지](common/new-attribute-details.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 클레임 관리 대화 상자를 보여줍니다.](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 

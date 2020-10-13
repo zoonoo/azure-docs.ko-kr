@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 24350c63df04e55107ed32c2d61d1026aa27bdb9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6c75103f74ee648c46b805df9495bc668ef4f5bd
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547633"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>자습서: Canvas와 Azure Active Directory 통합
 
@@ -223,11 +223,11 @@ Azure AD 사용자가 Canvas에 로그인할 수 있도록 하려면 Canvas로 �
 
 3. **사용자**를 클릭합니다.
 
-   ![사용자](./media/canvas-lms-tutorial/ic775995.png "사용자")
+   ![스크린샷은 사용자가 선택된 캔버스 메뉴를 보여줍니다.](./media/canvas-lms-tutorial/ic775995.png "사용자")
 
 4. **새 사용자 추가**를 클릭합니다.
 
-   ![사용자](./media/canvas-lms-tutorial/ic775996.png "사용자")
+   ![스크린샷은 새 사용자 추가 단추를 보여줍니다.](./media/canvas-lms-tutorial/ic775996.png "사용자")
 
 5. 새 사용자 추가 대화 상자 페이지에서 다음 단계를 수행합니다.
 

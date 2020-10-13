@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: d453cc5300dc658e4b33bb0591100deae5f34aef
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544743"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
 
@@ -140,7 +140,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 4. **IDP 구성** 탭에서 다음 단계를 완료합니다.
 
-    ![사용자 및 그룹 탭](./media/answerhub-tutorial/ic785172.png "SAML 설정")  
+    ![스크린샷은 사용자 및 그룹 탭이 선택된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785172.png "SAML 설정")  
   
     a. **IDP 로그인 URL** 상자에 Azure Portal에서 복사한 **로그인 URL**을 붙여넣습니다.
   
@@ -231,7 +231,7 @@ Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사
 
 4. 왼쪽 창의 **사용자 관리** 섹션에서 **사용자 만들기 또는 가져오기**를 선택한 다음, **사용자 및 그룹**을 선택합니다.
 
-   ![사용자 및 그룹 탭](./media/answerhub-tutorial/ic785175.png "사용자 및 그룹")
+   ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785175.png "사용자 및 그룹")
 
 5. 추가하려는 유효한 Azure AD 계정의 **이메일 주소**, **사용자 이름** 및 **암호**를 적절한 상자에 입력한 다음, **저장**을 선택합니다.
 

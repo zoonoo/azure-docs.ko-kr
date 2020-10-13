@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 22225d9810c7b913505cb003a1ed2ce8f1a144e1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b22bf4ee3ff830a80ee97851f08173257697c50d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555341"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826489"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evernote"></a>자습서: Evernote와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -92,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. **서명** 옵션을 수정하려면 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-certificate.png) 
+    !["편집" 단추가 선택된 "SAML 서명 인증서" 대화 상자를 보여주는 스크린샷.](common/edit-certificate.png) 
 
     ![이미지](./media/evernote-tutorial/samlassertion.png)
 
@@ -181,7 +181,7 @@ Evernote의 경우 프로비전은 수동 작업입니다.
 
 3. **'관리 콘솔'** 에서 **'사용자 추가'** 로 이동합니다.
 
-    ![테스트 사용자 추가](./media/evernote-tutorial/create_aaduser_0001.png)
+    !["사용자 추가"가 선택된 "사용자" 메뉴를 보여주는 스크린샷.](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. **전자 메일** 텍스트 상자에서 **팀 멤버를 추가**하고 사용자 계정의 전자 메일 주소를 입력한 다음 **초대**를 클릭합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 397197c2ab3ba4f135912eab800f1abd7ab73a0f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 729427dac174037c8750af7ab0f6cb17fa4d4c1e
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531084"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>자습서: BitaBIZ와 Azure Active Directory 통합
 
@@ -132,15 +132,15 @@ BitaBIZ에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 2. **SETUP ADMIN(설치 관리자)** 을 클릭합니다.
 
-    ![BitaBIZ 구성](./media/bitabiz-tutorial/settings1.png)
+    ![스크린샷은 설치 관리자가 선택된 브라우저 창의 일부를 보여줍니다.](./media/bitabiz-tutorial/settings1.png)
 
 3. **값 추가** 섹션 아래에서 **Microsoft 통합**을 클릭합니다.
 
-    ![BitaBIZ 구성](./media/bitabiz-tutorial/settings2.png)
+    ![스크린샷은 Microsoft 통합이 선택된 값 추가를 보여줍니다.](./media/bitabiz-tutorial/settings2.png)
 
 4. **Microsoft Azure AD(Single Sign-On 사용)** 섹션까지 아래로 스크롤하고 다음 단계를 수행합니다.
 
-    ![BitaBIZ 구성](./media/bitabiz-tutorial/settings3.png)
+    ![스크린샷은 이 단계에서 설명한 정보를 입력하는 Microsoft Azure AD 섹션을 보여줍니다.](./media/bitabiz-tutorial/settings3.png)
 
     a. **엔터티 ID(Azure AD의 "식별자")** 텍스트 상자의 값을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 텍스트 상자에 붙여넣습니다. 
 
@@ -218,19 +218,19 @@ BitaBIZ의 경우 프로비전은 수동 작업입니다.
 
 2. **SETUP ADMIN(설치 관리자)** 을 클릭합니다.
 
-    ![BitaBIZ 사용자 추가](./media/bitabiz-tutorial/settings1.png)
+    ![스크린샷은 설치 관리자가 선택된 브라우저 창의 일부를 보여줍니다.](./media/bitabiz-tutorial/settings1.png)
 
 3. **조직**  섹션 아래에서 **사용자 추가**를 클릭합니다.
 
-    ![BitaBIZ 사용자 추가](./media/bitabiz-tutorial/user1.png)
+    ![스크린샷은 사용자 추가가 선택된 조직 섹션을 보여줍니다.](./media/bitabiz-tutorial/user1.png)
 
 4. **새 직원 추가**를 클릭합니다.
 
-    ![BitaBIZ 사용자 추가](./media/bitabiz-tutorial/user2.png)
+    ![스크린샷은 새 직원 추가가 선택된 사용자 추가를 보여줍니다.](./media/bitabiz-tutorial/user2.png)
 
 5. **새 직원 추가** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![BitaBIZ 사용자 추가](./media/bitabiz-tutorial/user3.png)
+    ![스크린샷은 이 단계에서 설명한 정보를 입력하는 페이지를 보여줍니다.](./media/bitabiz-tutorial/user3.png)
 
     a. **이름** 텍스트 상자에서 사용자의 이름(예: Britta)을 입력합니다.
 

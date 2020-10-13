@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.author: alkohli
-ms.openlocfilehash: a23b0b2c71207bf84a4938d54a78a62efb6cbcbd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: ca7b83d24f2416b224963559361faf5a7775cd0d
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71172674"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91631542"
 ---
 Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수신됨**으로 업데이트됩니다. 디바이스에 손상이나 변조 흔적이 있는지 물리적으로 확인됩니다.
 
@@ -20,7 +20,7 @@ Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수
 
 원본에서 데이터를 삭제하기 전에 데이터가 Azure에 업로드되었는지 확인합니다. 데이터는 다음 위치에 있을 수 있습니다.
 
-- Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
+- Azure Storage 계정. Data Box에 데이터를 복사하면 데이터가 Azure Storage 계정의 다음 경로 중 하나에 업로드됩니다.
 
   - 블록 Blob 및 페이지 Blob의 경우: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Azure Files의 경우: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
@@ -37,7 +37,7 @@ Microsoft에서 디바이스를 수신하고 검사하면 주문 상태가 **수
 
         ![리소스 그룹에 연결된 관리 디스크](media/data-box-verify-upload-return/managed-disks-resource-group.png)
 
-    - VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 페이지 Blob으로 업로드되지만 VHD를 관리 디스크로 변환하지 못합니다. 준비 **스토리지 계정 > Blob**으로 차례로 이동한 다음, 적절한 컨테이너(표준 SSD, 표준 HDD 또는 표준 HDD)를 선택합니다. VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드됩니다.
+    - VHDX, 동적 또는 차이점 보관용 VHD를 복사한 경우 VHDX 또는 VHD가 준비 스토리지 계정에 페이지 Blob으로 업로드되지만 VHD를 관리 디스크로 변환하지 못합니다. 준비 **스토리지 계정 > Blob**으로 차례로 이동하고 적절한 컨테이너(표준 SSD, 표준 HDD 또는 프리미엄 SSD)를 선택합니다. VHD는 준비 스토리지 계정에 페이지 Blob으로 업로드되고 요금이 부과됩니다.
 
 
 ## <a name="erasure-of-data-from-data-box"></a>Data Box에서 데이터 지우기

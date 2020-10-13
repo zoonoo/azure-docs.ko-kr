@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: bca696cc633a1d2a4fd64180135bb4b1e25f801c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 953b1d766788092564ae32f6c0ab1fb3e57c492f
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540587"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>자습서: ARC Facilities와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -84,15 +84,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. ARC Facilities 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 호출된 사용자 특성 대화 상자를 보여줍니다.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도, ARC Facilities 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
     a. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
 
-    ![이미지](./media/arc-facilities-tutorial/config01.png)
+    ![스크린샷은 호출된 클레임에서 반환된 그룹 옆에 있는 펜으로 사용자 특성 및 클레임을 보여줍니다.](./media/arc-facilities-tutorial/config01.png)
 
-    ![이미지](./media/arc-facilities-tutorial/config02.png)
+    ![스크린샷은 모든 그룹 및 그룹 ID가 선택되고 저장 단추가 호출된 그룹 클레임을 보여줍니다.](./media/arc-facilities-tutorial/config02.png)
 
     b. 라디오 단추 목록에서 **모든 그룹**을 선택합니다.
 

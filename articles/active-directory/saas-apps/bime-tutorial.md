@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 149656bebac7e8fab24dc1e1847a4e56bf5f3888
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0465d6219f9c9d13b4dd3321beb90af524cade36
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547344"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>자습서: Bime와 Azure Active Directory 통합
 
@@ -132,7 +132,7 @@ Bime에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 2. 도구 모음에서 **Admin**과 **계정**을 차례로 클릭합니다.
   
-    ![관리자](./media/bime-tutorial/ic775558.png "Admin")
+    ![스크린샷은 선택된 관리자 항목과 선택된 계정을 보여줍니다.](./media/bime-tutorial/ic775558.png "Admin")
 
 3. 계정 구성 페이지에서 다음 단계를 수행합니다.
   
@@ -207,7 +207,7 @@ Azure AD 사용자가 Bime에 로그인할 수 있도록 하려면 Bime로 프�
 
 2. 도구 모음에서 **관리자**와 **사용자**를 차례로 클릭합니다.
 
-    ![관리자](./media/bime-tutorial/ic775561.png "Admin")
+    ![스크린샷은 선택된 관리자 항목과 선택된 사용자를 보여줍니다.](./media/bime-tutorial/ic775561.png "Admin")
 
 3. **사용자 목록**에서 **새 사용자 추가**("+")를 클릭합니다.
 

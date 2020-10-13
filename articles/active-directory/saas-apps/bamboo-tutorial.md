@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ed587e8ee54aeb36b6790314e849f38b1bab1007
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 286d350493afb1e74f9d2ba6eb445b2c46d995b6
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549401"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>자습서: SAML SSO for Bamboo by resolution GmbH와 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ SAML SSO for Bamboo by resolution GmbH에서 Azure AD Single Sign-On을 구성�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![SAML SSO for Bamboo by resolution GmbH 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![SAML SSO for Bamboo by resolution GmbH 도메인 및 URL Single Sign-On 정보.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/samlsso` 패턴을 사용하여 URL을 입력합니다.
 
@@ -108,7 +108,7 @@ SAML SSO for Bamboo by resolution GmbH에서 Azure AD Single Sign-On을 구성�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![SAML SSO for Bamboo by resolution GmbH 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/samlsso` 패턴을 사용하여 URL을 입력합니다.
 

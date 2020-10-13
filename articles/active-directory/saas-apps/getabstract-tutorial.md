@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6881681eef553dd2e21ba68a2bf722c7af1fc4a7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550851"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>자습서: Getabstract와 Azure Active Directory 통합
 
@@ -105,7 +105,7 @@ Getabstract에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Getabstract 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자" 및 "회신 URL"이 강조 표시되고 "저장" 단추가 선택된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. 
 

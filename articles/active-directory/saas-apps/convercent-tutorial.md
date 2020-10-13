@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f765b950074958f801bef2fdc8e555acf9a47986
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2dfc8bbb570c57ef22c2bde210dc7a64b48fb06d
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522102"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>자습서: Convercent와 Azure Active Directory 통합
 
@@ -98,7 +98,7 @@ Convercent에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Convercent 도메인 및 URL Single Sign-On 정보](common/both-identifier.png)
+    !["식별자(엔터티 ID)" 필드 및 "저장" 단추가 강조 표시된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/both-identifier.png)
 
     **식별자** 텍스트 상자에 `https://<instancename>.convercent.com/` 패턴을 사용하여 URL을 입력합니다.
 

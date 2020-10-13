@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 3beefb467f7875e6bc76765811c6525f5dab9393
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83f1eef14a5c22fbab998fb6c939775873748670
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536226"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774121"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-discovery-benefits-sso"></a>자습서: Discovery Benefits SSO와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -86,7 +86,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **편집** 아이콘을 클릭하여 **고유한 사용자 ID(이름 ID)** 대화 상자를 엽니다.
 
-    ![Discovery Benefits SSO 구성](./media/discovery-benefits-sso-tutorial/attribute01.png)
+    ![오른쪽에 "필수 클레임" 타원이 선택된 "사용자 특성 및 클레임" 섹션을 보여주는 스크린샷.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
     ![Discovery Benefits SSO 구성](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. SSO 구성에 필요한 추가 클레임(`SSOInstance` 및 `SSOID`)은 자동으로 채워집니다. **편집** 아이콘을 사용하여 해당 값을 조직별로 매핑합니다.
 
-    ![Discovery Benefits SSO 구성](./media/discovery-benefits-sso-tutorial/attribute03.png)
+    !["SSO 인스턴스" 및 "SSO ID" 값이 강조 표시된 "사용자 특성 및 클레임"을 보여주는 스크린샷.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

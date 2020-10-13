@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ccdfddd3ea76eddea2ab672fe07a092c9b1f1b62
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555317"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817056"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>자습서: ExpenseIn과 Azure Active Directory 연결
 
@@ -135,11 +135,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 페이지 위쪽의 **관리자**를 클릭한 후 **Single Sign-On**으로 이동하고 **공급자 추가**를 클릭합니다.
 
-     ![ExpenseIn 구성](./media/expenseIn-tutorial/config01.png)
+     !["관리자" 탭과 "Single Sign-On - 공급자" 페이지 및 "공급자 추가"가 선택된 것을 보여주는 스크린샷.](./media/expenseIn-tutorial/config01.png)
 
 1. **새 ID 공급자** 팝업에서 다음 단계를 수행합니다.
 
-    ![ExpenseIn 구성](./media/expenseIn-tutorial/config02.png)
+    ![값이 입력된 "ID 공급자 편집" 팝업을 보여주는 스크린샷.](./media/expenseIn-tutorial/config02.png)
 
     a. **공급자 이름** 텍스트 상자에 이름(예: Azure)을 입력합니다.
 
@@ -163,7 +163,7 @@ Azure AD 사용자가 ExpenseIn에 로그인할 수 있도록 하려면 ExpenseI
 
 2. 페이지 위쪽의 **관리자**를 클릭한 후 **사용자**로 이동하고 **새 사용자**를 클릭합니다.
 
-     ![ExpenseIn 구성](./media/expenseIn-tutorial/config03.png)
+     !["관리자" 탭과 "새 사용자"가 선택된 "사용자 관리" 페이지를 보여주는 스크린샷.](./media/expenseIn-tutorial/config03.png)
 
 3. **세부 정보** 팝업에서 다음 단계를 수행합니다.
 

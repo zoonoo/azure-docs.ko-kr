@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
+ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80999573"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651448"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>자습서: Azure IoT Central에서 데이터 내보내기 및 Power BI에서 인사이트 시각화
 
@@ -409,7 +409,7 @@ Power BI 대시보드에는 소매점 모니터링 애플리케이션의 데이�
     * **타임스탬프** 필드를 선택한 다음, **동적 콘텐츠** 목록에서 **x-opt-enquetime**을 선택합니다.
     * **드웰 시간 1** 필드를 선택한 다음, **원격 분석 구문 분석** 옆에 있는 **자세히 보기**를 선택합니다. 그런 다음, **DwellTime1**을 선택합니다.
     * **드웰 시간 2** 필드를 선택한 다음, **원격 분석 구문 분석** 옆에 있는 **자세히 보기**를 선택합니다. 그런 다음, **DwellTime2**를 선택합니다.
-    * **저장**을 선택하여 변경 내용을 저장합니다. **드웰 시간 인터페이스** 작업은 다음 스크린샷과 같습니다. ![선점 작업](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * **저장**을 선택하여 변경 내용을 저장합니다. **드웰 시간 인터페이스** 작업은 다음 스크린샷과 같습니다. !["Dwell Time 인터페이스" 작업을 보여주는 스크린샷.](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. **사람 수 인터페이스** 작업, **작업 추가**를 차례로 선택합니다.
 1. **커넥터 및 작업 검색**에서 **Power BI**를 입력한 다음, **Enter** 키를 누릅니다.
 1. **데이터 세트에 행 추가(미리 보기)** 작업을 선택합니다.
@@ -484,7 +484,7 @@ Power BI 대시보드에는 소매점 모니터링 애플리케이션의 데이�
 
 다음 스크린샷과 같이 대시보드의 타일 크기를 조정하고 다시 정렬합니다.
 
-![Power BI 대시보드](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![크기가 조정되고 타일이 다시 정렬된 Power BI 대시보드를 보여주는 스크린샷.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 몇 가지 추가 그래픽 리소스를 추가하여 대시보드를 추가로 사용자 지정할 수 있습니다.
 

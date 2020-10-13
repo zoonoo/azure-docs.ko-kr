@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 8724bb332e48bb9e458550b312fb9c1d41da2477
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a98bec006a1bbb755a0c310b8e0409302c45198
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550574"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819176"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>자습서: Infor Retail – Information Management과 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Infor Retail – Information Management 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
@@ -112,7 +112,7 @@ Infor Retail – Information Management에서 Azure AD Single Sign-On을 구성�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Infor Retail – Information Management 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<company name>.mingle.infor.com/<company code>` 패턴을 사용하여 URL을 입력합니다.
 

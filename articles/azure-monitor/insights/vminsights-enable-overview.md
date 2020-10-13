@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998410"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995683"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>VM용 Azure Monitor 사용 개요
 
@@ -30,7 +30,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용 하 여 지정 된 구독 또는 리소스 그룹에서 여러 Azure Vm, Azure Arc Vm, Azure VMSS 또는 Azure Arc 컴퓨터를 사용 하도록 설정 합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -70,7 +70,7 @@ Log Analytics 작업 영역이 없는 경우 리소스 중 하나를 사용 하 
 * [Azure CLI](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 - Azure 가상 머신
 - Azure 가상 머신 확장 집합
@@ -111,7 +111,7 @@ VM용 Azure Monitor 하려면 모니터링할 가상 컴퓨터 또는 가상 컴
 
 다음은 이러한 에이전트를 배포 하는 여러 가지 방법입니다. 
 
-| 방법 | Description |
+| 메서드 | Description |
 |:---|:---|
 | [Azure Portal](./vminsights-enable-portal.md) | 단일 가상 머신, 가상 머신 확장 집합 또는 Azure Arc와 연결 된 하이브리드 가상 머신에 두 에이전트를 모두 설치 합니다. |
 | [리소스 관리자 템플릿](vminsights-enable-powershell.md) | 지원 되는 방법 중 하나를 사용 하 여 CLI 및 PowerShell을 비롯 한 리소스 관리자 템플릿을 배포 하는 두 에이전트를 모두 설치 합니다. |

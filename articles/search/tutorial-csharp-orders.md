@@ -7,20 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/02/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a6114791a1909a0cd02b96a4cdcc4c133b8e662e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5fe8bf70374a2eec639a0a9365f7d227cf259d06
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280847"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91667251"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 검색 결과 정렬
 
-자습서 시리즈의 이 시점까지는 결과가 반환되어 기본 순서로 표시됩니다. 이는 데이터가 위치한 순서이거나 기본 _점수 매기기 프로필_이 정의되었을 수 있으며, 이 프로필은 정렬 매개 변수를 지정하지 않은 경우에 사용됩니다. 이 자습서에서는 기본 속성에 따라 결과를 정렬하는 방법을 살펴본 다음, 기본 속성이 동일한 결과에 대해 보조 속성에 대한 해당 선택 항목을 정렬하는 방법에 대해 살펴보겠습니다. 최종적인 예제에서는 숫자 값에 따라 정렬하는 대신 사용자 지정 점수 매기기 프로필에 따라 정렬하는 방법을 보여 줍니다. _복합 형식_의 표시에 대해서도 좀 더 자세히 살펴봅니다.
-
-반환된 결과를 쉽게 비교하기 위해 이 프로젝트는 [C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 자습서에서 만든 페이지 매김 프로젝트를 기반으로 합니다.
+이 자습서 시리즈를 통해 결과가 반환되고 [기본 순서](index-add-scoring-profiles.md#what-is-default-scoring)에 표시되었습니다. 이 자습서에서는 기본 및 보조 정렬 조건을 추가합니다. 최종 예제에서는 숫자 값을 기준으로 정렬하지 않고 사용자 지정 점수 매기기 프로필을 기준으로 결과의 순위를 지정하는 방법을 보여줍니다. _복합 형식_의 표시에 대해서도 좀 더 자세히 살펴봅니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -29,34 +27,42 @@ ms.locfileid: "91280847"
 > * 지리적 지점으로부터의 거리 기준의 결과 필터링
 > * 점수 매기기 프로필 기준의 결과 정렬
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="overview"></a>개요
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서에서는 [검색 결과에 페이징 추가 ](tutorial-csharp-paging.md) 자습서에서 만든 무한 스크롤 프로젝트를 확장합니다.
 
-[C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 프로젝트를 가동하여 실행합니다. 이 프로젝트는 사용자 고유의 버전이거나 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)의 버전을 설치해도 됩니다.
+이 자습서의 완성된 최종 코드 버전은 다음 프로젝트에서 찾을 수 있습니다.
+
+* [5-order-results(GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/5-order-results)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* [2b-add-infinite-scroll(GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll) 솔루션. 이 프로젝트는 이전 자습서에서 빌드한 개발자 고유의 버전일 수도 있고 GitHub의 복사본일 수도 있습니다.
+
+이 자습서는 [Azure.Search.Documents(버전 11)](https://www.nuget.org/packages/Azure.Search.Documents/) 패키지를 사용하도록 업데이트되었습니다. 이전 버전의 .NET SDK는 [Microsoft.Azure.Search(버전 10) 코드 샘플](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10)을 참조하세요.
 
 ## <a name="order-results-based-on-one-property"></a>단일 속성 기준의 결과 정렬
 
-호텔 등급과 같은 하나의 속성을 기준으로 결과를 정렬하는 경우 정렬된 결과를 원할 뿐만 아니라 정렬이 올바른지도 확인하기를 원합니다. 즉 등급에 따라 정렬하는 경우 등급을 보기에 표시해야 합니다.
+호텔 등급과 같은 하나의 속성을 기준으로 결과를 정렬할 때 정렬된 결과를 원할 뿐만 아니라 정렬이 올바른지도 확인할 수 있기를 원합니다. 결과에 등급 필드를 추가하면 결과가 올바르게 정렬되었는지 확인할 수 있습니다.
 
-이 자습서에서는 각 호텔에 대한 결과 표시, 가장 저렴한 객실 요금 및 가장 비싼 객실 요금도 조금 더 추가할 것입니다. 정렬에 대해 자세히 살펴보면서 정렬하는 항목이 보기에도 표시되는지 확인하기 위해 값도 추가할 것입니다.
+이 연습에서는 각 호텔에 대한 결과 표시, 가장 저렴한 객실 요금 및 가장 비싼 객실 요금도 조금 더 추가할 것입니다.
 
-정렬을 사용하도록 설정하기 위해 모델을 수정할 필요가 없습니다. 보기와 컨트롤러는 업데이트해야 합니다. 먼저 홈 컨트롤러를 여세요.
+정렬을 사용하도록 설정하기 위해 모델을 수정할 필요가 없습니다. 보기와 컨트롤러만 업데이트하면 됩니다. 먼저 홈 컨트롤러를 여세요.
 
 ### <a name="add-the-orderby-property-to-the-search-parameters"></a>검색 매개 변수에 OrderBy 속성 추가
 
-1. 단일 숫자 속성을 기준으로 결과를 정렬하는 데 필요한 모든 작업은 **OrderBy** 매개 변수를 속성 이름으로 설정하는 것입니다. **Index(SearchData model)** 메서드에서 다음 줄을 검색 매개 변수에 추가합니다.
+1. 속성 이름에 **OrderBy** 옵션을 추가합니다. **Index(SearchData model)** 메서드에서 다음 줄을 검색 매개 변수에 추가합니다.
 
     ```cs
-        OrderBy = new[] { "Rating desc" },
+    OrderBy = new[] { "Rating desc" },
     ```
 
     >[!Note]
     > 기본 순서는 오름차순이지만, 이를 명확히 하기 위해 **asc**를 속성에 추가할 수 있습니다. 내림차순은 **desc**를 추가하여 지정합니다.
 
-2. 이제 앱을 실행하고 일반적인 검색 용어를 입력합니다. 사용자가 아닌 개발자에게는 결과를 쉽게 확인할 수 있는 방법이 없으므로 결과가 올바른 순서일 수도 있고 아닐 수도 있습니다!
+1. 이제 앱을 실행하고 일반적인 검색 용어를 입력합니다. 사용자가 아닌 개발자에게는 결과를 쉽게 확인할 수 있는 방법이 없으므로 결과가 올바른 순서일 수도 있고 아닐 수도 있습니다!
 
-3. 결과가 등급에 따라 정렬된다는 것을 명확히 지정해 보겠습니다. 먼저 hotel.css 파일의 **box1** 및 **box2** 클래스를 다음 클래스로 바꿉니다(이러한 클래스는 모두 이 자습서에 필요한 새 클래스임).
+1. 결과가 등급에 따라 정렬된다는 것을 명확히 지정해 보겠습니다. 먼저 hotel.css 파일의 **box1** 및 **box2** 클래스를 다음 클래스로 바꿉니다(이러한 클래스는 모두 이 자습서에 필요한 새 클래스임).
 
     ```html
     textarea.box1A {
@@ -114,22 +120,22 @@ ms.locfileid: "91280847"
     }
     ```
 
-    >[!Tip]
-    >브라우저는 일반적으로 css 파일을 캐시합니다. 그러면 기존 css 파일을 사용하여 편집한 내용이 무시될 수 있습니다. 이 문제와 관련하여 버전 매개 변수가 포함된 쿼리 문자열을 링크에 추가하는 것이 좋습니다. 다음은 그 예입니다. 
+    > [!Tip]
+    > 브라우저는 일반적으로 css 파일을 캐시합니다. 그러면 기존 css 파일을 사용하여 편집한 내용이 무시될 수 있습니다. 이 문제와 관련하여 버전 매개 변수가 포함된 쿼리 문자열을 링크에 추가하는 것이 좋습니다. 다음은 그 예입니다. 
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
     >```
     >
-    >브라우저에서 이전 css 파일을 사용한다고 생각되면 버전 번호를 업데이트합니다.
+    > 브라우저에서 이전 css 파일을 사용한다고 생각되면 버전 번호를 업데이트합니다.
 
-4. **Index(SearchData model)** 메서드에서 **Rating** 속성을 **Select** 매개 변수에 추가합니다.
+1. **Index(SearchData model)** 메서드에서 **Rating** 속성을 **Select** 매개 변수에 추가합니다.
 
     ```cs
     Select = new[] { "HotelName", "Description", "Rating"},
     ```
 
-5. 보기(index.cshtml)를 열고, 렌더링 루프( **&lt;!-- Show the hotel data(호텔 데이터를 표시합니다). --&gt;** )를 다음 코드로 바꿉니다.
+1. 보기(index.cshtml)를 열고, 렌더링 루프( **&lt;!-- Show the hotel data(호텔 데이터를 표시합니다). --&gt;** )를 다음 코드로 바꿉니다.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -144,7 +150,7 @@ ms.locfileid: "91280847"
                 }
     ```
 
-6. 등급은 표시된 첫 번째 페이지와 무한 스크롤을 통해 호출되는 후속 페이지에서 모두 사용할 수 있어야 합니다. 이 두 상황 중에서 후자의 경우 컨트롤러의 **Next** 작업과 보기의 **scrolled** 함수를 모두 업데이트해야 합니다. 컨트롤러부터 **Next** 메서드를 다음 코드로 변경합니다. 이 코드는 등급 텍스트를 만들고 전달합니다.
+1. 등급은 표시된 첫 번째 페이지와 무한 스크롤을 통해 호출되는 후속 페이지에서 모두 사용할 수 있어야 합니다. 이 두 상황 중에서 후자의 경우 컨트롤러의 **Next** 작업과 보기의 **scrolled** 함수를 모두 업데이트해야 합니다. 컨트롤러부터 **Next** 메서드를 다음 코드로 변경합니다. 이 코드는 등급 텍스트를 만들고 전달합니다.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -172,7 +178,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-7. 이제 등급 텍스트를 표시하도록 보기의 **scrolled** 함수를 업데이트합니다.
+1. 이제 등급 텍스트를 표시하도록 보기의 **scrolled** 함수를 업데이트합니다.
 
     ```javascript
             <script>
@@ -194,7 +200,7 @@ ms.locfileid: "91280847"
 
     ```
 
-8. 이제 앱을 다시 실행합니다. "wifi"와 같은 일반적인 용어를 검색하여 결과가 호텔 등급의 내림차순으로 정렬되는지 확인합니다.
+1. 이제 앱을 다시 실행합니다. "wifi"와 같은 일반적인 용어를 검색하여 결과가 호텔 등급의 내림차순으로 정렬되는지 확인합니다.
 
     ![등급 기준 정렬](./media/tutorial-csharp-create-first-app/azure-search-orders-rating.png)
 
@@ -212,7 +218,7 @@ ms.locfileid: "91280847"
         public double expensive { get; set; }
     ```
 
-2. 홈 컨트롤러에서 **Index(SearchData model)** 작업이 완료되면 객실 요금을 계산합니다. 임시 데이터를 저장한 후 계산을 추가합니다.
+1. 홈 컨트롤러에서 **Index(SearchData model)** 작업이 완료되면 객실 요금을 계산합니다. 임시 데이터를 저장한 후 계산을 추가합니다.
 
     ```cs
                 // Ensure TempData is stored for the next call.
@@ -243,13 +249,13 @@ ms.locfileid: "91280847"
                 }
     ```
 
-3. 컨트롤러의 **Index(SearchData model)** 작업 메서드에서 **Rooms** 속성을 **Select** 매개 변수에 추가합니다.
+1. 컨트롤러의 **Index(SearchData model)** 작업 메서드에서 **Rooms** 속성을 **Select** 매개 변수에 추가합니다.
 
     ```cs
      Select = new[] { "HotelName", "Description", "Rating", "Rooms" },
     ```
 
-4. 보기의 렌더링 루프를 변경하여 결과의 첫 번째 페이지에 대한 요금 범위를 표시합니다.
+1. 보기의 렌더링 루프를 변경하여 결과의 첫 번째 페이지에 대한 요금 범위를 표시합니다.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -266,7 +272,7 @@ ms.locfileid: "91280847"
                 }
     ```
 
-5. 이후의 결과 페이지에 대한 요금 범위를 전달하도록 홈 컨트롤러의 **Next** 메서드를 변경합니다.
+1. 이후의 결과 페이지에 대한 요금 범위를 전달하도록 홈 컨트롤러의 **Next** 메서드를 변경합니다.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -296,7 +302,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-6. 객실 요금 텍스트를 처리하도록 보기의 **scrolled** 함수를 업데이트합니다.
+1. 객실 요금 텍스트를 처리하도록 보기의 **scrolled** 함수를 업데이트합니다.
 
     ```javascript
             <script>
@@ -318,7 +324,7 @@ ms.locfileid: "91280847"
             </script>
     ```
 
-7. 앱을 실행하고 객실 요금 범위가 표시되는지 확인합니다.
+1. 앱을 실행하고 객실 요금 범위가 표시되는지 확인합니다.
 
     ![객실 요금 범위 표시](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
@@ -338,7 +344,7 @@ ms.locfileid: "91280847"
     >[!Tip]
     >**OrderBy** 목록에는 임의 개수의 속성을 입력할 수 있습니다. 호텔의 등급과 리모델링 날짜가 동일한 경우 호텔을 구분하기 위해 세 번째 속성을 입력할 수 있습니다.
 
-2. 다시 한번, 보기에서 리모델링 날짜를 확인하여 정렬이 올바른지 확인해야 합니다. 리모델링과 같은 경우에는 아마도 1년이 필요할 것입니다. 보기의 렌더링 루프를 다음 코드로 변경합니다.
+1. 다시 한번, 보기에서 리모델링 날짜를 확인하여 정렬이 올바른지 확인해야 합니다. 리모델링과 같은 경우에는 아마도 1년이 필요할 것입니다. 보기의 렌더링 루프를 다음 코드로 변경합니다.
 
     ```cs
                 <!-- Show the hotel data. -->
@@ -357,7 +363,7 @@ ms.locfileid: "91280847"
                 }
     ```
 
-3. 마지막 리모델링 날짜의 연도 구성 요소를 전달하도록 홈 컨트롤러의 **Next** 메서드를 변경합니다.
+1. 마지막 리모델링 날짜의 연도 구성 요소를 전달하도록 홈 컨트롤러의 **Next** 메서드를 변경합니다.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -389,7 +395,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-4. 리모델링 텍스트를 표시하도록 보기의 **scrolled** 함수를 변경합니다.
+1. 리모델링 텍스트를 표시하도록 보기의 **scrolled** 함수를 변경합니다.
 
     ```javascript
             <script>
@@ -412,7 +418,7 @@ ms.locfileid: "91280847"
             </script>
     ```
 
-5. 앱을 실행합니다. "pool"(수영장) 또는 "view"(전망)와 같은 일반적인 용어를 검색하여 동일한 등급의 호텔이 이제 리모델링 날짜의 내림차순으로 표시되는지 확인합니다.
+1. 앱을 실행합니다. "pool"(수영장) 또는 "view"(전망)와 같은 일반적인 용어를 검색하여 동일한 등급의 호텔이 이제 리모델링 날짜의 내림차순으로 표시되는지 확인합니다.
 
     ![리모델링 날짜 기준 정렬](./media/tutorial-csharp-create-first-app/azure-search-orders-renovation.png)
 
@@ -431,13 +437,13 @@ ms.locfileid: "91280847"
         Filter = $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') le {model.radius}",
     ```
 
-2. 위의 필터는 거리를 기준으로 결과를 정렬하지 _않으며_ 이상값만 제거할 뿐입니다. 결과를 정렬하려면 geoDistance 메서드를 지정하는 **OrderBy** 설정을 입력합니다.
+1. 위의 필터는 거리를 기준으로 결과를 정렬하지 _않으며_ 이상값만 제거할 뿐입니다. 결과를 정렬하려면 geoDistance 메서드를 지정하는 **OrderBy** 설정을 입력합니다.
 
     ```cs
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Azure Cognitive Search에서 거리 필터를 사용하여 결과를 반환했지만 데이터와 지정된 지점 사이를 계산한 거리는 반환되지 _않습니다_. 이 값을 결과에 표시하려면 보기 또는 컨트롤러에서 해당 값을 다시 계산합니다.
+1. Azure Cognitive Search에서 거리 필터를 사용하여 결과를 반환했지만 데이터와 지정된 지점 사이를 계산한 거리는 반환되지 _않습니다_. 이 값을 결과에 표시하려면 보기 또는 컨트롤러에서 해당 값을 다시 계산합니다.
 
     다음 코드는 두 개의 lat/lon(위도/경도) 지점 사이의 거리를 계산합니다.
 
@@ -460,7 +466,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-4. 이제 이러한 개념을 함께 연결해야 합니다. 그러나 이러한 코드 조각은 자습서에서 어느 정도까지 진행하는 코드이며, 지도 기반 앱을 빌드하는 것은 독자를 위한 연습용으로 남겨집니다. 이 예제를 좀 더 수행하려면 반지름이 있는 도시 이름을 입력하거나 지도에서 지점을 찾아 반지름을 선택하는 것이 좋습니다. 이러한 옵션을 자세히 알아보려면 다음 리소스를 참조하세요.
+1. 이제 이러한 개념을 함께 연결해야 합니다. 그러나 이러한 코드 조각은 자습서에서 어느 정도까지 진행하는 코드이며, 지도 기반 앱을 빌드하는 것은 독자를 위한 연습용으로 남겨집니다. 이 예제를 좀 더 수행하려면 반지름이 있는 도시 이름을 입력하거나 지도에서 지점을 찾아 반지름을 선택하는 것이 좋습니다. 이러한 옵션을 자세히 알아보려면 다음 리소스를 참조하세요.
 
 * [Azure Maps 설명서](../azure-maps/index.yml)
 * [Azure Maps 검색 서비스를 사용하여 주소 찾기](../azure-maps/how-to-search-for-address.md)
@@ -492,7 +498,7 @@ ms.locfileid: "91280847"
 
     ```
 
-2. 제공된 매개 변수에 하나 이상의 태그("편의 시설"이라고 함) 목록이 포함된 경우 다음 점수 매기기 프로필은 점수를 크게 높입니다. 이 프로필의 요점은 텍스트가 포함된 매개 변수를 _제공해야 한다_는 것입니다. 매개 변수가 비어 있거나 제공되지 않으면 오류가 throw됩니다.
+1. 제공된 매개 변수에 하나 이상의 태그("편의 시설"이라고 함) 목록이 포함된 경우 다음 점수 매기기 프로필은 점수를 크게 높입니다. 이 프로필의 요점은 텍스트가 포함된 매개 변수를 _제공해야 한다_는 것입니다. 매개 변수가 비어 있거나 제공되지 않으면 오류가 throw됩니다.
  
     ```cs
             {
@@ -510,7 +516,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-3. 이 세 번째 예제에서 등급은 점수를 크게 높입니다. 마지막 리모델링 날짜도 점수를 높이지만, 해당 데이터가 현재 날짜의 730일(2년) 이내인 경우에만 점수를 높일 수 있습니다.
+1. 이 세 번째 예제에서 등급은 점수를 크게 높입니다. 마지막 리모델링 날짜도 점수를 높이지만, 해당 데이터가 현재 날짜의 730일(2년) 이내인 경우에만 점수를 높일 수 있습니다.
 
     ```cs
             {
@@ -547,7 +553,7 @@ ms.locfileid: "91280847"
 
 1. index.cshtml 파일을 열고, &lt;body&gt; 섹션을 다음 코드로 바꿉니다.
 
-    ```cs
+    ```html
     <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -653,7 +659,7 @@ ms.locfileid: "91280847"
     </body>
     ```
 
-2. SearchData.cs 파일을 열고, **SearchData** 클래스를 다음 코드로 바꿉니다.
+1. SearchData.cs 파일을 열고, **SearchData** 클래스를 다음 코드로 바꿉니다.
 
     ```cs
     public class SearchData
@@ -692,7 +698,7 @@ ms.locfileid: "91280847"
     }
     ```
 
-3. hotels.css 파일을 열고, 다음 HTML 클래스를 추가합니다.
+1. hotels.css 파일을 열고, 다음 HTML 클래스를 추가합니다.
 
     ```html
     .facetlist {
@@ -722,7 +728,7 @@ ms.locfileid: "91280847"
     using System.Linq;
     ```
 
-2.  다음 예제에서는 초기 보기를 반환하는 것 외에도 좀 더 많은 작업을 수행하기 위해 **Index**에 대한 초기 호출이 필요합니다. 이 메서드는 이제 보기에 표시할 최대 20개의 편의 시설을 검색합니다.
+1. 다음 예제에서는 초기 보기를 반환하는 것 외에도 좀 더 많은 작업을 수행하기 위해 **Index**에 대한 초기 호출이 필요합니다. 이 메서드는 이제 보기에 표시할 최대 20개의 편의 시설을 검색합니다.
 
     ```cs
         public async Task<ActionResult> Index()
@@ -752,7 +758,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-3. 패싯을 임시 스토리지에 저장하고, 임시 스토리지에서 이를 복구하여 모델을 채우는 두 개의 프라이빗 메서드가 필요합니다.
+1. 패싯을 임시 스토리지에 저장하고, 임시 스토리지에서 이를 복구하여 모델을 채우는 두 개의 프라이빗 메서드가 필요합니다.
 
     ```cs
         // Save the facet text to temporary storage, optionally saving the state of the check boxes.
@@ -790,7 +796,7 @@ ms.locfileid: "91280847"
         }
     ```
 
-4. 필요에 따라 **OrderBy** 및 **ScoringProfile** 매개 변수를 설정해야 합니다. 기존 **Index(SearchData model)** 메서드를 다음으로 바꿉니다.
+1. 필요에 따라 **OrderBy** 및 **ScoringProfile** 매개 변수를 설정해야 합니다. 기존 **Index(SearchData model)** 메서드를 다음으로 바꿉니다.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -947,15 +953,15 @@ ms.locfileid: "91280847"
 
 1. 앱을 실행합니다. 보기에는 편의 시설의 전체 세트가 표시됩니다.
 
-2. 정렬의 경우 "숫자 등급순"을 선택하면 이 자습서에서 이미 구현한 숫자순 정렬이 제공되며, 동일한 등급의 호텔 중에서는 리모델링 날짜를 사용하여 결정합니다.
+1. 정렬의 경우 "숫자 등급순"을 선택하면 이 자습서에서 이미 구현한 숫자순 정렬이 제공되며, 동일한 등급의 호텔 중에서는 리모델링 날짜를 사용하여 결정합니다.
 
-![등급 기준의 "beach"(해변) 정렬](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
+   ![등급 기준의 "beach"(해변) 정렬](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
-3. 이제 "편의 시설순" 프로필을 사용해 봅니다. 다양한 편의 시설을 선택하고, 결과 목록에서 해당 편의 시설을 갖춘 호텔이 승격되는지 확인합니다.
+1. 이제 "편의 시설순" 프로필을 사용해 봅니다. 다양한 편의 시설을 선택하고, 결과 목록에서 해당 편의 시설을 갖춘 호텔이 승격되는지 확인합니다.
 
-![프로필 기준의 "beach" 정렬](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
+   ![프로필 기준의 "beach" 정렬](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
-4. "리모델링 날짜/등급순 프로필"을 시도하여 예상대로 나타나는지 확인합니다. 최근에 리모델링한 호텔만 _freshness_(신선도)를 높여야 합니다.
+1. "리모델링 날짜/등급순 프로필"을 시도하여 예상대로 나타나는지 확인합니다. 최근에 리모델링한 호텔만 _freshness_(신선도)를 높여야 합니다.
 
 ### <a name="resources"></a>리소스
 

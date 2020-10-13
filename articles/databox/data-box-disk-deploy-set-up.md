@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925654"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759907"
 ---
 ::: zone target="docs"
 
@@ -268,7 +268,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     
 8. 디스크가 잠금 해제되면 탑재 지점으로 이동하여 디스크의 콘텐츠를 볼 수 있습니다. 이제 데이터를 *BlockBlob* 또는 *PageBlob* 폴더로 복사할 준비가 되었습니다. 
 
-    ![Data Box Disk 콘텐츠](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Data Box Disk 콘텐츠 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 디스크를 잠금 해제하는 동안 문제가 발생하면 [잠금 해제 문제 해결](data-box-disk-troubleshoot-unlock.md)을 참조하세요. 

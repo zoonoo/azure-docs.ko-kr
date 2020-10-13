@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 46f0a0e86c5db612f440bcf631329d2800251dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397800"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996835"
 ---
 # <a name="expressroute-encryption"></a>Express 경로 암호화
  
@@ -37,10 +37,8 @@ AES128 및 AES256의 [확장 패킷 번호 매기기](https://1.ieee802.org/secu
 IPsec은 [IETF 표준](https://tools.ietf.org/html/rfc6071)입니다. IP (인터넷 프로토콜) 수준이 나 네트워크 계층 3에서 데이터를 암호화 합니다. IPsec을 사용 하 여 온-프레미스 네트워크와 Azure의 가상 네트워크 (VNET) 간에 종단 간 연결을 암호화할 수 있습니다. 아래 Faq를 참조 하세요.
 ### <a name="can-i-enable-ipsec-in-addition-to-macsec-on-my-expressroute-direct-ports"></a>Express 경로 직접 포트에서 MACsec 외에 IPsec을 사용 하도록 설정할 수 있나요?
 예. MACsec은 사용자와 Microsoft 간의 물리적 연결을 보호 합니다. IPsec은 사용자와 Azure의 가상 네트워크 간 종단 간 연결을 보호 합니다. 독립적으로 사용 하도록 설정할 수 있습니다. 
-### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>Azure VPN gateway를 사용 하 여 온-프레미스 네트워크와 Azure 가상 네트워크 간에 IPsec 터널을 설정할 수 있나요?
-예. Express 경로 회로의 Microsoft 피어 링을 통해이 IPsec 터널을 설정할 수 있습니다. [구성 가이드](site-to-site-vpn-over-microsoft-peering.md)를 따르세요.
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>Azure VPN gateway를 사용 하 여 Azure 개인 피어 링을 통해 IPsec 터널을 설정할 수 있나요?
-Azure 가상 WAN을 채택 하는 경우 [다음 단계](../virtual-wan/vpn-over-expressroute.md) 에 따라 종단 간 연결을 암호화할 수 있습니다. 일반 Azure VNET이 있는 경우 VNET에 타사 VPN gateway를 배포 하 고이 게이트웨이 및 온-프레미스 VPN gateway 간에 IPsec 터널을 설정할 수 있습니다.
+예. Azure 가상 WAN을 채택 하는 경우 [다음 단계](../virtual-wan/vpn-over-expressroute.md) 에 따라 종단 간 연결을 암호화할 수 있습니다. 일반 Azure VNET이 있는 경우 [다음 단계](../vpn-gateway/site-to-site-vpn-private-peering.md) 를 수행 하 여 azure vpn gateway와 온-프레미스 vpn Gateway 간에 IPsec 터널을 설정할 수 있습니다.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Express 경로 연결에서 IPsec을 사용 하도록 설정한 후에 발생 하는 처리량은 무엇 인가요?
 Azure VPN gateway를 사용 하는 경우 [여기에서 성능 수치](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 확인 합니다. 타사 VPN gateway를 사용 하는 경우 공급 업체에 문의 하 여 성능 수치를 확인 합니다.
 

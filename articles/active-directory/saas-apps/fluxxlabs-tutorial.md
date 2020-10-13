@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 756bbaab1cbf359def01e371e4370607bee67ce3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00cf3e33c87255485f7ea73526e474b0d941124b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554865"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826381"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fluxx-labs"></a>자습서: Fluxx Labs와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -139,15 +139,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **설정** 섹션 아래에서 **관리**를 선택합니다.
 
-    ![Fluxx Labs 구성](./media/fluxxlabs-tutorial/config1.png)
+    !["관리자"가 선택된 "설정" 섹션을 보여주는 스크린샷.](./media/fluxxlabs-tutorial/config1.png)
 
 3. 관리 패널에서 **플러그 인** > **통합**을 차례로 선택한 다음, **SAML SSO - (사용 안 함)** 을 선택합니다.
 
-    ![Fluxx Labs 구성](./media/fluxxlabs-tutorial/config2.png)
+    !["SAML SSO(사용 안 함)"가 선택된 "통합" 탭을 보여주는 스크린샷.](./media/fluxxlabs-tutorial/config2.png)
 
 4. 특성 섹션에서 다음 단계를 수행합니다.
 
-    ![Fluxx Labs 구성](./media/fluxxlabs-tutorial/config3.png)
+    !["SAML SSO"가 선택되고, 필드에 값이 입력되고, "저장" 단추가 선택된 "특성" 섹션을 보여주는 스크린샷.](./media/fluxxlabs-tutorial/config3.png)
 
     a. **SAML SSO** 확인란을 선택합니다.
 
@@ -180,11 +180,11 @@ Azure AD 사용자가 Fluxx Labs에 로그인하려면 Fluxx Labs에 프로비�
 
 2. 아래 표시된 **아이콘**을 클릭합니다.
 
-    ![Fluxx Labs 구성](./media/fluxxlabs-tutorial/config6.png)
+    !["대시보드가 비어 있습니다."에서 "더하기" 아이콘이 선택된 관리자 옵션을 보여주는 스크린샷.](./media/fluxxlabs-tutorial/config6.png)
 
 3. 대시보드에서 아래 표시된 아이콘을 클릭하여 **새 사람** 카드를 엽니다.
 
-    ![Fluxx Labs 구성](./media/fluxxlabs-tutorial/config4.png)
+    !["사람" 옆에 "더하기" 아이콘이 선택된 "연락처 관리" 메뉴를 보여주는 스크린샷.](./media/fluxxlabs-tutorial/config4.png)
 
 4. **새 사람** 섹션에서 다음 단계를 수행합니다.
 

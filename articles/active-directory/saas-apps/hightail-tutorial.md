@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d39f46469d80b3e2d7bf361bd349a39afb16bd2d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297317"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826185"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>자습서: Hightail과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -155,15 +155,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 페이지의 오른쪽 위 모서리에서 **사용자 아이콘**을 클릭합니다. 
 
-    ![Single Sign-on 구성](./media/hightail-tutorial/configure1.png)
+    ![스크린샷은 사용자 아이콘을 보여줍니다.](./media/hightail-tutorial/configure1.png)
 
 1. **View Admin Console**(관리 콘솔 보기) 탭을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/hightail-tutorial/configure2.png)
+    ![스크린샷은 사용자에 대한 관리 콘솔 보기 단추를 보여줍니다.](./media/hightail-tutorial/configure2.png)
 
 1. 위쪽의 메뉴에서 **SAML** 탭을 클릭하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/hightail-tutorial/configure3.png)
+    ![스크린샷은 로그인 URL 및 SAML 인증서를 입력할 수 있는 SAML 탭을 보여줍니다.](./media/hightail-tutorial/configure3.png)
 
     a. **로그인 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 

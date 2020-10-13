@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
-ms.openlocfilehash: bd3ac8d512c1b9d151c0dc549ffeee6a05c7f94b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 944b96e7726f2b2becd5960a17a89c00d00c878a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542802"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91841959"
 ---
-모델을 호스팅하는 데 사용하는 컴퓨팅 대상은 배포된 엔드포인트의 비용 및 가용성에 영향을 줍니다. 아래 표를 사용하여 적절한 컴퓨팅 대상을 선택합니다.
+모델을 호스팅하는 데 사용하는 컴퓨팅 대상은 배포된 엔드포인트의 비용 및 가용성에 영향을 줍니다. 이 표를 사용하여 적절한 컴퓨팅 대상을 선택합니다.
 
 | 컴퓨팅 대상 | 사용 대상 | GPU 지원 | FPGA 지원 | Description |
 | ----- | ----- | ----- | ----- | ----- |
@@ -26,14 +26,14 @@ ms.locfileid: "87542802"
 | [Azure Container Instances](../articles/machine-learning/how-to-deploy-azure-container-instance.md) | 테스트 또는 개발 | &nbsp;  | &nbsp; | 48GB 미만의 RAM이 필요한 소규모 CPU 기반 워크로드에 사용합니다. |
 | [Azure Machine Learning 컴퓨팅 클러스터](../articles/machine-learning/how-to-use-parallel-run-step.md) | 일괄 처리&nbsp;유추 | [예](../articles/machine-learning/how-to-use-parallel-run-step.md)(기계 학습 파이프라인) | &nbsp;  | 서버리스 컴퓨팅에서 일괄 처리 채점을 실행합니다. 우선 순위가 보통이거나 낮은 VM을 지원합니다. |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | (미리 보기) 실시간 유추 | &nbsp; | &nbsp; | &nbsp; |
-| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (미리 보기) IoT&nbsp;모듈 |  &nbsp; | &nbsp; | ML 모델을 IoT 디바이스에 배포 및 제공합니다. |
-| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | IoT Edge를 통해 |  &nbsp; | 예 | ML 모델을 IoT 디바이스에 배포 및 제공합니다. |
+| [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (미리 보기) IoT&nbsp;모듈 |  &nbsp; | &nbsp; | 기계 학습 모델을 IoT 디바이스에 배포 및 제공합니다. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | IoT Edge를 통해 |  &nbsp; | 예 | 기계 학습 모델을 IoT 디바이스에 배포 및 제공합니다. |
 
 > [!NOTE]
-> 로컬 Azure Machine Learning 컴퓨팅 인스턴스 및 Azure Machine Learning 컴퓨팅 클러스터와 같은 컴퓨팅 대상은 학습 및 실험을 위해 GPU를 지원하지만, __웹 서비스로 배포할 때__ GPU를 유추에 사용하는 것은 Azure Kubernetes Service에서만 지원됩니다.
+> 로컬, Azure Machine Learning 컴퓨팅 및 Azure Machine Learning 컴퓨팅 클러스터와 같은 컴퓨팅 대상은 학습 및 실험을 위해 GPU를 지원하지만, _웹 서비스로 배포할 때_ GPU를 유추에 사용하는 것은 AKS에서만 지원됩니다.
 >
-> __기계 학습 파이프라인을 통해 채점할 때__ GPU를 유추에 사용하는 것은 Azure Machine Learning 컴퓨팅에서만 지원됩니다.
+> _기계 학습 파이프라인을 통해 채점할 때_ GPU를 유추에 사용하는 것은 Azure Machine Learning 컴퓨팅에서만 지원됩니다.
 
 > [!NOTE]
-> * ACI(Azure Container Instances)는 1GB 미만의 작은 모델에만 적합합니다. 
-> * 더 큰 모델의 개발 테스트에는 단일 노드 AKS(Azure Kubernetes Service) 클러스터를 사용하는 것이 좋습니다.
+> * 컨테이너 인스턴스는 크기가 1GB 미만인 작은 모델에만 적합합니다.
+> * 큰 모델의 개발/테스트에는 단일 노드 AKS 클러스터를 사용합니다.

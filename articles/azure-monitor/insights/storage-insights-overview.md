@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961978"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997026"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Storage용 Azure Monitor를 사용하여 스토리지 서비스 모니터링
 
@@ -31,7 +31,7 @@ Storage용 Azure Monitor는 Azure Storage 서비스 성능, 용량 및 가용성
 
 * **사용자 지정이 가능**하므로 표시할 메트릭을 변경하고, 제한과 일치하는 임계값을 수정하거나 설정하고, 사용자 고유의 통합 문서로 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.  
 
-스토리지 계정의 스토리지 메트릭은 기본적으로 수집되므로 이 기능을 사용하기 위해 아무것도 사용하도록 설정하거나 구성할 필요가 없습니다. Azure Storage에서 사용할 수 있는 메트릭에 익숙하지 않은 경우 [Azure Storage 메트릭](../../storage/common/monitor-storage.md)을 검토하여 Azure Storage 메트릭의 설명 및 정의를 확인합니다.
+스토리지 계정의 스토리지 메트릭은 기본적으로 수집되므로 이 기능을 사용하기 위해 아무것도 사용하도록 설정하거나 구성할 필요가 없습니다. Azure Storage에서 사용할 수 있는 메트릭에 익숙하지 않은 경우 [Azure Storage 메트릭](../../storage/blobs/monitor-blob-storage.md)을 검토하여 Azure Storage 메트릭의 설명 및 정의를 확인합니다.
 
 >[!NOTE]
 >이 기능은 무료로 사용할 수 있으며 [Azure Monitor 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명된 것처럼 Azure Monitor 필수 기능을 구성하거나 설정하는 경우에만 요금이 부과됩니다.
@@ -67,7 +67,7 @@ Azure Monitor에서 구독의 여러 스토리지 계정의 트랜잭션, 대기
 **가용성**, **E2E 대기 시간**, **서버 대기 시간** 및 **트랜잭션 오류 유형/오류** 열에서 값을 선택하면 해당 스토리지 계정에 대해 선택한 열과 일치하는 특정 유형의 스토리지 메트릭에 맞게 조정된 보고서로 연결됩니다. 각 범주의 통합 문서에 대한 자세한 내용은 아래의 [자세한 스토리지 통합 문서](#detailed-storage-workbooks) 섹션을 참조하세요. 
 
 >[!NOTE]
->보고서에 표시될 수 있는 오류에 대한 자세한 내용은 [응답 유형 스키마](../../storage/common/monitor-storage-reference.md#metrics-dimensions)를 참조하고 **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**와 같은 응답 유형을 찾습니다. 선택한 스토리지 계정에 따라 세 가지가 넘는 오류 유형이 보고되는 경우 다른 모든 오류는 **기타** 범주에 표시됩니다.
+>보고서에 표시될 수 있는 오류에 대한 자세한 내용은 [응답 유형 스키마](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions)를 참조하고 **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**와 같은 응답 유형을 찾습니다. 선택한 스토리지 계정에 따라 세 가지가 넘는 오류 유형이 보고되는 경우 다른 모든 오류는 **기타** 범주에 표시됩니다.
 
 기본 **가용성** 임계값은 다음과 같습니다.
 
@@ -274,4 +274,3 @@ n개의 서로 다른 오류 유형을 확인하려면 splitByLimit를 나머지
 * [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
 
 * 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
-

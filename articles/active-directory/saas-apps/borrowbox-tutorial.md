@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: d7cab94520464662589ca952e9d50102f450ab8d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c0ffa67725c3178155c495754ca67270c946778b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548357"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>자습서: BorrowBox와 Azure Active Directory 통합
 
@@ -100,11 +100,11 @@ BorrowBox에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 4. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
 
-    ![[애플리케이션 이름] 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
+    ![[스크린샷은 기본 SAML 구성을 보여줍니다.] 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![[애플리케이션 이름] 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![[스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.] 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>` 패턴을 사용하여 URL을 입력합니다.
 

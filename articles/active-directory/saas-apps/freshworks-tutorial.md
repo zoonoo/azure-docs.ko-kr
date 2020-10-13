@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-ms.openlocfilehash: eb59d7ecd6183d144fd275a50f3682a2b961df98
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c953297d4e66f737250451b9a5f42ce7f45dd2e4
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550968"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821258"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>자습서: Freshworks와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
      ![이미지](common/edit-certificate.png)
 
-     ![Freshworks 구성](./media/freshworks-tutorial/response.png)
+     !["편집" 단추가 선택된 "SAML 서명 인증서" 대화 상자를 보여주는 스크린샷.](./media/freshworks-tutorial/response.png)
 
     a. **서명 옵션**으로 **SAML 응답 서명**을 선택합니다.
 
@@ -141,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 메뉴의 왼쪽에서  **보안** 아이콘을 클릭한 다음, **Single Sign-On** 옵션을 선택하고 **인증 방법**에서 **SAML SSO**를 선택합니다.
 
-    ![Freshworks 구성](./media/freshworks-tutorial/configure01.png)
+    !["Single Sign-On" 옵션이 설정되고 "SAML SSO"가 선택된 "보안 - 인증 방법" 섹션을 보여주는 스크린샷.](./media/freshworks-tutorial/configure01.png)
 
 3. **Single Sign-On** 섹션에서 다음 단계를 수행합니다.
 

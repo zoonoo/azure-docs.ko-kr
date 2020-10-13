@@ -1,22 +1,22 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 이해 | Microsoft Docs
 description: 개발자 가이드 - 디바이스 쌍을 사용하여 IoT Hub와 디바이스 간의 상태 및 구성 데이터 동기화
-author: ash2017
+author: nehsin
 manager: philmea
-ms.author: asrastog
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 4887315ddef3f15ee3f6ef5ad80cf8df8b1dcd34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1d6787ab3d4083ee6418694d1965ea0f90f730
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327772"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996133"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
@@ -122,7 +122,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 예를 들면 다음과 같습니다.
+이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 예:
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -201,7 +201,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 본문
         
-    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예를 들면 다음과 같습니다.
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예를 들면
 
     ```json
     {
@@ -250,7 +250,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 * **키**: JSON 개체의 모든 키는 u t f-8로 인코드 되 고 대/소문자를 구분 하며 길이가 최대 1kb입니다. 허용되는 문자에서 유니코드 제어 문자(세그먼트 C0 및 C1) 및 `.`, `$` 및 SP는 제외됩니다.
 
-* **값**: json 개체의 모든 값은 부울, 숫자, 문자열, 개체 등의 json 형식일 수 있습니다. 배열은 허용되지 않습니다.
+* **값**: json 개체의 모든 값은 부울, 숫자, 문자열, 개체 등의 json 형식일 수 있습니다. 배열도 지원 됩니다.
 
     * 정수 값은-4503599627370496이 고 최대값은 4503599627370495이 될 수 있습니다.
 
@@ -310,7 +310,7 @@ IoT Hub는, 또는 문서 크기를 제한 보다 크게 증가 시키는 모든
 
 IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```json
 {

@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 모니
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 성능을 확인 하 고 분석 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988126"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994760"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
 
@@ -70,17 +70,17 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 |-------|-------|-----------------|
 |**사용자 pod**| | |
 | |정상 |100% |
-| |Warning |90-99% |
+| |경고 |90-99% |
 | |중요 |<90% |
 | |Unknown |지난 30분 동안 보고하지 않은 경우 |
 |**시스템 pod**| | |
 | |정상 |100% |
-| |Warning |N/A |
+| |경고 |N/A |
 | |중요 |<100% |
 | |Unknown |지난 30분 동안 보고하지 않은 경우 |
 |**Node** | | |
 | |정상 |>85% |
-| |Warning |60 - 84% |
+| |경고 |60 - 84% |
 | |중요 |<60% |
 | |Unknown |지난 30분 동안 보고하지 않은 경우 |
 
@@ -191,7 +191,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 | 열 | 설명 |
 |--------|-------------|
-| Name | 호스트의 이름입니다. |
+| 속성 | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
 | 최소 &nbsp; %, 평균 &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, 최대&nbsp;%  | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택한 기간 동안 백분위 수를 기준으로 하는 평균 노드 값입니다. Average 값은 노드에 대해 설정 된 CPU/메모리 제한에서 측정 됩니다. Pod 및 컨테이너의 경우 호스트에서 보고 하는 평균 값입니다. |
@@ -234,7 +234,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 | 열 | 설명 |
 |--------|-------------|
-| Name | 컨트롤러의 이름입니다.|
+| 속성 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지*됨 또는 *일시 중지*됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음*으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
 | 최소 &nbsp; %, 평균 &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, 최대&nbsp;%| 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 평균 롤업입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -271,7 +271,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 | 열 | 설명 |
 |--------|-------------|
-| Name | 컨트롤러의 이름입니다.|
+| 속성 | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 최소 &nbsp; %, 평균 &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, 최대&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -293,7 +293,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 ## <a name="workbooks"></a>통합 문서
 
-통합 문서는 텍스트, [로그 쿼리](../log-query/query-language.md), [메트릭](../platform/data-platform-metrics.md)및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
+통합 문서는 텍스트, [로그 쿼리](/azure/data-explorer/kusto/query/), [메트릭](../platform/data-platform-metrics.md)및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
 
 컨테이너에 대 한 Azure Monitor에는 시작 하기 위한 4 개의 통합 문서가 포함 되어 있습니다.
 
@@ -321,8 +321,8 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](container-insights-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법을 알아보세요.
+- [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](./container-insights-log-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법을 알아보세요.
 
 - 클러스터를 경고, 시각화 또는 분석하기 위해 평가하거나 사용자 지정하는 미리 정의된 쿼리 및 예제를 보려면 [로그 쿼리 예제](container-insights-log-search.md#search-logs-to-analyze-data)를 확인하세요.
 
-- [모니터 클러스터 상태](container-insights-health.md) 보기 Kubernetes 클러스터의 상태를 보는 방법에 대해 알아봅니다.
+- [모니터 클러스터 상태](./container-insights-overview.md) 보기 Kubernetes 클러스터의 상태를 보는 방법에 대해 알아봅니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e9ca679c7bb8deedca20a5aa97cbb53a9139ea8a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6d0062214b4faa0cb2b26c30f1c2833d25d5493e
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536889"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>자습서: Deputy와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Deputy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Deputy 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자", "회신 URL" 및 "저장" 단추가 강조 표시된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
@@ -171,7 +171,7 @@ Deputy에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 1. `https://(your-subdomain).deputy.com/exec/config/system_config` URL로 이동합니다. **보안 설정**으로 이동하고 **편집**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/deputy-tutorial/tutorial_deputy_004.png)
+    !["보안 설정 - 편집" 단추가 선택된 "시스템 구성" 페이지를 보여주는 스크린샷.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. 이 **보안 설정** 페이지에서 아래 단계를 수행합니다.
 

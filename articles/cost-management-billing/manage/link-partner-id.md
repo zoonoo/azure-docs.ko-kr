@@ -4,16 +4,16 @@ description: 고객의 리소스를 관리하기 위해 사용하는 사용자 �
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89487354"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91772722"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -43,7 +43,7 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
 
 2. Azure Portal에 로그인합니다.
 
-3. Microsoft 파트너 ID를 입력합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다.
+3. Microsoft 파트너 ID를 입력합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다. 파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
 
    ![파트너 ID에 연결을 보여 주는 스크린샷](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,8 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다.
+3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다. 파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -141,7 +142,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **회사에 여러 개의 MPN ID가 있는 경우 어떤 MPN ID를 사용해야 하나요?**
 
-파트너 위치 계정 및 연결된 MPN ID는 파트너 ID를 연결하는 데 사용해야 합니다.  [파트너 계정](https://docs.microsoft.com/partner-center/account-structure)에 대한 자세한 정보
+파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
 
 **연결된 파트너 ID에 대한 영향을 받는 수익 보고는 어디에서 찾을 수 있나요?**
 
@@ -151,9 +152,9 @@ C:\ az managementpartner delete --partner-id 12345
 
 다음과 같은 이유로 인해 보고서에서 고객을 볼 수 없습니다.
 
-1. 연결된 사용자 계정에는 고객 Azure 구독 또는 리소스에 대한 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 없습니다.
+1. 연결된 사용자 계정에는 고객 Azure 구독 또는 리소스에 대한 [Azure RBAC(Azure 역할 기반 액세스)](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 없습니다.
 
-2. 사용자에게 [역할 기반 액세스](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 있는 Azure 구독에는 사용 권한이 없습니다.
+2. 사용자에게 [Azure RBAC(Azure 역할 기반 액세스)](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 있는 Azure 구독에는 사용 권한이 없습니다.
 
 **연결 파트너 ID는 Azure Stack과 작동하나요?**
 

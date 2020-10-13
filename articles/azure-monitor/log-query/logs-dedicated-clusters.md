@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575523"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996337"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -49,7 +49,7 @@ Log Analytics 전용 클러스터는 최소 1000 g b/일의 용량 예약 가격
 
 1. **Cluster**:이 경우 (기본값) 수집 데이터에 대 한 청구는 클러스터 수준에서 수행 됩니다. 클러스터의 일별 청구 금액을 계산하기 위해 클러스터에 연결된 각 작업 영역의 수집된 데이터 수량이 집계됩니다. 
 
-2. **작업 영역**: 클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 사용 합니다 (각 작업 영역에 대 한 노드 별 [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 할당에 대 한 회계).
+2. **작업 영역**: 클러스터의 용량 예약 비용은 클러스터의 작업 영역에 대 한 특성을 사용 합니다 (각 작업 영역에 대 한 노드 별 [Azure Security Center](../../security-center/index.yml) 할당에 대 한 회계).
 
 작업 영역이 레거시 노드당 가격 책정 계층을 사용 하는 경우 클러스터에 연결 된 경우 클러스터의 용량 예약에 대 한 데이터 수집를 기준으로 요금이 청구 되 고 노드당 더 이상 청구 되지 않습니다. 노드당 데이터 할당 Azure Security Center 계속 적용 됩니다.
 
@@ -182,7 +182,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 > [!NOTE]
 > PATCH를 사용 하 여 *클러스터* 리소스 *sku*, *keyVaultProperties* 또는 *billingType* 를 업데이트할 수 있습니다.
 
-예를 들면 다음과 같습니다. 
+예: 
 
 *호출*
 
@@ -321,7 +321,7 @@ Content-type: application/json
 
 - 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
 
-- [작업 영역 보내기 –](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) 요청을 가져오고 응답을 관찰 합니다. 연결 된 작업 영역의 "기능" 아래에 clusterResourceId가 있습니다.
+- [작업 영역 보내기 –](/rest/api/loganalytics/workspaces/get) 요청을 가져오고 응답을 관찰 합니다. 연결 된 작업 영역의 "기능" 아래에 clusterResourceId가 있습니다.
 
 보내기 요청은 다음과 같습니다.
 

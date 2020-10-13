@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c9b85709ae37f1b3b6f4b4b562b7e96531f51b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536503"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>자습서: Azure Active Directory와 DigiCert 통합
 
@@ -105,7 +105,7 @@ DigiCert에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. DigiCert 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    !["편집" 단추가 선택된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
@@ -120,7 +120,7 @@ DigiCert에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    !["새 클레임 추가" 및 "저장" 단추가 강조 표시된 "사용자 클레임" 섹션을 보여주는 스크린샷.](common/new-save-attribute.png)
 
     ![이미지](common/new-attribute-details.png)
 

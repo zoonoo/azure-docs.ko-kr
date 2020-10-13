@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: a9004577fa8d946281df88284139e2e507e485b7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 071b311466869321a12626190e894287c28e707b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536465"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774134"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-deskradar"></a>자습서: Deskradar와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -162,7 +162,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML 2.0** 탭에서 다음 단계를 수행합니다.
 
-    ![Deskradar 구성](./media/deskradar-tutorial/14-paste-urls.jpg)
+    !["SAML SSD URL" 및 "Identifier Provider Issuer" 필드를 가리키는 화살표가 있는 "SAML 2.0" 탭을 보여주는 스크린샷.](./media/deskradar-tutorial/14-paste-urls.jpg)
 
     a. **SAML** 인증 메서드를 사용하도록 설정합니다.
 

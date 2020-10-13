@@ -3,14 +3,14 @@ title: Bridge to Kubernetes로 마이그레이션
 services: azure-dev-spaces
 ms.date: 10/12/2020
 ms.topic: conceptual
-description: Power Azure Dev Spaces 프로세스를 설명 합니다.
+description: Azure Dev Spaces에서 Kubernetes로의 마이그레이션 프로세스에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
-ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962856"
+ms.locfileid: "91993931"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
 
@@ -84,10 +84,34 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
 
 1. Visual Studio IDE를 16.7 이상 버전으로 업데이트 하 고 [Visual Studio Marketplace][vs-marketplace]에서 Kubernetes 확장에 대 한 브리지를 설치 합니다.
 1. Azure Portal 또는 [AZURE DEV SPACES CLI][azds-delete]를 사용 하 여 Azure Dev Spaces 컨트롤러를 사용 하지 않도록 설정 합니다.
-1. `azds.yaml`프로젝트에서 파일을 제거 합니다.
+1. [Azure Cloud Shell](https://shell.azure.com)를 사용 합니다. 또는 bash가 설치 된 Mac, Linux 또는 Windows에서 bash 셸 프롬프트를 엽니다. 명령줄 환경에서 Azure CLI, docker, kubectl, 말아, tar, gunzip 등의 도구를 사용할 수 있는지 확인 합니다.
+1. 컨테이너 레지스트리를 만들거나 기존 항목을 사용 합니다. [Azure Container Registry](../container-registry/index.yml) 또는 [Docker Hub](https://hub.docker.com/)를 사용 하 여 Azure에서 컨테이너 레지스트리를 만들 수 있습니다.
+1. 마이그레이션 스크립트를 실행 하 Azure Dev Spaces 자산을 Kubernetes 자산으로 변환 합니다. 이 스크립트는 Kubernetes에 대 한 브리지와 호환 되는 새 이미지를 빌드하고, 지정 된 레지스트리에 업로드 한 후, [투구](https://helm.sh) 를 사용 하 여 이미지를 사용 하 여 클러스터를 업데이트 합니다. 리소스 그룹, AKS 클러스터의 이름 및 컨테이너 레지스트리를 제공 해야 합니다. 여기에 표시 된 다른 명령줄 옵션은 다음과 같습니다.
+
+   ```azure-cli
+   curl -sL https://aka.ms/migrate-tool | bash -s -- -g ResourceGroupName -n AKSName -h ContainerRegistryName -r PathOfTheProject -y
+   ```
+
+   스크립트는 다음 플래그를 지원 합니다.
+
+   ```cmd  
+    -g Name of resource group of AKS Cluster [required]
+    -n Name of AKS Cluster [required]
+    -h Container registry name. Examples: ACR, Docker [required]
+    -k Kubernetes namespace to deploy resources (uses 'default' otherwise)
+    -r Path to root of the project that needs to be migrated (default = current working directory)
+    -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
+    -i Enable a public endpoint to access your service over internet. (default is false)
+    -y Doesn't prompt for non-tty terminals
+    -d Helm Debug switch
+   ```
+
+1. *Azds* 의 환경 변수 설정과 같은 사용자 지정 항목을 프로젝트의 *값 .yml* 파일에 수동으로 마이그레이션합니다.
+1. 필드 `azds.yaml` 프로젝트에서 파일을 제거 합니다.
 1. 애플리케이션을 다시 배포합니다.
 1. 배포 된 응용 프로그램에서 Kubernetes에 대 한 브리지를 구성 합니다. Visual Studio에서 Kubernetes 연결을 사용 하는 방법에 대 한 자세한 내용은 [Kubernetes에 브리지 사용][use-btk-vs]을 참조 하세요.
 1. Kubernetes 디버그 프로필에 새로 만든 Bridge를 사용 하 여 Visual Studio에서 디버깅을 시작 합니다.
+1. 필요에 따라 스크립트를 다시 실행 하 여 클러스터로 다시 배포할 수 있습니다.
 
 ### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Visual Studio Code를 사용 하 여 Azure Dev Spaces에서 Kubernetes로 전환 합니다.
 

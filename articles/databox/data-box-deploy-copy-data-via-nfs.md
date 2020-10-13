@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: d49a1120ddda98430f4f9b3c488819829a9fd7b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320696"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766266"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>자습서: NFS를 통해 Azure Data Box에 데이터 복사
 
@@ -58,7 +58,7 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 
 1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다. 로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스**를 클릭합니다. 
 
-    ![NFS 클라이언트 액세스 구성 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![NFS 클라이언트 액세스 구성](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. NFS 클라이언트의 IP 주소를 입력하고 **추가**를 클릭합니다. 이 단계를 반복하여 여러 NFS 클라이언트에 대한 액세스를 구성할 수 있습니다. **확인**을 클릭합니다.
 
@@ -85,7 +85,7 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
 * 적절한 데이터 형식에 해당하는 공유에 데이터를 복사해야 합니다. 예를 들어 블록 Blob에 대한 공유에 블록 Blob 데이터를 복사합니다. 페이지 Blob에 VHD를 복사합니다. 데이터 형식이 적절한 공유 형식과 일치하지 않는 경우 이후 단계에서 Azure에 데이터를 업로드하는 작업이 실패합니다.
-*  데이터를 복사하는 동안 데이터 크기가 [Azure Storage 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
+*  데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 계정 크기 제한](data-box-limits.md#azure-storage-account-size-limits)에 설명된 크기 제한을 준수하는지 확인합니다.
 * Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 * SMB 및 NFS를 동시에 사용하거나 Azure의 동일한 최종 대상에 동일한 데이터를 복사하지 않는 것이 좋습니다. 이 경우 최종 결과를 확인할 수 없습니다.
 * **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
@@ -145,11 +145,11 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 
 **문제 목록 다운로드**를 선택합니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-2.png)
+![복사 오류에 대한 문제 목록 다운로드](media/data-box-deploy-copy-data/view-errors-2.png)
 
 목록을 열어 오류의 세부 정보를 보고 해결 URL을 선택하여 권장 해결 방법을 확인합니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-3.png)
+![복사 오류 문제 목록의 문제](media/data-box-deploy-copy-data/view-errors-3.png)
 
 자세한 내용은 [Data Box로 데이터를 복사하는 동안 오류 로그 보기](data-box-logs.md#view-error-log-during-data-copy)를 참조하세요. 데이터를 복사하는 동안 발생하는 오류에 대한 자세한 목록을 보려면 [Data Box 문제 해결](data-box-troubleshoot.md)을 참조하세요.
 

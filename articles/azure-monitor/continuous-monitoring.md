@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e41fa9f9918f4f17bd89e80610ae608e83eb3402
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318133"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996400"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -43,7 +43,7 @@ ms.locfileid: "87318133"
 
 [코드로서의 인프라](/azure/devops/learn/what-is-infrastructure-as-code)는 DevOps 팀이 원본 코드에 사용하는 것과 동일한 버전 관리를 사용하여 설명 모델에서 인프라를 관리하는 기능입니다. 이 기능을 통해 환경에 안정성과 확장성이 추가되고 애플리케이션을 관리하는 데 사용되는 유사한 프로세스를 활용할 수 있습니다.
 
--  [Resource Manager 템플릿](platform/template-workspace-configuration.md)을 사용하여 모니터링을 사용하도록 설정하고 대규모 리소스 세트에 대한 경고를 구성합니다.
+-  [Resource Manager 템플릿](./samples/resource-manager-workspace.md)을 사용하여 모니터링을 사용하도록 설정하고 대규모 리소스 세트에 대한 경고를 구성합니다.
 - [Azure Policy](../governance/policy/overview.md)를 사용하여 리소스에 다양한 규칙을 적용합니다. 이렇게 하면 해당 리소스는 회사 표준 및 서비스 수준 계약을 계속 준수합니다. 
 
 
@@ -87,4 +87,3 @@ ms.locfileid: "87318133"
 
 - [Azure Monitor](overview.md)의 차이 구성 요소에 대해 알아봅니다.
 - 릴리스 파이프라인에 [연속 모니터링을 추가](./app/continuous-monitoring.md)합니다.
-

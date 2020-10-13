@@ -1,24 +1,18 @@
 ---
 title: HB-시리즈 VM 개요-Azure Virtual Machines | Microsoft Docs
 description: Azure에서 HB 시리즈 VM 크기에 대 한 미리 보기 지원에 대해 알아봅니다.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 7c66af5184c4a943fd4b3185a87623112fe0d954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d11ec99d10d74956c43c24145abbd291d9e2d2a9
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691244"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996238"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>HB-시리즈 가상 머신 개요
 

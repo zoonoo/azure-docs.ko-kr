@@ -1,7 +1,7 @@
 ---
-title: JavaScript 단일 페이지 앱 자습서 | Azure
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 JavaScript 단일 페이지 앱 만들기 | Azure'
 titleSuffix: Microsoft identity platform
-description: 이 자습서에서는 JavaScript SPA(단일 페이지 앱)가 Microsoft ID 플랫폼에서 발급한 액세스 토큰을 필요로 하는 API를 호출하는 방법을 알아봅니다.
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 JavaScript SPA(단일 페이지 앱)를 빌드합니다.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,52 +12,48 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 027305d953a24de17e62aa74b33b72494b03e652
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256827"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825916"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
+# <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>자습서: JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
-이 가이드에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 다음을 수행하는 방법을 보여 줍니다.
-- 회사 및 학교 계정과 개인 계정으로 로그인
-- 액세스 토큰 획득
-- *Microsoft ID 플랫폼 엔드포인트*에서 액세스 토큰을 요구하는 Microsoft Graph API 또는 다른 API 호출
+이 자습서에서는 개인 Microsoft 계정 또는 회사 및 학교 계정으로 사용자를 로그인 다음, Microsoft Graph API를 호출하기 위한 액세스 토큰을 획득할 수 있는 JavaScript에서 SPA(단일 페이지 애플리케이션)를 빌드합니다.
+
+이 자습서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * `npm`을 사용하여 JavaScript 프로젝트 만들기
+> * Azure Portal에 애플리케이션 등록
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Microsoft Graph API를 호출하는 코드 추가
+> * 앱 테스트
 
 >[!TIP]
 > 이 자습서에서는 단일 페이지 애플리케이션에 대한 암시적 권한 부여 흐름을 사용하도록 제한되는 MSAL.js v1.x를 사용합니다. 대신 모든 새 애플리케이션에서 [MSAL.js 2.x 및 PKCE, CORS를 사용한 인증 코드 흐름](tutorial-v2-javascript-auth-code.md) 지원을 사용하는 것이 좋습니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* 로컬 앱 서버 실행을 위한 [Node.js](https://nodejs.org/en/download/).
+* 프로젝트 파일을 수정하기 위한 [Visual Studio Code](https://code.visualstudio.com/download) 또는 기타 편집기.
+* 최신 웹 브라우저. **Internet Explorer**는 앱의 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 규칙 사용으로 인해 이 자습서에서 빌드한 앱에서 **지원되지 않습니다**.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>이 가이드에서 생성된 샘플 앱의 작동 원리
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식 표시](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-### <a name="more-information"></a>자세한 정보
+이 가이드에서 만든 샘플 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 이 토큰은 **MS Graph API**를 통해 사용자의 프로필과 메일을 가져오는 데 사용됩니다.
 
-이 가이드에서 만든 샘플 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 이 토큰은 **MS Graph API**를 통해 사용자의 프로필과 메일을 가져오는 데 사용됩니다. 토큰 획득 및 갱신은 **JavaScript용 MSAL(Microsoft 인증 라이브러리)** 에서 처리합니다.
-
-### <a name="libraries"></a>라이브러리
-
-이 가이드에서는 다음 라이브러리를 사용합니다.
-
-|라이브러리|Description|
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리|
+토큰 획득 및 갱신은 [JavaScript용 MSAL(Microsoft 인증 라이브러리)](https://github.com/AzureAD/microsoft-authentication-library-for-js) 에서 처리합니다.
 
 ## <a name="set-up-your-web-server-or-project"></a>웹 서버 또는 프로젝트 설정
 
 > 이 샘플의 프로젝트를 다운로드하고 싶으세요? [프로젝트 파일을 다운로드합니다](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
 > 코드 샘플을 먼저 구성한 후에 실행하려면 [구성 단계](#register-your-application)로 건너뜁니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-* 이 자습서를 실행하려면 [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) 또는 IIS Express와 같은 로컬 웹 서버가 [Visual Studio 2017](https://www.visualstudio.com/downloads/)과 연결되어 있어야 합니다.
-
-* 이 가이드의 지침은 Node.js에서 빌드된 웹 서버를 기반으로 합니다. [Visual Studio Code](https://code.visualstudio.com/download)를 IDE(통합 개발 환경)로 사용하는 것이 좋습니다.
-
-* 최신 웹 브라우저. 이 JavaScript 샘플은 [ES6](http://www.ecma-international.org/ecma-262/6.0/) 규칙을 사용하므로 **Internet Explorer**를 지원하지 **않습니다**.
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
@@ -76,7 +72,7 @@ ms.locfileid: "91256827"
    npm install morgan --save
    ```
 
-1. 이제 `index.js`라는 .js 파일을 만든 후, 다음 코드를 추가합니다.
+1. 이제 `server.js`라는 .js 파일을 만든 후, 다음 코드를 추가합니다.
 
    ```JavaScript
    const express = require('express');
@@ -283,7 +279,7 @@ ms.locfileid: "91256827"
 
 > ### <a name="set-a-redirect-url-for-nodejs"></a>Node.js에 대한 리디렉션 URL 설정
 >
-> Node.js의 경우 *index.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서에서는 3000 포트를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다.
+> Node.js의 경우 *server.js* 파일에서 웹 서버 포트를 설정할 수 있습니다. 이 자습서에서는 3000 포트를 사용하지만 사용 가능한 다른 포트도 사용할 수 있습니다.
 >
 > 애플리케이션 등록 정보에 리디렉션 URL을 설정하려면, **애플리케이션 등록** 창으로 다시 전환하고 다음 중 하나를 수행합니다.
 >
@@ -486,8 +482,6 @@ ms.locfileid: "91256827"
    ```
 1. 브라우저에서 **http://localhost:3000** 또는 **http://localhost:{port}** 를 입력합니다. 여기서 *port*는 웹 서버에서 수신 대기하는 포트입니다. *index.html* 파일과 **로그인** 단추의 내용을 확인해야 합니다.
 
-## <a name="test-your-application"></a>애플리케이션 테스트
-
 브라우저에서 *index.html* 파일이 로드되면 **로그인**을 선택합니다. Microsoft ID 플랫폼 엔드포인트로 로그인하라는 메시지가 표시됩니다.
 
 ![JavaScript SPA 계정 로그인 창](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
@@ -512,3 +506,11 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 > 범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+여러 부분으로 구성된 시나리오 시리즈에서 Microsoft ID 플랫폼의 SPA(단일 페이지 애플리케이션) 개발에 대해 자세히 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md)
+

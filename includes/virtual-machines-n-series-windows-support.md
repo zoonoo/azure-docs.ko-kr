@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 00661043d1ec9769adbf4119a2c9c1925dcd29fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb7d1d52549d7fda9547b65a259fe2ce73f8839
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88186356"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997888"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
@@ -39,9 +39,9 @@ Azure에서 재배포 하는 그리드 드라이버는 NC, NCv2, NCv3, ND 및 ND
 Nvidia 확장은 항상 최신 드라이버를 설치 합니다. 이전 버전에 대 한 종속성이 있는 고객을 위해 여기에서 이전 버전에 대 한 링크를 제공 합니다.
 
 Windows Server 2019, Windows Server 2016 및 Windows 10 (최대 빌드 2004):
-- [표 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [표 10.1 (442.06)](https://download.microsoft.com/download/b/8/f/b8f5ecec-b8f9-47de-b007-ac40adc88dc8/442.06_grid_win10_64bit_international_whql.exe) (.exe) 
+- [표 11 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [표 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 
 Windows Server 2012 r 2의 경우: 
-- [표 11 (451.48)](https://go.microsoft.com/fwlink/?linkid=874184) (.exe)
+- [표 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 - [표 10.1 (442.66)](https://download.microsoft.com/download/4/3/3/4330fd5c-c685-4ca1-abca-3b2fb3c11d2e/442.06_grid_win8_win7_64bit_international_whql.exe) (.exe)  

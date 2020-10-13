@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320730"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996408"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 시스템 요구 사항 
 
@@ -32,21 +32,29 @@ Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니�
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>지원되는 스토리지 계정
+## <a name="supported-azure-storage-accounts"></a>지원 되는 Azure Storage 계정
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>지원 되는 계층화 된 저장소 계정
+## <a name="supported-edge-storage-accounts"></a>지원 되는 Edge 저장소 계정
 
-Azure Stack에서 관리 되는 경우 다음과 같은 계층화 된 저장소 계정이 SMB/NFS/REST 인터페이스에서 지원 됩니다.
+다음 Edge 저장소 계정은 장치의 REST 인터페이스에서 지원 됩니다. Edge 저장소 계정이 장치에 만들어집니다. 자세한 내용은 [Edge storage 계정](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)을 참조 하세요.
 
-|유형  |스토리지 계정  |주석  |
+|Type  |스토리지 계정  |주석  |
 |---------|---------|---------|
-|표준     |GPv1: 블록 Blob         |         |
-|    |  Blob storage: 블록 Blob       | NAS 에서만 지원 됨     |
+|Standard     |GPv1: 블록 Blob         |         |
 
-* 페이지 blob 및 Azure Files 현재 Azure Stack에서 지원 되지 않습니다.
-* * 핫 및 콜드 계층이 Azure Stack에 없습니다. 데이터를 업로드 한 후 Azure PowerShell를 사용 하 여 데이터를 보관 계층으로 이동 합니다. 단계별 지침을 보려면 Azure PowerShell를 사용 하 여 [blob 계층 설정]() 으로 이동 합니다.
+* 페이지 blob 및 Azure Files 현재 지원 되지 않습니다.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>지원 되는 로컬 Azure Resource Manager 저장소 계정
+
+이러한 저장소 계정은 로컬 Azure Resource Manager에 연결할 때 장치 로컬 Api를 통해 생성 됩니다. 지원 되는 저장소 계정은 다음과 같습니다.
+
+|Type  |스토리지 계정  |주석  |
+|---------|---------|---------|
+|Standard     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Standard_LRS입니다.       |
+|Premium     |GPv1: 블록 Blob, 페이지 Blob        | SKU 유형이 Premium_LRS입니다.        |
+
 
 ## <a name="supported-storage-types"></a>지원되는 스토리지 형식
 

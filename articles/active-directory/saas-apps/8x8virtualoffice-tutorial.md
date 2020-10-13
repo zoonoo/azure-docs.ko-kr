@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5f7e85cc37d5a899681b5dd1466c216f1be39a61
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538657"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708803"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>자습서: 8x8과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -147,11 +147,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 홈 페이지에서 **Identity Management(ID 관리)** 를 클릭합니다.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure1.png)
+    ![ID 관리 타일을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/configure1.png)
 
 1. **SSO(Single Sign-On)** , **Microsoft Azure AD**를 차례로 선택합니다.
 
-    ![8x8 Configuration Manager](./media/8x8virtualoffice-tutorial/configure2.png)
+    ![SSO(Single Sign On) 및 Microsoft Azure AD 옵션을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/configure2.png)
 
 1. Azure AD의 **SAML로 Single Sign-On 설정** 페이지에 있는 세 개의 URL과 서명 인증서를 8x8 Configuration Manager의 **Microsoft Azure AD SAML Settings(Microsoft Azure AD SAML 설정)** 섹션에 복사합니다.
 
@@ -173,23 +173,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 애플리케이션 패널에서 **Virtual Office Account Mgr**를 선택합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
+    ![Virtual Office Account Mgr 타일을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
 1. **비즈니스** 계정을 선택하여 관리하고 **로그인** 단추를 클릭입니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
+    ![비즈니스 옵션 및 로그인 단추를 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. 메뉴 목록에서 **계정** 탭을 클릭합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+    ![메뉴 목록에서 계정 탭을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
 1. 계정 목록에서 **Single Sign On** 을 클릭합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+    ![Single Sign On 옵션을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. 인증 방법에서 **Single Sign-On**을 선택하고 **SAML**을 클릭합니다.
 
-    ![앱 쪽에서 구성](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+    ![Single Sign On에서 SAML을 강조 표시하는 스크린샷.](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
 1. **SAML Single Sign-On** 섹션에서 다음 단계를 수행합니다.
 

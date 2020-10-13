@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 60c699e35cb182c6a90ae60efe93303569a35014
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d85e6bbaf85ebb84d3664d90e3d645f61b2cb60a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540775"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817367"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>자습서: Azure Active Directory와 F5 간에 SSO(Single Sign-On) 구성
 
@@ -73,15 +73,15 @@ Azure AD의 Single Sign-On과 SaaS 앱 통합에 대해 자세히 알아보려�
 
 1. **Guided Configuration**(단계별 구성) 페이지의 왼쪽 위 모서리에서 **Upgrade Guided Configuration**(단계별 구성 업그레이드)을 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure14.png) 
+    ![[업데이트 단계별 구성] 링크가 포함된 [단계별 구성] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure14.png) 
 
 1. Upgrade Guided Configuration 팝업 화면에서 **Choose File**(파일 선택)을 선택하여 다운로드한 사용 사례 팩을 업로드하고 **Upload and Install**(업로드 후 설치) 단추를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure15.png) 
+    ![[업그레이드 단계별 구성] 대화 상자에서 [파일 선택]을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure15.png) 
 
 1. 업그레이드가 완료되면 **Continue**(계속) 단추를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure16.png)
+    ![완료 메시지가 표시된 [업그레이드 단계별 구성] 대화 상자를 보여주는 스크린샷](./media/headerf5-tutorial/configure16.png)
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -211,39 +211,39 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**(시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다. **Certificate Name**(인증서 이름)을 지정합니다(나중에 구성에서 참조됨). **Certificate Source**(인증서 원본)에서 Upload File(파일 업로드)을 선택하여 SAML Single Sign-On을 구성하는 동안 Azure에서 다운로드한 인증서를 지정합니다. **가져오기**를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure12.png)
+    ![인증서 이름 및 인증서 원본을 선택하는 [SSL 인증서 목록]을 보여주는 스크린샷](./media/headerf5-tutorial/configure12.png)
  
 1. **애플리케이션 호스트 이름에 대한 SSL 인증서도 필요합니다. System > Certificate Management > Traffic Certificate Management > SSL Certificate List(시스템 > 인증서 관리 > 트래픽 인증서 관리 > SSL 인증서 목록)로 차례로 이동합니다**. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다. **Import Type**(유형 가져오기)은 **PKCS 12(IIS)** 입니다. **Key Name**(키 이름)을 지정하고(나중에 구성에서 참조됨), PFX 파일을 지정합니다. PFX에 대한 **Password**(암호)를 지정합니다. **가져오기**를 클릭합니다.
 
     >[!NOTE]
     >이 예에서 앱 이름은 `Headerapp.superdemo.live`이고, 키 이름이 `WildCard-SuperDemo.live`인 와일드카드 인증서를 사용하고 있습니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure13.png)
+    ![[SSL 인증서/키 원본] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure13.png)
 
 1. Guided Experience(단계별 환경)를 사용하여 Azure AD 페더레이션 및 애플리케이션 액세스를 설정합니다. F5 BIG-IP **Main**(기본)으로 이동하고, **Access > Guided Configuration > Federation > SAML Service Provider**(액세스 > 단계별 구성 > 페더레이션 > SAML 서비스 공급자)를 차례로 선택합니다. **Next**(다음)를 클릭한 다음, **Next**를 클릭하여 구성을 시작합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure01.png)
+    ![[단계별 구성] 페이지에서 [페더레이션]을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure01.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure02.png)
+    ![[SAML 서비스 공급자] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure02.png)
  
 1. **Configuration Name**(구성 이름)을 제공합니다. **Entity ID**(엔터티 ID)를 지정합니다(Azure AD 애플리케이션 구성에서 구성한 것과 동일). **Host name**(호스트 이름)을 지정합니다. 참조를 위한 **Description**(설명)을 추가합니다. 나머지 기본 항목을 적용한 다음, **Save & Next**(저장 후 다음)를 선택하여 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure03.png) 
+    ![[서비스 공급자 속성] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure03.png) 
 
 1. 이 예에서는 새 가상 서버를 443 포트가 있는 192.168.30.20으로 만듭니다. **Destination Address**(대상 주소)에서 가상 서버 IP 주소를 지정합니다. **Client SSL Profile**(클라이언트 SSL 프로필), Create new(새로 만들기)를 차례로 선택합니다. 이전에 업로드한 애플리케이션 인증서(이 예에서는 와일드카드 인증서) 및 연결된 키를 지정한 다음, **Save & Next**(저장 후 다음)를 클릭합니다.
 
     >[!NOTE]
     >이 예에서는 내부 웹 서버가 888 포트에서 실행되고 있고, 443 포트를 사용하여 게시하려고 합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure04.png) 
+    ![[가상 서버 속성] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure04.png) 
 
 1. **Select method to configure your IdP connector**(IdP 커넥터를 구성하는 방법 선택) 아래에서 Metadata(메타데이터)를 지정하고, Choose File(파일 선택)을 클릭하고, 이전에 Azure AD에서 다운로드한 메타데이터 XML 파일을 업로드합니다. SAML IDP 커넥터에 대해 고유한 **Name**(이름)을 지정합니다. 이전에 업로드한 **Metadata Signing Certificate**(메타데이터 서명 인증서)를 선택합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure05.png)
+    ![[외부 ID 공급자 커넥터 설정] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure05.png)
  
 1. **Select a Pool**(풀 선택) 아래에서 **Create New**(새로 만들기)를 지정합니다(또는 이미 있는 풀 선택). 다른 값은 기본값으로 둡니다. Pool Servers(풀 서버)의 **IP Address/Node Name**(IP 주소/노드 이름) 아래에서 IP 주소를 입력합니다. **Port**(포트)를 지정합니다. **Save & Next**(저장 후 다음)를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure06.png)
+    ![[풀 속성] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure06.png)
 
 1. Single Sign-On Settings(Single Sign-On 설정) 화면에서 **Enable Single Sign-On**(Single Sign-On 사용)을 선택합니다. Selected Single Sign-On Type(선택한 Single Sign-On 유형) 아래에서 **HTTP header-based**(HTTP 헤더 기반)를 선택합니다. Username Source(사용자 이름 원본) 아래에서 **session.saml.last.Identity**를 **session.saml.last.attr.name.Identity**로 바꿉니다(이 변수는 Azure AD의 클레임 매핑을 사용하여 설정). SSO Headers(SSO 헤더) 아래에서 다음과 같이 수행합니다.
 
@@ -258,21 +258,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     >[!NOTE]
     >Account Name(계정 이름)은 F5 Delegation Account Created(생성된 F5 위임 계정)입니다(F5 설명서 확인).
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure07.png) 
+    ![[Single Sign-On 설정] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure07.png) 
 
 1. 이 지침에서는 엔드포인트 검사를 건너뜁니다.  자세한 내용은 F5 설명서를 참조하세요. **Save & Next**(저장 후 다음)를 선택합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure08.png)
+    ![[엔드포인트 확인 속성] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure08.png)
 
 1. 기본값을 적용하고, **Save & Next**(저장 후 다음)를 클릭합니다. SAML 세션 관리 설정에 대한 자세한 내용은 F5 설명서를 참조하세요.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure09.png)
+    ![[시간 제한 설정] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure09.png)
 
 1. 요약 화면을 검토하고, **Deploy**(배포)를 선택하여 BIG-IP를 구성합니다. **Finish**(마침)를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure10.png)
+    ![[애플리케이션 배포 준비가 완료되었습니다] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure10.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure11.png)
+    ![[애플리케이션이 배포되었습니다] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure11.png)
 
 ## <a name="advanced-configuration"></a>고급 구성
 
@@ -283,7 +283,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     >[!NOTE]
     >이 예에서 앱 이름은 `Headerapp.superdemo.live`이고, 키 이름이 `WildCard-SuperDemo.live`인 와일드카드 인증서를 사용하고 있습니다.
   
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure17.png)
+    ![고급 구성을 위한 [SSL 인증서/키 원본] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure17.png)
 
 ### <a name="adding-a-new-web-server-to-bigip-f5"></a>BigIP-F5에 새 웹 서버 추가
 
@@ -291,7 +291,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Name**(이름)을 제공하고, **Template**(템플릿)에서 **f5.http**를 선택합니다.
  
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure18.png)
+    ![[템플릿 선택] 옵션이 있는 [애플리케이션 서비스] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure18.png)
 
 1. 이 경우 HeaderApp2를 HTTPS로 외부에 게시합니다. **how should the BIG-IP system handle SSL Traffic?** (BIG-IP 시스템에서 SSL 트래픽을 어떻게 처리해야 합니까?) 아래에서 **Terminate SSL from Client, Plaintext to servers (SSL Offload)** (클라이언트에서 SSL 종료, 일반 텍스트에서 서버로(SSL 오프로드))를 지정합니다. **어떤 SSL 인증서를 사용하시겠습니까?** 및 **어떤 SSL 프라이빗 키를 사용하시겠습니까?** 아래에서 인증서와 키를 지정합니다. **What IP Address do you want to use for the Virtual Server?** (어떤 IP 주소를 가상 서버에 사용하시겠습니까?) 아래에서 가상 서버 IP를 지정합니다. 
 
@@ -303,15 +303,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
         * 새 앱 서버를 만드는 경우 **internal IP Address**(내부 IP 주소) 및 **port number**(포트 번호)를 지정합니다.
 
-        ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure19.png) 
+        ![이러한 세부 정보를 지정할 수 있는 창을 보여주는 스크린샷](./media/headerf5-tutorial/configure19.png) 
 
 1. **Finished**(마침)를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure20.png) 
+    ![완료 후 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure20.png) 
 
 1. 앱 속성을 수정할 수 있는지 확인합니다. **Main > IApps > Application Services(기본 > IApps > 애플리케이션 서비스): Applications(애플리케이션) >> HeaderApp2**를 차례로 클릭합니다. **Strict Updates**(엄격한 업데이트)의 선택을 취소합니다(GUI 외부에서 일부 설정을 수정함). **Update**(업데이트) 단추를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure21.png) 
+    ![[애플리케이션 서비스] 페이지에서 [속성] 탭을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure21.png) 
 
 1. 이 시점에서 가상 서버를 검색할 수 있습니다.
 
@@ -319,27 +319,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1.  **Access > Federation> SAML Service Provider > Local SP Service**(액세스 > 페더레이션 > SAML 서비스 공급자 > 로컬 SP 서비스)를 차례로 클릭하고, Create(만들기) 또는 + 기호를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure22.png)
+    ![[이 BIG IP 정보] 페이지를 보여주는 스크린샷 ](./media/headerf5-tutorial/configure22.png)
 
 1. 서비스 공급자 서비스에 대한 세부 정보를 지정합니다. F5 SP 구성을 나타내는 **Name**(이름)을 지정합니다. **Entity ID**(엔터티 ID)를 지정합니다(일반적으로 애플리케이션 URL과 동일).
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure23.png)
+    ![[새 SAML SP 서비스 만들기] 대화 상자가 있는 [SAML 서비스 공급자 페이지]를 보여주는 스크린샷](./media/headerf5-tutorial/configure23.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure24.png)
+    ![[새 SAML SP 서비스 만들기] 대화 상자에서 [엔드포인트 설정]을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure24.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure25.png)
+    ![[새 SAML SP 서비스 만들기] 대화 상자에서 [보안 설정]을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure25.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure26.png)
+    ![[새 SAML SP 서비스 만들기] 대화 상자에서 [인증 컨텍스트]를 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure26.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure27.png)
+    ![[새 SAML SP 서비스 만들기] 대화 상자에서 [요청된 특성]을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure27.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure28.png)
+    ![[SAML SP 서비스 편집] 대화 상자에서 [고급 설정]을 선택한 모습을 보여주는 스크린샷](./media/headerf5-tutorial/configure28.png)
 
 ### <a name="create-idp-connector"></a>Idp 커넥터 만들기
 
 1. **Bind/Unbind IdP Connectors**(IdP 커넥터 바인딩/ 바인딩 해제) 단추를 클릭하고, **Create New IdP Connector**(새 IdP 커넥터 만들기), **From Metadata**(메타데이터에서) 옵션을 차례로 선택하고, 다음 단계를 수행합니다.
  
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure29.png)
+    ![[새 IdP 커넥터 만들기]를 선택한 SP 대화 상자를 사용하는 [SAML IdP]를 보여주는 스크린샷](./media/headerf5-tutorial/configure29.png)
 
     a. Azure AD에서 다운로드한 metadata.xml 파일을 찾고, **Identity Provider Name**(ID 공급자 이름)을 지정합니다.
 
@@ -347,7 +347,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. 커넥터가 만들어지고, 인증서가 메타데이터 xml 파일에서 자동으로 준비됩니다.
     
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure30.png)
+    ![[새 SAML IdP 커넥터 만들기] 대화 상자를 보여주는 스크린샷](./media/headerf5-tutorial/configure30.png)
 
     d. 모든 요청을 Azure AD로 보내도록 F5BIG-IP를 구성합니다.
 
@@ -363,7 +363,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     j. **SAML IDP 설정이 완료되었습니다.**
     
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure31.png)
+    ![이 SP 대화 상자를 사용하는 [SAML IdP 편집]을 보여주는 스크린샷](./media/headerf5-tutorial/configure31.png)
 
 ### <a name="configure-f5-policy-to-redirect-users-to-azure-saml-idp"></a>사용자를 Azure SAML IDP로 리디렉션하도록 F5 정책 구성
 
@@ -373,39 +373,39 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **만들기** 단추를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure32.png)
+    ![[프로필 액세스] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure32.png)
  
     다. **Name**(이름)을 지정합니다(이 예에서는 HeaderAppAzureSAMLPolicy).
 
     d. 다른 설정을 사용자 지정할 수 있습니다. F5 설명서를 참조하세요.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure33.png)
+    ![[일반 속성] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure33.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure34.png) 
+    ![[일반 속성 페이지 계속]을 보여주는 스크린샷](./media/headerf5-tutorial/configure34.png) 
 
     e. **Finished**(마침)를 클릭합니다.
 
     f. 정책 만들기가 완료되면 Policy(정책)를 클릭하고, **Access Policy**(정책 액세스) 탭으로 이동합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure35.png)
+    ![[일반 속성]이 있는 [액세스 정책] 탭을 보여주는 스크린샷](./media/headerf5-tutorial/configure35.png)
  
     g. **Visual Policy Editor**(시각적 정책 편집기)를 클릭하고, **Access Policy for Profile**(프로필에 대한 액세스 정책) 링크를 편집합니다.
 
     h. Visual Policy Editor에서 + Sign in(+ 로그인)을 클릭하고, **SAML Auth**(SAML 인증)를 선택합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure36.png)
+    ![[액세스 정책]을 보여주는 스크린샷](./media/headerf5-tutorial/configure36.png)
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure37.png)
+    ![[SAML 인증]을 선택한 검색 대화 상자를 보여주는 스크린샷](./media/headerf5-tutorial/configure37.png)
  
     i. **Add Item**(항목 추가)을 클릭합니다.
 
     j. **Properties**(속성) 아래에서 **Name**(이름)을 지정하고, **AAA Server**(AAA 서버) 아래에서 이전에 구성한 SP를 선택하고, **SAVE**(저장)를 클릭합니다.
  
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure38.png)
+    ![AAA 서버를 비롯한 항목 속성을 보여주는 스크린샷](./media/headerf5-tutorial/configure38.png)
 
     k. 기본 정책이 준비되었습니다. 정책을 사용자 지정하여 추가 원본/특성 저장소를 통합할 수 있습니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure39.png)
+    ![사용자 지정된 정책을 보여주는 스크린샷](./media/headerf5-tutorial/configure39.png)
  
     l. 위쪽에 있는 **Apply Access Policy**(액세스 정책 적용) 링크를 클릭해야 합니다.
 
@@ -415,21 +415,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **Main** > **Local Traffic** > **Virtual Servers**(기본 > 로컬 트래픽 > 가상 서버)를 차례로 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure40.png)
+    ![[가상 서버 목록] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure40.png)
  
     b. 가상 서버를 클릭하고, **Access Profile**(액세스 프로필) 드롭다운에서 **Access Policy**(액세스 정책) 섹션으로 스크롤하고, 만든 SAML 정책(이 예에서는 HeaderAppAzureSAMLPolicy)을 선택합니다.
 
     다. **Update**(업데이트)를 클릭합니다.
  
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure41.png)
+    ![[액세스 정책] 창을 보여주는 스크린샷](./media/headerf5-tutorial/configure41.png)
 
     d. 들어오는 어설션에서 사용자 지정 SAML 특성을 추출하여 HTTP 헤더로 백 엔드 테스트 애플리케이션에 전달하는 F5 BIG-IP iRule®을 만듭니다. **Main > Local Traffic > iRules > iRule List**(기본 > 로컬 트래픽 > iRule > iRule 목록)를 차례로 클릭하고, Create(만들기)를 클릭합니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure42.png)
+    ![[로컬 트래픽 iRule 목록]을 보여주는 스크린샷](./media/headerf5-tutorial/configure42.png)
  
     e. 아래의 F5 BIG-IP iRule 텍스트를 Definition(wjddml) 창에 붙여넣습니다.
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure43.png)
+    ![[새 iRule] 페이지를 보여주는 스크린샷](./media/headerf5-tutorial/configure43.png)
  
     when RULE_INIT {  set static::debug 0  }  when ACCESS_ACL_ALLOWED {
 
@@ -441,7 +441,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     **샘플 출력은 아래와 같습니다.**
 
-    ![F5(헤더 기반) 구성](./media/headerf5-tutorial/configure44.png)
+    ![샘플 출력을 보여주는 스크린샷](./media/headerf5-tutorial/configure44.png)
  
 ### <a name="create-f5-test-user"></a>F5 테스트 사용자 만들기
 

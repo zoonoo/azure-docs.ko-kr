@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1d39b29ba340b34d6f0add8ff5da473408bd6360
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259131"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742386"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>자습서: SMB를 통해 Azure Data Box에서 데이터 복사(미리 보기)
 
@@ -50,7 +50,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **자격 증명 가져오기**를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다. 
 
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![공유 자격 증명 가져오기](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호**를 복사합니다. **확인**을 선택합니다.
     
@@ -75,7 +75,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 선택하여 파일 탐색기를 엽니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![파일 탐색기를 통해 공유에 연결](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     이제 공유가 폴더로 표시될 것입니다.
     

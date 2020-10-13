@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작
+        - name: 시작하기
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -153,7 +153,7 @@
               href: azure-stack-edge-gpu-prepare-device-failure.md
             - name: 디바이스 오류 복구
               href: azure-stack-edge-gpu-recover-device-failure.md
-        - name: 모니터
+        - name: Monitor
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
@@ -165,6 +165,8 @@
               href: azure-stack-edge-gpu-troubleshoot.md
             - name: 문제 정렬
               href: azure-stack-edge-troubleshoot-ordering.md
+            - name: 활성화 문제
+              href: azure-stack-edge-gpu-troubleshoot-activation.md
             - name: Microsoft 지원에 문의
               href: azure-stack-edge-contact-microsoft-support.md
     - name: 릴리스 정보

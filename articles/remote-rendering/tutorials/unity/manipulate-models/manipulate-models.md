@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07b5b81dd7e23f25e7bfba90bbab7083090724d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018861"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653165"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -161,7 +161,7 @@ ms.locfileid: "89018861"
 
 1. 애플리케이션을 다시 실행합니다. 모델이 로드되는 즉시 원격 개체에 대한 범위가 표시됩니다. 다음과 같은 값이 표시됩니다.
 
-     ![업데이트된 범위](./media/updated-bounds.png)
+     ![원격 개체 경계 예제를 보여주는 스크린샷.](./media/updated-bounds.png)
 
 이제 Unity 개체에서 정확한 범위를 사용하여 구성된 로컬 **BoxCollider**가 있습니다. 범위를 사용하면 로컬로 렌더링된 개체에 사용하는 것과 동일한 전략을 사용하여 시각화 및 상호 작용을 수행할 수 있습니다. 예를 들어 Transform(변환), 물리 등을 변경하는 스크립트가 있습니다.
 

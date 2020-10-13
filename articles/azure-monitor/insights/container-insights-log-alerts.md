@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor의 로그 경고 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 Azure Monitor에서 메모리 및 CPU 사용률에 대 한 사용자 지정 로그 경고를 만드는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294549"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995264"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor에서 로그 경고를 만드는 방법
 
@@ -307,4 +307,4 @@ InsightsMetrics
 
 - [로그 쿼리 예](container-insights-log-search.md#search-logs-to-analyze-data) 를 확인 하 여 미리 정의 된 쿼리 및 예제를 확인 하거나 사용자 지정 하 여 클러스터에 대 한 경고, 시각화 또는 분석을 평가 하거나 사용자 지정 합니다.
 
-- Azure Monitor 및 Kubernetes 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 [Kubernetes cluster performance](container-insights-analyze.md) 및 [view Kubernetes cluster health](container-insights-health.md)를 참조 하세요.
+- Azure Monitor 및 Kubernetes 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 [Kubernetes cluster performance](container-insights-analyze.md) 및 [view Kubernetes cluster health](./container-insights-overview.md)를 참조 하세요.

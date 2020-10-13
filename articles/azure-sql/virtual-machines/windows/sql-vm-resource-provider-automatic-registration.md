@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 75f68a4de2db0c4c9102a58da12d80cc273a6e80
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931175"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996898"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -77,6 +77,25 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 ---
 
+## <a name="enable-for-multiple-subscriptions"></a>여러 구독에 대해 사용
+
+PowerShell을 사용 하 여 여러 Azure 구독에 대 한 자동 등록 기능을 사용 하도록 설정할 수 있습니다. 
+
+이렇게 하려면 다음 단계를 수행하세요.
+
+1. [이 스크립트](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) 를 `.ps1` 와 같은 파일에 저장 `EnableBySubscription.ps1` 합니다. 
+1. 관리 명령 프롬프트 또는 PowerShell 창을 사용 하 여 스크립트를 저장 한 위치로 이동 합니다. 
+1. Azure ()에 연결 `az login` 합니다.
+1. 스크립트를 실행 하 여 구독 Id를 매개 변수로 전달 합니다.   
+   `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+
+   예: 
+
+   ```console
+   .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
+   ```
+
+실패 한 등록 오류는 `RegistrationErrors.csv` 스크립트를 저장 하 고 실행 한 디렉터리와 동일한 디렉터리에 저장 됩니다 `.ps1` . 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: abeb52155b933c223ee0621e8ab203ac035e5f36
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0ce6e4dc44a19f4aaee35cc4477761010d76a96b
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519715"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775921"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-comm100-live-chat"></a>자습서: Comm100 Live Chat과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -144,7 +144,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 메뉴에서 **보안**을 클릭한 다음, **에이전트 Single Sign-On**을 클릭합니다.
 
-   ![Comm100 Live Chat 보안](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   !["보안" 및 "에이전트 Single Sign-On"이 강조 표시된 왼쪽 계정 메뉴를 보여주는 스크린샷.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
 1. **에이전트 Single Sign-On** 페이지에서 다음 단계를 수행합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 20a6702a37a4432504d85c787218eb10a10931b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555907"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775631"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>자습서: Coralogix와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -95,13 +95,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
  1. Coralogix 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 선택하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    !["편집" 단추가 강조 표시된 "사용자 특성" 대화 상자를 보여주는 스크린샷.](common/edit-attribute.png)
 
 1. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집** 아이콘을 사용하여 클레임을 편집합니다. 이전 이미지에서 보여드린 것처럼 SAML 토큰 특성을 구성하는 **새 클레임 추가**를 사용하여 클레임을 추가할 수도 있습니다. 다음 단계를 수행합니다.
     
     a. **편집 아이콘**을 선택하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](./media/coralogix-tutorial/tutorial_usermail.png) ![이미지](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    !["편집" 단추가 강조 표시된 "사용자 특성 및 클레임" 대화 상자를 보여주는 스크린샷.](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. **이름 식별자 형식 선택** 목록에서 **이메일 주소**를 선택합니다.
 
@@ -125,7 +126,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

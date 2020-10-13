@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 47ffaef940b3fe2ffe033405a712195c5c74d774
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85b355981a50804f1c43441efa38c5db59967c1d
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520385"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760634"
 ---
 # <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>자습서: Azure Active Directory와 Civic Platform 통합
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/copy-metadataurl.png)
+    ![스크린샷은 앱 페더레이션 메타데이터 URL을 복사할 수 있는 SAML 서명 인증서 페이지를 보여줍니다.](common/copy-metadataurl.png)
 
 1. Azure AD에서 **Azure Active Directory** > **앱 등록**으로 이동하고, 애플리케이션을 선택합니다.
 
@@ -120,21 +120,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Standard Choices**(표준 선택 항목)를 클릭합니다.
 
-    ![인증서 다운로드 링크](media/civic-platform-tutorial/standard-choices.png)
+    ![스크린샷은 관리자 도구에서 호출된 표준 선택 항목이 있는 Atlassian 클라우드 사이트를 보여줍니다.](media/civic-platform-tutorial/standard-choices.png)
 
 1. **ssoconfig** 표준 선택 항목을 만듭니다.
 
 1. **ssoconfig**를 검색하고 제출합니다.
 
-    ![인증서 다운로드 링크](media/civic-platform-tutorial/sso-config.png)
+    ![스크린샷은 SSO 구성 이름이 입력된 표준 선택 항목 검색을 보여줍니다.](media/civic-platform-tutorial/sso-config.png)
 
 1. 빨간색 점을 클릭하여 SSOCONFIG를 확장합니다.
 
-    ![인증서 다운로드 링크](media/civic-platform-tutorial/sso-config01.png)
+    ![스크린샷은 SSO CONFIG를 사용할 수 있는 표준 항목 선택 브라우저를 보여줍니다.](media/civic-platform-tutorial/sso-config01.png)
 
 1. 다음 단계에서 SSO 관련 구성 정보를 제공합니다.
 
-    ![인증서 다운로드 링크](media/civic-platform-tutorial/sso-config02.png)
+    ![스크린샷은 SSO CONFIG에 대한 표준 선택 항목 편집을 보여줍니다.](media/civic-platform-tutorial/sso-config02.png)
 
     1. **applicationid** 필드에서 Azure Portal에서 복사한 **애플리케이션 ID** 값을 입력합니다.
 

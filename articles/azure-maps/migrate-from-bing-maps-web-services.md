@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4520332fbc5040aff682ce52e819fa4a940999cc
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108433"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741672"
 ---
 # <a name="migrate-web-service-from-bing-maps"></a>Bing Maps에서 웹 서비스 마이그레이션
 
@@ -249,7 +249,7 @@ Azure Maps 경로 API에는 Bing Maps에 없는 다음과 같은 여러 추가 �
 
 Azure Maps에서 여러 가지 방법으로 좌표를 도로에 맞출 수 있습니다.
 
--   경로 방향 API를 사용하여 도로 네트워크를 따라 논리적 경로의 좌표를 맞춥니다.
+-   경로 방향 API를 사용하여 도로 네트워크를 따라 논리적 경로에 좌표를 맞춥니다.
 -   Azure Maps 웹 SDK를 사용하여 개별 좌표를 벡터 타일의 가장 가까운 도로에 맞춥니다.
 -   Azure Maps 벡터 타일을 사용하여 개별 좌표를 직접 맞춥니다.
 

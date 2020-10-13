@@ -1,7 +1,7 @@
 ---
-title: Angular 단일 페이지 앱 자습서 - Azure
+title: '자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Angular 앱 만들기 | Azure'
 titleSuffix: Microsoft identity platform
-description: Angular SPA 애플리케이션에서 Microsoft ID 플랫폼 엔드포인트의 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
+description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph API를 호출하는 액세스 토큰을 가져오는 Angular SPA(단일 페이지 앱)를 빌드합니다.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -12,30 +12,36 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256928"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611251"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
-이 자습서에서는 Angular SPA(단일 페이지 애플리케이션)에서 다음을 수행하는 방법을 보여줍니다.
-- 개인 계정, 회사 계정 또는 학교 계정에 로그인
-- 액세스 토큰 획득
-- *Microsoft ID 플랫폼 엔드포인트*에서 액세스 토큰을 요구하는 Microsoft Graph API 또는 다른 API 호출
+이 자습서에서는 개인 Microsoft 계정과 회사 또는 학교 계정으로 사용자를 로그인하고 사용자 대신 Microsoft Graph API를 호출할 수 있는 Angular SPA(단일 페이지 애플리케이션)를 빌드하는 과정을 안내합니다.
 
->[!NOTE]
->이 자습서에서는 MSAL(Microsoft 인증 라이브러리)을 사용하여 새 Angular SPA를 만드는 방법을 안내합니다. 샘플 앱을 다운로드하려면 [빠른 시작](quickstart-v2-angular.md)을 참조하세요.
+이 자습서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * `npm`을 사용하여 Angular 프로젝트 만들기
+> * Azure Portal에 애플리케이션 등록
+> * 사용자 로그인 및 로그아웃을 지원하는 코드 추가
+> * Microsoft Graph API를 호출하는 코드 추가
+> * 앱 테스트
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* 로컬 앱 서버 실행을 위한 [Node.js](https://nodejs.org/en/download/).
+* 프로젝트 파일을 수정하기 위한 [Visual Studio Code](https://code.visualstudio.com/download) 또는 기타 편집기
 
 ## <a name="how-the-sample-app-works"></a>샘플 앱의 작동 방식
 
 ![이 자습서에서 생성된 샘플 앱의 작동 방식을 보여주는 다이어그램](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### <a name="more-information"></a>자세한 정보
-
-이 자습서에서 만드는 샘플 애플리케이션을 사용하면 Angular SPA에서 Microsoft ID 플랫폼 엔드포인트의 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. Angular용 MSAL 라이브러리는 핵심 MSAL.js 라이브러리의 래퍼입니다. 이 라이브러리를 사용하면 Angular(6+) 애플리케이션에서 Microsoft Azure Active Directory, Microsoft 계정 사용자 및 소셜 ID 사용자(Facebook, Google, LinkedIn 등)를 사용하여 엔터프라이즈 사용자를 인증할 수 있습니다. 또한 이 라이브러리를 사용하면 애플리케이션에서 Microsoft 클라우드 서비스 또는 Microsoft Graph에 액세스할 수 있습니다.
+이 자습서에서 만드는 샘플 애플리케이션을 사용하면 Angular SPA에서 Microsoft ID 플랫폼에서 발급한 토큰을 수락하는 Microsoft Graph API 또는 웹 API를 쿼리할 수 있습니다. 샘플 애플리케이션은 핵심 MSAL.js 라이브러리의 래퍼인 Angular에 MSAL(Microsoft 인증 라이브러리)을 사용합니다. MSAL Angular를 사용하면 Angular 6 이상 애플리케이션에서 Azure AD(Azure Active Directory)를 사용하여 엔터프라이즈 사용자를 인증하고 Microsoft 계정 사용자 및 소셜 ID(Facebook, Google, LinkedIn 등)를 사용하여 사용자를 인증할 수 있습니다. 또한 이 라이브러리를 사용하면 애플리케이션에서 Microsoft 클라우드 서비스 및 Microsoft Graph에 액세스할 수 있습니다.
 
 이 시나리오에서는 사용자가 로그인하면 권한 부여 헤더를 통해 액세스 토큰이 요청되고 HTTP 요청에 추가됩니다. 토큰 획득 및 갱신은 MSAL에서 처리합니다.
 
@@ -48,13 +54,6 @@ ms.locfileid: "91256928"
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript Angular 래퍼용 Microsoft 인증 라이브러리|
 
 GitHub의 [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) 리포지토리에서 MSAL 라이브러리의 소스 코드를 찾을 수 있습니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-이 자습서를 실행하려면 다음이 필요합니다.
-
-* [Node.js](https://nodejs.org/en/download/) 같은 로컬 웹 서버. 이 자습서의 지침은 Node.js 기준입니다.
-* 프로젝트 파일을 편집하기 위한 [Visual Studio Code](https://code.visualstudio.com/download) 같은 IDE(통합 개발 환경)
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
@@ -343,6 +342,7 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 
 ## <a name="next-steps"></a>다음 단계
 
-ID 및 액세스 관리를 처음 접하는 경우 [인증 및 권한 부여](authentication-vs-authorization.md)를 시작으로 최신 인증 개념을 배우는 데 도움이 되는 몇 가지 문서가 있습니다.
+여러 부분으로 구성된 문서 시리즈에서 Microsoft ID 플랫폼의 SPA(단일 페이지 애플리케이션) 개발에 대해 자세히 알아봅니다.
 
-Microsoft ID 플랫폼에서 단일 페이지 애플리케이션 개발에 대해 자세히 알아보려면 일련의 다중 파트 [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md) 문서를 통해 시작하면 됩니다.
+> [!div class="nextstepaction"]
+> [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md)

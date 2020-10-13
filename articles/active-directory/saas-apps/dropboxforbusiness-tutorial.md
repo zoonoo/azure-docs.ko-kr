@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 3c1ff9de1057a5ef551ad941965f64907e4243e5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93d13023dfda8164bf0d327bee6106f9803e1bf7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555742"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775151"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>자습서: Dropbox Business와 Azure Active Directory 통합
 
@@ -145,27 +145,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. Dropbox Business를 수동으로 설정하려면 새 웹 브라우저 창을 열고, Dropbox Business 테넌트로 이동하고, Dropbox Business 테넌트에 로그온합니다. 그러면 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/dropboxforbusiness-tutorial/ic769509.png "Single Sign-On 구성")
+    !["Dropbox Business 로그인" 페이지를 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/ic769509.png "Single Sign-On 구성")
 
 4. **사용자 아이콘**을 클릭하고 **설정** 탭을 선택합니다.
 
-    ![Single Sign-on 구성](./media/dropboxforbusiness-tutorial/configure1.png "Single Sign-On 구성")
+    !["사용자 아이콘" 작업 및 선택된 "설정"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure1.png "Single Sign-On 구성")
 
 5. 왼쪽의 탐색 창에서 **관리 콘솔**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/dropboxforbusiness-tutorial/configure2.png "Single Sign-On 구성")
+    ![선택된 "관리 콘솔"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure2.png "Single Sign-On 구성")
 
 6. **관리 콘솔**의 왼쪽 탐색 창에서 **설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/dropboxforbusiness-tutorial/configure3.png "Single Sign-On 구성")
+    ![선택된 "설정"을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure3.png "Single Sign-On 구성")
 
 7. **인증** 섹션에서 **Single Sign-On** 옵션을 선택합니다.
 
-    ![Single Sign-on 구성](./media/dropboxforbusiness-tutorial/configure4.png "Single Sign-On 구성")
+    !["Single Sign-On"이 선택된 "인증" 섹션을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure4.png "Single Sign-On 구성")
 
 8. **Single Sign-On** 섹션에서 다음 단계를 수행합니다.  
 
-    ![Single Sign-on 구성](./media/dropboxforbusiness-tutorial/configure5.png "Single Sign-On 구성")
+    !["Single Sign-On" 구성 설정을 보여주는 스크린샷.](./media/dropboxforbusiness-tutorial/configure5.png "Single Sign-On 구성")
 
     a. **Single Sign-On**에 대한 드롭다운에서 옵션으로 **필수**를 선택합니다.
 

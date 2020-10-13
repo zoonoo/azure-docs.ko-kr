@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
-ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526530"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996347"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -79,7 +79,7 @@ ms.locfileid: "90526530"
    **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 트리거와 같은 일부 트리거는 하나 이상의 메시지를 반환할 수 있습니다. 이러한 트리거는 발생 하면 1과 트리거의 **최대 메시지 수** 속성에 지정 된 메시지 수를 반환 합니다.
 
     > [!NOTE]
-    > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 완료는 다음 트리거 실행 시에만 수행 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 논리 앱이 제한 된 상태로 전환 되는 경우이 변경으로 인해 중복 메시지가 나타날 수 있으므로 자동 완성 트리거의 동시성을 변경 하지 마십시오. 동시성 제어를 변경 하면 이러한 조건이 생성 됩니다. 즉, 제한 된 트리거는 코드를 사용 하 여 건너뛰고 `WorkflowRunInProgress` 완료 작업은 발생 하지 않으며 폴링 간격 후에 다음 트리거 실행이 수행 됩니다. Service bus 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다. 그러나이 설정에도 불구 하 고 논리 앱이 다음 폴링 간격으로 제한 된 상태로 유지 되는 경우에도 메시지는 완료 되지 않을 수 있습니다.
+    > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 다음에 Service Bus를 호출할 때만 완료 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 논리 앱이 제한 된 상태로 전환 되는 경우이 변경으로 인해 중복 메시지가 나타날 수 있으므로 자동 완성 트리거의 동시성을 변경 하지 마십시오. 동시성 제어를 변경 하면 이러한 조건이 생성 됩니다. 즉, 제한 된 트리거는 코드를 사용 하 여 건너뛰고 `WorkflowRunInProgress` 완료 작업은 발생 하지 않으며 폴링 간격 후에 다음 트리거 실행이 수행 됩니다. Service bus 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다. 그러나이 설정에도 불구 하 고 논리 앱이 다음 폴링 간격으로 제한 된 상태로 유지 되는 경우에도 메시지는 완료 되지 않을 수 있습니다.
 
 1. 트리거가 Service Bus 네임 스페이스에 처음으로 연결 하는 경우 논리 앱 디자이너에서 연결 정보를 묻는 메시지가 표시 되 면 다음 단계를 수행 합니다.
 
@@ -162,6 +162,10 @@ ms.locfileid: "90526530"
 관련 메시지를 특정 순서로 보내야 하는 경우에는 [Azure Service Bus 커넥터](../connectors/connectors-create-api-servicebus.md)를 사용 하 여 [ *순차 호위 (convoy* ) 패턴](/azure/architecture/patterns/sequential-convoy) 을 사용할 수 있습니다. 상관 관계가 지정 된 메시지에는 Service Bus [세션](../service-bus-messaging/message-sessions.md) 의 ID와 같은 해당 메시지 간의 관계를 정의 하는 속성이 있습니다.
 
 논리 앱을 만들 때 순차 호위 (convoy) 패턴을 구현 하는 **service bus 세션 템플릿을 사용 하 여 상관 관계가 지정 된 순서 대로 배달을** 선택할 수 있습니다. 자세한 내용은 [순서 대로 관련 메시지 보내기](../logic-apps/send-related-messages-sequential-convoy.md)를 참조 하세요.
+
+## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>논리 앱에 대 한 업데이트의 지연이 적용 됩니다.
+
+Service Bus 트리거의 폴링 간격이 작은 경우 (예: 10 초) 논리 앱에 대 한 업데이트가 최대 10 분 동안 적용 되지 않을 수 있습니다. 이 문제를 해결 하려면 논리 앱을 업데이트 하기 전에 폴링 간격을 일시적으로 더 큰 값 (예: 30 초 또는 1 분)으로 늘릴 수 있습니다. 업데이트를 수행한 후에는 폴링 간격을 원래 값으로 다시 설정할 수 있습니다. 
 
 <a name="connector-reference"></a>
 

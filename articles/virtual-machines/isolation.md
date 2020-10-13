@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: sttsinar
-ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: ayshak
+ms.openlocfilehash: 7b1956d704bbdf9475f04efcbdc4b6ee75bb50b2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666843"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996292"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Azure의 가상 머신 격리
 
@@ -64,7 +65,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>Q: D15_v2 또는 DS15_v2 격리 사용 중지에 대 한 마일스 톤은 무엇 인가요? 
 **A**: 
  
-| Date | 작업 |
+| 날짜 | 작업 |
 |---|---| 
 | 2019년 11월 18일 | D/DS15i_v2의 가용성 (PAYG, 1 년 RI) | 
 | 5 월 14 일, 2020 | D/DS15i_v2 1 년 RI의 최근 구매 날짜 | 

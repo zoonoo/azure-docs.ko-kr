@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8d5f9b360e1d81bae62e34a8e20d61636e1d22ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859619"
+ms.locfileid: "91936054"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 **Azure Resource Manager**를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
@@ -75,6 +75,7 @@ ms.locfileid: "91859619"
 | Load Balancer당 백 엔드 리소스 <sup>1<sup> | 150                   |
 | 고가용성 포트                 | 내부 프런트 엔드당 1       |
 | Load Balancer당 아웃바운드 규칙        | 600                           |
+| VM당 Load Balancer 수                   | 2개(공용 1개 및 내부용 1개)   |
 
 <sup>1</sup>독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 배치 조합에서 최대 150개의 리소스를 제공합니다.
 
@@ -88,6 +89,7 @@ ms.locfileid: "91859619"
 | 프런트 엔드 IP 구성              | 200                          |
 | 백 엔드 풀 크기                       | 300 IP 구성, 단일 가용성 집합 |
 | Load Balancer당 가용성 집합     | 1                            |
+| VM당 Load Balancer 수                   | 2개(공용 1개 및 내부용 1개)  |
 
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 **클래식** 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 

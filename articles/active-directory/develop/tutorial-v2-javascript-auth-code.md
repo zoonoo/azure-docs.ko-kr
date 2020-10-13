@@ -1,7 +1,7 @@
 ---
-title: JavaScript 단일 페이지 앱 자습서 - 권한 부여 코드 흐름 | Azure
+title: '자습서: 인증 코드 흐름을 사용하는 JavaScript 단일 페이지 앱 만들기 | Azure'
 titleSuffix: Microsoft identity platform
-description: JavaScript SPA 애플리케이션에서 권한 부여 코드 흐름을 사용하여 Azure Active Directory v2.0 엔드포인트를 통해 액세스 토큰을 요구하는 API를 호출하는 방법입니다.
+description: 이 자습서에서는 사용자를 로그인하고, 인증 코드 흐름을 사용하여 Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 JavaScript SPA를 만듭니다.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256809"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91665874"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -32,6 +32,11 @@ ms.locfileid: "91256809"
 MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원하여 MSAL.js 1.0에서 향상되었습니다. MSAL.js 2.0은 암시적 흐름을 **지원하지 않습니다**.
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* [Node.js](https://nodejs.org/en/download/)(로컬 웹 서버 실행용)
+* [Visual Studio Code](https://code.visualstudio.com/download) 또는 다른 코드 편집기
 
 ## <a name="how-the-tutorial-app-works"></a>자습서 앱의 작동 방식
 
@@ -52,11 +57,6 @@ MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부�
 그런 다음, 코드 샘플을 실행하기 전에 구성하려면 [구성 단계](#register-your-application)로 건너뜁니다.
 
 자습서를 계속 진행하여 애플리케이션을 직접 빌드하려면 다음 [사전 요구 사항](#prerequisites) 섹션으로 이동합니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-* [Node.js](https://nodejs.org/en/download/)(로컬 웹 서버 실행용)
-* [Visual Studio Code](https://code.visualstudio.com/download) 또는 다른 코드 편집기
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
@@ -551,7 +551,9 @@ function readMail() {
 
 이 시점에서 PKCE로 보호된 권한 부여 코드가 CORS로 보호된 토큰 엔드포인트로 보내져 토큰과 교환됩니다. 애플리케이션에서 ID 토큰, 액세스 토큰 및 새로 고침 토큰을 받고, *msal.js*에서 처리하며, 토큰에 포함된 정보를 캐시합니다.
 
-ID 토큰에는 사용자에 대한 기본 정보(예: 표시 이름)가 포함되어 있습니다. ID 토큰에서 제공하는 데이터를 사용하려는 경우 토큰이 애플리케이션의 유효한 사용자에게 발급되었는지 확인하기 위해 백 엔드 서버에서 *유효성을 검사해야 합니다*. 새로 고침 토큰은 수명이 제한되어 있으며 24시간 후에 만료됩니다. 새로 고침 토큰을 사용하여 새 액세스 토큰을 자동으로 가져올 수 있습니다.
+ID 토큰에는 사용자에 대한 기본 정보(예: 표시 이름)가 포함되어 있습니다. ID 토큰에서 제공하는 데이터를 사용하려는 경우 토큰이 애플리케이션의 유효한 사용자에게 발급되었는지 확인하기 위해 백 엔드 서버에서 *유효성을 검사해야 합니다*.
+
+액세스 토큰은 수명이 제한되어 있으며 24시간 후에 만료됩니다. 새로 고침 토큰을 사용하여 새 액세스 토큰을 자동으로 가져올 수 있습니다.
 
 이 자습서에서 만든 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`을 호출하여 사용자 프로필 정보에 대한 Microsoft Graph API를 쿼리하는 데 사용되는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요하면 GitHub의 [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) 애플리케이션 샘플을 참조하세요. 이 샘플에서는 ASP.NET 웹 API를 토큰 유효성 검사에 사용합니다.
 
@@ -649,14 +651,7 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 JavaScript v2.0용 MSAL(Microsoft 인증 라이브러리)을 사용하여 다음을 수행하는 JavaScript SPA(단일 페이지 애플리케이션)를 만들었습니다.
+Microsoft ID 플랫폼에서 JavaScript 단일 페이지 애플리케이션 개발에 대해 자세히 알아보려면 여러 부분으로 구성된 시나리오 시리즈를 참조하세요.
 
-> [!div class="checklist"]
-> * PKCE를 사용하여 OAuth 2.0 권한 부여 코드 흐름 수행
-> * 회사 및 학교 계정과 개인 Microsoft 계정에 로그인
-> * 액세스 토큰 획득
-> * Microsoft ID 플랫폼 엔드포인트에서 가져온 액세스 토큰이 필요한 Microsoft Graph 또는 사용자 고유의 API 호출
-
-암시적 코드 흐름과 권한 부여 코드 흐름 간의 차이점을 포함하여 권한 부여 코드 흐름에 대해 자세히 알아보려면 [Microsoft ID 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조하세요.
-
-Microsoft ID 플랫폼에서 JavaScript 단일 페이지 애플리케이션을 개발하는 방법에 대해 자세히 알아보려면 여러 부분으로 구성된 [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md) 시리즈 문서가 시작하는 데 도움이 될 수 있습니다.
+> [!div class="nextstepaction"]
+> [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md)

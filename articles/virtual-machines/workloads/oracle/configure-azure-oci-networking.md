@@ -1,24 +1,18 @@
 ---
 title: Oracle 클라우드 인프라와 Azure Express 경로 연결 | Microsoft Docs
 description: Azure Express 경로를 OCI (Oracle Cloud Infrastructure) FastConnect와 연결 하 여 클라우드 간 Oracle 응용 프로그램 솔루션 사용
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 5bb26a21317401ddbd0d9b8f8a9a501c78153842
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776581"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996230"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure와 Oracle 클라우드 인프라 간의 직접 상호 관계 설정  
 
@@ -36,7 +30,7 @@ ms.locfileid: "91776581"
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure와 OCI 간에 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 

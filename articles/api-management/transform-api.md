@@ -1,30 +1,24 @@
 ---
-title: Azure API Management로 API 변환 및 보호 | Microsoft Docs
-description: 할당량 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다.
-services: api-management
-documentationcenter: ''
+title: 자습서 - Azure API Management에서 API 변환 및 보호 | Microsoft Docs
+description: 이 자습서에서는 API Management에서 변환 및 제한(속도 제한) 정책을 사용하여 API를 보호하는 방법을 알아봅니다.
 author: vladvino
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 07efa1899ab7364615aab9d8b50437092274ae81
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371386"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91627768"
 ---
-# <a name="transform-and-protect-your-api"></a>API 변환 및 보호
+# <a name="tutorial-transform-and-protect-your-api"></a>자습서: API 변환 및 보호
 
-이 자습서에서는 프라이빗 백 엔드 정보를 노출시키지 있도록 API를 변환하는 방법을 보여 줍니다. 예를 들어 백 엔드에서 실행되는 기술 스택에 대한 정보를 숨기려고 할 수 있습니다. 또한 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하려고 할 수도 있습니다.
+이 자습서에서는 프라이빗 백 엔드 정보를 노출하지 있도록 API를 변환하는 방법을 보여줍니다. 예를 들어 백 엔드에서 실행되는 기술 스택에 대한 정보를 숨기려고 할 수 있습니다. 또한 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하려고 할 수도 있습니다.
 
-이 자습서에서는 Azure API Management로 속도 제한을 구성하여 백 엔드 API에 대한 보호를 추가하기가 얼마나 쉬운지 보여 줍니다. 예를 들어 개발자가 과도하게 사용하지 않도록 API 호출 횟수를 제한하려고 할 수 있습니다. 자세한 내용은 [API Management 정책](api-management-policies.md)을 참조하세요.
+이 자습서에서는 Azure API Management로 속도 제한을 구성하여 백엔드 API에 대한 보호를 얼마나 쉽게 추가할 수 있는지 보여줍니다. 예를 들어 개발자가 API를 남용하지 않도록 API 호출 속도를 제한하려는 경우가 있습니다. 자세한 내용은 [API Management 정책](api-management-policies.md)을 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -35,7 +29,7 @@ ms.locfileid: "91371386"
 > -   속도 제한 정책(제한)을 추가하여 API 보호
 > -   변환 테스트
 
-![정책](./media/transform-api/api-management-management-console.png)
+:::image type="content" source="media/transform-api/api-management-management-console.png" alt-text="포털의 정책":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,7 +42,7 @@ ms.locfileid: "91371386"
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>API를 변환하여 응답 헤더 제거
 
-이 섹션에서는 사용자에게 표시하지 않으려는 HTTP 헤더를 숨기는 방법을 보여 줍니다. 이 예제에서는 HTTP 응답에서 다음과 같은 헤더가 삭제되었습니다.
+이 섹션에서는 사용자에게 표시하지 않으려는 HTTP 헤더를 숨기는 방법을 보여줍니다. 이 예제에서는 HTTP 응답에서 다음과 같은 헤더를 삭제하는 방법을 보여줍니다.
 
 -   **X-Powered-By**
 -   **X-AspNet-Version**
@@ -57,79 +51,76 @@ ms.locfileid: "91371386"
 
 원래 응답을 확인하려면 다음을 수행합니다.
 
-1. APIM 서비스 인스턴스에서 **API**(**API MANAGEMENT** 아래)를 선택합니다.
-2. API 목록에서 **Demo Conference API**를 선택합니다.
-3. 화면 위쪽에 있는 **테스트** 탭을 클릭합니다.
-4. **GetSpeakers** 작업을 선택합니다.
-5. 화면 아래쪽에 있는 **보내기** 단추를 누릅니다.
+1. API Management 서비스 인스턴스에서 **API**를 선택합니다.
+1. API 목록에서 **Demo Conference API**를 선택합니다.
+1. 화면 위쪽에 있는 **테스트** 탭을 선택합니다.
+1. **GetSpeakers** 작업을 선택하고 **보내기**를 선택합니다.
 
 원래 응답은 다음과 비슷합니다.
 
-![정책](./media/transform-api/original-response.png)
+:::image type="content" source="media/transform-api/original-response.png" alt-text="포털의 정책":::
+
+보시는 것처럼 응답에는 **X-AspNet-Version** 및 **X-Powered-By** 헤더가 포함됩니다.
 
 ### <a name="set-the-transformation-policy"></a>변환 정책 설정
 
-![아웃바운드 정책 설정](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
+1. **Demo Conference API** > **디자인** > **모든 작업**을 선택합니다.
+4. **아웃바운드 처리** 섹션에서 코드 편집기( **</>** ) 아이콘을 선택합니다.
 
-1. **데모 회의 API**를 선택합니다.
-2. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-3. **모든 작업**을 선택합니다.
-4. **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
-5. **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
-6. 오른쪽 창에서 **변환 정책** 아래에 있는 **+ HTTP 헤더 설정**을 두 번 클릭합니다(2개의 정책 조각 삽입).
+   :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="포털의 정책" border="false":::
 
-   ![정책](./media/transform-api/transform-api.png)
+1. **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시**를 선택합니다.
+1. 오른쪽 창에서 **변환 정책** 아래에 있는 **HTTP 헤더 설정**을 두 번 선택합니다(2개의 정책 조각 삽입).
 
-7. 다음과 같이 **\<outbound>** 코드를 수정합니다.
+   :::image type="content" source="media/transform-api/transform-api.png" alt-text="포털의 정책":::
+
+1. 다음과 같이 **\<outbound>** 코드를 수정합니다.
 
    ```
    <set-header name="X-Powered-By" exists-action="delete" />
    <set-header name="X-AspNet-Version" exists-action="delete" />
    ```
 
-   ![정책](./media/transform-api/set-policy.png)
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="포털의 정책":::
 
-8. **저장** 단추를 클릭합니다.
+1. **저장**을 선택합니다.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>API 응답 본문에 있는 원래 URL을 APIM 게이트웨이 URL로 바꾸기
 
-이 섹션에서는 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하는 방법을 보여 줍니다.
+이 섹션에서는 API HTTP 응답의 본문에 표시되는 원래 URL을 숨기고, 대신 APIM 게이트웨이로 리디렉션하는 방법을 보여줍니다.
 
 ### <a name="test-the-original-response"></a>원래 응답 테스트
 
 원래 응답을 확인하려면 다음을 수행합니다.
 
-1. **데모 회의 API**를 선택합니다.
-2. 화면 위쪽에 있는 **테스트** 탭을 클릭합니다.
-3. **GetSpeakers** 작업을 선택합니다.
-4. 화면 아래쪽에 있는 **보내기** 단추를 누릅니다.
+1. **Demo Conference API** > **테스트**를 선택합니다.
+1. **GetSpeakers** 작업을 선택하고 **보내기**를 선택합니다.
 
-    원래 응답은 다음과 같습니다.
+    보시는 것처럼 응답에는 원래 백 엔드 URL이 포함됩니다.
 
-    ![정책](./media/transform-api/original-response2.png)
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="포털의 정책":::
+
 
 ### <a name="set-the-transformation-policy"></a>변환 정책 설정
 
-1.  **데모 회의 API**를 선택합니다.
-2.  **모든 작업**을 선택합니다.
-3.  화면 맨 위에서 **디자인** 탭을 선택합니다.
-4.  **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
-5.  **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시** 단추를 클릭합니다.
-6.  오른쪽 창의 **변환 정책** 아래에서 **콘텐츠의 URL 마스킹**을 클릭합니다.
+1.  **Demo Conference API** > **모든 작업** > **디자인**을 선택합니다.
+1.  **아웃바운드 처리** 섹션에서 코드 편집기( **</>** ) 아이콘을 선택합니다.
+1.  **&lt;아웃 바운드&gt;** 요소 내에 커서를 놓고 오른쪽 위 모서리에 있는 **코드 조각 표시**를 선택합니다.
+1.  오른쪽 창의 **변환 정책** 아래에서 **콘텐츠의 URL 마스킹**을 선택합니다. 
+1.  **저장**을 선택합니다.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>속도 제한 정책(제한)을 추가하여 API 보호
 
-이 섹션에서는 속도 제한을 구성하여 백 엔드 API에 대한 보호를 추가하는 방법을 보여 줍니다. 예를 들어 개발자가 과도하게 사용하지 않도록 API 호출 횟수를 제한하려고 할 수 있습니다. 이 예제에서 제한은 각 구독 ID에 대해 15초당 3회 호출로 설정됩니다. 개발자는 15초 후에 API 호출을 다시 시도할 수 있습니다.
+이 섹션에서는 속도 제한을 구성하여 백 엔드 API에 대한 보호를 추가하는 방법을 보여 줍니다. 예를 들어 개발자가 API를 남용하지 않도록 API 호출 속도를 제한하려는 경우가 있습니다. 이 예제에서 제한은 각 구독 ID에 대해 15초당 3회 호출로 설정됩니다. 개발자는 15초 후에 API 호출을 다시 시도할 수 있습니다.
 
-![인바운드 정책 설정](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+1.  **Demo Conference API** > **모든 작업** > **디자인**을 선택합니다.
+1.  **인바운드 처리** 섹션에서 코드 편집기( **</>** ) 아이콘을 선택합니다.
+1.  **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
 
-1.  **데모 회의 API**를 선택합니다.
-2.  **모든 작업**을 선택합니다.
-3.  화면 맨 위에서 **디자인** 탭을 선택합니다.
-4.  **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
-5.  **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
-6.  오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
-7.  **rate-limit-by-key** 코드( **\<inbound\>** 요소)를 다음 코드로 수정합니다.
+    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="포털의 정책" border="false":::
+
+1.  오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 선택합니다.
+1.  **rate-limit-by-key** 코드( **\<inbound\>** 요소)를 다음 코드로 수정합니다.
 
     ```
     <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
@@ -164,42 +155,32 @@ ms.locfileid: "91371386"
 
 ### <a name="test-the-stripped-response-headers"></a>삭제된 응답 헤더 테스트
 
-1. **데모 회의 API**를 선택합니다.
-2. **테스트** 탭을 선택합니다.
-3. **GetSpeakers** 작업을 클릭합니다.
-4. **보내기**를 누릅니다.
+1. **Demo Conference API** > **테스트**를 선택합니다.
+1. **GetSpeakers** 작업을 선택하고 **보내기**를 선택합니다.
 
-    다음에 보이는 것처럼 헤더가 삭제되었습니다.
+    보시는 것처럼 헤더가 삭제되었습니다.
 
-    ![정책](./media/transform-api/final-response1.png)
+    :::image type="content" source="media/transform-api/final-response1.png" alt-text="포털의 정책":::
 
 ### <a name="test-the-replaced-url"></a>대체된 URL 테스트
 
-1. **데모 회의 API**를 선택합니다.
-2. **테스트** 탭을 선택합니다.
-3. **GetSpeakers** 작업을 클릭합니다.
-4. **보내기**를 누릅니다.
+1. **Demo Conference API** > **테스트**를 선택합니다.
+1. **GetSpeakers** 작업을 선택하고 **보내기**를 선택합니다.
 
-    보이는 것처럼 URL이 대체되었습니다.
+    보시는 것처럼 URL이 대체되었습니다.
 
-    ![정책](./media/transform-api/final-response2.png)
+    :::image type="content" source="media/transform-api/final-response2.png" alt-text="포털의 정책":::
 
 ### <a name="test-the-rate-limit-throttling"></a>속도 제한 테스트
 
-1. **데모 회의 API**를 선택합니다.
-2. **테스트** 탭을 선택합니다.
-3. **GetSpeakers** 작업을 클릭합니다.
-4. **보내기**를 계속해서 3번 누릅니다.
+1. **Demo Conference API** > **테스트**를 선택합니다.
+1. **GetSpeakers** 작업을 선택합니다. **보내기**를 세 번 연속으로 누릅니다.
 
-    요청을 3번 보낸 후에 **429 요청이 너무 많음** 응답이 표시됩니다.
+    요청을 3회 보내면 **429 요청이 너무 많음** 응답이 표시됩니다.
 
-5. 15초 정도 기다렸다가 **보내기**를 다시 누릅니다. 이번에는 **200 정상** 응답이 표시됩니다.
+    :::image type="content" source="media/transform-api/test-throttling.png" alt-text="포털의 정책":::
 
-    ![제한](./media/transform-api/test-throttling.png)
-
-## <a name="video"></a>비디오
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+1. 15초 정도 기다렸다가 **보내기**를 다시 선택합니다. 이번에는 **200 정상** 응답이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

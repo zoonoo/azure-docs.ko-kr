@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6fb8117a3e834dec71b9dbc98b4a34512a43f646
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540778"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>자습서: Bersin과 Azure Active Directory 통합
 
@@ -98,7 +98,7 @@ Bersin에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Bersin 도메인 및 URL Single Sign-On 정보](common/idp-identifier-relay.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-identifier-relay.png)
 
     a. **식별자** 텍스트 상자에서 `https://www.bersin.com/shibboleth` 패턴을 사용하여 URL을 입력합니다.
 
@@ -108,7 +108,7 @@ Bersin에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
-    ![Bersin 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://www.bersin.com/Login.aspx` 패턴을 사용하여 URL을 입력합니다.
 

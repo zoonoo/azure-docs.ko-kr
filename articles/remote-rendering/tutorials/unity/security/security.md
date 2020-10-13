@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 403a5b68e3320700e275c744210f480be2c88e84
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021326"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91650479"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -163,7 +163,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
     ```
 
     이 코드는 **RemoteRenderingCoordinator** 구성 요소에 세 개의 추가 문자열 변수를 추가합니다.
-    ![연결된 모델](./media/storage-account-linked-model.png)
+    ![RemoteRenderingCoordinator 구성 요소의 스토리지 계정 이름, Blob 컨테이너 이름 및 모델 경로를 강조 표시하는 스크린샷.](./media/storage-account-linked-model.png)
 
 1. **RemoteRenderingCoordinator** 구성 요소에 값을 추가합니다. [모델 변환을 위한 빠른 시작](../../../quickstarts/convert-model.md)을 완료하면 값이 다음과 같습니다.
 
@@ -392,12 +392,13 @@ Unity 편집기에서 AAD 인증이 활성화되면 애플리케이션을 시작
     * **Azure 테넌트 ID**는 AAD 앱 등록에서 찾을 수 있는 *디렉터리(테넌트) ID*입니다(아래 이미지 참조).
     * **Azure Remote Rendering 계정 ID**는 **RemoteRenderingCoordinator**에 사용했던 것과 동일한 **계정 ID**입니다.
 
-    ![AAD 인증 구성 요소](./media/app-overview-data.png)
+    ![애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 강조 표시하는 스크린샷.](./media/app-overview-data.png)
 
 1. Unity 편집기에서 재생을 누르고 세션 실행에 동의합니다.
     **AADAuthentication** 구성 요소에는 보기 컨트롤러가 있으므로, 세션 권한 부여 모달 패널 뒤에 프롬프트를 표시하도록 자동으로 연결됩니다.
 1. **AppMenu**의 오른쪽 패널에 있는 지침을 따르세요.
-    다음과 유사한 내용이 표시되어야 합니다. ![AAD 인증 구성 요소](./media/device-flow-instructions.png) 보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
+    다음과 유사한 내용이 표시되어야 합니다. ![AppMenu 오른쪽에 표시되는 명령 패널을 보여주는 그림.](./media/device-flow-instructions.png)
+    보조 디바이스(또는 동일한 디바이스의 브라우저)에서 제공된 코드를 입력하고 자격 증명을 사용하여 로그인하면 요청 애플리케이션(여기서는 Unity 편집기)에 액세스 토큰이 반환됩니다.
 1. 이 시점 이후로 애플리케이션의 모든 것이 정상적으로 진행됩니다. 스테이지가 예상대로 진행되지 않으면 Unity 콘솔에서 오류를 확인합니다.
 
 ## <a name="build-to-device"></a>디바이스에 빌드

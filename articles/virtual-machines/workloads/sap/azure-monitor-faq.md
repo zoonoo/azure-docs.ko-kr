@@ -1,26 +1,18 @@
 ---
 title: FAQ-SAP 솔루션에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 SAP 솔루션에 대 한 Azure monitor에 대 한 FAQ (질문과 대답)에 대해 알아봅니다.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: f70aa684a089e0f21cb50932e212b71f77df0e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: f584601c2dcbea989f1b68d9fbac5a7f53a59d86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987243"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994216"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>SAP 솔루션에 대 한 Azure monitor FAQ (미리 보기)
 ## <a name="frequently-asked-questions"></a>질문과 대답

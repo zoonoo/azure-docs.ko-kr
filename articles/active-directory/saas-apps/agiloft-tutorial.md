@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ca2e37c3524dc75328b0b6615e15c58652d20d1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a7ab3d32253b354f759c4d348526e22521a5fde4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542958"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>자습서: Agiloft와 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ Agiloft에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Agiloft 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![식별자 및 회신 URL 텍스트 상자를 강조 표시하는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
@@ -150,11 +150,11 @@ Agiloft에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 2. (왼쪽 창에서)**설치**를 클릭하고 **액세스**를 선택합니다.
 
-    ![Agiloft 구성](./media/agiloft-tutorial/setup1.png)
+    ![액세스 섹션을 강조 표시하는 스크린샷.](./media/agiloft-tutorial/setup1.png)
 
 3. **SAML 2.0 Single Sign-On 구성** 단추를 클릭합니다.
 
-    ![Agiloft 구성](./media/agiloft-tutorial/setup2.png)
+    ![SAML 2.0 Single Sign-On 구성 단추를 강조 표시하는 스크린샷.](./media/agiloft-tutorial/setup2.png)
 
 4. 마법사 대화 상자가 나타납니다. 대화 상자에서 **ID 공급자 세부 정보**를 클릭하고 다음과 같은 필드를 입력합니다.  
 
