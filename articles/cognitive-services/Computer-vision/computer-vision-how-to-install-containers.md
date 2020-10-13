@@ -13,10 +13,10 @@ ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 온-프레미스, OCR, Docker, 컨테이너
 ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536378"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>읽기 OCR Docker 컨테이너 (미리 보기) 설치 
@@ -47,11 +47,11 @@ Preview에서는 세 가지 버전의 2.x 컨테이너를 사용할 수 있습�
 
 사용할 컨테이너 버전을 고려할 때 v 3.1-미리 보기는 미리 보기의 이전 상태에 있습니다. 지금 읽기 2.0 컨테이너를 사용 하는 경우 새 버전의 변경 내용에 대해 알아보려면 [마이그레이션 가이드](read-container-migration-guide.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
@@ -93,14 +93,14 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |-----------|------------|
 | 2.0 읽기-미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| 3.0 읽기-미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
-| 3.1 읽기-미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| Read 3.0 미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| Read 3.1 미리 보기 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
 명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 컨테이너 이미지를 다운로드 합니다.
 
 ### <a name="docker-pull-for-the-read-container"></a>읽기 컨테이너의 Docker pull
 
-# <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
@@ -135,7 +135,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 
 `docker run`명령의 [예](computer-vision-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
 
-# <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
@@ -215,7 +215,7 @@ Azure Storage를 사용 하 여 처리할 이미지를 저장 하는 경우 컨�
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
 
-# <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 컨테이너 API에 대한 호스트 `http://localhost:5000`을 사용합니다. 에서 Swagger 경로를 볼 수 있습니다 `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
@@ -232,7 +232,7 @@ Azure Storage를 사용 하 여 처리할 이미지를 저장 하는 경우 컨�
 ### <a name="asynchronous-read"></a>비동기 읽기
 
 
-# <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 및 작업을 함께 사용 하 여 `POST /vision/v3.1/read/analyze` `GET /vision/v3.1/read/operations/{operationId}` Computer Vision 서비스에서 해당 REST 작업을 사용 하는 방법과 유사한 방식으로 이미지를 비동기적으로 읽을 수 있습니다. 비동기 POST 메서드는 `operationId` HTTP GET 요청에 대 한 식별자로 사용 되는를 반환 합니다.
 
@@ -449,7 +449,7 @@ Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장
 
 다음 작업을 사용 하 여 이미지를 동기적으로 읽을 수 있습니다. 
 
-# <a name="version-31-preview"></a>[버전 3.1-미리 보기](#tab/version-3-1)
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 `POST /vision/v3.1/read/syncAnalyze` 
 
