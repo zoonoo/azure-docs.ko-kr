@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: iot-fundamentals
 author: robinsh
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73034549"
 ---
 시스템을 디자인하고 아키텍처를 설계할 때 해당 시스템에 대한 잠재적 위협을 파악하고, 그에 따라 적절한 방어 수단을 추가해야 합니다. 처음부터 보안을 염두에 두고 제품을 설계하는 것이 매우 중요합니다. 공격자가 시스템을 손상시킬 수 있는 방법을 파악하면 처음부터 적절한 위협 완화 조치를 수행할 수 있기 때문입니다.
@@ -265,7 +265,7 @@ Azure IoT 아키텍처에서 설명한 각 범주에서, 이 예제는 데이터
 
 ## <a name="additional-resources"></a>추가 자료
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 * [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
 * [Microsoft Azure IoT 참조 아키텍처](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
