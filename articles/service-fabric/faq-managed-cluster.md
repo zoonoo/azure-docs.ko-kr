@@ -7,13 +7,13 @@ author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729001"
 ---
-# <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Service Fabric 관리 클러스터에 대 한 질문과 대답
+# <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Service Fabric 관리형 클러스터 질문과 대답
 
 관리 되는 클러스터 (미리 보기)에서 수행할 수 있는 작업과 사용 방법에 대 한 일반적인 질문 Service Fabric에는 여러 가지가 있습니다. 이 문서에서는 자주 묻는 질문 및 그에 대한 답변을 설명합니다.
 

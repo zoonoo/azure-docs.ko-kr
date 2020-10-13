@@ -2,15 +2,15 @@
 title: 템플릿 사양 만들기 및 배포
 description: ARM 템플릿에서 템플릿 사양을 만드는 방법에 대해 알아봅니다. 그런 다음 구독에서 리소스 그룹에 템플릿 사양을 배포합니다.
 author: tfitzmac
-ms.date: 09/25/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: a4f24e69f29614de27947573d968d817dce4a57b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369218"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91728780"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>빠른 시작: 템플릿 사양 만들기 및 배포(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "91369218"
 
 ## <a name="create-template-spec"></a>템플릿 사양 만들기
 
-템플릿 사양은 **Microsoft.Resources/templateSpecs**라는 새 리소스 형식입니다. 템플릿 사양을 만들려면 Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하면 됩니다. 모든 옵션에서 템플릿 사양에 패키징된 ARM 템플릿이 필요합니다.
+템플릿 사양은 **Microsoft.Resources/templateSpecs**라는 리소스 형식입니다. 템플릿 사양을 만들려면 Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하면 됩니다. 모든 옵션에서 템플릿 사양에 패키징된 ARM 템플릿이 필요합니다.
 
 PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 전달됩니다. ARM 템플릿을 사용하면 템플릿 사양에 패키징되는 ARM 템플릿이 템플릿 사양 정의에 포함됩니다.
 
