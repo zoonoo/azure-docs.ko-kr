@@ -2,19 +2,17 @@
 title: Azure Monitor 통합 문서 시간 매개 변수
 description: 사용자가 분석의 시간 컨텍스트를 설정할 수 있도록 시간 매개 변수를 설정 하는 방법에 대해 알아봅니다. 시간 매개 변수는 거의 모든 보고서에서 사용 됩니다.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 471b775abfebec646ab3950803622271c0bd559b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972874"
+ms.locfileid: "91932297"
 ---
 # <a name="workbook-time-parameters"></a>통합 문서 시간 매개 변수
 

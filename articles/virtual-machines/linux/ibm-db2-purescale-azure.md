@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 0b032f48e18651af7f360471cc2834a5c45acc56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0297c8674cc47a1d5f59fef196a60175244eaae2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87831416"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978325"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>Azure의 IBM DB2 pureScale
 
@@ -86,7 +86,7 @@ Azure에서 고가용성 및 확장성을 지원하기 위해 DB2 pureScale에 �
 
 ### <a name="storage-considerations"></a>스토리지 고려 사항
 
-Oracle RAC와 같이, DB2 pureScale는 고성능 블록 I/O를 스케일 아웃 데이터베이스입니다. 요구에 적합한 가장 큰 [Azure 프리미엄 SSD](disks-types.md) 옵션을 사용하는 것이 좋습니다. 프로덕션 환경에서는 종종 더 많은 스토리지 용량이 필요하지만, 개발 및 테스트 환경에서는 더 작은 스토리지 옵션이 적합할 수 있습니다. 이 예제 아키텍처는 크기 및 가격 대비 IOPS 비율 때문에 [P30](https://azure.microsoft.com/pricing/details/managed-disks/)을 사용합니다. 크기에 관계없이, 최상의 성능을 얻으려면 Premium Storage를 사용합니다.
+Oracle RAC와 같이, DB2 pureScale는 고성능 블록 I/O를 스케일 아웃 데이터베이스입니다. 요구에 적합한 가장 큰 [Azure 프리미엄 SSD](../disks-types.md) 옵션을 사용하는 것이 좋습니다. 프로덕션 환경에서는 종종 더 많은 스토리지 용량이 필요하지만, 개발 및 테스트 환경에서는 더 작은 스토리지 옵션이 적합할 수 있습니다. 이 예제 아키텍처는 크기 및 가격 대비 IOPS 비율 때문에 [P30](https://azure.microsoft.com/pricing/details/managed-disks/)을 사용합니다. 크기에 관계없이, 최상의 성능을 얻으려면 Premium Storage를 사용합니다.
 
 DB2 pureScale는 모든 클러스터 노드에서 모든 데이터에 액세스할 수 있는 모두 공유 아키텍처를 사용합니다. 프리미엄 저장소는 요청 시 또는 전용 인스턴스의 여러 인스턴스 간에 공유 되어야 합니다.
 

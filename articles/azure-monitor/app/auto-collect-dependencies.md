@@ -3,15 +3,13 @@ title: Azure Application Insights - 종속성 자동 수집 | Microsoft Docs
 description: Application Insights에서 자동으로 종속성 수집 및 시각화
 ms.topic: reference
 ms.custom: devx-track-dotnet
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936438"
+ms.locfileid: "91930869"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 

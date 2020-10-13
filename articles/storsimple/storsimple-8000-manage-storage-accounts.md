@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 306d3a14d759ac73e78626a4c2ec6abc69d3df85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515036"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978716"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>StorSimple 디바이스 관리자 서비스를 사용하여 스토리지 계정 자격 증명 관리
 
@@ -33,7 +33,7 @@ StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션에
 
 이 자습서에서는 스토리지 계정 자격 증명을 추가, 편집 또는 삭제하거나, 스토리지 계정에 대한 보안 키를 회전하는 방법에 대해 설명합니다.
 
- ![스토리지 계정 자격 증명 목록](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![저장소 계정 자격 증명 목록 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Storage 계정에는 StorSimple 디바이스가 클라우드 서비스 공급자를 통해 Storage 계정에 액세스하는 데 사용하는 자격 증명이 포함되어 있습니다. Microsoft Azure Storage 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다. 
 
@@ -102,7 +102,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명**을 클릭합니다.
 
-    ![Storage 계정 자격 증명](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![저장소 계정 자격 증명 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. **Storage 계정 자격 증명** 블레이드의 Storage 계정 자격 증명 목록에서 편집하려는 항목을 선택하고 클릭합니다. 
 
@@ -159,11 +159,11 @@ StorSimple 디바이스 관리자 서비스에 변경을 알리려면 StorSimple
 
 3. **...자세히**를 클릭하고 **Sync access key to rotate**(회전할 액세스 키 동기화)를 선택합니다.   
 
-    ![키 동기화](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![키 동기화 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. StorSimple Device Manager 서비스에서 이전에 Microsoft Azure Storage 서비스에서 변경된 키를 업데이트해야 합니다. 기본 액세스 키가 변경(다시 생성)된 경우 **기본** 키를 선택합니다. 보조 키가 변경된 경우 **보조** 키를 선택합니다. **키 동기화**를 클릭합니다.
       
-      ![키 동기화](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![키 동기화 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 키가 성공적으로 동기화되면 알림이 표시됩니다.
 

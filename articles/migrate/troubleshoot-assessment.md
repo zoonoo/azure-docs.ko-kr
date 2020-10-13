@@ -8,10 +8,10 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
 ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576594"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
@@ -126,7 +126,7 @@ Azure Migrate Server 평가는 현재 Windows 컴퓨터에 대해서만 운영 �
 Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 성능 기반 데이터를 수집 [하는 방법을 알아봅니다](concepts-assessment-calculation.md#calculate-sizing-performance-based) .
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>예약 인스턴스, VM 작동 시간 및 할인율 (%)의 잘못 된 조합을 사용 하 여 생성 되었다는 경고가 표시 되는 이유는 무엇 인가요?
-' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2131554).
+' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아봅니다](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>실제 서버의 일부 네트워크 어댑터에 대 한 성능 데이터가 표시 되지 않습니다.
 

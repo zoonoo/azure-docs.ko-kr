@@ -2,19 +2,17 @@
 title: 통합 문서 Azure Monitor 매개 변수 만들기
 description: 매개 변수를 사용 하 여 통합 문서 작성자가 소비자의 입력을 수집 하 고 통합 문서의 다른 부분에서이를 참조 하도록 허용 하는 방법을 알아봅니다.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: 8be7dd170d5e4e3bddb09bc1b163fba7a841a6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5751223697638128d86675badf7ec15abc36ef4e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984568"
+ms.locfileid: "91932382"
 ---
 # <a name="workbook-parameters"></a>통합 문서 매개 변수
 

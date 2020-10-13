@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 129eff8c954c0c5469d3607e6ae16ce3202630ed
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314915"
+ms.locfileid: "91929339"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 배포 열 선택
 
@@ -71,8 +71,6 @@ Citus (Hyperscale)에서 시계열 정보를 모델링 하는 가장 일반적�
 
 -   **배포 열로 타임 스탬프를 선택 하지 마세요.** 다른 배포 열을 선택 하십시오. 다중 테 넌 트 앱에서 테 넌 트 ID를 사용 하거나 실시간 앱에서 엔터티 ID를 사용 합니다.
 -   **대신 PostgreSQL 테이블 분할을 사용 합니다.** 테이블 분할을 사용 하 여 다양 한 시간 범위를 포함 하는 각 테이블에 대해 많은 시간 정렬 된 데이터 테이블을 여러 개의 상속 된 테이블로 나눌 수 있습니다. Citus (Hyperscale)에서 Postgres-분할 된 테이블을 배포 하면 상속 된 테이블에 대 한 분할가 만들어집니다.
-
-이러한 종류의 응용 프로그램을 빌드하는 방법에 대 한 예제는 [시계열 자습서](https://aka.ms/hyperscale-tutorial-timeseries) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - 분산 데이터 간의 [공동 위치가](concepts-hyperscale-colocation.md) 쿼리를 빠르게 실행 하는 방법을 알아봅니다.

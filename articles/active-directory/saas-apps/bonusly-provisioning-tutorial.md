@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 1db1ef3a8fa7de557444c25650410b4e84422be4
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91849293"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Bonusly 구성
@@ -25,7 +25,7 @@ ms.locfileid: "91849293"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -123,7 +123,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
 
-10. **저장**을 클릭합니다.
+10. **Save**을 클릭합니다.
 
 11. **매핑** 섹션에서 **Azure Active Directory 사용자를 Bonusly에 동기화**를 선택합니다.
 

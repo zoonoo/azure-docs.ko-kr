@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: d7734fde529c24e8113ea3b019d343b7223f0122
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949034"
+ms.locfileid: "91929645"
 ---
 # <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Azure Cognitive Search에서 최신 REST API로 업그레이드
 
@@ -40,13 +40,19 @@ ms.locfileid: "88949034"
 
 ## <a name="upgrade-to-2020-06-30"></a>2020-06-30로 업그레이드
 
-버전 2020-06-30은 REST API의 새로운 일반 공급 릴리스입니다. 주요 변경 내용은 없지만 몇 가지 동작 차이가 있습니다. 
+버전 2020-06-30은 REST API의 새로운 일반 공급 릴리스입니다. 한 가지 주요 변경 내용과 여러 동작 차이가 있습니다. 
 
 현재이 API 버전에서 제공 되는 기능은 다음과 같습니다.
 
 * [기술 자료 저장소](knowledge-store-concept-intro.md), 기술력과을 통해 만든 보강 콘텐츠의 영구 저장소로, 다운스트림 분석을 위해 생성 되 고 다른 응용 프로그램을 통해 처리 됩니다. 이 기능을 사용 하는 경우 인덱서 기반 AI 보강 파이프라인은 검색 인덱스 외에도 기술 자료 저장소를 채울 수 있습니다. 이 기능의 미리 보기 버전을 사용 하는 경우 일반적으로 사용 가능한 버전과 동일 합니다. 유일 하 게 코드를 변경 해야 합니다. api 버전을 수정 하는 것입니다.
 
-동작 변경 내용은 다음과 같습니다.
+### <a name="breaking-change"></a>주요 변경 내용
+
+이전 API 버전에 대해 작성 된 기존 코드는 api-version = 2020-06-30 이상에서 중단 됩니다. 코드에는 다음 기능이 포함 되어 있습니다.
+
+* 모든 Edm. 날짜 리터럴 (와 같이 연도-월-일으로 구성 된 날짜는 `2020-12-12` 필터 식) 다음에와 야 합니다. DateTimeOffset 형식: `2020-12-12T00:00:00Z` . 이 변경은 표준 시간대 차이로 인해 잘못 되었거나 예기치 않은 쿼리 결과를 처리 하는 데 필요 했습니다.
+
+### <a name="behavior-changes"></a>동작 변경 내용
 
 * [BM25 순위 알고리즘](index-ranking-similarity.md) 은 이전 순위 알고리즘을 최신 기술로 대체 합니다. 새 서비스는이 알고리즘을 자동으로 사용 합니다. 기존 서비스의 경우 새 알고리즘을 사용 하도록 매개 변수를 설정 해야 합니다.
 

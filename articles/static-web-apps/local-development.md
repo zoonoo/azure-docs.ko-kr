@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326170"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 로컬 개발 설정 미리 보기
@@ -75,7 +75,7 @@ Visual Studio Code용 Live Server 확장은 정적 콘텐츠를 제공하는 로
 
 1. 검색 상자에 **복제**를 입력하고 **Git: 복제**를 선택합니다.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Visual Studio Code의 git 복제 옵션":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="GitHub 새 리포지토리 창":::
 
 1. **리포지토리 URL**에 대해 다음 값을 입력합니다.
 
@@ -87,7 +87,7 @@ Visual Studio Code용 Live Server 확장은 정적 콘텐츠를 제공하는 로
 
 1. 복제된 리포지토리를 열 것인지 묻는 메시지가 표시되면 **열기**를 선택합니다.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="새 창에서 열기":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="GitHub 새 리포지토리 창":::
 
 Visual Studio Code에서 편집기에 복제된 프로젝트를 엽니다.
 
@@ -99,7 +99,7 @@ Visual Studio Code에서 편집기에 복제된 프로젝트를 엽니다.
 
     애플리케이션을 표시하는 브라우저 탭이 열립니다.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="브라우저에서 실행되는 단순 정적 사이트":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="GitHub 새 리포지토리 창":::
 
     이 애플리케이션은 `api/message` 엔드포인트에 대한 HTTP 요청을 수행합니다. 지금은 이 애플리케이션의 API 부분을 시작해야 하기 때문에 요청이 실패합니다.
 
@@ -113,13 +113,13 @@ API 만들기 프로세스의 일부로 Visual Studio Code에 대한 시작 구�
 
 1. 새 터미널 인스턴스가 열리고 API 빌드 프로세스의 출력이 표시됩니다.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Visual Studio Code 터미널에서 실행되는 API":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="GitHub 새 리포지토리 창":::
 
    Visual Studio Code의 상태 표시줄은 이제 주황색입니다. 이 색은 이제 API가 실행 중이고 디버거가 연결되었음을 나타냅니다.
 
 1. 다음으로 **Ctrl/Cmd**를 누르고 터미널에서 URL을 클릭하여 API를 호출하는 브라우저 창을 엽니다.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="API 호출의 브라우저 표시 결과":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="GitHub 새 리포지토리 창":::
 
 ### <a name="debugging-the-api"></a>API 디버깅
 
@@ -127,19 +127,19 @@ API 만들기 프로세스의 일부로 Visual Studio Code에 대한 시작 구�
 
 1. 2줄의 왼쪽 여백을 클릭하여 중단점을 설정합니다. 중단점이 설정되었음을 나타내는 빨간색 점이 표시됩니다.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Visual Studio Code의 중단점":::
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="GitHub 새 리포지토리 창":::
 
 1. 브라우저에서 <http://127.0.0.1:7071/api/message>에서 실행되는 페이지를 새로 고칩니다.
 
 1. 중단점은 Visual Studio Code에서 적중되며 프로그램 실행이 일시 중지됩니다.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Visual Studio Code의 중단점 적중":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="GitHub 새 리포지토리 창":::
 
    API에 대해 [Visual Studio Code에서 전체 디버깅 환경을 사용할 수 있습니다](https://code.visualstudio.com/Docs/editor/debugging).
 
 1. 디버그 표시줄에서 **계속** 단추를 눌러 실행을 계속합니다.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Visual Studio Code의 계속 단추":::
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="GitHub 새 리포지토리 창":::
 
 ### <a name="calling-the-api-from-the-application"></a>애플리케이션에서 API 호출
 
@@ -192,7 +192,7 @@ CLI를 사용하여 개발 모드에서 사이트를 실행하거나 프로덕�
 
 1. **Live Server**를 입력하고 **Live Server: Live Server 중지**를 선택합니다.
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Visual Studio 명령 팔레트에서 Live Server 중지 명령":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="GitHub 새 리포지토리 창":::
 
 1. **F1** 키를 눌러 명령 팔레트를 엽니다.
 
@@ -200,7 +200,7 @@ CLI를 사용하여 개발 모드에서 사이트를 실행하거나 프로덕�
 
 1. `http://locahost:3000`에서 실행되는 애플리케이션을 새로 고칩니다. 이제 브라우저는 API에서 반환된 메시지를 표시합니다.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="브라우저에 표시되는 API의 Hello":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="GitHub 새 리포지토리 창":::
 
 ## <a name="next-steps"></a>다음 단계
 

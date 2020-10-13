@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 ms.openlocfilehash: ec80791f9a43dc45d670442ee7b2d0c67d54f582
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803401"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Azure Cosmos DB capacity planner를 사용 하 여 r u/초 예측
@@ -23,7 +23,7 @@ Capacity planner는 두 가지 모드에서 사용할 수 있습니다.
 
 |**모드**  |**설명**  |
 |---------|---------|
-|기본|빠른 상위 수준/초 및 비용 예측을 제공 합니다. 이 모드는 인덱싱 정책, 일관성 및 기타 매개 변수에 대 한 기본 Azure Cosmos DB 설정을 가정 합니다. <br/><br/>Azure Cosmos DB에서 실행 될 잠재적인 작업을 평가할 때 신속 하 고 높은 수준의 예상치에 기본 모드를 사용 합니다.|
+|Basic|빠른 상위 수준/초 및 비용 예측을 제공 합니다. 이 모드는 인덱싱 정책, 일관성 및 기타 매개 변수에 대 한 기본 Azure Cosmos DB 설정을 가정 합니다. <br/><br/>Azure Cosmos DB에서 실행 될 잠재적인 작업을 평가할 때 신속 하 고 높은 수준의 예상치에 기본 모드를 사용 합니다.|
 |고급|추가 설정, 즉 인덱싱 정책, 일관성 수준 및 비용 및 처리량에 영향을 주는 기타 매개 변수를 조정 하는 기능을 사용 하 여 보다 자세한 정보 및 비용 예측을 제공 합니다. <br/><br/>새 프로젝트에 대 한 o s/s를 예상 하거나 더 자세한 추정치를 원하는 경우 고급 모드를 사용 합니다. |
 
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 149a82526263f5e372db81b5a92a9ee90a2c76f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089975"
+ms.locfileid: "91928982"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>HDInsight 클러스터에 대 한 Vm 다시 부팅
 
@@ -31,8 +31,8 @@ Azure HDInsight 클러스터는 가상 머신 (Vm) 그룹을 클러스터 노드
 - 임시 디스크가 노드에 꽉 찬 경우
 - VM의 프로세스 테이블에는 프로세스가 완료 된 많은 항목이 있지만 "종료 된 상태"로 나열 됩니다.
 
-> [!WARNING]
-> **HBase** 및 **kafka** 클러스터에 대 한 vm을 다시 부팅 하는 경우 데이터가 손실 될 수 있으므로 주의 해야 합니다.
+> [!NOTE]
+> 다시 부팅 하면 데이터가 손실 될 수 있으므로 **HBase** 및 **kafka** 클러스터에 대해 vm을 다시 부팅 하는 것은 지원 되지 않습니다.
 
 ## <a name="use-powershell-to-reboot-vms"></a>PowerShell을 사용 하 여 Vm 다시 부팅
 

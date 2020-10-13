@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 468b4f7ca7b0af4abc32df5d9ef64a74154d3de1
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569400"
 ---
 # <a name="configuring-retention-in-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1에서 보존 구성
 
 > [!CAUTION]
-> Gen1 문서입니다.
+> 이는 Gen1 문서입니다.
 
 이 아티클에서는 Azure Time Series Insights의 **데이터 보존 시간** 및 **스토리지 제한을 초과하는 동작**을 구성하는 방법을 설명합니다.
 

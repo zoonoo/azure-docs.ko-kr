@@ -4,10 +4,10 @@ description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 
 ms.topic: conceptual
 ms.date: 03/29/2020
 ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370037"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기

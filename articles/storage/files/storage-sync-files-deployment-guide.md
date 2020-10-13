@@ -11,7 +11,7 @@ ms.openlocfilehash: eda6e6b5ef2b68c55bf1f7f6ceb30bb6aea21d67
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856350"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
@@ -19,7 +19,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

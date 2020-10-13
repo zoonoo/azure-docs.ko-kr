@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569530"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
@@ -334,7 +334,7 @@ Azure Active Directory를 사용 하 여 프로그래밍 방식으로 키에 액
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory에서 SSO(Single Sign-On) 사용
 
-**지침**: Azure Cosmos DB는 두 가지 유형의 키를 사용 하 여 사용자에 게 권한을 부여 하 고 데이터 평면 수준에서 Sso (Single sign-on)를 지원 하지 않습니다. Cosmos DB에 대 한 제어 평면에 대 한 액세스는 REST API를 통해 제공 되며 SSO를 지원 합니다. 인증을 위해 요청에 대한 권한 부여 헤더를 Azure Active Directory에서 가져오는 JSON Web Token으로 설정합니다.
+**지침**: Azure Cosmos DB는 두 가지 유형의 키를 사용 하 여 사용자에 게 권한을 부여 하 고 데이터 평면 수준에서 Sso (Single Sign-On)를 지원 하지 않습니다. Cosmos DB에 대 한 제어 평면에 대 한 액세스는 REST API를 통해 제공 되며 SSO를 지원 합니다. 인증을 위해 요청에 대한 권한 부여 헤더를 Azure Active Directory에서 가져오는 JSON Web Token으로 설정합니다.
 
 Azure Database for Cosmos DB REST API 이해: https://docs.microsoft.com/rest/api/cosmos-db/
 
@@ -991,7 +991,7 @@ Key Vault 키를 백업하는 방법: https://docs.microsoft.com/powershell/modu
 
 **지침**: 데이터베이스 또는 컨테이너를 삭제 한 경우 지원 티켓을 제출 하거나 Azure 지원에 문의 하 여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 표준, 개발자 및 그 보다 높은 요금제와 같은 선택 된 계획에만 사용할 수 있습니다. 백업의 특정 스냅샷을 복원하려면 Azure Cosmos DB에서 해당 스냅샷의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 
-PowerShell을 사용 하 여 Azure Key Vault에 저장 된 암호의 복원을 테스트 합니다. Add-azurekeyvaultkey cmdlet은 지정 된 키 자격 증명 모음에 키를 만듭니다. 이 키는 입력 파일에 있는 백업 키의 복제본 이며 원래 키와 동일한 이름을 갖습니다.
+PowerShell을 사용 하 여 Azure Key Vault에 저장 된 암호의 복원을 테스트 합니다. Restore-AzureKeyVaultKey cmdlet은 지정 된 키 자격 증명 모음에 키를 만듭니다. 이 키는 입력 파일에 있는 백업 키의 복제본 이며 원래 키와 동일한 이름을 갖습니다.
 
 자동화 된 백업 Azure Cosmos DB 이해:
 
@@ -1017,7 +1017,7 @@ Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 �
 
 Azure Cosmos DB의 데이터 암호화 이해: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Key Vault에서 Soft-Delete를 사용 하도록 설정 하는 방법: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Azure Security Center 모니터링**: 예
 

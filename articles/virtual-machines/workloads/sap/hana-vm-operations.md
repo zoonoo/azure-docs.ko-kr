@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649689"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978784"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -79,7 +79,7 @@ Azure에서 SAP HANA와 함께 사용할 스토리지 구성과 스토리지 유
 VPN 또는 ExpressRoute를 통해 Azure로의 사이트 간 연결이 있다면 가상 게이트웨이를 통해 VPN 또는 ExpressRoute 회로에 연결된 Azure Virtual Network가 하나 이상 있어야 합니다. 간단한 배포에서는 가상 게이트웨이를 SAP HANA 인스턴스를 호스팅하는 Azure VNet(가상 네트워크)의 서브넷에 배포할 수 있습니다. SAP HANA를 설치하려면 Azure Virtual Network 내에 두 개의 서브넷을 추가로 만듭니다. 한 서브넷은 SAP HANA 인스턴스를 실행하는 VM을 호스트하고, 다른 서브넷은 SAP HANA Studio, 기타 관리 소프트웨어 또는 사용자의 애플리케이션 소프트웨어를 호스트하는 Jumpbox 또는 관리 VM을 실행합니다.
 
 > [!IMPORTANT]
-> 기능보다는 더 중요한 성능상의 이유로 인해, SAP NetWeaver, Hybris 또는 S/4HANA 기반 SAP 시스템의 DBMS 레이어와 SAP 애플리케이션 간 통신 경로에 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/)를 구성하는 것이 지원되지 않습니다. SAP 애플리케이션 계층과 DBMS 계층 간의 통신은 직접 통신이어야 합니다. ASG 및 NSG 규칙이 직접 통신을 허용하는 한, 제한에 [Azure ASG 및 NSG 규칙](../../../virtual-network/security-overview.md)이 포함되지 않습니다. NVA가 지원되지 않는 또 다른 시나리오로는, [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse.md)에 설명된 Linux Pacemaker 클러스터 노드를 나타내는 Azure VM과 SBD 디바이스 간 통신 경로가 있습니다. [Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-file-share.md)에 설명된 대로 설정된 Windows Server SOFS와 Azure VM 간 통신 경로도 있습니다. 통신 경로에 NVA가 있으면 두 통신 파트너 간 네트워크 대기 시간을 쉽게 두 배로 늘릴 수 있고, SAP 애플리케이션 레이어와 DBMS 레이어 간 중요 경로의 처리량을 제한할 수 있습니다. 고객을 통해 관찰된 일부 시나리오에서 NVA로 인해 Linux Pacemaker 클러스터 노드 간 통신이 NVA를 통해 해당 SBD 디바이스와 통신해야 하는 경우에 Pacemaker Linux 클러스터가 실패할 수 있습니다.  
+> 기능보다는 더 중요한 성능상의 이유로 인해, SAP NetWeaver, Hybris 또는 S/4HANA 기반 SAP 시스템의 DBMS 레이어와 SAP 애플리케이션 간 통신 경로에 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/)를 구성하는 것이 지원되지 않습니다. SAP 애플리케이션 계층과 DBMS 계층 간의 통신은 직접 통신이어야 합니다. ASG 및 NSG 규칙이 직접 통신을 허용하는 한, 제한에 [Azure ASG 및 NSG 규칙](../../../virtual-network/network-security-groups-overview.md)이 포함되지 않습니다. NVA가 지원되지 않는 또 다른 시나리오로는, [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse.md)에 설명된 Linux Pacemaker 클러스터 노드를 나타내는 Azure VM과 SBD 디바이스 간 통신 경로가 있습니다. [Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-file-share.md)에 설명된 대로 설정된 Windows Server SOFS와 Azure VM 간 통신 경로도 있습니다. 통신 경로에 NVA가 있으면 두 통신 파트너 간 네트워크 대기 시간을 쉽게 두 배로 늘릴 수 있고, SAP 애플리케이션 레이어와 DBMS 레이어 간 중요 경로의 처리량을 제한할 수 있습니다. 고객을 통해 관찰된 일부 시나리오에서 NVA로 인해 Linux Pacemaker 클러스터 노드 간 통신이 NVA를 통해 해당 SBD 디바이스와 통신해야 하는 경우에 Pacemaker Linux 클러스터가 실패할 수 있습니다.  
 > 
 
 > [!IMPORTANT]
@@ -108,7 +108,7 @@ IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 �
 
 SAP HANA를 실행하는 VM의 경우 할당된 고정 IP 주소를 사용해야 합니다. HANA에 대한 일부 구성 특성은 IP 주소를 참조하기 때문입니다.
 
-[Azure NSG(네트워크 보안 그룹)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md)는 SAP HANA 인스턴스 또는 Jumpbox로 라우팅된 트래픽을 전달하는 데 사용됩니다. NSG 및 [애플리케이션 보안 그룹](../../../virtual-network/security-overview.md#application-security-groups)은 SAP HANA 서브넷 및 관리 서브넷에 연결됩니다.
+[Azure NSG(네트워크 보안 그룹)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md)는 SAP HANA 인스턴스 또는 Jumpbox로 라우팅된 트래픽을 전달하는 데 사용됩니다. NSG 및 [애플리케이션 보안 그룹](../../../virtual-network/network-security-groups-overview.md#application-security-groups)은 SAP HANA 서브넷 및 관리 서브넷에 연결됩니다.
 
 다음 그림은 허브 및 스포크 VNet 아키텍처에 이어 SAP HANA의 대략적인 배포 스키마를 간단하게 보여 줍니다.
 
@@ -324,4 +324,3 @@ SUSE Linux Enterprise Server 또는 Red Hat을 실행하는 경우 STONITH 디�
 - [SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성](./sap-hana-high-availability.md)
 - [Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md)
 
- 

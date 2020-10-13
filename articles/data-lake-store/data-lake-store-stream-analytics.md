@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576220"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1에 데이터 스트리밍
@@ -112,5 +112,5 @@ ms.locfileid: "91576220"
 
     데이터 탐색기 창에서 Data Lake Storage Gen1 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

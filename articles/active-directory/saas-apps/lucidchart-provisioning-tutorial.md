@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: 43d6ac8354e992a87091bc66417f7ca88e784199
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850662"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Lucidchart 구성
@@ -31,7 +31,7 @@ ms.locfileid: "91850662"
 > * Lucidchart에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Lucidchart에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/lucidchart-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

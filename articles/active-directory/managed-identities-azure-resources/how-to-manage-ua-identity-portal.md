@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266390"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977428"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당
 
@@ -45,7 +45,7 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
     - **지역**: 사용자 할당 관리 id (예: **미국 서 부**)를 배포할 지역을 선택 합니다.
     - **이름**: 사용자 할당 관리 id의 이름 (예: UAI1)입니다.
     ![사용자 할당 관리 ID 만들기](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. **검토 + 상자** 를 클릭 하 여 변경 내용을 검토 합니다.
+4. **검토 + 만들기** 를 클릭 하 여 변경 내용을 검토 합니다.
 5. **만들기**를 클릭합니다.
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열

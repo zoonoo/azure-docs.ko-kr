@@ -12,7 +12,7 @@ ms.openlocfilehash: 7e05e89cae8688162c6ac6ded5ad56c85394dc8c
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858772"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용
@@ -40,14 +40,14 @@ HDInsight 클러스터는 Data Lake Storage Gen1을 두 가지 방식으로 사�
 
 현재 기본 저장소 및 추가 저장소 계정으로 Data Lake Storage Gen1를 사용 하는 일부 HDInsight 클러스터 유형/버전만 지원 됩니다.
 
-| HDInsight 클러스터 유형 | Data Lake Storage Gen1을 기본 스토리지로 | Data Lake Storage Gen1을 추가 스토리지로| 메모 |
+| HDInsight 클러스터 유형 | Data Lake Storage Gen1을 기본 스토리지로 | Data Lake Storage Gen1을 추가 스토리지로| 참고 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 버전 4.0 | 예 | 예 |ADLS Gen1 HDInsight 4.0에서 지원 되지 않음 |
+| HDInsight 버전 4.0 | 아니요 | 아니요 |ADLS Gen1 HDInsight 4.0에서 지원 되지 않음 |
 | HDInsight 버전 3.6 | 예 | 예 | HBase 제외|
 | HDInsight 버전 3.5 | 예 | 예 | HBase 제외|
-| HDInsight 버전 3.4 | 예 | 예 | |
-| HDInsight 버전 3.3 | 예 | 예 | |
-| HDInsight 버전 3.2 | 예 | 예 | |
+| HDInsight 버전 3.4 | 아니요 | 예 | |
+| HDInsight 버전 3.3 | 아니요 | 아니요 | |
+| HDInsight 버전 3.2 | 아니요 | 예 | |
 | Storm | | |Data Lake Storage Gen1을 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. 또한 참조 데이터에 대해 Data Lake Storage Gen1를 사용 하 여 스톰 토폴로지에서 읽을 수 있습니다.|
 
 > [!WARNING]  

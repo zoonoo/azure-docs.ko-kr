@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596835"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977258"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Azure Windows 가상 머신에 대 한 높은 CPU 문제 해결
 
@@ -90,11 +90,11 @@ PerfInsights는 VM 성능 문제에 대 한 Azure 지원의 권장 도구입니�
 
 #### <a name="run-perfinsights"></a>PerfInsights 실행
 
-PerfInsights는 [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) OS 모두에 사용할 수 있습니다. Windows의 경우 다음 옵션을 사용할 수 있습니다.
+PerfInsights는 [Windows](./how-to-use-perfinsights.md) 및 [Linux](./how-to-use-perfinsights-linux.md) OS 모두에 사용할 수 있습니다. Windows의 경우 다음 옵션을 사용할 수 있습니다.
 
 #### <a name="run-and-analyze-reports-through-azure-portal"></a>Azure Portal를 통해 보고서 실행 및 분석
 
-[Azure Portal를 통해 설치](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics)하는 경우는 실제로 VM에 확장을 설치 합니다. 사용자는 [VM 블레이드의 확장](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension)으로 직접 이동한 다음 성능 진단 옵션을 선택 하 여 PerfInsights를 확장으로 설치할 수도 있습니다.
+[Azure Portal를 통해 설치](./performance-diagnostics.md)하는 경우는 실제로 VM에 확장을 설치 합니다. 사용자는 [VM 블레이드의 확장](./performance-diagnostics-vm-extension.md)으로 직접 이동한 다음 성능 진단 옵션을 선택 하 여 PerfInsights를 확장으로 설치할 수도 있습니다.
 
 #### <a name="azure-portal-option-1"></a>Azure Portal 옵션 1
 
@@ -132,7 +132,7 @@ VM 블레이드에서 **문제 진단 및 해결** 을 찾아 **vm 성능 문제
 
 #### <a name="run-perfinsights-from-within-the-vm"></a>VM 내에서 PerfInsights 실행
 
-더 긴 기간 동안 PerfInsights를 실행 하려는 경우이 메서드를 사용할 수 있습니다. [PerfInsights 문서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#how-do-i-run-perfinsights) 는 PerfInsights를 실행 파일로 실행 하는 데 필요한 다양 한 명령 및 플래그에 대 한 자세한 연습을 제공 합니다. CPU 사용량이 많은 경우 다음 모드 중 하나가 필요 합니다.
+더 긴 기간 동안 PerfInsights를 실행 하려는 경우이 메서드를 사용할 수 있습니다. [PerfInsights 문서](./how-to-use-perfinsights.md#how-do-i-run-perfinsights) 는 PerfInsights를 실행 파일로 실행 하는 데 필요한 다양 한 명령 및 플래그에 대 한 자세한 연습을 제공 합니다. CPU 사용량이 많은 경우 다음 모드 중 하나가 필요 합니다.
 
 - 고급 시나리오
 
@@ -289,7 +289,7 @@ Azure Monitor 메트릭을 사용 하도록 설정 하면 소프트웨어에서 
 
   ![메트릭 네임 스페이스](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Azure monitor를 사용 하 여 Azure Vm을 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure virtual Machines 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-vm-azure)을 참조 하세요.
+Azure monitor를 사용 하 여 Azure Vm을 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure virtual Machines 모니터링](../../azure-monitor/insights/monitor-vm-azure.md)을 참조 하세요.
 
 ### <a name="reactive-troubleshooting"></a>사후 문제 해결
 
@@ -311,7 +311,7 @@ PerfInsights에 **예약 된 실행** 기능이 아직 없습니다. 그러나 P
 
 동일한 VNET의 피어 Azure VM 컴퓨터에서 Logman.exe를 시작할 수도 있습니다.
 
-이러한 매개 변수에 대 한 자세한 내용은 [logman create 카운터](https://docs.microsoft.com/windows-server/administration/windows-commands/logman-create-counter)를 참조 하세요.
+이러한 매개 변수에 대 한 자세한 내용은 [logman create 카운터](/windows-server/administration/windows-commands/logman-create-counter)를 참조 하세요.
 
 문제가 발생 하는 동안 Perfmon 데이터를 수집한 후에는 데이터를 분석 하는 나머지 단계는 앞에서 설명한 것과 동일 합니다.
 

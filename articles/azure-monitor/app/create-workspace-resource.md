@@ -1,16 +1,14 @@
 ---
 title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만들기 | Microsoft Docs
 description: 새 Azure Monitor Application Insights 작업 영역 기반 리소스를 사용하도록 설정하는 데 필요한 단계에 대해 알아봅니다.
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fa9f1dc401ac4132d9c6c0d8c054b3f4a154ac
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894547"
+ms.locfileid: "91932433"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 

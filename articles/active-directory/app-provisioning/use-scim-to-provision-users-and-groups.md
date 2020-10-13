@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266652"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967055"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -747,7 +747,7 @@ TLS 1.2 암호 도구 모음 최소 막대:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP 범위
-Azure AD 프로 비전 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열 된 대로 AZUREACTIVEDIRECTORY의 IP 범위에서 작동 합니다. AzureActiveDirectory 태그 아래에 나열 된 IP 범위를 추가 하 여 Azure AD 프로 비전 서비스에서 응용 프로그램으로의 트래픽을 허용할 수 있습니다. 
+Azure AD 프로 비전 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열 된 대로 AZUREACTIVEDIRECTORY의 IP 범위에서 작동 합니다. AzureActiveDirectory 태그 아래에 나열 된 IP 범위를 추가 하 여 Azure AD 프로 비전 서비스에서 응용 프로그램으로의 트래픽을 허용할 수 있습니다. 계산 된 주소에 대 한 IP 범위 목록을 신중 하 게 검토 해야 합니다. IP 범위 목록에서 ' 40.126.25.32 '와 같은 주소를 ' 40.126.0.0/18 '로 나타낼 수 있습니다. 다음 [API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)를 사용 하 여 프로그래밍 방식으로 IP 범위 목록을 검색할 수도 있습니다.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3단계: SCIM 엔드포인트 빌드
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450413"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
@@ -87,7 +87,7 @@ PRT는 다음 두 가지 방법으로 갱신됩니다.
    * 앱은 WAM에 자동으로 액세스 토큰을 요청하지만 해당 앱에 사용할 수 있는 새로 고침 토큰이 없습니다. 이 경우 WAM은 PRT를 사용하여 앱에 대한 토큰을 요청하고 응답에서 새 PRT를 다시 가져옵니다.
    * 앱은 WAM에 액세스 토큰을 요청하지만 PRT가 유효하지 않거나 Azure AD가 추가 권한 부여를 요구합니다(예: Azure Multi-Factor Authentication). 이 시나리오에서 WAM은 사용자에게 다시 인증하거나 추가 확인을 제공하도록 요구하는 대화형 로그온을 시작하고, 인증이 성공하면 새 PRT를 발급합니다.
 
-ADFS 환경에서 도메인 컨트롤러에 대 한 직접적인 시야는 PRT를 갱신 하는 데 필요 하지 않습니다. PRT 갱신에는 WS-TRUST 프로토콜을 사용 하 여 프록시에서/adfs/services/trust/2005/usernamemixed 및/adfs/services/trust/13/usernamemixed 끝점만 사용 하도록 설정 해야 합니다.
+ADFS 환경에서 도메인 컨트롤러에 대 한 직접적인 시야는 PRT를 갱신 하는 데 필요 하지 않습니다. PRT 갱신에는 WS-Trust 프로토콜을 사용 하 여 프록시에서 사용 하도록 설정 된/adfs/services/trust/2005/usernamemixed 및/adfs/services/trust/13/usernamemixed 끝점만 필요 합니다.
 
 Windows 전송 끝점은 암호를 변경 하는 경우에만 암호 인증을 위해 필요 하며, PRT 갱신에는 필요 하지 않습니다.
 

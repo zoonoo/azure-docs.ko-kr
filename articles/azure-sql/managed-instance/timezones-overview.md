@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617930"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978376"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 표준 시간대
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 
 ## <a name="limitations"></a>제한 사항
 
-- 기존 관리 되는 인스턴스의 표준 시간대를 변경할 수 없습니다.
+- 기존 관리 되는 인스턴스의 표준 시간대를 변경할 수 없습니다. 해결 방법으로 올바른 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 사용 하 여 [인스턴스 간 지정 시간 복원을](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database)수행 합니다.
 - SQL Server 에이전트 작업에서 시작 된 외부 프로세스는 인스턴스의 표준 시간대를 준수 하지 않습니다.
 
 ## <a name="list-of-supported-time-zones"></a>지원 되는 표준 시간대 목록
@@ -241,7 +241,7 @@ TimezoneId 속성에 대해 지원 되는 값 목록은이 문서의 끝에 있�
 | 사모아 표준 시간 | (UTC + 13:00) 표준시 |
 | 라인 제도 표준시 | (UTC + 14:00) 키리티마티 섬 |
 
-## <a name="see-also"></a>참조 
+## <a name="see-also"></a>추가 정보 
 
 - [CURRENT_TIMEZONE(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)

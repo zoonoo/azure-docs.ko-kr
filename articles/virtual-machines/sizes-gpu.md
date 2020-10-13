@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 87314e38225d6e08f81ce6c3855f70a13db9c6bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb534ae4a59c9a5c87a7eb7ab268a40b9771fdb2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653182"
+ms.locfileid: "91876229"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
 GPU 최적화 VM 크기는 단일 또는 여러 개의 Gpu에서 사용할 수 있는 특수 한 가상 머신입니다. 이러한 크기는 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다. 이 문서에서는 GPU, vCPU, 데이터 디스크 및 NIC의 개수와 종류에 대한 정보를 제공합니다. 이 그룹화의 각 크기에 대해 스토리지 처리량 및 네트워크 대역폭도 포함되어 있습니다.
 
-- [NC 시리즈](nc-series.md), [NCv2 시리즈](ncv2-series.md), [NCv3 시리즈](ncv3-series.md) 및 [NCT4_v3 시리즈](nct4-v3-series.md) 크기는 계산 집약적 및 네트워크 집약적인 응용 프로그램 및 알고리즘에 최적화 되어 있습니다. 몇 가지 예로는 OpenCL 기반 응용 프로그램 및 시뮬레이션, AI, 심층 학습 등이 있습니다. NCT4v3 시리즈는 NVIDIA의 Tesla T4 GPU 및 AMD EPYC2 로마 프로세서를 갖춘 유추 작업에 초점을 맞추고 있습니다. NCv3 시리즈는 NVIDIA의 Tesla V100 GPU를 지원하는 고성능 컴퓨팅 워크로드에 중점을 둡니다. NC 시리즈는 Intel Xeon E5-2690 v3 2.60 GHz v3 (Haswell) 프로세서를 사용 하 고 NCv2 시리즈 및 NCv3 시리즈 Vm은 Intel Xeon E5-2690 v4 (Broadwell) 프로세서를 사용 합니다.
+- [NCv3 시리즈](ncv3-series.md) 및 [NC T4_v3 시리즈](nct4-v3-series.md) 크기는 계산 집약적인 GPU 가속 응용 프로그램에 최적화 되어 있습니다. 몇 가지 예로는 OpenCL 기반 응용 프로그램 및 시뮬레이션, AI, 심층 학습 등이 있습니다. NC T4 v3 시리즈는 NVIDIA의 Tesla T4 GPU 및 AMD EPYC2 로마 프로세서를 갖춘 유추 작업에 초점을 맞추고 있습니다. NCv3 시리즈는 NVIDIA의 Tesla V100 GPU를 특징으로 하는 고성능 컴퓨팅 및 AI 워크 로드에 초점을 맞추고 있습니다.
 
-- [ND 시리즈](nd-series.md)및 [NDv2 시리즈](ndv2-series.md) 크기는 심층 학습을 위한 학습 및 유추 시나리오에 중점을 두었습니다. ND 시리즈는 NVIDIA Tesla P40 GPU 및 Intel Xeon E5-2690 v4 (Broadwell) 프로세서를 사용 합니다. NDv2 시리즈는 Nvidia Volta V100 및 Intel Xeon Platinum 8168 (Skylake) 프로세서를 사용 합니다.
+- [NDv2 시리즈](ndv2-series.md) 크기는 확장 및 확장 심층 학습 학습 응용 프로그램에 중점을 두었습니다. NDv2 시리즈는 Nvidia Volta V100 및 Intel Xeon Platinum 8168 (Skylake) 프로세서를 사용 합니다.
 
 - [NV 시리즈](nv-series.md) 및 [NVv3 시리즈](nvv3-series.md) 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화 되 고 설계 되었습니다. 이러한 VM은 NVIDIA Tesla M60 GPU의 지원을 받습니다.
 
@@ -31,7 +31,7 @@ GPU 최적화 VM 크기는 단일 또는 여러 개의 Gpu에서 사용할 수 �
 
 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA 또는 AMD GPU 드라이버가 설치 되어 있어야 합니다.
 
-- Nvidia gpu에 의해 지원 되는 Vm의 경우 [NVIDIA Gpu 드라이버 확장](./extensions/hpccompute-gpu-windows.md) 은 적절 한 nvidia 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
+- Nvidia gpu에 의해 지원 되는 Vm의 경우 [NVIDIA Gpu 드라이버 확장](./extensions/hpccompute-gpu-windows.md) 은 적절 한 nvidia 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.   
 
    또는 NVIDIA GPU 드라이버를 수동으로 설치할 수 있습니다. 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계는 Windows를 실행 하는 [n 시리즈 vm에 NVIDIA gpu 드라이버 설치](./windows/n-series-driver-setup.md) 또는 [Linux를 실행 하는 n 시리즈 VM에 Nvidia gpu 드라이버 설치](./linux/n-series-driver-setup.md) 를 참조 하세요.
 

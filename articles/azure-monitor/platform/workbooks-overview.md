@@ -1,19 +1,17 @@
 ---
 title: Azure Monitor 통합 문서 개요
 description: 통합 문서에서 데이터 분석을 위한 유연한 캔버스를 제공 하 고 Azure Portal 내에서 풍부한 시각적 보고서를 만드는 방법에 대해 알아봅니다.
-author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
-ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825771"
+ms.locfileid: "91932399"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 

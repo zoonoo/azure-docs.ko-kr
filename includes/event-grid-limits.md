@@ -12,7 +12,7 @@ ms.openlocfilehash: b884bc72381c98af77f2f49336f3dd5762c68734
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91859702"
 ---
 다음 제한은 Azure Event Grid **토픽**(시스템, 사용자 지정 및 파트너 항목)에 적용됩니다. 

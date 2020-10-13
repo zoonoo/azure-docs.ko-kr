@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445778"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
@@ -76,7 +76,7 @@ Azure Monitor에 연결 된 관리 그룹이 있는 System Center Operations Man
 
 Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 경우 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 연결 하도록 Log Analytics 에이전트를 구성 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 Log Analytics 게이트웨이를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
 - 이전 버전의 Wire Data 솔루션을 사용하는 경우 먼저 이전 버전을 제거해야 합니다. 그러나 원래 Wire Data 솔루션을 통해 캡처된 모든 데이터는 Wire Data 2.0 및 로그 검색에서 계속 사용할 수 있습니다.
@@ -96,10 +96,10 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-#### <a name="windows-desktop"></a>Windows 데스크톱
+#### <a name="windows-desktop"></a>Windows 바탕 화면
 
 - Windows 10 1803
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -393,7 +393,7 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 | ReceivedBytes | 받은 바이트의 양 |
 | ProtocolName | 사용되는 네트워크 프로토콜의 이름 |
 | IPVersion | IP 버전 |
-| 방향 | 인바운드 또는 아웃바운드 |
+| Direction | 인바운드 또는 아웃바운드 |
 | MaliciousIP | 알려진 악의적인 원본의 IP 주소 |
 | 심각도 | 의심되는 맬웨어 심각도 |
 | RemoteIPCountry | 원격 IP 주소의 국가/지역 |

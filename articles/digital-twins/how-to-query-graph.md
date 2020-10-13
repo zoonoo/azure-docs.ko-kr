@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e3dce20f447b47ad78deea617b513c50f552733
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893631"
+ms.locfileid: "91931985"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -47,14 +47,14 @@ WHERE ...
 
 ### <a name="count-items"></a>항목 수 계산
 
-절을 사용 하 여 결과 집합의 쌍 수를 계산할 수 있습니다 `Select COUNT` .
+절을 사용 하 여 결과 집합의 항목 수를 계산할 수 있습니다 `Select COUNT` .
 
 ```sql
 SELECT COUNT() 
 FROM DIGITALTWINS
 ``` 
 
-`WHERE`특정 조건을 충족 하는 쌍의 수를 계산 하는 절을 추가 합니다. 쌍 모델의 형식에 따라 적용 된 필터를 사용 하 여 계산 하는 몇 가지 예는 다음과 같습니다 .이 구문에 대 한 자세한 내용은 아래 [*모델용 쿼리*](#query-by-model) 를 참조 하세요.
+`WHERE`특정 조건을 충족 하는 항목 수를 계산 하는 절을 추가 합니다. 쌍 모델의 형식에 따라 적용 된 필터를 사용 하 여 계산 하는 몇 가지 예는 다음과 같습니다 .이 구문에 대 한 자세한 내용은 아래 [*모델용 쿼리*](#query-by-model) 를 참조 하세요.
 
 ```sql
 SELECT COUNT() 
@@ -68,7 +68,7 @@ WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 `COUNT`절과 함께를 사용할 수도 있습니다 `JOIN` . 다음은 대화방 1과 2의 밝은 패널에 포함 된 모든 라이트 전구의 수를 계산 하는 쿼리입니다.
 
 ```sql
-SELECT COUNT(LightBulb)  
+SELECT COUNT()  
 FROM DIGITALTWINS Room  
 JOIN LightPanel RELATED Room.contains  
 JOIN LightBulb RELATED LightPanel.contains  

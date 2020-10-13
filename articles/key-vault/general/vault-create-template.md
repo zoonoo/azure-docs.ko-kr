@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
 ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804395"
 ---
 # <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Key Vault 및 자격 증명 모음 액세스 정책을 만드는 방법
@@ -168,7 +168,7 @@ Key Vault 개체에 사용할 수 있는 다른 리소스 관리자 템플릿이
 
 | 비밀 | 구성 | 인증서 |
 |--|--|--|
-|[빠른 시작](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|해당 없음|해당 없음|
+|[빠른 시작](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
 
 [Key Vault 리소스 관리자 참조](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions) 에서 찾을 수 있는 Key Vault 템플릿이 더 있습니다.
 

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 6dfddd9179569075abdbd94b6c1afa719db9ba1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905597"
+ms.locfileid: "91931984"
 ---
 ## <a name="query-language-features"></a>쿼리 언어 기능
 
@@ -32,6 +32,7 @@ Azure Digital Twins 쿼리 언어에서 사용할 수 있는 작업은 다음과
 * 여러 관계 유형 (쿼리)에 대해 쌍을 가져옵니다 `JOIN` . 
   - 미리 보기 중에는 최대 5 개 수준이 `JOIN` 허용 됩니다.
 * 상위 쿼리 결과만 선택 ( `Select TOP` 연산자)
+* 을 사용 하 여 결과 집합의 항목 수를 계산 합니다. `Select COUNT`
 * 스칼라 함수 `IS_BOOL` (, `IS_DEFINED` ,,,,,,,)를 사용 `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` `ENDSWITH` 합니다.
 * 쿼리 비교 연산자 ( `IN` / `NIN` , `=` , `!=` , `<` `>` `<=` `>=` ,,,)를 사용 합니다.
 * `AND` `OR` `NOT` `IS_OF_MODEL` , 스칼라 함수 및 비교 연산자의 조합 (,, 연산자)을 사용 합니다.

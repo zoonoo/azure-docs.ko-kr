@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에서 보안 원격 VM 액세스 Microsoft Docs
 description: Azure Active Directory Domain Services 관리 되는 도메인에서 원격 데스크톱 서비스 배포를 사용 하 여 NPS (네트워크 정책 서버) 및 Azure Multi-Factor Authentication를 사용 하 여 Vm에 대 한 원격 액세스를 보호 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: 462e0ff8ef8baadf40ba81ed2ae137d8904fbf7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722520"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967786"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 가상 컴퓨터에 대 한 보안 원격 액세스
 

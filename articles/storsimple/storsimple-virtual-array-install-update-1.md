@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bcd0f6d4d1ac505598c839f89850f9b55a9c36a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295569"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977496"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 1.0 설치
 
@@ -102,26 +102,26 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 1. 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 실행 중인 소프트웨어 버전을 기록해 둡니다. **업데이트 0.6 (10.0.10293.0)을 실행 하는 경우에만이 업데이트를 진행 합니다. 이전 버전을 실행 하는 경우 먼저 장치에 [업데이트 0.6을 설치한](storsimple-virtual-array-install-update-06.md) 다음 업데이트 1을 적용 합니다.**
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-1/update1m.png)
+    ![장치 업데이트 1](./media/storsimple-virtual-array-install-update-1/update1m.png)
 
 2. **업데이트 파일 경로**에 업데이트 또는 핫픽스의 파일 이름을 입력합니다. 네트워크 공유에 있는 경우 업데이트 또는 핫픽스 설치 파일로 이동할 수 있습니다. **적용**을 클릭합니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-1/update2m.png)
+    ![장치 업데이트 2](./media/storsimple-virtual-array-install-update-1/update2m.png)
 
 3. 경고가 표시됩니다. 가상 배열이 단일 노드 디바이스인 경우 업데이트가 적용된 후 디바이스를 다시 시작하고 가동 중지 시간이 발생합니다. 확인 아이콘을 클릭합니다.
    
-   ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-1/update3m.png)
+   ![장치 업데이트 3](./media/storsimple-virtual-array-install-update-1/update3m.png)
 
 4. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-1/update5m.png)
+    ![업데이트 장치 4](./media/storsimple-virtual-array-install-update-1/update5m.png)
 
 5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 1.0의 경우 **10.0.0.0.0.10296**이어야 합니다.
    
    > [!NOTE]
    > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10296**을, Azure Portal은 **10.0.10296.0**을 보고합니다.
    
-    ![디바이스 업데이트](./media/storsimple-virtual-array-install-update-1/update6m.png)
+    ![업데이트 장치 5](./media/storsimple-virtual-array-install-update-1/update6m.png)
 
 6. 2-4단계를 반복하여 `windows8.1-kb4012213-x64` 파일을 통해 Windows 보안 수정을 설치합니다. 설치 후 가상 배열이 다시 시작되고 로컬 웹 UI에 로그인해야 합니다.
 

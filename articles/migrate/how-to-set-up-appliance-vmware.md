@@ -4,10 +4,10 @@ description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure M
 ms.topic: article
 ms.date: 04/16/2020
 ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448641"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
@@ -26,11 +26,11 @@ ms.locfileid: "91448641"
 
 ## <a name="appliance-deployment-ova"></a>OVA (어플라이언스 배포)
 
-OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을 수행 합니다.
-- 포털에서 어플라이언스 이름을 제공 하 고 Azure Migrate 프로젝트 키를 생성 합니다.
+OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 수행합니다.
+- 포털에서 어플라이언스 이름을 제공하고, Azure Migrate 프로젝트 키를 생성합니다.
 - OVA 템플릿 파일을 다운로드하여 vCenter Server로 가져옵니다.
 - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
-- 처음으로 어플라이언스를 구성 하 고 Azure Migrate 프로젝트 키를 사용 하 여 Azure Migrate 프로젝트에 등록 합니다.
+- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
 
@@ -66,7 +66,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 
 다운로드한 파일을 가져오고 VM을 만듭니다.
 
-1. Vsphere 클라이언트 콘솔에서 **파일**  >  **배포 파일 배포 템플릿**을 클릭 합니다.
+1. vSphere Client 콘솔에서 **파일** > **OVF 템플릿 배포**를 클릭합니다.
 ![OVF 템플릿을 배포하는 메뉴 명령](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
@@ -74,7 +74,7 @@ OVA 템플릿을 사용 하 여 어플라이언스를 설정 하려면 다음을
 5. **호스트/클러스터**에서 VM이 실행될 호스트 또는 클러스터를 지정합니다.
 6. **스토리지**에서 VM에 대한 스토리지 대상을 지정합니다.
 7. **디스크 형식**에서 디스크 유형 및 크기를 지정합니다.
-8. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정 합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
+8. **네트워크 매핑**에서 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate 서버 평가에 보내려면 네트워크에 인터넷 연결이 필요합니다.
 9. 설정을 검토 및 확인한 다음 **마침**을 클릭합니다.
 
 

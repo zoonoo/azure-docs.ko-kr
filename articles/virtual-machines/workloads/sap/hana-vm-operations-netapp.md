@@ -16,13 +16,13 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450731"
 ---
-# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA에 대 한 Azure NetApp Files의 NFS v 4.1 볼륨
+# <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
 Azure NetApp Files은 **/hana/shared**, **/hana/data**및 **/hana/log** 볼륨에 사용할 수 있는 네이티브 NFS 공유를 제공 합니다. **/Hana/data** 및 **/hana/log** 볼륨에 대해 anf 기반 nfs 공유를 사용 하려면 v 4.1 nfs 프로토콜을 사용 해야 합니다. NFS 프로토콜 v3은 ANF의 공유를 기반으로 하는 경우 **/hana/data** 및 **/hana/log** 볼륨의 사용에 대해 지원 되지 않습니다. 
 

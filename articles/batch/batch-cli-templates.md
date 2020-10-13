@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91848724"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용

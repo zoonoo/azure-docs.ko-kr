@@ -3,17 +3,17 @@ title: Python(최신)을 사용하여 Azure Event Hubs에서 이벤트 보내기
 description: 이 문서에서는 최신 azure/eventhubs 버전 5 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 Python 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 ms.topic: quickstart
 ms.date: 02/11/2020
-ms.openlocfilehash: b6a30ba0cef8c460a2a3035b3ab40fd8173d7b2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bdcd85786afdf307fdc7043db7ed7651d41820a4
+ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933905"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729086"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Python(azure-eventhub 버전 5)을 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
 이 빠른 시작에서는 **azure-eventhubs 버전 5** Python 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -76,8 +76,11 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
 ## <a name="receive-events"></a>이벤트 수신
 이 빠른 시작에서는 검사점 저장소로 Azure Blob 스토리지를 사용합니다. 검사점 저장소는 검사점(마지막 읽기 위치)을 유지하는 데 사용됩니다.  
 
-> [!NOTE]
-> Azure Stack Hub에서 실행 중인 경우 해당 플랫폼은 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. 예를 들어 [Azure Stack Hub 버전 2002](/azure-stack/user/event-hubs-overview)에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2017-11-09입니다. 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2017-11-09를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub의 [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) 및 [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) 샘플을 참조하세요. Azure Stack Hub에서 지원되는 Azure Storage 서비스 버전에 대한 자세한 내용은 [Azure Stack Hub스토리지: 차이점 및 고려 사항](/azure-stack/user/azure-stack-acs-differences)을 참조하세요.
+
+> [!WARNING]
+> Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hubs SDK가 Azure Stack Hub 플랫폼에서는 사용할 수 없는 Azure에서 사용 가능한 최신 Azure Storage API를 사용하기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+>
+> 예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub의 [동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) 및 [비동기](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) 샘플을 참조하세요. 
 
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Azure 스토리지 계정 및 BLOB 컨테이너 만들기

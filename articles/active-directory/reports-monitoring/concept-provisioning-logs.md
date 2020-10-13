@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812559"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
@@ -61,7 +61,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
-![프로비저닝 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
+![프로 비전 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
 
 
 프로 비전 로그에는 다음을 보여 주는 기본 목록 보기가 있습니다.

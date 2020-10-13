@@ -9,13 +9,13 @@ ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
 ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448473"
 ---
-# <a name="suppress-alerts-from-azure-defender"></a>Azure Defender에서 경고 표시 안 함
+# <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
 이 페이지에서는 경고 비 표시 규칙을 사용 하 여 Azure Defender에서 가양성 또는 기타 원치 않는 보안 경고를 표시 하지 않는 방법을 설명 합니다.
 
@@ -24,9 +24,9 @@ ms.locfileid: "91448473"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|미리 보기|
-|결정|Free<br>(대부분의 보안 경고는 Azure Defender 에서만 사용할 수 있습니다.)|
-|필요한 역할 및 사용 권한:|**보안 관리자** 및 **소유자** 는 규칙을 만들거나 삭제할 수 있습니다.<br>**보안 읽기 권한자** 및 **읽기 권한자**는 규칙을 볼 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|가격 책정:|Free<br>(대부분의 보안 경고는 Azure Defender 에서만 사용할 수 있습니다.)|
+|필요한 역할 및 권한:|**보안 관리자** 및 **소유자** 는 규칙을 만들거나 삭제할 수 있습니다.<br>**보안 읽기 권한자** 및 **읽기 권한자**는 규칙을 볼 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 

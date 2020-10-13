@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e544d135883d0c936b3f23b3e50e385268c992c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006299"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977581"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![가상 배열을 배포 하는 데 필요한 단계를 보여 주는 다이어그램 세 번째 단계의 첫 번째 부분에는 파일 서버로 설정 된 레이블이 지정 되 고 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -118,7 +118,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     ![Azure Portal의 모든 리소스 페이지 스크린샷 Device Manager 서비스가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. 필터링된 목록에서 StorSimple 디바이스 관리자 서비스를 선택한 다음 **관리 &gt; 디바이스**로 이동합니다. **디바이스** 블레이드에서 디바이스가 서비스에 성공적으로 연결되었는지와 **설정할 준비 완료** 상태인지 확인합니다.
     
-    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![배포](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>2단계: 파일 서버로 디바이스 구성
 필요한 디바이스 설정을 완료하려면 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
@@ -129,7 +129,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. 디바이스를 클릭하고 디바이스를 설치할 준비가 되었음을 나타내는 배너 메시지가 표시됩니다.
    
-    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
+    ![파일 서버 구성 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. 명령 모음에서 **구성**을 클릭합니다. 그러면 **구성** 블레이드가 열립니다. **구성** 블레이드에서 다음을 수행합니다.
    
    1. 파일 서버 이름은 자동으로 채워집니다.
@@ -140,7 +140,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     
    4. **필수 설정 구성**을 클릭하여 디바이스와 함께 사용할 스토리지 계정 자격 증명을 지정합니다. 구성된 스토리지 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다. **사용 하는 저장소 계정에서 블록 blob을 지원 하는지 확인 합니다. 페이지 blob은 지원 되지 않습니다.** [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
    
-      ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![파일 서버 구성 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. **스토리지 계정 자격 증명 추가** 블레이드에서 다음을 수행합니다. 
 
     1. 스토리지 계정이 서비스와 동일한 구독에 있는 경우 현재 구독을 선택합니다. 서비스 구독 외부에서 기타 스토리지 계정을 지정합니다. 
@@ -153,19 +153,19 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     
     5. **추가**를 클릭하여 이 스토리지 계정 자격 증명을 추가합니다. 
    
-        ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![파일 서버 구성 4](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
 
 5. 스토리지 계정 자격 증명이 성공적으로 만들어지면 **구성** 블레이드가 업데이트되어 지정된 스토리지 계정 자격 증명을 표시합니다. **Configure**를 클릭합니다.
    
-   ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
+   ![파일 서버 구성 5](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
    
    만들어진 파일 서버가 표시됩니다. 서비스가 성공적으로 만들어지면 알림이 표시됩니다.
    
-   ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
+   ![파일 서버 구성 5b](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs13m.png)
    
    디바이스 상태도 **온라인**으로 변경됩니다.
    
-   ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
+   ![파일 서버 5c 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs14m.png)
    
    공유를 추가하는 작업을 진행할 수 있습니다.
 
@@ -189,15 +189,15 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    
    5. **추가**를 클릭하여 공유를 만듭니다. 
     
-       ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![공유 1 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        공유 만들기가 진행 중이라는 알림이 표시됩니다.
    
-       ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![공유 추가 2](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
       지정된 설정으로 공유를 만든 후에 **공유** 블레이드가 업데이트되어 새 공유를 반영합니다. 기본적으로 공유에 대한 모니터링 및 백업을 사용하도록 설정됩니다.
    
-      ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![공유 추가 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>4단계: 공유에 연결
 이전 단계에서 만든 하나 이상의 공유에 연결해야 합니다. StorSimple 가상 배열에 연결된 Windows Server 호스트에서 이러한 단계를 수행합니다.
