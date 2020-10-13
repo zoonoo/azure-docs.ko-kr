@@ -8,10 +8,10 @@ ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715150"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
@@ -316,7 +316,7 @@ Microsoft 서비스 및 Azure ARM에 대해 Azure AD Privileged Identity Managem
 
 **책임**: Customer
 
-### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Azure Active Directory SSO (Single Sign-on)를 사용 하십시오.
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: SSO (Azure Active Directory Single Sign-On)를 사용 하십시오.
 
 **지침**: 가능 하면 서비스 별로 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다. 
 
@@ -960,7 +960,7 @@ Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.
 
 Azure automation을 사용 하도록 설정 하 여 blob의 정기적인 스냅숏을 만들 수도 있습니다.
 
-- [중복성 및 서비스 수준 계약 Azure Storage 이해](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Azure Storage 중복성 및 Service-Level 계약 이해](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 - [Blob의 스냅숏 만들기](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
@@ -990,7 +990,7 @@ Azure CLI 또는 PowerShell을 사용 하 여 Azure Key Vault 내에서 고객 �
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다. 
 
-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
+Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
 
 - [Key Vault 인증서를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

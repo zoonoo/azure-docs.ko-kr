@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a8ae9be983ecb0e6b50ef889525ae33726c2d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330335"
+ms.locfileid: "91893750"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Azure Database Migration Service에서 MySQL 용 Azure DB에 대 한 제한 사항을 & 온라인 마이그레이션 문제
 
@@ -82,12 +82,12 @@ LOB(Large Object) 열은 크기가 커질 수 있는 열입니다. MySQL의 경�
 
     **해결 방법**: 기본 키를 다른 데이터 형식 또는 LOB가 아닌 열로 바꿉니다.
 
-- **제한 사항**: LOB(Large Object) 열의 길이가 32KB보다 큰 경우 데이터는 대상에서 잘릴 수 있습니다. 이 쿼리를 사용하여 LOB 열의 길이를 확인할 수 있습니다.
+- **제한**사항: Lob (Large Object) 열의 길이가 "제한 LOB size" 매개 변수 (64 KB 보다 크지 않아야 함) 보다 큰 경우 데이터가 대상에서 잘릴 수 있습니다. 이 쿼리를 사용하여 LOB 열의 길이를 확인할 수 있습니다.
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **해결 방법**: LOB 개체가 32 KB 보다 큰 경우 엔지니어링 팀에 문의 하 여 [Azure 데이터베이스 마이그레이션](mailto:AskAzureDatabaseMigrations@service.microsoft.com)에 문의 하세요.
+    **해결 방법**: lob 개체가 64 KB 보다 큰 경우 "무제한 Lob 크기 허용" 매개 변수를 사용 합니다. "무제한 LOB 크기 허용" 매개 변수를 사용 하는 마이그레이션은 "LOB 크기 제한" 매개 변수를 사용 하는 마이그레이션 보다 속도가 느립니다.
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>AWS RDS MySQL에서 온라인으로 마이그레이션하는 경우의 제한 사항
 

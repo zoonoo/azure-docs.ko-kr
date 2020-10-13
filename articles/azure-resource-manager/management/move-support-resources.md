@@ -4,10 +4,10 @@ description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627111"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
@@ -307,7 +307,7 @@ ms.locfileid: "91627111"
 > | ------------- | ----------- | ---------- |
 > | apiapps | 예 | 예 |
 > | appidentities | 예 | 예 |
-> | gateways | 예 | 예 |
+> | gateways | 예 | 아니요 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -332,7 +332,7 @@ ms.locfileid: "91627111"
 > | policydefinitions | 예 | 예 |
 > | policysetdefinitions | 예 | 예 |
 > | privatelinkassociations | 예 | 예 |
-> | resourcemanagementprivatelinks | 예 | 예 |
+> | resourcemanagementprivatelinks | 아니요 | 예 |
 > | roleassignments | 예 | 예 |
 > | roleassignmentsusagemetrics | 예 | 예 |
 > | roledefinitions | 예 | 예 |
@@ -1135,7 +1135,7 @@ ms.locfileid: "91627111"
 > | 트랜잭션 | 예 | 예 |
 > | vminsightsonboardingstatuses | 예 | 예 |
 > | webtests | 예 | 예 |
-> | 웹 테스트/gettestresultfile | 예 | 예 |
+> | 웹 테스트/gettestresultfile | 아니요 | 예 |
 > | workbooks | 예 | 예 |
 > | workbooktemplates | 예 | 예 |
 
@@ -1163,7 +1163,7 @@ ms.locfileid: "91627111"
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | deletedvaults | 예 | 예 |
-> | hsmpools | 예 | 예 |
+> | hsmpools | 예 | 아니요 |
 > | managedhsms | 예 | 예 |
 > | vaults | 예 | 예 |
 
@@ -1413,7 +1413,7 @@ ms.locfileid: "91627111"
 > | expressroutegateways | 예 | 예 |
 > | expressrouteserviceproviders | 예 | 예 |
 > | firewallpolicies | 예 | 예 |
-> | frontdoors | 예 | 예 |
+> | frontdoors | 예 | 아니요 |
 > | ipallocations | 예 | 예 |
 > | ipgroups | 예 | 예 |
 > | loadbalancers | 예 - 기본 SKU<br> 예-표준 SKU | 예 - 기본 SKU<br>아니요 - 표준 SKU |
@@ -1453,7 +1453,7 @@ ms.locfileid: "91627111"
 > | virtualwans | 예 | 예 |
 > | vpngateways(Virtual WAN) | 예 | 예 |
 > | vpnserverconfigurations | 예 | 예 |
-> | vpnsites(Virtual WAN) | 예 | 예 |
+> | vpnsites(Virtual WAN) | 예 | 아니요 |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
@@ -1475,8 +1475,8 @@ ms.locfileid: "91627111"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | hypervsites | 예 | 예 |
-> | importsites | 예 | 예 |
+> | hypervsites | 아니요 | 아니요 |
+> | importsites | 아니요 | 예 |
 > | serversites | 예 | 예 |
 > | vmwaresites | 예 | 예 |
 
@@ -1514,7 +1514,7 @@ ms.locfileid: "91627111"
 > | legacypeerings | 예 | 예 |
 > | peerasns | 예 | 예 |
 > | peeringlocations | 예 | 예 |
-> | peerings | 예 | 예 |
+> | peerings | 아니요 | 아니요 |
 > | peeringservicecountries | 예 | 예 |
 > | peeringservicelocations | 예 | 예 |
 > | peeringserviceproviders | 예 | 예 |

@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713404"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
@@ -400,18 +400,18 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 다음 표에서는 Data Lake Storage Gen1에 사용 되는 cmdlet이 Data Lake Storage Gen2 cmdlet에 매핑되는 방법을 보여 줍니다.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| 메모 |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| 참고 |
 |--------|---------|-----|
-|AzDataLakeStoreChildItem|AzDataLakeGen2ChildItem|기본적으로 AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 자식 항목만 나열 합니다. -재귀 매개 변수는 자식 항목을 재귀적으로 나열 합니다. |
-|AzDataLakeStoreItem<br>AzDataLakeStoreItemAclEntry<br>AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission|AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, Owner, Group, Permission 속성이 있습니다.|
-|AzDataLakeStoreItemContent|AzDataLakeGen2FileContent|AzDataLakeGen2FileContent cmdlet은 파일 콘텐츠를 로컬 파일에 다운로드 합니다.|
-|AzDataLakeStoreItem|AzDataLakeGen2Item||
-|AzDataLakeStoreItem|AzDataLakeGen2Item|이 cmdlet은 로컬 파일에서 새 파일 콘텐츠를 업로드 합니다.|
-|AzDataLakeStoreItem|AzDataLakeGen2Item||
-|AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemAcl|업데이트-AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet은 단일 항목만 업데이트 하 고 재귀적으로 업데이트 하지 않습니다. 재귀적으로 업데이트 하려는 경우 AzDataLakeStoreChildItem cmdlet을 사용 하 여 항목을 나열 하 고 파이프라인을 AzDataLakeGen2Item cmdlet으로 파이프라인 합니다.|
-|AzDataLakeStoreItem|AzDataLakeGen2Item|항목이 존재 하지 않는 경우 AzDataLakeGen2Item cmdlet에서 오류를 보고 합니다.|
+|Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|기본적으로 Get-AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 자식 항목만 나열 합니다. -재귀 매개 변수는 자식 항목을 재귀적으로 나열 합니다. |
+|Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Get-AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, Owner, Group, Permission 속성이 있습니다.|
+|Get-AzDataLakeStoreItemContent|Get-AzDataLakeGen2FileContent|Get-AzDataLakeGen2FileContent cmdlet은 파일 콘텐츠를 로컬 파일에 다운로드 합니다.|
+|Move-AzDataLakeStoreItem|Move-AzDataLakeGen2Item||
+|New-AzDataLakeStoreItem|New-AzDataLakeGen2Item|이 cmdlet은 로컬 파일에서 새 파일 콘텐츠를 업로드 합니다.|
+|Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item||
+|Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|Update-AzDataLakeGen2Item cmdlet은 단일 항목만 업데이트 하 고 재귀적은 업데이트 하지 않습니다. 재귀적으로 업데이트 하려면 Get-AzDataLakeStoreChildItem cmdlet을 사용 하 여 항목을 나열 한 다음 Update-AzDataLakeGen2Item cmdlet으로 파이프라인을 사용 합니다.|
+|Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|항목이 존재 하지 않는 경우 Get-AzDataLakeGen2Item cmdlet에서 오류를 보고 합니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [스토리지 PowerShell cmdlet](/powershell/module/az.storage)

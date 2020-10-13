@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 549c14e0506613aca91ee4666026348d74afedbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514766"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961598"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>StorSimple 디바이스 관리자 서비스를 사용하여 백업 카탈로그 관리
 ## <a name="overview"></a>개요
@@ -75,11 +75,11 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
       
       선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
 
-      ![백업 카탈로그로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![백업 카탈로그 2로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 3. 백업 세트를 선택하고 확장합니다. 이제 포함된 볼륨별로 구분된 백업 세트를 볼 수 있습니다. **복원** 및 **삭제** 옵션은 백업 세트에 대한 상황에 맞는 메뉴(오른쪽 클릭)를 통해 사용할 수 있습니다. 선택한 백업 세트에 이러한 동작 중 하나를 수행할 수 있습니다.
 
-    ![백업 카탈로그로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![백업 카탈로그 3으로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## <a name="delete-a-backup-set"></a>백업 세트 삭제
 백업에 연결된 데이터를 더이상 보존하고 싶지 않은 경우 백업을 삭제 합니다. 백업 세트를 삭제하려면 다음 단계를 수행합니다.
@@ -95,19 +95,19 @@ StorSimple 디바이스 관리자 서비스 **Backup 카탈로그** 블레이드
       
       선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
 
-      ![백업 카탈로그로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![백업 카탈로그 4로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 1. 백업 세트를 선택하고 확장합니다. 이제 포함된 볼륨별로 구분된 백업 세트를 볼 수 있습니다. **복원** 및 **삭제** 옵션은 백업 세트에 대한 상황에 맞는 메뉴(오른쪽 클릭)를 통해 사용할 수 있습니다. 선택한 백업 세트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **삭제**를 선택합니다.
 
-    ![백업 카탈로그로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![백업 카탈로그 5로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
 1. 확인을 위한 메시지가 나타나면 표시된 정보를 검토하고 **삭제**를 클릭합니다. 선택한 백업이 영구적으로 삭제됩니다.
 
-    ![백업 카탈로그로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![백업 카탈로그 6으로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
 1. 삭제가 진행 중일 때와 삭제가 완료되었을 때 알림이 표시됩니다. 삭제를 완료 한 후 이 페이지의 쿼리를 새로 고칩니다. 삭제 된 백업 세트는 백업 세트의 목록에 더이상 나타나지 않습니다.
 
-    ![백업 카탈로그로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![백업 카탈로그 7로 이동](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>다음 단계
 * 백업 카탈로그를 사용하여 [백업 세트에서 디바이스를 복원](storsimple-8000-restore-from-backup-set-u2.md)하는 방법을 알아봅니다.

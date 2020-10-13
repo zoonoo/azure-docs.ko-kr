@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450165"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876161"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 
@@ -168,15 +168,15 @@ JSON은 위쪽에서 시작 하 여 다음 섹션에서 설명할 수 있습니�
 
 사용자 지정 모듈의 연결에 대 한 정보는 IoT Edge 에이전트 모듈 쌍에서 유지 관리 됩니다. 사용자 지정 모듈에 대 한 모듈 쌍은 주로 솔루션에 대 한 데이터를 유지 관리 하는 데 사용 됩니다. 파일의 deployment.js에서 정의한 desired 속성은 모듈 쌍에 반영 되 고 모듈은 필요한 경우 보고 된 속성 값을 업데이트할 수 있습니다.
 
-[Azure IoT Hub 장치 sdk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks) 에서 선호 하는 프로그래밍 언어를 사용 하 여 모듈의 응용 프로그램 코드에 따라 모듈 쌍의 보고 된 속성 값을 업데이트할 수 있습니다. 다음 절차에서는 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 모듈의 코드를 사용 하 여 .Net 용 Azure SDK를 사용 합니다.
+[Azure IoT Hub 장치 sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 에서 선호 하는 프로그래밍 언어를 사용 하 여 모듈의 응용 프로그램 코드에 따라 모듈 쌍의 보고 된 속성 값을 업데이트할 수 있습니다. 다음 절차에서는 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 모듈의 코드를 사용 하 여 .Net 용 Azure SDK를 사용 합니다.
 
-1. [CreateFromEnvironmentAysnc](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 메서드를 사용 하 여 [ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 의 인스턴스를 만듭니다.
+1. [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 메서드를 사용 하 여 [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) 의 인스턴스를 만듭니다.
 
-1. [GetTwinAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?view=azure-dotnet) 메서드를 사용 하 여 모듈 쌍의 속성 컬렉션을 가져옵니다.
+1. [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) 메서드를 사용 하 여 모듈 쌍의 속성 컬렉션을 가져옵니다.
 
-1. [SetDesiredPropertyUpdateCallbackAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?view=azure-dotnet) 메서드를 사용 하 여 desired 속성의 변경 내용을 catch 하기 위해 수신기 (콜백 전달)를 만듭니다.
+1. [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) 메서드를 사용 하 여 desired 속성의 변경 내용을 catch 하기 위해 수신기 (콜백 전달)를 만듭니다.
 
-1. 콜백 메서드에서 [UpdateReportedPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient) 메서드를 사용 하 여 모듈 쌍의 보고 된 속성을 업데이트 하 고 설정 하려는 속성 값의 [TwinCollection](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twincollection) 을 전달 합니다.
+1. 콜백 메서드에서 [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) 메서드를 사용 하 여 모듈 쌍의 보고 된 속성을 업데이트 하 고 설정 하려는 속성 값의 [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) 을 전달 합니다.
 
 ## <a name="access-the-module-twins"></a>모듈 쌍 액세스
 

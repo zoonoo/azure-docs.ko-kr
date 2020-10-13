@@ -4,10 +4,10 @@ description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767789"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 네트워크 보안 

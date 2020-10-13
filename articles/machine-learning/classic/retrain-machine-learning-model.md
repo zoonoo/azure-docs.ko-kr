@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: 2f115313b17ed159973d2545b947e2ff031508eb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362336"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
-**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 Studio (클래식)에서 machine learning 모델을 다시 학습 하 고 새 웹 서비스로 배포 하는 방법을 보여 줍니다. 클래식 웹 서비스를 다시 학습하려는 경우 [이 방법 문서를 확인](retrain-classic-web-service.md)하세요.
@@ -150,7 +150,7 @@ Outputs = new Dictionary<string, AzureBlobDataReference>() {
 $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 ```
 
-기존 웹 서비스의 리소스 그룹 이름을 확인 하려면 매개 변수 없이 AzMlWebService cmdlet을 실행 하 여 구독에 웹 서비스를 표시 합니다. 웹 서비스를 찾은 다음 웹 서비스 ID를 살펴봅니다. 리소스 그룹 이름은 ID의 네 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
+기존 웹 서비스의 리소스 그룹 이름을 확인 하려면 매개 변수 없이 Get-AzMlWebService cmdlet을 실행 하 여 구독에 웹 서비스를 표시 합니다. 웹 서비스를 찾은 다음 웹 서비스 ID를 살펴봅니다. 리소스 그룹 이름은 ID의 네 번째 요소로 *resourceGroups* 요소 바로 뒤에 있습니다. 다음 예제에서 리소스 그룹 이름은 Default-MachineLearning-SouthCentralUS입니다.
 
 ```azurepowershell
 Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph

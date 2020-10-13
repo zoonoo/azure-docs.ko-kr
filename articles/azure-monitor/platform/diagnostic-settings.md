@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
 ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449332"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
@@ -81,7 +81,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
    - 활동 로그의 경우 **Azure Monitor** 메뉴에서 **활동 로그** 를 클릭 한 다음 **진단 설정**을 클릭 합니다. 활동 로그에 대 한 레거시 구성은 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [기존 설정 사용 안 함](./activity-log.md#legacy-collection-methods) 을 참조 하세요.
 
-        ![활동 로그를 선택 하 고 모니터-활동 로그 메뉴 모음에 진단 설정이 강조 표시 된 Azure Monitor 메뉴의 스크린샷](media/diagnostic-settings/menu-activity-log.png)
+        ![Monitor-Activity 로그 메뉴 모음에 강조 표시 된 활동 로그 및 진단 설정으로 Azure Monitor 메뉴의 스크린샷](media/diagnostic-settings/menu-activity-log.png)
 
 2. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. **진단 설정 추가**를 클릭합니다.
 
@@ -128,7 +128,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
         >
         > 예를 들어, *WorkflowRuntime* 에 대 한 보존 정책을 180 일로 설정 하 고 24 시간 후에 365 일로 설정 하면, 처음 24 시간 동안 저장 된 로그는 180 일 후 자동으로 삭제 되는 반면, 해당 형식의 모든 후속 로그는 365 일 후에 자동으로 삭제 됩니다. 나중에 보존 정책을 변경 해도 처음 24 시간 동안 로그가 365 일 동안 유지 되지 않습니다.
 
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
 잠시 후 새 설정이이 리소스에 대 한 설정 목록에 표시 되 고, 새 이벤트 데이터가 생성 될 때 로그가 지정 된 대상으로 스트리밍됩니다. 이벤트가 내보내지는 시간과 [Log Analytics 작업 영역에 표시](data-ingestion-time.md)되는 시간 사이에는 최대 15 분이 걸릴 수 있습니다.
 

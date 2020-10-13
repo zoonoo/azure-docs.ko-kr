@@ -14,10 +14,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
 ms.openlocfilehash: d8a6ead23e080b5e1e17403873e2dbaedc0ce177
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620361"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작
@@ -32,7 +32,7 @@ ms.locfileid: "91620361"
 
 다음 섹션에서는 관리되는 인스턴스에 대한 감사 구성을 설명합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. 감사 로그가 저장되는 Azure Storage **컨테이너**를 만듭니다.
 
    1. 감사 로그를 저장할 Azure storage 계정으로 이동 합니다.
@@ -177,7 +177,7 @@ ms.locfileid: "91620361"
 
 5. 감사 이벤트에 대 한 대상: Event Hubs, Azure Monitor 로그 또는 둘 다를 선택 합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
 
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
     ![진단 설정 구성](./media/auditing-configure/9_mi_configure_diagnostics.png)
 

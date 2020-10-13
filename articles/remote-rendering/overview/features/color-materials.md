@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93fde2d20aaa5b7bac4adc6f1d7fb076569e4bb8
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613766"
+ms.locfileid: "91893563"
 ---
 # <a name="color-materials"></a>색 재질
 
@@ -36,6 +36,8 @@ ms.locfileid: "89613766"
 * **useVertexColor:** 메시에 :::no-loc text="vertex"::: 색이 포함 되어 있고이 옵션을 사용 하는 경우 망상의 :::no-loc text="vertex"::: 색을 *albedocolor* 및 *albedocolor*에 곱합니다. 기본적으로 *useVertexColor* 는 사용 되지 않습니다.
 
 * **isDoubleSided:** 이중 sidedness가 true로 설정 된 경우 카메라가 뒷면 얼굴을 보는 경우에도이 재질의 삼각형이 렌더링 됩니다. 기본적으로이 옵션은 사용할 수 없습니다. [ :::no-loc text="Single-sided"::: 렌더링](single-sided-rendering.md)도 참조 하세요.
+
+* **TransparencyWritesDepth:** TransparencyWritesDepth 플래그가 재질에 설정 되어 있고 자료가 투명 하면이 자료를 사용 하는 개체는 최종 깊이 버퍼에도 영향을 주지 않습니다. 다음 섹션에서 색 재질 속성 *transparencyMode* 을 참조 하세요. 이 기능을 사용 하는 경우 사용 사례에 완전히 투명 한 장면에 대 한 보다 타당 [늦은 단계 다시 프로젝션이](late-stage-reprojection.md) 필요한 경우에 권장 됩니다. 불투명 투명/투명 한 장면을 혼합 하는 경우이 설정으로 인해 집합 reprojection 동작이 나 reprojection 아티팩트가 발생할 수 있습니다. 이러한 이유로 일반 사용 사례에 대 한 기본 및 권장 설정은이 플래그를 사용 하지 않도록 설정 하는 것입니다. 작성 된 깊이 값은 카메라에 가장 가까운 개체의 픽셀 별 깊이 계층에서 가져옵니다.
 
 ## <a name="color-material-properties"></a>색 재질 속성
 

@@ -11,12 +11,12 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 375c97179351e1dbf90ce4488114cb232d6dd450
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121326"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876008"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Synapse SQL 풀에서 ID를 사용 하 여 서로게이트 키 만들기
 
@@ -26,7 +26,8 @@ ms.locfileid: "88121326"
 
 테이블의 서로게이트 키는 각 행에 대해 고유 식별자가 있는 열입니다. 이 키는 테이블 데이터에서 생성되지 않습니다. 데이터 웨어하우스 모델을 설계하는 경우 데이터 모델러는 해당 테이블에 서로게이트 키를 만들려고 합니다. 로드 성능에 영향을 주지 않고 간단하고 효과적으로 이 목표를 달성하기 위해 IDENTITY 속성을 사용할 수 있습니다.
 > [!NOTE]
-> Synapse SQL의 ID 값은 사용자가 "SET IDENTITY_INSERT ON" 또는 reseeds IDENTITY를 사용 하 여 중복 값을 명시적으로 삽입 하는 경우 고유 하지 않을 수 있습니다. 자세한 내용은 [CREATE TABLE (transact-sql) IDENTITY (속성)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)를 참조 하세요. 
+> Azure Synapse Analytics에서 ID 값은 각 배포에서 고유 하 게 늘어나고 다른 배포의 ID 값과 겹치지 않습니다.  사용자가 "SET IDENTITY_INSERT ON" 또는 reseeds IDENTITY를 사용 하 여 중복 값을 명시적으로 삽입 하는 경우 Synapse의 ID 값은 고유 하지 않을 수 있습니다. 자세한 내용은 [CREATE TABLE (transact-sql) IDENTITY (속성)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest)를 참조 하세요. 
+
 
 ## <a name="creating-a-table-with-an-identity-column"></a>IDENTITY 열이 있는 테이블 만들기
 
@@ -163,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > 현재 IDENTITY 열이 있는 테이블에 데이터를 로드 하는 경우 `CREATE TABLE AS SELECT`를 사용할 수 없습니다.
 >
 
-데이터 로드에 대 한 자세한 내용은 [SYNAPSE SQL 풀에 대 한 ELT (추출, 로드 및 변환) 디자인](design-elt-data-loading.md) 및 [로드 모범 사례](guidance-for-loading-data.md)를 참조 하세요.
+데이터 로드에 대 한 자세한 내용은 [SYNAPSE SQL 풀에 대 한 ELT (추출, 로드 및 변환) 디자인](design-elt-data-loading.md) 및  [로드 모범 사례](guidance-for-loading-data.md)를 참조 하세요.
 
 ## <a name="system-views"></a>시스템 뷰
 

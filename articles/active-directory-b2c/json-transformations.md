@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204373"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961292"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -33,6 +33,8 @@ ms.locfileid: "85204373"
 | InputClaim | 점 표기법 다음에 나오는 문자열 | 문자열 | 클레임 값이 삽입 될 JSON의 JsonPath입니다. |
 | InputParameter | 점 표기법 다음에 나오는 문자열 | 문자열 | 상수 문자열 값이 삽입 될 JSON의 JsonPath입니다. |
 | OutputClaim | outputClaim | 문자열 | 생성 된 JSON 문자열입니다. |
+
+### <a name="example-1"></a>예 1
 
 다음 예제에서는 "email" 및 "otp"의 클레임 값 및 상수 문자열을 기반으로 하는 JSON 문자열을 생성 합니다.
 
@@ -52,8 +54,6 @@ ms.locfileid: "85204373"
   </OutputClaims>
 </ClaimsTransformation>
 ```
-
-### <a name="example"></a>예
 
 다음 클레임 변환은 SendGrid (타사 전자 메일 공급자)로 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
 
@@ -87,6 +87,56 @@ ms.locfileid: "85204373"
   "from": {
     "email": "service@contoso.com"
   }
+}
+```
+
+### <a name="example-2"></a>예제 2
+
+다음 예제에서는 클레임 값 및 상수 문자열을 기반으로 하는 JSON 문자열을 생성 합니다.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+다음 클레임 변환은 REST API 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
+
+- 입력 클레임:
+  - **전자 메일**, 변환 클레임 유형  **customerentity. 전자 메일**: " john.s@contoso.com "
+  - **objectId**, 변환 클레임 유형 **Customerentity. userobjectid** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId**, 변환 클레임 유형 **Customerentity. firstName** "John"
+  - **objectId**, 변환 클레임 유형 **Customerentity. lastName** "Smith"
+- 입력 매개 변수:
+  - **customerEntity.role.name**: "Administrator"
+  - **customerEntity.role.id** 1
+- 출력 클레임:
+  - **Requestbody**: JSON 값
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
 }
 ```
 
@@ -307,7 +357,7 @@ XML 데이터를 JSON 형식으로 변환합니다.
 
 다음 예제에서는 클레임 변환이 다음 XML 데이터를 JSON 형식으로 변환합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 입력 클레임:
 
 ```xml

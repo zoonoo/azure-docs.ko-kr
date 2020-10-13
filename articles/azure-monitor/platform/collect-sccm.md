@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
 ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448161"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 

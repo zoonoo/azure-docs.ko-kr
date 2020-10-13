@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362421"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 모델 성능 평가 (클래식)
 
-**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 이 문서에서는 Azure Machine Learning Studio (클래식)에서 모델 성능을 모니터링 하는 데 사용할 수 있는 메트릭에 대해 알아볼 수 있습니다.  모델 성능 평가는 데이터 과학 프로세스의 핵심 단계 중 하나입니다. 이는 학습된 모델에서 데이터 세트 점수 매기기(예측)에 성공한 정도를 나타냅니다. Azure Machine Learning Studio (클래식)은 두 가지 주요 기계 학습 모듈을 통해 모델 평가를 지원 합니다. 

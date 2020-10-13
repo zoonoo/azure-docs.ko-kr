@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a90f0b4223d69ccb6c4def871eb9d5bf5fbc2e8
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: b109aaea1ae5e751f40b55a3c703f0739661e10d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91841444"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876212"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -150,7 +150,7 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
 | 속성 | 기본값 | 설명 |
@@ -200,6 +200,41 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | ajaxPerfLookupDelay | 25 | 기본값은 25 밀리초입니다. Windows 성능 타이밍을 다시 시도 하기 전에 대기 하는 시간입니다. 요청에 대 한 성능 타이밍 ( `ajax` 밀리초 단위)이 고 setTimeout ()에 직접 전달 됩니다.
 | enableUnhandledPromiseRejectionTracking | false | True 이면 처리 되지 않은 약속 거부는 자동으로 수집 되 고 JavaScript 오류로 보고 됩니다. DisableExceptionTracking이 true 이면 (예외를 추적 하지 않음) 구성 값이 무시 되 고 처리 되지 않은 약속 거부는 보고 되지 않습니다.
 
+## <a name="enable-time-on-page-tracking"></a>시간 페이지 추적 사용
+
+를 설정 하면 `autoTrackPageVisitTime: true` 각 페이지에서 사용자가 소비한 시간이 추적 됩니다. 새 페이지 보기에서 *이전* 페이지에서 사용자가 소비한 시간은 이라는 [사용자 지정 메트릭으로](../platform/metrics-custom-overview.md) 전송 됩니다 `PageVisitTime` . 이 사용자 지정 메트릭은 [메트릭 탐색기](../platform/metrics-getting-started.md) "로그 기반 메트릭"으로 볼 수 있습니다.
+
+## <a name="enable-correlation"></a>상관 관계 사용
+
+상관 관계는 분산 추적을 사용 하도록 설정 하 고 [응용 프로그램 맵](../app/app-map.md), [종단 간 트랜잭션 뷰](../app/app-map.md#go-to-details)및 기타 진단 도구를 지 원하는 데이터를 생성 하 고 보냅니다.
+
+다음 예제에서는 아래 시나리오 관련 정보를 사용 하 여 상관 관계를 설정 하는 데 필요한 모든 구성을 보여 줍니다.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+클라이언트에서 통신 하는 타사 서버에서 및 헤더를 수락할 수 없고 해당 서버 `Request-Id` 에서 `Request-Context` 구성을 업데이트할 수 없는 경우 구성 속성을 통해 제외 목록에 해당 서버를 배치 해야 `correlationHeaderExcludeDomains` 합니다. 이 속성은 와일드 카드를 지원 합니다.
+
+서버 쪽에서 해당 헤더와의 연결을 허용할 수 있어야 합니다. `Access-Control-Allow-Headers`서버 쪽의 구성에 따라 및를 수동으로 추가 하 여 서버 쪽 목록을 확장 해야 하는 경우가 많습니다 `Request-Id` `Request-Context` .
+
+액세스 제어-허용 헤더: `Request-Id` , `Request-Context` , `<your header>`
+
+> [!NOTE]
+> 2020 이상 버전에서 릴리스된 OpenTelemtry 또는 Application Insights Sdk를 사용 하는 경우 [WC3 TraceContext](https://www.w3.org/TR/trace-context/)를 사용 하는 것이 좋습니다. 구성 지침은 [여기](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)를 참조 하세요.
+
 ## <a name="single-page-applications"></a>단일 페이지 응용 프로그램
 
 기본적으로이 SDK는 단일 페이지 응용 프로그램에서 발생 하는 상태 기반 경로 변경을 처리 **하지** 않습니다. 단일 페이지 응용 프로그램에 대해 자동 경로 변경 추적을 사용 하도록 설정 하려면 `enableAutoRouteTracking: true` 설치 구성에를 추가 하면 됩니다.
@@ -208,10 +243,6 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 > [!NOTE]
 > `enableAutoRouteTracking: true`반응 플러그 인을 사용 **하지 않는** 경우에만를 사용 합니다. 두 가지 모두 경로가 변경 될 때 새 PageViews를 보낼 수 있습니다. 둘 다 사용 하도록 설정 된 경우 중복 PageViews를 보낼 수 있습니다.
 
-## <a name="configuration-autotrackpagevisittime"></a>구성: autoTrackPageVisitTime
-
-를 설정 하면 `autoTrackPageVisitTime: true` 각 페이지에서 사용자가 소비한 시간이 추적 됩니다. 새 페이지 보기에서 *이전* 페이지에서 사용자가 소비한 시간은 이라는 [사용자 지정 메트릭으로](../platform/metrics-custom-overview.md) 전송 됩니다 `PageVisitTime` . 이 사용자 지정 메트릭은 [메트릭 탐색기](../platform/metrics-getting-started.md) "로그 기반 메트릭"으로 볼 수 있습니다.
-
 ## <a name="extensions"></a>확장
 
 | 확장 |
@@ -219,38 +250,6 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
 | [Angular](javascript-angular-plugin.md) |
-
-## <a name="correlation"></a>Correlation
-
-클라이언트와 서버 쪽 간 상관 관계는 다음에 대해 지원 됩니다.
-
-- XHR/AJAX 요청 
-- 인출 요청 
-
-클라이언트와 서버 쪽 간 상관 관계는 및 요청에 대해 **지원 되지 않습니다** `GET` `POST` .
-
-### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>클라이언트 AJAX와 서버 요청 간에 구성 요소 간 상관 관계 사용
-
-상관 관계를 사용 하도록 설정 하려면 `CORS` 클라이언트에서 두 개의 추가 요청 헤더 `Request-Id` 와를 전송 해야 `Request-Context` 하며, 서버 쪽에서 해당 헤더와의 연결을 허용할 수 있어야 합니다. JavaScript SDK 구성 내에서를 설정 하 여 이러한 헤더를 보낼 수 `enableCorsCorrelation: true` 있습니다. 
-
-`Access-Control-Allow-Headers`서버 쪽의 구성에 따라 및를 수동으로 추가 하 여 서버 쪽 목록을 확장 해야 하는 경우가 많습니다 `Request-Id` `Request-Context` .
-
-액세스 제어-허용 헤더: `Request-Id` , `Request-Context` , `<your header>`
-
-클라이언트에서 통신 하는 타사 서버에서 및 헤더를 수락할 수 없고 해당 서버 `Request-Id` 에서 `Request-Context` 구성을 업데이트할 수 없는 경우 구성 속성을 통해 제외 목록에 해당 서버를 배치 해야 `correlationHeaderExcludeDomains` 합니다. 이 속성은 와일드 카드를 지원 합니다.
-
-```javascript
-// excerpt of the config section of the JavaScript SDK snippet with correlation
-// between client-side AJAX and server requests enabled.
-cfg: { // Application Insights Configuration
-    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
-    enableCorsCorrelation: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
-    /* ...Other Configuration Options... */
-}});
-</script>
-
-``` 
 
 ## <a name="explore-browserclient-side-data"></a>브라우저/클라이언트 쪽 데이터 탐색
 
@@ -313,7 +312,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/Azure-Samples?q=applicationinsights-js-demo)을 참조 하세요.
 

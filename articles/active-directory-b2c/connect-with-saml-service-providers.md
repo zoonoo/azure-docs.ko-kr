@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740380"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961326"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -437,6 +437,24 @@ Microsoft에서는 SAML 테스트 앱을 사용하여 테스트하는 데 사용
 
 다음 SAML 신뢰 당사자 (RP) 시나리오는 현재 지원 되지 않습니다.
 * Id 공급자가 시작한 로그온입니다. 여기서 Id 공급자는 외부 Id 공급자 (예: ADFS)입니다.
+
+## <a name="saml-token"></a>SAML 토큰
+
+SAML 토큰은 성공적으로 로그인 한 후 Azure AD B2C에서 발급 하는 보안 토큰입니다. 사용자에 대 한 정보, 토큰을 사용 하는 서비스 공급자, 서명 및 유효 시간에 대 한 정보를 포함 합니다. 다음 표에서는 Azure AD B2C에서 발급 한 SAML 토큰에서 사용할 수 있는 클레임 및 속성을 나열 합니다.
+
+|요소  |속성  |메모  |
+|---------|---------|---------|
+|`<Response>`| `ID` | 자동으로 생성 된 응답의 고유 식별자입니다. | 
+|`<Response>`| `InResponseTo` | 이 메시지가 응답 하는 SAML 요청의 ID입니다. | 
+|`<Response>` | `IssueInstant` | 응답 문제의 시간 인스턴트입니다. 시간 값은 UTC로 인코딩됩니다.토큰 수명에 대 한 설정을 변경 하려면 `TokenNotBeforeSkewInSeconds` SAML 토큰 발급자 기술 프로필의 [메타 데이터](saml-issuer-technical-profile.md#metadata) 를 설정 합니다. | 
+|`<Response>` | `Destination`| 이 응답이 전송 된 주소를 나타내는 URI 참조입니다. 값은 SAML 요청과 동일 합니다 `AssertionConsumerServiceURL` . | 
+|`<Response>` `<Issuer>` | |토큰 발급자를 식별 합니다. SAML 토큰 문제의 `IssuerUri` [메타 데이터](saml-issuer-technical-profile.md#metadata) 에 의해 정의 되는 임의의 URI입니다.     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |토큰이 사용자 개체 ID와 같은 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | 문자열 기반 식별자 정보의 분류를 나타내는 URI 참조입니다. 기본적으로이 속성은 생략 됩니다. 신뢰 [당사자를 설정 하 여](relyingparty.md#subjectnaminginfo) `NameID` 형식 (예:)을 지정할 수 있습니다 `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |토큰이 유효해지는 시간입니다. 시간 값은 UTC로 인코딩됩니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 토큰 수명에 대 한 설정을 변경 하려면 `TokenNotBeforeSkewInSeconds` SAML 토큰 문제 기술 프로필의 [메타 데이터](saml-issuer-technical-profile.md#metadata) 를 설정 합니다. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | 토큰이 무효화 되는 시간입니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 값은의 15 분 이며 `NotBefore` 변경할 수 없습니다.|
+|`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |대상 사용자를 식별 하는 URI 참조입니다. 토큰의 의도 된 수신자를 식별 합니다. 값은 SAML 요청과 동일 합니다 `AssertionConsumerServiceURL` .|
+|`<Response>``<Assertion>` `<saml:AttributeStatement>` 컬렉션`<Attribute>` | | [신뢰 당사자 기술 프로필](relyingparty.md#technicalprofile) 출력 클레임에 구성 된 어설션 컬렉션 (클레임)입니다. 출력 클레임의를 설정 하 여 어설션의 이름을 구성할 수 있습니다 `PartnerClaimType` . |
 
 ## <a name="next-steps"></a>다음 단계
 

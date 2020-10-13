@@ -10,10 +10,10 @@ ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
 ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302505"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
@@ -85,7 +85,7 @@ Azure Machine Learning 서비스는 환경 정의를 Docker 이미지 및 conda 
 
 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 작업 영역 ACR에서 캐시 된 이미지를 재사용 합니다. 
 
-캐시 된 이미지의 세부 정보를 보려면 [get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) 메서드를 사용 합니다.
+캐시 된 이미지의 세부 정보를 보려면 [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) 메서드를 사용 합니다.
 
 캐시 된 이미지를 다시 사용 하거나 새 이미지를 빌드 할지 여부를 결정 하기 위해 서비스는 환경 정의에서 [해시 값을](https://en.wikipedia.org/wiki/Hash_table) 계산 하 고이를 기존 환경의 해시와 비교 합니다. 해시는 다음을 기반으로 합니다.
  

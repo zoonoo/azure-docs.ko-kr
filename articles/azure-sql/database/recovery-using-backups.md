@@ -13,16 +13,16 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448809"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 수행할 수 있습니다.
+[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음과 같습니다.
 
 - 동일한 서버에 새 데이터베이스를 만들어 보존 기간 내의 지정 된 특정 시점으로 복구 합니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 되는 동일한 서버에 데이터베이스를 만듭니다.

@@ -4,16 +4,16 @@ description: Azure IoT Edge 디먼 및 런타임을 실행할 수 있는 운영 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/10/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 27d078bc1dc61079d44110999b70c5195c9c8a2a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8bd0d0d6fccedf2bd9c4fe94f3ef13dbd82dc8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874223"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971084"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -65,12 +65,11 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 | Raspbian Stretch |  | ![Raspbian Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 퍼블릭 미리 보기  |
 | [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 퍼블릭 미리 보기 |
-| [Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/windows-iot-core), 빌드 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows 10 IoT Enterprise](https://docs.microsoft.com/windows/iot-core/windows-iot-enterprise), 빌드 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server 2019](https://docs.microsoft.com/windows-server/get-started-19/rel-notes-19), 빌드 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Windows Server IoT 2019](https://docs.microsoft.com/windows/iot-core/windows-server), 빌드 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
-위에 나열된 Windows 운영 체제는 Windows에서 Windows 컨테이너를 실행하는 디바이스에 대한 요구 사항으로, 프로덕션 환경에서 유일하게 지원되는 구성입니다. Windows용 Azure IoT Edge 설치 패키지를 통해 Windows에서 Linux 컨테이너를 사용할 수 있지만 이 구성은 개발 및 테스트 전용입니다. 자세한 내용은 [Windows에서 IoT Edge를 사용하여 Linux 컨테이너 실행](how-to-install-iot-edge-windows-with-linux.md)을 참조하세요.
+위에 나열된 Windows 운영 체제는 Windows에서 Windows 컨테이너를 실행하는 디바이스에 대한 요구 사항으로, 프로덕션 환경에서 유일하게 지원되는 구성입니다. Windows용 Azure IoT Edge 설치 패키지를 통해 Windows에서 Linux 컨테이너를 사용할 수 있지만 이 구성은 개발 및 테스트 전용입니다. 
 
 ### <a name="tier-2"></a>계층 2
 
@@ -108,14 +107,16 @@ IoT Edge 구성 요소는 개별적으로 설치 또는 업데이트할 수 있�
 
 | 해제 | 보안 디먼 | 에지 허브<br>에지 에이전트 | Libiothsm | Moby |
 |--|--|--|--|--|
+| **1.0.10** | 1.0.10 | 1.0.10 | 1.0.10 |  |
 | **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
 | **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4(ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge는 Microsoft.Azure.Device.Client SDK를 사용합니다. 자세한 내용은 [Azure IoT C# SDK GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp) 또는 [.NET용 Azure SDK 참조 콘텐츠](/dotnet/api/overview/azure/iot/client)를 참조하세요. 다음 목록에서는 각 릴리스가 테스트되는 클라이언트 SDK 버전을 보여 줍니다.
+IoT Edge는 Microsoft. *. *. 클라이언트 SDK를 사용 합니다. 자세한 내용은 [Azure IoT C# SDK GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp) 또는 [.NET용 Azure SDK 참조 콘텐츠](/dotnet/api/overview/azure/iot/client)를 참조하세요. 다음 목록에서는 각 릴리스가 테스트되는 클라이언트 SDK 버전을 보여 줍니다.
 
+* **IoT Edge 1.0.10**: 클라이언트 SDK 1.28.0
 * **IoT Edge 1.0.9**: Client SDK 1.21.1
 * **IoT Edge 1.0.8**: Client SDK 1.20.3
 * **IoT Edge 1.0.7**: Client SDK 1.20.1

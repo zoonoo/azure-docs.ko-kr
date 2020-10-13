@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91305656"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 도구 구성
@@ -27,7 +27,7 @@ ms.locfileid: "91305656"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명 된 시나리오에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -78,7 +78,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 Azure AD를 사용한 자동 사용자 프로 비전을 위한 도구를 구성 하기 전에 Azure AD 응용 프로그램 갤러리의 도구를 관리 되는 SaaS 응용 프로그램 목록에 추가 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 
     !["Azure Active Directory" 단추](common/select-azuread.png)
 

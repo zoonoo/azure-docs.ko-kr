@@ -10,15 +10,15 @@ ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
 ms.openlocfilehash: 5c728b219168f61f7f791b7db280a701ff216985
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362387"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행 (클래식)
 
-**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 Python은 다양 한 데이터 과학자 도구 상자에 유용한 도구입니다. 데이터 탐색, 기능 추출, 모델 학습 및 유효성 검사, 배포 등 일반적인 기계 학습 워크플로의 모든 단계에서 사용 됩니다.
@@ -149,7 +149,7 @@ MatplotLib에서 이미지를 생성 하려면 다음 단계를 수행 해야 �
 
 Studio (클래식)에 설치 된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-learn와 같은 일반적인 패키지가 포함 됩니다. 이러한 패키지는 machine learning 파이프라인에서 데이터를 처리 하는 데 효과적으로 사용할 수 있습니다.
 
-예를 들어 다음 실험 및 스크립트는 Scikits-learn에서 앙상블 학습자를 사용 하는 방법을 보여 줍니다. 데이터 집합에 대 한 기능 중요도 점수를 계산 하는 방법을 알아봅니다. 점수를 사용 하 여 다른 모델로 피드를 전환 하기 전에 감독 된 기능 선택을 수행할 수 있습니다.
+예를 들어 다음 실험 및 스크립트는 Scikits-Learn의 앙상블 학습자를 사용 하 여 데이터 집합에 대 한 기능 중요도 점수를 계산 하는 방법을 보여 줍니다. 점수를 사용 하 여 다른 모델로 피드를 전환 하기 전에 감독 된 기능 선택을 수행할 수 있습니다.
 
 중요도 점수를 계산하고 점수에 따라 기능의 순서를 지정하는 데 사용되는 Python 함수는 다음과 같습니다.
 

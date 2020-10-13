@@ -4,10 +4,10 @@ description: 이 데이터 모델은 Log Analytics (LA)로 진단 이벤트를 �
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569597"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure Backup 진단 이벤트에 대 한 데이터 모델

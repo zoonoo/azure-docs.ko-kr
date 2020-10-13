@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568100"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
@@ -75,8 +75,8 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |클링곤어|   `tlh-Latn`  |
 |클링곤어(plqaD)|   `tlh-Piqd`  |
 |한국어 |`ko`   |
-|쿠르드어 (중부)  |`ku`   |
-|쿠르드어 (북부) |`kmr`  |
+|쿠르드어(중부)  |`ku`   |
+|쿠르드어(북부) |`kmr`  |
 |라트비아어|   `lv`    |
 |리투아니아어|    `lt`    |
 |마다가스카르어|  `mg`    |
@@ -155,7 +155,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |일본어|  `ja`    |
 |클링곤어|   `tlh-Latn`  |
 |한국어 |`ko`   |
-|쿠르드어 (중부)  |`ku-Arab`  |
+|쿠르드어(중부)  |`ku-Arab`  |
 |라트비아어|   `lv`    |
 |리투아니아어|    `lt`    |
 |말레이어| `ms`        |

@@ -16,10 +16,10 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449376"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
@@ -75,7 +75,7 @@ Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux �
 Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에 따라 기능의 목적은 Azure premium storage에 대 한 쓰기의 i/o 대기 시간을 개선 하는 것입니다. SAP HANA의 경우 Write Accelerator는 **/hana/log** 볼륨에 대해서만 사용해야 합니다. 따라서 **/hana/data**와 **/hana/log**는 별개의 볼륨입니다(Azure 쓰기 가속기가 **/hana/log** 볼륨만 지원하기 때문). 
 
 > [!IMPORTANT]
-> Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2 시리즈 Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
+> Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2-Series Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
 
 아래의 Azure premium 디스크에 대 한 캐싱 권장 사항은 다음과 같이 SAP HANA에 대 한 i/o 특성을 가정 합니다.
 
@@ -88,7 +88,7 @@ Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에
 **권장 사항: 이러한 관찰 된 i/o SAP HANA 패턴의 결과로 Azure premium storage를 사용 하는 다른 볼륨에 대 한 캐싱은 다음과 같이 설정 해야 합니다.**
 
 - **/hana/data** -캐싱 또는 읽기 캐싱 없음
-- **/hana/log-** -Azure 쓰기 가속기를 사용 하도록 설정 해야 하는 M-및 Mv2 시리즈 vm에 대 한 예외입니다. 
+- **/hana/log-** -Azure 쓰기 가속기를 사용 하도록 설정 해야 하는 M 및 Mv2-Series vm에 대 한 예외 
 - **/hana/shared** - 읽기 캐싱
 - **OS 디스크** -VM을 만들 때 Azure에서 설정 하는 기본 캐싱을 변경 하지 않습니다.
 

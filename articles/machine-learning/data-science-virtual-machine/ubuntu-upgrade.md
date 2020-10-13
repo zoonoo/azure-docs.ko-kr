@@ -11,13 +11,13 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91828569"
 ---
-# <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Data Science Virtual Machine를 Ubuntu 18.04로 업그레이드
+# <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Data Science Virtual Machine을 Ubuntu 18.04로 업그레이드
 
 Ubuntu 16.04 또는 CentOS와 같은 이전 릴리스를 실행 하는 Data Science Virtual Machine 있는 경우 DSVM을 Ubuntu 18.04로 마이그레이션해야 합니다. 마이그레이션을 통해 최신 운영 체제 패치, 드라이버, 사전 설치 된 소프트웨어 및 라이브러리 버전을 가져올 수 있습니다. 이 문서에서는 이전 버전의 Ubuntu 또는 CentOS에서 마이그레이션하는 방법을 보여 줍니다. 
 

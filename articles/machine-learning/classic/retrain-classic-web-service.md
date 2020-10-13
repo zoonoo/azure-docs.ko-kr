@@ -10,10 +10,10 @@ ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362319"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
@@ -23,7 +23,7 @@ ms.locfileid: "91362319"
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio (클래식) 웹 서비스를 다시 학습 하는 방법을 보여 줍니다. 새 Studio (클래식) 웹 서비스를 다시 학습 하는 방법에 대 한 지침은 [이 방법 문서를 참조 하세요.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](/azure/machine-learning/studio/retrain-machine-learning-model)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
      

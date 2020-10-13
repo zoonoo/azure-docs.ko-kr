@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 0c75d917f1abe72af2f4aa56b0f67dbb7bcd24a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91303559"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
@@ -20,7 +20,7 @@ Personalizer 리소스는 Personalizer learning 루프와 동일 합니다. 각 
 Personalizer가 웹 페이지의 둘 이상의 콘텐츠 영역에 대 한 최상의 콘텐츠를 선택 하도록 하려면 각에 대해 서로 다른 학습 루프를 사용 합니다.
 
 
-## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스 만들기
+## <a name="create-a-resource-in-the-azure-portal"></a>Azure Portal에서 리소스를 만듭니다.
 
 각 피드백 루프에 대한 Personalizer 리소스를 만듭니다.
 

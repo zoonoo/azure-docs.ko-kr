@@ -7,13 +7,13 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2d2a520540ad69697da869833d52ab10e63a7730
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: 7c647ba9a89fedf0d43bd8b10460fed101d166b9
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527193"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91801398"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -21,13 +21,13 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 가상 네트워크에 자체 [프라이빗 링크 서비스](private-link-service-overview.md)를 만들어서 고객에게 제공할 수도 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다.
 
 > [!IMPORTANT]
-> Azure Private Link가 이제 일반 공급됩니다. 프라이빗 엔드포인트 및 Private Link 서비스(표준 부하 분산 장치 뒤의 서비스)가 모두 일반 공급됩니다. 다른 Azure PaaS는 다른 일정에 따라 Azure Private Link에 온보딩됩니다. 아래 [가용성](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) 섹션에서 Private Link의 Azure PaaS에 대한 정확한 상태를 확인하세요. 알려진 제한은 [프라이빗 엔드포인트](private-endpoint-overview.md#limitations) 및 [Private Link Service](private-link-service-overview.md#limitations)를 참조하세요. 
+> Azure Private Link가 이제 일반 공급됩니다. 프라이빗 엔드포인트 및 Private Link 서비스(표준 부하 분산 장치 뒤의 서비스)가 모두 일반 공급됩니다. 다른 Azure PaaS는 다른 일정에 따라 Azure Private Link에 온보딩됩니다. 이 문서의 [가용성](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) 섹션에서 Private Link의 Azure PaaS에 대한 정확한 상태를 확인하세요. 알려진 제한은 [프라이빗 엔드포인트](private-endpoint-overview.md#limitations) 및 [Private Link Service](private-link-service-overview.md#limitations)를 참조하세요. 
 
 ## <a name="key-benefits"></a>주요 이점
 Azure Private Link는 다음과 같은 이점이 있습니다.  
 - **Azure 플랫폼에서 서비스에 비공개로 액세스**: 원본 또는 대상의 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결할 수 있습니다. 서비스 공급자는 자체 가상 네트워크에서 서비스를 렌더링할 수 있으며, 소비자는 로컬 가상 네트워크에서 이러한 서비스에 액세스할 수 있습니다. Private Link 플랫폼은 Azure 백본 네트워크를 통해 소비자와 서비스 간의 연결을 처리합니다. 
  
-- **온-프레미스 및 피어링된 네트워크** 프라이빗 엔드포인트를 사용하여 온-프레미스에서 ExpressRoute 프라이빗 피어링, VPN 터널 및 피어링된 가상 네트워크를 통해 Azure에서 실행되는 서비스에 액세스할 수 있습니다. 공용 피어링을 설정하거나 인터넷을 통과하여 서비스에 연결할 필요가 없습니다. Private Link는 워크로드를 Azure로 안전하게 마이그레이션하는 방법을 제공합니다.
+- **온-프레미스 및 피어링된 네트워크** 프라이빗 엔드포인트를 사용하여 온-프레미스에서 ExpressRoute 프라이빗 피어링, VPN 터널 및 피어링된 가상 네트워크를 통해 Azure에서 실행되는 서비스에 액세스할 수 있습니다. 서비스에 연결하기 위해 ExpressRoute Microsoft 피어링을 구성하거나 인터넷을 트래버스할 필요가 없습니다. Private Link는 워크로드를 Azure로 안전하게 마이그레이션하는 방법을 제공합니다.
  
 - **데이터 유출 방지**: 프라이빗 엔드포인트는 전체 서비스가 아닌 PaaS 리소스 인스턴스에 매핑됩니다. 소비자는 특정 리소스에만 연결할 수 있습니다. 서비스의 다른 리소스에 대한 액세스는 차단됩니다. 이 메커니즘은 데이터 유출 위험을 방지합니다. 
  
@@ -40,35 +40,38 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
-|표준 Azure Load Balancer 뒤에 있는 Private Link 서비스 | 모든 공용 지역<br/> Azure Government 지역  | 표준 Load Balancer에서 지원 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
-| Azure 파일 | 모든 공용 지역      | |   GA <br/> [자세히 알아보기](/azure/storage/files/storage-files-networking-endpoints)   |
-| Azure 파일 동기화 | 모든 공용 지역      | |   GA <br/> [자세히 알아보기](/azure/storage/files/storage-sync-files-networking-endpoints)   |
-| Azure Queue 스토리지       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
-| Azure Table Storage       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
-|  Azure SQL Database         | 모든 공용 지역 <br/> Azure Government 지역      |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Azure Synapse Analytics(이전의 SQL Data Warehouse)| 모든 공용 지역 <br/> Azure Government 지역 |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|Azure Cosmos DB|  모든 공용 지역<br/> Azure Government 지역 | |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역 <br/> Azure Government 지역     | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  Azure Database for MySQL         | 모든 공용 지역<br/> Azure Government 지역      |  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Azure Database for MariaDB         | 모든 공용 지역<br/> Azure Government 지역     |  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  Azure Key Vault         | 모든 공용 지역<br/> Azure Government 지역      |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|Azure Kubernetes Service - Kubernetes API | 모든 공용 지역      |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|Azure Search | 모든 공용 지역 <br/> Azure Government 지역 | 개인 모드 서비스에서 지원됨 | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
-|Azure Container Registry | 모든 공용 지역<br/> Azure Government 지역    | 컨테이너 레지스트리의 프리미엄 계층에서 지원됨 [계층 클릭](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
-|Azure App Configuration | 모든 공용 지역      |  | 미리 보기   |
-|Azure Backup | 모든 공용 지역<br/> Azure Government 지역   |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/backup/private-endpoints)   |
-|Azure Event Hub | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
-|Azure Service Bus | 모든 공용 지역<br/>Azure Government 지역  | Azure Service Bus의 프리미엄 계층에서 지원됩니다. [계층 클릭](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
-|Azure Relay | 모든 공용 지역      |  | 미리 보기 <br/> [자세히 알아보기](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
-|Azure Event Grid| 모든 공용 지역<br/> Azure Government 지역       |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | 모든 공용 지역      | PremiumV2 Windows, Linux 및 탄력적 프리미엄 함수에서 지원됨  | 미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | 미국 동부, 미국 중남부, 미국 서부 2      |  | 미리 보기   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| Azure Automation  | 모든 공용 지역 |  | 미리 보기 | |
-| Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
-| Azure SignalR | 미국 동부, 미국 서부 2, 미국 중남부      |  | 미리 보기   <br/> [자세히 알아보기](https://aka.ms/asrs/privatelink)   |
-| Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | 미국 동부, 미국 서부 2, 미국 중남부, 미국 중서부, 프랑스 중부, 동아시아, 영국 남부, 미국 GOV 버지니아, 미국 GOV 애리조나  | | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/batch/private-connectivity) |
+|표준 Azure Load Balancer 뒤에 있는 Private Link 서비스 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역  | 표준 Load Balancer에서 지원 | GA <br/> [Private Link 서비스를 만드는 방법을 알아봅니다.](create-private-link-service-portal.md) |
+| Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [Blob 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
+| Azure 파일 | 모든 공용 지역<br/> Azure Government 지역      | |   GA <br/> [Azure Files 네트워크 엔드포인트를 만드는 방법을 알아봅니다.](../storage/files/storage-files-networking-endpoints.md)   |
+| Azure 파일 동기화 | 모든 공용 지역      | |   GA <br/> [Azure Files 네트워크 엔드포인트를 만드는 방법을 알아봅니다.](/azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Azure Queue 스토리지       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [큐 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md) |
+| Azure Table Storage       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [테이블 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |
+|  Azure SQL Database         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역      |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 | GA <br/> [Azure SQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](create-private-endpoint-portal.md)      |
+|Azure Synapse Analytics(이전의 SQL Data Warehouse)| 모든 공용 지역 <br/> Azure Government 지역 |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 |GA <br/> [Azure Synapse Analytics에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Cosmos DB|  모든 공용 지역<br/> Azure Government 지역</br> 모든 중국 지역 | |GA <br/> [Cosmos DB에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](create-private-endpoint-cosmosdb-portal.md)|
+|  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역 <br/> Azure Government 지역<br/>모든 중국 지역     | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [Azure Database for PostgreSQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for MySQL         | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역      |  | GA <br/> [Azure Database for MySQL에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역     |  | GA <br/> [Azure Database for MariaDB에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  Azure Key Vault         | 모든 공용 지역<br/> Azure Government 지역      |  | GA   <br/> [Azure Key Vault에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|Azure Kubernetes Service - Kubernetes API | 모든 공용 지역      |  | GA   <br/> [Azure Kubernetes Service에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/aks/private-clusters)   |
+|Azure Search | 모든 공용 지역 <br/> Azure Government 지역 | 개인 모드 서비스에서 지원됨 | GA   <br/> [Azure Search에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/search/service-create-private-endpoint)    |
+|Azure Container Registry | 모든 공용 지역<br/> Azure Government 지역    | 컨테이너 레지스트리의 프리미엄 계층에서 지원됨 [계층 선택](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [Azure Container Registry에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
+|Azure App Configuration | 모든 공용 지역      |  | 미리 보기  </br> [Azure App Configuration에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/azure-app-configuration/concept-private-endpoint) |
+|Azure Backup | 모든 공용 지역<br/> Azure Government 지역   |  | GA   <br/> [Azure Backup에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/backup/private-endpoints)   |
+|Azure Event Hub | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [Azure Event Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Service Bus | 모든 공용 지역<br/>Azure Government 지역  | Azure Service Bus의 프리미엄 계층에서 지원됩니다. [계층 선택](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Azure Service Bus에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Azure Relay | 모든 공용 지역      |  | 미리 보기 <br/> [Azure Relay에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/azure-relay/private-link-service)  |
+|Azure Event Grid| 모든 공용 지역<br/> Azure Government 지역       |  | GA   <br/> [Azure Event Grid에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/event-grid/network-security) |
+|Azure Web Apps | 모든 공용 지역      | PremiumV2 Windows, Linux 및 탄력적 프리미엄 함수에서 지원됨  | 미리 보기   <br/> [Azure Web Apps에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
+|Azure Machine Learning | 모든 공용 지역    |  | GA   <br/> [Azure Machine Learning에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+| Azure Automation  | 모든 공용 지역 |  | 미리 보기 </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/automation/how-to/private-link-security)| |
+| Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [Azure IoT Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Azure SignalR | 미국 동부, 미국 중남부,<br/>미국 서부 2, 모든 중국 지역      |  | 미리 보기   <br/> [Azure SignalR에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/azure-signalr/howto-private-endpoints)   |
+| Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
+| Azure Batch | 다음을 제외한 모든 공용 지역: 독일 중부, 독일 북동부 <br/> Azure Government 지역  | | GA <br/> [Azure Batch에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/batch/private-connectivity) |
+|Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
+
+
 
 최신 알림은 [Azure Private Link 업데이트 페이지](https://azure.microsoft.com/updates/?product=private-link)를 확인하세요.
 

@@ -12,13 +12,13 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 2b98b11d85bde8dd49b6bbde5d048493493b73f5
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620242"
 ---
-# <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 관리 되는 API 참조
+# <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 관리 API 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure Portal, PowerShell, Azure CLI, REST API 및 Transact-sql을 사용 하 여 Azure SQL Managed Instance의 관리 되는 인스턴스를 만들고 구성할 수 있습니다. 이 문서에서는 관리 되는 인스턴스를 만들고 구성 하는 데 사용할 수 있는 함수 및 API에 대 한 개요를 찾을 수 있습니다.
