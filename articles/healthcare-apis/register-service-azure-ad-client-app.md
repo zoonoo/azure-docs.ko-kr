@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 19d6b0ebfa2570b04c3a9dda3fe69428aa0eed75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f7bf122b292ca144eac406957f19a13c7ba6662
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629326"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975827"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Azure Active Directory에 서비스 클라이언트 응용 프로그램 등록
 
@@ -73,7 +73,7 @@ ms.locfileid: "91629326"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Active Directory에 서비스 클라이언트 응용 프로그램을 등록 하는 방법에 대해 알아보았습니다. 다음으로 Azure API for FHIR의 추가 설정에 대해 알아볼 수 있습니다.
+이 문서에서는 Azure Active Directory에 서비스 클라이언트 응용 프로그램을 등록 하는 방법에 대해 알아보았습니다. 다음으로 Postman을 사용 하 여 FHIR 서버에 대 한 액세스를 테스트 합니다.
  
 >[!div class="nextstepaction"]
->[추가 설정](azure-api-for-fhir-additional-settings.md)
+>[Postman을 사용하여 Azure API for FHIR 액세스](access-fhir-postman-tutorial.md)

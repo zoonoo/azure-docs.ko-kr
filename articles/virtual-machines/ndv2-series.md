@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7ab9d270ae5da52cbf9b5ba0ed4730233225a7c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74c8924116cf9b565ea63e3b72a409686a4d725c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653450"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975723"
 ---
 # <a name="updated-ndv2-series"></a>업데이트 된 NDv2 시리즈
 
@@ -27,7 +27,7 @@ NDv2는 계산에 강한 확장 (VM 당 활용 8 Gpu) 및 규모 확장 (여러 
 > [!IMPORTANT]
 > ND40rs_v2 VM에서 [InfiniBand을 사용 하도록 설정](./workloads/hpc/enable-infiniband.md) 하는 경우 4.7-1.0.0.1 Mellanox OFED 드라이버를 사용 하세요.
 >
-> GPU 메모리가 늘어남에 따라 새 ND40rs_v2 VM은 [2 세대 vm](./windows/generation-2.md) 및 마켓플레이스 이미지를 사용 해야 합니다. 
+> GPU 메모리가 늘어남에 따라 새 ND40rs_v2 VM은 [2 세대 vm](./generation-2.md) 및 마켓플레이스 이미지를 사용 해야 합니다. 
 >
 > 참고: GPU 당 16gb의 메모리를 포함 하는 ND40s_v2는 더 이상 미리 보기에 사용할 수 없으며 업데이트 된 ND40rs_v2에 의해 대체 되었습니다.
 

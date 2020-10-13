@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653556"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975759"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -35,7 +35,7 @@ Mv2 시리즈 VM의 기능 Intel® Hyper-Threading 기술
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8 | 32000 |
 
-<sup>1</sup> Mv2 시리즈 vm은 2 세대 전용 이며 지원 되는 2 세대 이미지의 하위 집합을 지원 합니다. Mv2 시리즈에 대해 지원 되는 이미지의 전체 목록에 대해서는 아래를 참조 하세요. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./linux/generation-2.md) 을 참조 하세요. Windows를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./windows/generation-2.md) 을 참조 하세요. 
+<sup>1</sup> Mv2 시리즈 vm은 2 세대 전용 이며 지원 되는 2 세대 이미지의 하위 집합을 지원 합니다. Mv2 시리즈에 대해 지원 되는 이미지의 전체 목록에 대해서는 아래를 참조 하세요. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./generation-2.md) 을 참조 하세요. Windows를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./generation-2.md) 을 참조 하세요. 
 
 - Windows Server 2019 이상
 - SUSE Linux Enterprise Server 12 SP4 이상 또는 SUSE Linux Enterprise Server 15 SP1 이상

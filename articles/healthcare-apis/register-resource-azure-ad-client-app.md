@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 3c5486e31dd3227cfcc8bd3b433602ce58cfa4fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852993"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975861"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Azure Active Directory에서 리소스 응용 프로그램 등록
 
@@ -107,7 +107,7 @@ Azure 용 Azure API 및 Azure 용 OSS FHIR 서버는 역할 기반 액세스 제
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Active Directory에서 리소스 응용 프로그램을 등록 하는 방법에 대해 알아보았습니다. 그런 다음, FHIR 용 Azure API를 배포 합니다.
+이 문서에서는 Azure Active Directory에서 리소스 응용 프로그램을 등록 하는 방법에 대해 알아보았습니다. 그런 다음 기밀 클라이언트 응용 프로그램을 등록 합니다.
  
 >[!div class="nextstepaction"]
->[Azure API for FHIR 배포](fhir-paas-powershell-quickstart.md)
+>[기밀 클라이언트 응용 프로그램 등록](register-confidential-azure-ad-client-app.md)

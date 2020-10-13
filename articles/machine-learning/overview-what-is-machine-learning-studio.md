@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902928"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667438"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -88,7 +88,7 @@ ms.locfileid: "90902928"
 | 컴퓨팅 대상 학습 | 전용 컴퓨팅 대상, CPU만 지원 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 학습](concept-compute-target.md#train). GPU 및 CPU 지원 포함 | 
 | 컴퓨팅 대상 배포 | 전용 웹 서비스 형식, 사용자 지정 불가능 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 배포](concept-compute-target.md#deploy). GPU 및 CPU 지원 포함 |
 | ML 파이프라인 | 지원되지 않음 | 유연한 모듈식 [파이프라인](concept-ml-pipelines.md)을 빌드하여 워크플로 자동화 |
-| MLOps | 기본 모델 관리 및 배포 | 엔터티 버전 관리(모델, 데이터, 워크플로), 워크플로 자동화, CICD 도구와 통합 [등](concept-model-management-and-deployment.md) |
+| MLOps | 기본 모델 관리 및 배포, CPU 전용 배포 | 엔터티 버전 관리(모델, 데이터, 워크플로), 워크플로 자동화, CICD 도구와의 통합, CPU 및 GPU 배포 [등](concept-model-management-and-deployment.md) |
 | 모델 형식 | 전용 형식, Studio(클래식)만 해당 | 학습 작업 유형에 따라 지원되는 여러 형식 |
 | 자동화된 모델 학습 및 하이퍼 매개변수 튜닝 |  지원되지 않음 | [지원됨](concept-automated-ml.md)이라는 의미입니다. 코드 우선 및 코드 없음 옵션. | 
 | 데이터 드리프트 검색 | 지원되지 않음 | [지원됨](how-to-monitor-datasets.md) |

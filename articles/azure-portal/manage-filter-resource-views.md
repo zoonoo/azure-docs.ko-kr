@@ -6,12 +6,12 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 21dcadaa929b90e72c7d429229fc6ac4e0a66683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605429"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91650404"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Azure 리소스 정보 보기 및 필터링
 
@@ -55,7 +55,11 @@ Azure Portal을 사용하면 Azure 구독 전체에서 리소스에 대한 자�
 
 ## <a name="summarize-resources-with-visuals"></a>시각적 개체를 사용하여 리소스 요약
 
-지금까지 살펴본 보기는 목록 보기였지만 시각적 개체를 포함하는 요약 보기도 있습니다.  보기를 나열하듯이, 이러한 보기를 저장하고 사용할 수 있습니다. 필터는 두 가지 유형의 보기 사이에서 유지됩니다. 요약 보기를 저장하고 사용하려면 다음을 수행합니다.
+지금까지 살펴본 보기는 목록 보기였지만 시각적 개체를 포함하는 요약 보기도 있습니다.  보기를 나열하듯이, 이러한 보기를 저장하고 사용할 수 있습니다. 필터는 두 가지 유형의 보기 사이에서 유지됩니다. 아래에 표시된 **위치** 보기와 같은 표준 보기뿐만 아니라 가상 머신의 **상태** 보기와 같은 특정 서비스와 관련된 보기도 있습니다.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="모든 리소스의 Azure Portal 보기":::
+
+요약 보기를 저장하고 사용하려면 다음을 수행합니다.
 
 1. 보기 메뉴에서 **요약 보기**를 선택합니다.
 

@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 133ea21bf7a7c1df0fccaeacce7d7a29199c033d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827655"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에서 그룹 추가 및 관리
@@ -53,7 +53,7 @@ $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
 Add-AzureADMSAdministrativeUnitMember -ObjectId $administrative unitObj.ObjectId -RefObjectId $GroupObj.ObjectId
 ```
 
-이 예제에서 cmdlet AzureADMSAdministrativeUnitMember는 관리 단위에 그룹을 추가 하는 데 사용 됩니다. 관리 단위의 개체 ID와 추가할 그룹의 개체 ID를 인수로 취합니다. 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
+이 예제에서 cmdlet Add-AzureADMSAdministrativeUnitMember는 관리 단위에 그룹을 추가 하는 데 사용 됩니다. 관리 단위의 개체 ID와 추가할 그룹의 개체 ID를 인수로 취합니다. 강조 표시된 섹션은 특정 환경의 요구에 따라 달라질 수 있습니다.
 
 ### <a name="microsoft-graph"></a>Microsoft Graph
 
