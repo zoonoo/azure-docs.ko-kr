@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: b6dfd02b11c972ae4877e45e7424d3e35f0d0874
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 954712c2056a4251bc92b71c5b7cd2f1309804b2
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91801888"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91962023"
 landingContent:
 - title: Microsoft ID 플랫폼 정보
   linkLists:
@@ -120,23 +120,9 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: Docs의 새로운 기능
+      url: whats-new-docs.md
     - text: Microsoft Identity Web 라이브러리 개요
       url: microsoft-identity-web.md
     - text: '자습서: Blazor Server'
       url: tutorial-blazor-server.md
-    - text: '빠른 시작: ASP.NET Core 웹 API 보호'
-      url: quickstart-v2-aspnet-core-web-api.md
-    - text: MSAL Python API 참조
-      url: /python/api/msal/
-    - text: '빠른 시작: 앱 등록(다시 쓰기)'
-      url: quickstart-register-app.md
-    - text: '빠른 시작: 웹 API 노출(다시 쓰기)'
-      url: quickstart-configure-app-expose-web-apis.md
-    - text: '빠른 시작: 웹 API 액세스(다시 쓰기)'
-      url: quickstart-configure-app-access-web-apis.md
-    - text: Xamarin Android 조정된 앱을 MSAL.NET으로 마이그레이션
-      url: msal-net-migration-android-broker.md
-    - text: 오류 및 예외 처리 - Android
-      url: msal-android-handling-exceptions.md
-    - text: 클레임의 디렉터리 스키마 확장 특성
-      url: active-directory-schema-extensions.md

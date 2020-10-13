@@ -4,6 +4,8 @@
   items:
     - name: Microsoft ID 플랫폼이란?
       href: v2-overview.md
+    - name: Docs의 새로운 기능
+      href: whats-new-docs.md
 - name: 빠른 시작
   expanded: true
   items:

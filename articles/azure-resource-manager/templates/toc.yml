@@ -19,7 +19,7 @@
             - name: Cognitive Search
               href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cognitive Services
-              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+              href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%252fazure%252fazure-resource-manager%252ftemplates%252ftoc.json
             - name: 데이터 과학 Virtual Machine
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Machine Learning
@@ -362,7 +362,7 @@
           href: deployment-history.md
     - name: 범위가 지정된 배포
       items:
-        - name: Subscription
+        - name: 구독
           href: deploy-to-subscription.md
         - name: 관리 그룹
           href: deploy-to-management-group.md
@@ -451,7 +451,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

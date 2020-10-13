@@ -241,9 +241,9 @@
 - name: 공유 이미지 갤러리 문제 해결
   items:
     - name: 공유 이미지 갤러리 문제 해결 - Windows
-      href: ../windows/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
     - name: 공유 이미지 갤러리 문제 해결 - Linux
-      href: ../linux/troubleshooting-shared-images.md
+      href: ../troubleshooting-shared-images.md
 - name: VM 확장 문제
   items:
     - name: Azure 확장 개요
