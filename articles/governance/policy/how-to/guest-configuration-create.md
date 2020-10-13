@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: ef571857664739c055912cb6460c4638d4cad32b
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728933"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893121"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -210,7 +210,7 @@ New-GuestConfigurationPackage `
   -Configuration './Config/AuditBitlocker.mof'
 ```
 
-구성 패키지를 만든 후 Azure에 게시하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 개발 환경에서 Azure 컴퓨터에서 사용되는 것과 동일한 에이전트가 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전에 로컬에서 통합 테스트를 수행할 수 있습니다.
+구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD (지속적인 통합 및 지속적인 배포) 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 개발 환경에서 Azure 컴퓨터에서 사용되는 것과 동일한 에이전트가 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전에 로컬에서 통합 테스트를 수행할 수 있습니다.
 
 에이전트는 실제로 로컬 환경을 평가하므로 대부분의 경우 감사하려는 OS 플랫폼과 동일한 OS 플랫폼에서 테스트 cmdlet을 실행해야 합니다. 테스트는 콘텐츠 패키지에 포함된 모듈만 사용합니다.
 
@@ -233,7 +233,7 @@ cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestCon
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-다음 단계는 Blob Storage에 파일을 게시하는 것입니다. 아래 스크립트는 이 작업을 자동화하는 데 사용할 수 있는 함수를 포함합니다. `publish` 함수에 사용되는 명령에는 `Az.Storage` 모듈이 필요합니다.
+다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 아래 스크립트는 이 작업을 자동화하는 데 사용할 수 있는 함수를 포함합니다. `publish` 함수에 사용되는 명령에는 `Az.Storage` 모듈이 필요합니다.
 
 ```azurepowershell-interactive
 function publish {

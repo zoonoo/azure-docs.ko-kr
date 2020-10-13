@@ -2,19 +2,16 @@
 title: Azure Monitor 통합 문서 및 Azure Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 통해 배포 된 미리 작성 되 고 사용자 지정 매개 변수화 된 Azure Monitor 통합 문서를 통해 복잡 한 보고 간소화
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: mbullwin
-ms.openlocfilehash: e2463c2ea4044af0b20a1dee91b30870639dc7ce
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504923"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929730"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
@@ -102,7 +99,7 @@ ms.locfileid: "86504923"
 
 ### <a name="galleries"></a>갤러리
 
-| 갤러리                                        | 리소스 종류                                      | 통합 문서 유형 |
+| 갤러리                                        | 리소스 유형                                      | 통합 문서 유형 |
 | :--------------------------------------------- |:---------------------------------------------------|:--------------|
 | Azure Monitor의 통합 문서                     | `Azure Monitor`                                    | `workbook`    |
 | Azure Monitor의 VM 정보                   | `Azure Monitor`                                    | `vm-insights` |
@@ -201,9 +198,9 @@ ms.locfileid: "86504923"
 | `serializedData` | 통합 문서에 사용할 콘텐츠나 페이로드를 포함 합니다. 통합 문서 UI의 리소스 관리자 템플릿을 사용 하 여 값을 가져옵니다. |
 
 ### <a name="workbook-types"></a>통합 문서 유형
-통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 표시되는 옵션은 다음과 같습니다.
+통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 다음 옵션을 사용할 수 있습니다.
 
-| 형식 | 갤러리 위치 |
+| 유형 | 갤러리 위치 |
 | :------------- |:-------------|
 | `workbook` | Application Insights, Azure Monitor 등의 통합 문서 갤러리를 비롯 하 여 대부분의 보고서에 사용 되는 기본값입니다.  |
 | `tsg` | Application Insights 문제 해결 가이드 갤러리 |

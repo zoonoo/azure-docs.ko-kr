@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 3b7c9b51bad45bb348f70c8b0e433404b49b5aac
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761365"
 ---
 # <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>IoT 플러그 앤 플레이 퀵 스타트 및 자습서에 대 한 환경 설정
@@ -83,8 +83,8 @@ az iot dps enrollment create --attestation-type symmetrickey --dps-name my-pnp-d
 
 서비스 샘플은 연결할 허브 및 장치를 식별 하기 위해 다음 환경 변수를 요구 합니다.
 
-* **IOTHUB_CONNECTION_STRING**: 이전에 적어 둔 IoT hub 연결 문자열입니다.
-* **IOTHUB_DEVICE_ID**: `my-pnp-device`
+* **IOTHUB_CONNECTION_STRING**: 이전에 기록한 IoT 허브 연결 문자열입니다.
+* **IOTHUB_DEVICE_ID**: `my-pnp-device`.
 
 예를 들어 Linux bash 셸에서는 다음과 같습니다.
 

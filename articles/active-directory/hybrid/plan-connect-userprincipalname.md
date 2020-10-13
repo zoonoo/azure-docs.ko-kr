@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317594"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
@@ -25,7 +25,7 @@ UserPrincipalName 특성 값은 사용자 계정에 대한 Azure AD 사용자 �
 ## <a name="upn-terminology"></a>UPN 용어
 이 문서에서는 다음과 같은 용어가 사용됩니다.
 
-|용어|Description|
+|용어|설명|
 |-----|-----|
 |초기 도메인|Azure AD 테넌트의 기본 도메인(onmicrosoft.com)입니다. 예: contoso.onmicrosoft.com.|
 |MOERA(Microsoft 온라인 전자 메일 라우팅 주소)|Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 계산합니다.|

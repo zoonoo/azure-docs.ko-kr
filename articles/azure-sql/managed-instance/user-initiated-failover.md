@@ -11,10 +11,10 @@ ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
 ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617760"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
@@ -125,7 +125,7 @@ API 응답은 다음 두 가지 중 하나가 됩니다.
 
 ## <a name="monitor-the-failover"></a>장애 조치 (failover) 모니터링
 
-사용자가 시작한 수동 장애 조치 (failover)의 진행률을 모니터링 하려면 SQL Managed Instance에서 즐겨 사용 하는 클라이언트 (예: SSMS)에서 다음 T-sql 쿼리를 실행 합니다. 시스템 뷰를 읽고 인스턴스에 사용할 수 있는 보고서 복제본을 dm_hadr_fabric_replica_states 합니다. 수동 장애 조치 (failover)를 시작한 후 동일한 쿼리를 새로 고칩니다.
+사용자가 시작한 수동 장애 조치 (failover)의 진행률을 모니터링 하려면 SQL Managed Instance에서 즐겨 사용 하는 클라이언트 (예: SSMS)에서 다음 T-sql 쿼리를 실행 합니다. 이 도구는 인스턴스에 사용할 수 있는 시스템 뷰 sys.dm_hadr_fabric_replica_states 및 보고서 복제본을 읽습니다. 수동 장애 조치 (failover)를 시작한 후 동일한 쿼리를 새로 고칩니다.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states

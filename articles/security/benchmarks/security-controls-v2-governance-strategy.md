@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403529"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>보안 제어 V2: 거 버 넌 스 및 전략
@@ -105,7 +105,7 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 
 | Azure ID | CIS 컨트롤 v 7.1 ID | NIST SP800-53 4, 000 개 ID |
 |--|--|--|--|
-| GS-4 | 해당 없음 | PL, PM |
+| GS-4 | N/A | PL, PM |
 
 보안 조직의 역할 및 책임에 대 한 명확한 전략을 문서화 하 고 전달 하는지 확인 합니다. 보안에 대 한 책임을 명확 하 게 제공 하 고, 공유 책임 모델에 대 한 모든 것을 교육 하 고, 클라우드를 보호 하는 기술 팀을 교육 합니다.
 
@@ -255,7 +255,7 @@ Id, 네트워크, 응용 프로그램, 구독, 관리 그룹 및 기타 제어�
 자세한 내용은 다음 참조 문서를 참조하세요.
 - [Azure 보안 벤치 마크-백업 및 복구](security-controls-v2-backup-recovery.md)
 
-- [Azure 응용 프로그램에 대 한 azure 잘 아키텍처 프레임 워크-백업 및 재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Azure Well-Architecture Framework-Azure 응용 프로그램에 대 한 백업 및 재해 복구](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 - [Azure 채택 프레임 워크-비즈니스 연속성 및 재해 복구](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 

@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604413"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
@@ -95,8 +95,8 @@ Azure Government 영역에 대 한 필수 Url입니다.
 
 | **호스트 이름** | **용도** |
 | ---- | ---- |
-| **usgovarizona.api.ml.azure.us** | 미국 애리조나 지역 |
-| **usgovvirginia.api.ml.azure.us** | 미국 버지니아 지역 |
+| **usgovarizona.api.ml.azure.us** | US-Arizona 영역 |
+| **usgovvirginia.api.ml.azure.us** | US-Virginia 영역 |
 
 ## <a name="next-steps"></a>다음 단계
 

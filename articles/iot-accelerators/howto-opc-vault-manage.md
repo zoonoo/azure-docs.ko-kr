@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91281918"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>OPC 자격 증명 모음 인증서 서비스 관리
 
 > [!IMPORTANT]
-> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 이 문서에서는 Azure의 OPC 자격 증명 모음 인증서 관리 서비스에 대 한 관리 작업을 설명 합니다. 발급자 CA 인증서를 갱신 하는 방법, CRL (인증서 해지 목록)을 갱신 하는 방법 및 사용자 액세스 권한을 부여 하 고 취소 하는 방법에 대 한 정보가 포함 되어 있습니다.
 

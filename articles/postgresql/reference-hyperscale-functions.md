@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250334"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Citus (Hyperscale) SQL API의 함수
@@ -44,9 +44,9 @@ Create \_ distributed \_ table () 함수는 분산 테이블을 정의 하 고 �
 
 새 분산 테이블이 다른 테이블과 관련 되지 않은 경우를 지정 하는 것이 가장 좋습니다 `colocate_with => 'none'` .
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -68,9 +68,9 @@ Create \_ reference \_ table () 함수는 작은 참조 또는 차원 테이블�
 
 **테이블 \_ 이름:** 배포 해야 하는 작은 차원 또는 참조 테이블의 이름입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -88,9 +88,9 @@ SELECT create_reference_table('nation');
 
 **테이블 \_ 이름:** 참조 테이블로 배포 될 분산 테이블의 이름 (분할 된 테이블 수 = 1)입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -124,9 +124,9 @@ ERROR:  XX000: cannot colocate tables apples and oranges
 DETAIL:  Distribution column types don't match for apples and oranges.
 ```
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -150,9 +150,9 @@ Distributed 함수를 실행 하는 동안에는 Postgres 검색 경로가 코�
 
 **공동 찾기 \_ :** (선택 사항) 분산 함수에서 분산 된 테이블 (또는 더 일반적으로 배치 그룹)을 읽거나 쓸 때 매개 변수를 사용 하 여 해당 테이블의 이름을 지정 해야 `colocate_with` 합니다. 그러면 함수를 호출할 때마다 관련 분할을 포함 하는 작업자 노드에서 실행 됩니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -188,7 +188,7 @@ Master \_ get \_ table \_ metadata () 함수를 사용 하 여 분산 테이블�
 
 **테이블 \_ 이름:** 메타 데이터를 가져올 분산 테이블의 이름입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 다음 정보를 포함 하는 튜플입니다.
 
@@ -228,7 +228,7 @@ Citus (hyperscale)는 행의 배포 열 값 및 테이블의 분포 메서드를
 
 **분포 \_ 값:** 분포 열의 값입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 분할 된 ID Citus (ID)는 지정 된 테이블에 대 한 분포 열 값과 연결 됩니다.
 
@@ -255,7 +255,7 @@ SELECT get_shard_id_for_distribution_column('my_table', 4);
 
 **열 \_ var \_ text:** 테이블의 값입니다 `partkey` `pg_dist_partition` .
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 `table_name`배포 열의 이름입니다.
 
@@ -288,7 +288,7 @@ SELECT column_to_column_name(logicalrelid, partkey) AS dist_col_name
 
 **logicalrelid:** 분산 된 테이블의 이름입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 Bigint 인 크기 (바이트)입니다.
 
@@ -312,7 +312,7 @@ pg_size_pretty
 
 **logicalrelid:** 분산 된 테이블의 이름입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 Bigint 인 크기 (바이트)입니다.
 
@@ -336,7 +336,7 @@ pg_size_pretty
 
 **logicalrelid:** 분산 된 테이블의 이름입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 Bigint 인 크기 (바이트)입니다.
 
@@ -359,9 +359,9 @@ pg_size_pretty
 
 #### <a name="arguments"></a>인수
 
-해당 없음
+N/A
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 없음
 
@@ -385,9 +385,9 @@ pg_size_pretty
 
 **대상 \_ 노드 \_ 포트:** 데이터베이스 서버가 수신 대기 중인 대상 작업자 노드의 포트입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -425,9 +425,9 @@ SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
 > -   `force_logical`: 테이블에 복제본 id가 없는 경우에도 논리적 복제를 사용 합니다. 복제 하는 동안 테이블에 대 한 모든 동시 update/delete 문이 실패 합니다.
 > -   `block_writes`: 기본 키 또는 복제본 id가 없는 테이블에 대해 COPY (차단 쓰기)를 사용 합니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -475,9 +475,9 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 **균형 재조정 \_ 전략:** (선택 사항) [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table)의 전략 이름입니다.
 이 인수를 생략 하면 함수는 테이블에 표시 된 대로 기본 전략을 선택 합니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -502,7 +502,7 @@ SELECT rebalance_table_shards('github_events', excluded_shard_list:='{1,2}');
 
 균형 조정 테이블 분할와 동일한 인수 \_ \_ : 관계, 임계값, 최대 분할 된 영역 \_ \_ 이동, 제외 된 분할 \_ \_ 목록 및 드레이닝 \_ 만 해당 합니다. 인수의 의미는 해당 함수의 설명서를 참조 하세요.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 다음 열을 포함 하는 튜플:
 
@@ -520,9 +520,9 @@ SELECT rebalance_table_shards('github_events', excluded_shard_list:='{1,2}');
 
 #### <a name="arguments"></a>인수
 
-해당 없음
+N/A
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 다음 열을 포함 하는 튜플:
 
@@ -573,9 +573,9 @@ SELECT * FROM get_rebalance_progress();
 
 **최소 \_ 임계값:** (선택 사항) 균형 조정 \_ 테이블 \_ 분할 ()의 임계값 인수에 허용 되는 최소값을 보유 하는 보호 열입니다. 기본값은 0입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 ### <a name="citus_set_default_rebalance_strategy"></a>citus \_ 설정 \_ 기본 \_ 리 밸런스 \_ 전략
 
@@ -585,9 +585,9 @@ SELECT * FROM get_rebalance_progress();
 
 **이름:** pg 분산 \_ \_ 리 밸런스 \_ 전략의 전략 이름
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -601,7 +601,7 @@ Citus \_ remote \_ connection \_ stats () 함수는 각 원격 노드에 대 한
 
 #### <a name="arguments"></a>인수
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -635,9 +635,9 @@ Master \_ 드레이닝 \_ node () 함수는 `shouldhaveshards` [pg_dist_node](re
 **균형 재조정 \_ 전략:** (선택 사항) [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table)의 전략 이름입니다.
 이 인수를 생략 하면 함수는 테이블에 표시 된 대로 기본 전략을 선택 합니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
-해당 없음
+N/A
 
 #### <a name="example"></a>예제
 
@@ -685,7 +685,7 @@ Master \_ 드레이닝 \_ node () 함수는 `shouldhaveshards` [pg_dist_node](re
 
 **제외 된 분할 \_ \_ 목록:** (선택 사항) 복제 작업 중에 복사할 수 없는 분할의 식별자입니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 N/A
 
@@ -715,7 +715,7 @@ SELECT replicate_table_shards('github_events', max_shard_copies:=10);
 
 **cascade \_ 옵션:** (선택 사항)로 설정 하 \" 는 경우 CASCADE \" 는 현재 테이블의 [공동 배치 그룹](concepts-hyperscale-colocation.md)에 있는 모든 테이블에서 분할 된 항목을 격리 합니다.
 
-#### <a name="return-value"></a>Return Value
+#### <a name="return-value"></a>반환 값
 
 분할 된 ** \_ id:** 함수는 새로 만든 분할 된 데이터베이스가 할당 된 고유 id를 반환 합니다.
 

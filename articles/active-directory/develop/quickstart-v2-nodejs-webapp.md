@@ -1,6 +1,7 @@
 ---
-title: Node.js 웹앱에 OIDC 로그인 추가 - Microsoft ID 플랫폼 | Azure
-description: OpenID Connect를 사용하여 Node.js 웹 애플리케이션에서 인증을 구현하는 방법을 알아봅니다.
+title: '빠른 시작: Node.js 웹앱에 사용자 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 OpenID Connect를 사용하여 Node.js 웹 애플리케이션에서 인증을 구현하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 8e42d906cce65cf51d6359343bc4f218b94a05fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257693"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613308"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
@@ -24,11 +25,8 @@ ms.locfileid: "91257693"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 샘플을 실행하려면 다음이 필요합니다.
-
-* [http://nodejs.org/](http://nodejs.org/ )에서 Node.js 설치
-
-* [Microsoft 계정](https://www.outlook.com) 또는 [Microsoft 365 개발자 프로그램](/office/developer-program/office-365-developer-program)
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 1. [Azure Portal](https://portal.azure.com/)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.

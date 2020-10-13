@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 9/3/2020
 ms.author: JenCook
 ms.openlocfilehash: a7e3ade66aa4ebf7584e03b75f85c48b44537d97
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997840"
 ---
 # <a name="azure-confidential-computing-virtual-machines-vms-overview"></a>Azure 기밀 컴퓨팅 Vm (가상 머신) 개요
@@ -48,5 +48,5 @@ Enclaves는 하드웨어 프로세서와 메모리의 보안 부분입니다. �
 
 ## <a name="next-steps"></a>다음 단계
 - Azure 기밀 컴퓨팅 가상 머신에 솔루션을 배포 하기 위한 [모범 사례를 참조](virtual-machine-solutions.md) 하세요.
-- [DCsv2 시리즈 가상 머신 배포](quick-create-portal.md)
+- [DCsv2-Series 가상 컴퓨터 배포](quick-create-portal.md)
 - OE SDK를 사용 하 여 [enclave 인식 응용 프로그램 개발](application-development.md)

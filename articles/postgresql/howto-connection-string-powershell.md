@@ -8,10 +8,10 @@ ms.custom: mvc, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 8/6/2020
 ms.openlocfilehash: 29641bdc3696f0722ca430dde912768071fd9b16
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708172"
 ---
 # <a name="how-to-generate-an-azure-database-for-postgresql-connection-string-with-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 연결 문자열을 생성 하는 방법

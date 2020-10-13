@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
 ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91439008"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
@@ -31,7 +31,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 조직에는 종종 동일한 프로세스를 정기적으로 실행 하는 컴퓨터 컬렉션이 있습니다. Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 되는 응용 프로그램을 분석 하 고 알려진 안전한 소프트웨어 목록을 만듭니다. 허용 목록은 특정 Azure 워크 로드를 기반으로 하며, 아래 지침을 사용 하 여 권장 사항을 추가로 사용자 지정할 수 있습니다.
 
-적응 응용 프로그램 제어를 사용 하도록 설정 하 고 구성 하면 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 받게 됩니다.
+적응형 애플리케이션 제어를 사용하도록 설정하고 구성하면 안전한 것으로 정의한 애플리케이션이 아닌 다른 애플리케이션이 실행될 경우 보안 경고가 표시됩니다.
 
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤의 이점은 무엇 인가요?
@@ -51,10 +51,10 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
+|가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 컴퓨터|
-|필요한 역할 및 사용 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|필요한 역할 및 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 

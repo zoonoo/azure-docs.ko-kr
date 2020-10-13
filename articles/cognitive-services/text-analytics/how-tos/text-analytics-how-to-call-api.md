@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710603"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
@@ -29,7 +29,7 @@ ms.locfileid: "91710603"
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "91710603"
 
 현재 모든 Text Analytics석 작업(감정, 핵심 구, 언어 감지 및 엔터티 식별)을위 해 동일한 문서를 제출할 수 있습니다. (스키마는 추후에 분석별로 달라질 수 있습니다.)
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../text-analytics-supported-languages.md)로 작성되어야 합니다. |
@@ -119,7 +119,7 @@ ms.locfileid: "91710603"
 ## <a name="see-also"></a>참조 
 
  [Text Analytics 개요](../overview.md)  
- [FAQ(질문과 대답)](../text-analytics-resource-faq.md)
+ [질문과 대답(FAQ)](../text-analytics-resource-faq.md)
 
 ## <a name="next-steps"></a>다음 단계
 

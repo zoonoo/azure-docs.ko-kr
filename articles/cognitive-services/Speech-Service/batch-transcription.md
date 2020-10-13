@@ -12,10 +12,10 @@ ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360755"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
@@ -24,7 +24,7 @@ ms.locfileid: "91360755"
 
 일괄 처리 기록 REST Api를 사용 하 여 다음 메서드를 호출할 수 있습니다.
 
-|    일괄 처리 기록 작업                                             |    메서드    |    REST API 호출                                   |
+|    일괄 처리 기록 작업                                             |    방법    |    REST API 호출                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    새 기록을 만듭니다.                                              |    POST      |    speechtotext/v 3.0/            |
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
@@ -41,7 +41,7 @@ ms.locfileid: "91360755"
 일괄 처리 작업은 최상의 노력으로 예약 됩니다.
 작업이 실행 중 상태로 변경 되는 경우를 예측할 수 없지만 일반적인 시스템 로드에서 몇 분 내에 발생 해야 합니다. 실행 중 상태가 되 면 기록을 오디오 런타임 재생 속도 보다 빠르게 수행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.md#try-the-speech-service-for-free)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다.
 
@@ -54,7 +54,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 
 일괄 처리 기록 API는 다음과 같은 형식을 지원 합니다.
 
-| 서식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
+| 형식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
 | MP3    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
@@ -308,7 +308,7 @@ Diarization를 요청 하려면 `diarizationEnabled` `true` 아래에 HTTP 요�
 
 위의 요청에서 매개 변수가 나타내는 것 처럼 단어 수준 타임 스탬프를 사용 하도록 설정 해야 합니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 일괄 처리 기록 서비스는 많은 수의 제출 된 작업을 처리할 수 있습니다. [Get-help](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)의 상태를 쿼리할 수 있습니다.
 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 결과가 최종 삭제 되도록 속성을 설정 합니다.

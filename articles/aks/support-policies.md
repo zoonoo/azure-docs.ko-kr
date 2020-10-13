@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 지원 정책, 공유 책임 및 미�
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888988"
+ms.locfileid: "91892713"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -130,8 +130,7 @@ AKS의 관리 되는 구성 요소 중 하나 이상에 보안 결함이 발견 
 
 ## <a name="stopped-or-de-allocated-clusters"></a>중지 또는 할당 취소 된 클러스터
 
-위에서 설명한 대로 IaaS Api/CLI/포털을 통해 모든 클러스터 노드를 수동으로 할당 취소 하면 클러스터가 지원 되지 않는 상태로 렌더링 됩니다.
-모든 노드를 중지/할당 취소 하는 데 지원 되는 유일한 방법은 [최대 12 개월 동안 클러스터 상태를 유지 하는 aks 클러스터를 중지 하는 것입니다.
+앞서 설명한 것 처럼 IaaS Api/CLI/포털을 통해 모든 클러스터 노드를 수동으로 할당 취소 하면 클러스터가 지원 되지 않는 상태로 렌더링 됩니다. 모든 노드를 중지/할당 취소 하는 데 지원 되는 유일한 방법은 최대 12 개월 동안 클러스터 상태를 유지 하는 [AKS 클러스터를 중지](start-stop-cluster.md#stop-an-aks-cluster)하는 것입니다.
 
 12 개월 이상 중지 된 클러스터는 더 이상 상태를 유지 하지 않습니다. 
 

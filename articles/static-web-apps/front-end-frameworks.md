@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
 ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905372"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Azure 정적 Web Apps 미리 보기를 사용 하 여 프런트 엔드 프레임 워크 및 라이브러리 구성
 
 Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또는 라이브러리의 [빌드 구성 파일](github-actions-workflow.md) 에 적절 한 구성 값이 있어야 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 일련의 프레임 워크 및 라이브러리<sup>1</sup>에 대 한 설정을 보여 줍니다.
 

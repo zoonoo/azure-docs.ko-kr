@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 358de5761f3535b5f1e75d82539ee8e3ecdbd289
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665617"
 ---
 **Azure Data Lake Storage Gen2**는 전용 서비스 또는 스토리지 계정 유형이 아닙니다. 빅 데이터 분석을 전담하는 기능의 최신 릴리스입니다.  이러한 기능은 범용 v2 또는 BlockBlobStorage 스토리지 계정에서 사용할 수 있으며 계정의 **계층 구조 네임스페이스** 기능을 사용하도록 설정하여 가져올 수 있습니다. 스케일링 대상은 다음 문서를 참조하세요. 
