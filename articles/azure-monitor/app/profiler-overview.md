@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499395"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
@@ -91,7 +91,7 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 
 ### <a name="unmanaged-async"></a>관리 되지 않는 비동기
 
-.NET framework는 ETW 이벤트를 내보내고 스레드 간에 작업 id를 전달 하 여 스레드 간에 비동기 호출을 추적할 수 있도록 합니다. 관리 되지 않는 코드 (네이티브 코드)와 비동기 코드의 일부 이전 스타일에는 이러한 이벤트와 활동 id가 없으므로 프로파일러에서는 스레드 및 스레드에서 실행 되는 함수를 알 수 없습니다. 호출 스택에서 ' 관리 되지 않는 Async '로 레이블이 지정 됩니다. ETW 파일을 다운로드 하는 경우 [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) 를 사용 하 여 발생 하는 상황에 대 한 자세한 정보를 얻을 수 있습니다.
+.NET framework는 ETW 이벤트를 내보내고 스레드 간에 작업 id를 전달 하 여 스레드 간에 비동기 호출을 추적할 수 있도록 합니다. 관리 되지 않는 코드 (네이티브 코드)와 비동기 코드의 일부 이전 스타일에는 이러한 이벤트와 활동 id가 없으므로 프로파일러에서는 스레드 및 스레드에서 실행 되는 함수를 알 수 없습니다. 호출 스택에서 ' 관리 되지 않는 Async '로 레이블이 지정 됩니다. ETW 파일을 다운로드 하는 경우 [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  를 사용 하 여 발생 하는 상황에 대 한 자세한 정보를 얻을 수 있습니다.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>CPU 시간
 

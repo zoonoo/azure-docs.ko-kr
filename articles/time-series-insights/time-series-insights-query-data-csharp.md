@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: a7dd67387a541ff62bfa85a7afc2f1bbf31c6180
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596423"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>C #을 사용 하 여 Azure Time Series Insights Gen1 환경에서 데이터 쿼리
 
 > [!CAUTION]
-> Gen1 문서입니다.
+> 이는 Gen1 문서입니다.
 
 이 c # 예제에서는 [Gen1 쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) 를 사용 하 여 Azure Time Series Insights Gen1 환경에서 데이터를 쿼리 하는 방법을 보여 줍니다.
 

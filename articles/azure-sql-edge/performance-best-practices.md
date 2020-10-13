@@ -10,17 +10,17 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 35985404d5ac97940c324c3ad7f7d46c959b4902
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940672"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>성능 모범 사례 및 구성 지침
 
 Azure SQL Edge는 SQL Edge 배포의 성능을 향상 시키는 데 사용할 수 있는 몇 가지 기능과 기능을 제공 합니다. 이 문서에서는 성능을 최대화 하기 위한 몇 가지 모범 사례 및 권장 사항을 제공 합니다. 
 
-## <a name="best-practices"></a>모범 사례 
+## <a name="best-practices"></a>최선의 구현 방법 
 
 ### <a name="configure-multiple-tempdb-data-files"></a>여러 tempdb 데이터 파일 구성
 

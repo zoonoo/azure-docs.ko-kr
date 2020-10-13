@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669035"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
-모든 IoT Edge 장치는 인증서를 사용 하 여 런타임과 장치에서 실행 되는 모듈 간에 보안 연결을 만듭니다. 게이트웨이로 작동 하는 IoT Edge 장치는 이러한 동일한 인증서를 사용 하 여 다운스트림 장치에도 연결 합니다.
+모든 IoT Edge 디바이스는 인증서를 사용하여 런타임과 디바이스에서 실행되는 모듈 간에 보안 연결을 만듭니다. 게이트웨이로 작동 하는 IoT Edge 장치는 이러한 동일한 인증서를 사용 하 여 다운스트림 장치에도 연결 합니다.
 
 ## <a name="install-production-certificates"></a>프로덕션 인증서 설치
 
@@ -31,7 +31,7 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 >[!NOTE]
 >이 문서 전체에서 사용 되는 "루트 CA" 라는 용어는 IoT 솔루션에 대 한 인증서 체인의 최상위 권한 공용 인증서를 나타냅니다. 게시 된 인증 기관의 인증서 루트나 조직의 인증 기관 루트를 사용할 필요는 없습니다. 대부분의 경우에는 실제로 중간 CA 공용 인증서입니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * [Windows](how-to-install-iot-edge-windows.md) 또는 [Linux](how-to-install-iot-edge-linux.md)에서 실행 되는 IoT Edge 장치
 * 루트 CA (인증 기관) 인증서가 Baltimore, Verisign, DigiCert 또는 GlobalSign과 같은 신뢰할 수 있는 상용 인증 기관에서 구매한 CA (인증 기관) 인증서가 있어야 합니다.
@@ -57,7 +57,7 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 
 IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 하도록 IoT Edge 런타임을 구성 합니다.
 
-예를 들어 샘플 스크립트를 사용 하 여 [데모 인증서를 만든](how-to-create-test-certificates.md)경우 다음 파일을 IoT Edge 장치에 복사 합니다.
+예를 들어 샘플 스크립트를 사용 하 여 [데모 인증서를 만든](how-to-create-test-certificates.md)경우 다음 파일을 IoT-Edge 장치에 복사 합니다.
 
 * 장치 CA 인증서: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * 장치 CA 개인 키: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
@@ -72,7 +72,7 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 다음은 그 예입니다. 
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들면 다음과 같습니다.
 
    * Windows:
 

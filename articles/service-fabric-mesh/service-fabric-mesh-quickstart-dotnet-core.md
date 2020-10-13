@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0828ad1acd23afdb7ebe7b89b20d8674e5876319
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75459074"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91653301"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: 웹앱 만들기 및 Azure Service Fabric Mesh에 배포
 
@@ -33,7 +33,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 **솔루션 디렉터리 만들기**가 선택되어 있는지 확인하고 **확인**을 클릭하여 Service Fabric Mesh 프로젝트를 만듭니다.
 
-![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Service Fabric Mesh 프로젝트를 만드는 방법을 보여주는 스크린샷.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>서비스 만들기
 
@@ -67,11 +67,11 @@ Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서
 
 Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 문서에서는 **미국 동부**를 사용합니다.
 
-**리소스 그룹**에서 **\<새 리소스 그룹 만들기...>** 를 선택합니다. **리소스 그룹 만들기** 대화 상자가 나타납니다. **리소스 그룹 이름** 및 **위치**를 설정합니다.  이 빠른 시작에서는 **미국 동부** 위치를 사용하고 그룹 이름을 **sfmeshTutorial1RG**로 지정합니다. 조직에 동일한 구독을 사용하는 여러 사람이 있는 경우, 고유한 리소스 그룹 이름을 선택합니다.  **만들기**를 클릭하여 리소스 그룹을 만들고 게시 대화 상자로 돌아갑니다.
+**리소스 그룹**에서 **\<Create New Resource Group...>** 를 선택합니다. **리소스 그룹 만들기** 대화 상자가 나타납니다. **리소스 그룹 이름** 및 **위치**를 설정합니다.  이 빠른 시작에서는 **미국 동부** 위치를 사용하고 그룹 이름을 **sfmeshTutorial1RG**로 지정합니다. 조직에 동일한 구독을 사용하는 여러 사람이 있는 경우, 고유한 리소스 그룹 이름을 선택합니다.  **만들기**를 클릭하여 리소스 그룹을 만들고 게시 대화 상자로 돌아갑니다.
 
-![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![새 리소스 그룹을 만드는 방법을 보여주는 스크린샷.](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric 애플리케이션 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...&gt;** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다. 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정하고 **만들기**를 클릭하여 게시 대화 상자로 돌아갑니다.
+**Service Fabric 애플리케이션 게시** 대화 상자로 돌아가서 **Azure Container Registry**에서 **\<Create New Container Registry...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다. 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정하고 **만들기**를 클릭하여 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

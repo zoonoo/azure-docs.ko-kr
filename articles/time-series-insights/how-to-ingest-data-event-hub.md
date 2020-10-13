@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596245"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
@@ -25,7 +25,7 @@ ms.locfileid: "91596245"
 > [!NOTE]
 > 이 문서에서 설명 하는 단계는 Azure Time Series Insights Gen 1 및 Azure Time Series Insights Gen 2 환경에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Time Series Insights 환경 만들기](./time-series-insights-update-create-environment.md)에 설명 된 대로 Azure Time Series Insights 환경을 만듭니다.
 - 이벤트 허브를 만듭니다. 읽기 [Azure Portal를 사용 하 여 Event Hubs 네임 스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조 하세요.
@@ -76,7 +76,7 @@ ms.locfileid: "91596245"
 
        [![구독 및 이벤트 허브 세부 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | Subscription | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 구독입니다. |
        | 이벤트 허브 네임스페이스 | 원하는 이벤트 허브 인스턴스가 속한 이벤트 허브 네임 스페이스입니다. |
@@ -88,7 +88,7 @@ ms.locfileid: "91596245"
 
        다음 표에서는 **수동으로 이벤트 허브 설정 제공** 옵션에 필요한 속성을 설명합니다.
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | 구독 ID | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 구독입니다. |
        | Resource group | 원하는 이벤트 허브 인스턴스 및 네임 스페이스가 속한 리소스 그룹입니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "91596245"
 
    - 두 옵션 모두 다음 구성 옵션을 공유 합니다.
 
-       | 속성 | Description |
+       | 속성 | 설명 |
        | --- | --- |
        | 이벤트 허브 소비자 그룹 | 이벤트 허브에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는이 형식 이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |

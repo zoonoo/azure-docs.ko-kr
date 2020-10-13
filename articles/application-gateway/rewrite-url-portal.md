@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87083160"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Azure 애플리케이션 게이트웨이로 URL 재작성-Azure Portal (미리 보기)
@@ -53,13 +53,13 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     
     c. **다음**을 선택합니다.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="규칙에 연결":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="재작성 집합 추가":::
 
 5. 재작성 규칙을 만듭니다.
 
     a. **재작성 규칙 추가**를 선택 합니다.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="재작성 규칙 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="재작성 집합 추가":::
     
     b. 재작성 규칙 **이름** 상자에 재작성 규칙의 이름을 입력 합니다. **규칙 시퀀스** 상자에 숫자를 입력 합니다.
 
@@ -69,19 +69,19 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     
     b. 이 예제에서는 URL 경로에서 pattern */article* 을 확인 하 고 **확인할 변수 형식** 목록에서 **서버 변수**를 선택 합니다.
     
-    c. **서버 변수** 목록에서 uri_path을 선택 합니다.
+    다. **서버 변수** 목록에서 uri_path을 선택 합니다.
     
     d. **대/소문자 구분**에서 **아니요**를 선택 합니다.
     
     e. **연산자** 목록에서 **같음 (=)** 을 선택 합니다.
     
-    f. 정규식 패턴을 입력 합니다. 이 예제에서는 다음 패턴을 사용 합니다.`.*article/(.*)/(.*)`
+    f. 정규식 패턴을 입력 합니다. 이 예제에서는 다음 패턴을 사용 합니다. `.*article/(.*)/(.*)`
     
       ()는 나중에 URL 경로를 다시 작성 하기 위한 식을 작성할 때 사용 하는 부분 문자열을 캡처하는 데 사용 됩니다. 자세한 내용은 [여기](rewrite-http-headers-url.md#capturing)를 참조하세요.
 
     g. **확인**을 선택합니다.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="재작성 집합 추가":::
 
  
 
@@ -91,23 +91,23 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    b. **작업 유형** 목록에서 **설정**을 선택 합니다.
 
-   c. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
+   다. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
 
    d. **URL 경로 값**에 경로에 대 한 새 값을 입력 합니다. 이 예제에서는 **/article.aspx** 를 사용 합니다. 
 
    e. **Url 쿼리 문자열 값**에 url 쿼리 문자열의 새 값을 입력 합니다. 이 예에서는 **id = {var_uri_path_1} &title = {var_uri_path_2}** 을 사용 합니다.
     
-    `{var_uri_path_1}`및 `{var_uri_path_1}` 는이 식의 조건을 평가 하는 동안 캡처된 부분 문자열을 가져오는 데 사용 됩니다.`.*article/(.*)/(.*)`
+    `{var_uri_path_1}` 및 `{var_uri_path_1}` 는이 식의 조건을 평가 하는 동안 캡처된 부분 문자열을 가져오는 데 사용 됩니다. `.*article/(.*)/(.*)`
     
    f. **확인**을 선택합니다.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="동작":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="재작성 집합 추가":::
 
 8. **만들기** 를 클릭 하 여 재작성 집합을 만듭니다.
 
 9. 새 재작성 집합이 재작성 집합 목록에 나타나는지 확인 합니다.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="재작성 규칙 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="재작성 집합 추가":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>액세스 로그를 통해 URL 재작성 확인
 

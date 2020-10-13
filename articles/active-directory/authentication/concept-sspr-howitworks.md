@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052777"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
@@ -52,7 +52,7 @@ SSPR 포털이 필수 언어로 표시 되 면 사용자에 게 사용자 ID를 
     * 인증 방법이 구성 되지 않은 경우 사용자는 자신의 암호를 재설정 하기 위해 관리자에 게 연락 하는 것이 좋습니다.
   * 정책에 두 가지 방법이 필요한 경우 관리자 정책에서 사용 하도록 설정 된 하나 이상의 인증 방법에 대해 정의 된 적절 한 데이터가 사용자에 게 있는지 확인 합니다.
     * 인증 방법이 구성 되지 않은 경우 사용자는 자신의 암호를 재설정 하기 위해 관리자에 게 연락 하는 것이 좋습니다.
-  * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 2-게이트 암호 정책이 적용됩니다. 자세한 내용은 [관리자 정책 재설정 정책 차이점](concept-sspr-policy.md#administrator-reset-policy-differences)을 참조 하세요.
+  * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 2-게이트 암호 정책이 적용됩니다. 자세한 내용은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences)을 참조하세요.
 * Azure AD 테 넌 트가 페더레이션된, 통과 인증 또는 암호 해시 동기화를 사용 하는 경우와 같이 사용자의 암호가 온-프레미스에서 관리 되는지 확인 합니다.
   * SSPR 쓰기 저장이 구성 되어 있고 사용자의 암호가 온-프레미스에서 관리 되는 경우 사용자는 인증을 진행 하 고 암호를 다시 설정할 수 있습니다.
   * SSPR 쓰기 저장이 배포 되지 않고 사용자의 암호가 온-프레미스에서 관리 되는 경우 사용자에 게 관리자에 게 문의 하 여 암호를 다시 설정 하 라는 메시지가 표시 됩니다.
@@ -166,7 +166,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 1. 관리자는 더 이상 보안 질문을 사용하지 않도록 정책을 변경하지만 휴대폰 및 보조 메일은 사용하도록 허용합니다.
 1. 휴대폰 또는 대체 전자 메일 필드를 입력 하지 않은 사용자는 이제 암호를 재설정할 수 없습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 SSPR를 사용 하 여 암호 이벤트의 인식을 향상 시키기 위해 사용자 및 id 관리자에 대 한 알림을 구성할 수 있습니다.
 

@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 8d26b6c92462abc13c42257d2c6e571156eacc0f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563455"
 ---
 Azure 파일 공유는 공유 스토리지 풀을 나타내는 최상위 개체인 *스토리지 계정*에 배포됩니다. 이 스토리지 풀은 여러 파일 공유는 물론 Blob 컨테이너, 큐 또는 테이블과 같은 기타 스토리지 리소스를 배포하는 데 사용할 수 있습니다. 스토리지 계정에 배포된 모든 스토리지 리소스는 해당 스토리지 계정에 적용되는 제한을 공유합니다. 스토리지 계정의 현재 제한을 보려면 [Azure Files 확장성 및 성능 대상](../articles/storage/files/storage-files-scale-targets.md)을 참조하세요.

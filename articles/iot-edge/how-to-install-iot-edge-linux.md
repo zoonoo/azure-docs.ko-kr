@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: kgremban
 ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660037"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>옵션 2: 자동 프로비전
 
-IoT Edge 장치는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../iot-dps/index.yml)를 사용 하 여 자동으로 프로 비전 할 수 있습니다. 현재 IoT Edge는 자동 프로 비전을 사용할 때 세 가지 증명 메커니즘을 지원 하지만, 사용자의 하드웨어 요구 사항에 영향을 줄 수 있습니다. 예를 들어 Raspberry Pi 장치는 기본적으로 TPM (신뢰할 수 있는 플랫폼 모듈) 칩과 함께 제공 되지 않습니다. 자세한 내용은 다음 항목을 참조하세요.
+IoT Edge 장치는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../iot-dps/index.yml)를 사용 하 여 자동으로 프로 비전 할 수 있습니다. 현재 IoT Edge는 자동 프로 비전을 사용할 때 세 가지 증명 메커니즘을 지원 하지만, 사용자의 하드웨어 요구 사항에 영향을 줄 수 있습니다. 예를 들어 Raspberry Pi 장치는 기본적으로 TPM (신뢰할 수 있는 플랫폼 모듈) 칩과 함께 제공 되지 않습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 * [Linux VM에서 가상 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-linux.md)
 * [X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-x509-certs.md)

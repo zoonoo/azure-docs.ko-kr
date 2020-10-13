@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020000"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
@@ -53,7 +53,7 @@ ms.locfileid: "89020000"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="MongoDB API에 대 한 Azure Cosmos DB API, 컨테이너 추가 대화 상자 스크린샷":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>Cassandra API
 
@@ -69,7 +69,7 @@ ms.locfileid: "89020000"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Cassandra API, 테이블 추가 대화 상자의 스크린샷":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷":::
 
 > [!NOTE]
 > Cassandra API의 경우 기본 키가 파티션 키로 사용됩니다.
@@ -89,7 +89,7 @@ ms.locfileid: "89020000"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Gremlin API, 그래프 추가 대화 상자의 스크린샷":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>테이블 API
 
@@ -103,7 +103,7 @@ ms.locfileid: "89020000"
    * 프로비저닝할 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Table API, 테이블 추가 대화 상자의 스크린샷":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="새 컨테이너가 강조 표시 된 데이터 탐색기 창의 스크린샷":::
 
 > [!Note]
 > Table API의 경우 새 행을 추가할 때마다 파티션 키가 지정됩니다.

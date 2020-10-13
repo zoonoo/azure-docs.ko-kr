@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/13/2019
-ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/08/2020
+ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659921"
+ms.locfileid: "91873237"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
@@ -22,6 +22,9 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 - 파일 만들기, 가져오기, 추가, 업데이트 및 삭제를 수행합니다.
 - 폴더 또는 루트 폴더의 파일을 나열합니다.
 - 파일 콘텐츠 및 메타데이터를 가져옵니다.
+
+  > [!IMPORTANT]
+  > 파일 시스템 커넥터는 현재 Windows 운영 체제에서 Windows 파일 시스템만 지원 합니다.  
 
 이 문서에서는 [Dropbox에 업로드된 파일을 파일 공유에 복사한 후 이메일 보내기] 예제 시나리오에서 설명한 것처럼, 온-프레미스 파일 시스템에 연결하는 방법을 보여줍니다. 온-프레미스 시스템에 안전하게 연결하고 액세스할 수 있도록 논리 앱은 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md)을 검토 하세요. 커넥터 관련 기술 정보는 [파일 시스템 커넥터 참조](/connectors/filesystem/)를 참조 하세요.
 
@@ -68,7 +71,7 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 
    ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    | -------- | -------- | ----- | ----------- |
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 사용하려는 이름 |
    | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>`\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |

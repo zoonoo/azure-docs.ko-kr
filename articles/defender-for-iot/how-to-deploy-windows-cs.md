@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 04b33c7e63efbd6ffabf978708e1b8ed81f1fc42
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940036"
 ---
 # <a name="deploy-an-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 용 IoT c # 기반 보안 에이전트로 Defender 배포
@@ -33,7 +33,7 @@ ms.locfileid: "90940036"
 > * 에이전트 제거
 > * 문제 해결
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
@@ -62,7 +62,7 @@ ms.locfileid: "90940036"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -77,9 +77,9 @@ ms.locfileid: "90940036"
 * 에이전트를 **시스템 서비스**로 설치합니다.
 * 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
-추가 도움말을 보려면 PowerShell에서 Get-help 명령을 사용 합니다.
+추가 도움말을 보려면 PowerShell에서 Get-Help 명령을 사용 합니다.
 
-Get-help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
+Get-Help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>배포 상태 확인
 

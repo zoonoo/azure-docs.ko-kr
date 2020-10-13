@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
 ms.openlocfilehash: 708901dbc37daa075cf38d3f9ef046ae658ea979
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744891"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>OperationalInsights API 버전 사용 중지
@@ -28,7 +28,7 @@ REST API 요청은 요청 URL의 API 버전을 사용 합니다. 다음 예제�
 https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2020-08-01
 ```
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 리소스 관리자 템플릿에서는 리소스의 **apiVersion** 속성에 있는 API 버전을 사용 합니다. 다음 예제와 같이 해당 버전을 최신 버전으로 바꿉니다.
 
 

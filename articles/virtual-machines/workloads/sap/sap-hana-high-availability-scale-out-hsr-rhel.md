@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
 ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744850"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 SAP HANA 스케일 아웃 시스템의 고가용성 
@@ -84,10 +84,10 @@ ms.locfileid: "91744850"
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
   * [Red Hat Enterprise Linux 네트워킹 가이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [NFS 공유의 HANA 파일 시스템을 사용 하 여 Pacemaker 클러스터에서 확장 시스템 복제 SAP HANA 구성 어떻게 할까요?](https://access.redhat.com/solutions/5423971)
+  * [NFS 공유의 HANA 파일 시스템을 사용 하 여 Pacemaker 클러스터에서 SAP HANA Scale-Out 시스템 복제를 구성 어떻게 할까요?](https://access.redhat.com/solutions/5423971)
 * Azure 특정 RHEL 설명서:
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)(Microsoft Azure에서 사용할 용도로 Red Hat Enterprise Linux에 SAP HANA 설치)
-  * [SAP HANA 확장 및 시스템 복제를 위한 Red Hat Enterprise Linux 솔루션](https://access.redhat.com/solutions/4386601)
+  * [SAP HANA Scale-Out 및 시스템 복제를 위한 Red Hat Enterprise Linux 솔루션](https://access.redhat.com/solutions/4386601)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 * [Azure NetApp Files 설명서][anf-azure-doc] 
 
@@ -148,7 +148,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
     b. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **db1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
-    c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
+    다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
     d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `inter` `hsr` .  
     
@@ -836,7 +836,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
     ```
 
    > [!TIP]
-   > 구성에 NFS가 탑재 된 다른 파일 시스템이 포함 된 경우에는 `hana/shared` `sequential=false` 파일 시스템 간에 정렬 종속성이 없도록 옵션을 포함 합니다. 모든 NFS 탑재 파일 시스템은 해당 특성 리소스 보다 먼저 시작 해야 하지만 서로를 기준으로 하 여 시작할 필요는 없습니다. 자세한 내용은 [HANA 파일 시스템이 NFS 공유 인 경우 pacemaker 클러스터에 SAP HANA 스케일 아웃 HSR 어떻게 할까요? 구성을](https://access.redhat.com/solutions/5423971)참조 하세요.  
+   > 구성에 NFS가 탑재 된 다른 파일 시스템이 포함 된 경우에는 `hana/shared` `sequential=false` 파일 시스템 간에 정렬 종속성이 없도록 옵션을 포함 합니다. 모든 NFS 탑재 파일 시스템은 해당 특성 리소스 보다 먼저 시작 해야 하지만 서로를 기준으로 하 여 시작할 필요는 없습니다. 자세한 내용은 [HANA 파일 시스템이 NFS 공유 인 경우 pacemaker 클러스터에서 SAP HANA Scale-Out HSR 어떻게 할까요? 구성을](https://access.redhat.com/solutions/5423971)참조 하세요.  
 
 8. **[1]** pacemaker를 유지 관리 모드로 전환 하 여 HANA 클러스터 리소스 만들기를 준비 합니다.  
     ```

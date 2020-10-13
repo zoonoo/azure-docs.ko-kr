@@ -8,10 +8,10 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 924dbadc07f57e5928ecc63a24bf5e57d6213670
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938813"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Azure database for PostgreSQL에 대 한 연결 및 쿼리 개요-단일 서버
@@ -27,7 +27,7 @@ ms.locfileid: "90938813"
 |[VS Code PostgreSQL](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)|VS Code 용 Azure 데이터베이스 확장 (미리 보기)을 사용 하면 풍부한 Intellisense를 사용 하 여 scrapbooks를 사용 하 여 로컬 및 클라우드에서 PostgreSQL 서버를 찾아보고 쿼리할 수 있습니다. |
 |[PHP](connect-php.md)|이 빠른 시작에서는 PHP를 사용 하 여 데이터베이스에 연결 하 고 데이터베이스 개체 작업을 사용 하 여 데이터를 쿼리 하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[Java](connect-java.md)|이 빠른 시작에서는 Java를 사용 하 여 데이터베이스에 연결한 다음 데이터베이스 개체에 대 한 작업을 사용 하 여 데이터를 쿼리 하는 방법을 보여 줍니다.|
-|[Node.JS](connect-nodejs.md)|이 빠른 시작에서는 Node.js 사용 하 여 데이터베이스에 연결 하 고 데이터베이스 개체 작업을 사용 하 여 데이터를 쿼리 하는 프로그램을 만드는 방법을 보여 줍니다.|
+|[Node.js](connect-nodejs.md)|이 빠른 시작에서는 Node.js 사용 하 여 데이터베이스에 연결 하 고 데이터베이스 개체 작업을 사용 하 여 데이터를 쿼리 하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[.NET (C #)](connect-csharp.md)|이 빠른 시작에서는 use.NET (c #)를 사용 하 여 데이터베이스에 연결 하 고 데이터베이스 개체 작업을 사용 하 여 데이터를 쿼리 하는 c # 프로그램을 만드는 방법을 보여 줍니다.|
 |[Go](connect-go.md)|이 빠른 시작에서는 Go를 사용하여 데이터베이스에 연결하는 방법을 보여 줍니다. 데이터 쿼리 및 수정을 위한 Transact SQL 문도 보여 줍니다.|
 |[Python](connect-python.md)|이 빠른 시작에서는 Python을 사용 하 여 데이터베이스에 연결 하 고 데이터베이스 개체 작업을 사용 하 여 데이터를 쿼리 하는 방법을 보여 줍니다. |

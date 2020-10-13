@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/05/2020
 ms.author: alkohli
 ms.openlocfilehash: ac5f2de383066d6ee399dac3b0ad8c365b2e72bc
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744107"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
@@ -72,7 +72,7 @@ Data Box Blob storage에 대해 지원 되는 Azure 클라이언트 라이브러
 
 Data Box Blob storage SDK에서 끝점 접미사-는 `<device serial number>.microsoftdatabox.com` Data Box 도메인을 식별 합니다. Blob service 끝점에 대 한 자세한 내용은 [Data Box blob storage를 통해 연결](data-box-deploy-copy-data-via-rest.md)로 이동 합니다.
  
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="net"></a>.NET
 

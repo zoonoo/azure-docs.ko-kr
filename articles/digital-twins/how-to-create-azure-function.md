@@ -8,10 +8,10 @@ ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89614078"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
@@ -38,15 +38,15 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 함수 앱의 이름을 지정 하 고 _만들기_를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: 새 프로젝트 구성":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 *트리거 Event Grid* 함수 앱의 유형을 선택 하 고 _만들기_를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Azure 함수 프로젝트 트리거 대화 상자":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 함수 앱이 만들어지면 visual studio는 프로젝트 폴더의 **function.cs** 파일에 자동으로 채워진 코드 샘플을 갖게 됩니다. 이 짧은 Azure 함수는 이벤트를 기록 하는 데 사용 됩니다.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: 프로젝트 창 및 샘플 코드":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Event Grid 트리거를 사용 하 여 Azure 함수 작성
 
@@ -160,19 +160,19 @@ namespace adtIngestFunctionSample
 > [!IMPORTANT] 
 > Azure function을 게시 하면 Azure Digital Twins와 무관 하 게 구독에 대 한 추가 요금이 발생 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: Azure 함수 게시 ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 게시 대상으로 **Azure** 를 선택 하 고 **다음**을 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: Azure 함수 게시 대화 상자에서 Azure를 선택 합니다. ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: 게시 함수 대화 상자에서 컴퓨터에 따라 Azure 함수 앱 (Windows) 또는 (Linux)를 선택 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: 함수 게시 대화 상자, 새 Azure 함수 만들기":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: 함수 게시 대화 상자에서 필드를 입력 하 고 만들기를 선택 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: 함수 게시 대화 상자의 목록에서 함수 앱을 선택 하 고 마침을 선택 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 다음 페이지에서 새 함수 앱, 리소스 그룹 및 기타 세부 정보에 대해 원하는 이름을 입력 합니다.
 함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 시스템에서 관리 하는 id가 있어야 하 고 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있어야 합니다.
@@ -214,27 +214,27 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 
 [Azure Portal](https://portal.azure.com/)에서 이전에 만든 함수 앱 이름으로 검색 표시줄에서 _함수 앱_ 을 검색 합니다. 목록에서 *함수 앱* 을 선택 합니다. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure Portal: 함수 앱 검색":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 함수 앱 창의 왼쪽 탐색 모음에서 _id_ 를 선택 하 여 관리 되는 id를 사용 하도록 설정 합니다.
 _시스템 할당 됨_ 탭에서 _상태_ 를 켜기로 전환 하 고 _저장_ 합니다. _시스템 할당 관리 id를 사용 하도록 설정_하는 팝업이 표시 됩니다.
 _예_ 단추를 선택 합니다. 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: 시스템 관리 id 사용":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 함수가 Azure Active Directory에 성공적으로 등록 되었음을 알림에서 확인할 수 있습니다.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal: 알림":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 또한 다음 섹션에서 사용 되므로 _id_ 페이지에 표시 된 **개체 id** 를 확인 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="나중에 사용할 개체 ID를 복사 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Azure Portal를 사용 하 여 액세스 역할 할당
 
 Azure _역할 할당 선택 단추_ 를 선택 하면 azure 역할 할당 페이지가 열립니다. 그런 다음 _+ 역할 할당 추가 (미리 보기)_ 를 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: 역할 할당 추가":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 열리는 _역할 할당 추가 (미리 보기)_ 창에서 다음을 선택 합니다.
 
@@ -245,7 +245,7 @@ Azure _역할 할당 선택 단추_ 를 선택 하면 azure 역할 할당 페이
 
 _저장_ 단추를 선택 하 여 세부 정보를 저장 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: 역할 할당 추가 (미리 보기) ":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Azure Portal를 사용 하 여 응용 프로그램 설정 구성
 
@@ -255,7 +255,7 @@ _저장_ 단추를 선택 하 여 세부 정보를 저장 합니다.
 
 인스턴스 호스트 이름에 **_https://_** 를 추가 하 여 ADT_INSTANCE_URL를 가져올 수 있습니다. Azure Portal 검색 창에서 인스턴스를 검색 하 여 디지털 쌍 인스턴스 호스트 이름을 찾을 수 있습니다. 그런 다음 왼쪽 탐색 모음에서 _개요_ 를 선택 하 여 _호스트 이름을_확인 합니다. 응용 프로그램 설정을 만들려면이 값을 복사 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: 개요-_Value_ 필드에서 사용할 호스트 이름을 복사 > 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 이제 다음 단계에 따라 응용 프로그램 설정을 만들 수 있습니다.
 
@@ -263,9 +263,9 @@ _저장_ 단추를 선택 하 여 세부 정보를 저장 합니다.
 * 왼쪽의 탐색 모음에서 _구성_ 을 선택 하 여 새 응용 프로그램 설정을 만듭니다.
 * _응용 프로그램 설정_ 탭에서 _+ 새 응용 프로그램 설정_ 을 선택 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: 기존 Azure 함수를 검색 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정 구성":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 열리는 창에서 위에 복사 된 값을 사용 하 여 응용 프로그램 설정을 만듭니다. \
 _이름_  : ADT_SERVICE_URL \
@@ -273,19 +273,19 @@ _값_ : https://{-azure-디지털-t--hostname}
 
 _확인_ 을 선택 하 여 응용 프로그램 설정을 만듭니다.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정을 추가 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 _이름_ 필드에 응용 프로그램 이름을 사용 하 여 응용 프로그램 설정을 볼 수 있습니다. 그런 다음 _저장_ 단추를 선택 하 여 응용 프로그램 설정을 저장 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal: 만든 응용 프로그램을 확인 하 고 응용 프로그램을 다시 시작 합니다.":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 응용 프로그램 설정에 대 한 변경 내용을 적용 하려면 응용 프로그램을 다시 시작 해야 합니다. _계속_ 을 선택 하 여 응용 프로그램을 다시 시작 합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal: 응용 프로그램 설정 저장":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 _알림_ 아이콘을 선택 하 여 응용 프로그램 설정이 업데이트 된 것을 볼 수 있습니다. 응용 프로그램 설정이 만들어지지 않은 경우 위의 프로세스에 따라 응용 프로그램 설정 추가를 다시 시도할 수 있습니다.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal: 응용 프로그램 설정 업데이트에 대 한 알림":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio: 새 프로젝트 대화 상자":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 62b2fd0554c218b733501805779745049d3b8c92
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532710"
 ---
 # <a name="preview-maintenance-control-for-os-image-upgrades-on-azure-virtual-machine-scale-sets-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 가상 머신 확장 집합에서 OS 이미지 업그레이드에 대 한 유지 관리 제어
@@ -56,7 +56,7 @@ $location="eastus2"
 $vmss="myMaintenanceVMSS"
 ```
 
-## <a name="create-a-maintenance-configuration"></a>유지 관리 구성 만들기
+## <a name="create-a-maintenance-configuration"></a>유지 관리 구성을 만듭니다.
 
 구성에 대 한 컨테이너로 리소스 그룹을 만듭니다. 이 예제에서는 *eastus2*에서 *myMaintenanceRG* 이라는 리소스 그룹을 만듭니다. 사용 하려는 리소스 그룹이 이미 있는 경우이 부분을 건너뛸 수 있습니다. 나머지 예제에서는 리소스 그룹 이름을 사용자 고유의 이름으로 바꿉니다.
 

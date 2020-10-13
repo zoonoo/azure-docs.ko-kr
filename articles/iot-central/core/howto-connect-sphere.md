@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 34b767a2cc48c94fdb5c2db032321b9254bf4ce2
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017696"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure Sphere 디바이스 추가
@@ -67,7 +67,7 @@ Azure Sphere DevKit 디바이스를 IoT Central에 연결하려면 [디바이스
 
 디바이스가 IoT Central에 연결되면 대시보드에서 원격 분석을 볼 수 있습니다.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Azure Sphere DevKit를 위한 대시보드":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Azure Sphere DevKit에 대한 디바이스 템플릿":::
 
 ## <a name="create-a-simulated-device"></a>시뮬레이션된 디바이스 만들기
 

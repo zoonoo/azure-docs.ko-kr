@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89007964"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
@@ -44,7 +44,7 @@ Azure Service Bus로 분할된 큐 및 항목을 사용하려면 Azure SDK 버�
 
 ### <a name="create-a-partitioned-entity"></a>분할된 엔터티 만들기
 
-분할된 큐 또는 항목을 만들 수 있는 여러 방법이 있습니다. 애플리케이션에서 큐 또는 항목을 만들 때 [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] 또는 [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] 속성을 각각 **true**로 설정하여 큐 또는 항목에 분할을 설정할 수 있습니다. 이러한 속성은 큐 또는 항목을 만든 시간에 설정해야 하며, 이전 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 라이브러리에서만 사용할 수 있습니다. 앞서 설명한 것처럼 기존 큐 또는 토픽에서 이러한 속성을 변경하는 것은 불가능합니다. 예를 들어:
+분할된 큐 또는 항목을 만들 수 있는 여러 방법이 있습니다. 애플리케이션에서 큐 또는 항목을 만들 때 [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] 또는 [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] 속성을 각각 **true**로 설정하여 큐 또는 항목에 분할을 설정할 수 있습니다. 이러한 속성은 큐 또는 항목을 만든 시간에 설정해야 하며, 이전 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 라이브러리에서만 사용할 수 있습니다. 앞서 설명한 것처럼 기존 큐 또는 토픽에서 이러한 속성을 변경하는 것은 불가능합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 // Create partitioned topic
@@ -84,7 +84,7 @@ ns.CreateTopic(td);
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>고급 항목: 분할된 엔터티로 트랜잭션 사용
 
-트랜잭션의 일부로 전송되는 메시지는 파티션 키를 지정해야 합니다. 키는 다음 속성 중 하나일 수 있습니다. [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 또는 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). 동일한 트랜잭션의 일부로 전송되는 모든 메시지는 동일한 파티션 키를 지정해야 합니다. 트랜잭션 내에서 파티션 키 없이 메시지를 보내려면 Service Bus는 잘못된 작업 예외를 반환합니다. 다른 파티션 키를 가진 동일한 트랜잭션 내에서 여러 메시지를 보내려면 Service Bus는 잘못된 작업 예외를 반환합니다. 예를 들어:
+트랜잭션의 일부로 전송되는 메시지는 파티션 키를 지정해야 합니다. 키는 다음 속성 중 하나일 수 있습니다. [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 또는 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid). 동일한 트랜잭션의 일부로 전송되는 모든 메시지는 동일한 파티션 키를 지정해야 합니다. 트랜잭션 내에서 파티션 키 없이 메시지를 보내려면 Service Bus는 잘못된 작업 예외를 반환합니다. 다른 파티션 키를 가진 동일한 트랜잭션 내에서 여러 메시지를 보내려면 Service Bus는 잘못된 작업 예외를 반환합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -104,7 +104,7 @@ committableTransaction.Commit();
 
 세션 인식 토픽 또는 큐에 트랜잭션 메시지를 보내려면 메시지에 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성 집합이 있어야 합니다. [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 속성도 지정될 경우 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 속성과 동일해야 합니다. 다른 경우 Service Bus가 잘못된 작업 예외를 반환합니다.
 
-일반(분할되지 않은) 큐 또는 항목과 달리 단일 트랜잭션을 사용하여 다른 세션에 여러 메시지를 보낼 수 없습니다. 시도할 경우 Service Bus가 잘못된 작업 예외를 반환합니다. 예를 들어:
+일반(분할되지 않은) 큐 또는 항목과 달리 단일 트랜잭션을 사용하여 다른 세션에 여러 메시지를 보낼 수 없습니다. 시도할 경우 Service Bus가 잘못된 작업 예외를 반환합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

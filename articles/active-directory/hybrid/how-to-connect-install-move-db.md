@@ -1,5 +1,5 @@
 ---
-title: SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이스를 이동합니다. | Microsoft 문서
+title: SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이스를 이동합니다. | Microsoft Docs
 description: 이 문서에서는 로컬 SQL Server Express 서버에서 원격 SQL Server로 Azure AD Connect 데이터베이스를 이동하는 방법을 설명합니다.
 services: active-directory
 author: billmath
@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94710e99fa7d04d757f2ad5fd7b2d3f6e01371d1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306345"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>SQL Server Express에서 SQL Server로 Azure AD Connect 데이터베이스 이동 
