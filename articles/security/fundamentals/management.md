@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87921931"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
@@ -48,7 +48,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 * 관리 작업은 손상으로 이어질 수 있는 작업과 함께 수행하면 안 됩니다(예: 인프라 서버를 감염시키는 관리자의 전자 메일 내의 맬웨어).
 * 매우 민감한 작업에 사용되는 워크스테이션은 인터넷 검색 등 위험도가 높은 용도에 사용하는 시스템으로 사용하면 안 됩니다.
 
-불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예:
+불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
 
 * 디바이스의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
 
@@ -174,7 +174,7 @@ Azure에서 애플리케이션 및 데이터를 관리하는 경우 다음의 �
 ### <a name="dos-and-donts"></a>권장 사항 및 금지 사항
 워크스테이션이 잠겨 있기 다른 일반적인 보안 요구 사항을 충족 필요가 없다고 가정하지 마세요. 관리자 계정이 일반적으로 처리하는 상승된 액세스 수준으로 인해 위험이 발생할 가능성이 높습니다. 위험 및 대체 안전 조치의 예는 아래 테이블에 나와 있습니다.
 
-| 안 함 | 해야 할 일 |
+| 안 함 | 수행 |
 | --- | --- |
 | 관리자 액세스 또는 다른 암호 (예: TLS/SSL 또는 관리 인증서)에 대 한 자격 증명을 전자 메일로 보내지 않습니다. |계정 이름 및 음성 암호(음성 메일에는 저장되지 않음)를 제공하여 기밀성을 유지하거나, 클라이언트/서버 인증서의 원격 설치를 수행하거나(암호화된 세션을 통해), 보호된 네트워크 공유에서 다운로드하거나, 이동식 미디어를 통해 직접 배포합니다. |
 | - | 관리 인증서 수명 주기를 사전 관리합니다. |
@@ -214,4 +214,4 @@ Azure 클라우드 서비스, Virtual Machines 및 애플리케이션을 관리�
 
 * [권한 있는 액세스 보안](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) - Azure 관리를 위한 보안 관리 워크스테이션의 설계 및 구축에 대한 기술 세부 정보를 가져옵니다.
 * [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - Azure 패브릭 및 Azure에서 실행되는 워크로드를 보호하는 Azure 플랫폼 기능에 대해 알아봅니다.
-* [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) -Azure와 관련 된 문제를 포함 하 여 microsoft 보안 취약점을 보고 하거나 전자 메일을 통해 다음을 수행할 수 있습니다.[secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft 보안 대응 센터](https://www.microsoft.com/msrc) -Azure와 관련 된 문제를 포함 하 여 microsoft 보안 취약점을 보고 하거나 전자 메일을 통해 다음을 수행할 수 있습니다. [secure@microsoft.com](mailto:secure@microsoft.com)

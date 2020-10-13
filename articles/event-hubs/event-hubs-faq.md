@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729103"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
@@ -274,9 +274,9 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
-Azure Stack 허브에서이 코드를 실행 하는 경우 특정 저장소 API 버전을 대상으로 하지 않는 한 런타임 오류가 발생 합니다. Event Hubs SDK는 Azure에서 사용 가능한 최신 Azure Storage API를 사용 하므로 Azure Stack 허브 플랫폼에서 사용할 수 없습니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure 블로그 저장소를 검사점 저장소로 사용 하는 경우 [Azure Stack 허브 빌드에 대해 지원 되는 AZURE STORAGE API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version) 을 확인 하 고 코드에서 해당 버전을 대상으로 합니다. 
+Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
 
-예를 들어 Azure Stack 허브 버전 2005에서를 실행 하는 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 최고 버전을 사용 합니다 (SDK 출시 시점에 2019-07-07). 이 경우에는이 섹션의 다음 단계 외에도 저장소 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가 해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
+예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
 
 코드에서 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 

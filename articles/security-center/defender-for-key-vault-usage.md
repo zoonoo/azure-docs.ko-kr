@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448329"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Key Vault용 Azure Defender 경고에 응답
@@ -25,7 +25,7 @@ Azure Defender for Key Vault의 모든 경고에는 다음 요소가 포함 됩�
 > [!TIP]
 > 발생 한 액세스 *유형에* 따라 일부 필드는 사용 하지 못할 수 있습니다. 예를 들어 응용 프로그램에서 키 자격 증명 모음에 액세스 한 경우에는 연결 된 사용자 계정 이름이 표시 되지 않습니다. 트래픽이 Azure 외부에서 시작 된 경우에는 개체 ID가 표시 되지 않습니다.
 
-## <a name="step-1-contact"></a>1단계: 연락처
+## <a name="step-1-contact"></a>1단계. 연락처
 
 1. 트래픽이 Azure 테 넌 트 내에서 시작 되었는지 여부를 확인 합니다. 키 자격 증명 모음 방화벽을 사용 하는 경우이 경고를 트리거한 사용자 또는 응용 프로그램에 대 한 액세스를 제공 했을 수 있습니다.
 1. 트래픽의 원본을 확인할 수 없으면 [2 단계를 계속 합니다. 즉시 완화](#step-2-immediate-mitigation).
@@ -70,6 +70,6 @@ Azure Defender for Key Vault의 모든 경고에는 다음 요소가 포함 됩�
 
 이 페이지에서는 Azure Defender에서 Key Vault에 대 한 경고에 응답 하는 프로세스를 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
 
-- [Key Vault에 대 한 Azure Defender 소개](defender-for-key-vault-introduction.md)
-- [Azure Defender에서 경고 표시 안 함](alerts-suppression-rules.md)
+- [Azure Defender for Key Vault 소개](defender-for-key-vault-introduction.md)
+- [Azure Defender의 경고 표시 안 함](alerts-suppression-rules.md)
 - [보안 경고 내보내기](continuous-export.md)

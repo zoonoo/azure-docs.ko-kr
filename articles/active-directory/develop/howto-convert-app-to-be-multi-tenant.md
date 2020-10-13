@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631310"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
@@ -190,7 +190,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 애플리케이션을 빌드하는 방법을 알아보았습니다. 앱과 Azure AD 간에 SSO (Single Sign-on)를 사용 하도록 설정한 후 Microsoft 365와 같은 Microsoft 리소스에 의해 노출 되는 Api에 액세스 하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Exchange, SharePoint, OneDrive, OneNote 등의 Microsoft 365 서비스에 대 한 API 호출을 수행 하는 방법에 대 한 자세한 내용을 보려면 [MICROSOFT GRAPH api][MSFT-Graph-overview]를 방문 하세요.
+이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 애플리케이션을 빌드하는 방법을 알아보았습니다. 앱과 Azure AD 간에 SSO (Single Sign-On)를 사용 하도록 설정한 후에는 Microsoft 365와 같은 Microsoft 리소스에 의해 노출 되는 Api에 액세스 하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Exchange, SharePoint, OneDrive, OneNote 등의 Microsoft 365 서비스에 대 한 API 호출을 수행 하는 방법에 대 한 자세한 내용을 보려면 [MICROSOFT GRAPH api][MSFT-Graph-overview]를 방문 하세요.
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

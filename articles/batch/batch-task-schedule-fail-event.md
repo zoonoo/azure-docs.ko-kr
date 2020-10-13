@@ -4,10 +4,10 @@ description: Batch 태스크 일정 실패 이벤트에 대 한 참조입니다.
 ms.topic: reference
 ms.date: 09/20/2020
 ms.openlocfilehash: 549281d2b2c371e8f09c584e771cf44f7abc8a00
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91852193"
 ---
 # <a name="task-schedule-fail-event"></a>작업 일정 실패 이벤트
@@ -78,5 +78,5 @@ ms.locfileid: "91852193"
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
 |`category`|String|오류의 범주입니다.|
-|`code`|문자열|태스크 예약 오류에 대 한 식별자입니다. 코드는 고정 이며 프로그래밍 방식으로 사용 하기 위한 것입니다.|
-|`message`|문자열|사용자 인터페이스에 표시 하기에 적합 한 태스크 예약 오류를 설명 하는 메시지입니다.|
+|`code`|String|태스크 예약 오류에 대 한 식별자입니다. 코드는 고정 이며 프로그래밍 방식으로 사용 하기 위한 것입니다.|
+|`message`|String|사용자 인터페이스에 표시 하기에 적합 한 태스크 예약 오류를 설명 하는 메시지입니다.|

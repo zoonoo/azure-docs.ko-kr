@@ -183,6 +183,8 @@
                   href: roles-custom-available-permissions.md
                 - name: 엔터프라이즈 앱 사용 권한
                   href: custom-enterprise-app-permissions.md
+                - name: 앱 동의 권한
+                  href: custom-consent-permissions.md
             - name: 앱 관리자 권한 위임
               href: roles-delegate-app-roles.md
         - name: 그룹을 사용하여 역할 할당 관리

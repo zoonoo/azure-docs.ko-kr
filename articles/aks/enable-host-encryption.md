@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/10/2020
 ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986868"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)

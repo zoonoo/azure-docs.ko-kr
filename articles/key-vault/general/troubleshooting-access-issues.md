@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595991"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결

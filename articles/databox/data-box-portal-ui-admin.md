@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87924756"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
@@ -128,7 +128,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 |선택됨     |반송 배송이 선택되었습니다. <br> Azure 데이터 센터에 배송이 수신되면 데이터는 Azure에 자동으로 업로드됩니다.         |
 |수신됨     | Azure 데이터 센터에서 디스크를 받았습니다. 데이터 복사가 곧 시작됩니다.        |
 |데이터가 복사됨     |데이터 복사가 진행 중입니다.<br> 데이터 복사가 완료될 때까지 기다립니다.         |
-|완료됨       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
+|Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
 |오류와 함께 완료됨| 데이터 복사가 완료되었지만 오류가 발생했습니다. <br> **개요**에 제공된 경로를 사용하여 업로드에 대한 오류 로그를 검토합니다. 자세한 내용은 [업로드 오류 로그 다운로드](data-box-disk-troubleshoot-upload.md#download-logs)를 참조하세요.   |
 |취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다.     |
 

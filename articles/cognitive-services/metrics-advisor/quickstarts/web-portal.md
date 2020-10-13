@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 0453ec9eac2b73b5372c143b23d6db98f65e38aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946273"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631381"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>빠른 시작: 웹 포털을 사용하여 첫 번째 메트릭 모니터링
 
@@ -38,6 +38,13 @@ Metrics Advisor 인스턴스를 프로비저닝할 때 API 및 웹 기반 작업
 > * REST API를 사용하여 서비스와 상호 작용하려는 경우에는 사용자가 만든 리소스의 키와 엔드포인트가 필요합니다. 이는 생성된 리소스의 **키 및 엔드포인트** 탭에서 찾을 수 있습니다.
 
 이 문서에서는 SQL Database 예제를 사용하여 첫 번째 모니터를 만듭니다.
+
+## <a name="sign-in-to-your-workspace"></a>작업 영역에 로그인
+
+리소스를 배포한 후 [Metrics Advisor 관리자 포털](https://go.microsoft.com/fwlink/?linkid=2143774)에 로그인합니다. 작업 영역을 선택하여 메트릭 모니터링을 시작합니다. 
+ 
+현재 사용 가능한 각 지역에서 하나의 Metrics Advisor 리소스를 만들 수 있습니다. 언제든지 Metrics Advisor 포털에서 작업 영역을 전환할 수 있습니다.
+
 
 ## <a name="onboard-time-series-data"></a>시계열 데이터 온보딩
 
@@ -90,7 +97,7 @@ Metrics Advisor는 SQL Database, Azure Data Explorer 및 Azure Table Storage 같
 |**무시**     | 선택된 열을 무시하세요.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="스키마 구성" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="연결 설정" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>자동 롤업 설정
 
@@ -110,7 +117,7 @@ Metrics Advisor는 수집 중에 각 차원에서 집계(SUM/MAX/MIN ...)를 자
 - 예상 결과를 충족하도록 검색 구성 업데이트
 - 검색된 변칙에 대한 알림 설정
 
-:::image type="content" source="../media/metric-details.png" alt-text="메트릭 세부 정보" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="연결 설정" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>진단 인사이트 보기
 
@@ -118,13 +125,13 @@ Metrics Advisor는 수집 중에 각 차원에서 집계(SUM/MAX/MIN ...)를 자
 
 진단 인사이트를 보려면 검색된 변칙을 나타내는 시계열 시각화의 빨간색 점을 클릭합니다. 인시던트 분석 페이지에 대한 링크가 포함된 창이 표시됩니다. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="인시던트 링크" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="연결 설정" lightbox="../media/incident-link.png":::
 
 링크를 클릭하면 풍부한 진단 정보를 통해 해당 변칙을 분석하는 인시던트 분석 페이지로 피벗됩니다. 상단에는 **심각도**, **관련 변칙**, 영향을 받는 **시작 시간** 및 **종료 시간** 같은 인시던트에 대한 통계가 있습니다. 
 
 다음으로, 인시던트의 상위 변칙 및 자동 근본 원인 조언을 볼 수 있습니다. 이 자동 근본 원인 조언은 부모 변칙에 대한 편차, 분포 및 기여를 포함한 모든 관련 변칙의 인시던트 트리를 분석하여 생성됩니다. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="인시던트 진단" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="연결 설정" lightbox="../media/incident-diagnostic.png":::
 
 이를 통해 현재 상황 및 인시던트의 영향뿐만 아니라 가장 가능성이 높은 근본 원인을 한눈에 쉽게 확인할 수 있습니다. 따라서 즉각적인 조치를 통해 인시던트를 가능한 한 빨리 해결할 수 있습니다. 
 

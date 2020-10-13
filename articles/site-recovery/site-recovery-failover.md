@@ -5,10 +5,10 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317891"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 실행
@@ -32,7 +32,7 @@ ms.locfileid: "91317891"
 
 **장애 조치(failover) 후** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스 하려면 컴퓨터에서 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 허용 되는**앱 및 기능**에서 rdp를 허용 해야 합니다.<br/><br/> <br/><br/> 정적 영구 경로 및 WinHTTP 프록시를 제거 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
+**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스 하려면 컴퓨터에서 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 허용 되는**앱 및 기능**에서 rdp를 허용 해야 합니다.<br/><br/> <br/><br/> 정적 영구 경로 및 WinHTTP 프록시를 제거 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아봅니다](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
 **Linux를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
 
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319880"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
@@ -33,7 +33,7 @@ ms.locfileid: "91319880"
 ## <a name="connector-actions"></a>커넥터 작업
 | 작업 | 주석 |
 | --- | --- |
-| 만들기 |사용하지 마십시오. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
+| 생성 |사용하지 마십시오. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
 | 속성 |모든 도메인 및 OU 필터링에 사용 |
 | [Delete](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
 | [실행 프로필 구성](#configure-run-profiles) |여기서는 도메인 필터링만 구성 이 작업을 사용하여 이미 구성된 실행 프로필을 볼 수 있습니다. |
@@ -45,7 +45,7 @@ ms.locfileid: "91319880"
 | 스키마 새로 고침 |캐시된 스키마를 새로 고칩니다. 동기화 규칙도 업데이트되므로 대신 설치 마법사를 사용하는 것이 좋습니다. |
 | [커넥터 공간 검색](#search-connector-space) |개체를 찾고 시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는데 사용됩니다. |
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 삭제 작업은 두 가지 작업에 사용됩니다.  
 !["커넥터 공간만 삭제"를 선택한 "커넥터 삭제" 창을 보여 주는 스크린샷](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 

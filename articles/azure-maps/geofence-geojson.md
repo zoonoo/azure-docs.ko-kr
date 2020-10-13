@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88037408"
 ---
 # <a name="geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터
@@ -30,7 +30,7 @@ Azure Maps [GET 지오펜스](/rest/api/maps/spatial/getgeofence) 및 [POST 지�
 * `expiredTime`은 지오펜싱 데이터의 만료 날짜 및 시간입니다. 요청의 `userTime` 값이 이 값보다 이후이면 해당 지오펜스 데이터는 만료된 데이터로 간주되며 쿼리되지 않습니다. 이 경우 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `expiredGeofenceGeometryId` 배열에 포함됩니다.
 * `validityPeriod`는 지오펜스의 유효 기간 목록입니다. 요청의 `userTime` 값이 유효 기간을 벗어난 경우 해당 지오펜스 데이터는 잘못된 데이터로 간주되며 쿼리되지 않습니다. 이 지오펜스 데이터의 geometryId가 지오펜스 응답 내의 `invalidPeriodGeofenceGeometryId` 배열에 포함됩니다. 다음 표에는 validityPeriod 요소의 속성이 나와 있습니다.
 
-| 속성 | Type | 필수  | 설명 |
+| Name | 유형 | 필수  | 설명 |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | DateTime  | true | 유효 기간의 시작 날짜/시간입니다. |
 | endTime   | DateTime  | true |  유효 기간의 종료 날짜/시간입니다. |

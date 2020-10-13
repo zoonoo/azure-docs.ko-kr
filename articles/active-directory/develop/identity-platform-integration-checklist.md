@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116804"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft id 플랫폼 모범 사례 및 권장 사항
@@ -44,7 +44,7 @@ ms.locfileid: "88116804"
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 이 정보는 [응용 프로그램의 동의 프롬프트](application-consent-experience.md)에 표시 됩니다. 사용자가 합리적인 의사 결정을 내릴 수 있도록 이름 및 로고가 회사/제품을 대표 하는지 확인 합니다. 모든 상표를 위반 하지 않는지 확인 합니다.
 
-## <a name="privacy"></a>개인 정보 취급 방침
+## <a name="privacy"></a>개인 정보 보호
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 앱의 서비스 약관 및 개인 정보 취급 방침에 대 한 링크를 제공 합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "88116804"
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 지원 하려는 모든 가능한 계정 (예: 회사 또는 학교 계정, 개인 Microsoft 계정, 자식 계정 및 소 버린 계정)으로 응용 프로그램을 테스트 합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 v2.0에 관한 자세한 정보를 살펴보세요.
 

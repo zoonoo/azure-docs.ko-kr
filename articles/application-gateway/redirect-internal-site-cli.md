@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596093"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
@@ -216,7 +216,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > * 네트워크 설정
 > * 애플리케이션 게이트웨이 만들기

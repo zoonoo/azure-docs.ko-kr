@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91286013"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Smartsheet 구성
@@ -33,7 +33,7 @@ ms.locfileid: "91286013"
 > [!NOTE]
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -83,7 +83,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Smartsheet�
 
     ![Smartsheet 토큰](media/smartsheet-provisioning-tutorial/Smartsheet08.png)
 
-## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Smartsheet 추가
+## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Smartsheet 추가
 
 Azure AD 응용 프로그램 갤러리에서 Smartsheet를 추가 하 여 Smartsheet에 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 Smartsheet를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -131,7 +131,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션에서 **사용자 Azure Active Directory 사용자를 Smartsheet에 동기화를**선택 합니다.
 

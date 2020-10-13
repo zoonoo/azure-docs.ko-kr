@@ -12,10 +12,10 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604328"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대 한 사용자 할당 관리
@@ -28,7 +28,7 @@ ms.locfileid: "90604328"
 > 애플리케이션에 그룹을 할당하면 그룹의 사용자만 액세스할 수 있습니다. 할당은 중첩된 그룹에 적용되지 않습니다.
 
 > [!NOTE]
-> 그룹 기반 할당에는 Azure Active Directory Premium P1 또는 P2 버전이 필요합니다. 그룹 기반 할당은 보안 그룹에만 지원됩니다. 중첩 된 그룹 멤버 자격 및 Microsoft 365 그룹은 현재 지원 되지 않습니다. 이 문서에서 설명하는 기능에 대한 추가 라이선스 요구 사항은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요. 
+> 그룹 기반 할당에는 Azure Active Directory Premium P1 또는 P2 버전이 필요합니다. 그룹 기반 할당은 보안 그룹에만 지원됩니다. 중첩된 그룹 멤버 자격 및 Microsoft 365 그룹은 현재 지원되지 않습니다. 이 문서에서 설명하는 기능에 대한 추가 라이선스 요구 사항은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요. 
 
 ## <a name="configure-an-application-to-require-user-assignment"></a>사용자 할당을 요구하도록 애플리케이션 구성
 

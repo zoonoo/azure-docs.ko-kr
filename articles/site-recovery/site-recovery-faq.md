@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
 ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88950496"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
@@ -224,7 +224,7 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 4. 루트 사용자에 대 한 execute 권한이 있는 "customscript.sh" 라는 bash 셸 스크립트를 만듭니다.<br>
     a. 스크립트는 "--pre" 및 "--post"를 지원 해야 합니다 (이중 대시 참고) 명령줄 옵션<br>
     b. 사전 옵션을 사용 하 여 스크립트를 호출 하는 경우 응용 프로그램 입/출력을 고정 하 고 사후 옵션을 사용 하 여 호출 하면 응용 프로그램 입/출력을 재개 해야 합니다.<br>
-    c. 샘플 템플릿-<br>
+    다. 샘플 템플릿-<br>
 
     `# cat customscript.sh`<br>
 

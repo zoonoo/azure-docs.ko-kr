@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
 ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448998"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>JIT (just-in-time) VM 액세스 이해
@@ -24,7 +24,7 @@ Azure Portal (Security Center 또는 Azure Virtual Machines)를 사용 하 여 V
 
 ## <a name="the-risk-of-open-management-ports-on-a-virtual-machine"></a>가상 머신에서 열린 관리 포트의 위험
 
-위협 행위자는 RDP 또는 SSH와 같은 개방형 관리 포트를 사용 하 여 액세스 가능한 컴퓨터를 적극적으로 사냥 합니다. 모든 가상 머신은 공격의 대상이 될 수 있습니다. VM이 성공적으로 손상 되 면 환경 내에서 추가 리소스를 공격 하는 진입점으로 사용 됩니다.
+위협 행위자는 RDP 또는 SSH와 같은 개방형 관리 포트를 사용 하 여 액세스 가능한 컴퓨터를 적극적으로 사냥 합니다. 모든 가상 머신은 공격의 대상이 될 수 있습니다. VM이 손상되면 사용자 환경 내 추가 리소스를 공격하는 진입점으로 사용됩니다.
 
 
 

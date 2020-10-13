@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: daperlov
 ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905304"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Azure Data Factory의 공통 데이터 모델 형식
@@ -35,22 +35,22 @@ Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 
 
 아래 표에서는 CDM 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 서식 | 형식은 이어야 합니다.`cdm` | 예 | `cdm` | format |
+| 형식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | 예 | `'manifest'` 또는 `'model'` | manifestType |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
-| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | no | String | entityPath |
+| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | 아니요 | String | entityPath |
 | 매니페스트 파일: 매니페스트 이름 | 매니페스트 파일의 이름입니다. 기본값은 ' 기본값 '입니다.  | 예 | String | manifestName |
-| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | no | 타임스탬프 | modifiedAfter <br> modifiedBefore | 
+| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore | 
 | 스키마 연결 된 서비스 | 모음가 있는 연결 된 서비스입니다. | 예, 매니페스트를 사용 하는 경우 | `'adlsgen2'` 또는 `'github'` | corpusStore | 
 | 엔터티 참조 컨테이너 | 컨테이너 모음는에 있습니다. | 예 (매니페스트 및 모음를 사용 하는 경우 ADLS Gen2 | String | adlsgen2_fileSystem |
 | 엔터티 참조 리포지토리 | GitHub 리포지토리 이름 | 예, GitHub에서 매니페스트 및 모음를 사용 하는 경우 | String | github_repository |
 | 엔터티 참조 분기 | GitHub 리포지토리 분기 | 예, GitHub에서 매니페스트 및 모음를 사용 하는 경우 | String |  github_branch |
 | 모음 폴더 | 모음의 루트 위치 | 예, 매니페스트를 사용 하는 경우 | String | corpusPath |
 | 모음 엔터티 | 엔터티 참조 경로 | 예 | String | 엔터티 |
-| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | no | `true` 또는 `false` | ignoreNoFilesFound |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 ### <a name="sink-settings"></a>싱크 설정
 
@@ -112,12 +112,12 @@ source(output(
 
 아래 표에서는 CDM 싱크에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 서식 | 형식은 이어야 합니다.`cdm` | 예 | `cdm` | format |
+| 형식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
-| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | no | String | entityPath |
+| 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | 아니요 | String | entityPath |
 | 매니페스트 파일: 매니페스트 이름 | 매니페스트 파일의 이름입니다. 기본값은 ' 기본값 '입니다. | 예 | String | manifestName |
 | 스키마 연결 된 서비스 | 모음가 있는 연결 된 서비스입니다. | 예 | `'adlsgen2'` 또는 `'github'` | corpusStore | 
 | 엔터티 참조 컨테이너 | 컨테이너 모음는에 있습니다. | 예, 모음의 경우에는 ADLS Gen2 | String | adlsgen2_fileSystem |
@@ -125,11 +125,11 @@ source(output(
 | 엔터티 참조 분기 | GitHub 리포지토리 분기 | 예 (GitHub의 모음 인 경우) | String |  github_branch |
 | 모음 폴더 | 모음의 루트 위치 | 예 | String | corpusPath |
 | 모음 엔터티 | 엔터티 참조 경로 | 예 | String | 엔터티 |
-| 파티션 경로 | 파티션이 기록 될 위치 | no | String | 파티션 경로 |
-| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | no | `true` 또는 `false` | truncate |
-| 형식 유형 | Parquet 형식을 지정 하려면 선택 합니다. | no | `parquet`지정 된 경우 | subformat |
+| 파티션 경로 | 파티션이 기록 될 위치 | 아니요 | String | 파티션 경로 |
+| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
+| 형식 유형 | Parquet 형식을 지정 하려면 선택 합니다. | 아니요 | `parquet` 지정 된 경우 | subformat |
 | 열 구분 기호 | DelimitedText에 쓰는 경우 열을 구분 하는 방법 | 예 (DelimitedText에 쓰는 경우) | String | columnDelimiter |
-| 첫 번째 행을 머리글로 | DelimitedText를 사용 하는 경우 열 이름이 헤더로 추가 되는지 여부 | no | `true` 또는 `false` | columnNamesAsHeader |
+| 첫 번째 행을 머리글로 | DelimitedText를 사용 하는 경우 열 이름이 헤더로 추가 되는지 여부 | 아니요 | `true` 또는 `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>CDM sink 데이터 흐름 스크립트 예제
 

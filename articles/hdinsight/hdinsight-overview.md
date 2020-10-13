@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: f66eaaa3be0b300f6a0aa68bd43a2c336f4b4d23
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 657c29b79c98adf1041c49c0315edfd4e9363a36
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526632"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804064"
 ---
 # <a name="what-is-azure-hdinsight"></a>Azure HDInsight란?
 
@@ -35,13 +35,13 @@ HDInsight에서 사용할 수 있는 Hadoop 기술 스택 구성 요소를 보�
 
 |기능  |Description  |
 |---------|---------|
-|네이티브 클라우드     |     Azure HDInsight를 사용하면 Azure에서 [Hadoop](./hadoop/apache-hadoop-linux-tutorial-get-started.md), [Spark](./spark/apache-spark-jupyter-spark-sql.md), [대화형 쿼리(LLAP)](./interactive-query/apache-interactive-query-get-started.md), [Kafka](./kafka/apache-kafka-get-started.md), [Storm](./storm/apache-storm-tutorial-get-started-linux.md), [HBase](./hbase/apache-hbase-tutorial-get-started-linux.md) 및  [ML 서비스](./r-server/r-server-overview.md)에 최적화된 클러스터를 만들 수 있습니다. 또한 HDInsight에서는 모든 프로덕션 워크로드에 엔드투엔드 SLA를 제공합니다.  |
-|저렴한 비용 및 확장성     | HDInsight를 사용하면 워크로드의 [크기를 조정](./hdinsight-administer-use-portal-linux.md#scale-clusters) 할 수 있습니다. [주문형 클러스터를 만들](./hdinsight-hadoop-create-linux-clusters-adf.md) 어서 비용을 줄이고 사용한 양만큼 요금을 지불하면 됩니다. 또한 작업을 운영하는 데이터 파이프라인을 작성할 수 있습니다. 분리된 컴퓨팅 및 스토리지로 인해 성능 및 유연성이 향상됩니다. |
-|보안 및 규정 준수    | HDInsight를 사용하면 [Azure Virtual Network](./hdinsight-plan-virtual-network-deployment.md), [암호화](./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및 [Azure Active Directory](./domain-joined/hdinsight-security-overview.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.        |
-|모니터링    | Azure HDInsight는 [Azure Monitor 로그](./hdinsight-hadoop-oms-log-analytics-tutorial.md)와 통합하여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.        |
-|전 세계 이용 가능 여부 | HDInsight는 다른 모든 빅 데이터 분석 제품보다 많은  [지역](https://azure.microsoft.com/regions/services/) 에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다. |  
-|생산성     |  Azure HDInsight를 사용하면 선호하는 개발 환경과 함께 Hadoop 및 Spark에 대한 풍부한 생산성 도구를 사용할 수 있습니다. 이러한 개발 환경에는 Scala, Python, R, Java 및 .NET 지원을 위한 [Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md), [VSCode](./hdinsight-for-vscode.md), [Eclipse](./spark/apache-spark-eclipse-tool-plugin.md) 및 [IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)가 포함됩니다. 데이터 과학자는 [Jupyter](./spark/apache-spark-jupyter-notebook-kernels.md) 및 [Zeppelin](./spark/apache-spark-zeppelin-notebook.md)과 같은 널리 사용되는 Notebook을 사용하여 공동 작업할 수도 있습니다.    |
-|확장성     |  [스크립트 작업](./hdinsight-hadoop-customize-cluster-linux.md)을 사용하는 구성 요소(Hue, Presto 등)를 설치하거나, [에지 노드를 추가](./hdinsight-apps-use-edge-node.md)하거나, [다른 빅 데이터 인증 애플리케이션과 통합](./hdinsight-apps-install-applications.md)하여 HDInsight 클러스터를 확장할 수 있습니다. HDInsight를 사용하면 [One-Click](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 통해 가장 널리 사용되는 빅 데이터 솔루션과 원활히 통합할 수 있습니다.|
+|네이티브 클라우드     |     Azure HDInsight를 사용하면 Azure에서 Hadoop, Spark,  [대화형 쿼리(LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase 및 ML Services에 최적화된 클러스터를 만들 수 있습니다. 또한 HDInsight에서는 모든 프로덕션 워크로드에 엔드투엔드 SLA를 제공합니다.  |
+|저렴한 비용 및 확장성     | HDInsight를 사용하면 워크로드의 크기를 조정할 수 있습니다. 주문형 클러스터를 만들어 사용한 양만큼만 요금을 지불하여 비용을 절감할 수 있습니다. 또한 작업을 운영하는 데이터 파이프라인을 작성할 수 있습니다. 분리된 컴퓨팅 및 스토리지로 인해 성능 및 유연성이 향상됩니다. |
+|보안 및 규정 준수    | HDInsight를 사용하면 Azure Virtual Network, 암호화 및 Azure Active Directory와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 규격 표준을 충족합니다.        |
+|모니터링    | Azure HDInsight는 Azure Monitor 로그와 통합하여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.        |
+|전 세계 이용 가능 여부 | HDInsight는 다른 어떤 빅 데이터 분석 제품보다 많은 지역에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다. |  
+|생산성     |  Azure HDInsight를 사용하면 선호하는 개발 환경과 함께 Hadoop 및 Spark에 대한 풍부한 생산성 도구를 사용할 수 있습니다. 이러한 개발 환경에는 Scala, Python, R, Java 및 .NET 지원을 위한 Visual Studio, VSCode, Eclipse 및 IntelliJ가 포함됩니다. 데이터 과학자는 Jupyter 및 Zeppelin과 같은 널리 사용되는 Notebook을 사용하여 공동 작업할 수도 있습니다.    |
+|확장성     |  스크립트 작업을 사용하는 구성 요소(Hue, Presto 등)를 설치하거나, 에지 노드를 추가하거나, 다른 빅 데이터 인증 애플리케이션과 통합하여 HDInsight 클러스터를 확장할 수 있습니다. HDInsight를 사용하면 One-Click 배포를 통해 가장 널리 사용되는 빅 데이터 솔루션과 원활히 통합할 수 있습니다.|
 
 ## <a name="scenarios-for-using-hdinsight"></a>HDInsight를 사용하는 시나리오
 
@@ -91,11 +91,11 @@ HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 �
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight의 오픈 소스 구성 요소
 
-Azure HDInsight를 사용하면 Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase 및 R과 같은 오픈 소스 프레임워크를 사용하여 클러스터를 만들 수 있습니다. 이러한 클러스터는 기본적으로 [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), [Avro](https://avro.apache.org/docs/current/spec.html), [Apache Hive](https://hive.apache.org), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), [Apache Mahout](https://mahout.apache.org/), [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), [Apache Phoenix](https://phoenix.apache.org/), [Apache Pig](https://pig.apache.org/), [Apache Sqoop](https://sqoop.apache.org/), [Apache Tez](https://tez.apache.org/), [Apache Oozie](https://oozie.apache.org/), [Apache ZooKeeper](https://zookeeper.apache.org/)와 같은 클러스터에 포함된 다른 오픈 소스 구성 요소와 함께 제공됩니다.  
+Azure HDInsight를 사용하면 Hadoop, Spark, Hive, LLAP, Kafka, Storm, HBase 및  R과 같은 오픈 소스 프레임워크를 사용하여 클러스터를 만들 수 있습니다. 이러한 클러스터는 기본적으로 Apache Ambari5, Avro5, Apache Hive3, HCatalog2, Apache Mahout2, Apache Hadoop MapReduce3, Apache Hadoop YARN2, Apache Phoenix3, Apache Pig3, Apache Sqoop3, Apache Tez3, Apache Oozie2 및 Apache ZooKeeper5와 같은 클러스터에 포함된 다른 오픈 소스 구성 요소와 함께 제공됩니다.  
 
 ## <a name="programming-languages-in-hdinsight"></a>HDInsight의 프로그래밍 언어
 
-HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터는 다양한 프로그래밍 언어를 지원합니다. 일부 프로그래밍 언어는 기본적으로 설치되지 않습니다. 기본적으로 설치되지 않은 라이브러리, 모듈 또는 패키지의 경우 [스크립트 동작을 사용하여 구성 요소를 설치합니다](./hdinsight-hadoop-script-actions-linux.md).
+HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터는 다양한 프로그래밍 언어를 지원합니다. 일부 프로그래밍 언어는 기본적으로 설치되지 않습니다. 기본적으로 설치되지 않은 라이브러리, 모듈 또는 패키지의 경우 스크립트 동작을 사용하여 구성 요소를 설치합니다.
 
 |프로그래밍 언어  |정보  |
 |---------|---------|
@@ -107,13 +107,10 @@ HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터�
 
 IntelliJ, Eclipse, Visual Studio Code 및 Visual Studio를 포함하여 HDInsight 개발 도구를 사용하여 Azure와의 원활한 통합으로 HDInsight 데이터 쿼리 및 작업을 작성하고 제출할 수 있습니다.
 
-* [IntelliJ용 Azure 도구 키트](./spark/apache-spark-intellij-tool-plugin.md)
-
-* [Eclipse용 Azure 도구 키트](./spark/apache-spark-eclipse-tool-plugin.md)
-
-* [VS Code용 Azure HDInsight 도구](./hdinsight-for-vscode.md)
-
-* [Visual Studio용 Azure Data Lake 도구](./hadoop/apache-hadoop-visual-studio-tools-get-started.md)
+* IntelliJ10용 Azure 도구 키트
+* Eclipse6용 Azure 도구 키트
+* VS Code13용 Azure HDInsight 도구
+* Visual Studio9용 Azure 데이터 레이크 도구
 
 ## <a name="business-intelligence-on-hdinsight"></a>HDInsight의 비즈니스 인텔리전스
 
@@ -143,5 +140,4 @@ Kafka 및 HBase는 고객 데이터를 저장합니다. 이 데이터는 Kafka�
 
 * [HDInsight에서 Apache Hadoop 클러스터 만들기](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
 * Apache Spark 클러스터 만들기 - Portal
-* [Azure HDInsight에 대한 가상 네트워크 계획](hdinsight-plan-virtual-network-deployment.md)
 * [Azure HDInsight의 엔터프라이즈 보안](./domain-joined/hdinsight-security-overview.md)

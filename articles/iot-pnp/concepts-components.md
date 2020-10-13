@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574282"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>모델의 IoT 플러그 앤 플레이 구성 요소
 
-Iot 플러그 앤 플레이 규칙에서 장치는 iot hub에 연결할 때 dtdl (디지털 쌍 정의 언어) 모델 ID가 표시 되는 경우 iot 플러그 앤 플레이 장치입니다.
+IoT 플러그 앤 플레이 규칙에서 디바이스는 IoT Hub에 연결할 때 DTDL(디지털 트윈 정의 언어) 모델 ID를 제공하는 경우 IoT 플러그 앤 플레이 디바이스입니다.
 
-다음 코드 조각에서는 몇 가지 예제 모델 Id를 보여 줍니다.
+다음 코드 조각에서 몇 가지 모델 ID 예를 보여 줍니다.
 
 ```json
  "@id": "dtmi:com:example:TemperatureController;1"

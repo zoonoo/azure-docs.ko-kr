@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0583852f0be590eb1c6a4b53047f94b3ea0fbaa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95dc5b70174cd738104260aac2e175c0657d9c90
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447823"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966205"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -178,11 +178,36 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다. IoT Edge 런타임을 가상 머신에 설치합니다.
 
-디바이스 유형과 일치하는 문서를 시작하기 전에 DPS **ID 범위** 및 디바이스 **등록 ID**를 알아야 합니다. 예제 Ubuntu 서버를 설치했으면 **x64** 지침을 사용합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다.
+[Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 수행한 다음이 문서로 돌아와서 장치를 프로 비전 합니다.
 
-보안 데몬을 구성 하는 단계에 대 한 자세한 내용은 다음을 확인 하 고 [옵션 2 자동 프로 비전](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) 및 TPM 증명 구성을 선택 합니다.
+## <a name="configure-the-device-with-provisioning-information"></a>프로 비전 정보를 사용 하 여 장치 구성
 
-[Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
+런타임이 장치에 설치 되 면 장치 프로 비전 서비스에 연결 하는 데 사용 하는 정보를 사용 하 여 장치를 구성 하 고 IoT Hub 합니다.
+
+1. 이전 섹션에서 수집 된 DPS **Id 범위** 및 장치 **등록 id** 를 확인 합니다.
+
+1. IoT Edge 장치에서 구성 파일을 엽니다.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. 파일의 프로 비전 구성 섹션을 찾습니다. TPM 프로 비전에 대 한 줄의 주석 처리를 제거 하 고 다른 프로 비전 줄이 주석 처리 되었는지 확인 합니다.
+
+   `provisioning:`줄은 앞에 공백이 없어야 하며 중첩 항목은 두 개의 공백으로 들여쓰기 되어야 합니다.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. 및의 값을 `scope_id` `registration_id` DPS 및 장치 정보로 업데이트 합니다.
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>TPM에 대한 IoT Edge 액세스 권한 부여
 

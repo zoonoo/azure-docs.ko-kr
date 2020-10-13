@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574146"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
@@ -74,7 +74,7 @@ Azure AD 보안 그룹을 만드는 방법 및 그룹에 사용자를 추가 하
    
     ![보안 그룹 추가](./media/data-lake-store-secure-data/adl.add.user.2.png "보안 그룹 추가")
    
-5. **저장**을 클릭합니다. 아래와 같이 추가된 보안 그룹을 확인해야 합니다.
+5. **Save**을 클릭합니다. 아래와 같이 추가된 보안 그룹을 확인해야 합니다.
    
     ![추가된 보안 그룹](./media/data-lake-store-secure-data/adl.add.user.3.png "추가된 보안 그룹")
 
@@ -147,11 +147,11 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
    
     ![데이터 엔지니어링 옵션이 out 인 액세스 블레이드의 스크린샷 및 Remove 옵션이 out 인 액세스 정보 블레이드](./media/data-lake-store-secure-data/adl.remove.acl.png "그룹에 권한 할당")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [PowerShell을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)
-* [.NET SDK를 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-net-sdk.md)
+* [.NET SDK를 사용 하 여 Data Lake Storage Gen1 시작](data-lake-store-get-started-net-sdk.md)
 * [Data Lake Storage Gen1에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)

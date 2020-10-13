@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571416"
 ---
-# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>단일 볼륨 Azure NetApp Files Oracle 데이터베이스 성능
+# <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능
 
 이 문서에서는 클라우드의 Oracle에 대 한 다음 항목을 다룹니다. 이러한 항목은 데이터베이스 관리자, 클라우드 설계자 또는 저장소 설계자에 게 특히 관심이 있을 수 있습니다.   
 

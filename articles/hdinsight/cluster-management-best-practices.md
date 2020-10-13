@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648698"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 클러스터 관리 모범 사례
@@ -21,7 +21,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="how-do-i-create-hdinsight-clusters"></a>HDInsight 클러스터를 만들 어떻게 할까요? 있나요?
 
-| 옵션 | Documents |
+| 옵션 | 문서 |
 |---|---|
 | Azure 데이터 팩터리 | [Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | 사용자 지정 리소스 관리자 템플릿 | [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
@@ -38,7 +38,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="how-do-i-customize-hdinsight-clusters"></a>HDInsight 클러스터를 사용자 지정 어떻게 할까요??
 
-| 옵션 | Documents |
+| 옵션 | 문서 |
 |---|---|
 | 스크립트 작업 | [스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md) |
 | 부트스트랩 | [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
@@ -56,7 +56,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="how-do-i-manage-running-hdinsight-clusters"></a>실행 중인 HDInsight 클러스터를 관리 어떻게 할까요??
 
-| 옵션 | Documents |
+| 옵션 | 문서 |
 |---|---|
 | 자동 크기 조정 | [Azure HDInsight 클러스터 자동 크기 조정](./hdinsight-autoscale-clusters.md) |
 | 수동 크기 조정 | [Azure HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md) |

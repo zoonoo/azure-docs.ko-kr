@@ -4,10 +4,10 @@ description: 풀 자동 크기 조정을 실행 한 후에 내보내는 일괄 �
 ms.topic: reference
 ms.date: 10/08/2020
 ms.openlocfilehash: e548ed484e5f683a8f79434ce4095ac66900f01a
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91852181"
 ---
 # <a name="pool-autoscale-event"></a>풀 자동 크기 조정 이벤트
@@ -38,8 +38,8 @@ ms.locfileid: "91852181"
 |-------------|----------|-----------|
 |`id`|String|풀의 ID입니다.|
 |`timestamp`|DateTime|자동 크기 조정이 실행 되는 타임 스탬프입니다.|
-|`formula`|문자열|자동 크기 조정을 위해 정의 된 수식입니다.|
-|`results`|문자열|수식에 사용 된 모든 변수에 대 한 평가 결과입니다.|
+|`formula`|String|자동 크기 조정을 위해 정의 된 수식입니다.|
+|`results`|String|수식에 사용 된 모든 변수에 대 한 평가 결과입니다.|
 |[`error`](#error)|복합 형식|자동 크기 조정에 대 한 자세한 오류입니다.|
 
 ###  <a name="error"></a><a name="error"></a>개 오류
@@ -47,5 +47,5 @@ ms.locfileid: "91852181"
 |요소 이름|Type|메모|
 |------------------|----------|-----------|
 |`code`|String|자동 크기 조정 오류에 대 한 식별자입니다. 코드는 고정 이며 프로그래밍 방식으로 사용 하기 위한 것입니다.|
-|`message`|문자열|사용자 인터페이스에 표시 하기에 적합 한 자동 크기 조정 오류를 설명 하는 메시지입니다.|
+|`message`|String|사용자 인터페이스에 표시 하기에 적합 한 자동 크기 조정 오류를 설명 하는 메시지입니다.|
 |`values`|배열|자동 크기 조정 오류에 대 한 자세한 정보를 설명 하는 이름-값 쌍의 목록입니다.|

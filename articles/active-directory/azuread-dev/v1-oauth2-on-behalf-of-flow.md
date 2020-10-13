@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117739"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
@@ -283,9 +283,9 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 - ext_expires_in: 0
 - expires_on: 1529627844
 - resource: `https://api.contoso.com`
-- access_token:\<SAML assertion\>
+- access_token: \<SAML assertion\>
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token:\<Refresh token\>
+- refresh_token: \<Refresh token\>
 
 ## <a name="client-limitations"></a>클라이언트 제한 사항
 

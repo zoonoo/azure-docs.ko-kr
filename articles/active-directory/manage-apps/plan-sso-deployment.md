@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603342"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
@@ -158,8 +158,8 @@ MCAS에 대 한 자세한 내용은 [Microsoft Cloud App Security 개요](https:
 사전 통합 된 모든 SaaS 앱에 대해 Microsoft는 자습서를 제공 하며,이 정보는 필요 하지 않습니다. 응용 프로그램이 응용 프로그램 마켓플레이스/갤러리에 없는 경우 다음 데이터를 수집 해야 할 수 있습니다.
 
 - **응용 프로그램이 SSO에 대해 사용 하는 현재 id 공급자** (예: AD FS, 공동 페더레이션, okta)
-- **대상 응용 프로그램에서 지 원하는 프로토콜** (예: SAML 2.0, openid connect Connect, OAuth, 폼 기반 인증, Ws-신뢰
-- **AZURE AD를 사용 하 여 구성 되는 프로토콜** (예: SAML 2.0 또는 1.1, openid connect Connect, OAuth, Forms 기반, WS-급지됨)
+- **대상 응용 프로그램에서 지 원하는 프로토콜** (예: SAML 2.0, openid connect Connect, OAuth, Forms-Based AUTH, WS-급지됨, WS-Trust
+- **AZURE AD를 사용 하 여 구성 되는 프로토콜** (예: SAML 2.0 또는 1.1, openid connect Connect, OAuth, Forms 기반, WS-Fed
 
 ### <a name="attribute-requirements"></a>특성 요구 사항
 
@@ -235,11 +235,11 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 | Persona| 역할 | Azure AD 역할 (필요한 경우) |
 |--------|-------|-----------------------------|
-| 지원 센터 관리자 | 계층 1 지원 | None |
+| 지원 센터 관리자 | 계층 1 지원 | 없음 |
 | Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 글로벌 관리자 |
-| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | None |
+| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
 | 인프라 관리자 | 인증서 롤오버 소유자 | 글로벌 관리자 |
-| 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | None |
+| 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
 
 디렉터리 사용 권한을 가진 사용자에 대 한 추가 감사, 제어 및 액세스 검토를 제공 하기 위해 PIM ( [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) )을 사용 하 여 역할을 관리 하는 것이 좋습니다.
 

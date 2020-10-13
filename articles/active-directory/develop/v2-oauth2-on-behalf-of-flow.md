@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88958663"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
@@ -61,7 +61,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
@@ -93,7 +93,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 |  [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |

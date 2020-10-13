@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
 ms.openlocfilehash: d63893ab219854a270652da38c474e3ccad83abc
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630511"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
@@ -76,7 +76,7 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
    - Syslog RFC 5424
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
-- 권한
+- 사용 권한
     - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
 - 소프트웨어 요구 사항
     - 컴퓨터에서 Python (2.7 이상)이 실행 되 고 있는지 확인 합니다.

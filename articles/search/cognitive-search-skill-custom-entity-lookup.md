@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: 5511551f240fe4fdd2f2aa3bc8a3a2615505f35f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936115"
 ---
 #     <a name="custom-entity-lookup-cognitive-skill-preview"></a>사용자 지정 엔터티 조회 인식 기술 (미리 보기)
@@ -45,16 +45,16 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | Description                   |
+| 입력 이름      | 설명                   |
 |---------------|-------------------------------|
 | `text`          | 분석할 텍스트입니다.          |
-| `languageCode`    | 선택 사항입니다. 기본값은 `"en"`입니다.  |
+| `languageCode`    | (선택 사항) 기본값은 `"en"`입니다.  |
 
 
 ## <a name="skill-outputs"></a>기술 출력
 
 
-| 출력 이름      | Description                   |
+| 출력 이름      | 설명                   |
 |---------------|-------------------------------|
 | `entities` | 찾은 일치 항목 및 관련 메타 데이터에 대 한 정보를 포함 하는 개체의 배열입니다. 식별 된 각 엔터티에는 다음과 같은 필드가 포함 될 수 있습니다.  <ul> <li> *이름*: 최상위 엔터티를 식별 합니다. 엔터티는 "정규화 된" 형식을 나타냅니다. </li> <li> *id*: "사용자 지정 엔터티 정의 형식"에서 사용자가 정의한 엔터티의 고유 식별자입니다.</li> <li> *설명*: 사용자가 "사용자 지정 엔터티 정의 형식"으로 정의한 엔터티 설명입니다. </li> <li> *유형:* 사용자가 "사용자 지정 엔터티 정의 형식"으로 정의한 엔터티 형식입니다.</li> <li> *하위 유형:* 사용자가 "사용자 지정 엔터티 정의 형식"으로 정의한 엔터티 하위 형식입니다.</li>  <li> *matches*: 소스 텍스트의 해당 엔터티와 일치 하는 각 항목을 설명 하는 컬렉션입니다. 각 일치 항목에는 다음 멤버가 포함 됩니다. </li> <ul> <li> *text*: 소스 문서와 일치 하는 원시 텍스트입니다. </li> <li> *offset*: 텍스트에서 일치 항목을 찾은 위치입니다. </li> <li> *length*: 일치 하는 텍스트의 길이입니다. </li> <li> *Matchdistance*:이와 일치 하는 문자 수가 원래 엔터티 이름 또는 별칭과 다릅니다.  </li> </ul> </ul>
   |
@@ -69,7 +69,7 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 
 ### <a name="csv-format"></a>CSV 형식
 
-파일에 대 한 경로를 제공 하 고 *Entif Definitionuri*  기술 매개 변수에서 설정 하 여 CSV (쉼표로 구분 된 값) 파일에서 찾을 사용자 지정 엔터티의 정의를 제공할 수 있습니다. 경로는 https 위치에 있어야 합니다. 정의 파일의 크기는 최대 10mb 일 수 있습니다.
+파일에 대 한 경로를 제공 하 고 *Entif Definitionuri*  기술 매개 변수에서 설정 하 여 CSV (Comma-Separated 값) 파일에서 찾을 사용자 지정 엔터티의 정의를 제공할 수 있습니다. 경로는 https 위치에 있어야 합니다. 정의 파일의 크기는 최대 10mb 일 수 있습니다.
 
 CSV 형식은 간단 합니다. 각 줄은 아래와 같이 고유한 엔터티를 나타냅니다.
 
@@ -156,7 +156,7 @@ JSON 정의의 좀 더 복잡 한 예는 필요에 따라 각 엔터티의 id, �
 | `defaultFuzzyEditDistance` | 필드 이 엔터티에 대 한 기본 유사 항목 편집 거리 값을 변경 합니다. 모든 별칭 fuzzyEditDistance 값의 기본값을 변경 하는 데 사용할 수 있습니다. |
 | `aliases` | 필드 루트 엔터티 이름에 대 한 대체 철자 또는 동의어를 지정 하는 데 사용할 수 있는 복합 개체의 배열입니다. |
 
-| 별칭 속성 | Description |
+| 별칭 속성 | 설명 |
 |------------------|-------------|
 | `text`  | 일부 대상 엔터티 이름의 대체 철자 또는 표현입니다.  |
 | `caseSensitive` | 필드 위의 루트 엔터티 "caseSensitive" 매개 변수와 동일 하 게 작동 하지만이 별칭 하나에만 적용 됩니다. |

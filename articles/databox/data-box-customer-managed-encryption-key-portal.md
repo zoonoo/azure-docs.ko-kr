@@ -9,10 +9,10 @@ ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91739938"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용
@@ -23,7 +23,7 @@ Azure Data Box는 암호화 키를 통해 장치를 잠그는 데 사용 되는 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)의 Azure Data Box에서 고객이 관리 하는 키를 사용 하는 방법을 보여 줍니다. 이 문서는 Azure Data Box 장치와 Azure Data Box Heavy 장치에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
