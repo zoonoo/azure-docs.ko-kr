@@ -1,18 +1,25 @@
 ---
 title: Bridge to Kubernetes로 마이그레이션
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스를 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
-ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997168"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962856"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
+
+> [!IMPORTANT]
+> Azure Dev Spaces는 2023 년 10 월 31 일에 사용 중지 됩니다. 개발자는 클라이언트 개발자 도구인 Kubernetes에 대 한 Bridge 사용으로 이동 해야 합니다.
+>
+> Azure Dev Spaces 목적은 개발자가 Kubernetes에서 개발 하는 것을 간소화 하는 것 이었습니다. Azure Dev Spaces 접근 방식의 중요 한 단점은 Docker 및 Kubernetes 구성 뿐만 아니라 Kubernetes 배포 개념을 이해 하기 위해 개발자에 게 추가 부담을 주는 것입니다. 시간이 지남에 따라 Azure Dev Spaces의 접근 방식이 Kubernetes에서 내부 루프 개발 속도를 효과적으로 저하 하지 않았음을 알 수 있습니다. Kubernetes에 연결 하면 내부 루프 개발 속도가 효과적으로 줄어들고 개발자에 대 한 불필요 한 부담을 피할 수 있습니다.
+>
+> 핵심 업무는 변경 되지 않은 상태로 유지 됩니다. 더 큰 응용 프로그램의 컨텍스트에서 마이크로 서비스 코드를 개발, 테스트 및 디버그 하기 위한 최상의 개발자 환경을 구축 합니다.
 
 Kubernetes에 연결 하면 Azure Dev Spaces와 함께 작동 하는 여러 개발 시나리오에 대 한 보다 간단한 가중치를 제공 합니다. Kubernetes에 대 한 브리지는 [Visual Studio][vs]   및 [Visual Studio Code][vsc]에서 확장을 사용 하는 클라이언트 쪽 전용 환경입니다.  
 

@@ -6,10 +6,10 @@ ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
 ms.openlocfilehash: d2b303c22eea9fb46a68bb3c8e36991d47d61554
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817734"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
@@ -91,7 +91,7 @@ Bronze 내구성으로 실행되는 노드 형식은 권한 없음이 됩니다.
 
 #### <a name="advantages"></a>장점
 
-* 확장 작업에 필요한 단계 수를 줄입니다 (노드 비활성화 및 Remove-servicefabricnodestate는 자동으로 호출 됨).
+* 확장 작업에 필요한 단계 수를 줄입니다 (노드 비활성화 및 Remove-ServiceFabricNodeState가 자동으로 호출 됨).
 * 내부 VM 크기 변경 작업 및 Azure 인프라 작업으로 인 한 데이터 손실 위험을 줄입니다.
 
 #### <a name="disadvantages"></a>단점

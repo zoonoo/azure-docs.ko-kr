@@ -115,13 +115,13 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Azure VM 기술 자산 만들기
               items:
-                - name: 가상 머신 인증 - 문제 및 해결
+                - name: 가상 머신 인증 문제
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Azure VM 기술 자산 만들기
                   href: partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Azure VM 기술 자산 FAQ
                   href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: VHD에서 배포된 Virtual Machine 테스트
+                - name: VHD에서 배포된 가상 머신 테스트
                   href: partner-center-portal/azure-vm-image-certification.md
                 - name: SAS URI
                   items:
@@ -324,17 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: Cloud 파트너 포털 마이그레이션 FAQ
       href: cloud-partner-portal-migration-faq.md
+    - name: 비즈니스 기회 업무 시간
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: 기술 및 게시 업무 시간
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: 파트너 센터 지원 옵션
       href: partner-center-portal/support.md
+    - name: 파트너 센터 공지
+      href: /partner-center/announcements
+    - name: Microsoft 파트너 커뮤니티
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: 파트너 커뮤니티 포럼
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: 지리적 가용성 및 통화
       href: marketplace-geo-availability-currencies.md
+    - name: 테넌트 및 개체 ID 찾기
+      href: find-tenant-object-id.md
     - name: 지원되는 국가 및 지역
       href: sell-from-countries.md
-    - name: 지원되는 HTML 태그
-      href: supported-html-tags.md
     - name: 공동 판매 국가 및 지역 코드
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: 공동 판매 상태 코드
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: '포럼, 블로그 및 빠른 링크'
-      href: marketplace-roadmap.md
+    - name: 지원되는 HTML 태그
+      href: supported-html-tags.md

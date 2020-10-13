@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2c642b2441d1f30c31e707a237732e028f548ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65462937db4711066bdb8b31cc22de508321d701
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298184"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950910"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Azure Digital Twins CLI 사용
 
@@ -35,13 +35,13 @@ Azure digital Twins는 Azure Portal에서 Azure Digital Twins 인스턴스를 �
 
 ## <a name="get-the-extension"></a>확장 가져오기
 
-Azure Digital Twins 명령은 [Azure CLI에 대 한 Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension)의 일부입니다. 이러한 명령에 대 한 참조 설명서는 `az iot` [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)명령 집합의 일부로 볼 수 있습니다.
+Azure Digital Twins 명령은 [Azure CLI에 대 한 Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension)의 일부입니다. 명령 `az iot` 집합: [ *az dt* command reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)에 대 한 참조 설명서의 일부로 전체 명령과 사용의 전체 목록을 볼 수 있습니다.
 
-이러한 단계를 통해 확장의 최신 버전이 있는지 확인할 수 있습니다. [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [로컬 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 이러한 명령을 실행할 수 있습니다.
+이러한 단계를 통해 확장의 최신 버전이 있는지 확인할 수 있습니다. [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [로컬 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)에서 이러한 명령을 실행할 수 있습니다.
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-CLI 명령에 대 한 대안은 Api 및 Sdk를 사용 하 여 Azure Digital Twins 인스턴스를 관리 하는 방법을 참조 하세요.
-* [*방법: Azure Digital Twins Api 및 Sdk 사용*](how-to-use-apis-sdks.md)
+참조 문서를 통해 CLI 및 전체 명령 집합을 탐색 합니다.
+* [*az dt* 명령 참조](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f92a6277765447cbc1a9b12f06c3ec49548f4d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c35fb314af27b1ced129a12f752d0a2794e0f8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513443"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949907"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리
 
@@ -63,11 +63,11 @@ ACR을 추가하려면 다음 단계를 수행합니다.
 
     3. **추가**를 클릭하여 ACR을 만듭니다.
 
-        ![ACR 추가 클릭](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![ACR 2 추가를 클릭 합니다.](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  새로 추가된 테이블 형식의 ACR 목록에 표시됩니다.
 
-    ![ACR 추가 클릭](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![ACR 3 추가를 클릭 합니다.](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## <a name="edit-an-access-control-record"></a>액세스 제어 레코드 편집
@@ -89,11 +89,11 @@ ACR을 편집하려면 다음 단계를 수행합니다.
 
 3. **액세스 제어 레코드 편집** 블레이드에서 다른 호스트에 해당하는 다른 IQN을 제공합니다.
 
-    ![액세스 제어 레코드 편집](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![액세스 제어 레코드 편집 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. **저장**을 클릭합니다. 확인 메시지가 표시되면 **예**를 클릭합니다. 
+4. **Save**을 클릭합니다. 확인 메시지가 표시되면 **예**를 클릭합니다. 
 
-    ![액세스 제어 레코드 편집](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![액세스 제어 레코드 편집 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. ACR이 업데이트되면 알림이 제공됩니다. 이러한 변경을 반영하도록 테이블 형식 목록도 업데이트됩니다.
 
@@ -109,23 +109,23 @@ StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션을
 #### <a name="to-delete-an-access-control-record"></a>액세스 제어 레코드를 삭제하려면
 1.  StorSimple 디바이스 관리자 서비스로 이동한 후 서비스 이름을 두 번 클릭하고 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
 
-    ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![액세스 제어 레코드 1b로 이동](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. 액세스 제어 레코드의 테이블 형식 목록에서 삭제하려는 ACR을 클릭하여 선택합니다.
 
-    ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![액세스 제어 레코드 2로 이동 합니다.](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 호출하고 **삭제**를 선택합니다.
 
-    ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![액세스 제어 레코드 3으로 이동](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. 확인을 위한 메시지가 나타나면 정보를 검토하고 **삭제**를 클릭합니다.
 
-    ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![액세스 제어 레코드 4로 이동 합니다.](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. 삭제가 완료되면 알림이 표시됩니다. 테이블 형식 목록이 삭제를 반영하도록 업데이트됩니다.
 
-    ![액세스 제어 레코드로 이동](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![액세스 제어 레코드 5로 이동](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple 볼륨 관리](storsimple-8000-manage-volumes-u2.md)에 대해 자세히 알아봅니다.

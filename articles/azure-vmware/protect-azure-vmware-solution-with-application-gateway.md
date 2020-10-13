@@ -3,12 +3,12 @@ title: Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션
 description: Azure VMware 솔루션에서 실행 되는 웹 앱을 안전 하 게 노출 하도록 Azure 애플리케이션 게이트웨이를 구성 합니다.
 ms.topic: how-to
 ms.date: 07/31/2020
-ms.openlocfilehash: ad7cd36d77da41d75ea9dcc18a51d0ffc5540d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b63b7348419500504cb45917d741cc17e2b8a622
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580109"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951454"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션에서 웹 앱 보호
 
@@ -146,4 +146,4 @@ Azure 애플리케이션 Gateway를 사용 하 여 URL 경로 기반 라우팅 �
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 구성 예제는 [Azure 애플리케이션 Gateway 설명서](https://docs.microsoft.com/azure/application-gateway/) 를 검토 하세요.
+추가 구성 예제는 [Azure 애플리케이션 Gateway 설명서](../application-gateway/index.yml) 를 검토 하세요.

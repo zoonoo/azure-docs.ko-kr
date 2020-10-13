@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4d915cee962546e355ee9d53c683581730bbbf36
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778857"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930155"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Id 웹 인증 라이브러리
 
@@ -44,6 +44,7 @@ Microsoft Identity Web은 NuGet에서 앱의 요구에 따라 모듈형 기능�
 - [Microsoft. Identity](https://www.nuget.org/packages/Microsoft.Identity.Web) -주 패키지입니다. Microsoft Identity Web을 사용 하는 모든 앱에 필요 합니다.
 - [Microsoft. id](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) -선택 사항입니다. 사용자 로그인 및 로그 아웃 및 웹 앱에 대 한 연결 된 컨트롤러에 대 한 UI를 추가 합니다.
 - [Microsoft.azure.webjobs.extensions.microsoftgraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) -선택 사항입니다. Microsoft Graph API와의 간소화 된 상호 작용을 제공 합니다.
+- [MicrosoftGraphBeta](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraphBeta) -선택 사항입니다. Microsoft Graph API [beta 끝점과](/graph/api/overview?view=graph-rest-beta&preserve-view=true)의 간소화 된 상호 작용을 제공 합니다.
 
 #### <a name="project-templates"></a>프로젝트 템플릿
 
@@ -69,7 +70,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;000000
 
 #### <a name="github"></a>GitHub
 
-Microsoft Identity Web은 GitHub: [AzureAD/microsoft-Identity-Web](https://github.com/AzureAD/microsoft-identity-web?azure-portal=true) 에서 호스트 되는 오픈 소스 프로젝트입니다.
+Microsoft Identity Web은 GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-Identity-Web <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 에서 호스트 되는 오픈 소스 프로젝트입니다.
 
 [리포지토리 wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) 에는 추가 설명서가 포함 되어 있습니다. 도움이 필요 하거나 버그를 검색 하는 경우 [문제](https://github.com/AzureAD/microsoft-identity-web/issues)를 해결할 수 있습니다.
 
@@ -81,14 +82,14 @@ Microsoft Identity Web에는 기본 ASP.NET 3.1 프로젝트 템플릿을 사용
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | 웹 앱에서 [사용자 로그인](scenario-web-app-sign-user-app-configuration.md)             | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
 | [웹 Api 보호](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
-| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | 예                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](/azure/active-directory-b2c) |
-| 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 예                                                                   | 예                                                                                                     |
-| 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 예                                                                   | 예                                                                                                     |
-| 인증서 자격 증명 지원                                                         | 예                                                                   | 예, Azure Key Vault 포함                                                                          |
-| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | 예                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
-| 웹 Api의 토큰 암호화 인증서                                                | 예                                                                   | 예                                                                                                     |
-| [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 예                                                                   | 예                                                                                                     |
-| `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 예                                                                   | 예                                                                                                     |
+| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | 아니요                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](/azure/active-directory-b2c) |
+| 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 아니요                                                                   | 예                                                                                                     |
+| 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 아니요                                                                   | 예                                                                                                     |
+| 인증서 자격 증명 지원                                                         | 아니요                                                                   | 예, Azure Key Vault 포함                                                                          |
+| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | 아니요                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
+| 웹 Api의 토큰 암호화 인증서                                                | 아니요                                                                   | 예                                                                                                     |
+| [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 아니요                                                                   | 예                                                                                                     |
+| `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 아니요                                                                   | 예                                                                                                     |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -98,8 +99,8 @@ Microsoft Identity Web에는 기본 ASP.NET 3.1 프로젝트 템플릿을 사용
 
 GitHub의 Microsoft Identity 웹 wiki에는 라이브러리의 다양 한 기능에 대 한 광범위 한 참조 설명서가 포함 되어 있습니다. 예를 들어 인증서 사용, 증분 승인 및 조건부 액세스 참조는 다음 위치에서 찾을 수 있습니다.
 
-- [Microsoft에서 인증서 사용](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates?azure-portal=true) (GitHub)
-- [증분 동의 및 조건부 액세스](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access?azure-portal=true) (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Microsoft. Identity. Web <span class="docon docon-navigate-external x-hidden-focus"></span> 에서 certificate 사용</a> GitHub
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">증분 동의 및 조건부 액세스 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> GitHub
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->

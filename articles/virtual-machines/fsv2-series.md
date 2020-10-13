@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651924"
 ---
 # <a name="fsv2-series"></a>Fsv2 시리즈
 
 Fsv2 시리즈는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake) 프로세서 및 Intel® Xeon® Platinum 8168 (Skylake) 프로세서에서 실행 됩니다. 3.4 g h z의 모든 코어 터보 클록 속도와 3.7 g h z의 최대 싱글 코어 터보 주파수를 제공 합니다. Intel® AVX-512 지침은 Intel 확장 가능한 프로세서에 새로 있습니다. 이러한 지침은 단일 및 배정밀도 부동 소수점 연산에 대 한 벡터 처리 워크 로드에 대해 최대 2 배의 성능 향상을 제공 합니다. 즉, 계산 워크 로드에 대해 매우 빠릅니다.
 
-Fsv2 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
+Fsv2 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 
 [Acu](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>

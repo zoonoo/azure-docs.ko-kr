@@ -2,19 +2,17 @@
 title: Azure Monitor 통합 문서 텍스트 매개 변수
 description: 미리 빌드된 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고를 간소화 합니다. 통합 문서 텍스트 매개 변수에 대해 자세히 알아보세요.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: c804cc8942a40e2f30c980636194daa82e0fb0e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7241777c0b94ce7ccadbd273c5c305c679bfe30a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "81687338"
+ms.locfileid: "91932314"
 ---
 # <a name="workbook-text-parameters"></a>통합 문서 텍스트 매개 변수
 

@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575482"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950366"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -21,10 +21,10 @@ Microsoft Azure native tools를 사용 하 여 Azure 환경에서 Vm (가상 머
 - Azure Automation에서 Azure 업데이트 관리를 사용 하 여 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리할 수 있습니다. 
 - Azure Security Center는 다음과 같은 고급 위협 방지 기능을 제공 합니다.
     - 파일 무결성 모니터링
-    - Fileless 보안 경고
+    - 파일리스 보안 경고
     - 운영 체제 패치 평가
-    - 보안 잘못 평가
-    - Endpoint protection 평가 
+    - 잘못된 보안 구성 평가
+    - Endpoint Protection 평가 
 - 새 Vm에 대해 Azure ARC를 사용 하 여 Microsoft Monitoring Agent (MMA)를 쉽게 배포 합니다. 
 - Azure Monitor의 Log Analytics 작업 영역에서는 MMA 또는 확장을 사용 하 여 로그 수집 및 성능 카운터를 수집할 수 있습니다. 데이터 및 로그를 단일 지점으로 수집 하 고 해당 데이터를 다른 Azure 네이티브 서비스에 제공 합니다. 
 - Azure Monitor의 이점은 다음과 같습니다. 
@@ -58,7 +58,7 @@ Azure Automation의 **Azure 업데이트 관리** 는 하이브리드 환경에�
 
 **Azure Security Center** 는 클라우드 및 온-프레미스에서 하이브리드 워크 로드에 대해 고급 위협 방지 기능을 제공 합니다. Azure VMware 솔루션 Vm의 취약성을 평가 하 고 필요에 따라 경고를 발생 시킵니다. 이러한 보안 경고를 Azure Monitor에 전달 하 여 해결할 수 있습니다.
 - Azure Security Center는 배포가 필요 하지 않습니다. 자세한 내용은 [가상 컴퓨터에 대해 지원 되는 기능](../security-center/security-center-services.md)목록을 참조 하세요.
-- Azure Security Center에 Azure VMware 솔루션 Vm 및 비 Azure Vm을 추가 하려면 [Windows 컴퓨터를 Azure Security Center](../security-center/quick-onboard-windows-computer.md) 및 [온보드 Linux 컴퓨터에 Azure Security Center에](../security-center/quick-onboard-linux-computer.md)등록을 참조 하세요.
+- Azure Security Center에 Azure VMware 솔루션 Vm 및 비 Azure Vm을 추가 하려면 [Windows 컴퓨터를 Azure Security Center](../security-center/quickstart-onboard-machines.md) 및 [온보드 Linux 컴퓨터에 Azure Security Center에](../security-center/quickstart-onboard-machines.md)등록을 참조 하세요.
 - Vm을 추가한 후 Azure Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취약성을 식별 합니다. 또한 개요 탭에서 권장 사항을 제공 합니다. 자세한 내용은 [Azure Security Center의 보안 권장 사항](../security-center/security-center-recommendations.md)을 참조 하세요.
 - Azure Security Center에서 보안 정책을 정의할 수 있습니다. 보안 정책을 구성 하는 방법에 대 한 자세한 내용은 [보안 정책](../security-center/tutorial-security-policy.md)사용을 참조 하세요.
 

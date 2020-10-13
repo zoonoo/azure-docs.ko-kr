@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445718"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973583"
 ---
 # <a name="deploy-azure-sql-edge"></a>Azure SQL Edge 배포 
 
@@ -25,8 +25,7 @@ Azure SQL Edge는 IoT 및 Azure IoT Edge 배포에 최적화된 관계형 데이
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 * [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
-* [Azure Portal에서 IoT Edge 디바이스](../iot-edge/how-to-register-device-portal.md)를 등록합니다.
-* [Azure Portal에서 IoT Edge 모듈을 배포](../iot-edge/how-to-deploy-modules-portal.md)할 수 있게 IoT Edge 디바이스를 준비합니다.
+* [Azure IoT Edge 장치](../iot-edge/how-to-install-iot-edge.md)를 만듭니다.
 
 > [!NOTE]   
 > Azure Linux VM을 IoT Edge 디바이스로 배포하려면 이 [빠른 시작 가이드](../iot-edge/quickstart-linux.md)를 참조하세요.

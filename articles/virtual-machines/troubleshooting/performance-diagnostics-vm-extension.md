@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963264"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
-Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를 수집할 수 있습니다. 확장은 분석을 수행하고, 결과 및 권장 사항 보고서를 제공하여 가상 머신에서 성능 문제를 식별하고 해결합니다. 이 확장은 [PerfInsights](https://aka.ms/perfinsights)라는 문제 해결 도구를 설치합니다.
+Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를 수집할 수 있습니다. 확장은 분석을 수행하고, 결과 및 권장 사항 보고서를 제공하여 가상 머신에서 성능 문제를 식별하고 해결합니다. 이 확장은 [PerfInsights](./how-to-use-perfinsights.md)라는 문제 해결 도구를 설치합니다.
 
 > [!NOTE]
 > 클래식이 아닌 VM에 대한 Azure Portal의 VM에서 진단을 실행하려는 경우 새 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 머신에 대한 진단 수행](performance-diagnostics.md)을 참조 
@@ -35,7 +35,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 * Windows Server 2012 R2
 * Windows Server 2012
 * Windows Server 2008 R2
-* 윈도우 10
+* Windows 10
 * Windows 8.1
 * Windows 8
 
@@ -237,7 +237,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## <a name="information-on-the-data-captured"></a>수집된 데이터에 대한 정보
-PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성 및 진단 데이터를 수집합니다. 자세한 내용은 [PerfInsights 설명서](https://aka.ms/perfinsights)를 참조하세요.
+PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성 및 진단 데이터를 수집합니다. 자세한 내용은 [PerfInsights 설명서](./how-to-use-perfinsights.md)를 참조하세요.
 
 ## <a name="view-and-share-the-results"></a>결과 확인 및 공유
 
