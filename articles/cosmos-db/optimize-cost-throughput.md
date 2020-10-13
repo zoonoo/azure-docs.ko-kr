@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801327"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
@@ -58,9 +58,9 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
-|Cassandra API|Keyspace|표|
+|Cassandra API|Keyspace|테이블|
 |Gremlin API|데이터베이스 계정|그래프|
-|테이블 API|데이터베이스 계정|표|
+|테이블 API|데이터베이스 계정|테이블|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 

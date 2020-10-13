@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
 ms.openlocfilehash: c2b95108b8c6b1e4db9d5a494e64774609ed5574
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322651"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>온-프레미스 SSIS 워크로드를 ADF의 SSIS로 마이그레이션
@@ -80,7 +80,7 @@ Dma는 현재 **dma 버전 v 5.0**이후 **파일 시스템**, **패키지 저�
 |SQL Server (MSDB)|SSMS/dtutil을 통해 파일 시스템/파일 공유/Azure Files로 내보냅니다. 자세한 내용은 [SSIS 패키지 내보내기](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service#import-and-export-packages)를 참조 하세요.|스크립트/SSMS/ADF 포털을 통해 ADF 파이프라인/활동/트리거로 변환 합니다. 자세한 내용은 [SSMS 일정 기능](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조 하세요.|
 |패키지 저장소|SSMS/dtutil을 통해 파일 시스템/파일 공유/Azure Files로 내보내거나, dtinstall/dtutil/manual 복사를 통해 파일 공유/Azure Files에 다시 배포 하거나, VNet/자체 호스팅 IR을 통해 액세스 하도록 파일 시스템에 보관 합니다. 자세한 내용은 dtutil 유틸리티를 참조 하세요. 자세한 내용은 [dtutil 유틸리티](https://docs.microsoft.com/sql/integration-services/dtutil-utility)를 참조 하세요.|스크립트/SSMS/ADF 포털을 통해 ADF 파이프라인/활동/트리거로 변환 합니다. 자세한 내용은 [SSMS 일정 기능](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조 하세요.|
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [데이터베이스 마이그레이션 도우미](https://docs.microsoft.com/sql/dma/dma-overview)

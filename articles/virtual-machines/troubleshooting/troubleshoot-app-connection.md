@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a2fe1b8bdc80a5265add22bd3602050034471fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dec5aeaac6f39a106899094e674864d3bd10dc02
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966341"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure의 가상 머신에서 애플리케이션 연결 문제해결
 
@@ -122,7 +122,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
   
   * VM의 인바운드 NAT 규칙 구성에서 수신 트래픽을 허용하는지, 특히 프로토콜(TCP 또는 UDP), 공용 및 프라이빗 포트 번호를 허용하는지 확인합니다.
   * 네트워크 보안 그룹이 인바운드 요청 및 아웃바운드 요청 트래픽을 허용하는지 확인합니다.
-  * 자세한 내용은 [네트워크 보안 그룹 이란?](../../virtual-network/security-overview.md) 을 참조 하세요.
+  * 자세한 내용은 [네트워크 보안 그룹 이란?](../../virtual-network/network-security-groups-overview.md) 을 참조 하세요.
 
 가상 머신 또는 엔드포인트가 부하 분산 집합의 구성원인 경우:
 
@@ -140,7 +140,7 @@ VM에서 애플리케이션이 실행되고 있는 경우 가상 네트워크 �
 
 자세한 내용은 [Azure 네트워크 모니터링 개요](../../network-watcher/network-watcher-monitoring-overview.md)를 참조하세요. 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 [Windows 기반 Azure 가상 머신에 대 한 원격 데스크톱 연결 문제 해결](troubleshoot-rdp-connection.md)
 
 [Linux 기반 Azure 가상 머신에 SSH(보안 셸) 연결 문제 해결](troubleshoot-ssh-connection.md)

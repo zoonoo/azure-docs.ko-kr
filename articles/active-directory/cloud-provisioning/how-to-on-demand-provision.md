@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72623d69f9fb0cbc68758a362bb977e5e02d2c00
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637173"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-on-demand-provisioning"></a>Azure AD Connect 클라우드 프로 비전 주문형 프로 비전
@@ -45,7 +45,7 @@ Azure AD Connect 클라우드 프로 비전에는 단일 사용자에 게 이러
  ![요청 시 프로 비전](media/how-to-on-demand-provision/on-demand3.png)
 7. 완료 되 면 성공 화면 및 4 개의 녹색 확인란이 표시 되 고 성공적으로 프로 비전 되었음을 나타냅니다.  모든 오류가 왼쪽에 표시 됩니다.
 
-  ![Success](media/how-to-on-demand-provision/on-demand4.png)
+  ![성공](media/how-to-on-demand-provision/on-demand4.png)
 
 이제 사용자를 확인 하 고 구성에서 변경한 내용이 적용 되었는지 확인할 수 있습니다.  이 문서의 나머지 부분에서는 성공적으로 동기화 된 사용자의 세부 정보에 표시 되는 개별 섹션에 대해 설명 합니다.
 
@@ -74,7 +74,7 @@ Azure AD Connect 클라우드 프로 비전에는 단일 사용자에 게 이러
 
 ![사용자 정보](media/how-to-on-demand-provision/on-demand11.png)
 
-일치 하는 세부 정보에는 다음 세 가지 작업 중 하나가 포함 된 메시지가 표시 됩니다.  관련 토폴로지는 다음과 같습니다.
+일치 하는 세부 정보에는 다음 세 가지 작업 중 하나가 포함 된 메시지가 표시 됩니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
 - 만들기-사용자가 Azure AD에서 생성 됩니다.
 - 업데이트-구성에서 변경한 내용에 따라 사용자가 업데이트 됩니다.
 - Delete-사용자가 Azure AD에서 제거 됩니다.

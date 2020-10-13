@@ -15,10 +15,10 @@ ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
 ms.openlocfilehash: a57a432a5f0f8e5a6bd802ec08b18350da3a77b3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293376"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 내부 변경
@@ -27,7 +27,7 @@ ms.locfileid: "91293376"
 
 이 문서에서는 Microsoft Azure의 Windows VM (가상 머신)에서 Microsoft SQL Server 버전을 변경 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 SQL Server에 대 한 전체 업그레이드를 수행 하려면 다음 조건이 적용 됩니다.
 
@@ -69,11 +69,11 @@ SQL Server 버전을 업그레이드 하려면 SQL Server의 [업그레이드 �
 1. **제품 키** 페이지에서 무료 버전의 SQL Server로 업그레이드할지 아니면 제품의 프로덕션 버전에 대 한 PID 키가 있는지를 나타내는 옵션을 선택 합니다. 자세한 내용은 [버전 및 지원 되는 기능 SQL Server 2019 ()](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) 및 지원 [되는 버전 및 버전 업그레이드 (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15)를 참조 하세요.
 1. **업그레이드 준비 완료** 페이지가 표시 될 때까지 **다음** 을 선택 하 고 **업그레이드**를 선택 합니다. 변경 내용을 적용 하는 동안 몇 분 동안 설치 창이 응답 하지 않을 수 있습니다. **전체** 페이지에서 업그레이드가 완료 되었음을 확인할 수 있습니다. 업그레이드 하는 단계별 절차는 [전체 절차](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure)를 참조 하세요.
 
-   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="완료 페이지":::
+   :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 
 버전을 변경 하는 것 외에도 SQL Server 버전을 변경한 경우 버전을 업데이트 하 고 **포털의 버전 및 버전 확인** 섹션을 참조 하 여 SQL VM 인스턴스를 변경 합니다.
 
-   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="버전 메타 데이터 변경":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 
 ## <a name="downgrade-the-version-of-sql-server"></a>SQL Server 버전을 다운 그레이드 합니다.
 
@@ -91,7 +91,7 @@ SQL Server 버전을 다운 그레이드 하려면 SQL Server을 완전히 제�
 
    대상 버전, 종속 개체 및 고급 옵션과 같은 항목을 스크립팅할 때 올바른 옵션을 선택 했는지 확인 합니다.
 
-   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="스크립팅 옵션":::
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 
 1. SQL Server와 모든 연결된 서비스를 완전히 제거합니다.
 1. VM을 다시 시작합니다.
@@ -104,7 +104,7 @@ SQL Server 버전을 다운 그레이드 하려면 SQL Server을 완전히 제�
 
 SQL Server 버전을 변경한 후에는 Azure Portal를 사용 하 여 SQL Server의 버전을 볼 수 있도록 [SQL VM 리소스 공급자](sql-vm-resource-provider-register.md) 에 SQL Server VM를 다시 등록 합니다. 그러면 나열 된 버전 번호에 새로 업그레이드 된 버전 및 SQL Server 설치 버전이 반영 됩니다.
 
-:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="버전 확인":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 
 > [!NOTE]
 > SQL VM 리소스 공급자에 이미 등록 한 경우 [RP에서 등록을 취소](sql-vm-resource-provider-register.md#unregister-from-rp) 한 다음 vm에 설치 된 SQL Server 올바른 버전과 버전을 검색 하도록 [SQL vm 리소스를 다시 등록 합니다](sql-vm-resource-provider-register.md#register-with-rp) . 이 VM과 연결 된 메타 데이터 및 청구 정보를 업데이트 합니다.

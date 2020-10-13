@@ -8,10 +8,10 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448035"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
@@ -283,7 +283,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 10. **경고 규칙 만들기**를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 - [방화벽 및 프록시 설정 고려](storage-sync-files-firewall-and-proxy.md)
 - [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 - [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

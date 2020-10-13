@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976253"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>시나리오: NVA를 통해 트래픽 라우팅
@@ -39,7 +39,7 @@ ms.locfileid: "90976253"
 
 **연결 매트릭스**
 
-| 시작             | 대상:|   *NVA 스포크*|*NVA Vnet*|*NVA Vnet*|*분기*|
+| From             | 아래와 같이 변경합니다.|   *NVA 스포크*|*NVA Vnet*|*NVA Vnet*|*분기*|
 |---|---|---|---|---|---|
 | **NVA 스포크**   | &#8594; | 0/0 UDR  |  피어링 |   0/0 UDR    |  0/0 UDR  |
 | **NVA Vnet**    | &#8594; |   정적 |      X   |        X     |      X    |
@@ -99,7 +99,7 @@ NVA 스포크가 가상 WAN에 의해 관리 되지 않는 것을 고려 하 여
 
 **그림 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="그림 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="그림 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>시나리오 워크플로
 
@@ -117,7 +117,7 @@ NVA를 통해 라우팅을 설정 하려면 다음 단계를 고려해 야 합�
 
 2. Vnet 2, 5, 6에서 허브 1의 기본 경로 테이블에 대 한 집계 된 고정 경로 항목을 추가 합니다.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="예제":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="그림 1":::
 
 3. VNet 2의 가상 네트워크 연결에서 Vnet 5, 6의 고정 경로를 구성 합니다. 가상 네트워크 연결에 대 한 라우팅 구성을 설정 하려면 [가상 허브 라우팅](how-to-virtual-hub-routing.md#routing-configuration)을 참조 하세요.
 
@@ -129,7 +129,7 @@ NVA를 통해 라우팅을 설정 하려면 다음 단계를 고려해 야 합�
 
 **그림 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="그림 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="그림 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

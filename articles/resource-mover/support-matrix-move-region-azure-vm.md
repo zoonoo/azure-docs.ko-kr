@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602288"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945916"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -155,7 +155,7 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 NIC | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다. 
 내부 부하 분산 장치 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
 공용 부하 분산 장치 | 현재 지원되지 않음 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
-공용 IP 주소 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
+공용 IP 주소 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.<br/><br/> 공용 IP 주소는 지역별 특정 이며 이동 후 대상 지역에 보존 되지 않습니다. 대상 위치에서 네트워킹 설정 (부하 분산 규칙 포함)을 수정 하는 경우이 점을 염두에 두어야 합니다.
 네트워크 보안 그룹 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
 예약된(고정) IP 주소 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다. <br/><br/> 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에 동일한 IP 주소가 사용 가능한 경우 대상 VM에 할당 됩니다.<br/><br/> 대상 서브넷에 사용할 수 있는 IP 주소가 동일 하지 않은 경우 VM에 대 한 이동 시작이 실패 합니다.
 동적 IP 주소 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다.<br/><br/> 원본 NIC에 동적 IP 주소가 지정 된 경우 대상 VM의 NIC도 기본적으로 동적입니다.

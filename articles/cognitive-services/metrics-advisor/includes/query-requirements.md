@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: aahi
 ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631378"
 ---
 쿼리 내에서 `@StartTime` 매개 변수를 사용하여 단일 타임스탬프에 대한 메트릭 데이터를 가져옵니다. 메트릭 관리자가 쿼리를 실행할 때 매개 변수를 `yyyy-MM-ddTHH:mm:ss` 형식 문자열로 바꿉니다.

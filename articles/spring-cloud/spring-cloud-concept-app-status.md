@@ -8,15 +8,15 @@ ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892864"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Azure Spring Cloud의 앱 상태 이해
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태에 대 한 정보를 제공 합니다.  응용 프로그램 유형의 일반적인 상태를 표시 하는 구독에서 각 리소스 그룹에 대 한 **앱** 옵션이 있습니다.  각 응용 프로그램 유형에 대해 **응용 프로그램 인스턴스**를 표시 합니다.
 

@@ -12,10 +12,10 @@ author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90889841"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>모델을 배포 하 여 계산 인스턴스 Azure Machine Learning
@@ -30,7 +30,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 > [!TIP]
 > 계산 인스턴스의 Jupyter Notebook에서 동일한 VM의 웹 서비스로 모델을 배포 하는 것은 _로컬 배포_입니다. 이 경우 ' 로컬 ' 컴퓨터는 계산 인스턴스입니다. 배포에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계산 인스턴스가 실행 되는 Azure Machine Learning 작업 영역입니다. 자세한 내용은 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 참조 하세요.
 
@@ -44,7 +44,7 @@ Azure Machine Learning를 사용 하 여 Azure Machine Learning 계산 인스턴
 
     ![노트북에서 실행 중인 로컬 서비스의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. 노트북에는 서비스가 실행 되는 URL 및 포트가 표시 됩니다. `https://localhost:6789`)을 입력합니다. 가 포함 된 셀을 실행 하 여 포트를 표시할 수도 있습니다 `print('Local service port: {}'.format(local_service.port))` .
+1. 노트북에는 서비스가 실행 되는 URL 및 포트가 표시 됩니다. 예들 들어 `https://localhost:6789`입니다. 가 포함 된 셀을 실행 하 여 포트를 표시할 수도 있습니다 `print('Local service port: {}'.format(local_service.port))` .
 
     ![실행 중인 로컬 서비스 포트의 스크린샷](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 

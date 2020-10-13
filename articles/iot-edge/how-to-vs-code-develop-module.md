@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
 ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296912"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
@@ -173,7 +173,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
         > [!NOTE]
         > .NET Core `TargetFramework` 가의 프로그램 경로와 일치 하지 않는 경우 `launch.json` `launch.json` `TargetFramework` Visual Studio Code이 프로그램을 성공적으로 시작할 수 있도록 .csproj 파일의와 일치 하도록에서 프로그램 경로를 수동으로 업데이트 해야 합니다.
 
-   - **Node.JS**
+   - **Node.js**
      - Visual Studio Code 통합 터미널에서 디렉터리를 *** &lt; module name &gt; *** 폴더로 변경한 후 다음 명령을 실행 하 여 노드 패키지를 설치 합니다.
 
        ```cmd
@@ -318,7 +318,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
   [개발 머신과 IoT Edge 디바이스에서 SSH 채널을 구성](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes)하고 연결할 `launch.json` 파일을 편집합니다.
 
-- **Node.JS**
+- **Node.js**
 
   - 디버그할 머신의 모듈이 실행 중이고 디버거에서 연결할 준비가 되었으며, 포트 9229에 외부적으로 액세스할 수 있는지 확인합니다. 디버거 머신에서 `http://<target-machine-IP>:9229/json`을 열어 이를 확인할 수 있습니다. 이 URL은 디버그할 Node.js 모듈에 대한 정보를 표시합니다.
   

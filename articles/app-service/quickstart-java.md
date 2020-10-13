@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f8e87b22e3d8f6e265789f910863b2790024cbf
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532412"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776326"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -71,21 +71,24 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI의 Azure 자격 증
 아래의 maven 명령을 실행하여 배포를 구성합니다. 이 명령은 App Service 운영 체제, Java 버전 및 Tomcat 버전을 설정하는 데 도움이 됩니다.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. 메시지가 표시되면 `2`를 입력하여 **창**을 선택합니다.
-2. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
-3. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **창**을 선택합니다.
+1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
+1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
@@ -106,7 +109,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. 메시지가 표시되면 `2`를 입력하여 **창**을 선택합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **창**을 선택합니다.
 1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
 1. Enter를 눌러 기본 웹 컨테이너인 Tomcat 8.5를 사용합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
@@ -115,6 +120,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
@@ -140,12 +146,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. 메시지가 표시되면 Enter를 눌러 **linux**를 선택합니다.
-2. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
-3. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **linux**를 선택합니다.
+1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
+1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
@@ -165,13 +174,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. 메시지가 표시되면 Enter를 눌러 **linux**를 선택합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **linux**를 선택합니다.
 1. Enter를 눌러 기본 Java 버전 1.8을 사용합니다.
 1. Enter를 눌러 기본 웹 컨테이너인 Tomcat 8.5를 사용합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
@@ -195,9 +207,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.10.0:config
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | Description | 버전
+속성 | 필수 | 설명 | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
+`<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
 `<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
 `<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope**). [지원되는 지역](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
@@ -244,26 +257,24 @@ az group delete --name <your resource group name; for example: helloworld-155840
 이 명령을 실행하는 데 1분 정도 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-> [!div class="nextstepaction"]
-> [Java를 사용하여 Azure SQL Database에 연결](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Java를 사용하여 Azure DB for MySQL에 연결](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Java를 사용하여 Azure DB for PostgreSQL에 연결](../postgresql/connect-java.md)
+
+> [!div class="nextstepaction"]
+> [CI/CD를 설정합니다](deploy-continuous-deployment.md).
+
+> [!div class="nextstepaction"]
+> [가격 정보](https://azure.microsoft.com/pricing/details/app-service/linux/)
+
+> [!div class="nextstepaction"]
+> [로그 및 메트릭 집계](troubleshoot-diagnostic-logs.md)
+
+> [!div class="nextstepaction"]
+> [강화](manage-scale-up.md)
 
 > [!div class="nextstepaction"]
 > [Java 개발자 리소스용 Azure](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Java 앱 구성](configure-language-java.md)
-
-> [!div class="nextstepaction"]
-> [Jenkins를 사용하는 CI/CD](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
-
-> [!div class="nextstepaction"]
-> [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Azure용 Maven 플러그 인에 대한 자세한 정보](https://github.com/microsoft/azure-maven-plugins)

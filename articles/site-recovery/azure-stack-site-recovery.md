@@ -4,10 +4,10 @@ description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack 
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448973"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
@@ -56,7 +56,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 7. 컴퓨터를 복제하는 작업은 복제 관리를 위해 구성 서버와 통신합니다(포트 HTTPS 443 인바운드). 컴퓨터는 복제 데이터를 프로세스 서버로 전달합니다(포트 HTTPS 9443 인바운드 - 수정 가능).
 8. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute 공용 피어링을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 시나리오 설정을 위해 필요한 사항은 다음과 같습니다.
 

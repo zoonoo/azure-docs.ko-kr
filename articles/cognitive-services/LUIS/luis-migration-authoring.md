@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536049"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
@@ -56,7 +56,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 * 응용 프로그램의 소유자 인 경우 자동으로 마이그레이션될 앱을 내보낼 필요가 없습니다. 각 앱의 협력자 목록을 저장 하는 것이 좋습니다. 이 목록을 포함 하는 전자 메일 템플릿은 선택적으로 마이그레이션 프로세스의 일부로 제공 됩니다.
 
 
-|포털|용도|
+|포털|목적|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/cognitive-services)| 예측 및 제작 리소스를 만듭니다.<br> 리소스에 참가자를 할당 합니다.|
 |[LUIS](https://www.luis.ai)| 새 제작 리소스로 마이그레이션합니다.<br> 마이그레이션 흐름에서 새 제작 리소스를 만듭니다.<br> Azure 리소스 **관리**페이지에서 예측 및 리소스 제작 리소스를 앱에 할당 또는 할당 해제  >  **Azure resources** 합니다. <br> 응용 프로그램을 한 제작 리소스에서 다른 제작 리소스로 이동 합니다.  |

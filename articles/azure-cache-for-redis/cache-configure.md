@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91840254"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
@@ -39,7 +39,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [액세스 키](#access-keys)
     * [고급 설정](#advanced-settings)
     * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-    * [규모](#scale)
+    * [크기 조정](#scale)
     * [클러스터 크기](#cluster-size)
     * [데이터 지속성](#redis-data-persistence)
     * [업데이트를 예약](#schedule-updates)
@@ -91,7 +91,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [액세스 키](#access-keys)
 * [고급 설정](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-* [규모](#scale)
+* [크기 조정](#scale)
 * [클러스터 크기](#cluster-size)
 * [데이터 지속성](#redis-data-persistence)
 * [업데이트를 예약](#schedule-updates)

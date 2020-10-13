@@ -8,10 +8,10 @@ ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
 ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773742"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
@@ -92,20 +92,20 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 기본 | 일반 | 특수화 |
 > | --- | --- | --- |
 > | 계정 저장소 | API Management | FHIR용 Azure API |
-> | Application Gateway | App Configuration | Azure Analysis Services |
+> | Application Gateway | 앱 구성 | Azure Analysis Services |
 > | Azure Backup | App Service | Azure Blockchain 서비스 |
 > | Azure Cosmos DB | Automation | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Azure 전용 HSM |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
 > | Cloud Services | Azure Cognitive Search | Azure Digital Twins |
-> | Cloud Services: Av2 시리즈 | Azure Data Explorer | Azure Lab Services |
-> | Cloud Services: Dv2 시리즈 | Azure Data Share | Azure NetApp Files |
-> | Cloud Services: Dv3 시리즈 | Azure Database for MySQL | Azure 퀀텀 |
-> | Cloud Services: Ev3 시리즈 | Azure Database for PostgreSQL | Azure 스프링 클라우드 서비스 |
+> | Cloud Services: Av2-Series | Azure Data Explorer | Azure Lab Services |
+> | Cloud Services: Dv2-Series | Azure Data Share | Azure NetApp Files |
+> | Cloud Services: Dv3-Series | Azure Database for MySQL | Azure 퀀텀 |
+> | Cloud Services: Ev3-Series | Azure Database for PostgreSQL | Azure 스프링 클라우드 서비스 |
 > | Cloud Services: 인스턴스 수준 Ip | Azure Database Migration Service | Azure Time Series Insights |
 > | Cloud Services: 예약된 IP | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Disk Storage | Azure DDoS Protection | Cloud Services: G 시리즈 |
+> | 디스크 스토리지 | Azure DDoS Protection | Cloud Services: G 시리즈 |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: H 시리즈 |
 > | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | 부하 분산 장치 | Azure Firewall Manager | Cognitive Services: Speaker Recognition |
@@ -113,47 +113,47 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory V1 |
 > | Virtual Machines | AKS(Azure Kubernetes Service) | Data Lake Analytics |
-> | Virtual Machines: Av2 시리즈 | Azure Machine Learning | Azure Machine Learning Studio (클래식)|
-> | Virtual Machines: Bs 시리즈 | Azure Private Link | Microsoft Genomics |
-> | Virtual Machines: DSv2 시리즈 | Azure Red Hat OpenShift | Remote Rendering |
-> | Virtual Machines: DSv3 시리즈 | Azure SignalR Service | Spatial Anchors |
-> | Virtual Machines: Dv2 시리즈 | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Dv3 시리즈 | Azure Stack Hub | Video Indexer |
-> | Virtual Machines: ESv3 시리즈 | Azure Stream Analytics | Virtual Machines: DASv4 시리즈 |
-> | Virtual Machines: Ev3 시리즈 | Azure Synapse Analytics | Virtual Machines: DAv4 시리즈 |
+> | Virtual Machines: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (클래식)|
+> | Virtual Machines: Bs-Series | Azure Private Link | Microsoft Genomics |
+> | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
+> | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
+> | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
+> | Virtual Machines: Dv3-Series | Azure Stack Hub | 비디오 인덱서 |
+> | Virtual Machines: ESv3-Series | Azure Stream Analytics | Virtual Machines: DASv4-Series |
+> | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
 > | Virtual Machines: F 시리즈 | Batch | Virtual Machines: DCsv2 시리즈 |
-> | Virtual Machines: FS 시리즈 | Cloud Services: M 시리즈 | Virtual Machines: EASv4 시리즈 |
-> | Virtual Machines: 인스턴스 수준 Ip | Cognitive Services | Virtual Machines: EAv4 시리즈 |
+> | Virtual Machines: FS-Series | Cloud Services: M 시리즈 | Virtual Machines: EASv4-Series |
+> | Virtual Machines: 인스턴스 수준 Ip | Cognitive Services | Virtual Machines: EAv4-Series |
 > | Virtual Machines: 예약된 IP | Cognitive Services: Computer Vision | Virtual Machines: G 시리즈 |
-> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: GS 시리즈 |
-> | VPN Gateway | Cognitive Services: 얼굴 | Virtual Machines: HBv1 시리즈 |
-> |  | Cognitive Services: 폼 인식기 | Virtual Machines: HBv2 시리즈 |
-> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1 시리즈 |
+> | Virtual Network | Cognitive Services: Content Moderator | Virtual Machines: GS-Series |
+> | VPN Gateway | Cognitive Services: 얼굴 | Virtual Machines: HBv1-Series |
+> |  | Cognitive Services: 폼 인식기 | Virtual Machines: HBv2-Series |
+> |  | Cognitive Services: Language Understanding | Virtual Machines: HCv1-Series |
 > |  | Cognitive Services: QnA Maker | Virtual Machines: H 시리즈 |
-> |  | Cognitive Services: Speech Services | Virtual Machines: LS 시리즈 |
-> |  | Container Instances | Virtual Machines: LSv2 시리즈 |
-> |  | Container Registry | Virtual Machines: Mv2 시리즈 |
-> |  | Data Factory | Virtual Machines: NC 시리즈 |
-> |  | Event Grid | Virtual Machines: NCv2 시리즈 |
-> |  | HDInsight | Virtual Machines: NCv3 시리즈 |
-> |  | Logic Apps | Virtual Machines: NDs 시리즈 |
-> |  | Media Services | Virtual Machines: NDv2 시리즈 |
-> |  | Network Watcher | Virtual Machines: NV 시리즈 |
-> |  | Notification Hubs | Virtual Machines: NVv3 시리즈 |
-> |  | Power BI Embedded | Virtual Machines: NVv4 시리즈 |
+> |  | Cognitive Services: Speech Services | Virtual Machines: LS-Series |
+> |  | Container Instances | Virtual Machines: LSv2-Series |
+> |  | Container Registry | Virtual Machines: Mv2-Series |
+> |  | Data Factory | Virtual Machines: NC-Series |
+> |  | Event Grid | Virtual Machines: NCv2-Series |
+> |  | HDInsight | Virtual Machines: NCv3-Series |
+> |  | Logic Apps | Virtual Machines: NDs-Series |
+> |  | Media Services | Virtual Machines: NDv2-Series |
+> |  | Network Watcher | Virtual Machines: NV-Series |
+> |  | Notification Hubs | Virtual Machines: NVv3-Series |
+> |  | Power BI Embedded | Virtual Machines: NVv4-Series |
 > |  | 프리미엄 Blob Storage | Virtual Machines: Azure의 SAP HANA(대규모 인스턴스) |
 > |  | 프리미엄 파일 저장소 | Visual Studio 앱 센터 |
 > |  | 저장소: Archive Storage |  |
 > |  | 울트라 디스크 저장소 |  |
-> |  | Virtual Machines: Ddsv4 시리즈 |  |
-> |  | Virtual Machines: Ddv4 시리즈 |  |
-> |  | Virtual Machines: Dsv4 시리즈 |  |
-> |  | Virtual Machines: Dv4 시리즈 |  |
-> |  | Virtual Machines: Edsv4 시리즈 |  |
-> |  | Virtual Machines: Edv4 시리즈 |  |
-> |  | Virtual Machines: Esv4 시리즈 |  |
-> |  | Virtual Machines: Ev4 시리즈 |  |
-> |  | Virtual Machines: Fsv2 시리즈 |  |
+> |  | Virtual Machines: Ddsv4-Series |  |
+> |  | Virtual Machines: Ddv4-Series |  |
+> |  | Virtual Machines: Dsv4-Series |  |
+> |  | Virtual Machines: Dv4-Series |  |
+> |  | Virtual Machines: Edsv4-Series |  |
+> |  | Virtual Machines: Edv4-Series |  |
+> |  | Virtual Machines: Esv4-Series |  |
+> |  | Virtual Machines: Ev4-Series |  |
+> |  | Virtual Machines: Fsv2-Series |  |
 > |  | Virtual Machines: M 시리즈 |  |
 > |  | Virtual WAN |  |
 

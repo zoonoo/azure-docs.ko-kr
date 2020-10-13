@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50669dcce044988f2e45acc2a17ae43c140d1ab5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569495"
+ms.locfileid: "91930308"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
 네트워크 아키텍처 계획은 모든 애플리케이션 인프라 설계의 핵심 요소입니다. 이 문서는 Azure NetApp Files의 다양한 기능을 활용하기 위해 워크로드에 대한 효과적인 네트워크 아키텍처를 설계하는 데 도움이 됩니다.
 
-Azure NetApp Files 볼륨은 Microsoft Azure Virtual Network 내에서 [위임된 서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)이라는 특수 용도의 서브넷에 포함되도록 설계되었습니다. 따라서 필요에 따라 Virtual Network 게이트웨이(ExpressRoute 또는 VPN Gateway)를 통해 VNet, 같은 지역의 피어링된 VNet 또는 온-프레미스에서 볼륨에 직접 액세스할 수 있습니다. 서브넷은 Azure NetApp Files 전용이며 다른 Azure 서비스나 인터넷에 연결되어 있지 않습니다.
+Azure NetApp Files 볼륨은 Microsoft Azure Virtual Network 내에서 [위임된 서브넷](../virtual-network/virtual-network-manage-subnet.md)이라는 특수 용도의 서브넷에 포함되도록 설계되었습니다. 따라서 필요에 따라 Virtual Network 게이트웨이(ExpressRoute 또는 VPN Gateway)를 통해 VNet, 같은 지역의 피어링된 VNet 또는 온-프레미스에서 볼륨에 직접 액세스할 수 있습니다. 서브넷은 Azure NetApp Files 전용이며 다른 Azure 서비스나 인터넷에 연결되어 있지 않습니다.
 
 ## <a name="considerations"></a>고려 사항  
 
@@ -71,11 +71,11 @@ Azure NetApp Files에는 다음과 같은 네트워크 제한이 적용됩니다
 
 ### <a name="azure-virtual-networks"></a>Azure 가상 네트워크
 
-Azure NetApp Files 볼륨을 프로비저닝하기 전에 Microsoft Azure Virtual Network(VNet)를 만들거나 구독에 이미 있는 VNet을 사용해야 합니다. VNet은 볼륨의 네트워크 경계를 정의합니다.  가상 네트워크를 만들기에 대한 자세한 내용은 [Microsoft Azure Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)를 참조하세요.
+Azure NetApp Files 볼륨을 프로비저닝하기 전에 Microsoft Azure Virtual Network(VNet)를 만들거나 구독에 이미 있는 VNet을 사용해야 합니다. VNet은 볼륨의 네트워크 경계를 정의합니다.  가상 네트워크를 만들기에 대한 자세한 내용은 [Microsoft Azure Virtual Network 설명서](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 ### <a name="subnets"></a>서브넷
 
-서브넷은 그 안의 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 가상 네트워크를 구분합니다.  Azure NetApp Files 볼륨은 [위임된 서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)이라는 특수 용도의 서브넷에 포함되어 있습니다. 
+서브넷은 그 안의 Azure 리소스가 사용할 수 있는 개별 주소 공간으로 가상 네트워크를 구분합니다.  Azure NetApp Files 볼륨은 [위임된 서브넷](../virtual-network/virtual-network-manage-subnet.md)이라는 특수 용도의 서브넷에 포함되어 있습니다. 
 
 서브넷 위임은 서브넷에서 서비스 관련 리소스를 만들 수 있는 명시적 권한을 Azure NetApp Files 서비스에 부여합니다.  서비스를 배포하는 데 고유한 식별자가 사용됩니다. 이 경우 Azure NetApp Files에 연결할 수 있도록 네트워크 인터페이스가 만들어집니다.
 
@@ -102,7 +102,7 @@ UDR(사용자 정의 경로)와 NSG(네트워크 보안 그룹)는 Azure NetApp 
 
 ### <a name="vnet-peering"></a>VNet 피어링
 
-동일한 지역에 서로의 리소스에 액세스해야 하는 추가 VNet이 있는 경우 Azure 인프라를 통한 보안 연결이 가능하도록 [VNet 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)으로 VNet을 연결할 수 있습니다. 
+동일한 지역에 서로의 리소스에 액세스해야 하는 추가 VNet이 있는 경우 Azure 인프라를 통한 보안 연결이 가능하도록 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)으로 VNet을 연결할 수 있습니다. 
 
 위의 다이어그램에서 VNet 2와 VNet 3을 고려합니다. VM 1이 VM 2 또는 볼륨 2에 연결해야 하거나 VM 2가 VM 1 또는 볼륨 1에 연결해야 하는 경우 VNet 2와 VNet 3 간에 VNet 피어링을 사용하도록 설정해야 합니다. 
 
@@ -116,7 +116,7 @@ UDR(사용자 정의 경로)와 NSG(네트워크 보안 그룹)는 Azure NetApp 
 
 ![하이브리드 네트워킹 환경](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-하이브리드 시나리오에서 온-프레미스 데이터 센터의 애플리케이션은 Azure의 리소스에 액세스해야 합니다.  데이터 센터를 Azure로 확장하거나 재해 복구에 Azure 네이티브 서비스를 사용하려는 경우가 여기에 해당합니다. 사이트 간 VPN 또는 ExpressRoute를 통해 온-프레미스의 여러 리소스를 Azure의 리소스에 연 하는 방법에 대한 자세한 내용은 [VPN Gateway 계획 옵션](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable)을 참조하세요.
+하이브리드 시나리오에서 온-프레미스 데이터 센터의 애플리케이션은 Azure의 리소스에 액세스해야 합니다.  데이터 센터를 Azure로 확장하거나 재해 복구에 Azure 네이티브 서비스를 사용하려는 경우가 여기에 해당합니다. 사이트 간 VPN 또는 ExpressRoute를 통해 온-프레미스의 여러 리소스를 Azure의 리소스에 연 하는 방법에 대한 자세한 내용은 [VPN Gateway 계획 옵션](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%252fazure%252fvirtual-network%252ftoc.json#planningtable)을 참조하세요.
 
 하이브리드 허브-스포크 토폴로지에서 Azure의 허브 VNet은 온-프레미스 네트워크에 대한 연결의 중심점 역할을 합니다. 스포크는 허브와 피어링되는 VNet이며 워크로드를 격리하는 데 사용할 수 있습니다.
 

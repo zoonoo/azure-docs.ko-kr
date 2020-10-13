@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16e232cedb13dc246bf7a568adfad401c1fe3eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5cc6847332765419001eadc5944905f55a425ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236656"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964794"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad-preview"></a>Azure AD의 하이브리드 FIDO2 보안 키에 대 한 배포 Faq (질문과 대답) (미리 보기)
 
@@ -228,13 +228,13 @@ Azure AD Connect는 Azure AD에서 AD DS로 정보를 다시 쓰지 않습니다
 
 HTTP 요청은 표준 주 새로 고침 토큰 (PRT) 요청입니다. 이 PRT 요청은 Kerberos TGT (허용 티켓)가 필요 함을 나타내는 클레임을 포함 합니다.
 
-| 클레임 | 값 | 설명                             |
+| 클레임 | 값 | Description                             |
 |-------|-------|-----------------------------------------|
 | tgt   | true  | 클레임은 클라이언트에 TGT가 필요 함을 나타냅니다. |
 
 Azure AD는 암호화 된 클라이언트 키와 메시지 버퍼를 PRT 응답에 추가 속성으로 결합 합니다. 페이로드는 Azure AD 장치 세션 키를 사용 하 여 암호화 됩니다.
 
-| 필드              | 형식   | 설명  |
+| 필드              | Type   | Description  |
 |--------------------|--------|--------------|
 | tgt_client_key     | 문자열 | Base64 인코딩된 클라이언트 키 (암호)입니다. 이 키는 TGT를 보호 하는 데 사용 되는 클라이언트 암호입니다. 이 암호 없는 시나리오에서 클라이언트 암호는 각 TGT 요청의 일부로 서버에서 생성 된 다음 응답에서 클라이언트로 반환 됩니다. |
 | tgt_key_type       | int    | 클라이언트 키와 KERB_MESSAGE_BUFFER에 포함 된 Kerberos 세션 키 모두에 사용 되는 온-프레미스 AD DS 키 유형입니다. |

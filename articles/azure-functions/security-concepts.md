@@ -4,10 +4,10 @@ description: Azure에서 실행 중인 함수 코드가 일반적인 공격으�
 ms.date: 4/13/2020
 ms.topic: conceptual
 ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761416"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
@@ -76,7 +76,7 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 기본적으로 키는 설정에서 제공 하는 계정의 Blob 저장소 컨테이너에 저장 됩니다 `AzureWebJobsStorage` . 특정 응용 프로그램 설정을 사용 하 여이 동작을 재정의 하 고 다른 위치에 키를 저장할 수 있습니다.
 
-|위치  |설정 | 값 | 설명:  |
+|위치  |설정 | 값 | 설명  |
 |---------|---------|---------|---------|
 |다른 저장소 계정     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | 제공 된 SAS URL에 따라 두 번째 저장소 계정의 Blob 저장소에 키를 저장 합니다. 키는 함수 앱에 고유한 암호를 사용 하 여 저장 하기 전에 암호화 됩니다. |
 |파일 시스템   | `AzureWebJobsSecretStorageType`   |  `files`       | 키는 함수 앱에 고유한 암호를 사용 하 여 저장소 전에 암호화 된 상태로 파일 시스템에 유지 됩니다. |

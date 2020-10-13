@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: 14f08502f35afdc8a9a2cdc741b539b5f9cca712
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893632"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945597"
 ---
 # <a name="select-columns-transform"></a>열 변환 선택
 
@@ -46,8 +46,14 @@ ms.locfileid: "90893632"
 
    *입력 데이터 집합을 연결 하지 마십시오.* 대신, [변환 적용](apply-transformation.md) 모듈을 추가 하 고 기능 선택 변환의 출력을 연결 합니다.
 
+   파이프라인 구조는 다음과 같습니다.
+
+   > [!div class="mx-imgBorder"]
+   > ![샘플 파이프라인](media/module/filter-based-feature-selection-score.png)
+
    > [!IMPORTANT]
    > [필터 기반 기능 선택](filter-based-feature-selection.md) 을 점수 매기기 데이터 집합에 적용 하 고 동일한 결과를 얻을 수는 없습니다. 기능 선택은 값을 기반으로 하기 때문에 다른 열 집합을 선택할 수 있으며,이로 인해 점수 매기기 작업이 실패 합니다.
+    
 7. 파이프라인을 제출합니다.
 
 열 선택을 저장 하 고 적용 하면 동일한 데이터 스키마를 학습 및 평가에 사용할 수 있습니다.

@@ -2,7 +2,7 @@
 title: Azure AD DS을 사용 하 여 SharePoint 사용자 프로필 서비스 사용 | Microsoft Docs
 description: SharePoint Server에 대 한 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 관리 되는 도메인을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: aa66f7150e5c3ac4560d7f97cb73b1effb8eec89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 7bd63ece1ec32e5e4cecfd2a458124a4f24ccaa6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749631"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962482"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 

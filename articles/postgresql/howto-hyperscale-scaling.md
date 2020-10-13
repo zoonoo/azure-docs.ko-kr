@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/18/2020
 ms.openlocfilehash: dd59d0b09a28febfc0afe35d9f008ba0e0ee19ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295717"
 ---
 # <a name="server-group-size"></a>서버 그룹 크기
@@ -22,13 +22,13 @@ Citus (Hyperscale) 배포 옵션은 협동 데이터베이스 서버를 사용 �
 
 노드 수와 하드웨어 용량 면에서 서버 그룹의 크기를 쉽게 변경할 수 있습니다 ([아래 참조](#scale-a-hyperscale-citus-server-group)). 그러나 새 서버 그룹에 대 한 초기 크기를 선택 해야 합니다. 적절 한 선택에 대 한 몇 가지 팁은 다음과 같습니다.
 
-### <a name="multi-tenant-saas-use-case"></a>다중 테 넌 트 SaaS 사용 사례
+### <a name="multi-tenant-saas-use-case"></a>다중 테 넌 트 SaaS Use-Case
 
 기존 단일 노드 PostgreSQL 데이터베이스 인스턴스에서 Citus (Hyperscale)로 마이그레이션하는 경우 작업자 vCores 수와 총 RAM이 원본 인스턴스의 수와 같은 클러스터를 선택 하는 것이 좋습니다. 이러한 시나리오에서는 분할 리소스 사용률을 향상 시키고 더 작은 인덱스를 허용 하기 때문에 2 ~ 3 배 성능이 개선 되었습니다.
 
 코디네이터 노드에 필요한 vCores 수는 기존 작업 (쓰기/읽기 처리량)에 따라 달라 집니다. 코디네이터 노드에는 작업자 노드 만큼 RAM이 필요 하지 않지만, RAM 할당은 vcore 수 ( [Citus) 구성 옵션](concepts-hyperscale-configuration-options.md)에 설명 된 대로 vcore 수를 기준으로 결정 되므로 vcore 수는 본질적으로 실제 결정입니다.
 
-### <a name="real-time-analytics-use-case"></a>실시간 분석 사용 사례
+### <a name="real-time-analytics-use-case"></a>Real-Time 분석 Use-Case
 
 총 vCores: 작업 데이터가 RAM에 적합 한 경우 작업자 코어 수에 비례하여 Citus (Hyperscale)의 선형 성능 향상을 예측할 수 있습니다. 요구 사항에 적합 한 vCores 수를 결정 하려면 단일 노드 데이터베이스의 쿼리에 대 한 현재 대기 시간 및 Hyperscale의 필요한 대기 시간 (Citus)을 고려 하세요. 현재 대기 시간을 원하는 대기 시간으로 나누고 결과를 반올림합니다.
 

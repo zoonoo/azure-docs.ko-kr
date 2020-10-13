@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 지속성 타이�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056221"
+ms.locfileid: "91876450"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
@@ -22,7 +22,7 @@ ms.locfileid: "87056221"
 오후 4:30 시에 만료 되는 타이머를 만들 때 기본 지 속성 작업 프레임 워크는 4:30 pm 에서만 표시 되는 메시지를 큐 합니다. Azure Functions 소비 계획에서 실행 하는 경우 새로 표시 되는 타이머 메시지는 함수 앱이 적절 한 VM에서 활성화 되도록 합니다.
 
 > [!NOTE]
-> * 지 속성 타이머는 현재 7 일로 제한 됩니다. 지연 시간이 더 길면 루프의 타이머 Api를 사용 하 여 시뮬레이션할 수 있습니다 `while` .
+> * 지 속성 확장의 [버전 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) 부터 지 속성 타이머는 무제한입니다. 이전 버전의 확장에서 지 속성 타이머는 7 일로 제한 됩니다. 이전 버전을 사용 하 고 7 일 보다 긴 지연이 필요한 경우 루프의 타이머 Api를 사용 `while` 하 여 이러한 지연을 시뮬레이션 합니다.
 > * `CurrentUtcDateTime` `DateTime.UtcNow` `currentUtcDateTime` `Date.now` `Date.UTC` 영 속 타이머의 화재 시간을 계산할 때 .net 또는 대신 또는 JavaScript에서 대신를 사용 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
 
 ## <a name="usage-for-delay"></a>지연 사용

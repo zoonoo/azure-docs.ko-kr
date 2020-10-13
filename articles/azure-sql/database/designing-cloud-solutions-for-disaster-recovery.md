@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: be632ba06edc858e7eadcd6e57a4f7769f69f2cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321682"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
@@ -159,7 +159,7 @@ Traffic Manager 지역 A에 대 한 연결 실패를 검색 하면 사용자 트
 
 특정 클라우드 재해 복구 전략은 애플리케이션의 요구 사항을 최상으로 충족하도록 이러한 디자인 패턴을 결합하거나 확장할 수 있습니다.  앞에서 설명한 대로 선택한 전략은 고객 및 애플리케이션 배포 토폴로지에 제공하려는 SLA에 따라 달라집니다. 결정에 도움을 주기 위해 다음 테이블에서는 복구 지점 목표(RPO) 및 예상 복구 시간(ERT)에 따라 선택 항목을 비교합니다.
 
-| 무늬 | RPO | ERT |
+| 패턴 | RPO | ERT |
 |:--- |:--- |:--- |
 | 배치된 데이터베이스 액세스로 재해 복구에 대한 활성-수동 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |
 | 애플리케이션 부하 분산에 대한 활성-활성 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |
@@ -169,7 +169,7 @@ Traffic Manager 지역 A에 대 한 연결 실패를 검색 하면 사용자 트
 
 ## <a name="next-steps"></a>다음 단계
 
-* 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+* 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md) 를 참조 하세요.
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](active-geo-replication-overview.md)를 참조하세요.
 * 자동 장애 조치 그룹에 대 한 자세한 내용은 [자동 장애 조치 그룹](auto-failover-group-overview.md)을 참조 하세요.
 * 탄력적 풀의 활성 지역 복제에 대 한 자세한 내용은 [탄력적 풀 재해 복구 전략](disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조 하세요.

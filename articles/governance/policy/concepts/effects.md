@@ -1,14 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-ms.date: 09/15/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252007"
+ms.locfileid: "91873951"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -98,7 +98,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 ### <a name="audit-evaluation"></a>감사 평가
 
-Audit는 리소스의 만들기 또는 업데이트하는 중에 Azure Policy에서 확인된 마지막 효과입니다. 리소스 관리자 모드의 Azure Policy 경우 리소스 공급자에 리소스를 보냅니다. 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure Policy는 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가하고 리소스를 비준수로 표시합니다.
+Audit는 리소스의 만들기 또는 업데이트하는 중에 Azure Policy에서 확인된 마지막 효과입니다. 리소스 관리자 모드의 Azure Policy 경우 리소스 공급자에 리소스를 보냅니다. 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. 새 리소스와 업데이트 된 리소스의 경우 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가 하 고 해당 리소스를 비규격으로 표시 Azure Policy.
 
 ### <a name="audit-properties"></a>감사 속성
 
@@ -145,7 +145,7 @@ AuditIfNotExists는 **if** 조건과 일치 하지만 **then** 조건의 **세�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 평가
 
-리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. Azure Policy에서는 audit 효과와 동일한 방식으로 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가합니다. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
+리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 AuditIfNotExists가 실행됩니다. 관련된 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 감사가 발생합니다. 새 리소스와 업데이트 된 리소스의 경우 `Microsoft.Authorization/policies/audit/action` 작업을 활동 로그에 추가 하 고 해당 리소스를 비규격으로 표시 Azure Policy. 트리거되는 경우 **if** 조건을 충족하는 리소스는 비호환으로 표시되는 리소스입니다.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 속성
 

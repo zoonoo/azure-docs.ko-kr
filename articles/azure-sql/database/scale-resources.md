@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, sstein
 ms.date: 06/25/2019
 ms.openlocfilehash: 026c2b7b57929d31fbbf776d81ee41eb73b73d44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321519"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
@@ -43,7 +43,7 @@ Azure SQL Database는 [DTU 기반 구매 모델과](service-tiers-dtu.md) [vcore
 > [!NOTE]
 > 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스를 조건에 따라 자동으로 크기를 조정 하는 반면 동적 확장성을 사용 하면 가동 중지 시간을 최소화 하면서 수동 크기 조정이 가능 합니다.
 
-Azure SQL Database의 단일 데이터베이스는 수동 동적 확장성을 지원 하지만 자동 크기 조정은 지원 하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다.
+Azure SQL Database의 단일 데이터베이스는 수동 동적 확장성을 지원 하지만 자동 크기 조정은 지원 하지 않습니다. 더 많은 *자동* 환경을 위해 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀의 리소스를 공유할 수 있도록 하는 탄력적 풀을 사용 하는 것이 좋습니다.
 그러나 Azure SQL Database에서 단일 데이터베이스에 대 한 확장성을 자동화 하는 데 도움이 되는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/monitor-and-scale-database-powershell.md)을 참조하세요.
 
 애플리케이션 가동 중지 시간을 최소로 하여 언제든지 [DTU 서비스 계층](service-tiers-dtu.md) 또는 [vCore 특성](resource-limits-vcore-single-databases.md)을 변경할 수 있습니다(일반적으로 평균 4초 미만). 많은 업무와 앱에서, 특히 사용 패턴이 비교적 예측 가능한 경우 데이터베이스를 만들고 성능을 확장하거나 축소할 수 있으면 충분합니다. 하지만 사용 패턴을 예측할 수 없는 경우 비용과 비즈니스 모델을 관리하기 어려워질 수 있습니다. 이 시나리오에서는 풀의 여러 데이터베이스 간에 공유되는 특정 개수의 eDTU가 포함된 탄력적 풀을 사용합니다.
