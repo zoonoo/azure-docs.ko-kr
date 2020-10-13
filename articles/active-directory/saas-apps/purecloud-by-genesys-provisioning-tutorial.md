@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
 ms.openlocfilehash: 8548e6c4c3e2b31d9fb16273bcc441ca38127831
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361826"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 PureCloud를 사용 하 여 구성
@@ -31,7 +31,7 @@ ms.locfileid: "91361826"
 > * PureCloud에서 그룹 및 그룹 멤버 자격 프로 비전
 > * PureCloud에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "91361826"
 2. [Oauth 클라이언트를 사용 하 여](https://developer.mypurecloud.com/api/rest/authorization/use-client-credentials.html)토큰을 생성 합니다.
 3. PureCloud 내에서 그룹 멤버 자격을 자동으로 프로 비전 하려는 경우에는 Azure AD에서 그룹에 대해 동일한 이름을 사용 하 여 PureCloud에 [그룹을 만들어야](https://help.mypurecloud.com/?p=52397) 합니다.
 
-## <a name="step-3-add-purecloud-by-genesys-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 PureCloud를 추가 하 여 추가
+## <a name="step-3-add-purecloud-by-genesys-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 PureCloud를 추가 하 여 추가
 
 Azure AD 응용 프로그램 갤러리에서 PureCloud를 추가 하 여 PureCloud로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 PureCloud를 설정 하 여 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

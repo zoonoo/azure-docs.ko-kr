@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: d5a906e12df14c6c3ffec704310bbede742ad841
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760828"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 스프링 데이터 Azure Cosmos DB v2: 릴리스 정보 및 리소스
@@ -27,7 +27,7 @@ ms.locfileid: "91760828"
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
@@ -45,12 +45,12 @@ ms.locfileid: "91760828"
 > [!IMPORTANT]  
 > 이러한 릴리스 정보는 스프링 데이터 Azure Cosmos DB 버전 2에 대 한 것입니다. [버전 3에 대 한 릴리스 정보는 여기](sql-api-sdk-java-spring-v3.md)에서 확인할 수 있습니다. 
 >
-> 스프링 데이터 Azure Cosmos DB는 SQL API만 지원 합니다.
+> Spring Data Azure Cosmos DB는 SQL API만 지원합니다.
 >
 > 다른 Azure Cosmos DB Api의 스프링 데이터에 대 한 자세한 내용은 다음 문서를 참조 하세요.
-> * [Azure Cosmos DB에서 Apache Cassandra에 대 한 스프링 데이터](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Azure Cosmos DB로 스프링 데이터 MongoDB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Azure Cosmos DB로 스프링 데이터 Gremlin](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data for Apache Cassandra](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data MongoDB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data Gremlin](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > 신속 하 게 진행 하 고 싶으세요?
 > 1. SDK를 사용할 수 있도록 [지원 되는 최소 Java RUNTIME JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)을 설치 합니다.
@@ -76,12 +76,12 @@ ms.locfileid: "91760828"
 ## <a name="release-history"></a>릴리스 기록
 
 ### <a name="230-may-21-2020"></a>2.3.0 (2020 년 5 월 21 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 스프링 부팅 버전을 2.3.0로 업데이트 합니다.
 
 
 ### <a name="225-may-19-2020"></a>2.2.5 (2020 년 5 월 19 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * Azure Cosmos DB 버전을 3.7.3로 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
 * Azure Cosmos DB SDK 3.7.3의 메모리 누수 수정과 Netty 버전 업그레이드를 포함 합니다.
@@ -92,7 +92,7 @@ ms.locfileid: "91760828"
 * `TTL`컨테이너의 속성을 수정 합니다.
 
 ### <a name="223-february-25-2020"></a>2.2.3 (2 월 25 일, 2020)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * `findAll`파티션 키 API를 기준으로 새를 추가 합니다.
 * Azure Cosmos DB 버전을 3.7.0로 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
@@ -105,12 +105,12 @@ ms.locfileid: "91760828"
 * Backports는 "입력 엔터티 대신 리포지토리에 저장 된 반환 엔터티 컬렉션"을 수정 합니다.
 
 ### <a name="222-january-15-2020"></a>2.2.2 (1 월 15 일 2020)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * Azure Cosmos DB 버전을 3.6.0로 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
 
 ### <a name="221-december-31-2019"></a>2.2.1 (2019 년 12 월 31 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * Azure Cosmos DB SDK 버전을 3.5.0로 업데이트 합니다.
 * 자동 컬렉션 만들기를 사용 하거나 사용 하지 않도록 주석 필드를 추가 합니다.
 * 예외 처리를 향상 시킵니다. `CosmosClientException`를 통해 노출 `CosmosDBAccessException` 합니다.
@@ -121,13 +121,13 @@ ms.locfileid: "91760828"
 * 가 사용 된 경우 다음 페이지에 정렬이 적용 되지 않는 버그를 수정 `CosmosPageRequest` 합니다.
 
 ### <a name="219-december-26-2019"></a>2.1.9 (2019 년 12 월 26 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 자동 컬렉션 만들기를 사용 하거나 사용 하지 않도록 주석 필드를 추가 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
 *  `findById`메서드의 동작을 수정 합니다. 이전에는이 메서드가 예외를 throw 하는 대신 엔터티를 찾지 못한 경우 빈 결과를 반환 했습니다.
 
 ### <a name="220-october-21-2019"></a>2.2.0 (2019 년 10 월 21 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 사후 Cosmos 리포지토리 지원을 완료 합니다.
 * Azure Cosmos DB 요청 진단 문자열 및 쿼리 메트릭을 지원 합니다.
 * 3.3.1에 SDK 버전 업데이트를 Azure Cosmos DB 합니다.
@@ -140,7 +140,7 @@ ms.locfileid: "91760828"
 * "PageSize가 리포지토리의 총 항목 보다 작은 경우 정렬 시 예외가 throw 됩니다."를 수정 합니다.
 
 ### <a name="218-october-18-2019"></a>2.1.8 (2019 년 10 월 18 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * DocumentDB Api를 지지.
 * `findByIdAndPartitionKey`및 api를 추가 `deleteByIdAndPartitionKey` 합니다.
 * 에 따라 낙관적 잠금을 추가 `_etag` 합니다.
@@ -148,7 +148,7 @@ ms.locfileid: "91760828"
 * `ObjectMapper`향상 된 기능을 추가 합니다.
 
 ### <a name="217-october-18-2019"></a>2.1.7 (2019 년 10 월 18 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * Azure Cosmos DB SDK 버전 3 종속성을 추가 합니다.
 * 사후 Cosmos 리포지토리를 추가 합니다.
 * `DocumentDbTemplate`AZURE COSMOS DB SDK 버전 3을 사용 하도록의 구현을 업데이트 합니다.
@@ -169,19 +169,19 @@ ms.locfileid: "91760828"
     * CPU 및/또는 메모리에 대 한 잠재적 성능 저하를 방지 합니다.
 
 ### <a name="211-march-7-2019"></a>2.1.1 (3 월 7 일, 2019)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 주 버전을 2.1.1로 업데이트 합니다.
 
 ### <a name="206-march-7-2019"></a>2.0.6 (3 월 7 일, 2019)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 원격 분석에서 모든 예외를 무시 합니다.
 
 ### <a name="210-december-17-2018"></a>2.1.0 (2018 년 12 월 17 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 2.1.0에 버전을 업데이트 하 여 문제를 해결 합니다.
 
 ### <a name="205-september-13-2018"></a>2.0.5 (9 월 13 일, 2018)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 및 키워드 `exists` 를 추가 `startsWith` 합니다.
 * 추가 정보를 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
@@ -189,7 +189,7 @@ ms.locfileid: "91760828"
 * "수집이 생성 되지 않으면 findAll이 실패 합니다."를 수정 합니다.
 
 ### <a name="204-prerelease-august-23-2018"></a>2.0.4 이상을 (시험판) (2018 년 8 월 23 일)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * Documentdb에서 cosmosdb로 패키지의 이름을 바꿉니다.
 * 쿼리 메서드 키워드의 새 기능을 추가 합니다. 이제 SQL API에서 16 개의 키워드가 지원 됩니다.
 * 페이징 및 정렬을 사용 하 여 쿼리의 새 기능을 추가 합니다.

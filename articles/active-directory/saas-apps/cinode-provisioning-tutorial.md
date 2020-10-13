@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: dd052bf7a95cbadf2a107f7e49915a9899b084ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce4b93bc8f44e7bec490466fc42be829f942ae07
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614090"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940925"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Cinode 구성
 
@@ -55,7 +55,7 @@ ms.locfileid: "91614090"
 
 3. **토큰** 으로 이동 하 여 새 토큰을 만듭니다.
 
-4. 고유한 이름을 입력 하 고, https://api.cinode.app/scim/v2 대상 그룹을 선택 하 고, 만료 날짜를 적절 하 게 설정 합니다.
+4. 고유한 이름을 입력 하 고 **' https://api.cinode.app/scim/v2 '** 을 (를) 대상으로 선택 하 고 만료 날짜를 적절 하 게 설정 합니다.
 
 5. **토큰 만들기**를 클릭 합니다.
 

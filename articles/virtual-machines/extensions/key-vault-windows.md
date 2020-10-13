@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ab89e0da3d4512cef9741ec97e9d772c852beb4b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804098"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970081"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -31,6 +31,11 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 
 - PKCS #12
 - PEM
+
+## <a name="prerequisities"></a>필수 구성 요소
+  - 인증서를 사용 하 여 인스턴스를 Key Vault 합니다. [Key Vault 만들기를](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) 참조 하세요.
+  - VM/VMSS에서 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 할당 해야 함
+  - `get` `list` 암호의 인증서 부분을 검색 하려면 VM/vmss 관리 id에 대 한 암호 및 사용 권한을 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](/azure/key-vault/general/authentication) 하 고 [Key Vault 액세스 정책을 할당](/azure/key-vault/general/assign-access-policy-cli)하는 방법을 참조 하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -206,8 +211,7 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
 다음 제한 사항/요구 사항에 주의하세요.
 - Key Vault 제한 사항:
   - 배포 시점에 있어야 합니다. 
-  - 관리 Id를 사용 하 여 VM/VMSS Id에 대 한 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](/azure/key-vault/general/authentication) 하 고 [Key Vault 액세스 정책을 할당](/azure/key-vault/general/assign-access-policy-cli)하는 방법을 참조 하세요.
-
+  - 관리 Id를 사용 하 여 VM/VMSS Id에 대 한 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](../../key-vault/general/authentication.md) 하 고 [Key Vault 액세스 정책을 할당](../../key-vault/general/assign-access-policy-cli.md)하는 방법을 참조 하세요.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 

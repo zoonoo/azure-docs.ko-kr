@@ -4,10 +4,10 @@ description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고�
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537432"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
@@ -18,14 +18,14 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
 1. [Azure PowerShell 모듈](/powershell/azure/install-az-ps) 을 설치 해야 합니다.
 2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/platform/action-groups.md)해야 합니다.
 
-## <a name="instructions"></a>Instructions
+## <a name="instructions"></a>지침
 1. PowerShell을 사용하여 계정으로 Azure에 로그인하고 상호 작용하려는 구독을 선택합니다.
 
     ```azurepowershell
@@ -168,7 +168,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 ],
 ```
 
-예: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+`"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Azure Portal로 이동하여 Azure 리소스를 볼 때 URL을 살펴보면 이 문자열을 얻을 수 있습니다.
 

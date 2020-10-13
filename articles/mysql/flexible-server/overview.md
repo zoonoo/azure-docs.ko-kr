@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4b79ee0999db0a19794cc167ae79ed6e58193b30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946216"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759648"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -20,7 +20,7 @@ MySQL 커뮤니티 버전에서 제공하는 Azure Database for MySQL은 두 가
 - 단일 서버 
 - 유연한 서버(미리 보기)
 
-이 문서에서는 유연한 서버 배포 모델의 핵심 개념에 대한 개요 및 소개를 제공합니다. 
+이 문서에서는 유연한 서버 배포 모델의 핵심 개념에 대한 개요 및 소개를 제공합니다. 작업에 적합한 배포 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure에서 올바른 MySQL 서버 옵션 선택](./../select-right-deployment-type.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -50,11 +50,13 @@ Azure Database for MySQL 유연한 서버는 데이터베이스 관리 기능 �
 
 자세한 내용은 [고가용성 개념](concepts-high-availability.md)을 참조하세요.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="영역 중복 고가용성 개념 다이어그램"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="단일 영역 고가용성 개념 다이어그램"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>관리되는 유지 관리 기간을 사용하여 자동 패치
 
-서비스는 기본 하드웨어, OS 및 데이터베이스 엔진의 자동화된 패치를 수행합니다. 패치에는 보안 및 소프트웨어 업데이트가 포함됩니다. MySQL 엔진의 경우 계획된 유지 관리 릴리스에 부 버전 업그레이드도 포함됩니다. 사용자는 시스템 관리를 위해 패치 일정을 구성하거나 사용자 지정 일정을 정의할 수 있습니다. 유지 관리 일정 중에 패치가 적용되며, 업데이트를 완료하기 위해 패치 프로세스 중에 서버를 다시 시작해야 할 수도 있습니다. 사용자 지정 일정을 사용하면 사용자가 패치 주기를 예측 가능하도록 설정하고 비즈니스에 최소한의 영향을 주는 유지 관리 기간을 선택할 수 있습니다. 일반적으로 서비스는 연속 통합 및 릴리스의 일부로 월별 릴리스 일정을 따릅니다. 
+서비스는 기본 하드웨어, OS 및 데이터베이스 엔진의 자동화된 패치를 수행합니다. 패치에는 보안 및 소프트웨어 업데이트가 포함됩니다. MySQL 엔진의 경우 계획된 유지 관리 릴리스에 부 버전 업그레이드도 포함됩니다. 사용자는 시스템 관리를 위해 패치 일정을 구성하거나 사용자 지정 일정을 정의할 수 있습니다. 유지 관리 일정 중에 패치가 적용되며, 업데이트를 완료하기 위해 패치 프로세스 중에 서버를 다시 시작해야 할 수도 있습니다. 사용자 지정 일정을 사용하면 사용자가 패치 주기를 예측 가능하도록 설정하고 비즈니스에 최소한의 영향을 주는 유지 관리 기간을 선택할 수 있습니다. 일반적으로 서비스는 연속 통합 및 릴리스의 일부로 월별 릴리스 일정을 따릅니다.
+
+자세한 내용은 [예약된 유지 관리](concepts-maintenance.md)를 참조하세요. 
 
 ## <a name="automatic-backups"></a>자동 백업
 
@@ -87,13 +89,15 @@ Azure Database for MySQL 유연한 서버에 연결하는 두 가지 네트워�
 
 유연한 서버 서비스를 사용하면 요청 시 서버를 중지하고 시작하여 비용을 최적화할 수 있습니다. 서버가 중지되는 즉시 컴퓨팅 계층에 대한 대금 청구가 중지됩니다. 이렇게 하면 개발, 테스트 및 시간 제한 예측 가능한 프로덕션 워크로드의 비용을 대폭 절감할 수 있습니다. 서버는 다시 시작하지 않는 한 7일 동안 중지된 상태로 유지됩니다. 
 
+자세한 내용은 [서버 개념](concept-servers.md)을 참조하세요. 
+
 ## <a name="enterprise-grade-security-and-privacy"></a>엔터프라이즈급 보안 및 프라이버시
 
 유연한 서버 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터 및 쿼리를 실행하는 동안 생성된 임시 파일이 암호화됩니다. 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다(기본값). 
 
 서비스는 기본적으로 적용되는 전송 계층 보안을 사용하여 동작 중인 데이터를 암호화합니다. 유연한 서버는 전송 계층 보안(1.2 TLS)을 사용하는 암호화된 연결만 지원하며 TLS 1.0 및 TLS 1.1을 사용하여 들어오는 연결은 모두 거부됩니다. 
 
-자세한 내용은 [유연한 서버에 암호화된 연결을 사용하는 방법](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md)을 참조하세요.
+자세한 내용은 [유연한 서버에 암호화된 연결을 사용하는 방법](https://docs.mongodb.com/manual/tutorial/configure-ssl)을 참조하세요.
 
 유연한 서버는 [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)(VNet 통합)를 사용하여 서버에 대한 모든 프라이빗 액세스를 허용합니다. Azure 가상 네트워크의 서버는 프라이빗 IP 주소를 통해서만 연결할 수 있습니다. VNet 통합을 사용하면 퍼블릭 액세스를 거부하고 퍼블릭 엔드포인트를 사용하여 서버에 연결할 수 없습니다. 
 
@@ -112,6 +116,15 @@ Azure Database for MySQL 유연한 서버에 연결하는 두 가지 네트워�
 
 - **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우 mysqldump/mydumper 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠르게 마이그레이션할 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션]을 참조하세요. 
 - **Azure Database Migration Service** – [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online)를 활용하면 가동 중지 시간을 최소화하면서 단일 서버로 원활하고 간단하게 마이그레이션할 수 있습니다. 
+
+## <a name="contacts"></a>연락처
+Azure Database for MySQL 작업에 대해 궁금한 점이나 제안하고 싶은 의견이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
+
+또한 문의의 다음 사항을 적절히 고려해 주세요.
+
+- Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+- 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql)를 통해 항목을 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Database for MySQL 단일 서버 배포 모드에 대한 소개를 읽어 보았으므로 이제 다음을 할 수 있습니다.

@@ -4,12 +4,12 @@ description: Azure container registry의 미사용 암호화 및에 저장 된 �
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 7b4b3fd21421ba1e371bd27d8224c1f2aa34b7be
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620344"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940670"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -114,7 +114,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-또는 Key Vault (미리 보기) [용 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 [az role assign create](/cli/azure/az/role/assigment#az-role-assignment-create) 명령을 사용 하 여 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
+또는 Key Vault (미리 보기) [용 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 [az role assign create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 명령을 사용 하 여 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -525,7 +525,7 @@ Key Vault 방화벽을 사용 하 여 구성 된 key vault에 액세스 하려�
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-또한 암호화 키를 변경 (회전) 할 수 없습니다. 이 문제가 발생 하면 먼저 오류 메시지에 표시 된 GUID를 사용 하 여 id를 다시 할당 합니다. 예를 들면 다음과 같습니다.
+또한 암호화 키를 변경 (회전) 할 수 없습니다. 이 문제가 발생 하면 먼저 오류 메시지에 표시 된 GUID를 사용 하 여 id를 다시 할당 합니다. 예를 들어:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx

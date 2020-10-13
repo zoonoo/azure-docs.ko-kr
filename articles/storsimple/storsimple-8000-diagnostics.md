@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91300448"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>StorSimple 진단 도구를 사용하여 8000 시리즈 디바이스 문제 해결
@@ -378,7 +378,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
 1.  첫째, 계층화된 볼륨과 선택된 보관 옵션을 사용하는 계층화된 볼륨의 조합을 만듭니다. 이 작업은 도구에서 64KB와 512KB Blob 크기 모두에 대한 테스트를 실행하는지 확인합니다.
 
-2. 볼륨을 만들고 구성한 후 cmdlet을 실행합니다. 유형:
+2. 볼륨을 만들고 구성한 후 cmdlet을 실행합니다. 형식:
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
@@ -414,7 +414,7 @@ Controller0>
 
 다음은 매핑할 시스템 정보의 다양한 Windows PowerShell 매개 변수를 설명하는 테이블입니다. 
 
-| PowerShell 매개 변수    | Description  |
+| PowerShell 매개 변수    | 설명  |
 |-------------------------|------------------|
 | Instance ID             | 모든 컨트롤러에는 고유 식별자 또는 연결된 GUID입니다.|
 | Name                    | 디바이스를 배포하는 동안 Azure Portal을 통해 구성된 디바이스의 친숙한 이름입니다. 기본 친숙한 이름은 디바이스 일련 번호입니다. |

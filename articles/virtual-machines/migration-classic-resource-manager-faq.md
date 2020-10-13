@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855848"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969843"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
 
@@ -26,7 +26,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) 은 vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 Azure의 최신 제어 평면입니다. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) 은 vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 Azure의 최신 제어 평면입니다. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 기간은 얼마인가요?
 
@@ -42,7 +42,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>"NewClassicVMCreationNotAllowedForSubscription"이라는 오류가 발생하는 이유는 무엇인가요?
 
-사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)를 사용하는 것이 좋습니다. ARM을 사용 하 여 Azure Vm을 사용할 수 없는 경우 지원에 문의 하 여 허용 목록에 구독을 추가 하세요.
+사용 중지 프로세스의 일부로 IaaS VM(클래식)은 새 고객에게 더 이상 제공되지 않습니다. 귀하는 새 고객으로 식별되었으며 따라서 귀하의 작업은 권한이 부여되지 않았습니다. [ARM을 사용하는 Azure Virtual Machines](./windows/quick-create-powershell.md)를 사용하는 것이 좋습니다. ARM을 사용 하 여 Azure Vm을 사용할 수 없는 경우 지원에 문의 하 여 허용 목록에 구독을 추가 하세요.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
@@ -105,7 +105,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="how-do-i-report-an-issue"></a>문제를 보고하려면 어떻게 해야 하나요? 
 
-[VM에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)에 ClassicIaaSMigration 키워드를 사용하여 VM에 대한 문제 및 질문을 게시합니다. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
+[VM에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-virtual-machines.html)에 ClassicIaaSMigration 키워드를 사용하여 VM에 대한 문제 및 질문을 게시합니다. 이 포럼에 모든 질문을 게시하는 것이 좋습니다. 지원 계약을 맺은 경우 지원 티켓을 로깅해도 좋습니다.
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>마이그레이션 중 플랫폼이 선택한 리소스 이름이 마음에 들지 않으면 어떻게 하나요? 
 

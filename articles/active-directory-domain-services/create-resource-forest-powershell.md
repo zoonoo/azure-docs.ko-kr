@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell를 사용 하 여 Azure AD Domain Services 리소스 포리스트 만들기 Microsoft Docs
 description: 이 문서에서는 Azure PowerShell를 사용 하 여 온-프레미스 Active Directory Domain Services 환경에 Azure Active Directory Domain Services 리소스 포리스트 및 아웃 바운드 포리스트를 만들고 구성 하는 방법에 대해 알아봅니다.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723166"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960952"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 온-프레미스 도메인에 대 한 Azure Active Directory Domain Services 리소스 포리스트 및 아웃 바운드 포리스트 트러스트 만들기
 
@@ -102,17 +102,17 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. 스크립트에 필요한 다음 매개 변수를 검토 `New-AzureAaddsForest` 합니다. 필수 구성 요소 **Azure PowerShell** 및 **Azure AD PowerShell** 모듈도 있는지도 확인 합니다. 응용 프로그램 및 온-프레미스 연결을 제공 하기 위한 가상 네트워크 요구 사항을 계획 했는지 확인 합니다.
 
-    | Name                         | 스크립트 매개 변수          | 설명 |
+    | Name                         | 스크립트 매개 변수          | Description |
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | Azure AD DS 청구에 사용 되는 구독 ID입니다. [Get-azurermsubscription][Get-AzureRMSubscription] cmdlet을 사용 하 여 구독 목록을 가져올 수 있습니다. |
-    | 리소스 그룹               | *-aaddsResourceGroupName* | 관리 되는 도메인 및 관련 리소스에 대 한 리소스 그룹의 이름입니다. |
+    | Resource Group               | *-aaddsResourceGroupName* | 관리 되는 도메인 및 관련 리소스에 대 한 리소스 그룹의 이름입니다. |
     | 위치                     | *-aaddsLocation*          | 관리 되는 도메인을 호스트 하는 Azure 지역입니다. 사용 가능한 지역에 대해서는 [Azure AD DS에 대해 지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) 을 참조 하세요. |
     | Azure AD DS 관리자    | *-aaddsAdminUser*         | 첫 번째 관리 되는 도메인 관리자의 사용자 계정 이름입니다. 이 계정은 Azure Active Directory의 기존 클라우드 사용자 계정 이어야 합니다. 사용자와 스크립트를 실행 하는 사용자가 *AAD DC 관리자* 그룹에 추가 됩니다. |
     | Azure AD DS 도메인 이름      | *-aaddsDomainName*        | 포리스트 이름을 선택 하는 방법에 대 한 이전 지침에 따라 관리 되는 도메인의 FQDN입니다. |
 
     `New-AzureAaddsForest`이러한 리소스가 아직 없는 경우 스크립트는 azure 가상 네트워크 및 azure AD DS 서브넷을 만들 수 있습니다. 이 스크립트는 다음과 같이 지정 된 경우 작업 서브넷을 선택적으로 만들 수 있습니다.
 
-    | Name                              | 스크립트 매개 변수                  | 설명 |
+    | Name                              | 스크립트 매개 변수                  | Description |
     |:----------------------------------|:----------------------------------|:------------|
     | 가상 네트워크 이름              | *-aaddsVnetName*                  | 관리 되는 도메인에 대 한 가상 네트워크의 이름입니다.|
     | 주소 공간                     | *-aaddsVnetCIDRAddressSpace*      | 가상 네트워크의 주소 범위가 CIDR 표기법으로 되어 있습니다 (가상 네트워크를 만드는 경우).|
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 이제 스크립트에 다음 정보를 제공 합니다.
 
-| Name                               | 스크립트 매개 변수     | 설명 |
+| Name                               | 스크립트 매개 변수     | Description |
 |:-----------------------------------|:---------------------|:------------|
 | Azure AD DS 도메인 이름            | *-ManagedDomainFqdn* | 관리 되는 도메인의 FQDN (예: *aaddscontoso.com* ) |
 | 온-프레미스 AD DS 도메인 이름      | *-TrustFqdn*         | 트러스트 된 포리스트의 FQDN (예: *onprem.contoso.com* ) |

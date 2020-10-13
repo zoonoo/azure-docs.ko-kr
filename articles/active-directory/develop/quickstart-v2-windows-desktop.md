@@ -1,6 +1,6 @@
 ---
-title: Microsoft ID 플랫폼 Windows 데스크톱 빠른 시작
-description: Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 획득하고, Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
+title: '빠른 시작: 유니버설 Windows 플랫폼 데스크톱 앱에서 사용자 로그인 및 Microsoft Graph 호출 | Azure'
+description: 이 빠른 시작에서는 Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 획득하고, Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +11,22 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ad45f4c57c336b30f09684c250539bd4452a10a8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5af55c16ae17b30d2079b332c236c325f3bed4df
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114560"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613274"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
 이 빠른 시작에서는 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 Windows 데스크톱 .NET(WPF) 애플리케이션을 작성하는 방법을 알아봅니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>필수 구성 요소
+>
+> * [유니버설 Windows 플랫폼 개발](/windows/uwp/get-started/get-set-up) 워크로드가 설치된 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
 > 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
 > * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
