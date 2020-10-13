@@ -7,17 +7,17 @@ ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91368892"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
 [Openfaas][open-faas] 는 컨테이너를 사용 하 여 서버 리스 함수를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 

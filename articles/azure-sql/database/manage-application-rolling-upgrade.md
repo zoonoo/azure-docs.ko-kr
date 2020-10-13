@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450262"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
@@ -151,7 +151,7 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 ## <a name="next-steps"></a>다음 단계
 
-* 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조 하세요.
+* 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
 * 활성 지역 복제를 Azure SQL Database 하는 방법에 대 한 자세한 내용은 [활성 지역 복제를 사용 하 여 읽기 가능한 보조 데이터베이스 만들기](active-geo-replication-overview.md)를 참조 하세요.
 * Azure SQL Database 자동 장애 조치(failover) 그룹에 대해 알아보려면 [자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스에서 조정된 투명 장애 조치(failover) 수행](auto-failover-group-overview.md)을 참조하세요.
 * Azure App Service의 스테이징 환경에 대해 알아보려면 [Azure App Service에서 스테이징 환경 설정](../../app-service/deploy-staging-slots.md)을 참조하세요.

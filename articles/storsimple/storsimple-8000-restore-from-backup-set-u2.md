@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 8783d5ce5596cdb4678c09b79c09797ef62cc9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527832"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972019"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>백업 세트에서 StorSimple 볼륨 복원
 
@@ -115,7 +115,7 @@ ms.locfileid: "86527832"
    
 4. **Backup 카탈로그** 탭으로 다시 이동하고 Backup 세트를 선택합니다. 마우스 오른쪽 단추를 클릭하고 상황에 맞는 메뉴에서 **복원**을 선택합니다.
 
-    ![Backup 세트 목록](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![백업 세트 목록 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. 확인하라는 메시지가 표시됩니다. 복원 정보를 검토하고 확인 확인란을 선택합니다.
    
@@ -123,7 +123,7 @@ ms.locfileid: "86527832"
 
 7. **복원**을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
 
-   ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![확인 페이지 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. 복원이 완료되면 볼륨의 콘텐츠가 백업의 볼륨으로 바뀌는 것을 확인합니다.
 

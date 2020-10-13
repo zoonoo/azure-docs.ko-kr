@@ -8,12 +8,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 49f1f475ba4169ea6943dec161577a15e76657f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857778"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893648"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Azure HDInsight 비즈니스 연속성
 
@@ -84,7 +84,7 @@ HDInsight는 99.9%의 가용성 SLA를 제공 합니다. 단일 배포에 고가
 
 ### <a name="hdinsight-metastore"></a>HDInsight metastore
 
-HDInsight는 99.99%의 SLA를 제공 하는 metastore로 [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) 를 사용 합니다. 데이터의 복제본 3 개는 비동기 복제를 사용 하 여 데이터 센터 내에서 유지 됩니다. 복제본이 손실 되 면 대체 복제본이 원활 하 게 처리 됩니다. [활성 지역 복제](../azure-sql/database/active-geo-replication-overview.md) 는 최대 4 개의 데이터 센터와 함께 지원 됩니다. 수동 또는 데이터 센터의 장애 조치 (failover)가 있는 경우 계층의 첫 번째 복제본이 자동으로 읽기/쓰기 가능 상태가 됩니다. 자세한 내용은 [Azure SQL Database 비즈니스 연속성](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)을 참조 하세요.
+HDInsight는 99.99%의 SLA를 제공 하는 metastore로 [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) 를 사용 합니다. 동기 복제를 사용 하는 데이터 센터 내에서 3 개의 데이터 복제본이 유지 됩니다. 복제본이 손실 되 면 대체 복제본이 원활 하 게 처리 됩니다. [활성 지역 복제](../azure-sql/database/active-geo-replication-overview.md) 는 최대 4 개의 데이터 센터와 함께 지원 됩니다. 수동 또는 데이터 센터의 장애 조치 (failover)가 있는 경우 계층의 첫 번째 복제본이 자동으로 읽기/쓰기 가능 상태가 됩니다. 자세한 내용은 [Azure SQL Database 비즈니스 연속성](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)을 참조 하세요.
 
 ### <a name="hdinsight-storage"></a>HDInsight 저장소
 
@@ -112,7 +112,7 @@ HDInsight는 기본 저장소 계층으로 Azure Data Lake Storage Gen2를 권�
 |----|------------------------|-----------------------|
 |데이터 스토리지|보조 지역의 주 데이터/테이블 복제|큐 레이트 데이터만 복제|
 |데이터 송신|아웃 바운드 교차 지역 데이터 전송은 한 가격으로 제공 됩니다. 대역폭 가격 책정 지침 검토|큐 레이트 데이터만 복제 하 여 지역 송신 공간 줄이기|
-|클러스터 계산|보조 지역의 추가 HDInsight 클러스터/s|기본 실패 후 자동화 된 스크립트를 사용 하 여 보조 계산을 배포 합니다. < \br>< \br>자동 크기 조정을 사용 하 여 보조 클러스터 크기를 최소로 유지 합니다. < \br>< \br>< 더 저렴 한 VM Sku를 사용 합니다.><>|
+|클러스터 계산|보조 지역의 추가 HDInsight 클러스터/s|자동화 된 스크립트를 사용 하 여 기본 실패 후 보조 계산을 배포 합니다. 자동 크기 조정을 사용 하 여 보조 클러스터 크기를 최소로 유지 합니다. 저렴 한 VM Sku를 사용 합니다. VM Sku가 할인 될 수 있는 지역에 보조 데이터베이스를 만듭니다.|
 |인증 |보조 지역의 다중 사용자 시나리오에서 추가 Azure AD DS 설치가 발생 합니다.|보조 지역에서 다중 사용자 설정이 사용 되지 않도록 합니다.|
 
 ### <a name="complexity-optimizations"></a>복잡성 최적화

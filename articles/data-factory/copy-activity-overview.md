@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440595"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946175"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -65,7 +65,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 복사 작업을 사용 하도록 설정 하는 서비스는 [Azure integration runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 나열 된 지역 및 지역에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory 및 데이터 이동의 가용성을 확인 하려면 [지역별 제품](https://azure.microsoft.com/regions/#services) 을 참조 하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

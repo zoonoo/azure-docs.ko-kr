@@ -4,10 +4,10 @@ description: 이 문서에서는 서비스 주체를 사용 하 여 Azure Arc �
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: dc92b1cb96b61caa17f141ca9a78fb10fe59a2a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713418"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >**Azcmagent**를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
 
-에이전트를 설치 하 고 Azure Arc 사용 서버에 연결 하도록 구성한 후 Azure Portal으로 이동 하 여 서버가 성공적으로 연결 되었는지 확인 합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
+에이전트가 설치되고 Azure Arc 사용 서버에 연결하도록 구성되면 Azure Portal로 이동하여 서버가 성공적으로 연결되었는지 확인합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
 
 ![성공적인 서버 연결](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

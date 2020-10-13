@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
 ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449316"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure Monitor 뷰의 필터
@@ -43,7 +43,7 @@ ms.locfileid: "91449316"
 | 값에 대한 쿼리 | 쿼리를 실행하여 사용자에 대한 필터 드롭다운을 채웁니다.  이 쿼리는 [요약](/azure/kusto/query/summarizeoperator) 또는 [distinct](/azure/kusto/query/distinctoperator) 를 사용 하 여 특정 필드에 고유한 값을 제공 해야 하며 **필드 이름과**일치 해야 합니다.  [정렬](/azure/kusto/query/sortoperator)을 사용하여 사용자에게 표시되는 값을 정렬할 수 있습니다. |
 | 태그 | 필터를 지원하는 쿼리에서 사용되는 필터의 이름은 사용자에게도 표시됩니다. |
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 표에는 몇 가지 공통 필터가 포함되어 있습니다.  
 

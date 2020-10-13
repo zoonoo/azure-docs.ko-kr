@@ -3,12 +3,12 @@ title: Windows에 대 한 그룹 정책 기준에서 게스트 구성 정책 정
 description: 그룹 정책 Windows Server 2019 보안 기준에서 정책 정의로 변환 하는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547771"
+ms.locfileid: "91893376"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Windows에 대 한 그룹 정책 기준에서 게스트 구성 정책 정의를 만드는 방법
 
@@ -87,7 +87,7 @@ PowerShell에서 **DSC**, **GuestConfiguration**, **기준 관리**및 관련 Az
 
 ## <a name="create-azure-policy-guest-configuration"></a>Azure Policy 게스트 구성 만들기
 
-다음 단계는 Blob Storage에 파일을 게시하는 과정입니다. 
+다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 
 
 1. 아래 스크립트에는 이 작업을 자동화하는 데 사용할 수 있는 함수가 포함되어 있습니다. 함수에 사용 되는 명령에는 `publish` 모듈이 필요 합니다 `Az.Storage` .
 
@@ -145,7 +145,7 @@ PowerShell에서 **DSC**, **GuestConfiguration**, **기준 관리**및 관련 Az
     $blob = 'Server2019Baseline.zip' 
     ```
 
-1. 지정 된 매개 변수와 함께 publish 함수를 사용 하 여 공용 blob 저장소에 게스트 구성 패키지를 게시 합니다.
+1. 지정 된 매개 변수와 함께 publish 함수를 사용 하 여 게스트 구성 패키지를 공용 Blob Storage에 게시 합니다.
 
 
    ```azurepowershell-interactive

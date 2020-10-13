@@ -4,17 +4,17 @@ description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91728542"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
 
 [연결 된 템플릿을](linked-templates.md#linked-template)사용 하 여 [템플릿 사양을](template-specs.md) 만드는 방법에 대해 알아봅니다. 템플릿 사양을 사용 하 여 조직 내 다른 사용자와 ARM 템플릿을 공유 합니다. 이 문서에서는 `relativePath` [배포 리소스](/azure/templates/microsoft.resources/deployments)의 속성을 사용 하 여 주 템플릿과 연결 된 템플릿을 패키징하는 템플릿 사양을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

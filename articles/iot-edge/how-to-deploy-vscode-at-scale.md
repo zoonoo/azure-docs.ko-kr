@@ -9,12 +9,12 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 92540c57179ae0198f78b588681167fe48097362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc059cae927c1aaa057080172313f5720f483bdb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82134365"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972580"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Visual Studio Code를 사용 하 여 규모에 IoT Edge 모듈 배포
 
@@ -27,7 +27,10 @@ Visual Studio Code를 사용 하 여 여러 장치에 대 한 지속적인 배�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
-* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-visual-studio-code)
+* 하나 이상의 IoT Edge 장치입니다.
+
+  IoT Edge 장치를 설정 하지 않은 경우 Azure 가상 머신에서 만들 수 있습니다. 빠른 시작 문서 중 하나에 있는 단계에 따라 [가상 Linux 장치를 만들거나](quickstart-linux.md) [가상 Windows 장치를 만듭니다](quickstart.md).
+
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview)
 
@@ -220,7 +223,7 @@ Visual Studio Code에서 장치 쌍을 편집 하 여 태그를 구성할 수 �
 
    다음 매개 변수에 대 한 값을 지정 합니다.
 
-  | 매개 변수 | 설명 |
+  | 매개 변수 | Description |
   | --- | --- |
   | 배포 ID | IoT hub에서 생성 될 배포의 이름입니다. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다. |
   | 대상 조건 | 대상 조건을 입력 하 여이 배포의 대상으로 지정할 장치를 결정 합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 들면 `tags.environment='test' and properties.reported.devicemodel='4000x'` 입니다. |

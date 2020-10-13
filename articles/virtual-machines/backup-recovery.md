@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: bb1abb5b94653893e131c09af6de1625b0bc7998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87554854"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972359"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신을 위한 백업 및 복원 옵션
 
@@ -32,7 +32,7 @@ Azure Site Recovery는 주요 자연 재해 또는 광범위한 서비스 중단
 
 프로덕션 작업 또는 진행 중인 복제에 영향을 주지 않고 주문형 테스트 장애 조치를 사용하여 재해 복구 훈련을 실행할 수 있습니다. 여러 VM에서 실행되는 전체 애플리케이션의 장애 조치 및 장애 복구를 오케스트레이션하는 복구 계획을 만듭니다. 복구 계획 기능은 Azure Automation Runbook과 통합됩니다.
 
-[가상 머신을 복제](https://aka.ms/a2a-getting-started)하여 시작할 수 있습니다. 
+[가상 머신을 복제](../site-recovery/azure-to-azure-quickstart.md)하여 시작할 수 있습니다. 
 
 ## <a name="managed-snapshots"></a>관리되는 스냅샷 
 

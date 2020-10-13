@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570089"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
@@ -159,7 +159,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">Description</th>
+    <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
     <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>

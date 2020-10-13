@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566791"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Redis 용 Azure Cache에 복제본 추가 (미리 보기)
@@ -22,7 +22,7 @@ Redis Standard 및 Premium 계층 용 Azure Cache는 두 개의 전용 Vm (가�
 > 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요. 
 > 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독- [무료로 하나 만들기](https://azure.microsoft.com/free/)
 
 > [!NOTE]
@@ -36,11 +36,11 @@ Redis Standard 및 Premium 계층 용 Azure Cache는 두 개의 전용 Vm (가�
   
 1. **새로 만들기** 페이지에서 **데이터베이스**를 선택한 다음, **Azure Cache for Redis**를 선택합니다.
 
-    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Redis 용 Azure Cache를 선택 합니다.":::
+    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Azure Cache for Redis를 선택합니다.":::
    
 1. **기본 사항** 페이지에서 새 캐시의 설정을 구성 합니다.
    
-    | 설정      | 제안 값  | Description |
+    | 설정      | 제안 값  | 설명 |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 
     | **리소스 그룹** | 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 고 새 리소스 그룹 이름을 입력 합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -50,7 +50,7 @@ Redis Standard 및 Premium 계층 용 Azure Cache는 두 개의 전용 Vm (가�
    
 1. **고급** 페이지에서 **복제본 수**를 선택 합니다.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Redis 용 Azure Cache를 선택 합니다.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Azure Cache for Redis를 선택합니다.":::
 
 1. 다른 옵션은 기본 설정으로 그대로 둡니다. 
 

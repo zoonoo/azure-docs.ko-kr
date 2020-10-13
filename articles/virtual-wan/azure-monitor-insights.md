@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448622"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>가상 WAN (미리 보기)에 대 한 Azure Monitor 정보
@@ -24,7 +24,7 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 > 가상 WAN 포털의 **Insights** 메뉴 옵션이 현재 롤아웃 되 고 있습니다. 이 메뉴가 롤아웃 되는 동안 네트워크에 대 한 Azure Monitor를 사용 하 여 가상 WAN 토폴로지 및 메트릭 통합 문서에 액세스할 수 있습니다. 자세한 내용은 [네트워크에 대 한 Azure Monitor](../azure-monitor/insights/network-insights-overview.md)를 참조 하세요. 
 >
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서의 단계를 완료 하려면 하나 이상의 허브를 사용 하는 가상 WAN이 있어야 합니다. 가상 WAN 및 허브를 만들려면 다음 문서의 단계를 수행 합니다.
 

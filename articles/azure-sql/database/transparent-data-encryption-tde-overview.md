@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 06/15/2020
-ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836686"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945994"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대 한 투명 한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 및 Azure Synapse의 경우 TDE 보호기는 [서버](logical
 > SQL Database에서 새로 만든 모든 데이터베이스는 서비스 관리 투명 한 데이터 암호화를 사용 하 여 기본적으로 암호화 됩니다. 2017 년 5 월 이전에 만든 기존 SQL database와 복원, 지리적 복제 및 데이터베이스 복사를 통해 만든 SQL 데이터베이스는 기본적으로 암호화 되지 않습니다. 2019 2 월 이전에 만든 기존 SQL Managed Instance 데이터베이스는 기본적으로 암호화 되지 않습니다. 복원을 통해 만든 SQL Managed Instance 데이터베이스는 원본에서 암호화 상태를 상속 합니다.
 
 > [!NOTE]
-> TDE는 SQL Database의 **master** 데이터베이스를 암호화 하는 데 사용할 수 없습니다.  **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
+> TDE는 Azure SQL Database 및 Azure SQL Managed Instance에서 **master** 데이터베이스를 암호화 하는 데 사용할 수 없습니다. **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
 
 ## <a name="service-managed-transparent-data-encryption"></a>서비스 관리 투명한 데이터 암호화
 
