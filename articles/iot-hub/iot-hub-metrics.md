@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
 ms.openlocfilehash: c448d7e5a5e0bea29063930bed3a59a0461b8cf5
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767623"
 ---
 <!--for build: for each metric, if you understand what it is, it's ok. otw add more info.  -->
@@ -44,7 +44,7 @@ IoT Hub 메트릭은 Azure 구독에서 Azure IoT 리소스의 상태에 대 한
 
 IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개요를 제공하는 몇 가지 메트릭을 제공합니다. IoT Hub 상태의 큰 그림을 그리기 위해 여러 가지 메트릭의 정보를 결합할 수 있습니다. 다음 테이블에는 각 IoT Hub가 추적하는 메트릭과 각 메트릭이 IoT hub의 전반적인 상태와 어떤 관련성이 있는지 설명합니다.
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명:|차원|
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
 |RoutingDeliveries | 라우팅 배달 시도 (미리 보기) | 개수 | 합계 |라우팅 배달 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 배달 상태를 식별할 수 있습니다.| ResourceID<br>결과,<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*차원에 대 한 자세한 내용은 [**여기**](#dimensions)* 를 참조 하세요. |
 |RoutingDeliveryLatency| 라우팅 대기 시간 (미리 보기) | 밀리초 | 평균 |라우팅 전달 대기 시간 메트릭입니다. 차원을 사용 하 여 특정 끝점 또는 특정 라우팅 원본의 대기 시간을 확인 합니다.| ResourceID<br>RoutingSource,<br>EndpointType<br>EndpointName<br>*차원에 대 한 자세한 내용은 [**여기**](#dimensions)* 를 참조 하세요.|

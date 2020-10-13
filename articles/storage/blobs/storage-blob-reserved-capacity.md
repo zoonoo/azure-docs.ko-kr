@@ -1,19 +1,20 @@
 ---
-title: 예약 된 용량을 사용 하 여 Blob 저장소에 대 한 비용 최적화-Azure Storage
+title: 예약된 용량으로 Blob 스토리지에 대한 비용 최적화
+titleSuffix: Azure Storage
 description: 블록 blob 및 Azure Data Lake Storage Gen2 리소스에 대 한 비용을 절감 하기 위해 예약 된 Azure Storage 용량을 구매 하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259204"
+ms.locfileid: "91874818"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약된 용량으로 Blob 스토리지에 대한 비용 최적화
 
@@ -29,7 +30,7 @@ Azure Storage 예약 가격 책정에 대한 자세한 내용은 [블록 Blob �
 
 ### <a name="reservation-capacity"></a>예약 용량
 
-1 년 또는 3 년 기간 동안 100 TB와 매월 1 PB 단위로 Azure Storage 예약 된 용량을 구매할 수 있습니다.
+1 년 또는 3 년 기간 동안 매월 100 TiB 및 1 개의 PiB 단위로 예약 된 용량 Azure Storage 구매할 수 있습니다.
 
 ### <a name="reservation-scope"></a>예약 범위
 
@@ -62,7 +63,7 @@ Azure Storage reserved capacity는 범용 v2 (GPv2) 및 Blob storage 계정을 �
 
 Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층 및 중복성 옵션을 선택 해야 합니다. 예약은 해당 지역, 액세스 계층 및 중복성 수준에 저장 된 데이터에 대해서만 유효 합니다. 예를 들어 ZRS (영역 중복 저장소)를 사용 하 여 핫 계층에 대 한 미국 서 부에 데이터에 대 한 예약을 구매 한다고 가정 합니다. 미국 동부, 보관 계층의 데이터 또는 GRS (지역 중복 저장소)의 데이터에 대해 동일한 예약을 사용할 수 없습니다. 그러나 추가 요구 사항에 대 한 다른 예약을 구매할 수 있습니다.  
 
-예약은 현재 100 TB 또는 1 pb 블록에 대해 제공 되며, 1 PB 블록에 대해 더 높은 할인이 제공 됩니다. Azure Portal에서 예약을 구매 하는 경우 Microsoft는 이전 사용량을 기준으로 권장 사항을 제공 하 여 구매할 예약을 결정할 수 있습니다.
+예약은 현재 100 TiB 또는 1 pib 블록에 대해 제공 되며, 1 PiB 블록에 대해 더 높은 할인이 제공 됩니다. Azure Portal에서 예약을 구매 하는 경우 Microsoft는 이전 사용량을 기준으로 권장 사항을 제공 하 여 구매할 예약을 결정할 수 있습니다.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Azure Storage 예약 된 용량 구입
 
@@ -86,7 +87,7 @@ Azure Storage 예약을 구매할 때 예약에 대 한 지역, 액세스 계층
    | **액세스 계층** | 예약이 적용 되는 액세스 계층입니다. *핫*, *쿨*또는 *Archive*옵션을 포함 합니다. 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)을 참조 하세요. |
    | **중복** | 예약에 대 한 중복성 옵션입니다. 옵션에는 *LRS*, *ZRS*, *GRS*, *GZRS*, *ra-GRS*및 *RA-GZRS*가 포함 됩니다. 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](../common/storage-redundancy.md)을 참조 하세요. |
    | **청구 빈도** | 예약에 대 한 계정 청구 빈도를 나타냅니다. 옵션에는 *월별* 또는 *선행*이 포함 됩니다. |
-   | **크기** | 예약이 적용 되는 지역입니다. |
+   | **크기** | 예약할 용량의 양입니다. |
    |**기간**  | 1년 또는 3년입니다.   |
 
 1. 예약에 대 한 매개 변수를 선택 하면 Azure Portal에 비용이 표시 됩니다. 또한 포털은 종 량 제 요금 청구에 대 한 할인율을 보여 줍니다.

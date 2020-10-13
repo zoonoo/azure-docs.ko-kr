@@ -12,10 +12,10 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259954"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics SQL 풀에서 계산 리소스 관리
@@ -135,7 +135,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 이 섹션에서는 일시 중지, 다시 시작 및 크기 조정에 대한 더 복잡한 일정 계획에 필요한 사항을 간략하게 보여 줍니다.
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 
 매일 오전 8 시에서 DW600c까지 규모를 확장 하 고 오후 8 시에서 DW200c로 축소 합니다.
 
@@ -144,7 +144,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 매일 오전 8 시에서 DW1000c까지 규모를 확장 하 고, 4pm에서 W 600으로 축소 하 고, 오후 10 시에 DW200c로 축소 합니다.
 

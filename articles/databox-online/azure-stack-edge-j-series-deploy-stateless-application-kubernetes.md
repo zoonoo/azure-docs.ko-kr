@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90890740"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 상태 비저장 응용 프로그램 배포
 
 이 문서에서는 기존 Kubernetes 클러스터에서 kubectl 명령을 사용 하 여 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다. 또한이 문서에서는 상태 비저장 응용 프로그램에서 pod을 만들고 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `kubectl` 다음을 확인 해야 합니다.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443329"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>데이터베이스 간 쿼리 시작(수직 분할)(미리 보기)
@@ -27,7 +27,7 @@ Azure SQL Database에 Elastic Database 쿼리(미리 보기)를 사용하면 단
 
 탄력적 데이터베이스 쿼리 기능에 대한 자세한 내용은 [Azure SQL Database 탄력적 데이터베이스 쿼리 개요](elastic-query-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다. 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
 
@@ -121,7 +121,7 @@ ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 
 현재 Azure SQL Database 가격에는 Elastic Database 쿼리 기능이 포함되어 있습니다.  
 
-가격 정보는 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database)을 참조하세요.
+가격 책정 정보는 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

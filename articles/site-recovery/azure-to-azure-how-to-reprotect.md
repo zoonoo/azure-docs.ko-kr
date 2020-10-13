@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360874"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
@@ -22,7 +22,7 @@ ms.locfileid: "91360874"
 1. VM이 주 지역으로 복제를 시작하도록 보조 지역의 VM을 다시 보호합니다.
 1. 다시 보호가 완료 되 고 Vm이 복제 되 면 보조 지역에서 주 지역으로 장애 조치 (failover) 할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 주 지역에서 보조 지역으로 VM 장애 조치(failover)를 커밋해야 합니다.
 - 주 대상 사이트가 사용 가능하고 해당 지역에서 리소스를 만들거나 액세스할 수 있어야 합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "91360874"
 
 ![사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|속성 |메모  |
+|속성 |참고  |
 |---------|---------|
 |대상 리소스 그룹 | VM이 만들어진 대상 리소스 그룹을 수정합니다. 다시 보호의 일부로 대상 VM이 삭제됩니다. 장애 조치(failover) 후 VM을 만들 새 리소스 그룹을 선택할 수 있습니다. |
 |대상 가상 네트워크 | 다시 보호 작업 동안 대상 네트워크를 변경할 수 없습니다. 네트워크를 변경하려면 네트워크 매핑을 다시 실행합니다. |

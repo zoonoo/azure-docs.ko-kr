@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
 ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91304697"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Peakon 구성
@@ -26,7 +26,7 @@ ms.locfileid: "91304697"
 >  이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 >
 > 이 커넥터는 현재 미리 보기로 제공됩니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명 된 시나리오에서는 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -119,7 +119,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 Peakon를 구성 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-8. **저장**을 클릭합니다.
+8. **Save**을 클릭합니다.
 
 9. **매핑** 섹션 아래에서 **Peakon에 사용자 Azure Active Directory 동기화를**선택 합니다.
 

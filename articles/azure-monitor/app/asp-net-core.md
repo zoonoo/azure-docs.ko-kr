@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839013"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875124"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -31,7 +31,7 @@ ms.locfileid: "91839013"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -121,7 +121,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
 
-계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예들 들어 `services.AddApplicationInsightsTelemetry(Configuration);`입니다.
 AspNetCore 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)부터를 호출 하면 `services.AddApplicationInsightsTelemetry()` 응용 프로그램에서 계측 키가 자동으로 읽힙니다 `Microsoft.Extensions.Configuration.IConfiguration` . 를 명시적으로 제공할 필요는 없습니다 `IConfiguration` .
 
 ## <a name="run-your-application"></a>애플리케이션 실행
@@ -134,7 +134,7 @@ AspNetCore 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationI
 
 ### <a name="ilogger-logs"></a>ILogger 로그
 
-`ILogger`심각도 이상을 통해 내보낸 로그 `Warning` 는 자동으로 캡처됩니다. [ILogger 문서](ilogger.md#control-logging-level) 에 따라 Application Insights에서 캡처할 로그 수준을 사용자 지정할 수 있습니다.
+기본 구성은 `ILogger` 심각도 이상 로그를 수집 합니다 `Warning` . 이 구성을 [사용자 지정할](#how-do-i-customize-ilogger-logs-collection)수 있습니다.
 
 ### <a name="dependencies"></a>종속성
 
@@ -387,7 +387,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 위의 경우 자동 수집 모듈이 원격 분석을 수집 하는 것을 방지할 수 없습니다. Application Insights에 대 한 원격 분석 보내기가 위의 방법으로 사용 하지 않도록 설정 됩니다. 특정 자동 수집 모듈을 원하지 않는 경우 [원격 분석 모듈을 제거](#configuring-or-removing-default-telemetrymodules) 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-application-insights-support-aspnet-core-3x"></a>는 ASP.NET Core 3(sp3)을 지원 Application Insights?
 

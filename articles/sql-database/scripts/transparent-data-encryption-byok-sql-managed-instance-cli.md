@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: vanto
 ms.date: 11/05/2019
 ms.openlocfilehash: 2b948161633569d629dfb048a7d7dee6a9946f43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323691"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리
@@ -56,7 +56,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | 데이터베이스 명령입니다. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | 장애 조치(failover) 그룹 명령입니다. |

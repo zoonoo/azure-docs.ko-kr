@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90982024"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
@@ -38,7 +38,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. **Azure Queue Storage** 바인딩 유형을 선택하고 이 스크린샷의 다음에 나오는 표에 지정된 대로 설정을 사용합니다. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Queue Storage 출력 바인딩을 Azure Portal의 함수에 추가합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="함수에 대한 출력 바인딩을 만듭니다." border="true":::
     
     | 설정      |  제안 값   | Description                              |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -94,7 +94,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 1. 코드 변경 내용이 저장된 후 **테스트**를 선택합니다.
 1. 테스트가 아래 이미지와 일치하는지 확인하고 **실행**을 선택합니다. 
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Azure Portal에서 Queue Storage 바인딩을 테스트합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="함수에 대한 출력 바인딩을 만듭니다." border="true":::
 
     **요청 본문**에 `name` 값 *Azure*가 들어 있습니다. 이 값은 함수가 호출될 때 만들어지는 큐 메시지에 표시됩니다.
     
@@ -111,11 +111,11 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. **애플리케이션 설정**에서 **AzureWebJobsStorage**를 선택합니다.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="스크린샷에는 AzureWebJobsStorage가 선택 된 구성 페이지가 표시 됩니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="함수에 대한 출력 바인딩을 만듭니다." border="true":::
 
 1. 계정 이름을 찾아서 적어 둡니다.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="AzureWebJobsStorage에 연결된 스토리지 계정을 찾습니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="함수에 대한 출력 바인딩을 만듭니다." border="true":::
 
 ### <a name="examine-the-output-queue"></a>출력 큐 검토
 

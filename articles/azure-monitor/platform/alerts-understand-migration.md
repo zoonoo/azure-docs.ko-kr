@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852398"
+ms.locfileid: "91875923"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>최신 경고에 대 한 마이그레이션 옵션 이해
 
@@ -254,10 +254,12 @@ Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>' 거부 ' 효과가 적용 된 정책을 사용 하 여 규칙을 마이그레이션하지 못함
 
-마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 정책을 통해 리소스를 만들지 못할 수 있습니다. 정책에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. 프로세스를 차단 하는 정책은 [마이그레이션 도구](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)에 나열 됩니다. 다음 중 하나를 수행 하 여이 문제를 해결 합니다.
+마이그레이션의 일부로 새 메트릭 경고 및 새 작업 그룹이 생성 된 다음 클래식 경고 규칙이 삭제 됩니다. 그러나 [Azure Policy](../../governance/policy/index.yml) 할당으로 인해 리소스가 생성 되지 않을 수 있습니다. 정책 할당에 따라 일부 또는 모든 규칙을 마이그레이션하지 못했습니다. 프로세스를 차단 하는 정책 할당은 [마이그레이션 도구](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)에 나열 됩니다. 다음 중 하나를 수행 하 여이 문제를 해결 합니다.
 
-- 구독을 제외 하거나 정책 할당의 마이그레이션 프로세스 기간에 대 한 리소스 그룹을 제외 합니다. [정책 제외 범위 관리에 대해 자세히 알아보세요](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
-- ' 감사 ' 또는 ' 추가 '에 대 한 영향을 제거 하거나 변경 합니다 (예: 누락 된 태그와 관련 된 문제를 해결할 수 있음). [정책 효과 관리에 대해 자세히 알아보세요](../../governance/policy/concepts/definition-structure.md#policy-rule).
+- 정책 할당의 마이그레이션 프로세스 기간 동안 구독, 리소스 그룹 또는 개별 리소스를 제외 합니다. [정책 제외 범위 관리에 대해 자세히 알아보세요](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion).
+- 정책 할당에서 ' 적용 모드 '를 **사용 안 함으로** 설정 합니다. [정책 할당의 enforcementMode 속성에 대해 자세히 알아보세요](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- 구독, 리소스 그룹 또는 개별 리소스에 대 한 Azure Policy 예외 (미리 보기)를 정책 할당으로 설정 합니다. [Azure Policy 예외 구조에 대해 자세히 알아보세요](../../governance/policy/concepts/exemption-structure.md).
+- ' 사용 안 함 ', ' 감사 ', ' 추가 ' 또는 ' 수정 ' (예: 누락 된 태그와 관련 된 문제를 해결할 수 있음)에 대 한 영향을 제거 하거나 변경 합니다. [정책 효과 관리에 대해 자세히 알아보세요](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>다음 단계
 

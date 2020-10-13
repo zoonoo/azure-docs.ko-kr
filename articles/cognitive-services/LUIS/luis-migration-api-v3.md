@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541342"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
@@ -103,10 +103,10 @@ V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에
 }
 ```
 
-|속성|유형|버전|기본값|용도|
+|속성|유형|버전|기본값|목적|
 |--|--|--|--|--|
-|`dynamicLists`|array|V3만|필요하지 않습니다.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
-|`externalEntities`|array|V3만|필요하지 않습니다.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
+|`dynamicLists`|array|V3만|필수 아님.|[동적 목록을](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
+|`externalEntities`|array|V3만|필수 아님.|[외부 엔터티](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
 |`options.datetimeReference`|문자열|V3만|기본값 없음|[DatetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)을 확인 하는 데 사용 됩니다. DatetimeReference의 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)입니다.|
 |`options.preferExternalEntities`|boolean|V3만|false|사용자의 [외부 엔터티 (기존 엔터티와 이름이 같은)](schema-change-prediction-runtime.md#override-existing-model-predictions) 를 사용 하거나 모델의 기존 엔터티를 예측에 사용 하는지 여부를 지정 합니다. |
 |`query`|문자열|V3만|필수 사항입니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|

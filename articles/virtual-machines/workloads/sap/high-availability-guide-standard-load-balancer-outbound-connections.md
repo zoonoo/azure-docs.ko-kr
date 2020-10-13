@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836125"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961479"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -67,12 +67,12 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
   * [Azure Firewall 개요](../../../firewall/overview.md)- Azure Firewall의 개요
   * [자습서: Azure Firewall 배포 및 구성](../../../firewall/tutorial-firewall-deploy-portal.md) - Azure Portal을 통해 Azure Firewall을 구성하는 방법에 대한 지침
 * [가상 네트워크 - 사용자 정의 규칙](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure 라우팅 개념 및 규칙  
-* [보안 그룹 서비스 태그](../../../virtual-network/security-overview.md#service-tags) - 서비스 태그를 사용하여 네트워크 보안 그룹 및 방화벽 구성을 간소화하는 방법
+* [보안 그룹 서비스 태그](../../../virtual-network/network-security-groups-overview.md#service-tags) - 서비스 태그를 사용하여 네트워크 보안 그룹 및 방화벽 구성을 간소화하는 방법
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>인터넷에 아웃바운드 연결을 설정할 수 있는 추가 외부 Azure 표준 Load Balancer
 
 퍼블릭 엔드포인트에서 VM으로의 인바운드 연결을 허용하지 않고 퍼블릭 엔드포인트에 아웃바운드 연결을 설정하는 한 가지 옵션은 공용 IP 주소를 사용하여 두 번째 부하 분산 장치를 만들고, 두 번째 부하 분산 장치의 백 엔드 풀에 VM을 추가하고 [아웃바운드 규칙](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)만 정의하는 것입니다.  
-[네트워크 보안 그룹](../../../virtual-network/security-overview.md)을 사용하여 VM의 아웃바운드 호출에 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요.  
+[네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 사용하여 VM의 아웃바운드 호출에 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요.  
 자세한 내용은 [아웃바운드 연결](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) 문서의 시나리오 2를 참조하세요.  
 구성은 다음과 같습니다.  
 
@@ -81,11 +81,11 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 ### <a name="important-considerations"></a>중요 고려 사항
 
 - 같은 서브넷에 있는 여러 VM에 추가 퍼블릭 Load Balancer를 하나 사용하여 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 설정하고 비용을 최적화할 수 있습니다.  
-- [네트워크 보안 그룹](../../../virtual-network/security-overview.md)을 사용하여 VM에서 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요. 서브넷 또는 각 VM에 네트워크 보안 그룹을 할당할 수 있습니다. 가능하다면 [서비스 태그](../../../virtual-network/security-overview.md#service-tags)를 사용하여 보안 규칙의 복잡성을 줄이세요.  
+- [네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 사용하여 VM에서 액세스할 수 있는 퍼블릭 엔드포인트를 제어하세요. 서브넷 또는 각 VM에 네트워크 보안 그룹을 할당할 수 있습니다. 가능하다면 [서비스 태그](../../../virtual-network/network-security-groups-overview.md#service-tags)를 사용하여 보안 규칙의 복잡성을 줄이세요.  
 - 공용 IP 주소와 아웃바운드 규칙을 사용하는 Azure 표준 Load balancer는 퍼블릭 엔드포인트에 대한 직접 액세스를 허용합니다. 회사의 보안 요구 사항에 따라 감사 및 로깅이 가능하도록 모든 아웃바운드 트래픽을 중앙의 회사 솔루션을 통해 전달해야 하는 경우에는 이 시나리오로 요구 사항을 충족하지 못할 수 있습니다.  
 
 >[!TIP]
->가능하다면 [서비스 태그](../../../virtual-network/security-overview.md#service-tags)를 사용하여 네트워크 보안 그룹의 복잡성을 줄이세요. 
+>가능하다면 [서비스 태그](../../../virtual-network/network-security-groups-overview.md#service-tags)를 사용하여 네트워크 보안 그룹의 복잡성을 줄이세요. 
 
 ### <a name="deployment-steps"></a>배포 단계
 
@@ -117,7 +117,7 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 
    ![공용 IP를 사용하는 두 번째 Load Balancer에 대한 아웃바운드 연결](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   Azure 네트워크 보안 그룹에 대한 자세한 내용은 [보안 그룹](../../../virtual-network/security-overview.md)을 참조하세요. 
+   Azure 네트워크 보안 그룹에 대한 자세한 내용은 [보안 그룹](../../../virtual-network/network-security-groups-overview.md)을 참조하세요. 
 
 ## <a name="azure-firewall-for-outbound-connections-to-internet"></a>인터넷에 아웃바운드 연결을 위한 Azure Firewall
 
@@ -137,7 +137,7 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
 - 회사 방화벽 솔루션이 Azure Firewall이 아니고, 중앙의 회사 솔루션을 통해 모든 아웃바운드 트래픽을 전달해야 하는 보안 요구 사항이 있는 경우에는 이 솔루션이 실용적이지 않을 수 있습니다.  
 
 >[!TIP]
->가능하다면 [서비스 태그](../../../virtual-network/security-overview.md#service-tags)를 사용하여 Azure Firewall 규칙의 복잡성을 줄이세요.  
+>가능하다면 [서비스 태그](../../../virtual-network/network-security-groups-overview.md#service-tags)를 사용하여 Azure Firewall 규칙의 복잡성을 줄이세요.  
 
 ### <a name="deployment-steps"></a>배포 단계
 

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619817"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 데이터베이스의 확장 이벤트 
@@ -51,12 +51,12 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 
 관련 항목에서 두 가지 코드 샘플을 제공합니다.
 
-- [Azure SQL Database 확장 이벤트에 대 한 링 버퍼 대상 코드](xevent-code-ring-buffer.md)
+- [Azure SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드](xevent-code-ring-buffer.md)
 
   - 짧고 간단한 Transact-SQL 스크립트.
   - 코드 샘플 항목에서는 링 버퍼 대상을 마칠 때 alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` 문을 실행하여 리소스를 해제해야 함을 강조합니다. 나중에 `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...`(으)로 링 버퍼의 다른 인스턴스를 추가할 수 있습니다.
 
-- [Azure SQL Database 확장 이벤트에 대 한 이벤트 파일 대상 코드](xevent-code-event-file.md)
+- [Azure SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드](xevent-code-event-file.md)
 
   - 1단계는 Azure Storage 컨테이너를 만드는 PowerShell입니다.
   - 2단계는 Azure Storage 컨테이너를 사용하는 Transact-SQL입니다.
@@ -92,8 +92,8 @@ Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰
 | **sys.dm_xe_database_session_event_actions** |이벤트 세션 동작에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_events** |세션 이벤트에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_object_columns** |세션에 바인딩된 개체의 구성 값을 표시합니다. |
-| **sys. dm_xe_database_session_targets** |세션 작업에 대한 정보를 반환합니다. |
-| **sys. dm_xe_database_sessions** |현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
+| **sys.dm_xe_database_session_targets** |세션 작업에 대한 정보를 반환합니다. |
+| **sys.dm_xe_database_sessions** |현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
 
 Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름의 * \_ 데이터베이스* 부분 없이 이름이 지정 됩니다.
 

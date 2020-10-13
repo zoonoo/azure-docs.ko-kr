@@ -12,10 +12,10 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360126"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용 하 여 클라이언트 응용 프로그램과 통합
@@ -25,7 +25,7 @@ ms.locfileid: "91360126"
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 만들지 않은 경우 빠른 시작을 수행 하 여 다음을 수행할 수 있습니다.
 > [!div class = "checklist"]
@@ -404,7 +404,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 1. 메뉴 모음에서 **파일**  >  **모두 저장** 을 선택 하 여 변경 내용을 저장 합니다.
 
-## <a name="try-it-out"></a>기능 직접 사용해 보기
+## <a name="try-it-out"></a>체험
 
 1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 오류 없이 컴파일됩니다.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
 ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891381"
 ---
 # <a name="certificate-requirements"></a>인증서 요구 사항
@@ -53,9 +53,9 @@ ms.locfileid: "90891381"
 
 * 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
@@ -70,7 +70,7 @@ Azure Stack Edge Pro 장치에 설치 된 PFX 인증서는 다음 요구 사항�
 
 * PFX 인증서를 내보낼 때 **가능한 경우 체인의 모든 인증서 포함 옵션을** 선택 했는지 확인 합니다.
 
-* Edge Pro Azure Stack 위해 공개 키와 개인 키가 모두 필요 하므로 끝점, 로컬 UI, 노드, VPN 및 Wi-fi에 PFX 인증서를 사용 합니다. 개인 키에는 로컬 컴퓨터 키 특성 집합이 있어야 합니다.
+* Edge Pro Azure Stack에는 공개 키와 개인 키가 모두 필요 하므로 끝점, 로컬 UI, 노드, VPN 및 Wi-Fi에 PFX 인증서를 사용 합니다. 개인 키에는 로컬 컴퓨터 키 특성 집합이 있어야 합니다.
 
 * 인증서의 PFX 암호화는 3DES 여야 합니다. 이는 Windows 10 클라이언트 또는 Windows Server 2016 인증서 저장소에서 내보낼 때 사용 되는 기본 암호화입니다. 3DES와 관련 된 자세한 내용은 [TRIPLE DES](https://en.wikipedia.org/wiki/Triple_DES)를 참조 하세요.
 

@@ -4,10 +4,10 @@ description: Azure Backup 서비스를 사용 하 여 SQL Server 데이터베이
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 85cb84ac376abbf0ead13e64c4dff7c8b916aac5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254587"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
@@ -80,7 +80,7 @@ Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정�
 1. 보호 그룹의 이름을 지정한 다음 **온라인 보호**를 선택 합니다.
 
     ![데이터 보호 방법 선택-단기 디스크 보호 또는 온라인 Azure 보호](./media/backup-azure-backup-sql/pg-name.png)
-1. **단기 목표 지정** 페이지에서 디스크에 대 한 백업 위치를 만드는 데 필요한 입력을 포함 합니다.
+1. **Short-Term 목표 지정** 페이지에서 디스크에 대 한 백업 위치를 만드는 데 필요한 입력을 포함 합니다.
 
     이 예에서는 **보존 범위** 를 *5 일로*설정 합니다. 백업 **동기화 빈도** 는 *15 분*마다 한 번으로 설정 됩니다. **빠른 전체 백업** 은 *오후 8:00*시로 설정 됩니다.
 
