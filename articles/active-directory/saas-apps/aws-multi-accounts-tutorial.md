@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713438"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: Amazon Web Services와 Azure Active Directory 통합 (AWS) (레거시 자습서)
@@ -45,7 +45,7 @@ Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자세한 내용은 [응
 
 * 모든 AWS 계정은 동일한 페더레이션 메타데이터 XML 파일을 사용하며, 인증서 롤오버 시 이러한 방대한 작업을 진행하여 모든 AWS 계정에서 인증서를 동시에 업데이트해야 합니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
@@ -116,7 +116,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 4. **기본 SAML 구성** 섹션에서 앱이 Azure와 이미 사전 통합 되었으므로 사용자는 아무 단계도 수행할 필요가 없습니다. **저장**을 클릭 합니다.
 
-5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML을 사용 하 여 Single Sign-on 설정** 페이지에서 **편집** 단추를 클릭 하 여 **클레임 & 사용자 특성** 대화 상자를 엽니다.
+5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML을 사용 하 여 단일 Sign-On 설정** 페이지에서 **편집** 단추를 클릭 하 여 **클레임 & 사용자 특성** 대화 상자를 엽니다.
 
     ![스크린샷 이라는 편집 컨트롤이 있는 사용자 특성을 보여 줍니다.](common/edit-attribute.png)
 
@@ -174,7 +174,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
 
-    c. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
+    다. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
 
     d. **다음 단계**를 클릭합니다.
 
@@ -210,7 +210,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **값 (선택 사항)** 텍스트 상자에 다음 형식을 사용 하 여 키 값을 입력 합니다 `accountname-aws-admin` . 계정 이름은 모두 소문자 여야 합니다.
 
-    c. **다음: 검토**를 클릭 합니다.
+    다. **다음: 검토**를 클릭 합니다.
 
 1. **검토** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -220,7 +220,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **역할 설명** 텍스트 상자에 역할 이름에 사용한 것과 동일한 값을 입력 합니다.
 
-    c. **역할 만들기**를 클릭합니다.
+    다. **역할 만들기**를 클릭합니다.
 
     d. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
 
@@ -259,7 +259,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![스크린샷 수정 링크를 사용 하는 그래프 탐색기 인증 창을 보여 줍니다.](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
+    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
 
     ![선택 하는 세 가지 사용 권한을 보여 주는 스크린샷. AccessAsUser. All, Directory. All 및 디렉터리. ReadWrite.](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 

@@ -3,12 +3,12 @@ title: Azure Lighthouse 및 Azure 관리형 애플리케이션
 description: Azure Lighthouse 및 Azure 관리 되는 응용 프로그램을 사용 하 여 다양 한 시나리오를 지원 하 고 함께 사용할 수 있는 방법을 이해 합니다.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483850"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970761"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리형 애플리케이션
 
@@ -35,7 +35,7 @@ Azure Lighthouse는 서비스 공급자가 지속적으로 고객에 대 한 관
 
 관리 되는 응용 프로그램은 사용자 지정 [Azure Portal 환경](../../azure-resource-manager/managed-applications/concepts-view-definition.md) 및 [사용자 지정 공급자와의 통합](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md)을 지원 합니다. 이러한 옵션을 사용 하면 보다 사용자 지정 및 통합 된 환경을 제공 하 여 고객이 일부 관리 작업을 쉽게 수행할 수 있습니다.
 
-관리 되는 응용 프로그램은 특정 고객 사용을 위한 개인 제품 또는 여러 고객이 구매할 수 있는 공개 제품으로 [Azure Marketplace에 게시할](../../azure-resource-manager/managed-applications/publish-marketplace-app.md)수 있습니다. [관리 되는 응용 프로그램을 서비스 카탈로그에 게시](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)하 여 조직 내 사용자에 게 제공할 수도 있습니다. ARM 템플릿을 사용 하 여 서비스 카탈로그와 Marketplace 인스턴스를 모두 배포할 수 있습니다. 여기에는 상용 마켓플레이스 파트너의 고유한 식별자를 포함 하 여 [고객 사용 특성](../../marketplace/azure-partner-customer-usage-attribution.md)을 추적할 수 있습니다.
+관리 되는 응용 프로그램은 특정 고객 사용을 위한 개인 제품 또는 여러 고객이 구매할 수 있는 공개 제품으로 [Azure Marketplace에 게시할](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)수 있습니다. [관리 되는 응용 프로그램을 서비스 카탈로그에 게시](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)하 여 조직 내 사용자에 게 제공할 수도 있습니다. ARM 템플릿을 사용 하 여 서비스 카탈로그와 Marketplace 인스턴스를 모두 배포할 수 있습니다. 여기에는 상용 마켓플레이스 파트너의 고유한 식별자를 포함 하 여 [고객 사용 특성](../../marketplace/azure-partner-customer-usage-attribution.md)을 추적할 수 있습니다.
 
 Azure 관리 되는 응용 프로그램은 일반적으로 서비스 공급자에 의해 완전히 관리 되는 턴키 솔루션을 통해 달성할 수 있는 특정 고객 요구에 사용 됩니다.
 

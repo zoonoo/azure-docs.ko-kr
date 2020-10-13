@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449275"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961751"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
 
@@ -34,7 +34,7 @@ Azure Front 도어를 사용 하 여 다음과 같은 방법으로 리소스를 
 | RequestCount | 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
 | RequestSize | 요청 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트에서 Front Door로, 요청으로 전송된 바이트 수 |
 | ResponseSize | 응답 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 클라이언트로, 응답으로 전송된 바이트 수 |
-| TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 프런트 도어에서 클라이언트가 마지막 응답 바이트를 승인할 때까지 Front 도어가 받은 클라이언트 요청에서 계산 된 시간입니다. |
+| TotalLatency | 총 대기 시간 | 밀리초 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 마지막 응답 바이트가 AFD에서 클라이언트로 전송 될 때까지 Front 도어가 받은 클라이언트 요청의 총 시간입니다. |
 | BackendRequestCount | 백 엔드 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>백 엔드 | Front Door에서 백 엔드로 전송된 요청 수 |
 | BackendRequestLatency | 백 엔드 요청 대기 시간 | 밀리초 | 백 엔드 | Front Door에서 백 엔드의 마지막 응답 바이트를 받을 때까지 Front Door에서 백 엔드로 요청이 전송될 때 계산된 시간 |
 | BackendHealthPercentage | 백 엔드 상태 비율 | 백분율 | 백 엔드</br>BackendPool | Front Door에서 백 엔드로 성공한 상태 프로브의 비율 |
@@ -73,9 +73,9 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 앞 도어는 현재 진단 로그 (일괄 처리 시간)를 제공 합니다. 진단 로그는 각 항목에 대해 다음 스키마를 갖는 개별 API 요청을 제공 합니다.
 
-| 속성  | 설명 |
+| 속성  | Description |
 | ------------- | ------------- |
-| BackendHostname | 요청을 백 엔드에 전달 하는 경우이 필드는 백 엔드의 호스트 이름을 나타냅니다. 요청이 리디렉션 되었거나 지역 캐시로 전달 된 경우 (라우팅 규칙에 캐싱이 설정 된 경우)이 필드는 비어 있습니다. |
+| BackendHostname | 요청을 백 엔드에 전달 하는 경우이 필드는 백 엔드의 호스트 이름을 나타냅니다. 요청이 리디렉션 되거나 지역 캐시로 전달 되는 경우이 필드는 비어 있습니다 (라우팅 규칙에 캐싱이 설정 된 경우). |
 | CacheStatus | 캐싱 시나리오의 경우이 필드는 POP에서 캐시 적중/누락을 정의 합니다. |
 | ClientIp | 요청한 클라이언트의 IP 주소입니다. 요청에 X로 전달 된 헤더가 있는 경우 클라이언트 IP는 동일한에서 선택 됩니다. |
 | ClientPort | 요청을 수행한 클라이언트의 IP 포트입니다. |
@@ -90,19 +90,49 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 | RoutingRuleName | 요청이 일치 하는 라우팅 규칙의 이름입니다. |
 | RulesEngineMatchNames | 요청에서 일치 하는 규칙의 이름입니다. |
 | SecurityProtocol | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다. |
-| SentToOriginShield | 첫 번째 환경에 캐시 누락이 있고 요청이 지역 캐시로 전송 되었는지 여부를 나타내는 부울 필드입니다. 라우팅 규칙이 리디렉션 이거나 캐싱이 설정 되지 않은 경우이 필드를 무시 합니다. |
+| SentToOriginShield </br> (사용 되지 않음) * **다음 섹션에서 사용 중단에 대 한 참고를 참조 하세요.**| True이면 요청이 에지 POP가 아닌 원본 보호 캐시에서 응답되었음을 의미합니다. 원본 보호는 캐시 적중률을 향상하는 데 사용되는 부모 캐시입니다. |
+| isReceivedFromClient | True 이면 요청이 클라이언트에서 제공 되었음을 의미 합니다. False 이면 요청이에 지 (자식 POP)에서 누락 되 고 원본 방패 (부모 POP)에서 응답 합니다. 
 | TimeTaken | 요청의 첫 번째 바이트부터 마지막 응답 바이트 까지의 시간 (초)입니다. |
 | TrackingReference | Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열로, 클라이언트에 X-Azure-Ref 헤더로 전송됩니다. 특정 요청의 액세스 로그에서 세부 정보를 검색하는 데 필요합니다. |
 | UserAgent | 클라이언트에서 사용한 브라우저 유형입니다. |
 
-**참고:** 다양 한 라우팅 구성 및 트래픽 동작의 경우 backendHostname, cacheStatus, sentToOriginShield 및 POP 필드와 같은 일부 필드는 다른 값으로 응답할 수 있습니다. 아래 표에서는 다양 한 값을 설명 하 고 이러한 필드는 다양 한 시나리오에 대해 설명 합니다.
+### <a name="sent-to-origin-shield-deprecation"></a>원본 방패 사용 중단으로 전송
+원시 로그 속성 **isSentToOriginShield** 는 더 이상 사용 되지 않으며 새 필드인 **isReceivedFromClient**로 바뀌었습니다. 사용 되지 않는 필드를 이미 사용 하 고 있는 경우 새 필드를 사용 합니다. 
 
-| 시나리오 | 로그 항목 수 | POP | BackendHostname | SentToOriginShield | CacheStatus |
+원시 로그는 CDN에 지 (자식 POP)와 원본 방패에서 생성 된 로그를 포함 합니다. 원본 방패는 전 세계에서 전략적으로 배치 되는 부모 노드를 나타냅니다. 이러한 노드는 원본 서버와 통신 하 여 원본에서의 트래픽 부하를 줄입니다. 
+
+원본 방패로 이동 하는 모든 요청에 대해 2 개의 로그 항목이 있습니다.
+
+* 에 지 노드에 대 한 하나
+* 원본 방패를 위한 것입니다. 
+
+에 지 노드 및 원본 방패의 송신 또는 응답을 구분 하기 위해 **isReceivedFromClient** 필드를 사용 하 여 올바른 데이터를 가져올 수 있습니다. 
+
+값이 false 이면 요청은 원본 방패에서에 지 노드로 응답 하는 것을 의미 합니다. 이 방법은 원시 로그를 청구 데이터와 비교 하는 데 효과적입니다. 원본 실드에서에 지 노드로의 송신에 대 한 요금이 발생 하지 않습니다. 에 지 노드에서 클라이언트로의 송신에 대 한 요금이 부과 됩니다. 
+
+**Log Analytics에서 원본 방패에 생성 된 로그를 제외 하는 kusto 쿼리 샘플입니다.**
+
+`AzureDiagnostics 
+| where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
+
+> [!NOTE]
+> 다양 한 라우팅 구성 및 트래픽 동작의 경우 backendHostname, cacheStatus, isReceivedFromClient 및 POP 필드와 같은 일부 필드는 다른 값으로 응답할 수 있습니다. 아래 표에서는 다양 한 시나리오에 대해 이러한 필드에 포함 되는 다양 한 값을 설명 합니다.
+
+| 시나리오 | 로그 항목 수 | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | False | CONFIG_NOCACHE |
-| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | False | 리 |
-| 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 캐시 누락이 있지만 부모 캐시 POP에서 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
-| 캐싱이 설정 된 라우팅 규칙입니다. Edge 및 부모 캐시 POP에서 캐시 누락 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. 누락 |
+| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | 참 | CONFIG_NOCACHE |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | 비어 있음 | 참 | 리 |
+| 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 캐시 누락이 있지만 부모 캐시 POP에서 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. 적중 |
+| 캐싱이 설정 된 라우팅 규칙입니다. Edge POP의 캐시 누락 (부모 캐시 POP에서 부분 캐시 적중) | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
+| 캐싱이 설정 된 라우팅 규칙입니다. Edge POP의 캐시 PARTIAL_HIT, 부모 캐시의 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. 적중 |
+| 캐싱이 설정 된 라우팅 규칙입니다. Edge 및 부모 cache POPP에서 캐시 누락 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. True</br>2. False | 1. 누락</br>2. 누락 |
+
+> [!NOTE]
+> 캐싱 시나리오의 경우 요청에 대 한 일부 바이트가 Front 도어 edge 또는 원본 방패 캐시에서 제공 될 때 캐시 상태 값이 partial_hit 됩니다. 반면 일부 바이트는 대량 개체의 원본에서 제공 됩니다.
+
+Front Door는 개체 청크라는 기술을 사용합니다. 대형 파일이 요청 되 면 Front 문이 원본에서 파일의 더 작은 부분을 검색 합니다. 프런트 도어 POP 서버는 요청 된 파일의 전체 또는 바이트 범위를 수신 하 고 나면 프런트 도어 edge 서버는 원본에서 8mb 청크를 기준으로 파일을 요청 합니다.
+
+청크가 프런트 도어 가장자리에 도착 하면 캐시 되어 사용자에 게 즉시 제공 됩니다. 그러면 Front 도어가 다음 청크를 병렬로 사전 인출 합니다. 이 프리페치를 사용 하면 콘텐츠가 사용자 보다 먼저 한 청크로 유지 되므로 대기 시간이 줄어듭니다. 이 프로세스는 전체 파일이 다운로드 될 때까지 계속 됩니다 (요청 된 경우). 모든 바이트 범위를 사용할 수 있거나 (요청한 경우) 클라이언트에서 연결을 닫을 때까지 계속 됩니다. 바이트 범위 요청에 대한 자세한 내용은 RFC 7233을 참조하세요. 프런트 도어는 수신 되는 모든 청크를 캐시 합니다. 전체 파일을 Front 도어 캐시에 캐시할 필요가 없습니다. 파일 또는 바이트 범위에 대 한 결과 요청은 Front 도어 캐시에서 제공 됩니다. 모든 청크가 앞 도어에서 캐시 되지 않는 경우 프리페치는 원본에서 청크를 요청 하는 데 사용 됩니다. 이 최적화는 원본 서버에서 바이트 범위 요청을 지원하는 기능을 사용합니다. 원본 서버에서 바이트 범위 요청을 지원하지 않으면 이 최적화가 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

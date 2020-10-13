@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: kumud
 ms.openlocfilehash: 791a248c8fb10bc4db483451971d452a359c8a07
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569260"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
@@ -34,7 +34,7 @@ Azure의 네트워킹 서비스는 함께 또는 별도로 사용할 수 있는 
 |[가상 네트워크](#vnet)|Azure 리소스가 서로 안전 하 게 통신 하 고, 인터넷 및 온-프레미스 네트워크를 사용할 수 있습니다.| <p>[네트워크 트래픽 필터링](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[네트워크 트래픽 라우팅](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[리소스에 대한 네트워크 액세스 제한](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[가상 네트워크 연결](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|연결 공급자가 쉽게 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장 합니다.|<p>[ExpressRoute 회로 만들기 및 수정](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[ExpressRoute 회로의 피어링 만들기 및 수정](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[VNet을 ExpressRoute 회로에 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Express 경로 회로에 대 한 경로 필터 구성 및 관리](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN Gateway](#vpngateway)|공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화 된 트래픽을 보냅니다.|<p>[사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[지점 및 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[가상 WAN](#virtualwan)|Azure에 대 한 분기 연결을 최적화 하 고 자동화 합니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다.|<p>[사이트 간 연결](../virtual-wan/virtual-wan-site-to-site-portal.md), [express 경로 연결](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
+|[Virtual WAN](#virtualwan)|Azure에 대 한 분기 연결을 최적화 하 고 자동화 합니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다.|<p>[사이트 간 연결](../virtual-wan/virtual-wan-site-to-site-portal.md), [express 경로 연결](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Microsoft Azure 인프라를 사용 하 여 이름 확인을 제공 하는 DNS 도메인을 호스팅합니다.|<p>[Azure DNS에서 도메인 호스트](../dns/dns-delegate-domain-azure-dns.md)</p><p>[웹 앱에 대 한 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md)</p> <p>[Traffic Manager에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-tm.md)</p> <p>[공용 IP 주소에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-pip.md)</p> <p>[영역 리소스 레코드에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|TLS를 통해 Azure Portal에서 직접 가상 머신에 안전 하 고 원활한 RDP/SSH 연결을 구성 합니다. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다.|<p>[Azure Bastion 호스트 만들기](../bastion/bastion-create-host-portal.md)</p><p>[Linux VM에 SSH를 사용 하 여 연결](../bastion/bastion-connect-vm-ssh.md)</p><p>[RDP를 사용 하 여 Windows VM에 연결](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[가상 네트워크 NAT 게이트웨이](#nat)|가상 컴퓨터에 대 한 아웃 바운드 연결을 제공 하는 NAT 게이트웨이를 만듭니다.|<p>[NAT 게이트웨이 만들기](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
@@ -66,7 +66,7 @@ VPN Gateway를 사용 하 여 온-프레미스 위치에서 가상 네트워크�
 
 여러 VPN 연결 유형에 대 한 자세한 내용은 [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조 하세요.
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>가상 WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공하는 네트워킹 서비스입니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다. 또한 Azure 백본을 활용하여 분기를 연결하고 분기 및 VNet 간 연결을 설정할 수 있습니다. Azure 가상 WAN은 사이트 간 VPN, Express 경로, 지점 및 사이트 간 사용자 VPN과 같은 여러 Azure 클라우드 연결 서비스를 단일 운영 인터페이스로 제공 합니다. Azure VNet에 대한 연결은 가상 네트워크 연결을 사용하여 설정합니다. 자세한 내용은 [Azure 가상 WAN 이란?](../virtual-wan/virtual-wan-about.md)을 참조 하세요.
 
 :::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Azure ExpressRoute":::
@@ -116,7 +116,7 @@ Azure Orbital은 우주선 또는 위성 관측, 다운링크 및 업링크 데�
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="Azure ExpressRoute":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>웹 애플리케이션 방화벽
+### <a name="web-application-firewall"></a><a name="waf"></a>웹 응용 프로그램 방화벽
 
 Azure waf ( [웹 응용 프로그램 방화벽](../web-application-firewall/overview.md) )는 SQL 삽입, 사이트 간 스크립팅 등의 일반적인 웹 익스플로잇 및 취약성 으로부터 웹 응용 프로그램에 대 한 보호를 제공 합니다. Azure WAF는 관리 되는 규칙을 통해 OWASP 상위 10 개 취약점 으로부터 제공 되는 기본 보호 기능을 제공 합니다. 또한 고객은 사용자 지정 규칙을 구성할 수 있습니다 .이 규칙은 원본 IP 범위에 따라 추가 보호를 제공 하 고 헤더, 쿠키, 양식 데이터 필드 또는 쿼리 문자열 매개 변수와 같은 특성을 요청 하는 고객 관리 규칙입니다.
 

@@ -4,10 +4,10 @@ description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure 
 ms.topic: article
 ms.date: 03/23/2020
 ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448089"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
@@ -27,10 +27,10 @@ ms.locfileid: "91448089"
 
 VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 
-- 포털에서 어플라이언스 이름을 제공 하 고 Azure Migrate 프로젝트 키를 생성 합니다.
+- 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
 - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
 - 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
-- 처음으로 어플라이언스를 구성 하 고 Azure Migrate 프로젝트 키를 사용 하 여 Azure Migrate 프로젝트에 등록 합니다.
+- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
 
@@ -125,7 +125,7 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 
-SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 어플라이언스에서이 작업을 수행 하려면 다음을 수행 합니다.
+SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 Hyper-V 호스트로 위임하도록 설정해야 합니다. 어플라이언스에서 이 작업을 수행하려면 다음을 수행합니다.
 
 1. 어플라이언스 VM에서 다음 명령을 실행합니다. HyperVHost1/HyperVHost2는 예제 호스트 이름입니다.
 

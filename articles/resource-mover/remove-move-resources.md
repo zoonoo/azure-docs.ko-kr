@@ -7,28 +7,35 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 241ccbda67f7a2518d0c44a0d362673922ad4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653128"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945946"
 ---
-# <a name="remove-resources-from-a-move-collection"></a>이동 컬렉션에서 리소스 제거
+# <a name="manage-move-collections-and-resource-groups"></a>컬렉션 및 리소스 그룹 이동 관리
 
-이 문서에서는 [Azure 리소스](overview.md)이동의 이동 컬렉션에서 리소스를 제거 하는 방법을 설명 합니다. 컬렉션 이동은 azure 지역 간에 Azure 리소스를 이동할 때 사용 됩니다.
+이 문서에서는 [Azure 리소스](overview.md)에서 이동 컬렉션에서 리소스를 제거 하거나 이동 컬렉션/리소스 그룹을 제거 하는 방법을 설명 합니다. 컬렉션 이동은 azure 지역 간에 Azure 리소스를 이동할 때 사용 됩니다.
 
 ## <a name="remove-a-resource-portal"></a>리소스 제거 (포털)
 
-리소스 이동 기 포털에서 다음과 같이를 제거 합니다.
+리소스 이동 (move) 포털의 이동 컬렉션에서 다음과 같이 리소스를 제거할 수 있습니다.
 
-1. **여러 지역**에서 컬렉션에서 제거 하려는 리소스를 선택 > **제거**합니다.
+1. **여러 지역**에서 컬렉션에서 제거 하려는 모든 리소스를 선택 하 고 **제거**를 선택 합니다. 
 
     ![제거 하도록 선택 하는 단추](./media/remove-move-resources/portal-select-resources.png)
 
-1. **리소스 제거**에서 **제거**를 클릭 합니다.
+2. **리소스 제거**에서 **제거**를 클릭 합니다.
 
     ![이동 컬렉션에서 리소스를 제거 하도록 선택 하는 단추](./media/remove-move-resources/remove-portal.png)
+
+## <a name="remove-a-move-collectionresource-group-portal"></a>컬렉션/리소스 그룹 이동 제거 (포털)
+
+포털에서 컬렉션/리소스 그룹 이동을 제거할 수 있습니다.
+
+1. 위의 절차에 설명 된 지침에 따라 컬렉션에서 리소스를 제거 합니다. 리소스 그룹을 제거 하는 경우 리소스를 포함 하지 않는지 확인 합니다.
+2. 이동 컬렉션 또는 리소스 그룹을 삭제 합니다.  
 
 ## <a name="remove-a-resource-powershell"></a>리소스 제거 (PowerShell)
 
@@ -41,16 +48,20 @@ Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceG
 **예상 출력** 
  ![ 이동 컬렉션에서 리소스를 제거한 후 출력 텍스트](./media/remove-move-resources/remove-resource.png)
 
+
+
 ## <a name="remove-a-collection-powershell"></a>컬렉션 제거 (PowerShell)
 
 다음과 같이 PowerShell을 사용 하 여 전체 이동 컬렉션을 제거 합니다.
 
-```azurepowershell-interactive
-# Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
-```
-**예상 출력** 
- ![ 이동 컬렉션을 제거한 후 출력 텍스트](./media/remove-move-resources/remove-collection.png)
+1. 위의 지침에 따라 PowerShell을 사용 하 여 컬렉션에서 리소스를 제거 합니다.
+2. 다음을 실행합니다.
+
+    ```azurepowershell-interactive
+    # Remove a resource using the resource ID
+    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    ```
+    **예상 출력** ![ 이동 컬렉션을 제거한 후 출력 텍스트](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>제거 후 VM 리소스 상태
 

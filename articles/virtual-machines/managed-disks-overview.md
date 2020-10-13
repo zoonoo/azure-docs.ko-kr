@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299935"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972036"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -35,7 +35,7 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 
 ### <a name="integration-with-availability-sets"></a>가용성 집합과 통합
 
-관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
+관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
 ### <a name="integration-with-availability-zones"></a>가용성 영역과 통합
 
@@ -47,7 +47,7 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
-[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 스토리지 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../storage/common/storage-sas-overview.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 스토리지 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ### <a name="upload-your-vhd"></a>vhd 업로드
 
@@ -96,7 +96,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
+대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](./manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
 Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 
@@ -104,7 +104,7 @@ Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM
 
 관리 디스크 스냅샷은 기본적으로 표준 관리 디스크로 저장되는 관리 디스크의 읽기 전용 크래시 일치 전체 복사본입니다. 스냅샷을 사용하면 관리 디스크를 언제든지 백업할 수 있습니다. 이 스냅샷은 원본 디스크와 별도로 존재하고 새 관리 디스크를 만드는 데 사용될 수도 있습니다. 
 
-사용된 크기에 따라 스냅샷 요금이 청구됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅샷을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다. [Azure 사용량 보고서](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)를 보면 사용된 스냅샷의 크기를 확인할 수 있습니다. 예를 들어 스냅샷의 사용된 데이터 크기가 10GiB이면 **일별** 사용량 보고서에 10GiB/(31일) = 0.3226GiB가 소비량으로 표시됩니다.
+사용된 크기에 따라 스냅샷 요금이 청구됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅샷을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다. [Azure 사용량 보고서](../cost-management-billing/understand/review-individual-bill.md)를 보면 사용된 스냅샷의 크기를 확인할 수 있습니다. 예를 들어 스냅샷의 사용된 데이터 크기가 10GiB이면 **일별** 사용량 보고서에 10GiB/(31일) = 0.3226GiB가 소비량으로 표시됩니다.
 
 관리 디스크를 사용하여 스냅샷을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
 ms.openlocfilehash: 1dd89198fd1c494ef3002fdc222683f56f2d7e3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91304740"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 iProva 구성
@@ -34,7 +34,7 @@ ms.locfileid: "91304740"
 > * IProva에서 그룹 및 그룹 멤버 자격 프로 비전
 > * IProva에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "91304740"
 
     ![iProva 토큰 만들기](media/iprova-provisioning-tutorial/token.png)
 
-## <a name="step-3-add-iprova-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 iProva 추가
+## <a name="step-3-add-iprova-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 iProva 추가
 
 IProva에 대 한 프로 비전 관리를 시작 하려면 Azure AD 응용 프로그램 갤러리에서 iProva를 추가 합니다. 이전에 SSO에 대 한 iProva를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -110,7 +110,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자를 iprova에 동기화를**선택 합니다.
 

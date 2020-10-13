@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202299"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961360"
 ---
 # <a name="display-controls"></a>표시 컨트롤
 
@@ -30,7 +30,7 @@ ms.locfileid: "85202299"
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
  [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [메타 데이터](self-asserted-technical-profile.md#metadata) 섹션에서 참조 된 [contentdefinition](contentdefinitions.md) 은 `DataUri` 페이지 계약 버전 2.0.0 이상으로 설정 해야 합니다. 예를 들면 다음과 같습니다.
 
@@ -55,9 +55,9 @@ ms.locfileid: "85202299"
 
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **Inputclaims** 은 사용자 로부터 수집할 클레임 값을 미리 채우는 데 사용 됩니다. |
-| DisplayClaims | 0:1 | **DisplayClaims** 는 사용자 로부터 수집할 클레임을 나타내는 데 사용 됩니다. |
-| OutputClaims | 0:1 | **Outputclaims** 은이 **DisplayControl**에 대해 일시적으로 저장 되는 클레임을 나타내는 데 사용 됩니다. |
+| InputClaims | 0:1 | **Inputclaims** 은 사용자 로부터 수집할 클레임 값을 미리 채우는 데 사용 됩니다. 자세한 내용은 [Inputclaims](technicalprofiles.md#inputclaims) 요소를 참조 하세요. |
+| DisplayClaims | 0:1 | **DisplayClaims** 는 사용자 로부터 수집할 클레임을 나타내는 데 사용 됩니다. 자세한 내용은 [DisplayClaim](technicalprofiles.md#displayclaim) 요소를 참조 하세요.|
+| OutputClaims | 0:1 | **Outputclaims** 은이 **DisplayControl**에 대해 일시적으로 저장 되는 클레임을 나타내는 데 사용 됩니다. 자세한 내용은 [Outputclaims](technicalprofiles.md#outputclaims) 요소를 참조 하세요.|
 | 동작 | 0:1 | **작업** 은 프런트 엔드에서 발생 하는 사용자 작업에 대해 호출할 유효성 검사 기술 프로필을 나열 하는 데 사용 됩니다. |
 
 ### <a name="input-claims"></a>입력 클레임
@@ -98,7 +98,90 @@ ms.locfileid: "85202299"
 
 작업은 **유효성 검사 기술 프로필**의 목록을 정의 합니다. 표시 컨트롤의 일부 또는 모든 표시 클레임의 유효성을 검사 하는 데 사용 됩니다. 유효성 검사 기술 프로필은 사용자 입력의 유효성을 검사 하 고 사용자에 게 오류를 반환할 수 있습니다. 자체 어설션된 기술 프로필의 [유효성 검사 기술 프로필](validation-technical-profile.md) 에서 사용 되는 것과 유사한 컨트롤 표시 작업에서 **ContinueOnError**, **ContinueOnSuccess**및 **사전 조건을** 사용할 수 있습니다.
 
-다음 예에서는 **mfaType** 클레임의 사용자 선택에 따라 전자 메일 또는 SMS에서 코드를 보냅니다.
+#### <a name="actions"></a>동작
+
+**Actions** 요소에는 다음 요소가 포함 됩니다.
+
+| 요소 | 발생 수 | 설명 |
+| ------- | ----------- | ----------- |
+| 작업 | 1:n | 실행할 작업의 목록입니다. |
+
+#### <a name="action"></a>작업
+
+**Action** 요소는 다음 특성을 포함 합니다.
+
+| attribute | 필수 | Description |
+| --------- | -------- | ----------- |
+| Id | 예 | 작업의 유형입니다. 가능한 값은 `SendCode` 또는 `VerifyCode`입니다. `SendCode`값은 사용자에 게 코드를 보냅니다. 이 작업에는 두 가지 유효성 검사 기술 프로필이 포함 될 수 있습니다. 하나는 코드를 생성 하 고 다른 하나는 메시지를 전송 합니다. `VerifyCode`값은 사용자가 입력 텍스트 상자에 입력 한 코드를 확인 합니다. |
+
+**Action** 요소에는 다음 요소가 포함 됩니다.
+
+| 요소 | 발생 수 | Description |
+| ------- | ----------- | ----------- |
+| Validationclaim이상 변경 | 1:1 | 참조 기술 프로필의 일부 또는 전체 표시 클레임의 유효성을 검사 하는 데 사용 되는 기술 프로필의 식별자입니다. 참조 된 기술 프로필의 모든 입력 클레임은 참조 기술 프로필의 표시 클레임에 표시 되어야 합니다. |
+
+#### <a name="validationclaimsexchange"></a>Validationclaim이상 변경
+
+**Validationclaim이상 change** 요소에는 다음 요소가 포함 되어 있습니다.
+
+| 요소 | 발생 수 | Description |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1:n | 참조 기술 프로필의 일부 또는 전체 표시 클레임의 유효성을 검사 하는 데 사용할 기술 프로필입니다. |
+
+**ValidationTechnicalProfile** 요소는 다음 특성을 포함 합니다.
+
+| attribute | 필수 | Description |
+| --------- | -------- | ----------- |
+| 참조 | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
+|ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타냅니다. 가능한 값: `true` 또는 `false` (기본값, 추가 유효성 검사 프로필 처리가 중지 되 고 오류가 반환 됨) |
+|ContinueOnSuccess | 아니요 | 이 유효성 검사 기술 프로필이 성공할 경우 후속 유효성 검사 프로필의 유효성 검사를 계속할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
+
+**ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
+
+| 요소 | 발생 수 | Description |
+| ------- | ----------- | ----------- |
+| Preconditions | 0:1 | 유효성 검사 기술 프로필을 실행하기 위해 충족해야 하는 사전 조건의 목록입니다. |
+
+**사전 조건** 요소는 다음 특성을 포함 합니다.
+
+| attribute | 필수 | 설명 |
+| --------- | -------- | ----------- |
+| `Type` | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 가능한 값은 `ClaimsExist` 또는 `ClaimEquals`입니다. `ClaimsExist` 지정 된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행 하도록 지정 합니다. `ClaimEquals` 지정 된 클레임이 있고 해당 값이 지정 된 값과 동일한 경우 작업을 수행 하도록 지정 합니다. |
+| `ExecuteActionsIf` | 예 | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
+
+**Precondition** 요소에 포함되는 요소는 다음과 같습니다.
+
+| 요소 | 발생 수 | Description |
+| ------- | ----------- | ----------- |
+| 값 | 1:n | 검사에 사용되는 데이터입니다. 이 검사 유형이 `ClaimsExist`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 검사 유형이 `ClaimEquals`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 다른 값 요소에서 검사할 값을 지정 합니다.|
+| 작업 | 1:1 | 오케스트레이션 단계 내의 사전 조건 검사가 true인 경우 수행해야 하는 작업입니다. **작업** 의 값은 `SkipThisValidationTechnicalProfile` 연결 된 유효성 검사 기술 프로필을 실행 하지 않도록 지정 하는로 설정 됩니다. |
+
+다음 예제에서는 [AZURE AD SSPR 기술 프로필](aad-sspr-technical-profile.md)을 사용 하 여 전자 메일 주소를 보내고 확인 합니다.
+
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+다음 예제에서는 사전 조건이 있는 **mfaType** 클레임의 사용자 선택에 따라 전자 메일 또는 SMS에서 코드를 보냅니다.
 
 ```xml
 <Action Id="SendCode">
@@ -129,7 +212,7 @@ ms.locfileid: "85202299"
 
 표시 컨트롤은 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)의 [표시 클레임](self-asserted-technical-profile.md#display-claims) 에서 참조 됩니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -141,3 +224,10 @@ ms.locfileid: "85202299"
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+표시 컨트롤 사용에 대 한 샘플은 다음을 참조 하세요. 
+
+- [Mailjet를 사용 하 여 사용자 지정 전자 메일 확인](custom-email-mailjet.md)
+- [SendGrid를 사용 하 여 사용자 지정 전자 메일 확인](custom-email-sendgrid.md)

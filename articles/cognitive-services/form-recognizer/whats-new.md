@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 16bdb0d8ed421763895e61a6e1173fc7c5a48d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4f381e2f2e9f85422bd5f4fb89ec684f4bc99f91
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297949"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970812"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -53,7 +53,7 @@ ms.locfileid: "91297949"
 
 ### <a name="new-features"></a>새로운 기능
 
-* v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [JAVA](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)및 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
+* v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [JAVA](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)및 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
 * 향상 된 **테이블 향상** 기능 및 향상 된 기능으로는 향상 된 기능 및 테이블 추출 향상 된 기능, 특히 _레이블 없이 사용자 지정 학습_에서 테이블 헤더와 구조를 학습 하는 기능이 있습니다. 
 
 * **통화 지원** 전역 통화 기호의 검색 및 추출
@@ -78,10 +78,10 @@ ms.locfileid: "91297949"
 
 ### <a name="new-features"></a>새로운 기능
 * **양식 인식기 API v 2.0 공개 미리 보기에 대 한 SDK 지원** 이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원을 확장 했습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
 
   새 SDK는 폼 인식기에 대 한 v2.0 REST API의 모든 기능을 지원 합니다. 예를 들어 레이블을 사용 하거나 사용 하지 않고 모델을 학습 하 고, 폼에서 텍스트, 키 값 쌍 및 테이블을 추출 하 고, 미리 작성 된 수신 서비스를 사용 하 여 수신 확인에서 데이터를 추출 하 고, 문서의 레이아웃 서비스를 사용 하 여 텍스트와 테이블을 추출할 수 있습니다. [Sdk 피드백 양식](https://aka.ms/FR_SDK_v1_feedback)을 통해 sdk에서 사용자 의견을 공유할 수 있습니다.
  
@@ -177,7 +177,7 @@ ms.locfileid: "91297949"
 
 ## <a name="next-steps"></a>다음 단계
 
-[클라이언트 라이브러리 빠른](quickstarts/client-library.md) 시작을 완료 하 여 선택한 언어로 양식 인식기로 양식 처리 앱을 작성 하기 시작 합니다.
+사용자가 선택한 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [클라이언트 라이브러리 빠른 시작](quickstarts/client-library.md)을 완료하세요.
 
 ## <a name="see-also"></a>참조
 

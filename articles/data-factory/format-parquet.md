@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/27/2020
 ms.author: jingwang
-ms.openlocfilehash: 13a0966413519e56199cfce150d9dd7973d634ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c99225b53266fc74ea357151de824cd8d8ed2088
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404728"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946147"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory Parquet 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -101,11 +101,11 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 이어야 합니다. `parquet` | 예 | `parquet` | format |
+| 서식 | 형식은 이어야 합니다. `parquet` | 예 | `parquet` | format |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | 아니요 | String[] | wildcardPaths |
-| 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | 파티션 (partitionRootPath) |
+| 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | 문자열 | 파티션 (partitionRootPath) |
 | 파일 목록 | 소스에서 처리할 파일을 나열 하는 텍스트 파일을 가리키고 있는지 여부 | 아니요 | `true` 또는 `false` | fileList |
-| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다. | 아니요 | String | rowUrlColumn |
+| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다. | 아니요 | 문자열 | rowUrlColumn |
 | 완료 후 | 처리 후 파일을 삭제 하거나 이동 합니다. 컨테이너 루트에서 파일 경로가 시작 됩니다. | 아니요 | 삭제: `true` 또는 `false` <br> 옮기고 `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore |
 | 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
@@ -131,7 +131,7 @@ source(allowSchemaDrift: true,
 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 이어야 합니다. `parquet` | 예 | `parquet` | format |
+| 서식 | 형식은 이어야 합니다. `parquet` | 예 | `parquet` | format |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성 된 데이터의 명명 형식입니다. 기본적으로 파티션 당 한 파일은 형식입니다. `part-#####-tid-<guid>` | 아니요 | 패턴: 문자열 <br> 파티션 당: String [] <br> Column: String의 데이터로 <br> 단일 파일로 출력: `['<fileName>']` | filePattern <br> 파티션 파일 이름 <br> rowUrlColumn <br> 파티션 파일 이름 |
 
@@ -156,7 +156,7 @@ ParquetSource sink(
 
 ## <a name="data-type-support"></a>데이터 형식 지원
 
-Parquet 복합 데이터 형식은 현재 지원 되지 않습니다 (예: MAP, LIST, STRUCT).
+Parquet 복합 데이터 형식 (예: MAP, LIST, STRUCT)은 현재 복사 작업이 아니라 데이터 흐름 에서만 지원 됩니다. 데이터 흐름에서 복합 형식을 사용 하려면 데이터 집합에서 스키마를 비워 두는 방법으로 데이터 집합에서 파일 스키마를 가져오지 마세요. 그런 다음 원본 변환에서 프로젝션을 가져옵니다.
 
 ## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 사용
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ca6431531f8cebf1205aa555c5545f4dc44abd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a1bdce0478961b27bde7dd32733d95c58ba2361
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372215"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972240"
 ---
 # <a name="azure-disk-encryption-for-linux-vms-troubleshooting-guide"></a>Linux Vm에 대 한 Azure Disk Encryption 문제 해결 가이드
 
@@ -135,5 +135,5 @@ CLI를 사용하여 Azure Disk Encryption을 사용하지 않도록 설정하려
 
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해당 문제 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Security Center에서 디스크 암호화 적용](../../security-center/security-center-virtual-machine-protection.md)
+- [Azure Security Center에서 디스크 암호화 적용](../../security-center/asset-inventory.md)
 - [휴지 상태의 Azure 데이터 암호화](../../security/fundamentals/encryption-atrest.md)

@@ -4,12 +4,12 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759461"
+ms.locfileid: "91875610"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -75,7 +75,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
+다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
 
 .NET Core, 자체 포함 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 것은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](./asp-net-core.md) 은 모든 이전 시나리오에서 작동 합니다.
 
@@ -90,7 +90,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
      ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
 
-2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. .Net Core는 .NET Core 2.0, 2.1, 2.2 및 3.0에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
+2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. .NET Core는 ASP.NET Core 2.1, 2.2, 3.0 및 3.1에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -359,8 +359,8 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
     ![https://yoursitename.scm.azurewebsites/applicationinsights결과 페이지의 스크린샷](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * 가 인지 확인 합니다. `Application Insights Extension Status``Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * 실행 되 고 있지 않으면 [Application Insights 모니터링 사용 지침](#enable-application-insights) 을 따릅니다.
+    * 가 인지 확인 합니다. `Application Insights Extension Status``Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * 실행 되 고 있지 않으면 [Application Insights 모니터링 사용 지침](#enable-application-insights) 을 따릅니다.
 
     * 상태 원본이 존재 하며 다음과 같이 표시 되는지 확인 합니다. `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * 유사한 값이 없는 경우에는 응용 프로그램이 현재 실행 되 고 있지 않거나 지원 되지 않음을 의미 합니다. 응용 프로그램이 실행 되 고 있는지 확인 하려면 런타임 정보를 사용할 수 있게 하는 응용 프로그램 url/응용 프로그램 끝점을 수동으로 방문해 보세요.
@@ -406,6 +406,10 @@ PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워�
 ### <a name="connection-string-and-instrumentation-key"></a>연결 문자열 및 계측 키
 
 코드 없는 모니터링을 사용 하는 경우 연결 문자열만 필요 합니다. 그러나 수동 계측을 수행할 때 이전 버전의 SDK와 이전 버전과의 호환성을 유지 하기 위해 계측 키를 설정 하는 것이 좋습니다.
+
+## <a name="release-notes"></a>릴리스 정보
+
+최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./web-app-extension-release-notes.md)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [라이브 앱에서 프로파일러를 실행합니다](./profiler.md).
