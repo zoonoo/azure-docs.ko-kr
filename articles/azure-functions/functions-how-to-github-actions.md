@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 48482658fdabc3e826b6855c500829a16c166749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851121"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999247"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -32,6 +32,18 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 > [!NOTE]
 > 인증을 위해 게시 프로필을 사용 하기로 결정 한 경우에는 서비스 주체를 만들 필요가 없습니다.
 
+## <a name="downloading-and-using-a-publish-profile-as-deployment-credential-recommended"></a>배포 자격 증명으로 게시 프로필 다운로드 및 사용 (권장)
+
+함수 앱의 게시 프로필을 다운로드 하려면 다음을 수행 합니다.
+
+1. 함수 앱의 **개요** 페이지를 선택한 다음 **게시 프로필 가져오기**를 선택 합니다.
+
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="게시 프로필 다운로드":::
+
+1. 게시 설정 파일의 내용을 저장 하 고 복사 합니다.
+
+## <a name="create-a-service-principal-deprecated"></a>서비스 주체 만들기 (사용 되지 않음)
+=======
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -44,7 +56,8 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 
 GitHub 작업에 대해 Azure Functions를 사용 하 여 인증 하는 권장 방법은 게시 프로필을 사용 하는 것입니다. 서비스 주체를 사용 하 여 인증할 수도 있지만이 프로세스에는 추가 단계가 필요 합니다. 
 
-Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 주체를 [GitHub 암호로](https://docs.github.com/en/actions/reference/encrypted-secrets) 저장 합니다. 워크플로 내에서 비밀에 액세스 합니다. 
+## <a name="configure-the-github-secret"></a>GitHub 비밀 구성
+= = = = = = = Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 주체를 [GitHub 암호로](https://docs.github.com/en/actions/reference/encrypted-secrets) 저장 합니다. 워크플로 내에서 비밀에 액세스 합니다. 
 
 # <a name="publish-profile"></a>[프로필 게시](#tab/publish-profile)
 

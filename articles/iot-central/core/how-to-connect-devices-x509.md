@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Central 응용 프로그램에서 x.509 인증서를 사용 하 여 장치 연결
 description: IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서를 사용 하 여 장치를 연결 하는 방법
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 22d86b96b7d9493ecc2f734be3f677a270a2739a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714308"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999879"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서를 사용 하 여 장치를 연결 하는 방법
 

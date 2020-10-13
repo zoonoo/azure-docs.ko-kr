@@ -3,12 +3,12 @@ title: Azure Relay 네임 스페이스에 대 한 IP 방화벽 구성
 description: 이 문서에서는 특정 IP 주소에서 Azure Relay 네임스페이스로의 연결을 허용하도록 방화벽 규칙을 사용하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976014"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999501"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Azure Relay 네임스페이스에 대한 IP 방화벽 구성
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 릴레이 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
@@ -76,7 +76,7 @@ IP 방화벽 규칙은 네임스페이스 수준에 적용됩니다. 따라서 �
       }
     },
     "variables": {
-      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]",
+      "namespaceNetworkRuleSetName": "[concat(parameters('relayNamespaceName'), concat('/', 'default'))]"
     },
     "resources": [
       {
@@ -93,7 +93,7 @@ IP 방화벽 규칙은 네임스페이스 수준에 적용됩니다. 따라서 �
       {
         "apiVersion": "2018-01-01-preview",
         "name": "[variables('namespaceNetworkRuleSetName')]",
-        "type": "Microsoft.Relay/namespaces/networkruleset",
+        "type": "Microsoft.Relay/namespaces/networkrulesets",
         "dependsOn": [
           "[concat('Microsoft.Relay/namespaces/', parameters('relayNamespaceName'))]"
         ],
@@ -109,6 +109,7 @@ IP 방화벽 규칙은 네임스페이스 수준에 적용됩니다. 따라서 �
                 "action":"Allow"
             }
           ],
+          "virtualNetworkRules": [],
           "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }

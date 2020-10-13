@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498800"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999748"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "86498800"
 > 3. 작업 영역에서 [Azure 센티널 솔루션을 사용 하도록 설정](../../sentinel/quickstart-onboard.md) 합니다.
 > 4. Azure 센티널의 **데이터 커넥터** 페이지로 이동 하 여 **Office 365** 커넥터를 사용 하도록 설정 합니다.
 >
-> ## <a name="frequently-asked-questions"></a>자주 묻는 질문
+> ## <a name="frequently-asked-questions"></a>질문과 대답
 > 
 > ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-october-31"></a>Q: 현재와 10 월 31 일까 지 Office 365 Azure Monitor 솔루션을 온보드 할 수 있나요?
 > 아니요, Azure Monitor Office 365 솔루션 등록 스크립트는 더 이상 사용할 수 없습니다. 솔루션은 10 월 31 일에 제거 됩니다.
@@ -104,9 +104,9 @@ ms.locfileid: "86498800"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>Q: 10 월 31 일에는 어떻게 되나요? 보드를 미리 등록 취소
 > 
-> - **Office365** 솔루션에서 데이터를 받을 수 없습니다. 이 솔루션은 Marketplace에서 더 이상 사용할 수 없습니다.
+> - **Office365** 솔루션에서 데이터를 받을 수 없습니다. 솔루션이 작업 영역에서 제거 되 고 Marketplace에서 더 이상 사용할 수 없게 됩니다.
 > - Azure 센티널 고객의 경우 Log Analytics 작업 영역 솔루션 **Office365** 이 Azure 센티널 **securityinsights** 솔루션에 포함 됩니다.
-> - 솔루션을 수동으로 보드 오프 하지 않는 경우 데이터는 10 월 31 일에 자동으로 연결 됩니다.
+> - 10 월 31 일까 지 솔루션을 수동으로 보드 오프 하지 않는 경우 데이터는 자동으로 연결 되 고, **솔루션은 제거** 됩니다. 이 경우에도 아래에 설명 된 대로 Azure 센티널에서 Office 365 커넥터를 사용 하도록 설정 하면 여전히 테이블을 복원할 수 있습니다.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>Q: 데이터를 새 솔루션으로 전송 하 시겠습니까?
 > 예. 작업 영역에서 **Office 365** 솔루션을 제거 하면 스키마가 제거 되어 해당 데이터를 일시적으로 사용할 수 없게 됩니다. 센티널에서 새로운 **Office 365** 커넥터를 사용 하도록 설정 하면 스키마가 작업 영역에 복원 되 고 이미 수집 된 데이터를 사용할 수 있게 됩니다. 
@@ -263,7 +263,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 | 속성 | 설명 |
 |:--- |:--- |
-| 형식 | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
@@ -272,7 +272,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>관리자<br>애플리케이션<br>DcAdmin<br>주기적<br>예약됨<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>Admin<br>애플리케이션<br>DcAdmin<br>Regular<br>예약됨<br>ServicePrincipal<br>시스템 |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성

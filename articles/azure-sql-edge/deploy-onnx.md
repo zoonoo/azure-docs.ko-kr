@@ -8,15 +8,15 @@ ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 07/14/2020
-ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 510e9e2a9e90d62996ed6dcfebdd96f77b034f3d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298908"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000158"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>ONNX 모델을 사용 하 여 배포 및 예측
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>ONNX 모델 및 SQL machine learning을 사용 하 여 배포 및 예측
 
 이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, [azure Sql Edge](onnx-overview.md) 또는 [azure sql Managed Instance (미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 후 업로드 된 onnx 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
 

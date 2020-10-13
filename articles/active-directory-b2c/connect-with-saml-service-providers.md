@@ -12,12 +12,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 18afa6b2e974c605b18d4e38b82061234619e9ff
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961326"
+ms.locfileid: "91998111"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -454,7 +454,7 @@ SAML 토큰은 성공적으로 로그인 한 후 Azure AD B2C에서 발급 하�
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |토큰이 유효해지는 시간입니다. 시간 값은 UTC로 인코딩됩니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 토큰 수명에 대 한 설정을 변경 하려면 `TokenNotBeforeSkewInSeconds` SAML 토큰 문제 기술 프로필의 [메타 데이터](saml-issuer-technical-profile.md#metadata) 를 설정 합니다. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | 토큰이 무효화 되는 시간입니다. 애플리케이션은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. 값은의 15 분 이며 `NotBefore` 변경할 수 없습니다.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |대상 사용자를 식별 하는 URI 참조입니다. 토큰의 의도 된 수신자를 식별 합니다. 값은 SAML 요청과 동일 합니다 `AssertionConsumerServiceURL` .|
-|`<Response>``<Assertion>` `<saml:AttributeStatement>` 컬렉션`<Attribute>` | | [신뢰 당사자 기술 프로필](relyingparty.md#technicalprofile) 출력 클레임에 구성 된 어설션 컬렉션 (클레임)입니다. 출력 클레임의를 설정 하 여 어설션의 이름을 구성할 수 있습니다 `PartnerClaimType` . |
+|`<Response>``<Assertion>` `<AttributeStatement>` 컬렉션`<Attribute>` | | [신뢰 당사자 기술 프로필](relyingparty.md#technicalprofile) 출력 클레임에 구성 된 어설션 컬렉션 (클레임)입니다. 출력 클레임의를 설정 하 여 어설션의 이름을 구성할 수 있습니다 `PartnerClaimType` . |
 
 ## <a name="next-steps"></a>다음 단계
 

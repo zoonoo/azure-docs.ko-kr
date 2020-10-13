@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448672"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999315"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -38,7 +38,7 @@ Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 �
 |릴리스 상태:|미리 보기|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|할당을 편집 하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보려면 **판독기**|
-|지원 되는 클러스터|Kubernetes v 1.14 이상이 필요 합니다.<br>클러스터에 PodSecurityPolicy 리소스 (이전 PSP 모델)가 없음<br>Windows 노드가 지원 되지 않습니다.|
+|지원 되는 클러스터:|Kubernetes v 1.14 이상이 필요 합니다.<br>클러스터에 PodSecurityPolicy 리소스 (이전 PSP 모델)가 없음<br>Windows 노드가 지원 되지 않습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 

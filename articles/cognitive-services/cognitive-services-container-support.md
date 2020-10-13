@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665415"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999690"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -72,7 +72,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 | [텍스트 분석][ta-containers-language] | F0, S | **언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
 | [텍스트 분석][ta-containers-sentiment] | F0, S | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석에서는 각 문서와 문장에 대해 감정 레이블 (예: *긍정* 또는 *음수*)을 반환 합니다. |
 | [텍스트 분석][ta-containers-health] | F0, S | **상태 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. |
-| [공간 분석][spa-containers] | S0 | **공간 분석** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. |
+| [공간 분석][spa-containers] | S0 | **공간 분석** | 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 파악 합니다. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|

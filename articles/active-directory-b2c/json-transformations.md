@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961292"
+ms.locfileid: "91998433"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "91961292"
 | InputParameter | 점 표기법 다음에 나오는 문자열 | 문자열 | 상수 문자열 값이 삽입 될 JSON의 JsonPath입니다. |
 | OutputClaim | outputClaim | 문자열 | 생성 된 JSON 문자열입니다. |
 
-### <a name="example-1"></a>예 1
+### <a name="example-1"></a>예제 1
 
 다음 예제에서는 "email" 및 "otp"의 클레임 값 및 상수 문자열을 기반으로 하는 JSON 문자열을 생성 합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "91961292"
 </ClaimsTransformation>
 ```
 
-다음 클레임 변환은 REST API 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
+다음 클레임 변환은 REST API 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
 
 - 입력 클레임:
   - **전자 메일**, 변환 클레임 유형  **customerentity. 전자 메일**: " john.s@contoso.com "

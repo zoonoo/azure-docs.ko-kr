@@ -3,12 +3,12 @@ title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 SDK 및 추가 기능 만들기와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 10/05/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6026dc75187c8a70203a2484380eed70d519599d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98b5f1658a7d3fc7c4a7db7145b92bb6065befc5
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743440"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999899"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -68,7 +68,7 @@ Azure Policy [별칭](../concepts/definition-structure.md#aliases) 을 사용 �
 
 1. 먼저 평가를 완료 하는 데 적절 한 시간을 기다린 후 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 합니다. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
 1. 할당 매개 변수와 할당 범위가 올바르게 설정 되어 있는지 확인 하십시오.
-1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인 합니다.
+1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인합니다.
    - 모든 리소스 종류의 ' 모두 ' 모드입니다.
    - 정책 정의가 태그나 위치를 확인 하는 경우 ' 인덱싱된 ' 모드입니다.
 1. 리소스의 범위가 [제외](../concepts/assignment-structure.md#excluded-scopes) [되거나 제외](../concepts/exemption-structure.md)되지 않았는지 확인 합니다.
@@ -96,11 +96,11 @@ Azure Policy에 의해 처리 될 것으로 예상 되는 리소스는 [Azure �
 
 1. 먼저 평가를 완료 하는 데 적절 한 시간을 기다린 후 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 합니다. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
 1. 할당 매개 변수 및 할당 범위를 올바르게 설정 하 고 **enforcementMode** 를 _사용 하도록_설정 했는지 확인 합니다. 
-1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인 합니다.
+1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인합니다.
    - 모든 리소스 종류의 ' 모두 ' 모드입니다.
    - 정책 정의가 태그나 위치를 확인 하는 경우 ' 인덱싱된 ' 모드입니다.
 1. 리소스의 범위가 [제외](../concepts/assignment-structure.md#excluded-scopes) [되거나 제외](../concepts/exemption-structure.md)되지 않았는지 확인 합니다.
-1. 리소스 페이로드가 정책 논리와 일치 하는지 확인 합니다. [HAR 추적을 캡처하거나](../../../azure-portal/capture-browser-trace.md) ARM 템플릿 속성을 검토 하 여이 작업을 수행할 수 있습니다.
+1. 리소스 페이로드가 정책 논리와 일치하는지 확인합니다. [HAR 추적을 캡처하거나](../../../azure-portal/capture-browser-trace.md) ARM 템플릿 속성을 검토 하 여이 작업을 수행할 수 있습니다.
 1. 문제 해결 확인: 다른 일반적인 문제 및 해결 방법에 대해 [예상 대로 준수 하지 않습니다](#scenario-compliance-not-as-expected) .
 
 중복 되 고 사용자 지정 된 기본 제공 정책 정의 또는 사용자 지정 정의에 문제가 계속 발생 하는 경우 **정책을 작성** 하 여 지원 티켓을 만들어 문제를 올바르게 라우팅합니다.
@@ -169,6 +169,24 @@ Azure Policy는 정책 정의 에서만 사용할 수 있는 여러 가지 Azure
 #### <a name="resolution"></a>해결 방법
 
 지침에 따라 [Kubernetes 추가 기능에 대 한 Azure Policy를 제거한](../concepts/policy-for-kubernetes.md#remove-the-add-on)후 명령을 다시 실행 `helm install azure-policy-addon` 합니다.
+
+### <a name="scenario-azure-virtual-machine-user-assigned-identities-are-replaced-by-system-assigned-managed-identities"></a>시나리오: Azure 가상 머신 사용자 할당 id는 시스템 할당 관리 id로 대체 됨
+
+#### <a name="issue"></a>문제
+
+게스트 구성 정책 이니셔티브를 컴퓨터 내의 감사 설정에 할당 한 후에는 컴퓨터에 할당 된 사용자 할당 관리 id가 더 이상 할당 되지 않습니다. 시스템 할당 관리 id만 할당 됩니다.
+
+#### <a name="cause"></a>원인
+
+이전에 게스트 구성 DeployIfNotExists 정의에 사용 된 정책 정의는 시스템 할당 id가 컴퓨터에 할당 되 고 사용자 할당 id 할당도 제거 되었는지 확인 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이전에이 문제를 일으킨 정의는 사용 되지 않는 것으로 나타나고 \[ \] 사용자 할당 관리 id를 제거 하지 않고 필수 구성 요소를 관리 하는 정책 정의로 대체 됩니다. 수동 단계가 필요 합니다. 더 이상 사용 되지 않는 것으로 표시 된 기존 정책 할당을 삭제 \[ \] 하 고 원래와 동일한 이름을 가진 업데이트 된 필수 조건 정책 이니셔티브 및 정책 정의로 바꿉니다.
+
+자세한 내용은 다음 블로그 게시물을 참조 하세요.
+
+[게스트 구성 감사 정책에 대해 릴리스된 중요 한 변경 내용](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 ## <a name="next-steps"></a>다음 단계
 

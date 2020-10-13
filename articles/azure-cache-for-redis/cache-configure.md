@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 81a65c088fd83ce179f67edd1ecdb96149dd1614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840254"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000161"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -74,7 +74,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 **액세스 제어(IAM)** 섹션에서는 Azure Portal의 RBAC(역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-### <a name="tags"></a>태그
+### <a name="tags"></a>태그들
 
 **태그** 섹션은 리소스 구성에 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
@@ -214,7 +214,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 
 ### <a name="redis-data-persistence"></a>Redis 데이터 지속성
-**데이터 지 속성** 을 클릭 하 여 프리미엄 캐시에 대 한 데이터 지 속성을 사용, 사용 안 함 또는 구성 합니다. Azure Cache for Redis는 [RDB 지속성](cache-how-to-premium-persistence.md#configure-rdb-persistence) 또는 [AOF 지속성](cache-how-to-premium-persistence.md#configure-aof-persistence)을 사용하여 Redis 지속성을 제공합니다.
+**데이터 지 속성** 을 클릭 하 여 프리미엄 캐시에 대 한 데이터 지 속성을 사용, 사용 안 함 또는 구성 합니다. Azure Cache for Redis는 RDB 지속성 또는 AOF 지속성을 사용하여 Redis 지속성을 제공합니다.
 
 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 

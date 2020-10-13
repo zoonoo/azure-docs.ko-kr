@@ -9,12 +9,14 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17260c3890df0bd78b1503a046ff39ab173712be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91622066"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998752"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -45,7 +47,7 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 유추 요청은 __점수 매기기 URI__를 사용 합니다. 예들 들어 `https://myserevice.azureml.net/score`입니다.
+* 유추 요청은 __점수 매기기 URI__를 사용 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 
@@ -54,7 +56,7 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 요청은 **Triton 서버로**전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예들 들어 `https://myserevice.azureml.net/score`입니다.
+* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 

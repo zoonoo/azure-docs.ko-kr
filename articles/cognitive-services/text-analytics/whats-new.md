@@ -10,20 +10,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8f0a40e30cc58a01a66ba808076fe1d42c31c326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978886"
+ms.locfileid: "91999670"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
 
-## <a name="october-2020"></a>10 월 2020
+## <a name="october-2020"></a>2020년 10월
 
-* 모델 버전에서 시작 하는 감정 분석에 대 한 힌디어 지원 `2020-04-01` . 
+* 모델 버전부터 시작 하 여 감정 분석 v3. x에 대 한 힌디어 지원 `2020-04-01` . 
 
 ## <a name="september-2020"></a>2020년 9월
 

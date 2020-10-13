@@ -10,13 +10,13 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 00b689e4546d1f639f76ccbdf45348c43a678066
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: how-to, deploy, studio
+ms.openlocfilehash: e2f3e0b596847000af62aa6e23da5b137ee9de33
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996274"
+ms.locfileid: "91999012"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "91996274"
 
 디자이너에서 학습 한 모델은 SDK 또는 CLI (명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 기존 모델 배포](how-to-deploy-existing-model.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 

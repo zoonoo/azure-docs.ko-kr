@@ -10,13 +10,13 @@ author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ea8b100e8a690cf4f400dda02f2a58b6500d5f31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, deploy
+ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328448"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999115"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -204,7 +204,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. 예들 들어 `myregistry.azureecr.io`입니다.
+    * 레지스트리 __주소__입니다. `myregistry.azureecr.io`)을 입력합니다.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.

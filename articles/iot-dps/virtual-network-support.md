@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612781"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998579"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대 한 DPS (Azure IoT Hub 장치 프로 비전 서비스) 지원
 
@@ -129,7 +129,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
     | :---- | :-----|
     | **리소스 ID 또는 별칭** | DPS 리소스의 리소스 ID를 입력 합니다. |
     | **대상 하위 리소스** | **Iotdps** 입력 |
-    | **요청 메시지** | DPS 리소스 소유자에 대 한 요청 메시지를 입력 합니다.<br>예를 들면 다음과 같습니다. <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **요청 메시지** | DPS 리소스 소유자에 대 한 요청 메시지를 입력 합니다.<br>예를 들면 <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     **다음: 구성** 을 클릭 하 여 개인 끝점에 대 한 VNET을 구성 합니다.
 

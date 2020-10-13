@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 52ac5b89a0c7173b9b2585f84b5f34361b4b136c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744222"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998393"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Azure Key Vault에서 개인 링크 구성 문제 진단
 
@@ -34,7 +34,7 @@ ms.locfileid: "91744222"
 ### <a name="problems-not-covered-by-this-article"></a>이 문서에서 다루지 않는 문제
 
 - 간헐적 연결 문제가 있습니다. 지정 된 클라이언트에서 일부 요청이 작동 중이 고 일부는 작동 하지 않는 것을 볼 수 있습니다. *일시적인 문제는 일반적으로 개인 링크 구성의 문제로 인해 발생 하지 않습니다. 네트워크 또는 클라이언트 오버 로드의 부호입니다.*
-- BYOK (Bring Your Own Key) 또는 CMK (고객 관리 키)를 지 원하는 Azure 제품을 사용 하 고 있으며 해당 제품에서 키 자격 증명 모음에 액세스할 수 없습니다. *다른 제품 설명서를 확인 합니다. 방화벽이 사용 하도록 설정 된 key vault에 대 한 지원이 명시적으로 명시 되어 있는지 확인 합니다. 필요한 경우 해당 특정 제품에 대 한 기술 지원 서비스에 문의 하십시오.*
+- BYOK (Bring Your Own Key), CMK (고객 관리 키) 또는 Key vault에 저장 된 암호에 대 한 액세스를 지 원하는 Azure 제품을 사용 하 고 있습니다. Key vault 설정에서 방화벽을 사용 하도록 설정 하면 해당 제품에서 키 자격 증명 모음에 액세스할 수 없습니다. *제품별 설명서를 확인 합니다. 방화벽이 사용 하도록 설정 된 key vault에 대 한 지원이 명시적으로 명시 되어 있는지 확인 합니다. 필요한 경우 해당 특정 제품에 대 한 지원에 문의 하세요.*
 
 ### <a name="how-to-read-this-article"></a>이 문서를 읽는 방법
 
@@ -46,9 +46,11 @@ ms.locfileid: "91744222"
 
 ### <a name="confirm-that-your-client-runs-at-the-virtual-network"></a>가상 네트워크에서 클라이언트가 실행 되는지 확인
 
-이 가이드는 응용 프로그램 코드에서 발생 하는 key vault에 대 한 연결을 수정 하는 데 도움을 주기 위해 작성 되었습니다. 예제는 Azure Virtual Machines, Azure Service Fabric 클러스터, Azure App Service, Azure Kubernetes Service (AKS) 등에서 실행 되는 응용 프로그램 및 스크립트입니다.
+이 가이드는 응용 프로그램 코드에서 발생 하는 key vault에 대 한 연결을 수정 하는 데 도움을 주기 위해 작성 되었습니다. 예제는 Azure Virtual Machines, Azure Service Fabric 클러스터, Azure App Service, Azure Kubernetes Service (AKS) 등에서 실행 되는 응용 프로그램 및 스크립트입니다. 이 가이드는 브라우저에서 키 자격 증명 모음에 직접 액세스 하는 Azure Portal 웹 기반 사용자 인터페이스에서 수행 되는 액세스에도 적용 됩니다.
 
-개인 링크를 정의 하 여 응용 프로그램 또는 스크립트는 컴퓨터, 클러스터 또는 [개인 끝점 리소스가](../../private-link/private-endpoint-overview.md) 배포 된 Virtual Network에 연결 된 환경에서 실행 되어야 합니다. 응용 프로그램이 임의의 인터넷 연결 네트워크에서 실행 되는 경우이 가이드는 적용 되지 않으며 개인 링크를 사용할 수 없습니다.
+개인 링크의 정의에 따라 응용 프로그램, 스크립트 또는 포털이 [개인 끝점 리소스가](../../private-link/private-endpoint-overview.md) 배포 된 Virtual Network에 연결 된 컴퓨터, 클러스터 또는 환경에서 실행 되어야 합니다.
+
+응용 프로그램, 스크립트 또는 포털이 임의의 인터넷 연결 네트워크에서 실행 되는 경우이 가이드는 적용 되지 않으며 개인 링크를 사용할 수 없습니다. 이러한 제한은 사용자 브라우저 대신 요청 시 제공 되는 원격 Azure 컴퓨터에서 실행 되기 때문에 Azure Cloud Shell 실행 되는 명령에도 적용 됩니다.
 
 ### <a name="if-you-use-a-managed-solution-refer-to-specific-documentation"></a>관리 솔루션을 사용 하는 경우 특정 문서를 참조 하세요.
 
@@ -74,7 +76,7 @@ ms.locfileid: "91744222"
 >[!IMPORTANT]
 > 방화벽 설정을 변경 하면 여전히 개인 링크를 사용 하지 않는 합법적인 클라이언트에서 액세스를 제거할 수 있습니다. 방화벽 구성의 각 변경 내용에 대 한 의미를 알고 있는지 확인 합니다.
 
-중요 한 개념은 개인 링크에서 키 자격 증명 모음에 대 한 액세스만 *제공* 한다는 것입니다. 기존 액세스는 *제거* 되지 않습니다. 공용 인터넷에서 액세스를 효과적으로 차단 하려면 키 자격 증명 모음 방화벽을 명시적으로 사용 하도록 설정 해야 합니다.
+중요 한 개념은 개인 링크 기능이 데이터 exfiltration을 방지 하기 위해 종결 된 Virtual Network에서 키 자격 증명 모음에 대 한 액세스 권한만 *제공* 한다는 것입니다. 기존 액세스는 *제거* 되지 않습니다. 공용 인터넷에서 액세스를 효과적으로 차단 하려면 키 자격 증명 모음 방화벽을 명시적으로 사용 하도록 설정 해야 합니다.
 
 1. Azure Portal를 열고 키 자격 증명 모음 리소스를 엽니다.
 2. 왼쪽 메뉴에서 **네트워킹**을 선택 합니다.
@@ -229,11 +231,11 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 포털의 구독 페이지로 이동 하 고 왼쪽 메뉴에서 "리소스"를 선택 하 여이 리소스가 있는지 확인할 수 있습니다. 리소스 이름은 여야 `privatelink.vaultcore.azure.net` 하 고 리소스 형식은 **사설 DNS 영역**이어야 합니다.
 
-일반적으로이 리소스는 일반적인 메서드를 사용 하 여 개인 끝점을 만들 때 자동으로 만들어집니다. 그러나이 리소스가 자동으로 생성 되지 않으며 수동으로 수행 해야 하는 경우도 있습니다. 이 리소스는 실수로 삭제 되었을 수도 있습니다.
+일반적으로이 리소스는 일반 프로시저를 사용 하 여 개인 끝점을 만들 때 자동으로 만들어집니다. 그러나이 리소스가 자동으로 생성 되지 않으며 수동으로 수행 해야 하는 경우도 있습니다. 이 리소스는 실수로 삭제 되었을 수도 있습니다.
 
 이 리소스가 없으면 구독에 새 사설 DNS 영역 리소스를 만듭니다. 이름은 `privatelink.vaultcore.azure.net` 공백이 나 추가 점이 없는 정확 하 게 사용 해야 합니다. 잘못 된 이름을 지정 하는 경우이 문서에서 설명 하는 이름 확인이 작동 하지 않습니다. 이 리소스를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 개인 DNS 영역 만들기](../../dns/private-dns-getstarted-portal.md)를 참조 하세요. 해당 페이지를 따르는 경우이 시점에서 Virtual Network 만들기를 건너뛸 수 있습니다. Virtual Machines를 사용 하 여 유효성 검사 프로시저를 건너뛸 수도 있습니다.
 
-### <a name="confirm-that-the-private-dns-zone-must-be-linked-to-the-virtual-network"></a>사설 DNS 영역이 Virtual Network에 연결 되어야 하는지 확인 합니다.
+### <a name="confirm-that-the-private-dns-zone-is-linked-to-the-virtual-network"></a>사설 DNS 영역이 Virtual Network에 연결 되어 있는지 확인 합니다.
 
 사설 DNS 영역이 충분 하지 않습니다. 또한 개인 끝점을 포함 하는 Virtual Network에 연결 되어 있어야 합니다. 사설 DNS 영역이 올바른 Virtual Network에 연결 되지 않은 경우 해당 Virtual Network의 DNS 확인은 사설 DNS 영역을 무시 합니다.
 
@@ -250,7 +252,7 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 키 자격 증명 모음 이름 확인이 작동 하려면 `A` 접미사가 나 점이 없는 간단한 자격 증명 모음 이름을 가진 레코드가 있어야 합니다. 예를 들어 호스트 이름이 인 경우 `fabrikam.vault.azure.net` `A` `fabrikam` 접미사가 나 점 없이 이름이 있는 레코드가 있어야 합니다.
 
-또한 `A` 레코드 값 (IP 주소)은 [키 자격 증명 모음 개인 IP 주소](#find-the-key-vault-private-ip-address-in-the-virtual-network)여야 합니다. 레코드를 찾을 수 `A` 있지만 잘못 된 ip 주소를 포함 하는 경우 잘못 된 ip 주소를 제거 하 고 새 주소를 추가 해야 합니다. 전체 레코드를 제거 하 `A` 고 새 레코드를 추가 하는 것이 좋습니다.
+또한 `A` 레코드 값 (IP 주소)은 [키 자격 증명 모음 개인 IP 주소](#find-the-key-vault-private-ip-address-in-the-virtual-network)여야 합니다. `A`레코드를 찾았지만 잘못 된 ip 주소를 포함 하는 경우 잘못 된 ip 주소를 제거 하 고 새 주소를 추가 해야 합니다. 전체 레코드를 제거 하 `A` 고 새 레코드를 추가 하는 것이 좋습니다.
 
 >[!NOTE]
 > 레코드를 제거 하거나 수정할 때마다 `A` TTL (Time To Live) 값이 아직 만료 되지 않았기 때문에 컴퓨터가 여전히 이전 IP 주소로 확인 될 수 있습니다. TTL 값은 항상 60 초 (1 분) 보다 작은 값으로 지정 하 고 600 초 (10 분) 보다 크게 지정 하는 것이 좋습니다. 너무 긴 값을 지정 하는 경우 클라이언트는 가동 중단에서 복구 하는 데 너무 오래 걸릴 수 있습니다.
@@ -259,9 +261,9 @@ Azure 구독에는 정확한 이름을 가진 [사설 DNS 영역](../../dns/priv
 
 여러 가상 네트워크가 있고 각 네트워크에 동일한 키 자격 증명 모음을 참조 하는 고유한 개인 끝점 리소스가 있는 경우 키 자격 증명 모음 호스트 이름은 네트워크에 따라 다른 개인 IP 주소로 확인 되어야 합니다. 즉, 서로 다른 Virtual Network에 연결 되 고 레코드의 다른 IP 주소를 사용 하 여 여러 사설 DNS 영역도 필요 `A` 합니다.
 
-고급 시나리오에는 피어 링을 사용 하는 여러 가상 네트워크가 있습니다. 이 경우에는 하나의 Virtual Network 전용 끝점 리소스가 필요 하지만 둘 다 사설 DNS 영역 리소스에 연결 해야 할 수 있습니다. 이 시나리오는이 문서에서 직접 다루지 않습니다.
+고급 시나리오에서는 가상 네트워크에서 피어 링을 사용 하도록 설정할 수 있습니다. 이 경우에는 하나의 Virtual Network 전용 끝점 리소스가 필요 하지만 둘 다 사설 DNS 영역 리소스에 연결 해야 할 수 있습니다. 이 시나리오는이 문서에서 직접 다루지 않습니다.
 
-### <a name="fact-you-have-control-over-dns-resolution"></a>사실: DNS 확인을 제어할 수 있습니다.
+### <a name="understand-that-you-have-control-over-dns-resolution"></a>DNS 확인을 제어할 수 있음을 이해 합니다.
 
 [이전 섹션](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine)에서 설명한 것 처럼 개인 링크를 포함 하는 주요 자격 증명 모음에는 `{vaultname}.privatelink.vaultcore.azure.net` *공용* 등록에 별칭이 있습니다. Virtual Network에서 사용 하는 DNS 서버는 공용 등록을 사용 하지만 *개인* 등록에 대 한 모든 별칭을 확인 하 고, 검색 한 경우 공용 등록 시 정의 된 다음 별칭을 중지 합니다.
 
@@ -324,9 +326,9 @@ Linux 또는 다음을 포함 하는 최신 버전의 Windows 10 `curl`
 ### <a name="query-the-key-vault-ip-address-directly"></a>키 자격 증명 모음 IP 주소 직접 쿼리
 
 >[!IMPORTANT]
-> HTTPS 인증서 유효성 검사 없이 키 자격 증명 모음에 액세스 하는 것은 위험 하며 학습 목적 으로만 사용할 수 있습니다. 프로덕션 코드는이 클라이언트 쪽 유효성 검사 없이 키 자격 증명 모음에 액세스 해서는 안 됩니다. 문제를 진단 하는 경우에도 항상 키 자격 증명 모음에 대 한 요청에서 HTTPS 인증서 유효성 검사를 사용 하지 않도록 설정 하는 경우에는 표시 되지 않는 지속적인 변조 시도의 영향을 받을 수 있습니다.
+> HTTPS 인증서 유효성 검사 없이 키 자격 증명 모음에 액세스 하는 것은 위험 하며 학습 목적 으로만 사용할 수 있습니다. 프로덕션 코드는이 클라이언트 쪽 유효성 검사 없이 키 자격 증명 모음에 액세스 해서는 안 됩니다. 문제를 진단 하는 경우에도 키 자격 증명 모음에 대 한 요청에서 HTTPS 인증서 유효성 검사를 자주 사용 하지 않도록 설정 하는 경우에는 변조 시도의 영향을 받을 수 있습니다.
 
-최신 버전의 PowerShell을 설치한 경우를 사용 `-SkipCertificateCheck` 하 여 HTTPS 인증서 검사를 건너뛸 수 있습니다. 그러면 [KEY vault IP 주소](#find-the-key-vault-private-ip-address-in-the-virtual-network) 를 직접 대상으로 지정할 수 있습니다.
+최신 버전의 PowerShell을 설치한 경우를 사용 `-SkipCertificateCheck` 하 여 HTTPS 인증서 검사를 건너뛸 수 있습니다. 그러면 [키 자격 증명 모음 IP 주소](#find-the-key-vault-private-ip-address-in-the-virtual-network) 를 직접 대상으로 지정할 수 있습니다.
 
     PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
 

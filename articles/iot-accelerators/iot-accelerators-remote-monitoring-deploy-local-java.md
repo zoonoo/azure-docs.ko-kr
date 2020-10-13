@@ -1,20 +1,19 @@
 ---
 title: 원격 모니터링 솔루션을 로컬로 배포-IntelliJ IDE-Azure | Microsoft Docs
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 IntelliJ를 사용 하 여 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포 하는 방법을 보여 줍니다.
-author: v-krghan
-manager: dominicbetts
+author: dominicbetts
 ms.custom: devx-track-java
-ms.author: v-krghan
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319170"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998608"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - IntelliJ
 
@@ -24,7 +23,7 @@ ms.locfileid: "87319170"
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
