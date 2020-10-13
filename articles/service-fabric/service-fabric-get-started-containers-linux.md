@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563712"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령을 실행합니다.
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 *c:\temp\helloworldapp*으로 이동합니다. 다음 명령 실행:
 
 ```bash
 docker build -t helloworldapp .
@@ -373,7 +373,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
 1. 기존 애플리케이션의 루트로 디렉터리를 변경합니다. 예를 들어 `MyApplication`이 Yeoman에서 만든 애플리케이션인 경우 `cd ~/YeomanSamples/MyApplication`입니다.
-2. `yo azuresfcontainer:AddService`을 실행합니다.
+2. `yo azuresfcontainer:AddService`를 실행합니다.
 
 <a id="manually"></a>
 

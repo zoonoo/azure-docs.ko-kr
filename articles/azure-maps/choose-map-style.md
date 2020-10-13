@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285165"
 ---
 # <a name="change-the-style-of-the-map"></a>맵 스타일 변경
@@ -101,7 +101,7 @@ map.setStyle({ style: 'satellite' });
 
 아래 이미지는 레이아웃에 표시 되는 스타일 선택기 컨트롤을 보여 줍니다 `list` .
 
-:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="스타일 선택 목록 레이아웃":::
+:::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="스타일 선택 아이콘 레이아웃":::
 
 > [!IMPORTANT]
 > 기본적으로 스타일 선택 컨트롤은 Azure Maps의 S0 가격 책정 계층에서 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 `mapStyle` 스타일 선택기의 옵션에 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려는 경우 `mapStyles` 스타일 선택기의 옵션을로 설정 `"all"` 합니다.

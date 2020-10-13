@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399536"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
@@ -66,7 +66,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 다음은 핵심적인 Azure id 관리 기능입니다.
 
-- SSO(Single sign-on)
+- Single Sign-On
 
 - Multi-Factor Authentication
 
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - ID 보호
 
-#### <a name="single-sign-on"></a>SSO(Single sign-on)
+#### <a name="single-sign-on"></a>Single Sign-On
 
 [Sso (single sign-on)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) 는 단일 사용자 계정을 사용 하 여 한 번만 로그인 함으로써 비즈니스를 수행 하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미 합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
@@ -339,7 +339,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 보안 센터는 Azure 리소스의 보안 상태를 분석하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
-예제는 다음과 같습니다.
+다음은 이러한 템플릿의 예입니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
 

@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91376575"
 ---
 Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 줄어듭니다. 단일 가용성 영역에 배치 하는 경우에도 물리적으로 긴밀 하 게 통합 됩니다. 그러나 Azure 공간이 증가 함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며이로 인해 응용 프로그램에 영향을 주는 네트워크 대기 시간이 발생할 수 있습니다. 
@@ -58,7 +58,7 @@ Azure 데이터 센터에서 하드웨어 서비스 해제와 같은 계획 된 
 
 - 근접 배치 그룹 공동 배치 상태는 포털, CLI 및 PowerShell을 사용 하 여 볼 수 있습니다.
 
-    -   PowerShell을 사용 하는 경우 선택적 매개 변수 '-colocationstatus '를 포함 하 여 AzProximityPlacementGroup cmdlet을 사용 하 여 공동 배치 상태를 가져올 수 있습니다.
+    -   PowerShell을 사용 하는 경우 선택적 매개 변수 '-colocationstatus '를 포함 하 여 Get-AzProximityPlacementGroup cmdlet을 사용 하 여 공동 배치 상태를 가져올 수 있습니다.
 
     -   CLI를 사용 하는 경우 `az ppg show` 선택적 매개 변수 '--include-i n e t-상태 '를 포함 하 여 공동 위치 상태를 가져올 수 있습니다.
 

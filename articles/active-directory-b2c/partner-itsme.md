@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87489518"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 OIDC (itsme Openid connect Connect) 구성
@@ -40,7 +40,7 @@ Itsme digital ID 앱을 사용 하면 카드 판독기, 암호, 2 단계 인증 
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|------|
 |1     | 웹 사이트 또는 응용 프로그램에서 Azure AD B2C 사용자 흐름을 조정 하 여 **itsme에 로그인** 단추를 포함 합니다. 사용자가이 단추를 클릭 하면 상호 작용 흐름이 시작 됩니다.  |
 |2     | Azure AD B2C는 itsme 클라이언트 암호 API에 권한 부여 요청을 전송 하 여 Openid connect connect 흐름을 시작 합니다. 잘 알려진/Openid connect 구성 끝점은 끝점에 대 한 정보를 포함 하 고 있습니다.  |
@@ -82,12 +82,12 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
    |속성 | 값 |
    |------------ |------- |
-   | 이름 | itsme |
+   | Name | itsme |
    | 메타데이터 URL | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>`<environment>` `e2e` (테스트 환경) 또는 `prd` (프로덕션)  |
    | ClientID     | **클라이언트 ID**( **파트너 코드** 라고도 함)  |
    | 클라이언트 암호 | 사용자의 **client_secret** |
    | 범위  | openid connect service: YOURSERVICECODE profile email [phone] [address]  |
-   |응답 형식 | 코드 |
+   |응답 형식 | code |
    |응답 모드 | Query |
    |도메인 힌트 | *이는 비워 둘 수 있습니다.* |
    |UserID | sub |

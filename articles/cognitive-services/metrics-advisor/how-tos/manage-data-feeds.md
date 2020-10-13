@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: aahi
 ms.openlocfilehash: 22a1be7231b730c83ca97b0f128e43258ed24533
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937810"
 ---
 # <a name="how-to-manage-your-data-feeds"></a>방법: 데이터 피드 관리
@@ -106,11 +106,11 @@ ms.locfileid: "90937810"
 
 작업 링크 템플릿은 자리 표시자,,, 및로 구성 된 조치 가능한 HTTP url을 미리 정의할 때 사용 됩니다 `%datafeed` `%metric` `%timestamp` `%detect_config` `%tagset` . 템플릿을 사용 하 여 변칙 또는 인시던트에서 특정 URL로 리디렉션하여 드릴 다운할 수 있습니다.
 
-:::image type="content" source="../media/action-link-template.png" alt-text="작업 링크 템플릿" lightbox="../media/action-link-template.png":::
+:::image type="content" source="../media/action-link-template.png" alt-text="백필 데이터 피드" lightbox="../media/action-link-template.png":::
 
 작업 링크를 입력 한 후 인시던트 목록의 동작 옵션 및 인시던트 트리의 오른쪽 클릭 메뉴에서 **작업으로 이동 링크** 를 클릭 합니다. 작업 링크 템플릿의 자리 표시자를 변칙 또는 인시던트에 해당 하는 값으로 바꿉니다.
 
-| 자리표시자 | 예 | 의견 |
+| 자리표시자 | 예 | 설명 |
 | ---------- | -------- | ------- |
 | `%datafeed` | - | 데이터 피드 ID |
 | `%metric` | - | 메트릭 ID |

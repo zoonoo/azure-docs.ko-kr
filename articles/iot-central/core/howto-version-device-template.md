@@ -10,10 +10,10 @@ services: iot-central
 manager: peterpr
 ms.custom: device-developer
 ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90015962"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
@@ -93,7 +93,7 @@ ms.locfileid: "90015962"
 1. 사용자 지정 하려는 장치 템플릿을 선택 합니다.
 1. **사용자 지정** 탭을 선택 합니다.
 1. 장치 기능 모델에 정의 된 모든 기능이 여기에 나열 됩니다. 장치 템플릿 버전을 사용 하지 않고도 이러한 필드를 모두 편집, 저장 및 사용할 수 있습니다. 편집 하려는 필드가 읽기 전용 이면 장치 템플릿 버전을 변경 하 여 변경 해야 합니다. 편집할 필드를 선택 하 고 새 값을 입력 합니다.
-1. **저장**을 클릭합니다. 이제 이러한 값은 장치 템플릿에 처음 저장 되었으며 응용 프로그램 전체에서 사용 되는 모든 항목을 재정의 합니다.
+1. **Save**을 클릭합니다. 이제 이러한 값은 장치 템플릿에 처음 저장 되었으며 응용 프로그램 전체에서 사용 되는 모든 항목을 재정의 합니다.
 
 ## <a name="version-a-device-template"></a>장치 템플릿 버전
 

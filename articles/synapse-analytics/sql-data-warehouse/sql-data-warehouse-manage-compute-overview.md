@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 90815d52e6884efe6cff9a7860c093b4b5c1bc94
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204544"
 ---
 # <a name="manage-compute-in-azure-synapse-analytics-data-warehouse"></a>Azure Synapse Analytics 데이터 웨어하우스의 계산 관리
@@ -24,11 +24,11 @@ Azure Synapse Analytics SQL 풀에서 계산 리소스를 관리 하는 방법�
 
 ## <a name="what-is-compute-management"></a>컴퓨팅 관리란?
 
-데이터 웨어하우스의 아키텍처는 저장소와 계산을 분리 하 여 각각을 독립적으로 확장할 수 있도록 합니다. 이에 따라 데이터 스토리지와는 관계없이 성능 요구 사항에 맞게 컴퓨팅의 크기를 조정할 수 있습니다. 또한 컴퓨팅 리소스를 일시 중지했다가 다시 시작할 수도 있습니다. 이 아키텍처의 자연스러운 결과는 컴퓨팅 및 스토리지에 대한 [청구](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)가 분리되어 있다는 것입니다. 한동안 데이터 웨어하우스를 사용할 필요가 없으면 컴퓨팅을 일시 중지하여 컴퓨팅 비용을 절약할 수 있습니다.
+데이터 웨어하우스의 아키텍처는 저장소와 계산을 분리 하 여 각각을 독립적으로 확장할 수 있도록 합니다. 이에 따라 데이터 스토리지와는 관계없이 성능 요구 사항에 맞게 컴퓨팅의 크기를 조정할 수 있습니다. 또한 컴퓨팅 리소스를 일시 중지했다가 다시 시작할 수도 있습니다. 이 아키텍처의 자연스러운 결과는 컴퓨팅 및 스토리지에 대한 [청구](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)가 분리되어 있다는 것입니다. 데이터 웨어하우스를 잠시 동안 사용할 필요가 없으면 컴퓨팅을 일시 중지하여 컴퓨팅 비용을 절약할 수 있습니다.
 
 ## <a name="scaling-compute"></a>컴퓨팅 크기 조정
 
-SQL 풀의 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 설정을 조정 하 여 계산을 확장 하거나 축소할 수 있습니다. 데이터 웨어하우스 단위를 더 추가함에 따라 로드 및 쿼리 성능이 선형적으로 증가할 수 있습니다.
+SQL 풀의 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md) 설정을 조정 하 여 계산을 확장 하거나 축소할 수 있습니다. 데이터 웨어하우스 단위를 더 추가하면 로드 및 쿼리 성능이 선형적으로 증가할 수 있습니다.
 
 확장 단계는 [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) 또는 [T-SQL](quickstart-scale-compute-tsql.md) 빠른 시작을 참조하세요. 또한 확장 작업은 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 통해 수행할 수도 있습니다.
 
@@ -36,7 +36,7 @@ SQL 풀의 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-
 
 다음 표에서는 데이터 웨어하우스 단위를 변경할 때 컴퓨팅 노드당 배포 수가 변경되는 방식을 보여 줍니다.  DW30000c는 60 계산 노드를 제공 하 고 DW100c 보다 훨씬 더 높은 쿼리 성능을 제공 합니다.
 
-| DWU(데이터 웨어하우스 단위)  | \#계산 노드 | 노드당 배포 수 \# |
+| DWU(데이터 웨어하우스 단위)  | \# 계산 노드 | 노드당 배포 수 \# |
 | -------- | ---------------- | -------------------------- |
 | DW100c   | 1                | 60                         |
 | DW200c   | 1                | 60                         |

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
 ms.openlocfilehash: bf75c4fe2053483b94c5f645816422909645854a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91285979"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 StarLeaf 구성
@@ -27,7 +27,7 @@ ms.locfileid: "91285979"
 >
 > 이 커넥터는 현재 미리 보기로 제공됩니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -111,7 +111,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 StarLeaf를 구�
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션에서 **사용자 Azure Active Directory Starleaf에 동기화를**선택 합니다.
 

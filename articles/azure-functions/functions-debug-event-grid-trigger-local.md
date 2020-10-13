@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530547"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
 이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 기존 함수 앱 만들기 또는 사용
 - 기존 스토리지 계정 만들기 또는 사용

@@ -11,10 +11,10 @@ ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023791"
 ---
 # <a name="relyingparty"></a>RelyingParty
@@ -232,7 +232,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 출력 클레임의 **PartnerClaimType**에 대한 참조입니다. 신뢰 당사자 정책 **OutputClaims** 컬렉션에서 출력 클레임을 정의해야 합니다. |
-| 서식 | 아니요 | Saml 어설션에 반환 된 **NameId 형식을** 설정 하는 saml 신뢰 당사자에 사용 됩니다. |
+| 형식 | 아니요 | Saml 어설션에 반환 된 **NameId 형식을** 설정 하는 saml 신뢰 당사자에 사용 됩니다. |
 
 다음 예제에서는 Openid connect Connect 신뢰 당사자를 정의 하는 방법을 보여 줍니다. 주체 이름 정보는 `objectId`로 구성됩니다.
 

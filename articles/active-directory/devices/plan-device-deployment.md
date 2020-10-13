@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563899"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
@@ -66,7 +66,7 @@ Faq: [AZURE AD 장치 관리 faq](faq.md)  및 [설정 및 데이터 로밍 faq]
 
 이 계획의 경우 목록에 다음 관련자를 추가 합니다.
 
-| 역할| Description |
+| 역할| 설명 |
 | - | - |
 | 장치 관리자| 요금제가 조직의 장치 요구 사항을 충족 하는지 확인할 수 있는 장치 팀의 담당자입니다. |
 | 네트워크 관리자| 네트워크 요구 사항을 충족 하는지 확인할 수 있는 네트워크 팀의 담당자입니다. |

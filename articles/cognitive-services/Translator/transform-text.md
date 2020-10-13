@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 16f639a2a263aee286cec8bb0827fa506b50e3df
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88921123"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>TransformText 메서드 사용 방법
@@ -29,10 +29,10 @@ TransformText 메서드는 소셜 미디어에 대한 텍스트 정규화 함수
 
 ## <a name="parameters"></a>매개 변수
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:---|:---|
 | 권한 부여 헤더 | **필수** 애플리케이션을 식별하는 데 사용되는 HTTP 헤더입니다. “Authorization” 키와 “Bearer” + “ “ + 액세스 토큰 값을 사용합니다. 자세한 내용은 여기를 참조하세요.|
-| language | **필수** 언어 코드를 나타내는 문자열입니다. 이 매개 변수는 **en**이 언어 이름인 영어만 지원합니다.|
+| 언어 | **필수** 언어 코드를 나타내는 문자열입니다. 이 매개 변수는 **en**이 언어 이름인 영어만 지원합니다.|
 | category | **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 **일반**만 지원 합니다.|
 | sentence | **필수** 수정하려는 문장입니다. |
 

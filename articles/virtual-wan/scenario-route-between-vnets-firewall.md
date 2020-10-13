@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267519"
 ---
 # <a name="scenario-azure-firewall---custom"></a>시나리오: Azure 방화벽-사용자 지정
@@ -26,7 +26,7 @@ ms.locfileid: "91267519"
 
 **연결 매트릭스**
 
-| 보낸 사람           | 대상:      | *Vnet*      | *분기*    | *인터넷*   |
+| From           | 아래와 같이 변경합니다.      | *Vnet*      | *분기*    | *인터넷*   |
 |---             |---       |---           |---            |---           |
 | **Vnet**      |   &#8594;|     X        |     AzFW      |     AzFW     |
 | **분기**   |   &#8594;|    AzFW      |       X       |       X      |

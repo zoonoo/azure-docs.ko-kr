@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267502"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>시나리오: Nva를 통해 트래픽 라우팅-사용자 지정 (미리 보기)
@@ -33,7 +33,7 @@ ms.locfileid: "91267502"
 
 **연결 매트릭스**
 
-| 보낸 사람          | 대상:|*NVA 스포크*|*서비스 VNet*|*DMZ VNet*|*분기 정적*|
+| From          | 아래와 같이 변경합니다.|*NVA 스포크*|*서비스 VNet*|*DMZ VNet*|*분기 정적*|
 |---|---|---|---|---|---|
 | **NVA 스포크**| &#8594;|      X |            X |   피어링 |    정적    |
 | **서비스 VNet**| &#8594;|    X |            X |      X    |      X       |
@@ -65,14 +65,14 @@ ms.locfileid: "91267502"
 
 이러한 정적 경로를 사용 하 여 VNet 간 및 분기 간 트래픽이 서비스 VNet (VNet 4)에서 NVA를 통과 하는지 확인 해야 합니다.
 
-| Description | 경로 테이블 | 고정 경로              |
+| 설명 | 경로 테이블 | 고정 경로              |
 | ----------- | ----------- | ------------------------- |
 | 분기    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
 | NVA 스포크  | 기본값     | 10.1.0.0/16-> vnet4conn  |
 
 이제 가상 WAN에서 패킷을 보낼 연결을 알고 있지만 연결에서 이러한 패킷을 받을 때 수행할 작업을 알고 있어야 합니다. 연결 경로 테이블이 사용 됩니다.
 
-| Description | 연결 | 고정 경로            |
+| 설명 | 연결 | 고정 경로            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16-> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16-> 10.4.0.5 |
@@ -129,7 +129,7 @@ NVA를 통해 라우팅을 설정 하려면 다음 단계를 고려해 야 합�
 
 **그림 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="그림 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="그림 1" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

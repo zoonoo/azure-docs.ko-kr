@@ -4,10 +4,10 @@ description: API Management Azure VMware 솔루션 Vm (가상 머신)에서 실�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 346d0f795c3d19b115ced771991263cce2104217
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262980"
 ---
 # <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>Azure VMware 솔루션 기반 Vm에서 실행 되는 Api를 게시 및 보호 API Management
@@ -56,4 +56,4 @@ API Management Azure 공용 API가 있고 Azure DDOS Protection 서비스를 활
 * 외부 트래픽은 API Management의 외부 보호 계층을 사용 하는 Application Gateway를 통해 Azure에 들어갑니다.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Azure VMware 솔루션에 대 한 내부 배포-API Management":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="외부 배포-Azure VMware 솔루션에 대 한 API Management":::

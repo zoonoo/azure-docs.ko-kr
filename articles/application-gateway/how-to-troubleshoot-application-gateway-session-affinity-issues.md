@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563763"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>게이트웨이 세션 선호도 문제 Azure 애플리케이션 문제 해결
@@ -195,7 +195,7 @@ Fiddler와 같은 웹 디버깅 도구는 인터넷 및 테스트 컴퓨터 간�
    > [!NOTE]
    > 이 ARRAffinity 값은 특정 백 엔드 서버에 클라이언트를 전송 하기 위해 Application Gateway 설정 하는 쿠키 id입니다.
 
-   ![스크린 샷에서는 설정 된 쿠키 값이 강조 표시 된 로그 항목에 대 한 세부 정보의 예를 보여 줍니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
+   ![스크린 샷에서는 Set-Cookie 값이 강조 표시 된 로그 항목에 대 한 세부 정보의 예를 보여 줍니다.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **예 2:** 다음 세션 로그와 이전 세션 로그는 ARRAAFFINITY 설정 된 Application Gateway에 다시 응답 하는 클라이언트입니다. ARRAffinity 쿠키 id가 일치 하는 경우 이전에 사용 된 것과 같은 백 엔드 서버에 패킷을 보내야 합니다. 다음 여러 줄의 http 통신을 확인 하 여 클라이언트의 ARRAffinity 쿠키가 변경 되는지 확인 합니다.
 

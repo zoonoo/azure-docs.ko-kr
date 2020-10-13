@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307809"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버 방화벽 규칙 만들기 및 관리
@@ -35,7 +35,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정의 **구독 id** 를 참조 하는 **id** 속성을 기록해 둡니다.
 

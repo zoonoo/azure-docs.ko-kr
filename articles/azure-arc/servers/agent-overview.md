@@ -4,10 +4,10 @@ description: 이 문서에서는 하이브리드 환경에서 호스트 되는 �
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822184"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
@@ -23,7 +23,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지에는 여러 개의 논리적 
 
 * 하이브리드 인스턴스 메타 데이터 서비스 (HIMDS)는 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.
 
-* 게스트 구성 에이전트는 컴퓨터가 필요한 정책을 준수 하는지 여부를 평가 하는 것과 같은 게스트 내 정책 및 게스트 구성 기능을 제공 합니다.
+* 게스트 구성 에이전트는 컴퓨터가 필요한 정책을 준수 하는지 여부를 평가 하는 것과 같은 In-Guest 정책 및 게스트 구성 기능을 제공 합니다.
 
     연결 되지 않은 컴퓨터에 대 한 Azure Policy [게스트 구성과](../../governance/policy/concepts/guest-configuration.md) 관련 된 다음 동작에 유의 하세요.
 
@@ -173,7 +173,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
     |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid Instance Metadata Service |himds.exe |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
-    |DscService |Guest Configuration Service |dsc_service.exe |게스트 내 정책을 구현 하기 위해 Azure 내에서 사용 되는 DSC v2 (필요한 상태 구성) 코드 베이스입니다.|
+    |DscService |Guest Configuration Service |dsc_service.exe |In-Guest 정책을 구현 하기 위해 Azure 내에서 사용 되는 DSC v2 (필요한 상태 구성) 코드 베이스입니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다.
 

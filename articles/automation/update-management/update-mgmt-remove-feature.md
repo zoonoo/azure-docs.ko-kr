@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 4b4946da9f63299c7ba2b383d6c153673595a1ab
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450393"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Automation 계정에서 업데이트 관리 제거
@@ -30,7 +30,7 @@ Azure Automation 업데이트 관리를 사용 하 여 가상 머신에서 업�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택 합니다.
+2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작 하면 목록에서 입력을 기준으로 제안을 필터링 합니다. **Log Analytics**를 선택합니다.
 
 3. Log Analytics 작업 영역 목록에서 업데이트 관리을 사용 하도록 설정할 때 선택한 작업 영역을 선택 합니다.
 
@@ -65,7 +65,7 @@ Automation 계정의 연결을 해제 하려고 시도 하는 동안 메뉴의 *
 이전 버전의 Azure SQL 모니터링을 지원 하도록 업데이트 관리 구성 된 경우 기능을 설치 하면 제거 해야 하는 Automation 자산이 생성 될 수 있습니다. 업데이트 관리의 경우 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 
    * 업데이트 일정 - 각 항목에는 사용자가 만든 업데이트 배포와 일치하는 이름이 있습니다.
-   * 업데이트 관리에 대해 생성 된 하이브리드 작업자 그룹-각각은 machine1와 비슷하게 이름이 지정 됩니다. *com_9ceb8108-4051-227600d715c8)*.
+   * 업데이트 관리에 대해 생성 된 하이브리드 작업자 그룹-각각은 *machine1.contoso.com_9ceb8108-26c9-b6b3-227600d715c8)* 와 비슷하게 이름이 지정 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

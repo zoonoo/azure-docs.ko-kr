@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653233"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft id 플랫폼 UserInfo 끝점
@@ -48,7 +48,7 @@ UserInfo는 Microsoft Graph에 대 한 토큰을 가져올 때 받은 액세스 
 |:--------------------|:---------------------------------------------------------|
 |위임 됨 (회사 또는 학교 계정) | openid connect (필수), 프로필, 전자 메일 |
 |위임 됨 (개인 Microsoft 계정) | openid connect (필수), 프로필, 전자 메일 |
-|애플리케이션 | 해당 없음 |
+|애플리케이션 | 적용할 수 없음 |
 
 > [!TIP]
 > 브라우저에서이 URL을 복사 하 여 [ID 토큰](id-tokens.md) 뿐만 아니라 UserInfo 끝점에 대 한 토큰을 가져온 다음 클라이언트 id 및 리디렉션 URI를 고유한 이름으로 바꿉니다. Openid connect 또는 Graph 범위에 대 한 범위만 요청 하 고 다른 것은 요청 하지 않습니다.  동일한 토큰 요청에서 서로 다른 두 리소스에 대 한 사용 권한을 요청할 수 없기 때문에이는 필수입니다.

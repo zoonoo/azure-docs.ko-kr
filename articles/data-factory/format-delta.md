@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
 ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276510"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Azure Data Factory의 델타 형식
@@ -33,9 +33,9 @@ ms.locfileid: "91276510"
 
 다음 표에서는 델타 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 서식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
+| 형식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
 | 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
 | 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
 | 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
@@ -70,9 +70,9 @@ source(output(movieId as integer,
 
 아래 표에는 델타 싱크에 의해 지원 되는 속성이 나와 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 서식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
+| 형식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
 | 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
 | 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
 | 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |

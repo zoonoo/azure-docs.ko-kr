@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: d64ebb053ef01e375edd52ad0bf2c1f424f1b837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660823"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure VM을 Azure의 Managed Disks로 마이그레이션
@@ -23,7 +23,7 @@ Azure Managed Disks는 스토리지 계정을 별도로 관리하지 않아도 �
 
 다음과 같은 시나리오에서 Managed Disks를 마이그레이션할 수 있습니다.
 
-|시나리오  |기사  |
+|시나리오  |아티클  |
 |---------|---------|
 |가용성 집합의 VM 및 독립 실행형 VM을 관리 디스크로 변환     |[관리 디스크를 사용하도록 VM 변환](convert-unmanaged-to-managed-disks.md)         |
 |관리 디스크에서 단일 VM을 클래식에서 리소스 관리자로 변환     |[클래식 VHD에서 VM 만들기](create-vm-specialized-portal.md)         |

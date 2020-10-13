@@ -8,15 +8,15 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87475263"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>런타임 변경으로 인 한 U-SQL 런타임 오류 문제를 해결 하는 방법 알아보기
 
-컴파일러, 최적화 프로그램 및 작업 관리자를 비롯 한 Azure Data Lake U-sql 런타임은 사용자의 U-SQL 코드를 처리 합니다.
+컴파일러, 최적화 프로그램 및 작업 관리자를 비롯한 Azure Data Lake U-SQL 런타임은 U-SQL 코드를 처리합니다.
 
 ## <a name="choosing-your-u-sql-runtime-version"></a>사용자의 U-SQL 런타임 버전 선택
 
@@ -25,7 +25,7 @@ Visual Studio, ADL SDK 또는 Azure Data Lake Analytics 포털에서 U-SQL 작�
 사용자 지정 런타임 버전을 선택할 수도 있습니다. 새 업데이트를 시도 하려고 하기 때문에 이전 버전의 런타임을 유지 하거나 일반적인 새 업데이트를 기다릴 수 없는 보고 된 문제에 대 한 핫픽스를 제공 해야 합니다.
 
 > [!CAUTION]
-> 기본값과 다른 런타임을 선택 하면 U-SQL 작업이 중단 될 수 있습니다. 이러한 다른 버전은 테스트에만 사용 합니다.
+> 기본값과 다른 런타임을 선택하면 U-SQL 작업이 중단될 수 있습니다. 이러한 다른 버전은 테스트에만 사용 합니다.
 
 드문 경우 지만 Microsoft 지원 다른 버전의 런타임을 계정의 기본값으로 고정할 수 있습니다. 이 pin은 가능한 한 빨리 되돌려야 합니다. 해당 버전에 고정 된 상태를 유지 하는 경우 나중에 만료 됩니다.
 

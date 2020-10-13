@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: 9c54482dc188141c4fc697bd43628b81e0ddc29f
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597127"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
@@ -98,7 +98,7 @@ az account list-locations
 
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
-### <a name="azure-germany"></a>Azure Germany
+### <a name="azure-germany"></a>Azure 독일
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |
@@ -106,7 +106,7 @@ az account list-locations
 | 인증 | `https://login.microsoftonline.de/` |
 | 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
 
-### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+### <a name="azure-china-21vianet"></a>Azure 중국 21Vianet
 
 | 서비스 | 엔드포인트 |
 | ------- | -------- |
@@ -114,7 +114,7 @@ az account list-locations
 | 인증 | `https://login.chinacloudapi.cn/` |
 | 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)

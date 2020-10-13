@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278859"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
@@ -202,7 +202,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 
 보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 감사 데이터를 필터링할 수 있습니다.
 
-- Category
+- 범주
 - 활동 리소스 종류
 - 활동
 - 날짜 범위

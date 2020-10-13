@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 86a6c1a15d804a6c758e90dbd4bdd7057a7a2716
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295283"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Event Hubs
@@ -62,7 +62,7 @@ ms.locfileid: "91295283"
 
 다음 이미지는 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용 하 여 EventHub에서 검사 된 예상 출력 메시지 속성입니다.
 
-:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="이벤트 사용자 지정 속성":::
+:::image type="content" source="media/event-hubs-output/custom-properties.png" alt-text="속성 열":::
 
 ## <a name="next-steps"></a>다음 단계
 

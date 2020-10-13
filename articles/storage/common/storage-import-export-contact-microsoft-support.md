@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548276"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
@@ -40,7 +40,7 @@ ms.locfileid: "88548276"
         - **Blob**를 선택한 경우 **리소스**, **컨테이너 이름**(선택 사항) 및 **지원 요금제**를 선택합니다.
             ![Blob 선택](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - **파일**을 선택하면 **리소스**, **파일 공유 이름**(선택 사항) 및 **지원 요금제를 선택하고 ** ![파일을 선택](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)합니다.
-    4. **새로 만들기**를 선택합니다.
+    4. **다음**을 선택합니다.
 
 3. **새 지원 요청**에서 **2단계 문제**를 선택합니다. **문제**에서 다음 단계를 수행합니다.
     
@@ -51,7 +51,7 @@ ms.locfileid: "88548276"
     5. 문제의 시작 날짜 및 시간을 제공합니다.
     6. **파일 업로드**에서 폴더 아이콘을 선택하여 업로드할 다른 파일을 찾습니다.
     7. **진단 정보 공유**를 선택합니다.
-    8. **새로 만들기**를 선택합니다.
+    8. **다음**을 선택합니다.
 
        ![문제](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 

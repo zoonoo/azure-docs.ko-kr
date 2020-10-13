@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 48831a9482087dbeed0952cc30fcbc9c14fbaed0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e42c8e22d004b574e65442f0fbdfce1c9bcabd7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715623"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939422"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -345,6 +345,40 @@ az storage account or-policy create \
     -resource-group <resource-group> \
     --source-account <source-account-name> \
     --policy @policy.json
+```
+
+---
+
+## <a name="check-the-replication-status-of-a-blob"></a>Blob의 복제 상태를 확인 합니다.
+
+Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 원본 계정에서 blob에 대 한 복제 상태를 확인할 수 있습니다. 복제가 완료 되거나 실패할 때까지 개체 복제 속성이 채워지지 않습니다.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Azure Portal의 원본 계정에서 blob에 대 한 복제 상태를 확인 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 소스 계정으로 이동 합니다.
+1. 원본 blob을 포함 하는 컨테이너를 찾습니다.
+1. Blob을 선택 하 여 속성을 표시 합니다. Blob이 성공적으로 복제 되 면 **개체 복제** 섹션에서 상태가 *완료*로 설정 된 것을 볼 수 있습니다. 이 컨테이너에 대 한 개체 복제를 관리 하는 규칙의 복제 정책 ID 및 ID도 나열 됩니다.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Azure Portal의 복제 규칙을 보여 주는 스크린샷":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+해당 없음
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용 하 여 원본 계정의 blob에 대 한 복제 상태를 확인 하려면 다음 예제와 같이 개체 복제 **상태** 속성의 값을 가져옵니다.
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
 ```
 
 ---

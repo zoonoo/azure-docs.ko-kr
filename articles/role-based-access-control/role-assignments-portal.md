@@ -11,10 +11,10 @@ ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4e5c13c635091988f299d31c67795916e709d51a
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597616"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거
@@ -23,7 +23,7 @@ ms.locfileid: "91597616"
 
 Azure Active Directory에서 관리자 역할을 할당 해야 하는 경우 [Azure Active Directory에서 관리자 역할 보기 및 할당](../active-directory/users-groups-roles/directory-manage-roles-portal.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
@@ -41,7 +41,7 @@ Azure Active Directory에서 관리자 역할을 할당 해야 하는 경우 [Az
 
 1. 적절 한 역할을 찾습니다. 사용 권한은 역할에 함께 그룹화 됩니다. 여러 [Azure 기본 제공 역할](built-in-roles.md) 목록에서 선택 하거나 고유한 사용자 지정 역할을 사용할 수 있습니다.
 
-1. 필요한 범위를 식별 합니다. Azure는 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 범위를 제공 합니다. 범위에 대 한 자세한 내용은 [범위 이해](scope-overview.md)를 참조 하세요.
+1. 필요한 범위를 식별 합니다. Azure는 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 범위를 제공 합니다. 범위에 대한 자세한 내용은 [범위 이해](scope-overview.md)를 참조하세요.
 
 1. 다음 섹션 중 하나의 단계를 수행 하 여 역할을 할당 합니다.
 

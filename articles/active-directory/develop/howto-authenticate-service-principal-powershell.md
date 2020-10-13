@@ -14,10 +14,10 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265836"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
@@ -52,7 +52,7 @@ ms.locfileid: "91265836"
 다음 예제는 간단한 시나리오를 다룹니다. [AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 를 사용 하 여 자체 서명 된 인증서로 서비스 주체를 만들고 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 를 사용 하 여 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할을 서비스 주체에 할당 합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
 
 > [!NOTE]
-> New-selfsignedcertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원 되지 않습니다. 
+> New-SelfSignedCertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원 되지 않습니다. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

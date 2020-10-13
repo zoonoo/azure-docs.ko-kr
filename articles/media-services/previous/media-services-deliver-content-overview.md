@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266037"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
@@ -113,7 +113,7 @@ http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-
 ### <a name="smooth-streaming-format"></a>부드러운 스트리밍 형식
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-예:
+예제:
 
 http: \/ /testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 

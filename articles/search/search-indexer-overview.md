@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397898"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
@@ -88,7 +88,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 다음 이미지는 문서 크랙, 필드 매핑, 기술 실행 및 출력 필드 매핑과 같은 인덱서 단계의 샘플 인덱서 [디버그 세션](cognitive-search-debug-session.md) 표현을 보여 줍니다.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="샘플 디버그 세션" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="인덱서 단계" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>기본 구성 단계
 

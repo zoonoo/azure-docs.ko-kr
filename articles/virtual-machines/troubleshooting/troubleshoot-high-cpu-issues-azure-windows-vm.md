@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
 ms.openlocfilehash: 3bd19f301b1afd7dd1c35f03f6f6131a26b00708
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596835"
 ---
 # <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Azure Windows 가상 머신에 대 한 높은 CPU 문제 해결
@@ -35,7 +35,7 @@ I/o 및 네트워크 대기 시간 문제 외에도 CPU 및 메모리 문제 해
 
 온-프레미스 서버에 사용 되는 대부분의 기존 성능 문제 해결 도구 (예: Perfmon 또는 Procmon)는 Azure Windows Vm에서 작동 합니다. 그러나 azure 모범 사례, SQL 모범 사례, 높은 해상도의 i/o 대기 시간 그래프, CPU 및 메모리 탭 등을 비롯 한 더 많은 정보를 제공 하기 위해 Azure Vm에 대 한 PerfInsights는 명시적으로 설계 되었습니다.
 
-사용자 모드 또는 커널 모드로 실행 되는지 여부에 관계 없이 활성 프로세스의 모든 스레드는 작성 된 코드를 실행 하기 위해 CPU 사이클이 필요 합니다. 많은 문제는 워크 로드와 직접적으로 관련이 있습니다. 서버에 존재 하는 작업의 종류는 CPU를 포함 하 여 리소스 사용량을 구동 합니다.
+User-Mode 또는 커널 모드로 실행 되는지 여부에 관계 없이 활성 프로세스의 모든 스레드는 작성 된 코드를 실행 하기 위해 CPU 사이클이 필요 합니다. 많은 문제는 워크 로드와 직접적으로 관련이 있습니다. 서버에 존재 하는 작업의 종류는 CPU를 포함 하 여 리소스 사용량을 구동 합니다.
 
 #### <a name="common-factors"></a>공통 요소
 
@@ -184,7 +184,7 @@ PerfInsights 보고서를 엽니다. 검색 **결과** 탭은 리소스 사용�
 
 **CPU** 아래에는 코어 또는 프로세스별 상세 패턴 분석에 사용할 수 있는 전용 하위 탭 있습니다.
 
-**상위 CPU 소비자** 탭에는 두 개의 별도 섹션이 있으며 여기에서 프로세서 당 통계를 볼 수 있습니다. 응용 프로그램 디자인은 단일 스레드 이거나 단일 프로세서에 고정 되는 경우가 많습니다. 이 시나리오에서는 하나 이상의 코어가 100%에서 실행 되는 반면 다른 코어는 예상 수준에서 실행 됩니다. 이러한 시나리오는 서버의 평균 CPU가 예상 대로 실행 되는 것 처럼 보이지만 사용량이 많은 코어에 고정 된 프로세스가 예상 보다 느리게 실행 되기 때문에 더 복잡 합니다.
+**상위 CPU 소비자** 탭에는 두 개의 별도 섹션이 있으며 여기에서 프로세서 당 통계를 볼 수 있습니다. 응용 프로그램 디자인은 종종 Single-Threaded 되거나 단일 프로세서에 고정 됩니다. 이 시나리오에서는 하나 이상의 코어가 100%에서 실행 되는 반면 다른 코어는 예상 수준에서 실행 됩니다. 이러한 시나리오는 서버의 평균 CPU가 예상 대로 실행 되는 것 처럼 보이지만 사용량이 많은 코어에 고정 된 프로세스가 예상 보다 느리게 실행 되기 때문에 더 복잡 합니다.
 
   ![높은 CPU 사용량](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 

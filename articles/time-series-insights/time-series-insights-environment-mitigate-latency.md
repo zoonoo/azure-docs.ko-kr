@@ -13,16 +13,16 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531652"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Azure Time Series Insights Gen1의 대기 시간을 줄이기 위한 제한 모니터링 및 완화
 
 > [!CAUTION]
-> Gen1 문서입니다.
+> 이는 Gen1 문서입니다.
 
 들어오는 데이터의 양이 사용자의 환경 구성을 초과하면 Azure Time Series Insights에서 대기 시간 또는 제한이 발생할 수 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "91531652"
 - 이벤트 원본에 많은 양의 기록 이벤트를 푸시합니다 .이로 인해 지연 시간이 발생 합니다 (Azure Time Series Insights을 처리 해야 하는 경우).
 - 원격 분석을 사용하여 참조 데이터를 결합하면 이벤트 크기가 더 커집니다. 허용 되는 최대 패킷 크기는 32 KB;입니다. 32 KB 보다 큰 데이터 패킷은 잘립니다.
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 ### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Azure Time Series Insights 데이터 수신 동작 및 계획 방법에 대해 알아봅니다.</br>
 
@@ -69,7 +69,7 @@ ms.locfileid: "91531652"
    |**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
    |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
-   **완료**를 선택합니다.
+   **완료** 를 선택합니다.
 
 1. 원하는 신호 논리를 구성한 후에는 선택한 경고 규칙을 시각적으로 검토 합니다.
 

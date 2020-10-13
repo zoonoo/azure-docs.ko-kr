@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601313"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
@@ -156,7 +156,7 @@ Azure AD에서 사용 하는 "보낸 사람" 주소는 <o365mc@email2.microsoft.
 
  [Azure ad 스마트 잠금의](../authentication/concept-sspr-howitworks.md)azure ad 혜택을 직접 인증 하도록 응용 프로그램을 구성 하는 조직 Windows Server 2012 r 2에서 AD FS를 사용 하는 경우 AD FS [엑스트라넷 잠금 보호](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)를 구현 합니다. Windows Server 2016 이상에서 AD FS를 사용 하는 경우 [엑스트라넷 스마트 잠금을](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)구현 합니다. 최소한, 내부 Active Directory에 대 한 무차별 암호 대입 공격의 위험을 포함 하도록 엑스트라넷 잠금을 설정 하는 것이 좋습니다. 그러나 Windows 2016 이상에서 AD FS 경우 [암호 스프레이](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 공격을 완화 하는 데 도움이 되는 엑스트라넷 스마트 잠금도 사용 하도록 설정 해야 합니다.
 
-AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역을 최소화 하기 위해 해제할 수 있는 몇 가지 끝점이 있습니다. 예를 들어 AD FS Azure AD에만 사용 되는 경우 **usernamemixed** 및 **windowstransport**에 대해 사용 하도록 설정 된 끝점이 아닌 ws-trust 끝점을 사용 하지 않도록 설정 해야 합니다.
+AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역을 최소화 하기 위해 해제할 수 있는 몇 가지 끝점이 있습니다. 예를 들어 AD FS Azure AD에만 사용 되는 경우 **usernamemixed** 및 **windowstransport**에 대해 사용 하도록 설정 된 끝점이 아닌 WS-Trust 끝점을 사용 하지 않도록 설정 해야 합니다.
 
 ### <a name="access-to-machines-with-on-premises-identity-components"></a>온-프레미스 id 구성 요소가 있는 컴퓨터에 액세스
 

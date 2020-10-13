@@ -4,10 +4,10 @@ description: Azure Functions의 스토리지 요구 사항 및 저장된 데이�
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.openlocfilehash: aefd9a35235a09d94973f383603349f6862bbdd9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318184"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항

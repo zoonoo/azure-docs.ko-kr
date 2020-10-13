@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534984"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
@@ -44,7 +44,7 @@ ms.locfileid: "91534984"
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
-| Region | 엔드포인트 |
+| 지역 | 엔드포인트 |
 |--------|----------|
 | 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -224,7 +224,7 @@ Authorization: Bearer [Base64 access_token]
 
 * [.NET Core, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
 * [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.JS](quickstart-nodejs-text-to-speech.md)
+* [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP 상태 코드
 
