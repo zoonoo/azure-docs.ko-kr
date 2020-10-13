@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653641"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
@@ -112,7 +112,7 @@ Azure Virtual Network를 만들면 vNet에서 vNet 서브넷 간의 직접 트�
 ![기본 라우팅 옵션을 보여 주는 다이어그램입니다.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>UDR(사용자 정의 라우팅)
-사용자 정의 경로를 사용하여 가상 네트워크의 할당된 서브넷에서 다른 서브넷으로 또는 기타 미리 정의된 게이트웨이 중 하나를 통한 트래픽 아웃바운드를 제어할 수 있습니다(ExpressRoute, 인터넷 또는 VPN). 기본 시스템 라우팅 테이블을 기본 라우팅 테이블을 사용자 지정 경로로 대체하는 사용자 정의 라우팅 테이블로 대체할 수 있습니다. 사용자 정의 라우팅을 사용하면 고객은 방화벽, 침입 탐지 어플라이언스와 같은 어플라이언스로 특정 경로를 만들거나 사용자 정의 경로를 호스팅하는 서브넷에서 특정 서브넷으로 액세스를 차단할 수 있습니다. 사용자 정의 경로에 대 한 개요는 [여기](../virtual-network/virtual-networks-udr-overview.md)를 참조 하세요. 
+사용자 정의 경로를 사용하여 가상 네트워크의 할당된 서브넷에서 다른 서브넷으로 또는 기타 미리 정의된 게이트웨이 중 하나를 통한 트래픽 아웃바운드를 제어할 수 있습니다(ExpressRoute, 인터넷 또는 VPN). 기본 시스템 라우팅 테이블을 기본 라우팅 테이블을 사용자 지정 경로로 대체하는 사용자 정의 라우팅 테이블로 대체할 수 있습니다. 사용자 정의 라우팅을 사용하면 고객은 방화벽, 침입 탐지 어플라이언스와 같은 어플라이언스로 특정 경로를 만들거나 사용자 정의 경로를 호스팅하는 서브넷에서 특정 서브넷으로 액세스를 차단할 수 있습니다. User-Defined 경로에 대 한 개요는 [여기](../virtual-network/virtual-networks-udr-overview.md)를 참조 하세요. 
 
 ## <a name="security"></a>보안
 사용 중인 모델(Connect-To 또는 Connect-Through)에 따라 고객은 vNet에 보안 정책을 정의하고 CSP에 vNet에 대해 정의할 보안 정책 요구 사항을 제공합니다. 다음 보안 기준을 정의할 수 있습니다.

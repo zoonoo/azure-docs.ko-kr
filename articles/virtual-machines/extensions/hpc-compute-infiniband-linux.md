@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
 ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829053"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Linux 용 InfiniBand 드라이버 확장
@@ -74,7 +74,7 @@ InfiniBand 드라이버를 Microsoft Azure 확장 하려면 대상 VM이에 연�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | InfiniBandDriverLinux | 문자열 |
-| typeHandlerVersion | 1.1 | Int |
+| typeHandlerVersion | 1.1 | int |
 
 
 

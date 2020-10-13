@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 6c27c78bf8e3f3b8af342a14a38c9be3821d781a
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758666"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
@@ -44,10 +44,10 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 | **[자세한 예외](./asp-net-exceptions.md)** | |예 |
 | **[종속성 진단](./asp-net-dependencies.md)** |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | **[시스템 성능 카운터](./performance-counters.md)** |예 |예 |
-| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |예 |
-| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |예 |
-| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |예 |
-| **코드를 다시 빌드해야 함** |예 | 예 |
+| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |아니요 |
+| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |아니요 |
+| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |아니요 |
+| **코드를 다시 빌드해야 함** |예 | 아니요 |
 
 
 

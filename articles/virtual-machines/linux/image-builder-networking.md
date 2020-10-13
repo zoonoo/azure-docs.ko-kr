@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dfd0929ea03cd99033482f71579e91aaf6fc131c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 531c423e42338b72b41c54466d5bfe8a89cd3c45
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068244"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969640"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Azure 이미지 작성기 서비스 네트워킹 옵션
 
@@ -33,7 +33,7 @@ VNET 및 서브넷을 지정 하는 경우 Azure 이미지 작성기는 선택�
 
 ### <a name="what-is-azure-private-link"></a>Azure Private Link란?
 
-Azure 개인 링크는 가상 네트워크에서 Azure PaaS (platform as a service), 고객 소유 또는 Microsoft 파트너 서비스로 개인 연결을 제공 합니다. 네트워크 아키텍처를 간소화 하 고 공용 인터넷에 대 한 데이터 노출을 제거 하 여 Azure에서 끝점 간의 연결을 보호 합니다. 자세한 내용은 [개인 링크 설명서](https://docs.microsoft.com/azure/private-link)를 참조 하세요.
+Azure 개인 링크는 가상 네트워크에서 Azure PaaS (platform as a service), 고객 소유 또는 Microsoft 파트너 서비스로 개인 연결을 제공 합니다. 네트워크 아키텍처를 간소화 하 고 공용 인터넷에 대 한 데이터 노출을 제거 하 여 Azure에서 끝점 간의 연결을 보호 합니다. 자세한 내용은 [개인 링크 설명서](../../private-link/index.yml)를 참조 하세요.
 
 ### <a name="required-permissions-for-an-existing-vnet"></a>기존 VNET에 대 한 필수 권한
 
@@ -62,13 +62,13 @@ Azure 이미지 작성기에서 기존 VNET을 사용 하려면 특정 권한이
         },
 ```
 
-| 설정 | Description |
+| Setting | Description |
 |---------|---------|
 | name | 필드 기존 가상 네트워크의 이름입니다. |
 | subnetName | 지정 된 가상 네트워크 내에 있는 서브넷의 이름입니다. *Name* 이 지정 된 경우에만 지정 해야 합니다. |
 | resourceGroupName | 지정 된 가상 네트워크를 포함 하는 리소스 그룹의 이름입니다. *Name* 이 지정 된 경우에만 지정 해야 합니다. |
 
-개인 링크 서비스에는 지정 된 VNET 및 서브넷의 IP가 필요 합니다. 현재 Azure는 이러한 Ip에서 네트워크 정책을 지원 하지 않습니다. 따라서 서브넷에서 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [개인 링크 설명서](https://docs.microsoft.com/azure/private-link)를 참조 하세요.
+개인 링크 서비스에는 지정 된 VNET 및 서브넷의 IP가 필요 합니다. 현재 Azure는 이러한 Ip에서 네트워크 정책을 지원 하지 않습니다. 따라서 서브넷에서 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [개인 링크 설명서](../../private-link/index.yml)를 참조 하세요.
 
 ### <a name="checklist-for-using-your-vnet"></a>VNET을 사용 하기 위한 검사 목록
 

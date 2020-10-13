@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2bb8c6c64e0a68f5176c4eb0c0177c5220394695
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268760"
 ---
 # <a name="enforce-tls-12-for-the-azure-ad-registration-service"></a>Azure AD 등록 서비스에 대 한 TLS 1.2 적용
@@ -37,13 +37,13 @@ Azure AD Device Registration Service를 사용 하는 Windows 서버 또는 프�
 
 다음과 같이 레지스트리 문자열이 구성 되어 있는지 확인 합니다.
 
-- HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 클라이언트
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 클라이언트
   - "DisabledByDefault" = dword: 00000000
   - "Enabled" = dword: 00000001
-- HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Server
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ 서버
   - "DisabledByDefault" = dword: 00000000
   - "Enabled" = dword: 00000001
-- HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft \. NETFramework\v4.0.30319
+- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\. NETFramework\v4.0.30319
   - "SchUseStrongCrypto"=dword:00000001
 
 ## <a name="update-non-windows-proxies"></a>비 Windows 프록시 업데이트

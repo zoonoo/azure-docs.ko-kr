@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: 원활한 Single Sign-on-빠른 시작 | Microsoft Docs'
+title: 'Azure AD Connect: 원활한 단일 Sign-On-빠른 시작 | Microsoft Docs'
 description: 이 문서에서는 Azure Active Directory Seamless Single Sign-On을 시작하는 방법을 설명합니다.
 services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295025"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
@@ -168,7 +168,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
  
      !["새 레지스트리 속성" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 

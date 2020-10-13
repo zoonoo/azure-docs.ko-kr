@@ -7,10 +7,10 @@ ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443061"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
@@ -32,13 +32,13 @@ GPU(그래픽 처리 장치)는 그래픽 및 시각화 워크로드 같은 계�
 
 최소 요구 사항(GPU 지원 노드 및 Kubernetes 버전 1.10 이상)을 충족하는 AKS 클러스터가 필요한 경우 다음 단계를 완료합니다. 이러한 요구 사항을 충족 하는 AKS 클러스터가 이미 있는 경우 [다음 섹션으로 건너뜁니다](#confirm-that-gpus-are-schedulable).
 
-먼저, [az group create][az-group-create] 명령을 사용하여 클러스터에 대한 리소스 그룹을 만듭니다. 다음 예제는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저 [az group create][az-group-create] 명령을 사용 하 여 클러스터에 대 한 리소스 그룹을 만듭니다. 다음 예제는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예에서는 크기의 단일 노드를 사용 하 여 클러스터를 만듭니다 `Standard_NC6` .
+이제 [az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만듭니다. 다음 예에서는 크기의 단일 노드를 사용 하 여 클러스터를 만듭니다 `Standard_NC6` .
 
 ```azurecli-interactive
 az aks create \
@@ -48,7 +48,7 @@ az aks create \
     --node-count 1
 ```
 
-[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 AKS 클러스터의 자격 증명을 가져옵니다.
+[Az AKS get 자격 증명][az-aks-get-credentials] 명령을 사용 하 여 AKS 클러스터에 대 한 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -152,7 +152,7 @@ Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합
 az extension add --name aks-preview
 ```
 
-Aks-preview CLI 확장을 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
+aks-preview CLI 확장을 업데이트하려면 다음 Azure CLI 명령을 사용합니다.
 
 ```azurecli
 az extension update --name aks-preview

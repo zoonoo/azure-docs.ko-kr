@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836482"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>포털을 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
@@ -37,13 +37,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력 합니다. |
-    | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
+    | Name | *MyVirtualNetwork*를 입력 합니다. |
+    | 주소 공간 | *10.1.0.0/16*을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **서유럽**를 선택합니다.|
-    | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
-    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
+    | 서브넷 - 이름 | *Mysubnet*을 입력 합니다. |
+    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력 합니다. |
     |||
 3. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
@@ -103,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **Azure Database for MariaDB** 에서 다음 정보를 제공 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -137,7 +137,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **개인 끝점 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
@@ -227,7 +227,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | 서버 유형| **Mariadb**를 선택 합니다.|
     | 서버 이름| *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |

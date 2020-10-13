@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313776"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)의 네트워크 가상 어플라이언스 정보
@@ -50,7 +50,7 @@ NVA 파트너는 어플라이언스 배포, 구성 라이선스 및 관리 요�
 * **Customer 리소스 그룹** -관리 되는 응용 프로그램에 대 한 응용 프로그램 자리 표시자를 포함 합니다. 파트너는이를 사용 하 여 여기에서 선택 하는 모든 고객 속성을 노출할 수 있습니다.
 * **관리 되는 리소스 그룹** -이 리소스 그룹의 리소스를 직접 구성 하거나 변경할 수 없습니다 .이는 관리 되는 응용 프로그램의 게시자가 제어 하기 때문입니다. 이 리소스 그룹은 **Networkvirtualappliances** 리소스를 포함 합니다.
 
-:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="관리 되는 응용 프로그램 리소스 그룹":::
+:::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="프로세스 개요":::
 
 ### <a name="nva-infrastructure-units"></a><a name="units"></a>NVA 인프라 단위
 

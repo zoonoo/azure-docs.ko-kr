@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
 ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91757455"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Apple School Manager 구성
@@ -103,7 +103,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **Apple School Manager에 Azure Active Directory 사용자 동기화를**선택 합니다.
 

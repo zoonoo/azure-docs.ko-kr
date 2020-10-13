@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
 ms.openlocfilehash: 36f6ad4c248b3de54de5de0893410e9b13df0c26
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91759461"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
@@ -94,7 +94,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 App Service 웹 앱 내의 **설정**에서  >  **Application Insights**  >  **사용**을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
 
@@ -140,7 +140,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
    * 설정을 **저장**하고 앱을 **다시 시작**합니다.
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](./javascript.md)해야 합니다.
 
@@ -165,7 +165,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended` |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 재작성 엔진을 켤 지 여부를 제어 `InstrumentationEngine` 합니다. 이 설정은 성능에 영향을 주며 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL & Azure 테이블 텍스트가 종속성 호출과 함께 캡처될 수 있는지 여부를 제어 합니다. 성능 경고: 응용 프로그램 콜드 시작 시간이 영향을 받습니다. 이 설정에는가 필요 합니다 `InstrumentationEngine` . | `~1` |
 

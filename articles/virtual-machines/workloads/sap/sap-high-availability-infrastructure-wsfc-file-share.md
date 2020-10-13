@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855377"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
@@ -312,7 +312,7 @@ Managed Disks를 사용하는 것이 좋습니다.
 
 ![그림 1: Managed Disks가 포함된 스케일 아웃 파일 서버 Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8010]
 
-_**그림 1**: managed disks를 사용 하는 스케일 아웃 파일 서버 리소스 관리자 템플릿에 대 한 UI 화면_
+_**그림 1**: managed disks가 있는 Scale-Out 파일 서버 리소스 관리자 템플릿에 대 한 UI 화면_
 
 템플릿에서 다음 작업을 수행합니다.
 1. **VM 수** 상자에 **2**라는 최소 수를 입력합니다.
@@ -326,13 +326,13 @@ _**그림 1**: managed disks를 사용 하는 스케일 아웃 파일 서버 리
 
 ![그림 2: Managed Disks가 포함되지 않은 스케일 아웃 파일 서버 Azure Resource Manager 템플릿의 UI 화면][sap-ha-guide-figure-8011]
 
-_**그림 2**: managed disks가 없는 스케일 아웃 파일 서버 Azure Resource Manager 템플릿에 대 한 UI 화면_
+_**그림 2**: managed disks가 없는 Scale-Out 파일 서버 Azure Resource Manager 템플릿에 대 한 UI 화면_
 
 **스토리지 계정 형식** 상자에서 **Premium Storage**를 선택합니다. 다른 모든 설정은 Managed Disks와 동일합니다.
 
 ## <a name="adjust-cluster-timeout-settings"></a>클러스터 제한 시간 설정 조정
 
-Windows 스케일 아웃 파일 서버 클러스터를 성공적으로 설치한 후 Azure의 조건에 대 한 장애 조치 (failover) 검색의 시간 제한 임계값을 조정 합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. 클러스터 된 Vm이 동일한 서브넷에 있다고 가정 하 고 다음 매개 변수를 이러한 값으로 변경 합니다.
+Windows Scale-Out 파일 서버 클러스터를 성공적으로 설치한 후에는 장애 조치 (failover) 검색을 위한 제한 시간 임계값을 Azure의 조건에 맞게 조정 합니다. 변경할 매개 변수는 [장애 조치(failover) 클러스터 네트워크 임계값 조정][tuning-failover-cluster-network-thresholds]에 설명되어 있습니다. 클러스터 된 Vm이 동일한 서브넷에 있다고 가정 하 고 다음 매개 변수를 이러한 값으로 변경 합니다.
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

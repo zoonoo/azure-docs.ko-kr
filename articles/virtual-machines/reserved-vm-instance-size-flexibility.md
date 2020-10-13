@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
 ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855499"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
@@ -30,7 +30,7 @@ ms.locfileid: "88855499"
 
 인스턴스 크기 유연성 그룹 내에서 예약 할인이 적용 되는 Vm의 수는 예약을 구매할 때 선택한 VM 크기에 따라 달라 집니다. 또한 실행하는 VM의 크기에 따라서도 달라집니다. 요율 열은 해당 인스턴스 크기 유연성 그룹의 각 VM 크기에 대 한 상대적 공간을 비교 합니다. 예약 할인을 실행하고 있는 VM에 적용하는 방법을 계산하기 위해 비율 값을 사용합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예제에서는 DSv2 시리즈 테이블의 크기 및 비율을 사용합니다.
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
 ms.openlocfilehash: c297a189f3b13ca8e72daf4eef009bc28fac32bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823194"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
@@ -129,7 +129,7 @@ ModuleNotFoundError: No module named 'azure.mgmt.iothub.iot_hub_client'
     
 이 문제를 해결하려면
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령 실행:
 
     ```
     az --version

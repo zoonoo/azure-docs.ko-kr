@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
 ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292968"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
@@ -265,7 +265,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
 | Windows Server 2019    | 윈도우 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |

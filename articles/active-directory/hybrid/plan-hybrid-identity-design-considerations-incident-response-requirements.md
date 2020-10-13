@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89278414"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
@@ -67,5 +67,5 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 ## <a name="next-steps"></a>다음 단계
 [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)

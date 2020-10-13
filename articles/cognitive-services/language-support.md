@@ -11,10 +11,10 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869884"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
@@ -23,19 +23,19 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 
 이러한 Cognitive Services 언어 독립적 이며 인간 언어를 기반으로 하는 제한이 없습니다.
 
-* [Anomaly Detector(미리 보기)](./anomaly-detector/index.yml)
+* [변칙 탐지기 (미리 보기)](./anomaly-detector/index.yml)
 * [Custom Vision](./Custom-Vision-Service/index.yml)
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
 
-## <a name="vision"></a>Vision
+## <a name="vision"></a>시각
 
 * [Computer Vision](./computer-vision/language-support.md)
-* [Form Recognizer(미리 보기)](./form-recognizer/language-support.md)
+* [폼 인식기 (미리 보기)](./form-recognizer/language-support.md)
 * [Ink Recognizer(미리 보기)](./ink-recognizer/language-support.md)
 * [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
 
-## <a name="language"></a>언어
+## <a name="language"></a>Language
 
 * [몰입형 리더](./immersive-reader/language-support.md)
 * [언어 이해(LUIS)](./luis/luis-supported-languages.md)
@@ -43,7 +43,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [텍스트 분석](./text-analytics/text-analytics-supported-languages.md)
 * [Translator](./translator/languages.md)
 
-## <a name="speech"></a>음성
+## <a name="speech"></a>Speech
 
 * [Speech Service: Speech-to-Text](./speech-service/supported-languages.md#speech-to-text)
 * [Speech Service:Text-to-Speech](./speech-service/supported-languages.md#text-to-speech)
@@ -63,7 +63,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 
 * [Content Moderator](./content-moderator/text-moderation-api-languages.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Cognitive Services은 무엇 인가요?](welcome.md)
 * [계정 만들기](cognitive-services-apis-create-account.md)

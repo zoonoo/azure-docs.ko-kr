@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual mach
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371510"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
@@ -113,7 +113,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 - 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다.
 - 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 VM 백업을 구성할 때 다음 사례를 따르는 것이 좋습니다.
 

@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869425"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure SQL Database에 Azure Stream Analytics 출력
@@ -48,7 +48,7 @@ Azure Stream Analytics의 SQL 출력에서는 병렬 쓰기를 옵션으로 지�
 
 들어오는 이벤트 속도가 낮으면 100 행 보다 낮은 일괄 처리 크기를 쉽게 만들 수 있습니다. 이렇게 하면 대량 삽입이 비효율적으로 수행 되 고 디스크 공간이 너무 많이 사용 됩니다. 이 제한 사항을 해결 하기 위해 다음 작업 중 하나를 수행할 수 있습니다.
 * 모든 행에 단순 삽입을 사용 하려면 INSTEAD OF [트리거](/sql/t-sql/statements/create-trigger-transact-sql) 를 만듭니다.
-* 이전 섹션에 설명 된 대로 메모리 내 임시 테이블을 사용 합니다.
+* 이전 섹션에 설명 된 대로 In-Memory 임시 테이블을 사용 합니다.
 
 이와 같은 다른 시나리오는 비클러스터형 columnstore 인덱스 (NCCI)로 작성할 때 더 작은 대량 삽입으로 인해 너무 많은 세그먼트가 생성 되어 인덱스의 작동이 중단 될 수 있는 경우에 발생 합니다. 이 경우에는 클러스터형 Columnstore 인덱스를 대신 사용 하는 것이 좋습니다.
 
