@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
 ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440646"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성

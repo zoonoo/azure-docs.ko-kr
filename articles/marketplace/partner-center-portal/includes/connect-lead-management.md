@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815670"
 ---
 파트너 센터를 통해 상용 marketplace에 제품을 게시 하는 경우 제안을 CRM 시스템에 연결 해야 합니다. 이러한 방식으로 고객이 관심을 표시 하거나 제품을 배포한 후 즉시 고객 연락처 정보를 받을 수 있습니다.

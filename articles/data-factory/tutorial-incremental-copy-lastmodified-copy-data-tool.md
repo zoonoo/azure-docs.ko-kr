@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84730149"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
@@ -96,7 +96,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     d. **되풀이**에서 **15 분**을 입력 합니다.
 
-    e. **새로 만들기**를 선택합니다.
+    e. **다음**을 선택합니다.
 
     Data Factory 지정 된 작업 이름을 사용 하 여 파이프라인을 만듭니다.
 
@@ -128,7 +128,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
      ![입력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. **대상 데이터 저장소** 페이지에서 사용자가 만든 **azureblobstorage** 서비스를 선택 합니다. 원본 데이터 저장소와 동일한 저장소 계정입니다. **다음**을 선택합니다.
+5. **대상 데이터 저장소** 페이지에서 사용자가 만든 **azureblobstorage** 서비스를 선택 합니다. 원본 데이터 저장소와 동일한 저장소 계정입니다. 그런 후 **다음**을 선택합니다.
 
 6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
 
@@ -136,7 +136,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     ![출력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
-    b. **새로 만들기**를 선택합니다.
+    b. **다음**을 선택합니다.
 
 7. **설정** 페이지에서 **다음**을 선택합니다.
 

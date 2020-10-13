@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816102"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>NFS (네트워크 파일 시스템) 3.0 프로토콜 (미리 보기)을 사용 하 여 Blob storage 탑재
@@ -90,7 +90,7 @@ NFS 3.0를 사용 하 여 컨테이너를 탑재 하려면 구독에 기능을 �
 
 계정을 구성 하는 경우 다음 값을 선택 합니다.
 
-|Setting | 값|
+|설정 | 값|
 |----|---|
 |위치|미국 동부, 미국 중부, 미국 서 부 중부, 오스트레일리아 남동쪽, 서유럽, 영국 서부, 대한민국 중부, 한국 남부 및 캐나다 중부 지역 중 하나입니다. |
 |성능|Premium|
@@ -172,7 +172,7 @@ Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너�
 |`Access denied by server while mounting`|지원되는 서브넷 내에서 클라이언트가 실행되고 있는지 확인합니다. [지원 되는 네트워크 위치](network-file-system-protocol-support.md#supported-network-connections)를 참조 하세요.|
 |`No such file or directory`| 기능이 등록되었는지 확인한 후 탑재할 컨테이너가 생성되었는지 확인합니다. [2 단계: 기능이 등록 되었는지 확인](#step-2-verify-that-the-feature-is-registered)을 참조 하세요. 또한 탑재 명령과 매개 변수를 터미널에 직접 입력 해야 합니다. 이 명령의 일부를 복사하여 다른 애플리케이션의 터미널에 붙여넣는 경우 붙여넣은 정보에 숨겨진 문자가 있으면 이 오류가 발생할 수 있습니다.|
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)](network-file-system-protocol-support.md)
 

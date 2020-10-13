@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88799335"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
@@ -330,4 +330,4 @@ az role assignment list --role "User Access Administrator" --scope "/"
 ## <a name="next-steps"></a>다음 단계
 
 - [여러 역할의 이해](rbac-and-directory-admin-roles.md)
-- [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
+- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)

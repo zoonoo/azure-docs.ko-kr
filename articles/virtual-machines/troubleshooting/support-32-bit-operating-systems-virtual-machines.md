@@ -14,17 +14,17 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079862"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Azure 가상 머신에서 32비트 운영 체제 지원
 
 이제 Microsoft Azure를 사용 하 여 사용자가 32 비트 Windows 운영 체제를 Azure에 제공할 수 있습니다. 특수화 된 Vhd만 지원 되며 일반화 된 이미지는 Azure에서 작동 하지 않습니다. 이러한 운영 체제 중 일부는 이미 수명 지원 계약의 끝에 도달 했으므로 Microsoft는 추가 지원을 제공 하지 않을 수 있습니다. Microsoft Azure VM (가상 컴퓨터)에서 실행 되는 Linux 기반 또는 BSD (Berkeley Software 배포판) 기반 운영 체제에 대해서도 지원이 제공 되지 않습니다.
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 Azure virtual machines에서 지원 되는 운영 체제에 대 한 자세한 내용은 다음 Microsoft 기술 자료 문서를 참조 하세요.
 

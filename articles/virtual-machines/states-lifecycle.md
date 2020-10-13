@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88261891"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963298"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>가상 머신 수명 주기 및 상태
 
@@ -418,13 +418,13 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 
 ## <a name="vm-instance-view"></a>VM 인스턴스 보기
 
-인스턴스 보기 API는 VM 실행 상태 정보를 제공합니다. 자세한 내용은 [Virtual Machines - 인스턴스 보기](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API 설명서를 참조하세요.
+인스턴스 보기 API는 VM 실행 상태 정보를 제공합니다. 자세한 내용은 [Virtual Machines - 인스턴스 보기](/rest/api/compute/virtualmachines/instanceview) API 설명서를 참조하세요.
 
 Azure 리소스 탐색기는 VM 실행 상태를 보기 위한 간단한 UI를 제공합니다. [리소스 탐색기](https://resources.azure.com/)
 
 프로비전 상태는 VM 속성 및 인스턴스 보기에 표시됩니다. 전원 상태는 VM의 인스턴스 보기에서 사용할 수 있습니다.
 
-구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly**가 *true*로 설정된 [Virtual Machines - 모든 API 목록](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)을 사용합니다.
+구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly**가 *true*로 설정된 [Virtual Machines - 모든 API 목록](/rest/api/compute/virtualmachines/listall)을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86505522"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
@@ -58,7 +58,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 
 | 필드 | 필수? | 설명 |
 | --- | --- | --- |
-| operation(작업) |예 |값은 "Scale"이어야 합니다. |
+| operation |예 |값은 "Scale"이어야 합니다. |
 | sendToSubscriptionAdministrator |예 |값은 "true" 또는 "false"여야 합니다. |
 | sendToSubscriptionCoAdministrators |예 |값은 "true" 또는 "false"여야 합니다. |
 | customEmails |예 |값에 null [] 또는 전자 메일 문자열 배열을 사용할 수 있습니다. |
@@ -102,7 +102,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 | 필드 | 필수? | Description |
 | --- | --- | --- |
 | 상태 |예 |크기 자동 조정 작업이 생성되었음을 나타내는 상태입니다. |
-| operation(작업) |예 |인스턴스가 증가하면 "규모 확장"되고 인스턴스가 감소하면 "규모 감축"됩니다. |
+| operation |예 |인스턴스가 증가하면 "규모 확장"되고 인스턴스가 감소하면 "규모 감축"됩니다. |
 | 컨텍스트 |예 |크기 자동 조정 작업 컨텍스트입니다. |
 | timestamp |예 |크기 자동 조정 작업이 트리거된 타임스탬프입니다. |
 | id |예 |자동 크기 조정 설정의 Resource Manager ID |

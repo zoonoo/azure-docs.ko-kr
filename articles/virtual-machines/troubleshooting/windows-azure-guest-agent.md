@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 09/15/2020
 ms.author: genli
 ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90561264"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Microsoft Azure 게스트 에이전트 문제 해결
@@ -139,7 +139,7 @@ Waappagent.exe 로그에서 에이전트가 시작 프로세스에서 중단 된
  
 VM에서 계속 이전 버전의 Windows Azure 게스트 에이전트를 실행 하 고 있습니다. C:\WindowsAzure 폴더에 여러 개의 동일한 버전을 포함 하 여 여러 Windows Azure 게스트 에이전트 인스턴스가 설치 된 것을 확인할 수 있습니다. 에이전트 인스턴스가 여러 개 설치 되어 있기 때문에 VM은 최신 버전의 Windows Azure 게스트 에이전트를 시작 하지 않습니다.
 
-**해결 방법**
+**솔루션**
 
 Microsoft Azure 게스트 에이전트를 수동으로 제거한 후 다음 단계를 수행 하 여 다시 설치 합니다.
 
@@ -183,7 +183,7 @@ at Microsoft.WindowsAzure.GuestAgent.ContainerStateMachine.HostGAPluginUtility.U
 
 VM이 wireserver 호스트 서버에 연결할 수 없습니다.
 
-**해결 방법**
+**솔루션**
 
 1. Wireserver에 연결할 수 없기 때문에 원격 데스크톱을 사용 하 여 VM에 연결한 다음 인터넷 브라우저에서 다음 URL에 액세스를 시도 합니다. http://168.63.129.16/?comp=versions 
 1. 1 단계의 URL에 연결할 수 없는 경우 네트워크 인터페이스에서 DHCP를 사용 하도록 설정 되어 있고 DNS가 있는지 여부를 확인 합니다. 네트워크 인터페이스의 DHCP 상태를 확인 하려면 명령을 실행  `netsh interface ip show config` 합니다.
@@ -212,7 +212,7 @@ at Microsoft.WindowsAzure.GuestAgent.AgentCore.AgentService.<>c__DisplayClass2.<
 
 Windows Azure 게스트 에이전트가 중지 프로세스에서 중단 되었습니다.
 
-**해결 방법**
+**솔루션**
 
 1. VM에서 WaAppAgent.exe 실행 되 고 있는지 확인 합니다. 실행 되 고 있지 않으면 rdgagent 서비스를 다시 시작 하 고 5 분을 기다립니다. WaAppAgent.exe를 실행 하는 경우 WindowsAzureGuest.exe 프로세스를 종료 합니다.
 2. 1 단계를 수행 해도 문제가 해결 되지 않으면 현재 설치 된 버전을 제거 하 고 에이전트의 최신 버전을 수동으로 설치 합니다.
@@ -230,7 +230,7 @@ Waappagent.exe에서 다음 오류 항목을 확인할 수 있습니다.
 
 Npcap 루프백 어댑터는 VM에 Wireshark에 의해 설치 됩니다. Wireshark는 네트워크 트래픽을 프로 파일링 하 고 패킷을 분석 하기 위한 오픈 소스 도구입니다. 이러한 도구를 종종 네트워크 분석기, 네트워크 프로토콜 분석기 또는 탐지기 라고 합니다.
 
-**해결 방법**
+**솔루션**
 
 Npcap 루프백 어댑터는 WireShark에 의해 설치 될 수 있습니다. 사용 하지 않도록 설정 하 고 문제가 해결 되었는지 확인 하십시오.
 

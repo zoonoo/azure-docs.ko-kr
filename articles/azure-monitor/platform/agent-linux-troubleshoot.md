@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531193"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
@@ -193,7 +193,7 @@ Nss의 회귀 [1.0.3 -5. el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.
 
 ### <a name="resolution-step-by-step"></a>해결 방법 (단계별)
 
-1. Nss 패키지를 [v 1.0.3-5 el7_6](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html)로 업그레이드 합니다. 1. <br/>
+1. Nss 패키지를 [v 1.0.3-5.el7_6](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-7.el7.x86_64.rpm.html)로 업그레이드 합니다. <br/>
 `sudo yum upgrade nss-pem`
 
 2. Nss를 업그레이드에 사용할 수 없는 경우 (주로 Centos에서 발생),를 7.29.0-46으로 다운 그레이드 합니다. "Yum update"를 실행 하는 경우에는 7.29.0-51로 업그레이드 되 고이 문제는 다시 발생 합니다. <br/>
@@ -298,7 +298,7 @@ omsagent.log에 `[error]: unexpected error error_class=Errno::EADDRINUSE error=#
 * OMI 패키지가 Linux용 Log Analytics 에이전트 패키지에서 설치한 버전보다 높은 버전으로 수동 업그레이드되었습니다.
 * DSC 리소스가 `omsconfig.log` 로그 파일에 *클래스를 찾을 수 없음* 오류를 기록합니다.
 * 데이터용 Log Analytics 에이전트가 백업되었습니다.
-* DSC 로그 *현재 구성이 없습니다. -Path 매개 변수를 사용 하 여 Start-dscconfiguration 명령을 실행 하 여 구성 파일을 지정 하 고 현재 구성을 먼저 만듭니다.* 오류를 `omsconfig.log` 로그 파일에 기록하지만, `PerformRequiredConfigurationChecks` 작업에 대한 로그 메시지가 없습니다.
+* DSC 로그 *현재 구성이 없습니다. -Path 매개 변수를 사용 하 여 Start-DscConfiguration 명령을 실행 하 여 구성 파일을 지정 하 고 현재 구성을 먼저 만듭니다.* 오류를 `omsconfig.log` 로그 파일에 기록하지만, `PerformRequiredConfigurationChecks` 작업에 대한 로그 메시지가 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 1. auditd 패키지 같은 모든 종속성을 설치합니다.

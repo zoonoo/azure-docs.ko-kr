@@ -17,10 +17,10 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763689"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
@@ -62,10 +62,10 @@ Azure AD는 SAML 응답에 서명 하는 두 가지 서명 알고리즘 또는 S
 그런 다음 해당 응용 프로그램에 대 한 SAML 토큰에서 인증서 서명 옵션을 변경 합니다.
 
 1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on**을 선택 합니다.
-1. **SAML 미리 보기를 사용 하 여 Single Sign-on 설정** 페이지가 표시 되 면 5 단계로 이동 합니다.
+1. **SAML 미리 보기를 사용 하 여 Single Sign-On 설정** 페이지가 표시 되 면 5 단계로 이동 합니다.
 1. **Single Sign-On 방법 선택** 페이지가 표시 되지 않으면 **Single Sign-On 모드 변경** 을 선택 하 여 해당 페이지를 표시 합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 사용 가능한 경우 **SAML** 을 선택 합니다. ( **Saml** 을 사용할 수 없는 경우 응용 프로그램은 saml을 지원 하지 않으며,이 절차와 문서의 나머지 부분을 무시할 수 있습니다.)
-1. **Saml 미리 보기를 사용 하 여 Single Sign-on 설정** 페이지에서 **saml 서명 인증서** 제목을 찾고 **편집** 아이콘 (연필)을 선택 합니다. **SAML 서명 인증서** 페이지가 표시 됩니다.
+1. **Saml 미리 보기를 사용 하 여 단일 Sign-On 설정** 페이지에서 **saml 서명 인증서** 제목을 찾고 **편집** 아이콘 (연필)을 선택 합니다. **SAML 서명 인증서** 페이지가 표시 됩니다.
 
    ![예: SAML 서명 인증서 페이지](./media/certificate-signing-options/saml-signing-page.png)
 

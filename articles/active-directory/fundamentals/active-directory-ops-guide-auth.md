@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601367"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
@@ -105,7 +105,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="programmatic-usage-of-credentials"></a>자격 증명의 프로그래밍 방식 사용
 
-PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 사용 하는 Azure AD 스크립트에는 보안 인증이 필요 합니다. 자격 증명 관리가 잘못 되 면 이러한 스크립트 및 도구를 실행 하면 자격 증명 도난 위험이 증가 합니다. 하드 코드 된 암호 또는 암호 프롬프트를 사용 하는 스크립트나 응용 프로그램을 사용 하는 경우 먼저 구성 파일 또는 소스 코드에서 암호를 검토 한 다음 해당 종속성을 바꾸고 가능한 경우 Azure 관리 되는 Id, Windows 통합 인증 또는 [인증서](../reports-monitoring/tutorial-access-api-with-certificates.md) 를 사용 해야 합니다. 이전 솔루션을 사용할 수 없는 응용 프로그램의 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용 하는 것이 좋습니다.
+PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 사용 하는 Azure AD 스크립트에는 보안 인증이 필요 합니다. 자격 증명 관리가 잘못 되 면 이러한 스크립트 및 도구를 실행 하면 자격 증명 도난 위험이 증가 합니다. 하드 코드 된 암호나 암호 프롬프트를 사용 하는 스크립트나 응용 프로그램을 사용 하는 경우 먼저 구성 파일이 나 소스 코드에서 암호를 검토 한 다음, 가능한 경우 해당 종속성을 바꾸고 Azure 관리 되는 Id, Integrated-Windows 인증 또는 [인증서](../reports-monitoring/tutorial-access-api-with-certificates.md) 를 사용 해야 합니다. 이전 솔루션을 사용할 수 없는 응용 프로그램의 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용 하는 것이 좋습니다.
 
 암호 자격 증명을 사용 하는 서비스 주체가 있고 이러한 암호 자격 증명이 스크립트나 응용 프로그램에 의해 보호 되는 방식을 잘 모르겠으면 응용 프로그램 소유자에 게 문의 하 여 사용 패턴을 보다 잘 이해할 수 있습니다.
 
@@ -115,7 +115,7 @@ PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 �
 
 ### <a name="on-premises-authentication"></a>온-프레미스 인증
 
-암호 해시 동기화 또는 통과 인증을 사용 하는 IWA (Windows 통합 인증) 또는 원활한 SSO (Single Sign-on) 관리 인증을 사용 하는 페더레이션된 인증은 온-프레미스 도메인 컨트롤러에 대 한 시야를 사용 하는 회사 네트워크 내에서 가장 좋은 사용자 환경입니다. 피로 자격 증명 프롬프트를 최소화 하 고 사용자가 피싱 공격에 받기 쉽습니다 수 있는 위험을 줄입니다. 이미 PHS 또는 PTA를 사용 하 여 클라우드 관리 인증을 사용 하 고 있지만 사용자가 온-프레미스에서 인증할 때 여전히 암호를 입력 해야 하는 경우에는 [원활한 SSO](../hybrid/how-to-connect-sso.md)를 즉시 배포 해야 합니다. 반면에 현재 클라우드 관리 인증으로 마이그레이션할 계획으로 페더레이션 하는 경우 마이그레이션 프로젝트의 일부로 원활한 SSO를 구현 해야 합니다.
+암호 해시 동기화 또는 통과 인증을 사용 하 여 IWA (Windows 통합 인증) 또는 원활한 SSO (Single Sign-On) 관리 인증을 사용 하는 페더레이션된 인증은 온-프레미스 도메인 컨트롤러에 대 한 시야를 사용 하는 회사 네트워크 내에서 가장 좋은 사용자 환경입니다. 피로 자격 증명 프롬프트를 최소화 하 고 사용자가 피싱 공격에 받기 쉽습니다 수 있는 위험을 줄입니다. 이미 PHS 또는 PTA를 사용 하 여 클라우드 관리 인증을 사용 하 고 있지만 사용자가 온-프레미스에서 인증할 때 여전히 암호를 입력 해야 하는 경우에는 [원활한 SSO](../hybrid/how-to-connect-sso.md)를 즉시 배포 해야 합니다. 반면에 현재 클라우드 관리 인증으로 마이그레이션할 계획으로 페더레이션 하는 경우 마이그레이션 프로젝트의 일부로 원활한 SSO를 구현 해야 합니다.
 
 ### <a name="device-trust-access-policies"></a>장치 신뢰 액세스 정책
 
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
 
 |리소스 | 사용 권한 |
 | :- | :- |

@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3c5b7debe0c94839e2ca7742817a49216328c571
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855316"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
@@ -152,7 +152,7 @@ ms.locfileid: "88855316"
 - [Azure 공유 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
 - [Sios DataKeeper 클러스터 버전](https://us.sios.com/products/datakeeper-cluster/) 을 사용 하 여 미러된 저장소를 만들면 클러스터 된 공유 디스크를 시뮬레이션 합니다. 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 

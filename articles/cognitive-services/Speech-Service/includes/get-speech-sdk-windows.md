@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88944431"
 ---
 :::row:::
@@ -40,7 +40,7 @@ Windows의 Speech SDK를 사용 하려면 시스템에서 <a href="https://suppo
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치 하는 올바른 버전 (x86/x64)을 선택 했는지 확인 합니다.
 
-| 속성                                            | 기능                                             |
+| Name                                            | 함수                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | 네이티브 및 관리된 배포에 필요한 핵심 SDK |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |

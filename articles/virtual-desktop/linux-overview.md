@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a53e9ae42031203347784b78e162e8f806eb3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320247"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960646"
 ---
 # <a name="linux-support"></a>Linux 지원
 
-Linux 씬 클라이언트 파트너에서 제공 하는 다음과 같은 지원 되는 클라이언트를 사용 하 여 Linux 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 많은 Linux 기반 운영 체제 및 장치에서 지원 되는 Windows 가상 데스크톱 클라이언트를 사용 하도록 설정 하기 위해 많은 파트너와 협력 하 고 있습니다. 여기에 나열 되지 않은 Linux 플랫폼에 Windows 가상 데스크톱 지원이 필요한 경우 [UserVoice 페이지](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux)를 통해 알려주세요.
+Linux 씬 클라이언트 파트너에서 제공 하는 [웹 클라이언트](connect-web.md) 또는 지원 되는 다음 클라이언트를 사용 하 여 linux 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 많은 Linux 기반 운영 체제 및 장치에서 지원 되는 Windows 가상 데스크톱 클라이언트를 사용 하도록 설정 하기 위해 많은 파트너와 협력 하 고 있습니다. 여기에 나열 되지 않은 Linux 플랫폼에 Windows 가상 데스크톱 지원이 필요한 경우 [UserVoice 페이지](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux)를 통해 알려주세요.
 
 ## <a name="connect-with-your-linux-device"></a>Linux 장치에 연결
 

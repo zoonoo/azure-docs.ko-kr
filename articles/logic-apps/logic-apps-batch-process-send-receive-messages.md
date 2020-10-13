@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87458252"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
@@ -56,7 +56,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
 1. 일괄 처리 수신자에 대해 다음 속성을 설정합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **일괄 처리 모드** | - **인라인**: 일괄 처리 트리거 내부에 해제 조건을 정의하는 경우 <br>- **통합 계정**: [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 통해 다중 해제 조건 구성을 정의하는 경우. 통합 계정을 사용하면 별도의 논리 앱이 아닌 한 곳에서 이러한 구성을 모두 유지 관리할 수 있습니다. |
    | **일괄 처리 이름** | 일괄 처리에 대한 이름이며(이 예의 경우 "TestBatch"), **인라인** 일괄 처리 모드에만 적용됩니다. |
@@ -126,7 +126,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
 * 일괄 처리 수신자와 일괄 처리 발신자가 동일한 Azure 지역 *및* azure 구독을 공유 하는지 확인 합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-1. 이 이름을 사용 하 여 다른 논리 앱을 만듭니다.`BatchSender`
+1. 이 이름을 사용 하 여 다른 논리 앱을 만듭니다. `BatchSender`
 
    1. 검색 상자에서 필터로 `recurrence`을 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **되풀이**
 
@@ -159,7 +159,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
 1. 일괄 처리 발신자의 속성을 설정합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의한 일괄 처리 이름입니다 ( `TestBatch` 이 예제에서는). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. |
    | **메시지 내용** | 보내려는 메시지에 대한 콘텐츠입니다. |
@@ -180,7 +180,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
 1. 이제 일괄 처리에 대한 파티션을 설정합니다. 작업에서 `BatchReceiver` **새 매개 변수 추가** 목록을 열고 다음 속성을 선택 합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **파티션 이름** | 대상 일괄 처리를 논리적 하위 집합으로 나누고 해당 키에 따라 메시지를 수집하는 데 사용하는 선택적 고유 파티션 키입니다. |
    | **메시지 Id** | 비어 있을 때 생성된 GUID(Globally Unique Identifier)라는 선택적 메시지 식별자입니다. |

@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 받기
+title: Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 수신
 description: Azure Blob Storage 및 Azure Data Lake Storage에서 데이터를 공유 하 고 받는 방법을 알아봅니다.
 author: jifems
 ms.author: jife
@@ -7,13 +7,13 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.openlocfilehash: a54a9d4c50852fe78fd245723dd29f487d58f4b1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89270123"
 ---
-# <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 받기
+# <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 수신
 
 [!INCLUDE[appliesto-storage](includes/appliesto-storage.md)]
 
@@ -33,7 +33,7 @@ Azure 데이터 공유는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 �
 
 ### <a name="prerequisites-for-source-storage-account"></a>원본 저장소 계정에 대 한 필수 구성 요소
 
-* Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정을](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 만들 수 있습니다.
+* Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들 수 있습니다.
 * 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write*에 있습니다. 이 권한은 기여자 역할에 있습니다.
 * 스토리지 계정에 역할 할당을 추가할 수 있는 권한입니다. 이 권한은 *Microsoft.Authorization/role assignments/write*에 있습니다. 이 권한은 소유자 역할에 있습니다. 
 
@@ -45,7 +45,7 @@ Azure 데이터 공유는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 �
 
 Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
-1. 포털의 왼쪽 위 모서리에 있는 메뉴 단추를 선택한 다음 **리소스 만들기** (+)를 선택 합니다.
+1. 포털의 왼쪽 상단 모서리에 있는 메뉴 단추를 선택한 다음, **리소스 만들기**(+)를 선택합니다.
 
 1. *Data Share*를 검색합니다.
 
@@ -75,15 +75,15 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **만들기**를 선택합니다.   
 
-1. 공유에 대 한 세부 정보를 입력 합니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
+1. 공유에 대한 세부 정보를 입력합니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
 
     ![EnterShareDetails](./media/enter-share-details.png "공유 세부 정보 입력") 
 
 1. **계속**을 선택합니다.
 
-1. 공유에 데이터 집합을 추가 하려면 **데이터 집합 추가**를 선택 합니다. 
+1. 공유에 데이터 세트를 추가하려면 **데이터 세트 추가**를 선택합니다. 
 
-    ![공유에 데이터 집합 추가](./media/datasets.png "데이터 세트")
+    ![공유에 데이터 세트 추가](./media/datasets.png "데이터 세트")
 
 1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. 
 

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89275779"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
@@ -92,7 +92,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
     | attribute | 값 |
     | --- | --- |
-    | 방향 |**아웃바운드** |
+    | Direction |**아웃바운드** |
     | MV 개체 유형 |**Person** |
     | 커넥터 |*Azure AD 커넥터의 이름* |
     | 커넥터 개체 유형 |**user** |
@@ -110,7 +110,7 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
     | sourceObjectType | EQUAL | 사용자 |
     | cloudMastered | NOTEQUAL | True |
 
-### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계. 필요한 아웃바운드 동기화 규칙을 만듭니다.
+### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계: 필요한 아웃바운드 동기화 규칙을 만듭니다.
 새로운 동기화 규칙은 기존 동기화 규칙과 동일한 **범위 지정 필터**와 **높은 우선 순위**를 포함해야 합니다. 이렇게 하면 새 동기화 규칙이 기존 동기화 규칙과 동일한 개체 집합에 적용되고 userCertificate 특성에 대한 기존 동기화 규칙을 재정의합니다. 동기화 규칙을 만들려면
 1. 동기화 규칙 편집기에서 **새 규칙 추가** 단추를 클릭합니다.
 2. **설명 탭**아래에서 다음 구성을 제공 합니다.

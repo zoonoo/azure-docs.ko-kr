@@ -9,17 +9,17 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
 ms.openlocfilehash: d9377ba22f1461762e53b1004dfe5f06c2d7b972
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420220"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Azure에서 가상 머신에 대한 크기
 
 이 문서에서는 앱 및 워크 로드를 실행 하는 데 사용할 수 있는 Azure 가상 머신에 대 한 사용 가능한 크기 및 옵션을 설명 합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 
 
-| Type | 크기 | Description |
+| 형식 | 크기 | 설명 |
 |------|-------|-------------|
 | [범용](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [컴퓨팅 최적화](sizes-compute.md) | F, Fs, Fsv2 | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다. |

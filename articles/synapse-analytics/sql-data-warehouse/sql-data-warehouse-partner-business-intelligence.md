@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1414859d0735e75e2139dd79aab7dbba5b1e2f13
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710197"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939187"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics 비즈니스 인텔리전스 파트너
 
@@ -27,7 +27,6 @@ ms.locfileid: "91710197"
 | ------- | ----------- | -------------------- |
 | ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>AtScale은 분산 데이터에 대 한 단일, 보안 및 제어 된 작업 영역을 제공 합니다. AtScale의 Cloud OLAP, 자치 데이터 엔지니어링™ 및 범용 의미 체계 계층™는 보다 빠르고 정확한 비즈니스 의사 결정을 위해 비즈니스 인텔리전스 결과를 향상 시킵니다. |[제품 페이지](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst는 공유 공통 분석 패브릭 위에서 서로 엮인 가상화된 BI 인스턴스 네트워크를 통해 전체 조직을 연결합니다.|[제품 페이지](https://www.birst.com/)<br> |
-| ![ClearStory Data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**ClearStory Data(지속적인 비즈니스 인사이트)**<br>ClearStory Data는 Synapse SQL 풀에 저장된 파편화된 데이터에서 빠른 주기 분석을 지원합니다. ClearStory의 통합 Spark 기반 플랫폼 및 분석 애플리케이션은 데이터 액세스 및 파편화된 데이터 세트의 조화를 가속화합니다. 비즈니스 사용자가 독립적으로 빠른 인사이트를 파악할 수 있도록 데 신속하고 협업적인 탐색이 가능하도록 지원합니다. |[제품 페이지](https://www.clearstorydata.com/product/continuous-insights/)<br> |
 | ![Dremio](./media/sql-data-warehouse-partner-business-intelligence/dremio-logo.png) |**Dremio**<br> 분석가 및 데이터 과학자는 거 버 넌 스 및 보안을 유지 하면서 Dremio의 직관적인 UI를 사용 하 여 데이터를 검색 하 고 탐색 하 고 curate 수 있습니다. Dremio를 사용 하면 Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight 등을 사용 하 여 ADLS를 쉽게 조인할 수 있습니다. Dremio를 사용 하면 Power BI 분석가가 ADLS에 저장 된 새 데이터 집합을 검색 하 고,이 데이터를 준비 하지 않고 즉시 Power BI에 액세스 하 고, 시각화를 만들고, 보고서를 실시간으로 반복적으로 구체화할 수 있습니다. 및 분석가는 ADLS와 다른 데이터베이스 간에 데이터를 결합 하는 새 보고서를 만들 수 있습니다. |[제품 페이지](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br> |
 | ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas 데이터 시각화는 비즈니스 인텔리전스 및 데이터 시각화 소프트웨어에서 선도적인 글로벌 공급자입니다.  Dundas 대시보드, 보고 및 시각적 데이터 분석은 비즈니스 애플리케이션으로의 원활한 통합 기능을 제공하여 더 나은 결정 및 빠른 통찰력이 가능합니다.|[제품 페이지](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![IBM Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos Analytics**<br>Cognos 분석에는 광범위 한 공급망을 검사 하는 숙련 된 비즈니스 분석가가 든, 캠페인을 최적화 하는 마케터 든 상관 없이 간단 하 고 명확 하며 쉽게 사용할 수 있도록 하는 셀프 서비스 기능이 포함 되어 있습니다. Cognos 분석은 AI 및 기타 기능을 사용 하 여 데이터 탐색을 안내 합니다. 사용자가 필요한 답변을 쉽게 얻을 수 있습니다.|[제품 페이지](https://www.ibm.com/products/cognos-analytics)<br>|

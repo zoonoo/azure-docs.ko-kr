@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
 ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90018196"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장
@@ -28,7 +28,7 @@ ms.locfileid: "90018196"
 * 장치에서 데이터 전송을 중지 한 경우를 검색 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 설정 | 값 |
 | ------- | ----- |
-| 요금제 | Standard |
+| 요금제 | 표준 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource group
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **DetectStoppedDevices** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -95,7 +95,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 �
 | 호스팅 계획 | 소비 계획 |
 | 위치 | 미국 동부 |
 | 런타임 스택 | .NET |
-| 스토리지 | Create new |
+| 스토리지 | 새로 만들기 |
 
 ### <a name="sendgrid-account"></a>SendGrid 계정
 
@@ -257,7 +257,7 @@ test-device-3    2019-05-02T14:24:28.919Z
     | 출력 별칭 | emailnotification |
     | Subscription | 사용자의 구독 |
     | 함수 앱 | 함수 앱 |
-    | 기능  | HttpTrigger1 |
+    | 함수  | HttpTrigger1 |
 
 1. **작업 토폴로지**에서 **쿼리** 를 선택 하 고 기존 쿼리를 다음 SQL로 바꿉니다.
 
@@ -319,8 +319,8 @@ test-device-3    2019-05-02T14:24:28.919Z
     | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
     | 이벤트 허브 | centralexport |
     | 측정 | 켜기 |
-    | 디바이스 | 끄기 |
-    | 디바이스 템플릿 | 끄기 |
+    | 디바이스 | 꺼짐 |
+    | 디바이스 템플릿 | 꺼짐 |
 
 ![연속 데이터 내보내기 구성](media/howto-create-custom-rules/cde-configuration.png)
 
