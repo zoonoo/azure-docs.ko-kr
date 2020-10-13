@@ -4,10 +4,10 @@ description: Azure Backup 서비스에서 사용 되는 보안 컨트롤에 대�
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89418758"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure Backup에 대 한 보안 제어
@@ -39,7 +39,7 @@ ms.locfileid: "89418758"
 | 보안 컨트롤 | 예/아니요 | 메모| 문서화
 |---|---|--|--|
 | 인증| 예 | 인증은 Azure Active Directory를 통해 수행됩니다. |  |
-| 권한 부여| 예 | 고객이 만들고 Azure 기본 제공 역할을 사용 합니다. 자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](./backup-rbac-rs-vault.md)를 참조 하세요. |  |
+| 권한 부여| 예 | 고객이 만들고 Azure 기본 제공 역할을 사용 합니다. 자세한 내용은 [Role-Based Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](./backup-rbac-rs-vault.md)를 참조 하세요. |  |
 
 ## <a name="data-protection"></a>데이터 보호
 

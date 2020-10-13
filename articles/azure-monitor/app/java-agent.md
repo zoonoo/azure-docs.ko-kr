@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87371365"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
@@ -85,7 +85,7 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 * 설정 &gt; 애플리케이션 설정 선택
 * 앱 설정 아래에서 새로운 키 값 쌍을 추가합니다.
 
-키: `JAVA_OPTS` 값:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
 최신 버전의 Java 에이전트는 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
 )에서 릴리스를 확인 하세요. 
@@ -123,7 +123,7 @@ Application Insights 리소스에서 집계 된 원격 종속성과 메서드 �
 
 [종속성 문제 진단 - 자세한 내용](./asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 * 데이터가 없나요? [방화벽 예외 설정](./ip-addresses.md)
 * [Java 문제 해결](java-troubleshoot.md)
 

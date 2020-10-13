@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450413"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965916"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
-PRT(주 새로 고침 토큰)는 Windows 10, iOS 및 AndroID 디바이스에서 Azure AD 인증의 핵심 아티팩트입니다. 이러한 디바이스에 사용되는 애플리케이션 전체에서 SSO(Single Sign-On)를 사용하도록 설정하기 위해 Microsoft의 자사 토큰 브로커에 특별히 발급된 JWT(JSON Web Token)입니다. 이 문서에서는 Windows 10 디바이스에서 PRT를 발급, 사용 및 보호하는 방법에 대한 세부 정보를 제공합니다.
+PRT (주 새로 고침 토큰)는 Windows 10, Windows Server 2016 이상 버전, iOS 및 Android 장치에서 Azure AD 인증의 핵심 아티팩트입니다. 이러한 디바이스에 사용되는 애플리케이션 전체에서 SSO(Single Sign-On)를 사용하도록 설정하기 위해 Microsoft의 자사 토큰 브로커에 특별히 발급된 JWT(JSON Web Token)입니다. 이 문서에서는 Windows 10 디바이스에서 PRT를 발급, 사용 및 보호하는 방법에 대한 세부 정보를 제공합니다.
 
 이 문서에서는 사용자가 Azure AD에서 사용할 수 있는 여러 디바이스 상태와 Windows 10에서 Single Sign-On의 작동 방식을 이미 잘 알고 있다고 가정합니다. Azure AD의 디바이스에 대한 자세한 내용은 [Azure Active Directory의 디바이스 관리란?](overview.md) 문서를 참조하세요.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
 ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77588691"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Azure 센티널을 사용 하 여 데이터 추적 유지
@@ -23,7 +23,7 @@ ms.locfileid: "77588691"
 
 Azure 센티널의 구하기 책갈피를 사용 하면 **Azure 센티널**에서 실행 한 쿼리를 유지 하 여 관련 된 쿼리 결과와 함께이 작업을 수행할 수 있습니다. 메모 및 태그를 추가 하 여 상황에 맞는 관찰을 기록 하 고 검색 결과를 참조할 수도 있습니다. 책갈피가 설정 된 데이터는 쉽게 공동 작업을 위해 사용자와 동료가 볼 수 있습니다.
 
-언제 든 지 **조합 창의** **책갈피** 탭에서 책갈피 데이터를 다시 선택할 수 있습니다. 필터링 및 검색 옵션을 사용 하 여 현재 조사에 대 한 특정 데이터를 신속 하 게 찾을 수 있습니다. 또는 Log Analytics 작업 영역의 **HuntingBookmark** 테이블에서 직접 책갈피가 설정 된 데이터를 볼 수 있습니다. 예를 들어:
+언제 든 지 **조합 창의** **책갈피** 탭에서 책갈피 데이터를 다시 선택할 수 있습니다. 필터링 및 검색 옵션을 사용 하 여 현재 조사에 대 한 특정 데이터를 신속 하 게 찾을 수 있습니다. 또는 Log Analytics 작업 영역의 **HuntingBookmark** 테이블에서 직접 책갈피가 설정 된 데이터를 볼 수 있습니다. 예를 들면 다음과 같습니다.
 
 > [!div class="mx-imgBorder"]
 > ![HuntingBookmark 테이블 보기](./media/bookmarks/bookmark-table.png)
@@ -40,7 +40,7 @@ Azure 센티널의 구하기 책갈피를 사용 하면 **Azure 센티널**에�
 
 2. 구하기 쿼리 중 하나를 선택 하 고 오른쪽의 구하기 쿼리 세부 정보에서 **쿼리 실행**을 선택 합니다. 
 
-3. **쿼리 결과 보기**를 선택 합니다. 예를 들어:
+3. **쿼리 결과 보기**를 선택 합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기에서 쿼리 결과 보기](./media/bookmarks/new-processes-observed-example.png)
@@ -56,7 +56,7 @@ Azure 센티널의 구하기 책갈피를 사용 하면 **Azure 센티널**에�
 
 6. 오른쪽의 **책갈피 추가** 창에서 필요에 따라 책갈피 이름, 태그 추가 및 메모를 업데이트 하 여 항목에 대해 흥미로운 사항을 식별할 수 있습니다.
 
-7. **쿼리 정보** 섹션에서 드롭다운 상자를 사용 하 여 **계정**, **호스트**및 **IP 주소** 엔터티 형식에 대 한 쿼리 결과에서 정보를 추출 합니다. 이 작업은 선택한 엔터티 형식을 쿼리 결과의 특정 열에 매핑합니다. 예를 들어:
+7. **쿼리 정보** 섹션에서 드롭다운 상자를 사용 하 여 **계정**, **호스트**및 **IP 주소** 엔터티 형식에 대 한 쿼리 결과에서 정보를 추출 합니다. 이 작업은 선택한 엔터티 형식을 쿼리 결과의 특정 열에 매핑합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
     > ![구하기 책갈피에 대 한 엔터티 형식 매핑](./media/bookmarks/map-entity-types-bookmark.png)
@@ -110,7 +110,7 @@ Azure 센티널의 구하기 책갈피를 사용 하면 **Azure 센티널**에�
     > [!div class="mx-imgBorder"]
     > ![인시던트에 책갈피 추가](./media/bookmarks/incident-actions.png)
 
-3. 필요에 따라 **새 인시던트를 만들거나** **기존 인시던트에 추가**중 하나를 선택 합니다. 그런 다음:
+3. 필요에 따라 **새 인시던트를 만들거나** **기존 인시던트에 추가**중 하나를 선택 합니다. 그렇다면
     
     - 새 인시던트: 필요에 따라 인시던트의 세부 정보를 업데이트 한 후 **만들기**를 선택 합니다.
     - 기존 인시던트에 책갈피를 추가 하려면 인시던트 하나를 선택 하 고 **추가**를 선택 합니다. 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
 ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91299423"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
@@ -79,7 +79,7 @@ ms.locfileid: "91299423"
 
 1. 또한 필요에 따라 **전체 또는 연속 위반**을 사용 하 여 [경고를 트리거하기 위한 위반 수](alerts-unified-log.md#number-of-violations-to-trigger-alert) 를 설정할 수 있습니다.
 
-1. **완료**를 선택합니다. 
+1. **완료** 를 선택합니다. 
 
 1. **경고 규칙 이름**, **설명**을 정의 하 고 경고 **심각도**를 선택 합니다. 이러한 세부 정보는 모든 경고 작업에 사용 됩니다. 또한 만들 **때 규칙 사용**을 선택 하 여 경고 규칙을 만들 때 활성화 하지 않도록 선택할 수 있습니다.
 

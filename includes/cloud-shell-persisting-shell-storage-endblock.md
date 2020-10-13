@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182540"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Cloud Shell에 로컬 파일 전송
@@ -25,7 +25,7 @@ ms.locfileid: "67182540"
 
 ![업로드할 로컬 파일](../articles/cloud-shell/media/persisting-shell-storage/upload.png)
 1. 마운트된 파일 공유로 이동합니다.
-2. **업로드** 단추를 선택합니다.
+2. **업데이트** 단추를 선택합니다.
 3. 업로드할 파일을 하나 이상 선택합니다.
 4. 업로드를 확인합니다.
 

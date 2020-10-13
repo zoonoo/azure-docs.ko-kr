@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
 ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89078132"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>휴지 상태의 데이터에 대 한 서비스 암호화 Language Understanding
@@ -32,11 +32,11 @@ Language Understanding 서비스는 데이터가 클라우드에 유지 될 때 
 
 사용자 고유의 키를 사용 하 여 구독을 관리 하는 옵션도 있습니다. BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.
 
-Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
+고객 관리형 키를 저장하려면 Azure Key Vault를 사용해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Cognitive Services 리소스 및 키 자격 증명 모음은 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
 
 ### <a name="customer-managed-keys-for-language-understanding"></a>Language Understanding에 대 한 고객 관리 키
 
-고객 관리 키를 사용 하는 기능을 요청 하려면 [LUIS Service 고객이 관리 하는 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS와 함께 CMK를 사용 하도록 승인 되 면 Azure Portal에서 새 Language Understanding 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. 새 SKU는 CMK를 제외 하 고 이미 사용할 수 있는 F0 SKU와 동일 하 게 작동 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
+고객 관리 키를 사용 하는 기능을 요청 하려면 [LUIS Service Customer-Managed 키 요청 양식을](https://aka.ms/cogsvc-cmk)작성 하 고 제출 합니다. 요청 상태를 다시 들으려면 영업일 3-5 영업일이 소요 됩니다. 요청에 따라 큐에 배치 되 고 공간을 사용할 수 있게 되 면 승인 될 수 있습니다. LUIS와 함께 CMK를 사용 하도록 승인 되 면 Azure Portal에서 새 Language Understanding 리소스를 만들고 해당 가격 책정 계층으로 E0를 선택 해야 합니다. 새 SKU는 CMK를 제외 하 고 이미 사용할 수 있는 F0 SKU와 동일 하 게 작동 합니다. 사용자는 F0에서 새 E0 SKU로 업그레이드할 수 없습니다.
 
 ![LUIS subscription 이미지](../media/cognitive-services-encryption/luis-subscription.png)
 
@@ -85,5 +85,5 @@ Cognitive Services 암호화를 위해 Azure Key Vault에서 고객이 관리 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [LUIS Service 고객이 관리 하는 키 요청 양식](https://aka.ms/cogsvc-cmk)
+* [LUIS Service Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
 * [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

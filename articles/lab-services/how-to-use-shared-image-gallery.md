@@ -4,10 +4,10 @@ description: 사용자가 다른 사용자와 이미지를 공유하고 다른 �
 ms.topic: article
 ms.date: 09/11/2020
 ms.openlocfilehash: 04e3764b095706d091bb72baaae77f5a4016fd28
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052837"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 사용

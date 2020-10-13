@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: df73acfc469a8b7b5329b61095aefdbd73baafd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77024843"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>VMware vRealize 자동화를 위해 사설 클라우드에서 vCenter 설정
@@ -64,7 +64,7 @@ VCenter server를 구성 하기 전에 다음 작업을 완료 합니다.
         ![vRA 설치 프록시](media/configure-vra-endpoint-proxy.png)
 
     11. **다음**을 클릭합니다.
-    12. **설치**를 클릭합니다.
+    12. **Install**을 클릭합니다.
 
 ## <a name="configure-the-vsphere-agent"></a>VSphere 에이전트 구성
 

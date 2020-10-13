@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056460"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
@@ -236,7 +236,7 @@ Liquit 응용 프로그램 집계 및 배달 소프트웨어를 사용 하 여 �
 
 Nasuni Corp. 클라우드 파일 서비스 및 상위 Azure 전역 ISV 파트너의 선두 공급자는 최신 가상 데스크톱에 대 한 최신 파일 저장소 솔루션인 Nasuni software as a service 플랫폼을 제공 합니다. Nasuni와 Azure Blob Storage 함께 사용 하는 경우는 NAS (주 파일 저장소), 파일 백업, 재해 복구 및 지역 간 파일 동기화를 하나의 통합 된 솔루션으로 통합 합니다. Nasuni를 통해 기업은 더 많은 사용 사례와 더 많은 Azure 지역에서 Windows 가상 데스크톱을 배포 하 고, 관리를 간소화 하 고, 비즈니스 연속성을 보장할 수 있습니다. 
 
-최신 클라우드 VDI 솔루션인 Windows 가상 데스크톱에는 최신 클라우드 파일 저장소가 필요 합니다. 일반적으로 VDI 파일 저장소는 온-프레미스에 있는 NAS (네트워크 연결 저장소) 및 파일 서버 하드웨어와 파일 백업, 복원 및 재해 복구를 제공 하는 데 필요한 기술을 기반으로 합니다. 이러한 기존 방법은 비용이 많이 들고, 유지 관리 및 관리가 복잡 하며, 쉽게 확장할 수 없습니다. 또한 Azure 기반 데스크톱 및 온-프레미스 기반 파일 저장소 간의 실제 거리와 느린 WAN 연결로 인해 Windows 가상 데스크톱과 같은 최신 클라우드 VDI 솔루션과 함께 사용 하는 경우 대기 시간이 발생 합니다. Azure 용으로 특별히 빌드된 파일 서비스 플랫폼인 Nasuni는 무제한 파일 저장소 용량 및 고성능 파일 액세스를 제공 합니다. Nasuni는 단일 전역 네임 스페이스에 대 한 경제적이 고 고성능 파일 액세스를 제공 하기 위해 동일한 Azure 지역에 Windows 가상 데스크톱과 함께 배치할 수 있습니다. Nasuni는 기존 NAS와 Windows 파일 서버의 비용을 줄이고 Windows 가상 데스크톱 파일 저장소를 제공 하며, 비용을 더 줄이고 IT 리소스를 확보 하기 위한 기본 제공 백업 및 재해 복구를 포함 합니다.
+최신 클라우드 VDI 솔루션인 Windows 가상 데스크톱에는 최신 클라우드 파일 저장소가 필요 합니다. 일반적으로 VDI 파일 저장소는 온-프레미스에 있는 NAS (Network-Attached 저장소)와 파일 서버 하드웨어 및 파일 백업, 복원 및 재해 복구를 제공 하는 데 필요한 기술을 기반으로 합니다. 이러한 기존 방법은 비용이 많이 들고, 유지 관리 및 관리가 복잡 하며, 쉽게 확장할 수 없습니다. 또한 Azure 기반 데스크톱 및 온-프레미스 기반 파일 저장소 간의 실제 거리와 느린 WAN 연결로 인해 Windows 가상 데스크톱과 같은 최신 클라우드 VDI 솔루션과 함께 사용 하는 경우 대기 시간이 발생 합니다. Azure 용으로 특별히 빌드된 파일 서비스 플랫폼인 Nasuni는 무제한 파일 저장소 용량 및 고성능 파일 액세스를 제공 합니다. Nasuni는 단일 전역 네임 스페이스에 대 한 경제적이 고 고성능 파일 액세스를 제공 하기 위해 동일한 Azure 지역에 Windows 가상 데스크톱과 함께 배치할 수 있습니다. Nasuni는 기존 NAS와 Windows 파일 서버의 비용을 줄이고 Windows 가상 데스크톱 파일 저장소를 제공 하며, 비용을 더 줄이고 IT 리소스를 확보 하기 위한 기본 제공 백업 및 재해 복구를 포함 합니다.
 
 - [파트너 웹 사이트로 이동](https://www.nasuni.com/partner/microsoft/#wvd)합니다.
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS)하세요.

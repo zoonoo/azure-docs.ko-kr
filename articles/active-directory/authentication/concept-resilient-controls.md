@@ -13,10 +13,10 @@ ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049573"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
@@ -215,13 +215,13 @@ Azure AD MFA NPS 확장을 배포 하 여 VPN 및 원격 데스크톱 게이트�
 이 경우 nps 확장을 사용 하지 않도록 설정할 수 있습니다. 따라서 NPS 서버는 기본 인증만 확인 하 고 사용자에 게 MFA를 적용 하지 않습니다.
 
 NPS 확장 사용 안 함: 
--   HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 레지스트리 키를 백업으로 내보냅니다. 
+-   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters 레지스트리 키를 백업으로 내보냅니다. 
 -   매개 변수 키가 아닌 "AuthorizationDLLs" 및 "ExtensionDLLs"에 대 한 레지스트리 값을 삭제 합니다. 
 -   네트워크 정책 서비스 (IAS) 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 
 -   VPN에 대 한 기본 인증의 성공 여부를 확인 합니다.
 
 서비스가 복구 되 고 사용자에 게 MFA를 다시 적용할 준비가 되 면 NPS 확장을 사용 하도록 설정 합니다. 
--   백업 HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters에서 레지스트리 키를 가져옵니다. 
+-   백업 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters에서 레지스트리 키를 가져옵니다. 
 -   네트워크 정책 서비스 (IAS) 서비스를 다시 시작 하 여 변경 내용을 적용 합니다. 
 -   기본 인증 및 VPN에 대 한 보조 인증의 성공 여부를 확인 합니다.
 -   NPS 서버 및 VPN 로그를 검토 하 여 응급 기간 중에 로그인 한 사용자를 확인 합니다.

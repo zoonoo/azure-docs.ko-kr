@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331933"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
@@ -43,7 +43,7 @@ ms.locfileid: "91331933"
 
    * __스토리지 계정에 보관__의 경우 데이터를 보관할 일 수를 지정합니다.
 
-   * __저장__을 클릭합니다.
+   * __Save__을 클릭합니다.
 
         > [!NOTE]
         > __저장__ 단추를 클릭하기 전에 __스토리지 계정에 보관__, __이벤트 허브로 스트리밍__ 또는 __Log Analytics로 보내기__를 선택해야 합니다.
@@ -126,7 +126,7 @@ ms.locfileid: "91331933"
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
 
-| Name | Type | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -135,12 +135,12 @@ ms.locfileid: "91331933"
 | resultType |String |작업의 상태, 예를 들어 200 |
 | callerIpAddress |String |요청한 클라이언트의 IP 주소 |
 | correlationId |String |로그의 식별자입니다. 이 값을 사용하여 관련된 로그 항목의 집합을 그룹화할 수 있습니다. |
-| identity |개체 |로그를 생성하는 ID |
+| identity |Object |로그를 생성하는 ID |
 | properties |JSON |자세한 내용은 다음 섹션(요청 로그 속성 스키마)을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
 
-| Name | Type | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -176,7 +176,7 @@ ms.locfileid: "91331933"
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
 
-| Name | Type | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 식별자 |
@@ -194,7 +194,7 @@ ms.locfileid: "91331933"
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
 
-| Name | Type | Description |
+| Name | 유형 | 설명 |
 | --- | --- | --- |
 | JobId |String |작업에 할당된 ID |
 | JobName |String |작업에 대해 제공된 이름 |

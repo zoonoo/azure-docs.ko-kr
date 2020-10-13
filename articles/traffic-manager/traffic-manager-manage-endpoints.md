@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392921"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>엔드포인트 추가, 사용 안 함, 사용 또는 삭제
@@ -29,7 +29,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Traffic Manager 프로필에 클라우드 서비스 또는 App Service 엔드포인트를 추가하려면
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정 하려는 **Traffic Manager 프로필** 이름을 검색 한 다음 표시 되는 결과에서 Traffic Manager 프로필을 클릭 합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다.
 4. 표시되는 **엔드포인트** 블레이드에서 **추가**를 클릭합니다.
@@ -49,7 +49,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-disable-an-endpoint"></a>엔드포인트를 사용하지 않도록 설정하려면
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다. 
 4. 사용 하지 않도록 설정할 끝점을 클릭 합니다.
@@ -58,7 +58,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-enable-an-endpoint"></a>엔드포인트를 사용하도록 설정하려면
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다. 
 4. 사용 하도록 설정할 끝점을 클릭 합니다.
@@ -67,7 +67,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-delete-an-endpoint"></a>엔드포인트를 삭제하려면
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다. 
 4. 삭제할 끝점을 클릭 합니다.
