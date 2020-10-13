@@ -15,10 +15,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 692b20bf301bbd7bf03ea1af5527e08d947b50da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798366"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
@@ -353,7 +353,7 @@ Task | 최소 권한 역할 | 추가 역할
 사용자 설정 업데이트 | 전역 관리자 | 
 
 
-## <a name="support"></a>지원
+## <a name="support"></a>Support(지원)
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------

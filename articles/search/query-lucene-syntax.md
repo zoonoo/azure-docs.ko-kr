@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923452"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
@@ -198,7 +198,7 @@ En-us (영어 Lucene) 분석기를 사용 하는 경우 각 용어의 적극적 
 
 Azure Cognitive Search는 텍스트 쿼리에 대해 빈도 기반 점수 매기기 ([TF IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))를 사용 합니다. 그러나 용어 범위가 광범위할 수 있는 와일드카드 및 정규식 쿼리의 경우 순위 오류가 발생하여 더 드물게 나오는 용어가 검색되지 않도록 빈도 계수가 무시됩니다. 모든 일치 항목은 와일드카드 및 정규식에 대한 동일하게 처리됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [단순 검색을 위한 쿼리 예제](search-query-simple-examples.md)
 + [전체 Lucene 검색에 대 한 쿼리 예제](search-query-lucene-examples.md)

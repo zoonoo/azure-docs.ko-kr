@@ -16,10 +16,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602934"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
@@ -32,7 +32,7 @@ ms.locfileid: "90602934"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자

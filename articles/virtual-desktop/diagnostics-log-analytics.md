@@ -7,10 +7,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89006808"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
@@ -18,7 +18,7 @@ ms.locfileid: "89006808"
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md)를 참조하세요.
 
-Windows 가상 데스크톱은 다른 여러 Azure 서비스와 같은 모니터링 및 경고에 [Azure Monitor](../azure-monitor/overview.md) 를 사용 합니다. 이를 통해 관리자는 단일 인터페이스를 통해 문제를 식별할 수 있습니다. 서비스는 사용자 및 관리 작업 모두에 대 한 활동 로그를 만듭니다. 각 활동 로그는 다음과 같은 범주에 속합니다.
+Windows 가상 데스크톱은 다른 여러 Azure 서비스와 같은 모니터링 및 경고에 [Azure Monitor](../azure-monitor/overview.md) 를 사용 합니다. 이를 통해 관리자는 단일 인터페이스에서 문제를 파악할 수 있습니다. 서비스는 사용자 및 관리 작업 모두에 대 한 활동 로그를 만듭니다. 각 활동 로그는 다음과 같은 범주에 속합니다.
 
 - 관리 작업:
     - Api 또는 PowerShell을 사용 하 여 Windows 가상 데스크톱 개체를 변경 하려는 시도가 성공 했는지 여부를 추적 합니다. 예를 들어 사용자가 PowerShell을 사용 하 여 호스트 풀을 성공적으로 만들 수 있나요?

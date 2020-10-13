@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601455"
 ---
 # <a name="azure-ad-joined-devices"></a>Azure AD 조인 디바이스
 
 Azure AD 조인은 클라우드 우선 또는 클라우드 전용으로 사용하려는 조직을 위한 것입니다. 모든 조직에서 규모 또는 업계에 관계없이 Azure AD 조인 디바이스를 배포할 수 있습니다. Azure AD 조인은 하이브리드 환경에서도 작동하므로 클라우드 및 온-프레미스 앱과 리소스 모두에 액세스할 수 있습니다.
 
-| Azure AD 조인 | Description |
+| Azure AD 조인 | 설명 |
 | --- | --- |
 | **정의** | 조직 계정에서 디바이스에 로그인하는 데 필요한 Azure AD에만 조인됩니다. |
 | **기본 대상 그룹** | 클라우드 전용 및 하이브리드 조직 모두에 적합합니다. |

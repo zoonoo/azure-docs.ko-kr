@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 4a02fc8a04da658b3b6cbbb41e57114d6c4a0527
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231489"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Data Lake Analytics에 대 한 Azure 보안 기준
@@ -412,7 +412,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 * [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-* [역할 기반 Access Control 관리](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Role-Based Access Control 관리](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
 
 * [방화벽 규칙](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
 

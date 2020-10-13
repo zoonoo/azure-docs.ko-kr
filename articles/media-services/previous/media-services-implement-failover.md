@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89256534"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Media Services v2를 사용 하 여 장애 조치 스트리밍 구현
@@ -755,7 +755,7 @@ using System.Runtime.Serialization.Json;
 
 콘텐츠 보호에 대 한 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [Azure 웹 후크를 사용 하 여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)
 

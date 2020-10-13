@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377488"
 ---
 Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 이러한 25000 무료 월별 전자 메일을 통해 고급 보고 및 분석과 [모든 api][all APIs] (WEB, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스를 보려면 [SendGrid 솔루션][SendGrid Solutions] 페이지를 방문하세요.

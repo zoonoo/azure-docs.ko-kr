@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 69a47820d2afaf24f413aabf2c59a40c032070c1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231387"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Express 경로에 대 한 Azure 보안 기준
@@ -242,7 +242,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 구독에 대 한 Azure Portal의 IAM (Id 및 액세스 제어) 창을 사용 하 여 azure RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다.
 
-또한 Express 경로 파트너 리소스 관리자 API를 사용 하는 파트너는 역할 기반 Access Control를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
+또한 Express 경로 파트너 리소스 관리자 API를 사용 하는 파트너는 expressRouteCrossConnection 리소스에 Role-Based Access Control 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
 
 * [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -459,7 +459,7 @@ Express 경로를 통해 사이트 간 IPSEC을 구성 하는 방법: https://do
 
 Azure Express 경로에는 회로 소유자 및 회로 사용자 역할도 있습니다. 회로 사용자는 ExpressRoute 회로와 동일한 구독 내에 있지 않은 가상 네트워크 게이트웨이의 소유자입니다. 회로 소유자는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크 연결이 삭제됩니다. 회로 사용자는 가상 네트워크당 하나의 권한 부여를 사용할 수 있습니다.
 
-또한 Express 경로 파트너 리소스 관리자 API를 사용 하는 파트너는 역할 기반 Access Control를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
+또한 Express 경로 파트너 리소스 관리자 API를 사용 하는 파트너는 expressRouteCrossConnection 리소스에 Role-Based Access Control 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
 
 * [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -891,7 +891,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호 합니다.
+**지침**: 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 하기 위해 Key Vault에서 Soft-Delete를 사용 하도록 설정 합니다.
 
 * [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 

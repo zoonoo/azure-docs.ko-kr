@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
 ms.openlocfilehash: 49fb77b4efbbecb306a0650cb17097b43e5153ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309152"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>텍스트 분석 API의 모델 버전 관리
 
-텍스트 분석 API 버전 3을 사용 하 여 데이터에 사용 되는 모델 버전을 선택할 수 있습니다. 선택적 `model-version` 매개 변수를 사용 하 여 API 요청에서 모델의 버전을 선택 합니다. 예: `<resource-url>/text/analytics/v3.0/sentiment?model-version=2020-04-01`. 이 매개 변수를 지정 하지 않으면 API는 기본적으로 안정적인 최신 버전으로 지정 됩니다. 
+텍스트 분석 API 버전 3을 사용 하 여 데이터에 사용 되는 모델 버전을 선택할 수 있습니다. 선택적 `model-version` 매개 변수를 사용 하 여 API 요청에서 모델의 버전을 선택 합니다. 예: `<resource-url>/text/analytics/v3.0/sentiment?model-version=2020-04-01` 이 매개 변수를 지정 하지 않으면 API는 기본적으로 안정적인 최신 버전으로 지정 됩니다. 
 
 ## <a name="available-versions"></a>사용 가능한 버전
 

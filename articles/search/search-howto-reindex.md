@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 10c7d4146d61f5b589b29bc8faad5fa8e60a293a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88924030"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
@@ -37,7 +37,7 @@ ms.locfileid: "88924030"
 
 다음 조건 중 하나라도 충족 되 면 인덱스를 삭제 하 고 다시 만듭니다. 
 
-| 조건 | Description |
+| 조건 | 설명 |
 |-----------|-------------|
 | 필드 정의 변경 | 필드 이름, 데이터 형식 또는 특정 [인덱싱 특성](/rest/api/searchservice/create-index)(검색 가능, 필터링 가능, 정렬 가능, 패싯 가능)을 수정하려면 전체적으로 다시 작성해야 합니다. |
 | 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당*은 필드를 만들 때만 가능합니다. **분석기**와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |

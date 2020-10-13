@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 �
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: e462fb25672fa1912f7bb24efad4ea9a6d27d078
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88816646"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성 
@@ -30,7 +30,7 @@ ms.locfileid: "88816646"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 

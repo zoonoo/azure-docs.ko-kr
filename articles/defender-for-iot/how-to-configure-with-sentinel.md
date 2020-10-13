@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 71147352c5b75195ed0dff2b05acc5315f3183cc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940060"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>IoT 용 Defender의 데이터를 Azure 센티널에 연결 (미리 보기)
@@ -26,13 +26,13 @@ Azure 센티널의 IoT 데이터 커넥터용 Azure Security Center은 현재 �
 이 가이드에서는 IoT 용 Defender 데이터를 Azure 센티널에 연결 하는 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
+> * 필수 구성 요소
 > * 연결 설정
 > * Log Analytics 경고 보기
 
 IoT 용 Defender에서 경고를 연결 하 고 Azure 센티널로 직접 스트리밍합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 작업 영역 **읽기** 및 **쓰기** 권한이 있어야 합니다.
 - **IoT 용 Defender는** 관련 IoT Hub에서 **사용 하도록 설정** 해야 합니다.

@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: ceab9af7e6556b2d957fafce8cd89d4a0daf9508
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940769"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>원호의 사용 PostgreSQL Hyperscale 서버 그룹 구성 표시
@@ -36,7 +36,7 @@ Postgres 형식의 Kubernetes 리소스를 나열 합니다. 명령 실행:
 kubectl get postgresqls [-n <namespace name>]
 ```
 
-이 명령의 출력은 생성 된 서버 그룹 목록을 보여 줍니다. 각에 대해 pod의 수를 나타냅니다. 다음은 그 예입니다. 
+이 명령의 출력은 생성 된 서버 그룹 목록을 보여 줍니다. 각에 대해 pod의 수를 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```output
 NAME                                             STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
@@ -54,7 +54,7 @@ postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:3
 kubectl get pods [-n <namespace name>]
 ```
 
-그러면 pod 목록이 반환 됩니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용 하는 pod 표시 됩니다. 다음은 그 예입니다. 
+그러면 pod 목록이 반환 됩니다. 서버 그룹에 지정한 이름에 따라 서버 그룹에서 사용 하는 pod 표시 됩니다. 예를 들면 다음과 같습니다.
 
 ```console 
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -108,7 +108,7 @@ kubectl get pvc [-n <namespace name>]
 - `data-`...: 데이터 파일에 사용 되는 PVC
 - `logs-`...: 트랜잭션 로그/WAL 파일에 사용 되는 PVC
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```output
 NAME                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
@@ -183,7 +183,7 @@ Kubectl를 사용 하 여 Postgres 리소스를 설명 합니다. 이렇게 하�
 kubectl describe <CRD name>/<server group name> [-n <namespace name>]
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 kubectl describe postgresql-12/postgres02
@@ -271,7 +271,7 @@ Events:               <none>
 azdata arc postgres server show -n <server group name>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres server show -n postgres02
@@ -369,4 +369,4 @@ Kubectl에서 반환 하는 것과 매우 유사한 형식 및 내용으로 아�
 - [저장소 구성에 대 한 읽기 권한](storage-configuration.md)
 - [데이터베이스 인스턴스를 모니터링 하는 방법 읽기](monitor-grafana-kibana.md)
 - [Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에서 PostgreSQL 확장 사용](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 보안 구성](configure-security-postgres-hyperscale.md)
+- [Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성](configure-security-postgres-hyperscale.md)

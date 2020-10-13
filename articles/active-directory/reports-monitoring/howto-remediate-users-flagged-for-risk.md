@@ -16,10 +16,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600503"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
@@ -67,7 +67,7 @@ Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** �
 
     b. 사서함 대리자를 제거합니다.
 
-    c. 외부 도메인에 대한 메일 전달 규칙을 사용하지 않도록 설정합니다.
+    다. 외부 도메인에 대한 메일 전달 규칙을 사용하지 않도록 설정합니다.
 
     d. 사서함에서 전역 메일 전달 속성을 제거합니다.
 

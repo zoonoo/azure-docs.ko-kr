@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88924697"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 변환 인식 기술
@@ -54,7 +54,7 @@ Microsoft.Skills.Text.TranslationSkill
 
 ## <a name="skill-outputs"></a>기술 출력
 
-| 출력 이름    | Description |
+| 출력 이름    | 설명 |
 |--------------------|-------------|
 | translatedText | TranslatedFromLanguageCode에서 translatedToLanguageCode로 텍스트 변환의 문자열 결과입니다.|
 | translatedToLanguageCode  | 텍스트를 번역 한 언어 코드를 나타내는 문자열입니다. 여러 언어로 번역 하 고 어떤 언어가 어떤 언어로 된 텍스트를 추적할 수 있게 하려는 경우에 유용 합니다.|

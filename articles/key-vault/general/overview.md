@@ -1,22 +1,21 @@
 ---
-title: Azure Key Vault 개요 - Azure Key Vault | Microsoft Docs
+title: Azure Key Vault 개요 - Azure Key Vault
 description: Azure Key Vault는 보안 비밀 저장소로, 모두 하드웨어 보안 모듈에서 지원하는 비밀, 키 및 인증서에 대한 관리를 제공합니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a9886b005c5459456e005273dd11e2c3c183176f
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421648"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744239"
 ---
 # <a name="about-azure-key-vault"></a>Azure Key Vault 정보
 
@@ -24,8 +23,9 @@ Azure Key Vault는 다음 문제를 해결하는 데 도움이 됩니다.
 
 - **비밀 관리** - Azure Key Vault를 사용하여 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 엄격히 제어할 수 있습니다.
 - **키 관리** - Azure Key Vault를 키 관리 솔루션으로 사용할 수도 있습니다. Azure Key Vault를 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
-- **인증서 관리** - Azure Key Vault는 Azure 및 내부 연결 리소스와 함께 사용할 퍼블릭 및 프라이빗 SSL/TLS(Transport Layer Security/Secure Sockets Layer) 인증서를 쉽게 프로비전, 관리 및 배포할 수 있는 서비스이기도 합니다. 
-- **하드웨어 보안 모듈을 통해 지원되는 비밀 저장** - 스토어의 비밀, 키 및 인증서는 소프트웨어 키(표준 계층) 또는 FIPS 140-2 수준 2 인증 HSM 키(프리미엄 계층)로 암호화됩니다. 
+- **인증서 관리** - Azure Key Vault는 Azure 및 내부 연결 리소스와 함께 사용할 퍼블릭 및 프라이빗 SSL/TLS(Transport Layer Security/Secure Sockets Layer) 인증서를 쉽게 프로비전, 관리 및 배포할 수 있는 서비스이기도 합니다.
+
+Azure Key Vault에는 다음과 같은 두 가지 서비스 계층이 있습니다. 소프트웨어 키로 암호화하는 표준 계층 및 HSM 보호 키를 포함하는 프리미엄 계층. 표준 계층과 프리미엄 계층 간의 비교를 보려면 [Azure Key Vault 가격 책정 페이지](/pricing/details/key-vault)를 참조하세요.
 
 ## <a name="why-use-azure-key-vault"></a>Azure Key Vault를 사용하는 이유는?
 
@@ -37,13 +37,11 @@ Azure Key Vault에 애플리케이션 비밀을 중앙 집중식으로 스토리
 
 ### <a name="securely-store-secrets-and-keys"></a>안전하게 비밀 및 키 저장
 
-Azure에서는 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 비밀 및 키를 보호합니다. 사용되는 HSM은 FIPS(Federal Information Processing Standards) 140-2 수준 2 유효성 검사를 통과했습니다.
-
 Key Vault에 액세스하려면 호출자(사용자 또는 애플리케이션)가 액세스할 수 있도록 적절한 인증 및 권한 부여가 필요합니다. 인증은 호출자의 ID를 확인하는 반면 권한 부여는 수행할 수 있는 작업을 결정합니다.
 
 인증은 Azure Active Directory를 통해 수행됩니다. 권한 부여는 RBAC(역할 기반 액세스 제어) 또는 Key Vault 액세스 정책을 통해 수행할 수 있습니다. RBAC는 자격 증명 모음 관리를 처리할 때 사용되며, Key Vault 액세스 정책은 자격 증명 모음에 저장된 데이터에 액세스하려고 할 때 사용됩니다.
 
-Azure Key Vault는 소프트웨어 또는 하드웨어 HSM으로 보호될 수 있습니다. 추가 보증이 필요한 경우, HSM 경계를 절대로 떠나지 않는 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. Microsoft는 nCipher 하드웨어 보안 모듈을 사용합니다. nCipher 도구를 사용하여 HSM에서 Azure Key Vault로 키를 이동할 수 있습니다.
+Azure Key Vault는 소프트웨어로 보호되거나 Azure Key Vault 프리미엄 계층을 통해 HSM(하드웨어 보안 모듈)에서 보호될 수 있습니다. 소프트웨어 보호 키, 비밀 및 인증서는 업계 표준 알고리즘 및 키 길이를 사용하여 Azure에서 보호됩니다.  추가 보증이 필요한 경우, HSM 경계를 벗어나지 않는 HSM에서 키를 가져오거나 생성할 수 있습니다. Azure Key Vault는 FIPS(Federal Information Processing Standards) 140-2 수준 2의 유효성이 검사된 nCipher HSM을 사용합니다. nCipher 도구를 사용하여 HSM에서 Azure Key Vault로 키를 이동할 수 있습니다.
 
 마지막으로 Azure Key Vault는 Microsoft에서 데이터를 보거나 추출할 수 없게 설계되어 있습니다.
 

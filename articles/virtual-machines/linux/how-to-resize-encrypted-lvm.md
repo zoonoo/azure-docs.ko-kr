@@ -7,10 +7,10 @@ ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
 ms.openlocfilehash: 3a3e9b7406e11261aff12d77d9fbeed5debbe938
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744273"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Azure Disk Encryption를 사용 하는 논리 볼륨 관리 장치의 크기를 조정 하는 방법
@@ -27,7 +27,7 @@ ms.locfileid: "91744273"
     - 단일 패스 확장
     - 이중 패스 확장
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 

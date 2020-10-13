@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90603835"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922823"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Azure Cognitive Search의 OData 함수
@@ -48,7 +48,7 @@ ms.locfileid: "88922823"
 
 ## <a name="syntax"></a>구문
 
-다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 함수의 문법을 정의 합니다 `search.in` .
+다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 함수의 문법을 정의 합니다 `search.in` .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -74,7 +74,7 @@ search_in_call ::=
 
 매개 변수는 다음 표에 정의 되어 있습니다.
 
-| 매개 변수 이름 | Type | Description |
+| 매개 변수 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | `variable` | `Edm.String` | 또는 식 내에서가 사용 되는 경우 문자열 필드 참조 (또는 문자열 컬렉션 필드의 범위 변수 `search.in` `any` `all` )입니다. |
 | `valueList` | `Edm.String` | 매개 변수와 비교할 구분 된 값 목록을 포함 하는 문자열 `variable` 입니다. `delimiters`매개 변수가 지정 되지 않은 경우 기본 구분 기호는 공백과 쉼표입니다. |

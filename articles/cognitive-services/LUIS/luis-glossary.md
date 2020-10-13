@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309492"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
@@ -286,8 +286,8 @@ LUIS [list 엔터티](reference-entity-list.md)에서 정규화 된 값을 만�
 |Nomalized 값| 동의어|
 |--|--|
 |작음| 작은 1, 8 온스|
-|중형| 일반, 12 온스|
-|큼| 큼, 16 온스|
+|중간| 일반, 12 온스|
+|큰| 큼, 16 온스|
 |Xtra 큼| 가장 큰 1, 24 온스|
 
 모델은 입력에 동의어가 표시 될 때 엔터티에 대 한 정규화 된 값을 반환 합니다.
