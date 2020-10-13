@@ -13,12 +13,12 @@ ms.date: 09/6/2019
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77084062"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966001"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -238,19 +238,16 @@ public interface SilentAuthenticationCallback {
 ADAL에는 `AuthenticationException` 열거형 값을 검색 하기 위한 메서드를 포함 하는 예외 형식이 하나 있습니다 `ADALError` .
 MSAL에는 예외 계층이 있으며 각 계층에는 관련 된 특정 오류 코드 집합이 있습니다.
 
-MSAL 예외 목록
-
-|예외  | 설명  |
-|---------|---------|
-| `MsalException`     | MSAL에서 throw 된 기본 확인 된 예외입니다.  |
-| `MsalClientException`     | 오류가 클라이언트 쪽 인 경우 throw 됩니다. |
-| `MsalArgumentException`     | 하나 이상의 입력 인수가 잘못 된 경우 throw 됩니다. |
-| `MsalClientException`     | 오류가 클라이언트 쪽 인 경우 throw 됩니다. |
-| `MsalServiceException`     | 오류가 서버 쪽 인 경우 throw 됩니다. |
-| `MsalUserCancelException`     | 사용자가 인증 흐름을 취소 한 경우 throw 됩니다.  |
-| `MsalUiRequiredException`     | 토큰을 자동으로 새로 고칠 수 없는 경우 throw 됩니다.  |
-| `MsalDeclinedScopeException`     | 서버에서 하나 이상의 요청 된 범위를 거부 한 경우 throw 됩니다.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | 리소스에서 MAMCA 보호 정책을 사용 하도록 설정한 경우 throw 됩니다. |
+| 예외                                        | 설명                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | MSAL에서 throw 된 기본 확인 된 예외입니다.                           |
+| `MsalClientException`                            | 오류가 클라이언트 쪽 인 경우 throw 됩니다.                                 |
+| `MsalArgumentException`                          | 하나 이상의 입력 인수가 잘못 된 경우 throw 됩니다.                 |
+| `MsalServiceException`                           | 오류가 서버 쪽 인 경우 throw 됩니다.                                 |
+| `MsalUserCancelException`                        | 사용자가 인증 흐름을 취소 한 경우 throw 됩니다.                |
+| `MsalUiRequiredException`                        | 토큰을 자동으로 새로 고칠 수 없는 경우 throw 됩니다.                    |
+| `MsalDeclinedScopeException`                     | 서버에서 하나 이상의 요청 된 범위를 거부 한 경우 throw 됩니다. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | 리소스에서 MAMCA 보호 정책을 사용 하도록 설정한 경우 throw 됩니다.         |
 
 ### <a name="adalerror-to-msalexception-errorcode"></a>ADALError에서 MsalException ErrorCode
 

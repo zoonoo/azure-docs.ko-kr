@@ -10,10 +10,10 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87319170"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - IntelliJ
@@ -24,7 +24,7 @@ ms.locfileid: "87319170"
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
@@ -91,7 +91,7 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 1. **start.cmd** 스크립트를 실행합니다. 스크립트에서 다음 정보를 요구하는 메시지가 표시됩니다.
 
    * 솔루션 이름
-   * Azure 구독을 사용합니다.
+   * 사용할 Azure 구독입니다.
    * 사용할 Azure 데이터 센터의 위치
 
    이 스크립트는 Azure에서 솔루션 이름이 있는 리소스 그룹을 만듭니다. 이 리소스 그룹에는 솔루션 가속기에서 사용 하는 Azure 리소스가 포함 되어 있습니다. 해당 리소스가 더 이상 필요 하지 않은 경우이 리소스 그룹을 삭제할 수 있습니다.
@@ -191,10 +191,10 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 
 서비스의 상태에 액세스 하려면 다음 Url로 이동 합니다.
 
-* IoT-허브 관리자:`http://localhost:9002/v1/status`
-* 장치 원격 분석:`http://localhost:9004/v1/status`
-* config`http://localhost:9005/v1/status`
-* 저장소 어댑터:`http://localhost:9022/v1/status`
+* IoT-Hub 관리자: `http://localhost:9002/v1/status`
+* 장치 원격 분석: `http://localhost:9004/v1/status`
+* config `http://localhost:9005/v1/status`
+* 저장소 어댑터: `http://localhost:9022/v1/status`
 
 ### <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작
 

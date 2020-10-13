@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361350"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Azure에서 PerfInsights를 사용 하는 방법
@@ -71,7 +71,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 이 시나리오에서는 네트워크 추적과 함께 특별한 성능 카운터 캡처를 실행합니다. 캡처에는 모든 SMB(Server Message Block) 클라이언트 공유 카운터가 포함됩니다. 다음은 캡처에 포함되는 몇 가지 주요 SMB 클라이언트 공유 성능 카운터입니다.
 
-| **유형**     | **SMB 클라이언트 공유 카운터** |
+| **형식**     | **SMB 클라이언트 공유 카운터** |
 |--------------|-------------------------------|
 | IOPS         | 데이터 요청 수/초             |
 |              | 읽기 요청 수/초             |
@@ -171,7 +171,7 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
    * Windows Server 2012 R2
    * Windows Server 2012
    * Windows Server 2008 R2
-   * Windows 10
+   * 윈도우 10
    * Windows 8.1
    * Windows 8
 

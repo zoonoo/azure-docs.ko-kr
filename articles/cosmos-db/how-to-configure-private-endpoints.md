@@ -8,10 +8,10 @@ ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334432"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
@@ -98,7 +98,7 @@ Azure Cosmos 계정에 대한 Private Link를 승인하면 Azure Portal에서 **
 1. 이전에 만든 프라이빗 엔드포인트를 검색합니다. 이 문서에서는 **cdbPrivateEndpoint3**입니다.
 1. **개요** 탭을 선택하여 DNS 설정 및 IP 주소를 확인합니다.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Azure Portal의 개인 IP 주소":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Azure Portal에서 프라이빗 엔드포인트를 만들기 위해 선택하는 항목":::
 
 프라이빗 엔드포인트마다 다음과 같은 여러 IP 주소가 생성됩니다.
 
@@ -411,7 +411,7 @@ PowerShell 스크립트의 `GroupId` 변수는 하나의 값만 포함할 수 �
 
 템플릿이 성공적으로 배포되면 다음 이미지와 비슷한 출력을 볼 수 있습니다. 프라이빗 엔드포인트가 올바르게 설정되면 `provisioningState` 값이 `Succeeded`입니다.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Resource Manager 템플릿의 배포 출력":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Azure Portal에서 프라이빗 엔드포인트를 만들기 위해 선택하는 항목":::
 
 템플릿이 배포된 후에는 서브넷 내에서 개인 IP 주소가 예약됩니다. Azure Cosmos 계정의 방화벽 규칙은 프라이빗 엔드포인트의 연결만 허용하도록 구성됩니다.
 

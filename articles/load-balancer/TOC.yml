@@ -45,7 +45,7 @@
       href: whats-new.md
     - name: 구성 요소
       href: components.md
-    - name: 개념
+    - name: 부하 분산 알고리즘
       href: concepts.md
     - name: SKU
       href: skus.md

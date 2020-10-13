@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447330"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977034"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Windows 중지 오류-0x00000074 잘못 된 시스템 구성 정보
 
@@ -27,7 +27,7 @@ ms.locfileid: "91447330"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서 Windows 중지 코드 **#0x00000074** 또는 **BAD_SYSTEM_CONFIG_INFO**표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린 샷에서 Windows 중지 코드 **#0x00000074** 또는 **BAD_SYSTEM_CONFIG_INFO**표시 되는 것을 볼 수 있습니다.
 
 *PC에서 문제가 발생 하 여 컴퓨터를 다시 시작 해야 합니다. 를 다시 시작할 수 있습니다.* 
  *이 문제 및 가능한 해결 방법에 대 한 자세한 내용은 http://windows.com/stopcode 다음을 참조 하세요.* 
@@ -58,7 +58,7 @@ ms.locfileid: "91447330"
 
 ### <a name="create-and-access-a-repair-vm"></a>복구 VM 만들기 및 액세스
 
-1. [VM 복구 명령](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
+1. [VM 복구 명령](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md)의 1 ~ 3단계를 사용하여 복구 VM을 준비합니다.
 1. Hive 손상이 있는지 확인 합니다.
 1. 원격 데스크톱 연결를 사용 하 여 복구 VM에 연결 합니다.
 1. 폴더를 복사 `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` 하 여 정상 디스크 파티션이나 다른 안전한 위치에 저장 합니다. 중요 한 레지스트리 파일을 편집할 수 있기 때문에이 폴더를 예방 조치로 백업 합니다. 
@@ -133,4 +133,4 @@ ms.locfileid: "91447330"
    
 ### <a name="rebuild-the-vm"></a>VM 다시 빌드
 
-[VM 복구 명령의 5단계](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
+[VM 복구 명령의 5단계](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example)를 사용하여 VM을 다시 빌드합니다.
