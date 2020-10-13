@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328645"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
@@ -49,11 +49,13 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
  
 2. Cloud Shell 아이콘 모음에서 Cloud Shell PowerShell 버전을 실행 하도록 설정 되었는지 확인 합니다.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창&quot;:::
 
-1. "파일 업로드/다운로드" 아이콘을 선택 하 고 "업로드"를 선택 합니다.
+1. &quot;파일 업로드/다운로드" 아이콘을 선택 하 고 "업로드"를 선택 합니다.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="업로드 아이콘의 선택 항목을 보여 주는 Cloud Shell 창":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창&quot;:::
+
+1. &quot;파일 업로드/다운로드":::
 
     컴퓨터의 _**deploy.ps1**_ 파일 ( _Azure_Digital_Twins_samples > 스크립트 > **deploy.ps1** _)로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
 
@@ -69,7 +71,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
     * 인스턴스의 경우: *리소스 그룹* 이름입니다. 기존 리소스 그룹을 사용 하거나 새 이름을 입력 하 여 만들 수 있습니다.
     * 인스턴스의 경우: Azure Digital Twins 인스턴스의 *이름* 입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
     * 앱 등록: 등록에 연결할 *AZURE AD 응용 프로그램 표시 이름* 입니다. 이 앱 등록에서는 [Azure Digital Twins api](how-to-use-apis-sdks.md)에 대 한 액세스 권한을 구성 합니다. 나중에 클라이언트 앱이 앱 등록에 대해 인증 되 고, 그 결과 Api에 대해 구성 된 액세스 권한이 부여 됩니다.
-    * 앱 등록의 경우: Azure AD 응용 프로그램에 대 한 *AZURE ad 응용 프로그램 회신 URL* 입니다. `http://localhost`을 사용하세요. 이 스크립트는 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 설정 합니다.
+    * 앱 등록의 경우: Azure AD 응용 프로그램에 대 한 *AZURE ad 응용 프로그램 회신 URL* 입니다. `http://localhost`을 사용합니다. 이 스크립트는 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 설정 합니다.
 
 이 스크립트는 azure Digital Twins 인스턴스를 만들고, azure 사용자에 게 인스턴스에 대 한 azure *Digital Twins 소유자 (미리 보기)* 역할을 할당 하 고, 사용할 클라이언트 앱에 대 한 azure AD 앱 등록을 설정 합니다.
 
@@ -82,7 +84,9 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 다음은 스크립트에서 출력 로그를 발췌 한 것입니다.
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="배포 스크립트를 실행 하 여 입력 및 출력 로그를 표시 하는 Cloud Shell 창" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창&quot;:::
+
+1. &quot;파일 업로드/다운로드" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 스크립트가 성공적으로 완료 되 면 최종 인쇄물은로 표시 됩니다 `Deployment completed successfully` . 그렇지 않으면 오류 메시지를 해결 하 고 스크립트를 다시 실행 합니다. 이미 완료 한 단계를 무시 하 고 종료 된 지점에서 입력 요청을 다시 시작 합니다.
 
@@ -103,7 +107,9 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 이를 선택 하면 인스턴스의 *개요* 페이지가 열립니다. *이름*, *리소스 그룹*및 *호스트 이름을*확인 합니다. 나중에 인스턴스를 식별 하 고 연결 하는 데 필요할 수 있습니다.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="인스턴스의 개요 페이지에서 중요 한 값 강조 표시":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창&quot;:::
+
+1. &quot;파일 업로드/다운로드":::
 
 ### <a name="collect-app-registration-values"></a>앱 등록 값 수집 
 
@@ -113,7 +119,9 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 이 목록에서 방금 만든 앱 등록이 표시 됩니다. 이를 선택 하 여 세부 정보를 엽니다.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="앱 등록에 대 한 중요 한 값의 포털 보기":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창&quot;:::
+
+1. &quot;파일 업로드/다운로드":::
 
 **페이지에** 표시 된 *응용 프로그램 (클라이언트) id* 및 *디렉터리 (테 넌 트) id* 를 기록해 둡니다. 클라이언트 응용 프로그램에 대 한 코드를 작성 하는 사람이 아닌 경우이 값을 지정할 사용자와 공유 해야 합니다.
 

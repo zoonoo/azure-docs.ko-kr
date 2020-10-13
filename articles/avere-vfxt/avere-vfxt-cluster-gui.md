@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505616"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
@@ -39,7 +39,7 @@ ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_pub
 
 이 명령은 클러스터 컨트롤러의 IP 주소를 통해 클러스터의 관리 IP 주소에 연결합니다.
 
-예:
+예제:
 
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51

@@ -7,10 +7,10 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86539655"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 네트워크 성능 모니터에 대한 가격 책정 변경
@@ -18,7 +18,7 @@ ms.locfileid: "86539655"
 사용자의 의견을 수렴하여 최근에 Azure의 다양한 모니터링 서비스에 대한 [새로운 가격 책정 환경](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)을 도입했습니다. 이 문서는 Azure [NPM(네트워크 성능 모니터)](../../networking/network-monitoring-overview.md)과 관련된 가격 책정 변경 사항을 읽기 쉽게 질문과 대답 형식으로 담아낸 것입니다.
 
 네트워크 성능 모니터는 세 가지 구성 요소로 이루어집니다.
-* [성능 모니터링](../../networking/network-monitoring-overview.md#performance-monitor)
+* [성능 모니터](../../networking/network-monitoring-overview.md#performance-monitor)
 * [서비스 엔드포인트 모니터](../../networking/network-monitoring-overview.md)
 * [Express 경로 모니터](../../networking/network-monitoring-overview.md#expressroute-monitor)
 
@@ -109,6 +109,6 @@ ExpressRoute가 프라이빗 피어링 연결을 모니터링할 때 생성되�
 
 한 달 동안 엔드포인트를 모니터링 하는 데 드는 비용은 [연결 모니터링](https://azure.microsoft.com/pricing/details/network-watcher/) 섹션을 참조 하세요. 데이터 요금은 데이터 수집 섹션에서 Log Analytics에 대한 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인할 수 있습니다.
 
-## <a name="references"></a>참고 자료
+## <a name="references"></a>참조
 
 [Log Analytics 가격 책정 FAQ](https://azure.microsoft.com/pricing/details/log-analytics/): FAQ 섹션에는 무료 계층, 노드당 가격 책정, 기타 가격 책정 정보가 있습니다.

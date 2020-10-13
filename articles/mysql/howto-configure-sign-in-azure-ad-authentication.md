@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.openlocfilehash: 0418785fe558503b716ff1e798446fb64db998b1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87799841"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>MySQL을 사용 하 여 인증을 위해 Azure Active Directory 사용
@@ -57,7 +57,7 @@ Azure AD를 인식하지 못하고 MySQL에 연결할 때 사용자 이름 및 �
 
 다음은 사용자/애플리케이션에서 Azure AD로 인증해야 하는 단계입니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 Azure Cloud Shell, Azure VM 또는 로컬 컴퓨터에서 수행할 수 있습니다. [Azure CLI가 설치](/cli/azure/install-azure-cli)되어 있는지 확인합니다.
 
@@ -126,7 +126,7 @@ mysql -h mydb.mysql.database.azure.com \
 
 연결할 때 중요 한 고려 사항:
 
-* `user@tenant.onmicrosoft.com`연결 하려는 Azure AD 사용자 또는 그룹의 이름입니다.
+* `user@tenant.onmicrosoft.com` 연결 하려는 Azure AD 사용자 또는 그룹의 이름입니다.
 * 항상 Azure AD 사용자/그룹 이름 뒤에 서버 이름을 추가 합니다 (예: `@mydb` ).
 * Azure AD 사용자 또는 그룹 이름에 대 한 정확한 방법을 사용 해야 합니다.
 * Azure AD 사용자 및 그룹 이름은 대/소문자를 구분 합니다.

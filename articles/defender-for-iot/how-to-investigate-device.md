@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
 ms.openlocfilehash: cd7802fa4a88c3b05140d30ab4d8b2bbd4adc8f4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940025"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
@@ -39,7 +39,7 @@ IoT 서비스 경고에 대 한 Defender는 IoT 장치에서 의심 스러운 �
 1. IoT Hub를 엽니다.
 1. **보안**아래에서 **설정**을 선택 하 고 **데이터 수집**을 선택 합니다.
 1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다.
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 구성이 완료되면 다음을 수행하여 Log Analytics 작업 영역에 저장된 데이터에 액세스합니다.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
 ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83590539"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Azure Cognitive Services 지원 및 사용자 의견 옵션
@@ -28,7 +28,7 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-클라우드를 시작 하는 개발자 또는 비즈니스에 중요 한 전략적 응용 프로그램을 배포 하는 대기업에 있든 관계 없이 [Azure 지원 옵션](https://azure.microsoft.com/support/plans) 의 범위를 살펴보고 가장 적합 한 계획을 선택 합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
+지금 클라우드를 시작하려는 개발자든 비즈니스에 중요한 전략적 애플리케이션을 배포하려는 대규모 조직이든 관계없이 가장 적합한 [Azure 지원 옵션 및 플랜 선택](https://azure.microsoft.com/support/plans)의 범위를 탐색합니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
@@ -47,9 +47,9 @@ Azure Cognitive Services의 기능을 탐색 하는 것을 시작 하 고 있나
 
 여기서 `{search keywords}` 는 검색의 컨텍스트입니다. 이러한 범위 지정 검색을 적절 하 게 사용 하는 것이 좋습니다.
 
- - Stack Overflow:`site:stackoverflow.com`
- - Microsoft Docs:`site:docs.microsoft.com`
- - GitHub 샘플:`site:github.com/azure-samples`
+ - Stack Overflow: `site:stackoverflow.com`
+ - Microsoft Docs: `site:docs.microsoft.com`
+ - GitHub 샘플: `site:github.com/azure-samples`
 
 ### <a name="post-a-question-on-stack-overflow"></a>Stack Overflow에 질문 게시
 
@@ -83,7 +83,7 @@ Azure 블로그의 새 릴리스 또는 뉴스의 기능에 대 한 정보를 �
  - [언어 이해(LUIS)](LUIS/whats-new.md)
  - [음성 서비스](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
- - [Text Analytics](text-analytics/whats-new.md)
+ - [텍스트 분석](text-analytics/whats-new.md)
  - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Azure 블로그
@@ -131,9 +131,9 @@ Reddit는 커뮤니티 중심의 토론 웹 사이트로, [Azure Cognitive Servi
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| Text Analytics                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Translator               | https://cognitive.uservoice.com/forums/558796-translator |
-| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| 텍스트 분석                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| 변환기               | https://cognitive.uservoice.com/forums/558796-translator |
+| 비디오 인덱서                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>버그 보고
 
@@ -156,7 +156,7 @@ Reddit는 커뮤니티 중심의 토론 웹 사이트로, [Azure Cognitive Servi
 * [Cognitive Services: Dotnet](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 * [Cognitive Services: Go](https://github.com/Azure-Samples/azure-sdk-for-go-samples)
 * [Cognitive Services: Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-* [Cognitive Services: node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+* [Cognitive Services: Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Cognitive Services: Python](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
 #### <a name="cognitive-services-sdk-source-code"></a>Cognitive Services SDK 소스 코드

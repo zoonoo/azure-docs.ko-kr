@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82997765"
 ---
 # <a name="voice-assistants-on-windows"></a>Windows의 음성 도우미
@@ -43,11 +43,11 @@ AAR (에이전트 활성화 런타임)는 음성 키워드나 단추 누름에�
 
 ### <a name="receiving-an-activation"></a>활성화 받기
 
-AAR에서 요청을 받으면 백그라운드 서비스가 응용 프로그램을 시작 합니다. 응용 프로그램은 고유한 이벤트 인수를 사용 하 여의 `App.xaml.cs` OnBackgroundActivated 수명 주기 메서드를 통해 신호를 받습니다. 이 인수는 응용 프로그램이 AAR에 의해 활성화 되었으며 키워드 확인을 시작 하도록 응용 프로그램에 지시 합니다.
+AAR에서 요청을 받으면 백그라운드 서비스가 응용 프로그램을 시작 합니다. 응용 프로그램은 `App.xaml.cs` 고유한 이벤트 인수를 사용 하 여의 OnBackgroundActivated 수명 주기 메서드를 통해 신호를 받습니다. 이 인수는 응용 프로그램이 AAR에 의해 활성화 되었으며 키워드 확인을 시작 하도록 응용 프로그램에 지시 합니다.
 
 응용 프로그램에서 키워드를 성공적으로 확인 하는 경우 요청을 포그라운드에서 표시 하도록 할 수 있습니다. 이 요청이 성공 하면 응용 프로그램은 UI를 표시 하 고 사용자와의 상호 작용을 계속 합니다.
 
-AAR는 키워드를 말한 경우에도 활성 응용 프로그램에 신호를 보냅니다. 그러나에서 `App.xaml.cs`수명 주기 메서드를 통해 신호를 전달 하는 대신 ConversationalAgent api의 이벤트를 통해 신호를 보냅니다.
+AAR는 키워드를 말한 경우에도 활성 응용 프로그램에 신호를 보냅니다. 그러나에서 수명 주기 메서드를 통해 신호를 전달 하는 대신 `App.xaml.cs` ConversationalAgent api의 이벤트를 통해 신호를 보냅니다.
 
 ### <a name="keyword-verification"></a>키워드 확인
 

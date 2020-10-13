@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
 ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514686"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 모니터링합니다.
@@ -29,7 +29,7 @@ StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 솔루션
 
 
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 **사용량**은 볼륨, 볼륨 컨테이너 또는 디바이스에서 사용되는 데이터 스토리지 공간의 양과 관련된 메트릭을 추적합니다. 기본 스토리지, 클라우드 스토리지 또는 디바이스 스토리지 용량 사용률을 기반으로 보고서를 만들 수 있습니다. 용량 사용률은 특정 볼륨, 특정 볼륨 컨테이너 또는 모든 볼륨 컨테이너에 대해 측정될 수 있습니다.
 기본적으로 지난 24시간 동안 사용량이 보고됩니다. 다음을 선택하여 보고되는 사용량에 대한 기간을 변경하기 위해 차트를 편집할 수 있습니다.
 * 지난 24시간

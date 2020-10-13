@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506713"
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
@@ -25,7 +25,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
   
 ## <a name="connect-in-power-bi-desktop"></a>Power BI Desktop에서 연결
 
-1. Power BI Desktop에서 **데이터 가져오기**  >  **Azure**  >  **Azure Analysis Services 데이터베이스**를 클릭 합니다.
+1. Power BI Desktop에서 **데이터 가져오기** > **Azure** > **Azure Analysis Services 데이터베이스**를 클릭합니다.
 
 2. **서버**에 서버 이름을 입력합니다. 전체 URL을 포함하려면 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다.
 

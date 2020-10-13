@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 650164556223a73a722bc91ecb31491ee98cb8a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307104"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-linux-virtual-machines"></a>Lsv2 시리즈 Linux 가상 머신에서 성능 최적화
@@ -97,7 +97,7 @@ Lsv2 시리즈 VM은 Zen 마이크로아키텍처를 기반으로 하는 AMD EYP
    Rq_affinity 설정은 최대 IOPS (초당 입력/출력 작업 수)를 사용 하는 경우 약간 조정 됩니다. 다른 모든 항목이 제대로 작동 하는 경우에는 rq_affinity를 0으로 설정 하 여 차이가 있는지 확인 하십시오.
 
 * **Blk_mq 설정을 변경 해야 하나요?**  
-   RHEL/CentOS 7.x는 NVMe 장치에 대해 blk-mq를 자동으로 사용 합니다. 구성 변경 이나 설정은 필요 하지 않습니다. Scsi_mod. use_blk_mq 설정은 vm에만 사용 되며 NVMe 장치가 게스트 Vm에 SCSI 장치로 표시 되기 때문에 Lsv2 Preview 중에 사용 되었습니다. 현재 NVMe 장치는 NVMe 장치로 표시 되므로 SCSI blk-mq 설정은 관련이 없습니다.
+   RHEL/CentOS 7.x는 NVMe 장치에 대해 blk-mq를 자동으로 사용 합니다. 구성 변경 이나 설정은 필요 하지 않습니다. Scsi_mod _blk_mq 설정은 SCSI에만 사용 되며, NVMe 장치는 게스트 Vm에 SCSI 장치로 표시 되기 때문에 Lsv2 Preview 중에 사용 되었습니다. 현재 NVMe 장치는 NVMe 장치로 표시 되므로 SCSI blk-mq 설정은 관련이 없습니다.
 
 * **"Fio"를 변경 해야 하나요?**  
    L64v2 및 L80v2 VM 크기에서 ' fio '와 같은 성능 측정 도구를 사용 하 여 최대 IOPS를 얻으려면 각 NVMe 장치에서 "rq_affinity"을 0으로 설정 합니다.  예를 들어 다음 명령줄은 L80v2 VM의 모든 10 개 NVMe 장치에 대해 "rq_affinity"을 0으로 설정 합니다.

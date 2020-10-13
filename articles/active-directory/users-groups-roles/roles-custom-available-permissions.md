@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90967683"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대 한 응용 프로그램 등록 권한
@@ -117,7 +117,7 @@ ms.locfileid: "90967683"
 
 ![앱 등록 인증에 대 한 액세스 권한을 부여 하지만 지원 되는 계정 유형은 지원 하지 않습니다.](./media/roles-custom-available-permissions/supported-account-types.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft. directory/응용 프로그램. myOrganization/인증/업데이트
+#### <a name="microsoftdirectoryapplicationsmyorganizationauthenticationupdate"></a>microsoft.directory/applications.myOrganization/authentication/update
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/인증/업데이트와 동일한 권한을 부여 합니다.
 
@@ -159,7 +159,7 @@ ms.locfileid: "90967683"
 
 ![이 권한은 앱 등록에 대 한 액세스 권한을 부여 하 여 API 페이지를 노출 합니다.](./media/roles-custom-available-permissions/app-registration-expose-api.png)
 
-#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft. directory/응용 프로그램. myOrganization/사용 권한/업데이트
+#### <a name="microsoftdirectoryapplicationsmyorganizationpermissionsupdate"></a>microsoft.directory/applications.myOrganization/permissions/update
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/사용 권한/업데이트와 동일한 권한을 부여 합니다.
 

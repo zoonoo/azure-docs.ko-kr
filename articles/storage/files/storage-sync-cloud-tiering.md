@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538183"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939156"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
@@ -48,9 +48,9 @@ Azure 파일 동기화 시스템 필터가 각 서버 엔드포인트에 네임�
 |8KB (8192)                 | 16KB   |
 |16KB (16384)               | 32KB   |
 |32 KB (32768)               | 64KB   |
-|64 KB (65536) 이상    | 128KB  |
+|64 KB (65536)    | 128KB  |
 
-Windows Server 2019 및 Azure File Sync 에이전트 버전 12 (이후 에이전트 버전)를 사용 하는 경우 최대 2mb의 클러스터 크기를 지원 하 고 더 큰 클러스터 크기를 계층화 하 여 동일한 방식으로 작동 합니다. 이전 OS 또는 에이전트 버전은 클러스터 크기를 64 KB까지 지원 하지만 그 외에는 클라우드 계층화가 작동 하지 않습니다.
+최대 64 KB의 클러스터 크기는 현재 지원 되지만 더 큰 크기의 경우 클라우드 계층화가 작동 하지 않습니다.
 
 Windows에서 사용 하는 모든 파일 시스템은 클러스터 크기 (할당 단위 크기 라고도 함)에 따라 하드 디스크를 구성 합니다. 클러스터 크기는 파일을 저장 하는 데 사용할 수 있는 최소 크기의 디스크 공간을 나타냅니다. 파일 크기가 클러스터 크기의 짝수 배수가 아닌 경우에는 클러스터 크기의 다음 배수로 파일을 저장 하기 위해 추가 공간을 사용 해야 합니다.
 

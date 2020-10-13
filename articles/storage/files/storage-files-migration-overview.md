@@ -8,10 +8,10 @@ ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88654262"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Azure 파일 공유로 마이그레이션
@@ -152,5 +152,5 @@ Azure File Sync는 주로 항목 (파일 및 폴더) 수를 사용 하 여 크�
 이 문서에서 설명 하는 Azure Files 기술에 대 한 자세한 내용은 다음과 같습니다.
 
 * [Azure 파일 공유 개요](storage-files-introduction.md)
-* [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+* [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 * [Azure File Sync: 클라우드 계층화](storage-sync-cloud-tiering.md)

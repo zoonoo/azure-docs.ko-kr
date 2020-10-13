@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85052027"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
@@ -99,7 +99,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 # <a name="owasp-31"></a>[OWASP 3.1](#tab/owasp31)
 
-## <a name="rule-sets"></a><a name="owasp31"></a>규칙 집합
+## <a name="rule-sets"></a><a name="owasp31"></a> 규칙 집합
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">일반</p>
 
@@ -240,9 +240,9 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |933131|PHP 삽입 공격: 변수가 있습니다.|
 |933140|PHP 삽입 공격: i/o 스트림이 있습니다.|
 |933150|PHP 삽입 공격 = 고위험 PHP 함수 이름 발견|
-|933151|PHP 삽입 공격: 보통 위험 PHP 함수 이름 찾음|
+|933151|PHP 삽입 공격: Medium-Risk PHP 함수 이름을 찾았습니다.|
 |933160|PHP 삽입 공격 = 고위험 PHP 함수 호출 발견|
-|933161|PHP 삽입 공격: 하위 값 PHP 함수 호출을 찾았습니다.|
+|933161|PHP 삽입 공격: Low-Value PHP 함수 호출을 찾았습니다.|
 |933170|PHP 삽입 공격: 직렬화 된 개체 삽입|
 |933180|PHP 삽입 공격 = 변수 함수 호출 발견|
 |933190|PHP 삽입 공격: PHP 닫는 태그가 있습니다.|
@@ -347,7 +347,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 # <a name="owasp-30"></a>[OWASP 3.0](#tab/owasp30)
 
-## <a name="rule-sets"></a><a name="owasp30"></a>규칙 집합
+## <a name="rule-sets"></a><a name="owasp30"></a> 규칙 집합
 
 ### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">일반</p>
 
@@ -547,7 +547,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 
 # <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="rule-sets"></a><a name="owasp229"></a>규칙 집합
+## <a name="rule-sets"></a><a name="owasp229"></a> 규칙 집합
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 
@@ -575,7 +575,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |960901|요청에 잘못된 문자|
 |960018|요청에 잘못된 문자|
 
-### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a>crs_21_protocol_anomalies
+### <a name="crs_21_protocol_anomalies"></a><a name="crs21"></a> crs_21_protocol_anomalies
 
 |RuleId|설명|
 |---|---|
@@ -588,7 +588,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |960904|요청에 콘텐츠는 있지만 Content-Type 헤더 누락|
 |960017|호스트 헤더가 숫자 IP 주소|
 
-### <a name="crs_23_request_limits"></a><a name="crs23"></a>crs_23_request_limits
+### <a name="crs_23_request_limits"></a><a name="crs23"></a> crs_23_request_limits
 
 |RuleId|설명|
 |---|---|
@@ -599,7 +599,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |960342|업로드된 파일 크기가 너무 큼|
 |960343|업로드된 총 파일 크기가 너무 큼|
 
-### <a name="crs_30_http_policy"></a><a name="crs30"></a>crs_30_http_policy
+### <a name="crs_30_http_policy"></a><a name="crs30"></a> crs_30_http_policy
 
 |RuleId|설명|
 |---|---|
@@ -609,7 +609,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |960035|URL 파일 확장명이 정책에서 허용되지 않음|
 |960038|HTTP 헤더가 정책에서 제한됨|
 
-### <a name="crs_35_bad_robots"></a><a name="crs35"></a>crs_35_bad_robots
+### <a name="crs_35_bad_robots"></a><a name="crs35"></a> crs_35_bad_robots
 
 |RuleId|설명|
 |---|---|
@@ -618,7 +618,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |990902|요청에 보안 스캐너가 사이트를 스캔한 것으로 표시됨|
 |990012|악의적인 웹 사이트 크롤러|
 
-### <a name="crs_40_generic_attacks"></a><a name="crs40"></a>crs_40_generic_attacks
+### <a name="crs_40_generic_attacks"></a><a name="crs40"></a> crs_40_generic_attacks
 
 |RuleId|설명|
 |---|---|
@@ -647,7 +647,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |958976|PHP 삽입 공격|
 |958977|PHP 삽입 공격|
 
-### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a>crs_41_sql_injection_attacks
+### <a name="crs_41_sql_injection_attacks"></a><a name="crs41sql"></a> crs_41_sql_injection_attacks
 
 |RuleId|설명|
 |---|---|
@@ -684,7 +684,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |981253|MySQL 및 PostgreSQL에 저장된 저장 프로시저/함수 삽입 감지|
 |981251|MySQL UDF 삽입 및 기타 데이터/구조 조작 시도 감지|
 
-### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a>crs_41_xss_attacks
+### <a name="crs_41_xss_attacks"></a><a name="crs41xss"></a> crs_41_xss_attacks
 
 |RuleId|설명|
 |---|---|
@@ -789,13 +789,13 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |973329|IE XSS 필터 - 공격 감지됨.|
 |973328|IE XSS 필터 - 공격 감지됨.|
 
-### <a name="crs_42_tight_security"></a><a name="crs42"></a>crs_42_tight_security
+### <a name="crs_42_tight_security"></a><a name="crs42"></a> crs_42_tight_security
 
 |RuleId|설명|
 |---|---|
 |950103|경로 조작 공격|
 
-### <a name="crs_45_trojans"></a><a name="crs45"></a>crs_45_trojans
+### <a name="crs_45_trojans"></a><a name="crs45"></a> crs_45_trojans
 
 |RuleId|설명|
 |---|---|

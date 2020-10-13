@@ -11,10 +11,10 @@ ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: f0c923bcb7df930ed4b1380d487ededc6c160844
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743746"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>학습 scikit-Azure Machine Learning를 사용 하 여 대규모로 모델 학습
@@ -25,7 +25,7 @@ ms.locfileid: "91743746"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
@@ -99,7 +99,7 @@ sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path
 ## <a name="configure-and-submit-your-training-run"></a>학습 실행 구성 및 제출
 
 ### <a name="create-a-scriptrunconfig"></a>ScriptRunConfig 만들기
-ScriptRunConfig 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 계산 대상 등 학습 작업의 구성 세부 정보를 지정 합니다.
+ScriptRunConfig 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다.
 매개 변수에 지정 된 경우 학습 스크립트에 대 한 모든 인수는 명령줄을 통해 전달 됩니다 `arguments` .
 
 다음 코드에서는 로컬 컴퓨터에서 실행 하기 위해 작업을 제출 하기 위해 ScriptRunConfig 개체를 구성 합니다.

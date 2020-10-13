@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
 ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553650"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>FHIR (미리 보기) 매핑 템플릿에 대 한 Azure IoT 커넥터
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT Connector for FHIR(미리 보기) 매핑 템플릿
 이 문서에서는 매핑 템플릿을 사용 하 여 FHIR * 용 Azure IoT 커넥터를 구성 하는 방법에 대해 자세히 설명 합니다.
 
 FHIR 용 Azure IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑 템플릿이 필요 합니다. 첫 번째 유형인 **장치 매핑은** `devicedata` Azure Event Hub 끝점으로 전송 되는 장치 페이로드를 매핑합니다. 유형, 장치 식별자, 측정 날짜 시간 및 측정 값을 추출 합니다. 두 번째 유형인 **fhir 매핑은**fhir 리소스에 대 한 매핑을 제어 합니다. 이를 통해 관찰 기간의 길이, 값을 저장 하는 데 사용 되는 FHIR 데이터 형식 및 용어 코드를 구성할 수 있습니다. 
@@ -39,7 +39,7 @@ FHIR 용 Azure IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑 템�
 
 ![정규화 예제](media/concepts-iot-mapping-templates/normalization-example.png)
 
-콘텐츠 페이로드는 세 부분으로 구성 된 Azure 이벤트 허브 메시지입니다. 본문, 속성 및 SystemProperties입니다. 는 `Body` u t f-8로 인코딩된 문자열을 나타내는 바이트 배열입니다. 템플릿 평가 중에 바이트 배열이 자동으로 문자열 값으로 변환 됩니다. `Properties`메시지 작성자가 사용할 키 값 컬렉션입니다. `SystemProperties`는 Azure Event hubs 프레임 워크에서 자동으로 채워진 항목을 사용 하 여 예약 된 키 값 컬렉션 이기도 합니다.
+콘텐츠 페이로드는 세 부분으로 구성 된 Azure 이벤트 허브 메시지입니다. 본문, 속성 및 SystemProperties입니다. 는 `Body` u t f-8로 인코딩된 문자열을 나타내는 바이트 배열입니다. 템플릿 평가 중에 바이트 배열이 자동으로 문자열 값으로 변환 됩니다. `Properties` 메시지 작성자가 사용할 키 값 컬렉션입니다. `SystemProperties` 는 Azure Event hubs 프레임 워크에서 자동으로 채워진 항목을 사용 하 여 예약 된 키 값 컬렉션 이기도 합니다.
 
 ```json
 {
@@ -65,7 +65,7 @@ FHIR 용 Azure IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑 템�
 #### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
 JsonPathContentTemplate를 사용 하면 JSON 경로를 사용 하 여 이벤트 허브 메시지에서 값을 비교 하 고 추출할 수 있습니다.
 
-| 속성 | Description |<div style="width:150px">예제</div>
+| 속성 | 설명 |<div style="width:150px">예제</div>
 | --- | --- | --- 
 |**T**|템플릿과 일치 하는 측정값과 연결할 형식입니다.|`heartrate`
 |**TypeMatchExpression**|이벤트 허브 페이로드에 대해 평가 되는 JSON 경로 식입니다. 일치 하는 JToken이 있으면 템플릿이 일치 하는 것으로 간주 됩니다. 모든 후속 식은 여기에 일치 하는 추출 된 JToken에 대해 평가 됩니다.|`$..[?(@heartRate)]`
@@ -338,7 +338,7 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 ### <a name="codevaluefhirtemplate"></a>Code-efrtemplate
 현재이 템플릿은 현재 FHIR 매핑에서 지원 되는 유일한 템플릿입니다.  코드, 유효 기간 및 관찰 값을 정의할 수 있습니다. 여러 값 형식이 지원 됩니다. [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept)및 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). 이러한 구성 가능한 값과 함께 관찰 리소스의 식별자와 적절 한 장치 및 환자 리소스에 대 한 링크가 자동으로 처리 됩니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | ---
 |**T**| 이 템플릿이 바인딩될 측정 형식입니다. 이 형식을 출력 하는 장치 매핑 템플릿이 하나 이상 있어야 합니다.
 |**PeriodInterval**|관찰을 만든 기간이 표시 되는 시간입니다. 지원 되는 값은 0 (인스턴스), 60 (1 시간), 1440 (일)입니다.
@@ -352,12 +352,12 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 |**구성 요소 []. 코드가**|구성 요소에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
 |**구성 요소 []. 기본값**|구성 요소에서 추출 하 고 표시할 값입니다. 자세한 내용은 [값 형식 템플릿](#valuetypes)을 참조 하세요.
 
-### <a name="value-type-templates"></a>값 형식 템플릿<a name="valuetypes"></a>
+### <a name="value-type-templates"></a>값 형식 템플릿 <a name="valuetypes"></a>
 다음은 현재 지원 되는 값 형식 템플릿입니다. 나중에 추가 템플릿이 추가 될 수 있습니다.
 #### <a name="sampleddata"></a>SampledData
 [Sampleddata](http://hl7.org/fhir/datatypes.html#SampledData) fhir 데이터 형식을 나타냅니다. 관찰 측정은 특정 시점에서 시작 하 고 정의 된 기간을 사용 하 여 전달 하는 값 스트림에 기록 됩니다. 값이 없는 경우이 `E` 데이터 스트림에 기록 됩니다. 두 개 이상의 값이 데이터 스트림의 동일한 위치를 차지 하는 기간이 면 최신 값이 사용 됩니다. SampledData를 사용 하는 관찰이 업데이트 되는 경우에도 동일한 논리가 적용 됩니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | ---
 |**DefaultPeriod**|사용할 기본 기간 (밀리초)입니다. 
 |**단위**|SampledData의 원점에 설정할 단위입니다. 
@@ -365,7 +365,7 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 #### <a name="quantity"></a>수량
 [수량](http://hl7.org/fhir/datatypes.html#Quantity) fhir 데이터 형식을 나타냅니다. 그룹화에 두 개 이상의 값이 있는 경우 첫 번째 값만 사용 됩니다. 동일한 관찰에 매핑되는 새 값이 도착 하면 이전 값을 덮어씁니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | --- 
 |**단위**| 단위 표현입니다.
 |**코드**| 단위의 코딩 된 형태입니다.
@@ -374,9 +374,9 @@ IotJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression가 필�
 ### <a name="codeableconcept"></a>CodeableConcept
 [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) fhir 데이터 형식을 나타냅니다. 실제 값은 사용 되지 않습니다.
 
-| 속성 | Description 
+| 속성 | 설명 
 | --- | --- 
-|**텍스트**|일반 텍스트 표현입니다. 
+|**Text**|일반 텍스트 표현입니다. 
 |**코드가**|만든 관찰에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
 |**코드 []. Code**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대 한 코드입니다.
 |**코드 []. 컴퓨터**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)을 위한 시스템입니다.
@@ -567,6 +567,6 @@ Azure IoT 커넥터에서 FHIR (미리 보기)에 대 한 질문과 대답을 �
 >[!div class="nextstepaction"]
 >[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
-* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다.
+*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
 
 FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.

@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86507950"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
@@ -64,11 +64,11 @@ HANA Large Instances는 비즈니스 요구 사항을 달성 하는 데 도움�
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 노드-노드|
+| b | 유형 I | eth2.tenant | eno3.tenant | 노드-노드|
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드|
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드-노드|
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
@@ -136,11 +136,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -171,11 +171,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -211,11 +211,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -252,11 +252,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -307,11 +307,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
@@ -353,11 +353,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | STONITH에 사용 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH에 사용 |
 
@@ -412,11 +412,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -453,11 +453,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -489,11 +489,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -528,11 +528,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -573,11 +573,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -614,11 +614,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -664,11 +664,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -709,11 +709,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 구성되었으나 사용되고 있지 않음 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 
@@ -760,11 +760,11 @@ HANA 시스템 복제 또는 HANA 스케일 아웃 배포의 경우 할당 된 I
 | NIC 논리 인터페이스 | SKU 유형 | SUSE OS를 포함하는 이름 | RHEL OS를 포함하는 이름 | 사용 사례|
 | --- | --- | --- | --- | --- |
 | A | 유형 I | eth0.tenant | eno1.tenant | 클라이언트-HLI/HLI |
-| B | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
+| b | 유형 I | eth2.tenant | eno3.tenant | 노드 간 통신 |
 | C | 유형 I | eth1.tenant | eno2.tenant | 노드-저장소 |
 | D | 유형 I | eth4.tenant | eno4.tenant | 구성되었으나 사용되고 있지 않음 |
 | A | 유형 II | vlan\<tenantNo> | team0.tenant | 클라이언트-HLI/HLI |
-| B | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
+| b | 유형 II | vlan\<tenantNo+2> | team0.tenant+2 | 노드 간 통신 |
 | C | 유형 II | vlan\<tenantNo+1> | team0.tenant+1 | 노드-저장소 |
 | D | 유형 II | vlan\<tenantNo+3> | team0.tenant+3 | 구성되었으나 사용되고 있지 않음 |
 

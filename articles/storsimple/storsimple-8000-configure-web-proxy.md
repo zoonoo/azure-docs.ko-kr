@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514292"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 웹 프록시 구성
@@ -63,7 +63,7 @@ ms.locfileid: "85514292"
    
     `Invoke-HcsSetupWizard`
 2. 처음으로 디바이스 등록을 위해 설치 마법사를 사용하면 웹 프록시를 구성할 때까지 모든 필요한 네트워크 설정을 구성해야 합니다. 디바이스가 이미 등록되어 있다면 웹 프록시를 구성할 때까지 모든 구성된 네트워크 설정을 적용합니다. 설치 마법사에서 웹 프록시 설정을 구성할 것인지를 묻는 메시지가 표시되면 **예**를 입력합니다.
-3. **웹 프록시 URL**에 대해 웹 프록시 서버의 IP 주소 또는 정규화된 도메인 이름(FQDN) 및 클라우드와 통신할 때 사용하려는 디바이스인 TCP 포트 번호 디바이스를 지정합니다. 이때 다음 형식을 사용합니다.
+3. **웹 프록시 URL**에 대해 웹 프록시 서버의 IP 주소 또는 정규화된 도메인 이름(FQDN) 및 클라우드와 통신할 때 사용하려는 디바이스인 TCP 포트 번호 디바이스를 지정합니다. 다음 형식을 사용합니다.
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    

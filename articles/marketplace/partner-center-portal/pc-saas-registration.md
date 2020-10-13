@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548338"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
@@ -68,19 +68,19 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="uri-parameter"></a>*URI 매개 변수*
 
-|  매개 변수 이름    |  필수         |  Description |
+|  매개 변수 이름    |  필수         |  설명 |
 |  ---------------   |  ---------------  | ------------ |
 |  `tenantId`        |  True      |  등록 된 AAD 응용 프로그램의 테 넌 트 ID입니다. |
 
 ##### <a name="request-header"></a>*요청 헤더*
 
-|  헤더 이름       |  필수         |  Description |
+|  헤더 이름       |  필수         |  설명 |
 |  ---------------   |  ---------------  | ------------ |
 |  `content-type`    |  True      |  요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다. |
 
 ##### <a name="request-body"></a>*요청 본문*
 
-|  속성 이름     |  필수         |  Description |
+|  속성 이름     |  필수         |  설명 |
 |  ---------------   |  ---------------  | ------------ |
 |  `grant_type`      |  True      |  권한 부여 유형입니다. `"client_credentials"`을 사용합니다. |
 |  `client_id`       |  True      |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다. |
@@ -89,7 +89,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="response"></a>*Response*
 
-|  Name     |  Type         |  Description |
+|  Name     |  유형         |  설명 |
 |  ------   |  ---------------  | ------------ |
 |  200 정상   |  TokenResponse    |  요청이 성공했습니다. |
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: 217be627f81406f671118d5290cd5f67f52c01d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86112115"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
@@ -21,12 +21,12 @@ Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](../log-qu
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 메서드 | Description |
+| 방법 | 설명 |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
 | Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 Azure Monitor에서 각 보안 그룹에 대한 그룹을 만듭니다. (Windows 머신에만 해당)|
-| Configuration Manager | Microsoft Endpoint Configuration Manager에서 컬렉션을 가져오고 각각에 대해 Azure Monitor에 그룹을 만듭니다. |
+| 구성 관리자 | Microsoft Endpoint Configuration Manager에서 컬렉션을 가져오고 각각에 대해 Azure Monitor에 그룹을 만듭니다. |
 | Windows Server Update Services |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
 
 ### <a name="log-query"></a>로그 쿼리
@@ -48,7 +48,7 @@ Heartbeat | where Computer contains "srv" | distinct Computer
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:---|:---|
 | Name   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
@@ -76,7 +76,7 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 WS
 
 그룹을 가져올 때는 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
-### <a name="configuration-manager"></a>Configuration Manager
+### <a name="configuration-manager"></a>구성 관리자
 구성 관리자 컬렉션 멤버 자격을 가져오도록 Azure Monitor를 구성하면 각 컬렉션에 대한 컴퓨터 그룹을 만듭니다.  컬렉션 멤버 자격 정보는 컴퓨터 그룹을 최신 상태로 유지하기 위해 3시간 마다 검색됩니다. 
 
 구성 관리자 컬렉션을 가져오려면 먼저 [Configuration Manager를 Azure Monitor에 연결](collect-sccm.md)해야 합니다.  
@@ -122,7 +122,7 @@ let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Gro
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 쿼리 기반의 컴퓨터 그룹에 대한 레코드는 만들어지지 않습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

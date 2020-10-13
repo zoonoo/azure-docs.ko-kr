@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4650df71acb088fafc1280d31d9abfb398e06741
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284492"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Windows Vm에 대 한 Azure Disk Encryption 
@@ -86,7 +86,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작-Azure CLI를 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [빠른 시작-Azure CLI를 사용 하 여 Windows VM 만들기 및 암호화 ](disk-encryption-cli-quickstart.md)
 - [빠른 시작-Azure Powershell을 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-powershell-quickstart.md)
 - [Windows VM에 대한 Azure Disk Encryption 시나리오](disk-encryption-windows.md)
 - [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)

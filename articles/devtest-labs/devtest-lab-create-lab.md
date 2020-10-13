@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Portal 및 Azure DevTest Labs를 사용 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 09999c5b0187f924f9cfbbc2afad8954adee0fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85481258"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 만들기
 Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹을 포함하는 인프라로서, 이를 통해 한도 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다. 이 문서는 Azure Portal을 사용하여 랩을 만드는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 랩을 만들려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구입 옵션에 대해 알아보려면 [Azure 구입 방법](https://azure.microsoft.com/pricing/purchase-options/) 또는 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 랩을 만들려면 구독 소유자여야 합니다.
@@ -29,7 +29,7 @@ Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹�
    
     ![랩 추가](./media/devtest-lab-create-lab/add-lab-button.png)
 1. **DevTest Lab 만들기** 페이지에서 다음 작업을 수행합니다. 
-    1. 랩에 대한 **이름**을 입력합니다.
+    1. 랩의 **이름을** 입력 합니다.
     2. **구독** 을 선택하여 랩과 연결합니다.
     3. 랩의 **리소스 그룹에 대한 이름**을 입력합니다. 
     4. 랩을 저장할 **위치**를 선택합니다.

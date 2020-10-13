@@ -1,5 +1,5 @@
 ---
-title: 소리내어 읽기 구성
+title: 소리 내어 읽기 구성
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 다양 한 읽기 옵션을 구성 하는 방법을 보여 줍니다.
 author: metanMSFT
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: metan
 ms.openlocfilehash: 0705977c04afe742718a96aebbac31e78dc5815f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85486967"
 ---
 # <a name="how-to-configure-read-aloud"></a>소리내어 읽기를 구성 하는 방법

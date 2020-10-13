@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80298816"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
@@ -36,7 +36,7 @@ ms.locfileid: "80298816"
 소프트웨어 요구 사항에는 지원되는 웹 브라우저, SMB 버전, 가상화 플랫폼, 최소 가상 디바이스 요구 사항에 대한 정보가 포함됩니다.
 
 ### <a name="supported-virtualization-platforms"></a>지원되는 가상화 플랫폼
-| **하이퍼바이저** | **Version** |
+| **하이퍼바이저** | **버전** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 이상 |
 | VMware ESXi |5.0, 5.5, 6.0 및 6.5 |
@@ -58,7 +58,7 @@ ms.locfileid: "80298816"
 <sup>2</sup> - 네트워크 요구 사항은 일일 데이터 변경률에 따라 달라질 수 있습니다. 예를 들어, 디바이스에서 하루 동안 10GB 이상을 백업해야 한다면, 5Mbps 연결을 통한 매일 백업에는 최대 4.25 시간이 소요될 수 있습니다(데이터를 압축하거나 중복 제거할 수 없는 경우).
 
 ### <a name="supported-web-browsers"></a>지원되는 웹 브라우저
-| **구성 요소** | **Version** | **추가 요구 사항/메모** |
+| **구성 요소** | **버전** | **추가 요구 사항/메모** |
 | --- | --- | --- |
 | Microsoft Edge |최신 버전 | |
 | Internet Explorer |최신 버전 |Internet Explorer 11로 테스트함 |
@@ -114,7 +114,7 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 > [!NOTE]
 > 
 > * 디바이스(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다. 
-> * 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로 설정해야 합니다.
+> * 대상 ip는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로 설정 되어야 합니다.
 > 
 > 
 

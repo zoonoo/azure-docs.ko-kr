@@ -8,10 +8,10 @@ ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 7315ef68b3562a28ee2515077c1e7d2f23c3803f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230435"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight 용 Azure 보안 기준
@@ -1198,9 +1198,9 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객 관리형 키 보호 보장
 
-**지침**: Azure HDInsight 배포에 Azure Key Vault를 사용 하는 경우 Key Vault에서 일시 삭제를 사용 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호할 수 있습니다.
+**지침**: Azure HDInsight 배포에 Azure Key Vault를 사용 하는 경우 Key Vault의 Soft-Delete를 사용 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 합니다.
 
-Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법:
+Azure Key Vault에서 Soft-Delete를 사용 하도록 설정 하는 방법:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 

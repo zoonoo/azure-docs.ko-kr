@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87015224"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
 이 문서에서는 azure API Management의 자체 호스팅 게이트웨이 구성 요소를 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포 하는 단계를 제공 합니다. Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포 하려면이[문서](how-to-deploy-self-hosted-gateway-kubernetes.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - [Azure Kubernetes 클러스터 만들기](../aks/kubernetes-walkthrough-portal.md)

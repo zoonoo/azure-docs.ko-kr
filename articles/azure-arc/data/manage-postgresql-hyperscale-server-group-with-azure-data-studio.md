@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940781"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 관리
@@ -25,7 +25,7 @@ ms.locfileid: "90940781"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azdata, Azure Data Studio 및 Azure CLI 설치](install-client-tools.md)
 - **Azure 데이터 CLI** 및 **Azure Arc** 및 **PostgreSQL** 확장 Azure Data Studio에 설치
@@ -89,7 +89,7 @@ Azure Data Studio 창의 왼쪽에서 노드 **서버**를 확장 합니다.
 
 연결 되 면 몇 가지 환경을 사용할 수 있습니다.
 - **새 쿼리**
-- **새 노트북**
+- **새 Notebook**
 - **서버 표시를 확장 하 고 데이터베이스 내 개체를 찾아보거나 작업 합니다.**
 - **...**
 

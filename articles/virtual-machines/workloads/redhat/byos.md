@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
 ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87052163"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
@@ -34,7 +34,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 - 이미지는 [Azure의 Red Hat Enterprise Linux 이미지](./redhat-images.md)에 설명 된 현재 정책을 따릅니다.
 - 표준 지원 정책은 이러한 이미지에서 만든 Vm에 적용 됩니다.
 - Red Hat 골드 이미지에서 프로 비전 된 Vm은 RHEL 종 량 제 이미지와 관련 된 RHEL 요금을 운반 하지 않습니다.
-- 이미지에 대 한 자격이 없습니다. Red hat 구독 관리자를 사용 하 여 Red Hat에서 직접 업데이트를 가져오도록 Vm을 등록 하 고 구독 해야 합니다.
+- 이미지에 대 한 자격이 없습니다. Red hat에서 직접 업데이트를 받으려면 Red Hat Subscription-Manager를 사용 하 여 Vm을 등록 하 고 구독 해야 합니다.
 - 현재는 BYOS와 Linux 이미지에 대 한 종 량 제 청구 모델 간을 동적으로 전환할 수 없습니다. 청구 모델을 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
 
 >[!NOTE]
@@ -120,7 +120,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
-1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면를 실행 `sudo yum repolist` 합니다. RHEL 8의 경우를 사용 `sudo dnf repolist` 합니다. 출력에는 구독 관리자를 사용 하 여 Red Hat에 VM을 등록 하 라는 메시지가 표시 됩니다.
+1. VM에 SSH를 적용 하 고, 자격이 없는 이미지가 있는지 확인 합니다. 이 단계를 수행 하려면를 실행 `sudo yum repolist` 합니다. RHEL 8의 경우를 사용 `sudo dnf repolist` 합니다. 출력은 Subscription-Manager를 사용 하 여 Red Hat로 VM을 등록 하 라는 메시지를 표시 합니다.
 
 >[!NOTE]
 >RHEL 8에서 `dnf` 및 `yum` 는 서로 바꿔 사용할 수 있습니다. 자세한 내용은 [RHEL 8 관리자 가이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index)를 참조 하세요.

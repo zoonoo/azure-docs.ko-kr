@@ -4,13 +4,13 @@ description: 이 문서에서는 사용자 할당 관리 id를 사용 하 여 Se
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260084"
 ---
-# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>사용자 할당 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포
+# <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>User-Assigned 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포
 
 관리 id를 사용 하 여 Service Fabric 응용 프로그램을 배포 하려면 응용 프로그램을 일반적으로 Azure Resource Manager 템플릿이 있는 Azure Resource Manager를 통해 배포 해야 합니다. Azure Resource Manager를 통해 Service Fabric 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 리소스로 응용 프로그램 및 서비스 관리](service-fabric-application-arm-resource.md)를 참조 하세요.
 
@@ -21,9 +21,9 @@ ms.locfileid: "86260084"
 > 관리 Id를 사용 하는 Service Fabric 응용 프로그램 배포는 API 버전에서 지원 됩니다 `"2019-06-01-preview"` . 응용 프로그램 유형, 응용 프로그램 유형 버전 및 서비스 리소스에 대해 동일한 API 버전을 사용할 수도 있습니다.
 >
 
-## <a name="user-assigned-identity"></a>사용자 할당 Id
+## <a name="user-assigned-identity"></a>User-Assigned Id
 
-사용자 할당 id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 먼저 **id** 속성을 **userassigned** 유형 및 참조 된 사용자 할당 id를 사용 하 여 응용 프로그램 리소스에 추가 합니다. 그런 다음, 각 사용자 할당 id의 principalId 매핑에 대 한 이름 목록을 포함 하는 **응용 프로그램** 리소스의 **속성** 섹션 내에 **managedIdentities** 섹션을 추가 합니다. 사용자 할당 Id에 대 한 자세한 내용은 [사용자 할당 관리 Id 만들기, 나열 또는 삭제를](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)참조 하세요.
+User-Assigned id를 사용 하 여 응용 프로그램을 사용 하도록 설정 하려면 먼저 **userassigned** 유형 및 참조 된 사용자 할당 id를 사용 하 여 응용 프로그램 리소스에 **identity** 속성을 추가 합니다. 그런 다음, 각 사용자 할당 id의 principalId 매핑에 대 한 이름 목록을 포함 하는 **응용 프로그램** 리소스의 **속성** 섹션 내에 **managedIdentities** 섹션을 추가 합니다. 사용자 할당 Id에 대 한 자세한 내용은 [사용자 할당 관리 Id 만들기, 나열 또는 삭제를](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)참조 하세요.
 
 ### <a name="application-template"></a>애플리케이션 템플릿
 

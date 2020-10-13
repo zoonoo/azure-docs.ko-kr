@@ -13,10 +13,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
 ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86495741"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
@@ -90,7 +90,7 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. 이전에 만든 데이터 집합을 캔버스로 끌어다 놓습니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="캔버스의 데이터 집합 모듈 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷":::
 
 ## <a name="clean-the-data"></a>데이터 정리
 
@@ -100,13 +100,13 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. **데이터 변환 < 조작**의 **데이터 센터의 열 선택** 모듈을 캔버스로 끌어 옵니다. 이 모듈을 **데이터 집합** 모듈에 연결 합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="캔버스에서 열 선택 모듈의 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. 모듈을 클릭 하 여 속성 창을 엽니다. 열 편집을 클릭 하 여 삭제 하려는 열을 지정 합니다.
 
 1. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다. 페이지 맨 아래에 있는 **저장**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="삭제 된 열을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷":::
 
 ## <a name="build-the-model"></a>모델 빌드
 
@@ -116,7 +116,7 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. 속성 창에서 **첫 번째 출력 데이터 집합의 행 분수**에 대해 0.8을 입력 합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="0.8의 분할 비율을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷":::
 
 1. **2클래스 향상된 의사 결정 트리** 모듈을 캔버스로 끌어서 놓습니다.
 
@@ -124,9 +124,9 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. 모델 학습 모델의 경우 속성 창의 **레이블 열** 옵션에서 열 편집을 선택 합니다. 예측할 열로 **Bikebuyer** 열을 선택 하 고 **저장**을 선택 합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="레이블 열 BikeBuyer가 선택 되었음을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="2 클래스 승격 된 의사 결정 트리와 분할 데이터 모듈에 연결 된 모델 학습 모듈을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷":::
 
 ## <a name="score-the-model"></a>모델 점수 매기기
 
@@ -134,7 +134,7 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. **모델 점수 매기기** 모듈을 캔버스로 끌어 놓고 **모델 학습** 및 **데이터 분할** 모듈에 연결합니다.
 
-1. **2 클래스 Bayes 평균 퍼셉트론** 를 실험 캔버스로 끕니다. 2 클래스 승격 된 의사 결정 트리와 비교 하 여이 알고리즘이 수행 하는 방법을 비교 합니다.
+1. **2 클래스 Bayes 평균 퍼셉트론** 를 실험 캔버스로 끕니다. Two-Class 승격 된 의사 결정 트리와 비교 하 여이 알고리즘이 수행 하는 방법을 비교 합니다.
 
 1. 모듈 **학습 모델 학습** 및 **모델 점수 매기기 모델** 을 복사 하 여 붙여 넣습니다.
 
@@ -142,11 +142,11 @@ Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Ma
 
 1. **전송** 을 클릭 하 여 파이프라인 실행을 설정 합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="캔버스의 나머지 모든 모듈에 대 한 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. 실행이 완료 되 면 **모델 평가** 모듈을 마우스 오른쪽 단추로 클릭 하 고 **평가 결과 시각화**를 클릭 합니다.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="결과의 스크린샷":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Azure Machine Learning 인터페이스의 왼쪽 창 스크린샷":::
 
 제공된 메트릭은 ROC 곡선, 정밀도-리콜 다이어그램 및 리프트 곡선입니다. 이러한 메트릭을 확인 하 여 첫 번째 모델이 두 번째 모델 보다 더 잘 수행 되었는지 확인 합니다. 첫 번째 모델이 예측 하는 것을 보려면 모델 점수 매기기 모듈을 마우스 오른쪽 단추로 클릭 하 고 점수가 매겨진 데이터 집합 시각화를 클릭 하 여 예측 결과를 확인 합니다.
 

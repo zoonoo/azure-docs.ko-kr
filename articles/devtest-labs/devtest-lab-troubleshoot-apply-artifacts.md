@@ -4,10 +4,10 @@ description: Azure DevTest Labs 가상 머신에서 아티팩트를 적용할 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483196"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Azure DevTest Labs 가상 컴퓨터에서 아티팩트를 적용할 때 발생 하는 문제 해결
@@ -58,7 +58,7 @@ $vm.Properties.canApplyArtifacts
     - 활동 로그는 랩 VM 페이지 탐색 모음에서 액세스할 수 있습니다. 이 항목을 선택 하면 **가상 컴퓨터에 아티팩트를 적용 하** 는 항목 (아티팩트 적용 작업이 직접 트리거된 경우) 또는 **가상 컴퓨터 추가 또는 수정** (아티팩트 적용 작업이 VM 생성 프로세스의 일부인 경우)에 대 한 항목이 표시 됩니다.
     - 이러한 항목에서 오류를 찾습니다. 경우에 따라 오류의 태그가 지정 되지 않으므로 각 항목을 조사 해야 합니다.
     - 각 항목에 대 한 세부 정보를 조사할 때 JSON 페이로드의 내용을 검토 해야 합니다. 해당 문서의 맨 아래에 오류가 표시 될 수 있습니다.
-- **아티팩트를 실행 하려고**합니다. 네트워킹 또는 저장소 문제로 인 한 것일 수 있습니다. 자세한 내용은이 문서의 뒷부분에 있는 해당 섹션을 참조 하세요. 스크립트를 작성 하는 방식으로 인해 발생할 수도 있습니다. 예를 들어:
+- **아티팩트를 실행 하려고**합니다. 네트워킹 또는 저장소 문제로 인 한 것일 수 있습니다. 자세한 내용은이 문서의 뒷부분에 있는 해당 섹션을 참조 하세요. 스크립트를 작성 하는 방식으로 인해 발생할 수도 있습니다. 예를 들면 다음과 같습니다.
     - PowerShell 스크립트에는 **필수 매개 변수가**있지만 그 중 하나는 값을 비워 둘 수 있도록 허용 하거나 정의 파일의 artifactfile.js에 속성에 대 한 기본값이 없기 때문에 값을 전달 하는 데 실패 합니다. 스크립트는 사용자 입력을 대기 하 고 있으므로 응답을 중지 합니다.
     - PowerShell 스크립트를 실행 하는 동안 **사용자 입력이 필요** 합니다. 사용자 개입 없이도 자동으로 작동 하도록 스크립트를 작성 해야 합니다.
 - **VM 에이전트가 준비 되는 데 시간이 오래 걸립니다**. VM을 처음 시작 하거나 아티팩트 적용 요청을 제공 하기 위해 사용자 지정 스크립트 확장을 처음 설치 하는 경우 vm에서 vm 에이전트를 업그레이드 하거나 VM 에이전트가 초기화 될 때까지 기다려야 할 수 있습니다. VM 에이전트가 초기화 하는 데 시간이 오래 걸리는 서비스가 있을 수 있습니다. 이러한 경우 추가 문제 해결을 위해 [Azure Virtual Machine 에이전트 개요](../virtual-machines/extensions/agent-windows.md) 를 참조 하세요.

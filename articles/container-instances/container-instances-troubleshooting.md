@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
 ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260753"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
@@ -25,7 +25,7 @@ ms.locfileid: "86260753"
 | 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
 | --- | --- | --- | --- | --- | --- |
 | 컨테이너 이름<sup>1</sup> | 1-63 |소문자 | 첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-container<number>` |`web-batch-container1` |
-| 컨테이너 포트 | 1에서 65535 사이 |정수 |1에서 65535 사이의 정수 |`<port-number>` |`443` |
+| 컨테이너 포트 | 1에서 65535 사이 |Integer |1에서 65535 사이의 정수 |`<port-number>` |`443` |
 | DNS 이름 레이블 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
 | 환경 변수 | 1-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
 | 볼륨 이름 | 5-63 |소문자 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈입니다. 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
@@ -45,7 +45,7 @@ Azure Container Instances에서 지원되지 않는 이미지를 지정하면 `O
 }
 ```
 
-이 오류는 지원 되지 않는 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지를 배포할 때 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지는 질문과 [대답](container-instances-faq.md#what-windows-base-os-images-are-supported)을 참조 하세요.
+이 오류는 Semi-Annual Channel 릴리스 1709 또는 1803 (지원 되지 않음)을 기반으로 하는 Windows 이미지를 배포할 때 가장 자주 발생 합니다. Azure Container Instances에서 지원 되는 Windows 이미지는 질문과 [대답](container-instances-faq.md#what-windows-base-os-images-are-supported)을 참조 하세요.
 
 ### <a name="unable-to-pull-image"></a>이미지를 풀링할 수 없음
 
@@ -204,7 +204,7 @@ Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인�
 
 Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아직 지원 하지 않습니다. 컨테이너 그룹의 IP 주소에 액세스할 수 없는 것으로 판단 되는 경우 컨테이너 그룹에서 속성을 사용 하 여 컨테이너 그룹에 노출 하는 것과 동일한 포트를 수신 대기 하도록 구성 했는지 확인 `ports` 합니다.
 
-컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 `aci-helloworld` 포트를 노출 하는 이미지의 배포를 테스트 합니다. 또한 `aci-helloworld` 포트에서 수신 하도록 앱을 실행 합니다. `aci-helloworld`선택적 환경 변수를 허용 `PORT` 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
+컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 Azure Container Instances 확인 하려면 `aci-helloworld` 포트를 노출 하는 이미지의 배포를 테스트 합니다. 또한 `aci-helloworld` 포트에서 수신 하도록 앱을 실행 합니다. `aci-helloworld` 선택적 환경 변수를 허용 `PORT` 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
 
 1. 컨테이너 그룹을 설정 하 여 포트 9000를 노출 하 고 포트 번호를 환경 변수의 값으로 전달 합니다. 이 예제는 Bash 셸에 대해 형식이 지정 됩니다. PowerShell 또는 명령 프롬프트와 같은 다른 셸을 선호 하는 경우에는 변수 할당을 적절 하 게 조정 해야 합니다.
     ```azurecli
