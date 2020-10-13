@@ -8,10 +8,10 @@ ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
 ms.openlocfilehash: 1cb86f77a6ffcbb0fb45b3a57b57de531822f2b0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742607"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결
@@ -20,7 +20,7 @@ ms.locfileid: "91742607"
 
 App Service 내에서 하이브리드 연결 포트 443을 통해 Azure에 대 한 아웃 바운드 호출을 수행할 수 있는 모든 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있습니다. 하이브리드 연결는 앱에서 TCP 끝점으로의 액세스를 제공 하 고 새로운 방식으로 앱에 액세스할 수 없습니다. App Service에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 이렇게 하면 앱이 TCP 엔드포인트 인 경우 모든 OS의 리소스에 액세스할 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 단지 네트워크 액세스를 제공 합니다.  
 
-## <a name="how-it-works"></a>작동 방식 ##
+## <a name="how-it-works"></a>작동 방법 ##
 하이브리드 연결에는 원하는 끝점과 Azure에 연결할 수 있는 릴레이 에이전트가 배포 되어야 합니다. 릴레이 에이전트 하이브리드 연결 관리자 (HCM)는 포트 443을 통해 Azure Relay를 호출 합니다. 웹 앱 사이트에서 App Service 인프라는 응용 프로그램을 대신 하 여 Azure Relay에도 연결 합니다. 조인 된 연결을 통해 앱은 원하는 끝점에 액세스할 수 있습니다. 연결은 인증 및 권한 부여를 위한 보안 및 SAS(공유 액세스 서명) 키에 TLS 1.2를 사용합니다.    
 
 ![하이브리드 연결 대략적인 흐름의 다이어그램][1]
@@ -95,9 +95,9 @@ App Service 하이브리드 연결은 기본, 표준, 프리미엄 및 격리 �
 | 요금제 | 요금제에서 사용 가능한 하이브리드 연결 수 |
 |----|----|
 | Basic | 플랜당 5개 |
-| Standard | 플랜당 25개 |
+| 표준 | 플랜당 25개 |
 | PremiumV2 | 앱당 200개 |
-| Isolated | 앱당 200개 |
+| 격리 | 앱당 200개 |
 
 App Service 계획 UI는 어떤 앱에서 얼마나 많은 하이브리드 연결을 사용하고 있는지 보여줍니다.  
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653599"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978240"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 [Azure 가용성 영역](../../../availability-zones/az-overview.md)은 Azure가 제공하는 고가용성 기능 중 하나입니다. 가용성 영역을 사용하면 Azure에서 SAP 워크로드의 전반적인 가용성이 향상됩니다. 이 기능은 일부 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 이미 사용할 수 있습니다. 향후에는 더 많은 지역에서 사용할 수 있게 될 것입니다.
@@ -30,7 +30,7 @@ ms.locfileid: "88653599"
 
 ![표준 고가용성 구성](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-SAP 응용 프로그램 계층은 하나의 Azure [가용성 집합](../../windows/manage-availability.md)에 배포 됩니다. SAP Central Services의 고가용성을 위해 별도의 가용성 집합에 두 개의 VM을 배포할 수 있습니다. 인프라 또는 소프트웨어 문제 발생 시, 자동 장애 조치(Failover)를 제공하는 고가용성 프레임워크로서 Windows Server 장애 조치(failover) 클러스터링 또는 Pacemaker(Linux)를 사용합니다. 이러한 배포에 대한 자세한 내용은 다음을 참조하세요.
+SAP 응용 프로그램 계층은 하나의 Azure [가용성 집합](../../manage-availability.md)에 배포 됩니다. SAP Central Services의 고가용성을 위해 별도의 가용성 집합에 두 개의 VM을 배포할 수 있습니다. 인프라 또는 소프트웨어 문제 발생 시, 자동 장애 조치(Failover)를 제공하는 고가용성 프레임워크로서 Windows Server 장애 조치(failover) 클러스터링 또는 Pacemaker(Linux)를 사용합니다. 이러한 배포에 대한 자세한 내용은 다음을 참조하세요.
 
 - [클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링](./sap-high-availability-guide-wsfc-file-share.md)

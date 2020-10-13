@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a3e9b7406e11261aff12d77d9fbeed5debbe938
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744273"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978478"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Azure Disk Encryption를 사용 하는 논리 볼륨 관리 장치의 크기를 조정 하는 방법
 
@@ -37,7 +37,7 @@ ms.locfileid: "91744273"
 
 - Linux 및 LVM을 사용 하는 환경.
 
-- Azure의 데이터 디스크에 대해 */dev/disk/scsi1/* 경로를 사용 하는 환경. 자세한 내용은 [LINUX VM 장치 이름 문제 해결](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems)을 참조 하세요. 
+- Azure의 데이터 디스크에 대해 */dev/disk/scsi1/* 경로를 사용 하는 환경. 자세한 내용은 [LINUX VM 장치 이름 문제 해결](../troubleshooting/troubleshoot-device-names-problems.md)을 참조 하세요. 
 
 ## <a name="scenarios"></a>시나리오
 

@@ -7,16 +7,16 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: baselden
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527006"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964879"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -93,7 +93,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
-| 영역 | 설명 |
+| 영역 | Description |
 | --- | --- |
 | **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
@@ -292,7 +292,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="required-administrative-roles"></a>필요한 관리 역할
 
-| Azure AD 역할 | 설명 |
+| Azure AD 역할 | Description |
 | --- | --- |
 | 전역 관리자|결합 된 등록 환경을 구현할 수 있는 최소 권한 있는 역할입니다. |
 | 인증 관리자 | 인증 방법을 구현 하 고 관리할 수 있는 최소 권한 있는 역할입니다. |

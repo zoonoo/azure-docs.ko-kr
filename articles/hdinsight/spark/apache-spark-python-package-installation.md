@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ef4a4f422bb787b3ead33ed1047d26d5e3c9c1f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823414"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978074"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -43,7 +43,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 Anaconda 설치를 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터에는 두 개의 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 아래 표에서는 Spark, Livy 및 Jupyter에 대한 기본 Python 설정을 보여 줍니다.
 
-|설정 |Python 2.7|Python 3.5|
+|Setting |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark 버전|2\.7로 기본 설정|해당 없음|
@@ -81,7 +81,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     - 또는 PyPi 리포지토리를 사용하고 `seaborn` 및 `py35new`를 이에 맞춰 변경합니다.
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     특정 버전의 라이브러리를 설치하려면 아래 명령을 사용하세요.
@@ -98,7 +98,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
     - 또는 PyPi 리포지토리를 사용하고 `numpy==1.16.1` 및 `py35new`를 이에 맞춰 변경합니다.
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     가상 환경 이름을 모르는 경우 클러스터의 헤드 노드로 SSH를 실행하고 `/usr/bin/anaconda/bin/conda info -e`를 실행하여 모든 가상 환경을 표시할 수 있습니다.

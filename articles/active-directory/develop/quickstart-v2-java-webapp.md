@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Java 웹앱 빠른 시작 | Azure
-description: OpenID Connect를 사용하여 Java 웹앱에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
+title: '빠른 시작: Java 웹앱에 Microsoft로 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 OpenID Connect를 사용하여 Java 웹 애플리케이션에서 Microsoft 로그인을 구현하는 방법을 알아봅니다.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115223"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743491"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -193,15 +194,16 @@ IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다�
 3.   Tomcat의 기본 HTTP 포트는 8080이지만 포트 8443을 통한 HTTPS 연결이 필요합니다. 이를 구성하려면 다음을 수행합니다.
         - tomcat/conf/server.xml로 이동합니다.
         - `<connector>` 태그를 검색하고 기존 커넥터를 다음으로 바꿉니다.
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. 명령 프롬프트를 열어 이 샘플의 루트 폴더(pom.xml 파일이 있는 위치)로 이동하고 `mvn package`를 실행하여 프로젝트를 빌드합니다.
     - 그러면 /대상 디렉터리에 `msal-web-sample-0.1.0.war` 파일이 생성됩니다.
     - 이 파일의 이름을 `msal4jsample.war`로 변경
@@ -249,16 +251,11 @@ MSAL4J를 사용할 파일 맨 위에 다음 코드를 추가하여 Java용 MSAL
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-권한 및 동의에 대한 자세한 정보:
+Microsoft ID 플랫폼에서 사용자를 로그인하는 웹앱을 빌드하는 방법에 대한 자세한 내용을 보려면 다중 파트 시나리오 시리즈로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [권한 및 동의](./v2-permissions-and-consent.md)
-
-이 시나리오의 인증 흐름에 대해 알아보려면 Oauth 2.0 인증 코드 흐름을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [인증 코드 Oauth 흐름](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [시나리오: 사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md?tabs=java)

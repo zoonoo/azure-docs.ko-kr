@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508868"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965763"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -30,7 +30,7 @@ Azure에서 실행되는 애플리케이션이 VM 재부팅 및 가동 중지 �
 
 애플리케이션에 이러한 수준의 중복성을 제공하기 위해 여러 개의 VM을 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 VM을 사용할 수 있고 99.95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)가 충족되도록 합니다.
 
-가용성 집합에 대 한 자세한 내용은 [vm의 가용성 관리](../windows/manage-availability.md) 를 참조 하세요.
+가용성 집합에 대 한 자세한 내용은 [vm의 가용성 관리](../manage-availability.md) 를 참조 하세요.
 
 ## <a name="resource-health-information"></a>Resource Health 정보
 
@@ -72,7 +72,7 @@ VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 �
 
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center 및 Windows 업데이트
 
-Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 애플리케이션은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/security-center-virtual-machine-protection.md)을 참조하세요.
+Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 애플리케이션은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/asset-inventory.md)을 참조하세요.
 
 온-프레미스 서버와 같이 이러한 머신은 사용자가 관리하도록 되어 있으므로, Azure는 Windows 업데이트에서 Windows VM으로 업데이트를 푸시하지 않습니다. 그러나 고객은 자동 Windows 업데이트 설정을 활성화 상태로 유지하는 것이 좋습니다. Windows 업데이트에서 업데이트를 자동으로 설치하면 업데이트가 적용된 후에 재부팅될 수도 있습니다. 자세한 내용은 [Windows 업데이트 FAQ](https://support.microsoft.com/help/12373/windows-update-faq)를 참조하세요.
 

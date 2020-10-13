@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b7d19d782e9cb29cfc917293f084b78830db89bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797618"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977768"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -408,7 +408,7 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
 - 커널 크래시 덤프(kdump)
 - Oracle ACFS(ASM 클러스터 파일 시스템)
-- Gen2 VM(참조: [Azure의 2세대 VM 지원](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Gen2 VM(참조: [Azure의 2세대 VM 지원](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 시리즈 Vm의 NVMe 디스크 (참조: [Lsv2 시리즈](../lsv2-series.md)).
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
 - 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.

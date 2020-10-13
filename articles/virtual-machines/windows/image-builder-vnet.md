@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 07339ea6c53b2abe959e8e0f164412e502bb06b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068190"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976303"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Windows Vm 용 Azure 이미지 작성기를 사용 하 여 기존 Azure VNET에 액세스 허용
 
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>VM 만들기
 
-이제 빌드가 완료 되 면 이미지에서 VM을 빌드할 수 있습니다. [PowerShell New-AzVM 설명서](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description)의 예제를 사용 합니다.
+이제 빌드가 완료 되 면 이미지에서 VM을 빌드할 수 있습니다. [PowerShell New-AzVM 설명서](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description)의 예제를 사용 합니다.
 
 ## <a name="clean-up"></a>정리
 
@@ -297,4 +297,3 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Shared Image Gallery](shared-image-galleries.md)에 대해 자세히 알아보세요.
-

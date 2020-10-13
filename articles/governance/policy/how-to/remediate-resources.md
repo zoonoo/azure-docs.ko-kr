@@ -1,14 +1,14 @@
 ---
 title: 규정 비준수 리소스 수정
 description: 이 지침에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d2e57c1b5df965c81c88506ff2c2f70b2cb1f8
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269848"
+ms.locfileid: "91876331"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -17,7 +17,7 @@ ms.locfileid: "91269848"
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
 Azure Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
-Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. SDK를 사용 하는 경우 관리 id에 수동으로 역할을 부여 해야 합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
+Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 id에 역할이 없는 경우 정책이 나 이니셔티브를 할당 하는 동안 오류가 표시 됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. SDK를 사용 하는 경우 관리 id에 수동으로 역할을 부여 해야 합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 id에 대해 정의 된 사용 권한이 없는 deployIfNotExists 정책의 스크린샷" border="false":::
 

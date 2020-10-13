@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 53ce3764d074388213a3a4be08502b09743e28cb
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7df4df1f7c2fbb600b2350940f910f488827804d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827610"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875459"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -62,7 +62,7 @@ Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.g
 - `traceparent`: 전역 고유 작업 ID와 호출의 고유 식별자를 전달 합니다.
 - `tracestate`: 시스템 특정 추적 컨텍스트를 전달 합니다.
 
-최신 버전의 Application Insights SDK는 추적 컨텍스트 프로토콜을 지원 하지만이를 옵트인 (opt in) 해야 할 수도 있습니다. Application Insights SDK에서 지 원하는 이전 상관 관계 프로토콜과의 이전 버전과의 호환성이 유지 됩니다.
+최신 버전의 Application Insights SDK는 Trace-Context 프로토콜을 지원 하지만이를 옵트인 (opt in) 해야 할 수도 있습니다. Application Insights SDK에서 지 원하는 이전 상관 관계 프로토콜과의 이전 버전과의 호환성이 유지 됩니다.
 
 [요청 Id 라고도 하는 상관 관계 HTTP 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)은 더 이상 사용 되지 않습니다. 이 프로토콜은 두 가지 헤더를 정의 합니다.
 
@@ -84,7 +84,7 @@ Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.g
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>.NET 앱에 대해 W3C distributed tracing 지원 사용
 
-W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에서 기본적으로 사용 하도록 설정 되며 이전 요청 Id 프로토콜과의 호환성과 함께 사용 됩니다.
+W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에서 기본적으로 사용 하도록 설정 되며 이전 버전의 레거시 Request-Id 프로토콜과 함께 사용 됩니다.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Java 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
@@ -133,34 +133,21 @@ W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에�
 
 이 기능은에 `Microsoft.ApplicationInsights.JavaScript` 있습니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 사용 하도록 설정 하려면 config를 사용 `distributedTracingMode` 합니다. AI_AND_W3C은 Application Insights에서 계측 하는 레거시 서비스와 이전 버전과의 호환성을 위해 제공 됩니다.
 
-- **npm 설치 (조각 설치를 사용 하는 경우 무시)**
+- **[npm 기반 설정](./javascript.md#npm-based-setup)**
 
-  ```javascript
-  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
-
-  const appInsights = new ApplicationInsights({ config: {
-    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+다음 구성을 추가 합니다.
+  ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
-    /* ...other configuration options... */
-  } });
-  appInsights.loadAppInsights();
   ```
   
-- **조각 설치 (npm 설치를 사용 하는 경우 무시)**
+- **[코드 조각 기반 설정](./javascript.md#snippet-based-setup)**
 
+다음 구성을 추가 합니다.
   ```
-  <script type="text/javascript">
-  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-  (
-    {
-      instrumentationKey:"INSTRUMENTATION_KEY",
       distributedTracingMode: 2 // DistributedTracingModes.W3C
-      /* ...other configuration options... */
-    }
-  );
-  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-  </script>
   ```
+> [!IMPORTANT] 
+> 상관 관계를 설정 하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 설명서](/app/javascript.md#enable-correlation)를 참조 하세요.
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
 
@@ -170,7 +157,7 @@ OpenCensus Python은 추가 구성을 요구 하지 않고 [W3C 추적 컨텍스
 
 ### <a name="incoming-request-correlation"></a>들어오는 요청 상관 관계
 
-OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C 추적 컨텍스트 헤더와 상관 관계를 합니다. OpenCensus는 이러한 인기 있는 웹 응용 프로그램 프레임 워크 (Flask, Django 및 피라미드형)의 통합을 통해이 작업을 자동으로 수행 합니다. W3C 추적 컨텍스트 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) 으로 채운 다음 요청을 통해 보내야 합니다. 다음은이를 보여 주는 샘플 Flask 응용 프로그램입니다.
+OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C Trace-Context 헤더와 상관 관계를 합니다. OpenCensus는 이러한 인기 있는 웹 응용 프로그램 프레임 워크 (Flask, Django 및 피라미드형)의 통합을 통해이 작업을 자동으로 수행 합니다. W3C Trace-Context 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) 으로 채운 다음 요청을 통해 보냅니다. 다음은이를 보여 주는 샘플 Flask 응용 프로그램입니다.
 
 ```python
 from flask import Flask

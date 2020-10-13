@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/02/2020
 ms.author: radeltch
-ms.openlocfilehash: edca4b44bd9e7aa9f100db3cea0bc69880a4c533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658470a3c19f8484ac56f6a1d88d23c3d7b4147e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744850"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978108"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -100,7 +100,7 @@ Hana 확장 설치에 대해 HANA 고가용성을 구현 하는 한 가지 방�
 제공 된 아키텍처의 HANA 공유 파일 시스템 `/hana/shared` 은 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)에 의해 제공 됩니다. 동일한 HANA 시스템 복제 사이트의 각 HANA 노드에 NFSv 4.1을 통해 탑재 됩니다. 파일 시스템 `/hana/data` 및 `/hana/log` 은 로컬 파일 시스템 이며 HANA DB 노드 간에 공유 되지 않습니다. SAP HANA는 비공유 모드로 설치 됩니다. 
 
 > [!TIP]
-> 권장 SAP HANA 저장소 구성은 [Azure vm 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)을 참조 하세요.   
+> 권장 SAP HANA 저장소 구성은 [Azure vm 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)을 참조 하세요.   
 
 [![HSR 및 Pacemaker 클러스터를 사용 하 여 확장 SAP HANA](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -128,7 +128,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
   
    과반수 작성자 노드의 경우이 VM이 SAP HANA 리소스를 실행 하지 않으므로 작은 VM을 배포할 수 있습니다. 대다수 작성자 VM은 분할 된 두뇌 시나리오에서 클러스터 노드 수를 홀수 개 얻기 위해 클러스터 구성에 사용 됩니다. 이 예제에서는 과반수 maker VM이 서브넷에 하나의 가상 네트워크 인터페이스만 필요 `client` 합니다.        
 
-   및에 대 한 로컬 관리 디스크를 배포 `/hana/data` `/hana/log` 합니다. 및에 대 한 최소 권장 저장소 구성은 `/hana/data` `/hana/log` [SAP HANA Azure vm 저장소 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)에 설명 되어 있습니다.
+   및에 대 한 로컬 관리 디스크를 배포 `/hana/data` `/hana/log` 합니다. 및에 대 한 최소 권장 저장소 구성은 `/hana/data` `/hana/log` [SAP HANA Azure vm 저장소 구성](./hana-vm-operations-storage.md)에 설명 되어 있습니다.
 
    가상 네트워크 서브넷의 각 VM에 대 한 기본 네트워크 인터페이스를 배포 `client` 합니다.  
    Azure Portal를 통해 VM을 배포 하는 경우 네트워크 인터페이스 이름이 자동으로 생성 됩니다. 편의를 위해이 지침에서는 자동으로 생성 된 기본 네트워크 인터페이스를 참조 합니다 .이는 `client` Azure 가상 네트워크 서브넷에 **hana-db1**, **hana-** db3, hana- **s1-** 등으로 연결 됩니다.  
@@ -148,7 +148,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
     b. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **db1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
-    다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
+    c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
     d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `inter` `hsr` .  
     
@@ -229,7 +229,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
 ### <a name="deploy-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 배포 
 
-파일 시스템용 ANF 볼륨을 배포 `/hana/shared` 합니다. `/hana/shared`각 HANA 시스템 복제 사이트 마다 별도의 볼륨이 필요 합니다. 자세한 내용은 [Azure NetApp Files 인프라 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel#set-up-the-azure-netapp-files-infrastructure)을 참조 하세요.
+파일 시스템용 ANF 볼륨을 배포 `/hana/shared` 합니다. `/hana/shared`각 HANA 시스템 복제 사이트 마다 별도의 볼륨이 필요 합니다. 자세한 내용은 [Azure NetApp Files 인프라 설정](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure)을 참조 하세요.
 
 이 예제에서는 다음 Azure NetApp Files 볼륨을 사용 했습니다. 
 
@@ -1160,7 +1160,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
       ```
 
 
-[RHEL에서 Azure vm의 SAP HANA에 대 한 HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup)에 설명 된 테스트를 수행 하 여 SAP HANA 클러스터 구성을 철저히 테스트 하는 것이 좋습니다.
+[RHEL에서 Azure vm의 SAP HANA에 대 한 HA](./sap-hana-high-availability-rhel.md#test-the-cluster-setup)에 설명 된 테스트를 수행 하 여 SAP HANA 클러스터 구성을 철저히 테스트 하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

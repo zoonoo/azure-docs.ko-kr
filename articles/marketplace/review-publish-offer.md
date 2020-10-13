@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375886"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976489"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>상용 marketplace에 제품을 검토 하 고 게시 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "89375886"
 
 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)의 상업 Marketplace 대시보드의 **개요** 탭에서 제품 상태를 검토할 수 있습니다. 다음 상태 표시기 중 하나가 각 제안의 **상태** 열에 표시 됩니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------------ | ------------- |
 | Draft | 제안이 만들어졌지만 게시 되 고 있지 않습니다. |
 | 게시 진행 중 | 제안은 게시 프로세스를 통해 작동 합니다. |
@@ -170,6 +170,84 @@ ms.locfileid: "89375886"
     제품이 marketplace에서 공개적으로 제공 되는 것을 보장 합니다.
 
 이러한 유효성 검사를 완료 한 후에는 제품이 marketplace에 살고 있습니다.
+
+## <a name="publishing-history"></a>게시 기록
+
+파트너 센터의 **기록** 페이지에는 상업적 marketplace 제품에 대 한 게시 이벤트가 표시 됩니다. 각 이벤트에 대해 작업을 시작한 사용자, 이벤트 유형 및 이벤트 날짜와 시간을 표시 합니다. [유효성 검사 및 게시 단계](#validation-and-publishing-steps) 는 완료 날짜와 시간을 포함 하 여 나열 됩니다.
+
+제품의 기록을 보려면 다음을 수행 합니다.
+
+1.    [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+2.    왼쪽의 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
+3.    제품을 선택 합니다.
+4.    왼쪽의 탐색 메뉴에서 **기록** 탭을 선택 합니다. 페이지는 제안에 해당 하는 다음 이벤트에 대 한 세부 정보를 제공 합니다.
+
+|이벤트    |Description    |
+|---------|---------------|
+|제안 생성    |제품은 파트너 센터에서 만들어졌습니다. 사용자가 **상업적 Marketplace**개요에서 제안 유형, 제품 ID 및 제품 별칭을 선택  >  **Overview**했습니다.    |
+|만든 계획: *계획 이름*    |사용자가 계획 **개요** 탭에 계획 ID와 계획 이름을 입력 하 여 새 계획을 만들었습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
+|삭제 된 계획    |사용자가 **계획 개요** 페이지에서 **초안 삭제** 를 선택 하 여 게시 되지 않은 초안 계획을 삭제 했습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
+|시작 된 계획 중지 판매: *계획 이름*    |사용자가 **계획 개요** 페이지에서 **판매 중지** 를 선택 하 여 계획 중지 판매를 시작 했습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
+|실행 취소 계획 판매 중지: *계획 이름*    |사용자가 **계획 개요** 페이지에서 **판매 취소 중지** 를 선택 하 여 계획 중지 판매를 취소 했습니다.</br>*이 이벤트는 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
+|제출 된 제품 미리 보기    |사용자가 **검토 및 게시** 페이지에서 **게시** 를 선택 하 여 미리 보기 제품을 제출 했습니다.    |
+|미리 보기 취소에 제출 시작    |사용자가 미리 보기 제출 후 **제품 개요** 페이지에서 **게시 취소** 를 선택 하 여 미리 보기에 대 한 제품 게시를 취소 하도록 요청 했습니다.</br>*이 이벤트는 취소 요청을 처리 하는 동안 표시 됩니다*.    |
+|미리 보기에 취소 된 제출    |사용자가 미리 보기에 제출한 후 **제품 개요** 페이지에서 **게시 취소** 를 선택 하 여 미리 보기에 대 한 제품 게시를 취소 했습니다.</br>*이 이벤트는 취소 요청이 성공적으로 처리 된 후에 표시 됩니다*.    |
+|로그 오프 하 여 라이브 전환    |사용자가 **제품 개요** 페이지에서 **라이브 이동** 을 선택 하 여 상업적 marketplace에 제품을 게시 했습니다.    |
+|Marketplace 취소에 게시를 시작 함    |사용자가 승인 후 사용 **개요** 페이지에서 **게시 취소** 를 선택 하 여 제품 게시를 취소 하도록 요청 했습니다.</br>*이 이벤트는 취소 요청을 처리 하는 동안 표시 됩니다*.    |
+|상업적 marketplace에 게시를 취소 했습니다.    |사용자가 승인 후 사용 **개요** 페이지에서 **게시 취소** 를 선택 하 여 제품 게시를 취소 했습니다.</br>*이 이벤트는 취소 요청이 성공적으로 처리 된 후에 표시 됩니다*.    |
+|개인 대상 사용자 동기화    |사용자가 **계획 개요** 페이지 또는 **계획 가격 책정 & 가용성** 페이지에서 **개인 사용자 동기화** 를 선택 하 여 개인 대상을 업데이트 하 고 동기화 했습니다.</br>*이 이벤트는 개인 계획을 지 원하는 제안 유형에만 적용 됩니다*.    |
+|제품 판매 중지    |사용자가 **제품 개요** 페이지에서 **판매 중지** 를 선택 하 여 제품 판매를 중지 했습니다.    |
+
+> [!NOTE]
+> 제안 초안이 저장 되 면 기록 페이지에 표시 되지 않습니다.
+
+### <a name="filter-options"></a>필터 옵션
+
+필터를 사용 하 여 특정 게시 이벤트에 대 한 제안의 전체 기록을 좁힐 수 있습니다.
+
+1.    페이지의 오른쪽 위 모서리에서 필터 단추를 선택 합니다.
+2.    필터를 선택 하 고 **적용** 을 선택 하 여 선택한 조건에 해당 하는 기록 이벤트를 확인 합니다.
+3.    **필터 지우기** 를 선택 하 여 제품의 전체 기록으로 돌아갑니다.
+
+네 가지 필터가 있습니다.
+* 이벤트
+* 사용자
+* 날짜
+* 페이지
+
+**페이지** 필터를 선택 하면 제품 유형에 적용 되는 파트너 센터 페이지를 선택할 수 있습니다. **페이지** 필터를 적용 하면 선택한 페이지에 대 한 변경 내용으로 이벤트 **를 미리 볼 수 있는 제출** 된 모든 제안이 표시 됩니다.
+
+* 모든 제품에 대해 **제품 설치** 페이지는 각 제출 이벤트에 대해 기본적으로 포함 됩니다.
+* 계획을 지 원하는 제안에 대해 **계획 개요** 페이지가 각 제출 이벤트에 대해 포함 됩니다.
+* 테스트 드라이브를 지 원하는 제품의 경우 **테스트 드라이브** 페이지는 각 제출 이벤트에 대해 포함 됩니다.
+
+### <a name="users"></a>사용자
+
+사용자가 이벤트를 시작 하면 기록 페이지에 다음 시나리오에 따라 사용자가 표시 됩니다.
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>게시자가 이벤트를 시작 했습니다.
+
+제품에 대 한 게시 권한이 있는 사용자는 자신이 시작한 게시 이벤트에 대해 이름을 표시 합니다.
+
+[![기록 페이지에는 게시 권한이 있는 사용자의 이름이 표시 됩니다.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>Microsoft에서 이벤트를 시작 했습니다.
+
+Microsoft 관리자에 게 사용자를 대신 하 여 작업을 시작 하거나 예기치 않은 시스템 오류가 발생 한 후 정정 작업을 수행할 수 있는 권한을 부여할 수 있습니다. Microsoft에서 사용자 계정을 대신 하 여 Microsoft에서 시작한 이벤트를 게시 하기 위해 Microsoft 이름과 로고가 표시 됩니다.
+
+[![기록 페이지에서 Microsoft가 시작한 이벤트를 표시 하는 방법의 예입니다.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>식별 되지 않은 사용자가 이벤트를 시작 했습니다.
+
+더 이상 계정과 연결 되지 않은 사용자는 게시 권한이 제거 된 후에 **시작** 된 열에서 해당 이름을 제거 합니다.
+
+[![기록 페이지에서 식별 되지 않은 사용자가 시작한 이벤트를 표시 하는 방법의 예입니다.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>유효성 검사 및 게시 단계
+
+[유효성 검사 및 게시 단계](#validation-and-publishing-steps)에 해당 하는 시스템 프로세스에 대해 사용자가 표시 되지 않습니다. 이러한 이벤트는 이벤트의 완료 상태에 따라 색으로 구분 됩니다.
+
+[![기록 페이지에 유효성 검사 및 게시 단계가 표시 되는 방법의 예입니다.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

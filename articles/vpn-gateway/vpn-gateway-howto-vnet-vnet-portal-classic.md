@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84985465"
+ms.locfileid: "91875568"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -73,23 +73,14 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 **예제**
 
-| Virtual Network | 주소 공간 | Azure 지역 | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | 지역 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>2단계 - 가상 네트워크 만들기
 
-[Azure Portal](https://portal.azure.com)에서 두 개의 가상 네트워크를 만듭니다. 클래식 가상 네트워크를 만드는 단계는 [클래식 가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 참조하세요. 
-
-포털을 사용하여 클래식 가상 네트워크를 만들 때 다음 단계를 사용하여 가상 네트워크 페이지로 이동해야 합니다. 그렇지 않으면 가상 네트워크를 만드는 옵션이 표시되지 않습니다.
-
-1. '+'를 클릭하여 '새로 만들기' 페이지를 엽니다.
-2. ‘Marketplace 검색’ 필드에 ‘Virtual Network’를 입력합니다. 대신, 네트워킹 -> Virtual Network를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
-3. 반환된 목록에서 'Virtual Network'를 찾아서 클릭하여 Virtual Network 페이지를 엽니다. 
-4. 가상 네트워크 페이지에서 '클래식'을 선택하여 클래식 VNet을 만듭니다. 
-
-이 문서를 연습으로 사용하는 경우 다음 예제 값을 사용할 수 있습니다.
+이 단계에서는 두 개의 클래식 가상 네트워크를 만듭니다. 이 문서를 연습으로 사용하는 경우 다음 예제 값을 사용할 수 있습니다.
 
 **TestVNet1에 대한 값**
 
@@ -125,7 +116,11 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 * **DNS 서버** – DNS 서버 이름 및 IP 주소를 입력합니다. 이 설정은 DNS 서버를 만들지 않습니다. 이렇게 하면 이 가상 네트워크에 대한 이름 확인에 사용하려는 DNS 서버를 지정할 수 있습니다.
 
-이 섹션에서는 연결 형식, 로컬 사이트를 구성하고 게이트웨이를 만듭니다.
+### <a name="to-create-a-classic-virtual-network"></a>클래식 가상 네트워크를 만들려면
+
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
+
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>3단계 - 로컬 사이트 구성
 
@@ -135,7 +130,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 각 VNet의 로컬 사이트는 다른 VNet입니다. 다음 예제 값은 여기의 구성에 사용됩니다.
 
-| Virtual Network | 주소 공간 | Azure 지역 | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | 지역 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -205,38 +200,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>7단계 - 네트워크 구성 파일에서 값 검색
 
-Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 해당 이름은 **Group ClassicRG TestVNet1**과 같은 모양일 수 있습니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
-
-다음 단계에서는 연결에 필요한 값을 확보하기 위해 Azure 계정에 연결하고 네트워크 구성 파일을 다운로드하여 살펴봅니다.
-
-1. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 다운로드하여 설치합니다. 자세한 내용은 [Azure PowerShell 작업](#powershell)을 참조 하세요.
-
-2. 관리자 권한으로 PowerShell 콘솔을 엽니다. 다음 예제를 사용 하 여 연결을 지원 합니다. PowerShell 서비스 관리 모듈을 사용 하 여 이러한 명령을 로컬로 실행 해야 합니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
-
-   ```powershell
-   azure config mode asm
-   ```
-3. 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
-
-   ```powershell
-   Add-AzureAccount
-   ```
-4. 계정에 대한 구독을 확인합니다.
-
-   ```powershell
-   Get-AzureSubscription
-   ```
-5. 둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
-
-   ```powershell
-   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-   ```
-6. 네트워크 구성 파일을 내보내고 및 살펴봅니다. 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 **C:\AzureNet**으로 내보냅니다.
-
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-   ```
-7. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 이러한 이름은 연결을 만들 때 사용 하는 이름이 됩니다.<br>VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =** 으로 나열됩니다.
+[!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>8단계 - VPN 게이트웨이 연결 만들기
 

@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0030a9340d874d94b9876e23f372e97655c145da
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742707"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Azure App Service에 대 한 PremiumV3 계층 구성
 
 새 **PremiumV3** 가격 책정 계층은 더 빠른 프로세서, SSD 저장소 및 기존 가격 책정 계층의 메모리 대 코어 비율을 4 배로 제공 합니다 ( **PremiumV2** 계층 두 개). 성능상의 이점 덕분에 더 적은 인스턴스에서 앱을 실행하여 비용을 절감할 수 있습니다. 이 문서에서는 **PremiumV3** 계층에서 앱을 만들거나 **PremiumV3** 계층으로 앱을 확장 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 앱을 **PremiumV3**로 강화 하려면 **PremiumV3**보다 낮은 가격 책정 계층에서 실행 되는 Azure App Service 앱이 있어야 하 고, PremiumV3를 지 원하는 App Service 배포에서 앱이 실행 되 고 있어야 합니다.
 
@@ -79,7 +79,7 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>지원되지 않는 리소스 그룹 및 지역 조합에서 강화
 
-**PremiumV3** 를 사용할 수 없는 App Service 배포에서 앱이 실행 되는 경우 또는 현재 **PremiumV3**을 지원 하지 않는 지역에서 앱이 실행 되는 경우 **PremiumV3**를 활용 하기 위해 앱을 다시 배포 해야 합니다.  다음 두 가지 옵션을 사용할 수 있습니다.
+**PremiumV3** 를 사용할 수 없는 App Service 배포에서 앱이 실행 되는 경우 또는 현재 **PremiumV3**을 지원 하지 않는 지역에서 앱이 실행 되는 경우 **PremiumV3**를 활용 하기 위해 앱을 다시 배포 해야 합니다.  다음과 같은 두 가지 옵션이 있습니다.
 
 - 새 리소스 그룹에 새 App Service 계획으로 앱을 만듭니다. App Service 계획을 만들 때 **PremiumV3** 계층을 선택 합니다. 이 단계를 수행 하면 App Service 계획이 **PremiumV3**을 지 원하는 배포 단위로 배포 됩니다. 그런 다음 새로 만든 앱에 응용 프로그램 코드를 다시 배포 합니다. App Service 계획을 하위 계층으로 확장 하 여 비용을 절감 하는 경우에도 배포 단위에서 지원 하므로 항상 **PremiumV3** 로 크기를 조정할 수 있습니다.
 - 앱이 이미 기존 **프리미엄** 계층에서 실행 되는 경우 모든 앱 설정, 연결 문자열 및 배포 구성을 사용 하 여 앱을 **PremiumV3**를 사용 하는 새 app service 계획으로 복제할 수 있습니다.

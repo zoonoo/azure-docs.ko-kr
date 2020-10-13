@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1b3e12bcf744ad0d762f686a908a01239fc4323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87428122"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949244"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -25,7 +25,7 @@ ms.locfileid: "87428122"
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>등록 또는 로그인 페이지 요소
 
-ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 같습니다.
+ID가 인 콘텐츠 정의 `api.signuporsignin` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 사용 되는 id는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -93,7 +93,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>등록 및 자체 어설션된 페이지 사용자 인터페이스 요소
 
-아래에는 ID가 `api.localaccountsignup`인 콘텐츠 정의 또는 `api.selfasserted`로 시작하는 모든 콘텐츠 정의(예: `api.selfasserted.profileupdate` 및 `api.localaccountpasswordreset`)의 ID가 나와 있습니다.
+다음은 ID가 인 콘텐츠 정의의 Id `api.localaccountsignup` 또는로 시작 하는 콘텐츠 정의 ( `api.selfasserted` 예: `api.selfasserted.profileupdate` 및) `api.localaccountpasswordreset` 및 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -155,7 +155,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>전화 인증 페이지 사용자 인터페이스 요소
 
-ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
+ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-profile.md)의 콘텐츠 정의 id는 다음과 같습니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -197,11 +197,11 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 
 다음 예제에서는 MFA 등록 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![등록 페이지 이메일 확인 UX 요소](./media/localization-string-ids/localization-mfa1.png)
+![전화 요소 인증 등록 UX 요소](./media/localization-string-ids/localization-mfa1.png)
 
 다음 예제에서는 MFA 유효성 검사 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
 
-![등록 페이지 이메일 확인 UX 요소](./media/localization-string-ids/localization-mfa2.png)
+![전화 요소 인증 유효성 검사 UX 요소](./media/localization-string-ids/localization-mfa2.png)
 
 ## <a name="verification-display-control-user-interface-elements"></a>확인 표시 컨트롤 사용자 인터페이스 요소
 

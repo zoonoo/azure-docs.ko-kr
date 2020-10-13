@@ -4,16 +4,16 @@ description: Edge 에이전트 및 Edge 허브 모듈 트윈스에 대한 특정
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7a56bcad067176d8f9805b418cca45ad144579
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546200"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978699"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>IoT Edge 에이전트 및 IoT Edge 허브 모듈 쌍의 속성
 
@@ -33,7 +33,7 @@ IoT Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바�
 
 | 속성 | Description | 필수 |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 예 |
+| schemaVersion | "1.0" 또는 "1.1" 중 하나입니다. 버전 1.1은 IoT Edge 버전 1.0.10에서 도입 되었으며 권장 됩니다. | 예 |
 | runtime.type | "docker"여야 합니다. | 예 |
 | runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 예 |
 | runtime.settings.loggingOptions | IoT Edge 에이전트 컨테이너에 대한 로깅 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 로깅 옵션](https://docs.docker.com/engine/admin/logging/overview/) | 아니요 |
@@ -47,6 +47,7 @@ IoT Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바�
 | systemModules.edgeHub.type | "docker"여야 합니다. | 예 |
 | systemModules.edgeHub.status | "running"이어야 합니다. | 예 |
 | systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 예 |
+| systemModules. Star\der | 모듈의 시작 순서에 해당 하는 정수 값입니다. 0은 첫 번째이 고 최대 정수 (4294967295)는 마지막입니다. 값을 제공 하지 않으면 기본값은 max 정수입니다.  | 아니요 |
 | systemModules.edgeHub.settings.image | IoT Edge 허브 이미지의 URI입니다. | 예 |
 | systemModules.edgeHub.settings<br>.createOptions | IoT Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | 아니요 |
 | systemModules.edgeHub.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | IoT Hub는 배포를 사용하여 매니페스트를 적용할 때 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
@@ -54,6 +55,7 @@ IoT Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바�
 | modules.{moduleId}.type | "docker"여야 합니다. | 예 |
 | modules.{moduleId}.status | {“running” \| “stopped”} | 예 |
 | modules.{moduleId}.restartPolicy | {"never" \| "오류 발생 시" \| "비정상" \| "always"} | 예 |
+| 모듈로. {moduleId}. Star및 Der | 모듈의 시작 순서에 해당 하는 정수 값입니다. 0은 첫 번째이 고 최대 정수 (4294967295)는 마지막입니다. 값을 제공 하지 않으면 기본값은 max 정수입니다.  | 아니요 |
 | 모듈로. {moduleId} .Imagepullpolicy | {"만들기" \| "never"} | 아니요 |
 | 모듈로. {moduleId} env | 모듈에 전달할 환경 변수의 목록입니다. 형식을 사용 합니다. `"<name>": {"value": "<value>"}` | 아니요 |
 | modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | 예 |
@@ -107,7 +109,7 @@ IoT Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 디바이스에
 
 | 속성 | Description | 배포 매니페스트에 필요합니다. |
 | -------- | ----------- | -------- |
-| schemaVersion | "1.0"이어야 합니다. | 예 |
+| schemaVersion | "1.0" 또는 "1.1" 중 하나입니다. 버전 1.1은 IoT Edge 버전 1.0.10에서 도입 되었으며 권장 됩니다. | 예 |
 | routes.{routeName} | IoT Edge 허브 경로를 나타내는 문자열입니다. 자세한 내용은 [Declare 경로](module-composition.md#declare-routes)를 참조 하세요. | `routes` 요소는 존재하지만 비어 있을 수 있습니다. |
 | storeAndForwardConfiguration.timeToLiveSecs | IoT Hub 또는 로컬 모듈 인지 여부에 관계 없이 라우팅 끝점에서 연결을 끊을 경우 IoT Edge 허브가 메시지를 유지 하는 시간 (초)입니다. 값은 임의의 양의 정수일 수 있습니다. | 예 |
 

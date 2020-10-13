@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052777"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965100"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -106,7 +106,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 
 * 모바일 앱 알림
 * 모바일 앱 코드
-* 메일
+* Email
 * 휴대폰
 * 사무실 전화
 * 본인 확인 질문
@@ -166,7 +166,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 1. 관리자는 더 이상 보안 질문을 사용하지 않도록 정책을 변경하지만 휴대폰 및 보조 메일은 사용하도록 허용합니다.
 1. 휴대폰 또는 대체 전자 메일 필드를 입력 하지 않은 사용자는 이제 암호를 재설정할 수 없습니다.
 
-## <a name="notifications"></a>알림
+## <a name="notifications"></a>공지
 
 SSPR를 사용 하 여 암호 이벤트의 인식을 향상 시키기 위해 사용자 및 id 관리자에 대 한 알림을 구성할 수 있습니다.
 

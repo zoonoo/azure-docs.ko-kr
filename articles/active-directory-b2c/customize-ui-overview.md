@@ -12,12 +12,12 @@ ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4566e3d40a67a9cd9d61f78884df11536c0809bc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259546"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949295"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -156,7 +156,7 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용 하 여 고객 으로부터 추가 정보를 수집 해야 하는 경우에 사용 됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
 | Multi-Factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
-| Error | 고객에게 오류 정보를 제공합니다. |
+| 오류 | 고객에게 오류 정보를 제공합니다. |
 
 ## <a name="company-branding"></a>회사 브랜딩
 
@@ -178,7 +178,6 @@ Azure AD B2C에서 회사 브랜딩을 구성할 때 다음 사항을 염두에 
 
 * Azure AD B2C의 회사 브랜딩은 현재 **배경 이미지**, **배너 로고**및 **배경 색** 사용자 지정으로 제한 됩니다. 회사 브랜딩 창의 다른 속성 (예: **고급 설정**)은 *지원 되지 않습니다*.
 * 배경 이미지를 로드 하기 전에 사용자 흐름 페이지에서 배경색을 표시 합니다. 더 부드러운 로드 환경을 위해 배경 이미지의 색과 거의 일치 하는 배경색을 선택 하는 것이 좋습니다.
-* 등록 사용자 흐름을 시작할 때 사용자에 게 전송 된 확인 전자 메일에 배너 로고가 표시 됩니다.
 
 ### <a name="enable-branding-in-user-flow-pages"></a>사용자 흐름 페이지에서 브랜딩 사용
 
@@ -228,7 +227,7 @@ https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 GitHub의 [B2C](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) 저장소에서 여러 샘플 템플릿 파일을 찾을 수 있습니다.
 

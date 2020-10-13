@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825262"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978597"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Azure 전용 호스트 예약을 사용 하 여 비용 절감
 
-Azure 전용 호스트의 예약 된 인스턴스로 커밋하는 경우 비용을 절감할 수 있습니다. 예약 할인은 예약 범위 및 특성과 일치 하는 실행 중인 전용 호스트 수에 자동으로 적용 됩니다. 할인을 얻기 위해 전용 호스트에 예약을 할당할 필요가 없습니다. 예약 인스턴스 구매는 사용량의 계산 부분만 다루며 소프트웨어 라이선스 비용이 포함 됩니다. [가상 컴퓨터에 대 한 Azure 전용 호스트 개요](./windows/dedicated-hosts.md)를 참조 하세요.
+Azure 전용 호스트의 예약 된 인스턴스로 커밋하는 경우 비용을 절감할 수 있습니다. 예약 할인은 예약 범위 및 특성과 일치 하는 실행 중인 전용 호스트 수에 자동으로 적용 됩니다. 할인을 얻기 위해 전용 호스트에 예약을 할당할 필요가 없습니다. 예약 인스턴스 구매는 사용량의 계산 부분만 다루며 소프트웨어 라이선스 비용이 포함 됩니다. [가상 컴퓨터에 대 한 Azure 전용 호스트 개요](./dedicated-hosts.md)를 참조 하세요.
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>구매 하기 전에 적절 한 전용 호스트 SKU 확인
 
@@ -129,7 +129,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Azure Dedicated Host 사용](./windows/dedicated-hosts.md)
+- [Azure Dedicated Host 사용](./dedicated-hosts.md)
 
 - [Dedicated Host 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 

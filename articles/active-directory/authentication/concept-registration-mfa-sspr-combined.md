@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718920"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965151"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
@@ -51,15 +51,15 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-| 방법 | 등록 | 변경 | DELETE |
+| 메서드 | 등록 | 변경 | 삭제 |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | 예 (최대 5 개) | 아니요 | 예 |
 | 기타 authenticator 앱 | 예 (최대 5 개) | 아니요 | 예 |
 | 하드웨어 토큰 | 아니요 | 아니요 | 예 |
-| 전화 | 예 | 예 | 예 |
+| Phone | 예 | 예 | 예 |
 | 대체 전화 | 예 | 예 | 예 |
 | 사무실 전화 | 아니요 | 아니요 | 아니요 |
-| 메일 | 예 | 예 | 예 |
+| Email | 예 | 예 | 예 |
 | 본인 확인 질문 | 예 | 아니요 | 예 |
 | 앱 암호 | 예 | 아니요 | 예 |
 | FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |

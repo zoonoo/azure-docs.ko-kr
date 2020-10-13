@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30e76ec3085922ec2a1d4693681eb97c9052c026
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322554"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978733"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 이 systemd 서비스는 기본 프로 비전을 위한 세 가지 작업을 수행 합니다.
 
 1. Azure에 준비 된 보고서 (성공적으로 완료 되었음을 나타냄).
-1. [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service)에서이 데이터를 당겨 사용자가 제공한 vm 이름에 따라 vm의 이름을 바꿉니다. **참고** 또한 IMDS는 SSH 공개 키와 같은 다른 [인스턴스 메타 데이터](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service)를 제공 하므로 호스트 이름 이외의 항목을 설정할 수 있습니다.
+1. [Azure Instance Metadata Service (IMDS)](./instance-metadata-service.md)에서이 데이터를 당겨 사용자가 제공한 vm 이름에 따라 vm의 이름을 바꿉니다. **참고** 또한 IMDS는 SSH 공개 키와 같은 다른 [인스턴스 메타 데이터](./instance-metadata-service.md#accessing-azure-instance-metadata-service)를 제공 하므로 호스트 이름 이외의 항목을 설정할 수 있습니다.
 1. 을 사용 하지 않도록 설정 하 여 첫 번째 부팅 에서만 실행 되며 이후에 다시 부팅할 때는 실행 되지 않습니다.
 
 파일 시스템의 단위를 사용 하 여 사용 하도록 설정 하려면 다음을 실행 합니다.

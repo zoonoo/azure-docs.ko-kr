@@ -7,12 +7,12 @@ ms.date: 3/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: da163e902d06bd98ac47a24256cb809cb222173b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5b7b45cc52d900e5ecde59e6a5ae203533286b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804625"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978869"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>IoT Edge 모듈의 Azure Blob Storage를 디바이스에 배포
 
@@ -21,7 +21,10 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
-- IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md)
+- IoT Edge 장치입니다.
+
+  IoT Edge 장치를 설정 하지 않은 경우 Azure 가상 머신에서 만들 수 있습니다. 빠른 시작 문서 중 하나에 있는 단계에 따라 [가상 Linux 장치를 만들거나](quickstart-linux.md) [가상 Windows 장치를 만듭니다](quickstart.md).
+
 - Visual Studio Code에서 배포 하는 경우 [Visual Studio Code](https://code.visualstudio.com/) 및 [Azure IoT 도구](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="deploy-from-the-azure-portal"></a>Azure Portal에서 배포
@@ -32,7 +35,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 1. 메뉴에서 **IoT Edge**를 선택합니다.
-1. 장치 목록에서 대상 장치의 ID를 클릭 합니다.
+1. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다.
 1. **모듈 설정**을 선택 합니다.
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -206,7 +209,7 @@ Azure IoT Edge는 Visual Studio Code에 에지 솔루션 개발을 도와주는 
      - Windows 컨테이너의 경우 형식은 ** \<your storage path or volume> C:/BlobRoot**입니다. 예를 들면 다음과 같습니다.
          - [볼륨 탑재](https://docs.docker.com/storage/volumes/) `my-volume:C:/BlobRoot` 사용:
          - [바인드 탑재](https://docs.docker.com/storage/bind-mounts/) `C:/ContainerData:C:/BlobRoot` 사용:
-         - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 smb 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage) 을 참조 하세요.
+         - 로컬 드라이브를 사용 하는 대신 SMB 네트워크 위치를 매핑할 수 있습니다. 자세한 내용은 [로컬 저장소로 SMB 공유 사용](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)을 참조 하세요.
 
      > [!IMPORTANT]
      > IoT Edge 모듈의 Blob Storage에서 특정 위치를 가리키는 저장소 탑재 값의 두 번째 절반을 변경 하지 마십시오. 저장소 탑재는 항상 Linux 컨테이너에 대 한 **/blobroot** 및 Windows 컨테이너의 경우 **: C:/blobroot** 로 끝나야 합니다.
@@ -271,7 +274,7 @@ IoT Edge 모듈에 Azure Blob Storage의 여러 인스턴스를 배포 하려는
 
 또한 blob storage 모듈에는 매니페스트 배포 파일의 HTTPS_PROXY 설정도 필요 합니다. 배포 매니페스트 파일을 직접 편집 하거나 Azure Portal를 사용할 수 있습니다.
 
-1. Azure Portal에서 Iot hub로 이동 하 고 왼쪽 창 메뉴에서 **Iot Edge** 를 선택 합니다.
+1. Azure Portal에서 Iot hub로 이동 하 고 왼쪽 창 메뉴에서 **IoT Edge** 를 선택 합니다.
 
 1. 구성할 모듈이 있는 장치를 선택 합니다.
 

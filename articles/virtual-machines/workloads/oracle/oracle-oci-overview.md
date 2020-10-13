@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: a73d327ad2a251b5043da7e58c14e5f6f311e334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9d8838747c4f7ff195a5451a3c68f5cf891c91f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274506"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978461"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Microsoft Azure와 Oracle 클라우드 인프라를 통합하는 Oracle 애플리케이션 솔루션
 
@@ -68,7 +68,7 @@ ExpressRoute 및 FastConnect를 사용하여 개인 IP 주소 공간이 겹치�
 
 네트워크 보안은 모든 엔터프라이즈 애플리케이션의 중요한 구성 요소로, 이 다중 클라우드 솔루션의 핵심입니다. ExpressRoute 및 FastConnect를 거치는 트래픽은 개인 네트워크를 통해 전달됩니다. 이 구성을 통해 Azure 가상 네트워크와 Oracle 가상 클라우드 네트워크 간의 안전한 통신이 가능합니다. Azure의 가상 머신에 공용 IP 주소를 제공하지 않아도 됩니다. 마찬가지로, OCI에는 인터넷 게이트웨이가 필요하지 않습니다. 모든 통신은 머신의 개인 IP 주소를 통해 일어납니다.
 
-또한 OCI 가상 클라우드 네트워크 및 보안 규칙(Azure [네트워크 보안 그룹](../../../virtual-network/security-overview.md)에 연결됨)에서 [보안 목록](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm)을 설정할 수 있습니다. 이러한 규칙을 사용하여 가상 네트워크에서 머신 간의 트래픽 흐름을 제어할 수 있습니다. 네트워크 보안 규칙은 가상 네트워크 수준뿐만 아니라 머신 및 서브넷 수준에서 추가할 수 있습니다.
+또한 OCI 가상 클라우드 네트워크 및 보안 규칙(Azure [네트워크 보안 그룹](../../../virtual-network/network-security-groups-overview.md)에 연결됨)에서 [보안 목록](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm)을 설정할 수 있습니다. 이러한 규칙을 사용하여 가상 네트워크에서 머신 간의 트래픽 흐름을 제어할 수 있습니다. 네트워크 보안 규칙은 가상 네트워크 수준뿐만 아니라 머신 및 서브넷 수준에서 추가할 수 있습니다.
 
 [WebLogic Server Azure 애플리케이션](oracle-weblogic.md)은 각각 WebLogic Server의 포트 구성에 작동하도록 미리 구성된 네트워크 보안 그룹을 만듭니다.
  

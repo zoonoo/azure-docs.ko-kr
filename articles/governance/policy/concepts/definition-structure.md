@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874002"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949380"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -114,7 +114,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `Microsoft.KeyVault.Data`는 [Azure Key Vault](../../../key-vault/general/overview.md)에서 자격 증명 모음 및 인증서를 관리하는 데 사용됩니다.
 
 > [!NOTE]
-> 리소스 공급자 모드는 기본 제공 정책 정의만 지원 합니다.
+> 리소스 공급자 모드는 기본 제공 정책 정의만 지원 하며 [예외](./exemption-structure.md)를 지원 하지 않습니다.
 
 ## <a name="metadata"></a>메타데이터
 

@@ -3,12 +3,12 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248604884cf1b7592b382a3490aab60102e12faf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822184"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979158"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -85,19 +85,25 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
 * AzureArcInfrastructure
 
 URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure 리소스 관리자|
+|`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|게스트 구성|
-|`*-agentservice-prod-1.azure-automation.net`|게스트 구성|
 |`*.guestconfiguration.azure.com` |게스트 구성|
 |`*.his.arc.azure.com`|하이브리드 ID 서비스|
+
+Preview 에이전트 (버전 0.11 및 낮음) 에서도 다음 Url에 액세스할 수 있어야 합니다.
+
+| 에이전트 리소스 | Description |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|게스트 구성|
+|`*-agentservice-prod-1.azure-automation.net`|게스트 구성|
 
 각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. 자세한 내용은 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 검토하세요.
 
@@ -138,7 +144,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 > [!IMPORTANT]
 > 연결 된 컴퓨터 에이전트는 Azure Windows 가상 컴퓨터에 설치할 수 없습니다. 을 (를) 시도 하면 설치에서이를 감지 하 고 롤백합니다.
 
-| 방법 | Description |
+| 메서드 | Description |
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|

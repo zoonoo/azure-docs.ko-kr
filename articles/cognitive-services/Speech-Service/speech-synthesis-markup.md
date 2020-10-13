@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 199e19116e0d8ba6bcc4954e767265e6fb4cd238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8dfae58b9910504a11bf3986380398499e3357
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666350"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949601"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -196,6 +196,8 @@ speechConfig!.setPropertyTo(
 
 현재 이러한 신경망에 대해 말하는 스타일 조정을 지원 합니다.
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -228,6 +230,10 @@ speechConfig!.setPropertyTo(
 |                         | `style="chat"`            | 평범한 톤 및 낮은 톤을 나타냅니다.                         |
 |                         | `style="cheerful"`        | 긍정 및 행복 한 톤을 나타냅니다.                         |
 |                         | `style="empathetic"`      | 신경쓰지의 의미를 표현 하 고 이해 합니다.               |
+| `en-US-JennyNeural`     | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  |
+|                         | `style="chat"`            | 평범한 톤 및 낮은 톤을 나타냅니다.                         |
+|                         | `style="assistant"`       | 디지털 길잡이에 대 한 웜 및 낮은 톤을 나타냅니다.    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Narrating news의 공식 및 전문 톤을 나타냅니다. |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Narrating news의 공식 및 전문 톤을 나타냅니다. |
 |                         | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  |
 |                         | `style="assistant"`       | 디지털 길잡이에 대 한 웜 및 낮은 톤을 나타냅니다.    |

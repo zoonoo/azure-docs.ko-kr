@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.date: 08/4/2020
 ms.custom: avverma
-ms.openlocfilehash: c57025346a9f623e3fe5536b36820ea62f355cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6ee4179dce905d637e933743ade7452a2484077
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347496"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978563"
 ---
 # <a name="put-calls-for-creation-or-updates-on-compute-resources"></a>계산 리소스에 대 한 만들기 또는 업데이트에 대 한 호출을 추가 합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "91347496"
 > [!IMPORTANT]
 > 배열 요소에 "패치"를 지원 하지 않습니다. 대신 클라이언트는 업데이트 된 배열의 전체 콘텐츠를 사용 하 여 PUT 또는 PATCH 요청을 수행 해야 합니다. 예를 들어 VM에서 데이터 디스크를 분리 하려면 GET 요청을 수행 하 여 현재 VM 모델을 가져오고, 분리할 디스크를 제거 하 `properties.storageProfile.dataDisks` 고, 업데이트 된 VM 엔터티를 사용 하 여 PUT 요청을 수행 합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="correct-payload-to-remove-a-proximity-placement-groups-association"></a>근접 배치 그룹 연결을 제거 하려면 페이로드를 수정 하십시오.
 
@@ -66,5 +66,4 @@ ms.locfileid: "91347496"
 `
 
 ## <a name="next-steps"></a>다음 단계
-[Virtual Machines](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) 및 [Virtual Machine Scale Sets](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate) 에 대 한 호출을 만들거나 업데이트 하는 방법에 대해 자세히 알아보세요.
-
+[Virtual Machines](/rest/api/compute/virtualmachines/createorupdate) 및 [Virtual Machine Scale Sets](/rest/api/compute/virtualmachinescalesets/createorupdate) 에 대 한 호출을 만들거나 업데이트 하는 방법에 대해 자세히 알아보세요.

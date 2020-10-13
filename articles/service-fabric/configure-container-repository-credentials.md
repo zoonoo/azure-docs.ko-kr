@@ -4,12 +4,12 @@ description: 컨테이너 레지스트리에서 이미지를 다운로드 하기
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421427"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978682"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성
 
@@ -96,6 +96,9 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
 1. *시스템 할당 관리 id* 가 VM에 대해 사용 하도록 설정 되어 있는지 확인 합니다.
 
     ![Azure Portal: 가상 머신 확장 집합 id 만들기 옵션](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> 사용자 할당 관리 id의 경우이 단계를 건너뜁니다. 확장 집합이 단일 사용자 할당 관리 id에만 연결 된 경우 아래 나머지 단계는 동일 하 게 작동 합니다.
 
 2. 레지스트리에서 이미지를 끌어오거나 읽도록 가상 머신 확장 집합에 대 한 권한을 부여 합니다. Azure Portal에서 Azure Container Registry의 Access Control (IAM) 블레이드에서 가상 컴퓨터에 대 한 *역할 할당* 을 추가 합니다.
 

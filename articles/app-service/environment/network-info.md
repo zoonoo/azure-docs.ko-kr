@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5fa5ae54c7aea520a2346cba8feca294585b0d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962539"
+ms.locfileid: "91875736"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -161,7 +161,7 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 * 포트 53의 모든 Ip에 대 한 UDP
 * 포트 123의 모든 Ip에 대 한 UDP
 * 포트 80, 443의 모든 Ip에서 TCP로
-* 포트 1433에서 IP 서비스 태그 AzureSQL TCP
+* 포트 1433의 IP 서비스 태그를 TCP로 `Sql` 설정
 * 포트 12000의 모든 Ip에서 TCP로
 * 모든 포트에서 ASE 서브넷으로
 
