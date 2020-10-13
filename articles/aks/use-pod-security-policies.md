@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/21/2020
 ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669295"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
@@ -16,7 +16,7 @@ ms.locfileid: "89669295"
 > [!WARNING]
 > **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되며,** [AKS에 대 한 Azure Policy](use-pod-security-on-azure-policy.md)의 2021 년 2 월 1 일 이후에는 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
 >
-> Pod 보안 정책 (미리 보기)이 더 이상 사용 되지 않는 경우에는 더 이상 사용 되지 않는 기능을 사용 하 여 기존 클러스터에서이 기능을 사용 하지 않도록 설정 해야 합니다.
+> Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
 >
 > AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. [Pod 보안 정책 (미리 보기)에서 Azure Policy로 마이그레이션하](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy)는 방법에 대 한 자세한 내용을 보려면 여기를 클릭 하세요.
 
@@ -58,7 +58,7 @@ az feature register --name PodSecurityPolicyPreview --namespace Microsoft.Contai
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService

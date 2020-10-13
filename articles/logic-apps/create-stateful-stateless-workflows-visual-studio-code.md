@@ -7,10 +7,10 @@ ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/26/2020
 ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597783"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 또는 상태 비저장 워크플로 만들기
@@ -112,7 +112,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 * Azure Portal에서는 새 **논리 앱 (미리 보기)** 리소스 유형을 사용 하 여 새 논리 앱을 만들 수 없습니다. 이러한 논리 앱은 Visual Studio Code 에서만 만들 수 있습니다. 그러나 Visual Studio Code에서 Azure로이 리소스 유형을 사용 하 여 논리 앱을 배포한 후에는 [해당 논리 앱에 새 워크플로를 추가할](#add-workflows)수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 

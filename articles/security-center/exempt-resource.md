@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532553"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>권장 사항 및 보안 점수에서 리소스 제외
@@ -20,7 +20,7 @@ ms.locfileid: "91532553"
 
 Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 검토 하는 정보 중 하나는 영향을 받는 리소스 목록입니다.
 
-경우에 따라 포함 하지 않아야 하는 리소스가 나열 됩니다. Security Center에서 추적 하지 않는 프로세스에 의해 재구성 되었을 수 있습니다. 또는 조직에서 특정 리소스에 대 한 위험을 수락 하기로 결정 했을 수도 있습니다. 
+경우에 따라 포함 하지 않아야 하는 리소스가 나열 됩니다. Security Center에서 추적하지 않는 프로세스를 통해 수정되었을 수 있습니다. 또는 조직에서 특정 리소스에 대한 위험을 감수하기로 결정했을 수도 있습니다. 
 
 이러한 경우 예외 규칙을 만들고 리소스를 나중에 비정상 리소스로 나열 하지 않고 보안 점수에 영향을 주지 않도록 할 수 있습니다. 
 
@@ -31,9 +31,9 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|미리 보기|
-|결정|Azure Defender 고객에 게 추가 비용 없이 제공 되는 프리미엄 Azure 정책 기능입니다. 다른 사용자에 게는 나중에 요금이 부과 될 수 있습니다.|
-|필요한 역할 및 사용 권한:|예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|가격 책정:|Azure Defender 고객에 게 추가 비용 없이 제공 되는 프리미엄 Azure 정책 기능입니다. 다른 사용자에 게는 나중에 요금이 부과 될 수 있습니다.|
+|필요한 역할 및 권한:|예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 AZURE RBAC 사용 권한](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
 

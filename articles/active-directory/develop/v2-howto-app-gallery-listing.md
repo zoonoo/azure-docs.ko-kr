@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439747"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
@@ -61,7 +61,7 @@ Azure AD 앱 갤러리에 앱을 게시 하는 단계는 다음과 같습니다.
 6. Microsoft 파트너 네트워크에 가입 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
@@ -72,7 +72,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 지원 되�
 
 다음 표에서는 기본 표준 인 Open Authentication 2.0 (OAuth 2.0)을 Openid connect Connect (OIDC), Security Assertion Markup Language (SAML) 및 Web Services Federation (WS 급지됨)를 비교 합니다.
 
-| 기능| OAuth/OIDC| SAML/WS 공급 |
+| 기능| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | 웹 기반 Single Sign-On| √| √ |
 | 웹 기반 single sign-on| √| √ |
@@ -96,7 +96,7 @@ OAuth 2.0은 권한 부여를 위한 [업계 표준](https://oauth.net/2/) 프�
 **고려해 야 할 몇 가지 사항**
 - 응용 프로그램에 대 한 SAML 기반 Single Sign-On를 이미 구현한 경우 갤러리에서 앱을 가져오기 위해 새 표준을 구현 하지 않으려고 할 수 있습니다.
 
-### <a name="saml-20-or-ws-fed"></a>SAML 2.0 또는 WS-급지됨
+### <a name="saml-20-or-ws-fed"></a>SAML 2.0 또는 WS-Fed
 
 SAML은 웹 응용 프로그램을 위해 널리 채택 되 고 널리 채택 되는 [Single Sign-On 표준](https://www.oasis-open.org/standards#samlv2.0) 입니다. Azure에서 SAML를 사용 하는 방법에 대 한 자세한 내용은 [azure에서 saml 프로토콜을 사용 하는 방법](active-directory-saml-protocol-reference.md)을 참조 하세요. 
 
@@ -143,8 +143,8 @@ Openid connect Connect의 경우 응용 프로그램은 다중 테 넌 트 해�
 
 Microsoft는 SAML 구현을 위해 라이브러리를 제공 하거나 권장 하지 않습니다. 사용할 수 있는 여러 오픈 소스 라이브러리가 있습니다.
 
-### <a name="implement-ws-fed"></a>WS-급지됨 구현
-ASP.NET Core에서 WS를 사용 하는 방법에 대해 자세히 알아보려면 [ASP.NET Core에서 ws-federation을 사용 하 여 사용자 인증](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation)을 참조 하세요.
+### <a name="implement-ws-fed"></a>구현 WS-Fed
+ASP.NET Core WS-Fed에 대 한 자세한 내용은 [ASP.NET Core에서 WS-Federation를 사용 하 여 사용자 인증](https://docs.microsoft.com/aspnet/core/security/authentication/ws-federation)을 참조 하세요.
 
 ### <a name="implement-password-vaulting"></a>암호 보관 구현
 
@@ -238,7 +238,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 **Saml 2.0** 또는 **ws 급지됨**를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 표시 된 대로 **saml 2.0/ws 공급** 을 선택 합니다.
 
-![갤러리에 SAML 2.0 또는 WS-급지됨 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
+![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 
 암호 SSO를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려면 다음과 같이 **암호 sso** 를 선택 합니다.
 
@@ -260,7 +260,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ### <a name="timelines"></a>타임라인
 
-갤러리에서 SAML 2.0 또는 WS (WS) 응용 프로그램을 나열 하는 프로세스에 대 한 타임 라인은 영업일의 7 ~ 10 일입니다.
+갤러리에서 SAML 2.0 또는 WS-Fed 응용 프로그램을 나열 하는 프로세스에 대 한 타임 라인은 영업일의 7 ~ 10 일입니다.
 
 ![갤러리에서 SAML 응용 프로그램을 나열 하기 위한 타임 라인](./media/howto-app-gallery-listing/timeline.png)
 

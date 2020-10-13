@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426421"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제에서 모바일 서비스의 자동 업데이트
@@ -63,7 +63,7 @@ Site Recovery는 확장 업데이트를 관리할 수 있는 여러 가지 방�
 
 1. **저장**을 선택합니다.
 
-:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="확장 업데이트 설정":::
+:::image type="content" source="./media/azure-to-azure-autoupdate/vault-toggle.png" alt-text="확장 설정":::
 
 > [!IMPORTANT]
 > **Site Recovery에서 관리 하도록 허용**을 선택 하면 해당 설정이 자격 증명 모음에 있는 모든 vm에 적용 됩니다.
@@ -460,12 +460,12 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 1. Vm에 설치 된 모바일 서비스에 대 한 새 업데이트가 있는 경우 **새 Site Recovery 복제 에이전트 업데이트를 사용할 수 있습니다. 클릭 하 여 설치 합니다.**
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="복제된 항목 창":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/replicated-item-notif.png" alt-text="확장 설정":::
 
 1. 알림을 선택 하 여 VM 선택 페이지를 엽니다.
 1. 업그레이드할 Vm을 선택 하 고 **확인**을 선택 합니다. 선택한 각 VM에 대해 모바일 서비스 업데이트를 시작 합니다.
 
-   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="복제된 항목 VM 목록":::
+   :::image type="content" source="./media/vmware-azure-install-mobility-service/update-okpng.png" alt-text="확장 설정":::
 
 ## <a name="common-issues-and-troubleshooting"></a>일반적인 문제 및 문제 해결
 
@@ -479,7 +479,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
   자동 업데이트를 사용 하도록 설정한 후 대부분의 문제를 해결 하려면 **복구**를 선택 합니다. 복구 단추를 사용할 수 없는 경우 확장 업데이트 설정 창에 표시 되는 오류 메시지를 참조 하세요.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="확장 업데이트 설정의 Site Recovery 서비스 복구 단추":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/repair.png" alt-text="확장 설정":::
 
 - **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
 
@@ -495,7 +495,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
   **권장 조치**:이 문제를 해결 하려면 **복구** 를 선택한 다음 **인증서 갱신**을 선택 합니다.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="갱신-인증서":::
+  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="확장 설정":::
 
   > [!NOTE]
   > 인증서를 갱신 한 후 페이지를 새로 고쳐 현재 상태를 표시 합니다.

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532531"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Azure AD를 CloudSimple 사설 클라우드에서 vCenter에 대 한 id 공급자로 사용
@@ -85,7 +85,7 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 
     | **옵션** | **설명** |
     |------------|-----------------|
-    | **Name** | Id 원본의 이름입니다. |
+    | **이름** | Id 원본의 이름입니다. |
     | **사용자의 기본 DN** | 사용자의 기본 고유 이름입니다.  Azure AD의 경우 다음을 사용 `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 합니다. 예: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **도메인 이름** | 도메인의 FQDN (예: example.com)입니다. 이 텍스트 상자에 IP 주소를 제공 하지 마십시오. |
     | **도메인 별칭** | *(선택 사항)* 도메인 NetBIOS 이름입니다. SSPI 인증을 사용 하는 경우 Active Directory 도메인의 NetBIOS 이름을 id 원본의 별칭으로 추가 합니다. |
@@ -98,7 +98,7 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 
 3. 권한이 에스컬레이션 된 후 사설 클라우드 vCenter에 로그인 합니다.
 4. 이전 단계의 값을 사용 하 여 [vCenter에서 id 원본 추가](set-vcenter-identity.md#add-an-identity-source-on-vcenter) 의 지침에 따라 Azure Active Directory를 id 원본으로 설정 합니다.
-5. VMware 토픽 [Vcenter Single Sign-on 그룹에 멤버 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 설명 된 대로 Azure AD의 사용자/그룹을 vcenter 그룹에 추가 합니다.
+5. VMware 토픽 [Vcenter Single Sign-On 그룹에 멤버 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 설명 된 대로 Azure AD의 사용자/그룹을 vcenter 그룹에 추가 합니다.
 
 > [!CAUTION]
 > 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *Administrators* 그룹에 추가 해야 합니다.

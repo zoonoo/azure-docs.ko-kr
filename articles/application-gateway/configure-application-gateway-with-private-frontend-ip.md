@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
 ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562488"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>ILB (내부 부하 분산 장치) 끝점을 사용 하 여 응용 프로그램 게이트웨이 구성
@@ -73,8 +73,8 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 24. **백 엔드 포트**의 경우 *80*을 입력 합니다.
 25. 나머지 기본값을 적용 하 고 **추가**를 선택 합니다.
 26. **라우팅 규칙 추가** 페이지에서 **추가**를 선택 합니다.
-27. **다음: 태그**를 선택 합니다.
-28. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다.
+27. 완료되면 **다음: 태그**를 선택합니다.
+28. **다음: 검토 + 만들기**를 선택합니다.
 29. 요약 페이지에서 설정을 검토 한 다음 **만들기** 를 선택 하 여 네트워크 리소스와 응용 프로그램 게이트웨이를 만듭니다. 애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공적으로 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
 ## <a name="add-backend-pool"></a>백 엔드 풀 추가

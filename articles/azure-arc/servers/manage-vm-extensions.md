@@ -4,10 +4,10 @@ description: Azure Arc 사용 서버는 Azure가 아닌 Vm을 사용 하 여 배
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329077"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버를 사용 하 여 가상 머신 확장 관리
@@ -36,7 +36,7 @@ VM 확장 기능은 지원 되는 [지역](overview.md#supported-regions)목록 
 
 이 릴리스에서는 Windows 및 Linux 컴퓨터에서 다음 VM 확장을 지원 합니다.
 
-|확장 |OS |Publisher |추가 정보 |
+|확장 |OS |게시자 |추가 정보 |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Windows PowerShell DSC 확장](../../virtual-machines/extensions/dsc-windows.md)|
@@ -51,7 +51,7 @@ VM 확장은 Azure Resource Manager 템플릿, Azure Portal 또는 Arc 사용 �
 
 Azure 연결 된 컴퓨터 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용은 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능은 구독에 있는 다음 Azure 리소스 공급자에 따라 달라 집니다.
 
@@ -93,7 +93,7 @@ Azure Portal를 통해 서버 관리 컴퓨터에 대 한 Arc를 VM 확장에 �
 >[!NOTE]
 >여러 확장을 함께 일괄 처리 하 고 처리할 수 있지만 직렬로 설치 됩니다. 첫 번째 확장 설치가 완료 되 면 다음 확장을 설치 하려고 시도 합니다.
 
-## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
 Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 사용 서버에서 지 원하는 VM 확장을 사용 하 여 Azure PowerShell를 사용 하 여 Linux 또는 Windows 컴퓨터에서 지원 되는 VM 확장을 배포할 수 있습니다. 아래 각 샘플에는 템플릿에 제공할 샘플 값이 포함 된 템플릿 파일 및 매개 변수 파일이 포함 되어 있습니다.
 

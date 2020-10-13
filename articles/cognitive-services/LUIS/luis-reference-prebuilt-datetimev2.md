@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/13/2020
 ms.openlocfilehash: 83522de9c00056a3808b002b3103f45c72553399
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534185"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
@@ -114,7 +114,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |속성 이름 |속성 형식 및 설명|
 |---|---|
 |엔터티|**문자열** - 날짜, 시간, 날짜 범위 또는 시간 범위라는 형식이 있는 발언에서 추출된 텍스트입니다.|
-|형식|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
+|type|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
 |startIndex|**int** - 엔터티가 시작하는 발언의 인덱스입니다.|
 |endIndex|**int** - 엔터티가 끝나는 발언의 인덱스입니다.|
 |확인|하나, 둘 또는 네 가지 [해결 방법](#values-of-resolution)이 있는 `values` 배열이 포함됩니다.|
@@ -145,8 +145,8 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |--|--|
 |timex|[ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601) 뒤에 오는 TIMEX 형식으로 표현된 시간, 날짜 또는 날짜 범위와 TimeML 언어를 사용하는 주석에 대한 TIMEX3 특성입니다.|
 |mod|,와 같은 값을 사용 하는 방법을 설명 하는 데 사용 되는 용어 `before` `after` 입니다.|
-|형식|하위 형식으로,,,,,,, 등의 항목 중 하나일 수 있습니다. `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` `set`|
-|값|**선택 사항입니다.** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
+|type|하위 형식으로,,,,,,, 등의 항목 중 하나일 수 있습니다. `datetime` `date` `time` `daterange` `timerange` `datetimerange` `duration` `set`|
+|value|**필드.** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
 
 ## <a name="valid-date-values"></a>유효한 날짜 값
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85847285"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>StorSimple 8000 시리즈 업데이트 4 릴리스 정보
@@ -66,7 +66,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 다음 테이블에서 업데이트 4에서 해결된 문제를 간략하게 설명합니다.    
 
-| 아니요 | 기능 | 문제점 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아니요 | 기능 | 문제 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- |
 | 1 |장애 조치 |이전 릴리스에서 장애 조치(failover) 후 고객 쪽에서 관찰된 정리와 관련된 문제가 있었습니다. 이 문제는 이 릴리스에서 해결되었습니다. |예 |예 |
 | 2 |로컬로 고정된 볼륨 |이전 릴리스에서 볼륨 만들기 실패를 초래할 수 있는 로컬로 고정된 볼륨에 대한 볼륨 만들기와 관련된 문제가 있었습니다. 이 문제는 근본 원인이 파악되었고 이 릴리스에서 수정되었습니다. |예 |아니요 |

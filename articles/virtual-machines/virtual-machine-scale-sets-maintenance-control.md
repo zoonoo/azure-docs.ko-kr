@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 09/11/2020
 ms.author: jushiman
 ms.openlocfilehash: 55cbc5db534dd1b05f91a24e0104b1f2dc110547
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532709"
 ---
 # <a name="preview-maintenance-control-for-azure-virtual-machine-scale-sets"></a>미리 보기: Azure 가상 머신 확장 집합에 대 한 유지 관리 제어 
@@ -22,7 +22,7 @@ ms.locfileid: "90532709"
 
 유지 관리 구성은 구독 및 리소스 그룹에 걸쳐 작동 합니다.
 
-전체 워크플로는 다음 단계로 진행 됩니다. 
+전체 워크플로는 다음 단계로 나뉩니다. 
 - 유지 관리 구성을 만듭니다.
 - 가상 머신 확장 집합을 유지 관리 구성에 연결 합니다.
 - 자동 OS 업그레이드를 사용 합니다.

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662489"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
@@ -87,7 +87,7 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 
    ![UI에 새 특성이 표시 된 스크린샷](./media/how-to-connect-sync-feature-directory-extensions/dynamicgroup3.png)
 
-   요구 사항에 맞게 식을 작성 합니다. 이 예제에서는 규칙이 **(user. extension_9d98ed114c4840d298fad781915f27e4_division-eq "Sales and marketing")** 로 설정 됩니다.
+   요구 사항에 맞게 식을 작성 합니다. 이 예제에서 규칙은 **(user.extension_9d98ed114c4840d298fad781915f27e4_division-eq "Sales and marketing")** 로 설정 됩니다.
 
 4. 그룹을 만든 후에는 Azure AD에 구성원을 채운 후 구성원을 검토할 수 있는 시간을 제공 합니다.
 

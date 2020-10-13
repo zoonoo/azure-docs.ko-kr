@@ -11,24 +11,24 @@ ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
 ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91597650"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 Azure CLI를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
 - `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
 - Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
 
-## <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가 하는 단계
+## <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
 
 Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가합니다. 역할 할당은 보안 주체, 역할 정의, 범위의 세 가지 요소로 구성됩니다. 역할 할당을 추가 하려면 다음 단계를 수행 합니다.
 
@@ -95,7 +95,7 @@ az role definition list --name "{roleName}"
  
 ### <a name="step-3-identify-the-needed-scope"></a>3 단계: 필요한 범위 확인
 
-Azure는 리소스, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups), 구독 및 [관리 그룹](../governance/management-groups/overview.md)의 네 가지 범위 수준을 제공 합니다. 필요한 최소 권한을 사용 하 여 액세스 권한을 부여 하는 것이 가장 좋습니다. 따라서 더 광범위 한 범위에서 역할을 할당 하지 마십시오. 범위에 대 한 자세한 내용은 [범위 이해](scope-overview.md)를 참조 하세요.
+Azure는 리소스, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups), 구독 및 [관리 그룹](../governance/management-groups/overview.md)의 네 가지 범위 수준을 제공 합니다. 필요한 최소 권한을 사용 하 여 액세스 권한을 부여 하는 것이 가장 좋습니다. 따라서 더 광범위 한 범위에서 역할을 할당 하지 마십시오. 범위에 대한 자세한 내용은 [범위 이해](scope-overview.md)를 참조하세요.
 
 **리소스 범위**
 

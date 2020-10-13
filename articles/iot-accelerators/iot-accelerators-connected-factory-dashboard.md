@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261875"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>연결된 팩터리 솔루션 가속기 대시보드의 기능 사용
 
 > [!IMPORTANT]
-> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 [산업용 IoT 디바이스를 관리하는 클라우드 기반 솔루션 배포](quickstart-connected-factory-deploy.md) 빠른 시작에서는 대시보드를 탐색하고 경보에 응답하는 방법을 보여 주었습니다. 이 방법 가이드에서는 산업용 IoT 디바이스를 모니터링하고 관리하는 데 사용할 수 있는 몇 가지 추가 대시보드 기능을 보여 줍니다.
 

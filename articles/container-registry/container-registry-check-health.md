@@ -4,10 +4,10 @@ description: 로컬 Docker 구성 및 레지스트리에 대 한 연결을 포�
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88245386"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Azure container registry의 상태를 확인 합니다.
@@ -19,7 +19,7 @@ Azure container registry를 사용 하는 경우 가끔 문제가 발생할 수 
 추가 레지스트리 문제 해결 지침은 다음을 참조 하세요.
 * [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md)
 * [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)
-* [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+* [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>실행 az acr check-health
 
@@ -38,7 +38,7 @@ az acr check-health
 
 ### <a name="check-the-environment-and-a-target-registry"></a>환경 및 대상 레지스트리 확인
 
-레지스트리에 대 한 액세스를 확인 하 고 로컬 환경 검사를 수행 하려면 대상 레지스트리의 이름을 전달 합니다. 예:
+레지스트리에 대 한 액세스를 확인 하 고 로컬 환경 검사를 수행 하려면 대상 레지스트리의 이름을 전달 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az acr check-health --name myregistry

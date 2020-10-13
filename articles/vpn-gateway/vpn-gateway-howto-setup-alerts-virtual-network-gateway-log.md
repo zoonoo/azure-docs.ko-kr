@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: e2451796cb99f57501ed74aba1dc7a3077b51881
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441615"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>VPN Gateway에서 리소스 로그 이벤트에 대 한 경고 설정
@@ -39,39 +39,39 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
 2. **Log Analytics** 페이지에서 **만들기** 를 선택 합니다.
 
-   ![만들기 단추가 있는 Log Analytics 페이지](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "선택")
+   ![만들기 단추가 있는 Log Analytics 페이지](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "새 페이지를 추가하기 위해")
 
 3. **새로 만들기** 를 선택 하 고 세부 정보를 입력 합니다.
 
-   ![Log Analytics 작업 영역을 만드는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "선택")
+   ![Log Analytics 작업 영역을 만드는 방법에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "새 페이지를 추가하기 위해")
 
 4. **Monitor**  >  **진단 설정** 모니터링 블레이드에서 VPN gateway를 찾습니다.
 
-   ![진단 설정에서 VPN gateway를 찾기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "선택")
+   ![진단 설정에서 VPN gateway를 찾기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "새 페이지를 추가하기 위해")
 
 5. 진단을 켜려면 게이트웨이를 두 번 클릭 한 다음 **진단 켜기**를 선택 합니다.
 
-   ![진단 켜기 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "선택")
+   ![진단 켜기 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "새 페이지를 추가하기 위해")
 
 6. 세부 정보를 입력 하 고 Log Analytics 및 **TunnelDiagnosticLog** **로 보내기** 가 선택 되어 있는지 확인 합니다. 3 단계에서 만든 Log Analytics 작업 영역을 선택 합니다.
 
-   ![선택한 확인란](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "선택")
+   ![선택한 확인란](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "새 페이지를 추가하기 위해")
 
    > [!NOTE]
    > 처음에 데이터가 표시 되는 데 몇 시간 정도 걸릴 수 있습니다.
 
 7. 가상 네트워크 게이트웨이 리소스의 개요로 이동 하 고 **모니터링** 탭에서 **경고** 를 선택 합니다. 그런 다음 새 경고 규칙을 만들거나 기존 경고 규칙을 편집 합니다.
 
-   ![새 경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
+   ![새 경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "새 페이지를 추가하기 위해")
 
-   ![지점 및 사이트 간](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
+   ![지점 및 사이트 간](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "새 페이지를 추가하기 위해")
 8. Log Analytics 작업 영역 및 리소스를 선택 합니다.
 
-   ![작업 영역 및 리소스에 대 한 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "선택")
+   ![작업 영역 및 리소스에 대 한 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "새 페이지를 추가하기 위해")
 
 9. **조건 추가**에서 신호 논리로 **사용자 지정 로그 검색** 을 선택 합니다.
 
-   ![사용자 지정 로그 검색에 대 한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "선택")
+   ![사용자 지정 로그 검색에 대 한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "새 페이지를 추가하기 위해")
 
 10. **검색 쿼리** 입력란에 다음 쿼리를 입력 합니다.  <> 의 값과 TimeGenerated를 적절히 바꿉니다.
 
@@ -88,15 +88,15 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
     임계값을 0으로 설정 하 고 **완료**를 선택 합니다.
 
-    ![쿼리 입력 및 임계값 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "선택")
+    ![쿼리 입력 및 임계값 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "새 페이지를 추가하기 위해")
 
 11. **규칙 만들기** 페이지의 **작업 그룹** 섹션에서 **새로 만들기** 를 선택 합니다. 세부 정보를 입력 하 고 **확인을**선택 합니다.
 
-    ![새 작업 그룹에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "선택")
+    ![새 작업 그룹에 대 한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "새 페이지를 추가하기 위해")
 
 12. **규칙 만들기** 페이지에서 **작업 사용자 지정** 에 대 한 세부 정보를 입력 하 고 올바른 이름이 **작업 그룹 이름** 섹션에 표시 되는지 확인 합니다. **경고 규칙 만들기** 를 선택 하 여 규칙을 만듭니다.
 
-    ![규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "선택")
+    ![규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "새 페이지를 추가하기 위해")
 
 ## <a name="set-up-alerts-by-using-powershell"></a><a name="setuppowershell"></a>PowerShell을 사용 하 여 경고 설정
 

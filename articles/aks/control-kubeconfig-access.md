@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 05/06/2020
 ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88009293"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용 하 여 AKS (Azure Kubernetes Service)에서 Kubernetes 구성 파일에 대 한 액세스 정의
@@ -71,7 +71,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Azure AD 그룹에 사용 권한을 할당 하려는 경우 `--assignee` *사용자가*아닌 *그룹* 의 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*라는 Azure AD 그룹의 개체 ID를 가져옵니다.`az ad group show --group appdev --query objectId -o tsv`
+> Azure AD 그룹에 사용 권한을 할당 하려는 경우 `--assignee` *사용자가*아닌 *그룹* 의 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*라는 Azure AD 그룹의 개체 ID를 가져옵니다. `az ad group show --group appdev --query objectId -o tsv`
 
 필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할*로 변경할 수 있습니다.
 

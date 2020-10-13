@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328261"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Azure 보안 벤치 마크 소개
@@ -46,9 +46,9 @@ Azure 보안 벤치 마크는 다음과 같은 고객 또는 서비스 파트너
 "제어", "벤치 마크" 및 "기준" 이라는 용어는 Azure 보안 벤치 마크 설명서에서 자주 사용 되며, Azure에서 이러한 용어를 사용 하는 방법을 이해 하는 것이 중요 합니다.
 
 
-| 용어 | Description | 예제 |
+| 용어 | 설명 | 예제 |
 |--|--|--|
-| 제어 | 컨트롤은 기술 또는 구현과 관련이 없는 기능이 나 작업에 대 한 개략적인 설명입니다. | 데이터 보호는 보안 제어 중 하나입니다. 이 컨트롤은 데이터를 보호 하기 위해 해결 해야 하는 특정 작업을 포함 합니다. |
+| 컨트롤 | 컨트롤은 기술 또는 구현과 관련이 없는 기능이 나 작업에 대 한 개략적인 설명입니다. | 데이터 보호는 보안 제어 중 하나입니다. 이 컨트롤은 데이터를 보호 하기 위해 해결 해야 하는 특정 작업을 포함 합니다. |
 | 벤치마크 | 벤치 마크에는 Azure와 같은 특정 기술에 대 한 보안 권장 사항이 포함 되어 있습니다. 권장 사항은 자신이 속한 컨트롤에 의해 분류 됩니다. | Azure 보안 벤치 마크는 Azure 플랫폼과 관련 된 보안 권장 사항을 구성 합니다. |
 | 기초 | 기준은 개별 Azure 서비스에 대 한 벤치 마크의 구현입니다. 각 조직은 벤치 마크 권장 사항을 결정 하 고 Azure 구현 범위에서 해당 구성이 필요 합니다. | Contoso 회사는 Azure SQL 보안 기준에 권장 되는 구성을 수행 하 여 Azure SQL 보안 기능을 사용 하도록 설정 하는 것으로 보입니다.
 

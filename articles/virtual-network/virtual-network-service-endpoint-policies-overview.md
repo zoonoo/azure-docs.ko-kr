@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400758"
 ---
-# <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure Storage에 대 한 가상 네트워크 서비스 끝점 정책
+# <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 정책
 
 VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점을 통해 Azure Storage 계정에 대 한 송신 가상 네트워크 트래픽을 필터링 하 고 특정 Azure Storage 계정에만 데이터 반출을 수행할 수 있습니다. 끝점 정책은 서비스 끝점을 통해 연결할 때 Azure Storage에 대 한 가상 네트워크 트래픽에 대 한 세분화 된 액세스 제어를 제공 합니다.
 
@@ -110,7 +110,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 - 서브넷을 통해 서비스 끝점 정책을 적용 한 후 관리 되는 Azure 서비스의 작동이 중지 됨
   - 지금은 서비스 끝점 정책에서 관리 서비스를 지원 하지 않습니다. *업데이트에 대 한이 공간을 시청*하세요.
 
-## <a name="provisioning"></a>프로비저닝
+## <a name="provisioning"></a>프로비전
 
 가상 네트워크에 대한 쓰기 액세스 권한이 있는 사용자는 서브넷에서 서비스 엔드포인트 정책을 구성할 수 있습니다. Azure [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
 

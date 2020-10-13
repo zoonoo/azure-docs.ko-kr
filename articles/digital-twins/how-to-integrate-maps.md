@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
 ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564365"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
@@ -152,7 +152,7 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 두 샘플 모두 호환 범위에서 온도를 전송 하므로 30 초 마다 맵에 room 121 업데이트의 색이 표시 되어야 합니다.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="방 121 컬러 주황을 보여 주는 사무실 지도":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="종단 간 시나리오에서 실내 지도 통합 피스를 강조 표시 하는 Azure 서비스의 뷰입니다.":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Azure Digital Twins에 maps 정보 저장
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
 ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87496684"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
@@ -73,7 +73,7 @@ FROM Families f
 ]
 ```
 
-`DISTINCT`는 하위 쿼리 내의 프로젝션에서 사용할 수도 있습니다.
+`DISTINCT` 는 하위 쿼리 내의 프로젝션에서 사용할 수도 있습니다.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
@@ -165,4 +165,4 @@ TOP 키워드는 `N` 정의 되지 않은 순서로 쿼리 결과의 첫 번째 
 
 - [시작](sql-query-getting-started.md)
 - [조인](sql-query-join.md)
-- [Subqueries](sql-query-subquery.md)
+- [하위 쿼리](sql-query-subquery.md)

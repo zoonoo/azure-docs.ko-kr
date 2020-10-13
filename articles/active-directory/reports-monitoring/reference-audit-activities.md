@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89231149"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
@@ -256,17 +256,17 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |디렉터리 관리|테넌트 정보 가져오기|
 |디렉터리 관리|테넌트에서 허용하는 기능 가져오기|
 |디렉터리 관리|TenantDomains 가져오기|
-|키|테넌트 형식 가져오기|
-|키|B2C 기능을 사용하도록 설정되었는지 확인|
-|키|기능을 사용하도록 설정되었는지 확인|
-|키|회사에 파트너 추가|
-|키|확인되지 않은 도메인 추가|
-|키|확인된 도메인 추가|
-|키|회사 만들기|
-|키|회사 설정 만들기|
-|키|회사 설정 삭제|
-|키|파트너 강등|
-|키|디렉터리 삭제됨|
+|Key|테넌트 형식 가져오기|
+|Key|B2C 기능을 사용하도록 설정되었는지 확인|
+|Key|기능을 사용하도록 설정되었는지 확인|
+|Key|회사에 파트너 추가|
+|Key|확인되지 않은 도메인 추가|
+|Key|확인된 도메인 추가|
+|Key|회사 만들기|
+|Key|회사 설정 만들기|
+|Key|회사 설정 삭제|
+|Key|파트너 강등|
+|Key|디렉터리 삭제됨|
 |기타|디렉터리가 영구적으로 삭제됨|
 |기타|디렉터리 삭제가 예약됨|
 |리소스|회사를 파트너로 수준 올리기|
@@ -474,7 +474,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |사용자 관리|템플릿에서 역할 추가|
 |사용자 관리|역할에 범위가 지정된 멤버 추가|
 |사용자 관리|추가됨|
-|사용자 관리|대입|
+|사용자 관리|할당|
 |사용자 관리|사용자 대량 생성-시작 됨|
 |사용자 관리|사용자 대량 생성-완료|
 |사용자 관리|사용자 대량 삭제-시작 됨|
@@ -558,7 +558,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |PIM|ActivationRequested|
 |PIM|추가됨|
 |PIM|AddedOutsidePIM|
-|PIM|대입|
+|PIM|할당|
 |PIM|DismissAlert|
 |PIM|상승|
 |PIM|ReactivateAlert|

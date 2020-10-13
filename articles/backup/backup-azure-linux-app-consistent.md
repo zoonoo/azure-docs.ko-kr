@@ -4,10 +4,10 @@ description: Azure에 Linux 가상 머신의 애플리케이션 일치 백업을
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88999243"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
@@ -70,7 +70,7 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 사전 스크립트 및 사후 스크립트를 작성하는 동안 적절한 로깅을 추가했는지 확인하고 스크립트 로그를 검토하여 모든 스크립트 문제를 해결하세요. 스크립트를 실행하는 데 여전히 문제가 있는 경우 자세한 내용은 다음 표를 참조하세요.
 
-| 오류 | 오류 메시지 | 권장 작업 |
+| Error | 오류 메시지 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |사전 스크립트가 오류를 반환하여 백업이 애플리케이션에 일관되지 않을 수 있습니다.| 이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하세요.|  
 |Post-ScriptExecutionFailed |사후 스크립트가 애플리케이션 상태에 영향을 줄 수 있는 오류를 반환했습니다. |이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하고 애플리케이션 상태를 확인하세요. |

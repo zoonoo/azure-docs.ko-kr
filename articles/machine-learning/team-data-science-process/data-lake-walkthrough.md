@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440408"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 엔드투엔드 연습
@@ -50,7 +50,7 @@ Azure Machine Learning Studio (클래식)은 두 가지 방법, 즉 Python 스�
 ### <a name="scripts"></a>스크립트
 이 연습에는 주요 단계만 나와 있습니다. [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)에서 전체 **U-SQL 스크립트** 및 **Jupyter Notebook**을 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 토픽을 시작하기 전에 다음이 있어야 합니다.
 
 * Azure 구독 아직 가지고 있지 않은 경우 [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -299,7 +299,7 @@ TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_e
 USING Outputters.Csv();
 ```
 
-### <a name="data-exploration"></a><a name="explore"></a>데이터 살펴보기
+### <a name="data-exploration"></a><a name="explore"></a>데이터 탐색
 데이터를 잘 이해하기 위해 다음 스크립트를 사용하여 데이터를 탐색해 봅니다.
 
 왕복 및 비왕복 여정의 분포를 찾습니다.

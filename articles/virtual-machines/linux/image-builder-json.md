@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
 ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307282"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
@@ -120,7 +120,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ## <a name="identity"></a>ID
 
-필수-이미지 작성기에서 이미지를 읽고 쓸 수 있는 권한이 있어야 합니다. Azure Storage의 스크립트에서 읽기는 개별 리소스에 대 한 권한이 있는 Azure 사용자 할당 Id를 만들어야 합니다. 이미지 작성기 권한이 작동 하는 방법 및 관련 단계에 대 한 자세한 내용은 [설명서](image-builder-user-assigned-identity.md)를 참조 하세요.
+필수-이미지 작성기에서 이미지를 읽고 쓸 수 있는 권한이 있어야 합니다. Azure Storage의 스크립트에서 읽기는 개별 리소스에 대 한 권한이 있는 Azure User-Assigned Id를 만들어야 합니다. 이미지 작성기 권한이 작동 하는 방법 및 관련 단계에 대 한 자세한 내용은 [설명서](image-builder-user-assigned-identity.md)를 참조 하세요.
 
 
 ```json
@@ -133,7 +133,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 ```
 
 
-사용자 할당 Id에 대 한 이미지 작성기 지원:
+User-Assigned Id에 대 한 이미지 작성기 지원:
 * 단일 id만 지원 합니다.
 * 사용자 지정 도메인 이름을 지원 하지 않습니다.
 

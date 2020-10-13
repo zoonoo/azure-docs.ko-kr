@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3323f73c137905fbe677c68d3830d7f609fa0172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85611580"
 ---
 # <a name="deploy-a-security-partner-provider"></a>보안 파트너 공급자 배포
@@ -27,7 +27,7 @@ Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하 여 사
 
 기존 허브에 타사 공급자를 배포 하는 경우이 섹션을 건너뜁니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 2. **검색**에서 **방화벽 관리자** 를 입력 하 고 **서비스**에서 선택 합니다.
 3. **시작**으로 이동 합니다. **보안 가상 허브 보기**를 선택 합니다.
 4. **새 보안 가상 허브 만들기**를 선택 합니다.
@@ -42,7 +42,7 @@ Azure 방화벽 관리자의 *보안 파트너 공급자* 를 사용 하 여 사
 11. **다음: 보안 파트너 공급자**를 선택 합니다.
 12. **보안 파트너 공급자** 를 **사용**으로 설정 합니다. 
 13. 파트너를 선택 합니다. 
-14. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다. 
+14. **다음: 검토 + 만들기**를 선택합니다. 
 15. 콘텐츠를 검토 한 다음 **만들기**를 선택 합니다.
 
 VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
@@ -101,7 +101,7 @@ VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 5. **보안 연결** 을 선택 하 고 이러한 경로를 설정 해야 하는 연결을 선택 해야 합니다. 이는 Vnet/분기가 타사 공급자에 게 인터넷 트래픽을 전송 하기 시작할 수 있음을 나타냅니다.
 6. **경로 설정**에서 인터넷 트래픽 아래의 **보안 연결** 을 선택 하 고, 보안을 설정할 VNet 또는 분기 (가상 WAN의*사이트* )를 선택 합니다. **인터넷 트래픽 보안**을 선택 합니다.
    ![인터넷 트래픽 보안](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. 허브 페이지로 다시 이동 합니다. 이제 허브의 **보안 파트너 공급자** 상태를 **보호**해야 합니다.
+7. 허브 페이지로 다시 이동 합니다. 이제 허브의 **보안 파트너 공급자** 상태를  **보호**해야 합니다.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>타사 서비스를 통한 분기 또는 VNet 인터넷 트래픽
 
@@ -111,4 +111,4 @@ VPN gateway 배포는 30 분 이상 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure Portal을 사용 하 여 Azure 방화벽 관리자로 클라우드 네트워크 보호](secure-cloud-network.md)
+- [자습서: Azure Portal을 통해 Azure Firewall Manager를 사용하여 클라우드 네트워크 보호](secure-cloud-network.md)

@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
 ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441666"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Fstab 오류로 인 한 Linux VM 시작 문제 해결
 
 SSH (Secure Shell) 연결을 사용 하 여 Azure Linux VM (가상 머신)에 연결할 수 없습니다. [Azure Portal](https://portal.azure.com/)에서 [부팅 진단](./boot-diagnostics.md) 기능을 실행 하면 다음 예제와 유사한 로그 항목이 표시 됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 가능한 오류의 예는 다음과 같습니다.
 
