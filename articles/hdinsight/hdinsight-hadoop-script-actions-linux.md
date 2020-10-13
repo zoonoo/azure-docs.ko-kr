@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082253"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
@@ -73,7 +73,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="target-the-operating-system-version"></a><a name="bps10"></a>운영 체제 버전을 대상으로 합니다.
+### <a name="target-the-operating-system-version"></a><a name="bps10"></a> 운영 체제 버전을 대상으로 합니다.
 
 HDInsight는 Ubuntu Linux 분포를 기반으로 합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변경할 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5 이상은 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
 
@@ -161,13 +161,13 @@ HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니�
 > [!NOTE]  
 > Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용 하 고 만들기가 실패 하는 경우 기록 된 정보에 액세스 하는 다른 방법에 대 한 [스크립트 작업 문제 해결](./troubleshoot-script-action.md) 을 참조 하세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들어:
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예를 들어:
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -177,7 +177,7 @@ echo "Getting ready to install Foo"
 
 스크립트 동작에서 기록한 정보를 보는 방법에 대 한 자세한 내용은 [스크립트 작업 문제 해결](./troubleshoot-script-action.md)을 참조 하세요.
 
-### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a>LF 줄 끝을 사용 하 여 파일을 ASCII로 저장
+### <a name="save-files-as-ascii-with-lf-line-endings"></a><a name="bps8"></a> LF 줄 끝을 사용 하 여 파일을 ASCII로 저장
 
 Bash 스크립트는 LF에서 종료한 줄을 사용하여 ASCII 형식으로 저장되어야 합니다. UTF-8로 저장되거나 줄 끝으로 CRLF를 사용하는 파일은 다음 오류와 함께 실패할 수 있습니다.
 
@@ -186,7 +186,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a>다시 시도 논리를 사용 하 여 일시적 오류에서 복구
+### <a name="use-retry-logic-to-recover-from-transient-errors"></a><a name="bps9"></a> 다시 시도 논리를 사용 하 여 일시적 오류에서 복구
 
 파일을 다운로드 하거나, apt을 사용 하 여 패키지를 설치 하거나, 인터넷을 통해 데이터를 전송 하는 다른 작업을 수행 하는 경우 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어,와 통신 하는 원격 리소스는 백업 노드로 장애 조치 (failover) 하는 중일 수 있습니다.
 
@@ -235,7 +235,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 스크립트에서 사용하기 위해 다음 도우미를 사용할 수 있습니다.
 
-| 도우미 사용 | Description |
+| 도우미 사용 | 설명 |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |원본 URI에서 지정된 파일 경로로 파일을 다운로드합니다. 기본적으로 기존 파일을 덮어쓰지 않습니다. |
 | `untar_file TARFILE DESTDIR` |(`-xf`를 사용하여) 대상 디렉터리에 tar 파일을 추출합니다. |
@@ -319,7 +319,7 @@ Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면
 
 * Azure portal
 * Azure PowerShell
-* Azure 리소스 관리자 템플릿
+* Azure Resource Manager 템플릿
 * HDInsight .NET SDK
 
 각 메서드 사용에 대한 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.

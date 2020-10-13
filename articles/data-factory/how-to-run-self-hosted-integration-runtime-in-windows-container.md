@@ -1,6 +1,6 @@
 ---
-title: Windows 컨테이너에서 자체 호스트 된 Integration Runtime를 실행 하는 방법
-description: Windows 컨테이너에서 자체 호스트 된 Integration Runtime를 실행 하는 방법에 대해 알아봅니다.
+title: Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법
+description: Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법에 대해 알아봅니다.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
 ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927585"
 ---
-# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Windows 컨테이너에서 자체 호스트 된 Integration Runtime를 실행 하는 방법
+# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-이 문서에서는 Windows 컨테이너에서 자체 호스트 된 Integration Runtime를 실행 하는 방법을 설명 합니다.
-Azure Data Factory은 자체 호스팅 Integration Runtime의 공식 windows 컨테이너 지원을 제공 합니다. Docker 빌드 소스 코드를 다운로드 하 고 빌드 및 실행 중인 프로세스를 고유한 연속 배달 파이프라인에서 결합할 수 있습니다. 
+이 문서에서는 Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법을 설명 합니다.
+Azure Data Factory은 Self-Hosted Integration Runtime의 공식 windows 컨테이너 지원을 제공 합니다. Docker 빌드 소스 코드를 다운로드 하 고 빌드 및 실행 중인 프로세스를 고유한 연속 배달 파이프라인에서 결합할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 - [Windows의 컨테이너 요구 사항](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker 버전 2.3 이상 
-- 자체 호스팅 Integration Runtime 버전 4.11.7512.1 이상 
-## <a name="get-started"></a>시작하기 
+- Self-Hosted Integration Runtime 버전 4.11.7512.1 이상 
+## <a name="get-started"></a>시작 
 1.  Docker 설치 및 Windows 컨테이너 사용 
 2.  https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container에서 소스 코드 다운로드
 3.  ' SHIR ' 폴더에서 최신 버전 SHIR 다운로드 
@@ -53,7 +53,7 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 120 초 시작 기간이 지나면 상태 검사기는 30 초 마다 정기적으로 실행 됩니다. 이는 컨테이너 엔진에 IR 상태를 제공 합니다. 
 
 ## <a name="limitations"></a>제한 사항
-현재 Windows 컨테이너에서 자체 호스트 된 Integration Runtime를 실행 하는 경우 아래 기능을 지원 하지 않습니다.
+현재 Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 경우 아래 기능을 지원 하지 않습니다.
 - HTTP 프록시 
 - TLS/SSL 인증서를 사용 하 여 암호화 된 노드-노드 통신 
 - 백업 생성 및 가져오기 

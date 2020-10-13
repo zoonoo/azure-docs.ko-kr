@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132775"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
@@ -54,7 +54,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 다음은 애플리케이션에 사용하는 기능 네임스페이스의 예입니다.
 
 * User_Profile_from_CRM
-* Time
+* 시간
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -131,7 +131,7 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
 
 예를 들어 초 단위까지의 타임스탬프는 매우 대략적인 기능입니다. 시간을 "아침", "한낮", "오후" 등으로 분류하여 더 정교하게(효과적으로) 만들 수 있습니다.
 
-위치 정보는 일반적으로 더 광범위 한 분류를 만드는 경우에도 유용 합니다. 예를 들어, Lat: 47.67402 ° N, Long: 122.12154 ° W와 같은 위도-경도 좌표는 너무 정확 하 고 모델에서 위도 및 경도를 고유한 차원으로 학습 하도록 합니다. 위치 정보에 따라 개인 설정 하려는 경우 더 큰 섹터의 위치 정보를 그룹화 하는 것이 좋습니다. 이 작업을 수행 하는 쉬운 방법은 Lat 된 숫자에 대해 적절 한 반올림 전체 자릿수를 선택 하 고, 위도 및 경도를 한 문자열로 결합 하 여 "영역"으로 결합 하는 것입니다. 예를 들어 지역에서 47.67402 ° N, Long: 122.12154 ° W를 표시 하는 좋은 방법은 "location": "34.3, 12.1"입니다.
+위치 정보는 일반적으로 더 광범위 한 분류를 만드는 경우에도 유용 합니다. 예를 들어 Lat: 47.67402 ° N, Long: 122.12154 ° W와 같은 Latitude-Longitude 좌표는 너무 정확 하 고 모델에서 위도 및 경도를 고유한 치수로 학습 하도록 강제 합니다. 위치 정보에 따라 개인 설정 하려는 경우 더 큰 섹터의 위치 정보를 그룹화 하는 것이 좋습니다. 이 작업을 수행 하는 쉬운 방법은 Lat-Long 숫자에 대 한 적절 한 반올림 전체 자릿수를 선택 하 고, 위도 및 경도를 한 문자열로 결합 하 여 "영역"으로 결합 하는 것입니다. 예를 들어 지역에서 47.67402 ° N, Long: 122.12154 ° W를 표시 하는 좋은 방법은 "location": "34.3, 12.1"입니다.
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>추정한 정보를 사용하여 기능 세트 확장
@@ -177,7 +177,7 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-다음은 몇 가지 예입니다.
+몇 가지 예제는 다음과 같습니다.
 
 |목적|작업|
 |--|--|

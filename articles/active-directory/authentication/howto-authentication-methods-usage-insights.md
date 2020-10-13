@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717169"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964913"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>인증 방법 사용 & insights (미리 보기)
 
@@ -65,7 +65,7 @@ ms.locfileid: "88717169"
 
 등록 세부 정보 보고서에는 각 사용자에 대 한 다음 정보가 표시 됩니다.
 
-- 이름
+- Name
 - 사용자 이름
 - 등록 상태 (모두, 등록 됨, 등록 되지 않음)
 - 활성화 상태 (모두, 사용, 사용 안 함)
@@ -80,7 +80,7 @@ ms.locfileid: "88717169"
 
 세부 정보 다시 설정 보고서는 지난 30 일 동안 다음과 같은 등록 및 다시 설정 이벤트를 표시 합니다.
 
-- 이름
+- Name
 - 사용자 이름
 - 기능 (모두, 등록, 다시 설정)
 - 인증 방법 (앱 알림, 앱 코드, 전화 통화, Office 통화, SMS, 전자 메일, 보안 질문)

@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85250715"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
@@ -186,7 +186,7 @@ SQL Database는 분할 라이브러리 및 카탈로그 데이터베이스와 �
 | 측정 | 독립 실행형 앱 | 테넌트별 데이터베이스 | 분할된 다중 테넌트 |
 | :---------- | :------------- | :------------------ | :------------------- |
 | 확장 | 중간<br />1-100s | 매우 높음<br />1-100,000s | 제한 없음<br />1-1,000,000s |
-| 테넌트 격리 | 매우 높음 | 높은 | 낮음, 단일 테넌트의 경우는 예외입니다(MT db에만 단독으로 존재하는 경우). |
+| 테넌트 격리 | 매우 높음 | 높음 | 낮음, 단일 테넌트의 경우는 예외입니다(MT db에만 단독으로 존재하는 경우). |
 | 테넌트별 데이터베이스 비용 | 높음, 최대 크기에 맞게 조정됩니다. | 낮음. 풀이 사용됩니다. | 가장 낮음. MT DB의 작은 테넌트용입니다. |
 | 성능 모니터링 및 관리 | 테넌트별로 구분되는 경우만 해당 | 집계 + 테넌트별 | 집계, 단일 항목에 대해서만 테넌트별로 구분됩니다. |
 | 개발 복잡성 | 낮음 | 낮음 | 중간, 분할로 야기됩니다. |

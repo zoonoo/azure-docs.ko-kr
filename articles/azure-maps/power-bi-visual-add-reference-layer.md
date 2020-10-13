@@ -10,13 +10,13 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86261946"
 ---
-# <a name="add-a-reference-layer"></a>참조 계층 추가
+# <a name="add-a-reference-layer"></a>참조 레이어 추가
 
 참조 계층 기능을 사용 하면 보조 공간 데이터 집합을 시각적 개체에 업로드 하 고 맵에 겹쳐서 추가 컨텍스트를 제공할 수 있습니다. 이 데이터 집합은 Power BI에서 호스팅되며 또는 파일 확장명을 가진 [GeoJSON 파일](https://wikipedia.org/wiki/GeoJSON) 이어야 합니다 `.json` `.geojson` .
 
@@ -61,7 +61,7 @@ GeoJSON 파일 내의 각 기능에 속성을 추가 하 여 맵에 스타일을
 맵에 컨텍스트를 더 추가 합니다.
 
 > [!div class="nextstepaction"]
-> [타일 계층 추가](power-bi-visual-add-tile-layer.md)
+> [타일 레이어 추가](power-bi-visual-add-tile-layer.md)
 
 > [!div class="nextstepaction"]
 > [실시간 트래픽 표시](power-bi-visual-show-real-time-traffic.md)

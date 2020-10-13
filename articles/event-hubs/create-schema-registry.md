@@ -5,20 +5,20 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: 90556e0843cda94dc79330321d027f8d28eb7d20
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652196"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Azure Event Hubs 스키마 레지스트리 만들기 (미리 보기)
 이 문서에서는 Azure Event Hubs에서 호스트 하는 스키마 레지스트리에서 스키마를 사용 하 여 스키마 그룹을 만드는 방법을 보여 줍니다. Azure Event Hubs의 스키마 레지스트리 기능에 대 한 개요는 [Event Hubs의 Azure 스키마 레지스트리](schema-registry-overview.md)를 참조 하세요.
 
 > [!NOTE]
-> - **Schema Registry** 기능은 현재 **미리 보기**상태 이며 프로덕션 워크 로드에는 권장 되지 않습니다.
-> - 이 기능은 **기본** 계층이 아닌 **표준** 및 **전용** 계층 에서만 사용할 수 있습니다.
+> - **스키마 레지스트리** 기능은 현재 **미리 보기**에 있으므로 프로덕션 워크로드에는 추천되지 않습니다.
+> - 이 기능은 **기본** 계층이 아닌 **표준** 및 **전용** 계층에서만 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 [Event Hubs 네임 스페이스를 만듭니다](event-hubs-create.md#create-an-event-hubs-namespace). 기존 네임 스페이스를 사용할 수도 있습니다. 
 
 ## <a name="create-a-schema-group"></a>스키마 그룹 만들기

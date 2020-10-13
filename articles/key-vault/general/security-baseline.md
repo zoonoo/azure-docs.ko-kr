@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400469"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault에 대한 Azure 보안 기준
@@ -1093,13 +1093,13 @@ Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지�
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 자동 백업을 정기적으로 수행 하는지 확인 합니다.
 
-- 백업-AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- 백업-AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- 백업-AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- 백업-AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 필요에 따라 Azure Backup 내에 Key Vault 백업을 저장할 수 있습니다.
 
@@ -1123,13 +1123,13 @@ Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.co
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 백업을 수행 합니다.
 
-- 백업-AzKeyVaultCertificate
+- Backup-AzKeyVaultCertificate
 
-- 백업-AzKeyVaultKey
+- Backup-AzKeyVaultKey
 
-- 백업-AzKeyVaultManagedStorageAccount
+- Backup-AzKeyVaultManagedStorageAccount
 
-- 백업-AzKeyVaultSecret
+- Backup-AzKeyVaultSecret
 
 필요에 따라 Azure Backup 내에 Key Vault 백업을 저장할 수 있습니다.
 
@@ -1153,13 +1153,13 @@ Azure Backup를 사용 하도록 설정 하는 방법: https://docs.microsoft.co
 
 **지침**: 다음 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다.
 
-- 복원-AzKeyVaultCertificate
+- Restore-AzKeyVaultCertificate
 
-- 복원-AzKeyVaultKey
+- Restore-AzKeyVaultKey
 
-- 복원-AzKeyVaultManagedStorageAccount
+- Restore-AzKeyVaultManagedStorageAccount
 
-- 복원-AzKeyVaultSecret
+- Restore-AzKeyVaultSecret
 
 Key Vault 인증서를 복원 하는 방법:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
 

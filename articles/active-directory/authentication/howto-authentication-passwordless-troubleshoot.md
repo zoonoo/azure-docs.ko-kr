@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/19/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecab82e43bff6c0d1d83c9c1cdc38cafd809e277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 690d4761657b8bf6e5ba63ddfbce7163584e64e2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89236664"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964573"
 ---
 # <a name="troubleshooting-for-hybrid-deployments-of-fido2-security-keys-in-azure-ad-preview"></a>Azure AD에서 FIDO2 보안 키 하이브리드 배포에 대 한 문제 해결 (미리 보기)
 
@@ -143,7 +143,7 @@ Azure AD Kerberos 서버 개체를 확인 하 고 적절 한 순서 대로 확�
 
 첫 번째 속성 집합은 온-프레미스 AD DS 환경의 개체에서 가져온 것입니다. 두 번째 절반 (* Cloud * *로 시작 하는 속성)은 Azure AD의 Kerberos 서버 개체에서 가져온 것입니다.
 
-| 속성           | 설명  |
+| 속성           | Description  |
 |--------------------|--------------|
 | Id                 | AD DS 도메인 컨트롤러 개체의 고유 *Id* 입니다. |
 | DomainDnsName      | AD DS 도메인의 DNS 도메인 이름입니다. |

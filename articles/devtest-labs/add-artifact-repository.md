@@ -4,10 +4,10 @@ description: 공용 아티팩트 리포지토리에서 사용할 수 없는 도�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270991"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
@@ -19,7 +19,7 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 **GitHub** 또는 **Azure devops**에서 호스트 되는 리포지토리에 필요한 정보를 가져오는 방법을 설명 합니다.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
@@ -180,7 +180,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-AzResourceGroupDeployment를 성공적으로 실행 한 후 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
+New-AzResourceGroupDeployment 성공적으로 실행 되 면 명령은 프로 비전 상태 (성공 해야 함) 및 템플릿에 대 한 모든 출력 같은 중요 한 정보를 출력 합니다.
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 이 섹션에서는 랩에 아티팩트 리포지토리를 추가 하는 데 사용할 수 있는 샘플 PowerShell 스크립트를 제공 합니다. Azure PowerShell 없는 경우 설치 하는 방법에 대 한 자세한 지침은 [Azure PowerShell 설치 및 구성 하는 방법](/powershell/azure/?view=azps-1.2.0) 을 참조 하세요.
@@ -360,7 +360,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 ### <a name="powershell-commands-used-in-the-script"></a>스크립트에 사용 되는 PowerShell 명령
 
-| PowerShell 명령 | 메모 |
+| PowerShell 명령 | 참고 |
 | ------------------ | ----- |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | 이 명령은 해당 위치와 같은 랩에 대 한 세부 정보를 가져오는 데 사용 됩니다. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | 아티팩트 리포지토리를 추가 하기 위한 특정 명령은 없습니다. 일반 [AzResource](/powershell/module/az.resources/new-azresource) cmdlet은 작업을 수행 합니다. 이 cmdlet에는 만들 리소스 유형을 알 수 있도록 **ResourceId** 또는 **context.resourcename** 및 **ResourceType** 쌍이 필요 합니다. 이 샘플 스크립트는 리소스 이름 및 리소스 형식 쌍을 사용 합니다. <br/><br/>아티팩트와 동일한 리소스 그룹 및 동일한 위치에 아티팩트 리포지토리 원본을 만들고 있습니다.|

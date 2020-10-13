@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 09/14/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526955"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964641"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -59,7 +59,7 @@ ms.locfileid: "90526955"
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>FIDO2 보안 키의 사용자 등록 및 관리
 
-1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com)으로 이동합니다.
+1. [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 으로 이동합니다.
 1. 아직 로그인 하지 않은 경우 로그인 합니다.
 1. **보안 정보**를 클릭 합니다.
    1. 사용자가 이미 하나 이상의 Azure Multi-Factor Authentication 메서드를 등록 한 경우 FIDO2 보안 키를 즉시 등록할 수 있습니다.

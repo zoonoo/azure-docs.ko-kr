@@ -4,10 +4,10 @@ description: 이니셔티브 정의를 사용 하 여 Access Control, 구성 관
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89645528"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Azure Policy의 규정 준수
@@ -40,11 +40,11 @@ Microsoft에서 담당 하는 컨트롤은 `type` [정적](./definition-structur
 > [!NOTE]
 > **Microsoft에서 관리** 하는 평가 유형은 [정적](./definition-structure.md#type) 정책 정의를 위한 것입니다 `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="NIST SP 800-53 4, 기본 제공 정의의 경계 보호 제어에 대 한 규제 준수 정보의 스크린샷":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="규격 및 비규격 컨트롤을 보여 주는 NIST SP 800-53 4. 기본 제공 정의에 대 한 규정 준수 개요의 스크린샷":::
 
 동일한 **컨트롤** 페이지에서 **리소스 준수** 탭으로 변경 하면이 **컨트롤**의 정책 정의에 포함 된 모든 리소스가 표시 됩니다. 이름 또는 ID, 준수 상태, 리소스 유형 및 위치에 대 한 필터를 사용할 수 있습니다.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="NIST SP 800-53 4, 기본 제공 정의의 경계 보호 제어에 대 한 리소스 준수의 스크린샷":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="규격 및 비규격 컨트롤을 보여 주는 NIST SP 800-53 4. 기본 제공 정의에 대 한 규정 준수 개요의 스크린샷":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>SDK의 규정 준수
 

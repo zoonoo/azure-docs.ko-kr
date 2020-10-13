@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
 ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89650102"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 기존 제품 업데이트

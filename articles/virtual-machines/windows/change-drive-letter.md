@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cae29954211e62601debb35d76f938fb6a92779e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284611"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>D: 드라이브를 Windows VM의 데이터 드라이브로 사용
@@ -36,7 +36,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 7. **C** 드라이브를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
 8. **D** 드라이브를 선택하고 **페이징 파일 없음**을 클릭하고 **설정**을 클릭합니다.
 9. 적용을 클릭합니다. 변경 내용을 적용하려면 컴퓨터를 다시 시작해야 한다는 경고가 표시됩니다.
-10. 가상 머신을 다시 시작합니다.
+10. 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="change-the-drive-letters"></a>드라이브 문자 변경
 1. VM이 다시 시작되면 VM에 다시 로그인합니다.
@@ -55,7 +55,7 @@ Azure에서 임시 디스크를 사용하는 방법에 대한 자세한 내용�
 6. OS 드라이브 **C**를 선택하고 **페이징 파일 없음**을 클릭하고 **설정**을 클릭합니다.
 7. 임시 스토리지 드라이브 **T**를 선택한 후 **시스템이 관리하는 크기**를 클릭하고 **설정**을 클릭합니다.
 8. **적용**을 클릭합니다. 변경 내용을 적용하려면 컴퓨터를 다시 시작해야 한다는 경고가 표시됩니다.
-9. 가상 머신을 다시 시작합니다.
+9. 가상 컴퓨터를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [추가 데이터 디스크를 연결](attach-managed-disk-portal.md)하 여 가상 컴퓨터에 사용할 수 있는 저장소를 늘릴 수 있습니다.

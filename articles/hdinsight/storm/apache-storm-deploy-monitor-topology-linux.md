@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085738"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -80,7 +80,7 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
 
 ## <a name="submit-a-topology-programmatically"></a>프로그래밍 방식으로 토폴로지 제출
 
-Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)Nimbus 서비스를 통해 토폴로지를 배포 하 고 시작 하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공 합니다.
+Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 배포할 수 있습니다. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) Nimbus 서비스를 통해 토폴로지를 배포 하 고 시작 하는 방법을 보여 주는 예제 Java 응용 프로그램을 제공 합니다.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Visual Studio에서 토폴로지 모니터링 및 관리
 

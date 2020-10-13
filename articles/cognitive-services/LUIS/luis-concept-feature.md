@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372026"
 ---
 # <a name="machine-learning-features"></a>기계 학습 기능
@@ -209,7 +209,7 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 티켓 예약 엔터티는 _원본_ 및 _대상을_포함 하는 하위 엔터티를 포함 하는 기계 학습 엔터티입니다. 이러한 하위 엔터티는 모두 지리적 위치를 표시 합니다. 위치를 추출 하 고 _원본과_ _대상을_구분 하는 데 도움이 되도록 각 하위 엔터티에는 기능이 있어야 합니다.
 
-|형식|원본 하위 엔터티 |대상 하위 엔터티|
+|유형|원본 하위 엔터티 |대상 하위 엔터티|
 |--|--|--|
 |기능으로 서의 모델|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 미리 작성 한 엔터티|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 미리 작성 한 엔터티|
 |구문 목록|**원본 단어**: `start at` , `begin from` , `leave`|**대상 단어**: `to` , `arrive` , `land at` , `go` , `going` , `stay` , `heading`|
@@ -226,7 +226,7 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 티켓 예약 예제에서는 `TicketBooking` 엔터티 및 텍스트의 하위 엔터티를 사용 하 여 길이 발언 예제에 레이블을 사용 합니다.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="예제 발화의 레이블 지정":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Ticketbooking entity 스키마":::
 
 ### <a name="example-pizza-ordering-app"></a>예: 피자 주문 앱
 
@@ -234,18 +234,18 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 이 예제의 기계 학습 엔터티는 중첩 된 하위 엔터티, 구 목록, 미리 작성 된 엔터티 및 사용자 지정 엔터티를 사용 하 여 더 복잡 합니다.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="피자 주문 엔터티 스키마":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Ticketbooking entity 스키마":::
 
 이 예제에서는 하위 엔터티 수준 및 하위 엔터티 수준의 자식에 있는 기능을 사용 합니다. 엔터티 디자인의 중요 한 부분인 기능으로 서 어떤 수준으로 구성 된 구 목록 또는 모델이 어떤 수준 입니까?
 
 하위 엔터티에는 엔터티를 검색 하는 데 도움이 되는 기능으로 많은 문구 목록이 포함 될 수 있지만 각 하위 엔터티에는 하나의 모델만 있습니다. 이 [피자 앱](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)에서 이러한 모델은 주로 나열 됩니다.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="레이블이 지정 된 예제 길이 발언를 사용 하 여 피자 주문 의도":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Ticketbooking entity 스키마":::
 
 올바른 레이블이 지정 된 예 길이 발언는 엔터티가 중첩 되는 방식을 표시 하는 방법으로 표시 됩니다. 
 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 [모범 사례](luis-concept-best-practices.md)를 알아봅니다.
 

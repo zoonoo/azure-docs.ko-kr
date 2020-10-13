@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
 ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87986371"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
@@ -146,7 +146,7 @@ Microsoft Graph는 [구독](/graph/api/resources/subscription) 또는 [웹후크
 
 | 작업 | 설명 |
 |--------|-------------|
-| **위협 인텔리전스 지표 가져오기** | 하나 이상의 [tiindicators 속성](/graph/api/resources/tiindicator?view=graph-rest-beta)을 기반으로 필터링 된 tiindicators를 가져옵니다. 예를 들면`threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **위협 인텔리전스 지표 가져오기** | 하나 이상의 [tiindicators 속성](/graph/api/resources/tiindicator?view=graph-rest-beta)을 기반으로 필터링 된 tiindicators를 가져옵니다. 예를 들면 `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **ID 별로 위협 인텔리전스 지표 가져오기** | TiIndicator ID를 기준으로 특정 tiIndicator를 가져옵니다. | 
 | **위협 인텔리전스 표시기 만들기** | Tiindicator 컬렉션에 게시 하 여 새 tiIndicator를 만듭니다. 요청에서 필수 속성을 전달 하도록 하려면 [tiIndicator를 만드는 데 필요한 속성](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta)을 참조 하세요. |
 | **여러 위협 인텔리전스 표시기 제출** | TiIndicators 컬렉션을 게시 하 여 여러 새 tiIndicators를 만듭니다. 요청에 필요한 속성을 전달 하려면 [여러 tiIndicators를 제출 하는 데 필요한 속성](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta)을 참조 하세요. |

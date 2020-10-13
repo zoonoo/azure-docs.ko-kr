@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: d457e911dec481e2b1a8bdae1ca05f80452bb883
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557177"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91652451"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>빠른 시작: 렌더링을 위해 모델 변환
 
@@ -189,7 +189,7 @@ Connect-AzAccount
 변환 스크립트에서 만든 SAS URI는 24시간 동안만 유효합니다. 그러나 만료된 후에는 모델을 다시 변환할 필요가 없습니다. 대신, 다음 단계에서 설명한 대로 포털에서 새 SAS를 만들 수 있습니다.
 
 1. [Azure Portal](https://www.portal.azure.com)로 이동
-1. **스토리지 계정** 리소스를 클릭합니다. ![서명 액세스](./media/portal-storage-accounts.png)
+1. **스토리지 계정** 리소스를 클릭합니다. ![선택한 스토리지 계정 리소스를 강조 표시하는 스크린샷.](./media/portal-storage-accounts.png)
 1. 다음 화면의 왼쪽 패널에서 **Storage Explorer**를 클릭하고, *arroutput* Blob 스토리지 컨테이너에서 출력 모델( *.arrAsset* 파일)을 찾습니다. 마우스 오른쪽 단추로 파일을 클릭하고, 상황에 맞는 메뉴에서 **공유 액세스 서명 가져오기**를 선택합니다. ![서명 액세스](./media/portal-storage-explorer.png)
 1. 만료 날짜를 선택할 수 있는 새 화면이 열립니다. **만들기**를 누르고, 다음 대화 상자에 표시된 URI를 복사합니다. 이 새 URI는 스크립트에서 만든 임시 URI를 대체합니다.
 

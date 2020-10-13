@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284067"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>을 사용 하 여 Bing Search 결과 찾기 Azure Logic Apps
@@ -23,7 +23,7 @@ ms.locfileid: "87284067"
 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 커넥터 관련 기술 정보는 [Bing Search 커넥터 참조](/connectors/bingsearch/)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Cognitive Services 계정](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -148,7 +148,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결 정보에 대한 메시지가 표시되면 다음과 같은 세부 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | 연결 이름 | 예 | <*연결-이름*> | 연결에 만들 이름 |
    | API 버전 | 예 | <*API-버전*> | 기본적으로 Bing Search API 버전은 현재 버전으로 설정됩니다. 필요에 따라 이전 버전을 선택할 수 있습니다. |

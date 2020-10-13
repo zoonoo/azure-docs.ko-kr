@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
 ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86206234"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
 개발자 포털은 Api 설명서를 사용 하 여 자동으로 생성 되 고 완전히 사용자 지정할 수 있는 웹 사이트입니다. API 소비자는 api를 검색 하 고, api를 사용 하 고, 액세스를 요청 하는 방법을 배울 수 있습니다.
 
-이 자습서에서는 다음 방법에 관해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 개발자 포털의 관리 되는 버전에 액세스
@@ -93,7 +93,7 @@ ms.locfileid: "86206234"
 > [!NOTE]
 > 통합 고려 사항으로 인해,,,,,,,,,,,, 등의 다른 URL에서 다음 페이지를 제거 하거나 이동할 수 없습니다. `/404` `/500` `/captcha` `/change-password` `/config.json` `/confirm/invitation` `/confirm-v2/identities/basic/signup` `/confirm-v2/password` `/internal-status-0123456789abcdef` `/publish` `/signin` `/signin-sso` `/signup`
 
-### <a name="home-page"></a>홈페이지
+### <a name="home-page"></a>홈 페이지
 
 기본 **홈** 페이지는 더미 콘텐츠로 채워집니다. 콘텐츠를 사용 하 여 전체 섹션을 제거 하거나 구조를 유지 하 고 요소를 하나씩 조정할 수 있습니다. 생성 된 텍스트와 이미지를 사용자 고유로 바꾸고 링크가 원하는 위치를 가리키는지 확인 합니다.
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: duau
 ms.openlocfilehash: 8ee7f42a4b05def7c2239c7a1e5bcef54f6f7e50
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395777"
 ---
-# <a name="configure-macsec-on-expressroute-direct-ports"></a>Express 경로 직접 포트에서 MACsec 구성
+# <a name="configure-macsec-on-expressroute-direct-ports"></a>ExpressRoute Direct 포트에서 MACsec 구성
 
 이 문서는 PowerShell을 사용 하 여에 지 라우터와 Microsoft edge 라우터 간 연결을 보호 하도록 MACsec을 구성 하는 데 도움이 됩니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "89395777"
     $identity = New-AzUserAssignedIdentity  -Name "identity_name" -Location "resource_location" -ResourceGroupName "your_resource_group"
     ```
 
-    AzUserAssignedIdentity이 유효한 PowerShell cmdlet으로 인식 되지 않는 경우 관리자 모드에서 다음 모듈을 설치 하 고 위의 명령을 다시 실행 합니다.
+    New-AzUserAssignedIdentity 올바른 PowerShell cmdlet으로 인식 되지 않으면 다음 모듈 (관리자 모드)을 설치 하 고 위의 명령을 다시 실행 합니다.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity

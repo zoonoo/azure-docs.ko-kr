@@ -5,13 +5,13 @@ ms.topic: how-to
 ms.date: 02/28/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87852806"
 ---
-# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Azure Notebooks 미리 보기에서 프로젝트 관리 및 구성
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Azure Notebooks 미리 보기에서 프로젝트 관리 및 구성
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -38,7 +38,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 프로젝트 대시보드에서 **프로젝트 설정**를 선택하고, 다음 표에 설명된 것처럼 프로젝트의 메타데이터를 포함하고 있는 **정보** 탭을 선택합니다. 언제든지 프로젝트 메타데이터를 변경할 수 있습니다.
 
-| Setting | Description |
+| 설정 | Description |
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. "Hello World in Python"을 예로 들 수 있습니다. |
 | 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](create-clone-jupyter-notebooks.md#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
@@ -57,7 +57,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 **+ 새로 만들기** 명령(바로 가기 키: n)은 새 파일 또는 폴더를 만듭니다. 이 명령을 사용할 때, 만들려는 항목의 유형부터 선택해야 합니다.
 
-| 항목 유형 | 설명 | 명령 동작 |
+| 항목 유형 | Description | 명령 동작 |
 | --- | --- | --- |
 | **Notebook** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
 | **폴더** | 하위 폴더입니다. | 프로젝트의 파일 목록에 폴더 이름을 입력하는 편집 필드를 만듭니다. |
@@ -83,7 +83,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 | 파일 편집 | i | 편집할 파일을 엽니다. |
 | 다운로드 | 일 | 폴더의 파일 또는 콘텐츠를 포함하고 있는 Zip 파일을 다운로드합니다. |
 | 이름 바꾸기 | a | 파일 또는 폴더의 새 이름을 요청합니다. |
-| 삭제 | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
+| DELETE | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
 | 이동 | 분 | 파일을 같은 프로젝트의 다른 폴더로 이동합니다. |
 
 #### <a name="preview"></a>미리 보기
@@ -94,7 +94,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 | 명령 | 바로 가기 키 | 작업 |
 | --- | --- | --- |
-| 공유 | s | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
+| 공유 | 초 | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
 | 복제 | c  | Notebook을 계정에 복제합니다. |
 | 실행 | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
 | 다운로드 | 일 | Notebook의 복사본을 다운로드합니다. |
@@ -190,4 +190,4 @@ Python Notebook의 코드 셀에서 명령을 사용할 수도 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [방법: 프로젝트 데이터 파일 작업](work-with-project-data-files.md)
-- [Notebook에서 클라우드 데이터 액세스](access-data-resources-jupyter-notebooks.md)
+- [노트북의 클라우드 데이터에 액세스](access-data-resources-jupyter-notebooks.md)

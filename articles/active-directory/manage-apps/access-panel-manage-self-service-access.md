@@ -12,10 +12,10 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89181717"
 ---
 # <a name="how-to-use-self-service-application-access"></a>셀프 서비스 애플리케이션 액세스를 사용하는 방법
@@ -37,7 +37,7 @@ ms.locfileid: "89181717"
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>셀프 서비스 애플리케이션 액세스를 활성화하여 사용자가 자신의 애플리케이션을 찾을 수 있도록 함
 
-셀프 서비스 애플리케이션 액세스는 사용자가 애플리케이션을 직접 검색하도록 하고 경우에 따라 비즈니스 그룹이 해당 애플리케이션에 대한 액세스를 승인하도록 허용하는 유용한 방법입니다. 비즈니스 그룹이 내 앱 페이지에서 바로 암호 Single Sign-on 응용 프로그램에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
+셀프 서비스 애플리케이션 액세스는 사용자가 애플리케이션을 직접 검색하도록 하고 경우에 따라 비즈니스 그룹이 해당 애플리케이션에 대한 액세스를 승인하도록 허용하는 유용한 방법입니다. 비즈니스 그룹이 내 앱 페이지에서 바로 응용 프로그램의 암호 Single-Sign에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
 
 애플리케이션에 대한 셀프 서비스 애플리케이션 액세스를 사용하려면 다음 단계를 수행합니다.
 1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.

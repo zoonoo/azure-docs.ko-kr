@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371255"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
@@ -39,7 +39,7 @@ ms.locfileid: "91371255"
 3. **추가**를 선택합니다.
 4. 다음 값을 입력합니다.
 
-   - **구독**: Azure 구독을 선택 합니다. 
+   - **구독**: Azure 구독을 선택합니다. 
    - **리소스 그룹**: 새 리소스 그룹 이름을 입력합니다. 
    - **지역**: **미국 중부**와 같은 Azure 위치를 선택 합니다.
 

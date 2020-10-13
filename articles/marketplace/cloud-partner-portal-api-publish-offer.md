@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272048"
 ---
 # <a name="publish-an-offer"></a>제안 게시
@@ -26,11 +26,11 @@ ms.locfileid: "87272048"
 ## <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**      |    **설명**                               |  **데이터 형식** |
+|  **이름**      |    **설명**                               |  **데이터 형식** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | 게시자 식별자입니다(예: `contoso`).      |   문자열       |
-|  offerId       | 제안 식별자입니다.                                 |   문자열       |
-|  api-version   | 최신 버전의 API입니다.                        |   Date         |
+|  publisherId   | 게시자 식별자입니다(예: `contoso`).      |   String       |
+|  offerId       | 제안 식별자입니다.                                 |   String       |
+|  api-version   | 최신 버전의 API입니다.                        |   날짜         |
 |  |  |
 
 ## <a name="header"></a>헤더
@@ -59,7 +59,7 @@ ms.locfileid: "87272048"
 
 ### <a name="request-body-properties"></a>요청 본문 속성
 
-|  **Name**               |   **설명**                                                                                 |
+|  **이름**               |   **설명**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
 |  notification-emails    | 게시 작업의 진행률 알림을 받을 전자 메일 주소의 쉼표로 구분된 목록입니다. |
 |  |  |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
 ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401642"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
@@ -52,7 +52,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 > [!IMPORTANT]  
 > 사용 중인 Azure 지역이 나열 되지 않은 경우 네트워크 보안 그룹에 대 한 [서비스 태그](hdinsight-service-tags.md) 기능을 사용 합니다.
 
-| 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | 방향 |
+| 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | Direction |
 | ---- | ---- | ---- | ---- | ----- |
 | 아시아 | 동아시아 | 23.102.235.122</br>52.175.38.134 | \*: 443 | 인바운드 |
 | &nbsp; | 동남 아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |

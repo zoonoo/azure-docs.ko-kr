@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325188"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법
@@ -49,9 +49,9 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 
 | 속성 | 설명 |
 |:--|:--|
-|방향 |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
+|Direction |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
 |컴퓨터 |컴퓨터 FQDN |
-|Process |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
+|프로세스 |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
 |SourceIp |원본의 IP 주소 |
 |DestinationIp |대상의 IP 주소 |
 |DestinationPort |대상의 포트 번호 |
@@ -130,8 +130,8 @@ VMBoundPort의 모든 레코드는 다음 필드로 식별 됩니다.
 
 | 속성 | 설명 |
 |:--|:--|
-|Process | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
-|Tcp/ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
+|프로세스 | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
+|Ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
 |포트 |포트 번호 |
 |프로토콜 | 프로토콜입니다.  예: *tcp* 또는 *udp* (현재 *tcp* 만 지원 됨)|
  
@@ -226,11 +226,11 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |Computer | 컴퓨터 FQDN | 
 |AgentId | Log Analytics 에이전트의 고유 ID |
 |컴퓨터 | ServiceMap 통해 노출 되는 컴퓨터에 대 한 Azure Resource Manager 리소스의 이름입니다. *M-{guid}* 형식입니다. 여기서 *guid* 는 AgentId와 동일한 guid입니다. | 
-|Process | 서비스 맵 프로세스의 고유 식별자입니다. *P-{GUID}* 형식입니다. 
+|프로세스 | 서비스 맵 프로세스의 고유 식별자입니다. *P-{GUID}* 형식입니다. 
 |ExecutableName | 프로세스 실행 파일의 이름 | 
 |DisplayName | 프로세스 표시 이름 |
 |역할 | 프로세스 역할: *webserver*, *Microsoft.windows.appserver.2008*, *databaseserver*, *ldapserver*, *smbServer* |
-|그룹화 | 프로세스 그룹 이름입니다. 동일한 그룹의 프로세스는 논리적으로 관련 되어 있습니다. 예를 들어 동일한 제품 또는 시스템 구성 요소의 일부입니다. |
+|그룹 | 프로세스 그룹 이름입니다. 동일한 그룹의 프로세스는 논리적으로 관련 되어 있습니다. 예를 들어 동일한 제품 또는 시스템 구성 요소의 일부입니다. |
 |StartTime | 프로세스 풀 시작 시간 |
 |FirstPid | 프로세스 풀의 첫 번째 PID |
 |설명 | 프로세스 설명 |
@@ -444,14 +444,14 @@ let remoteMachines = remote | summarize by RemoteMachine;
 |네임스페이스 | 성능 카운터의 범주입니다. | 
 |Name | 성능 카운터의 이름입니다. |
 |Val | 수집 된 값 | 
-|태그들 | 레코드에 대 한 관련 세부 정보입니다. 다른 레코드 형식에 사용 되는 태그는 아래 표를 참조 하세요.  |
+|태그 | 레코드에 대 한 관련 세부 정보입니다. 다른 레코드 형식에 사용 되는 태그는 아래 표를 참조 하세요.  |
 |AgentId | 각 컴퓨터의 에이전트에 대 한 고유 식별자 |
-|Type | *InsightsMetrics* |
+|형식 | *InsightsMetrics* |
 |_ResourceId_ | 가상 컴퓨터의 리소스 ID |
 
 *InsightsMetrics* 테이블에 현재 수집 된 성능 카운터는 다음 표에 나열 되어 있습니다.
 
-| 네임스페이스 | Name | 설명 | 단위 | 태그들 |
+| 네임스페이스 | Name | 설명 | 단위 | 태그 |
 |:---|:---|:---|:---|:---|
 | Computer    | 하트비트             | 컴퓨터 하트 비트                        | | |
 | 메모리      | AvailableMB           | 사용 가능한 메모리 바이트                    | 메가바이트      | memorySizeMB-총 메모리 크기|

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508052"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 BankDemo 설정
@@ -22,7 +22,7 @@ CICs는 여러 온라인 메인프레임 응용 프로그램에서 사용 하는
 > [!NOTE]
 > 출시 예정: Azure Vm에서 [마이크로 포커스 엔터프라이즈 서버 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 을 설정 하는 방법에 대 한 지침입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [엔터프라이즈 개발자](set-up-micro-focus-azure.md)를 사용 하는 VM. 엔터프라이즈 개발자는 개발 및 테스트 목적으로 엔터프라이즈 서버의 전체 인스턴스를 보유 하 고 있습니다. 이 인스턴스는 데모에 사용 되는 Enterprise Server의 인스턴스입니다.
 
@@ -268,7 +268,7 @@ Rumba, 3270 에뮬레이터를 사용 하 여 3270 세션을 구성 해야 합�
 ![메인프레임 디스플레이 시작 화면 ](media/14-demo.png)
  ![ 메인프레임 Rumba-하위 시스템 데모 화면](media/15-demo.png)
 
-축하합니다! 이제 마이크로 포커스 엔터프라이즈 서버를 사용 하 여 Azure에서 CICS 응용 프로그램을 실행 하 고 있습니다.
+축하합니다. 이제 마이크로 포커스 엔터프라이즈 서버를 사용 하 여 Azure에서 CICS 응용 프로그램을 실행 하 고 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
