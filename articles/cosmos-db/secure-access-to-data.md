@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760872"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
@@ -168,7 +168,7 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 4. 다음에 대 한 **액세스 할당 상자**에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택 합니다.
 5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 애플리케이션을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
     선택한 사용자, 그룹 또는 애플리케이션이 선택한 멤버 목록에 나타납니다.
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
 이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
 

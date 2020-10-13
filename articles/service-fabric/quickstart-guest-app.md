@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91614107"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
 이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 애플리케이션(이 예제에서는 Node.js)을 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2019 또는 2015 설치를 포함 합니다.
 
@@ -86,7 +86,7 @@ Visual Studio는 애플리케이션 프로젝트 및 작업자 서비스 프로�
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>Azure에 배포
+## <a name="deploy-to-azure"></a>Deploy to Azure
 
 **F5** 키를 누르고 프로젝트를 실행 하면 로컬 클러스터에 배포 됩니다. 하지만 대신 Azure에 배포해보겠습니다.
 

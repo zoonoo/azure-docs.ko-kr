@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320259"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>' 로그인 유지? '를 구성 합니다. Azure AD 계정에 대 한 프롬프트
@@ -40,20 +40,15 @@ ms.locfileid: "89320259"
    * **아니요**를 선택 하는 경우 사용자가 성공적으로 로그인 하 고 브라우저를 닫았다가 다시 열 때마다 사용자가 로그인 해야 하는 경우 로그인 **유지?** 옵션이 숨겨집니다.
    * **예**를 선택 하면 사용자에 게 **로그인 유지?** 옵션이 표시 됩니다.
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="로그인 설정 상태를 유지 하는 표시 옵션을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="관리 되는 테 넌 트 및 페더레이션 테 넌 트의 사용자 로그인 흐름을 보여 주는 다이어그램":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 
 사용자가 로그인 **유지** 를 수행 하지 않는 경우 다음 다이어그램에 표시 된 것 처럼 프롬프트를 표시 하지만 로그인 시도를 중단 하면 인터럽트를 나타내는 로그인 로그 항목이 표시 됩니다.
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="로그인 상태를 유지 하 시겠습니까? 요청할":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="관리 되는 테 넌 트 및 페더레이션 테 넌 트의 사용자 로그인 흐름을 보여 주는 다이어그램" 인터럽트 때문에이 오류가 발생 했습니다.
 
-로그인 오류에 대 한 자세한 내용은 예제에서 다음과 같이 강조 표시 되어 있습니다.
-
-* **로그인 오류 코드**: 50140
-* **실패 이유**: 사용자가 로그인 할 때 "로그인 유지" 인터럽트 때문에이 오류가 발생 했습니다.
-
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="로그인 유지 인터럽트가 포함 된 로그인 로그 항목의 예":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="관리 되는 테 넌 트 및 페더레이션 테 넌 트의 사용자 로그인 흐름을 보여 주는 다이어그램":::
 
 고급 브랜딩 설정에서 **표시 옵션을 로그인 상태로 유지 설정을** **아니요** 로 설정 하 여 사용자가 인터럽트를 보지 못하도록 중지할 수 있습니다. 이렇게 하면 Azure AD 디렉터리의 모든 사용자에 대해 KMSI 프롬프트가 비활성화 됩니다.
 

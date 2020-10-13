@@ -4,10 +4,10 @@ description: 독립 실행형 Service Fabric 클러스터를 실행하는 구성
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 3cb1d40f5b32415588d3fd5a108967cfb4c0e534
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842617"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>독립 실행형 클러스터의 구성 업그레이드 

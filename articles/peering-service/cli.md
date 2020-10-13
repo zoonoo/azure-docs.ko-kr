@@ -11,15 +11,15 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: ef573817927cf732da3426d802f8f26e2e9cd4ec
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399026"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 합니다.
 
-Azure 피어 링 서비스는 Microsoft 365, Dynamics 365, SaaS (software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대 한 고객의 연결을 향상 시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
+Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
 
 Azure 구독이 없는 경우 지금 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

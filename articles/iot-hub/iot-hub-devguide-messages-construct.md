@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 06db7b46d095a79177b80bba6df3d5e9aadad16b
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766980"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
@@ -61,7 +61,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | iothub-connection-module-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **moduleId**를 포함합니다. | 예 | connectionModuleId |
 | iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **connectionDeviceGenerationId**([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당)를 포함합니다. | 예 |connectionDeviceGenerationId |
 | iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다.| 예 | connectionAuthMethod |
-| dt-dataschema | 이 값은 장치-클라우드 메시지의 IoT hub에 의해 설정 됩니다. 장치 연결에 설정 된 장치 모델 ID를 포함 합니다. | 예 | 해당 없음 |
+| dt-dataschema | 이 값은 장치-클라우드 메시지의 IoT hub에 의해 설정 됩니다. 장치 연결에 설정 된 장치 모델 ID를 포함 합니다. | 아니요 | 해당 없음 |
 | dt-주체 | 장치-클라우드 메시지를 전송 하는 구성 요소의 이름입니다. | 예 | 해당 없음 |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>**C2D** IoT Hub 메시지의 시스템 속성

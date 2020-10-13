@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898217"
 ---
 # <a name="summarize-data"></a>데이터 요약
@@ -57,10 +57,10 @@ ms.locfileid: "90898217"
 |**평균값**|모든 열 값의 평균|
 |**평균 편차**|열 값의 평균 편차|
 |**첫 번째 변위치**|처음 사분 위 값|
-|**중앙값**|중앙값 열 값|
+|**중간값**|중앙값 열 값|
 |**세 번째 변위치**|3 분 분의 값|
 |**모드**|열 값 모드|
-|**Range**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|
+|**범위**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|
 |**표본 분산**|열에 대 한 가변성 참고 참조|
 |**샘플 표준 편차**|열에 대 한 표준 편차 참고 참조|
 |**샘플 왜곡도**|열에 대 한 왜곡도 참고 참조|

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: bb1ce0a8ba568dc651accdc5f8c84e9c2c980e73
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612815"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
@@ -50,7 +50,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 [AZURE AD에서 필요한 클레임](active-directory-certificate-credentials.md) 은 다음과 같습니다.
 
-클레임 유형 | 값 | Description
+클레임 유형 | 값 | 설명
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD). [RFC 7519, 섹션 4.1.3을](https://tools.ietf.org/html/rfc7519#section-4.1.3)참조 하세요.  이 경우 해당 수신자는 로그인 서버 (login.microsoftonline.com)입니다.
 exp | 1601519414 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, 4.1.4 섹션을](https://tools.ietf.org/html/rfc7519#section-4.1.4)참조 하세요.  이렇게 하면 어설션을 사용할 때까지 사용할 수 있으므로 잠시 후에 짧은 5-10 분을 유지 `nbf` 합니다.  Azure AD는 현재 시간에 제한을 두지 않습니다 `exp` . 

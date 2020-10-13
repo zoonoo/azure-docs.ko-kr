@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90891464"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 GPU에 모듈 구성 및 실행
@@ -22,7 +22,7 @@ Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가
 이 문서에서는 Azure Stack Edge Pro 장치에서 GPU에 모듈을 구성 하 고 실행 하는 방법을 설명 합니다. 이 문서에서는 Nvidia T4 Gpu 용으로 작성 된 공개적으로 사용 가능한 컨테이너 모듈 **번호** 를 사용 합니다. 이 절차는 이러한 Gpu에 대해 Nvidia에서 게시 한 다른 모듈을 구성 하는 데 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 

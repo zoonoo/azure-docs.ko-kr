@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449792"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용하여 대화형 보고서 VM용 Azure Monitor 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "91449792"
 
 다음 표에서는 시작 하기 위해 포함 VM용 Azure Monitor 하는 통합 문서를 요약 합니다.
 
-| 통합 문서 | 설명 | Scope |
+| 통합 문서 | 설명 | 범위 |
 |----------|-------------|-------|
 | 성능 | 사용 하도록 설정한 모든 Log Analytics 성능 카운터를 활용 하는 단일 통합 문서에서 상위 N 개 목록 및 차트 보기의 사용자 지정 가능한 버전을 제공 합니다.| 대규모 |
 | 성능 카운터 | 광범위 한 성능 카운터 집합에 대 한 상위 N 개 차트 뷰입니다. | 대규모 |

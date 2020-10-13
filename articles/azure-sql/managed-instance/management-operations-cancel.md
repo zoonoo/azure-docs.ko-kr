@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997240"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 취소
@@ -38,14 +38,14 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 범주  |작업(Operation)  |취소  |예상 취소 기간  |
 |---------|---------|---------|---------|
-|배포 |인스턴스 만들기 |예 |90%의 작업은 5 분 안에 완료 됩니다. |
+|배포 |인스턴스 만들기 |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 저장소 확장/축소 (범용) |아니요 |  |
-|업데이트 |인스턴스 저장소 확장/축소 (중요 비즈니스용) |예 |90%의 작업은 5 분 안에 완료 됩니다. |
-|업데이트 |인스턴스 계산 (vCores) 확장 및 축소 (범용) |예 |90%의 작업은 5 분 안에 완료 됩니다. |
-|업데이트 |인스턴스 계산 (vCores) 확장 및 축소 (중요 비즈니스용) |예 |90%의 작업은 5 분 안에 완료 됩니다. |
-|업데이트 |인스턴스 서비스 계층 변경 (일반적인 중요 비즈니스용 용도 및 그 반대로) |예 |90%의 작업은 5 분 안에 완료 됩니다. |
-|삭제 |인스턴스 삭제 |아니요 |  |
-|삭제 |가상 클러스터 삭제 (사용자 시작 작업) |아니요 |  |
+|업데이트 |인스턴스 저장소 확장/축소 (중요 비즈니스용) |예 |작업의 90%가 5분 후에 완료됩니다. |
+|업데이트 |인스턴스 컴퓨팅(vCore) 확장 및 축소(범용) |예 |작업의 90%가 5분 후에 완료됩니다. |
+|업데이트 |인스턴스 컴퓨팅(vCore) 확장 및 축소(중요 비즈니스용) |예 |작업의 90%가 5분 후에 완료됩니다. |
+|업데이트 |인스턴스 서비스 계층 변경(범용에서 중요 비즈니스용으로 및 그 반대로) |예 |작업의 90%가 5분 후에 완료됩니다. |
+|DELETE |인스턴스 삭제 |아니요 |  |
+|DELETE |가상 클러스터 삭제(사용자 시작 작업) |아니요 |  |
 
 ## <a name="cancel-management-operation"></a>관리 작업 취소
 
@@ -61,7 +61,7 @@ Azure Portal를 사용 하 여 관리 작업을 취소 하려면 다음 단계�
 
 1. 페이지 맨 아래에 있는 **작업 취소** 를 선택 합니다. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="작업을 취소 하려면 취소를 선택 합니다.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="진행 중인 작업 상자를 선택 하 여 진행 중인 작업 페이지를 엽니다.":::
 
 1. 작업을 취소할 것인지 확인 합니다. 
 
@@ -131,8 +131,8 @@ API 버전 2020-02-02을 사용 하는 경우 인스턴스 생성 요청이 수�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 첫 번째 관리 되는 인스턴스를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조 하세요.
-- 기능 및 비교 목록은 [일반적인 SQL 기능](../database/features-comparison.md)을 참조 하세요.
-- VNet 구성에 대 한 자세한 내용은 [SQL Managed Instance vnet 구성](connectivity-architecture-overview.md)을 참조 하세요.
-- 관리 되는 인스턴스를 만들고 백업 파일에서 데이터베이스를 복원 하는 빠른 시작은 [관리 되는 인스턴스 만들기](instance-create-quickstart.md)를 참조 하세요.
-- 마이그레이션을 위해 Azure Database Migration Service를 사용 하는 방법에 대 한 자습서는 [Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조 하세요.
+- 첫 번째 Managed Instance를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조하세요.
+- 기능 및 비교 목록은 [SQL 일반 기능](../database/features-comparison.md)을 참조하세요.
+- VNet 구성에 대한 자세한 내용은 [SQL Managed Instance VNet 구성](connectivity-architecture-overview.md)을 참조하세요.
+- 백업 파일에서 관리형 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
+- Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자습서는 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.

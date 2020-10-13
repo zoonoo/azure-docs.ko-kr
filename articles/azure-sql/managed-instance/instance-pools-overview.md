@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 3753004b2bd9c18399655cffd594392b63c14264
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325167"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀 (미리 보기) 이란?
@@ -24,7 +24,7 @@ ms.locfileid: "91325167"
 
 Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스턴스를 대규모로 클라우드로 마이그레이션하는 데 편리 하 고 비용 효율적인 방법을 제공 합니다.
 
-인스턴스 풀을 사용하면 총 마이그레이션 요구 사항에 따라 계산 리소스를 미리 프로비전할 수 있습니다. 그런 다음 미리 프로비전된 계산 수준까지 여러 개의 개별 관리되는 인스턴스를 배포할 수 있습니다. 예를 들어 vCores 8 개를 사전 프로 비전 하는 경우 2 개 Vcores와 4 Vcores 인스턴스를 배포한 다음 데이터베이스를 이러한 인스턴스로 마이그레이션할 수 있습니다. 인스턴스 풀을 사용할 수 있기 전에는 더 작고 적은 계산 집약적인 워크 로드를 클라우드로 마이그레이션할 때 더 큰 관리 되는 인스턴스로 통합 해야 하는 경우가 많습니다. 데이터베이스 그룹을 대형 인스턴스로 마이그레이션하려면 일반적으로 용량 계획 및 리소스 관리, 추가 보안 고려 사항 및 인스턴스 수준에서의 추가 데이터 통합 작업을 수행 해야 합니다.
+인스턴스 풀을 사용하면 총 마이그레이션 요구 사항에 따라 계산 리소스를 미리 프로비전할 수 있습니다. 그런 다음 미리 프로비전된 계산 수준까지 여러 개의 개별 관리되는 인스턴스를 배포할 수 있습니다. 예를 들어 vCores 8 개를 사전 프로 비전 하는 경우 2 2-Vcores 및 1 4-Vcores 인스턴스를 배포 하 고 데이터베이스를 이러한 인스턴스로 마이그레이션할 수 있습니다. 인스턴스 풀을 사용할 수 있기 전에는 더 작고 적은 계산 집약적인 워크 로드를 클라우드로 마이그레이션할 때 더 큰 관리 되는 인스턴스로 통합 해야 하는 경우가 많습니다. 데이터베이스 그룹을 대형 인스턴스로 마이그레이션하려면 일반적으로 용량 계획 및 리소스 관리, 추가 보안 고려 사항 및 인스턴스 수준에서의 추가 데이터 통합 작업을 수행 해야 합니다.
 
 또한 인스턴스 풀은 기본 VNet 통합을 지원 하므로 동일한 서브넷에 여러 인스턴스 풀 및 여러 개의 단일 인스턴스를 배포할 수 있습니다.
 
@@ -152,10 +152,10 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 ## <a name="next-steps"></a>다음 단계
 
 - 인스턴스 풀을 시작 하려면 [SQL Managed Instance 풀 방법 가이드](instance-pools-configure.md)를 참조 하세요.
-- 첫 번째 관리 되는 인스턴스를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조 하세요.
+- 첫 번째 Managed Instance를 만드는 방법을 알아보려면 [빠른 시작 가이드](instance-create-quickstart.md)를 참조하세요.
 - 기능 및 비교 목록은 [AZURE SQL 일반 기능](../database/features-comparison.md)을 참조 하세요.
-- VNet 구성에 대 한 자세한 내용은 [SQL Managed Instance vnet 구성](connectivity-architecture-overview.md)을 참조 하세요.
-- 관리 되는 인스턴스를 만들고 백업 파일에서 데이터베이스를 복원 하는 빠른 시작은 [관리 되는 인스턴스 만들기](instance-create-quickstart.md)를 참조 하세요.
-- 마이그레이션을 위해 Azure Database Migration Service를 사용 하는 방법에 대 한 자습서는 [Database Migration Service를 사용 하 여 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조 하세요.
-- 기본 제공 되는 문제 해결 인텔리전스를 사용 하 여 SQL Managed Instance 데이터베이스 성능에 대 한 고급 모니터링은 [Azure SQL 분석를 사용 하 여 AZURE sql Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조 하세요.
+- VNet 구성에 대한 자세한 내용은 [SQL Managed Instance VNet 구성](connectivity-architecture-overview.md)을 참조하세요.
+- 백업 파일에서 관리형 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [관리형 인스턴스 만들기](instance-create-quickstart.md)를 참조하세요.
+- Azure Database Migration Service를 사용하여 마이그레이션하는 방법에 대한 자습서는 [Database Migration Service를 사용한 SQL Managed Instance 마이그레이션](../../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- 기본 제공 문제 해결 인텔리전스를 사용하는 SQL Managed Instance 데이터베이스의 고급 성능 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Managed Instance 모니터링](../../azure-monitor/insights/azure-sql.md)을 참조하세요.
 - 가격 책정 정보는 [SQL Managed Instance 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조 하세요.

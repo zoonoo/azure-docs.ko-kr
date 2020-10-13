@@ -5,16 +5,16 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 3221fd64439920d11a7b45d013f3b26a1496a76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 72c344c0a5c9cca278fe8c633309b1195a0454b0
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744106"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941409"
 ---
 클라이언트 라이브러리     |지원되는 버전     | 링크   |     엔드포인트 사양      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |     11.0.0                                           |    NuGet 패키지:  <br>일반: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0    <br> Blob: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0 <br>큐   https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0 <br>GitHub 릴리스: https://github.com/Azure/azure-storage-net/releases/tag/v11.0.00                          |    app.config 파일                 |
+|    .NET                |     11.0.0                                           |    NuGet 패키지:  <br>일반: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0    <br> Blob: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0 <br>큐   https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0 <br>GitHub 릴리스: https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0                          |    app.config 파일                 |
 |    Java                |    12.0.0-preview. 3                                           |   Maven 패키지: https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3   <br>GitHub 릴리스: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage                                                                                                                                                                              |    연결 문자열 설정         |
 |    Node.js             |    2.8.3                                           |    NPM 링크:   https://www.npmjs.com/package/azure-storage   (실행: `npm install azure-storage@2.7.0` )   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    서비스 인스턴스 선언    |
 |    C++                 |    5.2.0                                           |    NuGet 패키지:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub 릴리스: https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    연결 문자열 설정         |

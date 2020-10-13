@@ -4,10 +4,10 @@ description: 이 문서에서는 포털 기반 Azure Service Bus 탐색기를 �
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295603"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
@@ -51,7 +51,7 @@ Azure Service Bus 탐색기를 사용하려면 보내기, 피킹 및 받기 작�
 
 왼쪽 탐색 메뉴에서 **'Service Bus 탐색기(미리 보기)'** 를 선택합니다.
 
-:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="SB 탐색기 왼쪽 탐색 메뉴":::
+:::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="엔터티 선택":::
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>메시지를 큐 또는 토픽으로 보내기
 
@@ -66,17 +66,17 @@ Azure Service Bus 탐색기를 사용하려면 보내기, 피킹 및 받기 작�
 
 메시지를 작성한 후에는 보내기를 누릅니다.
 
-:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="메시지 작성":::
+:::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="엔터티 선택":::
 
 보내기 작업이 성공적으로 완료되면 
 
 * 큐로 보내는 경우 **활성 메시지** 메트릭 카운터가 증가합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="엔터티 선택":::
 
 * 토픽으로 보내는 경우 메시지가 라우팅된 구독에서 **활성 메시지** 메트릭 카운터가 증가합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="TopicAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/topic-after-send-metrics.png" alt-text="엔터티 선택":::
 
 ### <a name="receiving-a-message-from-a-queue"></a>큐에서 메시지 받기
 
@@ -93,18 +93,18 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 1. Service Bus 탐색기에서 ***수신*** 탭을 클릭합니다.
 2. 메트릭을 확인하여 수신할 **활성 메시지** 또는 **배달 못한 메시지**가 있는지 확인합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="엔터티 선택":::
 
 3. ***큐*** 또는 ***배달 못한 편지*** 하위 큐 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="엔터티 선택":::
 
 4. ***수신*** 단추를 클릭하고 ***예***를 클릭하여 '수신 및 삭제' 작업을 확인합니다.
 
 
 수신 작업이 성공적으로 완료되면 아래와 같이 메시지 정보가 표에 표시됩니다. 표에서 메시지를 선택하여 세부 정보를 표시할 수 있습니다.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="큐에서 선택한 활성 메시지에 대 한 메시지 정보가 표시 된 Azure Service Bus 탐색기의 큐 창 스크린샷":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="엔터티 선택":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>큐에서 메시지 피킹
@@ -113,21 +113,21 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
 1. 큐에서 메시지를 피킹하려면 Service Bus 탐색기에서 ***피킹*** 탭을 클릭합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
+    :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="엔터티 선택":::
 
 2. 메트릭을 확인하여 피킹할 **활성 메시지** 또는 **배달 못한 메시지**가 있는지 확인합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
+    :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="엔터티 선택":::
 
 3. 그런 다음, ***큐*** 또는 ***배달 못한 편지*** 하위 큐 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="엔터티 선택":::
 
 4. ***피킹*** 단추를 클릭합니다. 
 
 피킹 작업이 완료되면 아래와 같이 최대 32개의 메시지가 표에 표시됩니다. 특정 메시지에 대한 세부 정보를 보려면 표에서 해당 메시지를 선택합니다. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="PeekMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="엔터티 선택":::
 
 > [!NOTE]
 >
@@ -146,17 +146,17 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
 1. ***수신*** 탭을 클릭하고 드롭다운 선택기에서 특정 ***구독***을 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="엔터티 선택":::
 
 2. ***구독*** 또는 ***배달 못한 편지*** 하위 엔터티 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="엔터티 선택":::
 
 3. ***수신*** 단추를 클릭하고 ***예***를 클릭하여 '수신 및 삭제' 작업을 확인합니다.
 
 수신 작업이 성공적으로 완료되면 아래와 같이 수신된 메시지가 표에 표시됩니다. 메시지 세부 정보를 보려면 메시지를 클릭합니다.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="받은 활성 메시지에 대 한 메시지 정보가 표시 된 Azure Service Bus 탐색기의 수신 탭 스크린샷":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="엔터티 선택":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>구독에서 메시지 선택
 
@@ -164,17 +164,17 @@ Service Bus 탐색기의 receive 함수를 사용하면 한 번에 하나의 메
 
 1. ***피킹*** 탭을 클릭하고 드롭다운 선택기에서 특정 ***구독***을 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
+    :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="엔터티 선택":::
 
 2. ***구독*** 또는 ***배달 못한 편지*** 하위 엔터티 중에서 선택합니다.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="엔터티 선택":::
 
 3. ***피킹*** 단추를 클릭합니다.
 
 피킹 작업이 완료되면 아래와 같이 최대 32개의 메시지가 표에 표시됩니다. 특정 메시지에 대한 세부 정보를 보려면 표에서 해당 메시지를 선택합니다. 
 
-:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="PeekMessageFromSubscription":::
+:::image type="content" source="./media/service-bus-explorer/peek-message-from-subscription.png" alt-text="엔터티 선택":::
 
 > [!NOTE]
 >

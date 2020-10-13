@@ -12,10 +12,10 @@ author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
 ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886193"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화 된 기계 학습에서 데이터 분할 및 교차 유효성 검사 구성
@@ -31,7 +31,7 @@ AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다�
 > [!NOTE]
 > 스튜디오는 현재 학습/유효성 검사 데이터 분할 및 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대 한 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다.
 

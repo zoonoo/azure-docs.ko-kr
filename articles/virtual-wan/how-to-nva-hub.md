@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91773249"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)에서 네트워크 가상 어플라이언스를 만드는 방법
@@ -90,7 +90,7 @@ Azure 가상 WAN 내에서 **CISCO SD-WAN** 의 배포 설명서는 다음 전�
    * **Nva 인프라 단위** -이 nva를 배포 하려는 Nva 인프라 단위의 수를 표시 합니다. 이 NVA를 통해이 허브에 연결 되는 모든 분기 사이트에서 제공할 집계 대역폭 용량 크기를 선택 합니다.
    * **Token** Barracuda는이 제품의 등록 된 사용자로 서 사용자를 식별 하기 위해 여기에 인증 토큰을 제공 해야 합니다. Barracuda에서이를 가져와야 합니다.
 1. **검토 및 만들기** 단추를 선택 하 여 계속 합니다.
-1. 이 페이지에서는 공동 관리자 액세스 계약의 약관에 동의 하 라는 메시지가 표시 됩니다. 게시자가이 배포의 일부 리소스에 액세스할 수 있는 관리 되는 응용 프로그램의 표준입니다. 위의 사용 **약관에 동의 함** 확인란을 선택 하 고 **만들기**를 선택 합니다.
+1. 이 페이지에 Co-Admin 액세스 계약의 약관에 동의 하 라는 메시지가 표시 됩니다. 게시자가이 배포의 일부 리소스에 액세스할 수 있는 관리 되는 응용 프로그램의 표준입니다. 위의 사용 **약관에 동의 함** 확인란을 선택 하 고 **만들기**를 선택 합니다.
 
 ## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>허브에 VNet 연결
 

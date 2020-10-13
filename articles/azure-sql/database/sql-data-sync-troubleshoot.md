@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: cb66c0371914b29c3db911823519b29df8c4b16c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91616468"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL 데이터 동기화 문제 해결
@@ -26,7 +26,7 @@ ms.locfileid: "91616468"
 SQL 데이터 동기화에 대한 개요는 [Azure의 SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)를 참조하세요.
 
 > [!IMPORTANT]
-> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원 **하지** 않습니다.
+> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="sync-issues"></a>동기화 문제
 
@@ -197,7 +197,7 @@ SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입
   1. **시작**  >  **제어판**  >  **관리 도구**  >  **로컬 보안 정책**  >  **로컬 정책**  >  **사용자 Rights Management**로 이동 합니다.
   1. **서비스로 로그온**을 선택합니다.
   1. **속성** 대화 상자에서 사용자 계정을 추가합니다.
-  1. **적용** 및 **확인**을 차례로 선택합니다.
+  1. **적용**을 선택한 다음 **확인**을 선택합니다.
   1. 모든 창을 닫습니다.
 
 ### <a name="a-database-has-an-out-of-date-status"></a><a name="setup-date"></a> 데이터베이스의 "날짜가 오래 됨" 상태

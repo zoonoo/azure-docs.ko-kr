@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 12ab54e51b26c4b3d77f5518d4e4f44efe34affd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983314"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
@@ -178,7 +178,7 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
    ![연결 확인](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "연결 확인")
 3. **이름** 열에서 연결 중 하나를 선택 하 여 자세한 정보를 확인 합니다. 데이터 흐름이 시작되면 **데이터 입력** 및 **데이터 출력** 값이 보입니다.
 
-   ![스크린샷에는 데이터에 대 한 값과 데이터를 포함 하는 리소스 그룹이 표시 됩니다.](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
+   ![스크린샷에는 데이터에 대 한 값과 데이터를 포함 하는 리소스 그룹이 표시 됩니다.](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "상태")
 
 ## <a name="add-additional-connections"></a>연결 추가
 

@@ -8,10 +8,10 @@ ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
 ms.openlocfilehash: 7afaa057ecc94cf67d4fd5b041d95210fcf26717
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707597"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
@@ -45,7 +45,7 @@ ms.locfileid: "90707597"
 > [!NOTE]
 > 파일 공유를 제한 하는 경우 경고를 수신 하려면 [파일 공유를 제한 하는 경우 경고를 만드는 방법](#how-to-create-an-alert-if-a-file-share-is-throttled)을 참조 하세요.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 표준 파일 공유를 사용 하는 경우 저장소 계정에서 [대량 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) 를 사용 하도록 설정 합니다. 대량 파일 공유는 공유 당 최대 1만 IOPS를 지원 합니다.
 - 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세한 내용은 Azure Files 계획 가이드의 [premium 파일 공유에 대 한 프로 비전 이해](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) 섹션을 참조 하십시오.
@@ -67,7 +67,7 @@ ms.locfileid: "90707597"
 
 고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
@@ -78,7 +78,7 @@ ms.locfileid: "90707597"
 
 클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 

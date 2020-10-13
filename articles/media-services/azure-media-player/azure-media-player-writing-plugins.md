@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: c1a64bff8b81735d9c4c9a14d2c1e12bd0bfe57e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91296164"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Azure Media Player에 대 한 플러그 인 작성 #
@@ -36,7 +36,7 @@ ms.locfileid: "91296164"
 
 태그 또는 외부 JavaScript 파일 내에서 HTML 페이지에 직접 코드를 작성할 수 있습니다 `<script>` . 후자를 수행 하는 경우에는 `<head>` AMP 스크립트 *뒤* 에 HTML 페이지의에 JavaScript 파일을 포함 해야 합니다.
 
-예:
+예제:
 
 ```javascript
     <!--*****START OF Azure Media Player Scripts*****-->

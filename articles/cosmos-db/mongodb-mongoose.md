@@ -10,10 +10,10 @@ author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
 ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324555"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
@@ -22,7 +22,7 @@ ms.locfileid: "91324555"
 
 Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -197,7 +197,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 
 1. 이제 Azure Portal로 이동하면 Cosmos DB에 두 개의 컬렉션이 생성된 것을 확인할 수 있습니다.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js 자습서-여러 컬렉션 이름이 강조 표시 된 노드 데이터베이스를 사용 하 여 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js 자습서-Mongoose Node 모듈에서 사용할 수 있도록 Azure Cosmos DB 계정에 대 한 데이터 탐색기에서 데이터베이스를 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 1. 마지막으로, Cosmos DB에서 데이터를 읽겠습니다. 기본 Mongoose 운영 모델을 사용하고 있으므로 읽기는 Mongoose를 사용한 다른 읽기와 동일합니다.
 
@@ -302,7 +302,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 
 1. 이제 Azure Portal로 돌아가면 ‘Family’ 및 ‘VacationDestinations’ 데이터가 둘 다 포함된 ```alldata```라는 하나의 컬렉션만 표시됩니다.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js 자습서-컬렉션 이름이 강조 표시 된 노드 데이터베이스를 사용 하 여 Azure Cosmos DB 계정을 보여 주는 Azure Portal의 스크린샷":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js 자습서-Mongoose Node 모듈에서 사용할 수 있도록 Azure Cosmos DB 계정에 대 한 데이터 탐색기에서 데이터베이스를 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 1. 또한 각 개체에 ```__type```이라는 다른 특성이 있습니다. 이 특성은 두 가지 개체 모델을 구별하는 데 도움이 됩니다.
 

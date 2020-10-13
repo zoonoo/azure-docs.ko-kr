@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756693"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974722"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -116,9 +116,7 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 **AuditIfNotExists** 정책에 따라 컴퓨터에서 모든 요구 사항이 충족 될 때까지 준수 결과가 반환 되지 않습니다. 요구 사항에 [대 한 자세한 내용은 Azure 가상 컴퓨터에 대 한 요구 사항 배포](#deploy-requirements-for-azure-virtual-machines) 섹션을 참조 하십시오.
 
 > [!IMPORTANT]
-> 게스트 구성의 이전 릴리스에서는 **Deployifnoteexists** 및 **AuditIfNotExists** 정의를 결합 하기 위한 이니셔티브를 수행 해야 했습니다. **Deployifnotexists** 정의가 더 이상 필요 하지 않습니다. 정의와 intiaitives에는 레이블이 지정 되어 `[Deprecated]` 있지만 기존 할당은 계속 작동 합니다.
->
-> 수동 단계가 필요 합니다. 이전에 category에서 정책 이니셔티브를 할당 한 경우 `Guest Configuration` 정책 할당을 삭제 하 고 새 정의를 할당 합니다. 게스트 구성 정책에는 다음과 같은 이름 패턴이 있습니다. `Audit <Windows/Linux> machines that <non-compliant condition>`
+> 게스트 구성의 이전 릴리스에서는 **Deployifnoteexists** 및 **AuditIfNotExists** 정의를 결합 하기 위한 이니셔티브를 수행 해야 했습니다. **Deployifnotexists** 정의가 더 이상 필요 하지 않습니다. 정의와 intiaitives에는 레이블이 지정 되어 `[Deprecated]` 있지만 기존 할당은 계속 작동 합니다. 자세한 내용은 블로그 게시물: [게스트 구성 감사 정책에 대 한 중요 한 변경 내용](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316) 을 참조 하세요.
 
 Azure Policy 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용 하 여 **준수 노드의 준수를 보고 합니다.** 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
 

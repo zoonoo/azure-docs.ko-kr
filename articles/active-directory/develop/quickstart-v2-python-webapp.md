@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Python 웹앱에 Microsoft로 로그인 추가| Azure
-description: OAuth2를 사용하여 Python 웹앱에서 Microsoft 로그인을 구현하는 방법 알아보기
+title: '빠른 시작: Python 웹앱에 Microsoft로 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 Python 웹앱이 사용자를 로그인하고, Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출하는 방법에 대해 알아봅니다.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6b58e927952b2a51289c3017455cc7d66545fe86
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120323"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613342"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -26,8 +27,7 @@ ms.locfileid: "88120323"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 샘플을 실행하려면 다음이 필요합니다.
-
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) 또는 [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-세션](https://pypi.org/project/Flask-Session/), [요청](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -97,7 +97,7 @@ ms.locfileid: "88120323"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 프로젝트를 다운로드하고 zip 파일을 루트 폴더에 가까운 로컬 폴더(예제: **C:\Azure-Samples**)로 추출합니다.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -162,11 +162,11 @@ MSAL을 사용할 파일 맨 위에 다음 코드를 추가하여 MSAL Python에
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-사용자가 로그인한 다음, 웹 API를 호출하는 웹앱에 대해 자세히 알아봅니다.
+여러 부분으로 구성된 시나리오 시리즈에서 사용자를 로그인하는 웹앱에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [시나리오: 사용자가 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [시나리오: 사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)

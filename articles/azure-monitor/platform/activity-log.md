@@ -8,10 +8,10 @@ ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 6543b629af8d67658afe61ef81e22eb7355e1de7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772807"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
@@ -199,14 +199,14 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | Description |
+    | 속성 | 필수 | 설명 |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
-    | StorageAccountId |예 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
-    | serviceBusRuleId |예 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
+    | StorageAccountId |아니요 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
+    | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
     | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
     | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
-    | 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
+    | 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
 다음은 저장소 계정 및 이벤트 허브 모두에 활동 로그를 기록 하는 로그 프로필을 만드는 샘플 PowerShell 스크립트입니다.

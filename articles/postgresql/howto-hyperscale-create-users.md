@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
 ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295739"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자 만들기
@@ -50,9 +50,9 @@ Citus (Hyperscale)는 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="역할 페이지":::
 
-2. 역할 이름 및 암호를 입력 합니다. **저장**을 클릭합니다.
+2. 역할 이름 및 암호를 입력 합니다. **Save**을 클릭합니다.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="역할 추가":::
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="역할 페이지":::
 
 사용자는 서버 그룹의 코디네이터 노드에 만들어지고 모든 작업자 노드에 전파 됩니다. Azure Portal를 통해 만든 역할에는 `LOGIN` 특성이 있습니다. 즉, 데이터베이스에 로그인 할 수 있는 진정한 사용자 임을 의미 합니다.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 사용자를 업데이트 하려면 Citus (Hyperscale) 서버 그룹에 대 한 **역할** 페이지를 방문 하 여 사용자 옆에 **있는 줄임표 (...)** 를 클릭 합니다. 줄임표는 사용자를 삭제 하거나 암호를 다시 설정 하는 메뉴를 엽니다.
 
-   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="역할 편집":::
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="역할 페이지":::
 
 `citus`역할은 특권 이며 삭제할 수 없습니다.
 

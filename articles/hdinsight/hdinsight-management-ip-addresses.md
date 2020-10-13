@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401642"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974671"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -85,6 +85,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | &nbsp; | 미국 서부 | 13.64.254.98</br>23.101.196.19 | \*: 443 | 인바운드 |
 | &nbsp; | 미국 서부 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | 인바운드 |
 | &nbsp; | 아랍에미리트 북부 | 65.52.252.96</br>65.52.252.97 | \*: 443 | 인바운드 |
+| &nbsp; | 아랍에미리트 중부 | 20.37.76.96</br>20.37.76.99 | \*: 443 | 인바운드 |
 
 Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 문서를 참조하세요.
 

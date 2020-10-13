@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705513"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
@@ -86,7 +86,7 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.
 
-   c. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
+   다. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
 
    d. ID 공급자로 Azure AD를 사용하도록 Box.com 테넌트를 구성하려면 메타데이터 파일을 다운로드하여 로컬 드라이브에 저장합니다.
 

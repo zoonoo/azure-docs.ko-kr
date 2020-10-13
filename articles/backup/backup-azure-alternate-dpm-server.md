@@ -4,10 +4,10 @@ description: Recovery Services 자격 증명 모음에 보호해 둔 데이터�
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89378069"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Server에서 데이터 복구
@@ -78,7 +78,7 @@ Azure Backup Server에서 데이터를 복구하려면
 
 ## <a name="troubleshooting-error-messages"></a>오류 메시지 문제 해결
 
-| 아닙니다. | 오류 메시지 | 문제 해결 단계 |
+| 아니요. | 오류 메시지 | 문제 해결 단계 |
 |:---:|:--- |:--- |
 | 1. |이 서버는 저장소 자격 증명을 통해 지정된 저장소에 등록되지 않았습니다. |**원인:** 이 오류는 선택한 보관 자격 증명 파일이 복구를 시도하려는 Azure Backup Server와 연결된 Recovery Services 자격 증명 모음에 속해 있지 않을 때 나타납니다. <br> **해결 방법:** Azure Backup Server가 등록된 Recovery Services 자격 증명 모음에서 보관 자격 증명 파일을 다운로드합니다. |
 | 2. |복구 가능한 데이터가 없거나 선택한 서버가 DPM 서버가 아닙니다. |**원인:** Recovery Services 자격 증명 모음에 등록 된 다른 Azure Backup 서버가 없거나, 해당 서버에서 아직 메타 데이터를 업로드 하지 않았거나, 선택한 서버가 Windows Server 또는 Windows 클라이언트를 사용 하 여 Azure Backup Server 되지 않았습니다. <br> **해결 방법:** Recovery Services 자격 증명 모음에 다른 Azure Backup Server가 등록된 경우 최신 Azure Backup 에이전트가 설치되어 있는지 확인합니다. <br>다른 Azure Backup Server가 Recovery Services 자격 증명 모음에 등록된 경우, 설치하고 하루 동안 기다린 다음 복구 프로세스를 시작하세요. 야간 작업을 통해 보호된 모든 백업에 대한 메타데이터가 클라우드로 업로드됩니다. 이제 데이터를 복구할 수 있습니다. |

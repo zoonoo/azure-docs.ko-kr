@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 대한 리소스 포리스트 개념 | Microsoft Docs
 description: Azure Active Directory Domain Services에서 리소스 포리스트가 무엇인지와 이 기능이 제한된 사용자 인증 옵션 또는 보안 문제가 있는 하이브리드 환경의 조직에 어떤 혜택을 주는지 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 1f8c09e7e260d22aa6864327d6a890ef3beaa039
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396402"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962516"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대한 리소스 포리스트 개념 및 기능
 

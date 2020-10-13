@@ -9,10 +9,10 @@ ms.date: 9/24/2020
 ms.author: wgries
 ms.subservice: files
 ms.openlocfilehash: 0b99ce2afcdb5fd7462827fb9893e34577fc6c02
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371204"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
@@ -37,7 +37,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V7 릴리스 | 7.0.0.0-7.2.0.0 | 해당 없음 | 지원 되지 않음-2020 년 9 월 1 일에 에이전트 버전이 만료 됨 |
+| V7 릴리스 | 7.0.0.0-7.2.0.0 | N/A | 지원 되지 않음-2020 년 9 월 1 일에 에이전트 버전이 만료 됨 |
 | V6 릴리스 | 6.0.0.0 - 6.3.0.0 | 해당 없음 | 미지원 - 2020년 4월 21일에 에이전트 버전 만료 |
 | V5 릴리스 | 5.0.2.0 - 5.2.0.0 | 해당 없음 | 미지원 - 2020년 3월 18일에 에이전트 버전 만료 |
 | V4 릴리스 | 4.0.1.0 - 4.3.0.0 | 해당 없음 | 미지원 - 2019년 11월 6일에 에이전트 버전 만료 |

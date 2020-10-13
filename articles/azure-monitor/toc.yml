@@ -658,6 +658,8 @@
                       href: app/javascript-react-plugin.md
                     - name: React Native 플러그인
                       href: app/javascript-react-native-plugin.md
+                    - name: Angular 플러그 인
+                      href: app/javascript-angular-plugin.md
                 - name: 문제 해결
                   items:
                     - name: SDK 로드 실패

@@ -138,7 +138,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/container
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/container-instances
     - name: PowerShell
       href: /powershell/module/az.containerinstance

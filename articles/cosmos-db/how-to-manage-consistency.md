@@ -8,10 +8,10 @@ ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91330590"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
@@ -281,7 +281,7 @@ item = client.ReadItem(doc_link, options)
 
 최종 일관성은 어떻게 최종인가요? 평균적인 사례의 경우 버전 기록 및 시간과 관련하여 부실 범위를 제공할 수 있습니다. [**PBS(확률적 제한된 부실)**](https://pbs.cs.berkeley.edu/) 메트릭은 부실의 확률을 수량화하여 메트릭으로 표시하려고 시도합니다. PBS 메트릭을 보려면 Azure Portal에서 Cosmos 계정으로 이동합니다. **메트릭** 창을 열고 **일관성** 탭을 선택 합니다. **작업을 기반으로 하는 강력한 일관성 읽기의 확률**이라는 그래프를 확인 합니다 (PBS 참조).
 
-:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure Portal의 PBS 그래프":::
+:::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Azure Portal의 일관성 메뉴":::
 
 ## <a name="next-steps"></a>다음 단계
 

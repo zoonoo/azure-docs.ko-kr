@@ -9,10 +9,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 3e0f05240aba9b5c92689315e409aaabe793b3f4
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91772841"
 ---
 # <a name="connect-privately-to-a-web-app-by-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결
@@ -197,7 +197,7 @@ Azure 개인 끝점은 Azure 개인 링크에 대 한 기본 빌딩 블록입니
      b. 텍스트 편집기에서 *호스트* 파일을 편집 하 여 웹 앱의 개인 IP 주소 및 공개 이름이 포함 된 항목을 추가 합니다.  
      > [!div class="mx-imgBorder"]
      > ![Hosts 파일의 텍스트 스크린샷][19]  
-     c. 파일을 저장합니다.
+     다. 파일을 저장합니다.
 
 1. 브라우저에서 웹 앱의 URL을 입력 합니다.
 

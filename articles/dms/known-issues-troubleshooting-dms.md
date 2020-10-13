@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
 ms.openlocfilehash: f0ec9d2a3794ea910339b4d329bb28f23c5a76b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297361"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
@@ -64,7 +64,7 @@ Azure Database Migration Service 인스턴스를 중지 하면 다음과 같은 
 
 | 원인         | 해결 방법 |
 | ------------- | ------------- |
-| 이 오류는 중지 하려는 서비스 인스턴스에 마이그레이션 프로젝트에 아직 실행 중이거나 있는 작업이 포함 되어 있을 때 표시 됩니다. <br><br><br><br><br><br> | 중지 하려는 Azure Database Migration Service 인스턴스에서 실행 중인 작업이 없는지 확인 합니다. 서비스를 중지 하기 전에 활동이 나 프로젝트를 삭제할 수도 있습니다. 다음 단계에서는 실행 중인 모든 태스크를 삭제 하 여 마이그레이션 서비스 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. Install-Module-Name AzureRM. Microsoft.datamigration <br>2. 로그인-Connect-azurermaccount <br>3. Get-azurermsubscription-SubscriptionName " \<subName> " <br> 4. AzureRmDataMigrationProject-Name \<projectName> -ResourceGroupName- \<rgName> \<serviceName> DeleteRunningTask |
+| 이 오류는 중지 하려는 서비스 인스턴스에 마이그레이션 프로젝트에 아직 실행 중이거나 있는 작업이 포함 되어 있을 때 표시 됩니다. <br><br><br><br><br><br> | 중지 하려는 Azure Database Migration Service 인스턴스에서 실행 중인 작업이 없는지 확인 합니다. 서비스를 중지 하기 전에 활동이 나 프로젝트를 삭제할 수도 있습니다. 다음 단계에서는 실행 중인 모든 태스크를 삭제 하 여 마이그레이션 서비스 인스턴스를 정리 하는 프로젝트를 제거 하는 방법을 보여 줍니다.<br>1. Install-Module-Name AzureRM. Microsoft.datamigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-SubscriptionName " \<subName> " <br> 4. Remove-AzureRmDataMigrationProject- \<projectName> ResourceGroupName- \<rgName> \<serviceName> DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Azure Database Migration Service를 시작 하는 동안 오류 발생
 

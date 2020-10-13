@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 09/24/2020
 ms.author: derekol
-ms.openlocfilehash: 4b034c2657cd1bddd696b40738d51c8a3e6c9798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6318fc4fc0dc9ded093bdf9d19b9079208556de
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355255"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939939"
 ---
 # <a name="peering-service-partners"></a>피어 링 서비스 파트너
 
@@ -38,7 +38,7 @@ Microsoft는 Isp (인터넷 서비스 공급자), IXPs (internet exchange 공급
 | [IIJ](https://www.iij.ad.jp/en/) | 일본 |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|유럽  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |오세아니아  |
-| [Liquid Telecom](https://liquidcloud.africa/365-direct) | 아프리카  |
+| [Liquid Telecom](https://liquidcloud.africa/) | 아프리카  |
 | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | 일본 |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |아시아 |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |아시아 |

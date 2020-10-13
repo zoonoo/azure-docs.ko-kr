@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996867"
 ---
-# <a name="managed-hsm-access-control"></a>관리 되는 HSM 액세스 제어
+# <a name="managed-hsm-access-control"></a>관리형 HSM 액세스 제어
 
 > [!NOTE]
 > Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm**이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어 **는 관리 되는 hsm**에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [Azure 역할 기반 액세스 제어를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공](../general/rbac-guide.md)을 참조 하세요.
 
-Azure Key Vault 관리 되는 HSM은 암호화 키를 보호 하는 클라우드 서비스입니다. 이 데이터는 중요 하 고 업무상 중요 하기 때문에 권한 있는 응용 프로그램 및 사용자만 액세스할 수 있도록 허용 하 여 관리 되는 Hsm에 대 한 액세스를 보호 해야 합니다. 이 문서에서는 관리 되는 HSM 액세스 제어 모델에 대 한 개요를 제공 합니다. 또한 인증 및 권한 부여에 대해 설명 하 고 관리 되는 Hsm에 대 한 액세스를 보호 하는 방법을 설명 합니다.
+Azure Key Vault 관리형 HSM은 암호화 키를 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하므로 권한이 부여된 애플리케이션과 사용자만 관리형 HSM에 액세스할 수 있도록 허용하여 이러한 관리형 HSM에 대한 액세스를 보호해야 합니다. 이 문서에는 관리형 HSM 액세스 제어 모델에 대한 개요를 제공합니다. 인증, 권한 부여 및 관리형 HSM에 대한 액세스를 보호하는 방법에 대해 설명합니다.
 
 ## <a name="access-control-model"></a>액세스 제어 모델
 
@@ -87,6 +87,6 @@ Azure 구독에서 관리 되는 HSM을 만들 때 구독의 Azure Active Direct
 
 ## <a name="next-steps"></a>다음 단계
 
-- 관리자를 위한 시작 자습서는 관리 되는 HSM 이란 [?](overview.md)을 참조 하세요.
+- 관리자를 위한 시작 자습서는 [관리형 HSM이란?](overview.md)을 참조하세요.
 - 역할 관리 자습서는 [관리 되는 HSM 로컬 RBAC](role-management.md) 를 참조 하세요.
-- 관리 되는 HSM 로깅 사용 현황 로깅에 대 한 자세한 내용은 [관리 되는 hsm 로깅](logging.md)을 참조 하세요.
+- 관리형 HSM 로깅의 사용량 로깅에 대한 자세한 내용은 [관리형 HSM 로깅](logging.md)을 참조하세요.

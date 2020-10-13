@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294871"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
@@ -68,7 +68,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 웹 브라우저 |양식 기반 인증 |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
-| OneDrive for Business |자격 증명 확인 |Single Sign-On |
+| 비즈니스용 OneDrive |자격 증명 확인 |Single Sign-On |
 | Office Pro Plus 구독 |자격 증명 확인 |Single Sign-On |
 
 **외부 또는 신뢰할 수 없는 원본**:
@@ -193,9 +193,9 @@ Multi-Factor 설계 옵션:
 | 사용자 위치 | 선호하는 설계 옵션 |
 | --- | --- |
 | Azure Active Directory |클라우드에서의 Multi-Factor Authentication |
-| Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |Both |
-| 암호 동기화 없이 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |Both |
-| 암호 동기화와 함께 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |Both |
+| Azure AD 및 AD FS로 페더레이션을 사용한 온-프레미스 AD |모두 |
+| 암호 동기화 없이 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |모두 |
+| 암호 동기화와 함께 Azure AD Connect를 사용하는 Azure AD 및 온-프레미스 AD |모두 |
 | 온-프레미스 AD |Multi-Factor Authentication 서버 |
 
 > [!NOTE]

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90882554"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Azure Database for MySQL의 고가용성
@@ -46,7 +46,7 @@ Azure Database for MySQL는 계획 된 가동 중지 시간 동안 고가용성�
 계획 되지 않은 가동 중지 시간은 기본 하드웨어 오류, 네트워킹 문제 및 소프트웨어 버그를 포함 하 여 예측할 수 없는 실패의 결과로 발생할 수 있습니다. 데이터베이스 서버가 예기치 않게 중단 되 면 새 데이터베이스 서버가 몇 초 안에 자동으로 프로 비전 됩니다. 원격 저장소는 새 데이터베이스 서버에 자동으로 연결 됩니다. MySQL 엔진은 WAL 및 데이터베이스 파일을 사용 하 여 복구 작업을 수행 하 고, 클라이언트의 연결을 허용 하도록 데이터베이스 서버를 엽니다. 커밋되지 않은 트랜잭션은 손실 되며 응용 프로그램에서 다시 시도해 야 합니다. 계획 되지 않은 가동 중지 시간은 피할 수 없지만, Azure Database for MySQL은 사용자의 개입 없이 데이터베이스 서버와 저장소 계층 모두에서 복구 작업을 자동으로 수행 하 여 가동 중지 시간을 완화 합니다. 
 
 
-:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Azure MySQL의 고가용성 보기":::
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="Azure MySQL에서 탄력적 크기 조정 보기":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>계획 되지 않은 가동 중지 시간: 오류 시나리오 및 서비스 복구
 다음은 몇 가지 오류 시나리오와 Azure Database for MySQL 자동으로 복구 하는 방법입니다.

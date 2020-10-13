@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449510"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Azure Stream Analytics 사용
@@ -24,7 +24,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
 
 이 문서에서는 Azure Stream Analytics 작업을 사용 하 여 처리량이 높은 데이터 수집에 대 한 출력 싱크로 데이터 웨어하우스를 사용 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 작업 Azure Stream Analytics-Azure Stream Analytics 작업을 만들려면 [Azure Stream Analytics 사용 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서의 단계에 따라 다음을 수행 합니다.  
 
