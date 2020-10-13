@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256894"
+ms.locfileid: "91873152"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 
@@ -58,7 +58,7 @@ ms.locfileid: "91256894"
     앱 등록은이 테 넌 트의 다른 사용자 계정, 개인/소비자 계정 또는 다른 테 넌 트를 사용 하 여 만들어졌을 수 있습니다. 앱 등록을 만든 테넌트에서 올바른 계정으로 로그인했는지 확인합니다.
 
 - **Multi-factor authentication과 관련 된 오류가 발생 합니다. 제가 뭘 해야 하나요?** 
-    [Multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) 을 사용 하도록 설정 하 고이 시나리오에 대해 로그인 하는 사용자에 대해 필수를 확인 하세요. 예를 들어 MFA는 다음과 같을 수 있습니다.
+    [Multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) 을 사용 하도록 설정 하 고이 시나리오에 대해 로그인 하는 사용자에 대해 **필수** 를 확인 하세요. 예를 들어 MFA는 다음과 같을 수 있습니다.
     - 로그인 하는 사용자에 대해 항상 필요
     - [Azure 관리에 필요](../conditional-access/howto-conditional-access-policy-azure-management.md)합니다.
     - 로그인 하는 데 사용 하는 [관리자 유형에 필요](../conditional-access/howto-conditional-access-policy-admin-mfa.md) 합니다.
@@ -226,7 +226,9 @@ MPN ID가 요청 본문에 제공되지 않았거나 요청 콘텐츠 형식이 
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-앱에 확인 된 게시자를 추가 하기 전에 multi-factor authentication을 수행 하지 않은 경우에 발생 합니다. 자세한 내용은 [일반적인 문제](#common-issues) 를 참조 하세요.
+앱에 확인 된 게시자를 추가 하기 전에 multi-factor authentication을 수행 하지 않은 경우에 발생 합니다. 자세한 내용은 [일반적인 문제](#common-issues) 를 참조 하세요. 참고: MFA는 확인 된 게시자를 추가 하려고 할 때 동일한 세션에서 수행 해야 합니다. MFA를 사용 하도록 설정 했지만 세션에서 수행할 필요가 없는 경우 요청이 실패 합니다.   
+
+표시 되는 오류 메시지는 다음과 같습니다. "관리자의 구성 변경으로 인해 또는 새 위치로 이동 했으므로 계속 하려면 multi-factor authentication을 사용 해야 합니다."
 
 ## <a name="next-steps"></a>다음 단계
 

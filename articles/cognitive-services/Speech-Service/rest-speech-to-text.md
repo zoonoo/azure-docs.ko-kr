@@ -12,10 +12,10 @@ ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532520"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
@@ -78,7 +78,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 오디오는 HTTP `POST` 요청 본문에서 전송됩니다. 오디오는 이 테이블의 형식 중 하나여야 합니다.
 
-| 서식 | Codec | 비트 전송률 | 샘플링 주기  |
+| 형식 | Codec | 비트 전송률 | 샘플링 주기  |
 |--------|-------|----------|--------------|
 | WAV    | PCM   | 256 kbps | 16kHz, mono |
 | OGG    | OPUS  | 256 kpbs | 16kHz, mono |

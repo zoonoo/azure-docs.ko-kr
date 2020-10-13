@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: af3513c4a4f3b3187e85c65de51ad2e6e2d7279c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983172"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure Portal을 사용하여 로컬 네트워크 게이트웨이 설정 수정
@@ -35,7 +35,7 @@ ms.locfileid: "90983172"
 
 FQDN 끝점이 있는 동일한 구성 페이지입니다.
 
-:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="로컬 네트워크 게이트웨이 구성-FQDN":::
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="로컬 네트워크 게이트웨이-IP 주소 구성":::
 
 ## <a name="modify-the-gateway-ip-address"></a><a name="ip"></a>게이트웨이 IP 주소 수정
 

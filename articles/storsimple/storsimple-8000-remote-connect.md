@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514572"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 원격으로 연결
@@ -229,7 +229,7 @@ Windows PowerShell 및 TLS를 사용 하 여 원격 호스트 또는 클라이�
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     cmdlet의 ComputerName 매개 변수의 경우 &lt;*대상 디바이스의 일련 번호*&gt;를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT** )에 매핑되었습니다.
-5. 유형:
+5. 형식:
    
      `Enter-PSSession $session`
 6. 몇 분 정도 기다린 후 TLS를 통해 HTTPS를 통해 장치에 연결 됩니다. 디바이스에 연결되었음을 나타내는 메시지가 표시됩니다.

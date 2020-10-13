@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604192"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
@@ -64,13 +64,13 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-| REST (영문) | [**서비스 REST API**](https://docs.microsoft.com/rest/api/searchservice/) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하 여 데이터 평면 작업에 대 한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**관리 REST API**](https://docs.microsoft.com/rest/api/searchmanagement/) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 데 사용할 수 있습니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
+| REST | [**서비스 REST API**](https://docs.microsoft.com/rest/api/searchservice/) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하 여 데이터 평면 작업에 대 한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**관리 REST API**](https://docs.microsoft.com/rest/api/searchmanagement/) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 데 사용할 수 있습니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
 | Azure SDK for .NET | [**Azure.Search.Documents**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) 는 인덱싱, 쿼리 및 AI 보강와 관련 된 모든 작업을 포함 하 여 데이터 평면 작업을 위한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**Microsoft. Azure. 검색**](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 데 사용할 수 있습니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
 | Java용 Azure SDK | [**com.azure.search.documents**](https://docs.microsoft.com/java/api/com.azure.search.documents) 는 인덱싱, 쿼리 및 AI 보강와 관련 된 모든 작업을 포함 하 여 데이터 평면 작업을 위한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>Azure Resource Manager를 통해 서비스를 만들고 정리 하는 데 [**사용할 수 있습니다**](https://docs.microsoft.com/java/api/overview/azure/search/management) . 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
 | Python용 Azure SDK | [**azure-검색-문서**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하는 데이터 평면 작업을 위한 문서입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**azure-mgmt 검색**](https://docs.microsoft.com/python/api/overview/azure/search/management) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 것입니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다. |
 | JavaScript/TypeScript 용 Azure SDK | [**azure/search-문서**](https://docs.microsoft.com/javascript/api/@azure/search-documents/) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하는 데이터 평면 작업에 대 한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**azure/arm-검색**](https://docs.microsoft.com/javascript/api/@azure/arm-search/) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 것입니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다. |
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
 + [Cognitive Search의 새로운 기능](whats-new.md)
 

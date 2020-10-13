@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
 ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602288"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
@@ -170,7 +170,7 @@ IP 구성 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본�
 
  URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-**이름** | **Azure 공용 클라우드** | **세부 정보** 
+**이름** | **Azure 퍼블릭 클라우드** | **세부 정보** 
 --- | --- | --- 
 스토리지 | `*.blob.core.windows.net`  | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. 
 Azure Active Directory | `login.microsoftonline.com`  | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. 

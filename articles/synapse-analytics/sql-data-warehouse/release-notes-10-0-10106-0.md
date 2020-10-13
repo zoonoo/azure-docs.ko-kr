@@ -13,10 +13,10 @@ manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89457994"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
@@ -45,7 +45,7 @@ ms.locfileid: "89457994"
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
 |**워크 로드 관리 – 포털 환경**|사용자는 Azure Portal를 통해 워크로드 관리 설정을 구성하고 관리할 수 있습니다. 중요하게도 [워크로드 그룹](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) 및 [워크로드 분류자](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal)를 구성하는 기능도 사용할 수 있습니다.|
-|**향상 된 테이블 매핑 카탈로그 뷰**|새 카탈로그 뷰 [sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) 는 영구 사용자 테이블의 **object_ids** 를 실제 테이블 이름에 매핑합니다.|
+|**향상 된 테이블 매핑 카탈로그 뷰**|새 카탈로그 뷰 [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) 영구 사용자 테이블의 **object_ids** 를 실제 테이블 이름에 매핑합니다.|
 
 ## <a name="july-2020"></a>2020년 7월
 

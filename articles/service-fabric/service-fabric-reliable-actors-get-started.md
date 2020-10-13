@@ -7,10 +7,10 @@ ms.date: 07/10/2019
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f775608c6c349c93a43ef4aef26ad50707cd39b7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743763"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
@@ -20,7 +20,7 @@ ms.locfileid: "91743763"
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 

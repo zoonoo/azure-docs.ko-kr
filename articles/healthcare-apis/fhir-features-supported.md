@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
 ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90007573"
 ---
 # <a name="features"></a>기능
@@ -27,7 +27,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 ## <a name="rest-api"></a>REST API
 
-| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견                                             |
+| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | 읽기                           | 예       | 예       | 예       |                                                     |
 | vread                          | 예       | 예       | 예       |                                                     |
@@ -53,9 +53,9 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 모든 검색 매개 변수 유형이 지원 됩니다. 
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-----------------------|-----------|-----------|-----------|---------|
-| Number                | 예       | 예       | 예       |         |
+| 숫자                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
 | String                | 예       | 예       | 예       |         |
 | 토큰                 | 예       | 예       | 예       |         |
@@ -95,7 +95,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_type`                 | 예       | 예       | 예       |         |
 | `_query`                | 아니요        | 아니요        | 아니요        |         |
 
-| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
@@ -111,7 +111,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 RESTful API를 확장 하는 지원 되는 모든 작업입니다.
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-----------------------|-----------|-----------|-----------|---------|
 | $export (전체 시스템)                | 예       | 예       | 예       |         |
 | 환자/$export         | 예       | 예       | 예       |         |
@@ -127,7 +127,7 @@ Cosmos DB는 전역적으로 분산 된 다중 모델 (SQL API, MongoDB API 등)
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 를 사용 합니다. 특히 `FhirServer:Security:Enabled` 구성 매개 변수를로 설정 하 `true` 고 `/metadata` Fhir 서버에 대 한 모든 요청 (제외)에서 `Authorization` 요청 헤더를로 설정 해야 `Bearer <TOKEN>` 하는 경우 RBAC (역할 기반 Access Control)가 적용 됩니다. 토큰은 클레임에 정의 된 하나 이상의 역할을 포함 해야 합니다 `roles` . 지정 된 리소스에 대해 지정 된 작업을 허용 하는 역할이 토큰에 포함 되어 있으면 요청이 허용 됩니다.
+FHIR 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 를 사용 합니다. 특히 `FhirServer:Security:Enabled` 구성 매개 변수를로 설정 하 `true` 고 `/metadata` Fhir 서버에 대 한 모든 요청 (제외)에서 `Authorization` 요청 헤더를로 설정 해야 `Bearer <TOKEN>` 하는 경우 RBAC (Role-Based Access Control)가 적용 됩니다. 토큰은 클레임에 정의 된 하나 이상의 역할을 포함 해야 합니다 `roles` . 지정 된 리소스에 대해 지정 된 작업을 허용 하는 역할이 토큰에 포함 되어 있으면 요청이 허용 됩니다.
 
 현재 지정 된 역할에 대해 허용 되는 작업은 API에 *전역적* 으로 적용 됩니다.
 

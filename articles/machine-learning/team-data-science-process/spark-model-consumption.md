@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027446"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
@@ -607,6 +607,6 @@ conn.close()
 
 ![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>다음 단계
+## <a name="whats-next"></a>다음 작업
 **교차 유효성 검사 및 하이퍼 매개 변수**비우기: 교차 유효성 검사 및 하이퍼 매개 변수 스윕을 사용 하 여 모델을 학습 하는 방법에 대 한 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조 하세요.
 

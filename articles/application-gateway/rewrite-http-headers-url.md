@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281194"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 및 URL 다시 작성
@@ -113,21 +113,21 @@ Application gateway는 다음 서버 변수를 지원 합니다.
 | client_port               | 클라이언트 포트입니다.                                             |
 | client_tcp_rtt            | 클라이언트 TCP 연결에 대 한 정보입니다. TCP_INFO 소켓 옵션을 지 원하는 시스템에서 사용할 수 있습니다. |
 | client_user               | HTTP 인증을 사용 하는 경우 인증을 위해 제공 되는 사용자 이름입니다. |
-| 호스트                      | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` 호스트 값은입니다.`contoso.com` |
+| 호스트                      | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` 호스트 값은입니다. `contoso.com` |
 | cookie_*이름*             | *이름* 쿠키입니다.                                           |
 | http_method               | URL 요청을 만드는 데 사용 되는 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status               | 세션 상태입니다. 예: 200, 400 또는 403.           |
 | http_version              | 요청 프로토콜입니다. 일반적으로 HTTP/1.0, HTTP/1.1 또는 HTTP/2.0입니다. |
-| query_string              | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` query_string 값은입니다.`id=123&title=fabrikam` |
+| query_string              | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` query_string 값은입니다. `id=123&title=fabrikam` |
 | received_bytes            | 요청 (요청 줄, 헤더 및 요청 본문 포함)의 길이입니다. |
 | request_query             | 요청 줄의 인수입니다.                           |
 | request_scheme            | 요청 체계: http 또는 https.                           |
-| request_uri               | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` request_uri 값은입니다.`/article.aspx?id=123&title=fabrikam` |
+| request_uri               | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` request_uri 값은입니다. `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | 클라이언트에 전송 된 바이트 수입니다.                        |
 | server_port               | 요청을 수락한 서버 포트입니다.              |
 | ssl_connection_protocol   | 설정 된 TLS 연결의 프로토콜입니다.               |
 | ssl_enabled               | TLS 모드에서 연결이 작동 하는 경우 "On"입니다. 그렇지 않으면 빈 문자열입니다. |
-| uri_path                  | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path 값은입니다.`/article.aspx` |
+| uri_path                  | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path 값은입니다. `/article.aspx` |
 
  
 
@@ -211,17 +211,17 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 * 세 번째 규칙에는 *category = 액세서리* 의 *query_string* 변수를 확인 하 고, URL 경로를/*listing3* 로 다시 작성 하 고 **경로 맵을 다시 평가** 하는 작업이 포함 되어 있습니다.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL 재작성 시나리오 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL 재작성 시나리오 1-1.":::
 
  
 
 **2 단계 (b):** 위의 경로 기반 규칙의 기본 경로에이 재작성 집합을 연결 합니다.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL 재작성 시나리오 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL 재작성 시나리오 1-1.":::
 
 이제 사용자가 *contoso.com/listing?category=any*를 요청 하면 경로 맵 (/listing1,/listing1,/listing1)의 경로 패턴이 모두 일치 하지 않으므로 기본 경로와 일치 하 게 됩니다. 위의 재작성 집합을이 경로와 연결 했으므로이 재작성 집합이 평가 됩니다. 쿼리 문자열은이 재작성 집합에서 3 다시 쓰기 규칙의 조건과 일치 하지 않으므로 다시 쓰기 작업이 수행 되지 않으므로 요청은 기본 경로 ( *Genericlist*)와 연결 된 백 엔드로 변경 되지 않습니다.
 
- 사용자가 *contoso.com/listing?category=shoes를* 요청 하면 기본 경로가 일치 하 게 됩니다. 그러나이 경우에는 첫 번째 규칙의 조건이 일치 하므로 해당 조건과 연결 된 작업이 실행 되며,이는 URL 경로를/*listing1* 로 다시 작성 하 고 경로 맵을 다시 평가 하는 데 사용 됩니다. 경로 맵이 재평가 되 면 이제 요청은 패턴 */listing1* 과 연결 된 경로와 일치 하 고 요청은이 패턴과 연결 된 백 엔드 (ShoesListBackendPool)로 라우팅됩니다.
+ 사용자가 *contoso.com/listing?category=shoes를* 요청 하면 기본 경로가 일치 하 게 됩니다. 그러나이 경우에는 첫 번째 규칙의 조건이 일치 하므로 해당 조건과 연결 된 작업이 실행 되며,이는 URL 경로를/*listing1*  로 다시 작성 하 고 경로 맵을 다시 평가 하는 데 사용 됩니다. 경로 맵이 재평가 되 면 이제 요청은 패턴 */listing1* 과 연결 된 경로와 일치 하 고 요청은이 패턴과 연결 된 백 엔드 (ShoesListBackendPool)로 라우팅됩니다.
 
 >[!NOTE]
 >이 시나리오는 정의 된 조건에 따라 모든 헤더 또는 쿠키 값, URL 경로, 쿼리 문자열 또는 서버 변수로 확장 될 수 있으며, 기본적으로 이러한 조건에 따라 요청을 라우팅할 수 있습니다.
@@ -232,13 +232,13 @@ HTTP 응답에서 중요 한 정보를 표시 하는 헤더를 제거 하는 것
 
 이 경우 URL에서 매개 변수를 캡처하여 URL의 매개 변수에서 쿼리 문자열 키-값 쌍을 추가할 수 Application Gateway. 예를 들어, 사용자가 `https://www.contoso.com/fashion/shirts` `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` 다음 URL 재작성 구성을 통해 달성할 수 있도록 다시 작성 하려는 경우를 가정해 보겠습니다.
 
-**조건** -서버 변수가 `uri_path` 패턴과 같은 경우`/(.+)/(.+)`
+**조건** -서버 변수가 `uri_path` 패턴과 같은 경우 `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL 재작성 시나리오 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL 재작성 시나리오 1-1.":::
 
-**작업** -URL 경로를로 설정 하 `buy.aspx` 고 문자열을 쿼리 합니다.`category={var_uri_path_1}&product={var_uri_path_2}`
+**작업** -URL 경로를로 설정 하 `buy.aspx` 고 문자열을 쿼리 합니다. `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL 재작성 시나리오 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL 재작성 시나리오 1-1.":::
 
 위에서 설명한 시나리오를 수행 하는 단계별 가이드는를 [사용 하 여 URL 다시 쓰기 Application Gateway](rewrite-url-portal.md) 를 참조 하세요 Azure Portal
 
@@ -248,11 +248,11 @@ URL 재작성의 경우 요청이 백 엔드로 전송 되기 전에 URL을 다�
 
 URL 리디렉션 시 Application Gateway는 새 URL을 사용 하 여 클라이언트에 리디렉션 응답을 보냅니다. 그러면 클라이언트가 해당 요청을 리디렉션에 제공 된 새 URL로 다시 전송 해야 합니다. 브라우저에서 사용자에 게 표시 되는 URL이 새 URL로 업데이트 됩니다.
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Vs 리디렉션을 다시 작성 합니다.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="URL 재작성 시나리오 1-1.":::
 
 ## <a name="limitations"></a>제한 사항
 
-- 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 이는 일반적으로 응답에 두 개 이상의 쿠키 헤더를 사용할 수 있으므로 설정-쿠키 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 설정-쿠키 헤더 (예:) `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` 와 application gateway 선호도 (예:)가 포함 `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` 됩니다. 이 시나리오에서 Set 쿠키 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set 쿠키 헤더가 제거 될 수 있습니다.
+- 응답에 이름이 같은 헤더가 두 개 이상 있는 경우 해당 헤더 중 하나의 값을 다시 작성 하면 응답의 다른 헤더가 삭제 됩니다. 응답에 Set-Cookie 헤더를 두 개 이상 포함할 수 있으므로이는 일반적으로 Set-Cookie 헤더에서 발생할 수 있습니다. 이러한 시나리오 중 하나는 응용 프로그램 게이트웨이와 함께 app service를 사용 하 고 응용 프로그램 게이트웨이에서 쿠키 기반 세션 선호도를 구성 하는 경우입니다. 이 경우 응답에는 app service에서 사용 하는 두 개의 Set-Cookie 헤더 (예:) `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` 와 응용 프로그램 게이트웨이 선호도 (예:)가 포함 됩니다 `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . 이 시나리오에서 Set-Cookie 헤더 중 하나를 다시 작성 하면 응답에서 다른 Set-Cookie 헤더가 제거 될 수 있습니다.
 - 응용 프로그램 게이트웨이가 요청을 리디렉션하거나 사용자 지정 오류 페이지를 표시 하도록 구성 된 경우에는 다시 작성이 지원 되지 않습니다.
 - 헤더 이름에는 [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27)에 정의 된 대로 영숫자 문자와 특정 기호가 포함 될 수 있습니다. 현재 헤더 이름에 밑줄 (_) 특수 문자를 지원 하지 않습니다.
 - 연결 및 업그레이드 헤더를 다시 작성할 수 없습니다.

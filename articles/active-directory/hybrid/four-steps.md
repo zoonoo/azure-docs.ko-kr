@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600800"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
@@ -131,7 +131,7 @@ PHS 또는 PTA를 선택 하는지 여부에 상관 없이, [원활한 Single si
 
 이 섹션에서는 유의 남은 시간 동안 사용자에 게 역량을 부여 하 여 조직에서의 마찰을 제거 하기 위한 권장 사항을 나열 합니다.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>모든 사용자에 대해 셀프 서비스 암호 재설정 사용
+### <a name="enable-self-service-password-reset-for-all-users"></a>모든 사용자에 대해 암호 재설정 Self-Service 사용
 
 Azure의 SSPR ( [셀프 서비스 암호 재설정](../authentication/tutorial-enable-sspr.md) )는 IT 관리자가 관리자 개입 없이 암호나 계정을 재설정 하 고 잠금을 해제할 수 있는 간단한 방법을 제공 합니다. 이 시스템에는 오용 또는 남용에 대해 경고하는 알림과 함께 사용자가 언제 시스템에 액세스하는지 추적하는 구체적인 보고서가 포함되어 있습니다.
 
@@ -147,7 +147,7 @@ MFA [로그인 보고서](../authentication/howto-mfa-reporting.md) 에는 mfa �
 
 ### <a name="self-service-app-management"></a>셀프 서비스 앱 관리
 
-사용자가 액세스 패널에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대 한 [셀프 서비스 응용 프로그램 액세스](../manage-apps/access-panel-manage-self-service-access.md) 를 사용 하도록 설정 해야 합니다. 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색할 수 있도록 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 비즈니스 그룹이 액세스 패널에서 바로 [암호 Single Sign-on 응용 프로그램](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) 에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
+사용자가 액세스 패널에서 응용 프로그램을 자체 검색할 수 있으려면 먼저 사용자가 직접 검색 하 고 액세스를 요청할 수 있도록 하려는 모든 응용 프로그램에 대 한 [셀프 서비스 응용 프로그램 액세스](../manage-apps/access-panel-manage-self-service-access.md) 를 사용 하도록 설정 해야 합니다. 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색할 수 있도록 하 고 필요에 따라 비즈니스 그룹이 해당 응용 프로그램에 대 한 액세스를 승인할 수 있도록 하는 좋은 방법입니다. 비즈니스 그룹이 액세스 패널에서 바로 [응용 프로그램의 암호 Single-Sign](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) 에 대해 해당 사용자에 게 할당 된 자격 증명을 관리 하도록 허용할 수 있습니다.
 
 ### <a name="self-service-group-management"></a>셀프 서비스 그룹 관리
 

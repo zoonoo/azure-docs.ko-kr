@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185911"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>변경 내용 추적 및 인벤토리 배포 범위 제한
@@ -30,7 +30,7 @@ ms.locfileid: "86185911"
 
 3. **작업 영역 데이터 원본**에서 **범위 구성 (미리 보기)을** 선택 합니다.
 
-4. 범위 구성 오른쪽에 있는 줄임표 (...)를 선택 하 `MicrosoftDefaultScopeConfig-ChangeTracking` 고 **편집**을 클릭 합니다. 
+4. 범위 구성 오른쪽에 있는 줄임표 (...)를 선택 하  `MicrosoftDefaultScopeConfig-ChangeTracking` 고 **편집**을 클릭 합니다. 
 
 5. 편집 창에서 **컴퓨터 그룹 선택**을 선택합니다. 컴퓨터 그룹 창은 범위 구성을 만드는 데 사용되는 저장된 검색을 표시합니다. 변경 내용 추적 및 인벤토리에 사용 되는 저장 된 검색은 다음과 같습니다.
 

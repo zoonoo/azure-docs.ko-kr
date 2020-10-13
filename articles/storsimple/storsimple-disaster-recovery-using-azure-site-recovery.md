@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
 ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514916"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
@@ -104,7 +104,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    1. 볼륨 컨테이너를 만든 다음 볼륨을 만듭니다. (이러한 볼륨은 파일 서버 VM의 파일 공유용입니다.) 초기자 이름을 복사하고 볼륨을 만들 때 Access Control 레코드에 적절한 이름을 지정합니다.
    1. **구성** 탭을 선택하고 디바이스의 IP 주소를 적어둡니다.
    1. 온-프레미스 VM에서 다시 **iSCSI 초기자** 로 이동하여 빠른 연결 섹션에 IP를 입력합니다. **빠른 연결**을 클릭합니다(이제 디바이스가 연결됨).
-   1. Azure Portal를 열고 **볼륨 및 장치** 탭을 선택 하 고 **자동 구성**을 클릭 합니다. 만든 볼륨이 표시됩니다.
+   1. Azure Portal를 열고 **볼륨 및 장치** 탭을 선택 합니다. **자동 구성**을 클릭 합니다. 만든 볼륨이 표시됩니다.
    1. 포털에서 **디바이스** 탭을 선택한 다음 **Create a New Virtual Device(새 가상 디바이스 만들기)** 를 선택합니다. 장애 조치(Failover)가 발생할 때 이 가상 디바이스가 사용됩니다. (이 가상 디바이스는 장애 조치(failover)가 발생하는 경우 사용됩니다.) 이 새 가상 디바이스는 추가 비용을 방지하기 위해 오프라인 상태로 유지될 수 있습니다. 가상 디바이스를 오프라인 상태로 전환하려면 포털에서 **Virtual Machines** 섹션으로 이동하여 해당 가상 디바이스를 종료합니다.
    1. 온-프레미스 VM으로 돌아가 디스크 관리를 엽니다(Windows 키+X를 누르고 **디스크 관리**를 선택).
    1. 만든 볼륨 수에 따라 몇 가지 추가 디스크가 표시될 수 있습니다. 첫 번째 디스크를 마우스 오른쪽 단추로 클릭하고 **디스크 초기화**를 선택한 다음 **확인**을 선택합니다. **할당되지 않음** 섹션에서 마우스 오른쪽 단추를 클릭하고 **새 단순 볼륨**을 선택한 다음 드라이브 문자를 할당하고 마법사를 마칩니다.
@@ -170,7 +170,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    
 1. 자동화 계정에서 **변수** &gt; **변수 추가**를 클릭하고 다음 변수를 추가합니다. 이러한 자산을 암호화하도록 선택할 수 있습니다. 이러한 변수는 복구 계획과 관련됩니다. 복구 계획(다음 단계에서 만듦) 이름이 TestPlan이면 변수는 TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName 등과 같아야 합니다.
 
-   - **BaseUrl**: Azure Cloud에 대한 Resource Manager URL. Get-AzEnvironment를 사용 하 여 가져오기 **| -Object Name, ResourceManagerUrl cmdlet을 선택** 합니다.
+   - **BaseUrl**: Azure Cloud에 대한 Resource Manager URL. **AzEnvironment | Select-Object Name, ResourceManagerUrl cmdlet을** 사용 하 여 가져옵니다.
    - _Recovery설계도 name_**-ResourceGroupName**: StorSimple 리소스가 있는 리소스 관리자 그룹입니다.
    - _Recovery설계도 name_**-ManagerName**: storsimple 장치를 포함 하는 storsimple 리소스입니다.
    - _Recovery설계도 name_**-** 장치 이름: 장애 조치 (failover) 해야 하는 StorSimple 장치입니다.

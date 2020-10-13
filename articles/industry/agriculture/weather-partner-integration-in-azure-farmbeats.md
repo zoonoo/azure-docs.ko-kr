@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86496998"
 ---
 # <a name="weather-partner-integration"></a>날씨 파트너 통합
@@ -18,7 +18,7 @@ ms.locfileid: "86496998"
 
  > [!NOTE]
  > 이 설명서에서는 Azure Open 데이터 집합에서 NOAA를 사용 하 여 빌드된 참조 구현을 사용 하 고에서 사용할 수 있습니다 [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > 해당 docker 이미지는에서 사용할 수 있습니다.[https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > 해당 docker 이미지는에서 사용할 수 있습니다. [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
 날씨 파트너는 docker 이미지/프로그램 (아래 설명 참조)을 제공 하 고 고객이 액세스할 수 있는 컨테이너 레지스트리에서 docker 이미지를 호스트 해야 합니다. 날씨 파트너는 고객에 게 다음 정보를 제공 해야 합니다.
 
@@ -36,10 +36,10 @@ ms.locfileid: "86496998"
 
 FarmBeats Api에는 Swagger 기술 설명서가 포함 되어 있습니다. 모든 Api 및 해당 요청 또는 응답에 대 한 자세한 내용은 [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)를 참조 하세요. 
 
-FarmBeats를 설치한 경우 FarmBeats swagger at에 액세스할 수 있습니다.`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+FarmBeats를 설치한 경우 FarmBeats swagger at에 액세스할 수 있습니다. `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 FarmBeats 웹 사이트 이름에 "-api"가 추가 됩니다.
-API 끝점은 다음과 같습니다.`https://yourfarmbeatswebsitename-api.azurewebsites.net`
+API 끝점은 다음과 같습니다. `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub lib
 
@@ -160,7 +160,7 @@ Docker 프로그램에는 **부트스트랩** 및 **작업**의 두 구성 요�
   weatherDataModelId  | 부트스트랩 중에 생성 된 해당 WeatherDataModel의 ID|
   위치  | 위도, 경도 및 상승을 나타냅니다. |
   Name | 개체의 이름입니다. |
-  설명 | 설명 |
+  Description | Description |
   farmId | **선택 사항** 작업 매개 변수의 일부로 고객이 제공한 팜 ID |
   속성  | 제조업체로부터의 추가 속성입니다.
 

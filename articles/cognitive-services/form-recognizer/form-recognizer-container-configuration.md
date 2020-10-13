@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
 ms.openlocfilehash: 324b70fc810acc4faba4f488f821049f7eb0875e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86538006"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form Recognizer 컨테이너 구성
@@ -47,7 +47,7 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 이 설정은 Azure Portal의 **폼 인식기 개요**, **끝점**아래에서 찾을 수 있습니다.
 
-|필요한 공간| 이름 | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](form-recognizer-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -76,10 +76,10 @@ Azure 양식 인식기 컨테이너를 사용 하 여 강력한 클라우드 기
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정 권한 및 호스트 탑재 위치 권한 간의 충돌로 인해 [호스트 컴퓨터](form-recognizer-container-howto.md#the-host-computer) 의 탑재 위치에 액세스할 수 없는 경우도 있습니다.
 
-|Optional| 이름 | 데이터 형식 | Description |
+|선택 사항| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
-|필요한 공간| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
-|필요한 공간| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|필수| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다.    <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
+|필수| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다.  <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
 

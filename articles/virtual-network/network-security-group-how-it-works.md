@@ -14,10 +14,10 @@ ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89458198"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>네트워크 보안 그룹에서 네트워크 트래픽을 필터링 하는 방법
@@ -52,7 +52,7 @@ Azure 네트워크 보안 그룹을 사용 하 여 azure 가상 네트워크에�
 - **VM4**: 네트워크 보안 그룹이 가상 머신에 연결된 네트워크 인터페이스 또는 *Subnet3*에 연결되지 않았기 때문에 *VM4*에서 오는 모든 트래픽이 허용됩니다.
 
 
-## <a name="intra-subnet-traffic"></a>서브넷 내부 트래픽
+## <a name="intra-subnet-traffic"></a>Intra-Subnet 트래픽
 
 서브넷과 연결 된 NSG의 보안 규칙은 VM 내에서 VM 간의 연결에 영향을 줄 수 있습니다. 예를 들어 모든 인바운드 및 아웃 바운드 트래픽을 거부 하는 규칙이 *NSG1* 에 추가 되는 경우 *VM1* 및 *v m 2* 는 더 이상 서로 통신할 수 없습니다. 다른 규칙은이를 허용 하기 위해 특별히 추가 해야 합니다. 
 

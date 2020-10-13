@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262827"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
@@ -76,8 +76,8 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |벨기에|네덜란드어|nl-BE|
 |벨기에|프랑스어|fr-BE|
 |브라질|포르투갈어|pt-BR|
-|Canada|영어|en-CA|
-|Canada|프랑스어|fr-CA|
+|캐나다|영어|en-CA|
+|캐나다|프랑스어|fr-CA|
 |칠레|스페인어|es-CL|
 |덴마크|덴마크어|da-DK|
 |핀란드|핀란드어|fi-FI|

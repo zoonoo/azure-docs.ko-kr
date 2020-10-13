@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: d62328534157a1e2d9e53830be9d6b87e08c9e40
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87129273"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 응용 프로그램의 게시자 도메인 구성
@@ -97,7 +97,7 @@ ms.locfileid: "87129273"
 - 테 넌 트가 확인 된 도메인을 확인 하는 경우 **확인 된 도메인 선택** 드롭다운에서 도메인 중 하나를 선택 합니다.
 
 >[!Note]
-> 반환 되어야 하는 ' Content-type ' 헤더가 필요 `application/json` 합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다.`application/json; charset=utf-8` 
+> 반환 되어야 하는 ' Content-type ' 헤더가 필요 `application/json` 합니다. 이와 같은 다른 항목을 사용 하는 경우 아래에 설명 된 대로 오류가 발생할 수 있습니다. `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

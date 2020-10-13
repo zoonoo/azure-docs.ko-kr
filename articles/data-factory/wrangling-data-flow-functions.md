@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: e63c3f329cb9c1fd5ca91274540f5145c3ad098a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921557"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭 글 링 데이터 흐름의 변환 함수
@@ -69,14 +69,14 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 * 중첩 된 조인 (NestedJoin; 사용자는 수동으로 [table. AddJoinColumn](https://docs.microsoft.com/powerquery-m/table-addjoincolumn))을 생성할 수도 있습니다. 파워 쿼리
     그러면 사용자가 중첩 된 조인 열을 중첩 되지 않은 조인 (Table.expandtablecolumn table.expandtablecolumn, 다른 컨텍스트에서 지원 되지 않음)으로 확장 해야 합니다.
 * M 함수 테이블을 직접 작성 하 여 추가 확장 단계가 필요 하지 않도록 할 수 있지만, 사용자가 조인 된 테이블 간에 중복 된 열 이름이 없는지 확인 해야 합니다 [.](https://docs.microsoft.com/powerquery-m/table-join)
-* 지원 되는 조인 종류: [Inner](https://docs.microsoft.com/powerquery-m/joinkind-inner), [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter), [rightouter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter), [fullouter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
-* 두 [값 모두 Equals](https://docs.microsoft.com/powerquery-m/value-equals) 및 [value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) 는 키 같음 비교자로 지원 됩니다.
+* 지원 되는 조인 종류:   [Inner](https://docs.microsoft.com/powerquery-m/joinkind-inner),   [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter),   [rightouter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter),   [fullouter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
+* 두   [값 모두 Equals](https://docs.microsoft.com/powerquery-m/value-equals) 및   [value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) 는 키 같음 비교자로 지원 됩니다.
 
 ## <a name="group-by"></a>Group By
 
 [표. Group](https://docs.microsoft.com/powerquery-m/table-group) 을 사용 하 여 값을 집계 합니다.
 * 집계 함수와 함께 사용 해야 합니다.
-* 지원 되는 집계 함수: [테이블. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [list. Sum](https://docs.microsoft.com/powerquery-m/list-sum), [list. Count](https://docs.microsoft.com/powerquery-m/list-count), [list. Average](https://docs.microsoft.com/powerquery-m/list-average), [list. Min](https://docs.microsoft.com/powerquery-m/list-min), [List. Max](https://docs.microsoft.com/powerquery-m/list-max), [list. standarddeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [list. First](https://docs.microsoft.com/powerquery-m/list-first), [list. Last](https://docs.microsoft.com/powerquery-m/list-last)
+* 지원 되는 집계 함수:   [테이블. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount),   [list. Sum](https://docs.microsoft.com/powerquery-m/list-sum),   [list. Count](https://docs.microsoft.com/powerquery-m/list-count),   [list. Average](https://docs.microsoft.com/powerquery-m/list-average),   [list. Min](https://docs.microsoft.com/powerquery-m/list-min),   [List. Max](https://docs.microsoft.com/powerquery-m/list-max),   [list. standarddeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation),   [list. First](https://docs.microsoft.com/powerquery-m/list-first),   [list. Last](https://docs.microsoft.com/powerquery-m/list-last)
 
 ## <a name="sorting"></a>정렬
 

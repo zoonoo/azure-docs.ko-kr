@@ -14,10 +14,10 @@ ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: de6051e8880bbe3df42031a0d0d7b60abc27d2b0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88689802"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
@@ -48,7 +48,7 @@ Intel Xeon Platinum, Gold 및 은색 Cpu는 또한 CPU 소켓 내부 및 외부�
 | 메모리                           | 8gb/코어 (총 352)            |
 | 로컬 디스크                       | 700 G B SSD                       |
 | Infiniband                       | 100 g b EDR Mellanox Connectx-3-5   |
-| Network (네트워크)                          | 50 g b 이더넷 (40 Gb 사용 가능) Azure second Gen SmartNIC    |
+| 네트워크                          | 50 g b 이더넷 (40 Gb 사용 가능) Azure second Gen SmartNIC    |
 
 ## <a name="software-specifications"></a>소프트웨어 사양
 

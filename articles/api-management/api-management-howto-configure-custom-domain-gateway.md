@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
 ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506811"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
 [자체 호스팅 Azure API Management gateway](self-hosted-gateway-overview.md) 를 프로 비전 할 때 호스트 이름이 할당 되지 않으며 해당 IP 주소에서 참조 해야 합니다. 이 문서에서는 자체 호스팅 게이트웨이의 기존 사용자 지정 DNS 이름 (호스트 이름이 라고도 함)을 매핑하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 

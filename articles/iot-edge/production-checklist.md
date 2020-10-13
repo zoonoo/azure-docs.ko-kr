@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89669599"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
@@ -219,7 +219,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 다음 검사 목록은 방화벽 규칙의 시작점입니다.
 
-   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용량 |
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
@@ -285,7 +285,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 다음은 그 예입니다. 
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```yml
 "createOptions": {

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
 ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263779"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요 (미리 보기)
@@ -76,7 +76,7 @@ Azure Monitor 에이전트에 대 한 비용은 없지만 데이터 수집에 �
 
 Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로그를 지 원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
 
-| 데이터 원본 | Destinations | Description |
+| 데이터 원본 | Destinations | 설명 |
 |:---|:---|:---|
 | 성능        | Azure Monitor 메트릭<br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값입니다. |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
@@ -99,8 +99,8 @@ Azure Monitor 에이전트는 다음 표의 세부 정보를 사용 하 여 [AZU
 
 | 속성 | Windows | Linux |
 |:---|:---|:---|
-| Publisher | Microsoft. Azure 모니터  | Microsoft. Azure 모니터 |
-| 형식      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
+| 게시자 | Microsoft. Azure 모니터  | Microsoft. Azure 모니터 |
+| 유형      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 PowerShell 또는 CLI를 사용 하 여 다음을 포함 하 여 가상 머신 에이전트를 설치 하는 방법 중 하나를 사용 하 여 Azure Monitor 에이전트를 설치 합니다. 또는 [Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal)에 설명 된 절차에 따라 포털을 사용 하 여 Azure 구독의 가상 컴퓨터에서 에이전트를 설치 하 고 데이터 수집을 구성할 수 있습니다.

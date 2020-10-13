@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 38e3526627eb4191643f8bc86b9ce5f49e41a71f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564409"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
@@ -61,7 +61,7 @@ ms.locfileid: "90564409"
 
 1. 아이콘을 선택 하 여 기본 연결 문자열을 복사 합니다.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="SignalR 인스턴스에 대 한 키 페이지를 표시 하는 Azure Portal의 스크린샷 기본 연결 문자열 옆의 ' 클립보드로 복사 ' 아이콘이 강조 표시 됩니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
 그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *Azure_Digital_Twins_samples > ADTSampleApp* 폴더에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
 
@@ -139,11 +139,11 @@ ms.locfileid: "90564409"
 다음으로 *종단 간 솔루션 연결* 자습서의 [ *앱 게시* 섹션](tutorial-end-to-end.md#publish-the-app) 에 설명 된 단계를 사용 하 여 함수를 Azure에 게시 합니다. 종단 간 자습서 필수 구성 요소에서 사용한 것과 동일한 app service/함수 앱에 게시 하거나 새 자습서를 만들 수 있지만 중복을 최소화 하기 위해 동일한 앱을 사용 하는 것이 좋습니다. 또한 다음 단계를 사용 하 여 앱 게시를 완료 합니다.
 1. *Negotiate* 함수의 **HTTP 끝점 URL**을 수집 합니다. 이렇게 하려면 Azure Portal의 [함수 앱](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) 페이지로 이동 하 여 목록에서 함수 앱을 선택 합니다. 앱 메뉴에서 *함수* 를 선택 하 고 *negotiate* 함수를 선택 합니다.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="메뉴에 ' 함수 '가 강조 표시 된 함수 앱의 Azure Portal 뷰입니다. 함수 목록이 페이지에 표시 되 고 ' negotiate ' 함수도 강조 표시 됩니다.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
     *함수 URL 가져오기* 를 누르고/api를 통해 값을 복사 합니다 ** _/api_ (last _/negotiate_를 포함 하지 않음)**. 이는 나중에 사용 합니다.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="' Negotiate ' 함수의 Azure Portal 뷰입니다. ' 함수 URL 가져오기 ' 단추가 강조 표시 되 고 '/api '부터 시작 하 여 URL의 일부가 강조 표시 됩니다.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 이전의 Azure SignalR **연결 문자열** 을 함수의 앱 설정에 추가 합니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)되어 있는 경우 로컬로 실행할 수 있습니다.
  
@@ -153,7 +153,7 @@ ms.locfileid: "90564409"
 
     이 명령의 출력은 Azure function에 설정 된 모든 앱 설정을 인쇄 합니다. `AzureSignalRConnectionString`목록의 맨 아래에서를 찾아 추가 되었는지 확인 합니다.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="명령 창에서 ' AzureSignalRConnectionString ' 라는 목록 항목을 표시 하는 출력의 발췌":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Event Grid에 함수 연결
 
@@ -163,7 +163,7 @@ ms.locfileid: "90564409"
 
 [Azure Portal](https://portal.azure.com/)의 위쪽 검색 창에서 해당 이름을 검색하여 이벤트 그리드 토픽으로 이동합니다. *+ 이벤트 구독*을 선택합니다.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Azure Portal: Event Grid 이벤트 구독":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 *이벤트 구독 만들기* 페이지에서 다음과 같이 필드를 입력합니다(기본적으로 채워진 필드는 언급되지 않음).
 * *이벤트 구독 정보* > **이름**: 이벤트 구독 이름을 지정합니다.
@@ -172,7 +172,7 @@ ms.locfileid: "90564409"
     - **구독**, **리소스 그룹**, **함수 앱** 및 **함수** (*브로드캐스트*)를 입력 합니다. 구독을 선택하면 이 중 일부가 자동으로 채워질 수 있습니다.
     - **선택 확인**을 누릅니다.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="이벤트 구독을 만드는 Azure Portal 뷰입니다. 위의 필드는 채워지고 ' 선택 확인 ' 및 ' 만들기 ' 단추가 강조 표시 됩니다.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 *이벤트 구독 만들기* 페이지에서 **만들기**를 누릅니다.
 
@@ -186,7 +186,7 @@ ms.locfileid: "90564409"
 
 이제 *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator*에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Visual Studio 시작 단추(DeviceSimulator 프로젝트)":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이러한 인스턴스는 azure Digital Twins 인스턴스를 통해 전송 되며, 여기서 Azure 함수 및 SignalR에서 선택 됩니다.
 
@@ -214,7 +214,7 @@ ms.locfileid: "90564409"
 1. Azure Portal의 [함수 앱](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) 페이지에서 함수 앱 인스턴스를 선택 합니다.
 1. 인스턴스 메뉴에서 아래로 스크롤하고 *CORS*를 선택 합니다. CORS 페이지에서를 `http://localhost:3000` 빈 상자에 입력 하 여 허용 된 원본으로 추가 합니다. *액세스 허용-자격 증명 사용* 확인란을 선택 하 고 *저장*을 누릅니다.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Azure 함수의 CORS 설정":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 ### <a name="see-the-results"></a>결과 보기
 
@@ -226,7 +226,7 @@ npm start
 
 그러면 샘플 앱이 실행 되는 브라우저 창이 열리며이는 시각적 온도 계기를 표시 합니다. 앱이 실행 되 면 웹 앱에서 실시간으로 반영 하는 Azure 디지털 쌍을 통해 전파 되는 장치 시뮬레이터의 온도 원격 분석 값이 표시 되기 시작 해야 합니다.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="시각적 온도 계기를 보여 주는 샘플 클라이언트 웹 앱에서 발췌 한 것입니다. 적용 되는 온도는 67.52입니다.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

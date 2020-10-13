@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storsimple
 author: alkohli
@@ -9,10 +9,10 @@ ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87102828"
 ---
 볼륨 컨테이너를 삭제하려면

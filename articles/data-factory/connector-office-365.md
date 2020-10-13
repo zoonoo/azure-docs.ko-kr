@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: dda761e12abe7ec866ad9426982563b6f629f6b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85513291"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Office 365에서 Azure로 데이터 복사
@@ -91,7 +91,7 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 >- 자체 조직에서 사용하기 위해 Office 365 데이터에 대한 애플리케이션을 개발하는 엔터프라이즈 개발자인 경우, 두 속성 모두에 조직의 AAD 테넌트 ID인 동일한 테넌트 ID를 제공해야 합니다.
 >- 고객용 애플리케이션을 개발하는 ISV 개발자의 경우 office365TenantId가 고객(애플리케이션을 설치하는 사용자)의 AAD 테넌트 ID이며 servicePrincipalTenantId가 회사의 AAD 테넌트 ID가 됩니다.
 
-**예제:**
+**예:**
 
 ```json
 {

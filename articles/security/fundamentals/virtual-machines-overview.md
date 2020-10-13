@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86229366"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
@@ -116,7 +116,7 @@ Site Recovery:
 
 자세한 정보:
 
-* [Azure Site Recovery 이란?](/azure/site-recovery/site-recovery-overview)
+* [Azure Site Recovery란?](/azure/site-recovery/site-recovery-overview)
 * [Azure Site Recovery 작동 방식](/azure/site-recovery/site-recovery-components)
 * [Azure Site Recovery에서 보호 하는 작업은 무엇입니까?](/azure/site-recovery/site-recovery-workload)
 
@@ -160,7 +160,7 @@ Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 기밀 컴퓨팅은 기술적으로 가상 컴퓨터 보안의 일부가 아니지만 가상 컴퓨터 보안의 항목은 "계산" 보안의 상위 수준에 속합니다. 기밀 컴퓨팅은 "compute" 보안 범주에 속합니다.
 
-기밀 컴퓨팅을 사용 하면 데이터가 "명확" 하 여 효율적인 처리에 필요한 경우 데이터는 아래 그림에 표시 된 것 처럼 신뢰할 수 있는 실행 환경 https://en.wikipedia.org/wiki/Trusted_execution_environment (enclave이 라고도 함) 내에서 보호 됩니다.  
+기밀 컴퓨팅을 사용 하면 데이터가 "명확" 하 여 효율적인 처리에 필요한 경우 데이터는 아래 그림에 표시 된 것 처럼 신뢰할 수 있는 실행 환경  https://en.wikipedia.org/wiki/Trusted_execution_environment (enclave이 라고도 함) 내에서 보호 됩니다.  
 
 TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업을 볼 수 있는 방법이 없도록 합니다. 권한 있는 코드만 데이터에 액세스할 수 있도록 합니다. 코드가 변경되거나 변조되는 경우 작업이 거부되고 환경이 비활성화됩니다. TEE는 코드를 실행하는 동안 이러한 보호를 적용합니다.
 

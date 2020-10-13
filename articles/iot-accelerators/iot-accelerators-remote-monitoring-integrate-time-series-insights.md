@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536609"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
@@ -24,7 +24,7 @@ Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터�
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법을 완료하려면 이미 원격 모니터링 솔루션이 배포되어 있어야 합니다.
 

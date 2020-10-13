@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263915"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
@@ -220,7 +220,7 @@ Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동�
 | Windows Server 2012 - 2016 | 지원되며 기본적으로 사용하도록 설정됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | 해당 없음
+|Windows Vista | 지원되지 않습니다. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 

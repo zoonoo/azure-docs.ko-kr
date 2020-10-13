@@ -4,10 +4,10 @@ description: 이 문서에서는 IoT Edge 용어에 대 한 라이브 비디오 
 ms.topic: conceptual
 ms.date: 05/30/2020
 ms.openlocfilehash: e3a77b69adf2241a4af2652db4edb6673a63b4f0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88690615"
 ---
 # <a name="terminology"></a>용어
@@ -38,7 +38,7 @@ IoT Edge의 Live Video Analytics는 자산을 만들거나 기존 자산에 데�
 
 ## <a name="rtsp"></a>RTSP
 
-[RTSP](https://tools.ietf.org/html/rfc2326) 는 실시간 스트리밍 프로토콜을 나타냅니다. 실시간 속성을 사용 하 여 데이터를 배달 하는 것을 제어 하기 위한 응용 프로그램 수준 프로토콜입니다. RTSP는 오디오 및 비디오와 같은 실시간 데이터의 제어 된 주문형 제공을 가능 하 게 하는 확장 가능한 프레임 워크를 제공 합니다. 
+[RTSP](https://tools.ietf.org/html/rfc2326) 는 Real-Time 스트리밍 프로토콜을 참조 합니다. 실시간 속성을 사용 하 여 데이터를 배달 하는 것을 제어 하기 위한 응용 프로그램 수준 프로토콜입니다. RTSP는 오디오 및 비디오와 같은 실시간 데이터의 제어 된 주문형 제공을 가능 하 게 하는 확장 가능한 프레임 워크를 제공 합니다. 
 
 ## <a name="streaming"></a>스트리밍
 

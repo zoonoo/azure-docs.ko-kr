@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 �
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90966784"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
@@ -23,7 +23,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 | 높은 처리량 |가변 처리량 |
 | 예측 가능한 성능 |가변 대기 시간 |
 | 고정된 가격 책정 |종량제 가변 가격 |
-| 작업을 확장 및 축소하는 기능 |해당 없음 |
+| 작업을 확장 및 축소하는 기능 |N/A |
 | 메시지 크기는 최대 1mb입니다. 이 제한은 향후 발생할 수 있습니다. 서비스에 대 한 최신 중요 업데이트는 [Azure의 Messaging 블로그](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog)를 참조 하세요. |최대 256KB의 메시지 크기 |
 
 **Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임 스페이스에 대해 1, 2, 4 또는 8 개의 메시징 단위를 구입할 수 있습니다. 단일 작업 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 변경 될 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.

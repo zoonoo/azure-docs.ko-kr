@@ -12,10 +12,10 @@ ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743801"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 통해 대규모로 Keras 모델 학습
@@ -31,7 +31,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 > [!NOTE]
 > [TensorFlow 모델을 학습](how-to-train-tensorflow.md)하는 대신 TensorFlow에 기본 제공 되는 KERAS API **tf** 를 사용 하는 경우를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -170,7 +170,7 @@ dataset = Dataset.get_by_name(ws, 'mnist-dataset')
 dataset.to_path()
 ```
 
-ScriptRunConfig 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 계산 대상 등 학습 작업의 구성 세부 정보를 지정 합니다.
+ScriptRunConfig 개체를 만들어 학습 스크립트, 사용할 환경 및 실행할 컴퓨팅 대상 등 학습 작업의 구성 세부 정보를 지정합니다.
 
 매개 변수에 지정 된 경우 학습 스크립트에 대 한 모든 인수는 명령줄을 통해 전달 됩니다 `arguments` . FileDataset의 DatasetConsumptionConfig는 인수에 대해 학습 스크립트에 인수로 전달 됩니다 `--data-folder` . Azure ML은이 DatasetConsumptionConfig를 지원 데이터 저장소의 탑재 지점으로 확인 하 고이를 학습 스크립트에서 액세스할 수 있습니다.
 
