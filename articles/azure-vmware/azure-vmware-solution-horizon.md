@@ -4,10 +4,10 @@ description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729052"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
@@ -197,7 +197,7 @@ Azure VMware 솔루션과 함께 사용할 수 있는 두 가지 라이선스가
 
 표준 배포 아키텍처에 따라 수평 인프라 Vm은 연결 서버, UAGs, 앱 볼륨 관리자로 구성 되며 고객의 Azure Virtual Network에 배포 됩니다. Azure에서 HA (고가용성), Microsoft SQL 또는 AD (Microsoft Active Directory) 서비스를 지원 하려면 추가 Azure 네이티브 인스턴스가 필요 합니다. 다음은 2000-데스크톱 배포 예제를 기반으로 하는 Azure 인스턴스 목록입니다. 
 
-| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 의견  |
+| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 주석  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
 | 연결 서버                | D4sv3          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |    
 | UAG                              | F2sv2          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |

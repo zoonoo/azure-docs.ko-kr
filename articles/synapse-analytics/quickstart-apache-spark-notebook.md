@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse
 services: synapse-analytics
 author: euangMS
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049811"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91651720"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기
 
@@ -49,7 +49,7 @@ Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 환경입
 4. **속성** 창에서 Notebook 이름을 제공합니다.
 5. 도구 모음에서 **게시**를 클릭합니다.
 6. 하나의 Apache Spark 풀만 작업 영역에 있으면 이 풀이 기본적으로 선택됩니다. 선택되지 않은 경우 드롭다운을 사용하여 올바른 Apache Spark 풀을 선택합니다.
-7. **코드 추가**를 클릭합니다. 기본 언어는 `Pyspark`입니다. Pyspark와 Spark SQL을 함께 사용하므로 기본 선택이 좋습니다.
+7. **코드 추가**를 클릭합니다. 기본 언어는 `Pyspark`입니다. Pyspark와 Spark SQL을 함께 사용하므로 기본 선택이 좋습니다. 기타 지원되는 언어는 Spark용 Scala 및 .NET입니다.
 8. 다음으로 조작할 간단한 Spark DataFrame 개체를 만듭니다. 이 경우 코드에서 만듭니다. 세 개의 행과 세 개의 열이 있습니다.
 
    ```python
@@ -85,7 +85,7 @@ Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 환경입
 
     ![출력의 스토리지 탐색기 보기](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "출력의 스토리지 탐색기 보기")
 
-    ![출력의 스토리지 탐색기 보기](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "출력의 스토리지 탐색기 보기")
+    ![기본값 > demodata > demo_df 경로를 강조 표시하는 스크린샷.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "출력의 스토리지 탐색기 보기")
 
 ## <a name="run-spark-sql-statements"></a>Spark SQL 문 실행
 

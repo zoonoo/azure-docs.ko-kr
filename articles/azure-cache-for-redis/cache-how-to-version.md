@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: ed0f486afe466d31388fa99b4ce5f5754210533f
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571503"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Redis에 대 한 Azure Cache Redis 버전 설정 (미리 보기)
@@ -30,11 +30,11 @@ ms.locfileid: "91571503"
   
 1. **새로 만들기** 페이지에서 **데이터베이스**를 선택한 다음, **Azure Cache for Redis**를 선택합니다.
 
-    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Redis 용 Azure Cache를 선택 합니다.":::
+    :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Azure Cache for Redis를 선택합니다.":::
    
 1. **기본 사항** 페이지에서 새 캐시의 설정을 구성 합니다.
    
-    | 설정      | 제안 값  | Description |
+    | 설정      | 제안 값  | 설명 |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 
     | **리소스 그룹** | 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 고 새 리소스 그룹 이름을 입력 합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -44,7 +44,7 @@ ms.locfileid: "91571503"
    
 1. **고급** 페이지에서 사용할 Redis 버전을 선택 합니다.
    
-    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Redis 용 Azure Cache를 선택 합니다.":::
+    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Azure Cache for Redis를 선택합니다.":::
 
 1. **만들기**를 클릭합니다. 
    

@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f45e8435ea26e575398801471904b5038a518a44
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78250186"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948836"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 포털 인터페이스 테스트
 
 관리 되는 응용 프로그램에 대 한 [파일에 createUiDefinition.js를 만든](create-uidefinition-overview.md) 후 사용자 환경을 테스트 해야 합니다. 테스트를 간소화 하려면 포털에서 파일을 로드 하는 샌드박스 환경을 사용 합니다. 실제로 관리되는 애플리케이션을 배포할 필요는 없습니다. 샌드박스는 현재 전체 화면 포털 환경에서 사용자 인터페이스를 제공 합니다. 또는 인터페이스를 테스트 하는 데 스크립트를 사용할 수 있습니다. 두 방법은 모두 이 문서에 나와 있습니다. 샌드박스는 인터페이스를 미리 보는 데 권장 되는 방법입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **createUiDefinition.json** 파일. 이 파일이 없으면 [샘플 파일](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)을 복사 합니다.
 
@@ -104,4 +104,4 @@ Azure CLI의 경우
 
 ## <a name="next-steps"></a>다음 단계
 
-포털 인터페이스 유효성 검사 후 [Marketplace에서 Azure Managed Application](publish-marketplace-app.md)을 제공하는 방법을 알아보세요.
+포털 인터페이스 유효성 검사 후 [Marketplace에서 Azure Managed Application](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)을 제공하는 방법을 알아보세요.

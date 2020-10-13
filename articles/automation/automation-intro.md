@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 �
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d10570efe49203f879cdceae776af5c3bc6991c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448071"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715971"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -64,7 +64,7 @@ Azure Automation은 대규모 환경을 더 쉽게 자동화하고 구성할 수
 
 ### <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-Azure Automation은 RBAC(역할 기반 액세스 제어)를 지원하여 자동화 계정 및 해당 리소스에 대한 액세스를 제어합니다. Automation 계정, Runbook 및 작업에서 RBAC를 구성하는 방법을 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
+Azure Automation은 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원하여 Automation 계정 및 해당 리소스에 대한 액세스를 제어합니다. Automation 계정, Runbooks 및 작업에서 Azure RBAC를 구성하는 방법을 자세히 알아보려면 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
 
 ### <a name="source-control-integration"></a>소스 제어 통합
 
@@ -86,7 +86,7 @@ Azure Automation은 인프라와 애플리케이션의 수명 주기 전반에 �
 * **변경 내용 찾기** - 잘못된 구성을 유발할 수 있는 변경 내용을 식별하여 운영 규정 준수를 향상시킵니다.
 * **모니터링** - 문제를 유발하는 머신 변경 내용을 격리하여 수정하거나 관리 시스템에 에스컬레이션합니다.
 * **보호** - 보안 경고가 발생하면 머신을 격리합니다. 게스트 내 요구 사항을 설정합니다.
-* **거버넌스** - 팀을 위한 RBAC를 설정합니다. 사용되지 않는 리소스를 복구합니다.
+* **거버넌스** - 팀을 위한 Azure RBAC를 설정합니다. 사용되지 않는 리소스를 복구합니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

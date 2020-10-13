@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
 ms.openlocfilehash: 2134dde0fa0b92bec4519c0d6a24dcaad3792baa
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575183"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
@@ -195,7 +195,7 @@ ms.locfileid: "91575183"
 
 형식의 메모리 공간은 다음과 같습니다.
 
-| 형식 | Description | 바이트 당 바이트 :::no-loc text="vertex"::: |
+| 형식 | 설명 | 바이트 당 바이트 :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|2분 부동 소수점 배정밀도|8
 |16_16_FLOAT|2분 부동 소수점 단정밀도|4
