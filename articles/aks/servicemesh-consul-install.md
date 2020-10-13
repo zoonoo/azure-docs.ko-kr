@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244136"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Consul 설치 및 사용
@@ -67,10 +67,10 @@ ms.locfileid: "86244136"
 > **설치 옵션**
 > 
 > 설치의 일부로 다음 옵션을 사용 하 고 있습니다.
-> - `connectInject.enabled=true`-프록시를 pod에 삽입할 수 있습니다.
-> - `client.enabled=true`-Consul 클라이언트를 모든 노드에서 실행할 수 있습니다.
-> - `client.grpc=true`-connectInject에 대해 gRPC 수신기를 사용 하도록 설정
-> - `syncCatalog.enabled=true`-sync Kubernetes 및 Consul 서비스
+> - `connectInject.enabled=true` -프록시를 pod에 삽입할 수 있습니다.
+> - `client.enabled=true` -Consul 클라이언트를 모든 노드에서 실행할 수 있습니다.
+> - `client.grpc=true` -connectInject에 대해 gRPC 수신기를 사용 하도록 설정
+> - `syncCatalog.enabled=true` -sync Kubernetes 및 Consul 서비스
 >
 > **노드 선택기**
 >

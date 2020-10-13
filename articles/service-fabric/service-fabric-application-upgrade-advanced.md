@@ -4,10 +4,10 @@ description: 이 문서에서는 서비스 패브릭 애플리케이션 업그�
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86248087"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 응용 프로그램 업그레이드: 고급 항목
@@ -100,7 +100,7 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 >
 
 > [!NOTE]
-> 클러스터 코드 버전이 7.1.XXX 이상인 경우 위에 설명 된 대로 Get-servicefabricservice cmdlet 또는 ARM 템플릿을 사용 하 여 기존 서비스에서이 기능을 구성할 수 있습니다.
+> 클러스터 코드 버전이 7.1.XXX 이상인 경우 위에 설명 된 대로 Update-ServiceFabricService cmdlet 또는 ARM 템플릿을 사용 하 여 기존 서비스에서이 기능을 구성할 수 있습니다.
 >
 >
 

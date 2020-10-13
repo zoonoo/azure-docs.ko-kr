@@ -5,17 +5,17 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86247254"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>방법: Visual Studio 2019을 사용 하 여 Azure Service Fabric에서 Windows 컨테이너 디버그
 
 Visual Studio 2019을 사용 하면 Service Fabric 서비스로 컨테이너에서 .NET 응용 프로그램을 디버그할 수 있습니다. 이 문서에서는 환경을 구성한 다음, 로컬 Service Fabric 클러스터에서 실행되는 컨테이너의 .NET 애플리케이션을 디버그하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 10에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 10을 구성](/virtualization/windowscontainers/quick-start/quick-start-windows-10)합니다.
 * Windows Server 2016에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 2016을 구성](/virtualization/windowscontainers/quick-start/quick-start-windows-server)합니다.

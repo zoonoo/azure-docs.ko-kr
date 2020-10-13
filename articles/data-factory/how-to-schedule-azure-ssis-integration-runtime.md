@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187254"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법

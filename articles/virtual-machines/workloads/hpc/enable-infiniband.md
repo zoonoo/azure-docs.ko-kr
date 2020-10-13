@@ -14,15 +14,15 @@ ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87797988"
 ---
 # <a name="enable-infiniband"></a>InfiniBand 사용
 
-[RDMA 지원](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm은 낮은 대기 시간 및 높은 대역폭 InfiniBand 네트워크를 통해 통신 합니다. 이러한 상호 연결에 대 한 RDMA 기능은 분산 노드 HPC 및 AI 워크 로드의 확장성과 성능을 향상 시키기 위해 매우 중요 합니다. InfiniBand 사용 H 시리즈 및 N 시리즈 Vm은 최적화 되 고 일관 된 RDMA 성능을 위한 낮은 지름 디자인을 사용 하는 비 블로킹 fat 트리에 연결 됩니다.
+[RDMA 지원](../../sizes-hpc.md#rdma-capable-instances) [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) VM은 낮은 대기 시간과 높은 대역폭 InfiniBand 네트워크를 통해 통신합니다. 이러한 상호 연결에 대한 RDMA 기능은 분산 노드 HPC 및 AI 워크로드의 확장성과 성능을 향상하는 데 매우 중요합니다. InfiniBand 지원 H 시리즈 및 N 시리즈 VM은 최적화되고 일관적인 RDMA 성능을 제공하기 위해 지름이 작은 비중단 팻 트리에서 연결됩니다.
 
 지원 되는 VM 크기에 대 한 InfiniBand를 사용 하도록 설정 하는 다양 한 방법이 있습니다.
 
@@ -73,6 +73,6 @@ sudo systemctl restart waagent
 ## <a name="next-steps"></a>다음 단계
 
 - 지원 되는 다양 한 [MPI 라이브러리](setup-mpi.md) 및 vm에 대 한 최적의 구성을 설치 하는 방법에 대해 자세히 알아보세요.
-- [Hb 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md) 를 검토 하 여 성능 및 확장성에 대 한 워크 로드를 최적으로 구성 하는 방법을 알아보세요.
-- [Azure Compute 기술 커뮤니티 블로그의](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)최신 공지 사항 및 일부 HPC 예제 및 결과에 대해 읽어 보세요.
-- 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.
+- [HB 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토하여 성능 및 확장성을 높일 수 있도록 워크로드를 최적으로 구성하는 방법을 알아보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

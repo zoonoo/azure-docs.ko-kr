@@ -15,7 +15,7 @@
 - name: 자습서
   expanded: true
   items:
-    - name: Python 1일 시작
+    - name: Python 시작(1일차)
       expanded: true
       items:
         - name: 1. 로컬 컴퓨터 설정
@@ -188,6 +188,8 @@
             - name: Private Link 사용
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: 사용자 지정 DNS 사용
+              href: how-to-custom-dns.md
             - name: 보안 웹 서비스 구성
               displayName: 'ssl, tls'
               href: how-to-secure-web-service.md

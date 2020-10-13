@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91610078"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>제한 된 장치에서 IoT 플러그 앤 플레이 구현
@@ -24,7 +24,7 @@ Embedded C 용 SDK는 [iot 플러그 앤 플레이 규칙](concepts-convention.m
 
 ### <a name="use-a-real-device"></a>실제 디바이스 사용
 
-실제 장치에서 임베디드 C, 장치 프로 비전 서비스 및 IoT 플러그 앤 플레이에 대 한 SDK를 사용 하는 완전 한 종단 간 자습서는 [IoT Hub Device Provisioning Service를 통해 Azure에 연결 하기 위해 PIC-IoT Wx 개발 보드 용도](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx)변경을 참조 하세요.
+실제 장치에서 임베디드 C, 장치 프로 비전 서비스 및 IoT 플러그 앤 플레이에 대 한 SDK를 사용 하는 전체 종단 간 자습서는 [IoT Hub Device Provisioning Service를 통해 Azure에 연결 하기 위한 PIC-IoT Wx Development Board](https://github.com/Azure-Samples/Microchip-PIC-IoT-Wx)사용을 참조 하세요.
 
 ### <a name="introductory-samples"></a>소개 샘플
 

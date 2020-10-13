@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829019"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
@@ -473,7 +473,7 @@ az vm availability-set create \
 
 인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md)`--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
 
-[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myvm*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm) 명령으로 모든 리소스 및 정보를 결합하여 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \

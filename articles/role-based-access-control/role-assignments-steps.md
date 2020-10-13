@@ -10,13 +10,13 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604410"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가 하는 단계
+# <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md)또는 [REST API](role-assignments-rest.md)를 사용 하 여 역할 할당을 추가 하는 개략적인 단계를 설명 합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "91604410"
 
 ## <a name="step-3-identify-the-needed-scope"></a>3 단계: 필요한 범위 확인
 
-*범위*는 액세스가 적용되는 리소스의 세트입니다. Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 수준으로 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 계층의 각 수준은 범위를 보다 구체적으로 만듭니다. 이러한 범위의 수준에서 역할을 할당할 수 있습니다. 선택한 수준에 따라 역할이 적용 되는 방식이 결정 됩니다. 하위 수준은 상위 수준에서 역할 권한을 상속 합니다. 
+*범위*는 액세스가 적용되는 리소스의 세트입니다. Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)및 리소스의 네 가지 수준으로 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 계층의 각 수준은 범위를 보다 구체적으로 만듭니다. 이러한 범위 수준에서 역할을 할당할 수 있습니다. 선택한 수준에 따라 역할이 적용 되는 방식이 결정 됩니다. 하위 수준은 상위 수준에서 역할 권한을 상속 합니다. 
 
 ![역할 할당 범위](./media/shared/rbac-scope.png)
 
@@ -87,8 +87,8 @@ ms.locfileid: "91604410"
 
 - [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
 - [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-powershell.md)
-- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md)
-- [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
+- [Azure CLI를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md)
+- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>다음 단계
 

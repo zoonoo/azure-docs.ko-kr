@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: alzam
 ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87832521"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대 한 Azure Active Directory 인증 구성
@@ -167,11 +167,11 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![삭제](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제 진단
 

@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
 ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87832742"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 간에 변환하는 맵 만들기
@@ -30,7 +30,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 **변환을 사용하는 단계는 다음과 같습니다**.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * 통합 계정을 만든 후 맵 추가  
 

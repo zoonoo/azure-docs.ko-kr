@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653216"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
@@ -24,7 +24,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](./overview.md)를 잘 알고 있다고 가정합니다.
 
@@ -199,11 +199,11 @@ Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 �
  
 | 요소 | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
-| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 예 |
-| IT 활동이 필요 | 예 | 예 | 예 |
+| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니요 |
+| IT 활동이 필요 | 아니요 | 예 | 예 |
 | 적용 가능한 흐름 | OOBE 및 설정 | OOBE만 | OOBE만 |
 | 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 | 아니요 |
-| 디바이스 OEM 지원 필요 | 예 | 예 | 예 |
+| 디바이스 OEM 지원 필요 | 아니요 | 예 | 아니요 |
 | 지원되는 버전 | 1511+ | 1709+ | 1703+ |
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  

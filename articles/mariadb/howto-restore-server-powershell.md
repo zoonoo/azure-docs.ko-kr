@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87833252"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for MariaDB 서버를 백업 및 복원하는 방법
 
 Azure Database for MariaDB 서버는 정기적으로 백업 되어 복원 기능을 사용 하도록 설정 합니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -78,7 +78,7 @@ Cmdlet의 **PointInTimeRestore** 매개 변수 집합에는 `Restore-AzMariaDbSe
 | 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| Name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00**과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z**). |
 | UsePointInTimeRestore | `<SwitchParameter>` | 지정 시간 모드를 사용 하 여 복원 합니다. |
 
@@ -120,7 +120,7 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzMariaDbServer` �
 | 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 새 서버가 속한 리소스 그룹의 이름입니다.|
-|이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
+|Name | mydemoserver-georestored | 새 서버의 이름입니다. |
 |위치 | eastus | 새 서버의 위치입니다. |
 |UseGeoRestore | `<SwitchParameter>` | 지역 모드를 사용 하 여 복원 합니다. |
 
@@ -133,4 +133,4 @@ Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzMariaDbServer` �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용 하 여 Azure Database for MariaDB 연결 문자열을 생성 하는 방법](howto-connection-string-powershell.md)
+> [PowerShell을 사용하여 Azure Database for MariaDB 연결 문자열을 생성하는 방법](howto-connection-string-powershell.md)

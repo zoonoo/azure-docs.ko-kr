@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31c44f2423cdc5c43638fe2515757bcb11a9814c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87798446"
 ---
 # <a name="self-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 자체 검토

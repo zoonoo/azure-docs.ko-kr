@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86200505"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Bing Local Business Search API의 검색 범주
@@ -27,7 +27,7 @@ Bing Local Business Search API를 사용하면 다양한 범주에서 로컬 비
 다음 유형은 검색의 주요 범주를 정의합니다.  `localCategories` 매개 변수에 할당된 쉼표로 분리된 목록을 사용하여 둘 이상의 범주를 지정할 수 있습니다.  
 - EatDrink 
 - SeeDo 
-- Shop 
+- 쇼핑 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - Parking 
@@ -44,7 +44,7 @@ Bing Local Business Search API를 사용하면 다양한 범주에서 로컬 비
 
 > AmusementParks, 맛보기, Carnivals, Casinos, LandmarksAndHistoricalSites, 미니 Aturegolf강의, MovieTheaters, Museums, 공원, SightseeingTours, TouristInformation, Zoos
 
-### <a name="shop"></a>Shop
+### <a name="shop"></a>쇼핑
 
 > AntiqueStores, Bookstores, CDAndRecordStores, ChildrensClothingStores, CigarAndTobaccoShops, ComicBookStores, DepartmentStores, DiscountStores, FleaMarketsAndBazaars, FurnitureStores, HomeImprovementStores, JewelryAndWatchesStores, KitchenwareStores, LiquorStores, MallsAndShoppingCenters, MensClothingStores, MusicStores, Out Stores, PetShops, PetSupplyStores, SchoolAndOfficeSupplyStores, ShoeStores, SportingGoodsStores, ToyAndGameStores, VitaminAndSupplementStores, WomensClothingStores
 

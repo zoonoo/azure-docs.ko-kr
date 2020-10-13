@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250314"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Azure API Management에서 프로토콜 및 암호화 관리
@@ -27,7 +27,7 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 
 ![APIM에서 프로토콜 및 암호화 관리](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 

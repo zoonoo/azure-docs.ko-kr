@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.openlocfilehash: 2e73039418233c97fc20242ed7af7df14c5b47ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534780"
 ---
 # <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Azure Cognitive Search 인덱싱에서 blob에 대 한 변경 및 삭제 검색을 설정 하는 방법
@@ -33,7 +33,7 @@ ms.locfileid: "91534780"
 
 이 방법에서는 Azure Blob 저장소에서 제공 하는 [기본 blob 일시 삭제](../storage/blobs/soft-delete-blob-overview.md) 기능을 사용 합니다. 저장소 계정에서 기본 blob 일시 삭제를 사용 하는 경우 데이터 원본에 기본 일시 삭제 정책이 설정 되어 있고 인덱서가 일시 삭제 된 상태로 전환 된 blob을 찾은 경우 인덱서는 인덱스에서 해당 문서를 제거 합니다. Azure Data Lake Storage Gen2에서 blob을 인덱싱하는 경우에는 네이티브 blob 일시 삭제 정책이 지원 되지 않습니다.
 
-다음 단계를 따르십시오.
+다음 단계를 사용합니다.
 
 1. [Azure Blob storage에 대해 네이티브 일시 삭제를](../storage/blobs/soft-delete-blob-overview.md)사용 하도록 설정 합니다. 보존 정책을 인덱서 간격 일정 보다 훨씬 더 높은 값으로 설정 하는 것이 좋습니다. 이러한 방식으로 인덱서를 실행 하는 데 문제가 있거나 인덱싱할 문서 수가 많은 경우 인덱서는 결국 일시 삭제 된 blob을 처리 하는 데 많은 시간이 발생 합니다. Azure Cognitive Search 인덱서는 blob이 일시 삭제 된 상태에 있는 동안 blob을 처리 하는 경우에만 인덱스에서 문서를 삭제 합니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "91534780"
 
 이 방법에서는 blob의 메타 데이터를 사용 하 여 검색 인덱스에서 문서를 제거 해야 하는 시기를 표시 합니다. 이 메서드에는 인덱스에서 검색 문서를 삭제 한 다음 Azure Storage에서 blob을 삭제 하는 두 가지 별도의 작업이 필요 합니다.
 
-다음 단계를 따르십시오.
+다음 단계를 사용합니다.
 
 1. Blob에 사용자 지정 메타 데이터 키-값 쌍을 추가 하 여 논리적으로 삭제 되는 Azure Cognitive Search를 표시 합니다.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
 ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91654165"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Redis 용 Azure Cache의 고가용성
@@ -23,7 +23,7 @@ Redis 용 Azure Cache는 캐시에 대해 *노드*라고 하는 여러 vm을 사
 | ------------------- | ------- | ------- | :------: | :---: |
 | [표준 복제](#standard-replication)| 자동 장애 조치 (failover)를 사용 하 여 단일 데이터 센터 또는 가용성 영역 (AZ)의 이중 노드 복제 구성 | 99.9% |✔|✔|
 | [여러 복제본](#multiple-replicas) | 자동 장애 조치 (failover)를 사용 하는 하나 이상의 AZs에서 다중 노드 복제 구성 | 99.95% (영역 중복성 포함) |-|✔|
-| [영역 중복성](#zone-redundancy) | 자동 장애 조치 (failover)를 사용 하 여 AZs에서 다중 노드 복제 구성 | 99.95% (여러 복제본 포함) |-|✔|
+| [영역 중복](#zone-redundancy) | 자동 장애 조치 (failover)를 사용 하 여 AZs에서 다중 노드 복제 구성 | 99.95% (여러 복제본 포함) |-|✔|
 | [지역에서 복제](#geo-replication) | 사용자 제어 장애 조치 (failover)를 사용 하 여 두 지역의 연결 된 캐시 인스턴스 | 99.9% (단일 지역) |-|✔|
 
 ## <a name="standard-replication"></a>표준 복제
