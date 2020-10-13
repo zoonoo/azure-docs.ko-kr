@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82db48690f8cfa48ebf3a6fdc81cb4e467c159d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331372"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977683"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure의 Oracle VM 이미지 및 배포
 
@@ -132,7 +132,7 @@ Oracle 데이터 가드로, 가상 머신에서 주 데이터베이스, 또 다�
 
 [Azure에서 Oracle GoldenGate 구현](configure-oracle-golden-gate.md) 자습서는 Azure에서 기본 설치 절차를 수행하는 방법을 안내합니다.
 
-Azure에 HA 및 DR 솔루션이 설계되어 있지만 데이터베이스를 복원할 백업 전략을 마련해야 합니다. [Oracle 데이터베이스 Backup 및 복구](oracle-backup-recovery.md) 자습서는 일관된 백업 설정에 대한 기본 절차를 안내합니다.
+Azure에 HA 및 DR 솔루션이 설계되어 있지만 데이터베이스를 복원할 백업 전략을 마련해야 합니다. [Oracle 데이터베이스 Backup 및 복구](./oracle-overview.md) 자습서는 일관된 백업 설정에 대한 기본 절차를 안내합니다.
 
 ## <a name="support-for-jd-edwards"></a>JD Edwards 지원
 

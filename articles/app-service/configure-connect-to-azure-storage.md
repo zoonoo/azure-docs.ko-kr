@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435612"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968653"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>App Service의 컨테이너에서 네트워크 공유로 Azure Storage 액세스
 
@@ -65,7 +65,6 @@ ms.locfileid: "89435612"
 
 - App Service의 Azure Storage는 Linux 및 Web App for Containers App Service에 대 한 **미리 보기** 상태입니다. **프로덕션 시나리오**에는 **지원 되지 않습니다** .
 - App Service에서 Azure Storage는 컨테이너 (읽기/쓰기) 및 **Azure Blob 컨테이너** (읽기 전용)를 **Azure Files** 탑재 하는 것을 지원 합니다.
-- App Service Azure Storage는 인프라 제한으로 인해 **저장소 방화벽** 구성 사용을 **지원 하지 않습니다** .
 - App Service에서 Azure Storage를 사용 하 여 앱 당 **최대 5 개의** 탑재 시점을 지정할 수 있습니다.
 - App Service FTP/FTPs 끝점을 통해 앱에 탑재 된 Azure Storage에 액세스할 수 없습니다. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용합니다.
 

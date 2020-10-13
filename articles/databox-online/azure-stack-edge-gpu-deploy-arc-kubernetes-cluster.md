@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c38b0b1d3a2e71502ac86bf46771ecfb637ba15d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903196"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952219"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -68,11 +68,11 @@ Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에
 
 1. 리소스 공급자를 선택 하 고 명령 모음 맨 위에서 **등록**을 선택 합니다. 등록은 몇 분 정도 걸립니다. 
 
-    ![Kubernetes 리소스 공급자 등록](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
+    ![Kubernetes 리소스 공급자 등록 2](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-2.png)
 
 1. 리소스 공급자가 등록 되어 있는지 확인 하기 전까지 UI를 새로 고칩니다. 두 리소스 공급자에 대해이 프로세스를 반복 합니다.
     
-    ![Kubernetes 리소스 공급자 등록](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
+    ![Kubernetes 리소스 공급자 3 등록](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
 를 통해 리소스 공급자를 등록할 수도 있습니다 `az cli` . 자세한 내용은 [Azure Arc 활성화 된 Kubernetes에 대 한 두 공급자 등록](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes) 을 참조 하세요.
 

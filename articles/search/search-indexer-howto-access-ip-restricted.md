@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: c80462707d3dccbb8fccff244017053c25ad46e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f485569caef285601d1dce7acd116f13675da83a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463783"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950196"
 ---
 # <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>인덱서 액세스를 사용 하도록 IP 방화벽 규칙 설정
 
@@ -89,6 +89,6 @@ JSON 파일에서 검색 서비스가 미국 서 부에 있다고 가정 하면 
 
 인덱스에 대 한 액세스를 허용 하기 위해 두 개의 IP 주소 집합을 가져오는 방법을 배웠으므로 다음 링크를 사용 하 여 몇 가지 일반적인 데이터 원본에 대 한 IP 방화벽 규칙을 업데이트 합니다.
 
-- [Azure Storage 방화벽 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security)
-- [CosmosDB에 대 한 IP 방화벽 구성](https://docs.microsoft.com/azure/cosmos-db/firewall-support)
-- [Azure SQL server에 대 한 IP 방화벽 구성](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+- [Azure Storage 방화벽 구성](../storage/common/storage-network-security.md)
+- [CosmosDB에 대 한 IP 방화벽 구성](../cosmos-db/firewall-support.md)
+- [Azure SQL server에 대 한 IP 방화벽 구성](../azure-sql/database/firewall-configure.md)

@@ -12,7 +12,7 @@ ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91855041"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구

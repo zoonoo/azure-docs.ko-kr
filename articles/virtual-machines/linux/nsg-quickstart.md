@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4c57ec2edf43bf0a710f3c15f30836f751c4d52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500166"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975130"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Azure CLI를 사용 하 여 VM에 대 한 포트 및 끝점 열기
 
@@ -89,4 +89,4 @@ az network vnet subnet update \
 이 예제에서는 HTTP 트래픽을 허용하는 간단한 규칙을 만들었습니다. 다음 문서에서 보다 자세한 환경을 만들기 위한 정보를 찾을 수 있습니다.
 
 * [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)
-* [NSG(네트워크 보안 그룹)란?](../../virtual-network/security-overview.md)
+* [NSG(네트워크 보안 그룹)란?](../../virtual-network/network-security-groups-overview.md)

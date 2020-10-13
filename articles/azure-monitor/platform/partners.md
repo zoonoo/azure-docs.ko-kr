@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460097"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
@@ -82,7 +82,7 @@ CloudMonix는 Microsoft Azure 플랫폼을 위한 모니터링, 자동화 및 �
 
 Azure를 통해 고객은 다양 한 파트너 솔루션과 조정 하 여 클라우드에서 응용 프로그램을 마이그레이션하고 현대화 수 있습니다. 이러한 파트너 중 하나는 하이브리드 및 다중 클라우드 환경에서 응용 프로그램의 상태와 성능을 이해 하는 사용자를 위한 관찰성 및 보안 도구를 제공 하는 Datadog입니다.  그러나 필요한 통합을 구성 하려면 Azure Portal와 Datadog 사이를 이동 해야 하는 경우가 많습니다.  이 프로세스는 복잡성을 추가 하 고, 시간이 걸리고, 작업 하지 않는 경우 문제를 해결 하기 어렵게 만듭니다.  여러 포털에서 관리 하는 부담을 줄이기 위해 Microsoft는 Datadog와 협력 하 여 Azure 클라우드 플랫폼에서 통합 Datadog 솔루션을 만들었습니다.  Azure Marketplace를 통해 제공 되는이 솔루션은 Azure에서 Datadog의 클라우드 모니터링 솔루션을 사용 하기 위한 원활한 환경을 제공 합니다.  
 
-이제 새로운 Azure Datadog 통합을 통해 조직에서 기존 및 클라우드 기반 시스템을 완벽 하 게 매핑하고, 클라우드 전환의 모든 단계에서 실시간 데이터를 모니터링 하 고, 마이그레이션된 응용 프로그램이 성능 목표를 충족 하는지 확인할 수 있습니다. 이러한 통합은 Azure의 글로벌 현재 상태, 유연성, 보안 및 규정 준수를 Datadog의 로깅 및 모니터링 기능과 통합 하 여 엔터프라이즈에 대 한 최상의 환경을 만듭니다. 이 통합 환경을 통해 다음을 수행할 수 있습니다. 
+새 Azure-Datadog 통합을 통해 조직은 이제 기존 및 클라우드 기반 시스템을 완벽 하 게 매핑하고, 클라우드 전환의 모든 단계에서 실시간 데이터를 모니터링 하 고, 마이그레이션된 응용 프로그램이 성능 목표를 충족 하는지 확인할 수 있습니다. 이러한 통합은 Azure의 글로벌 현재 상태, 유연성, 보안 및 규정 준수를 Datadog의 로깅 및 모니터링 기능과 통합 하 여 엔터프라이즈에 대 한 최상의 환경을 만듭니다. 이 통합 환경을 통해 다음을 수행할 수 있습니다. 
 
 - 새 Datadog 조직을 프로 비전 하 고 Azure 리소스를 구성 하 여 Datadog에 대 한 인프라 없이 완전히 관리 되는 설정으로 로그 및 메트릭을 보냅니다.  
 - 로그 및 메트릭을 Datadog로 원활 하 게 보냅니다. 로그 전달 프로세스가 완전히 자동화 되었습니다. 진단 설정, Event Hubs 및 함수를 사용 하 여 로그 전달 파이프라인을 작성 하는 대신 몇 번의 클릭 만으로 모든 항목을 구성할 수 있습니다.

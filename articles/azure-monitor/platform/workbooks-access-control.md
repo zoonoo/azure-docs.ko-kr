@@ -2,19 +2,16 @@
 title: Azure Monitor 통합 문서 액세스 제어
 description: 역할 기반 access control을 사용 하 여 미리 작성 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고 간소화
 services: azure-monitor
-author: mrbullwinkle
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
-ms.openlocfilehash: dc6e1d738bf255fe7baa244556bad4519979b1df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c0b5dd72cf82649e7f659d23606d23aea62ac82
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539298"
+ms.locfileid: "91932552"
 ---
 # <a name="access-control"></a>Access Control
 

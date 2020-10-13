@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 2d1d1057d522d082b3a5a3c757d1fe988bc24ba1
-  ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+  ms.openlocfilehash: 2d00466672318ef05218fce392797df215b6bb5f
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/02/2020
-  ms.locfileid: "91667455"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91856996"
 highlightedContent:
   items:
   - title: Speech Service란?
@@ -88,34 +88,6 @@ conceptualContent:
     footerLink:
       text: 추가
       url: index-intent-recognition.yml
-  - title: 대화 시나리오
-    links:
-    - itemType: overview
-      text: 대화 전사 정보(모임)
-      url: conversation-transcription.md
-    - itemType: overview
-      text: 다중 디바이스 대화 정보(모임)
-      url: multi-device-conversation.md
-    - itemType: how-to-guide
-      text: 호출 센터 전사
-      url: call-center-transcription.md
-    footerLink:
-      text: 추가
-      url: index-conversation-scenarios.yml
-  - title: 음성 도우미
-    links:
-    - itemType: overview
-      text: 음성 도우미 정보
-      url: voice-assistants.md
-    - itemType: quickstart
-      text: 사용자 지정 명령을 사용하여 음성 도우미 만들기
-      url: custom-commands.md
-    - itemType: get-started
-      text: Bot Framework를 사용하여 음성 도우미 만들기
-      url: direct-line-speech.md
-    footerLink:
-      text: 추가
-      url: index-voice-assistants.yml
   - title: Speaker Recognition
     links:
     - itemType: overview
@@ -135,6 +107,26 @@ conceptualContent:
     - itemType: quickstart
       text: 사용자 지정 키워드 시작
       url: custom-keyword-basics.md
+  - title: 시나리오 심층 분석
+    links:
+    - itemType: overview
+      text: 대화 전사 정보(모임)
+      url: conversation-transcription.md
+    - itemType: overview
+      text: 다중 디바이스 대화 정보(모임)
+      url: multi-device-conversation.md
+    - itemType: overview
+      text: 음성 도우미 정보
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: 사용자 지정 명령을 사용하여 음성 도우미 만들기
+      url: custom-commands.md
+    - itemType: quickstart
+      text: Bot Framework를 사용하여 음성 도우미 만들기
+      url: direct-line-speech.md
+    - itemType: how-to-guide
+      text: 호출 센터 전사 사용
+      url: call-center-transcription.md
   - title: 도구
     links:
     - itemType: overview

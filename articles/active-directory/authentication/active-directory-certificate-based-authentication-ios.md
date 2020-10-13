@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fa6c28eaa75485e0b45bb4404e685b6ee223b46
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716438"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965593"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
 
@@ -30,7 +30,7 @@ ms.locfileid: "88716438"
 
 ## <a name="microsoft-mobile-applications-support"></a>Microsoft 모바일 애플리케이션 지원
 
-| 앱 | Support(지원) |
+| 앱 | 지원 |
 | --- | --- |
 | Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 | Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |

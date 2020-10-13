@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804013"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
@@ -46,7 +46,7 @@ ms.locfileid: "91804013"
 3. **공용 IP 주소 접두사** 아래에서 **만들기**를 선택합니다.
 4. **공용 IP 주소 접두사 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:
 
-   |Setting|필수 여부|세부 정보|
+   |설정|필수 여부|세부 정보|
    |---|---|---|
    |Subscription|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
    |Resource group|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
@@ -69,9 +69,9 @@ ms.locfileid: "91804013"
 3. 해당 항목이 검색 결과에 표시되면 선택하고 개요 섹션에서 **+IP 주소 추가**를 클릭합니다.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택합니다. 접두사는 Standard SKU, IPv4 및 고정 주소용이므로 다음과 같은 정보만 제공해야 합니다.
 
-   |Setting|필수 여부|세부 정보|
+   |설정|필수 여부|세부 정보|
    |---|---|---|
-   |이름|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |속성|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |유휴 제한 시간(분)|아니요|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
    |DNS 이름 레이블|아니요|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
 

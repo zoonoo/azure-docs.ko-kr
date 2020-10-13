@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: da4f9fd9fd4305029f42dbe63326c8782d22d907
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baeeeae54829fad7378df597965eec5ba2039d20
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825449"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972818"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>PowerShell을 사용하여 Windows VM에 데이터 디스크 연결
 
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>다음 단계
 
-템플릿을 사용 하 여 관리 디스크를 배포할 수도 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 Managed Disks 사용](using-managed-disks-template-deployments.md) 또는 여러 데이터 디스크 배포를 위한 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) 을 참조 하세요.
+템플릿을 사용 하 여 관리 디스크를 배포할 수도 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 Managed Disks 사용](../using-managed-disks-template-deployments.md) 또는 여러 데이터 디스크 배포를 위한 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) 을 참조 하세요.

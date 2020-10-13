@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435374"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951998"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어
 
@@ -42,7 +42,7 @@ Azure SQL Database 및 Azure Synapse Analytics에 대 한 [Azure Portal](single-
 
 ## <a name="allow-azure-services"></a>Azure 서비스 허용
 
-[Azure Portal에서](single-database-create-quickstart.md)새 논리 SQL server를 만드는 동안이 설정은 선택 하지 않은 상태로 유지 됩니다.
+기본적으로 [Azure Portal에서](single-database-create-quickstart.md)새 논리 SQL server를 만드는 동안이 설정은 **OFF**로 설정 됩니다. 이 설정은 공용 서비스 끝점을 사용 하 여 연결을 허용 하는 경우에 나타납니다.
 
 다음과 같이 논리 SQL server를 만든 후 방화벽 창을 통해이 설정을 변경할 수도 있습니다.
   
@@ -80,9 +80,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> AzNetworkServiceTag은 Location 매개 변수를 지정 하는 경우에도 SQL 서비스 태그의 전역 범위를 반환 합니다. 동기화 그룹에서 사용 하는 허브 데이터베이스를 호스트 하는 지역으로 필터링 해야 합니다.
+> Get-AzNetworkServiceTag은 Location 매개 변수를 지정 하는 경우에도 SQL 서비스 태그의 전역 범위를 반환 합니다. 동기화 그룹에서 사용 하는 허브 데이터베이스를 호스트 하는 지역으로 필터링 해야 합니다.
 
-PowerShell 스크립트의 출력은 클래스 없는 CIDR (도메인 간 라우팅) 표기법으로 작성 됩니다. 다음과 같이 [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) 를 사용 하 여 시작 및 끝 IP 주소 형식으로 변환 해야 합니다.
+PowerShell 스크립트의 출력은 CIDR (클래스 없는 Inter-Domain 라우팅) 표기법으로 작성 됩니다. 다음과 같이 [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) 를 사용 하 여 시작 및 끝 IP 주소 형식으로 변환 해야 합니다.
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26

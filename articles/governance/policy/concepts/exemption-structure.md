@@ -3,16 +3,16 @@ title: 정책 예외 구조의 세부 정보
 description: 이니셔티브 또는 정의 평가에서 리소스를 제외 하기 위해 Azure Policy에서 사용 하는 정책 예외 정의에 대해 설명 합니다.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968049"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950179"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy 예외 구조
 
-Azure Policy 예외 (미리 보기) 기능을 사용 하 여 리소스 계층 이나 개별 리소스를 평가 하거나 정의 평가에서 _제외_ 합니다. _제외_ 된 리소스는 전체 규정 준수를 계산 하지만 평가 하거나 임시 포기를 가질 수 없습니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요. Azure Policy 예외는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 에서만 작동 하며 **리소스 공급자 모드**에서는 작동 하지 않습니다.
+Azure Policy 예외 (미리 보기) 기능을 사용 하 여 리소스 계층 이나 개별 리소스를 평가 하거나 정의 평가에서 _제외_ 합니다. _제외_ 된 리소스는 전체 규정 준수를 계산 하지만 평가 하거나 임시 포기를 가질 수 없습니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요. Azure Policy 예외는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 에서만 작동 하며 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes)에서는 작동 하지 않습니다.
 
 > [!IMPORTANT]
 > 이 기능은 **미리 보기**기간 동안 무료입니다. 가격 책정에 대 한 자세한 내용은 [Azure Policy 가격 책정](https://azure.microsoft.com/pricing/details/azure-policy/)을 참조 하세요. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

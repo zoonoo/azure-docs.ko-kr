@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080015"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978614"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리 
 
@@ -28,7 +28,7 @@ ms.locfileid: "87080015"
 
 ## <a name="limitations"></a>제한 사항
 
-- Vm은 [전용 호스트](./linux/dedicated-hosts.md)에 있거나 [격리 된 VM 크기](isolation.md)를 사용 하 여 만들어야 합니다.
+- Vm은 [전용 호스트](./dedicated-hosts.md)에 있거나 [격리 된 VM 크기](isolation.md)를 사용 하 여 만들어야 합니다.
 - 35 일 후 업데이트가 자동으로 적용 됩니다.
 - 사용자에 게 **리소스 참여자** 액세스 권한이 있어야 합니다.
 

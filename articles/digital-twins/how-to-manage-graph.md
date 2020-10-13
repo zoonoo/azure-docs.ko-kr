@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ad0111f9be8c0b981093618be7296d0ec7f90e30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326544"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949618"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -74,7 +74,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 
 ## <a name="list-relationships"></a>관계 목록
 
-그래프에서 지정 된 쌍의 관계 목록에 액세스 하려면 다음을 사용할 수 있습니다.
+그래프의 지정 된 쌍에서 **들어오는 관계의** 목록에 액세스 하려면 다음을 사용할 수 있습니다.
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -110,11 +110,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 검색 된 관계를 사용 하 여 그래프의 다른 쌍으로 이동할 수 있습니다. 이렇게 하려면 `target` 반환 되는 관계에서 필드를 읽고에 대 한 다음 호출의 ID로 사용 `GetDigitalTwin` 합니다. 
 
-### <a name="find-relationships-to-a-digital-twin"></a>디지털 쌍에 대 한 관계 찾기
+### <a name="find-incoming-relationships-to-a-digital-twin"></a>디지털 쌍으로 들어오는 관계 찾기
 
-Azure Digital Twins에는 지정 된 쌍으로 들어오는 모든 관계를 찾을 수 있는 API도 있습니다. 이는 역방향 탐색 이나 쌍을 삭제할 때 유용 합니다.
+Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를 찾을 수 있는 API도 있습니다. 이는 역방향 탐색 이나 쌍을 삭제할 때 유용 합니다.
 
-이전 코드 샘플은 나가는 관계를 찾는 데 중점을 두었습니다. 다음 예는 유사 하지만 들어오는 관계를 대신 찾습니다. 또한 찾은 후 삭제 합니다.
+이전 코드 샘플은 쌍에서 나가는 관계를 찾는 데 중점을 두었습니다. 다음 예제는 유사 하 게 구성 되지만 대신 쌍으로 *들어오는* 관계를 찾습니다.
 
 `IncomingRelationship`호출은 관계의 전체 본문을 반환 하지 않습니다.
 

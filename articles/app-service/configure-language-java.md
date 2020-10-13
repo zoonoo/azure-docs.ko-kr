@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0b6d4ebd199e1db9e5b325df5ea08eaede8e581b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 736d80c4bcfe31a499b84bb24c1c377e69e84218
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311889"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976014"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Java 앱 구성
 
@@ -29,8 +29,6 @@ Azure App Service를 통해 Java 개발자는 완전히 관리 되는 서비스�
 
 그렇지 않으면 배포 방법이 보관 형식에 따라 달라집니다.
 
-::: zone pivot="platform-windows"  
-
 ### <a name="java-se"></a>Java SE
 
 Kudu 사이트의 끝점을 사용 하 여 jar 파일을 Java SE에 배포 합니다 `/api/zipdeploy/` . 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#rest)를 참조하세요.
@@ -39,7 +37,6 @@ Kudu 사이트의 끝점을 사용 하 여 jar 파일을 Java SE에 배포 합�
 
 .war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-war-file)를 참조하세요.
 
-::: zone-end
 ::: zone pivot="platform-linux"
 
 ### <a name="jboss-eap"></a>JBoss EAP

@@ -3,18 +3,18 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3b4185fb90aec68eda600b67c95529e6b80b09e4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665618"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950247"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다.
 
-Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../cost-management-billing/manage/getting-started.md)를 참조하세요.
+Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../cost-management-billing/cost-management-billing-overview.md)를 참조하세요.
 
 ## <a name="managing-limits"></a>제한 관리
 
@@ -434,7 +434,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

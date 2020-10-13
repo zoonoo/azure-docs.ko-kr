@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: f6d8929c8fd59836ff297f226851890892c10acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445136"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938834"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -75,7 +75,7 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 | Azure |  |  |&#8226; |  |  | 도착 시 |
 
 ## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
-솔루션을 [설치한](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)후 Azure Monitor **개요** 페이지에서 **Key Vault 분석** 타일을 클릭 하 여 Key Vault 데이터를 봅니다. **인사이트** 섹션에서 **기타**를 클릭하여 **Azure Monitor** 메뉴에서 이 페이지를 엽니다. 
+솔루션을 [설치한](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview)후 Azure Monitor **개요** 페이지에서 **Key Vault 분석** 타일을 클릭 하 여 Key Vault 데이터를 봅니다. **인사이트** 섹션에서 **기타**를 클릭하여 **Azure Monitor** 메뉴에서 이 페이지를 엽니다. 
 
 ![시간이 지남에 따라 Key Vault 작업 볼륨의 그래프를 보여 주는 Azure Monitor 개요 페이지의 Key Vault 분석 타일 스크린샷](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -99,7 +99,7 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/general/logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |

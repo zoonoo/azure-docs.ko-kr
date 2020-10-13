@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 43e19df24de2f2c4e8e5334010ee788129cee68b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666639"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968925"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -21,7 +21,7 @@ B 시리즈 Vm은 웹 서버, 개념 증명, 소규모 데이터베이스 및 �
 
 B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 
-[ACU (Azure Compute Unit)](https://docs.microsoft.com/azure/virtual-machines/acu?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json): 다름 *<br>
+[ACU (Azure Compute Unit)](./acu.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json): 다름 *<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
-ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e13add778ae372ea90361c094238668752fe2af
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274439"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977700"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -33,7 +33,7 @@ Oracle 데이터베이스의 성능을 최대화 하는 방법에 대 한 자세
 
 ## <a name="high-availability-for-oracle-databases"></a>Oracle 데이터베이스에 대 한 고가용성
 
-클라우드에서 고가용성을 달성 하는 것은 모든 조직의 계획 및 설계에서 중요 한 부분입니다. Microsoft Azure 가용성 [영역 및 가용성](../../../availability-zones/az-overview.md) 집합을 제공 합니다. 가용성 영역을 사용할 수 없는 지역에서 사용할 수 있습니다. 클라우드를 설계할 수 있도록 [가상 머신의 가용성 관리](../../../virtual-machines/linux/manage-availability.md) 에 대해 자세히 알아보세요.
+클라우드에서 고가용성을 달성 하는 것은 모든 조직의 계획 및 설계에서 중요 한 부분입니다. Microsoft Azure 가용성 [영역 및 가용성](../../../availability-zones/az-overview.md) 집합을 제공 합니다. 가용성 영역을 사용할 수 없는 지역에서 사용할 수 있습니다. 클라우드를 설계할 수 있도록 [가상 머신의 가용성 관리](../../manage-availability.md) 에 대해 자세히 알아보세요.
 
 Oracle은 클라우드 네이티브 도구 및 제품 외에도 [Oracle Data guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)와 같은 고가용성을 위한 솔루션과 Azure에서 설정할 수 있는 fsfo, [분할](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html)및 [GoldenGate](https://www.oracle.com/middleware/technologies/goldengate.html) 를 제공 하는 [데이터 보호](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html)를 제공 합니다. 이 가이드에서는 이러한 각 솔루션에 대 한 참조 아키텍처를 설명 합니다.
 
@@ -43,7 +43,7 @@ Oracle은 클라우드 네이티브 도구 및 제품 외에도 [Oracle Data gua
 
 Oracle RAC (실제 응용 프로그램 클러스터)는 단일 데이터베이스 저장소 (공유-전체 아키텍처 패턴)에 액세스 하는 많은 인스턴스를 포함 하 여 고객이 높은 처리량을 달성할 수 있도록 하는 Oracle의 솔루션입니다. Oracle RAC는 온-프레미스의 고가용성에도 사용할 수 있지만, Oracle RAC 단독은 랙 수준 또는 데이터 센터 수준 오류를 방지 하는 것이 아니라 인스턴스 수준 오류에 대해서만 보호 하므로 클라우드의 고가용성에는 사용할 수 없습니다. 이러한 이유로 Oracle은 고가용성을 위해 데이터베이스 (단일 인스턴스 또는 RAC)와 함께 Oracle Data Guard를 사용 하는 것을 권장 합니다. 일반적으로 고객은 업무에 중요 한 응용 프로그램을 실행 하는 데 높은 SLA를 요구 합니다. Oracle RAC는 현재 Azure의 Oracle에서 인증 또는 지원 되지 않습니다. 그러나 Azure는 인스턴스 수준 오류 로부터 보호 하는 데 도움이 되는 Azure 제품 가용성 영역 및 계획 된 유지 관리 기간 등의 기능을 제공 합니다. 이 외에도 고객은 Oracle Data Guard, Oracle GoldenGate 및 Oracle 분할와 같은 기술을 사용 하 여 성능 및 복원 력을 랙 수준에서 보호 하 고 데이터 센터 수준 및 지리적 정치적 오류를 방지할 수 있습니다.
 
-Oracle Data Guard 또는 GoldenGate와 함께 여러 [가용성 영역](../../../availability-zones/az-overview.md) 에서 oracle 데이터베이스를 실행 하는 경우 고객은 99.99%의 작동 시간 SLA를 얻을 수 있습니다. 가용성 영역이 아직 없는 Azure 지역에서 고객은 [가용성 집합](../../linux/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 을 사용 하 고 99.95%의 작동 시간 SLA를 달성할 수 있습니다.
+Oracle Data Guard 또는 GoldenGate와 함께 여러 [가용성 영역](../../../availability-zones/az-overview.md) 에서 oracle 데이터베이스를 실행 하는 경우 고객은 99.99%의 작동 시간 SLA를 얻을 수 있습니다. 가용성 영역이 아직 없는 Azure 지역에서 고객은 [가용성 집합](../../manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 을 사용 하 고 99.95%의 작동 시간 SLA를 달성할 수 있습니다.
 
 >참고: 가동 시간 목표는 Microsoft에서 제공 하는 작동 시간 SLA 보다 훨씬 더 높을 수 있습니다.
 
@@ -209,7 +209,7 @@ Oracle Data Guard는 시스템 관리, 사용자 정의 및 복합 분할 메서
 
 ## <a name="patching-and-maintenance"></a>패치 및 유지 관리
 
-Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스트 OS 수준 패치를 처리 합니다. 계획 된 모든 OS 수준 유지 관리는 고객이 계획 된 유지 관리를 위해 고객에 게 미리 전달 됩니다. 서로 다른 두 가용성 영역의 두 서버는 동시에 패치할 수 없습니다. VM 유지 관리 및 패치 적용에 대 한 자세한 내용은 [virtual machines의 가용성 관리](../../../virtual-machines/linux/manage-availability.md) 를 참조 하세요. 
+Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스트 OS 수준 패치를 처리 합니다. 계획 된 모든 OS 수준 유지 관리는 고객이 계획 된 유지 관리를 위해 고객에 게 미리 전달 됩니다. 서로 다른 두 가용성 영역의 두 서버는 동시에 패치할 수 없습니다. VM 유지 관리 및 패치 적용에 대 한 자세한 내용은 [virtual machines의 가용성 관리](../../manage-availability.md) 를 참조 하세요. 
 
 [Azure Automation 업데이트 관리](../../../automation/update-management/update-mgmt-overview.md)를 사용 하 여 가상 머신 운영 체제 패치를 자동화할 수 있습니다. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) 또는 [Azure Automation 업데이트 관리](../../../automation/update-management/update-mgmt-overview.md) 를 사용 하 여 Oracle 데이터베이스를 패치 및 유지 관리 하 여 가동 중지 시간을 최소화할 수 있습니다. Oracle 데이터베이스의 컨텍스트에서 사용할 수 있는 방법을 이해 하려면 [연속 배달 및 Blue/녹색 배포](/azure/devops/learn/what-is-continuous-delivery) 를 참조 하세요.
 
