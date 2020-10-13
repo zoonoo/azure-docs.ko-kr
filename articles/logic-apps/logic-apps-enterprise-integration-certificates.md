@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 03fc17c0d071cef4c8de92c6b50d60d961d18aef
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565262"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>인증서를 사용하여 B2B 메시지에 대한 보안 강화
@@ -44,7 +44,7 @@ B2B 기능이 포함된 논리 앱에서 *공용 인증서*를 사용하려면 �
 
 3. **인증서** 아래에서 **추가**를 선택합니다. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다. 작업을 완료하면 **확인**을 선택합니다.
 
-   | 속성 | 값 | Description | 
+   | 속성 | 값 | 설명 | 
    |----------|-------|-------------|
    | **이름** | <*인증서-이름*> | 사용자의 인증서 이름(이 예제의 "publicCert")입니다. | 
    | **인증서 유형** | 공용 | 인증서의 종류입니다. |
@@ -83,7 +83,7 @@ B2B 기능이 포함된 논리 앱에서 *프라이빗 인증서*를 사용하�
 
 5. **인증서** 아래에서 **추가**를 선택합니다. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다. 작업을 완료하면 **확인**을 선택합니다.
 
-   | 속성 | 값 | Description | 
+   | 속성 | 값 | 설명 | 
    |----------|-------|-------------|
    | **이름** | <*인증서-이름*> | 사용자의 인증서 이름(이 예제의 "privateCert")입니다. | 
    | **인증서 유형** | Private | 인증서의 종류입니다. |

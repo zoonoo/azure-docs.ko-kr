@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263490"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Relay 하이브리드 연결 Node API 개요
@@ -133,7 +133,7 @@ function(headers)
 
 들어오는 연결이 수락되기 바로 전에 `headers` 이벤트가 발생하여 클라이언트에 전송할 헤더를 수정할 수 있게 합니다. 
 
-##### <a name="connection"></a>연결
+##### <a name="connection"></a>connection
 
 ```JavaScript
 function(socket)

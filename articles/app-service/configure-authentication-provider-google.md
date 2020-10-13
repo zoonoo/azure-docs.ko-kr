@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80519939"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Google 로그인을 사용 하도록 App Service 또는 Azure Functions 앱 구성
@@ -24,7 +24,7 @@ ms.locfileid: "80519939"
 
 ## <a name="register-your-application-with-google"></a><a name="register"> </a>Google을 사용하여 애플리케이션 등록
 
-1. [서버 쪽 앱에 대 한 Google 로그인](https://developers.google.com/identity/sign-in/web/server-side-flow) 의 google 설명서에 따라 클라이언트 ID 및 클라이언트 암호를 만듭니다. 코드를 변경할 필요가 없습니다. 다음 정보를 사용 하면 됩니다.
+1. Google Sign-In의 google 설명서를 따라 [서버 쪽 앱에 대 한](https://developers.google.com/identity/sign-in/web/server-side-flow) 클라이언트 ID 및 클라이언트 암호를 만듭니다. 코드를 변경할 필요가 없습니다. 다음 정보를 사용 하면 됩니다.
     - **권한 있는 JavaScript 원본**에 대해 `https://<app-name>.azurewebsites.net` 에서 앱의 이름과 함께를 사용 *\<app-name>* 합니다.
     - **권한 있는 리디렉션 URI**의 경우를 사용 `https://<app-name>.azurewebsites.net/.auth/login/google/callback` 합니다.
 1. 앱 ID 및 앱 암호 값을 복사 합니다.

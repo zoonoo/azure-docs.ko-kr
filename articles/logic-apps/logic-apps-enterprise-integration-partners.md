@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565074"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps에 대한 통합 계정에 거래 업체 추가
@@ -27,7 +27,7 @@ ms.locfileid: "91565074"
 
 규약에서 호스트 파트너의 관점에서 들어오고 나가는 메시지 처리에 대 한 세부 정보를 지정 합니다. 들어오는 메시지의 경우 **수신 설정은** 호스트 파트너가 규약의 게스트 파트너 로부터 메시지를 수신 하는 방법을 지정 합니다. 보내는 메시지의 경우 **송신 설정은** 호스트 파트너가 게스트 파트너에 게 메시지를 보내는 방법을 지정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "91565074"
 
    !["추가"를 선택 하 고 파트너 세부 정보를 제공 합니다.](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이름** | 예 | 파트너의 이름입니다. |
    | **한정자** | 예 | 조직에 고유한 비즈니스 id를 제공 하는 인증 본문 (예: **D-U-N-S (Dun & Bradstreet))**. <p>파트너는 상호 정의 된 비즈니스 id를 선택할 수 있습니다. 이러한 시나리오에서는 EDIFACT에 대해 **상호 정의 됨** **(X12)** 또는 x12에 대해 상호 정의 됨을 선택 합니다. <p>RosettaNet의 경우에는 표준 인 **DUNS**만 선택 합니다. |
@@ -84,12 +84,12 @@ ms.locfileid: "91565074"
 
    RosettaNet의 경우 **RosettaNet Partner 속성**에서 다음과 같은 추가 정보를 지정할 수 있습니다.
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **파트너 분류** | 아니요 | 파트너의 조직 유형입니다. |
    | **공급망 코드** | 아니요 | 파트너의 공급망 코드 (예: "정보 기술" 또는 "전자 구성 요소") |
    | **연락처 이름** | 아니요 | 파트너의 연락처 이름입니다. |
-   | **Email** | 아니요 | 파트너의 전자 메일 주소 |
+   | **이메일** | 아니요 | 파트너의 전자 메일 주소 |
    | **Fax** | 아니요 | 파트너의 팩스 번호 |
    | **Telephone** | 아니요 | 파트너의 전화 번호입니다. |
    ||||

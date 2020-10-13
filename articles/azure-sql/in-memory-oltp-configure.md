@@ -1,6 +1,6 @@
 ---
-title: 메모리 내 OLTP는 SQL 트랜잭션 성능 향상
-description: Azure SQL Database 및 Azure SQL Managed Instance에서 기존 데이터베이스의 트랜잭션 성능을 향상 시키기 위해 메모리 내 OLTP를 채택 합니다.
+title: In-Memory OLTP는 SQL 트랜잭션 성능 향상
+description: In-Memory OLTP를 채택 하 여 Azure SQL Database 및 Azure SQL Managed Instance에서 기존 데이터베이스의 트랜잭션 성능을 향상 시킵니다.
 services: sql-database
 ms.service: sql-database
 ms.custom: sqldbrb=2
@@ -11,13 +11,13 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
 ms.openlocfilehash: e17e98e784b7453c87814c5cce5c03568f66b1cb
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619749"
 ---
-# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>메모리 내 OLTP를 사용 하 여 Azure SQL Database 및 Azure SQL에서 응용 프로그램 성능을 향상 시킬 수 있습니다 Managed Instance
+# <a name="use-in-memory-oltp-to-improve-your-application-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>In-Memory OLTP를 사용 하 여 Azure SQL Database 및 Azure SQL에서 응용 프로그램 성능을 향상 시킬 수 있습니다 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 [메모리 내 OLTP](in-memory-oltp-overview.md)를 사용하면 가격대를 높이지 않고도 [프리미엄 및 중요 비즈니스용 계층](database/service-tiers-vcore.md) 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다.
@@ -83,8 +83,8 @@ SSMS에서 보고서를 생성합니다.
 3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
 
    * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](/sql/relational-databases/in-memory-oltp/memory-optimization-advisor).
-   * [메모리 내 OLTP에서 지원 되지 않는 Transact-sql 구문](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp)입니다.
-   * [메모리 내 OLTP로 마이그레이션](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server)
+   * [In-Memory OLTP에서 지원 하지 않는 Transact-sql 구문](/sql/relational-databases/in-memory-oltp/transact-sql-constructs-not-supported-by-in-memory-oltp)입니다.
+   * [In-Memory OLTP로 마이그레이션](/sql/relational-databases/in-memory-oltp/plan-your-adoption-of-in-memory-oltp-features-in-sql-server)
 4. 테이블에 지원되지 않는 기능이 없는 경우 관리자는 사용자에게 실제 스키마 및 데이터 마이그레이션을 수행할 수 있습니다.
 
 ### <a name="manual-t-sql"></a>수동 T-SQL
@@ -172,7 +172,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
-* [메모리 내 저장소를 모니터링](in-memory-oltp-monitor-space.md)합니다.
+* [In-Memory 저장소를 모니터링](in-memory-oltp-monitor-space.md)합니다.
 * [동적 관리 뷰를 사용 하 여 모니터링](database/monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>관련 링크

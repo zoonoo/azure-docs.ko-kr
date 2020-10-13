@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543336"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
@@ -228,7 +228,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">감사 로그</a>** - 네트워크 구성의 일부로 수행되는 작업이 기록됩니다. 이러한 로그는 Azure Portal에서 보거나 Power BI 또는 타사 도구와 같은 Microsoft 도구를 사용하여 검색할 수 있습니다. 감사 로그는 포털, PowerShell, CLI 및 Rest API를 통해 사용할 수 있습니다. 감사 로그에 대한 자세한 내용은 Resource Manager로 작업 감사를 참조하세요. 감사 로그는 모든 네트워크 리소스에서 수행된 작업에 사용할 수 있습니다.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP 흐름 확인</a>** -흐름 정보의 5 개 튜플 패킷 매개 변수 (대상 Ip, 원본 Ip, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷이 허용 되거나 거부 되는지 확인 합니다. 네트워크 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 네트워크 보안 그룹이 반환됩니다.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">IP 흐름 확인 </a>** -흐름 정보의 5 개 튜플 패킷 매개 변수 (대상 Ip, 원본 Ip, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷이 허용 되거나 거부 되는지 확인 합니다. 네트워크 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 네트워크 보안 그룹이 반환됩니다.
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">다음 홉</a>** - Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정하여 잘못 구성된 사용자 정의 경로를 진단할 수 있습니다.
 

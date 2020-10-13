@@ -12,10 +12,10 @@ ms.author: sstein
 ms.date: 10/07/2020
 ms.reviewer: ''
 ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91848860"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
@@ -42,8 +42,8 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |**CPU**|낮음|낮음, 보통, 높음|보통, 높음|
 |**IOPS (근사치)**\* |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |**IO 대기 시간(근사치)**|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|**Columnstore 인덱싱** |해당 없음|S3 이상|지원됨|
-|**메모리 내 OLTP**|해당 없음|해당 없음|지원됨|
+|**Columnstore 인덱싱** |N/A|S3 이상|지원됨|
+|**메모리 내 OLTP**|N/A|해당 없음|지원됨|
 
 \* 백그라운드 IO (검사점 및 지연 기록기)를 포함 하 여 데이터 파일에 대 한 모든 읽기 및 쓰기 IOPS
 

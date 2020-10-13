@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91260158"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호
@@ -112,7 +112,7 @@ Synapse 역할에 사용자를 수동으로 할당할 수 있지만, 이 경우 
 
 각 역할의 사용자는 다음 단계를 완료해야 합니다.
 
-| 번호 | 단계 | 작업 영역 관리자 | Spark 관리자 | SQL 관리자 |
+| 숫자 | 단계 | 작업 영역 관리자 | Spark 관리자 | SQL 관리자 |
 | --- | --- | --- | --- | --- |
 | 1 | CNT1에 parquet 파일 업로드 | YES | YES | YES |
 | 2 | SQL 주문형을 사용하여 parquet 파일 읽기 | YES | 아니요 | YES |

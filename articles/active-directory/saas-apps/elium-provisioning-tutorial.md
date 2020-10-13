@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544233"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Elium 구성
@@ -27,7 +27,7 @@ ms.locfileid: "88544233"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 미리 보기의 Azure 기능에 대 한 일반적인 사용 약관은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -116,7 +116,7 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-1. **저장**을 클릭합니다.
+1. **Save**을 클릭합니다.
 
 1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Elium에 동기화를**선택 합니다.
 
@@ -144,7 +144,7 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
 **현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따릅니다. 프로 비전 활동 보고서는 Elium의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로비저닝 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

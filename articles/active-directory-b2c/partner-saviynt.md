@@ -12,10 +12,10 @@ ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259139"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Saviynt 구성에 대 한 자습서
@@ -30,7 +30,7 @@ ms.locfileid: "91259139"
 
 - 사용자가 특정 사용자에 대해 특정 작업을 수행할 수 있는지 여부를 확인 하는 데이터 수준 보안 예를 들어 영국 지역의 지원 센터 관리자는 영국 사용자만 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -54,7 +54,7 @@ Saviynt 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Saviynt 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 위임 된 관리자는 Saviynt를 통해 Azure AD B2C 사용자 관리 작업을 시작 합니다.
 | 2. | Saviynt는 위임 된 관리자가 특정 작업을 수행할 수 있는 경우 해당 권한 부여 엔진을 사용 하 여 확인 합니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 보안 구성
-description: Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 보안 구성
+title: Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
+description: Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273203"
 ---
-# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 보안 구성
+# <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
 
 이 문서에서는 서버 그룹의 보안과 관련 된 다양 한 측면에 대해 설명 합니다.
 - 미사용 암호화
@@ -150,7 +150,7 @@ select * from mysecrets;
 
 ## <a name="user-management"></a>사용자 관리
 ### <a name="general-perspectives"></a>일반적인 큐브 뷰
-표준 Postgres 방법을 사용 하 여 사용자 또는 역할을 만들 수 있습니다. 그러나이 작업을 수행 하는 경우 코디네이터 역할 에서만 이러한 아티팩트를 사용할 수 있습니다. 미리 보기 중에 이러한 사용자/역할은 아직 코디네이터 노드 외부 및 서버 그룹의 작업자 노드에 배포 된 데이터에 액세스할 수 없습니다. 그 이유는 미리 보기에서 사용자 정의가 작업자 노드에 복제 되지 않기 때문입니다.
+표준 Postgres 방법을 사용 하 여 사용자 또는 역할을 만들 수 있습니다. 그러나 이 작업을 수행하는 경우 코디네이터 역할에서만 이러한 아티팩트를 사용할 수 있습니다. 미리 보기 중에 이러한 사용자/역할은 아직 코디네이터 노드 외부 및 서버 그룹의 작업자 노드에 배포된 데이터에 액세스할 수 없습니다. 그 이유는 미리 보기에서 사용자 정의가 작업자 노드에 복제되지 않기 때문입니다.
 
 ### <a name="change-the-password-of-the-_postgres_-administrative-user"></a>_Postgres_ 관리 사용자의 암호 변경
 Azure Arc enabled PostgreSQL Hyperscale에는 서버 그룹을 만들 때 암호를 설정 하는 표준 Postgres 관리 사용자 _Postgres_ 가 제공 됩니다.

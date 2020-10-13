@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90528656"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
-이 문서에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 MXChip IoT DevKit를 Azure IoT Hub에 [프로 비전](about-iot-dps.md#provisioning-process) 하는 방법을 설명 합니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 문서에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 MXChip IoT DevKit를 Azure IoT Hub에 [프로 비전](about-iot-dps.md#provisioning-process) 하는 방법을 설명 합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 * UDS(고유 디바이스 비밀)를 사용하여 X.509 인증서를 생성합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "90528656"
 
 이 자습서를 완료하려면 먼저 다음 작업을 수행합니다.
 
-* [클라우드에서 IoT DEVKIT AZ3166 Azure IoT Hub에 연결](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)의 "개발 환경 준비" 섹션의 단계에 따라 devkit의 wi-fi를 구성 하 고 개발 환경을 준비 합니다.
+* [IoT DEVKIT AZ3166를 클라우드의 Azure IoT Hub에 연결](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)의 "개발 환경 준비" 섹션에 따라 devkit의 Wi-Fi를 구성 하 고 개발 환경을 준비 합니다.
 * [DevKit 펌웨어 업데이트](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) 자습서를 사용하여 최신 펌웨어(1.3.0 이상)로 업그레이드합니다.
 * [Azure Portal에서 IoT Hub Device Provisioning 서비스 설정](/azure/iot-dps/quick-setup-auto-provision) 단계에 따라 IoT Hub를 만들어 Device Provisioning Service 인스턴스와 연결합니다.
 

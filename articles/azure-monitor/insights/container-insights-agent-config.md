@@ -4,13 +4,13 @@ description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 수집�
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84299284"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 에이전트 데이터 수집 구성
+# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor에 대한 에이전트 데이터 수집 구성
 
 컨테이너에 대 한 Azure Monitor 컨테이너 화 된 에이전트에서 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드에서 stdout, stderr 및 환경 변수를 수집 합니다. 사용자 지정 Kubernetes ConfigMaps를 만들어이 환경을 제어 하 여 에이전트 데이터 수집 설정을 구성할 수 있습니다. 
 
@@ -38,7 +38,7 @@ ms.locfileid: "84299284"
 | `[log_collection_settings.stdout] enabled =` | 부울 | true 또는 false | Stdout 컨테이너 로그 수집이 설정 되었는지 여부를 제어 합니다. 로 설정 `true` 된 경우 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외 되지 않습니다.<br> ( `log_collection_settings.stdout.exclude_namespaces` 아래 설정), stdout 로그는 클러스터에 있는 모든 pod/노드의 모든 컨테이너에서 수집 됩니다. ConfigMaps에 지정 되지 않은 경우<br> 기본값은 `enabled = true` 입니다. |
 | `[log_collection_settings.stdout] exclude_namespaces =` | String | 쉼표로 구분 된 배열 | Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 다음 경우에만 적용 됩니다.<br> `log_collection_settings.stdout.enabled`<br> `true`로 설정됩니다.<br> ConfigMap에 지정 되지 않은 경우 기본값은입니다.<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.stderr] enabled =` | 부울 | true 또는 false | Stderr 컨테이너 로그 수집이 사용 되는지 여부를 제어 합니다.<br> 로 설정 `true` 된 경우 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외 되지 않습니다.<br> ( `log_collection_settings.stderr.exclude_namespaces` 설정)-클러스터에 있는 모든 pod/노드의 모든 컨테이너에서 stderr 로그가 수집 됩니다.<br> ConfigMaps에 지정 되지 않은 경우 기본값은입니다.<br> `enabled = true`. |
-| `[log_collection_settings.stderr] exclude_namespaces =` | String | 쉼표로 구분 된 배열 | Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다.<br> 이 설정은 다음 경우에만 적용 됩니다.<br> `log_collection_settings.stdout.enabled`가 `true`로 설정됩니다.<br> ConfigMap에 지정 되지 않은 경우 기본값은입니다.<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | String | 쉼표로 구분 된 배열 | Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다.<br> 이 설정은 다음 경우에만 적용 됩니다.<br> `log_collection_settings.stdout.enabled`이 `true`로 설정됩니다.<br> ConfigMap에 지정 되지 않은 경우 기본값은입니다.<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | 부울 | true 또는 false | 이 설정은 환경 변수 컬렉션을 제어 합니다.<br> 클러스터의 모든 pod/노드 간<br> 지정 하지 않을 경우 기본적으로로 설정 됩니다. `enabled = true`<br> ConfigMaps.<br> 환경 변수의 컬렉션을 전역적으로 사용 하는 경우 특정 컨테이너에 대해 사용 하지 않도록 설정할 수 있습니다.<br> 환경 변수 설정<br> `AZMON_COLLECT_ENV`Dockerfile 설정이 나 **env:** 섹션 아래에 있는 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) 에서 **False** 로 설정 합니다.<br> 환경 변수의 컬렉션을 전역적으로 사용 하지 않도록 설정 하면 특정 컨테이너에 대해 컬렉션을 사용 하도록 설정할 수 없습니다. 즉, 전역에서 이미 사용 하도록 설정 된 경우 컬렉션을 사용 하지 않도록 설정 하는 것은 컨테이너 수준에서 적용할 수 있는 유일한 재정의입니다. |
 | `[log_collection_settings.enrich_container_logs] enabled =` | 부울 | true 또는 false | 이 설정은 컨테이너 로그 보강를 제어 하 여 이름 및 이미지 속성 값을 채웁니다.<br> 클러스터의 모든 컨테이너 로그에 대해 ContainerLog 테이블에 기록 된 모든 로그 레코드<br> `enabled = false`ConfigMap에 지정 되지 않은 경우 기본적으로로 설정 됩니다. |
 | `[log_collection_settings.collect_all_kube_events]` | 부울 | true 또는 false | 이 설정을 사용 하면 모든 유형의 Kube 이벤트를 수집할 수 있습니다.<br> 기본적으로 *Normal* 형식의 Kube 이벤트는 수집 되지 않습니다. 이 설정이로 설정 되 면 `true` *일반적인* 이벤트가 더 이상 필터링 되지 않으며 모든 이벤트가 수집 됩니다.<br> 이 매개 변수는 기본적으로 `false`로 설정됩니다. |
@@ -115,7 +115,7 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 ## <a name="verifying-schema-version"></a>스키마 버전 확인
 
-지원 되는 구성 스키마 버전은 omsagent pod에서 pod 주석 (스키마 버전)으로 사용할 수 있습니다. 다음 kubectl 명령을 사용 하 여 볼 수 있습니다.`kubectl describe pod omsagent-fdf58 -n=kube-system`
+지원 되는 구성 스키마 버전은 omsagent pod에서 pod 주석 (스키마 버전)으로 사용할 수 있습니다. 다음 kubectl 명령을 사용 하 여 볼 수 있습니다. `kubectl describe pod omsagent-fdf58 -n=kube-system`
 
 출력은 주석 스키마 버전을 사용 하는 다음과 유사 하 게 표시 됩니다.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
 ms.openlocfilehash: e0b02f8d6a46c26b8927b4bac4d2089d3b57c295
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91777769"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
@@ -212,7 +212,7 @@ Commands:
 
 다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
 
-|명령을 사용합니다.  |설명: |
+|명령을 사용합니다.  |설명 |
 |---------|---------|
 |`list`     | 모듈 목록 표시         |
 |`logs`     | 모듈의 로그 가져오기        |

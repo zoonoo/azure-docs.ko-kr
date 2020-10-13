@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
 ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627230"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
@@ -133,7 +133,7 @@ ms.locfileid: "91627230"
   > [!NOTE]
   > SQL Managed Instance는 여러 장애 조치 (failover) 그룹을 지원 하지 않습니다.
   
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 장애 조치 (failover) 그룹에 대 한 사용 권한은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 통해 관리 됩니다. [SQL Server 참여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할에는 장애 조치 (failover) 그룹을 관리 하는 데 필요한 모든 권한이 있습니다.
 
@@ -235,7 +235,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 
 ### <a name="using-geo-paired-regions"></a>지리적으로 쌍을 이루는 지역 사용
 
-성능상의 이유로 두 관리 되는 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 에 배포 합니다. 지리적으로 쌍을 이루는 지역에 상주 하는 관리 되는 인스턴스는 페어링되지 않은 영역에 비해 훨씬 더 나은 성능을 갖습니다. 
+성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>두 인스턴스 간의 복제 트래픽 활성화
 
@@ -492,7 +492,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
   - [PowerShell을 사용 하 여 Azure SQL Database에 대 한 활성 지역 복제 구성](scripts/setup-geodr-and-failover-database-powershell.md)
   - [PowerShell을 사용하여 Azure SQL Database에 풀링된 데이터베이스에 대한 활성 지역 복제 구성](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
   - [PowerShell을 사용 하 여 장애 조치 (failover) 그룹에 Azure SQL Database 추가](scripts/add-database-to-failover-group-powershell.md)
-- 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md) 를 참조 하세요.
 - 자동화 된 백업 Azure SQL Database에 대 한 자세한 내용은 [자동화 된 백업 SQL Database](automated-backups-overview.md)을 참조 하세요.
 - 복구를 위해 자동화 된 백업을 사용 하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조 하세요.
 - 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](active-geo-replication-security-configure.md)을 참조하세요.

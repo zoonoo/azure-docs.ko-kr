@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907884"
 ---
 # <a name="init-image-transformation"></a>이미지 변환 시작
@@ -67,7 +67,7 @@ ms.locfileid: "90907884"
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 이름                    | 범위   | Type    | 기본값 | 설명                              |
+| Name                    | 범위   | Type    | 기본값 | 설명                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | 크기 조정                  | 모두     | 부울 | True    | 입력 PIL 이미지를 지정 된 크기로 조정 합니다. |
 | 크기                    | >= 1     | 정수 | 256     | 원하는 출력 크기를 지정 합니다.          |
@@ -93,7 +93,7 @@ ms.locfileid: "90907884"
 
 ###  <a name="output"></a>출력  
 
-| 이름                        | Type                    | 설명                              |
+| Name                        | 유형                    | 설명                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | 출력 이미지 변환 | TransformationDirectory | **이미지 변환 적용** 모듈에 연결할 수 있는 출력 이미지 변환입니다. |
 

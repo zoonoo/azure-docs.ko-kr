@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80876660"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Azure Container Instance에서 컨테이너 배포 및 실행
 
 다음 단계를 통해 Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/)를 사용 하 여 클라우드에서 azure Cognitive Services 응용 프로그램을 쉽게 확장할 있습니다. 컨테이너 화를 사용 하면 인프라를 관리 하는 대신 응용 프로그램 빌드에 집중할 수 있습니다. 컨테이너 사용에 대 한 자세한 내용은 [기능 및 이점](../cognitive-services-container-support.md#features-and-benefits)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 조리법은 모든 Cognitive Services 컨테이너와 함께 작동 합니다. 조리법을 사용 하기 전에 Azure Portal에 인지 서비스 리소스를 만들어야 합니다. 컨테이너를 지 원하는 각 인식 서비스에는 컨테이너에 대 한 서비스를 설치 및 구성 하기 위한 "설치 방법" 문서가 있습니다. 일부 서비스에는 컨테이너에 대 한 입력으로 파일 또는 파일 집합이 필요 합니다 .이 솔루션을 사용 하기 전에 컨테이너를 이해 하 고 사용 하는 것이 중요 합니다.
 

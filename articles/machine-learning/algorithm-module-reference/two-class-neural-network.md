@@ -1,7 +1,7 @@
 ---
-title: '2 클래스 신경망: 모듈 참조'
+title: 'Two-Class 신경망: 모듈 참조'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 2 클래스 신경망 모듈을 사용 하 여 두 개의 값만 포함 된 대상을 예측 하는 데 사용할 수 있는 신경망 모델을 만드는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에서 Two-Class 신경망 모듈을 사용 하 여 두 개의 값만 포함 된 대상을 예측 하는 데 사용할 수 있는 신경망 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907681"
 ---
-# <a name="two-class-neural-network-module"></a>2 클래스 신경망 모듈
+# <a name="two-class-neural-network-module"></a>신경망 모듈 Two-Class
 
 이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 

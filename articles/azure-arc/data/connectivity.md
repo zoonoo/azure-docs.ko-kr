@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 9c1dd6f628e87792808d14db2c7bcc7f050923a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713195"
 ---
 # <a name="connectivity-modes-and-requirements"></a>연결 모드 및 요구 사항
@@ -28,7 +28,7 @@ Azure Arc 사용 데이터 서비스는 직접 연결 되 고 간접적으로 �
 
 중요 한 점은 azure Arc 사용 데이터 서비스를 azure에 직접 연결 하는 경우 사용자는 [Azure Resource Manager api](/rest/api/resources/), Azure CLI 및 Azure Portal를 사용 하 여 azure arc data services를 운영할 수 있습니다. 직접 연결 모드의 환경은 모든 Azure Portal에서 프로 비전/프로 비전 해제, 크기 조정, 구성 등의 다른 Azure 서비스를 사용 하는 방법과 매우 비슷합니다.  Azure Arc 사용 데이터 서비스를 Azure에 간접적으로 연결 하는 경우 Azure Portal은 읽기 전용 뷰입니다. 배포한 SQL 관리 되는 인스턴스 및 Postgres Hyperscale 인스턴스와이 인스턴스에 대 한 세부 정보를 볼 수 있지만 Azure Portal에서는 작업을 수행할 수 없습니다.  간접적으로 연결 된 모드에서는 Azure Data Studio, Azure Data CLI 또는 kubectl와 같은 Kubernetes 네이티브 도구를 사용 하 여 모든 작업을 로컬로 수행 해야 합니다.
 
-또한이 기능을 제공 하기 위해 Azure에 대 한 연속 연결 및 직접 연결에 대 한 종속성이 있기 때문에 Azure Active Directory 및 Azure 역할 기반 Access Control 직접 연결 모드에서 사용할 수 있습니다.
+또한이 기능을 제공 하기 위해 Azure에 대 한 연속 연결 및 직접 연결에 대 한 종속성이 있기 때문에 Azure Active Directory 및 Azure Role-Based Access Control을 직접 연결 모드에서 사용할 수 있습니다.
 
 마지막으로, 일부 Azure 연결 서비스는 Azure Defender 보안 서비스, 컨테이너 Insights 및 ' Azure Backup/blob 저장소 '와 같이 직접 연결할 수 있는 경우에만 사용할 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure Arc 사용 데이터 서비스는 직접 연결 되 고 간접적으로 �
 
 |**이름**|**연결 원본**|**연결 대상**|**프로토콜**|**포트**|**프록시 사용 가능**|**인증**|**참고**|
 |---|---|---|---|---|---|---|---|
-|**MCR (Microsoft Container Registry)**|컨테이너 이미지를 끌어오는 각 Kubernetes 노드의 Kubernetes kubelet입니다.|`mcr.microsoft.com`|HTTPS|443|예|None|Microsoft Container Registry는 Azure Arc 사용 데이터 서비스 컨테이너 이미지를 호스팅합니다.  MCR에서 이러한 이미지를 가져와서 개인 컨테이너 레지스트리에 푸시하고 해당 개인 컨테이너 레지스트리에서 컨테이너 이미지를 가져오도록 데이터 컨트롤러 배포 프로세스를 구성할 수 있습니다.|
+|**MCR (Microsoft Container Registry)**|컨테이너 이미지를 끌어오는 각 Kubernetes 노드의 Kubernetes kubelet입니다.|`mcr.microsoft.com`|HTTPS|443|예|없음|Microsoft Container Registry는 Azure Arc 사용 데이터 서비스 컨테이너 이미지를 호스팅합니다.  MCR에서 이러한 이미지를 가져와서 개인 컨테이너 레지스트리에 푸시하고 해당 개인 컨테이너 레지스트리에서 컨테이너 이미지를 가져오도록 데이터 컨트롤러 배포 프로세스를 구성할 수 있습니다.|
 |**Azure Resource Manager Api**|Azure에 연결 하는 Azure Data Studio, Azure Data CLI 또는 Azure CLI를 실행 하는 컴퓨터입니다.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|예|Azure Active Directory|Azure Data Studio Azure Data CLI 및 Azure CLI Azure Resource Manager Api에 연결 하 여 일부 기능을 위해 Azure에서 데이터를 보내고 검색 합니다.|
 |**Azure Monitor Api**|Azure 데이터 CLI를 실행 하는 컴퓨터 또는 Azure Monitor에 대 한 모니터링 메트릭 또는 로그를 업로드 하는 Azure CLI.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|예|Azure Active Directory|Azure Data Studio Azure Data CLI 및 Azure CLI Azure Resource Manager Api에 연결 하 여 일부 기능을 위해 Azure에서 데이터를 보내고 검색 합니다.|
 

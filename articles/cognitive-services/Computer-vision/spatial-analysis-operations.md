@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628216"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
-공간 분석을 사용 하면 카메라 장치에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성 하는 각 카메라 장치에 대해 공간 분석 작업에서 Azure IoT Hub 인스턴스로 전송 되는 JSON 메시지의 출력 스트림을 생성 합니다. 
+공간 분석을 사용하면 카메라 디바이스에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성하는 각 카메라 디바이스에 대해 공간 분석 작업이 Azure IoT Hub 인스턴스로 전송되는 JSON 메시지의 출력 스트림을 생성합니다. 
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "91628216"
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -121,7 +121,7 @@ ms.locfileid: "91628216"
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -152,7 +152,7 @@ ms.locfileid: "91628216"
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -184,7 +184,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -206,7 +206,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다.|
@@ -304,7 +304,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -316,7 +316,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 | `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -325,10 +325,10 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `points` | collection| 영역 형식이 사각형 인 경우 왼쪽 위 및 오른쪽 아래 요소 |
 | `confidence` | float| 알고리즘 신뢰도|
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -338,10 +338,10 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `focalLength` | float | 카메라의 초점 길이 (픽셀)입니다. 자동 보정에서 유추 됩니다. |
 | `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 자동 보정에서 유추 됩니다.|
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -399,7 +399,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
     "schemaVersion": "1.0"
 }
 ```
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -409,7 +409,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `status` | 문자열| 줄 교차의 방향 (' 왼쪽으로 왼쪽 ' 또는 '가는 오른쪽 ')입니다.|
 | `zone` | 문자열 | 교차 된 줄의 "이름" 필드|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -418,10 +418,10 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `points` | collection| 영역 형식이 사각형 인 경우 왼쪽 위 및 오른쪽 아래 요소 |
 | `confidence` | float| 알고리즘 신뢰도|
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -484,7 +484,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -494,7 +494,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `status` | 문자열| ' Enter ' 또는 ' Exit ' 인 polygon 교차의 방향입니다.|
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -595,7 +595,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -610,7 +610,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `zone` | 문자열 | 사용자 간 distancing 대해 모니터링 된 영역을 나타내는 polygon의 "이름" 필드|
 | `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -620,10 +620,10 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `confidence` | float| 알고리즘 신뢰도|
 | `centerGroundPoint` | float 값 2 개| `x`- `y` 땅에서 개인의 유추 된 위치 좌표를 포함 하는 값입니다. `x` 카메라에서 땅에 투영 된 카메라 이미지 평면에 수직인 거리입니다. `y` 카메라에서 세로 방향으로 투영 된 이미지 평면 까지의 거리입니다.|
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | 유형| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
-| `timestamp` | 날짜| JSON 페이로드를 내보낸 UTC 날짜|
+| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
 | `width` | int | 비디오 프레임 너비|
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
@@ -725,7 +725,7 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
 

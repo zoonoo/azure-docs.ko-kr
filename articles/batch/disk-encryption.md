@@ -7,10 +7,10 @@ ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
 ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91849265"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>디스크 암호화가 사용된 풀 생성
@@ -46,7 +46,7 @@ Azure Portal에서 Batch 풀을 만들 때 **디스크 암호화 구성**에서 
 
 :::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Azure Portal에서 디스크 암호화 구성 옵션의 스크린샷":::
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예에서는 batch .NET SDK, Batch REST API 및 Azure CLI를 사용 하 여 Batch 풀에서 OS 및 임시 디스크를 암호화 하는 방법을 보여 줍니다.
 

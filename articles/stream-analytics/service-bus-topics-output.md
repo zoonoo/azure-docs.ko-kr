@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91261059"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Service Bus 항목 출력 Azure Stream Analytics
@@ -61,7 +61,7 @@ Service Bus 큐는 송신기에서 수신기로의 일대일 통신 방법을 �
 
 다음 이미지는 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용 하 여 EventHub에서 검사 된 예상 출력 메시지 속성입니다.
 
-:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="이벤트 사용자 지정 속성":::
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="속성 열":::
 
 ## <a name="system-properties"></a>시스템 속성
 

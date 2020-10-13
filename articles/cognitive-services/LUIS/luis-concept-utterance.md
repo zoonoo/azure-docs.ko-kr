@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316395"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
@@ -72,7 +72,7 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 
 Utterance 표준화는 학습 및 예측 중에 문장 부호 및 분음 부호와 같은 텍스트 형식의 효과를 무시 하는 프로세스입니다.
 
-Utterance 정규화 설정은 기본적으로 해제 되어 있습니다. 이러한 설정은 다음과 같습니다.
+Utterance 정규화 설정은 기본적으로 해제 되어 있습니다. 설정에는 다음이 포함됩니다.
 
 * Word 양식
 * 부호가
@@ -128,7 +128,7 @@ LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 
 
 모델이 학습되고, 게시되고 [엔드포인트](luis-glossary.md#endpoint) 쿼리를 수신하면 LUIS에서 제안한 [발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다. LUIS는 의도 또는 엔터티에 대해 낮은 점수를 갖는 엔드포인트 발언을 선택합니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 [모범 사례](luis-concept-best-practices.md)를 검토하고 일반 제작 주기의 일환으로 적용합니다.
 

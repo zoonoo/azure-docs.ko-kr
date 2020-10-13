@@ -12,17 +12,17 @@ ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259274"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Jumio 구성에 대 한 자습서
 
 이 샘플 자습서에서는 [Jumio](https://www.jumio.com/)와 Azure Active Directory B2C (Azure AD B2C)를 통합 하는 방법에 대 한 지침을 제공 합니다. Jumio는 고객 데이터를 보호 하는 데 도움이 되는 실시간 자동 ID 확인을 가능 하 게 하는 ID 확인 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -46,7 +46,7 @@ Jumio 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Jumio와 Azure AD B2C 통합의 아키텍처 다이어그램](./media/partner-jumio/jumio-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 하거나 등록 하 여 계정을 만들기 위해 페이지에 도착 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -91,7 +91,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 문자 및 숫자만 포함 된 64 자 보다 긴 임의의 문자열을 만듭니다.
 
-예: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
+``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
 
 다음 PowerShell 스크립트를 사용 하 여 문자열을 만듭니다.
 
@@ -104,7 +104,7 @@ Jumio 계정을 만든 후에는 계정을 사용 하 여 Azure AD B2C를 구성
 
 [Azure App Service에서 응용 프로그램 설정을 구성할](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings)수 있습니다. 이 방법을 사용 하면 리포지토리에 체크 인하지 않고 설정을 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |JumioSettings: AuthUsername | Jumio 계정 구성 |     |
 |JumioSettings: AuthPassword | Jumio 계정 구성 |     |

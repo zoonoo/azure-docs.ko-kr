@@ -11,10 +11,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258968"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C 세션
@@ -47,7 +47,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
 
 소셜 또는 엔터프라이즈 id 공급자는 자체 세션을 관리 합니다. 쿠키는 id 공급자의 도메인 이름 (예:)으로 저장 됩니다 `https://login.salesforce.com` . Azure AD B2C 페더레이션된 id 공급자 세션을 제어 하지 않습니다. 대신, 세션 동작은 페더레이션된 id 공급자에 의해 결정 됩니다. 
 
-다음 시나리오를 고려하세요.
+다음과 같은 시나리오를 고려해 보세요.
 
 1. 사용자가 Facebook에 로그인 하 여 피드를 확인 합니다.
 2. 나중에 사용자가 응용 프로그램을 열고 로그인 프로세스를 시작 합니다. 응용 프로그램은 Azure AD B2C 사용자를 리디렉션하여 로그인 프로세스를 완료 합니다.

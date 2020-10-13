@@ -11,10 +11,10 @@ ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
 ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619987"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성
@@ -31,7 +31,7 @@ ms.locfileid: "91619987"
 > - 관리 되는 인스턴스 공용 끝점에 대 한 트래픽을 허용 하도록 관리 되는 인스턴스 네트워크 보안 그룹 구성
 > - 관리 되는 인스턴스 공용 끝점 연결 문자열을 가져옵니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 관리 되는 인스턴스에 있는 데이터의 민감도 때문에 관리 되는 인스턴스 공용 끝점을 사용 하도록 구성 하려면 2 단계 프로세스가 필요 합니다. 이 보안 조치는 의무 (안)의 분리를 따릅니다.
 

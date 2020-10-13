@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021163"
 ---
 # <a name="create-client-side-performance-traces"></a>클라이언트 쪽 성능 추적 만들기
@@ -81,7 +81,7 @@ HoloLens에 추적을 기록 하려면 장치를 부팅 하 고 브라우저에 
 
 1. 왼쪽에서 *성능 > 성능 추적*으로 이동 합니다.
 1. **사용자 지정 프로필** 선택
-1. 클릭할**:::no-loc text="Browse...":::**
+1. 클릭할 **:::no-loc text="Browse...":::**
 1. AzureRemoteRenderingNetworkProfiling 파일을 선택 합니다 *.* 이 파일은 ARR SDK의 *Tools/ETLProfiles*에서 찾을 수 있습니다.
 1. **추적 시작** 을 클릭 합니다.
 1. HoloLens는 이제 추적을 기록 합니다. 조사 하려는 성능 문제를 트리거해야 합니다. 그런 다음 **추적 중지**를 클릭 합니다.

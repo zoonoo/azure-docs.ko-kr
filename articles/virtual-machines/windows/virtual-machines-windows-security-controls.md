@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 6ab6133faef4a6c7a8eb929e5f4cd1840e971a99
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088345"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 보안 제어
@@ -36,7 +36,7 @@ ms.locfileid: "87088345"
 |---|---|--|
 | Azure 모니터링 지원(Log Analytics, App insights 등)| 예 | [Azure에서 Windows 가상 머신을 모니터링 하 고 업데이트](./tutorial-monitor.md)합니다. |
 | 제어와 관리 평면 로깅 및 감사| 예 |  |
-| 데이터 평면 로깅 및 감사 | 예 |  |
+| 데이터 평면 로깅 및 감사 | 아니요 |  |
 
 ## <a name="identity"></a>ID
 
@@ -50,7 +50,7 @@ ms.locfileid: "87088345"
 | 보안 컨트롤 | 예/아니요 | 메모 |
 |---|---|--|
 | 미사용 서버 쪽 암호화: Microsoft 관리형 키 | 예 | [WINDOWS VM에서 가상 디스크 암호화](./disk-encryption-overview.md)를 참조 하세요. |
-| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | Azure Virtual Machines는 [express](../../expressroute/index.yml) 경로 및 VNet 암호화를 지원 합니다. [Vm의 전송 중 암호화를](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms)참조 하세요. |
+| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화의 VNet-VNet 및 암호화)| 예 | Azure Virtual Machines는 [express](../../expressroute/index.yml) 경로 및 VNet 암호화를 지원 합니다. [Vm의 전송 중 암호화를](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms)참조 하세요. |
 | 미사용 서버 쪽 암호화: 고객 관리형 키(BYOK) | 예 | 고객 관리 키는 지원 되는 Azure 암호화 시나리오입니다. [Azure 암호화 개요](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms)를 참조 하세요.|
 | 열 수준 암호화(Azure Data Services)| 해당 없음 | |
 | API 호출 암호화| 예 | HTTPS 및 TLS를 통해 |
