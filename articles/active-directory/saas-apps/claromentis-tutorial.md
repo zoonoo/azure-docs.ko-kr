@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dba77045f8aef1799717c6f6af91046b3ca6119e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520314"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759772"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>자습서: Claromentis와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -138,19 +138,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **애플리케이션 아이콘**을 클릭하고 **Admin**(관리자)을 선택합니다.
 
-    ![Claromentis 구성](./media/claromentis-tutorial/config1.png)
+    ![스크린샷은 관리자가 선택된 Claromentis 웹 사이트를 보여줍니다.](./media/claromentis-tutorial/config1.png)
 
 1. **Custom Login Handler**(사용자 지정 로그인 처리기) 탭을 선택합니다.
 
-    ![Claromentis 구성](./media/claromentis-tutorial/config2.png)
+    ![스크린샷은 사용자 지정 로그인 처리기가 선택된 관리 페이지를 보여줍니다.](./media/claromentis-tutorial/config2.png)
 
 1. **SAML Config**(SAML 구성)를 선택합니다.
 
-    ![Claromentis 구성](./media/claromentis-tutorial/config3.png)
+    ![스크린샷은 SAML의 구성 페이지를 보여줍니다.](./media/claromentis-tutorial/config3.png)
 
 1. **SAML Config** 탭에서 **Config**(구성) 섹션까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
-    ![Claromentis 구성](./media/claromentis-tutorial/config4.png)
+    ![스크린샷은 이 단계에서 설명한 정보를 입력할 수 있는 페이지의 구성 섹션을 보여줍니다.](./media/claromentis-tutorial/config4.png)
 
     a. **Technical Contact Name**(기술 담당자 이름) 텍스트 상자에서 기술 담당자의 이름을 입력합니다.
 
@@ -160,7 +160,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Auth Sources**(인증 원본)까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
-    ![Claromentis 구성](./media/claromentis-tutorial/config5.png)
+    ![스크린샷은 이 단계에서 설명한 정보를 입력할 수 있는 인증 원본 섹션을 보여줍니다.](./media/claromentis-tutorial/config5.png)
 
     a. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **IDP** 텍스트 상자에 붙여넣습니다.
 
@@ -172,7 +172,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 이제 **SAML Config** 섹션의 **Identity Provider**(ID 공급자) 섹션 내에 모든 URL이 채워져 있습니다.
 
-    ![Claromentis 구성](./media/claromentis-tutorial/config6.png)
+    ![스크린샷은 URL로 채워진 ID 공급자 페이지를 보여줍니다.](./media/claromentis-tutorial/config6.png)
 
     a. **Identifier (Entity ID)** 식별자(엔터티 ID) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
 

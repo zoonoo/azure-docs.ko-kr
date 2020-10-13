@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1088827ead320007c758d8e843a15328f108c035
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4607d4dfba68ca8f78ec4e3aaa4da36966ea843a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543026"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>자습서: Adobe Experience Manager와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Adobe Experience Manager 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![기본 SAML 구성 섹션을 보여주고 식별자 및 회신 URL 텍스트 상자를 강조 표시하는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 상자에서 AEM 서버에 대해서도 정의한 고유한 값을 입력합니다.
 
@@ -136,35 +136,35 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 2. **설정** > **보안** > **사용자**를 선택합니다.
 
-    ![Single Sign-On 저장 단추 구성](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+    ![Adobe Experience Manager에서 사용자 타일을 보여주는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. **관리자** 또는 다른 관련 사용자를 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+    ![Adminisrator 사용자를 강조 표시하는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. **계정 설정** > **TrustStore 관리**를 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+    ![계정 설정에서 TrustStore 관리를 보여주는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. **CER 파일의 인증서 추가**에서 **인증서 파일 선택**을 클릭합니다. Azure Portal에서 다운로드한 인증서 파일을 찾아서 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+    ![인증서 파일 선택 단추를 강조 표시하는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. 인증서는 TrustStore에 추가됩니다. 인증서의 별칭을 적어둡니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+    ![인증서가 TrustStore에 추가되었음을 보여주는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. **사용자** 페이지에서 **인증 서비스**를 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+    ![화면에서 인증 서비스를 강조 표시하는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. **계정 설정** > **키 저장소 만들기/관리**를 선택합니다. 암호를 제공하여 키 저장소를 만듭니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+    ![키 저장소 관리를 강조 표시하는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. 관리 화면으로 돌아갑니다. **설정** > **작업** > **웹 콘솔**을 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+    ![설정 섹션의 작업 아래에서 웹 콘솔을 강조 표시하는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
     구성 페이지가 열립니다.
 
@@ -172,7 +172,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 10. **Adobe Granite SAML 2.0 인증 처리기**를 찾습니다. **추가** 아이콘을 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+    ![Adobe Granite SAML 2.0 인증 처리기를 강조 표시하는 스크린샷.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. 이 페이지에서 다음 작업을 수행합니다.
 

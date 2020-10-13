@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 95b41723d3cb398caad3a0cf388b7810deda78dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b689e4546d1f639f76ccbdf45348c43a678066
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938583"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996274"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
@@ -26,17 +26,25 @@ ms.locfileid: "90938583"
 
 1. 학습 된 모델을 등록 합니다.
 1. 모델에 대 한 entry 스크립트 및 conda 종속성 파일을 다운로드 합니다.
+1. 필드 항목 스크립트를 구성 합니다.
 1. 계산 대상에 모델을 배포 합니다.
 
 모델 등록 및 파일 다운로드 단계를 건너뛰도록 디자이너에서 직접 모델을 배포할 수도 있습니다. 이는 신속한 배포에 유용할 수 있습니다. 자세한 내용은 [designer를 사용 하 여 모델 배포](tutorial-designer-automobile-price-deploy.md)를 참조 하세요.
 
 디자이너에서 학습 한 모델은 SDK 또는 CLI (명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 기존 모델 배포](how-to-deploy-existing-model.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
-* [모델 학습 모듈](./algorithm-module-reference/train-model.md) 을 포함 하는 완료 된 학습 파이프라인
+* 다음 모듈 중 하나를 포함 하는 완료 된 학습 파이프라인:
+    - [모델 학습 모듈](./algorithm-module-reference/train-model.md)
+    - [변칙 검색 모델 학습 모듈](./algorithm-module-reference/train-anomaly-detection-model.md)
+    - [클러스터링 모델 학습 모듈](./algorithm-module-reference/train-clustering-model.md)
+    - [Pytorch 모델 학습 모듈](./algorithm-module-reference/train-pytorch-model.md)
+    - [.SVD 추천 모듈 학습](./algorithm-module-reference/train-svd-recommender.md)
+    - [Vowpal Wabbit 모델 학습 모듈](./algorithm-module-reference/train-vowpal-wabbit-model.md)
+    - [넓은 & 심화 모델 모듈 학습](./algorithm-module-reference/train-wide-and-deep-recommender.md)
 
 ## <a name="register-the-model"></a>모델 등록
 
@@ -136,9 +144,67 @@ score_result = service.run(json.dumps(sample_data))
 print(f'Inference result = {score_result}')
 ```
 
+### <a name="consume-computer-vision-related-real-time-endpoints"></a>컴퓨터 시각 관련 실시간 끝점 사용
+
+웹 서비스는 문자열을 입력으로 허용 하기 때문에 컴퓨터 비전 관련 실시간 끝점을 사용 하는 경우 이미지를 바이트로 변환 해야 합니다. 다음은 샘플 코드입니다.
+
+```python
+import base64
+import json
+from copy import deepcopy
+from pathlib import Path
+from azureml.studio.core.io.image_directory import (IMG_EXTS, image_from_file, image_to_bytes)
+from azureml.studio.core.io.transformation_directory import ImageTransformationDirectory
+
+# image path
+image_path = Path('YOUR_IMAGE_FILE_PATH')
+
+# provide the same parameter setting as in the training pipeline. Just an example here.
+image_transform = [
+    # format: (op, args). {} means using default parameter values of torchvision.transforms.
+    # See https://pytorch.org/docs/stable/torchvision/transforms.html
+    ('Resize', 256),
+    ('CenterCrop', 224),
+    # ('Pad', 0),
+    # ('ColorJitter', {}),
+    # ('Grayscale', {}),
+    # ('RandomResizedCrop', 256),
+    # ('RandomCrop', 224),
+    # ('RandomHorizontalFlip', {}),
+    # ('RandomVerticalFlip', {}),
+    # ('RandomRotation', 0),
+    # ('RandomAffine', 0),
+    # ('RandomGrayscale', {}),
+    # ('RandomPerspective', {}),
+]
+transform = ImageTransformationDirectory.create(transforms=image_transform).torch_transform
+
+# download _samples.json file under Outputs+logs tab in the right pane of Train Pytorch Model module
+sample_file_path = '_samples.json'
+with open(sample_file_path, 'r') as f:
+    sample_data = json.load(f)
+
+# use first sample item as the default value
+default_data = sample_data[0]
+data_list = []
+for p in image_path.iterdir():
+    if p.suffix.lower() in IMG_EXTS:
+        data = deepcopy(default_data)
+        # convert image to bytes
+        data['image'] = base64.b64encode(image_to_bytes(transform(image_from_file(p)))).decode()
+        data_list.append(data)
+
+# use data.json as input of consuming the endpoint
+data_file_path = 'data.json'
+with open(data_file_path, 'w') as f:
+    json.dump(data_list, f)
+```
+
 ## <a name="configure-the-entry-script"></a>항목 스크립트 구성
 
-[점수 .Svd 추천](./algorithm-module-reference/score-svd-recommender.md), [점수 넓게 및 딥 추천](./algorithm-module-reference/score-wide-and-deep-recommender.md), [점수 Vowpal wabbit 모델](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등 디자이너의 일부 모듈에는 다른 점수 매기기 모드의 매개 변수가 있습니다. 이 섹션에서는 entry 스크립트 파일에서 이러한 매개 변수를 업데이트 하는 방법에 대해 알아봅니다.
+[점수 .Svd 추천](./algorithm-module-reference/score-svd-recommender.md), [점수 넓게 및 딥 추천](./algorithm-module-reference/score-wide-and-deep-recommender.md), [점수 Vowpal wabbit 모델](./algorithm-module-reference/score-vowpal-wabbit-model.md) 등 디자이너의 일부 모듈에는 다른 점수 매기기 모드의 매개 변수가 있습니다. 
+
+이 섹션에서는 entry 스크립트 파일에서 이러한 매개 변수를 업데이트 하는 방법에 대해 알아봅니다.
 
 다음 예에서는 학습 된 **넓은 & 심층 추천** 모델에 대 한 기본 동작을 업데이트 합니다. 기본적으로이 `score.py` 파일은 사용자와 항목 간의 등급을 예측 하도록 웹 서비스에 지시 합니다. 
 

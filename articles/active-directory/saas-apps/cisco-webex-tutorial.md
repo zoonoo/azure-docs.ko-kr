@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 52481eb40a46457a0374c776ee4897c81ebddf7c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 466e69ece993ca34f8f6770c0465471d01b9c3ed
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551288"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760940"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>자습서: Cisco Webex Meetings와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -164,11 +164,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **일반 사이트 설정**으로 이동하여 **SSO 구성**을 찾습니다.
  
-    ![Single Sign-On 구성](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+    ![스크린샷은 일반 사이트 설정 및 SSO 구성이 선택된 Cisco Webex 관리를 보여줍니다.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. **Webex 관리** 페이지에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 구성](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+    ![스크린샷은 이 단계에서 설명한 정보가 포함된 Webex 관리 페이지를 보여줍니다.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
     a. **페더레이션 프로토콜**로 **SAML 2.0**을 선택합니다.
 

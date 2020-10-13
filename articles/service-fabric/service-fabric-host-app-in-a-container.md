@@ -3,12 +3,12 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 4970cf6492da38ad76a51df88eeb73538c850c67
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258872"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817642"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 
@@ -39,13 +39,13 @@ ms.locfileid: "86258872"
 
 2. Fabrikam Fiber CallCenter 애플리케이션이 오류 없이 빌드되고 실행되는지 확인합니다.  **관리자** 권한으로 Visual Studio를 시작하고 [FabrikamFiber.CallCenter.sln][link-fabrikam-github] 파일을 엽니다.  F5 키를 눌러 애플리케이션을 디버그하고 실행합니다.
 
-   ![Fabrikam 웹 샘플][fabrikam-web-page]
+   ![로컬 호스트에서 실행되는 Fabrikam Fiber CallCenter 애플리케이션 홈 페이지의 스크린샷. 이 페이지에는 지원 호출 목록이 포함된 대시보드가 표시됩니다.][fabrikam-web-page]
 
 ## <a name="containerize-the-application"></a>애플리케이션 컨테이너화
 
 1. **FabrikamFiber.Web** 프로젝트 > **추가** > **컨테이너 Orchestrator 지원**을 마우스 오른쪽 단추로 클릭합니다.  **Service Fabric**을 컨테이너 오케스트레이터로 선택하고 **확인**을 클릭합니다.
 
-2. **예**를 클릭하여 이제 Docker를 Windows 컨테이너로 전환합니다.
+2. 메시지가 표시되면 **예**를 클릭하여 지금 Docker를 Windows 컨테이너로 전환합니다.
 
    새 프로젝트 Service Fabric 애플리케이션 프로젝트 **FabrikamFiber.CallCenterApplication**이 솔루션에서 만들어집니다.  Dockerfile이 **FabrikamFiber.Web** 기존 프로젝트에 추가됩니다.  **PackageRoot** 디렉터리도 **FabrikamFiber.Web** 프로젝트에 추가되며, 이는 새 FabrikamFiber.Web 서비스에 대한 서비스 매니페스트 및 설정을 포함하는 프로젝트입니다.
 
@@ -109,7 +109,7 @@ Write-Host "Server name is $servername"
 
 ## <a name="update-the-web-config"></a>웹 구성 업데이트
 
-**FabrikamFiber.Web** 프로젝트로 돌아가 **web.config** 파일의 연결 문자열이 컨테이너의 SQL Server를 가리키도록 업데이트합니다.  연결 문자열의 *서버* 부분을 이전 스크립트에서 만든 서버 이름으로 업데이트합니다. "fab-fiber-751718376.database.windows.net"와 같은 형식입니다.
+**FabrikamFiber.Web** 프로젝트로 돌아가 **web.config** 파일의 연결 문자열이 컨테이너의 SQL Server를 가리키도록 업데이트합니다.  연결 문자열의 *서버* 부분을 이전 스크립트에서 만든 서버 이름으로 업데이트합니다. "fab-fiber-751718376.database.windows.net"와 같은 형식입니다. 다음 XML에서는 `connectionString` 특성만 업데이트해야 합니다. `providerName` 및 `name` 특성은 변경할 필요가 없습니다.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -235,7 +235,7 @@ $vnetRuleObject1 = New-AzSqlServerVirtualNetworkRule `
 
 출력 창의 배포 진행률을 따릅니다. 애플리케이션을 배포할 때 클러스터 주소와 애플리케이션 포트에서 브라우저와 유형을 엽니다. 예들 들어 `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`입니다.
 
-![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
+![azure.com에서 실행되는 Fabrikam Fiber CallCenter 애플리케이션 홈 페이지의 스크린샷. 이 페이지에는 지원 호출 목록이 포함된 대시보드가 표시됩니다.][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric 클러스터와의 CI/CD(지속적인 통합 및 지속적인 배포) 설정
 

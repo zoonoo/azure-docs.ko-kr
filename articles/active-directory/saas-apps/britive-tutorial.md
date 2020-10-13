@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 02358dcffa6f757e3c61b3c1ae0e7c5298f7d9ca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 63d3a874c3d3d55ec1e3af3765ae63119dca287b
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542686"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740363"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-britive"></a>자습서: Britive와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -129,11 +129,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리자 설정 아이콘**을 클릭하고 **Security**(보안)을 선택합니다.
 
-    ![Britive 구성](./media/britive-tutorial/configure1.png)
+    ![스크린샷은 설정 및 보안이 선택된 Britive 웹 사이트를 보여줍니다.](./media/britive-tutorial/configure1.png)
 
 1. **SSO Configuration**(SSO 구성)을 선택하고 다음 단계를 수행합니다.
 
-    ![Britive 구성](./media/britive-tutorial/configure2.png)
+    ![스크린샷은 이 단계에서 정보를 입력하는 SSO 구성을 보여줍니다.](./media/britive-tutorial/configure2.png)
 
     a. **Audience/Entity ID**(대상/엔터티 ID) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
@@ -147,15 +147,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리자 설정 아이콘**을 클릭하고 **User Administration**(사용자 관리)을 선택합니다.
 
-    ![Britive 구성](./media/britive-tutorial/user1.png)
+    ![스크린샷은 설정 및 사용자 관리가 선택된 Britive 웹 사이트를 보여줍니다.](./media/britive-tutorial/user1.png)
 
 1. **ADD USER**(사용자 추가)를 클릭합니다.
 
-    ![Britive 구성](./media/britive-tutorial/user2.png)
+    ![스크린샷은 사용자 추가 단추를 보여줍니다.](./media/britive-tutorial/user2.png)
 
 1. 조직 요구 사항에 따라 사용자의 필요한 세부 정보를 모두 채우고 **ADD USER**(사용자 추가)를 클릭합니다.
 
-    ![Britive 구성](./media/britive-tutorial/user3.png)
+    ![스크린샷은 사용자 정보를 입력하는 사용자 추가 페이지를 보여줍니다.](./media/britive-tutorial/user3.png)
 
 ## <a name="test-sso"></a>SSO 테스트
 

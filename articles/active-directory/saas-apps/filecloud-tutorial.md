@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 155675d6d0f6026c528be66f9a67a21fe65d00ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f41312521202f406c3826880f345e0bbe7600bd3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555177"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>자습서: FileCloud와 Azure Active Directory 통합
 
@@ -130,19 +130,19 @@ FileCloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 왼쪽 탐색 창에서 **설정**을 클릭합니다. 
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![왼쪽 탐색 창에 강조 표시된 "설정"을 보여주는 스크린샷.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. 설정 섹션에서 **SSO** 탭을 클릭합니다. 
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    !["SSO" 탭이 선택된 "설정" 섹션을 보여주는 스크린샷.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. **SSO(Single Sign On) 설정** 패널에서 **기본 SSO 형식**으로 **SAML**을 선택합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    !["SAML"이 선택된 "SSO(Single Sign On) 설정" 패널을 보여주는 스크린샷.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. Azure Portal에서 복사한 **Azure Ad 식별자** 값을 **IdP 엔드포인트 URL** 텍스트 상자에 붙여넣습니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    !["IdP 엔드포인트 URL"이 강조 표시된 "SAML 설정" 섹션을 보여주는 스크린샷.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. 다운로드된 메타데이터 파일을 메모장에서 열고, 내용을 클립보드에 복사한 다음 **SAML 설정** 패널의 **IdP 메타데이터** 텍스트 상자에 붙여넣습니다.
 

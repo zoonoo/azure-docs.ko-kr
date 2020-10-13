@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 50b5e21c8dc441187b3d78310db55b84aa1cd158
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f8bc88cf34c3bbea168bd95d2d03bdc3373ad07
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551033"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817037"
 ---
 # <a name="tutorial-integrate-freedcamp-with-azure-active-directory"></a>자습서: Freedcamp와 Azure Active Directory 통합
 
@@ -108,11 +108,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭하고 **내 계정**으로 이동합니다.
 
-    ![Freedcamp 구성](./media/freedcamp-tutorial/config01.png)
+    ![선택된 "프로필" 및 "내 계정"을 보여주는 스크린샷.](./media/freedcamp-tutorial/config01.png)
 
 5. 왼쪽 메뉴 모음에서 **SSO**를 클릭하고 **SSO 연결** 페이지에서 다음 단계를 수행합니다.
 
-    ![Freedcamp 구성](./media/freedcamp-tutorial/config02.png)
+    ![왼쪽 메뉴 모음에서 선택된 "SSO"와 값이 입력되고 "제출" 단추가 선택된 "사용자 SSO 연결" 페이지를 보여주는 스크린샷.](./media/freedcamp-tutorial/config02.png)
 
     a. **제목** 텍스트 상자에 제목을 입력합니다.
 
@@ -162,13 +162,13 @@ Azure AD 사용자가 Freedcamp에 로그인할 수 있으려면 해당 사용�
 
 1. 다른 웹 브라우저 창에서 Freedcamp에 보안 관리자로 로그인합니다.
 
-2. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭하고 **시스템 관리**로 이동합니다.
+2. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭한 다음, **시스템 관리**로 이동합니다.
 
     ![Freedcamp 구성](./media/freedcamp-tutorial/config03.png)
 
 3. 시스템 관리 페이지의 오른쪽에서 다음 단계를 수행합니다.
 
-    ![Freedcamp 구성](./media/freedcamp-tutorial/config04.png)
+    !["사용자 추가 또는 초대" 단추가 선택되고, "이메일" 필드가 강조 표시되고, "사용자 추가" 단추가 선택된 것을 보여주는 스크린샷.](./media/freedcamp-tutorial/config04.png)
 
     a. **사용자 추가 또는 초대**를 클릭합니다.
 

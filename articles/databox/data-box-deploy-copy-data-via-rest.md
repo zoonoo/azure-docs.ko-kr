@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 71f966cd62ffd2c735259dcfa98b9b97f87d9a19
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926198"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91742522"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>자습서: REST API를 사용하여 Azure Data Box Blob 스토리지에 데이터 복사  
 
@@ -115,11 +115,11 @@ HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의
 
 3. **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
 
-    ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![PowerShell을 사용하여 인증서 가져오기 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. **Finish**를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
 
-    ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![PowerShell을 사용하여 인증서 가져오기 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Linux 시스템 사용
 

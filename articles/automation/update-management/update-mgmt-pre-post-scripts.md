@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 32a8214a5bd6844c9177c7af159a453bc3673efc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed3a8909bc0d5ac135023b55178cec606344353b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450487"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996770"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>사전 스크립트 및 사후 스크립트 관리
 
@@ -137,7 +137,7 @@ foreach($summary in $finalStatus)
 
 ## <a name="interact-with-machines"></a>머신과 상호 작용
 
-사전 스크립트 및 사후 작업은 Automation 계정에서 Runbook으로 실행되며 배포의 머신에서 직접 실행되지 않습니다. 사전 작업 및 사후 작업도 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 다음 섹션에서는 Azure VM 또는 비 Azure 머신 상관없이 머신과 직접 상호 작용할 수 있는 방법을 보여 줍니다.
+사전 스크립트 및 사후 스크립트는 Automation 계정에서 runbook으로 실행 되며 배포의 컴퓨터에서 직접 실행 되지 않습니다. 사전 작업 및 사후 작업도 Azure 컨텍스트에서 실행되며 비 Azure 머신에는 액세스할 수 없습니다. 다음 섹션에서는 Azure VM 또는 비 Azure 머신 상관없이 머신과 직접 상호 작용할 수 있는 방법을 보여 줍니다.
 
 ### <a name="interact-with-azure-machines"></a>Azure 머신과 상호 작용
 

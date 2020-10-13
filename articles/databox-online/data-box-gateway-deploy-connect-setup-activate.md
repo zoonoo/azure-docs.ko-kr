@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: cb6ef6ac25c4afa72160ba437e0ea3b5492cfd93
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82561695"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741961"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 연결, 설정 및 활성화
 
@@ -126,7 +126,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
     
     3. 디바이스가 활성화되고 중요 업데이트가 있으면 자동으로 적용됩니다. 그 영향에 대한 알림이 표시됩니다. Azure Portal을 통해 업데이트 진행률을 모니터링합니다.
 
-        ![로컬 웹 UI "클라우드 설정" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        ![로컬 웹 UI "클라우드 설정" 페이지 2](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
         
         **대화 상자에 복구 키도 표시되는데, 이 키를 복사하여 안전한 위치에 저장해야 합니다. 이 키는 디바이스를 부팅할 수 없는 상황이 발생하면 데이터를 복구하는 데 사용됩니다.**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: ef388426584dc013d102b929627ce2ba45431d5c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547501"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>자습서: IdeaScale과 Azure Active Directory 통합
 
@@ -137,7 +137,7 @@ IdeaScale에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 3. **보안 \> Single Sign On 설정**으로 이동합니다.
 
-    ![Single Sign On 설정](./media/ideascale-tutorial/ic790848.png "Single Sign On 설정")
+    ![스크린샷은 보안 메뉴에서 선택된 Single Sign On 설정을 보여줍니다.](./media/ideascale-tutorial/ic790848.png "Single Sign On 설정")
 
 4. **Single Sign On 유형**으로 **SAML 2.0**을 선택합니다.
 
@@ -145,7 +145,7 @@ IdeaScale에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 5. **Single Sign On 설정** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Single Sign On 설정](./media/ideascale-tutorial/ic790850.png "Single Sign On 설정")
+    ![스크린샷은 Single Sign On 설정 대화 상자를 보여줍니다.](./media/ideascale-tutorial/ic790850.png "Single Sign On 설정")
 
     a. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **SAML IdP 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 

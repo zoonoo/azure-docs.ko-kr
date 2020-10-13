@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-ms.openlocfilehash: ecaeea625bc4891c95614292a44d31b616d39eb2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549297"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743083"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>자습서: BeyondTrust Remote Support와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -155,7 +155,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **상태** 메뉴를 클릭하고 Azure Portal의 **식별자**, **회신 URL** 및 **로그온 URL**을 복사하여 Azure Portal의 **기본 SAML 구성** 값으로 사용합니다.
 
-    ![BeyondTrust Remote Support 구성](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![스크린샷은 이 정보를 수집할 수 있는 BeyondTrust 원격 지원의 상태 메뉴를 보여줍니다.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. `https://support.example.com/login`에서 BeyondTrust Remote Support /login 인터페이스로 이동(여기서 **support.example.com**은 어플라이언스의 기본 호스트 이름)한 후 관리 자격 증명을 사용하여 인증합니다.
 
@@ -165,20 +165,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. ID 공급자 설정 섹션에는 ID 공급자 메타데이터를 업로드하는 옵션이 있습니다. Azure Portal에서 다운로드한 메타데이터 XML 파일을 찾아서 **업로드** 단추를 클릭합니다. **엔터티 ID**, **Single Sign-On 서비스 URL** 및 인증서가 자동으로 업로드되며, **프로토콜 바인딩**을 **HTTP POST**로 변경해야 합니다. 아래 스크린샷을 참조하세요.
 
-    ![BeyondTrust Remote Support 구성](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![스크린샷은 이러한 작업을 수행하는 ID 공급자 설정 섹션을 보여줍니다.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>BeyondTrust Remote Support 테스트 사용자 만들기
 
 여기서는 사용자 프로비저닝 설정을 구성하겠습니다. 이 섹션에 사용되는 값은 Azure Portal의 **사용자 특성 및 클레임** 섹션에서 참조됩니다. 이 값을 생성 시 가져오는 기본값으로 구성했지만, 필요한 경우 값을 사용자 지정할 수 있습니다.
 
-![사용자 만들기](./media/bomgarremotesupport-tutorial/config-user1.png)
+![스크린샷은 사용자 값을 구성할 수 있는 사용자 프로비전 설정을 보여줍니다.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > 그룹 및 이메일 특성은 이 구현에 필요하지 않습니다. Azure AD 그룹을 활용하고 사용 권한에 대한 BeyondTrust Remote Support 그룹 정책에 할당할 때 그룹의 개체 ID는 Azure Portal에서 속성을 통해 참조해야 하며 '사용 가능한 그룹' 섹션에 배치해야 합니다. 이 작업이 완료되면 개체 ID/AD 그룹을 사용 권한에 대한 그룹 정책에 할당하는 데 사용할 수 있습니다.
 
-![사용자 만들기](./media/bomgarremotesupport-tutorial/config-user2.png)
+![스크린샷은 멤버 자격 유형, 원본, 형식 및 개체 ID가 있는 IT 섹션을 보여줍니다.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![사용자 만들기](./media/bomgarremotesupport-tutorial/config-user3.png)
+![스크린샷은 그룹 정책에 대한 기본 설정 페이지를 보여줍니다.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > 또는 SAML2 보안 공급자에서 기본 그룹 정책을 설정할 수 있습니다. 이 옵션을 정의하면 SAML을 통해 인증하는 모든 사용자에게 그룹 정책 내에 지정된 사용 권한이 할당됩니다. 일반 멤버 정책은 사용 권한이 제한된 BeyondTrust Remote Support/권한 있는 원격 액세스에 포함되며, 이를 사용하여 인증을 테스트하고 사용자를 올바른 정책에 할당할 수 있습니다. 사용자는 첫 번째 인증 시도가 성공할 때까지 /login > 사용자 및 보안을 통해 SAML2 사용자 목록을 채우지 않습니다. 그룹 정책에 대한 추가 정보는 `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm` 링크에서 확인할 수 있습니다.

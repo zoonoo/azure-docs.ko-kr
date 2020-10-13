@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: df04cc41f2b5947bb0cf23715a857a3449627f23
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8050b87d122ef676b52f1cab5e06175a55602b1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550259"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>자습서: Attendance Management Services와 Azure Active Directory 통합
 
@@ -128,11 +128,11 @@ Attendance Management Services에서 Microsoft Azure Active Directory Single Sig
 
 1. **보안 관리 섹션** 아래에서 **SAML 인증**을 클릭합니다.
 
-    ![Attendance Management Services 구성](./media/attendancemanagementservices-tutorial/user1.png)
+    ![스크린샷은 비 라틴 문자를 사용하는 페이지에서 선택된 SAML 인증을 보여줍니다.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. 다음 단계를 수행합니다.
 
-    ![Attendance Management Services 구성](./media/attendancemanagementservices-tutorial/user2.png)
+    ![스크린샷은 이 단계에서 설명한 작업을 수행할 수 있는 창을 보여줍니다.](./media/attendancemanagementservices-tutorial/user2.png)
 
     a. **SAML 인증**을 선택합니다.
 
@@ -206,15 +206,15 @@ Azure AD 사용자가 Attendance Management Services에 로그인할 수 있도�
 
 1. **보안 관리 섹션** 아래에서 **사용자 관리**를 클릭하세요.
 
-    ![직원 추가](./media/attendancemanagementservices-tutorial/user5.png)
+    ![스크린샷은 비 라틴 문자를 사용하는 페이지에서 선택된 사용자 관리를 보여줍니다.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. **새 규칙 로그인**을 클릭합니다.
 
-    ![직원 추가](./media/attendancemanagementservices-tutorial/user3.png)
+    ![스크린샷은 더하기 옵션을 선택하는 것을 보여줍니다.](./media/attendancemanagementservices-tutorial/user3.png)
 
 1. **OBCiD 정보** 섹션에서 다음 단계를 수행합니다.
 
-    ![직원 추가](./media/attendancemanagementservices-tutorial/user4.png)
+    ![스크린샷은 설명된 작업을 수행할 수 있는 창을 보여줍니다.](./media/attendancemanagementservices-tutorial/user4.png)
 
     a. **OBCiD** 텍스트 상자에서 사용자의 메일(예: `BrittaSimon\@contoso.com`)을 입력합니다.
 

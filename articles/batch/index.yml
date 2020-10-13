@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: JnHs
   ms.author: jenhayes
-  ms.date: 09/29/2020
-  ms.openlocfilehash: 40c268ed31cf7360d74c5eb8bebf75756fd76563
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/09/2020
+  ms.openlocfilehash: 2b2f1a9dbf8c5621ff83dee9e600575c54e9de28
+  ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91570473"
+  ms.locfileid: "91931736"
 landingContent:
 - title: Azure Batch 정보
   linkLists:
@@ -40,8 +40,12 @@ landingContent:
       url: quick-run-python.md
   - linkListType: concept
     links:
-    - text: 개발자를 위한 워크플로 및 기능 개요
+    - text: 워크플로 및 기능 개요
       url: batch-service-workflow-features.md
+    - text: 작업 및 태스크
+      url: jobs-and-tasks.md
+    - text: 노드 및 풀
+      url: nodes-and-pools.md
 - title: 단계별 가이드
   linkLists:
   - linkListType: tutorial
@@ -50,6 +54,8 @@ landingContent:
       url: tutorial-parallel-dotnet.md
     - text: 병렬 파일 처리 - Python
       url: tutorial-parallel-python.md
+    - text: Data Factory를 사용하는 Python 스크립트
+      url: tutorial-run-python-batch-azure-data-factory.md
     - text: Batch 및 Functions를 사용하는 OCR
       url: tutorial-batch-functions.md
     - text: Arnold를 사용하여 렌더링하는 장면
@@ -65,11 +71,13 @@ landingContent:
     - text: Batch 계정 만들기
       url: batch-account-create-portal.md
     - text: 풀 만들기 및 관리
-      url: batch-custom-images.md
+      url: batch-sig-images.md
     - text: 동시에 작업 실행
       url: batch-parallel-node-tasks.md
     - text: 애플리케이션 패키지 사용
       url: batch-application-packages.md
+    - text: 컨테이너 애플리케이션 실행
+      url: batch-docker-container-workloads.md
   - linkListType: concept
     links:
     - text: 지원되는 VM 크기

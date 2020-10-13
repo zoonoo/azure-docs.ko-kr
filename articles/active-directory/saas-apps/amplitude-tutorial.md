@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f2b7ec07583859e12711237c6a899d61335c969
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b05a85dd61cdf4edc366edc3fbf20e4097308d09
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545477"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713568"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>자습서: Amplitude와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -141,15 +141,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 모음에서 **계획 관리자**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/amplitude-tutorial/configure1.png)
+    ![스크린샷은 계획 관리자가 선택된 Amplitude 메뉴를 보여줍니다.](./media/amplitude-tutorial/configure1.png)
 
 1. **SSO 통합**에서 **Microsoft Azure Active Directory 메타데이터**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/amplitude-tutorial/configure2.png)
+    ![스크린샷은 Microsoft Azure Active Directory 메타데이터 링크가 호출된 계획 관리 창을 보여줍니다.](./media/amplitude-tutorial/configure2.png)
 
 1. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/amplitude-tutorial/configure3.png)
+    ![스크린샷은 이 단계에서 설명한 값이 있는 Single Sign-On 설정 섹션을 보여줍니다.](./media/amplitude-tutorial/configure3.png)
 
     a. Azure Portal에서 다운로드한 **메타데이터 XML**을 메모장에서 열고 콘텐츠를 **Microsoft Azure Active Directory 메타데이터** 텍스트 상자에 붙여넣습니다.
 

@@ -5,16 +5,18 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531647"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758985"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
 이 자습서에서는 Linux 기본 이미지를 사용하여 사용자 지정 Docker 컨테이너로 코드를 만들어 Azure Functions에 배포합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공하지 않는 특정 종속성 또는 구성이 있는 경우 일반적으로 사용자 지정 이미지를 사용합니다.
+
+사용자 지정 Linux 컨테이너에 함수 코드를 배포하려면 [프리미엄 플랜](functions-premium-plan.md#features) 또는 [전용(App Service) 플랜](functions-scale.md#app-service-plan) 호스팅이 필요합니다. 이 자습서를 완료하면 Azure 계정에 몇 달러(미국)의 비용이 발생하며, 이 비용은 완료될 때 [리소스 정리](#clean-up-resources)를 통해 최소화할 수 있습니다.
 
 또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
 
@@ -31,7 +33,7 @@ ms.locfileid: "90531647"
 > * 컨테이너에 SSH 연결 사용
 > * Queue Storage 출력 바인딩 추가 
 
-이 자습서는 Windows, macOS 또는 Linux를 실행하는 모든 컴퓨터에서 수행할 수 있습니다. 자습서를 완료하면 Azure 계정에서 몇 달러(US) 정도의 비용이 발생합니다.
+이 자습서는 Windows, macOS 또는 Linux를 실행하는 모든 컴퓨터에서 수행할 수 있습니다. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -243,7 +245,7 @@ Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스�
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    사용자 지정 함수 컨테이너에 대한 Linux 호스팅은 [전용(App Service) 계획](functions-scale.md#app-service-plan) 및 [프리미엄 요금제](functions-premium-plan.md#features)에서 지원됩니다. 여기서는 필요에 따라 확장할 수 있는 프리미엄 요금제를 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요. 비용을 계산하려면 [Functions 가격 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.
+    여기서는 필요에 따라 확장할 수 있는 프리미엄 요금제를 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요. 비용을 계산하려면 [Functions 가격 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.
 
     또한 이 명령은 동일한 리소스 그룹에 연결된 Azure Application Insights 인스턴스를 프로비저닝하여 함수 앱을 모니터링하고 로그를 볼 수 있습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요. 인스턴스를 활성화할 때까지 비용이 발생하지 않습니다.
 

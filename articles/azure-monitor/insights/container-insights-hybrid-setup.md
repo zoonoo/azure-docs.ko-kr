@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 K
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398384"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994442"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
@@ -34,13 +34,13 @@ ms.locfileid: "89398384"
 
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
     >[!NOTE]
     >동일한 Log Analytics 작업 영역에 동일한 클러스터 이름을 가진 여러 클러스터의 모니터링을 사용 하도록 설정할 수 없습니다. 클러스터 이름은 고유 해야 합니다.
@@ -349,7 +349,7 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-`omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+예: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
 프로토콜을 **http**로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 

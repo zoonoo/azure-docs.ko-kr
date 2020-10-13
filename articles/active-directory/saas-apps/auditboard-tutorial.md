@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 1020dec2069d609cf5f919c5802da906ae172ed2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2b4d3e75f6e2f3e6313541b0b146ff64cc403ce5
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550237"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>자습서: AuditBoard와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 4. **IDP 시작** 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![AuditBoard 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml` 패턴을 사용하여 URL을 입력합니다.
 
@@ -109,7 +109,7 @@ AuditBoard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     d. **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.auditboardapp.com/` 패턴을 사용하여 URL을 입력합니다.
 
-    ![AuditBoard 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [AuditBoard 클라이언트 지원 팀](mailto:support@auditboard.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

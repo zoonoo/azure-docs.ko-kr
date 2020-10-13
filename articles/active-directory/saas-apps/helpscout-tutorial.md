@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 16783d344c6a0dedec4e24d49150e0b4b2edbe3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c6faf2bb1811f7b27a49f8029c833499273d8a1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548143"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>자습서: Help Scout와 Azure Active Directory 통합
 
@@ -89,7 +89,7 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Help Scout 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자**는 Help Scout의 **대상 URI(서비스 공급자 엔터티 ID)** 이며, `urn:`으로 시작합니다.
 
@@ -100,7 +100,7 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Help Scout 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://secure.helpscout.net/members/login/`
 
@@ -183,15 +183,15 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 위쪽 메뉴에서 **관리**를 클릭한 다음, 드롭다운 메뉴에서 **"회사"** 를 선택합니다.
 
-    ![Single Sign-on 구성](./media/helpscout-tutorial/settings1.png)
+    ![스크린샷은 회사에서 선택한 관리 메뉴를 보여줍니다.](./media/helpscout-tutorial/settings1.png)
 
 1. 왼쪽 탐색 창에서 **인증**을 선택합니다.
 
-    ![Single Sign-on 구성](./media/helpscout-tutorial/settings2.png)
+    ![스크린샷은 선택된 인증을 보여줍니다.](./media/helpscout-tutorial/settings2.png)
 
 1. SAML 설정 섹션으로 이동하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/helpscout-tutorial/settings3.png)
+    ![스크린샷은 지정된 정보를 입력하는 Single Sign-On 탭을 보여줍니다.](./media/helpscout-tutorial/settings3.png)
 
     a. **다시 게시 URL(Assertion Consumer Service URL)** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 해당 값을 붙여넣습니다.
 
@@ -199,7 +199,7 @@ Help Scout에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. **SAML 사용**을 설정하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/helpscout-tutorial/settings4.png)
+    ![스크린샷은 SAML을 사용하도록 설정하고 기타 정보를 추가하는 Single Sign-On 탭을 보여줍니다.](./media/helpscout-tutorial/settings4.png)
 
     a. **Single Sign-On URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 

@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Arc enabled
 description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하 여 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 79a534e4f37fb0154115e43402f031752a603ccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620293"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994459"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 사용 Kubernetes 클러스터 모니터링 사용
 
@@ -30,13 +30,13 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 
 - 지원 되는 마스터 및 작업자 노드에 대 한 Linux OS 릴리스는 Ubuntu (18.04 LTS 및 16.04 LTS)입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
 - Log Analytics 작업 영역.
 
-    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    컨테이너 Azure Monitor는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../learn/quick-create-workspace.md)를 통해 만들 수 있습니다.
 
 - 컨테이너에 대 한 Azure Monitor의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버 여야 하 고 컨테이너에 대 한 Azure Monitor로 구성 된 Log Analytics 작업 영역의 구성원 인 [*Log Analytics 참가자*](../platform/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
 
@@ -154,7 +154,7 @@ $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $service
 $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```powershell
 .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
@@ -239,7 +239,7 @@ servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
 tenantId=$(echo $servicePrincipal | jq -r '.tenant')
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```bash
 bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
@@ -262,13 +262,13 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-`http://user01:password@proxy01.contoso.com:3128`
+예: `http://user01:password@proxy01.contoso.com:3128`
 
 프로토콜을 **http**로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
 ### <a name="configure-using-powershell"></a>PowerShell을 사용한 구성
 
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
+프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예:
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>

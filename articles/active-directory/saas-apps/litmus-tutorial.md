@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 3e1386fdfafdea3112e26ce6480c7d20061236ba
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549673"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91823033"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>자습서: Litmus와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -167,7 +167,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Litmus 구성](./media/litmus-tutorial/user-profile.png)
 
-    a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **B.Simon@contoso.com** )를 입력합니다.
+    a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **B.Simon\@contoso.com**)를 입력합니다.
 
     b. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 

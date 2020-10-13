@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c14d70f7489115b980479e7225cc3b47f80b3f2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 64156741437a6805b7060d2aaa67b8de5b4aad13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554967"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>자습서: Flock과 Azure Active Directory 통합
 
@@ -128,7 +128,7 @@ Flock에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 2. 왼쪽 탐색 패널에서 **인증** 탭을 선택한 다음, **SAML 인증**을 선택합니다.
 
-    ![Flock 구성](./media/flock-tutorial/configure1.png)
+    !["SAML 인증"이 선택된 "인증" 탭을 보여주는 스크린샷.](./media/flock-tutorial/configure1.png)
 
 3. **SAML Authentication** 섹션에서 다음 단계를 수행합니다.
 
@@ -203,11 +203,11 @@ Azure AD 사용자가 Flock에 로그인할 수 있게 하려면 해당 사용�
 
 2. 왼쪽 탐색 패널에서 **팀 관리**를 클릭합니다.
 
-    ![직원 추가](./media/flock-tutorial/user1.png)
+    ![선택된 "팀 관리"를 보여주는 스크린샷.](./media/flock-tutorial/user1.png)
 
 3. **멤버 추가** 탭을 클릭한 다음, **팀 멤버**를 선택합니다.
 
-    ![직원 추가](./media/flock-tutorial/user2.png)
+    !["멤버 추가" 탭 및 선택된 "팀 멤버"를 보여주는 스크린샷.](./media/flock-tutorial/user2.png)
 
 4. 사용자의 이메일 주소(예: **Brittasimon\@contoso.com**)를 입력한 다음, **사용자 추가**를 선택합니다.
 

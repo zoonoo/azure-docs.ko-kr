@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: a0622c7556896b7ae7201ffa3a7ecac8de1106a4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
+ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053544"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91766311"
 ---
 ::: zone target="docs"
 
@@ -72,11 +72,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **SMB**를 선택하여 스토리지 계정과 연결된 공유의 액세스 자격 증명을 가져옵니다. 
 
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![SMB 공유에 대한 공유 자격 증명 가져오기](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. [액세스 공유 및 데이터 복사] 대화 상자에서 공유에 해당하는 **사용자 이름** 및 **암호**를 복사합니다. **확인**을 선택합니다.
     
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![공유에 대한 사용자 이름 및 암호 가져오기](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
@@ -97,11 +97,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 선택하여 파일 탐색기를 엽니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![파일 탐색기를 통해 공유에 연결](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     이제 공유가 폴더로 표시될 것입니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![파일 탐색기에 표시된 공유](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
     
@@ -116,7 +116,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
 * 적절한 데이터 형식에 해당하는 공유에 데이터를 복사해야 합니다. 예를 들어 블록 Blob에 대한 공유에 블록 Blob 데이터를 복사합니다. 페이지 Blob에 VHD를 복사합니다. 데이터 형식이 적절한 공유 형식과 일치하지 않는 경우 이후 단계에서 Azure에 데이터를 업로드하는 작업이 실패합니다.
-* 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 및 Data Box 제한](data-box-limits.md)에 설명된 크기 제한을 준수해야 합니다.
+* 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 계정 크기 제한](data-box-limits.md#azure-storage-account-size-limits)에 설명된 크기 제한을 준수해야 합니다.
 * Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 * 다음이 권장됩니다.
   * SMB와 NFS를 동시에 사용하지 않습니다.
@@ -225,15 +225,15 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 
 복사 프로세스 중에 오류가 발생하면 알림이 표시됩니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-1.png)
+![연결 및 복사의 복사 오류 알림](media/data-box-deploy-copy-data/view-errors-1.png)
 
 **문제 목록 다운로드**를 선택합니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-2.png)
+![연결 및 복사 오류 다운로드 및 보기 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 목록을 열어 오류의 세부 정보를 보고 해결 URL을 선택하여 권장 해결 방법을 확인합니다.
 
-![연결 및 복사 오류 다운로드 및 보기](media/data-box-deploy-copy-data/view-errors-3.png)
+![연결 및 복사 오류 다운로드 및 보기 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 자세한 내용은 [Data Box로 데이터를 복사하는 동안 오류 로그 보기](data-box-logs.md#view-error-log-during-data-copy)를 참조하세요. 데이터를 복사하는 동안 발생하는 오류에 대한 자세한 목록을 보려면 [Data Box 문제 해결](data-box-troubleshoot.md)을 참조하세요.
 

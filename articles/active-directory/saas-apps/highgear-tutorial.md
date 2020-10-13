@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: af2630b977c1ce34712a582175674277799f105b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a48772c4325717a64bd36873675ff19c6a332de0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550613"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91817161"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>자습서: HighGear와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ HighGear 시스템에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![HighGear 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **서비스 공급 기업 엔터티 ID** 필드의 값을 붙여넣습니다.
 
@@ -116,7 +116,7 @@ HighGear 시스템에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     다. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-     ![HighGear 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+     ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
      **로그온 URL** 텍스트 상자에 HighGear 시스템의 Single Sign-On 설정 페이지에 있는 **서비스 공급 기업 엔터티 ID** 필드의 값을 붙여넣습니다. (이 엔터티 ID는 SP 시작 로그온에 사용되는 HighGear 시스템의 기본 URL이기도 합니다.)
 

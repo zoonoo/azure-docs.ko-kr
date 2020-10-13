@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 219dd6e4a8f04da8b28a28e5473394f0721e4013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545212"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826354"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>자습서: Azure Active Directory와 iLMS 통합
 
@@ -130,29 +130,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **Settings(설정)** 탭에서 **SSO:SAML**을 클릭하여 SAML 설정을 열고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/ilms-tutorial/1.png)
+    ![스크린샷은 SSO: SAML을 선택할 수 있는 ILMS 설정 탭을 보여줍니다.](./media/ilms-tutorial/1.png)
 
 3. **Service Provider(서비스 공급자)** 섹션을 확장하고 **Identifier(식별자)** 및 **Endpoint (URL)(엔드포인트 URL)** 값을 복사합니다.
 
-    ![Single Sign-on 구성](./media/ilms-tutorial/2.png) 
+    ![스크린샷은 값을 가져올 수 있는 SAML 설정을 보여줍니다.](./media/ilms-tutorial/2.png) 
 
 4. **Identity Provider(ID 공급자)** 섹션에서 **Import Metadata(메타데이터 가져오기)** 를 클릭합니다.
 
 5. Azure Portal에서 다운로드한 **페더레이션 메타데이터** 파일을 **SAML 서명 인증서** 섹션에서 선택합니다.
 
-    ![Single Sign-on 구성](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![스크린샷은 메타데이터 파일을 선택할 수 있는 SAML 설정을 보여줍니다.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. 인식할 수 없는 사용자의 iLMS 계정을 만들기 위해 JIT 프로비전을 사용하도록 설정하려면 아래 단계를 수행합니다.
 
     a. **Create Un-recognized User Account(인식할 수 없는 사용자 계정 만들기)** 를 선택합니다.
 
-    ![Single Sign-on 구성](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+    ![스크린샷은 인식되지 않은 사용자 계정 만들기 옵션을 보여줍니다.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
     b. Azure AD의 특성을 iLMS의 특성과 매핑합니다. 특성 열에 특성 이름 또는 기본값을 지정합니다.
 
     다. **Business Rules(비즈니스 규칙)** 탭으로 이동하여 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/ilms-tutorial/5.png)
+    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 비즈니스 규칙 설정을 보여줍니다.](./media/ilms-tutorial/5.png)
 
     d. Single Sign-on 시 존재하지 않는 지역, 국 및 부서를 만들려면 **Create Un-recognized Regions, Divisions and Departments(인식할 수 없는 지역, 국 및 부서 만들기)** 를 선택합니다.
 
@@ -164,7 +164,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. **저장** 단추를 클릭하여 설정을 저장합니다.
 
-    ![Single Sign-on 구성](./media/ilms-tutorial/save.png)
+    ![스크린샷은 저장 단추를 보여줍니다.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -206,11 +206,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **사용자** 탭에서 **사용자 등록**을 클릭하여 **사용자 등록** 페이지를 엽니다.
 
-   ![직원 추가](./media/ilms-tutorial/3.png)
+   ![스크린샷은 사용자 등록을 선택할 수 있는 ILMS 설정 탭을 보여줍니다.](./media/ilms-tutorial/3.png)
 
 3. **사용자 등록** 페이지에서 다음 단계를 수행합니다.
 
-    ![직원 추가](./media/ilms-tutorial/create_testuser_add.png)
+    ![스크린샷은 지정된 정보를 입력하는 사용자 등록 페이지를 보여줍니다.](./media/ilms-tutorial/create_testuser_add.png)
 
     a. **이름** 텍스트 상자에 이름(예: Britta)을 입력합니다.
 

@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.author: mimart
-ms.date: 01/29/2020
+ms.date: 10/02/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: da84fee4e974f02f29dc9006fe740c415632ae53
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 76cacbea3f98f65e290cb2722062127d2264e171
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029021"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91664837"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 
@@ -37,7 +37,8 @@ ms.locfileid: "90029021"
 | 샘플 | Description |
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | .NET Web API를 호출하는 .NET 웹 애플리케이션을 위한 결합 샘플로, 둘 다 Azure AD B2C를 사용하여 보호됩니다. |
-| [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | Azure AD B2C를 사용하여 사용자를 로그인하고, MSAL.NET을 사용하여 액세스 토큰을 가져오고, API를 호출하는 방법을 보여주는 ASP.NET Core 웹 애플리케이션입니다. |
+| [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | OpenID Connect를 사용하여 Azure AD B2C에서 사용자를 로그인하는 ASP.NET Core 웹 애플리케이션입니다. |
+| [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | Azure AD B2C를 사용하여 사용자를 로그인하고, MSAL.NET을 사용하여 액세스 토큰을 가져오고, API를 호출하는 방법을 보여주는 ASP.NET Core 웹 애플리케이션입니다. |
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | OpenID Connect를 사용하여 Express를 통해 웹 애플리케이션을 쉽고 빠르게 설치하는 방법을 제공하는 Node.js 애플리케이션입니다. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | passport.js를 사용하여 web api를 보호하고 B2C 액세스 토큰에 액세스하는 방법을 보여주는 작은 Azure AD B2C용 node.js Web API입니다. |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Microsoft ID 플랫폼의 B2C를 Python 웹 애플리케이션과 통합하는 방법을 보여줍니다.  |

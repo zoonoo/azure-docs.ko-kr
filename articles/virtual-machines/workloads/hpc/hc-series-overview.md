@@ -1,24 +1,18 @@
 ---
 title: HC 시리즈 VM 개요-Azure Virtual Machines | Microsoft Docs
 description: Azure에서 HC 시리즈 VM 크기에 대 한 미리 보기 지원에 대해 알아봅니다.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: de6051e8880bbe3df42031a0d0d7b60abc27d2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97e0ae9ea4914cda5d92f5180199a740c02ecdf4
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689802"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994374"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
 

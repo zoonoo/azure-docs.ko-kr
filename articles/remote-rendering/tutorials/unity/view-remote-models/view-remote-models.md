@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7509a17127f04220a8e8450a81627354b28bdacd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bcee951dc85d9c317bad481ebdb91ff6c761371c
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006468"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653675"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>자습서: 원격으로 렌더링된 모델 보기
 
@@ -76,10 +76,10 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 매니페스트가 수정되어 저장되면 Unity에서 자동으로 새로 고칩니다. *Project(프로젝트)* 창에서 패키지가 로드되었는지 확인합니다.
 
-:::image type="content" source="./media/confirm-packages.png" alt-text="패키지 가져오기 확인":::
+:::image type="content" source="./media/confirm-packages.png" alt-text="새 Unity 프로젝트":::
 
 패키지가 로드되지 않으면 Unity 콘솔에서 오류가 있는지 확인합니다. 오류가 없지만 패키지가 여전히 **Packages** 폴더 아래에 표시되지 않으면 패키지 표시 유형 설정/해제 단추를 선택합니다.
-![Unity 카메라 속성](./media/unity-package-visibility.png)
+![패키지 표시 유형 토글 단추를 가리키는 화살표가 있는 스크린샷.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>최신 버전의 패키지가 있는지 확인
 
@@ -120,7 +120,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 1. 왼쪽 목록 메뉴에서 **Graphics(그래픽)** 를 선택합니다.
 1. **Scriptable Rendering Pipeline(스크립트 가능한 렌더링 파이프라인)** 설정을 *HybridRenderingPipeline*으로 변경합니다.
-    ![프로젝트 그래픽 설정 변경](./media/settings-graphics-render-pipeline.png)\
+    ![스크립트 가능한 렌더링 파이프라인 설정을 HybridRenderingPipeline으로 변경하는 위치를 가리키는 스크린샷.](./media/settings-graphics-render-pipeline.png)\
     경우에 따라 UI는 패키지에서 사용 가능한 파이프라인 유형 목록을 채우지 않습니다. 이 경우 *HybridRenderingPipeline* 자산을 필드로 수동으로 끌어야 합니다.
     ![프로젝트 그래픽 설정 변경](./media/hybrid-rendering-pipeline.png)
 
@@ -597,7 +597,7 @@ public async void InitializeSessionService()
 1. 직접 참조할 수 있도록 구성 요소를 자체 이벤트로 끕니다.
 ![인증 무시](./media/bypass-authorization-add-event.png)\
 1. 드롭다운에서 **RemoteRenderingCoordinator -> BypassAuthorization**을 차례로 선택합니다.
-![인증 무시](./media/bypass-authorization-event.png)
+![선택된 RemoteRenderingCoordinator.BypassAuthorization 옵션을 보여주는 스크린샷.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>원격 세션 만들기 또는 조인
 
@@ -724,7 +724,7 @@ private void LateUpdate()
 
 필수 기본 요소가 제대로 갖추어지면 모델을 원격 세션에 로드하고 프레임 수신을 시작할 준비가 되었습니다.
 
-![ARR 스택 4](./media/remote-render-stack-4.png)
+![모델 로드 및 보기 준비를 위한 프로세스 흐름을 보여주는 다이어그램.](./media/remote-render-stack-4.png)
 
 **LoadModel** 메서드는 모델 경로, 진행률 처리기 및 부모 변환을 허용하도록 설계되었습니다. 이러한 인수는 모델을 원격 세션에 로드하고, 로드 진행 시 사용자를 업데이트하며, 부모 변환에 따라 원격으로 렌더링된 모델의 방향을 지정하는 데 사용됩니다.
 

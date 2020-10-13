@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: jeedes
-ms.openlocfilehash: ffa4f0ab40e413da78257bde81a00fd3910131b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08a9cbadb86f59cca1f361dc66ee03a300f91968
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555973"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coggle"></a>자습서: Coggle과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -146,19 +146,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **Coggle** 계정을 클릭하고 **내 설정**을 선택합니다.
 
-    ![Coggle 구성](./media/Coggle-tutorial/configure1.png)
+    ![스크린샷은 내 설정이 선택된 Coggle 회사 사이트를 보여줍니다.](./media/Coggle-tutorial/configure1.png)
 
 3. 다음 **로고**를 클릭하고 **인증**을 선택합니다.
 
-    ![Coggle 구성](./media/Coggle-tutorial/configure2.png)
+    ![스크린샷은 고래 아이콘과 선택된 인증을 보여줍니다.](./media/Coggle-tutorial/configure2.png)
 
 4. **SAML 구성 편집**을 클릭합니다.
 
-    ![Coggle 구성](./media/Coggle-tutorial/configure3.png)
+    ![스크린샷은 SAML 구성 편집 옵션이 있는 SAML 통합 페이지를 보여줍니다.](./media/Coggle-tutorial/configure3.png)
 
 5. **SAML 통합** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![Coggle 구성](./media/Coggle-tutorial/configure4.png)
+    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 SAML 통합 페이지를 보여줍니다.](./media/Coggle-tutorial/configure4.png)
 
     a. Azure Portal에서 복사한 **로그인 URL** 값을 **EntryPoint(ID 공급자 SSO 대상 URL)** 텍스트 상자에 붙여넣습니다.
 

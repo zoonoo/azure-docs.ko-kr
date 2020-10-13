@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900012"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743406"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
@@ -124,7 +124,7 @@ ms.locfileid: "90900012"
 3. 두 쌍의 나사를 사용하여 왼쪽 및 오른쪽 탑재 레일을 전면 수직 랙 플랜지에 연결합니다.
 4. 왼쪽 및 오른쪽 후면 브라켓을 후면 수직 랙 플랜지의 앞에 댄 후, 두 쌍의 나사를 사용하여 연결합니다.
 
-    ![툴링 레일의 설치 및 제거](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![툴링 레일 설치 및 제거 2](./media/azure-stack-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>랙에 시스템 설치
 
@@ -207,11 +207,11 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 
     - 3개의 PCI 슬롯과 하나의 GPU가 있는 디바이스
 
-        ![케이블로 연결된 디바이스의 백플레인](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
+        ![케이블이 연결되는 디바이스의 후면 2](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-one-gpu.png)
 
     - 3개의 PCI 슬롯과 2개의 GPU가 있는 디바이스
 
-        ![케이블로 연결된 디바이스의 백플레인](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
+        ![케이블이 연결되는 디바이스의 후면 3](./media/azure-stack-edge-gpu-deploy-install/ase-three-pci-slots-two-gpu.png)
 
 2. 디바이스의 전면에서 디스크 슬롯과 전원 단추를 찾습니다.
 

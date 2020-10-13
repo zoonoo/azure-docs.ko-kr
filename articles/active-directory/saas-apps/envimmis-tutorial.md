@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1eb408025a45f09a6bdb854f4379a560842ef2d7
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551747"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>자습서: Envi MMIS와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Envi MMIS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Envi MMIS 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자", "회신 URL" 및 "저장" 단추가 강조 표시된 "기본 SAML 구성"을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://www.<CUSTOMER DOMAIN>.com/Account` 패턴을 사용하여 URL을 입력합니다.
 
@@ -134,23 +134,23 @@ Envi MMIS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. **내 도메인** 탭을 클릭합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/envimmis-tutorial/configure1.png)
+    !["내 도메인"이 선택된 "사용자" 메뉴를 보여주는 스크린샷.](./media/envimmis-tutorial/configure1.png)
 
 3. **편집**을 클릭합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/envimmis-tutorial/configure2.png)
+    ![선택된 "편집" 단추를 보여주는 스크린샷.](./media/envimmis-tutorial/configure2.png)
 
 4. **원격 인증 사용** 확인란을 선택한 다음, **인증 형식** 드롭다운에서 **HTTP 리디렉션**을 선택합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/envimmis-tutorial/configure3.png)
+    !["원격 인증 사용" 확인란이 선택되고 "HTTP 리디렉션"이 선택된 "세부 정보" 탭을 보여주는 스크린샷.](./media/envimmis-tutorial/configure3.png)
 
 5. **리소스** 탭을 선택한 다음, **메타데이터 업로드**를 클릭합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/envimmis-tutorial/configure4.png)
+    !["메타데이터 업로드" 작업이 선택된 "리소스" 탭을 보여주는 스크린샷.](./media/envimmis-tutorial/configure4.png)
 
 6. **메타데이터 업로드** 팝업에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 구성 저장 단추](./media/envimmis-tutorial/configure5.png)
+    !["파일" 옵션이 선택되고 "파일 선택" 아이콘과 "확인" 단추가 강조 표시된 "메타데이터 업로드" 팝업을 보여주는 스크린샷.](./media/envimmis-tutorial/configure5.png)
 
     a. **업로드 위치** 드롭다운에서 **파일** 옵션을 선택합니다.
 
@@ -223,11 +223,11 @@ Azure AD 사용자가 Envi MMIS에 로그인할 수 있도록 하려면 Envi MMI
 
 2. **사용자 목록** 탭을 클릭합니다.
 
-    ![직원 추가](./media/envimmis-tutorial/user1.png)
+    !["사용자 목록"이 선택된 "사용자" 메뉴를 보여주는 스크린샷.](./media/envimmis-tutorial/user1.png)
 
 3. **사용자 추가** 단추를 클릭합니다.
 
-    ![직원 추가](./media/envimmis-tutorial/user2.png)
+    !["사용자 추가" 단추가 선택된 "사용자" 섹션을 보여주는 스크린샷.](./media/envimmis-tutorial/user2.png)
 
 4. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
 

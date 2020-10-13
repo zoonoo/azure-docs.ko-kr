@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e9ccb3f4308a1a75a715a16ab4c1a2887b0a915
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4ffaad77a34be66d06f8f0033731d0496e444e52
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522073"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715891"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>자습서: Alibaba Cloud Service(역할 기반 SSO)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -132,11 +132,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자 및 그룹** 탭의 사용자 목록에서 u2를 선택하고, **선택**을 클릭합니다. 그런 다음, **할당**을 클릭합니다.
 
-    ![테스트 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
+    ![스크린샷은 사용자 및 그룹이 선택되지 않은 Alibaba에 대한 할당 추가 창을 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
 
 1. 할당된 역할을 살펴보고 Alibaba Cloud Service(역할 기반 SSO)를 테스트 합니다.
 
-    ![테스트 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
+    ![스크린샷은 사용자 u2에 할당된 롤을 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
 
     >[!NOTE]
     >사용자(u2)를 할당한 후 만들어진 역할은 자동으로 사용자에게 연결됩니다. 여러 역할을 만든 경우 필요에 따라 적절한 역할을 사용자에게 연결해야 합니다. Azure AD에서 여러 Alibaba Cloud 계정으로 역할 기반 SSO를 구현하려면 위의 단계를 반복합니다.
@@ -164,25 +164,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **권한 수정**을 클릭하여 역할 만들기에 필요한 권한을 획득합니다.
 
-    ![Graph 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
+    ![스크린샷은 사용 권한 수정 링크가 있는 Graph Explorer 인증을 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
 
     다. 다음 그림처럼 목록에서 다음 권한을 선택하고 **권한 수정**을 클릭합니다.
 
-    ![Graph 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
+    ![스크린샷은 선택할 권한을 보여줍니다. Directory.AccessAsUser.All, Directory.Read.All 및 Directory.ReadWrite.All.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
 
     >[!NOTE]
     >권한을 부여한 후에는 Graph 탐색기에 다시 로그온합니다.
 
     d. Graph 탐색기 페이지의 첫 번째 드롭다운 목록에서 **GET**을 선택하고, 두 번째 드롭다운 목록에서 **베타**를 선택합니다. 드롭다운 목록 옆에 있는 필드에 `https://graph.microsoft.com/beta/servicePrincipals`를 입력하고, **쿼리 실행**을 클릭합니다.
 
-    ![Graph 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
+    ![스크린샷은 GET 및 베타가 선택되고 쿼리 실행 단추가 호출된 Graph Explorer를 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
 
     >[!NOTE]
     >여러 디렉터리를 사용하는 경우 쿼리 필드에 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`를 입력할 수 있습니다.
 
     e. **응답 미리 보기** 섹션에서, 나중에 사용할 수 있도록 '서비스 주체'에서 appRoles 속성을 추출합니다.
 
-    ![Graph 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
+    ![스크린샷은 appRoles 속성을 가져올 수 있는 응답 미리 보기 섹션의 일반 텍스트를 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
 
     >[!NOTE]
     >appRoles 속성은 쿼리 필드에 `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`를 입력하여 찾을 수 있습니다. `objectID`는 Azure AD **속성** 페이지에서 복사한 개체 ID입니다.
@@ -234,19 +234,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal에서 **Alibaba Cloud Service(역할 기반 SSO)** 페이지로 이동하여 **Single Sign-On**을 선택하고, **테스트**를 클릭합니다.
 
-    ![테스트 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/test03.png)
+    ![스크린샷은 테스트 단추가 있는 Alibaba 클라우드 서비스를 사용하는 Single Sign-On 테스트를 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/test03.png)
 
 2. **현재 사용자로 로그인**을 클릭합니다.
 
-    ![테스트 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/test04.png)
+    ![스크린샷은 현재 사용자로 로그인 링크를 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/test04.png)
 
 3. 계정 선택 페이지에서 u2를 선택합니다.
 
-    ![테스트 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/test05.png)
+    ![스크린샷은 사용자 u2가 선택된 SSO 로그온 옵션을 보여줍니다.](./media/alibaba-cloud-service-role-based-sso-tutorial/test05.png)
 
 4. 역할 기반 SSO가 성공했음을 알리는 다음 페이지가 표시됩니다.
 
-    ![테스트 구성](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
+    ![스크린샷은 테스트가 성공했음을 나타내는 제품 및 서비스 페이지를 보여줍니다. ](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 8abf36e79f83c69dd927acd21c5c8652122fc82d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6050b9f4a14f39245c7424f47dae081e9efc6ff1
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544081"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hive"></a>자습서: Hive와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -147,11 +147,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자 프로필**을 클릭하고 **작업 영역**을 클릭합니다.
 
-    ![Hive 구성](./media/hive-tutorial/configure1.png)
+    ![스크린샷은 메뉴에서 선택한 작업 영역이 있는 Hive 웹 사이트를 보여줍니다.](./media/hive-tutorial/configure1.png)
 
 1. **인증**을 클릭하고 다음 단계를 수행합니다.
 
-    ![Hive 구성](./media/hive-tutorial/configure2.png)
+    ![스크린샷은 설명된 작업을 수행하는 인증 페이지를 보여줍니다.](./media/hive-tutorial/configure2.png)
 
     a. **작업 영역 ID**를 복사하고 **로그온 URL** 및 **회신 URL**을 Azure Portal의 **기본 SAML 구성 섹션**에 추가합니다.
 

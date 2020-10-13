@@ -3,12 +3,12 @@ title: ISO 27001 Shared Services 청사진 샘플 개요
 description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처입니다. 이 청사진 샘플은 고객이 특정 ISO 27001 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927354"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950553"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -27,12 +27,12 @@ VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 
 
 - 컨트롤 플레인 관점에서 직무 분리에 사용되는 [Azure 역할](../../../../role-based-access-control/overview.md) 인프라를 배포하기 전에 다음과 같은 세 가지 역할이 정의됩니다.
   - NetOps 역할에는 방화벽 설정, NSG 설정, 라우팅 및 기타 네트워크 기능을 비롯한 네트워크 환경을 관리할 수 있는 권한이 있습니다.
-  - SecOps 역할에는 [Azure Security Center](../../../../security-center/security-center-intro.md)를 배포 및 관리하고 [Azure 정책](../../../policy/overview.md) 및 기타 보안 관련 권한을 정의하는 데 필요한 권한이 있습니다.
-  - SysOps 역할에는 다른 운영 권한 중에서도 구독 내에서 [Azure 정책](../../../policy/overview.md)을 정의하고 전체 환경에 대한 [Log Analytics](../../../../azure-monitor/overview.md)를 관리하는 데 필요한 권한이 있습니다.
+  - SecOps 역할에는 [Azure Security Center](../../../../security-center/security-center-introduction.md)를 배포 및 관리하고 [Azure Policy](../../../policy/overview.md) 정의 및 기타 보안 관련 권한을 정의하는 데 필요한 권한이 있습니다.
+  - SysOps 역할에는 다른 운영 권한 중에서도 구독 내에서 [Azure Policy](../../../policy/overview.md) 정의를 정의하고 전체 환경에 대한 [Log Analytics](../../../../azure-monitor/overview.md)를 관리하는 데 필요한 권한이 있습니다.
 - [Log Analytics](../../../../azure-monitor/overview.md)는 첫 번째 Azure 서비스로 배포되어 보안 배포를 시작한 순간부터 모든 작업과 서비스가 중앙 위치에 기록되도록 합니다.
 - 온-프레미스 데이터 센터에 다시 연결하기 위한 서브넷을 지원하는 가상 네트워크, 인터넷 연결을 위한 수신 및 송신 스택, 다음을 비롯한 전체 마이크로 세분화를 위해 NSG 및 ASG를 사용하는 공유 서비스 서브넷:
   - 수신 스택 서브넷에 배포된 [Azure Firewall](../../../../firewall/overview.md)을 통해서만 액세스할 수 있는, 관리 용도로 사용되는 Jumpbox 또는 요새 호스트
-  - Jumpbox를 통해서만 액세스할 수 있는 ADDS(Active Directory 도메인 서비스) 및 DNS를 실행하는 두 대의 가상 머신, VPN 또는 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 연결을 통해서만 AD를 복제하도록 구성할 수 있습니다(청사진으로 배포되지 않음).
+  - Azure AD DS(Azure Active Directory Domain Services) 및 DNS를 실행하는 두 대의 가상 머신은 Jumpbox를 통해서만 액세스할 수 있으며, VPN 또는 [ExpressRoute](../../../../expressroute/expressroute-introduction.md) 연결을 통해서만 AD를 복제하도록 구성할 수 있습니다(청사진으로 배포되지 않음).
   - [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md) 및 표준 DDoS 보호 사용
 - 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스
 

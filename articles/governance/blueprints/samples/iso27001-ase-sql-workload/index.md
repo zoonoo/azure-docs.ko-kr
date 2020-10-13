@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 개요
 description: ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플에 대한 개요 및 아키텍처입니다.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6cb50450e461d87fdbb3c71fe6273c43c3122e
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87926096"
+ms.locfileid: "91930410"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 개요
 
@@ -29,7 +29,7 @@ ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플은 
 이 환경은 ISO 27001 표준을 기반으로 하는 완전히 모니터링되는 안전한 엔터프라이즈급 워크로드 인프라를 제공하는 데 사용되는 여러 가지 Azure 서비스로 구성됩니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 
 - [Azure 역할](../../../../role-based-access-control/overview.md): 이름이 DevOps이며, 청사진 샘플에 의해 배포된 [Azure App Service Environment](../../../../app-service/environment/intro.md)의 리소스를 배포 및 관리할 수 있는 권한이 있습니다.
-- [Azure 정책](../../../policy/overview.md): 환경에 배포할 수 있는 서비스를 잠그고 PIP(공용 IP 주소) 리소스 생성을 거부합니다.
+- [Azure Policy](../../../policy/overview.md) 정의: 환경에 배포할 수 있는 서비스를 잠그고 모든 PIP(공용 IP 주소) 리소스 생성을 거부합니다.
 - 가상 네트워크: 단일 서브넷을 포함하며 기존 [공유 서비스](../iso27001-shared/index.md) 환경으로 다시 피어링되고 모든 트래픽이 [공유 서비스](../iso27001-shared/index.md) 방화벽을 통과하도록 적용합니다. 가상 네트워크는 다음 리소스를 호스팅합니다.
   - 하나 이상의 웹 애플리케이션, 웹 API 또는 함수를 호스팅하는 데 사용할 수 있는 [Azure App Service Environments](../../../../app-service/environment/intro.md)
   - 워크로드 환경에서 실행되는 애플리케이션에 사용되는 비밀을 저장하기 위해, VNet 서비스 엔드포인트를 사용하는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스

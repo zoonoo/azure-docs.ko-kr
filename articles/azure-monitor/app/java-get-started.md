@@ -6,24 +6,24 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602468"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996155"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
 
 > [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)에 대 한 지침을 따르세요.
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
 
 이 빠른 시작에서는 Application Insights SDK를 사용 하 여 요청을 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는 코드
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.
@@ -199,7 +199,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, Vm 구성
 
-Azure 리소스 공급자에서 실행 되는 응용 프로그램을 모니터링 하는 가장 쉬운 방법은 [Java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)를 통해 Application Insights 자동 계측을 사용 하는 것입니다.
+Azure 리소스 공급자에서 실행 되는 응용 프로그램을 모니터링 하는 가장 쉬운 방법은 [Java 3.0 에이전트](./java-in-process-agent.md)를 통해 Application Insights 자동 계측을 사용 하는 것입니다.
 
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
@@ -313,4 +313,3 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
-

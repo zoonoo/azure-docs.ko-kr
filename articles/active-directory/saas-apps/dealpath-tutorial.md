@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5bae2173fc49cb9f41787905be66cf32a99fa03a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5ffdc510fd2a0f81fbfa5d9d04c337c99b389110
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537003"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>자습서: Azure Active Directory와 Dealpath 통합
 
@@ -128,7 +128,7 @@ Dealpath에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 오른쪽 위에서 **관리 도구**를 클릭하고 **통합**으로 이동한 다음, **SAML 2.0 인증** 섹션에서 **업데이트 설정**을 클릭합니다.
 
-    ![Dealpath 구성](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+    !["SAML 2.0 인증" 섹션과 "업데이트 설정"이 선택된 "관리 도구 - 통합" 페이지를 보여주는 스크린샷.](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. **SAML 2.0 인증 설정** 페이지에서 다음 단계를 수행합니다.
 

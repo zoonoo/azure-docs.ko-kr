@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d820a3fc9b12a36a76e2eb887b32d27acc156c76
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a278204da556b41bd663b8b5c9ff5152e16017cc
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522344"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91715865"
 ---
 # <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>자습서: Azure Active Directory와 AlertOps 통합
 
@@ -108,11 +108,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 왼쪽 탐색 패널에서 **계정 설정**을 클릭합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/configure1.png)
+    ![스크린샷은 계정 설정이 호출된 AlertOps 메뉴를 보여줍니다.](./media/alertops-tutorial/configure1.png)
 
 5. **구독 설정** 페이지에서 **SSO**를 선택하고 다음 단계를 수행합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/configure2.png)
+    ![스크린샷은 이 단계에서 설명한 대로 값이 입력된 SSO에 대한 구독 설정 창을 보여줍니다.](./media/alertops-tutorial/configure2.png)
 
     a. **SSO(Single Sign-On) 사용** 확인란을 선택합니다.
 
@@ -164,15 +164,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 왼쪽 탐색 패널에서 **사용자**를 클릭합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/user1.png)
+    ![스크린샷은 사용자가 호출된 AlertOps 메뉴를 보여줍니다.](./media/alertops-tutorial/user1.png)
 
 3. **사용자 추가**를 선택합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/user2.png)
+    ![스크린샷은 사용자 추가 단추가 있는 사용자 창을 보여줍니다.](./media/alertops-tutorial/user2.png)
 
 4. **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![AlertOps 구성](./media/alertops-tutorial/user3.png)
+    ![스크린샷은 이 단계에서 설명하는 대로 값이 입력된 사용자 추가 창을 보여줍니다.](./media/alertops-tutorial/user3.png)
 
     a. **로그인 사용자 이름** 텍스트 상자에 **Brittasimon**과 같은 사용자 이름을 입력합니다.
 

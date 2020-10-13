@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b7aaaa589b92814694bee2838332f6823b3351de
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 137a077ac73b5dd5ca9c68c6be2b30beb8e92ce0
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521878"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>자습서:Azure Active Directory와 Hosted Graphite 통합
 
@@ -100,7 +100,7 @@ Hosted Graphite에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Hosted Graphite 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://www.hostedgraphite.com/metadata/<user id>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -108,7 +108,7 @@ Hosted Graphite에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Hosted Graphite 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://www.hostedgraphite.com/login/saml/<user id>/` 패턴을 사용하여 URL을 입력합니다.
 
@@ -135,23 +135,23 @@ Hosted Graphite에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 2. 세로 막대에서 **SAML 설정 페이지**로 이동합니다(**액세스 -> SAML 설정**).
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![스크린샷은 SAML 설정이 선택된 액세스 메뉴를 보여줍니다.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. 이러한 URl가 Azure Portal의 **기본 SAML 구성** 섹션에서 수행한 구성과 일치하는지 확인합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![스크린샷은 기본 SAML 구성을 보여줍니다.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. Azure Portal에서 복사한 **Azure Ad 식별자** 및 **로그인 URL** 값을 **엔터티 또는 발급자 ID** 및 **SSO 로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![스크린샷은 ID 공급자에 대한 항목을 보여줍니다.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. **읽기 전용**을 **기본 사용자 역할**로 선택합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![스크린샷은 읽기 전용인 기본 사용자 역할을 보여줍니다.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![스크린샷은 X dot 509 인증서를 보여줍니다.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. **저장** 단추를 클릭합니다.
 

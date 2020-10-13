@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1bdda60d3b6f5e763bd31b25ab0fd8c2783f978d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cd07370c75ac64fa8e3806fed50a64db90122c76
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537934"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708308"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>자습서: AcquireIO와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -134,15 +134,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 메뉴 왼쪽에서 **앱 스토어**를 클릭합니다.
 
-     ![AcquireIO 구성](./media/acquireio-tutorial/config01.png)
+     ![App Store를 강조 표시하는 스크린샷.](./media/acquireio-tutorial/config01.png)
 
 1. **Active Directory**까지 아래로 스크롤하고 **설치**를 클릭합니다.
 
-    ![AcquireIO 구성](./media/acquireio-tutorial/config02.png)
+    ![Active Directory 섹션과 설치 단추를 강조 표시하는 스크린샷.](./media/acquireio-tutorial/config02.png)
 
 1. Active Directory 팝업에서 다음 단계를 수행합니다.
 
-    ![AcquireIO 구성](./media/acquireio-tutorial/config03.png)
+    ![Active Directory 화면을 보여주는 스크린샷.](./media/acquireio-tutorial/config03.png)
 
     a. **복사**를 클릭하고 인스턴스의 회신 URL을 복사하여 Azure Portal에서 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -162,7 +162,7 @@ Azure AD 사용자가 AcquireIO에 로그인하려면 AcquireIO에 프로비저�
 
 1. 왼쪽 메뉴에서 **프로필**을 클릭하고 **프로필 추가**로 이동합니다.
 
-     ![AcquireIO 구성](./media/acquireio-tutorial/config04.png)
+     ![화면 왼쪽에 있는 메뉴와 프로필 추가 옵션을 강조 표시하는 스크린샷.](./media/acquireio-tutorial/config04.png)
 
 1. **고객 추가** 팝업에서 다음 단계를 수행합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 9888ae6f7d28f6fef5901ea246d71d7b9ae9f78f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4fcc9ab0811c447cebff825a0c45c9dac877219c
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530613"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91761739"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>자습서: Azure Active Directory와 Carbonite Endpoint Backup 연결
 
@@ -129,19 +129,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 왼쪽 창에서 **Company**(회사)를 클릭합니다.
 
-    ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure1.png)
+    ![스크린샷은 회사에서 선택한 Carbonite 엔드포인트를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
 5. **Single sign-on**을 클릭합니다.
 
-    ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure2.png)
+    ![스크린샷은 Single Sign-On이 선택된 회사를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
 6. **Enable**(사용)을 클릭한 다음, **Edit settings**(설정 편집)를 클릭하여 구성합니다.
 
-    ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure3.png)
+    ![스크린샷은 사용 및 편집 설정이 호출된 Single Sign-On 탭을 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
 7. **Single sign-on** 설정 페이지에서 다음 단계를 수행합니다.
 
-    ![Carbonite Endpoint Backup 구성 ](media/carbonite-endpoint-backup-tutorial/configure4.png)
+    ![스크린샷은 이 단계에서 설명한 정보가 포함된 Single Sign-On 탭을 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
     1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **ID 공급자 이름** 텍스트 상자에 붙여넣습니다.
 
@@ -187,11 +187,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 창에서 **Users**(사용자)를 클릭한 다음, **Add user**(사용자 추가)를 클릭합니다.
 
-    ![Carbonite Endpoint Backup에서 사용자 추가](media/carbonite-endpoint-backup-tutorial/adduser1.png)
+    ![스크린샷은 사용자와 사용자 추가가 선택된 Carbonite 엔드포인트 페이지를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
 1. **Add user** 페이지에서 다음 단계를 수행합니다.
 
-    ![Carbonite Endpoint Backup에서 사용자 추가](media/carbonite-endpoint-backup-tutorial/adduser2.png)
+    ![스크린샷은 여기에 설명된 단계를 수행할 수 있는 사용자 추가 페이지를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
     1. 사용자의 **Email**(이메일), **First name**(이름), **Last name**(성)을 입력하고, 조직의 요구 사항에 따라 사용자에게 필요한 권한을 제공합니다.
 

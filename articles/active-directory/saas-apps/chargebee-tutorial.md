@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 6358c41ab6d63baa8ed1fa6960d7d887825a1d78
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c620393903ee08199632d457ece3b4c06db8ed68
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529487"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760651"
 ---
 # <a name="tutorial-integrate-chargebee-with-azure-active-directory"></a>자습서: Azure Active Directory와 Chargebee 통합
 
@@ -132,11 +132,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 메뉴의 왼쪽에서 **Settings(설정)**  > **Security(보안)**  > **Manage(관리)** 를 차례로 클릭합니다.
 
-    ![Chargebee 구성](./media/chargebee-tutorial/config01.png)
+    ![스크린샷은 설정, 보안 및 관리가 선택된 Chargebee 회사 사이트를 보여줍니다.](./media/chargebee-tutorial/config01.png)
 
 5. **Single Sign-On** 팝업에서 다음 단계를 수행합니다.
 
-    ![Chargebee 구성](./media/chargebee-tutorial/config02.png)
+    ![스크린샷은 SAML이 선택된 Single Sign-On 대화 상자와 확인 옵션을 보여줍니다.](./media/chargebee-tutorial/config02.png)
 
     a. **SAML**을 선택합니다.
 
@@ -156,11 +156,11 @@ Azure AD 사용자를 사용하도록 설정하려면 Chargebee에 로그인하�
 
 2. 메뉴의 왼쪽에서 **Customers**(고객)를 클릭한 다음, **Create a New Customer**(새 고객 만들기)로 이동합니다.
 
-    ![Freedcamp 구성](./media/chargebee-tutorial/config03.png)
+    ![스크린샷은 고객 및 신규 고객 만들기가 선택된 Chargebee 사이트를 보여줍니다.](./media/chargebee-tutorial/config03.png)
 
 3. **New Customer**(새 고객) 페이지에서 아래쪽에 표시된 각 필드를 채우고, 사용자 만들기에 대해 **Create Customer**(고객 만들기)를 클릭합니다.
 
-    ![Freedcamp 구성](./media/chargebee-tutorial/config04.png)
+    ![스크린샷은 고객 정보를 입력할 수 있는 신규 고객 페이지를 보여줍니다.](./media/chargebee-tutorial/config04.png)
 
 ## <a name="test-sso"></a>SSO 테스트 
 

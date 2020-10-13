@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 7909f793407956247a8378a86e20bbe7b1bcddb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75e4937966c549c4d815a8776c70aa6366abe3e0
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542805"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91740818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>자습서: Brightidea와 Azure Active Directory 통합
 
@@ -112,14 +112,14 @@ Brightidea에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     다. 메타데이터 파일이 정상적으로 업로드되면 Brightidea 섹션 텍스트 상자에 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
 
-    ![이미지](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     > [!Note]
     > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![이미지](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.brightidea.com` 패턴을 사용하여 URL을 입력합니다.
 
@@ -143,21 +143,21 @@ Brightidea에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 2. Brightidea 시스템에 SSO 기능을 가져오려면 **Enterprise Setup** -> **Authentication Tab**으로 이동합니다. 두 개의 하위 앱이 표시됩니다. Auth Selection 및 SAML Profiles입니다.
 
-    ![Brightidea 구성](./media/brightidea-tutorial/configure1.png)
+    ![스크린샷은 인증 탭이 선택된 Brightidea 사이트를 보여줍니다.](./media/brightidea-tutorial/configure1.png)
 
 3. **Auth Selection**을 선택합니다. 기본적으로 두 가지 표준 방법만 표시됩니다. Brightidea 로그인 및 등록입니다. SSO 메서드가 추가되면 목록에 나타납니다.
 
-    ![Brightidea 구성](./media/brightidea-tutorial/configure2.png)
+    ![스크린샷은 Auth Selection이 선택된 Brightidea 인증 탭을 보여줍니다.](./media/brightidea-tutorial/configure2.png)
 
 4. **SAML 프로필**을 선택하고 다음 단계를 수행합니다.
 
-    ![Brightidea 구성](./media/brightidea-tutorial/configure3.png)
+    ![스크린샷은 메타데이터 다운로드 및 새로 추가 옵션을 제공하는 SAML 프로필이 선택된 Brightidea 인증 탭을 보여줍니다.](./media/brightidea-tutorial/configure3.png)
 
     a. **메타데이터 다운로드**를 클릭하고 Azure Portal의 **기본 SAML 구성** 섹션에서 업로드합니다.
 
     b. **ID 공급자 설정**에서 **새로 추가** 단추를 클릭하고 다음 단계를 수행합니다.
     
-    ![Brightidea 구성](./media/brightidea-tutorial/configure4.png)
+    ![스크린샷은 정보를 입력하는 Brightidea ID 공급자 설정을 보여줍니다.](./media/brightidea-tutorial/configure4.png)
     
    * **SAML 프로필 이름**(예: `Azure Ad SSO`)을 입력합니다.
     

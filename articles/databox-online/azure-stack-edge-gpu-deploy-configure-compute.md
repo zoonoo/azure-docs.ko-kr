@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903171"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91743423"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성
 
@@ -61,15 +61,15 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 Azure Portal을 통해 IoT 
     |IoT Hub     | **새로 만들기** 또는 **기존 항목** 중에서 선택합니다. <br> 표준 계층(S1)을 사용하여 IoT 리소스를 만드는 것이 기본입니다. 무료 계층 IoT 리소스를 사용하려면 IoT 리소스를 새로 만든 후 기존 리소스를 선택합니다. <br> 어떤 방법을 선택하든, IoT Hub 리소스는 Azure Stack Edge 리소스에서 사용하는 것과 동일한 구독 및 리소스 그룹을 사용합니다.     |
     |Name     |IoT Hub 리소스의 이름을 입력합니다.         |
 
-    ![컴퓨팅 시작](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
+    ![컴퓨팅 시작 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
 4. **만들기**를 선택합니다. IoT Hub 리소스 만들기는 몇 분 정도 걸립니다. IoT Hub 리소스가 만들어지면 컴퓨팅 구성을 표시하도록 **컴퓨팅 구성** 타일이 업데이트됩니다. 
 
-    ![컴퓨팅 시작](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
+    ![컴퓨팅 시작 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
 5. Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **컴퓨팅 구성** 타일의 **컴퓨팅 보기**를 선택합니다.
     
-    ![컴퓨팅 시작](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+    ![컴퓨팅 시작 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
     > IoT Hub가 Azure Stack Edge Pro 디바이스와 연결되기 전에 **컴퓨팅 구성** 대화 상자가 닫히면 IoT Hub가 생성되지만 컴퓨팅 구성에는 표시되지 않습니다. 

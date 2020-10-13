@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531698"
+ms.locfileid: "91929611"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
@@ -27,17 +27,18 @@ CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하
 - 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스
 - [Log Analytics](../../../../azure-monitor/overview.md) 배포 - 진단 로깅을 위해 [스토리지 계정](../../../../storage/common/storage-introduction.md)에 보안 배포를 시작하는 순간부터 모든 작업과 서비스가 중앙 위치에 기록되도록 배포됩니다.
 - [Azure Security Center](../../../../security-center/security-center-intro.md)(표준 버전) 배포 - 마이그레이션된 워크로드에 대한 위협 방지 기능을 제공합니다.
-- 또한 청사진은 [Azure 정책](../../../policy/overview.md)을 정의하고 배포합니다. 
-  - 리소스 그룹에 적용된 태그 지정(CostCenter)
-  - CostCenter 태그를 사용하여 리소스 그룹에 리소스 추가
-  - 리소스 및 리소스 그룹에 허용되는 Azure 지역
-  - 허용되는 스토리지 계정 SKU(배포 중 선택)
-  - 허용되는 Azure VM SKU(배포 중 선택)
-  - Network Watcher를 배포해야 함 
-  - Azure Storage 계정 보안 전송 암호화 필요
-  - 리소스 유형 거부(배포 중 선택)  
-- 이니셔티브
-  - Azure Security Center에서 모니터링 사용(100개 이상 정책 정의)
+- 또한 청사진은 다음과 같은 [Azure Policy](../../../policy/overview.md) 정의를 정의하고 배포합니다.
+  - 정책 정의:
+    - 리소스 그룹에 적용된 태그 지정(CostCenter)
+    - CostCenter 태그를 사용하여 리소스 그룹에 리소스 추가
+    - 리소스 및 리소스 그룹에 허용되는 Azure 지역
+    - 허용되는 스토리지 계정 SKU(배포 중 선택)
+    - 허용되는 Azure VM SKU(배포 중 선택)
+    - Network Watcher를 배포해야 함 
+    - Azure Storage 계정 보안 전송 암호화 필요
+    - 리소스 유형 거부(배포 중 선택)  
+  - 정책 이니셔티브:
+    - Azure Security Center에서 모니터링 사용(100개 이상 정책 정의)
 
 이러한 모든 요소는 [Azure 아키텍처 센터 - 참조 아키텍처](/azure/architecture/reference-architectures/)에 게시된 검증된 사례를 따릅니다.
 

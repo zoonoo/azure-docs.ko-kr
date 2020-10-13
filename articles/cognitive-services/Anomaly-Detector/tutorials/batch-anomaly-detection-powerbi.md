@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a44655571099d936b34a4233bc12fa099e5bc338
+ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905779"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91660958"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
 
@@ -56,7 +56,7 @@ Power BI에서는 첫 번째 열의 타임스탬프를 `Date/Time` 데이터 형
 
 파워 쿼리 편집기에서 **변환** 리본을 클릭합니다. **열** 그룹에서 **데이터 형식:** 드롭다운 메뉴를 열고, **텍스트**를 선택합니다.
 
-![Power BI의 데이터 원본 "탐색기" 화면 이미지](../media/tutorials/data-type-drop-down.png)
+![데이터 형식 드롭다운 이미지](../media/tutorials/data-type-drop-down.png)
 
 열 형식 변경에 대한 알림이 표시되면 **현재 전환 바꾸기**를 클릭합니다. 그런 다음, **홈** 리본에서 **닫기 및 적용** 또는 **적용**을 클릭합니다.
 
@@ -66,7 +66,7 @@ Power BI에서는 첫 번째 열의 타임스탬프를 `Date/Time` 데이터 형
 
 새 쿼리가 선택되었는지 확인한 다음, **고급 편집기**를 클릭합니다.
 
-![Power BI의 "고급 편집기" 단추 이미지](../media/tutorials/advanced-editor-screen.png)
+!["고급 편집기" 화면의 이미지](../media/tutorials/advanced-editor-screen.png)
 
 고급 편집기 내에서 다음 파워 쿼리 M 코드 조각을 사용하여 테이블에서 열을 추출하여 API에 보냅니다. 그런 다음, 쿼리는 JSON 응답에서 테이블을 만들고 이를 반환합니다. `apiKey` 변수를 유효한 Anomaly Detector API 키로 바꾸고, `endpoint`를 사용자의 엔드포인트로 바꿉니다. 쿼리를 고급 편집기에 입력한 다음, **완료**를 클릭합니다.
 
@@ -80,7 +80,7 @@ Power BI에서는 첫 번째 열의 타임스탬프를 `Date/Time` 데이터 형
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -114,7 +114,7 @@ Power BI에서는 첫 번째 열의 타임스탬프를 `Date/Time` 데이터 형
 
 **매개 변수 입력** 아래에서 `Sheet1`을 선택하고 **호출**을 클릭하여 데이터 시트에 대한 쿼리를 호출합니다.
 
-!["고급 편집기" 단추의 이미지](../media/tutorials/invoke-function-screenshot.png)
+![호출 함수의 이미지](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>데이터 원본 개인 정보 보호 및 인증
 
@@ -148,11 +148,11 @@ Power BI 주 화면에서 위에서 만든 쿼리를 사용하여 데이터 시�
 * LowerMargins
 * ExpectedValues
 
-![새 빠른 측정 화면의 이미지](../media/tutorials/chart-settings.png)
+![차트 설정의 이미지](../media/tutorials/chart-settings.png)
 
 필드가 추가되면 차트를 클릭하고, 모든 데이터 요소가 표시되도록 크기를 조정합니다. 차트는 아래 스크린샷과 비슷하게 표시됩니다.
 
-![새 빠른 측정 화면의 이미지](../media/tutorials/chart-visualization.png)
+![차트 시각화의 이미지](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>변칙 데이터 요소 표시
 
@@ -162,15 +162,15 @@ Power BI 창의 오른쪽에 있는 **필드** 창 아래에서 마우스 오른
 
 표시되는 화면에서 계산으로 **필터링된 값**을 선택합니다. **기준 값**을 `Sum of Value`로 설정합니다. 그런 다음, `IsAnomaly`를 **호출된 함수** 필드에서 **필터**로 끕니다. **필터** 드롭다운 메뉴에서 `True`를 선택합니다.
 
-![새 빠른 측정 화면의 이미지](../media/tutorials/new-quick-measure-2.png)
+![새 빠른 측정 화면의 두 번째 이미지](../media/tutorials/new-quick-measure-2.png)
 
 **확인**을 클릭하면 필드 목록의 아래쪽에 `Value for True` 필드가 표시됩니다. 마우스 오른쪽 단추로 클릭하고 이름을 **Anomaly**(변칙)로 변경합니다. 이를 차트의 **값**에 추가합니다. 그런 다음, **서식** 도구를 선택하고, X축 유형을 **범주별**로 설정합니다.
 
-![새 빠른 측정 화면의 이미지](../media/tutorials/format-x-axis.png)
+![x축 형식의 이미지](../media/tutorials/format-x-axis.png)
 
 **서식** 도구 및 **데이터 색**을 클릭하여 차트에 색을 적용합니다. 차트가 다음과 같이 표시됩니다.
 
-![새 빠른 측정 화면의 이미지](../media/tutorials/final-chart.png)
+![최종 차트의 이미지](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>다음 단계
 

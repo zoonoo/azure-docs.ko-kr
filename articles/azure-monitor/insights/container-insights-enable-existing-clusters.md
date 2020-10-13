@@ -4,12 +4,12 @@ description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor�
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: e3b4bd007ec2f4315ccd7d8581113e116db693ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068430"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994504"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -160,7 +160,7 @@ Azure Portal에서 AKS 클러스터 중 하나에서 직접 모니터링을 사�
 >템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
 >
 
-Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 설정 하기 전에 Log Analytics 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../platform/template-workspace-configuration.md)나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../learn/quick-create-workspace.md)에서 설정할 수 있습니다.
+Azure PowerShell 또는 CLI를 사용 하 여 모니터링을 사용 하도록 설정 하기 전에 Log Analytics 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../samples/resource-manager-workspace.md)나 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../learn/quick-create-workspace.md)에서 설정할 수 있습니다.
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 
@@ -383,4 +383,3 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 * 솔루션을 등록하는 동안 문제가 발생하는 경우 [문제 해결 가이드](container-insights-troubleshoot.md)를 검토하세요.
 
 * 모니터링을 사용 하 여 AKS 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아봅니다.
-

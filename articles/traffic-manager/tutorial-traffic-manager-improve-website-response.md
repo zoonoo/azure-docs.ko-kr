@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: duau
-ms.openlocfilehash: e79dde0178c74965bde14956203e31e82e80d93e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398412"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91651244"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선
 
@@ -203,7 +203,7 @@ Traffic Manager 프로필의 DNS 이름은 다음과 같이 확인할 수 있습
 5. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 경고 메시지가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속합니다.
 1. VM *myVMEastUS*의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 입력하여 웹 사이트를 봅니다. VM이 **미국 동부**에 있기 때문에 **미국 동부**에 있는 가장 가까운 IIS 서버 *myIISVMEastUS*에서 호스트되는 가장 가까운 웹 사이트로 라우팅됩니다.
 
-   ![Traffic Manager 프로필 테스트](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
+   ![웹 브라우저에서 "Traffic Manager" 프로필을 보여주는 스크린샷.](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
 2. 다음으로, 1~5단계를 사용하여 **유럽 서부**에 있는 VM *myVMWestEurope*에 연결하고 이 VM에서 Traffic Manager 프로필 도메인 이름을 찾아서 이동합니다. VM이 **서유럽**에 있으므로 이제 **서유럽**에 있는 가장 가까운 *myIISVMWestEurope* IIS 서버에서 호스팅되는 웹 사이트로 라우팅됩니다.
 

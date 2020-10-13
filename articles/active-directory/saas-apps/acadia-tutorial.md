@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 39339803945034765fbc30e6f5fc11e737f750c4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f3fa61e7c00dca8cb133ec21ba395d943ebdc956
+ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538413"
+ms.lasthandoff: 10/04/2020
+ms.locfileid: "91708427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>자습서: Acadia와 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ Acadia에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Acadia 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![IDP 시작 모드에서 애플리케이션을 구성하는 데 필요한 화면 요소를 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<CUSTOMER>.acadia.sysalli.com/shibboleth` 패턴을 사용하여 URL을 입력합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ad68208f8993ce84c71c97d97de7e2b090f1e7da
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6ab6a355b986daeca41ffd18a51689cd9d880dcd
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549422"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713809"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-askyourteam"></a>자습서: AskYourTeam과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -131,19 +131,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **내 조직**을 클릭합니다.
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/user1.png)
+    ![스크린샷은 내 조직 링크를 보여줍니다.](./media/askyourteam-tutorial/user1.png)
 
 1. **통합**을 클릭합니다.
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/configure1.png)
+    ![스크린샷은 통합 링크를 보여줍니다.](./media/askyourteam-tutorial/configure1.png)
 
 1. **설정 편집**을 클릭합니다.
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/configure2.png)
+    ![스크린샷은 설정 편집 단추가 있는 Single Sign-On 메시지를 보여줍니다.](./media/askyourteam-tutorial/configure2.png)
 
 1. **Single Sign-On 통합 편집** 페이지에서 다음 단계를 수행합니다. 
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/configure3.png)
+    ![스크린샷은 이 단계의 값을 입력할 수 있는 Single Sign-On 통합 편집을 보여줍니다.](./media/askyourteam-tutorial/configure3.png)
 
     a. **SAML Single Sign-On Service URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -168,15 +168,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **내 조직**을 클릭합니다.
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/user1.png)
+    ![스크린샷은 이 작업을 시작하는 내 조직 링크를 보여줍니다.](./media/askyourteam-tutorial/user1.png)
 
 1. **사용자**를 클릭하고 **새 사용자**를 선택합니다.
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/user2.png)
+    ![스크린샷은 새 사용자와 사용자 링크를 보여줍니다.](./media/askyourteam-tutorial/user2.png)
 
 1. **새 사용자** 섹션에서 다음 단계를 수행합니다.
 
-    ![AskYourTeam 구성](./media/askyourteam-tutorial/user3.png)
+    ![스크린샷은 사용자 정보를 입력하는 새 사용자 섹션을 보여줍니다.](./media/askyourteam-tutorial/user3.png)
 
     1. **이름** 텍스트 상자에 사용자의 이름을 입력합니다.
 

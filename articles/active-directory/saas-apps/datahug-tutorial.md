@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 787de3e3e44ca921c5dccd7b51a2e655a31d112b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ba76618892cace6681c82e96d7a2f9b36f839664
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555974"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>자습서: Datahug와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Datahug에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Datahug 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자", "회신 URL" 및 "저장" 단추가 강조 표시된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://apps.datahug.com/identity/<uniqueID>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -206,11 +206,11 @@ Datahug의 경우 프로비전은 수동 작업입니다.
 
 2. 오른쪽 위 모퉁이에 있는 **cog** 위로 마우스를 가져가고 **설정**을 클릭합니다.
    
-    ![직원 추가](./media/datahug-tutorial/1.png)
+    !["Cog" 아이콘이 선택되고 드롭다운 메뉴에서 "설정"이 선택된 "Datahug" 홈페이지를 보여주는 스크린샷.](./media/datahug-tutorial/1.png)
 
 3. **피플**을 선택하고 **사용자 추가** 탭을 클릭합니다.
 
-    ![직원 추가](./media/datahug-tutorial/2.png)
+    !["사용자" 탭과 "사용자 추가"가 선택된 "설정" 페이지를 보여주는 스크린샷.](./media/datahug-tutorial/2.png)
 
 4. 계정을 만들 사용자의 메일을 입력하고 **추가**를 클릭합니다.
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 13f62631e4913434699f4c5dd5eb1956ca3e3a36
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90992461"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760396"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>관리형 HSM 재해 복구
 
@@ -30,7 +30,7 @@ ms.locfileid: "90992461"
 재해 복구 절차의 단계는 다음과 같습니다.
 
 1. 새 HSM 인스턴스를 만듭니다.
-1. "보안 도메인 복구"를 활성화합니다. 보안 도메인 전송을 위해 새 RSA 키 쌍(보안 도메인 교환 키)이 생성되고, 응답으로 보내지고, SecurityDomainExchangeKey(공개 키)가 다운로드됩니다.
+1. "보안 도메인 복구"를 활성화합니다. 보안 도메인 전송을 위해 새 RSA 키 쌍(보안 도메인 교환 키)이 생성되고, 응답으로 보내지고, SecurityDomainExchangeKey(공개 키)로 다운로드됩니다.
 1. "보안 도메인 전송 파일"을 만들고 업로드합니다. 보안 도메인을 암호화하는 프라이빗 키가 필요합니다. 프라이빗 키는 로컬로 사용되며, 이 프로세스의 어느 곳에서도 전송되지 않습니다.
 1. 새 HSM에 대한 백업을 수행합니다. HSM이 비어 있는 경우에도 복원하기 전에 백업이 필요합니다. 백업을 통해 쉽게 롤백할 수 있습니다.
 1. 원본 HSM에서 최근 HSM 백업을 복원합니다.
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 이 명령의 출력에는 만든 관리형 HSM의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 * **name**: 이 예제에서 이름은 ContosoMHSM입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **hsmUri**: 이 예제에서 URI는 https://contosohsm.managedhsm.azure.net 입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
+* **hsmUri**: 이 예제에서 URI는 'https://contosohsm.managedhsm.azure.net '입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
 
 Azure 계정에는 이제 이 관리형 HSM에서 모든 작업을 수행할 수 있는 권한이 부여됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 
@@ -102,7 +102,7 @@ HSM 백업을 만들려면 다음 항목이 필요합니다.
 - 백업이 저장되는 스토리지 계정
 - 백업 프로세스에서 암호화된 백업을 저장할 새 폴더를 만드는 이 스토리지 계정의 Blob 스토리지 컨테이너
 
-아래 예제에서는 `az keyvault backup` 명령을 **ContosoBackup**스토리지 계정의 **mhsmbackupcontainer** 스토리지 컨테이너에 있는 HSM 백업에 사용합니다. 30분 후에 만료되는 SAS 토큰을 만들고, 이를 관리형 HSM에 제공하여 백업을 작성합니다.
+아래 예제에서는 스토리지 계정 **ContosoBackup**에 있는 스토리지 컨테이너 **mhsmbackupcontainer**의 HSM 백업에 `az keyvault backup` 명령을 사용합니다. 30분 후에 만료되는 SAS 토큰을 만들고, 이를 관리형 HSM에 제공하여 백업을 작성합니다.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')

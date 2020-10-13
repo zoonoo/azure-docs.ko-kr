@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1589561968cf1e2974edcee2bfe1cccb4a327
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b32c5576ef38f07d28777e1a72aafa935042930
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549251"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775731"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>자습서: Costpoint와 Azure Active Directory 통합
 
@@ -43,7 +43,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Costpoint SAML SSO 구성은 **DeltekCostpoint711Security.pdf** 가이드에 설명되어 있습니다. Deltek Costpoint 지원 사이트에서 이 가이드를 다운로드 하여 **SAML Single Sign-on Setup**(SAML Single Sign-On 설정) > **Configure SAML Single Sign-on between Costpoint and Microsoft Azure**(Costpoint와 Microsoft Azure 간에 SAML Single Sign-On 구성) 섹션을 참조하세요. 지침에 따라 **Costpoint SP 페더레이션 메타데이터 XML** 파일을 생성합니다. 
 
-![Costpoint 구성 유틸리티](./media/costpoint-tutorial/config-utility.png)
+!["Weblogic - 보안" 탭이 선택된 "제품 구성 유틸리티"를 보여주는 스크린샷.](./media/costpoint-tutorial/config-utility.png)
 
 ## <a name="add-costpoint-from-the-gallery"></a>갤러리에서 Costpoint 추가
 

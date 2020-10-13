@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 049066ffc5ce0aea2af956343dfa7ba97b6b5bb4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2baff2ac2af10caf857fd08b0d7e7df5030220e4
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542822"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758152"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>자습서: Azure Active Directory와 AirWatch 통합
 
@@ -125,7 +125,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자** 탭을 클릭하고 **Base DN** 텍스트 상자에 도메인 이름을 입력한 다음 **저장**을 클릭합니다.
 
-   ![사용자](./media/airwatch-tutorial/ic791922.png "사용자")
+   ![기본 DN 텍스트 상자를 강조 표시하는 스크린샷.](./media/airwatch-tutorial/ic791922.png "사용자")
 
 1. **서버** 탭을 클릭합니다.
 
@@ -133,7 +133,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **LDAP** 섹션에서 다음 단계를 수행합니다.
 
-    ![업로드](./media/airwatch-tutorial/ic791924.png "LDAP")   
+    ![LDAP 섹션에서 수행해야 하는 변경 내용을 보여주는 스크린샷.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. **디렉터리 유형**으로 **없음**을 선택합니다.
 
@@ -223,7 +223,7 @@ Azure AD 사용자가 AirWatch에 로그인할 수 있도록 하려면 AirWatch�
 
 3. **사용자** 메뉴에서 **목록 보기**와 **추가 > 사용자 추가**를 차례로 클릭합니다.
   
-   ![사용자 추가](./media/airwatch-tutorial/ic791930.png "사용자 추가")
+   ![사용자 추가 및 추가 단추를 강조 표시하는 스크린샷.](./media/airwatch-tutorial/ic791930.png "사용자 추가")
 
 4. **사용자 추가/편집** 대화 상자에서 다음 단계를 수행합니다.
 

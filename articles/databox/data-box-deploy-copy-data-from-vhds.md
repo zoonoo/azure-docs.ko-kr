@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501866"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91739870"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
@@ -76,11 +76,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     > [!NOTE]
     > 관리 디스크에 대한 모든 공유의 자격 증명은 동일합니다.
 
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![공유 자격 증명 가져오기](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. 액세스 공유 및 데이터 복사 대화 상자에서 공유에 대한 **사용자 이름** 및 **암호**를 복사합니다. **확인**을 클릭합니다.
     
-    ![공유 자격 증명 가져오기 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![공유 자격 증명 가져오기 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. 호스트 컴퓨터에서 리소스와 연결된 공유(다음 예제의 *mydbmdrg1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
@@ -102,7 +102,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>\<ShareName>`를 지정합니다. **확인**을 클릭하여 파일 탐색기를 엽니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![파일 탐색기를 통해 공유에 연결](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     이제 각 공유 내에 사전 생성된 다음과 같은 폴더가 표시됩니다.
     
@@ -115,7 +115,7 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 
 1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다. 로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스**를 클릭합니다.
 
-    ![NFS 클라이언트 액세스 구성 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
+    ![NFS 클라이언트 액세스 구성](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. NFS 클라이언트의 IP 주소를 입력하고 **추가**를 클릭합니다. 이 단계를 반복하여 여러 NFS 클라이언트에 대한 액세스를 구성할 수 있습니다. **확인**을 클릭합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: d629e5d572f1e8fff05104a4a5004b7aaa8c7a0d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892952"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775687"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -159,11 +159,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![선택된 "Cog" 아이콘과 드롭다운 메뉴에서 강조 표시된 "추가 기능"을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56503)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon12.png)
+    !["추가 기능 업로드" 작업이 선택된 "추가 기능 관리" 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Confluence 역방향 프록시 시나리오 또는 부하 분산 장치 시나리오를 실행하려면 다음 단계를 수행합니다.
 
@@ -174,19 +174,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    !["커넥터" 포트에 특성이 추가된 "system.xml" 파일을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. 프록시/부하 분산 장치에 따라 **시스템 설정**에서 **기준 URL**을 변경합니다.
 
-    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    !["기본 URL"이 강조 표시된 "관리 - 설정" 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon15.png)
+    !["구성" 단추가 강조 표시된 "사용자 설치" 섹션을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Single Sign-On 구성 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -237,7 +237,7 @@ Azure AD 사용자가 Confluence 온-프레미스 서버에 로그인할 수 있
 
 1. [사용자] 섹션에서 **사용자 추가** 탭을 클릭합니다. **사용자 추가** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![직원 추가](./media/confluencemicrosoft-tutorial/user2.png)
+    !["사용자 추가" 탭이 선택되고 "사용자 추가" 정보가 입력된 "Confluence 관리"를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/user2.png)
 
     a. **사용자 이름** 텍스트 상자에 B.Simon과 같은 사용자의 메일을 입력합니다.
 

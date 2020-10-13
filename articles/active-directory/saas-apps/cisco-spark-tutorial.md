@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 4fd6b46353cdeb4493c1a767c92e75d602e52843
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b6da84c1be38dde72b663de1db3756e77f4db915
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528898"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759833"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -151,13 +151,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **설정**을 선택하고 **인증** 섹션 아래에서 **수정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![스크린샷은 수정을 선택할 수 있는 인증 설정을 보여줍니다.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. **타사 ID 공급자 통합 (고급)** 을 선택하고 다음 화면으로 이동합니다.
 
 6. **Idp 메타데이터 가져오기** 페이지에서 Azure AD 메타데이터 파일을 페이지로 끌어다 놓거나 파일 브라우저 옵션을 사용하여 Azure AD 메타데이터 파일을 찾아 업로드합니다. 그런 다음 **메타데이터에서 인증 기관이 서명한 인증서 필요(더 안전)** 를 선택하고 **다음**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![스크린샷은 IdP 메타데이터 가져오기 페이지를 보여줍니다.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. **SSO 연결 테스트**를 선택하고 새 브라우저 탭이 열리면 로그인하여 Azure AD로 인증합니다.
 
@@ -171,13 +171,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **사용자**, **사용자 관리**를 차례로 클릭합니다.
    
-    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![스크린샷은 사용자를 관리할 수 있는 사용자 페이지를 보여줍니다.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. **사용자 관리** 창에서 **수동으로 사용자 추가 또는 수정**을 선택하고 **다음**을 클릭합니다.
 
 4. **이름 및 전자 메일 주소**를 선택합니다. 그런 다음 아래와 같이 텍스트 상자에 내용을 입력합니다.
 
-    ![Single Sign-on 구성](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![스크린샷은 사용자를 수동으로 추가하거나 수정할 수 있는 사용자 관리 대화 상자를 보여줍니다.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. **이름** 텍스트 상자에서 사용자의 이름(예: **B**)을 입력합니다.
 

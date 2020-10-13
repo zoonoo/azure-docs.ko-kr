@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b26ee6d6e82903a3dad91ae931885f62daf5d15b
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985889"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821165"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>자습서: GitHub와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. GitHub 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 GitHub 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **고유 사용자 식별자(이름 ID)** 가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. GitHub 애플리케이션에서는 **고유 사용자 식별자(이름 ID)** 가 **user.mail**과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
 
-    ![이미지](common/edit-attribute.png)
+    !["편집" 아이콘이 선택된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -149,11 +149,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **설정**으로 이동하고 **보안**을 클릭합니다.
 
-    ![설정](./media/github-tutorial/security.png)
+    !["보안"이 선택된 GitHub "조직 설정" 메뉴를 보여주는 스크린샷.](./media/github-tutorial/security.png)
 
 3. **SAML 인증 사용** 상자를 확인하여 Single Sign-On 구성 필드를 표시합니다. 다음 단계를 수행합니다.
 
-    ![설정](./media/github-tutorial/saml-sso.png)
+    ![URL 텍스트 상자가 강조 표시된 "SAML 인증 사용"이 있는 "SAML Single Sign-On" 섹션을 보여주는 스크린샷.](./media/github-tutorial/saml-sso.png)
 
     a. **Single Sign-On URL** 값을 복사하고 이 값을 Azure Portal의 **기본 SAML 구성**에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
     
@@ -161,7 +161,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 다음 필드를 구성합니다.
 
-    ![설정](./media/github-tutorial/configure.png)
+    !["로그온 URL", "발급자" 및 "공용 인증서" 텍스트 상자를 보여주는 스크린샷.](./media/github-tutorial/configure.png)
 
     a. **로그온 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -208,7 +208,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **초대 보내기**를 클릭합니다.
 
-    ![피플 초대](./media/github-tutorial/send-invitation.png "피플 초대")
+    !["멤버"가 선택되고 "초대 보내기" 단추가 선택된 "멤버 초대" 대화 상자 페이지를 보여주는 스크린샷.](./media/github-tutorial/send-invitation.png "피플 초대")
 
     > [!NOTE]
     > Azure Active Directory 계정 보유자는 활성화되기 전에 전자 메일을 받고 링크를 따라 계정을 확인합니다.

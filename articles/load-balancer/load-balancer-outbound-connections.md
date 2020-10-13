@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fcd0315afcbf38af2b8175deda748522cb335ec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649799"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996853"
 ---
 # <a name="outbound-connections"></a>아웃바운드 연결
 
@@ -136,7 +136,7 @@ Azure는 사용 가능한 미리 할당 된 [SNAT](#snat) 포트 수를 결정 �
 - 어떤 가상 머신이 공용 IP 주소로 변환 되어야 하는지 지정 합니다.
 - 아웃 바운드 [SNAT](#snat) 포트를 지정 하는 방법입니다.
 - 아웃 바운드 변환을 제공할 프로토콜입니다.
-- 아웃 바운드 연결 유휴 시간 제한 (4-120 분)에 사용할 기간입니다.
+- 아웃 바운드 연결 유휴 시간 제한 (4-100 분)에 사용할 기간입니다.
 - 유휴 시간 제한 시 TCP 재설정을 보낼지 여부
 - 단일 규칙을 사용 하는 TCP 및 UDP 전송 프로토콜 모두
 

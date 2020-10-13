@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: 6773805fac9a23ca918a1bf6e4889d3e1a3bb336
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550115"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775442"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>자습서: Darwinbox와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -143,19 +143,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Darwinbox 모바일 애플리케이션을 엽니다. 이제 **조직 URL 입력**을 클릭하고, 텍스트 상자에 조직 URL을 입력하고, 화살표 단추를 클릭합니다.
 
-    ![Darwinbox 모바일 앱](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    !["조직 URL 입력"이 선택되고 "Darwinbox" 예제 조직 및 "화살표" 단추가 강조 표시된 "Darwinbox" 모바일 앱을 보여주는 스크린샷.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. 여러 도메인이 있는 경우 도메인을 클릭합니다.
 
-    ![Darwinbox 모바일 앱](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![예제 도메인이 선택된 "도메인 선택" 화면을 보여주는 스크린샷.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Darwinbox 애플리케이션에 Azure AD 이메일을 입력하고 **다음**을 클릭합니다.
 
-    ![Darwinbox 모바일 앱](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    !["다음" 단추가 강조 표시된 "로그인" 화면을 보여주는 스크린샷.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Darwinbox 애플리케이션에 Azure AD 암호를 입력하고 **로그인**을 클릭합니다.
 
-    ![Darwinbox 모바일 앱](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    !["다음" 단추가 강조 표시된 "암호 입력" 화면을 보여주는 스크린샷.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. 마지막으로 로그인하면 애플리케이션 홈 페이지가 표시됩니다.
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a8b53af6e23b2dd0ff011a6bfbf99a1da427063
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 1b49ce9f3b04a31e3f062c81f63d3e639a09c6bd
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611639"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91741944"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -120,7 +120,7 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 리소스 생성에는 몇 분 정도가 소요됩니다. 리소스가 생성되고 배포된 후에는 알림이 표시됩니다. **리소스로 이동**을 선택합니다.
 
-![Data Box Gateway 리소스 세부 정보 검토](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Data Box Gateway 리소스 세부 정보 검토 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>가상 디바이스 이미지 다운로드
 

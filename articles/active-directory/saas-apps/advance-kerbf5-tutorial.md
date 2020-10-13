@@ -1,6 +1,6 @@
 ---
 title: '자습서: F5와 Azure Active Directory Single Sign-On 통합 | Microsoft Docs'
-description: Azure Active Directory와 F5 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
+description: 이 문서에서는 F5를 Azure AD(Azure Active Directory)와 통합하기 위해 수행해야 하는 단계를 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4c4ee5fa6281b0a137bd46a9d3a82db22adc77ea
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542984"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760774"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure AD(Active Directory) SSO(Single Sign-On) 통합
 
@@ -39,8 +39,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* F5는 **SP 및 IDP** 시작 SSO를 지원합니다.
-* F5 SSO는 세 가지 방법으로 구성할 수 있습니다.
+F5는 **SP 및 IDP** 시작 SSO를 지원합니다.
+
+F5 SSO는 다음과 같은 세 가지 방법으로 구성할 수 있습니다.
 
 - [고급 Kerberos 애플리케이션에 대한 F5 Single Sign-On 구성](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
@@ -145,38 +146,38 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 메타데이터 인증서는 나중에 설정 프로세스에서 사용할 F5(고급 Kerberos)로 가져와야 합니다. **시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록**으로 차례로 이동합니다. 오른쪽 모서리의 **가져오기**를 클릭합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure01.png)
+    ![메타데이터 인증서를 가져오는 [가져오기] 단추가 강조 표시된 스크린샷](./media/advance-kerbf5-tutorial/configure01.png)
  
 1. SAML IDP를 설정하려면 **Access > Federation > SAML Service Provider > Create > From Metadata**(액세스 > 페더레이션 > SAML 서비스 공급자 > 만들기 > 메타데이터에서)로 차례로 이동합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure02.png)
+    ![메타데이터로 SAML IDP를 만드는 방법을 강조하는 스크린샷](./media/advance-kerbf5-tutorial/configure02.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure03.png)
+    ![[새 SAML IdP 커넥터 만들기] 화면을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure03.png)
  
     ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure04.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure05.png)
+    ![[Single Sign-On 서비스 설정] 화면을 보여주는 스크린샷 ](./media/advance-kerbf5-tutorial/configure05.png)
  
 1. 작업 3에서 업로드된 인증서 지정
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure06.png)
+    ![[SAML IdP 커넥터 편집] 화면을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure06.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure07.png)
+    ![[Single Logout 서비스 설정] 화면을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure07.png)
 
  1. SAML SP를 설정하려면 **Access > Federation > SAML Service Federation > Local SP Services > Create**(액세스 > 페더레이션 > SAML 서비스 페더레이션 > 로컬 SP 서비스 > 만들기)로 차례로 이동합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure08.png)
+    ![로컬 SP 서비스를 만드는 화면을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure08.png)
  
 1. **확인**을 클릭합니다.
 
 1. SP 구성을 선택하고 **Bind/UnBind IdP Connectors**(IdP 커넥터 바인딩/바인딩 해제)를 클릭합니다.
 
-     ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure09.png)
+     ![[SAML 서비스 공급자]를 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure09.png)
  
  
 1. **Add New Row**(새 행 추가)를 클릭하고, 이전 단계에서 만든 **External IdP connector**(외부 IdP 커넥터)를 선택합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure10.png)
+    ![[새 행 추가] 단추가 강조 표시된 스크린샷.](./media/advance-kerbf5-tutorial/configure10.png)
  
 1. Kerberos SSO를 구성하려면 **Access > Single Sign-on > Kerberos**(액세스 > Single Sign-On > Kerberos)로 차례로 이동합니다.
 
@@ -187,54 +188,54 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     •   사용자 영역 원본: `session.logon.last.domain`
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure11.png)
+    ![액세스 > Single Sign On이 강조 표시된 스크린샷](./media/advance-kerbf5-tutorial/configure11.png)
 
 1. 액세스 프로필을 구성하려면 **Access > Profile/Policies > Access Profile (per session policies)** (액세스 > 프로필/정책 > 액세스 프로필(세션 정책당))로 차례로 이동합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure12.png)
+    ![[프로필/정책] 메뉴 옵션의 [속성] 탭이 강조 표시된 스크린샷](./media/advance-kerbf5-tutorial/configure12.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure13.png)
+    ![SSO/인증 도메인 탭을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure13.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure14.png)
+    ![[액세스 정책] 탭을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure14.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure15.png)
+    ![[액세스 정책]의 [속성] 탭을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure15.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure16.png)
+    ![[변수 할당] 속성을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure16.png)
  
     * session.logon.last.usernameUPN   expr {[mcget {session.saml.last.identity}]}
 
     * session.ad.lastactualdomain  TEXT superdemo.live
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure17.png)
+    ![[AD 쿼리] 속성을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure17.png)
 
     * (userPrincipalName=%{session.logon.last.usernameUPN})
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure18.png)
+    ![[분기 규칙] 탭과 [계정 확인] 규칙을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure18.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure19.png)
+    ![사용자 지정 변수 및 사용자 지정 식 텍스트 상자를 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure19.png)
 
     * session.logon.last.username  expr { "[mcget {session.ad.last.attr.sAMAccountName}]" }
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure20.png)
+    ![[SSO 토큰 이름] 및 [SSO 토큰 암호] 필드의 값을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure20.png)
 
     * mcget {session.logon.last.username}
     * mcget {session.logon.last.password}
 
 1. 새 노드를 추가하려면 **Local Traffic > Nodes > Node List > +** (로컬 트래픽 > 노드 > 노드 목록 > +)로 차례로 이동합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure21.png)
+    ![로컬 트래픽 > 노드가 강조 표시된 스크린샷](./media/advance-kerbf5-tutorial/configure21.png)
  
 1. 새 풀을 만들려면 **Local Traffic > Pools > Pool List > Create**(로컬 트래픽 > 풀 > 풀 목록 > 만들기)로 차례로 이동합니다.
 
-     ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure22.png)
+     ![로컬 트래픽 > 풀이 강조 표시된 스크린샷](./media/advance-kerbf5-tutorial/configure22.png)
 
  1. 새 가상 서버를 만들려면 **Local Traffic > Virtual Servers > Virtual Server List > +** (로컬 트래픽 > 가상 서버 > 가상 서버 목록 > +)로 차례로 이동합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure23.png)
+    ![로컬 트래픽 > 가상 서버가 강조 표시된 스크린샷](./media/advance-kerbf5-tutorial/configure23.png)
 
 1. 이전 단계에서 만든 액세스 프로필을 지정합니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure24.png) 
+    ![앞에서 만든 액세스 프로필을 지정하는 위치를 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure24.png) 
 
 ### <a name="setting-up-kerberos-delegation"></a>Kerberos 위임 설정 
 
@@ -263,15 +264,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     * F5 위임 계정에 대한 적절한 위임을 설정합니다.
     * 아래 예에서는 APM 위임 계정이 FRP-App1.superdemo.live 앱용 KCD에 대해 구성되어 있습니다.
 
-        ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure25.png)
+        ![APM Delegatio 계정 속성 > 위임 탭을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure25.png)
 
 1. 위의 참조 문서에 나와 있는 [이 부분](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)에서 설명한 대로 세부 정보를 제공합니다.
 
 1. 부록 - SAML – F5 BIG-IP 변수 매핑은 아래와 같습니다.
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure26.png)
+    ![개요 > 활성 세션 탭을 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure26.png)
 
-    ![F5(고급 Kerberos) 구성](./media/advance-kerbf5-tutorial/configure27.png) 
+    ![변수 및 세션 키를 보여주는 스크린샷](./media/advance-kerbf5-tutorial/configure27.png) 
 
 1. 다음은 기본 SAML 특성에 대한 전체 목록입니다. GivenName은 다음 문자열을 사용하여 표시됩니다.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b206d5e8721ee87b699765c0fc2a7df6177fc8cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d753aef3c7cd855b1ab137e85a233a1bca27c25a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544420"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edubrite-lms"></a>자습서: EduBrite LMS와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ EduBrite LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![EduBrite LMS 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자", "회신 URL" 및 "저장" 단추가 강조 표시된 "기본 SAML 구성"을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<customer-specific>.edubrite.com` 패턴을 사용하여 URL을 입력합니다.
 

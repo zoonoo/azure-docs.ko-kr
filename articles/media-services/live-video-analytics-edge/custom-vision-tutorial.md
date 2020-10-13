@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 
 description: Custom Vision을 사용하여 장난감 트럭을 검색할 수 있는 컨테이너화된 모델을 빌드하는 방법과 Live Video Analytics on IoT Edge(LVA)의 AI 확장 기능을 사용하여 라이브 비디오 스트림에서 장난감 트럭을 검색하는 데 에지에 모델을 배포하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 0e980ac73d77b6fbbfdb8178f285904d3bf29920
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
+ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90929459"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91804149"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -56,7 +56,6 @@ ms.locfileid: "90929459"
 
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
 
-
 이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv/) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. Ctrl+N을 선택하고 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다. 이 자습서에서는 Live Video Analytics on IoT Edge를 사용하여 이러한 장난감 트럭을 검색하고 IoT Edge 허브에 관련 유추 이벤트를 게시합니다.
 
 ## <a name="overview"></a>개요
@@ -81,33 +80,7 @@ Custom Vision이라는 이름에서 알 수 있듯이 이를 활용하여 클라
 완료되면 만족스럽게 모델이 준비된 경우 성능 탭에서 내보내기 단추를 사용하여 Docker 컨테이너로 내보낼 수 있습니다. 컨테이너 플랫폼 유형으로 Linux를 선택했는지 확인하세요. 이는 컨테이너가 실행되는 플랫폼입니다. 컨테이너를 다운로드하는 컴퓨터는 Windows 또는 Linux일 수 있습니다. 다음 지침은 Windows 컴퓨터에 다운로드된 컨테이너 파일을 기반으로 합니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Dockerfile":::
- 
-1. 로컬 컴퓨터에 `<projectname>.DockerFile.Linux.zip`이라는 zip 파일을 다운로드해야 합니다. 
-1. Windows 데스크톱에 대한 [Docker](https://docs.docker.com/get-docker/)를 설치하지 않았으면 Docker가 설치되어 있는지 확인합니다.
-1. 선택한 위치에 다운로드한 파일의 압축을 풉니다. 명령줄을 사용하여 압축을 푼 폴더 디렉터리로 이동합니다.
-    
-    다음 명령을 실행합니다. 
-    
-    1. `docker build -t cvtruck` 
-    
-        이 명령은 다양한 패키지를 다운로드하고 Docker 이미지를 빌드하고 `cvtruck:latest`로 태그를 지정합니다. 
-    
-        > [!NOTE]
-        > 성공하는 경우 `- Successfully built <docker image id> and Successfully tagged cvtruck:latest.`가 표시되어야 합니다. 빌드 명령이 실패하면 종속성 패키지가 처음으로 다운로드되지 않는 경우가 있으므로 다시 시도합니다.
-    1. `docker  image ls`
-
-        이 명령은 새 이미지가 로컬 레지스트리에 있는지 확인합니다.
-    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
-    
-        이 명령은 Docker 노출된 포트(80)를 로컬 컴퓨터의 포트(80)에 게시합니다.
-    1. `docker container ls`
-    
-        이 명령은 컴퓨터에서 Docker 컨테이너가 성공적으로 실행되고 있는지 여부와 포트 매핑을 확인합니다. 출력은 다음과 같습니다.
-
-        ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
-        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Custom Vision 개요"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -148,33 +121,14 @@ Custom Vision이라는 이름에서 알 수 있듯이 이를 활용하여 클라
 1. "src/edge/deployment.customvision.template.json" 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 배포 매니페스트 생성**을 클릭합니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="IoT Edge 배포 매니페스트 생성":::
-  
-    이렇게 하면 src/edge/config 폴더에 "deployment.customvision.amd64.json"이라는 매니페스트 파일이 생성됩니다.
-1. "src/edge/ deployment.customvision.template.json" 파일을 열고 registryCredentials json 블록을 찾습니다. 이 블록에서는 사용자 이름 및 암호를 사용하여 Azure 컨테이너 레지스트리의 주소를 찾습니다.
-1. 명령줄에서 다음을 수행하여 로컬 Custom Vision 컨테이너를 Azure 컨테이너 레지스트리에 푸시합니다.
-
-    1. 다음 명령을 실행하여 레지스트리에 로그인합니다.
-    
-        `docker login <address>`
-    
-        인증을 요청하는 경우 사용자 이름 및 암호를 입력합니다. 
-        
-        > [!NOTE]
-        > 암호는 명령줄에 표시되지 않습니다.
-    1. 다음을 사용하여 이미지에 태그를 지정합니다.<br/>`docker tag cvtruck   <address>/cvtruck`
-    1. 다음을 사용하여 이미지를 푸시합니다.<br/>`docker push <address>/cvtruck`
-
-        성공하면 이미지에 대한 SHA와 함께 명령줄에 '푸시됨'이 표시되어야 합니다. 
-    1. Azure Portal에서 Azure Container Registry를 확인할 수도 있습니다. 여기에 태그와 함께 리포지토리의 이름이 표시됩니다. 
-1. 왼쪽 하단에서 AZURE IOT HUB 창 옆에 있는 "추가 작업" 아이콘을 클릭하여 IoTHub 연결 문자열을 설정합니다. appsettings.json 파일에서 문자열을 복사할 수 있습니다. VSCode 내에 적절한 IoT Hub가 구성되도록 하는 데 권장되는 또 다른 방법은 [Iot Hub 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용하는 것입니다.
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Custom Vision 개요" 아이콘을 클릭하여 IoTHub 연결 문자열을 설정합니다. appsettings.json 파일에서 문자열을 복사할 수 있습니다. VSCode 내에 적절한 IoT Hub가 구성되도록 하는 데 권장되는 또 다른 방법은 [Iot Hub 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용하는 것입니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="연결 문자열":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Custom Vision 개요":::
 1. 그런 다음, "src/edge/config/ deployment.customvision.amd64.json"을 마우스 오른쪽 단추로 클릭하고 **단일 디바이스용 배포 만들기**를 클릭합니다. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="단일 디바이스용 배포 만들기":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Custom Vision 개요":::
 1. 그러면 IoT Hub 디바이스를 선택하라는 메시지가 표시됩니다. 드롭다운 목록에서 lva-sample-device를 선택합니다.
 1. 약 30초 후에 왼쪽 하단 섹션에서 Azure IOT Hub를 새로 고치면 다음 모듈이 배포된 에지 디바이스가 있을 것입니다.
 
@@ -187,43 +141,21 @@ Custom Vision이라는 이름에서 알 수 있듯이 이를 활용하여 클라
 마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 이 단계는 Visual Studio Code의 출력 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="기본 제공 이벤트 엔드포인트 모니터링 시작":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Custom Vision 개요":::
 
 ## <a name="run-the-sample-program"></a>샘플 프로그램 실행
 
 이 자습서의 그래프 토폴로지를 브라우저에서 열면 inferencingUrl 값이 http://cv:80/image 으로 설정된 것이 보입니다. 따라서, 유추 서버가 라이브 비디오에서 장난감 트럭을 감지하면 결과를 반환합니다.
 
-1. 디버깅 세션을 시작하려면 F5 키를 선택합니다. 터미널 창에 메시지가 출력되어 표시됩니다.
-1. GraphTopologyList 및 GraphInstanceList 직접 메서드를 호출하면 operations.json 코드가 시작됩니다. 이전 빠른 시작이 완료된 후에 리소스를 정리한 경우 이 프로세스에서 빈 목록을 반환한 다음, 일시 중지합니다. 계속하려면 Enter 키를 선택합니다.
-    
-   터미널 창에 직접 메서드 호출의 다음 세트가 표시됩니다.
-    
-   * 이전 topologyUrl를 사용하는 GraphTopologySet에 대한 호출입니다.
-   * 다음 본문을 사용하는 GraphInstanceSet에 대한 호출입니다.
-        
-   ```
-        {
-          "@apiVersion": "1.0",
-          "name": "Sample-Graph-1",
-          "properties": {
-            "topologyName": "CustomVisionWithHttpExtension",
-            "description": "Sample graph description",
-            "parameters": [
-              { 
-                "name": "inferencingUrl",
-                "value": "http://cv:80/image"
-              },
-              {
-                "name": "rtspUrl",
-                "value": "rtsp://rtspsim:554/media/t2.mkv"
-              },
-              {
-                "name": "rtspUserName",
-                "value": "testuser"
-              },
-              {
-                "name": "rtspPassword",
-                "value": "testpassword"
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Custom Vision 개요":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Custom Vision 개요"
               }
             ]
           }

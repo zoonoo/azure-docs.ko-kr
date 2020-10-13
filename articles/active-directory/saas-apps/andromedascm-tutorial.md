@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 31fc1877dd0edd2fd670f0f9466692ac7bc8ad15
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d1e2b91b46bee761c7feb1000920d5ae1e65ba4c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531146"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>자습서: Andromeda와 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ Andromeda에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Andromeda 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<tenantURL>.ngcxpress.com/` 패턴을 사용하여 URL을 입력합니다.
 
@@ -108,7 +108,7 @@ Andromeda에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Andromeda 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx` 패턴을 사용하여 URL을 입력합니다.
 
@@ -117,7 +117,7 @@ Andromeda에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. Andromeda 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 givenname user.givenname 및 emailaddress user.mail과 같은 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
     > [!Important]
     > 이러한 설정 동안 네임스페이스 정의를 지웁니다.
@@ -135,9 +135,9 @@ Andromeda에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    ![스크린샷은 새 클레임이 추가되고 저장 옵션이 포함된 사용자 클레임을 보여줍니다.](common/new-save-attribute.png)
 
-    ![이미지](common/new-attribute-details.png)
+    ![스크린샷은 이 단계에서 설명한 값을 입력할 수 있는 사용자 클레임 관리를 보여줍니다.](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 

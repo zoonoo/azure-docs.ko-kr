@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d12244bce117d6a631fdb67dc460af18bc77028c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77671089"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995754"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -120,7 +120,7 @@ ms.locfileid: "77671089"
 
 4. 코호트를 저장하고 이름을 지정합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 _특정 국가/지역에서 코 호트 사용자를 정의 했습니다. 사용자 도구에서이 코 호트를 비교 하 여 해당 국가/지역에 대 한 필터를 설정 하기만 하면 다른 결과가 표시 됩니다. 굳이?_
 
@@ -131,7 +131,7 @@ _특정 국가/지역에서 코 호트 사용자를 정의 했습니다. 사용�
 
 ## <a name="learn-more"></a>자세한 정보
 
-* [Analytics 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Analytics 쿼리 언어](../log-query/get-started-portal.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 * [사용자, 세션, 이벤트](usage-segmentation.md)
 * [사용자 흐름](usage-flows.md)
 * [사용 현황 개요](usage-overview.md)

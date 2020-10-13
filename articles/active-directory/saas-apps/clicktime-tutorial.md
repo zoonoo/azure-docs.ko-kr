@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ed39064d4aee07554ce795be73732024e1b47f84
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98b5c3bd1f41bd3b6a4100fdaebd1d44fb45bf9f
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549339"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>자습서: ClickTime과 Azure Active Directory 통합
 
@@ -207,7 +207,7 @@ ClickTime의 경우 프로비전은 수동 작업입니다.
 
 1. 위쪽에 도구 모음에서 **회사**를 클릭한 다음 **피플**을 클릭합니다.
    
-    ![사람](./media/clicktime-tutorial/tic777282.png "사람")
+    ![스크린샷은 회사 및 사용자가 선택된 ClickTime 테넌트를 보여줍니다.](./media/clicktime-tutorial/tic777282.png "사람")
 
 1. **사람 추가**를 클릭합니다.
    
@@ -215,7 +215,7 @@ ClickTime의 경우 프로비전은 수동 작업입니다.
 
 1. 새 사람 섹션에서 다음 단계를 수행합니다.
    
-    ![사람](./media/clicktime-tutorial/tic777284.png "사람")
+    ![스크린샷은 이 단계에서 정보를 추가할 수 있는 사람 추가 섹션을 보여줍니다.](./media/clicktime-tutorial/tic777284.png "사람")
    
     a.  **전체 이름** 텍스트 상자에서 **Britta Simon**과 같은 사용자의 전체 이름을 입력합니다. 
   

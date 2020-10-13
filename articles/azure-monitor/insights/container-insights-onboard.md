@@ -3,12 +3,12 @@ title: 컨테이너에 대해 Azure Monitor 사용 Microsoft Docs
 description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320309"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994064"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor 사용
 
@@ -43,7 +43,7 @@ ms.locfileid: "87320309"
    새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 경우 작업 영역을 만들거나 온 보 딩 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 
    
    작업 영역을 직접 만들도록 선택 하는 경우 다음을 통해 만들 수 있습니다. 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Azure 포털](../learn/quick-create-workspace.md) 
    
@@ -112,7 +112,7 @@ ms.locfileid: "87320309"
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하려면 다음 표에 설명 된 방법 중 하나를 사용 합니다.
 
-| 배포 상태 | 방법 | 설명 |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
@@ -131,4 +131,3 @@ ms.locfileid: "87320309"
 ## <a name="next-steps"></a>다음 단계
 
 이제 모니터링을 사용 하도록 설정 했으므로 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 성능 분석을 시작할 수 있습니다. 컨테이너에 Azure Monitor를 사용 하는 방법에 대 한 자세한 내용은 [View Kubernetes cluster performance](container-insights-analyze.md)을 참조 하세요.
-

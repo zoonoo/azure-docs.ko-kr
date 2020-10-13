@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 8f6c815bf6b8be6d280dcdc60401f7a91e171e66
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b8593873774575635b31176b162086795e8a1320
+ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542754"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91744290"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>자습서: Boomi와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -89,14 +89,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 기본 SAML 구성 섹션에 자동으로 채워집니다.
 
-    ![이미지](common/idp-intiated.png)
+    ![스크린샷은 식별자 및 회신 URL 값이 표시되는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
+
+    d. **로그온 URL**(예: `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`)을 입력합니다.
 
     > [!Note]
     > 이 자습서의 뒷부분에 설명되어 있는 **Boomi SSO 구성** 섹션에서**서비스 공급자 메타데이터 파일**을 가져올 수 있습니다. **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.
 
 1. Boomi 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/default-attributes.png)
+    ![스크린샷은 Givenname user.givenname 및 Emailaddress User.mail과 같은 기본값이 있는 사용자 특성 및 크레임을 보여줍니다.](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 Boomi 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
@@ -120,7 +122,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -174,13 +176,13 @@ Azure AD 사용자가 Boomi에 로그인할 수 있도록 하려면 Boomi로 프
 
 1. 로그인 후 **사용자 관리**, **사용자**로 이동합니다.
 
-    ![사용자](./media/boomi-tutorial/tutorial_boomi_001.png "사용자")
+    ![스크린샷은 사용자가 선택한 사용자 관리 페이지를 보여줍니다.](./media/boomi-tutorial/tutorial_boomi_001.png "사용자")
 
 1. **+** 아이콘을 클릭하면 **사용자 역할 추가/유지 관리** 대화 상자가 열립니다.
 
-    ![사용자](./media/boomi-tutorial/tutorial_boomi_002.png "사용자")
+    ![스크린샷은 선택된 + 아이콘을 보여줍니다.](./media/boomi-tutorial/tutorial_boomi_002.png "사용자")
 
-    ![사용자](./media/boomi-tutorial/tutorial_boomi_003.png "사용자")
+    ![스크린샷은 사용자를 구성하는 사용자 역할 추가 / 유지 관리를 보여줍니다.](./media/boomi-tutorial/tutorial_boomi_003.png "사용자")
 
     a. **사용자 메일 주소** 텍스트 상자에서 B.Simon@contoso.com과 같은 사용자의 메일 주소를 입력합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-ms.openlocfilehash: b11955c040225f66bc3eda9fe762cb1cbfc2d308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9836c4e8f644a4e1b39e5aef7208262d6701f5bb
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542856"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91760690"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>자습서: Aha!를 Azure Active Directory와 연결
 
@@ -148,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **보안 및 single sign-on**을 클릭합니다.
 
-    ![보안 및 Single Sign-On](./media/aha-tutorial/IC798952.png "보안 및 single sign-on")
+    ![보안 및 Single Sign On 메뉴 옵션을 강조 표시하는 스크린샷.](./media/aha-tutorial/IC798952.png "보안 및 single sign-on")
 
 7. **Single Sign-On** 섹션에서 **ID 공급자**로 **SAML2.0**을 선택합니다.
 

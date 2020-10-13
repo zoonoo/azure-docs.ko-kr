@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 606ee409a241db7b4deb9d15db86b034b8fbffd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbd39c85385d6690a80f540c9e0cd23a321e7e84
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550982"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91821228"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>자습서: Front와 Azure Active Directory 통합
 
@@ -128,23 +128,23 @@ Front에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 2. **설정(왼쪽 세로 막대 아래에 있는 톱니바퀴 아이콘) > 기본 설정**으로 이동합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/front-tutorial/tutorial_front_000.png)
+    !["기본 설정"이 강조 표시된 상태로 선택된 "설정(코그 아이콘)"을 보여주는 스크린샷.](./media/front-tutorial/tutorial_front_000.png)
 
 3. **Single Sign On** 링크를 클릭합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/front-tutorial/tutorial_front_001.png)
+    !["Single Sign On" 링크가 선택된 "회사 기본 설정" 섹션을 보여주는 스크린샷.](./media/front-tutorial/tutorial_front_001.png)
 
 4. **Single Sign-On** 드롭다운 목록에서 **SAML**을 선택합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/front-tutorial/tutorial_front_002.png)
+    !["SAML"이 선택된 "Single Sign On" 드롭다운 목록을 보여주는 스크린샷.](./media/front-tutorial/tutorial_front_002.png)
 
 5. **진입점** 텍스트 상자에서 Azure AD 애플리케이션 구성 마법사의 **로그인 URL** 값을 입력합니다.
     
-    ![앱 쪽에서 Single Sign-On 구성](./media/front-tutorial/tutorial_front_003.png)
+    !["진입점" 텍스트 상자를 보여주는 스크린샷.](./media/front-tutorial/tutorial_front_003.png)
 
 6. 다운로드한 **인증서(Base64)** 파일을 메모장에서 열고 내용을 클립보드에 복사한 다음 **서명 인증서** 텍스트 상자에 붙여 넣습니다.
     
-    ![앱 쪽에서 Single Sign-On 구성](./media/front-tutorial/tutorial_front_004.png)
+    ![텍스트 상자가 회색으로 표시된 상태에서 "서명 인증서"가 강조 표시된 스크린샷.](./media/front-tutorial/tutorial_front_004.png)
 
 7. **서비스 공급자 설정** 섹션에서 다음 단계를 수행합니다.
 

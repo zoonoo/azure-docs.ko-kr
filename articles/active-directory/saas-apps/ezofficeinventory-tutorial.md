@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
-ms.openlocfilehash: f9f56967c03556def3aa221f84ccd290c6090fd1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ff6ba71f4606b3caf51007a9d75f3ca36bc99cda
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551152"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826470"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>자습서: EZOfficeInventory와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -151,7 +151,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭한 다음, **설정** > **기능 추가**로 이동합니다.
 
-    ![EZOfficeInventory 구성](./media/ezofficeinventory-tutorial/configure01.png)
+    !["기능 추가" 작업이 선택된 "설정" 페이지를 보여주는 스크린샷.](./media/ezofficeinventory-tutorial/configure01.png)
 
 1. **SAML 통합** 섹션까지 아래로 스크롤하고 다음 단계를 수행합니다.
 

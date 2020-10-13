@@ -3,12 +3,12 @@ title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4333ceb9c02f39629e4bd06d3d9634b97bb2e2d7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566802"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91774031"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
 
@@ -160,58 +160,15 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
 
 ## <a name="run-the-program"></a>프로그램 실행 
 
-1. Visual Studio Code에서 src/cloud-to-device-console-app/operations.json으로 이동합니다.
-1. **GraphTopologySet** 노드 아래에서 다음을 편집합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. 그런 다음, **GraphInstanceSet** 및 **GraphTopologyDelete** 노드에서 **topologyName** 값이 이전 그래프 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="미디어 그래프":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
 
-    `"topologyName" : "CVRToAMSAsset"`  
-1. 브라우저에서 [토폴로지](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json)를 열고 assetNamePattern을 확인합니다. 자산에 고유한 이름을 지정하기 위해 operations.json 파일에서 그래프 인스턴스 이름을 (기본값 "Sample-Graph-1"에서 다른 값으로) 변경해야 할 수도 있습니다.
-
-    `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
-1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력됩니다.
-1. operations.json 파일이 GraphTopologyList 및 GraphInstanceList를 호출하여 시작됩니다. 이전 빠른 시작 또는 자습서를 마친 후 리소스를 정리했다면 이 작업은 다음과 같이 빈 목록을 반환하고, 사용자가 **Enter** 키를 선택할 수 있도록 일시 중지됩니다.
-
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
-
-1. **터미널** 창에서 **Enter** 키를 선택하면 다음과 같은 직접 메서드 세트가 호출됩니다.
-   * 이전 topologyUrl을 사용하여 GraphTopologySet 호출
-   * 다음 본문을 사용하여 GraphInstanceSet 호출
-     
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph-1",
-       "properties": {
-         "topologyName": "CVRToAMSAsset",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="미디어 그래프"
            }
          ]
        }
@@ -219,7 +176,7 @@ Live Video Analytics on IoT Edge 모듈을 사용하여 라이브 비디오 스�
      ```
    * 그래프 인스턴스를 시작하고 비디오 흐름을 시작하는 GraphInstanceActivate 호출
    * 그래프 인스턴스가 실행 중 상태임을 보여주는 두 번째 GraphInstanceList 호출 
-1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요**라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하면 호출한 직접 메서드에 대한 JSON 응답 페이로드가 보입니다.
+1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요**라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
 1. 이제 Visual Studio Code에서 **출력** 창으로 전환하면 Live Video Analytics on IoT Edge 모듈에서 IoT Hub로 보내는 메시지가 표시됩니다.
 
    이러한 메시지에 대한 내용은 다음 섹션에서 다룹니다.

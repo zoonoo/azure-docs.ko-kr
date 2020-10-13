@@ -1,5 +1,5 @@
 ---
-title: '자습서: SQL 풀을 사용하여 데이터 분석 시작'
+title: '자습서: 전용 SQL 풀을 사용하여 데이터 분석 시작'
 description: 이 자습서에서는 NYC Taxi 샘플 데이터를 사용하여 SQL 풀의 분석 기능을 탐색합니다.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
+ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015503"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91620038"
 ---
-# <a name="analyze-data-with-sql-pools"></a>SQL 풀을 사용하여 데이터 분석
+# <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
-Azure Synapse Analytics는 SQL 풀을 사용하여 데이터를 분석하는 기능을 제공합니다. 이 자습서에서는 NYC Taxi 샘플 데이터를 사용하여 SQL 풀의 분석 기능을 탐색합니다.
+Azure Synapse Analytics는 전용 SQL 풀을 사용하여 데이터를 분석하는 기능을 제공합니다. 이 자습서에서는 NYC Taxi 데이터를 사용하여 전용 SQL 풀의 기능을 탐색합니다.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>NYC Taxi 데이터를 SQLDB1에 로드
 
@@ -71,7 +71,7 @@ Azure Synapse Analytics는 SQL 풀을 사용하여 데이터를 분석하는 기
     ```
 1. 이 스크립트를 실행하는 데 약 1분이 걸립니다. 2백만 행의 NYC Taxi 데이터를 **dbo.Trip**이라는 테이블에 로드합니다.
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>SQL 풀에서 NYC 택시 데이터 검색
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>전용 SQL 풀에서 NYC Taxi 데이터 검색
 
 1. Synapse Studio에서 **데이터** 허브로 이동합니다.
 1. **SQLDB1** > **테이블**로 차례로 이동합니다. 로드된 몇 가지 테이블이 표시됩니다.

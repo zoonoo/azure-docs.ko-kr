@@ -1,24 +1,24 @@
 ---
-title: 개별 Azure 청구서 검토
-description: 청구서 및 리소스 사용량을 이해하고 개별 Azure 구독에 대한 요금을 확인하는 방법을 알아봅니다.
+title: 개별 Azure 구독 청구서 검토
+description: 청구서 및 리소스 사용량을 이해하고 종량제를 포함하여 개별 Azure 구독에 대한 요금을 확인하는 방법을 알아봅니다.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 95af762e0ff1986f9d1395e787c73b3a886a7a2e
+ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270528"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91653284"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>자습서: 개별 Azure 청구서 검토
+# <a name="tutorial-review-your-individual-azure-subscription-bill"></a>자습서: 개별 Azure 구독 청구서 검토
 
-이 문서는 Azure 청구서를 이해하고 검토하는 데 도움이 됩니다. 각 청구 기간 동안에는 일반적으로 이메일로 청구서를 받습니다. 청구서는 Azure 청구서를 나타냅니다. Azure Portal에서도 청구서에 대한 동일한 비용 정보를 확인할 수 있습니다. 이 자습서에서는 청구서를 자세한 일별 사용량 파일 및 Azure Portal의 비용 분석과 비교합니다.
+이 문서는 종량제 및 Visual Studio를 포함하여 종량제 또는 Visual Studio Azure 구독에 대한 청구서를 이해하고 검토하는 데 도움이 됩니다. 각 청구 기간 동안에는 일반적으로 이메일로 청구서를 받습니다. 청구서는 Azure 청구서를 나타냅니다. Azure Portal에서도 청구서에 대한 동일한 비용 정보를 확인할 수 있습니다. 이 자습서에서는 청구서를 자세한 일별 사용량 파일 및 Azure Portal의 비용 분석과 비교합니다.
 
 이 자습서는 개별 구독을 체결한 Azure 고객에게만 적용됩니다. 일반적인 개별 구독은 Azure 웹 사이트에서 직접 구매한 종량제 요금입니다.
 
@@ -42,7 +42,7 @@ Azure를 구독한 지 30일 이상이어야 합니다. Azure는 청구서 기�
 
 - [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>사용 파일을 사용하여 송장이 청구된 요금 비교
+## <a name="compare-billed-charges-with-your-usage-file"></a>사용량 파일과 청구된 요금 비교
 
 <a name="charges"></a>
 
@@ -109,7 +109,7 @@ CSV 사용 현황 파일에서 청구서에 표시된 해당 리소스에 대한
 
 자세한 내용은 [Azure 청구서 이해](understand-invoice.md) 및 [Azure 세부 사용 현황 이해](understand-usage.md)를 참조하세요.
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>비용 분석에서 요금 및 사용량 비교
+## <a name="compare-billed-charges-and-usage-in-cost-analysis"></a>비용 분석에서 청구된 요금과 사용량 비교
 
 Azure Portal의 비용 분석도 요금을 확인하는 데 도움이 됩니다. 송장이 발부된 사용량과 요금에 대한 간략한 개요를 보려면 Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다. 다음으로, **비용 분석**을 클릭한 다음, 보기 목록에서 **청구서 정보**를 클릭합니다.
 
@@ -123,13 +123,15 @@ Azure Portal의 비용 분석도 요금을 확인하는 데 도움이 됩니다.
 
 ![청구서 사용 요금](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-services-billed-separately"></a><a name="external"></a>별도로 청구되는 외부 서비스
+## <a name="external-marketplace-services-are-billed-separately"></a>외부 Marketplace 서비스는 별도로 청구됩니다.
+
+<a name="external"></a>
 
 외부 서비스 또는 마켓플레이스 요금은 타사 소프트웨어 공급 업체가 만든 리소스에 해당됩니다. 이러한 리소스는 Azure Marketplace에서 사용할 수 있습니다. 예를 들어 Barracuda Firewall은 타사가 제공하는 Azure Marketplace 리소스입니다. 방화벽 및 방화벽에 해당하는 미터의 모든 요금은 외부 서비스 요금으로 표시됩니다.
 
 외부 서비스 요금은 별도로 청구됩니다. 이 요금은 Azure 청구서에 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](understand-azure-marketplace-charges.md)를 참조하세요.
 
-### <a name="resources-billed-by-usage-meters"></a>사용량 미터로 청구되는 리소스
+### <a name="resources-are-billed-by-usage-meters"></a>리소스는 사용량 미터로 청구됩니다.
 
 Azure는 리소스 요금을 기준으로 직접 청구하지 않습니다. 리소스 요금은 하나 이상의 미터를 사용하여 계산됩니다. 미터는 수명 주기 동안 리소스의 사용을 추적하는 데 사용됩니다. 이러한 미터는 청구서를 계산하는 데 사용됩니다.
 
@@ -152,7 +154,9 @@ VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합�
 
 이전 예제에서와 같이 사용량 CSV 파일에서 청구서를 계산하는 데 사용된 미터를 확인할 수 있습니다.
 
-## <a name="pay-your-bill"></a><a name="payment"></a>청구서 결제
+## <a name="pay-your-bill"></a>청구서 결제
+
+<a name="payment"></a>
 
 결제 방법으로 신용 카드를 설정한 경우 청구 기간 종료 후 10일 이내에 결제가 자동으로 이루어집니다. 신용 카드 명세서에는 **MSFT Azure** 항목으로 표시됩니다.
 

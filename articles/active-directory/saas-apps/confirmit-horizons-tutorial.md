@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff197a5603480e9143a14a4760f14dccf8b101b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 119b1fc646a0a781541784786b409d4a961c2dc3
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544525"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>자습서: Confirmit Horizons와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ Confirmit Horizons에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Confirmit Horizons 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["저장" 작업, "식별자" 필드 및 "회신 URL" 필드가 강조 표시된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 7dd13df6222f6441b7edb2bd9a789c1f102168d7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 596a6657018658d2d00abe7f221ffae9a6730a7a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554974"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91826467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>자습서: Flatter Files와 Azure Active Directory 통합
 
@@ -121,11 +121,11 @@ Flatter Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 2. **대시보드**를 클릭합니다. 
    
-    ![Single Sign-on 구성](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    !["Flatter Files" 앱에서 선택한 "대시보드"를 보여주는 스크린샷.](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. **설정**을 클릭하고 **회사** 탭에서 다음 단계를 수행합니다. 
    
-    ![Single Sign-on 구성](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    !["인증에 SAML 2.0 사용"이 선택되고 "SAML 구성" 단추가 선택된 "회사" 탭을 보여주는 스크린샷.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
     a. **인증에 SAML 2.0 사용**을 선택합니다.
     
@@ -207,7 +207,7 @@ Flatter Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 2. 왼쪽 탐색 창에서 **설정**과 사용자 **탭**을 차례로 클릭합니다.
    
-    ![Flatter Files 사용자 만들기](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    !["사용자" 탭이 선택된 "설정" 페이지를 보여주는 스크린샷.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. **사용자 추가**를 클릭합니다. 
 

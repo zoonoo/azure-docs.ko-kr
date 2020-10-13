@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: 9a36e0903945a974f73187e4799e978c32f2d961
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
+ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576272"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91629645"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 Kubernetes 업그레이드
 
@@ -143,10 +143,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > * Kubernetes 노드 업그레이드
 > * 성공적인 업그레이드의 유효성 검사
 
-AKS에 대해 자세히 알아보려면 다음 링크를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [AKS 개요][aks-intro]
+AKS에 대한 자세한 내용은 [AKS 개요][aks-intro]를 참조하세요. AKS를 사용하여 전체 솔루션을 만드는 방법에 대한 지침은 [AKS 솔루션 지침][aks-solution-guidance]을 참조하세요.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -160,3 +157,4 @@ AKS에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here

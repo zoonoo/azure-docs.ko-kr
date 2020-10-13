@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 34e36be8ee9444b5612901439aa5dca4771f2dda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8fdb59db7e11e3c8b946be940a2f98bd42810b88
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551679"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91758356"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloudpassage"></a>자습서: CloudPassage와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -85,7 +85,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에 다음 `https://portal.cloudpassage.com/saml/consume/accountid` 패턴을 사용하여 URL을 입력합니다. CloudPassage 포털의 **Single Sign-On 설정** 섹션에서 **SSO 설치 설명서**를 클릭하여 이 특성의 값을 가져올 수 있습니다.
 
-    ![Single Sign-on 구성](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+    ![스크린샷은 SSO 설정 설명서 링크가 호출된 CloudPassage 포털을 보여줍니다.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [CloudPassage 클라이언트 지원 팀](https://www.cloudpassage.com/company/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -146,15 +146,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위쪽 메뉴에서 **설정**을 클릭한 다음 **사이트 관리**를 클릭합니다. 
    
-    ![Single Sign-on 구성][12]
+    ![스크린샷은 사이트 관리가 선택된 CloudPassage 사이트를 보여줍니다.][12]
 
 1. **인증 설정** 탭을 클릭합니다. 
    
-    ![Single Sign-on 구성][13]
+    ![스크린샷은 인증 설정 탭이 선택된 CloudPassage 사이트를 보여줍니다.][13]
 
 1. **Single Sign-On 설정** 섹션에서 다음 단계를 수행합니다. 
    
-    ![Single Sign-on 구성][14]
+    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 Single Sign-On 설정 섹션을 보여줍니다.][14]
 
     a. **SSO(Single Sign-On) 사용(SSO 설치 설명서)** 확인란을 선택합니다.
     
@@ -178,15 +178,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위쪽 도구 모음에서 **설정**을 클릭한 다음 **사이트 관리**를 클릭합니다. 
    
-    ![CloudPassage 테스트 사용자 만들기][22] 
+    ![스크린샷은 사이트 관리가 선택된 CloudPassage를 보여줍니다.][22] 
 
 1. **사용자** 탭을 클릭한 다음 **새 사용자 추가**를 클릭합니다. 
    
-    ![CloudPassage 테스트 사용자 만들기][23]
+    ![스크린샷은 사용자 탭이 선택된 CloudPassage 사이트 관리와 새 사용자 추가 옵션을 보여줍니다.][23]
 
 1. **새 사용자 추가** 섹션에서 다음 단계를 수행합니다. 
    
-    ![CloudPassage 테스트 사용자 만들기][24]
+    ![스크린샷은 사용자 정보를 지정할 수 있는 새 사용자 추가 섹션을 보여줍니다.][24]
     
     a. **이름** 텍스트 상자에 Britta를 입력합니다. 
   
