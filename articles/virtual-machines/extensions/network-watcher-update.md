@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: c386685d63894472623ffc4392a529541a91391c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd3fff2d438bbf804e35f04db0cfae15eea5e782
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410343"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973342"
 ---
 # <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Network Watcher 확장을 최신 버전으로 업데이트 하는 방법 
 
@@ -114,4 +114,4 @@ NetworkWatcher 확장에 대해 자동 업그레이드가 true로 설정 된 경
 
 ## <a name="support"></a>지원
 
-이 문서의 어느 시점에서 든 도움이 필요한 경우 Network Watcher 확장 설명서 ([Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux), [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows))를 참조 하거나 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+이 문서의 어느 시점에서 든 도움이 필요한 경우 Network Watcher 확장 설명서 ([Linux](./network-watcher-linux.md), [Windows](./network-watcher-windows.md))를 참조 하거나 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

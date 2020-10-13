@@ -9,10 +9,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653777"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Power BI의 Azure Time Series Insights에서 데이터 시각화
@@ -29,7 +29,7 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 
 아직 없는 경우 [무료 Azure 구독](https://azure.microsoft.com/free/) 에 등록 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 버전의 [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 다운로드 및 설치
 * [Azure Time Series Insights Gen2 환경을](time-series-insights-update-how-to-manage.md) 만들거나 만듭니다.
@@ -69,7 +69,7 @@ Azure Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계�
        > [!NOTE]
        > 원시 이벤트 수준 데이터에는 25만 이벤트 수 제한이 있습니다.
 
-       [![파일](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![연결](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
    1. **웜 스토어**를 사용 하 여 Azure Time Series Insights 환경을 구성 하지 않은 경우 경고가 표시 됩니다.
 

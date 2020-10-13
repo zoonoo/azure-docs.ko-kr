@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: bce702873fc4e66f283a9785bb408bbfa7fda83c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3df7d3d01dcd5e5b097eba53ef0dae29e86fd0a5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87266897"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973260"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "87266897"
 
 Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-specialized-portal.md) 수도 있습니다.
 
-이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 스토리지 계정을 사용해야 하는 레거시 배포가 있는 경우 [스토리지 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
+이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 스토리지 계정을 사용해야 하는 레거시 배포가 있는 경우 [스토리지 계정의 특수한 VHD에서 VM 만들기](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized)를 참조하세요.
 
 단일 VHD 또는 스냅샷에서 동시 배포 수를 20개의 VM으로 제한하는 것이 좋습니다. 
 

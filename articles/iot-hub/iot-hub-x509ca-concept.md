@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91308115"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>IoT 업계의 X.509 CA 인증서에 대한 개념적 이해
@@ -71,7 +71,7 @@ X.509 CA 인증서를 구입하기 위해 Company-X는 루트 인증서 서비�
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>자체 서명된 X.509 CA 인증서 만들기
 
-자체 서명 된 x.509 CA 인증서를 만드는 프로세스는 루트 인증 기관과 같은 타사 서명자를 포함 하는 것을 제외 하 고는 구매와 비슷합니다. 이 예제에서 Company-X는 루트 인증 기관 대신 자체 기관 인증서에 서명합니다. Company-X는 기관 인증서를 구입할 준비가 될 때까지 이 옵션을 테스트용으로 선택할 수 있습니다. X.509 IoT Hub 외부의 타사 서비스에 연결할 수 없는 경우에도 회사 X는 프로덕션에서 자체 서명 된 CA 인증서를 사용할 수 있습니다.
+Self-Signed x.509 CA 인증서를 만드는 프로세스는 루트 인증 기관과 같은 타사 서명자를 포함 하는 것을 제외 하 고는 구매와 비슷합니다. 이 예제에서 Company-X는 루트 인증 기관 대신 자체 기관 인증서에 서명합니다. Company-X는 기관 인증서를 구입할 준비가 될 때까지 이 옵션을 테스트용으로 선택할 수 있습니다. X.509 IoT Hub 외부의 타사 서비스에 연결할 수 없는 경우에도 회사 X는 프로덕션에서 자체 서명 된 CA 인증서를 사용할 수 있습니다.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>IoT Hub에 X.509 인증서 등록
 

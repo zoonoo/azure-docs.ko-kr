@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 896baa70fb6e18165a025459a063e33d705261ba
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90939484"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법
@@ -48,7 +48,7 @@ AzureIoTSecurity 에이전트에서 인증을 수행 하는 두 가지 방법은
 ## <a name="authentication-methods-known-limitations"></a>인증 방법 알려진 제한 사항
 
 - **Securitymodule** 인증 모드에서는 대칭 키 인증만 지원 합니다.
-- CA 서명 인증서는 **장치** 인증 모드에서 지원 되지 않습니다.
+- CA-Signed 인증서는 **장치** 인증 모드에서 지원 되지 않습니다.
 
 ## <a name="security-agent-installation-parameters"></a>보안 에이전트 설치 매개 변수
 
@@ -102,7 +102,7 @@ AzureIoTSecurity 에이전트에서 인증을 수행 하는 두 가지 방법은
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [보안 에이전트 개요](security-agent-architecture.md)
 - [보안 에이전트 배포](how-to-deploy-agent.md)

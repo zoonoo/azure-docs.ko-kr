@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: a69a58da85cf1ee03046626bb076c5cd44196279
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828713"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91441457"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 Azure Monitor 배포
 일부 Azure Monitor 기능은 한 번 또는 여러 번 구성 되지만 모니터링 하려는 각 리소스에 대해 다른 기능을 반복 해야 합니다. 이 문서에서는 Azure Policy를 사용 하 여 모든 Azure 리소스에 대해 모니터링이 일관적이 고 정확 하 게 구성 되도록 하는 Azure Monitor을 구현 하는 방법을 설명 합니다.
@@ -41,7 +41,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 2. **정의**를 선택 합니다.
 3. **유형**에 대해 *기본 제공* 을 선택 하 고 **범주**에 대해 *모니터링*을 선택 합니다.
 
-  ![기본 제공 정책 정의](media/deploy-scale/builtin-policies.png)
+  ![모니터링 범주 및 기본 제공 형식에 대 한 정책 정의 목록을 보여 주는 Azure Portal의 Azure Policy 정의 페이지 스크린샷](media/deploy-scale/builtin-policies.png)
 
 
 ## <a name="diagnostic-settings"></a>진단 설정
@@ -54,7 +54,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 
 예를 들어 다음 이미지는 Data Lake Analytics에 대 한 기본 제공 진단 설정 정책 정의를 보여 줍니다.
 
-  ![기본 제공 정책 정의](media/deploy-scale/builtin-diagnostic-settings.png)
+  ![Data Lake Analytics에 대 한 두 가지 기본 제공 진단 설정 정책 정의를 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷.](media/deploy-scale/builtin-diagnostic-settings.png)
 
 ### <a name="custom-policy-definitions"></a>사용자 지정 정책 정의
 기본 제공 정책이 없는 리소스 종류의 경우 사용자 지정 정책 정의를 만들어야 합니다. 기존 기본 제공 정책을 복사한 다음 리소스 유형을 수정 하 여 Azure Portal에서이 작업을 수동으로 수행할 수 있습니다. PowerShell 갤러리 스크립트를 사용 하 여 프로그래밍 방식으로 정책을 만드는 것이 더 효율적입니다.
@@ -109,7 +109,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 ### <a name="assignment"></a>할당 
 모니터링할 리소스의 범위에 따라 Azure 관리 그룹, 구독 또는 리소스 그룹에 이니셔티브를 할당 합니다. [관리 그룹](../governance/management-groups/overview.md) 은 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 특히 유용 합니다.
 
-![이니셔티브 할당](media/deploy-scale/initiative-assignment.png)
+![Azure Portal의 Log Analytics 작업 영역에 대 한 진단 설정의 이니셔티브 할당 섹션에 있는 기본 사항 탭에 대 한 설정의 스크린샷](media/deploy-scale/initiative-assignment.png)
 
 이니셔티브 매개 변수를 사용 하 여 이니셔티브의 모든 정책 정의에 대해 작업 영역 또는 다른 세부 정보를 한 번 지정할 수 있습니다. 
 
@@ -130,7 +130,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 
 VM용 Azure Monitor는 전체 모니터링을 사용 하기 위해 두 에이전트를 모두 설치 하는 다음과 같은 기본 제공 이니셔티브를 포함 합니다. 
 
-|이름 |설명 |
+|Name |설명 |
 |:---|:---|
 |VM용 Azure Monitor 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
 |가상 머신 확장 집합에 대 한 Azure Monitor 사용 | Azure 가상 머신 확장 집합에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
@@ -146,7 +146,7 @@ Azure Policy 인터페이스를 사용 하 여 이러한 이니셔티브에 대 
 ### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
 Azure Policy를 사용 하 여 가상 머신 확장 집합에 대 한 모니터링을 사용 하도록 설정 하려면 모니터링할 리소스의 범위에 따라 **가상 머신 확장 집합에 대 한 Azure Monitor 사용** 이니셔티브를 Azure 관리 그룹, 구독 또는 리소스 그룹에 할당 합니다. [관리 그룹](../governance/management-groups/overview.md) 은 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 특히 유용 합니다.
 
-![이니셔티브 할당](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+![Azure Portal에서 이니셔티브 할당 페이지의 스크린샷 가상 머신 확장 집합에 대 한 Azure Monitor 사용 하도록 이니셔티브 정의가 설정 되었습니다.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
 데이터가 전송 될 작업 영역을 선택 합니다. 이 작업 영역에는의 설명에 따라 *VMInsights* 솔루션이 설치 되어 있어야 합니다 []() .
 
@@ -163,11 +163,11 @@ Log Analytics 에이전트를 설치 하지만 종속성 에이전트는 설치 
 > Log Analytics 에이전트가 Azure Monitor에 데이터를 전달 해야 하므로 종속성 에이전트를 자체에 배포할 이유가 없습니다.
 
 
-|이름 |설명 |
+|Name |설명 |
 |-----|------------|
 |감사 Log Analytics 에이전트 배포 – VM 이미지 (OS) 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않은 경우 vm을 비규격으로 보고 합니다. |
-|Linux VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |
-|Windows VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |
+|Linux Vm에 대 한 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |
+|Windows Vm에 대 한 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |
 | [Preview]: Linux Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치 해야 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 비규격으로 하이브리드 Azure Arc 컴퓨터를 보고 합니다. |
 | [Preview]: Log Analytics 에이전트가 Windows Azure Arc 컴퓨터에 설치 되어 있어야 합니다. |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Windows Vm에 대 한 비규격으로 하이브리드 Azure Arc 컴퓨터를 보고 합니다. |
 | [Preview]: Linux Azure Arc 컴퓨터에 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux 하이브리드 Azure Arc 컴퓨터용 Log Analytics 에이전트를 배포 합니다. |

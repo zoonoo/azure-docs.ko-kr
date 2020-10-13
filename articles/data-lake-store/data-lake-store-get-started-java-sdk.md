@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: twooley
 ms.openlocfilehash: a2c55a2d3277bbb6c3cf72f5ea703780d2a5e9bd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318847"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
@@ -27,7 +27,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용 하 여 폴더 만들기, 데이
 
 [Azure Data Lake Storage Gen1 Java API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/)에서 Data Lake Storage Gen1용 Java SDK API 문서에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Java 개발 키트(JDK 7 이상, Java 버전 1.7 이상 사용)
 * Data Lake Storage Gen1 계정 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 * [Maven](https://maven.apache.org/install.html) 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템 생성은 종속성을 훨씬 쉽게 관리할 수 있습니다.

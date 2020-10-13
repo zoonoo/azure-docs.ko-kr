@@ -10,10 +10,10 @@ ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442151"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI를 사용하여 VNet 간 VPN 게이트웨이 연결 구성
@@ -79,7 +79,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 ## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>같은 구독에 있는 VNet 연결
 
-### <a name="before-you-begin"></a>시작하기 전 주의 사항
+### <a name="before-you-begin"></a>시작하기 전에
 
 시작하기 전에 최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 명령을 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 

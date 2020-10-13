@@ -1,18 +1,18 @@
 ---
 title: 새 Azure Policy 정의의 영향 평가
 description: Azure 환경에 새 정책 정의를 도입할 때 따라야 하는 프로세스를 이해합니다.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 243f04cc20e1fb7167306b925a0e494b34cf1267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d73d703c38dce1335a471bfad9171d8b30a83c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544705"
+ms.locfileid: "91873870"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>새 Azure Policy 정의의 영향 평가
 
-Azure Policy는 비즈니스 표준과 규정 준수 요구 사항에 맞게 Azure 리소스를 관리하기 위한 강력한 도구입니다. 사용자, 프로세스 또는 파이프라인이 리소스를 만들거나 업데이트하면 Azure Policy가 요청을 검토합니다. 정책 정의 효과가 [Append](./effects.md#deny) 또는 [DeployIfNotExists](./effects.md#deployifnotexists)이면 정책이 요청을 변경하거나 요청에 추가합니다. 정책 정의 효과가 [Audit](./effects.md#audit) 또는 [AuditIfNotExists](./effects.md#auditifnotexists)이면 Policy에 의해 활동 로그 항목이 생성됩니다. 정책 정의 효과가 [Deny](./effects.md#deny)이면 Policy가 요청 생성 또는 변경을 중지합니다.
+Azure Policy는 비즈니스 표준과 규정 준수 요구 사항에 맞게 Azure 리소스를 관리하기 위한 강력한 도구입니다. 사용자, 프로세스 또는 파이프라인이 리소스를 만들거나 업데이트하면 Azure Policy가 요청을 검토합니다. 정책 정의 효과가 [Modify](./effects.md#modify), [Append](./effects.md#deny) 또는 [deployifnotexists](./effects.md#deployifnotexists)인 경우 정책은 요청을 변경 하거나 추가 합니다. 정책 정의 효과가 [감사](./effects.md#audit) 또는 [AuditIfNotExists](./effects.md#auditifnotexists)인 경우 정책으로 인해 새 리소스 및 업데이트 된 리소스에 대 한 활동 로그 항목이 생성 됩니다. 정책 정의 효과가 [Deny](./effects.md#deny)이면 Policy가 요청 생성 또는 변경을 중지합니다.
 
 정책이 올바르게 정의된 것이 확실하다면 정확히 원하는 결과가 나타납니다. 그러나 새 정책이 작업을 변경하거나 차단하도록 허용하기 전에 새 정책이 올바르게 작동하는지 검증해야 합니다. 유효성 검사는 의도된 리소스만 규정을 준수하지 않는 것으로 확인되고, 규정을 준수하는 리소스가 결과에 잘못 포함되지 않도록 해야 합니다(이를 _가양성_이라고 함).
 

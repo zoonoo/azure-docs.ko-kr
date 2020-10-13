@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: af363bb30d6515ce969afe146c780baa4b31cd83
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88117212"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| 도구  | Description  |
+| 도구  | 설명  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
@@ -57,7 +57,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 
 검색을 통해 질문에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
-|구성 요소/영역  | Tags |
+|구성 요소/영역  | 태그 |
 |---------|---------|
 | ADAL 라이브러리 | [adal](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 라이브러리     | [msal](https://stackoverflow.com/questions/tagged/msal) |

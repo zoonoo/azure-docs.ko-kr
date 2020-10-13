@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264136"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
@@ -80,7 +80,7 @@ Private Dim telemetry As New TelemetryClient
 private TelemetryClient telemetry = new TelemetryClient();
 ``` 
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 var telemetry = applicationInsights.defaultClient;
@@ -138,7 +138,7 @@ telemetry.TrackEvent("WinGame")
 telemetry.trackEvent("WinGame");
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.trackEvent({name: "WinGame"});
@@ -194,7 +194,7 @@ telemetryClient.TrackMetric(sample);
 telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.JS*
+*Node.js*
 
  ```javascript
 telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -471,7 +471,7 @@ telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 telemetry.trackTrace(message, SeverityLevel.Warning, properties);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.trackTrace({
@@ -489,7 +489,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | Description
+ 매개 변수 | 설명
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](#properties) 하는 데 사용 되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -571,7 +571,7 @@ finally {
 }
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 var success = false;
@@ -638,7 +638,7 @@ telemetry.flush();
 Thread.sleep(5000);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.flush();
@@ -741,7 +741,7 @@ var metrics = new Dictionary <string, double>
 telemetry.TrackEvent("WinGame", properties, metrics);
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 // Set up some properties and metrics:
@@ -907,7 +907,7 @@ context.getProperties().put("Game", currentGame.Name);
 gameTelemetry.TrackEvent("WinGame");
 ```
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 var gameTelemetry = new applicationInsights.TelemetryClient();
@@ -932,7 +932,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 [샘플링](./api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세히 알아보기](./api-filtering-sampling.md).
+[자세히 알아봅니다](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 
@@ -954,7 +954,7 @@ telemetry.getConfiguration().setTrackingDisabled(true);
 
 선택한 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 *사용 하지 않도록 설정*하려면 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제 하거나 주석으로 처리 합니다. 예를 들어 사용자 고유의 자체 요청 데이터를 전송 하려는 경우이 작업을 수행할 수 있습니다.
 
-*Node.JS*
+*Node.js*
 
 ```javascript
 telemetry.config.disableAppInsights = true;
@@ -990,7 +990,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 ```
 
-*Node.JS*
+*Node.js*
 
 Node.js의 경우를 통해 내부 로깅을 설정 하 고를 0으로 설정 하 여 개발자 모드를 사용 하도록 설정할 수 있습니다 `setInternalLogging` `maxBatchSize` . 그러면 원격 분석이 수집 되는 즉시 전송 됩니다.
 

@@ -10,18 +10,18 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714764"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939344"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
 Azure Blob 저장소 또는 큐 저장소에서 Azure Active Directory (Azure AD)를 사용 하는 경우의 주요 이점은 자격 증명을 코드에 더 이상 저장할 필요가 없다는 점입니다. 대신 Microsoft id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다.
 
-이 문서에서는 다운로드할 수 있는 샘플 응용 프로그램을 사용 하 여 Microsoft id platform 2.0 인증을 위해 네이티브 응용 프로그램 또는 웹 응용 프로그램을 구성 하는 방법을 보여 줍니다. 응용 프로그램 예제에서는 .NET을 사용 하지만 다른 언어는 비슷한 방법을 사용 합니다. Microsoft id 플랫폼 2.0에 대 한 자세한 내용은 v2.0 [(microsoft identity platform) 개요](../../active-directory/develop/v2-overview.md)를 참조 하세요.
+이 문서에서는 다운로드할 수 있는 샘플 응용 프로그램을 사용 하 여 Microsoft id 플랫폼 인증을 위해 네이티브 응용 프로그램 또는 웹 응용 프로그램을 구성 하는 방법을 보여 줍니다. 응용 프로그램 예제에서는 .NET을 사용 하지만 다른 언어는 비슷한 방법을 사용 합니다. Microsoft id 플랫폼에 대 한 자세한 내용은 [microsoft id 플랫폼 개요](../../active-directory/develop/v2-overview.md)를 참조 하세요.
 
 OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](../../active-directory/develop/v2-oauth2-auth-code-flow.md)를 참조하세요.
 
@@ -247,7 +247,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. Microsoft id 플랫폼 2.0은 증분 동의를 지원 합니다. 즉, 보안 주체가 처음에는 최소 권한 집합을 요청 하 고 필요에 따라 시간에 따라 사용 권한을 추가할 수 있습니다. 코드에서 액세스 토큰을 요청 하는 경우 앱에 필요한 사용 권한 범위를 지정 합니다. 증분 승인에 대 한 자세한 내용은 [증분 및 동적 동의](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)(영문)를 참조 하세요.
+동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. Microsoft id 플랫폼은 증분 동의를 지원 합니다. 즉, 보안 주체는 처음부터 최소 권한 집합을 요청 하 고 필요에 따라 시간에 따라 사용 권한을 추가할 수 있습니다. 코드에서 액세스 토큰을 요청 하는 경우 앱에 필요한 사용 권한 범위를 지정 합니다. 증분 승인에 대 한 자세한 내용은 [증분 및 동적 동의](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)(영문)를 참조 하세요.
 
 ## <a name="view-and-run-the-completed-sample"></a>완성 된 샘플 보기 및 실행
 

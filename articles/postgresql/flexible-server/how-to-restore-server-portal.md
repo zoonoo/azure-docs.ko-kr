@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e69bcb3d9e4dca4c45bf9a6fe8ed4d54e7f4a8cd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938864"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>유연한 서버의 특정 시점 복원
@@ -40,7 +40,7 @@ ms.locfileid: "90938864"
 
 4.  **가장 빠른 복원 지점을** 선택 하 고 **새 서버에 복원** 필드에 새 서버 이름을 제공 합니다. 복원할 수 있는 가장 이른 타임 스탬프가 표시 됩니다. 
    
-   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="가장 빠른 복원 시간":::
+   :::image type="content" source="./media/how-to-restore-server-portal/restore-earliest.png" alt-text="복원 개요":::
 
 5.  **확인**을 클릭합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "90938864"
 
 5.  날짜 및 시간을 선택 하 고 **새 서버에 복원** 필드에 새 서버 이름을 제공 합니다. 
    
-:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="사용자 지정 복원 시간":::
+:::image type="content" source="./media/how-to-restore-server-portal/restore-custom.png" alt-text="복원 개요":::
  
 6.  **확인**을 클릭합니다.
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
 ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305213"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
@@ -248,7 +248,7 @@ OMS 게이트웨이를 사용 하 여 Operations Manager을 지원 하려면 다
 
 Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 등록 하는 경우 운영 콘솔에서 관리 그룹에 대 한 프록시 구성을 지정 하는 옵션이 표시 되지 않습니다. 이 옵션은 관리 그룹이 서비스에 등록 된 경우에만 사용할 수 있습니다.  
 
-통합을 구성 하려면 운영 콘솔과 관리 그룹의 모든 관리 서버를 실행 하는 시스템에서 Netsh를 사용 하 여 시스템 프록시 구성을 업데이트 합니다. 다음 단계를 수행하세요.
+통합을 구성 하려면 운영 콘솔과 관리 그룹의 모든 관리 서버를 실행 하는 시스템에서 Netsh를 사용 하 여 시스템 프록시 구성을 업데이트 합니다. 다음 단계를 수행합니다.
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
 
@@ -321,7 +321,7 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 
 1. Microsoft Windows Installer (Log Analytics gateway)를 설치 합니다.
 1. PowerShell 콘솔 창을 엽니다.
-1. 다음 명령을 입력 하 여 모듈을 가져옵니다.`Import-Module OMSGateway`
+1. 다음 명령을 입력 하 여 모듈을 가져옵니다. `Import-Module OMSGateway`
 1. 이전 단계에서 오류가 발생하지 않은 경우 모듈을 성공적으로 가져왔으며 cmdlet을 사용할 수 있습니다. `Get-Module OMSGateway`을 입력합니다.
 1. Cmdlet을 사용 하 여 변경을 수행한 후 OMS 게이트웨이 서비스를 다시 시작 합니다.
 
@@ -332,7 +332,7 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 | `Get-OMSGatewayConfig` |Key |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 (보안 문자열) |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시를 설정 합니다.`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 (보안 문자열) |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시를 설정 합니다. `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |현재 허용 된 호스트 가져오기 (로컬로 구성 된 허용 된 호스트만, 허용 된 호스트를 자동으로 다운로드 하지 않음) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에 추가 |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |호스트(필수) |호스트를 허용 목록에서 제거 |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

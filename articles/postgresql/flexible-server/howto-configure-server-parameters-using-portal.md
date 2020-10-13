@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 4f945c2c7fffb143bdb8324a330775fb072b25c1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938824"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---flexible-server-via-the-azure-portal"></a>Azure Portal를 통해 Azure Database for PostgreSQL 유연한 서버에서 서버 매개 변수 구성 
 
 Azure Portal를 통해 Azure Database for PostgreSQL 유연한 서버에 대 한 구성 매개 변수를 나열 하 고, 표시 하 고, 업데이트할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [유연한 서버 Azure Database for PostgreSQL](quickstart-create-server-portal.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87292796"
 ---
 # <a name="scale-with-additional-process-servers"></a>추가 프로세스 서버를 사용 하 여 크기 조정
@@ -41,7 +41,7 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 여기서 보호된 원본 머신 각각은 각 100GB의 디스크 3개로 구성됩니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 추가 프로세스 서버에 대한 필수 구성 요소는 다음 표에 요약되어 있습니다.
 

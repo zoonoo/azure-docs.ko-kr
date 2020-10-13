@@ -7,10 +7,10 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653709"
 ---
 # <a name="time-series-model-variables"></a>시계열 모델 변수
@@ -29,7 +29,7 @@ ms.locfileid: "91653709"
 
 ## <a name="numeric-variables"></a>숫자 변수
 
-| 변수 속성 | Description |
+| 변수 속성 | 설명 |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
 | 변수 값 | 계산에 사용 되는 원격 분석 값은 장치 또는 센서에서 발생 하거나 시계열 식을 사용 하 여 변환 됩니다. 숫자 종류 변수는 *Double*형식 이어야 합니다.|
@@ -59,7 +59,7 @@ ms.locfileid: "91653709"
 
 ## <a name="categorical-variables"></a>범주 변수
 
-| 변수 속성 | Description |
+| 변수 속성 | 설명 |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
 | 변수 값 | 장치 또는 센서에서 들어오는 계산에 사용 되는 원격 분석 값입니다. 범주 종류 변수는 *Long* 또는 *String*이어야 합니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "91653709"
 
 ## <a name="aggregate-variables"></a>집계 변수
 
-| 변수 속성 | Description |
+| 변수 속성 | 설명 |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
 | 변수 집계 | [집계 변수 종류에 대해](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind)지원 되는 집계 함수를 통해 계산을 수행 합니다. |

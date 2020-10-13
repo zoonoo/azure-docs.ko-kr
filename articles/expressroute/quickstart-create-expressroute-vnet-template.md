@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f45fc32e99fff7403c40048b8c7ad117b0395cc9
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016557"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759240"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
 
@@ -92,11 +92,11 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
 1. 리소스 그룹에는 여기에 표시된 다음 리소스가 포함되어야 합니다.
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute 배포 리소스 그룹":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
 
 1. ExpressRoute 회로 **er-ck01**을 선택하여 회로 상태가 **활성화됨**이고, 공급자 상태가 **프로비저닝되지 않음**이고, 프라이빗 피어링이 **프로비저닝됨** 상태인지 확인합니다.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute 배포 회로":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
 
 > [!NOTE]
 > 가상 네트워크를 회로에 연결하려면 먼저 공급자를 호출하여 프로비저닝 프로세스를 완료해야 합니다.
@@ -120,11 +120,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 * 공용 IP
 * 네트워크 보안 그룹
 
-가상 네트워크를 회로에 연결하는 방법에 대해 자세히 알아보려면 ExpressRoute 자습서를 계속 진행하세요.
+가상 네트워크를 회로에 연결하는 방법을 알아보려면 ExpressRoute 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [ExpressRoute 자습서](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* ExpressRoute 워크플로에 대한 자세한 내용은 [ExpressRoute 워크플로](expressroute-workflows.md)를 참조하세요.
-* 회로 피어링에 대한 자세한 내용은 [ExpressRoute 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
-* 가상 네트워크 작업에 대한 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265938"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.
@@ -80,8 +80,8 @@ Azure AD 조인, 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치�
 
 영구 브라우저 세션을 사용 하면 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
 
-브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. [AD FS Single Sign-on 설정](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)문서에 있는 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
+브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. [단일 Sign-On 설정 AD FS](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+)문서의 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
 
 ## <a name="configuring-authentication-session-controls"></a>인증 세션 컨트롤 구성
 
@@ -128,7 +128,7 @@ Azure AD에서 등록 된 Windows 장치에는 장치에 로그인 하는 것으
 
 ## <a name="validation"></a>유효성 검사
 
-가상 도구를 사용 하 여 사용자의 로그인을 대상 응용 프로그램으로 시뮬레이션 하 고 정책을 구성한 방법에 따라 기타 조건을 사용 합니다. 인증 세션 관리 컨트롤이 도구의 결과에 표시 됩니다.
+What-If 도구를 사용 하 여 사용자의 로그인을 대상 응용 프로그램으로 시뮬레이션 하 고 정책을 구성한 방법에 따라 다른 조건을 시뮬레이트할 수 있습니다. 인증 세션 관리 컨트롤이 도구의 결과에 표시 됩니다.
 
 ![조건부 액세스 What If 도구 결과](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 

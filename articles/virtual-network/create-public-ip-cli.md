@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 4d0934dd30f9738e2a67d4aff23c96a48aaaa61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d868a2d9bc88be7faea161779c35110f13e2b2ac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89302849"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939072"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>빠른 시작: Azure CLI을 사용 하 여 공용 IP 주소 만들기
 
@@ -95,7 +95,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myBasicPublicIP \
-    --sku Standard
+    --sku Basic \
     --allocation-method Static
 ```
 시간에 따라 IP 주소를 변경 하는 것이 허용 되는 경우에는 할당 메서드를 ' 동적 '으로 변경 하 여 **동적** ip 할당을 선택할 수 있습니다.

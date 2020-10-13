@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 2a931b1a3c3f88af1abec4fd1810aae09c849c48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940853"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Azure Arc에서 Azure SQL 관리 되는 인스턴스 만들기
@@ -62,7 +62,7 @@ azdata arc sql mi create -n sqldemo --storage-class-data managed-premium --stora
 >
 >  메모리 할당 및 vCore 할당을 지정 하는 경우이 수식을 사용 하 여 생성이 성공적으로 수행 되었는지 확인 합니다. 1 개 vCore 마다 SQL 관리 되는 인스턴스 pod가 실행 되는 Kubernetes 노드에서 4GB 이상의 용량을 사용할 수 있어야 합니다.
 >
->  Azure에서 프로 비전 하는 경우 SQL 인스턴스를 만들 때 이름에 대/소문자를 사용 하지 않습니다.
+>  Azure에서 프로비저닝하는 경우 SQL 인스턴스를 만들 때 이름에 대문자를 사용하지 않습니다.
 >
 >  Kubernetes 클러스터 실행에서 사용 가능한 저장소 클래스를 나열 하려면 `kubectl get storageclass` 
 

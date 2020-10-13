@@ -7,10 +7,10 @@ ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 234f772b4a77b780f0b0c1faf307c93847e5caf2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87310721"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 Azure Monitor Application Insights 이란?
@@ -26,11 +26,11 @@ Application Insights 다양 한 리소스 공급자와 통합 되며 여러 환�
 |환경/리소스 공급자 | .NET            | .NET Core       | Java            | Node.js         |
 |------------------------------|-----------------|-----------------|-----------------|-----------------|
 |Windows의 Azure App Service  | GA, OnBD *       | GA, 옵트인      | 프라이빗 미리 보기 | 프라이빗 미리 보기 |
-|Linux의 Azure App Service    | N/A             | 지원되지 않음   | 공개 미리 보기  | 공개 미리 보기  |
-|AKS의 Azure App Service      | N/A             | 디자인에서       | 디자인에서       | 디자인에서       |
+|Linux의 Azure App Service    | 해당 없음             | 지원되지 않음   | 공개 미리 보기  | 공개 미리 보기  |
+|AKS의 Azure App Service      | 해당 없음             | 디자인에서       | 디자인에서       | 디자인에서       |
 |Azure Functions-기본       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
 |Azure Functions 종속성| 지원되지 않음   | 지원되지 않음   | 공개 미리 보기  | 지원되지 않음   |
-|Azure Kubernetes Service      | N/A             | 디자인에서       | 에이전트를 통해   | 디자인에서       |
+|Azure Kubernetes Service      | 해당 없음             | 디자인에서       | 에이전트를 통해   | 디자인에서       |
 |Azure Vm 창             | 공개 미리 보기  | 지원되지 않음   | 지원되지 않음   | 지원되지 않음   |
 |온-프레미스 Vm 창       | GA, 옵트인      | 지원되지 않음   | 에이전트를 통해   | 지원되지 않음   |
 |독립 실행형 에이전트-모든 env.   | 지원되지 않음   | 지원되지 않음   | 공개 미리 보기  | 지원되지 않음   |

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940804"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 삭제 합니다.
@@ -49,7 +49,7 @@ azdata arc postgres server delete -n postgres01
 
 ## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes 영구 볼륨 클레임 회수 (Pvc)
 
-서버 그룹을 삭제 해도 연결 된 [pvc](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거 되지 않습니다. 이것은 의도적인 것입니다. 인스턴스 삭제가 실수로 발생 한 경우 사용자가 데이터베이스 파일에 액세스 하도록 도와 줍니다. Pvc는 반드시 삭제할 필요는 없습니다. 그러나 권장 됩니다. 이러한 Pvc를 회수 하지 않으면 Kubernetes 클러스터에서 디스크 공간이 부족 하다 고 생각 하므로 오류가 발생 합니다. 다음 단계를 수행 하 여 Pvc를 회수할 수 있습니다.
+서버 그룹을 삭제 해도 연결 된 [pvc](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거 되지 않습니다. 이것은 의도적인 것입니다. 인스턴스가 실수로 삭제된 경우 사용자가 데이터베이스 파일에 액세스하도록 도와줍니다. PVC는 반드시 삭제할 필요는 없습니다. 그러나 권장됩니다. 이러한 PVC를 회수하지 않으면 Kubernetes 클러스터에서 디스크 공간이 부족하다고 간주하므로 오류가 발생합니다. PVC를 회수하려면 다음 단계를 수행합니다.
 
 ### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. 삭제 한 서버 그룹의 Pvc를 나열 합니다.
 Pvc를 나열 하려면 다음 명령을 실행 합니다.
@@ -57,7 +57,7 @@ Pvc를 나열 하려면 다음 명령을 실행 합니다.
 kubectl get pvc [-n <namespace name>]
 ```
 
-삭제 한 서버 그룹의 경우 특히 Pvc의 목록을 반환 합니다. 다음은 그 예입니다. 
+삭제 한 서버 그룹의 경우 특히 Pvc의 목록을 반환 합니다. 예를 들면 다음과 같습니다.
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -79,7 +79,7 @@ logs-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa07-dd5cff7ea585   5Gi     
 kubectl delete pvc <name of pvc>  [-n <namespace name>]
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 ```console
 kubectl delete pvc data-postgres01-0
 kubectl delete pvc data-postgres01-1 
@@ -91,7 +91,7 @@ kubectl delete pvc logs-postgres01-2
 kubectl delete pvc logs-postgres01-3
 ```
 
-이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 다음은 그 예입니다. 
+이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
 ```console
 persistentvolumeclaim "data-postgres01-0" deleted
 ```
