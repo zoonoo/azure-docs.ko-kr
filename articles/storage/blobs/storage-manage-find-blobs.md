@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: hux
 ms.custom: references_regions
 ms.openlocfilehash: db23d3b5c532a1539936b51222345c98679c554c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817536"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Blob 인덱스를 사용 하 여 Azure Blob 데이터 관리 및 찾기 (미리 보기)
@@ -100,7 +100,7 @@ FindBlobsByTags 작업을 통해 인덱스 태그가 지정 된 blob 인덱스 �
 
 아래 표에서는 Findblob Sbytags에 대 한 모든 유효한 연산자를 보여 줍니다.
 
-|  연산자  |  Description  | 예제 |
+|  연산자  |  설명  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | "Status" = ' 진행 중 ' |
 |     >      |  초과 | "Date" > ' 2018-06-18 ' |
@@ -123,7 +123,7 @@ X-y 헤더는 다른 기존 HTTP 조건부 헤더 (-Match,-None-Match 등)와 �
 
 아래 표에서는 조건부 연산에 대 한 모든 유효한 연산자를 보여 줍니다.
 
-|  연산자  |  Description  | 예제 |
+|  연산자  |  설명  | 예제 |
 |------------|---------------|---------|
 |     =      |     같음     | "Status" = ' 진행 중 ' |
 |     <>     |   같지 않음   | "상태"  <>  ' 완료 '  |

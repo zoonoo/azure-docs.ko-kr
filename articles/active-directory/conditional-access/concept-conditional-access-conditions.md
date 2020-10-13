@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818350"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
@@ -107,7 +107,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 | OS | 브라우저 |
 | :-- | :-- |
-| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
+| 윈도우 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8 / 8.1 | Internet Explorer, 크롬 |
 | Windows 7 | Internet Explorer, 크롬 |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -132,14 +132,14 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 이 확장을 Chrome 브라우저에 자동으로 배포하려면 다음 레지스트리 키를 만듭니다.
 
-- \Software\Policies\Google\Chrome\ExtensionInstallForcelist 경로 HKEY_LOCAL_MACHINE
+- 경로 HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
 - 이름 1
 - 형식 REG_SZ (문자열)
 - 데이터 ppnbnpeolgkicgegkbkbjmhlideopiji; https \: //clients2.google.com/service/update2/crx
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
 
-- \SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls 경로 HKEY_LOCAL_MACHINE
+- 경로 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls
 - 이름 1
 - 형식 REG_SZ (문자열)
 - Data {"pattern": " https://device.login.microsoftonline.com ", "filter": {"ISSUER": {"CN": "MS-조직 액세스"}}}
@@ -155,11 +155,11 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Exchange Online | Windows 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Exchange Online | 윈도우 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원 되지 않습니다.| 모든 My Apps 앱 서비스 | Android 및 iOS |
 | Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 | Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint Online | 윈도우 10 |
 | Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | SharePoint | macOS |
 | Office 2019| SharePoint | Windows 10, macOS |
 | Office 모바일 앱 | SharePoint | Android, iOS |
@@ -180,7 +180,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요**를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)

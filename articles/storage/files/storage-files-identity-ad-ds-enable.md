@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
 ms.openlocfilehash: b125ae506a9811b8e80a9114e31effc1933c114d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821213"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1 부: Azure 파일 공유에 대 한 AD DS 인증 사용 
@@ -32,7 +32,7 @@ AzFilesHybrid PowerShell 모듈의 cmdlet은 필요한 수정 작업을 수행 �
 - 대상 AD에서 서비스 로그온 계정 또는 컴퓨터 계정을 만들 수 있는 권한이 있는 AD DS 자격 증명을 사용 하 여 온-프레미스 AD DS에 도메인에 가입 된 장치에 모듈을 설치 하 고 실행 합니다.
 -  Azure AD에 동기화 된 온-프레미스 AD DS 자격 증명을 사용 하 여 스크립트를 실행 합니다. 온-프레미스 AD DS 자격 증명에는 저장소 계정 소유자 또는 참가자 Azure 역할 권한이 있어야 합니다.
 
-### <a name="run-join-azstorageaccountforauth"></a>AzStorageAccountForAuth 실행
+### <a name="run-join-azstorageaccountforauth"></a>Join-AzStorageAccountForAuth 실행
 
 `Join-AzStorageAccountForAuth`Cmdlet은 지정 된 저장소 계정을 대신 하 여 오프 라인 도메인 조인과 동일한 기능을 수행 합니다. 이 스크립트는 cmdlet을 사용 하 여 AD 도메인에 [컴퓨터 계정을](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) 만듭니다. 어떤 이유로 든 컴퓨터 계정을 사용할 수 없는 경우에는 스크립트를 변경 하 여 [서비스 로그온 계정을](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) 만들 수 있습니다. 명령을 수동으로 실행 하도록 선택 하는 경우 사용자 환경에 가장 적합 한 계정을 선택 해야 합니다.
 
@@ -132,7 +132,7 @@ Set-AzStorageAccount `
 
 ### <a name="debugging"></a>디버깅
 
-AzStorageAccountAuth cmdlet을 실행 하 여 로그온 한 AD 사용자를 사용 하 여 AD 구성에 대 한 기본 검사 집합을 수행할 수 있습니다. 이 cmdlet은 AzFilesHybrid v0.1.2 이상 버전에서 지원됩니다. 이 cmdlet에서 수행 하는 검사에 대 한 자세한 내용은 Windows의 문제 해결 가이드에서 [AD 자격 증명을 사용 하 여 Azure Files를 탑재할 수 없음](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) 을 참조 하세요.
+Debug-AzStorageAccountAuth cmdlet을 실행 하 여 로그온 한 AD 사용자를 사용 하 여 AD 구성에 대 한 기본 검사 집합을 수행할 수 있습니다. 이 cmdlet은 AzFilesHybrid v0.1.2 이상 버전에서 지원됩니다. 이 cmdlet에서 수행 하는 검사에 대 한 자세한 내용은 Windows의 문제 해결 가이드에서 [AD 자격 증명을 사용 하 여 Azure Files를 탑재할 수 없음](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) 을 참조 하세요.
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

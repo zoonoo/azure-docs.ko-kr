@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660875"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect 그룹 쓰기 저장
@@ -62,7 +62,7 @@ Microsoft 365 그룹을 구성 하는 방법에 대 한 자세한 내용은 [온
    ![확인란 선택 취소](media/how-to-connect-group-writeback/group2.png)
   
 3. **다음**을 클릭합니다.
-4. **구성**을 클릭합니다.
+4. **Configure**를 클릭합니다.
 
  >[!NOTE]
  > 그룹 쓰기 저장을 사용 하지 않도록 설정 하면 Azure Active Directory 커넥터에서 전체 가져오기 및 전체 동기화 플래그를 ' t r u e '로 설정 하 여 다음 동기화 주기에서 규칙 변경 내용을 전파 하 여 이전에 Active Directory에 다시 쓴 그룹을 삭제 합니다.

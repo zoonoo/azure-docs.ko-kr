@@ -14,10 +14,10 @@ ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
 ms.openlocfilehash: fcdb0a571a9d6b81e25d061c33d8a3a812da189f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819317"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
@@ -77,7 +77,7 @@ Azure AD와 대상 응용 프로그램 간에 SAML 기반 Single Sign-On를 테�
 1. Azure AD로 다시 돌아가 **Single Sign-On 테스트** 블레이드를 찾습니다.
 1. 위의 **해결 지침 가져오기** 텍스트 상자에서 오류 메시지를 붙여넣습니다.
 1. **해결 지침 가져오기**를 클릭하여 문제 해결을 위한 단계를 표시합니다. 이 지침은 SAML 요청 또는 SAML 응답에서 정보를 요구할 수 있습니다. 내 앱 보안 로그인 확장을 사용 하지 않는 경우 SAML 요청 및 응답을 검색 하는 [Fiddler](https://www.telerik.com/fiddler) 와 같은 도구가 필요할 수 있습니다.
-1. SAML 요청의 대상이 Azure AD에서 가져온 SAML Single Sign-on 서비스 URL에 해당 하는지 확인 합니다.
+1. SAML 요청의 대상이 Azure AD에서 가져온 SAML Single Sign-On 서비스 URL에 해당 하는지 확인 합니다.
 1. SAML 요청의 발급자가 Azure AD에서 응용 프로그램에 대해 구성한 것과 동일한 식별자 인지 확인 합니다. Azure AD는 사용자 디렉터리에서 애플리케이션을 찾는 데 발급자를 사용합니다.
 1. 응용 프로그램이 Azure AD에서 SAML 토큰을 수신할 것으로 예상 하는 AssertionConsumerServiceURL 확인 합니다. Azure AD에서이 값을 구성할 수 있지만 SAML 요청에 포함 된 경우에는 필수 항목이 아닙니다.
 

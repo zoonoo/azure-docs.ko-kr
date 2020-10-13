@@ -2,15 +2,13 @@
 title: Azure Monitor Application Insights 작업 영역 기반 리소스 스키마
 description: Azure Monitor Application Insights 작업 영역 기반 리소스에 대 한 새 테이블 구조 및 스키마에 대해 알아봅니다.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323182"
+ms.locfileid: "91931056"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>작업 영역 기반 리소스 변경 (미리 보기)
 
@@ -43,7 +41,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 가용성
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -87,7 +85,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: browserTimings
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -131,7 +129,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 종속성
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -176,7 +174,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: customEvents
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -213,7 +211,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: customMetrics
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -254,7 +252,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: pageViews
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -295,7 +293,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: performanceCounters
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -334,7 +332,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 요청
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -378,7 +376,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 예외
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -430,7 +428,7 @@ ms.locfileid: "87323182"
 
 레거시 테이블: 추적
 
-|ApplicationInsights|형식|LogAnalytics|형식|
+|ApplicationInsights|유형|LogAnalytics|유형|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|

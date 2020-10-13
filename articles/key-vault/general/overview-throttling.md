@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819964"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
@@ -41,7 +41,7 @@ Key Vault는 원래 [Azure Key Vault 서비스 제한](service-limits.md)에 지
 
 | 자격 증명 모음 이름 | 자격 증명 모음 지역 | 개체 유형 (비밀, 키 또는 인증서) | 작업 * | 키 유형 | 키 길이 또는 곡선 | HSM 키 인가요?| 안정적인 상태 RPS 필요 | 최고 RPS 필요 |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | 키 | 로그인 | EC | P-256 | 예 | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Key | 로그인 | EC | P-256 | 예 | 200 | 1000 |
 
 \* 가능한 값의 전체 목록은 [Azure Key Vault 작업](/rest/api/keyvault/key-operations)을 참조 하세요.
 
@@ -96,7 +96,7 @@ HTTP 오류 코드 429가 발생할 경우 지수 백오프 접근법을 사용�
 
 이때 HTTP 429 응답 코드가 발생해서는 안 됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 Microsoft Cloud의 제한에 대한 더 자세한 소개는 [제한 패턴](https://docs.microsoft.com/azure/architecture/patterns/throttling)을 참조하세요.
 

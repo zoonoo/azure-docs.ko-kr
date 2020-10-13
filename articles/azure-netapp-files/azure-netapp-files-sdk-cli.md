@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513624"
+ms.locfileid: "91931039"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK 및 CLI 도구
 
@@ -44,12 +44,12 @@ ms.locfileid: "87513624"
 
 |    도구    |    명령 참조    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](https://docs.microsoft.com/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure NetApp Files에 대 한 Azure PowerShell](https://docs.microsoft.com/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
+|    PowerShell   |    [Azure NetApp Files에 대 한 Azure PowerShell](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
 
 ## <a name="code-samples"></a>코드 샘플
 
-[Azure NetApp Files에 대 한 코드 샘플을](https://docs.microsoft.com/samples/browse/?filter-products=netapp&products=azure-netapp-files)참조 하세요.
+[Azure NetApp Files에 대 한 코드 샘플을](/samples/browse/?filter-products=netapp&products=azure-netapp-files)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계   
  [Azure Sdk 다운로드](https://azure.microsoft.com/downloads/)

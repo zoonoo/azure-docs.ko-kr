@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019269"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Azure Cosmos DB C# Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
@@ -117,12 +117,12 @@ for (int i = 0; i < 5; i++) {
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Csharp 쿼리 셀":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="nteract 데이터 탐색기":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Csharp 쿼리 셀":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>기본 제공 사전 뷰어 사용
 기본 제공 사전 뷰어를 사용하여 변수를 볼 수 있습니다. 셀에서 시각화하려는 변수를 마지막 줄에 배치합니다. 이 변수는 셀이 실행될 때 자동으로 표시됩니다.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="기본 제공 사전 뷰어":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Csharp 쿼리 셀":::
 
 ## <a name="upload-json-items-to-a-container"></a>컨테이너에 JSON 항목 업로드
 ``%%upload`` 매직 명령을 사용하여 JSON 파일에서 지정된 Azure Cosmos 컨테이너로 데이터를 업로드할 수 있습니다. 다음 명령을 실행하여 다음 항목을 업로드합니다.
@@ -160,7 +160,7 @@ Total RUs consumed : 25022.58
 ## <a name="reset-notebooks-workspace"></a>Notebook 작업 영역 다시 설정
 Notebook 작업 영역을 기본 설정으로 다시 설정하려면 명령 모음에서 **작업 영역 다시 설정**을 선택합니다. 그러면 설치된 모든 사용자 지정 패키지가 제거되고 Jupyter 서버가 다시 시작됩니다. Notebook, 파일 및 Azure Cosmos 리소스는 영향을 받지 않습니다.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Notebook 작업 영역 다시 설정":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Csharp 쿼리 셀":::
 
 ## <a name="next-steps"></a>다음 단계
 

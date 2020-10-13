@@ -8,10 +8,10 @@ author: github-2407
 ms.author: krsh
 ms.date: 08/14/2020
 ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821326"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Azure Marketplace에 대 한 가상 머신 이미지 테스트
@@ -1000,13 +1000,13 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 > [!Note]
 > VM에 설치 된 방화벽과 같은 소프트웨어가 있는 경우 vm을 잠가야 하는 시나리오가 소수의 게시자에 게 있습니다. 이 경우, 게시자는 여기에서 [인증 된 테스트 도구](https://aka.ms/AzureCertificationTestTool) 를 다운로드 하 고 [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 에서 보고서를 제공할 수 있습니다.
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>PowerShell을 사용 하 여 자체 테스트 API를 사용 하는 방법
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>PowerShell을 사용 하 여 Self-Test API를 사용 하는 방법
 
 ### <a name="on-linux-os"></a>Linux OS
 
 PowerShell에서 API를 호출 합니다.
 
-1. 호출 WebRequest 명령을 사용 하 여 API를 호출 합니다.
+1. Invoke-WebRequest 명령을 사용 하 여 API를 호출 합니다.
 2. 다음 코드 예제와 화면 캡처와 같이 메서드는 Post이고 콘텐츠 형식은 JSON입니다.
 3. JSON 형식으로 본문 매개 변수를 지정합니다.
 
@@ -1077,7 +1077,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 PowerShell에서 API를 호출 합니다.
 
-1. 호출 WebRequest 명령을 사용 하 여 API를 호출 합니다.
+1. Invoke-WebRequest 명령을 사용 하 여 API를 호출 합니다.
 2. 다음 코드 예제 및 샘플 화면에 표시 된 것 처럼 메서드는 Post이 고 콘텐츠 형식은 JSON입니다.
 3. JSON 형식으로 본문 매개 변수를 만듭니다.
 
@@ -1735,7 +1735,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![온라인 JSON 뷰어에서 테스트 결과](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Linux OS에서 말아 넘기기를 사용 하 여 자체 테스트 API를 사용 하는 방법
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Linux OS에서 Self-Test API를 사용 하기 위해 말아 넘기기를 사용 하는 방법
 
 말아 넘기기에서 API를 호출 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Linux 컴퓨터에 Log Analytics 에이전트 설치
+title: Linux 머신에 Log Analytics 에이전트 설치
 description: 이 문서에서는 다른 클라우드 또는 온-프레미스에서 호스트 되는 Linux 컴퓨터를 Linux 용 Log Analytics 에이전트와 Azure Monitor 연결 하는 방법을 설명 합니다.
 ms.subservice: logs
 ms.topic: conceptual
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
 ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294532"
 ---
-# <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 컴퓨터에 Log Analytics 에이전트 설치
+# <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
 
 * GitHub에 호스트 된 [래퍼 스크립트를 사용 하 여 Linux 용 에이전트를 설치](#install-the-agent-using-wrapper-script) 합니다. 컴퓨터가 인터넷에 직접 연결 되어 있거나 프록시 서버를 통해 연결 되어 있는 경우 에이전트를 설치 하 고 업그레이드 하는 데 권장 되는 방법입니다.
@@ -100,7 +100,7 @@ Linux 에이전트에 대 한 네트워크 요구 사항은 [Log Analytics 에�
 
 Linux 용 Log Analytics 에이전트는 여러 패키지로 구성 됩니다. 릴리스 파일에는 매개 변수와 함께 셸 번들을 실행 하 여 사용할 수 있는 다음과 같은 패키지가 포함 되어 있습니다 `--extract` .
 
-**패키지** | **Version** | **설명**
+**패키지** | **버전** | **설명**
 ----------- | ----------- | --------------
 omsagent | 1.13.9 | Linux 용 Log Analytics 에이전트
 omsconfig | 1.1.1 | Log Analytics 에이전트에 대 한 구성 에이전트
@@ -126,9 +126,9 @@ Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-예: `https://proxy01.contoso.com:30443`
+`https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     
