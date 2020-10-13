@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273692"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 BlueJeans 구성
@@ -25,7 +25,7 @@ ms.locfileid: "91273692"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -111,7 +111,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![알림 전자 메일 텍스트 상자의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
-8. **저장**을 클릭합니다.
+8. **Save**을 클릭합니다.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 BlueJeans에 동기화**를 선택합니다.
 
@@ -119,7 +119,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 10. **특성 매핑** 섹션에서는 Azure AD에서 BlueJeans로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 BlueJeans의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![7 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![7개의 매핑이 표시된 특성 매핑 섹션의 스크린샷.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
 11. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

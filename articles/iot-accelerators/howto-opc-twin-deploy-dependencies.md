@@ -9,16 +9,16 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91282105"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>로컬 개발을 위한 종속성 배포
 
 > [!IMPORTANT]
-> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
+> 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
 이 문서에서는 로컬 개발 및 디버깅을 수행 하는 데 필요한 Azure Platform 서비스만 배포 하는 방법을 설명 합니다.   마지막으로 로컬 개발 및 디버깅에 필요한 모든 것을 포함 하는 리소스 그룹이 배포 됩니다.
 

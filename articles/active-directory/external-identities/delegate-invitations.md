@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91278790"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리
@@ -61,7 +61,7 @@ Azure AD B2B 협업을 사용하면 테넌트 관리자가 다음 초대 정책�
 
    - **게스트가 초대할 수 있음**: 게스트가 다른 게스트를 초대하도록 허용하려면 이 정책을 **예**로 설정합니다.
 
-   - **게스트에 대해 전자 메일 일회용 암호 사용 (미리 보기)**: 일회용 암호 기능에 대 한 자세한 내용은 [전자 메일 일회용 암호 인증 (미리 보기)](one-time-passcode.md)을 참조 하세요.
+   - **게스트에 대 한 전자 메일 One-Time 암호 사용 (미리 보기)**: 일회용 암호 기능에 대 한 자세한 내용은 [전자 메일 일회용 암호 인증 (미리 보기)](one-time-passcode.md)을 참조 하세요.
 
    - **사용자 흐름을 통해 게스트 셀프 서비스 등록 사용 (미리 보기)**:이 설정에 대 한 자세한 내용은 [앱에 셀프 서비스 등록 사용자 흐름 추가 (미리 보기)](self-service-sign-up-user-flow.md)를 참조 하세요.
 
