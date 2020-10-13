@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에서 클래식 배포 마이그레이션의 이점 | Microsoft Docs
 description: Azure Active Directory Domain Services의 클래식 배포를 리소스 관리자 배포 모델로 마이그레이션하는 이점에 대 한 자세한 정보
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: iainfou
-ms.openlocfilehash: 93dcc1202c08be905cf08513f38e79a8a7674e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 35224e6c9a28b1555303c1ae11b6700c1bf419bf
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650131"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962499"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 이점
 

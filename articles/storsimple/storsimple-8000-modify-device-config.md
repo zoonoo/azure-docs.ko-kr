@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514679"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962890"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 구성 수정
 
@@ -61,7 +61,7 @@ StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스
 
 디바이스는 클라우드 스토리지 서비스 공급자를 사용하여 인증하기 위해 시간을 동기화해야 합니다. 디바이스의 **일반 설정** 블레이드를 사용하여 디바이스 시간 설정을 수정합니다.
 
-![일반 설정의 디바이스 설명](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![일반 설정 2의 장치 설명](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  드롭다운 목록에서 표준 시간대를 선택합니다. 최대 두 개의 NTP(Network Time Protocol) 서버를 지정할 수 있습니다.
 

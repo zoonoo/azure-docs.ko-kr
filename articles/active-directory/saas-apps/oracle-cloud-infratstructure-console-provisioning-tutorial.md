@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 665e4870619751bbda062473d0c2549b26352d94
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361605"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Oracle Cloud Infrastructure 콘솔 구성
@@ -31,7 +31,7 @@ ms.locfileid: "91361605"
 > * Oracle Cloud Infrastructure Console에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Oracle 클라우드 인프라 콘솔에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "91361605"
 
 6. 비밀 토큰을 생성 하려면 Base64 클라이언트 id **: 클라이언트 암호**형식으로 클라이언트 id와 클라이언트 암호를 인코딩합니다. 비밀 토큰을 저장 합니다. 이 값은 Azure Portal의 Oracle 클라우드 인프라 콘솔 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다.
 
-## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Oracle Cloud Infrastructure Console 추가
+## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Oracle Cloud Infrastructure Console 추가
 
 Azure AD 응용 프로그램 갤러리의 Oracle Cloud Infrastructure Console을 추가 하 여 Oracle 클라우드 인프라 콘솔로 프로 비전 관리를 시작 합니다. 이전에 SSO 용 Oracle Cloud Infrastructure Console을 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

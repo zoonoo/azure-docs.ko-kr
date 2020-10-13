@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 SLE VM 조인 | Microsoft Docs
 description: SUSE Linux Enterprise 가상 머신을 구성 하 고 관리 되는 Azure AD Domain Services 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.author: iainfou
-ms.openlocfilehash: 9f50be95e456802c6ad403acd6a2f539780e53a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 5d89f1a3d6028afb3450e0112a6081c9c706775b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88251184"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962465"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>SUSE Linux Enterprise 가상 머신을 Azure Active Directory Domain Services 관리 되는 도메인에 가입
 

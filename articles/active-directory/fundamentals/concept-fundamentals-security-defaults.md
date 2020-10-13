@@ -13,10 +13,10 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90705336"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
@@ -122,7 +122,7 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 
 이러한 무료 보안 기본값을 사용하면 **알림을 통해 Microsoft Authenticator 앱만 사용하여** Azure Multi-Factor Authentication에 등록하고 사용할 수 있습니다. 조건부 액세스를 사용하면 관리자가 사용하도록 선택하는 모든 인증 방법을 사용할 수 있습니다.
 
-| 메서드 | 보안 기본값 | 조건부 액세스 |
+| 방법 | 보안 기본값 | 조건부 액세스 |
 | --- | --- | --- |
 | 모바일 앱을 통한 알림 | X | X |
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 | X** | X |

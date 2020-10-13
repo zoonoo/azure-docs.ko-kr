@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
 ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264612"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
@@ -20,7 +20,7 @@ ms.locfileid: "91264612"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.

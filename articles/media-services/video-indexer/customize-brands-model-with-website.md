@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
 ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361237"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정

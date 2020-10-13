@@ -9,10 +9,10 @@ ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f71703dcb6afb5ce7610bf1c5374de1cc98816b0
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90606450"
 ---
 자체 서명된 루트 인증서를 만든 후에는 프라이빗 키가 아닌 루트 인증서 공개 키 .cer 파일을 내보냅니다. 이 파일은 나중에 Azure에 업로드합니다. 다음 단계는 자체 서명된 루트 인증서에 대한 .cer 파일을 내보내는 데 도움이 됩니다.

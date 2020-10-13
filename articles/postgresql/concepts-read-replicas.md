@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 2d0ee0e4c5cf3f7c2f4b623f0270ecf5eb01fc36
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710518"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939837"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -126,7 +126,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 ## <a name="failover"></a>장애 조치
 주 서버와 복제 서버 간에는 자동화 된 장애 조치 (failover)가 없습니다. 
 
-복제는 비동기 이므로 주 복제본과 복제본 사이에 지연이 발생 합니다. 지연 시간은 주 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 시간 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연*시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
+복제는 비동기 이므로 주 복제본과 복제본 사이에 지연이 발생 합니다. 지연 시간은 주 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 일반적인 경우에는 복제본 지연 범위가 몇 초에서 몇 분 사이입니다. 그러나 주 복제본이 매우 많은 작업을 실행 하 고 복제본이 충분히 빠르게 catch 되지 않는 경우에는 지연 시간이 더 높아질 수 있습니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연*시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
 
 > [!Tip]
 > 복제본으로 장애 조치 (failover) 하는 경우 주 복제본에서 복제본을 제거 하는 시간에 지연 시간이 발생 하면 손실 되는 데이터의 양이 표시 됩니다.
@@ -149,7 +149,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 읽기 복제본과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 Postgres write 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
 
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.

@@ -1,14 +1,14 @@
 ---
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b4db7daf75f153cadb03e5dd028084e311bb874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596035"
+ms.locfileid: "91873628"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -163,12 +163,13 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 | 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
+| 새로운 기능 또는 업데이트된 기능 | Audit, Modify, AuditIfNotExist | True | 비준수 |
+| 새로운 기능 또는 업데이트된 기능 | Audit, Modify, AuditIfNotExist | False | 준수 |
+| 있음 | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | 비준수 |
+| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | 준수 |
 
-\* Modify, Append, DeployIfNotExist 및 AuditIfNotExist 효과를 적용 하려면 IF 문을 TRUE로 설정 해야 합니다. 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
+> [!NOTE]
+> DeployIfNotExist 및 AuditIfNotExist 효과를 적용 하려면 IF 문을 TRUE로 설정 하 고 존재 조건을 준수 하지 않으려면 FALSE로 설정 해야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
 
 예를 들어, 공용 네트워크에 노출되는 일부 스토리지 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 
@@ -189,7 +190,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 - **시작되지 않음**: 정책이나 리소스에 대한 평가 주기가 시작되지 않았습니다.
 - **등록되지 않음**: Azure Policy Resource Provider가 등록되지 않았거나 로그인한 계정에 규정 준수 데이터를 읽을 권한이 없습니다.
 
-Azure Policy는 정의의 **type** 및 **name** 필드를 사용하여 리소스가 정의와 일치하는지를 확인합니다. 리소스가 일치 하면 해당 리소스는 적용 가능한 것으로 간주 되며 **규격**, 비규격 또는 **예외** **상태를 가집니다**. 정의에서 **형식** 또는 **이름** 중 하나가 유일한 속성인 경우 포함 된 모든 리소스와 제외 리소스는 적용 가능한 것으로 간주 되어 평가 됩니다.
+Azure Policy는 정의의 **유형**, **이름**또는 **kind** 필드를 사용 하 여 리소스가 일치 하는지 여부를 확인 합니다. 리소스가 일치 하면 해당 리소스는 적용 가능한 것으로 간주 되며 **규격**, 비규격 또는 **예외** **상태를 가집니다**. 정의에서 **형식**, **이름**또는 **종류** 중 하나가 유일한 속성인 경우 포함 된 모든 리소스와 제외 리소스는 적용 가능한 것으로 간주 되어 평가 됩니다.
 
 규정 준수 비율은 _전체 리소스_별로 **규격** 및 **제외** 리소스를 분할 하 여 결정 됩니다. _총 리소스_ 는 **규격**, **비규격**, **제외**및 **충돌** 하는 리소스의 합계로 정의 됩니다. 전반적인 **규정 준수 번호** 는 모든 고유 리소스의 **합계로 나눈 고유** 리소스의 합계입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다.
 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
@@ -210,14 +211,14 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
 
 **리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수**로 표시되지만 필터링할 수 있습니다.
-리소스 생성 요청에 의해 트리거되는 이벤트(추가, 감사, 거부, 배포)는 **이벤트** 탭에 표시됩니다.
+리소스 만들기 요청에 의해 트리거되는 이벤트 (추가, 감사, 거부, 배포, 수정)는 **이벤트** 탭에 표시 됩니다.
 
 > [!NOTE]
 > AKS Engine 정책의 경우 표시된 리소스는 리소스 그룹입니다.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
 
-[리소스 공급자 모드](../concepts/definition-structure.md#resource-provider-modes) 리소스의 경우 **리소스 규정 준수** 탭에서 리소스를 선택하거나 행을 마우스 오른쪽 단추로 클릭하고 **규정 준수 세부 정보 보기**를 선택하면 구성 요소 규정 준수 세부 정보가 열립니다. 이 페이지에는 이 리소스, 이벤트, 구성 요소 이벤트 및 변경 기록에 할당된 정책을 보기 위한 탭도 있습니다.
+<a name="component-compliance"></a> 리소스 [공급자 모드](../concepts/definition-structure.md#resource-provider-modes) 리소스의 경우 **리소스 호환성** 탭에서 리소스를 선택 하거나 행을 마우스 오른쪽 단추로 클릭 하 고 **준수 세부 정보 보기** 를 선택 하면 구성 요소 준수 정보가 열립니다. 이 페이지에는 이 리소스, 이벤트, 구성 요소 이벤트 및 변경 기록에 할당된 정책을 보기 위한 탭도 있습니다.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
 

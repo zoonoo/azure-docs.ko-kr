@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에서 보안 LDAP 경고 해결 | Microsoft Docs
 description: Azure Active Directory Domain Services에 대 한 보안 LDAP로 일반적인 경고 문제를 해결 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: d987bbbe2a35dd24341b75d5663bab33d8c3bdb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: b9bdcc7e338c0dffc97bd05a6ae9b64947542b2e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86220255"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962805"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: 보안 LDAP 경고 Azure Active Directory Domain Services
 

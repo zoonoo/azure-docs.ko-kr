@@ -1,14 +1,14 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db91bd1968f816eb2a9320ee81019aeec5d2449
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330284"
+ms.locfileid: "91874002"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -104,7 +104,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="resource-provider-modes"></a>리소스 공급자 모드
 
-다음 리소스 공급자 노드가 완전히 지원 됩니다.
+다음 리소스 공급자 모드는 완전히 지원 됩니다.
 
 - `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용 하는 정의는 효과 _감사_, _거부_및 사용 _안 함_을 사용 합니다. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 사용 하는 것은 _더 이상 사용 되지_않습니다.
 
@@ -226,7 +226,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```

@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 대 한 SKU 변경 | Microsoft Docs
 description: 비즈니스 요구 사항이 변경 되는 경우 Azure AD Domain Services 관리 되는 도메인의 SKU 계층에 대해 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: c85a3f3262da6002e9604b1506552b9188a64460
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489642"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962754"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>기존 Azure Active Directory Domain Services 관리 되는 도메인에 대 한 SKU 변경
 

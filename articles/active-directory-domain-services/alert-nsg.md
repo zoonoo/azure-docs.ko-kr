@@ -2,7 +2,7 @@
 title: Azure AD DS에서 네트워크 보안 그룹 경고 해결 | Microsoft Docs
 description: Azure Active Directory Domain Services에 대 한 네트워크 보안 그룹 구성 경고 문제를 해결 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 584c03dc798bc21ddd5538e58d0f9047c55c5372
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: joflore
+ms.openlocfilehash: f8917d7bd8fc1a4091607b9a405cfefbb51bc188
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040455"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962788"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 네트워크 구성 경고
 
@@ -40,11 +40,11 @@ ms.locfileid: "86040455"
 
 | 우선 순위 | Name | 포트 | 프로토콜 | 원본 | 대상 | 작업 |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | 모두 | 허용 |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | 모두 | 허용 |
-| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | 모두 | 허용 |
+| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | 모두 | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | 모두 | Allow |
+| 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | 모두 | Allow |
 | 65000    | AllVnetInBound | 모두 | 모두 | VirtualNetwork | VirtualNetwork | 허용 |
-| 65001    | AllowAzureLoadBalancerInBound | 모두 | 모두 | AzureLoadBalancer | 모두 | 허용 |
+| 65001    | AllowAzureLoadBalancerInBound | 모두 | 모두 | AzureLoadBalancer | 모두 | Allow |
 | 65500    | DenyAllInBound | 모두 | 모두 | 모두 | 모두 | 거부 |
 
 > [!NOTE]

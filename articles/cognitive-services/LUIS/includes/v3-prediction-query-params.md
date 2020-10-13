@@ -5,15 +5,15 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/30/2020
 ms.openlocfilehash: 14380dd781fc1eebfe7edb0a816ff8af0f2f17b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309434"
 ---
 V3 API 쿼리 문자열 매개 변수는 다음과 같습니다.
 
-|쿼리 매개 변수|LUIS 포털 이름|형식|버전|기본값|목적|
+|쿼리 매개 변수|LUIS 포털 이름|유형|버전|기본값|목적|
 |--|--|--|--|--|--|
 |`log`|로그 저장|boolean|V2 & V3|false|로그 파일에 쿼리를 저장 합니다. 기본값은 false입니다.|
 |`query`|-|문자열|V3만|기본값 없음-GET 요청에 필요 합니다.|**V2에서**예측할 utterance는 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수로 전달 됩니다.|

@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 705e389c83fbab6075c25a3f56e5392fb8cafcd9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90998433"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756822"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화
 
@@ -76,7 +76,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 이 명령의 출력에는 만든 관리형 HSM의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 * **name**: 이 예제에서 이름은 ContosoMHSM입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **hsmUri**: 이 예제에서 URI는 https://contosohsm.managedhsm.azure.net 입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
+* **hsmUri**: 이 예제에서 URI는 'https://contosohsm.managedhsm.azure.net '입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
 
 Azure 계정에는 이제 이 관리형 HSM에서 모든 작업을 수행할 수 있는 권한이 부여됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 

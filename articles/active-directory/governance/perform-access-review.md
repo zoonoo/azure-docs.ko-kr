@@ -16,10 +16,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265684"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토
@@ -126,7 +126,7 @@ Azure ad (Azure Active Directory)는 기업에서 azure ad 액세스 검토 라�
 
 3. **시도** 를 클릭 합니다. 페이지 맨 위에 있는 배너입니다. 그러면 새 내 액세스 환경으로 이동 됩니다.
   
-### <a name="email"></a>메일
+### <a name="email"></a>Email
 
   >[!IMPORTANT]
 > 전자 메일을 받을 때 지연이 발생할 수 있으며, 일부 경우에는 최대 24 시간이 걸릴 수 있습니다. 받는 azure-noreply@microsoft.com 사람 목록에를 추가 하 여 모든 전자 메일을 수신 하 고 있는지 확인 합니다.

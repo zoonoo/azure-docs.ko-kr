@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 3a5238ec9e9bc30da330be206eb559acc3c2ec07
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598072"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 SAP HANA 확장의 고가용성
@@ -81,12 +81,12 @@ ms.locfileid: "91598072"
 - [Pacemaker 클러스터에서 시스템 복제를 SAP HANA 합니다.](https://access.redhat.com/articles/3004101)
 - 일반 RHEL 설명서
     - [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
-    - [고가용성 추가 기능 관리.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-    - [고가용성 추가 기능 참조입니다.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-    - [HANA 파일 시스템가 NFS 공유에 있는 경우 Pacemaker 클러스터에서 확장 중인 시스템 복제 SAP HANA 구성](https://access.redhat.com/solutions/5156571)
+    - [고가용성 Add-On 관리.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+    - [고가용성 Add-On 참조입니다.](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+    - [HANA 파일 시스템가 NFS 공유에 있는 경우 Pacemaker 클러스터의 Scale-Up에서 SAP HANA 시스템 복제 구성](https://access.redhat.com/solutions/5156571)
 - Azure 특정 RHEL 설명서:
     - [RHEL 고가용성 클러스터에 대 한 지원 정책은 클러스터 구성원으로 Microsoft Azure Virtual Machines 합니다.](https://access.redhat.com/articles/3131341)
-    - [Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성](https://access.redhat.com/articles/3252491)
+    - [Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 High-Availability 클러스터 설치 및 구성](https://access.redhat.com/articles/3252491)
     - [Microsoft Azure에서 사용할 Red Hat Enterprise Linux SAP HANA를 설치 합니다.](https://access.redhat.com/solutions/3193782)
     - [HANA 파일 시스템이 NFS 공유에 있는 경우 SAP HANA 확장 시스템 복제 Pacemaker 클러스터 구성](https://access.redhat.com/solutions/5156571)
 - [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션](https://www.netapp.com/us/media/tr-4746.pdf)
@@ -536,7 +536,7 @@ Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](https://docs.microsoft.c
     ```
 
    > [!TIP]
-   > 구성에 그룹 또는 외부에 있는 파일 시스템이 포함 된 경우 `hanadb1_nfs` `hanadb2_nfs` `sequential=false` 파일 시스템 간에 정렬 종속성이 없도록 옵션을 포함 합니다. 모든 파일 시스템은 이전에 시작 해야 `hana_nfs1_active` 하지만 서로 관련 하 여 어떤 순서로도 시작할 필요가 없습니다. 자세한 내용은 [Pacemaker 클러스터에서 HANA 파일 시스템가 NFS 공유에 있는 경우 SAP HANA 시스템 복제를 확장 하는 어떻게 할까요? 구성을](https://access.redhat.com/solutions/5156571) 참조 하세요.
+   > 구성에 그룹 또는 외부에 있는 파일 시스템이 포함 된 경우 `hanadb1_nfs` `hanadb2_nfs` `sequential=false` 파일 시스템 간에 정렬 종속성이 없도록 옵션을 포함 합니다. 모든 파일 시스템은 이전에 시작 해야 `hana_nfs1_active` 하지만 서로 관련 하 여 어떤 순서로도 시작할 필요가 없습니다. 자세한 내용은 [HANA 파일 시스템가 NFS 공유에 있는 경우 Pacemaker 클러스터에서 Scale-Up에서 SAP HANA 시스템 복제 구성 어떻게 할까요?](https://access.redhat.com/solutions/5156571) 을 참조 하세요.
 
 ### <a name="configure-sap-hana-cluster-resources"></a>클러스터 리소스 SAP HANA 구성
 

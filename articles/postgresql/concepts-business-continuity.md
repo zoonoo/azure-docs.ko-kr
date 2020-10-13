@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710909"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939871"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
@@ -29,10 +29,9 @@ Azure Database for PostgreSQL는 지역에서 복원을 시작 하 고 다른 �
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | RTO-다양 <br/>RPO < 1시간 | RTO-다양 <br/>RPO < 1시간 |
-| 읽기 복제본 | RTO-분 <br/>RPO < 5 분 | RTO-분 <br/>RPO < 5 분| RTO-분 <br/>RPO < 5 분|
+| 읽기 복제본 | RTO-분 <br/>RPO < 5 분 * | RTO-분 <br/>RPO < 5 분 *| RTO-분 <br/>RPO < 5 분 *|
 
-> [!IMPORTANT]
-> 여기에 언급 된 예상 RTO 및 RPO는 참조용 으로만 사용 됩니다. 이러한 메트릭에 대해서는 Sla가 제공 되지 않습니다.
+\* 주 데이터베이스 워크 로드 및 지역 간 대기 시간을 비롯 한 다양 한 요인에 따라 RPO가 더 높아질 수 있습니다. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>사용자 또는 애플리케이션 오류가 발생한 후 서버 복구
 

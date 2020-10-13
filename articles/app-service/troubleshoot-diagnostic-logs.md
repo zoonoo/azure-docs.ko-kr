@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91264374"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
@@ -185,7 +185,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | TBA | TBA | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | TBA | 예 | 예 | 웹 서버 로그 |

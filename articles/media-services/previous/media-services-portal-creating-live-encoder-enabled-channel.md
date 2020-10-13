@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: inhenkel
 ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91532706"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Media Services를 사용 하 여 라이브 스트리밍을 수행 하 여 다중 비트 전송률 스트림을 만들 Azure Portal

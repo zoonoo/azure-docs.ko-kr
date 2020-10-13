@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266045"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 앱 보호 정책 및 승인된 클라이언트 앱 필요

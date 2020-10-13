@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, 사양, 하드웨어, 진한, 기능, 깊이, 색, RGB, IMU, 배열, 깊이, 다중 동기화
 ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361163"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>여러 Azure Kinect 진한 장치 동기화

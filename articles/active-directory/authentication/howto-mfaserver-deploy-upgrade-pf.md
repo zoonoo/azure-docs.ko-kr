@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23e485c55ab591bcccdc32818839a8d484a6c3af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919542"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Agent를 Azure Multi-Factor Authentication 서버로 업그레이드
@@ -70,7 +70,7 @@ PhoneFactor Agent v5.x 또는 이전 버전을 Azure Multi-Factor Authentication
 
    2. 웹 서버에 사용자 포털을 설치하려면 관리자 권한으로 명령 프롬프트를 열고 MultiFactorAuthenticationUserPortalSetupXX.msi를 실행합니다.
 
-      기본 가상 디렉터리 이름은 이제 **PhoneFactor**대신 **MultiFactorAuth** 입니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않고 새 기본 이름을 사용 하 여 설치를 허용 하는 경우 Multi-Factor Authentication 서버의 사용자 포털 아이콘을 클릭 하 고 설정 탭에서 사용자 포털 URL을 업데이트 해야 합니다. 기존 사용자에 게 새 URL을 알려야 합니다.
+      기본 가상 디렉터리 이름은 이제 **PhoneFactor**대신 **MultiFactorAuth** 입니다. 이전 이름을 사용하려는 경우 설치하는 동안 가상 디렉터리의 이름을 변경해야 합니다. 그렇지 않고 새 기본 이름을 사용 하 여 설치를 허용 하는 경우 Multi-Factor Authentication 서버에서 사용자 포털 아이콘을 클릭 하 고 설정 탭에서 사용자 포털 URL을 업데이트 해야 합니다. 기존 사용자에 게 새 URL을 알려 주어 야 합니다.
 
    3. 사용자 포털 설치 위치(예: C:\inetpub\wwwroot\MultiFactorAuth)로 이동한 후 web.config 파일을 편집합니다. 새 web.config 파일로 업그레이드하기 전에 백업했던 원본 web.config 파일에서 appSettings 및 applicationSettings 섹션의 값을 복사합니다. 웹 서비스 SDK를 설치할 때 새 기본 가상 디렉터리 이름을 유지한 경우 applicationSettings 섹션의 URL이 올바른 위치를 가리키도록 변경합니다. 이전 web.config 파일에서 기타 기본값을 변경한 경우 새 web.config 파일에 같은 변경 내용을 적용합니다.
 

@@ -6,13 +6,13 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309509"
 ---
-# <a name="devops-practices-for-luis"></a>LUIS에 대 한 DevOps 방법
+# <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
 LUIS (Language Understanding) 앱을 개발 하는 소프트웨어 엔지니어는 다음 지침에 따라 [소스 제어](luis-concept-devops-sourcecontrol.md), [자동화 된 빌드](luis-concept-devops-automation.md), [테스트](luis-concept-devops-testing.md)및 [릴리스 관리](luis-concept-devops-automation.md#release-management) 에 대 한 devops 사례를 적용할 수 있습니다.
 

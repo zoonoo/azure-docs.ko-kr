@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
 ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361367"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
@@ -124,7 +124,7 @@ SAP LaMa Azure 커넥터 구성에서 ' 관리 되는 Id 사용 '을 선택 하 
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>SAP LaMa에서 새 커넥터 만들기
 
-SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. Cloud Managers(클라우드 관리자) 탭으로 이동하여 Add(추가)를 클릭합니다. Microsoft Azure 클라우드 어댑터를 선택하고 다음을 클릭합니다. 다음 정보를 입력 합니다.
+SAP LaMa 웹 사이트를 열고 Infrastructure(인프라)로 이동합니다. Cloud Managers(클라우드 관리자) 탭으로 이동하여 Add(추가)를 클릭합니다. Microsoft Azure 클라우드 어댑터를 선택하고 다음을 클릭합니다. 다음 정보를 입력합니다.
 
 * Label(레이블): 커넥터 인스턴스의 이름 선택
 * 사용자 이름: 가상 머신의 사용자 할당 id id 또는 서비스 주체 응용 프로그램 ID입니다. 자세한 내용은 [시스템 또는 사용자 할당 Id 사용]을 참조 하세요.
