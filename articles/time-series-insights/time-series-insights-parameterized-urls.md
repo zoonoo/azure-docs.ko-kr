@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665330"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
@@ -69,7 +69,7 @@ Azure Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 �
 
 `timeSeriesDefinitions=<collection of term objects>`매개 변수는 Azure Time Series Insights 뷰에 표시 되는 조건자 용어를 지정 합니다.
 
-| 매개 변수 | URL 항목 | Description |
+| 매개 변수 | URL 항목 | 설명 |
 | --- | --- | --- |
 | **name** | `\<string>` | *조건*의 이름입니다. |
 | **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
@@ -86,7 +86,7 @@ Azure Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 �
 * 를 `timeBucketUnit=<Unit>&timeBucketSize=<integer>` 사용 하면 간격 슬라이더를 조정 하 여 차트에 대 한 보다 세분화 되거나 더 정교 하 고 세분화 된 보기를 제공할 수 있습니다.  
 * `timezoneOffset=<integer>`매개 변수를 사용 하면 UTC에 대 한 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
 
-| 쌍 | Description |
+| 쌍 | 설명 |
 | --- | --- |
 | `multiChartStack=false` | `true` 는 기본적으로 사용 하도록 설정 되므로 스택에 전달 됩니다 `false` . |
 | `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  `false`기본적으로를 전달 하면 `true` 이 기능을 사용할 수 있습니다. |
@@ -97,7 +97,7 @@ Azure Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 �
 > **timeBucketUnit** 값은 최대 7 일까 지 사용할 수 있습니다.
 > **timezoneOffset** 값은 UTC 및 현지 시간이 아닙니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 URL 매개 변수로 Azure Time Series Insights 환경에 시계열 정의를 추가 하려면 다음을 추가 합니다.
 

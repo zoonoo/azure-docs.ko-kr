@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317568"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
@@ -227,7 +227,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
 
-3. `Import-Module ADSyncDiagnostics`를 실행합니다.
+3. `Import-Module ADSyncDiagnostics`을 실행합니다.
 
 4. 다음 cmdlet을 실행합니다.
 
@@ -354,9 +354,9 @@ Azure AD와 연결되어 있나요?
 
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 | --- | --- |
-| Success |암호가 성공적으로 동기화되었습니다. |
+| 성공 |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경**으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |
 | NoTargetConnection |메타버스에 또는 Azure AD 커넥터 공간에 개체가 없습니다. |
 | SourceConnectorNotPresent |개체를 온-프레미스 Active Directory Connector 공간에서 찾을 수 없습니다. |

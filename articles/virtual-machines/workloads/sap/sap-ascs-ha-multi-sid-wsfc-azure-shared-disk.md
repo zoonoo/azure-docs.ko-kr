@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4856b2578a007f72aeeec64588ac7f9c58158de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88861184"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970404"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Windows server 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -34,13 +34,13 @@ ms.locfileid: "88861184"
 
 현재 SAP ASCS/SCS 인스턴스에 대 한 Azure 공유 디스크로 Azure 프리미엄 SSD 디스크를 사용할 수 있습니다. 다음과 같은 제한 사항이 적용 됩니다.
 
--  [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) 는 SAP 워크 로드에 대 한 Azure 공유 디스크로 지원 되지 않습니다. 현재 가용성 집합에서 Azure Ultra Disk를 사용 하 여 Azure Vm을 사용할 수 없습니다.
--  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) 는 가용성 집합의 vm 에서만 지원 됩니다. 가용성 영역 배포에서는 지원 되지 않습니다. 
--  Azure 공유 디스크 값 [Maxshares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) 는 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 일반적으로 SAP ASCS/SCS 인스턴스의 경우 Windows 장애 조치 (Failover) 클러스터에서 두 노드를 구성 하므로의 값을 `maxShares` 2로 설정 해야 합니다.
--  모든 SAP ASCS/SCS 클러스터 Vm은 동일한 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)에 배포 되어야 합니다.   
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk) 는 SAP 워크 로드에 대 한 Azure 공유 디스크로 지원 되지 않습니다. 현재 가용성 집합에서 Azure Ultra Disk를 사용 하 여 Azure Vm을 사용할 수 없습니다.
+-  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../windows/disks-shared.md) 는 가용성 집합의 vm 에서만 지원 됩니다. 가용성 영역 배포에서는 지원 되지 않습니다. 
+-  Azure 공유 디스크 값 [Maxshares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) 는 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 일반적으로 SAP ASCS/SCS 인스턴스의 경우 Windows 장애 조치 (Failover) 클러스터에서 두 노드를 구성 하므로의 값을 `maxShares` 2로 설정 해야 합니다.
+-  모든 SAP ASCS/SCS 클러스터 Vm은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포 되어야 합니다.   
    PPG 없이 Azure 공유 디스크를 사용 하 여 가용성 집합에 Windows 클러스터 Vm을 배포할 수 있지만, PPG를 사용 하면 Azure 공유 디스크와 클러스터 Vm의 물리적인 근접 한 공간을 확보 하 여 Vm과 저장소 계층 간의 대기 시간을 줄일 수 있습니다.    
 
-Azure 공유 디스크의 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) 섹션을 참조 하세요.  
+Azure 공유 디스크의 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../linux/disks-shared.md#limitations) 섹션을 참조 하세요.  
 
 > [!IMPORTANT]
 > Azure 공유 디스크를 사용 하 여 SAP ASCS/SCS Windows 장애 조치 (Failover) 클러스터를 배포 하는 경우 배포는 하나의 저장소 클러스터에서 단일 공유 디스크로 작동 한다는 점에 유의 해야 합니다. Azure 공유 디스크가 배포 되는 저장소 클러스터에 문제가 있는 경우 SAP ASCS/SCS 인스턴스가 영향을 받습니다.  
@@ -111,7 +111,7 @@ Windows Server 2016 및 Windows Server 2019이 모두 지원 됩니다 (최신 �
 
 ### <a name="create-azure-internal-load-balancer"></a>Azure 내부 부하 분산 장치 만들기
 
-SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소를 사용 합니다. Azure에서 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 는 가상 IP 주소를 사용 하는 데 필요 합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 
+SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소를 사용 합니다. Azure에서 [부하 분산 장치](../../../load-balancer/load-balancer-overview.md) 는 가상 IP 주소를 사용 하는 데 필요 합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용 하는 것이 좋습니다. 
 
 두 번째 SAP SID ASCS/SCS/ERS 인스턴스 **p r 2**에 대 한 구성을 기존 부하 분산 장치에 추가 해야 합니다. 첫 번째 SAP SID **PR1** 의 구성이 이미 준비 되어 있어야 합니다.  
 

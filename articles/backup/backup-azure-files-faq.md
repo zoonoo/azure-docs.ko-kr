@@ -3,12 +3,12 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729069"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940838"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -80,18 +80,18 @@ Azure Backup에서 만든 모든 스냅샷은 포털의 스냅샷 보기, PowerS
 
 파일 공유를 다른 구독으로 이동 하면 Azure Backup 하 여 새 파일 공유로 간주 합니다. 권장 단계는 다음과 같습니다.
  
-시나리오: 구독 S1에 파일 공유 FS1가 있고 V1 vault를 사용 하 여 보호 되는 경우를 가정해 보겠습니다. 이제 파일 공유를 구독 S2로 이동 하려고 합니다.
+시나리오: 구독 *S1* 에 파일 공유 *FS1* 가 있고 *V1* 자격 증명 모음을 사용 하 여 보호 되는 경우를 가정해 보겠습니다. 이제 파일 공유를 구독 *S2*로 이동 하려고 합니다.
  
-1.  원하는 저장소 계정 및 파일 공유 (FS1)를 다른 구독 (S2)으로 이동 합니다.
-2.  V1 자격 증명 모음에서 FS1에 대 한 데이터 삭제 작업을 사용 하 여 보호 중지를 트리거합니다.
-3.  FS1를 호스트 하는 저장소 계정을 V1 자격 증명 모음에서 등록 취소 합니다.
+1.  원하는 저장소 계정 및 파일 공유 (FS1)를 다른 구독 (S2)로 이동 합니다.
+2.  V1 자격 증명 모음에서 FS1에 대 한 데이터 삭제 작업으로 보호 중지를 트리거합니다.
+3.  V1 자격 증명 모음에서 FS1를 호스트 하는 저장소 계정을 등록 취소 합니다.
 4.  이제 s2 구독에서 자격 증명 모음 (V2)을 사용 하 여 S2로 이동 된 FS1에 대 한 백업을 다시 구성 합니다. 
  
-V 2를 사용 하 여 백업을 다시 구성한 후 V1을 사용 하 여 수행 된 스냅숏은 더 이상 Azure Backup에서 관리 되지 않으므로 요구 사항에 따라 해당 스냅숏을 수동으로 삭제 해야 합니다.
+V 2를 사용 하 여 백업을 다시 구성한 후 V1을 사용 하 여 수행 된 스냅숏은 더 이상 Azure Backup에서 관리 되지 않습니다. 따라서 요구 사항에 따라 이러한 스냅숏을 수동으로 삭제 해야 합니다.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>백업 된 파일 공유를 다른 리소스 그룹으로 이동할 수 있나요?
  
-예, 백업 된 파일 공유를 다른 리소스 그룹으로 이동할 수 있습니다. 그러나 Azure Backup 여 새 리소스로 처리 되기 때문에 파일 공유에 대 한 백업을 다시 구성 해야 합니다. 또한 리소스 그룹을 이동 하기 전에 생성 된 스냅숏은 더 이상 Azure backup에서 관리 되지 않습니다. 따라서 요구 사항에 따라 이러한 스냅숏을 수동으로 삭제 해야 합니다.
+예, 백업 된 파일 공유를 다른 리소스 그룹으로 이동할 수 있습니다. 그러나 Azure Backup 여 새 리소스로 처리 되기 때문에 파일 공유에 대 한 백업을 다시 구성 해야 합니다. 또한 리소스 그룹 이동 전에 생성 된 스냅숏은 더 이상 Azure backup에서 관리 되지 않습니다. 따라서 요구 사항에 따라 이러한 스냅숏을 수동으로 삭제 해야 합니다.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>백업에 대해 구성할 수 있는 최대 보존 기간은 얼마인가요?
 

@@ -7,10 +7,10 @@ ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667166"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
@@ -140,8 +140,8 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
    이러한 파일을 제거 하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭 한 다음 **제거**를 선택 합니다.
 5. 필요에 따라 다음 레지스트리 설정을 제거할 수도 있습니다.
      
-     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
-     - Computer \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
+     - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
 6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
 

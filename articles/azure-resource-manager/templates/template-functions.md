@@ -2,13 +2,13 @@
 title: 템플릿 함수
 description: Azure Resource Manager 템플릿에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378409"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961173"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
@@ -104,9 +104,11 @@ Resource Manager는 논리 조건 사용을 위한 다음 함수를 제공합니
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [false](template-functions-logical.md#false)
 * [if](template-functions-logical.md#if)
 * [not](template-functions-logical.md#not)
 * [or](template-functions-logical.md#or)
+* [true](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -141,10 +143,12 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 리소스 관리자는 개체 작업을 위한 몇 가지 함수를 제공 합니다.
 
 * [contains](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
 * [empty](template-functions-object.md#empty)
 * [intersection](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [null](template-functions-object.md#null)
 * [union](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>

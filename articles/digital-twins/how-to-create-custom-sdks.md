@@ -8,26 +8,26 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ccbe6cb332f357eeef02dff22b8a4be328b8de0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324232"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970132"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins에 대 한 사용자 지정 Sdk 만들기
 
 현재 Azure Digital Twins Api와 상호 작용 하기 위해 게시 된 데이터 평면 Sdk만 .NET (c #), JavaScript 및 Java 용입니다. 이러한 Sdk 및 일반적인 Api에 대 한 자세한 내용은 [*방법: Azure Digital Twins api 및 Sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요. 다른 언어로 작업 하는 경우이 문서에서는 AutoRest를 사용 하 여 원하는 언어로 고유한 데이터 평면 SDK를 생성 하는 방법을 보여 줍니다.
 
 >[!NOTE]
-> 원하는 경우 AutoRest를 사용 하 여 제어 평면 SDK를 생성할 수도 있습니다. 이렇게 하려면 데이터 평면 1 대신 [제어 평면 Swagger (OpenAPI) 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) 을 사용 하 여이 문서의 단계를 완료 합니다.
+> 원하는 경우 AutoRest를 사용 하 여 제어 평면 SDK를 생성할 수도 있습니다. 이 작업을 수행 하려면이 문서의 단계를 완료 하 고 데이터 평면 1 대신 [컨트롤 평면 Swagger 폴더]]에서 최신 **제어 평면 swagger** (openapi) 파일을 사용 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) 합니다.
 
 ## <a name="set-up-your-machine"></a>컴퓨터 설정
 
 SDK를 생성 하려면 다음이 필요 합니다.
 * [AutoRest](https://github.com/Azure/autorest), 버전 2.0.4413 (현재 버전 3은 지원 되지 않음)
 * AutoRest에 대 한 필수 구성 요소 [Node.js](https://nodejs.org)
-* *에서digitaltwins.js*되는 Azure Digital twins [데이터 평면 Swagger (openapi) 파일과](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) 함께 제공 되는 예제 폴더입니다. Swagger 파일 및 해당 폴더의 예제를 로컬 컴퓨터에 다운로드 합니다.
+* [데이터 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)의 최신 Azure 디지털 twins **데이터 평면 Swagger** (openapi) 파일 및 함께 제공 된 예제 폴더입니다.  에서 Swagger 파일 *digitaltwins.js* 및 해당 폴더의 예제를 로컬 컴퓨터에 다운로드 합니다.
 
 위의 목록에 있는 모든 항목이 컴퓨터에 장착 되 면 AutoRest를 사용 하 여 SDK를 만들 준비가 된 것입니다.
 
@@ -57,7 +57,7 @@ AutoRest에서 생성 된 파일을 .NET 솔루션에 직접 포함할 수 있�
 
 이 섹션에서는 SDK를 클래스 라이브러리로 빌드하는 방법에 대 한 지침을 제공 합니다 .이 라이브러리는 자체 프로젝트 이며 다른 프로젝트에 포함 될 수 있습니다. 이러한 단계는 **Visual Studio** 를 사용 합니다. [여기](https://visualstudio.microsoft.com/downloads/)에서 최신 버전을 설치할 수 있습니다.
 
-단계는 다음과 같습니다.
+수행하는 단계는 다음과 같습니다.
 
 1. 클래스 라이브러리에 대 한 새 Visual Studio 솔루션 만들기
 2. *Adtapi* 를 프로젝트 이름으로 사용

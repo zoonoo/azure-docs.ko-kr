@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666435"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
@@ -46,7 +46,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 - 구독을 연결 하거나 추가한 후에 수행 되는 변경 내용 및 영향을 받는 방법에 대 한 다음 목록을 검토 하세요.
 
   - Azure RBAC를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다.
-  - 서비스 관리자 및 공동 관리자가 액세스할 수 없게 됩니다.
+  - 서비스 관리자 및 Co-Administrators 액세스할 수 없게 됩니다.
   - 키 자격 증명 모음이 있는 경우 액세스할 수 없게 되며 연결 후 수정 해야 합니다.
   - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 관리 id가 있는 경우 연결 후 다시 사용 하도록 설정 하거나 다시 만들어야 합니다.
   - 등록 된 Azure Stack 있는 경우 연결 후 다시 등록 해야 합니다.

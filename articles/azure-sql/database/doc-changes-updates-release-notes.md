@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236576"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940708"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL Managed Instance 새로운 기능 및 알려진 문제
+## <a name="new-features"></a>새 기능
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 
@@ -93,10 +93,11 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
   - 기본 제공되는 새로운 [인스턴스 기여자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor)을 통해 보안 원칙에 따른 SoD(업무 분리) 준수 및 엔터프라이즈 표준 준수가 가능합니다.
   - SQL Managed Instance는 다음 Azure Government 지역에서 GA (US Gov 텍사스, US Gov 애리조나) 뿐만 아니라 중국 북부 2와 중국 동부 2에서 사용할 수 있습니다. 다음 공용 지역에서도 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 브라질 남부, 프랑스 남부, 아랍에미리트 중부, 아랍에미리트 북부, 남아프리카 공화국 북부, 남아프리카 공화국 서부.
 
-### <a name="known-issues"></a>알려진 문제
+## <a name="known-issues"></a>알려진 문제
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|Azure SQL의 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD id 관리를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
@@ -124,6 +125,21 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함되어 있으면 중요 비즈니스용 계층에서 범용 계층으로 특정 시점 데이터베이스 복원에 실패함||해결됨|2019년 10월|
 |보안 연결을 사용 하는 외부 (비 Azure) 메일 서버를 사용 하는 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함 된 데이터베이스는 SQL Managed Instance 지원 되지 않습니다.||해결됨|2019년 8월|
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 관리 되는 Id를 사용 하 여 Azure storage에 액세스할 수 없습니다.
+
+Bulk insert 문은 `DATABASE SCOPED CREDENTIAL` Azure storage에 인증 하는 데 관리 id와 함께 사용할 수 없습니다. 이 문제를 해결 하려면 공유 액세스 서명 인증으로 전환 합니다. 다음 예제는 Azure SQL (데이터베이스 및 Managed Instance)에서 작동 하지 않습니다.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**해결 방법**: [공유 액세스 서명을 사용 하 여 저장소에 인증](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)합니다.
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.
 

@@ -17,10 +17,10 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279910"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Active Directory Federation Services (AD FS) 팜에 대 한 TLS/SSL 인증서를 업데이트 합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "89279910"
 >[!NOTE]
 >AD FS에서 사용하는 인증서에 대한 자세한 내용은 [AD FS에서 사용하는 인증서 이해](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc730660(v=ws.11))를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **AD FS 팜**: AD FS 팜이 Windows Server 2012 R2 이상을 기반으로 하는지 확인합니다.
 * **Azure AD Connect**: Azure AD Connect 버전이 1.1.553.0 이상인지 확인합니다. **AD FS SSL 인증서 업데이트** 작업을 사용할 것입니다.
@@ -83,7 +83,7 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
 ![구성 완료](./media/how-to-connect-fed-ssl-update/configurecomplete.png)   
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 * **새 AD FS TLS/SSL 인증서에 대 한 인증서의 주체 이름은 무엇 인가요?**
 

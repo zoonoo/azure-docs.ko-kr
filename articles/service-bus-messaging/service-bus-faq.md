@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대
 ms.topic: article
 ms.date: 09/16/2020
 ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894525"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
@@ -87,7 +87,7 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 
 **프리미엄** 네임 스페이스를 사용 하는 경우 [IP 필터링](service-bus-ip-filtering.md), [가상 네트워크 서비스 끝점](service-bus-service-endpoints.md)및 [개인 끝점](private-link-service.md) 을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 합니다. 
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?
 [Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] 참조 - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
 

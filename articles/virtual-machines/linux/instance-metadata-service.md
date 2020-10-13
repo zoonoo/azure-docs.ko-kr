@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa9502a42af9e927f82d7a135473ff702b76577
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974140"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970710"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
@@ -227,7 +227,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
 
 Metadata Service에는 서로 다른 데이터 원본을 나타내는 여러 Api가 포함 되어 있습니다.
 
-API | 설명 | 도입된 버전
+API | Description | 도입된 버전
 ----|-------------|-----------------------
 /attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 /identity | [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) 참조 | 2018-02-01
@@ -249,8 +249,8 @@ name | VM의 이름 | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 계획 | Azure Marketplace 이미지에 해당하는 VM의 이름, 제품 및 게시자를 포함하는 [계획](/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
-platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
-platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
+platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](../manage-availability.md) | 2017-04-02
+platformFaultDomain | VM을 실행 중인 [장애 도메인](../manage-availability.md) | 2017-04-02
 provider | VM의 공급자 | 2018-10-01
 publicKeys | VM 및 경로에 할당된 [공개 키 컬렉션](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 이미지 게시자 | 2017-04-02

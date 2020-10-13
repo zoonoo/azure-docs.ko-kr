@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298714"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
@@ -29,7 +29,7 @@ ms.locfileid: "91298714"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -96,17 +96,7 @@ UI를 사용 하 여 클러스터의 유효성을 검사 하려면 가상 머신
 1. **다음**을 선택합니다.
 1. **테스트 선택**에서 다음과 같이 **스토리지** 및 **스토리지 공간 다이렉트**를 선택합니다.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="클러스터 유효성 검사 테스트 선택":::
-
-1. **다음**을 선택합니다.
-1. **확인**에서 **다음**을 선택합니다.
-
-**구성 유효성 검사** 마법사는 유효성 검사 테스트를 실행 합니다.
-
-PowerShell을 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나의 관리자 PowerShell 세션에서 다음 스크립트를 실행합니다.
-
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사"
    ```
 
 클러스터의 유효성을 검사한 후에 장애 조치 클러스터를 만듭니다.
@@ -151,7 +141,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 클러스터의 장애 조치 (failover)를 테스트 합니다. **장애 조치(Failover) 클러스터 관리자**에서 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **추가 작업**  >  **코어 클러스터 리소스 이동**  >  **노드**를 선택한 후 클러스터의 다른 노드를 선택 합니다. 코어 클러스터 리소스를 클러스터의 모든 노드로 이동한 다음 다시 기본 노드로 이동합니다. 클러스터를 각 노드로 성공적으로 이동할 수 있는 경우 SQL Server를 설치할 준비가 된 것입니다.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="코어 리소스를 다른 노드로 이동하여 클러스터 장애 조치(failover) 테스트":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사":::
 
 
 ## <a name="create-sql-server-fci"></a>SQL Server FCI 만들기
@@ -172,7 +162,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
    FCI 데이터 디렉터리는 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를 형식으로 입력 `\\storageaccountname.file.core.windows.net\filesharename\foldername` 합니다. 파일 서버를 데이터 디렉터리로 지정했음을 알려주는 경고가 표시됩니다. 이 경고는 예상된 것입니다. 파일 공유를 보관할 때 RDP를 통해 VM에 액세스 하는 데 사용한 사용자 계정이 SQL Server 서비스에서 가능한 오류를 방지 하는 데 사용 하는 것과 동일한 계정 인지 확인 합니다.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="파일 공유를 SQL 데이터 디렉터리로 사용":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="파일 공유 연결 포털에서 두 PowerShell 명령 복사":::
 
 1. 마법사의 단계를 완료하면 설치 프로그램이 첫 번째 노드에 SQL Server FCI를 설치합니다.
 
@@ -222,4 +212,4 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 자세한 내용은 다음을 참조하세요. 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치 (failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

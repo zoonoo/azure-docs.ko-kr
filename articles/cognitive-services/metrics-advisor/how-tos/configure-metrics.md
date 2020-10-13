@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 93fdf2884ca6593cfdb4fb2878ba0dd21246266d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446348"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>방법: 메트릭을 구성 하 고 미세 조정 하 여 구성 검색
@@ -136,7 +136,7 @@ ms.locfileid: "91446348"
 |**확장할 기간 (일)**    |  휴일 전후에 영향을 받는 날짜입니다.        |
 
 
-**주기 이벤트** 섹션을 사용 하면 일부 시나리오에서 데이터의 순환 패턴을 사용 하 여 불필요 한 경고를 줄일 수 있습니다. 다음은 그 예입니다. 
+**주기 이벤트** 섹션을 사용 하면 일부 시나리오에서 데이터의 순환 패턴을 사용 하 여 불필요 한 경고를 줄일 수 있습니다. 예를 들면 다음과 같습니다. 
 
 - 주 및 월 패턴과 같이 여러 패턴이 나 주기가 있는 메트릭입니다. 
 - 명확한 패턴이 없지만 데이터의 연도가 연도 (YoY), 월간 (MoM), 월간 주간 (WoW) 또는 일 (일 기준) (DoD) 인 메트릭입니다.

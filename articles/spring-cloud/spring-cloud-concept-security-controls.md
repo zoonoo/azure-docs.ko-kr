@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 1472da4c87dc4579a30290460fb7811cf228be47
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892489"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Azure Spring Cloud Service의 보안 컨트롤
 
-이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 보안 제어는 Azure 스프링 클라우드 서비스에 기본 제공 됩니다.
 

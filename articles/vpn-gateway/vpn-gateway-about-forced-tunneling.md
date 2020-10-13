@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5999ef8431ce1e128c3775450eedf13644505918
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94a5459ade634f6a1de029808aa6bad4d16b9a5d
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91313538"
+ms.locfileid: "91874632"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 강제 터널링 구성
 
@@ -57,12 +57,7 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 ### <a name="to-sign-in"></a>로그인 하려면
 
-1. 관리자 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
-
-   ```powershell
-   azure config mode asm
-   ```
-2. 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
+1. 관리자 권한으로 PowerShell 콘솔을 엽니다. 다음 예제를 사용 하 여 계정에 연결 합니다.
 
    ```powershell
    Add-AzureAccount
