@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
 ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91347508"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>사용자 고유의 Machine Learning (ML)를 Azure 센티널로 가져오기
@@ -159,13 +159,13 @@ Azure 센티널 외부에서 blob 저장소 또는 이벤트 허브로 데이터
 
 점수가 매겨진 결과와 관련 로그 세부 정보를 보려면 Azure 센티널 포털로 다시 이동 합니다. 사용자 지정 로그 > **로그** 에 **AnomalousResourceAccessResult_CL** 테이블 또는 사용자 지정 테이블 이름에 결과가 표시 됩니다. 이러한 결과를 사용 하 여 조사 및 구하기 환경을 개선할 수 있습니다.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="비정상적인 리소스 액세스 로그":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="기계 학습 프레임 워크":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>ML 결과를 사용 하 여 사용자 지정 분석 규칙 빌드
 
 ML 결과가 사용자 지정 로그 테이블에 있는지 확인 하 고 점수가 정확도에 만족 하는 경우 결과에 따라 검색을 만들 수 있습니다. Azure 센티널 포털에서 **분석** 으로 이동 하 여 [새 검색 규칙을 만듭니다](tutorial-detect-threats-custom.md). 다음은 검색을 만드는 데 사용 되는 쿼리를 보여 주는 예제입니다.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="B Y O M L 검색에 대 한 사용자 지정 분석 규칙 만들기":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="기계 학습 프레임 워크":::
 
 ### <a name="view-and-respond-to-incidents"></a>인시던트 보기 및 대응
 ML 결과에 따라 분석 규칙을 설정 하 고 나면 쿼리에서 설정한 임계값을 초과 하는 결과가 생성 되 면 인시던트가 생성 되어 Azure 센티널의 **인시던트** 페이지에 표시 됩니다. 

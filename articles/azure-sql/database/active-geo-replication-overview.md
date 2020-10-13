@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
 ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445068"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용-Azure SQL Database
@@ -122,9 +122,9 @@ ms.locfileid: "91445068"
 
 불균형 보조 구성의 또 다른 결과는 장애 조치 (failover) 후 새 주 서버의 계산 용량이 부족 하기 때문에 응용 프로그램 성능이 저하 될 수 있다는 것입니다. 이 경우 데이터베이스 서비스 목표를 필요한 수준으로 확장 해야 하며,이는 상당한 시간과 계산 리소스를 사용할 수 있으며, 확장 프로세스가 끝날 때 고가용성 장애 조치 (failover [)가 필요](high-availability-sla.md) 합니다.
 
-계산 크기가 낮은 보조를 만들도록 결정 한 경우 Azure Portal의 로그 IO 백분율 차트는 복제 로드를 유지 하는 데 필요한 보조의 최소 계산 크기를 예측 하는 좋은 방법을 제공 합니다. 예를 들어 주 데이터베이스가 P6 (1000 DTU)이 고 해당 로그 쓰기 백분율이 50% 이면 보조 데이터베이스는 최소한 P4 (500 DTU) 이상 이어야 합니다. 기록 로그 IO 데이터를 검색 하려면 [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰를 사용 합니다. 로그 속도가 단기 급증을 반영 하는 더 높은 세분성으로 최근 로그 쓰기 데이터를 검색 하려면 [dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 보기를 사용 합니다.
+계산 크기가 낮은 보조를 만들도록 결정 한 경우 Azure Portal의 로그 IO 백분율 차트는 복제 로드를 유지 하는 데 필요한 보조의 최소 계산 크기를 예측 하는 좋은 방법을 제공 합니다. 예를 들어 주 데이터베이스가 P6 (1000 DTU)이 고 해당 로그 쓰기 백분율이 50% 이면 보조 데이터베이스는 최소한 P4 (500 DTU) 이상 이어야 합니다. 기록 로그 IO 데이터를 검색 하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 보기를 사용 합니다. 로그 속도가 단기 급증을 반영 하는 더 높은 세분성으로 최근 로그 쓰기 데이터를 검색 하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 보기를 사용 합니다.
 
-보조에서 계산 크기가 더 낮은 경우 주 데이터베이스에 대 한 트랜잭션 로그 전송률 제한이 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 유형을 사용 하 여 보고 됩니다. [dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰에 표시 됩니다.
+보조에 대 한 계산 크기가 낮은 경우 주 데이터베이스에 대 한 트랜잭션 로그 률 제한은 [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰에 표시 되는 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 유형을 사용 하 여 보고 됩니다.
 
 기본적으로 보조 복제본의 백업 저장소 중복성은 주 데이터베이스와 동일 합니다. 다른 백업 저장소 중복성을 사용 하 여 보조 데이터베이스를 구성 하도록 선택할 수 있습니다. 백업은 항상 주 데이터베이스에서 수행 됩니다. 보조 복제본이 다른 백업 저장소 중복성으로 구성 된 경우 보조 복제본이 주 복제본으로 승격 되 면 장애 조치 (failover) 후 새 주 데이터베이스 (이전 보조 데이터베이스)에서 선택한 저장소 중복성에 따라 백업이 청구 됩니다. 
 
@@ -132,7 +132,7 @@ ms.locfileid: "91445068"
 > 주 데이터베이스의 트랜잭션 로그 비율은 보조에서 계산 크기가 낮은 것과 관련이 없는 이유로 제한 될 수 있습니다. 이러한 종류의 제한은 보조 데이터베이스의 계산 크기가 주 데이터베이스와 같거나 높은 경우에도 발생할 수 있습니다. 다른 종류의 로그 전송률 제한에 대 한 대기 유형을 포함 하는 자세한 내용은 [트랜잭션 로그 요금 관리](resource-limits-logical-server.md#transaction-log-rate-governance)를 참조 하세요.
 
 > [!NOTE]
-> 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. Azure SQL Database 미리 보기에서 원본 데이터베이스가 로컬 중복 또는 영역 중복 백업 중복성으로 생성 되는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
+> Azure SQL Database의 구성 가능한 백업 스토리지 중복도는 현재 동남 아시아 Azure 지역에서만 공개 미리 보기로 제공됩니다. 미리 보기에서 원본 데이터베이스가 로컬 중복 또는 영역 중복 백업 중복성으로 생성 되는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](purchasing-models.md)를 참조하세요.
 
@@ -235,7 +235,7 @@ SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비
 
 ## <a name="monitoring-geo-replication-lag"></a>지역에서 복제 지연 시간 모니터링
 
-RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에서 [dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예를 들어 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다.
+RPO와 관련 된 지연 시간을 모니터링 하려면 주 데이터베이스에서 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예를 들어 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다.
 
 보조 복제본에서 적용 된 주 데이터베이스의 변경 내용에 대해 지연 시간을 측정 하려면 (예: 보조 데이터베이스에서 읽기 가능) 보조 데이터베이스의 *last_commit* 시간을 주 데이터베이스의 동일한 값과 비교 합니다.
 
@@ -299,7 +299,7 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
   - [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(Failover)](scripts/setup-geodr-and-failover-database-powershell.md)
   - [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(Failover)](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - SQL Database는 자동 장애 조치(failover) 그룹도 지원합니다. 자세한 내용은 [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md) 사용을 참조하세요.
-- 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- 비즈니스 연속성 개요 및 시나리오는 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md) 를 참조 하세요.
 - 자동화 된 백업 Azure SQL Database에 대 한 자세한 내용은 [자동화 된 백업 SQL Database](automated-backups-overview.md)을 참조 하세요.
 - 복구를 위해 자동화 된 백업을 사용 하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](recovery-using-backups.md)을 참조 하세요.
 - 새로운 주 서버 및 데이터베이스의 인증 요구 사항에 대해 알아보려면 [재해 복구 후의 SQL Database 보안](active-geo-replication-security-configure.md)을 참조하세요.

@@ -8,10 +8,10 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
 ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803469"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Azure Marketplace에 대 한 가상 머신 이미지를 인증할 때 발생 하는 일반적인 문제
@@ -327,7 +327,7 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 
 "Bash 기록"을 삭제 하는 단계는 다음과 같습니다.
 
-1단계: VM을 배포 하 고 Azure Portal에서 "명령 실행" 옵션을 클릭 합니다.
+1단계. VM을 배포 하 고 Azure Portal에서 "명령 실행" 옵션을 클릭 합니다.
 ![Azure Portal에서 명령 실행](./media/vm-certification-issues-solutions-3.png)
 
 2단계. 첫 번째 옵션인 "RunShellScript"를 선택 하 고 아래 명령을 실행 합니다.
@@ -338,7 +338,7 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 
 4단계. VM을 일반화 하 고 이미지 VHD를 사용 하 여 VM을 중지 합니다.
 
-5단계.     일반화 된 이미지를 다시 제출 합니다.
+5단계.     일반화 된 이미지를 Re-Submit 합니다.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>선택적 테스트에 대 한 VM 이미지에서 예외 (사용자 지정 템플릿) 요청
 

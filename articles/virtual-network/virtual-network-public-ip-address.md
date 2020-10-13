@@ -18,10 +18,10 @@ ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
 ms.openlocfilehash: 92e71a8c08ef2c64509d7e00b0c43abdd58cf036
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804030"
 ---
 # <a name="manage-public-ip-addresses"></a>공용 IP 주소 관리
@@ -58,7 +58,7 @@ ms.locfileid: "91804030"
 
 만드는 동안 공용 IP 주소의 특정 특성에 대 한 자세한 내용은 아래 표를 참조 하세요.
 
-   |Setting|필수 여부|세부 정보|
+   |설정|필수 여부|세부 정보|
    |---|---|---|
    |IP 버전|예| IPv4 또는 IPv6을 선택 하거나 둘 다 선택 합니다. 둘 다 선택 하면 2 개의 공용 IP 주소가 생성 되 고 1 개의 IPv4 주소와 1 개의 IPv6 주소가 생성 됩니다. [Azure vnet의](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)i p v 6에 대 한 자세한 정보.|
    |SKU|예|Sku 도입 전에 생성 된 모든 공용 IP 주소는 **기본** SKU 공용 ip 주소입니다. 공용 IP 주소를 만든 후에는 SKU를 변경할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 내의 가상 머신 또는 가상 머신 확장 집합은 기본 또는 표준 SKU를 사용할 수 있습니다. 가용성 집합 또는 확장 집합 또는 독립 실행형 Vm 내의 가상 머신 간에 Sku를 혼합 하는 것은 허용 되지 않습니다. **기본** SKU: 가용성 영역을 지원하는 지역에 공용 IP 주소를 만드는 경우 **가용성 영역** 설정이 기본적으로 *없음*으로 설정됩니다. 기본 공용 Ip는 가용성 영역을 지원 하지 않습니다. **표준** SKU: 표준 SKU 공용 IP를 가상 머신 또는 부하 분산 장치 프런트 엔드에 연결할 수 있습니다. 가용성 영역을 지원하는 지역에 공용 IP 주소를 만드는 경우 **가용성 영역** 설정이 기본적으로 *영역 중복*으로 설정됩니다. 가용성 영역에 대한 자세한 내용은 **가용성 영역** 설정을 참조하세요. 주소를 표준 부하 분산 장치에 연결하는 경우에 표준 SKU가 필요합니다. 표준 부하 분산 장치에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가상 머신의 네트워크 인터페이스에 표준 SKU 공용 IP 주소를 할당할 때 [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 원하는 트래픽을 명시적으로 허용해야 합니다. 네트워크 보안 그룹을 만들어 연결하고 원하는 트래픽을 명시적으로 허용해야 리소스와 통신할 수 있습니다.|
@@ -92,7 +92,7 @@ ms.locfileid: "91804030"
 |---|---|---|---|
 |[Virtual Machine](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|분리를 **선택 하 여** NIC 구성에서 IP 주소를 분리 한 다음, **삭제**를 선택 합니다.|NIC 구성에서 IP 주소를 분리 하도록 [AzPublicIpAddress을 설정](/powershell/module/az.network/set-azpublicipaddress) 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress)|[az network 공용-ip update--를 제거](/cli/azure/network/public-ip#az-network-public-ip-update) 하 여 NIC 구성에서 ip 주소를 분리 합니다. 삭제 하려면 [az network public ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) |
 |Load Balancer 프런트 엔드 | 사용 하지 않는 공용 IP 주소로 이동 하 고 **연결** 을 선택 하 고 관련 프런트 엔드 ip 구성을 사용 하 여 Load Balancer을 선택 하 여 대체 합니다 (VM과 동일한 방법을 사용 하 여 이전 IP를 삭제할 수 있음).  | [AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) 를 사용 하 여 새 프런트 엔드 IP 구성을 Public Load Balancer와 연결 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) 또한 [AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) 를 사용 하 여 프런트 엔드 IP 구성이 두 개 이상 있는 경우 제거할 수 있습니다. |[az network lb 프런트 엔드-ip 업데이트](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) 를 사용 하 여 새 프런트 엔드 Ip 구성을 공용 Load Balancer와 연결 합니다. 삭제할 [AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) [az network lb 프런트 엔드-ip delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) 를 사용 하 여 프런트 엔드 ip 구성이 두 개 이상 있는 경우이를 제거할 수도 있습니다.|
-|방화벽|해당 없음| [할당 취소 ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) 하 여 방화벽 할당을 취소 하 고 모든 IP 구성 제거 | [az network firewall ip-https delete-](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) ip를 제거 하려면 PowerShell을 사용 하 여 먼저 할당을 취소 해야 합니다.|
+|방화벽|N/A| [할당 취소 ()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) 하 여 방화벽 할당을 취소 하 고 모든 IP 구성 제거 | [az network firewall ip-https delete-](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) ip를 제거 하려면 PowerShell을 사용 하 여 먼저 할당을 취소 해야 합니다.|
 
 >[!NOTE]
 >특정 리소스를 만든 후에는 해당 공용 Ip를 변경 하거나 제거할 수 없습니다.  Azure NAT 게이트웨이, Azure VPN Gateway, Azure 애플리케이션 게이트웨이입니다.

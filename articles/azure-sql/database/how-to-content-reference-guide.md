@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/14/2020
 ms.openlocfilehash: 9b151e566f0cc3e086277c101a796e7dde059ef9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442575"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>콘텐츠 참조 구성 및 관리-Azure SQL Database

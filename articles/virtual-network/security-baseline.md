@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629746"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Virtual Network에 대 한 Azure 보안 기준
@@ -714,13 +714,13 @@ Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 �
 
 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 고객이 관리 하는 키를 보호 합니다.   
 
-Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다.  
+Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다.  
 
 - [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
-- [Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
 
 - [Azure Storage Blob에 대한 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 

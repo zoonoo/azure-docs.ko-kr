@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/02/2020
+ms.date: 10/01/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319817"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630017"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -25,6 +25,29 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 - 버그 수정
 
 이 문서는 매월 업데이트됩니다. 새 업데이트를 유지하려면 이 문서를 다시 확인하세요.
+
+## <a name="september-2020"></a>2020년 9월
+
+2020년 9월에 변경된 내용은 다음과 같습니다.
+
+- 다음 Azure 지역에서 연결 대기 시간을 줄여 성능을 최적화했습니다.
+    - 독일
+    - 남아프리카(유효성 검사 환경에만 해당)
+
+이제 [환경 측정기](https://azure.microsoft.com/services/virtual-desktop/assessment/)를 사용하여 이러한 영역에서 사용자 환경 품질을 추정할 수 있습니다.
+
+- Windows Virtual Desktop용 Windows Desktop 클라이언트의 버전 1.2.1364를 출시했습니다. 이 업데이트에서는 다음과 같이 변경했습니다.
+    - Windows 7에서 SSO(Single Sign-On)가 작동하지 않는 문제가 해결되었습니다.
+    - 다른 앱에서 오디오 스트림이 전용 모드로 열려 있는 동안 팀에 대한 미디어 최적화를 사용하도록 설정한 사용자가 팀 회의를 호출하거나 조인하려고 할 때 클라이언트의 연결이 끊어지는 문제를 해결했습니다.
+    - 팀에 대한 미디어 최적화를 사용하도록 설정한 경우 팀에서 오디오나 비디오 디바이스를 열거하지 않는 문제를 해결했습니다.
+    - "설정과 관련하여 도움이 필요한가요?" 링크가 데스크톱 설정 페이지에 추가되었습니다.
+    - 고대비 어두운 테마를 사용할 때 발생하는 "구독" 단추와 관련된 문제가 해결되었습니다.
+    
+- 사용자의 놀라운 도움 덕분에 Microsoft Store 원격 데스크톱 클라이언트에 대한 두 가지 중요한 문제를 해결했습니다. 클라이언트의 단계별 릴리스를 전 세계의 더 많은 사용자에게 확대함에 따라 계속해서 피드백을 검토하고 문제를 해결할 것입니다.
+    
+- Azure Portal에서 VM을 배포에 추가하기 위한 워크플로의 일부로 VM 위치, 이미지, 리소스 그룹, 접두사 이름, 네트워크 구성을 변경할 수 있는 새로운 기능을 추가했습니다.
+
+- IT 전문가는 이제 Microsoft Endpoint Manager를 사용하여 하이브리드 Azure Active Directory에 조인된 Windows 10 Enterprise VM을 관리할 수 있습니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/microsoft-endpoint-manager-blog/microsoft-endpoint-manager-announces-support-for-windows-virtual/ba-p/1681048)을 참조하세요.
 
 ## <a name="august-2020"></a>2020년 8월
 
@@ -144,4 +167,3 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 몇 가지 개선 사항이
 ## <a name="next-steps"></a>다음 단계
 
 [Microsoft 365 Windows Virtual Desktop 로드맵](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)에서 향후 계획에 대해 알아봅니다.
-

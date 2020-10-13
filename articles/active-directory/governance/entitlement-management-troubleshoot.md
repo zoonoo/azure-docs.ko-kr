@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446995"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
@@ -141,7 +141,7 @@ ms.locfileid: "91446995"
 
 * 여러 정책이 적용 되는 경우 자동으로 선택 되는 정책이 나 요청자에 게 표시 되는 정책은 다음 우선 순위 논리를 기반으로 합니다.
 
-    | 정책 우선 순위 | Scope |
+    | 정책 우선 순위 | 범위 |
     | --- | --- |
     | P1 | 디렉터리 또는 특정 연결 된 조직의 특정 사용자 및 그룹 |
     | P2 | 디렉터리의 모든 구성원 (게스트 제외) |

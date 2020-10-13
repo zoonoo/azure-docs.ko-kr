@@ -4,10 +4,10 @@ description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로
 ms.date: 09/08/2020
 ms.topic: how-to
 ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336601"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링

@@ -5,32 +5,32 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448075"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
 이 문서에서는 Azure Migrate: 서버 평가 도구를 사용 하 여 물리적 서버를 평가 하는 경우 Azure Migrate 어플라이언스를 설정 하는 방법을 설명 합니다.
 
-Azure Migrate 어플라이언스는 Azure Migrate Server 평가에서 다음을 수행 하는 데 사용 하는 경량 어플라이언스입니다.
+Azure Migrate 어플라이언스는 Azure Migrate 서버 평가에서 다음을 수행하는 데 사용하는 간단한 어플라이언스입니다.
 
-- 온-프레미스 서버를 검색 합니다.
-- 검색 된 서버에 대 한 메타 데이터 및 성능 데이터를 Azure Migrate 서버 평가로 보냅니다.
+- 온-프레미스 서버를 검색합니다.
+- 검색된 서버에 대한 메타데이터 및 성능 데이터를 Azure Migrate 서버 평가로 보냅니다.
 
-Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-appliance.md) .
+Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-appliance.md).
 
 
 ## <a name="appliance-deployment-steps"></a>어플라이언스 배포 단계
 
 어플라이언스를 설정하려면 다음을 수행합니다.
-- 포털에서 어플라이언스 이름을 제공 하 고 Azure Migrate 프로젝트 키를 생성 합니다.
+- 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
 - Azure Portal에서 Azure Migrate 설치 프로그램 스크립트가 포함된 압축 파일을 다운로드합니다.
 - 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
 - PowerShell 스크립트를 실행하여 어플라이언스 웹 애플리케이션을 시작합니다.
-- 처음으로 어플라이언스를 구성 하 고 Azure Migrate 프로젝트 키를 사용 하 여 Azure Migrate 프로젝트에 등록 합니다.
+- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
 
@@ -152,7 +152,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 ## <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 
-검색이 완료 되 면 서버가 포털에 표시 되는지 확인할 수 있습니다.
+검색이 완료되면 서버가 포털에 표시되는지 확인할 수 있습니다.
 
 1. Azure Migrate 대시보드를 엽니다.
 2. **Azure Migrate - 서버** > **Azure Migrate: 서버 평가** 페이지에서 **검색된 서버**의 수를 표시하는 아이콘을 클릭합니다.

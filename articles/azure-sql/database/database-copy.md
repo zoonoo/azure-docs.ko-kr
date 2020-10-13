@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
 ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443782"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
@@ -29,7 +29,7 @@ Azure SQL Database는 동일한 서버나 다른 서버에 기존 [데이터베�
 데이터베이스 복사본은 복사 요청이 시작 된 후의 특정 시점에 원본 데이터베이스의 트랜잭션 측면에서 일관 된 스냅숏입니다. 복사본에 대해 동일한 서버 또는 다른 서버를 선택할 수 있습니다. 또한 백업 중복성, 서비스 계층 및 원본 데이터베이스의 계산 크기를 유지 하거나 동일한 또는 다른 서비스 계층 내에서 다른 백업 저장소 중복성 및/또는 계산 크기를 사용 하도록 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 복사 된 데이터베이스의 로그인, 사용자 및 권한은 원본 데이터베이스와 독립적으로 관리 됩니다. 복사본은 지역에서 복제 기술을 사용 하 여 생성 됩니다. 복제본 시드가 완료되면 지역에서 복제 링크가 자동으로 종료됩니다. 지역에서 복제 사용에 대한 모든 요구 사항은 데이터베이스 복사 작업에 적용됩니다. 자세한 내용은 [활성 지역 복제 개요](active-geo-replication-overview.md) 를 참조 하세요.
 
 > [!NOTE]
-> 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. Azure SQL Database 미리 보기에서 원본 데이터베이스가 로컬 중복 또는 영역 중복 백업 저장소 중복성으로 생성 된 경우 다른 Azure 지역의 서버에 대 한 데이터베이스 복사는 지원 되지 않습니다. 
+> Azure SQL Database의 구성 가능한 백업 스토리지 중복도는 현재 동남 아시아 Azure 지역에서만 공개 미리 보기로 제공됩니다. 미리 보기에서 원본 데이터베이스가 로컬 중복 또는 영역 중복 백업 저장소 중복성으로 생성 된 경우 다른 Azure 지역의 서버에 대 한 데이터베이스 복사는 지원 되지 않습니다. 
 
 ## <a name="logins-in-the-database-copy"></a>데이터베이스 복사본에서 로그인
 
@@ -56,7 +56,7 @@ Azure Portal을 사용하여 데이터베이스를 복사하려면 데이터베�
 PowerShell의 경우 [AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet을 사용 합니다.
 
 > [!IMPORTANT]
-> Azure SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
+> Azure SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 계속 수신할 예정입니다.  Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 호환성에 대한 자세한 내용은 [새로운 Azure PowerShell Az 모듈 소개](/powershell/azure/new-azureps-module-az)를 참조하세요.
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
@@ -128,7 +128,7 @@ T-sql을 사용 하 여 다른 구독에 있는 서버에 데이터베이스를 
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링
 
-[Sys. 데이터베이스](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)및 [dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 뷰를 쿼리하여 복사 프로세스를 모니터링 합니다. 복사가 진행 되는 동안 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열은 **복사**로 설정 됩니다.
+[Sys. 데이터베이스](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)및 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 뷰를 쿼리하여 복사 프로세스를 모니터링 합니다. 복사가 진행 되는 동안 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열은 **복사**로 설정 됩니다.
 
 * 복사가 실패 하면 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열이 **주의**대상으로 설정 됩니다. 새 데이터베이스에서 DROP 문을 실행하고 나중에 다시 시도합니다.
 * 복사에 성공 하면 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열이 **ONLINE**으로 설정 됩니다. 복사가 완료되었으며 새 데이터베이스가 원본 데이터베이스와는 독립적으로 변경 가능한 일반 데이터베이스가 됩니다.

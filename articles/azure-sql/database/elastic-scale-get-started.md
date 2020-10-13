@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442937"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
@@ -25,7 +25,7 @@ ms.locfileid: "91442937"
 
 ## <a name="elastic-database-tools-for-java"></a>Java용 Elastic Database 도구
 
-### <a name="prerequisites"></a>필수 요건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * JDK(Java Developer Kit) 버전 1.8 이상
 * [Maven](https://maven.apache.org/download.cgi)
@@ -72,7 +72,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 ## <a name="elastic-database-tools-for-net"></a>.Net용 Elastic Database 도구
 
-### <a name="prerequisites"></a>필수 요건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * C#이 있는 Visual Studio 2012 이상. [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 * NuGet 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](https://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.

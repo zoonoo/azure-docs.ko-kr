@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443082"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
@@ -25,7 +25,7 @@ ms.locfileid: "91443082"
 
 수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 집합을 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다.
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
@@ -184,7 +184,7 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 
 일반 SQL Server 연결 문자열을 사용 하 여 탄력적 쿼리를 사용 하도록 설정 하 고 외부 테이블을 정의한 서버에서 BI 및 데이터 통합 도구를 데이터베이스에 연결할 수 있습니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 그런 다음 도구와 연결하려는 타 SQL Server 데이터베이스와 똑같이 탄력적 쿼리 데이터베이스와 외부 테이블을 참조합니다.
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 * Azure SQL Database 방화벽 구성에서 Azure 서비스에 대 한 액세스를 사용 하도록 설정 하 여 탄력적 쿼리 끝점 데이터베이스에 원격 데이터베이스에 대 한 액세스 권한을 부여 했는지 확인 합니다. 또한 외부 데이터 원본 종의에서 제공한 자격 증명으로 원격 데이터베이스에 로그인할 수 있고 원격 테이블에 대한 액세스 권한이 있는지 확인합니다.  
 * 탄력적 쿼리는 원격 데이터베이스에서 대부분의 계산을 수행할 수 있는 상황에서 가장 잘 실행됩니다. 일반적으로 원격 데이터베이스에서 평가할 수 있는 선택적 필더 조건자나, 원격 데이터베이스에서 완전히 수행 가능한 조인을 통해 최고의 쿼리 성능을 얻을 수 있습니다. 다른 쿼리 패턴은 원격 데이터베이스에서 대규모의 데이터 로드가 필요할 수도 있기 때문에 성능이 좋지 않을 수 있습니다.

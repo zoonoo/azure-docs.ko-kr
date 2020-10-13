@@ -10,10 +10,10 @@ ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 454e5fdd6fae8fc7bf8e37833124bb3d188cb028
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802551"
 ---
 # <a name="azure-cosmos-db-net-sdk-v2-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v2 for SQL API: 다운로드 및 릴리스 정보
@@ -27,7 +27,7 @@ ms.locfileid: "91802551"
 > * [비동기 Java SDK v2](sql-api-sdk-async-java.md)
 > * [동기 Java SDK v2](sql-api-sdk-java.md)
 > * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)

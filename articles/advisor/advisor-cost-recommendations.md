@@ -4,10 +4,10 @@ description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합�
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448175"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감

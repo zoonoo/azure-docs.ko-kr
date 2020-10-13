@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442038"
 ---
 # <a name="resnet"></a>ResNet
@@ -50,7 +50,7 @@ ResNet에 대 한 자세한 내용은 [이 문서](https://pytorch.org/docs/stab
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 속성       | 범위 | Type    | 기본값           | 설명                              |
+| Name       | 범위 | Type    | 기본값           | 설명                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
 | 모델 이름 | 모두   | 모드    | resnext101 \_ 32x8d | 특정 ResNet 구조의 이름입니다.       |
 | 미리 학습 된 | 모두   | 부울 | True              | ImageNet에서 미리 학습 된 모델을 사용할지 여부 |
@@ -58,7 +58,7 @@ ResNet에 대 한 자세한 내용은 [이 문서](https://pytorch.org/docs/stab
 
 ###  <a name="output"></a>출력  
 
-| 속성            | 유형                    | 설명                              |
+| Name            | 유형                    | 설명                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델 | UntrainedModelDirectory | 학습 Pytorch 모델에 연결할 수 있는 학습 되지 않은 ResNet 모델입니다. |
 
