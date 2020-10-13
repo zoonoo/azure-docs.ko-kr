@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88235827"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
@@ -78,7 +78,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    b. 같지 **않음** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   c. **이 TRUE 인**경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   다. **이 TRUE 인**경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **가 FALSE 인 경우** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
@@ -123,7 +123,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 |department|EQUALS|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
 |workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](../app-provisioning/user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](../app-provisioning/customize-application-attributes.md)
 * [특성 매핑 식 작성](functions-for-customizing-application-data.md)

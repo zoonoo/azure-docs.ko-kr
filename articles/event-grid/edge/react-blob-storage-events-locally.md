@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87462023"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응 (미리 보기)
@@ -54,7 +54,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. 컨테이너의 이름, 이미지, 컨테이너 만들기 옵션을 제공 합니다.
 
    * **이름**: eventgridmodule
-   * **이미지 URI**:`mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **컨테이너 만들기 옵션**:
 
     ```json
@@ -93,7 +93,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. 컨테이너의 이름, 이미지 및 컨테이너 만들기 옵션을 제공 합니다.
 
    * **이름**: 구독자
-   * **이미지 URI**:`mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
    * **컨테이너 만들기 옵션**: 없음
 1. 페이지 맨 아래에 있는 **저장**
 1. 다음 섹션을 계속 진행 하 여 Azure Blob Storage 모듈을 추가 합니다.
@@ -193,8 +193,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     ```
 
     > [!IMPORTANT]
-    > - HTTPS 흐름의 경우 SAS 키를 통해 클라이언트 인증을 사용 하는 경우 이전에 지정 된 SAS 키를 헤더로 추가 해야 합니다. 따라서 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
-    > - HTTPS 흐름의 경우 인증서를 통해 클라이언트 인증을 사용 하도록 설정 하는 경우 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - HTTPS 흐름의 경우 SAS 키를 통해 클라이언트 인증을 사용 하는 경우 이전에 지정 된 SAS 키를 헤더로 추가 해야 합니다. 따라서 말아 넘기기 요청은 다음과 같습니다. `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - HTTPS 흐름의 경우 인증서를 통해 클라이언트 인증을 사용 하도록 설정 하는 경우 말아 넘기기 요청은 다음과 같습니다. `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. 구독자는 토픽에 게시 된 이벤트를 등록할 수 있습니다. 이벤트를 수신 하려면 **MicrosoftStorage** 항목에 대 한 Event Grid 구독을 만들어야 합니다.
     1. 다음 콘텐츠를 사용 하 여 blobsubscription.js를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
@@ -222,7 +222,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
        ```
 
        > [!IMPORTANT]
-       > - HTTPS 흐름의 경우 SAS 키를 통해 클라이언트 인증을 사용 하는 경우 이전에 지정 된 SAS 키를 헤더로 추가 해야 합니다. 따라서 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - HTTPS 흐름의 경우 SAS 키를 통해 클라이언트 인증을 사용 하는 경우 이전에 지정 된 SAS 키를 헤더로 추가 해야 합니다. 따라서 말아 넘기기 요청은 다음과 같습니다. `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
        > - HTTPS 흐름의 경우 인증서를 통해 클라이언트 인증을 사용 하도록 설정 하는 경우 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
     3. 다음 명령을 실행 하 여 구독이 성공적으로 만들어졌는지 확인 합니다. HTTP 상태 코드 200을 반환 해야 합니다.
@@ -251,8 +251,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
        ```
 
        > [!IMPORTANT]
-       > - HTTPS 흐름의 경우 SAS 키를 통해 클라이언트 인증을 사용 하는 경우 이전에 지정 된 SAS 키를 헤더로 추가 해야 합니다. 따라서 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-       > - HTTPS 흐름의 경우 인증서를 통해 클라이언트 인증을 사용 하도록 설정 하는 경우 말아 넘기기 요청은 다음과 같습니다.`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - HTTPS 흐름의 경우 SAS 키를 통해 클라이언트 인증을 사용 하는 경우 이전에 지정 된 SAS 키를 헤더로 추가 해야 합니다. 따라서 말아 넘기기 요청은 다음과 같습니다. `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - HTTPS 흐름의 경우 인증서를 통해 클라이언트 인증을 사용 하도록 설정 하는 경우 말아 넘기기 요청은 다음과 같습니다. `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
 3. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 다운로드 하 여 [로컬 저장소에 연결](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
@@ -318,13 +318,13 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
             }
     ```
 
-축하합니다! 자습서를 완료 했습니다. 다음 섹션에서는 이벤트 속성에 대 한 세부 정보를 제공 합니다.
+축하합니다. 자습서를 완료 했습니다. 다음 섹션에서는 이벤트 속성에 대 한 세부 정보를 제공 합니다.
 
 ### <a name="event-properties"></a>이벤트 속성
 
 다음은 지원 되는 이벤트 속성과 해당 유형 및 설명 목록입니다. 
 
-| 속성 | Type | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -337,14 +337,14 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| api | 문자열 | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated-허용 되는 값은 및입니다. `PutBlob``PutBlockList`</li><li>BlobDeleted-허용 되는 값은 `DeleteBlob` , `DeleteAfterUpload` 및 `AutoDelete` 입니다. <p>`DeleteAfterUpload`DeleteAfterUpload desired 속성이 true로 설정 되어 있으므로 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다. </p><p>`AutoDelete`deleteAfterMinutes desired 속성 값이 만료 되어 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다.</p></li></ul>|
+| api | 문자열 | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated-허용 되는 값은 및입니다. `PutBlob``PutBlockList`</li><li>BlobDeleted-허용 되는 값은 `DeleteBlob` , `DeleteAfterUpload` 및 `AutoDelete` 입니다. <p>`DeleteAfterUpload`DeleteAfterUpload desired 속성이 true로 설정 되어 있으므로 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다. </p><p>`AutoDelete` deleteAfterMinutes desired 속성 값이 만료 되어 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다.</p></li></ul>|
 | clientRequestId | 문자열 | 저장소 API 작업에 대 한 클라이언트 제공 요청 ID입니다. 이 ID는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. 자세한 내용은 [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조 하세요. |
 | requestId | 문자열 | 저장소 API 작업에 대 한 서비스 생성 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | eTag | 문자열 | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
-| contentLength | integer | Blob의 크기(바이트)입니다. |
+| contentLength | 정수 | Blob의 크기(바이트)입니다. |
 | blobType | 문자열 | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
 | url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 * \<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\> *입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 * \<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *입니다. |
 

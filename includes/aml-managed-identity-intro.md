@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 08/24/2020
 ms.openlocfilehash: d8ee7b61897a9718d7078fc16eddc177fefbff43
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89147476"
 ---
  Azure Machine Learning 계산 클러스터는 코드에 자격 증명을 포함 하지 않고 Azure 리소스에 대 한 액세스를 인증 하 [는 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 도 지원 합니다. 두 가지 종류의 관리 ID가 있습니다.

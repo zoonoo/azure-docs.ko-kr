@@ -4,10 +4,10 @@ description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207765"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
@@ -82,7 +82,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
     |---------|---------|---------|
     | Subscription    |  사용자의 구독  | 함수 앱을 사용 하는 구독입니다.  |
     | Resource group     | 리소스 그룹  | 함수 앱을 포함 하는 리소스 그룹입니다.   |
-    | 리소스 종류     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
+    | 리소스 유형     |  App Services | 함수 앱은 모니터의 App Services 인스턴스로 표시 됩니다. |
     | 리소스     |  함수 앱  | 모니터링할 함수 앱입니다.        |
 
 1. **적용** 을 선택 하 여 모니터링할 리소스로 함수 앱을 선택 합니다.

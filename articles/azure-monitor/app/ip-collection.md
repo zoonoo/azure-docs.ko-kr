@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333310"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
@@ -186,7 +186,7 @@ ASP.NET와 동일한 ASP.NET Core 방식으로 원격 분석 이니셜라이저�
     services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
 }
 ```
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ### <a name="nodejs"></a>Node.js
 

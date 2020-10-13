@@ -4,10 +4,10 @@ description: Azure Functions 프록시를 사용하는 방법의 개요
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385877"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
@@ -160,7 +160,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 }
 ```
 
-### <a name="application-settings"></a><a name="applicationSettings"></a>응용 프로그램 설정
+### <a name="application-settings"></a><a name="applicationSettings"></a> 응용 프로그램 설정
 
 여러 앱 설정에 따라 프록시 동작을 제어할 수 있습니다. [함수 앱 설정 참조](./functions-app-settings.md)에 모두 설명되어 있습니다.
 
@@ -171,7 +171,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 프록시는 \를 이스케이프 기호로 사용하여 JSON 파일에서 모든 문자열을 읽습니다. 프록시는 또한 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
 
-|문자|이스케이프된 문자|예제|
+|문자|이스케이프된 문자|예|
 |-|-|-|
 |{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`

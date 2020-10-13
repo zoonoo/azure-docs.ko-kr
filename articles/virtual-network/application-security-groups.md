@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 3542ae2e94c2fa3d3e9d6100738b2aabded94d15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306670"
 ---
 # <a name="application-security-groups"></a>애플리케이션 보안 그룹
@@ -32,7 +32,7 @@ ms.locfileid: "91306670"
 
 이 규칙은 인터넷에서 웹 서버로 가는 트래픽을 허용하기 위해 필요합니다. 인터넷의 인바운드 트래픽을 **DenyAllInbound** 기본 보안 규칙에서 거부하기 때문에 *AsgLogic* 또는 *AsgDb* 애플리케이션 보안 그룹에 대한 규칙을 추가하지 않아도 됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
 |---|---|---|---|---|---|---|
 | 100 | 인터넷 | * | AsgWeb | 80 | TCP | Allow |
 
@@ -40,7 +40,7 @@ ms.locfileid: "91306670"
 
 **AllowVNetInBound** 기본 보안 규칙은 동일한 가상 네트워크의 리소스 간 통신을 모두 허용하므로, 모든 리소스에서 들어오는 트래픽을 거부하려면 이 규칙이 필요합니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 모두 | 거부 |
 
@@ -48,7 +48,7 @@ ms.locfileid: "91306670"
 
 이 규칙은 *AsgLogic* 애플리케이션 보안 그룹에서 *AsgDb* 애플리케이션 보안 그룹으로 가는 트래픽을 허용합니다. 이 규칙의 우선 순위는 *Deny-Database-All* 규칙의 우선 순위보다 높습니다. 결과적으로 이 규칙이 *Deny-Database-All* 규칙보다 먼저 처리되므로 *AsgLogic* 애플리케이션 보안 그룹의 트래픽은 허용되는 반면, 그 외의 트래픽은 모두 차단됩니다.
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 

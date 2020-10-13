@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87439479"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
@@ -150,7 +150,7 @@ RedHat:RHEL:7.6:7.6.2019102813
 RHEL 7.4      |RedHat: RHEL: 7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | 6 월 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat: RHEL: 7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
-RHEL 8.0      |해당 없음                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
+RHEL 8.0      |N/A                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
 
 ### <a name="update-services-for-sap"></a>SAP 용 업데이트 서비스
 

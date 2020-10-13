@@ -4,10 +4,10 @@ description: 제어 평면과 데이터 평면 작업의 차이점을 설명 합
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371272"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Azure 제어 평면 및 데이터 평면

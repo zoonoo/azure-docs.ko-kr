@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306398"
 ---
 # <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
@@ -41,7 +41,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 ## <a name="what-is-in-the-report"></a>보고서에는 무엇이 있나요?
 실패 한 로그인 활동 클라이언트 IP 주소는 웹 응용 프로그램 프록시 서버를 통해 집계 됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. 다음 정보를 제공 합니다. ![ 열 머리글이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4a.png)
 
-| 보고서 항목 | Description |
+| 보고서 항목 | 설명 |
 | ------- | ----------- |
 | 타임스탬프 | 탐지 시간 범위가 시작되면 Azure Portal 현지 시간 기준의 타임스탬프가 표시됩니다.<br /> 모든 일별 이벤트는 자정 UTC 시간에 생성됩니다. <br />시간별 이벤트의 타임스탬프는 시간의 시작 시점으로 반올림됩니다. 첫 번째 활동 시작 시간은 내보낸 파일의 "firstAuditTimestamp"에서 찾을 수 있습니다. |
 | 트리거 형식 | 탐지 시간 범위 형식이 표시됩니다. 집계 트리거 형식은 시간 또는 일 단위입니다. 이렇게 하면 하루 동안에 걸쳐 분산된 시도 횟수에서 자주 발생한 무차별 암호 대입 공격 및 느린 공격을 탐지하는 데 도움이 될 수 있습니다. |
@@ -68,7 +68,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 ## <a name="download-risky-ip-report"></a>위험한 IP 보고서 다운로드 
 **다운로드** 기능을 사용하면 지난 30일 동안의 위험한 IP 주소 목록 전체를 Connect Health 포털에서 내보낼 수 있습니다. 내보내기 결과에는 각 탐지 시간 범위에서 실패한 AD FS 로그인 활동이 모두 포함되므로 내보낸 후에 필터링을 사용자 지정할 수 있습니다. 포털에서 강조 표시된 집계 외에도 내보내기 결과에는 실패한 로그인 활동에 대해 IP 주소별로 자세한 정보가 표시됩니다.
 
-|  보고서 항목  |  Description  | 
+|  보고서 항목  |  설명  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | 탐지 시간 범위 동안 실패한 활동이 시작된 첫 번째 타임스탬프를 표시합니다.  | 
 | lastAuditTimestamp | 탐지 시간 범위 동안 실패한 활동이 종료된 마지막 타임스탬프를 표시합니다.  | 
@@ -83,7 +83,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 
 ![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report4d.png)
 
-| 임계값 항목 | Description |
+| 임계값 항목 | 설명 |
 | --- | --- |
 | (잘못된 U/P 수 + 엑스트라넷 잠금 수) / 일  | **일** 단위의 잘못된 암호 수와 엑스트라넷 잠금 수의 합계가 이 값을 초과하는 경우 활동을 보고하고 경고 알림을 트리거하는 임계값 설정 |
 | (잘못된 U/P 수 + 엑스트라넷 잠금 수) / 시간 | **시간** 단위의 잘못된 암호 수와 엑스트라넷 잠금 수의 합계가 이 값을 초과하는 경우 활동을 보고하고 경고 알림을 트리거하는 임계값 설정 |

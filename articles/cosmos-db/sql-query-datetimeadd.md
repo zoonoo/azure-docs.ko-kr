@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 0b2741a3d2b013ba7bd97038eb4ba4512f36af11
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262066"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
@@ -32,11 +32,11 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| Month        | "month", "mm", "m"   |
+| 월        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
-| 두 번째       | "second", "ss", "s"  |
+| Second       | "second", "ss", "s"  |
 | Millisecond  | "밀리초", "ms"  |
 | 마이크로초  | "마이크로초", "mcs" |
 | 나노초   | "나노초", "ns"   |
@@ -47,7 +47,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 *DateTime*  
    UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
   
-  |서식|설명|
+  |형식|설명|
   |-|-|
   |YYYY|네 자리 연도|
   |MM|두 자리 월 (01 = 1 월 등)|
@@ -65,7 +65,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 
 UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합니다 `YYYY-MM-DDThh:mm:ss.fffffffZ` .
   
-  |서식|설명|
+  |형식|설명|
   |-|-|
   |YYYY|네 자리 연도|
   |MM|두 자리 월 (01 = 1 월 등)|
@@ -85,9 +85,9 @@ DateTimeAdd는 `undefined` 다음과 같은 이유로를 반환 합니다.
 - 지정 된 numeric_expr 올바른 정수가 아닙니다.
 - 인수 또는 결과의 DateTime이 유효한 ISO 8601 DateTime이 아닙니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-다음 예에서는 날짜/시간에 1 개월을 더 합니다.`2020-07-09T23:20:13.4575530Z`
+다음 예에서는 날짜/시간에 1 개월을 더 합니다. `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
@@ -101,7 +101,7 @@ SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
 ]
 ```  
 
-다음 예에서는 날짜/시간에서 2 시간을 뺍니다.`2020-07-09T23:20:13.4575530Z`
+다음 예에서는 날짜/시간에서 2 시간을 뺍니다. `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 369d19d98946f8309c7f2053f4453e09a7ed902f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86121064"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Azure Portal을 사용한 Azure Database for MariaDB 서버 다시 시작
@@ -20,7 +20,7 @@ ms.locfileid: "86121064"
 
 다시 시작을 완료하는 데 필요한 시간은 MariaDB 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 

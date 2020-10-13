@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195976"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
@@ -109,7 +109,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 서유럽 | 서유럽 |
 | 영국 | 영국 서부 | 영국 남부 |
 | &nbsp; | 영국 남부 | 영국 남부 |
-| 아시아 태평양 | 동남아시아 | 동남아시아 |
+| 아시아 태평양 | 동남 아시아 | 동남 아시아 |
 | &nbsp; | 동아시아 | 동남아시아 |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 동부 |
 | &nbsp; | 오스트레일리아 남동부 | 오스트레일리아 남동부 |

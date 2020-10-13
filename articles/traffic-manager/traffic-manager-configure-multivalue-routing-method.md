@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401047"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
@@ -61,7 +61,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Type                    | 외부 엔드포인트                                   |
+    | 형식                    | 외부 엔드포인트                                   |
     | Name           | myEndpoint1                                        |
     | FQDN(정규화된 도메인 이름) 또는 IP           | 이 Traffic Manager 프로필에 추가하려는 엔드포인트의 공용 IP 주소를 입력합니다.                         |
     |        |           |

@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88141281"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱에 대 한 토큰 가져오기
@@ -207,7 +207,7 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>MSAL.NET의 필수 매개 변수
 
-`AcquireTokenInteractive`에는 필수 매개 변수가 `scopes` 하나만 있습니다. `scopes`매개 변수는 토큰을 필요로 하는 범위를 정의 하는 문자열을 열거 합니다. Microsoft Graph에 대 한 토큰의 경우 각 Microsoft Graph API에 대 한 API 참조에서 필요한 범위를 찾을 수 있습니다. 참조에서 "사용 권한" 섹션으로 이동 합니다.
+`AcquireTokenInteractive` 에는 필수 매개 변수가 `scopes` 하나만 있습니다. `scopes`매개 변수는 토큰을 필요로 하는 범위를 정의 하는 문자열을 열거 합니다. Microsoft Graph에 대 한 토큰의 경우 각 Microsoft Graph API에 대 한 API 참조에서 필요한 범위를 찾을 수 있습니다. 참조에서 "사용 권한" 섹션으로 이동 합니다.
 
 예를 들어 [사용자의 연락처를 나열](/graph/api/user-list-contacts)하려면 "User. read", "Contact. read" 범위를 사용 합니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](/graph/permissions-reference)를 참조하세요.
 
@@ -225,19 +225,19 @@ Android에서를 사용 하 여 앱을 만들 때 부모 활동을 지정할 수
 
 클래스는 다음과 같은 상수를 정의합니다.
 
-- `SelectAccount`STS (보안 토큰 서비스)가 계정 선택 대화 상자를 표시 하도록 합니다. 이 대화 상자에는 사용자에 게 세션이 있는 계정이 포함 되어 있습니다. 사용자가 다른 id 중에서 선택할 수 있도록 하려는 경우이 옵션을 사용할 수 있습니다. 이 옵션은 MSAL이 ID 공급자에게 `prompt=select_account`를 보내도록 유도합니다.
+- `SelectAccount` STS (보안 토큰 서비스)가 계정 선택 대화 상자를 표시 하도록 합니다. 이 대화 상자에는 사용자에 게 세션이 있는 계정이 포함 되어 있습니다. 사용자가 다른 id 중에서 선택할 수 있도록 하려는 경우이 옵션을 사용할 수 있습니다. 이 옵션은 MSAL이 ID 공급자에게 `prompt=select_account`를 보내도록 유도합니다.
 
     `SelectAccount`상수는 기본값 이며 사용 가능한 정보에 따라 최상의 환경을 효과적으로 제공 합니다. 사용 가능한 정보에는 계정, 사용자에 대 한 세션의 현재 상태 등이 포함 될 수 있습니다. 이 작업을 수행 해야 하는 이유가 없으면이 기본값을 변경 하지 마세요.
-- `Consent`이전에 동의가 부여 된 경우에도 사용자에 게 동의 여부를 묻는 메시지를 표시할 수 있습니다. 이 경우 MSAL이 ID 공급자에게 `prompt=consent`을 보냅니다.
+- `Consent` 이전에 동의가 부여 된 경우에도 사용자에 게 동의 여부를 묻는 메시지를 표시할 수 있습니다. 이 경우 MSAL이 ID 공급자에게 `prompt=consent`을 보냅니다.
 
     `Consent`조직의 거 버 넌 스에서 응용 프로그램을 사용할 때마다 사용자에 게 동의 대화 상자를 표시 해야 하는 보안 중심 응용 프로그램에서 상수를 사용할 수 있습니다.
-- `ForceLogin`프롬프트가 필요 하지 않은 경우에도 서비스에서 사용자에 게 자격 증명을 묻는 메시지를 표시 하도록 합니다.
+- `ForceLogin` 프롬프트가 필요 하지 않은 경우에도 서비스에서 사용자에 게 자격 증명을 묻는 메시지를 표시 하도록 합니다.
 
     이 옵션은 토큰 획득에 실패 하 고 사용자가 다시 로그인 할 수 있도록 하려는 경우에 유용할 수 있습니다. 이 경우 MSAL이 ID 공급자에게 `prompt=login`을 보냅니다. 조직의 거 버 넌 스에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 로그인 해야 하는 보안 중심 응용 프로그램에서이 옵션을 사용 하는 것이 좋습니다.
-- `Never`는 .NET 4.5 및 Windows 런타임 (WinRT)에만 해당 됩니다. 이 상수는 사용자에 게 메시지를 표시 하지 않지만 숨겨진 포함 된 웹 보기에 저장 된 쿠키를 사용 하려고 합니다. 자세한 내용은 [MSAL.NET에서 웹 브라우저 사용](./msal-net-web-browsers.md)을 참조 하세요.
+- `Never` 는 .NET 4.5 및 Windows 런타임 (WinRT)에만 해당 됩니다. 이 상수는 사용자에 게 메시지를 표시 하지 않지만 숨겨진 포함 된 웹 보기에 저장 된 쿠키를 사용 하려고 합니다. 자세한 내용은 [MSAL.NET에서 웹 브라우저 사용](./msal-net-web-browsers.md)을 참조 하세요.
 
     이 옵션을 `AcquireTokenInteractive` 사용할 수 없는 경우에서는 UI 조작이 필요 하다는 메시지를 표시 하는 예외를 throw 합니다. 그런 다음 다른 매개 변수를 사용 해야 `Prompt` 합니다.
-- `NoPrompt`는 id 공급자에 게 프롬프트를 보내지 않습니다.
+- `NoPrompt` 는 id 공급자에 게 프롬프트를 보내지 않습니다.
 
     이 옵션은 Azure Active Directory B2C의 편집 프로필 정책에만 유용 합니다. 자세한 내용은 [B2C 구체적인](https://aka.ms/msal-net-b2c-specificities)항목을 참조 하세요.
 

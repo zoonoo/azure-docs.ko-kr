@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325613"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor의 메트릭
@@ -56,7 +56,7 @@ Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 
 
 ### <a name="network-throughput"></a>네트워크 처리량
 
-| Timestamp     | 메트릭 값 |
+| 타임스탬프     | 메트릭 값 |
 | ------------- |:-------------|
 | 8/9/2017 8:14 | 1,331.8Kbps |
 | 8/9/2017 8:15 | 1,141.4Kbps |

@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165249"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
@@ -325,8 +325,8 @@ Content-type: application/json
 | mail                                                | 예      | `email`API로 전송 된 클레임에 해당 합니다.                                                                                                               |
 | userType                                            | 예      | `Guest`이어야 합니다. 이 사용자를 게스트 사용자로 지정 합니다.                                                                                                                 |
 | ID                                          | 예      | 페더레이션된 id 정보입니다.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | 예       | `displayName`, 및 기타와 같은 기타 기본 제공 특성 `city` 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | 예       | 사용자에 대 한 사용자 지정 특성입니다. 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                                                            |
+| \<otherBuiltInAttribute>                            | 아니요       | `displayName`, 및 기타와 같은 기타 기본 제공 특성 `city` 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | 아니요       | 사용자에 대 한 사용자 지정 특성입니다. 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>페더레이션된 Azure Active Directory 사용자의 경우
 

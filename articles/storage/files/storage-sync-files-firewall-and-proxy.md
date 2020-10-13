@@ -8,10 +8,10 @@ ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87903717"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
@@ -266,7 +266,7 @@ if ($found) {
 그런 다음에서 IP 주소 범위를 사용 `$ipAddressRanges` 하 여 방화벽을 업데이트할 수 있습니다. 방화벽을 업데이트 하는 방법에 대 한 자세한 내용은 방화벽/네트워크 어플라이언스의 웹 사이트를 확인 하세요.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>서비스 끝점에 대 한 네트워크 연결 테스트
-서버를 Azure File Sync 서비스에 등록 한 후에는 테스트 StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration.exe를 사용 하 여이 서버와 관련 된 모든 끝점 (Url)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전 한 통신에서 서버가 Azure File Sync 완전히 작동 하지 않도록 하 고 프록시 및 방화벽 구성을 미세 조정 하는 데 사용할 수 있는 경우 문제를 해결 하는 데 도움이 됩니다.
+서버를 Azure File Sync 서비스에 등록 한 후에는 Test-StorageSyncNetworkConnectivity cmdlet 및 ServerRegistration.exe를 사용 하 여이 서버와 관련 된 모든 끝점 (Url)과의 통신을 테스트할 수 있습니다. 이 cmdlet은 불완전 한 통신에서 서버가 Azure File Sync 완전히 작동 하지 않도록 하 고 프록시 및 방화벽 구성을 미세 조정 하는 데 사용할 수 있는 경우 문제를 해결 하는 데 도움이 됩니다.
 
 네트워크 연결 테스트를 실행 하려면 Azure File Sync 에이전트 버전 9.1 이상을 설치 하 고 다음 PowerShell 명령을 실행 합니다.
 ```powershell
@@ -280,6 +280,6 @@ Test-StorageSyncNetworkConnectivity
 방화벽 규칙을 제한하는 도메인을 설정하는 것도 보안을 강화하는 방법이 될 수 있습니다. 이러한 방화벽 구성을 사용하는 경우 시간이 지남에 따라 URL이 추가되고 변경될 수 있다는 점에 유의해야 합니다. 이 문서를 정기적으로 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 - [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

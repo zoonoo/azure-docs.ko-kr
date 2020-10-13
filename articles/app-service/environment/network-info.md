@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0dfcf74ef07ff2bde7921860c6e13a59b0ccf023
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962539"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
@@ -53,7 +53,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| Windows Server Update Services와 함께 | From | 받는 사람 |
+| 사용 | From | 받는 사람 |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -69,7 +69,7 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 사용자가 고려해 야 하는 다른 포트는 응용 프로그램 포트입니다.
 
-| Windows Server Update Services와 함께 | 포트 |
+| 사용 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -122,7 +122,7 @@ ILB ASE가 도메인 이름이 *contoso.appserviceenvironment.net* 앱 이름이
 
 ## <a name="ase-ip-addresses"></a>ASE IP 주소 ##
 
-ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 해당 항목은 다음과 같습니다.
+ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
 - **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
@@ -157,7 +157,7 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 * 포트 16001의 부하 분산 장치에서 TCP
 * ASE 서브넷에서 모든 포트의 ASE 서브넷으로
 
-**아웃바운드**
+**트**
 * 포트 53의 모든 Ip에 대 한 UDP
 * 포트 123의 모든 Ip에 대 한 UDP
 * 포트 80, 443의 모든 Ip에서 TCP로
@@ -169,7 +169,7 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 
 기본 앱 액세스 포트는 다음과 같습니다.
 
-| Windows Server Update Services와 함께 | 포트 |
+| 사용 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |

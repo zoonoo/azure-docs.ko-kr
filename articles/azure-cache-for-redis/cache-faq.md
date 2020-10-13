@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: 197decbb263391a32b8bf01cdbb6c2f34b750111
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88003565"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis FAQ
@@ -18,7 +18,7 @@ Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범
 
 * [계획 FAQ](cache-planning-faq.md)
 * [개발 FAQ](cache-development-faq.md)
-* [관리 Faq](cache-management-faq.md)
+* [관리 FAQ](cache-management-faq.md)
 * [모니터링 및 문제 해결 FAQ](cache-monitor-troubleshoot-faq.md)
 
 ## <a name="deprecated-cache-services"></a>사용 되지 않는 캐시 서비스

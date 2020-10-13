@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8be242369ecae2c809a38428284c9ddcad440e3f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578243"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Azure Data Lake Storage Gen1을 사용하여 Event Hubs의 데이터 캡처
 
 Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이터를 캡처하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -117,6 +117,6 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이�
 Data Lake Storage Gen1에 데이터가 있으면 분석 작업을 실행하여 데이터를 처리하고 분석할 수 있습니다. Azure Data Lake Analytics를 사용하여 이 작업을 수행하는 방법에 대해서는 [USQL Avro 예제](https://github.com/Azure/usql/tree/master/Examples/AvroExamples)를 참조하세요.
   
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)

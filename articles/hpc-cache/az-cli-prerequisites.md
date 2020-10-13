@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: v-erkel
 ms.openlocfilehash: 7d0844e699c012d987c23a75e2b0874005cf535a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87099248"
 ---
-# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Azure HPC 캐시에 대 한 Azure CLI 설정
+# <a name="set-up-azure-cli-for-azure-hpc-cache"></a>Azure HPC Cache용 Azure CLI 설치
 
 Azure CLI를 사용 하 여 Azure HPC 캐시를 만들거나 관리 하기 전에 다음 단계를 수행 하 여 환경을 준비 합니다.
 

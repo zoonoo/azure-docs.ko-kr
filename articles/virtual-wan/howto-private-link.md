@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
 ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306636"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>가상 WAN에서 개인 링크 사용
@@ -38,11 +38,11 @@ ms.locfileid: "91306636"
 
 Azure SQL Database를 만든 후 개인 끝점을 검색 하는 개인 끝점 IP 주소를 확인할 수 있습니다.
 
-:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="전용 끝점" lightbox="./media/howto-private-link/endpoints.png":::
+:::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="개인 링크 만들기" lightbox="./media/howto-private-link/endpoints.png":::
 
 만든 개인 끝점을 클릭 하면 해당 개인 IP 주소 및 FQDN (정규화 된 도메인 이름)이 표시 됩니다. 개인 끝점에는 배포 된 VNet 범위 (10.1.3.0/24)의 IP 주소가 있습니다.
 
-:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL 끝점" lightbox="./media/howto-private-link/sql-endpoint.png":::
+:::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="개인 링크 만들기" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="verify-connectivity-from-the-same-vnet"></a><a name="connectivity"></a>동일한 VNet에서 연결 확인
 
@@ -61,7 +61,7 @@ Address: 10.1.3.228
 
 이전 출력에서 볼 수 있듯이 FQDN은 `wantest.database.windows.net` 에 매핑되고, 개인 끝점을 `wantest.privatelink.database.windows.net` 따라 만든 개인 DNS 영역은 개인 IP 주소로 확인 됩니다 `10.1.3.228` . 개인 DNS 영역을 살펴보면 개인 IP 주소에 매핑된 개인 끝점에 대 한 A 레코드가 있는지 확인 합니다.
 
-:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="DNS 영역" lightbox="./media/howto-private-link/dns-zone.png":::
+:::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="개인 링크 만들기" lightbox="./media/howto-private-link/dns-zone.png":::
 
 올바른 DNS 확인을 확인 한 후 데이터베이스에 연결을 시도할 수 있습니다.
 
@@ -87,7 +87,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 
 이 예제에서는 다른 VNet에서 연결 합니다. 따라서 먼저 개인 IP 주소에 대 한 Azure SQL Database 정규화 된 도메인 이름을 확인할 수 있도록 개인 DNS 영역을 새 VNet에 연결 합니다. 이 작업은 개인 DNS 영역을 새 VNet에 연결 하 여 수행 됩니다.
 
-:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="DNS 링크" lightbox="./media/howto-private-link/dns-link.png":::
+:::image type="content" source="./media/howto-private-link/dns-link.png" alt-text="개인 링크 만들기" lightbox="./media/howto-private-link/dns-link.png":::
 
 이제 연결 된 VNet의 모든 가상 컴퓨터가 개인 링크의 개인 IP 주소에 대 한 Azure SQL Database FQDN을 올바르게 확인 해야 합니다.
 
@@ -104,7 +104,7 @@ Address: 10.1.3.228
 
 이 VNet (10.1.1.0/24)이 개인 끝점이 구성 된 원래 VNet (10.1.3.0/24)에 연결 되어 있는지를 두 번 확인 하기 위해 VNet의 가상 머신에서 유효한 경로 테이블을 확인할 수 있습니다.
 
-:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="유효 경로" lightbox="./media/howto-private-link/effective-routes.png":::
+:::image type="content" source="./media/howto-private-link/effective-routes.png" alt-text="개인 링크 만들기" lightbox="./media/howto-private-link/effective-routes.png":::
 
 여기에서 볼 수 있듯이 Azure Virtual WAN의 Virtual Network 게이트웨이에서 삽입 한 VNet 10.1.3.0/24를 가리키는 경로가 있습니다. 이제 데이터베이스에 대 한 연결을 테스트할 수 있습니다.
 

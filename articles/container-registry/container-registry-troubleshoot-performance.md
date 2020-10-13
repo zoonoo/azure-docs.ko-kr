@@ -1,16 +1,16 @@
 ---
-title: 레지스트리 성능 문제 해결
+title: 쿼리 성능 문제 해결
 description: 레지스트리의 성능에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 414e3a92b8ebd4ff58528fc5e9ec4794471bd775
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88227477"
 ---
-# <a name="troubleshoot-registry-performance"></a>레지스트리 성능 문제 해결
+# <a name="troubleshoot-registry-performance"></a>쿼리 성능 문제 해결
 
 이 문서는 Azure container registry의 성능에 발생할 수 있는 문제를 해결 하는 데 도움이 됩니다. 
 

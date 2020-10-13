@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91371221"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 온-프레미스 Api에 안전 하 게 액세스
@@ -38,7 +38,7 @@ Azure AD 응용 프로그램 프록시는 솔루션의 백본을 구성 하 고,
 
 Azure AD 응용 프로그램 프록시 인증 및 권한 부여는 Azure AD를 기반으로 구축 되므로 신뢰할 수 있는 장치만 응용 프로그램 프록시를 통해 게시 된 Api에 액세스할 수 있도록 Azure AD 조건부 액세스를 사용할 수 있습니다. Azure AD 조인 또는 데스크톱에 대해 Azure AD 하이브리드 조인 또는 장치에 대 한 Intune 관리를 사용 합니다. Azure Multi-Factor Authentication와 같은 Azure Active Directory Premium 기능과 [Azure Id 보호](/azure/active-directory/active-directory-identityprotection)의 기계 학습 지원 보안을 활용할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 연습을 수행 하려면 다음이 필요 합니다.
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808721"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 부하 분산 장치를 다른 지역으로 이동
@@ -181,8 +181,8 @@ ms.locfileid: "84808721"
 6.  이전 단계에서 이동한 대상 공용 IP의 값을 편집 하려면 먼저 리소스 ID를 가져온 후 파일의 parameters.js에 붙여넣어야 합니다. ID를 가져오려면 다음을 수행 합니다.
 
     1. 다른 브라우저 탭 또는 창에서 [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **리소스 그룹**을 선택 합니다.
-    2. 이전 단계에서 이동한 공용 IP를 포함 하는 대상 리소스 그룹을 찾습니다. 선택합니다.
-    3. **설정**  >  **속성**을 선택 합니다.
+    2. 이전 단계에서 이동한 공용 IP를 포함 하는 대상 리소스 그룹을 찾습니다. 이 폴더를 선택합니다.
+    3. **설정** > **속성**을 선택합니다.
     4. 오른쪽 블레이드에서 **리소스 ID** 를 강조 표시 하 고 클립보드에 복사 합니다. 또는 **리소스 ID** 경로 오른쪽의 **클립보드로 복사를** 선택할 수 있습니다.
     5. 다른 브라우저 창이 나 탭에서 열려 있는 **매개 변수 편집** 편집기에서 **값** 속성에 리소스 ID를 붙여넣습니다.
 
