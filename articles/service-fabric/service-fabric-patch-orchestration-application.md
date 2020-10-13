@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445902"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
@@ -63,7 +63,7 @@ POA는 다음과 같은 하위 구성 요소로 구성 됩니다.
 > [!NOTE]
 > POA는 Service Fabric Repair Manager 서비스를 사용 하 여 노드를 사용 하지 않도록 설정 하거나 사용 하도록 설정 하 고 상태 검사를 수행 합니다. POA에서 만든 복구 작업은 각 노드에 대 한 Windows 업데이트 진행률을 추적 합니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 > 필요한 최소 .NET Framework 버전은 4.6입니다.
@@ -166,7 +166,7 @@ Repair Manager 서비스를 사용 하도록 설정 하려면
 | WURescheduleCount     | Int <br> (기본값: *5*)                  | 작업이 영구적으로 실패 하는 경우 서비스에서 Windows 업데이트를 예약 하는 최대 횟수입니다.          |
 | WURescheduleTimeInMinutes | Int <br>(기본값: *30*) | 오류가 계속 발생 하는 경우 서비스에서 Windows 업데이트를 예약 하는 간격입니다. |
 | WUFrequency           | 쉼표로 구분 된 문자열 (기본값: *매주, 수요일, 7:00:00*)     | Windows 업데이트를 설치 하는 빈도입니다. 형식 및 가능한 값은 다음과 같습니다. <br>-매월, DD, HH: MM: SS (예: *매월, 5, 12:22:32*). 필드 _DD_ (일)에 허용 되는 값은 1부터 28 까지의 숫자 _입니다._ <br>-주별, Day, HH: MM: SS (예: *매주, 화요일, 12:22:32*)  <br>-매일, HH: MM: SS (예: *매일, 12:22:32*)  <br>-Week, Day, HH: MM: SS (예: *2, 금요일, 21:00:00* 은 매월 2 주 금요일 오후 9:00 시 UTC를 나타냄) <br>- *없음* 은 Windows 업데이트를 수행 하지 않음을 나타냅니다.  <br><br> 시간은 UTC 단위입니다.|
-| AcceptWindowsUpdateEula | Boolean <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
+| AcceptWindowsUpdateEula | 부울 <br>(기본값: *true*) | 이 플래그를 설정하면 애플리케이션이 컴퓨터의 소유자를 대신하여 Windows 업데이트에 대한 최종 사용자 사용권 계약에 동의합니다.              |
 
 > [!TIP]
 > Windows 업데이트를 즉시 수행 하려면 `WUFrequency` 응용 프로그램 배포 시간을 기준으로 설정 합니다. 예를 들어 5노드 테스트 클러스터가 있고 약 5PM UTC에 앱을 배포할 계획이라고 가정할 수 있습니다. 응용 프로그램 업그레이드 또는 배포에 30 분이 소요 된다고 가정 하면 WUFrequency을 *매일, 17:30:00*로 설정 합니다.
@@ -439,7 +439,7 @@ A: POA는 Service Fabric Repair Manager를 사용 하 여 업데이트를 위해
 
 ## <a name="disclaimers"></a>고지 사항
 
-- POA는 사용자를 대신 하 여 Windows 업데이트에 대 한 최종 사용자 사용권 계약을 수락 합니다. 필요에 따라 애플리케이션 구성에서 설정을 해제할 수 있습니다.
+- POA는 사용자를 대신 하 여 Windows 업데이트에 대 한 End-User 사용권 계약을 수락 합니다. 필요에 따라 애플리케이션 구성에서 설정을 해제할 수 있습니다.
 
 - POA는 사용량 및 성능을 추적 하기 위해 원격 분석을 수집 합니다. 애플리케이션의 원격 분석은 Service Fabric 런타임의 원격 분석 설정을 따릅니다(기본적으로 설정됨).
 

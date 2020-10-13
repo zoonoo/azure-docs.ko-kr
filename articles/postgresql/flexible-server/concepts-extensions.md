@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710586"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버의 PostgreSQL 확장
@@ -31,7 +31,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 12가 있는 Azure Database for PostgreSQL 유연한 서버에서 사용할 수 있습니다. 
 
 > [!div class="mx-tableFixed"]
-> | **확장명**| **확장 버전** | **설명** |
+> | **내선 번호**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Address Standardizer US 데이터 집합 예제|
@@ -80,7 +80,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 11이 있는 Azure Database for PostgreSQL 유연한 서버에서 사용할 수 있습니다. 
 
 > [!div class="mx-tableFixed"]
-> | **확장명**| **확장 버전** | **설명** |
+> | **내선 번호**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629797"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943869"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -116,7 +116,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **세부 정보**: 우선 순위가 가장 높은 항목을 사용 하 여 Security Center 시작의 [보안 권장 사항을](../../security-center/security-center-recommendations.md) 따릅니다.
 
 **모범 사례**: siem (보안 정보 및 이벤트 관리) 솔루션에 Security Center 경고를 통합 합니다.   
-**세부 정보**: siem을 사용 하는 대부분의 조직에서는이를 분석가 응답이 필요한 보안 경고에 대 한 중앙 clearinghouse로 사용 합니다. Security Center에서 생성 된 처리 된 이벤트는 Azure Monitor를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시 됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 자세한 내용은 [보안 경고 및 권장 사항 내보내기](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) 를 참조 하세요. Azure 센티널를 사용 하는 경우 [연결 Azure Security Center](../../sentinel/connect-azure-security-center.md)을 참조 하세요.
+**세부 정보**: siem을 사용 하는 대부분의 조직에서는이를 분석가 응답이 필요한 보안 경고에 대 한 중앙 clearinghouse로 사용 합니다. Security Center에서 생성 된 처리 된 이벤트는 Azure Monitor를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시 됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 지침은 [SIEM, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림](../../security-center/export-to-siem.md) 을 참조 하세요. Azure 센티널를 사용 하는 경우 [연결 Azure Security Center](../../sentinel/connect-azure-security-center.md)을 참조 하세요.
 
 **모범 사례**: Azure 로그를 siem과 통합 합니다.   
 **세부 정보**: [Azure Monitor을 사용 하 여 데이터를 수집 하 고 내보냅니다](/azure/azure-monitor/overview#integrate-and-export-data). 이 방법은 보안 인시던트 조사를 사용 하도록 설정 하는 데 중요 하며 온라인 로그 보존은 제한적입니다. Azure 센티널를 사용 하는 경우 [연결 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.

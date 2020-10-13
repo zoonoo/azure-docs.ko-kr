@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.openlocfilehash: e3e08ae9bbf00e1c9a44e6ba913cac1d842928b7
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567501"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 중지/시작 (미리 보기)
@@ -20,7 +20,7 @@ ms.locfileid: "91567501"
 
 이 문서에서는 유연한 서버를 중지 하 고 시작 하는 단계별 절차를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

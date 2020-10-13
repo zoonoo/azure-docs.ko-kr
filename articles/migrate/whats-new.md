@@ -4,18 +4,24 @@ description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 019c04c5820a82b7910b6755ff69e5dfbe7eb66c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421614"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91667081"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
 ## <a name="update-september-2020"></a>업데이트(2020년 9월)
-- 이제 Azure Migrate를 사용하여 서버를 가용성 영역으로 마이그레이션할 수 있습니다.
+- 이제 가용성 영역으로의 서버 마이그레이션이 지원됩니다.
+- 이제 UEFI 기반 VM 및 물리적 서버를 Azure 2세대 VM으로 마이그레이션할 수 있습니다.
+- 새로운 Azure Migrate Power BI 평가 대시보드를 사용하여 다양한 평가 설정에서 비용을 비교할 수 있습니다. 대시보드는 Power BI 대시보드에 연결되는 평가를 자동으로 만드는 PowerShell 유틸리티와 함께 제공됩니다. [자세한 정보](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- 이제 1000개의 VM에서 종속성 분석(에이전트 없는)을 동시에 실행할 수 있습니다.
+- 이제 PowerShell 스크립트를 사용하여 종속성 분석(에이전트 없는)을 대규모로 활성화하거나 비활성화할 수 있습니다. [자세한 정보](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- 종속성 분석(에이전트 없음)을 통해 수집된 데이터를 사용하여 Power BI에서 네트워크 연결을 시각화합니다. [자세히 알아보세요.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 
 ## <a name="update-august-2020"></a>업데이트(2020년 8월)
 
@@ -23,9 +29,10 @@ ms.locfileid: "89421614"
 - 포털에서 OVA/VHD 파일 또는 설치 관리자 스크립트를 다운로드하여 각각 VMware 및 Hyper-V 어플라이언스를 설정하는 옵션입니다.
 - 향상된 사용자 환경으로 어플라이언스 구성 관리자를 새로 고쳤습니다.
 - Hyper-V VM 검색을 위한 여러 자격 증명 지원.
-- 추가된 자격 증명과 검색 소스에 대한 검색, 정렬 및 필터링 기능이 향상되었습니다.
-- 단일 항목 입력, 여러 항목 입력 및 사용자가 Hyper-V 호스트/클러스터 및 물리적 서버에 대한 검색 소스를 추가할 수 있는 CSV 옵션을 가져옵니다.
-- 테이블에 추가된 각 원본에 대한 유효성 검사 및 검색 작업의 상태 업데이트로 오류 환경이 향상되었습니다. 
+
+## <a name="update-july-2020"></a>업데이트(2020년 7월)
+
+- 에이전트 없는 VMware 마이그레이션은 이제 vCenter당 300개의 VM 동시 복제를 지원합니다.
 
 ## <a name="update-june-2020"></a>업데이트(2020년 6월)
 

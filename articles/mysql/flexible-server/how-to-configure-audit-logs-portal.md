@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
 ms.openlocfilehash: cadd384bc7d3222cbc5d1179271f7b4624c9224a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565885"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 감사 로그 구성 및 액세스
@@ -20,7 +20,7 @@ ms.locfileid: "91565885"
 
 Azure Portal에서 Azure Database for MySQL 유연한 서버 [감사 로그](concepts-audit-logs.md) 및 진단 설정을 구성할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 단계를 수행 하려면 [유연한 서버가](quickstart-create-server-portal.md)필요 합니다.
 
 ## <a name="configure-audit-logging"></a>감사 로깅 구성

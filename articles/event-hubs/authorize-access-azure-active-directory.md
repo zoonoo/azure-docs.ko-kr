@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Active Directory를 사용 하 여 Event 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566264"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
@@ -33,7 +33,7 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 azure 기본 제공 역할
 Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 
-| 역할 | Description | 
+| 역할 | 설명 | 
 | ---- | ----------- | 
 | [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 완전 한 액세스 권한을 부여할 수 있습니다. |
 | [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다. |

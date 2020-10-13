@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.openlocfilehash: a09989e57729862cb18f148f95eb83f81a775b7d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542226"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
@@ -217,7 +217,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 무슨 일이 일어났나요?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 되었나요?
 
 제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.
 
@@ -318,17 +318,17 @@ LUIS 샘플을 사용하여 C# 또는 Node.Js를 통해 프로그래밍 방식�
 
 ## <a name="build-2019-conference-announcements"></a>빌드 2019 회의 알림
 
-다음 기능은 빌드 2019 회의에서 릴리스 되었습니다.
+Build 2019 Conference에서 다음 기능이 발표되었습니다.
 
-* [V3 API 마이그레이션 가이드 미리 보기](luis-migration-api-v3.md)
-* [향상 된 분석 대시보드](luis-how-to-use-dashboard.md)
-* [향상 된 미리 작성 된 도메인](luis-reference-prebuilt-domains.md)
+* [V3 API 마이그레이션의 미리 보기 가이드](luis-migration-api-v3.md)
+* [분석 대시보드 향상](luis-how-to-use-dashboard.md)
+* [미리 작성된 도메인 개선](luis-reference-prebuilt-domains.md)
 * [동적 목록 엔터티](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [외부 엔터티](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 비디오:
 
-* [Azure 대화형 AI를 사용 하 여 차세대 비즈니스를 위해 비즈니스를 확장 하는 방법](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Azure Conversational AI를 사용하여 차세대 비즈니스를 위해 비즈니스를 확장하는 방법](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>다음 단계
 

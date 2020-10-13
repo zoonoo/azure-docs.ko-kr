@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568639"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Gen1 탐색기 Azure Time Series Insights
 
 > [!CAUTION]
-> Gen1 문서입니다.
+> 이는 Gen1 문서입니다.
 
 이 문서에서는 Azure Time Series Insights Gen1 [Explorer 웹 앱](https://insights.timeseries.azure.com/)에 대 한 기능 및 옵션을 설명 합니다. Azure Time Series Insights 탐색기는 서비스에서 제공 하는 강력한 데이터 시각화 기능을 보여 주며 사용자 환경 내에서 액세스할 수 있습니다.
 
@@ -31,7 +31,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 > [!TIP]
 > 데모 환경에서 둘러보기를 보려면 [Azure Time Series Insights 빠른](time-series-quickstart.md)시작을 참조 하세요.
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 ### <a name="learn-about-querying-data-by-using-the-azure-time-series-insights-explorer-br"></a>Azure Time Series Insights 탐색기를 사용 하 여 데이터를 쿼리 하는 방법에 대해 알아봅니다. </br>
 
@@ -40,7 +40,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >이전 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Azure Time Series Insights 시작"을 재생 합니다.</a>
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Time Series Insights 탐색기를 사용 하려면 먼저 다음을 수행 해야 합니다.
 
@@ -74,7 +74,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
 
       - **조건자**: 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 하려면 조건자를 사용 합니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
-         |작업(Operation)  |지원되는 형식  |메모  |
+         |작업(Operation)  |지원되는 형식  |참고  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=**, **!=**, **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
