@@ -3,12 +3,12 @@ title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
 ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: a3e2a5bcbb68ef0b51cf02ebb7a7e34913e2a1e6
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 77e8b79ec7cf217161099808cee4364e31c6d6dd
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929611"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950281"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
@@ -26,7 +26,7 @@ CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하
 
 - 공유 서비스 환경에 배포된 VM에 사용되는 비밀을 호스팅하는 데 사용되는 [Azure Key Vault](../../../../key-vault/general/overview.md) 인스턴스
 - [Log Analytics](../../../../azure-monitor/overview.md) 배포 - 진단 로깅을 위해 [스토리지 계정](../../../../storage/common/storage-introduction.md)에 보안 배포를 시작하는 순간부터 모든 작업과 서비스가 중앙 위치에 기록되도록 배포됩니다.
-- [Azure Security Center](../../../../security-center/security-center-intro.md)(표준 버전) 배포 - 마이그레이션된 워크로드에 대한 위협 방지 기능을 제공합니다.
+- [Azure Security Center](../../../../security-center/security-center-introduction.md)(표준 버전) 배포 - 마이그레이션된 워크로드에 대한 위협 방지 기능을 제공합니다.
 - 또한 청사진은 다음과 같은 [Azure Policy](../../../policy/overview.md) 정의를 정의하고 배포합니다.
   - 정책 정의:
     - 리소스 그룹에 적용된 태그 지정(CostCenter)

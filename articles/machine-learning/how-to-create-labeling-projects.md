@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897983"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91776122"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -156,6 +156,9 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 최종 레이블에서 여전히 레이블 지정자의 입력을 사용하므로 이 기술을 *사용자 참여형* 레이블 지정이라고 하는 경우도 있습니다.
 
+> [!NOTE]
+> ML 지원 데이터 레이블 지정은 [가상 네트워크](how-to-network-security-overview.md) 뒤에 보호되는 기본 스토리지 계정을 지원하지 않습니다. ML 지원 데이터 레이블 지정에는 기본이 아닌 스토리지 계정을 사용해야 합니다. 기본이 아닌 스토리지 계정은 가상 네트워크 뒤에서 보호할 수 있습니다. 
+
 ### <a name="clustering"></a>Clustering
 
 특정 개수의 레이블이 제출되면 이미지 분류를 위한 기계 학습 모델이 유사한 이미지의 그룹화를 시작합니다.  이러한 비슷한 이미지는 수동 태그 지정 속도를 높이기 위해 동일한 화면의 레이블 지정자에 표시됩니다. 클러스터링은 레이블 지정자에서 4, 6 또는 9개의 이미지 그리드를 표시할 때 특히 유용합니다. 
@@ -186,7 +189,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 **대시보드** 탭에는 레이블 지정 작업의 진행률이 표시됩니다.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="데이터 레이블 지정 대시보드":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="레이블 지정 프로젝트 만들기 마법사":::
 
 진행률 차트에는 레이블이 지정된 항목 수와 아직 지정되지 않은 항목 수가 표시됩니다.  보류 중인 항목은 다음과 같을 수 있습니다.
 

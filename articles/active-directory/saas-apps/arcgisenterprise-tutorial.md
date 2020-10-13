@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc0303cc4ba00f873ecfea7b02047ebd1bff7da1
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549616"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91713884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>자습서: ArcGIS Enterprise와 Azure Active Directory 통합
 
@@ -104,7 +104,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![ArcGIS Enterprise 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `<EXTERNAL_DNS_NAME>.portal` 패턴을 사용하여 URL을 입력합니다.
 
@@ -112,7 +112,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     다. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![ArcGIS Enterprise 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin` 패턴을 사용하여 URL을 입력합니다.
 
@@ -138,19 +138,19 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 1. **조직 > 설정 편집**을 선택합니다.
 
-    ![ArcGIS Enterprise 구성](./media/arcgisenterprise-tutorial/configure1.png)
+    ![스크린샷은 편집 설정이 호출된 ArcGIS Enterprise 조직 탭을 보여줍니다.](./media/arcgisenterprise-tutorial/configure1.png)
 
 1. **보안** 탭을 선택합니다.
 
-    ![ArcGIS Enterprise 구성](./media/arcgisenterprise-tutorial/configure2.png)
+    ![스크린샷은 선택된 보안 탭을 보여줍니다.](./media/arcgisenterprise-tutorial/configure2.png)
 
 1. **SAML을 통한 Enterprise 로그인** 섹션으로 스크롤 다운하여 **ENTERPRISE 로그인 설정**을 선택합니다.
 
-    ![ArcGIS Enterprise 구성](./media/arcgisenterprise-tutorial/configure3.png)
+    ![스크린샷은 엔터프라이즈 로그인 설정을 선택할 수 있는 SAML을 통해 엔터프라이즈 로그인을 보여줍니다.](./media/arcgisenterprise-tutorial/configure3.png)
 
 1. **ID 공급자 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![ArcGIS Enterprise 구성](./media/arcgisenterprise-tutorial/configure4.png)
+    ![스크린샷은 여기에 설명된 단계를 수행하는 ID 공급자 설정을 보여줍니다.](./media/arcgisenterprise-tutorial/configure4.png)
 
     a. **이름** 텍스트 상자에 **Azure Active Directory 테스트**와 같은 이름을 입력하세요.
 
@@ -158,7 +158,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     c. **고급 설정 표시**를 클릭하고 **엔터티 ID** 값을 복사하여, Azure Portal의 **ArcGIS Enterprise 도메인 및 URL** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
     
-    ![ArcGIS Enterprise 구성](./media/arcgisenterprise-tutorial/configure5.png)
+    ![스크린샷은 엔터티 ID를 가져오고 ID 공급자를 업데이트하는 위치를 보여줍니다.](./media/arcgisenterprise-tutorial/configure5.png)
 
     d. **ID 공급자 업데이트**를 클릭합니다.
 

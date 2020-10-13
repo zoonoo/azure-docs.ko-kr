@@ -35,7 +35,11 @@
         - name: 0 - 개체 및 동작 감지 애플리케이션 배포
           href: tutorial-video-analytics-deploy.md
         - name: 1 - 비디오 분석 애플리케이션 만들기
-          href: tutorial-video-analytics-create-app.md
+          items:
+            - name: 개체 및 동작 감지(YOLO v3)
+              href: tutorial-video-analytics-create-app-yolo-v3.md
+            - name: 개체 및 동작 감지(OpenVINO)
+              href: tutorial-video-analytics-create-app-openvino.md
         - name: 2 - IoT Edge 디바이스 구성
           items:
             - name: 에지에서 비디오 분석 디바이스 만들기(Linux VM)

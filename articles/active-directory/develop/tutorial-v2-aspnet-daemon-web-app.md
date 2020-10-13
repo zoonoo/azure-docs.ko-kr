@@ -1,5 +1,6 @@
 ---
-title: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
+title: '자습서: Microsoft Graph 비즈니스 데이터에 액세스하는 다중 테넌트 디먼 빌드 | Azure'
+titleSuffix: Microsoft identity platform
 description: 이 자습서에서는 Windows 데스크톱(WPF) 애플리케이션에서 Azure Active Directory를 통해 보호되는 ASP.NET 웹 API를 호출하는 방법을 알아봅니다. WPF 클라이언트는 사용자를 인증하고, 액세스 토큰을 요청하고, 웹 API를 호출합니다.
 services: active-directory
 author: jmprieur
@@ -11,14 +12,14 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 72b72959f7b5c89bfad4495c8534de5dfaaefe8b
+ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982847"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91611098"
 ---
-# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>자습서: Microsoft ID 플랫폼 엔드포인트를 사용하는 다중 테넌트 디먼 빌드
+# <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 장기간 실행되는 비대화형 프로세스에서 Microsoft 비즈니스 고객의 데이터에 액세스하는 방법에 대해 알아봅니다. 디먼 샘플은 [OAuth2 클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md)를 사용하여 액세스 토큰을 획득합니다. 그런 다음, 디먼에서 이 토큰을 사용하여 [Microsoft Graph](https://graph.microsoft.io)를 호출하고 조직 데이터에 액세스합니다.
 
@@ -30,28 +31,23 @@ ms.locfileid: "90982847"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+## <a name="prerequisites"></a>필수 구성 요소
+
+- [Visual Studio 2017 또는 2019](https://visualstudio.microsoft.com/downloads/)
+- Azure AD 테넌트. 자세한 내용은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 참조하세요.
+- Azure AD 테넌트에 있는 하나 이상의 사용자 계정. 이 샘플은 Microsoft 계정에서 작동하지 않습니다. Microsoft 계정으로 [Azure Portal](https://portal.azure.com)에 로그인하여 사용자 계정을 디렉터리에 만든 적이 없는 경우 지금 이 작업을 수행합니다.
+
+## <a name="scenario"></a>시나리오
+
 앱은 ASP.NET MVC 애플리케이션으로 빌드됩니다. OWIN OpenID Connect 미들웨어를 사용하여 사용자를 로그인합니다.
 
 이 샘플의 "daemon" 구성 요소는 `SyncController.cs` API 컨트롤러입니다. 컨트롤러가 호출되면 Microsoft Graph에서 고객의 Azure AD(Azure Active Directory) 테넌트에 있는 사용자 목록을 가져옵니다. `SyncController.cs`는 웹 애플리케이션의 AJAX 호출을 통해 트리거되며, [.NET용 MSAL(Microsoft 인증 라이브러리)](msal-overview.md)을 사용하여 Microsoft Graph에 대한 액세스 토큰을 획득합니다.
-
->[!NOTE]
-> Microsoft ID 플랫폼을 처음 사용하는 경우 [.NET Core 디먼 빠른 시작](quickstart-v2-netcore-daemon.md)으로 시작하는 것이 좋습니다.
-
-## <a name="scenario"></a>시나리오
 
 이 앱은 Microsoft 비즈니스 고객을 위한 다중 테넌트 앱이므로 고객이 애플리케이션을 회사 데이터에 "가입"하거나 "연결"할 수 있는 방법을 제공해야 합니다. 연결 흐름 중에 회사 관리자는 먼저 로그인한 사용자가 없어도 비대화형 방식으로 회사 데이터에 액세스할 수 있도록 *애플리케이션 권한*을 앱에 직접 부여합니다. 이 샘플의 논리 대부분에서는 ID 플랫폼의 [관리자 동의](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) 엔드포인트를 사용하여 이 연결 흐름을 수행하는 방법을 보여 줍니다.
 
 ![다이어그램은 Azure에 연결되는 세 개의 로컬 항목이 있는 UserSync 앱을 보여줍니다. Start dot Auth는 대화형으로 토큰을 획득하여 Azure AD에 연결하고, AccountController는 Azure AD에 연결하기 위한 관리자 동의를 가져오고, SyncController는 사용자를 읽어 Microsoft Graph에 연결합니다.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 이 샘플에 사용되는 개념에 대한 자세한 내용은 [ID 플랫폼 엔드포인트의 클라이언트 자격 증명 프로토콜 설명서](v2-oauth2-client-creds-grant-flow.md)를 참조하세요.
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-이 빠른 시작에서 샘플을 실행하려면 다음이 필요합니다.
-
-- [Visual Studio 2017 또는 2019](https://visualstudio.microsoft.com/downloads/)
-- Azure AD 테넌트. 자세한 내용은 [Azure AD 테넌트를 가져오는 방법](quickstart-create-new-tenant.md)을 참조하세요.
-- Azure AD 테넌트에 있는 하나 이상의 사용자 계정. 이 샘플은 Microsoft 계정(이전의 Windows Live 계정)에서 작동하지 않습니다. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인했지만 사용자 계정을 디렉터리에 만들지 않은 경우 지금 이 작업을 수행해야 합니다.
 
 ## <a name="clone-or-download-this-repository"></a>리포지토리 복제 또는 다운로드
 
@@ -256,17 +252,8 @@ MSAL.NET에 버그가 있으면 해당 문제를 [MSAL.NET GitHub 문제](https:
 추천 사항을 제공하려면 [사용자 의견 페이지](https://feedback.azure.com/forums/169401-azure-active-directory)로 이동하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Microsoft ID 플랫폼에서 지원하는 다양한 [인증 흐름 및 애플리케이션 시나리오](authentication-flows-app-scenarios.md)에 대해 자세히 알아봅니다.
 
-자세한 내용은 다음 개념 설명서를 참조하세요.
+Microsoft ID 플랫폼을 사용하여 보호된 웹 API에 액세스하는 디먼 앱을 빌드하는 방법에 대해 자세히 알아봅니다.
 
-- [Azure Active Directory의 테넌시](single-and-multi-tenant-apps.md)
-- [Azure AD 애플리케이션 동의 환경 이해](application-consent-experience.md)
-- [다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인](howto-convert-app-to-be-multi-tenant.md)
-- [사용자 및 관리자 동의 이해](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](app-objects-and-service-principals.md)
-- [빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록](quickstart-register-app.md)
-- [빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
-- [클라이언트 자격 증명 흐름을 사용하여 애플리케이션에 대한 토큰 획득](msal-client-applications.md)
-
-더 간단한 다중 테넌트 콘솔 디먼 애플리케이션은 [.NET Core 디먼 빠른 시작](quickstart-v2-netcore-daemon.md)을 참조하세요.
+> [!div class="nextstepaction"]
+> [시나리오: 웹 API를 호출하는 디먼 애플리케이션](scenario-daemon-overview.md)

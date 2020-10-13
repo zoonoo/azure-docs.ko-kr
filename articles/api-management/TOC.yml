@@ -19,6 +19,9 @@
       href: powershell-create-service-instance.md
     - name: 인스턴스 만들기 - Visual Studio Code
       href: vscode-create-service-instance.md
+    - name: 인스턴스 만들기 - ARM 템플릿
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: 자습서
   items:
     - name: 1 - 첫 번째 API 가져오기

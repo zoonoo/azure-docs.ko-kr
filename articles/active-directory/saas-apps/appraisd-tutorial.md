@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b8e8a6df2fc355ad6a8ef50d801dc7457e97c63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e355241191a4bdcab12c7c0b6527706b044a70c
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547786"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91714482"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>자습서: Azure Active Directory와 Appraisd 통합
 
@@ -86,7 +86,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Appraisd 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Appraisd 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되어야 하기 때문에, **편집** 아이콘을 클릭하고 특성 매핑을 변경하여 특성을 편집해야 합니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 강조 표시된 사용자 특성 창을 보여줍니다.](common/edit-attribute.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 
@@ -110,15 +110,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 페이지의 오른쪽 위에 있는 **설정** 아이콘을 클릭한 후 **구성**으로 이동합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+    ![스크린샷은 호출된 구성 링크를 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. 메뉴 왼쪽에서 **SAML Single Sign-On**을 클릭합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+    ![스크린샷은 SAML Single Sign-On 옵션이 강조 표시된 구성 옵션을 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. **SAML 2.0 Single Sign-On 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+    ![스크린샷은 기본 릴레이 상태 및 서비스 시작 로그인 URL을 편집할 수 있는 SAML 2.0 Single Sign-On 구성 페이지를 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
     a. **기본 릴레이 상태** 값을 복사하여 Azure Portal의 **기본 SAML 구성**에 있는 **릴레이 상태** 텍스트 상자에 붙여넣습니다.
 
@@ -126,7 +126,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. **사용자 식별** 아래 동일한 페이지를 아래로 스크롤하여 다음 단계를 수행합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+    ![스크린샷은 이 단계에서 값을 입력할 수 있는 사용자 식별을 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. Azure Portal에서 복사한 **로그온 URL** 값을 **ID 공급자 Single Sign-On URL** 텍스트 상자에 붙여넣고 **저장**을 클릭합니다.
 
@@ -174,15 +174,15 @@ Azure AD 사용자가 Appraisd에 로그인할 수 있게 하려면 Appraisd로 
 
 2. 페이지의 오른쪽 위에 있는 **설정** 아이콘을 클릭한 후 **관리 센터**로 이동합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+    ![스크린샷은 관리 센터를 선택할 수 있는 설정 옵션을 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. 페이지의 위쪽에 있는 도구 모음에서 **사용자**를 클릭한 다음, **새 사용자 추가**로 이동합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+    ![스크린샷은 사용자 및 새 사용자 추가가 호출된 Appraisd 페이지를 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. **새 사용자 추가** 페이지에서 다음 단계를 수행합니다.
 
-    ![이미지](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+    ![스크린샷은 새 사용자 추가 페이지를 보여줍니다.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

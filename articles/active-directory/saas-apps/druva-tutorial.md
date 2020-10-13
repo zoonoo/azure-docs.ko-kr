@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-ms.openlocfilehash: d0dffe602aef01af2fb2ef8ee9462a0bb99c1ae0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 401b1ef4e057d145574c0a8fcbfce8c9f586c266
+ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555691"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91775068"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>자습서: Druva와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -146,7 +146,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Single Sign-On** 탭에서 **편집**을 클릭합니다.
 
-    ![Single Sign-On 설정](./media/druva-tutorial/ic795092.png "Single Sign-On 설정")
+    !["편집" 단추가 선택된 "액세스 설정 - Single Sign-On" 탭을 보여주는 스크린샷.](./media/druva-tutorial/ic795092.png "Single Sign-On 설정")
 
 1. **Single Sign-On 설정 편집** 페이지에서 다음 단계를 수행합니다.
 
