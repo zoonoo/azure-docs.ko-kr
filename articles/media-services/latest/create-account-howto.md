@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267975"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
@@ -91,7 +91,7 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
 
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>참조
 
 * [Azure CLI](/cli/azure/ams?view=azure-cli-latest)
 * [Media Services 계정에 보조 저장소 연결](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

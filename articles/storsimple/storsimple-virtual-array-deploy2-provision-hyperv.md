@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d6dfc95820e911781ffa88e2207601703f165839
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070592"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple 가상 배열 배포 - Hyper-V에서 프로비전
@@ -168,11 +168,11 @@ ms.locfileid: "87070592"
    ![로그인 상자에서 불특정 문자를 표시 하는 vSphere 클라이언트 콘솔 탭의 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image23.png)
 4. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
 
-   ![VSphere 클라이언트 콘솔 탭의 스크린샷. 페이지의 텍스트에는 암호를 변경 해야 합니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷 페이지의 텍스트에는 암호를 변경 해야 합니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image24.png)
 
    8자 이상을 포함하는 암호를 입력합니다. 암호는 4가지 요구 사항(소문자, 대문자, 숫자 및 특수 문자) 중 3가지 이상을 충족해야 합니다. 확인을 위해 암호를 다시 입력합니다. 암호가 변경되었다는 메시지가 표시됩니다.
 
-   ![VSphere 클라이언트 콘솔 탭의 스크린샷. 페이지의 텍스트에는 암호가 변경 되었음을 알리는 텍스트가 있습니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
+   ![VSphere 클라이언트 콘솔 탭의 스크린샷 페이지의 텍스트에는 암호가 변경 되었음을 알리는 텍스트가 있습니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image25.png)
 5. 암호 변경이 완료되면 가상 배열이 다시 시작됩니다. 디바이스가 시작할 때까지 기다립니다.
 
    ![주 Storsimpleadmin으로 로그인 페이지의 스크린샷 페이지의 텍스트는 사용자에 게 시스템 이벤트 알림 서비스를 기다리도록 요청 합니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image26.png)
@@ -187,12 +187,12 @@ ms.locfileid: "87070592"
     다음으로 네트워크를 구성합니다.
 7. `Get-HcsIpAddress` 명령을 사용하여 가상 배열에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
-   ![Set-hcsipaddress 명령의 출력을 사용 하 여 콘솔 창을 보여 주는 스크린샷 "이더넷"이 장치 이름으로 나열 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
+   ![Get-HcsIpAddress 명령의 출력을 포함 하는 콘솔 창을 보여 주는 스크린샷 "이더넷"이 장치 이름으로 나열 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하십시오.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![Get-help Set-hcsipaddress 명령의 출력과 Set-hcsipaddress 명령의 올바른 사용법을 포함 하는 콘솔 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
+    ![Get-Help Set-HcsIpAddress 명령의 출력과 Set-HcsIpAddress 명령의 올바른 사용법을 보여 주는 콘솔 창을 보여 주는 스크린샷](./media/storsimple-virtual-array-deploy2-provision-hyperv/image30.png)
 9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 배열의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
 
    ![장치 배너 텍스트가 있는 콘솔 창을 보여 주는 스크린샷 해당 텍스트에는 장치 IP 주소 및 URL이 포함 됩니다.](./media/storsimple-virtual-array-deploy2-provision-hyperv/image31m.png)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269559"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>안전 하 고 Azure로 관리 되는 워크스테이션 배포
@@ -29,7 +29,7 @@ ms.locfileid: "89269559"
 > [!NOTE]
 > 요구 사항에 따라 필요에 따라 프로필을 적용 합니다. Microsoft Intune에서 할당 하 여 다른 프로필로 이동할 수 있습니다.
 
-| 프로필 | 낮음 | 향상된 | 높음 | 특수화 | 보안됨 | Isolated |
+| 프로필 | 낮음 | 향상된 | 높음 | 특수화 | 보안됨 | 격리 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Azure AD의 사용자 | 예 | 예 | 예 | 예 | 예 | 예 |
 | Intune 관리 | 예 | 예 | 예 | 예 | 예 | 예 |
@@ -231,7 +231,7 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 
 | 프로필 | 다운로드 위치 | 파일 이름 |
 | --- | --- | --- |
-| 낮은 보안 | 해당 없음 | 해당 없음 |
+| 낮은 보안 | N/A | N/A |
 | 향상된 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809). p s 1 |
 | 높은 수준의 보안 | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809) ps1 |
 | 특수화 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC Windows10 (1803) SecurityBaseline.ps1 |

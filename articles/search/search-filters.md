@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534797"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
@@ -196,10 +196,10 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](./search-query-odata-filter.md#examples)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](/rest/api/searchservice/search-documents)
 + [단순 쿼리 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [지원되는 데이터 형식](/rest/api/searchservice/supported-data-types)
++ [지원 되는 데이터 형식](/rest/api/searchservice/supported-data-types)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
 ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051931"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Azure Storage 탐색기 blob 버전 관리 가이드
@@ -36,9 +36,9 @@ Storage 탐색기는 blob을 볼 수 있는 네 가지 보기를 지원 합니�
 
 | 보기 | 활성 버전이 아닌 blob | 일시 삭제 된 버전이 아닌 blob | Blob 버전 |
 | ---- | :----------: | :-----------: | :------------------: |
-| 활성 blob | 예 | 예 | 현재 버전만 |
+| 활성 blob | 예 | 아니요 | 현재 버전만 |
 | 활성 blob 및 일시 삭제 된 blob | 예 | 예 | 현재 버전만 |
-| 현재 버전이 없는 활성 blob 및 blob | 예 | 예 | 현재 버전 또는 최신 활성 버전 |
+| 현재 버전이 없는 활성 blob 및 blob | 예 | 아니요 | 현재 버전 또는 최신 활성 버전 |
 | 현재 버전이 없는 모든 blob 및 blob | 예 | 예 | 최신 버전 또는 최신 버전 |
 
 ### <a name="active-blobs"></a>활성 blob

@@ -12,10 +12,10 @@ ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266567"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
@@ -117,7 +117,7 @@ ms.locfileid: "91266567"
 
 아래와 같이 연결 URL에서 WWS API v30.0 이상을 사용하는 경우:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday 버전 정보":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday 버전 정보 없음":::
 
 ...프로비저닝 작업을 설정하기 전에 **특성 매핑 -> 고급 옵션 -> Workday 특성 목록 편집**에서 표에 나열된 값을 사용하여 **XPATH API** 식을 업데이트하세요. 
 

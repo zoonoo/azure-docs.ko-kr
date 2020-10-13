@@ -12,10 +12,10 @@ ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564842"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필을 정의 합니다.
@@ -82,14 +82,14 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 다음 메타 데이터는 대칭 키를 사용할 때 관련 됩니다. 
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. | 
 | IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . | 
 
 다음 메타 데이터는 대칭 키를 사용할 때 관련 됩니다. 
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | METADATA| 예 | Openid connect 잘 알려진 구성 끝점이 라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
 | 발급자 | 아니요 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
@@ -99,7 +99,7 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 대칭 키를 사용 하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함 됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | JWT 토큰 서명의 유효성을 검사 하는 데 사용 되는 암호화 키입니다.|
 
@@ -141,7 +141,7 @@ $newClientSecret
 1. `B2C_1A_IdTokenHintKey` 키를 만들었는지 확인합니다.
 
 
-#### <a name="step-3-add-the-id-token-hint-technical-profile"></a>3단계. ID 토큰 힌트 기술 프로필 추가
+#### <a name="step-3-add-the-id-token-hint-technical-profile"></a>3단계: ID 토큰 힌트 기술 프로필 추가
 
 다음 기술 프로필은 토큰의 유효성을 검사 하 고 클레임을 추출 합니다. 
 
@@ -230,7 +230,7 @@ New-SelfSignedCertificate `
 </ClaimsProvider>
 ```
 
-#### <a name="step-3-prepare-your-policy"></a>3단계. 정책 준비
+#### <a name="step-3-prepare-your-policy"></a>3단계: 정책 준비
 
 [정책 구성](#configure-your-policy) 단계를 완료 합니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87072035"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양 
@@ -116,7 +116,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
     b. 새 HTTP POST URL은 초기 POST URL과 반드시 동일해야 합니다.
   
-    c. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
+    다. 새 HTTP POST는 반드시 초기 POST의 스트림 헤더와 동일한 스트림 헤더(**ftyp**, **Live Server Manifest Box** 및 **moov** 상자)를 포함해야 합니다.
   
     d. 반드시 각 트랙에 전송된 마지막 두 조각이 다시 전송되고, 미디어 타임라인에서 불연속성을 발생시키지 않고 스트리밍이 계속되어야 합니다. MP4 조각 타임 스탬프는 HTTP POST 요청 간에도 반드시 지속적으로 증가해야 합니다.
 1. MP4 조각 기간에 상응하는 속도로 데이터가 전송되고 있지 않은 경우 인코더는 HTTP POST 요청을 종료해야 합니다.  데이터를 전송하지 않는 HTTP POST 요청은 Media Services가 서비스 업데이트 발생 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 따라서 스파스 조각이 전송되면 즉시 종료되는 스파스(광고 신호) 트랙용 HTTP POST는 수명이 짧아야 합니다.
@@ -166,7 +166,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
    
     b. 인코더는 데이터가 전송되지 않을 때 HTTP POST 요청을 종료해야 합니다. 데이터를 전송하지 않는 HTTP POST는 Media Services가 서비스 업데이트 또는 서버 다시 시작 시 인코더에서 연결이 빨리 끊어지는 것을 방지할 수 있습니다. 이러한 경우에 미디어 서버는 소켓의 수신 작업에서 일시적으로 차단됩니다.
    
-    c. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
+    다. 신호 보내기 데이터를 사용할 수 없는 시간 동안 인코더는 HTTP POST 요청을 닫아야 합니다. POST 요청이 활성화되어 있는 동안 인코더는 데이터를 전송해야 합니다.
 
     d. 스파스 조각을 전송하는 경우 인코더는 명시적 콘텐츠-길이 헤더를 사용할 수 있는 경우 이를 설정할 수 있습니다.
 

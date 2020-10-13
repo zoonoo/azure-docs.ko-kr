@@ -1,6 +1,6 @@
 ---
 title: Linux 용 Azure 직렬 콘솔 | Microsoft Docs
-description: Linux 예제를 사용 하 여 Azure Virtual Machines 및 Virtual Machine Scale Sets에 대 한 양방향 직렬 콘솔
+description: Linux 예제를 사용 하 여 Azure Virtual Machines 및 Virtual Machine Scale Sets 직렬 콘솔을 Bi-Directional 합니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306874"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux용 Azure Serial Console
@@ -71,7 +71,7 @@ SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘�
 Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 
 ### <a name="custom-linux-images"></a>사용자 지정 Linux 이미지
-사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
+사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
 
 또한 직렬 출력의 대상으로 ttys0을 추가 하려고 합니다. 직렬 콘솔을 사용 하도록 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은 [Azure에서 LINUX VHD 만들기 및 업로드](https://aka.ms/createuploadvhd#general-linux-system-requirements)에서 일반적인 시스템 요구 사항을 참조 하세요.
 

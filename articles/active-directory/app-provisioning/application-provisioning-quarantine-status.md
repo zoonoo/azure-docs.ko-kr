@@ -12,10 +12,10 @@ ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 6a716aef65cc81c5558a214c1ee5f93180810977
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266686"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 응용 프로그램 프로 비전
@@ -49,7 +49,7 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 ## <a name="why-is-my-application-in-quarantine"></a>응용 프로그램이 격리 된 이유는 무엇 인가요?
 
-|Description|권장 작업|
+|설명|권장 작업|
 |---|---|
 |**Scim 준수 문제:** Http/404 찾을 수 없음 응답이 예상 된 HTTP/200 OK 응답 대신 반환 되었습니다. 이 경우 Azure AD 프로 비전 서비스는 대상 응용 프로그램에 요청을 수행 하 고 예기치 않은 응답을 받았습니다.|관리자 자격 증명 섹션을 확인 하 여 응용 프로그램에서 테 넌 트 URL을 지정 해야 하는지 확인 하 고 URL이 올바른지 확인 합니다. 문제가 표시 되지 않으면 응용 프로그램 개발자에 게 문의 하 여 서비스가 SCIM 규격 인지 확인 하세요. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**잘못 된 자격 증명:** 대상 응용 프로그램에 대 한 액세스 권한을 부여 하려고 할 때 제공 된 자격 증명이 잘못 되었음을 나타내는 대상 응용 프로그램의 응답을 받았습니다.|프로 비전 구성 UI의 관리자 자격 증명 섹션으로 이동 하 고 유효한 자격 증명을 사용 하 여 액세스 권한을 다시 부여 하십시오. 응용 프로그램이 갤러리에 있는 경우 응용 프로그램 구성 자습서에서 필요한 추가 단계를 검토 합니다.|

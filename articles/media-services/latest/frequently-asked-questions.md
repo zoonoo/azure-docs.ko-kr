@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89268488"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
@@ -121,7 +121,7 @@ Azure Active Directory (Azure AD)와 같은 특정 토큰 공급자를 사용할
 
 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)에 나와 있는 것 처럼 라이선스/키 제공을 구성 하 고 자산을 암호화 하는 Azure Media Services api를 사용 합니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [콘텐츠 보호 개요](content-protection-overview.md)
 - [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)

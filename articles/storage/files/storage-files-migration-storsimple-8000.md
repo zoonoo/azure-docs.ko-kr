@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: be61a6e75c4aa9b5714ffbf3b4f19656b347c493
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653250"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
@@ -427,7 +427,7 @@ Robocopy 로그 파일을 참조 하 여 파일이 남아 있는지 확인 하�
 
 이전에 StorSimple 데이터에 대해 보유 한 Windows 서버에 SMB 공유를 만드는 것이 필요할 수 있습니다. 이 단계를 앞으로 로드 하 고 이전에 시간이 손실 되지 않도록 할 수 있지만,이 시점 이전에는 Windows server에서 파일 변경 내용이 발생 하지 않도록 해야 합니다.
 
-DFS를 배포 하는 경우 DFN 네임 스페이스를 새 서버 폴더 위치로 가리킬 수 있습니다. 제어 되 배포를 사용 하지 않고 8100 8600 어플라이언스를 Windows Server를 사용 하 여 로컬로 연결 하는 경우 해당 서버를 도메인에서 분리 하 고 도메인에 대해 AFS를 사용 하 여 새 Windows Server를 도메인에 가입 하 고, 이전 서버와 동일한 서버 이름과 공유 이름을 지정 하 고, 새 서버로의 이동이 사용자에 게 투명 하 게 유지 됩니다. , 그룹 정책 또는 스크립트가 있습니다.
+DFS N을 배포 하는 경우 DFN-Namespaces 새 서버 폴더 위치를 가리키도록 할 수 있습니다. 제어 되 배포를 사용 하지 않고 8100 8600 어플라이언스를 Windows Server를 사용 하 여 로컬로 연결 하는 경우 해당 서버를 도메인에서 분리 하 고 도메인에 대해 AFS를 사용 하 여 새 Windows Server를 도메인에 가입 하 고, 이전 서버와 동일한 서버 이름과 공유 이름을 지정 하 고, 새 서버로의 이동이 사용자에 게 투명 하 게 유지 됩니다. , 그룹 정책 또는 스크립트가 있습니다.
 
 ## <a name="phase-7-deprovision"></a>7 단계: 프로 비전 해제
 

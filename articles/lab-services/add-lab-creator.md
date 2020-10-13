@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Lab Services에서 랩 계정에 대 한 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399485"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Azure Lab Services에서 랩 작성자를 랩 계정에 추가

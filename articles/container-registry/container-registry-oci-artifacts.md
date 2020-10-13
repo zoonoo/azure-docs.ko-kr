@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/12/2020
 ms.author: stevelas
 ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485006"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure container registry를 사용 하 여 OCI 아티팩트 푸시 및 끌어오기
@@ -19,7 +19,7 @@ Azure container registry를 사용 하 여 [OCI (Open Container 이니셔티브)
 
 이 기능을 설명 하기 위해이 문서에서는 [OCI 레지스트리를 저장소 (ORAS)](https://github.com/deislabs/oras) 도구로 사용 하 여 샘플 아티팩트 (텍스트 파일)를 Azure container Registry로 푸시하는 방법을 보여 줍니다. 그런 다음 레지스트리에서 아티팩트를 가져옵니다. 각 아티팩트에 적합 한 다양 한 명령줄 도구를 사용 하 여 Azure container registry에서 다양 한 OCI 아티팩트를 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure container registry** -azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Oras 도구** - [GitHub](https://github.com/deislabs/oras/releases)리포지토리에서 운영 체제에 대 한 현재 oras 릴리스를 다운로드 하 여 설치 합니다. 이 도구는 압축 된 tarball ( `.tar.gz` 파일)로 릴리스됩니다. 운영 체제에 대 한 표준 절차를 사용 하 여 파일을 추출 하 고 설치 합니다.

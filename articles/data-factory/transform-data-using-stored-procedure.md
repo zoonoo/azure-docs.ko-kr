@@ -12,10 +12,10 @@ manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
 ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484734"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server 저장 프로시저 작업을 사용하여 데이터 변환
@@ -68,7 +68,7 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 
 다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
 
-| 속성                  | Description                              | 필수 |
+| 속성                  | 설명                              | 필수 |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | 작업의 이름                     | 예      |
 | description               | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 예       |

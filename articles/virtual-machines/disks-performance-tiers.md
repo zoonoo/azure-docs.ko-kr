@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: efbe8bc24b430716da46601ed073300e4c79cca7
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743729"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
@@ -24,7 +24,7 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 
 이 기능은 휴일 쇼핑, 성능 테스트 또는 교육 환경 실행과 같은 일관 된 높은 수준의 성능이 일시적으로 필요한 이벤트에 적합 합니다. 이러한 이벤트를 처리 하기 위해 필요할 때까지 더 높은 성능 계층을 사용할 수 있습니다. 그런 다음 추가 성능이 더 이상 필요 하지 않은 경우 원래 계층으로 돌아갈 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 디스크를 처음 배포 하거나 프로 비전 할 때 해당 디스크의 기준 성능 계층은 프로 비전 된 디스크 크기에 따라 설정 됩니다. 높은 성능 계층을 사용 하 여 더 높은 수요를 달성할 수 있습니다. 더 이상 해당 성능 수준이 필요 하지 않은 경우 초기 기준 성능 계층으로 돌아갈 수 있습니다.
 
@@ -42,10 +42,10 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | None |
+| 4TiB | P50 | 없음 |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | None |
+| 32TiB | P80 | 없음 |
 
 청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 

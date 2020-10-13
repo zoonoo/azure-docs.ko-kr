@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab36eb9d5c66f61fbb320c91087659cc811eca85
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91595552"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure Multi-Factor Authentication의 세션 수명 이해
@@ -53,7 +53,7 @@ Microsoft research는 이러한 설정이 대부분의 테 넌 트에 적합 하
 
 사용자에 게 Azure AD에서 id가 없는 장치에 여러 개의 MFA 프롬프트가 표시 될 수 있습니다. 각 응용 프로그램에 다른 클라이언트 앱과 공유 되지 않는 자체 OAuth 새로 고침 토큰이 있는 경우 여러 프롬프트가 표시 됩니다. 이 시나리오에서 mfa는 각 응용 프로그램이 MFA를 사용 하 여 유효성을 검사할 OAuth 새로 고침 토큰을 요청 하므로 여러 번 표시 됩니다.
 
-Azure AD에서 세션 수명에 대해 가장 제한적인 정책은 사용자가 다시 인증 해야 하는 시기를 결정 합니다. 다음 시나리오를 고려하세요.
+Azure AD에서 세션 수명에 대해 가장 제한적인 정책은 사용자가 다시 인증 해야 하는 시기를 결정 합니다. 다음과 같은 시나리오를 고려해 보세요.
 
 * 영구 브라우저 쿠키를 사용 하는 로그인 상태를 *유지*하도록 설정 합니다.
 * *14 일 동안 MFA 기억을* 사용할 수도 있습니다.

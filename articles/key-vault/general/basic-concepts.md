@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault란? | Microsoft 문서
+title: Azure Key Vault란? | Microsoft Docs
 description: 클라우드 응용 프로그램 및 서비스에서 사용 하는 암호화 키 및 암호를 보호 Azure Key Vault 하는 방법에 대해 알아봅니다.
 services: key-vault
 author: msmbaldwin
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
 ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398513"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault 기본 개념

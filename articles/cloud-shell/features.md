@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470156"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
@@ -55,13 +55,13 @@ Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 
 
 Cloud Shell PowerShell에는 Exchange Online 모듈의 개인 빌드가 포함 되어 있습니다.  `Connect-EXOPSSession`을 실행 하 여 Exchange cmdlet을 가져옵니다.
 
-![Connect-EXOPSSession 및 Get 사용자 명령을 실행 하는 Azure Cloud Shell의 스크린샷](media/features-powershell/exchangeonline.png)
+![명령 Connect-EXOPSSession 및 Get 사용자를 실행 하는 Azure Cloud Shell의 스크린샷](media/features-powershell/exchangeonline.png)
 
- `Get-Command -Module tmp_*`을 실행합니다.
+ `Get-Command -Module tmp_*`를 실행합니다.
 > [!NOTE]
 > 모듈 이름은로 시작 해야 하며 `tmp_` , 동일한 접두사를 사용 하 여 모듈을 설치한 경우 해당 cmdlet도 표시 됩니다. 
 
-![명령을 실행 하는 Azure Cloud Shell의 스크린샷 tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
+![명령 Get-Command를 실행 하는 Azure Cloud Shell의 스크린샷 tmp_ *.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>오픈 소스 도구와 완벽한 통합
 
@@ -82,7 +82,7 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="language-support"></a>언어 지원
 
-|언어   |버전   |
+|Language   |버전   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
 |Go         |1.9        |

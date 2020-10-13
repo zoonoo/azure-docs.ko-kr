@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269576"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
@@ -54,10 +54,10 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 ### <a name="windows-current-devices"></a>Windows 현재 디바이스
 
-- Windows 10
+- 윈도우 10
 - Windows Server 2016
   - **참고**: Azure 국가별 클라우드 고객은 버전 1809을 요구 합니다.
-- 시작
+- Windows Server 2019
 
 Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되는 버전은 [windows 10 릴리스 정보](/windows/release-information/)문서에 나열 되어 있습니다. 모범 사례로, Microsoft는 최신 버전의 Windows 10으로 업그레이드 하는 것이 좋습니다.
 
@@ -166,8 +166,8 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리형 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
-| 라우팅 불가능 | 관리형 | 지원되지 않음 | |
+| 라우팅 가능 | 관리 대상 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 불가능 | 관리 대상 | 지원되지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계
 

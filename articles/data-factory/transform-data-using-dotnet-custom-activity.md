@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276501"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -100,7 +100,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다.
 
-| 속성              | Description                              | 필수 |
+| 속성              | 설명                              | 필수 |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | 파이프라인의 작업 이름입니다.     | 예      |
 | description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
@@ -109,9 +109,9 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | 명령을 사용합니다.               | 실행할 사용자 지정 애플리케이션의 명령입니다. Azure Batch 풀 노드에 사용할 수 있는 애플리케이션이 이미 있으면 resourceLinkedService 및 folderPath를 건너뛸 수 있습니다. 예를 들어 명령을 기본적으로 Windows Batch 풀 노드에 의해 지원되는 `cmd /c dir`로 지정할 수 있습니다. | 예      |
 | resourceLinkedService | 사용자 지정 애플리케이션이 저장된 스토리지 계정에 대한 Azure Storage 연결된 서비스입니다. | 아니요 &#42;       |
 | folderPath            | 사용자 지정 애플리케이션 및 모든 해당 종속성 폴더에 대한 경로입니다.<br/><br/>종속성이 하위 폴더(즉, *folderPath* 아래의 계층 폴더 구조)에 저장된 경우, 해당 파일이 Azure Batch에 복사될 때 폴더 구조가 손쉽게 평면화됩니다. 즉, 모든 파일이 하위 폴더가 없는 단일 폴더에 복사됩니다. 이 동작을 해결하려면 파일을 압축하고 압축 파일을 복사한 다음, 원하는 위치에서 사용자 지정 코드로 압축을 푸세요. | 아니요 &#42;       |
-| referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 예       |
-| extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 애플리케이션에 전달될 수 있습니다. | 예       |
-| 보존 기간 (일) | 사용자 지정 작업에 대해 전송 된 파일의 보존 시간입니다. 기본값은 30 일입니다. | 예 |
+| referenceObjects      | 기존 연결된 서비스 및 데이터 세트의 배열입니다. 사용자 지정 코드가 Data Factory의 리소스를 참조할 수 있도록 참조된 연결된 서비스 및 데이터 세트는 JSON 형식으로 사용자 지정 애플리케이션에 전달됩니다. | 아니요       |
+| extendedProperties    | 사용자 지정 코드가 추가 속성을 참조할 수 있도록 사용자 정의 속성은 JSON 형식으로 사용자 지정 애플리케이션에 전달될 수 있습니다. | 아니요       |
+| 보존 기간 (일) | 사용자 지정 작업에 대해 전송 된 파일의 보존 시간입니다. 기본값은 30 일입니다. | 아니요 |
 
 &#42; 속성 `resourceLinkedService` 및 `folderPath`를 둘 다 지정하거나 둘 다 생략해야 합니다.
 

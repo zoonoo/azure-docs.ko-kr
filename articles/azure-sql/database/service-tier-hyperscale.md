@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
 ms.openlocfilehash: 3455503570d09daedc5e34cba0bf36d71ddcdcbc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90988111"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
@@ -220,13 +220,13 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 
 | 문제 | 설명 |
 | :---- | :--------- |
-| 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 장기 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.<br><br>다른 Azure SQL Database 서비스 계층에서 Hyperscale으로 마이그레이션된 데이터베이스의 경우 마이그레이션 전 백업은 원본 데이터베이스의 [백업 보존](automated-backups-overview.md#backup-retention) 기간 동안 유지 됩니다. 이러한 백업은 마이그레이션 전 시점으로 원본 데이터베이스를 [복원](recovery-using-backups.md#programmatic-recovery-using-automated-backups) 하는 데 사용할 수 있습니다.|
+| 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 Long-Term 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.<br><br>다른 Azure SQL Database 서비스 계층에서 Hyperscale으로 마이그레이션된 데이터베이스의 경우 마이그레이션 전 백업은 원본 데이터베이스의 [백업 보존](automated-backups-overview.md#backup-retention) 기간 동안 유지 됩니다. 이러한 백업은 마이그레이션 전 시점으로 원본 데이터베이스를 [복원](recovery-using-backups.md#programmatic-recovery-using-automated-backups) 하는 데 사용할 수 있습니다.|
 | 지정 시간 복원 | Hyperscale이 아닌 데이터베이스를 하이퍼 규모의 데이터베이스로 복원할 수 없으며 Hyperscale 데이터베이스를 비 Hyperscale 데이터베이스로 복원할 수 없습니다. 서비스 계층을 변경 하 여 Hyperscale으로 마이그레이션된 비 Hyperscale 데이터베이스의 경우 마이그레이션 전 지정 시간으로 복원 하 고 데이터베이스의 백업 보존 기간 내에서 [프로그래밍 방식으로](recovery-using-backups.md#programmatic-recovery-using-automated-backups)데이터베이스를 실행 합니다. 복원 된 데이터베이스는 Hyperscale이 아닙니다. |
 | 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL Managed Instance | Azure SQL Managed Instance는 현재 Hyperscale 데이터베이스에서 지원 되지 않습니다. |
 | 탄력적 풀 |  탄력적 풀은 현재 Hyperscale에서 지원 되지 않습니다.|
 | 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스를 Hyperscale으로 마이그레이션한 후에는 비-Hyperscale 서비스 계층으로 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 bacpac 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다. [AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)를 사용 하 여 PowerShell에서, Azure CLI에서 [az sql db export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) 및 [az sql db import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)를 사용 하 여 Azure Portal에서 Bacpac 내보내기/가져오기 및 [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) 지원 되지 않습니다. 더 작은 Hyperscale 데이터베이스 (최대 200 GB)의 Bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 버전 18.4 이상을 사용 하 여 지원 됩니다. 대형 데이터베이스의 경우에는 bacpac 내보내기/가져오기 시간이 오래 걸릴 수 있으며 여러 가지 이유로 실패할 수 있습니다.|
-| 메모리 내 OLTP 개체가 포함 된 데이터베이스 마이그레이션 | Hyperscale은 메모리 최적화 테이블 형식, 테이블 변수 및 고유 하 게 컴파일된 모듈을 포함 하 여 메모리 내 OLTP 개체의 하위 집합을 지원 합니다. 그러나 마이그레이션되는 데이터베이스에 모든 종류의 메모리 내 OLTP 개체가 있는 경우 Premium 및 중요 비즈니스용 서비스 계층에서 Hyperscale으로의 마이그레이션은 지원 되지 않습니다. 이러한 데이터베이스를 Hyperscale으로 마이그레이션하려면 모든 메모리 내 OLTP 개체와 해당 종속성을 삭제 해야 합니다. 데이터베이스를 마이그레이션한 후에는 이러한 개체를 다시 만들 수 있습니다. 내구성 있고 내구성이 없는 메모리 최적화 테이블은 현재 Hyperscale에서 지원 되지 않으므로 디스크 테이블로 다시 만들어야 합니다.|
+| In-Memory OLTP 개체가 포함 된 데이터베이스 마이그레이션 | Hyperscale은 메모리 최적화 테이블 형식, 테이블 변수 및 고유 하 게 컴파일된 모듈을 포함 하 여 In-Memory OLTP 개체의 하위 집합을 지원 합니다. 그러나 마이그레이션되는 데이터베이스에 In-Memory OLTP 개체의 모든 종류가 있는 경우 Premium 및 중요 비즈니스용 서비스 계층에서 Hyperscale으로의 마이그레이션은 지원 되지 않습니다. 이러한 데이터베이스를 Hyperscale으로 마이그레이션하려면 모든 In-Memory OLTP 개체와 해당 종속성을 삭제 해야 합니다. 데이터베이스를 마이그레이션한 후에는 이러한 개체를 다시 만들 수 있습니다. 내구성 있고 내구성이 없는 메모리 최적화 테이블은 현재 Hyperscale에서 지원 되지 않으므로 디스크 테이블로 다시 만들어야 합니다.|
 | 지역 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다. |
 | 데이터베이스 복사 | Hyperscale의 데이터베이스 복사는 현재 공개 미리 보기로 제공 됩니다. |
 | TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 현재 미리 보기 상태입니다. |
