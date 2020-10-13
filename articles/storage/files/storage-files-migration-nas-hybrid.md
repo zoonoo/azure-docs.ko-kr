@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510308"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure File Sync를 사용 하 여 NAS (네트워크 연결 저장소)에서 하이브리드 클라우드 배포로 마이그레이션
@@ -208,7 +208,7 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> 모든 데이터를 NAS에서 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 ***모든*** 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
+> 모든 데이터를 NAS에서 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 ***모든***  동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우, 동기화는 가장 제한적인 규칙을 계속 적용 하 고 99%의 사용 가능한 디스크 공간을 유지 하 여 로컬 캐시가 정상적으로 작동 하지 않도록 합니다. 거의 액세스 하지 않는 볼륨에 대 한 네임 스페이스만 보유 하 고 있는 경우에만 보관 데이터를 보관 하 고 나머지는 다른 시나리오에 대 한 저장소 공간을 예약 하는 것입니다.
 

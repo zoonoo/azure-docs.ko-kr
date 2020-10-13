@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505599"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>vFXT 클러스터로 데이터 이동 - 병렬 데이터 수집
@@ -146,7 +146,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다.
 
-예:
+예제:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
@@ -286,7 +286,7 @@ rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 
 ``--inplace``인수를 명령과 함께 사용할 수도 있습니다 ``msrsync`` . 이 옵션을 사용 하는 경우 데이터 무결성을 보장 하기 위해 두 번째 명령 (위에 설명 된 [rsync](#use-a-two-phase-rsync-process)와 같이)을 실행 하는 것이 좋습니다.
 
-``msrsync``로컬 볼륨에만 쓸 수 있습니다. 원본 및 대상은 클러스터의 가상 네트워크에서 로컬 탑재로 액세스할 수 있어야 합니다.
+``msrsync`` 로컬 볼륨에만 쓸 수 있습니다. 원본 및 대상은 클러스터의 가상 네트워크에서 로컬 탑재로 액세스할 수 있어야 합니다.
 
 를 사용 하 여 ``msrsync`` Azure 클라우드 볼륨을 Avere 클러스터로 채우려면 다음 지침을 따르세요.
 

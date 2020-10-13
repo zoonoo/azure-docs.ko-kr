@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: stewu
 ms.openlocfilehash: f5e6f6601a563a387476e4e2eaf353c8bef384ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85504698"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침
@@ -21,12 +21,12 @@ ms.locfileid: "85504698"
 
 ## <a name="performance-related-properties"></a>성능 관련 속성
 
-| 속성            | 기본값 | Description |
+| 속성            | 기본값 | 설명 |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | 이 매개 변수로 각 파일의 업로드 또는 다운로드를 위한 병렬 스레드 수를 선택할 수 있습니다. 이 숫자는 파일당 할당할 수 있는 최대 스레드 수를 나타내지만 시나리오에 따라 스레드 수가 줄어들 수 있습니다 .예를 들어 1KB 파일을 업로드하는 경우 20개의 스레드를 요청해도 하나의 스레드만 발생합니다.  |
 | ConcurrentFileCount | 10      | 이 매개 변수는 특히 폴더 업로드 또는 다운로드를 위한 것입니다. 이 매개 변수는 업로드 또는 다운로드할 수 있는 동시 파일 수를 결정합니다. 이 숫자는 한 번에 업로드 또는 다운로드할 수 있는 최대 동시 파일 수를 나타내지만 시나리오에 따라 동시 수가 줄어들 수 있습니다. 예를 들어 두 개 파일을 업로드하는 경우 15개를 요청해도 두 개의 동시 파일 업로드가 발생합니다. |
 
-**예제:**
+**예:**
 
 이 명령은 파일당 20개의 스레드와 100개의 동시 파일을 사용하여 Data Lake Storage Gen1에서 사용자의 로컬 드라이브로 파일을 다운로드합니다.
 
@@ -48,7 +48,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `Total thread count = total physical cores * 6`
 
-    **예제:**
+    **예:**
 
     16개의 코어가 있는 D14 VM에서 PowerShell 명령을 실행 중이라고 가정합니다.
 
@@ -58,7 +58,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size`
 
-    **예제:**
+    **예:**
 
     1GB ~ 10GB 범위의 파일 100개가 있다고 가정하면 수식에서 가장 큰 파일 크기로 10GB를 사용하며 다음과 같습니다.
 
@@ -68,7 +68,7 @@ Export-AzDataLakeStoreItem -AccountName "Data Lake Storage Gen1 account name" `
 
     `Total thread count = PerFileThreadCount * ConcurrentFileCount`
 
-    **예제:**
+    **예:**
 
     사용 중인 예제 값 기준
 

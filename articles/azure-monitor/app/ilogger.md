@@ -4,40 +4,35 @@ description: ASP.NET Core 및 콘솔 응용 프로그램과 함께 Azure 애플�
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 171aaeb624bfedb9aa7408a736c11faca316b392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 987d5b78c5fe680f43ff6a001e7a31a8ae9f6124
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322638"
+ms.locfileid: "91931464"
 ---
-# <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider for .NET Core ILogger logs
+# <a name="applicationinsightsloggerprovider-for-microsoftextensionlogging"></a>ApplicationInsightsLoggerProvider에 대 한 자세한 로깅
 
-ASP.NET Core는 다양 한 종류의 기본 제공 및 타사 로깅 공급자에서 작동 하는 로깅 API를 지원 합니다. 로깅은 *ILogger* 인스턴스에서 **Log ()** 또는 variant의 variant를 호출 하 여 수행 됩니다. 이 문서에서는 *ApplicationInsightsLoggerProvider* 를 사용 하 여 콘솔 및 ASP.NET Core 응용 프로그램에서 ILogger 로그를 캡처하는 방법을 보여 줍니다. 이 문서에서는 ApplicationInsightsLoggerProvider이 다른 Application Insights 원격 분석과 통합 되는 방법에 대해서도 설명 합니다.
-자세한 내용은 [ASP.NET Core의 로깅](/aspnet/core/fundamentals/logging)을 참조하세요.
+이 문서에서는를 사용 하 여 `ApplicationInsightsLoggerProvider` `ILogger` 콘솔 및 ASP.NET Core 응용 프로그램에서 로그를 캡처하는 방법을 보여 줍니다.
+자세한 로깅에 대 한 자세한 내용은 [ASP.NET Core](/aspnet/core/fundamentals/logging)로그인을 참조 하세요.
 
 ## <a name="aspnet-core-applications"></a>응용 프로그램 ASP.NET Core
 
-ApplicationInsightsLoggerProvider [SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 버전 2.7.1 (이상)에서 기본적으로 사용 하도록 설정 되어 있습니다. 이러한 방법 중 하나를 통해 일반 Application Insights 모니터링을 설정할 수 있습니다.
+`ApplicationInsightsLoggerProvider` 는 [코드](./asp-net-core.md) 또는 [코드](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) 를 사용 하지 않는 방법을 사용 하 여 applicationinsights를 구성할 때 ASP.NET Core 응용 프로그램에 대해 기본적으로 사용 하도록 설정 됩니다.
 
-- IWebHostBuilder (이제 사용 되지 않음)에서 **Useapplicationinsights** 확장 메서드를 호출 합니다.
-- IServiceCollection에서 **AddApplicationInsightsTelemetry** 확장 메서드 호출
+*Warning* `ILogger` 기본적으로 모든 [범주의](/aspnet/core/fundamentals/logging/#log-category)경고 및 위의 로그만 Application Insights으로 전송 됩니다. 그러나 [이 동작을 사용자 지정할](./asp-net-core.md#how-do-i-customize-ilogger-logs-collection)수 있습니다. **Program.cs** 또는 **Startup.cs**에서 ILogger 로그를 캡처하려면 추가 단계가 필요 합니다. [ASP.NET Core 응용 프로그램에서 Startup.cs 및 Program.cs의 ILogger 로그 캡처](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)를 참조 하세요.
 
-ApplicationInsightsLoggerProvider 캡처에 ILogger 로그는 수집 된 다른 원격 분석과 동일한 구성으로 적용 됩니다. TelemetryInitializers 및 TelemetryProcessors 집합은 동일 하 고, 동일한 TelemetryChannel를 사용 하며, 다른 원격 분석과 동일한 방식으로 상호 관련 되 고 샘플링 됩니다. 버전 2.7.1 이상을 사용 하는 경우 ILogger 로그를 캡처하기 위한 조치가 필요 하지 않습니다.
-
-*경고* 이상의 ILogger 로그 (모든 [범주](/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#log-category)에서)는 기본적으로 Application Insights으로 전송 됩니다. 그러나 [이 동작을 수정 하는 필터를 적용할](#control-logging-level)수 있습니다. **Program.cs** 또는 **Startup.cs**에서 ILogger 로그를 캡처하려면 추가 단계가 필요 합니다. [ASP.NET Core 응용 프로그램에서 Startup.cs 및 Program.cs의 ILogger 로그 캡처](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)를 참조 하세요.
-
-이전 버전의 ApplicationInsightsLoggerProvider SDK를 사용 하거나 다른 Application Insights 모니터링 없이만 사용 하려는 경우 다음 절차를 따르십시오.
+`ApplicationInsightsLoggerProvider`다른 Application Insights 모니터링 없이만 사용 하려는 경우 다음 단계를 사용 합니다.
 
 1. NuGet 패키지를 설치 합니다.
 
    ```xml
-       <ItemGroup>
-         <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.9.1" />  
-       </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.15.0" />  
+    </ItemGroup>
    ```
 
-1. 다음과 같이 **Program.cs** 를 수정 합니다.
+1. 다음과 같이 수정 합니다 `Program.cs` .
 
    ```csharp
    using Microsoft.AspNetCore;
@@ -61,7 +56,7 @@ ApplicationInsightsLoggerProvider 캡처에 ILogger 로그는 수집 된 다른 
                    // standalone package Microsoft.Extensions.Logging.ApplicationInsights
                    // or if you want to capture logs from early in the application startup
                    // pipeline from Startup.cs or Program.cs itself.
-                   builder.AddApplicationInsights("ikey");
+                   builder.AddApplicationInsights("put-actual-ikey-here");
 
                    // Optional: Apply filters to control what logs are sent to Application Insights.
                    // The following configures LogLevel Information or above to be sent to
@@ -89,13 +84,8 @@ public class ValuesController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<string>> Get()
     {
-        // All the following logs will be picked up by Application Insights.
-        // and all of them will have ("MyKey", "MyValue") in Properties.
-        using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
-            {
-                _logger.LogWarning("An example of a Warning trace..");
-                _logger.LogError("An example of an Error level message");
-            }
+        _logger.LogWarning("An example of a Warning trace..");
+        _logger.LogError("An example of an Error level message");
         return new string[] { "value1", "value2" };
     }
 }
@@ -106,7 +96,7 @@ public class ValuesController : ControllerBase
 > [!NOTE]
 > ASP.NET Core 3.0 이상에서는 더 이상 `ILogger` Startup.cs 및 Program.cs에 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353을 참조하십시오.
 
-새 ApplicationInsightsLoggerProvider는 응용 프로그램 시작 파이프라인 초기에 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider는 Application Insights (버전 2.7.1부터)에서 자동으로 사용 하도록 설정 되지만 파이프라인에서 나중에까지 계측 키를 설정 하지 않습니다. 따라서 **컨트롤러**/기타 클래스의 로그만 캡처됩니다. **Program.cs** 및 **Startup.cs** 자체에서 시작 하는 모든 로그를 캡처하려면 ApplicationInsightsLoggerProvider에 대 한 계측 키를 명시적으로 사용 하도록 설정 해야 합니다. 또한 **Program.cs** 또는 **Startup.cs** 자체에서 로그 하는 경우 *TelemetryConfiguration* 는 완전히 설정 되지 않습니다. 따라서 이러한 로그에는 InMemoryChannel, 샘플링, 표준 원격 분석 이니셜라이저 또는 프로세서를 사용 하지 않는 최소 구성이 포함 됩니다.
+`ApplicationInsightsLoggerProvider` 응용 프로그램 시작 초기부터 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider는 Application Insights (버전 2.7.1부터)에서 자동으로 사용 하도록 설정 되지만 파이프라인에서 나중에까지 계측 키를 설정 하지 않습니다. 따라서 **컨트롤러**/기타 클래스의 로그만 캡처됩니다. **Program.cs** 및 **Startup.cs** 자체에서 시작 하는 모든 로그를 캡처하려면 ApplicationInsightsLoggerProvider에 대 한 계측 키를 명시적으로 사용 하도록 설정 해야 합니다. 또한 **Program.cs** 또는 **Startup.cs** 자체에서 로그 하는 경우 *TelemetryConfiguration* 는 완전히 설정 되지 않습니다. 따라서 이러한 로그에는 [Inmemorychannel](./telemetry-channels.md), [샘플링](./sampling.md), 표준 [원격 분석 이니셜라이저 또는 프로세서](./api-filtering-sampling.md)를 사용 하지 않는 최소 구성이 포함 됩니다.
 
 다음 예에서는 **Program.cs** 및 **Startup.cs**를 사용 하 여이 기능을 보여 줍니다.
 
@@ -123,7 +113,6 @@ public class Program
     {
         var host = CreateWebHostBuilder(args).Build();
         var logger = host.Services.GetRequiredService<ILogger<Program>>();
-        // This will be picked up by AI
         logger.LogInformation("From Program. Running the host now..");
         host.Run();
     }
@@ -169,7 +158,6 @@ public class Startup
 
     public IConfiguration Configuration { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddApplicationInsightsTelemetry();
@@ -178,18 +166,15 @@ public class Startup
         _logger.LogInformation("Logging from ConfigureServices.");
     }
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
         if (env.IsDevelopment())
         {
-            // The following will be picked up by Application Insights.
             _logger.LogInformation("Configuring for Development environment");
             app.UseDeveloperExceptionPage();
         }
         else
         {
-            // The following will be picked up by Application Insights.
             _logger.LogInformation("Configuring for Production environment");
         }
 
@@ -207,7 +192,7 @@ public class Startup
 
 이전 공급자를 계속 사용할 수 있습니다. 주 버전은 3으로 변경 될 때만 제거 됩니다. *xx*.) 그러나 다음과 같은 이유로 새 공급자로 마이그레이션하는 것이 좋습니다.
 
-- 이전 공급자는 [로그 범위](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes)를 지원 하지 않습니다. 새 공급자에서 범위의 속성은 수집 된 원격 분석에 자동으로 사용자 지정 속성으로 추가 됩니다.
+- 이전 공급자는 [로그 범위](/aspnet/core/fundamentals/logging#log-scopes)를 지원 하지 않습니다. 새 공급자에서 범위의 속성은 수집 된 원격 분석에 자동으로 사용자 지정 속성으로 추가 됩니다.
 - 이제 응용 프로그램 시작 파이프라인에서 로그를 훨씬 일찍 캡처할 수 있습니다. 이제 **프로그램** 의 로그 및 **시작** 클래스를 캡처할 수 있습니다.
 - 새 공급자를 사용 하 여 필터링은 프레임 워크 수준 자체에서 수행 됩니다. 콘솔, 디버그 등의 기본 제공 공급자를 비롯 한 다른 공급자와 동일한 방식으로 로그를 Application Insights 공급자로 필터링 할 수 있습니다. 여러 공급자에 동일한 필터를 적용할 수도 있습니다.
 - ASP.NET Core (2.0 이상)에서  [로깅 공급자를 사용 하도록 설정](https://github.com/aspnet/Announcements/issues/255) 하는 권장 방법은 **Program.cs** 의 ILoggingBuilder에 대 한 확장 메서드를 사용 하는 것입니다.
@@ -220,15 +205,14 @@ public class Startup
 > [!NOTE]
 > 모든 콘솔 응용 프로그램에 대해 Application Insights (ILogger 및 기타 Application Insights 원격 분석)를 사용 하도록 설정 하는 데 사용할 수 있는 [라는 새로운](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) Application Insights SDK가 있습니다. [여기](./worker-service.md)에서 이 패키지 및 관련 지침을 사용하는 것이 좋습니다.
 
-다음 코드는 Application Insights으로 ILogger 추적을 보내도록 구성 된 샘플 콘솔 응용 프로그램을 보여 줍니다.
+다른 Application Insights 모니터링 없이 ApplicationInsightsLoggerProvider를 사용 하려면 다음 단계를 사용 합니다.
 
 설치된 패키지:
 
 ```xml
 <ItemGroup>
   <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0" />  
-  <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.9.1" />
-  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.0" />
+  <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.15.0" />  
 </ItemGroup>
 ```
 
@@ -264,11 +248,7 @@ class Program
 
         ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
 
-        // Begin a new scope. This is optional.
-        using (logger.BeginScope(new Dictionary<string, object> { { "Method", nameof(Main) } }))
-        {
-            logger.LogInformation("Logger is working"); // this will be captured by Application Insights.
-        }
+        logger.LogInformation("Logger is working");
 
         // Explicitly call Flush() followed by sleep is required in Console Apps.
         // This is to ensure that even if application terminates, telemetry is sent to the back-end.
@@ -301,11 +281,10 @@ class Program
             serverChannel.Initialize(config);
         }
     );
-
-    // Add the logging pipelines to use. We are adding Application Insights only.
+    
     services.AddLogging(loggingBuilder =>
     {
-        loggingBuilder.AddApplicationInsights();
+        loggingBuilder.AddApplicationInsights("--YourAIKeyHere--");
     });
 
     ........
@@ -319,9 +298,9 @@ class Program
 
 ## <a name="control-logging-level"></a>제어 로깅 수준
 
-ASP.NET Core *ILogger* 인프라에는 [로그 필터링](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering)을 적용 하는 기본 제공 메커니즘이 있습니다. 이렇게 하면 Application Insights 공급자를 포함 하 여 등록 된 각 공급자로 전송 되는 로그를 제어할 수 있습니다. 필터링은 구성에서 (일반적으로 파일 * 에appsettings.js* 를 사용 하 여) 또는 코드에서 수행할 수 있습니다. 이 기능은 프레임 워크 자체에서 제공 됩니다. Application Insights 공급자와는 관련이 없습니다.
+`ILogger` 에는 [로그 필터링](/aspnet/core/fundamentals/logging#log-filtering)을 적용 하는 기본 제공 메커니즘이 있습니다. 이렇게 하면 Application Insights 공급자를 포함 하 여 등록 된 각 공급자로 전송 되는 로그를 제어할 수 있습니다. 필터링은 구성에서 (일반적으로 파일 * 에appsettings.js* 를 사용 하 여) 또는 코드에서 수행할 수 있습니다.
 
-다음 예에서는 ApplicationInsightsLoggerProvider에 필터 규칙을 적용 합니다.
+다음 예에서는에 필터 규칙을 적용 하는 방법을 보여 줍니다 `ApplicationInsightsLoggerProvider` .
 
 ### <a name="create-filter-rules-in-configuration-with-appsettingsjson"></a>appsettings.js사용 하 여 구성에서 필터 규칙 만들기
 
@@ -356,7 +335,29 @@ ApplicationInsightsLoggerProvider의 경우 공급자 별칭은 `ApplicationInsi
                         ("Microsoft", LogLevel.Error);
 ```
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="logging-scopes"></a>로깅 범위
+
+`ApplicationInsightsLoggingProvider` 에서는 기본적으로 [로그 범위](/aspnet/core/fundamentals/logging#log-scopes) 및 범위를 사용할 수 있습니다.
+
+범위가 형식이 면 `IReadOnlyCollection<KeyValuePair<string,object>>` 컬렉션의 각 키-값 쌍이 application insights 원격 분석에 사용자 지정 속성으로 추가 됩니다. 아래 예제에서는 로그가로 캡처되고 `TraceTelemetry` 속성에 ("MyKey", "MyValue")가 포함 됩니다.
+
+```csharp
+    using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
+    {
+        _logger.LogError("An example of an Error level message");
+    }
+```
+
+다른 형식이 범위로 사용 되는 경우에는 application insights 원격 분석의 "범위" 속성 아래에 저장 됩니다. 아래 예제에서에는 `TraceTelemetry` 범위를 포함 하는 "범위" 라는 속성이 포함 됩니다.
+
+```csharp
+    using (_logger.BeginScope("hello scope"))
+    {
+        _logger.LogError("An example of an Error level message");
+    }
+```
+
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>ApplicationInsightsLoggerProvider의 이전 버전 및 새 버전은 무엇 인가요?
 
@@ -442,7 +443,7 @@ public class MyController : ApiController
 
 ### <a name="what-application-insights-telemetry-type-is-produced-from-ilogger-logs-or-where-can-i-see-ilogger-logs-in-application-insights"></a>ILogger 로그에서 어떤 Application Insights 원격 분석 유형을 생성 하나요? 또는 Application Insights에서 ILogger 로그를 볼 수 있나요?
 
-ApplicationInsightsLoggerProvider는 ILogger 로그를 캡처하여 해당 로그에서 TraceTelemetry를 만듭니다. ILogger의 **Log ()** 메서드에 예외 개체가 전달 되는 경우 TraceTelemetry 대신 *exceptiontelemetry 분석이* 생성 됩니다. 이러한 원격 분석 항목은 포털, 분석 또는 Visual Studio 로컬 디버거를 비롯 한 Application Insights에 대 한 다른 TraceTelemetry 또는 ExceptionTelemetry 분석과 동일한 위치에서 찾을 수 있습니다.
+ApplicationInsightsLoggerProvider는 ILogger 로그를 캡처하여 해당 로그에서 TraceTelemetry를 만듭니다. 예외 개체가의 메서드에 전달 되는 경우 `Log` `ILogger` TraceTelemetry 대신 *exceptiontelemetry 분석이* 생성 됩니다. 이러한 원격 분석 항목은 포털, 분석 또는 Visual Studio 로컬 디버거를 비롯 한 Application Insights에 대 한 다른 TraceTelemetry 또는 ExceptionTelemetry 분석과 동일한 위치에서 찾을 수 있습니다.
 
 항상 TraceTelemetry을 보내려면 다음 코드 조각을 사용 합니다. ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 

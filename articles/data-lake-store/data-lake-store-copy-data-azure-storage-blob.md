@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84ee65b05af4393f49696875bda41df39e283d5d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85980092"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
@@ -51,14 +51,14 @@ AdlCopy /Source <Blob or Data Lake Storage Gen1 source> /Dest <Data Lake Storage
 
 이 구문에서 매개 변수는 다음과 같습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 | --- | --- |
 | 원본 |Azure Storage Blob에서 원본 데이터의 위치를 지정합니다. 원본은 Blob 컨테이너, Blob 또는 다른 Data Lake Storage Gen1 계정일 수 있습니다. |
 | Dest |복사할 Data Lake Storage Gen1 대상을 지정합니다. |
 | SourceKey |Azure Storage Blob 원본에 대한 스토리지 액세스 키를 지정합니다. 원본이 Blob 컨테이너 또는 Blob인 경우에만 필요합니다. |
 | 계정 |**선택 사항입니다**. 복사 작업을 실행하기 위해 Azure 데이터 레이크 분석 계정을 사용하려는 경우 사용합니다. 구문에서 /Account 옵션을 사용하지만 데이터 레이크 분석 계정을 지정하지 않으면 AdlCopy는 기본 계정을 사용하여 작업을 실행합니다. 또한 이 옵션을 사용하는 경우 원본(Azure Storage Blob) 및 대상(Azure Data Lake Storage Gen1)을 Data Lake Analytics 계정에 대한 데이터 원본으로 추가해야 합니다. |
 | 단위 |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
-| 무늬 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 지정 된 패턴이 없는 경우의 기본 패턴은 모든 항목을 복사 하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
+| 패턴 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 지정 된 패턴이 없는 경우의 기본 패턴은 모든 항목을 복사 하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy(독립 실행형)를 사용하여 Azure Storage Blob에서 데이터 복사
 
@@ -69,7 +69,7 @@ AdlCopy /Source <Blob or Data Lake Storage Gen1 source> /Dest <Data Lake Storage
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```console
     AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
@@ -94,7 +94,7 @@ AdlCopy /Source <Blob or Data Lake Storage Gen1 source> /Dest <Data Lake Storage
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>  
     ```      
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```console
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
@@ -115,7 +115,7 @@ AdlCopy를 사용하여 두 Data Lake Storage Gen1 계정 간에 데이터를 �
     AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```console
     AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
@@ -162,7 +162,7 @@ AdlCopy와 함께 Data Lake Analytics 계정을 사용하여 Azure Storage Blob�
 AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```console
 AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
@@ -189,7 +189,7 @@ AdlCopy /Source adl://mysourcedatalakestorage.azuredatalakestore.net/mynewfolder
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```console
     AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv

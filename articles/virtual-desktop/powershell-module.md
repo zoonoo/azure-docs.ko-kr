@@ -7,10 +7,10 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323503"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 PowerShell 모듈 설정
@@ -68,7 +68,7 @@ Youradminupn subscriptionname AzureADTenantID AzureCloud
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-또한 Out-GridView cmdlet을 사용 하 여 목록에서 하나를 선택할 수 있습니다.
+Out-GridView cmdlet을 사용 하 여 목록에서 하나를 선택할 수도 있습니다.
 
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription

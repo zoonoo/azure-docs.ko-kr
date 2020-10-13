@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846875"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>사설 클라우드에 대 한 방화벽 테이블 및 규칙 설정
@@ -43,19 +43,19 @@ ms.locfileid: "85846875"
 
 ![방화벽 규칙 표](media/firewall-rules-tab.png)
 
-## <a name="create-a-firewall-rule"></a>방화벽 규칙 만들기
+## <a name="create-a-firewall-rule"></a>방화벽 규칙을 만들기
 
 1. 다음 방법 중 하나로 방화벽 규칙을 만드는 설정을 표시 합니다.
     * 방화벽 테이블을 만들 때 **규칙 추가** 를 클릭 합니다.
     * **네트워크 > 방화벽 테이블** 페이지에서 특정 방화벽 테이블을 선택 하 고 **새 방화벽 규칙 만들기**를 클릭 합니다.
 2. 규칙을 다음과 같이 설정 합니다.
-    * **이름** - 규칙에 이름을 지정 합니다.
+    * **이름**. 규칙에 이름을 지정 합니다.
     * **우선 순위**입니다. 규칙에 우선 순위를 할당 합니다. 숫자가 낮은 규칙이 먼저 실행 됩니다.
     * **트래픽 유형**입니다. 규칙이 사설 클라우드, 인터넷 또는 VPN 트래픽 (상태 비저장) 인지 또는 공용 IP 주소 (상태 저장)에 대 한 것인지 선택 합니다.
     * **프로토콜**. 규칙이 적용 되는 프로토콜 (TCP, UDP 또는 any protocol)을 선택 합니다.
     * **방향**입니다. 인바운드 또는 아웃 바운드 트래픽에 대 한 규칙 인지 여부를 선택 합니다. 인바운드 및 아웃 바운드 트래픽에 대 한 별도의 규칙을 정의 해야 합니다.
     * **작업**. 규칙이 일치 하는 경우 수행할 작업을 선택 합니다 (허용 또는 거부).
-    * **원본**. 규칙이 적용 되는 원본 (CIDR 블록, 내부 또는 모든 원본)을 지정 합니다.
+    * **원본** - 규칙이 적용 되는 원본 (CIDR 블록, 내부 또는 모든 원본)을 지정 합니다.
     * **원본 포트 범위**입니다. 규칙에 적용 되는 포트 범위를 지정 합니다.
     * **방향**입니다. 인바운드 또는 아웃 바운드를 선택 합니다.
     * **대상**. 규칙이 적용 되는 대상 (CIDR 블록, 내부 또는 모든 원본)을 지정 합니다.

@@ -1,6 +1,6 @@
 ---
 title: Windows 가상 데스크톱 MSIX 앱 연결 개요-Azure
-description: MSIX 앱 연결 이란? 이 문서에서 확인 하세요.
+description: MSIX 앱 연결이란? 이 문서에서 확인 하세요.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,13 +9,13 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c6bf296b5173a662b1e9dd7b025648e3f16d23c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556281"
 ---
-# <a name="what-is-msix-app-attach"></a>MSIX 앱 연결 이란?
+# <a name="what-is-msix-app-attach"></a>MSIX 앱 연결이란?
 
 MSIX은 모든 Windows 앱에 대 한 패키징 환경을 개선 하는 데 필요한 많은 기능을 제공 하는 새로운 패키징 형식입니다. MSIX에 대해 자세히 알아보려면 [msix 개요](/windows/msix/overview)를 참조 하세요.
 
@@ -47,7 +47,7 @@ MSIX 앱 연결은 VDI 또는 SBC 외부에서 적용할 수 있어야 합니다
 
 | 기능 | 기존 앱 계층화  | MSIX 앱 연결  |
 |-----|-----------------------------|--------------------|
-| 서식               | 다른 앱 계층화 기술에는 서로 다른 독자적인 형식이 필요 합니다. | Native MSIX 패키징 형식으로 작동 합니다.        |
+| 형식               | 다른 앱 계층화 기술에는 서로 다른 독자적인 형식이 필요 합니다. | Native MSIX 패키징 형식으로 작동 합니다.        |
 | 다시 패키지 오버 헤드 | 소유 형식에는 업데이트 당 시퀀싱 및 다시 패키지가 필요 합니다.         | MSIX으로 게시 된 앱에는 다시 패키지가 필요 하지 않습니다. 그러나 MSIX 패키지를 사용할 수 없는 경우 다시 패키지 오버 헤드가 여전히 적용 됩니다. |
 | 에코시스템            | 해당 없음 (예: 공급 업체는 App-v를 제공 하지 않음)  | MSIX은 Office와 같은 핵심 ISV 파트너 및 사내 앱을 채택 하는 Microsoft의 기본 기술입니다. 가상 데스크톱 및 물리적 Windows 컴퓨터에서 MSIX을 사용할 수 있습니다. |
 | 인프라       | 추가 인프라 필요 (서버, 클라이언트 등) | 저장소 전용   |
