@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Windows UWP 빠른 시작 | Azure
-description: 유니버설 Windows 플랫폼(XAML) 애플리케이션이 액세스 토큰을 가져오고, Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
+title: '빠른 시작: 유니버설 Windows 플랫폼 앱에서 사용자 로그인 및 Microsoft Graph 호출 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 액세스 토큰을 가져오고, Microsoft ID 플랫폼으로 보호되는 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,18 +12,23 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: d68017bcddf43066dd989904578b7d09a84f4a9e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 5b954c5eae9c203efa65dc9dc1883d8e00f3937a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85553863"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91630528"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
 이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 개정 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
 > [!div renderon="docs"]
+> ## <a name="prerequisites"></a>필수 구성 요소
+>
+> * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
 > [!div renderon="docs" class="sxs-lookup"]
 > 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.

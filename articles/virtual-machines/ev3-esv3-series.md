@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: lahugh
 ms.openlocfilehash: 698b95dc5b38e1d365a80878a5057dee357d81af
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649578"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3 및 Esv3 시리즈
@@ -24,7 +24,7 @@ Ev3 시리즈 인스턴스는 Intel® Xeon® 플래티넘 8272CL (케스케이�
 
 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 ESv3 크기를 사용합니다. ESv3 크기의 가격 및 요금 청구 기준은 Ev3 시리즈와 동일합니다.
 
-Ev3 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술입니다.
+Ev3 시리즈 VM의 기능 Intel® Hyper-Threading 기술입니다.
 
 [Acu](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
@@ -54,7 +54,7 @@ Ev3 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술입니다.
 
 Esv3 시리즈 인스턴스는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 프로세서에서 실행 되며, Intel 터보 부스트 기술 2.0을 사용 하 고 premium storage를 사용 합니다. Esv3 시리즈 인스턴스는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
 
-Esv3 시리즈 VM의 기능 Intel® 하이퍼 스레딩 기술입니다.
+Esv3 시리즈 VM의 기능 Intel® Hyper-Threading 기술입니다.
 
 [Acu](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>

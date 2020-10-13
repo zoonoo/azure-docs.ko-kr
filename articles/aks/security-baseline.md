@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: e5ca792c6dbc3c08847315b916913e8c38909a7a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637238"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
@@ -1237,7 +1237,7 @@ PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저�
 
 예를 들면 다음과 같습니다.
 
-백업-AzKeyVaultCertificate backup-AzKeyVaultKey backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
+Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [Key Vault 인증서를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1261,7 +1261,7 @@ PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저�
 
 예를 들면 다음과 같습니다.
 
-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
+Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
 - [Key Vault 인증서를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
@@ -1281,7 +1281,7 @@ AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAcco
 
 **지침**: Velero와 같은 저장소 유형에 적절 한 도구를 사용 하 여 데이터를 백업 합니다 .이 도구는 추가 클러스터 리소스 및 구성과 함께 영구 볼륨을 백업할 수 있습니다. 
 
-Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 AKS (Azure Kubernetes Service) 배포에 Azure Key Vault를 사용 하는 경우 실수로 또는 악의적인 삭제 로부터 키를 보호 합니다.
+AKS (Azure Kubernetes Service) 배포에 대해 Azure Key Vault를 사용 하는 경우 Key Vault에서 Soft-Delete를 사용 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 키를 보호 합니다.
 
 - [Azure Storage 서비스 암호화 이해](../storage/common/storage-service-encryption.md)
 

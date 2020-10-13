@@ -12,26 +12,26 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569433"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경 계획
 
 > [!CAUTION]
-> Gen1 문서입니다.
+> 이는 Gen1 문서입니다.
 
 이 문서에서는 예상 되는 수신 요금 및 데이터 보존 요구 사항에 따라 Azure Time Series Insights Gen1 환경을 계획 하는 방법을 설명 합니다.
 
-## <a name="video"></a>동영상
+## <a name="video"></a>비디오
 
 **Azure Time Series Insights의 데이터 보존 및 계획 방법에 대 한 자세한 내용은이 비디오를 시청**하세요.<br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 
 Azure Time Series Insights를 시작 하려면 분 단위로 푸시 해야 하는 데이터의 양과 데이터를 저장 하는 데 걸리는 시간을 알고 있는 것이 가장 좋습니다.  
 

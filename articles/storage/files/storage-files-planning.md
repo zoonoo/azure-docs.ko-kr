@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 85264eae325d9ed7049daac47a124cf1efb806e0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649952"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
@@ -75,7 +75,7 @@ Azure Files는 두 가지 암호화 유형 (전송 중 암호화), Azure 파일 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 
 > [!IMPORTANT]
-> 이 섹션에서는 SMB 공유에 대 한 전송 세부 정보의 암호화에 대해 설명 합니다. NFS 공유로 전송 되는 암호화에 대 한 자세한 내용은 [보안](storage-files-compare-protocols.md#security)을 참조 하세요.
+> 이 섹션에서는 SMB 공유에 대한 전송 중 암호화 세부 정보에 대해 설명합니다. NFS 공유를 통한 전송 중 암호화에 대한 자세한 내용은 [보안](storage-files-compare-protocols.md#security)을 참조하세요.
 
 기본적으로 모든 Azure 스토리지 계정은 전송 중 암호화를 사용하도록 설정되어 있습니다. 즉, SMB를 통해 파일 공유를 탑재하거나 FileREST 프로토콜(예: Azure Portal, PowerShell/CLI 또는 Azure SDK)을 통해 액세스할 때 Azure Files는 암호화 또는 HTTPS를 사용하는 SMB 3.0 이상을 통해 만든 연결만 허용합니다. SMB 3.0을 지원하지 않는 클라이언트 또는 SMB 3.0을 지원하지만 SMB 암호화를 지원하지 않는 클라이언트는 전송 중 암호화를 사용하도록 설정된 경우 Azure 파일 공유를 탑재할 수 없습니다. 암호화를 통해 SMB 3.0을 지원하는 운영 체제에 대한 자세한 내용은 자세한 [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) 및 [Linux](storage-how-to-use-files-linux.md)용 설명서를 참조하세요. 모든 현재 버전의 PowerShell, CLI 및 SDK는 HTTPS를 지원합니다.  
 

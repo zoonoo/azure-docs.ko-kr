@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
 ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649646"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
@@ -26,7 +26,7 @@ Dv3 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake
 
 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 Dsv3 크기를 사용합니다. Dsv3 크기의 가격 및 요금 청구 기준은 Dv3 시리즈와 동일합니다.
 
-Dv3 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
+Dv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 
 [Acu](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
@@ -50,7 +50,7 @@ Dv3 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
 
 Dsv3 시리즈 크기는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 intel 터보 부스트 기술 2.0을 사용 하는 intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 되며 premium storage를 사용 합니다. Dsv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 스토리지의 조합을 제공합니다.
 
-Dsv3 시리즈 Vm은 Intel® 하이퍼 스레딩 기술을 기능 합니다.
+Dsv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 
 [Acu](acu.md): 160-190<br>
 [Premium Storage](premium-storage-performance.md): 지원 됨<br>

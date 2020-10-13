@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3751560125ea8ac6cc00ed63521bff30b751e688
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009599"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91631384"
 ---
 # <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 Azure Cache for Redis는 오픈 소스 소프트웨어 [Redis](https://redis.io/)를 기반으로 하는 메모리 내 데이터 저장소를 제공합니다. Redis는 백 엔드 데이터 저장소에서 많이 사용하는 애플리케이션의 성능과 확장성을 개선합니다. 자주 액세스하는 데이터를 빠르게 쓰고 읽을 수 있는 서버 메모리에 보관하여 대량의 애플리케이션 요청을 처리할 수 있습니다. Redis는 최신 애플리케이션에 매우 짧은 대기 시간 및 높은 처리량의 데이터 스토리지 솔루션을 제공합니다.
@@ -31,12 +31,20 @@ Azure Cache for Redis는 일반적인 애플리케이션 아키텍처 패턴을 
 | 작업 및 메시지 큐 | 애플리케이션은 요청과 연결된 작업을 실행하는 데 시간이 걸릴 때 종종 작업을 추가합니다. 오래 실행되는 작업은 종종 다른 서버에 의해 순서대로 처리되도록 큐에 대기됩니다.  이러한 작업 지연 메서드를 태스크 큐라고 합니다. Azure Cache for Redis는 애플리케이션에서 이 패턴을 사용하도록 설정하는 분산 큐를 제공합니다.|
 | 분산 트랜잭션 | 애플리케이션에는 단일 원자성 작업으로 실행하기 위해 백 엔드 데이터 저장소에 대한 일련의 명령이 필요할 수 있습니다. 모든 명령은 성공하거나 모두 초기 상태로 롤백되어야 합니다. Azure Cache for Redis는 명령의 일괄 처리 실행을 단일 [트랜잭션](https://redis.io/topics/transactions)으로 지원합니다. |
 
+## <a name="redis-versions"></a>Redis 버전
+
+Azure Cache for Redis는 Redis 버전 4.x를 지원하고, 미리 보기로 6.0을 지원합니다. 최신 버전을 제공하기 위해 Redis 5.0을 건너뛰기로 결정했습니다. 이전에는 Azure Cache for Redis가 단일 Redis 버전만 유지 관리했습니다. 최신 주 릴리스 업그레이드와 안정적인 이전 버전이 하나 이상 제공됩니다. 애플리케이션에 가장 적합한 [버전을 선택](cache-how-to-version.md)할 수 있습니다.
+
+> [!NOTE]
+> Redis 6.0은 현재 미리 보기로 제공되고 있습니다. 관심이 있으시면 [문의](mailto:azurecache@microsoft.com)하세요. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
+
 ## <a name="service-tiers"></a>서비스 계층
 Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 
 | 계층 | Description |
 |---|---|
-Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB)를 지원하며 개발/테스트 및 중요하지 않은 작업에 적합합니다. 기본 계층에는 SLA(서비스 수준 계약)가 없습니다. |
+| Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB)를 지원하며 개발/테스트 및 중요하지 않은 작업에 적합합니다. 기본 계층에는 SLA(서비스 수준 계약)가 없습니다. |
 | Standard | 고가용성 [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)를 사용하여 Azure에서 관리하는 2노드 기본/복제 구성의 복제된 캐시입니다. |
 | Premium | Premium 계층은 엔터프라이즈급 계층입니다. Premium 계층 캐시는 더 많은 기능을 지원하며 더 낮은 대기 시간으로 더 많은 처리가 가능합니다. Premium 계층의 캐시는 Basic 또는 Standard 계층에 비해 더 나은 성능을 제공하는 더 강력한 하드웨어에 배포됩니다. 이러한 이점은 Standard 계층에 비해 Premium에서 동일한 크기의 캐시에 대한 처리량이 많음을 의미합니다. |
 
