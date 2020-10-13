@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086405"
+ms.locfileid: "91874597"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
 Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 경로 방향 및 경로 행렬 api는 요청 된 각 경로에 대 한 etas (예상 도착 시간)를 계산 하는 데 사용할 수 있습니다. 경로 Api는 요청 된 요일 및 시간에 대 한 일반적인 이동 속도와 같이 실시간 트래픽 정보 및 기록 트래픽 데이터와 같은 요인을 고려 합니다. 이 API는 시간 또는 거리를 기준으로 차례대로 또는 최적화된 순서대로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환합니다. 또한 사용자는 워커, bicyclists 및 상업용 차량 (예: 트럭)에 대 한 특수 경로 및 세부 정보를 요청할 수 있습니다. 이 문서에서는 Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)를 호출 하는 모범 사례를 공유 하 고 방법에 대해 알아봅니다.
 
-> [!div class="checklist"]
-> * 경로 방향 Api와 Matrix 라우팅 API 중에서 선택
-> * 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측된 이동 시간 요청
-> * 경로의 전체 경로 및 각 레그에 대 한 시간 및 거리와 같은 경로 세부 정보를 요청 합니다.
-> * 트럭과 같은 상업 차량에 대 한 경로 요청
-> * 용지를 통한 트래픽 정보 (예: 용지 걸림 및 요금 정보) 요청
-> * 하나 이상의 중지 (waypoints)로 구성 된 경로 요청
-> * 하나 이상의 중지 경로를 최적화 하 여 각 중지 (이동 경로)를 방문 하는 가장 좋은 순서 가져오기
-> * 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
-> * Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
+ * 경로 방향 Api와 Matrix 라우팅 API 중에서 선택
+ * 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측된 이동 시간 요청
+ * 경로의 전체 경로 및 각 레그에 대 한 시간 및 거리와 같은 경로 세부 정보를 요청 합니다.
+ * 트럭과 같은 상업 차량에 대 한 경로 요청
+ * 용지를 통한 트래픽 정보 (예: 용지 걸림 및 요금 정보) 요청
+ * 하나 이상의 중지 (waypoints)로 구성 된 경로 요청
+ * 하나 이상의 중지 경로를 최적화 하 여 각 중지 (이동 경로)를 방문 하는 가장 좋은 순서 가져오기
+ * 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
+ * Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -75,7 +74,7 @@ Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사]
 
 요청에 **computeTravelTimeFor = all** 매개 변수를 포함 하는 경우 응답의 요약 요소에는 기록 트래픽 상태를 포함 하 여 다음과 같은 추가 필드가 포함 됩니다.
 
-| 요소 | Description|
+| 요소 | 설명|
 | :--- | :--- |
 | noTrafficTravelTimeInSeconds | 트래픽 조건으로 인해 경로에 지연이 발생 하지 않는 경우 처럼 계산 된 예상 이동 시간 (예: 정체 때문) |
 | historicTrafficTravelTimeInSeconds | 시간 종속 기록 트래픽 데이터를 사용 하 여 계산 된 예상 이동 시간 |

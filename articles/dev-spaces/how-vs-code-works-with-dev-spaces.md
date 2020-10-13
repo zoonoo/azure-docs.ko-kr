@@ -5,14 +5,16 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Kubernetes 응용 프로그램을 디버그 하 고 신속 하 게 반복 하는 데 도움이 되는 Visual Studio Code 및 Azure Dev Spaces 방법을 알아보세요.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfcb8107280bb86144b798da2d5b1c16371528e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209875"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960748"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Azure Dev Spaces에서 Visual Studio Code 작동 하는 방법
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
 
 Visual Studio Code 및 [Azure Dev Spaces 확장][azds-extension] 을 사용 하 여 Azure Dev Spaces으로 서비스를 준비, 실행 및 디버그할 수 있습니다. Visual Studio Code 및 Azure Dev Spaces 확장을 사용 하면 다음을 수행할 수 있습니다.
 

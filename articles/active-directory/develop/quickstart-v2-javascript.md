@@ -1,7 +1,7 @@
 ---
-title: JavaScript 단일 페이지 앱에서 사용자 로그인 | Azure
+title: '빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인 | Azure'
 titleSuffix: Microsoft identity platform
-description: JavaScript 앱이 Microsoft ID 플랫폼을 사용하여 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 JavaScript 앱이 Microsoft ID 플랫폼에서 발급한 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -12,23 +12,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e3e0c1ecf9ce3a9d86f6b03c3ad3efc5676b5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1f5281ead3c0487b6052859df3b33fa6ddaaf45a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257931"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91613325"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
-이 빠른 시작에서는 코드 샘플을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
+이 빠른 시작에서는 코드 샘플을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.JS](https://nodejs.org/en/download/)
 * [Visual Studio Code](https://code.visualstudio.com/download)(프로젝트 파일 편집)
-
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>빠른 시작 애플리케이션 등록 및 다운로드
@@ -300,9 +299,4 @@ myMSALObj.acquireTokenPopup(requestObj)
 이 빠른 시작에 대한 애플리케이션 빌드에 대한 더 자세한 단계별 가이드는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [MS Graph에 로그인하고 호출하는 자습서](./tutorial-v2-javascript-spa.md)
-
-설명서, FAQ, 문제 등에 대한 MSAL 리포지토리를 찾아보려면 다음을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [MSAL.js GitHub 리포지토리](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [자습서: JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출](tutorial-v2-javascript-spa.md)

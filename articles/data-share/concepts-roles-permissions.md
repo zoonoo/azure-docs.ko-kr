@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761518"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
@@ -61,7 +61,7 @@ Azure 데이터 공유에 데이터 집합을 추가 하려면 원본 Azure 데�
 1. **역할 할당 추가를**선택 합니다.
 1. *역할*아래에서 위의 역할 할당 테이블에서 역할을 선택 합니다. 예를 들어 저장소 계정에서 *저장소 Blob 데이터 판독기*를 선택 합니다.
 1. *선택*아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
-1. *저장*을 클릭합니다.
+1. *Save*을 클릭합니다.
 
 SQL 기반 원본의 경우 위의 단계 외에도 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자에 게 *db_datareader* 권한이 있어야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [데이터 공유](share-your-data.md) 자습서에서 찾을 수 있습니다. 
 
@@ -79,7 +79,7 @@ SQL 기반 원본의 경우 위의 단계 외에도 Azure 데이터 공유 리�
 1. **역할 할당 추가를**선택 합니다.
 1. *역할*아래에서 위의 역할 할당 테이블에서 역할을 선택 합니다. 예를 들어 저장소 계정에서 *저장소 Blob 데이터 판독기*를 선택 합니다.
 1. *선택*아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
-1. *저장*을 클릭합니다.
+1. *Save*을 클릭합니다.
 
 SQL 기반 대상의 경우 위의 단계 외에도 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자는 *db_datareader, db_datawriter db_ddladmin* 권한을 부여 받아야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [데이터 수락 및 받기](subscribe-to-data-share.md) 자습서에서 찾을 수 있습니다. 
 

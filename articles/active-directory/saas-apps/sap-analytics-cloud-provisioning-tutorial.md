@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/13/2020
 ms.author: Zhchia
 ms.openlocfilehash: 73f560ccf7ba910ce9077f2eff2d2bdb90736cc2
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361265"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SAP Analytics 클라우드 구성
@@ -34,7 +34,7 @@ ms.locfileid: "91361265"
 > * Azure AD와 SAP Analytics 클라우드 간에 사용자 특성을 동기화 상태로 유지
 > * SAP Analytics Cloud에 대 [한 Single sign-on](sapboc-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "91361265"
 
    ![Postman POST 요청](./media/sap-analytics-cloud-provisioning-tutorial/postman-post-request.png)
 
-## <a name="step-3-add-sap-analytics-cloud-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 SAP Analytics Cloud 추가
+## <a name="step-3-add-sap-analytics-cloud-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 SAP Analytics Cloud 추가
 
 Sap analytics 클라우드로의 프로 비전 관리를 시작 하려면 Azure AD 응용 프로그램 갤러리에서 SAP Analytics Cloud를 추가 합니다. 이전에 SSO에 대 한 SAP Analytics Cloud를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

@@ -2,7 +2,7 @@
 title: 템플릿을 사용 하 여 Windows VM을 Azure AD DS에 가입 | Microsoft Docs
 description: Azure Resource Manager 템플릿을 사용 하 여 새 또는 기존 Windows Server VM을 Azure Active Directory Domain Services 관리 되는 도메인에 가입 하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: fdef11fec93d4ba6254957ad14e0612e2fd05580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 988f009527f26a9f2be965b635d57f0bc38913c2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86221360"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960697"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인에 Windows Server 가상 머신 연결
 
@@ -24,7 +24,7 @@ Azure Vm (가상 머신)의 배포 및 구성을 자동화 하기 위해 리소�
 
 이 문서에서는 리소스 관리자 템플릿을 사용 하 여 Windows Server VM을 만들고 Azure AD DS 관리 되는 도메인에 가입 하는 방법을 보여 줍니다. 또한 Azure AD DS 도메인에 기존 Windows Server VM을 조인 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -84,7 +84,7 @@ Windows Server VM을 만들려면 관리 되는 도메인에 가입 하 고 다�
 1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)으로 이동 합니다. **Azure에 배포**하는 옵션을 선택 합니다.
 1. **사용자 지정 배포** 페이지에서 다음 정보를 입력 하 여 WINDOWS Server VM을 만들고 관리 되는 도메인에 가입 시킵니다.
 
-    | 설정                   | 값 |
+    | Setting                   | 값 |
     |---------------------------|-------|
     | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
     | Resource group            | VM에 대 한 리소스 그룹을 선택 합니다. |
@@ -117,7 +117,7 @@ Windows Server VM을 만들려면 관리 되는 도메인에 가입 하 고 다�
 1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)으로 이동 합니다. **Azure에 배포**하는 옵션을 선택 합니다.
 1. **사용자 지정 배포** 페이지에서 다음 정보를 입력 하 여 VM을 관리 되는 도메인에 가입 시킵니다.
 
-    | 설정                   | 값 |
+    | Setting                   | 값 |
     |---------------------------|-------|
     | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
     | Resource group            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |

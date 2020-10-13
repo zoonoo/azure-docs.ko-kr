@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/6/2020
 ms.reviewer: sngun
 ms.openlocfilehash: bb8a413f2e2a3aa4a8facd533d822312bb61fa0e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613563"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API

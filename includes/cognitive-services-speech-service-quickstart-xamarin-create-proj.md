@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 0bcdd315fe11b7472166a5a9ad4f7395e22d2126
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72675619"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654448"
 ---
 Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio 프로젝트를 만들려면 다음을 수행해야 합니다.
 - Visual Studio 개발 옵션을 설정합니다.
@@ -24,7 +24,7 @@ Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio
 
 1. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 열고 **수정** 대화 상자를 봅니다.
 
-   ![워크로드 탭, 수정 대화 상자, Visual Studio 설치 관리자](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
+   ![워크로드 탭, 수정 대화 상자 및 Visual Studio 설치 관리자를 보여주는 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
 
 1. **워크로드** 탭의 **Windows** 아래에서 **.NET을 사용한 모바일 개발** 워크로드를 찾습니다. 해당 작업 옆의 확인란이 이미 선택되어 있으면 **수정** 대화 상자를 닫고 5단계로 이동합니다.
 
@@ -36,13 +36,13 @@ Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio
 
 1. Visual Studio 메뉴 모음에서 **파일** > **새로 만들기** > **프로젝트**를 선택하여 **새 프로젝트 만들기** 창을 표시합니다.
 
-   ![새 프로젝트 만들기 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
+   ![Visual Studio에서 새 프로젝트를 만드는 방법을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
 
 1. **모바일 앱(Xamarin Forms)** 을 찾아서 선택합니다.
 
 1. **다음**을 선택하여 **새 프로젝트 구성** 화면을 표시합니다.
 
-   ![새 프로젝트 구성 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
+   ![Visual Studio에서 새 프로젝트를 구성하는 방법을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
 1. **프로젝트 이름**으로 *helloworld*를 입력합니다.
 
@@ -50,7 +50,7 @@ Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio
 
 1. **만들기**를 선택하여 **새 모바일 앱 Xamarin Forms Project** 창으로 이동합니다.
 
-   ![새 유니버설 Windows 플랫폼 프로젝트 대화 상자 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Visual Studio의 새 유니버설 Windows 플랫폼 프로젝트 대화 상자를 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. **Blank** 템플릿을 선택합니다.
 
@@ -70,13 +70,13 @@ Xamarin을 사용하여 플랫폼 간 모바일 앱 .NET 개발용 Visual Studio
 
 1. **찾아보기**를 선택합니다.
 
-   ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Speech SDK 설치 시 솔루션용 패키지 관리 대화 상자의 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. **패키지 원본**에서 nuget.org를 선택합니다.
 
 1. **검색 상자**에 *Microsoft.CognitiveServices.Speech*를 입력합니다. 이 패키지가 검색 결과에 표시되면 이 패키지를 선택합니다.
 
-   ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
+   ![Microsoft.CognitiveServices.Speech 패키지를 강조 표시하는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
    > `Microsoft.CognitiveServices.Speech` NuGet 내의 iOS 라이브러리는 bitcode를 사용하도록 설정되어 있지 않습니다. 애플리케이션에 bitcode 라이브러리를 사용하도록 설정해야 하는 경우 구체적으로 iOS 프로젝트용 `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet을 사용하세요.

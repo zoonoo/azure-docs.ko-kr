@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
 ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766666"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
@@ -391,7 +391,7 @@ JSON이 구문 분석 되 면 **Json 데이터 구문 분석** 작업은 *본문
 
    :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Automation 계정 추가":::
 
-5. **작업** 목록에서 **조건-제어**를 선택 합니다. 조건 컨트롤은 워크플로에서 데이터를 특정 값 이나 필드와 비교 하는 컨트롤 구조입니다. 그러면 데이터가 조건에 맞는지 여부에 따라 실행 되는 다른 동작을 지정할 수 있습니다.
+5. **작업** 목록에서 **조건-제어**를 선택 합니다. Condition-Control은 워크플로에서 데이터를 특정 값 이나 필드와 비교 하는 컨트롤 구조입니다. 그러면 데이터가 조건에 맞는지 여부에 따라 실행 되는 다른 동작을 지정할 수 있습니다.
 
    :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Automation 계정 추가":::
 

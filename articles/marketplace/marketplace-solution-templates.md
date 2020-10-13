@@ -8,10 +8,10 @@ author: msjogarrig
 ms.author: jogarrig
 ms.date: 04/22/2020
 ms.openlocfilehash: c4be1c7eec9572d284d70823d270dafe5569ab14
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484224"
 ---
 # <a name="publishing-guide-for-azure-applications-solution-template-offers"></a>Azure 응용 프로그램 게시 가이드 솔루션 템플릿 제품
@@ -27,7 +27,7 @@ ms.locfileid: "89484224"
 
 ## <a name="requirements-for-solution-template-offers"></a>솔루션 템플릿 제품에 대 한 요구 사항
 
-| **요구 사항** | **세부 정보**  |
+| **Requirements** | **세부 정보**  |
 | ---------------  | -----------  |
 |청구 및 계량    |  솔루션 템플릿 제품은 트랜잭션 제안이 아니라 Microsoft 상업적 marketplace를 통해 청구 되는 유료 VM 제품을 배포 하는 데 사용할 수 있습니다. 솔루션의 ARM 템플릿에서 배포 하는 리소스는 고객의 Azure 구독에 설정 됩니다. 종 량 제 가상 머신은 Microsoft를 통해 고객과 거래 되며 고객의 Azure 구독을 통해 청구 됩니다.<br/> BYOL (사용자 라이선스 보유) 청구의 경우 Microsoft는 고객 구독에서 발생 하는 인프라 비용을 청구 하지만 고객과 직접 소프트웨어 라이선스 요금을 지불 합니다.   |
 |Azure 호환 VHD(가상 하드 디스크)  |   VM은 Windows 또는 Linux에서 빌드해야 합니다. 자세한 내용은 다음을 참조하세요. <ul> <li>Windows Vhd에 대 한 [Azure 응용 프로그램 제품을 만듭니다](./partner-center-portal/create-new-azure-apps-offer.md) .</li><li>[Azure에서 linux 배포판 보증](../virtual-machines/linux/endorsed-distros.md) (linux vhd의 경우).</li></ul> |

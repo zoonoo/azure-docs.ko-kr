@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76e94e3c1571f865b41acd488ee1e868043427b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321949"
+ms.locfileid: "91874546"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
@@ -79,10 +79,12 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
     -   Azure AD 애플리케이션 갤러리의 애플리케이션 추가
 
 ## <a name="risky-app-error-and-warning"></a>위험한 앱 오류 및 경고
+* **AADSTS900941:** 관리자 동의가 필요 합니다. 앱이 위험한 것으로 간주 됩니다. (AdminConsentRequiredDueToRiskyApp)
 * 이 앱은 위험할 수 있습니다. 이 앱을 신뢰 하는 경우 관리자에 게 액세스 권한을 부여 하도록 요청 하세요.
+* **AADSTS900981:** 위험한 앱에 대 한 관리자 동의 요청이 수신 되었습니다. (AdminConsentRequestRiskyAppWarning)
 * 이 앱은 위험할 수 있습니다. 이 앱을 신뢰 하는 경우에만 계속 합니다.
 
-Microsoft에서 동의 요청이 위험할 수 있는 것으로 확인 되 면 이러한 두 메시지가 모두 표시 됩니다. 여러 가지 다른 요인 중 하나는 [확인 된 게시자](../develop/publisher-verification-overview.md) 가 앱 등록에 추가 되지 않은 경우 발생할 수 있습니다. [관리자 동의 워크플로](configure-admin-consent-workflow.md) 를 사용 하지 않도록 설정 하면 첫 번째 메시지가 최종 사용자에 게 표시 됩니다. 관리자 동의 워크플로를 사용 하도록 설정 하 고 관리자에 게 두 번째 메시지가 표시 됩니다. 
+Microsoft에서 동의 요청이 위험할 수 있는 것으로 확인 되 면 이러한 두 메시지가 모두 표시 됩니다. 여러 가지 다른 요인 중 하나는 [확인 된 게시자](../develop/publisher-verification-overview.md) 가 앱 등록에 추가 되지 않은 경우 발생할 수 있습니다. [관리자 동의 워크플로](configure-admin-consent-workflow.md) 를 사용 하지 않도록 설정 하면 첫 번째 오류 코드 및 메시지가 최종 사용자에 게 표시 됩니다. 관리자 동의 워크플로를 사용 하도록 설정 하 고 관리자에 게는 최종 사용자에 게 두 번째 코드와 메시지가 표시 됩니다. 
 
 최종 사용자는 위험한 것으로 검색 된 앱에 대 한 동의를 부여할 수 없습니다. 관리자는 가능 하지만 앱을 매우 carefuly 평가 하 고 주의 해 서 진행 해야 합니다. 앱이 추가 검토 시 의심 스 러 워 보이면 동의 화면에서 Microsoft에 보고할 수 있습니다. 
 

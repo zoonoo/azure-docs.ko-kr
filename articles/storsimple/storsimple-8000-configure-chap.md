@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 694d63dacedd8ffcd075e73bb91b5ab0a089b58c
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766502"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
@@ -59,7 +59,7 @@ StorSimple 디바이스에서 CHAP 설정은 다음과 같은 방법으로 구�
    3. 암호를 확인합니다.
 
        ![CHAP 시작자 2](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+3. **Save**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Windows 호스트 서버에서 일방 인증을 구성하려면
 1. Windows 호스트 서버에서 iSCSI 초기자를 시작합니다.
@@ -113,7 +113,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
    3. 암호를 확인합니다.
 
        ![CHAP 시작자 3](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+4. **Save**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Windows 호스트 서버에서 양방향 인증을 구성하려면
 
