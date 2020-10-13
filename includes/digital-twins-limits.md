@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89304028"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989694"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
@@ -22,6 +22,8 @@ ms.locfileid: "89304028"
 | Digital Twins | Azure Digital 쌍 인스턴스의 쌍 수 | 200,000 | 예 |
 | Digital Twins | 단일 쌍으로 들어오는 관계의 수 | 5,000 | 아니요 |
 | Digital Twins | 단일 쌍의 나가는 관계 수 | 5,000 | 아니요 |
+| Digital Twins | 단일 쌍의 최대 크기 | 32KB | 아니요 |
+| Digital 쌍 API | 최대 요청 페이로드 크기 | 32KB | 아니요 | 
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 끝점 수 | 6 | 아니요 |
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 경로 수 | 6 | 예 |
 | 모델 | 단일 Azure Digital Twins 인스턴스 내의 모델 수 | 10000 | 예 |

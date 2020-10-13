@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 43b85ba58ed7163a896054ab9e77ddf82e3461a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90902803"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Azure Database for MySQL용 Advanced Threat Protection
@@ -42,15 +42,15 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
  
 1. 이메일에서 **최근 경고 보기** 링크를 클릭하여 Azure Portal을 시작하고, SQL 데이터베이스에서 검색된 활성 SQL 위협을 대략적으로 보여주는 Azure Security Center 경고 페이지를 표시합니다.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="비정상적인 활동 보고서":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="위협 감지 설정":::
 
     활성 위협 보기:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="활성 위협":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="위협 감지 설정":::
 
 2. 특정 경고를 클릭하여 이 위협을 조사하고 향후 위협을 수정하기 위한 추가 세부 정보 및 조치를 확인합니다.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="특정 경고":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="위협 감지 설정":::
 
 ## <a name="explore-threat-detection-alerts"></a>위협 검색 경고 살펴보기
 
@@ -58,7 +58,7 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 **보안 위협 경고**를 클릭하면 Azure Security Center 경고 페이지가 열리고 데이터베이스에서 감지된 활성 SQL 위협에 대한 개요가 제공됩니다.
 
-   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="위협 감지 경고":::
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="위협 감지 설정":::
    
 
 ## <a name="next-steps"></a>다음 단계

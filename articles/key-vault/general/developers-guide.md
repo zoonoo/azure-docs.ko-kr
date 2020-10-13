@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a04435b1e2feb537231bb80d2777b9ea2599c241
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6564804b7003b5e1c166868dae1bfaac7bd28fa5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812406"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940467"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -52,17 +52,27 @@ Key Vault 관리 평면에 대 한 자세한 내용은 [Key Vault 관리 평면]
 Azure ad 보안 주체에 액세스 권한을 부여 해야 하는 Azure AD 인증을 사용 하 Key Vault입니다. Azure AD 보안 주체는 사용자, 응용 프로그램 서비스 주체, [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)또는 모든 유형의 보안 주체 그룹 일 수 있습니다.
 
 ### <a name="authentication-best-practices"></a>인증 모범 사례
+
 Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것이 좋습니다. 관리 id를 지원 하지 않거나 응용 프로그램을 온-프레미스에 배포 하는 경우 Azure 서비스를 사용 하는 경우 인증서를 사용 하는 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 사용할 수 있습니다. 이 시나리오에서는 인증서를 Key Vault 저장 하 고 자주 회전 해야 합니다. 보안을 사용 하는 서비스 주체는 개발 및 테스트 환경에 사용할 수 있으며, 로컬 또는 Cloud Shell 사용자 계정을 사용 하 여 사용 하는 것이 좋습니다.
 
-위의 인증 시나리오는 Azure Id 클라이언트 라이브러리에서 지원 되 고 Key Vault Sdk와 통합 됩니다. Azure Id 라이브러리는 코드를 변경 하지 않고도 다양 한 환경 및 플랫폼에서 사용할 수 있습니다. 또한 azure Id는 Azure CLI, Visual Studio, Visual Studio Code 등을 사용 하 여 Azure 사용자에 게 로그인 한 인증 토큰을 자동으로 검색 합니다. 
+환경 당 권장 되는 보안 주체:
+- **프로덕션 환경**:
+  - 인증서를 사용 하는 관리 id 또는 서비스 주체
+- **테스트 및 개발 환경**:
+  - 관리 id, 인증서 또는 서비스 사용자가 암호를 사용 하는 서비스 주체
+- **로컬 개발**:
+  - 암호를 사용 하는 사용자 계정 또는 서비스 주체
 
-자세한 내용은 다음을 참조하세요. 
+위의 인증 시나리오는 **Azure id 클라이언트 라이브러리** 에서 지원 되 고 Key Vault sdk와 통합 됩니다. Azure Id 라이브러리는 코드를 변경 하지 않고도 다양 한 환경 및 플랫폼에서 사용할 수 있습니다. 또한 azure Id는 Azure CLI, Visual Studio, Visual Studio Code 등을 사용 하 여 Azure 사용자에 게 로그인 한 인증 토큰을 자동으로 검색 합니다. 
 
+Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참조 하세요.
+
+### <a name="azure-identity-client-libraries"></a>Azure Id 클라이언트 라이브러리
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Id SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Id SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Id SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Id SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-응용 프로그램에서 Key Vault 인증:
+응용 프로그램에서 Key Vault을 인증 하는 방법에 대 한 자습서는 다음을 참조 하세요.
 - [.NET의 VM에서 호스팅된 응용 프로그램의 Key Vault에 대 한 인증](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [Python의 VM에서 호스트 되는 응용 프로그램의 Key Vault에 대 한 인증](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [App Service를 사용 하 여 Key Vault에 인증](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)

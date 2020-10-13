@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535732"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search의 순위 알고리즘
@@ -63,7 +63,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 | 속성 | 설명 |
 |----------|-------------|
-| 유사성 | 선택 사항입니다. 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
+| 유사성 | (선택 사항) 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
 
 2020 년 7 월 15 일 이후에 만들어진 새 서비스의 경우 BM25이 자동으로 사용 되며 유일한 유사성 알고리즘입니다. 새 서비스에서 **유사성** 을로 설정 하려고 하면 `ClassicSimilarity` 새 서비스에서 해당 알고리즘이 지원 되지 않기 때문에 400 오류가 반환 됩니다.
 
@@ -103,7 +103,7 @@ B 또는 k1 값을 사용자 지정 하려면 BM25를 사용할 때 유사성 �
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 + [REST API 참조](/rest/api/searchservice/)
 + [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)

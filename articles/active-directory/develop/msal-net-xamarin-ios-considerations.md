@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258062"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET와 함께 Xamarin iOS 사용에 대 한 고려 사항
@@ -151,7 +151,7 @@ MSAL.NET에서 발견 한 문제를 보고 하려는 경우, GitHub의 [AzureAD/
 
 Xamarin iOS의 속성에 대 한 자세한 내용은 다음 샘플의 README.md 파일에서 [iOS 관련 고려 사항](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) 단락을 참조 하세요.
 
-예제 | 플랫폼 | Description
+예제 | 플랫폼 | 설명
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, 유니버설 Windows 플랫폼 (UWP) | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 앱은 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여 줍니다.
 

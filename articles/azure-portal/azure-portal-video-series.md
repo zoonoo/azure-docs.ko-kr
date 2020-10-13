@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88522949"
+ms.locfileid: "91873713"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Azure Portal 방법 비디오 시리즈
 
@@ -22,18 +22,17 @@ Azure Portal 방법 비디오 시리즈는 Azure Portal에서 Azure 서비스를
 
 ## <a name="featured-video"></a>추천 비디오
 
-이 주요 비디오에서는 Azure 정적 웹 앱을 배포 하는 방법을 보여 줍니다.
+이 주요 비디오에서는 App Service 도메인을 만들고 관리 하는 방법을 보여 줍니다.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Azure 정적 웹 앱을 배포 하는 방법](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[App Service 도메인을 만들고 관리 하는 방법](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 이러한 최신 비디오를 파악 하지 못할 수 있습니다.
 
-| [Azure Functions를 모니터링 하는 방법](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Blob 버전 관리를 사용 하는 방법](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Azure 개인 링크를 사용 하 여 저장소 계정에 연결](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Linux 가상 머신 환경의 향상 된 기능](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Blob 버전 관리를 사용 하는 방법](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Azure Functions 모니터링 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Blob 버전 관리를 사용 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Azure 개인 링크를 사용 하 여 저장소 계정에 연결 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Linux 가상 머신 환경 개선 사항에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Blob 버전 관리를 사용 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## <a name="video-playlist"></a>비디오 재생 목록
 

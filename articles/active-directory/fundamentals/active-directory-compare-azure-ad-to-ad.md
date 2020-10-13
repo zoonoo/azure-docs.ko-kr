@@ -1,5 +1,5 @@
 ---
-title: Active Directory Azure Active Directory 비교
+title: Active Directory와 Azure Active Directory 비교
 description: 이 문서에서는 Active Directory Domain Services (추가)를 Azure Active Directory (AD)와 비교 합니다. 두 id 솔루션의 주요 개념에 대해 간략하게 설명 하 고 다른 개념을 설명 합니다.
 services: active-directory
 author: martincoetzer
@@ -12,13 +12,13 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318559"
 ---
-# <a name="compare-active-directory-to-azure-active-directory"></a>Active Directory Azure Active Directory 비교
+# <a name="compare-active-directory-to-azure-active-directory"></a>Active Directory와 Azure Active Directory 비교
 
 Azure Active Directory은 클라우드에 대 한 id 및 액세스 관리 솔루션의 다음 진화입니다. Microsoft는 조직에 사용자 당 단일 id를 사용 하 여 여러 온-프레미스 인프라 구성 요소 및 시스템을 관리할 수 있는 기능을 제공 하기 위해 Windows 2000에 Active Directory Domain Services를 도입 했습니다.
 
@@ -36,7 +36,7 @@ Azure AD는 클라우드 및 온-프레미스에서 모든 앱에 대 한 IDaaS 
 | 자격 증명 관리| Active Directory 자격 증명은 암호, 인증서 인증 및 스마트 카드 인증을 기반으로 합니다. 암호 길이, 만료 및 복잡성을 기반으로 하는 암호 정책을 사용 하 여 암호를 관리 합니다.|Azure AD는 클라우드 및 온-프레미스에 대 한 지능형 [암호 보호](../authentication/concept-password-ban-bad.md) 를 사용 합니다. 보호에는 스마트 잠금과 사용자 지정 암호 문구 및 대체가 차단 됩니다. </br>Azure AD는 FIDO2 같은 [multi-factor authentication](../authentication/concept-mfa-howitworks.md) 및 [암호 없는](../authentication/concept-authentication-passwordless.md) 기술을 통해 보안을 크게 강화 합니다. </br>Azure AD는 사용자에 게 [셀프 서비스 암호 재설정](../authentication/concept-sspr-howitworks.md) 시스템을 제공 하 여 지원 비용을 절감 합니다. |
 | **앱**|||
 | 인프라 앱|Active Directory은 많은 인프라 온-프레미스 구성 요소 (예: DNS, DHCP, IPSec, WiFi, NPS 및 VPN 액세스)의 기반을 형성 합니다.|새로운 클라우드 세계에서 Azure AD는 응용 프로그램에 액세스 하 고 네트워킹 제어에 의존 하는 새로운 제어 평면입니다. 사용자가 인증[하는 경우 CA (조건부 액세스)](../conditional-access/overview.md)는 필요한 조건에서 어떤 앱에 액세스할 수 있는 사용자를 제어 합니다.|
-| 기존 앱 및 레거시 앱| 대부분의 온-프레미스 앱은 LDAP, Windows 통합 인증 (NTLM 및 Kerberos) 또는 헤더 기반 인증을 사용 하 여 사용자에 대 한 액세스를 제어 합니다.| Azure AD는 온-프레미스에서 실행 되는 [AZURE ad 응용 프로그램 프록시](../manage-apps/application-proxy.md) 에이전트를 사용 하 여 이러한 유형의 온-프레미스 앱에 대 한 액세스를 제공할 수 있습니다. 이 방법을 사용 하는 경우 Azure AD는 마이그레이션하는 동안 Kerberos를 사용 하 여 온-프레미스에서 사용자 Active Directory 인증할 수 있으며 레거시 앱과 함께 사용 해야 합니다. |
+| 기존 앱 및 레거시 앱| 대부분의 온-프레미스 앱은 LDAP, Windows-Integrated 인증 (NTLM 및 Kerberos) 또는 헤더 기반 인증을 사용 하 여 사용자에 대 한 액세스를 제어 합니다.| Azure AD는 온-프레미스에서 실행 되는 [AZURE ad 응용 프로그램 프록시](../manage-apps/application-proxy.md) 에이전트를 사용 하 여 이러한 유형의 온-프레미스 앱에 대 한 액세스를 제공할 수 있습니다. 이 방법을 사용 하는 경우 Azure AD는 마이그레이션하는 동안 Kerberos를 사용 하 여 온-프레미스에서 사용자 Active Directory 인증할 수 있으며 레거시 앱과 함께 사용 해야 합니다. |
 | SaaS 앱|Active Directory는 SaaS 앱을 기본적으로 지원 하지 않으며 AD FS와 같은 페더레이션 시스템이 필요 합니다.|OAuth2, SAML 및 WS 인증을 지 원하는 SaaS 앱 \* 을 통합 하 여 인증을 위해 AZURE AD를 사용할 수 있습니다. |
 | 최신 인증을 사용 하는 LOB (기간 업무) 앱|조직에서는 Active Directory와 함께 AD FS를 사용 하 여 최신 인증을 요구 하는 LOB 앱을 지원할 수 있습니다.| 인증을 위해 Azure AD를 사용 하도록 최신 인증을 요구 하는 LOB 앱을 구성할 수 있습니다. |
 | 중간 계층/디먼 서비스|온-프레미스 환경에서 실행 되는 서비스는 일반적으로 AD 서비스 계정 또는 gMSA (그룹 관리 서비스 계정)를 사용 하 여 실행 합니다. 이러한 앱은 서비스 계정의 사용 권한을 상속 합니다.| Azure AD는 클라우드에서 다른 작업을 실행 하기 위해 [관리 되는 id](../managed-identities-azure-resources/index.yml) 를 제공 합니다. 이러한 id의 수명 주기는 Azure AD에서 관리 되 고, 리소스 공급자에 연결 되어 백도어 액세스를 얻는 다른 용도로 사용할 수 없습니다.|

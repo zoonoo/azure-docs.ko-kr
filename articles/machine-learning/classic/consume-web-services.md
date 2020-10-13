@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
 ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91343686"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
@@ -36,7 +36,7 @@ Azure Machine Learning 웹 서비스를 통해 외부 애플리케이션에서 M
 
 Azure Machine Learning Studio (클래식)에는 두 가지 유형의 서비스가 있습니다.
 
-* RR (요청-응답 서비스)-대기 시간이 짧고 확장성이 뛰어난 서비스로, Machine Learning Studio (클래식)에서 생성 및 배포 된 상태 비저장 모델에 대 한 인터페이스를 제공 합니다.
+* RR (Request-Response 서비스)-대기 시간이 짧고 확장성이 뛰어난 서비스로, Machine Learning Studio (클래식)에서 만들고 배포 하는 상태 비저장 모델에 대 한 인터페이스를 제공 합니다.
 * BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
 
 Machine Learning 웹 서비스에 대 한 자세한 내용은 [Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조 하세요.

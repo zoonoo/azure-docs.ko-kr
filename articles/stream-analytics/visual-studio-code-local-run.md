@@ -7,17 +7,17 @@ ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
 ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903802"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Visual Studio Code를 통해 샘플 데이터를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
 Visual Studio Code Azure Stream Analytics 도구를 사용 하 여 샘플 데이터를 사용 하 여 Stream Analytics 작업을 로컬로 테스트할 수 있습니다. JSON 파일에서 프로젝트의 **Localrunoutputs** 폴더에 있는 쿼리 결과를 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [.Net CORE SDK](https://dotnet.microsoft.com/download) 를 설치 하 고 Visual Studio Code를 다시 시작 합니다.
 

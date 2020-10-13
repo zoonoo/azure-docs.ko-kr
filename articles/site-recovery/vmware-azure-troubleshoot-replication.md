@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336208"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
@@ -146,7 +146,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017의 알려진 문제
 **해결 방법**: 기술 자료 [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)를 참조하세요.
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 App-Consistency 사용 하도록 설정 되지 않음
 **해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](./site-recovery-faq.md#replication) 같습니다.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:

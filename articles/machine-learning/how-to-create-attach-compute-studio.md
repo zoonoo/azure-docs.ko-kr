@@ -12,10 +12,10 @@ ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708398"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 모델 학습 및 배포를 위한 계산 대상 만들기
@@ -24,13 +24,13 @@ ms.locfileid: "91708398"
 
 * Azure Machine Learning에 대 한 Azure Machine Learning Learning SDK 또는 CLI 확장
   * [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
-  * [계산 클러스터](how-to-create-attach-compute-cluster.md)
+  * [컴퓨팅 클러스터](how-to-create-attach-compute-cluster.md)
   * [Azure Kubernetes 서비스 클러스터](how-to-create-attach-kubernetes.md)
   * [기타 계산 리소스](how-to-attach-compute-targets.md)
 * Azure Machine Learning [VS Code 확장](how-to-manage-resources-vscode.md#compute-clusters) 입니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -93,7 +93,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |가상 머신 유형 |  CPU 또는 GPU를 선택 합니다. 이 형식을 만든 후에는 변경할 수 없습니다.     |
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |SSH 액세스 사용/사용 안 함     |   SSH 액세스는 기본적으로 사용 되지 않습니다.  SSH 액세스는 일 수 없습니다. 만든 후 변경 됩니다. [VS Code 원격](how-to-set-up-vs-code-remote.md) 으로 대화형으로 디버깅 하려는 경우 액세스를 사용 하도록 설정 해야 합니다.   |
-|고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.  |
+|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> 계산 클러스터
 
@@ -108,7 +108,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 |가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
 |최소 노드 개수 | 프로 비전 하려는 최소 노드 수입니다. 전용 노드 수를 원하는 경우 여기에서 해당 개수를 설정 합니다. 최소값을 0으로 설정 하 여 비용을 절약 하 여 클러스터가 유휴 상태일 때 노드에 대해 지불 하지 않습니다. |
 |최대 노드 수 | 프로 비전 하려는 최대 노드 수입니다. 작업이 제출 되 면 계산은이 노드 수의 최대값으로 자동 조정 됩니다. |
-|고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
+|고급 설정     |  (선택 사항) 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.   또한 [관리 id](#managed-identity) 를 연결 하 여 리소스에 대 한 액세스 권한 부여     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> 관리 id 설정
 

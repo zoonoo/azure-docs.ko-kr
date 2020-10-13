@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258611"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory의 서비스 종속성은 무엇 인가요? 
@@ -46,7 +46,7 @@ Office stack의 응용 프로그램을 사용 하 여이를 수행 하는 좋은
 
 | 클라이언트 앱         | 다운스트림 서비스                          | 적용 |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
+| Azure 데이터 레이크     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft 교실 | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩 |
 | Microsoft Teams     | Exchange                                    | 초기 바인딩 |
@@ -60,7 +60,7 @@ Office stack의 응용 프로그램을 사용 하 여이를 수행 하는 좋은
 |                     | SharePoint                                  | 초기 바인딩 |
 | PowerApps           | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 |                     | Windows Azure Active Directory              | 초기 바인딩 |
-| Project             | Dynamics CRM                                | 초기 바인딩 |
+| 프로젝트             | Dynamics CRM                                | 초기 바인딩 |
 | 비즈니스용 Skype  | Exchange                                    | 초기 바인딩 |
 | Visual Studio       | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft Forms     | Exchange                                    | 초기 바인딩 |

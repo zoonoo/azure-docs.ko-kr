@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295567"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
@@ -47,7 +47,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 | --- | --- | 
 | **VideoTracks**|각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 [Videotracks](#videotracks)같은 항목을 참조 하세요. |
 | **AudioTracks**|각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 자세한 내용은 [오디오 트랙](#audiotracks) 을 참조 하세요. |
-| **메타데이터**  |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. <br />예: `<Metadata key="language" value="eng" />` |
+| **메타데이터**  |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. <br />`<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>다른 자식 요소
 

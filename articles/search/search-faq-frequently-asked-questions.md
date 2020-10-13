@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923095"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Azure Cognitive Search-FAQ (질문과 대답)
@@ -101,8 +101,8 @@ Azure Cognitive Search REST API를 사용 하 여 언제 든 지 [인덱스 정�
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://feedback.azure.com/forums/263029-azure-search)에서 요청하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  
- [Azure Cognitive Search란?](search-what-is-azure-search.md)
+ [Azure Cognitive Search 이란?](search-what-is-azure-search.md)

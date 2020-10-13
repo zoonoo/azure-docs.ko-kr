@@ -4,10 +4,10 @@ description: 랩의 VM이 지정된 시간에 시작 및 종료되도록 Azure L
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326442"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 Classroom(강의실) 랩의 일정 만들기 및 관리 

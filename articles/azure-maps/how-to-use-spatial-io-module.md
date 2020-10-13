@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335299"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Azure Maps 공간 IO 모듈을 사용 하는 방법
 
 Azure Maps 웹 SDK는 공간 **IO 모듈**을 제공 합니다 .이 모듈은 공간 데이터를 JavaScript 또는 TypeScript를 사용 하 여 AZURE MAPS 웹 SDK와 통합 합니다. 이 모듈의 강력한 기능을 통해 개발자는 다음을 수행할 수 있습니다.
 
-- [일반적인 공간 데이터 파일을 읽고 씁니다](spatial-io-read-write-spatial-data.md). 지원 되는 파일 형식에는 공간 정보가 있는 열을 포함 하는 KML, KMZ, .GPX), GeoRSS, GML, GeoJSON 및 CSV 파일이 포함 됩니다. 에서는 WKT (잘 알려진 텍스트)도 지원 합니다.
+- [일반적인 공간 데이터 파일을 읽고 씁니다](spatial-io-read-write-spatial-data.md). 지원 되는 파일 형식에는 공간 정보가 있는 열을 포함 하는 KML, KMZ, .GPX), GeoRSS, GML, GeoJSON 및 CSV 파일이 포함 됩니다. 는 Well-Known 텍스트 (WKT)도 지원 합니다.
 - [Open Geospatial Consortium (OGC) 서비스에 연결 하 고 Azure Maps 웹 SDK와 통합 합니다. WMS (웹 맵 서비스)와 WMTS (웹 맵 타일 서비스)를 맵의 계층으로 설정](spatial-io-add-ogc-map-layer.md)합니다.
 - [웹 기능 서비스 (워크플로)에서 데이터를 쿼리](spatial-io-connect-wfs-service.md)합니다.
 - [스타일 정보를 포함 하 고 최소 코드를 사용 하 여 자동으로 렌더링 하는 복잡 한 데이터 집합을 오버레이](spatial-io-add-simple-data-layer.md)합니다.
@@ -38,7 +38,7 @@ Azure Maps 웹 SDK는 공간 **IO 모듈**을 제공 합니다 .이 모듈은 �
 > [!WARNING]
 > 신뢰 하는 원본에서 가져온 데이터 및 서비스만 사용 합니다. 특히 다른 도메인에서 참조 하는 경우에만 사용 합니다. 공간 IO 모듈은 위험을 최소화 하는 단계를 수행 하지만, 가장 안전한 방법은 응용 프로그램에 danagerous 데이터를 사용할 수 없는 것입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 공간 IO 모듈을 사용 하려면 먼저 [Azure Maps 계정을](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) 만들고 [계정에 대 한 기본 구독 키를 가져와야](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account)합니다.
 

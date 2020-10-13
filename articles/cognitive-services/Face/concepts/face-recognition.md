@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323025"
 ---
 # <a name="face-recognition-concepts"></a>얼굴 인식 개념
@@ -25,7 +25,7 @@ ms.locfileid: "91323025"
 
 인식 작업에서는 주로 다음과 같은 데이터 구조를 사용 합니다. 이러한 개체는 클라우드에 저장 되며 해당 ID 문자열에서 참조할 수 있습니다. ID 문자열은 항상 구독 내에서 고유 합니다. 이름 필드는 중복 될 수 있습니다.
 
-|Name|Description|
+|Name|설명|
 |:--|:--|
 |DetectedFace| 이 단일 얼굴 표현은 [얼굴 감지](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) 작업에서 검색 됩니다. 해당 ID는 만든 후 24 시간 후에 만료 됩니다.|
 |PersistedFace| DetectedFace 개체를 그룹에 추가 하면 (예: FaceList 또는 Person) PersistedFace 개체가 됩니다. 언제 든 지 [검색할](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) 수 있으며 만료 되지 않습니다.|
@@ -71,4 +71,4 @@ ms.locfileid: "91323025"
 
 얼굴 인식 개념에 대해 잘 알고 있으므로 학습 된 PersonGroup에 대 한 얼굴을 식별 하는 스크립트를 작성 하세요.
 
-* [Face 클라이언트 라이브러리 빠른 시작](../Quickstarts/client-libraries.md)
+* [얼굴 클라이언트 라이브러리 빠른 시작](../Quickstarts/client-libraries.md)

@@ -1,6 +1,7 @@
 ---
-title: Microsoft ID 플랫폼 Android 빠른 시작 | Azure
-description: Android 애플리케이션에서 Microsoft ID 플랫폼 엔드포인트를 통해 액세스 토큰을 요구하는 API를 호출하는 방법을 알아봅니다.
+title: '빠른 시작: Android 앱에 Microsoft로 로그인 추가 | Azure'
+titleSuffix: Microsoft identity platform
+description: 이 빠른 시작에서는 Android 애플리케이션이 Microsoft ID 플랫폼에서 발급한 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 37859a8571355dcd61175d7b1b4d9888e058bf3a
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115274"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91612900"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -24,17 +25,14 @@ ms.locfileid: "88115274"
 
 Microsoft ID 플랫폼에서 애플리케이션에 토큰을 제공할 수 있도록 Azure Active Directory에서 애플리케이션이 앱 개체로 표시되어야 합니다.
 
-> [!div renderon="docs"]
-> 편의를 위해 코드 샘플에는 `AndroidManifest.xml` 파일에 미리 구성된 기본 `redirect_uri`가 포함되어 있으므로 먼저 고유한 앱 개체를 등록할 필요가 없습니다. `redirect_uri`는 부분적으로 앱의 서명 키를 기준으로 합니다. 샘플 프로젝트는 제공된 `redirect_uri`가 작동하도록 서명 키를 사용하여 미리 구성되어 있습니다. 앱 개체를 등록하고 애플리케이션과 통합하는 방법에 대한 자세한 내용은 [사용자 로그인 및 Android 앱에서 Microsoft Graph 호출](tutorial-v2-android.md) 자습서를 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
 
-
-> [!NOTE]
-> **필수 구성 요소**
-> * Android Studio 
-> * Android 16+
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Android Studio
+* Android 16+
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성 
+> ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 >  이 빠른 시작의 코드 샘플이 작동하려면 인증 broker와 호환되는 리디렉션 URI를 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
@@ -42,15 +40,15 @@ Microsoft ID 플랫폼에서 애플리케이션에 토큰을 제공할 수 있�
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-android/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 >
-> ### <a name="step-2-download-the-project"></a>2단계: 프로젝트를 다운로드합니다. 
+> ### <a name="step-2-download-the-project"></a>2단계: 프로젝트를 다운로드합니다.
 > [!div class="sxs-lookup" renderon="portal"]
 > Android Studio를 사용하여 프로젝트를 실행합니다.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
-> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다. 
+> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
 > 샘플 앱은 **단일 계정 모드** 화면에서 시작합니다. 기본 범위인 **user.read**는 기본적으로 제공되며, Microsoft Graph API 호출 중에 사용자 고유의 프로필 데이터를 읽을 때 사용됩니다. Microsoft Graph API 호출에 대한 URL은 기본적으로 제공됩니다. 원하는 경우 이 두 가지를 모두 변경할 수 있습니다.
 >
 > ![단일 및 다중 계정 사용을 보여 주는 MSAL 샘플 앱](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -112,7 +110,7 @@ Microsoft ID 플랫폼에서 애플리케이션에 토큰을 제공할 수 있�
 
 MSAL([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal))은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다. Gradle 3.0 이상에서는 다음을 **Gradle Scripts** > **build.gradle(Module: app)** 의 **Dependencies**(종속성) 아래에 추가하면 라이브러리를 설치합니다.
 
-```gradle  
+```gradle
 implementation 'com.microsoft.identity.client:msal:1.+'
 ```
 
@@ -384,9 +382,9 @@ private void loadAccounts() {
 사용자에게 계정을 선택하거나, 자격 증명을 입력하거나, 앱에서 요청한 권한에 동의하라는 메시지가 표시될 수 있는 몇 가지 상황은 다음과 같습니다.
 
 * 처음으로 사용자가 애플리케이션에 로그인한 경우
-* 사용자가 자신의 암호를 다시 설정하는 경우 해당 자격 증명을 입력해야 합니다. 
-* 동의가 해지된 경우 
-* 앱에서 동의를 명시적으로 요구하는 경우 
+* 사용자가 자신의 암호를 다시 설정하는 경우 해당 자격 증명을 입력해야 합니다.
+* 동의가 해지된 경우
+* 앱에서 동의를 명시적으로 요구하는 경우
 * 애플리케이션에서 처음으로 리소스에 대한 액세스를 요청하는 경우
 * MFA 또는 기타 조건부 액세스 정책이 필요한 경우
 
@@ -476,20 +474,11 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
 }
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에 사용되는 애플리케이션을 만드는 단계 알아보기
-
-액세스 토큰을 가져온 후 Microsoft Graph를 호출하는 데 사용하는 Android 앱을 빌드하기 위한 단계별 가이드를 보려면 [Android 앱에서 사용자 로그인 및 Microsoft Graph 호출](tutorial-v2-android.md) 자습서를 진행해 보세요.
+Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, 이를 사용하여 Microsoft Graph API를 호출하는 Android 앱을 빌드하는 Android 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [Graph API Android 자습서 호출](./tutorial-v2-android.md)
-
-### <a name="msal-for-android-library-wiki"></a>Android용 MSAL 라이브러리 wiki
-
-Android용 MSAL 라이브러리에 대한 자세한 정보를 읽어보세요.
-
-> [!div class="nextstepaction"]
-> [Android용 MSAL 라이브러리 wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph 호출](tutorial-v2-android.md)

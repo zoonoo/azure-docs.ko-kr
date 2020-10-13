@@ -12,17 +12,17 @@ ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 4f6b09061a4aa98824e176af55efcedfab3df48c
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89051919"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 HYPR 구성에 대 한 자습서
 
 이 샘플 자습서에서는 [HYPR](https://get.hypr.com)를 사용 하 여 Azure AD B2C를 구성 하는 방법에 대 한 지침을 제공 합니다. Azure AD B2C을 id 공급자로 사용 하 여 HYPR를 고객 응용 프로그램과 통합 하 여 사용자에 게 진정한 암호 없는 인증을 제공할 수 있습니다. HYPR는 암호를 공개 키 암호화로 바꿔서 사기 행위, 피싱 및 자격 증명 재사용을 제거 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -50,7 +50,7 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Hypr에 대 한 스크린샷-다이어그램](media/partner-hypr/hypr-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 로그인/등록을 선택 하 고 페이지에 사용자 이름을 입력 합니다.
 | 2. | 응용 프로그램은 식별 확인을 위해 Azure AD B2C 사용자 특성을 보냅니다.

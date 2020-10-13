@@ -11,15 +11,15 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
 ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359752"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 로깅 사용
 
-**적용 대상:** ![ 에 적용 됩니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ 는에 적용 되지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 이 문서에서는 Machine Learning Studio (클래식) 웹 서비스의 로깅 기능에 대 한 정보를 제공 합니다. 로깅은 오류 번호 및 메시지 외에도 Machine Learning Studio (클래식) Api에 대 한 호출 문제를 해결 하는 데 도움이 될 수 있는 추가 정보를 제공 합니다.  
@@ -44,7 +44,7 @@ ms.locfileid: "91359752"
 
    ![로깅 수준 선택](./media/web-services-logging/enable-logging.png)
 
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
 7. 클래식 웹 서비스의 경우 **ml-diagnostics** 컨테이너를 만듭니다.
 

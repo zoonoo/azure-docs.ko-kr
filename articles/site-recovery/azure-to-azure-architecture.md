@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
 ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825414"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
@@ -26,7 +26,7 @@ ms.locfileid: "91825414"
 
 Azure VM에 대한 재해 복구에 관련된 구성 요소는 다음 표에 요약되어 있습니다.
 
-**구성 요소** | **요구 사항**
+**구성 요소** | **Requirements**
 --- | ---
 **원본 지역의 VM** | [지원되는 원본 지역](azure-to-azure-support-matrix.md#region-support)에서 하나 이상의 Azure VM입니다.<br/><br/> VM은 [지원되는 운영 체제](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)에서 실행될 수 있습니다.
 **원본 VM 스토리지** | Azure VM은 관리될 수 있습니다. 또는 스토리지 계정에 분산된 관리되지 않는 디스크를 가집니다.<br/><br/>지원되는 Azure 스토리지에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#replicated-machines---storage).

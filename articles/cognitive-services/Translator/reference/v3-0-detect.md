@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89566639"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0: 검색
@@ -45,19 +45,19 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>인증 헤더</td>
-    <td><em>필요한 요청 헤더</em>입니다.<br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
+    <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
     <td>콘텐츠 형식</td>
-    <td>*필요한 요청 헤더*입니다.<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
+    <td>*필수 요청 헤더*<br/>페이로드의 콘텐츠 형식을 지정합니다. 가능한 값은 `application/json`입니다.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*필요한 요청 헤더*입니다.<br/>요청 본문의 길이입니다.</td>
+    <td>*필수 요청 헤더*<br/>요청 본문의 길이입니다.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -124,7 +124,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">헤더</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>X-RequestId</td>
@@ -171,7 +171,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 
