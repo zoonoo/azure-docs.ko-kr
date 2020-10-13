@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714981"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
@@ -171,7 +171,7 @@ HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 저장소 계정의 �
 
 - [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)
 - [Storage용 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
-- [AzCopy 명령줄 유틸리티](https://aka.ms/downloadazcopy)
+- [AzCopy Command-Line 유틸리티](https://aka.ms/downloadazcopy)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 - [Azure Storage 클라이언트 도구](../storage-explorers.md)
 - [Azure 개발자 도구](https://azure.microsoft.com/tools/)

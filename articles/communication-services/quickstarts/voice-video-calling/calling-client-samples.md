@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
 ms.openlocfilehash: 9a70cfe3c9ced2d22fcb50224d991e34c516a04c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940072"
 ---
 # <a name="quickstart-use-the-communication-services-calling-client-library"></a>빠른 시작: 클라이언트 라이브러리를 호출 하는 통신 서비스 사용
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-클라이언트 라이브러리를 호출 하는 통신 서비스를 사용 하 여 음성 및 비디오 호출을 앱에 추가 하 여 Azure 통신 서비스를 시작 하세요. 
+Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 음성 및 비디오 통화를 추가하여 Azure Communication Services를 시작하세요. 
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]
@@ -37,11 +37,11 @@ ms.locfileid: "90940072"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-통신 서비스 구독을 정리 하 고 제거 하려면 리소스 또는 리소스 그룹을 삭제할 수 있습니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](../create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
+Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](../create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- 호출 하는 [영웅 샘플](../../samples/calling-hero-sample.md) 확인
-- [호출 작동 방법](../../concepts/voice-video-calling/about-call-types.md) 에 대 한 자세한 정보
+- [영웅 샘플 호출](../../samples/calling-hero-sample.md) 체크 아웃
+- [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

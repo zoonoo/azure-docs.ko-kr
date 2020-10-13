@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
 ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283431"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
@@ -90,14 +90,14 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 
 ![기본 사항](./media/ethereum-poa-deployment/basic-blade.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
-새 네트워크를 만들거나 기존 네트워크에 가입 | 새 consortium 네트워크를 만들거나 기존 컨소시엄 네트워크에 가입할 수 있습니다. 기존 네트워크를 조인 하려면 추가 매개 변수가 필요 합니다. | Create new
+새 네트워크를 만들거나 기존 네트워크에 가입 | 새 consortium 네트워크를 만들거나 기존 컨소시엄 네트워크에 가입할 수 있습니다. 기존 네트워크를 조인 하려면 추가 매개 변수가 필요 합니다. | 새로 만들기
 메일 주소 | 배포가 완료 되 면 배포에 대 한 정보를 사용 하 여 전자 메일 알림을 받게 됩니다. | 유효한 전자 메일 주소
 VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영숫자 문자
 인증 유형 | 가상 머신을 인증하는 방법. | 암호
 암호 | 배포된 각 가상 머신의 관리자 계정 암호. 모든 Vm은 처음에 동일한 암호를 가집니다. 프로 비전 한 후 암호를 변경할 수 있습니다. | 12-72자 
-구독 | 컨소시엄 네트워크를 배포하는 구독 |
+Subscription | 컨소시엄 네트워크를 배포하는 구독 |
 리소스 그룹| 컨소시엄 네트워크를 배포하는 리소스 그룹. | myResourceGroup
 위치 | 리소스 그룹에 대한 Azure 지역입니다. | 미국 서부 2
 
@@ -109,7 +109,7 @@ VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영
 
 ![배포 지역](./media/ethereum-poa-deployment/deployment-regions.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 지역 수|컨소시엄 네트워크를 배포하는 지역 수| 2
 첫 번째 지역 | 컨소시엄 네트워크를 배포하는 첫 번째 지역 | 미국 서부 2
@@ -123,7 +123,7 @@ VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영
 
 ![네트워크 크기 및 성능](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 부하가 분산된 유효성 검사기 노드 수 | 네트워크의 일부로 프로 비전 할 유효성 검사기 노드의 수입니다. | 2
 유효성 검사기 노드 스토리지 성능 | 배포 된 각 유효성 검사기 노드에 대 한 관리 디스크의 유형입니다. 가격 책정에 대 한 자세한 내용은 [저장소 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요. | 표준 SSD
@@ -145,7 +145,7 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Ethereum 설정](./media/ethereum-poa-deployment/ethereum-settings.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여 하는 각 멤버와 연결 된 ID입니다. 이는 충돌을 방지 하기 위해 IP 주소 공간을 구성 하는 데 사용 됩니다. 개인 네트워크의 경우 구성원 ID는 동일한 네트워크에 있는 여러 조직에서 고유 해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 발생 하지 않도록 하기 위해 다른 조인 멤버와 공유 해야 하므로이 매개 변수의 값을 기록해 둡니다. 유효한 범위는 0에서 255 까지입니다. | 0
 네트워크 ID | 배포하는 컨소시엄 Ethereum 네트워크의 네트워크 ID입니다. 각 Ethereum 네트워크에는 공용 네트워크에 대한 ID를 1로 하는 자체의 네트워크 ID가 있습니다. 유효한 범위는 5에서 999999999 까지입니다. | 10101010
@@ -164,10 +164,10 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
-매개 변수 | Description | 예제 값
+매개 변수 | 설명 | 예제 값
 ----------|-------------|--------------
 모니터링 | 모니터링을 사용 하도록 설정 하는 옵션 | 사용
-기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | Create new
+기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | 새로 만들기
 위치 | 새 인스턴스가 배포 되는 지역입니다. | 미국 동부
 기존 log analytics 작업 영역 ID (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스의 작업 영역 ID||해당 없음
 기존 log analytics 기본 키 (기존 Azure Monitor 로그에 연결 = 기존 조인)|기존 Azure Monitor logs 인스턴스에 연결 하는 데 사용 되는 기본 키입니다.||해당 없음
@@ -561,7 +561,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 다음 예제에서는 간단한 스마트 계약을 만듭니다. Truffle를 사용 하 여 스마트 계약을 컴파일하여 blockchain 네트워크에 배포 합니다. 배포 된 후에는 트랜잭션을 통해 스마트 계약 함수를 호출 합니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Truffle 및 Web3에 필요 합니다. 설치 옵션을 선택 하 여 경로에 Python을 포함 합니다.
 * Truffle v 5.0.5 `npm install -g truffle@v5.0.5` 를 설치 합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/)를 포함한 여러 도구를 설치해야 합니다. 자세한 내용은 [Truffle 설명서](https://github.com/trufflesuite/truffle)를 참조 하세요.

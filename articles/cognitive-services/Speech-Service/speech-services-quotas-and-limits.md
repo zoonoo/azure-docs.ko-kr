@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: alexeyo
 ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567165"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
@@ -33,11 +33,11 @@ ms.locfileid: "91567165"
 | 빗변 | 아니요<sup>2</sup> | 예<sup>2</sup> |
 | **REST API 요청 제한 ([API Management](../../api-management/api-management-key-concepts.md) 끝점)** | 10 초 당 100 요청 | 10 초 당 100 요청 |
 | **데이터 가져오기에 대 한 최대 데이터 집합 파일 크기** | 2GB | 2GB |
-| **일괄 처리 기록을 위한 최대 입력 blob 크기** | 해당 없음 | 2.5GB |
-| **일괄 처리 기록을 위한 최대 blob 컨테이너 크기** | 해당 없음 | 5GB |
-| **일괄 처리 기록을 위한 컨테이너 당 최대 blob 수** | 해당 없음 | 10000 |
-| **일괄 처리에 대 한 기록 요청당 최대 파일 수 (여러 콘텐츠 Url을 입력으로 사용 하는 경우)** | 해당 없음 | 1000  |
-| **일괄 처리 기록을 위해 동시에 실행 되는 최대 작업 수** | 해당 없음 | 2000  |
+| **일괄 처리 기록을 위한 최대 입력 blob 크기** | N/A | 2.5GB |
+| **일괄 처리 기록을 위한 최대 blob 컨테이너 크기** | N/A | 5GB |
+| **일괄 처리 기록을 위한 컨테이너 당 최대 blob 수** | N/A | 10000 |
+| **일괄 처리에 대 한 기록 요청당 최대 파일 수 (여러 콘텐츠 Url을 입력으로 사용 하는 경우)** | N/A | 1000  |
+| **일괄 처리 기록을 위해 동시에 실행 되는 최대 작업 수** | N/A | 2000  |
 
 <sup>1</sup> **무료 (F0)** 가격 책정 계층에 대해서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)에서 월간 허용량를 참조 하세요.<br/>
 <sup>2</sup> [추가](#detailed-description-quota-adjustment-and-best-practices)설명, [모범 사례](#general-best-practices-to-mitigate-throttling-during-autoscaling)및 [조정 지침](#speech-to-text-increasing-online-transcription-concurrent-request-limit)을 참조 하세요.<br/> 
@@ -86,7 +86,7 @@ ms.locfileid: "91567165"
 
 **기본** 모델 및 **사용자 지정** 모델에 대 한 동시 요청 제한은 **별도로**조정 해야 합니다.
 
-동시 요청 제한 매개 변수의 기존 값은 Azure Portal, 명령줄 도구 또는 API 요청을 통해 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
+Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제한 매개 변수의 기존 값이 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
 
 >[!NOTE]
 >컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다.
@@ -94,9 +94,9 @@ ms.locfileid: "91567165"
 #### <a name="have-the-required-information-ready"></a>필요한 정보가 준비 되어 있어야 합니다.
 - **기본 모델**의 경우:
   - 음성 리소스 ID
-  - Region
+  - 지역
 - **사용자 지정 모델**의 경우: 
-  - Region
+  - 지역
   - 사용자 지정 끝점 ID
 
 - **정보를 가져오는 방법 (기본 모델)**:  
@@ -152,7 +152,7 @@ ms.locfileid: "91567165"
 
 동시 요청 제한은 증가 해도 비용에 직접적인 영향을 주지 **않습니다** . 음성 서비스는 "사용한 만큼만 요금 지불" 모델을 사용 합니다. 이 제한은 서비스에서 요청을 제한 하기 전에 확장할 수 있는 정도를 정의 합니다.
 
-동시 요청 제한 매개 변수의 기존 값은 Azure Portal, 명령줄 도구 또는 API 요청을 통해 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
+Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제한 매개 변수의 기존 값이 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
 
 >[!NOTE]
 >컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다.

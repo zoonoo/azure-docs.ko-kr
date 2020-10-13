@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 810a08d2f72359b385d2a7567b796aa222c6ab14
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940780"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance의 기능 및 기능
@@ -33,7 +33,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 
 ###  <a name="rdbms-high-availability"></a><a name="RDBMSHA"></a> RDBMS 고가용성  
   
-|기능|Azure Arc 사용 SQL Managed Instance|
+|기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
 |로그 전달|예| 
 |백업 압축|예|
@@ -59,7 +59,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 
 ###  <a name="rdbms-scalability-and-performance"></a><a name="RDBMSSP"></a> RDBMS 확장성 및 성능  
 
-|기능|Azure Arc 사용 SQL Managed Instance|
+|기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
 |columnstore|   예|
 |클러스터형 columnstore 인덱스의 큰 개체 이진 파일|    예|
@@ -80,7 +80,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 |대량 삽입 기능 개선   |예|
 
 ###  <a name="rdbms-security"></a><a name="RDBMSS"></a> RDBMS 보안  
-|기능|Azure Arc 사용 SQL Managed Instance|
+|기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
 |행 수준 보안|    예|
 |Always Encrypted|  예|
@@ -95,7 +95,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 
 ###  <a name="rdbms-manageability"></a><a name="RDBMSM"></a> RDBMS 관리 효율  
 
-|기능|Azure Arc 사용 SQL Managed Instance|
+|기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
 |관리자 전용 연결|    예|
 |PowerShell 스크립팅 지원|  예|
@@ -114,7 +114,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 
 ### <a name="programmability"></a><a name="Programmability"></a> Programmability  
 
-|기능|Azure Arc 사용 SQL Managed Instance|
+|기능|Azure Arc 지원 SQL Managed Instance|
 |-------------|----------------|
 |JSON|  예 |       |
 |쿼리 저장소    |예    |       
@@ -124,22 +124,22 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 |MERGE 및 UPSERT 기능|   예 |       
 |날짜 및 시간 데이터 형식    |예    |       
 |국제화 지원|  예 |       
-|전체 텍스트 및 의미 체계 검색 |    예      |
+|전체 텍스트 및 의미 체계 검색 |    아니요      |
 |쿼리에서 언어 지정 |예        |   
 |Service Broker(메시징)|    예     |   
 |Transact-SQL 엔드포인트|    예 |       
 |그래프| 예 |   
-|Machine Learning Services| 예  |   
-|PolyBase| 예   |
+|Machine Learning Services| 아니요  |   
+|PolyBase| 아니요   |
 
 
 ### <a name="tools"></a>도구
 
 Azure Arc 사용 SQL Managed Instance은 데이터를 관리 하는 데 도움이 되는 다양 한 데이터 도구를 지원 합니다.
 
-| **도구** | Azure Arc 사용 SQL Managed Instance|
+| **도구** | Azure Arc 지원 SQL Managed Instance|
 | --- | --- | --- |
-| Azure Portal <sup>1</sup> | 예 |
+| Azure Portal <sup>1</sup> | 아니요 |
 | Azure CLI | 아니요 |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | 예 |
 | Azure PowerShell | 예 |

@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
 ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568474"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
@@ -28,7 +28,7 @@ Azure Files은 Azure 파일 공유를 연결 하 고 탑재 하기 위한 두 �
 |[사용 가능한 계층](storage-files-planning.md#storage-tiers)     |Premium Storage         |Premium storage, 트랜잭션 최적화, 핫, 쿨         |
 |[중복](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |인증     |호스트 기반 인증만        |Id 기반 인증, 사용자 기반 인증         |
-|권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
+|사용 권한     |UNIX 스타일 사용 권한         |NTFS 스타일 사용 권한         |
 |파일 시스템 의미 체계     |POSIX 규격         |POSIX 규격이 아님         |
 |대/소문자 구분     |대/소문자 구분         |대/소문자 구분하지 않음         |
 |하드 링크 지원     |지원됨         |지원되지 않음         |

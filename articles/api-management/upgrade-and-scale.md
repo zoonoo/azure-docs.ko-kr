@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205773"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
@@ -29,11 +29,11 @@ ms.locfileid: "86205773"
 >[!NOTE]
 >[가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. [Azure API Management 인스턴스의 용량](api-management-capacity.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 
-+ 활성 Azure 구독
++ 활성 Azure 구독.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -74,7 +74,7 @@ ms.locfileid: "86205773"
 1. [Azure Portal](https://portal.azure.com/)에서 API Management 서비스로 이동 합니다.
 2. 메뉴에서 **가격 책정 계층** 을 클릭 합니다.
 3. 드롭다운에서 원하는 서비스 계층을 선택 합니다. 슬라이더를 사용 하 여 변경 후 API Management 서비스의 소수 자릿수를 지정 합니다.
-4. **Save**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ## <a name="downtime-during-scaling-up-and-down"></a>확장 및 축소 중 가동 중지 시간
 개발자 계층에서로 크기를 조정 하는 경우 가동 중지 시간이 발생 합니다. 그렇지 않으면 가동 중지 시간이 발생 하지 않습니다. 

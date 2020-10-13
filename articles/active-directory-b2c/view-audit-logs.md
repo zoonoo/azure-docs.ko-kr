@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383940"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
@@ -51,15 +51,15 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 활동 세부 정보 패널에는 다음과 같은 관련 정보가 포함 되어 있습니다.
 
-|섹션|필드|설명|
+|섹션|필드|Description|
 |-------|-----|-----------|
-| 활동 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 활동 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
-| 추가 세부 정보 | TenantId | Azure AD B2C 테 넌 트의 **테 넌 트 ID** 입니다. |
-| 추가 세부 정보 | PolicyId | 사용자를 로그인 하는 데 사용 되는 사용자 흐름 (정책)의 **정책 ID** 입니다. |
-| 추가 세부 정보 | ApplicationId | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
+| 추가 정보 | TenantId | Azure AD B2C 테 넌 트의 **테 넌 트 ID** 입니다. |
+| 추가 정보 | PolicyId | 사용자를 로그인 하는 데 사용 되는 사용자 흐름 (정책)의 **정책 ID** 입니다. |
+| 추가 정보 | ApplicationId | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Azure Portal에서 감사 로그 보기
 
@@ -98,7 +98,7 @@ Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 �
 
 적절 한 권한으로 응용 프로그램을 등록 한 후 스크립트를 사용 하 여 작업 이벤트를 가져오는 방법에 대 한 예제는이 문서의 뒷부분에 있는 PowerShell 스크립트 섹션을 참조 하세요.
 
-### <a name="access-the-api"></a>API 액세스
+### <a name="access-the-api"></a>API에 액세스
 
 API를 통해 Azure AD B2C 감사 로그 이벤트를 다운로드 하려면 해당 범주에 대 한 로그를 필터링 합니다 `B2C` . 범주별로 필터링 하려면 `filter` AZURE AD 보고 API 끝점을 호출할 때 쿼리 문자열 매개 변수를 사용 합니다.
 

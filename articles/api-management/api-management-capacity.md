@@ -13,10 +13,10 @@ ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ms.openlocfilehash: f4eb90cc0e8867230c7fb1a2a169b5ba0126e46a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205886"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API Management 인스턴스의 용량
@@ -28,7 +28,7 @@ ms.locfileid: "86205886"
 > [!IMPORTANT]
 > 이 문서에서는 용량 메트릭에 따라 Azure API Management 인스턴스를 모니터링 하 고 크기를 조정 하는 방법을 설명 합니다. 그러나 개별 API Management 인스턴스가 실제로 해당 용량 *에 도달* 했을 때 발생 하는 상황을 이해 하는 것도 중요 합니다. Azure API Management는 인스턴스의 실제 오버 로드를 방지 하기 위해 서비스 수준 제한을 적용 하지 않습니다. 인스턴스가 실제 용량에 도달 하면 들어오는 요청을 처리할 수 없는 오버 로드 된 웹 서버와 비슷하게 동작 합니다. 대기 시간 증가, 연결이 삭제 되 고 시간 초과 오류가 발생 합니다. 즉, API 클라이언트는 다른 외부 서비스와 유사 하 게 (예: 다시 시도 정책을 적용 하 여)이 가능성을 처리할 수 있도록 준비 해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "86205886"
 ![용량 메트릭](./media/api-management-capacity/capacity-metric.png)  
 
 1. [Azure Portal](https://portal.azure.com/)에서 APIM 인스턴스로 이동합니다.
-2. **메트릭**을 선택 합니다.
+2. **메트릭**을 선택합니다.
 3. 자주색 섹션의 사용 가능한 메트릭에서 **용량** 메트릭을 선택하고 기본 **평균** 집계는 그대로 유지합니다.
 
     > [!TIP]

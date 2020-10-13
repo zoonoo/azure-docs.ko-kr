@@ -4,10 +4,10 @@ description: 이 문서에서는 IoT Edge 모니터링 및 로깅에 대 한 라
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567557"
 ---
 # <a name="monitoring-and-logging"></a>모니터링 및 로깅
@@ -21,7 +21,7 @@ ms.locfileid: "89567557"
 IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원격 분석 데이터를 내보냅니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="이벤트 분류":::
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="이벤트 분류&quot;:::
 
 * 작업: 사용자가 수행한 작업의 일부로 생성 되거나 [미디어 그래프](media-graph-concept.md)를 실행 하는 동안 생성 되는 이벤트입니다.
    
@@ -32,16 +32,16 @@ IoT Edge에 대 한 Live Video Analytics는 다음 분류에 따라 이벤트 �
       
       ```
       {
-        "body": {
-          "outputType": "assetName",
-          "outputLocation": "sampleAssetFromEVR-LVAEdge-20200512T233309Z"
+        &quot;body&quot;: {
+          &quot;outputType&quot;: &quot;assetName&quot;,
+          &quot;outputLocation&quot;: &quot;sampleAssetFromEVR-LVAEdge-20200512T233309Z&quot;
         },
-        "applicationProperties": {
-          "topic": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>",
-          "subject": "/graphInstances/Sample-Graph-2/sinks/assetSink",
-          "eventType": "Microsoft.Media.Graph.Operational.RecordingStarted",
-          "eventTime": "2020-05-12T23:33:10.392Z",
-          "dataVersion": "1.0"
+        &quot;applicationProperties&quot;: {
+          &quot;topic&quot;: &quot;/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<my-resource-group>/providers/microsoft.media/mediaservices/<ams-account-name>&quot;,
+          &quot;subject&quot;: &quot;/graphInstances/Sample-Graph-2/sinks/assetSink&quot;,
+          &quot;eventType&quot;: &quot;Microsoft.Media.Graph.Operational.RecordingStarted&quot;,
+          &quot;eventTime&quot;: &quot;2020-05-12T23:33:10.392Z&quot;,
+          &quot;dataVersion&quot;: &quot;1.0"
         }
       }
       ```
@@ -164,7 +164,7 @@ Fragments(video=143039375031270,format=m3u8-aapl)
 
 IoT Hub를 통해 관찰 된 모든 이벤트에는 아래에 설명 된 대로 공용 속성 집합이 있습니다.
 
-|속성   |속성 유형| 데이터 형식   |Description|
+|속성   |속성 유형| 데이터 형식   |설명|
 |---|---|---|---|
 |message-id |시스템 |guid|  고유한 이벤트 ID입니다.|
 |토픽| applicationProperty |문자열|    Media Services 계정의 Azure Resource Manager 경로입니다.|

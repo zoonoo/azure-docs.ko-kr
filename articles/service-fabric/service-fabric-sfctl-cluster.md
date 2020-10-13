@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259967"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -131,7 +131,7 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 사용자로 인한 오류 작업을 취소합니다.
 
-다음 Api는 CancelOperation \: StartDataLoss, StartQuorumLoss, startpartitionrestart, Startpartitionrestart을 사용 하 여 취소할 수 있는 오류 작업을 시작 합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다.  테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 중요 정보 \: 이 API가 force = = true를 사용 하 여 호출 되는 경우 내부 상태는 남아 있을 수 있습니다.
+다음 Api는 CancelOperation \: StartDataLoss, StartQuorumLoss, startpartitionrestart, Startpartitionrestart을 사용 하 여 취소할 수 있는 오류 작업을 시작 합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다.  테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 중요 정보 \:  이 API가 force = = true를 사용 하 여 호출 되는 경우 내부 상태는 남아 있을 수 있습니다.
 
 ### <a name="arguments"></a>인수
 

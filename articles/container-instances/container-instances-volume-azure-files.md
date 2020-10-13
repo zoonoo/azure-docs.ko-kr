@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
 ms.openlocfilehash: eaf5e0704ba2ea4f0e0a30d61e4ae1d2ad1bf58d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259480"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
-Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에 나와 있는 것 처럼 [Azure Files](../storage/files/storage-files-introduction.md)를 사용 하 여 만든 Azure 파일 공유를 탑재할 수 Azure Container Instances. Azure Files은 업계 표준 SMB (서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는 Azure Storage에서 호스트 되는 완전히 관리 되는 파일 공유를 제공 합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
+기본적으로 Azure Container Instances는 비저장 상태입니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소의 볼륨을 탑재해야 합니다. 이 문서에 나와 있는 것 처럼 [Azure Files](../storage/files/storage-files-introduction.md)를 사용 하 여 만든 Azure 파일 공유를 탑재할 수 Azure Container Instances. Azure Files은 업계 표준 SMB (서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는 Azure Storage에서 호스트 되는 완전히 관리 되는 파일 공유를 제공 합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
 
 > [!NOTE]
 > 현재 Azure 파일 공유를 탑재하는 작업은 Linux 컨테이너로만 제한되어 있습니다. [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이점을 찾습니다.

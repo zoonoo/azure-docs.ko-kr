@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289054"
 ---
 # <a name="add-interaction-rules"></a>상호 작용 규칙 추가
@@ -26,7 +26,7 @@ ms.locfileid: "87289054"
 
 상호 작용 규칙에 대해 자세히 알아보려면 [참조](./custom-commands-references.md) 섹션으로 이동 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 문서의 단계를 완료 해야 합니다.
 > [!div class="checklist"]

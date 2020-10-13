@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836737"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
@@ -84,14 +84,14 @@ Cloud Services와 같은 상태 비저장 환경의 계층 간 일반 통신 메
 [Cloud Services는 제어 수준과 사용 편의성을 Service Fabric 하는 것과 유사 하지만, 이제는 레거시 서비스 이며 새로운 개발에는 Service Fabric를 사용 하](/azure/architecture/guide/technology-choices/compute-decision-tree)는 것이 좋습니다. API 비교는 다음과 같습니다.
 
 
-| **클라우드 서비스 API** | **Service Fabric API** | **참고 사항** |
+| **클라우드 서비스 API** | **Service Fabric API** | **참고** |
 | --- | --- | --- |
 | RoleInstance. GetID | FabricRuntime. GetNodeContext. NodeId 또는. NodeName | ID는 NodeName의 속성입니다. |
 | RoleInstance 도메인 | FabricClient. GetNodeList | NodeName에 대해 필터링 및 FD 속성 사용 |
 | RoleInstance | FabricClient. GetNodeList | NodeName에 대해 필터링 하 고 Upgrade 속성을 사용 합니다. |
 | RoleInstance. GetInstanceEndpoints | FabricRuntime GetActivationContext 또는 이름 지정 (ResolveService) | FabricRuntime에서 제공 하는 CodePackageActivationContext 및 GetActivationContext를 통해 복제본 내에서 제공 되는 것입니다. 초기 |
 | RoleEnvironment. GetRoles | FabricClient. GetNodeList | 유형별로 동일한 종류의 필터링을 수행 하려는 경우 FabricClient 매니페스트를 통해 클러스터 매니페스트에서 노드 형식 목록을 가져오고 여기에서 역할/노드 형식을 가져올 수 있습니다. |
-| RoleEnvironment. GetIsAvailable | WindowsFabricCluster 또는 특정 노드에 가리키는 FabricRuntime를 만듭니다. | * |
+| RoleEnvironment. GetIsAvailable | 특정 노드를 가리키는 FabricRuntime를 Connect-WindowsFabricCluster 하거나 만듭니다. | * |
 | RoleEnvironment. GetLocalResource | CodePackageActivationContext/Temp/Work | * |
 | RoleEnvironment. GetCurrentRoleInstance | CodePackageActivationContext/Temp/Work | * |
 | LocalResource. GetRootPath | CodePackageActivationContext/Temp/Work | * |

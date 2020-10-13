@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564426"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Azure Data Box의 안전한 설치 및 작동
@@ -24,7 +24,7 @@ Azure Data Box를 사용하기 전에 이 문서의 모든 보안 정보를 읽�
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Data Box를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험 아이콘](./media/data-box-safety/warning_icon.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고 아이콘 ](./media/data-box-safety/warning_icon.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |

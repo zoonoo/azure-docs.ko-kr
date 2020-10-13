@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
 ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75887209"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase Master (HMaster) 시작 실패
@@ -20,7 +20,7 @@ ms.locfileid: "75887209"
 
 ## <a name="scenario-atomic-renaming-failure"></a>시나리오: 원자성 이름 바꾸기 실패
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 시작 프로세스 중에 식별 된 예기치 않은 파일입니다.
 
@@ -42,7 +42,7 @@ HMaster는 WAL 폴더에서 기본 목록 명령을 수행 합니다. 언제든�
 
 ## <a name="scenario-no-server-address-listed"></a>시나리오: 나열 된 서버 주소 없음
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 테이블이 온라인 상태가 아님을 나타내는 메시지가 표시 될 수 있습니다 `hbase: meta` . 를 실행 `hbck` `hbase: meta table replicaId 0 is not found on any region.` 하면 hmaster 로그에이 표시 될 수 있습니다. 메시지가 표시 될 수 있습니다 `No server address listed in hbase: meta for region hbase: backup <region name>` .  
 
@@ -73,7 +73,7 @@ HBase를 다시 시작한 후 HMaster를 초기화할 수 없습니다.
 
 ## <a name="scenario-javaioioexception-timedout"></a>시나리오: Timedout.
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 HMaster는와 유사한 예외를 제외 하 고 시간 초과 `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned` 됩니다.
 
@@ -95,7 +95,7 @@ HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이�
 
 ## <a name="scenario-frequent-region-server-restarts"></a>시나리오: 잦은 영역 서버 다시 시작
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 노드가 주기적으로 재부팅 됩니다. 지역 서버 로그에서 다음과 유사한 항목이 표시 될 수 있습니다.
 
@@ -127,7 +127,7 @@ HMaster 서비스를 다시 시작할 때 플러시되지 않은 많은 테이�
 
 ## <a name="scenario-log-splitting-failure"></a>시나리오: 로그 분할 실패
 
-### <a name="issue"></a>문제점
+### <a name="issue"></a>문제
 
 HMasters를 HBase 클러스터에서 가져오지 못했습니다.
 

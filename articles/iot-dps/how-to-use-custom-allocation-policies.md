@@ -9,19 +9,19 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90530899"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
 사용자 지정 할당 정책을 사용하면 IoT Hub에 디바이스를 할당하는 방법을 더 구체적으로 제어할 수 있습니다. 이 작업을 수행하려면 [Azure 함수](../azure-functions/functions-overview.md)에서 사용자 지정 코드를 사용하여 IoT Hub에 디바이스를 할당합니다. 디바이스 프로비저닝 서비스는 Azure 함수 코드를 호출하여 디바이스 및 등록과 관련된 모든 정보를 제공합니다. 실행된 함수 코드는 디바이스를 프로비전하는 데 사용된 IoT Hub 정보를 반환합니다.
 
-사용자 지정 할당 정책을 사용 하 여 장치 프로 비전 서비스에서 제공 하는 정책이 시나리오의 요구 사항을 충족 하지 않는 경우 고유한 할당 정책을 정의 합니다.
+사용자 지정 할당 정책을 사용하면 Device Provisioning Service에서 제공하는 정책이 시나리오의 요구 사항을 충족하지 않을 경우 자체 할당 정책을 정의합니다.
 
-예를 들어 프로 비전 하는 동안 장치가 사용 하는 인증서를 확인 하 고 인증서 속성을 기반으로 IoT hub에 장치를 할당할 수 있습니다. 또는 장치에 대 한 정보를 데이터베이스에 저장 하 고, 장치를 할당 해야 하는 IoT hub를 결정 하기 위해 데이터베이스를 쿼리해야 할 수도 있습니다.
+예를 들어 프로비저닝 중에 디바이스에서 사용하는 인증서를 검사하고 인증서 속성을 기반으로 IoT 허브에 디바이스를 할당할 수 있습니다. 또는 디바이스에 대한 정보가 데이터베이스에 저장되어 있고 데이터베이스를 쿼리하여 디바이스에 할당해야 하는 IoT 허브를 확인해야 할 수 있습니다.
 
 이 문서에서는 C#으로 작성된 Azure 함수를 사용하는 사용자 지정 할당 정책에 대해 설명합니다. *Contoso Toasters Division* 및 *Contoso Heat Pumps Division*을 나타내는 두 개의 새로운 IoT Hub가 생성됩니다. 프로비저닝을 요청하는 디바이스에는 프로비저닝을 위해 허용되는 다음 접미사 중 하나가 포함된 등록 ID가 있어야 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "90530899"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
@@ -55,7 +55,7 @@ ms.locfileid: "90530899"
 이 섹션에서는 Azure Cloud Shell를 사용 하 여 프로 비전 서비스와 **Contoso Toers** 와 **contoso 열 펌프 나누기**를 나타내는 두 개의 IoT hub를 만듭니다.
 
 > [!TIP]
-> 이 문서에 사용 된 명령은 미국 서 부 위치에 프로 비전 서비스 및 기타 리소스를 만듭니다. 장치 프로 비전 서비스를 지 원하는 가장 가까운 지역에 리소스를 만드는 것이 좋습니다. `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 “Device Provisioning Service”를 검색함으로써 사용 가능한 위치 목록을 볼 수 있습니다. 명령에서 위치는 한 단어 또는 여러 단어 형식 중 하나로 지정할 수 있습니다. 예: westus, 미국 서 부, 미국 서 부 등 값은 대/소문자를 구분 하지 않습니다. 다중 단어 형식을 사용하여 위치를 지정하는 경우 값을 따옴표로 묶습니다(예: `-- location "West US"`).
+> 이 문서에 사용 된 명령은 미국 서 부 위치에 프로 비전 서비스 및 기타 리소스를 만듭니다. 장치 프로 비전 서비스를 지 원하는 가장 가까운 지역에 리소스를 만드는 것이 좋습니다. `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` 명령을 실행하거나 [Azure 상태](https://azure.microsoft.com/status/) 페이지로 이동하여 “Device Provisioning Service”를 검색함으로써 사용 가능한 위치 목록을 볼 수 있습니다. 명령에서 위치는 단일 또는 다중 단어 형식(예: westus, West US, WEST US 등)으로 지정할 수 있습니다.  값은 대/소문자를 구분하지 않습니다. 다중 단어 형식을 사용하여 위치를 지정하는 경우 값을 따옴표로 묶습니다(예: `-- location "West US"`).
 >
 
 1. Azure Cloud Shell을 사용하여 [az group create](/cli/azure/group#az-group-create) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
@@ -98,30 +98,30 @@ ms.locfileid: "90530899"
 
 ## <a name="create-the-custom-allocation-function"></a>사용자 지정 할당 함수 만들기
 
-이 섹션에서는 사용자 지정 할당 정책을 구현 하는 Azure 함수를 만듭니다. 이 함수는 등록 ID에 **-007** 또는 **-contoso-hpsd-088**문자열이 포함 되어 있는지 여부에 따라 장치를 등록 해야 하는 디비전 IoT hub를 결정 합니다. 또한 장치가 toaster 또는 열 펌프 인지 여부에 따라 장치 쌍의 초기 상태를 설정 합니다.
+이 섹션에서는 사용자 지정 할당 정책을 구현하는 Azure 함수를 만듭니다. 이 함수는 등록 ID에 **-007** 또는 **-contoso-hpsd-088**문자열이 포함 되어 있는지 여부에 따라 장치를 등록 해야 하는 디비전 IoT hub를 결정 합니다. 또한 장치가 toaster 또는 열 펌프 인지 여부에 따라 장치 쌍의 초기 상태를 설정 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지에서 **+ 리소스 만들기**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지에서 **+ 리소스 만들기**를 선택합니다.
 
-2. *Marketplace* 검색 검색 상자에 "함수 앱"을 입력 합니다. 드롭다운 목록에서 **함수 앱**을 선택 하 고 **만들기**를 선택 합니다.
+2. *Marketplace 검색* 검색 상자에 "함수 앱"을 입력합니다. 드롭다운 목록에서 **함수 앱**을 선택한 후 **만들기**를 선택합니다.
 
-3. **함수 앱** 만들기 페이지의 **기본 사항** 탭에서 새 함수 앱에 대해 다음 설정을 입력 하 고 **검토 + 만들기**를 선택 합니다.
+3. **함수 앱** 만들기 페이지의 **기본** 탭에서 새 함수 앱에 대해 다음 설정을 입력하고 **검토 + 만들기**를 선택합니다.
 
     **리소스 그룹**:이 문서에서 만든 모든 리소스를 함께 유지 하려면 **contoso-미국-리소스 그룹** 을 선택 합니다.
 
-    **함수 앱 이름**: 고유한 함수 앱 이름을 입력 합니다. 이 예제에서는 **contoso-1098-** 를 사용 합니다.
+    **함수 앱 이름**: 고유한 함수 앱 이름을 입력합니다. 이 예제에서는 **contoso-1098-** 를 사용 합니다.
 
-    **Publish**: **코드** 가 선택 되어 있는지 확인 합니다.
+    **게시**: **코드**가 선택되어 있는지 확인합니다.
 
-    **런타임 스택**: 드롭다운에서 **.Net Core** 를 선택 합니다.
+    **런타임 스택**: 드롭다운에서 **.NET Core**를 선택합니다.
 
-    **지역**: 리소스 그룹과 동일한 지역을 선택 합니다. 이 예제에서는 **미국 서 부**를 사용 합니다.
+    **지역**: 리소스 그룹과 동일한 지역을 선택합니다. 이 예제에서는 **미국 서부**를 사용합니다.
 
     > [!NOTE]
-    > 기본적으로 Application Insights 사용 하도록 설정 되어 있습니다. 이 문서에서는 Application Insights 필요 하지 않지만 사용자 지정 할당으로 발생 하는 문제를 이해 하 고 조사 하는 데 도움이 될 수 있습니다. 원하는 경우 **모니터링** 탭을 선택 하 고 **사용 Application Insights**에 대해 **아니요** 를 선택 하 여 Application Insights을 사용 하지 않도록 설정할 수 있습니다.
+    > 기본적으로 Application Insights를 사용하도록 설정되어 있습니다. 이 문서에서는 Application Insights가 필요하지 않지만 사용자 지정 할당을 통해 발생하는 문제를 이해하고 조사하는 데 도움이 될 수 있습니다. 원하는 경우 **모니터링** 탭을 선택한 다음, **Application Insights 사용**에 **아니오**를 선택하여 Application Insights를 사용하지 않도록 설정할 수 있습니다.
 
-    ![사용자 지정 할당 함수를 호스트 하는 Azure 함수 앱 만들기](./media/how-to-use-custom-allocation-policies/create-function-app.png)
+    ![사용자 지정 할당 함수를 호스트할 Azure 함수 앱 만들기](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-4. **요약** 페이지에서 **만들기** 를 선택 하 여 함수 앱을 만듭니다. 배포하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 **리소스로 이동**을 선택 합니다.
+4. **요약** 페이지에서 **만들기**를 선택하여 함수 앱을 만듭니다. 배포하는 데 몇 분 정도 걸릴 수 있습니다. 완료되면 **리소스로 이동**을 선택합니다.
 
 5. 함수 앱 **개요** 페이지의 왼쪽 창에서 함수 옆에 있는를 선택 **+** 하 여 새 함수를 추가 합니다. **Functions**
 
@@ -298,11 +298,11 @@ ms.locfileid: "90530899"
 
 ## <a name="create-the-enrollment"></a>등록 만들기
 
-이 섹션에서는 사용자 지정 할당 정책을 사용 하는 새 등록 그룹을 만듭니다. 간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-x509-attestation.md)을 사용하는 것이 좋습니다.
+이 섹션에서는 사용자 지정 할당 정책을 사용하는 새 등록 그룹을 만듭니다. 간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-x509-attestation.md)을 사용하는 것이 좋습니다.
 
-1. 계속 [Azure Portal](https://portal.azure.com)에서 프로 비전 서비스를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 프로비저닝 서비스를 엽니다.
 
-2. 왼쪽 창에서 **등록 관리** 를 선택 하 고 페이지 위쪽에서 **등록 그룹 추가** 단추를 선택 합니다.
+2. 왼쪽 창에서 **등록 관리**를 선택한 다음, 페이지 맨 위에 있는 **등록 그룹 추가** 단추를 선택합니다.
 
 3. **등록 그룹 추가**에서 다음 정보를 입력 하 고 **저장** 단추를 선택 합니다.
 
@@ -340,7 +340,7 @@ ms.locfileid: "90530899"
 
 ## <a name="derive-unique-device-keys"></a>고유한 디바이스 키 파생
 
-이 섹션에서는 두 개의 고유한 장치 키를 만듭니다. 하나의 키는 시뮬레이트된 토스터 디바이스에 사용됩니다. 다른 키는 시뮬레이트된 열 펌프 디바이스에 사용됩니다.
+이 섹션에서는 두 개의 고유한 디바이스 키를 만듭니다. 하나의 키는 시뮬레이트된 토스터 디바이스에 사용됩니다. 다른 키는 시뮬레이트된 열 펌프 디바이스에 사용됩니다.
 
 장치 키를 생성 하려면 앞에서 적어둔 **기본 키** 를 사용 하 여 각 장치에 대 한 장치 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 하 고 그 결과를 Base64 형식으로 변환 합니다. 등록 그룹을 사용하여 파생된 디바이스 키를 만드는 방법에 대한 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)의 그룹 등록 섹션을 참조하세요.
 
@@ -375,7 +375,7 @@ Linux 워크스테이션을 사용 하는 경우 다음 예제와 같이 openssl
 
 ### <a name="windows-based-workstations"></a>Windows 기반 워크스테이션
 
-Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같이 PowerShell을 사용 하 여 파생 된 장치 키를 생성할 수 있습니다.
+Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
 1. **KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
 
@@ -404,7 +404,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Azure IoT C SDK 개발 환경 준비
 
-이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 빌드하는 데 사용 되는 개발 환경을 준비 합니다. SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
+이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 빌드하는 데 사용되는 개발 환경을 준비합니다. SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
 
 이 섹션은 Windows 기반 워크스테이션에 적용됩니다. Linux 예제를 보려면 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)에서 VM 설정을 참조하세요.
 
@@ -437,7 +437,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    `cmake`에서 c + + 컴파일러를 찾지 못한 경우에는 명령을 실행 하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행 해 봅니다.
+    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 명령을 실행합니다.
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -457,7 +457,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
 
 ## <a name="simulate-the-devices"></a>디바이스 시뮬레이트
 
-이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov \_ dev \_ client \_ sample** 이라는 프로 비전 샘플을 업데이트 합니다.
+이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample**이라는 프로비저닝 샘플을 업데이트합니다.
 
 이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 토스터 디바이스가 인식되고 사용자 지정 할당 정책을 통해 IoT Hub에 할당됩니다.
 
@@ -499,7 +499,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    함수 호출의 주석 처리를 제거 하 고 자리 표시자 값 (꺾쇠 괄호 포함)을 이전에 생성 한 toaster 등록 ID 및 파생 된 장치 키로 바꿉니다. 아래 표시된 키 값 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 은 예제로만 제공됩니다.
+    함수 호출의 주석 처리를 제거하고 자리 표시자 값(꺾쇠 괄호 포함)을 이전에 생성한 토스터 등록 ID 및 파생된 디바이스 키로 바꿉니다. 아래 표시된 키 값 **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 은 예제로만 제공됩니다.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -537,7 +537,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
 
     파일을 저장합니다.
 
-2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하는 프롬프트에서 **예** 를 선택 하 여를 실행 하기 전에 프로젝트를 다시 빌드합니다.
+2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
     다음 출력은 사용자 지정 할당 정책에 따라 Contoso 열 펌프 IoT hub에 할당 될 프로 비전 서비스 인스턴스를 성공적으로 부팅 및 연결 하는 시뮬레이션 된 열 펌프 장치의 예입니다.
 
@@ -570,7 +570,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서 만든 리소스를 계속 사용 하려는 경우에는 그대로 둘 수 있습니다. 리소스를 계속 사용 하지 않으려는 경우 다음 단계를 사용 하 여이 문서에서 만든 모든 리소스를 삭제 하 여 불필요 한 요금을 방지 하세요.
+이 문서에서 생성된 리소스를 계속 사용하려는 경우 리소스를 그대로 유지할 수 있습니다. 리소스를 계속 사용하지 않으려면 다음 단계를 통해 이 문서에서 만든 모든 리소스를 삭제해야 불필요한 비용을 방지할 수 있습니다.
 
 이러한 단계에서는 **contoso-us-resource-group**이라는 동일한 리소스 그룹에 표시된 대로 이 문서에서 모든 리소스를 만들었다고 가정합니다.
 
@@ -586,7 +586,7 @@ Windows 기반 워크스테이션을 사용 하는 경우 다음 예제와 같�
 
 3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 
-4. 리소스 그룹의 삭제를 확인 하 라는 메시지가 표시 됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 선택합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 선택합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
 ms.openlocfilehash: 0f93c7b185b292f8d9792a11807b7c99ad846d37
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89565840"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
@@ -73,11 +73,11 @@ ms.locfileid: "89565840"
 
 경고 페이지를 엽니다. 오류 이상 경고 규칙은 수동으로 설정된 경고와 함께 포함되며 현재 경고 상태인지 여부를 볼 수 있습니다.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="Application Insights 리소스 페이지에서 경고 타일을 클릭 한 다음 경고 규칙 관리를 클릭 합니다." lightbox="./media/proactive-failure-diagnostics/021.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="실패에 대 한 클러스터 분석을 보여 주는 샘플 스마트 검색 경고입니다." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 경고를 클릭하여 구성합니다.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="규칙 구성 화면." lightbox="./media/proactive-failure-diagnostics/032.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="실패에 대 한 클러스터 분석을 보여 주는 샘플 스마트 검색 경고입니다." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 오류 이상 경고 규칙을 사용하지 않도록 설정하거나 삭제할 수 있지만 동일한 Application Insights 리소스에서 다른 경고 규칙을 만들 수는 없습니다.
 
@@ -299,7 +299,7 @@ ms.locfileid: "89565840"
 
 '진단 오류'를 클릭하면 자세한 정보를 얻고 문제를 해결하는 데 도움을 얻을 수 있습니다.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="진단 검색." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="실패에 대 한 클러스터 분석을 보여 주는 샘플 스마트 검색 경고입니다." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 영향을 받는 요청의 백분율 및 사용자 수에서 문제가 얼마나 긴급한지 결정할 수 있습니다. 위의 예에서 78.5%의 실패율은 일반 비율 2.2%와 비교했을 때 무엇인가 잘못되었음을 나타냅니다. 반면에 46명의 사용자만 영향을 받았습니다. 앱에서 영향을 받은 경우 얼마나 심각한지 평가할 수 있습니다.
 
@@ -307,13 +307,13 @@ ms.locfileid: "89565840"
 
 이 예제에서는 요청 제한에 도달 하 여 SQL Database에서 예외가 발생 했습니다.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="실패 한 요청 정보입니다." lightbox="./media/proactive-failure-diagnostics/052.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="실패에 대 한 클러스터 분석을 보여 주는 샘플 스마트 검색 경고입니다." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>최근 경고 검토
 
 Application Insights 리소스 페이지에서 **경고**를 클릭하여 가장 최근에 발생한 경고를 가져옵니다.
 
-:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="경고 요약." lightbox="./media/proactive-failure-diagnostics/070.png":::
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="실패에 대 한 클러스터 분석을 보여 주는 샘플 스마트 검색 경고입니다." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>차이점은 무엇입니까...
 실패에 대한 스마트 검색은 Application Insights의 다른 유사하지만 고유한 기능을 보완합니다.

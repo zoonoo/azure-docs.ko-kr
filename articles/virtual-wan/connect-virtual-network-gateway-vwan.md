@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441035"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>가상 WAN에 VPN Gateway (가상 네트워크 게이트웨이) 연결
@@ -20,7 +20,7 @@ ms.locfileid: "91441035"
 
 두 기능 사이에서 혼동을 최소화 하기 위해 게이트웨이 앞에는 참조 하는 기능의 이름이 포함 됩니다. 예를 들어 가상 네트워크 게이트웨이 및 가상 WAN VPN gateway를 VPN Gateway 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 시작 하기 전에 다음 리소스를 만듭니다.
 
@@ -119,7 +119,7 @@ Azure Virtual Network
 3. **확인** 을 클릭하여 연결을 만듭니다.
 4. 가상 네트워크 게이트웨이의 **연결** 페이지에서 연결을 볼 수 있습니다.
 
-   ![연결](./media/connect-virtual-network-gateway-vwan/connect.png "연결")
+   ![연결](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. 이전 단계를 반복 하 여 두 번째 연결을 만듭니다. 두 번째 연결의 경우 만든 다른 로컬 네트워크 게이트웨이를 선택 합니다.
 6. 연결이 BGP를 통해 연결 된 경우 연결을 만든 후 연결로 이동 하 여 **구성**을 선택 합니다. **구성** 페이지에서 **BGP**에 대해 **사용**을 선택 합니다. 그런 다음 **저장**을 클릭합니다. 두 번째 연결에 대해 반복 합니다.
 

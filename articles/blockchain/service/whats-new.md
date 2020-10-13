@@ -4,16 +4,16 @@ description: 최신 릴리스 정보, 버전, 알려진 문제 및 예정 된 �
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921889"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948462"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Azure Blockchain 서비스의 새로운 기능
 
-> 이 URL을 복사 하 고 붙여 넣는 방법으로 업데이트에 대 한이 페이지를 다시 방문 하는 시기에 대 한 알림 받기: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` rss 피드 판독기 [ ![ rss 피드 판독기 아이콘](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us).
+> 이 URL을 복사 하 고 붙여 넣는 방법으로 업데이트에 대 한이 페이지를 다시 방문 하는 시기에 대 한 알림 받기: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` rss 피드 판독기 [ ![ rss 피드 판독기 아이콘](./media/whats-new/feed-icon-16x16.png)](/api/search/rss?locale=en-us&search=%2522Release%2bnotes%2b-%2bAzure%2bBlockchain%2bService%2522).
 
 Azure Blockchain 서비스는 지속적으로 향상 된 기능을 받습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음에 대한 정보를 제공합니다.
 

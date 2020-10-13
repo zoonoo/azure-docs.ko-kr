@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441494"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
@@ -51,9 +51,9 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 다음 페이지에 설명 된 대로 컴퓨터에서 에이전트에 대해 지원 되는 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
-* [Windows에서 지원 되는 운영 체제에 대 한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Windows에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
-* [Linux 지원 운영 체제에 대 한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Linux에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 [Log Analytics 에이전트가 수집 하는 데이터](security-center-enable-data-collection.md)에 대해 자세히 알아보세요.
 

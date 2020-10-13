@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75468089"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
@@ -16,12 +16,12 @@ ms.locfileid: "75468089"
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |형식 속성은 **AzureStorage** |Yes |
-| connectionString |connectionString 속성에 대한 Azure Storage에 연결하는 데 필요한 정보를 지정합니다. |Yes |
+| type |형식 속성은 **AzureStorage** |예 |
+| connectionString |connectionString 속성에 대한 Azure Storage에 연결하는 데 필요한 정보를 지정합니다. |예 |
 
 스토리지 계정 액세스 키를 검색하는 방법에 대한 자세한 내용은 [스토리지 계정 액세스 키 관리](../articles/storage/common/storage-account-keys-manage.md)를 참조하세요.
 
-**예제:**  
+**예:**  
 
 ```json
 {
@@ -50,7 +50,7 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **AzureStorageSas** |예 |
-| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |Yes |
+| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |예 |
 
 **예:**
 
@@ -68,7 +68,7 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 **SAS URI**를 만들 때 다음 사항을 고려하세요.  
 
-* 데이터 팩터리에 연결 된 서비스 (읽기, 쓰기, 읽기/쓰기)를 사용 하는 방법에 따라 개체에 대 한 적절 한 읽기/쓰기 **권한을** 설정 합니다.
+* 데이터 팩터리에서 연결된 서비스(읽기, 쓰기, 읽기/쓰기)를 사용하는 방식에 따라 개체에 적절한 읽기/쓰기 **권한**을 설정합니다.
 * **만료 시간**을 적절하게 설정합니다. Azure Storage 개체에 대한 액세스가 파이프라인의 활성 기간 내에 만료되지 않아야 합니다.
 * 필요에 따라 올바른 컨테이너/BLOB 또는 테이블 수준에서 URI가 만들어져야 합니다. Azure BLOB에 대한 SAS URI를 사용하면 Data Factory 서비스에서 특정 BLOB에 액세스할 수 있습니다. Azure BLOB 컨테이너에 대한 SAS URI를 사용하면 Data Factory 서비스의 해당 컨테이너에서 BLOB을 반복할 수 있습니다. 나중에 더 많은/더 적은 개체에 대한 액세스를 제공하거나 SAS URI를 업데이트해야 하는 경우 연결된 서비스를 새 URI로 업데이트합니다.   
 

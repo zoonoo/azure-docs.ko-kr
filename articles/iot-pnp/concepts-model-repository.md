@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715062"
 ---
 # <a name="azure-iot-model-repository"></a>Azure IoT 모델 리포지토리
@@ -84,7 +84,7 @@ Azure AD 테 넌 트를 설정 하는 방법과 Azure AD 테 넌 트에서 사�
 |----|----------|
 |TenantAdministrator|액세스 관리, 모델 읽기|
 |만든 이|모델 만들기, 모델 읽기|
-|Publisher|모델 게시, 모델 읽기|
+|게시자|모델 게시, 모델 읽기|
 
 #### <a name="passing-a-security-token-when-accessing-company-models-with-a-rest-api"></a>REST API를 사용 하 여 회사 모델에 액세스할 때 보안 토큰 전달
 
