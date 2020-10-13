@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
 ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869272"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
@@ -46,7 +46,7 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 | 게시자/버전 | 제안 | SKU | 버전 | 이미지 cloud-init 준비 여부 | Azure에서의 cloud-init 패키지 지원|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 | 예 - 지원 시작 패키지 버전: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | N/A |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | 해당 없음 |
 |RedHat 7.7(Gen1)|RHEL |7.7 | 7.7.2020051912 | 예 | 예 - 지원 시작 패키지 버전: *18.5-6.el7*|
 |RedHat 7.7(Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | 예 | 예 - 지원 시작 패키지 버전: *18.5-6.el7*|
 |RedHat 7.7(Gen1)|RHEL |7-LVM | 7.7.2020051921 | 예 | 예 - 지원 시작 패키지 버전: *18.5-6.el7*|
@@ -61,7 +61,7 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 
 | 게시자/버전 | 제안 | SKU | 버전 | 이미지 cloud-init 준비 여부 | Azure에서의 cloud-init 패키지 지원|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | N/A |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | 해당 없음 |
 |OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |예 | 예-패키지 버전에 대 한 지원: `18.5-6.el7.centos.5`|
 |OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |예 | 예-패키지 버전에 대 한 지원: `18.5-6.el7.centos.5`|
 |OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |예 | 예-패키지 버전에 대 한 지원: `18.5-6.el7.centos.5`|

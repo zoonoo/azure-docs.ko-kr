@@ -7,14 +7,14 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 10/07/2020
   ms.author: magoedte
-  ms.openlocfilehash: f03e869e884fff8a1d196817b658c28bbdc55ca9
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 346e64968c4616cb1ebcb02db4f4d6d7bca29526
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90908114"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91825801"
 landingContent:
 - title: Azure Arc 지원 서버를 사용하여 Azure에 머신 연결
   linkLists:
@@ -36,3 +36,9 @@ landingContent:
     links:
     - text: Arc 지원 서버 에이전트 배포
       url: ./learn/quick-enable-hybrid-vm.md
+- title: 참조 아키텍처
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: 하이브리드 서버의 구성 관리
+      url: /architecture/hybrid/azure-arc-hybrid-config

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919661"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $select 구문
@@ -32,7 +32,7 @@ ms.locfileid: "88919661"
 
 ## <a name="syntax"></a>구문
 
-**$Select** 매개 변수는 쿼리 결과 집합에 반환 되는 각 문서에 대 한 필드를 결정 합니다. 다음 EBNF ([Extended Backus-Backus-naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))은 **$select** 매개 변수에 대 한 문법을 정의 합니다.
+**$Select** 매개 변수는 쿼리 결과 집합에 반환 되는 각 문서에 대 한 필드를 결정 합니다. 다음 EBNF ([확장 Backus-Naur 폼](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form))는 **$select** 매개 변수에 대 한 문법을 정의 합니다.
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 

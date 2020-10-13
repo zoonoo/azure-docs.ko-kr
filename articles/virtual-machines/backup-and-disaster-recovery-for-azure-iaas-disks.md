@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01133ab5582e63c0e87d8a5cf8de12f5445394c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754976"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969707"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 디스크에 대한 백업 및 재해 복구
 
@@ -48,7 +48,7 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 스토리지 플랫폼
 
 컴퓨팅 호스트 또는 Storage 플랫폼에서 지역화된 하드웨어 오류로 인해 때때로 VM 가용성에 대한 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)가 적용되는 VM을 일시적으로 사용할 수 없게 될 수 있습니다. 또한 Azure는 Azure 프리미엄 SSD를 사용하는 단일 VM 인스턴스에 대해 업계 최고의 SLA를 제공합니다.
 
-디스크 또는 VM의 일시적인 사용 불가로 인한 가동 중지로부터 애플리케이션 워크로드를 보호하기 위해 고객은 [가용성 세트](windows/manage-availability.md)을 사용할 수 있습니다. 가용성 세트에 있는 둘 이상의 가상 머신은 애플리케이션에 대한 중복성을 제공합니다. 그런 다음 Azure는 서로 다른 전원, 네트워크 및 서버 구성 요소를 사용하여 별도의 장애 도메인에 이러한 VM 및 디스크를 만듭니다.
+디스크 또는 VM의 일시적인 사용 불가로 인한 가동 중지로부터 애플리케이션 워크로드를 보호하기 위해 고객은 [가용성 세트](./manage-availability.md)을 사용할 수 있습니다. 가용성 세트에 있는 둘 이상의 가상 머신은 애플리케이션에 대한 중복성을 제공합니다. 그런 다음 Azure는 서로 다른 전원, 네트워크 및 서버 구성 요소를 사용하여 별도의 장애 도메인에 이러한 VM 및 디스크를 만듭니다.
 
 이러한 별도의 장애 도메인 때문에 지역화된 하드웨어 오류는 일반적으로 집합에 있는 여러 VM에 동시에 영향을 주지 않습니다. 별도의 오류 도메인이 있으면 애플리케이션에 대한 고가용성을 제공합니다. 고가용성이 필요한 경우에는 가용성 집합을 사용하는 것이 좋습니다. 다음 섹션에서는 재해 복구 측면을 다룹니다.
 
@@ -77,7 +77,7 @@ DR 고려 사항에는 다음과 같은 측면이 포함될 수 있습니다.
 - 데이터는 보호되고 복구할 수 있어야 합니다.
 - 서버를 사용할 수 있어야 합니다.
 
-재해 복구 계획은 다른 지역에 있는 데이터베이스의 복제본을 백업으로 유지 관리해야 할 수 있습니다. 서버 가용성 및 데이터 복구에 대한 요구 사항에 따라 솔루션은 활성-활성 또는 활성-수동 복제본 사이트에서 정기적인 오프라인 데이터 백업에 이르기까지 다양할 수 있습니다. SQL Server 및 Oracle과 같은 관계형 데이터베이스는 다양한 복제 옵션을 제공합니다. SQL Server의 경우 고가용성을 위해 [SQL Server Always On 가용성 그룹](https://msdn.microsoft.com/library/hh510230.aspx)을 사용할 수 있습니다.
+재해 복구 계획은 다른 지역에 있는 데이터베이스의 복제본을 백업으로 유지 관리해야 할 수 있습니다. 서버 가용성 및 데이터 복구에 대한 요구 사항에 따라 솔루션은 활성-활성 또는 활성-수동 복제본 사이트에서 정기적인 오프라인 데이터 백업에 이르기까지 다양할 수 있습니다. SQL Server 및 Oracle과 같은 관계형 데이터베이스는 다양한 복제 옵션을 제공합니다. SQL Server의 경우 고가용성을 위해 [SQL Server Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)을 사용할 수 있습니다.
 
 MongoDB와 같은 NoSQL 데이터베이스는 중복성을 위한 [복제본](https://docs.mongodb.com/manual/replication/)도 지원하므로 고가용성을 위한 복제본을 사용합니다.
 
@@ -201,7 +201,7 @@ SQL Server와 같은 일부 Windows 애플리케이션에서는 볼륨 섀도 �
 
 1. 몇 초 안에 각 가상 하드 드라이브 Blob의 스냅샷을 만듭니다.
 
-    스냅샷을 만들려면 [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/) 또는 [.NET용 스토리지 클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/hh488361.aspx)와 같은 Azure Storage 클라이언트 라이브러리 중 하나를 사용할 수 있습니다.
+    스냅샷을 만들려면 [PowerShell](/powershell/module/az.storage), [Azure Storage REST API](/rest/api/storageservices/Snapshot-Blob), [Azure CLI](/cli/azure/) 또는 [.NET용 스토리지 클라이언트 라이브러리](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)와 같은 Azure Storage 클라이언트 라이브러리 중 하나를 사용할 수 있습니다.
 
 1. 가동 중지 시간이 종료된 VM을 시작합니다. 일반적으로 전체 프로세스는 몇 분 안에 완료됩니다.
 
@@ -224,7 +224,7 @@ DR에 대한 증분 스냅샷을 효율적으로 복사하려면 [증분 스냅�
 
 ### <a name="recovery-from-snapshots"></a>스냅샷에서 복구
 
-스냅샷을 검색하려면 복사하여 새 Blob을 만듭니다. 기본 계정에서 스냅샷을 복사하는 경우 스냅샷의 기본 Blob에 스냅샷을 복사할 수 있습니다. 이 프로세스는 디스크를 스냅샷으로 되돌립니다. 이 프로세스는 스냅샷 승격이라고 합니다. 읽기 액세스 지역 중복 스토리지 계정의 경우 보조 계정에서 스냅샷 백업을 복사하면 기본 계정에 복사해야 합니다. [PowerShell](https://docs.microsoft.com/powershell/module/az.storage) 또는 AzCopy 유틸리티를 사용하여 스냅샷을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)을 참조하세요.
+스냅샷을 검색하려면 복사하여 새 Blob을 만듭니다. 기본 계정에서 스냅샷을 복사하는 경우 스냅샷의 기본 Blob에 스냅샷을 복사할 수 있습니다. 이 프로세스는 디스크를 스냅샷으로 되돌립니다. 이 프로세스는 스냅샷 승격이라고 합니다. 읽기 액세스 지역 중복 스토리지 계정의 경우 보조 계정에서 스냅샷 백업을 복사하면 기본 계정에 복사해야 합니다. [PowerShell](/powershell/module/az.storage) 또는 AzCopy 유틸리티를 사용하여 스냅샷을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](../storage/common/storage-use-azcopy-v10.md)을 참조하세요.
 
 여러 디스크가 있는 VM의 경우 조정된 동일한 복원 지점의 일부인 모든 스냅샷을 복사해야 합니다. 쓰기 가능한 VHD Blob에 스냅샷을 복사한 후에 VM에 대한 템플릿을 사용하여 VM을 다시 만드는 데 Blob을 사용할 수 있습니다.
 
@@ -265,4 +265,3 @@ Azure에 있는 스토리지 계정의 경우 재해 복구와 관련하여 세 
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

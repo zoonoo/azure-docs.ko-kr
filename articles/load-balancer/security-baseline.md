@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e62da791e8c60f884855fba16315a03fe22cecb5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450715"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940330"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 Azure 보안 기준
 
@@ -98,7 +98,7 @@ Security Center (표준 계층)은 just-in-time 가상 컴퓨터 액세스를 �
 Security Center의 적응 네트워크 강화 기능을 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 네트워크 보안 그룹 구성을 권장 합니다.
  
 
-- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](https://docs.microsoft.com/azure/virtual-network/manage-ddos`protection)
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 - [Azure Firewall 위협 인텔리전스 기반 필터링](https://docs.microsoft.com/azure/firewall/threat-intel)
 

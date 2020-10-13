@@ -12,10 +12,10 @@ ms.date: 9/10/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d64f7423d537958b6d3c388cb12f23bd2e30e36
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90087093"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory을 사용 하 여 레거시 앱 보호
@@ -26,7 +26,7 @@ ms.locfileid: "90087093"
 
 - [기존 응용 프로그램 제공 컨트롤러 및 네트워크](#sha-through-networking-and-delivery-controllers)
 
-- [VPN (가상 사설망) 및 SDP (소프트웨어 정의 경계) 응용 프로그램](#sha-through-vpn-and-sdp-applications)
+- [VPN (가상 사설망) 및 SDP (Software-Defined 경계) 응용 프로그램](#sha-through-vpn-and-sdp-applications)
 
 Azure ad [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) 및 Azure Ad [id 보호](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)와 같은 azure ad 기능을 사용 하 여 모든 응용 프로그램에서 격차를 브리징 하 고 보안 상태를 강화할 수 있습니다.
 

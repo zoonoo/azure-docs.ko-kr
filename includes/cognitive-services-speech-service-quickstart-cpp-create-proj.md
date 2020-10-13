@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 517b092f933bedae0f254461d9bfee4d4640db8b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 96a085e3183289d9f2add054128c0faa6b0cdb29
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374793"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91654422"
 ---
 C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Visual Studio 개발 옵션을 설정하고, 프로젝트를 만들고, 대상 아키텍처를 선택하고, Speech SDK를 설치해야 합니다.
 
@@ -19,13 +19,13 @@ C++ 데스크톱 개발에 대한 Visual Studio 프로젝트를 만들려면 Vis
 
 1. Visual Studio 2019를 열어 **시작** 창을 표시합니다.
 
-   ![시작 창 - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Visual Studio 2019 "시작" 창을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. **코드를 사용하지 않고 계속**을 선택하여 Visual Studio IDE로 이동합니다.
 
 1. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 열고 **수정** 대화 상자를 봅니다.
 
-   ![워크로드 탭, 수정 대화 상자, Visual Studio 설치 관리자](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   !["Visual Studio 설치 관리자"에 대한 "수정" 대화 상자의 "워크로드" 탭을 보여주는 스크린샷.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. **워크로드** 탭의 **Windows** 아래에서 **C++를 사용한 데스크톱 개발** 워크로드를 찾습니다. 해당 워크로드 옆의 확인란이 아직 선택되어 있지 않은 경우 선택합니다.
 

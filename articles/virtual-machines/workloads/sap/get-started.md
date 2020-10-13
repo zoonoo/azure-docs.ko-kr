@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb7d7d6296432146e6e4390b0df62964ffe6f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a21300872e98a35ea27835385b4045921f4657
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758101"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969571"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -45,7 +45,7 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
     - [HANA(대규모 인스턴스)의 지원되는 시나리오](./hana-supported-scenario.md)
 - 여러 Azure 지역에서 사용할 수 있는 Azure 서비스, Azure VM 유형 및 Azure 스토리지 서비스에 대한 정보는 [지역별 제공 제품](https://azure.microsoft.com/global-infrastructure/services/) 사이트에서 확인할 수 있습니다. 
 - 타사 HA 프레임은 Windows 및 Pacemaker 지원 되는 것 외에도 작동 하나요? [SAP support note](https://launchpad.support.sap.com/#/notes/1928533) 의 아래쪽 부분을 확인 #1928533
-- 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 읽기
+- 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 읽기
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -84,23 +84,23 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 - 10/05/2020: RHEL 구성 가이드의 [Azure vm에서 Pacemaker을 사용 하는 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 릴리스
 - 09/30/2020: RHEL의 [Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md)변경, RHEL의 [anf를 사용 하 여 SAP HANA 확장을 위한 HA](./sap-hana-high-availability-netapp-files-red-hat.md) , [azure에서 RHEL를 설정](./high-availability-guide-rhel-pacemaker.md) 하 여 RHEL 8.1에 대 한 지침 적용
-- 09/29/2020: [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 문서에서 ppg 사용에 대 한 제한 사항 및 권장 사항을 만듭니다. 
-- 09/28/2020: [Azure NetApp Files에서 NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) 문서와 함께 Azure NetApp Files를 사용 하 SAP HANA에 대 한 새 저장소 작업 가이드를 추가 SAP HANA
-- 09/23/2020: hli에 [대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 에 hli 용 인증 된 새 sku를 추가 합니다. 
-- 09/20/2020: 문서에서 변경 된 내용은 [sap SQL Server 워크 로드에 대 한 azure VIRTUAL MACHINES dbms 배포에 대 한 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general), sap 용 AZURE [Virtual Machines dbms](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver)배포, sap 워크 [Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) 로드에 대 한 azure Virtual Machines Oracle dbms 배포, sap 워크 로드에 대 한 [AZURE Oracle DBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)배포의 경우 Dbms 이진 파일과 sap 이진 파일을 다른 Azure 디스크로 분리 하는 것이 좋습니다. 또한 다양 한 가이드에 Ultra disk 권장 사항을 추가 합니다.
+- 09/29/2020: [SAP 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](./sap-proximity-placement-scenarios.md) 문서에서 ppg 사용에 대 한 제한 사항 및 권장 사항을 만듭니다. 
+- 09/28/2020: [Azure NetApp Files에서 NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 문서와 함께 Azure NetApp Files를 사용 하 SAP HANA에 대 한 새 저장소 작업 가이드를 추가 SAP HANA
+- 09/23/2020: hli에 [대해 사용 가능한 sku](./hana-available-skus.md) 에 hli 용 인증 된 새 sku를 추가 합니다. 
+- 09/20/2020: 문서에서 변경 된 내용은 [sap SQL Server 워크 로드에 대 한 azure VIRTUAL MACHINES dbms 배포에 대 한 고려 사항](./dbms_guide_general.md), sap 용 AZURE [Virtual Machines dbms](./dbms_guide_sqlserver.md)배포, sap 워크 [Virtual Machines](./dbms_guide_ibm.md) 로드에 대 한 azure Virtual Machines Oracle dbms 배포, sap 워크 로드에 대 한 [AZURE Oracle DBMS](./dbms_guide_oracle.md)배포의 경우 Dbms 이진 파일과 sap 이진 파일을 다른 Azure 디스크로 분리 하는 것이 좋습니다. 또한 다양 한 가이드에 Ultra disk 권장 사항을 추가 합니다.
 - 09/08/2020: SLES의 [Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability.md) 을 변경 하 여 stonith 정의를 명확 하 게 합니다.
-- 09/03/2020: Ultra disk를 사용 하 여 1gb 용량의 최소 2 IOPS에 맞게 [Azure virtual machine storage 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경
-- 09/02/2020: [HLI에 대해 사용 가능한 sku](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 를 변경 하 여 HANA 인증의 sku에 대 한 추가 정보를 확인 하세요.
+- 09/03/2020: Ultra disk를 사용 하 여 1gb 용량의 최소 2 IOPS에 맞게 [Azure virtual machine storage 구성 SAP HANA](./hana-vm-operations-storage.md) 변경
+- 09/02/2020: [HLI에 대해 사용 가능한 sku](./hana-available-skus.md) 를 변경 하 여 HANA 인증의 sku에 대 한 추가 정보를 확인 하세요.
 - 08/28/2020: SLES에서 [ANF를 사용 하 여 Azure vm의 SAP NW에 대해 HA](./high-availability-guide-suse-netapp-files.md) 를 변경 하 여 오타를 수정 합니다.
 - 08/25/2020: [wsfc 및 공유 디스크를 사용 하 여 SAP ASCS/scs에 대 한 HA 가이드](./sap-high-availability-guide-wsfc-shared-disk.md)에서 변경 하 고, wsfc 및 공유 디스크를 사용 하 여 SAP [ASCS/scs](./sap-high-availability-infrastructure-wsfc-shared-disk.md) 에 대 한 azure 인프라를 준비 하 고, [wsfc 및 공유 디스크를 사용 하 여 sap NW HA를 설치](./sap-high-availability-guide-wsfc-shared-disk.md) 하 여 AZURE 공유 디스크 및 문서 sap ERS2 아키텍처
 - 08/25/2020: [WSFC 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS에 대 한 다중 SID HA 가이드](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 릴리스
 - 08/25/2020: [WSFC 및 SMB (Azure NetApp Files)를 사용 하 여 SAP ASCS/SCS에 대 한 HA 가이드](./high-availability-guide-windows-netapp-files-smb.md)변경 wsfc 및 [파일 공유를 사용 하 여 sap ASCS/scs 용 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-file-share.md), wsfc 및 공유 디스크를 사용 하는 sap ascs/scs에 대 한 [다중 sid ha](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) 가이드 및 wsfc 및 공유 디스크를 사용 하는 sap ASCS/scs에 대 한 HA 가이드에서 콘텐츠 업데이트 및 재구성의 결과로 [sap ascs](./sap-ascs-ha-multi-sid-wsfc-file-share.md) /scs에 대 한 다중 sid ha 가이드 
-- 08/21/2020: [HANA Large Instances에 대해 호환 되는 운영 체제](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) 에 새 OS 릴리스를 추가 합니다.
+- 08/21/2020: [HANA Large Instances에 대해 호환 되는 운영 체제](./os-compatibility-matrix-hana-large-instance.md) 에 새 OS 릴리스를 추가 합니다.
 - 08/18/2020: RHEL의 [ANF를 사용 하 여 SAP HANA 확장을 위한 HA](./sap-hana-high-availability-netapp-files-red-hat.md) 릴리스
 - 08/17/2020: SAP NetWeaver 시스템을 온-프레미스에서 Azure로 이동 Azure Site Recovery 하는 데 사용 하는 방법에 대 한 정보는 [Sap NetWeaver에 대 한 azure Virtual Machines 계획 및 구현](./planning-guide.md) 문서를 참조 하세요
-- 08/14/2020: [SAP 워크 로드에 대 한 IBM Db2 Azure VIRTUAL MACHINES DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm) 문서에서 Db2에 대 한 디스크 구성 통지 추가
-- 08/11/2020: [HANA Large Instances에 대해 호환 되는 운영 체제](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) 에 RHEL 7.6를 추가 하 여 형식의 hli 단위에 사용할 수 있는 운영 체제를 추가 합니다.
-- 08/10/2020: azure [가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 에서 저장소 구성을 SAP HANA 하 고 Azure에서 SAP 워크 로드에 대 한 몇 가지 업데이트를 수행 합니다 [. 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
+- 08/14/2020: [SAP 워크 로드에 대 한 IBM Db2 Azure VIRTUAL MACHINES DBMS 배포](./dbms_guide_ibm.md) 문서에서 Db2에 대 한 디스크 구성 통지 추가
+- 08/11/2020: [HANA Large Instances에 대해 호환 되는 운영 체제](./os-compatibility-matrix-hana-large-instance.md) 에 RHEL 7.6를 추가 하 여 형식의 hli 단위에 사용할 수 있는 운영 체제를 추가 합니다.
+- 08/10/2020: azure [가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 저장소 구성을 SAP HANA 하 고 Azure에서 SAP 워크 로드에 대 한 몇 가지 업데이트를 수행 합니다 [. 계획 및 배포 검사 목록](./sap-deployment-checklist.md)
 - 08/04/2020: Pacemaker 클러스터에 대 한 신뢰할 수 있는 이름 확인의 중요성을 강조 하기 위해 azure에서 [SLES의 Pacemaker](./high-availability-guide-suse-pacemaker.md) 설정 및 AZURE에서 [RHEL 설정 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경
 - 08/04/2020: [파일 공유를 사용 하 여 WFCS에서 SAP NW ha](./sap-high-availability-installation-wsfc-file-share.md)를 변경 하 고, [공유 디스크를 사용 하는 WFCS의](./sap-high-availability-installation-wsfc-shared-disk.md)Sap Nw ha, [azure vm의 sap Nw Ha](./high-availability-guide.md), [SLES의 azure vm에서 sap nw에 대 한 ha](./high-availability-guide-suse.md)SLES의 azure vm에 있는 azure vm의 azure VM에 [대 한](./high-availability-guide-suse-netapp-files.md)ha, [SLES 다중 sid 가이드의 azure](./high-availability-guide-suse-multi-sid.md)vm에서 sap nw에 대 한 ha, [RHEL의](./high-availability-guide-rhel.md)azure vm에서 sap의 azure vm에 대 한 ha, RHEL의 azure vm에 대 한 [ha](./high-availability-guide-rhel-netapp-files.md) (RHEL의 azure vm에서 azure vm에 대 한 ha [)](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 2020 년 7 월 23 일: SAP HANA(대규모 인스턴스) 예약을 구입 하기 전에 알아두어야 하는 내용과 구매를 설정 하는 방법을 설명 하는 [Azure 예약 문서와 함께 SAP HANA(대규모 인스턴스) 저장](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) 을 추가 했습니다.
@@ -176,4 +176,4 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 - 2019년 11월 12일: [Azure NetApp Files(SMB)를 사용한 Windows의 SAP NetWeaver 고가용성](high-availability-guide-windows-netapp-files-smb.md)의 릴리스
 - 2019년 11월 8일: [SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성](sap-hana-high-availability.md), [Azure VM(가상 머신)에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability-rhel.md), [SAP 애플리케이션용 SUSE Linux Enterprise Server에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-suse.md), [Azure NetApp Files를 사용한 SUSE Linux Enterprise Server에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-suse-netapp-files.md), [Red Hat Enterprise Linux에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-rhel.md), [Azure NetApp Files를 사용한 Red Hat Enterprise Linux에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-rhel-netapp-files.md), [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](high-availability-guide-suse-nfs.md), [SAP NetWeaver용 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS](high-availability-guide-rhel-glusterfs.md)를 변경하여 Azure 표준 부하 분산 장치를 권장  
 - 2019년 11월 8일: [SAP 워크로드 계획 및 배포 검사 목록](sap-deployment-checklist.md)을 변경하여 암호화 권장 사항을 명시  
-- 2019년 11월 4일: [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](high-availability-guide-suse-pacemaker.md)을 변경하여 유니캐스트 구성으로 직접 클러스터를 만들도록 함  
+- 2019년 11월 4일: [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](high-availability-guide-suse-pacemaker.md)을 변경하여 유니캐스트 구성으로 직접 클러스터를 만들도록 함

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: f607ebb64b27c45ec696d7fcd431a0ba2342697f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89447887"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969605"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Windows 부팅 관리자 오류-0xC0000428 상태 잘못 된 이미지 해시
 
@@ -28,7 +28,7 @@ ms.locfileid: "89447887"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 스크린샷에 Windows 부팅 관리자가 표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](./boot-diagnostics.md) 사용 하 여 VM의 스크린샷을 볼 때 스크린샷에 Windows 부팅 관리자가 표시 되는 것을 볼 수 있습니다.
 
   `File: \windows\system32\boot\winload.exe`
 
@@ -66,7 +66,7 @@ VM을 빌드하는 데 사용 된 이미지는 RTM (Release to Manufacturing) �
 
 ## <a name="solution"></a>솔루션
 
-이미지가 미리 보기 이미지 인 경우 사용 되는 이미지의 만료 날짜를 연장할 수 없습니다. 미리 보기가 아닌 이미지를 사용 하 여 [새 VM을 배포](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 해야 합니다. 아래 단계는 미리 보기 이미지를 사용 했는지 여부를 식별 하는 데 도움이 되 고,이 VM에서 새 VM으로 데이터를 전송 하는 데 도움이 되는 리소스를 제공 합니다. 이미지를 미리 보기 이미지로 확실 하 게 식별 한 경우 이제는 만료 되기 때문에 이미지를 복구할 수 없습니다.
+이미지가 미리 보기 이미지 인 경우 사용 되는 이미지의 만료 날짜를 연장할 수 없습니다. 미리 보기가 아닌 이미지를 사용 하 여 [새 VM을 배포](../windows/quick-create-portal.md) 해야 합니다. 아래 단계는 미리 보기 이미지를 사용 했는지 여부를 식별 하는 데 도움이 되 고,이 VM에서 새 VM으로 데이터를 전송 하는 데 도움이 되는 리소스를 제공 합니다. 이미지를 미리 보기 이미지로 확실 하 게 식별 한 경우 이제는 만료 되기 때문에 이미지를 복구할 수 없습니다.
 
 기본 설정에 따라 Azure PowerShell 또는 Azure CLI를 사용 하 여 이미지를 쿼리하여 미리 보기 이미지 인지 확인할 수 있습니다. 이러한 명령을 사용 하 여 이미지가 미리 보기 이미지 인지 확인할 수 있습니다.
 
@@ -103,7 +103,7 @@ VM을 빌드하는 데 사용 된 이미지는 RTM (Release to Manufacturing) �
 
 ### <a name="query-using-the-azure-cli"></a>Azure CLI를 사용 하 여 쿼리
 
-1. 아직 설치 하지 않은 경우 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)해야 합니다.
+1. 아직 설치 하지 않은 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli)해야 합니다.
 1. 다운로드 한 후 명령 프롬프트 또는 PowerShell을 사용 하 여 명령을 입력 한 `az login` 다음 계정 자격 증명으로 로그인 합니다.
 1. 로그인 한 후 다음 명령을 입력 합니다.
 

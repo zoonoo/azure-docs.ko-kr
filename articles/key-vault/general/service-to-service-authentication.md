@@ -9,17 +9,17 @@ ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: fccd838b47cbb565ffdbe5250a91cd293238bf9b
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483340"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940449"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
 > [!NOTE]
-> **Microsoft. Azure. AppAuthentication** 은 새로운 Key Vault SDK와 함께 사용 하는 것이 더 이상 권장 되지 않습니다. 이는 .NET, Java, TypeScript 및 Python에 사용할 수 있는 새 Azure Id 라이브러리 **DefaultAzureCredentials** 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [인증 및 AZURE SDK에서](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/)찾을 수 있습니다.
+> **Microsoft. Azure. AppAuthentication** 은 새로운 Key Vault SDK와 함께 사용 하는 것이 더 이상 권장 되지 않습니다. 이는 .NET, Java, TypeScript 및 Python에 사용할 수 있는 새로운 **Azure id 클라이언트 라이브러리로** 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [코드에서 Key Vault 인증을](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries)참조 하세요.
 
 Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Active Directory (Azure AD) 자격 증명이 필요 합니다.
 
@@ -27,7 +27,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
 
 `Microsoft.Azure.Services.AppAuthentication`라이브러리는 자동으로 인증을 관리 하므로 자격 증명이 아닌 솔루션에 집중할 수 있습니다. Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용 하 여 로컬 개발을 지원 합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](../../active-directory/msi-overview.md)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리는 관리 되는 id를 사용할 수 없는 경우 또는 로컬 개발 중에 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](../../azure-resource-manager/resource-group-authenticate-service-principal.md) 을 직접 사용 하도록 지원 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) 또는 [visual studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
