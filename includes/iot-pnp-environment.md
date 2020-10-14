@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 09/08/2020
 ms.openlocfilehash: 2e53c9d7c7328ef631bd1ba3d678f31dd12e1f28
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574031"
 ---
 [환경 설정](../articles/iot-pnp/set-up-environment.md)에서 DPS(Device Provisioning Service)를 사용하여 IoT 허브에 연결하도록 샘플을 구성하는 네 가지 환경 변수를 만들었습니다.

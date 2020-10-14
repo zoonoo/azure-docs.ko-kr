@@ -3,19 +3,19 @@ title: '빠른 시작: Metrics Advisor REST API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Azure Cognitive Services에서 애플리케이션을 Metrics Advisor API에 연결합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/23/2020
-ms.author: aahi
-ms.openlocfilehash: 2376ea01190d619a5d1b6368a17e55c09806a406
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: cf6c0ba43bc7bb725d9df4707a1a6f931ad9347e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253747"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047468"
 ---
 # <a name="quickstart-use-the-rest-apis-to-customize-your-solution"></a>빠른 시작: REST API를 사용하여 솔루션 사용자 지정
 

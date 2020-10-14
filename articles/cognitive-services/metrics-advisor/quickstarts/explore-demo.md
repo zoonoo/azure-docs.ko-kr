@@ -3,19 +3,19 @@ title: Metrics Advisor 데모 살펴보기
 titleSuffix: Azure Cognitive Services
 description: Microsoft에서 제공하는 데모를 사용하는 Metrics Advisor 웹 인터페이스에 대해 알아보기
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: fbc73e20b8cc2baa1cc5c5a5b2f674fb1b2dde84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 39748bacf784af0b3f162f960cd7d87cbd03a2eb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945784"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047593"
 ---
 # <a name="quickstart-explore-the-metrics-advisor-demo-with-example-data"></a>빠른 시작: 예제 데이터를 사용하여 Metrics Advisor 데모 살펴보기
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/04/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f2b4d6da8d4d69a44ca3aabd755c72fd87aaa8e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611646"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054902"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML id 공급자 기술 프로필 정의
 
@@ -166,7 +166,7 @@ SAML 어설션:
 | attribute |필수 | 설명 |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |예 | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
-| SamlAssertionDecryption |예 | SAML 메시지의 암호를 해독하는 데 사용할 X509 인증서(RSA 키 집합)입니다. ID 공급자가 이 인증서를 제공해야 합니다. Azure AD B2C는 이 인증서를 사용하여 ID 공급자가 전송하는 데이터의 암호를 해독합니다. |
+| SamlAssertionDecryption |아니요 | X509 인증서 (RSA 키 집합)입니다. SAML id 공급자는 인증서의 공개 부분을 사용 하 여 SAML 응답의 어설션을 암호화 합니다. Azure AD B2C는 인증서의 비공개 부분을 사용 하 여 어설션을 해독 합니다. |
 | MetadataSigning |아니요 | SAML 메타데이터에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용하여 메타데이터에 서명을 합니다.  |
 
 ## <a name="saml-entityid-customization"></a>SAML entityID 사용자 지정

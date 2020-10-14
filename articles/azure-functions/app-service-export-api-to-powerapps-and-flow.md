@@ -4,16 +4,16 @@ description: App Service에 호스트되는 API를 PowerApps 및 Microsoft Flow�
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 7d968c62afbfc92952f747e1e7627c98fe07436d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 359f19598d5f1dff6cda4b303d33ed721ed72d97
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015088"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054800"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
-[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/)는 플랫폼 간에 데이터와 작업을 연결하는 사용자 지정 비즈니스 앱을 빌드하고 사용할 수 있는 서비스입니다. [Microsoft Flow](/learn/modules/get-started-with-flow/index)는 자주 사용하는 앱과 서비스 간의 워크플로 및 비즈니스 프로세스를 간단하게 자동화할 수 있습니다. PowerApps와 Microsoft Flow에는 Office 365, Dynamics 365, Salesforce 등 다양한 데이터 원본 커넥터가 기본적으로 제공됩니다. 경우에 따라 앱 및 흐름 빌더도 데이터 원본 그리고 조직에서 작성한 API에 연결하려 합니다.
+[PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/)는 플랫폼 간에 데이터와 작업을 연결하는 사용자 지정 비즈니스 앱을 빌드하고 사용할 수 있는 서비스입니다. [전원 자동화](/learn/modules/get-started-with-flow/index) 를 사용 하면 즐겨 사용 하는 앱과 서비스 간의 워크플로 및 비즈니스 프로세스를 쉽게 자동화할 수 있습니다. PowerApps와 Microsoft Flow에는 Office 365, Dynamics 365, Salesforce 등 다양한 데이터 원본 커넥터가 기본적으로 제공됩니다. 경우에 따라 앱 및 흐름 빌더도 데이터 원본 그리고 조직에서 작성한 API에 연결하려 합니다.
 
 마찬가지로 조직 내에서 자신의 API를 보다 광범위하게 노출하려는 개발자는 앱 및 흐름 빌더에 자신의 API를 제공하려 합니다. 이 문서에서는 [Azure Functions](../azure-functions/functions-overview.md) 또는 [Azure App Service](../app-service/overview.md)를 사용 하 여 빌드된 API를 내보내는 방법을 보여 줍니다. 내보낸 API는 *사용자 지정 커넥터*가 되며, 이 커넥터는 마치 기본 커넥터처럼 PowerApps 및 Microsoft Flow에 사용됩니다.
 

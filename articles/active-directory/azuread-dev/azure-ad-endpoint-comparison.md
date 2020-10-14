@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116396"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055293"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Microsoft ID 플랫폼(v2.0)으로 업데이트하는 이유
 
 새 응용 프로그램을 개발할 때 v2.0 (Microsoft identity platform) 및 Azure Active Directory (v1.0) 끝점 간의 차이점을 파악 하는 것이 중요 합니다. 이 문서에서는 끝점과 Microsoft id 플랫폼에 대 한 몇 가지 기존 제한 사항 간의 주요 차이점에 대해 설명 합니다.
-
-> [!NOTE]
-> Microsoft id 플랫폼 끝점은 모든 Azure AD 시나리오 및 기능을 지원 하지 않습니다. Microsoft id 플랫폼 끝점을 사용 해야 하는지 확인 하려면 [microsoft id 플랫폼 제한 사항](#limitations)을 참조 하세요.
 
 ## <a name="who-can-sign-in"></a>로그인할 수 있는 사용자
 
@@ -35,7 +32,7 @@ ms.locfileid: "88116396"
 * Microsoft id 플랫폼 끝점을 사용 하면 Azure AD의 회사 및 학교 계정과 hotmail.com, outlook.com 및 msn.com와 같은 개인 Microsoft 계정 (MSA)을 사용 하 여 로그인 할 수 있습니다.
 * 두 끝점은 *[단일 테 넌](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* 트로 구성 된 응용 프로그램에 대 한 Azure AD 디렉터리의 *[게스트 사용자](../external-identities/what-is-b2b.md)* 에 대 한 로그인 이나 테 넌 트 별 끝점 ()을 가리키도록 구성 된 *다중 테 넌 트* 응용 프로그램의 로그인도 허용 `https://login.microsoftonline.com/{TenantId_or_Name}` 합니다.
 
-Microsoft id 플랫폼 끝점을 사용 하 여 개인 Microsoft 계정, 회사 및 학교 계정에서의 로그인을 허용 하는 앱을 작성할 수 있습니다. 따라서 완전히 계정에 제약이 없는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://graph.microsoft.io)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](/graph/api/user-list-messages?view=graph-rest-1.0)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
+Microsoft id 플랫폼 끝점을 사용 하 여 개인 Microsoft 계정, 회사 및 학교 계정에서의 로그인을 허용 하는 앱을 작성할 수 있습니다. 따라서 완전히 계정에 제약이 없는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://graph.microsoft.io)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](/graph/api/user-list-messages)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
 
 Microsoft id 플랫폼 끝점의 경우 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 소비자, 교육 및 엔터프라이즈에 대 한 액세스 권한을 얻을 수 있습니다. Azure AD v1.0 엔드포인트는 회사 및 학교 계정에서만 로그인을 허용합니다.
 
@@ -114,7 +111,7 @@ OAuth 2.0, 및에 대 한 자세한 내용은 `refresh_tokens` `access_tokens` [
 Microsoft id 플랫폼 끝점은 페이로드를 작게 유지 하기 위해 기본적으로 해당 토큰에서 더 작은 클레임 집합을 발급 합니다. Microsoft id 플랫폼 토큰에서 더 이상 기본적으로 제공 되지 않는 v2.0 토큰의 특정 클레임에 종속 된 앱 및 서비스가 있는 경우 [선택적 클레임](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 기능을 사용 하 여 해당 클레임을 포함 하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> v 1.0 및 v2.0 끝점 모두에서 v1.0 및 v2.0 토큰을 발급할 수 있습니다! id_tokens *항상* 요청 된 끝점과 일치 하 고, 액세스 토큰은 클라이언트가 해당 토큰을 사용 하 여 호출 하는 Web API에 필요한 *형식과 일치 해야* 합니다.  따라서 앱이 v2.0 끝점을 사용 하 여 Microsoft Graph를 호출 하는 토큰을 가져오는 경우 (v2.0 형식 액세스 토큰이 필요한 경우) 앱은 v1.0 형식으로 토큰을 받습니다.  
+> v 1.0 및 v2.0 끝점 모두에서 v1.0 및 v2.0 토큰을 발급할 수 있습니다! id_tokens *항상* 요청 된 끝점과 일치 하 고, 액세스 토큰은 클라이언트가 해당 토큰을 사용 하 여 호출 하는 Web API에 필요한 *형식과 일치 해야* 합니다.  따라서 앱이 v2.0 끝점을 사용 하 여 Microsoft Graph를 호출 하는 토큰을 가져오는 경우 (v2.0 형식 액세스 토큰이 필요한 경우) 앱은 v1.0 형식으로 토큰을 받습니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -153,18 +150,22 @@ Microsoft id 플랫폼에서 사용 하기 위해 앱을 등록 하는 방법을
 * 데스크톱 또는 모바일 응용 프로그램을 빌드하는 경우 MSAL (Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 일반적으로 사용할 수 있거나 프로덕션 지원 미리 보기에서 사용할 수 있으므로 프로덕션 응용 프로그램에서 사용 하는 것이 안전 합니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)에서 확인할 수 있습니다.
 * Microsoft 라이브러리에서 다루지 않는 플랫폼의 경우 응용 프로그램 코드에서 프로토콜 메시지를 직접 전송 및 수신 하 여 Microsoft id 플랫폼 끝점과 통합할 수 있습니다. Openid connect Connect 및 OAuth 프로토콜은 이러한 통합을 수행 하는 데 도움이 되도록 [명시적으로 문서화 되어](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 있습니다.
 * 마지막으로, 오픈 소스 Openid connect Connect 및 OAuth 라이브러리를 사용 하 여 Microsoft id 플랫폼 끝점과 통합할 수 있습니다. Microsoft id 플랫폼 끝점은 변경 없이 많은 오픈 소스 프로토콜 라이브러리와 호환 되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [OpenID Connect](https://openid.net/connect/) 및 [OAuth 2.0](https://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 자세한 내용은 [microsoft id 플랫폼 및 인증 라이브러리](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)및 microsoft id 플랫폼 끝점으로 테스트 한 오픈 소스 클라이언트 라이브러리 및 샘플 목록을 참조 하세요.
-* 참조를 위해 `.well-known` Microsoft id 플랫폼 공통 끝점의 끝점은 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` 입니다. `common`을 테넌트 ID로 바꾸어 테넌트와 관련된 데이터를 가져오세요.  
+* 참조를 위해 `.well-known` Microsoft id 플랫폼 공통 끝점의 끝점은 `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` 입니다. `common`을 테넌트 ID로 바꾸어 테넌트와 관련된 데이터를 가져오세요.
 
 ### <a name="protocol-changes"></a>프로토콜 변경 내용
 
-Microsoft id 플랫폼 끝점이 SAML 또는 WS-FEDERATION을 지원 하지 않습니다. Openid connect Connect 및 OAuth 2.0만 지원 합니다.  v1.0 엔드포인트에서 OAuth 2.0 프로토콜의 주목할 만한 변경 내용은 다음과 같습니다. 
+Microsoft id 플랫폼 끝점이 SAML 또는 WS-FEDERATION을 지원 하지 않습니다. Openid connect Connect 및 OAuth 2.0만 지원 합니다.  v1.0 엔드포인트에서 OAuth 2.0 프로토콜의 주목할 만한 변경 내용은 다음과 같습니다.
 
-* `email` 클레임은 선택적 클레임이 구성되어 있는 경우 **또는** 요청에서 범위=메일로 지정된 경우 반환됩니다. 
-* 이제 `resource` 매개 변수 대신 `scope` 매개 변수가 지원됩니다.  
-* OAuth 2.0 사양을 보다 잘 준수하도록 많은 응답이 수정되었습니다(예: `expires_in`을 string 대신 int로 올바르게 반환).  
+* `email` 클레임은 선택적 클레임이 구성되어 있는 경우 **또는** 요청에서 범위=메일로 지정된 경우 반환됩니다.
+* 이제 `resource` 매개 변수 대신 `scope` 매개 변수가 지원됩니다.
+* OAuth 2.0 사양을 보다 잘 준수하도록 많은 응답이 수정되었습니다(예: `expires_in`을 string 대신 int로 올바르게 반환).
 
 Microsoft id 플랫폼 끝점에서 지원 되는 프로토콜 기능의 범위를 더 잘 이해 하려면 [Openid connect Connect 및 OAuth 2.0 프로토콜 참조](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)를 참조 하세요.
 
-#### <a name="saml-restrictions"></a>SAML 제한 사항
+#### <a name="saml-usage"></a>SAML 사용
 
-Windows 응용 프로그램에서 Active Directory 인증 라이브러리 (ADAL)를 사용한 경우 SAML (Security Assertion Markup Language) 어설션을 사용 하는 Windows 통합 인증을 활용 했을 수 있습니다. 이 권한 부여를 통해 페더레이션된 Azure AD 테넌트의 사용자는 자격 증명을 입력하지 않고도 해당 온-프레미스 Active Directory 인스턴스로 자동으로 인증할 수 있습니다. SAML 어설션 부여는 Microsoft id 플랫폼 끝점에서 지원 되지 않습니다.
+Windows 응용 프로그램에서 Active Directory 인증 라이브러리 (ADAL)를 사용한 경우 SAML (Security Assertion Markup Language) 어설션을 사용 하는 Windows 통합 인증을 활용 했을 수 있습니다. 이 권한 부여를 통해 페더레이션된 Azure AD 테넌트의 사용자는 자격 증명을 입력하지 않고도 해당 온-프레미스 Active Directory 인스턴스로 자동으로 인증할 수 있습니다. [SAML은 여전히](../develop/active-directory-saml-protocol-reference.md) 엔터프라이즈 사용자에 게 지원 되는 프로토콜 이지만 v2.0 끝점은 OAuth 2.0 응용 프로그램 에서만 사용 됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[Microsoft id 플랫폼 설명서](../develop/index.yml)에서 자세히 알아보세요.
