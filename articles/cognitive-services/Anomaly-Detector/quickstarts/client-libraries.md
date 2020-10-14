@@ -3,22 +3,22 @@ title: '빠른 시작: Anomaly Detector 클라이언트 라이브러리를 사�
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API는 일괄 처리 또는 스트리밍 데이터로 데이터 계열의 변칙을 검색할 수 있는 클라이언트 라이브러리를 제공합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 zone_pivot_groups: programming-languages-set-seventeen
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.author: aahi
+ms.author: mbullwin
 keywords: 변칙 검색, 알고리즘
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-ms.openlocfilehash: 730d9450740b8eef8d5eb29b5693e4b9db946a47
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a1079c19d9778b8a4392b822b004726bccfc02b7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319264"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018502"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>빠른 시작: Anomaly Detector 클라이언트 라이브러리 사용
 

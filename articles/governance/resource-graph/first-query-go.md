@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 Go 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Go용 Resource Graph 패키지를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: cc15b9fe75913ca47a14001a27e1e3c37d9ea71a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 748f6bfa673a2e9fabdcba0c91dc314931df268a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84899395"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057453"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-go"></a>빠른 시작: Go를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

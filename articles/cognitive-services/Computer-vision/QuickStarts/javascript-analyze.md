@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 8b0560b9a4848462f94cfa02f4e5c7f8fc6ef17b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 446a172f4515aaa9e03ad403a0f20c9ff15e0e78
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262759"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968959"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 JavaScript를 사용하여 원격 이미지 분석
 
@@ -58,7 +58,7 @@ ms.locfileid: "91262759"
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v3.0/analyze";
+        var uriBase = endpoint + "vision/v3.1/analyze";
 
         // Request parameters.
         var params = {

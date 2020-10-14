@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 6589211839a5c1667a6b5cef22220fd917f7e4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70897825dfebe03e920ff5948ad597b57bdd7d7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618964"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058253"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -137,11 +137,11 @@ Azure SQL Database 리소스 관리는 본질적으로 계층적입니다. 위�
 
 [Sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 뷰에서 반환 된 IOPS 및 처리량 최소/최대 값은 보장 되는 것이 아니라 극한/cap 역할을 합니다. 또한 리소스 관리는 특정 저장소 대기 시간을 보장 하지 않습니다. 지정 된 사용자 작업에 대해 가장 적합 한 대기 시간, IOPS 및 처리량은 IO 리소스 거 버 넌 스 제한 뿐만 아니라 사용 되는 IO 크기와 기본 저장소의 기능에 따라 달라 집니다. SQL Database는 512 KB와 4mb 사이의 크기를 변경 하는 IOs를 사용 합니다. IOPS 제한을 적용 하기 위해 모든 IO는 크기와 관계 없이 사용 되며 데이터 파일이 있는 데이터베이스는 Azure Storage에서 제외 됩니다. 이 경우 256 KB 보다 큰 IOs는 Azure Storage IO 계정에 맞게 여러 256 KB IOs로 계산 됩니다.
 
-Azure Storage의 데이터 파일을 사용 하는 기본, 표준 및 범용 데이터베이스의 경우 `primary_group_max_io` 데이터베이스에 누적 된 IOPS 수를 제공 하기에 충분 한 데이터 파일이 없거나, 데이터가 여러 파일에 균등 하 게 분산 되지 않거나, 기본 blob의 성능 계층이 리소스 관리 제한 보다 낮은 IOPS/처리량을 제한 하는 경우 값을 달성할 수 없습니다. 마찬가지로 빈번한 트랜잭션 커밋에 의해 생성 된 작은 로그 Io를 사용 하는 경우 `primary_max_log_rate` 기본 Azure storage blob에 대 한 IOPS 제한으로 인해 작업에서 값을 달성 하지 못할 수 있습니다.
+Azure Storage의 데이터 파일을 사용 하는 기본, 표준 및 범용 데이터베이스의 경우 `primary_group_max_io` 데이터베이스에 누적 된 IOPS 수를 제공 하는 충분 한 데이터 파일이 없거나, 데이터가 파일에 균등 하 게 분산 되지 않거나, 기본 blob의 성능 계층이 리소스 관리 제한 보다 낮은 IOPS/처리량을 제한 하는 경우 값을 달성할 수 없습니다. 마찬가지로 빈번한 트랜잭션 커밋에 의해 생성 된 작은 로그 Io를 사용 하는 경우 `primary_max_log_rate` 기본 Azure Storage blob에 대 한 IOPS 제한으로 인해 작업에서 값을 달성 하지 못할 수 있습니다. Azure Premium Storage Azure SQL Database을 사용 하는 데이터베이스의 경우 데이터베이스 크기에 관계 없이 충분히 큰 저장소 blob을 사용 하 여 필요한 IOPS/처리량을 얻습니다. 큰 데이터베이스의 경우 총 IOPS/처리량 용량을 늘리기 위해 여러 데이터 파일이 생성 됩니다.
 
 및와 같은 리소스 사용률 `avg_data_io_percent` 값 `avg_log_write_percent` 은 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database),  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)및 [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 뷰에 보고 되며, 리소스 관리의 최대 한도의 백분율로 계산 됩니다. 따라서 리소스 관리 외의 요소가 IOPS/처리량을 제한 하는 경우 보고 된 리소스 사용률이 100% 미만으로 유지 되는 경우에도 워크 로드 수가 늘어나면 IOPS/처리량을 평면화 하 고 대기 시간을 늘릴 수 있습니다.
 
-데이터베이스 파일당 읽기 및 쓰기 IOPS, 처리량 및 대기 시간을 확인 하려면 [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 함수를 사용 합니다. 이 함수는 고려 되지 않는 백그라운드 IO를 비롯 하 여 데이터베이스에 대 한 모든 IO를 표시 `avg_data_io_percent` 하지만 기본 저장소의 IOPS 및 처리량을 사용 하며 관찰 된 저장소 대기 시간에 영향을 줄 수 있습니다. 또한 함수는 및 열에서 각각 읽기 및 쓰기에 대 한 IO 리소스 관리에 의해 도입 될 수 있는 추가 대기 시간을 표시 합니다 `io_stall_queued_read_ms` `io_stall_queued_write_ms` .
+데이터베이스 파일당 읽기 및 쓰기 IOPS, 처리량 및 대기 시간을 확인 하려면 [sys.dm_io_virtual_file_stats ()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 함수를 사용 합니다. 이 함수는 고려 되지 않는 백그라운드 IO를 비롯 하 여 데이터베이스에 대 한 모든 IO를 표시 `avg_data_io_percent` 하지만 기본 저장소의 IOPS 및 처리량을 사용 하며 관찰 된 저장소 대기 시간에 영향을 줄 수 있습니다. 함수는 및 열에서 각각 읽기 및 쓰기에 대 한 IO 리소스 관리에 의해 도입 될 수 있는 추가 대기 시간을 표시 합니다 `io_stall_queued_read_ms` `io_stall_queued_write_ms` .
 
 ### <a name="transaction-log-rate-governance"></a>트랜잭션 로그 요금 거 버 넌 스
 

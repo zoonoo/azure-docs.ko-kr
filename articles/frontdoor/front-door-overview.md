@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: bf0d802dc4ea4d18122a12b107dfb0cc0af80d63
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e5b8e5059d4d7df8d7061698ea29d7a6785236f9
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773453"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825638"
 ---
 # <a name="what-is-azure-front-door"></a>Azure Front Door란?
 
 Azure Front Door는 Microsoft 글로벌 에지 네트워크를 사용하여 빠르고, 안전하고, 확장성이 뛰어난 웹 애플리케이션을 만들기 위한 확장 가능한 글로벌 진입점입니다. Front Door를 사용하면 글로벌 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 콘텐츠가 있는 견고한 고성능의 맞춤형 최신 애플리케이션으로 변환할 수 있습니다.
 
-:::image type="content" source="media/front-door-overview/front-door-visual-diagram.png#center" alt-text="Front Door 아키텍처":::
+<p align="center">
+  <img src="./media/front-door-overview/front-door-visual-diagram.png" alt="Front Door architecture" width="600" title="Azure Front Door">
+</p>
 
 Front Door는 Layer 7(HTTP/HTTPS 계층)에서 작동하며, TCP가 분할된 애니캐스트 프로토콜과 Microsoft의 글로벌 네트워크를 사용하여 글로벌 연결을 개선합니다. 라우팅 방법에 따라 Front Door가 클라이언트 요청을 가장 빠르고 가장 가용성이 높은 애플리케이션 백 엔드로 라우팅합니다. 애플리케이션 백엔드는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Front Door는 다양한 애플리케이션 요구와 자동 장애 조치(failover) 시나리오에 맞는 [트래픽 라우팅 방법](front-door-routing-methods.md) 및 [백 엔드 상태 모니터링 옵션](front-door-health-probes.md)을 제공합니다. [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 유사한 Front Door는 전체 Azure 지역에 대한 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 

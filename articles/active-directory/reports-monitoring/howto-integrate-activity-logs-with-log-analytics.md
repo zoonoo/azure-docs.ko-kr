@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230571"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055956"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
@@ -46,6 +46,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 * **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
+* **프로 비전 로그**: [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)를 사용 하 여 모든 타사 응용 프로그램에서 생성, 업데이트 및 삭제 된 사용자를 모니터링할 수 있습니다. 
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.

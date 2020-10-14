@@ -1,17 +1,17 @@
 ---
 title: 빠른 시작 - Azure Service Fabric Mesh에 웹앱 배포
 description: 이 빠른 시작에서는 Visual Studio를 사용하여 ASP.NET Core 웹 사이트를 만들고 Azure Service Fabric Mesh에 게시하는 방법을 보여 줍니다.
-author: dkkapur
+author: georgewallace
 ms.topic: quickstart
 ms.date: 07/17/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0828ad1acd23afdb7ebe7b89b20d8674e5876319
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 15e0c3bcbc19eae344ca3965b2b866ca9a15f28d
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91653301"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840322"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: 웹앱 만들기 및 Azure Service Fabric Mesh에 배포
 

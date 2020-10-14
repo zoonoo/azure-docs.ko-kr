@@ -3,17 +3,17 @@ title: 포털에서 검색 서비스 만들기
 titleSuffix: Azure Cognitive Search
 description: 이 포털 빠른 시작에서는 Azure Portal에서 Azure Cognitive Search 리소스를 설정하는 방법을 알아봅니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/05/2020
-ms.openlocfilehash: 713199dc6b1eb1330b49c320022af137d0d1402e
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741009"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057725"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 

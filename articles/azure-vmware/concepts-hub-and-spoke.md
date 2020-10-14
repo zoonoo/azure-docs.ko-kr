@@ -2,17 +2,18 @@
 title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배포 통합
 description: Azure에서 기존 또는 새 허브 및 스포크 아키텍처에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/14/2020
+ms.openlocfilehash: 66c6cc4841b4b36775fda89b29dc588100c3ad87
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019272"
+ms.locfileid: "92058474"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
 이 문서에서는 azure에서 기존 또는 새 [허브 및 스포크 아키텍처](/azure/architecture/reference-architectures/hybrid-networking/shared-services) 에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항을 제공 합니다. 
+
 
 허브 및 스포크 시나리오에서는 하이브리드 클라우드 환경에서 워크 로드를 사용 한다고 가정 합니다.
 
@@ -25,6 +26,9 @@ ms.locfileid: "92019272"
 *허브* 는 온-프레미스 및 Azure VMware 솔루션 사설 클라우드에 대 한 중앙 연결의 역할을 하는 azure Virtual Network입니다. *스포크* 는 가상 네트워크를 허브와 피어 링 하 여 가상 네트워크 간 통신을 가능 하 게 합니다.
 
 온-프레미스 데이터 센터, Azure VMware 솔루션 사설 클라우드 및 허브 간의 트래픽은 Azure Express 경로 연결을 통해 진행 됩니다. 스포크 가상 네트워크는 일반적으로 IaaS 기반 워크 로드를 포함 하지만 Virtual Network와 직접 통합 되거나 [Azure 개인 링크](../private-link/index.yml) 를 사용 하는 다른 paas 서비스를 사용 하는 [App Service Environment](../app-service/environment/intro.md)와 같은 paas 서비스를 사용할 수 있습니다.
+
+>[!IMPORTANT]
+>가상 네트워크 당 4 개의 Express 경로 회로 제한을 초과 하지 않는 한 기존 Express 경로 게이트웨이를 사용 하 여 Azure VMware 솔루션에 연결할 수 있습니다.  그러나 express 경로를 통해 온-프레미스에서 Azure VMware 솔루션에 액세스 하려면 Express 경로 게이트웨이가 연결 된 회로 간에 전이적 라우팅을 제공 하지 않으므로 Express 경로 Global Reach 있어야 합니다.
 
 이 다이어그램은 Azure에서 Express 경로 Global Reach를 통해 온-프레미스 및 Azure VMware 솔루션에 연결 된 허브 및 스포크 배포의 예를 보여 줍니다.
 
@@ -105,14 +109,17 @@ Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 Azure VMware 솔
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false":::
 
 
-### <a name="jumpbox-and-azure-bastion"></a>Jumpbox 및 Azure 방호
+### <a name="jump-box-and-azure-bastion"></a>점프 상자 및 Azure 방호
 
-허브 가상 네트워크 내의 공유 서비스 서브넷에 배포 된 Windows 10 또는 Windows Server VM 인 Jumpbox을 사용 하 여 Azure VMware 솔루션 환경에 액세스 합니다.
+허브 가상 네트워크 내의 공유 서비스 서브넷에 배포 된 Windows 10 또는 Windows Server VM 인 점프 상자를 사용 하 여 Azure VMware 솔루션 환경에 액세스 합니다.
 
-보안 모범 사례에 따라 허브 가상 네트워크 내에 [Microsoft Azure 방호](../bastion/index.yml) 서비스를 배포 합니다. Azure 방호는 이러한 리소스에 공용 IP 주소를 프로 비전 할 필요 없이 Azure에 배포 된 Vm에 대 한 원활한 RDP 및 SSH 액세스를 제공 합니다. Azure 방호 서비스를 프로 비전 하 고 나면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정한 후 새 탭이 열리고 Jumpbox 데스크톱이 표시 되 고 해당 데스크톱에서 Azure VMware 솔루션 사설 클라우드 관리 평면에 액세스할 수 있습니다.
+>[!IMPORTANT]
+>Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 위해 점프 상자에 연결 하는 서비스입니다. Azure 가상 사용자는 azure IaaS 개체가 아니기 때문에 azure 방호를 사용 하 여 azure VMware 솔루션 Vm에 연결할 수 없습니다.  
+
+보안 모범 사례에 따라 허브 가상 네트워크 내에 [Microsoft Azure 방호](../bastion/index.yml) 서비스를 배포 합니다. Azure 방호는 이러한 리소스에 공용 IP 주소를 프로 비전 할 필요 없이 Azure에 배포 된 Vm에 대 한 원활한 RDP 및 SSH 액세스를 제공 합니다. Azure 방호 서비스를 프로 비전 하 고 나면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정 하 고 나면 점프 상자 바탕 화면을 표시 하는 새 탭이 열리고, 해당 바탕 화면에서 Azure VMware 솔루션 사설 클라우드 관리 평면에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
-> 공용 IP 주소를 Jumpbox VM에 제공 하거나 3389/TCP 포트를 공용 인터넷에 노출 하지 마십시오. 
+> 공용 IP 주소를 점프 상자 VM에 제공 하거나 3389/TCP 포트를 공용 인터넷에 노출 하지 마십시오. 
 
 
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false":::

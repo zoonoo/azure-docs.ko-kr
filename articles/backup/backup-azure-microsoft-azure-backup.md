@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975502"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056704"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -80,7 +80,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)에서 [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage), [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 및 [영역 중복](../storage/common/storage-redundancy.md#zone-redundant-storage) 저장소 옵션에 대해 자세히 알아보세요.
+스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)에서 [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage), [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage)및 [영역 중복](../storage/common/storage-redundancy.md#zone-redundant-storage) 저장소 옵션에 대해 자세히 알아보세요.
 
 스토리지 복제 설정을 편집하려면
 
@@ -200,6 +200,9 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     ![파일 설치 위치 제공](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 대 한 자세한 내용은 [데이터 저장소 준비](/system-center/dpm/plan-long-and-short-term-data-storage)를 참조 하세요.
+
+    디스크 저장소의 용량 요구 사항은 주로 보호 된 데이터의 크기, 일별 복구 지점 크기, 예상 볼륨 데이터 증가율 및 보존 범위 목표에 따라 달라 집니다. 디스크 저장소를 보호 된 데이터의 두 배 크기로 만드는 것이 좋습니다. 이렇게 하면 일별 복구 지점 크기를 보호된 데이터 크기의 10%와 10일의 보존 범위로 가정합니다. 크기를 정확 하 게 예측 하려면 [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301)를 검토 합니다. 
+
 5. 제한 된 로컬 사용자 계정에 대 한 강력한 암호를 입력 하 고 **다음**을 선택 합니다.
 
     ![강력한 암호 제공](./media/backup-azure-microsoft-azure-backup/security-screen.png)

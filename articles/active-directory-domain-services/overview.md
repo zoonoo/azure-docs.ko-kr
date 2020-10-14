@@ -2,21 +2,21 @@
 title: Azure Active Directory Domain Services 개요 | Microsoft Docs
 description: 이 개요에서는 Azure Active Directory Domain Services에서 제공하는 기능과 조직에서 이를 사용하여 ID 서비스를 클라우드의 애플리케이션 및 서비스에 제공하는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 08/14/2020
-ms.author: iainfou
+ms.author: joflore
 ms.custom: contperfq1
-ms.openlocfilehash: 2255f2193378d0cc3611680c6aa5f8e0837e99aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88245181"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967990"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services란?
 

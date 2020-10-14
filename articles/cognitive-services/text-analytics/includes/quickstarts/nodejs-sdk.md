@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d9c3c8e795b6651595a17d540aafa849ce81471
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: c24a50926fe028dcbf42d3642ae3ec5c9ae84f5b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91401076"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977852"
 ---
 <a name="HOLTop"></a>
 
@@ -147,6 +147,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 * [클라이언트 인증](#client-authentication)
 * [감정 분석](#sentiment-analysis) 
+* [의견 마이닝](#opinion-mining)
 * [언어 감지](#language-detection)
 * [명명된 엔터티 인식](#named-entity-recognition-ner)
 * [엔터티 연결](#entity-linking)

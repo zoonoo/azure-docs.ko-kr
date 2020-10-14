@@ -4,12 +4,12 @@ description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 048dbad89893354ae78c03fc522f8ebeeb6a80f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531680"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055514"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -107,7 +107,7 @@ Azure Batch CLI 확장을 설치하면 Azure CLI를 사용하여 코드를 작�
 
 ## <a name="script-examples"></a>스크립트 예제
 
-일반적인 태스크를 수행하려면 Batch에 대한 [CLI 스크립트 예제](cli-samples.md)를 참조하세요. 이러한 예제는 계정, 풀, 작업 및 태스크를 만들고 관리하는 데 사용할 수 있는 Batch용 Azure CLI의 여러 명령을 다룹니다. 
+일반적인 태스크를 수행하려면 Batch에 대한 [CLI 스크립트 예제](./scripts/batch-cli-sample-create-account.md)를 참조하세요. 이러한 예제는 계정, 풀, 작업 및 태스크를 만들고 관리하는 데 사용할 수 있는 Batch용 Azure CLI의 여러 명령을 다룹니다.
 
 ## <a name="json-files-for-resource-creation"></a>리소스를 만들기 위한 JSON 파일
 

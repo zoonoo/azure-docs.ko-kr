@@ -17,18 +17,18 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812559"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056160"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **작업** 
+- **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
     - **로그 프로 비전** -Azure AD 프로 비전 서비스에서 프로 비전 하는 사용자, 그룹 및 역할에 대 한 시스템 활동을 제공 합니다. 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
-* 응용 프로그램 소유자
+* 응용 프로그램 소유자는 자신이 소유한 응용 프로그램에 대 한 로그를 볼 수 있습니다.
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
 * 글로벌 관리자
 
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 프로 비전 로그는 다음 질문에 대 한 답변을 제공 합니다.
 
 * ServiceNow에서 성공적으로 생성 된 그룹은 무엇 인가요?
-* Amazon Web Services에서 역할을 가져오는 방법
+* Amazon Web Services에서 가져온 역할은 무엇 인가요?
 * DropBox에서 어떤 사용자를 만들지 못했습니다.
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
@@ -211,7 +211,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 
-- 이 Azure Portal는 premium edition이 있는 경우 30 일 동안 보고 된 프로 비전 데이터를 저장 하 고 무료 버전이 있는 경우 7 일 동안 저장 합니다. 프로 비전 로그는 30 일 이상 보존을 위해 log analytics에 게시할 수 있습니다. 
+- 이 Azure Portal는 premium edition이 있는 경우 30 일 동안 보고 된 프로 비전 데이터를 저장 하 고 무료 버전이 있는 경우 7 일 동안 저장 합니다. 프로 비전 로그는 30 일 이상 보존을 위해 [log analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) 에 게시할 수 있습니다. 
 
 - 변경 ID 특성을 고유 식별자로 사용할 수 있습니다. 예를 들어 제품 지원과 상호 작용할 때 유용 합니다.
 

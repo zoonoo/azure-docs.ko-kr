@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 3f74c593cd44470efd231578fddcf53715a3979a
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575098"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045043"
 ---
 # <a name="what-is-iot-plug-and-play"></a>IoT 플러그 앤 플레이란?
 
@@ -26,7 +26,7 @@ IoT 플러그 앤 플레이를 사용하면 솔루션 빌더가 수동으로 구
 
 인터페이스에서 이러한 요소를 그룹화하여 모델 전체에서 재사용하면 협업을 더 쉽게 수행하고 개발 속도를 높일 수 있습니다.
 
-IoT 플러그 앤 플레이가 [Azure Digital Twins](../digital-twins/about-digital-twins.md)와 작동하도록 하려면 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl)을 사용하여 모델 및 인터페이스를 정의합니다. IoT 플러그 앤 플레이 및 DTDL은 커뮤니티에 공개되며, Microsoft는 고객, 파트너 및 업계 기업과의 협업을 환영합니다. 두 가지 모두 JSON-LD 및 RDF와 같은 개방형 W3C 표준에 기반하기 때문에 서비스와 도구를 더 쉽게 채택할 수 있습니다.
+IoT 플러그 앤 플레이가 [Azure Digital Twins](../digital-twins/overview.md)와 작동하도록 하려면 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl)을 사용하여 모델 및 인터페이스를 정의합니다. IoT 플러그 앤 플레이 및 DTDL은 커뮤니티에 공개되며, Microsoft는 고객, 파트너 및 업계 기업과의 협업을 환영합니다. 두 가지 모두 JSON-LD 및 RDF와 같은 개방형 W3C 표준에 기반하기 때문에 서비스와 도구를 더 쉽게 채택할 수 있습니다.
 
 IoT 플러그 앤 플레이 및 DTDL 사용에 대한 추가 비용은 없습니다. [Azure IoT Hub](../iot-hub/about-iot-hub.md) 및 기타 Azure 서비스에 대한 표준 요금은 동일하게 유지됩니다.
 
@@ -68,14 +68,9 @@ Windows 또는 Linux 게이트웨이에 기존 센서가 연결되어 있는 경
 
 [IoT 플러그 앤 플레이 디바이스 인증 프로그램](howto-certify-device.md)은 디바이스가 IoT 플러그 앤 플레이 인증 요구 사항을 충족하는지 확인합니다. 인증된 디바이스를 공용 [Azure IoT 디바이스 카탈로그 인증](https://aka.ms/devicecatalog)에 추가할 수 있습니다.
 
-## <a name="regional-availability"></a>국가별 가용성
-
-이 IoT 플러그 앤 플레이 새로 고침은 미국 중부, 북유럽 및 일본 동부에서 생성된 IoT 허브에서 사용할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 IoT 플러그 앤 플레이의 개요를 살펴보았으므로, 그 다음 단계로 다음 빠른 시작 중 하나를 도전해보세요.
 
 - [디바이스를 IoT Hub에 연결(C)](./quickstart-connect-device-c.md)
 - [솔루션에서 디바이스와 상호 작용(Node.js)](./quickstart-service-node.md)
-

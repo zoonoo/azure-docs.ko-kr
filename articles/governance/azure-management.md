@@ -3,12 +3,12 @@ title: Azure 관리 개요 - Azure 거버넌스
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
 ms.date: 09/09/2020
 ms.topic: overview
-ms.openlocfilehash: 0aaa23dd2841802919cfdfcc857a189e072a5c6b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662127"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949499"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Azure Management 영역이란?
 
@@ -44,7 +44,7 @@ Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azu
 
 ## <a name="secure"></a>보안
 
-리소스 및 데이터의 보안을 관리합니다. 보안 프로그램에는 위협 평가, 데이터 수집 및 분석, 애플리케이션 및 리소스의 규정 준수 등이 있습니다. 보안 모니터링과 위협 분석은 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 포함하는 [Azure Security Center](../security-center/security-center-intro.md)에서 제공됩니다. Azure 리소스 보안에 대한 종합 정보 및 지침은 [Azure 보안 소개](../security/fundamentals/overview.md)를 참조하세요.
+리소스 및 데이터의 보안을 관리합니다. 보안 프로그램에는 위협 평가, 데이터 수집 및 분석, 애플리케이션 및 리소스의 규정 준수 등이 있습니다. 보안 모니터링과 위협 분석은 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 포함하는 [Azure Security Center](../security-center/security-center-introduction.md)에서 제공됩니다. Azure 리소스 보안에 대한 종합 정보 및 지침은 [Azure 보안 소개](../security/fundamentals/overview.md)를 참조하세요.
 
 ## <a name="protect"></a>보호
 

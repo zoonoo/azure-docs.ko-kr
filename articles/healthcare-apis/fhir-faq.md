@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c32ebef16750954f3df1a1d1b379bf42853f2b3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269712"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056858"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -43,6 +43,10 @@ FHIR 용 Azure API는 호스트 되 고 관리 되는 버전의 Azure 용 오픈
 Azure 용 FHIR 서버를 실행 하는 경우 기본 서비스에 직접 액세스할 수 있습니다. 그러나 사용 하지 않는 데이터를 저장 하는 경우 서버를 유지 관리 하 고 업데이트 하는 데 필요한 모든 준수 작업을 담당 해야 합니다.
 
 개발 관점에서 모든 기능은 먼저 Azure 용 오픈 소스 Microsoft FHIR 서버에 배포 됩니다. 오픈 소스에서 유효성을 검사 한 후에는 FHIR 솔루션에 대 한 PaaS Azure API로 릴리스됩니다. 오픈 소스와 PaaS의 릴리스 간 시간은 기능의 복잡성과 기타 로드맵 우선 순위에 따라 달라 집니다. 
+
+### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Azure API for FHIR에 릴리스 되는 항목은 어디에서 확인할 수 있나요?
+
+Azure API for FHIR에 릴리스 하는 항목 중 일부를 보려면 오픈 소스 FHIR 서버 [릴리스](https://github.com/microsoft/fhir-server/releases) 를 참조 하세요. 관리 서비스로 릴리스되는 경우에는 Azure-API-FHIR로 항목에 태그를 설정 하 고, 일반적으로 2 주 후에 오픈 소스의 릴리스 페이지에서 사용할 수 있습니다. 사용자 환경에서 테스트 하려는 경우 [여기](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) 에서 빌드를 테스트 하는 방법에 대 한 지침도 포함 되어 있습니다. 관리 되는 추가 서비스 업데이트를 가장 잘 공유 하는 방법을 평가 하 고 있습니다.
 
 ### <a name="what-is-smart-on-fhir"></a>FHIR의 SMART 란?
 

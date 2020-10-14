@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0e42c8e22d004b574e65442f0fbdfce1c9bcabd7
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939422"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055973"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -365,7 +365,16 @@ Azure Portal의 원본 계정에서 blob에 대 한 복제 상태를 확인 하�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-해당 없음
+PowerShell을 사용 하 여 원본 계정의 blob에 대 한 복제 상태를 확인 하려면 다음 예제와 같이 object replication **connectingtosource** 속성의 값을 가져옵니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

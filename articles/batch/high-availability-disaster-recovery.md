@@ -3,12 +3,12 @@ title: 고가용성 및 재해 복구
 description: 지역별 서비스 중단 시에 사용하도록 Batch 애플리케이션을 설계하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83725740"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058015"
 ---
 # <a name="design-your-application-for-high-availability"></a>고가용성을 위해 애플리케이션 디자인
 
@@ -39,5 +39,5 @@ Batch를 사용하는 애플리케이션이나 솔루션을 항상 사용할 수
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal](batch-account-create-portal.md), [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md) 또는 [Batch 관리 API](batch-management-dotnet.md)를 사용하여 Batch 계정을 만드는 방법에 대해 자세히 알아봅니다.
+- [Azure Portal](batch-account-create-portal.md), [Azure CLI](./scripts/batch-cli-sample-create-account.md), [PowerShell](batch-powershell-cmdlets-get-started.md) 또는 [Batch 관리 API](batch-management-dotnet.md)를 사용하여 Batch 계정을 만드는 방법에 대해 자세히 알아봅니다.
 - Batch 계정에는 기본 할당량이 연결되어 있습니다. [이 문서](batch-quota-limit.md)에서는 기본 할당량 값과 할당량을 늘릴 수 있는 방법에 대해 자세히 설명합니다.

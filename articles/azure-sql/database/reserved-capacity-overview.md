@@ -11,20 +11,22 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 08/29/2019
-ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: c1bedf56896332430c6f4b937aab37764a0c6a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321597"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058270"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>예약 된 용량을 사용 하 여 리소스에 대 한 비용 절감-Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
 
 종 량 제 가격과 비교 하 여 계산 리소스에 대 한 예약을 커밋하여 Azure SQL Database 및 SQL Managed Instance를 사용 하 여 비용을 절감 하세요. 예약 된 용량을 사용 하면 1 년 또는 3 년 동안 SQL Database 및/또는 SQL Managed Instance를 사용 하 여 계산 비용에 대 한 상당한 할인을 얻을 수 있습니다. 예약 된 용량을 구매 하려면 Azure 지역, 배포 유형, 성능 계층 및 용어를 지정 해야 합니다.
 
-특정 데이터베이스 또는 관리 되는 인스턴스에 예약을 할당할 필요가 없습니다. 이미 실행 중이거나 새로 배포 된 기존 배포와 일치 하면 자동으로 혜택을 받습니다. 예약을 구매 하 여 1 년 또는 3 년 동안 계산 비용에 대 한 사용을 커밋합니다. 예약을 구매 하는 즉시 예약 특성과 일치 하는 계산 요금은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 예약에는 서비스와 관련 된 소프트웨어, 네트워킹 또는 저장소 요금이 포함 되지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료 되며 데이터베이스 또는 관리 되는 인스턴스는 종 량 제 요금으로 청구 됩니다. 예약은 자동으로 갱신 되지 않습니다. 가격 책정 정보는 예약 된 [용량 제공](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조 하세요.
+특정 데이터베이스 또는 관리 되는 인스턴스에 예약을 할당할 필요가 없습니다. 이미 실행 중이거나 새로 배포 된 기존 배포와 일치 하면 자동으로 혜택을 받습니다. 예약을 구매 하 여 1 년 또는 3 년 동안 계산 비용에 대 한 사용을 커밋합니다. 예약을 구매 하는 즉시 예약 특성과 일치 하는 계산 요금은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 
+
+예약은 주 및 청구 가능 보조 계산 복제본 모두에 적용 되지만, 서비스와 연결 된 소프트웨어, 네트워킹 또는 저장소 요금은 다루지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료 되며 데이터베이스 또는 관리 되는 인스턴스는 종 량 제 요금으로 청구 됩니다. 예약은 자동으로 갱신 되지 않습니다. 가격 책정 정보는 예약 된 [용량 제공](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조 하세요.
 
 [Azure Portal](https://portal.azure.com)에서 예약 된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
 
@@ -32,6 +34,9 @@ ms.locfileid: "91321597"
 - Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다. 예약 된 용량입니다.
 
 엔터프라이즈 고객과 종 량 제 고객이 예약 구매에 대해 부과 하는 방법에 대 한 자세한 내용은 [기업 등록에 대 한 azure 예약 사용량 이해](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 및 [종 량 제 구독에 대 한 Azure 예약 사용량 이해](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조 하세요.
+
+> [!NOTE]
+> 예약 된 용량을 구매 해도 사용자가 사용할 수 있도록 특정 인프라 리소스 (가상 머신 또는 노드)를 미리 할당 하거나 예약 하지 않습니다.
 
 ## <a name="determine-correct-size-before-purchase"></a>구매 하기 전에 올바른 크기 확인
 
@@ -52,7 +57,7 @@ ms.locfileid: "91321597"
     
     | 필드      | 설명|
     |------------|--------------|
-    |Subscription|용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업 계약 (제품 번호 MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호 MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|
+    |구독|용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업 계약 (제품 번호 MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호 MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.|
     |범위       |VCore 예약의 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 선택 하는 경우 <br/><br/>**공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 데이터베이스 또는 관리 되는 인스턴스에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.<br/><br/>**단일 구독**-이 구독의 데이터베이스 또는 관리 되는 인스턴스에 vcore 예약 할인이 적용 됩니다. <br/><br/>**단일 리소스 그룹**, 예약 할인은 선택한 구독의 데이터베이스 또는 관리 되는 인스턴스와 해당 구독 내에서 선택한 리소스 그룹의 인스턴스에 적용 됩니다.|
     |지역      |용량 예약이 적용 되는 Azure 지역입니다.|
     |배포 유형|예약을 구매할 SQL 리소스 종류입니다.|

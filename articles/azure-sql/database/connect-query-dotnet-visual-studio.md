@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/10/2020
-ms.openlocfilehash: 8fe541432366d3c2ac1dc1470fea66d328f79780
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30cf90f6020ecd4eb560ac0fe2886ff03c552d13
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213051"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825568"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Visual Studio에서 .NET 및 C#을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스에 연결 및 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,7 +78,7 @@ ms.locfileid: "88213051"
    
 1. 설치가 완료되면 **NuGet 패키지 관리자**를 닫을 수 있습니다. 
    
-1. 코드 편집기에서 **Program.cs** 내용을 다음 코드로 바꿉니다. `<server>`, `<username>`, `<password>` 및 `<database>`의 값을 대체합니다.
+1. 코드 편집기에서 **Program.cs** 내용을 다음 코드로 바꿉니다. `<your_server>`, `<your_username>`, `<your_password>` 및 `<your_database>`의 값을 대체합니다.
    
    >[!IMPORTANT]
    >이 예제의 코드에서는 데이터베이스를 만들 때 원본으로 선택할 수 있는 샘플 AdventureWorksLT 데이터를 사용합니다. 사용자 데이터베이스에 다른 데이터가 있는 경우 SELECT 쿼리에 해당 데이터베이스의 테이블을 사용합니다. 
@@ -97,10 +97,10 @@ ms.locfileid: "88213051"
                try 
                { 
                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                   builder.DataSource = "<server>.database.windows.net"; 
-                   builder.UserID = "<username>";            
-                   builder.Password = "<password>";     
-                   builder.InitialCatalog = "<database>";
+                   builder.DataSource = "<your_server>.database.windows.net"; 
+                   builder.UserID = "<your_username>";            
+                   builder.Password = "<your_password>";     
+                   builder.InitialCatalog = "<your_database>";
    
                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                    {

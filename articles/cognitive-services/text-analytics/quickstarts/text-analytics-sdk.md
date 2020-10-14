@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 09/09/2020
+ms.date: 10/07/2020
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 0fbd8b92846f6436128f64680a1fa9b77763a2c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6d69c47c4833247ac259f9dcc166d7ab2696c117
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710783"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977822"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>빠른 시작: Text Analytics 클라이언트 라이브러리 사용
 
@@ -30,6 +30,7 @@ Text Analytics 클라이언트 라이브러리를 사용하여 수행하는 작�
 * 언어 검색
 * 엔터티 인식
 * 핵심 문구 추출
+* 의견 마이닝
 
 ::: zone pivot="programming-language-csharp"
 

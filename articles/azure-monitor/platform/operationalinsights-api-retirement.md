@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: cf48e26133326d43754b38df6f3b2caaf7a587ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9a7ba63246f747a132c315e22452ca9c7144448
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978091"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058185"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>OperationalInsights API 버전 사용 중지
 Microsoft는 최신/지원 되는 버전으로 원활 하 게 전환할 수 있도록 API를 사용 중지 하기 전에 최소 12 개월 전에 알림을 제공 합니다. **OperationalInsights** 리소스 공급자 api에 대 한 새로운 버전 (2020-08-01)을 출시 했으며 2023 년 10 월 31 일에 이전 API 버전을 사용 중지 합니다. 새 기능 및 최적화는 현재 API에만 추가 되므로 최대한 일찍 최신 API 버전으로 업그레이드 해야 합니다.
@@ -67,4 +67,4 @@ Microsoft는 최신/지원 되는 버전으로 원활 하 게 전환할 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [OPERATIONALINSIGHTS API에 대 한 참조](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/allversions)를 참조 하세요.
+- [OperationalInsights 작업 영역 API에 대 한 참조](https://docs.microsoft.com/rest/api/loganalytics/workspaces)를 참조 하세요.

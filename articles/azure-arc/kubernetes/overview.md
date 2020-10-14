@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 61317f7f5f2bf17c88fc019294574993c1854e59
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540645"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858424"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Azure Arc 지원 Kubernetes 미리 보기란?
 
@@ -70,7 +70,7 @@ Azure Arc 지원 Kubernetes는 다음 시나리오를 지원합니다.
 
 * Azure에서 실행되는 Azure Kubernetes Service 클러스터를 Azure Arc에 연결해야 하나요?
 
-    아니요. Azure Monitor, Azure Policy(Gatekeeper)와 같은 Azure Arc를 지원하는 Kubernetes의 모든 기능은 Azure에서 이미 리소스를 표시하는 AKS에서 기본적으로 사용할 수 있습니다. 클러스터 구성(GitOps)은 AKS 및 현재 프라이빗 미리 보기에서 기본적으로 사용할 수 있습니다. 이 기능에 대한 액세스 권한을 얻으려면 이 [가입 양식](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5acO18Lmx5Bk_qao2CrOcFUQ0UyRllDR1BEV1BPNENYRERYN1pFWTQ4WC4u)을 사용합니다.
+    아니요. Azure Monitor, Azure Policy(Gatekeeper)와 같은 Azure Arc를 지원하는 Kubernetes의 모든 기능은 Azure에서 이미 리소스를 표시하는 AKS에서 기본적으로 사용할 수 있습니다.
     
 * Azure Stack HCI의 AKS 클러스터를 Azure Arc에 연결해야 하나요? Azure Stack Hub 또는 Azure Stack Engine에서 실행되는 Kubernetes 클러스터는 어떻게 되나요?
 
