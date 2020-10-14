@@ -1,15 +1,15 @@
 ---
 title: 제한된 요청에 대한 지침
 description: Azure 리소스 그래프에 의해 제한되는 요청을 방지하기 위해 병렬로 그룹화하고, 시차를 두고, 페이지를 매기고, 쿼리하는 방법을 알아봅니다.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006009"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056177"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure Resource Graph의 제한된 요청에 대한 지침
 
@@ -132,7 +132,7 @@ Azure Resource Graph는 시간 범위를 기준으로 각 사용자에 대한 �
   |---------------------|-----|------|-------|-------|
   | 시간 간격(초) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-다음은 Azure Resource Graph를 쿼리할 때 제한 헤더를 준수하는 예입니다.
+Azure 리소스 그래프를 쿼리할 때 제한 헤더를 준수 하는 예는 다음과 같습니다.
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>병렬 쿼리
 
-병렬 처리를 통해 그룹화가 권장되더라도 쿼리를 쉽게 그룹화할 수 없는 경우가 있습니다. 이러한 경우 여러 쿼리를 병렬 방식으로 전송하여 Azure Resource Graph를 쿼리하는 것이 좋습니다. 다음은 이러한 시나리오에서 제한 헤더에 따라 _백오프_하는 방법에 대한 예입니다.
+병렬 처리를 통해 그룹화가 권장되더라도 쿼리를 쉽게 그룹화할 수 없는 경우가 있습니다. 이러한 경우 여러 쿼리를 병렬 방식으로 전송하여 Azure Resource Graph를 쿼리하는 것이 좋습니다. 이러한 시나리오에서 제한 헤더를 기반으로 _백오프_ 하는 방법의 예는 다음과 같습니다.
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -219,7 +219,7 @@ Azure Resource Graph가 단일 쿼리 응답에서 최대 1000개 항목을 반�
 
 - Azure CLI / Azure PowerShell
 
-  Azure CLI 또는 Azure PowerShell을 사용하는 경우 Azure Resource Graph에 대한 쿼리는 최대 5000개 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합된 목록을 반환합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 아래 예제에서는 쿼리를 한 번 실행할 때 쿼리 할당량을 5개까지 사용할 수 있습니다.
+  Azure CLI 또는 Azure PowerShell을 사용하는 경우 Azure Resource Graph에 대한 쿼리는 최대 5000개 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합된 목록을 반환합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 다음 예제에서는 쿼리를 한 번 실행할 때 쿼리 할당량을 5 개까지 사용할 수 있습니다.
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

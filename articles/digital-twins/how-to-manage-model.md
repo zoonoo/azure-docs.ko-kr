@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a7fcd32335b5d9e04986355adeea473cf77b970e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048205"
+ms.locfileid: "92057742"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예:
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 [
@@ -148,19 +148,19 @@ Azure Digital Twins 인스턴스에 저장 된 모델을 나열 하 고 검색�
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-DigitalTwinsModelData md1 = client.GetModel(id);
+ModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
+Pageable<ModelData> pmd2 = client.GetModels();
 
 // Get a list of metadata and full model definitions
-Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(null, true);
+Pageable<ModelData> pmd3 = client.GetModels(null, true);
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<DigitalTwinsModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsModelData` . `DigitalTwinsModelData` 이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `DigitalTwinsModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
+API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `ModelData` 이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `ModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
 
 이 호출은 요청 된 모델 뿐만 아니라 `RetrieveModelWithDependencies` 요청 된 모델이 종속 된 모든 모델을 반환 합니다.
 
@@ -224,7 +224,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 //...
 ```
 
-모델의 서비스 해제 상태는 `DigitalTwinsModelData` 모델 검색 api에서 반환 하는 레코드에 포함 됩니다.
+모델의 서비스 해제 상태는 `ModelData` 모델 검색 api에서 반환 하는 레코드에 포함 됩니다.
 
 #### <a name="deletion"></a>삭제
 

@@ -8,12 +8,12 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: d118bef4a7ccc263010fe176432a5301c4104118
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 088961d58cee2f1bb0c6ac042d9d8ee2ad50ba14
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533898"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931362"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기 
 
@@ -164,7 +164,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-다음 코드 조각에서는 [Microsoft.NetApp/netAppAccounts](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts) 리소스를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에서 NetApp 계정을 만드는 방법을 보여 줍니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
+다음 코드 조각에서는 [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts) 리소스를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에서 NetApp 계정을 만드는 방법을 보여 줍니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
 
@@ -238,7 +238,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-다음 코드 조각에서는 [Microsoft.NetApp/netAppAccounts/capacityPools](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools) 리소스를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에서 용량 풀을 만드는 방법을 보여 줍니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
+다음 코드 조각에서는 [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) 리소스를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)에서 용량 풀을 만드는 방법을 보여 줍니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
 
@@ -387,7 +387,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] --> 
 
-다음 코드 조각에서는 VNet을 설정하고 ARM 템플릿(Azure Resource Manager 템플릿)에 Azure NetApp Files 볼륨을 만드는 방법을 보여 줍니다. VNet 설치 프로그램은 [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/Microsoft.Network/virtualNetworks) 리소스를 사용합니다. 볼륨 생성은 [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](https://docs.microsoft.com/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) 리소스를 사용합니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
+다음 코드 조각에서는 VNet을 설정하고 ARM 템플릿(Azure Resource Manager 템플릿)에 Azure NetApp Files 볼륨을 만드는 방법을 보여 줍니다. VNet 설치 프로그램은 [Microsoft.Network/virtualNetworks](/azure/templates/Microsoft.Network/virtualNetworks) 리소스를 사용합니다. 볼륨 생성은 [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) 리소스를 사용합니다. 코드를 실행하려면 GitHub 리포지토리에서 [전체 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json)을 다운로드합니다.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
 
@@ -465,4 +465,4 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 리소스 그룹을 �
 > [!div class="nextstepaction"]
 > [Azure NetApp Files의 스토리지 계층 구조](azure-netapp-files-understand-storage-hierarchy.md)   
 > [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)   
-> [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)   
+> [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)

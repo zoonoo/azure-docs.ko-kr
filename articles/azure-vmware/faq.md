@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bd75e3d708ddfb9d5545111e7bc4935c8dd50141
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bdfe3956d8c715e391270aab6b3c589430c91593
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045230"
+ms.locfileid: "92058032"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -76,6 +76,11 @@ VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기*
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Vpn에서 VMware HCX가 지원 되나요?
 아니요.
 
+#### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>Azure 방호를 사용 하 여 AVS Vm에 연결할 수 있나요?
+Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 위해 점프 상자에 연결 하는 서비스입니다. Azure 가상 사용자는 azure IaaS 개체가 아니기 때문에 azure 방호를 사용 하 여 azure VMware 솔루션 Vm에 연결할 수 없습니다.
+
+#### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>기존 Express 경로 게이트웨이를 Azure VMware 솔루션에 연결 하는 데 사용할 수 있나요?
+예, 가상 네트워크 당 4 개의 Express 경로 회로 제한을 초과 하지 않는 한 기존 Express 경로 게이트웨이를 사용 하 여 Azure VMware 솔루션에 연결할 수 있습니다.  그러나 express 경로를 통해 온-프레미스에서 Azure VMware 솔루션에 액세스 하려면 Express 경로 게이트웨이가 연결 된 회로 간에 전이적 라우팅을 제공 하지 않으므로 Express 경로 Global Reach 있어야 합니다.
 
 ## <a name="compute-network-storage-and-backup"></a>계산, 네트워크, 저장소 및 백업
 

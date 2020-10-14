@@ -3,21 +3,21 @@ title: Anomaly Detector API란?
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API의 알고리즘을 사용하여 시계열 데이터에 변칙 검색을 적용합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 09/22/2020
-ms.author: aahi
+ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9b540f2e04ae8533a00f79d05e220d99964d9a34
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319319"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016606"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 

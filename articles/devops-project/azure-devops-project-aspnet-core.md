@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c434abdac19c0afd3a76256c27fc3316a8b09940
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99be6dc42a9b644166054d61e88a1e0ac329d2ad
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88163699"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91854726"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 .NET용 CI/CD 파이프라인 만들기
 
@@ -133,7 +133,7 @@ DevOps Starter는 Azure에 대한 배포를 관리하는 릴리스 파이프라�
 팀의 요구에 맞게 빌드 및 릴리스 파이프라인 수정 방법에 대해 자세한 알려면 이 자습서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [CD 프로세스 사용자 지정](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [CD 프로세스 사용자 지정](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
 ## <a name="videos"></a>동영상
 

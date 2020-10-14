@@ -1,16 +1,16 @@
 ---
 title: 빠른 시작 - Azure Service Fabric Mesh에 Hello World 배포
 description: 이 빠른 시작에서는 Azure Service Fabric Mesh에 Service Fabric Mesh 애플리케이션을 배포하는 방법을 보여줍니다.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: 5373cbf76b55b86e4851e1d7c6b53222871faa4c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a22356e89dcc3ab465226bad196068d934ff1182
+ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86254336"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91840288"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>빠른 시작: Service Fabric Mesh에 Hello World 배포
 

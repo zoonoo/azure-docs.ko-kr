@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530462"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973125"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Read v3.x OCR 컨테이너로 마이그레이션
 
@@ -65,10 +65,10 @@ docker run 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 �
 >[!NOTE]
 > MongoDB는 3.x 버전의 컨테이너에서 더 이상 지원되지 않습니다. 대신 컨테이너는 Azure Storage 및 오프라인 파일 시스템을 지원합니다.
 
-| 구현 |  필요한 런타임 인수 |
+| 구현 |    필요한 런타임 인수 |
 |---------|---------|
-|파일 수준(기본값)   | 런타임 인수가 필요하지 않습니다. `/share` 디렉터리가 사용됩니다. |
-|Azure Blob | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|파일 수준(기본값)    | 런타임 인수가 필요하지 않습니다. `/share` 디렉터리가 사용됩니다. |
+|Azure Blob    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## <a name="queue-implementations"></a>큐 구현
 
@@ -78,7 +78,7 @@ v3.x의 컨테이너에서 RabbitMQ는 현재 지원되지 않습니다. 지원�
 |---------|---------|-------|
 | 메모리 내(기본값) | 런타임 인수가 필요하지 않습니다. | 개발 및 테스트 |
 | Azure 큐 | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | 생산 |
-| RabbitMQ  | Unavailable | 생산 |
+| RabbitMQ    | Unavailable | 생산 |
 
 중복 추가의 경우 Read v3.x 컨테이너는 표시 타이머를 사용하여 다중 컨테이너 설정에서 실행될 때 요청이 충돌 시 처리될 수 있도록 합니다. 
 
@@ -86,7 +86,7 @@ v3.x의 컨테이너에서 RabbitMQ는 현재 지원되지 않습니다. 지원�
 
 | 기본값 | 권장되는 값 |
 |---------|---------|
-| 30000 |   120000 |
+| 30000 |    120000 |
 
 
 ## <a name="next-steps"></a>다음 단계

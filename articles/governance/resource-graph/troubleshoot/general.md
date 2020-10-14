@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: Azure Resource Graph를 사용하여 Azure 리소스를 쿼리하는 동안 다양한 SDK와 관련된 문제를 해결하는 방법을 알아봅니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 052c3e1c10f1b0ca94653f086e2df4f3d395070e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13c5d5ffde8b0b82fcafa5e8149400555a0b18a6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056944"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056960"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure Resource Graph를 사용하여 오류 문제 해결
 

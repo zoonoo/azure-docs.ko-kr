@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: f376a1f3601c976ff1efdaee1da6181510a9cf64
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06e0d3618e96b44eca60f32a0977e7f03d6f5603
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88234944"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824631"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>빠른 시작: Python SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -128,7 +128,7 @@ ms.locfileid: "88234944"
 
 1. [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt)에서 로컬로 Baltimore CyberTrust Root 인증서를 다운로드합니다. 파일 확장명 *.cer*를 사용하여 파일 이름을 바꿉니다.
 
-   인증서에 일련 번호 `02:00:00:b9` 및 SHA1 지문 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`가 있습니다.
+   인증서에 일련 번호 `02:00:00:b9` 및 SHA1 지문 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`가 있습니다.
 
 2. *pyquickstart.py*를 열고 새 인증서를 가리키도록 `path\to\cert`를 변경합니다.
 

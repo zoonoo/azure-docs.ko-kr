@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 Azure CLI 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2abec0e4143dfa4a2d5b7146b9c09a2b33777a9e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 216972fb3c64efa22dc4d344e5021a3c2da74266
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667897"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056773"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

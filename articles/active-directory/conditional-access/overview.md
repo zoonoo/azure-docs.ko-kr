@@ -5,23 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/21/2020
+ms.date: 10/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
-ms.openlocfilehash: 7285325d92949a331833968b8f71fbeffd6543f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: contperfq4, azuread-video-2020
+ms.openlocfilehash: b0dec57a67053c3791e68fb40e28d83d5b97777b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89437907"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962159"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
 최신 보안 경계는 사용자 및 디바이스 ID를 포함하도록 조직의 네트워크 너머로 확장됩니다. 조직에서는 액세스 제어 결정의 일환으로 이러한 ID 신호를 활용할 수 있습니다. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-AD-Conditional-Access/player]
 
 조건부 액세스는 Azure Active Directory에서 신호를 주고 결정을 내리고 조직 정책을 적용하기 위해 사용하는 도구입니다. 조건부 액세스는 새로운 ID 중심 제어 평면의 핵심입니다.
 

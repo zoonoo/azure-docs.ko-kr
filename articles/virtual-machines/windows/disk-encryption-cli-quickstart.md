@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3e501cd74d652e6415b6e8f750ddfb3d182a8387
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 08324cc32abdf78cf6ff9ef2d04352eb44f709ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87496137"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974229"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows VM 만들기 및 암호화
 
@@ -82,7 +82,7 @@ az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvaul
 [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)를 사용하여 암호화가 VM에서 활성화되었는지 확인할 수 있습니다.
 
 ```azurecli-interactive
-az vm show --name MyVM -g MyResourceGroup
+az vm encryption show --name MyVM -g MyResourceGroup
 ```
 
 반환된 출력에 다음이 표시됩니다.

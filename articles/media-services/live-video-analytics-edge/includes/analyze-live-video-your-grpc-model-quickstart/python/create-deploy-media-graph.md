@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f2724a0ea0aa5f609be5847652973cfa03658c24
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6741d48490cb186b986317f584a4c7b2a11b865c
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421532"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91828780"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>샘플 파일 검사 및 편집
 
@@ -110,9 +110,18 @@ ms.locfileid: "89421532"
 
 ### <a name="prepare-to-monitor-events"></a>이벤트 모니터링 준비
 
-마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
 
-![모니터링 시작](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="확장 설정":::
+1. "자세한 정보 메시지 표시"를 검색하고 활성화합니다.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="확장 설정":::
+1. 마우스 오른쪽 단추로 Live Video Analytics 디바이스를 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다. 이 단계는 Visual Studio Code의 **출력** 창에서 IoT Hub 이벤트를 모니터링하는 데 필요합니다.
+
+   ![모니터링 시작](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### <a name="run-the-sample-program"></a>샘플 프로그램 실행
 

@@ -3,20 +3,20 @@ title: '빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열
 titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API의 두 가지 검색 모드를 사용하여 시계열 데이터에서 변칙을 검색하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/03/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c19f901f4419cca59a3b4e070191c8bb89ce7c34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 919d608bda4b0a288996ad9d8d7908e5eb5ace23
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319200"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019701"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색
 

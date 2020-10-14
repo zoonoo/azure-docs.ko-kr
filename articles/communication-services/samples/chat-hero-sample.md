@@ -2,19 +2,19 @@
 title: 그룹 채팅 주인공 샘플
 titleSuffix: An Azure Communication Services sample overview
 description: 개발자가 샘플의 내부 작업에 대해 자세히 알아보고 수정하는 방법을 배울 수 있도록 Azure Communication Services를 사용하는 채팅 주인공 샘플의 개요입니다.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460563"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962992"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
 
@@ -82,7 +82,6 @@ chat.csproj에서 Visual Studio를 열고 디버그 모드로 실행합니다. �
 2. `git clone https://github.com/Azure/Communication.git`
 3. Azure Portal에서 `Connection String`을 가져옵니다. 연결 문자열에 대한 자세한 내용은 [Azure Communication 리소스 만들기](../quickstarts/create-communication-resource.md)를 참조하세요.
 4. `Connection String`을 가져온 후에는 Chat 폴더 아래에 있는 **Chat/appsettings.json** 파일에 연결 문자열을 추가합니다. `ResourceConnectionString` 변수에 연결 문자열을 입력합니다.
-5. `./Chat/ClientApp/src/constants.tsx`의 ENVIRONMENT_URL을 리소스의 위치로 업데이트합니다. (예: https://<RESOURCE_NAME>.communication.azure.com)
 
 ### <a name="local-run"></a>로컬 실행
 
@@ -119,6 +118,6 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - 공식 GitHub 페이지에서 더 많은 예제 및 정보 찾기
 - [Redux](https://redux.js.org/) - 클라이언트 쪽 상태 관리
-- [FluentUI](https://developer.microsoft.com/fluentui#/) - Microsoft 기반 UI 라이브러리
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft 기반 UI 라이브러리
 - [React](https://reactjs.org/) - 사용자 인터페이스 빌드용 라이브러리
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - 웹 애플리케이션 빌드용 프레임워크

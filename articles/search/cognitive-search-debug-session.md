@@ -3,17 +3,17 @@ title: 디버그 세션 개념 (미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Portal을 통해 액세스하는 디버그 세션은 오류를 식별 및 수정하고, 변경 내용의 유효성을 검사하고, 변경 내용을 AI 보강 파이프라인의 기술 세트에 밀어넣을 수 있는 환경과 같은 IDE를 제공합니다. 디버그 세션은 미리 보기 상태입니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 941d7f54bcb44653280abe264ff1cffbeae33679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743185"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057623"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Azure Cognitive Search의 디버그 세션
 

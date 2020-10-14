@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: beb1cc9957f7b43bc6ad9b9b6ee6c7707eb0c2d6
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91571554"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932416"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
@@ -31,7 +31,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
   Azure NetApp Files는 이제 지역 간 복제를 지원합니다. 이 새로운 재해 복구 기능을 사용하면 Azure NetApp Files 볼륨을 Azure 지역 간에 빠르고 비용 효율적인 방식으로 복제하여 예측할 수 없는 지역 오류로부터 데이터를 보호할 수 있습니다. Azure NetApp Files 지역 간 복제는 NetApp SnapMirror® 기술을 활용하며, 변경된 블록만 압축되고 효율적인 형식으로 네트워크를 통해 전송됩니다. 이 독점적 기술은 지역 간에 복제하는 데 필요한 데이터의 양을 최소화하여 데이터 전송 비용을 절감합니다. 또한 복제 시간이 단축되므로 더 작은 RPO(복원 지점 목표)를 달성할 수 있습니다.
 
-* [수동 QoS 용량 풀](manage-manual-qos-capacity-pool.md)(미리 보기)  
+* [수동 QoS 용량 풀](manual-qos-capacity-pool-introduction.md)(미리 보기)  
 
     수동 QoS 용량 풀에서는 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다. 이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 또는 용량 풀의 [QoS 유형](azure-netapp-files-understand-storage-hierarchy.md#qos_types)이 기본값인 auto(자동)가 될 수 있습니다. 자동 QoS 용량 풀에서 처리량은 볼륨에 할당된 크기 할당량에 비례하여 풀의 볼륨에 자동으로 할당됩니다.
 

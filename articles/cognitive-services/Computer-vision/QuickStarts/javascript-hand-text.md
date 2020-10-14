@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 4100bf38b61d1b6eb7c3dfad3f1434a885c7d2ae
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a8451ea302492d936628f4426a31c9b9e4cc1234
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760855"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977136"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>빠른 시작: Computer Vision REST API 및 JavaScript를 사용하여 인쇄 및 필기 텍스트 추출
 
-이 빠른 시작에서는 Computer Vision REST API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 추출합니다. [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 및 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 메서드를 사용하면 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. 
+이 빠른 시작에서는 Computer Vision REST API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 추출합니다. [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 및 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 메서드를 사용하면 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. 
 
-[읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Location` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API를 나타내는 이 URI를 호출하여 상태를 확인하고 읽기 메서드 호출 결과를 반환할 수 있습니다.
+[읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Location` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) API를 나타내는 이 URI를 호출하여 상태를 확인하고 읽기 메서드 호출 결과를 반환할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -61,7 +61,7 @@ ms.locfileid: "91760855"
         let endpoint = document.getElementById("endpoint").value;
         if (!subscriptionKey) { throw new Error('Please enter your subscription key and endpoint.'); }
         
-        var uriBase = endpoint + "/vision/v3.0/read/analyze";
+        var uriBase = endpoint + "/vision/v3.1/read/analyze";
 
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
@@ -195,7 +195,7 @@ Image to read:
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

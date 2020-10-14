@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 9cf574cba023c9eb5a44999b3aa04f6c1e626ed1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773405"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91825933"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -81,7 +81,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="동작 감지를 기반으로 하는 Live Video Analytics":::
-1. <!--In Visual Studio Code-->**보기** > **탐색기**를 선택합니다. 또는 Ctrl+Shift+E를 선택합니다.
+1. **보기** > **탐색기**를 선택합니다. 또는 Ctrl+Shift+E를 선택합니다.
 1. **탐색기** 탭의 왼쪽 아래 모서리에서 **Azure IoT Hub**를 선택합니다.
 1. **기타 옵션** 아이콘을 선택하여 상황에 맞는 메뉴를 표시합니다. 그런 다음, **IoT Hub 연결 문자열 설정**을 선택합니다.
 1. 입력 상자가 표시되면 IoT Hub 연결 문자열을 입력합니다. Cloud Shell에서는 *~/clouddrive/lva-sample/appsettings.json*에서 연결 문자열을 가져올 수 있습니다.

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: c6913fee6872d8875e068b2502727c9f42f80401
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594206"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018800"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -27,7 +27,7 @@ Azure Analysis Services는 클라우드에서 엔터프라이즈급 데이터 �
 
 ## <a name="get-up-and-running-quickly"></a>빠른 준비 및 실행
 
-Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/resource-manager-create-first-template.md) 및 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 만들 수 있습니다. 단일 템플릿을 사용하면 스토리지 계정 및 Azure Functions와 같은 다른 Azure 구성 요소와 함께 서버 리소스를 배포할 수 있습니다. 
+Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis-services-create-server.md). 그리고 Azure Resource Manager [템플릿](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) 및 PowerShell을 사용하면 선언적 템플릿을 통해 서버를 만들 수 있습니다. 단일 템플릿을 사용하면 스토리지 계정 및 Azure Functions와 같은 다른 Azure 구성 요소와 함께 서버 리소스를 배포할 수 있습니다. 
 
 **비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 하는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
 
@@ -138,13 +138,13 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services 기반
 
-Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 유용한 기능과 호환됩니다. Azure Analysis Services는 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다*.
+Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 유용한 기능과 호환됩니다. Azure Analysis Services는 1200 이상 [호환성 수준](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다*.
 
 메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 
 
 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 주체가 지원되므로 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지하는 유연성을 제공합니다. 
 
-DirectQuery 모드*는 스토리지 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics(이전에 SQL Data Warehouse), Oracle 및 Teradata 데이터 원본에서 매우 큰 데이터 세트가 지원됩니다. 백 엔드 데이터 세트는 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
+DirectQuery 모드*는 스토리지 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics(이전에 SQL Data Warehouse), Oracle 및 Teradata 데이터 원본에서 매우 큰 데이터 세트가 지원됩니다. 백 엔드 데이터 세트는 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
 
 \* 기능 가용성은 계층에 따라 다릅니다.
 
@@ -154,7 +154,7 @@ Azure Analysis Services에서 테이블 형식 모델은 간단한 텍스트 파
 
 ## <a name="compatibility-level"></a>호환성 수준
 
-호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. Azure Analysis Services는 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [테이블 형식 모델의 호환성 수준](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)을 참조하세요.
+호환성 수준은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. Azure Analysis Services는 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 자세히 알아보려면 [테이블 형식 모델의 호환성 수준](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)을 참조하세요.
 
 
 ## <a name="your-data-is-secure"></a>데이터가 안전함
@@ -179,7 +179,7 @@ Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Ser
 
 ### <a name="roles"></a>역할
 
-Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 및 데이터에 대한 액세스를 부여하는 [역할 기반 권한 부여](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular)를 사용합니다. 서버 또는 데이터베이스에 액세스하는 모든 사용자는 할당된 역할 내에서 Azure AD 사용자 계정을 사용하여 작업을 수행합니다. 서버 관리자 역할은 서버 리소스 수준입니다. 기본적으로 서버를 만들 때 사용되는 계정은 서버 관리자 역할에 자동으로 포함됩니다. 추가 사용자 및 그룹 계정은 포털, SSMS 또는 PowerShell을 사용하여 추가됩니다.
+Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 및 데이터에 대한 액세스를 부여하는 [역할 기반 권한 부여](/analysis-services/tabular-models/roles-ssas-tabular)를 사용합니다. 서버 또는 데이터베이스에 액세스하는 모든 사용자는 할당된 역할 내에서 Azure AD 사용자 계정을 사용하여 작업을 수행합니다. 서버 관리자 역할은 서버 리소스 수준입니다. 기본적으로 서버를 만들 때 사용되는 계정은 서버 관리자 역할에 자동으로 포함됩니다. 추가 사용자 및 그룹 계정은 포털, SSMS 또는 PowerShell을 사용하여 추가됩니다.
   
 데이터를 쿼리하는 관리자가 아닌 최종 사용자에게는 데이터베이스 역할을 통해 액세스 권한이 부여됩니다. 데이터베이스 역할은 별도의 개체로 데이터베이스에 생성되며, 해당 역할이 생성된 데이터베이스에만 적용됩니다. 데이터베이스 역할은 (데이터베이스) 관리자, 읽기 및 읽기와 처리 권한에 의해 정의됩니다. 사용자 및 그룹 계정은 SSMS 또는 PowerShell을 사용하여 추가됩니다.
 
@@ -189,7 +189,7 @@ Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 �
 
 ### <a name="object-level-security"></a>개체 수준 보안 
 
-1400 호환성 수준에서 테이블 형식 모델은 개체 수준 보안을 지원합니다. 여기에는 테이블 수준 보안 및 열 수준 보안이 포함됩니다. 개체 수준 보안은 TOM 또는 TMSL을 사용하여 Model.bim 파일의 JSON 기반 메타데이터에서 설정됩니다. 자세한 내용은 [개체 수준 보안](https://docs.microsoft.com/analysis-services/tabular-models/object-level-security)을 참조하세요.
+1400 호환성 수준에서 테이블 형식 모델은 개체 수준 보안을 지원합니다. 여기에는 테이블 수준 보안 및 열 수준 보안이 포함됩니다. 개체 수준 보안은 TOM 또는 TMSL을 사용하여 Model.bim 파일의 JSON 기반 메타데이터에서 설정됩니다. 자세한 내용은 [개체 수준 보안](/analysis-services/tabular-models/object-level-security)을 참조하세요.
 
 ### <a name="automation-through-service-principals"></a>서비스 주체를 통한 자동화
 
@@ -212,7 +212,7 @@ Microsoft Analysis Services 프로젝트는 설치 가능한 무료 VSIX 패키�
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 서버 및 모델 데이터베이스를 관리합니다. 클라우드에서 서버에 연결합니다. XMLA 쿼리 창에서 TMSL 스크립트를 직접 실행하고 TMSL 스크립트 및 PowerShell을 사용하여 작업을 자동화합니다. SSMS가 매월 업데이트되므로 새 특징과 기능이 빠르게 출시됩니다.
+[SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 서버 및 모델 데이터베이스를 관리합니다. 클라우드에서 서버에 연결합니다. XMLA 쿼리 창에서 TMSL 스크립트를 직접 실행하고 TMSL 스크립트 및 PowerShell을 사용하여 작업을 자동화합니다. SSMS가 매월 업데이트되므로 새 특징과 기능이 빠르게 출시됩니다.
 
 ### <a name="open-source-tools"></a>오픈 소스 도구
 
@@ -224,7 +224,7 @@ Analysis Services에는 도구를 만드는 활발한 개발자 커뮤니티가 
 
 ### <a name="object-model-and-scripting"></a>개체 모델 및 스크립팅
 
-테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 테이블 형식 모델에는 모델 개체를 설명하는 TOM([테이블 형식 개체 모델](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo))이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다. 
+테이블 형식 모델은 신속한 개발을 제공하며 손쉽게 사용자 지정할 수 있습니다. 테이블 형식 모델에는 모델 개체를 설명하는 TOM([테이블 형식 개체 모델](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo))이 포함됩니다. TOM은 JSON에서 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 네임스페이스를 통해 [TMSL(테이블 형식 모델 스크립팅 언어)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) 및 AMO 데이터 정의 언어로 공개되어 있습니다. 
 
 ## <a name="supports-the-latest-client-tools"></a>최신 클라이언트 도구 지원
 
@@ -236,21 +236,21 @@ Power BI, Excel, Reporting Services 및 타사 도구와 같은 최신 데이터
 
 Azure Analysis Services는 Azure Monitor 메트릭과 통합되어 서버의 성능 및 상태를 모니터링하는 데 도움이 되는 광범위한 리소스별 메트릭을 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [리소스 플랫폼 로그](../azure-monitor/platform/platform-logs-overview.md)를 사용하여 메트릭을 기록합니다. 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트림하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
 
-Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
+Azure Analysis Services는 [DMV(동적 관리 뷰)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 
 ## <a name="documentation"></a>설명서
 
 Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 문서를 찾습니다. 
 
-Azure Analysis Services의 테이블 형식 모델은 SQL Server Analysis Services 및 Power BI Premium 데이터 세트의 테이블 형식 모델과 거의 동일하기 때문에 [Analysis Services 설명서](https://docs.microsoft.com/analysis-services/?view=azure-analysis-services-current)에는 광범위한 공유 데이터 모델링 자습서, 개념, 절차, 개발자 및 참조 문서 라이브러리가 있습니다. 공유 Analysis Services 설명서의 문서는 제목 아래의 적용 대상 배너에 의해 Azure Analysis Services에도 적용되는지를 보여줍니다. 목차 위의 버전 선택기를 사용하여 사용 중인 플랫폼에 적용되는 문서만 볼 수도 있습니다.
+Azure Analysis Services의 테이블 형식 모델은 SQL Server Analysis Services 및 Power BI Premium 데이터 세트의 테이블 형식 모델과 거의 동일하기 때문에 [Analysis Services 설명서](/analysis-services/?view=azure-analysis-services-current)에는 광범위한 공유 데이터 모델링 자습서, 개념, 절차, 개발자 및 참조 문서 라이브러리가 있습니다. 공유 Analysis Services 설명서의 문서는 제목 아래의 적용 대상 배너에 의해 Azure Analysis Services에도 적용되는지를 보여줍니다. 목차 위의 버전 선택기를 사용하여 사용 중인 플랫폼에 적용되는 문서만 볼 수도 있습니다.
 
 ![공유 설명서](./media/analysis-services-overview/aas-overview-applies-to.png)
 
 ### <a name="contribute"></a>기여!
 
-이 문서와 같은 Analysis Services 설명서는 오픈 소스입니다. 기여할 수 있는 방법에 대한 자세한 내용은 [Docs 기여자 가이드](https://docs.microsoft.com/contribute/)를 참조하세요. 
+이 문서와 같은 Analysis Services 설명서는 오픈 소스입니다. 기여할 수 있는 방법에 대한 자세한 내용은 [Docs 기여자 가이드](/contribute/)를 참조하세요. 
 
-Azure Analysis Services 설명서는 [GitHub 문제](https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 문서 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
+Azure Analysis Services 설명서는 [GitHub 문제](/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 문서 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
 
 ## <a name="blogs"></a>블로그
 
@@ -269,4 +269,4 @@ Analysis Services에는 활발한 사용자 커뮤니티가 있습니다. [Azure
 > [빠른 시작: 서버 만들기 - 포털](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)  
+> [빠른 시작: 서버 만들기 - PowerShell](analysis-services-create-powershell.md)

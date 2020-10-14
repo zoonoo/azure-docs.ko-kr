@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231234"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056143"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석
 
@@ -100,16 +100,13 @@ AuditLogs
 
 5. 경고를 구성한 후에는 **경고 만들기**를 선택하여 사용하도록 설정합니다. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Azure AD 활동 로그의 미리 빌드한 보기 설치 및 사용
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Azure AD 활동 로그에 미리 작성 된 통합 문서 사용
 
-Azure AD 활동 로그에서 미리 빌드된 로그 분석 보기를 다운로드할 수도 있습니다. 이 보기는 감사 및 로그인 이벤트와 관련된 일반적인 시나리오에 대한 몇 가지 보고서를 제공합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
+통합 문서는 감사, 로그인 및 프로 비전 이벤트와 관련 된 일반적인 시나리오와 관련 된 여러 보고서를 제공 합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
 
-* **Azure AD 계정 프로비전 이벤트**: 프로비전 활동 감사(예: 새로 프로비전된 사용자 수 및 프로비전 실패 횟수, 업데이트된 사용자 수 및 업데이트 실패 횟수, 프로비전 해제된 사용자 수 및 해당 실패 횟수)와 관련된 보고서가 표시됩니다.    
-* **로그인 이벤트**: 로그인 활동 모니터링(예: 애플리케이션, 사용자, 디바이스별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
-* **사용자 동의 수행**: 사용자 동의(예: 사용자에 의한 동의 허용, 동의한 사용자의 로그인 및 모든 동의 기반 애플리케이션에 대한 애플리케이션의 로그인)와 관련된 보고서가 표시됩니다. 
-
-[Azure AD 활동 로그에 대한 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md) 방법에 대해 알아보세요. 
-
+* **프로 비전 분석**:이 [통합 문서](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) 에는 프로 비전 된 새 사용자 수, 프로 비전 실패 횟수, 업데이트 된 사용자 수 및 업데이트 실패 횟수, 프로 비전 되지 않은 사용자 수 및 해당 오류와 같은 감사 프로 비전 작업과 관련 된 보고서가 표시 됩니다.    
+* **로그인 이벤트**:이 통합 문서는 응용 프로그램, 사용자, 장치 등의 로그인 작업과 관련 된 가장 관련성이 높은 보고서와 시간 경과에 따른 로그인 수를 추적 하는 요약 보기를 보여 줍니다.
+* **조건부 액세스 정보**: 조건부 액세스 정보 및 보고 [통합 문서](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) 를 사용 하면 시간에 따라 조직에서 조건부 액세스 정책의 영향을 이해할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

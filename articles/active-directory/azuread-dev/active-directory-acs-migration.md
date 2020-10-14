@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706254"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055372"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -214,7 +214,7 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 
 Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
 
-WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
+WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러리 애플리케이션에 대한 페더레이션된 Single Sign-On 구성](../manage-apps/configure-saml-single-sign-on.md)에 설명된 방법을 따르는 것이 좋습니다. 이 문서에서는 SAML 기반 Single Sign-On을 위해 Azure AD를 구성하는 방법을 설명하고 있지만, Ws-Federation을 구성할 때도 마찬가지 방법을 사용할 수 있습니다. 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. 이 방법에는 두 가지 이점이 있습니다.
 
 - Azure AD 토큰 사용자 지정의 유연성이 제공됩니다. Access Control에서 발행한 클레임과 일치하도록 Azure AD에서 발행한 클레임을 사용자 지정할 수 있습니다. 특히 사용자 ID 또는 이름 식별자 클레임이 포함됩니다. 기술을 변경한 다음에도 사용자들이 전과 동일하게 사용자 식별자를 받기 위해서는 Azure AD에서 발행한 사용자 ID가 Access Control에서 발생한 사용자 ID와 일치해야 합니다.
 - 사용자가 직접 수명을 제어하는 애플리케이션에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
@@ -226,7 +226,7 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 
 이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](../develop/active-directory-signing-key-rollover.md)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](/previous-versions/azure/dn641920(v=azure.100))를 참조하세요.
 
-OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 애플리케이션에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
+OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](../develop/index.yml)에서 웹 애플리케이션에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C로 마이그레이션
 
@@ -332,7 +332,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 서버-투-서버 시나리오를 구현하는 방법은 아래의 리소스를 참조하세요.
 
-- [AZURE AD 개발자 가이드](https://aka.ms/aaddev) 의 서비스 간 섹션
+- [AZURE AD 개발자 가이드](../develop/index.yml) 의 서비스 간 섹션
 - [단순한 암호 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [인증서 클라이언트 자격 증명을 사용한 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 382a04021053bef0b5d3378231e38453885b0ef2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1154bf3ddde67ba5074517ab4f96ed6764edf6a5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322978"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859805"
 ---
 Go용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -24,7 +24,6 @@ Go용 Face 서비스 클라이언트 라이브러리를 사용하여 다음을 �
 * [유사 얼굴 찾기](#find-similar-faces)
 * [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
 * [얼굴 식별](#identify-a-face)
-* [데이터 마이그레이션용 스냅샷 만들기](#take-a-snapshot-for-data-migration)
 
 [참조 설명서](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK 다운로드](https://github.com/Azure/azure-sdk-for-go)
 
@@ -109,7 +108,6 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 * [유사 얼굴 찾기](#find-similar-faces)
 * [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
 * [얼굴 식별](#identify-a-face)
-* [데이터 마이그레이션용 스냅샷 만들기](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -192,7 +190,7 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 ## <a name="identify-a-face"></a>얼굴 식별
 
-식별 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
+Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져와서 이미지에서 각 얼굴의 ID를 찾습니다(얼굴 인식 검색). 감지된 각 얼굴을 얼굴 특징이 알려진 다른 **Person** 개체의 데이터베이스인 **PersonGroup**과 비교합니다.
 
 > [!IMPORTANT]
 > 이 예제를 실행하려면 먼저 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 코드를 실행해야 합니다.
@@ -246,56 +244,9 @@ Face 서비스 Go 클라이언트 라이브러리의 주요 기능 중 일부를
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
-
-## <a name="take-a-snapshot-for-data-migration"></a>데이터 마이그레이션용 스냅샷 만들기
-
-스냅샷 기능을 사용하면 학습된 **PersonGroup**과 같은 저장된 얼굴 데이터를 다른 Azure Cognitive Services Face 구독으로 이동할 수 있습니다. 예를 들어 체험 구독을 사용하여 **PersonGroup** 개체를 만들었고 이제 유료 구독으로 마이그레이션하려는 경우 이 기능을 사용할 수 있습니다. 스냅샷 기능에 대한 광범위한 개요는 [얼굴 데이터 마이그레이션](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)을 참조하세요.
-
-다음 예제에서는 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 만든 **PersonGroup**을 마이그레이션합니다. 해당 섹션을 먼저 완료하거나 사용자 고유의 Face 데이터 구문을 사용할 수 있습니다.
-
-### <a name="set-up-target-subscription"></a>대상 구독 설정
-
-먼저, Face 리소스가 포함된 두 번째 Azure 구독이 있어야 합니다. 이 작업은 [설정](#setting-up) 섹션의 단계를 반복하여 수행할 수 있습니다. 
-
-그런 다음, **main** 메서드의 위쪽 근처에 다음 변수를 만듭니다. 또한 Azure 계정의 구독 ID와 새(대상) 계정의 키, 엔드포인트 및 구독 ID에 대한 새 환경 변수를 만들어야 합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_target_client)]
-
-그리고 다음 단계를 진행할 수 있도록 구독 ID 값을 배열에 배치합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_id)]
-
-### <a name="authenticate-target-client"></a>대상 클라이언트 인증
-
-스크립트의 뒷부분에서 원래 클라이언트 개체를 원본 클라이언트로 저장한 다음, 대상 구독에 대한 새 클라이언트 개체를 인증합니다. 
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_auth)]
-
-### <a name="take-a-snapshot"></a>스냅샷 만들기
-
-그 다음 단계는 **[Take](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Take)** 메서드를 사용하여 원래 구독의 얼굴 데이터를 임시 클라우드 위치에 저장하는 스냅샷을 만드는 것입니다. 이 메서드는 작업 상태를 쿼리하는 데 사용하는 ID를 반환합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_take)]
-
-다음으로, 작업이 완료될 때까지 ID를 쿼리합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_query)]
-
-### <a name="apply-the-snapshot"></a>스냅샷 적용
-
-**[Apply](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Apply)** 작업을 사용하여 새로 업로드된 얼굴 데이터를 대상 구독에 씁니다. 또한 이 메서드는 ID도 반환합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply)]
-
-마찬가지로, 작업이 완료될 때까지 ID를 쿼리합니다.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply_query)]
-
-이러한 단계가 완료되면 새 (대상) 구독에서 얼굴 데이터 구문에 액세스할 수 있습니다.
-
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-`go run <app-name>` 명령을 사용하여 애플리케이션 디렉터리에서 얼굴 인식 앱을 실행니다.
+`go run <app-name>` 명령을 사용하여 애플리케이션 디렉터리에서 얼굴 인식 앱을 실행합니다.
 
 ```bash
 go run sample-app.go
@@ -308,7 +259,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-이 빠른 시작에서 **PersonGroup**을 만든 경우 **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** 메서드를 호출하여 삭제할 수 있습니다. 이 빠른 시작에서 스냅샷 기능을 사용하여 데이터를 마이그레이션한 경우 대상 구독에 저장된 **PersonGroup**도 삭제해야 합니다.
+이 빠른 시작에서 **PersonGroup**을 만든 경우 **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** 메서드를 호출하여 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
