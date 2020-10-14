@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522349"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047695"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Azure Digital Twins 고객 데이터 요청 기능
 
@@ -35,7 +35,7 @@ Azure Digital Twins는 환경에 액세스할 수 있는 사용자의 [Azure Act
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 
-Azure Digital Twins 관리자는 Azure Portal를 사용 하 여 사용자와 관련 된 데이터를 삭제할 수 있습니다. 또한 Azure digital 쌍 REST api를 사용 하 여 개별 디지털 쌍에서 삭제 작업을 수행할 수 있습니다. 사용 가능한 Api에 대 한 자세한 내용은 [Azure Digital Twins REST api 설명서](https://docs.microsoft.com/rest/api/azure-digitaltwins/)를 참조 하세요.
+Azure Digital Twins 관리자는 Azure Portal를 사용 하 여 사용자와 관련 된 데이터를 삭제할 수 있습니다. 또한 Azure digital 쌍 REST api를 사용 하 여 개별 디지털 쌍에서 삭제 작업을 수행할 수 있습니다. 사용 가능한 Api에 대 한 자세한 내용은 [Azure Digital Twins REST api 설명서](/rest/api/azure-digitaltwins/)를 참조 하세요.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 
@@ -45,4 +45,4 @@ Azure Digital Twins는 디지털 쌍과 관련 된 데이터를 저장 합니다
 
 ## <a name="links-to-additional-documentation"></a>추가 설명서에 대한 링크
 
-Azure Digital Twins 서비스 Api의 전체 목록은 [Azure 디지털 쌍 REST api 설명서](https://docs.microsoft.com/rest/api/azure-digitaltwins/)를 참조 하세요.
+Azure Digital Twins 서비스 Api의 전체 목록은 [Azure 디지털 쌍 REST api 설명서](/rest/api/azure-digitaltwins/)를 참조 하세요.

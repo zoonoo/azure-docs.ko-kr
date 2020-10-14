@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 496ca7edfbfb81d8d8838d704b128701a5960e5b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9e489d58b2c4bee0cd9551d15bfa59c3610d959
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974926"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047202"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용 하 여 모델 구문 분석 및 유효성 검사
 
@@ -20,11 +20,11 @@ Azure Digital Twins의 [모델](concepts-models.md) 은 JSON-LD 기반 디지털
 
 이 작업을 수행 하는 데 도움이 되도록 NuGet: [**DigitalTwins**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/)에 .net 클라이언트 쪽 dtdl 구문 분석 라이브러리가 제공 됩니다. 
 
-파서 라이브러리를 c # 코드에서 직접 사용 하거나, 파서 라이브러리: [**Dtdl Validator 샘플**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)에서 빌드된 언어 독립적인 코드 샘플 프로젝트를 사용할 수 있습니다.
+파서 라이브러리를 c # 코드에서 직접 사용 하거나, 파서 라이브러리: [**Dtdl Validator 샘플**](/samples/azure-samples/dtdl-validator/dtdl-validator)에서 빌드된 언어 독립적인 코드 샘플 프로젝트를 사용할 수 있습니다.
 
 ## <a name="use-the-dtdl-validator-sample"></a>DTDL 유효성 검사기 샘플 사용
 
-[**Dtdl 유효성 검사기**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 는 dtdl이 유효한 지 확인 하기 위해 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. 이 클래스는 .NET 파서 라이브러리를 기반으로 하며 언어를 독립적으로 제공 합니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용 하 여 가져올 수 있습니다.
+[**Dtdl 유효성 검사기**](/samples/azure-samples/dtdl-validator/dtdl-validator) 는 dtdl이 유효한 지 확인 하기 위해 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. 이 클래스는 .NET 파서 라이브러리를 기반으로 하며 언어를 독립적으로 제공 합니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용 하 여 가져올 수 있습니다.
 
 소스 코드는 파서 라이브러리를 사용 하는 방법에 대 한 예제를 보여 줍니다. Validator 샘플을 명령줄 유틸리티로 사용 하 여 DTDL 파일의 디렉터리 트리의 유효성을 검사할 수 있습니다. 또한 대화형 모드를 제공 합니다.
 

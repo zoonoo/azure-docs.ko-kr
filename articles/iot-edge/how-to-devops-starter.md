@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297133"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045859"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
 
@@ -81,7 +81,7 @@ DevOps 스타터는 Azure Repos에서 프로젝트에 대 한 Git 리포지토�
 
    ![Azure Repos에서 module.json 파일 열기](./media/how-to-devops-starter/open-module-json.png)
 
-3. 이 파일은 **version** 매개 변수에서 [Azure DevOps 빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables)를 사용합니다. 이 구성을 사용하면 새 빌드가 실행될 때마다 모듈의 새 버전이 생성됩니다.
+3. 이 파일은 **version** 매개 변수에서 [Azure DevOps 빌드 변수](/azure/devops/pipelines/build/variables?view=vsts#build-variables)를 사용합니다. 이 구성을 사용하면 새 빌드가 실행될 때마다 모듈의 새 버전이 생성됩니다.
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 

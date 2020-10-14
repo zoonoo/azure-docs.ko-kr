@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9580f1c7a29b19bb926a7079b95cb3ed0b314d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fcfc7a9e632e5db1fb809dba7a938c8641c9ddc
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580032"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048103"
 ---
 # <a name="what-is-the-azure-certified-device-program"></a>Azure 인증 장치 프로그램 이란?
 
@@ -102,7 +102,7 @@ Azure 인증 장치 프로그램에서 장치를 인증 하려면 다음 네 단
 
 이 단계에서는 장치와 상호 작용 하 고 장치에서 DPS를 사용 하 여 IoT Hub에 연결한 후 일련의 테스트를 실행 합니다. 완료 되 면 장치 테스트 결과가 포함 된 로그 파일 집합을 볼 수 있습니다.
 
-인증 포털에는 테스트에 사용 되는 IoT Hub 인스턴스에 연결 하는 방법에 대 한 지침이 있습니다. [지원 되는 증명 방법](https://aka.ms/acdAttestation)중 하나를 통해 DPS 연결을 설정할 수 있습니다.
+인증 포털에는 테스트에 사용 되는 IoT Hub 인스턴스에 연결 하는 방법에 대 한 지침이 있습니다. [지원 되는 증명 방법](../iot-dps/concepts-service.md#attestation-mechanism)중 하나를 통해 DPS 연결을 설정할 수 있습니다.
 
 Azure 인증 장치 팀은 장치에 대 한 추가 수동 유효성 검사를 위해 장치 빌더에 연결할 수 있습니다.
 

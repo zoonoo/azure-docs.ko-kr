@@ -1,22 +1,22 @@
 ### YamlMime:Landing
 title: Azure Dev Spaces 설명서
-summary: Azure Dev Spaces는 더 큰 애플리케이션의 컨텍스트에서 코드를 쉽게 실행하고 디버깅할 수 있는 AKS의 확장입니다. 코드를 엔드투엔드로 테스트하고, 클러스터에서 실행 중인 코드의 중단점을 적중하고, 팀 멤버 간에 간섭 없이 개발 클러스터를 공유할 수 있습니다.
+summary: Azure Dev Spaces는 더 이상 사용되지 않으며 2023년 10월 31일에 사용 중지됩니다.
 metadata:
   title: Azure Dev Spaces 설명서
-  description: Azure Dev Spaces는 더 큰 애플리케이션의 컨텍스트에서 코드를 쉽게 실행하고 디버깅할 수 있는 AKS의 확장입니다. 코드를 엔드투엔드로 테스트하고, 클러스터에서 실행 중인 코드의 중단점을 적중하고, 팀 멤버 간에 간섭 없이 개발 클러스터를 공유할 수 있습니다.
+  description: Azure Dev Spaces는 더 이상 사용되지 않으며 2023년 10월 31일에 사용 중지됩니다.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
   author: zr-msft
   ms.author: zarhoads
   manager: gwallace
-  ms.date: 09/30/2019
-  ms.openlocfilehash: a3583cf57725acfdc812e44c921842acebbfd0a0
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/12/2020
+  ms.openlocfilehash: 47cc21196875e09576b7a8e0a5a8233df294de7d
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91773317"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91965865"
 landingContent:
 - title: Azure Dev Spaces 정보
   linkLists:

@@ -284,6 +284,8 @@
           href: backup-azure-alternate-dpm-server.md
         - name: Azure Backup Server를 사용하여 VMware VM 복원
           href: restore-azure-backup-server-vmware.md
+        - name: MABS 서버 백업
+          href: backup-the-mabs-server.md
     - name: Azure Stack의 Azure Backup Server
       items:
         - name: Azure Backup Server 설치
