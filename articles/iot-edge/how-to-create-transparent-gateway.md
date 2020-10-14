@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae01fc2ef8761305c2096904471ce75b69d1150d
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167405"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048409"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "88167405"
 
 장치가 게이트웨이로 작동 하려면 다운스트림 장치에 안전 하 게 연결 해야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우 다운스트림 장치는 투명 게이트웨이 역할을 하는 IoT Edge 장치에 연결할 수 있습니다. 적절 한 보안을 유지 하기 위해 다운스트림 장치는 게이트웨이 장치의 id를 확인 해야 합니다. 이 id 검사는 장치에서 잠재적으로 악성 게이트웨이에 연결 하는 것을 방지 합니다.
 
-다운스트림 디바이스는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 이러한 응용 프로그램은 종종 [Azure IoT 장치 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용 합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
+다운스트림 디바이스는 [Azure IoT Hub](../iot-hub/index.yml) 클라우드 서비스를 사용하여 생성된 ID가 있는 애플리케이션 또는 플랫폼이 될 수 있습니다. 이러한 응용 프로그램은 종종 [Azure IoT 장치 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용 합니다. 다운스트림 장치는 IoT Edge 게이트웨이 장치 자체에서 실행 되는 응용 프로그램 일 수도 있습니다. 그러나 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
 
 디바이스-게이트웨이 토폴로지에 필요한 신뢰를 설정하는 어떤 인증서 인프라도 만들 수 있습니다. 이 문서에서는 IoT Hub에서 [X.509 ca 보안](../iot-hub/iot-hub-x509ca-overview.md) 을 사용 하도록 설정 하는 데 사용 하는 것과 동일한 인증서 설정을 가정 합니다. 여기에는 특정 iot Hub (iot HUB 루트 CA)와 연결 된 x.509 ca 인증서,이 ca로 서명 된 일련의 인증서 및 IOT EDGE 장치용 ca가 포함 됩니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "88167405"
 
 다음 단계는 인증서를 만들어 게이트웨이의 올바른 위치에 설치 하는 과정을 안내 합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
@@ -117,7 +117,7 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
 5. **다음: 경로**를 선택 합니다.
 
-6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예를 들면 다음과 같습니다.
+6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예:
 
    * 모듈이 나 다운스트림 장치에서 IoT Hub 하 여 모든 메시지를 보내는 경로입니다.
        * **이름**: `allMessagesToHub`

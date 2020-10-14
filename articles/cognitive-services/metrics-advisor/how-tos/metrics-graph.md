@@ -3,19 +3,19 @@ title: 메트릭 관리자 메트릭 그래프
 titleSuffix: Azure Cognitive Services
 description: 메트릭 그래프를 구성 하 고 데이터에서 관련 된 변칙을 시각화 하는 방법을 설명 합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.author: aahi
-ms.openlocfilehash: 09ea16f07973757b169f21c7c3f909a24651daa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940648"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043156"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>방법: 메트릭 그래프를 작성 하 여 관련 메트릭 분석
 

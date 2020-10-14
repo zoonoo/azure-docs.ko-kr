@@ -3,22 +3,33 @@ title: 팀에서 시작 및 Azure Lab Services 랩 만들기
 description: 팀에서 Azure Lab Services 랩을 시작 하 고 만드는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: b585196fe61a09697cfa203aaa33f08afae2b427
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 0604e2934ff6b011acfa9dd4a4b25fa58193e69b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946740"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044448"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-from-teams"></a>팀에서 랩 서비스 랩 시작 및 만들기
 
-이 문서에서는 팀에 Azure Lab Services 앱을 추가 하는 방법을 보여 줍니다. 그런 다음 팀에서 랩을 만드는 방법을 설명 합니다.
+이 문서에서는 팀에 **Azure Lab Services** 앱을 추가 하 고 MS 팀 환경 내에서 랩을 만드는 방법을 보여 줍니다.
 
-## <a name="add-a-lab-services-app-to-teams"></a>팀에 랩 서비스 앱 추가
+## <a name="prerequisites"></a>전제 조건
 
-팀 채널에서 직접 랩 서비스를 추가할 수 있습니다. 그러면 팀의 모든 사용자가 앱을 사용할 수 있습니다. 다음 세 가지 단계를 따르세요.
+이 자습서에서는 팀에 대 한 가상 컴퓨터를 사용 하 여 랩을 설정 합니다. 랩 계정에서 랩을 설정 하려면 랩 계정에서 소유자, 랩 작성자 또는 참가자 역할 중 하나의 멤버 여야 합니다. 랩 계정을 만드는 데 사용된 계정은 소유자 역할에 자동으로 추가됩니다. 따라서 랩을 만들기 위해 랩 계정을 만드는 데 사용한 사용자 계정을 사용할 수 있습니다.
 
-1. 앱을 추가 하려는 팀 채널로 이동 하 고 **+** "..."를 클릭 하 여 탭을 추가 하도록 선택 합니다. 오른쪽 창의 위쪽에 있습니다. 
+팀 내에서 Azure Lab Services를 사용 하는 일반적인 워크플로는 다음과 같습니다.
+
+1. 사용자가 Azure Portal에서 [랩 계정을 만듭니다](tutorial-setup-lab-account.md#create-a-lab-account) .
+1. [랩 계정 작성자는 다른 사용자](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 를 **랩 작성자** 역할에 추가 합니다. 예를 들어 랩 계정 작성자/관리자는 **랩 작성자** 역할에 교육자를 추가하여 해당 클래스에 대한 랩을 만들 수 있습니다.
+1. 그런 다음, 교육자는 랩을 만들고, 템플릿 VM을 미리 구성 하 고, 팀의 모든 사람에 게 VM을 프로 비전 하는 랩을 게시 합니다.
+1. 랩을 게시 한 후에는 팀 (SSO) 내에서 **Azure Lab Services** 앱을 포함 하는 탭을 클릭 하거나 [labs 웹 사이트](https://labs.azure.com)에 액세스 하 여 Azure Lab Services에 대 한 첫 번째 로그인의 팀 멤버 자격 목록에 있는 모든 사용자에 게 VM이 할당 됩니다. 그러면 사용자가 VM을 사용 하 여 클래스 작업 및 과제를 수행할 수 있습니다.
+
+## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>팀에 탭으로 Azure Lab Services 앱 추가
+
+팀 소유자는 팀 채널에서 직접 **Azure Lab Services** 앱을 추가할 수 있으며, 팀의 모든 사용자가 앱을 사용할 수 있습니다. 다음 세 단계를 수행 합니다.
+
+1. 앱을 추가 하려는 팀 채널로 이동 하 고 **+** 탭을 추가 하도록 선택 합니다. 
 1. 탭 옵션에서 **Azure Lab Services** 을 검색 하 고이 앱을 추가 합니다. 
 
     > [!NOTE]
@@ -30,33 +41,11 @@ ms.locfileid: "91946740"
     팀과 같은 테 넌 트에 있는 계정과 **소유자**, **참가자**또는 **작성자** 액세스 권한이 있는 계정입니다. 
 
    ![ALS 시작](./media/integrate-with-teams/welcome.png) 
-1. **저장** 을 누르면 앱이 팀에 추가 되 고 탭이 채널에 추가 됩니다. 
+1. **저장** 을 누르고 탭이 채널에 추가 됩니다.
 
     이제 채널에서 **Azure Lab Services** 탭을 선택 하 고 다음 단계에 설명 된 대로 실습 관리를 시작할 수 있습니다.
 
-    팀의 한 멤버가 탭을 추가하면 채널의 모든 사용자에게 표시됩니다. 앱에 대한 액세스 권한이 있는 모든 사용자에게는 Microsoft Teams에 사용하는 자격 증명으로 Single Sign-On 액세스가 제공됩니다. 앱에 대한 액세스 권한이 없는 사용자는 Teams에서 탭을 볼 수 있지만 온-프레미스 앱 및 Azure Portal 게시 버전 앱에 대한 권한이 부여될 때까지 액세스가 차단됩니다.
-
-## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
-
 랩 계정이 선택 되 면 팀 소유자는 팀을 위한 랩을 만들 수 있습니다. 전체 랩 생성 프로세스와 랩 수준의 모든 태스크는 팀 내에서 수행할 수 있습니다. 사용자는 동일한 팀 내에서 여러 랩을 만들 수 있으며 랩 계정 수준에서 적절 한 액세스 권한으로 팀 소유자는 특정 팀과 연결 된 랩을 볼 수 있습니다.
-
-## <a name="giving-access-to-users-of-the-lab-account"></a>랩 계정의 사용자에 게 액세스 권한 부여
-
-랩 계정 수준에서 사용자에 대 한 프로 비전 액세스는 [Azure](https://ms.portal.azure.com/) portal에서 수행 해야 합니다.
-
-1. Azure Portal에서 Azure Lab Services 계정으로 이동 합니다. 
-1. **랩 계정** 페이지에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **+ 추가**, **+ 역할 할당 추가**를 차례로 선택합니다. 
-
-    ![액세스 제어 -> 역할 할당 추가 단추](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. **역할 할당 추가** 페이지에서 **역할**에 대한 **랩 작성자**를 선택하고, 랩 작성자 역할에 추가할 사용자를 선택하고, **저장**을 선택합니다. 
-
-    ![랩 작성자 추가](./media/tutorial-setup-lab-account/add-lab-creator.png)
-
-### <a name="creating-classroom-labs"></a>교실 랩 만들기
-
-팀 또는 [랩 서비스 웹 사이트](https://labs.azure.com)에서 랩을 만드는 경우에도 교실 labs 생성 프로세스는 동일 합니다. 
-
-이 문서를 설정 하는 방법에 대 한 자세한 내용은 랩 만들기 프로세스 개요 [Azure Lab Services에서 교실 Labs 관리](how-to-manage-classroom-labs.md)를 참조 하세요.
 
 ## <a name="deleting-classroom-labs"></a>교실 랩 삭제
 
@@ -72,12 +61,13 @@ ms.locfileid: "91946740"
 
 [팀에서 Lab Services 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>추가 정보
+### <a name="see-also"></a>참고 항목
 
 다음 문서도 참조합니다.
 
 - [팀에서 Azure Lab Services 사용 개요](lab-services-within-teams-overview.md)
-- [팀의 랩 서비스에서 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
-- [팀에서 Lab Services 일정 만들기](how-to-create-schedules-within-teams.md)
-- [팀의 랩 서비스에서 VM (학생 보기)에 액세스](how-to-access-vm-for-students-within-teams.md)
+- [팀 내의 랩 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
+- [팀 내에서 랩의 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
+- [팀 내에서 랩 일정 만들기 및 관리](how-to-create-schedules-within-teams.md)
+- [팀 내에서 VM 액세스 – 학생 보기](how-to-access-vm-for-students-within-teams.md)
 

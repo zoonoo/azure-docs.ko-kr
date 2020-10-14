@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067708"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044380"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Azure Digital Twins의 쿼리 단위 
 
-Azure Digital Twins **쿼리 단위 (QU)** 는 [쿼리 API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query)를 사용 하 여 [azure digital twins 쿼리](how-to-query-graph.md) 를 실행 하는 데 사용 되는 주문형 계산 단위입니다. 
+Azure Digital Twins **쿼리 단위 (QU)** 는 [쿼리 API](/rest/api/digital-twins/dataplane/query)를 사용 하 여 [azure digital twins 쿼리](how-to-query-graph.md) 를 실행 하는 데 사용 되는 주문형 계산 단위입니다. 
 
 Azure Digital Twins에서 지 원하는 쿼리 작업을 수행 하는 데 필요한 CPU, IOPS 및 메모리와 같은 시스템 리소스를 추상화 하 여 쿼리 단위 사용을 추적할 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure Digital Twins에서 지 원하는 쿼리 작업을 수행 하는 데 필�
 
 ## <a name="find-the-query-unit-consumption-in-azure-digital-twins"></a>Azure Digital Twins에서 쿼리 단위 소비 찾기 
 
-Azure Digital Twins [쿼리 API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query)를 사용 하 여 쿼리를 실행 하는 경우 응답 헤더를 검사 하 여 쿼리에 사용 된 QUs 수를 추적할 수 있습니다. Azure Digital Twins에서 다시 전송 된 응답에서 "쿼리 요금"을 찾습니다. 
+Azure Digital Twins [쿼리 API](/rest/api/digital-twins/dataplane/query)를 사용 하 여 쿼리를 실행 하는 경우 응답 헤더를 검사 하 여 쿼리에 사용 된 QUs 수를 추적할 수 있습니다. Azure Digital Twins에서 다시 전송 된 응답에서 "쿼리 요금"을 찾습니다. 
 
 Azure Digital Twins [sdk](how-to-use-apis-sdks.md) 를 사용 하면 페이징할 수 있는 응답에서 쿼리 요금 헤더를 추출할 수 있습니다. 이 섹션에서는 디지털 쌍을 쿼리 하는 방법 및 페이징할 수 있는 응답을 반복 하 여 쿼리 요금 헤더를 추출 하는 방법을 보여 줍니다. 
 
@@ -68,6 +68,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 Azure Digital Twins 쿼리에 대 한 자세한 내용은 다음을 참조 하세요.
 * [*개념: 쿼리 언어*](concepts-query-language.md)
 * [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)
-* [쿼리 API 참조 설명서](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [쿼리 API 참조 설명서](/rest/api/digital-twins/dataplane/query/querytwins)
 
 Azure Digital Twins 쿼리 관련 제한은 [*참조: 공개 미리 보기로*](reference-service-limits.md)제공 되는 서비스 제한에서 찾을 수 있습니다.

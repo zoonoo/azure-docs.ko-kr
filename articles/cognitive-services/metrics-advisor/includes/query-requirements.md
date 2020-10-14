@@ -2,19 +2,19 @@
 title: 쿼리 요구 사항
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 518865f78c170f1fbe4e65b96dc149c1b449a88b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 777e3261bd6f842861ed6622b78589eedaaf65d7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631378"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043210"
 ---
 쿼리 내에서 `@StartTime` 매개 변수를 사용하여 단일 타임스탬프에 대한 메트릭 데이터를 가져옵니다. 메트릭 관리자가 쿼리를 실행할 때 매개 변수를 `yyyy-MM-ddTHH:mm:ss` 형식 문자열로 바꿉니다.
 

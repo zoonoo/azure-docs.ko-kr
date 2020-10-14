@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 8cbfc374a5964983c43594fef5d97986e51c0d83
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e4895b227bfc699e94155515e829d0bf33aaf9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971696"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043054"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -71,7 +71,7 @@ IoT Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서�
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-ModuleClient 클래스 및 해당 통신 방법에 대 한 자세한 내용은 [c #](/dotnet/api/microsoft.azure.devices.client.moduleclient), [c](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)또는 [Node.js](/javascript/api/azure-iot-device/moduleclient)의 기본 SDK 언어에 대 한 API 참조를 참조 하세요.
+ModuleClient 클래스 및 해당 통신 방법에 대 한 자세한 내용은 [c #](/dotnet/api/microsoft.azure.devices.client.moduleclient), [c](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)또는 [Node.js](/javascript/api/azure-iot-device/moduleclient)의 기본 SDK 언어에 대 한 API 참조를 참조 하세요.
 
 솔루션 개발자는 IoT Edge 허브에서 모듈 간에 메시지를 전달하는 방식을 결정하는 규칙을 지정합니다. 라우팅 규칙은 클라우드에서 정의 되며 모듈 쌍의 IoT Edge 허브로 푸시됩니다. IoT Hub 경로에 대한 동일한 구문이 Azure IoT Edge의 모듈 간 경로를 정의하는 데 사용됩니다. 자세한 내용은 [IoT Edge에서 모듈 배포 및 경로를 설정하는 방법 알아보기](module-composition.md)을 참조하세요.
 
@@ -126,15 +126,15 @@ Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge 
 
 ## <a name="runtime-quality-telemetry"></a>런타임 품질 원격 분석
 
-IoT Edge는 호스트 런타임 및 시스템 모듈에서 익명화 원격 분석을 수집 하 여 제품 품질을 개선 합니다. 이 정보를 RQT (런타임 품질 원격 분석) 라고 합니다. RQT는 주기적으로 장치-클라우드 메시지로 전송 되어 IoT Edge 에이전트에서 IoT Hub 합니다. RQT 메시지는 고객의 정기 원격 분석에 표시 되지 않으며 메시지 할당량을 사용 하지 않습니다.
+IoT Edge는 호스트 런타임 및 시스템 모듈에서 익명 원격 분석을 수집 하 여 제품 품질을 개선 합니다. 이 정보를 런타임 품질 원격 분석 이라고 합니다. 수집 된 원격 분석은 IoT Edge 에이전트에서 IoT Hub 하기 위해 주기적으로 장치-클라우드 메시지로 전송 됩니다. 이러한 메시지는 고객의 일반 원격 분석에 표시 되지 않으며 메시지 할당량을 사용 하지 않습니다.
 
-EdgeAgent 및 edgeHub에 의해 수집 된 메트릭의 전체 목록은 [액세스 IoT Edge 런타임 메트릭 문서의 사용 가능한 메트릭 섹션](how-to-access-built-in-metrics.md#available-metrics)에서 사용할 수 있습니다. 이러한 메트릭의 하위 집합은 RQT의 일부로 IoT Edge 에이전트가 수집 합니다. RQT의 일부로 수집 된 메트릭은 태그를 포함 `ms_telemetry` 합니다.
+IoT Edge 에이전트 및 허브는 장치 성능을 이해 하기 위해 수집할 수 있는 메트릭을 생성 합니다. 이러한 메트릭의 하위 집합은 런타임 품질 원격 분석의 일부로 IoT Edge 에이전트가 수집 합니다. 런타임 품질 원격 분석에 대해 수집 된 메트릭은 태그를 사용 하 여 레이블이 지정 됩니다 `ms_telemetry` . 사용 가능한 모든 메트릭에 대 한 자세한 내용은 [기본 제공 메트릭 액세스](how-to-access-built-in-metrics.md)를 참조 하세요.
 
-익명화의 일부로, 장치 및 모듈 이름과 같은 개인 정보나 조직이 식별 가능한 정보는 업로드 전에 제거 됩니다.
+장치 및 모듈 이름과 같은 개인 정보나 조직이 식별 가능한 정보는 런타임 품질 원격 분석의 익명 특성을 보장 하기 위해 업로드 전에 제거 됩니다.
 
-RQT의 기본 빈도는 24 시간 마다 IoT Hub 전송 되는 하나의 메시지와 1 시간 마다 edgeAgent 하는 로컬 컬렉션입니다.
+IoT Edge 에이전트는 매시간 원격 분석을 수집 하 고 24 시간 마다 메시지 하나를 IoT Hub으로 보냅니다.
 
-RQT를 옵트아웃 (opt out) 하려는 경우 다음 두 가지 방법을 사용할 수 있습니다.
+장치에서 런타임 원격 분석을 보내는 것을 취소 하려는 경우 두 가지 방법으로이 작업을 수행할 수 있습니다.
 
 * `SendRuntimeQualityTelemetry` `false` **EdgeAgent**에 대해 환경 변수를로 설정 하거나
 * 배포 하는 동안 Azure Portal의 옵션을 선택 취소 합니다.

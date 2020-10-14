@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629831"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048460"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -154,7 +154,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `en-CA` | 영어 (캐나다) | Female | `en-CA-ClaraNeural` | 일반 |
 | `en-GB` | 영어 (영국) | Female | `en-GB-LibbyNeural` | 일반 |
 | `en-GB` | 영어 (영국) | Female | `en-GB-MiaNeural` | 일반 |
-| `en-GB` <sup>새로 만들기</sup> | 영어(영국) | Male | `En-GB-RyanNeural` | 일반 |
+| `en-GB` <sup>새로 만들기</sup> | 영어(영국) | Male | `en-GB-RyanNeural` | 일반 |
 | `en-IE` <sup>새로 만들기</sup> | 아일랜드 영어 (아일랜드) | Female | `en-IE-EmilyNeural` | 일반 |
 | `en-IN` | 영어 (인도) | Female | `en-IN-NeerjaNeural` | 일반 |
 | `en-US` | 영어 (미국) | Female | `en-US-AriaNeural` | 일반, 여러 음성 스타일 사용 가능 |
@@ -179,7 +179,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `it-IT` <sup>새로 만들기</sup> | 이탈리아어(이탈리아) | Female | `it-IT-IsabellaNeural` | 일반 |
 | `it-IT` <sup>새로 만들기</sup> | 이탈리아어(이탈리아) | Male | `it-IT-DiegoNeural` | 일반 |
 | `ja-JP` | 일본어 (일본) | Female | `ja-JP-NanamiNeural` | 일반 |
-| `ja-JP` <sup>새로 만들기</sup> | 일본어(일본) | Male | `ja-JP-KeitaNeural` | 일반 |
+| `ja-JP` <sup>새로 만들기</sup> | 일본어 (일본) | Male | `ja-JP-KeitaNeural` | 일반 |
 | `ko-KR` | 한국어 (대한민국) | Female | `ko-KR-SunHiNeural` | 일반 |
 | `ko-KR` <sup>새로 만들기</sup> | 한국어(한국) | Male | `ko-KR-InJoonNeural` | 일반 |
 | `ms-MY` <sup>새로 만들기</sup> | 말레이어(말레이시아) | Female | `ms-MY-YasminNeural` | 일반 |
@@ -268,9 +268,9 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `id-ID` | 인도네시아어(인도네시아) | Male | `id-ID-Andika` |
 | `it-IT` | 이탈리아어(이탈리아) | Male | `it-IT-Cosimo` |
 | `it-IT` | 이탈리아어(이탈리아) | Female | `it-IT-LuciaRUS` |
-| `ja-JP` | 일본어(일본) | Female | `ja-JP-Ayumi` |
-| `ja-JP` | 일본어(일본) | Female | `ja-JP-HarukaRUS` |
-| `ja-JP` | 일본어(일본) | Male | `ja-JP-Ichiro` |
+| `ja-JP` | 일본어 (일본) | Female | `ja-JP-Ayumi` |
+| `ja-JP` | 일본어 (일본) | Female | `ja-JP-HarukaRUS` |
+| `ja-JP` | 일본어 (일본) | Male | `ja-JP-Ichiro` |
 | `ko-KR` | 한국어(한국) | Female | `ko-KR-HeamiRUS` |
 | `ms-MY` | 말레이어(말레이시아) | Male | `ms-MY-Rizwan` |
 | `nb-NO` | 노르웨이어, 복말 (노르웨이) | Female | `nb-NO-HuldaRUS` |

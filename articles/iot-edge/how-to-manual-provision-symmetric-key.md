@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 9e288bcbebe4118bfc8cfa7cff46c79d7075555a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f5371539c1b45c14b519729c7c07003bf74847a0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979718"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043870"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-symmetric-key-authentication"></a>대칭 키 인증을 사용 하 여 Azure IoT Edge 장치 설정
 
@@ -36,7 +36,7 @@ ms.locfileid: "91979718"
 
 이 문서에서는 대칭 키 인증을 사용 하 여 등록 및 프로 비전 프로세스를 안내 합니다. X.509 인증서를 사용 하 여 장치를 설정 하는 방법을 알아보려면 [x.509 인증서 인증을 사용 하 여 Azure IoT Edge 장치 설정](how-to-manual-provision-x509.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 수행 하기 전에 IoT Edge 런타임이 설치 된 장치가 있어야 합니다. 그렇지 않으면 [Azure IoT Edge 런타임 설치 또는 제거](how-to-install-iot-edge.md)의 단계를 따릅니다.
 
@@ -141,12 +141,12 @@ IoT Hub에 연결하는 모든 디바이스는 Visual Studio Code Explorer의 **
 ### <a name="prerequisites-for-the-azure-cli"></a>Azure CLI의 필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
+* 사용자 환경의 [Azure CLI](/cli/azure/install-azure-cli). 최소한 Azure CLI 버전은 2.0.70 이상 이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Azure CLI에서 IoT Edge 디바이스 만들기
 
-다음 [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 사용하여 IoT 허브에서 새 디바이스 ID를 만듭니다. 다음은 그 예입니다.
+다음 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 사용하여 IoT 허브에서 새 디바이스 ID를 만듭니다. 다음은 그 예입니다.
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -162,7 +162,7 @@ IoT Hub에 연결하는 모든 디바이스는 Visual Studio Code Explorer의 **
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Azure CLI를 사용하여 IoT Edge 디바이스 보기
 
-[az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) 명령을 사용하여 IoT 허브의 모든 디바이스를 볼 수 있습니다. 다음은 그 예입니다.
+[az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) 명령을 사용하여 IoT 허브의 모든 디바이스를 볼 수 있습니다. 다음은 그 예입니다.
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -172,7 +172,7 @@ IoT Edge 디바이스로 등록된 모든 디바이스에서는 **capabilities.i
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Azure CLI를 사용하여 연결 문자열 검색
 
-디바이스를 설정할 준비가 되면, 물리적 디바이스를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다. [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) 명령을 사용하여 단일 디바이스에 대한 연결 문자열을 반환합니다.
+디바이스를 설정할 준비가 되면, 물리적 디바이스를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다. [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) 명령을 사용하여 단일 디바이스에 대한 연결 문자열을 반환합니다.
 
    ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]

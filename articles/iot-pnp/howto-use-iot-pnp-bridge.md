@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613478"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042799"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법
 
@@ -48,7 +48,7 @@ gcc --version
 
 Windows에서 이 빠른 시작을 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
+* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 
@@ -149,7 +149,7 @@ IoT 플러그 앤 플레이 브리지 리포지토리를 컴퓨터에 복제 한
 
 리포지토리 디렉터리의 *pnpbridge* 폴더로 이동 합니다.
 
-Windows의 경우 [Visual Studio에 대 한 개발자 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 다음을 실행 합니다.
+Windows의 경우 [Visual Studio에 대 한 개발자 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 다음을 실행 합니다.
 
 ```cmd
 cd scripts\windows

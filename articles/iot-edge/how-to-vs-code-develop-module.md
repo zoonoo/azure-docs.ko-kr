@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296912"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043734"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -51,13 +51,13 @@ Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 �
 
 - Node.js: [Node.js](https://nodejs.org). 또한 [Yeoman](https://www.npmjs.com/package/yo) 및 [Azure IoT Edge Node.js 모듈 생성기](https://www.npmjs.com/package/generator-azure-iot-edge-module)를 설치할 수 있습니다.
 
-- Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) 및 [Maven](https://maven.apache.org/). JDK 설치를 가리키려면 [`JAVA_HOME` 환경 변수를 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)해야 합니다.
+- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) 및 [Maven](https://maven.apache.org/). JDK 설치를 가리키려면 [`JAVA_HOME` 환경 변수를 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)해야 합니다.
 
 모듈 이미지를 빌드하고 배포 하려면 모듈 이미지와 모듈 이미지를 보관할 컨테이너 레지스트리를 빌드하기 위한 Docker가 필요 합니다.
 
 - 개발 컴퓨터의 [Docker Community Edition](https://docs.docker.com/install/) 입니다.
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure Container Registry](../container-registry/index.yml) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다.
@@ -173,7 +173,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
         > [!NOTE]
         > .NET Core `TargetFramework` 가의 프로그램 경로와 일치 하지 않는 경우 `launch.json` `launch.json` `TargetFramework` Visual Studio Code이 프로그램을 성공적으로 시작할 수 있도록 .csproj 파일의와 일치 하도록에서 프로그램 경로를 수동으로 업데이트 해야 합니다.
 
-   - **Node.js**
+   - **Node.JS**
      - Visual Studio Code 통합 터미널에서 디렉터리를 *** &lt; module name &gt; *** 폴더로 변경한 후 다음 명령을 실행 하 여 노드 패키지를 설치 합니다.
 
        ```cmd
@@ -318,7 +318,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
   [개발 머신과 IoT Edge 디바이스에서 SSH 채널을 구성](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes)하고 연결할 `launch.json` 파일을 편집합니다.
 
-- **Node.js**
+- **Node.JS**
 
   - 디버그할 머신의 모듈이 실행 중이고 디버거에서 연결할 준비가 되었으며, 포트 9229에 외부적으로 액세스할 수 있는지 확인합니다. 디버거 머신에서 `http://<target-machine-IP>:9229/json`을 열어 이를 확인할 수 있습니다. 이 URL은 디버그할 Node.js 모듈에 대한 정보를 표시합니다.
   

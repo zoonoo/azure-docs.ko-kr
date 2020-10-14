@@ -5,20 +5,20 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/21/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0c1d83c2dac0163cd9b9cbc07969103381e85471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d03b6f4a512c22564480405ec0f0e0c0e62a958
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855386"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048426"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal를 사용 하 여 규모에 IoT Edge 모듈 배포
 
-Azure Portal에서 **IoT Edge 자동 배포** 를 만들어 한 번에 여러 장치에 대 한 지속적인 배포를 관리 합니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](/azure/iot-hub/iot-hub-automatic-device-management) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
+Azure Portal에서 **IoT Edge 자동 배포** 를 만들어 한 번에 여러 장치에 대 한 지속적인 배포를 관리 합니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](../iot-hub/iot-hub-automatic-device-management.md) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
 
 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
@@ -53,6 +53,11 @@ IoT Edge는 시나리오를 사용자 지정 하는 데 사용할 수 있는 두
 
 배포를 만드는 데에는 5개 단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다.
 
+>[!NOTE]
+>이 문서의 단계는 IoT Edge 에이전트 및 허브의 최신 스키마 버전을 반영 합니다. 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 모듈 시작 순서 및 경로 우선 순위 지정 기능을 사용 하도록 설정 합니다.
+>
+>1.0.9 또는 이전 버전을 실행 하는 장치에 배포 하는 경우 마법사의 **모듈** 단계에서 **런타임 설정을** 편집 하 여 스키마 버전 1.0을 사용 합니다.
+
 ### <a name="step-1-name-and-label"></a>1 단계: 이름 및 레이블
 
 1. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다.
@@ -65,55 +70,19 @@ IoT Edge는 시나리오를 사용자 지정 하는 데 사용할 수 있는 두
 
 배포에서 IoT Edge 에이전트 및 IoT Edge 허브 모듈의 설정을 관리할 수 있습니다. **런타임 설정** 을 선택 하 여 두 개의 런타임 모듈을 구성 합니다. 계층화 된 배포에서는 런타임 모듈이 포함 되지 않으므로 구성할 수 없습니다.
 
-세 가지 유형의 모듈을 추가할 수 있습니다.
-
-* IoT Edge 모듈
-* Marketplace 모듈
-* Azure Stream Analytics 모듈
-
-#### <a name="add-an-iot-edge-module"></a>IoT Edge 모듈 추가
-
 사용자 지정 코드를 모듈로 추가하거나 Azure 서비스 모듈을 수동으로 추가하려면 다음 단계를 수행합니다.
 
-1. 페이지의 **Container Registry 자격 증명** 섹션에서이 배포에 대 한 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 대 한 이름 및 자격 증명을 제공 합니다. IoT Edge 에이전트는 Docker 이미지에 대 한 컨테이너 레지스트리 자격 증명을 찾을 수 없는 경우 오류 500을 보고 합니다.
-1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭합니다.
-1. 드롭다운 메뉴에서 **IoT Edge 모듈** 을 선택 합니다.
-1. 모듈에 **IoT Edge 모듈 이름을**지정 합니다.
-1. **이미지 URI** 필드에 대해 모듈의 컨테이너 이미지를 입력합니다.
-1. 드롭다운 메뉴를 사용하여 **다시 시작 정책**을 선택합니다. 다음 옵션 중에서 선택 합니다.
-   * **always** -어떤 이유로 든 종료 되 면 모듈이 항상 다시 시작 됩니다.
-   * **안 함** -어떤 이유로 든 종료 되 면 모듈이 다시 시작 되지 않습니다.
-   * **오류가 발생** 한 경우 모듈이 중단 되는 경우 다시 시작 되지만 완전히 종료 되는 경우에는 다시 시작 되지 않습니다.
-   * **비정상** 상태-작동이 중단 되거나 비정상 상태를 반환 하는 경우 모듈이 다시 시작 됩니다. 상태 기능을 구현하는 것은 각 모듈에 달려 있습니다.
-1. 드롭다운 메뉴를 사용하여 모듈에 대한 **원하는 상태**를 선택합니다. 다음 옵션 중에서 선택 합니다.
-   * **실행** 중은 기본 옵션입니다. 모듈이 배포된 직후에 실행됩니다.
-   * **중지 됨** -배포 후에는 사용자 또는 다른 모듈에서 시작할 때 호출 될 때까지 모듈이 유휴 상태로 유지 됩니다.
-1. 컨테이너에 전달되어야 하는 **컨테이너 만들기 옵션**을 지정합니다. 자세한 내용은 [docker create](https://docs.docker.com/engine/reference/commandline/create/)를 참조하세요.
-1. 모듈 쌍에 태그나 기타 속성을 추가 하려면 **모듈 쌍 설정** 을 선택 합니다.
-1. 이 모듈에 대한 **환경 변수**를 입력합니다. 환경 변수는 모듈에 구성 정보를 제공 합니다.
-1. **추가** 를 선택 하 여 모듈을 배포에 추가 합니다.
+1. 페이지의 **Container Registry 설정** 섹션에서 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 액세스 하기 위한 자격 증명을 제공 합니다.
+1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 선택 합니다.
+1. 드롭다운 메뉴에서 다음 세 가지 유형의 모듈 중 하나를 선택 합니다.
 
-#### <a name="add-a-module-from-the-marketplace"></a>Marketplace에서 모듈 추가
+   * **IoT Edge 모듈** -모듈 이름과 컨테이너 이미지 URI를 제공 합니다. 예를 들어 샘플 SimulatedTemperatureSensor 모듈에 대 한 이미지 URI는 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0` 입니다. 모듈 이미지가 개인 컨테이너 레지스트리에 저장 되어 있는 경우이 페이지의 자격 증명을 추가 하 여 이미지에 액세스 합니다.
+   * **Marketplace 모듈** -Azure Marketplace에서 호스트 되는 모듈입니다. 일부 마켓플레이스 모듈에는 추가 구성이 필요 하므로 [Azure Marketplace IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) 목록에서 모듈 세부 정보를 검토 하세요.
+   * **모듈 Azure Stream Analytics** Azure Stream Analytics 워크 로드에서 생성 된 모듈입니다.
 
-Azure Marketplace에서 모듈을 추가 하려면 다음 단계를 수행 합니다.
+1. 필요한 경우 2 단계와 3 단계를 반복 하 여 배포에 모듈을 더 추가 합니다.
 
-1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭합니다.
-1. 드롭다운 메뉴에서 **Marketplace 모듈** 을 선택 합니다.
-1. **IoT Edge 모듈 마켓플레이스** 페이지에서 모듈을 선택 합니다. 선택한 모듈은 구독, 리소스 그룹 및 장치에 대해 자동으로 구성 됩니다. 그런 다음 IoT Edge 모듈 목록에 표시 됩니다. 일부 모듈에는 추가 구성이 필요할 수 있습니다. 자세한 내용은 [Azure Marketplace에서 모듈 배포](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace)를 참조 하세요.
-
-#### <a name="add-a-stream-analytics-module"></a>Stream Analytics 모듈 추가
-
-Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행합니다.
-
-1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가**를 클릭합니다.
-1. 드롭다운 메뉴에서 **Azure Stream Analytics 모듈** 을 선택 합니다.
-1. 오른쪽 창에서 **구독**을 선택 합니다.
-1. IoT **Edge 작업**을 선택 합니다.
-1. **저장**을 선택하여 모듈을 배포에 추가합니다.
-
-#### <a name="configure-module-settings"></a>모듈 설정 구성
-
-배포에 모듈을 추가한 후에는 해당 이름을 선택 하 여 **IoT Edge 모듈 업데이트** 페이지를 열 수 있습니다. 이 페이지에서 모듈 설정, 환경 변수, 만들기 옵션 및 모듈 쌍을 편집할 수 있습니다. Marketplace에서 모듈을 추가한 경우 이러한 매개 변수 중 일부가 이미 채워져 있을 수 있습니다.
+배포에 모듈을 추가한 후에는 해당 이름을 선택 하 여 **IoT Edge 모듈 업데이트** 페이지를 열 수 있습니다. 이 페이지에서 모듈 설정, 환경 변수, 만들기 옵션, 시작 순서 및 모듈 쌍을 편집할 수 있습니다. Marketplace에서 모듈을 추가한 경우 이러한 매개 변수 중 일부가 이미 채워져 있을 수 있습니다. 사용 가능한 모듈 설정에 대 한 자세한 내용은 [모듈 구성 및 관리](module-composition.md#module-configuration-and-management)를 참조 하세요.
 
 계층화 된 배포를 만드는 경우 동일한 장치를 대상으로 하는 다른 배포에 존재 하는 모듈을 구성 하 고 있을 수 있습니다. 다른 버전을 덮어쓰지 않고 모듈 쌍을 업데이트 하려면 모듈 쌍 **설정** 탭을 엽니다. 모듈 쌍의 desired 속성 내에서 하위 섹션에 대 한 고유한 이름으로 새 **모듈 쌍 속성** 을 만듭니다 (예:) `properties.desired.settings` . 필드 내에서 속성을 정의 하는 경우 `properties.desired` 우선 순위가 낮은 배포에 정의 된 모듈의 desired 속성을 덮어씁니다.
 
@@ -125,9 +94,13 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ### <a name="step-3-routes"></a>3 단계: 경로
 
-경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사는 **업스트림** 이라는 경로를 제공 하 고 **/messages/에서 \* $upstream**로 정의 됩니다. 즉, 모듈에서 출력 하는 모든 메시지가 IoT hub에 전송 됩니다.  
+**경로** 탭에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 메시지는 이름/값 쌍을 사용하여 생성됩니다.
 
-[경로 선언](module-composition.md#declare-routes)의 정보를 포함한 경로를 추가하거나 업데이트한 다음, **다음**을 선택하여 검토 섹션을 진행합니다.
+예를 들어 이름 **경로** 를 포함 하는 경로와 **/messages/의 값이 \* $upstream** 되 면 모든 모듈에서 출력 하는 모든 메시지를 가져와 IoT hub에 보냅니다.  
+
+**우선 순위** 및 **ttl (Time to live** ) 매개 변수는 경로 정의에 포함할 수 있는 선택적 매개 변수입니다. Priority 매개 변수를 사용 하 여 메시지를 먼저 처리 해야 하는 경로 또는 마지막으로 처리 해야 하는 경로를 선택할 수 있습니다. 우선 순위는 숫자 0-9을 설정 하 여 결정 됩니다. 여기서 0은 우선 순위가 가장 높습니다. Time to live 매개 변수를 사용 하면 해당 경로에 있는 메시지를 큐에서 처리 하거나 제거할 때까지 보유 해야 하는 기간을 선언할 수 있습니다.
+
+경로를 만드는 방법에 대 한 자세한 내용은 [Declare 경로](module-composition.md#declare-routes)를 참조 하세요.
 
 **다음: 메트릭**을 선택 합니다.
 

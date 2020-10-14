@@ -3,19 +3,19 @@ title: 메트릭 관리자를 사용 하 여 인시던트 진단
 titleSuffix: Azure Cognitive Services
 description: 메트릭 Advisor를 사용 하 여 인시던트를 진단 하 고 데이터의 비정상 상황에 대 한 자세한 보기를 확인 하는 방법을 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: aahi
-ms.openlocfilehash: fb70745cf7773e8caa91b31048af97e8e626bb91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: d1f792859aa5407cfaceda0e3ed1b5c21ee160f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597947"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043377"
 ---
 # <a name="how-to-diagnose-an-incident-using-metrics-advisor"></a>방법: 메트릭 관리자를 사용 하 여 인시던트 진단
 

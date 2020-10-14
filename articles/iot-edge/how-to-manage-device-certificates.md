@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971798"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044142"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
@@ -31,7 +31,7 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 >[!NOTE]
 >이 문서 전체에서 사용 되는 "루트 CA" 라는 용어는 IoT 솔루션에 대 한 인증서 체인의 최상위 권한 공용 인증서를 나타냅니다. 게시 된 인증 기관의 인증서 루트나 조직의 인증 기관 루트를 사용할 필요는 없습니다. 대부분의 경우에는 실제로 중간 CA 공용 인증서입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 * IoT Edge 장치입니다.
 
@@ -68,14 +68,14 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
 
 1. 3 개의 인증서 및 키 파일을 IoT Edge 장치에 복사 합니다.
 
-   [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
+   [Azure Key Vault](../key-vault/index.yml) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
 
 1. IoT Edge 보안 디먼 구성 파일을 엽니다.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들면 다음과 같습니다.
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예:
 
    * Windows:
 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332035"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043513"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Google Cloud Storage에서 데이터 복사
 
@@ -47,7 +47,11 @@ Google Cloud Storage 계정에는 다음 설정이 필요 합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-Google Cloud Storage에서 데이터를 복사하려면 필요한 권한을 부여해야 합니다. 서비스 계정에 정의 된 권한에는 `storage.buckets.get` `storage.buckets.list` `storage.objects.get` 개체 작업에 대 한, 또는가 포함 될 수 있습니다.
+Google Cloud Storage에서 데이터를 복사 하려면 개체 작업에 대 한 다음과 같은 사용 권한이 부여 되었는지 확인 ` storage.objects.get` 합니다. 및 ` storage.objects.list` .
+
+Data Factory UI를 사용 하 여 작성 하 ` storage.buckets.list` 는 경우 연결 된 서비스에 대 한 연결 테스트 및 루트에서 검색 등의 작업을 수행 하려면 추가 권한이 필요 합니다. 이 사용 권한을 부여 하지 않으려는 경우 UI에서 "파일 경로에 대 한 연결 테스트" 또는 "지정 된 경로에서 찾아보기" 옵션을 선택할 수 있습니다.
+
+Google Cloud Storage 역할 및 관련 사용 권한의 전체 목록은 Google Cloud 사이트의 [클라우드 저장소에 대 한 IAM 역할](https://cloud.google.com/storage/docs/access-control/iam-roles) 을 참조 하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -59,15 +63,15 @@ Google Cloud Storage에서 데이터를 복사하려면 필요한 권한을 부�
 
 Google Cloud Storage 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **GoogleCloudStorage**로 설정 해야 합니다. | 예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. 액세스 키와 비밀을 찾으려면 [필수 구성 요소](#prerequisites)를 참조하세요. |예 |
 | secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 사용자 지정 GCS 엔드포인트를 `https://storage.googleapis.com` 로 지정합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |No |
 
-예를 들면 다음과 같습니다.
+예는 다음과 같습니다.
 
 ```json
 {
@@ -96,7 +100,7 @@ Google Cloud Storage 연결 된 서비스에 대해 지원 되는 속성은 다�
 
 서식 기반 데이터 집합의 설정에서 Google Cloud Storage에 대해 지원 되는 속성은 다음과 `location` 같습니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 집합의 아래에 있는 **type** 속성은 `location` **GoogleCloudStorageLocation**로 설정 해야 합니다. | 예      |
 | bucketName | GCS 버킷 이름입니다.                                          | 예      |
@@ -140,7 +144,7 @@ Google Cloud Storage 연결 된 서비스에 대해 지원 되는 속성은 다�
 
 다음은 `storeSettings` 형식 기반 복사 원본에서 설정 아래의 Google Cloud Storage에 대해 지원 되는 속성입니다.
 
-| 속성                 | Description                                                  | 필수                                                    |
+| 속성                 | 설명                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | 아래의 **type** 속성은 `storeSettings` **GoogleCloudStorageReadSettings**로 설정 해야 합니다. | 예                                                         |
 | ***복사할 파일 찾기:*** |  |  |
@@ -154,7 +158,7 @@ Google Cloud Storage 연결 된 서비스에 대해 지원 되는 속성은 다�
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                                          |
-| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 아니요                                            |
+| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | No                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예                                                          |
 

@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a1d1ab0d3b1f4315c09f1c403126139b34612
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76511147"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043904"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 디바이스 게이트웨이를 통해 Modbus TCP 디바이스 연결
 
@@ -25,7 +25,7 @@ Modbus TCP 또는 RTU 프로토콜을 사용 하는 IoT 장치를 Azure IoT hub�
 
 이 문서에서는 Modbus TCP 프로토콜을 사용한다고 가정합니다. Modbus RTU를 지원 하도록 모듈을 구성 하는 방법에 대 한 자세한 내용은 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure IoT Edge 디바이스 설정 하는 방법에 대 한 연습은 Windows 또는 Linux [에서 Azure IoT Edge 배포](quickstart.md) 를 참조 [Linux](quickstart-linux.md)하세요.
 * IoT Edge 디바이스에 대한 기본 키 연결 문자열입니다.
@@ -35,7 +35,7 @@ Modbus TCP 또는 RTU 프로토콜을 사용 하는 IoT 장치를 Azure IoT hub�
 
 Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 샘플 모듈은 Microsoft에 있습니다. Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)또는 이미지 URI를 사용 하 여 모듈에 액세스할 수 있습니다 `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
-사용자 고유의 모듈을 만들고 사용자 환경에 맞게 사용자 지정 하려는 경우 GitHub에 오픈 소스 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트가 있습니다. 해당 프로젝트의 지침에 따라 사용자 고유의 컨테이너 이미지를 만듭니다. 컨테이너 이미지를 만들려면 [Visual Studio에서 c # 모듈 개발](how-to-visual-studio-develop-csharp-module.md) 또는 [Visual Studio Code에서 모듈 개발](how-to-vs-code-develop-module.md)을 참조 하세요. 이러한 문서에서는 새 모듈을 만들고 레지스트리에 컨테이너 이미지를 게시 하는 방법에 대 한 지침을 제공 합니다.
+사용자 고유의 모듈을 만들고 사용자 환경에 맞게 사용자 지정 하려는 경우 GitHub에 오픈 소스 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트가 있습니다. 해당 프로젝트의 지침에 따라 사용자 고유의 컨테이너 이미지를 만듭니다. 컨테이너 이미지를 만들려면 [Visual Studio에서 c # 모듈 개발](./how-to-visual-studio-develop-module.md) 또는 [Visual Studio Code에서 모듈 개발](how-to-vs-code-develop-module.md)을 참조 하세요. 이러한 문서에서는 새 모듈을 만들고 레지스트리에 컨테이너 이미지를 게시 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="try-the-solution"></a>솔루션 사용해 보기
 

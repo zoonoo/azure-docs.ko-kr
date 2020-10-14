@@ -9,16 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dc059cae927c1aaa057080172313f5720f483bdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972580"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043819"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Visual Studio Code를 사용 하 여 규모에 IoT Edge 모듈 배포
 
-Visual Studio Code를 사용 하 여 여러 장치에 대 한 지속적인 배포를 한 번에 관리 하는 **IoT Edge 자동 배포** 를 만들 수 있습니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](/azure/iot-hub/iot-hub-automatic-device-management) 기능의 일부입니다. 배포는 여러 장치에 여러 모듈을 배포 하는 데 사용할 수 있는 동적 프로세스입니다. 모듈의 상태와 상태를 추적 하 고 필요한 경우 변경할 수도 있습니다.
+Visual Studio Code를 사용 하 여 여러 장치에 대 한 지속적인 배포를 한 번에 관리 하는 **IoT Edge 자동 배포** 를 만들 수 있습니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](../iot-hub/iot-hub-automatic-device-management.md) 기능의 일부입니다. 배포는 여러 장치에 여러 모듈을 배포 하는 데 사용할 수 있는 동적 프로세스입니다. 모듈의 상태와 상태를 추적 하 고 필요한 경우 변경할 수도 있습니다.
 
 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
@@ -60,13 +60,16 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 
+>[!NOTE]
+>이 샘플 배포 매니페스트는 IoT Edge 에이전트 및 허브에 스키마 버전 1.1을 사용 합니다. 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 모듈 시작 순서 및 경로 우선 순위와 같은 기능을 사용 하도록 설정 합니다.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -95,7 +98,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
@@ -223,11 +226,11 @@ Visual Studio Code에서 장치 쌍을 편집 하 여 태그를 구성할 수 �
 
    다음 매개 변수에 대 한 값을 지정 합니다.
 
-  | 매개 변수 | Description |
+  | 매개 변수 | 설명 |
   | --- | --- |
   | 배포 ID | IoT hub에서 생성 될 배포의 이름입니다. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다. |
   | 대상 조건 | 대상 조건을 입력 하 여이 배포의 대상으로 지정할 장치를 결정 합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 들면 `tags.environment='test' and properties.reported.devicemodel='4000x'` 입니다. |
-  | 우선 순위 |  양의 정수 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우 우선 순위 값이 가장 높은 배포가 적용 됩니다. |
+  | 우선순위 |  양의 정수 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우 우선 순위 값이 가장 높은 배포가 적용 됩니다. |
 
   우선 순위를 지정 하면 터미널은 다음 표시와 유사한 출력을 표시 합니다.
 

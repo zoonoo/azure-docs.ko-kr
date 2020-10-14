@@ -11,28 +11,28 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7e5dd5d8ddf8df507cebaaeba4a544f58250a891
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 65cd35dd60ed05da51b6da56882af4522b1b7573
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975229"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043430"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>클라우드 데이터베이스 간 분산 트랜잭션 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 탄력적 데이터베이스 트랜잭션을 사용 하면 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. 탄력적 데이터베이스 트랜잭션은 ADO.NET를 사용 하는 .NET 응용 프로그램에 사용할 수 있으며, [시스템. 트랜잭션](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용 하 여 친숙 한 프로그래밍 환경과 통합할 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
-뿐만 아니라 Azure SQL Managed Instance 분산 트랜잭션은 [transact-sql](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql)에서 사용할 수 있습니다.
+또한 Managed Instance 분산 트랜잭션은 [transact-sql](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql)에서 사용할 수 있습니다.
 
 온-프레미스에서 이러한 시나리오는 일반적으로 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))를 실행 해야 합니다. MSDTC는 Azure에서 Platform as a Service 응용 프로그램에 사용할 수 없으므로 이제 분산 트랜잭션을 조정 하는 기능이 SQL Database 또는 Managed Instance에 직접 통합 되었습니다. 다음 그림에 표시 된 것 처럼 응용 프로그램은 모든 데이터베이스에 연결 하 여 분산 트랜잭션을 시작할 수 있으며, 데이터베이스 또는 서버 중 하나가 분산 트랜잭션을 투명 하 게 조정 합니다.
 
-이 문서에서는 "분산 트랜잭션" 및 "탄력적 데이터베이스 트랜잭션" 이라는 용어는 동의어로 간주 되며 interchangably 사용 됩니다.
+이 문서에서는 "분산 트랜잭션" 및 "탄력적 데이터베이스 트랜잭션" 이라는 용어는 동의어로 간주 되며 교대로 사용 됩니다.
 
   ![Elastic Database 트랜잭션을 사용한 Azure SQL Database와 분산 트랜잭션 ][1]
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 
-탄력적 데이터베이스 트랜잭션을 사용 하면 응용 프로그램에서 여러 다른 데이터베이스에 저장 된 데이터를 원자 단위로 변경할 수 있습니다. 미리 보기는 C# 및 .NET의 클라이언트 쪽 개발 환경에 중점을 둡니다. [Transact-sql](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) 을 사용 하 여 서버 쪽 환경 (저장 프로시저 또는 서버 쪽 스크립트에 작성 된 코드)은 Managed Instance에만 사용할 수 있으며 나중에 예정 된 SQL Database에만 사용할 수 있습니다.
+탄력적 데이터베이스 트랜잭션을 사용 하면 응용 프로그램에서 여러 다른 데이터베이스에 저장 된 데이터를 원자 단위로 변경할 수 있습니다. 미리 보기는 C# 및 .NET의 클라이언트 쪽 개발 환경에 중점을 둡니다. [Transact-sql](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) 을 사용 하 여 서버 쪽 환경 (저장 프로시저 또는 서버 쪽 스크립트에 작성 된 코드)은 Managed Instance에만 사용할 수 있습니다.
 > [!IMPORTANT]
 > 미리 보기에서는 Azure SQL Database와 Azure SQL Managed Instance 간에 탄력적 데이터베이스 트랜잭션 실행이 현재 지원 되지 않습니다. 탄력적 데이터베이스 트랜잭션은 SQL 데이터베이스 집합 또는 관리 되는 인스턴스 집합에만 걸쳐 있을 수 있습니다.
 
@@ -40,13 +40,13 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대 한 탄력적 데이터
 
 * Azure의 다중 데이터베이스 응용 프로그램:이 시나리오에서는 여러 다른 종류의 데이터가 서로 다른 데이터베이스에 상주 하도록 SQL Database 또는 Managed Instance에서 여러 데이터베이스에 데이터가 수직 분할 됩니다. 일부 작업에는 두 개 이상의 데이터베이스에 유지 되는 데이터를 변경 해야 합니다. 애플리케이션은 여러 데이터베이스에 걸쳐 변경을 조정하고 원자성을 보장하기 위해 탄력적 데이터베이스 트랜잭션을 사용합니다.
 * Azure의 분할 된 데이터베이스 응용 프로그램:이 시나리오에서 데이터 계층은 [Elastic Database 클라이언트 라이브러리](elastic-database-client-library.md) 또는 자체 분할를 사용 하 여 SQL Database 또는 Managed Instance에서 여러 데이터베이스에 걸쳐 데이터를 수평으로 분할 합니다. 한 가지 주요한 사용 사례는 여러 테넌트에 변경이 미칠 때 분할된 다중 테넌트 애플리케이션에 원자성 변경을 수행해야 하는 경우입니다. 서로 다른 데이터베이스에 상주하는 하나의 테넌트에서 다른 테넌트로 전송하는 인스턴스를 생각해 볼 수 있습니다. 두 번째 경우는 대량 테 넌 트의 용량 요구를 수용 하는 세분화 된 분할입니다 .이 경우 일반적으로 일부 원자성 작업은 동일한 테 넌 트에 사용 되는 여러 데이터베이스에서 확장 해야 함을 의미 합니다. 세 번째 사례는 여러 데이터베이스에 걸쳐 복제되는 참조 데이터에 대한 원자성 업데이트입니다. 이러한 방식의 트랜잭션 처리된, 원자성, 작업은 미리 보기를 사용하여 여러 데이터베이스에 걸쳐 조정될 수 있습니다.
-  탄력적 데이터베이스 트랜잭션은 여러 데이터베이스에 걸쳐 트랜잭션 원자성을 보장하기 위해 2단계 커밋을 사용합니다. 단일 트랜잭션 내에서 한 번에 100 개 미만의 데이터베이스를 포함 하는 트랜잭션에 적합 합니다. 이러한 한도는 적용 되지 않지만 이러한 제한을 초과 하는 경우 탄력적 데이터베이스 트랜잭션에 대 한 성능 및 성공률을 저하 시킬 수 있습니다.
+  탄력적 데이터베이스 트랜잭션은 데이터베이스 전반의 트랜잭션 원자성을 보장 하기 위해 2 단계 커밋을 사용 합니다. 단일 트랜잭션 내에서 한 번에 100 개 미만의 데이터베이스를 포함 하는 트랜잭션에 적합 합니다. 이러한 한도는 적용 되지 않지만 이러한 제한을 초과 하는 경우 탄력적 데이터베이스 트랜잭션에 대 한 성능 및 성공률을 저하 시킬 수 있습니다.
 
 ## <a name="installation-and-migration"></a>설치 및 마이그레이션
 
 탄력적 데이터베이스 트랜잭션에 대 한 기능은 .NET 라이브러리 System.Data.dll 및 System.Transactions.dll에 대 한 업데이트를 통해 제공 됩니다. DLL은 원자성을 보장하기 위해 필요한 경우 2단계 커밋이 사용되도록 합니다. 탄력적 데이터베이스 트랜잭션을 사용하여 애플리케이션 개발을 시작하려면 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 이상 버전을 설치합니다. 이전 버전의 .NET framework를 실행하면, 트랜잭션이 분산 트랜잭션으로 승격하지 못하고 예외가 발생합니다.
 
-설치 후에는 SQL Database 및 Managed Instance에 대 한 연결을 사용 하 여 시스템 트랜잭션에서 분산 트랜잭션 Api를 사용할 수 있습니다. 기존 MSDTC 애플리케이션에서 이러한 API를 사용하고 있는 경우에는 4.6.1 Framework를 설치한 후에 .NET 4.6에 대한 기존 애플리케이션을 간단히 다시 빌드합니다. 프로젝트에서 .NET 4.6를 대상으로 하는 경우 새 프레임 워크 버전에서 업데이트 된 Dll을 자동으로 사용 하 고 SQL Database 또는 Managed Instance에 대 한 연결을 조합 하 여 분산 트랜잭션 API 호출을 수행 합니다.
+설치 후에는 SQL Database 및 Managed Instance에 대 한 연결을 사용 하 여 시스템 트랜잭션에서 분산 트랜잭션 Api를 사용할 수 있습니다. 이러한 Api를 사용 하는 기존 MSDTC 응용 프로그램이 있는 경우 4.6.1 Framework를 설치한 후 .NET 4.6에 대 한 기존 응용 프로그램을 다시 빌드합니다. 프로젝트에서 .NET 4.6를 대상으로 하는 경우 새 프레임 워크 버전에서 업데이트 된 Dll을 자동으로 사용 하 고 SQL Database 또는 Managed Instance에 대 한 연결을 조합 하 여 분산 트랜잭션 API 호출을 수행 합니다.
 
 탄력적 데이터베이스 트랜잭션은 MSDTC를 설치할 필요가 없습니다. 대신, 탄력적 데이터베이스 트랜잭션은 및 서비스 내에서 직접 관리 됩니다. 이는 SQL Database 또는 Managed Instance에서 분산 트랜잭션을 사용할 필요가 없기 때문에 클라우드 시나리오를 크게 간소화 합니다. 섹션 4는 탄력적 데이터베이스 트랜잭션 배포 방법 및 필요한 .NET framework를 Azure에 대한 클라우드 애플리케이션과 함께 보다 자세히 설명합니다.
 
@@ -136,7 +136,7 @@ Azure App Service 게스트 OS에 대 한 업그레이드는 현재 지원 되�
 
 ## <a name="transact-sql-development-experience"></a>Transact-sql 개발 환경
 
-T-sql을 사용 하는 서버 쪽 분산 트랜잭션은 Azure SQL Managed Instance 에서만 사용할 수 있습니다. 분산 트랜잭션은 동일한 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)에 속한 관리 되는 인스턴스에서만 실행할 수 있습니다. 이 시나리오에서 관리 되는 인스턴스는 서로를 참조 하기 위해 [연결 된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) 를 사용 해야 합니다.
+Transact-sql을 사용 하는 서버 쪽 분산 트랜잭션은 Azure SQL Managed Instance 에서만 사용할 수 있습니다. 분산 트랜잭션은 동일한 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)에 속한 관리 되는 인스턴스에서만 실행할 수 있습니다. 이 시나리오에서 관리 되는 인스턴스는 서로를 참조 하기 위해 [연결 된 서버](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) 를 사용 해야 합니다.
 
 다음 예제 Transact-sql 코드는 [BEGIN DISTRIBUTED transaction](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) 을 사용 하 여 분산 트랜잭션을 시작 합니다.
 
@@ -174,7 +174,7 @@ T-sql을 사용 하는 서버 쪽 분산 트랜잭션은 Azure SQL Managed Insta
 
 ## <a name="combining-net-and-transact-sql-development-experience"></a>.NET 및 Transact-sql 개발 환경 결합
 
-System.object 클래스를 사용 하는 .NET 응용 프로그램은 TransactionScope 클래스를 Transact-sql 문 BEGIN 분산 트랜잭션과 결합할 수 있습니다. TransactionScope 내에서 BEGIN DITRIBUTED TRANSACTION을 실행 하는 내부 트랜잭션이 분산 트랜잭션으로 승격 됩니다. 또한 TransactionScope 내에서 두 번째 SqlConnecton를 열면 암시적으로 분산 트랜잭션으로 승격 됩니다. 분산 트랜잭션이 시작 되 면 .NET 또는 Transact-sql에서 들어오는 모든 후속 트랜잭션 요청이 부모 분산 트랜잭션에 조인 됩니다. 결과적으로 BEGIN 문에 의해 시작 된 모든 중첩 된 트랜잭션 범위는 동일한 트랜잭션으로 종료 되 고 커밋/롤백 문은 전체 결과에 다음과 같은 영향을 미칠 수 있습니다.
+System.object 클래스를 사용 하는 .NET 응용 프로그램은 TransactionScope 클래스를 Transact-sql 문 BEGIN 분산 트랜잭션과 결합할 수 있습니다. TransactionScope 내에서 BEGIN DITRIBUTED TRANSACTION을 실행 하는 내부 트랜잭션은 명시적으로 분산 트랜잭션으로 승격 됩니다. 또한 TransactionScope 내에서 두 번째 SqlConnecton를 열면 암시적으로 분산 트랜잭션으로 승격 됩니다. 분산 트랜잭션이 시작 되 면 .NET 또는 Transact-sql에서 들어오는 모든 후속 트랜잭션 요청이 부모 분산 트랜잭션에 조인 됩니다. 결과적으로 BEGIN 문에 의해 시작 된 모든 중첩 된 트랜잭션 범위는 동일한 트랜잭션으로 종료 되 고 커밋/롤백 문은 전체 결과에 다음과 같은 영향을 미칠 수 있습니다.
  * COMMIT 문은 BEGIN 문에 의해 시작 된 트랜잭션 범위에 영향을 주지 않습니다. 즉, 전체 () 메서드가 TransactionScope 개체에서 호출 되기 전에는 결과가 커밋되지 않습니다. TransactionScope 개체가 완료 되기 전에 소멸 되 면 해당 범위 내에서 수행 된 모든 변경 내용이 롤백됩니다.
  * ROLLBACK 문을 수행 하면 전체 TransactionScope가 롤백됩니다. TransactionScope 내에서 새 트랜잭션을 등록 하려고 하면 나중에 실패 하 고 TransactionScope 개체에서 Complete ()를 호출 하려고 시도 합니다.
 
@@ -203,7 +203,7 @@ Transact-sql을 사용 하 여 트랜잭션이 분산 트랜잭션으로 명시�
     }
 ```
 
-다음 예에서는 두 번째 SqlConnecton이 TransactionScope 내에서 시작 된 후 분산 트랜잭션에 암시적으로 표시 되는 트랜잭션을 보여 줍니다.
+다음 예에서는 두 번째 SqlConnecton이 TransactionScope 내에서 시작 된 후 암시적으로 분산 트랜잭션으로 승격 된 트랜잭션을 보여 줍니다.
 
 ```csharp
     using (TransactionScope s = new TransactionScope())
@@ -244,7 +244,7 @@ Transact-sql을 사용 하 여 트랜잭션이 분산 트랜잭션으로 명시�
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 여러 서버 간 트랜잭션
 
-분산 트랜잭션은 Azure SQL Managed Instance의 여러 서버에서 지원 됩니다. 트랜잭션이 Managed Instance 경계를 교차 하는 경우 참여 하는 인스턴스를 상호 보안 및 통신 관계에 먼저 입력 해야 합니다. 이 작업은 Azure Portal에서 수행할 수 있는 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups) 을 설정 하 여 수행 됩니다.
+분산 트랜잭션은 Azure SQL Managed Instance의 여러 서버에서 지원 됩니다. 트랜잭션이 Managed Instance 경계를 교차 하는 경우 참여 하는 인스턴스를 상호 보안 및 통신 관계에 먼저 입력 해야 합니다. 이 작업은 Azure Portal에서 수행할 수 있는 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)을 설정 하 여 수행 됩니다.
 
   ![Azure Portal의 서버 신뢰 그룹][3]
 
@@ -258,9 +258,9 @@ Dmv (동적 관리 뷰)를 사용 하 여 진행 중인 탄력적 데이터베�
 
 다음 DMV는 특히 유용합니다.
 
-* **sys.dm\_tran\_active\_transactions**: 현재 활성 트랜잭션과 그 상태를 나열합니다. UOW(작업 단위) 열은 동일한 분산 트랜잭션에 속하는 다른 자식 트랜잭션을 식별할 수 있습니다. 동일한 분산 트랜잭션 내의 모든 트랜잭션은 동일한 UOW 값을 갖습니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms174302.aspx)를 참조하세요.
-* **sys.dm\_tran\_database\_transactions**: 로그에 트랜잭션 배치 같은 트랜잭션에 대한 추가적인 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms186957.aspx)를 참조하세요.
-* **sys.dm\_tran\_locks**: 진행 중인 트랜잭션에 의해 현재 유지되는 잠금에 대한 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms190345.aspx)를 참조하세요.
+* **sys.dm\_tran\_active\_transactions**: 현재 활성 트랜잭션과 그 상태를 나열합니다. UOW(작업 단위) 열은 동일한 분산 트랜잭션에 속하는 다른 자식 트랜잭션을 식별할 수 있습니다. 동일한 분산 트랜잭션 내의 모든 트랜잭션은 동일한 UOW 값을 갖습니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms174302.aspx)를 참조 하세요.
+* **sys.dm\_tran\_database\_transactions**: 로그에 트랜잭션 배치 같은 트랜잭션에 대한 추가적인 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms186957.aspx)를 참조 하세요.
+* **sys.dm\_tran\_locks**: 진행 중인 트랜잭션에 의해 현재 유지되는 잠금에 대한 정보를 제공합니다. 자세한 내용은 [DMV 설명서](https://msdn.microsoft.com/library/ms190345.aspx)를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -276,12 +276,12 @@ Dmv (동적 관리 뷰)를 사용 하 여 진행 중인 탄력적 데이터베�
 * WCF 서비스 전반의 트랜잭션은 지원 되지 않습니다. 예를 들어 트랜잭션을 실행하는 WCF 서비스 메서드가 있습니다. 트랜잭션 범위 내로 호출을 묶으면 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)으로 실패합니다.
 * 분산 트랜잭션에 참여 하려면 Azure SQL Managed Instance가 [서버 트러스트 그룹](https://aka.ms/mitrusted-groups) 의 일부 여야 합니다.
 * [서버 신뢰 그룹](https://aka.ms/mitrusted-groups) 의 제한 사항은 분산 트랜잭션에 영향을 줍니다.
-* 분산 트랜잭션에 참여 하는 관리 되는 인스턴스는 개인 끝점을 통해 연결 해야 하며 (배포 되는 가상 네트워크의 개인 IP 주소를 사용 하 여) 개인 Fqdn을 사용 하 여 상호 참조 해야 합니다. Transact-sql을 사용 하는 클라이언트 응용 프로그램은 전용 또는 공용 끝점을 사용 하 여 서버 신뢰 그룹 내의 모든 인스턴스에 대해 트랜잭션을 실행할 수 있습니다. 이러한 제한 사항은 다음 다이어그램에 설명 되어 있습니다.
+* 분산 트랜잭션에 참여 하는 관리 되는 인스턴스는 개인 끝점을 통해 연결 해야 하며 (배포 되는 가상 네트워크의 개인 IP 주소를 사용 하 여) 개인 Fqdn을 사용 하 여 상호 참조 해야 합니다. 클라이언트 응용 프로그램은 개인 끝점에서 분산 트랜잭션을 사용할 수 있습니다. 또한 Transact-sql에서 전용 끝점을 참조 하는 연결 된 서버를 활용 하는 경우 클라이언트 응용 프로그램은 공용 끝점 에서도 분산 트랜잭션을 사용할 수 있습니다. 이러한 제한 사항은 다음 다이어그램에 설명 되어 있습니다.
   ![개인 끝점 연결 제한][4]
 ## <a name="next-steps"></a>다음 단계
 
-* 질문에 대해서는 [Microsoft Q&SQL Database에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-sql-database.html)에 문의 하세요.
-* 기능 요청은 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/) 또는 [Managed Instance 포럼](https://feedback.azure.com/forums/915676-sql-managed-instance)에 추가 하세요.
+* 질문이 있는 경우 [Microsoft Q&SQL Database에 대 한 질문 페이지](https://docs.microsoft.com/answers/topics/azure-sql-database.html)에 문의 하세요.
+* 기능 요청에 대해 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/) 또는 [Managed Instance 포럼](https://feedback.azure.com/forums/915676-sql-managed-instance)에 추가 합니다.
 
 
 
@@ -289,5 +289,5 @@ Dmv (동적 관리 뷰)를 사용 하 여 진행 중인 탄력적 데이터베�
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
 [2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
 [3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
-[4]: ./media/elastic-transactions-overview/sql-mi-private-endpoint-limitation.png
+[4]: ./media/elastic-transactions-overview/managed-instance-distributed-transactions-private-endpoint-limitations.png
  

@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548699"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043003"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 
@@ -75,7 +75,7 @@ IoT Edge 보안 디먼은 보안 강화를 위해 사용 가능한 신뢰 기술
 
 #### <a name="cloud-interface"></a>클라우드 인터페이스
 
-클라우드 인터페이스를 사용 하 여 보안 갱신 등의 장치 보안에 대 한 클라우드 서비스에 대 한 클라우드 서비스에 액세스 하는 IoT Edge 보안 데몬이 있습니다.  예를 들어 IoT Edge 보안 디먼은 현재이 인터페이스를 사용 하 여 장치 id 수명 주기 관리를 위해 Azure IoT Hub [Device 프로 비전 서비스](https://docs.microsoft.com/azure/iot-dps/) 에 액세스 합니다.  
+클라우드 인터페이스를 사용 하 여 보안 갱신 등의 장치 보안에 대 한 클라우드 서비스에 대 한 클라우드 서비스에 액세스 하는 IoT Edge 보안 데몬이 있습니다.  예를 들어 IoT Edge 보안 디먼은 현재이 인터페이스를 사용 하 여 장치 id 수명 주기 관리를 위해 Azure IoT Hub [Device 프로 비전 서비스](../iot-dps/index.yml) 에 액세스 합니다.  
 
 #### <a name="management-api"></a>관리 API
 

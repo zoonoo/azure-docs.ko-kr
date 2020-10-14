@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a06fd55d73c37caaa35797131d2b31817bf90f0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394740"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042408"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>다른 구독으로 Azure Key Vault 이동
 
@@ -36,6 +36,9 @@ ms.locfileid: "89394740"
 * 테넌트 B와 연결된 새 액세스 정책 항목을 추가합니다.
 
 ## <a name="limitations"></a>제한 사항
+
+> [!IMPORTANT]
+> **디스크 암호화에 사용 되는 키 자격 증명 모음은 이동할 수 없습니다** . VM에 대 한 디스크 암호화를 사용 하는 key vault를 사용 하는 경우 디스크 암호화를 사용 하는 동안에는 key vault를 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다. 키 자격 증명 모음을 새 리소스 그룹 또는 구독으로 이동 하기 전에 디스크 암호화를 사용 하지 않도록 설정 해야 합니다. 
 
 일부 서비스 주체(사용자 및 애플리케이션)는 특정 테넌트에 바인딩됩니다. 키 자격 증명 모음을 다른 테넌트의 구독으로 이동하면 특정 서비스 주체에 대한 액세스를 복원할 수 없게 됩니다. 키 자격 증명 모음을 이동하는 테넌트에 모든 필수 서비스 주체가 존재하는지 확인합니다.
 

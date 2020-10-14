@@ -3,12 +3,12 @@ title: 레지스트리 서비스 계층 및 기능
 description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층(SKU)에 있는 기능 및 제한 사항을 알아봅니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512618"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048477"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry 서비스 계층
 

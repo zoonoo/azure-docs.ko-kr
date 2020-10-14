@@ -7,16 +7,16 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a0fa8c1c3d897ce65c70b6097dd323139716b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613393"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042850"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 관리
 
-IoT 플러그 앤 플레이는 디지털 쌍 **가져오기** 및 디지털 쌍 **업데이트** 작업을 지원 하 여 디지털 쌍을 관리 합니다. [REST api](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) 또는 [서비스 sdk](libraries-sdks.md)중 하나를 사용할 수 있습니다.
+IoT 플러그 앤 플레이는 디지털 쌍 **가져오기** 및 디지털 쌍 **업데이트** 작업을 지원 하 여 디지털 쌍을 관리 합니다. [REST api](/rest/api/iothub/service/digitaltwin) 또는 [서비스 sdk](libraries-sdks.md)중 하나를 사용할 수 있습니다.
 
 문서를 작성할 당시 디지털 쌍 API 버전은 `2020-09-30` 입니다.
 
@@ -194,5 +194,5 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 이제 디지털 쌍에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
-- [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

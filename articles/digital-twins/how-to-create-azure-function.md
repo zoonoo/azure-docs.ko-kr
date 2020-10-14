@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970438"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048324"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -200,7 +200,7 @@ az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(fu
 ```azurecli 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
-마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
+마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
 
 > [!TIP]
 > Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름*앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -249,7 +249,7 @@ _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Azure Portal를 사용 하 여 응용 프로그램 설정 구성
 
-환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables)를 참조 하세요. 응용 프로그램 설정은 디지털 쌍 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
+환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 이에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 응용 프로그램 설정은 디지털 쌍 인스턴스에 액세스 하기 위한 환경 변수로 표시 됩니다. 
 
 응용 프로그램 설정을 만들려면 ADT_INSTANCE_URL 필요 합니다.
 

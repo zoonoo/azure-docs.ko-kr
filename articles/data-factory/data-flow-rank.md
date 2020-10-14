@@ -8,18 +8,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/05/2020
-ms.openlocfilehash: cb3a8c1c6df61a4a20ce596e3ff1118c2870033a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8584d1b64191cc5258c6eeeef9ae4125bf1a2c65
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716519"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044737"
 ---
 # <a name="rank-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 순위 변환 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Rank 변환을 사용 하 여 사용자가 지정한 정렬 조건에 따라 정렬 된 순위를 생성 합니다. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]
 
 ## <a name="configuration"></a>구성
 

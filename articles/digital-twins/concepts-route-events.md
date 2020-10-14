@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541359"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044295"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -21,7 +21,7 @@ Azure Digital 쌍는 **이벤트 경로** 를 사용 하 여 서비스 외부의
 미리 보기 중에는 Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례가 있습니다.
 * Azure Digital Twins 그래프의 한 쌍에서 다른 쌍으로 데이터 전송 예를 들어 하나의 디지털 쌍에서 속성이 변경 되 면 다른 디지털 쌍을 적절 하 게 통보 하 고 업데이트할 수 있습니다.
 * 추가 저장 또는 처리를 위해 다운스트림 데이터 서비스로 데이터 전송 ( *데이터 송신*이 라고도 함) 예를 들어
-  - 병원은 대량 분석을 위해 handwashing 관련 이벤트의 시계열 데이터를 기록 하기 위해 Azure Digital Twins 이벤트 데이터를 [Time Series Insights (TWINS)](../time-series-insights/time-series-insights-update-overview.md)로 보낼 수 있습니다.
+  - 병원은 대량 분석을 위해 handwashing 관련 이벤트의 시계열 데이터를 기록 하기 위해 Azure Digital Twins 이벤트 데이터를 [Time Series Insights (TWINS)](../time-series-insights/overview-what-is-tsi.md)로 보낼 수 있습니다.
   - 이미 [Azure Maps](../azure-maps/about-azure-maps.md) 를 사용 하 고 있는 비즈니스에서는 Azure Digital twins를 사용 하 여 솔루션을 향상 시킬 수 있습니다. Azure digital 쌍를 설정 하 고, [쌍으로 된](concepts-twins-graph.md) azure map 엔터티를 쌍으로 된 azure 디지털 쌍으로 가져오거나, Azure Maps 및 Azure Digital 쌍 데이터를 함께 활용 하는 강력한 쿼리를 실행 한 후 azure map을 신속 하 게 사용 하도록 설정할 수 있습니다.
 
 이벤트 경로는 이러한 두 시나리오에 모두 사용 됩니다.

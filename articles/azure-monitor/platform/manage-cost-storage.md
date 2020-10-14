@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c78cfd2a453a082ce3f352504719a7fb8cc2b8ec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875957"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044108"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -102,7 +102,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 독립 실행형 가격 책정 계층에 대 한 사용량은 수집 데이터 볼륨으로 청구 됩니다. 이는 **Log Analytics** 서비스에서 보고 되 고 미터는 "데이터 분석 됨"으로 이름이 지정 됩니다. 
 
-노드당 가격 책정 계층은 모니터링되는 VM(노드)당 1시간 단위로 요금이 청구됩니다. 모니터링되는 각 노드에 대한 작업 영역에는 일일 500MB의 데이터 용량이 할당되며 이에 대한 요금은 청구되지 않습니다. 이 할당은 작업 영역 수준에서 집계됩니다. 일일 총 데이터 할당량을 초과하는 데이터 수집량에 대해서는 GB당 데이터 초과분 요금이 청구됩니다. 작업 영역이 노드당 가격 책정 계층에 있는 경우, 청구서에 명시되는 해당 서비스는 Log Analytics 사용량에 대한 **Insight & Analytics**입니다. 사용량은 3 미터에 보고 됩니다.
+노드당 가격 책정 계층은 모니터링되는 VM(노드)당 1시간 단위로 요금이 청구됩니다. 모니터링되는 각 노드에 대한 작업 영역에는 일일 500MB의 데이터 용량이 할당되며 이에 대한 요금은 청구되지 않습니다. 이 할당은 시간별 세분성으로 계산 되며 매일 작업 영역 수준에서 집계 됩니다. 일일 총 데이터 할당량을 초과하는 데이터 수집량에 대해서는 GB당 데이터 초과분 요금이 청구됩니다. 작업 영역이 노드당 가격 책정 계층에 있는 경우, 청구서에 명시되는 해당 서비스는 Log Analytics 사용량에 대한 **Insight & Analytics**입니다. 사용량은 3 미터에 보고 됩니다.
 
 1. 노드: 노드 * 개월 단위로 모니터링 되는 노드 (Vm)의 수를 사용 합니다.
 2. 노드당 데이터 초과분: 집계 된 데이터 할당을 초과 하는 데이터 수집의 GB 수입니다.
@@ -125,6 +125,10 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 > [!NOTE]
 > System Center용 OMS E1 Suite, OMS E2 Suite 또는 OMS 추가 기능을 구매할 때 제공되는 자격을 사용하려면 Log Analytics의 *노드별* 가격 책정 계층을 선택합니다.
+
+## <a name="log-analytics-and-security-center"></a>Log Analytics 및 Security Center
+
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/) 요금은 Log Analytics 청구와 밀접 하 게 연관 되어 있습니다. Security Center는 [보안 데이터 형식](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, Securityalert, Securityalert, SecurityBaselineSummary, securityalert, Securityalert, Windowsfirewall, MaliciousIPCommunication, LinuxAuditLog, Sysmonevent, ProtectionStatus) 집합에 대해 500 m b/노드/일을 할당 하 고, 작업 영역에서 업데이트 관리 솔루션이 실행 되 고 있지 않거나 솔루션 대상 지정을 사용 하는 경우 업데이트 및 UpdateSummary 데이터 형식을 제공 합니다. 작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Security Center 및 Log Analytics 할당이 결합 되 고 공동으로 모든 청구 가능 수집 데이터에 적용 됩니다.  
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
@@ -284,6 +288,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>레거시 노드당 가격 책정 계층으로 청구 된 노드
+
+[레거시 노드당 가격 책정 계층](#legacy-pricing-tiers) 은 시간별 세분성이 있는 노드에 대 한 요금을 청구 하 고, 보안 데이터 유형 집합만 전송 하는 노드만 계산 하지 않습니다. 일일 노드 수는 다음 쿼리에 가깝습니다.
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+청구서의 단위 수는 쿼리에서 표시 되는 노드 * 월 단위입니다 `billableNodeMonthsPerDay` . 작업 영역에 업데이트 관리 솔루션이 설치 되어 있는 경우 위의 쿼리에서 where 절의 목록에 Update 및 UpdateSummary 데이터 형식을 추가 합니다. 마지막으로, 위의 쿼리에서 표시 되지 않은 솔루션 대상 지정을 사용 하는 경우 실제 청구 알고리즘에 몇 가지 추가적인 복잡성이 있습니다. 
+
+
 > [!TIP]
 > 여러 데이터 형식을 검색하면 실행 시 [많은 리소스가 필요](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane)하기 때문에 이러한 `find` 쿼리는 자주 사용하지 않도록 합니다. **컴퓨터별** 결과가 필요하지 않은 경우, 사용량 데이터 형식(아래 참조)을 쿼리합니다.
 
@@ -338,7 +360,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

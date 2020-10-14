@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
-ms.openlocfilehash: d724ef463d7c7ad237b5fd023e9c15f50de96f04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803469"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044499"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Azure Marketplace에 대 한 가상 머신 이미지를 인증할 때 발생 하는 일반적인 문제
 
@@ -66,7 +66,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|Error|이유|솔루션|
+|시나리오|오류|이유|솔루션|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -264,7 +264,7 @@ VM에서 테스트 사례를 실행 하는 동안 액세스 거부 문제가 발
     
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드할 때 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|Error|이유|솔루션|
+|시나리오|오류|이유|해결 방법|
 |---|---|---|---|
 |1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -310,7 +310,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|Error|이유|솔루션|
+|오류|이유|해결 방법|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 전송 될 때 LUN (논리 단위 번호)에 잘못 된 숫자가 지정 된 경우에 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 지정 된 SAS URL에서 데이터 디스크를 찾을 수 없기 때문에 발생할 수 있습니다.|데이터 디스크가 요청에 지정 된 SAS URL에 있는지 확인 합니다.|
@@ -372,6 +372,61 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
    7. 타임 라인-이 예외가 요청 된 날짜 
    8.   첨부 파일-중요도 증명 문서를 첨부 합니다. 잠긴 Vm의 경우 테스트 보고서를 연결 하 고 사용자 지정 템플릿에 대해 사용자 지정 ARM 템플릿을 첨부 파일로 제공 합니다. 잠긴 Vm 및 사용자 지정 템플릿에 대 한 사용자 지정 ARM 템플릿에 대 한 보고서를 첨부 하지 못하면 요청이 거부 됩니다.
 
+## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>VM 제품에서 취약점 또는 악용을 해결 하는 방법
+
+이 FAQ는 VM 이미지 중 하나에서 취약성 또는 익스플로잇을 검색할 때 VM (가상 머신) 이미지를 제공 하는 데 도움이 됩니다. 이 FAQ는 Azure Marketplace에 게시 되는 Azure Virtual Machine 제품에만 적용 됩니다.
+
+> [!NOTE]
+> 요금제에서 마지막 VM 이미지를 제거할 수 없으며 제품의 마지막 요금제 판매를 중지할 수 없습니다.
+
+다음 중 하나를 수행합니다.
+
+1. 취약 한 VM 이미지를 대체할 새 VM 이미지가 있는 경우 [고정 vm 이미지를 제공 하는 방법](#how-to-provide-a-fixed-vm-image)으로 이동 합니다.
+1. 계획의 유일한 VM 이미지를 대체할 새 VM 이미지가 없고 계획을 완료 한 경우 [계획의 판매를 중지할](update-existing-offer.md#stop-selling-an-offer-or-plan)수 있습니다.
+1. 제품의 유일한 VM 이미지를 교체할 계획이 없는 경우 [제품 판매를 중지](update-existing-offer.md#stop-selling-an-offer-or-plan)하는 것이 좋습니다.
+
+### <a name="how-to-provide-a-fixed-vm-image"></a>고정 VM 이미지를 제공 하는 방법
+
+취약성 또는 익스플로잇이 있는 VM 이미지를 대체할 고정 VM 이미지를 제공 하려면 다음을 수행 해야 합니다.
+
+1. 새 VM 이미지를 제공 하 여 보안 취약성 또는 악용을 해결 합니다.
+1. 보안 취약점 또는 익스플로잇을 포함 하는 VM 이미지를 제거 합니다.
+1. 제품을 다시 게시 합니다.
+
+#### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>새 VM 이미지를 제공 하 여 보안 취약성 또는 악용을 해결 합니다.
+
+이러한 단계를 완료 하려면 추가 하려는 VM 이미지에 대 한 기술 자산을 준비 해야 합니다. 자세한 내용은 [Azure Marketplace virtual machine 제품에 대 한 기술 자산 만들기](create-azure-vm-technical-asset.md) 및 [VM 이미지에 대 한 SAS URI 가져오기](get-sas-uri.md)를 참조 하세요.
+
+1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
+1. **제품 별칭** 열에서 제품을 선택 합니다.
+1. **계획 개요** 탭의 **이름** 열에서 VM을 추가 하려는 계획을 선택 합니다.
+1. **기술 구성** 탭의 **vm 이미지**에서 **+ vm 이미지 추가**를 선택 합니다.
+   > [!NOTE]
+   > 한 번에 하나의 VM 이미지만 계획에 추가할 수 있습니다. 여러 VM 이미지를 추가 하려면 첫 번째 이미지를 게시 한 다음, 다음 VM 이미지를 추가 하기 전에 _게시자_ 의 승인 단계에 도달할 때까지 기다립니다.
+1. 표시 되는 상자에 새 디스크 버전 및 가상 머신 이미지를 제공 합니다.
+1. **초안 저장**을 선택합니다.
+1. 다음 섹션으로 계속 진행 하 여 보안 취약성으로 VM 이미지를 제거 합니다.
+
+#### <a name="remove-the-vm-image-that-has-the-security-vulnerability-or-exploit"></a>보안 취약성 또는 익스플로잇을 포함 하는 VM 이미지 제거
+
+[파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
+1. **제품 별칭** 열에서 제품을 선택 합니다.
+1. **계획 개요** 탭의 **이름** 열에서 제거 하려는 VM의 계획을 선택 합니다.
+1. **기술 구성** 탭의 **vm 이미지**에서 제거 하려는 vm 이미지 옆에 있는 **vm 이미지 제거**를 선택 합니다.
+1. 표시 되는 대화 상자에서 **계속**을 선택 합니다.
+1. **초안 저장**을 선택합니다.
+1. 다음 섹션으로 계속 진행 하 여 제품을 다시 게시 합니다.
+
+#### <a name="republish-the-offer"></a>제품 다시 게시
+
+VM 이미지를 제거 하거나 바꾼 후 제품을 다시 게시 해야 합니다.
+1. **검토 및 게시**를 선택 합니다.
+1. 인증 팀에 정보를 제공 해야 하는 경우 **인증에 대 한** 정보 상자에 추가 합니다.
+1. **게시**를 선택합니다.
+
+게시 프로세스에 대 한 자세한 내용은 [상용 marketplace에 제품을 검토 하 고 게시 하는 방법](../review-publish-offer.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

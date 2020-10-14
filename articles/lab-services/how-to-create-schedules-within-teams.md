@@ -3,12 +3,12 @@ title: 팀 내에서 Azure Lab Services 일정 만들기
 description: 팀 내에서 Lab Services 일정을 만드는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 5578a2f63a4d6f58998a54560299a4356ed65997
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 202b202f99868875a51d13e95fbcac677246cc05
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946750"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042340"
 ---
 # <a name="create-and-manage-lab-services-schedules-within-teams"></a>팀 내에서 Lab Services 일정 만들기 및 관리
 
@@ -23,39 +23,9 @@ ms.locfileid: "91946750"
 > [!IMPORTANT]
 > VM의 예약된 실행 시간은 사용자에게 할당된 할당량에 계산되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간을 반영합니다. 
 
-## <a name="createeditdelete-a-schedule-for-the-lab"></a>랩에 대 한 일정 만들기/편집/삭제
-
-랩의 VM이 특정 시간에 자동으로 시작/중지되도록 랩에 예약된 이벤트를 만듭니다. 앞에서 지정한 사용자 할당량은 이 예약된 시간 이외의 시간으로 각 사용자에게 할당된 추가 시간입니다. 
-
-1. **일정** 페이지로 전환 하 고 도구 모음 (창의 위쪽/왼쪽)에서 **예약 된 이벤트 추가** 를 선택 합니다. 
-1. 일정에 대해 다음 매개 변수를 설정 합니다.
-    1. **이벤트 유형**에 대해 **표준**이 선택되었는지 확인합니다. VM의 시작 시간만 지정하려면 **시작만**을 선택합니다. VM의 중지 시간만 지정하려면 **중지만**을 선택합니다. 
-    1. **시작 날짜**를 지정합니다.
-    1. VM을 시작할 **시작 시간**을 지정합니다.
-    1. VM을 종료할 **중지 시간**을 지정합니다. 
-    1. 지정한 시작 및 중지 시간에 대한 **표준 시간대**를 지정합니다. 
-    1. **반복** 섹션에서 **매주** 또는 **Never**를 선택 합니다. 
-    1. **참고 항목 (선택 사항)** 에 대해 설명 또는 일정에 대 한 메모를 입력 합니다. 
-1. **Save**을 클릭합니다. 
-
-### <a name="view-schedules-in-calendar"></a>달력에서 일정 보기
-
-일정에 강조 표시 된 예약 된 날짜와 시간을 볼 수 있습니다. 오른쪽 위에 있는 **오늘** 단추를 선택하여 달력에서 현재 날짜로 전환합니다. **왼쪽 화살표**를 선택하면 이전 주로 전환되고, **오른쪽 화살표**를 선택하면 달력에서 다음 주로 전환됩니다. 
-
-### <a name="edit-a-schedule"></a>일정 편집
-
-일정에서 강조 표시 된 일정을 선택 하면 일정을 **편집** 하거나 **삭제** 하는 단추가 표시 됩니다. 
-
-예약 된 **이벤트 편집** 페이지에서 일정을 업데이트 하 고 **저장**을 선택할 수 있습니다. 
-
-### <a name="delete-a-schedule"></a>일정 삭제
-
-1. 일정을 삭제 하려면 달력에서 강조 표시 된 일정을 선택 하 고 휴지통 아이콘 (삭제) 단추를 선택 합니다.
-1. 예약 된 **이벤트 삭제** 대화 상자에서 **예** 를 선택 하 여 삭제를 확인 합니다. 
+사용자는 [labs 웹 사이트](https://labs.azure.com)에서와 마찬가지로 팀 내에서 랩 일정을 만들고, 편집 하 고, 삭제할 수 있습니다. [일정 만들기 및 관리](how-to-create-schedules-within-teams.md)에 대 한 문서를 참조 하세요.
 
 ## <a name="automatic-shutdown-and-disconnect-settings"></a>자동 종료 및 연결 끊기 설정
-
-페이지 맨 위에서 **자동 종료** 설정에 대 한 링크가 표시 됩니다.
 
 여러 자동 종료 비용 제어 기능을 사용 하 여 가상 머신이 적극적으로 사용 되지 않을 때 추가 비용을 사전에 방지할 수 있습니다. 다음 세 가지 자동 종료 및 연결 끊기 기능의 조합은 사용자가 실수로 가상 컴퓨터를 실행 하는 대부분의 경우를 포착 합니다.
  
@@ -63,14 +33,14 @@ ms.locfileid: "91946750"
 - 사용자가 연결을 끊으면 자동으로 가상 컴퓨터를 종료 합니다.
 - 시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료 합니다.
 
-자세한 내용을 보려면 설정의 옵션 옆에 있는 *정보* 아이콘을 클릭 합니다.
+자세한 내용은 [랩에 대 한 자동 종료 설정 구성](how-to-enable-shutdown-disconnect.md)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서를 참조하세요.
 
 - [팀에서 Azure Lab Services 사용 개요](lab-services-within-teams-overview.md)
-- [팀에서 랩 서비스 랩 시작 및 만들기](how-to-get-started-create-lab-within-teams.md)
-- [팀에서 Lab Services 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
-- [팀의 랩 서비스에서 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
-- [팀의 랩 서비스에서 VM (학생 보기)에 액세스](how-to-access-vm-for-students-within-teams.md)
+- [팀 내에서 랩 시작 및 만들기](how-to-get-started-create-lab-within-teams.md)
+- [팀 내의 랩 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
+- [팀 내에서 랩의 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
+- [팀 내에서 VM 액세스 – 학생 보기](how-to-access-vm-for-students-within-teams.md)

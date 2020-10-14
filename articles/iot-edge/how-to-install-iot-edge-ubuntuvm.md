@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 95fd10ab7de4885d3630b5defe4080fe0203b62f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14ef742c19556a9df2bd193a54bfaa1672d5964
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296980"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044227"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -50,7 +50,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
     **관리자 사용자 이름**: 배포에 대 한 루트 권한이 제공 되는 사용자 이름입니다.
 
-    **장치 연결 문자열**: 의도 한 [IoT Hub](../iot-hub/about-iot-hub.md)내에 생성 된 장치에 대 한 [장치 연결 문자열](how-to-register-device.md) 입니다.
+    **장치 연결 문자열**: 의도 한 [IoT Hub](../iot-hub/about-iot-hub.md)내에 생성 된 장치에 대 한 [장치 연결 문자열](./how-to-manual-provision-symmetric-key.md) 입니다.
 
     **VM 크기**: 배포할 가상 컴퓨터의 [크기](../cloud-services/cloud-services-sizes-specs.md) 입니다.
 

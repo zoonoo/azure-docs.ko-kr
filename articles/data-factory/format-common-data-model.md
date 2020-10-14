@@ -5,14 +5,14 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 483e26cf4044b909c8d7923cfd74bd6fcf871e2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905304"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042595"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Azure Data Factory의 공통 데이터 모델 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 
 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
+| 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | 예 | `'manifest'` 또는 `'model'` | manifestType |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
@@ -51,6 +51,8 @@ Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 
 | 모음 폴더 | 모음의 루트 위치 | 예, 매니페스트를 사용 하는 경우 | String | corpusPath |
 | 모음 엔터티 | 엔터티 참조 경로 | 예 | String | 엔터티 |
 | 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+
+원본 변환에서 사용 하려는 엔터티 정의가 데이터 폴더와 동일한 디렉터리에 있는 경우 "모음에서 entity 사용"을 선택 취소 하 고 엔터티 참조로 사용 하려는 엔터티의 엔터티를 입력 하기만 하면 됩니다.
 
 ### <a name="sink-settings"></a>싱크 설정
 
@@ -114,7 +116,7 @@ source(output(
 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 형식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
+| 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
 | 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | 아니요 | String | entityPath |

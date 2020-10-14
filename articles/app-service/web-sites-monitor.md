@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959794"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044533"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 은 [Azure Portal](https://portal.azure.com)에서 웹 앱, 모바일 및 API 앱에 대 한 기본 제공 모니터링 기능을 제공 합니다.
@@ -58,7 +58,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 ## <a name="understand-metrics"></a>메트릭 이해
 
 > [!NOTE]
-> **파일 시스템 사용량** 은 전역적으로 롤아웃 되는 새 메트릭입니다. 비공개 미리 보기에 대 한 액세스 권한이 부여 되지 않은 경우에는 데이터가 필요 하지 않습니다.
+> **파일 시스템 사용량** 은 전역적으로 롤아웃 되는 새 메트릭입니다. 앱이 App Service Environment에서 호스트 되는 경우를 제외 하 고는 데이터가 필요 하지 않습니다.
 > 
 
 > [!IMPORTANT]

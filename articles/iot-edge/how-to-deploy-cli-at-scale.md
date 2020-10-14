@@ -5,21 +5,21 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/14/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 5ad4e72f8992c8798ce17faec6c47b753c10cfc4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978835"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042986"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
-Azure 명령줄 인터페이스를 사용하여 한번에 여러 디바이스에 대한 지속적인 배포를 관리하는 **IoT Edge 자동 배포**를 만듭니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](/azure/iot-hub/iot-hub-automatic-device-management) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
+Azure 명령줄 인터페이스를 사용하여 한번에 여러 디바이스에 대한 지속적인 배포를 관리하는 **IoT Edge 자동 배포**를 만듭니다. IoT Edge의 자동 배포는 IoT Hub의 [자동 디바이스 관리](../iot-hub/iot-hub-automatic-device-management.md) 기능의 일부입니다. 배포는 여러 모듈을 여러 디바이스에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다.
 
 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 자동 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
@@ -32,7 +32,7 @@ Azure 명령줄 인터페이스를 사용하여 한번에 여러 디바이스에
 
   IoT Edge 장치를 설정 하지 않은 경우 Azure 가상 머신에서 만들 수 있습니다. 빠른 시작 문서 중 하나에 있는 단계에 따라 [가상 Linux 장치를 만들거나](quickstart-linux.md) [가상 Windows 장치를 만듭니다](quickstart.md).
 
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
+* 사용자 환경의 [Azure CLI](/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
@@ -43,13 +43,16 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 
+>[!NOTE]
+>이 샘플 배포 매니페스트는 IoT Edge 에이전트 및 허브에 스키마 버전 1.1을 사용 합니다. 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 모듈 시작 순서 및 경로 우선 순위와 같은 기능을 사용 하도록 설정 합니다.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -78,7 +81,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",

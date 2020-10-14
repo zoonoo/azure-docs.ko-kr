@@ -4,17 +4,17 @@ description: Azure IoT Tools에서 Visual Studio Code를 사용하여 배포 매
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/8/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bb3c03b16ae05d3e5e78378e88b9337842e3d98d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ccc87b1b3103e799a5974542de602090df8e1e4b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972631"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048392"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 
@@ -40,12 +40,15 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 
+>[!NOTE]
+>이 샘플 배포 매니페스트는 IoT Edge 에이전트 및 허브에 스키마 버전 1.1을 사용 합니다. 스키마 버전 1.1은 IoT Edge 버전 1.0.10 함께 출시 되었으며 모듈 시작 순서 및 경로 우선 순위와 같은 기능을 사용 하도록 설정 합니다.
+
    ```json
    {
      "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "runtime": {
              "type": "docker",
              "settings": {
@@ -88,7 +91,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
        },
        "$edgeHub": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "routes": {
                "route": "FROM /messages/* INTO $upstream"
            },

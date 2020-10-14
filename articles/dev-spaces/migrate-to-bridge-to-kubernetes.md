@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에서 Kubernetes로의 마이그레이션 프로세스에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
-ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019939"
+ms.locfileid: "92044703"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
 
@@ -108,7 +108,6 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
 
 1. *Azds* 의 환경 변수 설정과 같은 사용자 지정 항목을 프로젝트의 *값 .yml* 파일에 수동으로 마이그레이션합니다.
 1. 필드 `azds.yaml` 프로젝트에서 파일을 제거 합니다.
-1. 애플리케이션을 다시 배포합니다.
 1. 배포 된 응용 프로그램에서 Kubernetes에 대 한 브리지를 구성 합니다. Visual Studio에서 Kubernetes 연결을 사용 하는 방법에 대 한 자세한 내용은 [Visual studio에서 Kubernetes에 브리지 사용][use-btk-vs]을 참조 하세요. VS Code [VS Code에서 Bridge를 사용 하 여 Kubernetes][use-btk-vsc]를 참조 하세요.
 1. 새로 만든 Bridge를 사용 하 여 디버깅을 시작 하 고 디버그/시작 프로필을 Kubernetes.
 1. 필요에 따라 스크립트를 다시 실행 하 여 클러스터로 다시 배포할 수 있습니다.

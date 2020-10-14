@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a0ab8f8ff3f2134c205338dfe8e6f2e887a5a053
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949618"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048443"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -247,7 +247,7 @@ static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
 | 객실    | Room21 | Floor02 | contains | … |
 | 객실    | Room22 | Floor02 | contains | … |
 
-다음 코드는 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/overview) 를 사용 하 여 스프레드시트를 읽고 결과에서 Azure Digital twins 쌍 그래프를 구성 합니다.
+다음 코드는 [MICROSOFT GRAPH API](/graph/overview) 를 사용 하 여 스프레드시트를 읽고 결과에서 Azure Digital twins 쌍 그래프를 구성 합니다.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

@@ -3,12 +3,12 @@ title: 가상 WAN에서 공용 IP 기능을 사용 하는 방법
 description: 이 문서에서는 Azure 가상 WAN에서 공용 IP 기능을 사용 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744924"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048307"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Azure 가상 WAN에서 공용 IP 기능을 사용 하는 방법
 
@@ -27,11 +27,11 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 이 문서에서는 가상 WAN에서 공용 IP 기능을 사용 하 여 공용 네트워크를 통해 액세스할 수 있는 웹 서버, Vm (가상 머신) 및 호스트와 같은 리소스를 만드는 방법에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
--   Azure VMware 솔루션 환경
-
--   Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.
+- Azure VMware 솔루션 환경
+- Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.
+- 가상 WAN 허브 배포에 대 한 새로운 겹치지 않는 IP 범위 (일반적으로) `/24` 입니다.
 
 ## <a name="reference-architecture"></a>참조 아키텍처
 
@@ -62,15 +62,15 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="공용 IP 아키텍처 다이어그램" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  기본값을 그대로 적용 하거나 변경 하 고 **만들기**를 선택 합니다.
+1. 기본값을 그대로 적용 하거나 변경 하 고 **만들기**를 선택 합니다.
 
-   -  가상 광역 네트워크 리소스 그룹
+   - 가상 광역 네트워크 리소스 그룹
 
-   -  가상 광역 네트워크 이름
+   - 가상 광역 네트워크 이름
 
-   -  가상 허브 주소 블록
+   - 가상 허브 주소 블록 (겹치지 않는 새 IP 범위 사용)
 
-   -  공용 Ip 수 (1-100)
+   - 공용 Ip 수 (1-100)
 
 모든 구성 요소의 배포를 완료 하는 데 약 1 시간이 걸립니다. 이 배포는이 Azure VMware 솔루션 환경에 대해 이후의 모든 공용 Ip를 지 원하는 경우에만 한 번만 수행 하면 됩니다.  
 
@@ -122,7 +122,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
    -  Name
    -  규칙 컬렉션 형식-DNAT
-   -  우선 순위
+   -  우선순위
    -  규칙 컬렉션 작업 – 허용
    -  규칙 이름
    -  원본 유형- **IPaddress**

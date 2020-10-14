@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940708"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043394"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 Azure SQL Database 및 Azure SQL Managed Instance 기능이 나열 되어 있습니다. SQL Database 및 SQL Managed Instance 업데이트 및 개선 사항에 대해서는 [SQL Database & sql Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="whats-new"></a>새로운 기능은 무엇입니까?
+## <a name="whats-new"></a>새로운 기능
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 설명서는 개별 섹션으로 분할 되었습니다. 또한 관리 되는 인스턴스를 *Azure SQL Database 관리* 되는 인스턴스에서 *Azure SQL Managed Instance*로 참조 하는 방법도 업데이트 했습니다.
 
@@ -42,7 +42,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |**Azure SQL Database**|*단일 데이터베이스* Azure SQL Database| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다. |
 |**Azure SQL Database**|Azure SQL Database *탄력적 풀*| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다.  |
 |**Azure SQL Database** |Azure SQL Database | 용어는 동일 하 게 유지 되지만 이제는 단일 데이터베이스 및 탄력적 풀 배포에만 적용 되며 관리 되는 인스턴스는 포함 하지 않습니다. |
-| **Azure SQL**| N/A | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
+| **Azure SQL**| 해당 없음 | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
 
 ## <a name="features-in-public-preview"></a>공개 미리 보기의 기능
 
@@ -64,6 +64,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 | 기능 | 세부 정보 |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">분산 트랜잭션</a> | 관리 되는 인스턴스 간의 분산 트랜잭션. |
 | <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
 | <a href="https://aka.ms/managed-instance-aadlogins">인스턴스 수준 Azure AD 서버 보안 주체(로그인)</a> | <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 인스턴스 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 테이블의 변경 내용을 SQL Managed Instance, SQL Database 또는 SQL Server의 다른 데이터베이스로 복제 합니다. 또는 SQL Managed Instance 또는 SQL Server의 다른 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. 자세한 내용은 [AZURE SQL Managed Instance에서 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조 하세요. |
@@ -72,7 +73,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 ---
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 

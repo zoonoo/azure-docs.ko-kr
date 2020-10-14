@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015024"
+ms.locfileid: "92043071"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Azure Digital Twins를 다른 서비스와 통합
 
@@ -20,7 +20,7 @@ Azure Digital Twins는 일반적으로 다른 서비스와 함께 사용 되어 
 
 Azure Digital Twins는 [**이벤트 경로**](concepts-route-events.md)를 사용 하 여 원격 분석 및 알림을 전달 하는 데 사용 되는 [IoT Hub](../iot-hub/about-iot-hub.md) 또는 [Logic Apps](../logic-apps/logic-apps-overview.md)같은 업스트림 서비스에서 데이터를 받을 수 있습니다. 
 
-Azure Digital Twins는 저장소, 워크플로 통합, 분석 등을 위해 데이터를 [Azure Maps](../azure-maps/about-azure-maps.md) 및 [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md)같은 다운스트림 서비스로 라우팅할 수도 있습니다. 
+Azure Digital Twins는 저장소, 워크플로 통합, 분석 등을 위해 데이터를 [Azure Maps](../azure-maps/about-azure-maps.md) 및 [Time Series Insights](../time-series-insights/overview-what-is-tsi.md)같은 다운스트림 서비스로 라우팅할 수도 있습니다. 
 
 ## <a name="data-ingress"></a>데이터 수신
 
@@ -41,7 +41,7 @@ Azure Digital Twins는 연결 된 **끝점**에 데이터를 보낼 수 있습�
 
 끝점은 관리 Api 또는 Azure Portal를 사용 하 여 Azure Digital Twins에 연결 됩니다. 끝점을 Azure Digital Twins에 연결 하는 방법에 대 한 자세한 내용은 [*방법: 끝점과 경로 관리*](how-to-manage-routes-apis-cli.md)를 확인 하세요.
 
-[Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)또는 [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md)와 같이 궁극적으로 데이터를 전달할 수 있는 다른 많은 서비스가 있습니다. 이러한 데이터를 이러한 서비스로 전송 하려면 대상 서비스를 끝점에 연결 합니다.
+[Azure Storage](../storage/common/storage-introduction.md), [Azure Maps](../azure-maps/about-azure-maps.md)또는 [Time Series Insights](../time-series-insights/overview-what-is-tsi.md)와 같이 궁극적으로 데이터를 전달할 수 있는 다른 많은 서비스가 있습니다. 이러한 데이터를 이러한 서비스로 전송 하려면 대상 서비스를 끝점에 연결 합니다.
 
 예를 들어 Azure Maps를 사용 하 고 위치와 Azure Digital Twins 쌍의 상관 [관계를 설정](concepts-twins-graph.md)하려는 경우 Event Grid에서 Azure Functions를 사용 하 여 배포의 모든 서비스 간 통신을 설정할 수 있습니다. [ *방법: Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트* 에서이에 대해 자세히 알아보세요.](how-to-integrate-maps.md)
 

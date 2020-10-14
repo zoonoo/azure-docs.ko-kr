@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: be3cf7d946e7502147942fa8954ade70dd47bedf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839931"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042493"
 ---
 # <a name="configure-database-settings"></a>데이터베이스 설정 구성 
 
@@ -41,7 +41,7 @@ Azure Portal에서이 설정을 변경 하려면 FHIR 용 Azure API로 이동 �
 이 문서에서는 FHIR 용 Azure API에 대 한 RUs를 업데이트 하는 방법을 알아보았습니다. 고객 관리 키를 데이터베이스 설정으로 구성 하는 방법을 알아보려면 다음을 수행 하십시오.
 
 >[!div class="nextstepaction"]
->[고객 관리형 키 구성](bring-your-own-key.md)
+>[고객 관리형 키 구성](customer-managed-key.md)
 
 또는 완전히 관리 되는 Azure API for FHIR을 배포할 수 있습니다.
  
