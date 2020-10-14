@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dec0503ec369ae473fb592db958c0e30a27a4268
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 897df7f07a349457c49929b69993c75345f52241
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297436"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017814"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Media Services 용어 및 개념
 
@@ -30,7 +30,7 @@ ms.locfileid: "89297436"
 
 > [!NOTE]
 > 현재 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 Media Services V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, 관리 하지 않고, [api에 액세스 하는 방법에 대 한 정보를 가져올](./access-api-howto.md)수 있습니다.
-> 다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+> 다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

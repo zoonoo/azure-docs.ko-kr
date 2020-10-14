@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc17d27837d5b96f06b5172fb019db873418db94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922952"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019440"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
@@ -40,13 +40,13 @@ ms.locfileid: "87922952"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-새 서버를 만들 때 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet을 사용 하 여 관리자 매개 변수를 지정 합니다. <br>
-[AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet을 사용 하 여 기존 서버에 대 한 관리자 매개 변수를 수정 합니다.
+새 서버를 만들 때 [AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet을 사용 하 여 관리자 매개 변수를 지정 합니다. <br>
+[AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet을 사용 하 여 기존 서버에 대 한 관리자 매개 변수를 수정 합니다.
 
 ## <a name="rest-api"></a>REST API
 
-새 서버를 만들 때 [만들기](https://docs.microsoft.com/rest/api/analysisservices/servers/create)를 사용하여 asAdministrator 속성을 지정합니다. <br>
-기존 서버를 수정할 때 [업데이트](https://docs.microsoft.com/rest/api/analysisservices/servers/update)를 사용하여 asAdministrator 속성을 지정합니다. <br>
+새 서버를 만들 때 [만들기](/rest/api/analysisservices/servers/create)를 사용하여 asAdministrator 속성을 지정합니다. <br>
+기존 서버를 수정할 때 [업데이트](/rest/api/analysisservices/servers/update)를 사용하여 asAdministrator 속성을 지정합니다. <br>
 
 
 
@@ -54,4 +54,4 @@ ms.locfileid: "87922952"
 
 [인증 및 사용자 권한](analysis-services-manage-users.md)  
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
-[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)  
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)

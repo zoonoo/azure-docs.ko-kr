@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 67309aafe5c1bc841399006285a9862f711e4296
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948717"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018562"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -66,6 +66,13 @@ Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시�
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition을 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
 
 VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware Solution을 위한 VMware HCX EE는 현재 미리 보기로 제공되는 무료 기능/서비스이며 미리 보기 서비스 사용 약관을 따릅니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 해지/옵트아웃하는 옵션도 제공됩니다.
+
+#### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>VMRC를 통해 Azure VMware 솔루션 Vm을 관리할 수 있나요?
+예, 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하는 경우 (ESXi 호스트 이름을 확인할 수 있음)
+
+#### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm과 함께 VMRC를 설치 하 고 사용 하기 위한 특별 지침이 있나요?
+아니요, [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 구성 요소를 충족 합니다. 
+
 
 ## <a name="compute-network-storage-and-backup"></a>계산, 네트워크, 저장소 및 백업
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e47f82323919f4fec3f28ec2f7698d734ab72ac6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497765768c208354f6d2b47dbdda8c30aaed8423
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89490125"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016930"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -90,7 +90,7 @@ ms.locfileid: "89490125"
 | type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | 입력 |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming 및 SqlServerStoredProcedure 작업의 경우 아니요 <br/> <br/> 다른 모든 사용자의 경우 예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |예 |
-| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |HDInsight 활동, Azure Machine Learning 활동 및 저장 프로시저 활동의 경우 예 <br/><br/>다른 모든 사용자의 경우 아니요 |
+| linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |예를 들면 HDInsight 활동, Azure Machine Learning Studio (클래식) 활동 및 저장 프로시저 활동이 있습니다. <br/><br/>다른 모든 사용자의 경우 아니요 |
 | typeProperties |typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. |아니요 |
 | policy |작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. |아니요 |
 | scheduler |"scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 세트에서 가용성 속성](data-factory-create-datasets.md#dataset-availability)에 있는 속성과 같습니다. |아니요 |
@@ -282,7 +282,7 @@ Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-| 속성 | 설명 | 필수 | 기본값 |
+| 속성 | 설명 | 필수 | Default |
 | --- | --- | --- | --- |
 | name | 데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
 | type | 데이터 세트의 형식입니다. Azure Data Factory에서 지원되는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. Data Factory에서 지원하는 모든 데이터 저장소 및 데이터 세트 유형에 대해서는 [데이터 저장소](#data-stores) 섹션을 참조하세요. |
@@ -314,7 +314,7 @@ structure:
 
 다음 표에서는 **availability** 섹션에서 사용할 수 있는 속성을 설명 합니다.
 
-| 속성 | 설명 | 필수 | 기본값 |
+| 속성 | 설명 | 필수 | Default |
 | --- | --- | --- | --- |
 | frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
 | interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고:</b> 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
@@ -334,7 +334,7 @@ structure:
 
 데이터 세트 정의의 **정책** 섹션에서 데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다.
 
-| 정책 이름 | 설명 | 에 적용 | 필수 | 기본값 |
+| 정책 이름 | 설명 | 에 적용 | 필수 | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |**Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니요 |해당 없음 |
 | minimumRows |**Azure SQL Database** 또는 **Azure 테이블** 의 데이터가 최소 행 수를 포함 하는지 확인 합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |
@@ -354,7 +354,7 @@ structure:
 
 데이터 세트가 Azure Data Factory에서 생성되지 않는 한 **external**로 표시되어야 합니다. 이 설정은 작업 또는 파이프라인 연결을 활용하고 있지 않는 한 파이프라인에서 첫 번째 작업의 입력에 일반적으로 적용됩니다.
 
-| Name | 설명 | 필수 | 기본값 |
+| 이름 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | dataDelay |지정된 조각에 대한 외부 데이터의 가용성 확인을 지연하는 시간입니다. 예를 들어 데이터를 매시간 사용할 수 있는 경우 외부 데이터를 볼 수 있고 해당 조각이 준비(Ready) 상태인지 확인하기 위한 검사는 dataDelay를 사용하여 지연시킬 수 있습니다.<br/><br/>를 사용하여 지연할 수 있습니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이 설정은 과거의 조각(조각 종료 시간 + dataDelay < Now를 사용한 조각)에는 영향을 주지 않아 아무런 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
 | retryInterval |오류 발생과 다음 다시 시도 사이의 대기 시간입니다. 시도가 실패하는 경우 다음 시도는 retryInterval 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 기간이 1분이고 작업이 실패하는 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니요 |00:01:00 (1분) |
@@ -1446,7 +1446,7 @@ Azure Table 데이터 세트를 정의하려면 데이터 세트의 **type**을 
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |예. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1540,7 +1540,7 @@ Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink 
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
 | writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |timespan<br/><br/>예: "00:20:00"(20분) |No (기본적으로 스토리지 클라이언트 기본 시간 제한 값인 90초로 설정) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1626,7 +1626,7 @@ Amazon Redshift 데이터 세트를 정의하려면 데이터 세트의 **type**
 | tableName |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1654,7 +1654,7 @@ Amazon Redshift에서 데이터를 복사하는 경우 복사 활동의 **source
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1739,7 +1739,7 @@ DB2 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Relati
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 DB2 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우)
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "Db2DataSet",
@@ -1773,7 +1773,7 @@ IBM DB2에서 데이터를 복사하는 경우 복사 활동의 **source type**�
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "CopyDb2ToBlob",
@@ -1857,7 +1857,7 @@ MySQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rela
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1892,7 +1892,7 @@ MySQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "CopyMySqlToBlob",
@@ -1970,7 +1970,7 @@ Oracle 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Ora
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. |아니요(**OracleSource**의 **oracleReaderQuery**가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2005,9 +2005,9 @@ Oracle 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. `select * from MyTable` <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select * from MyTable` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select * from MyTable` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2147,7 +2147,7 @@ PostgreSQL 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "PostgreSqlDataSet",
@@ -2180,7 +2180,7 @@ PostgreSQL 데이터베이스에서 데이터를 복사하는 경우 복사 활�
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: "query": "select * from \"MySchema\".\"MyTable\"". |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2262,7 +2262,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
 ### <a name="dataset"></a>데이터 세트
 SAP BW 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정합니다. **RelationalTable** 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2370,7 +2370,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
 ### <a name="dataset"></a>데이터 세트
 SAP HANA 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정합니다. **RelationalTable** 형식의 SAP HANA 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2555,7 +2555,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName을 지정하지 않으면 str
 > **sqlReaderStoredProcedureName**을 사용하는 경우에도 데이터 세트 JSON에서 **tableName** 속성 값을 지정해야 합니다. 그러나 이 테이블에 대해 수행되는 유효성 검사는 없습니다.
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "SamplePipeline",
@@ -2705,7 +2705,7 @@ Sybase 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Rel
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Sybase 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2740,7 +2740,7 @@ Sybase 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2817,7 +2817,7 @@ Teradata 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
 ### <a name="dataset"></a>데이터 세트
 Teradata Blob 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정합니다. 현재 Teradata 데이터 세트에 대해 지원되는 형식 속성은 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "TeradataDataSet",
@@ -2940,7 +2940,7 @@ Cassandra 데이터 세트를 정의하려면 데이터 세트의 **type**을 **
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource**의 **query**가 정의되지 않은 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2978,7 +2978,7 @@ Cassandra에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 tableName 및 keyspace가 정의된 경우) |
 | consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |아니요. 기본값은 ONE입니다. |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3040,7 +3040,7 @@ MongoDB 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
 | gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |예 |
 | encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |선택 사항 |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3099,7 +3099,7 @@ MongoDB에서 데이터를 복사하는 경우 복사 활동의 **source type**�
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: `select * from MyTable` |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3380,7 +3380,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 > [!NOTE]
 > fileName 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3498,7 +3498,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 auto-
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3548,7 +3548,7 @@ auto-
 ### <a name="linked-service"></a>연결된 서비스
 FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **FtpServer**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 | 기본값 |
+| 속성 | 설명 | 필수 | Default |
 | --- | --- | --- | --- |
 | 호스트 |FTP 서버의 이름 또는 IP 주소 |예 |&nbsp; |
 | authenticationType |인증 유형 지정 |예 |기본, 익명 |
@@ -3647,7 +3647,7 @@ FTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileSh
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3787,7 +3787,7 @@ HDFS 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileS
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3989,7 +3989,7 @@ SFTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileS
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4218,7 +4218,7 @@ HTTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source typ
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 아니요. 기본값: 00:01:40 |
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4382,7 +4382,7 @@ OData 데이터 세트를 정의하려면 데이터 세트의 **type**을 **ODat
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 OData 소스에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 예 | 필수 |
+| 속성 | 설명 | 예제 | 필수 |
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |예 |
 
@@ -4623,7 +4623,7 @@ Salesforce 데이터 세트를 정의하려면 데이터 세트의 **type**을 *
 | --- | --- | --- |
 | tableName |Salesforce에 있는 테이블의 이름입니다. |아니요(**RelationalSource**의 **query**가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4659,7 +4659,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예제: `select * from MyTable__c` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 
 
@@ -4773,7 +4773,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 ### <a name="web-source-in-copy-activity"></a>복사 활동의 웹 소스
 웹 테이블에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **WebSource**로 설정합니다. 현재 복사 작업의 원본이 **WebSource**형식인 경우 추가 속성이 지원되지 않습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4824,7 +4824,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | --- | --- |
 | [주문형 HDInsight 클러스터](#on-demand-azure-hdinsight-cluster) 또는 [사용자 고유의 HDInsight 클러스터](#existing-azure-hdinsight-cluster) |[.Net 사용자 지정 작업](#net-custom-activity), [Hive 작업](#hdinsight-hive-activity), [Pig 작업](#hdinsight-pig-activity), [MapReduce 작업](#hdinsight-mapreduce-activity), Hadoop 스트리밍 작업, [Spark 작업](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [일괄 처리 실행 작업 Machine Learning](#machine-learning-batch-execution-activity), [Machine Learning 리소스 업데이트 작업](#machine-learning-update-resource-activity) |
+| [Azure Machine Learning Studio (클래식)](#azure-machine-learning-studio-classic) | [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (클래식) 리소스 업데이트 작업](#azure-machine-learning-studio-classic-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[데이터 레이크 분석 U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database), [Azure Synapse Analytics](#azure-synapse-analytics), [SQL Server](#sql-server-stored-procedure) |[저장 프로시저](#stored-procedure-activity) |
 
@@ -4931,11 +4931,11 @@ Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 머�
 }
 ```
 
-## <a name="azure-machine-learning"></a>Azure Machine Learning
-Azure Machine Learning 연결된 서비스를 만들어 데이터 팩터리에 Machine Learning 배치 점수 매기기 엔드포인트를 등록합니다. 이 연결된 서비스에서는 두 가지 데이터 변환 활동, 즉 [Machine Learning Batch 실행 활동](#machine-learning-batch-execution-activity)과, [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity)을 실행할 수 있습니다.
+## <a name="azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)
+데이터 팩터리를 사용 하 여 Studio (클래식) 일괄 처리 점수 매기기 끝점을 등록 하는 Azure Machine Learning Studio (클래식) 연결 된 서비스를 만듭니다. 이 연결 된 서비스에서 실행할 수 있는 두 가지 데이터 변환 작업: [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](#azure-machine-learning-studio-classic-batch-execution-activity), [Azure Machine Learning Studio (클래식) 리소스 작업을 업데이트](#azure-machine-learning-studio-classic-update-resource-activity)합니다.
 
 ### <a name="linked-service"></a>연결된 서비스
-다음 표에서는 Azure Machine Learning 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
+다음 표에서는 Studio (클래식) 연결 된 서비스의 Azure JSON 정의에 사용 되는 속성에 대 한 설명을 제공 합니다.
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
@@ -5064,8 +5064,8 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 [HDInsight MapReduce 작업](#hdinsight-mapreduce-activity) | Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다.
 [HDInsight 스트리밍 작업](#hdinsight-streaming-activity) | Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다.
 [HDInsight Spark 작업](#hdinsight-spark-activity) | Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다.
-[Machine Learning Batch 실행 작업](#machine-learning-batch-execution-activity) | Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 Batch 실행 활동을 사용하면 Machine Learning 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다.
-[Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity) | 시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. 업데이트 리소스 활동을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트할 수 있습니다.
+[Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](#azure-machine-learning-studio-classic-batch-execution-activity) | Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 Studio (클래식) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 일괄 처리 실행 작업을 사용 하 여 Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리에서 데이터에 대 한 예측을 만들 수 있습니다.
+[Azure Machine Learning Studio (클래식) 리소스 업데이트 작업](#azure-machine-learning-studio-classic-update-resource-activity) | 시간이 지남에 따라 Azure Machine Learning Studio (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 재 학습을 완료 한 후에는 다시 학습 machine learning 모델을 사용 하 여 점수 매기기 웹 서비스를 업데이트 하려고 합니다. 업데이트 리소스 활동을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트할 수 있습니다.
 [저장 프로시저 작업](#stored-procedure-activity) | Data Factory 파이프라인에서 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 Azure SQL Database, Azure Synapse Analytics, SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다.
 [Data Lake Analytics U-SQL 작업](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다.
 [.NET 사용자 지정 작업](#net-custom-activity) | Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다.
@@ -5346,14 +5346,14 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 
 활동에 대한 자세한 내용은 [Spark 활동](data-factory-spark.md) 문서를 참조하세요.
 
-## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch 실행 작업
-Azure Machine Learning studio Batch 실행 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLBatchExecution**이어야 합니다. Azure Machine Learning 연결 된 서비스를 먼저 만들고 이름을 **linkedServiceName** 속성의 값으로 지정 해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+## <a name="azure-machine-learning-studio-classic-batch-execution-activity"></a>Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업
+Azure Machine Learning Studio (클래식) Batch 실행 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLBatchExecution**이어야 합니다. 먼저 Studio (클래식) 연결 된 서비스를 만들고 이름을 **linkedServiceName** 속성의 값으로 지정 해야 합니다. 활동의 type을 AzureMLBatchExecution로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-webServiceInput | Azure Machine Learning Studio 웹 서비스에 대한 하나의 입력(input)으로 전달되는 데이터 세트입니다. 이 데이터 세트는 활동의 입력에도 포함되어야 합니다. |webServiceInput 또는 webServiceInputs를 사용합니다. |
-webServiceInputs | Azure Machine Learning Studio 웹 서비스에 대한 여러 입력(inputs)으로 전달되는 데이터 세트를 지정합니다. 웹 서비스에서 여러 입력을 사용하는 경우 webServiceInput 속성 대신 webServiceInputs 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다. | webServiceInput 또는 webServiceInputs를 사용합니다. |
-webServiceOutputs | Azure Machine Learning Studio 웹 서비스에 대한 출력으로 할당되는 데이터 세트입니다. 웹 서비스는 이 데이터 세트의 출력 데이터를 반환합니다. | 예 |
+webServiceInput | Studio (클래식) 웹 서비스에 대 한 입력으로 전달 될 데이터 집합입니다. 이 데이터 세트는 활동의 입력에도 포함되어야 합니다. |webServiceInput 또는 webServiceInputs를 사용합니다. |
+webServiceInputs | Studio (클래식) 웹 서비스에 대 한 입력으로 전달할 데이터 집합을 지정 합니다. 웹 서비스에서 여러 입력을 사용하는 경우 webServiceInput 속성 대신 webServiceInputs 속성을 사용합니다. **webServiceInputs**에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다. | webServiceInput 또는 webServiceInputs를 사용합니다. |
+webServiceOutputs | Studio (클래식) 웹 서비스에 대 한 출력으로 할당 된 데이터 집합입니다. 웹 서비스는 이 데이터 세트의 출력 데이터를 반환합니다. | 예 |
 globalParameters | 이 섹션에서 웹 서비스 매개 변수의 값을 지정합니다. | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
@@ -5397,13 +5397,13 @@ globalParameters | 이 섹션에서 웹 서비스 매개 변수의 값을 지정
 }
 ```
 
-JSON 예제에서 배포된 Azure Machine Learning 웹 서비스는 판독기와 기록기 모듈을 사용하여 Azure SQL Database에서 데이터를 읽고 씁니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.
+JSON 예제에서 배포 된 Studio (클래식) 웹 서비스는 판독기 및 기록기 모듈을 사용 하 여 Azure SQL Database에서 데이터를 읽고 씁니다. 이 웹 서비스는 네 개의 매개 변수, 즉 데이터베이스 서버 이름, 데이터베이스 이름, 서버 사용자 계정 이름 및 서버 사용자 계정 암호를 공개합니다.
 
 > [!NOTE]
 > AzureMLBatchExecution 작업의 입력 및 출력만 웹 서비스에 매개 변수로 전달될 수 있습니다. 예를 들어 위의 JSON 조각에서 MLSqlInput은 AzureMLBatchExecution 활동에 대한 입력이며, webServiceInput 매개 변수를 통해 입력으로 웹 서비스에 전달됩니다.
 
-## <a name="machine-learning-update-resource-activity"></a>Machine Learning 업데이트 리소스 활동
-Azure Machine Learning studio 리소스 업데이트 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLUpdateResource**이어야 합니다. Azure Machine Learning 연결 된 서비스를 먼저 만들고 이름을 **linkedServiceName** 속성의 값으로 지정 해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
+## <a name="azure-machine-learning-studio-classic-update-resource-activity"></a>Azure Machine Learning Studio (클래식) 리소스 업데이트 작업
+Azure Machine Learning Studio (클래식) 리소스 업데이트 작업 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 **AzureMLUpdateResource**이어야 합니다. 먼저 Studio (클래식) 연결 된 서비스를 만들고 이름을 **linkedServiceName** 속성의 값으로 지정 해야 합니다. 활동의 type을 AzureMLUpdateResource로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
@@ -5411,7 +5411,7 @@ trainedModelName | 다시 학습된 모델의 이름입니다. | 예 |
 trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 가리키는 데이터 세트입니다. | 예 |
 
 ### <a name="json-example"></a>JSON 예제
-파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Azure Machine Learning Studio 일괄 처리 실행 작업은 학습 데이터를 입력으로 사용하여 iLearner 파일을 출력으로 생성합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
+파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. Studio (클래식) Batch 실행 작업은 학습 데이터를 입력으로 사용 하 고 iLearner 파일을 출력으로 생성 합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
 
 
 ```json

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: a99aa53e954fe0b2822628ff91989e0b618028ae
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 0611297164f3fe0afb1e18afe3abbbac00fd9c9a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938409"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016368"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute 연결 파트너 및 피어링 위치
 
@@ -351,7 +351,7 @@ Azure 국가별 클라우드는 서로 격리되며 전 세계 상용 Azure에�
 | **[FlexManage](https://www.flexmanage.com/cloud)** | 북아메리카 |
 | **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 북아메리카 |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | 오스트레일리아 |
-| **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | 오스트레일리아 |
+| **[MOQdigital](https://www.moqdigital.com/insights)** | 오스트레일리아 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 유럽(독일) |
 | **[Nelite](https://www.exakis-nelite.com/offres/)** | 유럽 |
 | **[새 서명](https://newsignature.com/technologies/express-route/)** | 유럽 |

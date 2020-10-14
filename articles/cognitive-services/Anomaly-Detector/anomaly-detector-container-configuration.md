@@ -3,19 +3,19 @@ title: 변칙 탐지기 API에 대 한 컨테이너를 구성 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 변칙 탐지기 API 컨테이너 런타임 환경은 명령 인수를 사용 하 여 구성 됩니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
-ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903531"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019752"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Anomaly Detector 컨테이너 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "90903531"
 
 * Azure Portal: **변칙 탐지기** 개요, 레이블 `Endpoint`
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| 이름 | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](anomaly-detector-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -88,7 +88,7 @@ ms.locfileid: "90903531"
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용 하는 사용 권한 및 호스트 탑재 위치 권한에 따라 [호스트 컴퓨터](anomaly-detector-container-howto.md#the-host-computer)의 탑재 위치에 액세스할 수 없습니다. 
 
-|선택 사항| Name | 데이터 형식 | Description |
+|선택 사항| 이름 | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
 |허용되지 않음| `Input` | String | 변칙 탐지기 컨테이너는이를 사용 하지 않습니다.|
 |선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|

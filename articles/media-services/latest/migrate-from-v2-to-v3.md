@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b4e79a2aab5ca72ff8263bfc5734757bbff41005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297742"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017746"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -44,10 +44,10 @@ ms.locfileid: "89297742"
 *  v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. Azure Resource Manager 템플릿을 사용하여 변환, 스트리밍 엔드포인트, 라이브 이벤트 등을 만들고 배포할 수 있습니다.
 * [Openapi 사양 (이전의 Swagger)](https://aka.ms/ams-v3-rest-sdk) 문서입니다.
     파일 기반 인코딩을 포함하여 모든 서비스 구성 요소의 스키마를 공개합니다.
-* [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) 및 Ruby에 SDK를 사용할 수 있습니다.
-* [Azure CLI](https://aka.ms/ams-v3-cli-ref) 통합을 통해 간단한 스크립팅을 지원합니다.
+* [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://aka.ms/ams-v3-go-ref) 및 Ruby에 SDK를 사용할 수 있습니다.
+* [Azure CLI](/cli/azure/ams) 통합을 통해 간단한 스크립팅을 지원합니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.<br/>아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
@@ -69,7 +69,7 @@ ms.locfileid: "89297742"
     * v3 [자산](assets-concept.md)보기 (관리 안 함) 
     * [api에 액세스 하는 방법에 대 한 정보를 가져옵니다](./access-api-howto.md). 
 
-    다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+    다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 * 작업, 특히 비디오 또는 오디오 분석과 관련된 작업의 동시성 및 성능을 제어하려면 계정에서 MRU(미디어 예약 단위)를 프로비전해야 합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요. [Media Services v3에 대해 CLI 2.0](media-reserved-units-cli-how-to.md)을 사용 하거나 [Azure Portal](../previous/media-services-portal-scale-media-processing.md)를 사용 하거나 [v2 Api](../previous/media-services-dotnet-encoding-units.md)를 사용 하 여 mru를 관리할 수 있습니다. Media Services v2를 사용하든 아니면 v3 API를 사용하든, MRU를 프로비전해야 합니다.
 * v3 API로 만든 Media Services 엔터티는 v2 API를 사용하여 관리할 수 없습니다.  
 * V2 API의 모든 엔터티가 V3 API에 자동으로 표시 되는 것은 아닙니다.  다음은 호환 되지 않는 두 버전의 엔터티에 대 한 예입니다.  

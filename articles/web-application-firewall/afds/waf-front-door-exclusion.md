@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77925931"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018647"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>프런트 도어 서비스 제외 목록이 포함 된 WAF (웹 응용 프로그램 방화벽) 
 
@@ -45,6 +45,17 @@ ms.locfileid: "77925931"
 헤더 및 쿠키 이름은 대/소문자를 구분 하지 않습니다.
 
 이전 예제에 표시 된 것 처럼 관리 되는 규칙 집합 내의 모든 규칙, 특정 규칙 그룹에 대 한 규칙 또는 단일 규칙에 제외 목록을 적용할 수 있습니다. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>웹 응용 프로그램 방화벽 로그를 기반으로 제외 정의
+ [Azure 웹 응용 프로그램 방화벽 모니터링 및 로깅은](waf-front-door-monitor.md) 차단 된 요청에 대해 일치 하는 세부 정보를 표시 합니다. 헤더 값, 쿠키 값, post 인수 값 또는 쿼리 인수 값이 일부 규칙에 대해 가양성을 생성 하는 경우에는 해당 요청의 일부가 규칙에서 고려 되지 않도록 제외할 수 있습니다. 다음 표에서는 WAF 로그와 해당 제외 조건의 예제 값을 보여 줍니다.
+
+|WAF 로그에서 matchVariableName    |포털에서 규칙 제외|
+|--------|------|
+|CookieValue: SOME_NAME  |요청 쿠키 이름이 SOME_NAME 같습니다.|
+|HeaderValue: SOME_NAME  |요청 헤더 이름이 SOME_NAME 같습니다.|
+|PostParamValue: SOME_NAME|  요청 본문 게시 args 이름이 SOME_NAME 같습니다.|
+|QueryParamValue: SOME_NAME| 쿼리 문자열 인수 이름이 SOME_NAME 같습니다.|
+
 
 ## <a name="next-steps"></a>다음 단계
 

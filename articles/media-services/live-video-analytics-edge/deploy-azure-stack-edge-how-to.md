@@ -3,12 +3,12 @@ title: Azure Stack Edge에 Live Video Analytics 배포
 description: 이 문서에서는 Azure Stack Edge에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b13bb779a5a780b21f2d5d96ed8831ef5c26564d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33b6fb0f0dc5c5b733a0fcb021e2792ce9c6ec6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937714"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019599"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Live Video Analytics 배포
 
@@ -21,27 +21,27 @@ ms.locfileid: "90937714"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [소유자 권한이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)있는 Azure 구독입니다.
-* [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) 리소스
+* [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner)있는 Azure 구독입니다.
+* [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) 리소스
    
-* [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* Live Video Analytics 모듈의 [서비스 사용자](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to#create-service-principal) 입니다.
+* [IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* Live Video Analytics 모듈의 [서비스 사용자](./create-custom-azure-resource-manager-role-how-to.md#create-service-principal) 입니다.
 
    미국 동부 2, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부 2, 미국 서 부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 중 하나를 사용 하 여 IoT Hub를 사용할 수 있습니다.
 * 스토리지 계정
 
     범용 v2 (GPv2) 저장소 계정을 사용 하는 것이 좋습니다.  
-    범용 [v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade?tabs=azure-portal)에 대해 자세히 알아보세요.
+    범용 [v2 저장소 계정](../../storage/common/storage-account-upgrade.md?tabs=azure-portal)에 대해 자세히 알아보세요.
 * 개발 컴퓨터의 [Visual Studio Code](https://code.visualstudio.com/). [Azure IoT Tools 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)이 있는지 확인합니다.
 * 개발 컴퓨터가 연결된 네트워크에서 5671 포트를 통해 고급 메시지 큐 프로토콜을 허용하는지 확인합니다. 이렇게 설정하면 Azure IoT Tools에서 Azure IoT Hub와 통신할 수 있습니다.
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>라이브 비디오 분석을 사용 하기 위한 Azure Stack Edge 구성
 
-Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비스 제공 서비스 솔루션 및 AI 지원에 지 컴퓨팅 장치입니다. [Azure Stack Edge 및 자세한 설치 지침을](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)참조 하세요. 시작 하려면 아래 링크의 지침을 따르세요.
+Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비스 제공 서비스 솔루션 및 AI 지원에 지 컴퓨팅 장치입니다. [Azure Stack Edge 및 자세한 설치 지침을](../../databox-online/azure-stack-edge-deploy-prep.md)참조 하세요. 시작 하려면 아래 링크의 지침을 따르세요.
 
-* [Azure Stack Edge/Data Box Gateway 리소스 만들기](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep)
-* [설치 및 설정](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-install)
-* [연결 및 활성화](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate)
+* [Azure Stack Edge/Data Box Gateway 리소스 만들기](../../databox-online/azure-stack-edge-deploy-prep.md)
+* [설치 및 설정](../../databox-online/azure-stack-edge-deploy-install.md)
+* [연결 및 활성화](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
 
 ### <a name="attach-an-iot-hub-to-azure-stack-edge"></a>Azure Stack에 지에 IoT Hub 연결
 
@@ -80,7 +80,7 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
 
 * Azure Stack Edge 리소스를 활성화 했습니다.
 * Azure Stack Edge 리소스에 액세스 하기 위해 PowerShell 5.0 이상을 실행 하는 Windows 클라이언트 시스템에 액세스할 수 있습니다.
-* Kubernetes 클러스터를 배포 하려면 [로컬 웹 UI](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate#connect-to-the-local-web-ui-setup)를 통해 Azure Stack Edge 리소스를 구성 해야 합니다. 
+* Kubernetes 클러스터를 배포 하려면 [로컬 웹 UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup)를 통해 Azure Stack Edge 리소스를 구성 해야 합니다. 
     
     * 계산을 사용 하도록 설정 하려면 장치의 로컬 웹 UI에서 계산 페이지로 이동 합니다.
     

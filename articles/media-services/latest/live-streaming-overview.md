@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328346"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019803"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -37,7 +37,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 이 문서에서는 Media Services와 라이브 스트리밍에 대 한 개요 및 지침을 제공 하 고 다른 관련 문서에 대 한 링크를 제공 합니다.
  
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, api 액세스에 대 한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 V3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md)을 보고, api 액세스에 대 한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="dynamic-packaging-and-delivery"></a>동적 패키징 및 배달
 

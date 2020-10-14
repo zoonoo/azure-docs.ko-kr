@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87047490"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018885"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 캐릭터 검색(미리 보기)
 
@@ -55,7 +55,7 @@ Video Indexer 계정의 유형에 따라 다양 한 기능 집합을 사용할 �
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Custom Vision 계정 연결 (유료 계정에만 해당)
 
-Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision 계정을 연결 해야 합니다. Custom Vision 계정이 아직 없는 경우 새로 만드세요. 자세한 내용은 [Custom Vision](../../cognitive-services/custom-vision-service/home.md)를 참조 하세요.
+Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision 계정을 연결 해야 합니다. Custom Vision 계정이 아직 없는 경우 새로 만드세요. 자세한 내용은 [Custom Vision](../../cognitive-services/custom-vision-service/overview.md)를 참조 하세요.
 
 > [!NOTE]
 > 두 계정 모두 동일한 지역에 있어야 합니다. Custom Vision 통합은 현재 일본 지역에서 지원 되지 않습니다.
@@ -160,7 +160,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. Custom Vision 계정을 연결 합니다.
 
     Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision 계정을 연결 해야 합니다. <br/>
-    Custom Vision 계정이 아직 없는 경우 새로 만드세요. 자세한 내용은 [Custom Vision](../../cognitive-services/custom-vision-service/home.md)를 참조 하세요.
+    Custom Vision 계정이 아직 없는 경우 새로 만드세요. 자세한 내용은 [Custom Vision](../../cognitive-services/custom-vision-service/overview.md)를 참조 하세요.
 
     [API를 사용 하 여 Custom Vision 계정에 연결](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag)합니다.
 1. 애니메이션 문자 모델을 만듭니다.

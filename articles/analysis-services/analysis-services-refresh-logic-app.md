@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: c4908373035b1a3148cd77db513f4e6bd23a50d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540730"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019089"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
 
@@ -67,7 +67,7 @@ HTTP 작업을 다음과 같이 구성 합니다.
 |---------|---------|
 |**메서드**     |POST         |
 |**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \/ /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
-|**헤더**     |   Content-type, application/json <br /> <br />  ![headers](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |
 |**인증**     |Active Directory OAuth         |
 |**테넌트**     |Azure Active Directory TenantId를 입력 합니다.         |
@@ -117,4 +117,4 @@ Data Factory 등의 오케스트레이션 도구를 사용 하 여 모델 새로
 ## <a name="next-steps"></a>다음 단계
 
 [샘플](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

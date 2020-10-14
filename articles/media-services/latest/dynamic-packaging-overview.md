@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: 797ba00820e7ff9d96868acdfc1dddfff3d21623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7941d542ca2cab1637b9edaef057f740a9a1b7ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598284"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016828"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 �
 Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.md)(원본)는 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 원본 서비스와 동적(적시) 패키징을 나타냅니다. 또한 다음 섹션에 설명된 일반적인 스트리밍 미디어 프로토콜중 하나를 사용합니다. *동적 패키징*은 모든 스트리밍 엔드포인트에 표준으로 제공되는 기능입니다.
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> [Azure Portal](https://portal.azure.com/)을 사용하여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고, API 액세스에 대한 정보를 가져올 수 있습니다. 다른 모든 관리 작업(예제: 변환 및 작업)의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>전송할 원본 파일 준비
 
@@ -88,7 +88,7 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 1. MP4, QuickTime/MOV 또는 기타 지원되는 파일 형식과 같은 [입력 파일을 업로드](job-input-from-http-how-to.md)합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
 1. Mezzanine 파일을 H.264/AAC MP4 적응 비트 전송률 세트로 [인코딩](#encode-to-adaptive-bitrate-mp4s)합니다.
 
-    인코딩된 파일이 이미 있고, 파일을 복사하고, 스트리밍하는 경우 다음을 사용합니다. [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) 및 [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. 결과적으로 스트리밍 매니페스트(.ism 파일)가 포함된 새 MP4 파일이 생성됩니다.
+    인코딩된 파일이 이미 있고, 파일을 복사하고, 스트리밍하는 경우 다음을 사용합니다. [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) 및 [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio) API. 결과적으로 스트리밍 매니페스트(.ism 파일)가 포함된 새 MP4 파일이 생성됩니다.
 1. 적응 비트 전송률 MP4 세트가 포함된 출력 자산을 게시합니다. [스트리밍 로케이터](streaming-locators-concept.md)를 만들어 게시합니다.
 1. 다양한 형식(HLS, MPEG-DASH 및 부드러운 스트리밍)을 대상으로 하는 URL을 작성합니다. *스트리밍 엔드포인트*는 다양한 형식에 대한 정확한 매니페스트 및 요청의 서비스를 담당합니다.
     

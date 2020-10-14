@@ -3,19 +3,19 @@ title: Anomaly Detector API를 사용하는 경우 모범 사례
 titleSuffix: Azure Cognitive Services
 description: 변칙 탐지기 API를 사용 하 여 변칙을 검색할 때 모범 사례에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: aahi
-ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67721631"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018392"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>변칙 탐지기 API 사용에 대 한 모범 사례
 

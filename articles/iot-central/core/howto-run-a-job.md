@@ -3,16 +3,16 @@ title: Azure IoT Central 애플리케이션에서 작업 만들기 및 실행 | 
 description: Azure IoT Central 작업을 사용 하면 속성 업데이트 또는 명령 실행과 같은 대량 장치 관리 기능을 사용할 수 있습니다.
 ms.service: iot-central
 services: iot-central
-author: sarahhubbard
-ms.author: sahubbar
+author: philmea
+ms.author: philmea
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5fc349ae7d92bf36cfe9b1f3272cc1f4f7446b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91573972"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017950"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
@@ -85,7 +85,7 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
 | 상태 메시지       | 상태 의미                                          |
 | -------------------- | ------------------------------------------------------- |
-| Completed            | 이 작업은 모든 장치에서 실행 되었습니다.              |
+| 완료됨            | 이 작업은 모든 장치에서 실행 되었습니다.              |
 | Failed               | 이 작업이 실패 하 여 장치에서 완전히 실행 되지 않았습니다.  |
 | Pending              | 이 작업은 장치에서 아직 실행 되지 않았습니다.         |
 | 실행 중              | 이 작업은 현재 장치에서 실행 되 고 있습니다.             |
@@ -103,7 +103,7 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
 | 상태 메시지       | 상태 의미                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Completed            | 이 장치에서 작업을 실행 했습니다.                                     |
+| 완료됨            | 이 장치에서 작업을 실행 했습니다.                                     |
 | Failed               | 이 장치에서 작업을 실행 하지 못했습니다. 오류 메시지에 자세한 정보가 표시 됩니다.  |
 | Pending              | 이 장치에서 작업이 아직 실행 되지 않았습니다.                                   |
 

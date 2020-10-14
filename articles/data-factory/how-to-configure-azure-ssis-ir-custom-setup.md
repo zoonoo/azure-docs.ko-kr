@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/28/2020
-ms.openlocfilehash: 4ef569864b27eff7f57aa2b0a922034fa28f587c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4708e49ebd45210e381a1b58752bbfa287a9eeb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405244"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019864"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -127,7 +127,7 @@ ADF UI에서 express 사용자 지정 설정으로 Azure-SSIS IR를 프로 비�
 
 #### <a name="running-cmdkey-command"></a>Cmdkey 명령 실행
 
-Express 사용자 지정 설치에 대 한 **실행 cmdkey 명령** 유형을 선택 하는 경우 Azure-SSIS IR에서 Windows cmdkey 명령을 실행할 수 있습니다. 이렇게 하려면 각각 지정 된 컴퓨터 이름 또는 도메인 이름, 사용자 이름, 계정 이름, 암호 또는 계정 키를 **/add**, **/user**및 **/Pass** 텍스트 상자에 입력 합니다. 이렇게 하면 Azure-SSIS IR에서 SQL Server, 파일 공유 또는 Azure Files에 대 한 액세스 자격 증명을 유지할 수 있습니다. 예를 들어 Azure Files에 액세스 하려면 `YourAzureStorageAccountName.file.core.windows.net` `azure\YourAzureStorageAccountName` `YourAzureStorageAccountKey` 각각 **/Add**, **/user**및 **/Pass**에 대해, 및를 입력할 수 있습니다. 이는 로컬 컴퓨터에서 Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 명령을 실행하는 것과 비슷합니다.
+Express 사용자 지정 설치에 대 한 **실행 cmdkey 명령** 유형을 선택 하는 경우 Azure-SSIS IR에서 Windows cmdkey 명령을 실행할 수 있습니다. 이렇게 하려면 각각 지정 된 컴퓨터 이름 또는 도메인 이름, 사용자 이름, 계정 이름, 암호 또는 계정 키를 **/add**, **/user**및 **/Pass** 텍스트 상자에 입력 합니다. 이렇게 하면 Azure-SSIS IR에서 SQL Server, 파일 공유 또는 Azure Files에 대 한 액세스 자격 증명을 유지할 수 있습니다. 예를 들어 Azure Files에 액세스 하려면 `YourAzureStorageAccountName.file.core.windows.net` `azure\YourAzureStorageAccountName` `YourAzureStorageAccountKey` 각각 **/Add**, **/user**및 **/Pass**에 대해, 및를 입력할 수 있습니다. 이는 로컬 컴퓨터에서 Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 명령을 실행하는 것과 비슷합니다. 현재에서는 cmdkey 명령 실행을 위한 하나의 빠른 사용자 지정 설치만 지원 됩니다. 여러 cmdkey 명령을 실행 하려면 표준 사용자 지정 설치를 대신 사용 합니다.
 
 #### <a name="adding-environment-variables"></a>환경 변수 추가
 
@@ -143,7 +143,7 @@ Express 사용자 지정 설치에 대해 **사용이 허가 된 구성 요소**
 
    * **Sentryone의 작업 팩터리** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 sentryone에서 구성 요소에 대 한 [작업 팩터리](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **2020.1.3**입니다.
 
-   * Oh22's HEDDA를 선택 하는 경우 ** IO** 구성 요소 HEDDA를 설치할 수 있습니다 [. ](https://hedda.io/ssis-component/) Azure-SSIS IR에서 oh22의 IO 데이터 품질/정리 구성 요소입니다. 이렇게 하려면 서비스를 미리 구매 해야 합니다. 현재 통합 버전은 **1.0.14**입니다.
+   * Oh22's HEDDA를 선택 하는 경우 ** IO** 구성 요소 HEDDA를 설치할 수 있습니다 [. ](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) Azure-SSIS IR에서 oh22의 IO 데이터 품질/정리 구성 요소입니다. 이렇게 하려면 서비스를 미리 구매 해야 합니다. 현재 통합 버전은 **1.0.14**입니다.
 
    * **Oh22's SQLPhonetics.NET** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 oh22에서 [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) 데이터 품질/일치 구성 요소를 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **1.0.45**입니다.
 
@@ -175,7 +175,7 @@ Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS 
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService|CData.Standard|CData.Extended or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -242,6 +242,16 @@ Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS 
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "CData.Standard")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "CData.Extended")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }    
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -288,6 +298,8 @@ Azure PowerShell를 사용 하 여 사용자 지정 설정과 함께 Azure-SSIS 
       * Azure-SSIS IR의 각 노드에 이전 버전의 .NET Framework를 설치 하기 위한 사용자 지정 설치 스크립트 (*기본 .cmd*)가 포함 된 *.net FRAMEWORK 3.5* 폴더입니다. 이 버전은 일부 사용자 지정 구성 요소에 필요할 수 있습니다.
 
       * *BCP* 폴더-Azure-SSIS IR의 각 노드에 SQL Server 명령줄 유틸리티 (*MsSqlCmdLnUtils.msi*)를 설치 하는 사용자 지정 설치 스크립트 (*기본 .cmd*)를 포함 합니다. 이러한 유틸리티 중 하나는*bcp*(대량 복사 프로그램)입니다.
+
+      * 사용자 지정 설치*스크립트 (test.com)를*포함 하는 *dns 접미사* 폴더는 정규화 되지 않은 단일 레이블 도메인 이름에 자체 dns 접미사 (예: *test.com*)를 추가 하 고 정규화 된 도메인 이름 (FQDN)으로 전환 하 여 Azure-SSIS IR의 dns 쿼리에서 사용 합니다.
 
       * 사용자 지정 설치 스크립트 (*기본 .cmd*)를 포함 하는 *EXCEL* 폴더로, Azure-SSIS IR의 각 노드에 c # 어셈블리 및 라이브러리를 설치 합니다. 스크립트 태스크에서이를 사용 하 여 Excel 파일을 동적으로 읽고 쓸 수 있습니다. 
       

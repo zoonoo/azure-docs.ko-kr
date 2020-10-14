@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b2454bb0e39f5923af00502367f7b16bb040a4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268386"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018987"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
 
@@ -127,7 +127,7 @@ MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)* 를
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST API](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
+로케이터의 만료 날짜를 업데이트하려면 [REST API](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator)를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 공유 액세스 서명 로케이터의 만료 날짜를 업데이트할 경우 URL이 변경됩니다.

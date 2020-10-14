@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49cac230363750e481e165712bf4f619e5cba7ae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267975"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017848"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
@@ -47,7 +47,7 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
 * v3 [자산](assets-concept.md)보기 (관리 안 함) 
 * [api에 액세스 하는 방법에 대 한 정보를 가져옵니다](./access-api-howto.md). 
 
-다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+다른 모든 관리 작업 (예: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 <!-- Move this section. This section should be moved to conceptual.  It doesn't belong in task based -->
 
 ### <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Azure Portal를 사용 하 여 Media Services 계정 만들기
@@ -56,7 +56,7 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
 1. **+ 리소스 만들기**  >  **미디어**  >  **Media Services**를 클릭 합니다.
 1. **Media Services 계정 만들기** 섹션에서 필요한 값을 입력 합니다.
 
-    | Name | 설명 |
+    | 이름 | 설명 |
     | ---|---|
     |**계정 이름**|새 Media Services 계정의 이름을 입력 합니다. Media Services 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.|
     |**구독**|둘 이상의 구독이 있는 경우 액세스 권한이 있는 Azure 구독 목록에서 하나를 선택 합니다.|

@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8cd72d34535ac3a2aec60aa3d2369da34dd7194
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997458"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017406"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -31,7 +31,7 @@ ms.locfileid: "88997458"
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
 - 데이터 이동 [작업](data-factory-data-movement-activities.md) 을 통해 [지원 되는 원본 및 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)간에 데이터를 이동 합니다.
-- Azure HDInsight, Azure Batch 및 Azure Machine Learning와 같은 계산 서비스를 사용 하 여 데이터를 변환 하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 입니다.
+- Azure HDInsight, Azure Batch 및 Azure Machine Learning Studio (클래식)와 같은 계산 서비스를 사용 하 여 데이터를 변환 하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 입니다.
 
 Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동하려면 고유의 데이터 이동 논리가 포함된 **사용자 지정 작업**을 만들어서 파이프라인에 해당 작업을 사용합니다. 마찬가지로, Data Factory에서 지원되지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 변환 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용합니다.
 
@@ -50,7 +50,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
 이 연습에서는 Azure Batch를 컴퓨팅 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션**에서 실행되는 컴퓨팅 집약적 작업을 예약하고, 작업 요구에 맞게 컴퓨팅 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
-자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
+자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 수행하는 단계는 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)를 사용 하 여 **Azure Batch 계정을** 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
@@ -97,7 +97,7 @@ public IDictionary<string, string> Execute(
 
 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
-### <a name="procedure"></a>프로시저
+### <a name="procedure"></a>절차
 1. **.NET 클래스 라이브러리** 프로젝트를 만듭니다.
    <ol type="a">
      <li>Visual Studio를 실행합니다.</li>
@@ -1022,10 +1022,10 @@ namespace DataFactoryAPITestApp
 GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) 샘플은 Visual Studio 내에서 사용자 지정 .NET 작업을 디버깅할 수 있는 도구를 포함하고 있습니다.
 
 ## <a name="sample-custom-activities-on-github"></a>GitHub의 샘플 사용자 지정 작업
-| 예제 | 사용자 지정 작업의 기능 |
+| 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
 | [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 엔드포인트에서 Azure Blob Storage로 데이터를 다운로드합니다. |
-| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio 모델을 호출하고 감정 분석, 채점, 예측 등을 수행합니다. |
+| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio (클래식) 모델을 호출 하 고 감정 분석, 점수 매기기, 예측 등을 수행 합니다. |
 | [R 스크립트를 실행](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)합니다. |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
 | [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다. |
 | [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Azure Analysis Services에서 모델을 다시 처리합니다. |

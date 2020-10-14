@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 9d0bfdf4719b4c3a92a0632a1edda63324d700e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072035"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019514"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양 
 
@@ -39,7 +39,7 @@ ms.locfileid: "87072035"
 ![수집 흐름][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. bitstream 형식 – ISO 14496-12 조각화 된 MP4
-이 문서에서 설명하는 라이브 스트리밍 수집용 유선 형식은 [ISO-14496-12]를 기반으로 합니다. 주문형 비디오 파일 및 라이브 스트리밍 수집 모두에 대한 조각화된 MP4 형식 및 확장에 대한 자세한 내용은 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)을 참조하세요.
+이 문서에서 설명하는 라이브 스트리밍 수집용 유선 형식은 [ISO-14496-12]를 기반으로 합니다. 주문형 비디오 파일 및 라이브 스트리밍 수집 모두에 대한 조각화된 MP4 형식 및 확장에 대한 자세한 내용은 [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)을 참조하세요.
 
 ### <a name="live-ingest-format-definitions"></a>라이브 수집 형식 정의
 다음 목록에는 Azure Media Services에 라이브 수집을 적용하는 특별한 형식 정의가 설명되어 있습니다.
@@ -70,7 +70,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 1. HTTP POST 요청이 스트림의 끝 이전에 TCP 오류로 종료되거나 시간 초과된 경우, 인코더는 반드시 새 연결을 사용하여 새 POST 요청을 발행하고 이전 요구 사항을 따라야 합니다. 또한 인코더는 반드시 스트림에 각 추적에 대한 이전 두 MP4 조각을 다시 전송하고, 미디어 타임라인에서 불연속성을 발생시키지 않고 다시 시작해야 합니다. 각 트랙에 대해 마지막 2개의 MP4 조각을 다시 전송하여 데이터 손실이 없음을 보증합니다. 즉, 하나의 스트림이 오디오 및 비디오 트랙을 모두 포함하고 현재의 POST 요청이 실패한 경우, 데이터 손실이 없도록 인코더는 반드시 다시 연결하고 이전에 성공적으로 전송된 오디오 트랙에 대해 마지막 2개의 조각 및 이전에 성공적으로 전송된 비디오 트랙에 대해 마지막 2개의 조각을 다시 전송해야 합니다. 인코더는 반드시 다시 연결될 때 다시 전송되는 미디어 조각의 “정방향” 버퍼를 유지해야 합니다.
 
 ## <a name="5-timescale"></a>5. 날짜 표시줄
-[[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)은 **SmoothStreamingMedia**(섹션 2.2.2.1), **StreamElement**(섹션 2.2.2.3), **StreamFragmentElement**(섹션 2.2.2.6) 및 **LiveSMIL**(섹션 2.2.7.3.1)에 대한 시간 간격의 사용법에 대해 설명합니다. 시간 간격 값이 없는 경우 사용되는 기본값은 10,000,000(10MHz)입니다. 부드러운 스트리밍 형식 사양이 다른 시간 간격 값을 차단하지 않더라도 대부분의 인코더 구현은 이 기본값(10MHz)을 사용하여 부드러운 스트리밍 수집 데이터를 생성합니다. [Azure 미디어 동적 패키징](./previous/media-services-dynamic-packaging-overview.md) 기능에 따라 비디오 스트림에는 90KHz 시간 간격을, 오디오 스트림에는 44.1KHz 또는 48.1KHz를 사용하는 것이 좋습니다. 다른 스트림에 다른 시간 간격 값이 사용되는 경우 스트림 수준 시간 간격은 반드시 전송되어야 합니다. 자세한 내용은 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)을 참조하세요.     
+[[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)은 **SmoothStreamingMedia**(섹션 2.2.2.1), **StreamElement**(섹션 2.2.2.3), **StreamFragmentElement**(섹션 2.2.2.6) 및 **LiveSMIL**(섹션 2.2.7.3.1)에 대한 시간 간격의 사용법에 대해 설명합니다. 시간 간격 값이 없는 경우 사용되는 기본값은 10,000,000(10MHz)입니다. 부드러운 스트리밍 형식 사양이 다른 시간 간격 값을 차단하지 않더라도 대부분의 인코더 구현은 이 기본값(10MHz)을 사용하여 부드러운 스트리밍 수집 데이터를 생성합니다. [Azure 미디어 동적 패키징](./previous/media-services-dynamic-packaging-overview.md) 기능에 따라 비디오 스트림에는 90KHz 시간 간격을, 오디오 스트림에는 44.1KHz 또는 48.1KHz를 사용하는 것이 좋습니다. 다른 스트림에 다른 시간 간격 값이 사용되는 경우 스트림 수준 시간 간격은 반드시 전송되어야 합니다. 자세한 내용은 [[MS-SSTR]](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)을 참조하세요.     
 
 ## <a name="6-definition-of-stream"></a>6. "스트림"의 정의
 스트림은 라이브 프레젠테이션 작성, 스트리밍 장애 조치(failover) 및 중복성 시나리오 처리를 위한 라이브 수집의 기본 작업 단위입니다. 스트림은 단일 트랙 또는 여러 트랙을 포함할 수 있는 하나의 고유한 조각화된 MP4 비트스트림으로 정의됩니다. 전체 라이브 프레젠테이션은 라이브 인코더의 구성에 따라 하나 이상의 스트림을 포함할 수 있습니다. 다음 예에서는 스트림을 사용하여 전체 라이브 프레젠테이션을 작성하는 다양한 옵션을 설명합니다.

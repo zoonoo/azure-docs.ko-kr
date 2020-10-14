@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e64ffe5007d27a44167f08807a9694875fe48c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28f414c5eaaea7b987f2c3694cb8fc73b70838e9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050444"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018766"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -46,21 +46,21 @@ SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또
 
 |Cmdlet|Description|
 |------------|-----------------| 
-|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Analysis Services 데이터베이스를 백업합니다.|  
-|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|데이터베이스 역할에서 구성원을 제거합니다.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|TMSL 스크립트를 실행합니다.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|데이터베이스를 처리합니다.|  
-|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|파티션을 처리합니다.| 
-|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|테이블을 처리합니다.|  
-|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|파티션을 병합합니다.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Analysis Services 데이터베이스를 복원합니다.| 
+|[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
+|[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase)|Analysis Services 데이터베이스를 백업합니다.|  
+|[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|데이터베이스 역할에서 구성원을 제거합니다.|   
+|[Invoke-ASCmd](/powershell/module/sqlserver/invoke-ascmd)|TMSL 스크립트를 실행합니다.|
+|[Invoke-ProcessASDatabase](/powershell/module/sqlserver/invoke-processasdatabase)|데이터베이스를 처리합니다.|  
+|[Invoke-ProcessPartition](/powershell/module/sqlserver/invoke-processpartition)|파티션을 처리합니다.| 
+|[Invoke-ProcessTable](/powershell/module/sqlserver/invoke-processtable)|테이블을 처리합니다.|  
+|[Merge-Partition](/powershell/module/sqlserver/merge-partition)|파티션을 병합합니다.|  
+|[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase)|Analysis Services 데이터베이스를 복원합니다.| 
   
 
 ## <a name="related-information"></a>관련 정보
 
-* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
-* [SQL Server PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [SSMS 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SQL Server PowerShell](/sql/powershell/sql-server-powershell)      
+* [SQL Server PowerShell 모듈 다운로드](/sql/ssms/download-sql-server-ps-module)   
+* [SSMS 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)(PowerShell 갤러리의 SqlServer 모듈)    
-* [호환성 수준 1200 이상에 대한 테이블 형식 모델 프로그래밍](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [호환성 수준 1200 이상에 대한 테이블 형식 모델 프로그래밍](/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

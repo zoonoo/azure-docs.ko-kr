@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29a889fc15b1889711d08d3386920652a8bc8f57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3efa23ad0b5e79e84a2436aaf56b67a805d05f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269049"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017236"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 
@@ -35,7 +35,7 @@ Microsoft Azure Media Services는 **미디어 인코더 Premium 워크플로** �
 
 다음 토픽에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간략하게 설명합니다.
 
-* [미디어 인코더 Premium 워크플로에서 지원하는 형식](media-services-premium-workflow-encoder-formats.md) – **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
+* [미디어 인코더 Premium 워크플로에서 지원하는 형식](./media-services-encode-asset.md) – **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
 * [Azure 주문형 미디어 인코더 개요 및 비교](media-services-encode-asset.md)에서는 **Media Encoder Premium Workflow** 및 **Media Encoder Standard**의 인코딩 기능을 비교합니다.
 
 이 문서에서는 .NET을 사용하여 **Media Encoder Premium Workflow**로 인코딩하는 방법을 보여 줍니다.

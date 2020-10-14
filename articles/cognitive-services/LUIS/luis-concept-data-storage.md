@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: b74621f357613bc60457ab4846b58f6f85009401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541886"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018035"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Language Understanding(LUIS) Cognitive Services의 데이터 스토리지 및 제거
 LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소에 암호화된 데이터를 저장합니다. 이 데이터는 30일 동안 저장됩니다. 
@@ -50,9 +50,14 @@ LUIS는 키를 통해 지정된 지역에 해당하는 Azure 데이터 저장소
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>계정 삭제
-계정을 삭제하면 모든 앱과 예제 발화 및 로그가 함께 삭제됩니다. 데이터는 계정과 데이터가 영구 삭제되기 전에 60일 동안 보존됩니다.
+마이그레이션되지 않은 경우 계정을 삭제할 수 있으며 모든 앱은 해당 예제 길이 발언 및 로그와 함께 삭제 됩니다. 이 데이터는 계정 및 데이터가 영구적으로 삭제 되기 90 일 동안 보존 됩니다.
 
 계정은 **설정** 페이지에서 삭제할 수 있습니다. 오른쪽 위 탐색 모음에서 계정 이름을 선택하여 **설정** 페이지로 이동합니다.
+
+## <a name="delete-an-authoring-resource"></a>제작 리소스 삭제
+[제작 리소스로 마이그레이션한](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring)경우 Azure Portal에서 리소스 자체를 삭제 하면 해당 리소스와 연결 된 모든 응용 프로그램이 해당 예제 길이 발언 및 로그와 함께 삭제 됩니다. 데이터는 영구적으로 삭제 되기 90 일 동안 보존 됩니다.    
+
+리소스를 삭제 하려면 [Azure Portal](https://ms.portal.azure.com/#home) 로 이동 하 여 LUIS authoring 리소스를 선택 합니다. **개요** 탭으로 이동 하 여 페이지 맨 위에 있는 **삭제** 단추를 클릭 합니다. 그런 다음 리소스가 삭제 되었는지 확인 합니다. 
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>만료된 구독으로 데이터 비활성
 데이터 보존 및 삭제를 위해 비활성 LUIS 앱은 _Microsoft의 재량_으로 만료된 구독으로 처리될 수 있습니다. 지난 90일 동안 다음 기준을 충족하는 경우, 앱을 비활성으로 간주합니다. 

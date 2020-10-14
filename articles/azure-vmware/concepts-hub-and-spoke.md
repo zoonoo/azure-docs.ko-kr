@@ -3,12 +3,12 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배
 description: Azure에서 기존 또는 새 허브 및 스포크 아키텍처에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: bfd0da4f03eedaf215ddb55facffc2296a9d0b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580281"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019272"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "91580281"
 
 이 다이어그램은 Azure에서 Express 경로 Global Reach를 통해 온-프레미스 및 Azure VMware 솔루션에 연결 된 허브 및 스포크 배포의 예를 보여 줍니다.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 아키텍처에는 다음과 같은 주요 구성 요소가 있습니다.
 
@@ -65,12 +65,12 @@ Express 경로 게이트웨이는 연결 된 회로 간에 전이적 라우팅�
 
 * **온-프레미스와 Azure VMware 솔루션 트래픽 흐름**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **허브 VNET 트래픽 흐름에 대 한 Azure VMware 솔루션**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Azure vmware 솔루션 네트워킹 및 연결 개념에 대 한 자세한 내용은 [Azure Vmware 솔루션 제품 설명서](./concepts-networking.md)에서 확인할 수 있습니다.

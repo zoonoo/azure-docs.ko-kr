@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3da6dd877a94da64f85f093ae98a0b8a109ab2e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6b7c8cbcf6685ca2e781789fc508d005bcb5f88
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255106"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018902"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Media Indexer에서 Media Indexer 2에서 Video Indexer으로 마이그레이션
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-[Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
+[Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](./legacy-components.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 Azure Media Services Video Indexer Azure 미디어 분석, Azure Cognitive Search, Cognitive Services (예: Face API, Microsoft Translator, Computer Vision API, Custom Speech Service)를 기반으로 합니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다. 에서 사용할 수 Video Indexer 시나리오, 제공 하는 기능 및 시작 하는 방법에 대 한 자세한 내용은 [비디오 및 오디오 모델 Video Indexer](../video-indexer/video-indexer-overview.md)을 참조 하세요. 
 
@@ -52,7 +52,7 @@ Azure Media Services v3 API를 사용 하면 [Azure Media Services v3 분석기 
 
 **AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
 
-### <a name="get-started"></a>시작
+### <a name="get-started"></a>시작하기
 
 시작하려면
 

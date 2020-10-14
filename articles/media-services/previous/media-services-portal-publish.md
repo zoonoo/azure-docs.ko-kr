@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1f9f1b51ce09577bf17fa4d92273348665987848
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f86f7a0a7eaef7c0dc244a2e089596de3779eae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266615"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018970"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure Portal에서 콘텐츠 게시
 
@@ -40,7 +40,7 @@ ms.locfileid: "89266615"
 
 콘텐츠를 스트리밍 또는 다운로드하는 데 사용할 수 있는 URL을 사용자에게 제공하려면 먼저 로케이터를 만들어 자산을 게시해야 합니다. 로케이터는 자산 파일에 대한 액세스를 제공합니다. Azure Media Services는 두 가지 유형의 로케이터를 지원합니다. 
 
-* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예에는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)이 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. 예들 들어 `http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest`입니다.
+* **스트리밍(OnDemandOrigin) 로케이터** 스트리밍 로케이터는 적응 스트리밍에 사용됩니다. 적응 스트리밍의 예에는 Apple HLS(HTTP 라이브 스트리밍), Microsoft 부드러운 스트리밍, HTTP를 통한 동적 적응 스트리밍(DASH, MPEG-DASH라고도 함)이 있습니다. 스트리밍 로케이터를 만들려면 자산에 .ism 파일이 포함되어야 합니다. `http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest`)을 입력합니다.
 * **점진적(공유 액세스 서명) 로케이터** 점진적 로케이터는 점진적 다운로드를 통해 비디오를 제공하는 데 사용합니다.
 
 HLS 스트리밍 URL을 작성하려면 URL에 *(format=m3u8-aapl)* 을 추가합니다.
@@ -66,7 +66,7 @@ MPEG-DASH 스트리밍 URL을 작성하려면 URL에 *(format=mpd-time-csf)* 를
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST API](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259)를 사용할 수 있습니다. 
+로케이터의 만료 날짜를 업데이트하려면 [REST API](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET API](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator)를 사용할 수 있습니다. 
 
 > [!NOTE]
 > 공유 액세스 서명 로케이터의 만료 날짜를 업데이트할 경우 URL이 변경됩니다.

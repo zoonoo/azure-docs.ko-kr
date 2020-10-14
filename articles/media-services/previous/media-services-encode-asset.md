@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e841d1922beb3f0276ff94cacbbdf566b23cdf6e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281017"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017287"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요
 
@@ -53,7 +53,7 @@ Media Services는 다음과 같은 주문형 인코더를 지원 합니다.
 [형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>기본 설정
-미디어 인코더 표준은 [여기](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
+미디어 인코더 표준은 [여기](./media-services-mes-presets-overview.md)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
 ### <a name="input-and-output-metadata"></a>입력 및 출력 메타데이터
 인코더 입력 메타데이터는 [여기](media-services-input-metadata-schema.md)에서 설명합니다.
@@ -69,7 +69,7 @@ Media Services는 다음과 같은 주문형 인코더를 지원 합니다.
 ### <a name="create-overlays"></a>오버레이 만들기
 자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-advanced-encoding-with-mes.md#overlay)을 참조하세요.
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>참조
 [Media Services 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ### <a name="known-issues"></a>알려진 문제

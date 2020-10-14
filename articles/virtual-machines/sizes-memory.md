@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 2f18f830b690acdca67058da6ed6a0907406e66c
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 1e27ee2c045404d13b10945ac65484281b0cd967
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945970"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019718"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
 
@@ -36,7 +36,7 @@ ms.locfileid: "91945970"
 
 - [Ev4 및 Esv4 시리즈](ev4-esv4-series.md) 는 &reg; 하이퍼 스레드 구성의 두 번째 세대 Intel Xeon &reg; Platinum 8272Cl (케스케이드 Lake) 프로세서에서 실행 되며, 다양 한 메모리 집약적 엔터프라이즈 응용 프로그램에 적합 하 고 최대 504 GiB RAM에 적용 됩니다. [Intel &reg; 터보 부스트 기술 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [INTEL &reg; 고급 벡터 확장 512 (intel AVX-512)을 제공](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)합니다. Ev4 및 Esv4 시리즈는 로컬 임시 디스크를 포함 하지 않습니다. 자세한 내용은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
-- [Edv4 및 Edsv4 시리즈](edv4-edsv4-series.md) 는 2 세대 Intel &reg; Xeon &reg; Platinum 8272Cl (Cascade Lake) 프로세서에서 실행 되며, 매우 큰 데이터베이스 또는 대용량의 메모리를 활용 하는 기타 응용 프로그램에 적합 합니다. 또한 이러한 VM 크기에는 대기 시간이 짧고 고속 로컬 저장소를 활용 하는 응용 프로그램에 대 한 빠르고 큰 로컬 SSD 저장소가 포함 됩니다. 3.4 g h z의 모든 코어 터보 클록 속도, [intel &reg; 터보 부스트 기술 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [INTEL &reg; Advanced Vector Extensions 512 (intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)의 기능을 제공 합니다.
+- [Edv4 및 Edsv4 시리즈](edv4-edsv4-series.md) 는 2 세대 Intel &reg; Xeon &reg; Platinum 8272Cl (Cascade Lake) 프로세서에서 실행 되며, 매우 큰 데이터베이스 또는 대용량의 메모리를 활용 하는 기타 응용 프로그램에 적합 합니다. 또한 이러한 VM 크기에는 대기 시간이 짧고 고속 로컬 저장소를 활용 하는 응용 프로그램에 대 한 빠르고 큰 로컬 SSD 저장소가 포함 됩니다. 3.4 g h z, [intel &reg; 터보 부스트 기술 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel &reg; Hyper-Threading 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [INTEL &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)의 모든 코어 터보 클록 속도를 제공 합니다.
 
 - [M 시리즈](m-series.md)는 높은 vCPU 수(최대 128개의 vCPU)와 많은 양의 메모리(최대 3.8TiB)를 제공합니다. 높은 vCPU 수와 많은 양의 메모리를 활용하는 매우 큰 데이터베이스나 다른 애플리케이션에도 이상적입니다.
 

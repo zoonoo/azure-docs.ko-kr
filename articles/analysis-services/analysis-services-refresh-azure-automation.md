@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448592"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019140"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
 Azure Automation과 PowerShell Runbook을 사용하여 Azure Analysis 테이블 형식 모델에서 자동 데이터 새로 고침 작업을 수행할 수 있습니다.  
 
-이 문서의 예제에서는 [SqlServer PowerShell 모듈](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps)을 사용 합니다. 모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
+이 문서의 예제에서는 [SqlServer PowerShell 모듈](/powershell/module/sqlserver/?view=sqlserver-ps)을 사용 합니다. 모델 새로 고침을 보여주는 샘플 PowerShell Runbook이 이 문서의 뒷부분에서 제공됩니다.  
 
 ## <a name="authentication"></a>인증
 
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>다음 단계
 
 [샘플](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](/rest/api/analysisservices/servers)

@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb5eb3de1723ab75b2585c2fe62c395231455f37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949380"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019956"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -189,7 +189,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
+`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. `Microsoft.Network/virtualNetworks/subnets`)을 입력합니다.
 
 **Get-AzResourceProvider**에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -306,6 +306,9 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `type`
 - `location`
   - 위치에 관계없는 리소스에는 **전역**을 사용합니다.
+- `id`
+  - 평가 중인 리소스의 리소스 ID를 반환 합니다.
+  - 예: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - 리소스에서 사용 가능한 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 형식을 반환합니다.
 - `tags`

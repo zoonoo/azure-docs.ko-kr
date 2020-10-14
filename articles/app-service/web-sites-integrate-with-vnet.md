@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 141649f7620063b58134caaa878162f3a7e767e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739915"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018630"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -149,6 +149,10 @@ VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 �
 * **VPN 게이트웨이 비용** 지점 및 사이트 간 VPN에 필요한 가상 네트워크 게이트웨이 관련 비용이 발생합니다. 자세한 내용은 [VPN 게이트웨이 가격 책정][VNETPricing]을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
+
+> [!NOTE]
+> App Service에서 Docker Compose 시나리오에는 VNET 통합이 지원 되지 않습니다.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

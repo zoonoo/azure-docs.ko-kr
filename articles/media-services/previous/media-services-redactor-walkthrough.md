@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: ril
 ms.reviewer: juliako
-ms.openlocfilehash: df35b48a4da05d068760f0b04394ea53d788000e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fdec829ceeefce2426a5fd08b4245e66bd0a08c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269695"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016674"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Azure 미디어 분석으로 얼굴 편집 안내
 
@@ -28,7 +28,7 @@ ms.locfileid: "89269695"
 
 ## <a name="overview"></a>개요
 
-**Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](media-services-analytics-overview.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-redactor/) 블로그를 참조 하세요.
+**Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](./legacy-components.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-redactor/) 블로그를 참조 하세요.
 
 **Azure Media Redactor**에 대한 자세한 내용은 [얼굴 교정 개요](media-services-face-redaction.md) 항목을 참조하세요.
 
@@ -131,7 +131,7 @@ JSON 주석 데이터를 구문 분석하려는 개발자는 Models.MetaData 내
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>관련 링크
-[Azure Media Services 분석 개요](media-services-analytics-overview.md)
+[Azure Media Services 분석 개요](./legacy-components.md)
 
 [Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

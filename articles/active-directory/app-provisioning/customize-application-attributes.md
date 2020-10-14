@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789810240b1a537e8cc3a18351f0b2a066cb4e1
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266703"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018868"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -321,7 +321,7 @@ phoneNumbers 및 emails와 같은 특정 특성은 다양한 유형의 전화 �
 ## <a name="next-steps"></a>다음 단계
 
 - [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
-- [특성 매핑에 대한 식 작성](../app-provisioning/functions-for-customizing-application-data.md)
-- [사용자 프로 비전에 대 한 필터 범위 지정](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
+- [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
 - [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)

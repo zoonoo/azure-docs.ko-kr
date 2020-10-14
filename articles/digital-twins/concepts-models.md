@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7da19ddd96c15ff5688d6e153d1859ed8c11ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616553"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019021"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -57,7 +57,7 @@ Azure Digital Twins의 DTDL **속성과** **원격 분석** 필드를 구분 하
 
 Azure Digital Twins 모델에 대 한 속성 및 원격 분석의 차이점은 다음과 같습니다.
 * **속성** 에는 백업 저장소가 있어야 합니다. 즉, 언제 든 지 속성을 읽고 해당 값을 검색할 수 있습니다. 속성에 쓸 수 있으면 속성에 값을 저장할 수도 있습니다.  
-* **원격 분석** 은 이벤트 스트림과 매우 유사 합니다. short lifespans 있는 데이터 메시지 집합입니다. 이벤트가 발생할 때 수행할 작업에 대 한 수신 대기를 설정 하지 않은 경우에는 나중에 이벤트를 추적 하지 않습니다. 나중에 다시 읽어 올 수 없습니다. 
+* **원격 분석** 은 이벤트 스트림과 매우 유사 합니다. short lifespans 있는 데이터 메시지 집합입니다. 이벤트가 발생할 때 수행할 작업에 대 한 수신 대기를 설정 하지 않은 경우에는 나중에 이벤트를 추적 하지 않습니다. 다시 돌아가서 나중에 읽을 수 없습니다. 
   - C # 용어로 원격 분석은 c # 이벤트와 비슷합니다. 
   - IoT 용어로 원격 분석은 일반적으로 장치에서 전송 되는 단일 측정입니다.
 

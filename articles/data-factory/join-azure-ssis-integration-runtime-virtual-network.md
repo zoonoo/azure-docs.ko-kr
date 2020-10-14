@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187815"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018214"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -151,7 +151,7 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. 
 
 > [!NOTE]
-> 사용자 `<your_private_server>.contoso.com` `<your_private_server>` 고유의 DNS 접미사를 자동으로 추가 하지 않으므로 개인 호스트 이름에 대 한 FQDN (정규화 된 도메인 이름)을 사용 하세요 (예: 대신 Azure-SSIS IR를 사용).
+> 개인 호스트 이름에 FQDN (정규화 된 도메인 이름)을 사용 하세요 (예: 대신를 사용 `<your_private_server>.contoso.com` `<your_private_server>` ). 또는 Azure-SSIS IR에서 표준 사용자 지정 설치 프로그램을 사용 하 여 정규화 되지 않은 단일 레이블 도메인 이름에 고유한 DNS 접미사 (예:)를 자동으로 추가 하 `contoso.com` 고 dns 쿼리에 사용 하기 전에 FQDN으로 전환할 수 있습니다. [표준 사용자 지정 설정 샘플](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples)을 참조 하세요. 
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a> NSG 설정
 Azure-SSIS IR에서 사용 하는 서브넷에 대 한 NSG를 구현 해야 하는 경우 다음 포트를 통해 인바운드 및 아웃 바운드 트래픽을 허용 합니다. 

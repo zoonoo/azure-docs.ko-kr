@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 9060c00e1523db0671d9698465c8e8fcb6340785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842838"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019888"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -79,7 +79,7 @@ Azure AD를 사용하여 리소스 그룹에 key vault를 만들고 액세스를
 
 미리 정의된 몇 가지 역할이 있습니다. 미리 정의된 역할이 요구에 맞지 않는 경우 고유한 역할을 정의할 수 있습니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. 
 
-`Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner) 와 같은 및 사용 권한이 있어야 합니다.
+`Microsoft.Authorization/roleAssignments/write` `Microsoft.Authorization/roleAssignments/delete` [사용자 액세스 관리자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) 또는 [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 와 같은 및 사용 권한이 있어야 합니다.
 
 > [!IMPORTANT]
 > 사용자에게 Key Vault 관리 평면에 대한 `Contributor` 사용 권한이 있는 경우 이 사용자는 Key Vault 액세스 정책을 설정하여 스스로 데이터 평면에 대한 액세스 권한을 부여할 수 있습니다. Key Vault에 대한 `Contributor` 역할 액세스 권한이 있는 사용자를 긴밀하게 제어해야 합니다. 권한이 있는 사람만 키 자격 증명 모음, 키, 비밀 및 인증서에 액세스하고 관리할 수 있는지 확인합니다.

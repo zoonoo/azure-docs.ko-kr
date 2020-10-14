@@ -2,50 +2,79 @@
 title: Azure DevTest Labs에서 랩 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure Portal 및 Azure DevTest Labs를 사용 하 여 랩을 만드는 과정을 안내 합니다.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 09999c5b0187f924f9cfbbc2afad8954adee0fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 962997bcc66188c66fd9db856fe44e4926f8e70c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85481258"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019650"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 만들기
+
 Azure DevTest Labs에서 랩은 VM(Virtual Machines)과 같은 리소스 그룹을 포함하는 인프라로서, 이를 통해 한도 및 할당량을 지정하여 해당 리소스를 더 잘 관리할 수 있습니다. 이 문서는 Azure Portal을 사용하여 랩을 만드는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
+
 랩을 만들려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구입 옵션에 대해 알아보려면 [Azure 구입 방법](https://azure.microsoft.com/pricing/purchase-options/) 또는 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 랩을 만들려면 구독 소유자여야 합니다.
 
-## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩을 만드는 단계
-다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs에서 랩을 만드는 방법을 설명합니다. 
+## <a name="get-started-with-azure-devtest-labs-in-minutes"></a>몇 분 이내에 Azure DevTest Labs 시작
 
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-1. 왼쪽의 주 메뉴에서 **모든 서비스**(목록 맨 위)를 선택합니다. **DEVOPS** 섹션에서 **DevTest Labs** 옆에 있는 *(별표)를 선택합니다. 이 작업을 수행하면 다음에 쉽게 액세스할 수 있도록 **DevTest Labs**가 왼쪽 탐색 메뉴에 추가됩니다. 
+다음 링크를 클릭 하면 Azure DevTest Labs에서 새 랩 만들기를 시작할 수 있는 Azure Portal 페이지로 전송 됩니다.
 
-    ![모든 서비스 - DevTest Labs 선택](./media/devtest-lab-create-lab/all-services-select.png)
-2. 이제 왼쪽 탐색 메뉴에서 **DevTest Labs**를 선택합니다. 도구 모음에서 **추가**를 선택합니다. 
-   
-    ![랩 추가](./media/devtest-lab-create-lab/add-lab-button.png)
-1. **DevTest Lab 만들기** 페이지에서 다음 작업을 수행합니다. 
-    1. 랩의 **이름을** 입력 합니다.
-    2. **구독** 을 선택하여 랩과 연결합니다.
-    3. 랩의 **리소스 그룹에 대한 이름**을 입력합니다. 
-    4. 랩을 저장할 **위치**를 선택합니다.
-    4. **자동 종료** 를 선택하여 사용하려는지를 지정하고 랩의 VM을 모두 자동 종료하는 매개 변수를 정의할 수 있습니다. 자동 종료 기능은 주로 VM을 자동으로 종료하려는 경우를 지정할 수 있는 비용 절감 기능입니다. [Azure DevTest Labs에서 랩에 대 한 모든 정책 관리](./devtest-lab-set-lab-policy.md#set-auto-shutdown)문서에 설명 된 단계에 따라 랩을 만든 후 자동 종료 설정을 변경할 수 있습니다.
-    1. 랩에서 만들 모든 리소스에 추가되는 사용자 지정 태그를 만들려는 경우 **태그**에 대한 **이름** 및 **값** 정보를 입력합니다. 태그는 랩 리소스를 범주별으로 관리하고 구성하는 데 유용합니다. 랩에서 만든 후에 태그를 추가하는 방법을 포함하여 태그에 대한 자세한 내용은 [랩에 태그 추가](devtest-lab-add-tag.md)를 참조하세요.
-    6. 구성 자동화를 위한 Azure Resource Manager 템플릿을 가져오려면 **Automation 옵션**을 선택합니다. 
-    7. **만들기**를 선택합니다. **알림** 영역을 확인하여 랩 만들기 프로세스 상태를 모니터링할 수 있습니다. 
-    
-        ![DevTest Labs의 랩 만들기 섹션](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
-    8. 완료되면 알림에서 **리소스로 이동**을 선택합니다. 또는 **DevTest Labs** 페이지를 새로 고쳐 랩 목록에서 새로 만든 랩을 확인합니다.  목록에서 랩을 선택합니다. 랩에 대한 홈페이지가 표시됩니다. 
+[몇 분 이내에 Azure DevTest Labs 시작](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-        ![랩에 대한 홈페이지](./media/devtest-lab-create-lab/lab-home-page.png)
+## <a name="fill-out-settings-for-your-new-account"></a>새 계정에 대 한 설정 작성
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+**DevTest Labs 만들기** 페이지에서 다음 설정을 입력 합니다.
+
+> [!TIP]
+> 각 페이지의 아래쪽에는 **자동화를 위한 템플릿을 다운로드할**수 있는 링크가 있습니다.
+
+### <a name="basic-settings"></a>기본 설정
+
+기본적으로 기본 **설정** 탭이 표시 됩니다. 다음 값을 입력 합니다.
+
+|이름|설명|
+|---|---|
+|**구독** | 필수 요소. **구독** 을 선택하여 랩과 연결합니다.|
+|**리소스 그룹**| 필수 요소. 랩의 **리소스 그룹에 대한 이름**을 입력합니다. 새 항목을 만듭니다 (없는 경우).|
+|**랩 이름**| 필수 요소. 랩의 **이름을** 입력 합니다.|
+|**위치**|필수 요소. 랩을 저장할 위치를 선택합니다.|
+|**공용 환경**| [공용 환경 구성 및 사용을](devtest-lab-configure-use-public-environments.md)참조 하세요.
+
+### <a name="auto-shutdown-settings"></a>자동 종료 설정
+
+**자동 종료** 페이지로 전환 하 여 설정을 확인 합니다. 자동 종료를 사용 하면 매일 예약 된 시간에 랩의 모든 컴퓨터를 자동으로 종료할 수 있습니다.
+
+페이지에서 **자동 종료** 를 사용 하도록 설정 하 고 모든 랩 vm의 자동 종료에 대 한 매개 변수를 정의할 수 있습니다. 자동 종료 기능은 주로 VM을 자동으로 종료하려는 경우를 지정할 수 있는 비용 절감 기능입니다. [Azure DevTest Labs에서 랩에 대 한 모든 정책 관리](./devtest-lab-set-lab-policy.md#set-auto-shutdown)문서에 설명 된 단계에 따라 랩을 만든 후 자동 종료 설정을 변경할 수 있습니다.
+
+### <a name="networking"></a>네트워킹
+
+랩을 만들 때 기본 네트워크가 생성 됩니다.
+
+**네트워킹** 탭으로 전환 하 여 원하는 대로 설정을 변경/구성 합니다. 예를 들어 기존 가상 네트워크를 선택 합니다.
+
+### <a name="tags"></a>태그들
+
+랩에서 만들 모든 리소스에 추가되는 사용자 지정 태그를 만들려는 경우 **태그**에 대한 **이름** 및 **값** 정보를 입력합니다. 태그는 랩 리소스를 범주별으로 관리하고 구성하는 데 유용합니다. 랩에서 만든 후에 태그를 추가하는 방법을 포함하여 태그에 대한 자세한 내용은 [랩에 태그 추가](devtest-lab-add-tag.md)를 참조하세요.
+
+### <a name="review-and-create"></a>검토 후 만들기
+
+완료 되 면 **만들기**를 선택 합니다. 포털 페이지의 오른쪽 위에 있는 **알림** 영역을 시청 하 여 랩 만들기 프로세스의 상태를 모니터링할 수 있습니다. 
+
+## <a name="completed-the-creation"></a>만들기 완료
+
+완료 되 면 **리소스로 이동** 단추가 페이지와 알림 창 맨 아래에 나타납니다. 또는 **DevTest Labs** 페이지를 새로 고쳐 랩 목록에서 새로 만든 랩을 확인합니다.  
+
+**리소스로 이동** 단추를 누르면 새 DevTest Labs 계정의 홈 페이지로 이동 합니다.
+
+Azure Portal에서 **DevTest Labs** 를 검색할 수도 있습니다. 목록에서 새 계정을 선택 하 고 홈 페이지로 이동 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
+
 랩을 만들었으면 다음 단계를 고려 합니다.
 
 * [랩에 대 한 보안 액세스](devtest-lab-add-devtest-user.md)

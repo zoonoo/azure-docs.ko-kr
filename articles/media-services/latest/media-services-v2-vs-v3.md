@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651755"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019837"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services v2와 v3 비교
 
@@ -74,7 +74,7 @@ ms.locfileid: "91651755"
 
 v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다. 격차를 해소하기 위한 작업이 진행 중입니다.
 
-* v3를 통해 [프리미엄 인코더](../previous/media-services-premium-workflow-encoder-formats.md) 및 레거시 [미디어 분석 프로세서](../previous/media-services-analytics-overview.md)(Azure Media Services Indexer 2 미리 보기, Face Redactor 등)에 액세스할 수 없습니다.<br/>Media Indexer 1 또는 2 미리 보기에서 마이그레이션하려는 고객은 v3 API의 AudioAnalyzer 프리셋을 즉시 사용할 수 있습니다.  이 새 프리셋은 기존 Media Indexer 1 또는 2보다 많은 기능을 포함하고 있습니다. 
+* v3를 통해 [프리미엄 인코더](../previous/media-services-encode-asset.md) 및 레거시 [미디어 분석 프로세서](../previous/legacy-components.md)(Azure Media Services Indexer 2 미리 보기, Face Redactor 등)에 액세스할 수 없습니다.<br/>Media Indexer 1 또는 2 미리 보기에서 마이그레이션하려는 고객은 v3 API의 AudioAnalyzer 프리셋을 즉시 사용할 수 있습니다.  이 새 프리셋은 기존 Media Indexer 1 또는 2보다 많은 기능을 포함하고 있습니다. 
 * [V2 api에 있는 Media Encoder Standard의 다양 한 고급 기능은](../previous/media-services-advanced-encoding-with-mes.md) 현재 v3에서 사용할 수 없습니다. 예를 들면 다음과 같습니다.
   
     * 자산 연결

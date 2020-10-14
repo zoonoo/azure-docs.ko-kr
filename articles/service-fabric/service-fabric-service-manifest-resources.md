@@ -3,12 +3,13 @@ title: Service Fabric 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq1
+ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354762"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017593"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요

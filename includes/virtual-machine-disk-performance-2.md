@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5ac97812f973a20f6ee4c2dea34baaeb91203af
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91605795"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016468"
 ---
 ![Dsv3 설명서](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -129,4 +129,21 @@ VM IO 50,을 진단 하는 데 도움이 되는 메트릭:
 - **사용 된 VM 캐시 된 대역폭 비율** -캐시 된 최대 가상 머신 처리량에 대해 완료 된 총 디스크 처리량으로 계산 되는 백분율입니다. 이 금액이 100%에 해당 하는 경우 실행 중인 응용 프로그램은 VM의 캐시 된 대역폭 제한 보다 더 많은 IO가 됩니다.
 - **VM 캐시 되지 않은 IOPS 사용 백분율** -가상 머신의 총 IOPS로 계산 된 비율이 최대 캐시 되지 않은 가상 머신 IOPS 제한을 초과 했습니다. 이 금액이 100%에 해당 하는 경우 실행 중인 응용 프로그램은 VM의 캐시 되지 않은 IOPS 제한 보다 더 많은 IO가 됩니다.
 - **VM 캐시 되지 않은 대역폭 사용 백분율** -가상 머신의 총 디스크 처리량으로 계산 된 비율이 최대 프로 비전 된 가상 머신 처리량을 초과 했습니다. 이 금액이 100%에 해당 하는 경우 실행 중인 응용 프로그램은 VM의 캐시 되지 않은 대역폭 제한에서 IO가 됩니다.
+
+## <a name="storage-io-utilization-metrics-example"></a>저장소 IO 사용률 메트릭 예
+이러한 새 저장소 IO 사용률 메트릭을 사용 하 여 시스템에서 병목 현상이 발생 하는 위치를 디버그 하는 방법의 예를 살펴보겠습니다. 시스템 설정에는 이전 예제에서 했던 것과 정확히 일치 합니다. 단, 이번에는 연결한 OS 디스크가 캐시 **되지 않습니다** .
+
+설정:
+- Standard_D8s_v3 
+    - 캐시 된 IOPS: 16000
+    - 캐시 되지 않은 IOPS: 12800
+- P30 OS 디스크 
+    - IOPS: 5000
+    - 호스트 캐싱: 사용 안 함
+- 2 P30 데이터 디스크 X 2
+    - IOPS: 5000
+    - 호스트 캐싱: 읽기/쓰기
+- 2 P30 데이터 디스크 X 2
+    - IOPS: 5000
+    - 호스트 캐싱: 사용 안 함
 

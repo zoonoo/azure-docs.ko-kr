@@ -3,12 +3,12 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a64fc11d7afa70d5200fdbd24bd3facdb8a95a7e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887235"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019582"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
@@ -20,11 +20,11 @@ ms.locfileid: "90887235"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [지원 되는 Linux 운영 체제](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
+* [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
 * [IoT Hub 만들기 및 설정](../../iot-hub/iot-hub-create-through-portal.md)
 * [IoT Edge 장치 등록](../../iot-edge/how-to-register-device.md)
-* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)
+* [Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Azure Media Services 계정 만들기](../latest/create-account-howto.md)
 
     * 미국 동부 2, 미국 동부, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부, 미국 서 부 2, 미국 서 부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 지역 중 하나를 사용 합니다.

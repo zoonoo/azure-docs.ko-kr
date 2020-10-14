@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c21ddd0aacde277f4cf796f133a3169a69798dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddad462658465c07624f078e20c224750c5180c9
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89264473"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019480"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작
 
@@ -489,7 +489,7 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 ### <a name="create-a-job"></a>작업 만들기
 각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 다음 두 가지 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업 엔터티에 대한 작업 탐색 속성 또는 OData 일괄 처리를 통해 작업을 인라인으로 정의할 수 있습니다. Media Services SDK는 일괄 처리를 사용합니다. 하지만 이 문서에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
-다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](/azure/media-services/previous/media-services-mes-presets-overview) 목록을 포함합니다.  
+다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](./media-services-mes-presets-overview.md) 목록을 포함합니다.  
 
 **HTTP 요청**
 

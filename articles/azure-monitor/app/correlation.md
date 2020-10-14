@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7df4df1f7c2fbb600b2350940f910f488827804d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875459"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018052"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -34,7 +34,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 ## <a name="example"></a>예제
 
-예제를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
+예를 살펴보겠습니다. 주식 가격 이라는 응용 프로그램은 Stock 이라는 외부 API를 사용 하 여 재고의 현재 시장 가격을 보여 줍니다. 주식 가격 응용 프로그램에는를 사용 하 여 클라이언트 웹 브라우저에서 열리는 스톡 페이지 라는 페이지가 있습니다 `GET /Home/Stock` . 응용 프로그램은 HTTP 호출을 사용 하 여 스톡 API를 쿼리 합니다 `GET /api/stock/value` .
 
 쿼리를 실행하여 결과 원격 분석을 분석할 수 있습니다.
 
@@ -147,7 +147,7 @@ W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에�
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> 상관 관계를 설정 하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 설명서](/app/javascript.md#enable-correlation)를 참조 하세요.
+> 상관 관계를 설정 하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 설명서](/azure/azure-monitor/app/javascript#enable-correlation)를 참조 하세요.
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
 

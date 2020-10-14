@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에서 Kubernetes로의 마이그레이션 프로세스에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
-ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993931"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019939"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
 
@@ -46,7 +46,7 @@ Kubernetes에는 비슷한 기능이 포함 되어 있으며, 다음과 같은 �
 | Azure Kubernetes Service | Azure 지역 15 개 | 모든 AKS 서비스 지역    |
 | **보안** |
 | 클러스터에 필요한 보안 액세스  | AKS 클러스터 기여자  | Kubernetes RBAC-배포 업데이트   |
-| 개발 컴퓨터에 필요한 보안 액세스  | N/A  | 로컬 관리자/sudo   |
+| 개발 컴퓨터에 필요한 보안 액세스  | 해당 없음  | 로컬 관리자/sudo   |
 | **유용성** |
 | Kubernetes 및 Docker 아티팩트와 독립적  | 아니요  | 예   |
 | 변경 내용 자동 롤백, 사후 디버그  | 아니요  | 예   |
@@ -80,9 +80,9 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
 > [!TIP]
 >  [Microsoft Kubernetes 확장][kubernetes-extension] 을 사용 하면 Intellisense를 사용 하 여 Kubernetes 매니페스트를 빠르게 개발 하 고 스 캐 폴드 투구 차트를 활용할 수 있습니다.  
 
-### <a name="use-visual-studio-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Visual Studio를 사용 하 여 Azure Dev Spaces에서 Kubernetes로 전환 합니다.
+### <a name="transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Azure Dev Spaces에서 Kubernetes로의 브리지로 전환
 
-1. Visual Studio IDE를 16.7 이상 버전으로 업데이트 하 고 [Visual Studio Marketplace][vs-marketplace]에서 Kubernetes 확장에 대 한 브리지를 설치 합니다.
+1. Visual Studio를 사용 하는 경우 Visual Studio IDE를 16.7 이상 버전으로 업데이트 하 고 [Visual Studio Marketplace][vs-marketplace]에서 Kubernetes 확장에 대 한 브리지를 설치 합니다. Visual Studio Code를 사용 하는 경우 [Kubernetes 확장에 대 한 브리지][vsc-marketplace]를 설치 합니다.
 1. Azure Portal 또는 [AZURE DEV SPACES CLI][azds-delete]를 사용 하 여 Azure Dev Spaces 컨트롤러를 사용 하지 않도록 설정 합니다.
 1. [Azure Cloud Shell](https://shell.azure.com)를 사용 합니다. 또는 bash가 설치 된 Mac, Linux 또는 Windows에서 bash 셸 프롬프트를 엽니다. 명령줄 환경에서 Azure CLI, docker, kubectl, 말아, tar, gunzip 등의 도구를 사용할 수 있는지 확인 합니다.
 1. 컨테이너 레지스트리를 만들거나 기존 항목을 사용 합니다. [Azure Container Registry](../container-registry/index.yml) 또는 [Docker Hub](https://hub.docker.com/)를 사용 하 여 Azure에서 컨테이너 레지스트리를 만들 수 있습니다.
@@ -109,18 +109,9 @@ Kubernetes에 대 한 브리지는 배포 방법에 관계 없이 Kubernetes에�
 1. *Azds* 의 환경 변수 설정과 같은 사용자 지정 항목을 프로젝트의 *값 .yml* 파일에 수동으로 마이그레이션합니다.
 1. 필드 `azds.yaml` 프로젝트에서 파일을 제거 합니다.
 1. 애플리케이션을 다시 배포합니다.
-1. 배포 된 응용 프로그램에서 Kubernetes에 대 한 브리지를 구성 합니다. Visual Studio에서 Kubernetes 연결을 사용 하는 방법에 대 한 자세한 내용은 [Kubernetes에 브리지 사용][use-btk-vs]을 참조 하세요.
-1. Kubernetes 디버그 프로필에 새로 만든 Bridge를 사용 하 여 Visual Studio에서 디버깅을 시작 합니다.
+1. 배포 된 응용 프로그램에서 Kubernetes에 대 한 브리지를 구성 합니다. Visual Studio에서 Kubernetes 연결을 사용 하는 방법에 대 한 자세한 내용은 [Visual studio에서 Kubernetes에 브리지 사용][use-btk-vs]을 참조 하세요. VS Code [VS Code에서 Bridge를 사용 하 여 Kubernetes][use-btk-vsc]를 참조 하세요.
+1. 새로 만든 Bridge를 사용 하 여 디버깅을 시작 하 고 디버그/시작 프로필을 Kubernetes.
 1. 필요에 따라 스크립트를 다시 실행 하 여 클러스터로 다시 배포할 수 있습니다.
-
-### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Visual Studio Code를 사용 하 여 Azure Dev Spaces에서 Kubernetes로 전환 합니다.
-
-1. [Kubernetes 확장에 대 한 브리지][vsc-marketplace]를 설치 합니다.
-1. Azure Portal 또는 [AZURE DEV SPACES CLI][azds-delete]를 사용 하 여 Azure Dev Spaces 컨트롤러를 사용 하지 않도록 설정 합니다.
-1. `azds.yaml`프로젝트에서 파일을 제거 합니다.
-1. 애플리케이션을 다시 배포합니다.
-1. 배포 된 응용 프로그램에서 Kubernetes에 대 한 브리지를 구성 합니다. Bridge를 사용 하 여 Visual Studio Code에서 Kubernetes 하는 방법에 대 한 자세한 내용은 [Kubernetes에 브리지 사용][use-btk-vsc]을 참조 하세요.
-1. Kubernetes 시작 프로필에 새로 만든 Bridge를 사용 하 여 Visual Studio Code에서 디버깅을 시작 합니다.
 
 ## <a name="team-development-in-a-shared-cluster"></a>공유 클러스터의 팀 개발
 

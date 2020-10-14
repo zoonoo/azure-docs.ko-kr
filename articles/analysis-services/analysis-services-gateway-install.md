@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438970"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016181"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "87438970"
 
 Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자세히 알아보려면 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요. 일반적인 고급 설치 시나리오 및 게이트웨이에 대 한 자세한 내용은 [온-프레미스 데이터 게이트웨이 설명서](/data-integration/gateway/service-gateway-onprem)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 **최소 요구 사항:**
 
@@ -54,7 +54,7 @@ Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자
 
 2. **온-프레미스 데이터 게이트웨이를**선택 합니다.
 
-   ![새 페이지를 추가하기 위해](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![선택](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. 위치를 선택하고 조건에 동의한 다음 **설치**를 클릭합니다.
 
@@ -132,7 +132,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) 를 사용 하 여 게이트웨이 ResourceID를 가져옵니다. 그런 다음 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) 또는 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver)에서 **-gresourceid** 를 지정 하 여 게이트웨이 리소스를 기존 또는 새 서버에 연결 합니다.
+[AzResource](/powershell/module/az.resources/get-azresource) 를 사용 하 여 게이트웨이 ResourceID를 가져옵니다. 그런 다음 [AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) 또는 [AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)에서 **-gresourceid** 를 지정 하 여 게이트웨이 리소스를 기존 또는 새 서버에 연결 합니다.
 
 게이트웨이 리소스 ID를 가져오려면:
 
@@ -151,7 +151,7 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-이것으로 끝입니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

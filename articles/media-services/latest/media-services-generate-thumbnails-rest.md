@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af320b94950d5999b6dd181b7a8e0eb198088e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec2782297f2659341c9fa7e87ce15d3dbceb022c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89267635"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019565"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>REST를 사용 하 여 인코더 표준을 사용 하 여 미리 보기를 생성 하는 방법
 
@@ -210,7 +210,7 @@ FileName에서 {해상도} 매크로를 사용하는 것은 출력 이미지의 
 
 ### <a name="json-preset"></a>JSON 사전 설정
 
-스키마에 대한 자세한 내용은 [이 문서](/azure/media-services/previous/media-services-mes-schema)를 참조하세요.
+스키마에 대한 자세한 내용은 [이 문서](../previous/media-services-mes-schema.md)를 참조하세요.
 
 ```json
 {
