@@ -36,6 +36,8 @@
           href: connect-ios.md
         - name: Microsoft Store 클라이언트와 연결
           href: connect-microsoft-store.md
+        - name: Linux 디바이스와 연결
+          href: linux-overview.md
     - name: 디바이스 리디렉션 구성
       href: configure-device-redirections.md
     - name: PowerShell 모듈 설정

@@ -95,8 +95,6 @@
       href: howto-use-iot-explorer.md
     - name: IoT 플러그 앤 플레이 브리지 설치 및 사용
       href: howto-use-iot-pnp-bridge.md
-    - name: Azure IoT CLI 확장 설치 및 사용
-      href: howto-use-iot-pnp-cli.md
     - name: DTDL 제작 도구 설치 및 사용
       href: howto-use-dtdl-authoring-tools.md
     - name: 포함된 C 사용
