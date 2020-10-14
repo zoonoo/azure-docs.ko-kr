@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6b737985bc19aa09b26bb0d4a65696a364a903a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45ea75b65e75f9bac4d6d4839ffe7fa095e3b25d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83697601"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018779"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Visual Studio에서 모델 배포
 
@@ -23,7 +23,7 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 시작하려면 다음이 필요합니다.
 
 * Azure의 **Analysis Services 서버** - 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
-* Visual Studio의 **테이블 형식 모델 프로젝트** 또는 1200 이상 호환성 수준의 기존 테이블 형식 모델. 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)를 사용해 보세요.
+* Visual Studio의 **테이블 형식 모델 프로젝트** 또는 1200 이상 호환성 수준의 기존 테이블 형식 모델. 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)를 사용해 보세요.
 * **온-프레미스 게이트웨이** - 하나 이상의 데이터 원본이 조직 네트워크의 온-프레미스에 있는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. 온-프레미스 데이터 원본에 대한 클라우드 연결에 있는 서버가 모델에서 데이터를 처리하고 새로 고치는 데 게이트웨이가 필요합니다.
 
 > [!TIP]
@@ -63,7 +63,4 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 
 테이블 형식 모델을 서버에 배포했으므로 연결할 준비가 되었습니다. [SSMS(SQL Server Management Studio)로 연결](analysis-services-manage.md)하여 관리할 수 있습니다. 그리고 Power BI, Power BI Desktop 또는 Excel과 같은 [클라이언트 도구를 사용하여 연결](analysis-services-connect.md)하고 보고서를 만들기 시작할 수 있습니다.   
 
-고급 배포 방법에 대한 자세한 내용은 [테이블 형식 모델 솔루션 배포](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current)를 참조하세요.
-
-
-
+고급 배포 방법에 대한 자세한 내용은 [테이블 형식 모델 솔루션 배포](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current)를 참조하세요.

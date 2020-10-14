@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 174ad4692d043390e6773a98e31f0985d75c8e2e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749094"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018817"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -79,7 +79,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 **참고:**  
 <a name="tab1400b">6</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
 <a name="sqlim">7</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정하는 경우 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장), SQL Server Native Client 11.0 또는 .NET Framework Data Provider for SQL Server를 지정합니다.  
-<a name="instgw">8</a> - MSOLEDBSQL을 데이터 공급자로 지정하는 경우 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server)를 다운로드하여 설치해야 할 수 있습니다.  
+<a name="instgw">8</a> - MSOLEDBSQL을 데이터 공급자로 지정하는 경우 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 [Microsoft OLE DB Driver for SQL Server](/sql/connect/oledb/oledb-driver-for-sql-server)를 다운로드하여 설치해야 할 수 있습니다.  
 <a name="oracle">9</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Oracle Data Provider for .NET을 지정합니다. 구조적 데이터 원본으로 지정 하는 경우에 [는 Oracle 관리 공급자를 사용 하도록 설정](#enable-oracle-managed-provider)해야 합니다.   
 <a name="teradata">10</a> - 테이블 형식 1200 모델의 경우 또는 테이블 형식 1400 이상 모델의 *공급자* 데이터 원본으로 Teradata Data Provider for .NET을 지정합니다.  
 <a name="filesSP">11</a> - 온-프레미스 SharePoint의 파일은 지원되지 않습니다.
