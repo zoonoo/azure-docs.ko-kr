@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999670"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015927"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -24,6 +24,7 @@ ms.locfileid: "91999670"
 ## <a name="october-2020"></a>2020년 10월
 
 * 모델 버전부터 시작 하 여 감정 분석 v3. x에 대 한 힌디어 지원 `2020-04-01` . 
+* `2020-09-01`V3/언어 끝점에 대 한 모델 버전으로, 향상 된 언어 검색 및 정확도 기능 향상을 추가 합니다.
 
 ## <a name="september-2020"></a>2020년 9월
 
@@ -191,9 +192,9 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 #### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-* 개인 정보 엔터티 형식을 인식 하기 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) (영어만 해당)
+* 개인 정보 엔터티 형식을 인식 하기 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) (영어만 해당)
 
-* [엔터티 인식](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking)를 위한 별도의 끝점.
+* [엔터티 인식](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)를 위한 별도의 끝점.
 
 * [Model version](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
     * 텍스트에 있는 엔터티의 확장 된 검색 및 분류 
@@ -205,7 +206,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 v3 공개 미리 보기
 
-* 감정 분석을 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) 입니다.
+* 감정 분석을 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) 입니다.
 * [Model version](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
 
     * API의 텍스트 분류 및 점수 매기기의 정확성과 세부 정보에 상당한 기능이 향상 되었습니다.

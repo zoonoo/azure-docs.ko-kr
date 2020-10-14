@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05994a61b0afd0190e3fc1d4b841d576cec047f5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89320684"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015849"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services를 사용 하 여 비디오 및 오디오 파일 분석
 
@@ -42,7 +42,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 |**기본 설정 이름**|**시나리오**|**세부 정보**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원 되는 언어는 영어 (' en-us ' 및 ' en-us '), 스페인어 (' es ' 및 ' es-mx '), 프랑스어 (' fr-fr '), 이탈리아어 (' it '), 일본어 (' ja-jp '), 포르투갈어 (' pt-BR '), 중국어 (' zh-cn '), 독일어 (' de-de '), 아랍어 (' ar-예 ' 및 ' ar-SY '), 러시아어 (' '), 힌디어 (' hi ') 및 한국어 (' ko ').<br/><br/> 언어가 지정 되지 않았거나 null로 설정 된 경우 자동 언어 검색은 검색 된 첫 번째 언어를 선택 하 고 파일 기간 동안 선택한 언어를 계속 합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 첫 번째 언어가 검색 된 후 언어 간의 동적 전환을 지원 하지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 검색에서 언어를 찾지 못하는 경우에는 해당 내용은 영어로 대체 됩니다.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 표준 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원 되는 언어는 영어 (' en-us ' 및 ' en-us '), 스페인어 (' es ' 및 ' es-mx '), 프랑스어 (' fr-fr '), 이탈리아어 (' it '), 일본어 (' ja-jp '), 포르투갈어 (' pt-BR '), 중국어 (' zh-cn '), 독일어 (' de-de '), 아랍어 (' ar-예 ' 및 ' ar-SY '), 러시아어 (' '), 힌디어 (' hi ') 및 한국어 (' ko ').<br/><br/> 언어가 지정 되지 않았거나 null로 설정 된 경우 자동 언어 검색은 검색 된 첫 번째 언어를 선택 하 고 파일 기간 동안 선택한 언어를 계속 합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 첫 번째 언어가 검색 된 후 언어 간의 동적 전환을 지원 하지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 검색에서 언어를 찾지 못하는 경우에는 해당 내용은 영어로 대체 됩니다.|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 기본 분석|"이 모드는 VTT 부제/캡션 파일의 음성 텍스트 기록 및 생성을 수행 합니다. 이 모드의 출력에는 키워드, 기록 및 타이밍 정보만 포함 된 Insights JSON 파일이 포함 됩니다. 자동 언어 감지 및 스피커 diarization이 모드에 포함 되지 않습니다. " 지원 되는 언어 목록은 여기에서 확인할 수 있습니다. https://go.microsoft.com/fwlink/?linkid=2109463|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|비디오에 있는 얼굴 감지|비디오를 분석 하 여 있는 모든 얼굴을 검색할 때 사용할 설정을 설명 합니다.|
 
@@ -71,7 +71,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="transcript"></a>대본
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
@@ -109,7 +109,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="ocr"></a>ocr
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
 |text|OCR 텍스트입니다.|
@@ -152,7 +152,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="faces"></a>얼굴
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴 이름입니다. ' 알 수 없는 #0 ', 식별 된 유명인 또는 고객이 학습 한 사용자 일 수 있습니다.|
@@ -197,7 +197,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="shots"></a>샷
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 키 프레임 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 키 프레임 인스턴스에는 keyFrame의 썸네일 ID와 thumbnailId 필드가 있습니다.|
@@ -254,7 +254,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="statistics"></a>통계
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |WordCount|화자별 단어 수입니다.|
@@ -267,7 +267,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -302,7 +302,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="labels"></a>레이블
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -360,7 +360,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="keywords"></a>키워드
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
@@ -411,7 +411,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 사용자는 콘텐츠에 대 한 사람 검토 요청을 제출할 수 있으며,이 경우 특성에는 사용자 `IsAdult` 리뷰 결과가 포함 됩니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|시각 콘텐츠 조정 ID입니다.|
 |adultScore|성인 점수(Content Moderator 기반)입니다.|

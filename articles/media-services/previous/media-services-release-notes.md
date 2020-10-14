@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652961"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014106"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -53,8 +53,8 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 
 다음 v2 속성은 더 이상 기록 작업 진행률 데이터로 채워지지 않습니다.
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+* [HistoricalEvents](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 작업 기록을 가져오려면 웹 후크를 통해 v2 작업 알림을 사용 하거나 알림 끝점을 사용 하 여 메시지를 큐에 두어야 합니다. 자세한 내용은 다음을 참조하세요.
 
@@ -81,7 +81,7 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 
 WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프로세서의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 토픽을 참조하세요.
 
-자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME에서 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조하세요.
+자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](./migrate-windows-azure-media-encoder.md) 및 [AME에서 Media Encoder Standard로 마이그레이션](./migrate-azure-media-encoder.md)을 참조하세요.
 
 ## <a name="march-2019"></a>2019년 3월
 
@@ -198,7 +198,7 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>2016년 4월 릴리스
 ### <a name="media-analytics"></a>미디어 분석
- Media Services는 강력한 비디오 인텔리전스를 위한 미디어 분석을 출시했습니다. 자세한 내용은 [Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+ Media Services는 강력한 비디오 인텔리전스를 위한 미디어 분석을 출시했습니다. 자세한 내용은 [Media Services 분석 개요](./legacy-components.md)를 참조하세요.
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay(미리 보기)
 이제 Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다. Media Services 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공할 수도 있습니다. 자세한 내용은 "Azure Media Services를 사용하여 Apple FairPlay로 보호되는 HLS 콘텐츠 스트리밍"을 참조하세요.
@@ -275,7 +275,7 @@ Media Services는 이제 다음과 같은 데이터 센터에서 사용할 수 �
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>2015년 7월 릴리스
 * Media Encoder Standard의 일반 공급 기능이 도입되었습니다. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)에 게시해 주세요.
   
-    Media Encoder Standard은 [이 섹션](https://go.microsoft.com/fwlink/?LinkId=618336)에 설명된 대로 기본 설정을 사용합니다. 4K 인코드에 대한 기본 설정을 사용하는 경우 프리미엄 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기 조정](media-services-scale-media-processing-overview.md)을 참조하세요.
+    Media Encoder Standard은 [이 섹션](./media-services-mes-presets-overview.md)에 설명된 대로 기본 설정을 사용합니다. 4K 인코드에 대한 기본 설정을 사용하는 경우 프리미엄 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기 조정](media-services-scale-media-processing-overview.md)을 참조하세요.
 * 라이브 실시간 캡션은 Media Services 및 Media Player에서 사용되었습니다. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)에 게시해 주세요.
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK 업데이트

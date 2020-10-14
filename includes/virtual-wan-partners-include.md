@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4bf53561e7788b1d4ce9789c3b555cb1e089545b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70a8ee78bbc90725346edbb7c83c247d48d86c4c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267305"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014031"
 ---
 파트너가 제공하는 서비스에 대한 자세한 내용은 이 섹션의 링크를 참조하세요. 아래 섹션에 분기 디바이스 파트너가 나열되지 않으면 해당 분기 디바이스 공급자에게 Microsoft로 연락하도록 요청하세요. azurevirtualwan@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "91267305"
 | [Fortinet](https://www.fortinet.com/azure-vwan) |[Fortigate 및 Microsoft Azure 가상 WAN 통합 배포 가이드](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/dg-fortigate-azure-wan-integration.pdf),[라우팅 시나리오 블로그 ](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
 |[HPE 아루바]( https://www.arubanetworks.com/microsoft-vwan/)|[아루바 SD-WAN 및 Microsoft Azure 가상 WAN 배포 가이드](https://www.arubanetworks.com/assets/tg/DG_Using-Aruba-SD-WAN-with-Microsoft-Azure-Virtual-WAN.pdf)|
 | [NetFoundry](https://netfoundry.io/solutions/netfoundry-for-microsoft-azure-virtual-wan/)|[Netfoundry 지원 허브: Azure 가상 WAN](https://support.netfoundry.io/hc/en-us/articles/360018137891-Introduction-to-Azure-Virtual-WAN-sites)|
-|[Nuage/Nokia (영국 텔레콤를 통해 제공 됨)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|* |
+|[Nuage/Nokia (영국 텔레콤를 통해 제공 됨)](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Nuage 및 Azure 가상 WAN 배포 가이드](https://onestore.nokia.com/asset/210073)|
 |[개방형 시스템]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[개방형 시스템 및 Azure 가상 WAN 배포 가이드](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |

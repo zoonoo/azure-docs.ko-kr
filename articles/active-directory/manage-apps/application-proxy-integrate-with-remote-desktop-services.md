@@ -1,27 +1,22 @@
 ---
-title: Azure AD 앱 프록시를 사용하여 원격 데스크톱 게시 | Microsoft 문서
-description: RDS를 사용 하 여 앱 프록시를 구성 하는 방법을 설명 합니다.
+title: Azure Active Directory 애플리케이션 프록시로 원격 데스크톱 게시
+description: 원격 데스크톱 서비스 (RDS)를 사용 하 여 앱 프록시를 구성 하는 방법을 설명 합니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
-ms.custom: it-pro
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396763"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015279"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -146,6 +141,6 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 2. [애플리케이션 프록시에 대한 직접 RDS 트래픽](#direct-rds-traffic-to-application-proxy)에서 8단계 전체를 건너뜁니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-[Azure AD 응용 프로그램 프록시](application-proxy-integrate-with-sharepoint-server.md) 
- 을 사용 하 여 SharePoint에 원격 액세스 사용 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격으로 앱에 액세스 하기 위한 보안 고려 사항](application-proxy-security.md)
+- [Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정](application-proxy-integrate-with-sharepoint-server.md)
+- [Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항](application-proxy-security.md)
+- [여러 앱 서버 부하 분산에 대 한 모범 사례](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)

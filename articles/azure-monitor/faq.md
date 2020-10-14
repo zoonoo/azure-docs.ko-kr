@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994667"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014242"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -401,7 +401,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 
 기존 Application Insights 리소스를 한 지역에서 다른 지역으로 이동 하는 것은 **현재 지원 되지 않습니다**. 수집 된 기록 데이터를 새 지역으로 **마이그레이션할 수 없습니다** . 유일한 해결 방법은 다음과 같습니다.
 
-1. 새 지역에 새 Application Insights 리소스 ([클래식](app/create-new-resource.md) 또는 [작업 영역 기반](/app/create-workspace-resource.md))를 만듭니다.
+1. 새 지역에 새 Application Insights 리소스 ([클래식](app/create-new-resource.md) 또는 [작업 영역 기반](/azure/azure-monitor/app/create-workspace-resource))를 만듭니다.
 2. 새 리소스의 원래 리소스와 관련 된 모든 고유한 사용자 지정 항목을 다시 만듭니다.
 3. 새 지역 리소스의 [계측 키](app/create-new-resource.md#copy-the-instrumentation-key) 또는 [연결 문자열](app/sdk-connection-string.md)을 사용 하도록 응용 프로그램을 수정 합니다.  
 4. 를 테스트 하 여 모든 것이 새 Application Insights 리소스에서 예상 대로 작동 하는지 확인 합니다. 
@@ -414,7 +414,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 - 가용성 경고를 다시 만듭니다.
 - 사용자가 새 리소스에 액세스 하는 데 필요한 모든 RBAC (사용자 지정 Role-Based Access Control) 설정을 다시 만듭니다. 
 - 수집 샘플링, 데이터 보존, 일일 상한 및 사용자 지정 메트릭과 관련 된 설정을 복제 합니다. 이러한 설정은 **사용량 및 예상 비용** 창을 통해 제어 됩니다.
-- [릴리스 주석](/app/annotations.md), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존 하는 모든 통합 새 API 키를 생성 하 고 연결 된 통합을 업데이트 해야 합니다. 
+- [릴리스 주석](/azure/azure-monitor/app/annotations), [라이브 메트릭 보안 제어 채널](app/live-stream.md#secure-the-control-channel) 등의 API 키에 의존 하는 모든 통합 새 API 키를 생성 하 고 연결 된 통합을 업데이트 해야 합니다. 
 - 클래식 리소스에서 연속 내보내기를 다시 구성 해야 합니다.
 - 작업 영역 기반 리소스의 진단 설정을 다시 구성 해야 합니다.
 

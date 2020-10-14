@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729137"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015024"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Azure Digital Twins를 다른 서비스와 통합
 
-Azure Digital Twins는 일반적으로 다른 서비스와 함께 사용 됩니다. Azure Digital Twins는 [**이벤트 경로**](concepts-route-events.md)를 사용 하 여 원격 분석 및 알림을 전달 하는 데 사용 되는 [IoT Hub](../iot-hub/about-iot-hub.md) 또는 [Logic Apps](../logic-apps/logic-apps-overview.md)같은 업스트림 서비스의 데이터를 수신 합니다. 
+Azure Digital Twins는 일반적으로 다른 서비스와 함께 사용 되어 다양 한 방법으로 데이터를 사용 하는 유연 하 고 연결 된 솔루션을 만듭니다.
+
+Azure Digital Twins는 [**이벤트 경로**](concepts-route-events.md)를 사용 하 여 원격 분석 및 알림을 전달 하는 데 사용 되는 [IoT Hub](../iot-hub/about-iot-hub.md) 또는 [Logic Apps](../logic-apps/logic-apps-overview.md)같은 업스트림 서비스에서 데이터를 받을 수 있습니다. 
 
 Azure Digital Twins는 저장소, 워크플로 통합, 분석 등을 위해 데이터를 [Azure Maps](../azure-maps/about-azure-maps.md) 및 [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md)같은 다운스트림 서비스로 라우팅할 수도 있습니다. 
 
@@ -24,7 +26,7 @@ Azure Digital Twins는 저장소, 워크플로 통합, 분석 등을 위해 데�
 
 Azure Digital Twins는[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), 사용자 지정 서비스 등 모든 서비스의 데이터 및 이벤트를 기반으로 할 수 있습니다. 이렇게 하면 사용자 환경의 물리적 장치에서 원격 분석을 수집 하 고 클라우드의 Azure Digital Twins 그래프를 사용 하 여이 데이터를 처리할 수 있습니다.
 
-Azure Digital Twins에는 기본 제공 되는 IoT Hub 없습니다. 현재 프로덕션에 있는 기존 IoT Hub를 사용 하거나 새 기존을 배포할 수 있습니다. 이는 IoT Hub의 모든 장치 관리 기능에 대 한 모든 권한을 제공 합니다.
+기본 제공 IoT Hub를 백그라운드에서 사용 하는 대신 Azure Digital Twins를 사용 하 여 서비스와 함께 사용할 수 있는 "사용자 고유의" IoT Hub를 제공할 수 있습니다. 현재 프로덕션에 있는 기존 IoT Hub를 사용 하거나이 목적으로 사용할 새 기존을 배포할 수 있습니다. 이는 IoT Hub의 모든 장치 관리 기능에 대 한 모든 권한을 제공 합니다.
 
 모든 원본에서 Azure Digital Twins로 데이터를 수집 하려면 [**azure 함수**](../azure-functions/functions-overview.md)를 사용 합니다. 이 패턴에 대 한 자세한 내용은 [*방법: IoT Hub에서 원격 분석 수집*](how-to-ingest-iot-hub-data.md)또는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 직접 사용해 보세요. 
 

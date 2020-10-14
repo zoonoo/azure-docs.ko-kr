@@ -8,12 +8,12 @@ ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 10e091ed58146d992d7b9c1f65b8b64f881a41b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b1e9a2ea052a39e891cf9084b632f434c341df
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400284"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013698"
 ---
 # <a name="connecting-to-servers"></a>서버에 연결
 
@@ -21,7 +21,7 @@ ms.locfileid: "91400284"
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
-[최신 클라이언트 라이브러리 가져오기](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
+[최신 클라이언트 라이브러리 가져오기](/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 종류에 관계없이 모든 서버 연결에서 Analysis Services 서버에 연결하고 인터페이스하려면 업데이트된 AMO, ADOMD.NET 및 OLEDB 클라이언트 라이브러리가 필요합니다. SSMS, Visual Studio, Excel 2016 이상 및 Power BI의 경우 최신 클라이언트 라이브러리가 월별 릴리스로 설치 또는 업데이트 됩니다. 그러나 경우에 따라 애플리케이션에 최신 버전이 없을 수 있습니다. 예를 들어 정책 지연 업데이트 또는 Microsoft 365 업데이트가 지연 된 채널에 있는 경우입니다.
 
@@ -79,7 +79,7 @@ Azure에서 Analysis Services 서버를 만들 경우 고유한 이름 및 만�
 
 ## <a name="connect-as-a-linked-server-from-sql-server"></a>SQL Server에서 연결 된 서버로 연결
 
-데이터 원본 공급자로 MSOLAP를 지정 하 여 [연결 된 서버로](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) Azure Analysis Services 리소스에 연결할 수 SQL Server. 연결 된 서버 연결을 구성 하기 전에 최신 [MSOLAP 클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) (공급자)를 설치 해야 합니다. 
+데이터 원본 공급자로 MSOLAP를 지정 하 여 [연결 된 서버로](/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) Azure Analysis Services 리소스에 연결할 수 SQL Server. 연결 된 서버 연결을 구성 하기 전에 최신 [MSOLAP 클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current) (공급자)를 설치 해야 합니다. 
 
 Azure Analysis Services에 연결 된 서버를 연결 하려면 MSOLAP 공급자를 SQL Server 프로세스 외부에서 인스턴스화해야 합니다. 연결 된 서버 옵션을 구성할 때 **Inprocess 허용** 옵션을 **선택 하지**않았는지 확인 합니다.
 
@@ -100,5 +100,4 @@ Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked 
 
 [Excel로 연결](analysis-services-connect-excel.md)    
 [Power BI 연결](analysis-services-connect-pbi.md)   
-[서버 관리](analysis-services-manage.md)   
-
+[서버 관리](analysis-services-manage.md)

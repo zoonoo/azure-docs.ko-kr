@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
-ms.openlocfilehash: 5195d63180d45ad408256264e3cf10174e55cd96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e069effae0cb7f834b2c3dac696d05304d841a7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87551951"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014837"
 ---
 # <a name="best-practices-for-long-running-operations"></a>장기 실행 작업에 대한 모범 사례
 
@@ -50,5 +50,4 @@ REST 또는 사용자 지정 논리를 사용 하는 경우에도 일괄 처리�
 [REST API를 사용한 비동기 새로 고침](analysis-services-async-refresh.md)  
 [Azure Analysis Services 규모 확장](analysis-services-scale-out.md)  
 [Analysis Services 고가용성](analysis-services-bcdr.md)  
-[Azure 서비스에 대 한 다시 시도 지침](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
-
+[Azure 서비스에 대 한 다시 시도 지침](/azure/architecture/best-practices/retry-service-specific)

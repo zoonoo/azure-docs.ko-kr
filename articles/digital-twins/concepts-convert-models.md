@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/28/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 76d1fd91053216103ef6ace0e56979c57eca569f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: bf39bd0c787ed64d573cc2a257442b4d3bb8ab7d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002637"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015117"
 ---
 # <a name="convert-industry-standard-models-to-dtdl-for-azure-digital-twins"></a>Azure Digital Twins에 대해 산업 표준 모델을 DTDL로 변환
 
@@ -31,8 +31,8 @@ Azure Digital Twins의 모델은 JSON-LD 기반 [**디지털 Twins 정의 언어
 | 업계 수직 | 모델 |
 | --- | --- | 
 | 건물/시설 관리 | [RealEstateCore](https://www.realestatecore.io/)<br>[BRICK 스키마](https://brickschema.org/ontology/1.1/)<br>[Ontology (봇) 빌드](https://w3c-lbd-cg.github.io/bot/)<br>[의미 센서 네트워크](https://www.w3.org/TR/vocab-ssn/)<br>[buildingSmart 산업 Foundation 클래스 (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
-| 스마트 도시 | [ETSI NGSI](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[스마트 응용 프로그램 참조 (SAREF)](https://saref.etsi.org/) |
-| 에너지 그리드 | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968) | 
+| 스마트 도시 | [ETSI NGSI](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[스마트 응용 프로그램 참조 (SAREF)](https://saref.etsi.org/)<br>[Fiware](https://www.fiware.org/)<br>[Open & Agile 스마트 도시 (OASC)](https://oascities.org/) |
+| 에너지 그리드 | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>에너지 및 상품 거래 용 [Adrm 모델](http://www.adrm.com/) | 
 
 사용자의 요구 사항에 따라 DTDL을 사용 하 여 산업 모델을 사용자 지정 하거나 확장 하거나 사용자 지정 모델을 처음부터 개발할 수도 있습니다. 
 

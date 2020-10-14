@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bdb2c36bc895c9229e4c04e9e0d76aa852bd139
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297309"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015854"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>스트리밍 또는 인코딩에 미디어 업로드
 
@@ -47,7 +47,7 @@ Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일(�
 
 ---
 <!-- add these to the tabs when available -->
-다른 메서드에 대한 자세한 내용은 [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet), [Java](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python) 및 [JavaScript(node.js)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs)에서 Blob 관련 작업에 대한 [Azure Storage 설명서](https://docs.microsoft.com/azure/storage/blobs/)를 참조하세요.
+다른 메서드에 대한 자세한 내용은 [.NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [Java](../../storage/blobs/storage-quickstart-blobs-java.md), [Python](../../storage/blobs/storage-quickstart-blobs-python.md) 및 [JavaScript(node.js)](../../storage/blobs/storage-quickstart-blobs-nodejs.md)에서 Blob 관련 작업에 대한 [Azure Storage 설명서](../../storage/blobs/index.yml)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

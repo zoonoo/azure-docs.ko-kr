@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884b1b85da5b52101ae5a0053003d47260a1134d
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269729"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015824"
 ---
 # <a name="media-services-regulatory-compliance"></a>규정 준수 Media Services
 
@@ -33,11 +33,11 @@ Media Services 정부 서비스는 DoD CC SRG IL 2, DoD CC SRG il 4, DoD CC SRG 
 
 3PAO 및 JAB로 Media Services를 검토 하는 것은 2020에 대해 계획 되지 않았습니다.
 
-Azure 서비스 준수에 대 한 자세한 내용은 [FedRAMP 및 DOD CC SRG 감사 범위](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) 문서를 참조 하세요.
+Azure 서비스 준수에 대 한 자세한 내용은 [FedRAMP 및 DOD CC SRG 감사 범위](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) 문서를 참조 하세요.
 
 ## <a name="azure-compliance-documentation"></a>Azure 규정 준수 설명서
 
-조직이 글로벌, 미국 정부, 지역, 금융 서비스, 상태, 미디어 및 제조에 대 한 법률 또는 규제 표준을 준수 해야 하는 경우 [Azure 규정 준수 설명서](https://docs.microsoft.com/azure/compliance/)부터 시작 하세요.
+조직이 글로벌, 미국 정부, 지역, 금융 서비스, 상태, 미디어 및 제조에 대 한 법률 또는 규제 표준을 준수 해야 하는 경우 [Azure 규정 준수 설명서](../../compliance/index.yml)부터 시작 하세요.
 
 또한 감사 보고서, 개인 정보 보호 및 일반 데이터 보호 규정에 대 한 검사 목록, 규정 준수 청사진, 국가 및 지역 지침, 구현 및 매핑, 백서 및 분석 보고서와 같은 추가 규정 준수 리소스도 찾을 수 있습니다.
 

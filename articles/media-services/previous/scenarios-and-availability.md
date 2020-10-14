@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259186"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014412"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -89,10 +89,10 @@ Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>미디어 분석을 사용하여 비디오에 대한 실질적인 통찰력 얻기
 
-미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](./legacy-components.md)를 참조하세요.
 
 1. 자산에 고품질 미디어 파일을 업로드합니다.
-2. [미디어 분석 개요](media-services-analytics-overview.md) 섹션에 설명된 미디어 분석 서비스 중 하나를 사용하여 비디오를 처리합니다.
+2. [미디어 분석 개요](./legacy-components.md) 섹션에 설명된 미디어 분석 서비스 중 하나를 사용하여 비디오를 처리합니다.
 3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생성한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob Storage에서 해당 파일을 다운로드할 수 있습니다.
 
 데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](#availability) 섹션을 참조하세요.
@@ -113,7 +113,7 @@ Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 3. 라이브 스트림을 미리 봅니다.
 4. 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(Content Delivery Network)에 콘텐츠를 배달합니다.
 
-    또는
+    -또는-
 
     나중에 스트리밍하기 위해 수집된 콘텐츠를 기록 및 저장합니다(주문형 비디오).
 
@@ -179,9 +179,9 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 #### <a name="availability"></a>가용성
 
-|Name|상태|데이터 센터
+|이름|상태|데이터 센터
 |---|---|---|
-|표준|GA|모두|
+|Standard|GA|모두|
 |Premium|GA|모두|
 
 ### <a name="live-encoding"></a>라이브 인코딩
@@ -203,7 +203,7 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 
 ### <a name="analytics-media-processors"></a>분석 미디어 프로세서
 
-미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](./legacy-components.md)를 참조하세요.
 
 > [!NOTE]
 > 일부 분석 미디어 프로세서는 더 이상 사용되지 않을 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 토픽을 참조하세요.

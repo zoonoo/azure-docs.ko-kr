@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
-ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c689c83e50a42885900f62d1a65d0aa75f36f2ec
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801463"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014032"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
@@ -40,7 +40,7 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-가까운 미래의 로드맵에는 128 기술, Arista, Cisco Systems (Viptela), F5 네트워크, Oracle SD-WAN 및 SharpLink 파트너가 예정 되어 있습니다.
+다음 파트너는 파트너 장치와 Azure VPN gateway: 128 기술, Arista, F5 Networks, Oracle SD-WAN (Talari) 및 SharpLink 간에 IPsec 연결을 자동화 하는 작업 범위를 표시 하는 회사 간에 서명 된 약관을 기반으로 하는 로드맵을 기반으로 합니다.
 
 ## <a name="partners-with-integrated-virtual-hub-offerings"></a>통합 된 가상 허브 제품을 사용 하는 파트너
 일부 파트너는 자동화 된 지점 IPSec 연결 외에도 Azure 가상 WAN 허브에 직접 통합할 수 있는 **nva (네트워크 가상 어플라이언스)** 를 제공 합니다.  이를 통해 고객은 해당 분기 연결을 가상 허브의 호환 가능한 타사 어플라이언스로 종료할 수 있습니다.  

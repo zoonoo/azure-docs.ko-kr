@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1781394e0091d8358570c2eaa07ca97297a6ad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506713"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013783"
 ---
 # <a name="connect-with-power-bi"></a>Power BI로 연결
 
@@ -49,7 +49,6 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 1. 서버의 모델에 대한 라이브 연결을 포함하는 Power BI Desktop 파일을 만듭니다.
 2. [Power BI](https://powerbi.microsoft.com)에서 **데이터 가져오기** > **파일**을 클릭한 다음, .pbix 파일을 찾아서 선택합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [Azure Analysis Services에 연결](analysis-services-connect.md)   
-[클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
-
+[클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current)

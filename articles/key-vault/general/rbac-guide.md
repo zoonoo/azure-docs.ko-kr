@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b4c48f25f1d4bd3822a93d2c780dd148d9e29827
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940534"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015158"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
@@ -37,7 +37,7 @@ Azure RBAC 모델은 관리 그룹, 구독, 리소스 그룹 또는 개별 리�
 
 -   계층 간에 액세스 제어를 분리 해야 하는 다중 계층 응용 프로그램
 
--   응용 프로그램에서 해당 키 자격 증명 모음에 있는 암호의 하위 집합에 액세스 해야 하는 경우 공통 비밀이 포함 된 공유 키 자격 증명 모음
+-   여러 응용 프로그램 간에 개별 암호 공유
 
 Azure Key Vault 관리 지침에 대 한 자세한 내용은 다음을 참조 하세요.
 

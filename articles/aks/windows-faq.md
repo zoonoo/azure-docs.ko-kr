@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업을 실행할 때 질문과 대답을 참조 하세요.
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927557"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013970"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS의 Windows Server 노드 풀에 대 한 질문과 대답
 
@@ -113,6 +113,49 @@ GMSA (그룹 관리 서비스 계정) 지원은 현재 AKS에서 사용할 수 �
 
 Windows 노드가 포함 된 클러스터는 포트 고갈를 발생 하기 전에 약 500 서비스를 사용할 수 있습니다.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>Windows 노드에서 Azure 하이브리드 혜택를 사용할 수 있나요?
+
+예. Windows Server Azure 하이브리드 혜택 Windows 노드를 AKS 온-프레미스 Windows Server 라이선스를 가져오도록 허용 하 여 운영 비용을 절감 합니다.
+
+Azure 하이브리드 혜택는 전체 AKS 클러스터 또는 개별 노드에서 사용할 수 있습니다. 개별 노드의 경우 [노드 리소스 그룹][resource-groups] 으로 이동 하 고 Azure 하이브리드 혜택를 노드에 직접 적용 해야 합니다. 개별 노드에 Azure 하이브리드 혜택를 적용 하는 방법에 대 한 자세한 내용은 [Windows Server 용 Azure 하이브리드 혜택][hybrid-vms]을 참조 하세요. 
+
+새 AKS 클러스터에서 Azure 하이브리드 혜택를 사용 하려면 인수를 사용 `--enable-ahub` 합니다.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+기존 AKS 클러스터에서 Azure 하이브리드 혜택를 사용 하려면 인수를 사용 하 여 클러스터를 업데이트 `--enable-ahub` 합니다.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+클러스터에 Azure 하이브리드 혜택 설정 되어 있는지 확인 하려면 다음 명령을 사용 합니다.
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+클러스터가 Azure 하이브리드 혜택 사용 하도록 설정 된 경우의 출력은 `az vmss show` 다음과 유사 합니다.
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Windows 컨테이너에서 Kubernetes 웹 대시보드를 사용할 수 있나요?
 
 예, [Kubernetes 웹 대시보드][kubernetes-dashboard] 를 사용 하 여 Windows 컨테이너에 대 한 정보에 액세스할 수 있지만 이번에는 Kubernetes 웹 대시보드에서 직접 실행 중인 Windows 컨테이너에 *kubectl exec* 를 실행할 수 없습니다. 실행 중인 Windows 컨테이너에 연결 하는 방법에 대 한 자세한 내용은 [유지 관리 또는 문제 해결을 위해 RDP를 사용 하 여 Azure Kubernetes 서비스 (AKS) 클러스터에 Windows Server 노드 연결][windows-rdp]을 참조 하세요.
@@ -152,3 +195,5 @@ AKS에서 Windows Server 컨테이너를 시작 하려면 [AKS에서 Windows ser
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

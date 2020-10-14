@@ -3,12 +3,12 @@ title: Azure Lighthouse 및 Azure 관리형 애플리케이션
 description: Azure Lighthouse 및 Azure 관리 되는 응용 프로그램을 사용 하 여 다양 한 시나리오를 지원 하 고 함께 사용할 수 있는 방법을 이해 합니다.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970761"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014990"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리형 애플리케이션
 
@@ -23,7 +23,7 @@ Azure 관리 되는 응용 프로그램 및 Azure Lighthouse는 서비스 공급
 
 [Azure Lighthouse](../overview.md)를 사용 하 여 서비스 공급자는 고객의 구독 (또는 리소스 그룹)에서 직접 광범위 한 관리 작업을 수행할 수 있습니다. 이 액세스는 논리 프로젝션을 통해 수행 되며, 서비스 공급자는 자신의 테 넌 트에 로그인 하 여 고객의 테 넌 트에 속한 리소스에 액세스할 수 있습니다. 고객은 서비스 공급자에 게 위임할 구독 또는 리소스 그룹을 결정할 수 있으며, 고객은 해당 리소스에 대 한 모든 권한을 유지 합니다. 또한 언제 든 지 서비스 공급자의 액세스를 제거할 수 있습니다.
 
-Azure Lighthouse를 사용 하기 위해 고객은 [ARM 템플릿을 배포](../how-to/onboard-customer.md) 하거나 [Azure Marketplace의 관리 서비스 제품](managed-services-offers.md)을 통해 [azure에서 위임 된 리소스 관리](azure-delegated-resource-management.md) 를 등록 합니다. [파트너 ID를 연결](../how-to/partner-earned-credit.md)하 여 고객의 계약에 대 한 영향을 추적 하 고 파트너의 획득 크레딧을 받을 수 있습니다.
+Azure Lighthouse를 사용 하기 위해 고객은 [ARM 템플릿을 배포](../how-to/onboard-customer.md) 하거나 [Azure Marketplace의 관리 서비스 제품](managed-services-offers.md)을 통해 [azure에서 위임 된 리소스 관리](azure-delegated-resource-management.md) 를 등록 합니다. [파트너 ID를 연결](../how-to/partner-earned-credit.md)하 여 고객의 계약에 대 한 영향을 추적할 수 있습니다.
 
 Azure Lighthouse는 서비스 공급자가 지속적으로 고객에 대 한 관리 작업을 수행 하는 경우에 일반적으로 사용 됩니다.
 

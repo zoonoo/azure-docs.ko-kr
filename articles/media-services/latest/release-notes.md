@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651193"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015705"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,7 +34,7 @@ ms.locfileid: "91651193"
 ## <a name="known-issues"></a>알려진 문제
 
 > [!NOTE]
-> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md) 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업 관리)은 [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
+> [Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md) 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업 관리)은 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 >
 > 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
 
@@ -174,7 +174,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 WAME(*Windows Azure Media Encoder*) 및 AME(*Azure Media Encoder*) 미디어 프로세서의 사용이 중단될 예정입니다. 사용 중지 날짜는이 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조 하세요.
 
-자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME에서 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조하세요.
+자세한 내용은 [WAME에서 Media Encoder Standard로 마이그레이션](../previous/migrate-windows-azure-media-encoder.md) 및 [AME에서 Media Encoder Standard로 마이그레이션](../previous/migrate-azure-media-encoder.md)을 참조하세요.
  
 ## <a name="july-2019"></a>2019년 7월
 

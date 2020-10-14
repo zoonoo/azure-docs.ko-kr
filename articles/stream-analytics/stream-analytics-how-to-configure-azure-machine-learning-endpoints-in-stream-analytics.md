@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics에서 Machine Learning 엔드포인트 사용
+title: Azure Stream Analytics에서 Azure Machine Learning Studio (클래식) 끝점 사용
 description: 이 아티클에서는 Azure Stream Analytics에서 컴퓨터 언어 사용자 정의 함수를 사용하는 방법을 설명합니다.
 author: jseb225
 ms.author: jeanb
@@ -7,31 +7,31 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: f54245013b6a57c02120c0e97ecf5f39094148b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bcff14f655385aa467878f21927ac091095c91f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317738"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015518"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Stream Analytics의 Azure Machine Learning Studio(클래식) 통합(미리 보기)
 Stream Analytics는 Azure Machine Learning Studio(클래식) 엔드포인트를 호출하는 사용자 정의 함수를 지원합니다. 이 기능에 대한 REST API 지원은 [Stream Analytics REST API 라이브러리](https://msdn.microsoft.com/library/azure/dn835031.aspx)에 자세히 설명되어 있습니다. 이 문서에서는 Stream Analytics에서 이 기능을 성공적으로 구현하기 위해 필요한 추가 정보를 제공합니다. 자습서도 게시되어 있으며 [여기](stream-analytics-machine-learning-integration-tutorial.md)서 확인할 수 있습니다.
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>개요: Azure Machine Learning Studio(클래식) 용어
-Microsoft Azure Machine Learning Studio(클래식)는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 협업 도구입니다. 이 도구는 *Azure Machine Learning Studio(클래식)* 라고 합니다. 이 스튜디오는 Machine Learning 리소스와 상호 작용하고 설계를 간편하게 빌드, 테스트 및 반복하는 데 사용됩니다. 이러한 리소스 및 해당 정의는 다음과 같습니다.
+Microsoft Azure Machine Learning Studio(클래식)는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 협업 도구입니다. 이 도구를 *Azure Machine Learning Studio (클래식)* 이라고 합니다. Studio (클래식)는 machine learning 리소스와 상호 작용 하 고 디자인을 쉽게 빌드하고 테스트 하 고 반복 하는 데 사용 됩니다. 이러한 리소스 및 해당 정의는 다음과 같습니다.
 
-* **작업 영역**: *작업 영역*은 관리 및 제어를 위해 다른 모든 Machine Learning 리소스를 함께 보관하는 컨테이너입니다.
+* **작업 영역**: *작업 영역은* 관리 및 제어를 위해 컨테이너에서 다른 모든 기계 학습 리소스를 함께 보관 하는 컨테이너입니다.
 * **실험**: *실험*은 데이터 세트를 활용하고 기계 학습 모델을 교육하기 위해 데이터 과학자가 만듭니다.
-* **엔드포인트**: *엔드포인트*는 기능을 입력으로 사용하고, 지정된 기계 학습 모델을 적용하고, 점수가 매겨진 출력을 반환하는 데 사용되는 Azure Machine Learning Studio(클래식) 개체입니다.
+* **끝점**: *끝점* 은 기능을 입력으로 사용 하 고, 지정 된 machine learning 모델을 적용 하 고, 점수가 매겨진 출력을 반환 하는 데 사용 되는 스튜디오 (클래식) 개체
 * **채점 웹 서비스**: *채점 웹 서비스* 는 위에 언급된 엔드포인트 컬렉션입니다.
 
 각 엔드포인트에는 배치 실행 및 동기 실행을 위한 API가 있습니다. Stream Analytics은 동기 실행을 사용합니다. 특정 서비스의 이름은 Azure Machine Learning Studio(클래식)에서 [요청/응답 서비스](../machine-learning/classic/consume-web-services.md)로 지정됩니다.
 
-## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Stream Analytics 작업에 필요한 Machine Learning 리소스
+## <a name="studio-classic-resources-needed-for-stream-analytics-jobs"></a>Stream Analytics 작업에 필요한 Studio (클래식) 리소스
 Stream Analytics 작업을 처리하려면 요청/응답 엔드포인트, [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)및 swagger 정의가 모두 있어야 성공적으로 실행됩니다. Stream Analytics에는 swagger 엔드포인트에 대한 url을 생성하고, 인터페이스를 조회하고, 사용자에게 기본 UDF 정의를 반환하는 추가 엔드포인트가 있습니다.
 
-## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>REST API를 통해 Stream Analytics 및 Machine Learning UDF 구성
-REST API를 사용하여 Azure 기계 언어 함수를 호출하는 작업을 구성할 수 있습니다. 단계는 다음과 같습니다.
+## <a name="configure-a-stream-analytics-and-studio-classic-udf-via-rest-api"></a>REST API를 통해 Stream Analytics 및 Studio (클래식) UDF 구성
+REST Api를 사용 하 여 Studio (클래식) 함수를 호출 하도록 작업을 구성할 수 있습니다. 단계는 다음과 같습니다.
 
 1. Stream Analytics 작업 만들기
 2. 입력 정의
@@ -68,7 +68,7 @@ REST API를 사용하여 Azure 기계 언어 함수를 호출하는 작업을 �
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>기본 UDF에 대한 RetrieveDefaultDefinition 엔드포인트 호출
-기초 UDF를 만든 후에는 완전한 UDF 정의가 필요합니다. RetrieveDefaultDefinition 엔드포인트는 Azure Machine Learning Studio(클래식) 엔드포인트에 바인딩된 스칼라 함수에 대한 기본 정의를 가져오는 데 도움이 됩니다. 아래 페이로드는 Azure Machine Learning 엔드포인트에 바인딩된 스칼라 함수의 기본 UDF 정의를 필요로 합니다. PUT 요청 중에 이미 제공 된 실제 끝점을 지정 하지 않습니다. 엔드포인트가 명시적으로 제공되면 Stream Analytics는 요청에 제공된 엔드포인트를 호출합니다. 그렇지 않으면 원래 참조하던 끝점을 사용합니다. 다음 UDF는 단일 문자열 매개 변수(문장)를 가져와서 해당 문장에 대한 “sentiment” 레이블의 단일 문자열 형식을 반환합니다.
+기초 UDF를 만든 후에는 완전한 UDF 정의가 필요합니다. RetrieveDefaultDefinition 엔드포인트는 Azure Machine Learning Studio(클래식) 엔드포인트에 바인딩된 스칼라 함수에 대한 기본 정의를 가져오는 데 도움이 됩니다. 아래 페이로드를 사용 하려면 Studio (클래식) 끝점에 바인딩된 스칼라 함수의 기본 UDF 정의를 가져와야 합니다. PUT 요청 중에 이미 제공 된 실제 끝점을 지정 하지 않습니다. 엔드포인트가 명시적으로 제공되면 Stream Analytics는 요청에 제공된 엔드포인트를 호출합니다. 그렇지 않으면 원래 참조하던 끝점을 사용합니다. 다음 UDF는 단일 문자열 매개 변수(문장)를 가져와서 해당 문장에 대한 “sentiment” 레이블의 단일 문자열 형식을 반환합니다.
 
 ```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

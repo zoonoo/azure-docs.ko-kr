@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b06a7ee41a69e32f44c44cdec0da6a47ec4b284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82731869"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013681"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 
@@ -28,7 +28,7 @@ GitHub의 [Analysis Services용 Adventure Works](https://github.com/Microsoft/sq
 
 ## <a name="sample-database-on-azure"></a>Azure의 샘플 데이터베이스
 
-Azure Synapse Analytics (SQL Data Warehouse)는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse ANALYTICS SQL 풀 만들기 및 쿼리](/azure/sql-data-warehouse/create-data-warehouse-portal)를 참조 하세요.
+Azure Synapse Analytics (SQL Data Warehouse)는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse ANALYTICS SQL 풀 만들기 및 쿼리](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조 하세요.
 
 ## <a name="sample-databases-on-github"></a>GitHub의 샘플 데이터베이스
 
@@ -46,5 +46,5 @@ Azure Portal에 Analysis Services 서버가 있는 경우 빠르고 쉽게 샘�
 
 ## <a name="next-steps"></a>다음 단계
 
-[놀이 Works 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)  
+[놀이 Works 자습서](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)

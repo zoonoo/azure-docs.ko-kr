@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/22/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: e7e3c2eb058d3549f2e1a10ffacf01fd354fbd47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651057"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013647"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>용량 풀 문제 해결
 
-이 문서에서는 용량 풀을 관리할 때 발생할 수 있는 문제에 대 한 해결 방법을 설명 합니다. 
+이 문서에서는 풀 변경 작업을 포함 하 여 용량 풀을 관리할 때 발생할 수 있는 문제에 대 한 해결 방법을 설명 합니다. 
 
-## <a name="error-conditions-and-resolutions"></a>오류 조건 및 해결 방법 
+## <a name="issues-managing-a-capacity-pool"></a>용량 풀 관리 문제 
 
 |     오류 조건    |     해결 방법    |
 |-|-|
@@ -33,7 +33,17 @@ ms.locfileid: "91651057"
 | 용량 풀을 삭제 하는 문제  |  용량 풀을 삭제 하려는 구독에서 모든 Azure NetApp Files 볼륨 및 스냅숏을 제거 해야 합니다. <br> 모든 볼륨 및 스냅숏을 이미 제거 했 고 여전히 용량 풀을 삭제할 수 없는 경우 리소스에 대 한 참조는 포털에 표시 되지 않고 계속 존재할 수 있습니다. 이 경우 지원 티켓을 파일에 포함 하 고 위의 권장 단계를 수행 하도록 지정 합니다. |
 | 오류가 발생 하 여 볼륨을 만들거나 수정할 때 오류가 발생 함 `Requested throughput not available` | 볼륨에 사용 가능한 처리량은 용량 풀의 크기와 서비스 수준에 따라 결정 됩니다. 충분 한 처리량이 없으면 풀 크기를 늘리거나 기존 볼륨 처리량을 조정 해야 합니다. | 
 
+## <a name="issues-moving-a-capacity-pool"></a>용량 풀 이동 문제 
+|     오류 조건    |     해결 방법    |
+|-|-|
+| 볼륨의 용량 풀을 변경 하는 것은 허용 되지 않습니다. | 이 기능을 사용 하기 위한 권한이 아직 부여 되지 않았을 수 있습니다. <br> 볼륨을 다른 용량 풀로 이동 하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우 먼저 기능을 등록 하 고를 설정 해야 `-FeatureName ANFTierChange` 합니다. [볼륨의 서비스 수준 동적 변경](dynamic-change-volume-service-level.md)에서 등록 단계를 참조 하세요. |
+| 총 볼륨 크기에 비해 용량 풀 크기가 너무 작습니다. |  이 오류는 이동 하는 볼륨에 사용 가능한 용량이 없는 대상 용량 풀의 결과입니다.  <br> 대상 풀의 크기를 늘리거나 더 큰 다른 풀을 선택 하십시오.  [용량 풀 또는 볼륨 크기 조정을](azure-netapp-files-resize-capacity-pools-or-volumes.md)참조 하세요.   |
+| 대상 용량 풀의 암호화 유형이 원본 용량 풀과 다른 경우 볼륨을 이동할 수 없습니다.  예를 들어 이중 암호화에서 단일 암호화로 이동 하거나 그 반대로 이동 합니다.  | 원본 용량 풀과 동일한 암호화 유형으로 대상 용량 풀을 선택 하세요.   |
+|  호출한 볼륨이 `'{source pool name}'` 대상 풀에 이미 있으므로 풀 변경을 완료할 수 없습니다. `'{target pool name}'` | 이 오류는 동일한 이름의 볼륨이 대상 용량 풀에 이미 있는 경우에 발생 합니다.  이름이 같은 볼륨이 없는 다른 용량 풀을 선택 하십시오.   | 
+
 ## <a name="next-steps"></a>다음 단계  
 
 * [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
 * [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)
+* [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md)
+* [용량 풀 또는 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)

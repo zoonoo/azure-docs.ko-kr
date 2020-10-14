@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d114017d5e5dfecfe20afc69849763a87aadd41
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077374"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015321"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -33,8 +33,8 @@ Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화�
 
 서비스 사용자 자격 증명 및 인증서는 Runbook 작업에 대해 Azure Automation에서 안전하게 저장될 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-[Azure Automation의 자격 증명 자산](../automation/automation-credentials.md)   
-[Azure Automation의 인증서 자산](../automation/automation-certificates.md)
+[Azure Automation의 자격 증명 자산](../automation/shared-resources/credentials.md)   
+[Azure Automation의 인증서 자산](../automation/shared-resources/certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>서버 관리자 역할에 서비스 사용자 추가
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO 및 ADOMD 
 
-클라이언트 애플리케이션 및 웹앱에 연결할 때 NuGet의 [AMO 및 ADOMD 클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) 버전 15.0.2 이상 설치 가능한 패키지는 다음 구문 `app:AppID` 및 암호 또는 `cert:thumbprint`를 사용하여 연결 문자열에서 서비스 사용자를 지원합니다. 
+클라이언트 애플리케이션 및 웹앱에 연결할 때 NuGet의 [AMO 및 ADOMD 클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current) 버전 15.0.2 이상 설치 가능한 패키지는 다음 구문 `app:AppID` 및 암호 또는 `cert:thumbprint`를 사용하여 연결 문자열에서 서비스 사용자를 지원합니다. 
 
 다음 예제에서는 `appID` 및 `password`가 모델 데이터베이스 새로 고침 작업을 수행하는 데 사용됩니다.
 
@@ -109,8 +109,8 @@ db.Model.SaveChanges();
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Azure PowerShell로 로그인](/powershell/azure/authenticate-azureps)   
 [Logic Apps를 사용하여 새로 고침](analysis-services-refresh-logic-app.md)  
 [Azure Automation을 사용하여 새로 고침](analysis-services-refresh-azure-automation.md)  
 [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)  
-[서비스 주체를 사용하여 Power BI Premium 작업 영역 및 데이터 세트 태스크 자동화](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[서비스 주체를 사용하여 Power BI Premium 작업 영역 및 데이터 세트 태스크 자동화](/power-bi/admin/service-premium-service-principal)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438827"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016096"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -91,11 +91,11 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 
 다음 문서는 게이트웨이에서 지 원하는 모든 서비스에 적용 되는 온-프레미스 데이터 게이트웨이 일반 콘텐츠에 포함 되어 있습니다.
 
-* [온-프레미스 데이터 게이트웨이 FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [온-프레미스 데이터 게이트웨이 앱 사용](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [테넌트 수준 관리](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [프록시 설정 구성](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [통신 설정 조정](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [로그 파일 구성](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [문제 해결](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [게이트웨이 성능 모니터링 및 최적화](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [온-프레미스 데이터 게이트웨이 FAQ](/data-integration/gateway/service-gateway-onprem-faq)   
+* [온-프레미스 데이터 게이트웨이 앱 사용](/data-integration/gateway/service-gateway-app)   
+* [테넌트 수준 관리](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [프록시 설정 구성](/data-integration/gateway/service-gateway-proxy)   
+* [통신 설정 조정](/data-integration/gateway/service-gateway-communication)   
+* [로그 파일 구성](/data-integration/gateway/service-gateway-log-files)   
+* [문제 해결](/data-integration/gateway/service-gateway-tshoot)
+* [게이트웨이 성능 모니터링 및 최적화](/data-integration/gateway/service-gateway-performance)

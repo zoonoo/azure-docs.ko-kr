@@ -8,18 +8,18 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0a5a7ac7d830cb03b1370c31d7e854f3b2a5a2fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9fd20fd42e9fe1eb0e98766798e5c759c974c97
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507185"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013902"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 
 REST 호출을 지 원하는 모든 프로그래밍 언어를 사용 하 여 Azure Analysis Services 테이블 형식 모델에 대해 비동기 데이터 새로 고침 작업을 수행할 수 있습니다. 여기에는 쿼리 스케일 아웃을 위한 읽기 전용 복제본의 동기화가 포함됩니다. 
 
-데이터 새로 고침 작업은 데이터 볼륨, 파티션 사용 최적화 수준 등을 비롯 한 다양 한 요인에 따라 다소 시간이 걸릴 수 있습니다. 이러한 작업은 일반적으로 [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (테이블 형식 개체 모델), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [Tmsl](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (테이블 형식 모델 스크립팅 언어)을 사용 하는 등의 기존 메서드를 사용 하 여 호출 되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
+데이터 새로 고침 작업은 데이터 볼륨, 파티션 사용 최적화 수준 등을 비롯 한 다양 한 요인에 따라 다소 시간이 걸릴 수 있습니다. 이러한 작업은 일반적으로 [TOM](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (테이블 형식 개체 모델), [PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) cmdlet 또는 [Tmsl](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (테이블 형식 모델 스크립팅 언어)을 사용 하는 등의 기존 메서드를 사용 하 여 호출 되었습니다. 그러나 이러한 메서드는 종종 신뢰할 수 없는, 장기 실행 HTTP 연결을 요구할 수 있습니다.
 
 Azure Analysis Services용 REST API에서는 데이터 새로 고침 작업을 비동기적으로 실행할 수 있습니다. REST API를 사용하면 클라이언트 애플리케이션에서의 장기 실행 HTTP 연결이 필요하지 않습니다. 안정성을 위한 기타 기본 제공 기능(예: 자동 다시 시도 및 일괄 처리 커밋)도 있습니다.
 
@@ -98,11 +98,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 
 매개 변수를 지정할 필요는 없습니다. 기본값이 적용됩니다.
 
-| Name             | 유형  | 설명  |기본값  |
+| 이름             | 유형  | 설명  |기본값  |
 |------------------|-------|--------------|---------|
-| `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](https://docs.microsoft.com/analysis-services/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
+| `Type`           | 열거형  | 수행할 처리 형식입니다. 이 형식은 TMSL [새로 고침 명령](/analysis-services/tmsl/refresh-command-tmsl) 형식인 full, clearValues, calculate, dataOnly, automatic 및 defragment에 맞춰 정렬됩니다. Add 형식은 지원되지 않습니다.      |   automatic      |
 | `CommitMode`     | 열거형  | 개체가 일괄로 커밋될지 또는 완료될 때만 커밋될지를 결정합니다. 모드에는 default, transactional, partialBatch가 포함됩니다.  |  transactional       |
-| `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](https://docs.microsoft.com/analysis-services/tmsl/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
+| `MaxParallelism` | Int   | 이 값은 처리 명령을 동시에 실행할 최대 스레드 수를 결정합니다. 이 값은 TMSL [시퀀스 명령](/analysis-services/tmsl/sequence-command-tmsl)에 설정될 수 있는 MaxParallelism 속성에 맞춰 정렬되거나 다른 메서드를 사용하여 정렬됩니다.       | 10        |
 | `RetryCount`     | Int   | 작업이 실패하기 전에 다시 시도하는 횟수를 나타냅니다.      |     0    |
 | `Objects`        | 배열 | 처리해야 하는 개체의 배열입니다. 각 개체에 전체 테이블을 처리할 때는 "table"이, 파티션을 처리할 때는 "partition"이 포함됩니다. 개체를 지정하지 않으면 전체 모델이 새로 고쳐집니다. |   전체 모델 처리      |
 
@@ -223,9 +223,7 @@ CommitMode는 partialBatch와 같습니다. 시간까지 걸릴 수 있는 큰 �
 3.    예제를 실행합니다.
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [표본의](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
-
-
+[REST API](/rest/api/analysisservices/servers)

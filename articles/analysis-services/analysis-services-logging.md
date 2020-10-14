@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5537079341823275ba521c9d44139a0e0305286
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83701483"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014939"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. Azure Analysis Services는 Azure Monitor와 연결됩니다. [Azure Monitor 리소스 로그](../azure-monitor/platform/platform-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. Azure Analysis Services는 Azure Monitor와 연결됩니다. [Azure Monitor 리소스 로그](../azure-monitor/platform/platform-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/overview.md)로 내보낼 수 있습니다.
 
 ![Storage, Event Hubs 또는 Azure Monitor 로그에 리소스 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -28,7 +28,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ### <a name="engine"></a>엔진
 
-**엔진**을 선택하면 모든 [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)를 기록합니다. 개별 이벤트를 선택할 수 없습니다. 
+**엔진**을 선택하면 모든 [xEvents](/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events)를 기록합니다. 개별 이벤트를 선택할 수 없습니다. 
 
 |XEvent 범주 |이벤트 이름  |
 |---------|---------|
@@ -80,7 +80,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     * **이름**. 만들 로그에 대한 이름을 입력합니다.
 
-    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
+    * **스토리지 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 스토리지 계정을 선택합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
     * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics-workspace)를 참조하세요.
 
@@ -90,7 +90,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 3. **저장**을 클릭합니다.
 
-    "에 대 한 진단을 업데이트 하지 못했습니다 \<workspace name> . 구독은 \<subscription id> microsoft insights를 사용 하도록 등록 되어 있지 않습니다. " [Azure Diagnostics 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
+    "에 대 한 진단을 업데이트 하지 못했습니다 \<workspace name> . 구독은 \<subscription id> microsoft insights를 사용 하도록 등록 되어 있지 않습니다. " [Azure Diagnostics 문제 해결](../azure-monitor/platform/resource-logs.md) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
 
     나중에 리소스 로그를 저장하는 방법을 변경하려면 이 페이지로 돌아와서 설정을 수정할 수 있습니다.
 
@@ -136,11 +136,11 @@ PowerShell을 사용하여 메트릭 및 리소스 로깅을 사용하도록 설
 
 ### <a name="rest-api"></a>REST API
 
-[Azure Monitor REST API를 사용하여 진단 설정을 변경](https://docs.microsoft.com/rest/api/monitor/)하는 방법을 알아봅니다. 
+[Azure Monitor REST API를 사용하여 진단 설정을 변경](/rest/api/monitor/)하는 방법을 알아봅니다. 
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화](../azure-monitor/platform/diagnostic-settings-template.md)하는 방법을 알아봅니다. 
+[Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화](../azure-monitor/samples/resource-manager-diagnostic-settings.md)하는 방법을 알아봅니다. 
 
 ## <a name="manage-your-logs"></a>로그 관리
 
@@ -328,4 +328,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 [Azure Monitor 리소스 로깅](../azure-monitor/platform/platform-logs-overview.md)에 대해 자세히 알아봅니다.
 
-PowerShell 도움말에서 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting)을 참조하세요.
+PowerShell 도움말에서 [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting)을 참조하세요.

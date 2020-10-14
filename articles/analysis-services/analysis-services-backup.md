@@ -8,16 +8,16 @@ ms.date: 07/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 66d09c2faa52cee3e94402be708d654b548c0de1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1850f77c1d13c761bfc2a143074b5067b349b4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506998"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014055"
 ---
 # <a name="analysis-services-database-backup-and-restore"></a>데이터베이스 백업 및 복원 Analysis Services
 
-Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 스토리지 계정과 컨테이너를 사용하거나 서버에 대한 스토리지 설정을 구성할 때 만들 수 있습니다.
+Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-account-create.md)의 컨테이너에 저장해야 합니다. 이미 있는 스토리지 계정과 컨테이너를 사용하거나 서버에 대한 스토리지 설정을 구성할 때 만들 수 있습니다.
 
 > [!NOTE]
 > 스토리지 계정을 만들면 새로운 유료 서비스가 발생할 수 있습니다. 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
@@ -75,10 +75,10 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 
 ### <a name="powershell"></a>PowerShell
-[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) cmdlet을 사용합니다.
+[Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase) cmdlet을 사용합니다.
 
 ## <a name="restore"></a>복원
-복원할 때 백업 파일은 서버용으로 구성한 스토리지 계정에 있어야 합니다. 온-프레미스 위치에서 스토리지 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 또는 [AzCopy](../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용합니다. 
+복원할 때 백업 파일은 서버용으로 구성한 스토리지 계정에 있어야 합니다. 온-프레미스 위치에서 스토리지 계정으로 백업 파일을 이동해야 하는 경우 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) 또는 [AzCopy](../storage/common/storage-use-azcopy-v10.md) 명령줄 유틸리티를 사용합니다. 
 
 
 
@@ -102,11 +102,11 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
 ### <a name="powershell"></a>PowerShell
 
-[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) cmdlet을 사용합니다.
+[Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase) cmdlet을 사용합니다.
 
 
 ## <a name="related-information"></a>관련 정보
 
-[Azure Storage 계정](../storage/common/storage-create-storage-account.md)  
+[Azure Storage 계정](../storage/common/storage-account-create.md)  
 [고가용성](analysis-services-bcdr.md)      
 [네트워크 연결 Analysis Services FAQ](analysis-services-network-faq.md)

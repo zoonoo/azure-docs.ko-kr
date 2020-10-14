@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294532"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013749"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -126,9 +126,9 @@ Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-`https://proxy01.contoso.com:30443`
+예: `https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     
@@ -215,7 +215,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 ## <a name="cache-information"></a>캐시 정보
 Linux 용 Log Analytics 에이전트의 데이터가 Azure Monitor로 전송 되기 전에 *% STATE_DIR_WS/out_oms_common*. buffer *의 로컬 컴퓨터에 캐시 됩니다. 사용자 지정 로그 데이터가 *% STATE_DIR_WS %1 out_oms_blob*에 버퍼링 됩니다. *. 경로는 일부 [솔루션 및 데이터 형식](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=)에 대해 다를 수 있습니다.
 
-에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 많은 시간 동안 대기 합니다. 두 번째 시도 전에 30 초 60, 다음, 120 초 전에 30 초 동안 대기 하 고 다시 연결할 때까지 다시 시도 하는 동안 최대 9 분이 소요 됩니다. 에이전트는 데이터의 지정 된 청크를 10 번만 다시 시도 하 고 다음으로 이동 합니다. 에이전트가 다시 업로드 될 때까지 계속 됩니다. 는 데이터를 삭제 하기 전에 8.5 시간까지 버퍼링 될 수 있음을 의미 합니다.
+에이전트는 20 초 마다 업로드 하려고 합니다. 실패 하는 경우 성공할 때까지 계속 해 서 점점 더 많은 시간이 소요 됩니다. 두 번째 시도 전 30 초, 120 초 전 60 초 다시 연결할 때까지 다시 시도 하는 최대 16 분까지 허용 됩니다. 에이전트는 지정 된 데이터 청크를 삭제 하 고 다음으로 이동 하기 전에 최대 6 회까지 다시 시도 합니다. 에이전트가 다시 업로드 될 때까지 계속 됩니다. 즉, 데이터를 삭제 하기 전에 약 30 분까지 버퍼링 될 수 있습니다.
 
 기본 캐시 크기는 10mb 이지만 [omsagent 파일](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf)에서 수정할 수 있습니다.
 

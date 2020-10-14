@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495741"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015569"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Azure Data Lake Storage에서 데이터를 사용할 수 있게 되 면 Azure Machine Learning의 Datastores를 사용 하 여 [Azure Storage 서비스에 연결](https://docs.microsoft.com/azure/machine-learning/how-to-access-data)합니다. 다음 단계를 수행 하 여 데이터 저장소 및 해당 데이터 집합을 만듭니다.
 
-1. Azure Portal에서 또는 [Azure Machine Learning studio](https://ml.azure.com/)에서 로그인 하 여 Azure Machine learning studio를 시작 합니다.
+1. Azure Portal에서 또는 [Azure Machine Learning studio](https://ml.azure.com/)에서 로그인 하 Azure Machine Learning studio를 시작 합니다.
 
 1. **관리** 섹션의 왼쪽 창에서 **datastores** 를 클릭 한 다음 **새 데이터 저장소**를 클릭 합니다.
 

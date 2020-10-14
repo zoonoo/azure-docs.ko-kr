@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331882"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015007"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -80,6 +80,14 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 
 Azure Digital Twins는 데이터 센터에서 기록 되는 미사용 데이터 및 전송 중인 데이터의 암호화를 제공 하 고 사용자가 액세스할 때 암호를 해독 합니다. 이 암호화는 Microsoft 관리 암호화 키를 사용 하 여 수행 됩니다.
+
+## <a name="cross-origin-resource-sharing-cors"></a>CORS(크로스-원본 자원 공유)
+
+Azure Digital Twins는 현재 **CORS (크로스-원본 자원 공유)** 를 지원 하지 않습니다. 따라서 브라우저 앱, [API Management (APIM)](../api-management/api-management-key-concepts.md) 인터페이스 또는 [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) 커넥터에서 REST API를 호출 하는 경우 정책 오류가 표시 될 수 있습니다.
+
+이 오류를 해결 하려면 다음 중 하나를 수행 하면 됩니다.
+* 메시지에서 CORS 헤더를 제거 합니다 `Access-Control-Allow-Origin` . 이 헤더는 응답을 공유할 수 있는지 여부를 나타냅니다. 
+* 또는 CORS 프록시를 만들고 Azure Digital Twins에서 요청을 REST API 요청 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

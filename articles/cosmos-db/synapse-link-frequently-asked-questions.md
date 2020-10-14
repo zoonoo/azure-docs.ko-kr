@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 9eb1f9162f0546e08f59391af1042becad25cf3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803996"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014565"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -35,7 +35,9 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Azure Synapse Link 활성화 계정에 대해 백업 및 복원이 지원 되나요?
 
-미리 보기에서 Azure Synapse Link 사용 데이터베이스 계정의 경우 컨테이너의 백업 및 복원은 지원 되지 않습니다. 백업 및 복원 기능이 필요한 프로덕션 워크 로드가 있는 경우 해당 데이터베이스 계정에 대해 Synapse 링크를 사용 하도록 설정 하지 않는 것이 좋습니다. 
+분석 저장소가 설정 된 컨테이너의 경우 지금은 분석 저장소에서 데이터의 자동 백업 및 복원이 지원 되지 않습니다. 
+
+데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하면 Azure Cosmos DB는 항상으로 예약 된 백업 간격으로 컨테이너의 트랜잭션 저장소 (만)에 대 한 데이터 백업을 자동으로 [수행](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) 합니다. 분석 저장소가 설정 된 컨테이너가 새 계정으로 복원 되 면 컨테이너는 트랜잭션 저장소로만 복원 되 고 분석 저장소는 사용 하도록 설정 되지 않습니다. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Synapse Link 기능을 사용 하지 않도록 설정할 수 있나요?
 

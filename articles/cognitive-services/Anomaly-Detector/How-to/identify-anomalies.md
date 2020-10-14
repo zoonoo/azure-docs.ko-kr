@@ -3,19 +3,19 @@ title: 시계열 데이터에서 변칙 탐지기 API를 사용 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 일괄 처리 또는 스트리밍 데이터에서 데이터의 변칙을 검색 하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: aahi
-ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: b2cd5e32503953de874ab470ca3f9413d2b37d59
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71840217"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014650"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 변칙 탐지기 API 사용  
 
@@ -26,7 +26,7 @@ ms.locfileid: "71840217"
 변칙 탐지기 API는 검색 모드 (일괄 처리 및 스트리밍)를 제공 합니다.
 
 > [!NOTE]
-> 다음 요청 Url은 구독에 적합 한 끝점과 결합 되어야 합니다. `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> 다음 요청 Url은 구독에 적합 한 끝점과 결합 되어야 합니다. 예: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>일괄 검색

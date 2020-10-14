@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015505"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014854"
 ---
 # <a name="manage-analysis-services"></a>Analysis Services 관리
 Azure에 Analysis Services 서버를 만들었으면 즉시 또는 조만간에 수행해야 하는 몇 가지 운영 및 관리 작업이 있습니다. 예를 들어 데이터 새로 고침 처리를 실행하거나, 서버의 모델에 대한 액세스 권한이 있는 사용자를 제어하거나, 서버의 상태를 모니터링합니다. 일부 관리 작업은 Azure 포털에서만, 일부 다른 작업은 SSMS(SQL Server Management Studio)에서만, 일부 작업은 둘 중 하나에서 수행할 수 있습니다.
@@ -30,7 +30,7 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
 ### <a name="download-and-install-ssms"></a>SSMS 다운로드 및 설치
 모든 최신 기능과 Azure Analysis Services 서버에 연결할 때 가장 원활한 환경을 얻으려면 최신 버전의 SSMS를 사용하고 있어야 합니다. 
 
-[SQL Server Management Studio를 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
+[SQL Server Management Studio를 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)합니다.
 
 
 ### <a name="to-connect-with-ssms"></a>SSMS로 연결
@@ -66,4 +66,3 @@ SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐�
 새 서버에 테이블 형식 모델을 아직 배포하지 않았으면 지금이야말로 좋은 기회입니다. 자세한 내용은 [Azure Analysis Services에 배포](analysis-services-deploy.md)를 참조하세요.
 
 서버에 모델을 배포한 경우에는 클라이언트 또는 브라우저를 통해 연결할 준비가 된 것입니다. 자세한 내용은 [Azure Analysis Services 서버에서 데이터 가져오기](analysis-services-connect.md)를 참조하세요.
-

@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400794"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014905"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
-Azure Analysis Services는 ID 관리 및 사용자 인증에 Azure AD(Azure Active Directory)를 사용합니다. Azure Analysis Services 서버를 만들거나, 관리하거나, 이 서버에 연결하는 모든 사용자는 동일한 구독의 [Azure AD 테넌트](../active-directory/fundamentals/active-directory-administer.md)에 유효한 사용자 ID가 있어야 합니다.
+Azure Analysis Services는 ID 관리 및 사용자 인증에 Azure AD(Azure Active Directory)를 사용합니다. Azure Analysis Services 서버를 만들거나, 관리하거나, 이 서버에 연결하는 모든 사용자는 동일한 구독의 [Azure AD 테넌트](../active-directory/fundamentals/active-directory-whatis.md)에 유효한 사용자 ID가 있어야 합니다.
 
-Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)을 지원합니다. B2B를 사용하여 Azure AD 디렉터리의 게스트 사용자로 조직 외부의 사용자를 초대할 수 있습니다. 게스트는 다른 Azure AD 테넌트 디렉터리나 모든 유효한 메일 주소에서 가져올 수 있습니다. 초대된 사용자가 Azure에서 메일로 보낸 초대를 수락하면 사용자 ID가 테넌트 디렉터리에 추가됩니다. 해당 ID를 보안 그룹에 추가하거나 서버 관리자 또는 데이터베이스 역할의 멤버로 추가할 수 있습니다.
+Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/external-identities/what-is-b2b.md)을 지원합니다. B2B를 사용하여 Azure AD 디렉터리의 게스트 사용자로 조직 외부의 사용자를 초대할 수 있습니다. 게스트는 다른 Azure AD 테넌트 디렉터리나 모든 유효한 메일 주소에서 가져올 수 있습니다. 초대된 사용자가 Azure에서 메일로 보낸 초대를 수락하면 사용자 ID가 테넌트 디렉터리에 추가됩니다. 해당 ID를 보안 그룹에 추가하거나 서버 관리자 또는 데이터베이스 역할의 멤버로 추가할 수 있습니다.
 
 ![Azure Analysis Services 인증 아키텍처](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
 ## <a name="authentication"></a>인증
 
-모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
+모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](/analysis-services/client-libraries?view=azure-analysis-services-current)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
 
 세 클라이언트 라이브러리는 Azure AD 대화형 흐름과 비대화형 인증 방법을 모두 지원합니다. Active Directory 암호 및 Active Directory 통합 인증 방법의 두 가지 비대화형 방법은 AMOMD 및 MSOLAP를 활용하는 애플리케이션에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 
@@ -34,11 +34,11 @@ Excel 및 Power BI Desktop과 같은 클라이언트 애플리케이션과 SSMS 
 
 Power BI Desktop, Visual Studio 및 SSMS는 Azure MFA(Multi-factor Authentication)도 지원하는 대화형 메서드인 Active Directory 유니버설 인증을 지원합니다. Azure MFA는 간단한 로그인 프로세스를 제공하는 동시에 데이터와 애플리케이션에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장**합니다.
 
-Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)가 필요합니다. 페더레이션을 사용 하 여 Azure AD 및 Microsoft 365 사용자는 온-프레미스 자격 증명을 사용 하 여 인증 되며 Azure 리소스에 액세스할 수 있습니다.
+Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)가 필요합니다. 페더레이션을 사용 하 여 Azure AD 및 Microsoft 365 사용자는 온-프레미스 자격 증명을 사용 하 여 인증 되며 Azure 리소스에 액세스할 수 있습니다.
 
 ### <a name="sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)
 
-Azure Analysis Services 서버는 Windows 인증, Active Directory 암호 인증 및 Active Directory 유니버설 인증을 사용하여 [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 이상에서 연결하는 것을 지원합니다. 일반적으로 다음과 같은 이유로 Active Directory 유니버설 인증을 사용하는 것이 좋습니다.
+Azure Analysis Services 서버는 Windows 인증, Active Directory 암호 인증 및 Active Directory 유니버설 인증을 사용하여 [SSMS V17.1](/sql/ssms/download-sql-server-management-studio-ssms) 이상에서 연결하는 것을 지원합니다. 일반적으로 다음과 같은 이유로 Active Directory 유니버설 인증을 사용하는 것이 좋습니다.
 
 *  대화형 및 비대화형 인증 방법을 지원합니다.
 
@@ -81,4 +81,4 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
 [서버 관리자 관리](analysis-services-server-admins.md)  
-[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)  
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)

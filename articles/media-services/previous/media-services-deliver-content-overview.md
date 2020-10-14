@@ -10,12 +10,12 @@ ms.workload: media
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b636d1cdf2e4b9bd137768e22240d8a47d724a97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 363bb5389eda8336d04b1ff457f8246e89a042d8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266037"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014395"
 ---
 # <a name="deliver-content-to-customers"></a>고객에게 콘텐츠 배달
 
@@ -69,7 +69,7 @@ Media Services를 사용하여 자산에 대한 필터를 정의할 수 있습�
 > 
 > 
 
-로케이터의 만료 날짜를 업데이트하려면 [REST](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
+로케이터의 만료 날짜를 업데이트하려면 [REST](/rest/api/media/operations/locator#update_a_locator) 또는 [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator) API를 사용합니다. SAS 로케이터의 만료 날짜를 업데이트할 때 해당 URL도 변경됩니다.
 
 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. DRM(Digital Rights Management) 솔루션을 사용하여 개별 사용자에게 서로 다른 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [미디어 보안 설정](/previous-versions/azure/dn282272(v=azure.100))을 참조하세요.
 
