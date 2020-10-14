@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757598"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057810"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Azure Synapse Link (미리 보기)에서 SQL server 서버를 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
 Synapse SQL server 서버를 사용 하지 않는 경우 (이전에는 SQL 주문형) 트랜잭션 워크 로드의 성능에 영향을 주지 않고 [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 로 설정 된 Azure Cosmos DB 컨테이너의 데이터를 거의 실시간으로 분석할 수 있습니다. [분석 저장소](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 t-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다.
 
 > [!NOTE]
-> SQL server 서버를 사용 하지 않는 Azure Cosmos DB 분석 저장소 쿼리 지원은 현재 제어 된 미리 보기로 제공 됩니다. 
+> SQL server 서버를 사용 하지 않는 Azure Cosmos DB 분석 저장소 쿼리 지원은 현재 제어 된 미리 보기로 제공 됩니다. 오픈 공개 미리 보기는 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) 페이지에서 공지 됩니다.
 
 Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 SQL server가 아닌 쿼리 결과를 Azure Cosmos DB에 저장할 수 없습니다.
 
@@ -36,10 +36,15 @@ OPENROWSET(
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-Azure Cosmos DB 연결 문자열은 Azure Cosmos DB 계정 이름, 데이터베이스 이름, 데이터베이스 계정 마스터 키 및 작동 하는 선택적 영역 이름을 지정 합니다 `OPENROWSET` . 연결 문자열의 형식은 다음과 같습니다.
+Azure Cosmos DB 연결 문자열은 Azure Cosmos DB 계정 이름, 데이터베이스 이름, 데이터베이스 계정 마스터 키 및 작동 하는 선택적 영역 이름을 지정 합니다 `OPENROWSET` . 
+
+> [!IMPORTANT]
+> 뒤에 별칭을 사용 하는지 확인 `OPENROWSET` 합니다. 함수 뒤에 별칭을 지정 하지 않으면 서버를 사용 하지 않는 SQL 끝점에 대 한 연결 문제를 야기 하는 [알려진 문제가](#known-issues) Synapse `OPENROWSET` .
+
+연결 문자열의 형식은 다음과 같습니다.
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
@@ -252,6 +257,13 @@ SQL (Core) API의 Azure Cosmos DB 계정은 숫자, 문자열, 부울, null, 중
 | 중첩 된 개체 또는 배열 | varchar (max) (UTF8 데이터베이스 데이터 정렬), JSON 텍스트로 직렬화 됨 |
 
 Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리하려면 [여기](../../cosmos-db/analytical-store-introduction.md#analytical-schema)에서 사용할 확장 속성 이름 및 분석 저장소에서 전체 충실도 스키마 표현에 대해 자세히 알아볼 수 있습니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+- 함수 뒤에 별칭을 지정 **해야** 합니다 `OPENROWSET` (예: `OPENROWSET (...) AS function_alias` ). 별칭을 생략 하면 연결 문제가 발생할 수 있으며 서버를 사용 하지 않는 SQL 끝점은 일시적으로 사용할 수 없습니다 Synapse. 이 문제는 11 월 2020에 해결 될 예정입니다.
+- Synapse 서버를 사용 하지 않는 SQL server는 현재 [Azure Cosmos DB full 충실도 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)를 지원 하지 않습니다. Synapse 서버를 사용 하지 않는 SQL만 사용 하 Cosmos DB 잘 정의 된 스키마에 액세스할 수 있습니다.
+
+[Azure Synapse 피드백 페이지](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)에서 제안 및 문제를 보고할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

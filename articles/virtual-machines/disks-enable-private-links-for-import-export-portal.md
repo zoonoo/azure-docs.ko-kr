@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88815864"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979056"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal을 사용하여 Private Links로 관리 디스크에 대한 가져오기/내보내기 액세스를 제한합니다.
 
@@ -30,12 +30,6 @@ ms.locfileid: "88815864"
 ## <a name="regional-availability"></a>국가별 가용성
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-관리 디스크를 내보내고 가져오는 데 프라이빗 엔드포인트를 사용하려면 구독에서 이 기능을 사용하도록 설정해야 합니다. 구독에 사용하도록 설정된 기능을 가져오려면 구독 ID를 사용하여 이메일을 mdprivatelinks@microsoft .com에 보냅니다.
-
-디스크가 연결된 VM의 가상 네트워크를 적어 두어야 합니다. 가상 네트워크는 프라이빗 엔드포인트를 구성할 때 필요합니다.
 
 ## <a name="create-a-disk-access-resource"></a>디스크 액세스 리소스 만들기
 
@@ -101,4 +95,4 @@ ms.locfileid: "88815864"
 ## <a name="next-steps"></a>다음 단계
 
 - [Private Link에 대한 FAQ](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [PowerShell을 사용하여 관리 스냅샷을 VHD로 다른 지역의 스토리지 계정에 내보내기/복사](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [PowerShell을 사용하여 관리 스냅샷을 VHD로 다른 지역의 스토리지 계정에 내보내기/복사](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

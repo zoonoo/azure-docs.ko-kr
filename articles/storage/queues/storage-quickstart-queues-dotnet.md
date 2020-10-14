@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fd60adf94e57be3892a264c2a8457b839e1c8778
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011296"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939205"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -77,7 +77,7 @@ dotnet add package Azure.Storage.Queues
 1. 편집기에서 *Program.cs* 파일 열기
 1. `Console.WriteLine("Hello World!");` 문 제거
 1. `using` 지시문 추가
-1. [비동기 코드를 지원](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#async-main)하도록 `Main` 메서드 선언 업데이트
+1. [비동기 코드를 지원](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)하도록 `Main` 메서드 선언 업데이트
 
 
 

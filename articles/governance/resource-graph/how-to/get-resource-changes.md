@@ -1,14 +1,14 @@
 ---
 title: 리소스 변경 내용 가져오기
 description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록을 가져오고 차이를 평가하는 방법을 이해합니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: 02dfd2b8b66cd09be39a44166a0fd62bb13c8395
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056570"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057572"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
@@ -279,7 +279,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 }
 ```
 
-**beforeSnapshot** 및 **afterSnapshot**은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 위의 예제를 살펴보면 변경된 속성이 **supportsHttpsTrafficOnly**인 것을 볼 수 있습니다.
+**beforeSnapshot** 및 **afterSnapshot**은 각각 스냅샷을 만든 시간 및 해당 시점의 속성을 제공합니다. 이러한 스냅샷 간의 특정 지점에서 변경이 발생했습니다. 이전 예제를 살펴보면 변경 된 속성이 **supportsHttpsTrafficOnly**된 것을 볼 수 있습니다.
 
 결과를 비교하려면 **resourceChanges**에서 **changes** 속성을 사용하거나 **resourceChangeDetails**에서 각 스냅샷의 **콘텐츠** 부분을 평가하여 차이점을 확인합니다. 스냅샷을 비교하는 경우 **타임스탬프**는 항상 예상됨에도 불구하고 차이점으로 표시됩니다.
 

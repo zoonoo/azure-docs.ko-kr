@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cde959d8e075b55cb6cbb37479ca49cdd8a8c0c1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ab2fb13be10d5992f1b26973e9735ac238090a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233740"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856061"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Ruby on Rails용 CI/CD 파이프라인 만들기
 
@@ -126,4 +126,4 @@ Azure DevOps Starter는 Azure DevOps 조직에서 전체 CI/CD 파이프라인�
 팀의 요구에 맞게 빌드 및 릴리스 파이프라인 수정 방법에 대해 자세히 알려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [다단계 CD(연속 배포) 파이프라인 정의](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [다단계 CD(연속 배포) 파이프라인 정의](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

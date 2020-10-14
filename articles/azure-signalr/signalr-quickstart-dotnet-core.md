@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 77ab19296d1e310e48cdf3609c9f109dc42f6ec1
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408305"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874019"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -112,11 +112,11 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSignalR();
+        services.AddAzureSignalR();
     }
     ```
 
-    매개 변수를 `AddSignalR()`에 전달하지 않으면 이 코드에서 SignalR Service 리소스 연결 문자열에 대한 기본 구성 키를 사용합니다. 기본 구성 키는 *Azure:SignalR:ConnectionString*입니다
+    매개 변수를 `AddAzureSignalR()`에 전달하지 않으면 이 코드에서 SignalR Service 리소스 연결 문자열에 대한 기본 구성 키를 사용합니다. 기본 구성 키는 *Azure:SignalR:ConnectionString*입니다
 
 5. *Startup.cs*에서 `Configure` 메서드를 다음 코드로 바꿔서 업데이트합니다.
 

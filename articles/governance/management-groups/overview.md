@@ -4,12 +4,12 @@ description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대
 ms.date: 09/22/2020
 ms.topic: overview
 ms.custom: contperfq1
-ms.openlocfilehash: e3bc3ee34227fd23ea9f56070f8ea7776a10a134
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: be3369369f28930fd1ecad295a4dad4d14e75cd3
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91533808"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951879"
 ---
 # <a name="what-are-azure-management-groups"></a>Azure 관리 그룹이란?
 
@@ -202,6 +202,6 @@ Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹�
 
 관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [관리 그룹을 만들어 Azure 리소스 구성](./create.md)
+- [관리 그룹을 만들어 Azure 리소스 구성](./create-management-group-portal.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](./manage.md)
 - [리소스 계층 구조를 보호하는 방법](./how-to/protect-resource-hierarchy.md)에 대한 옵션을 참조하세요.

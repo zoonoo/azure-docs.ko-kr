@@ -1,18 +1,18 @@
 ---
 title: Azure 리소스 검색
 description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하고 리소스가 연결되는 방식을 파악하는 방법에 대해 알아봅니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0ef3935d865618a9d4dda2825f7d4383baf772
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056587"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056245"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
-Azure Resource Graph에서는 원하는 범위에서 Azure 리소스를 빠르게 탐색/검색하는 기능을 제공합니다. 빠르게 응답을 제공하는 Azure Resource Graph를 사용하면 환경 관련 정보 및 Azure 리소스를 구성하는 속성을 효율적으로 파악할 수 있습니다.
+Azure Resource Graph에서는 원하는 범위에서 Azure 리소스를 빠르게 탐색/검색하는 기능을 제공합니다. 빠른 응답을 위해 엔지니어링 되었으며, 사용자 환경 및 Azure 리소스에 존재 하는 속성에 대해 알아볼 수 있는 좋은 방법입니다.
 
 ## <a name="explore-virtual-machines"></a>가상 머신 탐색
 
@@ -104,7 +104,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 ]
 ```
 
-속성은 SKU, OS, 디스크, 태그, 리소스가 속한 리소스 그룹과 구독 등 가상 머신 리소스 자체에 대한 추가 정보를 제공합니다.
+속성은 가상 컴퓨터 리소스 자체에 대 한 추가 정보를 알려 줍니다. 이러한 속성에는 운영 체제, 디스크, 태그, 리소스 그룹 및 구독을 멤버로 포함 합니다.
 
 ### <a name="virtual-machines-by-location"></a>위치별 가상 머신
 
@@ -165,7 +165,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>프리미엄 관리 디스크에 연결된 가상 머신
 
-이러한 **Standard_B2s** 가상 머신에 연결된 프리미엄 관리 디스크의 세부 정보를 확인하려는 경우 해당 관리 디스크의 리소스 ID를 반환하도록 쿼리를 확장할 수 있습니다.
+이러한 **Standard_B2s** 가상 컴퓨터에 연결 된 프리미엄 관리 디스크에 대 한 세부 정보를 얻기 위해 쿼리를 확장 하 여 해당 관리 디스크의 리소스 ID를 반환 합니다.
 
 ```kusto
 Resources
@@ -310,5 +310,5 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddr
 ## <a name="next-steps"></a>다음 단계
 
 - [쿼리 언어](query-language.md)에 대해 자세히 알아보기
-- [시작 쿼리](../samples/starter.md)에 사용되는 언어를 확인합니다.
-- [고급 쿼리](../samples/advanced.md)의 고급 사용법을 확인합니다.
+- [시작 쿼리](../samples/starter.md)에 사용되는 언어를 참조하세요.
+- [고급 쿼리](../samples/advanced.md)의 고급 사용법을 참조하세요.

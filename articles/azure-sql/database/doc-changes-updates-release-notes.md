@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043394"
+ms.locfileid: "92058134"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |**Azure SQL Database**|*단일 데이터베이스* Azure SQL Database| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다. |
 |**Azure SQL Database**|Azure SQL Database *탄력적 풀*| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다.  |
 |**Azure SQL Database** |Azure SQL Database | 용어는 동일 하 게 유지 되지만 이제는 단일 데이터베이스 및 탄력적 풀 배포에만 적용 되며 관리 되는 인스턴스는 포함 하지 않습니다. |
-| **Azure SQL**| 해당 없음 | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
+| **Azure SQL**| N/A | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
 
 ## <a name="features-in-public-preview"></a>공개 미리 보기의 기능
 
@@ -98,6 +98,8 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|[서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|9 월 2020|해결 방법 있음||
+|[Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|9 월 2020|해결 방법 있음||
 |Azure SQL의 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD id 관리를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
@@ -127,6 +129,14 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |보안 연결을 사용 하는 외부 (비 Azure) 메일 서버를 사용 하는 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함 된 데이터베이스는 SQL Managed Instance 지원 되지 않습니다.||해결됨|2019년 8월|
 
+### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.
+
+[서버 트러스트 그룹](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) 은 [분산 트랜잭션을](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview)실행 하기 위한 필수 구성 요소인 관리 되는 인스턴스 간에 트러스트를 설정 하는 데 사용 됩니다. 서버 트러스트 그룹에서 Managed Instance를 제거 하거나 그룹을 삭제 한 후에도 분산 트랜잭션을 실행할 수 있습니다. Managed Instance에서 분산 트랜잭션을 사용 하지 않도록 설정 하 고 [사용자가 시작 하는 수동 장애 조치 (failover)](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) 를 수행할 수 있도록 해결 방법을 적용할 수 있습니다.
+
+### <a name="distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation"></a>Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.
+
+서비스 계층 또는 vCores 수 변경을 포함 하는 Managed Instance 크기 조정 작업은 백 엔드에서 서버 트러스트 그룹 설정을 다시 설정 하 고 [분산 트랜잭션](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview)실행을 비활성화 합니다. 이 문제를 해결 하려면 Azure Portal에서 새 [서버 신뢰 그룹](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) 을 삭제 하 고 만듭니다.
+
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 관리 되는 Id를 사용 하 여 Azure storage에 액세스할 수 없습니다.
 
 Bulk insert 문은 `DATABASE SCOPED CREDENTIAL` Azure storage에 인증 하는 데 관리 id와 함께 사용할 수 없습니다. 이 문제를 해결 하려면 공유 액세스 서명 인증으로 전환 합니다. 다음 예제는 Azure SQL (데이터베이스 및 Managed Instance)에서 작동 하지 않습니다.
@@ -146,7 +156,7 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 경우에 따라 Azure AD 및 Azure Key Vault (AKV) 서비스에 액세스 하는 데 사용 되는 서비스 주체에 문제가 있을 수 있습니다. 따라서이 문제는 SQL Managed Instance를 사용 하 여 Azure AD 인증 및 TDE (투명 한 데이터베이스 암호화) 사용에 영향을 줍니다. 이는 일시적인 연결 문제 또는 외부 공급자의 로그인/사용자 만들기 또는 EXECUTE AS LOGIN/USER와 같은 문을 실행 하지 못하는 경우에 발생할 수 있습니다. 새 Azure SQL Managed Instance에서 고객 관리 키를 사용 하 여 TDE를 설정 하는 것도 일부 환경에서 작동 하지 않을 수 있습니다.
 
-**해결 방법**: 업데이트 명령을 실행 하기 전에 SQL Managed Instance에서이 문제가 발생 하지 않도록 하거나, 업데이트 명령 후에이 문제가 이미 발생 한 경우 Azure Portal로 이동 하 여 sql Managed Instance [Active Directory 관리자 블레이드](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal)로 이동 합니다. "Managed Instance에 Azure Active Directory 액세스 하려면 서비스 주체가 필요 합니다. 라는 오류 메시지가 표시 되는지 확인 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. " 이 오류 메시지가 발생 한 경우이를 클릭 하 고이 오류가 해결 될 때까지 제공 된 단계별 지침을 따르세요.
+**해결 방법**: 업데이트 명령을 실행 하기 전에 SQL Managed Instance에서이 문제가 발생 하지 않도록 하거나, 업데이트 명령 후에이 문제가 이미 발생 한 경우 AZURE PORTAL, SQL Managed Instance [Active Directory 관리자 블레이드](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal)로 이동 합니다. "Managed Instance에 Azure Active Directory 액세스 하려면 서비스 주체가 필요 합니다. 라는 오류 메시지가 표시 되는지 확인 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. " 이 오류 메시지가 발생 한 경우이를 클릭 하 고이 오류가 해결 될 때까지 제공 된 단계별 지침을 따르세요.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>CHECKSUM 없는 수동 백업 복원이 실패할 수 있음
 

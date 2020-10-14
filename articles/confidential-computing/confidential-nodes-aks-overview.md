@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: ae3090689f9999c9ea6aa65447dadbdd7b0b2026
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998463"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940772"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Azure Kubernetes Service(공개 미리 보기)의 기밀 컴퓨팅 노드
 
@@ -40,7 +40,7 @@ AKS(Azure Kubernetes Service)는 Intel SGX에서 [DCsv2 기밀 컴퓨팅 노드]
 
 #### <a name="sgx-device-plugin"></a>SGX 디바이스 플러그 인 <a id="sgx-plugin"></a>
 
-SGX 디바이스 플러그 인은 EPC 메모리용 Kubernetes 디바이스 플러그 인 인터페이스를 구현합니다. 실제로 이 플러그 인은 EPC 메모리를 Kubernetes의 추가 리소스 종류로 만듭니다. 사용자는 다른 리소스와 마찬가지로 이 리소스에 대한 제한을 지정할 수 있습니다. 디바이스 플러그 인은 예약 기능 외에도 SGX 디바이스 드라이버 권한을 기밀 워크로드 컨테이너에 할당하는 데 도움이 됩니다. EPC 메모리 기반 배포(`kubernetes.azure.com/sgx_epc_mem_in_MiB`) 샘플의 샘플 구현은 [여기](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)에 있습니다.
+SGX 디바이스 플러그 인은 EPC 메모리용 Kubernetes 디바이스 플러그 인 인터페이스를 구현합니다. 실제로 이 플러그 인은 EPC 메모리를 Kubernetes의 추가 리소스 종류로 만듭니다. 사용자는 다른 리소스와 마찬가지로 이 리소스에 대한 제한을 지정할 수 있습니다. 디바이스 플러그 인은 예약 기능 외에도 SGX 디바이스 드라이버 권한을 기밀 워크로드 컨테이너에 할당하는 데 도움이 됩니다. EPC 메모리 기반 배포(`kubernetes.azure.com/sgx_epc_mem_in_MiB`) 샘플의 샘플 구현은 [여기](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)에 있습니다.
 
 #### <a name="sgx-quote-helper-service"></a>SGX Quote 도우미 서비스 <a id="sgx-quote"></a>
 

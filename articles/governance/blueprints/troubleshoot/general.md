@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사진을 만들고 할당 하 고 제거 하는 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651322"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058287"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
@@ -59,7 +59,7 @@ ms.locfileid: "89651322"
 
 #### <a name="resolution"></a>해결 방법
 
-함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/templates/template-expressions.md)을 참조 하세요.
+함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. 그런 다음 청사진 서비스는 예상 대로 동적이 될 수 있도록 아티팩트에 함수를 배치 합니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/templates/template-expressions.md)을 참조 하세요.
 
 ## <a name="delete-errors"></a>삭제 오류
 
@@ -75,7 +75,7 @@ ms.locfileid: "89651322"
 
 #### <a name="resolution"></a>해결 방법
 
-비 터미널 상태의 청사진 할당은 _6 시간_ 제한 시간 후에 자동으로 **실패** 로 표시 됩니다. 시간 제한이 청사진 할당의 상태를 조정한 후에는 삭제를 다시 시도할 수 있습니다.
+비 터미널 상태의 청사진 할당은 _6 시간_ 제한 시간 이후 자동으로 **실패** 로 표시 됩니다. 시간 제한이 청사진 할당의 상태를 조정한 후에는 삭제를 다시 시도할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

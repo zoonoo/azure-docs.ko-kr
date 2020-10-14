@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 7857a037d8e48c8c6ae8d44cf77c863bec91d9d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 69d34b6c50d5a4be728453a34c1c092c63c7b6be
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88510649"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977326"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Windows 가상 머신 만들기 및 암호화
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Windows VM 만들기 화면&quot;:::
 
     > [!WARNING]
-    > &quot;디스크&quot; 탭은 **디스크 옵션**의 &quot;암호화 유형" 필드를 제공합니다. 이 필드는 Azure Disk Encryption이 아닌 [Managed Disks](managed-disks-overview.md) + CMK에 대한 암호화 옵션을 지정하는 데 사용됩니다.
+    > &quot;디스크&quot; 탭은 **디스크 옵션**의 &quot;암호화 유형" 필드를 제공합니다. 이 필드는 Azure Disk Encryption이 아닌 [Managed Disks](../managed-disks-overview.md) + CMK에 대한 암호화 옵션을 지정하는 데 사용됩니다.
     >
     > 혼동을 피하기 위해 이 자습서를 완료하는 동안 *디스크* 탭을 완전히 건너뛰는 것이 좋습니다.
 

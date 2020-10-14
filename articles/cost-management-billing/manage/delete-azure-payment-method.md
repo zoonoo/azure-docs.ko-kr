@@ -7,16 +7,16 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/07/2020
 ms.author: banders
-ms.openlocfilehash: a579dd22aa814340b4b72d74907739c942570c23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 15d6c7731b541de638ceaf7828a7ce962cbf154a
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270704"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827554"
 ---
-# <a name="delete-an-azure-billing-payment-method-preview"></a>Azure 청구 결제 방법 삭제(미리 보기)
+# <a name="delete-an-azure-billing-payment-method"></a>Azure 청구 결제 방법 삭제
 
 이 문서에서는 다양한 유형의 Azure 구독에서 신용 카드와 같은 결제 방법을 삭제하는 데 도움이 되는 지침을 제공합니다. 다음 항목에 대한 결제 방법을 삭제할 수 있습니다.
 

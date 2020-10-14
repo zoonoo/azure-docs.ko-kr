@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89267618"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019865"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -33,7 +33,7 @@ Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 �
 Media Services v3 SDK는 [Media Services v3 OpenAPI 사양(Swagger)](https://aka.ms/ams-v3-rest-sdk)을 기반으로 합니다.
 
 > [!NOTE]
-> 현재 [Azure Portal](https://portal.azure.com/)을 사용하여 Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고(관리 아님), [API 액세스에 대한 정보를 가져올](./access-api-howto.md) 수 있습니다. 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
+> 현재 [Azure Portal](https://portal.azure.com/)을 사용하여 Media Services v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리하고, v3 [자산](assets-concept.md)을 보고(관리 아님), [API 액세스에 대한 정보를 가져올](./access-api-howto.md) 수 있습니다. 다른 모든 관리 작업(예제: [변환 및 작업](transforms-jobs-concept.md) 및 [콘텐츠 보호](content-protection-overview.md))의 경우 [REST API](/rest/api/media/), [CLI](/cli/azure/ams) 또는 지원되는 [SDK](media-services-apis-overview.md#sdks) 중 하나를 사용합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

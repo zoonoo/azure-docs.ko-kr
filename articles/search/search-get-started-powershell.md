@@ -3,19 +3,19 @@ title: '빠른 시작: REST API를 사용하여 PowerShell에서 검색 인덱�
 titleSuffix: Azure Cognitive Search
 description: 이 REST API 빠른 시작에서 PowerShell의 Invoke-RestMethod 및 Azure Cognitive Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 알아봅니다.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f803532e7d08d0de21541cb5d1b52639b623bb90
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ad5c73fee93d935ad050cea8feca2754649a61f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078302"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058508"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

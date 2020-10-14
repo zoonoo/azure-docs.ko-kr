@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 Python 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Python용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 07/15/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a92eda343e8c0c38b9c9ebebb16d5c102d1b3f19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d7ffa8aee7087e77ff14808327251ef495e88f6f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87873673"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057402"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>빠른 시작: Python을 사용하여 첫 번째 Resource Graph 쿼리 실행
 

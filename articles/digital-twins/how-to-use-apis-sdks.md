@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1cf7bd744870b9f0a04d63445268b2ccd3134a66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bfeafdea149cd41ea35562c2ff4b9e67a99b95d0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046760"
+ms.locfileid: "92058525"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -26,12 +26,12 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 
 제어 평면 Api는 전체 인스턴스를 만들거나 삭제 하는 것과 같은 작업을 수행 하기 위해 Azure Digital Twins 인스턴스 전체를 관리 하는 데 사용 되는 [ARM](../azure-resource-manager/management/overview.md) api입니다. 또한 끝점을 만들고 삭제 하는 데 사용 합니다.
 
-공개 미리 보기에 대 한 최신 제어 평면 API 버전은 _**2020-03-01-미리 보기**_ 입니다.
+공개 미리 보기에 대 한 최신 제어 평면 API 버전은 _**2020-10-31**_ 입니다.
 
 제어 평면 Api를 사용 하려면 다음을 수행 합니다.
 * [제어 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)에서 최신 Swagger를 참조 하 여 api를 직접 호출할 수 있습니다. 또한이 리포지토리에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.
 * 현재에서 컨트롤 Api에 대 한 Sdk에 액세스할 수 있습니다.
-  - [.Net (c #)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
+  - [.Net (c #)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([참조 [자동 생성]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([원본](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([원본](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -47,7 +47,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 * **쿼리** -쿼리 범주를 통해 개발자는 관계 간에 쌍으로 된 쌍의 [디지털 쌍 집합을 찾을](how-to-query-graph.md) 수 있습니다.
 * **Eventroutes** - [eventroutes](concepts-route-events.md)범주는 시스템 및 다운스트림 서비스를 통해 데이터를 라우팅하는 api를 포함 합니다.
 
-공개 미리 보기에 대 한 최신 데이터 평면 API 버전은 _**2020-05-31-미리 보기**_ 입니다. 데이터 평면 작업에 대 한 _2020-03-01-preview_ API 버전은 이제 사용 되지 않습니다.
+공개 미리 보기에 대 한 최신 데이터 평면 API 버전은 _**2020-10-31**_ 입니다.
 
 데이터 평면 Api를 사용 하려면 다음을 수행 합니다.
 * Api는 다음을 통해 직접 호출할 수 있습니다.
@@ -112,8 +112,8 @@ try {
     Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
 }
 // Read a list of models back from the service
-AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-await foreach (DigitalTwinsModelData md in modelDataList)
+AsyncPageable<ModelData> modelDataList = client.GetModelsAsync();
+await foreach (ModelData md in modelDataList)
 {
     Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
 }

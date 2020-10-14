@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: 0539dcecbbbfe28817122e0f47e813182a9abd9d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27b74f99d926bf72bc22f153a8d76deb56646987
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322145"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993874"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -124,7 +124,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
    1. 텍스트 편집기에서 쿼리의 아무 곳이나 클릭하여 해당 쿼리를 선택합니다.
    2. 그런 다음, **이동**을 클릭하여 쿼리를 실행합니다. 
 
-   [Application Insights Analytics](../log-query/log-query-overview.md) 및 [Log Analytics 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)에 대해 자세히 알아봅니다.
+   [Application Insights Analytics](../log-query/log-query-overview.md) 및 [Log Analytics 쿼리 언어](/azure/data-explorer/kusto/query/)에 대해 자세히 알아봅니다.
 
 
 2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자**를 선택합니다.
@@ -168,4 +168,3 @@ Application Insights 리소스를 삭제하려면:
 
 > [!div class="nextstepaction"]
 > [고객이 앱을 사용하는 방법 이해](../app/usage-overview.md)
-

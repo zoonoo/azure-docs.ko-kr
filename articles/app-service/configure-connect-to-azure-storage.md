@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968653"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057759"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>App Service의 컨테이너에서 네트워크 공유로 Azure Storage 액세스
 
@@ -90,7 +90,7 @@ Azure Files 공유에 연결 하려는 다른 모든 디렉터리에 대해이 �
 
 [Azure Storage 계정, 파일 공유 및 디렉터리](#prerequisites)를 만들었으면 이제 Azure Storage를 사용 하 여 앱을 구성할 수 있습니다.
 
-App Service 앱의 디렉터리에 저장소 계정을 탑재 하려면 [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) 명령을 사용 합니다. 스토리지 형식은 AzureBlob 또는 AzureFiles일 수 있습니다. AzureFiles는이 예제에서 사용 됩니다. 탑재 경로 설정은 Azure Storage에서 탑재 하려는 폴더에 해당 합니다. '/'로 설정 하면 전체 Azure Storage가 탑재 됩니다.
+App Service 앱의 디렉터리에 저장소 계정을 탑재 하려면 [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) 명령을 사용 합니다. 스토리지 형식은 AzureBlob 또는 AzureFiles일 수 있습니다. AzureFiles는이 예제에서 사용 됩니다. 탑재 경로 설정은 Azure Storage에 탑재 하려는 컨테이너 내의 폴더에 해당 합니다. '/'로 설정 하면 Azure Storage에 전체 컨테이너가 탑재 됩니다.
 
 
 > [!CAUTION]

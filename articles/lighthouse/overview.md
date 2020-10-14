@@ -3,12 +3,12 @@ title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
 ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: 22bec7ec8944a11ce0cfdf51776f1f193a1aedaa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41fa836321da7cdb42b9a3419bc0bb32963a5849
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89488816"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017866"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
@@ -22,7 +22,7 @@ Azure Lighthouse를 사용하면 관리형 서비스를 효과적이면서 효�
 
 - **대규모 관리**: 고객 참여 및 수명 주기 작업을 통해 고객 리소스를 보다 쉽게 관리하고 확장할 수 있습니다. 기존 API, 관리 도구 및 워크플로는 배치된 지역에 관계없이 위임된 리소스와 함께 사용할 수 있습니다.
 - **고객을 위한 더 높은 가시성 및 정밀도**: 고객은 IP가 유지되는 동안 액세스를 완전히 제거하는 기능을 포함하여 사용자 작업을 보다 잘 볼 수 있고, 관리를 위해 위임하는 범위를 보다 정밀하게 제어할 수 있습니다.
-- **포괄적이고 통합된 플랫폼 도구**: Microsoft의 도구 환경은 EA, CSP 및 종량제 등의 여러 라이선스 모델을 포함하는 주요 서비스 공급자 시나리오를 다룹니다. 새로운 기능은 기존 도구와 API, 라이선스 모델 및 CSP([클라우드 솔루션 공급자 프로그램](/partner-center/csp-overview))와 같은 파트너 프로그램에서 작동합니다. Azure Lighthouse는 기존 워크플로 및 애플리케이션에 통합될 수 있으며, [파트너 ID를 연결](./how-to/partner-earned-credit.md)하여 고객의 계약에 대한 영향을 추적하고 파트너 획득 크레딧을 받을 수 있습니다.
+- **포괄적이고 통합된 플랫폼 도구**: Microsoft의 도구 환경은 EA, CSP 및 종량제 등의 여러 라이선스 모델을 포함하는 주요 서비스 공급자 시나리오를 다룹니다. 새로운 기능은 기존 도구와 API, 라이선스 모델 및 CSP([클라우드 솔루션 공급자 프로그램](/partner-center/csp-overview))와 같은 파트너 프로그램에서 작동합니다. Azure Lighthouse는 기존 워크플로 및 애플리케이션에 연결될 수 있으며, [파트너 ID를 연결](./how-to/partner-earned-credit.md)하여 고객의 계약에 대한 영향을 추적할 수 있습니다.
 
 Azure Lighthouse를 사용하여 Azure 리소스를 관리하는 것과 관련된 추가 비용은 없습니다. 모든 Azure 고객 또는 파트너는 Azure Lighthouse를 사용할 수 있습니다.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 65cd35dd60ed05da51b6da56882af4522b1b7573
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 369f79a436d76e6a1bf1a1ce64f7754f25a5abc5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043430"
+ms.locfileid: "92058049"
 ---
 # <a name="distributed-transactions-across-cloud-databases-preview"></a>클라우드 데이터베이스 간 분산 트랜잭션 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -145,14 +145,14 @@ Transact-sql을 사용 하는 서버 쪽 분산 트랜잭션은 Azure SQL Manage
     -- Configure the Linked Server
     -- Add one Azure SQL Managed Instance as Linked Server
     EXEC sp_addlinkedserver
-        @server='managedinstance02', -- Linked server name
+        @server='RemoteServer', -- Linked server name
         @srvproduct='',
         @provider='sqlncli', -- SQL Server Native Client
-        @datasrc='sql-managed-instance-02.48ea8fd5ac90.database.windows.net' -- Managed Instance endpoint
+        @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
 
     -- Add credentials and options to this Linked Server
     EXEC sp_addlinkedsrvlogin
-        @rmtsrvname = 'managedinstance02', -- Linked server name
+        @rmtsrvname = 'RemoteServer', -- Linked server name
         @useself = 'false',
         @rmtuser = '<login_name>',         -- login
         @rmtpassword = '<secure_password>' -- password
@@ -244,7 +244,7 @@ Transact-sql을 사용 하 여 트랜잭션이 분산 트랜잭션으로 명시�
 
 ## <a name="transactions-across-multiple-servers-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 여러 서버 간 트랜잭션
 
-분산 트랜잭션은 Azure SQL Managed Instance의 여러 서버에서 지원 됩니다. 트랜잭션이 Managed Instance 경계를 교차 하는 경우 참여 하는 인스턴스를 상호 보안 및 통신 관계에 먼저 입력 해야 합니다. 이 작업은 Azure Portal에서 수행할 수 있는 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)을 설정 하 여 수행 됩니다.
+분산 트랜잭션은 Azure SQL Managed Instance의 여러 서버에서 지원 됩니다. 트랜잭션이 Managed Instance 경계를 교차 하는 경우 참여 하는 인스턴스를 상호 보안 및 통신 관계에 먼저 입력 해야 합니다. 이 작업은 Azure Portal에서 수행할 수 있는 [서버 신뢰 그룹](https://aka.ms/mitrusted-groups)을 만들어 수행 합니다. 관리 되는 인스턴스가 동일한 가상 네트워크에 있지 않은 경우 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 설정 해야 하 고, 네트워크 보안 그룹 인바운드 및 아웃 바운드 규칙은 참여 하는 모든 가상 네트워크에서 포트 5024 및 11000-12000을 허용 해야 합니다.
 
   ![Azure Portal의 서버 신뢰 그룹][3]
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b07ddd3ec98e2094eb3a463501f42d65e15370e6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a9c859c32ef9ad387c56d5fc20f2173ee14fac5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87502361"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975181"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux VM 만들기 및 암호화
 
@@ -81,7 +81,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 잠시 후 프로세스에서 "암호화 요청이 수락되었습니다. 진행률을 모니터링하려면 'show' 명령을 사용하세요.”가 반환됩니다. "Show" 명령은 [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)입니다.
 
 ```azurecli-interactive
-az vm show --name "myVM" -g "MyResourceGroup"
+az vm encryption show --name "myVM" -g "MyResourceGroup"
 ```
 
 암호화를 사용하는 경우 반환된 출력에 다음이 표시됩니다.

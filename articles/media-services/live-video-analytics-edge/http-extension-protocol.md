@@ -3,12 +3,12 @@ title: HTTP 확장 프로토콜 - Azure
 description: 이 문서에서는 HTTP 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 모듈 간에 메시지를 보내는 방법에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: bfc8672185d284abc8f2985b44cea92000bc73db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1e1fb0e8fe63b3a83c59a4ec48abdac7f22096a
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89448064"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016657"
 ---
 # <a name="http-extension-protocol"></a>HTTP 확장 프로토콜
 
@@ -100,4 +100,4 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 
 ## <a name="next-steps"></a>다음 단계
 
-[gRPC 데이터 계약](grpc-data-contract.md)
+[gRPC 데이터 계약](./grpc-extension-protocol.md)

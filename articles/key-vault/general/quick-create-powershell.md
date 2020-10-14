@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 11/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 41254accbfff8f1d68a8bbef4d74ed01c64891b9
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: ace6d21d2928eac1fb91903c5e395f1e3479a3ff
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803895"
+ms.locfileid: "91823446"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 키 자격 증명 모음 만들기
 
@@ -52,7 +52,7 @@ New-AzResourceGroup -Name 'myResourceGroup" -Location "EastUS"
 - 위치: **EastUS**
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name <your-unique-key-vault-name> -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name "<your-unique-key-vault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 이 cmdlet의 출력에는 새로 만든 Key Vault의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.

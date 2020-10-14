@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908c7e4bc0ca15d952ef1d4d969c5bf686e0bdc3
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316735"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058117"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -31,8 +31,7 @@ ms.locfileid: "91316735"
 * **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며,이는 Azure Backup으로 인 한 것이 아닙니다. 다음 단계를 사용하여 문제가 Azure Backup에 있는지 여부를 확인합니다.
   * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업이 성공 했는지 여부와 복원 지점이 원하는 스냅숏 형식으로 만들어졌는지 여부를 확인 합니다.
   * Azure Backup이 작동하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
-  * 다음은 Azure Backup 정상적으로 작동 했지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류 517의 예입니다.<br>
-    ![Windows Server Backup 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
+  * 이벤트 뷰어 오류 517에 대 한 예제는 Azure Backup 정상적으로 작동 하지만 "Windows Server 백업"가 실패 했습니다. ![ Windows Server 백업 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Azure Backup에 실패하면 이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
 
 ## <a name="common-issues"></a>일반적인 문제
@@ -106,31 +105,33 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 이 오류는 VSS 기록기가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 기록기와 상호 작용 하 여 디스크의 스냅숏을 생성 합니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
 
 1 단계: 잘못 된 상태의 VSS 기록기를 다시 시작 합니다.
-- 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다.
-- 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1]** 이 아닌 모든 vss 기록기의 경우 해당 vss 기록기의 서비스를 다시 시작 합니다. 
-- 서비스를 다시 시작 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
+
+* 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다.
+* 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1]** 이 아닌 모든 vss 기록기의 경우 해당 vss 기록기의 서비스를 다시 시작 합니다.
+* 서비스를 다시 시작 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
 
 > [!NOTE]
 > 일부 서비스를 다시 시작 하면 프로덕션 환경에 영향을 줄 수 있습니다. 승인 프로세스가 수행 되 고 예약 된 가동 중지 시간에 서비스가 다시 시작 되는지 확인 합니다.
- 
-   
+
 2 단계: VSS 기록기를 다시 시작 해도 문제가 해결 되지 않으면 관리자 권한 명령 프롬프트 (관리자 권한)에서 다음 명령을 실행 하 여 blob 스냅숏에 대해 스레드가 생성 되지 않도록 합니다.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+
 3 단계: 1 단계와 2 단계에서 문제가 해결 되지 않은 경우 제한 된 IOPS로 인해 VSS 기록기의 시간이 초과 되 면 오류가 발생할 수 있습니다.<br>
 
 확인 하려면 시스템으로 이동한 후 ***응용 프로그램 로그를 이벤트 뷰어*** 하 고 다음 오류 메시지가 있는지 확인 합니다.<br>
 *섀도 복사본 공급자가 섀도 복사 되는 볼륨에 대 한 쓰기를 유지 하는 동안 시간이 초과 되었습니다. 이는 응용 프로그램 또는 시스템 서비스에의 한 볼륨의 과도 한 작업으로 인해 발생할 수 있습니다. 볼륨에 대 한 작업이 줄어들면 나중에 다시 시도 하세요.*<br>
 
 해결 방법:
-- VM 디스크에 부하를 분산 시킬 가능성이 있는지 확인 합니다. 이렇게 하면 단일 디스크에 대 한 부하가 줄어듭니다. [저장소 수준에서 진단 메트릭을 사용 하 여 IOPs 제한을 확인할](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm)수 있습니다.
-- VM에 대 한 부하가 가장 낮은 경우 사용량이 적은 시간에 백업을 수행 하도록 백업 정책을 변경 합니다.
-- 더 높은 IOPs를 지원 하도록 Azure 디스크를 업그레이드 합니다. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+
+* VM 디스크에 부하를 분산 시킬 가능성이 있는지 확인 합니다. 이렇게 하면 단일 디스크에 대 한 부하가 줄어듭니다. [저장소 수준에서 진단 메트릭을 사용 하 여 IOPs 제한을 확인할](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm)수 있습니다.
+* VM에 대 한 부하가 가장 낮은 경우 사용량이 적은 시간에 백업을 수행 하도록 백업 정책을 변경 합니다.
+* 더 높은 IOPs를 지원 하도록 Azure 디스크를 업그레이드 합니다. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState - VSS(볼륨 섀도 복사본) 서비스가 잘못된 상태여서 스냅샷 작업이 실패했습니다.
 
@@ -140,31 +141,32 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 이 오류는 VSS 서비스가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 서비스와 상호 작용 하 여 디스크의 스냅숏을 만드는 데 사용 됩니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
 
 VSS (볼륨 섀도 복사본) 서비스를 다시 시작 합니다.
-- Services.msc로 이동 하 여 ' 볼륨 섀도 복사본 서비스 '를 다시 시작 합니다.<br>
+
+* Services.msc로 이동 하 여 ' 볼륨 섀도 복사본 서비스 '를 다시 시작 합니다.<br>
 (또는)<br>
-- 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
+* 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
- 
 문제가 계속 되 면 예약 된 가동 중지 시간에 VM을 다시 시작 합니다.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-선택한 VM 크기를 사용할 수 없으므로 VM을 만들지 못했습니다.
 
-오류 코드: UserErrorSkuNotAvailable 오류 메시지: 선택한 VM 크기를 사용할 수 없으므로 VM을 만들지 못했습니다. 
- 
+오류 코드: UserErrorSkuNotAvailable 오류 메시지: 선택한 VM 크기를 사용할 수 없으므로 VM을 만들지 못했습니다.
+
 이 오류는 복원 작업 중에 선택한 VM 크기가 지원 되지 않는 크기 이기 때문에 발생 합니다. <br>
 
 이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용 합니다. 이러한 디스크를 사용 하 여 [Powershell cmdlet](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks)을 사용 하 여 [지원 되는 지원 되는 vm 크기](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) 목록에서 vm을 만듭니다.
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-시장 진입 구매 요청이 없어서 VM을 만들지 못했습니다.
 
-오류 코드: UserErrorMarketPlaceVMNotSupported 오류 메시지: 시장 위치 구매 요청이 없어서 VM을 만들지 못했습니다. 
- 
+오류 코드: UserErrorMarketPlaceVMNotSupported 오류 메시지: 시장 위치 구매 요청이 없어서 VM을 만들지 못했습니다.
+
 Azure Backup은 Azure Marketplace에서 사용할 수 있는 Vm의 백업 및 복원을 지원 합니다. 이 오류는 Azure Marketplace에서 더 이상 사용할 수 없는 VM (특정 계획/게시자 설정 사용)을 복원 하려고 할 때 발생 합니다. [여기에서 자세한 내용을 알아보세요](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
-- 이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용한 다음 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) 또는 [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlet을 사용 하 여 vm에 해당 하는 최신 마켓플레이스 정보를 사용 하 여 vm을 만듭니다.
-- 게시자에 Marketplace 정보가 없는 경우 데이터 디스크를 사용 하 여 데이터를 검색 하 고이를 기존 VM에 연결할 수 있습니다.
+
+* 이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용한 다음 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) 또는 [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlet을 사용 하 여 vm에 해당 하는 최신 마켓플레이스 정보를 사용 하 여 vm을 만듭니다.
+* 게시자에 Marketplace 정보가 없는 경우 데이터 디스크를 사용 하 여 데이터를 검색 하 고이를 기존 VM에 연결할 수 있습니다.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
 
@@ -244,7 +246,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 **2 단계**: VM이 부하가 적을 때의 시간 (예: CPU 또는 IOps 감소)으로 백업 일정을 변경해 봅니다.
 
-**3 단계**: [VM의 크기를 늘리고](https://azure.microsoft.com/blog/resize-virtual-machines/) 작업을 다시 시도 합니다.
+**3 단계**: [VM의 크기를 늘리고](https://docs.microsoft.com/azure/virtual-machines/windows/resize-vm) 작업을 다시 시도 합니다.
 
 ### <a name="320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found"></a>320001, ResourceNotFound-VM이 더 이상 존재 하지 않음/400094, BCMV2VMNotFound-가상 머신이 존재 하지 않거나 Azure 가상 머신을 찾을 수 없어 작업을 수행할 수 없습니다.
 
@@ -315,12 +317,12 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 
 ## <a name="restore"></a>복원
 
-#### <a name="disks-appear-offline-after-file-restore"></a>파일이 복원 된 후 오프 라인으로 표시 되는 디스크
+### <a name="disks-appear-offline-after-file-restore"></a>파일이 복원 된 후 오프 라인으로 표시 되는 디스크
 
-복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다. 
+복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다.
+
 * 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
-
 
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |

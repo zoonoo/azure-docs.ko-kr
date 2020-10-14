@@ -3,12 +3,12 @@ title: 보안 컨트롤
 description: Azure Backup 서비스에서 사용 되는 보안 컨트롤에 대해 알아봅니다. 이러한 컨트롤은 서비스에서 보안 취약성을 방지, 감지 및 대응 하는 데 도움이 됩니다.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bd35bdf83d336aebd37cdda0a0b59164ac9f7a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418758"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055888"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure Backup에 대 한 보안 제어
 
@@ -30,7 +30,7 @@ ms.locfileid: "89418758"
 
 | 보안 컨트롤 | 예/아니요 | 메모| 문서화
 |---|---|--|--|
-| Azure 모니터링 지원 (예: Log analytics, App insights)| 예 | Log Analytics는 리소스 로그를 통해 지원 됩니다. 자세한 내용은 [Log Analytics를 사용 하 여 Azure Backup 보호 된 워크 로드 모니터링](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/)을 참조 하세요. |  |
+| Azure 모니터링 지원 (예: Log analytics, App insights)| 예 | Log Analytics는 리소스 로그를 통해 지원 됩니다. 자세한 내용은 [Log Analytics를 사용 하 여 Azure Backup 보호 된 워크 로드 모니터링](backup-azure-diagnostics-mode-data-model.md)을 참조 하세요. |  |
 | 제어와 관리 평면 로깅 및 감사| 예 | Azure Portal에서 모든 고객이 트리거한 작업은 활동 로그에 기록됩니다. |  |
 | 데이터 평면 로깅 및 감사| 아니요 | Azure Backup 데이터 평면은 직접 연결할 수 없습니다.  |  |
 

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 3e4913c4be0d59bc37e3da2358c4f8ec302a26e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99c8bc00beb7b189b200e0b02435262ae34835d2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82233791"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856095"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 PHP용 CI/CD 파이프라인 만들기
 
@@ -125,4 +125,4 @@ Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.mi
 CI/CD 프로세스를 구성했을 때 빌드 및 릴리스 파이프라인이 자동으로 생성되었을 것입니다. 팀의 요구를 충족하려면 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. CI/CD 파이프라인에 대해 자세히 알아보려면 이 자습서를 참조합니다.
 
 > [!div class="nextstepaction"]
-> [CD 프로세스 사용자 지정](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [CD 프로세스 사용자 지정](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2020
-ms.openlocfilehash: 59febbac1a83e45c8b2bf9c233c3772f561eb111
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/14/2020
+ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050051"
+ms.locfileid: "92055939"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -79,7 +79,7 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음은 Log Analytics 데이터 내보내기를 구성 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - 저장소 계정 및 이벤트 허브는 이미 만들고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 저장소 계정에 복제 해야 하는 경우 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md)중 하나를 사용할 수 있습니다.  
@@ -254,6 +254,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AADDomainServicesLogonLogoff | |
 | AADDomainServicesPolicyChange | |
 | AADDomainServicesPrivilegeUse | |
+| AADManagedIdentitySignInLogs | |
+| AADNonInteractiveUserSignInLogs | |
+| AADProvisioningLogs | |
+| AADServicePrincipalSignInLogs | |
 | ADAssessmentRecommendation | |
 | ADFActivityRun | |
 | ADFPipelineRun | |
@@ -268,7 +272,8 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | ADXQuery | |
 | AegDeliveryFailureLogs | |
 | AegPublishFailureLogs | |
-| 경고 | 이 테이블에 대 한 데이터 중 일부는 저장소 계정을 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| 경고 |부분 지원. 이 테이블에 대 한 데이터 중 일부는 저장소 계정을 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
+| 비정상 | |
 | ApiManagementGatewayLogs | |
 | App중앙 오류 | |
 | AppPlatformSystemLogs | |
@@ -277,6 +282,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AppServiceConsoleLogs | |
 | AppServiceFileAuditLogs | |
 | AppServiceHTTPLogs | |
+| AppServiceIPSecAuditLogs | |
 | AppServicePlatformLogs | |
 | AuditLogs | |
 | AutoscaleEvaluationsLog | |
@@ -291,7 +297,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | CommonSecurityLog | |
 | CommonSecurityLog | |
 | ComputerGroup | |
-| ConfigurationData | 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| ConfigurationData | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
@@ -312,15 +318,43 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| 이벤트 | 이 테이블에 대 한 데이터 중 일부는 저장소 계정을 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| 이벤트 | 부분 지원. 이 테이블에 대 한 데이터 중 일부는 저장소 계정을 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
-| 하트비트 | 지원됨 | |
+| HDInsightAmbariClusterAlerts | |
+| HDInsightAmbariSystemMetrics | |
+| HDInsightGatewayAuditLogs | |
+| HDInsightHadoopAndYarnLogs | |
+| HDInsightHadoopAndYarnMetrics | |
+| HDInsightHBaseLogs | |
+| HDInsightHBaseMetrics | |
+| HDInsightHiveAndLLAPLogsSample | |
+| HDInsightKafkaLogs | |
+| HDInsightKafkaMetrics | |
+| HDInsightOozieLogs | |
+| HDInsightSecurityLogs | |
+| HDInsightSparkApplicationEvents | |
+| HDInsightSparkBlockManagerEvents | |
+| HDInsightSparkEnvironmentEvents | |
+| HDInsightSparkEventsLog | |
+| HDInsightSparkExecutorEvents | |
+| HDInsightSparkExtraEvents | |
+| HDInsightSparkJobEvents | |
+| HDInsightSparkLogs | |
+| HDInsightSparkSQLExecutionEvents | |
+| HDInsightSparkStageEvents | |
+| HDInsightSparkStageTaskAccumulables | |
+| HDInsightSparkTaskEvents | |
+| HDInsightStormLogs | |
+| HDInsightStormMetrics | |
+| HDInsightStormTopologyMetrics | |
+| 하트비트 | |
 | HuntingBookmark | |
-| InsightsMetrics | 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| InsightsMetrics | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
 | IntuneAuditLogs | |
+| IntuneDeviceComplianceOrg | |
 | IntuneOperationalLogs | |
 | KubeEvents | |
 | KubeHealth | |
@@ -329,24 +363,30 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | KubePodInventory | |
 | KubeServices | |
 | KubeServices | |
+| LAQueryLogs | |
 | McasShadowItReporting | |
 | MicrosoftAzureBastionAuditLogs | |
 | MicrosoftDataShareReceivedSnapshotLog | |
 | MicrosoftDataShareSentSnapshotLog | |
 | MicrosoftDataShareShareLog | |
 | MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorDestinationListenerResult | |
+| NWConnectionMonitorDNSResult | |
+| NWConnectionMonitorPathResult | |
 | NWConnectionMonitorPathResult | |
 | NWConnectionMonitorTestResult | |
-| OfficeActivity | O365에서 LA로 웹 후크를 통해 수집 데이터의 일부입니다. 현재 내보내기에이 부분이 없습니다. |
-| 작업(Operation) | 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
-| Perf | 지원됨 | |
-| SCCMAssessmentRecommendation | | 
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | 부분 지원. 수집를 통해 Office 365에서 Log Analytics로 웹 후크를 통해 데이터를 가져올 수 있습니다. 이 데이터는 현재 내보내지 않습니다. |
+| 작업(Operation) | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
+| Perf | 부분 지원. Windows 성능 데이터만 현재 지원 됩니다. Linux 성능 데이터는 현재 내보내지 않습니다. |
+| ProtectionStatus | |
+| SCCMAssessmentRecommendation | |
 | SCOMAssessmentRecommendation | |
 | SecurityAlert | |
 | SecurityBaseline | |
 | SecurityBaselineSummary | |
 | 보안 기능 검색 | |
-| SecurityEvent | 지원됨 | |
+| SecurityEvent | |
 | SecurityIncident | |
 | SecurityIoTRawEvent | |
 | SecurityNestedRecommendation | |
@@ -359,24 +399,29 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SPAssessmentRecommendation | |
 | SQLAssessmentRecommendation | |
 | SucceededIngestion | |
-| syslog |Partial | 이 테이블에 대 한 데이터 중 일부는 저장소 계정을 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| SynapseGatewayEvents | |
+| SynapseRBACEvents | |
+| syslog | 부분 지원. 이 테이블에 대 한 데이터 중 일부는 저장소 계정을 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | ThreatIntelligenceIndicator | |
-| 업데이트 |Partial | 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| 업데이트 | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | 사용량 | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
+| 관심 목록 | |
 | WindowsEvent | |
 | WindowsFirewall | |
-| WireData |Partial | 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 현재 내보내기에이 부분이 없습니다. |
+| WireData | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
+| WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
 | WVDErrors | |
 | WVDFeeds | |
 | WVDManagement | |
+
 
 ## <a name="next-steps"></a>다음 단계
 

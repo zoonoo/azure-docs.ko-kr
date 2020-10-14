@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 891b8a5a844691d46c121c254e04b73f2b8c2d62
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa0a1bd14072e6ea4ea42004209f332f46a2d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87872738"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856078"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기
 
@@ -129,4 +129,4 @@ DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만듭�
 CI/CD 프로세스를 구성했을 때 빌드 및 릴리스 파이프라인이 자동으로 생성되었을 것입니다. 팀의 요구를 충족하려면 이러한 빌드 및 릴리스 파이프라인을 수정할 수 있습니다. CI/CD 파이프라인에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [CD 프로세스 사용자 지정](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [CD 프로세스 사용자 지정](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

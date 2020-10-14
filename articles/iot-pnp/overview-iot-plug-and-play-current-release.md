@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c7ebcdac3174f7eb497ae3e976386ab92212e1ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715558"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043717"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>현재 IoT 플러그 앤 플레이 릴리스에 포함된 내용
 
@@ -41,10 +41,7 @@ IoT 플러그 앤 플레이 디바이스가 DTDL에서 작동하는 방식에 �
 
 - Azure CLI IoT 확장 0.10.0
 
-    자세히 알아보려면 [Azure CLI용 Azure IoT 확장 설치 및 사용](howto-use-iot-pnp-cli.md)을 참조하세요.
-
-    > [!TIP]
-    > Azure IoT 확장에는 디바이스를 인증하는 데 도움이 되는 명령이 포함되어 있습니다. `az iot product -h`을 참조하세요.
+    Azure IoT 확장에는 디바이스를 인증하는 데 도움이 되는 명령이 포함되어 있습니다. `az iot product -h`을 참조하세요.
 
 ## <a name="libraries-and-sdks"></a>라이브러리 및 SDK
 
@@ -64,7 +61,7 @@ IoT 플러그 앤 플레이 디바이스가 DTDL에서 작동하는 방식에 �
 
 ## <a name="rest-apis"></a>REST API
 
-REST API [2020-09-30](https://docs.microsoft.com/rest/api/iothub)
+REST API [2020-09-30](/rest/api/iothub)
 
 자세히 알아보려면 [IoT 플러그 앤 플레이 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
 

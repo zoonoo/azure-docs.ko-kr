@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5a69bedb45f8037f3a97f5ebf4e2128930330a
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728355"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91856809"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝이란?
 Azure AD Connect 클라우드 프로비저닝은 Azure AD에 대한 사용자, 그룹 및 연락처의 동기화를 위해 하이브리드 ID 목표를 충족하고 달성하기 위해 설계된 새로운 Microsoft 에이전트입니다.  Azure AD Connect 동기화와 함께 사용할 수 있으며 다음과 같은 이점을 제공합니다.
@@ -34,7 +34,7 @@ Azure AD Connect 클라우드 프로비저닝을 사용하여 AD에서 Azure AD�
 ## <a name="azure-ad-connect-cloud-provisioning-video"></a>Azure AD Connect 클라우드 프로비저닝 비디오
 다음 짧은 비디오는 Azure AD Connect 클라우드 프로비저닝에 대한 훌륭한 개요를 제공합니다.
 
-> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
 
 ## <a name="comparison-between-azure-ad-connect-and-cloud-provisioning"></a>Azure AD Connect와 클라우드 프로비저닝 비교

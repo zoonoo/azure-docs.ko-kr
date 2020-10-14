@@ -3,12 +3,12 @@ title: 유추 메타데이터 스키마 - Azure
 description: 이 문서에서는 유추 메타데이터 스키마에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 6239713fc92b75b8ed026a8f04953e92a24c4596
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88701948"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019497"
 ---
 # <a name="inference-metadata-schema"></a>유추 메타데이터 스키마 
 
@@ -123,5 +123,5 @@ HTTP 기반 계약 또는 gRPC 기반 계약 사용에 관계없이 각 유추 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [gRPC 데이터 계약](grpc-data-contract.md)
-- [HTTP 데이터 계약](http-data-contract.md)
+- [gRPC 데이터 계약](./grpc-extension-protocol.md)
+- [HTTP 데이터 계약](./http-extension-protocol.md)

@@ -2,19 +2,19 @@
 title: '빠른 시작: REST API를 사용하여 Postman에서 검색 인덱스 만들기'
 titleSuffix: Azure Cognitive Search
 description: 이 REST API 빠른 시작에서는 Postman 및 샘플 데이터와 정의를 사용하여 Azure Cognitive Search REST API를 호출하는 방법을 알아봅니다.
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eeb467d552cd5ab7fa73684695ed828e3430613b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88929774"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057640"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Postman에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

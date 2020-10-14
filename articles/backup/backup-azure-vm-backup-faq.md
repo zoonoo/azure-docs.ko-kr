@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370830"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056721"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -21,7 +21,7 @@ ms.locfileid: "91370830"
 
 VM을 만들 때 [지원 되는 운영 체제](backup-support-matrix-iaas.md#supported-backup-actions)를 실행 하는 vm에 대 한 백업을 사용 하도록 설정할 수 있습니다.
 
-### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>초기 백업이 완료 되는 데 시간이 많이 소요 되는 이유는 무엇 인가요?
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>초기 백업을 완료하는 데 시간이 많이 걸리는 이유는 무엇인가요?
 
 초기 백업은 항상 전체 백업 이며 데이터의 크기 및 백업이 처리 되는 시기에 따라 달라 집니다. <br>
 백업 성능을 향상 시키려면 [백업 모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices)를 참조 하세요. [백업 고려 사항](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) 및 [백업 성능](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
@@ -79,7 +79,7 @@ Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 최대 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>표준 SSD 관리 디스크를 지원할 Azure Backup 있나요?
 
-예, Azure Backup [는 표준 SSD 관리 디스크](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원 합니다.
+예, Azure Backup [는 표준 SSD 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd)를 지원 합니다.
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
 
@@ -161,7 +161,7 @@ PowerShell에서 이 작업을 수행하는 방법을 [자세히 알아보세요
 
 예, 도메인 컨트롤러와의 관계가 손상 된 VM으로 인해 복원 된 VM에 액세스 합니다. 자세한 내용은 관련 [문서](./backup-azure-arm-restore-vms.md#post-restore-steps)를 참조하세요.
 
-### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>복원 작업을 완료 하는 데 시간이 오래 걸리는 이유는 무엇 인가요?
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>복원 작업을 완료하는 데 시간이 오래 걸리는 이유는 무엇인가요?
 
 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다. 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
 
