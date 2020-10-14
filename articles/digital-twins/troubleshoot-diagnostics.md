@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723931"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047678"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
@@ -57,7 +57,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 
 진단 설정을 설정할 때 **범주 세부 정보** 에서 선택할 수 있는 로그 범주에 대 한 자세한 내용은 다음과 같습니다.
 
-| 로그 범주 | Description |
+| 로그 범주 | 설명 |
 | --- | --- |
 | ADTModelsOperation | 모델과 관련 된 모든 API 호출을 기록 합니다. |
 | ADTQueryOperation | 쿼리와 관련 된 모든 API 호출을 기록 합니다. |
@@ -73,7 +73,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 | DELETE | Delete |
 | 작업 | POST |
 
-다음은 각 범주에 기록 되는 작업 및 해당 [Azure Digital Twins REST API 호출](https://docs.microsoft.com/rest/api/azure-digitaltwins/) 의 포괄적인 목록입니다. 
+다음은 각 범주에 기록 되는 작업 및 해당 [Azure Digital Twins REST API 호출](/rest/api/azure-digitaltwins/) 의 포괄적인 목록입니다. 
 
 >[!NOTE]
 > 각 로그 범주에는 여러 개의 작업/REST API 호출이 포함 됩니다. 아래 표에서 각 로그 범주는 다음 로그 범주가 나열 될 때까지 그 아래의 모든 작업/REST API 호출에 매핑됩니다. 
@@ -118,7 +118,7 @@ Azure Digital Twins 인스턴스에 대 한 진단 설정을 사용 하도록 �
 | `ResultDescription` | String | 이벤트에 대 한 추가 정보 |
 | `DurationMs` | String | 이벤트를 수행 하는 데 걸린 시간 (밀리초) |
 | `CallerIpAddress` | String | 이벤트에 대 한 마스킹된 원본 IP 주소입니다. |
-| `CorrelationId` | GUID | 고객이 이벤트에 대해 고유한 식별자를 제공 했습니다. |
+| `CorrelationId` | Guid | 고객이 이벤트에 대해 고유한 식별자를 제공 했습니다. |
 | `Level` | String | 이벤트의 로깅 심각도입니다. |
 | `Location` | String | 이벤트가 발생 한 지역입니다. |
 | `RequestUri` | URI | 이벤트 중에 사용 된 끝점입니다. |

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 8cfb7c5a0821bd030252a105b98b1c138b9ef820
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979730"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048188"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>X.509 인증서 인증을 사용 하 여 Azure IoT Edge 장치 설정
 
@@ -36,7 +36,7 @@ ms.locfileid: "91979730"
 
 이 문서에서는 x.509 인증서 인증을 사용 하 여 등록 및 프로 비전 프로세스를 안내 합니다. 대칭 키를 사용 하 여 장치를 설정 하는 방법을 알아보려면 [대칭 키 인증을 사용 하 여 Azure IoT Edge 장치 설정](how-to-manual-provision-symmetric-key.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 수행 하기 전에 IoT Edge 런타임이 설치 된 장치가 있어야 합니다. 그렇지 않으면 [Azure IoT Edge 런타임 설치 또는 제거](how-to-install-iot-edge.md)의 단계를 따릅니다.
 
@@ -91,12 +91,12 @@ IoT Hub에 연결된 에지를 사용할 수 있는 모든 디바이스는 **IoT
 ### <a name="prerequisites-for-the-azure-cli"></a>Azure CLI의 필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
-* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
+* 사용자 환경의 [Azure CLI](/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.70 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Azure CLI에서 IoT Edge 디바이스 만들기
 
-다음 [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 사용하여 IoT 허브에서 새 디바이스 ID를 만듭니다. 다음은 그 예입니다.
+다음 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 사용하여 IoT 허브에서 새 디바이스 ID를 만듭니다. 다음은 그 예입니다.
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -113,7 +113,7 @@ IoT Hub에 연결된 에지를 사용할 수 있는 모든 디바이스는 **IoT
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Azure CLI를 사용하여 IoT Edge 디바이스 보기
 
-[az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) 명령을 사용하여 IoT 허브의 모든 디바이스를 볼 수 있습니다. 다음은 그 예입니다.
+[az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) 명령을 사용하여 IoT 허브의 모든 디바이스를 볼 수 있습니다. 다음은 그 예입니다.
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -160,10 +160,10 @@ Linux 장치에서는 config.xml 파일을 편집 하 여이 정보를 제공 �
 
 1. 다음 필드를 업데이트 합니다.
 
-   * **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+   * **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
    * **device_id**: 장치를 등록할 때 제공한 id입니다.
-   * **identity_cert**: 장치의 id 인증서에 대 한 URI입니다. 예들 들어 `file:///path/identity_certificate.pem`입니다.
-   * **identity_pk**: 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다. 예들 들어 `file:///path/identity_key.pem`입니다.
+   * **identity_cert**: 장치의 id 인증서에 대 한 URI입니다. 예: `file:///path/identity_certificate.pem`
+   * **identity_pk**: 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다. 예: `file:///path/identity_key.pem`
 
 1. 파일을 저장하고 닫습니다.
 
@@ -202,10 +202,10 @@ Linux 장치에서는 config.xml 파일을 편집 하 여이 정보를 제공 �
 
 3. 메시지가 표시되면 다음 정보를 제공합니다.
 
-   * **IotHubHostName**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+   * **IotHubHostName**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
    * **DeviceId**: 장치를 등록할 때 제공한 ID입니다.
-   * **X509IdentityCertificate**: 장치에서 id 인증서의 절대 경로입니다. 예들 들어 `C:\path\identity_certificate.pem`입니다.
-   * **X509IdentityPrivateKey**: 제공 된 id 인증서의 개인 키 파일에 대 한 절대 경로입니다. 예들 들어 `C:\path\identity_key.pem`입니다.
+   * **X509IdentityCertificate**: 장치에서 id 인증서의 절대 경로입니다. 예: `C:\path\identity_certificate.pem`
+   * **X509IdentityPrivateKey**: 제공 된 id 인증서의 개인 키 파일에 대 한 절대 경로입니다. 예: `C:\path\identity_key.pem`
 
 수동으로 장치를 프로 비전 할 때 추가 매개 변수를 사용 하 여 다음을 포함 하 여 프로세스를 수정할 수 있습니다.
 

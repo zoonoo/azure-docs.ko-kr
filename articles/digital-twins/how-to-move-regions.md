@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328499"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047389"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
 
@@ -30,7 +30,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 연결 합니다.
 4. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 고 다시 만들어야 하는 모든 부분을 명확 하 게 파악 하는 것이 좋습니다.
 
@@ -42,25 +42,25 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
 * 내 인스턴스에 있는 **경로** 는 무엇입니까? 필터가 있나요?
 * 내 인스턴스가 **다른 Azure 서비스에 연결**하는 위치 몇 가지 일반적인 통합 요소에는 다음이 포함 됩니다.
     - Event Grid, Event Hub 또는 Service Bus
-    - Azure 기능
+    - Azure Functions
     - Logic Apps
     - Time Series Insights
     - Azure Maps
     - 장치 프로 비전 서비스 (DPS)
 * 내 인스턴스에 연결 하는 다른 **개인 또는 회사 앱** 은 무엇 인가요?
 
-[Azure Portal](https://portal.azure.com), [Azure Digital twins api 및 Sdk](how-to-use-apis-sdks.md), [azure digital Twins CLI 명령](how-to-use-cli.md)또는 [Azure digital twins (ADT) 탐색기](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 하 여이 정보를 수집할 수 있습니다.
+[Azure Portal](https://portal.azure.com), [Azure Digital twins api 및 Sdk](how-to-use-apis-sdks.md), [azure digital Twins CLI 명령](how-to-use-cli.md)또는 [Azure digital twins (ADT) 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 하 여이 정보를 수집할 수 있습니다.
 
 ## <a name="prepare"></a>준비
 
-이 섹션에서는 원래 인스턴스에서 **원래 모델, 쌍 및 그래프를 다운로드** 하 여 인스턴스를 다시 만들 준비를 합니다. 이 문서에서는 [Azure Digital Twins (ADT) 탐색기](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 합니다.
+이 섹션에서는 원래 인스턴스에서 **원래 모델, 쌍 및 그래프를 다운로드** 하 여 인스턴스를 다시 만들 준비를 합니다. 이 문서에서는 [Azure Digital Twins (ADT) 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 사용 합니다.
 
 >[!NOTE]
 >인스턴스에 모델 및/또는 그래프가 포함 된 파일이 이미 있을 수 있습니다. 이 경우 모든 항목을 다시 다운로드할 필요가 없습니다. 누락 된 부분이 나 처음에 이러한 파일을 업로드 한 이후에 변경 되었을 수 있는 것입니다 (예: 새 데이터로 업데이트 되었을 수 있는 경우).
 
 ### <a name="limitations-of-adt-explorer"></a>ADT 탐색기의 제한 사항
 
-[Azure Digital Twins (ADT) 탐색기 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 은 그래프의 시각적 표시를 지 원하는 클라이언트 앱 샘플 이며 인스턴스와의 시각적 상호 작용을 제공 합니다. 이 문서에서는이를 사용 하 여 다운로드 하 고 나중에 다시 업로드할 때, 모델, 쌍, 그래프를 다운로드 하는 방법을 보여 줍니다.
+[Azure Digital Twins (ADT) 탐색기 샘플](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 은 그래프의 시각적 표시를 지 원하는 클라이언트 앱 샘플 이며 인스턴스와의 시각적 상호 작용을 제공 합니다. 이 문서에서는이를 사용 하 여 다운로드 하 고 나중에 다시 업로드할 때, 모델, 쌍, 그래프를 다운로드 하는 방법을 보여 줍니다.
 
 그러나이 샘플은 전체 도구가 아니라 **샘플** 입니다. 스트레스 테스트를 거치지 않았으며 큰 크기의 그래프를 처리 하도록 빌드되지 않았습니다. 따라서 다음과 같은 기본 샘플 제한 사항을 염두에 두어야 합니다.
 * 이 샘플은 현재 그래프 크기에서 최대 1000 노드 및 2000 관계로 테스트 되었습니다.
@@ -76,7 +76,7 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
 
 ADT 탐색기를 계속 진행 하려면 먼저 샘플 응용 프로그램 코드를 다운로드 하 고 컴퓨터에서 실행 되도록 설정 합니다. 
 
-[Azure Digital Twins (ADT) 탐색기](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)에서 샘플로 이동 합니다. *ZIP 다운로드* 단추를 눌러 이 샘플 코드의 *.ZIP* 파일을 _**ADT_Explorer.zip**_ 으로 컴퓨터에 다운로드합니다. 파일의 압축을 풉니다.
+[Azure Digital Twins (ADT) 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)에서 샘플로 이동 합니다. *ZIP 다운로드* 단추를 눌러 이 샘플 코드의 *.ZIP* 파일을 _**ADT_Explorer.zip**_ 으로 컴퓨터에 다운로드합니다. 파일의 압축을 풉니다.
 
 다음으로, 컴퓨터에서 ADT 탐색기를 실행 하는 데 필요한 권한을 설정 합니다. 이렇게 하려면 Azure Digital Twins 빠른 시작의 [*ADT 탐색기 권한 설정*](quickstart-adt-explorer.md#set-adt-explorer-permissions) 섹션에 있는 단계를 따르세요.
 
@@ -219,7 +219,7 @@ ADT 탐색기는 이제 모델 및 그래프 (쌍 및 관계 포함)를 새 Azur
 새 인스턴스가 올바르게 설정 되었는지 확인 하려면 다음 도구를 사용할 수 있습니다.
 * [**Azure Portal**](https://portal.azure.com) (새 인스턴스가 있는지 확인 하 고 올바른 대상 지역에 있는지 확인 하는 데 적합 합니다. 끝점과 경로를 확인 하 고 다른 Azure 서비스에 대 한 연결을 확인 하는 데에도 적합 함)
 * [Azure Digital Twins **CLI 명령** ](how-to-use-cli.md) (새 인스턴스가 존재 하 고 올바른 대상 지역에 있는지 확인 하는 데 적합 합니다. 또한 인스턴스 데이터를 확인 하는 데 사용할 수 있음)
-* [**ADT 탐색기**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (모델, 쌍, 그래프 등의 인스턴스 데이터를 확인 하는 데 적합)
+* [**ADT 탐색기**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (모델, 쌍, 그래프 등의 인스턴스 데이터를 확인 하는 데 적합)
 * [Azure Digital Twins api 및 sdk](how-to-use-apis-sdks.md) (모델, 쌍, 그래프 등의 인스턴스 데이터를 확인 하는 데 적합, 끝점과 경로를 확인 하는 데도 적합)
 
 원본 인스턴스를 사용 하 여 실행 한 사용자 지정 앱 또는 종단 간 흐름을 실행 하 여 새 인스턴스를 올바르게 작동 하는지 확인할 수도 있습니다.

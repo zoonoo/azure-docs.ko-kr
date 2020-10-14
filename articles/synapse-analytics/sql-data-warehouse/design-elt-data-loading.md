@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af3eb828e1fd2c4aa14467e5afc18f1b5a0b7fa1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201161"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047712"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Synapse SQL 풀에 대한 데이터 로드 전략
 
@@ -28,10 +28,6 @@ SQL 풀은 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-wa
 
 PolyBase와 COPY 문을 사용하면 T-SQL 언어를 통해 Azure Blob Storage 또는 Azure Data Lake Store에 저장된 외부 데이터에 액세스할 수 있습니다. 로드 시 유연성을 극대화하려면 COPY 문을 사용하는 것이 좋습니다.
 
-> [!NOTE]  
-> COPY 문은 현재 공개 미리 보기로 제공됩니다. 피드백을 제공하려면 sqldwcopypreview@service.microsoft.com 배포 목록으로 메일을 보내 주세요.
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>ELT란 무엇인가요?
 

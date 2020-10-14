@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: e5dc5601be5bd6d8003b196b5e7768e66bc48478
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979786"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045689"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Azure IoT Edge 런타임 설치 또는 제거
 
@@ -24,7 +24,7 @@ IoT Edge 장치를 설정 하는 두 단계는 다음과 같습니다. 첫 번�
 
 이 문서에는 Linux 또는 Windows 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다. Windows 장치의 경우 Linux 컨테이너 또는 Windows 컨테이너를 추가로 선택할 수 있습니다. 현재 Windows의 Windows 컨테이너는 프로덕션 시나리오에 권장 됩니다. Windows의 linux 컨테이너는 개발 및 테스트 시나리오에 유용 합니다. 특히 Linux 장치에 배포 하기 위해 Windows PC에서 개발 하는 경우에 유용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 현재 프로덕션 시나리오에 대해 지원 되는 운영 체제에 대 한 최신 정보는 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요.
 
@@ -267,9 +267,9 @@ IoT Edge 보안 디먼은 IoT Edge 장치에서 보안 표준을 제공 하 고 
 
 4. 필요에 따라 Visual C++ 재배포 가능 패키지에 대 한 설치 관리자를 다운로드 합니다. 예를 들어 PowerShell 스크립트는 [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe)버전을 사용 합니다. 설치 관리자를 IoT 장치의 동일한 폴더에 IoT Edge 파일로 저장 합니다.
 
-5. 오프 라인 구성 요소를 사용 하 여 설치 하려면 [도트 원본](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 
+5. 오프 라인 구성 요소를 사용 하 여 설치 하려면 [도트 원본](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 
 
-6. 매개 변수를 사용 하 여 [배포-IoTEdge](reference-windows-scripts.md#deploy-iotedge) 명령을 실행 합니다 `-OfflineInstallationPath` . 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
+6. 매개 변수를 사용 하 여 [배포-IoTEdge](reference-windows-scripts.md#deploy-iotedge) 명령을 실행 합니다 `-OfflineInstallationPath` . 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1

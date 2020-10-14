@@ -8,18 +8,18 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975164"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045298"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 는 앱 및 서비스에서 워크플로를 자동화 하는 데 도움이 되는 클라우드 서비스입니다. Azure Digital Twins Api에 Logic Apps를 연결 하 여 Azure 디지털 쌍 및 해당 데이터를 중심으로 이러한 자동화 된 흐름을 만들 수 있습니다.
 
-Azure Digital Twins는 현재 Logic Apps에 대해 인증 된 (미리 작성 된) 커넥터를가지고 있지 않습니다. 대신, Azure Digital Twins와 Logic Apps를 사용 하는 현재 프로세스는 Logic Apps 작업 하도록 수정 된 [사용자 지정 Azure 디지털 쌍 Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 를 사용 하 여 [**사용자 지정 Logic Apps 커넥터**](../logic-apps/custom-connector-overview.md)를 만드는 것입니다.
+Azure Digital Twins는 현재 Logic Apps에 대해 인증 된 (미리 작성 된) 커넥터를가지고 있지 않습니다. 대신, Azure Digital Twins와 Logic Apps를 사용 하는 현재 프로세스는 Logic Apps 작업 하도록 수정 된 [사용자 지정 Azure 디지털 쌍 Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 를 사용 하 여 [**사용자 지정 Logic Apps 커넥터**](../logic-apps/custom-connector-overview.md)를 만드는 것입니다.
 
 > [!NOTE]
 > 위에 연결 된 사용자 지정 Swagger 샘플에는 여러 버전의 Swagger가 포함 되어 있습니다. 최신 버전은 가장 최근 날짜의 하위 폴더에 있지만이 샘플에 포함 된 이전 버전도 계속 지원 됩니다.
@@ -93,7 +93,7 @@ Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.
 
 다음으로, Azure Digital Twins에 연결 하기 위해 만든 커넥터를 구성 합니다.
 
-먼저 Logic Apps 작업 하도록 수정 된 사용자 지정 Azure Digital Twins Swagger를 다운로드 합니다. *ZIP 다운로드* 단추를 방문 하 여 [**이 링크**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 에서 **Azure Digital twins Custom swagger** 샘플을 다운로드 합니다. 다운로드 한 *Azure_Digital_Twins_Custom_Swaggers.zip* 폴더로 이동 하 여 압축을 풉니다. 
+먼저 Logic Apps 작업 하도록 수정 된 사용자 지정 Azure Digital Twins Swagger를 다운로드 합니다. *ZIP 다운로드* 단추를 방문 하 여 [**이 링크**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 에서 **Azure Digital twins Custom swagger** 샘플을 다운로드 합니다. 다운로드 한 *Azure_Digital_Twins_Custom_Swaggers.zip* 폴더로 이동 하 여 압축을 풉니다. 
 
 이 자습서에 대 한 사용자 지정 Swagger는 _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ 폴더에 있습니다. 이 폴더에는 *안정적* 이 고 *미리 보기가*포함 된 하위 폴더가 포함 되어 있습니다. 둘 다 날짜별로 구성 된 Swagger의 서로 다른 버전을 보유 합니다. 가장 최근 날짜의 폴더에는 Swagger의 최신 복사본이 포함 됩니다. 어떤 버전을 선택 하 든 Swagger 파일의 이름은 _**digitaltwins.json**_ 입니다.
 
@@ -213,7 +213,7 @@ Logic Apps 디자이너에서 *저장* 을 누릅니다.
 
 이제 논리 앱을 만들었으므로, Logic Apps 디자이너에서 정의한 쌍 업데이트 이벤트가 3 초 마다 되풀이에서 발생 해야 합니다. 즉, 3 초 후에 쌍을 쿼리하고 새 패치 된 값이 반영 된 것을 확인할 수 있습니다.
 
-사용자 지정 메서드 (예: [사용자 지정 클라이언트 앱](tutorial-command-line-app.md), [Azure 디지털 쌍 탐색기 샘플 앱](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), [sdk 및 api](how-to-use-apis-sdks.md)또는 [CLI](how-to-use-cli.md))를 통해 쌍을 쿼리할 수 있습니다. 
+사용자 지정 메서드 (예: [사용자 지정 클라이언트 앱](tutorial-command-line-app.md), [Azure 디지털 쌍 탐색기 샘플 앱](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/), [sdk 및 api](how-to-use-apis-sdks.md)또는 [CLI](how-to-use-cli.md))를 통해 쌍을 쿼리할 수 있습니다. 
 
 Azure Digital Twins 인스턴스를 쿼리 하는 방법에 대 한 자세한 내용은 [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)를 참조 하세요.
 

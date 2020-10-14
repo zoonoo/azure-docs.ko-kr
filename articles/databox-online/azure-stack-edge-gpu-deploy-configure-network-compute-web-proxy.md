@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: c3ce12a91a0cf13bda000f7f729f6249fd04600c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a6b72c9e6cc366d04937598f653f8ba887ce1b85
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894082"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952185"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU의 네트워크 구성
 
@@ -78,7 +78,7 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
     디바이스 네트워크를 구성하면 아래와 같이 페이지가 업데이트됩니다.
 
-    ![로컬 웹 UI "네트워크 설정" 페이지](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
+    ![로컬 웹 UI "네트워크 설정" 페이지 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
      >[!NOTE]
@@ -149,7 +149,7 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
     4. 구성한 웹 프록시 설정의 유효성을 검사하고 적용하려면 **적용**을 선택합니다.
     
-   ![로컬 웹 UI "웹 프록시 설정" 페이지](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![로컬 웹 UI "웹 프록시 설정" 페이지 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
 
 2. 설정이 적용된 후 **다음: 디바이스**를 입력하고 선택합니다.
 

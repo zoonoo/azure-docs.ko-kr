@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281459"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045842"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -37,7 +37,7 @@ ms.locfileid: "91281459"
 
 이 문서에서 *게이트웨이* 및 * IoT Edge 게이트웨이*라는 용어는 투명한 게이트웨이로 사용되는 IoT Edge 디바이스를 의미합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 장치 CA 인증서를 생성 하는 데 사용 된 루트 CA 인증서 파일을 사용 하 여 다운스트림 장치에서 사용할 수 있는 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 데모 인증서를 사용 하는 경우 루트 CA 인증서를 **azure-iot-test-only**라고 합니다.
 * [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 설명 된 대로 게이트웨이 장치를 가리키는 수정 된 연결 문자열이 있어야 합니다.
@@ -77,7 +77,7 @@ IoT Edge 인증서 및 일부 프로덕션 의미에 대해 자세히 알아보�
 
 ## <a name="provide-the-root-ca-certificate"></a>루트 CA 인증서 제공
 
-게이트웨이 장치의 인증서를 확인 하려면 다운스트림 장치에 루트 CA 인증서의 자체 복사본이 필요 합니다. IoT Edge git 리포지토리에 제공 된 스크립트를 사용 하 여 테스트 인증서를 만든 경우 루트 CA 인증서를 **azure-iot-test-only**라고 합니다. 다른 다운스트림 장치 준비 단계를 아직 수행 하지 않은 경우이 인증서 파일을 다운스트림 장치의 임의 디렉터리로 이동 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 와 같은 서비스를 사용 하거나 [보안 복사 프로토콜과](https://www.ssh.com/ssh/scp/) 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.
+게이트웨이 장치의 인증서를 확인 하려면 다운스트림 장치에 루트 CA 인증서의 자체 복사본이 필요 합니다. IoT Edge git 리포지토리에 제공 된 스크립트를 사용 하 여 테스트 인증서를 만든 경우 루트 CA 인증서를 **azure-iot-test-only**라고 합니다. 다른 다운스트림 장치 준비 단계를 아직 수행 하지 않은 경우이 인증서 파일을 다운스트림 장치의 임의 디렉터리로 이동 합니다. [Azure Key Vault](../key-vault/index.yml) 와 같은 서비스를 사용 하거나 [보안 복사 프로토콜과](https://www.ssh.com/ssh/scp/) 같은 기능을 사용 하 여 인증서 파일을 이동할 수 있습니다.
 
 ## <a name="install-certificates-in-the-os"></a>OS에 인증서 설치
 
@@ -98,7 +98,7 @@ sudo update-ca-certificates
 
 다음 단계는 Windows 호스트에 CA 인증서를 설치하는 방법의 예제입니다. 이 예에서는 필수 구성 요소 문서에서 **azure-iot-test-only** 인증서를 사용 하 고 있으며,이 인증서를 다운스트림 장치의 위치로 복사 했다고 가정 합니다.
 
-관리자 권한으로 PowerShell의 [가져오기-인증서](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) 를 사용 하 여 인증서를 설치할 수 있습니다.
+관리자 권한으로 PowerShell의 [가져오기-인증서](/powershell/module/pkiclient/import-certificate?view=win10-ps) 를 사용 하 여 인증서를 설치할 수 있습니다.
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 또한 이 문서의 뒷부분에 나오는 .NET 샘플에 표시된 대로 .NET API를 사용하여 프로그래밍 방식으로 인증서를 설치할 수 있습니다.
 
-일반적으로 애플리케이션은 [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel)이라는 TLS 스택이 제공된 Windows를 사용하여 TLS를 통해 안전하게 연결합니다. TLS 연결 설정을 시도하려면 Windows 인증서 스토리지에 설치된 인증서가 Schannel에 *필요합니다*.
+일반적으로 애플리케이션은 [Schannel](/windows/desktop/com/schannel)이라는 TLS 스택이 제공된 Windows를 사용하여 TLS를 통해 안전하게 연결합니다. TLS 연결 설정을 시도하려면 Windows 인증서 스토리지에 설치된 인증서가 Schannel에 *필요합니다*.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 인증서 사용
 
@@ -125,7 +125,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
-    예들 들어 `<path>/azure-iot-test-only.root.ca.cert.pem`입니다.
+    예: `<path>/azure-iot-test-only.root.ca.cert.pem`
 
 ### <a name="nodejs"></a>NodeJS
 

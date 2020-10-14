@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932144"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046726"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -110,7 +110,7 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) 다운
 
 4. 기본 및 보조 장치 인증서와 해당 키를 모두 다운스트림 장치의 임의의 위치에 복사 합니다. 또한 게이트웨이 디바이스 인증서와 다운스트림 디바이스 인증서를 모두 생성한 공유 루트 CA 인증서의 복사본을 이동합니다.
 
-   IoT Hub에 연결 하는 다운스트림 장치의 모든 응용 프로그램에서 이러한 인증서 파일을 참조 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.
+   IoT Hub에 연결 하는 다운스트림 장치의 모든 응용 프로그램에서 이러한 인증서 파일을 참조 합니다. [Azure Key Vault](../key-vault/index.yml) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.
 
 5. 선호하는 언어에 따라 IoT 애플리케이션에서 X.509 인증서를 참조할 수 있는 방법에 대한 샘플을 검토합니다.
 
@@ -156,7 +156,7 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 다운스트림 장치에 �
 
 5. 디바이스 인증서 및 키를 다운스트림 디바이스에서 임의의 위치에 복사합니다. 또한 게이트웨이 디바이스 인증서와 다운스트림 디바이스 인증서를 모두 생성한 공유 루트 CA 인증서의 복사본을 이동합니다.
 
-   IoT Hub에 연결 하는 다운스트림 장치의 모든 응용 프로그램에서 이러한 파일을 참조 합니다. [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.
+   IoT Hub에 연결 하는 다운스트림 장치의 모든 응용 프로그램에서 이러한 파일을 참조 합니다. [Azure Key Vault](../key-vault/index.yml) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.
 
 6. 선호하는 언어에 따라 IoT 애플리케이션에서 X.509 인증서를 참조할 수 있는 방법에 대한 샘플을 검토합니다.
 
@@ -201,7 +201,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들면 다음과 같습니다.
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

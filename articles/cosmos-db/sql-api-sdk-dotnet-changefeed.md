@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.openlocfilehash: e4c2969db560ff20cae2ed7b9ffbe0cea206c7a1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611574"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
@@ -27,14 +27,14 @@ ms.locfileid: "91611574"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
-> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * 단계 (/rest/api
-> * [REST 리소스 공급자] (/rest/api
+> * [REST](/rest/api
+> * [REST 리소스 공급자](/rest/api
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
@@ -52,11 +52,11 @@ ms.locfileid: "91611574"
 ### <a name="v2-builds"></a>v2 빌드
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
-* 핫 마이그레이션 경로를 사용 하도록 설정 하는 [V3 SDK]와의 임대 저장소 호환성이 추가 되었습니다. 응용 프로그램은 V3 SDK로 마이그레이션하고 상태를 잃지 않고 변경 피드 프로세서 라이브러리로 다시 마이그레이션할 수 있습니다.
+* 핫 마이그레이션 경로를 사용하는 [V3 SDK]와 임대 저장소 호환성을 추가했습니다. 애플리케이션은 V3 SDK로 마이그레이션하고 상태 손실 없이 변경 피드 프로세서 라이브러리로 다시 마이그레이션할 수 있습니다.
 
 ### <a name="231"></a><a id="2.3.1"></a>2.3.1
-* `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` `FeedProcessing.IChangeFeedObserver.CloseAsync` 파티션을 찾을 수 없거나 대상 복제본이 읽기 세션에서 최신 상태가 아닌 경우 close 이유가로 전송 되는 경우를 수정 했습니다. 이러한 경우에 `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` 는 이제 닫는 이유가 사용 됩니다.
-* `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`대상 복제본이 읽기 세션에서 최신 상태가 아닐 때 변경 피드 관찰자를 닫기 위해 전송 된 새로운 닫기 이유를 추가 했습니다.
+* 파티션을 찾을 수 없거나 대상 복제본이 읽기 세션과 최신 상태가 아닌 경우 `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` 닫기 이유가 `FeedProcessing.IChangeFeedObserver.CloseAsync`로 전송된 경우를 수정했습니다. 이러한 경우 이제 `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` 및 `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` 닫기 이유가 사용됩니다.
+* 대상 복제본이 읽기 세션과 최신 상태가 아닐 때 변경 피드 관찰자를 닫기 위해 전송되는 새로운 닫기 이유 `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`을 추가했습니다.
 
 ### <a name="230"></a><a id="2.3.0"></a>2.3.0
 * 새 메서드 `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` 및 해당 공용 인터페이스 `ICheckpointPartitionProcessorFactory`가 추가되었습니다. 이를 통해 `IPartitionProcessor` 인터페이스를 구현하여 기본 제공 검사점 메커니즘을 사용할 수 있습니다. 새 팩터리는 기존 `IPartitionProcessorFactory`와 유사합니다. 단, 해당 `Create` 메서드가 `ILeaseCheckpointer` 매개 변수도 사용한다는 점이 다릅니다.
@@ -72,9 +72,9 @@ ms.locfileid: "91611574"
   * 새 공용 열거형 값 `Monitoring.MonitoredOperation.ReadChangeFeed`가 추가되었습니다. `HealthMonitoringRecord.Operation` 값이 `Monitoring.MonitoredOperation.ReadChangeFeed`로 설정된 경우 상태 문제가 변경 피드 읽기와 관련되어 있음을 나타냅니다.
 
 ### <a name="227"></a><a id="2.2.7"></a>2.2.7
-* 네트워크 문제로 인해 모든 임대를 가져오는 경우와 같이 임대 만료 간격 보다 오래 걸리는 경우 시나리오에 대 한 부하 분산 전략이 개선 되었습니다.
-  * 이 시나리오에서는 임대가 만료 된 것으로 간주 하 여 활성 소유자의 임대를 도용 하는 데 사용 되는 부하 분산 알고리즘이 사용 됩니다. 이로 인해 불필요 한 여러 임대를 트리거할 수 있습니다.
-  * 이 문제는 소유자가 변경 하지 않은 만료 된 임대를 획득 하는 동안 충돌 시 재시도를 방지 하 고 만료 된 임대를 다음 부하 분산 반복으로 가져오는 것을 방지 하 여이 릴리스에서 해결 되었습니다.
+* 모든 임대를 가져오는 시나리오에 대해 향상된 부하 분산 전략은 네트워크 문제 등으로 임대 만료 간격보다 오래 걸립니다.
+  * 이 시나리오에서는 임대가 만료된 것으로 간주하여 활성 소유자의 임대를 도용하는 부하 분산 알고리즘이 사용됩니다. 이로 인해 많은 임대를 불필요하게 다시 분산시킬 수 있습니다.
+  * 이 릴리스에서는 소유자가 변경하지 않은 만료된 임대를 획득하는 동안 충돌 시 재시도를 방지하고 만료된 임대를 다음 부하 분산 반복으로 가져오는 것을 연기하여 이 문제를 해결했습니다.
 
 ### <a name="226"></a><a id="2.2.6"></a>2.2.6
 * 관찰자 예외 처리가 향상되었습니다.
@@ -84,7 +84,7 @@ ms.locfileid: "91611574"
 
 ### <a name="225"></a><a id="2.2.5"></a>2.2.5
 * 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 처리에 대한 지원이 추가되었습니다.
-  * 이 릴리스를 사용 하면 결과 분할 시 공유 데이터베이스 처리량을 사용 하 여 컬렉션에서 분할 하는 동안 발생 하는 문제를 해결할 수 있습니다. 이 경우 변경 피드 프로세서에서 이전 파티션 키 범위의 임대 삭제가 중단되고 새 임대 만들기는 중단되지 않을 수 있습니다. 이 문제는 이 릴리스에서 해결되었습니다.
+  * 이 릴리스는 두 개가 아닌 하나의 하위 파티션 키 범위만 만들어진 파티션 부하 다시 분산으로 결과를 분할할 때 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 중에 발생할 수 있는 문제를 해결합니다. 이 경우 변경 피드 프로세서에서 이전 파티션 키 범위의 임대 삭제가 중단되고 새 임대 만들기는 중단되지 않을 수 있습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
 ### <a name="224"></a><a id="2.2.4"></a>2.2.4
 * 요청 연속 토큰에서 변경 피드 시작을 지원하기 위해 새 속성 ChangeFeedProcessorOptions.StartContinuation을 추가했습니다. 이 속성은 임대 컬렉션이 비어 있거나 임대에 ContinuationToken이 설정되어 있지 않은 경우에만 사용됩니다. ContinuationToken이 설정된 임대 컬렉션의 임대의 경우 ContinuationToken이 사용되며 ChangeFeedProcessorOptions.StartContinuation은 무시됩니다.
@@ -100,11 +100,11 @@ ms.locfileid: "91611574"
 * 이 릴리스는 모니터링된 컬렉션에서 분할을 처리하고 파티션된 임대 컬렉션을 사용하는 중 발생하는 문제를 해결합니다. 분할 파티션에 대한 임대 처리 시 해당 파티션에 해당하는 임대는 삭제할 수 없습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
 ### <a name="221"></a><a id="2.2.1"></a>2.2.1
-* 여러 쓰기 지역 및 새 세션 토큰 형식이 있는 계정에 대 한 평가기 계산을 수정 했습니다.
+* 다중 쓰기 영역과 새 세션 토큰 형식의 계정에 대한 고정 추정기 계산입니다.
 
 ### <a name="220"></a><a id="2.2.0"></a>2.2.0
 * 분할된 임대 컬렉션에 대한 지원이 추가되었습니다. 파티션 키는 /id로 정의되어야 합니다.
-* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient은 문서 클라이언트의 사용자 지정 구현을 제공 하 여 변경 피드 프로세서와 함께 사용할 수 있도록 하는 고급 확장성 지점입니다 (예: 데코레이팅 DocumentClient 및이에 대 한 모든 호출을 가로채 추가 추적, 오류 처리 등). 이 업데이트를 사용 하는 경우 IChangeFeedDocumentClient을 구현 하는 코드를 변경 하 여 구현에 새 매개 변수를 포함 해야 합니다.
+* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용하여 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다. 예를 들어, DocumentClient를 데코레이트하고 그에 대한 모든 호출을 가로채서 추가 추적, 오류 처리 등을 수행할 수 있습니다. 이 업데이트를 사용하면 새 매개 변수를 구현에 포함하도록 IChangeFeedDocumentClient를 구현하는 코드를 변경해야 합니다.
 * 사소한 진단 개선 사항입니다.
 
 ### <a name="210"></a><a id="2.1.0"></a>2.1.0
@@ -191,14 +191,14 @@ ms.locfileid: "91611574"
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 > [!WARNING]
-> 2022 년 8 월 31 일 이후에는 Azure Cosmos DB에서 더 이상 버그를 수정 하지 않으며, 새 기능을 추가 하 고, Azure Cosmos DB .NET 또는 .NET Core SDK 버전의 SQL API에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 1.x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
+> 2022년 8월 31일 이후 Azure Cosmos DB는 더 이상 버그를 수정하거나 새로운 기능을 추가하거나 SQL API용 Azure Cosmos DB .NET 또는 .NET Core SDK 버전 1.x에 대한 지원을 제공하지 않습니다. 업그레이드하지 않으려는 경우 SDK 버전 1.x에서 보낸 요청은 Azure Cosmos DB 서비스에서 계속 제공됩니다.
 
 <br/>
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.3.2](#2.3.2) |2020년 8월 11일 |--- |
-| [2.3.1](#2.3.1) |2020 년 7 월 30 일 |--- |
+| [2.3.1](#2.3.1) |2020년 7월 30일 |--- |
 | [2.3.0](#2.3.0) |2020년 4월 2일 |--- |
 | [2.2.8](#2.2.8) |2019년 10월 28일 |--- |
 | [2.2.7](#2.2.7) |2019년 5월 14일 |--- |

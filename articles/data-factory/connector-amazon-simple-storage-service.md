@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282700"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047729"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -47,10 +47,9 @@ ms.locfileid: "91282700"
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-Amazon s 3에서 데이터를 복사 하려면 다음과 같은 사용 권한이 부여 되었는지 확인 합니다.
+Amazon s 3에서 데이터를 복사 하려면 Amazon S3 개체 작업에 대 한 다음 사용 권한이 부여 되었는지 확인 `s3:GetObject` 합니다. 및 `s3:GetObjectVersion` .
 
-- **는** `s3:GetObject` `s3:GetObjectVersion` Amazon S3 개체 작업에 대 한 복사 작업 실행: 및입니다.
-- **Data Factory GUI 제작의 경우** `s3:ListAllMyBuckets` 및 `s3:ListBucket` / `s3:GetBucketLocation` Amazon S3 버킷 작업의 경우입니다. 연결 테스트 및 파일 경로 검색과 같은 작업에도 사용 권한이 필요 합니다. 이러한 권한을 부여 하지 않으려면 연결 된 서비스 만들기 페이지에서 연결 테스트를 건너뛰고 데이터 집합 설정에서 직접 경로를 지정 합니다.
+Data Factory UI를 사용 하 여 작성 하는 `s3:ListAllMyBuckets` 경우 `s3:ListBucket` / `s3:GetBucketLocation` 연결 된 서비스에 대 한 연결 테스트 및 루트에서 검색 등의 작업을 수행 하려면 추가 및 권한이 필요 합니다. 이러한 권한을 부여 하지 않으려는 경우 UI에서 "파일 경로에 대 한 연결 테스트" 또는 "지정 된 경로에서 찾아보기" 옵션을 선택할 수 있습니다.
 
 Amazon S3 사용 권한의 전체 목록은 AWS 사이트의 [정책에서 사용 권한 지정](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) 을 참조 하세요.
 
@@ -70,14 +69,14 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
 | secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | serviceUrl | 공식 Amazon S3 서비스 이외의 S3 호환 저장소 공급자에서 데이터를 복사 하는 경우 사용자 지정 S3 끝점을 지정 합니다. 예를 들어 Google Cloud Storage에서 데이터를 복사하려면 `https://storage.googleapis.com`을 지정합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |No |
 
 이 커넥터에는 Amazon s 3에서 데이터를 복사 하기 위해 AWS Id 및 액세스 관리 (IAM) 계정에 대 한 액세스 키가 필요 합니다. [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) 은 현재 지원 되지 않습니다.
 
 >[!TIP]
 >공식 Amazon S3 서비스 이외의 S3 호환 저장소에서 데이터를 복사 하는 경우 사용자 지정 S3 서비스 URL을 지정 합니다.
 
-예를 들면 다음과 같습니다.
+예는 다음과 같습니다.
 
 ```json
 {
@@ -166,7 +165,7 @@ Amazon S3 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z" 형식의 UTC 표준 시간대에 적용 됩니다. <br> 속성은 **NULL**일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL**이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                                          |
-| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 아니요                                            |
+| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | No                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/>-접두사를 사용 하는 경우 파티션 루트 경로는 마지막 "/" 앞의 하위 경로입니다. <br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 데이터 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예                                                          |
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1866f3360b90a96b5e3f215eb7669a1451262bd8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447794"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046012"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Azure IoT Edge 장치에 연속 통합 및 연속 배포 (클래식 편집기)
 
@@ -21,7 +21,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
 ![다이어그램 - 개발 및 프로덕션을 위한 CI 및 CD 분기](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
-이 문서에서는 Azure Pipelines에 대해 기본 제공 [Azure IoT Edge 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/build/azure-iot-edge) 을 사용 하 여 IoT Edge 솔루션에 대 한 빌드 및 릴리스 파이프라인을 만드는 방법에 대해 알아봅니다. 파이프라인에 추가 된 각 Azure IoT Edge 작업은 다음 네 가지 작업 중 하나를 구현 합니다.
+이 문서에서는 Azure Pipelines에 대해 기본 제공 [Azure IoT Edge 작업](/azure/devops/pipelines/tasks/build/azure-iot-edge) 을 사용 하 여 IoT Edge 솔루션에 대 한 빌드 및 릴리스 파이프라인을 만드는 방법에 대해 알아봅니다. 파이프라인에 추가 된 각 Azure IoT Edge 작업은 다음 네 가지 작업 중 하나를 구현 합니다.
 
  | 작업 | 설명 |
  | --- | --- |
@@ -32,22 +32,22 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
 별도로 지정 하지 않는 한이 문서의 절차에서는 작업 매개 변수를 통해 사용할 수 있는 모든 기능을 탐색 하지 않습니다. 자세한 내용은
 
-* [작업 버전](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-versions)
+* [작업 버전](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-versions)
 * **고급** -해당 하는 경우 빌드되지 않으려는 모듈을 지정 합니다.
-* [제어 옵션](https://docs.microsoft.com/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=classic#task-control-options)
-* [환경 변수](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#environment-variables)
-* [출력 변수](https://docs.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-output-variables-from-tasks)
+* [제어 옵션](/azure/devops/pipelines/process/tasks?tabs=classic&view=azure-devops#task-control-options)
+* [환경 변수](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#environment-variables)
+* [출력 변수](/azure/devops/pipelines/process/variables?tabs=yaml%252cbatch&view=azure-devops#use-output-variables-from-tasks)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다.
-* 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](how-to-visual-studio-develop-csharp-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule**이라는 모듈에 대 한 코드를 포함 하는 **IoTEdgeSolution**라는 리포지토리에 솔루션을 만들었습니다.
+* Azure Repos 리포지토리. 이 리포지토리가 없는 경우 [프로젝트에서 새 Git 리포지토리를 만들](/azure/devops/repos/git/create-new-repo?tabs=new-nav&view=vsts) 수 있습니다. 이 문서의 경우 **IoTEdgeRepo**라는 리포지토리를 만들었습니다.
+* 리포지토리에 커밋되고 푸시된 IoT Edge 솔루션. 이 문서를 테스트하기 위한 새 샘플 솔루션을 만들려면 [Visual Studio Code에서 모듈 개발 및 디버그](how-to-vs-code-develop-module.md) 또는 [Visual Studio에서 C# 모듈 개발 및 디버그](./how-to-visual-studio-develop-module.md)의 단계를 따릅니다. 이 문서에서는 **filtermodule**이라는 모듈에 대 한 코드를 포함 하는 **IoTEdgeSolution**라는 리포지토리에 솔루션을 만들었습니다.
 
    이 문서의 경우에는 Visual Studio Code 또는 Visual Studio에서 IoT Edge 템플릿으로 솔루션 폴더만 만들면 됩니다. 계속하기 전에 이 코드를 빌드, 푸시, 배포 또는 디버그할 필요가 없습니다. Azure Pipelines에서 이러한 프로세스를 설정 합니다.
 
    새 솔루션을 만드는 경우에는 먼저 로컬로 리포지토리를 복제합니다. 그런 다음, 솔루션을 만들 때 리포지토리 폴더에서 직접 만들도록 선택할 수 있습니다. 여기에서 새 파일을 쉽게 커밋하고 푸시할 수 있습니다.
 
-* 모듈 이미지를 푸시할 수 있는 컨테이너 레지스트리. [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 타사 레지스트리를 사용할 수 있습니다.
+* 모듈 이미지를 푸시할 수 있는 컨테이너 레지스트리. [Azure Container Registry](../container-registry/index.yml) 또는 타사 레지스트리를 사용할 수 있습니다.
 * 별도의 테스트 및 프로덕션 배포 단계를 테스트 하기 위한 두 개 이상의 IoT Edge 장치를 포함 하는 활성 Azure [IoT hub](../iot-hub/iot-hub-create-through-portal.md) 입니다. 빠른 시작 문서에 따라 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)에서 IoT Edge 디바이스를 만들 수 있습니다.
 
 ## <a name="create-a-build-pipeline-for-continuous-integration"></a>연속 통합을 위한 빌드 파이프라인 만들기
@@ -84,7 +84,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 
    * Linux 컨테이너에 대 한 platform amd64에서 모듈을 빌드하려면 **ubuntu-16.04** 을 선택 합니다.
 
-   * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts)해야 합니다.
+   * Windows 1809 컨테이너용 플랫폼 amd64에서 모듈을 빌드하려는 경우 [Windows에서 자체 호스팅 에이전트를 설치](/azure/devops/pipelines/agents/v2-windows?view=vsts)해야 합니다.
 
    * Platform arm32v7 또는 arm64 for Linux 컨테이너에서 모듈을 빌드하려면 [linux에서 자체 호스트 된 에이전트를 설정](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent)해야 합니다.
 
@@ -136,14 +136,14 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
     | 표시 이름 | 기본 이름을 사용 하거나 사용자 지정 |
     | 원본 폴더 | 복사할 파일이 포함 된 폴더입니다. |
     | 콘텐츠 | 및의 두 줄 `deployment.template.json` 을 추가 `**/module.json` 합니다. 이러한 두 파일은 IoT Edge 배포 매니페스트를 생성 하기 위한 입력으로 사용 됩니다. |
-    | 대상 폴더 | 변수를 지정 `$(Build.ArtifactStagingDirectory)` 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요. |
+    | 대상 폴더 | 변수를 지정 `$(Build.ArtifactStagingDirectory)` 합니다. 설명에 대 한 자세한 내용은 [빌드 변수](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) 를 참조 하세요. |
 
 10. **빌드 아티팩트 게시** 작업을 선택하여 편집합니다. 경로를 릴리스 파이프라인에 게시할 수 있도록 작업에 아티팩트 준비 디렉터리 경로를 제공 합니다.
 
     | 매개 변수 | 설명 |
     | --- | --- |
     | 표시 이름 | 기본 이름을 사용 하거나 사용자 지정 합니다. |
-    | 게시할 경로 | 변수를 지정 `$(Build.ArtifactStagingDirectory)` 합니다. 자세히 알아보려면 [변수 빌드](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) 를 참조 하세요. |
+    | 게시할 경로 | 변수를 지정 `$(Build.ArtifactStagingDirectory)` 합니다. 자세히 알아보려면 [변수 빌드](/azure/devops/pipelines/build/variables?tabs=yaml&view=azure-devops#build-variables) 를 참조 하세요. |
     | 아티팩트 이름 | 기본 이름인 **drop** 을 사용 합니다. |
     | 아티팩트 게시 위치 | 기본 위치를 사용 합니다. **Azure Pipelines** |
 
@@ -160,7 +160,7 @@ Azure Pipelines의 기본 제공 Azure IoT Edge 작업과 함께 Azure IoT Edge 
 >[!NOTE]
 >파이프라인에서 **계층화 된 배포** 를 사용 하려는 경우에는 Azure devops의 Azure IoT Edge 작업에서 계층화 된 배포를 아직 지원 하지 않습니다.
 >
->그러나 [Azure DevOps에서 Azure CLI 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) 을 사용 하 여 배포를 계층화 된 배포로 만들 수 있습니다. **인라인 스크립트** 값의 경우 [az iot edge deployment create 명령을](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment)사용할 수 있습니다.
+>그러나 [Azure DevOps에서 Azure CLI 작업](/azure/devops/pipelines/tasks/deploy/azure-cli) 을 사용 하 여 배포를 계층화 된 배포로 만들 수 있습니다. **인라인 스크립트** 값의 경우 [az iot edge deployment create 명령을](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment)사용할 수 있습니다.
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

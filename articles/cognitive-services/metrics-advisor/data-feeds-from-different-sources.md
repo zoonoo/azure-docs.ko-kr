@@ -3,19 +3,19 @@ title: 다른 원본에서 메트릭 Advisor로 데이터 피드를 추가 하�
 titleSuffix: Azure Cognitive Services
 description: 메트릭 관리자에 다른 데이터 피드 추가
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
-ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971951"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046913"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
 
@@ -93,7 +93,7 @@ ms.locfileid: "91971951"
   
   * v1 (기본값)
 
-      메트릭 *이름과* *값* 만 허용 됩니다. 예를 들면 다음과 같습니다.
+      메트릭 *이름과* *값* 만 허용 됩니다. 예:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ ms.locfileid: "91971951"
 
   * v2
 
-      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예를 들면 다음과 같습니다.
+      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예:
       
       ``` JSON
       [
@@ -159,7 +159,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
   * `%h` 는로 서식이 지정 된 시간입니다. `HH`
   * `%M` 는로 서식이 지정 된 분입니다. `mm`
 
-현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예를 들면 다음과 같습니다.
+현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예:
 
 ``` JSON
 [

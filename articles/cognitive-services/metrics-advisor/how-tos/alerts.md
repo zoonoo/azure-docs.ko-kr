@@ -3,19 +3,19 @@ title: 메트릭 관리자 경고 구성
 titleSuffix: Azure Cognitive Services
 description: 전자 메일, 웹 및 Azure DevOps에 대 한 후크를 사용 하 여 메트릭 Advisor 경고를 구성 하는 방법입니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977788"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046794"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>방법: 후크를 사용 하 여 경고 구성 및 알림 가져오기
 
@@ -77,7 +77,7 @@ Azure DevOps 후크를 만들려면 다음 정보를 추가 해야 합니다.
 |---------|---------|
 | Name | 후크에 대 한 이름입니다. |
 | 조직 | DevOps가 속한 조직 |
-| 프로젝트 | DevOps의 특정 프로젝트입니다. |
+| Project | DevOps의 특정 프로젝트입니다. |
 | 액세스 토큰 |  DevOps에 인증 하기 위한 토큰입니다. | 
 
 > [!Note]

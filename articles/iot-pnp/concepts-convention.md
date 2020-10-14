@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 8b5492a737b733f486455507a8a813b5d583d453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58fa45f47ee8dce4ec96591551abad76c1218ee
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91573840"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045485"
 ---
 # <a name="iot-plug-and-play-conventions"></a>IoT 플러그 앤 플레이 규칙
 
@@ -132,7 +132,7 @@ DTDL:
 
 장치가 시작 되 면 장치 쌍을 요청 하 고 쓰기 가능한 속성 업데이트를 확인 해야 합니다. 장치가 오프 라인 상태인 동안 쓰기 가능한 속성의 버전이 증가 하는 경우 장치가 업데이트를 받았는지 확인 하기 위해 보고 된 속성 응답을 보내야 합니다.
 
-장치를 처음 시작 하는 경우 허브에서 초기 desired 속성을 받지 못하는 경우 보고 된 속성에 대 한 초기 값을 보낼 수 있습니다. 이 경우 장치는를로 설정 해야 `av` 합니다 `1` . 예를 들면 다음과 같습니다.
+장치를 처음 시작 하는 경우 허브에서 초기 desired 속성을 받지 못하는 경우 보고 된 속성에 대 한 초기 값을 보낼 수 있습니다. 이 경우 장치는를로 설정 해야 `av` 합니다 `1` . 예:
 
 ```json
 "reported": {
@@ -343,6 +343,6 @@ DTDL:
 이제 IoT 플러그 앤 플레이 규칙에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [DTDL(디지털 쌍 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C 디바이스 SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
-- [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
+- [C 디바이스 SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [IoT REST API](/rest/api/iothub/device)
 - [모델 구성 요소](./concepts-components.md)

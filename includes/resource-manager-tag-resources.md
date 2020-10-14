@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-resource-manager
 author: tfitzmac
@@ -9,15 +9,15 @@ ms.date: 03/19/2020
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: a00291182059506aeab9cde965fa4cbd5177ecf7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80132255"
 ---
-사용자에 게 태그를 적용 하는 데 필요한 액세스 권한이 없는 경우 사용자에 게 **태그 참가자** 역할을 할당할 수 있습니다. 자세한 내용은 [자습서: RBAC를 사용 하 여 Azure 리소스에 대 한 사용자 액세스 권한 부여 및 Azure Portal](../articles/role-based-access-control/quickstart-assign-role-user-portal.md)을 참조 하세요.
+사용자에게 태그를 적용하는 데 필요한 액세스 권한이 없는 경우 **태그 기여자** 역할을 사용자에게 할당할 수 있습니다. 자세한 내용은 [자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](../articles/role-based-access-control/quickstart-assign-role-user-portal.md)를 참조하세요.
 
-1. 리소스 또는 리소스 그룹에 대 한 태그를 보려면 개요에서 기존 태그를 찾습니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다.
+1. 리소스 또는 리소스 그룹에 대한 태그를 보려면 개요에서 기존 태그를 찾습니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다.
 
    ![리소스 또는 리소스 그룹에 대한 태그 보기](./media/resource-manager-tag-resources/view-tags.png)
 
@@ -43,17 +43,17 @@ ms.locfileid: "80132255"
 
 여러 리소스에 태그를 대량으로 할당하려면 다음을 수행합니다.
 
-1. 모든 리소스 목록에서 태그를 할당하려는 리소스에 대한 확인란을 선택합니다. 그런 다음 **태그 할당**을 선택 합니다.
+1. 모든 리소스 목록에서 태그를 할당하려는 리소스에 대한 확인란을 선택합니다. 그런 다음, **태그 할당**을 선택합니다.
 
    ![여러 리소스 선택](./media/resource-manager-tag-resources/select-multiple-resources.png)
 
-1. 이름 및 값을 추가 합니다. 완료되면 **저장**을 선택합니다.
+1. 이름 및 값을 추가합니다. 완료되면 **저장**을 선택합니다.
 
    ![할당 선택](./media/resource-manager-tag-resources/select-assign.png)
 
 태그가 있는 모든 리소스를 보려면
 
-1. Azure Portal 메뉴에서 **태그**를 검색 합니다. 사용 가능한 옵션에서 선택 합니다.
+1. Azure Portal 메뉴에서 **태그**를 검색합니다. 사용 가능한 옵션에서 선택합니다.
 
    ![태그로 찾기](./media/resource-manager-tag-resources/find-tags-general.png)
 

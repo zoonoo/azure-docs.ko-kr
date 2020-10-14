@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: 8d5e5e6cc77c7fe1d32f0834831ef1b930ee834d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ae0c4c69cf500fb352cc889e068888084d1d8f8b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966171"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045961"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -85,7 +85,7 @@ Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예를 들면
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -93,7 +93,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-프록시 매개 변수에 대한 자세한 내용은 [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest)를 참조하세요. Windows 설치 매개 변수에 대 한 자세한 내용은 [windows의 IoT Edge에 대 한 PowerShell 스크립트](reference-windows-scripts.md)를 참조 하세요.
+프록시 매개 변수에 대한 자세한 내용은 [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest)를 참조하세요. Windows 설치 매개 변수에 대 한 자세한 내용은 [windows의 IoT Edge에 대 한 PowerShell 스크립트](reference-windows-scripts.md)를 참조 하세요.
 
 ## <a name="configure-the-daemons"></a>디먼 구성
 
@@ -108,7 +108,7 @@ Moby는 Docker를 기반으로 하므로 Docker 설명서를 참조 하 여 환�
 IoT Edge 장치 운영 체제에 적용 되는 문서를 선택 합니다.
 
 * [Linux에서 Docker 디먼 구성](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) Linux의 Moby 디먼 장치는 Docker 이름을 유지 합니다.
-* [Windows에서 Docker 디먼 구성](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration) Windows 장치의 Moby 디먼을 iotedge-Moby 라고 합니다. Windows 장치에서 Docker 데스크톱과 Moby를 병렬로 실행할 수 있으므로 이름이 다릅니다.
+* [Windows에서 Docker 디먼 구성](/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration) Windows 장치의 Moby 디먼을 iotedge-Moby 라고 합니다. Windows 장치에서 Docker 데스크톱과 Moby를 병렬로 실행할 수 있으므로 이름이 다릅니다.
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 디먼
 

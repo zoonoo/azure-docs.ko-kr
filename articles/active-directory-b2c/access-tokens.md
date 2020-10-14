@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87115540"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
@@ -50,7 +50,7 @@ scope=https://contoso.onmicrosoft.com/api/read openid offline_access
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음 범위는 사용자의 프로필에 액세스할 수 있는 권한을 나타냅니다.
+클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음과 같은 범위는 사용자 프로필에 액세스하기 위한 권한을 나타냅니다.
 
 - **openid** - ID 토큰을 요청합니다.
 - **offline_access** - [인증 코드 흐름](authorization-code-flow.md)을 사용하여 새로 고침 토큰을 요청합니다.

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cynthn
-ms.openlocfilehash: dd2d42bb83afa5a97bd5bd71d7b1a4bcc506d93e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976167"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048086"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "91976167"
 
 고객 관리형 키를 사용한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 이미지에 사용할 디스크 암호화가 이미 설정 되어 있어야 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "91976167"
 
 - 암호화 키 집합은 지역별 리소스 이므로 각 지역에 다른 암호화 키 집합이 필요 합니다.
 
-- 고객 관리형 키를 사용하는 이미지는 공유할 수 없습니다. 
+- 고객 관리 키를 사용 하는 이미지를 복사 하거나 공유할 수 없습니다. 
 
 - 사용자 고유의 키를 사용하여 디스크 또는 이미지를 암호화한 후에는 플랫폼 관리형 키를 사용하여 해당 디스크나 이미지를 암호화할 수 없습니다.
 

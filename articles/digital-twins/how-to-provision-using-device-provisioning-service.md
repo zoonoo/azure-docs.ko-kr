@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561434"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047237"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "90561434"
 
 _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모든 엔터프라이즈 IoT 프로젝트에 공통적인 일반적인 장치 관리 단계 집합을 보다 잘 이해 하려면 IoT Hub의 장치 관리 설명서에서 [ *장치 수명 주기* 섹션](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 프로 비전을 설정 하려면 먼저 모델 및 쌍을 포함 하는 **Azure Digital twins 인스턴스가** 있어야 합니다. 또한이 인스턴스는 데이터를 기반으로 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 합니다. 
 
@@ -32,7 +32,7 @@ _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모�
 * Azure Digital Twins 인스턴스 **_호스트 이름_**([포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * Azure Event Hubs 연결 문자열 **_연결 문자열_** ([포털에서 찾기](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
-또한이 샘플에서는 장치 프로 비전 서비스를 사용 하 여 프로 비전을 포함 하는 **장치 시뮬레이터** 를 사용 합니다. 장치 시뮬레이터는 [Azure Digital Twins 및 IoT Hub 통합 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다. 샘플 링크로 이동 하 고 제목 아래에서 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에서 샘플 프로젝트를 가져옵니다. 다운로드 한 폴더의 압축을 풉니다.
+또한이 샘플에서는 장치 프로 비전 서비스를 사용 하 여 프로 비전을 포함 하는 **장치 시뮬레이터** 를 사용 합니다. 장치 시뮬레이터는 [Azure Digital Twins 및 IoT Hub 통합 샘플](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다. 샘플 링크로 이동 하 고 제목 아래에서 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에서 샘플 프로젝트를 가져옵니다. 다운로드 한 폴더의 압축을 풉니다.
 
 장치 시뮬레이터는 **Node.js**버전 10.0. x 이상을 기반으로 합니다. [*개발 환경 준비*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) Windows 또는 Linux에서이 자습서에 대 한 Node.js를 설치 하는 방법을 설명 합니다.
 
@@ -69,7 +69,7 @@ _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모�
 
 IoT 장치를 프로 비전 하는 데 사용 되는 장치 프로 비전 서비스 인스턴스를 만듭니다. 아래 Azure CLI 지침을 사용 하거나 Azure Portal를 사용할 수 있습니다. 빠른 시작 [*: Azure Portal*](../iot-dps/quick-setup-auto-provision.md)를 사용 하 여 IoT Hub Device Provisioning Service를 설정 합니다.
 
-다음 Azure CLI 명령은 장치 프로 비전 서비스를 만듭니다. 이름, 리소스 그룹 및 지역을 지정 해야 합니다. [컴퓨터에](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
+다음 Azure CLI 명령은 장치 프로 비전 서비스를 만듭니다. 이름, 리소스 그룹 및 지역을 지정 해야 합니다. [컴퓨터에](/cli/azure/install-azure-cli?view=azure-cli-latest)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -258,7 +258,7 @@ az functionapp config appsettings set --settings "AdtAppId=<Application (client)
 
 ### <a name="set-up-the-device-simulator"></a>장치 시뮬레이터 설정
 
-이 샘플에서는 장치 프로 비전 서비스를 사용 하 여 프로 비전을 포함 하는 장치 시뮬레이터를 사용 합니다. 장치 시뮬레이터는 [Azure Digital Twins 및 IoT Hub 통합 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다. 샘플을 아직 다운로드 하지 않은 경우 샘플 링크로 이동 하 여 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 지금 가져옵니다. 다운로드 한 폴더의 압축을 풉니다.
+이 샘플에서는 장치 프로 비전 서비스를 사용 하 여 프로 비전을 포함 하는 장치 시뮬레이터를 사용 합니다. 장치 시뮬레이터는 [Azure Digital Twins 및 IoT Hub 통합 샘플](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)에 있습니다. 샘플을 아직 다운로드 하지 않은 경우 샘플 링크로 이동 하 여 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 지금 가져옵니다. 다운로드 한 폴더의 압축을 풉니다.
 
 명령 창을 열고 다운로드 한 폴더로 이동한 다음, *장치 시뮬레이터* 디렉터리로 이동 합니다. 다음 명령을 사용 하 여 프로젝트에 대 한 종속성을 설치 합니다.
 
@@ -447,7 +447,7 @@ namespace Samples.AdtIothub
 
 다음에는 앞서 만든 Azure Digital Twins 인스턴스와 이벤트 허브에 대 한 참조가 포함 된 함수 앱에서 환경 변수를 설정 해야 합니다. 종단 간 자습서 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md))를 사용 하는 경우 첫 번째 설정이 이미 구성 됩니다.
 
-이 Azure CLI 명령을 사용 하 여 설정을 추가 합니다. [컴퓨터에](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
+이 Azure CLI 명령을 사용 하 여 설정을 추가 합니다. [컴퓨터에](/cli/azure/install-azure-cli?view=azure-cli-latest)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -480,7 +480,7 @@ IoT Hub 경로 만들기에 대 한 지침은이 문서에 설명 되어 있습�
 
 [이 문서의 처음 절반](#auto-provision-device-using-device-provisioning-service)에서는 IoT Hub 및 해당 디지털 쌍으로 장치를 만들었습니다. 
 
-이제 IoT Hub로 이동 하 여 해당 장치를 삭제 합니다 ( [Azure CLI 명령](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) 또는 [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)를 사용 하 여이 작업을 수행할 수 있음). 
+이제 IoT Hub로 이동 하 여 해당 장치를 삭제 합니다 ( [Azure CLI 명령](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) 또는 [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)를 사용 하 여이 작업을 수행할 수 있음). 
 
 장치가 Azure Digital Twins에서 자동으로 제거 됩니다. 
 
@@ -497,7 +497,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 
 이 문서에서 만든 리소스가 더 이상 필요 하지 않은 경우 다음 단계에 따라 삭제 합니다.
 
-Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용 하 여 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹이 제거 됩니다. Azure Digital Twins 인스턴스 IoT hub 및 허브 장치 등록 event grid 토픽 및 관련 구독 event hubs 네임 스페이스 및 저장소와 같은 관련 된 리소스를 포함 하 여 Azure Functions 앱입니다.
+Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용 하 여 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹이 제거 됩니다. Azure Digital Twins 인스턴스 IoT hub 및 허브 장치 등록 event grid 토픽 및 관련 구독 event hubs 네임 스페이스 및 저장소와 같은 관련 된 리소스를 포함 하 여 Azure Functions 앱입니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 

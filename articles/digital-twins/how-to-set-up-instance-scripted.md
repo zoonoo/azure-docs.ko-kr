@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328645"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047423"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328645"
 
 이 문서에서는 인스턴스를 만들고 인증을 설정 하는 등 **새 Azure Digital Twins 인스턴스를 설정**하는 단계에 대해 설명 합니다. 이 문서를 완료 한 후에는에 대 한 프로그래밍을 시작할 준비가 된 Azure Digital Twins 인스턴스를 사용할 수 있습니다.
 
-이 버전의이 문서에서는 프로세스를 간소화 하는 [ **자동화 된 배포 스크립트** 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) 을 실행 하 여 이러한 단계를 완료 합니다. 
+이 버전의이 문서에서는 프로세스를 간소화 하는 [ **자동화 된 배포 스크립트** 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) 을 실행 하 여 이러한 단계를 완료 합니다. 
 * 백그라운드에서 스크립트를 실행 하는 수동 CLI 단계를 보려면이 문서의 CLI 버전 [*(방법: 인스턴스 및 인증 (CLI) 설정)*](how-to-set-up-instance-cli.md)을 참조 하세요.
 * Azure Portal에 따라 수동 단계를 보려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정) (포털)*](how-to-set-up-instance-portal.md)을 참조 하세요.
 
@@ -28,7 +28,7 @@ ms.locfileid: "91328645"
 
 ## <a name="prerequisites-download-the-script"></a>필수 조건: 스크립트 다운로드
 
-샘플 스크립트는 PowerShell로 작성 됩니다. 이 샘플은 샘플 링크로 이동 하 고 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에 다운로드할 수 있는 [**Azure Digital twins 샘플**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다.
+샘플 스크립트는 PowerShell로 작성 됩니다. 이 샘플은 샘플 링크로 이동 하 고 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에 다운로드할 수 있는 [**Azure Digital twins 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다.
 
 이렇게 하면 샘플 프로젝트가 _**Azure_Digital_Twins_samples.zip**_ 으로 컴퓨터에 다운로드 됩니다. 컴퓨터의 폴더로 이동한 후 파일의 압축을 풀어 파일의 압축을 풉니다.
 
@@ -165,7 +165,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins CLI 명령을 사용 하 여 인스턴스에서 개별 REST API 호출을 테스트 합니다. 
-* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
 
 또는 클라이언트 앱의 인증 코드를 작성 하 여 클라이언트 응용 프로그램을 인스턴스에 연결 하는 방법을 참조 하세요.

@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: dd4cbf0228bc68fa253f9e7a06b4eaba5157d2bd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952083"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045332"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -247,6 +247,7 @@ ZRS | 지원되지 않음 |
 NVMe 디스크 | 지원되지 않음
 Azure 공유 디스크 | 지원되지 않음
 보안 전송 옵션 | 지원됨
+쓰기 가속기 사용 디스크 | 지원되지 않음
 
 >[!IMPORTANT]
 > 성능 문제를 방지하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM에 대한 VM 디스크 확장성 및 성능 목표를 따라야 합니다. 기본 설정을 사용하는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 스토리지 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 따릅니다.

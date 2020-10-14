@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0435fe3946118d59d786dd3e6cec350a5ab4eee4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580470"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046454"
 ---
 # <a name="iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지
 
@@ -34,12 +34,12 @@ IoT 플러그 앤 플레이 브리지는 어댑터 설명서에 대 한 링크�
 |[Modbus](https://aka.ms/iot-pnp-bridge-modbus)                |예|예|
 |[MQTT](https://aka.ms/iot-pnp-bridge-mqtt)                    |예|예|
 |[연속적인](https://aka.ms/iot-pnp-bridge-serial)                |예|예|
-|[Windows USB 주변 장치](https://aka.ms/iot-pnp-bridge-usb)  |예|해당 사항 없음|
+|[Windows USB 주변 장치](https://aka.ms/iot-pnp-bridge-usb)  |예|해당 없음|
 
 >[!Important]
 >개발자는 iot 플러그 앤 플레이 브리지를 확장 하 여 **[iot 플러그 앤 플레이 bridge 개발자 설명서](https://aka.ms/iot-pnp-bridge-dev-doc)** 의 지침을 통해 추가 장치 프로토콜을 지원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="os-platform"></a>OS 플랫폼
 
@@ -47,7 +47,7 @@ IoT 플러그 앤 플레이 브리지는 어댑터 설명서에 대 한 링크�
 
 |플랫폼  |지원되는 버전  |
 |---------|---------|
-|윈도우 10 |     모든 Windows Sku가 지원 됩니다. 예: IoT Enterprise, Server, Desktop, IoT Core. *카메라 상태 모니터링 기능을 위해 20H1 이상 빌드를 권장 합니다. 모든 다른 기능은 모든 Windows 10 빌드에서 사용할 수 있습니다.*  |
+|Windows 10 |     모든 Windows Sku가 지원 됩니다. 예: IoT Enterprise, Server, Desktop, IoT Core. *카메라 상태 모니터링 기능을 위해 20H1 이상 빌드를 권장 합니다. 모든 다른 기능은 모든 Windows 10 빌드에서 사용할 수 있습니다.*  |
 |Linux     |Ubuntu 18.04에서 테스트 되 고 지원 되는 다른 배포판의 기능은 테스트 되지 않았습니다.         |
 ||
 
@@ -67,7 +67,7 @@ IoT 플러그 앤 플레이 브리지를 빌드하고 확장 하 고 개발 하�
 
 ### <a name="azure-iot-products-and-tools"></a>Azure IoT 제품 및 도구
 
-- **Azure IoT Hub** -장치를에 연결 하려면 azure 구독에서 [azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 가 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. IoT hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
+- **Azure IoT Hub** -장치를에 연결 하려면 azure 구독에서 [azure IoT Hub](../iot-hub/index.yml) 가 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. IoT hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!Note]
 > IoT 플러그 앤 플레이는 현재 미국 중부, 북유럽 및 일본 동부에서 생성된 IoT 허브에서 사용할 수 있습니다. IoT 플러그 앤 플레이 지원은 기본 계층 IoT 허브에 포함되지 않습니다. IoT 플러그 앤 플레이 장치와 상호 작용 하려면 Azure IoT 탐색기 도구를 사용할 수 있습니다. 운영 체제용 [최신 릴리스의 Azure IoT 탐색기를 다운로드하여 설치](./howto-use-iot-explorer.md)합니다.

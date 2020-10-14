@@ -3,19 +3,19 @@ title: 메트릭 Advisor 서비스에 변칙 피드백 제공
 titleSuffix: Azure Cognitive Services
 description: 메트릭 Advisor 인스턴스에서 찾은 변칙에 대 한 피드백을 보내고 결과를 조정 하는 방법을 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 50d422edf1a4b45132d0b86eac9d4947cef5e5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 11864cb26b76d414aa2efe2643797a2f66fa30e4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938049"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047610"
 ---
 # <a name="adjust-anomaly-detection-using-feedback"></a>피드백을 사용하여 변칙 검색 조정
 

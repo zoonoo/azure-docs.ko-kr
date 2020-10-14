@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460478"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047304"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>GPU GA (일반 공급) 릴리스 정보를 사용 하 여 Edge Pro Azure Stack
 
@@ -21,11 +21,11 @@ ms.locfileid: "91460478"
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. Azure Stack Edge Pro 장치를 배포 하기 전에 릴리스 정보에 포함 된 정보를 주의 깊게 검토 하세요.
 
-이 문서는 소프트웨어 버전 번호 **2.1.1364.2110**에 매핑되는 **Azure Stack Edge Pro 2009** 릴리스에 적용 됩니다.
+이 문서는 소프트웨어 버전 번호 **2.1.1377.2170**에 매핑되는 **Azure Stack Edge Pro 2010** 릴리스에 적용 됩니다.
 
 ## <a name="whats-new"></a>새로운 기능
 
-Azure Stack Edge 2009 릴리스에서는 다음과 같은 새로운 기능을 사용할 수 있습니다. 
+Azure Stack Edge 2010 릴리스에서는 다음과 같은 새로운 기능을 사용할 수 있습니다. 
 
 - **저장소 클래스** -이 릴리스에서 저장소 클래스를 사용 하 여 저장소를 동적으로 프로 비전 할 수 있습니다. 자세한 내용은 [Azure Stack Edge PRO GPU 장치에서 저장소 관리 Kubernetes](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning)를 참조 하세요. 
 - **메트릭 서버가 있는 Kubernetes 대시보드** -이 릴리스에서는 Kubernetes 대시보드가 메트릭 서버 추가 기능을 사용 하 여 추가 됩니다. 대시보드를 사용 하 여 Azure Stack Edge Pro 장치에서 실행 되는 응용 프로그램의 개요를 확인 하 고, Kubernetes 클러스터 리소스의 상태를 확인 하 고, 장치에서 발생 한 모든 오류를 확인할 수 있습니다. 메트릭 서버는 장치의 Kubernetes 리소스에서 CPU 및 메모리 사용량을 집계 합니다. 자세한 내용은 [Kubernetes 대시보드를 사용 하 여 Azure Stack Edge PRO GPU 장치 모니터링을](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)참조 하세요.

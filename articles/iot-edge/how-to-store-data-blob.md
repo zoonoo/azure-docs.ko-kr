@@ -8,16 +8,16 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 07da9316ea76e609948eed586f776be33c91b4bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287257"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048154"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
-IoT Edge에서 Azure Blob Storage는 [블록 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 을 제공 하 고에 지에 blob Storage 솔루션을 [추가](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) 합니다. IoT Edge 장치의 blob storage 모듈은 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure blob service 처럼 동작 합니다. 이미 사용 하 고 있는 것과 동일한 Azure storage SDK 메서드 또는 blob API 호출을 사용 하 여 blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
+IoT Edge에서 Azure Blob Storage는 [블록 blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 을 제공 하 고에 지에 blob Storage 솔루션을 [추가](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) 합니다. IoT Edge 장치의 blob storage 모듈은 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure blob service 처럼 동작 합니다. 이미 사용 하 고 있는 것과 동일한 Azure storage SDK 메서드 또는 blob API 호출을 사용 하 여 blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
 
 이 모듈은 시나리오에서 유용 합니다.
 
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -160,7 +160,7 @@ sudo chmod -R 700 <blob-dir>
 
 ## <a name="configure-log-files"></a>로그 파일 구성
 
-모듈에 대 한 로그 파일을 구성 하는 방법에 대 한 자세한 내용은 이러한 [프로덕션 모범 사례](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics)를 참조 하세요.
+모듈에 대 한 로그 파일을 구성 하는 방법에 대 한 자세한 내용은 이러한 [프로덕션 모범 사례](./production-checklist.md#set-up-logs-and-diagnostics)를 참조 하세요.
 
 ## <a name="connect-to-your-blob-storage-module"></a>Blob Storage 모듈에 연결
 
@@ -187,7 +187,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Python SDK의 V 2.1 이전 버전에는 모듈이 blob 생성 시간을 반환 하지 않는 알려진 문제가 있습니다. 이러한 문제로 인해 blob 나열과 같은 일부 메서드는 작동 하지 않습니다. 해결 방법으로 blob 클라이언트의 API 버전을 ' 2017-04-17 '로 명시적으로 설정 합니다. 예제: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Blob 추가 샘플](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
-* [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
+* [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-legacy.md)
 * [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md)
 * [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 * [Go](../storage/blobs/storage-quickstart-blobs-go.md)

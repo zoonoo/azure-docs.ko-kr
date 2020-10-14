@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290781"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047644"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -30,7 +30,7 @@ ms.locfileid: "89290781"
 
 이는 `az login` Cloud Shell에서 명령을 다시 실행 하 고 후속 로그인 단계를 완료 하 여 해결할 수 있습니다. 그런 다음 명령을 다시 실행할 수 있습니다.
 
-다른 해결 방법은 Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 것입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
+다른 해결 방법은 Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 것입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
 
 ### <a name="possible-causes"></a>가능한 원인
 
@@ -60,7 +60,7 @@ ms.locfileid: "89290781"
 
 ## <a name="issue-with-interactive-browser-authentication"></a>대화형 브라우저 인증과 관련 된 문제
 
-Azure **1.2.0** ** [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) 라이브러리**의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 메서드와 관련 된 문제가 발생할 수 있습니다.
+Azure **1.2.0** ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet) 라이브러리**의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 메서드와 관련 된 문제가 발생할 수 있습니다.
 
 이는 라이브러리의 최신 버전이 아닙니다. 최신 버전은 **1.2.2**입니다.
 

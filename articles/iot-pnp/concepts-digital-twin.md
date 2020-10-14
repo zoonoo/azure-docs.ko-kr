@@ -7,12 +7,12 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5d5ffe4e7d92530f18e278382ab3637c3326e57c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea523045875e0abc9e14924c7bb388ea2cfcc2db
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578056"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046471"
 ---
 # <a name="understand-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 트윈 이해
 
@@ -307,7 +307,7 @@ JSON 개체로 표시 되는 디지털 쌍에는 다음 필드가 포함 됩니�
 
 ## <a name="digital-twin-apis"></a>디지털 쌍 Api
 
-Azure Digital Twins는 디지털 쌍 **가져오기**, 디지털 쌍 **업데이트**, **구성 요소 호출 명령** 및 **invoke 명령을** 사용 하 여 장치 디지털 쌍을 관리 합니다. [REST api](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) 를 직접 사용 하거나 [서비스 SDK](../iot-pnp/libraries-sdks.md)를 통해 사용할 수 있습니다.
+Azure Digital Twins는 디지털 쌍 **가져오기**, 디지털 쌍 **업데이트**, **구성 요소 호출 명령** 및 **invoke 명령을** 사용 하 여 장치 디지털 쌍을 관리 합니다. [REST api](/rest/api/iothub/service/digitaltwin) 를 직접 사용 하거나 [서비스 SDK](../iot-pnp/libraries-sdks.md)를 통해 사용할 수 있습니다.
 
 ## <a name="digital-twin-change-events"></a>디지털 쌍 변경 이벤트
 
@@ -383,5 +383,5 @@ content-encoding:utf-8
 
 - [IoT 플러그 앤 플레이 디지털 쌍 Api를 사용 하는 방법](howto-manage-digital-twin.md)
 - [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
-- [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

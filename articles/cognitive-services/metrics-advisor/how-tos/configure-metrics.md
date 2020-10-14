@@ -3,19 +3,19 @@ title: 웹 포털을 사용 하 여 메트릭 관리자 인스턴스 구성
 titleSuffix: Azure Cognitive Services
 description: 메트릭 Advisor 인스턴스를 구성 하 고 변칙 검색 결과를 미세 조정 하는 방법을 설명 합니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 93fdf2884ca6593cfdb4fb2878ba0dd21246266d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 7923dad3d47122c0ceb04d1240736e2b66a0dd64
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446348"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048256"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>방법: 메트릭을 구성 하 고 미세 조정 하 여 구성 검색
 
@@ -136,7 +136,7 @@ ms.locfileid: "91446348"
 |**확장할 기간 (일)**    |  휴일 전후에 영향을 받는 날짜입니다.        |
 
 
-**주기 이벤트** 섹션을 사용 하면 일부 시나리오에서 데이터의 순환 패턴을 사용 하 여 불필요 한 경고를 줄일 수 있습니다. 예를 들면 다음과 같습니다. 
+**주기 이벤트** 섹션을 사용 하면 일부 시나리오에서 데이터의 순환 패턴을 사용 하 여 불필요 한 경고를 줄일 수 있습니다. 예: 
 
 - 주 및 월 패턴과 같이 여러 패턴이 나 주기가 있는 메트릭입니다. 
 - 명확한 패턴이 없지만 데이터의 연도가 연도 (YoY), 월간 (MoM), 월간 주간 (WoW) 또는 일 (일 기준) (DoD) 인 메트릭입니다.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7fcd32335b5d9e04986355adeea473cf77b970e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974971"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048205"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -84,7 +84,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 모델을 만든 후에는 Azure Digital Twins 인스턴스에 업로드할 수 있습니다.
 
 > [!TIP]
-> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다. 방법: 모델을 서비스에 업로드 하기 전에 모델을 검사 하기 위해 [*모델을 구문 분석 및 유효성 검사*](how-to-parse-models.md) 에 설명 된 [dtdl 클라이언트 쪽 파서 라이브러리](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 및 [dtdl 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 을 사용할 수 있습니다.
+> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다. 방법: 모델을 서비스에 업로드 하기 전에 모델을 검사 하기 위해 [*모델을 구문 분석 및 유효성 검사*](how-to-parse-models.md) 에 설명 된 [dtdl 클라이언트 쪽 파서 라이브러리](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 및 [dtdl 유효성 검사기 샘플](/samples/azure-samples/dtdl-validator/dtdl-validator) 을 사용할 수 있습니다.
 
 모델을 업로드할 준비가 되 면 다음 코드 조각을 사용할 수 있습니다.
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예:
 
 ```json
 [

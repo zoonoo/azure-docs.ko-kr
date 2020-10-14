@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983321"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048052"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -22,7 +22,7 @@ Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function]
 
 이 방법 문서에서는 IoT Hub에서 원격 분석을 수집할 수 있는 Azure 함수를 작성 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
 * **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
@@ -129,7 +129,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Azure 함수 코드 업데이트
 
-이전 샘플의 코드를 이해 했으므로 이제 Visual Studio의 [*전제 조건*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) 섹션에서 Azure 함수를 엽니다. Azure 함수가 없는 경우에는 필수 구성 요소의 링크를 방문 하 여 지금 만듭니다.
+이전 샘플의 코드를 이해 했으므로 이제 Visual Studio의 [*전제 조건*](#prerequisites) 섹션에서 Azure 함수를 엽니다. Azure 함수가 없는 경우에는 필수 구성 요소의 링크를 방문 하 여 지금 만듭니다.
 
 Azure 함수 코드를이 샘플 코드로 바꿉니다.
 
@@ -193,7 +193,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-함수 코드를 저장 하 고 Azure에 함수 앱을 게시 합니다. 이 작업은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)의 [*함수 앱 섹션 게시*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) 를 참조 하 여 수행할 수 있습니다.
+함수 코드를 저장 하 고 Azure에 함수 앱을 게시 합니다. 이 작업은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)의 [*함수 앱 섹션 게시*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) 를 참조 하 여 수행할 수 있습니다.
 
 성공적으로 게시 되 면 다음과 같이 Visual Studio 명령 창에 출력이 표시 됩니다.
 
@@ -214,7 +214,7 @@ namespace IotHubtoTwins
 ## <a name="connect-your-function-to-iot-hub"></a>함수를 IoT Hub에 연결
 
 허브 데이터의 이벤트 대상을 설정 합니다.
-[Azure Portal](https://portal.azure.com/)에서 [*전제 조건*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동 합니다. **이벤트**아래에서 Azure function에 대 한 구독을 만듭니다.
+[Azure Portal](https://portal.azure.com/)에서 [*전제 조건*](#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동 합니다. **이벤트**아래에서 Azure function에 대 한 구독을 만듭니다.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다.":::
 
@@ -242,7 +242,7 @@ _만들기_ 단추를 선택 하 여 이벤트 구독을 만듭니다.
 
 ## <a name="send-simulated-iot-data"></a>시뮬레이션 된 IoT 데이터 보내기
 
-새 수신 함수를 테스트 하려면 [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)에서 장치 시뮬레이터를 사용 합니다. 이 자습서는 c #으로 작성 된 샘플 프로젝트를 기반으로 합니다. 샘플 코드는 [Azure Digital Twins 샘플](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples)에 있습니다. 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용 하 게 됩니다.
+새 수신 함수를 테스트 하려면 [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)에서 장치 시뮬레이터를 사용 합니다. 이 자습서는 c #으로 작성 된 샘플 프로젝트를 기반으로 합니다. 샘플 코드는 [Azure Digital Twins 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples)에 있습니다. 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용 하 게 됩니다.
 
 종단 간 자습서에서 다음 단계를 완료 합니다.
 1. [*IoT Hub에 시뮬레이션된 디바이스 등록*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564365"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045128"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
 
@@ -25,7 +25,7 @@ ms.locfileid: "90564365"
 2. Azure Maps 실내 지도 기능 stateset을 업데이트 하는 Azure 함수를 만듭니다.
 3. Azure Digital Twins 그래프에서 지도 ID와 기능 stateset ID를 저장 하는 방법입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 * Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)을 참조 하세요.
     * 추가 끝점 및 경로를 사용 하 여이 쌍을 확장 합니다. 또한이 자습서의 함수 앱에 다른 함수를 추가 합니다. 
@@ -64,7 +64,7 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
     >[!NOTE]
     >Cloud Shell에는 `az dt route`, `az dt model`, `az dt twin` 명령 그룹에 영향을 주는 **알려진 문제**가 있습니다.
     >
-    >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
+    >이 문제를 해결하려면 명령을 실행하기 전에 Cloud Shell에서 `az login`을 실행하거나 Cloud Shell 대신 [로컬 CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용합니다. 이에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell)를 참조하세요.
 
     ```azurecli
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -74,7 +74,7 @@ Azure Digital Twins 인스턴스는 쌍의 상태가 업데이트 될 때마다 
 
 종단 간 자습서에서 함수 앱 내에 Event Grid 트리거 함수를 만들려고 합니다 ([*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)). 이 함수는 이러한 알림의 압축을 풀고 Azure Maps 기능으로 업데이트를 전송 하 여 한 방에 대 한 온도를 업데이트 합니다. 
 
-참조 정보는 [*Azure Functions에 대 한 Azure Event Grid 트리거*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger)문서를 참조 하세요.
+참조 정보는 [*Azure Functions에 대 한 Azure Event Grid 트리거*](../azure-functions/functions-bindings-event-grid-trigger.md)문서를 참조 하세요.
 
 함수 코드를 다음 코드로 바꿉니다. 이 파일은 공간 쌍에 대 한 업데이트만 필터링 하 고 업데이트 된 온도를 읽고 해당 정보를 Azure Maps으로 보냅니다.
 

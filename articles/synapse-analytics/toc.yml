@@ -70,6 +70,8 @@
       href: quickstart-sql-on-demand.md
     - name: Cosmos DB용 Synapse Link에 연결
       href: quickstart-connect-synapse-link-cosmos-db.md
+    - name: Azure Data Explorer에 연결
+      href: quickstart-connect-azure-data-explorer.md
 - name: 자습서
   items:
     - name: Apache Spark 애플리케이션 실행
@@ -673,6 +675,8 @@
               items:
                 - name: MongoDB(레거시)
                   href: ../data-factory/connector-mongodb-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: MongoDB Atlas
+              href: ../data-factory/connector-mongodb-atlas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: MySQL
               href: ../data-factory/connector-mysql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Netezza
@@ -705,7 +709,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST
+            - name: REST (영문)
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec89b897b4ea2e802188e3aefe9b830d7ff1cf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b0377d7b209da76b03a115dc82831eeb00e1ff95
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969180"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047083"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU 업데이트 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91969180"
 이 문서에서 설명 하는 절차는 다른 버전의 소프트웨어를 사용 하 여 수행 되었지만 프로세스는 현재 소프트웨어 버전에 대해서도 동일 하 게 유지 됩니다.
 
 > [!IMPORTANT]
-> - 업데이트 **2009** 은 장치의 **2.1.1364.2110** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2009-release-notes.md)를 참조 하세요.
+> - 업데이트 **2010** 은 장치의 **2.1.1377.2170** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2009-release-notes.md)를 참조 하세요.
 >
 > - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트를 적용 하려면 두 업데이트를 순차적으로 적용 해야 합니다. 먼저 장치 소프트웨어 업데이트를 적용 한 다음 업데이트를 Kubernetes 합니다. Azure Stack Edge Pro가 단일 노드 장치인 경우 처리 중인 모든 i/o가 중단 되 고 장치 소프트웨어 업데이트에 대해 최대 30 분의 가동 중지 시간이 발생 합니다.
 
@@ -163,9 +163,9 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드 하려면
 
 2. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드 하려는 업데이트에 대 한 기술 자료 (KB) 번호 (KB)를 입력 합니다. 예를 들어 **Azure Stack Edge Pro**를 입력 한 다음 **검색**을 클릭 합니다.
    
-    업데이트 목록은 **Azure Stack Edge Pro 2006**으로 표시 됩니다.
+    업데이트 목록은 **Azure Stack Edge 업데이트 2010**으로 표시 됩니다.
    
-    ![카탈로그 검색 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
 4. **다운로드**를 선택합니다. 장치 소프트웨어 업데이트 및 Kubernetes 업데이트에 각각 해당 하는 *SoftwareUpdatePackage.exe* 및 *Kubernetes_Package.exe* 접미사를 다운로드 하는 두 개의 파일이 있습니다. 로컬 시스템의 폴더에 파일을 다운로드 합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 
@@ -198,9 +198,9 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드 하려면
 
 5. 업데이트가 시작됩니다. 디바이스가 성공적으로 업데이트된 후 다시 시작됩니다. 이 시간 동안 로컬 UI에 액세스할 수 없습니다.
    
-6. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 이 예제에서 표시 된 소프트웨어 버전은 **2.0.1257.1591**입니다.
+6. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트**로 이동 합니다. 현재 릴리스의 경우 표시 된 소프트웨어 버전은 **2.1.1377.2170**여야 합니다.
 
-   ![장치 업데이트 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png) 
+   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 
 7. 이제 Kubernetes 소프트웨어 버전을 업데이트 합니다. 위의 단계를 반복 합니다. *Kubernetes_Package.exe* 접미사로 Kubernetes 업데이트 파일의 경로를 제공 합니다.  
 

@@ -3,18 +3,21 @@ title: Microsoft 팀 내 Azure Lab Services
 description: Microsoft 팀 내에서 Azure Lab Services 사용에 대 한 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 8b70ab3cbf1a342646f6a2897550c4bf8f7601a7
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 0c7defdb6f801a10c5fadfdca805381a31f39378
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946743"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047831"
 ---
 # <a name="azure-lab-services-within-microsoft-teams"></a>Microsoft 팀 내 Azure Lab Services
 
-Azure Lab Services 소유자/작성자는 이제 Microsoft 팀 내에서 랩을 만들 수 있습니다.
+Azure Lab Services은 Microsoft 팀에서 **Azure Lab Services** 팀 앱을 사용 하 여 활용할 수 있습니다. 소유자/참가자/작성자가 랩 계정에 액세스할 수 있는 모든 팀 소유자는 랩을 만들고 팀의 모든 사람에 게 가상 컴퓨터를 프로 비전 할 수 있습니다.
 
-이 문서에서는 팀 통합의 이점에 대해 간략하게 설명 하 고 팀 내에서 Azure Lab Services를 관리 하는 방법에 대 한 지침을 제공 합니다. 
+이 문서에서는 팀 내에서 Azure Lab Services를 사용 하는 이점에 대해 간략하게 설명 하 고 팀 내에서 랩을 만들고 관리 하는 방법에 대 한 지침을 제공 합니다. 
+
+> [!NOTE]
+>**Azure Lab Services** 팀 앱은 팀에만 추가할 수 있으며 개별 채팅 또는 그룹 채팅에 추가할 수 없습니다.
 
 ## <a name="benefits"></a>이점
 
@@ -31,8 +34,8 @@ Azure Lab Services Microsoft 팀과 통합 하 여 교육자는 교실 환경을
 
 다음 문서를 참조하세요.
 
-- [팀에서 랩 서비스 랩 시작 및 만들기](how-to-get-started-create-lab-within-teams.md)
-- [팀에서 Lab Services 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
-- [팀의 랩 서비스에서 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
-- [팀에서 Lab Services 일정 만들기](how-to-create-schedules-within-teams.md)
-- [팀의 랩 서비스에서 VM (학생 보기)에 액세스](how-to-access-vm-for-students-within-teams.md)
+- [팀 내에서 랩 시작 및 만들기](how-to-get-started-create-lab-within-teams.md)
+- [팀 내의 랩 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
+- [팀 내에서 랩의 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
+- [팀 내에서 랩 일정 만들기 및 관리](how-to-create-schedules-within-teams.md)
+- [팀 내에서 VM 액세스 – 학생 보기](how-to-access-vm-for-students-within-teams.md)

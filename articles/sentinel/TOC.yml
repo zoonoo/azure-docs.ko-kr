@@ -35,6 +35,8 @@
       href: identify-threats-with-entity-behavior-analytics.md
     - name: Azure Sentinel로 위협 인텔리전스 가져오기
       href: import-threat-intelligence.md
+    - name: 관심 목록과 함께 외부 데이터 사용
+      href: watchlists.md
     - name: 테이블에서 데이터 정규화
       href: normalization.md
     - name: 보안
