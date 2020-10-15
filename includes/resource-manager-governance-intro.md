@@ -9,10 +9,10 @@ ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182133"
 ---
 리소스를 Azure에 배포할 때 배포할 리소스의 형식, 위치 및 설정 방법을 결정하는 데 놀라운 유연성을 경험할 수 있습니다. 단, 그러한 유연성으로 인해 조직에서 허용하려는 것보다 더 많은 선택 사항이 있을 수도 있습니다. 리소스를 Azure에 배포할 때 다음에 대해 궁금하실 수도 있습니다.

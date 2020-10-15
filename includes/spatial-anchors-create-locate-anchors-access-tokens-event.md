@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: a673f02af9d92b7135e47961f13e0899a1f0e02f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67181902"
 ---
 액세스 토큰이 설정되지 않은 경우 `TokenRequired` 이벤트를 처리하거나 대리자 프로토콜에서 `tokenRequired` 메서드를 구현해야 합니다.

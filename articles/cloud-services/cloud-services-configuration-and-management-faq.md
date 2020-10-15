@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 477f38e18f1bee881e4a9df23dd37048f39549be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092748"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070013"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -77,7 +77,7 @@ ms.locfileid: "87092748"
 
 ### <a name="why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete"></a>내 클라우드 서비스 TLS/SSL 인증서의 인증서 체인이 불완전 한 이유는 무엇 인가요?
     
-고객은 리프 인증서가 아닌 전체 인증서 체인(리프 인증서, 중간 인증서 및 루트 인증서)을 설치하는 것이 좋습니다. 방금 리프 인증서를 설치한 경우 Windows CTL을 탐색하여 인증서 체인을 빌드하기 위해 Windows를 사용합니다. Windows가 인증서의 유효성을 검사할 때 Azure 또는 Windows 업데이트에서 일시적인 네트워크 또는 DNS 문제가 발생하는 경우 인증서는 잘못된 것으로 간주될 수 있습니다. 전체 인증서 체인을 설치하여 이 문제를 방지할 수 있습니다. [체인된 SSL 인증서를 설치하는 방법](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/)의 블로그는 이 작업을 수행하는 방법을 보여줍니다.
+고객은 리프 인증서가 아닌 전체 인증서 체인(리프 인증서, 중간 인증서 및 루트 인증서)을 설치하는 것이 좋습니다. 방금 리프 인증서를 설치한 경우 Windows CTL을 탐색하여 인증서 체인을 빌드하기 위해 Windows를 사용합니다. Windows가 인증서의 유효성을 검사할 때 Azure 또는 Windows 업데이트에서 일시적인 네트워크 또는 DNS 문제가 발생하는 경우 인증서는 잘못된 것으로 간주될 수 있습니다. 전체 인증서 체인을 설치하여 이 문제를 방지할 수 있습니다. [체인된 SSL 인증서를 설치하는 방법](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate)의 블로그는 이 작업을 수행하는 방법을 보여줍니다.
 
 ### <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>"확장을 위한 Windows Azure Tools 암호화 인증서"의 목적은 무엇인가요?
 
@@ -111,11 +111,11 @@ Get-AzurePublishSettingsFile
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"MachineKey용 Microsoft Azure 서비스 관리" 인증서의 목적은 무엇인가요?
 
-이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
+이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 아티클을 참조하세요.
-- [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [일반적인 클라우드 서비스 시작 작업](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+자세한 내용은 다음 항목을 참조하세요.
+- [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](./cloud-services-startup-tasks.md)
+- [일반적인 클라우드 서비스 시작 작업](./cloud-services-startup-tasks-common.md)
 
 ## <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
@@ -139,16 +139,16 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 * 로컬 리소스에 대한 할당량 제한을 늘립니다.
 
 자세한 내용은 다음 문서를 참조하세요.
-* [Azure Storage에서 진단 데이터 저장 및 보기](/azure/storage/common/storage-introduction)
-* [클라우드 서비스에서 IIS 로그 작성 중지](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Azure Storage에서 진단 데이터 저장 및 보기](../storage/common/storage-introduction.md)
+* [클라우드 서비스에서 IIS 로그 작성 중지](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
 다음 옵션을 통해 WAD(Windows Azure Diagnostics) 로깅을 활성화할 수 있습니다.
-1. [Visual Studio에서 활성화](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [.NET 코드를 통해 사용](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Powershell을 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Visual Studio에서 활성화](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [.NET 코드를 통해 사용](./cloud-services-dotnet-diagnostics.md)
+3. [Powershell을 통해 활성화](./cloud-services-diagnostics-powershell.md)
 
-Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd를 사용하거나 "Cloud Services --> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.
+Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ps cmd를 사용하거나 "Cloud Services --> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.
 
 
 ## <a name="network-configuration"></a>네트워크 구성
@@ -248,7 +248,7 @@ Application Insights를 통해 사용자 지정 메트릭을 사용하여 Cloud 
 
 Azure Diagnostics를 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)를 참조하세요.
 
-Cloud Services용 Application Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services용 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)를 참조하세요.
+Cloud Services용 Application Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md)를 참조하세요.
 
 Cloud Services용 Azure Diagnostics 로깅을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)을 참조하세요.
 
@@ -313,7 +313,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-[여기](https://technet.microsoft.com/library/ee790567.aspx)에 설명된 대로 $sslFlags는 다음과 같은 값 중 하나일 수 있습니다.
+[여기](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10))에 설명된 대로 $sslFlags는 다음과 같은 값 중 하나일 수 있습니다.
 
 |값|의미|
 ------|------
@@ -324,7 +324,7 @@ New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddr
  
 **방법 2: 코드 사용**
 
-이 [블로그 게시물](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/)에 설명된 대로 역할 시작의 코드를 통해 SNI 바인딩을 구성할 수 있습니다.
+이 [블로그 게시물](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service)에 설명된 대로 역할 시작의 코드를 통해 SNI 바인딩을 구성할 수 있습니다.
 
 ```csharp
 //<code snip> 
@@ -356,7 +356,6 @@ Get-AzureService -ServiceName "<Cloud Service name>" | Get-AzureDeployment | Whe
 
 다음과 같은 방법으로 서비스의 IP 주소를 잃지 않고 요금을 줄일 수 있습니다.
 
-1. 배포된 서비스를 삭제하기 전에 [IP 주소를 예약](../virtual-network/virtual-networks-reserved-public-ip.md)합니다.  이 IP 주소에 대한 요금만 청구됩니다. IP 주소 요금 청구에 대한 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조하세요.
+1. 배포된 서비스를 삭제하기 전에 [IP 주소를 예약](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)합니다.  이 IP 주소에 대한 요금만 청구됩니다. IP 주소 요금 청구에 대한 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조하세요.
 2. 배포된 서비스를 삭제합니다. xxx.cloudapp.net은 나중에 사용할 수 있도록 삭제하지 마세요.
 3. 구독에서 예약한 것과 동일한 예약 IP를 사용하여 클라우드 서비스를 다시 배포하려는 경우 [Cloud Services 및 Virtual Machines에 대해 예약된 IP 주소](https://azure.microsoft.com/blog/reserved-ip-addresses/)를 참조하세요.
-
