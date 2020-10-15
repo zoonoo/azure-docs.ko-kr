@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985522"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092310"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -42,13 +42,13 @@ Azure Backup를 사용 하면 다양 한 워크 로드 (온-프레미스 및 클
 
 * **악성 삭제 방지 –** 백업 일시 삭제를 통해 백업을 삭제 하는 실수 및 악의적 시도 로부터 보호 합니다. 삭제 된 백업 데이터는 14 일 동안 무료로 저장 되며이 상태에서 복구 될 수 있습니다.
 
-* **암호화 된 백업 보안-** Azure Backup는 RBAC 및 암호화와 같은 Azure 플랫폼의 기본 제공 보안 기능을 활용 하 여 백업 데이터가 안전한 방식으로 저장 되도록 합니다.
+* **암호화 된 백업 보안-** Azure Backup는 Azure RBAC 및 암호화와 같은 Azure 플랫폼의 기본 제공 보안 기능을 활용 하 여 백업 데이터가 안전한 방식으로 저장 되도록 합니다.
 
 * **백업 데이터 수명 주기 관리-** Azure Backup는 보존 정책을 준수 하기 위해 이전 백업 데이터를 자동으로 정리 합니다. 또한 운영 저장소에서 자격 증명 모음 저장소로 데이터를 계층화 할 수 있습니다.
 
 ### <a name="management-plane"></a>관리 평면
 
-* **액세스 제어** – 자격 증명 모음 (Recovery Services 및 백업 자격 증명 모음)은 관리 기능을 제공 하며, Azure Portal, 백업 센터, 자격 증명 모음 대시보드, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 승인 된 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 하는 RBAC 경계입니다.
+* **액세스 제어** – 자격 증명 모음 (Recovery Services 및 백업 자격 증명 모음)은 관리 기능을 제공 하며, Azure Portal, 백업 센터, 자격 증명 모음 대시보드, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 Azure RBAC 경계를 사용 하 여 권한 있는 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 합니다.
 
 * **정책 관리** – 각 자격 증명 모음 내의 Azure Backup 정책은 백업이 트리거되는 시기 및 유지 해야 하는 기간을 정의 합니다. 또한 이러한 정책을 관리 하 고 여러 항목에서 적용할 수 있습니다.
 

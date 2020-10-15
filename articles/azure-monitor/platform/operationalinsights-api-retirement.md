@@ -6,15 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: c9a7ba63246f747a132c315e22452ca9c7144448
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: a03b7bd63385b7cc16e4dafb5cd12ccd212dc959
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058185"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089386"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>OperationalInsights API 버전 사용 중지
-Microsoft는 최신/지원 되는 버전으로 원활 하 게 전환할 수 있도록 API를 사용 중지 하기 전에 최소 12 개월 전에 알림을 제공 합니다. **OperationalInsights** 리소스 공급자 api에 대 한 새로운 버전 (2020-08-01)을 출시 했으며 2023 년 10 월 31 일에 이전 API 버전을 사용 중지 합니다. 새 기능 및 최적화는 현재 API에만 추가 되므로 최대한 일찍 최신 API 버전으로 업그레이드 해야 합니다.
+Microsoft는 최신/지원 되는 버전으로 원활 하 게 전환할 수 있도록 API를 사용 중지 하기 전에 최소 12 개월 전에 알림을 제공 합니다. **OperationalInsights** 리소스 공급자 api에 대 한 새로운 버전 (2020-08-01)을 출시 했으며 2023 년 10 월 31 일에 이전 API 버전을 사용 중지 합니다.
+
+이제 버전 2020-08-01을 사용 하 여 [전용 클러스터](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters), [고객 관리 키](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys), [개인 링크](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security) 및 [데이터 내보내기와](https://docs.microsoft.com/azure/azure-monitor/platform/logs-data-export)같은 새로운 기능의 이점을 얻을 수 있습니다. 또한 새로운 기능 및 최적화는 현재 API에만 추가 됩니다.
 
 2023 년 10 월 31 일 이후에는 Azure Monitor 이전 Api 버전 2020-08-01을 더 이상 지원 하지 않습니다. 업그레이드 하지 않으려는 경우 이전 버전에서 보낸 요청은 2023 년 10 월 31 일까 지 Azure Monitor 서비스에서 계속 제공 됩니다.
 

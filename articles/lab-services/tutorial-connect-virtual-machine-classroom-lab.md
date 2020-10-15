@@ -4,10 +4,10 @@ description: 이 자습서에서는 교육자가 설정한 클래스룸 랩의 �
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: dacfa34c0d3ab637ef513342bc5ce5fe81038e11
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85443471"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>자습서: Azure Lab Services의 클래스룸 랩에 액세스

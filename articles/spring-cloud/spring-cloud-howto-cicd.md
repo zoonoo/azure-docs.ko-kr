@@ -8,22 +8,22 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 40e674594c80a076fc9775fd4315aee938a43593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79d9b2a0d706dd2d9861d068de0e4671db1c5158
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888693"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089114"
 ---
 # <a name="cicd-for-azure-spring-cloud"></a>Azure 스프링 클라우드 용 CI/CD
 
-연속 통합 및 지속적인 업데이트 도구를 사용 하면 최소한의 노력과 위험으로 기존 응용 프로그램에 업데이트를 신속 하 게 배포할 수 있습니다. Azure DevOps는 이러한 주요 작업을 구성 하 고 제어 하는 데 도움이 됩니다. 현재 Azure 스프링 클라우드는 특정 Azure DevOps 플러그 인을 제공 하지 않습니다.  그러나 [Azure CLI 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops&preserve-view=true)을 사용 하 여 스프링 클라우드 응용 프로그램을 devops와 통합할 수 있습니다.
+연속 통합 및 지속적인 업데이트 도구를 사용 하면 최소한의 노력과 위험으로 기존 응용 프로그램에 업데이트를 신속 하 게 배포할 수 있습니다. Azure DevOps는 이러한 주요 작업을 구성 하 고 제어 하는 데 도움이 됩니다. 현재 Azure 스프링 클라우드는 특정 Azure DevOps 플러그 인을 제공 하지 않습니다.  그러나 [Azure CLI 작업](/azure/devops/pipelines/tasks/deploy/azure-cli?preserve-view=true&view=azure-devops)을 사용 하 여 스프링 클라우드 응용 프로그램을 devops와 통합할 수 있습니다.
 
 이 문서에서는 azure 스프링 클라우드에서 Azure CLI 작업을 사용 하 여 Azure DevOps와 통합 하는 방법을 보여 줍니다.
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Azure Resource Manager 서비스 연결 만들기
 
-Azure DevOps 프로젝트에 대 한 Azure Resource Manager 서비스 연결을 만드는 방법에 대해 알아보려면 [이 문서](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops&preserve-view=true) 를 참조 하세요. Azure 스프링 클라우드 서비스 인스턴스에 사용 하는 것과 동일한 구독을 선택 해야 합니다.
+Azure DevOps 프로젝트에 대 한 Azure Resource Manager 서비스 연결을 만드는 방법에 대해 알아보려면 [이 문서](/azure/devops/pipelines/library/connect-to-azure?preserve-view=true&view=azure-devops) 를 참조 하세요. Azure 스프링 클라우드 서비스 인스턴스에 사용 하는 것과 동일한 구독을 선택 해야 합니다.
 
 ## <a name="azure-cli-task-templates"></a>작업 템플릿 Azure CLI
 ::: zone pivot="programming-language-csharp"

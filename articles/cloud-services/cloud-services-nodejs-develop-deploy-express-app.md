@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b68cb2c99a0a4fa5e60047a6a695da2abfb0278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327513"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071866"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 애플리케이션 빌드 및 배포
 
@@ -136,13 +136,8 @@ PS C:\node\expressapp\WebRole1> Publish-AzureServiceProject -ServiceName myexpre
 ![Express 페이지를 표시하는 웹 브라우저입니다. URL은 현재 Azure에서 호스트되어 있음을 나타냅니다.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/azure/developer/javascript/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](/azure/developer/javascript/)를 참조하세요.
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
-
-
-
-

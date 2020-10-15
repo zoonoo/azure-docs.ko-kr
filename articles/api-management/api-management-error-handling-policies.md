@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243548"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070948"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
 
@@ -134,7 +134,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 | validate-jwt | 기타 유효성 검사 실패                                       | JwtInvalid                | <jwt 라이브러리의 메시지\>                                                                                                          |
 | 전달 요청 또는 송신 요청 | 구성 된 시간 제한 내에 백 엔드에서 HTTP 응답 상태 코드 및 헤더를 받지 못했습니다. | 제한 시간 | multiple |
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음에 대한 API 정책 설정
 
@@ -190,4 +190,4 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 -   [API Management의 정책](api-management-howto-policies.md)
 -   [API 변환](transform-api.md)
 -   [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
--   [정책 샘플](policy-samples.md)
+-   [정책 샘플](./policy-reference.md)

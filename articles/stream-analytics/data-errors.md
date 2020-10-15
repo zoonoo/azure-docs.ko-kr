@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053153"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072002"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 데이터 오류
 
@@ -211,6 +211,10 @@ ms.locfileid: "88053153"
 ```
 
 ## <a name="output-data-errors"></a>출력 데이터 오류
+
+구성에 따라 출력 싱크에 대 한 i/o 요청을 포함 하거나 포함 하지 않고 출력 데이터 오류를 식별할 수 Azure Stream Analytics. 예를 들어 Azure 테이블 출력을 사용 하는 경우와 같이 필요한 열이 누락 된  `PartitionKey` 경우 i/o 요청 없이 식별할 수 있습니다. 그러나 SQL 출력의 제약 조건 위반에는 i/o 요청이 필요 합니다.
+
+출력 싱크를 호출한 후에만 검색할 수 있는 몇 가지 데이터 오류가 있으며,이로 인해 처리 속도가 느려질 수 있습니다. 이 문제를 해결 하려면 작업의 구성 또는 데이터 오류를 일으키는 쿼리를 변경 합니다.
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError이 없습니다.
 
