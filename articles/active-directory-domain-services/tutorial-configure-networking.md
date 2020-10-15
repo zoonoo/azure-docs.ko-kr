@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure AD Domain Services에 대한 가상 네트워킹 구성 | Microsoft Docs
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Active Directory Domain Services 관리되는 도메인에 대한 Azure 가상 네트워크 서브넷 또는 네트워크 피어링을 만들고 구성하는 방법을 알아봅니다.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e0d2b235f671ca9b30bf61aef254cb850b25373e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.author: joflore
+ms.openlocfilehash: 33beb0767ef1f21d4fb3d08c9072d7c8479d2cb1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024777"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967412"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 가상 네트워킹 구성
 

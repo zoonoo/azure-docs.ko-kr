@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 8cf84165ef2b308038b6675920179262c0a2fdc9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88529902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>자습서: Certify와 Azure Active Directory 통합

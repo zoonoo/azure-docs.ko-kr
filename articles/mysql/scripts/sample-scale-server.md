@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
 ms.openlocfilehash: 318e41089f096f22d17faaa77863fe6af54a3553
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87483759"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 MySQL용 Azure Database 모니터링 및 확장
@@ -43,5 +43,5 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MySQL 컴퓨팅 및 스토리지](../concepts-pricing-tiers.md)에 대해 자세히 알아보기
-- 추가 스크립트 시도: [MySQL용 Azure 데이터베이스 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- 추가 스크립트 시도: [MySQL용 Azure Database에 대한 Azure CLI 샘플](../sample-scripts-azure-cli.md)
 - [Azure CLI](/cli/azure)에 대한 자세한 정보

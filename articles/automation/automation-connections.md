@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 39085aa7967ffeac3416b61f32146ac023b46dfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a3cff616f814b8e5209b15f9d3f7439533452ca
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186659"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071764"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
 
@@ -54,7 +54,7 @@ Azure Automation은 다음과 같은 기본 제공 연결 형식을 제공합니
 
 |내부 cmdlet|Description|
 |---|---|
-|`Get-AutomationConnection` | 연결의 여러 필드 값을 검색하여 [해시 테이블](https://go.microsoft.com/fwlink/?LinkID=324844)로 반환합니다. 이 해시 테이블을 Runbook또는 DSC 구성의 적절한 명령에서 사용할 수 있습니다.|
+|`Get-AutomationConnection` | 연결의 여러 필드 값을 검색하여 [해시 테이블](/powershell/module/microsoft.powershell.core/about/about_hash_tables)로 반환합니다. 이 해시 테이블을 Runbook또는 DSC 구성의 적절한 명령에서 사용할 수 있습니다.|
 
 >[!NOTE]
 >변수를 `Get-AutomationConnection`의 `Name` 매개 변수와 함께 사용하면 안 됩니다. 변수를 이렇게 사용하면 디자인 타임에 Runbook 또는 DSC 구성과 연결 자산 간의 종속성 검색이 복잡해질 수 있습니다.

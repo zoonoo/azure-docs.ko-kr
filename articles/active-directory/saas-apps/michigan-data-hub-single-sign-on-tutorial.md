@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: 031190bee2dc81398ee0c4ac23ad9ec62469333a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88528372"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-michigan-data-hub-single-sign-on"></a>자습서: Michigan Data Hub Single Sign-On과 Azure Active Directory SSO(Single Sign-On) 통합

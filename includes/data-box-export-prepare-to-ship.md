@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/19/2020
 ms.author: alkohli
 ms.openlocfilehash: 97491000c63c966c3d8159b9361fcb60e062aa49
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86208866"
 ---
 마지막 단계는 배송할 디바이스를 준비하는 것입니다. 이 단계에서는 모든 디바이스 공유가 오프라인 상태가 됩니다. 이 프로세스를 시작한 후에는 공유에 액세스할 수 없습니다. 디바이스의 로컬 데이터가 영구적으로 지워지는 디바이스를 정리하도록 선택할 수도 있습니다. 단계가 완료되면 e-ink 디스플레이에 반송 레이블이 표시됩니다.

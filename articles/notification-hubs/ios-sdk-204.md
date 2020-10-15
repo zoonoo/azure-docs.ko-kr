@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: ffa562a734e0e6f898aaff89622362080bf1a053
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91318197"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>자습서: Azure Notification Hubs(버전 2.0.4)를 사용하여 iOS 앱에 푸시 알림 보내기

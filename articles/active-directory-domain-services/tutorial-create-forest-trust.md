@@ -2,20 +2,20 @@
 title: 자습서 - Azure AD Domain Services에서 포리스트 트러스트 만들기 | Microsoft Docs
 description: Azure AD Domain Services를 위해 Azure Portal에서 온-프레미스 AD DS 도메인에 대한 단방향 아웃바운드 포리스트를 만드는 방법을 알아봅니다.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.author: joflore
+ms.openlocfilehash: cbdcd170e6c6fb768172acfe3eb3c907714cd560
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722724"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967259"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기
 
