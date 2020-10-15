@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8dfc69bf251a811363426a3aeca7379d18458b47
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667234"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950689"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 검색 결과에 페이징 추가
 
@@ -304,7 +304,7 @@ ms.locfileid: "91667234"
     }
     ```
 
-1. 구문 오류를 해결하려면 이전 강좌에서 도입한 **RunQueryAsync** 메서드를 수정해야 합니다. [**SearchOptions**](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) 클래스의 **Skip**, **Size** 및 **IncludeTotalCount** 필드를 사용하여 **Skip** 설정에서 시작하는 한 페이지 분량의 결과만 요청합니다. 또한 보기에 대한 페이징 변수를 계산해야 합니다. 전체 메서드를 다음 코드로 바꿉니다.
+1. 구문 오류를 해결하려면 이전 강좌에서 도입한 **RunQueryAsync** 메서드를 수정해야 합니다. [**SearchOptions**](/dotnet/api/azure.search.documents.searchoptions) 클래스의 **Skip**, **Size** 및 **IncludeTotalCount** 필드를 사용하여 **Skip** 설정에서 시작하는 한 페이지 분량의 결과만 요청합니다. 또한 보기에 대한 페이징 변수를 계산해야 합니다. 전체 메서드를 다음 코드로 바꿉니다.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)

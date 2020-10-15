@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905162"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076932"
 ---
 # <a name="edit-an-api"></a>API 편집
 
@@ -64,5 +64,5 @@ ms.locfileid: "87905162"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [APIM 정책 샘플](policy-samples.md)
+> [APIM 정책 샘플](./policy-reference.md)
 > [게시된 API 변환 및 보호](transform-api.md)

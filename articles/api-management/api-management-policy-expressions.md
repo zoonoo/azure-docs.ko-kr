@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844243"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076864"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 c # 7의 정책 식 구문에 대해 설명 합니다. 각 식에서는 암시적으로 제공된 [context](api-management-policy-expressions.md#ContextVariables) 변수 및 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스할 수 있습니다.
@@ -65,7 +65,7 @@ ms.locfileid: "87844243"
 }
 ```
 
-## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>사용
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>사용량
 정책 참조에서 다르게 지정하지 않는 한, 식은 어떤 API Management [정책](api-management-policies.md)에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다.
 
 > [!IMPORTANT]
@@ -74,7 +74,7 @@ ms.locfileid: "87844243"
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식
 다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.
 
-|유형|지원되는 멤버|
+|형식|지원되는 멤버|
 |--------------|-----------------------|
 |Newtonsoft.Js합니다. 서식 지정|모두|
 |Newtonsoft.Json.JsonConvert|SerializeObject,는 deserializeobject|
@@ -253,4 +253,4 @@ ms.locfileid: "87844243"
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
 + [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
-+ [정책 샘플](policy-samples.md)
++ [정책 샘플](./policy-reference.md)

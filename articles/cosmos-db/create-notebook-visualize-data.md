@@ -8,10 +8,10 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 9b2ef5ddb56e3d0422a2a876993ddda0bd97e4ff
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85961101"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
@@ -49,7 +49,7 @@ ms.locfileid: "85961101"
 
    셀을 실행하려면 `Shift + Enter`를 선택하거나 셀을 선택하고, 데이터 탐색기 탐색 모음에서 **활성 셀 실행** 옵션을 선택합니다.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="활성 셀 실행":::
+   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="새 Notebook 만들기":::
 
    데이터베이스와 컨테이너는 현재 Azure Cosmos 계정에 만들어집니다. 컨테이너는 400개 RU/초로 프로비저닝됩니다. 데이터베이스와 컨테이너가 만들어지면 다음과 같은 출력이 표시됩니다. 
 
@@ -60,23 +60,7 @@ ms.locfileid: "85961101"
 
    또한 **데이터** 탭을 새로 고쳐 새로 만든 리소스를 볼 수도 있습니다.
 
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="데이터 탭을 새로 고쳐 새 컨테이너 보기":::
-
-1. 다음으로, 소매 데이터 샘플을 Azure Cosmos 컨테이너로 가져옵니다. 소매 데이터의 항목 형식은 다음과 같습니다.
-
-   ```json
-    {
-       "CartID":5399,
-       "Action":"Viewed",
-       "Item":"Cosmos T-shirt",
-       "Price":350,
-       "UserName":"Demo.User10",
-       "Country":"Iceland",
-       "EventDate":"2015-06-25T00:00:00",
-       "Year":2015,"Latitude":-66.8673,
-       "Longitude":-29.8214,
-       "Address":"852 Modesto Loop, Port Ola, Iceland",
-       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="새 Notebook 만들기"
     }
    ```
 
@@ -135,7 +119,7 @@ SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="쿼리를 실행하여 상위 10개 항목 가져오기":::
+:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="새 Notebook 만들기":::
 
 ## <a name="run-queries-and-analyze-your-data"></a>쿼리 실행 및 데이터 분석
 
@@ -148,7 +132,7 @@ df_cosmos.head(10)
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="총 매출 수익 출력":::
+   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="새 Notebook 만들기":::
 
 * **쿼리 2:** 구매한 상위 5개 항목의 목록을 가져오려면 새 Notebook 셀을 열고 다음 코드를 실행합니다.
 
@@ -159,7 +143,7 @@ df_cosmos.head(10)
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="상위 5개 구매 항목":::
+   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="새 Notebook 만들기":::
 
 ## <a name="visualize-your-data"></a>데이터 시각화  
 
@@ -235,7 +219,7 @@ df_cosmos.head(10)
 
    출력에 여러 색을 사용한 세계 지도가 표시됩니다. 색이 짙을수록 더 높은 수익의 국가/지역을 나타냅니다.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="국가/지역별 수익 지도 시각화":::
+   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="새 Notebook 만들기":::
 
 1. 데이터 시각화의 또 다른 사례를 살펴보겠습니다. WebsiteData 컨테이너에는 항목을 보고, 카트에 추가하고, 해당 항목을 구매한 사용자의 레코드가 있습니다. 구매한 항목의 전환율을 그려보겠습니다. 새 셀에서 다음 코드를 실행하여 각 항목의 전환율을 시각화합니다.
 
@@ -286,7 +270,7 @@ df_cosmos.head(10)
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="구매 전환율 시각화":::
+   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="새 Notebook 만들기":::
 
 ## <a name="next-steps"></a>다음 단계
 

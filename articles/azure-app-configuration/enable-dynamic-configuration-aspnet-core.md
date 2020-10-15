@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300292"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077000"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -161,7 +161,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     ```
     ---
     > [!Tip]
-    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면  [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
+    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면  [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
 
 4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있도록 `UseAzureAppConfiguration` 미들웨어를 추가합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure 가상 WAN: 허브에서 NVA (네트워크 가상 어플라이언스) 만들기'
-description: 이 자습서에서는 가상 WAN 허브에 네트워크 가상 어플라이언스를 배포 하는 방법에 대해 알아봅니다.
+description: 가상 WAN 허브에 네트워크 가상 어플라이언스를 배포 하는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773249"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077306"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)에서 네트워크 가상 어플라이언스를 만드는 방법
 
-이 자습서에서는 Azure에서 nva ( **네트워크 가상 어플라이언스** )를 통해 가상 WAN을 사용 하 여 azure의 리소스에 연결 하는 방법을 보여 줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. Virtual WAN에 대한 자세한 내용은 [Virtual WAN 개요](virtual-wan-about.md)를 참조하세요.
+이 문서에서는 Azure에서 nva ( **네트워크 가상 어플라이언스** )를 통해 가상 WAN을 사용 하 여 azure에서 리소스에 연결 하는 방법을 보여 줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. 가상 WAN에 대 한 자세한 내용은 [가상 wan 이란?](virtual-wan-about.md)을 참조 하세요.
 
 이 문서의 단계를 통해 가상 WAN 허브에 **Barracuda CloudGen WAN** 네트워크 가상 어플라이언스를 만들 수 있습니다. 이 연습을 완료 하려면 시작 하기 전에 허브에 배포 하는 Barracuda CloudGen WAN 어플라이언스에 대 한 Barracuda 클라우드 프레미스 장치 (CPE) 및 라이선스가 있어야 합니다.
 
 Azure 가상 WAN 내에서 **CISCO SD-WAN** 의 배포 설명서는 다음 전자 메일 주소에서 cisco로 전자 메일을 보내 주세요. vwan_public_preview@external.cisco.com
 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -98,5 +98,5 @@ Azure 가상 WAN 내에서 **CISCO SD-WAN** 의 배포 설명서는 다음 전�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 WAN에 대해 자세히 알아보려면 [가상 WAN 개요](virtual-wan-about.md) 페이지를 참조하세요.
+* 가상 WAN에 대해 자세히 알아보려면 [가상 wan 이란?](virtual-wan-about.md) 페이지를 참조 하세요.
 * 가상 WAN 허브의 Nva에 대해 자세히 알아보려면 [가상 wan 허브 (미리 보기)의 네트워크 가상 어플라이언스 정보](about-nva-hub.md)를 참조 하세요.

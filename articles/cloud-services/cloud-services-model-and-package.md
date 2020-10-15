@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 180295599082a762fc525c4740079ceefc0954a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872139"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077187"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -289,9 +289,6 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
-[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
-[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
-[vs_create]: ../vs-azure-tools-azure-project-create.md
-
-
-
+[vs_deploy]: /visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio
+[vs_reconfigure]: /visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service
+[vs_create]: /visualstudio/azure/vs-azure-tools-azure-project-create

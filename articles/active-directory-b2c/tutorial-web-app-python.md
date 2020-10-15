@@ -12,10 +12,10 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
 ms.openlocfilehash: 6a113b3a3df475853f3690a0e932378bc0e2ab02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844629"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>자습서: Python 웹 애플리케이션에서 Azure AD B2C를 사용하여 인증 사용
@@ -162,13 +162,13 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
-    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="Azure AD B2C 사용자 흐름에 표시된 가입 페이지":::
+    :::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-02.png" alt-text="로컬로 실행되는 Python Flask 웹 애플리케이션을 보여 주는 웹 브라우저":::
 
 1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
 **만들기**를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
 
-:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="사용자가 로그인한 Python Flask 웹 애플리케이션을 보여 주는 웹 브라우저":::
+:::image type="content" source="media/tutorial-web-app-python/python-flask-web-app-03.png" alt-text="로컬로 실행되는 Python Flask 웹 애플리케이션을 보여 주는 웹 브라우저":::
 
 로그인을 테스트하려면 **로그아웃** 링크를 선택한 다음, **로그인**을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
 
