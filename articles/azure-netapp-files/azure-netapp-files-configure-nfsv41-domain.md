@@ -11,14 +11,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3c853190d5f63bbe9012727d8b7b7ac91da135f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325626"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072155"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFSv 4.1 기본 도메인 구성
 
@@ -26,11 +26,11 @@ NFSv4는 인증 도메인의 개념을 소개 합니다. 현재 Azure NetApp Fil
 
 ## <a name="default-behavior-of-usergroup-mapping"></a>사용자/그룹 매핑의 기본 동작
 
-`nobody`NFSv4 도메인은로 설정 되어 있으므로 루트 매핑은 사용자에 게 기본적으로 사용 됩니다 `localdomain` . Azure NetApp Files NFSv 4.1 볼륨을 루트로 탑재 하면 다음과 같은 파일 사용 권한이 표시 됩니다.  
+`nobody`기본적으로 NFSv4 도메인은로 설정 되므로 루트 매핑은 사용자에 게 기본적으로 설정 됩니다 `localdomain` . Azure NetApp Files NFSv 4.1 볼륨을 루트로 탑재 하면 다음과 같은 파일 사용 권한이 표시 됩니다.  
 
 ![NFSv 4.1에 대 한 사용자/그룹 매핑의 기본 동작](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
-위의 예제에서 볼 수 있듯이의 사용자는 `file1` 이어야 `root` 하지만 `nobody` 기본적으로에 매핑됩니다.  이 문서에서는 사용자를로 설정 하는 방법을 보여 줍니다 `file1` `root` .  
+위의 예제에서 볼 수 있듯이의 사용자는 `file1` 이어야 `root` 하지만 `nobody` 기본적으로에 매핑됩니다.  이 문서에서는 `file1` 설정을로 변경 하 여 사용자를로 설정 하는 방법을 보여 줍니다 `root` `idmap Domain` `defaultv4iddomain.com` .  
 
 ## <a name="steps"></a>단계 
 

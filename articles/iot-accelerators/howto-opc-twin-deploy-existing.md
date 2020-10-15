@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a4866db463dcf4ff17b2f7b25806806a700e8fa
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282122"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071645"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC 쌍을 기존 프로젝트에 배포
 
@@ -33,7 +33,7 @@ OPC UA 장치 레지스트리 마이크로 서비스는 등록 된 OPC UA 응용
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-PowerShell 및 [AzureRM powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 확장이 설치 되어 있는지 확인 합니다. 아직 수행 하지 않은 경우이 GitHub 리포지토리를 복제 합니다. PowerShell에서 다음 명령을 실행합니다.
+PowerShell 및 [AzureRM powershell](/powershell/azure/azurerm/install-azurerm-ps) 확장이 설치 되어 있는지 확인 합니다. 아직 수행 하지 않은 경우이 GitHub 리포지토리를 복제 합니다. PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git

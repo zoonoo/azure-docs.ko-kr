@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 6662761df005211729dffb16282b8e0a8e2a8444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89428e9a64c6d4ae78d333c0cf597531588b1638
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442449"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072070"
 ---
 # <a name="send-errors-to-stackify-for-logging"></a>로깅을 위해 Stackify에 오류 보내기
 
-이 문서에서는 오류 로깅 정책을 추가하여 로깅을 위해 Stackify에 오류를 보내는 방법을 설명하는 Azure API 관리 정책 샘플을 보여 줍니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-samples.md)을 참조하세요.
+이 문서에서는 오류 로깅 정책을 추가하여 로깅을 위해 Stackify에 오류를 보내는 방법을 설명하는 Azure API 관리 정책 샘플을 보여 줍니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-reference.md)을 참조하세요.
 
 ## <a name="policy"></a>정책
 
@@ -35,5 +35,4 @@ ms.locfileid: "75442449"
 APIM 정책에 대해 자세히 알아보기:
 
 + [변환 정책](../api-management-transformation-policies.md)
-+ [정책 샘플](../policy-samples.md)
-
++ [정책 샘플](../policy-reference.md)

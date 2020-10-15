@@ -1,14 +1,14 @@
 ---
 title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
-ms.date: 07/20/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9fec7c7b0db554d424f8faee7e4e10e6121f1caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c73273f94822873c410564f13ba43f0b679f0ff
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812525"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077918"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 

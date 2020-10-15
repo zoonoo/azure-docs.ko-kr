@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87423085"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072274"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -60,7 +60,7 @@ Microsoft는 C, .NET (c #), Node.js, Java 및 Python 언어로 GitHub에 오픈 
 | OS                  | 컴파일러                          |
 |---------------------|-----------------------------------|
 | Linux               | Python 2.7. *, 3.5 이상 |
-| MacOS High Sierra   | Python 2.7. *, 3.5 이상 |
+| macOS High Sierra   | Python 2.7. *, 3.5 이상 |
 | Windows 10 제품군   | Python 2.7. *, 3.5 이상 |
 
 Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.7 이상을 사용 하는 것이 좋습니다.
@@ -99,7 +99,7 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 Microsoft는 다양 한 파트너와 협력 하 여 여러 마이크로프로세서 아키텍처에 대 한 개발 키트를 제공 합니다. 이러한 파트너는 Azure IoT C SDK를 플랫폼으로 이식 했습니다. 파트너는 SDK의 PAL (플랫폼 추상화 계층)을 만들고 유지 관리 합니다. Microsoft는 이러한 파트너와 협력 하 여 확장 된 지원을 제공 합니다.
 
-| 파트너             | 디바이스                            | 링크                     | Support(지원) |
+| 파트너             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -120,7 +120,7 @@ Microsoft는 Azure IoT 테스트와 인증 된 장치로 Azure IoT universe를 �
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>SDK 없이 IoT Hub에 연결
 
-IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 응답을 보내고 받을 수 있는 모든 응용 프로그램에서 [IOT HUB REST api](https://docs.microsoft.com/rest/api/iothub/) 를 사용 하 여 IoT Hub에 직접 연결할 수 있습니다.
+IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 지원 되는 통신 프로토콜을 사용 하 여 IoT Hub에 직접 연결할 수 있습니다. 자세히 알아보려면 [Azure IOT SDK를 사용 하지 않고 개발](iot-hub-devguide-no-sdk.md)을 참조 하세요.
 
 ## <a name="support-and-other-resources"></a>지원 및 다른 리소스
 

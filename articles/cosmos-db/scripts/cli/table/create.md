@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/29/2020
 ms.openlocfilehash: 92b7e78629fd3cf55425588db54b808746adfd61
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87431499"
 ---
 # <a name="create-an-azure-cosmos-table-api-account-and-table-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos Table API 계정 및 테이블 만들기

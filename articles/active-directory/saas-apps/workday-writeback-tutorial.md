@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017475"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072036"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>자습서: Azure AD에서 Workday로 특성 쓰기 저장 구성
 이 자습서에서는 Azure AD에서 Workday로 쓰기 저장 특성을 수행 하는 데 필요한 단계를 보여 줍니다. Workday 쓰기 저장 프로 비전 앱은 다음과 같은 Workday 특성에 값을 할당 하도록 지원 합니다.
@@ -144,16 +144,31 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
+1. **범위** 드롭다운에서 **모든 사용자 및 그룹 동기화**를 선택 합니다. 이 옵션을 사용 하는 경우 쓰기 저장 (Writeback) 앱은 **매핑**  ->  **원본 개체 범위**에 정의 된 범위 지정 규칙에 따라 Azure AD의 모든 사용자에 대 한 매핑된 특성을 Workday에 다시 씁니다. 
+
+   > [!div class="mx-imgBorder"]
+   > ![쓰기 저장 범위 선택](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > Workday 쓰기 저장 프로 비전 앱은 **할당 된 사용자 및 그룹만 동기화**옵션을 지원 하지 않습니다.
+ 
+
 2. **저장**을 클릭합니다.
 
 3. 이 작업을 수행 하면 초기 동기화가 시작 되 고, 원본 디렉터리에 있는 사용자 수에 따라 시간이 달라질 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그에는 프로 비전 서비스에서 수행 하는 모든 개별 동기화 이벤트가 나열 됩니다. 예를 들어 원본에서 가져와서 대상 응용 프로그램으로 내보낸 사용자를 표시 합니다.  
+4. 언제 든 지 Azure Portal의 **프로 비전 로그** 탭에서 프로 비전 서비스가 수행한 작업을 확인 합니다. 감사 로그에는 프로 비전 서비스에서 수행 하는 모든 개별 동기화 이벤트가 나열 됩니다. 예를 들어 원본에서 가져와서 대상 응용 프로그램으로 내보낸 사용자를 표시 합니다.  
 
 5. 초기 동기화가 완료 되 면 아래와 같이 **프로 비전** 탭에 요약 보고서가 작성 됩니다.
 
      > [!div class="mx-imgBorder"]
      > ![프로 비전 진행률 표시줄](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
+
+* 쓰기 저장 (Writeback) 앱은 매개 변수 **Communication_Usage_Type_ID** 및 **Phone_Device_Type_ID**에 대해 미리 정의 된 값을 사용 합니다. Workday 테 넌 트가 이러한 특성에 대해 다른 값을 사용 하는 경우 쓰기 저장 (Writeback) 작업이 실패 합니다. 제안 된 해결 방법은 Workday의 Type_IDs를 업데이트 하는 것입니다. 
+* 쓰기 저장 (Writeback) 앱이 보조 전화 번호를 업데이트 하도록 구성 된 경우 Workday에서 기존 보조 전화 번호를 대체 하지 않습니다. 작업자 레코드에 보조 전화 번호를 하나 더 추가 합니다. 이 동작에 대 한 해결 방법은 없습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

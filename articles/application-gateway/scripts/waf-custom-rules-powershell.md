@@ -8,10 +8,10 @@ ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079900"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Azure PowerShell을 사용하여 WAF(웹 애플리케이션 방화벽) 사용자 지정 규칙 만들기

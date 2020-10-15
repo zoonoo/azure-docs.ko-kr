@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d93a43a44a9ccff4e7918e556b9d759e270d2f42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255301"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072087"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -176,10 +176,10 @@ Moby (docker) 런타임을 사용 하 여 노드 풀을 만들려면 사용자 �
 
 ## <a name="generation-2-virtual-machines-preview"></a>2 세대 가상 컴퓨터 (미리 보기)
 
-Azure는 [Gen2 (2 세대) vm (가상 머신)](../virtual-machines/windows/generation-2.md)을 지원 합니다. 2 세대 Vm은 1 세대 Vm (Gen1)에서 지원 되지 않는 주요 기능을 지원 합니다. 이러한 기능에는 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리)이 포함됩니다.
+Azure는 [Gen2 (2 세대) vm (가상 머신)](../virtual-machines/generation-2.md)을 지원 합니다. 2 세대 Vm은 1 세대 Vm (Gen1)에서 지원 되지 않는 주요 기능을 지원 합니다. 이러한 기능에는 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리)이 포함됩니다.
 
 2세대 VM은 1세대 VM에서 사용되는 BIOS 기반 아키텍처 대신 새 UEFI 기반 부팅 아키텍처를 사용합니다.
-특정 Sku 및 크기만 Gen2 Vm을 지원 합니다. [지원 되는 크기 목록을](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)확인 하 여 SKU가 Gen2을 지원 하거나 요구 하는지 확인 합니다.
+특정 Sku 및 크기만 Gen2 Vm을 지원 합니다. [지원 되는 크기 목록을](../virtual-machines/generation-2.md#generation-2-vm-sizes)확인 하 여 SKU가 Gen2을 지원 하거나 요구 하는지 확인 합니다.
 
 또한 모든 VM 이미지가 Gen2을 지 원하는 것은 아닙니다. AKS Gen2 Vm은 새로운 [AKS Ubuntu 18.04 이미지](#os-configuration)를 사용 합니다. 이 이미지는 모든 Gen2 Sku 및 크기를 지원 합니다.
 

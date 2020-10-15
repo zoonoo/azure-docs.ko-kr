@@ -8,10 +8,10 @@ keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
 ms.openlocfilehash: f4b2aea0a6782b5484b2f6d15066d71990348596
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91312059"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션

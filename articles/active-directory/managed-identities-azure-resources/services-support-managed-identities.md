@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843178"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072172"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -212,6 +212,14 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 - [Azure Portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager 템플릿](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
+### <a name="azure-machine-learning"></a>Azure Machine Learning 
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 미리 보기 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+자세한 내용은 [Azure Machine Learning에서 관리 되는 Id 사용](../../machine-learning/how-to-use-managed-identities.md)을 참조 하세요.
 
 ### <a name="azure-policy"></a>Azure Policy
 

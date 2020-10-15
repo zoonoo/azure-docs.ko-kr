@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: 6a50faee2d557c39e9bd371caa98a4bcb2016e0f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75971836"
 ---
 VM에서 시스템이 할당 ID를 사용하지 않도록 설정하려면 시스템 할당 ID의 상태를 **해제**로 설정합니다. 

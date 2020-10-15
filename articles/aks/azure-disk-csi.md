@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: dfbef8da1349c2b86595f520e173aee9d455e3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68a892768e5cfa5be7fe6f9ad99fc4cded68b02d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299581"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071815"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 Azure CSI (disk Container Storage Interface) 드라이버 사용
 CSI (azure disk Container Storage Interface) 드라이버는 AKS (azure Kubernetes Service)에서 Azure 디스크의 수명 주기를 관리 하는 데 사용 하는 [CSI 사양](https://github.com/container-storage-interface/spec/blob/master/spec.md)규격 드라이버입니다.
@@ -408,7 +408,7 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
