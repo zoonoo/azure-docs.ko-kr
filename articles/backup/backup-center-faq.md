@@ -3,12 +3,12 @@ title: 백업 센터-FAQ
 description: 이 문서는 백업 센터에 대 한 자주 묻는 질문에 답변 합니다.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e227eb6a14d06791e52ec33e090afdcb01bab61
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997684"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094044"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>백업 센터-질문과 대답
 
@@ -34,7 +34,7 @@ ms.locfileid: "90997684"
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>백업 센터를 사용 하려면 특별 한 권한이 필요 한가요?
 
-백업 센터에는 새 권한이 필요 하지 않습니다. 관리 중인 리소스에 대 한 적절 한 수준의 RBAC 액세스 권한이 있는 한, 이러한 리소스에 대해 백업 센터를 사용할 수 있습니다. 예를 들어 백업에 대 한 정보를 보려면 자격 증명 모음에 대 한 **읽기** 권한이 필요 합니다. 백업을 구성 하 고 다른 백업 관련 작업을 수행 하려면 **백업 참여자** 또는 **백업 운영자** 역할이 필요 합니다. [Azure Backup에 대 한 RBAC 역할](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)에 대해 자세히 알아보세요.
+백업 센터에는 새 권한이 필요 하지 않습니다. 관리 중인 리소스에 대 한 올바른 수준의 Azure RBAC 액세스 권한이 있는 한, 이러한 리소스에 대해 백업 센터를 사용할 수 있습니다. 예를 들어 백업에 대 한 정보를 보려면 자격 증명 모음에 대 한 **읽기** 권한이 필요 합니다. 백업을 구성 하 고 다른 백업 관련 작업을 수행 하려면 **백업 참여자** 또는 **백업 운영자** 역할이 필요 합니다. [Azure Backup에 대 한 Azure 역할](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)에 대해 자세히 알아보세요.
 
 ## <a name="pricing"></a>가격 책정
 

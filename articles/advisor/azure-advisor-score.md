@@ -3,12 +3,12 @@ title: Advisor 점수를 사용 하 여 Azure 워크 로드 최적화
 description: Advisor 점수를 사용 하 여 Azure를 최대한 활용 하세요.
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335622"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074025"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Advisor 점수를 사용 하 여 Azure 워크 로드 최적화
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335622"
 Azure Advisor는 워크 로드에 대 한 모범 사례 권장 사항을 제공 합니다. 이러한 권장 사항은 다음과 같은 도움을 주는 맞춤형 이며 조치를 취할 수 있습니다.
 * 워크 로드의 상태를 개선 하 고 Azure 배포를 최적화 합니다.
 * 모범 사례에 따라 주요 문제를 사전에 방지
-* [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) 의 5 가지 핵심 요소에 대해 Azure 워크 로드를 평가 합니다.
+* [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/) 의 5 가지 핵심 요소에 대해 Azure 워크 로드를 평가 합니다.
 
 Advisor의 핵심 기능인 **advisor 점수** 는 이러한 목표를 효과적이 고 효율적으로 달성 하는 데 도움이 됩니다. 
 
@@ -56,7 +56,7 @@ Advisor 점수 계산은 다음 네 단계로 요약할 수 있습니다.
   * 장기 권장 사항이 있는 리소스는 점수에 대해 더 많이 계산 됩니다.
   * Advisor에서 연기 하거나 해제 한 리소스는 점수 계산에서 완전히 제거 됩니다. 
     
-Advisor는 Advisor 범주 수준에서이 모델을 적용 하 여 (보안은 보안 [점수](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) 모델 사용) 각 범주에 대 한 us Advisor 점수를 제공 하 고, 간단한 평균은 최종 Advisor 점수를 생성 합니다.
+Advisor는 Advisor 범주 수준에서이 모델을 적용 하 여 (보안은 보안 [점수](../security-center/secure-score-security-controls.md#introduction-to-secure-score) 모델 사용) 각 범주에 대 한 us Advisor 점수를 제공 하 고, 간단한 평균은 최종 Advisor 점수를 생성 합니다.
 
 
 ## <a name="advisor-score-faq"></a>Advisor 점수 FAQ

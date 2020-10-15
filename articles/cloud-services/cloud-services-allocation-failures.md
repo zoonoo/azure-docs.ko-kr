@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: cba3f47015072f16112ef981d2f59d0c73cb69c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d82b7223c2b392e6b9aebffdc545dc38b38ca2f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142488"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074229"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure에서 Cloud Services 배포 시 할당 실패 문제 해결
 ## <a name="summary"></a>요약
@@ -70,4 +70,4 @@ Azure 데이터 센터의 서버는 클러스터로 분할되어 있습니다. �
      ```
    * 위의 #2에 따라 서비스의 CSCFG에 새 ReservedIP를 지정해야 합니다.
 4. 새 배포에 대한 선호도 그룹 제거 - 선호도 그룹은 더 이상 권장되지 않습니다. 위의 #1에 따라 새 클라우드 서비스를 배포합니다. 클라우드 서비스가 선호도 그룹에 없는지 확인합니다.
-5. 지역 Virtual Network로 변환 - [선호도 그룹에서 지역 VNet(Virtual Network)으로 마이그레이션하는 방법](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)을 참조하세요.
+5. 지역 Virtual Network로 변환 - [선호도 그룹에서 지역 VNet(Virtual Network)으로 마이그레이션하는 방법](/previous-versions/azure/virtual-network/virtual-networks-migrate-to-regional-vnet)을 참조하세요.

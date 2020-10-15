@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/13/2020
-ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225719"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074807"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 5세대 |5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -47,7 +47,7 @@ Azure Database for MariaDB 서버는 기본, 범용 및 메모리 최적화의 �
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS |
 
 서버를 만드는 동안 및 후에 추가 저장소 용량을 추가 하 고 시스템에서 작업의 저장소 사용량에 따라 저장소를 자동으로 늘릴 수 있습니다.
@@ -67,11 +67,14 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 |:-------------|:--------------------|:---------------------|
 | 스토리지 유형 | Azure Premium Storage | Azure Premium Storage |
 | 스토리지 크기 | 32 g b ~ 16TB| 32 ~ 16TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB |
+| 스토리지 증분 크기 | 1GB | 1GB |
 | IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS| 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!IMPORTANT]
-> 대량 저장소는 현재 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부 2 및 미국 서 부 2 지역에서 공개 미리 보기로 제공 됩니다.
+> 대량 저장소는 현재 다음 지역에서 공개 미리 보기로 제공 됩니다. 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부 2, 미국 서 부, 캐나다 동부, 캐나다 중부.
+>
+> 다른 모든 지역은 최대 4TB의 저장소와 최대 6000 IOPS를 지원 합니다.
+>
 
 ### <a name="reaching-the-storage-limit"></a>스토리지 제한에 도달
 

@@ -1,17 +1,17 @@
 ---
 title: 자습서 - Azure Service Fabric Mesh 리소스 정리
 description: 더 이상 사용하지 않는 리소스 요금이 부과되지 않도록 Azure Service Fabric Mesh 리소스를 제거하는 방법을 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b8ce3c795bc9ad212331ce1c1f413fe7fd6da909
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d594001340f76c6dde9f3e00de2d76ee4e5104b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246755"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843331"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
 

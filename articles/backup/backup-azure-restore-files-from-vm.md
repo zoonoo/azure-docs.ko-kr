@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292968"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093721"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -265,7 +265,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
 | Windows Server 2019    | 윈도우 10 |
-| Windows Server 2016    | 윈도우 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -376,7 +376,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점(스크립트를 생성할 수 있는) 선택
 
-이 스크립트는 VM 데이터에 대한 액세스를 제공하므로, 이 스크립트를 생성할 수 있는 사람을 제어하는 것이 가장 중요합니다. 스크립트를 생성하려면 Azure Portal에 로그인하여 [RBAC에 대한 권한을 부여](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)받아야 합니다.
+이 스크립트는 VM 데이터에 대한 액세스를 제공하므로, 이 스크립트를 생성할 수 있는 사람을 제어하는 것이 가장 중요합니다. Azure Portal에 로그인 하 고 스크립트를 생성할 수 [있는 AZURE RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있어야 합니다.
 
 파일 복구에는 VM 복원 및 디스크 복원과 동일한 수준의 권한 부여가 필요합니다. 즉, 권한 있는 사용자만 VM 데이터를 살펴보고 스크립트를 생성할 수 있습니다.
 

@@ -1,5 +1,6 @@
 ---
 title: Android 용 ADAL-MSAL 마이그레이션 가이드 | Microsoft
+titleSuffix: Microsoft identity platform
 description: ADAL (Azure Active Directory Authentication Library) Android 앱을 MSAL (Microsoft Authentication Library)로 마이그레이션하는 방법에 대해 알아봅니다.
 services: active-directory
 author: mmacy
@@ -9,16 +10,16 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 09/6/2019
+ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966001"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074671"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -31,7 +32,7 @@ ADAL은 Azure Active Directory v 1.0 끝점에서 작동 합니다. MSAL (Micros
 지원:
   - Azure Active Directory (조직 Id)
   - Outlook.com, Xbox Live 등의 조직 이외의 id
-  - (B2C에만 해당) Google, Facebook, Twitter 및 Amazon를 사용 하는 페더레이션된 로그인
+  - (Azure AD B2C에만 해당) Google, Facebook, Twitter 및 Amazon를 사용 하는 페더레이션된 로그인
 
 - 는와 호환 되는 표준입니다.
   - OAuth v2.0
@@ -67,7 +68,7 @@ MSAL을 사용 하도록 기존 앱 등록을 변경할 필요가 없습니다. 
 
 ### <a name="user-consent"></a>사용자 승인
 
-ADAL 및 AAD v1 끝점을 사용 하는 경우 자신이 소유한 리소스에 대 한 사용자 동의가 처음 사용 시 부여 되었습니다. MSAL 및 Microsoft id 플랫폼을 사용 하는 경우에는 동의가 점진적으로 요청 될 수 있습니다. 증분 동의는 사용자가 높은 권한을 고려할 수 있는 권한 또는 권한이 필요한 이유를 명확 하 게 설명 하는 경우에는 그렇지 않을 수 있는 경우에 유용 합니다. ADAL에서 이러한 사용 권한은 사용자가 앱에 로그인 하는 것을 중단 한 것일 수 있습니다.
+ADAL 및 Azure AD v1 끝점을 사용 하는 경우 자신이 소유한 리소스에 대 한 사용자 동의가 처음 사용 시 부여 되었습니다. MSAL 및 Microsoft id 플랫폼을 사용 하는 경우에는 동의가 점진적으로 요청 될 수 있습니다. 증분 동의는 사용자가 높은 권한을 고려할 수 있는 권한 또는 권한이 필요한 이유를 명확 하 게 설명 하는 경우에는 그렇지 않을 수 있는 경우에 유용 합니다. ADAL에서 이러한 사용 권한은 사용자가 앱에 로그인 하는 것을 중단 한 것일 수 있습니다.
 
 > [!TIP]
 > 앱에 권한이 필요한 이유에 대 한 추가 컨텍스트를 사용자에 게 제공 해야 하는 시나리오에서는 증분 동의를 사용 하는 것이 좋습니다.
@@ -146,7 +147,7 @@ ADAL에서는 `AuthenticationResult` `UserInfo` 인증 된 계정에 대 한 정
 
 금융 기관의 계정 처럼 Microsoft id 플랫폼의 계정은 자격 증명을 사용 하 여 액세스 됩니다. 이러한 자격 증명은 Microsoft에서 등록 되거나 발급 됩니다. 또는 Microsoft에서 조직을 대신 하 여.
 
-Microsoft id 플랫폼은 금융 기관과 차이가 있는 경우, Microsoft id 플랫폼은 사용자가 한 계정 및 연결 된 자격 증명을 사용 하 여 여러 개인 및 조직에 속한 리소스에 액세스할 수 있도록 하는 프레임 워크를 제공 합니다. 이는 한 은행에서 발행 한 카드를 다른 금융 기관에서 사용할 수 있는 것과 같습니다. 이는 문제의 모든 조직이 Microsoft id 플랫폼을 사용 하 여 여러 조직에서 하나의 계정을 사용할 수 있기 때문에 작동 합니다. 예를 들면 다음과 같습니다.
+Microsoft id 플랫폼은 금융 기관과 차이가 있는 경우, Microsoft id 플랫폼은 사용자가 한 계정 및 연결 된 자격 증명을 사용 하 여 여러 개인 및 조직에 속한 리소스에 액세스할 수 있도록 하는 프레임 워크를 제공 합니다. 이는 한 은행에서 발행 한 카드를 다른 금융 기관에서 사용할 수 있는 것과 같습니다. 이는 문제의 모든 조직이 Microsoft id 플랫폼을 사용 하 여 여러 조직에서 하나의 계정을 사용할 수 있기 때문에 작동 합니다. 예는 다음과 같습니다.
 
 Sam은 Contoso.com에 대해 작동 하지만 Fabrikam.com에 속한 Azure virtual machines를 관리 합니다. Sam의 가상 컴퓨터를 관리 하려면 해당 컴퓨터에 액세스할 수 있는 권한이 있어야 합니다. Fabrikam.com에 Sam 계정을 추가 하 고 해당 계정에 가상 컴퓨터를 사용할 수 있도록 허용 하는 역할을 부여 하 여이 액세스 권한을 부여할 수 있습니다. 이 작업은 Azure Portal를 통해 수행 됩니다.
 
@@ -229,8 +230,6 @@ public interface SilentAuthenticationCallback {
      */
     void onError(final MsalException exception);
 }
-
-
 ```
 
 ## <a name="migrate-to-the-new-exceptions"></a>새 예외로 마이그레이션
@@ -240,16 +239,27 @@ MSAL에는 예외 계층이 있으며 각 계층에는 관련 된 특정 오류 
 
 | 예외                                        | 설명                                                         |
 |--------------------------------------------------|---------------------------------------------------------------------|
-| `MsalException`                                  | MSAL에서 throw 된 기본 확인 된 예외입니다.                           |
-| `MsalClientException`                            | 오류가 클라이언트 쪽 인 경우 throw 됩니다.                                 |
 | `MsalArgumentException`                          | 하나 이상의 입력 인수가 잘못 된 경우 throw 됩니다.                 |
-| `MsalServiceException`                           | 오류가 서버 쪽 인 경우 throw 됩니다.                                 |
-| `MsalUserCancelException`                        | 사용자가 인증 흐름을 취소 한 경우 throw 됩니다.                |
-| `MsalUiRequiredException`                        | 토큰을 자동으로 새로 고칠 수 없는 경우 throw 됩니다.                    |
+| `MsalClientException`                            | 오류가 클라이언트 쪽 인 경우 throw 됩니다.                                 |
 | `MsalDeclinedScopeException`                     | 서버에서 하나 이상의 요청 된 범위를 거부 한 경우 throw 됩니다. |
+| `MsalException`                                  | MSAL에서 throw 된 기본 확인 된 예외입니다.                           |
 | `MsalIntuneAppProtectionPolicyRequiredException` | 리소스에서 MAMCA 보호 정책을 사용 하도록 설정한 경우 throw 됩니다.         |
+| `MsalServiceException`                           | 오류가 서버 쪽 인 경우 throw 됩니다.                                 |
+| `MsalUiRequiredException`                        | 토큰을 자동으로 새로 고칠 수 없는 경우 throw 됩니다.                    |
+| `MsalUserCancelException`                        | 사용자가 인증 흐름을 취소 한 경우 throw 됩니다.                |
 
-### <a name="adalerror-to-msalexception-errorcode"></a>ADALError에서 MsalException ErrorCode
+### <a name="adalerror-to-msalexception-translation"></a>ADALError에서 MsalException로 변환
+
+| ADAL에서 이러한 오류를 catch 하는 경우 ...  | ... 이러한 MSAL 예외를 catch 합니다.                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| *해당 ADALError 없음* | `MsalArgumentException`                          |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| *해당 ADALError 없음* | `MsalDeclinedScopeException`                     |
+| <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
+| *해당 ADALError 없음* | `MsalIntuneAppProtectionPolicyRequiredException` |
+| <ul><li>`ADALError.SERVER_ERROR`<li>`ADALError.SERVER_INVALID_REQUEST`</ul> | `MsalServiceException`                           |
+| <ul><li>`ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED` | `MsalUiRequiredException`</ul>                        |
+| *해당 ADALError 없음* | `MsalUserCancelException`                        |
 
 ### <a name="adal-logging-to-msal-logging"></a>MSAL 로깅에 ADAL 로깅
 
