@@ -7,12 +7,12 @@ ms.service: azure-supportability
 ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fccde344a06d39bd4bb8e3178444ec20677e2f50
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763825"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078513"
 ---
 # <a name="region-or-sku-unavailable"></a>지역 또는 SKU 사용할 수 없음
 
@@ -80,7 +80,7 @@ Message: This size is currently unavailable in this location for this subscripti
 
 ## <a name="send-us-your-suggestions"></a>제안 사항을 보내 주세요.
 
-사용자 의견 및 제안을 항상 환영합니다. [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주세요. 또한 [Twitter](https://twitter.com/azuresupport) 또는 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에서 문의할 수 있습니다.
+사용자 의견 및 제안을 항상 환영합니다. [제안 사항](https://feedback.azure.com/forums/266794-support-feedback)을 보내 주세요. 또한 [Twitter](https://twitter.com/azuresupport) 또는 [Microsoft Q&A 질문 페이지](/answers/products/azure)에서 문의할 수 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49ffc33310564299131e2831b74154719b7cf7c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470071"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078581"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Azure Red Hat OpenShift 4 클러스터 응용 프로그램 백업 만들기
 
@@ -90,7 +90,7 @@ EOF
 
 ## <a name="install-velero-on-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에 Velero 설치
 
-이 단계에서는 velero를 자체 프로젝트에 설치 하 고 Velero를 사용 하 여 백업을 수행 하 고 복원 하는 데 필요한 [사용자 지정 리소스 정의](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) 를 설치 합니다. Azure Red Hat OpenShift v4 클러스터에 성공적으로 로그인 했는지 확인 합니다.
+이 단계에서는 Velero를 자체 프로젝트에 설치 하 고 Velero를 사용 하 여 백업을 수행 하 고 복원 하는 데 필요한 [사용자 지정 리소스 정의](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) 를 설치 합니다. Azure Red Hat OpenShift v4 클러스터에 성공적으로 로그인 했는지 확인 합니다.
 
 
 ```bash
@@ -120,14 +120,34 @@ oc get backups -n velero <name of backup> -o yaml
 
 백업이 성공적으로 수행 되 `phase:Completed` 고 개체가 저장소 계정의 컨테이너에 저장 됩니다.
 
+## <a name="create-a-backup-with-velero-to-include-snapshots"></a>스냅숏을 포함 하도록 Velero를 사용 하 여 백업 만들기
+
+응용 프로그램의 영구 볼륨을 포함 하는 Velero를 사용 하 여 응용 프로그램 백업을 만들려면 백업을 만들 때 응용 프로그램에 포함 된 네임 스페이스를 포함 하 고 플래그를 포함 해야 합니다. `snapshot-volumes=true`
+
+```bash
+velero backup create <name of backup> --include-namespaces=nginx-example --snapshot-volumes=true --include-cluster-resources=true
+```
+
+다음을 실행 하 여 백업 상태를 확인할 수 있습니다.
+
+```bash
+oc get backups -n velero <name of backup> -o yaml
+```
+
+출력이 포함 된 성공적인 백업 `phase:Completed` 및 개체가 저장소 계정의 컨테이너에 있습니다.
+
+Velero를 사용 하 여 백업을 만들고 복원 하는 방법에 대 한 자세한 내용은 [OpenShift 리소스 백업 기본 방법을](https://www.openshift.com/blog/backup-openshift-resources-the-native-way) 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Red Hat OpenShift 4 클러스터 응용 프로그램을 백업 했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Velero를 사용 하 여 OpenShift v4 클러스터 응용 프로그램 백업 만들기
+> * Velero를 사용 하 여 스냅숏을 사용 하 여 OpenShift v4 클러스터 응용 프로그램 백업 만들기
 
 
 다음 문서로 이동 하 여 Azure Red Hat OpenShift 4 클러스터 응용 프로그램 복원을 만드는 방법을 알아봅니다.
 
 * [Azure Red Hat OpenShift 4 클러스터 응용 프로그램 복원 만들기](howto-create-a-restore.md)
+* [스냅숏을 포함 하 여 Azure Red Hat OpenShift 4 클러스터 응용 프로그램 복원 만들기](howto-create-a-restore.md)

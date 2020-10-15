@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd45a393081d52985d99fac7ea5dccc5bd2a2712
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714981"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079227"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -105,7 +105,7 @@ Azure Managed Disk는 VHD(가상 하드 디스크)입니다. 온-프레미스 �
 
 ## <a name="types-of-storage-accounts"></a>스토리지 계정 유형
 
-Azure Storage는 여러 유형의 저장소 계정을 제공 합니다. 각각의 유형은 서로 다른 기능을 지원하며 고유의 가격 책정 모델이 있습니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+Azure Storage는 여러 유형의 스토리지 계정을 제공합니다. 각각의 유형은 서로 다른 기능을 지원하며 고유의 가격 책정 모델이 있습니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 ## <a name="secure-access-to-storage-accounts"></a>저장소 계정에 대 한 액세스 보호
 
@@ -121,7 +121,7 @@ Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azur
 
 핵심 저장소 서비스에는 두 가지 기본 암호화 종류를 사용할 수 있습니다. 보안 및 암호화에 대한 자세한 내용은 [Azure Storage 보안 가이드](../blobs/security-recommendations.md)를 참조하세요.
 
-### <a name="encryption-at-rest"></a>미사용 암호화
+### <a name="encryption-at-rest"></a>저장 데이터 암호화
 
 Azure Storage 암호화는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. Azure Storage는 저장소 계정에 유지 하기 전에 모든 데이터를 자동으로 암호화 하 고 검색 하기 전에 암호를 해독 합니다. 암호화, 암호 해독 및 키 관리 프로세스는 사용자에 게 투명 합니다. 또한 고객은 Azure Key Vault를 사용 하 여 자신의 키를 관리 하도록 선택할 수 있습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)를 참조하세요.
 
@@ -173,8 +173,7 @@ HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 저장소 계정의 �
 - [Storage용 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
 - [AzCopy Command-Line 유틸리티](https://aka.ms/downloadazcopy)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
-- [Azure Storage 클라이언트 도구](../storage-explorers.md)
-- [Azure 개발자 도구](https://azure.microsoft.com/tools/)
+- [Azure Storage에 대 한 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ## <a name="next-steps"></a>다음 단계
 

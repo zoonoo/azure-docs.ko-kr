@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317313"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078904"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "91317313"
 
 또한 기능 관리 라이브러리는 배후 상황의 기능 플래그 수명 주기를 관리합니다. 예를 들어 라이브러리에서 플래그 상태를 새로 고치고 캐싱하거나 요청 호출 중에 플래그 상태의 변경이 불가능하도록 보장합니다. 뿐만 아니라 ASP.NET Core 라이브러리는 MVC 컨트롤러 작업, 보기, 경로 및 미들웨어를 포함하여 기본 통합을 제공합니다.
 
-[ASP.NET Core 앱에 기능 플래그 추가 빠른 시작](./quickstart-feature-flag-aspnet-core.md)에서는 ASP.NET Core 애플리케이션에서 기능 플래그를 추가하는 다양한 방법을 보여줍니다. 이 자습서에서는 해당 방법을 자세히 설명합니다. 전체 내용은 [ASP.NET Core 기능 관리 설명서](https://go.microsoft.com/fwlink/?linkid=2091410)를 참조하세요.
+[ASP.NET Core 앱에 기능 플래그 추가 빠른 시작](./quickstart-feature-flag-aspnet-core.md)에서는 ASP.NET Core 애플리케이션에서 기능 플래그를 추가하는 다양한 방법을 보여줍니다. 이 자습서에서는 해당 방법을 자세히 설명합니다. 전체 내용은 [ASP.NET Core 기능 관리 설명서](/dotnet/api/microsoft.featuremanagement)를 참조하세요.
 
 이 자습서에서는 다음 작업 방법을 배웁니다.
 
@@ -301,6 +301,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 이 자습서에서는 ASP.NET Core 애플리케이션에서 `Microsoft.FeatureManagement` 라이브러리를 사용하여 기능 플래그를 구현하는 방법을 알아보았습니다. ASP.NET Core 및 App Configuration의 기능 관리 지원에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [ASP.NET Core 기능 플래그 샘플 코드](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Microsoft.FeatureManagement 설명서](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [ASP.NET Core 기능 플래그 샘플 코드](./quickstart-feature-flag-aspnet-core.md)
+* [Microsoft.FeatureManagement 설명서](/dotnet/api/microsoft.featuremanagement)
 * [기능 플래그 관리](./manage-feature-flags.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905519"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070897"
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management의 정책
 
@@ -70,9 +70,9 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 ## <a name="policy-samples"></a>정책 샘플
 
-자세한 코드 예제는 [정책 샘플](policy-samples.md)을 참조하세요.
+자세한 코드 예제는 [정책 샘플](./policy-reference.md)을 참조하세요.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="apply-policies-specified-at-different-scopes"></a>서로 다른 범위에서 지정된 정책 적용
 
@@ -119,7 +119,7 @@ APIM(Azure API Management)에서 정책은 게시자가 구성을 통해 API 동
 
 + [API 변환](transform-api.md)
 + [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
-+ [정책 샘플](policy-samples.md)   
++ [정책 샘플](./policy-reference.md)   
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

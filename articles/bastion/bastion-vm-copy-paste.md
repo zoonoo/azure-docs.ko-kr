@@ -2,21 +2,21 @@
 title: '가상 머신에서 복사 하 여 붙여넣기: Azure 방호'
 description: 이 문서에서는 요새를 사용 하 여 Azure VM에서 복사 하 여 붙여 넣는 방법에 대해 알아봅니다.
 services: bastion
-author: charwen
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.author: charwen
-ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cherylmc
+ms.openlocfilehash: 50f7906992aa19daa205a30f71ce21456bafe558
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445346"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079159"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 
-이 문서에서는 Azure 방호를 사용 하는 경우 가상 컴퓨터에서 텍스트를 복사 하 여 붙여 넣는 방법을 설명 합니다. VM을 사용 하려면 먼저 [요새 호스트를 만드는](bastion-create-host-portal.md)단계를 수행 해야 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp.md) 또는 [SSH](bastion-connect-vm-ssh.md)중 하나를 사용 하 여 작업 하려는 VM에 연결 합니다.
+이 문서에서는 Azure 방호를 사용 하는 경우 가상 컴퓨터에서 텍스트를 복사 하 여 붙여 넣는 방법을 설명 합니다. VM을 사용 하려면 먼저 [요새 호스트를 만드는](./tutorial-create-host-portal.md)단계를 수행 해야 합니다. 그런 다음 [RDP](bastion-connect-vm-rdp.md) 또는 [SSH](bastion-connect-vm-ssh.md)중 하나를 사용 하 여 작업 하려는 VM에 연결 합니다.
 
 고급 클립보드 API 액세스를 지 원하는 브라우저의 경우 로컬 장치에서 응용 프로그램 간에 복사 하 여 붙여 넣는 것과 같은 방식으로 로컬 장치와 원격 세션 사이에서 텍스트를 복사 하 여 붙여넣을 수 있습니다. 다른 브라우저의 경우에는 요새 클립보드 액세스 도구 팔레트를 사용할 수 있습니다.
 
