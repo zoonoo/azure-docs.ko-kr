@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045298"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097527"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -93,9 +93,9 @@ Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.
 
 다음으로, Azure Digital Twins에 연결 하기 위해 만든 커넥터를 구성 합니다.
 
-먼저 Logic Apps 작업 하도록 수정 된 사용자 지정 Azure Digital Twins Swagger를 다운로드 합니다. *ZIP 다운로드* 단추를 방문 하 여 [**이 링크**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 에서 **Azure Digital twins Custom swagger** 샘플을 다운로드 합니다. 다운로드 한 *Azure_Digital_Twins_Custom_Swaggers.zip* 폴더로 이동 하 여 압축을 풉니다. 
+먼저 Logic Apps 작업 하도록 수정 된 사용자 지정 Azure Digital Twins Swagger를 다운로드 합니다. *ZIP 다운로드* 단추를 방문 하 여 [**이 링크**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) 에서 **Azure Digital twins custom swagger (Logic Apps 커넥터)** 샘플을 다운로드 합니다. 다운로드 한 *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* 폴더로 이동 하 여 압축을 풉니다. 
 
-이 자습서에 대 한 사용자 지정 Swagger는 _**Azure_Digital_Twins_Custom_Swaggers \logicapps**_ 폴더에 있습니다. 이 폴더에는 *안정적* 이 고 *미리 보기가*포함 된 하위 폴더가 포함 되어 있습니다. 둘 다 날짜별로 구성 된 Swagger의 서로 다른 버전을 보유 합니다. 가장 최근 날짜의 폴더에는 Swagger의 최신 복사본이 포함 됩니다. 어떤 버전을 선택 하 든 Swagger 파일의 이름은 _**digitaltwins.json**_ 입니다.
+이 자습서에 대 한 사용자 지정 Swagger는 _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_ 폴더에 있습니다. 이 폴더에는 *안정적* 이 고 *미리 보기가*포함 된 하위 폴더가 포함 되어 있습니다. 둘 다 날짜별로 구성 된 Swagger의 서로 다른 버전을 보유 합니다. 가장 최근 날짜의 폴더에는 Swagger의 최신 복사본이 포함 됩니다. 선택한 버전 중에서 Swagger 파일의 이름은 _** digitaltwins.js* * _입니다.
 
 > [!NOTE]
 > 미리 보기 기능을 사용 하 여 작업 하지 않는 한 일반적으로 가장 *안정적인* Swagger 버전을 사용 하는 것이 좋습니다. 그러나 Swagger의 이전 버전 및 미리 보기 버전도 계속 지원 됩니다. 
@@ -108,7 +108,7 @@ Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.
 * **사용자 지정 커넥터**
     - API 끝점: REST (기본값 유지)
     - 가져오기 모드: OpenAPI 파일 (기본값 유지)
-    - 파일: 앞에서 다운로드 한 사용자 지정 Swagger 파일입니다. *가져오기*를 누르고 컴퓨터 (*Azure_Digital_Twins_Custom_Swaggers \logicapps \...\digitaltwins.js*)에서 파일을 찾은 다음 *열기*를 누릅니다.
+    - 파일: 앞에서 다운로드 한 사용자 지정 Swagger 파일입니다. *가져오기*를 누르고 컴퓨터 (*Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps \...\digitaltwins.js*)에서 파일을 찾은 다음 *열기*를 누릅니다.
 * **일반 정보**
     - 아이콘: 원하는 아이콘을 업로드 합니다.
     - 아이콘 배경색: 16 진수 코드를 색의 ' #xxxxxx ' 형식으로 입력 합니다.

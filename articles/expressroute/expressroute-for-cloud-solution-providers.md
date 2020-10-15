@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653641"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097340"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. Express 경로는 Azure에서 서비스에 대 한 고속 개인 통신 연결입니다. 
@@ -21,7 +21,7 @@ Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 �
 Express 경로는 단일 고객의 구독에 연결 되 고 여러 고객이 공유할 수 없는 고가용성을 위한 회로 쌍으로 구성 됩니다. 각 회로는 고가용성을 유지하기 위해 다른 라우터에서 종료해야 합니다.
 
 > [!NOTE]
-> ExpressRoute에는 대역폭 및 연결 한도가 있으므로 크고 복잡한 구현에는 단일 고객에 대해 여러 ExpressRoute 회로가 필요합니다.
+> 각 Express 경로 회로에서 가능한 연결 수와 대역폭에는 제한이 있습니다. 단일 고객의 요구가 이러한 한도를 초과 하는 경우 하이브리드 네트워크 구현에 대 한 여러 Express 경로 회로를 요구 합니다.
 > 
 > 
 
@@ -75,30 +75,30 @@ Express 경로는 50 m b/초에서 10gb/s 까지의 네트워크 속도를 지�
 ExpressRoute는 고속 연결을 효율적으로 활용하기 위해 여러 vNet에서 단일 ExpressRoute 회로로의 연결을 지원합니다. 동일한 고객을 소유 하는 여러 Azure 구독 중에서 단일 ExpressRoute 회로를 공유할 수 있습니다.
 
 ## <a name="configuring-expressroute"></a>ExpressRoute 구성
-단일 ExpressRoute 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#expressroute-routing-domains))을 지원하도록 ExpressRoute를 구성할 수 있습니다. 이 트래픽은 Microsoft 피어링, Azure 공용 피어링 및 프라이빗 피어링으로 분리됩니다. ExpressRoute 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 ExpressRoute 회로를 통하거나 여러 ExpressRoute 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 프라이빗 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
+단일 ExpressRoute 회로를 통해 세 가지 유형의 트래픽([라우팅 도메인](#expressroute-routing-domains))을 지원하도록 ExpressRoute를 구성할 수 있습니다. 이 트래픽은 개인 피어 링, Microsoft 피어 링 및 공용 피어 링으로 분리 됩니다 (사용 되지 않음). ExpressRoute 회로 크기 및 고객이 필요로 하는 격리에 따라 단일 ExpressRoute 회로를 통하거나 여러 ExpressRoute 회로를 사용하여 전송하도록 하나 또는 모든 유형의 트래픽을 선택할 수 있습니다. 고객의 보안 상태에서 동일한 회로를 통해 공용 트래픽 및 프라이빗 트래픽을 트래버스하는 것을 허용하지 않을 수 있습니다.
 
 ### <a name="connect-through-model"></a>Connect-through 모델
-연결을 통한 구성에서 고객 데이터 센터 리소스를 Azure에서 호스트 되는 구독에 연결 하는 모든 네트워킹 기초가 되를 담당 합니다. Azure 기능을 사용하려는 각 고객은 고유한 ExpressRoute 연결이 필요하며 이는 사용자가 관리합니다. 사용자는 ExpressRoute 회로를 확보하는 데 고객이 사용하는 것과 동일한 방법을 사용합니다. 회로 프로비전 및 회로 상태에 대한 [ExpressRoute 워크플로](expressroute-workflows.md) 문서에 설명된 동일한 단계를 따릅니다. 그런 다음 온-프레미스 네트워크와 Azure vNet 간의 트래픽 흐름을 제어하기 위해 BGP(Border Gateway Protocol) 경로를 구성합니다.
+연결을 통해 Azure에서 호스트 되는 구독에 고객의 데이터 센터 리소스를 연결 하는 모든 네트워킹 기초가 되을 담당 하 게 됩니다. Azure 기능을 사용 하려는 각 고객에 게는 자체 Express 경로 연결이 필요 하며,이는 사용자가 관리 합니다. 고객이 Express 경로 회로를 확보 하는 데 사용 하는 것과 동일한 방법을 사용 합니다. 회로 프로 비전 및 회로 상태에 대 한 [express](expressroute-workflows.md) 경로 문서 문서에 설명 된 것과 동일한 단계를 따릅니다. 그런 다음 온-프레미스 네트워크와 Azure vNet 간의 트래픽을 제어 하도록 BGP (Border Gateway Protocol) 경로를 구성 합니다.
 
 ### <a name="connect-to-model"></a>Connect-to 모델
-connect-to 구성에서 고객은 Azure에 대한 기존 연결을 보유하거나 ExpressRoute를 고객이 소유한 데이터 센터에서 사용자 데이터 센터가 아닌 Azure로 직접 연결하는 인터넷 서비스 공급자로의 연결을 시작합니다. 프로비전 프로세스를 시작하려면 고객은 위의 Connect-Through 모델에 설명된 단계를 따릅니다. 회로가 설정된 후 고객은 네트워크 및 Azure vNet 모두에 액세스할 수 있도록 온-프레미스 라우터를 구성해야 합니다.
+연결 구성에서 고객은 이미 Azure에 대 한 기존 연결을 보유 하거나, 데이터 센터에서 직접 데이터 센터에서 Azure로 직접 연결 하는 인터넷 서비스 공급자에 대 한 연결을 시작 합니다. 프로비전 프로세스를 시작하려면 고객은 위의 Connect-Through 모델에 설명된 단계를 따릅니다. 회로가 설정 되 면 고객은 네트워크와 Azure Vnet 모두에 액세스할 수 있도록 온-프레미스 라우터를 구성 해야 합니다.
 
 데이터 센터의 리소스가 데이터 센터의 클라이언트 리소스 또는 Azure에서 호스트된 리소스와 통신하도록 연결 설정 및 경로 구성을 지원할 수 있습니다.
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 라우팅 도메인
-ExpressRoute는 공용, 프라이빗 및 Microsoft 피어링의 세 가지 라우팅 도메인을 제공합니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 구성에서 동일한 라우터를 사용 하 여 구성 됩니다. ExpressRoute 라우팅 도메인에 대한 자세한 내용은 [여기](expressroute-circuit-peerings.md)를 확인하세요.
+Express 경로는 새 회로에 대해 개인 피어 링 및 Microsoft 피어 링 이라는 두 개의 라우팅 도메인을 제공 합니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 구성에서 동일한 라우터를 사용 하 여 구성 됩니다. ExpressRoute 라우팅 도메인에 대한 자세한 내용은 [여기](expressroute-circuit-peerings.md)를 확인하세요.
 
 허용 또는 필요한 경로만 허용하도록 사용자 지정 경로 필터를 정의할 수 있습니다. 자세한 내용 또는 변경 방법을 보려면 라우팅 필터에 대해 자세히 나와 있는 [PowerShell을 사용하여 ExpressRoute 회로의 라우팅 만들기 및 수정](expressroute-howto-routing-classic.md) 문서를 참조하세요.
 
 > [!NOTE]
-> Microsoft에서 공용 피어링 연결은 고객 또는 CSP가 소유한 공용 IP 주소를 통해야 하며 정의된 모든 규칙을 준수해야 합니다. 자세한 내용은 [express 경로 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조 하세요.  
+> Microsoft 피어 링의 경우 연결은 고객이 나 CSP에서 소유 하는 공용 IP 주소 여야 하며 정의 된 모든 규칙을 준수 해야 합니다. 자세한 내용은 [express 경로 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조 하세요.  
 > 
 > 
 
 ## <a name="routing"></a>라우팅
 ExpressRoute는 Azure Virtual Network 게이트웨이를 통해 Azure 네트워크에 연결됩니다. 네트워크 게이트웨이는 Azure 가상 네트워크에 대한 라우팅을 제공합니다.
 
-Azure Virtual Network를 만들면 vNet에서 vNet 서브넷 간의 직접 트래픽을 위한 기본 라우팅 테이블도 만들어집니다. 솔루션에서 기본 경로 테이블로 부족한 경우 사용자 지정 어플라이언스로 나가는 트래픽을 경로 지정하거나 특정 서브넷 또는 외부 네트워크로 경로를 차단하는 사용자 지정 경로를 만들 수 있습니다.
+Azure Virtual Network를 만들면 vNet에서 vNet 서브넷 간의 직접 트래픽을 위한 기본 라우팅 테이블도 만들어집니다. 솔루션에 대 한 기본 경로 테이블에 충분 하지 않은 경우 나가는 트래픽을 사용자 지정 어플라이언스로 라우팅하거나 특정 서브넷 또는 외부 네트워크에 대 한 경로를 차단 하기 위해 사용자 지정 경로를 만들 수 있습니다.
 
 ### <a name="default-routing"></a>기본 라우팅
 기본 경로 테이블에는 다음과 같은 경로가 포함됩니다.

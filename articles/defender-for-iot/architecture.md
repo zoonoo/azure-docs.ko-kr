@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: rkarlin
-ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4189cb8628db58343c816535836af82825014b7e
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093466"
+ms.locfileid: "92096320"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>IoT 용 Azure Defender 아키텍처
 
@@ -29,12 +29,19 @@ ms.locfileid: "92093466"
 IoT 용 Defender는 Azure 클라우드와 온-프레미스 구성 요소에 모두 연결 됩니다. 이 솔루션은 여러 원격 위치가 포함 된 크고 지리적으로 분산 된 환경에서 확장성을 위해 설계 되었습니다. 이 솔루션을 통해 국가, 지역, 사업부 또는 영역별로 다중 계층 분산 아키텍처를 사용할 수 있습니다. 
 
 IoT 용 Azure Defender에는 다음 구성 요소가 포함 되어 있습니다. 
-- IoT 용 Azure Defender 센서
-- 관리 콘솔:
-    - 센서 콘솔
-    - 온-프레미스 관리 콘솔
-    - Azure portal
-- 포함 된 보안 에이전트 (보안 모듈 및 IoT SDK)
+
+**클라우드 연결 배포**
+
+- IoT 센서 VM 또는 어플라이언스 용 Azure Defender
+- 클라우드 관리 및 Azure 센티널에 대 한 통합 Azure Portal
+- 로컬 사이트 관리용 온-프레미스 관리 콘솔
+- 포함 된 보안 에이전트 (옵션)
+
+**Gapped (오프 라인) 배포**
+
+- IoT 센서 VM 또는 어플라이언스 용 Azure Defender
+- 로컬 사이트 관리를 위한 온-프레미스 관리 콘솔
+
 
 ![IoT 용 Defender 아키텍처](./media/architecture/defender-iot-security-architecture.png)
 

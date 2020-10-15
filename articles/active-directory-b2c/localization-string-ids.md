@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87d56f32877fbe5b817dab5d9ad98e1f1f71386c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054749"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096201"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -343,7 +343,42 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 
 ## <a name="verification-display-control-user-interface-elements"></a>확인 표시 컨트롤 사용자 인터페이스 요소
 
-[확인 표시 컨트롤](display-control-verification.md)에 대한 ID는 다음과 같습니다.
+다음은 [페이지 레이아웃 버전이](page-layout.md) 2.1.0 이상인 [확인 표시 컨트롤](display-control-verification.md) 에 대 한 id입니다.
+
+| ID | 기본값 |
+| -- | ------------- |
+|intro_msg| 확인이 필요합니다. [보내기] 단추를 클릭하세요.|
+|success_send_code_msg | 받은 편지함으로 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요.|
+|failure_send_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 유효한 이메일 주소를 입력하고 다시 시도하세요.|
+|success_verify_code_msg | 이메일 주소를 확인했습니다. 이제 계속할 수 있습니다.|
+|failure_verify_code_msg | 이메일 주소를 확인하는 동안 문제가 발생했습니다. 다시 시도하세요.|
+|but_send_code | 확인 코드 보내기|
+|but_verify_code | 코드 확인|
+|but_send_new_code | 새 코드 전송|
+|but_change_claims | 이메일 변경|
+
+### <a name="verification-display-control-example"></a>확인 표시 컨트롤 예제
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>확인 표시 컨트롤 사용자 인터페이스 요소 (사용 되지 않음)
+
+다음은 [페이지 레이아웃 버전](page-layout.md) 2.0.0을 사용 하는 [확인 표시 컨트롤](display-control-verification.md) 에 대 한 id입니다.
 
 | ID | 기본값 |
 | -- | ------------- |
@@ -355,7 +390,7 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 |verification_control_but_verify_code |코드 확인 |
 |verification_control_code_sent| 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
 
-### <a name="verification-display-control-example"></a>확인 표시 컨트롤 예제
+### <a name="verification-display-control-example-deprecated"></a>확인 표시 제어 예제 (사용 되지 않음)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -468,8 +503,8 @@ ID `api.phonefactor` 및 [phone 팩터 기술 프로필](phone-factor-technical-
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>

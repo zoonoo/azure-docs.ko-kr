@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058083"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096626"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -57,6 +57,10 @@ ms.locfileid: "92058083"
 
 - ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
 - ILR (MABS) 또는 System Center DPM에서 Azure Backup Server 백업 된 온-프레미스 Vm의 온라인 복구 지점은 지원 되지 않습니다.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Recovery Services 자격 증명 모음에서 온-프레미스로 데이터를 이동 하려면 어떻게 해야 하나요?
+
+Data Box를 사용 하 여 Recovery Services 자격 증명 모음에서 온-프레미스로 직접 데이터를 내보낼 수는 없습니다. 데이터를 저장소 계정으로 복원한 다음 [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) 또는 [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)를 통해 온-프레미스로 이동할 수 있습니다.
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77586192"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096847"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
@@ -28,7 +28,7 @@ Azure 서비스와 통합 하는 경우 기본 서비스의 Api에서 오류가 
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
++ [Azure BLOB Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
 
@@ -40,4 +40,4 @@ Azure 서비스와 통합 하는 경우 기본 서비스의 Api에서 오류가 
 
 + [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
-+ [Table Storage](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Table Storage](functions-bindings-storage-table-output.md#exceptions-and-return-codes)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203455"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096218"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -202,11 +202,13 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 | 설정. showSignupLink <sup>2</sup>| 아니요 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
 | enableRememberMe <sup>2</sup>| 아니요| [로그인 유지](custom-policy-keep-me-signed-in.md) 확인란을 표시 합니다. 가능한 값은 `true` , 또는 `false` (기본값)입니다. |
+| inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 아니요| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
 | IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 
 참고:
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` .
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` . [페이지 레이아웃 버전](page-layout.md) 1.1.0 이상
+1. [페이지 레이아웃 버전](page-layout.md) 1.2.0 이상에서 사용할 수 있습니다.
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

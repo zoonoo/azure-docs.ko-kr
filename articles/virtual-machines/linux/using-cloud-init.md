@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978631"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096660"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
 이 문서에서는 Azure에서 프로비저닝 시간에 VM(가상 머신) 또는 가상 머신 확장 집합을 구성하는 [cloud-init](https://cloudinit.readthedocs.io)에 대한 지원을 설명합니다. Azure에서 리소스가 프로비저닝된 후 처음 부팅할 때 이러한 cloud-init 구성이 실행됩니다.  
@@ -97,10 +97,10 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 ### <a name="debian"></a>Debian
 | 게시자/버전 | 제안 | SKU | 버전 | 이미지 cloud-init 준비 여부 | Azure에서의 cloud-init 패키지 지원|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| 예 (미리 보기 전용) | 아니요, 미리 보기 상태임 |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| 예 (미리 보기 전용) | 아니요, 미리 보기 상태임 |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 2021 1 월 1 일에 제거 됩니다.) | 아니요, 미리 보기 상태임 |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 2021 1 월 1 일에 제거 됩니다.) | 아니요, 미리 보기 상태임 |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| 예 | 예-패키지 버전에 대 한 지원: `20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| 예 | 예-패키지 버전에 대 한 지원: `20.2-2~deb10u1` |
 
 
 현재 Azure Stack은 cloud-init 사용이 가능한 이미지의 프로비저닝을 지원합니다.

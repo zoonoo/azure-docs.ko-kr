@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 07/22/2020
-ms.openlocfilehash: 30107c99f16b1b2f7c91ce8a662f44a041410d01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d11f350c82fa09abf0803e795a92fdb373c36c
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119371"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097612"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>기능 비교: Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -55,7 +55,7 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [데이터베이스 간/세 부분으로 구성 되는 이름 쿼리](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 - [탄력적 쿼리](elastic-query-overview.md) 참조 | 예. 추가적으로 [탄력적 쿼리](elastic-query-overview.md) |
 | [데이터베이스 간 트랜잭션](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 아니요 | 예, 인스턴스 내에 있습니다. 인스턴스 간 쿼리에 대 한 [연결 된 서버 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) 을 참조 하세요. |
 | [데이터베이스 메일-DbMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | 아니요 | 예 |
-| [데이터베이스 미러링](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 아니요 | ‘아니요’ |
+| [데이터베이스 미러링](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | 아니요 | [아니요](../managed-instance/transact-sql-tsql-differences-sql-server.md#database-mirroring) |
 | [데이터베이스 스냅샷](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 아니요 | 아니요 |
 | [DBCC 문](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | 대부분 - 개별 문 참조 | 예 - [DBCC 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#dbcc) 참조 |
 | [DDL 문](https://docs.microsoft.com/sql/t-sql/statements/statements) | 대부분 - 개별 문 참조 | 예 - [T-SQL 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md) 참조 |
@@ -69,7 +69,7 @@ Azure는 데이터베이스를 관리 하 고 고가용성을 보장 합니다. 
 | [확장 이벤트 (XEvent)](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 일부 - [SQL Database의 확장 이벤트](xevent-db-diff-from-svr.md) 참조 | 예 - [확장 이벤트 차이](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) 참조 |
 | [확장된 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 아니요 | 아니요 |
 | [파일 및 파일 그룹](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 기본 파일 그룹만 해당 | 예. 파일 경로는 자동으로 할당 되며 문에서 파일 위치를 지정할 수 없습니다 `ALTER DATABASE ADD FILE` [statement](../managed-instance/transact-sql-tsql-differences-sql-server.md#alter-database-statement).  |
-| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 아니요 | ‘아니요’ |
+| [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 아니요 | [아니요](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [전체 텍스트 검색 (FT)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  예, 하지만 타사 단어 분리기는 지원 되지 않습니다. | 예, 하지만 [타사 단어 분리기는 지원 되지 않습니다](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) . |
 | [함수](https://docs.microsoft.com/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) 참조 |
 | [메모리 내 최적화](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 예- [프리미엄 및 중요 비즈니스용 계층](../in-memory-oltp-overview.md) 은 테이블 형식과 같은 비영구 In-Memory 개체만 지원 합니다. | 예 - [중요 비즈니스용 계층만 해당](../managed-instance/sql-managed-instance-paas-overview.md) |
@@ -184,7 +184,7 @@ Azure SQL Database 및 Azure SQL Managed Instance는 데이터를 관리 하는 
 Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니다. Azure용 서비스 업데이트 웹 페이지에서 다음 필터를 사용하여 최신 업데이트를 확인하세요.
 
 - [Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database)필터링 됩니다.
-- SQL Database 기능의 [GA(General Availability) 공지](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) 에 대해 필터링되었습니다.
+- SQL Database 기능에 대 한 [일반 가용성 \( GA \) 공지](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) 로 필터링 됩니다.
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 자세한 내용은 다음을 참조 하세요.
 
