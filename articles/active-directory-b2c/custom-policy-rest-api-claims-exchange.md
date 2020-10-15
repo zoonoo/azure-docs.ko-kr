@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e22a6028f5b7fa8cf81ddf0e3e2a550859aad0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259597"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089573"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>연습: Azure Active Directory B2C에서 REST API 클레임 교환을 사용자 지정 정책에 추가하기
 
@@ -75,7 +75,7 @@ REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>RESTful API 기술 프로필 구성 
+## <a name="add-the-restful-api-technical-profile"></a>RESTful API 기술 프로필 추가 
 
 [RESTful 기술 프로필](restful-technical-profile.md)은 자체 RESTful 서비스와의 상호 작용을 지원합니다. Azure AD B2C는 `InputClaims` 컬렉션에서 RESTful 서비스로 데이터를 보내고 `OutputClaims` 컬렉션에서 데이터를 다시 수신합니다. <em> **`TrustFrameworkExtensions.xml`**</em> 파일에서 **ClaimsProviders** 요소를 찾고 다음과 같이 새 클레임 공급자를 추가합니다.
 
@@ -87,6 +87,7 @@ REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [
       <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -107,9 +108,20 @@ REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-```
+``` 
 
 이 예제에서 `userLanguage`는 JSON 페이로드 내에서 `lang`으로 REST 서비스에 전송됩니다. `userLanguage` 클레임의 값은 현재 사용자 언어 ID를 포함합니다. 자세한 내용은 [클레임 해결 프로그램](claim-resolver-overview.md)을 참조하세요.
+
+### <a name="configure-the-restful-api-technical-profile"></a>RESTful API 기술 프로필 구성 
+
+REST API 배포한 후 다음을 포함 하 여 `REST-ValidateProfile` 고유한 REST API를 반영 하도록 기술 프로필의 메타 데이터를 설정 합니다.
+
+- **Serviceurl**. REST API 끝점의 URL을 설정 합니다.
+- **Sendclaimsin**. RESTful 클레임 공급자로 입력 클레임을 보내는 방법을 지정 합니다.
+- **AuthenticationType**. RESTful 클레임 공급자에서 수행 하는 인증의 유형을 설정 합니다. 
+- **Allowinsecureauthinproduction**. 프로덕션 환경에서이 메타 데이터를로 설정 해야 합니다. `true`
+    
+자세한 구성은 [RESTful 기술 프로필 메타 데이터](restful-technical-profile.md#metadata) 를 참조 하세요.
 
 위의 `AuthenticationType` 및 `AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행해야 하는 변경 내용을 지정합니다. 프로덕션을 위해 RESTful Api를 보호하는 방법을 알아보려면 [Secure RESTful API](secure-rest-api.md)를 참조하세요.
 
