@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89485804"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
@@ -136,7 +136,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
    | **유휴 제한 시간(분)** |*4* |
    | **부동 IP(Direct Server Return)** |**Enabled** |
 
-   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="부하 분산 규칙 추가":::
+   :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="백 엔드 풀 추가":::
 
 4. **확인**을 클릭합니다. 
 5. Azure에서 부하 분산 규칙이 구성됩니다. 이제 가용성 그룹에 대한 수신기를 호스트하는 SQL Server 인스턴스로 트래픽을 라우트하도록 부하 분산 장치가 구성되었습니다. 

@@ -4,12 +4,12 @@ description: Azure Security Benchmark 규정 준수 기본 제공 이니셔티�
 ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 722ed78592ef8e0d7443635c087c8611ef3483fa
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91820040"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932178"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Azure Security Benchmark 규정 준수 기본 제공 이니셔티브의 세부 정보
 

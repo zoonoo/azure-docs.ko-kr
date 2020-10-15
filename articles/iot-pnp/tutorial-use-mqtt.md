@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2e05165a78a54d6aaa49c28a649a97235891f927
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577920"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046284"
 ---
 # <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발
 
@@ -26,7 +26,7 @@ ms.locfileid: "91577920"
 
 Windows에서 이 자습서를 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
+* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 

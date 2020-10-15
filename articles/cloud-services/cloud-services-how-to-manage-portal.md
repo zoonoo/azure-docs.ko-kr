@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002933"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076711"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
@@ -83,7 +83,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 **교환에 응용 프로그램에 대 한 가동 중지 시간이 발생 하나요? 어떻게 처리 해야 하나요?**
 
-이전 섹션에서 설명한 대로 배포 교환은 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 빠릅니다. 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](../best-practices-retry-general.md) 구현을 고려해 보세요.
+이전 섹션에서 설명한 대로 배포 교환은 Azure Load Balancer에서의 구성 변경일 뿐이므로, 일반적으로 빠릅니다. 경우에 따라 10초 이상 걸리며 일시적인 연결 오류가 발생할 수 있습니다. 고객에게 미치는 영향을 최소화하려면 [고객 재시도 논리](/azure/architecture/best-practices/transient-faults) 구현을 고려해 보세요.
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>배포 및 클라우드 서비스 삭제
 클라우드 서비스를 삭제하려면 먼저 각각의 기존 배포를 삭제해야 합니다.
@@ -124,6 +124,3 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 * [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
 * [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
 * [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
-
-
-

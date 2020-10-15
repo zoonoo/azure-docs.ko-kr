@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: b6416438b8c970f4a92f73004e67f90a28210500
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335469"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076898"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
@@ -87,4 +87,4 @@ ms.locfileid: "91335469"
 
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
-+ [정책 샘플](policy-samples.md)
++ [정책 샘플](./policy-reference.md)

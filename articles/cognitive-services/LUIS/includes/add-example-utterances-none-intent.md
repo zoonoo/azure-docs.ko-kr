@@ -9,10 +9,10 @@ ms.custom: include file
 ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.openlocfilehash: 1509d175979bb65c467424db5de967f56825a3f9
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91545485"
 ---
 클라이언트 애플리케이션은 발언에 의미가 있는지 또는 애플리케이션에 적합한지 여부를 알아야 합니다. **없음** 의도는 생성 프로세스의 일부로 각 애플리케이션에 추가되어 클라이언트 애플리케이션이 발화에 응답하지 않아야 하는지 여부를 확인합니다.

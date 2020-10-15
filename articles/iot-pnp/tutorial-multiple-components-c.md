@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1873d2acb96c0c94c7e0d678e450596c60ca51fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575404"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046386"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>자습서: Linux 또는 Windows에서 실행되는 IoT 플러그 앤 플레이 다중 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(C)
 
@@ -52,7 +52,7 @@ gcc --version
 
 Windows에서 이 자습서를 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
+* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 [설치](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019)할 때 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 

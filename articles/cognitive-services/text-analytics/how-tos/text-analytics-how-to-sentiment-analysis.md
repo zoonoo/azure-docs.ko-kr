@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 08/25/2020
+ms.date: 10/09/2020
 ms.author: aahi
-ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933021"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930291"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -78,13 +78,13 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔**을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-[감정 분석 v3 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
-
 #### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
 
 [감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+[감정 분석 v3 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
 
 ---
 
@@ -95,10 +95,6 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
-
 #### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
@@ -108,6 +104,10 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 
 기본적으로 이 매개 변수는 `false`로 설정됩니다. 
+
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
 ---
 
@@ -141,44 +141,6 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 감정 분석은 전체 문서와 그 안에 포함된 각 문장의 감정 레이블과 신뢰도 점수를 반환합니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 문서에는 여러 문장이 있을 수 있으며, 각 문서 또는 문장 내 신뢰도 점수의 합계는 1입니다.
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [오프셋 처리 방법](../concepts/text-offsets.md)을 참조하세요.
-
-#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-### <a name="sentiment-analysis-v30-example-response"></a>감정 분석 v3.0 응답 예제
-
-감정 분석 v3의 응답에는 분석한 각 문장과 문서의 감정 레이블 및 점수가 포함됩니다.
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly."
-                }
-            ],
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
-}
-```
 
 #### <a name="version-31-preview1"></a>[버전 3.1-preview.1](#tab/version-3-1)
 
@@ -266,6 +228,44 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
                             "isNegated": false
                         }
                     ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
+}
+```
+
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+### <a name="sentiment-analysis-v30-example-response"></a>감정 분석 v3.0 응답 예제
+
+감정 분석 v3의 응답에는 분석한 각 문장과 문서의 감정 레이블 및 점수가 포함됩니다.
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
                 }
             ],
             "warnings": []

@@ -4,12 +4,12 @@ description: CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 �
 ms.date: 10/07/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 93d875c55a671fe68cec720bc78507fcbec638b9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5da46631d0b6cfcd142ab32172de306115a080bd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91820021"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932161"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 

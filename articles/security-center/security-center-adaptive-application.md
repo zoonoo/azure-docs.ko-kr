@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996801"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076983"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -159,7 +159,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Azure 대시보드에서 적응 응용 프로그램 컨트롤 열기" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > 파일 형식 보호 모드 설정의 **적용** 옵션은 모든 시나리오에서 회색으로 표시 됩니다. 지금은 적용 옵션을 사용할 수 없습니다. 
+    > 파일 형식 보호 모드 설정의 **적용** 옵션은 **모든** 시나리오에서 회색으로 표시 됩니다. 지금은 적용 옵션을 사용할 수 없습니다. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Azure 대시보드에서 적응 응용 프로그램 컨트롤 열기":::
 

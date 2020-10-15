@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdf7a46dec6f4ea766d5d5a039109022755bc3fb
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761280"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046339"
 ---
 # <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>자습서: IoT 플러그 앤 플레이 디바이스를 모듈(C#)로 변환하는 방법
 
 이 자습서에서는 IoT 플러그 앤 플레이 디바이스 코드를 제네릭 모듈로 변환하는 방법을 보여 줍니다.
 
-디바이스가 IoT 허브에 연결할 때 해당 모델 ID를 게시하고 모델 ID로 식별되는 DTDL(Digital Twins Definition Language) 모델에 설명된 속성 및 메서드를 구현하는 경우 IoT 플러그 앤 플레이 디바이스입니다. 디바이스에서 DTDL 및 모델 ID를 사용하는 방법에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 개발자 가이드](concepts-developer-guide.md)를 참조하세요. 모듈은 모델 ID와 DTDL 모델을 같은 방식으로 사용합니다.
+디바이스가 IoT 허브에 연결할 때 해당 모델 ID를 게시하고 모델 ID로 식별되는 DTDL(Digital Twins Definition Language) 모델에 설명된 속성 및 메서드를 구현하는 경우 IoT 플러그 앤 플레이 디바이스입니다. 디바이스에서 DTDL 및 모델 ID를 사용하는 방법에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 개발자 가이드](./concepts-developer-guide-device-csharp.md)를 참조하세요. 모듈은 모델 ID와 DTDL 모델을 같은 방식으로 사용합니다.
 
 IoT 플러그 앤 플레이 모듈을 구현하는 방법을 설명하기 위해 이 자습서에서는 자동 온도 조절기 C# 디바이스 샘플을 제네릭 모듈로 변환하는 방법을 보여 줍니다.
 
@@ -224,7 +224,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 컨테이너화된 모듈을 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Ubuntu Virtual Machines에서 Azure IoT Edge 실행](../iot-edge/how-to-install-iot-edge-ubuntuvm.md)
-* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge-linux.md)
+* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
 
 Azure IoT 탐색기 도구를 사용하여 다음을 확인할 수 있습니다.
 
@@ -238,4 +238,4 @@ Azure IoT 탐색기 도구를 사용하여 다음을 확인할 수 있습니다.
 이 자습서에서는 모듈을 통해 IoT 플러그 앤 플레이 디바이스를 IoT 허브에 연결하는 방법을 알아보았습니다. IoT 플러그 앤 플레이 디바이스 모델에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [IoT 플러그 앤 플레이 모델링 개발자 가이드](concepts-developer-guide.md)
+> [IoT 플러그 앤 플레이 모델링 개발자 가이드](./concepts-developer-guide-device-csharp.md)
