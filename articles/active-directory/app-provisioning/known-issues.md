@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052389"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069758"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -72,7 +72,7 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 **프로 비전 간격이 고정 되어 있습니다.**
 
-프로 비전 주기 사이의 [시간은](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) 현재 구성할 수 없습니다. 
+프로 비전 주기 사이의 [시간은](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) 현재 구성할 수 없습니다. 
 
 **대상 앱에서 Azure AD로 이동 하지 않는 변경 내용**
 

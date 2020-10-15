@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.openlocfilehash: 613ce41820dc5f388af441836bdb4a93e43e5d07
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987641"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>자습서: PowerShell 워크플로 Runbook 만들기

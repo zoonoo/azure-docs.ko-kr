@@ -9,10 +9,10 @@ ms.date: 02/20/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c1259584e91461865b0c7e7bbbd6aced1781827b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67708430"
 ---
 리소스 그룹에 두 개의 태그를 추가하려면 [az group update](/cli/azure/group) 명령을 사용합니다.

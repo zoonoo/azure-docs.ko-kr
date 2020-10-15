@@ -10,10 +10,10 @@ ms.date: 09/02/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 9282eaa98675abf1d2006b182739297bfb478bba
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962794"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>CLI를 사용하여 GitHub에서 지속적인 배포를 통해 App Service 앱 만들기

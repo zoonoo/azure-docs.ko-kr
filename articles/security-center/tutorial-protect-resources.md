@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 56dd74fba46aa8b79c94b1460996bb6edb1ff93f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89d04588d07407be5dbd7ddbafd6543ed461462e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904612"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945722"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>자습서: Azure Security Center로 리소스 보호
 Security Center는 액세스 및 애플리케이션 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. JIT(Just-In-Time) VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 애플리케이션 제어는 VM에서 실행할 수 있는 애플리케이션을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.

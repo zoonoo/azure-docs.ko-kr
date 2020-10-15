@@ -1,24 +1,24 @@
 ---
 title: DoD 영향 수준 5 청사진 샘플 컨트롤
-description: DoD 영향 수준 5 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
+description: DoD 영향 수준 5 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6cd92cba69367c611a0e3a3c435e41e973a80d73
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540543"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929492"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>DoD 영향 수준 5 청사진 샘플의 컨트롤 매핑
 
-다음 문서에서는 Azure Blueprints DoD IL5(국방부 영향 수준 5) 청사진 샘플이 DoD 영향 수준 5 컨트롤에 매핑되는 방법을 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf)를 참조하세요. DISA(방어 정보 시스템 기관)는 DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)를 개발하고 유지 관리하는 미국 DoD(국방부)의 기관입니다. SRG는 DoD 정보, 시스템 및 애플리케이션을 호스팅하는 CSP(클라우드 서비스 공급자)와 DoD의 클라우드 서비스 사용에 대한 기본 보안 요구 사항을 정의합니다.  
+다음 문서에서는 Azure Blueprints DoD IL5(국방부 영향 수준 5) 청사진 샘플이 DoD 영향 수준 5 컨트롤에 매핑되는 방법을 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf)를 참조하세요.
+DISA(방어 정보 시스템 기관)는 DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)를 개발하고 유지 관리하는 미국 DoD(국방부)의 기관입니다. SRG는 DoD 정보, 시스템 및 애플리케이션을 호스팅하는 CSP(클라우드 서비스 공급자)와 DoD의 클라우드 서비스 사용에 대한 기본 보안 요구 사항을 정의합니다.  
 
 다음 매핑은 **DoD 영향 수준 5** 컨트롤에 대한 것입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: DoD 영향 수준 5** 기본 제공 정책 이니셔티브를 찾아 선택합니다.
 
 > [!IMPORTANT]
-> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다.
-> 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md)을 참조하세요.
+> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md)을 참조하세요.
 
 ## <a name="ac-2-account-management"></a>AC-2 계정 관리
 
@@ -238,7 +238,8 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 취약성 검색
 
-이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
+이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다.
+Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
 
 - SQL Managed Instance에서 Advanced Data Security를 사용하도록 설정해야 함
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
@@ -255,8 +256,7 @@ Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층�
 
 ## <a name="sc-7-boundary-protection"></a>SC-7 경계 보호
 
-이 청사진을 사용하면 Azure Security Center에서 네트워크 보안 그룹 강화 추천 사항을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 경계를 관리하고 제어할 수 있습니다. Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하여 공격 노출 영역을 줄일 수 있는 네트워크 보안 그룹 규칙 추천 사항을 제공합니다.
-또한 이 청사진은 보호되지 않은 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 정책 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
+이 청사진을 사용하면 Azure Security Center에서 네트워크 보안 그룹 강화 추천 사항을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 경계를 관리하고 제어할 수 있습니다. Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하여 공격 노출 영역을 줄일 수 있는 네트워크 보안 그룹 규칙 추천 사항을 제공합니다. 또한 이 청사진은 보호되지 않은 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 정책 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
 
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.
 - 스토리지 계정은 네트워크 액세스를 제한해야 함
