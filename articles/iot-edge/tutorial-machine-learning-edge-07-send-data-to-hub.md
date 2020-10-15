@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78d3cbac28a85452f23e4a7c7ba3904fe3d1f488
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ec7337ad798d586cb93bd13e60ead1ef9f2a4abe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997883"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857251"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>자습서: 투명 게이트웨이를 통해 데이터 보내기
 
@@ -238,5 +238,8 @@ Avro 파일을 읽고 파일에 메시지의 JSON 문자열을 반환하기 위�
 
 자세한 내용은 다음 페이지에서 확인할 수 있습니다.
 
-* [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)
-* [IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장](how-to-store-data-blob.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: aa33106f200b2edb3b710c6b0e08208bd4da8ace
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932263"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089318"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -80,9 +80,9 @@ Azure 전용 HSM을 사용 하 여 고객 관리 키 (Bring Your Own Key)에 대
 
 아니요. 현재는 네트워크 보안 그룹을 Azure NetApp Files의 위임 된 서브넷 이나 서비스에서 만든 네트워크 인터페이스에 적용할 수 없습니다.
 
-### <a name="can-i-use-azure-iam-with-azure-netapp-files"></a>Azure NetApp Files에서 Azure IAM을 사용할 수 있나요?
+### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>Azure NetApp Files에서 Azure RBAC를 사용할 수 있나요?
 
-예, Azure NetApp Files는 Azure IAM에서 RBAC 기능을 지원 합니다.
+예, Azure NetApp Files는 Azure RBAC 기능을 지원 합니다.
 
 ## <a name="performance-faqs"></a>성능 FAQ
 
@@ -200,7 +200,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예제:
+예:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

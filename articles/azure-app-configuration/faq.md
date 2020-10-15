@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715438"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074960"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
 
@@ -45,11 +45,11 @@ Key Vault에 저장 된 암호를 참조 하는 앱 구성 값을 만들 수 있
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>앱 구성에 저장 된 데이터는 어디에 있나요? 
 
-앱 구성에 저장 된 고객 데이터는 고객의 앱 구성 저장소가 생성 된 지역에 상주 합니다. 앱 구성은 데이터 복원 력을 위해 [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 데이터를 복제할 수 있지만 [Azure에서 데이터 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)정의한 대로 지역 외부로 고객 데이터를 복제 하거나 이동 하지 않습니다. 고객과 최종 사용자는 전 세계 어디에서 든 지 고객 데이터를 이동, 복사 또는 액세스할 수 있습니다.
+앱 구성에 저장 된 고객 데이터는 고객의 앱 구성 저장소가 생성 된 지역에 상주 합니다. 앱 구성은 데이터 복원 력을 위해 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md) 에 데이터를 복제할 수 있지만 [Azure에서 데이터 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)정의한 대로 지역 외부로 고객 데이터를 복제 하거나 이동 하지 않습니다. 고객과 최종 사용자는 전 세계 어디에서 든 지 고객 데이터를 이동, 복사 또는 액세스할 수 있습니다.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>앱 구성이 Azure App Service 설정과 어떻게 다른가?
 
-Azure App Service를 사용 하 여 각 App Service 인스턴스에 대 한 앱 설정을 정의할 수 있습니다. 이러한 설정은 응용 프로그램 코드에 환경 변수로 전달 됩니다. 원하는 경우 특정 배포 슬롯에 설정을 연결할 수 있습니다. 자세한 내용은 [앱 설정 구성](/azure/app-service/configure-common#configure-app-settings)을 참조 하세요.
+Azure App Service를 사용 하 여 각 App Service 인스턴스에 대 한 앱 설정을 정의할 수 있습니다. 이러한 설정은 응용 프로그램 코드에 환경 변수로 전달 됩니다. 원하는 경우 특정 배포 슬롯에 설정을 연결할 수 있습니다. 자세한 내용은 [앱 설정 구성](../app-service/configure-common.md#configure-app-settings)을 참조 하세요.
 
 반면 Azure 앱 구성을 사용 하면 여러 앱 간에 공유할 수 있는 설정을 정의할 수 있습니다. 여기에는 App Service에서 실행 되는 앱 및 기타 플랫폼이 포함 됩니다. 응용 프로그램 코드는 Azure SDK를 통해 또는 REST Api를 통해 직접 .NET 및 Java 용 구성 공급자를 통해 이러한 설정에 액세스 합니다.
 

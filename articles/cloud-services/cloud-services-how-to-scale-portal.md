@@ -7,19 +7,19 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86223689"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076677"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 
 규모 감축 또는 규모 확장 작업을 트리거하는 클라우드 서비스 작업자 역할에 대해 조건을 설정할 수 있습니다. 역할에 대한 조건은 CPU, 디스크 또는 역할의 네트워크 부하를 기반으로 할 수 있습니다. 메시지 큐 또는 구독에 연결된 일부 다른 Azure 리소스의 메트릭을 기준으로 조건을 설정할 수도 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 중점을 둡니다. 가상 머신(클래식)를 직접 만든 경우 이 가상 머신은 클라우드 서비스에서 호스트됩니다. 표준 가상 머신을 [가용성 집합](../virtual-machines/windows/classic/configure-availability-classic.md)에 연결하여 규모를 조정하고 수동으로 켜거나 끌 수 있습니다.
+> 이 문서에서는 클라우드 서비스 웹 및 작업자 역할에 중점을 둡니다. 가상 머신(클래식)를 직접 만든 경우 이 가상 머신은 클라우드 서비스에서 호스트됩니다. 표준 가상 머신을 [가용성 집합](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic)에 연결하여 규모를 조정하고 수동으로 켜거나 끌 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항
 애플리케이션의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
@@ -105,6 +105,3 @@ ms.locfileid: "86223689"
 3. 크기를 조정할 역할의 인스턴스입니다.
 
 크기 조정 설정을 구성한 후 맨 위에 있는 **저장** 아이콘을 선택합니다.
-
-
-

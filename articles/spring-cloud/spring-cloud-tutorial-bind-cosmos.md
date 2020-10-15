@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b7af755c7f0903787bb3798ea1f6877cae180f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20926988d554d562f36587734bd99c34b4731e69
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908320"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088723"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩
 
@@ -29,7 +29,7 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 
 Azure Cosmos DB에는 바인딩을 지원하는 다음 5가지 API 형식이 있습니다. 아래 절차에서는 이를 사용하는 방법을 보여 줍니다.
 
-1. Azure Cosmos DB 데이터베이스를 만듭니다. 도움말은 [데이터베이스 만들기](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)에 대한 빠른 시작을 참조하세요. 
+1. Azure Cosmos DB 데이터베이스를 만듭니다. 도움말은 [데이터베이스 만들기](../cosmos-db/create-cosmosdb-resources-portal.md)에 대한 빠른 시작을 참조하세요. 
 
 1. 데이터베이스의 이름을 기록합니다. 이 절차에서 데이터베이스 이름은 **testdb**입니다.
 

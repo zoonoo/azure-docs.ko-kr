@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 9a4c758c1f4dc790e9d5cba1e205956affd58f63
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 61241f361be3a9a60c8125f891525a078954afdf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535079"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858084"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>자습서: Kronos와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -86,15 +86,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Kronos 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성을 보여줍니다.](common/edit-attribute.png)
 
 1. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
     a. **편집** 아이콘을 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](./media/kronos-tutorial/tutorial_usermail.png)
+    ![스크린샷은 편집 아이콘이 선택된 사용자 특성 및 크레임을 보여줍니다.](./media/kronos-tutorial/tutorial_usermail.png)
 
-    ![이미지](./media/kronos-tutorial/tutorial_usermailedit.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 클레임 관리 대화 상자를 보여줍니다.](./media/kronos-tutorial/tutorial_usermailedit.png)
 
     b. **변환** 목록에서 **ExtractMailPrefix()** 를 선택합니다.
 

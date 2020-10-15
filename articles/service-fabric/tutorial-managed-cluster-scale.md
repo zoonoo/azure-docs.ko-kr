@@ -4,10 +4,10 @@ description: 이 자습서에서는 Service Fabric 관리형 클러스터의 노
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.openlocfilehash: a6777743932f3cc73db973c4d9935d4b5827700b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91410239"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터 확장 방법(미리 보기)

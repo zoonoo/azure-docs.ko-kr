@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 23ca4be9387754c84dc256dd72b131bd5b76b458
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056230"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876467"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -177,19 +177,19 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 코드마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
 
-프로젝트 템플릿과 함께 제공되는 샘플 C# 코드는 .NET용 IoT Hub SDK에서 [ModuleClient 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)를 사용합니다.
+프로젝트 템플릿과 함께 제공되는 샘플 C# 코드는 .NET용 IoT Hub SDK에서 [ModuleClient 클래스](/dotnet/api/microsoft.azure.devices.client.moduleclient)를 사용합니다.
 
 1. **modules/SampleModule/** 폴더 내에 있는 **Program.cs** 파일을 엽니다.
 
 2. program.cs에서 **SetInputMessageHandlerAsync** 메서드를 찾습니다.
 
-3. [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) 메서드는 들어오는 메시지를 수신하는 입력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **input1**이라는 입력 큐를 초기화하는 방법을 확인합니다.
+3. [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) 메서드는 들어오는 메시지를 수신하는 입력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **input1**이라는 입력 큐를 초기화하는 방법을 확인합니다.
 
    ![SetInputMessageCallback 생성자에서 입력 이름 찾기](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. 다음으로 **SendEventAsync** 메서드를 찾습니다.
 
-5. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) 메서드는 수신된 메시지를 처리하며, 해당 메시지를 전달할 출력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **output1**이라는 출력 큐를 초기화하는 모습을 살펴보세요.
+5. [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) 메서드는 수신된 메시지를 처리하며, 해당 메시지를 전달할 출력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **output1**이라는 출력 큐를 초기화하는 모습을 살펴보세요.
 
    ![SendEventToOutputAsync에서 출력 이름 찾기](./media/tutorial-develop-for-linux/declare-output-queue.png)
 

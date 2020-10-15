@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: fca14ed4e3b338f9b49f949af7498dfd49990d3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142386"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076694"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
@@ -84,13 +84,10 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## <a name="next-steps"></a>다음 단계
 * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
 * [사용자 지정 도메인 이름을](cloud-services-custom-domain-name-portal.md)구성 합니다.
 * [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
 * [TLS/SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성 합니다.
-
-
-

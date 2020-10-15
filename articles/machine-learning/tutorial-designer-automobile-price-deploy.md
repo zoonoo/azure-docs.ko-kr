@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
 ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90896639"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>자습서: 디자이너를 사용하여 Machine Learning 모델 배포
@@ -99,7 +99,7 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
 1. **배포**를 선택합니다.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="새 실시간 엔드포인트를 설정하는 방법을 보여주는 스크린샷":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="파이프라인 만들기 단추를 찾을 수 있는 위치를 보여주는 스크린샷":::
 
     배포가 완료된 후 캔버스 위의 성공 알림이 나타납니다. 몇 분 정도 걸릴 수 있습니다.
 

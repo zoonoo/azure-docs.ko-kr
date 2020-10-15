@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2417389de98f9998c189e7cbbbcdae77fbb8840
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75360313"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075062"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다.
@@ -154,13 +154,10 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 **변�
 [포장합니다](cloud-services-model-and-package.md) .  
 
 [ServiceDefinition. .csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Startup 클래스]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
-[런타임]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-[RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-
-
-
+[Task]: /previous-versions/azure/reference/gg557552(v=azure.100)#Task
+[Startup 클래스]: /previous-versions/azure/reference/gg557552(v=azure.100)#Startup
+[런타임]: /previous-versions/azure/reference/gg557552(v=azure.100)#Runtime
+[환경]: /previous-versions/azure/reference/gg557552(v=azure.100)#Environment
+[변수]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
+[RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
+[RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)
