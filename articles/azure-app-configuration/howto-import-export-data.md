@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 21eba653bcd853db9550d0d3781aacd281884605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e127a11f3821325602a78d46c69b2330bfb8293
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588078"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074620"
 ---
 # <a name="import-or-export-configuration-data"></a>구성 데이터 가져오기 또는 내보내기
 
 Azure 앱 구성은 데이터 가져오기 및 내보내기 작업을 지원 합니다. 이러한 작업을 사용 하 여 구성 데이터를 대량으로 작업 하 고 앱 구성 저장소와 코드 프로젝트 간에 데이터를 교환할 수 있습니다. 예를 들어 테스트용으로 하나의 앱 구성 저장소를 설정 하 고 프로덕션에 다른 앱 구성 저장소를 설정할 수 있습니다. 데이터를 두 번 입력 하지 않아도 되도록 응용 프로그램 설정을 복사할 수 있습니다.
 
-이 문서에서는 앱 구성을 사용 하 여 데이터를 가져오고 내보내는 방법에 대 한 지침을 제공 합니다. GitHub 리포지토리와의 지속적인 동기화를 설정 하려는 경우 [Github 작업](https://aka.ms/azconfig-gha1)을 살펴보세요.
+이 문서에서는 앱 구성을 사용 하 여 데이터를 가져오고 내보내는 방법에 대 한 지침을 제공 합니다. GitHub 리포지토리와의 지속적인 동기화를 설정 하려는 경우 [Github 작업](./concept-github-action.md)을 살펴보세요.
 
 ## <a name="import-data"></a>데이터 가져오기
 
@@ -65,4 +65,4 @@ Azure 앱 구성은 데이터 가져오기 및 내보내기 작업을 지원 합
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core 웹앱 만들기](./quickstart-aspnet-core-app.md)  
+> [ASP.NET Core 웹앱 만들기](./quickstart-aspnet-core-app.md)

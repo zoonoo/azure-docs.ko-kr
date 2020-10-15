@@ -52,10 +52,12 @@
           items:
             - name: VMware VM 마이그레이션 옵션 정보
               href: server-migrate-overview.md
-            - name: 에이전트 없는 마이그레이션을 사용하여 VMware VM 마이그레이션
+            - name: 에이전트 없는 마이그레이션을 사용하여 VMware VM 마이그레이션 - Azure Portal
               href: tutorial-migrate-vmware.md
             - name: 에이전트 기반 마이그레이션을 사용하여 VMware VM 마이그레이션
               href: tutorial-migrate-vmware-agent.md
+            - name: 에이전트 없는 마이그레이션을 사용하여 VMware VM 마이그레이션 - PowerShell
+              href: tutorial-migrate-vmware-powershell.md
         - name: Hyper-V VM 마이그레이션
           href: tutorial-migrate-hyper-v.md
         - name: 물리적 서버 마이그레이션

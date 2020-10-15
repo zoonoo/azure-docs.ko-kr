@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: af3eb828e1fd2c4aa14467e5afc18f1b5a0b7fa1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047712"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075028"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Synapse SQL 풀에 대한 데이터 로드 전략
 
@@ -24,7 +24,7 @@ ms.locfileid: "92047712"
 
 ELT(추출, 로드 및 변환) 프로세스를 사용하면 MPP를 활용할 수 있으며, 데이터를 로드하기 전에 변환하기 위한 리소스가 필요하지 않습니다.
 
-SQL 풀은 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 등의 널리 사용되는 SQL Server 옵션을 비롯한 여러 로드 방법을 지원하지만, 데이터를 로드하는 가장 빠르고 확장성 있는 방법은 PolyBase 외부 테이블과 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)(미리 보기)을 사용하는 것입니다.
+SQL 풀은 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)와 같은 인기 있는 SQL Server 옵션을 포함 하 여 많은 로드 방법을 지원 하지만, 데이터를 로드 하는 가장 빠르고 확장성 있는 방법은 PolyBase 외부 테이블 및 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)사용 하는 것입니다.
 
 PolyBase와 COPY 문을 사용하면 T-SQL 언어를 통해 Azure Blob Storage 또는 Azure Data Lake Store에 저장된 외부 데이터에 액세스할 수 있습니다. 로드 시 유연성을 극대화하려면 COPY 문을 사용하는 것이 좋습니다.
 

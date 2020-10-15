@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 734c898dae10233463fbf783802ffae4c6a3add8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2087c83ec48b0b732ce1cb954f78fad9b46fef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997934"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857438"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
@@ -809,14 +809,6 @@ IoT Edge 디바이스(여기서는 Linux VM)에 로그인하면 모듈 상태에
 이 문서에서는 Visual Studio Code에서 분류자, 라우터, 파일 기록기/업로더의 세 가지 모듈을 사용하여 IoT Edge 솔루션을 만들었습니다. 모듈이 에지 디바이스에서 서로 통신할 수 있도록 경로를 설정했습니다. 에지 디바이스의 구성을 수정하고, Dockerfile을 업데이트하여 종속성을 설치하고 모듈의 컨테이너에 바인딩 탑재를 추가했습니다. 
 
 다음으로, 형식에 따라 메시지를 라우팅하고 파일 업로드를 처리하도록 IoT Hub 구성을 업데이트했습니다. 모든 것이 제대로 준비되면 모듈을 IoT Edge 디바이스에 배포하고 올바르게 실행되는지 확인했습니다.
-
-자세한 지침은 다음 문서를 참조하세요.
-
-* [IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)
-* [IoT Hub 메시지 라우팅 쿼리 구문](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [IoT Hub 메시지 라우팅: 이제 메시지 본문에서 라우팅 사용](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
-* [IoT Hub를 사용하여 파일 업로드](../iot-hub/iot-hub-devguide-file-upload.md)
-* [IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드](../iot-hub/iot-hub-python-python-file-upload.md)
 
 데이터 보내기를 시작하고 솔루션의 작동을 확인하려면 다음 문서로 계속 진행하세요.
 

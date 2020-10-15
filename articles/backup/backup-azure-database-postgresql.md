@@ -4,12 +4,12 @@ description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997312"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093891"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)
 
@@ -17,7 +17,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 장기 보존 외에도 솔루션은 아래에 나열 된 것과 같은 다양 한 기능을 제공 합니다.
 
-- Azure Active Directory 및 관리 서비스 ID (MSI) 인증을 사용 하는 데이터베이스에 대 한 RBAC 기반 액세스
+- Azure RBAC (역할 기반 access control)를 사용 하 여 데이터베이스에 대 한 Azure Active Directory 및 관리 서비스 ID (MSI) 인증을 사용 합니다.
 - 고객이 개별 데이터베이스 수준에서 예약 및 주문형 백업을 제어 했습니다.
 - 데이터베이스 수준은 모든 Postgres server로 또는 blob 저장소에 직접 복원 됩니다.
 - 장기 보존.
