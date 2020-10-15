@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 780a16d691e0d8afe62cd06f37a37fc3f6445ea6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259518"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
@@ -57,7 +57,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 **검토 + 만들기**를 선택한 다음, **만들기**를 선택하여 레지스트리 인스턴스를 만듭니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 구성":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-02.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 이 자습서의 나머지 부분에서는 선택한 컨테이너 **레지스트리 이름**의 자리 표시자로 `<acrName>`을 사용합니다.
 
@@ -70,19 +70,19 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스** 아래에서 **복제**를 선택합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal 컨테이너 레지스트리 UI의 복제":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 지역에서 복제에 사용할 수 있는 Azure 영역을 나타내는 녹색 육각형이 지도에 표시됩니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal의 지역 지도":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 녹색 육각형을 선택하여 미국 동부 지역에 레지스트리를 복제한 다음 **복제 만들기**에서 **만들기**를 선택합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 복제 UI 만들기":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 복제가 완료되면 포털에서 두 영역 모두에 *준비*가 반영됩니다. **새로 고침** 단추를 사용하여 복제 상태를 새로 고치세요. 복제본을 만들고 동기화하는 데 1~2분 정도 걸릴 수 있습니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal의 복제 상태 UI":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-05.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 
 ## <a name="enable-admin-account"></a>관리자 계정 사용
@@ -91,7 +91,7 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **설정** 아래에서 **액세스 키**를 선택합니다. **관리 사용자**에서 **사용**을 선택합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 관리자 계정 사용":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 
 ## <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
@@ -110,7 +110,7 @@ az acr login --name <acrName>
 
 이 자습서의 샘플에는 [ASP.NET Core][aspnet-core]로 작성한 작은 웹 애플리케이션이 포함되어 있습니다. 이 응용 프로그램은 Azure Container Registry에서 이미지가 배포된 지역을 표시하는 HTML 페이지를 제공합니다.
 
-:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="브라우저에 표시된 자습서 앱":::
+:::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-app-01.png" alt-text="Azure Portal에서 컨테이너 레지스트리 만들기":::
 
 Git을 사용하여 샘플을 로컬 디렉터리에 다운로드하고 `cd`를 디렉터리에 다운로드합니다.
 
