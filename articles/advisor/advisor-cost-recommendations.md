@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448175"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075912"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
@@ -60,7 +60,7 @@ Advisor는 다음 리소스에 대 한 지난 30 일간의 사용 패턴을 분�
 Advisor는 지난 30 일간의 Azure Cosmos DB 사용 패턴을 분석 하 고 비용을 최적화 하기 위해 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 시간별 사용량 Azure Cosmos DB 사전 구매 하 고 종 량 제 비용을 절감할 수 있습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 사용 패턴을 추정 하 여 각 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다.
 
 ### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>SQL Database 및 SQL Managed Instance 예약 된 용량
-Advisor는 지난 30 일 동안 SQL Database 및 SQL Managed Instance 사용 패턴을 분석 합니다. 그런 다음 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 SQL DB 시간별 사용량을 미리 구매 하 고 SQL 계산 비용을 절감할 수 있습니다. SQL 라이선스는 별도로 청구 되며 예약에 의해 할인 되지 않습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 사용 패턴을 추정 하 여 각 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다. 자세한 내용은 [Azure SQL Database & SQL Managed Instance 예약 된 용량](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview)을 참조 하세요.
+Advisor는 지난 30 일 동안 SQL Database 및 SQL Managed Instance 사용 패턴을 분석 합니다. 그런 다음 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 SQL DB 시간별 사용량을 미리 구매 하 고 SQL 계산 비용을 절감할 수 있습니다. SQL 라이선스는 별도로 청구 되며 예약에 의해 할인 되지 않습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 사용 패턴을 추정 하 여 각 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다. 자세한 내용은 [Azure SQL Database & SQL Managed Instance 예약 된 용량](../azure-sql/database/reserved-capacity-overview.md)을 참조 하세요.
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>App Service 스탬프 요금 예약 용량
 Advisor는 지난 30 일 동안 Azure App Service 격리 된 환경에 대 한 스탬프 요금 사용 패턴을 분석 하 고 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하면 격리 된 환경 스탬프 요금에 대 한 시간별 사용량을 사전에 구매 하 여 종 량 제 비용을 절감할 수 있습니다. 예약 된 용량은 스탬프 요금에만 적용 되 고 App Service 인스턴스에는 적용 되지 않습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안의 사용 패턴을 기반으로 3 년간의 예약 가격 책정을 사용 하 여 개별 구독에 대 한 예상 절감 액을 계산 합니다.

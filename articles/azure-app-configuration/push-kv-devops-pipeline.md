@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719702"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075878"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성에 설정 푸시
 
@@ -56,7 +56,7 @@ ms.locfileid: "88719702"
 
 이 섹션에서는 Azure DevOps 빌드 파이프라인에서 Azure 앱 구성 푸시 작업을 사용 하는 방법을 설명 합니다.
 
-1. **파이프라인**파이프라인을 클릭 하 여 빌드 파이프라인 페이지로 이동  >  **Pipelines**합니다. 빌드 파이프라인에 대 한 설명서는 [여기](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)에서 찾을 수 있습니다.
+1. **파이프라인**파이프라인을 클릭 하 여 빌드 파이프라인 페이지로 이동  >  **Pipelines**합니다. 빌드 파이프라인에 대 한 설명서는 [여기](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops)에서 찾을 수 있습니다.
       - 새 빌드 파이프라인을 만드는 경우 파이프라인의 오른쪽에서 **보조자 표시** 를 선택 하 고 **Azure 앱 구성 푸시** 작업을 검색 합니다.
       - 기존 빌드 파이프라인을 사용 하는 경우 파이프라인을 편집할 때 **작업** 탭으로 이동 하 여 **Azure 앱 구성 푸시** 작업을 검색 합니다.
 2. 구성 파일의 키 값을 앱 구성 저장소로 푸시하는 작업에 필요한 매개 변수를 구성 합니다. **구성 파일 경로** 매개 변수는 파일 리포지토리의 루트에서 시작 합니다.
@@ -66,10 +66,10 @@ ms.locfileid: "88719702"
 
 이 섹션에서는 Azure DevOps 릴리스 파이프라인에서 Azure 앱 구성 푸시 작업을 사용 하는 방법을 설명 합니다.
 
-1. **파이프라인**릴리스를 선택 하 여 릴리스 파이프라인 페이지로 이동  >  **Releases**합니다. 릴리스 파이프라인에 대 한 설명서는 [여기](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops)에서 찾을 수 있습니다.
+1. **파이프라인**릴리스를 선택 하 여 릴리스 파이프라인 페이지로 이동  >  **Releases**합니다. 릴리스 파이프라인에 대 한 설명서는 [여기](/azure/devops/pipelines/release?view=azure-devops)에서 찾을 수 있습니다.
 1. 기존 릴리스 파이프라인을 선택 합니다. 없는 경우 **+ 새로** 만들기를 선택 하 여 새 항목을 만듭니다.
 1. 오른쪽 위 모서리에서 **편집** 단추를 선택 하 여 릴리스 파이프라인을 편집 합니다.
-1. **단계** 를 선택 하 여 작업을 추가 합니다. 단계에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops)를 참조 하세요.
+1. **단계** 를 선택 하 여 작업을 추가 합니다. 단계에 대 한 자세한 내용은 [여기](/azure/devops/pipelines/release/environments?view=azure-devops)를 참조 하세요.
 1. **+** 해당 작업에 대해를 선택 하 고 **배포** 탭에서 **Azure 앱 구성 푸시** 작업을 추가 합니다.
 1. 작업 내에서 필요한 매개 변수를 구성 하 여 구성 파일의 키 값을 앱 구성 저장소로 푸시합니다. 매개 변수에 대 한 설명은 아래의 **매개 변수** 섹션 및 각 매개 변수 옆에 있는 도구 설명에서 사용할 수 있습니다.
 1. 릴리스를 저장 하 고 큐에 대기 합니다. 릴리스 로그에는 태스크를 실행 하는 동안 발생 한 모든 오류가 표시 됩니다.
