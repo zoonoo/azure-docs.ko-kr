@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f54467c03a67797d52ac499ca9ba455c0f75e240
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399638"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071458"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>OPC 자격 증명 모음 인증서 관리 서비스를 안전 하 게 실행
 
@@ -97,7 +97,7 @@ OPC 자격 증명 모음 마이크로 서비스는 다음 역할을 정의 합�
 적절 한 보안 모니터링을 구독 하거나 구현 합니다. 예를 들어 Azure Security Center 또는 Microsoft 365 모니터링 솔루션과 같은 중앙 모니터링 솔루션을 구독 하 고, 보안 이벤트가 모니터링 솔루션에 전송 되도록 적절 하 게 구성 합니다.
 
 > [!IMPORTANT]
-> 기본적으로 OPC 자격 증명 모음 서비스는 [Azure 애플리케이션 정보](https://docs.microsoft.com/azure/azure-monitor/app/devops) 를 모니터링 솔루션으로 사용 하 여 배포 됩니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/) 와 같은 보안 솔루션을 추가 하는 것이 좋습니다.
+> 기본적으로 OPC 자격 증명 모음 서비스는 [Azure 애플리케이션 정보](../azure-monitor/app/devops.md) 를 모니터링 솔루션으로 사용 하 여 배포 됩니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/) 와 같은 보안 솔루션을 추가 하는 것이 좋습니다.
 
 ### <a name="assess-the-security-of-open-source-software-components"></a>오픈 소스 소프트웨어 구성 요소의 보안 평가
 
@@ -145,7 +145,7 @@ CA 계층 구조 설명서는 모든 운영 Ca를 포함 해야 합니다. 여�
 
 ### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>암호화 키를 안전 하 게 삭제 하는 표준 운영 절차 문서화
 
-CA 수명이 지속 되는 동안에는 키 삭제가 드물게 발생할 수 있습니다. 이는 사용자에 게 Key Vault 인증서 삭제 권한이 할당 되지 않은 이유와 발급자 CA 인증서를 삭제 하기 위해 제공 된 Api가 없는 이유입니다. 인증 기관 암호화 키를 안전 하 게 삭제 하는 수동 표준 운영 절차는 Azure Portal Key Vault에 직접 액세스 하는 경우에만 사용할 수 있습니다. Key Vault에서 인증서 그룹을 삭제할 수도 있습니다. 즉시 삭제를 보장 하려면 [Key Vault 일시 삭제](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 기능을 사용 하지 않도록 설정 합니다.
+CA 수명이 지속 되는 동안에는 키 삭제가 드물게 발생할 수 있습니다. 이는 사용자에 게 Key Vault 인증서 삭제 권한이 할당 되지 않은 이유와 발급자 CA 인증서를 삭제 하기 위해 제공 된 Api가 없는 이유입니다. 인증 기관 암호화 키를 안전 하 게 삭제 하는 수동 표준 운영 절차는 Azure Portal Key Vault에 직접 액세스 하는 경우에만 사용할 수 있습니다. Key Vault에서 인증서 그룹을 삭제할 수도 있습니다. 즉시 삭제를 보장 하려면 [Key Vault 일시 삭제](../key-vault/general/soft-delete-overview.md) 기능을 사용 하지 않도록 설정 합니다.
 
 ## <a name="certificates"></a>인증서
 

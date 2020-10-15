@@ -171,7 +171,7 @@
             - name: 시스템 노드 풀 사용
               href: use-system-pools.md
         - name: Terraform을 사용하여 AKS 배포
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
         - name: Kubernetes 리소스 뷰어 사용(미리 보기)
           href: kubernetes-portal.md
@@ -358,10 +358,10 @@
     - name: DevOps
       items:
         - name: Ansible을 사용하여 AKS 클러스터 만들기
-          href: /azure/ansible/ansible-create-configure-aks
+          href: /azure/developer/ansible/aks-configure-clusters
           maintainContext: true
         - name: Jenkins 연속 배포
-          href: jenkins-continuous-deployment.md
+          href: /azure/developer/jenkins/deploy-from-github-to-aks
         - name: Azure DevOps 프로젝트
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
@@ -385,7 +385,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4fb64a2ea55744d66b203ef4d901f22ae4695e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27537f017707e937303dd0c08a589db28aac6ef
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630426"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071441"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에 대 한 백업 및 복원
 
@@ -82,7 +82,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## <a name="take-manual-full-backup"></a>수동 전체 백업 수행
 
+
 다음으로, 수동 전체 백업을 수행 합니다.
+
+> [!CAUTION]
+> **AKS (Azure Kubernetes service)의 사용자만 해당:** AKS (Azure Kubernetes service)에서 호스트 되는 서버 그룹의 백업을 수행 하는 데 문제가 있다는 것을 알 수 있습니다. 이미 문제를 해결 하기 위해 작업 중입니다. 업데이트가 향후 릴리스/업데이트에 배포 될 때까지 백업을 수행 하기 전에 서버 그룹의 pod를 삭제 해야 합니다. 서버 그룹의 각 pod ( **kubectl get pod- \<namespace name> n **을 실행 하 여 pod 나열)을 실행 하 여 **kubectl delete pod \<server group pod name> -n \<namespace name> **을 실행 하 여 삭제 합니다. 서버 그룹의 일부가 아닌 pod는 삭제 하지 마십시오. Pod을 삭제 하면 데이터가 위험에 노출 되지 않습니다. 백업을 수행 하기 전에 모든 pod이 다시 온라인 상태가 되 고 상태 = 실행 중 상태가 될 때까지 기다립니다. Pod의 상태는 위의 kubectl get pod 명령 출력에 제공 됩니다.
+
 
 서버 그룹의 전체 데이터 및 로그 폴더에 대 한 전체 백업을 수행 하려면 다음 명령을 실행 합니다.
 

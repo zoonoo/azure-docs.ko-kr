@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255255"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082209"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -36,7 +36,8 @@ ms.locfileid: "91255255"
 1. **확인**을 선택합니다.
 1. **저장**을 선택합니다.
 
-모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 통합 서브넷에 적용 되는 NSGs 및 UDRs가 적용 됩니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 다른 곳에서 트래픽을 전송 하기 위한 경로를 제공 하지 않으면 아웃 바운드 주소는 여전히 앱 속성에 나열 된 아웃 바운드 주소입니다.
+> [!NOTE]
+> 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 통합 서브넷에 적용 되는 NSGs 및 UDRs가 적용 됩니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하는 경우 다른 곳에서 트래픽을 전송 하기 위한 경로를 제공 하지 않으면 아웃 바운드 주소는 여전히 앱 속성에 나열 된 아웃 바운드 주소입니다.
 
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 몇 가지 제한 사항이 있습니다.
 

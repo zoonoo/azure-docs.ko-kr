@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c137cbf0c2290bdbe228f7902e616e7f79cb459e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307792"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 특정 Android 사용자에게 푸시 알림 보내기(더 이상 사용되지 않음)
