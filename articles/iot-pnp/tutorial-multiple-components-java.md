@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: a7c1f0d207a113b2c12010cbc0a8876edd9269bc
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: fce6477313cb7fb917c0fb81d03a73eec4714915
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91577257"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046403"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-java"></a>자습서: 샘플 IoT 플러그 앤 플레이 여러 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(Java)
 
@@ -28,7 +28,7 @@ ms.locfileid: "91577257"
 
 Windows에서 이 자습서를 완료하려면 로컬 Windows 환경에 다음 소프트웨어를 설치합니다.
 
-* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)의 **장기 지원** 에서 **Java 8**을 선택합니다.
+* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>코드 다운로드

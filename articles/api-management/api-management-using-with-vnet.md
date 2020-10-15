@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 67b855beae4ea36bf4ef7e6bb396c6b7ae1d89e3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbff4cc067ce831e9d9f69a457f348a94257e86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874342"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076915"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -109,7 +109,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 <a name="required-ports"> </a> API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다.
 
-| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/security-overview.md#service-tags) <br> 원본 / 대상   | 목적(\*)                                                 | 가상 네트워크 유형 |
+| 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) <br> 원본 / 대상   | 목적(\*)                                                 | 가상 네트워크 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell용 관리 엔드포인트         | 외부 및 내부  |
@@ -153,7 +153,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 + **Azure Load Balancer**: `Developer` SKU의 경우 컴퓨팅 단위를 하나만 배포하기 때문에 서비스 태그 `AZURE_LOAD_BALANCER`의 인바운드 요청을 허용할 필요가 있는 것은 아닙니다. 그러나 Load Balancer의 상태 프로브 오류로 인해 배포가 실패하므로 `Premium`와 같은 상위 SKU로 크기를 조정하는 경우에는 [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)의 인바운드는 심각한 상태가 됩니다.
 
-+ **Application Insights**: API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링이 사용 되는 경우 Virtual Network에서 [원격 분석 끝점](/azure/azure-monitor/app/ip-addresses#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 해야 합니다. 
++ **Application Insights**: API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링이 사용 되는 경우 Virtual Network에서 [원격 분석 끝점](../azure-monitor/app/ip-addresses.md#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 해야 합니다. 
 
 + **Express 경로 또는 네트워크 가상 어플라이언스를 사용하여 온-프레미스 방화벽으로 트래픽을 강제로 터널링**: 일반적인 고객 구성은 강제로 API Management 위임 서브넷의 모든 트래픽을 온-프레미스 방화벽이나 네트워크 가상 어플라이언스를 통해 흐르게 하는 자체 기본 경로(0.0.0.0/0)를 정의하는 것입니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 이 솔루션을 사용하려면 다음과 같은 몇 가지 작업을 수행해야 합니다.
 
@@ -272,7 +272,7 @@ IP 주소는 **Azure 환경**으로 구분됩니다. **글로벌** 로 표시 �
 * [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
 * [가상 네트워크 FAQ(질문과 대답)](../virtual-network/virtual-networks-faq.md)
-* [서비스 태그](../virtual-network/security-overview.md#service-tags)
+* [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -285,6 +285,6 @@ IP 주소는 **Azure 환경**으로 구분됩니다. **글로벌** 로 표시 �
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

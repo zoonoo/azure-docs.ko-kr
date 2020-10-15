@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 503b1ca8c8f1ff06bbdd54316611d886fb1e9d87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b5707405879c462a1d919e04730d368332ba68c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462312"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077158"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure Compute 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
@@ -166,9 +166,9 @@ public static string Concatenate(int number)
 ## <a name="next-steps"></a>다음 단계
 에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 애플리케이션 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다.  앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 블로그 게시물 [Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][3](영문)을 참조하세요.
 
-[1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: https://docs.microsoft.com/archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
+[1]: ../azure-monitor/app/profiler.md
+[2]: /previous-versions/azure/hh411542(v=azure.100)
+[3]: /archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

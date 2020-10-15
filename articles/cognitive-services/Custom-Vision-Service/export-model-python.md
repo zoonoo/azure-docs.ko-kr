@@ -12,10 +12,10 @@ ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ms.openlocfilehash: af0e9cd66cf64366a6f563148fa6b075161151f4
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87875441"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행

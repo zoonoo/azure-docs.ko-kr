@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566423"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077357"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -242,6 +242,9 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>ExpressRoute 회로에 연결된 가상 네트워크에 대한 인터넷 연결을 차단할 수 있나요?
 
 예. 기본 경로(0.0.0.0/0)를 보급하여 가상 네트워크 내에 배포된 가상 머신에 대한 모든 인터넷 연결을 차단하고 ExpressRoute 회로를 통해 모든 트래픽을 라우팅할 수 있습니다.
+
+> [!NOTE]
+> 알린 경로에서 0.0.0.0/0의 보급 된 경로를 철회 하는 경우 (예: 중단 또는 잘못 된 구성으로 인해) Azure는 인터넷 연결을 제공 하기 위해 연결 된 Virtual Network의 리소스에 대 한 [시스템 경로](../virtual-network/virtual-networks-udr-overview.md#system-routes) 를 제공 합니다.  인터넷으로의 송신 트래픽이 차단 되도록 하려면 인터넷 트래픽에 대 한 아웃 바운드 거부 규칙을 사용 하 여 모든 서브넷에 네트워크 보안 그룹을 저장 하는 것이 좋습니다.
 
 기본 경로를 보급하는 경우 Microsoft 피어링(예: Azure storage 및 SQL DB)을 통해 프레미스에 다시 제공된 서비스로 트래픽을 수행합니다. Microsoft 피어링 경로 또는 인터넷을 통해 트래픽을 Azure로 반환하도록 라우터를 구성해야 합니다. 서비스에 대해 서비스 엔드포인트를 사용하도록 설정한 경우 서비스에 대한 트래픽은 프레미스에 강제로 전송되지 않습니다. 트래픽은 Azure 백본 네트워크 내에 유지됩니다. 서비스 엔드포인트에 대한 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)를 참조하세요.
 

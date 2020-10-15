@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 운영 excellency 개선
 description: Azure Advisor를 사용 하 여 Azure 구독에 대 한 운영 뛰어난 작업을 최적화 하 고 완성 합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258482"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077391"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 뛰어난 운영 효율성 얻기
 
@@ -38,7 +38,7 @@ Azure 지역은 구독 당 최대 250 개의 저장소 계정을 지원할 수 �
 
 ## <a name="repair-invalid-log-alert-rules"></a>잘못 된 로그 경고 규칙 복구
 
-Azure Advisor는 조건 섹션에 잘못 된 쿼리가 지정 된 경고 규칙을 검색 합니다. Azure Monitor에서 로그 경고 규칙을 만들고이 규칙을 사용 하 여 지정 된 간격으로 분석 쿼리를 실행할 수 있습니다. 쿼리 결과에 따라 경고를 트리거할 것인지 여부가 결정됩니다. 분석 쿼리는 참조 된 리소스, 테이블 또는 명령의 변경 내용 때문에 시간이 지남에 따라 무효화 될 수 있습니다. Advisor는 자동으로 사용 하지 않도록 설정할 수 없도록 경고 규칙의 쿼리를 수정 하 고 Azure에서 리소스의 모니터링 적용 범위를 확인 하는 것이 좋습니다. [경고 규칙 문제 해결에 대해 자세히 알아보세요.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor는 조건 섹션에 잘못 된 쿼리가 지정 된 경고 규칙을 검색 합니다. Azure Monitor에서 로그 경고 규칙을 만들고이 규칙을 사용 하 여 지정 된 간격으로 분석 쿼리를 실행할 수 있습니다. 쿼리 결과에 따라 경고를 트리거할 것인지 여부가 결정됩니다. 분석 쿼리는 참조 된 리소스, 테이블 또는 명령의 변경 내용 때문에 시간이 지남에 따라 무효화 될 수 있습니다. Advisor는 자동으로 사용 하지 않도록 설정할 수 없도록 경고 규칙의 쿼리를 수정 하 고 Azure에서 리소스의 모니터링 적용 범위를 확인 하는 것이 좋습니다. [경고 규칙 문제 해결에 대해 자세히 알아보세요.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Azure Policy 권장 사항 사용
 
@@ -55,7 +55,7 @@ Azure Policy는 정책을 만들고 할당 하 고 관리 하는 데 사용할 �
 ***리소스 그룹에서 태그 상속을*사용 하도록 설정 합니다.** 이 정책은 리소스를 만들거나 업데이트할 때 상위 리소스 그룹의 지정된 태그 및 값을 추가하거나 바꿉니다. 수정 작업을 트리거하여 기존 리소스를 수정할 수 있습니다.
 
 ## <a name="no-validation-environment-enabled"></a>유효성 검사 환경을 사용하지 않음
-Azure Advisor 현재 구독에서 유효성 검사 환경을 사용 하도록 설정 하지 않은 것을 확인 합니다. 호스트 풀을 만들 때 \" \" \" 속성 탭에서 유효성 검사 환경에 대해 아니요를 선택 했습니다 \" . 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀이 하나 이상 있으면 잠재적인 문제를 조기에 검색 하 여 Windows 가상 데스크톱 서비스 배포를 통해 비즈니스 연속성을 보장 합니다. [자세한 정보](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor 현재 구독에서 유효성 검사 환경을 사용 하도록 설정 하지 않은 것을 확인 합니다. 호스트 풀을 만들 때 \" \" \" 속성 탭에서 유효성 검사 환경에 대해 아니요를 선택 했습니다 \" . 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀이 하나 이상 있으면 잠재적인 문제를 조기에 검색 하 여 Windows 가상 데스크톱 서비스 배포를 통해 비즈니스 연속성을 보장 합니다. [자세한 정보](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>안정적인 기능의 혜택에 대한 프로덕션(유효성 검사 아님) 환경 확인
 Azure Advisor는 유효성 검사 환경이 활성화 된 호스트 풀이 너무 많은 것을 감지 합니다. 유효성 검사 환경이 용도에 가장 적합 하 게 하려면 유효성 검사 환경에서 하나 이상의 호스트 풀이 필요 하지 않습니다. 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀과 사용 하지 않도록 설정 된 호스트 풀 간에 정상적인 균형을 유지 하 여 Windows 가상 데스크톱이 특정 업데이트를 제공 하는 다단계 배포의 이점을 최대한 활용할 수 있습니다. 이 문제를 해결 하려면 호스트 풀의 속성을 열고 \" \" 유효성 검사 환경 설정 옆에 있는 아니요를 선택 \" \" 합니다.

@@ -4,10 +4,10 @@ description: HIPAA HITRUST 9.2 청사진 샘플의 개요 이 청사진 샘플�
 ms.date: 09/04/2020
 ms.topic: sample
 ms.openlocfilehash: 4df6f05019976b3de1172cc5127c27ac00fe3c44
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89493227"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>HIPAA HITRUST 9.2 청사진 샘플

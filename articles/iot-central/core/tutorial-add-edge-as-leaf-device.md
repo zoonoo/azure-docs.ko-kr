@@ -12,10 +12,10 @@ ms.custom:
 - device-developer
 - iot-edge
 ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987019"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가
