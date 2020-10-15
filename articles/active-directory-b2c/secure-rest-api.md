@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 206768604c6d08a32c0caaf9b53a1417cfa1344b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385334"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089539"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보호 
 
@@ -312,7 +312,7 @@ ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트 이름으로 바꿉�
 
 ### <a name="add-the-oauth2-bearer-token-policy-key"></a>OAuth2 전달자 토큰 정책 키 추가
 
-전달자 토큰 값을 저장할 정책 키를 만듭니다.
+OAuth2 전달자 토큰을 사용 하 여 REST API 기술 프로필을 구성 하려면 REST API 소유자에 게 액세스 토큰을 가져옵니다. 그런 다음, 다음 암호화 키를 만들어 전달자 토큰을 저장 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
@@ -320,7 +320,7 @@ ServiceUrl의 경우 테넌트 이름을 Azure AD 테넌트 이름으로 바꿉�
 1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 1. **정책 키**, **추가**를 차례로 선택합니다.
 1. **옵션**으로는 `Manual`을 선택합니다.
-1. 정책 키의 **이름**을 입력합니다. `RestApiBearerToken`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 정책 키의 **이름**을 입력합니다. 예들 들어 `RestApiBearerToken`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 1. 이전에 기록해 두었던 클라이언트 비밀을 **비밀**에 입력합니다.
 1. **키 사용**에서 `Encryption`를 선택합니다.
 1. **만들기**를 선택합니다.

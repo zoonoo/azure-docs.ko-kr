@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23f613584638026a2b371849c7d1014b3bb1f136
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601081"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073073"
 ---
 # <a name="point-in-time-snapshot"></a>지정 시간 스냅샷
 
@@ -23,7 +23,7 @@ Azure 앱 구성은 키 값에 대 한 변경 기록을 유지 관리 합니다.
 
 Azure Portal 또는 CLI를 사용 하 여 이전 키-값을 검색할 수 있습니다. Azure CLI에서 `az appconfig revision list` 적절 한 매개 변수를 추가 하 여 필요한 값을 검색 합니다.  저장소 이름 ()을 제공 `--name <app-config-store-name>` 하거나 연결 문자열 ()을 사용 하 여 Azure 앱 구성 인스턴스를 지정 합니다 `--connection-string <your-connection-string>` . 특정 시점 ()을 지정 하 `--datetime` 고 반환할 최대 항목 수 ()를 지정 하 여 출력을 제한 `--top` 합니다.
 
-Azure CLI를 로컬로 설치 하지 않은 경우 필요에 따라 [Azure Cloud Shell](/azure/cloud-shell/overview)를 사용할 수 있습니다.
+Azure CLI를 로컬로 설치 하지 않은 경우 필요에 따라 [Azure Cloud Shell](../cloud-shell/overview.md)를 사용할 수 있습니다.
 
 키 값에 대해 기록 된 모든 변경 내용을 검색 합니다.
 
@@ -58,4 +58,4 @@ az appconfig revision list --name <your-app-config-store-name> --top 10 --fields
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core 웹앱 만들기](./quickstart-aspnet-core-app.md)  
+> [ASP.NET Core 웹앱 만들기](./quickstart-aspnet-core-app.md)

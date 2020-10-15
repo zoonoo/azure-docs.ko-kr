@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077867"
+ms.locfileid: "92089369"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -55,7 +55,7 @@ ms.locfileid: "92077867"
 
 ![대시보드 공유](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-**공유** 를 선택 하면 게시할 구독 및 리소스 그룹을 선택 하 라는 메시지가 표시 됩니다. 선택한 구독 및 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 자세한 내용은 [AZURE RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+**공유** 를 선택 하면 게시할 구독 및 리소스 그룹을 선택 하 라는 메시지가 표시 됩니다. 선택한 구독 및 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ![공유 및 액세스 변경](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

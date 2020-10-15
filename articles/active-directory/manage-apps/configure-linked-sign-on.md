@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 67cb8d6bf6dd61fb5ba7aec70a79078cbe2b8b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597834"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073974"
 ---
 # <a name="understand-linked-sign-on"></a>연결 된 로그온 이해
 
@@ -35,7 +35,7 @@ ms.locfileid: "91597834"
 
 신속히 정보를 증가 시키려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. Single Sign-On를 구성 하는 빠른 시작에서 **연결 된** 옵션도 찾을 수 있습니다. 
 
-**연결** 된 옵션은 Azure AD를 통해 로그인 기능을 제공 하지 않습니다. 옵션은 사용자가 앱에서 앱을 선택 [Microsoft 365 하거나 앱](https://myapps.microsoft.com/) 시작 관리자를 선택 하는 경우 사용자가 전송 되는 위치를 설정 합니다.
+**연결** 된 옵션은 Azure AD를 통해 로그인 기능을 제공 하지 않습니다. 옵션은 사용자가 앱에서 앱을 선택 [Microsoft 365 하거나 앱](https://myapps.microsoft.com/) 시작 관리자를 선택 하는 경우 사용자가 전송 되는 위치를 설정 합니다.  로그인은 Azure AD를 통해 로그인 기능을 제공 하지 않으므로 연결 된 Single Sign-On로 구성 된 응용 프로그램에 대 한 조건부 액세스를 사용할 수 없습니다.
 
 > [!IMPORTANT] 
 > **엔터프라이즈 응용**프로그램의 응용 프로그램을 탐색 하는 데에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 

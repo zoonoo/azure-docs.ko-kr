@@ -1,7 +1,7 @@
 ---
 title: 비 대화형 로그인을 사용 하 여 단일 페이지 응용 프로그램을 보호 하는 방법
 titleSuffix: Azure Maps
-description: 비 대화형 Azure AD 역할 기반 액세스 제어 및 Azure Maps 웹 SDK를 사용 하 여 단일 페이지 응용 프로그램을 구성 하는 방법입니다.
+description: 비 대화형 Azure azure RBAC (역할 기반 액세스 제어) 및 Azure Maps 웹 SDK를 사용 하 여 단일 페이지 응용 프로그램을 구성 하는 방법입니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: e49954065f8a4ec03eb54d7333a3fff34bafb143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319659"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090253"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>비 대화형 로그인을 사용 하 여 단일 페이지 응용 프로그램을 보호 하는 방법
 

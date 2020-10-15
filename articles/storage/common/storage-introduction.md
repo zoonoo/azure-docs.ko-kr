@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cd45a393081d52985d99fac7ea5dccc5bd2a2712
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079227"
+ms.locfileid: "92091307"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -61,7 +61,7 @@ Blob 스토리지가 적합한 경우는 다음과 같습니다.
 - 백업/복원, 재해 복구 및 보관용 데이터 저장
 - 온-프레미스 또는 Azure 호스팅 서비스에서 분석하기 위한 데이터 저장.
 
-Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 스토리지 클라이언트 라이브러리는 [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) 및 [Ruby](https://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
+Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 스토리지 클라이언트 라이브러리는 [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) 및 [Ruby](https://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
 
 Blob 스토리지에 대한 자세한 내용은 [Blob 스토리지 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 

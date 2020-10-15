@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 266e31ae9865c8fb427e06e89cd755e7ff38b27f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61443448"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073872"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기로 자동 디바이스 관리 패키지 가져오기
 
 자동 디바이스 관리 구성은 디바이스 그룹에 배포하도록 구성 변경을 정의합니다. 이 문서에서는 조직의 개발자가 자동 디바이스 관리 구성을 이미 만들었다고 가정합니다. 개발자가 구성을 만드는 방법에 대한 자세한 내용은 다음 IoT Hub 방법 문서 중 하나를 참조하세요.
 
-- [Azure Portal을 사용하여 대규모로 IoT 디바이스 구성 및 모니터링](../iot-hub/iot-hub-auto-device-config.md)
-- [Azure CLI를 사용하여 대규모로 IoT 디바이스 구성 및 모니터링](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Azure Portal을 사용하여 대규모로 IoT 디바이스 구성 및 모니터링](../iot-hub/iot-hub-automatic-device-management.md)
+- [Azure CLI를 사용하여 대규모로 IoT 디바이스 구성 및 모니터링](../iot-hub/iot-hub-automatic-device-management-cli.md)
 
 개발자는 개발 환경에서 자동 디바이스 관리 구성을 만들고 테스트합니다. 준비가 완료되면 원격 모니터링 솔루션 가속기로 구성을 가져올 수 있습니다.
 

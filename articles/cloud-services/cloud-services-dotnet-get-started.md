@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 0d00db9909f05028b55505400d0810b00e0114c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932545"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073804"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -33,7 +33,7 @@ ms.locfileid: "88932545"
 이 애플리케이션에서는 [큐 중심 작업 패턴](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)을 사용하여 미리 보기를 만드는 CPU 사용량이 많은 작업을 백 엔드 프로세스에 오프로드합니다.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>대체 아키텍처: App Service 및 WebJobs
-이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure App Service](/azure/app-service/)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 기능을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure App Service, Cloud Services 및 가상 머신 비교](/azure/architecture/guide/technology-choices/compute-decision-tree)를 참조하세요.
+이 자습서에서는 Azure 클라우드 서비스에서 프런트 엔드 및 백 엔드를 실행하는 방법을 보여 줍니다. 대안은 [Azure App Service](../app-service/index.yml)에서 프런트 엔드를 실행하고 백 엔드에 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 기능을 사용하는 것입니다. WebJobs를 사용하는 자습서는 [Azure WebJobs SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)(영문)을 참조하세요. 시나리오에 가장 적합한 서비스를 선택하는 방법에 대한 자세한 내용은 [Azure App Service, Cloud Services 및 가상 머신 비교](/azure/architecture/guide/technology-choices/compute-decision-tree)를 참조하세요.
 
 ## <a name="what-youll-learn"></a>학습할 내용
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
@@ -169,7 +169,7 @@ Azure Storage 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 �
 
 4. **복제** 드롭다운 목록을 **로컬 중복 스토리지**로 설정합니다.
 
-    스토리지 계정에 대해 지역에서 복제를 사용하는 경우 저장된 콘텐츠가 보조 데이터 센터에 복제되어 기본 위치에서 대규모 재해가 발생하면 장애 조치(Failover)가 가능해집니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [스토리지 계정 만들기, 관리 또는 삭제](../storage/common/storage-create-storage-account.md)를 참조하세요
+    스토리지 계정에 대해 지역에서 복제를 사용하는 경우 저장된 콘텐츠가 보조 데이터 센터에 복제되어 기본 위치에서 대규모 재해가 발생하면 장애 조치(Failover)가 가능해집니다. 지역에서 복제는 추가 비용을 발생시킬 수 있습니다. 테스트 및 개발 계정의 경우 일반적으로 지역에서 복제 비용을 지불하지 않는 것이 좋습니다. 자세한 내용은 [스토리지 계정 만들기, 관리 또는 삭제](../storage/common/storage-account-create.md)를 참조하세요
 
 5. **리소스 그룹**에서 **기존 그룹 사용**을 클릭하고 클라우드 서비스에 사용된 리소스 그룹을 선택합니다.
 6. **위치** 드롭다운 목록을 클라우드 서비스에 선택한 것과 동일한 지역으로 설정합니다.
@@ -290,7 +290,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
     ![설정 단계](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    **고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 애플리케이션 게시 마법사](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard)를 참조하세요.
+    **고급** 탭의 기본 설정은 이 자습서 내용에 적합합니다. 고급 탭에 대한 자세한 내용은 [Azure 애플리케이션 게시 마법사](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard)를 참조하세요.
 4. **요약** 단계에서 **게시**를 클릭합니다.
 
     ![요약 단계](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -776,5 +776,5 @@ Azure Storage 모범 사례 및 패턴에 대한 비디오 소개는 [Microsoft 
 
 * [Azure Cloud Services 1부: 소개](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure Storage](../storage/index.yml)
 * [클라우드 서비스 공급자 선택 방법](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

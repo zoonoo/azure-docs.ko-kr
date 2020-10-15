@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 0ba2e23e8121a76ec281b5e411819ee7d450cbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfd38f03601f7c4ebfbb5dde4fd7587e78df9efc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319693"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090287"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>사용자 로그인을 사용 하 여 단일 페이지 응용 프로그램 보호
 
@@ -67,7 +67,7 @@ ms.locfileid: "91319693"
         </script>   
     ```
 
-7. 사용자 또는 그룹에 대 한 Azure 역할 기반 액세스 제어를 구성 합니다. [RBAC를 사용 하도록 설정 하려면 다음 섹션](#grant-role-based-access-for-users-to-azure-maps)을 참조 하세요.
+7. 사용자 또는 그룹에 대 한 Azure RBAC (역할 기반 액세스 제어)를 구성 합니다. [AZURE RBAC를 사용 하도록 설정 하려면 다음 섹션](#grant-role-based-access-for-users-to-azure-maps)을 참조 하세요.
    
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 

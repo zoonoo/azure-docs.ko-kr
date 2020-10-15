@@ -1,6 +1,6 @@
 ---
-title: Role-Based를 사용 하 여 Azure Portal 대시보드 공유 Access Control
-description: 이 문서에서는 역할 기반 Access Control을 사용하여 Azure Portal에서 대시보드를 공유하는 방법을 설명합니다.
+title: Azure 역할 기반 액세스 제어를 사용 하 여 Azure Portal 대시보드 공유
+description: 이 문서에서는 Azure 역할 기반 액세스 제어를 사용 하 여 Azure Portal에서 대시보드를 공유 하는 방법을 설명 합니다.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b74cae439ce351a4d720f215679cc0802eebe898
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077884"
+ms.locfileid: "92092208"
 ---
-# <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
+# <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용 하 여 Azure 대시보드 공유
 
 대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 다른 사용자가 대시보드를 볼 수 있도록 허용 합니다. 사용자 또는 사용자 그룹을 역할에 할당 합니다. 해당 역할은 해당 사용자가 게시 된 대시보드를 보거나 수정할 수 있는지 여부를 정의 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "92077884"
 
 ## <a name="understanding-access-control-for-dashboards"></a>대시보드에 대한 액세스 제어 이해
 
-RBAC(역할 기반 Access Control)를 사용하여 세 개의 다른 수준 범위로 역할에 사용자를 할당할 수 있습니다.
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 세 가지 범위의 범위에서 사용자를 역할에 할당할 수 있습니다.
 
 * subscription
 * 리소스 그룹

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 350584984bff82c7dc80aff38044d887f981424c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256757"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979107"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -117,7 +117,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
     다음 **POST** 작업을 보냅니다.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. 응답은 토큰과 함께 반환되며 "AccessToken" 환경 변수를 토큰 값으로 설정합니다. "AccessToken"을 설정하는 코드를 보려면 **테스트** 탭을 클릭합니다. 

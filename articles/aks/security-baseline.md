@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d3adc3dd0e0b7e9f964326f5e637b0fefb2cd173
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938462"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072869"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -165,7 +165,7 @@ AKS 클러스터의 노드 풀에 Azure 태그를 적용 합니다. 이러한 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -178,9 +178,9 @@ AKS 클러스터의 노드 풀에 Azure 태그를 적용 합니다. 이러한 �
 
 네트워크 정책을 사용 하 여 네임 스페이스 및 레이블 선택기에 따라 클러스터 내의 특정 네트워크 경로를 허용 하거나 거부 하도록 선택 합니다. 이러한 네임 스페이스 및 레이블을 트래픽 구성 규칙에 대 한 설명자로 사용 합니다. Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-- [CLI를 사용 하 여 Azure Policy](https://docs.microsoft.com/cli/azure/policy?view=azure-cli-latest)
+- [CLI를 사용 하 여 Azure Policy](/cli/azure/policy?view=azure-cli-latest)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -196,7 +196,7 @@ Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리�
 
 Azure Monitor 로그를 사용 하 여 마스터 구성 요소인 kube-apiserver 및 kube에서 로그를 사용 하도록 설정 하 고 쿼리 합니다. 컨테이너 런타임을 사용 하 여 kubelet를 실행 하 고 관리 되는 Kubernetes API 서버를 통해 응용 프로그램을 배포 하는 노드를 만들고 관리 합니다. 
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -322,7 +322,7 @@ Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 로그를 검토 
 
 **지침**: Azure Kubernetes 서비스 (AKS)를 Security Center와 함께 사용 하 여 AKS 노드를 보다 자세히 파악할 수 있습니다. 호스트와 클러스터 수준에서 검색 된 위협 및 악의적인 활동에 대 한 Security Center 경고를 검토 합니다. Security Center는 네트워크 데이터, 프로세스 생성 및 Kubernetes 감사 로그와 같은 AKS 클러스터에서 발생 하는 원시 보안 이벤트의 연속 분석을 구현 합니다. 이 활동이 예상되는 동작인지, 아니면 애플리케이션이 잘못 작동하는지를 확인합니다. Azure Monitor에서 메트릭과 로그를 사용 하 여 결과를 substantiate. 
 
-- [Security Center와 Azure Kubernetes Services 통합 이해](/azure/security-center/azure-kubernetes-service-integration)
+- [Security Center와 Azure Kubernetes Services 통합 이해](../security-center/defender-for-kubernetes-introduction.md)
 
 - [Azure Security Center 표준 계층을 사용 하도록 설정 하는 방법](../security-center/security-center-get-started.md)
 
@@ -380,9 +380,9 @@ Coredns-custom ConfigMap에 문서화 된 구성을 적용 하 여 DNS 쿼리 �
 
 ' 관리 되는 Kubernetes 클러스터에 대 한 액세스 자격 증명 가져오기 ' 같은 작업에 대 한 Azure CLI를 사용 하 여 정기적으로 액세스를 조정 하는 데 도움을 줍니다. AKS의 다른 기본 사용자 유형인 서비스 계정의 업데이트 된 인벤토리를 유지 하려면이 프로세스를 구현 합니다. Security Center의 Id 및 액세스 관리 권장 사항을 적용 합니다.
 
-- [Azure AD와 AKS를 통합 하는 방법](/azure/aks/azure-ad-integration)
+- [Azure AD와 AKS를 통합 하는 방법](./azure-ad-integration-cli.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Azure Security Center를 사용 하 여 id 및 액세스를 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -457,7 +457,7 @@ MFA (Azure AD Multi-Factor Authentication)를 사용 하도록 설정 하 고 Se
 
 **지침**: Azure Kubernetes 서비스 (AKS)에 대 한 azure ad 통합 인증을 사용 하 여 azure ad (azure ad) 보안 보고서를 Azure Active Directory 사용 합니다. 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 경우 경고를 생성할 수 있습니다. Security Center를 사용 하 여 id 및 액세스 작업을 모니터링할 수 있습니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -487,7 +487,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 AKS 기본 제공 
 
 - [Azure Policy 개요](../governance/policy/overview.md)
 
-- [AKS와 Azure AD를 통합 하는 방법](/azure/aks/azure-ad-integration) 
+- [AKS와 Azure AD를 통합 하는 방법](./azure-ad-integration-cli.md) 
 
 - [AKS로 관리 되는 Azure AD 통합](managed-aad.md)
 
@@ -528,7 +528,7 @@ Azure Id 액세스 검토를 수행 하 여 그룹 멤버 자격, 엔터프라�
 
 **지침**: Azure Kubernetes 서비스 (AKS)에 대 한 사용자 인증을 azure AD (Azure Active Directory)와 통합 합니다. Azure AD의 위험 검색 및 Id 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다. 비즈니스 요구에 따라 추가 조사를 위해 데이터를 Azure 센티널로 수집 합니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -555,7 +555,7 @@ Azure Id 액세스 검토를 수행 하 여 그룹 멤버 자격, 엔터프라�
 
 **지침**: Azure Kubernetes SERVICE (AKS) 배포와 관련 된 리소스에 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 azure 리소스를 추적 하는 데 도움을 줍니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [관리 되는 클러스터에 대 한 태그 업데이트](/rest/api/aks/managedclusters/updatetags)
 
@@ -573,7 +573,7 @@ Kubernetes의 네임 스페이스를 사용 하 여 논리적 격리 경계를 �
 
 - [AKS에서의 클러스터 격리 모범 사례에 대해 알아봅니다.](operator-best-practices-cluster-isolation.md)
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
 - [AKS의 네트워크 연결 및 보안에 대 한 모범 사례 이해](operator-best-practices-network.md)
 
@@ -589,7 +589,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 콘텐츠를 중�
 
 - [AKS 기능에 필요한 포트, 주소 및 도메인 이름 목록](limit-egress-traffic.md)
 
-- [Azure 방화벽에 대 한 진단 설정을 구성 하는 방법](/azure/firewall/tutorial-diagnostics)
+- [Azure 방화벽에 대 한 진단 설정을 구성 하는 방법](../firewall/firewall-diagnostics.md)
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
@@ -677,7 +677,7 @@ Azure 활동 로그를 사용 하 여 AKS 클러스터 및 관련 리소스를 �
 
 - [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/insights/container-insights-onboard.md)
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Azure Security Center 모니터링**: 예
 
@@ -695,11 +695,11 @@ Qualys를 사용 하 여 Security Center 이미지를 검색 한 후에 문제�
 
 모든 취약성에 대해 조치 가능한 권장 사항에 Security Center를 사용 합니다. 이러한 권장 사항에는 심각도 분류 및 재구성에 대 한 지침이 포함 됩니다. 
 
-- [AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례](/azure/security-center/azure-container-registry-integration)
+- [AKS(Azure Kubernetes Services)의 컨테이너 이미지 관리 및 보안에 대한 모범 사례](../security-center/defender-for-container-registries-introduction.md)
 
 - [AKS의 컨테이너 이미지 관리 및 보안에 대 한 모범 사례 이해](operator-best-practices-container-image-management.md)
 
-- [Azure Security Center와 컨테이너 레지스트리 통합 이해](/azure/security-center/azure-container-registry-integration)
+- [Azure Security Center와 컨테이너 레지스트리 통합 이해](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -735,7 +735,7 @@ Windows server 노드를 최신 상태로 유지 하는 프로세스는 windows 
 
 PowerShell cmdlet "AzSecurityTask"를 사용 하 여 보안 상태 및 수정 취약점 검색 결과를 강화 하기 위해 수행할 것 Security Center 권장 하는 보안 작업의 검색을 자동화 합니다.
 
-- [PowerShell을 사용 하 여 Azure Security Center에서 검색 된 취약성을 확인 하는 방법](https://docs.microsoft.com/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
+- [PowerShell을 사용 하 여 Azure Security Center에서 검색 된 취약성을 확인 하는 방법](/powershell/module/az.security/get-azsecuritytask?view=azps-3.3.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -763,7 +763,7 @@ Azure에서 제공 하는 기본 제공 취약점 평가 도구 (예: Qualys 또
 
 - [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -775,7 +775,7 @@ Azure에서 제공 하는 기본 제공 취약점 평가 도구 (예: Qualys 또
 
 **지침**: 메타 데이터를 사용 하 여 Azure 리소스에 태그를 적용 하 여 논리적으로 분류로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -789,11 +789,11 @@ AKS (Azure Kubernetes Service) 노드 풀을 만들 때 taints, 레이블 또는
 
 Taints, 레이블 또는 태그를 사용 하 여 정기적으로 인벤토리를 조정 하 고 권한 없는 리소스가 구독에서 적시에 삭제 되도록 할 수 있습니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [및 사용자 태그를 만드는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [및 사용자 태그를 만드는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [관리 되는 클러스터-태그 업데이트](/rest/api/aks/managedclusters/updatetags)
 
@@ -894,7 +894,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -927,15 +927,15 @@ Azure AD 통합을 사용 하 여 네임 스페이스 내에서 또는 클러스
 
 Azure AD PowerShell 모듈을 사용 하 여 AKS 관리 그룹의 구성원 인 계정을 검색 하는 임시 쿼리를 수행 합니다. 정기적으로 액세스를 조정 합니다. ' 관리 되는 Kubernetes 클러스터에 대 한 액세스 자격 증명 가져오기 '와 같은 작업에 Azure CLI를 사용 합니다. Security Center Id 및 액세스 관리 권장 사항을 구현 합니다.
 
-- [Azure CLI를 사용 하 여 AKS 관리](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest)
+- [Azure CLI를 사용 하 여 AKS 관리](/cli/azure/aks?view=azure-cli-latest)
 
 - [AKS 및 Azure AD 통합 이해](concepts-identity.md)
 
-- [Azure AD와 AKS를 통합 하는 방법](/azure/aks/azure-ad-integration)
+- [Azure AD와 AKS를 통합 하는 방법](./azure-ad-integration-cli.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Azure Security Center를 사용 하 여 id 및 액세스를 모니터링 하는 방법](../security-center/security-center-identity-access.md)
 
@@ -953,9 +953,9 @@ Kubernetes에서 네임 스페이스를 구현 하 여 논리적 격리 경계�
 
 - [AKS에서의 클러스터 격리 모범 사례에 대해 알아봅니다.](operator-best-practices-cluster-isolation.md)
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [AKS의 네트워크 연결 및 보안에 대 한 모범 사례 이해](operator-best-practices-network.md)
 
@@ -1055,7 +1055,7 @@ AKS 에이전트 노드 호스트 OS에 대 한 보안 강화
 
 security-hardened-vm-host-image.md
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1113,7 +1113,7 @@ AKS 호스트에 기본 제공 되는 CI (Internet Security) 컨트롤의 센터
 
 **지침**: "계산 앱" 섹션에서 Security Center 컨테이너 권장 사항을 사용 &amp; 하 여 AKS (Azure Kubernetes Service) 클러스터에 대 한 기준 검색을 수행 합니다. 구성 문제나 취약점이 발견 될 때 Security Center 대시보드에서 알림 받기 이렇게 하려면 Security Center에서 이미지를 검색할 수 있도록 하는 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정 해야 합니다.  
 
-- [Azure Security Center 컨테이너 권장 사항 이해](/azure/security-center/security-center-container-recommendations)
+- [Azure Security Center 컨테이너 권장 사항 이해](../security-center/container-security.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1187,7 +1187,7 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 **지침**: AKS 리소스에 업로드 되는 파일을 미리 검색 합니다. 데이터 서비스에 대 한 Security Center의 위협 검색을 사용 하 여 Azure Storage 계정을 데이터 저장소로 사용 하거나 AKS 클러스터에 대 한 Terraform 상태를 추적 하는 경우 저장소 계정에 업로드 된 맬웨어를 검색할 수 있습니다. 
 
-- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](/azure/security-center/security-center-alerts-data-services)
+- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1235,7 +1235,7 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호에 대 한 정기적으로 자동화 된 백업을 수행 합니다. 
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1247,7 +1247,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 - [Key Vault 비밀을 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Azure Backup를 사용 하도록 설정 하는 방법](/azure/backup)
+- [Azure Backup를 사용 하도록 설정 하는 방법](../backup/index.yml)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1259,19 +1259,19 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다. 
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
-- [Key Vault 인증서를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [Key Vault 인증서를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
-- [Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Key Vault 키를 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 - [관리 되는 저장소 계정을 Key Vault 복원 하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Key Vault 비밀을 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Key Vault 비밀을 복원 하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
 
-- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](/azure/backup/backup-azure-restore-files-from-vm)
+- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../backup/backup-azure-restore-files-from-vm.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1285,7 +1285,7 @@ AKS (Azure Kubernetes Service) 배포에 대해 Azure Key Vault를 사용 하는
 
 - [Azure Storage 서비스 암호화 이해](../storage/common/storage-service-encryption.md)
 
-- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1379,5 +1379,5 @@ AKS (Azure Kubernetes Service) 배포에 대해 Azure Key Vault를 사용 하는
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: d34be152a0d104e688abd6e53c97353b69012670
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906543"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MySQL 데이터베이스 디자인
@@ -47,7 +47,7 @@ MySQL용 Azure Database 서버는 정의된 [컴퓨팅 및 스토리지 리소�
 
 3. **Azure Database for MySQL** 타일을 클릭합니다. Azure Database for MySQL 양식을 작성합니다.
    
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="양식 만들기":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="MySQL로 이동":::
 
     **설정** | **제안 값** | **필드 설명**
     ---|---|---
@@ -62,7 +62,7 @@ MySQL용 Azure Database 서버는 정의된 [컴퓨팅 및 스토리지 리소�
     버전 | *최신 버전*| 최신 버전입니다(다른 버전이 필요한 특정 요구 사항이 없는 경우).
     가격 책정 계층 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *Gen 5*, *vCore 2개*, *5GB* 및 *7일*은 **컴퓨팅 세대**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="가격 책정 계층":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="MySQL로 이동":::
 
    > [!TIP]
    > **자동 증가**를 사용하면 워크로드에 영향을 주지 않고 할당된 제한에 도달할 때 서버가 스토리지를 늘립니다.
@@ -75,7 +75,7 @@ Azure Databases for MySQL은 방화벽으로 보호됩니다. 기본적으로 �
 
 1. 새로 만든 서버를 클릭한 다음 **연결 보안**을 클릭합니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="연결 보안":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="MySQL로 이동":::
 2. **내 IP를 추가**하거나 여기서 방화벽 규칙을 구성할 수 있습니다. 규칙을 만든 후에 **저장**을 클릭해야 합니다.
 이제 mysql 명령줄 도구 또는 MySQL Workbench GUI 도구를 사용하여 서버에 연결할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure Portal에서 MySQL용 Azure Database 서버의 정규화된 **서버 이�
 1. [Azure Portal](https://portal.azure.com/)의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 이름을 입력한 다음 MySQL용 Azure Database 서버를 검색합니다. 서버 이름을 선택하여 세부 정보를 표시합니다.
 
 2. **개요** 페이지에서 **서버 이름** 및 **서버 관리자 로그인 이름**을 적어 둡니다. 각 필드 옆에 있는 복사 단추를 클릭하여 클립보드에 복사할 수도 있습니다.
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 서버 속성":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="MySQL로 이동":::
 
 이 예에서 서버 이름은 *mydemoserver.mysql.database.azure.com*이고, 서버 관리자 로그인은 *myadmin\@mydemoserver*입니다.
 
@@ -168,11 +168,11 @@ SELECT * FROM inventory;
 
 1. Azure Portal에서 MySQL용 Azure Database를 찾습니다. **개요** 페이지의 도구 모음에서 **복원**을 클릭합니다. 복원 페이지가 열립니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 데이터베이스 복원":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="MySQL로 이동":::
 
 2. **복원** 양식을 필요한 정보로 채웁니다.
 
-   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 복원 양식":::
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="MySQL로 이동":::
 
    - **복원 지점**: 나열된 기간 내에서 복원하려는 지정 시간을 선택합니다. 현지 표준 시간대를 UTC로 변환해야 합니다.
    - **새 서버로 복원**: 복원해 두려는 새 서버의 이름을 제공합니다.
