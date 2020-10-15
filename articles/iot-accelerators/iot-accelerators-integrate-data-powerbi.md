@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba669c86c406959a3f92949e5f806fa011527d47
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976007"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070914"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
@@ -38,7 +38,7 @@ ms.locfileid: "90976007"
 
 4. 개요 페이지에서 "Azure Cosmos DB Account" 형식의 항목을 클릭하면 해당 IoT 솔루션에 대한 Cosmos DB 스트림의 개요 페이지로 이동됩니다.
 
-    ![리소스 그룹](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
+    ![Resource Group](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
 5. 왼쪽 패널에서 "키" 섹션을 클릭하고 Power BI에서 사용할 다음 값을 적어 둡니다.
 
@@ -94,9 +94,9 @@ ms.locfileid: "90976007"
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>대시보드 게시 및 데이터 새로 고침
 
-대시보드 만들기를 완료한 후에는 [Power BI 대시보드를 게시](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files)하여 다른 사람들과 공유하는 것이 좋습니다.
+대시보드 만들기를 완료한 후에는 [Power BI 대시보드를 게시](/power-bi/desktop-upload-desktop-files)하여 다른 사람들과 공유하는 것이 좋습니다.
 
-또한 최신 데이터 집합이 표시되도록 게시된 대시보드의 [데이터를 새로 고치는 것이](https://docs.microsoft.com/power-bi/refresh-data) 좋습니다.
+또한 최신 데이터 집합이 표시되도록 게시된 대시보드의 [데이터를 새로 고치는 것이](/power-bi/refresh-data) 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -107,4 +107,3 @@ ms.locfileid: "90976007"
 * [원격 모니터링 솔루션 UI 사용자 지정](iot-accelerators-remote-monitoring-customize.md)
 * [개발자 참조 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [개발자 문제 해결 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-

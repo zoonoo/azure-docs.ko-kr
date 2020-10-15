@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9506b3430775f137c09fe3d155b203cdcbd14783
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905342"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070557"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -212,7 +212,7 @@ AKS는 관리형 서비스이며 IaaS 리소스 조작은 지원되지 않습니
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
-[aks-windows-limitations]: windows-node-limitations.md
+[aks-windows-limitations]: ./windows-faq.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md

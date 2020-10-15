@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84219155"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)

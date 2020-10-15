@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4b1007fe89cf455b6af8ebba00f24e8019ad8013
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875568"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078292"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -32,8 +32,6 @@ ms.locfileid: "91875568"
 >
 
 ![VNet 간 연결 다이어그램](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-
 
 ## <a name="about-vnet-to-vnet-connections"></a>VNet 간 연결 정보
 
@@ -61,7 +59,7 @@ VPN 게이트웨이를 사용하여 클래식 배포 모델에서 가상 네트�
 
 VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 고려 사항](#faq)을 참조하세요.
 
-### <a name="working-with-azure-powershell"></a><a name="powershell"></a>Azure PowerShell 작업
+## <a name="prerequisites"></a>필수 구성 요소
 
 대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. Azure Portal을 사용하여 연결을 만들 수 없습니다. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -87,7 +85,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 이름: TestVNet1<br>
 주소 공간: 10.11.0.0/16, 10.12.0.0/16(선택 사항)<br>
 서브넷 이름: 기본값<br>
-서브넷 주소 범위: 10.11.0.1/24<br>
+서브넷 주소 범위: 10.11.0.0/24<br>
 리소스 그룹: ClassicRG<br>
 위치: 미국 동부<br>
 게이트웨이 서브넷: 10.11.1.0/27

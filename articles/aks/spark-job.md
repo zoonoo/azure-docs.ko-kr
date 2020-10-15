@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 074e3db3234794aa891d5452b0c19060193c6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff392b974c5faed99f57e5901fced51ba22ac857
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243973"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078139"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
 [Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-kubernetes-earliest-version]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -340,7 +340,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 <!-- LINKS - external -->
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
-[java-install]: https://aka.ms/azure-jdks
+[java-install]: /azure/developer/java/fundamentals/java-jdk-long-term-support
 [maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html

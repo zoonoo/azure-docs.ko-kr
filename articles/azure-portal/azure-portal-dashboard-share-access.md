@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87923886"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077884"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
 
@@ -88,4 +88,4 @@ Azure 구독을 보유하고 구독의 *소유자*, *참여자* 또는 *읽기 �
 ## <a name="next-steps"></a>다음 단계
 
 * 역할 목록은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
-* 리소스를 관리 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 리소스 관리](resource-group-portal.md)를 참조 하세요.
+* 리소스를 관리 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 리소스 관리](../azure-resource-manager/management/manage-resources-portal.md)를 참조 하세요.

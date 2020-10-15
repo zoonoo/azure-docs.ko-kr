@@ -3,12 +3,12 @@ title: 자습서 - Azure에서 vSphere 클러스터 배포
 description: Azure VMWare Solution을 사용하여 Azure에 vSphere 클러스터를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 3fab49640364ef1b2e68953d366b20f77556b486
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: b673a67fac734c9cb63e96b6a0c3dc9182f4b994
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578322"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952287"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>자습서: Azure에서 Azure VMware Solution 프라이빗 클라우드 배포
 
@@ -43,7 +43,7 @@ Azure VMware Solution 프라이빗 클라우드는 [Azure Portal](#azure-portal)
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VMware Solution 프라이빗 클라우드를 만드는 Azure Portal 대신 Azure Cloud Shell을 사용하여 Azure CLI를 사용할 수 있습니다.  Azure VMware Solution과 함께 사용할 수 있는 명령 목록은 [azure vmware commands](https://docs.microsoft.com/cli/azure/ext/vmware/vmware)를 참조하세요.
+Azure VMware Solution 프라이빗 클라우드를 만드는 Azure Portal 대신 Azure Cloud Shell을 사용하여 Azure CLI를 사용할 수 있습니다.  Azure VMware Solution과 함께 사용할 수 있는 명령 목록은 [azure vmware commands](/cli/azure/ext/vmware/vmware)를 참조하세요.
 
 #### <a name="open-azure-cloud-shell"></a>Azure Cloud Shell 열기
 
@@ -96,7 +96,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="azure-vmware-commands"></a>Azure VMware 명령
 
-Azure VMware Solution과 함께 사용할 수 있는 명령 목록은 [azure vmware commands](https://docs.microsoft.com/cli/azure/ext/vmware/vmware)를 참조하세요.
+Azure VMware Solution과 함께 사용할 수 있는 명령 목록은 [azure vmware commands](/cli/azure/ext/vmware/vmware)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

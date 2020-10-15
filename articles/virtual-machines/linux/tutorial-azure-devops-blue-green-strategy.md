@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f349ff62fe211f0610341864a4c7528ee6bfe9c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080134"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961530"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>자습서 - Azure Linux 가상 머신에 대한 파란색-녹색 배포 전략 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "87080134"
 
 Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전한 기능을 갖춘 CI/CD 자동화 도구 세트를 제공합니다. Azure Portal에서 Azure VM에 대한 지속적인 업데이트 파이프라인을 구성할 수 있습니다.
 
-이 문서에서는 파란색-녹색 전략을 다중 머신 배포에 사용하는 CI/CD 파이프라인을 설정하는 방법을 보여 줍니다. Azure Portal에서는 [롤링](https://aka.ms/AA7jlh8) 및 [카나리아](https://aka.ms/AA7jdrz)와 같은 다른 전략도 지원합니다.
+이 문서에서는 파란색-녹색 전략을 다중 머신 배포에 사용하는 CI/CD 파이프라인을 설정하는 방법을 보여 줍니다. Azure Portal에서는 [롤링](./tutorial-devops-azure-pipelines-classic.md) 및 [카나리아](./tutorial-azure-devops-canary-strategy.md)와 같은 다른 전략도 지원합니다.
 
 ### <a name="configure-cicd-on-virtual-machines"></a>가상 머신에서 CI/CD 구성
 
@@ -73,8 +73,8 @@ Azure Pipelines는 가상 머신에 배포하는 데 사용할 수 있는 완전
 
 ## <a name="other-deployment-strategies"></a>기타 배포 전략
 
-- [롤링 배포 전략 구성](https://aka.ms/AA7jlh8)
-- [카나리아 배포 전략 구성](https://aka.ms/AA7jdrz)
+- [롤링 배포 전략 구성](./tutorial-devops-azure-pipelines-classic.md)
+- [카나리아 배포 전략 구성](./tutorial-azure-devops-canary-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

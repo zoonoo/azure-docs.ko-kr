@@ -6,12 +6,12 @@ author: laurenhughes
 ms.topic: article
 ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce51e76829c19def1c1603b1a88592d1e683ccae
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335605"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070642"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
 
@@ -20,7 +20,7 @@ Azure Portal에는 AKS (Azure Kubernetes Service) 클러스터의 Kubernetes 리
 Azure Portal의 Kubernetes 리소스 뷰가 사용 중단에 대해 설정 된 [AKS dashboard 추가 기능][kubernetes-dashboard]을 대체 합니다.
 
 >[!NOTE]
->Capabilty는 현재 [개인 Azure Kubernetes Service 클러스터](https://docs.microsoft.com/azure/aks/private-clusters)에서 지원 되지 않습니다.
+>Capabilty는 현재 [개인 Azure Kubernetes Service 클러스터](./private-clusters.md)에서 지원 되지 않습니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

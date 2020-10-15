@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235707"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070370"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -129,7 +129,7 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 예상치가 일치 하지 않기 때문입니다. 이러한 문제를 방지 하려면 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 [적절 한 관련자](https://aka.ms/deploymentplans) 와 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다.
+기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 예상치가 일치 하지 않기 때문입니다. 이러한 문제를 방지 하려면 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 [적절 한 관련자](../fundamentals/active-directory-deployment-plans.md) 와 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다.
 
 ### <a name="plan-communications"></a>통신 계획
 
@@ -264,7 +264,7 @@ Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템
 
 이를 지 원하는 응용 프로그램에 대 한 자동 사용자 계정 프로 비전 및 프로 비전 해제를 관리 하려면 [Azure Portal](https://portal.azure.com/) 을 사용 합니다. [응용 프로그램에 대 한 자동 프로 비전 설정 어떻게 할까요?](../app-provisioning/user-provisioning.md) 의 단계를 따르세요.
 
-[Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)를 사용하여 Azure AD 사용자 프로비저닝 서비스를 구성 및 관리할 수도 있습니다.
+[Microsoft Graph API](/graph/api/resources/synchronization-overview)를 사용하여 Azure AD 사용자 프로비저닝 서비스를 구성 및 관리할 수도 있습니다.
 
 ## <a name="manage-automatic-user-provisioning"></a>자동 사용자 프로 비전 관리
 
@@ -274,7 +274,7 @@ Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템
 
 성공적인 [초기 주기](../app-provisioning/user-provisioning.md)후에 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 응용 프로그램과 관련 된 간격으로 증분 업데이트를 무기한 실행 합니다.
 
-* 서비스를 수동으로 중지 하 고 [Azure Portal](https://portal.azure.com/)를 사용 하거나 적절 한 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
+* 서비스를 수동으로 중지 하 고 [Azure Portal](https://portal.azure.com/)를 사용 하거나 적절 한 [Microsoft Graph API](/graph/api/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
 
 * 새 초기 주기는 특성 매핑 또는 범위 지정 필터의 변경에 의해 트리거됩니다.
 
@@ -310,7 +310,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 * [특성 매핑에 대한 식 작성](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)
 
 * [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 

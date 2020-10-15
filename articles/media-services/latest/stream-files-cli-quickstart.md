@@ -14,10 +14,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268777"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Azure CLI

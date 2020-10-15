@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdfe3956d8c715e391270aab6b3c589430c91593
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8868f86f0cf46ff82e37cd433d7b5bca0d69567d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058032"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078938"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -74,7 +74,7 @@ VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기*
 아니요, [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 구성 요소를 충족 합니다. 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Vpn에서 VMware HCX가 지원 되나요?
-아니요.
+아니요, 대역폭 및 대기 시간 요구 사항으로 인해 발생 합니다.
 
 #### <a name="can-azure-bastion-be-used-for-connecting-to-avs-vms"></a>Azure 방호를 사용 하 여 AVS Vm에 연결할 수 있나요?
 Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 위해 점프 상자에 연결 하는 서비스입니다. Azure 가상 사용자는 azure IaaS 개체가 아니기 때문에 azure 방호를 사용 하 여 azure VMware 솔루션 Vm에 연결할 수 없습니다.

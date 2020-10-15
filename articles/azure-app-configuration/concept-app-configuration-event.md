@@ -7,18 +7,18 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590033"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078207"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Azure 앱 구성 이벤트에 대응
 
 Azure 앱 구성 이벤트를 사용 하면 응용 프로그램에서 키 값의 변경 내용에 반응할 수 있습니다. 이는 복잡 한 코드 또는 비용이 많이 들고 비효율적인 폴링 서비스 없이 수행 됩니다. 대신, 이벤트는 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), 사용자 지정 http 수신기에 대 한 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) 를 통해 구독자에 게 푸시됩니다. 매우, 사용한 만큼만 요금을 지불 하면 됩니다.
 
-Azure 앱 구성 이벤트는 다양 한 재시도 정책 및 배달 못 한 편지 전달을 통해 응용 프로그램에 신뢰할 수 있는 배달 서비스를 제공 하는 Azure Event Grid 전송 됩니다. 자세히 알아보려면 [Event Grid 메시지 배달 및 다시 시도](https://docs.microsoft.com/azure/event-grid/delivery-and-retry)를 참조 하세요.
+Azure 앱 구성 이벤트는 다양 한 재시도 정책 및 배달 못 한 편지 전달을 통해 응용 프로그램에 신뢰할 수 있는 배달 서비스를 제공 하는 Azure Event Grid 전송 됩니다. 자세히 알아보려면 [Event Grid 메시지 배달 및 다시 시도](../event-grid/delivery-and-retry.md)를 참조 하세요.
 
 일반적인 앱 구성 이벤트 시나리오에는 응용 프로그램 구성 새로 고침, 배포 트리거 또는 모든 구성 지향 워크플로가 포함 됩니다. 변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 

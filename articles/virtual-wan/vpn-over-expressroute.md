@@ -1,18 +1,18 @@
 ---
 title: 'Express 경로 암호화 구성: Azure 가상 WAN에 대 한 Express 경로를 통한 IPsec'
-description: 이 자습서에서는 Azure 가상 WAN을 사용 하 여 Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결을 만드는 방법에 대해 알아봅니다.
+description: Azure 가상 WAN을 사용 하 여 Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827970"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079057"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
