@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713770"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077442"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -100,7 +100,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 * [DDoS Protection 표준을 구성하는 방법](../virtual-network/manage-ddos-protection.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -588,7 +588,7 @@ Azure AD 사용자 계정에 대한 진단 설정을 만들고, 감사 로그 �
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -774,7 +774,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 �
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1114,7 +1114,7 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 악의적으로 삭제되지 않도록 키를 보호합니다.
 
-* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 해당 없음
 

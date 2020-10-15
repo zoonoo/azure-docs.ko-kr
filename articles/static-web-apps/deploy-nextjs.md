@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 554a7504e4e72eb2b2921c56e535343398cfa8b6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 835ee926de776b7a25295485d18ce25f883a2c5f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333650"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951165"
 ---
 # <a name="deploy-server-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 서버에 렌더링된 Next.js 웹 사이트 배포
 
@@ -73,7 +73,7 @@ Next.js CLI를 사용하여 앱을 만드는 대신 기존 Next.js 앱이 포함
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -207,7 +207,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {

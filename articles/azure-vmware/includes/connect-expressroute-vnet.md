@@ -4,10 +4,10 @@ description: ExpressRoute를 가상 네트워크 게이트웨이에 연결하는
 ms.topic: include
 ms.date: 09/28/2020
 ms.openlocfilehash: 214ef9c01193b238c8e456ef2809f7a2edbdb6c7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598175"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->

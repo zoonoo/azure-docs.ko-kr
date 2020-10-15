@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9c9bac20beb415f8bc29ca63d530e5cd8492d2d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8ffb2d2f52e1bdfece7fe1bdcd04dcf9b1b600f3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997017"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077646"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Azure 방호를 사용 하 여 Windows 가상 머신에 연결
 
@@ -20,7 +20,7 @@ Azure 방호를 사용 하 여 Azure Portal에서 직접 SSL을 통해 가상 �
 
 Azure 방호는 프로 비전 되는 가상 네트워크의 모든 Vm에 대 한 보안 연결을 제공 합니다. Azure Bastion을 사용하면 가상 머신에서 RDP/SSH를 사용하여 안전한 액세스 권한을 계속 제공하며 RDP/SSH 포트가 외부 환경에 노출되는 상황으로부터 보호합니다. 자세한 내용은 [Azure 방호 이란?](bastion-overview.md)을 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 조건을 충족 하는지 확인 합니다.
 

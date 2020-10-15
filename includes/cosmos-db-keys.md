@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
 ms.openlocfilehash: 26aab287c6bf216129bdf372f7dee4d22f12f7bd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "71299313"
 ---
   Azure Cosmos DB 계정 페이지로 이동하여 **키**를 선택합니다. 다음에 만든 웹 애플리케이션에 사용할 값을 복사합니다.
