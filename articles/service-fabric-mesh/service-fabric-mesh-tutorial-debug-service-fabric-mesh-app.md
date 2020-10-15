@@ -1,17 +1,17 @@
 ---
 title: 로컬로 실행되는 Azure Service Fabric Mesh 웹앱 디버그
 description: 이 자습서에서는 로컬 클러스터에서 실행 중인 Azure Service Fabric Mesh 애플리케이션을 디버그합니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 10/31/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 586641d721d0c29bcd6d7b42fc8ca9141df96c66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 56cc8b4010dc17cf2b723a72898034de8d6a7175
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261302"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91843297"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 애플리케이션 디버그
 

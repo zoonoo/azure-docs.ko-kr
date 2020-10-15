@@ -1,17 +1,17 @@
 ---
 title: 자습서- Service Fabric Mesh 애플리케이션 배포
 description: Visual Studio를 사용하여 백 엔드 웹 서비스와 통신하는 ASP.NET Core 웹 사이트로 구성된 Azure Service Fabric Mesh 애플리케이션을 게시하는 방법을 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3f0dca5aa9e430fa21d09509121a7ad26feda446
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6305bdd8c892bb0323cd4f7dc61b7ad22652ed73
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261333"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842736"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
 

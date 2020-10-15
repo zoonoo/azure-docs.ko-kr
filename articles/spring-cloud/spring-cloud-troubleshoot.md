@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5346858aa119f11ef34916b24c70c966286ab86
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336159"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089046"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -68,7 +68,7 @@ ms.locfileid: "91336159"
 
 
 
-Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조 하세요.
+Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
 ::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>애플리케이션에서 높은 CPU 사용 또는 높은 메모리 사용 경험
@@ -91,7 +91,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 
 모든 인스턴스가 실행 되 고 있는 경우 Azure Log Analytics로 이동 하 여 응용 프로그램 로그를 쿼리하고 코드 논리를 검토 합니다. 이를 통해 확장 분할에 영향을 줄 수 있는지 여부를 확인할 수 있습니다. 자세한 내용은 [진단 설정을 사용 하 여 로그 및 메트릭 분석](diagnostic-services.md)을 참조 하세요.
 
-Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조 하세요. [Kusto 쿼리 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
+Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요. [Kusto 쿼리 언어](/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
 
 ::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Azure 스프링 클라우드에 스프링 응용 프로그램을 배포 하기 위한 검사 목록
@@ -113,14 +113,14 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 
 Azure Portal를 사용 하 여 Azure 스프링 클라우드 서비스 인스턴스를 설정 하는 경우 Azure 스프링 클라우드는 유효성 검사를 수행 합니다.
 
-그러나 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 또는 [Azure Resource Manager 템플릿을](https://docs.microsoft.com/azure/azure-resource-manager/)사용 하 여 Azure 스프링 클라우드 서비스 인스턴스를 설정 하려는 경우 다음을 확인 하세요.
+그러나 [Azure CLI](/cli/azure/get-started-with-azure-cli) 또는 [Azure Resource Manager 템플릿을](../azure-resource-manager/index.yml)사용 하 여 Azure 스프링 클라우드 서비스 인스턴스를 설정 하려는 경우 다음을 확인 하세요.
 
 * 구독이 활성 상태입니다.
 * 이 위치는 Azure 스프링 클라우드에서 [지원](spring-cloud-faq.md) 됩니다.
 * 인스턴스에 대한 리소스 그룹이 이미 만들어졌습니다.
 * 리소스 이름이 명명 규칙을 준수합니다. 소문자, 숫자 및 하이픈만 포함 해야 합니다. 첫 글자는 문자여야 합니다. 마지막 글자는 문자 또는 숫자여야 합니다. 값에는 2 ~ 32 문자를 포함 해야 합니다.
 
-리소스 관리자 템플릿을 사용 하 여 Azure 스프링 클라우드 서비스 인스턴스를 설정 하려면 먼저 [Azure Resource Manager 템플릿의 구조 및 구문 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)를 참조 하세요.
+리소스 관리자 템플릿을 사용 하 여 Azure 스프링 클라우드 서비스 인스턴스를 설정 하려면 먼저 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조 하세요.
 
 Azure 스프링 클라우드 서비스 인스턴스의 이름은에서 하위 도메인 이름을 요청 하는 데 사용 `azureapps.io` 되므로 이름이 기존 이름과 충돌 하는 경우 설치가 실패 합니다. 활동 로그에서 자세한 내용을 확인할 수 있습니다.
 
@@ -129,7 +129,7 @@ Azure 스프링 클라우드 서비스 인스턴스의 이름은에서 하위 �
 
 Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 .NET Core Steeltoe 앱에 대 한 *.zip* 파일을 업로드할 수 없습니다.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
+[Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
 
 응용 프로그램이 올바른 *.zip* 파일 형식으로 패키지 되었는지 확인 합니다. 올바르게 패키지 되지 않은 경우 프로세스가 응답 하지 않거나 오류 메시지가 표시 됩니다.
 ::: zone-end
@@ -139,7 +139,7 @@ Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 .NET Core St
 
 Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여/source 패키지를 업로드할 수 없습니다.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
+[Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
 
 폴링이 중단된 경우에도 다음 명령을 사용하여 배포 로그를 계속 가져올 수 있습니다.
 
@@ -153,7 +153,7 @@ Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여/source 패�
 
 Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 JAR/원본 패키지를 업로드할 수 없습니다.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
+[Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
 
 폴링이 중단된 경우에도 다음 명령을 사용하여 빌드 및 배포 로그를 계속 가져올 수 있습니다.
 
@@ -171,7 +171,7 @@ Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 JAR/원본 �
 
 Azure Log Analytics에서 _서비스 레지스트리_ 클라이언트 로그를 확인할 수도 있습니다. 자세한 내용은 [진단 설정을 사용 하 여 로그 및 메트릭 분석](diagnostic-services.md) 을 참조 하세요.
 
-Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조 하세요. [Kusto 쿼리 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
+Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요. [Kusto 쿼리 언어](/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>내 애플리케이션의 환경 변수를 검사하려고 합니다.
 
@@ -231,7 +231,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 </dependency>
 ```
 
-응용 프로그램 로그를 저장소 계정에 보관할 수는 있지만 Azure Log Analytics로 보내지 않은 경우 [작업 영역을 올바르게 설정](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)했는지 확인 합니다. Azure Log Analytics의 무료 계층을 사용 하는 경우 [무료 계층은 SLA (서비스 수준 계약)를 제공 하지](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/)않습니다.
+응용 프로그램 로그를 저장소 계정에 보관할 수는 있지만 Azure Log Analytics로 보내지 않은 경우 [작업 영역을 올바르게 설정](../azure-monitor/learn/quick-create-workspace.md)했는지 확인 합니다. Azure Log Analytics의 무료 계층을 사용 하는 경우 [무료 계층은 SLA (서비스 수준 계약)를 제공 하지](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/)않습니다.
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계

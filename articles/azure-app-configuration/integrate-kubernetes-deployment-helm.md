@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2b5440ad2bec94d4ef14fa29e723cc91a4fcdf10
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766851"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074841"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Helm을 사용하여 Kubernetes 배포와 통합
 
@@ -28,12 +28,12 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
 > * Helm을 사용하여 애플리케이션을 Kubernetes에 배포할 때 App Configuration의 값을 사용합니다.
 > * App Configuration에서 Key Vault 참조를 기반으로 하는 Kubernetes 비밀을 만듭니다.
 
-이 자습서에서는 Helm을 사용하여 Kubernetes를 관리하는 방법에 대한 기본적인 이해를 가정합니다. [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-helm)에서 Helm을 사용하여 애플리케이션을 설치하는 방법에 대해 자세히 알아보세요.
+이 자습서에서는 Helm을 사용하여 Kubernetes를 관리하는 방법에 대한 기본적인 이해를 가정합니다. [Azure Kubernetes Service](../aks/kubernetes-helm.md)에서 Helm을 사용하여 애플리케이션을 설치하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.4.0 이상) 설치
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.4.0 이상) 설치
 - [Helm](https://helm.sh/docs/intro/install/)(버전 2.14.0 이상) 설치
 - Kubernetes 클러스터
 
@@ -51,7 +51,7 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
     지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>App Configuration에 Key Vault 참조 추가
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이름이 **Password**이고 값이 **myPassword**인 비밀을 [Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)에 추가합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이름이 **Password**이고 값이 **myPassword**인 비밀을 [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)에 추가합니다. 
 2. 이전 섹션에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
 3. **구성 탐색기**를 선택합니다.
@@ -185,7 +185,7 @@ settings:
 먼저, 구성을 App Configuration에서 *myConfig.yaml* 파일로 다운로드합니다. 키 필터를 사용하여 **settings.** 로 시작하는 키만 다운로드합니다. 키 필터가 키 자격 증명 모음 참조의 키를 제외하는 데 충분하지 않은 경우 **--skip-keyvault** 인수를 사용하여 제외할 수 있습니다. 
 
 > [!TIP]
-> [export 명령](https://docs.microsoft.com/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export)에 대해 자세히 알아보세요. 
+> [export 명령](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export)에 대해 자세히 알아보세요. 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -225,7 +225,7 @@ else{
 
 ```
 
-[Kubernetes 대시보드](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)에 액세스하여 구성 및 비밀이 성공적으로 설정되었는지 확인합니다. App Configuration의 **color** 및 **message** 값이 컨테이너의 환경 변수에 채워져 있음을 알 수 있습니다.
+[Kubernetes 대시보드](../aks/kubernetes-dashboard.md)에 액세스하여 구성 및 비밀이 성공적으로 설정되었는지 확인합니다. App Configuration의 **color** 및 **message** 값이 컨테이너의 환경 변수에 채워져 있음을 알 수 있습니다.
 
 ![로컬로 빠른 시작 앱 시작](./media/kubernetes-dashboard-env-variables.png)
 
@@ -242,4 +242,4 @@ App Configuration에서 Key Vault 참조로 저장되는 하나의 비밀인 **p
 이 자습서에서는 Helm을 사용하여 Kubernetes 배포에 사용할 Azure App Configuration 데이터를 내보냈습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)

@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure Lab Services를 사용하여 클래스
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336737"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 

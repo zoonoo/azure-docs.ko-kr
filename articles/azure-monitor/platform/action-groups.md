@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327734"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093755"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -287,7 +287,32 @@ Write-Host $myApp.AppRoles
 
 작업 그룹에서 웹후크 작업의 수가 제한될 수 있습니다.
 
+### <a name="service-tag"></a>서비스 태그
+서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고, 주소가 변경 될 때 서비스 태그를 자동으로 업데이트 하 여 ActionGroup에 대 한 네트워크 보안 규칙을 자주 업데이트 하는 복잡성을 최소화 합니다.
 
+1. Azure 서비스의 Azure Portal에서 *네트워크 보안 그룹*을 검색 합니다.
+2. **추가** 를 클릭 하 고 네트워크 보안 그룹을 만듭니다.
+
+   1. 리소스 그룹 이름을 추가 하 고 *인스턴스 세부 정보*를 입력 합니다.
+   1. **검토 + 만들기** 를 클릭 한 다음 *만들기*를 클릭 합니다.
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="네트워크 보안 그룹을 만드는 방법에 대 한 예입니다."border="true":::
+
+3. 리소스 그룹으로 이동한 다음 만든 *네트워크 보안 그룹* 을 클릭 합니다.
+
+    1. *인바운드 보안 규칙*을 선택 합니다.
+    1. **추가**를 클릭 합니다.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
+
+4. 오른쪽 창에 새 창이 열립니다.
+    1.  원본 선택: **서비스 태그**
+    1.  원본 서비스 태그: **Actiongroup**
+    1.  **추가**를 클릭합니다.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
+
+ActionGroup에 **서비스 태그** 를 사용 하면 IP 주소를 자주 업데이트 하는 복잡성을 최소화 하는 데 도움이 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [SMS 경고 동작](./alerts-sms-behavior.md)에 대해 자세히 알아보세요.  

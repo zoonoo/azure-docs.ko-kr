@@ -1,17 +1,17 @@
 ---
 title: Service Fabric Mesh에 다중 서비스 앱 생성, 배포
 description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: 6531b8a631c38339733aa5fdad60bb1917fe7d9b
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653114"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842549"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
 

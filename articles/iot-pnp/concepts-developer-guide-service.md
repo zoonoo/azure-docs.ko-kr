@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 431ea692ac734a875e27cb8ed4b015155e0e9b91
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7523dd39303a211772dd39eef811f55739336ff0
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042425"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093704"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>IoT 플러그 앤 플레이 서비스 개발자 가이드
 
@@ -30,14 +30,14 @@ Iot hub에 연결 된 IoT 플러그 앤 플레이 장치를 사용 하려면 iot
 
 - Iot Hub 서비스 클라이언트입니다. 이 서비스는 모델 ID를 장치 쌍 속성으로 노출 합니다.
 
-- Digital Twins 서비스 클라이언트. 새 Digital Twins API는 구성 요소, 속성 및 명령과 같은 [DTDL (디지털 Twins 정의 언어)](concepts-digital-twin.md) 모델 구조에서 작동 합니다. 디지털 쌍 Api를 사용 하면 솔루션 빌더가 IoT 플러그 앤 플레이 솔루션을 쉽게 만들 수 있습니다.
+- Digital Twins 클라이언트. 새 Digital Twins API는 구성 요소, 속성 및 명령과 같은 [DTDL (디지털 Twins 정의 언어)](concepts-digital-twin.md) 모델 구조에서 작동 합니다. 디지털 쌍 Api를 사용 하면 솔루션 빌더가 IoT 플러그 앤 플레이 솔루션을 쉽게 만들 수 있습니다.
 
-| 플랫폼 | IoT Hub 서비스 클라이언트 | 디지털 쌍 서비스 클라이언트 |
-| -------- | ---------------------- | ---------------------------- |
-| .NET     | [문서](/dotnet/api/microsoft.azure.devices) <br/> [샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
-| Java     | [문서](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> [샘플](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
-| Node.js  | [문서](/javascript/api/azure-iothub/twin?preserve-view=true&view=azure-node-latest) <br/> [샘플](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [문서](/javascript/api/azure-iot-digitaltwins-service/?preserve-view=true&view=azure-node-latest) <br/> [샘플](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
-| Python   | [문서](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?preserve-view=true&view=azure-python) <br/> [샘플](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [문서](/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?preserve-view=true&view=azure-python) <br/> [샘플](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
+| 플랫폼 | 설명서 | 샘플 |
+| -------- | ------------- | ------- |
+| .NET     | [참조](/dotnet/api/microsoft.azure.devices) | [서비스 클라이언트](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) </br> [Digital Twins](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [참조](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> | [서비스 클라이언트](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample) </br>[Digital Twins](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [참조](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest) | [서비스 클라이언트](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js) </br> [Digital Twins](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [참조](/python/api/azure-iot-hub/azure.iot.hub?preserve-view=true&view=azure-python) <br/> | [서비스 클라이언트](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py) </br> [Digital Twins](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 
@@ -161,7 +161,7 @@ catch (DeviceNotFoundException)
 }
 ```
 
-## <a name="digital-twin-examples"></a>디지털 쌍 예
+## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 쌍 예
 
 디지털 쌍을 사용 하 여 장치 상태와 상호 작용 하려면 **DigitalTwinClient** 클래스를 사용 합니다. 장치의 [Dtdl](concepts-digital-twin.md) 모델은 장치가 구현 하는 속성과 명령을 정의 합니다.
 
@@ -369,43 +369,6 @@ catch (HttpOperationException e)
         Console.WriteLine("Unable to execute command getMaxMinReport on component thermostat1.");
     }
 }
-```
-
-## <a name="rest-api"></a>REST API
-
-다음 예에서는 IoT Hub REST API를 사용 하 여 연결 된 IoT 플러그 앤 플레이 장치와 상호 작용 합니다. API의 현재 버전은 `2020-09-30` 입니다. `?api-version=2020-09-30`REST PI 호출에 추가 합니다.
-
-> [!NOTE]
-> 모듈 쌍은 현재 API에서 지원 되지 않습니다 `digitalTwins` .
-
-자동 온도 조절기 장치를 호출 하는 경우 `t-123` REST API get 호출을 사용 하 여 장치에서 구현 된 모든 인터페이스의 모든 속성을 가져옵니다.
-
-```REST
-GET /digitalTwins/t-123
-```
-
-이 호출에는 `$metadata.$model` 장치에서 발표 한 모델 ID를 포함 하는 Json 속성이 포함 됩니다.
-
-모든 인터페이스의 모든 속성은 REST API 템플릿을 사용 하 여 액세스할 수 있습니다 `GET /DigitalTwin/{device-id}` `{device-id}` . 여기서은 장치에 대 한 식별자입니다.
-
-```REST
-GET /digitalTwins/{device-id}
-```
-
-IoT 플러그 앤 플레이 장치 명령을 직접 호출할 수 있습니다. `Thermostat`장치의 구성 요소에 명령이 있는 경우 `t-123` `restart` REST API POST 호출을 사용 하 여 호출할 수 있습니다.
-
-```REST
-POST /digitalTwins/t-123/components/Thermostat/commands/restart
-```
-
-보다 일반적으로이 REST API 템플릿을 통해 명령을 호출할 수 있습니다.
-
-- `device-id`: 장치의 식별자입니다.
-- `component-name`: 장치 기능 모델의 implements 섹션에 있는 인터페이스의 이름입니다.
-- `command-name`: 명령의 이름입니다.
-
-```REST
-/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
 ```
 
 ## <a name="read-device-telemetry"></a>장치 원격 분석 읽기

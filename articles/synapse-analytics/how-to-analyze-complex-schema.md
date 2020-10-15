@@ -5,16 +5,16 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 51422bd47b5bd2d7d5103c154e90eaa910396024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43e4027c9d88b209ed0606e045dd5b4d47d3ff6e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661025"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088519"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 복잡 한 데이터 형식 분석
 
@@ -168,7 +168,7 @@ display(df_flat_explode_flat.limit(10))
 
 먼저 데이터가 저장 되는 방식에 따라 사용자는 다음 분류를 사용 해야 합니다. 대문자에 표시 되는 모든 항목은 사용 사례에 따라 다릅니다.
 
-| 대량 | 형식 |
+| 대량 | 서식 |
 | ------ | ------ |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |' Parquet ' (ADLSg2)|
 | N'endpoint = https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/ ; account = ACCOUNTNAME; database = DATABASENAME; collection = COLLECTIONNAME; region = 지역이 TOQUERY ', secret = ' 해당 암호 ' |' CosmosDB ' (Azure Synapse Link)|
