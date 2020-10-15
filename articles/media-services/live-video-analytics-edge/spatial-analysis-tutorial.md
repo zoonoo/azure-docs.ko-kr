@@ -3,12 +3,12 @@ title: 공간 분석을 위해 Computer Vision을 사용하여 라이브 비디�
 description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: cad96847d6fbf682f1d694b0c8c255b3725e96d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 0dc89eaddf5cabc3063744dfe2c9f0236c70438c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824135"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015688"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "91824135"
 * [Live Video Analytics on IoT Edge 용어](terminology.md)
 * [미디어 그래프 개념](media-graph-concept.md)
 * [이벤트 기반 비디오 녹화](event-based-video-recording-concept.md)
-* [자습서: IoT Edge 모듈 개발](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [자습서: IoT Edge 모듈 개발](../../iot-edge/tutorial-develop-for-linux.md)
 * [Azure Stack Edge에 Live Video Analytics 배포](deploy-azure-stack-edge-how-to.md) 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -55,12 +55,12 @@ ms.locfileid: "91824135"
 
 MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음 **공유 메모리**를 통해 이미지를 gRPC 엔드포인트 뒤에서 AI 작업을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 공간 분석 모듈입니다. MediaGraphCognitiveServicesVisionExtension 프로세서 노드는 다음 두 가지 작업을 수행합니다.
 
-* 결과를 수집하고 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 이벤트를 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub)에 보냅니다. 
+* 결과를 수집하고 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 이벤트를 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)에 보냅니다. 
 * 또한 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor)를 사용하여 RTSP 원본에서 30초 비디오 클립을 캡처하여 Media Services 자산으로 저장합니다.
 
 ## <a name="create-the-computer-vision-resource"></a>Computer Vision 리소스 만들기
 
-[Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 컨테이너에 대한 액세스 요청을 승인하고 Azure 구독 ID를 등록한 후에 리소스를 만들 수 있습니다. https://aka.ms/csgate 로 이동하여 사용 사례와 Azure 구독 ID를 제출합니다.  액세스 양식 요청에서 제공된 것과 동일한 Azure 구독을 사용하여 Azure 리소스를 만들어야 합니다.
+[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 Azure CLI를 통해 Computer Vision 유형의 Azure 리소스를 만들어야 합니다. 컨테이너에 대한 액세스 요청을 승인하고 Azure 구독 ID를 등록한 후에 리소스를 만들 수 있습니다. https://aka.ms/csgate 로 이동하여 사용 사례와 Azure 구독 ID를 제출합니다.  액세스 양식 요청에서 제공된 것과 동일한 Azure 구독을 사용하여 Azure 리소스를 만들어야 합니다.
 
 ### <a name="gathering-required-parameters"></a>필수 매개 변수 수집
 
@@ -75,7 +75,7 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 
 ## <a name="set-up-azure-stack-edge"></a>Azure Stack Edge 설정
 
-[다음 단계](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep)에 따라 Azure Stack Edge를 설정하고 아래 단계를 계속 수행하여 Live Video Analytics와 공간 분석 모듈을 배포합니다.
+[다음 단계](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)에 따라 Azure Stack Edge를 설정하고 아래 단계를 계속 수행하여 Live Video Analytics와 공간 분석 모듈을 배포합니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -136,7 +136,7 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 1. lvaEdge 및 공간 분석 모듈 createOptions의 `IpcMode`는 동일해야 하며 host로 설정되어야 합니다.
 1. RTSP 시뮬레이터가 작동하려면 볼륨 범위를 설정했는지 확인합니다. 자세한 내용은 [Docker 볼륨 탑재 설정](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts)을 참조하세요.
 
-    1. [SMB 공유에 연결](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share)하고 [샘플 bulldozer 비디오 파일](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv)을 로컬 공유에 복사합니다.
+    1. [SMB 공유에 연결](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 bulldozer 비디오 파일](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv)을 로컬 공유에 복사합니다.
     1. rtspsim 모듈이 다음과 같이 구성되었는지 확인합니다.
         
         ```json

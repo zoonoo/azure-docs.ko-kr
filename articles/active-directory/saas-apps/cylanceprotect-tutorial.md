@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 5457730494d509a2923ce929f41e397cb6064126
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236c24ac63aef6b802edf53f9c414a522c2308e4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550078"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015126"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>자습서: CylancePROTECT와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -144,7 +144,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-cylanceprotect-sso"></a>CylancePROTECT SSO 구성
 
-**CylancePROTECT** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [CylancePROTECT 지원 팀](https://www.cylance.com/en-us/resources/support/support-overview.html)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다. 자세한 내용 Cylance 설명서: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4)를 사용하세요.
+**CylancePROTECT** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [CylancePROTECT 지원 팀](https://www.cylance.com/en-us/resources/support/support-overview.html)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다. 자세한 내용 Cylance 설명서: [https://support.cylance.com/s/](https://support.cylance.com/s/)를 사용하세요.
 
 ### <a name="create-cylanceprotect-test-user"></a>CylancePROTECT 테스트 사용자 만들기
 
