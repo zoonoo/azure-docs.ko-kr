@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 489a1afd8e247b69761d521f51e16310176e31f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564086"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075334"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -235,7 +235,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 -   [Azure API Management 계정 복제](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Logic Apps로 API Management 백업 및 복원 자동화](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: 구성](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
+-   [Azure API Management: 구성](/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
      백업 및 복원 _Stuart에 설명 된 방법이 공식 지침과 일치 하지 않지만 흥미로운 방법이 있습니다._
 
 [backup an api management service]: #step1

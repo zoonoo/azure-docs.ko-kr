@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88941794"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016998"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>자습서: Azure Log Analytics에 Azure Media Services 이벤트 저장
 
@@ -43,11 +43,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 > * [Azure 구독](how-to-set-azure-subscription.md)
 > * [Media Services](create-account-howto.md) 계정 및 리소스 그룹
 > * OS용 [FFmpeg](https://ffmpeg.org/download.html) 설치
-> * [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 작업 영역
+> * [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) 작업 영역
 
 ## <a name="subscribe-to-a-media-services-event-with-logic-app"></a>논리 앱을 사용하여 Media Services 이벤트 구독
 
-1. Azure Portal에서 [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 작업 영역을 아직 만들지 않았으면 만듭니다. 작업 영역 ID와 키 중 하나가 필요하므로 브라우저 창을 열어 둡니다. 그런 다음, 다른 탭이나 창에서 포털을 엽니다.
+1. Azure Portal에서 [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) 작업 영역을 아직 만들지 않았으면 만듭니다. 작업 영역 ID와 키 중 하나가 필요하므로 브라우저 창을 열어 둡니다. 그런 다음, 다른 탭이나 창에서 포털을 엽니다.
 
 1. Azure Media Services 계정으로 이동하여 **이벤트**를 선택합니다. 그러면 Azure Media Services 이벤트를 구독하는 모든 메서드가 표시됩니다.
     > [!div class="mx-imgBorder"]
@@ -140,7 +140,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     > [!div class="mx-imgBorder"]
     > ![본문 및 함수 단계 확인](media/tutorial-events-log-analytics/verify-changes-to-json.png)
 
-1. 리소스 그룹의 모든 리소스를 검사하면 논리 앱과 두 개의 논리 앱 API 커넥터가 나열됩니다. 하나는 이벤트용이고 다른 하나는 Log Analytics용입니다. Event Grid 시스템 항목에 대한 자세한 내용은 [Event Grid 시스템 토픽](https://docs.microsoft.com/azure/event-grid/system-topics)을 참조하세요.
+1. 리소스 그룹의 모든 리소스를 검사하면 논리 앱과 두 개의 논리 앱 API 커넥터가 나열됩니다. 하나는 이벤트용이고 다른 하나는 Log Analytics용입니다. Event Grid 시스템 항목에 대한 자세한 내용은 [Event Grid 시스템 토픽](../../event-grid/system-topics.md)을 참조하세요.
     > [!div class="mx-imgBorder"]
     > ![리소스 그룹의 모든 새 리소스 보기](media/tutorial-events-log-analytics/contoso-rg-listing.png)
 
@@ -231,4 +231,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-다양한 쿼리를 만들고 저장할 수 있습니다. 이것을 [Azure 대시보드](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)에 추가할 수 있습니다.
+다양한 쿼리를 만들고 저장할 수 있습니다. 이것을 [Azure 대시보드](../../azure-monitor/learn/tutorial-logs-dashboards.md)에 추가할 수 있습니다.

@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 
 description: Custom Vision을 사용하여 장난감 트럭을 검색할 수 있는 컨테이너화된 모델을 빌드하는 방법과 Live Video Analytics on IoT Edge(LVA)의 AI 확장 기능을 사용하여 라이브 비디오 스트림에서 장난감 트럭을 검색하는 데 에지에 모델을 배포하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5da3186e64dd369dc57a0d5d1b635fc082158765
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: e77521765156a13f0675602ffd0b39f78d8957bb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804149"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016794"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -32,12 +32,12 @@ ms.locfileid: "91804149"
 시작하기 전에 다음 문서를 참조하는 것이 좋습니다. 
 
 * [Live Video Analytics on IoT Edge 개요](overview.md)
-* [Azure Custom Vision 개요](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home)
+* [Azure Custom Vision 개요](../../cognitive-services/custom-vision-service/overview.md)
 * [Live Video Analytics on IoT Edge 용어](terminology.md)
 * [미디어 그래프 개념](media-graph-concept.md)
 * [비디오 녹화가 없는 Live Video Analytics](analyze-live-video-concept.md)
 * [사용자 고유의 모델로 Live Video Analytics 실행](use-your-model-quickstart.md)
-* [자습서: IoT Edge 모듈 개발](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [자습서: IoT Edge 모듈 개발](../../iot-edge/tutorial-develop-for-linux.md)
 * [deployment.*.template.json을 편집하는 방법](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -56,7 +56,7 @@ ms.locfileid: "91804149"
 
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
 
-이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv/) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. Ctrl+N을 선택하고 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다. 이 자습서에서는 Live Video Analytics on IoT Edge를 사용하여 이러한 장난감 트럭을 검색하고 IoT Edge 허브에 관련 유추 이벤트를 게시합니다.
+이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. Ctrl+N을 선택하고 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다. 이 자습서에서는 Live Video Analytics on IoT Edge를 사용하여 이러한 장난감 트럭을 검색하고 IoT Edge 허브에 관련 유추 이벤트를 게시합니다.
 
 ## <a name="overview"></a>개요
 
@@ -64,17 +64,17 @@ ms.locfileid: "91804149"
 > :::image type="content" source="./media/custom-vision-tutorial/topology-custom-vision.svg" alt-text="Custom Vision 개요":::
 
 이 다이어그램에서는 이 자습서의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드로 보냅니다. 이 프로세서는 [HTTP 확장 프로세서](media-graph-concept.md#http-extension-processor) 노드에 도달하는 비디오 스트림의 프레임 속도를 제한합니다.
-HTTP 확장 노드는 프록시 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음, REST를 통해 이미지를 HTTP 엔드포인트 내부에서 AI 모델을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 Custom Vision을 사용하여 빌드된 장난감 트럭 탐지기 모델입니다. HTTP 확장 프로세서 노드는 감지 결과를 수집하고, 이벤트를 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub)에 보냅니다.
+HTTP 확장 노드는 프록시 역할을 수행합니다. 비디오 프레임을 지정된 이미지 형식으로 변환합니다. 그런 다음, REST를 통해 이미지를 HTTP 엔드포인트 내부에서 AI 모델을 실행하는 다른 에지 모듈에 릴레이합니다. 이 예에서 에지 모듈은 Custom Vision을 사용하여 빌드된 장난감 트럭 탐지기 모델입니다. HTTP 확장 프로세서 노드는 감지 결과를 수집하고, 이벤트를 [IoT Hub 싱크](media-graph-concept.md#iot-hub-message-sink) 노드에 게시합니다. 그런 다음, 노드에서 이러한 이벤트를 [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)에 보냅니다.
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Custom Vision 장난감 검색 모델 빌드 및 배포 
 
 Custom Vision이라는 이름에서 알 수 있듯이 이를 활용하여 클라우드에서 사용자 지정 개체 탐지기 또는 분류자를 빌드할 수 있습니다. 컨테이너를 통해 클라우드 또는 에지에 배포할 수 있는 Custom Vision 모델을 빌드하기 위한 간단하고 사용하기 쉬운 직관적인 인터페이스를 제공합니다. 
 
-장난감 트럭 탐지기를 빌드하려면 웹 포털의 [빠른 시작 문서](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector)를 통해 이 Custom Vision의 개체 탐지기 빌드를 따르는 것이 좋습니다.
+장난감 트럭 탐지기를 빌드하려면 웹 포털의 [빠른 시작 문서](../../cognitive-services/custom-vision-service/get-started-build-detector.md)를 통해 이 Custom Vision의 개체 탐지기 빌드를 따르는 것이 좋습니다.
 
 추가 참고 사항:
  
-* 이 자습서에서는 빠른 시작 문서의 [필수 조건 섹션](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#prerequisites)에 제공된 샘플 이미지를 사용하지 마세요. 대신, 특정 이미지 집합을 활용하여 장난감 탐지기 Custom Vision 모델을 빌드했으므로 빠른 시작에서 [학습 이미지를 선택](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#choose-training-images)하라는 메시지가 표시되면 [이러한 이미지](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip)를 사용하는 것이 좋습니다.
+* 이 자습서에서는 빠른 시작 문서의 [필수 조건 섹션](../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites)에 제공된 샘플 이미지를 사용하지 마세요. 대신, 특정 이미지 집합을 활용하여 장난감 탐지기 Custom Vision 모델을 빌드했으므로 빠른 시작에서 [학습 이미지를 선택](../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images)하라는 메시지가 표시되면 [이러한 이미지](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip)를 사용하는 것이 좋습니다.
 * 빠른 시작의 이미지 태그 지정 섹션에서 그림에 표시된 장난감 트럭에 "배달 트럭"이라는 태그를 지정했는지 확인하세요.
 
 완료되면 만족스럽게 모델이 준비된 경우 성능 탭에서 내보내기 단추를 사용하여 Docker 컨테이너로 내보낼 수 있습니다. 컨테이너 플랫폼 유형으로 Linux를 선택했는지 확인하세요. 이는 컨테이너가 실행되는 플랫폼입니다. 컨테이너를 다운로드하는 컴퓨터는 Windows 또는 Linux일 수 있습니다. 다음 지침은 Windows 컴퓨터에 다운로드된 컨테이너 파일을 기반으로 합니다.
@@ -177,7 +177,7 @@ Custom Vision이라는 이름에서 알 수 있듯이 이를 활용하여 클라
     
 ## <a name="interpret-the-results"></a>결과 해석
 
-미디어 그래프를 실행하면 HTTP 확장 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브로 전달됩니다. OUTPUT 창에 표시되는 메시지에는 본문 섹션과 applicationProperties 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)를 참조하세요.
+미디어 그래프를 실행하면 HTTP 확장 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브로 전달됩니다. OUTPUT 창에 표시되는 메시지에는 본문 섹션과 applicationProperties 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 
 다음 메시지에서 Live Video Analytics 모듈은 애플리케이션 속성 및 본문의 콘텐츠를 정의합니다.
 
@@ -313,7 +313,6 @@ HTTP 확장 프로세서 노드는 Custom Vision 컨테이너에서 유추 결�
 고급 사용자에 대한 추가 문제를 검토합니다.
 
 * RTSP 시뮬레이터를 사용하는 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-* Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)의 지침을 따릅니다. 
+* Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 
 
-그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
-
+그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
