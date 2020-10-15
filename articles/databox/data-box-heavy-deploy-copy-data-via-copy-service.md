@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77560223"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box Heavy로 데이터 복사(미리 보기)
@@ -57,7 +57,7 @@ NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 �
     
     |필드                          |값    |
     |-------------------------------|---------|
-    |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. 다음 문자는 작업 이름에 허용되지 않습니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\.         |
+    |**작업 이름**                       |작업에 사용할 230자 미만의 고유한 이름입니다. \<, \>, \|, \?, \*, \\, \:, \/ 및 \\\. 문자는 작업 이름에 사용할 수 없습니다.         |
     |**원본 위치**                |`\\<ServerIPAddress>\<ShareName>` 또는 `\\<ServerName>\<ShareName>` 형식으로 데이터 소스에 대한 SMB 경로를 를 제공합니다.        |
     |**사용자 이름**                       |데이터 원본에 액세스하기 위한 `\\<DomainName><UserName>` 형식의 사용자 이름입니다. 로컬 관리자가 연결하는 경우 명시적 보안 권한이 필요합니다. 폴더를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **보안**을 선택합니다. 이렇게 하면 **보안** 탭에 로컬 관리자가 추가됩니다.       |
     |**암호**                       |데이터 원본에 액세스하기 위한 암호입니다.           |

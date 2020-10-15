@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c88d21c6ad17c613c5d708bf697ae8717c9ec91
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087894"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075266"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -67,7 +67,7 @@ Azure Automation와 Log Analytics 에이전트를 실행 하는 컴퓨터 간의
 
 ### <a name="service-tags"></a>서비스 태그
 
-Azure Automation는 서비스 태그 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)부터 Azure virtual network 서비스 태그를 지원 합니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 **GuestAndHybridManagement**  을 지정 하 여 자동화 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한 하 여 보다 세부적인 제어를 허용 하는 기능을 지원 하지 않습니다.
+Azure Automation는 서비스 태그 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)부터 Azure virtual network 서비스 태그를 지원 합니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 **GuestAndHybridManagement**  을 지정 하 여 자동화 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한 하 여 보다 세부적인 제어를 허용 하는 기능을 지원 하지 않습니다.
 
 Azure Automation 서비스에 대 한 서비스 태그는 다음 시나리오에 사용 되는 Ip만 제공 합니다.
 
