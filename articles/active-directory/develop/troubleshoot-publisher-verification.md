@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4a66db34adb4eb751abc741964b740b3b6f48c69
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873152"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073736"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 
@@ -33,7 +33,7 @@ ms.locfileid: "91873152"
 ## <a name="common-issues"></a>일반적인 문제
 프로세스 중에 발생할 수 있는 몇 가지 일반적인 문제는 다음과 같습니다. 
 
-- **내 MPN ID(Microsoft 파트너 네트워크 ID)를 모르거나 또는 계정에 대한 기본 연락처를 알 수 없습니다.** 
+- **내 Microsoft 파트너 네트워크 ID (MPN ID)를 알 수 없거나 계정에 대 한 기본 연락처를 알 수 없습니다.** 
     1. [MPN 등록 페이지](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)로 이동합니다.
     1. 조직의 기본 Azure AD 테넌트에서 사용자 계정으로 로그인합니다. 
     1. MPN 계정이 이미 있으면 이 계정이 인식되어 계정에 추가됩니다. 

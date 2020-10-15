@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: c930636f9af45edc66670c3f757333fef8e8756e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458827"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073396"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.
@@ -23,7 +23,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 
 **2014년 11월 3일** 게스트 OS 제품군 1에 대한 연장 지원이 종료되어 완전히 사용 중지됩니다. 제품군 1의 모든 서비스에 적용됩니다. 언제든지 이러한 서비스를 중지할 수 있습니다. 수동으로 직접 업그레이드하지 않으면 서비스가 계속된다는 보장이 없습니다.
 
-추가 질문이 있는 경우 [Cloud Services에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-cloud-services.html)를 방문하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하세요.
+추가 질문이 있는 경우 [Cloud Services에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-cloud-services.html)를 방문하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하세요.
 
 ## <a name="are-you-affected"></a>영향을 받나요?
 다음 중 하나에 적용되는 경우 Cloud Services에 영향을 받습니다.
@@ -32,7 +32,7 @@ OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습�
 2. 클라우드 서비스에 대한 ServiceConfiguration.cscfg 파일에 명시적으로 지정된 osFamily의 값이 없습니다. 현재, 이 경우 시스템은 "1"의 기본값을 사용합니다.
 3. Azure Portal은 게스트 운영 체제 제품군 값을 "Windows Server 2008"로 표시합니다.
 
-어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azure/) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014)을 참조하세요.
+어떤 클라우드 서비스가 어떤 OS 제품군을 실행 중인지 알기 위해, Azure PowerShell에서 다음 스크립트를 실행할 수 있지만 먼저 [Azure PowerShell을 설정해야](/powershell/azure/) 합니다. 스크립트에 대한 자세한 내용은 [Azure 게스트 OS 제품군 1 만료: 2014년 6월](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014)을 참조하세요.
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

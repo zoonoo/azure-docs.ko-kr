@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 0c6845f081ccbe42e70964eaa939d58597e3b69b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89080563"
 ---
 1. 디바이스의 로컬 웹 UI로 이동하여 디바이스에 로그인합니다. 디바이스가 잠금 해제되었는지 확인합니다.

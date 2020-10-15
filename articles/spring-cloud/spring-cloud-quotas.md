@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 7c4c832819f61d208d0722823d0a74354960f182
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496f2e812a102e85fea92a535552daaaadf5f31e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904269"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093432"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 할당량 및 서비스 계획
 
@@ -32,4 +32,4 @@ Azure Spring Cloud 서비스 인스턴스당 총 앱 인스턴스 수 | 25 | 500
 
 ## <a name="next-steps"></a>다음 단계
 
-몇 가지 기본 제한을 늘릴 수 있습니다. 설정에 대 한 증가가 필요한 경우 [지원 요청을 만듭니다](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+몇 가지 기본 제한을 늘릴 수 있습니다. 설정에 대 한 증가가 필요한 경우 [지원 요청을 만듭니다](../azure-portal/supportability/how-to-create-azure-support-request.md).

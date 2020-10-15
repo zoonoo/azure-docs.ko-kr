@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9477b11b52431211dc91a0ea6ff0767a9d495be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546307"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073600"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
@@ -106,7 +106,7 @@ ms.locfileid: "80546307"
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-솔루션 가속기 배포에서는 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)를 사용하여 규칙, 경고, 구성 설정 및 기타 모든 콜드 스토리지를 저장합니다.
+솔루션 가속기 배포에서는 [Azure Cosmos DB](../cosmos-db/index.yml)를 사용하여 규칙, 경고, 구성 설정 및 기타 모든 콜드 스토리지를 저장합니다.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics 관리자 마이크로 서비스
 
@@ -120,11 +120,11 @@ ASA 작업은 스토리지 및 분석을 위해 원격 분석을 연결된 디�
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/)는 디바이스에서 대량으로 스트림되는 데이터를 검사할 수 있는 이벤트 처리 엔진입니다.
+[Azure Stream Analytics](../stream-analytics/index.yml)는 디바이스에서 대량으로 스트림되는 데이터를 검사할 수 있는 이벤트 처리 엔진입니다.
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 디바이스의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
+[Azure Time Series Insights](../time-series-insights/index.yml)는 솔루션 가속기에 연결된 디바이스의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
 
 ### <a name="configuration-microservice"></a>구성 마이크로 서비스
 
@@ -136,7 +136,7 @@ ASA 작업은 스토리지 및 분석을 위해 원격 분석을 연결된 디�
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-솔루션 가속기 배포에서는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 OpenID Connect 공급자로 사용합니다. Azure Active Directory는 사용자 정보를 저장하고, JWT 토큰 서명의 유효성을 검사하기 위한 인증서를 제공합니다.
+솔루션 가속기 배포에서는 [Azure Active Directory](../active-directory/index.yml)를 OpenID Connect 공급자로 사용합니다. Azure Active Directory는 사용자 정보를 저장하고, JWT 토큰 서명의 유효성을 검사하기 위한 인증서를 제공합니다.
 
 ## <a name="presentation"></a>프레젠테이션
 
