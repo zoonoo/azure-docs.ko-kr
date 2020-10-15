@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292709"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044601"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -446,7 +446,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 다음 절차에 따라 삭제합니다. 
 
-[Azure Cloud Shell](https://shell.azure.com)을 사용하면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) 명령으로 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹(Azure Digital Twins 인스턴스, IoT 허브와 허브 디바이스 등록, 이벤트 그리드 토픽과 관련 구독, 스토리지와 같은 관련 리소스를 모두 포함하는 Azure Functions 앱)이 제거됩니다.
+[Azure Cloud Shell](https://shell.azure.com)을 사용하면 [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) 명령으로 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹(Azure Digital Twins 인스턴스, IoT 허브와 허브 디바이스 등록, 이벤트 그리드 토픽과 관련 구독, 스토리지와 같은 관련 리소스를 모두 포함하는 Azure Functions 앱)이 제거됩니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82207890"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043656"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>자습서: 포털을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
@@ -40,6 +40,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서의 모든 단계를 위해 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
+## <a name="prerequisites"></a>필수 구성 요소
+
+* Azure 구독
+
 ## <a name="create-a-standard-load-balancer"></a>표준 부하 분산 장치 만들기
 
 먼저 여러 VM에 트래픽 부하를 분산할 수 있는 공용 표준 부하 분산 장치를 만듭니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 표준 부하 분산 장치를 만들 때 부하 분산 장치 프런트 엔드로 구성되고 기본적으로 **LoadBalancerFrontEnd**로 이름이 지정되는 새 표준 공개 IP 주소도 생성됩니다. 
@@ -51,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
-    | 속성                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 지역         | **서유럽**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
     | SKU           | **표준**을 선택합니다.                          |

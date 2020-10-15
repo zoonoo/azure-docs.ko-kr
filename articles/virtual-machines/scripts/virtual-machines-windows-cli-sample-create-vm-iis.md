@@ -16,10 +16,10 @@ ms.date: 02/28/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 27235c131f6d87856ab0c21b01c578056f941503
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87499214"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli-with-a-custom-script-to-install-iis"></a>IIS를 설치하는 사용자 지정 스크립트를 사용하여 Azure CLI로 가상 머신 만들기

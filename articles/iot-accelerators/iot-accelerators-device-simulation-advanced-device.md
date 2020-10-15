@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261433"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076048"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
 
@@ -520,4 +520,4 @@ function main(context, state) {
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 가이드에서는 디바이스 시뮬레이션에 사용된 디바이스 모델 파일과 고급 디바이스 모델을 만드는 방법에 대해 알아보았습니다. 다음으로, [Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights) 방법에 대해 알아볼 수 있습니다.
+이 방법 가이드에서는 디바이스 시뮬레이션에 사용된 디바이스 모델 파일과 고급 디바이스 모델을 만드는 방법에 대해 알아보았습니다. 다음으로, [Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화](./iot-accelerators-device-simulation-time-series-insights.md) 방법에 대해 알아볼 수 있습니다.
