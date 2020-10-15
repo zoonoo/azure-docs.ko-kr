@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263235"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075708"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 Always On 가용성 그룹을 만들기 위한 필수 구성 요소
 
@@ -420,6 +420,10 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 7. "Corp.contoso.com 도메인 시작" 메시지가 표시 되 면 **확인**을 선택 합니다.
 8. **닫기**를 선택 하 고 팝업 대화 상자에서 **지금 다시 시작** 을 선택 합니다.
 
+## <a name="add-accounts"></a>계정 추가
+
+각 VM에서 관리자 권한으로 설치 계정을 추가 하 고, SQL Server 내의 설치 계정 및 로컬 계정에 권한을 부여 하 고, SQL Server 서비스 계정을 업데이트 합니다. 
+
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>각 클러스터 VM에서 Corp\Install 사용자를 관리자로 추가
 
 각 가상 머신이 도메인의 구성원으로 다시 시작한 후 **CORP\Install**을 로컬 관리자 그룹의 구성원으로 추가합니다.
@@ -438,16 +442,6 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 7. **확인** 을 선택 하 여 **관리자 속성** 대화 상자를 닫습니다.
 8. **sqlserver-1** 및 **cluster-fsw**에서 이전 단계를 반복합니다.
 
-### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>SQL Server 서비스 계정 설정
-
-각 SQL Server VM에서 SQL Server 서비스 계정을 설정합니다. 도메인 계정을 구성할 때 만든 계정을 사용합니다.
-
-1. **SQL Server 구성 관리자**를 엽니다.
-2. SQL Server 서비스를 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 선택 합니다.
-3. 계정 및 암호를 설정합니다.
-4. 다른 SQL Server VM에서도 이 단계를 반복합니다.  
-
-SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으로 실행해야 합니다.
 
 ### <a name="create-a-sign-in-on-each-sql-server-vm-for-the-installation-account"></a>각 SQL Server VM에서 설치 계정에 대한 로그인 만들기
 
@@ -467,13 +461,54 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 
 1. 도메인 관리자 네트워크 자격 증명을 입력합니다.
 
-1. 설치 계정을 사용합니다.
+1. 설치 계정 (CORP\install)을 사용 합니다.
 
 1. **sysadmin** 고정 서버 역할의 구성원이 될 로그인을 설정합니다.
 
 1. **확인**을 선택합니다.
 
 다른 SQL Server VM에서도 이전 단계를 반복합니다.
+
+### <a name="configure-system-account-permissions"></a>시스템 계정 권한 구성
+
+시스템 계정에 대한 계정을 만들고 적절한 권한을 부여하려면 각 SQL Server 인스턴스에서 다음 단계를 완료합니다.
+
+1. 각 SQL Server 인스턴스에서 `[NT AUTHORITY\SYSTEM]`에 대한 계정을 만듭니다. 다음 스크립트는 이 계정을 만듭니다.
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. 각 SQL Server 인스턴스에서 `[NT AUTHORITY\SYSTEM]`에 다음 권한을 부여합니다.
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   다음 스크립트는 이러한 권한을 부여합니다.
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>SQL Server 서비스 계정 설정
+
+각 SQL Server VM에서 SQL Server 서비스 계정을 설정합니다. 도메인 계정을 구성할 때 만든 계정을 사용합니다.
+
+1. **SQL Server 구성 관리자**를 엽니다.
+2. SQL Server 서비스를 마우스 오른쪽 단추로 클릭 한 다음 **속성**을 선택 합니다.
+3. 계정 및 암호를 설정합니다.
+4. 다른 SQL Server VM에서도 이 단계를 반복합니다.  
+
+SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으로 실행해야 합니다.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>두 SQL Server VM에 장애 조치(failover) 클러스터링 기능 추가
 
@@ -524,35 +559,6 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 
 두 번째 SQL Server VM에서 이 단계를 반복합니다.
 
-## <a name="configure-system-account-permissions"></a>시스템 계정 권한 구성
-
-시스템 계정에 대한 계정을 만들고 적절한 권한을 부여하려면 각 SQL Server 인스턴스에서 다음 단계를 완료합니다.
-
-1. 각 SQL Server 인스턴스에서 `[NT AUTHORITY\SYSTEM]`에 대한 계정을 만듭니다. 다음 스크립트는 이 계정을 만듭니다.
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. 각 SQL Server 인스턴스에서 `[NT AUTHORITY\SYSTEM]`에 다음 권한을 부여합니다.
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   다음 스크립트는 이러한 권한을 부여합니다.
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## <a name="next-steps"></a>다음 단계
 
