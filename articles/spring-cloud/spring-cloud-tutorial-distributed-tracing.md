@@ -8,21 +8,21 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 97926d5bdf3123ae50714d36ad0234872f67aa96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908289"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088638"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
-Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
+Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
 
 ::: zone pivot="programming-language-csharp"
 이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 절차를 따르려면 [Azure 스프링 클라우드에 배포 하기 위해 이미 준비한](spring-cloud-tutorial-prepare-app-deployment.md)Steeltoe 앱이 필요 합니다.
 
@@ -144,15 +144,15 @@ spring.sleuth.sampler.probability=0.5
 
 ## <a name="view-the-application-map"></a>애플리케이션 맵 보기
 
-**분산 추적** 페이지로 돌아가서 **애플리케이션 맵 보기**를 선택합니다. 애플리케이션 및 모니터링 설정의 시각적 표현을 검토합니다. 애플리케이션 맵 사용 방법을 알아보려면 [애플리케이션 맵: 분산 애플리케이션 심사](https://docs.microsoft.com/azure/azure-monitor/app/app-map)를 참조하세요.
+**분산 추적** 페이지로 돌아가서 **애플리케이션 맵 보기**를 선택합니다. 애플리케이션 및 모니터링 설정의 시각적 표현을 검토합니다. 애플리케이션 맵 사용 방법을 알아보려면 [애플리케이션 맵: 분산 애플리케이션 심사](../azure-monitor/app/app-map.md)를 참조하세요.
 
 ## <a name="use-search"></a>검색 사용
 
-검색 함수를 사용하여 기타 특정한 원격 분석 항목을 쿼리할 수 있습니다. **분산 추적** 페이지에서 **검색**을 선택합니다. 검색 함수를 사용하는 방법에 대한 자세한 내용은 [Application Insights에서 검색 사용](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search)을 참조하세요.
+검색 함수를 사용하여 기타 특정한 원격 분석 항목을 쿼리할 수 있습니다. **분산 추적** 페이지에서 **검색**을 선택합니다. 검색 함수를 사용하는 방법에 대한 자세한 내용은 [Application Insights에서 검색 사용](../azure-monitor/app/diagnostic-search.md)을 참조하세요.
 
 ## <a name="use-application-insights"></a>Application Insights 사용
 
-Application Insights는 애플리케이션 맵과 검색 기능 외에도 모니터링 기능을 제공합니다. Azure Portal에서 애플리케이션 이름을 검색한 다음, Application Insights 페이지를 열어서 모니터링 정보를 찾을 수 있습니다. 이러한 도구를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language)를 확인하세요.
+Application Insights는 애플리케이션 맵과 검색 기능 외에도 모니터링 기능을 제공합니다. Azure Portal에서 애플리케이션 이름을 검색한 다음, Application Insights 페이지를 열어서 모니터링 정보를 찾을 수 있습니다. 이러한 도구를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 확인하세요.
 
 ## <a name="disable-application-insights"></a>Application Insights를 사용하지 않도록 설정
 

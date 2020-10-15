@@ -10,10 +10,10 @@ ms.date: 06/01/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-js, devx-track-azurecli
 ms.openlocfilehash: c38fb976ca597647493f3dc3d32be79040ded6eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320186"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포

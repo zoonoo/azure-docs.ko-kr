@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056169"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072308"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -73,6 +73,8 @@ IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 �
   "metadataVersion": "1"
 }]
 ```
+
+
 
 ### <a name="device-telemetry-schema"></a>장치 원격 분석 스키마
 
@@ -163,6 +165,10 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되기 전에 장
   "metadataVersion": "1"
 }]
 ```
+
+
+> [!WARNING]
+> 장치 만들기 이벤트와 연결 된 쌍 *데이터* 는 기본 구성 이며, *shouldn't* `authenticationType` 새로 만든 장치의 실제 및 기타 장치 속성에는 의존해 서는 안 됩니다. `authenticationType`및 기타 장치 속성은 새로 만든 장치에서 Azure IoT sdk에 제공 된 등록 관리자 API를 사용 합니다.
 
 각 속성에 대 한 자세한 설명은 [IoT Hub에 대 한 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-iot-hub.md)를 참조 하세요.
 

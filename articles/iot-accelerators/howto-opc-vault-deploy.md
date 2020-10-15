@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282026"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071492"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "91282026"
 
 현재 빌드 및 배포 작업은 Windows로 제한 됩니다.
 샘플은 모두 c # .NET Standard 용으로 작성 되었으며 배포를 위해 서비스와 샘플을 빌드해야 합니다.
-.NET Standard 하는 데 필요한 모든 도구는 .NET Core 도구와 함께 제공 됩니다. [.Net Core 시작을](https://docs.microsoft.com/dotnet/articles/core/getting-started)참조 하세요.
+.NET Standard 하는 데 필요한 모든 도구는 .NET Core 도구와 함께 제공 됩니다. [.Net Core 시작을](/dotnet/articles/core/getting-started)참조 하세요.
 
 1. [.Net Core 2.1 이상을 설치][dotnet-install]합니다.
 2. [Docker][docker-url] (선택 사항, 로컬 docker 빌드가 필요한 경우에만)를 설치 합니다.

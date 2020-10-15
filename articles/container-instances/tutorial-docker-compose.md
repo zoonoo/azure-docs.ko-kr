@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: ''
 ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90708275"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>자습서: Docker Compose를 사용하여 다중 컨테이너 그룹 배포 
@@ -212,7 +212,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 클라우드에서 실행 중인 애플리케이션을 확인하려면 로컬 웹 브라우저에 표시된 IP 주소를 입력합니다. 이 예제에서는 `52.179.23.131`을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="ACI의 투표 앱 이미지":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="투표 앱 이미지":::
 
 프런트 엔드 컨테이너의 로그를 확인하려면 [docker logs](https://docs.docker.com/engine/reference/commandline/logs) 명령을 실행합니다. 다음은 그 예입니다. 
 

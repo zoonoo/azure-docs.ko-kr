@@ -3,16 +3,17 @@ title: Synapse Analytics에 대 한 Azure 보안 기준
 description: Synapse Analytics 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: synapse-analytics
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bbec83c655d568b43b319f30a96da0a8fc1effe8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7e464520556790afe22177c0b2245ce93e48873
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230656"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088910"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
 
