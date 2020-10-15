@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 02d9407766930f02c70d580112136b50b6036e11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029866"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078173"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -39,7 +39,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell 구성](https://docs.microsoft.com/azure/cloud-shell/quickstart)되었습니다.
+* [Azure Cloud Shell 구성](../cloud-shell/quickstart.md)되었습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +73,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
     ![관리형 ID 추가](./media/add-managed-identity.png)
 
-1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-portal)의 지시를 따릅니다.
+1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)의 지시를 따릅니다.
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 
@@ -185,7 +185,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 `KeyVaultClient` Key Vault에 대 한 인증을 위해 구성한를 사용 하 고 값을 검색 합니다.
 
 > [!NOTE]
-> `ManagedIdentityCredential` 에서는 관리 되는 id 인증만 지원 합니다. 로컬 환경에서는 작동 하지 않습니다. 코드를 로컬로 실행 하려면 `DefaultAzureCredential` 서비스 주체 인증도 지 원하는를 사용 하는 것이 좋습니다. 자세한 내용은 [링크](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) 를 확인 하세요.
+> `ManagedIdentityCredential` 에서는 관리 되는 id 인증만 지원 합니다. 로컬 환경에서는 작동 하지 않습니다. 코드를 로컬로 실행 하려면 `DefaultAzureCredential` 서비스 주체 인증도 지 원하는를 사용 하는 것이 좋습니다. 자세한 내용은 [링크](/dotnet/api/azure.identity.defaultazurecredential) 를 확인 하세요.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

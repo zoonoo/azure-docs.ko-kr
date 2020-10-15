@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182125"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070506"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
 
@@ -322,7 +322,7 @@ spec:
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` 또는 `false`                     | 부하 분산 장치가 내부 인지 여부를 지정 합니다. 설정 하지 않은 경우 기본적으로 public이 됩니다.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | 서브넷의 이름입니다.                    | 내부 부하 분산 장치가 바인딩되어야 하는 서브넷을 지정 합니다. 설정 하지 않은 경우 클라우드 구성 파일에 구성 된 서브넷을 기본값으로 설정 합니다.
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | 공용 Ip의 DNS 레이블 이름   | **공용** 서비스에 대 한 DNS 레이블 이름을 지정 합니다. 빈 문자열로 설정 된 경우 공용 IP의 DNS 항목은 사용 되지 않습니다.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` 또는 `false`                     | 다른 서비스와 공유할 수 있는 Azure 보안 규칙을 사용 하 여 서비스를 노출 하 고, 노출 될 수 있는 서비스 수를 증가 시키기 위한 규칙의 특이성 거래 하도록 지정 합니다. 이 주석은 네트워크 보안 그룹의 Azure [보강 된 보안 규칙](../virtual-network/security-overview.md#augmented-security-rules) 기능을 사용 합니다. 
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` 또는 `false`                     | 다른 서비스와 공유할 수 있는 Azure 보안 규칙을 사용 하 여 서비스를 노출 하 고, 노출 될 수 있는 서비스 수를 증가 시키기 위한 규칙의 특이성 거래 하도록 지정 합니다. 이 주석은 네트워크 보안 그룹의 Azure [보강 된 보안 규칙](../virtual-network/network-security-groups-overview.md#augmented-security-rules) 기능을 사용 합니다. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | 리소스 그룹의 이름입니다.            | 클러스터 인프라와 동일한 리소스 그룹에 없는 부하 분산 장치 공용 Ip의 리소스 그룹 (노드 리소스 그룹)을 지정 합니다.
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | 허용 되는 서비스 태그 목록          | 허용 되는 [서비스 태그][service-tags] 목록을 쉼표로 구분 하 여 지정 합니다.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP 유휴 시간 제한 (분)          | 부하 분산 장치에서 TCP 연결 유휴 시간 제한이 발생 하는 시간을 분 단위로 지정 합니다. 기본값 및 최소값은 4입니다. 최 댓 값은 30입니다. 정수여야 합니다.
@@ -426,4 +426,4 @@ SNAT 소모의 근본 원인은 아웃바운드 연결의 설정, 관리 또는 
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
-[service-tags]: ../virtual-network/security-overview.md#service-tags
+[service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86205844"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071305"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 자동 크기 조정  
 
@@ -27,7 +27,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 > [!NOTE]
 > **소비** 계층의 API Management 서비스는 추가 구성 없이 트래픽을 기반으로 자동으로 크기를 조정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 
@@ -74,7 +74,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 
    예를 들어 지난 30분 동안의 평균 용량 메트릭이 80%를 초과하면 규모 확장 규칙에 따라 Azure API Management 단위 추가가 트리거될 수 있습니다. 아래 표에서 이러한 규칙에 대한 구성을 제공합니다.
 
-    | 매개 변수             | 값             | 메모                                                                                                                                                                                                                                                                           |
+    | 매개 변수             | 값             | 참고                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 메트릭 원본         | 현재 리소스  | 현재 Azure API Management 리소스 메트릭을 기반으로 규칙을 정의합니다.                                                                                                                                                                                                     |
     | *조건*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -101,7 +101,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 
     예를 들어 지난 30분 동안의 평균 용량 메트릭이 35%보다 낮으면 규모 감축 규칙에 따라 Azure API Management 단위 제거가 트리거될 수 있습니다. 아래 표에서 이러한 규칙에 대한 구성을 제공합니다.
 
-    | 매개 변수             | 값             | 메모                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | 매개 변수             | 값             | 참고                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 메트릭 원본         | 현재 리소스  | 현재 Azure API Management 리소스 메트릭을 기반으로 규칙을 정의합니다.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *조건*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -132,4 +132,4 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 ## <a name="next-steps"></a>다음 단계
 
 - [여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법](api-management-howto-deploy-multi-region.md)
-- [클라우드 지출에 맞게 최적화 및 절약](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [클라우드 지출에 맞게 최적화 및 절약](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

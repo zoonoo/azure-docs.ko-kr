@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 description: Azure Advisor를 사용 하 여 업무상 중요 한 Azure 배포에서 안정성을 보장 하 고 향상 시킵니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405193"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078037"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 
@@ -44,7 +44,7 @@ Azure 서비스 문제가 사용자에 게 영향을 줄 때 알림을 받도록
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>실수로 덮어쓰거나 삭제 한 후 Azure storage 계정에서 일시 삭제를 사용 하 여 데이터 저장 및 복구
 
-삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 스토리지 계정에 대해 [일시 삭제](../storage/blobs/soft-delete-overview.md)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅샷이 생성됩니다. 일시 삭제를 사용 하면 실수로 삭제 하거나 덮어쓰는 복구를 수행할 수 있습니다. Advisor는 일시 삭제를 사용 하도록 설정 하지 않은 Azure storage 계정을 식별 하 고 사용 하도록 설정 하는 것을 제안 합니다.
+삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 스토리지 계정에 대해 [일시 삭제](../storage/blobs/soft-delete-blob-overview.md)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅샷이 생성됩니다. 일시 삭제를 사용 하면 실수로 삭제 하거나 덮어쓰는 복구를 수행할 수 있습니다. Advisor는 일시 삭제를 사용 하도록 설정 하지 않은 Azure storage 계정을 식별 하 고 사용 하도록 설정 하는 것을 제안 합니다.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>연결 복원을 위해 VPN 게이트웨이를 활성-활성으로 구성
 
@@ -80,23 +80,23 @@ Azure Advisor는 해당 조건 섹션에 잘못 된 쿼리가 지정 된 로그 
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Azure Cosmos DB 컬렉션에서 일관 된 인덱싱 모드 구성
 
-지연 인덱싱 모드를 사용 하 여 Azure Cosmos DB 컨테이너를 구성 하면 쿼리 결과의 새로 고침에 영향을 줄 수 있습니다. Advisor는 이러한 방식으로 구성 된 컨테이너를 검색 하 고 일관성 모드로 전환 하는 것을 권장 합니다. [Azure Cosmos DB에서 인덱싱 정책에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+지연 인덱싱 모드를 사용 하 여 Azure Cosmos DB 컨테이너를 구성 하면 쿼리 결과의 새로 고침에 영향을 줄 수 있습니다. Advisor는 이러한 방식으로 구성 된 컨테이너를 검색 하 고 일관성 모드로 전환 하는 것을 권장 합니다. [Azure Cosmos DB에서 인덱싱 정책에 대해 자세히 알아보세요.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>파티션 키를 사용하여 Azure Cosmos DB 컨테이너 구성
 
-Azure Advisor는 프로 비전 된 저장소 할당량에 근접 하는 분할 되지 않은 컬렉션 Azure Cosmos DB를 식별 합니다. 이러한 컬렉션은 서비스에 의해 자동으로 확장 될 수 있도록 파티션 키 정의를 사용 하 여 새 컬렉션으로 마이그레이션하는 것이 좋습니다. [파티션 키 선택에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor는 프로 비전 된 저장소 할당량에 근접 하는 분할 되지 않은 컬렉션 Azure Cosmos DB를 식별 합니다. 이러한 컬렉션은 서비스에 의해 자동으로 확장 될 수 있도록 파티션 키 정의를 사용 하 여 새 컬렉션으로 마이그레이션하는 것이 좋습니다. [파티션 키 선택에 대해 자세히 알아보세요.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>NuGet에서 Azure Cosmos DB .NET SDK를 최신 버전으로 업그레이드
 
-Azure Advisor는 이전 버전의 .NET SDK를 사용 하는 Azure Cosmos DB 계정을 식별 합니다. 최신 수정, 성능 향상 및 기능 기능을 위해 NuGet에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Azure Cosmos DB .NET SDK에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor는 이전 버전의 .NET SDK를 사용 하는 Azure Cosmos DB 계정을 식별 합니다. 최신 수정, 성능 향상 및 기능 기능을 위해 NuGet에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Azure Cosmos DB .NET SDK에 대해 자세히 알아보세요.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK를 최신 버전의 Maven으로 업그레이드
 
-Azure Advisor는 이전 버전의 Java SDK를 사용 하는 Azure Cosmos DB 계정을 식별 합니다. 최신 수정, 성능 향상 및 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Azure Cosmos DB Java SDK에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor는 이전 버전의 Java SDK를 사용 하는 Azure Cosmos DB 계정을 식별 합니다. 최신 수정, 성능 향상 및 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Azure Cosmos DB Java SDK에 대해 자세히 알아보세요.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Maven에서 Azure Cosmos DB Spark 커넥터를 최신 버전으로 업그레이드
 
-Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하는 Azure Cosmos DB 계정을 식별 합니다. 최신 수정, 성능 향상 및 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Azure Cosmos DB Spark 커넥터에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하는 Azure Cosmos DB 계정을 식별 합니다. 최신 수정, 성능 향상 및 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Azure Cosmos DB Spark 커넥터에 대해 자세히 알아보세요.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>HDInsight 4.0에서 Kafka 2.1로 이동 하는 것이 좋습니다.
 
@@ -110,10 +110,10 @@ Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용 하�
 다른 지역에 복제를 사용 하도록 설정 하지 않은 가상 머신은 지역 가동 중단으로 복원 되지 않습니다. 가상 컴퓨터를 복제 하면 Azure 지역 가동 중단 시 부정적인 비즈니스 영향이 줄어듭니다. Advisor는 복제를 사용 하도록 설정 하지 않은 Vm을 검색 하 고 사용 하도록 권장 합니다. 복제를 사용 하도록 설정 하는 경우 가동 중단이 발생 하면 원격 Azure 지역에서 가상 머신을 신속 하 게 가져올 수 있습니다. [가상 컴퓨터 복제에 대해 자세히 알아보세요.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>최신 버전 Azure Connected Machine 에이전트로 업그레이드
-[Azure 연결 된 컴퓨터 에이전트](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) 는 버그 수정, 안정성 향상 및 새로운 기능을 통해 정기적으로 업데이트 됩니다. 최신 버전의 컴퓨터 에이전트에서 작동 하지 않는 리소스를 식별 했으며,이 Advisor 권장 사항은 최상의 Azure Arc 환경을 위해 에이전트를 최신 버전으로 업그레이드 하는 것을 제안 합니다.
+[Azure 연결 된 컴퓨터 에이전트](../azure-arc/servers/manage-agent.md) 는 버그 수정, 안정성 향상 및 새로운 기능을 통해 정기적으로 업데이트 됩니다. 최신 버전의 컴퓨터 에이전트에서 작동 하지 않는 리소스를 식별 했으며,이 Advisor 권장 사항은 최상의 Azure Arc 환경을 위해 에이전트를 최신 버전으로 업그레이드 하는 것을 제안 합니다.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>웹 사이트 무결성을 보장하기 위해 호스트 이름을 재정의하지 마세요.
-Advisor Application Gateway를 구성할 때 호스트 이름을 재정의 하지 않는 것이 좋습니다. Application Gateway 프런트 엔드에 백 엔드에 액세스하는 데 사용되는 도메인과 다른 도메인이 있으면 쿠키 또는 리디렉션 URL이 손상될 수 있습니다. 이는 모든 상황에서 발생하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주(예: REST API)는 이에 대해 영향을 적게 받습니다. 백 엔드에 대한 호스트 이름을 덮어쓸 필요가 없도록 백 엔드가 이를 처리하거나 Application Gateway 구성을 업데이트할 수 있는지 확인하세요. App Service와 함께 사용 하는 경우 웹 앱에 사용자 지정 도메인 이름을 연결 하 고 *백 엔드에 대 한 azurewebsites.net 호스트 이름을* 사용 하지 않습니다. [사용자 지정 도메인에 대해 자세히 알아보세요](https://aka.ms/appgw-advisor-usecustomdomain).
+Advisor Application Gateway를 구성할 때 호스트 이름을 재정의 하지 않는 것이 좋습니다. Application Gateway 프런트 엔드에 백 엔드에 액세스하는 데 사용되는 도메인과 다른 도메인이 있으면 쿠키 또는 리디렉션 URL이 손상될 수 있습니다. 이는 모든 상황에서 발생하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주(예: REST API)는 이에 대해 영향을 적게 받습니다. 백 엔드에 대한 호스트 이름을 덮어쓸 필요가 없도록 백 엔드가 이를 처리하거나 Application Gateway 구성을 업데이트할 수 있는지 확인하세요. App Service와 함께 사용 하는 경우 웹 앱에 사용자 지정 도메인 이름을 연결 하 고 *백 엔드에 대 한 azurewebsites.net 호스트 이름을* 사용 하지 않습니다. [사용자 지정 도메인에 대해 자세히 알아보세요](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스 하는 방법
 
