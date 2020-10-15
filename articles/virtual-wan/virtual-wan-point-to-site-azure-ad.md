@@ -2,17 +2,17 @@
 title: '사용자 VPN 연결에 대 한 Azure AD 인증 구성: 가상 WAN'
 description: 사용자 VPN에 대 한 Azure Active Directory 인증을 구성 하는 방법을 알아봅니다.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 21c2cba1d67ba415849b20dedf9ba157ca191d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1102e2dafcf1a78bc9c243f27549b13793ec5408
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832521"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079176"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대 한 Azure Active Directory 인증 구성
 
@@ -22,15 +22,14 @@ ms.locfileid: "87832521"
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 가상 WAN 만들기
-> * 가상 허브 만들기
-> * 사용자 VPN 구성 만들기
-> * 가상 WAN 사용자 VPN 프로필 다운로드
-> * 가상 허브에 사용자 VPN 구성 적용
-> * 가상 허브에 VNet 연결
-> * 사용자 VPN 클라이언트 구성 다운로드 및 적용
-> * 가상 WAN 보기
+* 가상 WAN 만들기
+* 가상 허브 만들기
+* 사용자 VPN 구성 만들기
+* 가상 WAN 사용자 VPN 프로필 다운로드
+* 가상 허브에 사용자 VPN 구성 적용
+* 가상 허브에 VNet 연결
+* 사용자 VPN 클라이언트 구성 다운로드 및 적용
+* 가상 WAN 보기
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwanp2s.png)
 

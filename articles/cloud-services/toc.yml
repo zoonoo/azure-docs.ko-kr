@@ -194,7 +194,7 @@
     - name: 학습 경로
       href: /learn/paths/azure-fundamentals/
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+      href: /answers/topics/azure-cloud-services.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: 요금 계산기

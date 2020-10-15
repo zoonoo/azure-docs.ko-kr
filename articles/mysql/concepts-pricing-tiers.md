@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 163f440c9f98a1d53793fddab2590f7345944fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171012"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079040"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -47,11 +47,11 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |:---|:----------|:--------------------|:---------------------|
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
-| 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 스토리지 증분 크기 | 1GB | 1GB | 1GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
-> 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 동부, 미국 서 부 2 및 미국 서 부 2 지역에서 최대 16TB 및 2만 IOPS의 저장소를
+> 최대 16TB 및 2만 IOPS의 저장소는 다음 지역에서 지원 됩니다. 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부 2, 미국 서 부 중부, 캐나다 동부 및 캐나다 중부.
 >
 > 다른 모든 지역은 최대 4TB의 저장소와 최대 6000 IOPS를 지원 합니다.
 >

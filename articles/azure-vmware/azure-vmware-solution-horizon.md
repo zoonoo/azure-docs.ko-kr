@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 수평 배포
 description: Azure VMware 솔루션에 VMware 수평을 배포 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: bda4be049e360670cb7038bfbb3070c2a5f262c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729052"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078887"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Azure VMware 솔루션에 수평 배포 
 
@@ -197,11 +197,14 @@ Azure VMware 솔루션과 함께 사용할 수 있는 두 가지 라이선스가
 
 표준 배포 아키텍처에 따라 수평 인프라 Vm은 연결 서버, UAGs, 앱 볼륨 관리자로 구성 되며 고객의 Azure Virtual Network에 배포 됩니다. Azure에서 HA (고가용성), Microsoft SQL 또는 AD (Microsoft Active Directory) 서비스를 지원 하려면 추가 Azure 네이티브 인스턴스가 필요 합니다. 다음은 2000-데스크톱 배포 예제를 기반으로 하는 Azure 인스턴스 목록입니다. 
 
-| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 주석  |
+>[!NOTE]
+>오류를 처리 하려면 연결 수 (n + 1)에 필요한 것 보다 하나 이상의 서버를 배포 합니다. 연결 서버, UAG 및 앱 볼륨 관리자의 최소 권장 인스턴스 수는 2이 고, 필요한 수는 환경에서 지원할 사용자의 양에 따라 증가 됩니다.  단일 연결 서버는 최대 4000 세션을 지원 2000 하지만 모범 사례로 권장 됩니다. 최대 7 개의 연결 서버는 pod 당 총 12000 활성 세션에 대 한 권장 사항으로 지원 됩니다. 최신 숫자는 [Vmware 기술 자료 문서 Vmware 수평 7 크기 제한 및 권장 사항](https://kb.vmware.com/s/article/2150348)을 참조 하세요.
+
+| 수평 인프라 구성 요소 | Azure 인스턴스 | 필요한 인스턴스 수 (2000-데스크톱)    | 의견  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| 연결 서버                | D4sv3          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |    
-| UAG                              | F2sv2          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |
-| 앱 볼륨 관리자              | D4sv3          | 2       | *HA에 대 한 인스턴스 1 개 포함*             |
+| 연결 서버                | D4sv3          | 2       | *위의 참고를 참조 하세요.*                         |    
+| UAG                              | F2sv2          | 2       | *위의 참고를 참조 하세요.*                         |
+| 앱 볼륨 관리자              | D4sv3          | 2       | *위의 참고를 참조 하세요.*                         |
 | 클라우드 커넥터                  | D4sv3          | 1       |                                          |
 | AD 컨트롤러                    | D4sv3          | 2       | *Azure에서 MSFT AD 서비스를 사용 하는 옵션* |
 | MS-SQL Database                  | D4sv3          | 2       | *Azure에서 SQL 서비스를 사용 하는 옵션*     |

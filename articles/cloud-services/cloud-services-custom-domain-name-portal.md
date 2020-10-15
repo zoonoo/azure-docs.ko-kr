@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092731"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069928"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
 클라우드 서비스를 만들면 Azure에서 **cloudapp.net**의 하위 도메인에 이 서비스를 할당합니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 `http://contoso.cloudapp.net`과 같은 URL에서 애플리케이션에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
@@ -119,7 +119,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 이 예제에서는 루트 도메인에 대한 A 레코드를 만드는 방법을 보여 줍니다. 모든 하위 도메인을 포함할 와일드카드 항목을 만들려면 '*****'를 하위 도메인으로 입력합니다.
 
 > [!WARNING]
-> Azure의 IP 주소는 기본적으로 동적입니다. 사용자의 IP 주소가 변경되지 않도록 [예약된 IP 주소](../virtual-network/virtual-networks-reserved-public-ip.md) 를 사용하려고 할 수 있습니다.
+> Azure의 IP 주소는 기본적으로 동적입니다. 사용자의 IP 주소가 변경되지 않도록 [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) 를 사용하려고 할 수 있습니다.
 > 
 > 
 
@@ -138,6 +138,3 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
-
-
-

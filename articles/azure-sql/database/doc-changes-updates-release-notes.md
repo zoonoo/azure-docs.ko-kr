@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ebbdd103350e1de36d45ecf84acf15d477fa34db
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058134"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079210"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,8 +98,8 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
-|[서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|9 월 2020|해결 방법 있음||
-|[Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|9 월 2020|해결 방법 있음||
+|[서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|10 월 2020|해결 방법 있음||
+|[Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|10 월 2020|해결 방법 있음||
 |Azure SQL의 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD id 관리를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|

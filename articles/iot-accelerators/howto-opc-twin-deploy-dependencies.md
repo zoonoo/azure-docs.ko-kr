@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42024fc506de7befed7c44ebcc410756b6f43a35
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282105"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078989"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>로컬 개발을 위한 종속성 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "91282105"
 
 ## <a name="deploy-azure-platform-services"></a>Azure platform services 배포
 
-1. PowerShell 및 [AzureRM powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 확장이 설치 되어 있는지 확인 합니다.  명령 프롬프트 또는 터미널을 열고 다음을 실행 합니다.
+1. PowerShell 및 [AzureRM powershell](/powershell/azure/azurerm/install-azurerm-ps) 확장이 설치 되어 있는지 확인 합니다.  명령 프롬프트 또는 터미널을 열고 다음을 실행 합니다.
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components

@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779169"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082215"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
-- `User Access Token`호출 클라이언트를 사용 하도록 설정 하는입니다. 을 [ `User Access Token` 다운로드 하는 방법](../../access-tokens.md) 에 대 한 자세한 내용은
+- 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../access-tokens.md)에 대한 자세한 정보
 - 선택 사항: [응용 프로그램에 대 한 호출 추가를 시작](../getting-started-with-calling.md) 하기 위한 빠른 시작을 완료 합니다.
 
 ## <a name="setting-up"></a>설치
@@ -517,7 +517,7 @@ Api 다음의 렌더러 개체
 // Create a view for a video stream
 renderer.createView()
 ```
-* 렌더러 및 `RendererView` 이 렌더러와 연결 된 모든 삭제
+* 렌더러 및 `RendererView` 이 렌더러와 연결 된 모든를 삭제 합니다. UI에서 연결 된 모든 뷰를 제거 하는 경우 호출 됩니다.
 ```java
 renderer.dispose()
 ```

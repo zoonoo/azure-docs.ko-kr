@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1714c1c3c9efb0e78d137ed042420f1c7ba2139f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4394cc4cb21b288215c75e484cb6446f0321158b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330114"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079074"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -118,11 +118,6 @@ R SDK는 Azure Machine Learning에서 R 언어를 사용할 수 있습니다. SD
 
 + [디자이너란?](concept-designer.md)
 + [자습서: 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)
-+ [회귀: 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
-+ [분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
-+ [분류: 고객 이탈, 성향 및 상향 판매 예측](how-to-designer-sample-classification-churn.md)
-+ [사용자 지정 R 스크립트를 사용하여 분류: 항공편 지연 예측](how-to-designer-sample-classification-flight-delay.md)
-+ [텍스트 분류: Wikipedia SP 500 데이터 세트](how-to-designer-sample-text-classification.md)
 
 ## <a name="many-models-solution-accelerator"></a>많은 모델 솔루션 가속기
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9093872b2a5e069aef43ae2230b08447eea602
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389363"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069860"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
@@ -95,12 +95,12 @@ ms.locfileid: "85389363"
    </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-<ClaimsProvider>
 ```
 
 페더레이션된 계정으로 초기 로그인 한 후 도시 클레임을 수집 하려면 기술 프로필에 대 한 출력 클레임으로 추가 해야 합니다 `SelfAsserted-Social` . 로컬 및 페더레이션된 계정 사용자가 나중에 프로필 데이터를 편집할 수 있도록 하려면 출력 클레임을 기술 프로필에 추가 합니다 `SelfAsserted-ProfileUpdate` . 확장 파일에서 이러한 기술 프로필을 재정의 합니다. 출력 클레임의 전체 목록을 지정 하 여 화면에 클레임이 표시 되는 순서를 제어 합니다. **ClaimsProviders** 요소를 찾습니다. 다음과 같이 새 ClaimsProviders를 추가 합니다.
 
 ```xml
+<ClaimsProvider>
   <DisplayName>Self Asserted</DisplayName>
   <TechnicalProfiles>
     <!--Federated account first-time sign-in page-->
