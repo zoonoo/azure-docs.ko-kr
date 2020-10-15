@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 50cc53e7e8a5f39b53d6dcd39de61894cbbb3842
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4d325eb0dbd5d30e94df07ebad21ff30316bcbb4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518923"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>자습서: MaxxPoint와 Azure Active Directory 통합
 
@@ -99,11 +99,11 @@ MaxxPoint에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **기본 SAML 구성** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우에는 앱이 이미 Azure와 사전 통합되어 있으므로 사용자가 수행해야 하는 단계가 없습니다.
 
-    ![MaxxPoint 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
+    ![스크린샷은 기본 SAML 구성을 보여줍니다.](common/preintegrated.png)
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![MaxxPoint 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에서 `https://maxxpoint.westipc.com/default/sso/login/entity/<customer-id>-azure` 패턴을 사용하는 URL을 입력합니다.
 

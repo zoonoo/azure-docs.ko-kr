@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aec8448cb82480397f561e095420bbd49982d4b2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892574"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093041"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -27,18 +27,18 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 모니터링할 로그 범주 및 메트릭 범주를 선택 합니다.
 
 > [!TIP]
-> 로그를 스트리밍하 시겠습니까? 이 [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)확인 하세요.
+> 로그를 스트리밍하 시겠습니까? 이 [Azure CLI 명령을](/cli/azure/ext/spring-cloud/spring-cloud/app?preserve-view=true&view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)확인 하세요.
 
 ## <a name="logs"></a>로그
 
-|로그 | 설명 |
+|로그 | Description |
 |----|----|
 | **ApplicationConsole** | 모든 고객 응용 프로그램의 콘솔 로그입니다. |
 | **SystemLogs** | 현재이 범주에는 [스프링 클라우드 구성 서버](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |
 
 ## <a name="metrics"></a>메트릭
 
-메트릭의 전체 목록은 [스프링 클라우드 메트릭](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options)을 참조 하세요.
+메트릭의 전체 목록은 [스프링 클라우드 메트릭](./spring-cloud-concept-metrics.md#user-metrics-options)을 참조 하세요.
 
 시작 하려면 이러한 서비스 중 하나를 사용 하도록 설정 하 여 데이터를 수신 합니다. Log Analytics를 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요.
 
@@ -110,7 +110,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 > [!NOTE]
 > `==` 는 대/소문자를 구분 하지만 `=~` 는 그렇지 않습니다.
 
-Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [로그 쿼리 Azure Monitor](../azure-monitor/log-query/query-language.md)를 참조 하세요.
+Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [로그 쿼리 Azure Monitor](/azure/data-explorer/kusto/query/)를 참조 하세요.
 
 ### <a name="use-your-storage-account"></a>저장소 계정 사용
 
@@ -131,7 +131,7 @@ Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [
 1. 응용 프로그램 로그를 검토 하려면 **insights-logs-applicationconsole**이라는 이벤트 허브를 검색 합니다.
 1. 응용 프로그램 메트릭을 검토 하려면 **pt1m**이라는 이벤트 허브를 검색 합니다.
 
-이벤트 허브에 진단 정보를 보내는 방법에 대 한 자세한 내용은 [Event Hubs를 사용 하 여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs)을 참조 하세요.
+이벤트 허브에 진단 정보를 보내는 방법에 대 한 자세한 내용은 [Event Hubs를 사용 하 여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)을 참조 하세요.
 
 ## <a name="analyze-the-logs"></a>로그 분석
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892656"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094061"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 메트릭 이해
 
@@ -88,7 +88,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 다음 표에서는 사용 가능한 메트릭 및 세부 정보를 보여 줍니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
@@ -172,16 +172,16 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 >| tomcat 거부 | tomcat 거부 | 개수 | 최대 활성 세션 수에 도달 하 여 만들지 않은 세션 수입니다. |
 >| tomcat. | tomcat. | 개수 | Tomcat 세션 활성 수 |
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Azure 메트릭 탐색기 시작](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
+* [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)
 
-* [진단 설정을 사용 하 여 로그 및 메트릭 분석](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [진단 설정을 사용 하 여 로그 및 메트릭 분석](./diagnostic-services.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: 경고 및 작업 그룹을 사용 하 여 스프링 클라우드 리소스 모니터링](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [자습서: 경고 및 작업 그룹을 사용 하 여 스프링 클라우드 리소스 모니터링](./spring-cloud-tutorial-alerts-action-groups.md)
 
-* [Azure 스프링 클라우드의 할당량 및 서비스 계획](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Azure 스프링 클라우드의 할당량 및 서비스 계획](./spring-cloud-quotas.md)

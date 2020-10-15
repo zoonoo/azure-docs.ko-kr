@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bec6667ea44e195ea1fccb5313b45ed060312a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c4875ca9bf3165fff84164eb3bb7ebe44cf932
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000110"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093398"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "89000110"
 1. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)의 단계를 따라 로컬 개발 클러스터를 시작합니다.
 2. **F5** 키를 누르거나 **디버그** > **디버깅 시작**을 클릭합니다.
    
-    ![애플리케이션 디버깅 시작][startdebugging]
+    ![디버그 메뉴를 보여 주는 스크린샷][startdebugging]
 3. 코드의 중단점을 설정하고 **디버그** 메뉴의 명령을 클릭하여 애플리케이션의 단계를 진행합니다.
    
    > [!NOTE]

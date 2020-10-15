@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319761"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090440"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Azure AD 및 Azure Maps REST Api를 사용 하 여 입력 제한 장치 보호
 
@@ -55,7 +55,7 @@ Azure ad에서 Azure AD 로그인을 사용 하도록 설정 하려면 Azure AD�
     > [!div class="mx-imgBorder"]
     > ![앱 API 권한 선택](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. 사용자 또는 그룹에 대 한 Azure 역할 기반 액세스 제어를 구성 합니다. [Azure Maps에 대 한 역할 기반 액세스 권한을 사용자에 게 부여를](#grant-role-based-access-for-users-to-azure-maps)참조 하세요.
+6. 사용자 또는 그룹에 대 한 Azure RBAC (역할 기반 액세스 제어)를 구성 합니다. [Azure Maps에 대 한 역할 기반 액세스 권한을 사용자에 게 부여를](#grant-role-based-access-for-users-to-azure-maps)참조 하세요.
 
 7. 응용 프로그램에서 토큰 흐름을 획득 하는 코드를 추가 합니다. 구현에 대 한 자세한 내용은 [장치 코드 흐름](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow)을 참조 하세요. 토큰을 획득 하는 경우 `user_impersonation` 이전 단계에서 선택한 범위를 참조 합니다.
 
@@ -110,7 +110,7 @@ Access-Control-Expose-Headers: Location
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
