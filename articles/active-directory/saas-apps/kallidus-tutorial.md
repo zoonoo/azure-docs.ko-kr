@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/05/2019
 ms.author: jeedes
 ms.openlocfilehash: b743043d7a7c211ad024b2c1f2fe51f807c50beb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88546862"
 ---
 # <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>자습서: Azure Active Directory와 Kallidus 통합

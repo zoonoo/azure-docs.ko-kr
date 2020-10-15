@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243718"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071288"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
-이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
+이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> 인증 정책
 
@@ -40,7 +40,7 @@ ms.locfileid: "86243718"
 <authentication-basic username="username" password="password" />
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```xml
 <authentication-basic username="testuser" password="testpassword" />
@@ -59,7 +59,7 @@ ms.locfileid: "86243718"
 |사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
  이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
 -   **정책 섹션:** inbound
@@ -67,7 +67,7 @@ ms.locfileid: "86243718"
 -   **정책 범위:** 모든 범위
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> 클라이언트 인증서 사용 인증
- `authentication-certificate` 정책을 사용하여 클라이언트 인증서를 사용하는 백 엔드 서비스를 인증합니다. 먼저 인증서를 [API Management에 설치](https://go.microsoft.com/fwlink/?LinkID=511599)하고 지문으로 식별해야 합니다.
+ `authentication-certificate` 정책을 사용하여 클라이언트 인증서를 사용하는 백 엔드 서비스를 인증합니다. 먼저 인증서를 [API Management에 설치](./api-management-howto-mutual-certificates.md)하고 지문으로 식별해야 합니다.
 
 ### <a name="policy-statement"></a>정책 문
 
@@ -105,12 +105,12 @@ ms.locfileid: "86243718"
   
 |Name|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
-|인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
+|thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|N/A|
+|인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|N/A|
 |본문|클라이언트 인증서 (바이트 배열)입니다.|아니요|해당 없음|
-|password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|해당 없음|
+|password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|N/A|
   
-### <a name="usage"></a>사용  
+### <a name="usage"></a>사용량  
  이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
@@ -128,7 +128,7 @@ ms.locfileid: "86243718"
 <authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
-### <a name="example"></a>예  
+### <a name="example"></a>예제  
 #### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>관리 id를 사용 하 여 백 엔드 서비스 인증
 ```xml  
 <authentication-managed-identity resource="https://graph.microsoft.com"/> 
@@ -185,9 +185,9 @@ ms.locfileid: "86243718"
 |resource|문자열. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
 |클라이언트 id|문자열. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
 |출력-토큰 변수-이름|문자열. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |아니요|해당 없음|  
-|ignore-error|Boolean입니다. 로 설정 하면 `true` 액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
+|ignore-error|부울. 로 설정 하면 `true` 액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
   
-### <a name="usage"></a>사용  
+### <a name="usage"></a>사용량  
  이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.  
   
 -   **정책 섹션:** inbound  
@@ -200,4 +200,4 @@ ms.locfileid: "86243718"
 + [API Management의 정책](api-management-howto-policies.md)
 + [API 변환](transform-api.md)
 + [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
-+ [정책 샘플](policy-samples.md)
++ [정책 샘플](./policy-reference.md)

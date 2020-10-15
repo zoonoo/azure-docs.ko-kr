@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 6ac3457a22128f313084ab070a5a61c2d26d4b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851684"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071373"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 
-이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
+이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
 
 ## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> 고급 정책
 
@@ -63,7 +63,7 @@ ms.locfileid: "87851684"
 
 제어 흐름 정책에는 `<when/>` 요소가 하나 이상 포함되어 있어야 합니다. `<otherwise/>` 요소는 선택적입니다. 정책 내에 표시되는 순서대로 `<when/>` 요소의 조건이 평가됩니다. 조건 특성이 `true`인 첫 번째 `<when/>` 요소 내에 포함된 정책 문이 적용됩니다. 모든 `<when/>` 요소 조건 특성이 `false`인 경우 `<otherwise/>` 요소 내에 포함된 정책(있는 경우)이 적용됩니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a><a name="ChooseExample"></a> 예
 
@@ -159,7 +159,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 <forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -257,7 +257,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 | 버퍼 요청-본문 = "false &#124; true"       | "True"로 설정 하면 요청은 버퍼링 되며 [다시 시도](api-management-advanced-policies.md#Retry)시 다시 사용 됩니다.                                                                                                                                                                                               | 아니요       | false   |
 | 오류 발생 시 상태-코드 = "false &#124; true" | True로 설정 하면 400에서 599 까지의 범위에 있는 응답 코드에 대해 [오류 발생 시](api-management-error-handling-policies.md) 트리거를 트리거합니다.                                                                                                                                                                      | 아니요       | false   |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -276,7 +276,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 </limit-concurrency>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -307,7 +307,7 @@ inbound 섹션에 있는 set-variable 정책은 `isMobile` 요청 헤더에 `Use
 | key       | 문자열 허용되는 식입니다. 동시성 범위를 지정합니다. 여러 정책에서 공유될 수 있습니다. | 예      | 해당 없음     |
 | max-count | 정수입니다. 정책에 들어올 수 있는 요청의 최대 수를 지정합니다.           | 예      | 해당 없음     |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -358,10 +358,10 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 | attribute     | 설명                                                               | 필수                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | API Management 서비스에 등록 된로 거 ID입니다.         | 예                                                                  |
-| partition-id  | 메시지가 전송된 파티션의 인덱스를 지정합니다.             | (선택 사항) `partition-key`가 사용된 경우에는 이 특성을 사용할 수 없습니다. |
-| 파티션 키 | 메시지가 전송된 파티션 할당에 사용된 값을 지정합니다. | (선택 사항) `partition-id`가 사용된 경우에는 이 특성을 사용할 수 없습니다.  |
+| partition-id  | 메시지가 전송된 파티션의 인덱스를 지정합니다.             | 선택 사항입니다. `partition-key`가 사용된 경우에는 이 특성을 사용할 수 없습니다. |
+| 파티션 키 | 메시지가 전송된 파티션 할당에 사용된 값을 지정합니다. | 선택 사항입니다. `partition-id`가 사용된 경우에는 이 특성을 사용할 수 없습니다.  |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -380,7 +380,7 @@ Event Hubs에 기록할 값으로 모든 문자열을 사용할 수 있습니다
 
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
@@ -405,7 +405,7 @@ status code and media type. If no example or schema found, the content is empty.
 | status-code  | 응답 상태 코드를 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다.                 | 예       | 200     |
 | content-type | `Content-Type` 응답 헤더 값을 지정하며, 해당 예제 또는 스키마를 선택하는 데 사용됩니다. | 예       | None    |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -462,7 +462,7 @@ status code and media type. If no example or schema found, the content is empty.
 | attribute        | 설명                                                                                                                                           | 필수 | 기본값 |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | condition(조건)        | 재시도를 중지(`false`) 또는 진행(`true`)해야 하는지 여부를 지정하는 부울 리터럴 또는 [식](api-management-policy-expressions.md)입니다.      | 예      | 해당 없음     |
-| count()            | 최대 재시도 횟수를 지정하는 양수입니다.                                                                                | 예      | 해당 없음     |
+| 개수            | 최대 재시도 횟수를 지정하는 양수입니다.                                                                                | 예      | 해당 없음     |
 | interval         | 재시도 횟수 간에 대기 간격을 지정하는 양수(초)입니다.                                                                 | 예      | 해당 없음     |
 | max-interval     | 재시도 횟수 간에 최대 대기 간격을 지정하는 양수(초)입니다. 지수 재시도 알고리즘을 구현하는 데 사용됩니다. | 아니요       | 해당 없음     |
 | delta            | 대기 간격 증분을 지정하는 양수(초)입니다. 선형 및 지수 재시도 알고리즘을 구현하는 데 사용됩니다.             | 아니요       | 해당 없음     |
@@ -473,7 +473,7 @@ status code and media type. If no example or schema found, the content is empty.
 > `interval` 및 `delta`만 지정된 경우 **선형** 간격 재시도 알고리즘이 사용되며 이 경우 재시도 간 대기 시간은 `interval + (count - 1)*delta` 수식에 따라 계산됩니다.
 > `interval`, `max-interval` 및 `delta`가 지정된 경우 **지수** 간격 재시도 알고리즘이 적용되며 이 경우 재시도 간 대기 시간은 `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)` 수식에 따라 `interval` 값에서 `max-interval` 값으로 기하급수적으로 증가합니다.
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다. 이 정책에 의해 자식 정책 사용 제한이 상속됩니다.
 
@@ -521,9 +521,9 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute              | 설명                                                                                                                                                                          | 필수  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| response-variable-name | 참조하는 컨텍스트 변수 이름(예: 업스트림 [send-request](api-management-advanced-policies.md#SendRequest) 정책 및 `Response` 개체 포함) | (선택 사항) |
+| response-variable-name | 참조하는 컨텍스트 변수 이름(예: 업스트림 [send-request](api-management-advanced-policies.md#SendRequest) 정책 및 `Response` 개체 포함) | 선택 사항입니다. |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -597,7 +597,7 @@ status code and media type. If no example or schema found, the content is empty.
 | name          | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
 | exists-action | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -684,7 +684,7 @@ status code and media type. If no example or schema found, the content is empty.
 | name                            | 설정할 헤더의 이름을 지정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | 예      | 해당 없음      |
 | exists-action                   | 헤더가 이미 지정되어 있는 경우 수행할 작업을 지정합니다. 이 특성에는 다음 값 중 하나가 있어야 합니다.<br /><br /> -override-기존 헤더 값을 바꿉니다.<br />-skip-기존 헤더 값을 바꾸지 않습니다.<br />-append-기존 헤더 값에 값을 추가 합니다.<br />-delete-요청에서 헤더를 제거 합니다.<br /><br /> `override`로 설정할 때 동일한 이름의 여러 항목을 등록하면 모든 항목(여러 번 나열됨)에 따라 헤더가 설정되며, 나열된 값만 결과에 설정됩니다. | 아니요       | override |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -726,7 +726,7 @@ status code and media type. If no example or schema found, the content is empty.
 | 사용자 이름="문자열" | 프록시 인증에 사용할 사용자 이름입니다. | 아니요       | 해당 없음     |
 | 암호="문자열" | 프록시 인증에 사용할 암호입니다. | 아니요       | 해당 없음     |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -781,7 +781,7 @@ status code and media type. If no example or schema found, the content is empty.
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-method | 루트 요소입니다. 이 요소 값은 HTTP 메서드를 지정합니다. | 예      |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -831,7 +831,7 @@ status code and media type. If no example or schema found, the content is empty.
 | code="integer"  | 반환할 HTTP 상태 코드입니다.                            | 예      | 해당 없음     |
 | reason="string" | 상태 코드를 반환하는 이유에 대한 설명입니다. | 예      | 해당 없음     |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -867,9 +867,9 @@ status code and media type. If no example or schema found, the content is empty.
 | attribute | 설명                                                              | 필수 |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | 변수의 이름입니다.                                                | 예      |
-| value     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | 예      |
+| 값     | 변수의 값입니다. 식 또는 리터럴 값일 수 있습니다. | 예      |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -955,9 +955,9 @@ status code and media type. If no example or schema found, the content is empty.
 | source    | 추적 뷰어에 의미있고 메시지 원본을 지정하는 문자열 리터럴입니다.                                   | 예      | 해당 없음     |
 | severity  | 추적의 심각도 수준을 지정 합니다. 허용 되는 값은 `verbose` , `information` , `error` (가장 낮은 값에서 가장 높은 값)입니다. | 아니요       | 자세히 |
 | name      | 속성의 이름입니다.                                                                                                     | 예      | 해당 없음     |
-| value     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
+| 값     | 속성의 값입니다.                                                                                                    | 예      | 해당 없음     |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -1025,9 +1025,9 @@ status code and media type. If no example or schema found, the content is empty.
 
 | attribute | 설명                                                                                                                                                                                                                                                                                                                                                                                                            | 필수 | 기본값 |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | `wait` 정책에서 모든 직계 자식 정책 또는 한 정책이 완료될 때까지 대기할지 여부를 결정합니다. 허용된 값은 다음과 같습니다.<br /><br /> - `all` - 모든 직계 자식 정책이 완료될 때까지 대기합니다.<br />-any-모든 직계 자식 정책이 완료 될 때까지 대기 합니다. 첫 번째 직계 자식 정책이 완료되면 `wait` 정책이 완료되고 다른 직계 자식 정책의 실행이 종료됩니다. | 아니요       | 모두     |
+| -       | `wait` 정책에서 모든 직계 자식 정책 또는 한 정책이 완료될 때까지 대기할지 여부를 결정합니다. 허용된 값은 다음과 같습니다.<br /><br /> - `all` - 모든 직계 자식 정책이 완료될 때까지 대기합니다.<br />-any-모든 직계 자식 정책이 완료 될 때까지 대기 합니다. 첫 번째 직계 자식 정책이 완료되면 `wait` 정책이 완료되고 다른 직계 자식 정책의 실행이 종료됩니다. | 아니요       | 모두     |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -1041,4 +1041,4 @@ status code and media type. If no example or schema found, the content is empty.
 -   [API Management의 정책](api-management-howto-policies.md)
 -   [정책 식](api-management-policy-expressions.md)
 -   [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
--   [정책 샘플](policy-samples.md)
+-   [정책 샘플](./policy-reference.md)

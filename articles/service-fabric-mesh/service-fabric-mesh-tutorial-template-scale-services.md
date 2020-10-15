@@ -1,17 +1,17 @@
 ---
 title: 자습서 - Azure Service Fabric Mesh에서 실행 중인 앱 크기 조정
 description: 이 자습서에서는 Service Fabric Mesh에서 실행 중인 애플리케이션에서 서비스 크기를 조정하는 방법을 알아봅니다.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75351817"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840169"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정
 
