@@ -10,10 +10,10 @@ ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
 ms.openlocfilehash: 937be72bfec96119474e7effe9ba88a2cf253444
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081846"
 ---
 # <a name="add-data-to-audit-logs-by-using-custom-http-headers"></a>사용자 지정 HTTP 헤더를 사용하여 감사 로그에 데이터 추가
@@ -24,7 +24,7 @@ Azure FHIR(전자 의료 기록 교환) API에서 사용자는 호출 시스템�
 
 다음 다이어그램에서 이 데이터 흐름을 확인할 수 있습니다.
 
-:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="사용자 지정 헤더의 다이어그램":::
+:::image type="content" source="media/custom-headers/custom-headers-diagram.png" alt-text="사용자 지정 헤더의 다이어그램&quot;:::
 
 사용자 지정 헤더를 사용하여 여러 유형의 정보를 캡처할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -47,9 +47,9 @@ HTTP 헤더에는 다음 명명 규칙을 사용해야 합니다. X-MS-AZUREFHIR
 이 정보는 로그의 속성 열에 추가될 때 JSON으로 직렬화됩니다. 예를 들면 다음과 같습니다.
 
 ```json
-{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
-"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
-"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERID&quot; : &quot;1234&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;XXXX&quot;,
+&quot;X-MS-AZUREFHIR-AUDIT-XYZ&quot; : &quot;1234&quot; }
 ```
  
 모든 HTTP 헤더와 마찬가지로 동일한 헤더 이름을 다른 값으로 반복할 수 있습니다. 예를 들면 다음과 같습니다.
@@ -59,7 +59,7 @@ HTTP 헤더에는 다음 명명 규칙을 사용해야 합니다. X-MS-AZUREFHIR
 
 로그에 추가되는 경우 값은 쉼표로 구분된 목록으로 결합됩니다. 예를 들면 다음과 같습니다.
 
-{ "X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "HospitalA, Emergency" }
+{ &quot;X-MS-AZUREFHIR-AUDIT-USERLOCATION&quot; : &quot;HospitalA, Emergency" }
  
 최대 10개의 고유 헤더를 추가할 수 있습니다. 다른 값을 사용하는 동일한 헤더의 반복은 하나로 계산됩니다. 한 헤더에 대한 값의 총 최대 길이는 2048자입니다.
 
