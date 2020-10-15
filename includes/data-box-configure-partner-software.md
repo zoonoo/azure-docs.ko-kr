@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67182869"
 ---
 클라이언트에 연결할 파트너 소프트웨어를 구성합니다. 파트너 소프트웨어에 연결하려면 일반적으로 이전 단계에서 로컬 웹 UI의 **연결 및 복사** 페이지에서 수집한 다음 정보(다를 수 있음)가 필요합니다.

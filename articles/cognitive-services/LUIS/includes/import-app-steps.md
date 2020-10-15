@@ -7,10 +7,10 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/22/2020
 ms.openlocfilehash: aa0ba1de63cbcf1d9485c71b6bec7a29afb5140f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91545629"
 ---
 1. [LUIS 포털](https://www.luis.ai)의 **내 앱** 페이지에서 **+ 대화용 새 앱**을 선택한 다음, **JSON으로 가져오기**를 선택합니다. 이전 단계에서 저장한 JSON 파일을 찾습니다. 앱 이름은 변경할 필요가 없습니다. **완료**를 선택합니다.

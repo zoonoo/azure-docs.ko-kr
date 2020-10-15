@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
 ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570046"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기

@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이�
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254350"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업

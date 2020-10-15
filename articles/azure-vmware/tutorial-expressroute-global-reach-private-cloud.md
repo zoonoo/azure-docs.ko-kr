@@ -3,12 +3,12 @@ title: 자습서 - 온-프레미스 환경을 프라이빗 클라우드로 피�
 description: Azure VMware Solution의 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 9de6cbe177ac8d2ca4957e80c7ca1072a0d7985e
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576730"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948309"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>자습서: 온-프레미스 환경을 프라이빗 클라우드로 피어링
 
@@ -83,7 +83,7 @@ ExpressRoute Global Reach를 사용하여 두 ExpressRoute 회로 간에 연결�
 [CLI 명령](../expressroute/expressroute-howto-set-global-reach-cli.md)은 온-프레미스 환경 간에 Azure VMware Solution 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 구성하는 데 도움이 되는 세부 정보 및 예제가 추가되었습니다.  
 
 > [!TIP]  
-> Azure CLI 명령 출력을 간소화하기 위해 이러한 지침에서 [`–query` 인수를 사용하여 JMESPath 쿼리를 실행하고 필요한 결과만 표시할 수 있습니다](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> Azure CLI 명령 출력을 간소화하기 위해 이러한 지침에서 [`–query` 인수를 사용하여 JMESPath 쿼리를 실행하고 필요한 결과만 표시할 수 있습니다](/cli/azure/query-azure-cli).
 
 
 1. 온-프레미스 ExpressRoute 회로와 동일한 구독을 사용하여 Azure Portal에 로그인하고 Cloud Shell을 엽니다. 셸을 Bash로 유지합니다.
