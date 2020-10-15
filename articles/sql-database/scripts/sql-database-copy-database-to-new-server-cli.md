@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: e22d28215c06de96d31faec71f4fb595bb74a4a6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495270"
 ---
 # <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>CLI를 사용하여 Azure SQL Database의 데이터베이스를 새 서버에 복사
@@ -53,7 +53,7 @@ az group delete --name $targetResource
 
 이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 |---|---|
 | [az sql db copy](/cli/azure/sql/db#az-sql-db-copy) | 현재 시간에 스냅샷을 사용하는 데이터베이스의 복사본을 만듭니다. |
 

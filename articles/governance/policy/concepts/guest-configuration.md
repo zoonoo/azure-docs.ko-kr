@@ -1,14 +1,14 @@
 ---
 title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974722"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075487"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -18,8 +18,7 @@ Azure Policy는 Azure에서 실행 되는 컴퓨터와 [Arc 연결 된 컴퓨터
 - 애플리케이션 구성 또는 현재 상태
 - 환경 설정
 
-현재 대부분의 Azure Policy 게스트 구성 정책은 머신 내의 설정만 감사합니다.
-구성은 적용하지 않습니다. 단, [아래에 참조된](#applying-configurations-using-guest-configuration) 기본 제공 정책은 예외입니다.
+이때 대부분의 Azure Policy 게스트 구성 정책 정의는 컴퓨터 내의 설정만 감사 합니다. 구성은 적용하지 않습니다. 단, [아래에 참조된](#applying-configurations-using-guest-configuration) 기본 제공 정책은 예외입니다.
 
 ## <a name="enable-guest-configuration"></a>게스트 구성 사용
 
@@ -59,8 +58,7 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 
 ## <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
-게스트 구성 정책은 새 버전을 포함합니다. 게스트 구성 에이전트가 호환 되지 않는 경우 Azure Marketplace에서 사용할 수 있는 이전 버전의 운영 체제가 제외 됩니다.
-다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
+게스트 구성 정책 정의는 새 버전을 포함 합니다. 게스트 구성 에이전트가 호환 되지 않는 경우 Azure Marketplace에서 사용할 수 있는 이전 버전의 운영 체제가 제외 됩니다. 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
 |게시자|속성|버전|
 |-|-|-|
@@ -72,7 +70,7 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 |Red Hat|Red Hat Enterprise Linux|7.4-7.8|
 |Suse|SLES|12 SP3-SP5|
 
-사용자 지정 가상 머신 이미지는 위의 표에 나오는 운영 체제 중 하나의 이미지인 경우 게스트 구성 정책에서 지원됩니다.
+사용자 지정 가상 머신 이미지는 위의 표에 있는 운영 체제 중 하나인 게스트 구성 정책 정의에서 지원 됩니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
@@ -86,7 +84,7 @@ Azure Arc 컴퓨터는 온-프레미스 네트워크 인프라를 사용 하 여
 
 ### <a name="communicate-over-private-link-in-azure"></a>Azure에서 개인 링크를 통해 통신
 
-가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNeworkGC`이 기능을 사용 하도록 설정 하려면 이름과 값을 사용 하 여 태그를 적용 `TRUE` 합니다. 태그는 게스트 구성 정책을 컴퓨터에 적용 하기 전이나 후에 적용할 수 있습니다.
+가상 머신은 게스트 구성 서비스에 대 한 통신에 [개인 링크](../../../private-link/private-link-overview.md) 를 사용할 수 있습니다. `EnablePrivateNeworkGC`이 기능을 사용 하도록 설정 하려면 이름과 값을 사용 하 여 태그를 적용 `TRUE` 합니다. 태그는 게스트 구성 정책 정의가 컴퓨터에 적용 되기 전이나 후에 적용할 수 있습니다.
 
 Azure platform 리소스를 사용 하 여 안전 하 고 인증 된 채널을 설정 하기 위해 Azure [가상 공용 IP 주소](../../../virtual-network/what-is-ip-address-168-63-129-16.md) 를 사용 하 여 트래픽을 라우팅합니다.
 
@@ -111,9 +109,9 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성 정책은 **AuditIfNotExists** 효과를 사용 합니다. 정의가 할당 되 면 백 엔드 서비스는 Azure 리소스 공급자의 모든 요구 사항에 대 한 수명 주기를 자동으로 처리 `Microsoft.GuestConfiguration` 합니다.
+게스트 구성 정책 정의는 **AuditIfNotExists** 효과를 사용 합니다. 정의가 할당 되 면 백 엔드 서비스는 Azure 리소스 공급자의 모든 요구 사항에 대 한 수명 주기를 자동으로 처리 `Microsoft.GuestConfiguration` 합니다.
 
-**AuditIfNotExists** 정책에 따라 컴퓨터에서 모든 요구 사항이 충족 될 때까지 준수 결과가 반환 되지 않습니다. 요구 사항에 [대 한 자세한 내용은 Azure 가상 컴퓨터에 대 한 요구 사항 배포](#deploy-requirements-for-azure-virtual-machines) 섹션을 참조 하십시오.
+**AuditIfNotExists** 정책 정의는 컴퓨터에서 모든 요구 사항이 충족 될 때까지 준수 결과를 반환 하지 않습니다. 요구 사항은 [Azure virtual machines에 대 한 요구 사항 배포](#deploy-requirements-for-azure-virtual-machines) 섹션에 설명 되어 있습니다.
 
 > [!IMPORTANT]
 > 게스트 구성의 이전 릴리스에서는 **Deployifnoteexists** 및 **AuditIfNotExists** 정의를 결합 하기 위한 이니셔티브를 수행 해야 했습니다. **Deployifnotexists** 정의가 더 이상 필요 하지 않습니다. 정의와 intiaitives에는 레이블이 지정 되어 `[Deprecated]` 있지만 기존 할당은 계속 작동 합니다. 자세한 내용은 블로그 게시물: [게스트 구성 감사 정책에 대 한 중요 한 변경 내용](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316) 을 참조 하세요.
@@ -138,15 +136,15 @@ _Windows 컴퓨터의 표준 시간대를 구성_ 하는 정의만 표준 시간
 _구성_으로 시작하는 정의를 할당하는 경우 _필수 조건을 배포하여 Windows VM에서 게스트 구성 정책을 사용하도록 설정_ 정의도 할당해야 합니다. 선택하는 경우 이러한 정의를 하나의 이니셔티브에 결합할 수 있습니다.
 
 > [!NOTE]
-> 기본 제공 표준 시간대 정책은 컴퓨터 내부에서 설정을 구성 하는 것을 지 원하는 유일한 정의 이며, 컴퓨터 내에서 설정을 구성 하는 사용자 지정 정책은 지원 되지 않습니다.
+> 기본 제공 표준 시간대 정책은 컴퓨터 내부에서 설정을 구성 하는 것을 지 원하는 유일한 정의 이며, 컴퓨터 내에서 설정을 구성 하는 사용자 지정 정책 정의는 지원 되지 않습니다.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Azure 외부의 머신에 정책 할당
 
-게스트 구성에 사용할 수 있는 감사 정책에는 **HybrIDCompute/machines** 리소스 종류가 포함됩니다. 정책 할당 범위 내에 있는 [서버용 Azure Arc](../../../azure-arc/servers/overview.md)에 온보딩된 모든 머신이 자동으로 포함됩니다.
+게스트 구성에 사용할 수 있는 감사 정책 정의에는 **HybridCompute/machines** 리소스 종류가 포함 됩니다. 정책 할당 범위 내에 있는 [서버용 Azure Arc](../../../azure-arc/servers/overview.md)에 온보딩된 모든 머신이 자동으로 포함됩니다.
 
 ### <a name="multiple-assignments"></a>여러 할당
 
-게스트 구성 정책은 정책 할당이 다른 매개 변수를 사용하는 경우에도 머신마다 한번씩 동일한 게스트 할당만 지원합니다.
+현재 게스트 구성 정책 정의는 정책 할당에서 다른 매개 변수를 사용 하는 경우에도 컴퓨터 마다 한 번 동일한 게스트 할당 할당을 지원 합니다.
 
 ## <a name="client-log-files"></a>클라이언트 로그 파일
 
