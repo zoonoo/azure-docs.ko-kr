@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460119"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076575"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>시작에 실패한 클라우드 서비스 역할의 문제 해결
 시작에 실패한 Azure Cloud Services 역할에 관련된 일반적인 문제 및 솔루션은 다음과 같습니다.
@@ -122,6 +122,6 @@ IntelliTrace를 사용하는 서비스를 배포하려면 다음 단계를 수�
 모든 오류가 수정되었다고 확인되면 **.NET 4 역할에 IntelliTrace 사용** 확인란을 선택하지 않고 서비스를 배포할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.
+클라우드 서비스에 대한 [문제해결 문서](../index.yml?product=cloud-services&tag=top-support-issue) 를 더 봅니다.
 
-Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)를 참조하세요.
+Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)를 참조하세요.

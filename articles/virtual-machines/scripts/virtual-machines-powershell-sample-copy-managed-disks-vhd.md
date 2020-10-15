@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: d76fda02f94f85126214de27d88079977824098d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a02b55adf4ac1838e9fcb98b9dffcfbd2b4b52d4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320135"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969903"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell-windows"></a>PowerShell을 사용하여 다른 지역의 스토리지 계정으로 관리 디스크의 VHD 내보내기/복사(Windows)
 
@@ -47,7 +47,7 @@ ms.locfileid: "91320135"
 
 ## <a name="next-steps"></a>다음 단계
 
-[VHD에서 관리 디스크 만들기](virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[VHD에서 관리 디스크 만들기](./virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%252fpowershell%252fmodule%252ftoc.json)
 
 [관리 디스크에서 가상 머신 만들기](./virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 

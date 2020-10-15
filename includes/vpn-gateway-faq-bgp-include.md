@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91024940"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082248"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 BGP는 기본 SKU를 제외한 모든 Azure VPN Gateway SKU에서 지원됩니다.
@@ -108,3 +108,6 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 디바이스에 다음 경로�
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>BGP 피어링 세션에 대해 온-프레미스 VPN 디바이스에 무엇을 추가해야 하나요?
 IPsec S2S VPN 터널을 가리키는 VPN 디바이스에서 Azure BGP 피어 IP 주소의 호스트 경로를 추가해야 합니다. 예를 들어, Azure VPN 피어 IP가 "10.12.255.30"이라면 VPN 디바이스에서 일치하는 IPsec 터널 인터페이스의 nexthop 인터페이스와 "10.12.255.30"에 대한 호스트 경로를 추가해야 합니다.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>Virtual Network Gateway는 BGP를 사용하여 사이트 간 연결에 대해 BFD(양방향 전달 검색)를 지원하나요?
+아니요. BFD(양방향 전달 검색)는 표준 BGP keepalive를 사용하는 것보다 BGP를 함께 사용하여 빠르게 인접한 가동 중지 시간을 검색할 수 있는 프로토콜입니다. BFD는 LAN 환경에서 작동하도록 설계된 초 단위 이하 타이머를 사용하지만, 공용 인터넷 또는 광역 네트워크 연결에서는 사용하지 않습니다. 공용 인터넷을 통한 연결의 경우 특정 패킷이 지연되거나 삭제되는 일이 자주 발생하기 때문에, 이렇게 빠른 타이머를 도입하면 불안정성이 추가되어 BGP에 의해 경로가 중단될 수 있습니다. 그 대안으로 보다 빠른 수렴 시간을 위해 기본 60초 keepalive 간격 및 180초 유지 타이머보다 낮은 타이머로 온-프레미스 디바이스를 구성할 수 있습니다.

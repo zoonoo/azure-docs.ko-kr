@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5910c40729d07d5a759b2e5cc7b7a4272524c150
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253856"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968942"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Read v2.x에서 Read v3.x로 업그레이드
 
@@ -55,7 +55,7 @@ ms.locfileid: "91253856"
  
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |   `"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|
@@ -194,7 +194,7 @@ v3.0에서는 새로운 선택적 매개 변수 _language_를 사용할 수 있�
  
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |   `"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|

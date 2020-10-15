@@ -111,28 +111,26 @@
       href: iot-edge-glossary.md
 - name: 방법 가이드
   items:
-    - name: IoT Edge 디바이스 등록
-      href: how-to-register-device.md
-    - name: IoT Edge 설치 및 관리
+    - name: IoT Edge 디바이스 만들기
       items:
-        - name: Linux
-          href: how-to-install-iot-edge-linux.md
-        - name: Windows
-          href: how-to-install-iot-edge-windows.md
-        - name: Windows의 Linux 컨테이너
-          href: how-to-install-iot-edge-windows-with-linux.md
-        - name: Windows Server VM
-          href: how-to-install-iot-edge-windows-server-vm.md
-        - name: Ubuntu VM
-          href: how-to-install-iot-edge-ubuntuvm.md
-        - name: Kubernetes
-          href: how-to-install-iot-edge-kubernetes.md
+        - name: 런타임 설치
+          href: how-to-install-iot-edge.md
+        - name: 디바이스 등록 및 인증
+          items:
+            - name: 대칭 키 인증
+              href: how-to-manual-provision-symmetric-key.md
+            - name: X.509 인증서 인증
+              href: how-to-manual-provision-x509.md
+        - name: 업데이트 런타임
+          href: how-to-update-iot-edge.md
         - name: 디바이스 인증서 관리
           href: how-to-manage-device-certificates.md
         - name: 테스트 인증서 만들기
           href: how-to-create-test-certificates.md
-        - name: 런타임 버전 업데이트
-          href: how-to-update-iot-edge.md
+        - name: Kubernetes의 IoT Edge
+          href: how-to-install-iot-edge-kubernetes.md
+        - name: ARM 템플릿을 사용하는 IoT Edge 가상 머신
+          href: how-to-install-iot-edge-ubuntuvm.md
     - name: DPS와 함께 큐 자동 프로비전
       items:
         - name: TPM 증명
@@ -183,6 +181,10 @@
           href: how-to-monitor-module-twins.md
         - name: EdgeAgent 직접 메서드
           href: how-to-edgeagent-direct-method.md
+        - name: IoT Edge 로그 검색
+          href: how-to-retrieve-iot-edge-logs.md
+        - name: 기본 제공 메트릭 액세스
+          href: how-to-access-built-in-metrics.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
         - name: 투명 게이트웨이 구성
@@ -225,36 +227,38 @@
           href: troubleshoot-common-errors.md
 - name: 참조
   items:
+    - name: Windows 디바이스 관리 스크립트
+      href: reference-windows-scripts.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
-          href: /azure/iot-hub
+          href: ../iot-hub/index.yml
         - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
+          href: ../iot-dps/index.yml
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ./index.yml
         - name: IoT 솔루션 가속기
-          href: /azure/iot-accelerators
+          href: ../iot-accelerators/index.yml
         - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
+          href: ../iot-pnp/index.yml
         - name: Azure Maps
-          href: /azure/azure-maps
+          href: ../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../time-series-insights/index.yml
     - name: Azure IoT SDK
       items:
         - name: IoT 서비스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: IoT 디바이스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Azure IoT 샘플
       items:
         - name: C#(.NET)

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 9ed918c841989cb50efa362251d09c0b655b7fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570147"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082175"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -39,7 +39,7 @@ ms.locfileid: "89570147"
 <sup>2</sup>단위당 캐시 크기는 가격 책정 계층에 따라 달라집니다. 가격 책정 계층 및 해당 크기 조정 제한에 대한 자세한 내용은 [API Management 가격](https://azure.microsoft.com/pricing/details/api-management/)을 참조하세요.<br/>
 <sup>3</sup>백 엔드에서 명시적으로 닫지 않으면 연결이 풀링되고 다시 사용됩니다.<br/>
 <sup>4</sup>이 제한은 기본, 표준 및 프리미엄 계층 단위당입니다. 개발자 계층은 1,024개로 제한됩니다. 이 제한은 소비 계층에 적용되지 않습니다.<br/>
-<sup>5</sup>이 제한은 기본, 표준 및 프리미엄 계층에 적용됩니다. 소비 계층에서 정책 문서 크기는 4KiB로 제한됩니다.<br/>
+<sup>5</sup>이 제한은 기본, 표준 및 프리미엄 계층에 적용됩니다. 소비 계층에서 정책 문서 크기는 16KiB로 제한됩니다.<br/>
 <sup>6</sup>여러 사용자 지정 도메인은 개발자 및 프리미엄 계층에서만 지원됩니다.<br/>
 <sup>7</sup>CA 인증서는 소비 계층에서 지원되지 않습니다.<br/>
 <sup>8</sup>이 제한은 소비 계층에만 적용됩니다. 이러한 범주에는 다른 계층에 대한 제한이 없습니다.<br/>

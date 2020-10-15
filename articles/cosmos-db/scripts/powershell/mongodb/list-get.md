@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 05/01/2020
 ms.author: mjbrown
 ms.openlocfilehash: 94c41df305abe3e1678efc1dc59d0c855c5cb069
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87505061"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>Azure Cosmos DB의 MongoDB API에 대한 데이터베이스, 그래프 나열 및 가져오기

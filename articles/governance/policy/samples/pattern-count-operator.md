@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 count 연산자
 description: 이 Azure Policy 패턴은 정책 정의에서 count 연산자를 사용하는 방법에 대한 예를 제공합니다.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 807890b7fb08d790deff6e0be9e08ad91c4ec44d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565758"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076405"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Azure Policy 패턴: count 연산자
 

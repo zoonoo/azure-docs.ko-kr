@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 06/12/2020
 ms.openlocfilehash: 3e4a64b989c11f168468936cf25d5bbd4f6c9b15
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87504995"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-mongodb-api-database-and-collection-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos MongoDB API 데이터베이스 및 컬렉션에 대한 리소스 잠금 만들기

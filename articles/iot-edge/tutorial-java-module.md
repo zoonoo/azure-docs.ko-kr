@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: ef4b42b56ea3e9e73de6d5bc793b2f1b206f34f3
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d68522d92409cfcba38abeb86f2db7c4b78869e6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829988"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045604"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 Java IoT Edge 모듈 개발
 
@@ -51,14 +51,14 @@ ms.locfileid: "87829988"
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
-* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
+* [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
 Java에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를 개발 머신에 설치합니다. 
 
 * Visual Studio Code용 [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-* [Java SE Development Kit 10](https://aka.ms/azure-jdks)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) 설정)
+* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) 설정)
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
@@ -306,7 +306,7 @@ IoT Edge 디바이스에 배포 매니페스트를 적용한 후에는 디바이
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 IoT Edge 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [IoT Edge 모듈 개발](module-development.md) 또는 [Visual Studio Code를 사용하여 모듈을 개발](how-to-vs-code-develop-module.md)하는 방법에 대해 자세히 알아볼 수 있습니다. 시뮬레이션된 온도 모듈을 포함한 코드 예제는 [IoT Edge 모듈 샘플](https://github.com/Azure/iotedge/tree/master/edge-modules)을 참조하세요.
+이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 IoT Edge 모듈을 만들었습니다.
 
 다음 자습서를 계속 진행하여 Azure IoT Edge를 통해 Azure Cloud Services를 배포하여 에지에서 데이터를 처리 및 분석하는 방법을 알아봅니다.
 
