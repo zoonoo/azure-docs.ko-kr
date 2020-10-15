@@ -5,6 +5,7 @@
     - name: Virtual WAN이란?
       href: virtual-wan-about.md
 - name: 자습서
+  expanded: true
   items:
     - name: 사이트 간 연결 만들기
       href: virtual-wan-site-to-site-portal.md
