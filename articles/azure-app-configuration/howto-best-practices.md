@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588061"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078054"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
 
@@ -42,7 +42,7 @@ ms.locfileid: "88588061"
 
 앱 구성은이를 사용 하 여 저장 된 모든 키를 독립적인 엔터티로 처리 합니다. 앱 구성은 키 간의 관계를 유추 하거나 해당 계층 구조를 기반으로 키 값을 상속 하지 않습니다. 그러나 응용 프로그램 코드에서 적절 한 구성 스태킹와 결합 된 레이블을 사용 하 여 여러 키 집합을 집계할 수 있습니다.
 
-예제를 살펴보겠습니다. **Asset1**라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1**의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
+예를 살펴보겠습니다. **Asset1**라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1**의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
 
 코드에서 먼저 레이블 없이 키 값을 검색 한 다음 "개발" 레이블을 사용 하 여 동일한 키 값 집합을 두 번 검색 합니다. 값을 두 번째로 검색할 때 키의 이전 값을 덮어씁니다. .NET Core 구성 시스템을 사용 하면 여러 구성 데이터 집합을 서로 "스택" 할 수 있습니다. 하나 이상의 집합에 키가 있는 경우 해당 키를 포함 하는 마지막 집합이 사용 됩니다. .NET Core와 같은 최신 프로그래밍 프레임 워크를 사용 하면 네이티브 구성 공급자를 사용 하 여 앱 구성에 액세스 하는 경우이 스택 기능을 무료로 이용할 수 있습니다. 다음 코드 조각에서는 .NET Core 응용 프로그램에서 스태킹를 구현할 수 있는 방법을 보여 줍니다.
 
@@ -69,7 +69,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 다음 방법 중 하나를 사용 하 여 웹 앱 또는 함수의 앱 구성에 대 한 액세스를 제공할 수 있습니다.
 
 * Azure Portal를 통해 App Service의 응용 프로그램 설정에서 앱 구성 저장소에 대 한 연결 문자열을 입력 합니다.
-* Key Vault에서 앱 구성 저장소에 연결 문자열을 저장 하 고 [App Service에서 참조](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)합니다.
+* Key Vault에서 앱 구성 저장소에 연결 문자열을 저장 하 고 [App Service에서 참조](../app-service/app-service-key-vault-references.md)합니다.
 * Azure 관리 되는 id를 사용 하 여 앱 구성 저장소에 액세스 합니다. 자세한 내용은 [Azure 관리 id와 통합](howto-integrate-azure-managed-service-identity.md)을 참조 하세요.
 * 앱 구성에서 App Service로 구성을 푸시합니다. 앱 구성은 데이터를 App Service으로 직접 보내는 내보내기 함수 (Azure Portal 및 Azure CLI)를 제공 합니다. 이 방법을 사용 하면 응용 프로그램 코드를 변경할 필요가 없습니다.
 
@@ -85,7 +85,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>구성 데이터를 앱 구성으로 가져오기
 
-앱 구성에서는 Azure Portal 또는 CLI를 사용 하 여 현재 구성 파일에서 구성 설정을 대량으로 [가져올](https://aka.ms/azconfig-importexport1) 수 있는 옵션을 제공 합니다. 동일한 옵션을 사용 하 여 관련 저장소 간에 앱 구성에서 값을 내보낼 수도 있습니다. GitHub 리포지토리와의 지속적인 동기화를 설정 하려는 경우 [Github 작업](https://aka.ms/azconfig-gha2) 을 사용 하 여 앱 구성의 혜택을 받을 때 기존 원본 제어 방법을 계속 사용할 수 있습니다.
+앱 구성에서는 Azure Portal 또는 CLI를 사용 하 여 현재 구성 파일에서 구성 설정을 대량으로 [가져올](./howto-import-export-data.md) 수 있는 옵션을 제공 합니다. 동일한 옵션을 사용 하 여 관련 저장소 간에 앱 구성에서 값을 내보낼 수도 있습니다. GitHub 리포지토리와의 지속적인 동기화를 설정 하려는 경우 [Github 작업](./concept-github-action.md) 을 사용 하 여 앱 구성의 혜택을 받을 때 기존 원본 제어 방법을 계속 사용할 수 있습니다.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>앱 구성에서 다중 지역 배포
 

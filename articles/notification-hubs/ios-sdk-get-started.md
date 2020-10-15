@@ -9,10 +9,10 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ms.openlocfilehash: 7cdf095898bfe85e6f3b14fa1dcdb7b0c94ccde6
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88042448"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기
@@ -60,11 +60,11 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 3.  **User Email Address(사용자 이메일 주소)** 를 선택하고, **Common Name(일반 이름)**  값을 입력하고, **Saved to disk(디스크에 저장됨)** 를 지정했는지 확인한 다음, **Continue(계속)** 를 선택합니다.  **CA Email Address(CA 이메일 주소)** 는 필요하지 않으므로 비워둡니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="필요한 인증서 정보":::
+   :::image type="content" source="media/ios-sdk-get-started/image2.png" alt-text="키 집합 액세스":::
 
 4.  **Save As(다른 이름으로 저장)** 에서 CSR 파일의 이름을 입력하고, **Where(위치)** 에서 해당 위치를 선택한 다음, **Save(저장)** 를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="파일 이름 선택":::
+   :::image type="content" source="media/ios-sdk-get-started/image3.png" alt-text="키 집합 액세스":::
 
    이 작업은 CSR 파일을 선택한 위치에 저장합니다. 기본 위치는 **Desktop(데스크톱)** 입니다. 이 파일에 대해 선택한 위치를 기억해 두세요.
 
@@ -76,26 +76,26 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 1. 아직 앱을 등록하지 않은 경우 Apple Developer Center에서 [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동합니다. Apple ID를 사용하여 포털에 로그인하고, **Identifier(식별자)** 를 선택합니다. 그런 다음, **+** 를 선택하여 새 앱을 등록합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="앱 ID 페이지":::
+   :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="키 집합 액세스":::
 
 2.  **Register a New Identifier(새 식별자 등록)**  화면에서 **App ID(앱 ID)**  라디오 단추를 선택합니다. 그런 다음, **Continue(계속)** 를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="새 ID 등록 페이지":::
+   :::image type="content" source="media/ios-sdk-get-started/image5.png" alt-text="키 집합 액세스":::
 
 3. 새 앱에 대해 다음 세 가지 값을 업데이트한 다음, **Continue**를 선택합니다.
 
    - **설명**: 앱에 대한 설명이 포함된 이름을 입력합니다.
    - **Bundle ID**(번들 ID):  [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)에서 설명한 대로  **Organization Identifier.Product Name** 형식의 번들 ID를 입력합니다.  **Organization Identifie(조직 식별자)**  및 **Product Name(제품 이름)**  값은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 **NotificationHubs** 값이 조직 식별자로 사용되고, **GetStarted** 값이 제품 이름으로 사용됩니다. Xcode에서 올바른 게시 프로필을 사용하도록 **Bundle Identifier(번들 식별자)**  값이 Xcode 프로젝트의 값과 일치하는지 확인합니다.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="앱 ID 등록":::
+      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="키 집합 액세스":::
 
    - **Push Notifications**:  **Capabilities(기능)**  섹션에서 **Push Notifications(푸시 알림)**  옵션을 확인합니다.
 
-      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="새 앱 ID 등록":::
+      :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="키 집합 액세스":::
 
       이 작업은 앱 ID를 생성하고 사용자에게 정보 확인을 요청합니다.  **Continue**를 선택한 다음, **Register(등록)** 를 선택하여 새 앱 ID를 확인합니다.
 
-      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="새 앱 ID 확인":::
+      :::image type="content" source="media/ios-sdk-get-started/image8.png" alt-text="키 집합 액세스":::
 
        **Register**가 선택되면 **Certificates, Identifiers & Profiles(인증서, 식별자 및 프로필)**  페이지에서 새 앱 ID가 줄 항목으로 표시됩니다.
 
@@ -118,11 +118,11 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 1. 선택한 **Push Notifications(푸시 알림)**  옵션까지 아래로 스크롤한 다음, **Configure(구성)** 를 선택하여 인증서를 만듭니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="앱 ID":::
+   :::image type="content" source="media/ios-sdk-get-started/image9.png" alt-text="키 집합 액세스":::
 
 2.  **Apple Push Notification service SSL Certificates(Apple Push Notification Service SSL 인증서)**  창이 표시됩니다.  **Development SSL Certificate(개발 SSL 인증서)**  섹션에서 **Create Certificate(인증서 만들기)**  단추를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="인증서 만들기":::
+   :::image type="content" source="media/ios-sdk-get-started/image10.png" alt-text="키 집합 액세스":::
 
     **Create a new Certificate(새 인증서 만들기)**  화면이 표시됩니다.
 
@@ -133,11 +133,11 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 4. 포털에서 인증서가 만들어지면 **Download(다운로드)**  단추를 선택합니다. 인증서를 저장하고 저장된 위치를 기억합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="인증서 다운로드":::
+   :::image type="content" source="media/ios-sdk-get-started/image11.png" alt-text="키 집합 액세스":::
 
    인증서가 다운로드되어 **Downloads** 폴더에 저장됩니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="인증서 파일 찾기":::
+   :::image type="content" source="media/ios-sdk-get-started/image12.png" alt-text="키 집합 액세스":::
 
    기본적으로 다운로드된 개발 인증서는 이름이 **aps_development.cer**로 지정됩니다.
 
@@ -149,7 +149,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 6. Keychain Access(키 집합 액세스)에서 마우스 오른쪽 단추로 **Certificates(인증서)**  범주에서 만든 새 푸시 인증서를 클릭합니다.  **Export(내보내기)** 를 선택하고, 파일 이름을 지정한 다음, **.p12** 형식, **Save(저장)** 를 차례로 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="인증서 내보내기":::
+   :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="키 집합 액세스":::
 
    암호를 사용하여 인증서를 보호하도록 선택할 수 있지만 이는 선택 사항입니다. 암호 만들기를 무시하려면 **OK(확인)** 를 클릭합니다. 내보낸 .p12 인증서의 파일 이름과 위치를 적어둡니다. 이는 APNS를 통한 인증을 사용하도록 설정하는 데 사용됩니다.
 
@@ -201,11 +201,11 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 2.  **Development(개발)**  아래에서 프로비저닝 프로필 유형으로 **iOS App Development(iOS 앱 개발)** 를 선택한 다음, **Continue(계속)** 를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="프로비저닝 프로필 목록":::
+   :::image type="content" source="media/ios-sdk-get-started/image15.png" alt-text="키 집합 액세스":::
 
 3. 다음으로, **App ID(앱 ID)**  드롭다운 목록에서 만든 앱 ID를 선택한 다음, **Continue(계속)** 를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="앱 ID 선택":::
+   :::image type="content" source="media/ios-sdk-get-started/image16.png" alt-text="키 집합 액세스":::
 
 4.  **Select certificates(인증서 선택)**  창에서 코드 서명에 사용하는 개발 인증서를 선택하고, **Continue(계속)** 를 선택합니다. 이 인증서는 사용자가 만든 푸시 인증서가 아닙니다. 계정이 없으면 만들어야 합니다. 인증서가 있으면 다음 단계로 건너뜁니다. 개발 인증서가 없으면 해당 인증서를 만들기 위해 다음을 수행합니다.
 
@@ -224,7 +224,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 8. 마지막으로, **Provisioning Profile Name(프로비저닝 프로필 이름)** 에서 프로필 이름을 선택한 다음, **Generate(생성)** 를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="프로비저닝 프로필 이름 선택":::
+   :::image type="content" source="media/ios-sdk-get-started/image17.png" alt-text="키 집합 액세스":::
 
 9. 새 프로비저닝 프로필이 만들어지면 **Download(다운로드)** 를 선택합니다. 저장된 위치를 기억합니다.
 
@@ -238,11 +238,11 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 2. 왼쪽 메뉴에서  **모든 서비스**를 선택한 다음,  **모바일** 섹션에서  **Notification Hubs**를 선택합니다. 서비스 이름 옆의 별표 아이콘을 선택하여 서비스를 왼쪽 메뉴의  **즐겨찾기** 섹션에 추가합니다.  **Notification Hubs**가  **즐겨찾기**에 추가되면 이를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="Azure Portal":::
+   :::image type="content" source="media/ios-sdk-get-started/image18.png" alt-text="키 집합 액세스":::
 
 3.  **Notification Hubs** 페이지의 도구 모음에서 **추가**를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="추가 도구 모음 단추":::
+   :::image type="content" source="media/ios-sdk-get-started/image19.png" alt-text="키 집합 액세스":::
 
 4.  **Notification Hubs** 페이지에서 다음 단계를 수행합니다.
 
@@ -252,18 +252,18 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
    4.  **리소스 그룹**에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
    5.  **만들기**를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="속성 설정":::
+   :::image type="content" source="media/ios-sdk-get-started/image20.png" alt-text="키 집합 액세스":::
 
 5.  **알림**(벨 아이콘)을 선택하고,  **리소스로 이동**을 선택합니다.  **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="포털 알림":::
+   :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="키 집합 액세스":::
 
 6. 목록에서  **액세스 정책**을 선택합니다. 사용할 수 있는 두 가지 연결 문자열을 적어 둡니다. 나중에 푸시 알림을 처리하는 데 필요합니다.
 
    > [!IMPORTANT]
    > 애플리케이션에서 **DefaultFullSharedAccessSignature** 정책을 사용하지 마세요. 이는 백 엔드에서만 사용할 수 있습니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="연결 문자열":::
+   :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="키 집합 액세스":::
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>APNS 정보를 사용하여 알림 허브 구성
 
@@ -284,7 +284,7 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 5.  **샌드박스** 모드를 선택합니다.
 
-   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="구성":::
+   :::image type="content" source="media/ios-sdk-get-started/image23.png" alt-text="키 집합 액세스":::
 
 6.  **저장**을 선택합니다.
 

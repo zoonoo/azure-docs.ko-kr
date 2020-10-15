@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889245"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069848"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -21,7 +21,7 @@ ms.locfileid: "73889245"
 
 이 방법에서는 Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -180,4 +180,4 @@ Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Lake Analytics를 사용하여 Data Lake Store 데이터 세트에서 빅 데이터 분석을 수행할 수 있습니다. 자세한 내용은 [Data Lake Analytics 문서](https://docs.microsoft.com/azure/data-lake-analytics)를 참조하세요.
+Azure Data Lake Analytics를 사용하여 Data Lake Store 데이터 세트에서 빅 데이터 분석을 수행할 수 있습니다. 자세한 내용은 [Data Lake Analytics 문서](../data-lake-analytics/index.yml)를 참조하세요.
