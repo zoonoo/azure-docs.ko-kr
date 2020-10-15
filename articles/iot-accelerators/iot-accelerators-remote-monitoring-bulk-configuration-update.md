@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 57d2ac4f1e80c24a750e0e5f8eb22850718594a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91363157"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071033"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>자습서: 연결된 디바이스 일괄 관리
 
@@ -59,7 +59,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 * [IoT DevKit 디바이스의 부팅 로더가 1.4.0 이상의 버전인지](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) 확인합니다.
 * IoT DevKit SDK가 부팅 로더와 동일한 버전인지 확인합니다. VS Code의 Azure IoT Workbench를 사용하여 IoT DevKit SDK를 업데이트할 수 있습니다. 명령 팔레트를 열고 **Arduino: 보드 관리자**를 입력하고 선택합니다. 자세한 내용은 [개발 환경 준비](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment)를 참조하세요.
 
-또한 하나 이상의 IoT DevKit 디바이스를 원격 모니터링 솔루션 가속기에 연결해야 합니다. IoT DevKit 디바이스를 연결하지 않은 경우 [MXChip IoT DevKit AZ3166을 IoT 원격 모니터링 솔루션 가속기에 연결](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)을 참조하세요.
+또한 하나 이상의 IoT DevKit 디바이스를 원격 모니터링 솔루션 가속기에 연결해야 합니다. IoT DevKit 디바이스를 연결하지 않은 경우 [MXChip IoT DevKit AZ3166을 IoT 원격 모니터링 솔루션 가속기에 연결](./iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)을 참조하세요.
 
 ## <a name="navigate-to-the-dashboard"></a>대시보드로 이동
 
@@ -274,4 +274,4 @@ Azure 스토리지 계정을 사용하여 클라우드에서 새 펌웨어 파�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 솔루션에 연결된 디바이스 그룹의 펌웨어를 업데이트하는 방법을 보여 주었습니다. 디바이스를 업데이트하기 위해 솔루션에서 자동 디바이스 관리를 사용합니다. 솔루션의 기본 IoT Hub에 있는 자동 디바이스 관리 기능에 대한 자세한 내용은 [Azure Portal을 사용하여 대규모 IoT 디바이스 구성 및 모니터링](../iot-hub/iot-hub-auto-device-config.md)을 참조하세요.
+이 자습서에서는 솔루션에 연결된 디바이스 그룹의 펌웨어를 업데이트하는 방법을 보여 주었습니다. 디바이스를 업데이트하기 위해 솔루션에서 자동 디바이스 관리를 사용합니다. 솔루션의 기본 IoT Hub에 있는 자동 디바이스 관리 기능에 대한 자세한 내용은 [Azure Portal을 사용하여 대규모 IoT 디바이스 구성 및 모니터링](../iot-hub/iot-hub-automatic-device-management.md)을 참조하세요.

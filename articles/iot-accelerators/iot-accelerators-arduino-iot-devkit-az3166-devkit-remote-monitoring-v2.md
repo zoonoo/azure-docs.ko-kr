@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: ed14d4cb79cb5794fa666f1bb96e062d69128d0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a9285ebe2e749f5ac7f248a2703518c8ac237bc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337673"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071679"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
 
@@ -28,7 +28,7 @@ ms.locfileid: "87337673"
 
 이 자습서를 완료하려면 먼저 다음 작업을 수행합니다.
 
-* [클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)의 단계를 수행하여 DevKit를 준비합니다.
+* [클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)의 단계를 수행하여 DevKit를 준비합니다.
 
 ## <a name="open-sample-project"></a>샘플 프로젝트 열기
 
@@ -128,5 +128,5 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 
 지금까지 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법을 알아보았으며, 다음 몇 가지 제안 단계도 확인하는 것이 좋습니다.
 
-* [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-accelerators/)
+* [Azure IoT 솔루션 가속기 개요](./index.yml)
 * [UI 사용자 지정](iot-accelerators-remote-monitoring-customize.md)

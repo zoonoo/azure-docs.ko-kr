@@ -1,15 +1,18 @@
 - name: 개발자용 Azure Active Directory
   href: index.yml
 - name: 개요
-  href: v1-overview.md
-- name: 샘플
-  href: sample-v1-code.md
-- name: 개념
+  expanded: true
   items:
+    - name: 개요
+      href: v1-overview.md
     - name: Microsoft ID 플랫폼의 발전
       href: about-microsoft-identity-platform.md
     - name: v2.0으로 업데이트해야 하는 이유
       href: azure-ad-endpoint-comparison.md
+- name: 샘플
+  href: sample-v1-code.md
+- name: 개념
+  items:
     - name: 애플리케이션 형식
       items:
         - name: 애플리케이션 유형
