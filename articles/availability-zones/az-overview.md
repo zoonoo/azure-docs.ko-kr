@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9a9cdef27276aa589a4aadd853185b0e3fb4be61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773742"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078377"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -37,7 +37,7 @@ Azure에서 지역 및 가용성 영역에 대 한 이해를 돕기 위해 주�
 
 ## <a name="regions"></a>영역
 
-지역은 대기 시간이 정의 된 경계 내에 배포 되 고 전용 지역의 짧은 대기 시간 네트워크를 통해 연결 되는 데이터 센터 집합입니다. Azure는 여러 지역에 걸쳐 지역 간 복원 력을 제공 하는 데 필요한 응용 프로그램을 유연 하 게 배포할 수 있도록 합니다. 자세한 내용은 [복원 력 기둥 개요](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)를 참조 하세요.
+지역은 대기 시간이 정의 된 경계 내에 배포 되 고 전용 지역의 짧은 대기 시간 네트워크를 통해 연결 되는 데이터 센터 집합입니다. Azure는 여러 지역에 걸쳐 지역 간 복원 력을 제공 하는 데 필요한 응용 프로그램을 유연 하 게 배포할 수 있도록 합니다. 자세한 내용은 [복원 력 기둥 개요](/azure/architecture/framework/resiliency/overview)를 참조 하세요.
 
 ## <a name="availability-zones"></a>가용성 영역
 
@@ -92,7 +92,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 기본 | 일반 | 특수화 |
 > | --- | --- | --- |
 > | 계정 저장소 | API Management | FHIR용 Azure API |
-> | Application Gateway | 앱 구성 | Azure Analysis Services |
+> | Application Gateway | App Configuration | Azure Analysis Services |
 > | Azure Backup | App Service | Azure Blockchain 서비스 |
 > | Azure Cosmos DB | Automation | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
@@ -105,11 +105,11 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Cloud Services: Ev3-Series | Azure Database for PostgreSQL | Azure 스프링 클라우드 서비스 |
 > | Cloud Services: 인스턴스 수준 Ip | Azure Database Migration Service | Azure Time Series Insights |
 > | Cloud Services: 예약된 IP | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | 디스크 스토리지 | Azure DDoS Protection | Cloud Services: G 시리즈 |
+> | Disk Storage | Azure DDoS Protection | Cloud Services: G 시리즈 |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: H 시리즈 |
 > | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | 부하 분산 장치 | Azure Firewall Manager | Cognitive Services: Speaker Recognition |
-> | Service Bus | Azure 기능 | Data Box Heavy |
+> | Service Bus | Azure Functions | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory V1 |
 > | Virtual Machines | AKS(Azure Kubernetes Service) | Data Lake Analytics |
@@ -118,7 +118,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
 > | Virtual Machines: Dv2-Series | Azure Site Recovery | StorSimple |
-> | Virtual Machines: Dv3-Series | Azure Stack Hub | 비디오 인덱서 |
+> | Virtual Machines: Dv3-Series | Azure Stack Hub | Video Indexer |
 > | Virtual Machines: ESv3-Series | Azure Stream Analytics | Virtual Machines: DASv4-Series |
 > | Virtual Machines: Ev3-Series | Azure Synapse Analytics | Virtual Machines: DAv4-Series |
 > | Virtual Machines: F 시리즈 | Batch | Virtual Machines: DCsv2 시리즈 |
@@ -170,9 +170,9 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 - [가상 머신 만들기](../virtual-machines/windows/create-portal-availability-zone.md)
 - [PowerShell을 사용하여 Managed Disk 추가](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [영역 중복 가상 머신 확장 집합 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM 부하 분산](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM 부하 분산](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [영역 중복 스토리지](../storage/common/storage-redundancy-zrs.md)
+- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM 부하 분산](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [영역 중복 프런트엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM 부하 분산](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [영역 중복 스토리지](../storage/common/storage-redundancy.md)
 - [SQL 데이터베이스](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Event Hubs 지리적 재해 복구](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus 지리적 재해 복구](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)

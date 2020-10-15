@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: 3a8d3309cdc5ddb0ae75ed6fcf0376118275b835
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a737fada3e019029967bc752aaa0dedc354fa880
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848012"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078326"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
 
@@ -136,4 +136,4 @@ API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
 
 + [API 변환](transform-api.md)
 + [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
-+ [정책 샘플](policy-samples.md)
++ [정책 샘플](./policy-reference.md)

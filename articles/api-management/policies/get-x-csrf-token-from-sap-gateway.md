@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 14ea9113bf5712d6ffce356d02abb7224c21771a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc6f60397c2d432dd6547a8be34280fcf3acd05d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70067717"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078411"
 ---
 # <a name="implement-x-csrf-pattern"></a>X-CSRF 패턴 구현
 
-이 문서에서는 많은 API에서 사용되는 X-CSRF 패턴을 구현하는 방법을 보여 주는 Azure API Management 정책 샘플을 제공합니다. 이 예제는 SAP 게이트웨이에만 해당됩니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-samples.md)을 참조하세요.
+이 문서에서는 많은 API에서 사용되는 X-CSRF 패턴을 구현하는 방법을 보여 주는 Azure API Management 정책 샘플을 제공합니다. 이 예제는 SAP 게이트웨이에만 해당됩니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-reference.md)을 참조하세요.
 
 ## <a name="policy"></a>정책
 
@@ -34,5 +34,4 @@ ms.locfileid: "70067717"
 APIM 정책에 대해 자세히 알아보기:
 
 + [변환 정책](../api-management-transformation-policies.md)
-+ [정책 샘플](../policy-samples.md)
-
++ [정책 샘플](../policy-reference.md)

@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 333a7ec4ae0e5c8cbc94a603e2ccf81ee92e7d48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931984"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078462"
 ---
 ## <a name="query-language-features"></a>쿼리 언어 기능
 
@@ -33,6 +33,7 @@ Azure Digital Twins 쿼리 언어에서 사용할 수 있는 작업은 다음과
   - 미리 보기 중에는 최대 5 개 수준이 `JOIN` 허용 됩니다.
 * 상위 쿼리 결과만 선택 ( `Select TOP` 연산자)
 * 을 사용 하 여 결과 집합의 항목 수를 계산 합니다. `Select COUNT`
+* 프로젝션을 사용 하 여 쿼리에서 반환 되는 열을 선택 합니다.
 * 스칼라 함수 `IS_BOOL` (, `IS_DEFINED` ,,,,,,,)를 사용 `IS_NULL` `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` `ENDSWITH` 합니다.
 * 쿼리 비교 연산자 ( `IN` / `NIN` , `=` , `!=` , `<` `>` `<=` `>=` ,,,)를 사용 합니다.
 * `AND` `OR` `NOT` `IS_OF_MODEL` , 스칼라 함수 및 비교 연산자의 조합 (,, 연산자)을 사용 합니다.

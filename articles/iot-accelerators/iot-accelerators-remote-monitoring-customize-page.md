@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.openlocfilehash: e585bc52121943102522f8c44291a4f9453d6214
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e54cd0e3c5b9499a3bc1a499ae4cef62c73160e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318401"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070710"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 페이지 추가
 
@@ -30,7 +30,7 @@ ms.locfileid: "91318401"
 이 방법 가이드의 단계를 완료하려면 로컬 개발 머신에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
 
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org/download/)
+- [Node.JS](https://nodejs.org/download/)
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>UI에 대한 로컬 개발 환경 준비
 
@@ -155,7 +155,7 @@ npm start
 
 1. **pcs** CLI를 사용하여 솔루션 가속기의 **기본** 인스턴스를 배포합니다. 가상 머신에 대해 제공한 배포 및 자격 증명의 이름을 기록해 둡니다. 자세한 내용은 [CLI를 사용하여 배포](iot-accelerators-remote-monitoring-deploy-cli.md)를 참조하세요.
 
-1. Azure Portal 또는 [AZ CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대 한 SSH 액세스를 사용 하도록 설정 합니다. 예를 들면 다음과 같습니다.
+1. Azure Portal 또는 [AZ CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 솔루션에서 마이크로 서비스를 호스팅하는 가상 컴퓨터에 대 한 SSH 액세스를 사용 하도록 설정 합니다. 예를 들면 다음과 같습니다.
 
     ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -163,7 +163,7 @@ npm start
 
     테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 사용 하도록 설정 하는 경우 [가능한 한 빨리 다시 사용 하지 않도록 설정 해야](../security/fundamentals/network-best-practices.md)합니다.
 
-1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
+1. Azure Portal 또는 [az CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예를 들면 다음과 같습니다.
 
     ```azurecli
     az resource list --resource-group {your solution name} -o table

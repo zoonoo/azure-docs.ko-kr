@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d3f04777983d24d5219c55c5309b7d12c214594
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400520"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070693"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -84,7 +84,7 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 * [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 * [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -150,7 +150,7 @@ Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, Azure RBA
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 * [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -520,7 +520,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -720,7 +720,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -752,7 +752,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -854,7 +854,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 * [Azure 웹 응용 프로그램 방화벽 개요](../web-application-firewall/overview.md)
 
-* [네트워크 보안 그룹](../virtual-network/security-overview.md)
+* [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)
 
@@ -882,7 +882,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 * [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -920,7 +920,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center 권�
 
 * [Azure Resource Manager 템플릿을 사용 하 여 Automation 계정 배포](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -984,7 +984,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 권한 있는 사용자만 
 
 * [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1014,7 +1014,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-samples.md)
+* [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
