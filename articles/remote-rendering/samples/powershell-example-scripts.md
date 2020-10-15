@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbac172952c9feea92341dbc028567235b9250bc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075276"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055854"
 ---
 # <a name="example-powershell-scripts"></a>예제 PowerShell 스크립트
 
@@ -23,7 +23,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에는 *Scripts* 폴더에 서비스의 REST API와 상호 작용하기 위한 샘플 스크립트가 포함되어 있습니다. 이 문서에서는 사용 방법을 설명합니다.
 
 > [!CAUTION]
-REST API 함수를 너무 자주 호출하면 서버가 제한되고 결국 오류가 반환됩니다. 이 경우 http 오류 코드 ID는 429("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
+> REST API 함수를 너무 자주 호출하면 서버가 제한되고 결국 오류가 반환됩니다. 이 경우 http 오류 코드 ID는 429("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

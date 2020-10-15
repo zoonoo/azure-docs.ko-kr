@@ -5,22 +5,22 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0e7a66ef7d6947306f1b2ffec54b8e9d12737d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ba2716613a0e950cbae5c65add410ac8a8b38955
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018596"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077728"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 방호 호스트 만들기
 
-이 문서에서는 PowerShell을 사용 하 여 Azure 방호 호스트를 만드는 방법을 보여 줍니다. 요새를 배포한 후 Azure Portal를 사용 하 여 브라우저를 통해 개인 IP 주소를 통해 VM에 연결할 수 있습니다. VM에는 공용 IP 주소, 추가 클라이언트 또는 특수 소프트웨어가 필요 하지 않습니다. Azure Bastion 배포는 구독/계정 또는 가상 머신이 아닌 가상 네트워크별로 수행됩니다. 원활한 RDP/SSH 환경은 동일한 가상 네트워크의 모든 Vm에서 사용할 수 있습니다.
+이 문서에서는 PowerShell을 사용 하 여 Azure 방호 호스트를 만드는 방법을 보여 줍니다. 가상 네트워크에서 Azure 방호 서비스를 프로 비전 한 후에는 동일한 가상 네트워크의 모든 Vm에서 원활한 RDP/SSH 환경을 사용할 수 있습니다. Azure Bastion 배포는 구독/계정 또는 가상 머신이 아닌 가상 네트워크별로 수행됩니다.
 
-이러한 지침은 PowerShell 배포를 위한 것입니다. [Azure Portal](tutorial-create-host-portal.md) 또는 [Azure CLI](create-host-cli.md)를 사용 하 여 Azure 방호 호스트를 만들 수도 있습니다.
+필요에 따라 [Azure Portal](./tutorial-create-host-portal.md)를 사용 하 여 Azure 방호 호스트를 만들 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 ## <a name="create-a-bastion-host"></a><a name="createhost"></a>Bastion 호스트 만들기
 
-이 섹션은 Azure PowerShell를 사용 하 여 가상 네트워크에 대 한 새 Azure 방호 리소스를 만드는 데 도움이 됩니다.
+이 섹션은 Azure PowerShell를 사용 하 여 새 Azure 방호 리소스를 만드는 데 도움이 됩니다.
 
 1. 가상 네트워크 및 Azure 방호 서브넷을 만듭니다. 이름 값 **AzureBastionSubnet**을 사용 하 여 Azure 방호 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 최소/27 이상의 서브넷 (/27,/26 등)의 서브넷을 사용 해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 를 만듭니다. **AzureBastionSubnet**의 네트워크 보안 그룹을 사용 하는 경우 [nsgs 작업](bastion-nsg.md) 문서를 참조 하세요.
 
@@ -52,6 +52,5 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 가상 컴퓨터에 연결 합니다.
-   * [Linux VM](bastion-connect-vm-ssh.md)
-   * [Windows VM](bastion-connect-vm-rdp.md)
+* 추가 정보는 [요새 FAQ](bastion-faq.md) 를 참조 하세요.
+* Azure Bastion 서브넷에서 네트워크 보안 그룹을 사용하려면 [NSG 사용](bastion-nsg.md)을 참조하세요.

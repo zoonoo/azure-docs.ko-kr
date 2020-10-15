@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 364b88966aa5ae6e1455156c2928713cac3b5b86
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969597"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078071"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -94,7 +94,7 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
     ![앱 등록](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
-1. 애플리케이션을 선택한 다음, **매니페스트**를 클릭합니다. 애플리케이션에 대해 정의된 기존 [앱 역할](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) 두 개가 표시됩니다.
+1. 애플리케이션을 선택한 다음, **매니페스트**를 클릭합니다. 애플리케이션에 대해 정의된 기존 [앱 역할](/azure/architecture/multitenant-identity/app-roles) 두 개가 표시됩니다.
 
     ![매니페스트 보기](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 

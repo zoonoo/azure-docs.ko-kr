@@ -1,14 +1,14 @@
 ---
 title: 캐나다 연방 PBMM 청사진 샘플 컨트롤
-description: 캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
+description: 캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: b3879ee847a0cb7a4cb6d00e842c613de53579e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c7b7df73d9fd553e9f733f37d7238e4c1c0afed5
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541070"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91929560"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑
 
@@ -46,8 +46,7 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 ## <a name="ac-4-information-flow-enforcement"></a>AC-4 정보 흐름 적용
 
-CORS(교차 원본 리소스 공유)를 사용하면 App Services 리소스를 외부 도메인에서 요청할 수 있습니다. 필요한 도메인만 API, 함수 및 웹 애플리케이션과 상호 작용할 수 있도록 허용하는 것이 좋습니다. 이 청사진은 Azure Security Center에서 CORS 리소스 액세스 제한을 모니터링할 수 있는 [Azure Policy](../../../policy/overview.md) 정책을 할당합니다.
-CORS 구현을 이해하면 정보 흐름 제어가 구현되었는지 확인하는 데 도움이 됩니다.
+CORS(교차 원본 리소스 공유)를 사용하면 App Services 리소스를 외부 도메인에서 요청할 수 있습니다. 필요한 도메인만 API, 함수 및 웹 애플리케이션과 상호 작용할 수 있도록 허용하는 것이 좋습니다. 이 청사진은 Azure Security Center에서 CORS 리소스 액세스 제한을 모니터링할 수 있는 [Azure Policy](../../../policy/overview.md) 정책을 할당합니다. CORS 구현을 이해하면 정보 흐름 제어가 구현되었는지 확인하는 데 도움이 됩니다.
 
 - CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 함
 
@@ -123,7 +122,8 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 ## <a name="au-12-audit-generation"></a>AU-12 감사 생성
 
-이 청사진을 사용하면 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 이벤트가 기록되도록 할 수 있습니다. 이러한 정책 정의는 Azure 가상 머신에 대한 Log Analytics 에이전트의 배포와 다른 Azure 리소스 종류의 감사 설정 구성을 감사하고 적용합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 뿐만 아니라 SQL 서버에 감사 및 Advanced Data Security가 구성됩니다.
+이 청사진을 사용하면 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 이벤트가 기록되도록 할 수 있습니다.
+이러한 정책 정의는 Azure 가상 머신에 대한 Log Analytics 에이전트의 배포와 다른 Azure 리소스 종류의 감사 설정 구성을 감사하고 적용합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 뿐만 아니라 SQL 서버에 감사 및 Advanced Data Security가 구성됩니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
 - VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
@@ -197,7 +197,8 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 취약성 검색
 
-이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
+이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다.
+Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
 
 - SQL 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
@@ -215,8 +216,7 @@ Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층�
 
 ## <a name="sc-7-boundary-protection"></a>SC-7 경계 보호
 
-이 청사진을 사용하면 Azure Security Center에서 네트워크 보안 그룹 강화 추천 사항을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 경계를 관리하고 제어할 수 있습니다. Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하여 공격 노출 영역을 줄일 수 있는 네트워크 보안 그룹 규칙 추천 사항을 제공합니다.
-또한 이 청사진은 보호되지 않은 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 정책 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
+이 청사진을 사용하면 Azure Security Center에서 네트워크 보안 그룹 강화 추천 사항을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 경계를 관리하고 제어할 수 있습니다. Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하여 공격 노출 영역을 줄일 수 있는 네트워크 보안 그룹 규칙 추천 사항을 제공합니다. 또한 이 청사진은 보호되지 않은 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 정책 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
 
 - 적응형 네트워크 강화 추천 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.

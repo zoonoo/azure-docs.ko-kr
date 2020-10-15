@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449623"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045791"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -87,13 +87,13 @@ Visual Studio용 IoT 확장을 사용하여 IoT Edge 모듈을 개발합니다. 
 
 1. 개발 머신에서 Visual Studio 2019를 준비합니다.
 
-   * 개발 머신에 Visual Studio가 아직 없는 경우 다음 워크로드와 함께 [Visual Studio 2019를 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio)합니다.
+   * 개발 머신에 Visual Studio가 아직 없는 경우 다음 워크로드와 함께 [Visual Studio 2019를 설치](/visualstudio/install/install-visual-studio)합니다.
 
       * Azure 개발
       * C++를 사용한 데스크톱 개발
       * .NET Core 플랫폼 간 개발
 
-   * 개발 머신에 Visual Studio 2019가 이미 있는 경우 [Visual Studio 수정](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) 단계에 따라 필요한 워크로드를 추가합니다.
+   * 개발 머신에 Visual Studio 2019가 이미 있는 경우 [Visual Studio 수정](/visualstudio/install/modify-visual-studio) 단계에 따라 필요한 워크로드를 추가합니다.
 
 2. Visual Studio 2019용 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 다운로드하여 설치합니다.
 
@@ -181,17 +181,17 @@ IoT Edge 런타임은 IoT Edge 디바이스에 컨테이너 이미지를 끌어�
 
 각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 코드마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
 
-프로젝트 템플릿과 함께 제공되는 샘플 C# 코드는 .NET용 IoT Hub SDK에서 [ModuleClient 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)를 사용합니다.
+프로젝트 템플릿과 함께 제공되는 샘플 C# 코드는 .NET용 IoT Hub SDK에서 [ModuleClient 클래스](/dotnet/api/microsoft.azure.devices.client.moduleclient)를 사용합니다.
 
 1. **program.cs** 파일에서 **SetInputMessageHandlerAsync** 메서드를 찾습니다.
 
-2. [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) 메서드는 들어오는 메시지를 수신하는 입력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **input1**이라는 입력 큐를 초기화하는 방법을 확인합니다.
+2. [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) 메서드는 들어오는 메시지를 수신하는 입력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **input1**이라는 입력 큐를 초기화하는 방법을 확인합니다.
 
    ![SetInputMessageHandlserAsync 생성자에서 입력 이름 찾기](./media/tutorial-develop-for-windows/declare-input-queue.png)
 
 3. 다음으로 **SendEventAsync** 메서드를 찾습니다.
 
-4. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) 메서드는 수신된 메시지를 처리하며, 해당 메시지를 전달할 출력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **output1**이라는 출력 큐를 초기화하는 모습을 살펴보세요.
+4. [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) 메서드는 수신된 메시지를 처리하며, 해당 메시지를 전달할 출력 큐를 설정합니다. 이 메서드를 검토하고 이 메서드가 **output1**이라는 출력 큐를 초기화하는 모습을 살펴보세요.
 
    ![SendEventAsync 생성자에서 출력 이름 찾기](./media/tutorial-develop-for-windows/declare-output-queue.png)
 

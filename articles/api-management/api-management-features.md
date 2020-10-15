@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905145"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077850"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
 
@@ -37,7 +37,7 @@ ms.locfileid: "87905145"
 | 기본 제공 분석                                                                           | 아니요          | 예       | 예   | 예      | 예     |
 | [자체 호스팅 게이트웨이](self-hosted-gateway-overview.md)<sup>3</sup>                           | 아니요          | 예       | 아니요    | 아니요       | 예     |
 | [TLS 설정](api-management-howto-manage-protocols-ciphers.md)                             | 예         | 예       | 예   | 예      | 예     |
-| [외부 캐시](https://aka.ms/apimbyoc)                                                    | 예         | 예       | 예   | 예      | 예     |
+| [외부 캐시](./api-management-howto-cache-external.md)                                                    | 예         | 예       | 예   | 예      | 예     |
 | [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md) | 예         | 예       | 예   | 예      | 예     |
 | [Backup 및 복원](api-management-howto-disaster-recovery-backup-restore.md)               | 아니요          | 예       | 예   | 예      | 예     |
 | [Git을 통한 관리](api-management-configuration-repository-git.md)                        | 아니요          | 예       | 예   | 예      | 예     |

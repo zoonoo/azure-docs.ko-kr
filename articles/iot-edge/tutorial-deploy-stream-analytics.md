@@ -7,16 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439408"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048375"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 
-많은 IoT 솔루션에서 분석 서비스를 사용하여 IoT 디바이스에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 가져옵니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
+많은 IoT 솔루션에서 분석 서비스를 사용하여 IoT 디바이스에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 가져옵니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](../stream-analytics/index.yml) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
 Azure IoT Edge 및 Azure Stream Analytics가 통합되어 워크로드 개발을 간소화합니다. Azure Portal에서 Azure Stream Analytics 작업을 만든 다음, 추가 코드 없이 IoT Edge 모듈로 배포할 수 있습니다.  
 

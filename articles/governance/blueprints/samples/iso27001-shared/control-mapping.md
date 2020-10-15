@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 Shared Services 청사진 샘플 컨트롤
-description: ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
+description: ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: e0e5aa7bbfb8178b2527e65f7e6371d815b0cccd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 7b13440db5574da84c296e27380739e58e640a67
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541206"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930121"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑
 
@@ -108,8 +108,7 @@ Azure의 [SQL Vulnerability Assessment 서비스](../../../../azure-sql/database
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 암호화 컨트롤의 사용에 대한 정책
 
-이 청사진은 특정 암호화 컨트롤을 적용하고 취약한 암호 설정의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 13개를 할당하여 암호화 컨트롤 사용에 대한 정책을 적용하는 데 도움이 됩니다.
-Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이해하면 리소스가 정보 보안 정책에 따라 구성되도록 정정 작업을 수행하는 데 도움이 될 수 있습니다. 구체적으로, 이 청사진에서 할당하는 정책을 적용하려면 Blob 스토리지 계정 및 Data Lake 스토리지 계정에 대한 암호화가 필요하며 SQL 데이터베이스에 대해 투명한 암호화가 필요합니다.또한 스토리지 계정, SQL 데이터베이스, 가상 머신 디스크 및 자동화 계정 변수에 대한 암호화 누락을 감사하고, 스토리지 계정, 함수 앱, 웹앱, API 앱 및 Redis Cache에 대한 안전하지 않은 연결을 감사하고, 취약한 가상 머신 암호 암호화를 감사하고, 암호화되지 않은 Service Fabric 통신을 감사해야 합니다.
+이 청사진은 특정 암호화 컨트롤을 적용하고 취약한 암호 설정의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 13개를 할당하여 암호화 컨트롤 사용에 대한 정책을 적용하는 데 도움이 됩니다. Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이해하면 리소스가 정보 보안 정책에 따라 구성되도록 정정 작업을 수행하는 데 도움이 될 수 있습니다. 구체적으로, 이 청사진에서 할당하는 정책을 적용하려면 Blob 스토리지 계정 및 Data Lake 스토리지 계정에 대한 암호화가 필요하며 SQL 데이터베이스에 대해 투명한 암호화가 필요합니다.또한 스토리지 계정, SQL 데이터베이스, 가상 머신 디스크 및 자동화 계정 변수에 대한 암호화 누락을 감사하고, 스토리지 계정, 함수 앱, 웹앱, API 앱 및 Redis Cache에 대한 안전하지 않은 연결을 감사하고, 취약한 가상 머신 암호 암호화를 감사하고, 암호화되지 않은 Service Fabric 통신을 감사해야 합니다.
 
 - 함수 앱에 HTTPS를 통해서만 액세스 가능
 - 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764046"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077867"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -78,13 +78,13 @@ ms.locfileid: "84764046"
 Azure에서 리소스를 만드는 Api에는 두 가지 방법이 있습니다.
 
 * 명령적 Api는 한 번에 하나의 리소스를 만듭니다. 자세한 내용은 [리소스](/rest/api/resources/resources)를 참조하세요.
-* 단일 API 호출을 사용 하 여 여러 종속 리소스를 만드는 템플릿 기반 배포 시스템입니다. 자세한 내용은  [리소스 관리자 템플릿 및 Azure PowerShell를 사용 하 여 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조 하세요.
+* 단일 API 호출을 사용 하 여 여러 종속 리소스를 만드는 템플릿 기반 배포 시스템입니다. 자세한 내용은  [리소스 관리자 템플릿 및 Azure PowerShell를 사용 하 여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조 하세요.
 
 템플릿 기반 배포는 매개 변수화 및 템플릿을 지원 합니다. 이 문서에서는이 방법을 사용 합니다.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>템플릿 배포를 사용하여 템플릿에서 대시보드를 프로그래밍 방식으로 만듭니다.
 
-Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제공합니다. 배포할 리소스 집합과 둘 간의 관계를 표현 하는 배포 템플릿을 만듭니다.  각 리소스의 JSON 형식은 사용자가 하나씩 작성하는 경우와 같습니다. 차이점은 템플릿 언어는 변수, 매개 변수, 기본 기능 등과 같은 몇 가지 개념을 추가한다는 것입니다. 이 확장 구문은 템플릿 배포 컨텍스트에서만 지원 됩니다. 앞에서 설명한 명령적 Api와 함께 사용 하는 경우에는 작동 하지 않습니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)를 참조 하세요.
+Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제공합니다. 배포할 리소스 집합과 둘 간의 관계를 표현 하는 배포 템플릿을 만듭니다.  각 리소스의 JSON 형식은 사용자가 하나씩 작성하는 경우와 같습니다. 차이점은 템플릿 언어는 변수, 매개 변수, 기본 기능 등과 같은 몇 가지 개념을 추가한다는 것입니다. 이 확장 구문은 템플릿 배포 컨텍스트에서만 지원 됩니다. 앞에서 설명한 명령적 Api와 함께 사용 하는 경우에는 작동 하지 않습니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조 하세요.
 
 매개 변수화는 템플릿의 매개 변수 구문을 사용 하 여 수행 해야 합니다.  여기에 표시 된 것 처럼 이전에 찾은 리소스 ID의 모든 인스턴스를 바꿉니다.
 
@@ -125,7 +125,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 템플릿을 구성한 후에는 다음 방법 중 하나를 사용 하 여 템플릿을 배포 합니다.
 
 * [REST API](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
 * [Azure Portal 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)
 
