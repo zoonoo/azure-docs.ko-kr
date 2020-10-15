@@ -3,12 +3,12 @@ title: 백업 자격 증명 모음 개요
 description: 백업 자격 증명 모음에 대 한 개요입니다.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 773152212ed831c0083cfdf912f45ece578d079f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997263"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091290"
 ---
 # <a name="backup-vaults-overview"></a>백업 자격 증명 모음 개요
 
@@ -16,7 +16,7 @@ ms.locfileid: "90997263"
 
 - **백업 데이터를 보호 하기 위한 향상 된 기능**: 백업 자격 증명 모음을 사용 Azure Backup는 클라우드 백업을 보호 하는 보안 기능을 제공 합니다. 이러한 보안 기능을 통해 백업을 보호하고 프로덕션 및 백업 서버가 손상된 경우에도 데이터를 안전하게 복구할 수 있습니다. [자세한 정보](backup-azure-security-feature.md)
 
-- **RBAC(역할 기반 Access Control)**: RBAC는 Azure에서 세밀한 액세스 관리 제어를 제공합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. 백업 자격 증명 모음은 RBAC와 호환 되므로 정의 된 사용자 역할 집합에 대 한 백업 및 복원 액세스를 제한 합니다. [자세한 정보](backup-rbac-rs-vault.md)
+- Azure **rbac (역할 기반 액세스 제어)**: azure Rbac는 azure에서 세분화 액세스 관리 제어를 제공 합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. 백업 자격 증명 모음은 Azure RBAC와 호환 되므로 정의 된 사용자 역할 집합에 대 한 백업 및 복원 액세스를 제한 합니다. [자세한 정보](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>백업 자격 증명 모음의 저장소 설정
 

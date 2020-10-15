@@ -2,15 +2,15 @@
 title: Azure Automation 업데이트 관리 문제 해결
 description: 이 문서에서는 Azure Automation 업데이트 관리와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 09/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858407"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070336"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -486,6 +486,8 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 업데이트를 위한 기본 유지 관리 기간은 120분입니다. 유지 관리 기간을 최대 6시간 또는 360분으로 늘릴 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
+
+성공적으로 시작 된 후 업데이트가 실행 되는 동안이 오류가 발생 한 이유를 이해 하려면 실행 시 영향을 받는 컴퓨터에서 [작업 출력을 확인 하세요](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) . 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다.  
 
 모든 실패한 예약 업데이트 배포를 편집하고 유지 관리 기간을 늘립니다.
 

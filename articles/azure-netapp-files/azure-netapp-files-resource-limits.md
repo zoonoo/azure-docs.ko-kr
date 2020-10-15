@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/16/2020
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325490"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072784"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -65,7 +65,7 @@ Azure NetApp Files 볼륨에는 *maxfiles*라는 제한이 있습니다. Maxfile
 |    > 3 TiB <= 4 TiB    |    8000만     |
 |    > 4 TiB                 |    1억    |
 
-볼륨에 대해 최소 4 개의 TiB의 할당량을 이미 할당 한 경우에는 [지원 요청](#limit_increase) 을 시작 하 여 maxfiles 제한을 1억 이상 늘릴 수 있습니다.
+볼륨에 대해 최소 4 개의 TiB의 할당량을 이미 할당 한 경우에는 [지원 요청](#limit_increase) 을 시작 하 여 maxfiles 제한을 1억 이상 늘릴 수 있습니다. 증가 하는 1억 파일 (또는 그에 해당 하는 분수) 마다 4 TiB 해당 볼륨 할당량을 늘려야 합니다.  예를 들어 maxfiles 제한을 1억 파일에서 2억 파일 (또는 사이의 임의의 수)로 늘리는 경우 볼륨 할당량을 4 TiB에서 8 TiB로 늘려야 합니다.
 
 ## <a name="request-limit-increase"></a>요청 제한 증가 <a name="limit_increase"></a> 
 

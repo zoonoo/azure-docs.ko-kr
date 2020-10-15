@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706349"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070387"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -31,7 +31,7 @@ Azure AD는이 통합을 사용 하 여 다음과 같은 클라우드 HR 응용 
 - **클라우드 HR 앱에 다시 씁니다.** Azure AD의 이메일 주소 및 사용자 이름 특성을 클라우드 HR 앱에 다시 씁니다.
 
 > [!NOTE]
-> 이 배포 계획에서는 Azure AD 사용자 프로 비전을 사용 하 여 클라우드 HR 앱 워크플로를 배포 하는 방법을 보여 줍니다. SaaS (software as a service) 앱에 자동 사용자 프로 비전을 배포 하는 방법에 대 한 자세한 내용은 [자동 사용자 프로 비전 배포 계획](https://aka.ms/deploymentplans/provisioning)을 참조 하세요.
+> 이 배포 계획에서는 Azure AD 사용자 프로 비전을 사용 하 여 클라우드 HR 앱 워크플로를 배포 하는 방법을 보여 줍니다. SaaS (software as a service) 앱에 자동 사용자 프로 비전을 배포 하는 방법에 대 한 자세한 내용은 [자동 사용자 프로 비전 배포 계획](./plan-auto-user-provisioning.md)을 참조 하세요.
 
 ## <a name="enabled-hr-scenarios"></a>HR 시나리오 사용
 
@@ -52,7 +52,7 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 - 클라우드 HR 앱에서 검색 된 변경 정보만 기반으로 하나 이상의 Active Directory 포리스트, 도메인 및 Ou로 사용자를 동기화 할 수 있어야 합니다.
 - 전자 메일에 Microsoft 365를 사용 합니다.
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만듭니다. 이를 통해 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킬 수 있습니다.
 
@@ -126,7 +126,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 기대치가 일치 업데이트로 인해 합니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](https://aka.ms/deploymentplans)합니다. 또한 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 합니다.
+기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 기대치가 일치 업데이트로 인해 합니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](../fundamentals/active-directory-deployment-plans.md)합니다. 또한 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 합니다.
 
 HR 조직의 담당자에 게 기존 HR 비즈니스 프로세스 및 작업자 id와 작업 데이터 처리 요구 사항에 대 한 입력을 제공할 수 있는 담당자를 포함 합니다.
 
@@ -378,7 +378,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 [초기 주기가](../app-provisioning/how-provisioning-works.md#initial-cycle)성공적으로 완료 되 면 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 앱에 대 한 자습서에 정의 된 간격으로 다시 백 엔드 증분 업데이트를 무기한으로 실행 합니다.
 
-- 서비스가 수동으로 중지 되었습니다. [Azure Portal](https://portal.azure.com/) 또는 적절 한 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
+- 서비스가 수동으로 중지 되었습니다. [Azure Portal](https://portal.azure.com/) 또는 적절 한 [Microsoft Graph API](/graph/api/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
 - 새 초기 주기는 특성 매핑 또는 범위 지정 필터의 변경에 업데이트로 인해 트리거됩니다.
 - 높은 오류 발생률 때문에 프로 비전 프로세스가 격리 됩니다. 4 주 넘게 격리 상태로 유지 되며,이 경우 자동으로 사용 하지 않도록 설정 됩니다.
 
@@ -416,6 +416,6 @@ Azure AD 프로 비전 서비스는 30 일 이상 데이터를 저장, 처리 �
 ### <a name="next-steps"></a>다음 단계
 
 - [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
-- [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)
 - [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 - [Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)

@@ -50,7 +50,7 @@
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Kubernetes용 Azure Defender
-          displayName: 'clusters, k8s'
+          displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
         - name: 컨테이너 레지스트리용 Azure Defender
           displayName: 'ACR, registry, images'
@@ -58,7 +58,7 @@
         - name: 추가 위협 방지
           href: other-threat-protections.md
     - name: Security Center의 컨테이너 보안 기능
-      displayName: 'kubernetes, aks, acr, registries'
+      displayName: 'kubernetes, aks, acr, registries, k8s'
       href: container-security.md
     - name: 가격 책정
       href: security-center-pricing.md
@@ -79,6 +79,8 @@
           href: quickstart-onboard-gcp.md
     - name: PowerShell을 사용하여 온보딩 자동화
       href: security-center-powershell-onboarding.md
+    - name: 관리 그룹에 Security Center 사용
+      href: onboard-management-group.md
     - name: 데이터 수집 구성
       href: security-center-enable-data-collection.md
     - name: 이메일 알림 설정
@@ -140,8 +142,6 @@
             - name: 권장 사항에 대한 응답 자동화
               displayName: workflow
               href: workflow-automation.md
-            - name: 권장 사항 내보내기
-              href: continuous-export.md
             - name: 권장 사항에서 리소스 제외
               href: exempt-resource.md
     - name: Azure Defender 경고
@@ -169,17 +169,20 @@
           href: update-regulatory-compliance-packages.md
     - name: 서버용 Azure Defender 사용
       items:
-        - name: VM 취약성 검사
+        - name: 취약성 검색
           items:
-            - name: 통합 VA 솔루션을 사용하여 VM 검사
-              displayName: 'qualys, vulnerability'
+            - name: 머신용 통합 VA 스캐너
+              displayName: 'qualys, vulnerability, arc'
               href: deploy-vulnerability-assessment-vm.md
             - name: BYOL VA 솔루션을 사용하여 VM 검사
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
-            - name: VM에서 취약성 검토 및 수정
+            - name: 취약점 검토 및 수정
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
+            - name: 특정 취약점 발견 사용 안 함
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Just-In-Time VM 액세스로 관리 포트 보호
           items:
             - name: Just-In-Time VM 액세스 개요
@@ -213,6 +216,15 @@
     - name: 컨테이너 레지스트리용 Azure Defender 사용
       displayName: 'ACR, registry, images'
       href: defender-for-container-registries-usage.md
+    - name: 경고 및 권장 사항 내보내기
+      items:
+        - name: 'SIEM, SOAR 또는 ITSM으로 내보내기'
+          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+          href: export-to-siem.md
+        - name: Log Analytics 작업 영역 또는 Azure Event Hub로 내보내기
+          href: continuous-export.md
+        - name: 모든 경고에 대한 CSV 보고서 다운로드
+          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
     - name: Azure Defender 경고 처리
       items:
         - name: 보안 경고 관리
@@ -226,16 +238,14 @@
           href: security-center-incident.md
         - name: 위협 인텔리전스 보고서 생성
           href: security-center-threat-report.md
-        - name: 경고 구성 유효성 검사(EICAR 테스트 파일)
+        - name: 경고 구성 유효성 검사
+          displayname: 'eicar, Kubernetes, Linux'
           href: security-center-alert-validation.md
         - name: 경고에 대한 응답 자동화
           displayName: workflow
           href: workflow-automation.md
-        - name: 경고 내보내기
-          displayName: continuous
-          href: continuous-export.md
     - name: Kubernetes 워크로드 보호
-      displayName: 'k8s, containers'
+      displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
     - name: 조사 사용자 데이터 관리
       href: security-center-investigation-user-data.md

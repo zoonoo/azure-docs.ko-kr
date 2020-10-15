@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036847"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091409"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -51,7 +51,7 @@ Azure AD를 사용 하 여 인증 하는 방법에 대 한 일반 정보 [는 �
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Azure 리소스 및 Azure Maps에 대한 관리형 ID
 
-Azure [리소스에 대 한 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 는 azure AD를 사용 하 여 인증할 수 있는 자동으로 관리 되는 응용 프로그램 기반 보안 주체를 azure 서비스에 제공 합니다. RBAC (역할 기반 액세스 제어)를 사용 하면 관리 되는 id 보안 주체에 Azure Maps 서비스에 액세스할 수 있는 권한이 부여 될 수 있습니다. 관리 되는 id의 몇 가지 예는 Azure App Service, Azure Functions 및 Azure Virtual Machines입니다. 관리 id 목록은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조 하세요.
+Azure [리소스에 대 한 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 는 azure AD를 사용 하 여 인증할 수 있는 자동으로 관리 되는 응용 프로그램 기반 보안 주체를 azure 서비스에 제공 합니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 되는 id 보안 주체에 Azure Maps 서비스에 액세스할 수 있는 권한을 부여할 수 있습니다. 관리 되는 id의 몇 가지 예는 Azure App Service, Azure Functions 및 Azure Virtual Machines입니다. 관리 id 목록은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조 하세요.
 
 ### <a name="configuring-application-azure-ad-authentication"></a>응용 프로그램 Azure AD 인증 구성
 
@@ -82,7 +82,7 @@ Authorization: Bearer eyJ0e….HNIVN
 
 Azure Maps은 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리소스 및 Azure 관리 되는 id를 포함 하 여 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 의 모든 보안 주체 유형에 대 한 액세스를 지원 합니다. 보안 주체 유형에는 역할 정의 라고도 하는 권한 집합이 부여 됩니다. 역할 정의는 REST API 작업에 대 한 권한을 제공 합니다. 하나 이상의 Azure Maps 계정에 대 한 액세스를 적용 하는 것을 범위 라고 합니다. 보안 주체, 역할 정의 및 범위를 적용 하는 경우 역할 할당이 만들어집니다. 
 
-다음 섹션에서는 Azure AD 역할 기반 액세스 제어와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명 합니다. Azure Maps 계정을 설정 하는 프로세스의 일부로 Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결 됩니다. 
+다음 섹션에서는 Azure RBAC와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명 합니다. Azure Maps 계정을 설정 하는 프로세스의 일부로 Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결 됩니다. 
 
 Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당에 적용 합니다. Azure Portal에 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 참조 하세요.
 
@@ -90,7 +90,7 @@ Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당
 
 응용 프로그램 시나리오를 지원 하기 위해 다음 역할 정의 형식이 있습니다.
 
-| Azure 역할 정의       | 설명                                                                                              |
+| Azure 역할 정의       | Description                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Azure Maps 데이터 읽기 권한자      | 변경할 수 없는 Azure Maps REST Api에 대 한 액세스를 제공 합니다.                                                       |
 | Azure Maps 데이터 기여자 | 변경 가능한 Azure Maps REST Api에 대 한 액세스를 제공 합니다. 가변성는 write 및 delete 작업으로 정의 됩니다. |
@@ -104,7 +104,7 @@ Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당
 | 만든 이            | Azure Maps 데이터 기여자 |
 | 공간            | Azure Maps 데이터 기여자 |
 
-RBAC 설정을 보는 방법에 대한 내용은 [Azure Maps에 대한 RBAC 구성 방법](https://aka.ms/amrbac)을 참조하세요.
+Azure RBAC 설정을 보는 방법에 대 한 자세한 내용은 [Azure Maps에 대해 AZURE rbac를 구성 하는 방법](https://aka.ms/amrbac)을 참조 하세요.
 
 #### <a name="custom-role-definitions"></a>사용자 지정 역할 정의
 
@@ -131,9 +131,9 @@ RBAC 설정을 보는 방법에 대한 내용은 [Azure Maps에 대한 RBAC 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-RBAC에 대 한 자세한 내용은 다음을 참조 하세요.
+Azure RBAC에 대 한 자세한 내용은 다음을 참조 하세요.
 > [!div class="nextstepaction"]
-> [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Azure 역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 Azure AD 및 Azure Maps로 응용 프로그램을 인증 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 > [!div class="nextstepaction"]

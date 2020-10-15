@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: 방법 가이드
       items:
-        - name: Blob 스토리지에 저장된 음성 인식
-          href: quickstarts/from-blob.md
-        - name: 음성 인식 모드 선택
-          href: how-to-choose-recognition-mode.md
         - name: 음성 인식 소스 언어 변경
           href: how-to-specify-source-language.md
         - name: Custom Speech를 사용하여 정확도 향상
@@ -37,8 +33,6 @@
         - name: 압축된 오디오 입력 형식 사용
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: 문구 목록을 사용하여 정확도 향상
-          href: how-to-phrase-lists.md
         - name: 특정 마이크 입력 디바이스 선택
           href: how-to-select-audio-input-devices.md
         - name: 자동 소스 언어 감지 사용
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: 자습서
       items:
+        - name: Blob 스토리지에 저장된 음성 인식
+          href: quickstarts/from-blob.md
         - name: 테넌트 모델을 사용하여 정확도 향상
           href: tutorial-tenant-model.md
     - name: 사용자 지정

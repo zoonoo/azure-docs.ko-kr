@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 13d5be5b1e0bcdf84001f21a45364296d67a5da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7742267f5ce199f3a5bffc52200374d2323f0622
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87013900"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072461"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell을 사용하여 Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "87013900"
 ## <a name="configure-remote-desktop-from-powershell"></a>PowerShell에서 원격 데스크톱 구성
 [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet을 사용하면 지정된 역할 또는 클라우드 서비스 배포의 모든 역할에 대해 원격 데스크톱을 사용할 수 있습니다. cmdlet을 사용하면 PSCredential 개체를 수용하는 *Credential* 매개 변수를 통해 원격 데스크톱 사용자의 사용자 이름 및 암호를 지정할 수 있습니다.
 
-대화형으로 PowerShell을 사용하는 경우, [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet을 호출하여 PSCredential 개체를 쉽게 설정할 수 있습니다.
+대화형으로 PowerShell을 사용하는 경우, [Get-Credentials](/powershell/module/microsoft.powershell.security/get-credential) cmdlet을 호출하여 PSCredential 개체를 쉽게 설정할 수 있습니다.
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -38,7 +38,7 @@ $remoteusercredentials = Get-Credential
 
 이 명령은 안전하게 원격 사용자의 사용자 이름과 암호를 입력할 수 있는 대화 상자를 표시합니다.
 
-PowerShell은 자동화 시나리오에 유용하므로 사용자 조작이 필요하지 않은 방식으로 **PSCredential** 개체를 설정할 수도 있습니다. 먼저 보안 암호를 설정해야 합니다. 일반 텍스트 암호를 지정하는 것으로 시작하고 [Convertto-securestring](https://technet.microsoft.com/library/hh849818.aspx)을 사용하여 보안 문자열로 변환합니다. 그런 다음 이 보안 문자열을 [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx)을 사용하여 암호화된 표준 문자열로 변환해야 합니다. 이제 이 암호화된 표준 문자열을 [Set-Content](https://technet.microsoft.com/library/ee176959.aspx)를 사용하여 파일로 저장할 수 있습니다.
+PowerShell은 자동화 시나리오에 유용하므로 사용자 조작이 필요하지 않은 방식으로 **PSCredential** 개체를 설정할 수도 있습니다. 먼저 보안 암호를 설정해야 합니다. 일반 텍스트 암호를 지정하는 것으로 시작하고 [Convertto-securestring](/powershell/module/microsoft.powershell.security/convertto-securestring)을 사용하여 보안 문자열로 변환합니다. 그런 다음 이 보안 문자열을 [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring)을 사용하여 암호화된 표준 문자열로 변환해야 합니다. 이제 이 암호화된 표준 문자열을 [Set-Content](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10))를 사용하여 파일로 저장할 수 있습니다.
 
 또한 매번 암호를 입력하지 않아도 되도록 보안 암호 파일을 만들 수 있습니다. 보안 암호 파일은 일반 텍스트 파일보다 더 좋습니다. 다음과 같은 PowerShell을 사용하여 보안 암호 파일을 만듭니다.
 
@@ -47,9 +47,9 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> 암호를 설정할 때 [복잡성 요구 사항](https://technet.microsoft.com/library/cc786468.aspx)을 충족하는지 확인합니다.
+> 암호를 설정할 때 [복잡성 요구 사항](/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10))을 충족하는지 확인합니다.
 
-보안 암호 파일에서 자격 증명 개체를 만들려면 파일 내용을 읽고 [Convertto-securestring](https://technet.microsoft.com/library/hh849818.aspx)을 사용하여 이를 다시 보안 문자열로 변환해야 합니다.
+보안 암호 파일에서 자격 증명 개체를 만들려면 파일 내용을 읽고 [Convertto-securestring](/powershell/module/microsoft.powershell.security/convertto-securestring)을 사용하여 이를 다시 보안 문자열로 변환해야 합니다.
 
 [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet은 사용자 계정이 만료되는 *DateTime* 을 지정하는 **Expiration** 매개 변수를 수락하기도 합니다. 예를 들어 현재 날짜 및 시간부터 며칠 후에 만료되도록 계정을 설정할 수 있습니다.
 
@@ -98,8 +98,6 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 >
 > **UninstallConfiguration** 매개 변수는 서비스에 적용된 모든 확장 구성을 제거합니다. 모든 확장 구성은 서비스 구성과 연결됩니다. **UninstallConfiguration** 없이 *remove* cmdlet을 호출하면 확장 구성에서 <mark>배포</mark>가 분리되어 확장이 효과적으로 제거됩니다. 그러나 확장 구성은 서비스와 연결된 상태로 유지됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)
-
-
