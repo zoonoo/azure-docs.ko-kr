@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000161"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089726"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -72,9 +72,9 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 ### <a name="access-control-iam"></a>액세스 제어(IAM)
 
-**액세스 제어(IAM)** 섹션에서는 Azure Portal의 RBAC(역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure 포털의 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+**액세스 제어 (IAM)** 섹션은 Azure Portal에서 azure RBAC (역할 기반 액세스 제어)에 대 한 지원을 제공 합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure Portal의 Azure 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
-### <a name="tags"></a>태그들
+### <a name="tags"></a>태그
 
 **태그** 섹션은 리소스 구성에 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
@@ -258,13 +258,13 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 >
 
-### <a name="firewall"></a>방화벽
+### <a name="firewall"></a>Firewall
 
 방화벽 규칙 구성은 모든 Azure Cache for Redis 계층에서 사용할 수 있습니다.
 
 **방화벽**을 클릭하여 Cache에 대한 방화벽 규칙을 보고 구성합니다.
 
-![방화벽](./media/cache-configure/redis-firewall-rules.png)
+![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
 시작 및 끝 IP 주소 범위를 사용하여 방화벽 규칙을 지정할 수 있습니다. 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 저장되면 잠시 지연되었다가 규칙이 적용됩니다. 이러한 지연 시간은 일반적으로 1분 미만입니다.
 

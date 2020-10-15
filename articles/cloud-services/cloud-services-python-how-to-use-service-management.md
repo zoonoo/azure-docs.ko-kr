@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851514"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073991"
 ---
 # <a name="use-service-management-from-python"></a>Python에서 서비스 관리 사용
 이 가이드에서는 Python에서 프로그래밍 방식으로 일반 서비스 관리 작업을 수행하는 방법을 보여 줍니다. [Python용 Azure SDK](https://github.com/Azure/azure-sdk-for-python)의 **ServiceManagementService** 클래스는 [Azure Portal][management-portal]에서 사용할 수 있는 대부분의 서비스 관리 관련 기능에 대해 프로그래밍 방식의 액세스를 지원합니다. 클라우드 서비스, 배포, 데이터 관리 서비스, 가상 머신 만들기, 업데이트 및 삭제에 이 기능을 사용할 수 있습니다. 이 기능은 서비스 관리에 프로그래밍 방식으로 액세스해야 하는 애플리케이션을 빌드하는 데 유용할 수 있습니다.
@@ -118,7 +118,7 @@ for location in result:
 
 * 서유럽
 * 북유럽
-* 동남 아시아
+* 동남아시아
 * 동아시아
 * 미국 중부
 * 미국 중북부
@@ -194,7 +194,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>스토리지 서비스 만들기
-[저장소 서비스](../storage/common/storage-create-storage-account.md) 는 Azure [blob](../storage/blobs/storage-python-how-to-use-blob-storage.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md)및 [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 대 한 액세스를 제공 합니다. 스토리지 서비스를 만들려면 서비스에 대한 이름이 필요합니다(소문자 3~24자 사이이며 Azure 내에서 고유한). 설명, 레이블(최대 100자, base64로 자동으로 인코딩됨) 및 위치도 필요합니다. 다음 예제에서는 위치를 지정하여 스토리지 서비스를 만드는 방법을 보여 줍니다.
+[저장소 서비스](../storage/common/storage-account-create.md) 는 Azure [blob](../storage/blobs/storage-quickstart-blobs-python.md), [테이블](../cosmos-db/table-storage-how-to-use-python.md)및 [큐](../storage/queues/storage-python-how-to-use-queue-storage.md)에 대 한 액세스를 제공 합니다. 스토리지 서비스를 만들려면 서비스에 대한 이름이 필요합니다(소문자 3~24자 사이이며 Azure 내에서 고유한). 설명, 레이블(최대 100자, base64로 자동으로 인코딩됨) 및 위치도 필요합니다. 다음 예제에서는 위치를 지정하여 스토리지 서비스를 만드는 방법을 보여 줍니다.
 
 ```python
 from azure import *
@@ -446,9 +446,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-클래식 배포 모델에서 Linux 가상 머신을 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 머신 캡처](../virtual-machines/linux/classic/capture-image-classic.md)를 참조하세요.
+클래식 배포 모델에서 Linux 가상 머신을 캡처하는 방법에 대한 자세한 내용은 [Linux 가상 머신 캡처](/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic)를 참조하세요.
 
-클래식 배포 모델에서 Windows 가상 머신을 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 머신 캡처](../virtual-machines/windows/classic/capture-image-classic.md)를 참조하세요.
+클래식 배포 모델에서 Windows 가상 머신을 캡처하는 방법에 대한 자세한 내용은 [Windows 가상 머신 캡처](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic)를 참조하세요.
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>다음 단계
 서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](https://azure-sdk-for-python.readthedocs.org/)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 애플리케이션을 관리할 수 있습니다.
@@ -474,7 +474,7 @@ sms.create_virtual_machine_deployment(service_name=name,
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: /previous-versions/azure/ee460799(v=azure.100)
 
 
 [cloud service]:/azure/cloud-services/

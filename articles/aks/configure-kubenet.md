@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264612"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072750"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -56,7 +56,7 @@ Azure는 UDR에서 최대 300개의 경로를 지원하므로 400개 노드보�
 * Azure CNI 클러스터와 달리 여러 kubenet 클러스터는 서브넷을 공유할 수 없습니다.
 * **Kubenet에서 지원 되지 않는** 기능은 다음과 같습니다.
    * [Azure 네트워크 정책은](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy)kubenet에서 지원 됩니다.
-   * [Windows 노드 풀](windows-node-limitations.md)
+   * [Windows 노드 풀](./windows-faq.md)
    * [가상 노드 추가 기능](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP 주소 가용성 및 고갈
