@@ -1,20 +1,20 @@
 ---
 title: 자습서 - 사용자 지정된 Azure Active Directory Domain Services 관리형 도메인 만들기 | Microsoft Docs
 description: 이 자습서에서는 사용자 지정된 Azure Active Directory Domain Services 관리형 도메인을 만들고 구성하는 방법과 Azure Portal을 사용하여 고급 구성 옵션을 지정하는 방법에 대해 알아봅니다.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 8b48cfa29555cf0ca15428758208df27a52a84f7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.author: joflore
+ms.openlocfilehash: 23c15bca8c3385a8e115cd0a85d2e5b4f1553007
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491140"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967345"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 관리형 도메인 만들기 및 구성
 

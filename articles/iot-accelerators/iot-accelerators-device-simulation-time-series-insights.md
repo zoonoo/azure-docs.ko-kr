@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540577"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076252"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
 
@@ -113,7 +113,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 1. **만들기**를 클릭합니다.
 
 > [!NOTE]
-> Time Series Insights 탐색기에 [추가 사용자 액세스 권한을 부여](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access)할 수 있습니다.
+> Time Series Insights 탐색기에 [추가 사용자 액세스 권한을 부여](../time-series-insights/concepts-access-policies.md#grant-data-access)할 수 있습니다.
 
 ## <a name="start-a-simulation"></a>시뮬레이션 시작
 

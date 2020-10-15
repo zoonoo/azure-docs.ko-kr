@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38d92a13c9a66defc2d5090990b44a889cfd21c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442491"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076235"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>외부 권한 부여자를 사용하여 요청 인증
 
-이 문서에서는 사용자 지정 인증/권한 부여 논리를 캡슐화하는 외부 권한 부여자를 사용하여 API 액세스를 보호하는 방법을 보여 주는 Azure API 관리 정책 샘플이 나와 있습니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-samples.md)을 참조하세요.
+이 문서에서는 사용자 지정 인증/권한 부여 논리를 캡슐화하는 외부 권한 부여자를 사용하여 API 액세스를 보호하는 방법을 보여 주는 Azure API 관리 정책 샘플이 나와 있습니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-reference.md)을 참조하세요.
 
 ## <a name="policy"></a>정책
 
@@ -35,4 +35,4 @@ ms.locfileid: "75442491"
 APIM 정책에 대해 자세히 알아보기:
 
 + [액세스 제한 정책](../api-management-access-restriction-policies.md)
-+ [정책 샘플](../policy-samples.md)
++ [정책 샘플](../policy-reference.md)
