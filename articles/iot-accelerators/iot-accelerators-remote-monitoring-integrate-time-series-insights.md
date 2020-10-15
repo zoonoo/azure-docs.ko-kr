@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b6219c82dc23deb467e87a6866839b8eace8b5d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536609"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072648"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
@@ -24,7 +24,7 @@ Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터�
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법을 완료하려면 이미 원격 모니터링 솔루션이 배포되어 있어야 합니다.
 
@@ -126,7 +126,7 @@ IoT 허브에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에�
 1. **저장**을 선택하여 역할 할당을 만듭니다. 몇 분이 지나면 데이터 액세스 정책에서 보안 주체에 역할이 할당됩니다.
 
 > [!NOTE]
-> Time Series Insights 탐색기에 대한 액세스 권한을 추가 사용자에게 부여해야 하는 경우 다음 단계를 사용하여 [데이터 액세스 권한을 부여](../time-series-insights/time-series-insights-data-access.md#grant-data-access)할 수 있습니다.
+> Time Series Insights 탐색기에 대한 액세스 권한을 추가 사용자에게 부여해야 하는 경우 다음 단계를 사용하여 [데이터 액세스 권한을 부여](../time-series-insights/concepts-access-policies.md#grant-data-access)할 수 있습니다.
 
 ## <a name="configure-azure-stream-analytics"></a>Azure Stream Analytics 구성 
 
@@ -217,7 +217,7 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 1. 최신 태그를 사용 하 여 GitHub 리포지토리에서 [최신 docker 작성 yaml 파일](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) 을 가져옵니다. 
 
-1. [SSH 키 생성 및 사용 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)에 설명된 단계를 따라 VM에 SSH합니다.
+1. [SSH 키 생성 및 사용 방법](../virtual-machines/linux/ssh-from-windows.md)에 설명된 단계를 따라 VM에 SSH합니다.
 
 1. 연결되면 `cd /app`을 입력합니다.
 
@@ -300,4 +300,4 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 * Time Series Insights 탐색기에서 데이터를 탐색하고 경고를 진단하는 방법에 대한 자세한 내용은 [루트 원인 분석 수행](iot-accelerators-remote-monitoring-root-cause-analysis.md) 자습서를 참조하세요.
 
-* Time Series Insights 탐색기에서 데이터를 탐색하고 쿼리하는 방법에 대해 알아보려면 [Azure Time Series Insights 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer) 설명서를 참조하세요.
+* Time Series Insights 탐색기에서 데이터를 탐색하고 쿼리하는 방법에 대해 알아보려면 [Azure Time Series Insights 탐색기](../time-series-insights/time-series-insights-explorer.md) 설명서를 참조하세요.

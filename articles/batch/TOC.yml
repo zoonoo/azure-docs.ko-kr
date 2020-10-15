@@ -43,7 +43,19 @@
         - name: Batch 샘플 리포지토리
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
-      href: cli-samples.md
+      items:
+        - name: Batch 서비스 모드에서 Batch 계정 만들기
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: 사용자 구독 모드에서 Batch 계정 만들기
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Azure Batch 계정에 애플리케이션 추가
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Linux 풀 만들기 및 관리
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Windows 풀 만들기 및 관리
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: 작업 및 태스크 실행
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: 개념
   items:
     - name: 보안

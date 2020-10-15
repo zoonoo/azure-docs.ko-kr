@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939403"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090848"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 
@@ -105,7 +105,7 @@ IoT 용 Defender 보안 에이전트는 **azureiotsecurity** 모듈 쌍 id의 �
     }
     ```
 
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="using-a-default-value"></a>기본값 사용
 
@@ -118,7 +118,7 @@ IoT 용 Defender 보안 에이전트는 **azureiotsecurity** 모듈 쌍 id의 �
 [GitHub](https\://aka.ms/iot-security-module-default)의 적절 한 스키마에서 기본값을 사용할 수 있습니다.
 
 | Name| 상태 | 유효한 값| 기본값| Description |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|필수: false |유효한 값: ISO 8601 형식의 기간 |기본값: PT7M |우선 순위가 높은 메시지가 전송 되기 전의 최대 시간 간격입니다.|
 |lowPriorityMessageFrequency |필수: false|유효한 값: ISO 8601 형식의 기간 |기본값: PT5H |낮은 우선 순위의 메시지가 전송 되기 전의 최대 시간입니다.|
 |snapshotFrequency |필요: false|유효한 값: ISO 8601 형식의 기간 |기본값 PT13H |장치 상태 스냅숏을 만드는 시간 간격입니다.|
@@ -129,20 +129,20 @@ IoT 용 Defender 보안 에이전트는 **azureiotsecurity** 모듈 쌍 id의 �
 ### <a name="supported-security-events"></a>지원 되는 보안 이벤트
 
 |이벤트 이름| PropertyName | 기본값| 스냅숏 이벤트| 세부 정보 상태  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|진단 이벤트|eventPriorityDiagnostic| 꺼짐| False| 에이전트 관련 진단 이벤트입니다. 자세한 정보 로깅에이 이벤트를 사용 합니다.|
-|구성 오류 |eventPriorityConfigurationError |낮음 |False |에이전트가 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.|
-|삭제 된 이벤트 통계 |eventPriorityDroppedEventsStatistics |낮음 |True|에이전트 관련 이벤트 통계입니다. |
-|연결 된 하드웨어|eventPriorityConnectedHardware |낮음 |True |장치에 연결 된 모든 하드웨어의 스냅숏입니다.|
-|수신 대기 포트|eventPriorityListeningPorts |높음 |True |장치에서 열려 있는 모든 수신 포트의 스냅숏입니다.|
-|프로세스 만들기 |eventPriorityProcessCreate |낮음 |False |장치에서 프로세스 생성을 감사 합니다.|
-|프로세스 종료|eventPriorityProcessTerminate |낮음 |False |장치에서 프로세스 종료를 감사 합니다.|
-|시스템 정보 |eventPrioritySystemInformation |낮음 |True |시스템 정보의 스냅숏 (예: OS 또는 CPU)입니다.|
-|로컬 사용자| eventPriorityLocalUsers |높음 |True|시스템 내에서 등록 된 로컬 사용자의 스냅숏입니다. |
-|로그인|  eventPriorityLogin |높음|False|로그인 이벤트를 장치 (로컬 및 원격 로그인)로 감사 합니다.|
-|연결 만들기 |eventPriorityConnectionCreate|낮음|False|장치에서 생성 된 TCP 연결을 감사 합니다. |
-|방화벽 구성| eventPriorityFirewallConfiguration|낮음|True|장치 방화벽 구성의 스냅숏 (방화벽 규칙). |
-|OS 기준| eventPriorityOSBaseline| 낮음|True|장치 OS 기준 검사의 스냅숏입니다.|
+|----------|-|---------|----|----|
+|진단 이벤트|eventPriorityDiagnostic| 끄기| 거짓| 에이전트 관련 진단 이벤트입니다. 자세한 정보 로깅에이 이벤트를 사용 합니다.|
+|구성 오류 |eventPriorityConfigurationError |낮음 |거짓 |에이전트가 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.|
+|삭제 된 이벤트 통계 |eventPriorityDroppedEventsStatistics |낮음 |참|에이전트 관련 이벤트 통계입니다. |
+|연결 된 하드웨어|eventPriorityConnectedHardware |낮음 |참 |장치에 연결 된 모든 하드웨어의 스냅숏입니다.|
+|수신 대기 포트|eventPriorityListeningPorts |높음 |참 |장치에서 열려 있는 모든 수신 포트의 스냅숏입니다.|
+|프로세스 만들기 |eventPriorityProcessCreate |낮음 |거짓 |장치에서 프로세스 생성을 감사 합니다.|
+|프로세스 종료|eventPriorityProcessTerminate |낮음 |거짓 |장치에서 프로세스 종료를 감사 합니다.|
+|시스템 정보 |eventPrioritySystemInformation |낮음 |참 |시스템 정보의 스냅숏 (예: OS 또는 CPU)입니다.|
+|로컬 사용자| eventPriorityLocalUsers |높음 |참|시스템 내에서 등록 된 로컬 사용자의 스냅숏입니다. |
+|로그인|  eventPriorityLogin |높음|거짓|로그인 이벤트를 장치 (로컬 및 원격 로그인)로 감사 합니다.|
+|연결 만들기 |eventPriorityConnectionCreate|낮음|거짓|장치에서 생성 된 TCP 연결을 감사 합니다. |
+|방화벽 구성| eventPriorityFirewallConfiguration|낮음|참|장치 방화벽 구성의 스냅숏 (방화벽 규칙). |
+|OS 기준| eventPriorityOSBaseline| 낮음|참|장치 OS 기준 검사의 스냅숏입니다.|
 |
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,22 +4,22 @@ description: IoT 서비스 필수 구성 요소에 대해 Azure Defender를 시�
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/07/2020
+ms.author: rkarlin
 ms.custom: references_regions
-ms.openlocfilehash: 19263f8db58c8d20288d3ae74c24efd85667bc33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0913dc48f807c26396a38e31d293877b4561b7d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937834"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089182"
 ---
 # <a name="azure-defender-for-iot-prerequisites"></a>IoT 용 Azure Defender 필수 구성 요소
 
@@ -27,61 +27,23 @@ ms.locfileid: "90937834"
 
 ## <a name="minimum-requirements"></a>최소 요구 사항
 
-- IoT Hub 표준 계층
-  - Azure 역할 **소유자** 수준 권한
-- [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
-- Azure Security Center (권장)
-  - Azure Security Center를 사용 하는 것은 요구 사항이 아니라 권장 사항입니다. Azure Security Center 하지 않으면 IoT Hub 내에서 다른 Azure 리소스를 볼 수 없습니다.
+- IoT 및 OT 장치에 대 한 에이전트 없는 모니터링 (CyberX 기술을 기반으로)
+    - 범위 포트를 통한 트래픽 모니터링을 지 원하는 네트워크 스위치
+    - NTA 센서에 대 한 하드웨어 어플라이언스, 자세한 내용은 [인증 된 하드웨어](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) 를 참조 하세요.
+    - Azure Subscription **기여자** 역할 (커밋된 장치를 정의 하기 위해 등록 하는 동안에만 필요)
+    - IoT Hub (무료 또는 표준 계층) **기여자** 역할 (클라우드 연결 관리의 경우)
+- Azure IoT Hub를 통해 관리 되는 IoT 장치에 대 한 보안
+    - IoT Hub (표준 계층) **참가자** 역할
+    - IoT Hub: **IoT 용 Azure Defender** 기능 토글을 사용 하도록 설정 해야 합니다.
+    - 장치 수준 보안 모듈 지원  
+        - IoT 용 Defender 에이전트는 장치 및 플랫폼의 증가 하는 목록을 지원 합니다. [지원 되는 플랫폼 목록](how-to-deploy-agent.md) 을 참조 하세요.
 
-## <a name="working-with-defender-for-iot-service"></a>IoT 서비스용 Defender 사용
-
-Defender for IoT insights 및 보고는 Azure IoT Hub 및 Azure Security Center를 사용 하 여 사용할 수 있습니다. Azure IoT Hub에서 IoT에 대해 Defender를 사용 하도록 설정 하려면 **소유자** 수준의 권한이 있는 계정이 필요 합니다. IoT Hub에서 IoT for IoT를 사용 하도록 설정 하 고 나면 Defender for iot insights는 Azure IoT Hub의 **보안** 기능 및 Azure Security Center의  **iot** 로 표시 됩니다.
 
 ## <a name="supported-service-regions"></a>지원되는 서비스 지역
 
-IoT 용 Defender는 현재 다음 Azure 지역에서 IoT Hub에 대해 지원 됩니다.
-
-- 미국 중부
-- 미국 동부
-- 미국 동부 2
-- 미국 중서부
-- 미국 서부
-- 미국 서부2
-- 미국 중남부
-- 미국 중북부
-- 캐나다 중부
-- 캐나다 동부
-- 북유럽
-- 브라질 남부
-- 프랑스 중부
-- 영국 서부
-- 영국 남부
-- 서유럽
-- 북유럽
-- 일본 서부
-- 일본 동부
-- 오스트레일리아 남동부
-- 오스트레일리아 동부
-- 동아시아
-- 동남아시아
-- 한국 중부
-- 한국 남부
-- 인도 중부
-- 인도 남부
+자세한 내용은 [지원 되는 지역 IoT Hub](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub) 를 참조 하세요. 
 
 IoT 용 Defender는 모든 유럽 지역의 모든 트래픽을 유럽 서부 지역 데이터 센터 및 모든 나머지 지역에서 미국 중부 지역 데이터 센터로 라우팅합니다.
-
-## <a name="wheres-my-iot-hub"></a>내 IoT Hub 어디에 있나요?
-
-시작 하기 전에 IoT Hub 위치를 확인 하 여 서비스 가용성을 확인 하세요.
-
-1. IoT Hub를 엽니다.
-1. **개요**를 클릭합니다.
-1. 나열 된 위치가 [지원 되는 서비스 영역](#supported-service-regions)중 하 나와 일치 하는지 확인 합니다.
-
-## <a name="supported-platforms-for-agents"></a>에이전트에 대해 지원 되는 플랫폼
-
-IoT 용 Defender 에이전트는 장치 및 플랫폼의 증가 하는 목록을 지원 합니다. 기존 또는 계획 된 장치 라이브러리를 확인 하려면 [지원 되는 플랫폼 목록](how-to-deploy-agent.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

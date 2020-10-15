@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c90062f1968cc7be5a742a67363f57b9632fdfa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906868"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090678"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>스프링 마이크로서비스 앱용 Java 및 기본 OS
 
@@ -46,7 +46,7 @@ Azul 시스템은 기본 운영 체제에 대 한 변경 내용을 지속적으�
     * Ubuntu 20.04 LTS (초점면). 앱은 Ubuntu의 최신 LTS 버전을 계속 유지 합니다.
     * [Ubuntu 20.04 LTS (초점면)를](http://releases.ubuntu.com/focal/) 참조 하세요.
 * 로컬 개발을 위해 지원 되는 Java 런타임을 다운로드 하려면 어떻게 해야 하나요? 
-    * [Azure 및 Azure Stack에 대 한 JDK 설치를](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
+    * [Azure 및 Azure Stack에 대 한 JDK 설치를](/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
 * Java 런타임 수준에서 문제에 대 한 지원을 받으려면 어떻게 해야 하나요?
     * Azure 지원으로 지원 티켓을 엽니다.
  
@@ -57,4 +57,4 @@ Azul 시스템은 기본 운영 체제에 대 한 변경 내용을 지속적으�
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)
-* [Azure 및 Azure Stack에 대 한 Java 장기 지원](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Azure 및 Azure Stack에 대 한 Java 장기 지원](/azure/developer/java/fundamentals/java-jdk-long-term-support)

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
 ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85368110"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>빠른 시작: 사용자 지정 공급자 만들기 및 사용자 지정 리소스 배포

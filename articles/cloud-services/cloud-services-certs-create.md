@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142369"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072427"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 토픽에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 배포하는 방법을 살펴봅니다.
@@ -76,7 +76,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > 도메인 대신에 IP 주소가 들어 있는 인증서를 사용하려는 경우 -DnsName 매개 변수에서 IP 주소를 사용 합니다.
 
 
-[관리 포털에서 인증서](../azure-api-management-certs.md)를 사용하려는 경우 **.cer** 파일로 내보냅니다.
+[관리 포털에서 인증서](/previous-versions/azure/azure-api-management-certs)를 사용하려는 경우 **.cer** 파일로 내보냅니다.
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -91,8 +91,4 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ## <a name="next-steps"></a>다음 단계
 [서비스 인증서를 Azure Portal에 업로드](cloud-services-configure-ssl-certificate-portal.md)합니다.
 
-[관리 API 인증서](../azure-api-management-certs.md)를 Azure Portal에 업로드합니다.
-
-
-
-
+[관리 API 인증서](/previous-versions/azure/azure-api-management-certs)를 Azure Portal에 업로드합니다.

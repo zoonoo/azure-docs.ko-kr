@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82981224"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072801"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Azure App Configuration에서 관리 ID를 사용하는 방법
 
@@ -33,7 +33,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 구성 저장소�
 
 - Azure Portal에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.
 - 아래 각 코드 블록의 오른쪽 위에 있는 “사용해 보세요” 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
-- 로컬 CLI 콘솔을 사용하려면 [최신 버전의 Azure CLI(2.1 이상)를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+- 로컬 CLI 콘솔을 사용하려면 [최신 버전의 Azure CLI(2.1 이상)를 설치](/cli/azure/install-azure-cli)합니다.
 
 다음 단계는 App Configuration 저장소를 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
@@ -66,7 +66,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 구성 저장소�
 
 - Azure Portal에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.
 - 아래 각 코드 블록의 오른쪽 위에 있는 “사용해 보세요” 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
-- 로컬 CLI 콘솔을 사용하려면 [최신 버전의 Azure CLI(2.0.31 이상)를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+- 로컬 CLI 콘솔을 사용하려면 [최신 버전의 Azure CLI(2.0.31 이상)를 설치](/cli/azure/install-azure-cli)합니다.
 
 다음 단계는 사용자 할당 ID와 App Configuration 저장소를 만든 다음, CLI를 사용하여 ID를 저장소에 할당하는 과정을 안내합니다.
 

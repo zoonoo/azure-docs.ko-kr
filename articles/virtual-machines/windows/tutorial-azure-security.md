@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 9eed237b1dd4d6bf6f2903b91c80847d615fe7a1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984590"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978291"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -66,7 +66,7 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 ## <a name="view-vm-configuration-health"></a>VM 구성 상태 보기
 
-데이터 수집을 설정하고 보안 정책을 설정하면 Security Center에서 경고 및 권장 사항을 제공하기 시작합니다. VM이 배포되면 데이터 수집 에이전트가 설치됩니다. 그러면 Security Center가 새 VM에 대한 데이터로 채워집니다. VM 구성 상태에 대한 자세한 내용은 [Security Center에서 VM 보호](../../security-center/security-center-virtual-machine-protection.md)를 참조하세요. 
+데이터 수집을 설정하고 보안 정책을 설정하면 Security Center에서 경고 및 권장 사항을 제공하기 시작합니다. VM이 배포되면 데이터 수집 에이전트가 설치됩니다. 그러면 Security Center가 새 VM에 대한 데이터로 채워집니다. VM 구성 상태에 대한 자세한 내용은 [Security Center에서 VM 보호](../../security-center/asset-inventory.md)를 참조하세요. 
 
 데이터가 수집되면 각 VM 및 관련 Azure 리소스에 대한 리소스 상태가 집계됩니다. 이 정보는 읽기 쉬운 차트로 표시됩니다. 
 

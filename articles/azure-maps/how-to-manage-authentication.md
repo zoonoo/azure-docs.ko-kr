@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311107"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089454"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -41,7 +41,7 @@ Azure Portal에서 인증 세부 정보를 볼 수 있습니다. 계정에서 **
 다음 표에서는 Azure Maps의 일반적인 인증 및 권한 부여 시나리오를 간략하게 설명 합니다. 이 표에서는 각 시나리오에서 제공 하는 보호 유형을 비교 하 여 보여 줍니다.
 
 > [!IMPORTANT]
-> 프로덕션 응용 프로그램에 대해 RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Active Directory (Azure AD)를 구현 하는 것이 좋습니다.
+> 프로덕션 응용 프로그램에 대 한 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Active Directory (Azure AD)를 구현 하는 것이 좋습니다.
 
 | 시나리오                                                                                    | 인증 | 권한 부여 | 개발 활동 | 운영 활동 |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -63,10 +63,10 @@ Azure Maps 사용할 수 있는 Azure 역할을 보려면 **Access control (IAM)
 
 ## <a name="view-role-assignments"></a>역할 할당 보기
 
-Azure Maps에 RBAC가 부여 된 사용자 및 앱을 보려면 **Access Control (IAM)** 로 이동 합니다. 여기에서 **역할 할당**을 선택 하 고 **Azure Maps**를 기준으로 필터링 합니다.
+Azure Maps에 대 한 액세스 권한이 부여 된 사용자 및 앱을 보려면 **Access Control (IAM)** 로 이동 합니다. 여기에서 **역할 할당**을 선택 하 고 **Azure Maps**를 기준으로 필터링 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![RBAC가 부여 된 사용자 및 앱 보기](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![액세스 권한이 부여 된 사용자 및 앱 보기](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Azure Maps에 대한 토큰 요청
 

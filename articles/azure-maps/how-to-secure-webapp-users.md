@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 50194341d1d34da4b02558461f532ae64b941b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1668c7ccad75771a598aaa55f5403f070ea2dff8
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319625"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090219"
 ---
 # <a name="secure-a-web-application-with-user-sign-in"></a>사용자 로그인을 사용 하 여 웹 응용 프로그램 보호
 
@@ -59,7 +59,7 @@ ms.locfileid: "91319625"
    * AspNetCore이 아닌 구현이 나 기타 경우에는 Azure AD에서 [앱에 대 한 토큰 획득](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) 설명서를 참조 하세요.
    * 보안 토큰 끝점은 인증 되 고 권한이 부여 된 사용자에 대 한 액세스 토큰을 반환 하 Azure Maps REST Api를 호출 해야 합니다.
 
-8. 사용자 또는 그룹에 대 한 Azure 역할 기반 액세스 제어를 구성 합니다. [사용자에 대 한 역할 기반 액세스 권한 부여를](#grant-role-based-access-for-users-to-azure-maps)참조 하세요.
+8. 사용자 또는 그룹에 대 한 Azure RBAC (역할 기반 액세스 제어)를 구성 합니다. [사용자에 대 한 역할 기반 액세스 권한 부여를](#grant-role-based-access-for-users-to-azure-maps)참조 하세요.
 
 9. Azure Maps 웹 SDK를 사용 하 여 웹 응용 프로그램 페이지를 구성 하 여 보안 토큰 끝점에 액세스 합니다. 
 
@@ -94,13 +94,13 @@ var map = new atlas.Map("map", {
     });
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 웹 응용 프로그램 시나리오에 대 한 추가 이해:
 > [!div class="nextstepaction"]
-> [시나리오: 사용자에 게 로그인 하는 웹 앱](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
+> [시나리오: 사용자를 로그인하는 웹앱](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview)
 
 Azure Maps 계정에 대 한 API 사용 메트릭을 찾습니다.
 > [!div class="nextstepaction"]

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
 ms.openlocfilehash: 3f35d39634470ccacffa4d35c272a82725e9001c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89081373"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>자습서: 새 자식 DNS 영역 만들기
@@ -74,14 +74,14 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 1.  Azure Portal의 **모든 리소스**에서 **MyResourceGroup** 리소스 그룹의 *contoso.com* DNS 영역을 엽니다. 더 쉽게 찾기 위해 **이름으로 필터링** 상자에 *contoso.com*을 입력할 수 있습니다.
 1.  DNS 영역 개요 페이지에서 **+자식 영역** 단추를 선택합니다.
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="자식 영역 단추의 스크린샷." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-inline.png" alt-text="DNS 영역 만들기 페이지의 스크린샷." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-expanded.png":::
 
 1.  그러면 DNS 영역 만들기 페이지가 열립니다. 자식 영역 옵션이 이미 선택되어 있으며 이 페이지에서 부모 영역 구독과 부모 영역이 이미 채워져 있습니다.
 1.  이 자습서 예제의 이름을 *child*라고 입력합니다. 부모 DNS 영역 이름 contoso.com은 이름에 접두사로 자동 추가됩니다.
 1.  완료되면 **다음: 태그**를 선택하고 **다음: 리뷰 + 만들기**를 클릭합니다.
 1.  **검토 + 만들기** 탭에서 요약을 검토하고, 유효성 검사 오류를 수정한 다음, **만들기**를 선택합니다.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="선택한 자식 영역 스크린샷" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="DNS 영역 만들기 페이지의 스크린샷." border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
 ## <a name="verify-child-dns-zone"></a>자식 DNS 영역 확인
 이제 새 자식 DNS 영역 *subdomain.contoso.com*이 생성되었습니다. 위임이 올바르게 이루어졌는지 확인하려면 아래에 설명된 대로 자식 영역에 대한 nameserver(NS) 레코드가 부모 영역에 있는지 확인하는 것이 좋습니다.  
 
@@ -90,7 +90,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 1.  Azure Portal의 **모든 리소스**에서 **MyResourceGroup** 리소스 그룹의 *subdomain.contoso.com* DNS 영역을 엽니다. 더 쉽게 찾기 위해 **이름으로 필터링** 상자에 *subdomain.contoso.com*을 입력할 수 있습니다.
 1.  DNS 영역 개요 페이지에서 이름 서버를 검색합니다. 이 예제에서는 contoso.com 영역에 이름 서버 *ns1-08.azure-dns.com, ns2-08.azure-dns.net, ns3-08.azure-dns.org* 및 *ns4-08.azure-dns.info*가 할당되었습니다.
 
-      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="자식 영역 이름 서버 스크린샷" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
+      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-inline.png" alt-text="DNS 영역 만들기 페이지의 스크린샷." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-expanded.png":::
 **부모 DNS 영역에서 NS 레코드 확인:**
 
 이제 이 단계에서 부모 DNS 영역 *contoso.com*으로 이동하고 자식 영역 이름 서버의 NS 레코드 세트 항목이 만들어졌는지 확인합니다.
@@ -99,7 +99,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 1.  *contoso.com* DNS 영역 개요 페이지에서 레코드 세트를 확인합니다.
 1.  NS 및 이름 하위 도메인 형식의 레코드 집합이 이미 부모 DNS 영역에 생성된 것을 확인할 수 있습니다. 이 레코드 세트에 대한 값을 확인합니다. 이는 위의 단계에서 자식 DNS 영역에서 검색한 이름 서버 목록과 유사합니다.
 
-     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="자식 영역 이름 서버 확인의 스크린샷" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
+     :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="DNS 영역 만들기 페이지의 스크린샷." border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
 ## <a name="clean-up-resources"></a>리소스 정리
 이 자습서에서 만든 리소스가 더 이상 필요하지 않으면 **MyResourceGroup** 리소스 그룹을 삭제하여 제거합니다. **MyResourceGroup** 리소스 그룹을 열고 **리소스 그룹 삭제**를 선택합니다.
 

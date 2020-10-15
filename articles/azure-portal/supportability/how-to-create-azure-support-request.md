@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b44b38e52b50dd7994326f09bebbb775c93c0e2e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851902"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073702"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
@@ -114,5 +114,5 @@ Azure의 자가 지원 옵션에 대한 자세한 정보를 보려면 다음 비
 * [Azure 지원 티켓 REST API](/rest/api/support)
 * [피드백 및 제안 보내기](https://feedback.azure.com/forums/266794-support-feedback)
 * [Twitter](https://twitter.com/azuresupport)에서 연계
-* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure)에서 동료들의 도움 받기
+* [Microsoft Q&A 질문 페이지](/answers/products/azure)에서 동료들의 도움 받기
 * [Azure 지원 FAQ](https://azure.microsoft.com/support/faq)에서 자세히 알아보기

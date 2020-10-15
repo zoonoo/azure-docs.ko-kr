@@ -11,18 +11,18 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6ebb81e6f5adce1dbc301ac905fed5af1ee6a825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab8993a98ce202964ade9fb5deae5c741ac7eb6
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758308"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090355"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 저장소 계정 키를 사용 하 여 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 통해 컨테이너 또는 blob에 대 한 서비스 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 저장소 계정 키를 사용 하 여 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 통해 컨테이너 또는 blob에 대 한 서비스 SAS를 만드는 방법을 보여 줍니다.
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>Blob 컨테이너에 대 한 서비스 SAS 만들기
 

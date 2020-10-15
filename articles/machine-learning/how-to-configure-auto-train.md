@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709090"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091205"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "91709090"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -343,7 +343,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있습니다. 자세한 내용은 [모델 추적 및 평가](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs)를 참조하세요.
 
-각 실행에 대해 제공 되는 성능 차트 및 메트릭에 대 한 정의 및 예제는 [자동화 된 기계 학습 결과 이해](how-to-understand-automated-ml.md) 를 참조 하세요. 
+각 실행에 대해 제공 되는 성능 차트 및 메트릭에 대 한 정의 및 예제는 [자동화 된 기계 학습 실험 결과 평가](how-to-understand-automated-ml.md) 를 참조 하세요. 
 
 기능화 요약을 얻고 특정 모델에 추가 된 기능을 이해 하려면 [기능화 투명도](how-to-configure-auto-features.md#featurization-transparency)를 참조 하세요. 
 
