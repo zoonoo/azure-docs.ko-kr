@@ -4,10 +4,10 @@ description: 이 Azure Policy 패턴에서는 정책 정의에서 문자열 및 
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89649945"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Azure Policy 패턴: 매개 변수

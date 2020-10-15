@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88797720"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
@@ -115,7 +115,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _SKU_에 대해 **무료**를 선택합니다.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="세부 정보 입력":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
 
 1. **GitHub로 로그인** 단추를 클릭합니다.
 
@@ -125,7 +125,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _분기_에 대해 **마스터**를 선택합니다.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="완료된 GitHub 정보":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
 
 ### <a name="build"></a>빌드
 
@@ -149,7 +149,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. 새로 만든 Azure Static Web Apps 리소스의 Azure Portal _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="배포된 애플리케이션":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

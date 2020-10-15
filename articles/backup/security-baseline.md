@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a05c7a6f9c3752507705e1c4242becfe1d65ffd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334840"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093364"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -486,7 +486,7 @@ Azure Backup 백업 관리 작업을 제어 하기 위한 세 가지 기본 제�
 
 - [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
-- [역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리](./backup-rbac-rs-vault.md)
+- [Azure 역할 기반 액세스 제어를 사용 하 여 Azure Backup 복구 지점의 관리](./backup-rbac-rs-vault.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

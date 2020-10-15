@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65116f979131590a66ff2f08896e7a89ae075303
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3e52a808b187e3823acfee2c260986518f2f6f49
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074154"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978006"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
@@ -262,7 +262,7 @@ Status
 PowerState/running
 ```
 
-구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly**가 *true*로 설정된 [Virtual Machines - 모든 API 목록](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)을 사용합니다.
+구독에 있는 모든 VM의 전원 상태를 검색하려면 매개 변수 **statusOnly**가 *true*로 설정된 [Virtual Machines - 모든 API 목록](/rest/api/compute/virtualmachines/listall)을 사용합니다.
 
 ## <a name="management-tasks"></a>관리 작업
 

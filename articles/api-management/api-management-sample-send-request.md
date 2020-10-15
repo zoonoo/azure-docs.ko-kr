@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210354"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093279"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.
@@ -178,7 +178,7 @@ Condition = "@ ((IResponse) context 인 경우 <합니다. Variables ["tokenstat
 ### <a name="making-the-requests"></a>요청하기
 작업이 만들어지면 해당 작업에 대해 특별히 정책을 구성할 수 있습니다. 
 
-![대시보드 작업](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![정책 범위 화면을 보여 주는 스크린샷](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 첫 번째 단계는 들어오는 요청에서 쿼리 매개 변수를 추출하므로 백 엔드에 전달할 수 있습니다. 이 예에서 대시보드는 시간의 경과에 따라 정보를 보여주며 따라서 `fromDate` 및 `toDate` 매개 변수가 있습니다. `set-variable` 정책을 사용하여 요청 URL에서 정보를 추출할 수 있습니다.
 
