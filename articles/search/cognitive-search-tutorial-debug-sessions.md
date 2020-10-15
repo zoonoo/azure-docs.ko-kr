@@ -2,18 +2,18 @@
 title: '자습서: 디버그 세션을 사용하여 기술 세트에 대한 변경 내용 진단, 수정 및 적용'
 titleSuffix: Azure Cognitive Search
 description: 디버그 세션(미리 보기)은 기술 세트의 문제/오류를 평가하고 복구할 수 있는 포털 기반 인터페이스를 제공합니다.
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397405"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057555"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>자습서: 기술 세트에 대한 변경 내용 진단, 수정 및 적용
 

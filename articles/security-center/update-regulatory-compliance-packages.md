@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 306a4773563b829ecad09a021f6763192e8246f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445856"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078105"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 세트 사용자 지정
 
@@ -84,6 +84,31 @@ NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, 영국 공식 및 영국 NHS, 캐나다
     > 새로 추가된 표준이 규정 준수 대시보드에 표시되는 데 몇 시간 정도 걸릴 수 있습니다.
 
     [![이전 및 새 Azure CIS를 표시하는 규정 준수 대시보드](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
+
+
+## <a name="removing-a-standard-from-your-dashboard"></a>대시보드에서 표준 제거
+
+제공 된 규정 표준이 조직과 관련이 없는 경우 UI에서 간단히 제거할 수 있는 간단한 프로세스입니다. 이를 통해 규정 준수 대시보드를 추가로 사용자 지정 하 고 해당 하는 표준에만 집중할 수 있습니다.
+
+표준을 제거 하려면:
+
+1. Security Center의 메뉴에서 **보안 정책**을 선택 합니다.
+
+1. 표준을 제거 하려는 관련 구독을 선택 합니다.
+
+    > [!NOTE]
+    > 관리 그룹이 아닌 구독에서 standard를 제거할 수 있습니다. 
+
+    보안 정책 페이지가 열립니다. 선택한 구독에 대해 기본 정책, 산업 및 규제 표준 및 사용자가 만든 사용자 지정 이니셔티브를 표시 합니다.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Azure Security Center의 규정 준수 대시보드에서 규제 표준 제거":::
+
+1. 제거 하려는 표준에 대해 **사용 안 함**을 선택 합니다. 확인 창이 표시 됩니다.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Azure Security Center의 규정 준수 대시보드에서 규제 표준 제거":::
+
+1. **예**를 선택합니다. 표준이 제거 됩니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

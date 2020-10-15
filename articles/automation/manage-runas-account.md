@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 09/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3357cb40ff476a3cc0bce259930068aeccf2c10c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0849eb0c421883ecb0510451ff81b604538c9cc3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767433"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069894"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 관리
 
@@ -214,7 +214,7 @@ Azure Automation을 통해 Key Vault 및 실행 계정 서비스 주체가 사�
 * Key Vault에 대한 권한을 부여합니다.
 * 액세스 정책을 설정합니다.
 
-PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) 스크립트를 사용하여 Key Vault에 대한 실행 계정 권한을 부여할 수 있습니다. Key Vault에 대 한 사용 권한 설정에 대 한 자세한 내용은 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-powershell) 을 참조 하세요.
+PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) 스크립트를 사용하여 Key Vault에 대한 실행 계정 권한을 부여할 수 있습니다. Key Vault에 대 한 사용 권한 설정에 대 한 자세한 내용은 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-powershell.md) 을 참조 하세요.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>실행 계정의 잘못된 구성 문제 해결
 

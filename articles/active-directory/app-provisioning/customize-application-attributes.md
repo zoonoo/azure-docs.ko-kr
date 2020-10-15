@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: e789810240b1a537e8cc3a18351f0b2a066cb4e1
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018868"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069877"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -129,7 +129,7 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 - **다중 값 여부** - 특성이 다중 값을 지원하는지 여부입니다.
 - **대소문자 구분 여부** - 특성이 대/소문자를 구분하여 평가되는지 여부입니다.
 - **API 식** - 특정 프로비저닝 커넥터(예: Workday)에 대한 설명서에 달리 지정된 경우 외에는 사용하지 마세요.
-- **참조된 개체 특성** - 참조 형식 특성인 경우 이 메뉴를 사용하면 대상 애플리케이션에서 특성과 연결된 값이 포함된 테이블과 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정된 애플리케이션에 대해 지원되는 참조 테이블 및 기본 ID 필드는 미리 구성되며, 현재 Azure Portal을 사용하여 편집할 수는 없지만 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용하여 편집할 수는 있습니다.
+- **참조된 개체 특성** - 참조 형식 특성인 경우 이 메뉴를 사용하면 대상 애플리케이션에서 특성과 연결된 값이 포함된 테이블과 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정된 애플리케이션에 대해 지원되는 참조 테이블 및 기본 ID 필드는 미리 구성되며, 현재 Azure Portal을 사용하여 편집할 수는 없지만 [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes)를 사용하여 편집할 수는 있습니다.
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>SCIM 규격 애플리케이션에 사용자 지정 확장 특성 프로비저닝
 SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의하는 동시에 애플리케이션의 요구를 충족하기 위한 스키마 확장을 허용합니다. SCIM 애플리케이션에 사용자 지정 특성을 추가하려면 다음을 수행합니다.

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91286556"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069990"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 다시 구성
 이 자습서에서는 Azure AD에서 SAP SuccessFactors Employee Central으로 특성을 다시 작성 하는 단계를 보여 줍니다. 
@@ -324,13 +324,23 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **저장**을 클릭합니다.
+1. **범위**를 선택 합니다. 다음 옵션 중 하나를 선택할 수 있습니다. 
+   * **모든 사용자 및 그룹 동기화**: **매핑**  ->  **원본 개체 범위**에 정의 된 범위 지정 규칙에 따라 Azure AD에서 SuccessFactors에 모든 사용자의 매핑된 특성을 기록 하려면이 옵션을 선택 합니다. 
+   * **할당 된 사용자 및 그룹만 동기화**: **응용**프로그램  ->  **Manage**  ->  **사용자 및 그룹** 관리 메뉴 옵션에서이 응용 프로그램에 할당 한 사용자의 매핑된 특성만 다시 쓰려면이 옵션을 선택 합니다. 이러한 사용자는 **매핑**  ->  **원본 개체 범위**에 정의 된 범위 지정 규칙도 적용 됩니다.
 
-3. 이 작업을 수행 하면 초기 동기화가 시작 되며,이는 SuccessFactors 테 넌 트에 있는 사용자 수에 따라 시간이 많이 걸릴 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
+   > [!div class="mx-imgBorder"]
+   > ![쓰기 저장 범위 선택](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그에는 프로 비전 서비스에서 수행 하는 모든 개별 동기화 이벤트가 나열 됩니다. 예를 들어 Employee Central에서 읽고 이후에 Active Directory에 추가 하거나 업데이트 하는 사용자가 나열 됩니다. 
+   > [!NOTE]
+   > SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 "그룹 할당"을 지원 하지 않습니다. "사용자 할당"만 지원 됩니다. 
 
-5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
+1. **저장**을 클릭합니다.
+
+1. 이 작업을 수행 하면 초기 동기화가 시작 되며, Azure AD 테 넌 트에 있는 사용자 수와 작업에 대해 정의 된 범위에 따라 시간이 달라질 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
+
+1. 언제 든 지 Azure Portal의 **프로 비전 로그** 탭에서 프로 비전 서비스가 수행한 작업을 확인 합니다. 프로 비전 로그에는 프로 비전 서비스에서 수행 하는 모든 개별 동기화 이벤트가 나열 됩니다. 
+
+1. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
    > [!div class="mx-imgBorder"]
    > ![프로 비전 진행률 표시줄](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

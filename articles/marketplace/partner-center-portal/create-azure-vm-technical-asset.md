@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: a83532e2dd6fc8e83206a3b4a055170b40d131fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec043c97da8056fee4af8f6ead84f4df05c0f304
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803520"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079023"
 ---
 # <a name="create-technical-assets-for-an-azure-marketplace-virtual-machine-offer"></a>Azure Marketplace virtual machine 제품에 대 한 기술 자산 만들기
 
@@ -146,7 +146,7 @@ Azure Portal에서 2 세대 (Gen2) VM을 만듭니다.
 
 ### <a name="connect-to-a-linux-based-vm"></a>Linux 기반 VM에 연결
 
-Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언트가 필요합니다. 다음 단계에서는 무료 [PuTTY](https://www.ssh.com/ssh/putty/) SHH 터미널을 사용합니다.
+Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언트가 필요합니다. 다음 단계에서는 무료 [PuTTY](https://www.ssh.com/ssh/putty/) SSH 터미널을 사용 합니다.
 
 1. [Azure 포털](https://ms.portal.azure.com/)로 이동합니다.
 2. 가상 머신을 검색하여 선택합니다.
@@ -177,7 +177,7 @@ Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언�
 
 Vm에서 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기가 VHD에 대해 충분히 큰지 확인 합니다. 디스크가 가동 중지 시간 없이 확장 되지 않기 때문에 30에서 50 GB 사이의 디스크 크기를 사용 &nbsp; 합니다.
 
-| VHD 크기 | 실제 차지 크기 | 솔루션 |
+| VHD 크기 | 실제 차지 크기 | 해결 방법 |
 | --- | --- | --- |
 | >500 TB | 해당 없음 | 예외 승인에 대해서는 지원 팀에 문의 하세요. |
 | 250-500 TB | >200 GB는 blob 크기와 다릅니다. | 예외 승인에 대해서는 지원 팀에 문의 하세요. |

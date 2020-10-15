@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931985"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078479"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -75,6 +75,64 @@ JOIN LightBulb RELATED LightPanel.contains
 WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
 AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
 AND Room.$dtId IN ['room1', 'room2'] 
+```
+
+### <a name="specify-return-set-with-projections"></a>프로젝션을 사용 하 여 반환 집합 지정
+
+프로젝션을 사용 하 여 쿼리에서 반환 되는 열을 선택할 수 있습니다. 
+
+>[!NOTE]
+>지금은 복합 속성이 지원 되지 않습니다. 프로젝션 속성이 유효한 지 확인 하려면 프로젝션을 검사와 결합 합니다 `IS_PRIMITIVE` . 
+
+다음은 프로젝션을 사용 하 여 쌍 및 관계를 반환 하는 쿼리의 예입니다. 다음 쿼리는 ID가 *ABC* 인 *팩터리가* *팩터리*와의 관계를 통해 *소비자* 와 관련 되는 시나리오에서 *소비자*, *팩터리* 및 *edge* 를 프로젝션 합니다. 이러한 관계는에 *지*로 표시 됩니다.
+
+```sql
+SELECT Consumer, Factory, Edge 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+```
+
+프로젝션을 사용 하 여 쌍의 속성을 반환할 수도 있습니다. 다음 쿼리는 *팩터리의*ID를 사용 하 여 *팩터리에* 관련 된 *소비자* 의 *Name* 속성을 *프로젝트의 관계를 통해 프로젝션* 합니다. 
+
+```sql
+SELECT Consumer.name 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+프로젝션을 사용 하 여 관계의 속성을 반환할 수도 있습니다. 이전 예제와 마찬가지로 다음 쿼리는 팩터리의 ID를 사용 하 여 *팩터리에* 관련 된 *소비자* 의 *Name* 속성을 투영 *합니다.* *ABC* 그러나 이제 해당 관계의 두 속성 ( *prop1* 및 *prop2*)도 반환 합니다. 관계에 *지* 의 이름을 지정 하 고 해당 속성을 수집 하 여이를 수행 합니다.  
+
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+
+별칭을 사용 하 여 프로젝션을 사용 하 여 쿼리를 단순화할 수도 있습니다.
+
+다음 쿼리는 이전 예제와 동일한 작업을 수행 하지만 속성 이름을, 및로 별칭으로 합니다 `consumerName` `first` `second` `factoryArea` . 
+ 
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+```
+
+다음은 위와 동일한 집합을 쿼리 하지만 *Consumer.name* 속성만로 프로젝션 하 `consumerName` 고 전체 *팩터리* 를 쌍으로 프로젝션 하는 비슷한 쿼리입니다. 
+
+```sql
+SELECT Consumer.name AS consumerName, Factory 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
 ```
 
 ### <a name="query-by-property"></a>속성으로 쿼리
@@ -224,17 +282,17 @@ AND Room.$dtId IN ['room1', 'room2']
 
 다음과 같은 연산자가 지원됩니다.
 
-| 제품군 | 연산자 |
+| 패밀리 | 연산자 |
 | --- | --- |
 | 논리 |AND, OR, NOT |
 | 비교 |=,! =, <, >, <=, >= |
 | 포함 | 에서 NIN |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>함수
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 함수 | 설명 |
+| 기능 | 설명 |
 | -------- | ----------- |
 | IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
 | IS_OF_MODEL | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -247,7 +305,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 함수 | 설명 |
+| 기능 | 설명 |
 | -------- | ----------- |
 | STARTSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | ENDSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |

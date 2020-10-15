@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 881f955014032d18fec447784a879fbf4f0e24fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 875fd40fea315269f7fe72032942c40551a6b144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91571488"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078972"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>가상 Wan 허브에 교차 테 넌 트 Vnet 연결
 
@@ -54,7 +54,7 @@ ms.locfileid: "91571488"
 1. 그런 다음 PowerShell의 현재 세션에 원격 테 넌 트 구독과 부모 테 넌 트 구독을 추가 합니다. 다음 명령을 실행합니다. 부모에 로그인 한 경우에는 원격 테 넌 트에 대해서만 명령을 실행 하면 됩니다.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. 부모 자격 증명을 사용 하 여 Azure PowerShell에 로그인 하 고 다음 명령을 실행 하 여 역할 할당에 성공 했는지 확인 합니다.
@@ -72,25 +72,25 @@ ms.locfileid: "91571488"
 1. 다음 명령을 실행 하 여 원격 계정의 컨텍스트에 있는지 확인 합니다.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. 허브에 연결 하려는 가상 네트워크의 메타 데이터를 저장 하는 지역 변수를 만듭니다.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. 부모 계정으로 다시 전환 합니다.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. VNet을 허브에 연결 합니다.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. PowerShell 또는 Azure Portal에서 새 연결을 볼 수 있습니다.

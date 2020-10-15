@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6acea560c3a02420b15aff84475ab58e642116c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82792380"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078258"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
@@ -125,7 +125,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>시뮬레이션이 데이터를 클라우드로 보내는지 어떻게 확인할 수 있나요?
 
-[Azure Iot 탐색기](https://github.com/Azure/azure-iot-explorer) 또는 [Azure iot CLI 확장 모니터-이벤트](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 사용 하면 특정 장치에서 IoT Hub으로 전송 된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
+[Azure Iot 탐색기](https://github.com/Azure/azure-iot-explorer) 또는 [Azure iot CLI 확장 모니터-이벤트](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 사용 하면 특정 장치에서 IoT Hub으로 전송 된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
 
 게시자 디바이스 중 하나를 통해 보낸 데이터를 검사합니다.
 
@@ -194,6 +194,6 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
+* [예측 유지 관리 솔루션 가속기 개요](./iot-accelerators-predictive-walkthrough.md)
 * [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
-* [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)
+* [처음부터 IoT 보안을 고려](../iot-fundamentals/iot-security-ground-up.md)

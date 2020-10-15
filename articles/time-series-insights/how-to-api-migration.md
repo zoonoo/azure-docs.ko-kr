@@ -10,18 +10,21 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 30c3fa837f84ff318e9a03a8a11ef6259890f4bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653743"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078241"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>새 Azure Time Series Insights Gen2 API 버전으로 마이그레이션
 
 ## <a name="overview"></a>개요
 
-공개 미리 보기로 제공 되는 Azure Time Series Insights Gen2 환경을 만든 경우 (2020 7 월 16 일 이전)이 문서에 설명 된 단계에 따라 새 일반 버전의 Api를 사용 하도록 TSI 환경을 업데이트 하세요.
+공개 미리 보기로 제공 되는 Azure Time Series Insights Gen2 환경을 만든 경우 (2020 7 월 16 일 이전)이 문서에 설명 된 단계에 따라 새 일반 버전의 Api를 사용 하도록 TSI 환경을 업데이트 하세요. 이 변경은 Azure Time Series Insights Gen1 버전을 사용 하는 사용자에 게는 영향을 주지 않습니다.
+
+> [!IMPORTANT]
+> 이 문서에서 설명 하는 업데이트는 TSI 환경에서 사용 하는 API 버전만 업그레이드 합니다. 이러한 변경은 Gen2 환경에 대해 도입 된 새로운 [JSON 평면화 및 이스케이프 규칙과](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) 관련이 없습니다.
 
 새 API 버전은 이며 `2020-07-31` 업데이트 된 [시계열 식 구문을](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)사용 합니다.
 
@@ -104,7 +107,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
   - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="typesbatchput"></a>유형 Batchput
 

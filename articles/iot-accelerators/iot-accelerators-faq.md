@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c1fb314a2dea653740e7f87b5caa14c759fffb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462550"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078224"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -65,7 +65,7 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>원격 모니터링 솔루션의 이전 버전 관련 정보는 어디서 확인할 수 있나요?
 
-원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 에서 보관 된 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/) .
+원격 모니터링 솔루션 가속기 이전 버전의 명칭은 IoT Suite Remote Monitoring 미리 구성된 솔루션이었습니다. 에서 보관 된 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/) .
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>기존 솔루션과 동일한 지역에서 새로운 솔루션 가속기를 사용할 수 있나요?
 
@@ -101,13 +101,13 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Azure AD 테넌트를 삭제하려면 어떻게 하나요?
 
-Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant)을 참조하세요.
+Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
 * [원격 모니터링 솔루션 가속기의 기능 살펴보기](quickstart-remote-monitoring-deploy.md)
-* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
+* [예측 유지 관리 솔루션 가속기 개요](./iot-accelerators-predictive-walkthrough.md)
 * [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
-* [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)
+* [처음부터 IoT 보안을 고려](../iot-fundamentals/iot-security-ground-up.md)
