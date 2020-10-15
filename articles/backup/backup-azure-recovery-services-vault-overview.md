@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음 개요
 description: Recovery Services 자격 증명 모음에 대 한 개요입니다.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975159"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093670"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -18,7 +18,7 @@ ms.locfileid: "90975159"
 
 - **하이브리드 IT 환경을 위한 중심 모니터링**: Recovery Services 자격 증명 모음에서 [Azure IaaS VM](backup-azure-manage-vms.md)뿐만 아니라 중앙 포털에서 [온-프레미스 자산](backup-azure-manage-windows-server.md#manage-backup-items)도 모니터링할 수 있습니다. [자세한 정보](backup-azure-monitoring-built-in-monitor.md)
 
-- **RBAC(역할 기반 Access Control)**: RBAC는 Azure에서 세밀한 액세스 관리 제어를 제공합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 RBAC와 호환되어 백업을 제한하고 정의된 집합의 사용자 역할에 대한 액세스를 복원합니다. [자세한 정보](backup-rbac-rs-vault.md)
+- Azure **rbac (역할 기반 액세스 제어)**: azure Rbac는 azure에서 세분화 액세스 관리 제어를 제공 합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 Azure RBAC와 호환 되며,이를 통해 정의 된 사용자 역할 집합에 대 한 백업 및 복원 액세스를 제한 합니다. [자세한 정보](backup-rbac-rs-vault.md)
 
 - **일시 삭제**: 일시 삭제를 사용 하면 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존 기간은 아무런 비용이 들지 않습니다. [자세히 알아봅니다](backup-azure-security-feature-cloud.md).
 
@@ -54,7 +54,7 @@ Azure Advisor는 백업 되지 않은 Vm에 대 한 시간별 [권장 사항을]
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [자격 증명 모음 지원 및 지원 되지 않는 시나리오](backup-support-matrix.md#vault-support)
 - [자격 증명 모음에 대 한 질문과 대답](backup-azure-backup-faq.md)

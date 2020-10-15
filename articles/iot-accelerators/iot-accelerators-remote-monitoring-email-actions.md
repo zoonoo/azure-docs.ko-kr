@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2776b18dc3faded103b49e8ff58a8a0a6dccf144
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74168372"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074467"
 ---
 # <a name="add-an-email-action"></a>이메일 작업 추가
 
@@ -166,7 +166,7 @@ ms.locfileid: "74168372"
 
 ## <a name="throttling"></a>제한
 
-원격 모니터링 솔루션 가속기는 Outlook을 사용하여 이메일 알림을 보냅니다. Outlook에서 전송되는 이메일 수가 [분당 30개 이메일](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits)로 제한됩니다. 이메일을 수신하는 이메일 클라이언트에서 분당 수신되는 이메일의 수를 제한할 수도 있습니다. 제한 사항은 특정 이메일 클라이언트에 문의하세요. 규칙에 대해 이메일 알림을 설정할 때 규칙은 적어도 1분 동안의 평균 값을 계산하고 아주 짧은 기간의 값은 사용하지 않아야 합니다.
+원격 모니터링 솔루션 가속기는 Outlook을 사용하여 이메일 알림을 보냅니다. Outlook에서 전송되는 이메일 수가 [분당 30개 이메일](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits)로 제한됩니다. 이메일을 수신하는 이메일 클라이언트에서 분당 수신되는 이메일의 수를 제한할 수도 있습니다. 제한 사항은 특정 이메일 클라이언트에 문의하세요. 규칙에 대해 이메일 알림을 설정할 때 규칙은 적어도 1분 동안의 평균 값을 계산하고 아주 짧은 기간의 값은 사용하지 않아야 합니다.
 
 ![평균 계산](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

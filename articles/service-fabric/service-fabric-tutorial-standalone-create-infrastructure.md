@@ -1,17 +1,15 @@
 ---
 title: AWS에서 클러스터에 대한 인프라 만들기
 description: 이 자습서에서는 Service Fabric 클러스터를 실행하는 AWS 인프라를 설정하는 방법에 대해 알아봅니다.
-author: dkkapur
 ms.topic: tutorial
 ms.date: 05/11/2018
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613978"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842906"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: AWS 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 

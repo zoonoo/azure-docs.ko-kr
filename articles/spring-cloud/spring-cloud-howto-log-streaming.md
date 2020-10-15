@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: eaf99f5e92cbb9277f2d4143e14070f1900cdbef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04b03e3857bc5b01c25112f2a0d60c6468ecd42a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888495"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093925"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>실시간으로 Azure Spring Cloud 앱 로그 스트림
 
@@ -20,9 +20,9 @@ ms.locfileid: "90888495"
 
 Azure 스프링 클라우드를 사용 하면 Azure CLI의 로그 스트리밍을 통해 문제 해결을 위한 실시간 응용 프로그램 콘솔 로그를 가져올 수 있습니다. [진단 설정을 사용 하 여 로그 및 메트릭을 분석할](./diagnostic-services.md)수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 스프링 클라우드, 최소 버전 0.2.0에 대 한 [Azure CLI 확장](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) 을 설치 합니다.
+* 스프링 클라우드, 최소 버전 0.2.0에 대 한 [Azure CLI 확장](/cli/azure/install-azure-cli) 을 설치 합니다.
 * 응용 프로그램을 실행 하는 **Azure 스프링 클라우드의** 인스턴스 (예: [스프링 클라우드 앱](./spring-cloud-quickstart.md)).
 
 > [!NOTE]
@@ -92,10 +92,4 @@ az spring-cloud app logs -h
 ## <a name="next-steps"></a>다음 단계
 * [빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [진단 설정을 사용 하 여 로그 및 메트릭 분석](./diagnostic-services.md)
-
- 
-
-
-
-
 

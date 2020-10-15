@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397439"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출

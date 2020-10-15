@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 98d77af45da5edff935e761fc3be81ff21306ea8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 365082fa6b0f9788bab5291e4dbf215848223d1f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552699"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>자습서:JDA Cloud와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ JDA Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![JDA Cloud 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.jdadelivers.com` 패턴을 사용하여 URL을 입력합니다.
 
@@ -107,7 +107,7 @@ JDA Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![JDA Cloud 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<Azure AD Identifier>` 패턴을 사용하여 URL을 입력합니다.
 

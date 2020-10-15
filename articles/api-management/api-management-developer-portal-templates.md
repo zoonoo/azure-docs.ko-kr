@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430782"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092888"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
 
@@ -41,7 +41,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 개발자 포털 템플릿에 액세스하려면 왼쪽의 사용자 지정 아이콘을 클릭하여 사용자 지정 메뉴를 표시한 다음 **템플릿**을 클릭합니다.
 
-![개발자 포털 템플릿][api-management-customize-menu]
+![사용자 지정 메뉴를 표시 하는 사용자 지정 아이콘을 강조 표시 하는 스크린샷][api-management-customize-menu]
 
 템플릿 목록에 개발자 포털의 다양한 페이지에 적용할 수 있는 여러 범주의 템플릿이 표시됩니다. 각 템플릿은 서로 다르지만 편집 및 변경 내용 게시 방법 단계는 동일합니다. 템플릿을 편집하려면 해당 템플릿 이름을 클릭합니다.
 
@@ -145,7 +145,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 **예** 를 클릭하여 확인하면 개발자 포털에 템플릿이 적용됩니다.
 
-![게시 확인][api-management-publish-template-confirm]
+![템플릿을 라이브 상태로 만들기 위해 예를 선택 하는 위치를 보여 주는 스크린샷][api-management-publish-template-confirm]
 
 현재 게시되지 않은 모든 템플릿 버전을 게시하려면 템플릿 목록에서 **게시** 를 클릭합니다. 게시되지 않은 템플릿은 템플릿 이름 뒤에 별표가 표시됩니다. 이 예제에는 **제품 목록** 및 **제품** 템플릿이 게시되어 있습니다.
 
@@ -160,11 +160,11 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 ## <a name="to-revert-a-template-to-the-previous-version"></a>템플릿을 이전 버전으로 되돌리려면
 템플릿을 이전에 게시된 버전으로 되돌리려면 템플릿 편집기에서 되돌리기를 클릭합니다.
 
-![템플릿 되돌리기][api-management-revert-template]
+![템플릿을 되돌리는 데 사용 하는 아이콘을 강조 표시 하는 스크린샷][api-management-revert-template]
 
 **예**를 클릭하여 확인합니다.
 
-![확인][api-management-revert-template-confirm]
+![예를 선택 하 여 변경 내용을 확인 하는 위치를 보여 주는 스크린샷][api-management-revert-template-confirm]
 
 되돌리기 작업이 완료되면 이전에 게시된 템플릿 버전이 개발자 포털에 적용됩니다.
 

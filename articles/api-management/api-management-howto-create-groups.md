@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851225"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092786"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
 
@@ -38,7 +38,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md) 문서의 작업을 완료합니다.
 
@@ -66,10 +66,10 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 3. **액세스 제어**를 누릅니다.
 4. **+ 그룹 추가**를 클릭합니다.
 
-    ![그룹과 제품 연결](./media/api-management-howto-create-groups/groups002.png)
+    ![그룹 추가 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups002.png)
 5. 추가하려는 그룹을 선택합니다.
 
-    ![그룹과 제품 연결](./media/api-management-howto-create-groups/groups003.png)
+    ![선택한 그룹을 표시 하 고 선택 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups003.png)
 
     제품에서 그룹을 제거하려면 **삭제**를 클릭합니다.
 
@@ -90,7 +90,7 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
     ![멤버 추가](./media/api-management-howto-create-groups/groups005.png)
 3. **+추가**를 누르고 구성원을 선택합니다.
 
-    ![멤버 추가](./media/api-management-howto-create-groups/groups006.png)
+    ![추가 단추, 선택한 사용자 및 선택 단추를 강조 표시 하는 스크린샷](./media/api-management-howto-create-groups/groups006.png)
 4. **선택**을 누릅니다.
 
 개발자와 그룹 간의 연결을 추가한 후에는 **사용자** 탭에서 확인할 수 있습니다.

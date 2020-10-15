@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 128b8d07a3fb18ecd70f6ce5a37f41ad0fdd3db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563180"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074518"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -148,7 +148,7 @@ az aks nodepool add \
 ## <a name="upgrade-a-node-pool"></a>노드 풀 업그레이드
 
 > [!NOTE]
-> 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업을 동시에 수행할 수 없습니다. 시도 하면 오류가 반환 됩니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
+> 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업을 동시에 수행할 수 없습니다. 시도 하면 오류가 반환 됩니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade)를 참조 하세요.
 
 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다. Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 경우의 관계는 [아래 섹션](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 설명 되어 있습니다.
 

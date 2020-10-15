@@ -3,16 +3,17 @@ title: Synapse SQL-작업 영역 미리 보기에서 지원 되는 시스템 뷰
 description: Synapse SQL에서 지원 되는 시스템 뷰의 설명서에 대 한 링크입니다.
 author: filippopovic
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e77c85b734784c37b8e0d599c02f8807123038dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7079bbcf3bd7cb7f6073b132cd558386744f6884
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88796734"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092769"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Synapse SQL에서 지원 되는 시스템 뷰
 Synapse SQL에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.

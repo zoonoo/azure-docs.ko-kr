@@ -164,10 +164,10 @@
   items:
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Microsoft Q&A의 Azure Storage
+    - name: Microsoft Q&A의 Table Storage
       href: 'https://docs.microsoft.com/answers/topics/azure-table-storage.html'
-    - name: Stack Overflow의 Azure Storage
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Stack Overflow의 Table Storage
+      href: 'https://stackoverflow.com/questions/tagged/azure-table-storage'
     - name: Table Storage 가격 책정
       href: 'https://azure.microsoft.com/en-us/pricing/details/storage/tables/'
     - name: Azure 요금 계산기

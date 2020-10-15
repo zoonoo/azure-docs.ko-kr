@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c9d4356f5dc0b1eace586b741593b9c718c35caf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945450"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092803"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -23,7 +23,7 @@ Azure 스프링 클라우드는 Steeltoe 앱을 호스트, 모니터링, 크기 
 이 문서에서는 Azure 스프링 클라우드에서 .NET Core Steeltoe 앱을 실행 하는 데 필요한 종속성, 구성 및 코드에 대해 설명 합니다. Azure 스프링 클라우드에 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [첫 번째 Azure 스프링 클라우드 응용 프로그램 배포](spring-cloud-quickstart.md)를 참조 하세요.
 
 >[!Note]
-> Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 제출하세요.
+> Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
 ##  <a name="supported-versions"></a>지원되는 버전
 
@@ -99,7 +99,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 
 Spring/Java 애플리케이션만 Azure Spring Cloud에서 실행할 수 있습니다.
 
-Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
+Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot 및 Spring Cloud 버전
 
@@ -305,9 +305,9 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
  또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure 스프링 클라우드에서 Application Insights를 사용 하는 방법에 대 한 자세한 내용은 [분산 추적에 대 한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조 하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [애플리케이션 로그 및 메트릭 분석](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [구성 서버 설정](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Azure Spring Cloud에서 분산 추적 사용](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [애플리케이션 로그 및 메트릭 분석](./diagnostic-services.md)
+* [구성 서버 설정](./spring-cloud-tutorial-config-server.md)
+* [Azure Spring Cloud에서 분산 추적 사용](./spring-cloud-tutorial-distributed-tracing.md)
 * [Spring 빠른 시작 가이드](https://spring.io/quickstart)
 * [Spring Boot 설명서](https://spring.io/projects/spring-boot)
 

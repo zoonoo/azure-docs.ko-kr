@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c4bdf1268aea06d7b67776a4022c608549994e7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88207142"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074858"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>앱 구성 저장소 자동 백업
 
@@ -124,7 +124,7 @@ az eventgrid event-subscription create \
 - Azure Functions 런타임 버전 3(sp3)
 - 10 분 마다 타이머에 의해 트리거되는 함수
 
-데이터의 백업을 더 쉽게 시작할 수 있도록 코드를 변경 하지 않고 사용할 수 있는 [함수를 테스트 하 고 게시](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) 했습니다. 프로젝트 파일을 다운로드 하 고 [Visual Studio에서 사용자 고유의 Azure 함수 앱에 게시](/azure/azure-functions/functions-develop-vs#publish-to-azure)합니다.
+데이터의 백업을 더 쉽게 시작할 수 있도록 코드를 변경 하지 않고 사용할 수 있는 [함수를 테스트 하 고 게시](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) 했습니다. 프로젝트 파일을 다운로드 하 고 [Visual Studio에서 사용자 고유의 Azure 함수 앱에 게시](../azure-functions/functions-develop-vs.md#publish-to-azure)합니다.
 
 > [!IMPORTANT]
 > 다운로드 한 코드에서 환경 변수를 변경 하지 마세요. 다음 섹션에서 필요한 앱 설정을 만듭니다.
@@ -133,13 +133,13 @@ az eventgrid event-subscription create \
 ### <a name="build-your-own-function"></a>사용자 고유의 함수 빌드
 
 이전에 제공 된 샘플 코드가 사용자의 요구 사항을 충족 하지 않는 경우 사용자 고유의 함수를 만들 수도 있습니다. 함수는 백업을 완료 하기 위해 다음 작업을 수행할 수 있어야 합니다.
-- 큐의 내용을 주기적으로 읽어 Event Grid의 알림이 포함 되어 있는지 확인 합니다. 구현에 대 한 자세한 내용은 [저장소 큐 SDK](/azure/storage/queues/storage-quickstart-queues-dotnet) 를 참조 하세요.
-- 큐에 [Event Grid의 이벤트 알림이](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema)포함 되어 있으면 `<key, label>` 이벤트 메시지에서 모든 고유 정보를 추출 합니다. 키와 레이블 조합은 기본 저장소의 키-값 변경 내용에 대 한 고유 식별자입니다.
+- 큐의 내용을 주기적으로 읽어 Event Grid의 알림이 포함 되어 있는지 확인 합니다. 구현에 대 한 자세한 내용은 [저장소 큐 SDK](../storage/queues/storage-quickstart-queues-dotnet.md) 를 참조 하세요.
+- 큐에 [Event Grid의 이벤트 알림이](./concept-app-configuration-event.md?branch=pr-en-us-112982#event-schema)포함 되어 있으면 `<key, label>` 이벤트 메시지에서 모든 고유 정보를 추출 합니다. 키와 레이블 조합은 기본 저장소의 키-값 변경 내용에 대 한 고유 식별자입니다.
 - 기본 저장소에서 모든 설정을 읽습니다. 보조 저장소에서 해당 이벤트가 있는 해당 이벤트를 포함 하는 설정만 업데이트 합니다. 주 저장소에는 없지만 큐에 있는 보조 저장소에서 모든 설정을 삭제 합니다. [앱 구성 SDK](https://github.com/Azure/AppConfiguration#sdks) 를 사용 하 여 프로그래밍 방식으로 구성 저장소에 액세스할 수 있습니다.
 - 처리 하는 동안 예외가 발생 하지 않은 경우 큐에서 메시지를 삭제 합니다.
 - 필요에 따라 오류 처리를 구현 합니다. 처리할 수 있는 몇 가지 일반적인 예외를 보려면 앞의 코드 샘플을 참조 하세요.
 
-함수를 만드는 방법에 대해 자세히 알아보려면 [Azure에서 타이머에 의해 트리거되는 함수 만들기](/azure/azure-functions/functions-create-scheduled-function) 및 [Visual Studio를 사용 하 여 Azure Functions 개발](/azure/azure-functions/functions-develop-vs)을 참조 하세요.
+함수를 만드는 방법에 대해 자세히 알아보려면 [Azure에서 타이머에 의해 트리거되는 함수 만들기](../azure-functions/functions-create-scheduled-function.md) 및 [Visual Studio를 사용 하 여 Azure Functions 개발](../azure-functions/functions-develop-vs.md)을 참조 하세요.
 
 
 > [!IMPORTANT]
@@ -167,16 +167,16 @@ az functionapp config appsettings set --name $functionAppName --resource-group $
 
 ## <a name="grant-access-to-the-managed-identity-of-the-function-app"></a>함수 앱의 관리 되는 id에 대 한 액세스 권한 부여
 
-함수 앱에 대 한 시스템 할당 관리 id를 추가 하려면 다음 명령을 사용 하거나 [Azure Portal](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity) 합니다.
+함수 앱에 대 한 시스템 할당 관리 id를 추가 하려면 다음 명령을 사용 하거나 [Azure Portal](../app-service/overview-managed-identity.md#add-a-system-assigned-identity) 합니다.
 
 ```azurecli-interactive
 az functionapp identity assign --name $functionAppName --resource-group $resourceGroupName
 ```
 
 > [!NOTE]
-> 필요한 리소스 생성 및 역할 관리를 수행 하려면 계정에 `Owner` 적절 한 범위 (구독 또는 리소스 그룹)에 대 한 권한이 필요 합니다. 역할 할당에 대 한 지원이 필요한 경우 [Azure Portal를 사용 하 여 Azure 역할 할당을 추가 하거나 제거 하는 방법을](/azure/role-based-access-control/role-assignments-portal)알아봅니다.
+> 필요한 리소스 생성 및 역할 관리를 수행 하려면 계정에 `Owner` 적절 한 범위 (구독 또는 리소스 그룹)에 대 한 권한이 필요 합니다. 역할 할당에 대 한 지원이 필요한 경우 [Azure Portal를 사용 하 여 Azure 역할 할당을 추가 하거나 제거 하는 방법을](../role-based-access-control/role-assignments-portal.md)알아봅니다.
 
-다음 명령 또는 [Azure Portal](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) 를 사용 하 여 앱 구성 저장소에 대 한 함수 앱 액세스의 관리 id를 부여 합니다. 다음 역할을 사용 합니다.
+다음 명령 또는 [Azure Portal](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) 를 사용 하 여 앱 구성 저장소에 대 한 함수 앱 액세스의 관리 id를 부여 합니다. 다음 역할을 사용 합니다.
 - `App Configuration Data Reader`기본 앱 구성 저장소에서 역할을 할당 합니다.
 - `App Configuration Data Owner`보조 앱 구성 저장소에서 역할을 할당 합니다.
 
@@ -196,7 +196,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-다음 명령 또는 [Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal) 를 사용 하 여 함수 앱에 대 한 관리 id에 큐에 대 한 액세스 권한을 부여 합니다. `Storage Queue Data Contributor`큐에 역할을 할당 합니다.
+다음 명령 또는 [Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) 를 사용 하 여 함수 앱에 대 한 관리 id에 큐에 대 한 액세스 권한을 부여 합니다. `Storage Queue Data Contributor`큐에 역할을 할당 합니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -216,7 +216,7 @@ az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 이벤트를 트리거 했습니다. 잠시 후에 Event Grid는 큐에 이벤트 알림을 보냅니다. *다음에 예약 된 함수 실행 후*보조 저장소의 구성 설정을 보고 기본 저장소에서 업데이트 된 키 값이 포함 되어 있는지 확인 합니다.
 
 > [!NOTE]
-> 예약 된 타이머 트리거를 기다리지 않고 테스트 및 문제 해결 중에 [함수를 수동으로 트리거할](/azure/azure-functions/functions-manually-run-non-http) 수 있습니다.
+> 예약 된 타이머 트리거를 기다리지 않고 테스트 및 문제 해결 중에 [함수를 수동으로 트리거할](../azure-functions/functions-manually-run-non-http.md) 수 있습니다.
 
 백업 기능이 성공적으로 실행 되었는지 확인 한 후에는 키가 보조 저장소에 표시 되는 것을 확인할 수 있습니다.
 
@@ -243,9 +243,9 @@ az appconfig kv show --name $secondaryAppConfigName --key Foo
 
 - 기본 저장소에서 설정을 만든 *후* 백업 기능이 트리거 되었는지 확인 합니다.
 - Event Grid에서 큐에 이벤트 알림을 전송 하지 못할 수 있습니다. 큐에 주 저장소의 이벤트 알림이 계속 포함 되어 있는지 확인 합니다. 이 경우 backup 함수를 다시 트리거합니다.
-- 오류 또는 경고에 대 한 [Azure Functions 로그](/azure/azure-functions/functions-create-scheduled-function#test-the-function) 를 확인 합니다.
-- [Azure Portal](/azure/azure-functions/functions-how-to-use-azure-function-app-settings#get-started-in-the-azure-portal) 를 사용 하 여 Azure 함수 앱에 Azure Functions 읽으려고 하는 응용 프로그램 설정에 대 한 올바른 값이 포함 되어 있는지 확인 합니다.
-- [Azure 애플리케이션 Insights](/azure/azure-functions/functions-monitoring?tabs=cmd)를 사용 하 여 Azure Functions에 대 한 모니터링 및 경고를 설정할 수도 있습니다. 
+- 오류 또는 경고에 대 한 [Azure Functions 로그](../azure-functions/functions-create-scheduled-function.md#test-the-function) 를 확인 합니다.
+- [Azure Portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) 를 사용 하 여 Azure 함수 앱에 Azure Functions 읽으려고 하는 응용 프로그램 설정에 대 한 올바른 값이 포함 되어 있는지 확인 합니다.
+- [Azure 애플리케이션 Insights](../azure-functions/functions-monitoring.md?tabs=cmd)를 사용 하 여 Azure Functions에 대 한 모니터링 및 경고를 설정할 수도 있습니다. 
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

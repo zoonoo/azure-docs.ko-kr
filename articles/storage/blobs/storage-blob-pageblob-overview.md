@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018844"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091018"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -90,7 +90,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-페이지 blob을 만든 후 크기를 조정 하려면 [resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) 메서드를 사용 합니다. 요청 크기는 512바이트의 배수여야 합니다.
+페이지 blob을 만든 후 크기를 조정 하려면 [resize](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) 메서드를 사용 합니다. 요청 크기는 512바이트의 배수여야 합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 

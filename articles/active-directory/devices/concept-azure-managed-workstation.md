@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601387"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093313"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 
@@ -64,7 +64,7 @@ ms.locfileid: "90601387"
 * 매우 중요 한 워크스테이션 (예: SWIFT 결제 터미널)
 * 거래 비밀을 처리 하는 워크스테이션
 
-위험을 줄이려면 이러한 계정을 사용 하는 권한 있는 워크스테이션에 대해 높은 수준의 보안 제어를 구현 해야 합니다. 자세한 내용은 [Azure Active Directory 기능 배포 가이드](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 로드맵](https://aka.ms/o365secroadmap)및 [권한 있는 액세스 로드맵 보안](https://aka.ms/sparoadmap))을 참조 하세요.
+위험을 줄이려면 이러한 계정을 사용 하는 권한 있는 워크스테이션에 대해 높은 수준의 보안 제어를 구현 해야 합니다. 자세한 내용은 [Azure Active Directory 기능 배포 가이드](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 로드맵](/microsoft-365/security/office-365-security/security-roadmap)및 [권한 있는 액세스 로드맵 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access))을 참조 하세요.
 
 ## <a name="why-use-dedicated-workstations"></a>전용 워크스테이션을 사용 해야 하는 이유
 

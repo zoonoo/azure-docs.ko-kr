@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf30570f10f176c47aed0f99127e03a027eff775
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563899"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093092"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
 
@@ -62,11 +62,11 @@ Faq: [AZURE AD 장치 관리 faq](faq.md)  및 [설정 및 데이터 로밍 faq]
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [적절 한 관련자](https://aka.ms/deploymentplans) 를 사용 하 고 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [적절 한 관련자](../fundamentals/active-directory-deployment-plans.md) 를 사용 하 고 프로젝트의 관련자 역할을 잘 이해 하 고 있어야 합니다. 
 
 이 계획의 경우 목록에 다음 관련자를 추가 합니다.
 
-| 역할| 설명 |
+| 역할| Description |
 | - | - |
 | 장치 관리자| 요금제가 조직의 장치 요구 사항을 충족 하는지 확인할 수 있는 장치 팀의 담당자입니다. |
 | 네트워크 관리자| 네트워크 요구 사항을 충족 하는지 확인할 수 있는 네트워크 팀의 담당자입니다. |

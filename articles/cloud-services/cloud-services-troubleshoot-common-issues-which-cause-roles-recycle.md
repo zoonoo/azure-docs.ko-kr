@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 4bf33db28d68b600d860a132027e5be440377b34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0484eb919a9de11b64dcc3334c5a9a942d875ca6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460289"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075130"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>역할을 재활용하게 하는 일반적인 문제
 이 문서에서는 배포 문제의 일반적인 몇 가지 원인을 설명하고 이러한 문제를 해결하기 위한 문제 해결 팁을 제공합니다. 애플리케이션에 문제가 있다는 것을 역할 인스턴스가 시작에 실패하거나 초기화, 사용 중, 및 중지 상태를 반복할 경우에 알 수 있습니다.
@@ -63,11 +63,11 @@ DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 TLS에서 웹 역할을 실행 하려면 내보낸 관리 인증서에 개인 키가 포함 되어 있는지 확인 해야 합니다. *Windows 인증서 관리자*를 사용하여 인증서를 내보내는 경우 **프라이빗 키 내보내기** 옵션에 대해 **예**를 선택해야 합니다. 인증서는 현재 지원되는 유일한 형식인 PFX 형식으로 내보내야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-클라우드 서비스에 대한 [문제해결 문서](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 를 더 봅니다.
+클라우드 서비스에 대한 [문제해결 문서](../index.yml?product=cloud-services&tag=top-support-issue) 를 더 봅니다.
 
-[Kevin Williamson의 블로그 시리즈](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)에서 더 많은 역할 재활용 시나리오를 보세요.
+[Kevin Williamson의 블로그 시리즈](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)에서 더 많은 역할 재활용 시나리오를 보세요.
 
-[RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
-[OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
-[OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[실행]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[RoleEntryPoint]: /previous-versions/azure/reference/ee758619(v=azure.100)
+[OnStart]: /previous-versions/azure/reference/ee772851(v=azure.100)
+[OnStop]: /previous-versions/azure/reference/ee772844(v=azure.100)
+[실행]: /previous-versions/azure/reference/ee772746(v=azure.100)

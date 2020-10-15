@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945399"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094010"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -54,7 +54,7 @@ Azure 스프링 클라우드에는 다음과 같은 알려진 제한 사항이 �
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 
-Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 만듭니다. 기능 요청을 제출 하거나 피드백을 제공 하려면 [Azure 사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)으로 이동 하세요.
+Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 만듭니다. 기능 요청을 제출 하거나 피드백을 제공 하려면 [Azure 사용자 의견](https://feedback.azure.com/forums/34192--general-feedback)으로 이동 하세요.
 
 ## <a name="development"></a>개발
 
@@ -70,9 +70,9 @@ Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS �
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>내 스프링 클라우드 응용 프로그램 로그 및 메트릭은 어디에서 볼 수 있나요?
 
-메트릭은 [앱 개요] 탭 및 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics) 탭에서 찾습니다.
+메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics) 탭에서 찾습니다.
 
-Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring*입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
+Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring*입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 
@@ -106,7 +106,7 @@ Azure CLI를 사용 하 여 스프링 클라우드의 진단 설정을 삭제할
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 지원 되는 Java runtime 버전은 무엇 인가요?
 
-Azure 스프링 클라우드는 최신 빌드를 사용 하 여 Java LTS 버전을 지원 합니다. 현재 6 월 2020, Java 8 빌드 252 및 Java 11 빌드 7이 지원 됩니다. [Azure 및 Azure Stack에 대 한 JDK 설치를](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
+Azure 스프링 클라우드는 최신 빌드를 사용 하 여 Java LTS 버전을 지원 합니다. 현재 6 월 2020, Java 8 빌드 252 및 Java 11 빌드 7이 지원 됩니다. [Azure 및 Azure Stack에 대 한 JDK 설치를](/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
 
 ### <a name="who-built-these-java-runtimes"></a>이러한 Java 런타임을 만든 사람은 누구 인가요?
 
@@ -118,14 +118,14 @@ LTS 및 MTS JDK 릴리스에는 필요에 따라 분기별 보안 업데이트, 
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Java 8 및 Java 11 LTS 버전은 얼마나 오래 지원 되나요?
 
-[Azure 및 Azure Stack에 대 한 Java 장기 지원을](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)참조 하세요.
+[Azure 및 Azure Stack에 대 한 Java 장기 지원을](/azure/developer/java/fundamentals/java-jdk-long-term-support)참조 하세요.
 
 * Java 8 LTS는 12 월 2030 일까 지 지원 될 예정입니다.
 * Java 11 LTS는 9 월 2027 일까 지 지원 될 예정입니다.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>로컬 개발을 위해 지원 되는 Java 런타임을 다운로드 하려면 어떻게 해야 하나요?
 
-[Azure 용 JDK 설치 및 Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)를 참조 하세요.
+[Azure 용 JDK 설치 및 Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)를 참조 하세요.
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>이전 Java 런타임에 대 한 사용 중지 정책은 무엇 인가요?
 
@@ -136,7 +136,7 @@ LTS 및 MTS JDK 릴리스에는 필요에 따라 분기별 보안 업데이트, 
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Java 런타임 수준에서 문제에 대 한 지원을 받으려면 어떻게 해야 하나요?
 
-Azure 지원으로 지원 티켓을 열 수 있습니다.  [Azure 지원 요청을 만드는 방법을](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)참조 하세요.
+Azure 지원으로 지원 티켓을 열 수 있습니다.  [Azure 지원 요청을 만드는 방법을](../azure-portal/supportability/how-to-create-azure-support-request.md)참조 하세요.
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>앱을 실행 하는 운영 체제는 무엇 인가요?
 

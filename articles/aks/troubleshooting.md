@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893138"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074416"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -206,7 +206,7 @@ Azure (AKS 또는 no)의 kubernetes 클러스터가 잦은 규모를 확대/축�
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-이러한 제한 오류는 [여기](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) 와 [여기](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors) 에 자세히 설명 되어 있습니다.
+이러한 제한 오류는 [여기](../azure-resource-manager/management/request-limits-and-throttling.md) 와 [여기](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md) 에 자세히 설명 되어 있습니다.
 
 AKS 엔지니어링 팀은 많은 기능이 향상 된 버전의 1.18를 실행 하 고 있는지 확인 하는 것이 좋습니다. 자세한 내용은 [여기](https://github.com/Azure/AKS/issues/1413) 및 [여기](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)에서 향상 된 기능을 참조 하세요.
 
