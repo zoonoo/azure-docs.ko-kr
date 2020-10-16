@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842583"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102934"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight에서 지원 되는 고가용성 서비스
 
@@ -62,7 +62,7 @@ Microsoft는 HDInsight 클러스터의 다음 표에서 4 개의 Apache 서비�
 | Apache Livy | 활성 헤드 노드 | Spark | REST 인터페이스를 통해 Spark 클러스터와 쉽게 상호 작용할 수 있습니다. |
 
 >[!Note]
-> 현재 ESP (HDInsight Enterprise Security Package) 클러스터는 Ambari 서버 고가용성만 제공 합니다.
+> 현재 ESP (HDInsight Enterprise Security Package) 클러스터는 Ambari 서버 고가용성만 제공 합니다. 애플리케이션 타임라인 서버, 작업 기록 서버 및 Livy 모두 headnode0 에서만 실행 되며 Ambari failsover 인 경우 headnode1로 장애 조치 (failover) 되지 않습니다. 응용 프로그램 타임 라인 데이터베이스는 Ambari SQL server가 아닌 headnode0에도 있습니다.
 
 ### <a name="architecture"></a>Architecture
 

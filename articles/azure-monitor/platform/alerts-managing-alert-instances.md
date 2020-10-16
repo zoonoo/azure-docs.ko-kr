@@ -4,16 +4,16 @@ description: Azure 전체에서 경고 인스턴스 관리
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1910b3b474012365e8117f584379b2b29f8ce3de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77667621"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102873"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>통합 경고를 사용 하 여 경고 인스턴스 관리
 
-Azure Monitor의 [통합 경고 환경을](https://aka.ms/azure-alerts-overview) 사용 하 여 Azure에서 다양 한 유형의 경고를 모두 볼 수 있습니다. 단일 창에서 여러 구독으로 확장 됩니다. 이 문서에서는 경고 인스턴스를 보는 방법 및 문제 해결을 위해 특정 경고 인스턴스를 찾는 방법을 보여 줍니다.
+Azure Monitor의 [통합 경고 환경을](./alerts-overview.md) 사용 하 여 Azure에서 다양 한 유형의 경고를 모두 볼 수 있습니다. 단일 창에서 여러 구독으로 확장 됩니다. 이 문서에서는 경고 인스턴스를 보는 방법 및 문제 해결을 위해 특정 경고 인스턴스를 찾는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 최근 30 일 동안 생성 된 경고에만 액세스할 수 있습니다.
@@ -54,5 +54,4 @@ Azure Monitor의 [통합 경고 환경을](https://aka.ms/azure-alerts-overview)
 
 경고 인스턴스를 선택 하면 해당 특정 경고 인스턴스에 대 한 자세한 정보를 볼 수 있는 **경고 정보** 페이지가 열립니다.   
 
-![경고 정보 페이지의 스크린샷](media/alerts-managing-alert-instances/alert-details.jpg)  
-
+![경고 정보 페이지의 스크린샷](media/alerts-managing-alert-instances/alert-details.jpg)

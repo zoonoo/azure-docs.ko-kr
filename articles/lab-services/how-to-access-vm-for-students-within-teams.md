@@ -3,12 +3,12 @@ title: 팀의 Azure 랩에서 VM (학생 보기)에 액세스
 description: 팀의 Azure 랩에서 VM (학생 보기)에 액세스 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c786a8b3fcee57cefb551a61087d4b49ee5e93c0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043448"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102411"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>팀의 Azure 랩에서 VM (학생 보기)에 액세스
 
@@ -16,7 +16,7 @@ ms.locfileid: "92043448"
 
 ## <a name="view-labs"></a>실습 보기
 
-랩을 아직 게시 하지 않았거나 팀에 추가 된 후에도 동기화를 트리거하지 않은 경우 학생에 게 비슷한 메시지가 표시 됩니다. ' 랩 '을 아직 게시 하지 않았거나 팀에 추가 된 후에도 동기화를 트리거해야 하는 경우에는 팀 멤버에 게 유사한 메시징이 표시 됩니다.
+랩을 아직 게시 하지 않았거나 팀에 추가 된 후에도 동기화를 트리거해야 하는 경우 팀 멤버에 게 유사한 메시징이 표시 됩니다.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Azure Lab Services 랩":::

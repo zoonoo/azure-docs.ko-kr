@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595093"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101905"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -76,7 +76,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 구성 창에 다음 Azure Repos 코드 리포지토리 설정이 표시됩니다.
 
-| 설정 | 설명 | 값 |
+| 설정 | Description | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -162,6 +162,8 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 - 버전 2.14.0 이상의 GitHub Enterprise는 Microsoft Edge 브라우저에서 작동하지 않습니다.
 
 - Data Factory 시각적 제작 도구와 GitHub 통합은 일반적으로 사용 가능한 Data Factory 버전에서만 작동합니다.
+
+- GitHub 조직 계정을 지원 하지 Azure Data Factory
 
 - 단일 GitHub 분기에서 리소스 유형(예: 파이프라인 및 데이터 세트)당 최대 1,000개의 엔터티를 가져올 수 있습니다. 이 한도에 도달하면 리소스를 별도의 팩터리에 분할하는 것이 좋습니다. Azure DevOps Git에는 이러한 제한 사항이 없습니다.
 

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85984854"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103750"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -82,11 +82,10 @@ ms.locfileid: "85984854"
          -F refresh_token=<REFRESH-TOKEN>
     ```
 
-대화형 사용자 인증에 대한 자세한 내용은 [인증 코드 부여 흐름](https://msdn.microsoft.com/library/azure/dn645542.aspx)을 참조하세요.
+대화형 사용자 인증에 대한 자세한 내용은 [인증 코드 부여 흐름](/previous-versions/azure/dn645542(v=azure.100))을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 REST API를 사용하여 Azure Data Lake Storage Gen1에서 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 REST API를 Azure Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
 * [REST API를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-rest-api.md)
 * [REST API를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-data-operations-rest-api.md)
-

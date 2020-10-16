@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffd00ace0445b1b8cc13881834d7759aa217c4c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5b2364328fc4e0103b969f94a4c877a388edb7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020969"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103614"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1의 계정 관리 작업
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "89020969"
 
 .NET SDK를 사용하여 Data Lake Storage Gen1에서 데이터 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Visual Studio 2013 이상** 아래 지침에서는 Visual Studio 2019을 사용 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -142,9 +142,9 @@ public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
 _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 * [.NET SDK를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK 참조](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

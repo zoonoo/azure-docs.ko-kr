@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75aec9f3509881c35de9309fa1532b961fb2bc03
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 11d2172d085fe9b47587f4084908f99d7b54437e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875567"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103240"
 ---
-Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 해당 이름은 **Group ClassicRG TestVNet1**과 같은 모양일 수 있습니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
+Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 리소스 그룹 "ClassicRG" 이름에 있는 VNet의 경우 **그룹 ClassicRG TestVNet1**처럼 보일 수 있습니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
 
 다음 단계에서는 연결에 필요한 값을 확보하기 위해 Azure 계정에 연결하고 네트워크 구성 파일을 다운로드하여 살펴봅니다.
 
@@ -36,9 +36,10 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
-1. 네트워크 구성 파일을 내보내고 및 살펴봅니다. 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 **C:\AzureNet**으로 내보냅니다.
+1. 컴퓨터에 디렉터리를 만듭니다. 예: C:\AzureVNet
+1. 네트워크 구성 파일을 디렉터리로 내보냅니다. 이 예제에서는 네트워크 구성 파일을 **C:\AzureNet**으로 내보냅니다.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-1. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 이러한 이름은 연결을 만들 때 사용 하는 이름이 됩니다.<br>VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =** 으로 나열됩니다.
+1. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 이러한 이름은 연결을 만들 때 사용 하는 이름이 됩니다.<br>**VNet** 이름은 **VirtualNetworkSite name =** 으로 나열 됩니다.<br>**사이트** 이름은 **LocalNetworkSiteRef name =** 으로 나열 됩니다.

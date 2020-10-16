@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78184251"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102020"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Azure AD B2C에 사용할 수 있는 Microsoft Graph 작업
 
@@ -33,6 +33,15 @@ ms.locfileid: "78184251"
 - [사용자 삭제](https://docs.microsoft.com/graph/api/user-delete)
 
 Microsoft Graph API를 사용 하 여 Azure AD B2C 사용자 계정을 관리 하는 방법에 대 한 자세한 내용은 [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md)를 참조 하세요.
+
+## <a name="user-phone-number-management"></a>사용자 전화 번호 관리
+
+- [추가](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [가져오기](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+Microsoft Graph API를 사용 하 여 사용자의 로그인 전화 번호를 관리 하는 방법에 대 한 자세한 내용은 [B2C 인증 방법](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy)을 참조 하세요.
 
 ## <a name="identity-providers-user-flow"></a>Id 공급자 (사용자 흐름)
 
@@ -98,7 +107,7 @@ Microsoft Graph API의 정책 키에 대 한 최상위 리소스는 [신뢰할 �
 
 - [확장 속성 나열](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C는 사용자당 100개의 사용자 지정 특성을 보유할 수 있는 디렉터리를 제공합니다. 사용자 흐름의 경우 이러한 확장 속성은 [Azure Portal를 사용 하 여 관리](custom-policy-custom-attributes.md)됩니다. 사용자 지정 정책의 경우 정책에서 확장 속성에 값을 처음으로 쓸 때 Azure AD B2C가 속성을 만듭니다.
+Azure AD B2C는 사용자당 100개의 사용자 지정 특성을 보유할 수 있는 디렉터리를 제공합니다. 사용자 흐름의 경우 이러한 확장 속성은 [Azure Portal를 사용 하 여 관리](custom-policy-custom-attributes.md)됩니다. 사용자 지정 정책의 경우 정책에서 확장 속성에 값을 처음으로 쓸 때 Azure AD B2C에서 속성을 만듭니다.
 
 ## <a name="audit-logs"></a>감사 로그
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578549"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103784"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
 둘 중 어떤 옵션을 사용하든 애플리케이션에는 OAuth 2.0 토큰이 제공됩니다. 이 토큰은 Data Lake Storage Gen1 또는 Azure Data Lake Analytics에 대한 각 요청에 연결됩니다.
 
-이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 애플리케이션**을 만드는 방법에 대해 설명합니다. 서비스 간 인증용 Azure AD 애플리케이션 구성 관련 지침은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 최종 사용자 인증을 위한 **Microsoft Azure Active Directory 네이티브 애플리케이션**을 만드는 방법에 대해 설명합니다. 서비스 간 인증용 Azure AD 애플리케이션 구성 관련 지침은 [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * 구독 ID. Azure Portal에서 검색할 수 있습니다. 예를 들어 Data Lake Storage Gen1 계정 블레이드에서 사용할 수 있습니다.

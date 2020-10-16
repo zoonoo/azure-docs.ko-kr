@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191397"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104039"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Azure VNET 내 VM에서 Azure Data Lake Storage Gen1 액세스
 Azure Data Lake Storage Gen1은 공용 인터넷 IP 주소에서 실행되는 PaaS 서비스입니다. 공용 인터넷에 연결할 수 있는 서버는 일반적으로 Azure Data Lake Storage Gen1 엔드포인트에도 연결할 수 있습니다. 기본적으로 Azure VNET에 있는 모든 VM은 인터넷에 액세스할 수 있으므로 Azure Data Lake Storage Gen1에 액세스할 수 있습니다. 그러나 VNET에서 VM을 인터넷에 액세스하지 못하도록 구성할 수 있습니다. 이러한 VM의 경우 Azure Data Lake Storage Gen1에 대한 액세스도 제한됩니다. Azure VNET의 VM에 대한 공용 인터넷 액세스를 차단하려면 다음 방법 중 하나를 사용하여 수행할 수 있습니다.
@@ -46,7 +46,7 @@ Aliases:  mydatastore.azuredatalakestore.net
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>NSG를 사용하여 제한된 VM에서 연결을 사용하도록 설정
-NSG 규칙을 사용하여 인터넷 액세스를 차단하는 경우 Data Lake Storage Gen1 IP 주소에 대한 액세스를 허용하는 다른 NSG를 만들 수 있습니다. NSG 규칙에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md)를 참조하세요. NSG를 만드는 방법에 대한 지침은 [네트워크 보안 그룹을 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)을 참조하세요.
+NSG 규칙을 사용하여 인터넷 액세스를 차단하는 경우 Data Lake Storage Gen1 IP 주소에 대한 액세스를 허용하는 다른 NSG를 만들 수 있습니다. NSG 규칙에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md)를 참조하세요. NSG를 만드는 방법에 대한 지침은 [네트워크 보안 그룹을 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)을 참조하세요.
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>UDR 또는 ExpressRoute를 사용하여 제한된 VM에서 연결을 사용하도록 설정
 UDR 또는 BGP 교환 경로 중 하나를 사용하여 인터넷 액세스를 차단하는 경우 해당 서브넷의 VM이 Data Lake Storage Gen1 엔드포인트에 액세스할 수 있도록 특별한 경로를 구성해야 합니다. 자세한 내용은 [사용자 정의 경로 개요](../virtual-network/virtual-networks-udr-overview.md)를 참조하세요. UDR 만들기에 대한 지침은 [Resource Manager에서 UDR 만들기](../virtual-network/tutorial-create-route-table-powershell.md)를 참조하세요.
@@ -54,7 +54,6 @@ UDR 또는 BGP 교환 경로 중 하나를 사용하여 인터넷 액세스를 �
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>ExpressRoute를 사용하여 제한된 VM에서 연결을 사용하도록 설정
 ExpressRoute 회로가 구성되면 온-프레미스 서버는 공용 피어링을 통해 Data Lake Storage Gen1에 액세스할 수 있습니다. 공용 피어링을 위한 ExpressRoute 구성에 대한 자세한 내용은 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)에서 확인할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Data Lake Storage Gen1에 저장된 데이터 보호](data-lake-store-security-overview.md)
-

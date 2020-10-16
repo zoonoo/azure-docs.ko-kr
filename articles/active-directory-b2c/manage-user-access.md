@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2018
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387731"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102054"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -114,7 +114,7 @@ DOB 데이터 수집에 대한 자세한 내용은 [Azure AD B2C에서 나이 �
 
 ![권장 수락 사용자 흐름을 보여 주는 순서도 다이어그램](./media/manage-user-access/user-flow.png)
 
-아래는 클레임의 DateTime 기반 사용 약관 동의의 예입니다.
+다음은 클레임의 날짜 기반 사용 약관에 대 한 예입니다. `extension_termsOfUseConsentDateTime`클레임이 보다 오래 된 경우 `2025-01-15T00:00:00` `termsOfUseConsentRequired` 부울 클레임을 확인 하 고 자체 어설션된 화면을 표시 하 여 새 수락을 강제로 적용 합니다. 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ DOB 데이터 수집에 대한 자세한 내용은 [Azure AD B2C에서 나이 �
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ DOB 데이터 수집에 대한 자세한 내용은 [Azure AD B2C에서 나이 �
 </ClaimsTransformations>
 ```
 
-아래는 클레임의 Version 기반 사용 약관 동의의 예입니다.
+다음은 클레임에 대 한 버전 기반 사용 약관의 예입니다. `extension_termsOfUseConsentVersion`클레임이와 같지 않으면 `V1` `termsOfUseConsentRequired` 부울 클레임을 확인 하 고 자체 어설션된 화면을 표시 하 여 새 수락을 강제로 적용 합니다.
 
 ```xml
 <ClaimsTransformations>

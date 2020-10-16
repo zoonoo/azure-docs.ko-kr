@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014565"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104107"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -97,6 +97,10 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>분석 저장소에서 트랜잭션 데이터가 열 형식으로 변환되는 방식을 사용자 지정하거나 재정의할 수 있나요?
 
 현재는 데이터 항목이 트랜잭션 저장소에서 분석 저장소로 자동 전파될 때 데이터 항목을 변환할 수 없습니다. 이러한 제한으로 인해 차단되는 시나리오가 있으면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 이메일을 보내주세요.
+
+### <a name="is-analytical-store-supported-by-terraform"></a>Terraform에서 분석 저장소를 지원 하나요?
+
+현재 Terraform은 분석 저장소 컨테이너를 지원 하지 않습니다. 자세한 내용은 [Terraform GitHub 문제](https://github.com/hashicorp/terraform/issues) 를 확인 하세요.
 
 ## <a name="analytical-time-to-live-ttl"></a>분석 TTL(Time-to-Live)
 

@@ -1,23 +1,23 @@
 ---
-title: 가격 책정 계층 또는 SKU 선택
+title: 가격 책정 계층 선택
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search는 무료, 기본 및 표준의 Sku로 프로 비전 할 수 있으며, Standard는 다양 한 리소스 구성 및 용량 수준에서 사용할 수 있습니다.
+description: Azure Cognitive Search는 무료, 기본 및 표준 계층으로 프로 비전 할 수 있으며, Standard는 다양 한 리소스 구성 및 용량 수준에서 사용할 수 있습니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948088"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101276"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
-Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된 가격 책정 계층 (또는 SKU)에서 [리소스가 생성 됩니다](search-create-service-portal.md) . 계층에는 무료, 기본, 표준 및 저장소에 최적화 됨이 포함 됩니다. 표준 및 저장소 최적화는 여러 구성 및 용량에서 사용할 수 있습니다.
+Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된 가격 책정 계층에 [리소스가 생성 됩니다](search-create-service-portal.md) . 계층에는 무료, 기본, 표준 및 저장소에 최적화 됨이 포함 됩니다. 표준 및 저장소 최적화는 여러 구성 및 용량에서 사용할 수 있습니다.
 
 대부분의 고객은 서비스를 평가할 수 있도록 무료 계층으로 시작 합니다. 사후 평가, 개발 및 프로덕션 배포를 위해 상위 계층 중 하나에서 두 번째 서비스를 만드는 것이 일반적입니다.
 
@@ -27,15 +27,15 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 
 | 기능 | 제한 사항 |
 |---------|-------------|
-| [인덱서에](search-indexer-overview.md) | S3 HD에서는 인덱서를 사용할 수 없습니다. |
+| [인덱서에](search-indexer-overview.md) | S3 HD에서는 인덱서를 사용할 수 없습니다.  |
 | [AI 보강](search-security-manage-encryption-keys.md) | 무료 계층에서 실행 되지만 권장 되지 않습니다. |
 | [고객 관리형 암호화 키](search-security-manage-encryption-keys.md) | 무료 계층에서는 사용할 수 없습니다. |
 | [IP 방화벽 액세스](service-configure-firewall.md) | 무료 계층에서는 사용할 수 없습니다. |
-| [Azure 개인 링크와 통합](service-create-private-endpoint.md) | 무료 계층에서는 사용할 수 없습니다. |
+| [개인 끝점 (Azure 개인 링크와 통합)](service-create-private-endpoint.md) | 검색 서비스에 대 한 인바운드 연결의 경우 무료 계층에서는 사용할 수 없습니다. 인덱서를 사용 하 여 다른 Azure 리소스에 대 한 아웃 바운드 연결의 경우 무료 또는 S3 HD에서 사용할 수 없습니다. 기술력과를 사용 하는 인덱서의 경우 무료, 기본, S1 또는 S3 HD에서 사용할 수 없습니다.|
 
 대부분의 기능은 무료를 비롯 한 모든 계층에서 사용할 수 있지만 리소스를 많이 사용 하는 기능은 충분 한 용량을 제공 하지 않으면 제대로 작동 하지 않을 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 오래 걸리는 장기 실행 기술이 있습니다.
 
-## <a name="tiers-skus"></a>계층 (Sku)
+## <a name="tiers"></a>계층
 
 계층은 다음과 같이 구분 됩니다.
 
@@ -158,7 +158,7 @@ Azure Cognitive Search에서 용량은 *복제본* 및 *파티션으로*구성 �
 전체 텍스트 검색의 경우 주 데이터 구조는 원본 데이터와 특성이 다른 [반전 된 인덱스](https://en.wikipedia.org/wiki/Inverted_index) 구조입니다. 반전 된 인덱스의 경우 크기와 복잡성은 내용에 따라 결정 되며,이는 사용자가 제공 하는 데이터의 양이 아닐 수도 있습니다. 중복성이 높은 큰 데이터 원본을 사용 하면 가변 콘텐츠를 포함 하는 작은 데이터 집합 보다 더 작은 인덱스가 생성 될 수 있습니다. 따라서 원래 데이터 집합의 크기에 따라 인덱스 크기를 유추할 수 있는 경우는 거의 없습니다.
 
 > [!NOTE] 
-> 인덱스 및 저장소에 대 한 향후 수요를 예측 하는 것이 추측 처럼 느껴질 수 있지만이 경우에는 충분 합니다. 계층의 용량이 너무 낮을 경우 더 높은 계층에서 새 서비스를 프로 비전 한 다음 [인덱스를 다시 로드](search-howto-reindex.md)해야 합니다. 한 SKU에서 다른 SKU로의 서비스 전체 업그레이드는 없습니다.
+> 인덱스 및 저장소에 대 한 향후 수요를 예측 하는 것이 추측 처럼 느껴질 수 있지만이 경우에는 충분 합니다. 계층의 용량이 너무 낮을 경우 더 높은 계층에서 새 서비스를 프로 비전 한 다음 [인덱스를 다시 로드](search-howto-reindex.md)해야 합니다. 한 계층에서 다른 계층으로 서비스를 전체 업그레이드할 수 없습니다.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>무료 계층으로 예측

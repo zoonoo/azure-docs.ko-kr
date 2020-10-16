@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097255"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102360"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Azure Synapse Link (미리 보기)에서 SQL server 서버를 사용 하 여 Azure Cosmos DB 데이터 쿼리
 
@@ -266,8 +266,10 @@ Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리하려면 [여기](../../
 | --- | --- |
 | 구문 오류:<br/> -' Openrowset ' 근처의 구문이 잘못 되었습니다.<br/> - `...` 은 (는) 인식할 수 없는 대량 OPENROWSET 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인<br/> -' CosmosDB '를 첫 번째 매개 변수로 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스, 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에 옵션이 있습니다.<br/> -세미콜론 `;` 은 연결 문자열의 끝에 배치 됩니다. |
-| ' 잘못 된 계정/데이터베이스 이름 ' 오류로 인해 CosmosDB 경로를 확인 하지 못했습니다. | 지정한 계정 이름 또는 데이터베이스 이름을 찾을 수 없습니다. |
-| ' 잘못 된 비밀 값 ' ' 비밀이 null 이거나 비어 있음 ' 오류로 인해 CosmosDB 경로를 확인 하지 못했습니다. | 계정 키가 잘못 되었거나 없습니다. |
+| ' 잘못 된 계정 이름 ' 또는 ' 잘못 된 데이터베이스 이름 ' 오류로 인해 CosmosDB 경로를 확인 하지 못했습니다. | 지정 된 계정 이름, 데이터베이스 이름 또는 컨테이너를 찾을 수 없거나, 지정 된 컬렉션에서 분석 저장소를 사용 하도록 설정 하지 않았습니다.|
+| ' 잘못 된 비밀 값 ' 또는 ' 암호가 null 이거나 비어 있음 ' 오류로 인해 CosmosDB 경로를 확인 하지 못했습니다. | 계정 키가 잘못 되었거나 없습니다. |
+| `column name`형식의 열 `type name` 이 외부 데이터 형식과 호환 되지 않습니다.`type name` | 지정 된 열 유형 in `WITH` 절이 Cosmos DB 컨테이너의 유형과 일치 하지 않습니다. Azure Cosmos DB 섹션에서 설명한 대로 열 유형을 [SQL 형식 매핑](#azure-cosmos-db-to-sql-type-mappings) 또는 사용 유형으로 변경 하십시오 `VARCHAR` . |
+| `NULL`모든 셀의 값을 포함 하는 열입니다. | 절에서 열 이름 또는 경로 식이 잘못 되었을 수 있습니다 `WITH` . 절에서 열 이름 (또는 열 유형 뒤의 경로 식)은 `WITH` Cosmos DB collection의 일부 속성 이름과 일치 해야 합니다. 비교는 **대/소문자를 구분**  합니다 (예: `productCode` 및 `ProductCode` 는 다른 속성). |
 
 [Azure Synapse 피드백 페이지](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862)에서 제안 및 문제를 보고할 수 있습니다.
 

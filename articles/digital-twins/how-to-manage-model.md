@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057742"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102496"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -174,10 +174,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 
 #### <a name="model-versioning"></a>모델 버전 관리
 
-기존 모델의 새 버전을 만들려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트 합니다.
-
->[!NOTE]
->미리 보기 중에는 모델 버전을 이동 하는 동안 기존 필드를 제거 하지 않고 새 필드를 추가할 수 있습니다. 필드를 제거 하려면 [새로운 모델을 만들어야](#create-models)합니다.
+기존 모델의 새 버전을 만들려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트, 추가 또는 제거 합니다.
 
 그런 다음 모델의 필드를 업데이트 하 여이를 최신 버전의 모델로 표시 `id` 합니다. 모델 ID의 마지막 섹션인은 `;` 모델 번호를 나타냅니다. 이제이 모델의 더 업데이트 된 버전 임을 나타내려면 값의 끝에 있는 숫자를 `id` 현재 버전 번호 보다 큰 숫자로 늘립니다.
 

@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849492"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102781"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -63,7 +63,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 
 ### <a name="third-party-images"></a>타사 이미지
 
-풀은 Azure Marketplace에 게시 된 타사 이미지를 사용 하 여 만들 수 있습니다. 사용자 구독 모드 Batch 계정을 사용 하면 특정 타사 이미지를 사용 하 여 풀을 만들 때 "marketplace 구매 자격 확인으로 인해 할당 하지 못했습니다." 라는 오류가 표시 될 수 있습니다. 이 오류를 해결 하려면 이미지 게시자가 설정한 약관에 동의 합니다. [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms)를 사용 하 여이 작업을 수행할 수 있습니다.
+풀은 Azure Marketplace에 게시 된 타사 이미지를 사용 하 여 만들 수 있습니다. 사용자 구독 모드 Batch 계정을 사용 하면 특정 타사 이미지를 사용 하 여 풀을 만들 때 "marketplace 구매 자격 확인으로 인해 할당 하지 못했습니다." 라는 오류가 표시 될 수 있습니다. 이 오류를 해결 하려면 이미지 게시자가 설정한 약관에 동의 합니다. [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) 또는 [Azure CLI](/cli/azure/vm/image/terms)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 ### <a name="azure-region-dependency"></a>Azure 지역 종속성
 

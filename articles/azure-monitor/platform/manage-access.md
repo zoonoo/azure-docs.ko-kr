@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300105"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104141"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
 
@@ -162,7 +162,7 @@ Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
 
 Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
-| 사용 권한 | 설명 |
+| 사용 권한 | Description |
 | ---------- | ----------- |
 | `*/read`     | 다음을 포함해 모든 리소스 및 리소스 구성을 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정입니다. <br> 작업 영역의 경우 작업 영역 설정을 읽고 데이터에 대해 쿼리를 수행할 수 있는 완전 무제한 권한을 허용 합니다. 위의 세부적인 옵션을 참조 하세요. |
 | `Microsoft.Automation/automationAccounts/*` | Runbook 추가 및 편집을 포함해 Azure Automation 계정을 만들고 구성할 수 있습니다. |
@@ -189,9 +189,9 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 사용자가 리소스 컨텍스트 액세스를 사용 하 여 작업 영역에서 로그를 쿼리하면 해당 리소스에 대해 다음과 같은 사용 권한이 부여 됩니다.
 
-| 사용 권한 | 설명 |
+| 사용 권한 | Description |
 | ---------- | ----------- |
-| `Microsoft.Insights/logs/<tableName>/read`<br><br>예제:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 리소스에 대 한 모든 로그 데이터를 볼 수 있습니다.  |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>예:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 리소스에 대 한 모든 로그 데이터를 볼 수 있습니다.  |
 | `Microsoft.Insights/diagnosticSettings/write` | 이 리소스에 대 한 로그를 설정할 수 있도록 진단 설정을 구성 하는 기능입니다. |
 
 `/read`사용 권한은 일반적으로 기본 제공 판독기 및 기여자 역할과 같은 사용 _ \* /읽기 또는_ 사용 권한을 포함 하는 역할에서 부여 됩니다 _\*_ . [Reader](../../role-based-access-control/built-in-roles.md#reader) [Contributor](../../role-based-access-control/built-in-roles.md#contributor) 특정 작업 또는 전용 기본 제공 역할을 포함 하는 사용자 지정 역할에는이 권한이 포함 되지 않을 수 있습니다.
@@ -243,7 +243,7 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 **테이블 수준 RBAC** 를 사용 하면 다른 권한 외에도 Log Analytics 작업 영역에서 데이터에 대 한 보다 세분화 된 제어를 정의할 수 있습니다. 이 컨트롤을 사용 하면 특정 사용자 집합에만 액세스할 수 있는 특정 데이터 형식을 정의할 수 있습니다.
 
-[Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 을 사용 하 여 테이블 액세스 제어를 구현 하 여 작업 영역의 특정 [테이블](../log-query/logs-structure.md) 에 대 한 액세스 권한을 부여 합니다. 이러한 역할은 사용자의 [액세스 모드](design-logs-deployment.md#access-mode)에 관계 없이 작업 영역 컨텍스트 또는 리소스 컨텍스트 [액세스 제어 모드](design-logs-deployment.md#access-control-mode) 를 사용 하 여 작업 영역에 적용 됩니다.
+[Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md) 을 사용 하 여 테이블 액세스 제어를 구현 하 여 작업 영역의 특정 [테이블](./data-platform-logs.md) 에 대 한 액세스 권한을 부여 합니다. 이러한 역할은 사용자의 [액세스 모드](design-logs-deployment.md#access-mode)에 관계 없이 작업 영역 컨텍스트 또는 리소스 컨텍스트 [액세스 제어 모드](design-logs-deployment.md#access-control-mode) 를 사용 하 여 작업 영역에 적용 됩니다.
 
 다음 작업을 사용 하 여 [사용자 지정 역할](../../role-based-access-control/custom-roles.md) 을 만들어 테이블 액세스 제어에 대 한 액세스를 정의 합니다.
 

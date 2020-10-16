@@ -4,12 +4,12 @@ description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206752"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104073"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions 개발
 
@@ -39,7 +39,7 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Visual Studio Code 용 [Azure Functions 확장][Azure Functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
@@ -187,7 +187,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트를 따라 파일의 f
 
 다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
 
-| prompt | 값 | 설명 |
+| prompt | 값 | Description |
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
@@ -251,7 +251,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | prompt | 값 | 설명 |
+    | prompt | 값 | Description |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
@@ -297,7 +297,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
     | 언어 | 요구 사항 |
     | -------- | --------- |
     | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 도구](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 이상](https://maven.apache.org/) |
+    | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 이상](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) 권장|
 
@@ -410,7 +410,7 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions: 원�
 
 Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 영역에서 유용한 그래픽 인터페이스를 제공 합니다. 명령 팔레트 (F1) 에서도 같은 기능을 명령으로 사용할 수 있습니다. 이러한 Azure Functions 명령을 사용할 수 있습니다.
 
-|Azure Functions 명령  | 설명  |
+|Azure Functions 명령  | Description  |
 |---------|---------|
 |**새 설정 추가**  |  Azure에서 새 응용 프로그램 설정을 만듭니다. 자세히 알아보려면 [응용 프로그램 설정 게시](#publish-application-settings)를 참조 하세요. [로컬 설정으로이 설정을 다운로드](#download-settings-from-azure)해야 할 수도 있습니다. |
 | **배포 원본 구성** | Azure의 함수 앱을 로컬 Git 리포지토리에 연결 합니다. 자세한 내용은 [Azure Functions에 대 한 연속 배포](functions-continuous-deployment.md)를 참조 하세요. |

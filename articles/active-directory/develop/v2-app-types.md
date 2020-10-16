@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256759"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103155"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 애플리케이션 유형
 
@@ -46,7 +46,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 아래 흐름 다이어그램에서는 응용 프로그램이 Microsoft id 플랫폼 끝점에서 코드를 수신 하 고 `authorize` 교차 사이트 웹 요청을 사용 하 여 토큰 및 새로 고침 토큰에 대 한 교환 OAuth 2.0 권한 부여 코드 부여를 보여 줍니다. 새로 고침 토큰은 24시간마다 만료되며 앱은 다른 코드를 요청해야 합니다. 액세스 토큰 외에 `id_token` 도 클라이언트 응용 프로그램에 대 한 로그인 한 사용자를 나타내는은 일반적으로 동일한 흐름과/또는 별도의 Openid connect Connect 요청을 통해 요청 됩니다 (여기에 표시 되지 않음).
 
-![SPA 앱의 코드 흐름](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="단일 페이지 앱과 보안 토큰 서비스 끝점 간의 OAuth 2 인증 코드 흐름을 보여 주는 다이어그램입니다." border="false":::
 
 이 시나리오의 작동 방식을 확인하려면 [자습서: 권한 부여 코드 흐름을 사용하여 사용자를 로그인시키고 JavaScript SPA에서 Microsoft Graph API 호출](tutorial-v2-javascript-auth-code.md)을 참조하세요.
 

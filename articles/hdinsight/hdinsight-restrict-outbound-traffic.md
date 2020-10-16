@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006520"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103342"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
 
@@ -23,11 +23,11 @@ ms.locfileid: "87006520"
 
 HDInsight 클러스터는 일반적으로 가상 네트워크에 배포됩니다. 클러스터에는 해당 가상 네트워크 외부의 서비스에 대해 종속성이 있습니다.
 
-인바운드 트래픽이 필요한 몇 가지 종속성이 있습니다. 인바운드 관리 트래픽은 방화벽 디바이스를 통해 보낼 수 없습니다. 이 트래픽에 대한 원본 주소가 알려져 있으며 [여기](hdinsight-management-ip-addresses.md)에 게시됩니다. 이 정보로 NSG(네트워크 보안 그룹) 규칙을 만들어 클러스터에 대한 인바운드 트래픽을 보호할 수도 있습니다.
+인바운드 관리 트래픽은 방화벽을 통해 전송할 수 없습니다. [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)에 설명 된 대로 인바운드 트래픽에 대 한 nsg 서비스 태그를 사용할 수 있습니다. 
 
-HDInsight 아웃바운드 트래픽 종속성은 FQDN으로 거의 완전히 정의되어 있습니다. 고정 IP 주소가 없는 경우가 여기에 해당합니다. 고정 주소가 없으면 NSG(네트워크 보안 그룹)에서 클러스터의 아웃바운드 트래픽을 잠글 수 없습니다. 주소가 충분히 자주 변경되므로 현재 이름 확인 및 사용을 기준으로 규칙을 설정할 수 없습니다.
+HDInsight 아웃바운드 트래픽 종속성은 FQDN으로 거의 완전히 정의되어 있습니다. 고정 IP 주소가 없는 경우가 여기에 해당합니다. 고정 주소가 없으면 NSG(네트워크 보안 그룹)에서 클러스터의 아웃바운드 트래픽을 잠글 수 없습니다. IP 주소가 변경 되 면 현재 이름 확인 및 사용에 따라 규칙을 설정할 수 없는 경우가 많습니다.
 
-도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽으로 아웃바운드 주소를 보호합니다. Azure Firewall은 대상의 FQDN 또는 [FQDN 태그](../firewall/fqdn-tags.md)를 기준으로 아웃바운드 트래픽을 제한합니다.
+Fqdn을 기준으로 아웃 바운드 트래픽을 제어할 수 있는 방화벽으로 아웃 바운드 주소를 보호 합니다. Azure Firewall은 대상의 FQDN 또는 [FQDN 태그](../firewall/fqdn-tags.md)를 기준으로 아웃바운드 트래픽을 제한합니다.
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>HDInsight를 사용하여 Azure Firewall 구성
 
@@ -79,7 +79,7 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용합니다. |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용합니다. |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | `storage_account_name`을 실제 스토리지 계정 이름으로 바꿉니다. 클러스터가 WASB에서 지원되는 경우 WASB에 대한 규칙을 추가합니다. https 연결만 사용하려면 스토리지 계정에서 ["보안 전송 필요"](../storage/common/storage-require-secure-transfer.md)를 사용하도록 설정했는지 확인합니다. |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | `storage_account_name`을 실제 스토리지 계정 이름으로 바꿉니다. https 연결만 사용하려면 스토리지 계정에서 ["보안 전송 필요"](../storage/common/storage-require-secure-transfer.md)를 사용하도록 설정했는지 확인합니다. 개인 끝점을 사용 하 여 저장소 계정에 액세스 하는 경우에는이 단계가 필요 하지 않으며 저장소 트래픽이 방화벽에 전달 되지 않습니다.|
 
    ![제목: 애플리케이션 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -99,23 +99,14 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
     |---|---|
     |속성| FwNetRule|
     |우선 순위|200|
-    |작업|Allow|
-
-    **IP 주소 섹션**
-
-    | 속성 | 프로토콜 | 원본 주소 | 대상 주소 | 대상 포트 | 메모 |
-    | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | 시간 서비스 |
-    | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | * | ESP(Enterprise Security Package)를 사용하는 경우 ESP 클러스터에 대해 AAD-DS와 통신할 수 있도록 하는 네트워크 규칙을 IP 주소 섹션에서 추가합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD-DS 섹션에서 찾을 수 있습니다. |
-    | Rule_3 | TCP | * | Data Lake Storage 계정의 IP 주소 | * | Azure Data Lake Storage를 사용하는 경우 IP 주소 섹션에서 네트워크 규칙을 추가하여 ADLS Gen1 및 Gen2의 SNI 이슈를 해결할 수 있습니다. 이 옵션은 트래픽을 방화벽으로 라우팅합니다. 이로 인해 큰 데이터의 로드 비용이 더 많이 들 수 있지만 방화벽 로그에서 트래픽이 기록되고 감사됩니다. Data Lake Storage 계정에 대한 IP 주소를 확인합니다. `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`와 같은 PowerShell 명령을 사용하여 IP 주소에 대한 FQDN을 확인할 수 있습니다.|
-    | Rule_4 | TCP | * | * | 12000 | (선택 사항) Log Analytics를 사용하는 경우 IP 주소 섹션에서 네트워크 규칙을 만들어 Log Analytics 작업 영역과 통신할 수 있도록 합니다. |
+    |작업|허용|
 
     **서비스 태그 섹션**
 
     | 속성 | 프로토콜 | 원본 주소 | 서비스 태그 | 대상 포트 | 메모 |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | SQL 트래픽을 기록 및 감사하는 데 사용할 수 있는 SQL에 대한 네트워크 규칙을 서비스 태그 섹션에서 구성합니다. HDInsight 서브넷에서 SQL Server에 대한 서비스 엔드포인트를 구성하지 않은 경우 방화벽이 무시됩니다. |
-    | Rule_8 | TCP | * | Azure Monitor | * | (선택 사항) 자동 크기 조정 기능을 사용하려는 고객은 이 규칙을 추가해야 합니다. |
+    | Rule_5 | TCP | * | SQL | 1433 | HDInsight에서 제공 하는 기본 sql server를 사용 하는 경우 sql 트래픽을 기록 하 고 감사 하는 데 사용할 수 있는 SQL에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. HDInsight 서브넷에서 SQL Server에 대한 서비스 엔드포인트를 구성하지 않은 경우 방화벽이 무시됩니다. Ambari, Oozie, 레인저 및 Hive metastroes에 사용자 지정 SQL server를 사용 하는 경우 고유한 사용자 지정 SQL server에 대 한 트래픽만 허용 하면 됩니다.|
+    | Rule_6 | TCP | * | Azure Monitor | * | (선택 사항) 자동 크기 조정 기능을 사용하려는 고객은 이 규칙을 추가해야 합니다. |
     
    ![제목: 애플리케이션 규칙 컬렉션 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -125,9 +116,7 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
 
 다음 항목을 사용하여 경로 테이블을 만듭니다.
 
-* [상태 및 관리 서비스: 모든 지역](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions)의 모든 지역(다음 홉 유형 **인터넷**)
-
-* 클러스터가 [상태 및 관리 서비스: 특정 지역](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions)에서 만들어진 지역의 두 IP 주소(다음 홉 유형 **인터넷**)
+* [상태 및 관리 서비스](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) 에서 다음 홉 유형의 **인터넷**을 사용 하는 모든 IP 주소입니다. 특정 지역에 대 한 두 개의 Ip 뿐만 아니라 일반 지역의 4 개의 Ip를 포함 해야 합니다. 이 규칙은 ResourceProviderConnection이 *Inbound*로 설정 된 경우에만 필요 합니다. ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 이러한 IP는 udr에 필요 하지 않습니다. 
 
 * 다음 홉이 Azure Firewall 프라이빗 IP 주소인 IP 주소 0.0.0.0/0에 대한 단일 가상 어플라이언스 경로
 

@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275288"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102696"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결 설정
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure Cosmos DB 데이터베이스에 인덱서 연결을 설정하는 방법을 설명 합니다.
 
 이 기능을 학습하기 전에 인덱서가 무엇인지와 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
+
 * [인덱서 개요](search-indexer-overview.md)
 * [Azure Cosmos DB 인덱서](search-howto-index-cosmosdb.md)
 
@@ -79,7 +80,7 @@ api-key: [Search service admin key]
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | 설명 |
+| 필드   | Description |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
@@ -143,9 +144,8 @@ Cosmos DB에서 데이터를 인덱싱할 수 없는 경우 다음 사항을 고
 
 1. 최근 Cosmos DB 계정 키를 회전 한 경우 관리 id 연결 문자열이 작동 하는 데 최대 15 분이 걸립니다.
 
-1. Cosmos DB 계정의 액세스 권한이 네트워크 선택으로 제한 되어 있는지 확인 하세요. 이 경우 [Azure 네트워크 보안 기능을 사용 하 여 데이터 원본에 대 한 인덱서 액세스](search-indexer-securing-resources.md)를 참조 하세요.
+1. Cosmos DB 계정의 액세스 권한이 네트워크 선택으로 제한 되어 있는지 확인 하세요. 이 경우 [Azure 네트워크 보안 기능을 통해 보호 되는 콘텐츠에 대 한 인덱서 액세스](search-indexer-securing-resources.md)를 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
-Cosmos DB 인덱서에 대해 자세히 알아보기:
 * [Azure Cosmos DB 인덱서](search-howto-index-cosmosdb.md)

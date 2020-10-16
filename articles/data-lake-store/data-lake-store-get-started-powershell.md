@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ba51c96e3195f75a0ccf49baded67737f4665615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 485b14f85d68290c5447c885b9bc4974318f7952
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077741"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103733"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -27,7 +27,7 @@ ms.locfileid: "89077741"
 
 Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법을 알아봅니다. Data Lake Storage Gen1에 대 한 자세한 내용은 [Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ Azure PowerShell를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들
 
 ## <a name="authentication"></a>인증
 
-이 문서에서는 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 되는 Data Lake Storage Gen1를 사용 하는 간단한 인증 방법을 사용 합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 그러나 최종 사용자 인증 또는 서비스 간 인증 인 Data Lake Storage Gen1를 사용 하 여 인증 하는 다른 방법도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 되는 Data Lake Storage Gen1를 사용 하는 간단한 인증 방법을 사용 합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 그러나 최종 사용자 인증 또는 서비스 간 인증 인 Data Lake Storage Gen1를 사용 하 여 인증 하는 다른 방법도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
 

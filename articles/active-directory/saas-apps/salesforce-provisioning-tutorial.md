@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273299"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101769"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 
@@ -77,15 +77,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 6. Salesforce 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **설정**을 클릭합니다.
 
-    ![자동 사용자 프로비전 사용](./media/salesforce-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비전 사용")
+    ![선택 된 설정 링크를 보여 주는 스크린샷](./media/salesforce-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비전 사용")
 
 7. 왼쪽 탐색 패널에서 **내 개인 정보**를 클릭하여 관련 섹션을 확장하고 **내 보안 토큰 재설정**을 클릭합니다.
   
-    ![자동 사용자 프로비전 사용](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비전 사용")
+    ![스크린샷은 내 개인 정보에서 선택한 내 보안 토큰 재설정을 보여 줍니다.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비전 사용")
 
 8. **보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
 
-    ![자동 사용자 프로비전 사용](./media/salesforce-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비전 사용")
+    ![설명 텍스트와 보안 토큰을 다시 설정 하는 옵션을 포함 하는 Rest 보안 토큰 페이지를 보여 주는 스크린샷](./media/salesforce-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비전 사용")
 
 9. 이 관리자 계정과 연결된 전자 메일 받은 편지함을 확인합니다. Salesforce.com에서 새 보안 토큰이 포함된 전자 메일을 찾습니다.
 

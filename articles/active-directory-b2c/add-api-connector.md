@@ -1,5 +1,5 @@
 ---
-title: 사용자 흐름에 API 커넥터 추가
+title: 사용자 흐름에 API 커넥터 추가 (미리 보기)
 description: 사용자 흐름에서 사용할 API 커넥터를 구성 합니다.
 services: active-directory-b2c
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854361"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102275"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>등록 사용자 흐름에 API 커넥터 추가
+# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
 
 [Api 커넥터](api-connectors-overview.md)를 사용 하려면 먼저 api 커넥터를 만든 다음 사용자 흐름에서 사용 하도록 설정 합니다.
 
@@ -234,12 +234,12 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | 형식              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
+| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임**으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 클레임은를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임**으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.  |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 
@@ -255,7 +255,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | Description                                                                |
+| 매개 변수   | 형식   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -266,6 +266,8 @@ Content-type: application/json
 ![예제 블록 페이지](./media/add-api-connector/blocking-page-response.png)
 
 ### <a name="example-of-a-validation-error-response"></a>유효성 검사 오류 응답의 예
+
+
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -279,12 +281,14 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | Description                                                                |
+| 매개 변수   | 형식    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
 | 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
+
+*참고:* HTTP 상태 코드는 응답 본문의 "status" 값 외에도 "400" 이어야 합니다.
 
 **유효성 검사 오류 응답과 함께 최종 사용자 환경**
 
@@ -296,7 +300,7 @@ Content-type: application/json
 ### <a name="using-serverless-cloud-functions"></a>서버 리스 클라우드 함수 사용
 Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥터에서 사용할 API 끝점을 만드는 간단한 방법을 제공 합니다. 서버를 사용 하지 않는 클라우드 함수를 사용 하 여 유효성 검사 논리를 수행 하 고 [등록을 특정](code-samples.md#api-connectors)메일 도메인으로 제한할 수 있습니다. 서버를 사용 하지 않는 클라우드 함수는 보다 복잡 한 시나리오에 대해 다른 웹 Api, 사용자 저장소 및 기타 클라우드 서비스를 호출 하 고 호출할 수도 있습니다.
 
-### <a name="best-practices"></a>최선의 구현 방법
+### <a name="best-practices"></a>모범 사례
 다음 사항을 확인합니다.
 * API는 위에 설명 된 대로 API 요청 및 응답 계약을 따라 수행 됩니다. 
 * API 커넥터의 **끝점 URL** 은 올바른 api 끝점을 가리킵니다.

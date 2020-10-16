@@ -6,24 +6,24 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192811"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101650"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Storm 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Data Lake Storage Gen1에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 스톰](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조 하세요.
-* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.  
+* **Data Lake Storage Gen1에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 스톰](../hdinsight/storm/apache-storm-overview.md)을 참조 하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md)을 참조하세요.  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>토폴로지의 병렬 처리 조정
 
@@ -130,6 +130,6 @@ Data Lake Storage Gen1에서 제공하는 대역폭 한계에 도달한 경우 �
 2. 작업자 노드의 storm 토폴로지 로그에서 Data Lake Storage Gen1 제한 예외를 모니터링합니다(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래).
 
 ## <a name="next-steps"></a>다음 단계
-[이 블로그에서](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)는 스톰의 추가 성능 튜닝을 참조할 수 있습니다.
+[이 블로그에서](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)는 스톰의 추가 성능 튜닝을 참조할 수 있습니다.
 
 추가 예제를 실행하려면 [GitHub에서 이 항목](https://github.com/hdinsight/storm-performance-automation)을 참조하세요.

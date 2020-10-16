@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985792"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103631"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 시작
 
@@ -26,7 +26,7 @@ ms.locfileid: "85985792"
 
 Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법에 대해 알아봅니다. Data Lake Storage Gen1에 대 한 자세한 내용은 [Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
 
-Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. 자세한 내용은 [Azure CLI 개요](https://docs.microsoft.com/cli/azure)를 참조하세요. 전체 명령 및 구문 목록은 [Azure Data Lake Storage Gen1 CL 참조](https://docs.microsoft.com/cli/azure/dls)에서 확인할 수 있습니다.
+Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. 자세한 내용은 [Azure CLI 개요](/cli/azure)를 참조하세요. 전체 명령 및 구문 목록은 [Azure Data Lake Storage Gen1 CL 참조](/cli/azure/dls)에서 확인할 수 있습니다.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -34,11 +34,11 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure CLI** - 지침은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* **Azure CLI** - 지침은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="authentication"></a>인증
 
-이 문서에서는 최종 사용자로 로그인하는 Data Lake Storage Gen1에 보다 간단한 인증 방식을 사용합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 단, Data Lake Storage Gen1을 통해 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증**도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](data-lake-store-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 최종 사용자로 로그인하는 Data Lake Storage Gen1에 보다 간단한 인증 방식을 사용합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 단, Data Lake Storage Gen1을 통해 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증**도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.

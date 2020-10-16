@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212701"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102326"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -43,7 +43,7 @@ Azure 가상 WAN은 Vnet, 분기 사이트, SaaS 및 PaaS 응용 프로그램, �
 
 **그림 2: 글로벌 전송 네트워크 및 가상 WAN**
 
-Azure 가상 WAN 아키텍처에서 가상 WAN 허브는 Azure 지역에 프로 비전 되어 분기, Vnet 및 원격 사용자를 연결 하도록 선택할 수 있습니다. 물리적 분기 사이트는 프리미엄 Express 경로 또는 사이트 간 Vpn에 의해 허브에 연결 되 고 Vnet는 VNet 연결로 허브에 연결 되며 원격 사용자는 사용자 VPN (지점 및 사이트 간 Vpn)을 사용 하 여 허브에 직접 연결할 수 있습니다. 또한 가상 WAN은 한 지역의 VNet을 다른 지역의 가상 WAN 허브에 연결할 수 있는 지역 간 VNet 연결을 지원 합니다.
+Azure 가상 WAN 아키텍처에서 가상 WAN 허브는 Azure 지역에 프로 비전 되어 분기, Vnet 및 원격 사용자를 연결 하도록 선택할 수 있습니다. 물리적 분기 사이트는 프리미엄 또는 표준 Express 경로 또는 사이트 간 Vpn을 통해 허브에 연결 되 고, Vnet는 VNet 연결로 허브에 연결 되며, 원격 사용자는 사용자 VPN (지점 및 사이트 간 Vpn)을 사용 하 여 허브에 직접 연결할 수 있습니다. 또한 가상 WAN은 한 지역의 VNet을 다른 지역의 가상 WAN 허브에 연결할 수 있는 지역 간 VNet 연결을 지원 합니다.
 
 스포크 (분기, Vnet, 사용자) 수가 가장 많은 지역에서 단일 가상 WAN 허브를 만든 다음 다른 지역의 스포크를 허브에 연결 하 여 가상 WAN을 설정할 수 있습니다. 이는 엔터프라이즈 공간이 대부분의 원격 스포크를 가진 한 지역에 있는 경우 좋은 옵션입니다.  
   
@@ -87,7 +87,7 @@ VNet은 Azure 가상 WAN에서 지 원하는 기본 경로입니다. 이 경로�
 
 ### <a name="expressroute-global-reach-and-virtual-wan"></a>Express 경로 Global Reach 및 가상 WAN
 
-Express 경로는 온-프레미스 네트워크를 Microsoft 클라우드에 연결 하는 개인적이 고 복원 력 있는 방법입니다. 가상 WAN은 Express 경로 회로 연결을 지원 합니다. Express 경로를 사용 하 여 가상 WAN에 분기 사이트를 연결 하려면 1) 프리미엄 회로 2) 회로가 Global Reach 사용 가능한 위치에 있어야 합니다.
+Express 경로는 온-프레미스 네트워크를 Microsoft 클라우드에 연결 하는 개인적이 고 복원 력 있는 방법입니다. 가상 WAN은 Express 경로 회로 연결을 지원 합니다. Express 경로를 사용 하 여 가상 WAN에 분기 사이트를 연결 하려면 1) 프리미엄 또는 표준 회로 2) 회로가 Global Reach 사용 가능한 위치에 있어야 합니다.
 
 Express 경로 Global Reach는 Express 경로에 대 한 추가 기능입니다. Global Reach를 통해 Express 경로 회로를 함께 연결 하 여 온-프레미스 네트워크 간에 개인 네트워크를 만들 수 있습니다. Express 경로를 사용 하 여 Azure 가상 WAN에 연결 된 분기에는 Express 경로 Global Reach 서로 통신 해야 합니다.
 

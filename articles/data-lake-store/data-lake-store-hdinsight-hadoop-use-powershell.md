@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d11d3edc4eec0a006e71ef1787cbbd62a7f5957e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cb9d5c5c2ca850678d3f3194a9af8de526ada4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856979"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103393"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 스토리지로) 사용하는 HDInsight 클러스터 만들기
 
@@ -250,7 +250,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 이 섹션에서는 사용자가 만든 HDInsight Linux 클러스터로 SSH하고 샘플 Hive 쿼리를 실행합니다.
 
-* Windows 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+* Windows 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * Linux 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Linux에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
@@ -287,7 +287,7 @@ Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성하고
 
 이 섹션에서는 사용자가 만든 HDInsight Linux 클러스터로 SSH하고 HDFS 명령을 실행합니다.
 
-* Windows 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+* Windows 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * Linux 클라이언트를 사용하여 클러스터로 SSH하는 경우 [Linux에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 연결 되 면 다음 HDFS 파일 시스템 명령을 사용 하 여 Data Lake Storage Gen1 있는 저장소 계정의 파일을 나열 합니다.
@@ -310,5 +310,5 @@ Found 1 items
 * [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)
 * [포털: HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: /windows-hardware/drivers/devtest/makecert
+[pvk2pfx]: /windows-hardware/drivers/devtest/pvk2pfx

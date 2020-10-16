@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716146"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102645"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -122,7 +122,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
  
 ### <a name="lift-and-shift-pattern"></a>리프트 및 시프트 패턴
 
-이는 가장 간단한 패턴입니다.
+이는 가장 간단한 패턴입니다. 
 
 1. Gen1에 대 한 모든 쓰기를 중지 합니다.
 
@@ -131,6 +131,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 3. Point 수집 작업 및 워크 로드를 Gen2 합니다.
 
 4. Gen1 서비스를 해제 합니다.
+
+[리프트 및 시프트 마이그레이션 샘플](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md)에서 리프트 및 시프트 패턴에 대 한 샘플 코드를 확인 하세요.
 
 > [!div class="mx-imgBorder"]
 > ![리프트 및 시프트 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 4. Gen1 서비스를 해제 합니다.
 
+[증분 복사 마이그레이션 샘플](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md)의 증분 복사 패턴에 대 한 샘플 코드를 확인 하세요.
+
+
 > [!div class="mx-imgBorder"]
 > ![증분 복사 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 4. Gen1에 대 한 모든 쓰기를 중지 한 다음 Gen1를 해제 합니다.
 
+[이중 파이프라인 마이그레이션 샘플](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md)에서 이중 파이프라인 패턴에 대 한 샘플 코드를 확인 하세요.
+
 > [!div class="mx-imgBorder"]
 > ![이중 파이프라인 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 3. 모든 이동이 완료 되 면 Gen1에 대 한 모든 쓰기를 중지 하 고 양방향 복제를 해제 합니다.
 
 4. Gen1 서비스를 해제 합니다.
+
+[양방향 동기화 마이그레이션 샘플](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md)에서 양방향 동기화 패턴에 대 한 샘플 코드를 확인 하세요.
 
 > [!div class="mx-imgBorder"]
 > ![양방향 패턴](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

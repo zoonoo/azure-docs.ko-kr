@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848860"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103002"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |**작동 시간 SLA**|99.99%|99.99%|99.99%|
 |**최대 백업 보존**|7 일|35일|35일|
 |**CPU**|낮음|낮음, 보통, 높음|보통, 높음|
-|**IOPS (근사치)**\* |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
+|**IOPS (근사치)**\* |DTU 당 1-4 IOPS| DTU 당 1-4 IOPS | DTU 당 25iops|
 |**IO 대기 시간(근사치)**|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
 |**Columnstore 인덱싱** |N/A|S3 이상|지원됨|
 |**메모리 내 OLTP**|N/A|해당 없음|지원됨|
@@ -114,7 +114,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
-| 트랜잭션 유형 | 설명 |
+| 트랜잭션 유형 | Description |
 | --- | --- |
 | 적은 읽기 작업 |SELECT, 메모리 내, 읽기 전용 |
 | 중간 읽기 작업 |SELECT, 대부분 메모리 내, 읽기 전용 |
