@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957463"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107473"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -75,7 +75,7 @@ Arnold 2017 명령줄|kick.exe|ARNOLD_2017_EXEC|
 
 다른 워크로드와 마찬가지로 렌더링 애플리케이션 시스템 요구 사항은 각기 다르며 성능 요구 사항은 작업 및 프로젝트에 따라 달라집니다.  다양한 VM 제품군은 가장 낮은 비용, 최상의 가격/성능, 최고의 성능 등의 요구 사항을 기준으로 Azure에서 사용할 수 있습니다.
 Arnold 같은 일부 렌더링 애플리케이션은 CPU 기반이며, V-Ray 및 Blender Cycles 같은 기타 렌더링 애플리케이션은 CPU 및/또는 GPU를 사용할 수 있습니다.
-사용 가능한 VM 제품군 및 VM 크기에 대한 설명은 [VM 유형 및 크기를 참조 하세요](../virtual-machines/windows/sizes.md).
+사용 가능한 VM 제품군 및 VM 크기에 대한 설명은 [VM 유형 및 크기를 참조 하세요](../virtual-machines/sizes.md).
 
 ### <a name="low-priority-vms"></a>우선 순위가 낮은 VM
 

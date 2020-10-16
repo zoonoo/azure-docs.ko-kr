@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5236a3be9f8908d886274764dfc0c0da5b3565bc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77462108"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104481"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP 트리거 및 바인딩 개요
 
 서버 리스 Api를 빌드하고 [웹 후크에](https://en.wikipedia.org/wiki/Webhook)응답 하기 위해 HTTP 요청을 통해 Azure Functions를 호출할 수 있습니다.
 
-| 작업 | 유형 |
+| 작업 | 형식 |
 |---------|---------|
 | HTTP 요청에서 함수 실행 | [트리거](./functions-bindings-http-webhook-trigger.md) |
 | 함수에서 HTTP 응답 반환 |[출력 바인딩](./functions-bindings-http-webhook-output.md) |
@@ -38,7 +38,7 @@ ms.locfileid: "77462108"
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http
-[확장 업데이트]: ./install-update-binding-extensions-manual.md
+[확장 업데이트]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552346"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>자습서: Printix와 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ Printix를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 
 Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자세한 내용은 [응용 프로그램 액세스 및 Azure Active Directory Single Sign-On](../manage-apps/what-is-single-sign-on.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Printix와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -61,19 +61,19 @@ Printix의 Azure AD 통합을 구성하려면 갤러리의 Printix를 관리되�
 
 1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
-    ![애플리케이션][2]
+    ![모든 응용 프로그램을 선택 하 고 관리 아래에서 선택한 Azure Portal 엔터프라이즈 응용 프로그램을 보여 주는 스크린샷][2]
     
 1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![애플리케이션][3]
+    ![선택한 새 응용 프로그램을 보여 주는 스크린샷][3]
 
 1. 검색 상자에 **Printix**를 입력합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/printix-tutorial/tutorial_printix_search.png)
+    ![갤러리에서 추가 대화 상자에서 Printix를 검색 하는 방법을 보여 주는 스크린샷](./media/printix-tutorial/tutorial_printix_search.png)
 
 1. 결과 패널에서 **Printix**를 선택하고 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
+    ![선택한 Printix 옵션을 보여 주는 스크린샷](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Azure AD Single Sign-on 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Printix에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
@@ -98,15 +98,15 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 1. Azure Portal의 **Printix** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-on 구성][4]
+    ![Azure Portal의 관리에서 선택 된 Single sign-on을 보여 주는 스크린샷][4]
 
 1. **Single sign-on** 대화 상자에서 **모드** 를 **SAML 기반 로그온** 으로 선택 하 여 Single Sign-On를 사용 하도록 설정 합니다.
  
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_samlbase.png)
+    ![선택한 SAML 기반 로그온 모드를 보여 주는 스크린샷](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. **Printix 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_url.png)
+    ![Printix 도메인 및 Url 섹션을 보여 줍니다. 여기서 U R L은 로그온에 대해 지정할 수 있습니다.](./media/printix-tutorial/tutorial_printix_url.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.printix.net`
 
@@ -115,33 +115,33 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
  
 1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_certificate.png) 
+    ![스크린샷 인증서를 다운로드할 수 있는 SAML 서명 인증서 창을 보여 줍니다.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
 1. **저장** 단추를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_general_400.png)
+    ![스크린샷은 저장 단추를 보여줍니다.](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Printix 테넌트에 관리자 권한으로 로그온합니다.
 
 1. 위쪽의 메뉴에서 오른쪽 위 모서리에 있는 아이콘을 클릭하고 "**인증**"을 선택합니다.
    
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_06.png)
+    ![메뉴에서 선택한 인증을 보여 주는 스크린샷](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. **설정** 탭에서 **Azure/Office 365 인증 사용**을 선택합니다.
    
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_07.png)
+    ![Azure/Office 365 인증 사용을 선택할 수 있는 Printix.net 페이지가 스크린샷 화면에 표시 됩니다.](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. **Azure** 탭에서 "**페더레이션 메타데이터 문서**"의 텍스트 상자에 페더레이션 메타데이터 URL을 입력합니다. 
 
     Azure AD에서 다운로드한 메타데이터 xml 파일을 [Printix 지원 팀](mailto:support@printix.net)에 첨부하여 보냅니다. 그러면 xml 파일을 업로드하고 페더레이션 메타데이터 URL을 제공합니다.
    
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_08.png)
+    ![페더레이션 메타 데이터 문서를 지정할 수 있는 Printix.net 페이지가 스크린샷 화면에 표시 됩니다.](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. "**테스트**"단추를 클릭한 후 테스트가 성공적이면 "**확인**" 단추를 클릭합니다.
    
      **테스트** 단추를 클릭하면 Azure active directory 페이지가 나타납니다. 여기서 "테스트가 성공적이었다"는 것은 Azure 테스트 계정의 자격 증명을 입력한 후 "Settings tested OK"(테스트 확인된 설정) 메시지 팝업 창이 나타남을 의미합니다. 그런 다음 **확인** 단추를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_09.png)
+    ![스크린 샷에서는 테스트의 결과를 보여 줍니다.](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. "**인증**" 페이지에 있는 **저장** 단추를 클릭합니다.
 
@@ -159,19 +159,19 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 1. **Azure Portal**의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭 합니다.
 
-    ![Azure AD 테스트 사용자 만들기](./media/printix-tutorial/create_aaduser_01.png) 
+    ![만들 이름 및 사용자 이름을 보여 주는 스크린샷](./media/printix-tutorial/create_aaduser_01.png) 
 
 1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
-    ![Azure AD 테스트 사용자 만들기](./media/printix-tutorial/create_aaduser_02.png) 
+    ![스크린샷 Azure Portal의 Azure A D 아이콘이 표시 됩니다.](./media/printix-tutorial/create_aaduser_02.png) 
 
 1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
-    ![Azure AD 테스트 사용자 만들기](./media/printix-tutorial/create_aaduser_03.png) 
+    ![모든 사용자가 선택 된 상태에서 관리 메뉴에서 선택한 사용자 및 그룹을 보여 주는 스크린샷](./media/printix-tutorial/create_aaduser_03.png) 
 
 1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
-    ![Azure AD 테스트 사용자 만들기](./media/printix-tutorial/create_aaduser_04.png) 
+    ![스크린샷 설명 된 값을 입력할 수 있는 사용자 대화 상자를 표시 합니다.](./media/printix-tutorial/create_aaduser_04.png) 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
@@ -195,25 +195,25 @@ Printix에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Printix에 대한 액세스 권한을 부여합니다.
 
-![사용자 할당][200] 
+![기본 액세스 권한이 있는 사용자를 보여 주는 스크린샷][200] 
 
 **Britta Simon을 Printix에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 애플리케이션 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 애플리케이션**으로 이동한 후 **모든 애플리케이션**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![모든 응용 프로그램을 선택 하 고 관리 아래에서 선택한 엔터프라이즈 응용 프로그램을 보여 주는 스크린샷][201] 
 
 1. 애플리케이션 목록에서 **Printix**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/printix-tutorial/tutorial_printix_app.png) 
+    ![Printix를 선택할 수 있는 응용 프로그램 목록을 보여 주는 스크린샷](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![사용자 할당][202] 
+    ![관리 메뉴에서 선택한 사용자 및 그룹을 보여 주는 스크린샷][202] 
 
 1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 할당][203]
+    ![사용자 및 그룹을 선택할 수 있는 추가 단추 및 할당 추가 페이지가 표시 됩니다.][203]
 
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 

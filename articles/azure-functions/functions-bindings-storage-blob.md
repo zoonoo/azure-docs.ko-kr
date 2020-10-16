@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87055980"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104362"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Blob storage 바인딩
 
@@ -37,7 +37,7 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[확장 업데이트]: ./install-update-binding-extensions-manual.md
+[확장 업데이트]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

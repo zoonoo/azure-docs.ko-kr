@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083024"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104753"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions에서 HTTP 끝점 사용자 지정
 
@@ -62,7 +62,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
  
 1. URL의 쿼리 문자열에 매개 변수를 추가 합니다. 
 
-   예: `/api/hello/?name=John`
+   예: `/api/hello/?name=John`.
  
 1. Enter 키를 눌러 작동 하는지 확인 합니다. "*Hello John*" 이라는 응답이 표시 되어야 합니다.
 
@@ -73,9 +73,9 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 다음 섹션에서는 프록시를 통해 API를 노출 합니다. Azure Functions 프록시를 사용하면 요청을 다른 리소스로 전달할 수 있습니다. Http 트리거를 사용 하는 것과 같은 방식으로 HTTP 끝점을 정의 합니다. 그러나 해당 끝점이 호출 될 때 실행할 코드를 작성 하는 대신 원격 구현에 대 한 URL을 제공 합니다. 이렇게 하면 여러 API 소스를 단일 API 화면으로 구성할 수 있습니다 .이는 클라이언트에서 사용 하기 쉬우며 마이크로 서비스로 API를 빌드 하려는 경우에 유용 합니다.
 
 프록시는 다음과 같은 HTTP 리소스를 가리킬 수 있습니다.
-- Azure 기능 
+- Azure Functions 
 - [Azure App Service](../app-service/overview.md)의 API 앱
-- [Linux의 App Service](../app-service/containers/app-service-linux-intro.md)에 있는 Docker 컨테이너
+- [Linux의 App Service](../app-service/overview.md#app-service-on-linux)에 있는 Docker 컨테이너
 - 기타 호스트된 API
 
 프록시에 대한 자세한 내용은 [Azure Functions 프록시 사용]을 참조하세요.
@@ -107,7 +107,7 @@ HTTP 함수를 사용자 지정 하는 방법에 대 한 자세한 내용은 [ht
 
     | 필드 | 샘플 값 | Description |
     |---|---|---|
-    | 속성 | HelloProxy | 관리에 대해서만 사용되는 이름 |
+    | Name | HelloProxy | 관리에 대해서만 사용되는 이름 |
     | 경로 템플릿 | /api/remotehello | 이 프록시를 호출하는 데 사용할 경로 결정 |
     | 백 엔드 URL | https://%HELLO_HOST%/api/hello | 요청을 프록시 처리할 엔드포인트를 지정합니다. |
 

@@ -4,12 +4,12 @@ description: 일반적인 경고 스키마를 활용 하 여 모든 경고를 �
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: a7893f41e3e4cce737853fc168c1931f3bf7b532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eb96248f68923da5ff5223f57fac1bffaf4ed04
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322094"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108884"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Logic Apps와 공통 경고 스키마를 통합 하는 방법
 
@@ -17,7 +17,7 @@ ms.locfileid: "87322094"
 
 ## <a name="overview"></a>개요
 
-[일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 는 다양 한 경고 유형에 대해 표준화 되 고 확장 가능한 JSON 스키마를 제공 합니다. 일반적인 경고 스키마는 웹 후크, runbook 및 논리 앱을 통해 프로그래밍 방식으로 활용할 때 가장 유용 합니다. 이 문서에서는 모든 경고를 처리 하도록 단일 논리 앱을 작성할 수 있는 방법을 보여 줍니다. 다른 프로그래밍 방법에도 동일한 원칙이 적용 될 수 있습니다. 이 문서에서 설명 하는 논리 앱은 [' 필수 ' 필드](alerts-common-schema-definitions.md#essentials)에 대 한 잘 정의 된 변수를 만들고 [경고 유형별](alerts-common-schema-definitions.md#alert-context) 논리를 처리 하는 방법에 대해서도 설명 합니다.
+[일반적인 경고 스키마](./alerts-common-schema.md) 는 다양 한 경고 유형에 대해 표준화 되 고 확장 가능한 JSON 스키마를 제공 합니다. 일반적인 경고 스키마는 웹 후크, runbook 및 논리 앱을 통해 프로그래밍 방식으로 활용할 때 가장 유용 합니다. 이 문서에서는 모든 경고를 처리 하도록 단일 논리 앱을 작성할 수 있는 방법을 보여 줍니다. 다른 프로그래밍 방법에도 동일한 원칙이 적용 될 수 있습니다. 이 문서에서 설명 하는 논리 앱은 [' 필수 ' 필드](alerts-common-schema-definitions.md#essentials)에 대 한 잘 정의 된 변수를 만들고 [경고 유형별](alerts-common-schema-definitions.md#alert-context) 논리를 처리 하는 방법에 대해서도 설명 합니다.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항 
@@ -138,5 +138,4 @@ ms.locfileid: "87322094"
 ## <a name="next-steps"></a>다음 단계
 
 * [작업 그룹에 대해 자세히 알아보세요](./action-groups.md).
-* [일반적인 경고 스키마에 대해 자세히 알아보세요](https://aka.ms/commonAlertSchemaDocs).
-
+* [일반적인 경고 스키마에 대해 자세히 알아보세요](./alerts-common-schema.md).

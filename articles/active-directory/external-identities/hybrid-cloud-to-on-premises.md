@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819394"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107626"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -43,7 +43,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 - **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여**합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
    > [!NOTE]
-   > Azure AD 응용 프로그램 프록시를 구성 하는 경우 위임 된 **로그온 id** 가 IWA Single Sign-On에 대해 **사용자 계정 이름** (기본값)으로 설정 되어 있는지 확인 합니다.
+   > Azure AD 응용 프로그램 프록시를 구성 하는 경우 Windows 통합 인증에 대 한 Single Sign-On 구성 (IWA)에서 **위임 된 로그온 id** 가 **사용자 계정 이름** (기본값)으로 설정 되어 있는지 확인 합니다.
 
    B2B 사용자 시나리오의 경우 온-프레미스 디렉터리에서 권한 부여에 필요한 게스트 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 

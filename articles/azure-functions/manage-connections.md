@@ -4,12 +4,12 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a305c692c63f278c4edc4240f7adf9de22b22c56
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213967"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106096"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -103,7 +103,25 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+V3. x 함수를 사용 하는 경우 참조를 Microsoft.Azure.Doc하는 데 필요 합니다. 코드에 참조를 추가 합니다.
 
+```cs
+#r "Microsoft.Azure.DocumentDB.Core"
+```
+또한 트리거에 대해 "proj" 라는 파일을 만들고 아래 콘텐츠를 추가 합니다.
+
+```cs
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+    </ItemGroup>
+</Project>
+
+```
 ### <a name="cosmosclient-code-example-javascript"></a>CosmosClient 코드 예제 (JavaScript)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) 는 Azure Cosmos DB 인스턴스에 연결 됩니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
 

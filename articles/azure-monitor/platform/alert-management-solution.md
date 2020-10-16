@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: bd30a840327eaf338aec89c12ff8eb5d87c60c56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322400"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108408"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor는 [System Center Operations Manager, Zabbix 또는 Nagios와 같은 모니터링 도구](https://aka.ms/managing-alerts-other-monitoring-services)에서 생성 된 기능을 포함 하 여 [대규모 경고를 관리](https://aka.ms/azure-alerts-overview)하기 위한 향상 된 기능을 지원 합니다.
+>  Azure Monitor는 [System Center Operations Manager, Zabbix 또는 Nagios와 같은 모니터링 도구](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json)에서 생성 된 기능을 포함 하 여 [대규모 경고를 관리](./alerts-overview.md)하기 위한 향상 된 기능을 지원 합니다.
 >  
 
 
@@ -31,7 +31,7 @@ ms.locfileid: "87322400"
 - Nagios 및 Zabbix 경고의 경우 Log Analytics로 경고를 보내도록 [해당 서버를 구성](../learn/quick-collect-linux-computer.md)합니다.
 - System Center Operations Manager 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](./om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 [솔루션 추가](../insights/solutions.md)에서 설명하는 프로세스를 사용하여 경고 관리 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
 
 ## <a name="management-packs"></a>관리 팩
@@ -45,7 +45,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="agents"></a>에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | Support(지원) | 설명 |
+| 연결된 소스 | 지원 | Description |
 |:--- |:--- |:--- |
 | [Windows 에이전트](agent-windows.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
 | [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
@@ -63,7 +63,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 **경고 관리** 타일을 클릭하여 **경고 관리** 대시보드를 엽니다.  대시보드는 다음 표의 열을 포함하고 있습니다.  각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 10개의 경고를 나열합니다.  열 아래쪽의 **모두 보기** 를 클릭하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:--- |:--- |
 | 중요한 알림 |경고 이름별로 그룹화된 중요 심각도를 가진 모든 경고.  경고 이름을 클릭하여 해당 경고에 대한 모든 레코드를 반환하는 로그 검색을 실행합니다. |
 | 경고 알림 |경고 이름별로 그룹화된 경고의 심각도를 가진 모든 경고입니다.  경고 이름을 클릭하여 해당 경고에 대한 모든 레코드를 반환하는 로그 검색을 실행합니다. |
@@ -80,7 +80,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 솔루션은 System Center Operations Manager에서 경고를 가져오며 유형이 **경고**이고 SourceSystem이 **OpsManager**인 각 경고에 대해 해당 레코드를 만듭니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |*경고* |
 | `SourceSystem` |*OpsManager* |
@@ -120,4 +120,3 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](./alerts-overview.md) 에 관하여 알아보세요.
-

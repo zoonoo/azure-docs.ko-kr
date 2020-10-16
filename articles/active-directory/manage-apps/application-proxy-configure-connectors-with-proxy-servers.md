@@ -1,6 +1,6 @@
 ---
-title: 기존 온-프레미스 프록시 서버 및 Azure AD 작업 | Microsoft Docs
-description: 기존 온-프레미스 프록시 서버로 작업하는 방법을 다룹니다.
+title: 기존 온-프레미스 프록시 서버 및 Azure Active Directory 작업
+description: Azure Active Directory를 사용 하 여 기존 온-프레미스 프록시 서버로 작업 하는 방법을 설명 합니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2311b905aeeaacb6c445f441d5268d06a150de64
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077512"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107643"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -117,12 +116,12 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대 한 액세스를 허용 해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽이나 프록시에서 DNS 허용 목록을 허용하면 \*.msappproxy.net 및 \*.servicebus.windows.net에 대한 연결을 허용할 수 있습니다.
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
 * 모든 대상에 대한 커넥터 아웃바운드 액세스 허용
-* 모든 [Azure 데이터 센터 IP 범위](https://www.microsoft.com//download/details.aspx?id=41653)에 대한 커넥터 아웃바운드 액세스 허용. Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다. IP 주소 서브넷만 사용하면 구성이 중단될 수 있습니다.
+* 모든 Azure 데이터 센터 IP 범위에 대한 커넥터 아웃바운드 액세스 허용. Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다. IP 주소 서브넷만 사용하면 구성이 중단될 수 있습니다. 최신 Azure 데이터 센터 IP 범위를 다운로드 하려면로 이동 하 여 [https://download.microsoft.com](https://download.microsoft.com) "AZURE IP 범위 및 서비스 태그"를 검색 합니다. 관련 클라우드를 선택 해야 합니다. 예를 들어 공용 클라우드 IP 범위는 "Azure IP 범위 및 서비스 태그 – 공용 클라우드"를 사용 하 여 찾을 수 있습니다. US 정부 클라우드는 "Azure IP 범위 및 서비스 태그 – US 정부 클라우드"를 검색 하 여 찾을 수 있습니다.
 
 #### <a name="proxy-authentication"></a>프록시 인증
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952253"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108170"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드
 
@@ -23,7 +23,7 @@ ms.locfileid: "91952253"
 > [!NOTE] 
 > 미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure CLI (az) 및 Azure Data CLI (azdata)가 설치 되어 있어야 합니다.  [도구를 설치](./install-client-tools.md)합니다.
 
@@ -95,7 +95,7 @@ Azure Arc data services가 있는 여러 사이트가 있는 경우 Azure Monito
 서비스 주체를 만들려면 다음 명령을 실행 합니다.
 
 > [!NOTE]
-> 서비스 주체를 만들려면 [Azure에서 특정 권한이](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app)필요 합니다.
+> 서비스 주체를 만들려면 [Azure에서 특정 권한이](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)필요 합니다.
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>

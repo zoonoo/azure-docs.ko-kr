@@ -7,18 +7,18 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893223"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108051"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 배포
 
 Github에서 워크플로를 자동화 하 고 [Azure App Service](overview.md) 에 배포 하는 [github 작업](https://help.github.com/en/articles/about-github-actions) 을 시작 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
@@ -30,8 +30,6 @@ Github에서 워크플로를 자동화 하 고 [Azure App Service](overview.md) 
     - Python: [Azure App Service에서 python 앱 만들기](quickstart-python.md)
 
 ## <a name="workflow-file-overview"></a>워크플로 파일 개요
-
-Azure App Service 워크플로 파일에는 다음과 같은 세 개의 섹션이 있습니다.
 
 워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다.
 

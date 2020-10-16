@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134482"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108969"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>원격 데스크톱 클라이언트 문제 해결
 
@@ -83,6 +83,20 @@ Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서의](
 3. 브라우저 쿠키를 지웁니다. 자세한 내용은 [Internet Explorer에서 쿠키 파일을 삭제 하는 방법](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)을 참조 하세요.
 4. 브라우저 캐시를 지웁니다. 자세한 내용은 [브라우저의 브라우저 캐시 지우기](https://binged.it/2RKyfdU)를 참조 하세요.
 5. 프라이빗 모드에서 브라우저를 엽니다.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>Windows 클라이언트는 Windows 가상 데스크톱 (클래식) 피드를 차단 합니다.
+
+Windows 클라이언트 피드에 Windows 가상 데스크톱 (클래식) 앱이 표시 되지 않는 경우 다음 지침을 따르세요.
+
+1. 조건부 액세스 정책에 Windows 가상 데스크톱 (클래식)과 연결 된 앱 Id가 포함 되어 있는지 확인 합니다.
+2. 조건부 액세스 정책이 Windows 가상 데스크톱 (클래식) 앱 Id를 제외한 모든 액세스를 차단 하는지 확인 합니다. 그렇다면 클라이언트에서 피드를 검색할 수 있도록 앱 ID **9cdead84-a844-4324-93f2-b2e6bb768d07** 를 정책에 추가 해야 합니다.
+
+목록에서 앱 ID 9cdead84-a844-4324-93f2-b2e6bb768d07를 찾을 수 없는 경우 Windows 가상 데스크톱 리소스 공급자를 등록 해야 합니다. 리소스 공급자를 등록하려면 다음 단계를 따릅니다.
+
+1. Azure Portal에 로그인합니다.
+2. **구독**으로 이동한 다음 구독을 선택 합니다.
+3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자**를 선택 합니다.
+4. **Microsoft DesktopVirtualization**을 찾아 선택한 다음 **다시 등록**을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

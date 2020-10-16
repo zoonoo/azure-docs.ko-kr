@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317347"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108306"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -130,7 +130,7 @@ azdata arc postgres endpoint list -n <server group name>
 ]
 ```
 
-PostgreSQL 인스턴스 끝점을 사용 하 여  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) Psql, pgcli 등 즐겨 사용 하는 도구에서 PostgreSQL hyperscale 서버 그룹에 연결할 수 있습니다.
+PostgreSQL 인스턴스 끝점을 사용 하 여  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) Psql, pgcli 등 즐겨 사용 하는 도구에서 PostgreSQL hyperscale 서버 그룹에 연결할 수 있습니다.
 
 Azure VM을 사용 하 여 테스트 하는 경우 아래 지침을 따르세요.
 

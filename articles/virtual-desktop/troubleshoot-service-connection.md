@@ -3,15 +3,15 @@ title: 서비스 연결 문제 해결 Windows Virtual Desktop - Azure
 description: Windows 가상 데스크톱 테 넌 트 환경에서 서비스 연결을 설정 하는 동안 문제를 해결 하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089907"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108952"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
 
@@ -45,6 +45,13 @@ ms.locfileid: "90089907"
 이 오류는 일반적으로 사용자가 한 Azure AD 테 넌 트에서 다른 Azure AD 테 넌 트에서 구독을 이동한 후에 표시 됩니다. 따라서 서비스는 여전히 이전 Azure AD 테 넌 트에 연결 되어 있기 때문에 사용자 할당을 추적 하지 않습니다.
 
 이 문제를 해결 하려면 사용자를 앱 그룹에 다시 할당 하기만 하면 됩니다.
+
+이는 CSP 공급자가 구독을 만든 다음 고객에 게 전송한 경우에도 발생할 수 있습니다. 이 문제를 해결 하려면 리소스 공급자를 다시 등록 합니다.
+
+1. Azure Portal에 로그인합니다.
+2. **구독**으로 이동한 다음 구독을 선택 합니다.
+3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자**를 선택 합니다.
+4. **Microsoft DesktopVirtualization**을 찾아 선택한 다음 **다시 등록**을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

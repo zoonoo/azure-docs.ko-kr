@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446175"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108850"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -62,7 +62,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 
  메트릭 경고는 Azure Portal, Resource Manager 템플릿, REST API, PowerShell 및 Azure CLI를 사용하여 만들고 관리할 수 있습니다. 로그 메트릭 경고는 메트릭 경고의 변형이므로 필수 조건이 완료되면 지정된 Log Analytics 작업 영역에 대한 로그 메트릭 경고를 만들 수 있습니다. 페이로드 스키마, 적용 가능한 할당량 한도 및 청구 가격을 포함하여 [메트릭 경고](./alerts-metric-near-real-time.md)의 모든 특성과 기능은 로그 메트릭 경고에도 적용할 수 있습니다.
 
-단계별 세부 정보 및 샘플은 [메트릭 경고 만들기 및 관리](https://aka.ms/createmetricalert)를 참조하세요. 특히 로그 메트릭 경고의 경우 메트릭 경고 관리 지침을 따르고 다음 사항을 확인합니다.
+단계별 세부 정보 및 샘플은 [메트릭 경고 만들기 및 관리](./alerts-metric.md)를 참조하세요. 특히 로그 메트릭 경고의 경우 메트릭 경고 관리 지침을 따르고 다음 사항을 확인합니다.
 
 - 메트릭 경고의 대상은 유효한 *Log Analytics 작업 영역*입니다.
 - 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고로 선택한 신호는 **메트릭** 유형입니다.
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - [메트릭 경고](alerts-metric.md)에 대해 자세히 알아봅니다.
 - [Azure의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
 - [Azure의 경고](alerts-overview.md)에 대해 알아봅니다.
-

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190237"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108612"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>성능에 대 한 Azure Data Lake Storage Gen1 조정
 
@@ -39,15 +39,15 @@ Azure에서 온-프레미스 컴퓨터 또는 Vm을 사용 하 고 있는지 여
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>최대 병렬 처리를 위한 데이터 수집 도구 구성
 
-원본 하드웨어 및 네트워크 연결 병목 상태를 해결 한 후 수집 도구를 구성할 준비가 되었습니다. 다음 표에는 몇 가지 일반적인 수집 도구에 대한 주요 설정이 요약되어 있으며, 각 도구에 대한 심층 분석 성능 튜닝 문서가 제공됩니다. 시나리오에 사용할 도구에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios)를 참조하세요.
+원본 하드웨어 및 네트워크 연결 병목 상태를 해결 한 후 수집 도구를 구성할 준비가 되었습니다. 다음 표에는 몇 가지 일반적인 수집 도구에 대한 주요 설정이 요약되어 있으며, 각 도구에 대한 심층 분석 성능 튜닝 문서가 제공됩니다. 시나리오에 사용할 도구에 대한 자세한 내용은 이 [문서](./data-lake-store-data-scenarios.md)를 참조하세요.
 
 | 도구          | 설정 | 자세한 정보                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [링크](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Azure Data Lake Analytics 단위 | [링크](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m(mapper) | [링크](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [링크](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Azure Data Lake Analytics 단위 | [링크](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m(mapper) | [링크](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure 데이터 팩터리| parallelCopies | [링크](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m(mapper) | [링크](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m(mapper) | [링크](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>데이터 집합 구성
 
@@ -131,7 +131,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 | [HDInsight의 MapReduce](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-store-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

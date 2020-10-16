@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: fe5940083d04c1b5cc60b21834adf609e523e059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48136f8d9172c3674e849e24efca4ae5070f83ab
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666248"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109122"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대 한 고가용성 및 재해 복구 지침
 
@@ -21,8 +21,8 @@ Data Lake Storage Gen1는 LRS (로컬 중복 저장소)를 제공 합니다. 따
 
 재해 복구 계획을 준비 하는 것이 중요 합니다. 이 문서의 정보와 이러한 추가 리소스를 검토 하 여 계획을 직접 만들 수 있습니다.
 
-* [Azure 애플리케이션에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
-* [Azure 복구력 기술 지침](../resiliency/resiliency-technical-guidance.md)
+* [Azure 애플리케이션에 대한 재해 복구 및 고가용성](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Azure 복구력 기술 지침](/azure/architecture/framework/resiliency/overview)
 
 ### <a name="best-practice-recommendations"></a>모범 사례 권장 사항
 

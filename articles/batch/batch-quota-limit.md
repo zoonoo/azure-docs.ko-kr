@@ -4,12 +4,12 @@ description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 �
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84417279"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107541"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -125,7 +125,7 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
 
 Azure 가상 네트워크에 배포된 Virtual Machine 구성의 Batch 풀은 추가 Azure 네트워킹 리소스를 자동으로 할당합니다. 가상 네트워크의 50개 풀 노드 각각에 대해 다음 리소스가 필요합니다.
 
-- [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups) 1개
+- [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#network-security-groups) 1개
 - [공용 IP 주소](../virtual-network/public-ip-addresses.md) 1개
 - [부하 분산 장치](../load-balancer/load-balancer-overview.md) 1개
 

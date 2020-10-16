@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d5fafa8d956c296124c5a20f8a087160961da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022465"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109241"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>.NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업
 
@@ -28,7 +28,7 @@ ms.locfileid: "89022465"
 
 .NET SDK를 사용 하 여 Data Lake Storage Gen1에 대 한 계정 관리 작업을 수행 하는 방법에 대 한 지침은 [.NET sdk를 사용 하 여 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Visual Studio 2013 이상** 이 문서의 지침에서는 Visual Studio 2019을 사용 합니다.
 
@@ -199,10 +199,10 @@ client.DeleteRecursive("/Test");
 * [GitHub의 기본 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 * [.NET SDK를 사용한 Data Lake Storage Gen1의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK 참조](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016096"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107609"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -29,22 +29,6 @@ Azure Analysis Services의 경우 처음으로 게이트웨이를 사용 하 여
 - **Azure에서 게이트웨이 리소스 만들기** -이 단계에서는 azure에서 게이트웨이 리소스를 만듭니다.
 
 - **서버에 게이트웨이 리소스 연결** -게이트웨이 리소스가 있으면 서버 연결을 시작할 수 있습니다. 동일한 지역에 있는 경우 여러 서버 및 기타 리소스를 연결할 수 있습니다.
-
-
-
-## <a name="how-it-works"></a>작동 방법
-조직의 컴퓨터에 설치하는 게이트웨이는 Windows 서비스인 **온-프레미스 데이터 게이트웨이**로 실행됩니다. 이 로컬 서비스는 Azure Service Bus를 통해 게이트웨이 클라우드 서비스로 등록됩니다. 그런 다음 Azure 구독에 대 한 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 Azure Analysis Services 서버가 Azure 게이트웨이 리소스에 연결 됩니다. 서버의 모델을 쿼리 또는 처리를 위해 온-프레미스 데이터 원본에 연결해야 하는 경우 쿼리 및 데이터 흐름은 게이트웨이 리소스, Azure Service Bus, 로컬 온-프레미스 데이터 게이트웨이 서비스 및 데이터 원본을 통과합니다. 
-
-![작동 방법](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-쿼리 및 데이터 흐름:
-
-1. 쿼리는 온-프레미스 데이터 원본의 암호화된 자격 증명을 사용하여 클라우드 서비스에서 생성합니다. 그런 다음 처리할 게이트웨이의 큐로 전송됩니다.
-2. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/)에 대한 요청을 보냅니다.
-3. 온-프레미스 데이터 게이트웨이가 보류 중인 요청을 위해 Azure Service Bus를 폴링합니다.
-4. 게이트웨이가 쿼리를 가져오고, 자격 증명의 암호를 해독하고, 해당 자격 증명으로 데이터 원본에 연결합니다.
-5. 게이트웨이가 실행을 위해 데이터 원본에 쿼리를 보냅니다.
-6. 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후 클라우드 서비스 및 서버로 전송됩니다.
 
 ## <a name="installing"></a>설치
 
@@ -76,16 +60,6 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 | *.msftncsi.com |443 |Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
 | *.microsoftonline-p.com |443 |구성에 따라 인증에 사용합니다. |
 | dc.services.visualstudio.com    |443 |AppInsights에서 원격 분석을 수집 하는 데 사용 됩니다. |
-
-### <a name="forcing-https-communication-with-azure-service-bus"></a>Azure Service Bus와의 HTTPS 통신 강제 적용
-
-직접 TCP 대신 HTTPS를 사용하여 Azure Service Bus와 통신하도록 게이트웨이 강제할 수 있지만 성능이 크게 저하될 수 있습니다. 값을 `AutoDetect`에서 `Https`로 변경하여 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 파일을 수정할 수 있습니다. 이 파일은 기본적으로 *C:\Program Files\On-premises data gateway*에 위치합니다.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## <a name="next-steps"></a>다음 단계 
 

@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버를 사용 하 여 VM 확장 관리
 description: Azure Arc 사용 서버는 Azure가 아닌 Vm을 사용 하 여 배포 후 구성 및 자동화 작업을 제공 하는 가상 머신 확장의 배포를 관리할 수 있습니다.
 ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59772022672781e926e439e9740f8e8a02c8b4d3
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329077"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108119"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버를 사용 하 여 가상 머신 확장 관리
 
@@ -51,7 +51,7 @@ VM 확장은 Azure Resource Manager 템플릿, Azure Portal 또는 Arc 사용 �
 
 Azure 연결 된 컴퓨터 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용은 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 구독에 있는 다음 Azure 리소스 공급자에 따라 달라 집니다.
 
@@ -93,7 +93,7 @@ Azure Portal를 통해 서버 관리 컴퓨터에 대 한 Arc를 VM 확장에 �
 >[!NOTE]
 >여러 확장을 함께 일괄 처리 하 고 처리할 수 있지만 직렬로 설치 됩니다. 첫 번째 확장 설치가 완료 되 면 다음 확장을 설치 하려고 시도 합니다.
 
-## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
+## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
 Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 사용 서버에서 지 원하는 VM 확장을 사용 하 여 Azure PowerShell를 사용 하 여 Linux 또는 Windows 컴퓨터에서 지원 되는 VM 확장을 배포할 수 있습니다. 아래 각 샘플에는 템플릿에 제공할 샘플 값이 포함 된 템플릿 파일 및 매개 변수 파일이 포함 되어 있습니다.
 
@@ -722,4 +722,4 @@ Arc 사용 서버에서 하나 이상의 확장을 제거 하는 것은 Azure Po
 
 * [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
 
-* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.
+* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.

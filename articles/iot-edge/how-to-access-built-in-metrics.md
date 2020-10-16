@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b6f4e50cac2f809172c2525ea9136a63e6bd9066
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107014"
 ---
 # <a name="access-built-in-metrics"></a>기본 제공 메트릭 액세스
 
 IoT Edge 런타임 구성 요소 IoT Edge 허브 및 IoT Edge 에이전트는 기본 제공 메트릭을 [프로메테우스 표시 형식](https://prometheus.io/docs/instrumenting/exposition_formats/)으로 생성 합니다. 이러한 메트릭에 원격으로 액세스 하 여 IoT Edge 장치의 상태를 모니터링 하 고 파악 합니다.
 
-릴리스 1.0.10에서 메트릭은 **edgeHub** 및 **edgeAgent** 모듈 (및)의 **포트 9600** 에 기본적으로 자동으로 노출 됩니다 `http://edgeHub:9600/metrics` `http://edgeAgent:9600/metics` . 기본적으로 호스트에 매핑된 포트는 아닙니다.
+릴리스 1.0.10에서 메트릭은 **edgeHub** 및 **edgeAgent** 모듈 (및)의 **포트 9600** 에 기본적으로 자동으로 노출 됩니다 `http://edgeHub:9600/metrics` `http://edgeAgent:9600/metrics` . 기본적으로 호스트에 매핑된 포트는 아닙니다.
 
 모듈의에서 메트릭 포트를 노출 하 고 매핑하여 호스트에서 메트릭에 액세스 합니다 `createOptions` . 아래 예제에서는 기본 메트릭 포트를 호스트의 포트 9601에 매핑합니다.
 

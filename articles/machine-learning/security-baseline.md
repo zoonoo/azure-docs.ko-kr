@@ -3,16 +3,17 @@ title: Azure Machine Learning에 대 한 Azure 보안 기준
 description: Azure Machine Learning 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 831e72610690753a62c04b51e277110653e0d2c9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461022"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107677"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 

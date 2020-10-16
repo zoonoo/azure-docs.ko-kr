@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a1c679ca5a7ff08a4d2490f94548b34e4db49f4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56696f138fbf58993e990e263d2fa8e490672bb6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966188"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106300"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전
 
@@ -31,7 +31,7 @@ DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 �
 > [!TIP]
 > 이 문서에서는 가상 장치에서 TPM 증명을 사용 하 여 자동 프로 비전 테스트에 대해 설명 하지만, 실제 TPM 하드웨어를 사용 하는 경우에도 대부분 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 * 활성 IoT Hub
@@ -97,7 +97,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
    Deploy-IoTEdge
    ```
 
-1. 이 시점에서 출력은 다시 시작 하 라는 메시지를 표시할 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
+1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
 
 1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. `-Dps`수동 프로 비전 대신 장치 프로 비전 서비스를 사용 하려면 플래그를 사용 합니다.
 

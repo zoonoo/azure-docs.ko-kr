@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 2a0471055e4648944aa07d10fef67f5e7235a76b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7283ad4c4c61ecc293a55ffc4cb9626bb28d630
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856927"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108731"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
 
 이 섹션에서는 HDInsight Linux 클러스터로 SSH 하 고 샘플 Hive 쿼리를 실행 합니다. Windows 클라이언트를 사용하는 경우 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY**를 사용하는 것이 좋습니다.
 
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop에 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop에 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 1. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
 
@@ -120,7 +120,7 @@ Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성하고
 
 이 섹션에서는 HDInsight Linux 클러스터로 SSH 하 고 HDFS 명령을 실행 합니다. Windows 클라이언트를 사용하는 경우 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY**를 사용하는 것이 좋습니다.
 
-PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop에 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop에 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 연결 되 면 다음 HDFS 파일 시스템 명령을 사용 하 여 Data Lake Storage Gen1 있는 저장소 계정의 파일을 나열 합니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093755"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104396"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -67,7 +67,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     다. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
     
-    d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
+    d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
 
     ![알림 탭](./media/action-groups/action-group-2-notifications.png)
     
@@ -83,7 +83,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     다. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
     
-    d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)를 사용하도록 선택할 수 있습니다.
+    d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
     
     ![작업 탭](./media/action-groups/action-group-3-actions.png)
 
@@ -321,4 +321,3 @@ ActionGroup에 **서비스 태그** 를 사용 하면 IP 주소를 자주 업데
 * 경고의 [속도 제한](./alerts-rate-limiting.md)에 대해 자세히 알아보세요.
 * [활동 로그 경고의 개요](./alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  
 * [서비스 상태 알림이 게시될 때마다 경고를 구성](../../service-health/alerts-activity-log-service-notifications-portal.md)하는 방법을 알아보세요.
-

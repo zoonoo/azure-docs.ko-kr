@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076898"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107592"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
@@ -79,7 +79,7 @@ ms.locfileid: "92076898"
     -   [XSLT를 사용하여 XML 변환](api-management-transformation-policies.md#XSLTransform) - 요청 또는 응답 본문의 XML에 XSL 변환을 적용합니다.
 - [Eapr 통합 정책](api-management-dapr-policies.md)
     - [서비스에 요청 보내기](api-management-dapr-policies.md#invoke) -capr 런타임을 사용 하 여 마이크로 서비스를 찾고 안정적으로 통신 합니다.
-    -  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub) -capr 런타임을 사용 하 여 게시/구독 항목에 메시지를 게시 합니다. 게시-구독-메시징/추가 정보
+    -  [Pub/Sub 토픽으로 메시지 보내기](api-management-dapr-policies.md#pubsub) -capr 런타임을 사용 하 여 게시/구독 항목에 메시지를 게시 합니다.
     -  [트리거 출력 바인딩](api-management-dapr-policies.md#bind) -gapr 런타임을 사용 하 여 출력 바인딩을 통해 외부 시스템을 호출 합니다.
 
 ## <a name="next-steps"></a>다음 단계

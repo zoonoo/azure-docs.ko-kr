@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760309"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108153"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>청구 데이터를 Azure에 업로드 하 고 Azure Portal에서 확인
 
@@ -30,7 +30,7 @@ ms.locfileid: "91760309"
 - **간접적으로 연결** 됨-Azure에 직접 연결 되지 않습니다. 데이터는 내보내기/업로드 프로세스를 통해서만 Azure에 전송 됩니다. 모든 Azure Arc 데이터 서비스 배포는 현재 미리 보기로 제공 됩니다.
 - **직접 연결** -이 모드에서는 azure Arc enabled Kubernetes 서비스에 대 한 종속성이 있어 azure arc 사용 데이터 서비스가 실행 되는 Kubernetes 클러스터와 azure 간에 직접 연결을 제공 합니다. 이렇게 하면 더 많은 기능을 사용할 수 있으며 Azure PaaS에서 데이터 서비스를 관리 하는 것 처럼 Azure Portal 및 Azure CLI를 사용 하 여 Azure Arc 사용 가능 데이터 서비스를 관리할 수도 있습니다.  이 연결 모드는 미리 보기에서 아직 사용할 수 없지만 곧 제공 될 예정입니다.
 
-[연결 모드](https://docs.microsoft.com/azure/azure-arc/data/connectivity)의 차이점에 대해 자세히 알아볼 수 있습니다.
+[연결 모드](./connectivity.md)의 차이점에 대해 자세히 알아볼 수 있습니다.
 
 간접적으로 연결 된 모드에서 청구 데이터는 주기적으로 Azure Arc 데이터 컨트롤러에서 보안 파일로 내보낸 다음 Azure에 업로드 되 고 처리 됩니다.  예정 된 직접 연결 모드에서 청구 데이터는 서비스 비용을 거의 실시간으로 확인 하기 위해 Azure로 자동으로 전송 됩니다. 간접적으로 연결 된 모드에서 데이터를 내보내고 업로드 하는 프로세스는 스크립트를 사용 하 여 자동화할 수도 있고 사용자에 게이 작업을 수행 하는 서비스를 빌드할 수도 있습니다.
 

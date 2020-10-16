@@ -9,24 +9,24 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: aa13baf7c6fc6d3bb66b97e533da29e4a1a6e73c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876246"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107575"
 ---
 # <a name="azure-data-studio-dashboards"></a>대시보드 Azure Data Studio
 
-[Azure Data Studio](https://aka.ms/azuredatastudio) 는 Azure Arc 리소스에 대 한 정보를 보기 위한 Azure Portal와 유사한 환경을 제공 합니다.  이러한 보기를 **대시보드** 라고 하며, Azure Portal에서 지정 된 리소스에 대해 볼 수 있는 것과 유사한 레이아웃 및 옵션을 제공 하지만, Azure에 사용할 수 있는 연결이 없는 경우 사용자 환경에서 로컬로 해당 정보를 볼 수 있는 유연성을 제공 합니다.
+[Azure Data Studio](/sql/azure-data-studio/what-is) 는 Azure Arc 리소스에 대 한 정보를 보기 위한 Azure Portal와 유사한 환경을 제공 합니다.  이러한 보기를 **대시보드** 라고 하며, Azure Portal에서 지정 된 리소스에 대해 볼 수 있는 것과 유사한 레이아웃 및 옵션을 제공 하지만, Azure에 사용할 수 있는 연결이 없는 경우 사용자 환경에서 로컬로 해당 정보를 볼 수 있는 유연성을 제공 합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="connecting-to-a-data-controller"></a>데이터 컨트롤러에 연결
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-- 다운로드 [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- 다운로드 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Azure Arc 확장이 설치 되었습니다.
 
 ### <a name="determine-the-data-controller-server-api-endpoint-url"></a>데이터 컨트롤러 서버 API 끝점 URL 확인

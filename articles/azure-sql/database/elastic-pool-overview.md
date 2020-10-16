@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330790"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107898"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>탄력적 풀이 Azure SQL Database의 여러 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
    ![풀에 적합한 단일 데이터베이스](./media/elastic-pool-overview/one-database.png)
 
-위에서 보여 주는 5분 주기에서 DB1은 최대 90DTU까지 도달하지만 전체 평균 사용량은 5DTU 미만입니다. 단일 데이터베이스에서 이 워크로드를 실행하려면 S3 컴퓨팅 크기가 필요하지만 활동이 적은 기간 동안 리소스의 대부분을 사용하지 않게 됩니다.
+이 차트에서는 각 데이터 요소에 1 분 세분성이 있는 1 시간 동안 12:00에서 1:00 까지의 DTU 사용량을 보여 줍니다. 12:10에 최대 90 Dtu가 DB1 전체 평균 사용량은 5 개 Dtu 보다 낮습니다. 단일 데이터베이스에서 이 워크로드를 실행하려면 S3 컴퓨팅 크기가 필요하지만 활동이 적은 기간 동안 리소스의 대부분을 사용하지 않게 됩니다.
 
 풀을 사용하면 이러한 사용하지 않는 DTU를 여러 데이터베이스에서 공유할 수 있으므로 필요한 DTU 및 전체 비용을 줄일 수 있습니다.
 

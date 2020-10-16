@@ -6,15 +6,15 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a48b30d83e3e7e1667552d107cb457e49494c575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02544489816f5711ca6e599c2bce03737c747934
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578515"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106623"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure Data Catalog에 Data Lake Storage Gen1의 데이터 등록
-이 문서에서는 데이터 카탈로그와 데이터를 통합하여 조직 내에서 데이터를 검색할 수 있도록 만들기 위해 Azure Data Lake Storage Gen1과 Azure Data Catalog를 통합하는 방법을 알아봅니다. 데이터 카탈로그를 만드는 방법에 대한 자세한 내용은 [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md)를 참조하세요. 데이터 카탈로그를 사용할 수 있는 시나리오를 이해하려면 [Azure Data Catalog 일반적인 시나리오](../data-catalog/data-catalog-common-scenarios.md)를 참조하세요.
+이 문서에서는 데이터 카탈로그와 데이터를 통합하여 조직 내에서 데이터를 검색할 수 있도록 만들기 위해 Azure Data Lake Storage Gen1과 Azure Data Catalog를 통합하는 방법을 알아봅니다. 데이터 카탈로그를 만드는 방법에 대한 자세한 내용은 [Azure Data Catalog](../data-catalog/overview.md)를 참조하세요. 데이터 카탈로그를 사용할 수 있는 시나리오를 이해하려면 [Azure Data Catalog 일반적인 시나리오](../data-catalog/data-catalog-common-scenarios.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "91578515"
     * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
     * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 * [데이터 카탈로그에서 데이터 원본에 주석 추가](../data-catalog/data-catalog-how-to-annotate.md)
 * [데이터 카탈로그에서 데이터 원본 문서화](../data-catalog/data-catalog-how-to-documentation.md)
 * [Data Lake Storage Gen1과 다른 Azure 서비스 통합](data-lake-store-integrate-with-other-services.md)

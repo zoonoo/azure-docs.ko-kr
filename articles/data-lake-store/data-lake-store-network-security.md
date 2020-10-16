@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85855706"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108714"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합
 
@@ -33,7 +33,7 @@ Data Lake Storage Gen1에 대한 가상 네트워크 통합에서는 가상 네�
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 가상 네트워크 통합 시나리오
 
-Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 네트워크 및 서브넷으로부터 Data Lake Storage Gen1 계정에 대한 액세스를 제한할 수 있습니다. 계정이 지정된 가상 네트워크 서브넷에 대해 잠기면 Azure의 다른 가상 네트워크/VM에 액세스하도록 허용되지 않습니다. 기능적으로 Data Lake Storage Gen1 가상 네트워크 통합을 사용하면 [가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)와 동일한 시나리오를 사용할 수 있습니다. 다음 섹션에서는 몇 가지 주요 차이점을 자세히 설명합니다. 
+Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 네트워크 및 서브넷으로부터 Data Lake Storage Gen1 계정에 대한 액세스를 제한할 수 있습니다. 계정이 지정된 가상 네트워크 서브넷에 대해 잠기면 Azure의 다른 가상 네트워크/VM에 액세스하도록 허용되지 않습니다. 기능적으로 Data Lake Storage Gen1 가상 네트워크 통합을 사용하면 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)와 동일한 시나리오를 사용할 수 있습니다. 다음 섹션에서는 몇 가지 주요 차이점을 자세히 설명합니다. 
 
 ![Data Lake Storage Gen1 가상 네트워크 통합에 대한 시나리오 다이어그램](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -42,9 +42,9 @@ Data Lake Storage Gen1 가상 네트워크 통합을 사용하여 특정 가상 
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Data Lake Storage Gen1 가상 네트워크 통합에서 최적의 라우팅
 
-가상 네트워크 서비스 엔드포인트의 주요 이점은 가상 네트워크로부터 [최적의 라우팅](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits)이 가능하다는 점입니다. Data Lake Storage Gen1 계정에 동일한 경로 최적화를 수행할 수 있습니다. 가상 네트워크에서 Data Lake Storage Gen1 계정에 대해 다음 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined)를 사용합니다.
+가상 네트워크 서비스 엔드포인트의 주요 이점은 가상 네트워크로부터 [최적의 라우팅](../virtual-network/virtual-network-service-endpoints-overview.md#key-benefits)이 가능하다는 점입니다. Data Lake Storage Gen1 계정에 동일한 경로 최적화를 수행할 수 있습니다. 가상 네트워크에서 Data Lake Storage Gen1 계정에 대해 다음 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined)를 사용합니다.
 
-**Data Lake Storage 공용 IP 주소** – 대상 Data Lake Storage Gen1 계정에 공용 IP 주소를 사용합니다. Data Lake Storage Gen1 계정의 IP 주소를 식별하기 위해 계정의 [DNS 이름을 확인](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity)합니다. 각 주소에 대해 별도의 항목을 만듭니다.
+**Data Lake Storage 공용 IP 주소** – 대상 Data Lake Storage Gen1 계정에 공용 IP 주소를 사용합니다. Data Lake Storage Gen1 계정의 IP 주소를 식별하기 위해 계정의 [DNS 이름을 확인](./data-lake-store-connectivity-from-vnets.md#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity)합니다. 각 주소에 대해 별도의 항목을 만듭니다.
 
 ```azurecli
 # Create a route table for your resource group.
@@ -65,7 +65,7 @@ az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resourc
 가상 네트워크에서 방화벽 솔루션을 사용하여 대상 계정 URL에 따라 아웃바운드 트래픽을 필터링합니다. 승인된 Data Lake Storage Gen1 계정에 대한 액세스만을 허용합니다.
 
 사용 가능한 옵션은 다음과 같습니다.
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): 가상 네트워크에 대해 [Azure Firewall을 배포하고 구성](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)합니다. Data Lake Storage 아웃바운드 트래픽을 보호하고 알려지고 승인된 계정 URL까지 잠급니다.
+- [Azure Firewall](../firewall/overview.md): 가상 네트워크에 대해 [Azure Firewall을 배포하고 구성](../firewall/tutorial-firewall-deploy-portal.md)합니다. Data Lake Storage 아웃바운드 트래픽을 보호하고 알려지고 승인된 계정 URL까지 잠급니다.
 - [네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 방화벽: 관리자는 특정 상용 방화벽 공급 업체만을 사용하도록 허용할 수 있습니다. 동일한 기능을 수행할 수 있도록 Azure Marketplace에서 지원되는 네트워크 가상 어플라이언스 방화벽 솔루션을 사용합니다.
 
 > [!NOTE]
@@ -77,17 +77,17 @@ az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resourc
  
 - 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용**을 선택합니다. 그런 다음, HDInsight 클러스터를 만든 후에 최종적으로 가상 네트워크 규칙을 다시 사용하도록 설정하거나 **모든 네트워크 및 서비스에서 액세스 허용**을 선택 취소합니다. 자세한 내용은 [예외](#exceptions) 섹션을 참조 하세요.
 
-- Data Lake Storage Gen1 가상 네트워크 통합은 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에서 작동하지 않습니다.
+- Data Lake Storage Gen1 가상 네트워크 통합은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에서 작동하지 않습니다.
   
 - 가상 네트워크에서 사용된 Data Lake Storage Gen1 계정에서 파일 및 폴더 데이터는 포털에서 액세스할 수 없습니다. 이 제한 사항에는 가상 네트워크 내부의 VM 및 데이터 탐색기를 사용하는 등의 작업으로부터의 액세스가 포함됩니다. 계정 관리 작업은 계속 작동합니다. 가상 네트워크에서 사용된 Data Lake Storage 계정에서 파일 및 폴더 데이터는 포털 이외 모든 리소스를 통해 액세스할 수 있습니다. 이러한 리소스가 포털에서 발생하지 않은 경우 SDK 액세스, PowerShell 스크립트 및 기타 Azure 서비스를 포함합니다. 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>1단계: Azure AD 서비스 엔드포인트를 사용하도록 가상 네트워크 구성
 
 1.  Azure Portal로 이동하고, 계정에 로그인합니다.
  
-2.  구독에서 [새 가상 네트워크를 만듭니다](https://docs.microsoft.com/azure/virtual-network/quick-create-portal). 또는 기존 가상 네트워크로 이동할 수 있습니다. 가상 네트워크는 Data Lake Storage Gen 1 계정과 동일한 영역에 있어야 합니다.
+2.  구독에서 [새 가상 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). 또는 기존 가상 네트워크로 이동할 수 있습니다. 가상 네트워크는 Data Lake Storage Gen 1 계정과 동일한 영역에 있어야 합니다.
  
 3.  **가상 네트워크** 블레이드에서 **서비스 엔드포인트**를 선택합니다.
  

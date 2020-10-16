@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949853"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107830"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -101,10 +101,9 @@ ms.locfileid: "91949853"
 > [!NOTE]
 > [인덱스 제한](#index-limits)에 설명된 것처럼 인덱서는 복합 형식(`2019-05-06`)을 지원하는 최신 GA API 버전부터 문서당 모든 복합 컬렉션에 대해 3000 요소의 상한을 적용합니다. 즉, 이전 API 버전을 사용하여 인덱서를 만든 경우에는 이 제한이 적용되지 않습니다. 최대 호환성을 유지하려면 이전 API 버전을 사용하여 만든 다음, `2019-05-06` 이상의 API 버전으로 업데이트된 인덱서는 여전히 제한에서 **제외**됩니다. 고객은 앞에서 설명한 것처럼 매우 큰 복합 컬렉션을 사용하는 경우 부정적인 영향에 대해 알고 있어야 하며 최신 GA API 버전을 사용하여 새 인덱서를 만드는 것이 좋습니다.
 
-### <a name="shared-private-link-resource-limits"></a>공유 개인 링크 리소스 제한
+## <a name="shared-private-link-resource-limits"></a>공유 개인 링크 리소스 제한
 
-> [!NOTE]
-> 인덱서 [는이 방법 가이드](search-indexer-howto-access-private.md) 에 설명 된 대로 [공유 개인 링크 리소스 API](/rest/api/searchmanagement/sharedprivatelinkresources) 를 통해 관리 되는 전용 끝점을 통해 안전 하 게 리소스에 액세스할 수 있습니다.
+인덱서는 [공유 개인 링크 리소스 API](/rest/api/searchmanagement/sharedprivatelinkresources)를 통해 관리 되는 [개인 끝점을 통해](search-indexer-howto-access-private.md) 다른 Azure 리소스에 액세스할 수 있습니다. 이 섹션에서는이 기능과 관련 된 제한 사항을 설명 합니다.
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ ms.locfileid: "91949853"
 | 최대 개인 끝점 | N/A | 10 또는 30 | 100 | 400 | 400 | N/A | 20 | 20 |
 | 최대 고유 리소스 유형<sup>2</sup> | 해당 없음 | 4 | 7 | 15 | 15 | 해당 없음 | 4 | 4 |
 
-<sup>1</sup> AI 보강 및 이미지 분석은 계산 집약적 이며 사용 가능한 처리 능력의 불균형을 사용 합니다. 따라서 낮은 검색 서비스 계층에서 개인 환경에서 실행 되도록 설정 하면 검색 서비스의 성능 및 안정성에 부정적인 영향을 줄 수 있습니다.
+<sup>1</sup> AI 보강 및 이미지 분석은 계산 집약적 이며 사용 가능한 처리 능력의 불균형을 사용 합니다. 이러한 이유로 검색 서비스 자체의 성능 및 안정성에 부정적인 영향을 주지 않도록 하위 계층에서 개인 연결을 사용 하지 않도록 설정 합니다.
 
 <sup>2</sup> 고유 리소스 형식 수는 `groupId` 리소스의 상태에 관계 없이 지정 된 검색 서비스에 대 한 모든 공유 개인 링크 리소스에서 사용 되는 고유한 값의 수로 계산 됩니다.
 

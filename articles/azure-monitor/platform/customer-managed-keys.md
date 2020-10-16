@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
-ms.openlocfilehash: 667ca4701ed8e781a2270b42802bab31e6e9c8ee
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096235"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108000"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -304,7 +304,7 @@ Log Analytics에 사용 되는 쿼리 언어는 표현 되며 쿼리에 추가 �
 > [!NOTE]
 > Log Analytics 쿼리는 사용 된 시나리오에 따라 다양 한 저장소에 저장할 수 있습니다. CMK 구성: Azure Monitor, Azure 대시보드, Azure 논리 앱, Azure Notebooks 및 자동화 Runbook의 통합 문서와 상관 없이 쿼리는 Microsoft key (MMK)를 사용 하 여 암호화 된 상태로 유지 됩니다.
 
-사용자 고유의 저장소 (BYOS)를 가져와서 작업 영역에 연결 하는 경우 서비스는 *저장 된 검색* 및 *로그 경고* 쿼리를 저장소 계정에 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 저장소 계정 및 [미사용 암호화 정책을](../../storage/common/encryption-customer-managed-keys.md) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
+사용자 고유의 저장소 (BYOS)를 가져와서 작업 영역에 연결 하는 경우 서비스는 *저장 된 검색* 및 *로그 경고* 쿼리를 저장소 계정에 업로드 합니다. 즉, Log Analytics 클러스터의 데이터를 암호화 하는 데 사용 하는 것과 동일한 키를 사용 하거나 다른 키를 사용 하 여 저장소 계정 및 [미사용 암호화 정책을](../../storage/common/customer-managed-keys-overview.md) 제어할 수 있습니다. 그러나 해당 저장소 계정과 관련 된 비용을 담당 하 게 됩니다. 
 
 **쿼리에 CMK를 설정 하기 전 고려 사항**
 * 작업 영역 및 저장소 계정에 대 한 ' 쓰기 ' 권한이 있어야 합니다.
@@ -374,7 +374,7 @@ Lockbox는 지원 요청 중에 데이터에 액세스 하는 Microsoft 엔지�
 
 Azure Monitor에서 Log Analytics 전용 클러스터에 연결 된 작업 영역의 데이터에 대해이 컨트롤을 사용할 수 있습니다. Lockbox 컨트롤은 Log Analytics 전용 클러스터에 저장 된 데이터에 적용 되며,이는 Lockbox로 보호 되는 구독에서 클러스터의 저장소 계정에 격리 된 상태를 유지 합니다.  
 
-[Microsoft Azure 고객 Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) 에 대 한 자세한 정보
+[Microsoft Azure 고객 Lockbox](../../security/fundamentals/customer-lockbox-overview.md) 에 대 한 자세한 정보
 
 ## <a name="cmk-management"></a>CMK 관리
 

@@ -3,12 +3,12 @@ title: 리소스 파일 생성 및 사용
 description: 다양한 입력 소스에서 Batch 리소스 파일을 만드는 방법을 알아봅니다. 이 문서에서는 이를 만들고 VM에 추가하는 몇 가지 일반적인 방법을 설명합니다.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230945"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109292"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 생성 및 사용
 
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-SAS URL을 생성하는 대신 컨테이너 및 Azure Blob Storage의 해당 Blob에 대한 익명의 공용 읽기 권한을 사용하도록 설정할 수 있습니다. 이렇게 하면 계정 키를 공유하지 않고 SAS를 요구하지 않고도 이러한 리소스에 대해 읽기 전용 권한을 부여할 수 있습니다. 공용 읽기 권한은 일반적으로 특정 Blob을 항상 익명 읽기 액세스에 사용할 수 있게 하려는 경우에 사용됩니다. 이 시나리오가 솔루션에 적합한 경우 [Blob에 대한 익명 액세스](../storage/blobs/storage-manage-access-to-resources.md) 문서를 참조하여 Blob 데이터에 대한 액세스 관리에 대해 자세히 알아보세요.
+SAS URL을 생성하는 대신 컨테이너 및 Azure Blob Storage의 해당 Blob에 대한 익명의 공용 읽기 권한을 사용하도록 설정할 수 있습니다. 이렇게 하면 계정 키를 공유하지 않고 SAS를 요구하지 않고도 이러한 리소스에 대해 읽기 전용 권한을 부여할 수 있습니다. 공용 읽기 권한은 일반적으로 특정 Blob을 항상 익명 읽기 액세스에 사용할 수 있게 하려는 경우에 사용됩니다. 이 시나리오가 솔루션에 적합한 경우 [Blob에 대한 익명 액세스](../storage/blobs/anonymous-read-access-configure.md) 문서를 참조하여 Blob 데이터에 대한 액세스 관리에 대해 자세히 알아보세요.
 
 ### <a name="storage-container-name"></a>스토리지 컨테이너 이름
 

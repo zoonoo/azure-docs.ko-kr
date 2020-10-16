@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: 9ee5959c124636e64ef73b901fbc461f36cd27f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.author: alzam
+ms.openlocfilehash: 451323b8ea4006ba6e2b63d12cc54b2b7c0b60c6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817295"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109037"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure Active Directory 테넌트 만들기
 
@@ -75,6 +75,9 @@ Azure AD 테 넌 트에는 전역 관리자 계정 및 마스터 사용자 계�
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+> [!NOTE]
+> 동의를 제공 하기 위해 Azure AD 테 넌 트의 기본이 아닌 전역 관리자 계정을 사용 하는 경우 "common"을 URL의 Azure AD 디렉터리 id로 바꿉니다. 특정 한 경우에도 "common"을 디렉터리 id로 바꾸어야 할 수도 있습니다.
+>
 
 5. 메시지가 표시되면 **전역 관리자** 계정을 선택합니다.
 

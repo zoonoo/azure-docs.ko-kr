@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87311758"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104583"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>타사 쿠키를 차단하는 Safari 및 다른 브라우저에서 ITP 처리
 
@@ -49,7 +49,7 @@ SPA에는 다음의 두 가지 추가 제한 사항이 있습니다.
 * [로그인 엔드포인트에서 CORS를 사용하려면 리디렉션 URI를 `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) 형식으로 표시해야 합니다.
 * `spa` 리디렉션 URI에 대한 인증 코드 흐름을 통해 발급된 새로 고침 토큰의 수명은 90일이 아닌 24시간입니다.
 
-![SPA 앱에 대한 코드 흐름](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="단일 페이지 앱과 보안 토큰 서비스 끝점 간의 OAuth 2 인증 코드 흐름을 보여 주는 다이어그램입니다." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>성능 및 UX 영향
 

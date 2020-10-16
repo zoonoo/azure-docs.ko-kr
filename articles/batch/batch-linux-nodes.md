@@ -4,12 +4,12 @@ description: Azure Batch의 Linux 가상 머신 풀에서 병렬 컴퓨팅 워�
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 6cd8a13d67c1ce169e6c9300f7ee017fd3a59d96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cbf7dcb5b0f6f43b4fc5d69127e817dceea650e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146337"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108068"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 컴퓨팅 노드 프로비전
 
@@ -25,7 +25,7 @@ Batch에서 컴퓨팅 노드 풀을 만들 때는 노드 크기와 운영 체제
 
 **Cloud Services 구성**은 Windows 컴퓨팅 노드*만*제공합니다. 사용 가능한 컴퓨팅 노드 크기는 [Cloud Services 크기](../cloud-services/cloud-services-sizes-specs.md)에 나열되고 사용 가능한 운영 체제는 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](../cloud-services/cloud-services-guestos-update-matrix.md)에 나열됩니다. Azure Cloud Services 노드를 포함하는 풀을 만드는 경우 노드 크기 및 OS 제품군을 지정하며, 앞에서 언급한 문서에 설명되어 있습니다. Windows 컴퓨팅 노드의 풀에는 Cloud Services가 가장 일반적으로 사용됩니다.
 
-**Virtual Machine 구성**은 컴퓨팅 노드에 대한 Linux와 Windows 이미지를 제공합니다. 사용 가능한 컴퓨팅 노드 크기는 [Azure에서 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux) 및 [Azure에서 가상 머신에 대한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)에 나열되어 있습니다. Virtual Machine 구성 노드를 포함하는 풀을 만들 때 노드 크기, 가상 머신 이미지 참조 및 노드에 설치할 Batch 노드 에이전트 SKU도 지정해야 합니다.
+**Virtual Machine 구성**은 컴퓨팅 노드에 대한 Linux와 Windows 이미지를 제공합니다. 사용 가능한 컴퓨팅 노드 크기는 [Azure에서 가상 머신에 대한 크기](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)(Linux) 및 [Azure에서 가상 머신에 대한 크기](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)(Windows)에 나열되어 있습니다. Virtual Machine 구성 노드를 포함하는 풀을 만들 때 노드 크기, 가상 머신 이미지 참조 및 노드에 설치할 Batch 노드 에이전트 SKU도 지정해야 합니다.
 
 ### <a name="virtual-machine-image-reference"></a>가상 머신 이미지 참조
 

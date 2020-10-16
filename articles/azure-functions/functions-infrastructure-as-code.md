@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 56a68fca42bcab7642a5ebad953b59269a4d88a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180646"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107728"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -30,7 +30,7 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
 | 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
 | [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | Optional    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
 | [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> 호스팅 계획은 [프리미엄 계획이](./functions-premium-plan.md) 나 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행 하도록 선택 하는 경우에만 필요 합니다.
@@ -516,7 +516,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 }
 ```
 
-[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](../app-service/containers/index.yml)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
+[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](../app-service/index.yml)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
 
 ```json
 {

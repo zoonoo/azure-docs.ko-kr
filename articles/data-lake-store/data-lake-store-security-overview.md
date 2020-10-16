@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192820"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106827"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 
@@ -31,7 +31,7 @@ ms.locfileid: "88192820"
 각 Azure 구독은 Azure Active Directory의 인스턴스와 연결될 수 있습니다. 사용자 및 Azure Active Directory 서비스에서 정의된 서비스 ID는 Azure Portal, 명령줄 도구를 사용하거나 Data Lake Storage Gen1 SDK를 사용하여 조직이 빌드하는 클라이언트 애플리케이션을 통해 Data Lake Storage Gen1 계정에 액세스할 수 있습니다. 중앙 집중식 액세스 제어 메커니즘으로 Azure Active Directory를 사용하는 주요 이점은 다음과 같습니다.
 
 * 단순화된 ID 수명 주기 관리. 디렉터리에서 계정을 삭제하거나 비활성화하여 사용자 또는 서비스(서비스 주체 ID)를 신속하게 만들고 해지할 수 있습니다.
-* 다단계 인증. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.
+* 다단계 인증. [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) 은 사용자 로그인 및 트랜잭션에 대해 추가 보안 계층을 제공합니다.
 * OAuth 또는 OpenID와 같은 표준 개방형 프로토콜을 통해 모든 클라이언트에서 인증.
 * 엔터프라이즈 디렉터리 서비스 및 클라우드 ID 공급자와 페더레이션.
 
@@ -117,7 +117,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)

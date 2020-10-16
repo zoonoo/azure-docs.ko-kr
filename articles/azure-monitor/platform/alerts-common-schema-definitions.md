@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330879"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105994"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
-이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](https://aka.ms/commonAlertSchemaDocs)에 대해 설명합니다. 
+이 문서에서는 웹후크, Azure Logic Apps, Azure Functions 및 Azure Automation Runbook을 포함하여 Azure Monitor에 대한 [일반 경고 스키마 정의](./alerts-common-schema.md)에 대해 설명합니다. 
 
 모든 경고 인스턴스는 영향을 받은 리소스 및 경고의 원인을 설명합니다. 이러한 인스턴스는 다음 섹션의 공통 스키마에 설명되어 있습니다.
 * **Essentials**: 모든 경고 유형에 공통인 표준화된 필드 세트로, 경고가 발생하는 리소스를 설명하고 추가 공통 경고 메타데이터(예: 심각도 또는 설명)를 설명합니다. 
@@ -541,5 +541,5 @@ ms.locfileid: "91330879"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [일반 경고 스키마](https://aka.ms/commonAlertSchemaDocs)에 대해 자세히 알아봅니다.
-- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](./alerts-common-schema-integrations.md)을 알아봅니다. 
+- [일반 경고 스키마](./alerts-common-schema.md)에 대해 자세히 알아봅니다.
+- [일반 경고 스키마를 사용하여 모든 경고를 처리하는 논리 앱을 만드는 방법](./alerts-common-schema-integrations.md)을 알아봅니다.

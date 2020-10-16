@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715324"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102156"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -77,14 +77,14 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 > Log Analytics 작업 영역으로 전송 되도록 게스트 메트릭을 구성한 경우 메트릭은 Log Analytics 작업 영역 리소스 아래에 표시 되 고이를 모니터링 하는 경고 규칙을 만든 후에 **만** 데이터를 표시 하기 시작 합니다. 이렇게 하려면 [로그에 대한 메트릭 경고를 구성](./alerts-metric-logs.md#configuring-metric-alert-for-logs)하는 단계를 수행합니다.
 
 > [!NOTE] 
-> 단일 경고 규칙을 사용 하 여 여러 가상 컴퓨터에 대 한 게스트 메트릭을 모니터링 하는 것은 현재 메트릭 경고에서 지원 되지 않습니다. [로그 경고 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)을 사용 하 여이를 달성할 수 있습니다. 이렇게 하려면 게스트 메트릭이 Log Analytics 작업 영역으로 수집 되는지 확인 하 고 작업 영역에서 로그 경고 규칙을 만듭니다.
+> 단일 경고 규칙을 사용 하 여 여러 가상 컴퓨터에 대 한 게스트 메트릭을 모니터링 하는 것은 현재 메트릭 경고에서 지원 되지 않습니다. [로그 경고 규칙](./alerts-unified-log.md)을 사용 하 여이를 달성할 수 있습니다. 이렇게 하려면 게스트 메트릭이 Log Analytics 작업 영역으로 수집 되는지 확인 하 고 작업 영역에서 로그 경고 규칙을 만듭니다.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>경고에 대 한 메트릭을 찾을 수 없음
 
-특정 메트릭에 대 한 경고를 찾고 있지만 경고 규칙을 만들 때이를 볼 수 없는 경우 다음을 확인 합니다.
-- 리소스에 대 한 메트릭이 표시 [되지 않는 경우 메트릭 경고에 대해 리소스 유형이 지원 되는지 확인](./alerts-metric-near-real-time.md)합니다.
-- 리소스에 대 한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우 [해당 메트릭을 사용할 수 있는지 여부를 확인](./metrics-supported.md)하 고, 해당 메트릭을 사용할 수 있는지 확인 하려면 메트릭 설명을 참조 하 여 리소스의 특정 버전이 나 버전 에서만 사용할 수 있는지 확인 합니다.
-- 리소스에 대해 메트릭을 사용할 수 없는 경우 리소스 로그에서 메트릭을 사용할 수 있으며 로그 경고를 사용 하 여 모니터링할 수 있습니다. [Azure 리소스에서 리소스 로그를 수집 하 고 분석](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)하는 방법에 대 한 자세한 내용은 여기를 참조 하세요.
+특정 메트릭에 대한 경고를 찾고 있지만 경고 규칙을 만들 때 볼 수 없는 경우 다음을 확인합니다.
+- 리소스에 대한 메트릭이 표시되지 않는 경우 [메트릭 경고에 대해 리소스 유형이 지원되는지 확인](./alerts-metric-near-real-time.md)합니다.
+- 리소스에 대한 일부 메트릭을 볼 수 있지만 특정 메트릭을 찾을 수 없는 경우, [메트릭을 사용할 수 있는지 확인](./metrics-supported.md)하고 필요한 경우 메트릭 설명을 참조하여 리소스의 특정 버전에서만 사용할 수 있는지 확인합니다.
+- 메트릭을 리소스에 사용할 수 없는 경우 리소스 로그에서 사용할 수 있으며 로그 경고를 사용하여 모니터링할 수 있습니다. [Azure 리소스에서 리소스 로그를 수집하고 분석](../learn/tutorial-resource-logs.md)하는 방법에 대한 자세한 내용은 여기를 참조하세요.
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>경고에 대 한 메트릭 차원을 찾을 수 없습니다.
 
