@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2018
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116361"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131754"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
@@ -38,7 +38,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
@@ -179,7 +179,7 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 
 1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_profile_edit_password_change*입니다.
 2. **애플리케이션**은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL**에 `https://jwt.ms`가 표시되어야 합니다.
-3. **지금 실행**을 클릭합니다. 이전에 만든 계정으로 로그인합니다. 이제 암호를 변경할 수 있습니다.
+3. **지금 실행**을 클릭합니다. 이전에 만든 계정으로 로그인 합니다. 이제 암호를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046811"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131686"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>메트릭 관리자에 게 질문과 대답
 
@@ -31,7 +31,7 @@ ms.locfileid: "92046811"
 
 :::image type="content" source="media/pricing.png" alt-text="F0 리소스가 이미 있는 경우의 메시지":::
 
-공개 미리 보기 기간 중에는 한 지역의 한 구독에서 메트릭 관리자의 인스턴스를 하나만 만들 수 있습니다.
+공개 미리 보기 중에는 구독에서 지역 마다 메트릭 관리자의 인스턴스를 하나만 만들 수 있습니다.
 
 동일한 구독을 사용 하 여 동일한 지역에서 만든 인스턴스가 이미 있는 경우 다른 지역 또는 다른 구독을 시도 하 여 새 인스턴스를 만들 수 있습니다. 기존 인스턴스를 삭제 하 여 새 인스턴스를 만들 수도 있습니다.
 
@@ -108,6 +108,40 @@ ms.locfileid: "92046811"
 
 데이터가 정상적으로 안정적이 고 변동 되지 않으며, 너무 안정적으로 전환 되거나 평평한 선 일 때 경고를 표시 하려는 경우 변경이 너무 작은 경우 이러한 데이터 요소를 검색 하도록 "변경 임계값"을 구성할 수 있습니다.
 자세한 내용은 [변칙 검색 구성](how-tos/configure-metrics.md#anomaly-detection-methods) 을 참조 하세요.
+
+## <a name="advanced-concepts"></a>고급 개념
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>메트릭 관리자는 다차원 메트릭에 대 한 인시던트 트리를 어떻게 작성 하나요?
+
+메트릭은 차원을 통해 여러 시간 계열로 분할 될 수 있습니다. 예를 들어 메트릭은 `Response latency` 팀에서 소유 하는 모든 서비스에 대해 모니터링 됩니다. `Service`범주는 메트릭을 보강 하는 차원으로 사용 될 수 있으므로 `Response latency` `Service1` , 등으로 분할 `Service2` 됩니다. 각 서비스는 여러 데이터 센터의 여러 컴퓨터에 배포 될 수 있으므로 메트릭은 및로 추가로 분할 될 수 `Machine` 있습니다 `Data center` .
+
+|서비스| 데이터 센터| 컴퓨터  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M1 |
+| S1 |  DC1 |   M2 |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M1 |
+| S2 |  DC1 |   M2 |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+합계부터 시작 하 `Response latency` 여, 및로 메트릭을 드릴 다운할 수 있습니다 `Service` `Data center` `Machine` . 그러나 서비스 소유자가 경로를 사용 하는 것이 더 적합할 수도 `Service`  ->  `Data center`  ->  `Machine` 있고 인프라 엔지니어가 경로를 사용 하는 것이 더 적합할 `Data Center`  ->  `Machine`  ->  `Service` 수도 있습니다. 이는 사용자의 개별 비즈니스 요구 사항에 따라 달라 집니다. 
+
+메트릭 관리자에서 사용자는 계층 토폴로지의 한 노드에서 드릴 다운 하거나 롤업할 경로를 지정할 수 있습니다. 보다 정확 하 게, 계층 토폴로지는 트리 구조가 아니라 방향이 지정 된 비순환 그래프입니다. 다음과 같이 모든 잠재적 차원 조합으로 구성 된 전체 계층 토폴로지가 있습니다. 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="F0 리소스가 이미 있는 경우의 메시지" lightbox="media/dimension-combinations-view.png":::
+
+이론적으로 차원에 고유한 값이 있고 차원에 고유한 값이 있으며 차원에 고유한 값이 있는 경우 `Service` `Ls` `Data center` `Ldc` `Machine` `Lm` `(Ls + 1) * (Ldc + 1) * (Lm + 1)` 계층 구조 토폴로지에서 차원 조합이 있을 수 있습니다. 
+
+그러나 일반적으로 일부 차원 조합은 유효 하지 않으므로 복잡성을 크게 줄일 수 있습니다. 현재 사용자가 메트릭 자체를 집계 하는 경우 차원 수를 제한 하지 않습니다. 메트릭 관리자가 제공 하는 롤업 기능을 사용 해야 하는 경우 차원 수는 6 보다 커야 합니다. 그러나 메트릭에 대 한 차원으로 확장 되는 시계열 수를 1만 미만으로 제한 합니다.
+
+진단 페이지의 **인시던트 트리** 도구는 전체 토폴로지가 아닌 변칙이 검색 된 노드만 표시 합니다. 이는 현재 문제에 초점을 맞출 수 있도록 하기 위한 것입니다. 또한 메트릭 내에 모든 비정상을 표시 하지 않을 수도 있으며, 대신 기여에 따라 상위 변칙을 표시 합니다. 이러한 방식으로 비정상적인 데이터의 영향, 범위 및 확산 경로를 빠르게 확인할 수 있습니다. 이로 인해 초점을 맞춰야 하는 변칙 수가 현저 하 게 감소 하 고 사용자가 주요 문제를 이해 하 고 찾을 수 있습니다. 
+ 
+예를 들어에서 변칙이 발생 하는 경우 변칙 `Service = S2 | Data Center = DC2 | Machine = M5` 의 편차는 부모 노드에 영향 `Service= S2` 을 주므로 비정상을 감지 했지만 이상에서는의 전체 데이터 센터 및 모든 서비스에 영향을 주지 않습니다 `DC2` `M5` . 인시던트 트리는 아래 스크린샷에 나와 있는 것 처럼 작성 되 고, 상위 변칙은에서 캡처되고 `Service = S2` , 근본 원인은 모두로 이어지는 두 경로에서 분석할 수 있습니다 `Service = S2 | Data Center = DC2 | Machine = M5` .
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 개의 서로 다른 경로를 포함 하는 꼭 짓 점 레이블이 S2 인 공통 노드를 사용 하 여 가장자리에 연결 합니다. Top 변칙은 Service = S2에서 캡처되고, 근본 원인은 서비스 = S2로 이어지는 두 경로에서 분석할 수 있습니다. 데이터 센터 = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>다음 단계
 - [Metrics Advisor 개요](overview.md)

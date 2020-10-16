@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069478"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131317"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -615,6 +615,37 @@ Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아�
 
     ![TCP 4 핸드셰이크 워크플로](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>새 IP 주소와의 통신을 허용 하도록 네트워크 구성을 업데이트 하는 전자 메일 받기
+
+#### <a name="symptoms"></a>증상
+
+2020 년 11 월 8 일에 Azure Data Factory에 대 한 새 IP 주소와의 통신을 허용 하도록 네트워크 구성을 업데이트 하는 것이 좋습니다.
+
+   ![메일 알림](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="resolution"></a>해결 방법
+
+이 알림은 **온-프레미스** 로 실행 되는 **Integration Runtime** 에서 또는 **Azure 가상 개인 네트워크** 내에서 ADF 서비스로의 **아웃 바운드 통신** 에 대 한 것입니다. 예를 들어 ADF 서비스에 액세스 해야 하는 Azure VNET에서 자체 호스팅 IR 또는 Azure SQL Server Integration Services (SSIS) IR을 사용 하는 경우 **NSG (네트워크 보안 그룹)** 규칙에이 새 IP 범위를 추가 해야 하는지 검토 해야 합니다. 아웃 바운드 NSG 규칙에서 서비스 태그를 사용 하는 경우에는 영향을 주지 않습니다.
+
+#### <a name="more-details"></a>자세한 내용
+
+이러한 새 IP 범위는 온- **프레미스 방화벽이** 나 **azure 가상 개인 네트워크** 에서 adf 서비스로의 **아웃 바운드 통신 규칙에만 영향을 미칩니다** (온-프레미스 네트워크 또는 AZURE 가상 네트워크에 자체 호스팅 ir 또는 SSIS ir을 사용 하는 경우, adf 서비스 [와](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 통신 해야 함).
+
+**AZURE VPN**을 사용 하는 기존 사용자의 경우:
+
+1. SSIS 또는 Azure SSIS가 구성 된 개인 네트워크의 아웃 바운드 NSG 규칙을 모두 확인 합니다. 아웃 바운드 제한이 없는 경우에는 영향을 주지 않습니다.
+1. 아웃 바운드 규칙 제한이 있는 경우 서비스 태그를 사용 하는지 여부를 확인 합니다. 서비스 태그를 사용 하는 경우 기존 서비스 태그 아래에 새 IP 범위를 변경 하거나 추가할 필요가 없습니다. 
+  
+    ![대상 검사](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. 규칙 설정에서 직접 IP 주소를 사용 하는 경우 [서비스 태그 ip 범위 다운로드 링크](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)에서 모든 ip 범위를 추가 하는지 확인 합니다. 이 파일에 새 IP 범위를 이미 추가 했습니다. 새 사용자의 경우: NSG 규칙을 구성 하려면 문서에서 해당 하는 자체 호스팅 IR 또는 SSIS IR 구성을 수행 해야 합니다.
+
+SSIS IR 또는 자체 호스팅 IR **온-프레미스**를 보유 하는 기존 사용자의 경우:
+
+- 네트워크 인프라 팀과의 유효성을 검사 하 고 아웃 바운드 규칙에 대 한 통신에 새 IP 범위 주소를 포함 해야 하는지 여부를 확인 합니다.
+- FQDN 이름을 기반으로 하는 방화벽 규칙의 경우 방화벽 구성에 설명 된 설정을 사용 하 [고 ip 주소에 대해 허용 목록 설정을](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)사용 하는 경우 업데이트가 필요 하지 않습니다. 
+- 일부 온-프레미스 방화벽은 서비스 태그를 지원 하며, 업데이트 된 Azure 서비스 태그 구성 파일을 사용 하는 경우 다른 변경이 필요 하지 않습니다.
 
 ## <a name="self-hosted-ir-sharing"></a>자체 호스팅 IR 공유
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955491"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131193"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -25,7 +25,7 @@ Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체�
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
-| 인스턴스 이름 | 설명 |
+| 인스턴스 이름 | Description |
 | --- | --- |
 | \_합계 |모든 인스턴스의 총계 |
 | \* |모든 인스턴스 |
@@ -75,7 +75,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 
 이 요소의 매개 변수를 다음 테이블에서 설명합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
 | instance\_regex |  수집할 인스턴스를 정의하는 *정규식*입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
@@ -156,7 +156,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 <source>
     type oms_omi
     object_name "Logical Disk"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 5m
 </source>
@@ -164,7 +164,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 <source>
     type oms_omi
     object_name "Processor"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 30s
 </source>

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108357"
+ms.locfileid: "92131550"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -39,8 +39,8 @@ ms.locfileid: "92108357"
 ## <a name="download-the-sample-applications"></a>샘플 응용 프로그램 다운로드
 
 먼저 필요한 샘플 앱을 다운로드 합니다. 다음 두 가지가 모두 필요 합니다.
-* [**Azure Digital twins 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/):이 샘플은 Azure Digital twins 인스턴스를 중심으로 데이터를 이동 하기 위한 두 개의 azure 기능을 보유 하는 *AdtSampleApp* 을 포함 합니다. [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서이 시나리오에 대해 자세히 알아볼 수 있습니다. 또한 IoT 장치를 시뮬레이션 하 고 초 마다 새 온도 값을 생성 하는 *DeviceSimulator* 샘플 응용 프로그램이 포함 되어 있습니다. 
-    - 샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_samples.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
+* [**Azure Digital Twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/):이 샘플에는 Azure Digital twins 인스턴스를 중심으로 데이터를 이동 하기 위한 두 개의 azure 기능을 보유 하는 *AdtSampleApp* 포함 되어 있습니다. [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서이 시나리오에 대해 자세히 알아볼 수 있습니다. 또한 IoT 장치를 시뮬레이션 하 고 초 마다 새 온도 값을 생성 하는 *DeviceSimulator* 샘플 응용 프로그램이 포함 되어 있습니다. 
+    - 샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_end_to_end_samples.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
 * [**SignalR integration 웹 앱 샘플**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): azure SignalR 서비스에서 Azure Digital twins 원격 분석 데이터를 사용 하는 샘플 반응 웹 앱입니다.
     -  샘플 링크로 이동 하 고 *ZIP 다운로드* 단추를 클릭 하 _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ 하 여 샘플의 복사본을 컴퓨터에 다운로드 합니다. 폴더의 압축을 풉니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "92108357"
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *Azure_Digital_Twins_samples > ADTSampleApp* 폴더에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
+그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* 폴더에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
 
 1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 c # sharp 클래스를 만듭니다.
 
@@ -129,7 +129,7 @@ ms.locfileid: "92108357"
     }
     ```
 
-1. Visual Studio의 *패키지 관리자 콘솔* 창 또는 *Azure_Digital_Twins_samples \adtsampleapp\samplefunctionsapp* 폴더에 있는 컴퓨터의 명령 창에서 다음 명령을 실행 하 여 `SignalRService` NuGet 패키지를 프로젝트에 설치 합니다.
+1. Visual Studio의 *패키지 관리자 콘솔* 창 또는 *Azure_Digital_Twins_end_to_end_samples \adtsampleapp\samplefunctionsapp* 폴더에 있는 컴퓨터의 명령 창에서 다음 명령을 실행 하 여 `SignalRService` NuGet 패키지를 프로젝트에 설치 합니다.
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -145,7 +145,7 @@ ms.locfileid: "92108357"
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
-1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 이전의 Azure SignalR **연결 문자열** 을 함수의 앱 설정에 추가 합니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)되어 있는 경우 로컬로 실행할 수 있습니다.
+1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 이전의 Azure SignalR **연결 문자열** 을 함수의 앱 설정에 추가 합니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)되어 있는 경우 로컬로 실행할 수 있습니다.
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -184,7 +184,7 @@ ms.locfileid: "92108357"
 
 종단 간 자습서 필수 구성 요소에서 IoT Hub 및 Azure Digital Twins 인스턴스로 데이터를 보내도록 [장치 시뮬레이터를 구성](tutorial-end-to-end.md#configure-and-run-the-simulation) 했습니다.
 
-이제 *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator*에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
+이제 *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator*에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="종단 간 시나리오의 Azure 서비스 뷰입니다. Azure 함수 (화살표 B)를 통해 azure 디지털 쌍 인스턴스 (섹션 A)로 이동한 다음, 처리를 위해 다른 Azure 함수 (화살표 C)로 Event Grid 하 여 장치에서 IoT Hub로 흐르는 데이터를 나타냅니다. D 섹션에는 동일한 Event Grid에서 이동 하는 데이터가 표시 됩니다. ' 브로드캐스트 '는 ' negotiate ' 레이블이 지정 된 다른 Azure 함수와 통신 하며, ' 브로드캐스트 ' 및 ' 협상 '은 모두 컴퓨터 장치와 통신 합니다.":::
 
@@ -232,7 +232,7 @@ npm start
 
 이 문서에서 만든 리소스가 더 이상 필요 하지 않은 경우 다음 단계에 따라 삭제 합니다. 
 
-Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용 하 여 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 리소스 그룹을 제거 하면 제거 됩니다.
+Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) 명령을 사용 하 여 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 리소스 그룹을 제거 하면 제거 됩니다.
 * Azure Digital Twins 인스턴스 (종단 간 자습서에서)
 * IoT hub 및 허브 장치 등록 (종단 간 자습서에서)
 * event grid 토픽 및 관련 구독
@@ -252,7 +252,7 @@ Azure Digital Twins 인스턴스를 삭제 하는 경우 다음 명령을 사용
 az ad app delete --id <your-application-ID>
 ```
 
-마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*Azure_Digital_Twins_samples.zip* 및 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*)를 삭제 합니다.
+마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*Azure_Digital_Twins_end_to_end_samples.zip* 및 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*)를 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

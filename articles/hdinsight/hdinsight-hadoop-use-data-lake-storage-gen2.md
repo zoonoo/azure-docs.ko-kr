@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 4ef53b2249f8ce57255c13126c9310f1c889d64f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855058"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131380"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -46,9 +46,9 @@ Data Lake Storage Gen2에서는 RBAC (역할 기반 액세스 제어) 및 POSIX�
 
 RBAC는 역할 할당을 사용 하 여 Azure 리소스에 대 한 사용자, 그룹 및 서비스 사용자에 게 사용 권한 집합을 효과적으로 적용 합니다. 일반적으로 이러한 Azure 리소스는 최상위 리소스 (예: Azure Blob storage 계정)로 제한 됩니다. Azure Blob storage의 경우에도 Data Lake Storage Gen2이 메커니즘이 파일 시스템 리소스로 확장 되었습니다.
 
-RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac)를 참조 하세요.
+RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)를 참조 하세요.
 
-Acl을 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조 하십시오.
+Acl을 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md)을 참조 하십시오.
 
 ### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>Data Lake Storage Gen2 내 데이터에 대 한 액세스를 제어 어떻게 할까요?
 

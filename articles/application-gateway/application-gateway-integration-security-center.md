@@ -9,12 +9,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277181"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131210"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Application Gateway와 Azure Security Center 간의 통합 개요
 
@@ -44,7 +44,7 @@ Application Gateway WAF는 악용 및 취약성으로부터 웹 애플리케이�
 
 기존 애플리케이션 게이트웨이가 있는 경우 **기존 솔루션 사용** 아래에서 선택할 수 있습니다.
 
-![웹 응용 프로그램 방화벽을 추가 하는 페이지][4]
+![웹 응용 프로그램 방화벽 추가 페이지의 스크린샷 기존 솔루션 사용 아래에서 응용 프로그램 게이트웨이를 볼 수 있습니다.][4]
 
 Security Center를 통해 애플리케이션 게이트웨이에 웹 애플리케이션을 추가하더라도 해당 리소스가 백 엔드 풀 멤버로 추가되지 않습니다. 이는 애플리케이션 게이트웨이 리소스에서 직접 추가해야 합니다.
 
@@ -62,7 +62,7 @@ Security Center를 통해 애플리케이션 게이트웨이에 웹 애플리케
 
 Security Center에서는 애플리케이션 게이트웨이에 추가한 애플리케이션을 보호된 리소스로 추적합니다.  이 리소스의 상태를 모니터링하고, 해당 리소스가 애플리케이션 게이트웨이에서 보호되는지 확인합니다. 다음 단계는 가상 머신의 프라이빗 IP, 공용 IP 또는 NIC를 애플리케이션 게이트웨이의 백 엔드 풀에 추가하는 것입니다. **애플리케이션 보호 마무리**에 대한 추가 권장 사항은 이 작업을 완료할 때까지 표시되며, 리소스를 추가하면 표시되지 않습니다.
 
-![웹 응용 프로그램 방화벽을 추가 하는 페이지][5]
+![응용 프로그램 하나를 표시 하는 응용 프로그램 보호 완료 페이지의 스크린샷 텍스트 응용 프로그램을 보호 하기 위해 수행할 단계를 설명 합니다.][5]
 
 ## <a name="security-alerts"></a>보안 경고
 

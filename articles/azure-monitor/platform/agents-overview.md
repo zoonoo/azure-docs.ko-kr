@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: de9623eb0eb14957c1554b7b0f74baa256a15d47
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108391"
+ms.locfileid: "92131023"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -148,9 +148,9 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro  | X | X | X | X |
-| Windows 8 Enterprise 및 Pro                             |   | X | X |   |
-| Windows 7 SP1                                            |   | X | X |   |
+| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오에만 해당)  | X | X | X | X |
+| Windows 8 Enterprise 및 Pro<br>(서버 시나리오에만 해당)  |   | X | X |   |
+| Windows 7 SP1<br>(서버 시나리오에만 해당)                 |   | X | X |   |
 
 
 ### <a name="linux"></a>Linux

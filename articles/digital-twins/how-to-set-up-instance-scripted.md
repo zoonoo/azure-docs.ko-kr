@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047423"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132519"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -28,11 +28,11 @@ ms.locfileid: "92047423"
 
 ## <a name="prerequisites-download-the-script"></a>필수 조건: 스크립트 다운로드
 
-샘플 스크립트는 PowerShell로 작성 됩니다. 이 샘플은 샘플 링크로 이동 하 고 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에 다운로드할 수 있는 [**Azure Digital twins 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다.
+샘플 스크립트는 PowerShell로 작성 됩니다. 이 샘플은 샘플 링크로 이동 하 고 제목 아래에 있는 *ZIP 다운로드* 단추를 선택 하 여 컴퓨터에 다운로드할 수 있는 [**Azure Digital twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다.
 
-이렇게 하면 샘플 프로젝트가 _**Azure_Digital_Twins_samples.zip**_ 으로 컴퓨터에 다운로드 됩니다. 컴퓨터의 폴더로 이동한 후 파일의 압축을 풀어 파일의 압축을 풉니다.
+이렇게 하면 샘플 프로젝트가 _**Azure_Digital_Twins_end_to_end_samples.zip**_ 으로 컴퓨터에 다운로드 됩니다. 컴퓨터의 폴더로 이동한 후 파일의 압축을 풀어 파일의 압축을 풉니다.
 
-압축을 푼 폴더에서 배포 스크립트는 _Azure_Digital_Twins_samples > 스크립트 > **deploy.ps1** _에 있습니다.
+압축을 푼 폴더에서 배포 스크립트는 _Azure_Digital_Twins_end_to_end_samples > 스크립트 > **deploy.ps1** _에 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,7 +57,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 1. &quot;파일 업로드/다운로드":::
 
-    컴퓨터의 _**deploy.ps1**_ 파일 ( _Azure_Digital_Twins_samples > 스크립트 > **deploy.ps1** _)로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
+    컴퓨터의 _**deploy.ps1**_ 파일 ( _Azure_Digital_Twins_end_to_end_samples > 스크립트 > **deploy.ps1** _)로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
 
 4. Cloud Shell 창에서 명령을 전송 하 여 스크립트를 실행 `./deploy.ps1` 합니다. (Cloud Shell에 붙여넣으려면 Windows 및 Linux에서 **Ctrl + shift + v** 를 사용 하거나 Macos에서 **Cmd + shift + v** 를 사용할 수 있습니다. 오른쪽 클릭 메뉴를 사용할 수도 있습니다.
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564842"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132077"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필을 정의 합니다.
 
@@ -82,24 +82,24 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 다음 메타 데이터는 대칭 키를 사용할 때 관련 됩니다. 
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. | 
 | IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . | 
 
-다음 메타 데이터는 대칭 키를 사용할 때 관련 됩니다. 
+다음 메타 데이터는 비대칭 키를 사용 하는 경우와 관련이 있습니다. 
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | METADATA| 예 | Openid connect 잘 알려진 구성 끝점이 라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | 아니요 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
-| IdTokenAudience | 아니요 | 토큰의 의도한 수신자를 식별합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `aud` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
+| 발급자 | No | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
+| IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . |  
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 대칭 키를 사용 하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함 됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | JWT 토큰 서명의 유효성을 검사 하는 데 사용 되는 암호화 키입니다.|
 
@@ -219,7 +219,7 @@ New-SelfSignedCertificate `
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

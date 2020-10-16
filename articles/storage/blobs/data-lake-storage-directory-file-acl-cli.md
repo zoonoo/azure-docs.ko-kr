@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6140260b75580270b365e59358d97e0a54c7b4a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22d048b15cc097cd8a24e5ed57bbe4d5a6183e2f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503942"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131601"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리, 파일 및 ACL 관리
 
-이 문서에서는 [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하여 계층 구조 네임스페이스가 있는 스토리지 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리하는 방법을 보여 줍니다. 
+이 문서에서는 [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/)를 사용하여 계층 구조 네임스페이스가 있는 스토리지 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리하는 방법을 보여 줍니다. 
 
 [샘플](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -32,14 +32,14 @@ ms.locfileid: "87503942"
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>올바른 버전의 Azure CLI를 설치했는지 확인
 
-1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+1. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 열거나 Azure CLI를 로컬로 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
 2. 다음 명령을 사용하여 설치된 Azure CLI 버전이 `2.6.0` 이상인지 확인합니다.
 
    ```azurecli
     az --version
    ```
-   Azure CLI 버전이 `2.6.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+   Azure CLI 버전이 `2.6.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="connect-to-the-account"></a>계정에 연결
 
@@ -216,7 +216,7 @@ az storage fs file move -p my-file.txt -f my-file-system --new-path my-file-syst
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="manage-permissions"></a>사용 권한 관리
+## <a name="manage-access-control-lists-acls"></a>Acl (액세스 제어 목록) 관리
 
 디렉터리 및 파일의 액세스 권한을 가져오고 설정하고 업데이트할 수 있습니다.
 
@@ -273,7 +273,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 
 다음 이미지는 파일의 ACL을 설정한 후 출력을 보여 줍니다.
 
-![ACL 가져오기 출력](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![ACL 출력 가져오기 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
 다음 예제에서는 소유 사용자 및 소유 그룹에 읽기 및 쓰기 권한만 있습니다. 다른 모든 사용자에게는 쓰기 및 실행 권한이 있습니다. 액세스 제어 목록에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](data-lake-storage-access-control.md)를 참조하세요.
 

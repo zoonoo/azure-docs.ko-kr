@@ -1,5 +1,5 @@
 ---
-title: 가상 네트워크 격리 및 개인 정보 개요
+title: 가상 네트워크 격리 및 보안 개요
 titleSuffix: Azure Machine Learning
 description: 격리 된 Azure Virtual Network Azure Machine Learning와 함께 사용 하 여 작업 영역 리소스 및 계산 환경을 보호 합니다.
 services: machine-learning
@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825503"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131941"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,10 +28,10 @@ ms.locfileid: "91825503"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
-+ [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
++ [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 + [IP 네트워킹](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 + [Azure Private Link](how-to-configure-private-link.md)
 + [네트워크 보안 그룹(NSG)](../virtual-network/security-overview.md)

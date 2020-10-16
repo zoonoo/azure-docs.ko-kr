@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276464"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131397"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 
@@ -38,6 +38,7 @@ Azure Portal 또는 프로그래밍 인터페이스에서 Data Factory UI를 사
 UI에서 연결 된 서비스를 제작할 때 Data Factory는 다음과 같은 커넥터 형식의 기본 제공 매개 변수화 환경을 제공 합니다. 연결 된 서비스 만들기/편집 블레이드에서 새 매개 변수에 대 한 옵션을 찾고 동적 콘텐츠를 추가할 수 있습니다.
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure SQL Database

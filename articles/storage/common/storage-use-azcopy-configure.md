@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037187"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132213"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -23,7 +23,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 > AzCopy을 시작 하는 데 도움이 되는 콘텐츠를 찾고 있는 경우 다음 문서를 참조 하세요.
 > - [AzCopy 시작](storage-use-azcopy-v10.md)
 > - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
-> - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+> - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 > - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 
 ## <a name="configure-proxy-settings"></a>프록시 설정 구성
@@ -42,7 +42,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 Windows에서 AzCopy를 실행 하는 경우 설정을 자동으로 검색 하는 대신 프록시를 사용 _하지 않도록_ 지시 하려면 이러한 명령을 사용 합니다. 이러한 설정을 사용 하면 AzCopy는 프록시를 조회 하거나 사용 하지 않습니다.
 
-| 운영 체제 | Environment | 명령  |
+| 운영 체제 | 환경 | 명령  |
 |--------|-----------|----------|
 | **Windows** | 명령 프롬프트 (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|

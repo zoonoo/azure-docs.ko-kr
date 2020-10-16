@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048052"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131499"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -22,7 +22,7 @@ Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function]
 
 이 방법 문서에서는 IoT Hub에서 원격 분석을 수집할 수 있는 Azure 함수를 작성 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
 * **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
@@ -242,7 +242,7 @@ _만들기_ 단추를 선택 하 여 이벤트 구독을 만듭니다.
 
 ## <a name="send-simulated-iot-data"></a>시뮬레이션 된 IoT 데이터 보내기
 
-새 수신 함수를 테스트 하려면 [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)에서 장치 시뮬레이터를 사용 합니다. 이 자습서는 c #으로 작성 된 샘플 프로젝트를 기반으로 합니다. 샘플 코드는 [Azure Digital Twins 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples)에 있습니다. 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용 하 게 됩니다.
+새 수신 함수를 테스트 하려면 [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)에서 장치 시뮬레이터를 사용 합니다. 이 자습서는 c #으로 작성 된 샘플 프로젝트를 기반으로 합니다. 샘플 코드는 다음 위치에 있습니다. [Azure Digital Twins 종단 간 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용 하 게 됩니다.
 
 종단 간 자습서에서 다음 단계를 완료 합니다.
 1. [*IoT Hub에 시뮬레이션된 디바이스 등록*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

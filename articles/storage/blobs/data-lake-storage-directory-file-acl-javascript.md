@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: c3285e66f1422e2a333be190083dadfc932bf322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 882a12838d13f511262486ff3adf332da32599c1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333599"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131533"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>JavaScript를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "91333599"
 
 [패키지 (노드 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -166,61 +166,7 @@ async function DeleteDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
 
-이 예제에서는 이름이 인 디렉터리의 ACL을 가져온 다음 설정 합니다 `my-directory` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
-
-> [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
-
-```javascript
-async function ManageDirectoryACLs(fileSystemClient) {
-
-    const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
-    const permissions = await directoryClient.getAccessControl();
-
-    console.log(permissions.acl);
-
-    const acl = [
-    {
-      accessControlType: "user",
-      entityId: "",
-      defaultScope: false,
-      permissions: {
-        read: true,
-        write: true,
-        execute: true
-      }
-    },
-    {
-      accessControlType: "group",
-      entityId: "",
-      defaultScope: false,
-      permissions: {
-        read: true,
-        write: false,
-        execute: true
-      }
-    },
-    {
-      accessControlType: "other",
-      entityId: "",
-      defaultScope: false,
-      permissions: {
-        read: true,
-        write: true,
-        execute: false
-      }
-
-    }
-
-  ];
-
-  await directoryClient.setAccessControl(acl);
-}
-```
-
-컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 `/` **DataLakeFileSystemClient client** 메서드에 빈 문자열 ()을 전달 합니다.
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
@@ -247,60 +193,6 @@ async function UploadFile(fileSystemClient) {
   await fileClient.append(content, 0, content.length);
   await fileClient.flush(content.length);
 
-}
-```
-
-## <a name="manage-a-file-acl"></a>파일 ACL 관리
-
-이 예제에서는 라는 파일의 ACL을 가져온 다음 설정 합니다 `upload-file.txt` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
-
-> [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
-
-```javascript
-async function ManageFileACLs(fileSystemClient) {
-
-  const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt"); 
-  const permissions = await fileClient.getAccessControl();
-
-  console.log(permissions.acl);
-
-  const acl = [
-  {
-    accessControlType: "user",
-    entityId: "",
-    defaultScope: false,
-    permissions: {
-      read: true,
-      write: true,
-      execute: true
-    }
-  },
-  {
-    accessControlType: "group",
-    entityId: "",
-    defaultScope: false,
-    permissions: {
-      read: true,
-      write: false,
-      execute: true
-    }
-  },
-  {
-    accessControlType: "other",
-    entityId: "",
-    defaultScope: false,
-    permissions: {
-      read: true,
-      write: true,
-      execute: false
-    }
-
-  }
-
-];
-
-await fileClient.setAccessControl(acl);        
 }
 ```
 
@@ -361,7 +253,124 @@ async function ListFilesInDirectory(fileSystemClient) {
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="manage-access-control-lists-acls"></a>Acl (액세스 제어 목록) 관리
+
+디렉터리 및 파일의 액세스 권한을 가져오고 설정하고 업데이트할 수 있습니다.
+
+> [!NOTE]
+> Azure AD (Azure Active Directory)를 사용 하 여 액세스 권한을 부여 하는 경우 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
+
+### <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
+
+이 예제에서는 이름이 인 디렉터리의 ACL을 가져온 다음 설정 합니다 `my-directory` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
+
+> [!NOTE]
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
+
+```javascript
+async function ManageDirectoryACLs(fileSystemClient) {
+
+    const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+    const permissions = await directoryClient.getAccessControl();
+
+    console.log(permissions.acl);
+
+    const acl = [
+    {
+      accessControlType: "user",
+      entityId: "",
+      defaultScope: false,
+      permissions: {
+        read: true,
+        write: true,
+        execute: true
+      }
+    },
+    {
+      accessControlType: "group",
+      entityId: "",
+      defaultScope: false,
+      permissions: {
+        read: true,
+        write: false,
+        execute: true
+      }
+    },
+    {
+      accessControlType: "other",
+      entityId: "",
+      defaultScope: false,
+      permissions: {
+        read: true,
+        write: true,
+        execute: false
+      }
+
+    }
+
+  ];
+
+  await directoryClient.setAccessControl(acl);
+}
+```
+
+컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 `/` **DataLakeFileSystemClient client** 메서드에 빈 문자열 ()을 전달 합니다.
+
+### <a name="manage-a-file-acl"></a>파일 ACL 관리
+
+이 예제에서는 라는 파일의 ACL을 가져온 다음 설정 합니다 `upload-file.txt` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
+
+> [!NOTE]
+> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)를 참조하세요.
+
+```javascript
+async function ManageFileACLs(fileSystemClient) {
+
+  const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt"); 
+  const permissions = await fileClient.getAccessControl();
+
+  console.log(permissions.acl);
+
+  const acl = [
+  {
+    accessControlType: "user",
+    entityId: "",
+    defaultScope: false,
+    permissions: {
+      read: true,
+      write: true,
+      execute: true
+    }
+  },
+  {
+    accessControlType: "group",
+    entityId: "",
+    defaultScope: false,
+    permissions: {
+      read: true,
+      write: false,
+      execute: true
+    }
+  },
+  {
+    accessControlType: "other",
+    entityId: "",
+    defaultScope: false,
+    permissions: {
+      read: true,
+      write: true,
+      execute: false
+    }
+
+  }
+
+];
+
+await fileClient.setAccessControl(acl);        
+}
+```
+
+## <a name="see-also"></a>참고 항목
 
 * [패키지(Node 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 * [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)

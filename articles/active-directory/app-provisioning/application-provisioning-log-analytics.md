@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 4e14bd6365ce53d98d6e0b0d1f2601ff3b3e59b4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d3fd553e6903951de64c301df94ea9f2fc3eb471
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997309"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132094"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>프로 비전이 Azure Monitor 로그와 통합 되는 방식 이해
 

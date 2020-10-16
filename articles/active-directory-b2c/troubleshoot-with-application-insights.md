@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993166"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132060"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -26,7 +26,7 @@ ms.locfileid: "91993166"
 여기서 설명 하는 자세한 활동 로그는 사용자 지정 정책을 개발 하는 동안에 **만** 사용 하도록 설정 해야 합니다.
 
 > [!WARNING]
-> 프로덕션 환경에서 개발 모드를 사용 하지 마십시오. 로그는 id 공급자와 주고 받는 모든 클레임을 수집 합니다. 개발자가 Application Insights 로그에 수집 된 개인 데이터를 담당 하 고 있다고 가정 합니다. 이러한 자세한 로그는 정책이 **개발자 모드로**배치 된 경우에만 수집 됩니다.
+> `DeploymentMode`프로덕션 환경에서를로 설정 하지 마십시오 `Developer` . 로그는 id 공급자와 주고 받는 모든 클레임을 수집 합니다. 개발자가 Application Insights 로그에 수집 된 개인 데이터를 담당 하 고 있다고 가정 합니다. 이러한 자세한 로그는 정책이 **개발자 모드로**배치 된 경우에만 수집 됩니다.
 
 ## <a name="set-up-application-insights"></a>Application Insights 설정
 
@@ -58,11 +58,11 @@ ms.locfileid: "91993166"
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` 처리 파이프라인을 통해 원격 분석을 신속 하 게 처리 하도록 ApplicationInsights에 지시 합니다. 개발에 좋지만 고용량으로 제한 됩니다.
+    * `DeveloperMode="true"` 처리 파이프라인을 통해 원격 분석을 신속 하 게 처리 하도록 ApplicationInsights에 지시 합니다. 개발에 좋지만 고용량으로 제한 됩니다. 프로덕션에서을로 설정 `DeveloperMode` `false` 합니다.
     * `ClientEnabled="true"` 페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이**며 기본적으로로 설정 됩니다 `false` .
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예:
+    예를 들면 다음과 같습니다.
 
     ```xml
     <TrustFrameworkPolicy
@@ -102,6 +102,31 @@ Application Insights에서 새 로그를 볼 수 있으려면 일반적으로 5 
 항목이 길어질 수 있습니다. 자세히 보기 위해 CSV로 내보냅니다.
 
 쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+
+## <a name="configure-application-insights-in-production"></a>프로덕션 환경에서 Application Insights 구성
+
+프로덕션 환경 성능과 더 나은 사용자 환경을 개선 하려면 중요 하지 않은 메시지를 무시 하도록 정책을 구성 하는 것이 중요 합니다. 다음 구성을 사용 하 여 Application Insights 중요 한 오류 메시지만 보낼 수 있습니다. 
+
+1. `DeploymentMode` [TrustFrameworkPolicy](trustframeworkpolicy.md) 의 특성을로 설정 `Production` 합니다. 
+
+   ```xml
+   <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+   TenantId="yourtenant.onmicrosoft.com"
+   PolicyId="B2C_1A_signup_signin"
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin"
+   DeploymentMode="Production"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights">
+   ```
+
+1. `DeveloperMode` [JourneyInsights](relyingparty.md#journeyinsights) 의를로 설정 `false` 합니다.
+
+   ```xml
+   <UserJourneyBehaviors>
+     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   </UserJourneyBehaviors>
+   ```
+   
+1. 정책을 업로드 하 고 테스트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

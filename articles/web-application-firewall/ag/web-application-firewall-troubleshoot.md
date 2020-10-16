@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82983077"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131839"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Azure 애플리케이션 Gateway에 대 한 WAF (웹 응용 프로그램 방화벽) 문제 해결
 
@@ -174,7 +174,7 @@ Azure PowerShell를 사용 하려면 [PowerShell을 통해 웹 응용 프로그�
 
 이 예제에서는 *1 = 1* 문자열을 입력 한 필드가 **text1**이라고 표시 되는 것을 볼 수 있습니다.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="진행률 Telerik Fiddler 웹 디버거의 스크린샷 Raw 탭에서 1 = 1은 이름 text1 뒤에 표시 됩니다." border="false":::
 
 제외할 수 있는 필드입니다. 제외 목록에 대해 자세히 알아보려면 [웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록](application-gateway-waf-configuration.md#waf-exclusion-lists)을 참조 하세요. 이 경우 다음 제외를 구성 하 여 평가를 제외할 수 있습니다.
 
@@ -299,7 +299,7 @@ CRS 규칙 집합이 작동 하는 방식에 대 한 정보를 알고 있으며,
 
 Fiddler는 요청 헤더 이름을 찾을 때 유용한 도구입니다. 다음 스크린샷에서는이 GET 요청에 대 한 헤더를 볼 수 있습니다. 여기에는 *content-type*, *사용자 에이전트*등이 포함 됩니다.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="진행률 Telerik Fiddler 웹 디버거의 스크린샷 Raw 탭에는 연결, content-type 및 사용자 에이전트와 같은 요청 헤더 정보가 나열 됩니다." border="false":::
 
 요청 및 응답 헤더를 보는 또 다른 방법은 Chrome의 개발자 도구 내에서 확인 하는 것입니다. F12 키를 누르거나 마우스 오른쪽 단추를 클릭 하 **Inspect**>  ->  **개발자 도구**검사 하 고 **네트워크** 탭을 선택할 수 있습니다. 웹 페이지를 로드 하 고 검사 하려는 요청을 클릭 합니다.
 

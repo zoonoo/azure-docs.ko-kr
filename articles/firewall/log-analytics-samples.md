@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023876"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132791"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 방화벽에 대 한 Azure Monitor 로그
 
@@ -30,7 +30,7 @@ ms.locfileid: "90023876"
 2. **일반** 아래에서 **뷰 디자이너**를 엽니다.
 3. **가져오기**를 클릭합니다.
 4. 이전에 다운로드한 **AzureFirewall.omsview** 파일을 찾아 선택합니다.
-5. **Save**을 클릭합니다.
+5. **저장**을 클릭합니다.
 
 애플리케이션 규칙 로그 데이터에 대한 뷰는 다음과 같이 표시됩니다.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 다음 로그 예제는 로그 항목에 포함 된 데이터를 보여 줍니다.
 
-![로그 항목 1](media/log-analytics-samples/log1.png)
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="로그 항목의 스크린샷 타임 스탬프, 프로토콜, 포트 번호, 작업, 규칙 컬렉션 및 규칙과 같은 여러 값이 표시 됩니다." border="false":::
 
-![로그 항목 2 ](media/log-analytics-samples/log2.png)
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="로그 항목의 스크린샷 타임 스탬프, 프로토콜, 포트 번호, 작업, 규칙 컬렉션 및 규칙과 같은 여러 값이 표시 됩니다." border="false":::
 
-![로그 항목 3](media/log-analytics-samples/log3.png)
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="로그 항목의 스크린샷 타임 스탬프, 프로토콜, 포트 번호, 작업, 규칙 컬렉션 및 규칙과 같은 여러 값이 표시 됩니다." border="false":::
 ## <a name="next-steps"></a>다음 단계
 
 Azure Firewall 모니터링 및 진단에 대한 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요.

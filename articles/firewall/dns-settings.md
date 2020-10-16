@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ffac4f19d50d9a386110e1b89f8f147652a2cd
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610645"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132009"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Azure 방화벽 DNS 설정 (미리 보기)
 
@@ -57,6 +57,7 @@ DNS 프록시를 구성 하려면 방화벽 개인 IP 주소를 사용 하도록
 3. **DNS 서버**아래에서 **사용자 지정** 을 선택 합니다.
 4. 방화벽의 개인 IP 주소를 입력 합니다.
 5. **저장**을 선택합니다.
+6. 가상 네트워크에 연결된 VM을 다시 시작하여 새 DNS 서버 설정을 할당합니다. VM이 다시 시작될 때까지 현재 DNS 설정을 계속 사용합니다.
 
 #### <a name="enable-dns-proxy-preview"></a>DNS 프록시 사용 (미리 보기)
 
