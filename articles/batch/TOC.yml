@@ -168,6 +168,7 @@
         - name: 작업 준비 및 완료 작업
           href: batch-job-prep-release.md
         - name: 동시 노드 작업
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: 작업 종속성
           href: batch-task-dependencies.md

@@ -40,7 +40,7 @@
     - name: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Jenkins를 사용하는 CI/CD
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: 가상 네트워크에 Azure Spring Cloud 배포
@@ -114,15 +114,15 @@
 - name: 참조
   items:
     - name: Azure CLI 플러그 인
-      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+      href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
+      href: /powershell/module/az.springcloud
     - name: 리소스
       href: spring-cloud-resources.md
     - name: 질문과 대답
       href: spring-cloud-faq.md
     - name: REST API 참조
-      href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+      href: /rest/api/azurespringclould/
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
