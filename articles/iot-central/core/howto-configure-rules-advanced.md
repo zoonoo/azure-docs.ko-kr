@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398581"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123323"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합
 
@@ -25,14 +25,14 @@ ms.locfileid: "91398581"
 - Azure IoT Central 앱에서 규칙이 실행되면 Power Automate 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 Microsoft 365 또는 타사 서비스와 같은 다른 클라우드 서비스에서 작업을 실행할 수 있습니다.
 - Microsoft 365 같은 다른 클라우드 서비스의 이벤트는 전원 자동화 또는 Azure Logic Apps에서 워크플로를 트리거할 수 있습니다. 이러한 워크플로는 IoT Central 애플리케이션에서 작업을 실행하거나 데이터를 검색할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 솔루션을 설정 하려면 버전 3 IoT Central 응용 프로그램이 필요 합니다. 응용 프로그램 버전을 확인 하는 방법에 [대 한 자세한 내용은 응용 프로그램 정보](./howto-get-app-info.md)를 참조 하세요. IoT Central 응용 프로그램을 만드는 방법에 대 한 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](./quick-deploy-iot-central.md)를 참조 하세요.
 
 > [!NOTE]
-> 버전 2 IoT Central 응용 프로그램을 사용 하는 경우 이전 버전 설명서 사이트의 [Azure Logic Apps에서 IoT Central 커넥터를](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) 사용 하 여 워크플로 빌드 및 Azure IoT Central V2 커넥터 사용을 참조 하세요.
+> 버전 2 IoT Central 응용 프로그램을 사용 하는 경우 이전 버전 설명서 사이트의 [Azure Logic Apps에서 IoT Central 커넥터를](/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) 사용 하 여 워크플로 빌드 및 Azure IoT Central V2 커넥터 사용을 참조 하세요.
 
 ## <a name="trigger-a-workflow-from-a-rule"></a>규칙에서 워크플로 트리거
 

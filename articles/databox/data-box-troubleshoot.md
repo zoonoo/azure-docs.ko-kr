@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053456"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124679"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy 관련 된 문제 해결
 
@@ -56,7 +56,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
     - 유효한 이름 예: `my-folder-1` , `my-really-extra-long-folder-111`
     - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` , `myfolder!`
 
-    자세한 내용은 [컨테이너 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+    자세한 내용은 [컨테이너 이름](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
 
 ### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
@@ -75,7 +75,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
     - 유효한 이름 예: `my-folder-1` , `my-really-extra-long-folder-111`
     - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` , `myfolder!`
 
-    자세한 내용은 [컨테이너 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+    자세한 내용은 [컨테이너 이름](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
 ### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
@@ -93,7 +93,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
     - 유효한 이름 예: `my-folder-1` , `my-really-extra-long-folder-111`
     - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` , `myfolder!`
 
-    자세한 내용은 [컨테이너 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+    자세한 내용은 [컨테이너 이름](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
     
 ### <a name="error_file_or_directory_name_illegal"></a>ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
 
@@ -104,7 +104,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 - 로컬 웹 UI의 연결 및 복사 페이지에서 오류 파일을 다운로드 하 고 검토 하 여 문제가 있는 폴더 이름을 확인 합니다. 
 - 디렉터리 또는 컨테이너의 이름을 변경 하 여 Azure 명명 규칙을 준수 하는지 확인 합니다.
 
-자세한 내용은 [디렉터리](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   및 [컨테이너](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+자세한 내용은 [디렉터리](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   및 [컨테이너](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
 ## <a name="container-or-share-size-limit-errors"></a>컨테이너 또는 공유 크기 제한 오류
 
@@ -190,7 +190,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 로컬 웹 UI의 **연결 및 복사** 페이지에서 오류 파일을 다운로드 하 고 검토 합니다.
 파일을 제거 하거나 이름을 변경 하 여 지원 되지 않는 문자를 제거 합니다.
 
-자세한 내용은 [blob 이름](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+자세한 내용은 [blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
 ### <a name="error_blob_or_file_name_character_illegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
@@ -201,7 +201,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 로컬 웹 UI의 **연결 및 복사** 페이지에서 오류 파일을 다운로드 하 고 검토 합니다.
 파일을 제거 하거나 이름을 변경 하 여 지원 되지 않는 문자를 제거 합니다.
 
-자세한 내용은 [blob 이름](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+자세한 내용은 [blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
 
 ### <a name="error_blob_or_file_name_ending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
@@ -213,7 +213,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 로컬 웹 UI의 **연결 및 복사** 페이지에서 오류 파일을 다운로드 하 고 검토 합니다.
 파일을 제거 하거나 이름을 변경 하 여 지원 되지 않는 문자를 제거 합니다.
 
-자세한 내용은 [blob 이름](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)에 대 한 Azure 명명 규칙을 참조 하세요.
+자세한 내용은 [blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
 
 ### <a name="error_blob_or_file_name_segment_count"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
@@ -223,7 +223,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 **권장 해결 방법:** 복사한 blob 또는 파일이 최대 경로 세그먼트 수를 초과 합니다. 경로 세그먼트는 연속 구분 기호 문자 사이의 문자열입니다 (예: 슬래시/).
 
 - 로컬 웹 UI의 **연결 및 복사** 페이지에서 오류 파일을 다운로드 하 고 검토 합니다.
-- [Blob 이름](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름이](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) Azure 명명 규칙을 준수 하는지 확인 합니다.
+- [Blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름이](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) Azure 명명 규칙을 준수 하는지 확인 합니다.
 
 ### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
@@ -244,7 +244,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 **권장 해결 방법:** Blob 또는 파일 이름에 있는 경로 세그먼트 중 하나가 최대 문자 수를 초과 합니다. 경로 세그먼트는 연속 구분 기호 문자 사이의 문자열입니다 (예: 슬래시/).
 
 - 로컬 웹 UI의 **연결 및 복사** 페이지에서 오류 파일을 다운로드 하 고 검토 합니다.
-- [Blob 이름](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름이](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) Azure 명명 규칙을 준수 하는지 확인 합니다.
+- [Blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) 및 [파일 이름이](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) Azure 명명 규칙을 준수 하는지 확인 합니다.
 
 
 ### <a name="error_container_or_share_name_disallowed_for_type"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE

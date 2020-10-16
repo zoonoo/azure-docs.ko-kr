@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eebb2693d3bc0f65059c6c3c377f1afb7ae7eccd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d50c3f8f94fbfd7dbcb9b25e051b7f2951c518
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969095"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -203,7 +203,7 @@ az network express-route list -h
 "circuitProvisioningState": "Enabled"
 ```
 
-연결 공급자가 사용자에 대해 현재 사용하도록 설정하면 회로가 다음 상태로 변경됩니다.
+연결 공급자가 사용자에 대해 현재 활성화하고 있을 때 회로가 다음 상태로 변경됩니다.
 
 ```output
 "serviceProviderProvisioningState": "Provisioning"
@@ -345,9 +345,9 @@ ExpressRoute 회로의 프로비전을 해제하고 삭제하려면 다음 조�
 
 * 모든 가상 네트워크는 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
 * ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
-* 서비스 공급자가 회로 프로비저닝을 해제하여 서비스 공급자 프로비저닝 상태가 **프로비저닝되지 않음**으로 설정되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 청구가 중지됩니다.
+* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비저닝되지 않음**으로 설정되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 청구가 중지됩니다.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 다음 명령을 실행하여 ExpressRoute 회로를 삭제할 수 있습니다.
 

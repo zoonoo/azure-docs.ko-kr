@@ -6,18 +6,25 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c98ee8f747975d4237c2906be2060eddbc7b9990
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710450"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123272"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 TLS 연결 구성
 
 Azure Database for PostgreSQL TLS (Transport Layer Security)를 사용 하 여 클라이언트 응용 프로그램을 PostgreSQL 서비스에 연결 하는 것을 선호 합니다 (이전에는 SSL (SSL(Secure Sockets Layer)) 이라고 함). 데이터베이스 서버와 클라이언트 응용 프로그램 간에 TLS 연결을 적용 하면 서버와 응용 프로그램 간에 데이터 스트림을 암호화 하 여 "메시지 가로채기 (man-in-the-middle)" 공격 으로부터 보호 하는 데 도움이 됩니다.
 
 기본적으로 PostgreSQL 데이터베이스 서비스는 TLS 연결을 요구 하도록 구성 되어 있습니다. 클라이언트 응용 프로그램이 TLS 연결을 지원 하지 않는 경우 TLS를 요구 하지 않도록 선택할 수 있습니다.
+
+>[!NOTE]
+> 고객의 의견에 따라 2021 (02/15/2021)까지 기존 Baltimore 루트 CA에 대 한 루트 인증서 사용 중단을 연장 했습니다.
+
+> [!IMPORTANT] 
+> SSL 루트 인증서가 2021 (02/15/2021)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
+
 
 ## <a name="enforcing-tls-connections"></a>TLS 연결 적용
 

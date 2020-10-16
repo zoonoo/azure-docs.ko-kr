@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7cc19adcc4769baaf34a75ef7217de639d0a357c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1d1a7e760a709c7068f16ca415a00de424b7e339
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079040"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124086"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -39,7 +39,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 
 컴퓨팅 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 중국 동부 1, 중국 북부 1, US DoD 중부 및 US DoD 동부는 Intel E5 2673 v3 (Haswell) 2.4 g h z 프로세서를 기반으로 하는 Gen 4 논리 Cpu를 활용 합니다. 다른 모든 지역은 Intel E5-2673 v4 (Broadwell) 2.3 g h z 프로세서를 기반으로 하는 Gen 5 논리 Cpu를 활용 합니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로비전하는 스토리지는 Azure Database for MySQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
@@ -51,7 +51,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
-> 최대 16TB 및 2만 IOPS의 저장소는 다음 지역에서 지원 됩니다. 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부 2, 미국 서 부 중부, 캐나다 동부 및 캐나다 중부.
+> 최대 16TB 및 2만 IOPS의 저장소는 다음 지역에서 지원 됩니다. 미국 동부, 미국 동부 2, 미국 중부, 브라질 남부, 미국 서 부, 미국 중 북부, 미국 서 부, 미국 중 북부, 미국 중 북부, 미국 중 북부, 일본 서 부, 한국 남부, 오스트레일리아 동부 동아시아 영국 서부 영국 남부 유럽 서부, 오스트레일리아 남부 동부, 미국 서 부 2, 미국 서 부 2, 미국 중부 중부 , 캐나다 동부 및 캐나다 중부.
 >
 > 다른 모든 지역은 최대 4TB의 저장소와 최대 6000 IOPS를 지원 합니다.
 >

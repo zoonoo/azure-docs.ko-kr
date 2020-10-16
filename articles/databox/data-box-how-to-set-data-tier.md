@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84608726"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125067"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box 또는 Azure Data Box Heavy를 사용 하 여 적절 한 Azure Storage blob 계층으로 데이터 전송
 
@@ -29,11 +29,11 @@ Azure Storage에서는 세 가지 계층(핫/콜드/보관)에 가장 비용 효
 
 콜드 스토리지 계층은 30일 이상 저장해야 하는 액세스 빈도가 낮은 데이터용입니다. 콜드 계층의 스토리지 비용은 핫 스토리지 계층보다는 저렴하지만 데이터 액세스 요금은 핫 계층에 비해 비쌉니다.
 
-Azure 보관 계층(오프라인)의 경우 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 이 계층은 180일 이상 보관 스토리지에 저장해 두려는 데이터용입니다. 이러한 각 계층과 가격 모델을 자세히 살펴보려면 [스토리지 계층 비교](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
+Azure 보관 계층(오프라인)의 경우 스토리지 비용은 가장 저렴하지만 액세스 비용은 가장 비쌉니다. 이 계층은 180일 이상 보관 스토리지에 저장해 두려는 데이터용입니다. 이러한 각 계층과 가격 모델을 자세히 살펴보려면 [스토리지 계층 비교](../storage/blobs/storage-blob-storage-tiers.md)를 참조하세요.
 
 Data Box 또는 Data Box Heavy의 데이터는 저장소 계정과 연결 된 저장소 계층에 업로드 됩니다. 스토리지 계정을 만들 때 액세스 계층을 핫 또는 콜드로 지정할 수 있습니다. 워크로드 액세스 패턴과 비용에 따라 이 데이터를 기본 계층에서 다른 스토리지 계층으로 이동할 수 있습니다.
 
-Blob Storage 또는 범용 v2(GPv2) 계정에서만 개체 스토리지 데이터를 계층별로 저장할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 데이터의 올바른 저장소 계층을 선택 하려면 [Azure Blob storage: 프리미엄, 핫, 쿨 및 보관 저장소 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)에 자세히 설명 된 고려 사항을 검토 하세요.
+Blob Storage 또는 범용 v2(GPv2) 계정에서만 개체 스토리지 데이터를 계층별로 저장할 수 있습니다. 범용 v1(GPv1) 계정은 계층화를 지원하지 않습니다. 데이터의 올바른 저장소 계층을 선택 하려면 [Azure Blob storage: 프리미엄, 핫, 쿨 및 보관 저장소 계층](../storage/blobs/storage-blob-storage-tiers.md)에 자세히 설명 된 고려 사항을 검토 하세요.
 
 ## <a name="set-a-default-blob-tier"></a>기본 Blob 계층 설정
 
@@ -41,13 +41,13 @@ Azure Portal에서 스토리지 계정을 만들 때 기본 Blob 계층을 지�
 
 Data Box 또는 Data Box Heavy를 정렬 하는 동안 새 계정을 만들려는 경우에는 계층을 지정할 수 없습니다. 계정을 만든 후 포털에서 계정을 수정하여 기본 액세스 계층을 설정할 수 있습니다.
 
-지정된 액세스 계층 특성을 사용하여 스토리지 계층을 먼저 만들 수도 있습니다. Data Box 또는 Data Box Heavy 순서를 만들 때 기존 저장소 계정을 선택 합니다. 스토리지 계정을 만들면서 기본 Blob 계층을 설정하는 방법에 대한 자세한 내용은 [Azure Portal에서 스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal)를 참조하세요.
+지정된 액세스 계층 특성을 사용하여 스토리지 계층을 먼저 만들 수도 있습니다. Data Box 또는 Data Box Heavy 순서를 만들 때 기존 저장소 계정을 선택 합니다. 스토리지 계정을 만들면서 기본 Blob 계층을 설정하는 방법에 대한 자세한 내용은 [Azure Portal에서 스토리지 계정 만들기](../storage/common/storage-account-create.md?tabs=portal)를 참조하세요.
 
 ## <a name="move-data-to-a-non-default-tier"></a>기본 계층이 아닌 계층으로 데이터 이동
 
 Data Box 장치의 데이터를 기본 계층으로 업로드 한 후에는 기본이 아닌 계층으로 데이터를 이동 하는 것이 좋습니다. 다음의 두 가지 방법으로 이 데이터를 기본 계층이 아닌 계층으로 이동할 수 있습니다.
 
-- **Azure Blob Storage 수명 주기 관리** - 정책 기반 방식을 사용해 데이터를 계층별로 자동 저장하거나 수명 주기가 종료되면 데이터를 만료 처리할 수 있습니다. 자세한 내용은 [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)를 참조하세요.
+- **Azure Blob Storage 수명 주기 관리** - 정책 기반 방식을 사용해 데이터를 계층별로 자동 저장하거나 수명 주기가 종료되면 데이터를 만료 처리할 수 있습니다. 자세한 내용은 [Azure Blob Storage 수명 주기 관리](../storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요.
 - **스크립팅** - Azure PowerShell을 통한 스크립팅 방식을 사용하여 Blob 수준 계층화를 사용하도록 설정할 수 있습니다. `SetBlobTier` 작업을 호출해 Blob에서 계층을 설정할 수 있습니다.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Azure PowerShell을 사용하여 Blob 계층 설정
@@ -116,5 +116,4 @@ Data Box 장치의 데이터를 기본 계층으로 업로드 한 후에는 기�
 
 ## <a name="next-steps"></a>다음 단계
 
--  [수명 주기 정책 규칙을 사용하여 일반적인 데이터 계층화 시나리오](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)를 처리하는 방법을 알아봅니다.
-
+-  [수명 주기 정책 규칙을 사용하여 일반적인 데이터 계층화 시나리오](../storage/blobs/storage-lifecycle-management-concepts.md#examples)를 처리하는 방법을 알아봅니다.

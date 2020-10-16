@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9305ff5904588241ff8319f28eab2ce20ad77876
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826143"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125118"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -66,7 +66,7 @@ A. Data Box Disk는 해당 대상과 동일한 국가/지역 내 에서만 데�
 
 ### <a name="option-1"></a>옵션 1: 
 
-Microsoft azure [Import/Export 서비스](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) 를 캐나다의 원본 위치에서 azure WestUS datacenter로 배송 합니다.
+Microsoft azure [Import/Export 서비스](../storage/common/storage-import-export-service.md) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) 를 캐나다의 원본 위치에서 azure WestUS datacenter로 배송 합니다.
 
 ### <a name="option-2"></a>옵션 2:
 
@@ -77,7 +77,7 @@ Microsoft azure [Import/Export 서비스](https://docs.microsoft.com/azure/stora
 3. 그런 다음 AzCopy와 같은 도구를 사용 하 여 WestUS의 저장소 계정에 데이터를 복사할 수 있습니다. 이 단계에서는 Data Box Disk 요금 청구에 포함 되지 않은 [표준 저장소](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금이](https://azure.microsoft.com/pricing/details/bandwidth/) 발생 합니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>17. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
-A. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)하세요.
+A. Data Box Disk에 문제가 발생하면 [Microsoft 지원에 문의](./data-box-disk-contact-microsoft-support.md)하세요.
 
 ## <a name="configure-and-connect"></a>구성 및 연결
  
@@ -147,7 +147,7 @@ A.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 - 다중 데이터 복사 스트림을 사용합니다. 예를 들어 Robocopy에서는 다중 스레드 옵션을 사용합니다. 사용되는 정확한 명령에 대한 자세한 내용은 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md#copy-data-to-disks)을 참조하세요.
 - 다중 세션을 사용합니다.
 - 네트워크 공유를 통해 복사하는(네트워크 속도로 인해 제한될 수 있음) 대신, 디스크가 연결된 컴퓨터에 데이터가 로컬로 있는지 확인합니다.
-- 복사 프로세스 전체에서 USB 3.0 이상을 사용하고 있는지 확인합니다. [USBView 도구](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)를 다운로드하고 사용하여 컴퓨터에 연결된 USB 컨트롤러 및 USB 디바이스를 식별합니다.
+- 복사 프로세스 전체에서 USB 3.0 이상을 사용하고 있는지 확인합니다. [USBView 도구](/windows-hardware/drivers/debugger/usbview)를 다운로드하고 사용하여 컴퓨터에 연결된 USB 컨트롤러 및 USB 디바이스를 식별합니다.
 - 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. [Bluestop FIO 도구](https://ci.appveyor.com/project/axboe/fio)를 다운로드하고 사용하여 서버 하드웨어의 성능을 벤치마크합니다. 최신 x86 또는 x64 빌드를 선택하고 **아티팩트** 탭을 선택한 후 MSI를 다운로드합니다.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>17. 원본 데이터에 작은 파일(KB 또는 수 MB)이 있는 경우 데이터의 속도를 높이려면 어떻게 해야 할까요?

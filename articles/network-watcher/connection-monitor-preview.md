@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408871"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123735"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링 (미리 보기)
 
@@ -143,9 +143,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 * 지역별 구독 당 최대 연결 모니터 수: 100
 * 연결당 최대 테스트 그룹 수 모니터: 20
 * 연결 당 최대 원본 및 대상 모니터: 100
-* 연결 당 최대 테스트 구성 모니터: 
-    * 20 via ARMClient
-    * 2 Azure Portal 통해
+* 연결 모니터 당 최대 테스트 구성 수: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>모니터링 데이터 분석 및 경고 설정
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471859"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123530"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 서비스는 azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구 모음을 제공 합니다. 이 문서에서는 서비스에 대 한 일반적인 질문에 답변 합니다.
@@ -80,6 +80,14 @@ Network Watcher 작동 하는 기능에 대 한 구독에 대해 한 번만 사�
 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Network Watcher 리소스를 어떻게 관리할 수 있나요? 
 Network Watcher 리소스는 Network Watcher에 대 한 백 엔드 서비스를 나타내며 Azure를 통해 완전히 관리 됩니다. 고객은 관리할 필요가 없습니다. Move 등의 작업은 리소스에서 지원 되지 않습니다. 그러나 [리소스를 삭제할 수 있습니다](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
+
+## <a name="service-availability-and-redundancy"></a>서비스 가용성 및 중복성 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>Network Watcher 서비스 영역 복원 력이 있나요? 
+예. Network Watcher 서비스는 기본적으로 영역 복원 가능 합니다. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Network Watcher 서비스를 영역 복원 력이 되도록 구성 어떻게 할까요? 
+영역 복원 력을 사용 하도록 설정 하는 데 필요한 고객 구성은 없습니다. 영역-Network Watcher 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다. 
 
 ## <a name="nsg-flow-logs"></a>NSG 흐름 로그
 

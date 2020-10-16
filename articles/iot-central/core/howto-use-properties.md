@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999756"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123786"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 속성 사용
 
@@ -35,7 +35,7 @@ Azure IoT Central 응용 프로그램에서 클라우드 속성을 정의할 수
 | 필드           | 설명                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 표시 이름    | 대시보드와 양식에 사용되는 속성 값의 표시 이름입니다.                                                                                                                                                              |
-| 이름            | 속성의 이름입니다. Azure IoT Central는 표시 이름에서이 필드에 대 한 값을 생성 하지만 필요한 경우 고유한 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다.                                                 |
+| Name            | 속성의 이름입니다. Azure IoT Central는 표시 이름에서이 필드에 대 한 값을 생성 하지만 필요한 경우 고유한 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다.                                                 |
 | 기능 유형 | 속성입니다.                                                                                                                                                                                                                          |
 | 의미 체계 유형   | 속성의 의미 체계 유형입니다(예: 온도, 상태 또는 이벤트). 의미 체계 유형을 선택하면 다음 필드 중에서 사용 가능한 필드가 결정됩니다.                                                                       |
 | 스키마          | 속성 데이터 형식입니다(예: double, string 또는 vector). 사용 가능한 선택 항목은 의미 체계 유형에 따라 결정됩니다. 이벤트 및 상태 의미 체계 유형에는 스키마를 사용할 수 없습니다.                                               |
@@ -44,7 +44,7 @@ Azure IoT Central 응용 프로그램에서 클라우드 속성을 정의할 수
 | 상태 값    | 상태 의미 체계 유형에만 사용할 수 있습니다. 가능한 상태 값을 정의하며, 각각에는 표시 이름, 이름, 열거형 형식 및 값이 있습니다.                                                                                   |
 | 단위            | **입니다**, 또는 C와 같은 속성 값의 단위 **%** 입니다. ** &deg; **                                                                                                                                                              |
 | 표시 단위    | 대시보드와 양식에서 사용할 표시 단위입니다.                                                                                                                                                                                    |
-| 설명         | 속성 기능에 대한 주석입니다.                                                                                                                                                                                        |
+| 의견         | 속성 기능에 대한 주석입니다.                                                                                                                                                                                        |
 | 설명     | 속성 기능에 대한 설명입니다.                                                                                                                                                                                          |
 
 다음과 같이 장치 템플릿의 인터페이스에서 속성을 정의할 수도 있습니다.
@@ -152,7 +152,7 @@ Azure IoT Central 응용 프로그램에서 클라우드 속성을 정의할 수
 
 기본적으로 속성은 읽기 전용입니다. 읽기 전용 속성은 장치가 Azure IoT Central 응용 프로그램에 대 한 속성 값 업데이트를 보고 하는 것을 의미 합니다. Azure IoT Central 응용 프로그램에서 읽기 전용 속성 값을 설정할 수 없습니다.
 
-Azure IoT Central는 장치 쌍을 사용 하 여 장치와 Azure IoT Central 응용 프로그램 간에 속성 값을 동기화 합니다. 디바이스 속성 값은 디바이스 쌍 reported 속성을 사용합니다. 자세한 내용은 [장치](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins)쌍을 참조 하세요.
+Azure IoT Central는 장치 쌍을 사용 하 여 장치와 Azure IoT Central 응용 프로그램 간에 속성 값을 동기화 합니다. 디바이스 속성 값은 디바이스 쌍 reported 속성을 사용합니다. 자세한 내용은 [장치](../../iot-hub/tutorial-device-twins.md)쌍을 참조 하세요.
 
 장치 기능 모델의 다음 코드 조각은 읽기 전용 속성 유형에 대 한 정의를 보여 줍니다.
 
@@ -250,7 +250,7 @@ hubClient.getTwin((err, twin) => {
 | `'ac': 5xx` | 오류 | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
 
 
-장치 쌍에 대 한 자세한 내용은 [백 엔드 서비스에서 장치 구성](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins)을 참조 하세요.
+장치 쌍에 대 한 자세한 내용은 [백 엔드 서비스에서 장치 구성](../../iot-hub/tutorial-device-twins.md)을 참조 하세요.
 
 운영자가 Azure IoT Central 응용 프로그램에서 쓰기 가능 속성을 설정 하면 응용 프로그램은 장치 쌍 desired 속성을 사용 하 여 값을 장치에 보냅니다. 장치는 보고 된 장치 쌍 속성을 사용 하 여 응답 합니다. Azure IoT Central에 보고 된 속성 값이 수신 되 면 **적용 됨**상태를 사용 하 여 속성 뷰를 업데이트 합니다.
 

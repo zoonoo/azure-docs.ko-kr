@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224862"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124224"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "86224862"
 
 **1단계** - CA(인증 기관) 공급자  
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
-    다음 CA는 Key Vault와 현재 협력하는 공급자입니다.  
+    다음 Ca는 Key Vault 있는 현재 파트너 관계 공급자입니다. [여기](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)에서 자세히 알아보세요.   
     -   DigiCert-Key Vault는 DigiCert와 OV-ES TLS/SSL 인증서를 제공 합니다.  
     -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES TLS/SSL 인증서를 제공 합니다.  
 

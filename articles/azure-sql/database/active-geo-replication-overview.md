@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445068"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124761"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ ms.locfileid: "91445068"
 > 주 데이터베이스의 트랜잭션 로그 비율은 보조에서 계산 크기가 낮은 것과 관련이 없는 이유로 제한 될 수 있습니다. 이러한 종류의 제한은 보조 데이터베이스의 계산 크기가 주 데이터베이스와 같거나 높은 경우에도 발생할 수 있습니다. 다른 종류의 로그 전송률 제한에 대 한 대기 유형을 포함 하는 자세한 내용은 [트랜잭션 로그 요금 관리](resource-limits-logical-server.md#transaction-log-rate-governance)를 참조 하세요.
 
 > [!NOTE]
-> Azure SQL Database의 구성 가능한 백업 스토리지 중복도는 현재 동남 아시아 Azure 지역에서만 공개 미리 보기로 제공됩니다. 미리 보기에서 원본 데이터베이스가 로컬 중복 또는 영역 중복 백업 중복성으로 생성 되는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
+> 구성 가능한 백업 저장소 중복성은 현재 동남 아시아 Azure 지역 에서만 사용 가능 합니다. Azure SQL Database 로컬 중복 또는 영역 중복 백업 저장소 중복성을 사용 하 여 원본 데이터베이스를 만드는 경우 다른 Azure 지역에 보조 데이터베이스를 만드는 것은 지원 되지 않습니다. 
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](purchasing-models.md)를 참조하세요.
 

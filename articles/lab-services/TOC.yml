@@ -65,7 +65,7 @@
             - name: VM 풀 관리
               href: how-to-manage-vm-pool-within-teams.md
             - name: 랩 삭제
-              href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+              href: how-to-delete-lab-within-teams.md
             - name: 일정 및 설정
               href: how-to-create-schedules-within-teams.md
             - name: VM 액세스(학생 보기)

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203524"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124172"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -35,9 +35,9 @@ USB 3.0을 통해 연결된 디스크를 테스트했을 때 디스크 성능은
 
 Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 및 파일 이름 지정에 대한 모범 사례는 다음으로 이동합니다.
 
-- [컨테이너 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [공유 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [블록 blob 및 페이지 blob 규칙](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [컨테이너 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [공유 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [블록 blob 및 페이지 blob 규칙](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > Azure Storage 서비스 제한을 초과하거나 Azure Files/Blob 명명 규칙을 준수하지 않는 파일 또는 디렉터리가 있는 경우 이러한 파일 또는 디렉터리는 Data Box 서비스를 통해 Azure Storage로 수집되지 않습니다.
@@ -64,7 +64,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 | 데이터 형식             | 기본 제한          |
 |--------------------------|------------------------|
-| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [azure standard storage 배율 목표](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정 대상](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
+| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [azure standard storage 배율 목표](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정 대상](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
 
 
 ## <a name="azure-object-size-limits"></a>Azure 개체 크기 제한

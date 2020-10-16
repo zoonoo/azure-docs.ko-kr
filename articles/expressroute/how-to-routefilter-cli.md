@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a72e22b600f7dd7737a877e2fdf5d34c4dd4b4c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: ac7fc5af21f11699331d41a074e88ae757170664
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876110"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975997"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-azure-cli"></a>자습서: Microsoft 피어링에 대한 경로 필터 구성: Azure CLI
 
@@ -33,7 +33,7 @@ Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Microsoft
 
 * 경로 필터를 정의하고 ExpressRoute 회로에 적용합니다. 경로 필터는 Microsoft 피어링을 통해 사용하려는 서비스 목록을 선택할 수 있는 새 리소스입니다. ExpressRoute 라우터는 경로 필터에서 식별된 서비스에 속하는 접두사 목록만을 보냅니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 > [!div class="checklist"]
 > - BGP 커뮤니티 값을 가져옵니다.
 > - 경로 필터 및 필터 규칙을 만듭니다.
@@ -51,7 +51,7 @@ Microsoft 피어링이 ExpressRoute 회로에 구성되면 Microsoft Edge 라우
 > 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다.
 > 
 
-## <a name="prerequisites"></a><a name="workflow"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Microsoft 피어링을 통해 서비스에 성공적으로 연결하려면 다음 구성 단계를 완료해야 합니다.
 
@@ -143,7 +143,7 @@ az network route-filter rule update --filter-name MyRouteFilter -n CRM -g Expres
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-## <a name="clean-up-resources"></a><a name="delete"></a>리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 경로 필터는 회로에 연결되지 않은 경우에만 삭제할 수 있습니다. 경로 필터를 삭제하기 전에 회로에 연결되어 있지 않은지 확인합니다. 다음 명령을 사용하여 경로 필터를 삭제할 수 있습니다.
 

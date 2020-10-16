@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531029"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125733"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL 인프라 이중 암호화
 
@@ -20,7 +20,7 @@ Azure Database for MySQL는 Microsoft의 관리 되는 키를 사용 하 여 데
 인프라 이중 암호화는 서비스 관리 키를 사용 하 여 두 번째 암호화 계층을 추가 합니다. FIPS 140-2 유효성 검사 암호화 모듈을 사용 하지만 다른 암호화 알고리즘을 사용 합니다. 이는 미사용 데이터에 대 한 추가 보호 계층을 제공 합니다. 인프라 이중 암호화에 사용 되는 키는 Azure Database for MySQL 서비스에 의해 관리 됩니다. 인프라 이중 암호화는 추가 암호화 계층이 성능에 영향을 줄 수 있으므로 기본적으로 사용 하도록 설정 되어 있지 않습니다.
 
 > [!NOTE]
-> Azure Database for MySQL이 "범용" 및 "메모리 최적화" 가격 책정 계층을 지원하는 모든 Azure 지역에서 이 기능을 사용할 수 있습니다.
+> 이 기능은 Azure Database for PostgreSQL의 "범용" 및 "메모리 액세스에 최적화 된" 가격 책정 계층에만 지원 됩니다.
 
 인프라 계층 암호화는 저장소 장치나 네트워크 회선에 가장 가까운 계층에서 구현 되는 이점을 제공 합니다. Azure Database for MySQL는 서비스 관리 키를 사용 하 여 두 가지 암호화 계층을 구현 합니다. 여전히 서비스 계층에서 기술적으로는 아니지만 데이터를 휴지 상태의 데이터를 저장 하는 하드웨어와 매우 가깝습니다. 프로 비전 된 MySQL 서버에 대해 [고객 관리 키](concepts-data-encryption-mysql.md) 를 사용 하 여 미사용 데이터 암호화를 선택적으로 사용할 수 있습니다. 
 

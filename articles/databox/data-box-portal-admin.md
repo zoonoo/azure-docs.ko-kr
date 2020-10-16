@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611659"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123718"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Portal를 사용 하 여 Azure Data Box를 관리 하 고 Azure Data Box Heavy
 
@@ -221,9 +221,9 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 |선택됨     |반송한 장치가 수령되어 운송업체에서 스캔을 했습니다.         |
 |수신됨     | 디바이스가 Azure 데이터 센터에서 수신되어 스캔되었습니다. <br> 배송된 디바이스 검사가 완료되면 디바이스 업로드가 시작됩니다.      |
 |데이터 복사     | 데이터 복사가 진행 중입니다. Azure Portal에서 주문에 대한 복사 진행률을 추적합니다. <br> 데이터 복사가 완료될 때까지 기다립니다. |
-|Completed       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
-|오류와 함께 완료됨| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. [업로드가 완료 되 고 오류가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)를 참조 하세요.   |
-|경고와 함께 완료됨| 데이터 복사가 완료 되었지만 데이터가 수정 되었습니다. 데이터에 파일 또는 blob 이름을 변경 하 여 수정 된 중요 하지 않은 blob 또는 파일 이름 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 데이터의 수정 사항을 기록해 둡니다. [업로드가 완료 되 고 경고가 발생 한 경우 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings)를 참조 하세요.   |
+|완료됨       |주문이 성공적으로 완료되었습니다.<br> 서버에서 온-프레미스 데이터를 삭제하기 전에 Azure에 데이터가 있는지 확인합니다.         |
+|오류와 함께 완료됨| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. [업로드가 완료 되 고 오류가 발생 한 경우 복사 로그의 예](./data-box-logs.md#upload-completed-with-errors)를 참조 하세요.   |
+|경고와 함께 완료됨| 데이터 복사가 완료 되었지만 데이터가 수정 되었습니다. 데이터에 파일 또는 blob 이름을 변경 하 여 수정 된 중요 하지 않은 blob 또는 파일 이름 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 데이터의 수정 사항을 기록해 둡니다. [업로드가 완료 되 고 경고가 발생 한 경우 복사 로그의 예](./data-box-logs.md#upload-completed-with-warnings)를 참조 하세요.   |
 |취소됨            |주문이 취소되었습니다. <br> 주문을 취소했거나 오류가 발생했고 서비스에서 주문을 취소했습니다. 90일 이내에 처리할 수 없는 주문도 취소되며 취소 알림이 전송됩니다.     |
 |정리 | 디바이스 디스크의 데이터가 지워집니다. Azure Portal에서 다운로드에 주문 기록을 사용할 수 있게 되면 디바이스 정리가 완료된 것으로 간주됩니다.|
 
@@ -238,14 +238,14 @@ Data Box 주문이 완료되면 디바이스 디스크의 데이터가 삭제됩
 |처리됨     | 주문 처리가 완료되었습니다. 주문에 따라 장치는 데이터 센터에서 데이터를 복사할 준비가 된 것입니다. 장치 공유가 생성 됩니다.         |
 |데이터 복사 진행 중     | 지정 된 Azure Storage 계정에서 장치로 데이터를 복사 하는 중입니다. Azure Portal에서 주문에 대한 복사 진행률을 추적합니다. <br> 데이터 복사가 완료될 때까지 기다립니다. |
 |복사 완료     | 지정 된 Azure Storage 계정에서 장치로의 데이터 복사가 완료 되었습니다. 자세한 로그 파일 (옵션이 순서 대로 설정 된 경우)이 고, 저장소 계정에 복사 로그가 생성 됩니다. 자세한 정보 표시 로그에는 장치에 복사 된 모든 파일 (이름, 경로, 계산 체크섬)에 대 한 정보가 포함 되어 있습니다. 복사 로그에는 오류로 인해 복사할 수 없는 파일 목록이 포함 된 복사 프로세스 요약이 포함 되어 있습니다.<br> 저장소 계정 데이터는 그대로 유지 됩니다. |
-|복사가 완료 되었으나 오류가 발생 했습니다.| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공 된 경로를 사용 하 여 Azure Storage 계정에서 복사 로그를 검토 합니다. [다운로드가 완료 되 고 오류가 발생 하면 복사 로그의 예](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)를 참조 하세요.   |
-|복사가 완료 되었지만 경고가 발생 했습니다.| Azure Storage 계정에서 데이터 복사가 완료 되었지만 데이터에 중요 하지 않은 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 중요 하지 않은 오류를 기록해 둡니다. [다운로드가 완료 되 면 로그 복사의 예를 참조 하 여 경고를](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings)표시 합니다.   |
-|복사 하지 못했으며 오류가 발생 했습니다.| Azure Storage 계정에서 데이터를 복사 하지 못했으며 주문이 종료 되었습니다. 장치가 배송 되지 않습니다.<br> Azure Portal에 제공 된 경로를 사용 하 여 Azure Storage 계정에서 복사 로그를 검토 합니다. [오류가 발생 하 여 다운로드에 실패 한 경우 복사 로그의 예를](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors)참조 하세요.   |
+|복사가 완료 되었으나 오류가 발생 했습니다.| 데이터 복사가 완료되었지만 복사 중에 오류가 발생했습니다. <br> Azure Portal에 제공 된 경로를 사용 하 여 Azure Storage 계정에서 복사 로그를 검토 합니다. [다운로드가 완료 되 고 오류가 발생 하면 복사 로그의 예](./data-box-logs.md#upload-completed-with-errors)를 참조 하세요.   |
+|복사가 완료 되었지만 경고가 발생 했습니다.| Azure Storage 계정에서 데이터 복사가 완료 되었지만 데이터에 중요 하지 않은 오류가 있습니다. <br> Azure Portal에 제공된 경로를 사용하여 복사 로그를 검토합니다. 중요 하지 않은 오류를 기록해 둡니다. [다운로드가 완료 되 면 로그 복사의 예를 참조 하 여 경고를](./data-box-logs.md#upload-completed-with-warnings)표시 합니다.   |
+|복사 하지 못했으며 오류가 발생 했습니다.| Azure Storage 계정에서 데이터를 복사 하지 못했으며 주문이 종료 되었습니다. 장치가 배송 되지 않습니다.<br> Azure Portal에 제공 된 경로를 사용 하 여 Azure Storage 계정에서 복사 로그를 검토 합니다. [오류가 발생 하 여 다운로드에 실패 한 경우 복사 로그의 예를](./data-box-logs.md#upload-completed-with-errors)참조 하세요.   |
 |발송됨     |주문이 배송되었습니다. 포털에서 주문에 표시된 추적 ID를 사용하여 배송을 추적합니다.        |
 |배달됨     |배송한 장치가 주문에 지정된 주소로 배달되었습니다.        |
 |선택됨     |반송한 장치가 수령되어 운송업체에서 스캔을 했습니다.         |
 |수신됨     | 디바이스가 Azure 데이터 센터에서 수신되어 스캔되었습니다. <br> 배송을 검사 합니다.      |
-|Completed           |순서가 완료 되었습니다.     |
+|완료됨           |순서가 완료 되었습니다.     |
 |정리 | 디바이스 디스크의 데이터가 지워집니다. Azure Portal에서 다운로드에 주문 기록을 사용할 수 있게 되면 디바이스 정리가 완료된 것으로 간주됩니다.|
 
 > [!NOTE]

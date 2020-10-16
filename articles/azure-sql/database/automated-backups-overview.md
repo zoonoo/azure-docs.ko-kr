@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: 43551ca17180cbb3614c670490a19aeaae6c7701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728661"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124189"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -50,7 +50,7 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 > 영역 중복 저장소는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다. 
 
 > [!NOTE]
-> Azure SQL Database에 대 한 구성 가능한 백업 저장소 중복성은 동남 아시아 Azure 지역 에서만 현재 공개 미리 보기로 제공 됩니다. 이 기능은 아직 Hyperscale 계층에 사용할 수 없습니다. 
+> Azure SQL Database에 대 한 구성 가능한 백업 저장소 중복성은 현재 동남 아시아 Azure 지역 에서만 사용할 수 있습니다. 이 기능은 아직 Hyperscale 계층에 사용할 수 없습니다. 
 
 ### <a name="backup-usage"></a>백업 사용
 

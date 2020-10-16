@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653352"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123116"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리
 
@@ -63,7 +63,7 @@ Azure IoT Central에 Microsoft 파트너 포털에서 선택한 고객을 관리
 
 Azure Active Directory 테넌트에는 사용자 ID, 자격 증명 및 기타 조직 정보가 포함됩니다. 단일 Azure Active Directory 테넌트에 여러 Azure 구독을 연결할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
+자세한 내용은 [Azure Active Directory](../../active-directory/index.yml)를 참조하세요.
 
 ## <a name="azure-subscription"></a>Azure 구독
 
@@ -71,7 +71,7 @@ Azure 구독을 사용하여 Azure 서비스 인스턴스를 만들 수 있습�
 
 Azure 구독이 없는 경우 Microsoft 파트너 센터에서 새로 만들 수 있습니다. Azure 구독을 만든 후 다시 **애플리케이션 만들기** 페이지로 돌아갑니다. **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
 
-자세한 내용은 [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)을 참조하세요.
+자세한 내용은 [Azure 구독](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)을 참조하세요.
 
 ## <a name="location"></a>위치
 

@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081001"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123340"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
 
@@ -27,9 +27,9 @@ Azure IoT Central V3의 Power BI 솔루션을 사용 하 여 IoT 장치의 성�
 - 특정 장치에서 보낸 데이터로 필터링
 - 테이블에서 최신 원격 분석 데이터 보기
 
-이 솔루션은 [연속 데이터 내보내기](howto-export-data-blob-storage.md) Azure Blob storage 계정에서 데이터를 읽는 파이프라인을 설정 합니다. 파이프라인은 Azure Functions, Azure Data Factory 및 Azure SQL Database를 사용 하 여 데이터를 처리 하 고 변환 합니다. .PBIX 파일로 다운로드 하는 Power BI 보고서의 데이터를 시각화 하 고 분석할 수 있습니다. 모든 리소스는 Azure 구독에 만들어지므로 요구에 맞게 각 구성 요소를 사용자 지정할 수 있습니다.
+이 솔루션은 [연속 데이터 내보내기](./howto-export-data.md) Azure Blob storage 계정에서 데이터를 읽는 파이프라인을 설정 합니다. 파이프라인은 Azure Functions, Azure Data Factory 및 Azure SQL Database를 사용 하 여 데이터를 처리 하 고 변환 합니다. .PBIX 파일로 다운로드 하는 Power BI 보고서의 데이터를 시각화 하 고 분석할 수 있습니다. 모든 리소스는 Azure 구독에 만들어지므로 요구에 맞게 각 구성 요소를 사용자 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -43,7 +43,7 @@ Azure IoT Central V3의 Power BI 솔루션을 사용 하 여 IoT 장치의 성�
 - Power BI Pro (대시보드를 다른 사용자와 공유 하려는 경우).
 
 > [!NOTE]
-> 버전 2 IoT Central 응용 프로그램을 사용 하는 경우 이전 버전 설명서 사이트의 [Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) 을 참조 하세요.
+> 버전 2 IoT Central 응용 프로그램을 사용 하는 경우 이전 버전 설명서 사이트의 [Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석](/previous-versions/azure/iot-central/core/howto-connect-powerbi) 을 참조 하세요.
 
 ## <a name="install"></a>설치
 
@@ -65,7 +65,7 @@ Azure Portal에서 파이프라인을 구성 하는 모든 Azure 리소스에 �
 
 다음 목록에서는 파이프라인의 각 리소스에 대 한 역할을 설명 합니다.
 
-### <a name="azure-functions"></a>Azure 기능
+### <a name="azure-functions"></a>Azure Functions
 
 Azure 함수 앱은 IoT Central 때마다 트리거되고 Blob storage에 새 파일을 쓸 수 있습니다. 함수는 원격 분석, 장치 및 장치 템플릿 blob에서 데이터를 추출 하 여 Azure Data Factory에서 사용 하는 중간 SQL 테이블을 채웁니다.
 
