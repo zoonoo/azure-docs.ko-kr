@@ -4,12 +4,12 @@ description: Azure의 경고에 대한 개요입니다. 경고, 클래식 경고
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317143"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108799"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -40,7 +40,7 @@ ms.locfileid: "91317143"
 
 대상 리소스에서 나가는 **신호** 입니다. 신호는 메트릭, 활동 로그, Application Insights 및 로그 유형 중 하나일 수 있습니다.
 
-**조건** -대상 리소스에 적용 되는 신호 및 논리의 조합입니다. 예제: 
+**조건** -대상 리소스에 적용 되는 신호 및 논리의 조합입니다. 예: 
 
 - 백분율 CPU > 70%
 - 서버 응답 시간 > 4 ms 
@@ -76,7 +76,7 @@ ms.locfileid: "91317143"
 
 다음은 지원되는 경고 상태입니다.
 
-| 시스템 상태 | 설명 |
+| 시스템 상태 | Description |
 |:---|:---|
 | 새로 만들기 | 문제가 검색 되었으며 아직 검토 되지 않았습니다. |
 | 승인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "91317143"
 
 *경고 상태*는 *모니터 조건*과 다르며 독립적입니다. 경고 상태는 사용자가 설정합니다. 모니터 조건은 시스템에 의해 설정됩니다. 경고가 발생 하면 경고의 모니터 조건이 ' 실행 됨 *'* 으로 설정 되 고 경고를 발생 시킨 기본 조건이 지워집니다. 그러면 모니터 조건이 *' 해결 됨 '* 으로 설정 됩니다. 
 
-경고 상태는 사용자가 변경할 때까지 변경되지 않습니다. [경고 및 스마트 그룹의 상태를 변경하는 방법](https://aka.ms/managing-alert-smart-group-states)을 알아보세요.
+경고 상태는 사용자가 변경할 때까지 변경되지 않습니다. [경고 및 스마트 그룹의 상태를 변경하는 방법](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)을 알아보세요.
 
 ## <a name="alerts-experience"></a>경고 환경 
 기본 경고 페이지에는 특정 시간 범위 내에 생성 된 경고에 대 한 요약이 제공 됩니다. 각 심각도에 대 한 총 경고 수를 표시 하 고 각 심각도의 각 상태에 대 한 총 경고 수를 식별 하는 열을 표시 합니다. 아무 심각도나 선택하면 해당 심각도를 기준으로 필터링된 [모든 경고](#all-alerts-page) 페이지가 열립니다.
@@ -100,15 +100,15 @@ ms.locfileid: "91317143"
 
 페이지 위쪽의 드롭다운 메뉴에서 값을 선택 하 여이 뷰를 필터링 할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
-| Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
+| 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 시간 범위 | 선택한 시간 범위 내에서 발생 한 경고만 보기에 포함 됩니다. 지원되는 값은 지난 1시간, 지난 24시간, 지난 7일 및 지난 30일입니다. |
 
 경고 페이지 위쪽에서 다음 값을 선택 하 여 다른 페이지를 엽니다.
 
-| 값 | 설명 |
+| 값 | Description |
 |:---|:---|
 | 총 경고 수 | 선택한 조건과 일치하는 총 경고 수입니다. 이 값을 선택하면 필터 없이 [모든 경고] 보기가 열립니다. |
 | 스마트 그룹 | 선택한 조건과 일치하는 경고에서 만들어진 스마트 그룹의 총수입니다. 이 값을 선택하면 [모든 경고] 보기에 스마트 그룹 목록이 열립니다.
@@ -146,10 +146,10 @@ ms.locfileid: "91317143"
 
 페이지 맨 위에 있는 드롭다운 메뉴에서 다음 값을 선택 하 여 뷰를 필터링 할 수 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |:---|:---|
 | Subscription | 경고를 확인 하려는 Azure 구독을 선택 합니다. 필요에 따라 모든 구독을 선택 하도록 선택할 수 있습니다. 선택한 구독에서 액세스 권한이 있는 경고만 보기에 포함 됩니다. |
-| Resource group | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
+| 리소스 그룹 | 단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
 | 리소스 유형 | 리소스 종류를 하나 이상 선택합니다. 선택한 형식의 대상이 있는 경고만 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
 | 리소스 | 리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류를 지정한 후에만 사용할 수 있습니다. |
 | 심각도 | 경고 심각도를 선택 하거나 모두를 **선택 하 여** 모든 심각도의 경고를 포함 합니다. |
@@ -181,7 +181,7 @@ ms.locfileid: "91317143"
 
 구독에 대해 생성 된 경고를 프로그래밍 방식으로 쿼리 하는 것이 좋습니다. 쿼리는 Azure Portal 외부에서 사용자 지정 보기를 만들거나 패턴 및 추세를 식별 하기 위해 경고를 분석 하는 것일 수 있습니다.
 
-[경고 관리 REST API](https://aka.ms/alert-management-api) 사용 하거나 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 와 [리소스에 대 한 REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)사용 하 여 구독에 대해 생성 된 경고를 쿼리할 수 있습니다.
+[경고 관리 REST API](/rest/api/monitor/alertsmanagement/alerts) 사용 하거나 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 와 [리소스에 대 한 REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)사용 하 여 구독에 대해 생성 된 경고를 쿼리할 수 있습니다.
 
 리소스에 대 한 리소스 그래프 REST API를 사용 하 여 대규모 경고 인스턴스를 쿼리할 수 있습니다. 여러 구독에서 생성 된 경고를 관리 해야 하는 경우에는 리소스 그래프가 권장 됩니다. 
 
@@ -200,16 +200,16 @@ Azure 리소스 그래프 탐색기: [portal.azure.com](https://portal.azure.com
 
 해당 [필수](alerts-common-schema-definitions.md#essentials) 필드에 대 한 경고를 쿼리할 수 있습니다.
 
-[경고 관리 REST API](https://aka.ms/alert-management-api) 를 사용 하 여 [경고 컨텍스트](alerts-common-schema-definitions.md#alert-context) 필드를 포함 하 여 특정 경고에 대 한 자세한 정보를 얻을 수 있습니다.
+[경고 관리 REST API](/rest/api/monitor/alertsmanagement/alerts) 를 사용 하 여 [경고 컨텍스트](alerts-common-schema-definitions.md#alert-context) 필드를 포함 하 여 특정 경고에 대 한 자세한 정보를 얻을 수 있습니다.
 
 ## <a name="smart-groups"></a>스마트 그룹
 
-스마트 그룹은 기계 학습 알고리즘을 기반으로 하는 경고의 집계로, 경고 노이즈를 줄이고 문제를 해결 하는 데 도움이 될 수 있습니다. [스마트 그룹](https://aka.ms/smart-groups) 및 [스마트 그룹을 관리하는 방법](https://aka.ms/managing-smart-groups)을 알아보세요.
+스마트 그룹은 기계 학습 알고리즘을 기반으로 하는 경고의 집계로, 경고 노이즈를 줄이고 문제를 해결 하는 데 도움이 될 수 있습니다. [스마트 그룹](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) 및 [스마트 그룹을 관리하는 방법](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)을 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스마트 그룹에 대해 자세히 알아보기](https://aka.ms/smart-groups)
+- [스마트 그룹에 대해 자세히 알아보기](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [작업 그룹](./action-groups.md)에 대해 자세히 알아보기
-- [Azure에서 경고 인스턴스 관리](https://aka.ms/managing-alert-instances)
-- [스마트 그룹 관리](https://aka.ms/managing-smart-groups)
+- [Azure에서 경고 인스턴스 관리](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [스마트 그룹 관리](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Azure alerts 가격에 대 한 자세한 정보](https://azure.microsoft.com/pricing/details/monitor/)

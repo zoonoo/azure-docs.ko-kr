@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323080"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109190"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용 하 여 Data Lake Storage Gen1와 Azure SQL Database 간에 데이터 복사
 
@@ -31,7 +31,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 이 문서에서는 Data Lake Storage Gen1 액세스 권한이 있는 HDInsight Linux 클러스터가 있다고 가정합니다.
-* **Azure SQL Database**. Azure SQL Database에서 데이터베이스를 만드는 방법에 대 한 지침은 [Azure SQL Database에서 데이터베이스 만들기](../sql-database/sql-database-get-started.md) 를 참조 하세요.
+* **Azure SQL Database**. Azure SQL Database에서 데이터베이스를 만드는 방법에 대 한 지침은 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 를 참조 하세요.
 
 ## <a name="create-sample-tables-in-the-database"></a>데이터베이스에 예제 테이블을 만듭니다.
 
@@ -99,7 +99,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
    **Sql-database-서버 이름** 자리 표시자는 데이터베이스가 실행 되 고 있는 서버의 이름을 나타냅니다. **sql-database-name** 자리 표시자는 실제 데이터베이스 이름을 나타냅니다.
 
-   예를 들면 다음과 같습니다.
+   예를 들면
 
     ```console
     sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
@@ -131,7 +131,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
     sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
     ```
 
-   예를 들면 다음과 같습니다.
+   예를 들면
 
     ```console
     sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=user1@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
@@ -156,7 +156,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Sqoop 사용에 대한 성능 고려 사항
 
-Data Lake Storage Gen1로 데이터를 복사 하는 Sqoop 작업을 조정 하는 방법에 대 한 자세한 내용은 [sqoop 성능 블로그 게시물](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)을 참조 하세요.
+Data Lake Storage Gen1로 데이터를 복사 하는 Sqoop 작업을 조정 하는 방법에 대 한 자세한 내용은 [sqoop 성능 블로그 게시물](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

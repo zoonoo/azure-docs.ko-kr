@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045689"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109003"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Azure IoT Edge 런타임 설치 또는 제거
 
@@ -24,7 +24,7 @@ IoT Edge 장치를 설정 하는 두 단계는 다음과 같습니다. 첫 번�
 
 이 문서에는 Linux 또는 Windows 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다. Windows 장치의 경우 Linux 컨테이너 또는 Windows 컨테이너를 추가로 선택할 수 있습니다. 현재 Windows의 Windows 컨테이너는 프로덕션 시나리오에 권장 됩니다. Windows의 linux 컨테이너는 개발 및 테스트 시나리오에 유용 합니다. 특히 Linux 장치에 배포 하기 위해 Windows PC에서 개발 하는 경우에 유용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 현재 프로덕션 시나리오에 대해 지원 되는 운영 체제에 대 한 최신 정보는 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요.
 
@@ -83,6 +83,12 @@ Linux 컨테이너를 사용 하는 IoT Edge는 [Docker Desktop에 대 한 요�
 Azure IoT Edge은 [OCI 호환](https://www.opencontainers.org/) 컨테이너 엔진에 의존 합니다. 장치가 컨테이너를 지원할 수 있는지 확인 합니다.
 
 가상 컴퓨터에 IoT Edge을 설치 하는 경우 중첩 된 가상화를 사용 하도록 설정 하 고 2gb 이상의 메모리를 할당 합니다. Hyper-v의 경우 2 세대 가상 컴퓨터는 기본적으로 중첩 된 가상화를 사용 하도록 설정 합니다. VMware의 경우 가상 머신에서 기능을 사용 하도록 설정 하는 토글이 있습니다.
+
+IoT Core 장치에 IoT Edge를 설치 하는 경우 [원격 PowerShell 세션](/windows/iot-core/connect-your-device/powershell) 에서 다음 명령을 사용 하 여 장치에서 Windows 컨테이너가 지원 되는지 여부를 확인 합니다.
+
+```powershell
+Get-Service vmcompute
+```
 
 ---
 
@@ -160,6 +166,9 @@ IoT Edge 보안 디먼은 IoT Edge 장치에서 보안 표준을 제공 하 고 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
+>[!TIP]
+>IoT Core 장치의 경우 원격 PowerShell 세션을 사용 하 여 설치 명령을 실행 하는 것이 좋습니다. 자세한 내용은 [Windows IoT 용 PowerShell 사용](/windows/iot-core/connect-your-device/powershell)을 참조 하세요.
+
 1. PowerShell을 관리자 권한으로 실행합니다.
 
    Powershell (x86)이 아닌 PowerShell의 AMD64 세션을 사용 합니다. 사용 중인 세션 유형을 잘 모르는 경우 다음 명령을 실행 합니다.
@@ -186,7 +195,7 @@ IoT Edge 보안 디먼은 IoT Edge 장치에서 보안 표준을 제공 하 고 
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-3. 이 시점에서 출력은 다시 시작 하 라는 메시지를 표시할 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요.
+3. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요.
 
 장치에 IoT Edge를 설치 하는 경우 추가 매개 변수를 사용 하 여 다음을 포함 하 여 프로세스를 수정할 수 있습니다.
 
@@ -321,6 +330,8 @@ Windows 장치에서 IoT Edge 설치를 제거 하려면 관리 PowerShell 창�
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
+
+`Uninstall-IoTEdge`이 명령은 Windows IoT Core에서 작동 하지 않습니다. IoT Edge를 제거 하려면 Windows IoT 핵심 이미지를 다시 배포 해야 합니다.
 
 제거 옵션에 대 한 자세한 내용을 보려면 명령을 사용 `Get-Help Uninstall-IoTEdge -full` 하세요.
 

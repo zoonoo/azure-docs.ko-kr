@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210225"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108238"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
@@ -256,7 +256,7 @@ Azure에서 빌드 파이프라인을 만들려면 `az functionapp devops-pipeli
 
     - Azure DevOps의 프로젝트 관리자 여야 합니다.
 
-    - 충분 한 권한이 있는 GitHub PAT (개인용 액세스 토큰)를 만들 수 있는 권한이 있어야 합니다. 자세한 내용은 [GITHUB PAT 권한 요구 사항](https://aka.ms/azure-devops-source-repos) 을 참조 하세요.
+    - 충분 한 권한이 있는 GitHub PAT (개인용 액세스 토큰)를 만들 수 있는 권한이 있어야 합니다. 자세한 내용은 [GITHUB PAT 권한 요구 사항](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication) 을 참조 하세요.
 
     - 자동 생성 된 YAML 파일을 커밋할 수 있도록 GitHub 리포지토리에서 마스터 분기에 커밋할 수 있는 권한이 있어야 합니다.
 

@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77523039"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104379"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
 이 문서 집합에서는 Azure Functions의 SignalR 서비스 바인딩을 사용 하 여 [Azure SignalR service](https://azure.microsoft.com/services/signalr-service/) 에 연결 된 클라이언트에 실시간 메시지를 전송 하 고 전송 하는 방법을 설명 합니다. Azure Functions는 SignalR Service에 대한 입력 및 출력 바인딩을 지원합니다.
 
-| 작업 | 유형 |
+| 작업 | 형식 |
 |---------|---------|
 | 서비스 끝점 URL 및 액세스 토큰 반환 | [입력 바인딩](./functions-bindings-signalr-service-input.md) |
 | SignalR Service 메시지 보내기 |[출력 바인딩](./functions-bindings-signalr-service-output.md) |
@@ -36,7 +36,7 @@ ms.locfileid: "77523039"
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
-[확장 업데이트]: ./install-update-binding-extensions-manual.md
+[확장 업데이트]: ./functions-bindings-register.md
 [Azure 도구 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 SignalR 서비스와 Azure Functions를 함께 구성 하 고 사용 하는 방법에 대 한 자세한 내용은 [Azure SignalR service를 사용 하 여 개발 및 구성 Azure Functions](../azure-signalr/signalr-concept-serverless-development-config.md)을 참조 하세요.
@@ -56,4 +56,4 @@ Java 함수에서 SignalR 서비스 주석을 사용 하려면 *azure-SignalR* �
 ## <a name="next-steps"></a>다음 단계
 
 - [서비스 끝점 URL 및 액세스 토큰 반환 (입력 바인딩)](./functions-bindings-signalr-service-input.md)
-- [SignalR 서비스 메시지 보내기 (출력 바인딩)](./functions-bindings-signalr-service-output.md) 
+- [SignalR 서비스 메시지 보내기 (출력 바인딩)](./functions-bindings-signalr-service-output.md)

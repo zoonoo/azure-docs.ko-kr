@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe911ac8985f9997125eb5149348b50a7fa83222
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441054"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109258"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용
 
@@ -48,9 +48,9 @@ ms.locfileid: "89441054"
 
 다음은 사용할 수 있는 도구입니다.
 
-* [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) - Azure Data Lake Storage Gen1 출력을 사용하여 Event Hubs에 수집된 이벤트를 Azure Data Lake Storage Gen1에 쓸 수 있습니다.
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md) - Azure Data Lake Storage Gen1 출력을 사용하여 Event Hubs에 수집된 이벤트를 Azure Data Lake Storage Gen1에 쓸 수 있습니다.
 * [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) - Storm 클러스터에서 Data Lake Storage Gen1에 직접 데이터를 쓸 수 있습니다.
-* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – Event Hubs에서 이벤트를 받은 다음, [Data Lake Store Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake Storage Gen1에 해당 이벤트를 쓸 수 있습니다.
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) – Event Hubs에서 이벤트를 받은 다음, [Data Lake Store Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)를 사용하여 Data Lake Storage Gen1에 해당 이벤트를 쓸 수 있습니다.
 
 ### <a name="relational-data"></a>관계형 데이터
 관계형 데이터베이스의 데이터를 원본으로 사용할 수도 있습니다. 관계형 데이터베이스는 일정 기간 동안 엄청난 양의 데이터를 수집합니다. 이 데이터를 빅 데이터 파이프라인을 통해 처리하면 중요한 정보를 얻을 수 있습니다. 다음 도구를 사용하여 이러한 데이터를 Data Lake Storage Gen1로 이동할 수 있습니다.
@@ -131,4 +131,4 @@ Data Lake Storage Gen1의 데이터를 사용할 수 있게 되면 지원되는 
 ![Data Lake Storage Gen1의 데이터 시각화](./media/data-lake-store-data-scenarios/visualize-data.png "Data Lake Storage Gen1의 데이터 시각화")
 
 * Azure Data Factory를 사용 하 여 [Data Lake Storage Gen1에서 Azure Synapse Analytics로 데이터를 이동할 수 있습니다 (이전의 SQL Data Warehouse)](../data-factory/copy-activity-overview.md) .
-* 그런 다음 [Power BI Azure Synapse Analytics와 통합](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) 하 여 데이터의 시각적 표시를 만들 수 있습니다.
+* 그런 다음 [Power BI Azure Synapse Analytics와 통합](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) 하 여 데이터의 시각적 표시를 만들 수 있습니다.

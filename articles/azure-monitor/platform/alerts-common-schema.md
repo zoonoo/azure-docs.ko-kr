@@ -4,12 +4,12 @@ description: 일반적인 경고 스키마 이해, 사용 해야 하는 이유 �
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539485"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108833"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -39,7 +39,7 @@ ms.locfileid: "86539485"
 
 새 스키마를 사용 하 여 Azure Portal 및 Azure 모바일 앱에 대 한 보다 다양 한 경고 소비 환경을 제공할 수도 있습니다. 
 
-[웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 스키마 정의에 대해 자세히 알아보세요.](https://aka.ms/commonAlertSchemaDefinitions)
+[웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 스키마 정의에 대해 자세히 알아보세요.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > 다음 작업은 일반적인 경고 스키마를 지원 하지 않습니다. ITSM 커넥터.
@@ -120,5 +120,5 @@ ms.locfileid: "86539485"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 일반적인 경고 스키마 정의입니다.](https://aka.ms/commonAlertSchemaDefinitions)
-- [일반적인 경고 스키마를 활용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법에 대해 알아봅니다.](./alerts-common-schema-integrations.md) 
+- [웹 후크/Logic Apps/Azure Functions/자동화 Runbook에 대 한 일반적인 경고 스키마 정의입니다.](./alerts-common-schema-definitions.md)
+- [일반적인 경고 스키마를 활용 하 여 모든 경고를 처리 하는 논리 앱을 만드는 방법에 대해 알아봅니다.](./alerts-common-schema-integrations.md)

@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 49e6df417190071e06582be400575e1880f2543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fc09f9145b7a1652b621ed38a8bf9af7c4c82a8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692294"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106572"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증
 
@@ -30,7 +30,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 * 빈 셀은 인증 옵션이 지원되지 않는다는 의미입니다.
 
 
-|다음에서 이 인증 옵션 사용...                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST     |
+|다음에서 이 인증 옵션 사용...                   |.NET         |Java     |PowerShell |Azure CLI | Python   |REST (영문)     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
 |최종 사용자(MFA 없이**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(사용 되지 않음)     |    **[✔ *](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |최종 사용자(MFA 사용)                           |    **[✔ *](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔ *](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔ *](data-lake-store-get-started-cli-2.0.md)**      |    **[✔ *](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
@@ -40,11 +40,9 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 <i>* <b>✔ \* </b> 기호를 클릭 합니다. 링크입니다.</i><br>
 <i>** MFA는 Multi-Factor Authentication을 의미</i>
 
-인증에 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory의 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.
+인증에 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory의 인증 시나리오](../active-directory/develop/authentication-vs-authorization.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
 * [서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)
-
-

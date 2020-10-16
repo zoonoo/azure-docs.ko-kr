@@ -4,12 +4,12 @@ description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 �
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 265149e8d3cd775974ec690ebffbce92a1b82b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848690"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108102"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -105,7 +105,7 @@ Azure Portal에서 새 진단 설정을 만들려면 다음 단계를 수행 합
 6. **Servicelog**, **allmetrics**또는 둘 다를 선택 합니다.
 7. **저장** 을 선택 하 여 진단 설정을 만듭니다.
 
-[리소스 관리자 템플릿을](../azure-monitor/platform/diagnostic-settings-template.md)사용 하거나 Azure PowerShell 또는 Azure CLI을 사용 하 여 진단 설정을 구성 하기 위해 [Azure Portal에서 Azure Monitor를 통해 수집을 사용 하도록 설정할](../azure-monitor/platform/diagnostic-settings.md) 수도 있습니다. 자세한 내용은 [Azure platform Logs 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+[리소스 관리자 템플릿을](../azure-monitor/samples/resource-manager-diagnostic-settings.md)사용 하거나 Azure PowerShell 또는 Azure CLI을 사용 하 여 진단 설정을 구성 하기 위해 [Azure Portal에서 Azure Monitor를 통해 수집을 사용 하도록 설정할](../azure-monitor/platform/diagnostic-settings.md) 수도 있습니다. 자세한 내용은 [Azure platform Logs 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
 ### <a name="access-diagnostics-logs-in-storage"></a>스토리지에서 진단 로그에 액세스
 

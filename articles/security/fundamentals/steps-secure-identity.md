@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399808"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107813"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
-이 문서를 읽는다면 보안의 중요성을 인식하고 있다는 뜻입니다. 이미 조직의 보안을 책임지고 있을 가능성도 있습니다. 보안의 중요성을 다른 사람들에게 납득시켜야 한다면 최신 [Microsoft 보안 인텔리전스 보고서](https://go.microsoft.com/fwlink/p/?linkid=2073747)를 읽도록 보내주세요.
+이 문서를 읽는다면 보안의 중요성을 인식하고 있다는 뜻입니다. 이미 조직의 보안을 책임지고 있을 가능성도 있습니다. 보안의 중요성을 다른 사람들에게 납득시켜야 한다면 최신 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/business/security-intelligence-report)를 읽도록 보내주세요.
 
 이 문서는 사이버 공격에 대비하기 위한 5단계 검사 목록을 사용하여 Azure Active Directory의 기능을 통해 더 안전한 상태를 형성하는 데 도움이 됩니다.
 

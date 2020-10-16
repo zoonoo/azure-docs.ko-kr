@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Managed Instance 간에 데이터 복사
-description: Azure Data Factory를 사용 하 여 Azure SQL Managed Instance 간에 데이터를 이동 하는 방법을 알아봅니다.
+title: Azure SQL Managed Instance에서 데이터 복사 및 변환
+description: Azure Data Factory를 사용 하 여 Azure SQL Managed Instance에서 데이터를 복사 하 고 변환 하는 방법을 알아봅니다.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,31 +10,30 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 3a9216c665cfdcdaf07980ace0399fd927885262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: a8b79cea8d502222d08dd3f1f0fb40d1982f565d
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332120"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107745"
 ---
-# <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Managed Instance 간에 데이터 복사
+# <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Managed Instance에서 데이터 복사 및 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Azure SQL Managed Instance 간에 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대 한 일반적인 개요를 제공 하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Azure SQL Managed Instance 간에 데이터를 복사 하 고, 데이터 흐름을 사용 하 여 Azure SQL Managed Instance에서 데이터를 변환 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 이 SQL Managed Instance 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
+- [매핑 데이터 흐름](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
 
-SQL Managed Instance에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원 되는 모든 원본 데이터 저장소에서 SQL Managed Instance로 데이터를 복사할 수도 있습니다. 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
-
-특히이 SQL Managed Instance 커넥터는 다음을 지원 합니다.
+복사 활동의 경우이 Azure SQL Database 커넥터는 다음과 같은 기능을 지원 합니다.
 
 - SQL 인증 Azure Active Directory 및 azure AD (azure AD) 응용 프로그램 토큰 인증을 사용 하 여 Azure 리소스에 대 한 서비스 주체 또는 관리 id로 데이터를 복사 합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용 하 여 데이터를 검색 합니다. SQL MI 원본에서 병렬 복사를 선택할 수도 있습니다. 자세한 내용은 [SQL server에서 병렬 복사](#parallel-copy-from-sql-mi) 섹션을 참조 하세요.
@@ -43,7 +42,7 @@ SQL Managed Instance에서 지원 되는 모든 싱크 데이터 저장소로 �
 >[!NOTE]
 > 이 커넥터는 SQL Managed Instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 를 현재 지원 하지 않습니다. 이 문제를 해결 하려면 자체 호스팅 통합 런타임을 통해 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. Always Encrypted 섹션을 [사용 하 여](#using-always-encrypted) 자세히 알아보세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Managed Instance [공용 끝점](../azure-sql/managed-instance/public-endpoint-overview.md)에 액세스 하기 위해 관리 되는 Azure Data Factory Azure integration runtime을 사용할 수 있습니다. 공용 끝점을 사용 하도록 설정 하 고, Azure Data Factory 데이터베이스에 연결할 수 있도록 네트워크 보안 그룹에 대 한 공용 끝점 트래픽만 허용 해야 합니다. 자세한 내용은 [이 지침](../azure-sql/managed-instance/public-endpoint-configure.md)을 참조 하세요.
 
@@ -59,7 +58,7 @@ SQL Managed Instance 개인 끝점에 액세스 하려면 데이터베이스에 
 
 SQL Managed Instance 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **AzureSqlMI**로 설정 해야 합니다. | 예 |
 | connectionString |이 속성은 SQL 인증을 사용 하 여 SQL Managed Instance에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 자세한 내용은 다음 예를 참조하세요. <br/>기본 포트는 1433입니다. 공용 끝점을 사용 하 여 SQL Managed Instance를 사용 하는 경우 포트 3342을 명시적으로 지정 합니다.<br> Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 `password` 연결 문자열에서 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
@@ -229,7 +228,7 @@ SQL Managed Instance 연결 된 서비스에 대해 지원 되는 속성은 다�
 
 SQL Managed Instance 간에 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AzureSqlMITable**로 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -268,7 +267,7 @@ SQL Managed Instance 간에 데이터를 복사 하려면 다음 속성이 지�
 
 SQL Managed Instance에서 데이터를 복사 하려면 복사 작업 원본 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **Sql오 ource**로 설정 해야 합니다. | 예 |
 | SqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. |예 |
@@ -381,7 +380,7 @@ GO
 
 SQL Managed Instance로 데이터를 복사 하려면 복사 작업 싱크 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **Sql오 ink**로 설정 되어야 합니다. | 예 |
 | preCopyScript |이 속성은 SQL Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
@@ -638,9 +637,77 @@ SQL Managed Instance로 데이터를 복사 하는 경우 원본 테이블의 �
     }
     ```
 
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+매핑 데이터 흐름에서 데이터를 변환 하는 경우 Azure SQL Managed Instance에서 테이블을 읽고 쓸 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요.
+
+> [!NOTE]
+> 데이터 흐름 매핑의 Azure SQL Managed Instance 커넥터는 현재 공개 미리 보기로 제공 됩니다. 아직 전용 끝점이 아닌 SQL Managed Instance 공용 끝점에 연결할 수 있습니다.
+
+### <a name="source-transformation"></a>원본 변환
+
+아래 표에서는 Azure SQL Managed Instance 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
+
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| 테이블 | 테이블을 입력으로 선택 하는 경우 데이터 흐름은 데이터 집합에 지정 된 테이블에서 모든 데이터를 인출 합니다. | 아니요 | - |- |
+| 쿼리 | 쿼리를 입력으로 선택 하는 경우 데이터 집합에서 지정한 테이블을 재정의 하는 원본에서 데이터를 인출 하는 SQL 쿼리를 지정 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄일 수 있는 좋은 방법입니다.<br><br>**Order by** 절은 지원 되지 않지만 FULL SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환 하는 SQL의 UDF입니다.<br>쿼리 예제: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
+| Batch 크기 | 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 지정 합니다. | 아니요 | 정수 | batchSize |
+| 격리 수준 | 다음 격리 수준 중 하나를 선택 합니다.<br>-커밋된 읽기<br>-커밋되지 않은 읽기 (기본값)<br>-반복 읽기<br>-Serializable<br>-없음 (격리 수준 무시) | 아니요 | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>직렬화 가능<br/>없음을</small> |isolationLevel |
+
+#### <a name="azure-sql-managed-instance-source-script-example"></a>Azure SQL Managed Instance 원본 스크립트 예제
+
+Azure SQL Managed Instance를 원본 유형으로 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLMISource
+```
+
+### <a name="sink-transformation"></a>싱크 변환
+
+아래 표에는 Azure SQL Managed Instance 싱크에 의해 지원 되는 속성이 나와 있습니다. **싱크 옵션** 탭에서 이러한 속성을 편집할 수 있습니다.
+
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update 메서드 | 데이터베이스 대상에서 허용 되는 작업을 지정 합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
+| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정 하기 위해 키 열을 설정 해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용 됩니다. 따라서 싱크 매핑에 있는 열을 선택 해야 합니다. | 아니요 | 배열 | 키 |
+| 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 "키 열 작성 건너뛰기"를 선택 합니다. | 아니요 | `true` 또는 `false` | skipKeyWrites |
+| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | 아니요 | `true` 또는 `false` | 다시<br/>truncate |
+| Batch 크기 | 각 일괄 처리에서 작성 되는 행 수를 지정 합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다. | 아니요 | 정수 | batchSize |
+| SQL 스크립트 사전 및 사후 | 데이터를 싱크 데이터베이스에 기록 하기 전 (전처리) 및 이후 (사후 처리) 데이터를 실행 하는 여러 줄의 SQL 스크립트를 지정 합니다. | 예 | String | 보도 Qls<br>postSQLs |
+
+#### <a name="azure-sql-managed-instance-sink-script-example"></a>Azure SQL Managed Instance 싱크 스크립트 예제
+
+Azure SQL Managed Instance를 싱크 유형으로 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLMISink
+```
+
+## <a name="lookup-activity-properties"></a>조회 작업 속성
+
+속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
+
+## <a name="getmetadata-activity-properties"></a>GetMetadata 작업 속성
+
+속성에 대한 자세한 내용을 보려면 [GetMetadata 작업](control-flow-get-metadata-activity.md)을 확인하세요. 
+
 ## <a name="data-type-mapping-for-sql-managed-instance"></a>SQL Managed Instance에 대 한 데이터 형식 매핑
 
-SQL Managed Instance 간에 데이터를 복사 하는 경우 SQL Managed Instance 데이터 형식에서 중간 데이터 형식을 Azure Data Factory 하는 다음 매핑이 사용 됩니다. 복사 작업에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+복사 작업을 사용 하 여 SQL Managed Instance 간에 데이터를 복사 하는 경우 SQL Managed Instance 데이터 형식에서 중간 데이터 형식을 Azure Data Factory 하는 다음 매핑이 사용 됩니다. 복사 작업에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 | SQL Managed Instance 데이터 형식 | Azure Data Factory 중간 데이터 형식 |
 |:--- |:--- |
@@ -679,14 +746,6 @@ SQL Managed Instance 간에 데이터를 복사 하는 경우 SQL Managed Instan
 
 >[!NOTE]
 > Decimal 중간 형식에 매핑되는 데이터 형식의 경우 현재 복사 작업은 최대 28 까지의 전체 자릿수를 지원 합니다. 자릿수가 28자리를 초과하는 데이터가 있으면 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.
-
-## <a name="lookup-activity-properties"></a>조회 작업 속성
-
-속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
-
-## <a name="getmetadata-activity-properties"></a>GetMetadata 작업 속성
-
-속성에 대한 자세한 내용을 보려면 [GetMetadata 작업](control-flow-get-metadata-activity.md)을 확인하세요. 
 
 ## <a name="using-always-encrypted"></a>Always Encrypted 사용
 

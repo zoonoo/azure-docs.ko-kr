@@ -4,12 +4,12 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377488"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116660"
 ---
 Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 이러한 25000 무료 월별 전자 메일을 통해 고급 보고 및 분석과 [모든 api][all APIs] (WEB, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스를 보려면 [SendGrid 솔루션][SendGrid Solutions] 페이지를 방문하세요.
 
@@ -69,7 +69,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 ### <a name="to-find-your-sendgrid-credentials"></a>SendGrid 자격 증명을 찾으려면
 1. 열쇠 아이콘을 클릭하여 **사용자 이름**을 찾습니다.
 
-    ! 키 아이콘이 강조 표시 된 ContosoSendGrid 계정 페이지의 스크린샷 [키]
+    ![키 아이콘이 강조 표시 된 ContosoSendGrid 계정 페이지의 스크린샷][key]
 2. 암호는 설치 시 선택한 암호입니다. **암호 변경** 또는 **암호 재설정**을 선택하여 암호를 변경할 수 있습니다.
 
 전자 메일 배달 설정을 관리하려면 **관리** 단추를 클릭합니다. 그러면 SendGrid 대시보드로 리디렉션됩니다.

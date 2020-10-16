@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569614"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106317"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -183,7 +183,7 @@ ExpressRoute는 전송 라우터로 구성할 수 없습니다. 전송 라우팅
 | 노르웨이 서부 | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **아시아 태평양** | |
 | 동아시아 | 12076분 51010초 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
-| 동남 아시아 | 12076분 51011초 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
+| 동남아시아 | 12076분 51011초 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **일본** | |
 | 일본 동부 | 12076분 51012초 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | 일본 서부 | 12076분 51013초 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
@@ -258,6 +258,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | Exchange Online |12076분 5110초 |
 | SharePoint Online |12076분 5120초 |
 | 비즈니스 온라인용 Skype |12076분 5130초 |
+| Azure Active Directory |12076:5160 |
 | 기타 Office 365 온라인 서비스 |12076분 5200초 |
 
 ## <a name="next-steps"></a>다음 단계

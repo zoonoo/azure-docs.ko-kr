@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048120"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108357"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "92048120"
 
 이 문서에서 설명 하는 솔루션을 사용 하면 단일 웹 페이지 또는 모바일 응용 프로그램과 같은 연결 된 클라이언트에 디지털 쌍 원격 분석 데이터를 푸시할 수 있습니다. 결과적으로 클라이언트는 서버를 폴링하고 업데이트에 대 한 새 HTTP 요청을 제출할 필요 없이 IoT 장치에서 실시간 메트릭 및 상태로 업데이트 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속 하기 전에 완료 해야 하는 필수 구성 요소는 다음과 같습니다.
 
@@ -195,7 +195,7 @@ ms.locfileid: "92048120"
 ### <a name="configure-the-sample-client-web-app"></a>샘플 클라이언트 웹 앱 구성
 
 다음 단계를 수행 하 여 **SignalR integration 웹 앱 샘플** 을 설정 합니다.
-1. 원하는 Visual Studio 또는 코드 편집기를 사용 하 여 [*전제 조건*](#prerequisites) 섹션에서 다운로드 한 압축을 푼 _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ 폴더를 엽니다.
+1. Visual Studio 또는 원하는 코드 편집기를 사용 하 여 [*샘플 응용 프로그램 다운로드*](#download-the-sample-applications) 섹션에서 다운로드 한 압축을 푼 _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ 폴더를 엽니다.
 
 1. *Src/App.js* 파일을 열고에서 URL을 `HubConnectionBuilder` 이전에 저장 한 **NEGOTIATE** 함수의 HTTP 끝점 url로 바꿉니다.
 

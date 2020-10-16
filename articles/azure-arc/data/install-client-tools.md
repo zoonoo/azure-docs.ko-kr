@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3eb41b868aba7e7350f54594fa43f01eeeabebc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61bc99e851b28712262dba8512c06b6e8872c0e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940673"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108221"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스 배포 및 관리를 위한 클라이언트 도구 설치
 
@@ -32,7 +32,7 @@ ms.locfileid: "90940673"
 | 도구 | 필수 | Description | 설치 |
 |---|---|---|---|
 | Azure Data CLI (azdata) | 예 | 빅 데이터 클러스터를 설치하고 관리하기 위한 명령줄 도구입니다. Azure 데이터 CLI에는 명령을 사용 하 여 Azure SQL 및 SQL Server 인스턴스와 Postgres 서버에 연결 하 고 쿼리 하는 명령줄 유틸리티 ( `azdata sql query` 명령줄에서 단일 쿼리 실행), `azdata sql shell` (대화형 셸) 및를 포함 `azdata postgres query` `azdata postgres shell` 합니다. | [설치](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
-| Azure Data Studio | 예 | Azure SQL, SQL Server, PostrgreSQL 및 MySQL을 비롯 한 다양 한 데이터베이스에 연결 하 고 쿼리 하는 데 사용할 수 있는 풍부한 환경 도구입니다. Azure Arc 사용 데이터 서비스에 대 한 관리 환경을 제공 하 Azure Data Studio에 대 한 확장입니다. | [설치](https://aka.ms/getazuredatastudio) |
+| Azure Data Studio | 예 | Azure SQL, SQL Server, PostrgreSQL 및 MySQL을 비롯 한 다양 한 데이터베이스에 연결 하 고 쿼리 하는 데 사용할 수 있는 풍부한 환경 도구입니다. Azure Arc 사용 데이터 서비스에 대 한 관리 환경을 제공 하 Azure Data Studio에 대 한 확장입니다. | [설치](/sql/azure-data-studio/download-azure-data-studio) |
 | Azure Data Studio에 대 한 Azure 데이터 CLI 확장 | 예 | Azure Data CLI를 아직 설치 하지 않은 경우이를 설치 하는 Azure Data Studio에 대 한 확장입니다.| Azure Data Studio의 확장 갤러리에서 설치 합니다.|
 | Azure Data Studio에 대 한 Azure Arc 확장 | 예 | Azure Arc 사용 데이터 서비스에 대 한 관리 환경을 제공 하는 Azure Data Studio에 대 한 확장입니다. Azure Data Studio에 대 한 Azure 데이터 CLI 확장에 대 한 종속성이 있습니다. | Azure Data Studio의 확장 갤러리에서 설치 합니다.|
 | Azure Data Studio의 PostgreSQL 확장 | 아니요 | PostgreSQL에 대 한 관리 기능을 제공 하는 Azure Data Studio에 대 한 PostgreSQL 확장입니다. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Azure Data Studio의 확장 갤러리에서 설치 합니다.|

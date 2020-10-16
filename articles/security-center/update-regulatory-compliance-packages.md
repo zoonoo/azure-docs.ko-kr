@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center 규정 준수 대시보드에서 동적 규정 준수 모니터링으로 업데이트하는 방법 | Microsoft Docs
-description: 규정 준수 패키지 업데이트
+title: Azure Security Center에서 규제 준수 대시보드 사용
+description: Security Center의 규정 준수 대시보드에서 규제 표준을 추가 하 고 제거 하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: adac0d460753f24d06bffc72f9b2b38c2a3306d7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078105"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106266"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 세트 사용자 지정
 

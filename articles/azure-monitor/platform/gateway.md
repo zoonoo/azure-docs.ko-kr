@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305213"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107779"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -153,7 +153,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
-|매개 변수| 메모|
+|매개 변수| 참고|
 |----------|------| 
 |PORTNUMBER | 게이트웨이에서 수신 대기 하는 TCP 포트 번호 |
 |프록시 | 프록시 서버의 IP 주소 |
@@ -206,7 +206,7 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기**섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 시작에 설명 된 단계를 수행 합니다.   
 
 > [!NOTE]
-> **기본 SKU**를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/windows/manage-availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
+> **기본 SKU**를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/manage-availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
 > 
 
 부하 분산 장치를 만든 후에는 하나 이상의 게이트웨이 서버에 트래픽을 분산 하는 백 엔드 풀을 만들어야 합니다. 빠른 시작 문서 섹션 [부하 분산 장치에 대 한 리소스 만들기](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)에 설명 된 단계를 따릅니다.  
@@ -270,7 +270,7 @@ Log Analytics와의 통합을 완료 한 후에는를 실행 하 여 변경 내�
 
    ![프록시 서버 주소를 표시 하는 Operations Manager의 스크린샷](./media/gateway/scom02.png)
 
-1. **마침**을 선택합니다. 이제 Operations Manager 관리 그룹이 게이트웨이 서버를 통해 Log Analytics 서비스와 통신하도록 구성되었습니다.
+1. **완료**를 선택합니다. 이제 Operations Manager 관리 그룹이 게이트웨이 서버를 통해 Log Analytics 서비스와 통신하도록 구성되었습니다.
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>특정 에이전트에서 프록시 서버를 사용 하는 Operations Manager 구성
 
@@ -329,7 +329,7 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 
 | **#A0** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Key |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 (보안 문자열) |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시를 설정 합니다. `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
@@ -389,4 +389,3 @@ Azure Portal에 로그인 하면 Log Analytics 게이트웨이 또는 다른 Azu
 ## <a name="next-steps"></a>다음 단계
 
 데이터 [원본을 추가](./agent-data-sources.md) 하 여 연결 된 원본에서 데이터를 수집 하 고 Log Analytics 작업 영역에 데이터를 저장 합니다.
-

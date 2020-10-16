@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd29bfafe2d37b6a34031e6962cc27bfff0006c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968404"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108017"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의 하 고이를 보내야 하는 위치를 지정 합니다. 이 문서에서는 Azure Monitor 에이전트를 사용 하 여 가상 머신에서 데이터를 수집 하는 데이터 수집 규칙을 만드는 방법을 설명 합니다.
@@ -64,8 +64,8 @@ Azure Portal **Azure Monitor** 메뉴의 **설정** 섹션에서 **데이터 수
 ## <a name="createusingrestapi"></a>REST API를 사용하여 만들기
 REST API를 사용 하 여 DCR 및 연결을 만들려면 다음 단계를 수행 합니다. 
 1. [SAMPLE DCR](data-collection-rule-overview.md#sample-data-collection-rule)에 표시 된 JSON 형식을 사용 하 여 DCR 파일을 수동으로 만듭니다.
-2. [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples)를 사용 하 여 규칙을 만듭니다.
-3. [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples)를 사용 하 여 데이터 수집 규칙에 대 한 각 가상 머신에 대 한 연결을 만듭니다.
+2. [REST API](/rest/api/monitor/datacollectionrules/create#examples)를 사용 하 여 규칙을 만듭니다.
+3. [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples)를 사용 하 여 데이터 수집 규칙에 대 한 각 가상 머신에 대 한 연결을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

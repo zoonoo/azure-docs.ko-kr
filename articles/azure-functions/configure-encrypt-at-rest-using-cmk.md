@@ -3,12 +3,12 @@ title: 미사용 응용 프로그램 원본 암호화
 description: Azure Storage에서 응용 프로그램 데이터를 암호화 하 고 패키지 파일로 배포 합니다.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e4cf16118e748e3ee1d1ff4899730463565ec70
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282333"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108034"
 ---
 # <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 응용 프로그램 데이터 암호화
 
@@ -22,7 +22,7 @@ ms.locfileid: "87282333"
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-먼저 [Azure Storage 계정을 만들고](../storage/common/storage-account-create.md) [고객 관리 키를 사용 하 여 암호화](../storage/common/encryption-customer-managed-keys.md)합니다. 저장소 계정을 만든 후 [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md) 를 사용 하 여 패키지 파일을 업로드 합니다.
+먼저 [Azure Storage 계정을 만들고](../storage/common/storage-account-create.md) [고객 관리 키를 사용 하 여 암호화](../storage/common/customer-managed-keys-overview.md)합니다. 저장소 계정을 만든 후 [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md) 를 사용 하 여 패키지 파일을 업로드 합니다.
 
 그런 다음 Storage 탐색기를 사용 하 여 [SAS를 생성](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer)합니다. 
 

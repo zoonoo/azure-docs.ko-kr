@@ -4,12 +4,12 @@ description: 스마트 그룹은 경고 노이즈를 줄이는 데 도움이 되
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dff59ac207e6078a264d1350d24c9e6f4a461d78
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77665496"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108782"
 ---
 # <a name="smart-groups"></a>스마트 그룹
 
@@ -33,7 +33,7 @@ ms.locfileid: "77665496"
 | 승인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
 | 폐쇄형 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
-[스마트 그룹의 상태를 변경하는 방법을 알아보세요.](https://aka.ms/managing-alert-smart-group-states)
+[스마트 그룹의 상태를 변경하는 방법을 알아보세요.](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 
 > [!NOTE]
 >  스마트 그룹의 상태를 변경해도 개별 멤버 경고의 상태는 변경되지 않습니다.
@@ -58,7 +58,5 @@ ms.locfileid: "77665496"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [스마트 그룹 관리](https://aka.ms/managing-smart-groups)
-- [경고 및 스마트 그룹 상태 변경](https://aka.ms/managing-alert-smart-group-states)
-
-
+- [스마트 그룹 관리](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [경고 및 스마트 그룹 상태 변경](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json)

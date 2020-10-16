@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 프록시 질문과 대답 | Microsoft Docs
+title: Azure Active Directory 응용 프로그램 프록시 질문과 대답
 description: Azure AD 응용 프로그램 프록시을 사용 하 여 내부 온-프레미스 응용 프로그램을 원격 사용자에 게 게시 하는 방법에 대 한 FAQ (질문과 대답)에 대해 알아봅니다.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589166"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104566"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -84,7 +84,6 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
 
-
 ## <a name="application-configuration"></a>애플리케이션 구성
 
 ### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>잘못 된 인증서 또는 잘못 된 암호에 대 한 오류를 수신 하 고 있습니다.
@@ -124,6 +123,12 @@ PrincipalsAllowedToDelegateToAccount 메서드는 커넥터 서버가 웹 응용
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>NTLM 인증은 Azure AD 응용 프로그램 프록시에서 작동 하나요?
 
 NTLM 인증은 사전 인증 또는 Single Sign-On 방법으로 사용할 수 없습니다. NTLM 인증은 클라이언트와 게시 된 웹 응용 프로그램 간에 직접 협상할 수 있는 경우에만 사용할 수 있습니다. NTLM 인증을 사용 하면 일반적으로 브라우저에 로그인 프롬프트가 표시 됩니다.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>B2B IWA Single Sign-On 시나리오에서 로그온 id "온-프레미스 사용자 계정 이름" 또는 "온-프레미스 SAM 계정 이름"을 사용할 수 있나요?
+
+아니요, Azure AD의 게스트 사용자가 위에서 언급 한 로그온 id에 필요한 특성을 포함 하지 않기 때문에이 작업은 작동 하지 않습니다.
+
+이 경우 "사용자 계정 이름"으로 대체 됩니다. B2B 시나리오에 대 한 자세한 내용은 [AZURE AD의 b2b 사용자에 게 온-프레미스 응용 프로그램에 대 한 액세스 권한 부여를](../external-identities/hybrid-cloud-to-on-premises.md)참조 하세요.
 
 ## <a name="pass-through-authentication"></a>통과 인증
 
@@ -198,5 +203,5 @@ Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트 (HTML
 1. HTTP 및 HTTPS Url 모두 와일드 카드를 사용 하 여 별도의 응용 프로그램으로 게시 하지만 각 응용 프로그램에 서로 다른 사용자 지정 도메인을 제공 합니다. 이 구성은 외부 URL이 다르기 때문에 작동 합니다.
 
 2. 와일드 카드 응용 프로그램을 통해 HTTPS URL을 게시 합니다. 이러한 응용 프로그램 프록시 PowerShell cmdlet을 사용 하 여 HTTP 응용 프로그램을 별도로 게시 합니다.
-   - [응용 프로그램 프록시 응용 프로그램 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [응용 프로그램 프록시 커넥터 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [응용 프로그램 프록시 응용 프로그램 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [응용 프로그램 프록시 커넥터 관리](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

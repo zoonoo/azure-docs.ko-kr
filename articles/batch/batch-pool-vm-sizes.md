@@ -4,12 +4,12 @@ description: Azure Batch 풀에서 컴퓨팅 노드에 사용할 수 있는 VM �
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271310"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107507"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -24,7 +24,7 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Virtual Machine 구성의 풀
 
-Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md))를 지원합니다. 지원되는 크기 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조하세요.
+Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md))를 지원합니다. 지원되는 크기 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조하세요.
 
 | VM 시리즈  | 지원되는 크기 |
 |------------|---------|

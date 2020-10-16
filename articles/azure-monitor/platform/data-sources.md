@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802069"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107949"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.
@@ -20,7 +20,7 @@ Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platfor
 
 ## <a name="application-tiers"></a>애플리케이션 계층
 
-Azure 응용 프로그램에서 모니터링 데이터의 소스는 계층으로 구성 될 수 있으며, 가장 높은 계층은 응용 프로그램 자체와 Azure platform의 구성 요소가 되는 하위 계층으로 구성 될 수 있습니다. 각 계층의 데이터에 액세스 하는 방법은 다양 합니다. 응용 프로그램 계층은 아래 표에 요약 되어 있으며 각 계층의 모니터링 데이터 원본은 다음 섹션에 나와 있습니다. 각 데이터 위치에 대 한 설명 및 데이터에 액세스 하는 방법은 [Azure에서 데이터 위치 모니터링](data-locations.md) 을 참조 하세요.
+Azure 응용 프로그램에서 모니터링 데이터의 소스는 계층으로 구성 될 수 있으며, 가장 높은 계층은 응용 프로그램 자체와 Azure platform의 구성 요소가 되는 하위 계층으로 구성 될 수 있습니다. 각 계층의 데이터에 액세스 하는 방법은 다양 합니다. 응용 프로그램 계층은 아래 표에 요약 되어 있으며 각 계층의 모니터링 데이터 원본은 다음 섹션에 나와 있습니다. 각 데이터 위치에 대 한 설명 및 데이터에 액세스 하는 방법은 [Azure에서 데이터 위치 모니터링](../monitor-reference.md) 을 참조 하세요.
 
 
 ![계층 모니터링](../media/overview/overview.png)
@@ -190,7 +190,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 
 ![사용자 지정 컬렉션](media/data-sources/custom.png)
 
-| 대상 | 방법 | 설명 | 참조 |
+| 대상 | 메서드 | Description | 참조 |
 |:---|:---|:---|:---|
 | Azure Monitor 로그 | 데이터 수집기 API | 모든 REST 클라이언트에서 로그 데이터를 수집 하 고 Log Analytics 작업 영역에 저장 합니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](data-collector-api.md) |
 | Azure Monitor 메트릭 | 사용자 지정 메트릭 API | 모든 REST 클라이언트에서 메트릭 데이터를 수집 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다. | [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기](metrics-store-custom-rest-api.md) |
@@ -208,4 +208,4 @@ Azure의 다른 서비스는 Azure Monitor 데이터 플랫폼에 데이터를 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor에서 수집한 모니터링 데이터의 유형](data-platform.md)과 이 데이터를 보고 분석하는 방법에 대해 자세히 알아보세요.
-- [Azure 리소스가 데이터를 저장](data-locations.md) 하는 다양 한 위치 및 액세스 하는 방법을 나열 합니다. 
+- [Azure 리소스가 데이터를 저장](../monitor-reference.md) 하는 다양 한 위치 및 액세스 하는 방법을 나열 합니다.

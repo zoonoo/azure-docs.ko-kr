@@ -1,37 +1,32 @@
 ---
-title: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생 | Microsoft Docs
-description: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법
+title: 애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
+description: Azure Active Directory 용 응용 프로그램 프록시 에이전트 커넥터를 설치할 때 발생할 수 있는 문제를 해결 하는 방법입니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764692"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108204"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
-Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결을 사용하여 클라우드 사용 가능 엔드포인트에서 내부 도메인으로의 연결을 설정하는 내부 도메인 구성 요소입니다.
+Microsoft Azure Active Directory 응용 프로그램 프록시 커넥터는 아웃 바운드 연결을 사용 하 여 클라우드 사용 가능 끝점에서 내부 도메인으로의 연결을 설정 하는 내부 도메인 구성 요소입니다.
 
 ## <a name="general-problem-areas-with-connector-installation"></a>커넥터 설치에 대한 일반적인 문제 영역
 
 커넥터 설치가 실패한 경우 근본 원인은 대개 다음 영역 중 하나입니다.
 
-1.  **연결** – 성공적인 설치를 완료하려면 새 커넥터를 등록하고 향후 트러스트 속성을 설정해야 합니다. 이 작업은 AAD 애플리케이션 프록시 클라우드 서비스에 연결하여 수행됩니다.
+1.  **연결** – 성공적인 설치를 완료하려면 새 커넥터를 등록하고 향후 트러스트 속성을 설정해야 합니다. Azure Active Directory 응용 프로그램 프록시 클라우드 서비스에 연결 하 여이 작업을 수행 합니다.
 
 2.  **트러스트 설정** – 새 커넥터는 자체 서명된 인증서를 만들고 클라우드 서비스에 등록합니다.
 
@@ -42,7 +37,7 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>클라우드 애플리케이션 프록시 서비스 및 Microsoft 로그인 페이지에 대한 연결 확인
 
-**목표:** 커넥터 머신이 Microsoft 로그인 페이지뿐만 아니라 AAD 애플리케이션 프록시 등록 엔드포인트에도 연결할 수 있는지 확인합니다.
+**목표:** 커넥터 컴퓨터가 Microsoft 로그인 페이지 및 응용 프로그램 프록시 등록 끝점에 연결할 수 있는지 확인 합니다.
 
 1.  커넥터 서버에서 [텔넷](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) 또는 기타 포트 테스트 도구를 사용 하 여 포트 443 및 80이 열려 있는지 확인 하는 방식으로 포트 테스트를 실행 합니다.
 
@@ -67,7 +62,7 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 
 **클라이언트 인증서를 확인 하려면:**
 
-현재 클라이언트 인증서의 지문을 확인 합니다. %ProgramData%\microsoft\Microsoft AAD 응용 프로그램 프록시에서 인증서 저장소를 찾을 수 있습니다 Connector\Config\TrustSettings.xml
+현재 클라이언트 인증서의 지문을 확인 합니다. 인증서 저장소는에서 찾을 수 있습니다 `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml` .
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,23 +74,17 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 </ConnectorTrustSettingsFile>
 ```
 
-가능한 **IsInUserStore** 값과 의미는 다음과 같습니다.
+가능한 **IsInUserStore** 값은 **true** 및 **false**입니다. 값이 **true 이면** 자동으로 갱신 된 인증서가 네트워크 서비스의 사용자 인증서 저장소에 있는 개인 컨테이너에 저장 됩니다. **False** 값은 설치 또는 등록 중에 클라이언트 인증서가 생성 되 고, Register-AppProxyConnector 명령으로 시작 되며, 로컬 컴퓨터의 인증서 저장소에 있는 개인 컨테이너에 저장 됨을 의미 합니다.
 
-- **false** -Register-AppProxyConnector 명령으로 설치 또는 등록을 시작 하는 동안 클라이언트 인증서가 생성 되었습니다. 이 파일은 로컬 컴퓨터의 인증서 저장소에 있는 개인 컨테이너에 저장 됩니다. 
-
-인증서를 확인 하려면 다음 단계를 수행 합니다.
-
-1. " **실행"**
-2. 관리 콘솔에서 개인 컨테이너를 확장 하 고 인증서를 클릭 합니다.
-3. **Connectorregistrationca.msappproxy.net** 에서 발급 한 인증서 찾기
-
-- **true** -자동으로 갱신 된 인증서가 네트워크 서비스의 사용자 인증서 저장소에 있는 개인 컨테이너에 저장 됩니다. 
-
-인증서를 확인 하려면 다음 단계를 수행 합니다.
-
+값이 **true**이면 다음 단계를 수행 하 여 인증서를 확인 합니다.
 1. 다운로드 [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. 패키지에서 [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) 를 추출 하 고 관리자 권한 명령 프롬프트에서 **PsExec-i-u "nt authority\network service" cmd.exe** 를 실행 합니다.
 3. 새로 나타난 명령 프롬프트에서 certmgr.exe를 실행 **합니다.**
+4. 관리 콘솔에서 개인 컨테이너를 확장 하 고 인증서를 클릭 합니다.
+5. **Connectorregistrationca.msappproxy.net** 에서 발급 한 인증서 찾기
+
+값이 **false**인 경우 다음 단계에 따라 인증서를 확인 합니다.
+1. " **실행"**
 2. 관리 콘솔에서 개인 컨테이너를 확장 하 고 인증서를 클릭 합니다.
 3. **Connectorregistrationca.msappproxy.net** 에서 발급 한 인증서 찾기
 
