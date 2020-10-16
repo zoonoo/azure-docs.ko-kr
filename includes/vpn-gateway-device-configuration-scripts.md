@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77111247"
 ---
 | **공급업체** | **디바이스 패밀리** | **펌웨어 버전** |
@@ -28,5 +28,5 @@ ms.locfileid: "77111247"
 |Ubiquiti| EdgeRouter| EdgeOS v1.10x RouteBased BGP|
 
 > [!NOTE]
-> ( * ) 필수: NarrowAzureTrafficSelectors (UsePolicyBasedTrafficSelectors 옵션 사용) 및 CustomAzurePolicies (IKE/IPsec)
+> ( * ) 필수: NarrowAzureTrafficSelectors(UsePolicyBasedTrafficSelectors 옵션 사용 설정) 및 CustomAzurePolicies(IKE/IPsec)
 >

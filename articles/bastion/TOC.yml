@@ -5,9 +5,14 @@
     - name: Azure Bastion 정보
       href: bastion-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
-    - name: VM 설정에서 베스천 호스트 만들기
+    - name: VM 설정을 사용하여 호스트 만들기
       href: quickstart-host-portal.md
+- name: 자습서
+  items:
+    - name: 호스트를 만들어 Windows VM에 연결
+      href: tutorial-create-host-portal.md
 - name: 개념
   items:
     - name: 원격 작업 지원
@@ -16,10 +21,10 @@
       href: work-remotely-support.md
 - name: 방법 가이드
   items:
-    - name: 요새 호스트 만들기
+    - name: 호스트 만들기
       items:
         - name: Azure portal
-          href: bastion-create-host-portal.md
+          href: tutorial-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
         - name: Azure CLI
@@ -65,7 +70,7 @@
     - name: 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: SLA 미리 보기
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: SLA

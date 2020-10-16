@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714254"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126844"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -185,7 +185,7 @@ X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 �
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>개별 등록 기반 장치 연결
 
-각각 고유한 인증 자격 증명이 있는 장치를 연결 하는 고객의 경우 개별 등록를 사용 합니다. 개별 등록은 연결을 허용 하는 단일 장치에 대 한 항목입니다. 개별 등록는 x.509 리프 인증서 또는 SAS 토큰 (실제 또는 가상의 신뢰할 수 있는 플랫폼 모듈)을 증명 메커니즘으로 사용할 수 있습니다. 개별 등록에서 장치 ID (등록 ID 라고도 함)는 영숫자, 소문자 이며 하이픈을 포함할 수 있습니다. 자세한 내용은 [DPS 개별 등록](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment)을 참조 하세요.
+각각 고유한 인증 자격 증명이 있는 장치를 연결 하는 고객의 경우 개별 등록를 사용 합니다. 개별 등록은 연결을 허용 하는 단일 장치에 대 한 항목입니다. 개별 등록는 x.509 리프 인증서 또는 SAS 토큰 (실제 또는 가상의 신뢰할 수 있는 플랫폼 모듈)을 증명 메커니즘으로 사용할 수 있습니다. 개별 등록에서 장치 ID (등록 ID 라고도 함)는 영숫자, 소문자 이며 하이픈을 포함할 수 있습니다. 자세한 내용은 [DPS 개별 등록](../../iot-dps/concepts-service.md#individual-enrollment)을 참조 하세요.
 
 > [!NOTE]
 > 장치에 대 한 개별 등록을 만들 때 IoT Central 응용 프로그램의 기본 그룹 등록 옵션 보다 우선 적용 됩니다.
@@ -204,7 +204,7 @@ IoT Central은 개별 등록 다음과 같은 증명 메커니즘을 지원 합�
     > [!TIP]
     > 테스트를 위해 [Node.js용 Azure IoT 장치 프로 비전 장치 SDK 용 도구 ](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) 를 사용 하 여 자체 서명 된 인증서를 생성할 수 있습니다. `node create_test_cert.js device "mytestdevice"`
 
-- **TPM (신뢰할 수 있는 플랫폼 모듈) 증명:** [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) 은 하드웨어 보안 모듈의 한 유형입니다. TPM을 사용 하는 것은 장치를 가장 안전 하 게 연결 하는 방법 중 하나입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용 하 고 있다고 가정 합니다. 소프트웨어 에뮬레이트된 Tpm은 프로토타입 또는 테스트에 적합 하지만 불연속, 펌웨어 또는 통합 된 Tpm과 동일한 수준의 보안을 제공 하지 않습니다. 프로덕션 환경에서 소프트웨어 Tpm을 사용 하지 마세요. TPM을 사용 하는 개별 등록을 만들려면 **장치 연결** 페이지를 열고 **개별 등록** 을 연결 방법으로 선택 하 고 **TPM** 을 메커니즘으로 선택 합니다. TPM 인증 키를 입력 하 고 장치 연결 정보를 저장 합니다.
+- **TPM (신뢰할 수 있는 플랫폼 모듈) 증명:** [TPM](../../iot-dps/concepts-tpm-attestation.md) 은 하드웨어 보안 모듈의 한 유형입니다. TPM을 사용 하는 것은 장치를 가장 안전 하 게 연결 하는 방법 중 하나입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용 하 고 있다고 가정 합니다. 소프트웨어 에뮬레이트된 Tpm은 프로토타입 또는 테스트에 적합 하지만 불연속, 펌웨어 또는 통합 된 Tpm과 동일한 수준의 보안을 제공 하지 않습니다. 프로덕션 환경에서 소프트웨어 Tpm을 사용 하지 마세요. TPM을 사용 하는 개별 등록을 만들려면 **장치 연결** 페이지를 열고 **개별 등록** 을 연결 방법으로 선택 하 고 **TPM** 을 메커니즘으로 선택 합니다. TPM 인증 키를 입력 하 고 장치 연결 정보를 저장 합니다.
 
 ## <a name="automatically-associate-with-a-device-template"></a>장치 템플릿에 자동으로 연결
 
@@ -253,7 +253,7 @@ IoT Central의 주요 기능 중 하나는 장치 연결 시 장치 템플릿을
 
     운영자는 **마이그레이션** 단추를 사용 하 **여 장치를 장치 페이지에서** 장치 템플릿에 연결할 수 있습니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 장치를 처음 연결할 때 DPS에서 반환 하는 장치 연결 문자열을 유지 하거나 캐시 하지 마십시오. 장치를 다시 연결 하려면 표준 장치 등록 흐름을 진행 하 여 올바른 장치 연결 문자열을 가져옵니다. 장치에서 연결 문자열을 캐시 하는 경우 장치 소프트웨어에서 사용 하는 기본 Azure IoT hub를 업데이트 IoT Central 경우 오래 된 연결 문자열을 사용 하 게 될 위험이 있습니다.
 

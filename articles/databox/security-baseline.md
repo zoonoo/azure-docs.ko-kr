@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d8a1b2192784c26ed17b31be262b22efbf935d84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36d3fdbe05a4fac63415e34aea879a9ef576b725
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225607"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127100"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Azure Data Box에 대 한 Azure 보안 기준
 
 Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -70,9 +70,9 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: 지침: Azure Data Box에서 사용 하는 끝점은 모두 Microsoft에서 관리 합니다. 온-프레미스 시스템에 배포 하려는 추가 컨트롤을 담당 합니다.
 
-* [Azure Data Box 보안 이해](https://docs.microsoft.com/azure/databox/data-box-security)
+* [Azure Data Box 보안 이해](./data-box-security.md)
 
-* [Azure Data Box에 대 한 포트 정보](https://docs.microsoft.com/azure/databox/data-box-system-requirements#port-requirements)
+* [Azure Data Box에 대 한 포트 정보](./data-box-system-requirements.md#port-requirements)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -120,7 +120,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -134,7 +134,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Data Box 주문의 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
 
-* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](./data-box-logs.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -144,7 +144,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Data Box 주문의 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
 
-* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](./data-box-logs.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -170,7 +170,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Data Box 주문의 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
 
-* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](./data-box-logs.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -180,7 +180,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: Data Box 주문의 각 단계에 해당 하는 여러 작업을 수행 하 여 주문에 대 한 액세스를 제어 하 고, 이벤트를 감사 하 고, 주문을 추적 하 고, 생성 되는 다양 한 로그를 해석할 수 있습니다.
 
-* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Azure Data Box에 대 한 추적 및 이벤트 로깅 이해](./data-box-logs.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -212,17 +212,17 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
 **지침**: Azure Data Box에 대 한 관리 권한이 있는 사용자 계정의 인벤토리를 유지 관리 합니다. 구독에 대 한 Azure Portal의 IAM (Id 및 액세스 제어) 창을 사용 하 여 azure RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 주문이 처음 생성 될 때 주문에 액세스할 수 있는 사용자를 제어할 수 있습니다. 다양 한 범위에서 Azure 역할을 설정 하 여 Data Box 주문에 대 한 액세스를 제어 합니다. Azure 역할은 작업의 하위 집합에 대 한 읽기-쓰기, 읽기 전용, 읽기/쓰기 액세스 유형을 결정 합니다.
 
-* [사용자 지정 역할 이해](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+* [사용자 지정 역할 이해](../role-based-access-control/custom-roles.md)
 
-* [통합 문서에 대 한 Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [통합 문서에 대 한 Azure RBAC를 구성 하는 방법](../sentinel/quickstart-get-visibility.md)
 
-* [주문에 대 한 액세스 제어를 설정 하는 방법 이해](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+* [주문에 대 한 액세스 제어를 설정 하는 방법 이해](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Azure Security Center 모니터링**: 아니요
 
@@ -245,9 +245,9 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 - 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 
-* [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center를 사용하여 ID 및 액세스를 모니터링하는 방법(미리 보기)](../security-center/security-center-identity-access.md)
 
-* [Azure Policy를 사용하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 사용하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -273,9 +273,9 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: MFA (Azure Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure Data Box 주문에 로그인 하 고 구성 합니다.
 
-* [권한 있는 액세스 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [클라우드 기반 Azure Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -287,9 +287,9 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 또한 Azure AD 위험 탐지를 사용하여 위험한 사용자 동작에 대한 경고 및 보고서를 봅니다.
 
-* [PIM(Privileged Identity Management)을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Azure AD 위험 탐지 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -299,7 +299,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: 조건부 액세스 명명된 위치를 사용하여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹화에서만 Azure Portal에 액세스할 수 있도록 허용합니다.
 
-* [Azure에서 명명된 위치를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Azure에서 명명된 위치를 구성하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -309,7 +309,7 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: 해당 하는 경우 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -321,9 +321,9 @@ Azure Data Box에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 Data Box 어플라이언스의 경우 실시간으로 지원 되지 않습니다. 작업이 끝날 때 로그를 검토할 수 있습니다.
 
-* [Azure AD 보고 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-* [Azure ID 액세스 검토를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -339,9 +339,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 않습니다.
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -351,11 +351,11 @@ Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 
 
 **지침**: 제어 평면의 계정 로그인 동작 편차 (예: Azure Portal)의 경우 Azure AD ID 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-* [Azure AD 위험한 로그인을 확인 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Azure AD 위험한 로그인을 확인 하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -365,7 +365,7 @@ Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 
 
 **지침**: 고객 Lockbox은 현재 Azure Data Box에 대해 지원 되지 않습니다.
 
-* [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -373,7 +373,7 @@ Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
@@ -389,7 +389,7 @@ Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 
 
 Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데이터를 업로드 하는 데 사용 되는 서비스가 격리 됩니다.
 
-* [Azure Data Box 시작 하는 방법](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
+* [Azure Data Box 시작 하는 방법](./data-box-quickstart-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -399,7 +399,7 @@ Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데
 
 **지침**: Microsoft는 Azure Data Box에 대 한 기본 인프라를 관리 하 고, 고객 데이터 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다. 고객 사이트에 Data Box 있는 경우 모범 사례에 따라 전송 되는 중요 한 데이터가 보호 되는지 확인 합니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -409,9 +409,9 @@ Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데
 
 **지침**: Microsoft는 Azure Data Box에 대 한 기본 인프라를 관리 하 고, 고객 데이터 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다. 고객 사이트에 Data Box 있는 경우 모범 사례에 따라 전송 되는 중요 한 데이터가 보호 되는지 확인 합니다.
 
-* [Azure Data Box의 데이터 마이그레이션 이해](https://docs.microsoft.com/azure/databox/data-box-faq)
+* [Azure Data Box의 데이터 마이그레이션 이해](./data-box-faq.md)
 
-* [Data Box 보안 개요](https://docs.microsoft.com/azure/databox/data-box-security)
+* [Data Box 보안 개요](./data-box-security.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -421,7 +421,7 @@ Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데
 
 **지침**: 현재 사용할 수 없음 데이터 식별, 분류 및 손실 방지 기능은 아직 Azure Data Box 사용할 수 없습니다. Microsoft는 Azure Data Box에 대 한 기본 인프라를 관리 하 고 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -431,9 +431,9 @@ Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데
 
 **지침**: 구독에 대 한 소유자 또는 참가자 액세스 권한이 있는지 확인 하 여 Data Box 순서를 만듭니다. 리소스 수준에서 Data Box 판독기 및 Data Box 참가자 역할을 정의할 수도 있습니다.
 
-* [Azure Data Box를 시작 하는 방법 이해](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
+* [Azure Data Box를 시작 하는 방법 이해](./data-box-quickstart-portal.md)
 
-* [액세스 제어를 설정 하는 방법 이해](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+* [액세스 제어를 설정 하는 방법 이해](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -443,7 +443,7 @@ Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데
 
 **지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다. Microsoft는 Azure Data Box에 대 한 기본 인프라를 관리 하 고, 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
-* [Azure 고객 데이터 보호](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure 고객 데이터 보호](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -455,9 +455,9 @@ Azure로 데이터를 업로드 하는 동안 Data Box 어플라이언스와 데
 
 Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구현 합니다. 또한 Azure Data Box는 암호화 키를 통해 장치를 잠그는 데 사용 되는 장치 잠금 해제 키 (장치 암호 라고도 함)를 보호 합니다. 기본적으로 Data Box 주문의 장치 잠금 해제 키는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 장치 잠금 해제 키에 대 한 추가 제어를 위해 고객이 관리 하는 키를 제공할 수도 있습니다. 그러려면 고객 관리형 키를 만들어 Azure Key Vault에 저장해야 합니다.
 
-* [데이터 보호 Data Box 이해](https://docs.microsoft.com/azure/databox/data-box-security)
+* [데이터 보호 Data Box 이해](./data-box-security.md)
 
-* [Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용](https://docs.microsoft.com/azure/databox/data-box-customer-managed-encryption-key-portal)
+* [Azure Data Box Azure Key Vault에서 고객이 관리 하는 키 사용](./data-box-customer-managed-encryption-key-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -467,7 +467,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 Azure Data Box 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -475,7 +475,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -519,7 +519,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 Asset Discovery 솔루션 사용
 
@@ -605,7 +605,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성하여 사용자가 Azure Resource Manager와 상호 작용하는 기능을 제한하도록 Azure 조건부 액세스를 구성합니다.
 
-* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -629,7 +629,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -715,7 +715,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: 고객 관리 키를 만들어 Azure Key Vault에 저장 해야 합니다.
 
-* [Azure Data Box Azure Key Vault에서 고객이 관리 하는 키를 사용 하는 방법](https://docs.microsoft.com/azure/databox/data-box-customer-managed-encryption-key-portal)
+* [Azure Data Box Azure Key Vault에서 고객이 관리 하는 키를 사용 하는 방법](./data-box-customer-managed-encryption-key-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -725,7 +725,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: 해당 사항 없음 Azure Data Box는 관리 되는 id를 사용 하지 않습니다.
 
-* [관리 id를 지 원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [관리 id를 지 원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -743,7 +743,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
 
@@ -773,7 +773,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
@@ -809,7 +809,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -831,9 +831,9 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 또한 태그를 사용하여 구독(예: 프로덕션, 비 프로덕션)을 명확하게 표시하고 Azure 리소스, 특히 중요한 데이터를 처리하는 리소스를 명확하게 식별하고 분류하는 명명 시스템을 만듭니다. 인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
-* [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-* [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+* [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -853,7 +853,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-* [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -863,9 +863,9 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: Azure 리소스에 대한 위험을 식별하는 데 도움이 되도록 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
 
-* [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-* [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -875,7 +875,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: Azure Security Center의 Workflow Automation 기능을 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-* [워크플로 자동화 및 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [워크플로 자동화 및 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -883,7 +883,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -899,5 +899,5 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](https://docs.microsoft.com/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

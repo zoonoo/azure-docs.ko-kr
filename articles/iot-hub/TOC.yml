@@ -220,6 +220,8 @@
               href: iot-hub-reliability-features-in-sdks.md
             - name: Android 작업 플랫폼용 개발
               href: iot-hub-how-to-android-things.md
+        - name: Azure IoT SDK 없이 개발
+          href: iot-hub-devguide-no-sdk.md
         - name: 허브 경로에서 Avro 데이터 쿼리
           href: iot-hub-query-avro-data.md
         - name: Event Grid에서 디바이스 연결 상태 이벤트 정렬

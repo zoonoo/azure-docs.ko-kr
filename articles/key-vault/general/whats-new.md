@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 324e8b86c42f991fa7b0d566bf71b50ca69a53a6
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728763"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91826914"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Azure Key Vault의 새 기능
 
@@ -31,7 +31,7 @@ Azure Key Vault의 새 기능은 다음과 같습니다. [Azure 업데이트 Key
 
 ### <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
-Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문입니다.
+Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 [CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951) 때문입니다.
 
 ### <a name="when-will-this-change-happen"></a>언제 변경되나요?
 

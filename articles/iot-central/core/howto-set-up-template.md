@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803792"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122656"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 새 IoT 디바이스 유형 정의
 
@@ -45,7 +45,7 @@ IoT Central 응용 프로그램에서 장치 템플릿은 장치 기능 모델�
 - Visual Studio Code를 사용하여 디바이스 기능 모델을 만듭니다. 모델에서 디바이스 코드를 구현합니다. 디바이스 기능 모델을 IoT Central 애플리케이션으로 수동으로 가져온 다음, IoT Central 애플리케이션에 필요한 클라우드 속성, 사용자 지정 및 대시보드를 추가합니다.
 - Visual Studio Code를 사용하여 디바이스 기능 모델을 만듭니다. 모델에서 디바이스 코드를 구현하고, 디바이스 우선 연결을 사용하여 실제 디바이스를 IoT Central 애플리케이션에 연결합니다. IoT Central에서 퍼블릭 리포지토리에 있는 디바이스 기능 모델을 찾아 가져옵니다. 그런 다음, IoT Central 애플리케이션에 필요한 클라우드 속성, 사용자 지정 및 대시보드를 디바이스 템플릿에 추가할 수 있습니다.
 
-[REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) 또는 [CLI](howto-manage-iot-central-from-cli.md)를 사용 하 여 IoT Central 응용 프로그램에 장치 템플릿을 추가할 수도 있습니다.
+[REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) 또는 [CLI](howto-manage-iot-central-from-cli.md)를 사용 하 여 IoT Central 응용 프로그램에 장치 템플릿을 추가할 수도 있습니다.
 
 일부 [응용 프로그램](concepts-app-templates.md) 템플릿에는 응용 프로그램 템플릿에서 지 원하는 시나리오에 유용한 장치 템플릿이 이미 포함 되어 있습니다. 예를 들어 [스토어 분석 아키텍처](../retail/store-analytics-architecture.md)를 참조 하세요.
 
@@ -131,7 +131,7 @@ IoT Central에서 디바이스 템플릿을 만들려면 다음을 수행합니�
 | 상태 값 | 상태 의미 체계 유형에만 사용할 수 있습니다. 가능한 상태 값을 정의하며, 각각에는 표시 이름, 이름, 열거형 형식 및 값이 있습니다. |
 | 단위 | **입니다**, 또는 C와 같은 원격 분석 값의 단위 **%** 입니다. ** &deg; ** |
 | 표시 단위 | 대시보드와 양식에서 사용할 표시 단위입니다. |
-| 주석 | 원격 분석 기능에 대한 주석입니다. |
+| 의견 | 원격 분석 기능에 대한 주석입니다. |
 | 설명 | 원격 분석 기능에 대한 설명입니다. |
 
 ### <a name="properties"></a>속성
@@ -152,7 +152,7 @@ IoT Central에서 디바이스 템플릿을 만들려면 다음을 수행합니�
 | 상태 값 | 상태 의미 체계 유형에만 사용할 수 있습니다. 가능한 상태 값을 정의하며, 각각에는 표시 이름, 이름, 열거형 형식 및 값이 있습니다. |
 | 단위 | **입니다**, 또는 C와 같은 속성 값의 단위 **%** 입니다. ** &deg; ** |
 | 표시 단위 | 대시보드와 양식에서 사용할 표시 단위입니다. |
-| 주석 | 속성 기능에 대한 주석입니다. |
+| 의견 | 속성 기능에 대한 주석입니다. |
 | 설명 | 속성 기능에 대한 설명입니다. |
 
 ### <a name="commands"></a>명령
@@ -167,7 +167,7 @@ IoT Central에서 디바이스 명령을 호출할 수 있습니다. 선택적�
 | Name | 명령 이름입니다. IoT Central은 표시 이름에서 이 필드의 값을 생성하지만, 필요한 경우 사용자 고유의 값을 선택할 수 있습니다. 이 필드는 영숫자여야 합니다. |
 | 기능 유형 | 명령입니다. |
 | 명령 | `SynchronousExecutionType`. |
-| 주석 | 명령 기능에 대한 주석입니다. |
+| 의견 | 명령 기능에 대한 주석입니다. |
 | 설명 | 명령 기능에 대한 설명입니다. |
 | 요청 | 사용하도록 설정하면 이름, 표시 이름, 스키마, 단위 및 표시 단위를 포함한 요청 매개 변수의 정의입니다. |
 | 응답 | 사용하도록 설정하면 이름, 표시 이름, 스키마, 단위 및 표시 단위를 포함한 명령 응답의 정의입니다. |

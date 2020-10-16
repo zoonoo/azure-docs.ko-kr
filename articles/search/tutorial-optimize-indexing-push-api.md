@@ -7,29 +7,29 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 10/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb012fcc701e9dd18dbe1db5304807b4d96c2a86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13825422358fdddf6742353fbabaac0303b0c82e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757795"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973447"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>자습서: 푸시 API를 사용하여 인덱싱 최적화
 
 Azure Cognitive Search는 데이터를 검색 인덱스로 가져오기 위한 [두 가지 기본 방법](search-what-is-data-import.md)을 지원합니다. 즉, 프로그래밍 방식으로 데이터를 인덱스로 *푸시*하거나 지원되는 데이터 원본에서 [Azure Cognitive Search 인덱서](search-indexer-overview.md)를 가리켜서 데이터를 *풀*합니다.
 
-이 자습서에서는 요청을 일괄 처리하고 지수 백오프 다시 시도 전략을 사용하여 [푸시 모델](search-what-is-data-import.md#pushing-data-to-an-index)을 통해 데이터를 효율적으로 인덱싱하는 방법에 대해 설명합니다. [애플리케이션을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing)할 수 있습니다. 이 문서에서는 애플리케이션의 주요 측면과 데이터를 인덱싱할 때 고려해야 하는 요소에 대해 설명합니다.
+이 자습서에서는 요청을 일괄 처리하고 지수 백오프 다시 시도 전략을 사용하여 [푸시 모델](search-what-is-data-import.md#pushing-data-to-an-index)을 통해 데이터를 효율적으로 인덱싱하는 방법에 대해 설명합니다. [샘플 애플리케이션을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing)할 수 있습니다. 이 문서에서는 애플리케이션의 주요 측면과 데이터를 인덱싱할 때 고려해야 하는 요소에 대해 설명합니다.
 
 이 자습서에서는 C# 및 [.NET SDK](/dotnet/api/overview/azure/search)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 인덱스 만들기
 > * 다양한 일괄 처리 크기를 테스트하여 가장 효율적인 크기 결정
-> * 비동기 데이터 인덱싱
+> * 비동기식으로 일괄 처리 인덱싱
 > * 여러 스레드를 사용하여 인덱싱 속도 향상
-> * 지수 백오프 다시 시도 전략을 사용하여 실패한 항목 다시 시도
+> * 지수 백오프 다시 시도 전략을 사용하여 실패한 문서 다시 시도
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="download-files"></a>파일 다운로드
 
-이 자습서의 소스 코드는 [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub 리포지토리의 [optimzize-data-indexing](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) 폴더에 있습니다.
+이 자습서의 소스 코드는 [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub 리포지토리의 [optimzize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing/v11) 폴더에 있습니다.
 
 ## <a name="key-considerations"></a>주요 고려 사항
 
@@ -79,12 +79,11 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 1. Visual Studio를 시작하고 **OptimizeDataIndexing.sln**을 엽니다.
 1. 솔루션 탐색기에서 **appsettings.json**을 열고 연결 정보를 제공합니다.
-1. `searchServiceName`의 경우 전체 URL이 "https://my-demo-service.search.windows.net"이면 제공할 서비스 이름은 "my-demo-service"입니다.
 
 ```json
 {
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+  "SearchServiceUri": "https://{service-name}.search.windows.net",
+  "SearchServiceAdminApiKey": "",
   "SearchIndexName": "optimize-indexing"
 }
 ```
@@ -112,7 +111,7 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 ### <a name="creating-the-index"></a>인덱스 만들기
 
-이 샘플 프로그램에서는 .NET SDK를 사용하여 Azure Cognitive Search 인덱스를 정의하고 만듭니다. [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) 클래스를 활용하여 C# 데이터 모델 클래스에서 인덱스 구조를 생성합니다.
+이 샘플 프로그램에서는 .NET SDK를 사용하여 Azure Cognitive Search 인덱스를 정의하고 만듭니다. `FieldBuilder` 클래스를 활용하여 C# 데이터 모델 클래스에서 인덱스 구조를 생성합니다.
 
 데이터 모델은 Hotel 클래스에서 정의되며, Address 클래스에 대한 참조도 포함하고 있습니다. FieldBuilder는 여러 클래스 정의를 드릴다운하여 인덱스에 대한 복합 데이터 구조를 생성합니다. 메타데이터 태그는 검색 가능인지 아니면 정렬 가능인지와 같은 각 필드의 특성을 정의하는 데 사용됩니다.
 
@@ -120,27 +119,25 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 ```csharp
 . . .
-[IsSearchable, IsSortable]
+[SearchableField(IsSortable = true)]
 public string HotelName { get; set; }
 . . .
 public Address Address { get; set; }
 . . .
 ```
 
-**Program.cs** 파일에서 인덱스는 `FieldBuilder.BuildForType<Hotel>()` 메서드에서 생성된 이름과 필드 컬렉션으로 정의되어 다음과 같이 만들어집니다.
+**Program.cs** 파일에서 인덱스는 `FieldBuilder.Build(typeof(Hotel))` 메서드에서 생성된 이름과 필드 컬렉션으로 정의되어 다음과 같이 만들어집니다.
 
 ```csharp
-private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
+private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
 {
     // Create a new search index structure that matches the properties of the Hotel class.
     // The Address class is referenced from the Hotel class. The FieldBuilder
     // will enumerate these to create a complex data structure for the index.
-    var definition = new Index()
-    {
-        Name = indexName,
-        Fields = FieldBuilder.BuildForType<Hotel>()
-    };
-    await searchService.Indexes.CreateAsync(definition);
+    FieldBuilder builder = new FieldBuilder();
+    var definition = new SearchIndex(indexName, builder.Build(typeof(Hotel)));
+
+    await indexClient.CreateIndexAsync(definition);
 }
 ```
 
@@ -148,11 +145,12 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 
 테스트할 데이터를 생성하기 위해 단순 클래스가 **DataGenerator.cs** 파일에서 구현됩니다. 이 클래스의 유일한 목적은 인덱싱에 대한 고유 ID를 사용하여 많은 수의 문서를 쉽게 생성할 수 있도록 하는 것입니다.
 
-고유 ID를 사용하는 100,000개의 호텔 목록을 얻으려면 다음 두 줄의 코드를 실행합니다.
+고유 ID를 사용하는 100,000개의 호텔 목록을 얻으려면 다음 줄의 코드를 실행합니다.
 
 ```csharp
+long numDocuments = 100000;
 DataGenerator dg = new DataGenerator();
-List<Hotel> hotels = dg.GetHotels(100000, "large");
+List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 ```
 
 이 샘플에는 테스트에 사용할 수 있는 두 가지 크기(**small** 및 **large**)의 호텔이 있습니다.
@@ -164,7 +162,7 @@ List<Hotel> hotels = dg.GetHotels(100000, "large");
 Azure Cognitive Search는 단일 또는 여러 문서를 인덱스에 로드하기 위해 다음 API를 지원합니다.
 
 + [문서 추가, 업데이트 또는 삭제(REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction 클래스](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) 또는 [indexBatch 클래스](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [IndexDocumentsAction 클래스](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) 또는 [IndexDocumentsBatch 클래스](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
 
 문서를 일괄 처리 방식으로 인덱싱하면 인덱싱 성능이 크게 향상됩니다. 이러한 일괄 처리는 최대 1,000개의 문서 또는 일괄 처리당 최대 16MB까지 가능합니다.
 
@@ -178,7 +176,7 @@ Azure Cognitive Search는 단일 또는 여러 문서를 인덱스에 로드하�
 다음 함수에서는 일괄 처리 크기를 테스트하는 간단한 방법을 보여 줍니다.
 
 ```csharp
-public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
+public static async Task TestBatchSizesAsync(SearchClient searchClient, int min = 100, int max = 1000, int step = 100, int numTries = 3)
 {
     DataGenerator dg = new DataGenerator();
 
@@ -192,7 +190,7 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
             List<Hotel> hotels = dg.GetHotels(numDocs, "large");
 
             DateTime startTime = DateTime.Now;
-            await UploadDocuments(indexClient, hotels);
+            await UploadDocumentsAsync(searchClient, hotels).ConfigureAwait(false);
             DateTime endTime = DateTime.Now;
             durations.Add(endTime - startTime);
 
@@ -208,22 +206,24 @@ public static async Task TestBatchSizes(ISearchIndexClient indexClient, int min 
         // Pausing 2 seconds to let the search service catch its breath
         Thread.Sleep(2000);
     }
+
+    Console.WriteLine();
 }
 ```
 
 모든 문서의 크기가 동일하지 않으므로(이 샘플에 있지만), 검색 서비스에 보내는 데이터의 크기를 추정합니다. 이를 위해 아래 함수를 사용하여 먼저 개체를 json으로 변환한 다음, 크기를 바이트 단위로 결정합니다. 이 기법을 사용하면 MB/초 인덱싱 속도 측면에서 가장 효율적인 일괄 처리 크기를 결정할 수 있습니다.
 
 ```csharp
+// Returns size of object in MB
 public static double EstimateObjectSize(object data)
 {
-    // converting data to json for more accurate sizing
-    var json = JsonConvert.SerializeObject(data);
-
     // converting object to byte[] to determine the size of the data
     BinaryFormatter bf = new BinaryFormatter();
     MemoryStream ms = new MemoryStream();
     byte[] Array;
 
+    // converting data to json for more accurate sizing
+    var json = JsonSerializer.Serialize(data);
     bf.Serialize(ms, json);
     Array = ms.ToArray();
 
@@ -234,10 +234,10 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-이 함수에는 `ISearchIndexClient` 및 각 일괄 처리 크기에 대해 테스트하려는 시도 횟수가 필요합니다. 각 일괄 처리의 인덱싱 시간이 약간 변동될 수 있으므로 결과의 통계적 유의미성을 높이기 위해 기본적으로 각 일괄 처리를 세 번 시도합니다.
+이 함수에는 `SearchClient` 및 각 일괄 처리 크기에 대해 테스트하려는 시도 횟수가 필요합니다. 각 일괄 처리의 인덱싱 시간이 약간 변동될 수 있으므로 결과의 통계적 유의미성을 높이기 위해 기본적으로 각 일괄 처리를 세 번 시도합니다.
 
 ```csharp
-await TestBatchSizes(indexClient, numTries: 3);
+await TestBatchSizesAsync(searchClient, numTries: 3);
 ```
 
 이 함수를 실행하면 콘솔에 아래와 같은 출력이 표시됩니다.
@@ -250,8 +250,8 @@ await TestBatchSizes(indexClient, numTries: 3);
 
 이제 사용하려는 일괄 처리 크기를 확인했으므로 다음 단계에서는 데이터 인덱싱을 시작합니다. 데이터를 효율적으로 인덱싱하기 위해 이 샘플에서 다음을 수행합니다.
 
-* 여러 스레드/작업자를 사용합니다.
-* 지수 백오프 다시 시도 전략을 구현합니다.
++ 여러 스레드/작업자를 사용합니다.
++ 지수 백오프 다시 시도 전략을 구현합니다.
 
 ### <a name="use-multiple-threadsworkers"></a>여러 스레드/작업자 사용
 
@@ -268,13 +268,16 @@ Azure Cognitive Search의 인덱싱 속도를 최대한 활용하려면 여러 �
 
 오류가 발생하면 [지수 백오프 다시 시도 전략](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)을 사용하여 요청을 다시 시도해야 합니다.
 
-Azure Cognitive Search의 .NET SDK에서 503 및 기타 실패한 요청을 자동으로 다시 시도하지만 207을 다시 시도하는 사용자 고유의 논리를 구현해야 합니다. [Polly](https://github.com/App-vNext/Polly)와 같은 오픈 소스 도구를 사용하여 다시 시도 전략을 구현할 수도 있습니다. 
+Azure Cognitive Search의 .NET SDK에서 503 및 기타 실패한 요청을 자동으로 다시 시도하지만 207을 다시 시도하는 사용자 고유의 논리를 구현해야 합니다. [Polly](https://github.com/App-vNext/Polly)와 같은 오픈 소스 도구를 사용하여 다시 시도 전략을 구현할 수도 있습니다.
 
 이 샘플에서는 자체의 지수 백오프 다시 시도 전략을 구현합니다. 이 전략을 구현하기 위해 먼저 실패한 요청에 대한 `maxRetryAttempts` 및 초기 `delay`를 포함하여 일부 변수를 정의합니다.
 
 ```csharp
 // Create batch of documents for indexing
-IndexBatch<Hotel> batch = IndexBatch.Upload(hotels);
+var batch = IndexDocumentsBatch.Upload(hotels);
+
+// Create an object to hold the result
+IndexDocumentsResult result = null;
 
 // Define parameters for exponential backoff
 int attempts = 0;
@@ -282,9 +285,9 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-[IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet)을 catch하는 것이 중요합니다. 이러한 예외는 인덱싱 작업이 부분적으로만 성공했음(207)을 나타내기 때문입니다. 실패한 항목만 포함하는 새 일괄 처리를 쉽게 만들 수 있도록 하는 `FindFailedActionsToRetry` 메서드를 사용하여 실패한 항목을 다시 시도해야 합니다.
+인덱싱 작업의 결과는 `IndexDocumentResult result` 변수에 저장됩니다. 이 변수는 아래와 같이 일괄 처리에서 문서가 실패했는지 확인할 수 있기 때문에 중요합니다. 부분 오류가 발생하면 실패한 문서 ID를 기반으로 새 일괄 처리가 만들어집니다.
 
-`IndexBatchException` 이외의 예외도 catch하여 요청이 완전히 실패했음을 나타내야 합니다. 이러한 예외는 특히 .NET SDK에서 503을 자동으로 다시 시도하므로 일반적이지 않습니다.
+`RequestFailedException` 예외 또한 요청이 완전히 실패했음을 나타내기 때문에 확인해야 하며 다시 시도해야 합니다.
 
 ```csharp
 // Implement exponential backoff
@@ -293,29 +296,46 @@ do
     try
     {
         attempts++;
-        var response = await indexClient.Documents.IndexAsync(batch);
-        break;
+        result = await searchClient.IndexDocumentsAsync(batch).ConfigureAwait(false);
+
+        var failedDocuments = result.Results.Where(r => r.Succeeded != true).ToList();
+
+        // handle partial failure
+        if (failedDocuments.Count > 0)
+        {
+            if (attempts == maxRetryAttempts)
+            {
+                Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
+                break;
+            }
+            else
+            {
+                Console.WriteLine("[Batch starting at doc {0} had partial failure]", id);
+                Console.WriteLine("[Retrying {0} failed documents] \n", failedDocuments.Count);
+
+                // creating a batch of failed documents to retry
+                var failedDocumentKeys = failedDocuments.Select(doc => doc.Key).ToList();
+                hotels = hotels.Where(h => failedDocumentKeys.Contains(h.HotelId)).ToList();
+                batch = IndexDocumentsBatch.Upload(hotels);
+
+                Task.Delay(delay).Wait();
+                delay = delay * 2;
+                continue;
+            }
+        }
+
+        return result;
     }
-    catch (IndexBatchException ex)
+    catch (RequestFailedException ex)
     {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2}", attempts, maxRetryAttempts, ex.Message);
+        Console.WriteLine("[Batch starting at doc {0} failed]", id);
+        Console.WriteLine("[Retrying entire batch] \n");
 
         if (attempts == maxRetryAttempts)
+        {
+            Console.WriteLine("[MAX RETRIES HIT] - Giving up on the batch starting at {0}", id);
             break;
-
-        // Find the failed items and create a new batch to retry
-        batch = ex.FindFailedActionsToRetry(batch, x => x.HotelId);
-        Console.WriteLine("Retrying failed documents using exponential backoff...\n");
-
-        Task.Delay(delay).Wait();
-        delay = delay * 2;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("[Attempt: {0} of {1} Failed] - Error: {2} \n", attempts, maxRetryAttempts, ex.Message);
-
-        if (attempts == maxRetryAttempts)
-            break;
+        }
 
         Task.Delay(delay).Wait();
         delay = delay * 2;
@@ -325,10 +345,10 @@ do
 
 여기서는 쉽게 호출할 수 있도록 지수 백오프 코드를 함수로 래핑합니다.
 
-그런 다음, 활성 스레드를 관리하는 다른 함수를 만듭니다. 간단히 하기 위해 이 함수는 여기에 포함되지 않았지만 [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v10/OptimizeDataIndexing/ExponentialBackoff.cs)에서 확인할 수 있습니다. 이 함수는 다음 명령을 사용하여 호출할 수 있습니다. 여기서 `hotels`는 업로드하려는 데이터이고, `1000`은 일괄 처리 크기이며, `8`은 동시 스레드 수입니다.
+그런 다음, 활성 스레드를 관리하는 다른 함수를 만듭니다. 간단히 하기 위해 이 함수는 여기에 포함되지 않았지만 [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs)에서 확인할 수 있습니다. 이 함수는 다음 명령을 사용하여 호출할 수 있습니다. 여기서 `hotels`는 업로드하려는 데이터이고, `1000`은 일괄 처리 크기이며, `8`은 동시 스레드 수입니다.
 
 ```csharp
-ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
+await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
 ```
 
 함수를 실행하면 다음과 같은 출력이 표시됩니다.
@@ -337,7 +357,10 @@ ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
 
 문서 일괄 처리가 실패하면 실패 및 일괄 처리가 다시 시도되고 있음을 나타내는 오류가 출력됩니다.
 
-![데이터 인덱싱 함수의 오류](media/tutorial-optimize-data-indexing/index-data-error.png "일괄 처리 크기 테스트 함수의 출력")
+```
+[Batch starting at doc 6000 had partial failure]
+[Retrying 560 failed documents]
+```
 
 함수 실행이 완료되면 모든 문서가 인덱스에 추가되었는지 확인할 수 있습니다.
 
@@ -354,7 +377,7 @@ ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
 문서 수 계산 작업은 검색 인덱스의 문서 수를 검색합니다.
 
 ```csharp
-long indexDocCount = indexClient.Documents.Count();
+long indexDocCount = await searchClient.GetDocumentCountAsync();
 ```
 
 #### <a name="get-index-statistics"></a>인덱스 통계 가져오기
@@ -362,7 +385,7 @@ long indexDocCount = indexClient.Documents.Count();
 인덱스 통계 가져오기 작업은 현재 인덱스의 문서 수와 스토리지 사용량을 반환합니다. 인덱스 통계는 업데이트하는 데 문서 수보다 더 오래 걸립니다.
 
 ```csharp
-IndexGetStatisticsResult indexStats = serviceClient.Indexes.GetStatistics(configuration["SearchIndexName"]);
+var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
 ### <a name="azure-portal"></a>Azure portal

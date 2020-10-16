@@ -4,17 +4,17 @@ description: Azure IoT 솔루션을 빌드하는 데 사용할 수 있는 기술
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: dedb799121fcdbc6bab38865132ae46a78aa6494
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578185"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977564"
 ---
-# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>IoT 솔루션을 만들기 위한 Azure 기술 및 서비스
+# <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>IoT 솔루션을 만드는 데 사용할 수 있는 Azure 기술 및 서비스는 무엇인가요?
 
 Azure IoT 기술 및 서비스는 조직의 디지털 변환을 가능하게 하는 다양한 IoT 솔루션을 만들 수 있는 옵션을 제공합니다. 예를 들어, 다음을 수행할 수 있습니다.
 

@@ -145,7 +145,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -555,6 +555,8 @@
           href: client-images.md
         - name: 기존 디스크 다운로드
           href: download-vhd.md
+        - name: 이미지 버전의 관리 디스크
+          href: ../managed-disk-from-image-version.md
     - name: VM 보안
       items:
         - name: 권장 사항

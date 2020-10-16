@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974423"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126740"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>데이터 내보내기를 사용 하 여 IoT 데이터를 클라우드 대상으로 내보내기 (레거시)
 
@@ -30,7 +30,7 @@ ms.locfileid: "90974423"
 > [!Note]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 권한이 있어야 합니다.
 
@@ -63,7 +63,7 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
 로 내보낼 기존 Azure storage 계정이 없는 경우 다음 단계를 수행 합니다.
 
-1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob storage 계정](https://aka.ms/blobdocscreatestorageaccount) 또는 [Azure Data Lake Storage v2 저장소 계정](../../storage/blobs/data-lake-storage-quickstart-create-account.md)만들기에 대해 자세히 알아볼 수 있습니다. 데이터 내보내기는 블록 blob을 지 원하는 저장소 계정에만 데이터를 쓸 수 있습니다. 다음 목록에는 알려진 호환 저장소 계정 유형이 나와 있습니다.
+1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob storage 계정](../../storage/blobs/storage-quickstart-blobs-portal.md) 또는 [Azure Data Lake Storage v2 저장소 계정](../../storage/common/storage-account-create.md)만들기에 대해 자세히 알아볼 수 있습니다. 데이터 내보내기는 블록 blob을 지 원하는 저장소 계정에만 데이터를 쓸 수 있습니다. 다음 목록에는 알려진 호환 저장소 계정 유형이 나와 있습니다.
 
     |성능 계층|계정 유형|
     |-|-|
@@ -156,7 +156,7 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
 
 이 메시지에는 송신 장치의 장치 ID가 포함 되지 않습니다.
 
-Azure Stream Analytics 쿼리의 메시지 데이터에서 장치 ID를 검색 하려면 [Getmetadatapropertyvalue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) 함수를 사용 합니다. 예제는 [Stream Analytics, Azure Functions 및 SendGrid를 사용 하 여 사용자 지정 규칙을 사용 하 여 Azure IoT Central 확장](./howto-create-custom-rules.md)의 쿼리를 참조 하세요.
+Azure Stream Analytics 쿼리의 메시지 데이터에서 장치 ID를 검색 하려면 [Getmetadatapropertyvalue](/stream-analytics-query/getmetadatapropertyvalue) 함수를 사용 합니다. 예제는 [Stream Analytics, Azure Functions 및 SendGrid를 사용 하 여 사용자 지정 규칙을 사용 하 여 Azure IoT Central 확장](./howto-create-custom-rules.md)의 쿼리를 참조 하세요.
 
 Azure Databricks 또는 Apache Spark 작업 영역에서 장치 ID를 검색 하려면 [Systemproperties](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md)를 사용 합니다. 예제는 [Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장](./howto-create-custom-analytics.md)에서 Databricks 작업 영역을 참조 하세요.
 
@@ -557,7 +557,7 @@ Blob storage의 경우 마지막으로 쓴 이후의 모든 변경 내용을 포
 
 *장치* 및 *장치 템플릿* 스트림이 설정 된 상태에서 preview 응용 프로그램에 기존 데이터 내보내기가 있으면 내보내기를 **30 년 6 월 2020**로 업데이트 합니다. 이 요구 사항은 Azure Blob storage, Azure Event Hubs 및 Azure Service Bus에 대 한 내보내기에 적용 됩니다.
 
-3 2020 월 3 일부 터 장치 및 장치 템플릿이 사용 하도록 설정 된 응용 프로그램의 모든 새 내보내기에는 위에서 설명한 데이터 형식이 포함 됩니다. 이 날짜 이전에 만든 모든 내보내기는 이전 데이터 형식으로 유지 됩니다 .이 날짜는 30 월 2020 일까 지 자동으로 이러한 내보내기가 새 데이터 형식으로 마이그레이션됩니다. 새 데이터 형식은 IoT Central 공용 API의 장치, [장치 속성](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [장치 클라우드 속성](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)및 [장치 템플릿](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) 개체와 [일치 합니다.](https://docs.microsoft.com/rest/api/iotcentral/devices/get)
+3 2020 월 3 일부 터 장치 및 장치 템플릿이 사용 하도록 설정 된 응용 프로그램의 모든 새 내보내기에는 위에서 설명한 데이터 형식이 포함 됩니다. 이 날짜 이전에 만든 모든 내보내기는 이전 데이터 형식으로 유지 됩니다 .이 날짜는 30 월 2020 일까 지 자동으로 이러한 내보내기가 새 데이터 형식으로 마이그레이션됩니다. 새 데이터 형식은 IoT Central 공용 API의 장치, [장치 속성](/rest/api/iotcentral/devices/getproperties), [장치 클라우드 속성](/rest/api/iotcentral/devices/getcloudproperties)및 [장치 템플릿](/rest/api/iotcentral/devicetemplates/get) 개체와 [일치 합니다.](/rest/api/iotcentral/devices/get)
 
 **장치의**경우 이전 데이터 형식과 새 데이터 형식 간의 중요 한 차이점은 다음과 같습니다.
 - `@id` 장치를 제거 하는 경우의 `deviceId` 이름이로 바뀝니다. `id` 

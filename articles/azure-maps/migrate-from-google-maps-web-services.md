@@ -1,22 +1,22 @@
 ---
-title: Google Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps
-description: 웹 서비스를 Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법을 설명합니다.
+title: 자습서 - Google Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps
+description: Google Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 57d71d517cb953a2a2c84b7e003fd08541416539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319574"
+ms.locfileid: "91874461"
 ---
-# <a name="migrate-web-service-from-google-maps"></a>Google Maps에서 웹 서비스 마이그레이션
+# <a name="tutorial---migrate-web-service-from-google-maps"></a>자습서 - Google Maps에서 웹 서비스 마이그레이션
 
 Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스할 수 있습니다. 이러한 플랫폼의 API 인터페이스는 비슷한 기능을 수행합니다. 하지만, 각각 다른 명명 규칙과 응답 개체를 사용합니다.
 

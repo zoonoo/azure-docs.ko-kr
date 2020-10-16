@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396861"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127117"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Azure Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션
 
@@ -21,9 +21,9 @@ Azure Data Box Heavy와 SPMT(SharePoint 마이그레이션 도구)를 사용하�
 
 Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문할 수 있는 서비스입니다. 그런 다음, 테라바이트의 데이터를 서버에서 디바이스로 복사할 수 있습니다. 이것을 Microsoft로 다시 배송하면 귀하의 데이터가 Azure로 복사됩니다. 전송하려는 데이터의 크기에 따라 다음 중에서 선택할 수 있습니다.
 
-- [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview): 주문당 사용 가능한 용량이 35TB이며 중소형 데이터 세트에 적합합니다.
-- [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview): 디바이스당 사용 가능한 용량이 80TB이며 중대형 데이터 세트에 적합합니다.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview): 디바이스당 사용 가능한 용량이 770TB이며 대형 데이터 세트에 적합합니다.
+- [Data Box Disk](./data-box-disk-overview.md): 주문당 사용 가능한 용량이 35TB이며 중소형 데이터 세트에 적합합니다.
+- [Data Box](./data-box-overview.md): 디바이스당 사용 가능한 용량이 80TB이며 중대형 데이터 세트에 적합합니다.
+- [Data Box Heavy](./data-box-heavy-overview.md): 디바이스당 사용 가능한 용량이 770TB이며 대형 데이터 세트에 적합합니다.
 
 이 문서에서는 Data Box Heavy를 사용하여 파일 공유 콘텐츠를 SharePoint Online으로 마이그레이션하는 방법을 구체적으로 설명합니다.
 
@@ -37,7 +37,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 
 ### <a name="for-sharepoint-online"></a>SharePoint Online의 경우
 
-- [SPMT(SharePoint 마이그레이션 도구)의 최소 요구 사항](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool)을 검토하세요.
+- [SPMT(SharePoint 마이그레이션 도구)의 최소 요구 사항](/sharepointmigration/how-to-use-the-sharepoint-migration-tool)을 검토하세요.
 
 ## <a name="workflow-overview"></a>워크플로 개요
 
@@ -84,7 +84,7 @@ Microsoft Azure Data Box는 Microsoft Azure Portal에서 디바이스를 주문�
 3. [SharePoint 마이그레이션 도구를 다운로드](https://spmtreleasescus.blob.core.windows.net/install/default.htm)하여 Azure VM에 설치합니다.
 4. SharePoint 마이그레이션 도구를 시작합니다. **로그인** 을 클릭 하 고 회사 또는 학교 계정에 대 한 사용자 이름 및 암호를 입력 합니다.
 5. **데이터가 어디에 있나요?** 라는 메시지가 표시되면 **파일 공유**를 선택합니다. 데이터가 있는 Azure 파일 공유의 경로를 입력합니다.
-6. 대상 위치를 포함하여 나머지 지시를 평소와 같이 따릅니다. 자세한 내용은 [SharePoint 마이그레이션 도구를 사용하는 방법](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool)을 참조하세요.
+6. 대상 위치를 포함하여 나머지 지시를 평소와 같이 따릅니다. 자세한 내용은 [SharePoint 마이그레이션 도구를 사용하는 방법](/sharepointmigration/how-to-use-the-sharepoint-migration-tool)을 참조하세요.
 
 > [!IMPORTANT]
 > - 데이터가 SharePoint Online으로 수집되는 속도는 데이터가 Azure에 이미 있는 경우에도 여러 가지 요소의 영향을 받습니다. 이러한 요소를 이해하면 마이그레이션을 계획하고 효율성을 극대화할 수 있습니다.  자세한 내용은 [SharePoint Online 및 OneDrive 마이그레이션 속도](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed)를 참조하세요.

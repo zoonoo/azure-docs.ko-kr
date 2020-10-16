@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527815"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122418"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>실수로 인한 Azure 파일 공유 삭제 방지
 
@@ -37,7 +37,7 @@ Azure 파일 공유 (미리 보기)에 대 한 일시 삭제는 모든 저장소
 
 ### <a name="enabling-or-disabling-soft-delete"></a>일시 삭제 사용 또는 사용 안 함
 
-저장소 계정 수준에서 파일 공유에 대 한 일시 삭제를 사용 하도록 설정 되어 있습니다 .이로 인해 일시 삭제 설정은 저장소 계정 내의 모든 파일 공유에 적용 됩니다. 언제 든 지 일시 삭제를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 새 저장소 계정을 만들 때 파일 공유에 대 한 일시 삭제는 기본적으로 사용 하지 않도록 설정 됩니다. 일시 삭제는 기존 저장소 계정에 대해서도 기본적으로 사용 하지 않도록 설정 됩니다. Azure 파일 공유에 대 한 [azure 파일 공유 백업을](../../backup/azure-file-share-backup-overview.md) 구성한 경우 azure 파일 공유에 대 한 일시 삭제는 해당 공유의 저장소 계정에서 자동으로 사용 하도록 설정 됩니다.
+저장소 계정 수준에서 파일 공유에 대 한 일시 삭제를 사용 하도록 설정 되어 있습니다 .이로 인해 일시 삭제 설정은 저장소 계정 내의 모든 파일 공유에 적용 됩니다. 언제 든 지 일시 삭제를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 새 저장소 계정을 만들 때이 기능은 공개 미리 보기로 제공 되는 동안 파일 공유에 대 한 일시 삭제를 기본적으로 사용 하지 않도록 설정 됩니다. 일시 삭제가 일반 공급 되 면 기본적으로 사용 하도록 설정 됩니다. 일시 삭제는 기존 저장소 계정에 대해 기본적으로 사용 하지 않도록 설정 된 상태로 유지 됩니다. Azure 파일 공유에 대 한 [azure 파일 공유 백업을](../../backup/azure-file-share-backup-overview.md) 구성한 경우 azure 파일 공유에 대 한 일시 삭제는 해당 공유의 저장소 계정에서 자동으로 사용 하도록 설정 됩니다.
 
 파일 공유에 대해 일시 삭제를 사용하도록 설정하고, 일부 파일 공유를 삭제한 다음, 일시 삭제를 사용하지 않도록 설정한 경우, 해당 기간 내에 공유를 저장하면 해당 파일 공유에 액세스하고 복구할 수 있습니다. 일시 삭제를 사용하도록 설정하면 보존 기간도 구성해야 합니다.
 

@@ -214,6 +214,8 @@
           href: log-query/scope.md
         - name: 간단한 로그 환경
           href: log-query/simple-logs.md
+        - name: Azure Data Explorer를 사용한 쿼리
+          href: platform/azure-data-explorer-monitor-proxy.md
         - name: 로그 쿼리
           items:
             - name: 표준 열
@@ -222,7 +224,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -303,6 +305,14 @@
               href: platform/service-providers.md
             - name: Dedicated 클러스터
               href: log-query/logs-dedicated-clusters.md
+        - name: 데이터 내보내기
+          items:
+            - name: 작업 영역 데이터 내보내기
+              href: platform/logs-data-export.md
+            - name: Logic Apps를 사용하여 내보내기
+              href: platform/logs-export-logic-app.md
+            - name: 데이터 탐색기를 사용하여 내보낸 데이터 쿼리
+              href: platform/azure-data-explorer-query-storage.md
     - name: 메트릭 탐색기
       items:
         - name: 메트릭 탐색기로 시작

@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: 사용자 및 역할 관리
               href: how-to-assign-roles.md
+            - name: 액세스 제어에 대한 관리 ID 사용
+              href: how-to-use-managed-identities.md
             - name: AKS 배포에서 Azure AD ID 사용
               href: how-to-use-azure-ad-identity.md
         - name: 네트워크 보안

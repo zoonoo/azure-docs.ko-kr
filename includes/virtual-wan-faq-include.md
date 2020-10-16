@@ -8,13 +8,17 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89570083"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91859762"
 ---
+### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
+
+예, Azure Virtual WAN은 GA(일반 공급)로 제공됩니다. 그러나 Virtual WAN은 몇 가지 기능과 시나리오로 구성됩니다. Virtual WAN에는 Microsoft가 미리 보기 태그를 적용하는 기능 또는 시나리오가 있습니다. 이러한 경우 특정 기능 또는 시나리오 자체는 미리 보기로 제공됩니다. 특정 미리 보기 기능을 사용하지 않는 경우 일반 GA 지원이 적용됩니다. 미리 보기 지원에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
 Virtual WAN은 단일 창에 기본 제공되는 다양한 기능, 즉 사이트/사이트 간 VPN 연결, 사용자/P2S 연결, ExpressRoute 연결, Virtual Network 연결, VPN ExpressRoute 상호 연결, VNet 간 전이적 연결, 중앙 집중식 라우팅, Azure 방화벽 및 방화벽 관리자 보안, 모니터링, ExpressRoute 암호화 및 기타 다양한 기능을 제공합니다. Virtual WAN 사용을 시작하는 데에는 이러한 사용 사례 중 일부만 필요합니다. 하나의 사용 사례만으로도 시작할 수 있습니다. Virtual WAN 아키텍처는 분기(VPN/SD-WAN 디바이스), 사용자(Azure VPN 클라이언트, openVPN 또는 IKEv2 클라이언트), ExpressRoute 회로, Virtual Networks가 가상 허브의 스포크 역할을 하는 허브 및 스포크 아키텍처이며, 스케일링 및 성능이 기본적으로 제공됩니다. 모든 허브가 표준 Virtual WAN에서 풀 메시로 연결되므로 사용자는 Microsoft 백본을 임의(모든 스포크) 연결에 쉽게 사용할 수 있습니다. SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크의 경우 사용자는 Azure Virtual WAN 포털에서 수동으로 설정하거나 Virtual WAN 파트너 CPE(SD-WAN/VPN)를 사용하여 Azure에 대한 연결을 설정할 수 있습니다. Virtual WAN 파트너는 디바이스 정보를 Azure로 내보내고, Azure 구성을 다운로드하고, Azure Virtual WAN 허브에 대한 연결을 설정하는 기능인 연결 자동화를 제공합니다. 지점 및 사이트 간/사용자 VPN 연결의 경우 [Azure VPN 클라이언트](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN 또는 IKEv2 클라이언트를 지원합니다. 

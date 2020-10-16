@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/19/2020
 ms.topic: how-to
-ms.openlocfilehash: ba0ee0a610299bbe6b7e550f204cd2fd50d6d71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 773793c7681890098fea1a37cc5b9912c0ecb75c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83748632"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122997"
 ---
 # <a name="manage-iot-central-programmatically"></a>프로그래밍 방식으로 IoT Central 관리
 
@@ -35,7 +35,7 @@ ms.locfileid: "83748632"
 
 ## <a name="samples"></a>샘플
 
-[Azure IoT Central ARM SDK 샘플](https://docs.microsoft.com/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) 리포지토리에는 Azure IoT Central 애플리케이션 만들기, 업데이트, 나열 및 삭제하는 방법을 보여 주는 여러 프로그래밍 언어에 대한 코드 샘플이 있습니다.
+[Azure IoT Central ARM SDK 샘플](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/) 리포지토리에는 Azure IoT Central 애플리케이션 만들기, 업데이트, 나열 및 삭제하는 방법을 보여 주는 여러 프로그래밍 언어에 대한 코드 샘플이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

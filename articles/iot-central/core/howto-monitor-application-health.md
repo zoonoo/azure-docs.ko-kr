@@ -7,12 +7,12 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66f0846ab8fcfc316c4b40ad9e51b402a37e874d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001920"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122912"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링 합니다.
 
@@ -46,7 +46,7 @@ Azure Portal의 메트릭에 대 한 액세스는 [Azure 역할 기반 액세스
 
 ## <a name="iot-central-metrics"></a>IoT Central 메트릭
 
-현재 IoT Central 사용할 수 있는 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps)을 참조 하세요.
+현재 IoT Central 사용할 수 있는 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps)을 참조 하세요.
 
 ### <a name="metrics-and-invoices"></a>메트릭 및 송장
 

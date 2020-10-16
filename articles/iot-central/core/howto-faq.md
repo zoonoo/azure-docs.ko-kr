@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f9c7412afcc191470902cc256586f9db21f8e78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91852146"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126723"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>IoT Central에 대 한 질문과 대답
 
@@ -61,7 +61,7 @@ Azure IoT Central은 디바이스 연결을 가능하게 하는 클라우드 게
 - 디바이스 관리.
 - 디바이스 연결 보안.
 
-IoT Hub에 대한 자세한 내용은 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)를 참조하세요.
+IoT Hub에 대한 자세한 내용은 [Azure IoT Hub](../../iot-hub/index.yml)를 참조하세요.
 
 **DPS (장치 프로 비전 서비스)에 대 한 자세한 내용은 어디에서 확인할 수 있나요?**
 

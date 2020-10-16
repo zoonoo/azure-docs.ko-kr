@@ -1,22 +1,22 @@
 ---
-title: Android 앱 마이그레이션 | Microsoft Azure Maps
-description: Android 앱을 Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법
+title: 자습서 - Android 앱 마이그레이션 | Microsoft Azure Maps
+description: Android 앱을 Google Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법에 대한 자습서
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 96f68bdf58d9cc98815e4ae76ae01da87c38dc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319642"
+ms.locfileid: "91873883"
 ---
-# <a name="migrate-an-android-app-from-google-maps"></a>Google Maps에서 Android 앱 마이그레이션
+# <a name="tutorial---migrate-an-android-app-from-google-maps"></a>자습서 - Google Maps에서 Android 앱 마이그레이션
 
 Azure Maps Android SDK의 API 인터페이스는 웹 SDK와 비슷합니다. 이러한 SDK 중 하나로 앱을 개발하신 분들은 개념, 모범 사례 및 아키텍처가 상당히 많이 겹친다는 것을 알 수 있습니다.
 

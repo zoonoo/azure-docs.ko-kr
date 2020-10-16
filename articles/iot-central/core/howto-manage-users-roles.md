@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80365511"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122980"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>IoT Central 응용 프로그램에서 사용자 및 역할 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "80365511"
 
 모든 사용자는 Azure IoT Central 애플리케이션에 로그인하고 액세스하려면 사용자 계정이 있어야 합니다. Microsoft 계정과 Azure Active Directory 계정은 Azure IoT Central에서 지원 됩니다. Azure Active Directory 그룹은 현재 Azure IoT Central에서 지원되지 않습니다.
 
-자세한 내용은 [Microsoft 계정 도움말](https://support.microsoft.com/products/microsoft-account?category=manage-account) 및 [빠른 시작: Azure Active Directory에 새 사용자 추가](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)를 참조하세요.
+자세한 내용은 [Microsoft 계정 도움말](https://support.microsoft.com/products/microsoft-account?category=manage-account) 및 [빠른 시작: Azure Active Directory에 새 사용자 추가](../../active-directory/fundamentals/add-users-azure-active-directory.md)를 참조하세요.
 
 1. IoT Central 애플리케이션에 사용자를 추가하려면 **관리** 섹션에 있는 **사용자** 페이지로 이동합니다.
     
@@ -106,7 +106,7 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | 보기 | 없음 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기 |
 | 업데이트 | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기  |
 | 생성 | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기  |
-| DELETE | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기  |
+| 삭제 | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기  |
 | 명령 실행 | 업데이트, 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기  |
 | 모든 권한 | 명령 보기, 업데이트, 만들기, 삭제, 실행 <br/> 기타 종속성: 장치 템플릿 및 장치 그룹 보기  |
 
@@ -116,8 +116,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기 |
 | 업데이트 | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기   |
-| 생성 | 보기, 업데이트 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기   |
-| DELETE | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기   |
+| 만들기 | 보기, 업데이트 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기   |
+| 삭제 | 보기 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기   |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제 <br/> 기타 종속성: 장치 템플릿 및 장치 인스턴스 보기 |
 
 **장치 연결 관리 권한**
@@ -136,8 +136,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 |
 | 업데이트 | 보기 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 |
-| 생성 | 보기, 업데이트 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 |
-| DELETE | 보기 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 |
+| 만들기 | 보기, 업데이트 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 |
+| 삭제 | 보기 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 |
 | Execute | 보기 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 장치 인스턴스 업데이트 장치 인스턴스에서 명령 실행 |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제, 실행 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스 및 장치 그룹 보기 장치 인스턴스 업데이트 장치 인스턴스에서 명령 실행 |
 
@@ -147,8 +147,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음 <br/> 기타 종속성: 장치 템플릿 보기 |
 | 업데이트 | 보기 <br/> 기타 종속성: 장치 템플릿 보기 |
-| 생성 | 보기, 업데이트 <br/> 기타 종속성: 장치 템플릿 보기 |
-| DELETE | 보기 <br/> 기타 종속성: 장치 템플릿 보기 |
+| 만들기 | 보기, 업데이트 <br/> 기타 종속성: 장치 템플릿 보기 |
+| 삭제 | 보기 <br/> 기타 종속성: 장치 템플릿 보기 |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제 <br/> 기타 종속성: 장치 템플릿 보기 |
 
 #### <a name="managing-the-app"></a>앱 관리
@@ -160,7 +160,7 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | 보기 | 없음     |
 | 업데이트 | 보기   |
 | 복사 | 보기 <br/> 기타 종속성: 장치 템플릿, 장치 인스턴스, 장치 그룹, 대시보드, 데이터 내보내기, 브랜딩, 도움말 링크, 사용자 지정 역할, 규칙 보기 |
-| DELETE | 보기   |
+| 삭제 | 보기   |
 | 모든 권한 | 보기, 업데이트, 복사, 삭제 <br/> 기타 종속성: 장치 템플릿, 장치 그룹, 응용 프로그램 대시보드, 데이터 내보내기, 브랜딩, 도움말 링크, 사용자 지정 역할, 규칙 보기 |
 
 **응용 프로그램 템플릿 내보내기 권한**
@@ -186,8 +186,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음 |
 | 업데이트 | 보기 |
-| 생성 | 보기, 업데이트 |
-| DELETE | 보기 |
+| 만들기 | 보기, 업데이트 |
+| 삭제 | 보기 |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제 |
 
 **사용자 관리 권한**
@@ -196,7 +196,7 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음 <br/> 기타 종속성: 사용자 지정 역할 보기 |
 | 추가 | 보기 <br/> 기타 종속성: 사용자 지정 역할 보기 |
-| DELETE | 보기 <br/> 기타 종속성: 사용자 지정 역할 보기 |
+| 삭제 | 보기 <br/> 기타 종속성: 사용자 지정 역할 보기 |
 | 모든 권한 | 보기, 추가, 삭제 <br/> 기타 종속성: 사용자 지정 역할 보기 |
 
 > [!NOTE]
@@ -210,8 +210,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음     |
 | 업데이트 | 보기   |
-| 생성 | 보기, 업데이트 |
-| DELETE | 보기   |
+| 만들기 | 보기, 업데이트 |
+| 삭제 | 보기   |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제 |
 
 **개인 대시보드 권한**
@@ -220,8 +220,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음     |
 | 업데이트 | 보기   |
-| 생성 | 보기, 업데이트   |
-| DELETE | 보기   |
+| 만들기 | 보기, 업데이트   |
+| 삭제 | 보기   |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제 |
 
 **브랜딩, favicon 및 colors 권한**
@@ -248,8 +248,8 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음     |
 | 업데이트 | 보기   |
-| 생성 | 보기, 업데이트  |
-| DELETE | 보기   |
+| 만들기 | 보기, 업데이트  |
+| 삭제 | 보기   |
 | 모든 권한 | 보기, 업데이트, 만들기, 삭제 |
 
 **API 토큰 권한**
@@ -258,7 +258,7 @@ Azure Active Directory에서 IoT Central 사용자 ID를 삭제 한 후 다시 �
 | ---- | -------- |
 | 보기 | 없음     |
 | 생성 | 보기   |
-| DELETE | 보기   |
+| 삭제 | 보기   |
 | 모든 권한 | 보기, 만들기, 삭제 |
 
 ## <a name="next-steps"></a>다음 단계

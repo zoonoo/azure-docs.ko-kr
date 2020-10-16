@@ -7,12 +7,12 @@ ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef41516d516ce6498fc8c502a229084acdebfa1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586072"
+ms.locfileid: "91875522"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Azure Policy과 Key Vault 통합
 
@@ -148,7 +148,10 @@ RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키
 "거부" 효과의 정책을 할당하면 비규격 리소스 생성을 거부하기 시작하는 데 최대 30분(평균적인 경우) 및 1시간(최악의 경우)이 소요될 수 있습니다. 자격 증명 모음의 기존 구성 요소에 대한 정책 평가는 포털 UI에서 규정 준수 결과를 볼 수 있을 때까지 최대 1시간(평균적인 경우) 및 2시간(최악의 경우)이 소요될 수 있습니다. 규정 준수 결과가 "시작되지 않음"으로 표시되는 경우 다음과 같은 이유 때문일 수 있습니다.
 - 정책 평가를 아직 완료하지 않았습니다. 초기 평가 대기 시간이 최악의 시나리오에서 최대 2시간이 걸릴 수 있습니다. 
 - 정책 할당 범위에 Key Vault가 없습니다.
-- 인증서가 정책 할당 범위 내에 있는 Key Vault가 없습니다. 
+- 인증서가 정책 할당 범위 내에 있는 Key Vault가 없습니다.
+
+> [!NOTE]
+> Azure Key Vault용과 같은 Azure Policy [리소스 공급자 모드](../../governance/policy/concepts/definition-structure.md#resource-provider-modes)는 [구성 요소 규정 준수](../../governance/policy/how-to/get-compliance-data.md#component-compliance) 페이지에서 규정 준수에 대한 정보를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

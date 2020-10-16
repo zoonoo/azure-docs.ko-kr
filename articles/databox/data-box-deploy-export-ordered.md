@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575574"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122469"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>자습서: Azure Data Box (미리 보기)에 대 한 내보내기 순서 만들기
 
@@ -30,7 +30,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 장치를 주문 하기 전에 Data Box 서비스 및 장치에 대 한 다음 구성 필수 구성 요소를 완료 합니다.
 
@@ -70,7 +70,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |전송 형식     | **Azure로 내보내기를**선택 합니다.        |
     |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
-    |Resource group     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |리소스 그룹     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |원본 Azure 지역    |    현재 데이터가 있는 Azure 지역을 선택 합니다.         |
     |대상 국가     |     장치를 배송 하려는 국가를 선택 합니다.        |
 
@@ -164,7 +164,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 2. **+ 컨테이너** 를 선택 하 여 컨테이너를 만듭니다.
     ![컨테이너 섹션의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. Azure Portal 오른쪽에서 팝 되는 **새 컨테이너** 탭에서 컨테이너의 이름을 추가 합니다. 이름은 소문자 여야 하 고 숫자 및 대시 '-'를 포함할 수 있습니다. 그런 다음 드롭다운 목록 상자에서 **공용 액세스 수준을** 선택 합니다. 다른 사용자가 데이터에 액세스 하지 못하도록 하려면 **개인 (익명이 아닌 액세스)** 을 선택 하는 것이 좋습니다. 컨테이너 액세스 수준에 대 한 자세한 내용은 [컨테이너 액세스 권한](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)을 참조 하세요.
+3. Azure Portal 오른쪽에서 팝 되는 **새 컨테이너** 탭에서 컨테이너의 이름을 추가 합니다. 이름은 소문자 여야 하 고 숫자 및 대시 '-'를 포함할 수 있습니다. 그런 다음 드롭다운 목록 상자에서 **공용 액세스 수준을** 선택 합니다. 다른 사용자가 데이터에 액세스 하지 못하도록 하려면 **개인 (익명이 아닌 액세스)** 을 선택 하는 것이 좋습니다. 컨테이너 액세스 수준에 대 한 자세한 내용은 [컨테이너 액세스 권한](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container)을 참조 하세요.
 
    ![개인 (익명 액세스 없음) 옵션을 선택한 새 컨테이너 탭의 스크린샷](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 

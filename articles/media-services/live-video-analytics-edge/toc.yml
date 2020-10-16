@@ -115,3 +115,5 @@
       href: faq.md
     - name: 프로덕션 준비 및 모범 사례
       href: production-readiness.md
+    - name: 투명성과 책임감 있는 AI 원칙
+      href: 'https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/'

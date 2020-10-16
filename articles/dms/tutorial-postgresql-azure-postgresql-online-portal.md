@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 1f8f7c4ea051ff583b3e8f88e0331642cdf9f19a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291543"
+ms.locfileid: "91893784"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
 
@@ -281,7 +281,7 @@ Azure Database Migration Service를 사용하여 애플리케이션 가동 중�
 
     ![중단 완료 화면](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 Azure Database for PostgreSQL의 새 대상 인스턴스에 연결합니다.
+3. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 [시퀀스를 재생성](https://wiki.postgresql.org/wiki/Fixing_Sequences)(해당하는 경우)하고 애플리케이션을 Azure Database for PostgreSQL의 새 대상 인스턴스에 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

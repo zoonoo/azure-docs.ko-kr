@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449662"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127527"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
@@ -105,8 +105,8 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
     |utSAC1_202006051000_BlockBlob-BOM.txt     |블록 Blob         |SMB/NFS         |
     |utSAC1_202006051000_PageBlob-BOM.txt     |페이지 Blob         |SMB/NFS         |
     |utSAC1_202006051000_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
-    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
-    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
+    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
 
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 
@@ -206,7 +206,7 @@ Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수
 
 웹 UI 사용자에 게는 기본적으로 SMB 공유에 대 한 Backup Operator 권한이 있습니다. 이를 원하지 않는 경우에는 **Back Operator 권한** 사용을 사용 하거나 사용 하지 않도록 설정 합니다.
 
-자세한 내용은 [Active Directory 보안 그룹](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)의 백업 운영자를 참조 하세요.
+자세한 내용은 [Active Directory 보안 그룹](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)의 백업 운영자를 참조 하세요.
 
 Azure 장치에서 Backup 운영자 권한을 사용 하도록 설정 하려면 다음을 수행 합니다.
 

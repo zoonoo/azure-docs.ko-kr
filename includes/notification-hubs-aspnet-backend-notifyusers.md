@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86530177"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI 프로젝트 만들기
@@ -30,10 +30,10 @@ ms.locfileid: "86530177"
 >
 >확인하려면 Visual Studio를 시작합니다. **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다. 사용하는 Visual Studio 버전에서 **NuGet 패키지 관리자**를 검색하고, 현재 버전이 최신 버전인지 확인합니다. 사용하는 버전이 최신 버전이 아닌 경우 해당 버전을 제거한 다음 NuGet 패키지 관리자를 다시 설치합니다.
 
-![NuGet 패키지 관리 for Visual 스튜디오 패키지가 강조 표시 된 확장 및 업데이트 대화 상자의 스크린샷][B4]
+![Visual Studio용 NuGet 패키지 관리 패키지가 강조 표시된 확장 및 업데이트 대화 상자의 스크린샷.][B4]
 
 > [!NOTE]
-> 웹 사이트 배포를 위해 Visual Studio [AZURE SDK](https://azure.microsoft.com/downloads/) 를 설치 했는지 확인 합니다.
+> 웹 사이트 배포를 위해 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
 
 1. Visual Studio 또는 Visual Studio Express를 시작합니다.
 
@@ -386,11 +386,11 @@ ms.locfileid: "86530177"
 
 1. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
-2. **Microsoft Azure App Service** 를 게시 대상으로 선택한 다음 * * 게시를 선택 합니다. App Service 만들기 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
+2. **Microsoft Azure App Service**를 게시 대상으로 선택한 다음, \*\*[게시]를 선택합니다. App Service 만들기 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
     ![Microsoft Azure App Service 타일][B15]
 
-3. **App Service 만들기** 창에서 Azure 계정을 선택합니다. **유형 변경**  >  **웹 앱**을 선택 합니다. 기본 **웹앱 이름**을 유지한 다음 **구독**, **리소스 그룹**, **App Service 계획**을 차례로 선택합니다.
+3. **App Service 만들기** 창에서 Azure 계정을 선택합니다. **유형 변경** > **웹앱**을 선택합니다. 기본 **웹앱 이름**을 유지한 다음 **구독**, **리소스 그룹**, **App Service 계획**을 차례로 선택합니다.
 
 4. **만들기**를 선택합니다.
 

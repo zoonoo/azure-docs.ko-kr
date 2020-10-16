@@ -1,28 +1,28 @@
 ---
-title: Synapse 링크로 Azure Cosmos DB 데이터를 분석 하기 위해 SQL server 서버를 사용 하지 않는 Power BI 및 Synapse
-description: Synapse SQL 서버를 사용 하지 않는 데이터베이스 및 뷰를 사용 하 여 Azure Cosmos DB에 대 한 Synapse 링크를 작성 하 고, Azure Cosmos 컨테이너를 쿼리하고, 해당 보기에 대 한 Power BI 모델을 빌드하는 방법을 알아봅니다.
+title: Synapse 링크로 Azure Cosmos DB 데이터를 분석 하기 위해 Power BI 및 서버 리스 Synapse SQL 풀
+description: Azure Cosmos DB에 대 한 서버를 Power BI 사용 하지 않는 Synapse SQL 풀 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26a6ddf3ea3009c1463f40403c9d1860a7cb81f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937978"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126006"
 ---
-# <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 Synapse SQL server 서버를 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기)
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기) 
 
-이 문서에서는 Azure Cosmos DB에 대 한 Synapse 링크를 통해 이전에 **Sql server를 사용**하지 않는 (이전에는 sql 주문형) 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 이러한 보기에 대해 Power BI를 사용 하 여 모델을 작성 합니다.
+이 문서에서는 서버를 사용 하지 않는 Synapse SQL 풀 (이전에는 **SQL 주문형**) 데이터베이스 및 뷰를 사용 하 여 Azure Cosmos DB에 대 한 Synapse 링크를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 이러한 보기에 대해 Power BI를 사용 하 여 모델을 작성 합니다.
 
 > [!NOTE]
-> Synapse SQL server를 사용 하지 않는 Azure Cosmos DB 분석 저장소를 사용 하는 것은 현재 제어 된 미리 보기로 제공 됩니다. 액세스를 요청 하려면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
+> 서버를 사용 하지 않는 SQL 풀에서 Azure Cosmos DB 분석 저장소를 사용 하는 것은 현재 제어 된 미리 보기로 제공 됩니다 액세스를 요청 하려면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
 
 이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음 리소스를 만들어야 합니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "90937978"
 
 ## <a name="create-a-database-and-views"></a>데이터베이스 및 뷰 만들기
 
-Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 아이콘을 선택 **+** 하 고 **SQL 스크립트**를 선택 합니다.
+Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 **+** 아이콘을 선택 하 고 **SQL 스크립트**를 선택 합니다.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
-모든 작업 영역에는 Synapse SQL 서버 리스 끝점이 제공 됩니다. SQL 스크립트를 만든 후 맨 위에 있는 도구 모음에서 **요청 시 sql**에 연결 합니다.
+모든 작업 영역에는 서버를 사용 하지 않는 SQL 끝점이 제공 됩니다. SQL 스크립트를 만든 후 맨 위에 있는 도구 모음에서 **요청 시 sql**에 연결 합니다.
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
@@ -55,7 +55,7 @@ Synapse 작업 영역에서 **개발** 탭으로 이동 하 여 아이콘을 선
 Create database RetailCosmosDB
 ```
 
-다음으로, 다른 Synapse Link enabled Azure Cosmos 컨테이너에서 여러 뷰를 만듭니다. 이렇게 하면 T-sql을 사용 하 여 서로 다른 컨테이너에 있는 Azure Cosmos DB 데이터를 조인 하 고 쿼리할 수 있습니다.  뷰를 만들 때 **RetailCosmosDB** 데이터베이스를 선택 해야 합니다.
+다음으로, 다른 Synapse Link enabled Azure Cosmos 컨테이너에서 여러 뷰를 만듭니다. 뷰를 사용 하면 T-sql을 사용 하 여 서로 다른 컨테이너에 있는 Azure Cosmos DB 데이터를 조인 하 고 쿼리할 수 있습니다.  뷰를 만들 때 **RetailCosmosDB** 데이터베이스를 선택 해야 합니다.
 
 다음 스크립트는 각 컨테이너에 대 한 뷰를 만드는 방법을 보여 줍니다. 편의상 Synapse Link enabled 컨테이너에서 서버를 사용 하지 않는 Synapse SQL의 [자동 스키마 유추](analytical-store-introduction.md#analytical-schema) 기능을 사용 하겠습니다.
 
@@ -110,7 +110,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Power BI를 사용 하 여 컨테이너에 대 한 모델 뷰
 
-다음 단계를 사용 하 여 Power BI 데스크톱을 열고 Synapse SQL 서버를 사용 하지 않는 끝점에 연결 합니다.
+다음 단계를 사용 하 여 Power BI desktop을 열고 서버를 사용 하지 않는 SQL 끝점에 연결 합니다.
 
 1. Power BI Desktop 응용 프로그램을 엽니다. **데이터 가져오기** 를 선택 하 고 **자세히**를 선택 합니다.
 
@@ -128,7 +128,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 1. **RetailSales** 뷰에서 **StoreId** 열을 **StoreId** 열로 끌어다 놓습니다. **StoreDemographics**
 
-1. **RetailSales** 보기에 동일한 저장소 id를 사용 하는 행이 여러 개 있지만, 저장소 **인구 통계** 에 하나의 저장소 id 행만 있는 경우 다 대 일 (*: 1) 관계를 선택 합니다 (차원 테이블).
+1. **RetailSales** 보기에 동일한 저장소 ID를 가진 여러 행이 있으므로 다 대 일 (*: 1) 관계를 선택 합니다. 저장소 **인구 통계** 에는 하나의 저장소 ID 행만 있습니다 (차원 테이블).
 
 이제 **보고서** 창으로 이동 하 고 LargeHH 인덱스의 분산 된 표현에 따라 가사 크기의 상대적 중요도와 매장 당 평균 수익을 비교 하는 보고서를 만듭니다.
 
@@ -145,4 +145,4 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 ## <a name="next-steps"></a>다음 단계
 
-Synapse SQL 서버 리스를 사용 하 여 azure [Synapse Studio에서 Azure Open 데이터 집합 분석 및 결과 시각화](../synapse-analytics/sql/tutorial-data-analyst.md)
+서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 azure [Open 데이터 집합 분석 및 Azure Synapse Studio에서 결과 시각화](../synapse-analytics/sql/tutorial-data-analyst.md)

@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 713b1698bff703507f46e1a8f76c6be385f41ec5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282463"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938426"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server-or-hyperscale-citus-online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 Azure DB for PostgreSQL - 단일 서버를 Azure DB for PostgreSQL - 단일 서버 또는 하이퍼스케일(Citus)로 온라인 마이그레이션
+# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 Azure DB for PostgreSQL - 단일 서버를 Azure DB for PostgreSQL - 단일 서버로 온라인 마이그레이션
 
-Azure Database Migration Service를 사용하면 가동 중지 시간을 최소화하면서 [Azure Database for PostgreSQL - 단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) 인스턴스에서 [Azure Database for PostgreSQL의 하이퍼스케일(Citus)](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) 인스턴스로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **DVD 대여** 샘플 데이터베이스를 Azure Database for PostgreSQL v10에서 Azure Database for PostgreSQL의 하이퍼스케일(Citus)로 마이그레이션합니다.
+Azure Database Migration Service를 사용하면 가동 중지 시간을 최소화하면서 [Azure Database for PostgreSQL - 단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) 인스턴스에서 Azure Database for PostgreSQL - 단일 서버 인스턴스 또는 Azure Database for PostgreSQL - 유연한 서버 인스턴스로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **DVD 대여** 샘플 데이터베이스를 Azure Database for PostgreSQL v10에서 Azure Database for PostgreSQL - 단일 서버로 마이그레이션합니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
@@ -57,9 +57,10 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 * 가상 네트워크에 대한 NSG(네트워크 보안 그룹) 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) 문서를 참조하세요.
 * Azure Database Migration Service에서 원본 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 원본에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
 * Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 대상에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
+* Azure DB for PostgreSQL 원본에서 [논리적 복제를 사용](https://docs.microsoft.com/azure/postgresql/concepts-logical)합니다. 
 * 원본으로 사용되는 Azure Database for PostgreSQL 인스턴스에서 다음 서버 매개 변수를 설정합니다.
 
-  * max_replication_slots = [number of slots], **5개 슬롯**으로 설정하는 것이 좋습니다.
+  * max_replication_slots = [슬롯 수], **10개 슬롯**으로 설정하는 것이 좋습니다.
   * max_wal_senders =[동시 작업 수] - max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. **10작업**으로 설정하는 것이 좋습니다.
 
 > [!NOTE]
@@ -284,7 +285,10 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 
     ![중단 완료 화면](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 Azure Database for PostgreSQL의 새 대상 인스턴스에 연결합니다.
+3. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 [시퀀스를 다시 만들고](https://wiki.postgresql.org/wiki/Fixing_Sequences)(해당하는 경우) 애플리케이션을 Azure Database for PostgreSQL의 새 대상 인스턴스에 연결합니다.
+ 
+> [!NOTE]
+> Azure Database Migration Service를 사용하면 Azure Database for PostgreSQL - 단일 서버에서 가동 중지 시간을 줄이면서 주 버전 업그레이드를 수행할 수 있습니다. 먼저 원하는 더 높은 PostgreSQL 버전, 네트워크 설정 및 매개 변수로 대상 데이터베이스를 구성합니다. 그런 다음, 위에서 설명한 절차를 사용하여 대상 데이터베이스로 마이그레이션을 시작할 수 있습니다. 대상 데이터베이스 서버로 전환한 후 대상 데이터베이스 서버를 가리키도록 애플리케이션 연결 문자열을 업데이트할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

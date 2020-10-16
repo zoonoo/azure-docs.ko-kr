@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042884"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126827"
 ---
 # <a name="device-model-repository"></a>장치 모델 리포지토리
 
@@ -30,7 +30,7 @@ Microsoft는 다음과 같은 특징을 가진 공용 DMR을 호스팅합니다.
 
 ## <a name="custom-device-model-repository"></a>사용자 지정 장치 모델 리포지토리
 
-로컬 파일 시스템 또는 사용자 지정 HTTP 웹 서버와 같은 모든 저장소 미디어에서 동일한 DMR 패턴을 사용 하 여 사용자 지정 DMR을 만들 수 있습니다. DMR에 액세스 하는 데 사용 되는 기본 URL을 변경 하 여 공용 DRM과 동일한 방식으로 사용자 지정 DMR에서 모델을 검색할 수 있습니다.
+로컬 파일 시스템 또는 사용자 지정 HTTP 웹 서버와 같은 모든 저장소 미디어에서 동일한 DMR 패턴을 사용 하 여 사용자 지정 DMR을 만들 수 있습니다. DMR에 액세스 하는 데 사용 되는 기본 URL을 변경 하 여 public DMR와 동일한 방식으로 사용자 지정 DMR에서 모델을 검색할 수 있습니다.
 
 > [!NOTE]
 > 공용 DMR 모델의 유효성을 검사 하는 데 사용 되는 도구는 사용자 지정 리포지토리에서 재사용할 수 있습니다.

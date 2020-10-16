@@ -7,27 +7,30 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: df780e4e55bb5c119320d4b33502d50a95da1eaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: non-azure-machines
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612220"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993603"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
-Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 
+Security Center는 비 Azure 컴퓨터의 보안 태세를 모니터링할 수 있지만, 그러려면 먼저 Azure에 연결해야 합니다. 
 
-다음과 같은 방법으로 비 Azure 컴퓨터를 추가할 수 있습니다.
+다음과 같은 방법으로 비 Azure 컴퓨터를 연결할 수 있습니다.
 
 - Azure Arc 사용(**권장**)
 - Azure Portal의 Security Center 페이지 사용(**시작** 및 **인벤토리**)
 
-아래에서는 이러한 각 방법에 대해 설명합니다.
+이 페이지에서 이러한 각 방법에 대해 설명합니다.
+
+::: zone pivot="azure-arc"
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Azure Arc를 사용하여 비 Azure 머신 추가
 
-Azure Security Center에 비 Azure 머신을 추가할 때 권장되는 방법은 Azure Arc를 사용하는 것입니다.
+Azure Arc는 비 Azure 컴퓨터를 Azure Security Center에 추가하는 권장 방법입니다.
 
 Azure Arc가 사용하도록 설정된 머신은 Azure 리소스가 되며 Security Center에 다른 Azure 리소스와 마찬가지로 권장 사항과 함께 표시됩니다. 
 
@@ -43,7 +46,11 @@ Azure Arc가 사용하도록 설정된 머신은 Azure 리소스가 되며 Secur
 > [!TIP]
 > AWS 머신을 온보딩하는 경우 Security Center의 AWS용 커넥터에서 Azure Arc 배포를 투명하게 자동으로 처리합니다. [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)에서 자세히 알아보세요.
 
-## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Security Center의 포털 페이지에서 비 Azure 머신 추가
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Azure Portal에서 비 Azure 컴퓨터 추가
 
 1. Security Center의 메뉴에서 **시작** 페이지를 엽니다.
 1. **시작하기** 탭을 선택합니다.
@@ -114,6 +121,7 @@ Windows 컴퓨터를 추가하려면 **에이전트 관리** 페이지의 정보
 
 에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard)을 참조하세요.
 
+::: zone-end
 
 ## <a name="verifying"></a>확인 중
 축하합니다! 이제 Azure 및 비 Azure 컴퓨터를 한 장소에서 모두 볼 수 있습니다. [자산 인벤토리 페이지](asset-inventory.md)를 열고 관련 리소스 종류로 필터링합니다. 이러한 아이콘은 다음과 같은 종류를 구분합니다.

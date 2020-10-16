@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7c708268eaeade1cfb625c73ff8758a1941ff5b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127219"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Azure IoT Central 및 Dynamics 365 Field Service를 사용하여 종단 간 솔루션 빌드 
 
@@ -34,5 +34,5 @@ ms.locfileid: "80157452"
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure IoT Central 정부 템플릿](./overview-iot-central-government.md)에 대해 자세히 알아보기
-* [IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)에 대해 자세히 알아보기
-* [Dynamics 365 Field Services](https://docs.microsoft.com/dynamics365/field-service/cfs-iot-overview)에 대해 자세히 알아보기
+* [IoT Central](../core/overview-iot-central.md)에 대해 자세히 알아보기
+* [Dynamics 365 Field Services](/dynamics365/field-service/cfs-iot-overview)에 대해 자세히 알아보기

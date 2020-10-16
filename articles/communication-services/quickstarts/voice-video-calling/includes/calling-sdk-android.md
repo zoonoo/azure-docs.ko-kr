@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082215"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126803"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -141,10 +141,10 @@ call = callAgent.join(context, groupCallContext, joinCallOptions);
 ### <a name="overview"></a>개요
 모바일 푸시 알림은 모바일 장치에 표시 되는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하겠습니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
-이 섹션을 완료 하려면 Firebase 계정을 만들고 클라우드 메시징 (FCM)을 사용 하도록 설정 합니다. Firebase 클라우드 메시징이 ANH (Azure Notification Hub) 인스턴스에 연결 되어 있는지 확인 합니다. 지침은 [Azure에 Firebase 연결](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) 을 참조 하세요.
-또한이 섹션에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
+FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](https://docs.microsoft.com/azure/communication-services/concepts/notifications) 을 참조 하세요.
+또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
 
 Firebase 클라우드 메시징에서 알림 메시지를 받을 수 있으려면 Android 응용 프로그램에 대 한 권한 집합이 필요 합니다. 파일에서 `AndroidManifest.xml` *<매니페스트 ... >* 또는 태그 바로 뒤에 다음 권한 집합을 추가 합니다. *</application>*
 
@@ -195,21 +195,21 @@ import com.google.firebase.iid.InstanceIdResult;
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            Log.w("PushNotification", "getInstanceId failed", task.getException());
                             return;
                         }
 
                         // Get new Instance ID token
                         String deviceToken = task.getResult().getToken();
                         // Log
-                        Log.d(TAG, "Device Registration token retrieved successfully");
+                        Log.d("PushNotification", "Device Registration token retrieved successfully");
                     }
                 });
 ```
 들어오는 호출 푸시 알림에 대 한 호출 서비스 클라이언트 라이브러리에 장치 등록 토큰을 등록 합니다.
 
 ```java
-String deviceRegistrationToken = "some_token";
+String deviceRegistrationToken = "<Device Token from previous section>";
 try {
     callAgent.registerPushNotification(deviceRegistrationToken).get();
 }
@@ -226,16 +226,16 @@ Firebase 클라우드 메시징에서 페이로드를 가져오려면 *FirebaseM
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    private java.util.Map<String, String> pushNotificationMessageData;
+    private java.util.Map<String, String> pushNotificationMessageDataFromFCM;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d("PushNotification", "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
         else {
-            pushNotificationMessageData = serializeDictionaryAsJson(remoteMessage.getData());
+            pushNotificationMessageDataFromFCM = remoteMessage.getData();
         }
     }
 }
@@ -252,10 +252,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-페이로드를 검색 한 후에는 인스턴스에서 메서드를 호출 하 여 처리할 통신 서비스 클라이언트 라이브러리에 전달할 수 있습니다 `handlePushNotification` `CallAgent` .
+- 페이로드를 검색 한 후에는 *Callagent* 인스턴스에서 *handlepushnotification* 메서드를 호출 하 여 처리할 *통신 서비스* 클라이언트 라이브러리에 전달할 수 있습니다. `CallAgent`인스턴스는 `createCallAgent(...)` 클래스에서 메서드를 호출 하 여 만듭니다 `CallClient` .
 
 ```java
-java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
 try {
     callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
 }

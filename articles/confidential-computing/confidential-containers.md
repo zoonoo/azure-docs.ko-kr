@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 528b843e24e1d63e4822c253b3636ef490e8fe8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997804"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122206"
 ---
 # <a name="confidential-containers"></a>기밀 컨테이너
 
@@ -67,7 +67,7 @@ AKS를 사용 하는 기밀 컴퓨팅 노드의 scone 배포는 완전히 지원
 
 ### <a name="anjuna"></a>Anjuna
 
-[Anjuna](https://www.anjuna.io/) 는 AKS에서 수정 되지 않은 컨테이너를 실행할 수 있도록 하는 SGX 플랫폼 소프트웨어를 제공 합니다. **예정** 된 기능 및 사용자에 대 한 자세한 내용은 [여기](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)를 참조 하세요.
+[Anjuna](https://www.anjuna.io/) 는 AKS에서 수정 되지 않은 컨테이너를 실행할 수 있도록 하는 SGX 플랫폼 소프트웨어를 제공 합니다. 이 기능에 대해 자세히 알아보고 [여기](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)에서 샘플 응용 프로그램을 확인 하세요.
 
 [여기](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp) 에서 샘플 Redis Cache 및 Python 사용자 지정 응용 프로그램을 시작 하세요.
 

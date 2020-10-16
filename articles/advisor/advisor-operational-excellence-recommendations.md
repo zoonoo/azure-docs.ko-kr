@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 운영 excellency 개선
 description: Azure Advisor를 사용 하 여 Azure 구독에 대 한 운영 뛰어난 작업을 최적화 하 고 완성 합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077391"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122622"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 뛰어난 운영 효율성 얻기
 
@@ -53,6 +53,12 @@ Azure Policy는 정책을 만들고 할당 하 고 관리 하는 데 사용할 �
 ***관리 디스크를 사용 하지 않는 감사 vm을*적용 합니다.**
 
 ***리소스 그룹에서 태그 상속을*사용 하도록 설정 합니다.** 이 정책은 리소스를 만들거나 업데이트할 때 상위 리소스 그룹의 지정된 태그 및 값을 추가하거나 바꿉니다. 수정 작업을 트리거하여 기존 리소스를 수정할 수 있습니다.
+
+Advisor는 고객이 모범 사례를 채택 하 여 뛰어난 운영을 달성할 수 있도록 지 원하는 몇 가지 개별 Azure 정책을 권장 합니다. 고객이 권장 정책을 할당 하기로 결정 한 경우 권장 사항이 표시 되지 않습니다. 고객이 나중에 정책을 제거 하기로 결정 한 경우 관리자는 제거를 다음의 강력한 신호로 해석 하므로 권장 사항을 계속 표시 하지 않습니다.
+
+1.  Advisor의 권장 사항에도 불구 하 고 특정 사용 사례에 적용 되지 않기 때문에 고객은 정책을 제거 했습니다. 
+2.  고객은 할당 및 제거 후 정책에 대해 잘 알고 있으며, 나중에 사용 사례와 관련이 있는 경우 지침 없이 필요에 따라 다시 할당 하거나 제거할 수 있습니다. 고객이 동일한 정책을 다시 할당 하는 데 가장 적합 한 것으로 검색 하는 경우 Advisor에서 권장 사항을 요구 하지 않고 Azure Policy에서이 작업을 수행할 수 있습니다. 이 논리는 운영 뛰어난 범주의 정책 권장 사항에 특별히 적용 됩니다. 이러한 규칙은 보안 권장 사항에는 적용 되지 않습니다.  
+
 
 ## <a name="no-validation-environment-enabled"></a>유효성 검사 환경을 사용하지 않음
 Azure Advisor 현재 구독에서 유효성 검사 환경을 사용 하도록 설정 하지 않은 것을 확인 합니다. 호스트 풀을 만들 때 \" \" \" 속성 탭에서 유효성 검사 환경에 대해 아니요를 선택 했습니다 \" . 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀이 하나 이상 있으면 잠재적인 문제를 조기에 검색 하 여 Windows 가상 데스크톱 서비스 배포를 통해 비즈니스 연속성을 보장 합니다. [자세한 정보](../virtual-desktop/create-validation-host-pool.md)

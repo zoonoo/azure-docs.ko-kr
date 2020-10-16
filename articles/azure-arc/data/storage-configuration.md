@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317330"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127236"
 ---
 # <a name="storage-configuration"></a>스토리지 구성
 
@@ -166,7 +166,7 @@ sqldemo11-logs-claim   Bound    pvc-41b33bbd-debb-4153-9a41-02ce2bf9c665   10Gi 
 > [!NOTE]
 > 이러한 매개 변수 중 일부는 개발 중 이며 향후 릴리스에서 사용할 수 있게 될 예정 `azdata arc sql mi create` `azdata arc postgres server create` 입니다.
 
-|매개 변수 이름, 짧은 이름|사용 목적|
+|매개 변수 이름, 짧은 이름|사용 대상|
 |---|---|
 |`--storage-class-data`, `-scd`|트랜잭션 로그 파일을 포함 하 여 모든 데이터 파일의 저장소 클래스를 지정 하는 데 사용 됩니다.|
 |`--storage-class-logs`, `-scl`|모든 로그 파일에 대 한 저장소 클래스를 지정 하는 데 사용 됩니다.|
@@ -238,6 +238,6 @@ Microsoft와 해당 OEM, OS 및 Kubernetes 파트너는 Azure Arc data services�
 
 |공용 클라우드 서비스|권장|
 |---|---|
-|**AKS(Azure Kubernetes Service)**|AKS (azure Kubernetes Service)에는 두 가지 유형의 저장소 Azure Files 및 Azure 디스크가 있습니다. 각 유형의 저장소에는 표준 (HDD) 및 프리미엄 (SSD)의 두 가지 가격 책정/성능 계층이 있습니다. 따라서 AKS에서 제공 되는 네 개의 저장소 클래스는 `azurefile` (Azure Files 표준 계층), ( `azurefile-premium` Azure Files 프리미엄 계층), `default` (azure 디스크 표준 계층) 및 `managed-premium` (azure 디스크 프리미엄 계층)입니다. 기본 저장소 클래스는 `default` (Azure 디스크 표준 계층)입니다. 의사 결정에 고려해 야 하는 유형과 계층 간에는 상당한 **[가격 차이가](https://azure.microsoft.com/en-us/pricing/details/storage/)** 있습니다. 고성능 요구 사항이 있는 프로덕션 워크 로드의 경우 `managed-premium` 모든 저장소 클래스에를 사용 하는 것이 좋습니다. 개발/테스트 워크 로드, 개념 증명 등의 경우 비용을 고려 하는 `azurefile` 것이 가장 저렴 한 옵션입니다. Azure의 네트워크에 연결 된 모든 저장소 장치인 원격 공유 저장소가 필요한 상황에는 네 가지 옵션을 모두 사용할 수 있습니다. [AKS 저장소](../../aks/concepts-storage.md)에 대해 자세히 알아보세요.|
+|**AKS(Azure Kubernetes Service)**|AKS (azure Kubernetes Service)에는 두 가지 유형의 저장소 Azure Files 및 Azure Managed Disks 있습니다. 각 유형의 저장소에는 표준 (HDD) 및 프리미엄 (SSD)의 두 가지 가격 책정/성능 계층이 있습니다. 따라서 AKS에서 제공 되는 네 개의 저장소 클래스는 `azurefile` (Azure Files 표준 계층), ( `azurefile-premium` Azure Files 프리미엄 계층), `default` (azure 디스크 표준 계층) 및 `managed-premium` (azure 디스크 프리미엄 계층)입니다. 기본 저장소 클래스는 `default` (Azure 디스크 표준 계층)입니다. 의사 결정에 고려해 야 하는 유형과 계층 간에는 상당한 **[가격 차이가](https://azure.microsoft.com/en-us/pricing/details/storage/)** 있습니다. 고성능 요구 사항이 있는 프로덕션 워크 로드의 경우 `managed-premium` 모든 저장소 클래스에를 사용 하는 것이 좋습니다. 개발/테스트 워크 로드, 개념 증명 등의 경우 비용을 고려 하는 `azurefile` 것이 가장 저렴 한 옵션입니다. Azure의 네트워크에 연결 된 모든 저장소 장치인 원격 공유 저장소가 필요한 상황에는 네 가지 옵션을 모두 사용할 수 있습니다. [AKS 저장소](../../aks/concepts-storage.md)에 대해 자세히 알아보세요.|
 |**AWS EKS(Elastic Kubernetes Service)**| Amazon의 탄력적 Kubernetes 서비스에는 [EBS CSI storage 드라이버](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)를 기반으로 하는 하나의 기본 저장소 클래스가 있습니다. 프로덕션 작업에 권장 됩니다. EKS 클러스터에 추가할 수 있는 새로운 저장소 드라이버- [EFS CSI 저장소 드라이버가](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) 있지만 현재는 베타 단계 이며 변경 될 수 있습니다. 이 저장소 드라이버가 프로덕션에 대해 지원 되는 것을 AWS 하지만 베타 버전에서 변경 될 수 있으므로 사용 하지 않는 것이 좋습니다. EBS 저장소 클래스는 기본값이 며를 호출 `gp2` 합니다. [EKS 저장소](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)에 대해 자세히 알아보세요.|
 |**GKE(Google Kubernetes Engine)**|GKE (Google Kubernetes Engine)에는 `standard` [gke 영구 디스크](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk)에 사용 되는 라는 저장소 클래스가 하나 뿐입니다. 유일한 경우 이며 기본값 이기도 합니다. 직접 연결 된 Ssd와 함께 사용할 수 있는 GKE에 대 한 [로컬 정적 볼륨 provisioner](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) 있지만 Google에서 유지 관리 또는 지원 되지 않으므로 사용 하지 않는 것이 좋습니다. [Gke 저장소](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)에 대해 자세히 알아보세요.

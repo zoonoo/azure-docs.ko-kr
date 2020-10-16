@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b266def0dbe81542714fc6d47986f3cde8235dd0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015979"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122963"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
 
@@ -22,11 +22,11 @@ ms.locfileid: "90015979"
 
 Azure CLI IoT 확장을 사용 하 여 장치가 IoT Central으로 전송 하는 메시지를 확인 하 고 장치 쌍의 변경 내용을 관찰 합니다. 이 도구를 사용 하 여 장치 연결을 디버깅 및 관찰 하 고, 장치 메시지의 문제를 진단 하는 데 도움이 되지 않는 장치 또는 쌍 변경에 응답 하지 않는 장치를 진단할 수 있습니다.
 
-[자세한 내용은 Azure CLI 확장 참조를 참조 하세요.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[자세한 내용은 Azure CLI 확장 참조를 참조 하세요.](/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-+ Azure CLI 설치 되어 있으며 버전 합니다 이상입니다. 을 실행 하 여 Azure CLI 버전을 확인 `az --version` 합니다. [Azure CLI 문서](https://docs.microsoft.com/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
++ Azure CLI 설치 되어 있으며 버전 합니다 이상입니다. 을 실행 하 여 Azure CLI 버전을 확인 `az --version` 합니다. [Azure CLI 문서](/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
 + IoT Central 응용 프로그램에서 사용자로 추가 된 Azure의 회사 또는 학교 계정
 
 ## <a name="install-the-iot-central-extension"></a>IoT Central 확장 설치

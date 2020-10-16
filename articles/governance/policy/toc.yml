@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: 정책 정의
           href: /rest/api/resources/policydefinitions
+        - name: 정책 예외
+          href: /rest/api/resources/policyexemptions
         - name: 이니셔티브 정의
           href: /rest/api/resources/policysetdefinitions
         - name: 정책 추적 리소스

@@ -5,24 +5,25 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838656"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122707"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
 이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
 
 Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * Azure 구독- [무료로 하나 만들기](https://azure.microsoft.com/free/)
 
-> [!NOTE]
+> [!IMPORTANT]
 > 개인 끝점을 사용 하려면 2020 년 7 월 28 일 이후에 Azure Cache for Redis 인스턴스를 만들어야 합니다.
+> 현재 지역에서 복제, 방화벽 규칙, 포털 콘솔 지원, 클러스터 된 캐시에 대 한 다중 끝점, 방화벽과 삽입 된 캐시에 대 한 지 속성은 지원 되지 않습니다. 
 >
 >
 
@@ -109,6 +110,23 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 캐시를 만드는 데 잠시 시간이 걸립니다. Azure Cache for Redis **개요** 페이지에서 진행률을 모니터링할 수 있습니다.  **상태**가  **실행 중**으로 표시되면 캐시를 사용할 준비가 된 것입니다. 
     
+> [!IMPORTANT]
+> 
+> `publicNetworkAccess` `Enabled` 기본적으로 플래그가 있습니다. 
+> 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 다음 PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` .
+> ```http
+> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+> {    "properties": {
+>        "publicNetworkAccess":"Disabled"
+>    }
+> }
+> ```
+>
+
+> [!IMPORTANT]
+> 
+> 클러스터형 캐시에 연결 하려면를 `publicNetworkAccess` 로 설정 해야 `Disabled` 하며 개인 끝점 연결은 하나만 있을 수 있습니다. 
+>
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 기존 Azure Cache를 사용 하 여 개인 끝점 만들기 
 

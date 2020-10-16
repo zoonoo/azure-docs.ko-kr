@@ -3,12 +3,12 @@ title: 자습서 - 네트워크 계획 검사 목록
 description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 세부 정보 및 네트워크 요구 사항 전제 조건에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576680"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948207"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
@@ -36,6 +36,9 @@ Azure VMware 솔루션은 온-프레미스 및 Azure 기반 환경 또는 리소
 AVS 프라이빗 클라우드는 Azure ExpressRoute 연결을 사용하여 Azure 가상 네트워크에 연결됩니다. 높은 대역폭이 높고 대기 시간이 짧은 이 연결을 사용하면 프라이빗 클라우드 환경의 Azure 구독에서 실행되는 서비스에 액세스할 수 있습니다. 라우팅은 BGP(Border Gateway Protocol) 기반이며, 자동으로 프로비저닝되며, 각 프라이빗 클라우드 배포에 대해 기본적으로 사용하도록 설정됩니다. 
 
 AVS 프라이빗 클라우드의 서브넷에는 `/22` CIDR 네트워크 주소 블록 이상이 필요합니다(아래 참조). 이 네트워크는 온-프레미스 네트워크를 보완합니다. 주소 블록은 구독과 온-프레미스 네트워크의 다른 가상 네트워크에서 사용되는 주소 블록과 겹치지 않아야 합니다. 이 주소 블록 내에서 관리, 프로비저닝 및 vMotion 네트워크는 자동으로 프로비저닝됩니다.
+
+>[!NOTE]
+>주소 블록에 허용되는 범위는 RFC 1918 개인 주소 공간(10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)입니다(172.17.0.0/16 제외).
 
 `/22` CIDR 네트워크 주소 블록의 예: `10.10.0.0/22`
 

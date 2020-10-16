@@ -493,6 +493,8 @@
                   items:
                     - name: 일반화
                       href: ../vm-generalized-image-version-cli.md
+                    - name: 특수화
+                      href: ../vm-specialized-image-version-cli.md
                 - name: 이미지 리소스 업데이트
                   href: ../update-image-resources-cli.md
                 - name: 공유용 앱 등록
@@ -577,6 +579,8 @@
           href: build-image-with-packer.md
         - name: 기존 디스크 다운로드
           href: download-vhd.md
+        - name: 이미지 버전의 관리 디스크
+          href: ../managed-disk-from-image-version.md
     - name: VM 보안
       items:
         - name: 권장 사항
@@ -1154,7 +1158,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/compute
     - name: Resource Manager 템플릿
       displayName: ARM

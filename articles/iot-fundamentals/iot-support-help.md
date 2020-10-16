@@ -5,16 +5,16 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 6/10/2020
-ms.openlocfilehash: ea4ecbbeaa4ad016e32aa9301d6f6ac49a6d342e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 23381a45d045e8f96e989bce9f52d627f5a88255
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330182"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979073"
 ---
-# <a name="azure-iot-support-and-help-options"></a>Azure IoT 지원 및 도움말 옵션
+# <a name="what-are-the-azure-iot-support-and-help-options"></a>Azure IoT 지원 및 도움말 옵션에는 어떤 것이 있나요?
 
 Azure IoT 솔루션을 개발할 때 도움을 받을 수 있는 위치에 대한 제안 사항은 다음과 같습니다.
 
@@ -101,5 +101,4 @@ Azure IoT에 대한 뉴스와 정보는 [Azure 블로그](https://azure.microsof
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure IoT란?](iot-introduction.md)
+[Azure IoT란?](iot-introduction.md)

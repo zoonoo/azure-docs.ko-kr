@@ -23,6 +23,8 @@
   items:
     - name: 사용자 지정 모델
       href: concepts-models.md
+    - name: 산업 표준 모델 변환
+      href: concepts-convert-models.md
     - name: Digital Twins 및 쌍 그래프
       href: concepts-twins-graph.md
     - name: 쿼리 언어
@@ -122,7 +124,7 @@
     - name: API 및 SDK
       items:
         - name: REST API 참조
-          href: 'https://docs.microsoft.com/rest/api/azure-digitaltwins/'
+          href: /rest/api/azure-digitaltwins/
         - name: 제어 평면
           items:
             - name: Swagger
@@ -130,13 +132,13 @@
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1'
             - name: .NET (C#) SDK - 참조
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview'
+              href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
             - name: .NET (C#) SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins'
             - name: Java SDK
               href: 'https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins'
             - name: Java SDK - 참조
-              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview'
+              href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
             - name: Java SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
             - name: JavaScript SDK
@@ -156,17 +158,17 @@
             - name: .NET (C#) SDK - NuGet
               href: 'https://www.nuget.org/packages/Azure.DigitalTwins.Core'
             - name: .NET (C#) SDK - 참조
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
+              href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
             - name: .NET (C#) SDK - 소스
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: JavaScript SDK - npm
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
             - name: JavaScript SDK - 참조
-              href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+              href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
             - name: Java SDK - Maven
               href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
             - name: Java SDK - 참조
-              href: 'https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true'
+              href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
     - name: Digital Twins CLI
       items:
         - name: Digital Twins CLI 참조
@@ -182,7 +184,7 @@
         - name: DTDL 파서 라이브러리 - NuGet
           href: 'https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/'
         - name: DTDL 유효성 검사기(샘플)
-          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DTMI 사양
           href: 'https://github.com/Azure/digital-twin-model-identifier'
     - name: 도구 및 샘플 프로젝트
@@ -190,17 +192,17 @@
         - name: 디바이스 시뮬레이터 서비스
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
         - name: Azure Digital Twins 샘플
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
+          href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Azure Digital Twins 탐색기(샘플)
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
+          href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: DTDL 유효성 검사기(샘플)
-          href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+          href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DPS 및 IoT Hub 통합 샘플
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
+          href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Azure Digital Twins 사용자 지정 Swagger
-          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: SignalR 통합 샘플
-          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
+          href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell
@@ -210,11 +212,11 @@
         - name: Azure portal
           href: 'https://portal.azure.com'
     - name: Azure RBAC 설명서
-      href: /azure/role-based-access-control/overview
+      href: ../role-based-access-control/overview.md
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Channel 9 동영상

@@ -1,6 +1,6 @@
 ---
-title: '자습서: Express 경로 회로에 VNet 연결-Azure PowerShell'
-description: 이 자습서에서는 리소스 관리자 배포 모델과 Azure PowerShell를 사용 하 여 Vnet (가상 네트워크)를 Express 경로 회로에 연결 하는 방법에 대 한 개요를 제공 합니다.
+title: '자습서: ExpressRoute 회로에 VNet 연결 - Azure PowerShell'
+description: 이 자습서에서는 Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대해 간략히 설명합니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: b536b0e2601ce1ae9dd3d40723f4cab09a3a4c48
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 69067ca34b231f1b14f8cc854288c3ed4c4ac82a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772960"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855993"
 ---
-# <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>ExpressRoute 회로에 가상 네트워크 연결
+# <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>자습서: Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
@@ -28,16 +28,16 @@ ms.locfileid: "91772960"
 
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다. 
 
-* 단일 VNet을 최대 4개의 ExpressRoute 회로에 연결할 수 있습니다. 이 문서의 단계를 사용 하 여 연결 하려는 각 Express 경로 회로에 대 한 새 연결 개체를 만들 수 있습니다. ExpressRoute 회로는 동일한 구독, 서로 다른 구독 또는 두 가지가 혼합된 상태로 존재할 수 있습니다.
+* 단일 VNet을 최대 4개의 ExpressRoute 회로에 연결할 수 있습니다. 이 문서의 단계를 사용하여 연결하려는 각 ExpressRoute 회로에 대한 새 연결 개체를 만듭니다. ExpressRoute 회로는 동일한 구독, 서로 다른 구독 또는 두 가지가 혼합된 상태로 존재할 수 있습니다.
 
-* Express 경로 프리미엄 추가 기능을 사용 하도록 설정 하는 경우 Express 경로 회로의 지정 학적 지역 외부에서 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능을 사용 하면 선택한 대역폭에 따라 10 개 이상의 가상 네트워크를 Express 경로 회로에 연결할 수도 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md) 에서 확인하세요.
+* ExpressRoute 프리미엄 추가 기능을 사용하도록 설정하면 ExpressRoute 회로의 지정학적 지역 외부에서 가상 네트워크를 연결할 수 있습니다. 또한 프리미엄 추가 항목을 사용하면 선택한 대역폭에 따라 10개가 넘는 가상 네트워크를 ExpressRoute 회로에 연결할 수도 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md) 에서 확인하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > - 동일한 구독에 있는 가상 네트워크를 회로에 연결
 > - 다른 구독에 있는 가상 네트워크를 회로에 연결
 > - 가상 네트워크 연결 수정
-> - Express 경로 구성
+> - ExpressRoute FastPath 구성
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -45,8 +45,8 @@ ms.locfileid: "91772960"
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-arm.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
-  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침은 [라우팅 구성](expressroute-howto-routing-arm.md) 문서를 참조 하세요. 
-  * Azure 개인 피어 링이 구성 되어 있는지 확인 하 고 종단 간 연결을 위해 네트워크와 Microsoft 간에 BGP 피어 링을 설정 합니다.
+  * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md) 을 참조하세요. 
+  * Azure 개인 피어링이 구성되고 엔드투엔드 연결을 위해 네트워크와 Microsoft 간에 BGP 피어링이 설정되어 있는지 확인합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
@@ -67,7 +67,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
-큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용 하 여 서비스를 배포 하지만 단일 Express 경로 회로를 공유 하 여 온-프레미스 네트워크에 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 다른 구독은 Express 경로 회로를 사용할 수 있습니다.
+큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서에서 자체 구독을 사용하여 서비스를 배포하지만, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크에 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 다른 구독은 ExpressRoute 회로를 사용할 수 있습니다.
 
 > [!NOTE]
 > ExpressRoute 회로에 대한 연결 및 대역폭 요금은 구독 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -77,7 +77,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 
 ### <a name="administration---circuit-owners-and-circuit-users"></a>관리 - 회로 소유자 및 회로 사용자
 
-’회로 소유자’는 ExpressRoute 회로 리소스의 인증된 고급 사용자입니다. 회로 소유자는 '회로 사용자'가 사용할 수 있는 권한 부여를 만들 수 있습니다. 회로 사용자는 Express 경로 회로와 동일한 구독 내에 있지 않은 가상 네트워크 게이트웨이의 소유자입니다. 회로 사용자는 가상 네트워크당 하나의 권한 부여를 사용할 수 있습니다.
+’회로 소유자’는 ExpressRoute 회로 리소스의 인증된 고급 사용자입니다. 회로 소유자는 '회로 사용자'가 사용할 수 있는 권한 부여를 만들 수 있습니다. 회로 사용자는 ExpressRoute 회로와 동일한 구독 내에 있지 않은 가상 네트워크 게이트웨이의 소유자입니다. 회로 사용자는 가상 네트워크당 하나의 권한 부여를 사용할 수 있습니다.
 
 회로 소유자는 언제든지 부여된 권한을 수정하고 해지할 수 있습니다. 권한 부여를 해지하면 액세스가 해지된 구독에서 모든 링크 연결이 삭제됩니다.
 
@@ -85,7 +85,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 
 **권한 부여를 만들려면**
 
-회로 소유자는 가상 네트워크 게이트웨이를 Express 경로 회로에 연결 하기 위해 회로 사용자가 사용할 권한 부여 키를 만드는 권한 부여를 만듭니다. 권한 부여는 하나의 연결에만 유효합니다.
+회로 소유자는 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결하기 위해 회로 사용자가 사용할 권한 부여 키를 만드는 권한 부여를 만듭니다. 권한 부여는 하나의 연결에만 유효합니다.
 
 다음 cmdlet 조각은 권한 부여를 만드는 방법을 보여 줍니다.
 
@@ -98,7 +98,7 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
-이전 명령에 대 한 응답에는 권한 부여 키와 상태가 포함 됩니다.
+이전 명령에 대한 응답에는 권한 부여 키와 상태가 포함됩니다.
 
 ```azurepowershell
 Name                   : MyAuthorization1
@@ -179,8 +179,8 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
 
-## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
-가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [Express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath를 통해 온-프레미스 네트워크와 가상 네트워크 간에 초당 패킷 및 초당 연결과 같은 데이터 경로 성능을 향상 시킬 수 있습니다. 
+## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath 구성 
+가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ인 경우 [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md)를 사용하도록 설정할 수 있습니다. FastPath는 온-프레미스 네트워크와 가상 네트워크 간의 초당 패킷 수 및 초당 연결 수와 같은 데이터 경로 성능을 향상시킵니다. 
 
 **새 연결에서 FastPath 구성**
 
@@ -190,7 +190,7 @@ $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG"
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
 ``` 
 
-**FastPath를 사용 하도록 기존 연결 업데이트**
+**FastPath를 사용하도록 기존 연결 업데이트**
 
 ```azurepowershell-interactive 
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
@@ -200,7 +200,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Express 경로 연결이 더 이상 필요 하지 않은 경우 게이트웨이가 있는 구독에서 `Remove-AzVirtualNetworkGatewayConnection` 명령을 사용 하 여 게이트웨이와 회로 간의 링크를 제거 합니다.
+ExpressRoute 연결이 더 이상 필요하지 않은 경우 게이트웨이가 있는 구독에서 `Remove-AzVirtualNetworkGatewayConnection` 명령을 사용하여 게이트웨이와 회로 간의 연결을 제거합니다.
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG"

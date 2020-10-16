@@ -6,18 +6,11 @@
     - name: 애플리케이션 프로비저닝이란?
       href: user-provisioning.md
 - name: 자습서
+  expanded: true
   items:
-    - name: G Suite
-      href: ../saas-apps/google-apps-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: ServiceNow
-      href: ../saas-apps/servicenow-provisioning-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: AWS(Amazon Web Services) - 역할 프로비저닝
-      href: ../saas-apps/amazon-web-service-tutorial.md?context=azure/active-directory/app-provisioning/context/app-provisioning-context#configure-azure-ad-sso
-    - name: Workday
-      href: ../saas-apps/workday-inbound-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: SAP SuccessFactors
-      href: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: 모든 통합 갤러리 앱
+    - name: SCIM 엔드포인트 빌드 및 프로비저닝 구성
+      href: use-scim-to-provision-users-and-groups.md
+    - name: 앱별 프로비저닝 자습서
       href: /azure/active-directory/saas-apps
 - name: 개념
   expanded: true
@@ -28,17 +21,15 @@
       href: plan-auto-user-provisioning.md
     - name: 클라우드 HR 프로비저닝 배포 계획
       href: plan-cloud-hr-provision.md
+    - name: Azure Monitor를 사용한 로깅 이해
+      href: application-provisioning-log-analytics.md
 - name: 방법 가이드
   expanded: true
   items:
     - name: 갤러리 앱 프로비저닝 구성
       href: configure-automatic-user-provisioning-portal.md
-    - name: 특성 매핑 편집
-      items:
-        - name: 특성 매핑 사용자 지정
-          href: customize-application-attributes.md
-        - name: 특성 매핑 식 작성
-          href: functions-for-customizing-application-data.md
+    - name: 특성 매핑 사용자 지정
+      href: customize-application-attributes.md
     - name: 범위에서 사용자 및 그룹 포함 또는 제외
       items:
         - name: 프로비저닝할 사용자 또는 그룹 범위 지정
@@ -57,6 +48,8 @@
           href: export-import-provisioning-configuration.md
         - name: 보고서 프로비저닝
           href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: MS Graph를 사용하여 구성 자동화
+      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
     - name: 애플리케이션 프로비저닝 문제 해결
       items:
         - name: 알려진 문제
@@ -65,26 +58,20 @@
           href: application-provisioning-config-problem.md
         - name: 격리 상태
           href: application-provisioning-quarantine-status.md
-        - name: 권한 부여 문제(관리자 자격 증명을 저장할 수 없음)
-          href: application-provisioning-config-problem-storage-limit.md
         - name: 프로비저닝되지 않은 사용자
           href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: 잘못 프로비저닝된 사용자
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: 원본 특성 누락
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: 프로비저닝 로그
           href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: SCIM 엔드포인트 빌드 및 프로비저닝 구성
-      href: use-scim-to-provision-users-and-groups.md
-    - name: MS Graph를 사용하여 구성 자동화
-      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
 - name: 참조
   items:
     - name: SCIM 2.0 프로토콜 규정 준수
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM 및 그래프 시나리오
       href: scim-graph-scenarios.md
+    - name: 특성 매핑에 대한 식을 쓰기 위한 함수 참조
+      href: functions-for-customizing-application-data.md
     - name: 클라우드 HR 프로비저닝
       items:
         - name: SuccessFactors 통합
@@ -93,8 +80,6 @@
           href: sap-successfactors-attribute-reference.md
         - name: Workday 특성 참조
           href: workday-attribute-reference.md
-    - name: Azure AD Connect 프로비저닝 에이전트
-      items:
         - name: 프로비저닝 에이전트 버전 기록
           href: provisioning-agent-release-version-history.md
 - name: 리소스
