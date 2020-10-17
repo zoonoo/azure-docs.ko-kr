@@ -11,12 +11,12 @@ ms.author: menchi
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3cd4277603b96dd1aa07682dd01a6d0e9c61bd82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cc874b4df7052c76fa58388bc982b8ffe3acc23
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733450"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142915"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (C)
 
@@ -40,7 +40,7 @@ ms.locfileid: "81733450"
 
 * 최신 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-## <a name="create-an-iot-hub"></a>IoT 허브 만들기
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -391,4 +391,4 @@ int main(void)
 계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
 * [디바이스 관리 시작](iot-hub-node-node-device-management-get-started.md)
-* [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)
+* [IoT Edge 시작](../iot-edge/quickstart-linux.md)

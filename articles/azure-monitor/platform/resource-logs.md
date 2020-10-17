@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800503"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143918"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. 리소스 로그는 기본적으로 수집 되지 않습니다. 각 Azure 리소스에 대 한 진단 설정을 만들어 [Azure Monitor 로그](data-platform-logs.md), Event Hubs azure 외부에서 전달 하는 데 사용 하는 Log Analytics 작업 영역에 리소스 로그를 전송 하거나 보관을 위해 Azure Storage 합니다.
@@ -27,7 +27,7 @@ Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한
 - 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 데이터에 대 한 심층 통찰력을 얻습니다.
 - 복잡 한 경고 논리를 사용 하 여 로그 경고를 사용 합니다.
 
-리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](../log-query/logs-structure.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
+리소스 로그를 Log Analytics 작업 영역으로 보내는 [진단 설정을 만듭니다](diagnostic-settings.md) . 이 데이터는 [Azure Monitor 로그의 구조](./data-platform-logs.md)에 설명 된 대로 테이블에 저장 됩니다. 리소스 로그에서 사용 하는 테이블은 리소스에서 사용 하는 컬렉션 유형에 따라 달라 집니다.
 
 - Azure 진단-기록 된 모든 데이터는 _Azurediagnostics_ 테이블에 저장 됩니다.
 - 리소스 관련 데이터는 리소스의 각 범주에 대 한 개별 테이블에 기록 됩니다.
@@ -43,7 +43,7 @@ Azure 리소스 로그는 Azure 리소스 내에서 수행 된 작업에 대 한
 
 AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.  
 
-| ResourceProvider    | 범주     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 범주     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft Service1 | AuditLogs    | x | y1 | z1 |    |    |    |    |    |    |
 | Microsoft Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -60,7 +60,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
  
 - *Service1AuditLogs* 테이블은 다음과 같습니다.
 
-    | 리소스 공급자 | 범주 | A | b | C |
+    | 리소스 공급자 | 범주 | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |

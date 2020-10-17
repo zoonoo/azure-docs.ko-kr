@@ -105,7 +105,7 @@
     - name: REST API
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR
-      href: 'https://docs.microsoft.com/aspnet/core/signalr'
+      href: /aspnet/core/signalr
     - name: Azure SignalR Service 프로토콜
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
     - name: Azure Policy 기본 제공 기능
@@ -114,7 +114,7 @@
 - name: 리소스
   items:
     - name: 솔루션
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
     - name: SignalR 로드맵
@@ -126,7 +126,7 @@
     - name: FAQ
       href: signalr-resource-faq.md
     - name: SignalR Service 구독 수준 제한
-      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: 동영상

@@ -98,6 +98,8 @@
               href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: DevOps
           items:
+            - name: 앱 구성
+              href: ../../azure-app-configuration/quickstart-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: DevTest Labs
               href: ../../devtest-labs/create-lab-windows-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 파이프라인
@@ -164,6 +166,8 @@
               href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 보안
           items:
+            - name: 증명
+              href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Key Vault
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 스토리지
@@ -172,6 +176,8 @@
               href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: 웹
           items:
+            - name: App Service
+              href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: 자습서
@@ -283,7 +289,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: variables
+        - name: 변수
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md
@@ -362,7 +368,7 @@
           href: deployment-history.md
     - name: 범위가 지정된 배포
       items:
-        - name: 구독
+        - name: Subscription
           href: deploy-to-subscription.md
         - name: 관리 그룹
           href: deploy-to-management-group.md

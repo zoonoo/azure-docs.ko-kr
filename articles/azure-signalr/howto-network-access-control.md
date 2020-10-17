@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 72532029b2d9258dba7dea82bb5c5fc8b2673300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e56736e0d033420f9aaf976b0fb7d9727c1a5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536225"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143224"
 ---
 # <a name="configure-network-access-control"></a>네트워크 액세스 제어 구성
 
@@ -62,4 +62,4 @@ Azure Portal를 통해 Azure SignalR Service에 대 한 네트워크 액세스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Private Link](/azure/private-link/private-link-overview)에 대해 자세히 알아봅니다.
+[Azure Private Link](../private-link/private-link-overview.md)에 대해 자세히 알아봅니다.

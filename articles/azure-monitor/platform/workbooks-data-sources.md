@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: 049a7348b803d12b66974bb9a9b50c12059171a2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931124"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143742"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 
@@ -109,6 +109,6 @@ JSON 공급자를 사용 하면 정적 JSON 콘텐츠에서 쿼리 결과를 만
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.
 * [Log Analytics 쿼리 최적화 팁](../log-query/query-optimization.md)

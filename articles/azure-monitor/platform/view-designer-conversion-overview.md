@@ -6,19 +6,19 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3179daec361aa287b79c5e9a468908d0ccdd2982
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759430"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143951"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor 뷰 디자이너에서 통합 문서로 전환 가이드
 [뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 보고서는 통합 문서로 전환 되어 Azure Portal 내에서 풍부한 시각적 보고서를 데이터 분석 하 고 만들 수 있는 유연한 캔버스를 제공 합니다. 이 문서는 뷰 디자이너에서 통합 문서로 전환 하는 데 도움이 됩니다. 
 
 
 ## <a name="workbooks-overview"></a>통합 문서 개요
-[통합 문서](../insights/vminsights-workbooks.md) 는 텍스트, [로그 쿼리](../log-query/query-language.md), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. Azure 리소스에 대 한 동일한 액세스 권한이 있는 팀 구성원도 통합 문서를 편집할 수 있습니다.
+[통합 문서](../insights/vminsights-workbooks.md) 는 텍스트, [로그 쿼리](/azure/data-explorer/kusto/query/), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. Azure 리소스에 대 한 동일한 액세스 권한이 있는 팀 구성원도 통합 문서를 편집할 수 있습니다.
 
 통합 문서는 다음과 같은 시나리오에 유용 합니다.
 

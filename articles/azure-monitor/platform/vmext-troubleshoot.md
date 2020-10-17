@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024fa2f86890c6e8e791b5cf66a4e67328f62f63
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710110"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143892"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Azure Monitor에서 Log Analytics VM 확장 문제 해결
 이 문서는 Microsoft Azure에서 실행되는 Windows 및 Linux 가상 머신에 대한 Log Analytics VM 확장에서 발생할 수 있는 오류를 해결하는 데 도움을 주며, 가능한 해결 방법을 제안합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "91710110"
 
 1. 확장 상태가 *알 수 없음*이면 VM 에이전트 로그 파일 `/var/log/waagent.log`를 검토하여 Azure VM 에이전트가 올바르게 설치되어 작동하고 있는지 확인합니다.
    * 로그가 없는 경우 VM 에이전트가 설치되지 않은 것입니다.
-   * [Linux VM에 Azure VM 에이전트 설치](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
+   * [Linux VM에 Azure VM 에이전트 설치](../../virtual-machines/extensions/agent-linux.md#installation)
 2. 그 밖의 비정상 상태에 대해 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` 및 `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`에서 Linux용 Log Analytics VM 확장 로그 파일을 검토합니다.
 3. 확장 상태가 정상이나 데이터가 업로드되지 않는 경우 `/var/opt/microsoft/omsagent/log/omsagent.log`에서 Linux용 Log Analytics 에이전트 로그 파일을 검토합니다.
 
@@ -60,5 +60,4 @@ ms.locfileid: "91710110"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 외부의 컴퓨터에서 호스트되는 Linux용 Log Analytics 에이전트와 관련된 추가 문제 해결 지침에 대해서는 [Azure Log Analytics Linux 에이전트 문제 해결](agent-linux-troubleshoot.md)을 참조하세요.  
-
+Azure 외부의 컴퓨터에서 호스트되는 Linux용 Log Analytics 에이전트와 관련된 추가 문제 해결 지침에 대해서는 [Azure Log Analytics Linux 에이전트 문제 해결](agent-linux-troubleshoot.md)을 참조하세요.

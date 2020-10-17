@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 9c0b5dd72cf82649e7f659d23606d23aea62ac82
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932552"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143835"
 ---
 # <a name="access-control"></a>Access Control
 
@@ -38,4 +38,4 @@ ms.locfileid: "91932552"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](./workbooks-overview.md#visualizations) 하세요.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60318463"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142278"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Azure PowerShell을 사용하여 IoT Hub 파일 업로드 구성
 
@@ -27,11 +27,11 @@ ms.locfileid: "60318463"
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-* [Cmdlet을 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다.
+* [Cmdlet을 Azure PowerShell](/powershell/azure/install-Az-ps)합니다.
 
-* Azure IoT Hub - IoT hub가 없는 경우 [AzIoTHub cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) 을 사용 하 여 iot hub를 만들거나 포털을 사용 하 여 [Iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
+* Azure IoT Hub - IoT hub가 없는 경우 [AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) 을 사용 하 여 iot hub를 만들거나 포털을 사용 하 여 [Iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
 
-* Azure 스토리지 계정. Azure 스토리지 계정이 없는 경우 [Azure Storage PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.storage/)을 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-create-storage-account.md) 수 있습니다.
+* Azure 스토리지 계정. Azure 스토리지 계정이 없는 경우 [Azure Storage PowerShell cmdlet](/powershell/module/az.storage/)을 사용하여 스토리지 계정을 만들거나, 포털을 사용하여 [스토리지 계정을 만들](../storage/common/storage-account-create.md) 수 있습니다.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
@@ -136,5 +136,5 @@ Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)
 * [처음부터 IoT 솔루션 보안 유지](../iot-fundamentals/iot-security-ground-up.md)

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 1b51e2338dabd34ec69d311a9eb1a5c4a644f628
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56bb179c50862f09f1b789c359db97976017bbb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322757"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142762"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>IoT 디바이스를 Azure에 연결: IoT Hub 및 Event Hubs
 
@@ -26,7 +26,7 @@ Azure는 데이터를 강력한 클라우드에 연결할 수 있도록 다양�
 
 Azure IoT Hub는 IoT 장치를 연결 하 여 데이터를 수집 하 고 비즈니스 통찰력 및 자동화를 구동 하는 클라우드 게이트웨이입니다. 또한 IoT Hub에는 디바이스와 백 엔드 시스템 간의 관계를 보강하는 기능이 있습니다. 양방향 통신 기능은 장치에서 데이터를 수신 하는 동안 장치에 명령 및 정책을 다시 보낼 수도 있음을 의미 합니다. 예를 들어 클라우드-장치 메시징을 사용 하 여 속성을 업데이트 하거나 장치 관리 작업을 호출할 수 있습니다. 클라우드-장치 통신을 사용 하면 Azure IoT Edge를 사용 하 여에 지 장치에 클라우드 인텔리전스를 보낼 수도 있습니다. IoT Hub에서 제공하는 고유의 디바이스 수준 ID는 잠재적인 공격으로부터 IoT 솔루션을 보다 안전하게 보호합니다. 
 
-[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)는 Azure의 빅 데이터 스트리밍 서비스입니다. 고객이 하루에 수십 억 건의 요청을 보내는 고 처리량 데이터 스트리밍 시나리오를 위해 설계되었습니다. Event Hubs는 분할된 소비자 모델을 사용하여 스트림을 규모 확장하며 Databricks, Stream Analytics, ADLS, HDInsight를 포함한 Azure의 빅 데이터 및 분석 서비스에 통합됩니다. Event Hubs 캡처 및 자동 확장 같은 기능을 제공하는 이 서비스는 빅 데이터 앱 및 솔루션을 지원하기 위해 설계되었습니다. 또한 IoT Hub은 원격 분석 흐름 경로에 대 한 Event Hubs를 사용 하므로 IoT 솔루션은 Event Hubs의 놀라운 기능을 활용할 수 있습니다.
+[Azure Event Hubs](../event-hubs/event-hubs-about.md)는 Azure의 빅 데이터 스트리밍 서비스입니다. 고객이 하루에 수십 억 건의 요청을 보내는 고 처리량 데이터 스트리밍 시나리오를 위해 설계되었습니다. Event Hubs는 분할된 소비자 모델을 사용하여 스트림을 규모 확장하며 Databricks, Stream Analytics, ADLS, HDInsight를 포함한 Azure의 빅 데이터 및 분석 서비스에 통합됩니다. Event Hubs 캡처 및 자동 확장 같은 기능을 제공하는 이 서비스는 빅 데이터 앱 및 솔루션을 지원하기 위해 설계되었습니다. 또한 IoT Hub은 원격 분석 흐름 경로에 대 한 Event Hubs를 사용 하므로 IoT 솔루션은 Event Hubs의 놀라운 기능을 활용할 수 있습니다.
 
 요약 하자면, 두 솔루션은 대규모 데이터 수집을 위해 설계 되었습니다. IoT Hub만 Azure 클라우드에 IoT 장치를 연결 하는 비즈니스 가치를 극대화할 수 있도록 설계 된 풍부한 IoT 관련 기능을 제공 합니다.  IoT를 이제 막 시작한 경우 우선 IoT Hub로 데이터 수집 시나리오를 지원하면 기업 및 기술자들이 기능을 요구할 때 모든 기능을 갖춘 IoT 기능에 즉시 액세스할 수 있습니다.
 

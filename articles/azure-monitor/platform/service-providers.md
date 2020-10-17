@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921095"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143852"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 
@@ -35,7 +35,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 서비스 공급자 관리자는 고객 테 넌 트의 Log Analytics 작업 영역에 대 한 액세스 권한을 얻을 수 있는 두 가지 방법이 있습니다.
 
-- 고객이 [B2B (Azure Active Directory 게스트 사용자)](../../active-directory/b2b/what-is-b2b.md)로 서비스 공급자의 개별 사용자를 추가할 수 있습니다. 서비스 공급자 관리자는 이러한 작업 영역에 액세스할 수 있도록 Azure Portal의 각 고객 디렉터리에 로그인 해야 합니다. 또한 고객은 각 서비스 공급자 관리자에 대 한 개별 액세스를 관리 해야 합니다.
+- 고객이 [B2B (Azure Active Directory 게스트 사용자)](../../active-directory/external-identities/what-is-b2b.md)로 서비스 공급자의 개별 사용자를 추가할 수 있습니다. 서비스 공급자 관리자는 이러한 작업 영역에 액세스할 수 있도록 Azure Portal의 각 고객 디렉터리에 로그인 해야 합니다. 또한 고객은 각 서비스 공급자 관리자에 대 한 개별 액세스를 관리 해야 합니다.
 - 확장성과 유연성을 향상 하기 위해 서비스 공급자는 [Azure Lighthouse](../../lighthouse/overview.md) 의 [azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md) 기능을 사용 하 여 고객의 테 넌 트에 액세스할 수 있습니다. 이 방법을 사용 하는 경우 서비스 공급자 관리자는 서비스 공급자의 테 넌 트에 있는 Azure AD 사용자 그룹에 포함 되며, 각 고객에 대 한 온 보 딩 프로세스 중에는이 그룹에 액세스 권한이 부여 됩니다. 그러면 이러한 관리자는 각 고객의 테 넌 트에 개별적으로 로그인 할 필요 없이 자체의 서비스 공급자 테 넌 트 내에서 각 고객의 작업 영역에 액세스할 수 있습니다. 이러한 방식으로 고객의 Log Analytics 작업 영역 리소스에 액세스 하면 고객 측에 필요한 작업이 줄어들고 [Azure Monitor 통합 문서](./workbooks-overview.md)와 같은 도구를 통해 동일한 서비스 공급자에서 관리 하는 여러 고객에 게 데이터를 더 쉽게 수집 하 고 분석할 수 있습니다. 자세한 내용은 [대규모 고객 리소스 모니터링](../../lighthouse/how-to/monitor-at-scale.md)을 참조 하세요.
 
 분산 아키텍처의 장점은 다음과 같습니다.
@@ -81,7 +81,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Resource Manager 템플릿](template-workspace-configuration.md)을 사용하여 작업 영역 생성 및 구성 자동화
+* [Resource Manager 템플릿](../samples/resource-manager-workspace.md)을 사용하여 작업 영역 생성 및 구성 자동화
 
 * [PowerShell](./powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화
 

@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 825e97bfc80695180195fde07eaa1a25ac74b49b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078156"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143093"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -21,7 +21,8 @@ ms.locfileid: "92078156"
 
 개인 클러스터는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 공용 지역에서 사용할 수 있습니다.
 
-US Gov 텍사스 개인 링크 지원이 없으므로 현재 지원 되지 않습니다.
+> [!NOTE]
+> Azure Government 사이트는 지원 되지만 개인 링크 지원이 없으므로 현재 US Gov 텍사스 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

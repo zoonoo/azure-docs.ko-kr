@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: asrastog
-ms.openlocfilehash: 83d2fa59654e038586a7f23eedbe7c656873f35c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 352da24b36124ff0446a81c1ecbc584da545bb16
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84976577"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142200"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-iot-hub"></a>IoT Hub를 위해 고객이 관리 하는 키를 사용 하 여 미사용 데이터 암호화
 
@@ -24,6 +24,6 @@ IoT Hub는 CMK (고객 관리 키)를 사용 하 여 미사용 데이터의 암�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [IoT Hub에 대 한 자세한 정보](https://docs.microsoft.com/azure/iot-hub/about-iot-hub)
+* [IoT Hub에 대 한 자세한 정보](./about-iot-hub.md)
 
-* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Azure Key Vault에 대 한 자세한 정보](../key-vault/general/overview.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018504"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142466"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>작업 예약 및 브로드캐스트(.NET)
 
@@ -261,7 +261,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     ```
 
     > [!NOTE]
-    > 쿼리 구문에 대한 자세한 내용은 [IoT Hub 쿼리 언어](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language)를 참조하세요.
+    > 쿼리 구문에 대한 자세한 내용은 [IoT Hub 쿼리 언어](./iot-hub-devguide-query-language.md)를 참조하세요.
     >
 
 1. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
@@ -311,4 +311,4 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 * IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](tutorial-firmware-update.md)을 읽어보세요.
 
-* Azure IoT Edge로 AI를 에지 디바이스에 배포하는 방법을 자세히 알아보려면 [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)을 참조하세요.
+* Azure IoT Edge로 AI를 에지 디바이스에 배포하는 방법을 자세히 알아보려면 [IoT Edge 시작](../iot-edge/quickstart-linux.md)을 참조하세요.

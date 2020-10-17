@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2411d9257b1083cb2bcbfcad289813a6c062dff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081392"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143577"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>JSONPath를 사용 하 여 통합 문서에서 JSON 데이터를 변환 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "87081392"
 
 JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입니다. XPath와 마찬가지로 JSONPath는 JSON 구조에서 데이터를 추출 하 고 필터링 할 수 있도록 합니다.
 
-통합 문서 작성자는 JSONPath 변환을 사용 하 여 JSON을 테이블 구조로 변환할 수 있습니다. 그런 다음 테이블을 사용 하 여 [통합 문서 시각화](workbooks-visualizations.md)를 그릴 수 있습니다.
+통합 문서 작성자는 JSONPath 변환을 사용 하 여 JSON을 테이블 구조로 변환할 수 있습니다. 그런 다음 테이블을 사용 하 여 [통합 문서 시각화](./workbooks-overview.md#visualizations)를 그릴 수 있습니다.
 
 ## <a name="using-jsonpath"></a>JSONPath 사용
 
@@ -74,7 +74,7 @@ JSONPath는 XML에 대 한 XPath와 유사한 JSON에 대 한 쿼리 언어입�
    | 열 Id | 열 JSON 경로 |
    |:-----------|:-----------------|
    | 제목      | `$.title`        |
-   | 작성자     | `$.author`       |
+   | 만든 이     | `$.author`       |
    | 가격      | `$.price`        |
 
     열 Id는 열 머리글이 됩니다. 열 JSON 경로 필드는 테이블의 루트에서 열 값 까지의 경로를 나타냅니다.

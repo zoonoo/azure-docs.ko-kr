@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030704"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142237"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT Hub 장치에 대 한 고객 데이터 요청 기능
 
@@ -49,4 +49,4 @@ Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 진단 �
 
 ## <a name="links-to-additional-documentation"></a>추가 설명서에 대한 링크
 
-Azure IoT Hub 서비스 API에 대한 전체 설명서는 [IoT Hub 서비스 API](https://docs.microsoft.com/rest/api/iothub/service/configuration)에 있습니다.
+Azure IoT Hub 서비스 API에 대한 전체 설명서는 [IoT Hub 서비스 API](/rest/api/iothub/service/configuration)에 있습니다.

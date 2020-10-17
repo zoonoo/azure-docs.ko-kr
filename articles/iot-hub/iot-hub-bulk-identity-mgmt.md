@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003867"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142814"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
@@ -27,7 +27,7 @@ ms.locfileid: "89003867"
 
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
 
-이 항목에서는 **RegistryManager** 클래스 및 **작업** 시스템을 사용 하 여 IoT hub의 id 레지스트리에서 장치를 대량으로 가져오고 내보내는 방법을 설명 합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
+이 항목에서는 **RegistryManager** 클래스 및 **작업** 시스템을 사용 하 여 IoT hub의 id 레지스트리에서 장치를 대량으로 가져오고 내보내는 방법을 설명 합니다. 또한 Azure IoT Hub Device Provisioning Service를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](../iot-dps/index.yml)를 참조하세요.
 
 ## <a name="what-are-jobs"></a>작업이란?
 
@@ -262,7 +262,7 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | 설명 |
+| importMode | Description |
 | --- | --- |
 | **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
 | **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
@@ -399,7 +399,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>컨테이너 SAS URI 가져오기
 
-다음 코드 샘플은 blob 컨테이너에 대한 읽기, 쓰기 및 삭제 사용 권한을 가진 [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 생성하는 방법을 보여 줍니다.
+다음 코드 샘플은 blob 컨테이너에 대한 읽기, 쓰기 및 삭제 사용 권한을 가진 [SAS URI](../storage/common/storage-sas-overview.md)를 생성하는 방법을 보여 줍니다.
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -438,8 +438,8 @@ Azure IoT Hub 관리에 대해 자세히 알아보려면 다음 문서를 확인
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

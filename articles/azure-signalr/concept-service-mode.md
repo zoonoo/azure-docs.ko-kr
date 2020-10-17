@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514843"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143250"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Azure SignalR 서비스의 서비스 모드
 
@@ -51,11 +51,11 @@ Azure SignalR Service는 현재 **기본**, **서버** 리스 및 **클래식**�
 > [!NOTE]
 > REST API 및 websocket 방식은 SignalR service [MANAGEMENT SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md)에서 지원 됩니다. .NET 이외의 언어를 사용 하는 경우이 [사양](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)에 따라 REST api를 수동으로 호출할 수도 있습니다.
 >
-> Azure Functions를 사용 하는 경우 Azure Functions (이 함수 바인딩) [에 대해 SignalR 서비스 바인딩을](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) 사용 하 여 메시지를 출력 바인딩으로 보낼 수 있습니다.
+> Azure Functions를 사용 하는 경우 Azure Functions (이 함수 바인딩) [에 대해 SignalR 서비스 바인딩을](../azure-functions/functions-bindings-signalr-service.md) 사용 하 여 메시지를 출력 바인딩으로 보낼 수 있습니다.
 
 또한 서버 응용 프로그램에서 클라이언트의 메시지 및 연결 이벤트를 받을 수 있습니다. 서비스는 웹 후크를 사용 하 여 미리 구성 된 끝점 (업스트림 이라고 함)에 메시지 및 연결 이벤트를 전달 합니다. 기본 모드와 비교 하 여 연결 유지를 보장 하지 않으며 HTTP 요청은 websocket 연결 보다 효율성이 떨어질 수 있습니다.
 
-업스트림을 구성 하는 방법에 대 한 자세한 내용은이 [문서](https://docs.microsoft.com/azure/azure-signalr/concept-upstream)를 참조 하세요.
+업스트림을 구성 하는 방법에 대 한 자세한 내용은이 [문서](./concept-upstream.md)를 참조 하세요.
 
 서버를 사용 하지 않는 모드의 작동 방식을 보여 주는 다이어그램은 다음과 같습니다.
 

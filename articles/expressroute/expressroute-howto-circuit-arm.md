@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: ExpressRoute를 사용하여 회로 만들기 및 수정 - Azure PowerShell'
-description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
+description: 이 빠른 시작에서는 ExpressRoute 회로를 만들고, 프로비저닝하고, 확인하고, 업데이트하고, 삭제하고, 프로비저닝 해제하는 방법을 보여 줍니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: b5ac53c44429e23e2d22a934a9dc71bd485ec4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761909"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971543"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -152,7 +152,7 @@ ServiceProviderProvisioningState : NotProvisioned
 CircuitProvisioningState         : Enabled
 ```
 
-연결 공급자가 현재 이를 사용하도록 설정하면 회로가 다음 상태로 변경됩니다.
+연결 공급자가 사용자에 대해 현재 활성화하고 있을 때 회로가 다음 상태로 변경됩니다.
 
 ```azurepowershell
 ServiceProviderProvisioningState : Provisioning
@@ -364,14 +364,14 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>클래식 및 리소스 관리자 환경에 대한 액세스를 제어하려면
 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](expressroute-howto-move-arm.md)의 지침을 검토합니다.
 
-## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>ExpressRoute 회로 프로비전 해제
+## <a name="deprovisioning-an-expressroute-circuit"></a><a name="delete"></a>ExpressRoute 회로 프로비저닝 해제
 다음 정보에 유의하세요.
 
 * 모든 가상 네트워크는 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
 * ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
 * 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비저닝되지 않음**으로 설정되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 청구가 중지됩니다.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 다음 명령을 실행하여 ExpressRoute 회로를 삭제할 수 있습니다.
 
