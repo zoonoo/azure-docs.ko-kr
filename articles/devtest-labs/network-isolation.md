@@ -3,12 +3,12 @@ title: Azure DevTest Labs의 네트워크 격리
 description: Azure DevTest Labs의 네트워크 격리에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88875963"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149150"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>DevTest Labs의 네트워크 격리
 
@@ -57,7 +57,7 @@ ms.locfileid: "88875963"
  
    > [!div class="mx-imgBorder"]
    > ![Contoso 테스트](./media/network-isolation/contoso-test.png)
-1. 저장소 계정에서 방화벽 및 가상 네트워크로 이동 하 고 ' 신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용 ' 확인란을 선택 했는지 확인 합니다. [DevTest Labs는 신뢰할 수 있는 Microsoft 서비스 이므로](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)이 옵션을 사용 하면 랩을 네트워크 격리 모드에서 정상적으로 작동할 수 있습니다. 
+1. 저장소 계정에서 방화벽 및 가상 네트워크로 이동 하 고 ' 신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용 ' 확인란을 선택 했는지 확인 합니다. [DevTest Labs는 신뢰할 수 있는 Microsoft 서비스 이므로](../storage/common/storage-network-security.md#trusted-microsoft-services)이 옵션을 사용 하면 랩을 네트워크 격리 모드에서 정상적으로 작동할 수 있습니다. 
 
    > [!div class="mx-imgBorder"]
    > ![Contoso lab 방화벽](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -74,7 +74,7 @@ ms.locfileid: "88875963"
 
 이러한 단계를 자동화 하 여 여러 랩에 대해이 설정을 구성 하도록 선택할 수도 있습니다. 
 
-[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>네트워크 격리 모드에서 랩을 사용 하는 동안 기억할 사항
 
@@ -82,7 +82,7 @@ ms.locfileid: "88875963"
 
 네트워크 격리 랩 내에서 랩의 저장소 계정에 VHD를 업로드 하 여에서 사용자 지정 이미지를 만드는 등의 작업을 위해 랩 소유자는 허용 된 끝점에서 저장소 계정에 대 한 액세스를 명시적으로 사용 하도록 설정 해야 합니다. 가상 컴퓨터를 만들고 해당 가상 컴퓨터에서 랩의 저장소 계정에 안전 하 게 액세스 하 여이 작업을 수행할 수 있습니다. 
 
-[가상 머신에서 개인적으로 저장소 계정에 액세스 하는 방법에 대해 자세히 알아보세요.](../private-link/create-private-endpoint-storage-portal.md)
+[가상 머신에서 개인적으로 저장소 계정에 액세스 하는 방법에 대해 자세히 알아보세요.](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>랩에서 사용 현황 데이터 내보내기 
 

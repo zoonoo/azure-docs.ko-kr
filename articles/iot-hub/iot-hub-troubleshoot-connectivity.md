@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: b22573fc98d4647c2b05763d9b67c37f6f023f98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322723"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150773"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub와의 연결 끊김 모니터링, 진단 및 문제 해결
 
@@ -109,7 +109,7 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 * 디바이스가 MQTT 프로토콜을 사용하는 경우 포트 8883이 열려 있는지 확인합니다. 자세한 내용은 [IoT Hub(MQTT)에 연결](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조세요.
 
-* [Azure IoT Hub에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub) 또는 [Azure 지원](https://azure.microsoft.com/support/options/)에서 도움을 받으세요.
+* [Azure IoT Hub에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub) 또는 [Azure 지원](https://azure.microsoft.com/support/options/)에서 도움을 받으세요.
 
 이 가이드가 도움이 되지 않는 경우 모두를 위해 설명서 개선에 도움이 되도록 피드백 섹션에 의견을 남겨 주세요.
 

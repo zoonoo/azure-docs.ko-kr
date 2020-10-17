@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 74827e78017ad3540709fa0e671762a985976cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999006"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150762"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -31,7 +31,7 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows 10 Enterprise 다중 세션-빌드 1903 <br/><br/>Windows 10 - 빌드 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe)(.exe) |
+| Windows 10 Enterprise 다중 세션-빌드 1903 <br/><br/>Windows 10 - 빌드 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. Q1. 핫픽스](https://download.microsoft.com/download/d/e/f/def0fb44-15ab-4b83-959a-8094eb9d0dfe/AMD-Azure-NVv4-Driver-20Q1-Hotfix3.exe) (.exe) |
 
 
 ## <a name="driver-installation"></a>드라이버 설치
@@ -48,11 +48,11 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 Radeon Instinct MI25 카드의 성공적인 구성을 보여줍니다.
 <br />
-![GPU 드라이버 속성](./media/n-series-amd-driver-setup/device-manager.png)
+![GPU 장치 상태](./media/n-series-amd-driver-setup/device-manager.png)
 
 dxdiag를 사용하여 비디오 RAM을 비롯한 GPU 표시 속성을 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 Radeon Instinct MI25 카드의 1/2 파티션을 보여줍니다.
 <br />
-![GPU 드라이버 속성](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![GPU 속성](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Windows 10 빌드 1903 이상을 실행하는 경우 dxdiag는 'Display' 탭에 정보를 표시하지 않습니다. 하단에 있는 '모든 정보 저장' 옵션을 사용하면 출력 파일에 AMD MI25 GPU와 관련된 정보가 표시됩니다.
 

@@ -6,19 +6,19 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0b5f19d1aa224fa4a2e79c20f2900e3400fce0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74157613"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151128"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions 및 Azure SignalR 서비스를 사용 하 여 실시간 앱 빌드
 
 Azure SignalR Service 및 Azure Functions는 인프라를 관리 하는 대신 응용 프로그램을 구축 하는 데 집중할 수 있도록 하는 완전히 관리 되 고 확장성이 뛰어난 서비스입니다. 일반적으로 두 서비스를 함께 사용 하 여 [서버](https://azure.microsoft.com/solutions/serverless/) 를 사용 하지 않는 환경에서 실시간 통신을 제공 하는 것이 일반적입니다.
 
 > [!NOTE]
-> 대화형 자습서에서 SignalR 및 Azure Functions를 함께 사용 하는 방법을 알아보고 [Azure Functions 및 SignalR 서비스를 사용 하 여 웹 응용 프로그램에서 자동 업데이트](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)를 사용 하도록 설정 합니다.
+> 대화형 자습서에서 SignalR 및 Azure Functions를 함께 사용 하는 방법을 알아보고 [Azure Functions 및 SignalR 서비스를 사용 하 여 웹 응용 프로그램에서 자동 업데이트](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)를 사용 하도록 설정 합니다.
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Azure 서비스를 통해 실시간 통신 통합
 
@@ -69,7 +69,7 @@ SignalR Service를 사용하면 모든 클라이언트 또는 클라이언트의
 Azure Functions 및 SignalR Service를 함께 사용 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 * [SignalR Service를 사용 하 여 개발 및 구성 Azure Functions](signalr-concept-serverless-development-config.md)
-* [Azure Functions 및 SignalR Service를 사용하여 웹 애플리케이션에서 자동 업데이트 사용](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
+* [Azure Functions 및 SignalR Service를 사용하여 웹 애플리케이션에서 자동 업데이트 사용](/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 자세히 알아보려면 다음 빠른 시작 중 하나를 수행하세요.
 

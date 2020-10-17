@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460580"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151559"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>계획 된 유지 관리 알림 처리
 
@@ -25,7 +25,7 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 다시 부팅해야 하는 계획된 유지 관리는 웨이브에서 예약됩니다. 각 웨이브는 범위(지역)이 다릅니다.
 
-- 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 서비스 관리자와 공동 관리자에 게 전송 됩니다. [활동 로그 경고](../service-health/alerts-activity-log-service-notifications-portal.md)를 사용 하 여 메일, SMS 및 웹 후크에 같은 받는 사람 및 메시징 옵션을 더 추가할 수 있습니다.  
+- 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 관리자 및 공동 관리자에 게 전송 됩니다. [활동 로그 경고](../service-health/alerts-activity-log-service-notifications-portal.md)를 사용 하 여 메일, SMS 및 웹 후크에 같은 받는 사람 및 메시징 옵션을 더 추가할 수 있습니다.  
 - 알림이 전달 되 면 *셀프 서비스 윈도* 를 사용할 수 있습니다. 이 창에서 영향을 받는 가상 컴퓨터를 쿼리하고 사용자의 예약 요구 사항에 따라 유지 관리를 시작할 수 있습니다. 셀프 서비스 기간은 일반적으로 약 35 일입니다.
 - 셀프 서비스 기간이 끝나면 *예약된 유지 관리 기간*이 시작됩니다. 이 기간 중 어떤 시점에 Azure는 가상 머신에 필요한 유지 관리를 예약하고 적용합니다. 
 
@@ -80,7 +80,7 @@ Azure Portal, PowerShell, REST API 및 CLI를 사용하여 사용자 VM에 대�
 
 **Q: 계획된 유지 관리에 관한 알림은 어떻게 받나요?**
 
-**A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 전자 메일 알림이 서비스 관리자에 게 전송 됩니다 (구독 당 하나의 전자 메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
+**A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 전자 메일 알림이 구독 관리자 및 공동 관리자에 게 전송 됩니다 (구독 당 하나의 전자 메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
 
 **Q: 포털, PowerShell 또는 CLI에서 계획 된 유지 관리의 표시가 표시 되지 않습니다. 무슨 문제 있나요?**
 

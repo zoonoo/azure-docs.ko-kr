@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126665"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151182"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -24,7 +24,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 > [!NOTE]
 > 바이어스 없는 통신
 >
-> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _slave(슬레이브)_ 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 단어는 현재 소프트웨어에 표시되는 단어이므로 일관성을 위해 이 문서에서 사용됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>읽기 복제본을 사용하는 경우
@@ -128,6 +128,26 @@ Azure Database for MySQL은 Azure Monitor에 **복제 지연 시간(초)** 메�
     
 응용 프로그램이 읽기 및 쓰기를 성공적으로 처리 하면 장애 조치 (failover)를 완료 한 것입니다. 응용 프로그램의 가동 중지 시간은 문제를 감지 하 고 위의 1 단계와 2 단계를 완료 하는 시기에 따라 달라 집니다.
 
+## <a name="global-transaction-identifier-gtid"></a>GTID (전역 트랜잭션 식별자)
+
+GTID (전역 트랜잭션 식별자)는 원본 서버에서 커밋된 각 트랜잭션을 사용 하 여 생성 되는 고유 식별자 이며 Azure Database for MySQL에서 기본적으로 해제 되어 있습니다. GTID는 버전 5.7 및 8.0에서 지원 되며 최대 16TB의 저장소를 지 원하는 서버 에서만 지원 됩니다. GTID 및 복제에 사용 되는 방법에 대 한 자세한 내용은 GTID 설명서를 [사용 하 여](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) MySQL의 복제를 참조 하세요.
+
+MySQL은 GTID 트랜잭션 (GTID로 식별) 및 익명 트랜잭션 (GTID가 할당 되지 않음) 이라는 두 가지 유형의 트랜잭션을 지원 합니다.
+
+GTID를 구성 하는 데 사용할 수 있는 서버 매개 변수는 다음과 같습니다. 
+
+|**서버 매개 변수**|**설명**|**기본값**|**값**|
+|--|--|--|--|
+|`gtid_mode`|GTIDs가 트랜잭션을 식별 하는 데 사용 되는지 여부를 나타냅니다. 모드 간 변경 작업은 한 번에 한 단계 (예: `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: 새 트랜잭션과 복제 트랜잭션은 모두 익명 이어야 합니다. <br> `OFF_PERMISSIVE`: 새 트랜잭션은 익명입니다. 복제 된 트랜잭션은 익명 또는 GTID 트랜잭션이 될 수 있습니다. <br> `ON_PERMISSIVE`: 새 트랜잭션은 GTID 트랜잭션입니다. 복제 된 트랜잭션은 익명 또는 GTID 트랜잭션이 될 수 있습니다. <br> `ON`: 신규 및 복제 된 트랜잭션은 모두 GTID 트랜잭션 이어야 합니다.|
+|`enforce_gtid_consistency`|는 트랜잭션 방식으로 안전 하 게 로그인 할 수 있는 문만 실행 하도록 허용 하 여 GTID 일관성을 적용 합니다. `ON`GTID 복제를 사용 하도록 설정 하려면 먼저이 값을로 설정 해야 합니다. |`OFF`|`OFF`: 모든 트랜잭션은 GTID 일관성을 위반할 수 있습니다.  <br> `ON`: GTID 일관성을 위반 하는 트랜잭션은 허용 되지 않습니다. <br> `WARN`: 모든 트랜잭션은 GTID 일관성을 위반할 수 있지만 경고가 생성 됩니다. | 
+
+> [!NOTE]
+> GTID를 사용 하도록 설정한 후에는 다시 해제할 수 없습니다. GTID를 해제 해야 하는 경우 지원 담당자에 게 문의 하세요. 
+
+GTID를 사용 하도록 설정 하 고 일관성 동작을 구성 `gtid_mode` 하려면 `enforce_gtid_consistency` [Azure Portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)또는 [PowerShell](howto-configure-server-parameters-using-powershell.md)을 사용 하 여 및 서버 매개 변수를 업데이트 합니다.
+
+원본 서버에서 GTID를 사용 하는 경우 ( `gtid_mode` = on) 새로 만든 복제본은 GTID를 사용 하도록 설정 하 고 gtid 복제를 사용 합니다. 복제 일관성을 유지 하기 위해 `gtid_mode` 원본 또는 복제 서버에서를 업데이트할 수 없습니다.
+
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 
 ### <a name="pricing-tiers"></a>가격 책정 계층
@@ -178,9 +198,18 @@ Azure Database for MySQL은 Azure Monitor에 **복제 지연 시간(초)** 메�
 
 원본 서버에서 위의 매개 변수 중 하나를 업데이트 하려면 복제본 서버를 삭제 하 고, 마스터의 매개 변수 값을 업데이트 하 고, 복제본을 다시 만드십시오.
 
+### <a name="gtid"></a>GTID
+
+GTID는 다음에서 지원 됩니다.
+- MySQL 버전 5.7 및 8.0 
+- 최대 16TB의 저장소를 지 원하는 서버. 16TB 저장소를 지 원하는 지역의 전체 목록은 [가격 책정 계층](concepts-pricing-tiers.md#storage) 문서를 참조 하세요. 
+
+GTID는 기본적으로 해제 되어 있습니다. GTID를 사용 하도록 설정한 후에는 다시 해제할 수 없습니다. GTID를 해제 해야 하는 경우 지원 담당자에 게 문의 하세요. 
+
+원본 서버에서 GTID를 사용 하는 경우 새로 만든 복제본 에서도 GTID를 사용 하도록 설정 하 고 GTID 복제를 사용 합니다. 복제 일관성을 유지 하기 위해 `gtid_mode` 원본 또는 복제 서버에서를 업데이트할 수 없습니다.
+
 ### <a name="other"></a>기타
 
-- GTID(전역 트랜잭션 식별자)는 지원되지 않습니다.
 - 복제본의 복제본 만들기는 지원되지 않습니다.
 - 메모리 내 테이블이 있으면 복제본이 동기화되지 않을 수 있기 때문입니다. 이것은 MySQL 복제 기술의 제한입니다. 자세한 내용은 [MySQL 참조 문서](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html)를 참조하세요.
 - 원본 서버 테이블에 기본 키가 있는지 확인 합니다. 기본 키가 없으면 원본과 복제본 간의 복제 대기 시간이 발생할 수 있습니다.

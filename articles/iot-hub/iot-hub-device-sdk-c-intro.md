@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3acac0c85aa6f3e3725dcf54a646f8ac16250e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f1332e940929cff6aeb6a0d5d3c43e28d36f22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324049"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149179"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
 
@@ -38,7 +38,7 @@ C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C9
 
 ## <a name="sdk-architecture"></a>SDK 아키텍처
 
-GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
 최신 버전의 라이브러리는 이 리포지토리의 **master** 분기에서 찾을 수 있습니다.
 
@@ -587,4 +587,4 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)

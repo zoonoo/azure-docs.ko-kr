@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: a09989e57729862cb18f148f95eb83f81a775b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542226"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149252"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -77,7 +77,7 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 
 ## <a name="collaborating-and-contributing"></a>공동 작업 및 기여
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Azure AD(Azure Active Directory) 또는 RBAC(역할 기반 액세스 제어)를 사용하여 협력자에게 LUIS 액세스 권한을 부여하려면 어떻게 할까요?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-azure-role-based-access-control-azure-rbac"></a>공동 작업자에 게 Azure Active Directory (Azure AD) 또는 Azure 역할 기반 액세스 제어 (azure RBAC)를 사용 하 여 LUIS에 액세스할 어떻게 할까요? 있나요?
 
 협력자에게 액세스 권한을 부여하는 방법을 알아보려면 [Azure Active Directory 리소스](luis-how-to-collaborate.md#azure-active-directory-resources) 및 [Azure Active Directory 테넌트 사용자](luis-how-to-collaborate.md#azure-active-directory-tenant-user)를 참조하세요.
 
@@ -217,7 +217,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 되었나요?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 무슨 일이 일어났나요?
 
 제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.
 

@@ -6,12 +6,12 @@ metadata:
   title: Microsoft Azure 컨테이너 서비스 설명서 | Microsoft Docs
   description: Azure 컨테이너 서비스를 사용하여 클라우드 기반 컨테이너 애플리케이션을 관리 및 개발하는 방법을 알아봅니다.
   ms.topic: hub-page
-  ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d62fbbd19c56e64f254037574c69ce6c949239ef
+  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88080850"
+  ms.lasthandoff: 10/17/2020
+  ms.locfileid: "92151286"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -44,10 +44,10 @@ conceptualContent:
     - url: /visualstudio/containers/overview-local-process-kubernetes
       itemType: concept
       text: Kubernetes를 사용하는 로컬 프로세스의 작동 방식
-    - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+    - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용
-    - url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+    - url: /visualstudio/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용
   - title: 웹 및 모바일용 클라우드 앱 만들기
@@ -64,10 +64,10 @@ conceptualContent:
     - url: ../app-service/quickstart-custom-container.md
       itemType: get-started
       text: 사용자 지정 Windows 컨테이너 실행
-    - url: ../app-service/containers/quickstart-docker.md
+    - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
       itemType: quickstart
       text: 사용자 지정 Linux 컨테이너 실행
-    - url: ../app-service/containers/quickstart-multi-container.md
+    - url: ../app-service/quickstart-multi-container.md
       itemType: quickstart
       text: Linux 다중 컨테이너 앱 만들기
     footerLink:
@@ -144,7 +144,7 @@ conceptualContent:
       itemType: tutorial
       text: Azure Red Hat OpenShift 클러스터 만들기
     footerLink:
-      url: /azure/openshift/
+      url: ../openshift/index.yml
       text: 자세히 보기
   - title: 서버리스 애플리케이션 개발
     links:

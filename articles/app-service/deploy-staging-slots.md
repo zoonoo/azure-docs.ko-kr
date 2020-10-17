@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962165"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150326"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
 
-웹 앱, Linux, 모바일 백 엔드 또는 API 앱의 웹 앱을 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에 배포 하는 경우 **표준**, **프리미엄**또는 **격리** 된 App Service 계획 계층에서 실행 하는 경우 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 사용할 수 있습니다. 배포 슬롯은 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 
+웹 앱, Linux, 모바일 백 엔드 또는 API 앱의 웹 앱을 [Azure App Service](./overview.md)에 배포 하는 경우 **표준**, **프리미엄**또는 **격리** 된 App Service 계획 계층에서 실행 하는 경우 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 사용할 수 있습니다. 배포 슬롯은 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 
 
 애플리케이션을 비프로덕션 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
@@ -262,7 +262,7 @@ Preview를 사용 하 여 교환 하려면:
 
 문자열 `x-ms-routing-name=self` 는 프로덕션 슬롯을 지정합니다. 클라이언트 브라우저는 링크에 액세스 한 후 프로덕션 슬롯으로 리디렉션됩니다. 모든 후속 요청에는 `x-ms-routing-name=self` 프로덕션 슬롯에 세션을 고정 하는 쿠키가 있습니다.
 
-사용자가 베타 앱에 옵트인 (opt in) 할 수 있도록 하려면 비프로덕션 슬롯의 이름에 동일한 쿼리 매개 변수를 설정 합니다. 예를 들면 다음과 같습니다.
+사용자가 베타 앱에 옵트인 (opt in) 할 수 있도록 하려면 비프로덕션 슬롯의 이름에 동일한 쿼리 매개 변수를 설정 합니다. 예는 다음과 같습니다.
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging

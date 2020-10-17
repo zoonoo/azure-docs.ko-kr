@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a5e319115c124551c05f2ac5aa393ba19596d0d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893359"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150279"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -28,12 +28,12 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
 - 컨테이너에 대 한 작업 컨테이너 레지스트리 및 Azure App Service 앱입니다. 이 예제에서는 Azure Container Registry를 사용 합니다. 
-    - [Docker를 사용 하 여 컨테이너 화 된 Node.js 응용 프로그램을 만들고 컨테이너 이미지를 레지스트리에 푸시한 다음에 이미지를 배포 하는 방법을 알아봅니다 Azure App Service](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
+    - [Docker를 사용 하 여 컨테이너 화 된 Node.js 응용 프로그램을 만들고 컨테이너 이미지를 레지스트리에 푸시한 다음에 이미지를 배포 하는 방법을 알아봅니다 Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 

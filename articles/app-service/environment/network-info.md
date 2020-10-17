@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7c5fa5ae54c7aea520a2346cba8feca294585b0d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875736"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150237"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -53,7 +53,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| 사용 | From | 받는 사람 |
+| 기능 | From | 대상 |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -69,7 +69,7 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 사용자가 고려해 야 하는 다른 포트는 응용 프로그램 포트입니다.
 
-| 사용 | 포트 |
+| 기능 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -169,7 +169,7 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 
 기본 앱 액세스 포트는 다음과 같습니다.
 
-| 사용 | 포트 |
+| 기능 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -241,7 +241,7 @@ Azure SQL 인스턴스를 통해 서브넷에서 서비스 엔드포인트가 �
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop

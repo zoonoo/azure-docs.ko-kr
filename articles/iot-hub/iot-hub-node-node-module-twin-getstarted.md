@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.custom: amqp, devx-track-js
-ms.openlocfilehash: c3862cae096adc2284469750cefd5538493cf653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3f45a9d62a9d131583c133440ac8a311a468d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302862"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151420"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (Node.js)
 
@@ -39,7 +39,7 @@ ms.locfileid: "91302862"
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
-## <a name="create-an-iot-hub"></a>IoT 허브 만들기
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -217,4 +217,4 @@ node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한
 
 * [디바이스 관리 시작](iot-hub-node-node-device-management-get-started.md)
 
-* [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)
+* [IoT Edge 시작](../iot-edge/quickstart-linux.md)

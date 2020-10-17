@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ca7d28e3f964d486d9f860c355e88132ebb897a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acb85a04b8a1ca491058702510079a36b93fc657
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327649"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151047"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성
 
@@ -198,9 +198,9 @@ const connection = new signalR.HubConnectionBuilder()
 
 SignalR client SDK를 사용 하는 방법에 대 한 자세한 내용은 해당 언어에 대 한 설명서를 참조 하세요.
 
-* [.NET Standard](https://docs.microsoft.com/aspnet/core/signalr/dotnet-client)
-* [JavaScript](https://docs.microsoft.com/aspnet/core/signalr/javascript-client)
-* [Java](https://docs.microsoft.com/aspnet/core/signalr/java-client)
+* [.NET Standard](/aspnet/core/signalr/dotnet-client)
+* [JavaScript](/aspnet/core/signalr/javascript-client)
+* [Java](/aspnet/core/signalr/java-client)
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>클라이언트에서 서비스로 메시지 보내기
 

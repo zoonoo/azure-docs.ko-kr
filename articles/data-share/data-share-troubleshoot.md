@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761535"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151359"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -61,12 +61,20 @@ Azure 데이터 저장소에서 데이터를 처음 공유 하거나 수신 하�
 SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 필수 구성 요소 목록은 [SQL 원본의 공유](how-to-share-from-sql.md) 를 참조 하세요.
 
 ## <a name="snapshot-failed"></a>스냅숏 실패
-스냅숏은 다양 한 이유로 인해 실패할 수 있습니다. 스냅숏의 시작 시간을 클릭 하 고 각 데이터 집합의 상태를 클릭 하 여 자세한 오류 메시지를 찾을 수 있습니다. 스냅숏이 실패 하는 이유는 다음과 같습니다.
+스냅숏은 다양 한 이유로 인해 실패할 수 있습니다. 스냅숏의 시작 시간을 클릭 하 고 각 데이터 집합의 상태를 클릭 하 여 자세한 오류 메시지를 찾을 수 있습니다. 다음은 스냅숏이 실패 하는 일반적인 이유입니다.
 
 * 데이터 공유에 원본 데이터 저장소에서 읽거나 대상 데이터 저장소에 쓸 수 있는 권한이 없습니다. 자세한 권한 요구 사항은 [역할 및 요구 사항](concepts-roles-permissions.md) 을 참조 하세요. 스냅숏을 처음 사용 하는 경우 데이터 공유 리소스에 Azure 데이터 저장소에 대 한 액세스 권한을 부여 하는 데 몇 분 정도 걸릴 수 있습니다. 몇 분 정도 기다린 후 다시 시도 하세요.
 * 원본 또는 대상 데이터 저장소에 대 한 데이터 공유 연결이 방화벽에 의해 차단 되었습니다.
 * 공유 데이터 집합 또는 원본 또는 대상 데이터 저장소가 삭제 됩니다.
-* SQL 공유의 경우 스냅숏 프로세스나 대상 데이터 저장소에서 데이터 형식을 지원 하지 않습니다. 자세한 내용은 [SQL 원본에서 공유](how-to-share-from-sql.md#supported-data-types) 를 참조 하세요.
+
+SQL 원본의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다. 
+
+* 데이터 공유 권한을 부여 하기 위한 원본 또는 대상 SQL 스크립트가 실행 되지 않거나 인증 Azure Active Directory 아닌 SQL 인증을 사용 하 여 실행 됩니다.  
+* 원본 또는 대상 SQL 데이터 저장소가 일시 중지 되었습니다.
+* 스냅숏 프로세스나 대상 데이터 저장소에서 SQL 데이터 형식을 지원 하지 않습니다. 자세한 내용은 [SQL 원본에서 공유](how-to-share-from-sql.md#supported-data-types) 를 참조 하세요.
+* 원본 또는 대상 SQL 데이터 저장소가 다른 프로세스에 의해 잠겨 있습니다. Azure 데이터 공유는 원본 및 대상 SQL 데이터 저장소에 잠금을 적용 하지 않습니다. 그러나 원본 및 대상 SQL 데이터 저장소에 대 한 기존 잠금을 설정 하면 스냅숏 오류가 발생 합니다.
+* 대상 SQL 테이블은 foreign key 제약 조건에 의해 참조 됩니다. 스냅숏을 만들 때 동일한 이름의 대상 테이블이 있으면 Azure 데이터 공유는 테이블을 삭제 하 고 새 테이블을 만듭니다. Foreign key 제약 조건에서 대상 SQL 테이블을 참조 하는 경우에는 테이블을 삭제할 수 없습니다.
+* 대상 CSV 파일이 생성 되었지만 Excel에서 데이터를 읽을 수 없습니다. 원본 SQL 테이블에 영어가 아닌 문자가 포함 된 데이터가 포함 되어 있는 경우이 오류가 발생할 수 있습니다. Excel에서 ' 데이터 가져오기 ' 탭을 선택 하 고 CSV 파일을 선택 하 고 파일 원본으로 65001: 유니코드 (UTF-8)를 선택한 다음 데이터를 로드 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

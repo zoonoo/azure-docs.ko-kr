@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bfb7da51f243de8320d0230259577e337231fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574146"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149283"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
-Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.
+Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니다.  Azure RBAC (역할 기반 액세스 제어) 및 Acl (액세스 제어 목록)을 모두 사용자 및 보안 그룹의 데이터에 완전히 액세스할 수 있도록 설정 해야 합니다.
 
 1. 먼저 Azure Active Directory (Azure AD)에서 보안 그룹을 만듭니다. 이러한 보안 그룹은 Azure Portal에서 azure RBAC (역할 기반 액세스 제어)를 구현 하는 데 사용 됩니다. 자세한 내용은 [AZURE RBAC](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 2. Azure AD 보안 그룹을 Data Lake Storage Gen1 계정에 할당 합니다. 이는 포털에서 Data Lake Storage Gen1 계정에 대한 액세스 및 포털이나 API에서의 관리 작업을 제어합니다.
@@ -68,13 +68,13 @@ Azure AD 보안 그룹을 만드는 방법 및 그룹에 사용자를 추가 하
     데이터 작업의 경우 개별 파일 시스템 권한은 사용자가 수행할 수 있는 권한을 정의합니다. 따라서 리더 역할을 가진 사용자는 계정에 연결된 관리 설정만 볼 수 있지만 잠재적으로 할당된 파일 시스템 권한을 기반으로 데이터를 읽고 쓸 수 있습니다. Data Lake Storage Gen1 파일 시스템 권한은 [ACL로 보안 그룹을 Azure Data Lake Storage Gen1 파일 시스템에 할당](#filepermissions)에 설명되어 있습니다.
 
     > [!IMPORTANT]
-    > **소유자** 역할만 파일 시스템 액세스가 자동으로 설정됩니다. **참가자**, **독자** 및 기타 모든 역할의 경우 ACL이 있어야 폴더 및 파일에 대해 모든 수준의 액세스를 가능하게 할 수 있습니다.  **소유자** 역할은 슈퍼 사용자 파일 및 폴더 권한을 제공하며 ACL을 통해 재정의할 수 없습니다. RBAC 정책이 데이터 액세스에 매핑되는 방식에 대한 자세한 내용은 [계정 관리를 위한 RBAC](data-lake-store-security-overview.md#rbac-for-account-management)를 참조하세요.
+    > **소유자** 역할만 파일 시스템 액세스가 자동으로 설정됩니다. **참가자**, **독자** 및 기타 모든 역할의 경우 ACL이 있어야 폴더 및 파일에 대해 모든 수준의 액세스를 가능하게 할 수 있습니다.  **소유자** 역할은 슈퍼 사용자 파일 및 폴더 권한을 제공하며 ACL을 통해 재정의할 수 없습니다. Azure RBAC 정책이 데이터 액세스에 매핑되는 방법에 대 한 자세한 내용은 [계정 관리를 위한 AZURE rbac](data-lake-store-security-overview.md#azure-rbac-for-account-management)를 참조 하세요.
 
 4. **권한 추가** 블레이드에 나열되지 않은 그룹/사용자를 추가하려면 **선택** 텍스트 상자에 해당 사용자의 이메일 주소를 입력한 다음, 목록에서 선택하여 초대할 수 있습니다.
    
     ![보안 그룹 추가](./media/data-lake-store-secure-data/adl.add.user.2.png "보안 그룹 추가")
    
-5. **Save**을 클릭합니다. 아래와 같이 추가된 보안 그룹을 확인해야 합니다.
+5. **저장**을 클릭합니다. 아래와 같이 추가된 보안 그룹을 확인해야 합니다.
    
     ![추가된 보안 그룹](./media/data-lake-store-secure-data/adl.add.user.3.png "추가된 보안 그룹")
 
@@ -147,7 +147,7 @@ Data Lake Storage Gen1 파일 시스템에서 보안 그룹 ACL을 제거하면 
    
     ![데이터 엔지니어링 옵션이 out 인 액세스 블레이드의 스크린샷 및 Remove 옵션이 out 인 액세스 정보 블레이드](./media/data-lake-store-secure-data/adl.remove.acl.png "그룹에 권한 할당")
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

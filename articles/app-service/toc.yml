@@ -28,6 +28,7 @@
     - name: 정적 HTML 사이트
       href: quickstart-html.md
     - name: ARM 템플릿
+      displayName: Resource Manager
       href: quickstart-arm-template.md
     - name: 사용자 지정 컨테이너
       href: quickstart-custom-container.md

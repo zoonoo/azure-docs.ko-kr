@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: 720d8f3b1f3d13427cda56ee68596d190ac40dc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767309"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150790"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -53,9 +53,9 @@ MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/az
 | 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓을 통한 MQTT 프로토콜 매개 변수
 | --- | --- | --- |
 | [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | MQTT가 실패하는 경우 TransportType.Mqtt는 웹 소켓을 통한 MQTT로 대체됩니다. 웹 소켓을 통한 MQTT만 지정하려면 TransportType.Mqtt_WebSocket_Only를 사용합니다. |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable).MQTT | IotHubClientProtocol.MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet).Mqtt | MQTT가 실패하는 경우 TransportType.Mqtt는 웹 소켓을 통한 MQTT로 대체됩니다. 웹 소켓을 통한 MQTT만 지정하려면 TransportType.Mqtt_WebSocket_Only를 사용합니다. |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | 기본적으로 MQTT를 지원합니다. | 호출에 `websockets=True`를 추가하여 클라이언트를 만듭니다. |
 
 다음 조각은 Azure IoT Node.js SDK를 사용할 경우 웹 소켓을 통한 MQTT 프로토콜을 지정하는 방법을 보여 줍니다.
@@ -119,7 +119,7 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 * DeviceTwinMQTTWin32: Windows 컴퓨터에서 Azure IoT Hub의 디바이스에 관련된 디바이스 쌍 이벤트를 쿼리 및 구독하는 코드를 포함합니다.
 
-* PnPMQTTWin32: IoT 플러그 앤 플레이 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT에서 자세히 알아볼 수 있습니다 [플러그 앤 플레이](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32: IoT 플러그 앤 플레이 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT에서 자세히 알아볼 수 있습니다 [플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)
 
 **Linux의 경우:**
 
@@ -312,7 +312,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름**이 `devices/{devi
 
 클라우드-장치 메시지에서 속성 모음의 값은 다음 표에서와 같이 표시 됩니다.
 
-| 속성 값 | 표현 | 설명 |
+| 속성 값 | 표현 | Description |
 |----|----|----|
 | `null` | `key` | 키만 속성 모음에 표시 됩니다. |
 | 빈 문자열 | `key=` | 키 뒤에 값이 없는 등호 기호가 있습니다. |
@@ -381,7 +381,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
@@ -451,4 +451,4 @@ IoT Hub 배포를 계획하는 방법에 대한 자세한 내용은 다음을 �
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)

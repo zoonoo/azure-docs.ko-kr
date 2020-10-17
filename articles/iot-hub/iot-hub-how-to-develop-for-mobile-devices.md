@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
-ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883090"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151636"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 모바일 디바이스용 솔루션 개발
 
-사물 인터넷에는 센서, 마이크로컨트롤러, 스마트 디바이스, 산업용 게이트웨이, 모바일 디바이스 등 여러 가지 용량의 다양한 디바이스가 사용될 수 있습니다.  모바일 디바이스는 디바이스-클라우드 원격 분석 데이터를 전송하고 클라우드를 통해 관리되는 IoT 디바이스가 될 수 있습니다.  백 엔드 서비스 애플리케이션을 실행하고 다른 IoT 디바이스를 관리하는 디바이스가 될 수도 있습니다.  두 경우 모두 [Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모바일 디바이스에서 작동하는 애플리케이션을 개발할 수 있습니다.  
+사물 인터넷에는 센서, 마이크로컨트롤러, 스마트 디바이스, 산업용 게이트웨이, 모바일 디바이스 등 여러 가지 용량의 다양한 디바이스가 사용될 수 있습니다.  모바일 디바이스는 디바이스-클라우드 원격 분석 데이터를 전송하고 클라우드를 통해 관리되는 IoT 디바이스가 될 수 있습니다.  백 엔드 서비스 애플리케이션을 실행하고 다른 IoT 디바이스를 관리하는 디바이스가 될 수도 있습니다.  두 경우 모두 [Azure IoT Hub SDK](./iot-hub-devguide-sdks.md)를 사용하여 모바일 디바이스에서 작동하는 애플리케이션을 개발할 수 있습니다.  
 
 ## <a name="develop-for-native-ios-platform"></a>네이티브 iOS 플랫폼용 개발
 
@@ -52,5 +52,5 @@ Azure IoT Hub Java SDK는 Android 플랫폼을 지원합니다.  테스트를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [IoT Hub REST API 참조](https://docs.microsoft.com/rest/api/iothub/)
+* [IoT Hub REST API 참조](/rest/api/iothub/)
 * [Azure IoT C SDK 소스 코드](https://github.com/Azure/azure-iot-sdk-c)

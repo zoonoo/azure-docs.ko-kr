@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793284"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150579"
 ---
 # <a name="troubleshooting-message-routing"></a>메시지 라우팅 문제 해결
 
@@ -42,7 +42,7 @@ ms.locfileid: "84793284"
 라우팅 및 끝점 [작업](#operation-names) 에 대 한 자세한 정보를 얻으려면 **경로** [진단 로그](iot-hub-monitor-resource-health.md#routes) 를 확인 하 고, 문제를 파악 하는 데 필요한 오류 및 관련 [오류 코드](#common-error-codes) 를 확인 하십시오. 예를 들어 로그의 작업 이름 **RouteEvaluationError** 은 메시지 형식 문제로 인해 경로를 평가할 수 없음을 나타냅니다. 특정 [작업 이름](#operation-names) 에 제공 된 팁을 사용 하 여 문제를 완화 합니다. 이벤트가 오류로 기록 될 때 평가에 실패 한 이유에 대 한 추가 정보를 제공 합니다. 예를 들어 작업 이름이 **Endpointunhealthy**인 경우 403004의 [오류 코드](#common-error-codes) 는 끝점의 공간이 부족 함을 나타냅니다.
 
 #### <a name="the-health-of-the-endpoint"></a>끝점의 상태입니다.
-[끝점 상태 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) REST API를 사용 하 여 [끝점 상태를 가져옵니다.](iot-hub-devguide-endpoints.md#custom-endpoints) 또한 *Get Endpoint Health* API는 마지막으로 메시지가 끝점에 전송 된 시간, [마지막으로 알려진 오류](#last-known-errors-for-iot-hub-routing-endpoints), 마지막으로 알려진 오류 시간 및이 끝점에 대 한 송신 시도가 마지막으로 수행 된 시간에 대 한 정보를 제공 합니다. [마지막으로 알려진 특정 오류](#last-known-errors-for-iot-hub-routing-endpoints)에 대해 제공 된 가능한 완화 방법을 사용 합니다.
+[끝점 상태 가져오기](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) REST API를 사용 하 여 [끝점 상태를 가져옵니다.](iot-hub-devguide-endpoints.md#custom-endpoints) 또한 *Get Endpoint Health* API는 마지막으로 메시지가 끝점에 전송 된 시간, [마지막으로 알려진 오류](#last-known-errors-for-iot-hub-routing-endpoints), 마지막으로 알려진 오류 시간 및이 끝점에 대 한 송신 시도가 마지막으로 수행 된 시간에 대 한 정보를 제공 합니다. [마지막으로 알려진 특정 오류](#last-known-errors-for-iot-hub-routing-endpoints)에 대해 제공 된 가능한 완화 방법을 사용 합니다.
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>기본 제공 끝점에서 갑자기 메시지 가져오기를 중지 했습니다.
 
@@ -52,9 +52,9 @@ ms.locfileid: "84793284"
 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 새 경로가 추가 된 경우 메시지가 기본 제공 끝점으로 계속 전달 되도록 하려면 *이벤트* 끝점에 대 한 경로를 구성 합니다. 
 
 #### <a name="was-the-fallback-route-disabled"></a>대체 경로를 사용할 수 없습니까?
-대체 (fallback) 경로는 [Event Hubs](https://docs.microsoft.com/azure/event-hubs/)와 호환 되는 [기본 제공 Event Hubs](iot-hub-devguide-messages-read-builtin.md) (메시지/이벤트)에 대 한 기존 경로에서 쿼리 조건을 충족 하지 않는 모든 메시지를 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
+대체 (fallback) 경로는 [Event Hubs](../event-hubs/index.yml)와 호환 되는 [기본 제공 Event Hubs](iot-hub-devguide-messages-read-builtin.md) (메시지/이벤트)에 대 한 기존 경로에서 쿼리 조건을 충족 하지 않는 모든 메시지를 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
 
-Azure Portal >메시지 라우팅 블레이드에서 대체 경로를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
+Azure Portal >메시지 라우팅 블레이드에서 대체 경로를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>IoT Hub 라우팅 끝점에 대 한 마지막 알려진 오류
 

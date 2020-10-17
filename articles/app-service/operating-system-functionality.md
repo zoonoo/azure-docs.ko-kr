@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080201"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150158"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
-이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
+이 문서에서는 [Azure App Service](./overview.md)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
 
 > [!NOTE] 
 > App Service의 [Linux 앱](overview.md#app-service-on-linux)은 자체 컨테이너에서 실행됩니다. 호스트 운영 체제에 대한 액세스는 허용되지 않으며, 컨테이너에 대한 루트 액세스 권한이 제공되지 않습니다. 마찬가지로, [Windows 컨테이너에서 실행되는 앱](quickstart-custom-container.md?pivots=container-windows)의 경우 컨테이너에 대한 관리자 액세스 권한은 있지만 호스트 운영 체제에 대한 액세스 권한은 없습니다. 
@@ -126,4 +126,3 @@ App Service는 VM 인스턴스에 대한 원격 데스크톱 액세스를 제공
 ## <a name="more-information"></a>자세한 정보
 
 [Azure App Service 샌드박스](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - App Service의 실행 환경에 대한 최신 정보입니다. 이 페이지는 App Service 개발 팀에서 직접 유지 관리합니다.
-

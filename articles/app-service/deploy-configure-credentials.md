@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715401"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149023"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이러한 자격 증명은 Azure 구독 자격 증명과 동일하지 않습니다.
+[Azure App Service](./overview.md)는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이러한 자격 증명은 Azure 구독 자격 증명과 동일하지 않습니다.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -96,11 +96,11 @@ WebDeploy 포트 및 SCM 사이트에 대 한 기본 인증 액세스를 사용 
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-WebDeploy에서 게시 프로필 자격 증명이 차단 되었는지 확인 하려면 [Visual Studio 2019을 사용 하 여 웹 앱을 게시](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)해 보세요.
+WebDeploy에서 게시 프로필 자격 증명이 차단 되었는지 확인 하려면 [Visual Studio 2019을 사용 하 여 웹 앱을 게시](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)해 보세요.
 
 ### <a name="disable-access-to-the-api"></a>API에 대 한 액세스 사용 안 함
 
-이전 섹션의 API는 azure RBAC (역할 기반 액세스 제어)를 지원 합니다. 즉, [사용자 지정 역할을 만들고](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) priveldged 사용자를 역할에 할당 하 여 사이트에서 기본 인증을 사용 하도록 설정할 수 없습니다. 사용자 지정 역할을 구성 하려면 [다음 지침을 따르세요](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+이전 섹션의 API는 azure RBAC (역할 기반 액세스 제어)를 지원 합니다. 즉, [사용자 지정 역할을 만들고](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) priveldged 사용자를 역할에 할당 하 여 사이트에서 기본 인증을 사용 하도록 설정할 수 없습니다. 사용자 지정 역할을 구성 하려면 [다음 지침을 따르세요](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 또한 [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) 를 사용 하 여 성공한 인증 요청을 감사 하 고 [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) 를 사용 하 여 구독의 모든 사이트에 대해이 구성을 적용할 수 있습니다.
 

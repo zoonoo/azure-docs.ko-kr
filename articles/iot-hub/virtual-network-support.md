@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613903"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149097"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -224,7 +224,7 @@ IoT Hub는 메시지를 고객 소유 서비스 버스 네임스페이스로 라
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>파일 업로드를 위한 스토리지 계정으로의 송신 연결
 
-IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토리지 계정으로 파일을 업로드할 수 있도록 허용합니다. 파일 업로드가 기능하도록 하려면 디바이스와 IoT Hub가 모두 스토리지 계정에 연결되어 있어야 합니다. 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, 디바이스는 스토리지 계정의 지원되는 메커니즘([프라이빗 엔드포인트](../private-link/create-private-endpoint-storage-portal.md), [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 또는 [직접 방화벽 구성](../storage/common/storage-network-security.md))을 사용하여 연결을 설정해야 합니다. 마찬가지로, 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, IoT Hub는 신뢰할 수 있는 Microsoft 서비스 예외를 통해 스토리지 리소스에 액세스하도록 구성되어야 합니다. 이를 위해 IoT Hub에는 관리 ID가 있어야 합니다. 관리 ID를 프로비저닝한 후에는 아래 단계에 따라 허브의 리소스 ID에 스토리지 계정에 액세스할 수 있는 RBAC 권한을 부여합니다.
+IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토리지 계정으로 파일을 업로드할 수 있도록 허용합니다. 파일 업로드가 기능하도록 하려면 디바이스와 IoT Hub가 모두 스토리지 계정에 연결되어 있어야 합니다. 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, 디바이스는 스토리지 계정의 지원되는 메커니즘([프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md), [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 또는 [직접 방화벽 구성](../storage/common/storage-network-security.md))을 사용하여 연결을 설정해야 합니다. 마찬가지로, 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, IoT Hub는 신뢰할 수 있는 Microsoft 서비스 예외를 통해 스토리지 리소스에 액세스하도록 구성되어야 합니다. 이를 위해 IoT Hub에는 관리 ID가 있어야 합니다. 관리 ID를 프로비저닝한 후에는 아래 단계에 따라 허브의 리소스 ID에 스토리지 계정에 액세스할 수 있는 RBAC 권한을 부여합니다.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -252,7 +252,7 @@ IoT Hub는 고객이 제공한 스토리지 Blob에서/(으)로 디바이스의 
 
 3. 스토리지 계정의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다.
 
-이제 Azure IoT REST API를 사용하여 [가져오기 내보내기 작업을 만들어서](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) 대량 가져오기/내보내기 기능을 사용하는 방법에 대한 정보를 확인할 수 있습니다. 요청 본문에 `storageAuthenticationType="identityBased"`를 제공하고 `inputBlobContainerUri="https://..."` 및 `outputBlobContainerUri="https://..."`를 스토리지 계정의 입력 및 출력 URL로 사용해야 합니다.
+이제 Azure IoT REST API를 사용하여 [가져오기 내보내기 작업을 만들어서](/rest/api/iothub/service/jobs/getimportexportjobs) 대량 가져오기/내보내기 기능을 사용하는 방법에 대한 정보를 확인할 수 있습니다. 요청 본문에 `storageAuthenticationType="identityBased"`를 제공하고 `inputBlobContainerUri="https://..."` 및 `outputBlobContainerUri="https://..."`를 스토리지 계정의 입력 및 출력 URL로 사용해야 합니다.
 
 Azure IoT Hub SDK는 서비스 클라이언트의 레지스트리 관리자에서도 이 기능을 지원합니다. 다음 코드 조각은 C# SDK를 사용하여 가져오기 작업 또는 내보내기 작업을 시작하는 방법을 보여 줍니다.
 
@@ -295,4 +295,4 @@ IoT Hub 기능에 대해 자세히 알아보려면 다음 링크를 참조하세
 
 * [메시지 라우팅](./iot-hub-devguide-messages-d2c.md)
 * [파일 업로드](./iot-hub-devguide-file-upload.md)
-* [대량 디바이스 가져오기/내보내기](./iot-hub-bulk-identity-mgmt.md) 
+* [대량 디바이스 가져오기/내보내기](./iot-hub-bulk-identity-mgmt.md)

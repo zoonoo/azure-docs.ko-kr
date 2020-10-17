@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 2289ff37a0e524bc765163047608eb604c02372e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 455f1f3e1c8181646fbe165d0f1aea6a2fb2fb13
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019804"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150699"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -90,4 +90,4 @@ IoT Hub에 디바이스가 성공적으로 연결되면 인증 프로세스가 �
 
 IoT에서 [X.509 CA 인증의 가치](iot-hub-x509ca-concept.md)에 대해 알아보기
 
-IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)를 시작합니다.
+IoT Hub [Device Provisioning Service](../iot-dps/index.yml)를 시작합니다.

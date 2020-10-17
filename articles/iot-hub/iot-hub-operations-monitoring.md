@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022023"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139335"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub 작업 모니터링(사용되지 않음)
 
@@ -191,7 +191,7 @@ IoT Hub는 다음 여섯 가지 범주의 이벤트를 모니터링합니다.
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>모니터링 엔드포인트에 연결
 
-IoT Hub의 모니터링 엔드포인트는 이벤트 허브와 호환되는 엔드포인트입니다. Event Hubs와 함께 작동하는 모든 메커니즘을 사용하여 이 엔드포인트에서 모니터링 메시지를 읽을 수 있습니다. 다음 샘플은 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. Event Hubs에서 메시지를 처리하는 방법에 대한 자세한 내용은 [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) 자습서를 참조하세요.
+IoT Hub의 모니터링 엔드포인트는 이벤트 허브와 호환되는 엔드포인트입니다. Event Hubs와 함께 작동하는 모든 메커니즘을 사용하여 이 엔드포인트에서 모니터링 메시지를 읽을 수 있습니다. 다음 샘플은 처리량이 높은 배포용이 아닌 기본적인 판독기를 만듭니다. Event Hubs에서 메시지를 처리하는 방법에 대한 자세한 내용은 [Event Hubs 시작](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 자습서를 참조하세요.
 
 모니터링 엔드포인트에 연결하려면 연결 문자열 및 엔드포인트 이름이 필요합니다. 다음 단계에서는 포털에서 필요한 값을 찾는 방법을 보여 줍니다.
 
@@ -271,4 +271,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
 
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)

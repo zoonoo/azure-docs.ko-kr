@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732613"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149139"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
@@ -28,7 +28,7 @@ ms.locfileid: "81732613"
 
 이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 디바이스 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
-GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-lower-level-apis"></a>하위 수준 API
 
@@ -157,7 +157,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 **IoTHubMessage\_Properties**를 호출하고 메시지의 핸들을 전달하는 것으로 시작합니다. 다음으로 볼 것은 속성 추가를 시작할 수 있는 **MAP\_HANDLE** 참조입니다. 후자는 MAP\_HANDLE에 대한 참조, 속성 이름 및 속성 값을 사용하는 **Map\_AddOrUpdate**를 호출하여 수행됩니다. 이 API를 통해 속성을 원하는 만큼 추가할 수 있습니다.
 
-**Event Hubs**에서 이벤트를 읽을 때 수신기는 속성을 열거하고 해당 값을 가져옵니다. 예를 들어, .NET에서는 [EventData 개체의 속성 컬렉션](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx)에 액세스하여 이를 수행합니다.
+**Event Hubs**에서 이벤트를 읽을 때 수신기는 속성을 열거하고 해당 값을 가져옵니다. 예를 들어, .NET에서는 [EventData 개체의 속성 컬렉션](/dotnet/api/microsoft.servicebus.messaging.eventdata)에 액세스하여 이를 수행합니다.
 
 이전 예제에서는 IoT Hub로 보내는 이벤트에 속성을 연결 하 고 있습니다. IoT Hub에서 수신한 메시지에도 속성을 첨부할 수 있습니다. 메시지에서 속성을 가져오려면 메시지 콜백 함수에 다음과 같은 코드를 사용할 수 있습니다.
 
@@ -277,4 +277,4 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)를 참조하세요.
+IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)를 참조하세요.

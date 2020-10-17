@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192540"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148979"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -69,11 +69,11 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
     ![제거 단추](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 제거 요청은 **Microsoft에서 Azure CDN**를 처리 하는 데 약 10 분, Verizon (표준 및 프리미엄) **의 Azure CDN** , **Akamai의 Azure CDN**를 사용 하 여 약 10 초까지 소요 됩니다.  Azure CDN은 프로필 수준에서 동시 제거 요청이 항상 50개로 제한됩니다. 
+> 제거 요청은 **Microsoft에서 Azure CDN**를 처리 하는 데 약 10 분, Verizon (표준 및 프리미엄) **의 Azure CDN** , **Akamai의 Azure CDN**를 사용 하 여 약 10 초까지 소요 됩니다.  Azure CDN는 프로필 수준에서 지정 된 시간에 동시 제거 요청 수가 100 개로 제한 됩니다. 
 > 
 > 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure CDN 엔드포인트에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 엔드포인트 제거 또는 미리 로드](/rest/api/cdn/endpoints)
 

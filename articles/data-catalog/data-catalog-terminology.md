@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736285"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151445"
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure 데이터 카탈로그 용어
 
@@ -39,7 +39,7 @@ Azure 데이터 카탈로그는 데이터 원본이 있는 클라우드 기반 �
 
 ## <a name="descriptive-metadata"></a>설명이 포함된 메타데이터
 
-설명이 포함된 메타데이터는 목적 또는 데이터 자산의 의도를 설명하는 메타데이터입니다. 일반적으로 설명이 포함된 메타데이터는 Azure 데이터 카탈로그 포털을 사용하여 카탈로그 사용자가 추가하지만 등록 중에 데이터 원본에서 추출할 수도 있습니다. 예를 들어 Azure Data Catalog Registration Tool은 SQL Server Analysis Services 및 SQL Server Reporting Services의 Description 속성 및 SQL Server의 [ms_description extended property](https://technet.microsoft.com/library/ms190243.aspx)(이러한 속성이 값으로 채워진 경우)에서 설명을 추출합니다.
+설명이 포함된 메타데이터는 목적 또는 데이터 자산의 의도를 설명하는 메타데이터입니다. 일반적으로 설명이 포함된 메타데이터는 Azure 데이터 카탈로그 포털을 사용하여 카탈로그 사용자가 추가하지만 등록 중에 데이터 원본에서 추출할 수도 있습니다. 예를 들어 Azure Data Catalog Registration Tool은 SQL Server Analysis Services 및 SQL Server Reporting Services의 Description 속성 및 SQL Server의 [ms_description extended property](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105))(이러한 속성이 값으로 채워진 경우)에서 설명을 추출합니다.
 
 ## <a name="request-access"></a>액세스 요청
 
@@ -86,4 +86,4 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작: Azure Data Catalog 만들기](data-catalog-get-started.md) 
+[빠른 시작: Azure Data Catalog 만들기](data-catalog-get-started.md)

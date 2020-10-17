@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429145"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151654"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Azure IoT hub를 다른 지역에 복제 하는 방법
 
@@ -385,7 +385,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 이제 복제를 실행 하 고 나면 원본 허브의 모든 장치를 복제로 복사 해야 합니다. 
 
-여러 가지 방법으로이를 수행할 수 있습니다. 처음에는 [장치 프로 비전 서비스 (DPS)](/azure/iot-dps/about-iot-dps)를 사용 하 여 장치를 프로 비전 했거나 아직 하지 않았습니다. 수행한 경우에는이 방법이 어렵습니다. 그렇게 하지 않으면 매우 복잡할 수 있습니다. 
+여러 가지 방법으로이를 수행할 수 있습니다. 처음에는 [장치 프로 비전 서비스 (DPS)](../iot-dps/about-iot-dps.md)를 사용 하 여 장치를 프로 비전 했거나 아직 하지 않았습니다. 수행한 경우에는이 방법이 어렵습니다. 그렇게 하지 않으면 매우 복잡할 수 있습니다. 
 
 장치를 프로 비전 하는 데 DPS를 사용 하지 않은 경우 다음 섹션을 건너뛰고 [Import/Export를 사용 하 여 장치를 새 허브로 이동](#using-import-export-to-move-the-devices-to-the-new-hub)하는 것부터 시작할 수 있습니다.
 
@@ -601,4 +601,4 @@ IoT hub를 새 지역의 새 허브로 복제 하 여 장치를 완료 합니다
 
 * [IoT Hub 장치 관리 개요](iot-hub-device-management-overview.md)
 
-* 샘플 응용 프로그램을 배포 하려는 경우 [.Net Core 응용 프로그램 배포](https://docs.microsoft.com/dotnet/core/deploying/index)를 참조 하세요.
+* 샘플 응용 프로그램을 배포 하려는 경우 [.Net Core 응용 프로그램 배포](/dotnet/core/deploying/index)를 참조 하세요.

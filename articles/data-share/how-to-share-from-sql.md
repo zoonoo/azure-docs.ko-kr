@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761926"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150388"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -54,7 +54,7 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크*로 이동합니다.
     1. *Azure 서비스 및 리소스가이 서버에 액세스할 수 있도록 허용*에 대해 **예** 를 클릭 합니다.
     1. **+ 클라이언트 IP 추가**를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
-    1. **Save**을 클릭합니다. 
+    1. **저장**을 클릭합니다. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -169,7 +169,7 @@ Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synap
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크*로 이동합니다.
     1. *Azure 서비스 및 리소스가이 서버에 액세스할 수 있도록 허용*에 대해 **예** 를 클릭 합니다.
     1. **+ 클라이언트 IP 추가**를 클릭 합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
-    1. **Save**을 클릭합니다. 
+    1. **저장**을 클릭합니다. 
 
 ### <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -277,7 +277,23 @@ SQL 원본에서 데이터를 공유 하는 경우 스냅숏 프로세스 중에
 > 1. Decimal 중간 형식에 매핑되는 데이터 형식의 경우 현재 스냅숏은 최대 28 까지의 전체 자릿수를 지원 합니다. 전체 자릿수가 28 보다 큰 데이터를 사용 하는 경우 문자열로 변환 하는 것이 좋습니다. 
 > 1.  Azure SQL database에서 Azure Synapse Analytics로 데이터를 공유 하는 경우 모든 데이터 형식이 지원 되는 것은 아닙니다. 자세한 내용은 [SYNAPSE SQL pool의 테이블 데이터 형식](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) 을 참조 하세요. 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted 또는 동적 데이터 마스킹
+현재 Azure 데이터 공유는 Always Encrypted 구성 된 Azure SQL database를 지원 하지 않습니다. 
+
+동적 데이터 마스킹을 사용 하는 원본 SQL 테이블의 경우 데이터는 받는 사람 측에 마스킹된 것으로 나타납니다.
+
+## <a name="sql-snapshot-performance"></a>SQL 스냅숏 성능
+SQL 스냅숏 성능은 여러 가지 요인의 영향을 받습니다. 항상 고유한 성능 테스트를 수행 하는 것이 좋습니다. 다음은 성능에 영향을 주는 몇 가지 예제 요소입니다.
+
+* 원본 및 대상 SQL 데이터 저장소의 하드웨어 구성 (예: vCores, 메모리, DWU). 
+* 원본 및 대상 데이터 저장소에 대 한 동시 액세스. 동일한 SQL 데이터 저장소에서 여러 테이블과 뷰를 공유 하거나 동일한 SQL 데이터 저장소에 여러 테이블 및 뷰를 수신 하는 경우 성능에 영향을 줍니다.   
+* 원본 및 대상 데이터 저장소의 위치입니다. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>SQL 스냅숏 오류 문제 해결
+스냅숏 실패의 가장 일반적인 원인은 데이터 공유에 원본 또는 대상 데이터 저장소에 대 한 권한이 없는 것입니다. 원본 또는 대상 SQL 데이터 저장소에 데이터 공유 권한을 부여 하려면 Azure Active Directory 인증을 사용 하 여 SQL 데이터베이스에 연결할 때 제공 된 SQL 스크립트를 실행 해야 합니다. 추가 SQL 스냅숏 실패 문제를 해결 하려면 [스냅숏 오류 문제 해결](data-share-troubleshoot.md#snapshot-failed)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure 데이터 공유 서비스를 사용 하 여 저장소 계정에서 데이터를 공유 하 고 수신 하는 방법을 배웠습니다. 다른 데이터 원본에서 공유 하는 방법에 대 한 자세한 내용은 [지원 되는 데이터 저장소](supported-data-stores.md)를 계속 확인 하세요.
+Azure 데이터 공유 서비스를 사용 하 여 SQL 원본에서 데이터를 공유 하 고 수신 하는 방법을 배웠습니다. 다른 데이터 원본에서 공유 하는 방법에 대 한 자세한 내용은 [지원 되는 데이터 저장소](supported-data-stores.md)를 계속 확인 하세요.
+
+
 

@@ -62,7 +62,7 @@
         - name: 규칙 만들기
           href: tutorial-create-telemetry-rules.md
         - name: IoT Central API 살펴보기
-          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
+          href: /learn/modules/manage-iot-central-apps-with-rest-api/
 - name: 개념
   items:
     - name: Architecture
@@ -184,7 +184,7 @@
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../../iot-fundamentals/iot-support-help.md
     - name: 업계 애플리케이션 템플릿
       items:
         - name: 소매
@@ -198,32 +198,32 @@
     - name: Azure IoT 서비스
       items:
         - name: IoT Hub
-          href: /azure/iot-hub
+          href: ../../iot-hub/index.yml
         - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
+          href: ../../iot-dps/index.yml
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /microsoft-iot-central/
         - name: IoT Edge
-          href: /azure/iot-edge
+          href: ../../iot-edge/index.yml
         - name: IoT 솔루션 가속기
-          href: /azure/iot-accelerators
+          href: ../../iot-accelerators/index.yml
         - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
+          href: ../../iot-pnp/index.yml
         - name: Azure Maps
-          href: /azure/azure-maps
+          href: ../../azure-maps/index.yml
         - name: Time Series Insights
-          href: /azure/time-series-insights
+          href: ../../time-series-insights/index.yml
     - name: Azure IoT SDK
       items:
         - name: IoT 서비스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: IoT 디바이스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: IoT Central API 참조
-      href: 'https://docs.microsoft.com/rest/api/iotcentral/'
+      href: /rest/api/iotcentral/
     - name: 고객 데이터 요청
       href: iot-central-customer-data-requests.md
     - name: 지원되는 브라우저
       href: iot-central-supported-browsers.md
     - name: Azure IoT Central(레거시 템플릿)
-      href: 'https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central'
+      href: /previous-versions/azure/iot-central/core/overview-iot-central

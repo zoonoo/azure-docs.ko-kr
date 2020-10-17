@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102730"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150415"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>개인 끝점을 통한 인덱서 연결 (Azure Cognitive Search)
 
@@ -33,7 +33,7 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 일부 리소스에 대 한 개인 끝점 연결은 `2020-08-01-Preview` 아래 표에 있는 "preview" 태그로 표시 된 검색 관리 API (또는 그 이상)의 미리 보기 버전 으로만 만들 수 있습니다. "Preview" 태그가 없는 리소스는 미리 보기 또는 일반적으로 사용 가능한 API 버전 (이상)을 사용 하 여 만들 수 있습니다 `2020-08-01` .
 
-다음은 Azure Cognitive Search에서 아웃 바운드 개인 끝점을 만들 수 있는 Azure 리소스 목록입니다. `groupId` 아래 표에 나열 된는 공유 개인 링크 리소스를 만들기 위해 API에서 정확히 (대/소문자 구분) 사용 해야 합니다.
+다음은 Azure Cognitive Search에서 아웃 바운드 개인 끝점을 만들 수 있는 Azure 리소스 목록입니다. `groupId`아래 표에 나열 된 값은 공유 개인 링크 리소스를 만들기 위해 API에서 정확히 쓰여진 대로 (대/소문자 구분) 사용 해야 합니다.
 
 | Azure 리소스 | 그룹 ID |
 | --- | --- |
@@ -47,7 +47,7 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 아웃 바운드 개인 끝점 연결을 지 원하는 Azure 리소스의 목록은 지원 되는 [API 목록](/rest/api/searchmanagement/privatelinkresources/listsupported)을 사용 하 여 쿼리할 수도 있습니다.
 
-이 문서에서는 [ARMClient](https://github.com/projectkudu/ARMClient) 및 [postman](https://www.postman.com/) 의 혼합을 사용 하 여 REST API 호출을 보여 줍니다.
+이 문서의 나머지 부분에서는 [ARMClient](https://github.com/projectkudu/ARMClient) 및 [postman](https://www.postman.com/) 의 조합을 사용 하 여 REST API 호출을 보여 줍니다.
 
 > [!NOTE]
 > 이 문서 전체에서는 검색 서비스의 이름이 __contoso-search__ 구독 ID가 __00000000-0000-0000-0000-000000000000__인 구독의 리소스 그룹 __contoso__ 에 존재 하는 것으로 가정 합니다. 이 검색 서비스의 리소스 ID는 다음과 같을 예정입니다. `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

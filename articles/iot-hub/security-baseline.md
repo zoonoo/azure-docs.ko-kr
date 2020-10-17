@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906915"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150568"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Azure IoT Hub에 대 한 Azure 보안 기준
 
@@ -33,9 +33,9 @@ Microsoft Azure IoT Hub의 Azure 보안 기준에는 배포의 보안 상태를 
 원치 않는 액세스를 방지 하기 위해 장치의 오픈 하드웨어 포트를 최소한의 상태로 유지 합니다. 또한 장치의 물리적 변조를 방지 하거나 검색 하는 메커니즘을 빌드 하세요.
 
 - [IoT 가상 네트워크 지원](virtual-network-support.md)
-- [많은 네트워킹 모범 사례](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
+- [많은 네트워킹 모범 사례](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
 - [Azure 개인 링크 개요](../private-link/private-link-overview.md)
-- [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)
+- [Azure 네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -75,7 +75,7 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 - [Azure DDoS Protection 기본 관리](../virtual-network/ddos-protection-overview.md)
 
-- [위협 방지 및 Azure Security Center](../security-center/threat-protection.md)
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -138,7 +138,7 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 **지침**: 논리적으로 분류로 구성 하기 위해 Azure IoT Hub 배포와 연결 된 네트워크 리소스에 대 한 태그를 사용 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -148,7 +148,7 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure IoT Hub와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -274,9 +274,9 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure IoT hub에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다. 
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -296,7 +296,7 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 관리 계정에 대 한 just-in-time 액세스를 사용 하도록 설정할 수도 있습니다.
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center 모니터링**: 예
 
@@ -340,7 +340,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 **지침**: Azure Active Directory 보안 보고서 및 모니터링을 사용 하 여 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 시기를 검색 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
@@ -376,9 +376,9 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
 
 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고를 생성 하는 데 PIM (Azure AD Privileged Identity Management)을 사용 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 - [Azure AD id 및 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
-- [Azure AD PIM(Privileged Identity Management) 배포](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Azure AD PIM(Privileged Identity Management) 배포](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -392,7 +392,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 사용자 Azure Monitor 진단 로그를 사용 하 여 연결 범주에서 무단 연결 시도를 모니터링 합니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [IoT hub에 대 한 진단 로그 구성](iot-hub-monitor-resource-health.md)
 
@@ -404,7 +404,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD ID 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
   
-- [ Azure AD 위험한 로그인을 확인 하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [ Azure AD 위험한 로그인을 확인 하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
   
 - [ Id 보호 위험 정책을 구성 하 고 사용 하도록 설정 하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
@@ -430,7 +430,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
  
-- [ 태그를 만들고 사용 하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [ 태그를 만들고 사용 하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -440,9 +440,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
   
-- [ 추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
-- [ 관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
-- [ 태그를 만들고 사용 하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [ 추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
+- [ 관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
+- [ 태그를 만들고 사용 하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -593,7 +593,7 @@ Azure IoT Hub은 데이터 센터에 기록 될 때 미사용 데이터 및 전�
 
 **지침**: Azure 리소스에 태그를 적용 합니다 (일부 리소스는 태그를 지원 하지만 대부분의 경우, 대부분의 경우)을 분류로 논리적으로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -603,11 +603,11 @@ Azure IoT Hub은 데이터 센터에 기록 될 때 미사용 데이터 및 전�
 
 **지침**: 해당 하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
   
-- [ 추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [ 추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
   
-- [ 관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [ 관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
   
-- [ 태그를 만들고 사용 하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [ 태그를 만들고 사용 하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -725,7 +725,7 @@ Azure Resource Manager은 구성이 조직의 보안 요구 사항을 충족 하
 
 Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구성 기준으로 사용할 수도 있습니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
@@ -769,8 +769,8 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure IoT Hub 또는 관련 리소스에 대 한 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -830,8 +830,8 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 - [IoT Hub 보안 토큰](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [IoT Hub에 관리 id를 사용 하는 방법](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [주요 자격 증명 모음을 만드는 방법](/azure/key-vault/quick-create-portal)
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](/azure/key-vault/managed-identity)
+- [주요 자격 증명 모음을 만드는 방법](../key-vault/secrets/quick-create-portal.md)
+- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -940,7 +940,7 @@ Microsoft 맬웨어 방지는 Azure 서비스(예: Azure App Service)를 지원�
  
  
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
-- [Azure Blob 저장소에 대 한 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Azure Blob 저장소에 대 한 일시 삭제](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -973,7 +973,7 @@ Microsoft 맬웨어 방지는 Azure 서비스(예: Azure App Service)를 지원�
   
 - [ Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
   
-- [ 태그를 사용 하 여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags)
+- [ 태그를 사용 하 여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1039,5 +1039,5 @@ Microsoft 맬웨어 방지는 Azure 서비스(예: Azure App Service)를 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

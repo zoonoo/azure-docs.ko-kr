@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0837184528582a84d93ab92cde4662b352666f53
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393896"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150340"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Cognitive Services에 대 한 Azure 보안 기준
 
@@ -992,7 +992,7 @@ Microsoft 맬웨어 방지는 azure 서비스 (예: Azure Cognitive Services)를
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: Azure devops를 사용 하 여 Azure Resource Manager 템플릿을 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.  역할 기반 액세스 제어를 사용 하 여 고객 관리 키를 보호 합니다. Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 
+**지침**: Azure devops를 사용 하 여 Azure Resource Manager 템플릿을 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스를 보호 하기 위해 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.  Azure 역할 기반 액세스 제어를 사용 하 여 고객 관리 키를 보호 합니다. Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 
 
 * [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 988077a8a14339dea51bc36fdf6405b0f2f549ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1112df382fb10051ac06c4461a9e4328e1663388
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019464"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139322"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>IoT Hub (Python)를 사용 하 여 장치에서 클라우드로 파일 업로드
 
@@ -109,7 +109,7 @@ ms.locfileid: "90019464"
             return (False, ex)
     ```
 
-    이 함수는이 함수에 전달 된 *blob_info* 구조체를 구문 분석 하 여 [azure. Blob. blobclient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python)를 초기화 하는 데 사용 하는 URL을 만듭니다. 그런 다음이 클라이언트를 사용 하 여 Azure blob storage에 파일을 업로드 합니다.
+    이 함수는이 함수에 전달 된 *blob_info* 구조체를 구문 분석 하 여 [azure. Blob. blobclient](/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python)를 초기화 하는 데 사용 하는 URL을 만듭니다. 그런 다음이 클라이언트를 사용 하 여 Azure blob storage에 파일을 업로드 합니다.
 
 1. 클라이언트를 연결 하 고 파일을 업로드 하는 다음 코드를 추가 합니다.
 
@@ -209,6 +209,6 @@ ms.locfileid: "90019464"
 
 다음 링크를 사용 하 여 Azure Blob Storage에 대해 자세히 알아보세요.
 
-* [Azure Blob Storage 설명서](https://docs.microsoft.com/azure/storage/blobs/)
+* [Azure Blob Storage 설명서](../storage/blobs/index.yml)
 
-* [Python API 설명서에 대 한 Azure Blob Storage](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Python API 설명서에 대 한 Azure Blob Storage](/python/api/overview/azure/storage-blob-readme?view=azure-python)

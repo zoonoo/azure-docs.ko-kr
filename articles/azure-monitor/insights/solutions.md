@@ -5,13 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/07/2020
-ms.openlocfilehash: d509862fe4dafff174ee03c3b5cc887fa9d9ff22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c64e01253652ea3b49ad6221f161bb78f499b6ed
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085997"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150542"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -59,6 +60,21 @@ az monitor log-analytics solution list --subscription MySubscription
 
 # List all log-analytics solutions in a resource group
 az monitor log-analytics solution list --resource-group MyResourceGroup
+```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+[AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/get-azmonitorloganalyticssolution) cmdlet을 사용 하 여 구독에 설치 된 모니터링 솔루션을 나열 합니다. 이러한 명령을 실행 하기 전에 [모니터링 솔루션 설치](#install-a-monitoring-solution)에 있는 필수 구성 요소를 따릅니다.
+
+```azurepowershell-interactive
+# List all log-analytics solutions in the current subscription.
+Get-AzMonitorLogAnalyticsSolution
+
+# List all log-analytics solutions for a specific subscription
+Get-AzMonitorLogAnalyticsSolution -SubscriptionId 00000000-0000-0000-0000-000000000000
+
+# List all log-analytics solutions in a resource group
+Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 ```
 
 * * *
@@ -151,6 +167,54 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
                                            Microsoft.OperationalInsights/workspaces/{WorkspaceName}"
 ```
 
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+### <a name="prepare-your-environment"></a>환경 준비
+
+1. Azure Powershell 설치
+
+   Azure PowerShell 참조 명령을 실행 하기 전에 [Azure PowerShell을 설치](/powershell/azure/install-az-ps) 해야 합니다. 원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다. Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다. 다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
+
+   - 다음으로 이동 하 여 Cloud Shell을 엽니다. [https://shell.azure.com](https://shell.azure.com)
+
+   - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
+
+   > [!IMPORTANT]
+   > **MonitoringSolutions** PowerShell 모듈은 미리 보기 상태 이지만 cmdlet을 사용 하 여 별도로 설치 해야 합니다 `Install-Module` . 이 PowerShell 모듈은 일반적으로 사용할 수 있게 되 면 이후 Az PowerShell 모듈 릴리스에 포함 되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
+
+   ```azurepowershell-interactive
+   Install-Module -Name Az.MonitoringSolutions
+   ```
+
+1. 로그인합니다.
+
+   PowerShell의 로컬 설치를 사용 하는 경우 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 로그인 합니다. PowerShell에 표시 된 단계에 따라 인증 프로세스를 완료 합니다.
+
+   ```azurepowershell
+   Connect-AzAccount
+   ```
+
+### <a name="install-a-solution-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 솔루션 설치
+
+솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다. Azure PowerShell를 사용 하 여 [MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell 모듈에서 cmdlet을 사용 하 여 작업 영역을 관리 합니다. [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
+
+[AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/new-azmonitorloganalyticssolution) cmdlet을 사용 하 여 모니터링 솔루션을 설치 합니다. 대괄호 안의 매개 변수는 선택 사항입니다.
+
+```azurepowershell
+New-AzMonitorLogAnalyticsSolution -ResourceGroupName <string> -Type <string> -Location <string>
+-WorkspaceResourceId <string> [-SubscriptionId <string>] [-Tag <hashtable>]
+[-DefaultProfile <psobject>] [-Break] [-HttpPipelineAppend <SendAsyncStep[]>]
+[-HttpPipelinePrepend <SendAsyncStep[]>] [-Proxy <uri>] [-ProxyCredential <pscredential>]
+[-ProxyUseDefaultCredentials] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+다음 예에서는 log analytics 작업 영역에 대 한 모니터 log analytics 솔루션을 만듭니다.
+
+```azurepowershell-interactive
+$workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName MyResourceGroup -Name WorkspaceName
+New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResourceGroup -Location $workspace.Location -WorkspaceResourceId $workspace.ResourceId
+```
+
 * * *
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
@@ -185,6 +249,14 @@ az monitor log-analytics solution delete --name
                                          --resource-group
                                          [--no-wait]
                                          [--yes]
+```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Azure PowerShell를 사용 하 여 설치 된 솔루션을 제거 하려면 [AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) cmdlet을 사용 합니다.
+
+```azurepowershell-interactive
+Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name WorkspaceName
 ```
 
 * * *

@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 527d9e2e43a4003dd5300c26fc58b1e456186351
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d613da4d9abdfe22fc20f1b74da41e4a65cbff33
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077393"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151576"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
@@ -33,7 +33,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 
 설치를 시작 하기 전에 다음 SAP 참고 사항 및 설명서를 참조 하세요.
 
-| SAP note | 설명 |
+| SAP note | Description |
 | --- | --- |
 | [1928533] | Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
 | [2015553] | Azure의 SAP: 지원 필수 조건 |
@@ -403,6 +403,8 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 > [!NOTE]
 > 표준 Load Balancer SKU는 Load Balancer 아래의 노드에서 공용 IP 주소에 액세스할 때 제한이 있습니다. [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md) 문서에서는 이러한 노드가 공용 IP 주소에 액세스할 수 있도록 하는 방법에 대해 설명 합니다.
 
+> [!IMPORTANT]
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
 
 
 1. 프런트 엔드 IP 풀을 만듭니다.

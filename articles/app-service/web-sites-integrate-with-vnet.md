@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018630"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150146"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
-이 문서에서는 Azure App Service VNet 통합 기능 및 앱으로 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 설정 방법을 설명합니다. [Azure VNet(Virtual Network)][VNETOverview]으로 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. VNet 통합 기능을 사용 하면 앱에서 VNet을 통해 또는의 리소스에 액세스할 수 있습니다. VNet 통합을 사용 하면 앱을 개인적으로 액세스할 수 없습니다.
+이 문서에서는 Azure App Service VNet 통합 기능 및 앱으로 [Azure App Service](./overview.md) 설정 방법을 설명합니다. [Azure VNet(Virtual Network)][VNETOverview]으로 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. VNet 통합 기능을 사용 하면 앱에서 VNet을 통해 또는의 리소스에 액세스할 수 있습니다. VNet 통합을 사용 하면 앱을 개인적으로 액세스할 수 없습니다.
 
 Azure App Service VNet 통합 기능에는 두 가지 변형이 있습니다.
 

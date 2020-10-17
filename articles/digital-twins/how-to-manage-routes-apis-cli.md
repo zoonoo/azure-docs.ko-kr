@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 데이터에 대 한 끝점 및 이벤트 경로를 설정 하 고 관리 하는 방법을 참조 하세요.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/23/2020
+ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 65e7a425fdf8ee1b253bcb696792b569b7195d4c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 14edc97115735f8b6763171a07b5f739fc745e9f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047372"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151253"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -24,12 +24,12 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Azure Portal](https://portal.azure.com)를 통해 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - Resource group
+    - 리소스 그룹
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Azure Digital Twins에 대 한 끝점 만들기
 
@@ -84,6 +84,70 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 * Event Hubs 끝점 추가 (미리 만든 Event Hubs 리소스 필요)
 ```azurecli
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
+
+끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다.
+
+배달 못 한 편지 처리를 사용 하도록 설정 된 끝점을 만들려면 [ARM api](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 끝점을 만들어야 합니다. 
+
+배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 끝점을 만들 때이 컨테이너의 URL을 제공 합니다. 배달 못 한 편지는 SAS 토큰을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) 를 참조 하세요.
+
+배달 못 한 편지에 대해 자세히 알아보려면 [개념: 이벤트 경로](./concepts-route-events.md#dead-letter-events) 를 참조 하세요.
+
+#### <a name="configuring-the-endpoint"></a>끝점 구성
+
+끝점을 만들 때 `deadLetterSecret` `properties` 저장소 계정에 대 한 컨테이너 URL 및 SAS 토큰을 포함 하는 요청 본문의 개체에를 추가 합니다.
+
+```json
+{
+  "properties": {
+    "endpointType": "EventGrid",
+    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+    "accessKey1": "xxxxxxxxxxx",
+    "accessKey2": "xxxxxxxxxxx",
+    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
+  }
+}
+```
+
+자세한 내용은 Azure Digital Twins REST API 설명서: [끝점-DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)를 참조 하세요.
+
+### <a name="message-storage-schema"></a>메시지 저장소 스키마
+
+배달 못 한 메시지는 저장소 계정에서 다음 형식으로 저장 됩니다.
+
+`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+
+배달 못 한 편지 메시지는 원래 끝점에 전달 하기 위한 원래 이벤트의 스키마와 일치 합니다.
+
+다음은 쌍 [만들기 알림에](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications)대 한 배달 못 한 편지 메시지의 예입니다.
+
+```json
+{
+  "specversion": "1.0",
+  "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "data": {
+    "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "TwinData": "some sample",
+    "$metadata": {
+      "$model": "dtmi:test:deadlettermodel;1",
+      "room": {
+        "lastUpdateTime": "2020-10-14T01:11:49.3576659Z"
+      }
+    }
+  },
+  "subject": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "time": "2020-10-14T01:11:49.3667224Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
+}
 ```
 
 ## <a name="event-routes-with-apis-and-the-c-sdk"></a>이벤트 경로 (Api 및 c # SDK 포함)

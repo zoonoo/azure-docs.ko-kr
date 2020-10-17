@@ -4,16 +4,16 @@ description: 다운스트림 디바이스 또는 리프 디바이스를 IoT Hub�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046726"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151389"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -21,13 +21,13 @@ ms.locfileid: "92046726"
 
 성공적인 투명 게이트웨이 연결을 설정하기 위한 세 가지 일반적인 단계가 있습니다. 이 문서에서는 두 번째 단계에 대해 설명합니다.
 
-1. 다운스트림 장치를 안전 하 게 연결할 수 있도록 게이트웨이 장치를 서버로 구성 합니다. 다운스트림 장치에서 메시지를 수신 하 고 적절 한 대상으로 라우팅하는 게이트웨이를 설정 합니다. 자세한 내용은 [투명 게이트웨이로 작동하도록 IoT Edge 디바이스 구성](how-to-create-transparent-gateway.md)을 참조하세요.
+1. 다운스트림 장치를 안전 하 게 연결할 수 있도록 게이트웨이 장치를 서버로 구성 합니다. 다운스트림 장치에서 메시지를 수신 하 고 적절 한 대상으로 라우팅하는 게이트웨이를 설정 합니다. 이러한 단계는 투명 한 [게이트웨이로 작동 하도록 IoT Edge 장치 구성](how-to-create-transparent-gateway.md)을 참조 하세요.
 2. **IoT Hub를 사용 하 여 인증할 수 있도록 다운스트림 장치에 대 한 장치 id를 만듭니다. 게이트웨이 장치를 통해 메시지를 보내도록 다운스트림 장치를 구성 합니다.**
-3. 다운스트림 장치를 게이트웨이 장치에 연결 하 고 메시지 보내기를 시작 합니다. 자세한 내용은 [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)을 참조하세요.
+3. 다운스트림 장치를 게이트웨이 장치에 연결 하 고 메시지 보내기를 시작 합니다. 이러한 단계는 [Azure IoT Edge 게이트웨이에 다운스트림 장치 연결](how-to-connect-downstream-device.md)을 참조 하세요.
 
 다운스트림 디바이스는 대칭 키(공유 액세스 키라고도 함), X.509 자체 서명된 인증서, X.509 CA(인증 기관) 서명된 인증서 등 세 가지 방법 중 하나를 사용하여 IoT Hub에서 인증할 수 있습니다. 인증 단계는 IoT Hub를 사용하여 비-IoT Edge 디바이스를 설정하는 데 사용되는 단계와 비슷하지만, 게이트웨이 관계를 선언하는 데 있어 약간의 차이가 있습니다.
 
-이 문서의 단계는 수동 장치 프로 비전을 보여 줍니다. Azure IoT Hub 장치 프로 비전 서비스 (DPS)를 사용 하는 자동 프로 비전 다운스트림 장치는 지원 되지 않습니다.
+Azure IoT Hub 장치 프로 비전 서비스 (DPS)를 사용 하는 자동 프로 비전 다운스트림 장치는 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -42,10 +42,16 @@ X.509 인증을 사용 하는 경우 다운스트림 장치에 대 한 인증서
 다운스트림 장치에서 IoT Hub 인증 하는 방법을 선택 합니다.
 
 * [대칭 키 인증](#symmetric-key-authentication): IoT Hub 다운스트림 장치에 배치 하는 키를 만듭니다. 장치가 인증 되 면 IoT Hub는 두 키가 일치 하는지 확인 합니다. 대칭 키 인증을 사용 하기 위해 추가 인증서를 만들 필요가 없습니다.
+
+  이 방법은 개발 또는 테스트 시나리오에서 게이트웨이를 테스트 하는 경우 시작 하는 것이 더 빠릅니다.
+
 * [X.509 자체 서명 인증](#x509-self-signed-authentication): 장치 x.509 인증서의 지문을 IoT Hub와 공유 하므로 지문 인증이 라고도 합니다.
+
+  프로덕션 시나리오에서 장치에 대 한 인증서 인증을 권장 합니다.
+
 * [X.509 CA 서명 인증](#x509-ca-signed-authentication): IoT Hub에 루트 ca 인증서를 업로드 합니다. 장치에서 인증을 위해 x.509 인증서를 제공 하는 경우 IoT Hub는 동일한 루트 CA 인증서로 서명 된 신뢰 체인에 속하는지 확인 합니다.
 
-이 세 가지 방법 중 하나를 사용 하 여 장치를 등록 한 후에는 다음 섹션으로 이동 하 여 다운스트림 장치에 대 한 [연결 문자열을 검색 하 고 수정](#retrieve-and-modify-connection-string) 합니다.
+  프로덕션 시나리오에서 장치에 대 한 인증서 인증을 권장 합니다.
 
 ### <a name="symmetric-key-authentication"></a>대칭 키 인증
 
@@ -59,17 +65,15 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
 
 * 인증 유형으로 **대칭 키**를 선택합니다.
 
-* **부모 장치 설정** 을 선택 하 고이 다운스트림 장치에서 연결할 IoT Edge 게이트웨이 장치를 선택 합니다. 이 단계에서는 다운스트림 장치에 대 한 [오프 라인 기능](offline-capabilities.md) 을 사용 하도록 설정 합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
+* **부모 장치 설정** 을 선택 하 고이 다운스트림 장치에서 연결할 IoT Edge 게이트웨이 장치를 선택 합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
 
    ![포털에서 대칭 키 인증을 사용하여 디바이스 ID 만들기](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-[Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 작업을 완료할 수도 있습니다. 다음 예제에서는 대칭 키 인증을 사용하여 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
+[Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 작업을 완료할 수도 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 대칭 키 인증을 사용 하는 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
-
-디바이스 만들기 및 부모/자식 관리를 위한 Azure CLI 명령에 대한 자세한 내용은 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령에 대한 참조 콘텐츠를 참조하세요.
 
 그런 다음 디바이스에서 해당 게이트웨이를 통한 연결을 인식하도록 [연결 문자열을 검색 및 수정](#retrieve-and-modify-connection-string)합니다.
 
@@ -104,7 +108,7 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) 다운
    * 디바이스 인증서의 주체 이름과 일치하는 **디바이스 ID**를 제공합니다.
    * 인증 유형으로 **X.509 자체 서명**을 선택합니다.
    * 디바이스의 기본 인증서 및 보조 인증서에서 복사한 16진수 문자열을 붙여넣습니다.
-   * **부모 디바이스 설정**을 선택하고 이 다운스트림 디바이스가 통과할 IoT Edge 게이트웨이 디바이스를 선택합니다. 부모 디바이스는 다운스트림 디바이스의 X.509 인증에 필요합니다.
+   * **부모 디바이스 설정**을 선택하고 이 다운스트림 디바이스가 통과할 IoT Edge 게이트웨이 디바이스를 선택합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
 
    ![포털에서 X.509 자체 서명된 인증을 사용하여 디바이스 ID 만들기](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -120,13 +124,11 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) 다운
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-또한 [Azure CLI 용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 X.509 자체 서명 인증을 사용하여 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
+또한 [Azure CLI 용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 x.509 자체 서명 된 인증으로 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
-
-디바이스 만들기, 인증서 생성 및 부모/자식 관리를 위한 Azure CLI 명령에 대한 자세한 내용은 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령에 대한 참조 콘텐츠를 참조하세요.
 
 그런 다음 디바이스에서 해당 게이트웨이를 통한 연결을 인식하도록 [연결 문자열을 검색 및 수정](#retrieve-and-modify-connection-string)합니다.
 
@@ -150,7 +152,7 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 다운스트림 장치에 �
 
    1. 새 디바이스를 추가합니다. **디바이스 ID**에 소문자 이름을 입력하고 인증 유형 **X.509 CA 서명**을 선택합니다.
 
-   2. 부모 디바이스를 설정합니다. 다운스트림 디바이스의 경우 **부모 디바이스 설정**을 선택하고 IoT Hub에 대한 연결을 제공하는 IoT Edge 게이트웨이 디바이스를 선택합니다.
+   2. 부모 디바이스를 설정합니다. **부모 장치 설정** 을 선택 하 고 IoT Hub 연결을 제공 하는 IoT Edge 게이트웨이 장치를 선택 합니다.
 
 4. 다운스트림 디바이스에 대한 인증서 체인을 만듭니다. IoT Hub에 업로드한 것과 동일한 루트 CA 인증서를 사용하여 이 체인을 만듭니다. 포털에서 디바이스 ID에 제공한 것과 동일한 소문자 디바이스 ID를 사용합니다.
 
@@ -166,13 +168,11 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 다운스트림 장치에 �
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-또한 [Azure CLI 용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 X.509 CA 서명 인증을 사용하여 새 IoT 디바이스를 만들고 부모 디바이스를 할당합니다.
+또한 [Azure CLI 용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 장치 만들기 작업을 완료할 수 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 x.509 CA 서명 인증을 사용 하는 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
-
-자세한 내용은 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령에 대한 Azure CLI 참조 콘텐츠를 참조하세요.
 
 그런 다음 디바이스에서 해당 게이트웨이를 통한 연결을 인식하도록 [연결 문자열을 검색 및 수정](#retrieve-and-modify-connection-string)합니다.
 
@@ -201,7 +201,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예:
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -213,4 +213,4 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 
 이 시점에서 IoT Edge 장치가 IoT hub에 등록 되 고 투명 게이트웨이로 구성 됩니다. IoT hub에 등록 하 고 게이트웨이 장치를 가리키는 다운스트림 장치도 있습니다.
 
-이 문서의 단계에서는 다운스트림 장치를 설정 하 여 IoT Hub에 인증 합니다. 그런 다음 게이트웨이 장치를 신뢰 하 고 안전 하 게 연결 하도록 다운스트림 장치를 구성 해야 합니다. 투명 게이트웨이 시리즈의 다음 문서를 계속 진행 하 여 [다운스트림 장치를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)합니다.
+그런 다음 게이트웨이 장치를 신뢰 하 고 안전 하 게 연결 하도록 다운스트림 장치를 구성 해야 합니다. 투명 게이트웨이 시리즈의 다음 문서를 계속 진행 하 여 [다운스트림 장치를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)합니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 030a69c7eca70c081a1d9392bfa527f3386d7c2b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019728"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150605"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 강화 사용
 
@@ -36,7 +36,7 @@ ms.locfileid: "89019728"
 > * 허브로 메시지를 보내는 IoT 장치를 시뮬레이트하는 앱을 실행 합니다.
 > * 결과를 확인 하 고 강화 메시지가 정상적으로 작동 하는지 확인 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Visual Studio](https://www.visualstudio.com/)를 설치합니다.
@@ -259,7 +259,7 @@ az iot hub route create \
 
 2. 이러한 값을 ContosoStorageEndpointEnriched 끝점 목록에 추가 합니다.
 
-   | Key | 값 | 끝점 (드롭다운 목록) |
+   | 키 | 값 | 끝점 (드롭다운 목록) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | Msds-devicelocation | $twin. tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -386,7 +386,7 @@ Unenriched 메시지는 다음과 같습니다. 이러한 필드는 강화에 �
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`이 자습서의 시작 부분에서 **ContosoResourcesMsgEn** 로 설정 된 리콜입니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다. `$resourceGroup`이 자습서의 시작 부분에서 **ContosoResourcesMsgEn** 로 설정 된 리콜입니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

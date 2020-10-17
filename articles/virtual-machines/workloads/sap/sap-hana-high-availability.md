@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/08/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1efa00962e63274c2cc02c8758725e5b11d70a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9efdbb32683c9a244226012bd2d4bfcab6046678
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567829"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151157"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -133,6 +133,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    - 선택한 VM 형식의 SAP HANA에 대해 지원되는 Azure 갤러리에서 SLES4SAP 이미지를 사용합니다.
    - 3단계에서 만든 가용성 집합을 선택합니다. 
 1. 데이터 디스크를 추가합니다.
+
+> [!IMPORTANT]
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.   
+
+> [!Note]
+> 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
+
 1. 표준 부하 분산 장치를 사용하는 경우 다음 구성 단계를 수행합니다.
    1. 먼저 프런트 엔드 IP 풀을 만듭니다.
    
@@ -168,9 +175,6 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. **유휴 상태 시간 제한**을 30분으로 증가시킵니다.
       1. **부동 IP를 사용하도록 설정**했는지 확인합니다.
       1. **확인**을 선택합니다.
-
-   > [!Note]
-   > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 공용 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하여 Virtual Machines에 대한 공용 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
 
 1. 또는 시나리오에서 기본 부하 분산 장치를 사용하는 경우 다음 구성 단계를 수행합니다.
    1. 먼저 프런트 엔드 IP 풀을 만듭니다.

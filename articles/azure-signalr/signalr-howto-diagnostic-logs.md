@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85131987"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151065"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 리소스 로그
 
@@ -20,8 +20,8 @@ ms.locfileid: "85131987"
 ## <a name="prerequisites"></a>사전 요구 사항
 리소스 로그를 사용 하도록 설정 하려면 로그 데이터를 저장 하는 위치에 있어야 합니다. 이 자습서에서는 Azure Storage와 Log Analytics를 사용 합니다.
 
-* [Azure storage](../azure-monitor/platform/resource-logs-collect-storage.md) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) -Azure 리소스에서 생성 된 원시 로그를 분석할 수 있는 유연한 로그 검색 및 분석 도구입니다.
+* [Azure storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) -Azure 리소스에서 생성 된 원시 로그를 분석할 수 있는 유연한 로그 검색 및 분석 도구입니다.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Azure SignalR 서비스에 대 한 리소스 로그 설정
 
@@ -68,7 +68,7 @@ Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
 **형식**
 
-속성 | Description
+Name | Description
 ------- | -------
 time | 로그 이벤트 시간
 수준 | 로그 이벤트 수준
@@ -81,7 +81,7 @@ properties | 이 로그 이벤트와 관련 된 자세한 속성입니다. 자�
 
 **속성 테이블**
 
-속성 | Description
+Name | Description
 ------- | -------
 type | 로그 이벤트의 유형입니다. 현재 Azure SignalR 서비스에 대 한 연결 정보를 제공 합니다. 형식만 `ConnectivityLogs` 사용할 수 있습니다.
 collection | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`
@@ -128,7 +128,7 @@ message | 로그 이벤트의 세부 메시지
 
 보관 로그 열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-속성 | Description
+Name | Description
 ------- | ------- 
 TimeGenerated | 로그 이벤트 시간
 컬렉션 | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`

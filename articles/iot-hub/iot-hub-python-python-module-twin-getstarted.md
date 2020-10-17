@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
-ms.openlocfilehash: 6ed0290abe91453058589b032fb5ed2dd71fe98a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872568"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139405"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (Python)
 
@@ -34,11 +34,11 @@ ms.locfileid: "87872568"
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>IoT 허브 만들기
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -270,4 +270,4 @@ ms.locfileid: "87872568"
 
 * [디바이스 관리 시작](iot-hub-node-node-device-management-get-started.md)
 
-* [IoT Edge 시작](../iot-edge/tutorial-simulate-device-linux.md)
+* [IoT Edge 시작](../iot-edge/quickstart-linux.md)
