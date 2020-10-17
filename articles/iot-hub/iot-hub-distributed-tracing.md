@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462040"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152156"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -35,12 +35,12 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
   - **북유럽**
-  - **동남 아시아**
+  - **동남아시아**
   - **미국 서부 2**
 
 - 이 문서에서는 사용자가 IoT Hub로 원격 분석 메시지를 전송하는 방법을 잘 알고 있다고 가정합니다. [원격 분석 전송 C 빠른 시작](quickstart-send-telemetry-c.md)을 완료해야 합니다.
@@ -93,7 +93,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 ### <a name="clone-the-source-code-and-initialize"></a>소스 코드를 복제 및 초기화
 
-1. Visual Studio 2019에 대 한 ["c + +를 사용한 데스크톱 개발" 워크 로드](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) 를 설치 합니다. Visual Studio 2017 및 2015도 지원 됩니다.
+1. Visual Studio 2019에 대 한 ["c + +를 사용한 데스크톱 개발" 워크 로드](/cpp/build/vscpp-step-0-installation?view=vs-2019) 를 설치 합니다. Visual Studio 2017 및 2015도 지원 됩니다.
 
 1. [CMake](https://cmake.org/)를 설치합니다. 명령 프롬프트에서 `cmake -version`을 입력하여 `PATH`에 있는지 확인합니다.
 
@@ -115,7 +115,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
     cmake ..
     ```
 
-    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
+    `cmake`에서 C++ 컴파일러를 찾을 수 없으면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
@@ -206,7 +206,7 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 1. 0%과 100% 사이의 **샘플링 주기**를 선택합니다.
 
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 1. 몇 초 정도 기다렸다가 **새로 고침**을 누릅니다. 디바이스에서 성공적으로 승인하면 확인 표시가 있는 동기화 아이콘이 나타납니다.
 
@@ -234,7 +234,7 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 ### <a name="bulk-update-for-multiple-devices"></a>여러 디바이스에 대해 대량 업데이트
 
-여러 디바이스에 대해 분산 추적 샘플링 구성을 업데이트하려면 [자동 디바이스 구성](iot-hub-auto-device-config.md)을 사용합니다. 다음과 같은 쌍 스키마를 따라야 합니다.
+여러 디바이스에 대해 분산 추적 샘플링 구성을 업데이트하려면 [자동 디바이스 구성](./iot-hub-automatic-device-management.md)을 사용합니다. 다음과 같은 쌍 스키마를 따라야 합니다.
 
 ```json
 {
@@ -260,7 +260,7 @@ IoT Hub에서 기록된 모든 추적을 보려면 진단 설정에서 선택한
 
 ### <a name="query-using-log-analytics"></a>Log Analytics를 사용한 쿼리
 
-[진단 로그를 사용하여 Log Analytics](../azure-monitor/platform/resource-logs-collect-storage.md)를 설정한 경우 `DistributedTracing` 범주에서 로그를 찾아 쿼리합니다. 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
+[진단 로그를 사용하여 Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 설정한 경우 `DistributedTracing` 범주에서 로그를 찾아 쿼리합니다. 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
 
 ```Kusto
 // All distributed traces 
@@ -282,7 +282,7 @@ Log Analytics에 표시된 예제 로그:
 
 ### <a name="application-map"></a>애플리케이션 맵
 
-IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 앱을 설정합니다. 샘플 앱은 Azure Function 및 Event Hub를 사용하여 분산 추적 로그를 [애플리케이션 맵](../application-insights/app-insights-app-map.md)으로 보냅니다.
+IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 앱을 설정합니다. 샘플 앱은 Azure Function 및 Event Hub를 사용하여 분산 추적 로그를 [애플리케이션 맵](../azure-monitor/app/app-map.md)으로 보냅니다.
 
 > [!div class="button"]
 > <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">GitHub에서 샘플 가져오기</a>
@@ -295,11 +295,11 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 
 ### <a name="context"></a>Context
 
-고유한 [참조 아키텍처](https://aka.ms/iotrefarchitecture)(영문만 지원)를 포함하는 많은 IoT 솔루션은 일반적으로 [마이크로 서비스 아키텍처](https://docs.microsoft.com/azure/architecture/microservices/)의 변형을 따릅니다. IoT 솔루션이 좀 더 복잡해지면서 결과적으로 수십 개가 넘는 마이크로 서비스를 사용하게 됩니다. 이러한 마이크로 서비스는 Azure에서 제공된 것일 수도 있고 그렇지 않을 수도 있습니다. IoT 메시지가 삭제되거나 느려지는 지점을 찾아내는 일은 어려울 수 있습니다. 예를 들어, 5개의 다른 Azure 서비스와 1,500개의 활성 디바이스를 사용하는 IoT 솔루션이 있을 수 있습니다. 각 디바이스는 초당 10개의 디바이스-클라우드 메시지(초당 총 15,000개 메시지)를 보내지만, 웹앱에는 초당 10,000개의 메시지가 표시되는 것으로 확인되었습니다. 문제가 무엇인가요? 원인은 어떻게 찾을 수 있을까요?
+고유한 [참조 아키텍처](https://aka.ms/iotrefarchitecture)(영문만 지원)를 포함하는 많은 IoT 솔루션은 일반적으로 [마이크로 서비스 아키텍처](/azure/architecture/microservices/)의 변형을 따릅니다. IoT 솔루션이 좀 더 복잡해지면서 결과적으로 수십 개가 넘는 마이크로 서비스를 사용하게 됩니다. 이러한 마이크로 서비스는 Azure에서 제공된 것일 수도 있고 그렇지 않을 수도 있습니다. IoT 메시지가 삭제되거나 느려지는 지점을 찾아내는 일은 어려울 수 있습니다. 예를 들어, 5개의 다른 Azure 서비스와 1,500개의 활성 디바이스를 사용하는 IoT 솔루션이 있을 수 있습니다. 각 디바이스는 초당 10개의 디바이스-클라우드 메시지(초당 총 15,000개 메시지)를 보내지만, 웹앱에는 초당 10,000개의 메시지가 표시되는 것으로 확인되었습니다. 문제가 무엇인가요? 원인은 어떻게 찾을 수 있을까요?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>마이크로 서비스 아키텍처의 분산 추적 패턴
 
-여러 서비스에서 IoT 메시지의 흐름을 다시 구성하려면 각 서비스가 메시지를 고유하게 식별하는 *상관 관계 ID*를 전파해야 합니다. 중앙 집중식 시스템에서 수집된 상관 관계 ID를 사용하면 메시지 흐름을 볼 수 있습니다. 이 방법을 [분산 추적 패턴](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing)이라고 합니다.
+여러 서비스에서 IoT 메시지의 흐름을 다시 구성하려면 각 서비스가 메시지를 고유하게 식별하는 *상관 관계 ID*를 전파해야 합니다. 중앙 집중식 시스템에서 수집된 상관 관계 ID를 사용하면 메시지 흐름을 볼 수 있습니다. 이 방법을 [분산 추적 패턴](/azure/architecture/microservices/logging-monitoring#distributed-tracing)이라고 합니다.
 
 분산 추적이 보다 광범위하게 채택되도록 하기 위해 Microsoft는 [분산 추적에 대한 W3C 표준 제안](https://w3c.github.io/trace-context/)에 참가하고 있습니다.
 
@@ -328,5 +328,5 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 ## <a name="next-steps"></a>다음 단계
 
 - 마이크로 서비스의 일반 분산 추적 패턴에 대한 자세한 내용은 [마이크로 서비스 아키텍처 패턴: 분산 추적](https://microservices.io/patterns/observability/distributed-tracing.html)을 참조하세요.
-- 많은 수의 디바이스에 분산 추적 설정을 적용하는 구성을 설정하려면 [대규모로 IoT 디바이스 구성 및 모니터링](iot-hub-auto-device-config.md)을 참조하세요.
+- 많은 수의 디바이스에 분산 추적 설정을 적용하는 구성을 설정하려면 [대규모로 IoT 디바이스 구성 및 모니터링](./iot-hub-automatic-device-management.md)을 참조하세요.
 - Azure Monitor에 대한 자세한 내용은 [Azure Monitor 란?](../azure-monitor/overview.md)을 참조하세요.

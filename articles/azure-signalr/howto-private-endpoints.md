@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302145"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152337"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 개인 끝점 사용
 
@@ -57,7 +57,7 @@ Azure SignalR 서비스 소유자는 [Azure Portal](https://portal.azure.com)에
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 Azure SignalR 서비스 ' foobar '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 속성                                                  | 유형  | 값                                                 |
+| Name                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
@@ -66,7 +66,7 @@ Azure SignalR 서비스 소유자는 [Azure Portal](https://portal.azure.com)에
 
 ' Foobar '에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| 속성                                                  | 유형  | 값                                                 |
+| Name                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
@@ -82,8 +82,8 @@ Azure SignalR Service에 대 한 개인 끝점의 권장 DNS 영역 이름은 `p
 
 전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure 가상 네트워크의 리소스 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [전용 끝점에 대 한 DNS 구성](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Azure 가상 네트워크의 리소스 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [전용 끝점에 대 한 DNS 구성](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
@@ -198,7 +198,7 @@ Azure SignalR Service에 대 한 개인 끝점에 대 한 다음과 같은 알�
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>프라이빗 엔드포인트가 있는 서브넷의 네트워크 보안 그룹 규칙
 
-현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../virtual-network/security-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점에 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
+현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점에 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

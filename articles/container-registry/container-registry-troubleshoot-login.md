@@ -3,12 +3,12 @@ title: 레지스트리에 로그인 문제 해결
 description: Azure container registry에 로그인 할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253357"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148439"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
 
@@ -95,7 +95,7 @@ az acr login --name myregistry
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>레지스트리에 액세스할 수 있는 자격 증명 확인
 
-`AcrPull`레지스트리에서 이미지를 끌어올 RBAC 역할 또는 이미지를 푸시하는 역할 등 자격 증명과 연결 된 레지스트리 사용 권한을 확인 합니다 `AcrPush` . 
+`AcrPull`레지스트리에서 이미지를 끌어오는 Azure 역할 또는 이미지를 푸시하는 역할 등 자격 증명과 연결 된 레지스트리 사용 권한을 확인 합니다 `AcrPush` . 
 
 Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트리에 대 한 액세스에는 최소한 `Reader` Azure Resource Manager 작업을 수행할 역할이 필요 합니다.
 
@@ -103,7 +103,7 @@ Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트�
 
 관련 링크:
 
-* [RBAC 역할 및 사용 권한-Azure Container Registry](container-registry-roles.md)
+* [Azure 역할 및 사용 권한-Azure Container Registry](container-registry-roles.md)
 * [리포지토리 범위 토큰을 사용 하 여 로그인](container-registry-repository-scoped-permissions.md)
 * [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
 * [포털을 사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트�
   * [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)
   * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * 제공 된 정보에 따라 [지원 티켓을 엽니다](https://azure.microsoft.com/support/create-ticket/) . 레지스트리에서 인증 오류에 대 한 빠른 진단을 실행할 수 있습니다.
-
-

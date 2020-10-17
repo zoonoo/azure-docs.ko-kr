@@ -4,12 +4,12 @@ description: Azure Container Instances에 대 한 이미지 및 암호를 보호
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922237"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148672"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 고려 사항
 
@@ -34,7 +34,7 @@ ms.locfileid: "87922237"
 
 솔루션을 활용 하 여 개인 레지스트리에서 컨테이너 이미지를 검색 하 고 잠재적 취약성을 식별 합니다. 여러 솔루션에서 제공 하는 위협 검색의 깊이를 이해 하는 것이 중요 합니다.
 
-예를 들어 Azure Container Registry은 선택적으로 [Azure Security Center와 통합 되어](../security-center/azure-container-registry-integration.md) 레지스트리에 푸시된 모든 Linux 이미지를 자동으로 검색 합니다. Azure Security Center의 통합 Qualys 스캐너는 이미지 취약성을 검색 하 고 분류 하며 수정 지침을 제공 합니다.
+예를 들어 Azure Container Registry은 선택적으로 [Azure Security Center와 통합 되어](../security-center/defender-for-container-registries-introduction.md) 레지스트리에 푸시된 모든 Linux 이미지를 자동으로 검색 합니다. Azure Security Center의 통합 Qualys 스캐너는 이미지 취약성을 검색 하 고 분류 하며 수정 지침을 제공 합니다.
 
 [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 및 [바다색 보안과](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) 같은 보안 모니터링 및 이미지 스캔 솔루션도 Azure Marketplace를 통해 사용할 수 있습니다.  
 
@@ -138,7 +138,7 @@ Safelist 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 �
 
 Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지를 포함 하 여 컨테이너 에코 시스템에 대 한 관리 액세스의 정확한 감사 내역을 유지 관리 합니다. 이러한 로그는 감사 목적으로 필요할 수 있으며 보안 인시던트 후에 법정 증거로 사용 됩니다. Azure 솔루션은 다음과 같습니다.
 
-* 클러스터 환경의 보안 구성을 모니터링 하 고 보안 권장 사항을 생성 하는 [Azure Security Center와 Azure Kubernetes Service 통합](../security-center/azure-kubernetes-service-integration.md)
+* 클러스터 환경의 보안 구성을 모니터링 하 고 보안 권장 사항을 생성 하는 [Azure Security Center와 Azure Kubernetes Service 통합](../security-center/defender-for-kubernetes-introduction.md)
 * [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md)
 * [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md) 에 대 한 리소스 로그
 

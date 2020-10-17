@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032971"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145102"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>조건부 액세스 관련 로그인 문제 해결
 
 이 문서의 정보는 오류 메시지 및 Azure AD 로그인 로그를 사용 하 여 조건부 액세스와 관련 된 예기치 않은 로그인 결과의 문제를 해결 하는 데 사용할 수 있습니다.
+
+## <a name="select-all-consequences"></a>"모든" 결과를 선택 합니다.
+
+조건부 액세스 프레임워크는 뛰어난 구성 유연성을 제공합니다. 그러나 뛰어난 유연성은 바람직하지 않은 결과를 방지 하기 위해 릴리스하기 전에 각 구성 정책을 신중 하 게 검토 해야 한다는 것을 의미 하기도 합니다. 이 컨텍스트에서 **모든 사용자 / 그룹 / 응용 프로그램**등 완전한 집합에 영향을 미치는 할당에 특별한 주의를 기울여야 합니다.
+
+조직에서는 다음 구성을 피해 야 합니다.
+
+**모든 사용자에 대한 모든 클라우드 앱:**
+
+- **액세스 차단** -이 구성은 전체 조직을 차단 합니다.
+- **장치를 규격으로 표시 해야** 함-장치를 아직 등록 하지 않은 사용자의 경우이 정책은 Intune 포털에 대 한 액세스를 비롯 한 모든 액세스를 차단 합니다. 등록된 디바이스가 없는 관리자의 경우 이 정책은 정책을 변경하기 위해 Azure Portal로 다시 돌아가지 않도록 차단합니다.
+- **하이브리드 AZURE ad 도메인 가입 장치 필요** -이 정책 블록 액세스에는 하이브리드 azure ad 조인 장치가 없는 경우 조직의 모든 사용자에 대 한 액세스를 차단할 수도 있습니다.
+- **앱 보호 정책 필요** -이 정책 블록 액세스에는 Intune 정책이 없는 경우 조직의 모든 사용자에 대 한 액세스를 차단할 수도 있습니다. Intune 앱 보호 정책이 있는 클라이언트 응용 프로그램을 사용 하지 않는 관리자의 경우이 정책은 Intune 및 Azure와 같은 포털을 다시 가져올 수 없도록 차단 합니다.
+
+**모든 사용자 경우 모든 클라우드 앱, 모든 디바이스 플랫폼은 다음과 같습니다.**
+
+- **액세스 차단** -이 구성은 전체 조직을 차단 합니다.
 
 ## <a name="conditional-access-sign-in-interrupt"></a>조건부 액세스 로그인 인터럽트
 
@@ -82,8 +99,14 @@ ms.locfileid: "88032971"
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>Azure Portal 잠겨 있으면 어떻게 해야 하나요?
+
+조건부 액세스 정책의 잘못 된 설정으로 인해 Azure Portal 잠겨 있는 경우:
+
+- 아직 차단되지 않은 조직 내 다른 관리자가 있는지 확인합니다. Azure Portal에 대 한 액세스 권한이 있는 관리자는 로그인에 영향을 주는 정책을 사용 하지 않도록 설정할 수 있습니다. 
+- 조직의 관리자가 정책을 업데이트할 수 없는 경우 지원 요청을 제출 합니다. Microsoft 지원에서 액세스를 차단 하는 조건부 액세스 정책 업데이트를 검토 하 고 확인할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory 포털의 로그인 활동 보고서](../reports-monitoring/concept-sign-ins.md)
 - [What If 도구를 사용하여 조건부 액세스 문제 해결](troubleshoot-conditional-access-what-if.md)
-- [Azure Active Directory의 조건부 액세스](best-practices.md) 에 대 한 모범 사례

@@ -4,12 +4,12 @@ description: 이 문서에서는 엔터프라이즈의 Azure DevTest Labs에 대
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367753"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144551"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈를 위한 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 기업의 Azure DevTest Labs 기반 솔루션을 배포 하는 데 도움이 되는 참조 아키텍처를 제공 합니다. 여기에는 다음이 포함 됩니다.
@@ -30,7 +30,7 @@ ms.locfileid: "91367753"
     - 클라우드로 이동할 수 없는 온-프레미스 데이터가 있습니다.
     - 랩의 가상 컴퓨터를 온-프레미스 도메인에 가입 하는 것이 좋습니다.
     - 보안/규정 준수를 위해 온-프레미스 방화벽을 통해 클라우드 환경에서 들어오고 나가는 모든 네트워크 트래픽을 강제로 적용 하려고 합니다.
-- **네트워크 보안 그룹**: 원본 및 대상 IP 주소를 기반으로 클라우드 환경 (또는 클라우드 환경 내)으로 트래픽을 제한 하는 일반적인 방법은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용 하는 것입니다. 예를 들어 회사 네트워크에서 발생 하는 트래픽만 랩의 네트워크로 사용할 수 있습니다.
+- **네트워크 보안 그룹**: 원본 및 대상 IP 주소를 기반으로 클라우드 환경 (또는 클라우드 환경 내)으로 트래픽을 제한 하는 일반적인 방법은 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용 하는 것입니다. 예를 들어 회사 네트워크에서 발생 하는 트래픽만 랩의 네트워크로 사용할 수 있습니다.
 - **원격 데스크톱 게이트웨이**: 기업은 일반적으로 회사 방화벽에서 나가는 원격 데스크톱 연결을 차단 합니다. DevTest Labs에서 클라우드 기반 환경에 연결 하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 예를 들면 다음과 같습니다.
   - [원격 데스크톱 게이트웨이](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)를 사용 하 고 게이트웨이 부하 분산 장치의 고정 IP 주소를 허용 합니다.
   - Express 경로/사이트 간 VPN 연결을 통해 [들어오는 모든 RDP 트래픽을 보냅니다](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) . 이 기능은 기업이 DevTest Labs 배포를 계획할 때 일반적인 고려 사항입니다.

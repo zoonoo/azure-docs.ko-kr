@@ -3,16 +3,16 @@ title: 여러 랩 및 구독에서 Azure DevTest Labs 사용
 description: 여러 랩 및 구독에서 Azure DevTest Labs 사용량을 보고 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287277"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152203"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>여러 랩 및 구독에서 Azure DevTest Labs 사용 보고
 
-대부분의 큰 조직은 사용량에서 추세 및 이상 값을 시각화 하 여 리소스 사용을 보다 효과적으로 추적 하려고 합니다. 리소스 사용량에 따라 랩 소유자 또는 관리자는 [리소스 사용량 및 비용을 개선](../cost-management-billing/manage/getting-started.md)하도록 랩을 사용자 지정할 수 있습니다. Azure DevTest Labs에서 랩 당 리소스 사용량을 다운로드 하 여 사용 패턴에 대 한 세부적인 기록을 볼 수 있습니다. 이러한 사용 패턴은 효율성 향상을 위해 변경 사항을 정확히 파악 하는 데 도움이 됩니다. 대부분의 기업은 [여러 랩 및 구독](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)에서 개별 랩 사용량과 전체 사용량을 모두 원합니다. 
+대부분의 큰 조직은 사용량에서 추세 및 이상 값을 시각화 하 여 리소스 사용을 보다 효과적으로 추적 하려고 합니다. 리소스 사용량에 따라 랩 소유자 또는 관리자는 [리소스 사용량 및 비용을 개선](../cost-management-billing/cost-management-billing-overview.md)하도록 랩을 사용자 지정할 수 있습니다. Azure DevTest Labs에서 랩 당 리소스 사용량을 다운로드 하 여 사용 패턴에 대 한 세부적인 기록을 볼 수 있습니다. 이러한 사용 패턴은 효율성 향상을 위해 변경 사항을 정확히 파악 하는 데 도움이 됩니다. 대부분의 기업은 [여러 랩 및 구독](/azure/architecture/cloud-adoption/decision-guides/subscriptions/)에서 개별 랩 사용량과 전체 사용량을 모두 원합니다. 
 
 이 문서에서는 여러 랩 및 구독에서 리소스 사용량 정보를 처리 하는 방법을 설명 합니다.
 

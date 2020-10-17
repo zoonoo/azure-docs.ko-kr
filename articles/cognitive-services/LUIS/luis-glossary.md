@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309492"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151974"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 LUIS (Language Understanding) 용어집에서는 LUIS 서비스에서 작업할 때 발생할 수 있는 용어에 대해 설명 합니다.
@@ -96,7 +96,7 @@ True 음수는 앱에서 일치 하는 항목을 올바르게 예측 하지 못�
 
 ## <a name="collaborator"></a>협력자
 
-협력자는 개념적으로 [기여자](#contributor)와 동일 합니다. 소유자가 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 제어 되지 않은 앱에 협력자의 전자 메일 주소를 추가할 때 협력자에 게 액세스 권한이 부여 됩니다. 아직 협력자를 사용 하는 경우 LUIS 계정을 마이그레이션하고 LUIS authoring 리소스를 사용 하 여 RBAC로 참가자를 관리 해야 합니다.
+협력자는 개념적으로 [기여자](#contributor)와 동일 합니다. 소유자가 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 제어 되지 않은 앱에 협력자의 전자 메일 주소를 추가할 때 협력자에 게 액세스 권한이 부여 됩니다. 아직 협력자를 사용 하는 경우 LUIS 계정을 마이그레이션하고 LUIS authoring 리소스를 사용 하 여 Azure RBAC를 통해 참가자를 관리 해야 합니다.
 
 ## <a name="contributor"></a>참가자
 
@@ -287,7 +287,7 @@ LUIS [list 엔터티](reference-entity-list.md)에서 정규화 된 값을 만�
 |--|--|
 |작음| 작은 1, 8 온스|
 |중간| 일반, 12 온스|
-|큰| 큼, 16 온스|
+|대형| 큼, 16 온스|
 |Xtra 큼| 가장 큰 1, 24 온스|
 
 모델은 입력에 동의어가 표시 될 때 엔터티에 대 한 정규화 된 값을 반환 합니다.

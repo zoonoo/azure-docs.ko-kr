@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 06/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8043e85db1ee1aadc814e98db12cab10ec17e129
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258628"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145222"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>조건부 액세스 Faq Azure Active Directory
 
@@ -63,4 +63,4 @@ Microsoft 팀의 테 넌 트에서 일부 조건부 액세스 정책을 사용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용자 환경에 대 한 조건부 액세스 정책을 구성 하려면 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)를 참조 하세요. 
+- 사용자 환경에 대 한 조건부 액세스 정책을 구성 하려면 [조건부 액세스 배포 계획](plan-conditional-access.md)문서를 참조 하세요. 

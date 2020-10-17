@@ -3,12 +3,12 @@ title: 방화벽 액세스 규칙
 description: (“허용 목록 작성”) REST API 및 데이터 엔드포인트 도메인 이름 또는 서비스별 IP 주소 범위에 대한 액세스를 허용하여 방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙을 구성합니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246982"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148505"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙 구성
 
@@ -113,7 +113,7 @@ Azure 가상 네트워크 내에서만 컨테이너 레지스트리에 대한 �
 
 ## <a name="allow-access-by-service-tag"></a>서비스 태그를 기준으로 액세스 허용
 
-Azure 가상 네트워크에서 네트워크 보안 규칙을 사용하여 가상 머신과 같은 리소스에서 컨테이너 레지스트리로의 트래픽을 필터링합니다. Azure 네트워크 규칙 만들기를 간소화하려면 **AzureContainerRegistry** [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용합니다. 서비스 태그는 전역으로 또는 Azure 지역별로 Azure 서비스에 액세스하기 위한 IP 주소 접두사 그룹을 나타냅니다. 주소가 변경되면 태그가 자동으로 업데이트됩니다. 
+Azure 가상 네트워크에서 네트워크 보안 규칙을 사용하여 가상 머신과 같은 리소스에서 컨테이너 레지스트리로의 트래픽을 필터링합니다. Azure 네트워크 규칙 만들기를 간소화하려면 **AzureContainerRegistry** [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags)를 사용합니다. 서비스 태그는 전역으로 또는 Azure 지역별로 Azure 서비스에 액세스하기 위한 IP 주소 접두사 그룹을 나타냅니다. 주소가 변경되면 태그가 자동으로 업데이트됩니다. 
 
 예를 들어 대상 **AzureContainerRegistry**를 사용하여 Azure 컨테이너 레지스트리로의 트래픽을 허용하는 아웃바운드 네트워크 보안 그룹 규칙을 만듭니다. 특정 지역에서만 서비스 태그에 대한 액세스를 허용하려면 **AzureContainerRegistry**.[*지역 이름*] 형식으로 지역을 지정합니다.
 
@@ -183,7 +183,7 @@ az acr show-endpoints --name myregistry
 
 * [네트워크 보안에 대한 Azure 모범 사례](../security/fundamentals/network-best-practices.md)에 대해 알아보기
 
-* Azure 가상 네트워크의 [보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보기
+* Azure 가상 네트워크의 [보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보기
 
 * 컨테이너 레지스트리에 대한 [Private Link](container-registry-private-link.md) 설정에 대해 자세히 알아보기
 

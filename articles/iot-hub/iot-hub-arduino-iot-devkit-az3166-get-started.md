@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5147d6d7f1bd1fcd43835f6a66196c7642ad4ff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839557"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151939"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -33,7 +33,7 @@ Microsoft Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션을 개
 
 DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.github.io/iot-devkit-web-simulator/)를 시도하거나 [DevKit를 구매](https://aka.ms/iot-devkit-purchase)합니다.
 
-[코드 샘플 갤러리](https://docs.microsoft.com/samples/browse/?term=mxchip)에서 모든 DevKit 자습서에 대한 소스 코드를 찾을 수 있습니다.
+[코드 샘플 갤러리](/samples/browse/?term=mxchip)에서 모든 DevKit 자습서에 대한 소스 코드를 찾을 수 있습니다.
 
 ## <a name="what-you-need"></a>필요한 항목
 
@@ -267,7 +267,7 @@ Azure Portal에서 Azure IoT Hub 및 디바이스를 프로비저닝하는 대�
 
     ![구독 선택](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. 새 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology)을 선택하거나 만듭니다.
+1. 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 선택하거나 만듭니다.
 
     ![리소스 그룹 선택](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

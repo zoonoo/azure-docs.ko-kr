@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602006"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145544"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -37,10 +37,7 @@ Microsoft의 ID 보안 책임자 Alex Weinert의 2020년 3월 12일 블로그 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다. 
-
-- Azure AD 조건부 액세스의 [기본 개념](overview.md) 
-- Azure Portal에서 조건부 액세스 정책을 구성하는 [모범 사례](best-practices.md)
+이 문서에서는 사용자가 Azure AD 조건부 액세스의 [기본 개념](overview.md) 을 잘 알고 있다고 가정 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

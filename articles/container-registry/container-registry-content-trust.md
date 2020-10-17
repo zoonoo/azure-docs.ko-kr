@@ -3,12 +3,12 @@ title: 서명된 이미지 관리
 description: Azure 컨테이너 레지스트리에 콘텐츠 신뢰를 사용하도록 설정하고, 서명된 이미지를 푸시 및 풀하는 방법을 알아봅니다. 콘텐츠 트러스트는 Docker 콘텐츠 신뢰를 구현 하며 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: cfe337a0f46e37ed616664e8e0645e319bcfb519
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44cea09521dc235ad0d555264b165c9a3842a14
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409167"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148584"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -115,7 +115,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>`는 서비스 사용자의 **appId**, **objectId** 또는 **servicePrincipalNames** 중 하나입니다. 서비스 사용자 및 Azure Container Registry 사용에 대한 자세한 내용은 [서비스 사용자로 Azure Container Registry 인증](container-registry-auth-service-principal.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 역할을 변경한 후, `az acr login`을 실행하여 새 역할이 영향을 받을 수 있도록 Azure CLI에 대한 로컬 ID 토큰을 새로 고칩니다. Id 역할을 확인 하는 방법에 대 한 자세한 내용은 [rbac를 사용 하 여 azure 리소스에 대 한 액세스 관리 및 Azure CLI](../role-based-access-control/role-assignments-cli.md) 및 [Azure rbac 문제 해결](../role-based-access-control/troubleshooting.md)을 참조 하세요.
+> 역할을 변경한 후, `az acr login`을 실행하여 새 역할이 영향을 받을 수 있도록 Azure CLI에 대한 로컬 ID 토큰을 새로 고칩니다. Id의 역할을 확인 하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-cli.md) 및 [Azure RBAC 문제 해결](../role-based-access-control/troubleshooting.md)을 참조 하세요.
 
 ## <a name="push-a-trusted-image"></a>신뢰할 수 있는 이미지 푸시
 

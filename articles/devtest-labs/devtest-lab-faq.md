@@ -3,12 +3,12 @@ title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289373"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144580"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -145,7 +145,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 -   동일한 크기에 속하는 공유 IP 머신에 대한 리소스 그룹을 DevTest Labs가 만듭니다.
 
 공용 리소스 그룹 시나리오:
--   모든 가상 머신이 사용자가 지정한 공용 리소스 그룹에서 작동합니다. [랩에 대한 리소스 그룹 할당](https://aka.ms/RGControl)을 자세히 알아보세요.
+-   모든 가상 머신이 사용자가 지정한 공용 리소스 그룹에서 작동합니다. [랩에 대한 리소스 그룹 할당](./resource-group-control.md)을 자세히 알아보세요.
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>DevTest Labs 환경 전반에 걸쳐 명명 규칙을 유지 관리하려면 어떻게 해야 하나요?
 현재 엔터프라이즈 명명 규칙을 Azure 작업으로 확장 적용하고 DevTest Labs 환경에서도 일관되게 사용할 수 있습니다. DevTest Labs를 배포할 때는 구체적인 시작 정책을 결정하는 것이 좋습니다. 일관성을 유지하려면 중앙 스크립트와 JSON 템플릿을 사용하여 이러한 정책을 배포합니다. 구독 수준에서 적용된 Azure 정책을 통해 명명 정책을 구현할 수 있습니다. Azure Policy의 JSON 샘플은 [Azure Policy 샘플](../governance/policy/samples/index.md)을 참조하세요.
@@ -200,7 +200,7 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 예, 여러 개의 디스크를 VM에 연결할 수 있습니다.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Gen 2 이미지가 DevTest Labs에서 지원되나요?
-예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/windows/generation-2.md)를 지원 합니다. 그러나 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있는 경우 DevTest Labs는 VM을 만들 때 이미지의 Gen 1 버전만 표시 합니다. 사용 가능한 Gen 2 버전만 있는 경우 이미지가 표시 됩니다. 
+예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/generation-2.md)를 지원 합니다. 그러나 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있는 경우 DevTest Labs는 VM을 만들 때 이미지의 Gen 1 버전만 표시 합니다. 사용 가능한 Gen 2 버전만 있는 경우 이미지가 표시 됩니다. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>테스트에 Windows OS 이미지를 사용하려면 MSDN 구독을 구매해야 하나요?
 Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미지(Windows 7 이상 버전)를 사용하려면 다음 단계 중 하나를 수행하세요.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948167"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144986"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 신뢰할 수 없는 네트워크에서 액세스를 위한 MFA 요구   
 
@@ -26,10 +26,7 @@ Azure AD(Azure Active Directory)에서는 어디에서든지 디바이스, 앱 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다. 
-
-- Azure AD 조건부 액세스의 [기본 개념](overview.md) 
-- Azure Portal에서 조건부 액세스 정책을 구성하는 [모범 사례](best-practices.md)
+이 문서에서는 사용자가 조건부 액세스의 [기본 개념](overview.md) 을 잘 알고 있다고 가정 합니다. 
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -65,7 +62,7 @@ Azure AD 조건부 액세스를 사용 하 여 액세스 권한을 부여 하는
 
 ## <a name="policy-deployment"></a>정책 배포
 
-이 문서에 설명 된 방법을 사용 하 여 이제는 신뢰할 수 없는 위치에 대 한 조건부 액세스 정책을 구성할 수 있습니다. 정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [새 정책을 배포하는 방법](best-practices.md#how-should-you-deploy-a-new-policy)을 참조하세요. 
+이 문서에 설명 된 방법을 사용 하 여 이제는 신뢰할 수 없는 위치에 대 한 조건부 액세스 정책을 구성할 수 있습니다. 정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

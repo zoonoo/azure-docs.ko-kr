@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358290"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148746"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN에서 파일을 압축하여 성능 향상
 파일 압축은 파일이 서버에서 전송되기 전에 파일 크기를 줄여서 파일 전송 속도를 개선하고 페이지 로드 성능을 높이는 간단하고 효과적인 방법입니다. 파일 압축을 통해 대역폭 비용을 절감하고 사용자에게 반응이 빠른 환경을 제공할 수 있습니다.
@@ -113,6 +113,8 @@ ms.locfileid: "91358290"
 
 자산에 대한 요청이 gzip 압축을 지정하고 캐시의 요청 결과가 누락된 경우 Azure CDN은 POP 서버에서 직접 자산의 gzip 압축을 수행합니다. 이후 압축된 파일은 캐시에서 제공됩니다.
 
+원본에서 CTE (청크 분할 전송 인코딩)를 사용 하 여 압축 된 데이터를 CDN POP로 보내는 경우 8MB 보다 큰 응답 크기는 지원 되지 않습니다. 
+
 ### <a name="azure-cdn-from-verizon-profiles"></a>Verizon의 Azure CDN 프로필
 
 **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우, 적합한 파일만 압축될 수 있습니다. 압축이 가능하려면 파일이 다음 조건을 충족해야 합니다.
@@ -149,7 +151,7 @@ ms.locfileid: "91358290"
 | 미압축 |캐시되지 않음 |미압축 | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>압축이 활성화되고 파일이 압축에 적합
-| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 참고 |
+| 클라이언트 요청 형식(Accept-Encoding 헤더를 통한) | 캐시된 파일 형식 | 클라이언트에 대한 CDN 응답 | 메모 |
 | --- | --- | --- | --- |
 | Compressed |Compressed |Compressed |지원되는 형식 간 CDN 코드 변환. |
 | Compressed |미압축 |Compressed |CDN이 압축 수행. |
@@ -165,6 +167,6 @@ Media Services CDN 스트리밍을 사용하도록 설정된 엔드포인트의 
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [CDN 파일 압축 문제 해결](cdn-troubleshoot-compression.md)    
 

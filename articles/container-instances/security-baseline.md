@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393431"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148628"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Container Instances에 대 한 Azure 보안 기준
 
@@ -73,7 +73,7 @@ Container Instances에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 * [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 * [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -143,7 +143,7 @@ Container Instances에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 * [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md) 
 
-* [응용 프로그램 보안 그룹 이해 및 사용](../virtual-network/security-overview.md#application-security-groups)
+* [응용 프로그램 보안 그룹 이해 및 사용](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [가상 네트워크에 배포-Azure Container Instances](./container-instances-vnet.md)
 
@@ -159,7 +159,7 @@ Container Instances에 대 한 Azure 보안 기준에는 배포의 보안 상태
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 * [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -498,7 +498,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -613,7 +613,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -652,7 +652,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -664,7 +664,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -707,7 +707,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -755,7 +755,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 * [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
 * [Azure Container Instances에 대 한 보안 고려 사항](./container-instances-image-security.md)
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -789,7 +789,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -825,7 +825,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [가상 네트워크에 배포-Azure Container Instances](./container-instances-vnet.md)
 
@@ -900,7 +900,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Container Instances에 대 한 컨테이너 모니터링 및 검색 보안 권장 사항](./container-instances-image-security.md)
 
-* [Security Center와 Azure Container Registry 통합](../security-center/azure-container-registry-integration.md)
+* [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 * [Azure Container Registry 작업에 대 한 기본 이미지 업데이트 정보](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -1105,7 +1105,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Container Instances)�
 
 **지침**: Azure Key Vault에서 Soft-Delete를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호할 수 있습니다.
 
-* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

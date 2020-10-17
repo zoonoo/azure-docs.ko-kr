@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094078"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152300"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 관리 되는 id
 
@@ -62,20 +62,20 @@ Azure SignalR Service는 완전히 관리 되는 서비스 이므로 관리 되�
     - Empty
     - 서비스 주체의 응용 프로그램 (클라이언트) ID
     - 서비스 주체의 응용 프로그램 ID URI
-    - [Azure 서비스의 리소스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Azure 서비스의 리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
     > 서비스에서 직접 액세스 토큰의 유효성을 검사 하는 경우 리소스 형식 중 하나를 선택할 수 있습니다. **인증** 설정에서 **리소스** 값과 유효성 검사가 일치 하는지 확인 합니다. 데이터 평면에 Azure RBAC (역할 기반 액세스 제어)를 사용 하는 경우 서비스 공급자가 요청 하는 리소스를 사용 해야 합니다.
 
 ### <a name="validate-access-tokens"></a>액세스 토큰 유효성 검사
 
-헤더의 토큰은 `Authorization` [Microsoft id 플랫폼 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens)입니다.
+헤더의 토큰은 `Authorization` [Microsoft id 플랫폼 액세스 토큰](../active-directory/develop/access-tokens.md#validating-tokens)입니다.
 
 액세스 토큰의 유효성을 검사 하기 위해 앱은 대상 및 서명 토큰의 유효성도 검사 해야 합니다. OpenID 검색 문서에 있는 값에 대해 유효성 검사를 수행해야 합니다. 예를 들어 [테 넌 트 독립적 버전의 문서](https://login.microsoftonline.com/common/.well-known/openid-configuration)를 참조 하세요.
 
-Azure Active Directory (Azure AD) 미들웨어는 액세스 토큰의 유효성을 검사 하기 위한 기본 제공 기능을 제공 합니다. [샘플](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) 을 탐색 하 여 선택한 언어로 찾을 수 있습니다.
+Azure Active Directory (Azure AD) 미들웨어는 액세스 토큰의 유효성을 검사 하기 위한 기본 제공 기능을 제공 합니다. [샘플](../active-directory/develop/sample-v2-code.md) 을 탐색 하 여 선택한 언어로 찾을 수 있습니다.
 
-토큰 유효성 검사를 처리하는 방법을 보여 주는 라이브러리와 코드 샘플이 제공됩니다. JWT (JSON Web Token) 유효성 검사에 사용할 수 있는 몇 가지 오픈 소스 파트너 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대 한 옵션은 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대 한 자세한 내용은 [Microsoft id 플랫폼 인증 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries)를 참조 하세요.
+토큰 유효성 검사를 처리하는 방법을 보여 주는 라이브러리와 코드 샘플이 제공됩니다. JWT (JSON Web Token) 유효성 검사에 사용할 수 있는 몇 가지 오픈 소스 파트너 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대 한 옵션은 하나 이상 있습니다. Azure AD 인증 라이브러리 및 코드 샘플에 대 한 자세한 내용은 [Microsoft id 플랫폼 인증 라이브러리](../active-directory/develop/reference-v2-libraries.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

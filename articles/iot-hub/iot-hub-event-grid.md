@@ -12,18 +12,18 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: af1e47c61977d0bc5d03f8cdb87393ed2014e736
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072308"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152132"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
 Azure Maps 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure IoT Hub가 Azure Event Grid와 통합됩니다. 안정적이고 확장 가능하고 안전한 방식으로 중요 이벤트에 대응할 수 있도록 비즈니스 애플리케이션에서 IoT Hub 이벤트를 수신하도록 구성합니다.예를 들어 데이터베이스를 업데이트하고, 작업 티켓을 만들고, 새 IoT 디바이스가 IoT 허브에 등록될 때마다 이메일 알림을 전달하는 애플리케이션을 빌드합니다.
 
-[Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
+[Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
 ![Azure Event Grid 아키텍처](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
@@ -184,13 +184,13 @@ IoT 이벤트의 제목은 다음 형식을 사용합니다.
 devices/{deviceId}
 ```
 
-또한 Event Grid를 사용 하 여 데이터 콘텐츠를 포함 하 여 각 이벤트의 특성에 대 한 필터링을 수행할 수 있습니다. 그러면 원격 분석 메시지의 내용에 따라 전달 되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering) 을 참조 하세요. 원격 분석 메시지 본문에 대 한 필터링을 위해 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다.
+또한 Event Grid를 사용 하 여 데이터 콘텐츠를 포함 하 여 각 이벤트의 특성에 대 한 필터링을 수행할 수 있습니다. 그러면 원격 분석 메시지의 내용에 따라 전달 되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering) 을 참조 하세요. 원격 분석 메시지 본문에 대 한 필터링을 위해 메시지 [시스템 속성](./iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다.
 
 DeviceConnected, DeviceDisconnected, DeviceCreated 및 Devicedisconnected와 같은 비 원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우, Event Grid 필터링 외에도 사용자는 메시지 라우팅 쿼리를 통해 장치 쌍, 메시지 속성 및 본문을 기준으로 필터링 할 수 있습니다. 
 
 Event Grid를 통해 원격 분석 이벤트를 구독할 때 IoT Hub는 기본 메시지 경로를 만들어 데이터 원본 유형 장치 메시지를 Event Grid 보냅니다. 메시지 라우팅에 대 한 자세한 내용은 [IoT Hub 메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 참조 하세요. 이 경로는 포털의 IoT Hub > 메시지 라우팅에서 볼 수 있습니다. 원격 분석 이벤트에 대해 생성 된 예 구독 수에 관계 없이 Event Grid 하나의 경로만 생성 됩니다. 따라서 다른 필터를 사용 하는 구독이 여러 개 필요한 경우에는 동일한 경로에 대 한 이러한 쿼리에서 또는 연산자를 사용할 수 있습니다. 경로 생성 및 삭제는 Event Grid를 통한 원격 분석 이벤트의 구독을 통해 제어 됩니다. IoT Hub 메시지 라우팅을 사용 하 여 Event Grid에 대 한 경로를 만들거나 삭제할 수 없습니다.
 
-원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다.
+원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](./iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 

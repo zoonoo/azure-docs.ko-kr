@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192645"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148721"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
@@ -44,10 +44,10 @@ ms.locfileid: "88192645"
 
 바이트 범위 요청에 대한 자세한 내용은 [RFC 7233](https://tools.ietf.org/html/rfc7233)을 참조하세요.
 
-CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일을 캐시할 필요는 없습니다. 파일 또는 바이트 범위에 대한 후속 요청은 CDN 캐시에서 제공됩니다. 모든 청크가 CDN에 캐시되지 않으면 프리페치를 사용하여 원본에서 청크를 요청합니다. 이 최적화는 바이트 범위 요청을 지원하기 위해 원본 서버 기능에 의존합니다. 즉, 원본 서버가 바이트 범위 요청을 지원하지 않으면 이 최적화가 수행되지 않습니다. 
+CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일을 캐시할 필요는 없습니다. 파일 또는 바이트 범위에 대한 후속 요청은 CDN 캐시에서 제공됩니다. 모든 청크가 CDN에 캐시되지 않으면 프리페치를 사용하여 원본에서 청크를 요청합니다. 이러한 최적화는 원본 서버에서 바이트 범위 요청을 지 원하는 기능에 의존 합니다. 원본 서버에서 바이트 범위 요청을 지원 하지 않으면 크기가 8mb 보다 큰 데이터를 다운로드 하는 요청이 실패 합니다. 
 
 ### <a name="conditions-for-large-file-optimization"></a>대용량 파일 최적화에 대한 조건
-**Microsoft의 Azure CDN 표준**에 대한 대용량 파일 최적화 기능은 일반 웹 배달 최적화 유형을 사용할 때 기본적으로 켜집니다. 최대 파일 크기에는 제한이 없습니다.
+최대 파일 크기에는 제한이 없습니다.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Verizon의 Azure CDN을 사용하여 대용량 파일의 배달 최적화

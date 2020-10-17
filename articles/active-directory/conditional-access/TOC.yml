@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: 로그인 빈도 및 브라우저 지속성 컨트롤
       href: howto-conditional-access-session-lifetime.md
-    - name: 모범 사례
-      href: best-practices.md
     - name: 문제 해결
       items:
         - name: 로그인 문제 해결

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17fb9bee77aae9945c12d45a5ffff316f9d639
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460036"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144240"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 
@@ -221,6 +221,9 @@ Notebook은 연결된 컴퓨팅 인스턴스에 설치된 모든 Jupyter 커널�
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> 노트북 내에서 패키지를 관리 하려면 **% pip** 또는 **% conda** magic 함수를 사용 하 여 현재 실행 중인 **커널** 에 패키지를 자동으로 설치 합니다 .이는 모든 패키지 (현재 실행 중인 커널 외부의 패키지 포함)를 참조 하는 **! pip** 또는 **! conda** 이 아닙니다.
 
 [사용할 수 있는 Jupyter 커널](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)을 설치할 수 있습니다.
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081256"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151896"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
 ## <a name="introduction"></a>소개
@@ -40,7 +40,7 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 | 파워 쿼리 |.xlsx |Excel용 파워 쿼리 추가 기능이 설치된 Excel 2016 또는 Excel 2010 또는 Excel 2013 |
 | Power BI Desktop |.pbix |Power BI Desktop 2016년 7월 이상 |
 | SQL Server Data Tools |vsweb:// |SQL Server 도구가 설치된 Visual Studio 2013 업데이트 4 이상 |
-| 보고서 관리자 |http:// |[SQL Server Reporting Services에 대한 브라우저 요구 사항](https://technet.microsoft.com/library/ms156511.aspx)을 참조하세요. |
+| 보고서 관리자 |http:// |[SQL Server Reporting Services에 대한 브라우저 요구 사항](/sql/reporting-services/browser-support-for-reporting-services-and-power-view)을 참조하세요. |
 
 ## <a name="your-data-your-tools"></a>데이터, 도구
 메뉴에서 사용 가능한 옵션은 현재 선택한 데이터 자산 유형에 따라 달라집니다. 물론 모든 가능한 도구는 "다음에서 열기..." 메뉴에 포함되지 않지만 모든 클라이언트 도구를 사용하여 데이터 원본에 여전히 쉽게 연결할 수 있습니다. 데이터 자산이 **Azure Data Catalog** 포털에서 선택된 경우 전체 위치가 속성 창에 표시됩니다.

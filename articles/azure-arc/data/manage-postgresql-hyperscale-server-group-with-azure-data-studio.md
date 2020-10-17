@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940781"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151849"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "90940781"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azdata, Azure Data Studio 및 Azure CLI 설치](install-client-tools.md)
 - **Azure 데이터 CLI** 및 **Azure Arc** 및 **PostgreSQL** 확장 Azure Data Studio에 설치
@@ -61,9 +61,8 @@ PostgreSQL 대시보드 보기:
 
 이 기능은 해당 창의 왼쪽에 나열 된 여러 대시보드를 제공 합니다.
 
-- **개요:** 사용자 인스턴스에 대 한 요약 정보 (예: 이름, Azure 구독 ID, 구성, 데이터베이스 엔진의 버전, Grafana 및 Kibana에 대 한 끝점)를 표시 합니다.
+- **개요:** 사용자 인스턴스에 대 한 요약 정보 (예: 이름, PostgreSQL admin 사용자 이름, Azure 구독 ID, 구성, 데이터베이스 엔진 버전, Grafana 및 Kibana에 대 한 끝점)를 표시 합니다.
 - **연결 문자열:** Psql, Node.js, PHP, Ruby ...와 같이 PostgreSQL 인스턴스에 연결 하는 데 필요할 수 있는 다양 한 연결 문자열을 표시 합니다.
-- **속성:** 섀도 리소스에 대 한 PostgreSQL admin 사용자 이름, 연결 된 리소스 그룹 등의 다양 한 속성을 표시 합니다.
 - **문제 진단 및 해결:** 문제 해결 노트북을 확장할 때 인스턴스 문제를 해결 하는 데 도움이 되는 다양 한 리소스를 찾을 수 있는 방문 페이지입니다.
 - **새 지원 요청:** 지원 서비스에서 공개 미리 보기 알림을 시작 하는 데 도움을 요청할 수 있는 방문 페이지입니다.
 
@@ -89,7 +88,7 @@ Azure Data Studio 창의 왼쪽에서 노드 **서버**를 확장 합니다.
 
 연결 되 면 몇 가지 환경을 사용할 수 있습니다.
 - **새 쿼리**
-- **새 Notebook**
+- **새 노트북**
 - **서버 표시를 확장 하 고 데이터베이스 내 개체를 찾아보거나 작업 합니다.**
 - **...**
 

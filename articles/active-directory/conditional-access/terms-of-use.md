@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085912"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145399"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -52,7 +52,7 @@ Azure AD 사용 약관에는 다음과 같은 기능이 있습니다.
 - 준수 및 감사에 대 한 사용 약관 작업 로그를 표시 합니다.
 - [Microsoft Graph api](/graph/api/resources/agreement?view=graph-rest-beta) (현재 미리 보기 상태)를 사용 하 여 사용 약관을 만들고 관리 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 사용 약관을 사용 하 고 구성 하려면 다음이 있어야 합니다.
 
@@ -117,7 +117,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
    ![정책 템플릿을 선택 하는 조건부 액세스 드롭다운 목록](./media/terms-of-use/conditional-access-templates.png)
 
-   | 템플릿 | 설명 |
+   | 템플릿 | Description |
    | --- | --- |
    | **모든 게스트에 대한 클라우드 앱 액세스** | 모든 게스트 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이 항목이 생성되면 로그아웃했다 로그인해야 할 수 있습니다. |
    | **모든 사용자에 대한 클라우드 앱 액세스** | 모든 사용자 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이 항목이 생성되면 로그아웃했다 로그인해야 할 수 있습니다. |
@@ -392,4 +392,3 @@ A: 사용 약관는 인증을 위해 및의 끝점을 활용 합니다. https://
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구](require-tou.md)
-- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)

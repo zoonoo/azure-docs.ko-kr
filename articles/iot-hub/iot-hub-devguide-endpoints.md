@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019566"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152182"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -95,7 +95,7 @@ IoT Hub는 현재 추가 엔드포인트로 다음과 같은 Azure 서비스를 
 
 IoT 솔루션에서 *필드 게이트웨이*는 디바이스와 IoT Hub 엔드포인트 사이에 위치하며 일반적으로 디바이스 가까이에 위치합니다. 디바이스는 해당 디바이스에서 지원되는 프로토콜을 사용하여 필드 게이트웨이와 직접 통신합니다. 필드 게이트웨이는 IoT Hub에서 지원하는 프로토콜을 사용하여 IoT Hub 엔드포인트에 연결됩니다. 필드 게이트웨이는 전용 하드웨어 디바이스이거나 사용자 지정 게이트웨이 소프트웨어를 실행하는 저전력 컴퓨터일 수 있습니다.
 
-[Azure IoT Edge](/azure/iot-edge/)를 사용하여 필드 게이트웨이를 구현할 수 있습니다. IoT Edge는 여러 디바이스에서 동일한 IoT Hub 연결로의 통신 다중 송신과 같은 기능을 제공합니다.
+[Azure IoT Edge](../iot-edge/index.yml)를 사용하여 필드 게이트웨이를 구현할 수 있습니다. IoT Edge는 여러 디바이스에서 동일한 IoT Hub 연결로의 통신 다중 송신과 같은 기능을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

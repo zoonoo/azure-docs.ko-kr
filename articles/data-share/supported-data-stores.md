@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 08/14/2020
-ms.openlocfilehash: bb8b13e1141a8cb4610e15ed693e28042dd20d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: ddd586bf9a88b1246fcf20fc19493f5003bbb530
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259016"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151739"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
 
@@ -28,8 +28,8 @@ Azure 데이터 공유는 다양 한 데이터 저장소에서 공유 하는 기
 | Azure Blob Storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |공개 미리 보기 | |
-| Azure Synapse Analytics (이전의 Azure SQL DW) |공개 미리 보기 | |
+| Azure SQL Database |퍼블릭 미리 보기 | |
+| Azure Synapse Analytics (이전의 Azure SQL DW) |퍼블릭 미리 보기 | |
 | Azure Data Explorer | |✓ |
 
 ## <a name="data-store-support-matrix"></a>데이터 저장소 지원 매트릭스

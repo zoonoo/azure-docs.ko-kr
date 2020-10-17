@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421066ef30e23a79b26f97939cdfffb5be83afb5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029990"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148246"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -32,10 +32,10 @@ ms.locfileid: "90029990"
 
 이 한도를 실행 하는 가장 큰 이유는 HTTPS를 사용 하 여 메시지를 수신 하는 것입니다 .이 경우는를 사용 하 여 연속 폴링이 발생 하므로 `ReceiveAsync` 요청을 제한 IoT Hub.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 HTTPS에서 클라우드-디바이스 메시지에 대해 지원되는 패턴은 메시지를 가끔씩(25분에 한 번씩보다 적게) 확인하는 디바이스에 간헐적으로 연결됩니다. 큐 제한에 대 한 실행 가능성을 줄이려면 클라우드-장치 메시지에 대해 AMQP 또는 MQTT로 전환 합니다.
 
 또는 큐에 대기 중인 메시지를 신속 하 게 완료, 거부 또는 포기 하도록 장치 측 논리를 개선 하 고, 라이브 시간을 단축 하거나, 더 짧은 메시지를 전송 하는 것이 좋습니다. [C2D 메시지 TTL(Time to Live)](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live)을 참조하세요.
 
-마지막으로, 한도에 도달 하기 전에 [제거 큐 API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) 를 사용 하 여 보류 중인 메시지를 정기적으로 정리 하는 것이 좋습니다.
+마지막으로, 한도에 도달 하기 전에 [제거 큐 API](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) 를 사용 하 여 보류 중인 메시지를 정기적으로 정리 하는 것이 좋습니다.

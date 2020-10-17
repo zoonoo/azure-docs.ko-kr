@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552903"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145416"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
-조건부 액세스 정책에는 의사 결정 프로세스의 신호 중 하나로 사용자 할당을 포함 해야 합니다. 사용자는 조건부 액세스 정책에서 포함 하거나 제외할 수 있습니다. 
+조건부 액세스 정책에는 의사 결정 프로세스의 신호 중 하나로 사용자 할당을 포함 해야 합니다. 사용자는 조건부 액세스 정책에서 포함 하거나 제외할 수 있습니다. Azure Active Directory 모든 정책을 평가 하 고 사용자에 게 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다.
 
 ![조건부 액세스의 결정에 대 한 신호로 사용 되는 사용자](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -73,6 +73,8 @@ ms.locfileid: "87552903"
 기본적으로 정책에서는 현재 사용자를 정책에서 제외 하는 옵션을 제공 하지만 다음 이미지와 같이 관리자가이 기본값을 재정의할 수 있습니다. 
 
 ![경고, 잠금 안 함](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[Azure Portal 잠겨 있으면 어떻게 해야 하나요?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>다음 단계
 

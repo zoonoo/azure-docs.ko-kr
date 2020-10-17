@@ -4,12 +4,12 @@ description: Azure Container Instances 배포, 실행 또는 관리할 때 발�
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260753"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148610"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "86260753"
 | 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
 | --- | --- | --- | --- | --- | --- |
 | 컨테이너 이름<sup>1</sup> | 1-63 |소문자 | 첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-container<number>` |`web-batch-container1` |
-| 컨테이너 포트 | 1에서 65535 사이 |Integer |1에서 65535 사이의 정수 |`<port-number>` |`443` |
+| 컨테이너 포트 | 1에서 65535 사이 |정수 |1에서 65535 사이의 정수 |`<port-number>` |`443` |
 | DNS 이름 레이블 | 5-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>` |`frontend-site1` |
 | 환경 변수 | 1-63 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 밑줄(_) |`<name>` |`MY_VARIABLE` |
 | 볼륨 이름 | 5-63 |소문자 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈입니다. 두 개 연속 하이픈을 포함할 수 없습니다. |`<name>` |`batch-output-volume` |
@@ -198,7 +198,7 @@ Windows 컨테이너를 처음 만들면 최대 30초(또는 이상, 드문 경�
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>기본 Docker API에 연결하거나 권한 있는 컨테이너를 실행할 수 없음
 
-Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](https://aka.ms/aci/rest)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
+Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](/rest/api/container-instances/)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>일치하지 않는 포트로 인해 컨테이너 그룹 IP 주소에 액세스할 수 없음
 

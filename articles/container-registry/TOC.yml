@@ -118,12 +118,12 @@
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
                 - name: 리포지토리 범위 토큰으로 인증(미리 보기)
                   href: container-registry-repository-scoped-permissions.md
-            - name: 역할 기반 액세스 제어
+            - name: Azure 역할 기반 액세스 제어
               href: container-registry-roles.md
             - name: 콘텐츠 신뢰
               href: container-registry-content-trust.md
             - name: Security Center를 사용하여 이미지 검색
-              href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+              href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
         - name: 레지스트리 및 기타 Azure 서비스
           expanded: false
           items:

@@ -4,12 +4,12 @@ description: Azure Container Instances가 컨테이너 오케스트레이터와 
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74533668"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148593"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -54,7 +54,7 @@ Azure Container Instances를 포함한 오케스트레이터 통합이 여전히
 
 [Azure Kubernetes Service](../aks/intro-kubernetes.md)(AKS) 클러스터에서 애플리케이션 워크로드를 신속하게 확장하기 위해 Azure Container Instances에서 동적으로 생성한 *가상 노드*를 사용할 수 있습니다. 가상 노드는 ACI에서 실행되는 Pod와 AKS 클러스터 간의 네트워크 통신을 활성화합니다. 
 
-가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) 또는 [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545)을 사용하여 가상 노드를 시작합니다.
+가상 노드는 현재 Linux 컨테이너 인스턴스를 지원합니다. [Azure CLI](../aks/virtual-nodes-cli.md) 또는 [Azure Portal](../aks/virtual-nodes-portal.md)을 사용하여 가상 노드를 시작합니다.
 
 가상 노드는 무제한 용량의 노드로 등록하여 Kubernetes [kubelet][kubelet-doc]을 모방하도록 오픈 소스 [Virtual Kubelet][aci-connector-k8s]을 사용합니다. Virtual Kubelet은 Azure Container Instances의 컨테이너 그룹으로 [Pod][pod-doc]의 생성을 디스패치합니다.
 

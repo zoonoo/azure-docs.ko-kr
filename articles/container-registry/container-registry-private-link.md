@@ -3,12 +3,12 @@ title: 프라이빗 링크 설정
 description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 통해 액세스를 사용 하도록 설정 합니다. 개인 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743644"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148482"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결
 
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-이 문서의 단계를 사용하여 프라이빗 엔드포인트 연결을 설정하면 레지스트리에 대해 RBAC 권한이 있는 클라이언트 및 서비스의 연결이 자동으로 허용됩니다. 연결의 수동 승인을 요구하도록 엔드포인트를 설정할 수 있습니다. 프라이빗 엔드포인트 연결을 승인 및 거부하는 방법에 대한 자세한 내용은 [프라이빗 엔드포인트 연결 관리](../private-link/manage-private-endpoint.md)를 참조하세요.
+이 문서의 단계를 사용 하 여 개인 끝점 연결을 설정 하는 경우 레지스트리는 레지스트리에 대 한 Azure RBAC 권한이 있는 클라이언트 및 서비스의 연결을 자동으로 수락 합니다. 연결의 수동 승인을 요구하도록 엔드포인트를 설정할 수 있습니다. 프라이빗 엔드포인트 연결을 승인 및 거부하는 방법에 대한 자세한 내용은 [프라이빗 엔드포인트 연결 관리](../private-link/manage-private-endpoint.md)를 참조하세요.
 
 ## <a name="add-zone-records-for-replicas"></a>복제본에 대한 영역 레코드 추가
 

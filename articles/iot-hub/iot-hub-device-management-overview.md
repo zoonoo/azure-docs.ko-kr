@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324729"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148343"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub를 사용한 디바이스 관리 개요
 
@@ -78,7 +78,7 @@ IoT는 특유의 디바이스 관리 과제를 수반하며 모든 기업 수준
   
     *추가*정보:
     * [장치 쌍 속성을 사용 하는 방법](tutorial-device-twins.md)
-    * [대규모로 IoT 디바이스 구성 및 모니터링](iot-hub-auto-device-config.md)
+    * [대규모로 IoT 디바이스 구성 및 모니터링](./iot-hub-automatic-device-management.md)
     * [IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
 
 * **모니터링**: 전반적인 다수의 디바이스 상태와 현재 작업 상태를 모니터링하고 주의가 필요한 문제를 운영자에게 알립니다.  디바이스 쌍을 적용하여 디바이스 업데이트 작업의 상태를 실시간 운영 상태를 보고할 수 있도록 허용합니다. 디바이스 쌍 쿼리를 사용하여 즉각적인 문제를 노출하는 강력한 대시보드 보고서를 작성합니다.
@@ -86,7 +86,7 @@ IoT는 특유의 디바이스 관리 과제를 수반하며 모든 기업 수준
     *추가*정보: 
     * [장치 쌍 속성을 사용 하는 방법](tutorial-device-twins.md)
     * [디바이스 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)
-    * [대규모로 IoT 디바이스 구성 및 모니터링](iot-hub-auto-device-config.md)
+    * [대규모로 IoT 디바이스 구성 및 모니터링](./iot-hub-automatic-device-management.md)
     * [IoT 솔루션 내에서 디바이스 구성에 대한 모범 사례](iot-hub-configuration-best-practices.md)
 
 * 사용 **중지**: 오류, 업그레이드 주기 또는 서비스 수명이 종료 된 후 장치를 교체 하거나 서비스를 해제 합니다.  디바이스 쌍을 사용하여 물리적 디바이스를 바꾸는 경우 디바이스 정보를 유지하거나 사용이 중지될 경우 보관합니다. IoT Hub ID 레지스트리를 사용하여 디바이스 ID 및 자격 증명을 안전하게 해지합니다.

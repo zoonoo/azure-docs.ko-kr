@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470139"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152276"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -55,7 +55,7 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 ![리소스 그룹 설정](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>저장소 액세스 보안
-보안을 위해 각 사용자는 자신의 스토리지 계정을 프로비전해야 합니다.  RBAC(역할 기반 액세스 제어)의 경우 사용자에게는 스토리지 계정 수준에서 참가자 액세스 권한 이상이 있어야 합니다.
+보안을 위해 각 사용자는 자신의 스토리지 계정을 프로비전해야 합니다.  Azure RBAC (역할 기반 액세스 제어)의 경우 사용자는 저장소 계정 수준에서 참가자 액세스 권한이 있어야 합니다.
 
 Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공유를 사용 합니다. 상속 된 권한으로 인해 구독에 대 한 충분 한 액세스 권한이 있는 사용자는 구독에 포함 된 모든 저장소 계정 및 파일 공유에 액세스할 수 있습니다.
 
@@ -142,7 +142,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ### <a name="unmount-clouddrive"></a>clouddrive 탑재 해제
 언제든지 Cloud Shell에 마운트된 파일 공유의 마운트를 해제할 수 있습니다. Azure Cloud Shell에는 사용될 탑재된 파일 공유가 필요하므로 다음 세션에서는 또 다른 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 
-1. `clouddrive unmount`을 실행합니다.
+1. `clouddrive unmount`를 실행합니다.
 2. 프롬프트 승인 및 확인
 
 파일 공유는 수동으로 삭제하지 않은 한 계속 유지됩니다. Cloud Shell은 후속 세션에서 이 파일 공유를 더 이상 검색하지 않습니다. 자세한 세부 정보를 보려면 아래와 같이 `clouddrive unmount -h`를 실행합니다.

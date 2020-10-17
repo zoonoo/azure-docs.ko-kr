@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258645"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145111"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 요구
 
@@ -24,7 +24,7 @@ ms.locfileid: "91258645"
 
 이 문서에서는 관리 장치가 사용자 환경의 특정 클라우드 앱에 액세스 하도록 요구 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 클라우드 앱 액세스를 위한 관리 되는 장치 요구는 **AZURE Ad 조건부 액세스** 와 **azure ad 장치 관리** 를 함께 연결 합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 
@@ -126,4 +126,4 @@ Windows 7, iOS, Android, macOS 및 일부 타사 웹 브라우저에서 Azure AD
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 환경에서 장치 기반 조건부 액세스 정책을 구성 하기 전에 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)를 살펴보세요.
+[보고서 전용 모드에서 널리 사용 하도록 설정 하기 전에 조건부 액세스 정책의 영향을 평가](concept-conditional-access-report-only.md)합니다.

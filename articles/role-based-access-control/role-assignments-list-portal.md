@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361858"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151685"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
@@ -140,14 +140,9 @@ ms.locfileid: "85361858"
 
 ![액세스 제어-역할 할당 추가 경고](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="download-role-assignments-preview"></a>역할 할당 다운로드 (미리 보기)
+## <a name="download-role-assignments"></a>역할 할당 다운로드
 
 CSV 또는 JSON 형식으로 된 범위에서 역할 할당을 다운로드할 수 있습니다. 이는 스프레드시트에서 목록을 검사 하거나 구독을 마이그레이션할 때 인벤토리를 수행 해야 하는 경우에 유용 합니다.
-
-> [!IMPORTANT]
-> 다운로드 역할 할당은 현재 공개 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 역할 할당을 다운로드 하는 경우 다음 조건을 염두에 두어야 합니다.
 
@@ -163,7 +158,7 @@ CSV 또는 JSON 형식으로 된 범위에서 역할 할당을 다운로드할 �
 
 1. **액세스 제어(IAM)** 를 클릭합니다.
 
-1. **역할 할당 다운로드 (미리 보기)** 를 클릭 하 여 역할 할당 다운로드 창을 엽니다.
+1. **역할 할당 다운로드** 를 클릭 하 여 역할 할당 다운로드 창을 엽니다.
 
     ![액세스 제어-역할 할당 다운로드](./media/role-assignments-list-portal/download-role-assignments.png)
 

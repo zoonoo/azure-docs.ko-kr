@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326816"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152279"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -33,7 +33,7 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 
 ## <a name="authentication"></a>인증
 
-인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 RBAC (역할 기반 액세스 제어)가 포함 됩니다. RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 [Azure 리소스에 대 한 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
+인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 azure 역할 기반 access control (Azure RBAC)이 포함 되어 있습니다. Azure RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 azure [리소스에 대 한 azure 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
 
 구독 키, 액세스 토큰 및 AAD (Azure Active Directory) 인증에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Azure Cognitive Services <span class="docon docon-navigate-external x-hidden-focus"></span> 에 대 한 요청 인증</a>을 참조 하세요.
 
@@ -162,7 +162,7 @@ public class Program {
 }
 ```
 
-# <a name="nodejs"></a>[Node.js](#tab/node-js)
+# <a name="nodejs"></a>[Node.JS](#tab/node-js)
 
 자세한 내용은을 참조 <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
 
@@ -201,11 +201,11 @@ NSString* value =
 
 이 인식 서비스에 대해 고객 Lockbox를 사용할 수 있습니다.
 
-* 변환기
+* Translator
 
 다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
-* 언어 이해
+* Language Understanding
 * Face
 * Content Moderator
 * Personalizer

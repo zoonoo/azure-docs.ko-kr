@@ -9,18 +9,18 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe143b1c172c5d89a7dba33731a378df988b4a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f393701b97be76acab49a627a195b337018fa29
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014611"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144435"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>리소스 공급자 REST API(.NET)를 사용하여 IoT Hub 만들기
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-[IoT Hub 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)를 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 IoT Hub 리소스 공급자 REST API를 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
+[IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 사용하여 Azure IoT Hub를 프로그래밍 방식으로 만들고 관리합니다. 이 자습서는 IoT Hub 리소스 공급자 REST API를 사용하여 C# 프로그램에서 IoT Hub를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "89014611"
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) 이상.
+* [Azure PowerShell 1.0](/powershell/azure/install-Az-ps) 이상.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -78,7 +78,7 @@ ms.locfileid: "89014611"
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>리소스 공급자 REST API를 사용하여 IoT Hub 만들기
 
-[IoT Hub 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)를 사용하여 리소스 그룹에 새 IoT Hub를 만듭니다. 리소스 공급자 REST API를 사용하여 기존 IoT Hub를 변경할 수도 있습니다.
+[IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 사용하여 리소스 그룹에 새 IoT Hub를 만듭니다. 리소스 공급자 REST API를 사용하여 기존 IoT Hub를 변경할 수도 있습니다.
 
 1. Program.cs에 다음 메서드를 추가합니다.
 
@@ -175,7 +175,7 @@ ms.locfileid: "89014611"
 
 리소스 공급자 REST API를 사용하여 IoT Hub를 배포했으면 구체적인 내용을 알아볼 차례입니다.
 
-* [IoT Hub 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)의 기능을 읽어보세요.
+* [IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)의 기능을 읽어보세요.
 
 * Azure Resource Manager의 기능에 대해 자세히 알아보려면 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.
 
@@ -187,4 +187,4 @@ IoT Hub를 개발하는 방법에 대한 자세한 내용은 다음 문서를 �
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)

@@ -43,7 +43,7 @@
 - name: 샘플
   items:
     - name: 코드 샘플
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
+      href: /samples/browse/?products=azure&terms=container%2binstance
     - name: 리소스 관리자 템플릿
       href: container-instances-samples-rm.md
 - name: 개념
@@ -138,7 +138,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/container
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/container-instances
     - name: PowerShell
       href: /powershell/module/az.containerinstance

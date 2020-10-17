@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992859"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145286"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -67,7 +67,7 @@ Microsoft는 기본 보안 수준을 보장하는 [보안 기본값](../fundamen
 조건부 액세스에 대해 알아볼 때 유용할 수 있는 리소스는 다음과 같습니다.
 
 
-#### <a name="videos"></a>비디오
+#### <a name="videos"></a>동영상
 
 * [조건부 액세스란?](https://youtu.be/ffMAw2IVO7A)
 * [조건부 액세스를 배포하는 방법](https://youtu.be/c_izIRNJNuk)
@@ -291,11 +291,7 @@ Azure Active Directory를 사용하면 [명명된 위치](location-condition.md)
 
 ### <a name="plan-your-policy-deployment"></a>정책 배포 계획
 
-환경에 대한 새 정책이 준비되면 바람직하지 않은 결과를 방지하기 위해 각 정책을 릴리스하기 전에 검토해야 합니다. 정책을 적용하는 방법 및 문제를 방지하는 방법에 대한 중요한 정보를 이해하려면 다음 설명서를 참조하세요.
-
-* [알아야 할 사항](best-practices.md)
-
-* [수행하지 않아야 하는 작업](best-practices.md)
+환경에 대한 새 정책이 준비되면 바람직하지 않은 결과를 방지하기 위해 각 정책을 릴리스하기 전에 검토해야 합니다.
 
 ## <a name="common-policies"></a>일반 정책
 
@@ -462,10 +458,6 @@ CA 정책의 위치 조건을 사용하면 액세스 제어 설정을 사용자�
 ### <a name="terms-of-use"></a>사용 약관
 
 사용자 환경에서 특정 클라우드 앱에 액세스하기 전에 ToU(사용 약관)를 수락하도록 하여 사용자의 동의를 받을 수 있습니다. 이 [빠른 시작](require-tou.md)에 따라 사용 약관을 만듭니다.
-
-### <a name="classic-policies"></a>클래식 정책
-
-CA 정책은 [Azure Portal](https://portal.azure.com/)의 Azure Active Directory > 보안 > 조건부 액세스 아래에서 찾을 수 있습니다. 또한 이 페이지를 사용하여 만들지 않은 이전 CA 정책도 조직에 있을 수 있습니다. 이러한 정책을 클래식 정책이라고 합니다. [Azure Portal에서 이러한 클래식 정책을 마이그레이션](best-practices.md)하는 것이 좋습니다.
 
 ## <a name="troubleshoot-conditional-access"></a>조건부 액세스 문제 해결
 

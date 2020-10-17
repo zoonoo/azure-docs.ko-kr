@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81767020"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152235"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 디바이스 SDK - 직렬 변환기에 대한 자세한 정보
 
@@ -28,7 +28,7 @@ ms.locfileid: "81767020"
 
 이 문서에 설명된 모든 내용은 **serializer** SDK 샘플을 기반으로 합니다. 따라하려면 C용 Azure IoT 디바이스 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 애플리케이션을 참조하세요.
 
-GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-modeling-language"></a>모델링 언어
 
@@ -65,7 +65,7 @@ END_NAMESPACE(WeatherStation);
 
 **serializer** 라이브러리로 만든 모델에 다음 데이터 형식이 지원됩니다.
 
-| 유형 | 설명 |
+| Type | Description |
 | --- | --- |
 | double |배정밀도 부동 소수점 숫자 |
 | int |32비트 정수 |
@@ -670,4 +670,4 @@ serializer_deinit();
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)를 참조하세요.
+IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)를 참조하세요.
