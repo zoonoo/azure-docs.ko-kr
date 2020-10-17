@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680713"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146639"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680713"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) 를 통해 온-프레미스 및 클라우드 서비스, 하나 이상의 엔터프라이즈, 다양 한 프로토콜에서 워크플로를 오케스트레이션 할 수 있습니다. 논리 앱은 트리거로 시작 하 고 그 다음에는 조건 및 반복기와 같은 기본 제공 컨트롤을 사용 하 여 시퀀싱 할 수 있는 하나 이상의 작업이 있습니다. 이러한 유연성을 통해 IoT 모니터링 시나리오를 위한 이상적인 IoT 솔루션을 Logic Apps 수 있습니다. 예를 들어, IoT Hub 끝점의 장치에서 원격 분석 데이터가 도착 하면 Azure Storage blob에 데이터를 웨어하우스 하 고, 데이터 이상에 대 한 경고를 표시 하는 전자 메일 경고를 보내고, 장치에서 오류를 보고 하는 경우에는 기술 지원 담당자에 게 경고를 보낼 수 있습니다.
+[Azure Logic Apps](../logic-apps/index.yml) 를 통해 온-프레미스 및 클라우드 서비스, 하나 이상의 엔터프라이즈, 다양 한 프로토콜에서 워크플로를 오케스트레이션 할 수 있습니다. 논리 앱은 트리거로 시작 하 고 그 다음에는 조건 및 반복기와 같은 기본 제공 컨트롤을 사용 하 여 시퀀싱 할 수 있는 하나 이상의 작업이 있습니다. 이러한 유연성을 통해 IoT 모니터링 시나리오를 위한 이상적인 IoT 솔루션을 Logic Apps 수 있습니다. 예를 들어, IoT Hub 끝점의 장치에서 원격 분석 데이터가 도착 하면 Azure Storage blob에 데이터를 웨어하우스 하 고, 데이터 이상에 대 한 경고를 표시 하는 전자 메일 경고를 보내고, 장치에서 오류를 보고 하는 경우에는 기술 지원 담당자에 게 경고를 보낼 수 있습니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -104,7 +104,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>IoT hub에 사용자 지정 끝점 및 라우팅 규칙 추가
 
-Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고, 온도 경고가 포함 된 메시지를 해당 끝점에 전달 하는 메시지 라우팅 규칙을 만들어 논리 앱에서 선택 합니다. 라우팅 규칙은 라우팅 쿼리를 사용 하 여 `temperatureAlert = "true"` `temperatureAlert` 장치에서 실행 되는 클라이언트 코드에 의해 설정 된 응용 프로그램 속성의 값을 기반으로 메시지를 전달 합니다. 자세히 알아보려면 [메시지 속성을 기반으로 하는 메시지 라우팅 쿼리](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties)를 참조 하세요.
+Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고, 온도 경고가 포함 된 메시지를 해당 끝점에 전달 하는 메시지 라우팅 규칙을 만들어 논리 앱에서 선택 합니다. 라우팅 규칙은 라우팅 쿼리를 사용 하 여 `temperatureAlert = "true"` `temperatureAlert` 장치에서 실행 되는 클라이언트 코드에 의해 설정 된 응용 프로그램 속성의 값을 기반으로 메시지를 전달 합니다. 자세히 알아보려면 [메시지 속성을 기반으로 하는 메시지 라우팅 쿼리](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties)를 참조 하세요.
 
 ### <a name="add-a-custom-endpoint"></a>사용자 지정 끝점 추가
 

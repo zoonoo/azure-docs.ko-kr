@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Communication Services를 Event Grid 이�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347579"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145826"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Azure Communication Services를 Event Grid 원본으로
 
@@ -23,7 +23,7 @@ ms.locfileid: "91347579"
 
 ### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
-Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. 
+Event Grid는 [이벤트 구독](./concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. 
 
 Azure Communication Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 
@@ -45,7 +45,7 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 
 ## <a name="event-subjects"></a>이벤트 제목
 
-모든 Communication Services 이벤트의 `subject` 필드는 이벤트의 대상으로 지정된 사용자, 전화 번호 또는 엔터티를 식별합니다. 일반적인 접두사는 단순한 [Event Grid 필터링](https://docs.microsoft.com/azure/event-grid/event-filtering)을 허용하는 데 사용됩니다.
+모든 Communication Services 이벤트의 `subject` 필드는 이벤트의 대상으로 지정된 사용자, 전화 번호 또는 엔터티를 식별합니다. 일반적인 접두사는 단순한 [Event Grid 필터링](./event-filtering.md)을 허용하는 데 사용됩니다.
 
 | 제목 접두사                              | Communication Service 엔터티 |
 | ------------------------------------------- | ---------------------------- |
@@ -339,12 +339,12 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 
 ## <a name="tutorials"></a>자습서
 
-| 제목 | 설명 |
+| 제목 | Description |
 |---------|---------|
 | [빠른 시작: SMS 이벤트 처리](../communication-services/quickstarts/telephony-sms/handle-sms-events.md) | Event Grid를 사용 하 여 SMS 이벤트를 구독 하는 방법을 보여 줍니다.   |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Event Grid에 대한 소개는 [Event Grid란?](https://docs.microsoft.com/azure/event-grid/overview)을 참조하세요.
-* Azure Event Grid 개념에 대한 소개는 [Event Grid란?](https://docs.microsoft.com/azure/event-grid/concepts)을 참조하세요.
-* Azure Event Grid 시스템 토픽에 대한 소개는 [Azure Event Grid의 시스템 토픽](https://docs.microsoft.com/azure/event-grid/system-topics)을 참조하세요.
+* Azure Event Grid에 대한 소개는 [Event Grid란?](./overview.md)을 참조하세요.
+* Azure Event Grid 개념에 대한 소개는 [Event Grid란?](./concepts.md)을 참조하세요.
+* Azure Event Grid 시스템 토픽에 대한 소개는 [Azure Event Grid의 시스템 토픽](./system-topics.md)을 참조하세요.

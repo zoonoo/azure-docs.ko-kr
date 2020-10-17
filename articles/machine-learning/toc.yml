@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: ML 파이프라인
       href: concept-ml-pipelines.md
-    - name: 엔터프라이즈 준비 및 보안
+    - name: 보안
       items:
         - name: 엔터프라이즈 보안 개요
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: 보안 기준
           href: security-baseline.md
+    - name: Responsible ML
+      items:
+        - name: Responsible ML 개요
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: 모델 해석력
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Machine Learning의 공정성
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: 차등 프라이버시
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: 방법 가이드
+  items:
+    - name: 보안
+      items:
         - name: ID 및 액세스 관리
           items:
             - name: 인증 설정
@@ -212,22 +230,6 @@
         - name: 규정 준수 감사 및 관리
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: Responsible ML
-      items:
-        - name: Responsible ML 개요
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: 모델 해석력
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Machine Learning의 공정성
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: 차등 프라이버시
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: 방법 가이드
-  items:
     - name: 작업 영역 만들기 및 관리
       items:
         - name: Azure Portal 사용

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61244347"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147644"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용
 
@@ -46,7 +46,7 @@ IoT Hub에 사용자 지정 엔드포인트를 만드는 방법에 대한 자세
 
 * [Azure Storage 컨테이너](../storage/blobs/storage-blobs-introduction.md)에서 읽기
 
-* [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)에서 읽기
+* [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)에서 읽기
 
 * [Service Bus 큐](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)에서 읽기
 

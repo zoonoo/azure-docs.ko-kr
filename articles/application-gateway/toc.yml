@@ -80,6 +80,10 @@
           href: redirect-overview.md
         - name: HTTP 헤더 및 URL 다시 쓰기
           href: rewrite-http-headers-url.md
+        - name: 보안
+          items:
+            - name: 보안 기준
+              href: security-baseline.md
     - name: SSL
       items:
         - name: SSL 종료 및 엔드투엔드 SSL
@@ -276,7 +280,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/applicationgateway
     - name: Azure 리소스 관리자
       displayName: ARM

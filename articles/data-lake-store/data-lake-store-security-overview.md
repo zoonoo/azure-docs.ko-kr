@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106827"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146301"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 
@@ -42,7 +42,7 @@ ms.locfileid: "92106827"
 * 계정 관리를 위한 [AZURE RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)
 * 저장소에서 데이터에 액세스하기 위한 POSIX ACL
 
-### <a name="rbac-for-account-management"></a>계정 관리를 위한 RBAC
+### <a name="azure-rbac-for-account-management"></a>계정 관리를 위한 Azure RBAC
 
 기본적으로 네 가지 기본 역할이 Data Lake Storage Gen1에 대해 정의됩니다. 역할은 Azure Portal, PowerShell cmdlet 및 REST API를 통해 Data Lake Storage Gen1 계정에서 다양한 작업을 허용합니다. 소유자 및 참여자 역할은 해당 계정에 다양한 관리 기능을 수행할 수 있습니다. 계정 관리 데이터를 보기만 하는 사용자에게 읽기 권한자 역할을 할당할 수 있습니다.
 
@@ -117,7 +117,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)

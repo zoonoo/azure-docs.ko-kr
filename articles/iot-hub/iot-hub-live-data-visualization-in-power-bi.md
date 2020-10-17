@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84634516"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146770"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -140,9 +140,9 @@ Stream Analytics 작업에서 **개요**를 선택한 다음 시작 **시작**�
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Power BI 보고서를 만들고 게시하여 데이터 시각화
 
-다음 단계에서는 Power BI 서비스를 사용 하 여 보고서를 만들고 게시 하는 방법을 보여 줍니다. Power BI에서 "새 모양"을 사용 하려는 경우 다음 단계를 수행 하 여 수정할 수 있습니다. "새 모양"의 차이점 및 탐색 방법을 이해 하려면 [Power BI 서비스의 ' 새 모양 '](https://docs.microsoft.com/power-bi/consumer/service-new-look)을 참조 하세요.
+다음 단계에서는 Power BI 서비스를 사용 하 여 보고서를 만들고 게시 하는 방법을 보여 줍니다. Power BI에서 "새 모양"을 사용 하려는 경우 다음 단계를 수행 하 여 수정할 수 있습니다. "새 모양"의 차이점 및 탐색 방법을 이해 하려면 [Power BI 서비스의 ' 새 모양 '](/power-bi/consumer/service-new-look)을 참조 하세요.
 
-1. 애플리케이션 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started)에 있는 자습서를 참조할 수 있습니다.
+1. 애플리케이션 예제가 사용자 디바이스에서 실행 중인지 확인합니다. 그렇지 않은 경우 [사용자 디바이스 설정](./iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
 
 2. [Power BI](https://powerbi.microsoft.com/en-us/) 계정에 로그인합니다.
 

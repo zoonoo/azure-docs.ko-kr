@@ -1,7 +1,7 @@
 ---
-title: 역할 기반 액세스 제어-Custom Vision
+title: Azure 역할 기반 액세스 제어-Custom Vision
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Custom Vision 프로젝트에 대 한 역할 기반 액세스 제어를 구성 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Custom Vision 프로젝트에 대 한 Azure 역할 기반 액세스 제어를 구성 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826942"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146368"
 ---
-# <a name="role-based-access-control"></a>역할 기반 액세스 제어
+# <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-Custom Vision은 Azure 리소스에 대한 개별 액세스를 관리하는 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. RBAC를 사용 하 여 Custom Vision 프로젝트에 다른 팀 멤버에 게 다른 수준의 사용 권한을 할당 합니다. RBAC에 대 한 자세한 내용은 [AZURE rbac 설명서](https://docs.microsoft.com/azure/role-based-access-control/)를 참조 하세요.
+Custom Vision은 Azure 리소스에 대한 개별 액세스를 관리하는 권한 부여 시스템인 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. Azure RBAC를 사용 하 여 Custom Vision 프로젝트에 다른 팀 멤버에 게 다른 수준의 사용 권한을 할당 합니다. Azure RBAC에 대 한 자세한 내용은 [AZURE rbac 설명서](https://docs.microsoft.com/azure/role-based-access-control/)를 참조 하세요.
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Custom Vision 리소스에 역할 할당 추가
 
@@ -27,7 +27,7 @@ Azure RBAC는 Custom Vision 리소스에 할당할 수 있습니다. Azure 리�
 1. [Azure Portal](https://ms.portal.azure.com/)에서 **모든 서비스**를 선택합니다. 
 1. 그런 다음 **Cognitive Services**를 선택 하 고 특정 Custom Vision 학습 리소스로 이동 합니다.
    > [!NOTE]
-   > 전체 리소스 그룹, 구독 또는 관리 그룹에 대해 RBAC를 설정할 수도 있습니다. 원하는 범위 수준을 선택한 다음 원하는 항목으로 이동 하 여이 작업을 수행 합니다 (예: **리소스 그룹** 을 선택 하 고 원하는 리소스 그룹을 클릭 하 여 클릭).
+   > 또한 전체 리소스 그룹, 구독 또는 관리 그룹에 대 한 Azure RBAC를 설정할 수 있습니다. 원하는 범위 수준을 선택한 다음 원하는 항목으로 이동 하 여이 작업을 수행 합니다 (예: **리소스 그룹** 을 선택 하 고 원하는 리소스 그룹을 클릭 하 여 클릭).
 1. 왼쪽 탐색 창에서 **액세스 제어 (IAM)** 를 선택 합니다.
 1. **역할 할당** 탭을 선택 하 여이 범위에 대 한 역할 할당을 확인 합니다.
 1. **추가**  ->  **역할 할당**추가를 선택 합니다.

@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Azure �
 description: Event Grid 이벤트에 대한 이벤트 처리기로 Azure 함수를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873730"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145758"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Event Grid 이벤트에 대한 이벤트 처리기로서의 Azure 함수
 
@@ -72,13 +72,13 @@ UI에서 구독을 만들 때 **이벤트 구독 만들기** 페이지에서 **�
 :::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="구독을 만들 때 일괄 처리 사용":::
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
-Azure Resource Manager 템플릿에서 **maxEventsPerBatch** 및 **preferredBatchSizeInKilobytes** 를 설정할 수 있습니다. 자세한 내용은 [Microsoft EventGrid Eventgrid 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions)를 참조 하세요.
+Azure Resource Manager 템플릿에서 **maxEventsPerBatch** 및 **preferredBatchSizeInKilobytes** 를 설정할 수 있습니다. 자세한 내용은 [Microsoft EventGrid Eventgrid 템플릿 참조](/azure/templates/microsoft.eventgrid/eventsubscriptions)를 참조 하세요.
 
 ### <a name="azure-cli"></a>Azure CLI
-[Az event grid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) 또는 [az event grid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) 명령을 사용 하 여 다음 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 `--max-events-per-batch` 있습니다. `--preferred-batch-size-in-kilobytes`
+[Az event grid event-subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) 또는 [az event grid event-subscription update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) 명령을 사용 하 여 다음 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 `--max-events-per-batch` 있습니다. `--preferred-batch-size-in-kilobytes`
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) 또는 [AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet을 사용 하 여 또는와 같은 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 있습니다. `-MaxEventsPerBatch` `-PreferredBatchSizeInKiloBytes`
+[AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) 또는 [AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet을 사용 하 여 또는와 같은 매개 변수를 사용 하 여 일괄 처리 관련 설정을 구성할 수 있습니다. `-MaxEventsPerBatch` `-PreferredBatchSizeInKiloBytes`
 
 ## <a name="next-steps"></a>다음 단계
-지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 
+지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요.

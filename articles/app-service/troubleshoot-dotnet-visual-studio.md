@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983001"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147745"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
-이 자습서에서는 원격으로 [디버그 모드](/visualstudio/debugger/)를 실행하거나 애플리케이션 로그 및 웹 서버 로그를 확인하여 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
+이 자습서에서는 원격으로 [디버그 모드](/visualstudio/debugger/)를 실행하거나 애플리케이션 로그 및 웹 서버 로그를 확인하여 [App Service](./overview.md)에서 앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
 다음 내용을 배웁니다.
 
@@ -49,7 +49,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
    >
    >
 
-    Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
+    Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 2. **서버 탐색기**에서 **Azure**를 확장한 후 **App Service**를 확장합니다.
 3. [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 앱을 포함하는 리소스 그룹을 확장한 후 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기**를 클릭합니다.
 
@@ -125,7 +125,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
     }
     ```
 
-1. 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/) `ViewBag.Message` 합니다.
+1. 줄에 [중단점을 설정](/visualstudio/debugger/) `ViewBag.Message` 합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 클릭 합니다.
 
@@ -158,7 +158,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 2. ContosoAdsWebJob 프로젝트에서 *Functions.cs*를 엽니다.
 
-3. `GnerateThumbnail` 메서드의 첫 번째 문에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
+3. `GnerateThumbnail` 메서드의 첫 번째 문에 [중단점을 설정](/visualstudio/debugger/)합니다.
 
     ![중단점 설정](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -223,7 +223,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [Visual Studio에서 Just My Code를 사용하여 사용자 코드만 디버그할지 지정](https://docs.microsoft.com/visualstudio/debugger/just-my-code)을 참조하세요.
+* 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [Visual Studio에서 Just My Code를 사용하여 사용자 코드만 디버그할지 지정](/visualstudio/debugger/just-my-code)을 참조하세요.
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 * 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](/visualstudio/debugger/debugging-in-visual-studio)을 참조하십시오.
 
@@ -312,7 +312,7 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
     ```
 
 `WebPageTraceListener`를 사용하면 `/trace.axd`로 이동하여 추적 출력을 확인할 수 있습니다.
-1. Web.config 파일의 `<system.web>` 아래에 <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
+1. Web.config 파일의 `<system.web>` 아래에 <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">trace 요소</a>를 다음 예와 같이 추가합니다.
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -463,7 +463,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -582,7 +582,7 @@ Azure App Service에서 앱 문제 해결에 대한 자세한 내용은 다음 �
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
 
 * [ASP.NET 사이트의 Azure 포럼](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)(영문)
-* [Microsoft Q의 Azure 포럼은 A를&](https://docs.microsoft.com/answers/topics/azure-webapps.html)합니다.
+* [Microsoft Q의 Azure 포럼은 A를&](/answers/topics/azure-webapps.html)합니다.
 * [StackOverflow.com](https://www.stackoverflow.com)(영문)
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio의 디버깅

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 1ba3c89ea4f964f9e6fd5f902aab29a83a058f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074722"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147087"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "87074722"
 
 특정 IP 주소에 대해 IoT Hub 엔드포인트를 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
 
-* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 프라이빗 연결을 만드는 경우입니다.
+* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 프라이빗 연결을 만드는 경우입니다.
 
 * IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
 
@@ -75,7 +75,7 @@ IP 필터 규칙을 삭제하려면 해당 행에서 휴지통 아이콘을 선�
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI를 사용하여 IP 필터 검색 및 업데이트
 
-IoT Hub의 IP 필터는 [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 통해 검색 및 업데이트할 수 있습니다.
+IoT Hub의 IP 필터는 [Azure  CLI](/cli/azure/?view=azure-cli-latest)를 통해 검색 및 업데이트할 수 있습니다.
 
 IoT Hub의 현재 IP 필터를 검색하려면 다음을 실행합니다.
 
@@ -149,7 +149,7 @@ $iothubResource | Set-AzResource -Force
 
 ## <a name="update-ip-filter-rules-using-rest"></a>REST를 사용하여 IP 필터 규칙 업데이트
 
-또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate)의 `properties.ipFilterRules`를 참조하세요.
+또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](/rest/api/iothub/iothubresource/createorupdate)의 `properties.ipFilterRules`를 참조하세요.
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가
 

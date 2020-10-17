@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029837"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147720"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -84,7 +84,7 @@ ID 레지스트리에서 ID의 **상태** 속성을 업데이트하여 디바이
 
 API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 참조하세요. 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 디바이스 ID의 대량 관리](iot-hub-bulk-identity-mgmt.md)를 참조하세요.
 
-[REST API](/rest/api/iothub/service/jobs/createimportexportjob) 또는 IoT Hub [서비스 sdk](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)중 하나를 통해 서비스 API를 통해 IoT Hub에서 장치 id를 내보내고 가져올 수도 있습니다.
+[REST API](/rest/api/iothub/service/jobs/createimportexportjob) 또는 IoT Hub [서비스 sdk](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)중 하나를 통해 서비스 API를 통해 IoT Hub에서 장치 id를 내보내고 가져올 수도 있습니다.
 
 ## <a name="device-provisioning"></a>디바이스 프로비전
 
@@ -124,7 +124,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 |operationTimestamp | 작업의 ISO8601 타임스탬프 |
 |iothub-message-schema | deviceLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
+본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예를 들면
 
 ```json
 {
@@ -160,7 +160,7 @@ moduleId | 모듈의 ID |
 operationTimestamp | 작업의 ISO8601 타임스탬프 |
 iothub-message-schema | moduleLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
+본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예를 들면
 
 ```json
 {
@@ -188,7 +188,7 @@ iothub-message-schema | moduleLifecycleNotification |
 
 디바이스 ID는 다음 속성을 사용하여 JSON 문서로 표시됩니다.
 
-| 속성 | 옵션 | 설명 |
+| 속성 | 옵션 | Description |
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
@@ -212,7 +212,7 @@ iothub-message-schema | moduleLifecycleNotification |
 
 모듈 ID는 다음 속성을 사용하여 JSON 문서로 표현됩니다.
 
-| 속성 | 옵션 | 설명 |
+| 속성 | 옵션 | Description |
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | moduleId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |

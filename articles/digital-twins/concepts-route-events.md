@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 내에서 이벤트를 라우팅하는 방법 및 다른 Azure 서비스에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044295"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145979"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용 하 여 경로를 만들 수도 있습니다.
+
+## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
+끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다. **다음 조건 중 하나가** 충족 되 면 Azure Digital twins는 이벤트를 배달 하지 않습니다. 
+
+- 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
+- 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
+
+조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다.  기본적으로 각 끝점은 배달 못 한 문자를 설정 **하지** 않습니다. 이를 사용 하도록 설정 하려면 끝점을 만들 때 배달 되지 않은 이벤트를 보관할 저장소 계정을 지정 해야 합니다. 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
+
+배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 끝점을 만들 때이 컨테이너의 URL을 제공 합니다. 배달 못 한 편지는 SAS 토큰을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+SAS 토큰에 대 한 자세한 내용은 [ *sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여* 를 참조 하세요.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+배달 못 한 편지를 설정 하는 방법을 알아보려면 [*방법: Azure 디지털 쌍에서 끝점 및 경로 관리 (api 및 CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조 하세요.
 
 ### <a name="types-of-event-messages"></a>이벤트 메시지 유형
 

@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327466"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145857"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
@@ -154,7 +154,7 @@ BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그�
 | SDI(23F 핀)            | SPI0 MOSI(19 핀)     | 녹색 케이블   |
 | CS(24F 핀)             | SPI0 CS(24 핀)       | 파란색 케이블    |
 
-참조용으로 [Raspberry Pi 2 및 3 핀 매핑](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)을 보려면 클릭하세요.
+참조용으로 [Raspberry Pi 2 및 3 핀 매핑](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi)을 보려면 클릭하세요.
 
 BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 보여야 합니다.
 

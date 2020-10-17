@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.custom:
 - amqp
 - 'Role: Cloud Development'
-ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb33721625f4fc752745ce2b43051c90b3aaa74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327704"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147676"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
@@ -72,12 +72,12 @@ IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 연
 
 IoT Hub에서 공개하는 기본 제공 Event Hub 호환 엔드포인트에 사용할 수 있는 제품 통합은 다음과 같습니다.
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). [Azure Functions를 사용하여 IoT Hub에서 데이터 처리](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/) 참조
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) - [Stream Analytics에 입력으로 데이터 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub) 참조
-* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). [Time Series Insights 환경에 IoT 허브 이벤트 원본 추가](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md) 참조
+* [Azure Functions](../azure-functions/index.yml). [Azure Functions를 사용하여 IoT Hub에서 데이터 처리](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/) 참조
+* [Azure Stream Analytics](../stream-analytics/index.yml) - [Stream Analytics에 입력으로 데이터 스트리밍](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub) 참조
+* [Time Series Insights](../time-series-insights/index.yml). [Time Series Insights 환경에 IoT 허브 이벤트 원본 추가](../time-series-insights/how-to-ingest-data-iot-hub.md) 참조
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). GitHub의 [spout 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 을 볼 수 있습니다.
-* [Apache Spark 통합](../hdinsight/spark/apache-spark-eventhub-streaming.md)
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+* [Apache Spark 통합](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Azure Databricks](/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>다음 단계
 

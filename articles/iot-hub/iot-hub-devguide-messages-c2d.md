@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
-ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81730004"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147766"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
 
@@ -85,7 +85,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 [끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-디바이스 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
-| 속성     | 설명 |
+| 속성     | Description |
 | ------------ | ----------- |
 | EnqueuedTime | 허브에서 피드백 메시지를 받은 시간을 나타내는 타임 스탬프입니다. |
 | UserId       | `{iot hub name}` |
@@ -93,12 +93,12 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | 설명 |
+| 속성           | Description |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 메시지의 결과가 발생 한 시간을 나타내는 타임 스탬프입니다. 예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지는 만료 됩니다. |
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
 | StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *거부됨* <br/> *삭제* |
-| 설명        | *StatusCode* 에 대 한 문자열 값 |
+| Description        | *StatusCode* 에 대 한 문자열 값 |
 | DeviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
@@ -133,7 +133,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 각 IoT Hub는 클라우드-디바이스 메시징에 다음 구성 옵션을 노출합니다.
 
-| 속성                  | 설명 | 범위 및 기본값 |
+| 속성                  | Description | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 클라우드-장치 메시지에 대 한 기본 TTL | ISO_8601 간격은 최대 2 일 (최소 1 분)입니다. 기본값: 1 시간 |
 | maxDeliveryCount          | 클라우드-장치 단위 큐의 최대 배달 횟수 | 1 ~ 100; 기본값: 10 |
@@ -147,7 +147,7 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
     ![포털에서 클라우드-장치 메시지에 대 한 구성 옵션 설정](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI**: [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) 명령을 사용 합니다.
+* **Azure CLI**: [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) 명령을 사용 합니다.
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

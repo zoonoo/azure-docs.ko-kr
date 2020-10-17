@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766944"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147707"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -59,7 +59,7 @@ IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https:/
 
 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대해서는 편집할 수 없습니다. 기존 끝점에 대 한 인코딩 형식을 전환 하려면 원하는 형식으로 사용자 지정 끝점을 삭제 하 고 다시 만들어야 합니다. 유용한 전략 중 하나는 원하는 인코딩 형식을 사용 하 여 새 사용자 지정 끝점을 만들고이 끝점에 병렬 경로를 추가 하는 것입니다. 이러한 방식으로 기존 끝점을 삭제 하기 전에 데이터를 확인할 수 있습니다.
 
-IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint)를 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 이미지는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
+IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint)를 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 이미지는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
 
 ![Blob storage 끝점 인코딩](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -71,7 +71,7 @@ IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerPrope
 
 원하는 파일 명명 규칙을 사용할 수 있지만, 나열된 토큰은 모두 사용해야 합니다. 쓸 데이터가 없으면 IoT Hub가 빈 Blob을 작성합니다.
 
-Blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. [목록 BLOB api](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
+Blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. [목록 BLOB api](/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](/rest/api/storageservices/datalakestoragegen2/path/list) 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -115,12 +115,12 @@ IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **
 
 * [Service Bus 큐](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) 에서 읽기
 
-* [Service Bus 토픽](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)에서 읽기
+* [Service Bus 토픽](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)에서 읽기
 
 
 ## <a name="fallback-route"></a>대체(fallback) 경로
 
-대체(fallback) 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](/azure/event-hubs/)와 호환되는 기본 제공 Event Hubs(**messages/events**)로 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
+대체(fallback) 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](../event-hubs/index.yml)와 호환되는 기본 제공 Event Hubs(**messages/events**)로 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
 
 Azure Portal >메시지 라우팅 블레이드에서 대체 경로를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
 
@@ -148,7 +148,7 @@ IoT Hub 메시지 라우팅은 순서 대로 메시지를 끝점으로 배달 �
 
 ## <a name="monitoring-and-troubleshooting"></a>모니터링 및 문제 해결
 
-IoT Hub는 허브 및 전송 메시지의 상태에 대 한 개요를 제공 하기 위해 라우팅 및 끝점과 관련 된 몇 가지 메트릭을 제공 합니다. [IoT Hub 메트릭](iot-hub-metrics.md)에는 기본적으로 IoT Hub에 대해 활성화된 모든 메트릭이 나열됩니다. Azure Monitor [진단 설정](../iot-hub/iot-hub-monitor-resource-health.md)의 **경로** 진단 로그를 사용 하 여 라우팅 쿼리 및 끝점 상태를 평가 하는 동안 발생 하는 오류를 IoT Hub에 의해 인식 되는 것으로 추적할 수 있습니다. REST API [Endpoint Health 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 [Health 상태](iot-hub-devguide-endpoints.md#custom-endpoints) 를 가져올 수 있습니다. 
+IoT Hub는 허브 및 전송 메시지의 상태에 대 한 개요를 제공 하기 위해 라우팅 및 끝점과 관련 된 몇 가지 메트릭을 제공 합니다. [IoT Hub 메트릭](iot-hub-metrics.md)에는 기본적으로 IoT Hub에 대해 활성화된 모든 메트릭이 나열됩니다. Azure Monitor [진단 설정](../iot-hub/iot-hub-monitor-resource-health.md)의 **경로** 진단 로그를 사용 하 여 라우팅 쿼리 및 끝점 상태를 평가 하는 동안 발생 하는 오류를 IoT Hub에 의해 인식 되는 것으로 추적할 수 있습니다. REST API [Endpoint Health 가져오기](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 [Health 상태](iot-hub-devguide-endpoints.md#custom-endpoints) 를 가져올 수 있습니다. 
 
 라우팅 문제 해결에 대 한 자세한 내용과 지원 정보는 라우팅 [에 대 한 문제 해결 가이드](troubleshoot-message-routing.md) 를 참조 하세요.
 

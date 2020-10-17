@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327568"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146673"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
 
-[소비자 그룹](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers)은 앱과 Azure 서비스가 동일한 이벤트 허브 엔드포인트의 데이터를 독립적으로 사용할 수 있는 이벤트 스트림에 대한 독립적인 보기를 제공합니다. 이 섹션에서는 웹앱에서 데이터를 읽는 데 사용하는 IoT Hub의 기본 제공 엔드포인트에 소비자 그룹을 추가합니다.
+[소비자 그룹](../event-hubs/event-hubs-features.md#event-consumers)은 앱과 Azure 서비스가 동일한 이벤트 허브 엔드포인트의 데이터를 독립적으로 사용할 수 있는 이벤트 스트림에 대한 독립적인 보기를 제공합니다. 이 섹션에서는 웹앱에서 데이터를 읽는 데 사용하는 IoT Hub의 기본 제공 엔드포인트에 소비자 그룹을 추가합니다.
 
 다음 명령을 실행하여 IoT Hub의 기본 제공 엔드포인트에 소비자 그룹을 추가합니다.
 
@@ -156,11 +156,11 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 ## <a name="host-the-web-app-in-app-service"></a>App Service에서 웹앱 호스트
 
-[Azure App Service의 웹앱 기능](https://docs.microsoft.com/azure/app-service/overview)은 웹 애플리케이션을 호스트하기 위한 PAAS(Platform as a Service)를 제공합니다. Azure App Service에서 호스트되는 웹 애플리케이션은 추가 보안, 부하 분산 및 확장성과 같은 강력한 Azure 기능과 연속 배포, 패키지 관리 등과 같은 Azure 및 파트너 DevOps 솔루션의 이점을 누릴 수 있습니다. Azure App Service는 널리 사용되는 여러 언어로 개발되고 Windows 또는 Linux 인프라에 배포된 웹 애플리케이션을 지원합니다.
+[Azure App Service의 웹앱 기능](../app-service/overview.md)은 웹 애플리케이션을 호스트하기 위한 PAAS(Platform as a Service)를 제공합니다. Azure App Service에서 호스트되는 웹 애플리케이션은 추가 보안, 부하 분산 및 확장성과 같은 강력한 Azure 기능과 연속 배포, 패키지 관리 등과 같은 Azure 및 파트너 DevOps 솔루션의 이점을 누릴 수 있습니다. Azure App Service는 널리 사용되는 여러 언어로 개발되고 Windows 또는 Linux 인프라에 배포된 웹 애플리케이션을 지원합니다.
 
-이 섹션에서는 App Service에서 웹앱을 프로비저닝하고 Azure CLI 명령을 사용하여 코드를 배포합니다. [az webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) 설명서에서 사용되는 명령에 대한 세부 정보를 찾을 수 있습니다. 시작하기 전에 [IoT Hub에 리소스 그룹을 추가하고](#add-a-consumer-group-to-your-iot-hub), [IoT Hub의 서비스 연결 문자열을 가져오고](#get-a-service-connection-string-for-your-iot-hub), [GitHub에서 웹앱을 다운로드하는](#download-the-web-app-from-github) 단계를 완료했는지 확인합니다.
+이 섹션에서는 App Service에서 웹앱을 프로비저닝하고 Azure CLI 명령을 사용하여 코드를 배포합니다. [az webapp](/cli/azure/webapp?view=azure-cli-latest) 설명서에서 사용되는 명령에 대한 세부 정보를 찾을 수 있습니다. 시작하기 전에 [IoT Hub에 리소스 그룹을 추가하고](#add-a-consumer-group-to-your-iot-hub), [IoT Hub의 서비스 연결 문자열을 가져오고](#get-a-service-connection-string-for-your-iot-hub), [GitHub에서 웹앱을 다운로드하는](#download-the-web-app-from-github) 단계를 완료했는지 확인합니다.
 
-1. [App Service 플랜](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)은 App Service에서 호스트된 앱에서 실행할 컴퓨팅 리소스 세트를 정의합니다. 이 자습서에서는 개발자/무료 계층을 사용하여 웹앱을 호스트합니다. 무료 계층을 사용하여 웹앱은 다른 고객의 앱을 포함하여 다른 App Service 앱과 공유된 Windows 리소스에서 실행됩니다. 또한 Azure는 Linux 컴퓨팅 리소스에 웹앱을 배포하기 위한 App Service 플랜을 제공합니다. 사용하려는 App Service 플랜이 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
+1. [App Service 플랜](../app-service/overview-hosting-plans.md)은 App Service에서 호스트된 앱에서 실행할 컴퓨팅 리소스 세트를 정의합니다. 이 자습서에서는 개발자/무료 계층을 사용하여 웹앱을 호스트합니다. 무료 계층을 사용하여 웹앱은 다른 고객의 앱을 포함하여 다른 App Service 앱과 공유된 Windows 리소스에서 실행됩니다. 또한 Azure는 Linux 컴퓨팅 리소스에 웹앱을 배포하기 위한 App Service 플랜을 제공합니다. 사용하려는 App Service 플랜이 이미 있는 경우 이 단계를 건너뛸 수 있습니다.
 
    Windows 무료 계층을 사용하여 App Service 플랜을 만들려면 다음 명령을 실행합니다. IoT Hub가 있는 동일한 리소스 그룹을 사용합니다. 서비스 플랜 이름에는 대/소문자, 숫자 및 하이픈을 포함할 수 있습니다.
 
@@ -187,7 +187,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. App Service에 코드를 배포하려면 [사용자 수준 배포 자격 증명](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)을 사용합니다. 사용자 수준 배포 자격 증명은 Azure 자격 증명과는 다르며 웹앱에 대한 Git 로컬 및 FTP 배포에 사용됩니다. 설정되면 Azure 계정의 모든 구독에 있는 모든 App Service 앱에서 유효합니다. 사용자 수준 배포 자격 증명을 이전에 설정한 경우 해당 자격 증명을 사용할 수 있습니다.
+5. App Service에 코드를 배포하려면 [사용자 수준 배포 자격 증명](../app-service/deploy-configure-credentials.md)을 사용합니다. 사용자 수준 배포 자격 증명은 Azure 자격 증명과는 다르며 웹앱에 대한 Git 로컬 및 FTP 배포에 사용됩니다. 설정되면 Azure 계정의 모든 구독에 있는 모든 App Service 앱에서 유효합니다. 사용자 수준 배포 자격 증명을 이전에 설정한 경우 해당 자격 증명을 사용할 수 있습니다.
 
    이전에 사용자 수준 배포 자격 증명을 설정하지 않았거나 암호를 기억할 수 없는 경우 다음 명령을 실행합니다. 배포 사용자 이름은 Azure 내에서 고유해야 하며 로컬 Git 푸시에 대한 '@' 기호를 포함하지 않아야 합니다. 암호를 묻는 메시지가 표시되면 암호를 입력하고 새 암호를 확인합니다. 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
 

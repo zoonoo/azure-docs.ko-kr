@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: f68705309d15548dc9728686e2e0ecd6aaad3fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75e859fc1237bc88bee464cef423b7289810fa8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334109"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147795"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -55,7 +55,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 
 디바이스의 직접 메서드 호출은 다음 항목으로 구성된 HTTPS 호출입니다.
 
-* 디바이스와 관련된 *요청 URI* 및 [API 버전](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod):
+* 디바이스와 관련된 *요청 URI* 및 [API 버전](/rest/api/iothub/service/devices/invokemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
