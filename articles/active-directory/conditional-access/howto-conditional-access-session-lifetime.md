@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265938"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145268"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.
 
@@ -134,9 +134,8 @@ What-If 도구를 사용 하 여 사용자의 로그인을 대상 응용 프로�
 
 ## <a name="policy-deployment"></a>정책 배포
 
-정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)문서를 참조 하세요.
+정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [조건부 액세스 배포 계획](plan-conditional-access.md)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 조건부 액세스 정책을 구성 하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용 하는 특정 앱에 대 한 MFA 필요](../authentication/tutorial-enable-azure-mfa.md)문서를 참조 하세요.
-* 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 된 경우 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)문서를 참조 하세요.
+* 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 되 면 [조건부 액세스 배포 계획](plan-conditional-access.md)문서를 참조 하세요.

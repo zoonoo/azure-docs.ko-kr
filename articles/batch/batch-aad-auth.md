@@ -4,12 +4,12 @@ description: Batch는 Batch 서비스의 인증을 위해 Azure AD를 지원합�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533515"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144826"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -103,7 +103,7 @@ Azure AD에 애플리케이션을 등록하는 방법에 대한 자세한 내용
 무인으로 실행되는 애플리케이션을 인증하려면 서비스 사용자를 사용합니다. 애플리케이션을 등록했으면 Azure Portal에서 다음 단계에 따라 서비스 주체를 구성합니다.
 
 1. 애플리케이션에 대한 비밀을 요청합니다.
-1. 애플리케이션에 RBAC(역할 기반 액세스 제어)를 할당합니다.
+1. Azure RBAC (역할 기반 액세스 제어)를 응용 프로그램에 할당 합니다.
 
 ### <a name="request-a-secret-for-your-application"></a>애플리케이션에 대한 비밀 요청
 
@@ -119,15 +119,15 @@ Azure Portal에서 다음 단계를 따릅니다.
 
     ![비밀 키 만들기](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>애플리케이션에 RBAC 할당
+### <a name="assign-azure-rbac-to-your-application"></a>응용 프로그램에 Azure RBAC 할당
 
-서비스 주체로 인증하려면 애플리케이션에 RBAC를 할당해야 합니다. 다음 단계를 수행하세요.
+서비스 주체를 사용 하 여 인증 하려면 응용 프로그램에 Azure RBAC를 할당 해야 합니다. 다음 단계를 수행하세요.
 
 1. Azure Portal에서 애플리케이션에서 사용되는 Batch 계정으로 이동합니다.
 1. Batch 계정의 **설정** 섹션에서 **Access Control(IAM)** 을 선택합니다.
 1. **역할 할당** 탭을 선택합니다.
 1. **역할 할당 추가**를 선택합니다.
-1. **역할** 드롭다운에서 애플리케이션에 대한 *기여자* 또는 *읽기 권한자* 역할을 선택합니다. 이러한 역할에 대한 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
+1. **역할** 드롭다운에서 애플리케이션에 대한 *기여자* 또는 *읽기 권한자* 역할을 선택합니다. 이러한 역할에 대 한 자세한 내용은 [Azure Portal에서 Azure 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조 하세요.
 1. **선택** 필드에서 애플리케이션의 이름을 입력합니다. 목록에서 애플리케이션을 선택하고 **저장**을 선택합니다.
 
 이제 응용 프로그램이 Azure 역할이 할당 된 액세스 제어 설정에 표시 됩니다.
@@ -138,7 +138,7 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 사용자 지정 역할은 사용자에게 작업, 태스크 등을 제출하기 위한 세부적인 사용 권한을 부여합니다. 이를 통해 사용자가 풀 만들기 또는 노드 수정과 같이 비용에 영향을 주는 작업을 수행할 수 없도록 할 수 있습니다.
 
-사용자 지정 역할을 사용하여 다음 RBAC 작업에 대해 Azure AD 사용자, 그룹 또는 서비스 주체에 권한을 부여할 수 있습니다.
+사용자 지정 역할을 사용 하 여 azure AD 사용자, 그룹 또는 서비스 사용자에 게 다음과 같은 Azure RBAC 작업을 수행할 수 있는 권한을 부여할 수 있습니다.
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete

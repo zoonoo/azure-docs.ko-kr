@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4922d8855173ab2539c3960aacf54c89aaf1b7b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961791"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148259"
 ---
 # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기
 
@@ -34,7 +34,7 @@ ASE를 만든 후에는 다음을 변경할 수 없습니다.
 
 - 위치
 - 구독
-- Resource group
+- 리소스 그룹
 - 사용되는 VNet
 - 사용되는 서브넷
 - 서브넷 크기
@@ -192,7 +192,7 @@ ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][AS
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md

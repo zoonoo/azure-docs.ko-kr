@@ -8,16 +8,16 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 8810309fef5dbbb35465a2af15d42fa8a59d5401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84302105"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152321"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Azure SignalR Service에 서비스 태그 사용
 
-[네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)을 구성 하는 경우 Azure SignalR service에 대 한 [서비스 태그](../virtual-network/security-overview.md#service-tags) 를 사용할 수 있습니다. IP 주소를 하드 코딩 하지 않고도 Azure SignalR Service 끝점에 대 한 아웃 바운드 네트워크 보안 규칙을 정의할 수 있습니다.
+[네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#network-security-groups)을 구성 하는 경우 Azure SignalR service에 대 한 [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 를 사용할 수 있습니다. IP 주소를 하드 코딩 하지 않고도 Azure SignalR Service 끝점에 대 한 아웃 바운드 네트워크 보안 규칙을 정의할 수 있습니다.
 
 Azure SignalR Service는 이러한 서비스 태그를 관리 합니다. 사용자 고유의 서비스 태그를 만들거나 기존 서비스 태그를 수정할 수 없습니다. Microsoft는 서비스 태그와 일치 하는 이러한 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
 
@@ -46,4 +46,4 @@ Azure SignalR Service는 이러한 서비스 태그를 관리 합니다. 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [네트워크 보안 그룹: 서비스 태그](../virtual-network/security-overview.md#security-rules)
+- [네트워크 보안 그룹: 서비스 태그](../virtual-network/network-security-groups-overview.md#security-rules)

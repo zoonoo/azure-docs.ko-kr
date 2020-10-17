@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cacef205b614170df210e03ddf3978a64a90ea22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940804"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151934"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 삭제 합니다.
 
@@ -57,7 +57,7 @@ Pvc를 나열 하려면 다음 명령을 실행 합니다.
 kubectl get pvc [-n <namespace name>]
 ```
 
-삭제 한 서버 그룹의 경우 특히 Pvc의 목록을 반환 합니다. 예를 들면 다음과 같습니다.
+즉, 삭제 한 서버 그룹에 대 한 pvc, 특히 Pvc의 목록을 반환 합니다. 예를 들면 다음과 같습니다.
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE

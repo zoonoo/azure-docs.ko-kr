@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 830e72a8de047b0219cfa0be264fad2e1f83beb2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302528"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142610"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 파일 업로드 구성
 
@@ -25,17 +25,17 @@ ms.locfileid: "78302528"
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-* Azure IoT Hub - IoT hub가 없는 경우 [ `az iot hub create` 명령을](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) 사용 하 여 포털을 만들거나 [포털을 사용 하 여 iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
+* Azure IoT Hub - IoT hub가 없는 경우 [ `az iot hub create` 명령을](/cli/azure/iot/hub#az-iot-hub-create) 사용 하 여 포털을 만들거나 [포털을 사용 하 여 iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
 
-* Azure Storage 계정. Azure Storage 계정이 없으면 Azure CLI를 사용 하 여 계정을 만들 수 있습니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-create-storage-account.md) 를 참조하세요.
+* Azure Storage 계정. Azure Storage 계정이 없으면 Azure CLI를 사용 하 여 계정을 만들 수 있습니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 를 참조하세요.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
 Azure 계정에 로그인하고 구독을 선택합니다.
 
-1. 명령 프롬프트에서 [login 명령](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 실행합니다.
+1. 명령 프롬프트에서 [login 명령](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 실행합니다.
 
     ```azurecli
     az login
@@ -43,7 +43,7 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
     지침에 따라 코드를 사용하여 인증하고 웹 브라우저를 통해 Azure 계정에 로그인합니다.
 
-2. 여러 Azure 구독이 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 계정에 대한 액세스를 허용합니다. 다음 [Azure 계정을 나열하는 명령](https://docs.microsoft.com/cli/azure/account)을 사용합니다.
+2. 여러 Azure 구독이 있는 경우 Azure에 로그인하면 자격 증명과 연결된 모든 Azure 계정에 대한 액세스를 허용합니다. 다음 [Azure 계정을 나열하는 명령](/cli/azure/account)을 사용합니다.
 
     ```azurecli
     az account list
@@ -144,5 +144,5 @@ Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려�
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
+* [Azure IoT Edge를 사용하여 에지 디바이스에 AI 배포](../iot-edge/quickstart-linux.md)
 * [처음부터 IoT 솔루션 보안 유지](../iot-fundamentals/iot-security-ground-up.md)

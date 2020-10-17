@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397303"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151970"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
@@ -87,7 +87,7 @@ Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI P
 >
 
 > [!NOTE]
-> 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 해당 속성 값을 추출합니다. 첫 번째 클래스 **설명** 속성이 없는 *온-프레미스* SQL Server 관계형 데이터베이스의 경우 Data Catalog 데이터 원본 등록 도구는 개체 및 열에 대 한 **ms_description** 확장 속성에서 값을 추출 합니다. 이 속성은 SQL Azure에 대해 지원 되지 않습니다. 자세한 내용은 [데이터베이스 개체의 확장 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
+> 최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, 데이터 카탈로그 데이터 원본 등록 도구가 해당 속성 값을 추출합니다. 첫 번째 클래스 **설명** 속성이 없는 *온-프레미스* SQL Server 관계형 데이터베이스의 경우 Data Catalog 데이터 원본 등록 도구는 개체 및 열에 대 한 **ms_description** 확장 속성에서 값을 추출 합니다. 이 속성은 SQL Azure에 대해 지원 되지 않습니다. 자세한 내용은 [데이터베이스 개체의 확장 속성 사용](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105))을 참조하세요.
 >
 >
 
@@ -122,7 +122,7 @@ Microsoft는 데이터 카탈로그에 더 많은 데이터 원본을 추가하�
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>등록하는 데이터 원본에서 더 많거나 풍부한 메타데이터를 추출할 수 있나요?
 데이터 카탈로그의 기능을 확장하는 작업을 활발히 진행 중입니다. 등록하는 동안 데이터 원본에서 추출된 추가 메타데이터를 포함하려는 경우, [Azure Feedback Forums의 데이터 카탈로그](https://feedback.azure.com/forums/906052-data-catalog)에서 이를 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 투표하시기 바랍니다. 
 
-데이터 원본 등록 도구가 해당 메타데이터를 추출하지 않은 데이터 원본에 대해 열/스키마 메타데이터, 미리 보기 도는 데이터 프로필을 포함하려면 데이터 카탈로그 API를 사용하여 이 메타데이터를 추가할 수 있습니다. 자세한 내용은 [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/)를 참조하세요.
+데이터 원본 등록 도구가 해당 메타데이터를 추출하지 않은 데이터 원본에 대해 열/스키마 메타데이터, 미리 보기 도는 데이터 프로필을 포함하려면 데이터 카탈로그 API를 사용하여 이 메타데이터를 추가할 수 있습니다. 자세한 내용은 [Azure Data Catalog REST API](/rest/api/datacatalog/)를 참조하세요.
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>등록된 데이터 자산의 표시 여부를 제한하여 특정인만 검색하도록 하려면 어떻게 하나요?
 데이터 카탈로그에서 해당 데이터 자산을 선택한 다음 **소유권 가져오기** 단추를 클릭합니다. 데이터 카탈로그의 데이터 자산에 대한 소유권은 표시 여부 설정을 변경하여 모든 사용자가 소유한 자산을 검색하거나 특정 사용자에게 표시 여부를 제한하도록 할 수 있습니다. 자세한 내용은 [Azure Data Catalog의 데이터 자산 관리](data-catalog-how-to-manage.md)를 참조하세요.

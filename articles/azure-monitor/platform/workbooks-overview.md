@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932399"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143626"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -97,7 +97,7 @@ ms.locfileid: "91932399"
 
 ![기본 Kusto 쿼리 스크린샷](./media/workbooks-overview/kusto.png)
 
-오른쪽의 다른 **편집** 단추를 클릭 하면 markdown 기반 [텍스트 상자](workbooks-visualizations.md#text), [매개 변수 선택](workbooks-parameters.md) UI 요소 및 기타 [차트/시각화 형식과](workbooks-visualizations.md)같은 통합 문서를 구성 하는 몇 가지 핵심 구성 요소가 표시 됩니다. 
+오른쪽의 다른 **편집** 단추를 클릭 하면 markdown 기반 [텍스트 상자](workbooks-text-visualizations.md), [매개 변수 선택](workbooks-parameters.md) UI 요소 및 기타 [차트/시각화 형식과](#visualizations)같은 통합 문서를 구성 하는 몇 가지 핵심 구성 요소가 표시 됩니다. 
 
 편집 모드에서 미리 작성 된 템플릿을 탐색 한 다음 요구 사항에 맞게 수정 하 고 사용자 지정 통합 문서를 저장 하는 것이 Azure Monitor 통합 문서를 사용 하 여 가능한 작업에 대 한 학습을 시작 하는 좋은 방법입니다.
 
@@ -129,5 +129,5 @@ Pin 모드에 액세스 하려면 **편집** 을 클릭 하 여 편집 모드로
 
 ## <a name="next-step"></a>다음 단계
 
-* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](workbooks-visualizations.md) 하세요.
+* 통합 문서에 대 한 자세한 내용은 다양 한 기능을 갖춘 시각화 옵션을 [시작](#visualizations) 하세요.
 * 통합 문서 리소스에 대 한 액세스를 [제어](workbooks-access-control.md) 하 고 공유 합니다.

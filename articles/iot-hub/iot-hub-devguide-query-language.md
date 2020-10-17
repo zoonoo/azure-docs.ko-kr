@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031180"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147661"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -234,7 +234,7 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 ### <a name="limitations"></a>제한 사항
 
 > [!IMPORTANT]
-> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID로 개별 장치 쌍을 쿼리 하는 경우 [get 쌍 REST API](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable)를 사용 합니다. 이 API는 항상 최신 값을 반환 하며 제한 한도가 높습니다. REST API를 직접 발급 하거나 [Azure IoT Hub 서비스 sdk](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)중 하나에서 해당 기능을 사용할 수 있습니다.
+> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID로 개별 장치 쌍을 쿼리 하는 경우 [get 쌍 REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable)를 사용 합니다. 이 API는 항상 최신 값을 반환 하며 제한 한도가 높습니다. REST API를 직접 발급 하거나 [Azure IoT Hub 서비스 sdk](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks)중 하나에서 해당 기능을 사용할 수 있습니다.
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
@@ -448,7 +448,7 @@ GROUP BY <group_by_element>
 
 다음과 같은 연산자가 지원됩니다.
 
-| 제품군 | 연산자 |
+| 패밀리 | 연산자 |
 | --- | --- |
 | 산술 |+, -, *, /, % |
 | 논리 |AND, OR, NOT |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5821a1d1f6713ef39d7475fb004164e7c0fd71ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87062055"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145940"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -47,33 +47,9 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 Azure Digital Twins의 현재 미리 보기에서 쌍을 만들려면 쌍의 모든 속성을 초기화 해야 합니다. 이 작업은 필요한 초기화 값을 제공 하는 JSON 문서를 만들어 수행 합니다.
 
-```csharp
-public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
-{
-    // Define the model for the twin to be created
-    Dictionary<string, object> meta = new Dictionary<string, object>()
-    {
-      { "$model", "dtmi:com:contoso:Room;2" }
-    };
-    // Initialize the twin properties
-    Dictionary<string, object> initData = new Dictionary<string, object>()
-    {
-      { "$metadata", meta },
-      { "Temperature", temperature},
-      { "Humidity", humidity},
-    };
-    try
-    {
-      await client.DigitalTwins.AddAsync(id, initData);
-      return true;
-    }
-    catch (ErrorResponseException e)
-    {
-      Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}");
-      return false;
-    }
-}
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+
+사전을 사용 하는 대신, 라는 도우미 클래스를 사용 `BasicDigitalTwin` 하 여 "쌍" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대 한 자세한 내용은 *방법: 디지털*쌍 관리 [*섹션을*](how-to-manage-twin.md#create-a-digital-twin) 참조 하세요.
 
 ### <a name="create-relationships"></a>관계 만들기
 

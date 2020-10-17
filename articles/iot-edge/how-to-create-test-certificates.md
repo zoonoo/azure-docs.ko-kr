@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84430671"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147889"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
 
@@ -32,9 +32,9 @@ IoT Edge 시나리오를 테스트 하기 위한 데모 인증서를 만들려�
 1. 장치에서 인증서를 생성 하는 [스크립트를 설정](#set-up-scripts) 합니다.
 2. 시나리오에 대 한 다른 모든 인증서에 서명 하는 데 사용 하는 [루트 CA 인증서를 만듭니다](#create-root-ca-certificate) .
 3. 테스트 하려는 시나리오에 필요한 인증서를 생성 합니다.
-   * IoT Hub Device Provisioning Service를 사용 하 여 자동 프로비저닝을 테스트 하려면 [IoT Edge 장치 id 인증서를 만듭니다](#create-iot-edge-device-identity-certificates) .
-   * 프로덕션 시나리오 또는 게이트웨이 시나리오를 테스트 하려면 [IoT Edge 장치 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates) .
-   * 게이트웨이 시나리오에서 IoT Hub에 대 한 다운스트림 장치 인증을 테스트 하는 [다운스트림 장치 인증서를 만듭니다](#create-downstream-device-certificates) .
+   * IoT Hub Device Provisioning Service를 사용 하 여 자동 프로비저닝을 위한 [IoT Edge 장치 id 인증서를 만듭니다](#create-iot-edge-device-identity-certificates) .
+   * 게이트웨이 시나리오에서 IoT Edge 장치에 대 한 [IoT Edge 장치 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates) .
+   * 게이트웨이 시나리오에서 다운스트림 장치를 인증 하기 위한 [다운스트림 장치 인증서를 만듭니다](#create-downstream-device-certificates) .
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -53,7 +53,7 @@ Windows 장치에서 데모 인증서를 만들려면 OpenSSL을 설치한 다�
 #### <a name="install-openssl"></a>OpenSSL 설치
 
 인증서를 생성하는 데 사용하는 머신에서 Windows용 OpenSSL을 설치합니다.
-Windows 장치에 OpenSSL가 이미 설치 되어 있는 경우이 단계를 건너뛸 수 있지만 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인 합니다.
+Windows 장치에 OpenSSL가 이미 설치 되어 있는 경우 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인 합니다.
 
 다음 옵션을 포함 하 여 OpenSSL를 설치 하는 몇 가지 방법이 있습니다.
 
@@ -183,7 +183,7 @@ Windows 장치에서 데모 인증서를 만들려면 생성 스크립트를 복
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>IoT Edge 장치 id 인증서 만들기
 
-장치 id 인증서는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../iot-dps/index.yml)를 통해 IoT Edge 장치를 프로 비전 하는 데 사용 됩니다.
+장치 id 인증서는 DPS (Azure IoT Hub 장치 프로 비전 서비스)를 통해 IoT Edge 장치를 프로 비전 하는 데 사용 됩니다.
 
 장치 id 인증서는 IoT Edge 장치에서 config.xml 파일의 **프로 비전** 섹션으로 이동 합니다.
 
@@ -247,8 +247,6 @@ New-CACertsEdgeDeviceIdentity "<name>"
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
 **CACertsEdgeDevice** 명령에 전달 된 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
-이 스크립트는 사용자가 두 위치에서 같은 이름을 사용 하 여 IoT Edge를 설정 하는 경우 이름 충돌을 방지 하기 위해 ". ca" 문자열을 인증서 이름에 추가 하 여 문제를 방지 하는 데 도움이 됩니다.
-하지만 같은 이름은 사용하지 않는 것이 좋습니다.
 
 ### <a name="linux"></a>Linux
 
@@ -266,8 +264,6 @@ New-CACertsEdgeDeviceIdentity "<name>"
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
 **Create_edge_device_certificate** 명령으로 전달 되는 이름은 config.xml의 hostname 매개 변수 또는 IoT Hub의 장치 ID와 달라 야 합니다.
-이 스크립트는 사용자가 두 위치에서 같은 이름을 사용 하 여 IoT Edge를 설정 하는 경우 이름 충돌을 방지 하기 위해 ". ca" 문자열을 인증서 이름에 추가 하 여 문제를 방지 하는 데 도움이 됩니다.
-하지만 같은 이름은 사용하지 않는 것이 좋습니다.
 
 ## <a name="create-downstream-device-certificates"></a>다운스트림 장치 인증서 만들기
 

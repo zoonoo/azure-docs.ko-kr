@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777159"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145767"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 IoT hub의 센서 데이터를 사용한 날씨 예측 (클래식)
 
@@ -46,7 +46,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 - [Azure Machine Learning Studio(클래식)](https://studio.azureml.net/) 계정입니다.
-- [Azure Storage 계정은](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts) **범용 V2** 계정 이지만 Azure Blob 저장소를 지 원하는 Azure Storage 계정도 작동 합니다.
+- [Azure Storage 계정은](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts) **범용 V2** 계정 이지만 Azure Blob 저장소를 지 원하는 Azure Storage 계정도 작동 합니다.
 
 > [!Note]
 > 이 문서에서는 Azure Stream Analytics 및 기타 유료 서비스를 사용 합니다. 추가 요금은 Azure 지역 간에 데이터를 전송 해야 하는 경우 Azure Stream Analytics에 발생 합니다. 이러한 이유로이 자습서의 뒷부분에서 추가 된 리소스 그룹, IoT Hub 및 Azure Storage 계정 뿐만 아니라 Machine Learning Studio (클래식) 작업 영역과이 자습서의 뒷부분에 추가 된 Azure Stream Analytics 작업을 확인 하는 것이 좋습니다.-는 모두 동일한 Azure 지역에 있습니다. 지역별 [azure 제품 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all)에서 Azure Machine Learning Studio (클래식) 및 기타 azure 서비스에 대 한 지역별 지원을 확인할 수 있습니다.

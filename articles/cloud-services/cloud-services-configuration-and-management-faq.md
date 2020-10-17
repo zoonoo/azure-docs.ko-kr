@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070013"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144691"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -217,7 +217,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 ## <a name="permissions"></a>사용 권한
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Cloud Services에 역할 기반 액세스를 구현하려면 어떻게 할까요?
-Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(역할 기반 액세스 제어) 모델을 지원하지 않습니다.
+Azure Resource Manager 기반 서비스는 아니므로 Cloud Services는 azure RBAC (역할 기반 액세스 제어) 모델을 지원 하지 않습니다.
 
 [Azure의 다양한 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 

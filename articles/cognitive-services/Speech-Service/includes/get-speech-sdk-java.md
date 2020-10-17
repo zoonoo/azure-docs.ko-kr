@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: d7d41a875d8e0c30085bafd346e316672359de26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039bea98090edcc5966be3cea54b31c61c18dc10
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374795"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92157988"
 ---
 :::row:::
     :::column span="3":::
@@ -25,7 +25,7 @@ ms.locfileid: "87374795"
 
 Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이 변경합니다.
 
-1. 프로젝트 수준 *gradle* 파일에서 섹션에 다음을 추가 합니다 `repository` .
+1. 프로젝트 수준 *gradle* 파일에서 섹션에 다음을 추가 합니다 `repositories` .
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
