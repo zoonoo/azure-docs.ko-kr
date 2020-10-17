@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dc77b3c8bc357b63047d20afa9493bbaaff77113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285318"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148051"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>CLI (azdata 또는 kubectl)를 사용 하 여 Azure Database for PostgreSQL 하이퍼 확장 서버 그룹 확장 및 축소
 
@@ -25,7 +25,7 @@ ms.locfileid: "91285318"
 - 각 코디네이터 또는 작업자 노드에 사용 되는 vCores 수를 늘리거나 줄일 수 있습니다.
 - 각 코디네이터 또는 작업자 노드에서 사용 하는 메모리를 확장 하거나 축소 합니다.
 
-이 가이드에서는 vCore 및/또는 메모리 크기를 조정 하는 방법을 설명 합니다.
+이 가이드에서는 vCore 및/또는 메모리의 크기를 조정 하는 방법을 설명 합니다.
 
 서버 그룹의 vCore 또는 메모리 설정을 확장 하거나 축소 하면 각 vCore 및 메모리 설정에 대해 최소 및/또는 최대를 설정할 수 있습니다. 특정 개수의 vCore 또는 특정 양의 메모리를 사용 하도록 서버 그룹을 구성 하려면 최소 설정에 해당 하는 최소 설정을 설정 합니다.
 
@@ -185,5 +185,4 @@ kubectl describe postgresql-12/<server group name>  [-n <namespace name>]
 
 - [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)
 - [저장소 구성 및 Kubernetes 저장소 개념](storage-configuration.md)
-- [영구적 볼륨 클레임 확장](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

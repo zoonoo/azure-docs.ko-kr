@@ -9,12 +9,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 412a3e78006d263858ff0e28af52cf11bf44c7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be26c6fe03dac9b9ff9dbff4a2bdce391ec0837e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004343"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147868"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Azure Functions 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "89004343"
 
 이 자습서를 완료하려면 먼저 다음 작업을 수행합니다.
 
-* [클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)의 단계를 수행하여 DevKit를 준비합니다.
+* [클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결](./iot-hub-arduino-iot-devkit-az3166-get-started.md)의 단계를 수행하여 DevKit를 준비합니다.
 
 ## <a name="create-azure-cognitive-service"></a>Azure Cognitive Service 만들기
 
@@ -126,7 +126,7 @@ ms.locfileid: "89004343"
 
 - 단추 B를 누르고 말합니다. 음성을 보내고 번역 텍스트를 가져오려면 B 단추를 해제합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
@@ -152,4 +152,4 @@ Azure Functions 및 Cognitive Services를 사용하여 IoT DevKit를 번역기�
 자세히 알아보려면 다른 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [IoT DevKit AZ3166을 Azure IoT 원격 모니터링 솔루션 가속기에 연결](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [IoT DevKit AZ3166을 Azure IoT 원격 모니터링 솔루션 가속기에 연결](./iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)

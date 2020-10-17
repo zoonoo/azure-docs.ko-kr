@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b97ae5d4ba4295ebbb51c960e4cbb76c53dc88a8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962012"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148063"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -986,7 +986,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-`SamplingPercentageEstimatorSettings` 개체는 [적응 샘플링](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)을 구성합니다. 즉, 특정 대량 볼륨 시나리오에서는 Applications Insights가 서버에 선별된 원격 분석 데이터 하위 세트를 보냅니다.
+`SamplingPercentageEstimatorSettings` 개체는 [적응 샘플링](../azure-monitor/app/sampling.md)을 구성합니다. 즉, 특정 대량 볼륨 시나리오에서는 Applications Insights가 서버에 선별된 원격 분석 데이터 하위 세트를 보냅니다.
 
 원격 분석 팩터리를 만들었으면 다음과 같이 Application Insights 로깅 공급자에게 전달합니다.
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b69eb076c727a4383b7459ef914ac79dca31c84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fc768890e932d1f17ad111b4681b75721ae1e06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628420"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148096"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 배치
 
@@ -67,8 +67,8 @@ postgres01-2         3/3     Running   0          9h
 이러한 각 pod는 PostgreSQL 인스턴스를 호스팅합니다. 이들은 함께 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 형성 합니다.
 
 ```output
-Pod name    Role in the server group
-postgres01-0            Coordinator
+Pod name        Role in the server group
+postgres01-0  Coordinator
 postgres01-1    Worker
 postgres01-2    Worker
 ```
@@ -121,7 +121,7 @@ Containers:
 
 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹의 일부인 각 pod는 다음 세 가지 컨테이너를 호스팅합니다.
 
-|컨테이너|설명
+|컨테이너|Description
 |----|----|
 |`Fluentbit` |데이터 * 로그 수집기: https://fluentbit.io/
 |`Postgres`|Azure Arc enabled PosgreSQL Hyperscale 서버 그룹의 PostgreSQL 인스턴스 부분
@@ -241,7 +241,7 @@ AKS 클러스터에 다섯 번째 노드를 추가 해 보겠습니다.
         이전
     :::column-end:::
     :::column:::
-        이러한
+        이후
     :::column-end:::
 :::row-end:::
 :::row:::

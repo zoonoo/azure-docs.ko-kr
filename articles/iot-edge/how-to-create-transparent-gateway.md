@@ -4,19 +4,19 @@ description: Azure IoT Edge 디바이스를 다운스트림 디바이스의 정�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/12/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ae01fc2ef8761305c2096904471ce75b69d1150d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048409"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147846"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -31,8 +31,8 @@ ms.locfileid: "92048409"
 성공적인 투명 게이트웨이 연결을 설정하기 위한 세 가지 일반적인 단계가 있습니다. 이 문서에서는 첫 번째 단계에 대해 설명 합니다.
 
 1. **다운스트림 장치를 안전 하 게 연결할 수 있도록 게이트웨이 장치를 서버로 구성 합니다. 다운스트림 장치에서 메시지를 수신 하 고 적절 한 대상으로 라우팅하는 게이트웨이를 설정 합니다.**
-2. IoT Hub를 사용 하 여 인증할 수 있도록 다운스트림 장치에 대 한 장치 id를 만듭니다. 게이트웨이 장치를 통해 메시지를 보내도록 다운스트림 장치를 구성 합니다. 자세한 내용은 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)을 참조 하세요.
-3. 다운스트림 장치를 게이트웨이 장치에 연결 하 고 메시지 보내기를 시작 합니다. 자세한 내용은 [다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결](how-to-connect-downstream-device.md)을 참조하세요.
+2. IoT Hub를 사용 하 여 인증할 수 있도록 다운스트림 장치에 대 한 장치 id를 만듭니다. 게이트웨이 장치를 통해 메시지를 보내도록 다운스트림 장치를 구성 합니다. 이러한 단계는 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)을 참조 하세요.
+3. 다운스트림 장치를 게이트웨이 장치에 연결 하 고 메시지 보내기를 시작 합니다. 이러한 단계는 [Azure IoT Edge 게이트웨이에 다운스트림 장치 연결](how-to-connect-downstream-device.md)을 참조 하세요.
 
 장치가 게이트웨이로 작동 하려면 다운스트림 장치에 안전 하 게 연결 해야 합니다. Azure IoT Edge를 사용하면 PKI(공개 키 인프라)를 사용하여 이러한 디바이스 간에 안전한 연결을 설정할 수 있습니다. 이 경우 다운스트림 장치는 투명 게이트웨이 역할을 하는 IoT Edge 장치에 연결할 수 있습니다. 적절 한 보안을 유지 하기 위해 다운스트림 장치는 게이트웨이 장치의 id를 확인 해야 합니다. 이 id 검사는 장치에서 잠재적으로 악성 게이트웨이에 연결 하는 것을 방지 합니다.
 
@@ -45,9 +45,11 @@ ms.locfileid: "92048409"
 
 다음 단계는 인증서를 만들어 게이트웨이의 올바른 위치에 설치 하는 과정을 안내 합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
+
+장치가 준비 되지 않은 경우 Azure 가상 머신에서 하나를 만들 수 있습니다. [가상 Linux 장치에 첫 번째 IoT Edge 모듈 배포](quickstart-linux.md) 의 단계에 따라 IoT Hub를 만들고, 가상 머신을 만들고, IoT Edge 런타임을 구성 합니다. 
 
 ## <a name="set-up-the-device-ca-certificate"></a>장치 CA 인증서 설정
 
@@ -68,24 +70,27 @@ IoT Edge 설치 된 Linux 또는 Windows 장치입니다.
 
 프로덕션 시나리오의 경우 사용자 고유의 인증 기관으로 이러한 파일을 생성 해야 합니다. 개발 및 테스트 시나리오의 경우 데모 인증서를 사용할 수 있습니다.
 
-1. 데모 인증서를 사용 하는 경우 다음 단계 집합을 사용 하 여 파일을 만듭니다.
-   1. [루트 CA 인증서를 만듭니다](how-to-create-test-certificates.md#create-root-ca-certificate). 이러한 지침이 끝날 때 루트 CA 인증서 파일을 갖게 됩니다.
-      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+1. 데모 인증서를 사용 하는 경우 데모 인증서 만들기의 지침을 사용 하 여 [IoT Edge 장치 기능을 테스트](how-to-create-test-certificates.md) 하 여 파일을 만듭니다. 해당 페이지에서 다음 단계를 수행 해야 합니다.
 
-   2. [IoT Edge 장치 CA 인증서를 만듭니다](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). 이러한 지침이 끝나면 장치 CA 인증서와 개인 키 라는 두 개의 파일이 있습니다.
+   1. 시작 하려면 장치에서 인증서를 생성 하는 스크립트를 설정 합니다.
+   2. 루트 CA 인증서를 만듭니다. 이러한 지침이 끝날 때 루트 CA 인증서 파일을 갖게 됩니다.
+      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+   3. IoT Edge 장치 CA 인증서를 만듭니다. 이러한 지침이 끝나면 장치 CA 인증서와 해당 개인 키가 제공 됩니다.
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` 또는
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. 이러한 파일을 다른 컴퓨터에 만든 경우에는 IoT Edge 장치에 복사 합니다.
+2. 다른 컴퓨터에서 인증서를 만든 경우 IoT Edge 장치에 복사 합니다.
 
 3. IoT Edge 장치에서 보안 디먼 구성 파일을 엽니다.
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. 파일의 **인증서** 섹션을 찾고 다음 속성에 대 한 값으로 세 파일에 파일 uri를 제공 합니다.
+4. 파일의 **인증서 설정** 섹션을 찾습니다. **인증서** 로 시작 하는 네 줄의 주석 처리를 제거 하 고 다음 속성에 대 한 값으로 세 파일에 파일 uri를 제공 합니다.
    * **device_ca_cert**: 장치 ca 인증서
    * **device_ca_pk**: 장치 ca 개인 키
    * **trusted_ca_certs**: 루트 ca 인증서
+
+   **인증서:** 줄에 앞의 공백이 없고 다른 줄이 두 개의 공백으로 들여쓰기 되는지 확인 합니다.
 
 5. 파일을 저장하고 닫습니다.
 
@@ -117,7 +122,7 @@ IoT Edge 허브 모듈을 배포 하 고 경로를 사용 하 여 다운스트�
 
 5. **다음: 경로**를 선택 합니다.
 
-6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예:
+6. **경로** 페이지에서 다운스트림 장치에서 오는 메시지를 처리할 경로가 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 
    * 모듈이 나 다운스트림 장치에서 IoT Hub 하 여 모든 메시지를 보내는 경로입니다.
        * **이름**: `allMessagesToHub`
@@ -146,14 +151,6 @@ IoT Hub와의 모든 통신은 아웃 바운드 연결을 통해 수행 되므�
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="enable-extended-offline-operation"></a>확장 된 오프 라인 작업 사용
-
-IoT Edge 런타임의 [1.0.4 릴리스부터](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) , 연결 된 게이트웨이 장치와 다운스트림 장치를 확장 된 오프 라인 작업에 대해 구성할 수 있습니다.
-
-이 기능을 사용 하면 로컬 모듈 또는 다운스트림 장치에서 필요에 따라 IoT Edge 장치를 다시 인증 하 고 IoT hub와의 연결을 끊은 경우에도 메시지 및 메서드를 사용 하 여 서로 통신할 수 있습니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
-
-확장 된 오프 라인 기능을 사용 하도록 설정 하려면 연결 하는 IoT Edge 게이트웨이 장치와 다운스트림 장치 간에 부모-자식 관계를 설정 합니다. 이러한 단계는이 시리즈의 다음 문서에서 [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 자세히 설명 되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

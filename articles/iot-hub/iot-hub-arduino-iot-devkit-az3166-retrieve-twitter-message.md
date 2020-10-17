@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 187e44a40228adb62a1d97f4e0df8a7ad3a7e2d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1685f6455c0642800cba7dd604fcc836bcd7a4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356070"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147904"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색
 
@@ -23,7 +23,7 @@ ms.locfileid: "91356070"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-[시작 가이드](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started)를 완료하여:
+[시작 가이드](./iot-hub-arduino-iot-devkit-az3166-get-started.md)를 완료하여:
 
 * DevKit을 Wi-Fi에 연결.
 * 개발 환경 준비.
@@ -152,7 +152,7 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 - 다시 A 단추를 누른 후 흔들어서 새 트윗을 검색합니다.
 - B 단추를 눌러 나머지 트윗을 스크롤합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 ![다이어그램은 azure 함수 앱을 트리거하여 앱으로 다시 전송 되 고 허브 및 모바일 장치로 전달 되는 azure 함수 앱을 트리거하여 azure I o T Hub에 이벤트를 보내는 모바일 장치를 표시 합니다. 트 윗를 요청 합니다.](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 
@@ -207,4 +207,4 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 지금까지 DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연결하고 트윗을 검색하는 방법을 알아보았으며, 이제부터는 다음 단계를 살펴볼 것을 권장합니다.
 
-* [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)

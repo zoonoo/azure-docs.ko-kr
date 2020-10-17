@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494488"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147957"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Azure Data Box 및 Azure Data Box Heavy 내보내기 주문에 대 한 추적 및 이벤트 로깅
 
@@ -25,7 +25,7 @@ Data Box 또는 Data Box Heavy 내보내기 순서는 순서, 설정, 데이터 
 
 | Data Box 내보내기 주문 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| 주문 만들기               | [RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order) <br> [자세한 로그를 순서 대로 사용](#enable-verbose-log-in-the-order)                                                    |
+| 주문 만들기               | [Azure RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order) <br> [자세한 로그를 순서 대로 사용](#enable-verbose-log-in-the-order)                                                    |
 | 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.              |
 | 장치에서 데이터 복사        | [복사 로그 검토](#copy-log) <br> 데이터를 복사 하기 전에 [자세한 정보 표시 로그 검토](#verbose-log)            |
@@ -46,7 +46,7 @@ Azure Data Box 서비스에 대해 정의할 수 있는 두 가지 역할은 다
 - 순서 수준에서 역할을 할당 합니다. 사용자에 게는 해당 특정 Data Box 순서만 상호 작용 하기 위해 역할에 정의 된 권한만 있고 다른 작업은 없습니다.
 - 리소스 그룹 수준에서 역할을 할당 합니다. 사용자는 리소스 그룹 내의 모든 Data Box 주문에 액세스할 수 있습니다.
 
-권장 RBAC 사용에 대 한 자세한 내용은 [AZURE RBAC에 대 한 모범 사례](../role-based-access-control/best-practices.md)를 참조 하세요.
+권장 되는 Azure RBAC 사용에 대 한 자세한 내용은 [AZURE rbac에 대 한 모범 사례](../role-based-access-control/best-practices.md)를 참조 하세요.
 
 ## <a name="enable-verbose-log-in-the-order"></a>자세한 로그를 순서 대로 사용
 
