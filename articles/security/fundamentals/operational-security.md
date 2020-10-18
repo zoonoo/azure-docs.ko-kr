@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543336"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168055"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -66,7 +66,7 @@ Azure Monitor 로그를 사용 하면 경쟁 솔루션 보다 저렴 한 비용�
 
 Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집합을 통해 제공 됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-| 서비스  | 설명|
+| 서비스  | Description|
 | :------------- | :-------------|
 | Azure Monitor 로그 | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
 |Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
@@ -81,7 +81,7 @@ Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집
 이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
 
 
-![Azure Monitor 로그](./media/operational-security/azure-operational-security-fig2.png)
+![Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있도록 다양 한 원본에서 데이터를 통합 하는 방법을 보여 주는 다이어그램입니다.](./media/operational-security/azure-operational-security-fig2.png)
 
 Azure Monitor 서비스는 다음 방법을 사용 하 여 클라우드 기반 데이터를 안전 하 게 관리 합니다.
 -   데이터 분리

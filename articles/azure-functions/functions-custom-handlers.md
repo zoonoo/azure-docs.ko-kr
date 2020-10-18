@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294597"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164553"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>사용자 지정 처리기 Azure Functions (미리 보기)
 
@@ -189,7 +189,7 @@ ms.locfileid: "89294597"
 
 | <nobr>페이로드 키</nobr>   | 데이터 형식 | 설명                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | object    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. *function.json*<br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
+| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. *function.json*<br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
 | `Logs`        | array     | 메시지는 함수 호출 로그에 표시 됩니다.<br /><br />Azure에서 실행 하는 경우 메시지가 Application Insights 표시 됩니다. |
 | `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` . *function.json* |
 
@@ -214,7 +214,7 @@ ms.locfileid: "89294597"
 }
 ```
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 사용자 지정 처리기는 HTTP 이벤트 수신을 지 원하는 모든 언어로 구현할 수 있습니다. 다음 예제에서는 Go 프로그래밍 언어를 사용 하 여 사용자 지정 처리기를 구현 하는 방법을 보여 줍니다.
 
@@ -566,7 +566,7 @@ func azure functionapp publish $functionAppName
 
 로컬로 로그가 콘솔에 출력 됩니다.
 
-Azure에서 [Application Insights 추적을 쿼리하여](functions-monitoring.md#query-telemetry-data) 로그 메시지를 확인 합니다. 앱이 많은 양의 로그를 생성 하는 경우 로그 메시지의 하위 집합만 Application Insights 전송 됩니다. 모든 메시지가 기록 되도록 [샘플링을 사용 하지 않도록 설정](functions-monitoring.md#configure-sampling) 합니다.
+Azure에서 [Application Insights 추적을 쿼리하여](analyze-telemetry-data.md#query-telemetry-data) 로그 메시지를 확인 합니다. 앱이 많은 양의 로그를 생성 하는 경우 로그 메시지의 하위 집합만 Application Insights 전송 됩니다. 모든 메시지가 기록 되도록 [샘플링을 사용 하지 않도록 설정](configure-monitoring.md#configure-sampling) 합니다.
 
 ### <a name="test-custom-handler-in-isolation"></a>격리에서 사용자 지정 처리기 테스트
 

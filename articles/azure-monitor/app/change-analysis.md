@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992875"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168276"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -187,7 +187,9 @@ foreach ($webapp in $webapp_list)
 - **이 작업이 예상 보다 오래 걸리고**있습니다. 이 메시지는 등록이 2 분 이상 걸리는 것을 의미 합니다. 이것은 비정상 이지만 반드시 문제가 발생 한 것은 아닙니다. 구독으로 이동할 수 있습니다. **| ** **Microsoft. changeanalysis** 리소스 공급자 등록 상태를 확인 하는 리소스 공급자입니다. UI를 사용 하 여 등록을 취소 하 고 다시 등록 하거나 새로 고쳐 도움이 되는지 확인할 수 있습니다. 문제가 계속 되 면 지원 담당자에 게 문의 하세요 changeanalysishelp@microsoft.com .
     ![너무 오래 걸리는 RP 등록 문제 해결](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![문제 해결 도구가 선택 된 가상 컴퓨터에 대 한 문제 진단 및 해결 도구의 스크린샷](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![가상 컴퓨터에 대 한 최근 변경 내용 분석 문제 해결 도구에 대 한 타일의 스크린샷](./media/change-analysis/analyze-recent-changes.png)
 
 ## <a name="next-steps"></a>다음 단계
 

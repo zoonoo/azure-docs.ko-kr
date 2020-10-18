@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456858"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167885"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage Explorer 사용
 
 Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
@@ -73,7 +73,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 1. 기본 창에 파일 공유 내용이 표시됩니다.
     
-    ![공유의 내용](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![공유의 내용을 보여 주는 Storage 탐색기의 파일 공유에 대 한 기본 창 스크린샷](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>파일 공유 삭제
 
@@ -89,7 +89,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 1. 마우스 오른쪽 단추로 삭제하려는 파일 공유를 클릭하고, 상황에 맞는 메뉴에서 **삭제**를 선택합니다. 또한 **삭제**를 눌러 현재 선택된 파일 공유를 삭제할 수도 있습니다.
 
-    ![DELETE](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![삭제](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. 확인 대화 상자에서 **확인** 을 선택합니다.
     
@@ -191,7 +191,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
 1.  기본 창에 파일 공유 내용이 표시됩니다.
 
-    ![공유의 내용](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![첫 번째 폴더가 선택 된 공유의 내용을 보여 주는 Storage 탐색기의 myazurefileshare 공유 파일 공유에 대 한 기본 창의 스크린샷](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  기본 창에 파일 공유 내용이 표시됩니다.
 

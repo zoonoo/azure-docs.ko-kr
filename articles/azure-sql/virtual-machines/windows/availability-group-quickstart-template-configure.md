@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293575"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167997"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ ms.locfileid: "91293575"
    | &nbsp; | &nbsp; |
 
 가용성 그룹 만들기 및 내부 Load Balancer 만들기와 같은 가용성 그룹 구성의 기타 부분은 수동으로 수행해야 합니다. 이 문서에서는 자동 및 수동 단계의 시퀀스를 제공합니다.
+
+이 문서에서는 Azure 빠른 시작 템플릿을 사용 하 여 가용성 그룹 환경을 구성 하는 동안 [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md)도 사용 하거나 [수동으로](availability-group-manually-configure-tutorial.md) 수행할 수 있습니다. 
  
 
 ## <a name="prerequisites"></a>필수 구성 요소 
@@ -46,7 +48,7 @@ ms.locfileid: "91293575"
 Azure 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹을 구성하려면 다음 권한이 필요합니다. 
 
 - 도메인에서 **컴퓨터 개체 만들기** 권한이 있는 기존 도메인 사용자 계정입니다.  예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.
-- SQL Server를 제어하는 도메인 사용자 계정입니다. 
+- SQL Server를 제어하는 도메인 사용자 계정. 
 
 
 ## <a name="create-cluster"></a>클러스터 만들기
@@ -102,6 +104,9 @@ Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러
 > 지금 수신기를 만들지 *마세요*. 이 작업은 4단계의 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 통해 자동으로 수행됩니다. 
 
 ## <a name="create-load-balancer"></a>부하 분산 장치 만들기
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 내부 인스턴스가 필요합니다. 내부 부하 분산 장치는 더 빠른 장애 조치(failover) 및 다시 연결을 허용하는 가용성 그룹 수신기에 대한 "부동" IP 주소를 제공합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 부하 분산 장치를 사용할 수 있습니다. 그렇지 않으면 표준 부하 분산 장치를 사용해야 합니다. 
 
 > [!IMPORTANT]

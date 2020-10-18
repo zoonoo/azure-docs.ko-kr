@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079556"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168565"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -77,15 +77,15 @@ ms.locfileid: "87079556"
 
 2. 필터링하려는 차원(속성)을 선택합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/00006.png)
+   ![필터링 할 수 있는 차원 (속성)을 보여 주는 스크린샷](./media/metrics-charts/00006.png)
 
 3. 차트를 그릴 때 포함하려는 차원 값을 선택합니다(이 예제에서는 성공적인 스토리지 트랜잭션을 필터링하도록 표시함).
 
-   ![메트릭 이미지](./media/metrics-charts/00007.png)
+   ![성공적인 저장소 트랜잭션 필터링을 보여 주는 스크린샷](./media/metrics-charts/00007.png)
 
 4. 필터 값을 선택한 후에 필터 선택기를 닫으려면 바깥쪽을 클릭합니다. 이제 차트에서는 실패한 스토리지 트랜잭션 수를 보여줍니다.
 
-   ![메트릭 이미지](./media/metrics-charts/00008.png)
+   ![실패 한 저장소 트랜잭션 수를 보여 주는 스크린샷](./media/metrics-charts/00008.png)
 
 5. 동일한 차트에 여러 필터를 적용하려면 1~4단계를 반복하면 됩니다.
 
@@ -104,11 +104,11 @@ ms.locfileid: "87079556"
 
 2. 차트를 분할하려는 차원을 선택합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/00010.png)
+   ![차트를 분할 하는 데 사용할 선택 된 차원을 보여 주는 스크린샷](./media/metrics-charts/00010.png)
 
    이제 차트에서는 차원의 각 세그먼트에 하나씩 여러 줄을 표시합니다.
 
-   ![메트릭 이미지](./media/metrics-charts/00012.png)
+   ![차원의 각 세그먼트에 대해 하나씩 여러 줄을 보여 주는 스크린샷](./media/metrics-charts/00012.png)
 
 3. **그룹화 선택기**를 닫으려면 바깥쪽을 클릭합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "87079556"
 
 Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 편집**을 선택하여 고급 차트 설정에 액세스합니다. Y축 범위 섹션의 값을 수정하거나 **자동** 단추를 사용하여 기본값으로 되돌립니다.
 
-![메트릭 이미지](./media/metrics-charts/00014-manually-set-granularity.png)
+![차트 편집 옵션을 강조 표시 하는 스크린샷](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > 일정 기간 동안 다양한 개수나 합계(이에 따라 사용 개수, 합계, 최소값 또는 최대 집계)를 추적하는 차트의 Y축 경계를 잠그려면 일반적으로 자동 기본값을 사용하지 않고 고정 시간 세분성을 지정해야 합니다. 사용자가 브라우저 창 크기를 조정하거나 화면 해상도를 변경할 때 시간 세분성이 자동으로 수정되면 차트의 값이 변경되므로 이 설정이 필요합니다. 시간 세분성의 변경 결과는 차트 모양에 영향을 주고 Y축 범위의 현재 선택이 무효화됩니다.
@@ -138,7 +138,7 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 
 차트 색이 구성 된 후에는 차트를 대시보드에 고정할 때 해당 색이 그대로 유지 됩니다. 다음 섹션에서는 차트를 고정 하는 방법을 보여 줍니다.
 
-![메트릭 이미지](./media/metrics-charts/018.png)
+![차트를 고정 하는 방법을 보여 주는 스크린샷](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>대시보드에 차트 고정
 

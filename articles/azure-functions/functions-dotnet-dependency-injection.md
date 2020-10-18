@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715932"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167698"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -131,8 +131,8 @@ GitHub에서 [다양한 서비스 수명 샘플](https://github.com/Azure/azure-
 Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
 > [!WARNING]
-> - `AddApplicationInsightsTelemetry()`는 환경에서 제공하는 서비스와 충돌하는 서비스를 등록하므로 서비스 컬렉션에 추가하지 마세요.
-> - 기본 제공 Application Insights 기능을 사용하는 경우 자체 `TelemetryConfiguration` 또는 `TelemetryClient`를 등록하지 마세요. 자체 `TelemetryClient` 인스턴스를 구성해야 하는 경우에는 [Azure Functions 모니터링](./functions-monitoring.md#version-2x-and-later-2)에 나와 있는 것처럼 주입된 `TelemetryConfiguration`을 통해 만듭니다.
+> - `AddApplicationInsightsTelemetry()`환경에서 제공 하는 서비스와 충돌 하는 서비스를 등록 하는 서비스 컬렉션에를 추가 하지 마세요.
+> - `TelemetryConfiguration` `TelemetryClient` 기본 제공 Application Insights 기능을 사용 하는 경우에는 직접 등록 하지 마세요. 사용자 고유의 인스턴스를 구성 해야 하 `TelemetryClient` 는 경우 `TelemetryConfiguration` [c # 함수의 사용자 지정 원격 분석 로그](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions)에 표시 된 대로 삽입 된를 통해 하나를 만듭니다.
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> 및 ILoggerFactory
 
@@ -287,7 +287,7 @@ namespace MyNamespace
 }
 ```
 
-구성 공급자를 `ConfigurationBuilder` 의 속성에 추가 `IFunctionsConfigurationBuilder` 합니다. 구성 공급자 사용에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers)을 참조 하세요.
+구성 공급자를 `ConfigurationBuilder` 의 속성에 추가 `IFunctionsConfigurationBuilder` 합니다. 구성 공급자 사용에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/#configuration-providers)을 참조 하세요.
 
 는 `FunctionsHostBuilderContext` 에서 가져옵니다 `IFunctionsConfigurationBuilder.GetContext()` . 이 컨텍스트를 사용 하 여 현재 환경 이름을 검색 하 고 함수 앱 폴더에서 구성 파일의 위치를 확인 합니다.
 

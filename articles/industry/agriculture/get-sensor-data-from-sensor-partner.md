@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649162"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168531"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -178,7 +178,7 @@ FarmBeats를 연결 하기 위해 장치 파트너에 게이를 제공 해야 �
 1. 홈 페이지의 메뉴에서 **센서** 를 선택 하 여 **센서** 페이지를 표시 합니다.
 2. 삭제 하려는 장치를 선택 하 고 확인 창에서 **삭제** 를 선택 합니다.
 
-    ![삭제 단추](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![센서 삭제 페이지 및 삭제 단추를 강조 표시 하는 스크린샷](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 센서가 성공적으로 삭제 되었다는 확인 메시지가 표시 됩니다.
 

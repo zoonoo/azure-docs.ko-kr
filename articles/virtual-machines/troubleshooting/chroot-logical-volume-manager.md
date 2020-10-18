@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361469"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167919"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -71,7 +71,7 @@ Azure Portal- **> VM >** **디스크** 를 선택 합니다.
 
 `lsblk`
 
-![Lsblk 실행](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Lsblk 명령의 출력을 보여 주는 스크린샷](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 영향을 받는 VM의 LVMs이 표시 되는지 확인 합니다.
@@ -198,11 +198,11 @@ grub2-다음 부팅 커널 기본값에서 로드 되는 커널을 표시 하는
 
 모든 LVs는 탑재 된 파티션으로 표시 되어야 합니다.
 
-![고급](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![LVs가 탑재 된 파티션으로 표시 되는 것을 보여 주는 스크린샷](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 설치 된 **커널** 쿼리
 
-![고급](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![설치 된 커널을 쿼리 하는 방법을 보여 주는 스크린샷](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 필요한 경우 **커널** 
  고급을 제거 하거나 업그레이드 합니다. ![](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839608"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168599"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -34,7 +34,7 @@ ms.locfileid: "91839608"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아니요 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | No | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Java | 아니요 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | Node.JS | 아니요 | [예](./nodejs.md#sampling) | 다른 샘플링이 적용 되지 않는 경우에만
 | Python | 아니요 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
@@ -212,7 +212,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Azure Functions에 대 한 적응 샘플링 구성
 
-[이 페이지](../../azure-functions/functions-monitoring.md#configure-sampling) 의 지침에 따라 Azure Functions에서 실행 되는 앱에 대 한 적응 샘플링을 구성 합니다.
+[이 페이지](../../azure-functions/configure-monitoring.md#configure-sampling) 의 지침에 따라 Azure Functions에서 실행 되는 앱에 대 한 적응 샘플링을 구성 합니다.
 
 ## <a name="fixed-rate-sampling"></a>고정 률 샘플링
 

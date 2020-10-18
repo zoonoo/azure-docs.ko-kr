@@ -4,12 +4,12 @@ description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 23b0961c369c21f50d9a873678a1c910385e6a91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206204"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167749"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -139,7 +139,7 @@ public static class BindingExpressionsExample
 
 이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 
-생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
+생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예는 다음과 같습니다.
 
 ```json
 {
@@ -164,18 +164,7 @@ public static class BindingExpressionsExample
 
 버전 1.x 및 2.x의 Functions 런타임 둘 다에 동일한 패키지가 사용됩니다. 대상 프레임워크가 1.x 프로젝트와 2.x 프로젝트에서 구분되는 측면입니다. 다음은 *.csproj* 파일의 관련 부분으로, 다른 대상 프레임워크와 동일한 `Sdk` 패키지를 보여 줍니다.
 
-**Functions 1.x**
-
-```xml
-<PropertyGroup>
-  <TargetFramework>net461</TargetFramework>
-</PropertyGroup>
-<ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
-</ItemGroup>
-```
-
-**Functions 2.x**
+# <a name="v2x"></a>[v2. x +](#tab/v2)
 
 ```xml
 <PropertyGroup>
@@ -186,6 +175,19 @@ public static class BindingExpressionsExample
   <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
 </ItemGroup>
 ```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+---
+
 
 `Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 1.x 프로젝트는 1.x 트리거와 바인딩이 .NET Framework 대상으로 하는 반면, 2.x 트리거와 바인딩은 .NET Core를 대상으로 하기 때문에 1. x 트리거 및 바인딩을 참조 합니다.
 
@@ -259,25 +261,6 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>로깅
-
-C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 다음 예제와 같이 `log`로 이름을 지정하는 것이 좋습니다.  
-
-```csharp
-public static class SimpleExample
-{
-    [FunctionName("QueueTrigger")]
-    public static void Run(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        ILogger log)
-    {
-        log.LogInformation($"C# function processed: {myQueueItem}");
-    }
-} 
-```
-
-Azure Functions에서 `Console.Write`를 사용하지 마세요. 자세한 내용은 **Azure Functions 모니터링** 문서에서 [C# 함수로 로그 작성](functions-monitoring.md#write-logs-in-c-functions)을 참조하세요.
-
 ## <a name="async"></a>Async
 
 [비동기화](/dotnet/csharp/programming-guide/concepts/async/) 함수를 만들려면 `async` 키워드를 사용하고 `Task` 개체를 반환합니다.
@@ -327,6 +310,237 @@ public static class CancellationTokenExample
     }
 }
 ```
+
+## <a name="logging"></a>로깅
+
+함수 코드에서 Application Insights 추적으로 표시 되는 로그에 출력을 쓸 수 있습니다. 로그에 쓰는 권장 방법은 일반적으로 이름이 인 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger)형식의 매개 변수를 포함 하는 것입니다 `log` . 사용 되는 함수 런타임의 버전 1.x는 `TraceWriter` Application Insights에도 기록 하지만 구조적 로깅은 지원 하지 않습니다. `Console.Write`이 데이터는 Application Insights에 의해 캡처되지 않으므로를 사용 하 여 로그를 작성 하지 마세요. 
+
+### <a name="ilogger"></a>ILogger
+
+함수 정의에서 [구조적 로깅을](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)지 원하는 [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) 매개 변수를 포함 합니다.
+
+`ILogger` 개체를 사용하여 로그를 생성하는 `Log<level>`[ILogger의 확장 메서드](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods)를 호출합니다. 다음 코드는 `Information` 범주를 사용 하 여 로그를 작성 합니다 `Function.<YOUR_FUNCTION_NAME>.User.` .
+
+```cs
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
+{
+    logger.LogInformation("Request for item with key={itemKey}.", id);
+```
+
+### <a name="structured-logging"></a>구조적 로깅
+
+이름이 아닌 자리 표시자는 로그 메시지에 사용되는 매개 변수를 결정합니다. 다음과 같은 코드가 있다고 가정하겠습니다.
+
+```csharp
+string partitionKey = "partitionKey";
+string rowKey = "rowKey";
+logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionKey, rowKey);
+```
+
+메시지 문자열을 동일하게 유지하고 매개 변수의 순서를 반대로 바꾸면 그 결과 메시지 텍스트가 잘못된 위치에서 값을 갖습니다.
+
+구조적 로깅을 수행할 수 있도록 자리 표시자는 이러한 방식으로 처리됩니다. Application Insights는 매개 변수 이름-값 쌍과 메시지 문자열을 저장합니다. 그 결과로 메시지 인수는 사용자가 쿼리할 수 있는 필드가 됩니다.
+
+로거 메서드 호출이 이전 예제와 같은 경우 `customDimensions.prop__rowKey` 필드를 쿼리할 수 있습니다. 런타임에서 추가하는 필드와 함수 코드에서 추가하는 필드가 서로 충돌하지 않도록 `prop__` 접두사가 추가됩니다.
+
+`customDimensions.prop__{OriginalFormat}` 필드를 참조하여 원래 메시지 문자열을 쿼리할 수도 있습니다.  
+
+다음은 `customDimensions` 데이터의 샘플 JSON 표현입니다.
+
+```json
+{
+  "customDimensions": {
+    "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
+    "Category":"Function",
+    "LogLevel":"Information",
+    "prop__message":"c9519cbf-b1e6-4b9b-bf24-cb7d10b1bb89"
+  }
+}
+```
+
+## <a name="log-custom-telemetry-in-c-functions"></a>C# 함수의 사용자 지정 원격 분석 로깅
+
+함수에서 Application Insights로 사용자 지정 원격 분석 데이터를 전송하는 데 사용할 수 있는 Application Insights SDK의 Functions 관련 버전 [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights)가 있습니다. 명령 프롬프트에서 다음 명령을 사용하여 이 패키지를 설치합니다.
+
+# <a name="command"></a>[명령](#tab/cmd)
+
+```cmd
+dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VERSION>
+```
+
+---
+
+이 명령에서 `<VERSION>`을 설치된 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)를 지원하는 이 패키지의 버전으로 바꿉니다. 
+
+다음 C# 예제에서는 [사용자 지정 원격 분석 API](../azure-monitor/app/api-custom-events-metrics.md)를 사용합니다. 이 예제는 .NET 클래스 라이브러리용이지만 Application Insights 코드는 C# 스크립트와 동일합니다.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+런타임 2.x 이상 버전에서는 원격 분석 데이터와 현재 작업 간의 상관 관계를 자동으로 지정하는 Application Insights의 새 기능이 사용됩니다. 작업 `Id`, `ParentId` 또는 `Name` 필드를 수동으로 설정할 필요가 없습니다.
+
+```cs
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public class HttpTrigger2
+    {
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
+
+        [FunctionName("HttpTrigger2")]
+        public Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Write an event to the customEvents table.
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            this.telemetryClient.TrackEvent(evt);
+
+            // Generate a custom metric, in this case let's use ContentLength.
+            this.telemetryClient.GetMetric("contentLength").TrackValue(req.ContentLength);
+
+            // Log a custom dependency in the dependencies table.
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            this.telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+이 예에서 사용자 지정 메트릭 데이터는 customMetrics 테이블로 전송 되기 전에 호스트에 의해 집계 됩니다. 자세히 알아보려면 Application Insights의 [Getmetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) 설명서를 참조 하세요. 
+
+로컬로 실행 하는 경우 `APPINSIGHTS_INSTRUMENTATIONKEY` 파일 [ 의local.settings.js](functions-run-local.md#local-settings-file) 에 Application Insights 키를 사용 하 여 설정을 추가 해야 합니다.
+
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```cs
+using System;
+using System.Net;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Azure.WebJobs;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        private static string key = TelemetryConfiguration.Active.InstrumentationKey = 
+            System.Environment.GetEnvironmentVariable(
+                "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
+
+        private static TelemetryClient telemetryClient = 
+            new TelemetryClient() { InstrumentationKey = key };
+
+        [FunctionName("HttpTrigger2")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            HttpRequestMessage req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Get request body
+            dynamic data = await req.Content.ReadAsAsync<object>();
+
+            // Set name to query string or body data
+            name = name ?? data?.name;
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+        }
+        
+        // Correlate all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
+}
+```
+---
+
+`TrackRequest` 또는 `StartOperation<RequestTelemetry>`를 호출하지 마세요. 함수 호출에 대한 요청이 중복으로 표시됩니다.  Functions 런타임에서 자동으로 요청을 추적합니다.
+
+`telemetryClient.Context.Operation.Id`를 설정하지 마십시오. 이 전역 설정은 여러 함수가 동시에 실행될 때 잘못된 상관 관계를 유발합니다. 대신 새로운 원격 분석 인스턴스(`DependencyTelemetry`, `EventTelemetry`)를 만들고 해당하는 `Context` 속성을 수정합니다. 그런 다음, 원격 분석 인스턴스를 `TelemetryClient`의 해당 `Track` 메서드(`TrackDependency()`, `TrackEvent()`, `TrackMetric()`)에 전달합니다. 이 방법을 사용하면 원격 분석 데이터가 현재 함수 호출에 대해 올바른 상관 관계 세부 정보를 가질 수 있습니다.
+
 
 ## <a name="environment-variables"></a>환경 변수
 

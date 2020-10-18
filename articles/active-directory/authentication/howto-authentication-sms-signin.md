@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849057ab1ccde2e0771f0c1cd52ea399ffe4cea7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964692"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166637"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Azure Active Directory를 사용한 SMS 기반 인증 구성 및 사용자 활성화(미리 보기)
 
@@ -96,13 +96,17 @@ SMS 서명에 대해 설정된 전화 번호는 [Azure Multi-Factor Authenticati
 1. **Azure Active Directory**를 검색하고 선택합니다.
 1. Azure Active Directory 창의 왼쪽 탐색 메뉴에서 **사용자**를 선택합니다.
 1. 이전 섹션에서 SMS 기반 인증을 사용하도록 설정한 사용자(예: *Contoso User*)를 선택한 다음 **인증 방법**을 선택합니다.
-1. 사용자의 전화 번호를 국가 번호를 포함하여 입력합니다(예: *+1 xxxxxxxxx*). Azure Portal은 전화 번호가 올바른 형식인지 확인합니다.
+1. **+ 인증 방법 추가**를 선택 하 고 *방법 선택* 드롭다운 메뉴에서 **전화 번호**를 선택 합니다.
 
-    ![Azure Portal에서 SMS 기반 인증에 사용할 사용자의 전화 번호 설정](./media/howto-authentication-sms-signin/set-user-phone-number.png)
+    사용자의 전화 번호를 국가 번호를 포함하여 입력합니다(예: *+1 xxxxxxxxx*). Azure Portal은 전화 번호가 올바른 형식인지 확인합니다.
+
+    그런 다음 *휴대폰 유형* 드롭다운 메뉴에서 *모바일*, *대체 모바일*또는 필요에 따라 *기타* 를 선택 합니다.
+
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Azure Portal에서 SMS 기반 인증에 사용할 사용자의 전화 번호 설정":::
 
     전화 번호는 테넌트에서 고유해야 합니다. 동일한 전화 번호를 여러 사용자에 사용하려고 하면 오류 메시지가 표시됩니다.
 
-1. 사용자 계정에 전화 번호를 적용하려면 **저장**을 선택합니다.
+1. 사용자의 계정에 전화 번호를 적용 하려면 **추가**를 선택 합니다.
 
 성공적으로 프로비전되면 SMS 로그인 사용에 대한 확인 표시가 나타납니다.
 

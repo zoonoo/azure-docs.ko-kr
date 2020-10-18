@@ -10,18 +10,24 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/21/2020
-ms.openlocfilehash: 6e2665a413b3d43f7e1b294ebfc390c57d995f29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758645"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168327"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배포할 수 있습니다. 이 문서에서는 최신 릴리스의 [Azure 가상 머신의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 새로운 기능 및 향상된 기능과 관련된 설명서 변경 내용을 요약합니다. 
+
+## <a name="october-2020"></a>2020년 10월
+
+| 변경 | 세부 정보 |
+| --- | --- |
+| **AG에 대 한 DNN** | 이제 SQL Server 2019 CU8 이상에서 기존 [Vnn 수신기](availability-group-overview.md#connectivity)를 대체할 수 있도록 [DNN (분산 네트워크 이름) 수신기](availability-group-distributed-network-name-dnn-listener-configure.md) 를 구성 하 여 Azure Load Balancer에 대 한 필요성을 부정 합니다.   | 
 
 ## <a name="september-2020"></a>2020년 9월
 

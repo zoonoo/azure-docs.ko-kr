@@ -2,22 +2,20 @@
 title: MacOS에서 개발 환경 설정
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정이 완료 되 면 macOS에서 응용 프로그램을 빌드할 준비가 됩니다.
 ms.topic: conceptual
-ms.date: 11/17/2017
+ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d5a31f22fb0472882e3854488fbd1c3249879d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539863"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168174"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
 Mac OS X를 사용하여 Azure Service Fabric 애플리케이션을 Linux 클러스터에서 실행하도록 빌드할 수 있습니다. 이 문서에서는 개발을 위해 Mac을 설정하는 방법을 설명합니다.
 
@@ -53,31 +51,41 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >[!TIP]
     >대규모 애플리케이션을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
 
-2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/service-fabric/onebox:latest
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+2. 클러스터를 시작 합니다.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
+    <b>Ubuntu 16.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
+
+
+
+3. 선택 사항: 확장 된 Service Fabric 이미지를 빌드합니다.
+
+    새 디렉터리에서 `Dockerfile` 사용자 지정 이미지를 빌드하기 위해 라는 파일을 만듭니다.
+
     >[!NOTE]
-    >컨테이너에 추가 프로그램 또는 종속성을 추가하도록 이 파일을 조정할 수 있습니다.
+    >Dockerfile을 사용 하 여 위의 이미지를 조정 하 여 컨테이너에 프로그램 또는 종속성을 더 추가할 수 있습니다.
     >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 애플리케이션에 대한 지원이 허용됩니다.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
 
-3. `Dockerfile`에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고 `Dockerfile`을 보관하는 디렉터리에 `cd`한 후 다음을 실행합니다.
+    에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고를 사용 하 여 `Dockerfile` `cd` 직접를 보유 한 `Dockerfile` 다음를 실행 합니다.
 
     ```bash 
     docker build -t mysfcluster .
@@ -86,7 +94,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >[!NOTE]
     >이 작업에 다소 시간이 걸릴 수 있지만 한 번만 수행하면 됩니다.
 
-4. 이제 필요할 때마다 다음을 실행하여 신속하게 Service Fabric의 로컬 복사를 시작할 수 있습니다.
+    이제를 실행 하 여 필요할 때마다 Service Fabric의 로컬 복사본을 신속 하 게 시작할 수 있습니다.
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -97,18 +105,17 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >
     >애플리케이션을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. 클러스터를 시작하는 데 시간이 걸립니다. 클러스터가 실행되면 다음 명령을 사용하여 로그를 보거나, 대시보드로 이동하여 클러스터 상태(`http://localhost:19080`)를 볼 수 있습니다.
+4. 클러스터를 시작하는 데 시간이 걸립니다. 실행 되는 경우 다음 명령을 사용 하 여 로그를 보거나 대시보드로 이동 하 여 클러스터 상태를 볼 수 있습니다. `http://localhost:19080`
 
     ```bash 
     docker logs sftestcluster
     ```
 
 
-
-6. 컨테이너를 중지하고 정리하려면 다음 명령을 사용합니다. 그러나 여기서는 다음 단계에서 이 컨테이너를 사용합니다.
+5. 컨테이너를 중지 하 고 정리 하려면 다음 명령을 사용 합니다. 그러나 여기서는 다음 단계에서 이 컨테이너를 사용합니다.
 
     ```bash 
     docker rm -f sftestcluster
@@ -118,7 +125,8 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
  
  다음은 Mac용 컨테이너에서 실행하는 로컬 클러스터의 알려진 제한 사항입니다. 
  
- * DNS 서비스가 실행되지 않으며 지원되지 않음 [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * DNS 서비스는 실행 되지 않으며 현재 컨테이너 내에서 지원 되지 않습니다. [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * 컨테이너 기반 앱을 실행 하려면 Linux 호스트에서 SF를 실행 해야 합니다. 중첩 된 컨테이너 앱은 현재 지원 되지 않습니다.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac에서 Service Fabric CLI(sfctl) 설정
 
@@ -185,9 +193,9 @@ Service Fabric 애플리케이션을 만들고 빌드한 후 [Service Fabric CLI
     bash install.sh
     ```
 
-## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 개발 설정
+## <a name="set-up-net-core-31-development"></a>.NET Core 3.1 개발 설정
 
-[Mac용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md) 시작합니다. .NET Core 2.0 Service Fabric 애플리케이션용 패키지는 현재 미리 보기 상태인 NuGet.org에서 호스트됩니다.
+[Mac 용 .Net Core 3.1 SDK](https://www.microsoft.com/net/core#macos) 를 설치 하 여 [c # Service Fabric 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작 합니다. .NET Core Service Fabric 응용 프로그램에 대 한 패키지는 NuGet.org에서 호스팅됩니다.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Mac에 Eclipse용 Service Fabric 플러그 인 설치
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107524"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168089"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -315,7 +315,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 - [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
-- [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](./functions-monitoring.md#enable-application-insights-integration)
+- [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Azure 내에서 경고를 만드는 방법](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 **지침**: Azure Functions에 대 한 제어 평면 액세스는 AZURE ACTIVE DIRECTORY (AD)를 통해 제어 됩니다. Azure AD에는 기본 암호 개념이 없습니다.
 
-데이터 평면 액세스는 권한 부여 키, 네트워크 제한 및 AAD id의 유효성 검사를 비롯 한 여러 가지 방법을 통해 제어할 수 있습니다. 권한 부여 키는 Azure Functions HTTP 끝점에 연결 하는 클라이언트에서 사용 되며 언제 든 지 다시 생성할 수 있습니다. 이러한 키는 기본적으로 새 HTTP 끝점에 대해 생성 됩니다.
+데이터 평면 액세스는 권한 부여 키, 네트워크 제한 및 Azure AD id의 유효성 검사를 비롯 한 여러 가지 방법을 통해 제어할 수 있습니다. 권한 부여 키는 Azure Functions HTTP 끝점에 연결 하는 클라이언트에서 사용 되며 언제 든 지 다시 생성할 수 있습니다. 이러한 키는 기본적으로 새 HTTP 끝점에 대해 생성 됩니다.
 
 함수 앱에 사용할 수 있는 여러 배포 방법이 있으며, 그 중 일부는 생성 된 자격 증명 집합을 활용할 수 있습니다. 응용 프로그램에 사용 되는 배포 방법을 검토 합니다.
 
@@ -463,7 +463,7 @@ Azure Functions 앱에 대 한 Application Insights를 사용 하도록 설정 �
 
 - [Azure AD 로그인을 사용 하도록 Azure Functions 앱을 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 

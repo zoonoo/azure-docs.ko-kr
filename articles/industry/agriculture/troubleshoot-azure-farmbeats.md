@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797941"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168293"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Azure FarmBeats 문제 해결
 
@@ -174,7 +174,7 @@ ms.locfileid: "88797941"
 
 이미 액세스 권한이 부여되었는데도 이 오류가 발생한 경우 페이지를 새로 고치고 다시 시도하세요. 오류가 계속 발생하면 오류 메시지/로그를 사용하여 문의해주세요.
 
-![프로젝트 FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![권한 부여 오류를 보여 주는 스크린샷](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>가속기 문제  
 
@@ -293,7 +293,7 @@ ms.locfileid: "88797941"
 6. 왼쪽 창에서 **Blob 컨테이너**를 선택한 다음 Azure Data Factory 로그에 대해 **job-logs** 또는 App Service에 대해 **appinsights-logs**를 선택합니다.
 7. **다운로드**를 선택하고 컴퓨터의 로컬 폴더에 로그를 다운로드합니다.
 
-    ![프로젝트 FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![다운로드 한 로그 파일을 보여 주는 스크린샷](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>가속기에 대한 Azure Data Factory 작업 로그 또는 App Service 로그 수집
 
@@ -327,26 +327,26 @@ ms.locfileid: "88797941"
 > [!NOTE]
 > 리소스 그룹 내에서 서비스의 태그를 보려면 "열 편집"을 클릭 하 고 리소스 그룹 보기에 "태그"를 추가 합니다.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="프로젝트 FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
 
 3. 데이터 팩터리의 개요 페이지에서 **작성자 및 모니터**를 클릭 합니다. 브라우저에서 새 탭이 열립니다. **모니터** 를 클릭 합니다.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="프로젝트 FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
 
 4. 날씨 작업 실행의 일부인 파이프라인 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업을 클릭 합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="프로젝트 FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
 
 5. 파이프라인 개요 페이지에서 작업 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업의 실행 Id를 적어 둡니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="프로젝트 FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
 
 6. Azure Portal에서 FarmBeats 리소스 그룹으로 돌아가서 이름이 **datahublogs-XXXX** 인 저장소 계정을 클릭 합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="프로젝트 FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
 
 7. **컨테이너**  ->  **adfjobs**를 클릭 합니다. 검색 상자에 위의 5 단계에서 적어둔 작업 실행 ID를 입력 합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="프로젝트 FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
 
 8. 검색 결과에는 작업과 관련 된 로그가 있는 폴더가 포함 됩니다. 로그를 다운로드 하 여 문제를 디버깅 하는 데 도움이 되도록에 보냅니다 farmbeatssupport@microsoft.com .

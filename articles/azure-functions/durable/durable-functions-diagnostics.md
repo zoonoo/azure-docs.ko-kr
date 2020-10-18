@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: f91cdaa81e18105eb39af442ab6152bfd2888ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319710"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168144"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -99,7 +99,7 @@ Application Insights로 내보내지는 추적 데이터의 자세한 정도는 
 ```
 
 > [!NOTE]
-> 기본적으로 데이터를 너무 자주 내보내지 않도록 방지하기 위해 Azure Functions 런타임에서 Application Insights 원격 분석을 샘플링합니다. 이로 인해 짧은 기간 동안 많은 수명 주기 이벤트가 발생하면 추적 정보가 손실될 수 있습니다. [Azure Functions 모니터링 문서](../functions-monitoring.md#configure-sampling)에서는 이 동작을 구성하는 방법에 대해 설명합니다.
+> 기본적으로 데이터를 너무 자주 내보내지 않도록 방지하기 위해 Azure Functions 런타임에서 Application Insights 원격 분석을 샘플링합니다. 이로 인해 짧은 기간 동안 많은 수명 주기 이벤트가 발생하면 추적 정보가 손실될 수 있습니다. [Azure Functions 모니터링 문서](../configure-monitoring.md#configure-sampling)에서는 이 동작을 구성하는 방법에 대해 설명합니다.
 
 ### <a name="single-instance-query"></a>단일 인스턴스 쿼리
 

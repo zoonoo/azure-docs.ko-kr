@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962964"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168225"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한
 
@@ -36,7 +36,7 @@ Azure Virtual Network (VNet)에서 웹 앱에 대 한 액세스를 제한 하는
 
 액세스 제한 UI에서 앱에 대해 정의 된 액세스 제한 규칙 목록을 검토할 수 있습니다.
 
-![액세스 제한 목록](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![선택한 앱에 대해 정의 된 액세스 제한 규칙 목록을 보여 주는 Azure Portal의 액세스 제한 화면 스크린샷](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 이 목록에는 앱에 있는 현재 제한이 모두 표시 됩니다. 앱에 VNet 제한이 있는 경우 Microsoft 웹에 대해 서비스 끝점을 사용 하도록 설정 하면 테이블이 표시 됩니다. 앱에 대해 정의 된 제한이 없으면 어디에서 나 앱에 액세스할 수 있습니다.  
 
@@ -68,11 +68,11 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 
 행을 클릭 하 여 기존 액세스 제한 규칙을 편집할 수 있습니다. 우선 순위 변경을 비롯한 편집 내용은 즉시 적용됩니다.
 
-![액세스 제한 규칙 편집](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![기존 액세스 제한 규칙의 필드를 보여 주는 Azure Portal의 IP 제한 편집 대화 상자 스크린샷](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 규칙을 편집할 때 IP 주소 규칙과 Virtual Network 규칙 간의 유형을 변경할 수 없습니다. 
 
-![액세스 제한 규칙 편집](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Virtual Network 규칙의 설정을 보여 주는 Azure Portal의 IP 제한 편집 대화 상자 스크린샷](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 규칙을 삭제 하려면 **규칙에서 ...를 클릭** 한 다음 **제거**를 클릭 합니다.
 
@@ -90,7 +90,7 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 
 앱에 대 한 액세스를 제어 하는 것 외에도 앱에서 사용 하는 scm 사이트에 대 한 액세스를 제한할 수 있습니다. Scm 사이트는 웹 배포 끝점과 Kudu 콘솔 이기도 합니다. 앱에서 scm 사이트에 대 한 액세스 제한을 개별적으로 할당 하거나 앱과 scm 사이트 모두에 대해 동일한 집합을 사용할 수 있습니다. 확인란을 선택 하 여 앱과 동일한 제한 사항을 적용 하는 경우 모든 항목은 숨겨집니다. 이 확인란의 선택을 취소 하면 scm 사이트에서 이전에 수행한 모든 설정이 적용 됩니다. 
 
-![액세스 제한 목록](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Scm 사이트 또는 앱에 대 한 액세스 제한이 설정 되지 않음을 보여 주는 Azure Portal의 액세스 제한 화면 스크린샷](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>액세스 제한 규칙의 프로그래밍 방식 조작 ##
 

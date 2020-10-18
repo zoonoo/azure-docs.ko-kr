@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 02373da114b6dc4663cd3ffc9a0780ac6a7a9e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482986"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168548"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>규칙 구성 및 경고 관리
 
@@ -21,12 +21,12 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
 1. 홈 페이지에서 **규칙**으로 이동 합니다.
 2. **새 규칙**을 선택 합니다. 새 규칙 창이 표시 됩니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
+    ![새 규칙 단추와 새 규칙 섹션을 강조 표시 하는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
 
 3. **규칙 이름** 및 **규칙 설명을** 입력 한 다음 **팜 선택** 드롭다운 메뉴에서 팜을 선택 합니다.
 4. 팜 이름을 입력 하 여 동일한 창에 표시 되는 팜 및 **조건** 섹션을 선택 합니다.  
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
+    ![조건 섹션을 강조 표시 하는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
 
 5. **조건**에 **측정값**, **연산자** 및 **값**에 대 한 값을 입력 합니다.
 6. **측정값** 드롭다운 메뉴에 측정값 이름을 입력 합니다.
@@ -34,7 +34,7 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
 8. **심각도 수준을**선택 합니다.
 9. **작업**에서 전자 메일 **사용** 토글 단추를 전환 하 여 전자 메일 경고를 사용 하도록 설정 합니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
+    ![전자 메일 사용 옵션을 보여 주는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
 10. 전자 메일 경고를 보낼 전자 메일 **주소** 와 전자 메일 **제목** 및 **추가 메모**를 입력 합니다.  
 11. **규칙 상태**에서 **사용** 토글 단추를 전환 하 여 규칙을 사용 하거나 사용 하지 않도록 설정 합니다.
@@ -53,7 +53,7 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
  - 조건 목록  
  - 규칙의 영향을 받는 장치 수
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
+    ![규칙 세부 정보 화면을 보여 주는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
 
 ## <a name="edit-rule"></a>규칙 편집
 
@@ -63,11 +63,11 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
    규칙 창이 표시 됩니다.
 2. 편집 하려는 규칙을 선택 합니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
+    ![선택한 규칙을 보여 주는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
 
 3. 작업 모음에서 **편집** 을 선택 하면 **규칙 편집** 창이 표시 됩니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
+    ![규칙 편집 화면을 보여 주는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
 4. **규칙 이름**및 **규칙 설명을** 변경한 다음 **팜 선택** 드롭다운 메뉴에서 팜을 선택 합니다.
 5. 팜 이름을 입력 하 여 동일한 창 **에 표시 되** 는 팜을 선택 합니다.  
@@ -75,7 +75,7 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
 7. **측정값** 드롭다운 메뉴에 측정값 이름을 입력 합니다.
 8. **+ 조건 추가** 를 선택 하 여 규칙에 조건을 추가/편집 합니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
+    ![조건 추가 단추를 강조 표시 하는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
 
 9.  **심각도 수준을**선택 합니다.  
 10. **작업**에서 전자 메일 **사용** 토글 단추를 전환 하 여 전자 메일 경고를 사용 하도록 설정 합니다.
@@ -91,11 +91,11 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
 1. 홈 페이지의 왼쪽 탐색 메뉴에서 **규칙** 을 선택 합니다. 규칙 창이 표시 됩니다.
 2. 상태를 변경 하려는 규칙을 선택 합니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
+    ![상태 변경 단추를 보여 주는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
 
 3. 작업 모음에서 **상태 변경** 을 선택 합니다. **상태 변경** 창이 표시 됩니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
+    ![상태 변경 화면을 보여 주는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
 
 3. **상태 변경** 설정/해제 단추를 사용 하 여 규칙 상태를 변경 합니다.
    규칙의 영향을 받는 장치의 수를 볼 수 있습니다.
@@ -108,7 +108,7 @@ Azure FarmBeats를 사용 하면 팜에 배포 된 센서 및 장치에서 흐�
 1. 홈 페이지의 왼쪽 탐색 메뉴에서 **규칙** 을 선택 합니다. 규칙 창이 표시 됩니다.
 2. 삭제 하려는 규칙을 선택 합니다.
 
-    ![Farm Beats 프로젝트](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
+    ![삭제 단추를 강조 표시 하는 스크린샷](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
 
 3. 작업 모음에서 **삭제** 를 선택 합니다.
 

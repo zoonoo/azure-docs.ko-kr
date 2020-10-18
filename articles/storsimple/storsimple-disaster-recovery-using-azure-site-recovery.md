@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514916"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168021"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
 
@@ -37,7 +37,7 @@ Azure Site Recovery, 가상 머신 복제 및 StorSimple 클라우드 스냅샷 
 ## <a name="supported-azure-site-recovery-deployment-options"></a>지원되는 Azure Site Recovery 배포 옵션
 고객은 파일 서버를 Hyper-V 또는 VMware에서 실행되는 물리적 서버 또는 VM(가상 머신)으로 배포한 다음 StorSimple 스토리지의 잘라낸 볼륨에서 파일 공유를 만들 수 있습니다. Azure Site Recovery는 보조 사이트 또는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다. 이 문서에서는 Hyper-V에서 호스트되는 파일 서버 VM에 대한 복구 사이트로 Azure를 사용하고 StorSimple 스토리지의 파일 공유를 사용하는 DR 솔루션의 세부 정보를 다룹니다. 파일 서버 VM이 VMware VM 또는 물리적 컴퓨터에 있는 다른 시나리오도 유사하게 구현할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 StorSimple 스토리지에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
 
    - Hyper-V 또는 VMware나 물리적 컴퓨터에서 호스트되는 온-프레미스 Windows Server 2012 R2 파일 서버 VM
@@ -294,7 +294,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 1. Azure 포털에서 파일 서버 VM에 대해 만들어진 **복구 서비스** 자격 증명 모음 &gt; **복구 계획(사이트 복구)** &gt; **recoveryplan_name**을 선택합니다.
 1. 복구 계획 블레이드에서 **추가 정보** &gt;  **계획된 장애 조치**를 클릭합니다.
 
-   ![복구 계획](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![계획 된 장애 조치 (failover) 및 장애 조치 (failover) 옵션을 강조 하는 스크린샷](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. **계획된 장애 조치 확인** 블레이드에서 소스 및 대상 위치를 선택하고 대상 네트워크를 선택한 다음 ✓ 아이콘을 선택하여 장애 조치 프로세스를 시작합니다.
 1. 복제본 가상 머신이 만들어진 후에는 커밋 대기중 상태입니다. **커밋**을 클릭하여 장애 조치(failover)를 커밋합니다.
 1. 복제가 완료되면 보조 위치에서 가상 머신이 시작됩니다.

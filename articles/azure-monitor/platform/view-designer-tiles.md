@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77658509"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168511"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure Monitor의 뷰 디자이너 타일에 대 한 참조 가이드
 Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 될 수 있는 다양 한 사용자 지정 보기를 Azure Portal 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
@@ -45,7 +45,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 | 설정 | Description |
 |:--- |:--- |
-| 속성 |타일 맨 위에 표시되는 텍스트입니다. |
+| Name |타일 맨 위에 표시되는 텍스트입니다. |
 | Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **Tile** | |
 | 범례 |값 아래에 표시되는 텍스트입니다. |
@@ -63,7 +63,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 | 설정 | Description |
 |:--- |:--- |
-| 속성 |타일 맨 위에 표시되는 텍스트입니다. |
+| Name |타일 맨 위에 표시되는 텍스트입니다. |
 | Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **첫 번째 타일** | |
 | 범례 |값 아래에 표시되는 텍스트입니다. |
@@ -84,7 +84,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 | 설정 | Description |
 |:--- |:--- |
-| 속성 |타일 맨 위에 표시되는 텍스트입니다. |
+| Name |타일 맨 위에 표시되는 텍스트입니다. |
 | Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **도넛** | |
 | 쿼리 |도넛에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. |
@@ -104,11 +104,11 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 ## <a name="line-chart-tile"></a>꺾은선형 차트 타일
 이 타일은 시간 경과에 따른 로그 쿼리의 여러 계열을 표시하는 꺾은선형 차트입니다. 
 
-![꺾은선형 차트 및 설명선 타일](media/view-designer-tiles/tile-line-chart.png)
+![Azure Monitor 뷰 디자이너에서 꺾은선형 차트 타일의 스크린샷](media/view-designer-tiles/tile-line-chart.png)
 
 | 설정 | Description |
 |:--- |:--- |
-| 속성 |타일 맨 위에 표시되는 텍스트입니다. |
+| Name |타일 맨 위에 표시되는 텍스트입니다. |
 | Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **꺾은선형 차트** | |
 | 쿼리 |꺾은선형 차트에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. 쿼리에서 *interval* 키워드를 사용하는 경우 X축에 이 시간 간격이 사용됩니다. 쿼리에서 *interval* 키워드를 사용하지 않는 경우 X축에 시간 간격이 사용됩니다. |
@@ -125,11 +125,11 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 ## <a name="line-chart-and-callout-tile"></a>꺾은선형 차트 및 설명선 타일
 이 타일에는 시간이 지남에 따라 로그 쿼리의 여러 계열을 표시하는 꺽은선형 차트와 요약된 값이 있는 설명선이 있습니다. 
 
-![꺾은선형 차트 및 설명선 타일](media/view-designer-tiles/tile-line-chart-callout.png)
+![Azure Monitor 뷰 디자이너의 꺾은선형 차트 및 설명선 타일의 스크린샷입니다. 설명선은 요약 된 값을 표시 하 여 꺾은선형 차트를 보강 합니다.](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | 설정 | Description |
 |:--- |:--- |
-| 속성 |타일 맨 위에 표시되는 텍스트입니다. |
+| Name |타일 맨 위에 표시되는 텍스트입니다. |
 | Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | **꺾은선형 차트** | |
 | 쿼리 |꺾은선형 차트에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. 쿼리에서 *interval* 키워드를 사용하는 경우 X축에 이 시간 간격이 사용됩니다. 쿼리에서 *interval* 키워드를 사용하지 않는 경우 X축에 시간 간격이 사용됩니다. |
@@ -154,7 +154,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 | 설정 | Description |
 |:--- |:--- |
-| 속성 |타일 맨 위에 표시되는 텍스트입니다. |
+| Name |타일 맨 위에 표시되는 텍스트입니다. |
 | Description |타일 이름 아래에 표시되는 텍스트입니다. |
 | 첫 번째 차트 | |
 | 범례 |첫 번째 계열의 설명선 밑에 표시되는 텍스트입니다. |

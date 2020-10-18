@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015927"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166185"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -25,6 +25,7 @@ ms.locfileid: "92015927"
 
 * 모델 버전부터 시작 하 여 감정 분석 v3. x에 대 한 힌디어 지원 `2020-04-01` . 
 * `2020-09-01`V3/언어 끝점에 대 한 모델 버전으로, 향상 된 언어 검색 및 정확도 기능 향상을 추가 합니다.
+* 인도 중부 및 아랍에미리트 북부의 v3 가용성.
 
 ## <a name="september-2020"></a>2020년 9월
 
@@ -170,7 +171,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 * 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
     * PersonType
-    * Product
+    * 제품
     * 이벤트
     * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
     * 기술
@@ -180,7 +181,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * Email 
+    * 메일 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소

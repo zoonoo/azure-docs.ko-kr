@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667696"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166457"
 ---
 # <a name="get-started-with-custom-keyword"></a>사용자 지정 키워드 시작
 
@@ -54,7 +54,7 @@ ms.locfileid: "91667696"
 
 1. 포털에서 키워드에 대 한 후보 발음을 만듭니다. 재생 단추를 클릭 하 여 각 후보를 수신 하 고 잘못 된 발음 옆의 검사를 제거 합니다. 좋은 발음만 선택 하면 **학습** 을 클릭 하 여 키워드 모델 생성을 시작 합니다. 
 
-    ![키워드 검토](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![올바른 pronounciations를 선택 하는 위치를 보여 주는 스크린샷](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. 모델을 생성 하는 데 최대 30 분 정도 걸릴 수 있습니다. 모델이 완료 되 면 키워드 목록이 **처리** 에서 **성공** 으로 변경 됩니다. 그런 다음 파일을 다운로드할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 공유 디스크를 사용 하 여 FCI 만들기 (미리 보기)
+title: Azure 공유 디스크를 사용 하 여 FCI 만들기
 description: Azure 공유 디스크를 사용 하 여 Azure Virtual Machines에서 SQL Server를 사용 하 여 FCI (장애 조치 (failover) 클러스터 인스턴스)를 만듭니다.
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272653"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168242"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "91272653"
 - Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 ppgs ( [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) )는 모두 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
-- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)입니다. 
+- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 
 
 ## <a name="add-azure-shared-disk"></a>Azure 공유 디스크 추가
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 를 만들 수도 있고, SQL SERVER 2019 CU2 + 및 Windows Server 2016를 사용 하는 경우에는 대신 [분산 네트워크 이름](hadr-distributed-network-name-dnn-configure.md) 기능을 미리 볼 수 있습니다. 
+현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 를 만들거나 SQL SERVER 2019 CU2 (이상) 및 Windows Server 2016 이상을 사용 하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 
@@ -221,7 +221,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](hadr-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
+아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
+
 
 Azure 공유 디스크가 적합 한 FCI 저장소 솔루션이 아니면 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 하는 것이 좋습니다. 
 

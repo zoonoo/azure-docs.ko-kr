@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f42d6c8015061406958bdc16473dc0f042d3143a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272503"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164247"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -101,14 +101,14 @@ Azure Marketplace의 SQL Server VM 이미지는 SQL VM 리소스 공급자에 �
 
 각 가상 컴퓨터에서 SQL Server 사용 하는 Windows 방화벽 TCP 포트를 엽니다. 기본적으로 포트 1433입니다. 하지만 Azure VM 배포에서 SQL Server 포트를 변경할 수 있으므로 사용자 환경에서 사용 하 SQL Server 포트를 엽니다. 이 포트는 Azure Marketplace에서 배포 된 SQL Server 이미지에서 자동으로 열립니다. 
 
-[부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md)를 사용 하는 경우 상태 프로브에서 사용 하는 포트도 열어야 합니다. 기본적으로 포트 59999입니다. 그러나 부하 분산 장치를 만들 때 지정 하는 모든 TCP 포트를 사용할 수 있습니다. 
+[부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md)를 사용 하는 경우 상태 프로브에서 사용 하는 포트도 열어야 합니다. 기본적으로 포트 59999입니다. 그러나 부하 분산 장치를 만들 때 지정 하는 모든 TCP 포트를 사용할 수 있습니다. 
 
 다음 표에서는 FCI 구성에 따라 열어야 할 수 있는 포트에 대해 자세히 설명 합니다. 
 
    | 목적 | 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다. </br> </br> **사용**: 모든 fci 구성. |
-   | 상태 프로브 | TCP 59999 | 모든 공개 TCP 포트입니다. 이 포트를 사용 하도록 부하 분산 장치 [상태 프로브](hadr-vnn-azure-load-balancer-configure.md#configure-health-probe) 및 클러스터를 구성 합니다. </br> </br> **사용**: 부하 분산 장치를 사용 하는 fci |
+   | 상태 프로브 | TCP 59999 | 모든 공개 TCP 포트입니다. 이 포트를 사용 하도록 부하 분산 장치 [상태 프로브](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) 및 클러스터를 구성 합니다. </br> </br> **사용**: 부하 분산 장치를 사용 하는 fci |
    | 파일 공유 | UDP 445 | 파일 공유 서비스에서 사용 하는 포트입니다. </br> </br> Premium 파일 공유를 사용 하는 fci **에서 사용**됩니다. |
 
 ## <a name="join-the-domain"></a>도메인 가입

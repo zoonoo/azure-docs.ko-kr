@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317179"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164825"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -133,7 +133,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>출력
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
+를 사용 하면 기본 추적 수준에서 다른 로깅 수준을 사용 하 여 스트리밍 함수 로그에 쓸 수 있습니다. 추적 로깅은 다음 섹션에 자세히 설명 되어 있습니다. 
 
+## <a name="write-trace-output-to-logs"></a>로그에 추적 출력 쓰기
 
-| 방법                 | 설명                                |
-| ---------------------- | ------------------------------------------ |
-| **오류 (_메시지_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
-| **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
-| **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
-| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+함수에서는 메서드를 사용 하 여 `context.log` 로그 및 콘솔에 추적 출력을 기록 합니다. 를 호출 하면 `context.log()` _정보_ 추적 수준인 기본 추적 수준에서 로그에 메시지가 기록 됩니다. 함수는 함수 앱 로그를 보다 잘 캡처하기 위해 Azure 애플리케이션 Insights와 통합 됩니다. Azure Monitor의 일부인 Application Insights는 응용 프로그램 원격 분석과 추적 출력을 수집 하 고, 시각적으로 렌더링 하 고, 분석 하는 기능을 제공 합니다. 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조 하세요.
 
-다음 예제는 경고 추적 수준에서 로그를 기록합니다.
+다음 예에서는 호출 ID를 비롯 하 여 정보 추적 수준에서 로그를 작성 합니다.
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-host.json 파일에 [로깅에 대한 추적 수준 임계값을 구성](#configure-the-trace-level-for-console-logging)할 수 있습니다. 로그 작성에 대한 자세한 내용은 아래에서 [추적 출력 작성](#writing-trace-output-to-the-console)을 참조하세요.
-
-함수 로그 보기 및 쿼리에 대해 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 읽어보세요.
-
-## <a name="writing-trace-output-to-the-console"></a>콘솔에 추적 출력 작성 
-
-Functions에서 `context.log` 메서드를 사용하여 추적 출력을 콘솔에 씁니다. Functions v2.x에서 `console.log`를 사용하는 추적 출력은 함수 앱 수준에서 캡처됩니다. 즉,의 출력 `console.log` 은 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 하지만 Application Insights로 전파됩니다. Functions v1.x에서는 `console.log`를 사용하여 콘솔에 쓸 수 없습니다.
-
-`context.log()`를 호출하면 메시지를 _정보_ 추적 수준인 기본 추적 수준에서 콘솔에 씁니다. 다음 코드는 정보 추적 수준에서 콘솔에 씁니다.
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-이 코드는 위의 코드와 같습니다.
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-이 코드는 오류 수준에서 콘솔에 기록합니다.
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-_error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
 
 모든 `context.log` 메서드는 Node.js [util.format 메서드](https://nodejs.org/api/util.html#util_util_format_format)에서 지원하는 것과 동일한 매개 변수 형식을 지원합니다. 기본 추적 수준을 사용하여 함수 로그를 작성하는 다음 코드를 살펴보세요.
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>콘솔 로깅에 대한 추적 수준 구성
+> [!NOTE]  
+> `console.log`추적 출력을 작성 하는 데를 사용 하지 않습니다. 의 출력 `console.log` 은 함수 앱 수준에서 캡처되고 특정 함수 호출에 연결 되지 않으며 특정 함수의 로그에 표시 되지 않습니다. 또한 함수 런타임의 버전 1.x는를 사용 하 여 `console.log` 콘솔에 쓰는 것을 지원 하지 않습니다.
 
-Functions 1.x에서는 콘솔에 작성할 임계값 추적 수준을 정의할 수 있으므로 추적이 함수에서 콘솔에 작성되는 방식을 쉽게 제어할 수 있습니다. 콘솔에 기록되는 모든 추적에 대한 임계값을 설정하려면 host.json 파일의 `tracing.consoleLevel` 속성을 사용합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다. 다음 예제에서는 추적 임계값을 설정하여 자세한 정보 표시 로깅을 사용하도록 설정합니다.
+### <a name="trace-levels"></a>추적 수준
+
+기본 수준 외에도 다음과 같은 로깅 메서드를 사용 하 여 특정 추적 수준에서 함수 로그를 쓸 수 있습니다.
+
+| 방법                 | Description                                |
+| ---------------------- | ------------------------------------------ |
+| **오류 (_메시지_)**   | 로그에 오류 수준 이벤트를 씁니다.   |
+| **warn(_message_)**    | 로그에 경고 수준 이벤트를 씁니다. |
+| **info(_message_)**    | 정보 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.    |
+| **verbose(_message_)** | 자세한 정보 표시 수준 로깅에 씁니다.           |
+
+다음 예에서는 정보 수준 대신 경고 추적 수준에서 동일한 로그를 작성 합니다.
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+_error_(오류)가 가장 높은 추적 수준이므로 로깅이 활성화되어 있는 한 이 추적은 모든 추적 수준에서 출력에 씁니다.
+
+### <a name="configure-the-trace-level-for-logging"></a>로깅에 대 한 추적 수준 구성
+
+함수를 사용 하면 로그 나 콘솔에 쓰기 위한 임계값 추적 수준을 정의할 수 있습니다. 특정 임계값 설정은 사용자의 함수 런타임 버전에 따라 달라 집니다.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+로그에 기록 된 추적에 대 한 임계값을 설정 하려면 `logging.logLevel` 파일의 host.js에서 속성을 사용 합니다. 이 JSON 개체를 사용 하면 함수 앱의 모든 함수에 대 한 기본 임계값을 정의 하 고 개별 함수에 대 한 특정 임계값을 정의할 수 있습니다. 자세한 내용은 [Azure Functions에 대 한 모니터링을 구성 하는 방법](configure-monitoring.md)을 참조 하세요.
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+로그 및 콘솔에 기록 된 모든 추적에 대 한 임계값을 설정 하려면 `tracing.consoleLevel` 파일의 host.js에서 속성을 사용 합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다. 다음 예제에서는 추적 임계값을 설정하여 자세한 정보 표시 로깅을 사용하도록 설정합니다.
 
 ```json
 {
@@ -360,7 +358,65 @@ Functions 1.x에서는 콘솔에 작성할 임계값 추적 수준을 정의할 
 }  
 ```
 
-**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. 자세한 내용은 [host.json 참조](functions-host-json-v1.md)를 참조하세요.
+**consoleLevel**의 값은 `context.log` 메서드의 이름에 해당합니다. 콘솔에 대한 모든 추적 로깅을 사용하지 않으려면 **consoleLevel**을 _off_로 설정합니다. 자세한 내용은 [ v1. x 참조의host.js](functions-host-json-v1.md)을 참조 하세요.
+
+---
+
+### <a name="log-custom-telemetry"></a>사용자 지정 원격 분석 로그
+
+기본적으로 함수는 Application Insights에 대 한 출력을 추적으로 작성 합니다. 더 많은 제어를 위해 [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) 를 사용 하 여 Application Insights 인스턴스에 사용자 지정 원격 분석 데이터를 보낼 수 있습니다. 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+`tagOverrides` 매개 변수는 `operation_Id`를 함수의 호출 ID로 설정합니다. 이 설정을 사용하면 특정 함수 호출에 대해 자동으로 생성된 모든 원격 분석 데이터와 사용자 지정 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 트리거 및 바인딩
 
@@ -370,7 +426,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                    |
+| 속성      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _머리글과_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -385,7 +441,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | 설명                                               |
+| 속성  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _머리글과_ | 응답 헤더를 포함하는 개체입니다.             |

@@ -4,12 +4,12 @@ description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104073"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167902"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions 개발
 
@@ -39,7 +39,7 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Visual Studio Code 용 [Azure Functions 확장][Azure Functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
@@ -294,7 +294,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
 * 선택한 언어에 대한 특정 요구 사항을 설치합니다.
 
-    | 언어 | 요구 사항 |
+    | Language | 요구 사항 |
     | -------- | --------- |
     | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 도구](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 이상](https://maven.apache.org/) |
@@ -384,15 +384,13 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions: 원�
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> 스트리밍 로그는 함수 호스트의 단일 인스턴스만 지원 합니다. 함수를 여러 인스턴스로 확장 하는 경우 다른 인스턴스의 데이터가 로그 스트림에 표시 되지 않습니다. Application Insights [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md) 는 여러 인스턴스를 지원 합니다. 또한 거의 실시간으로 스트리밍 분석은 [샘플링 된 데이터](functions-monitoring.md#configure-sampling)를 기반으로 합니다.
+> 스트리밍 로그는 함수 호스트의 단일 인스턴스만 지원 합니다. 함수를 여러 인스턴스로 확장 하는 경우 다른 인스턴스의 데이터가 로그 스트림에 표시 되지 않습니다. Application Insights [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md) 는 여러 인스턴스를 지원 합니다. 또한 거의 실시간으로 스트리밍 분석은 [샘플링 된 데이터](configure-monitoring.md#configure-sampling)를 기반으로 합니다.
 
 ### <a name="application-insights"></a>Application Insights
 
-함수 앱을 Application Insights와 통합 하 여 함수 실행을 모니터링 하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때이 통합은 기본적으로 발생 합니다. Visual Studio를 게시 하는 동안 함수 앱을 만들 때 Application Insights 직접 통합 해야 합니다.
+함수 앱을 Application Insights와 통합 하 여 함수 실행을 모니터링 하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때이 통합은 기본적으로 발생 합니다. Visual Studio를 게시 하는 동안 함수 앱을 만들 때 Application Insights 직접 통합 해야 합니다. 방법에 대 한 자세한 내용은 [Application Insights 통합 사용](configure-monitoring.md#enable-application-insights-integration)을 참조 하세요.
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+Application Insights를 사용 하 여 모니터링 하는 방법에 대 한 자세한 내용은 [Monitor Azure Functions](functions-monitoring.md)를 참조 하세요.
 
 ## <a name="c-script-projects"></a>C \# 스크립트 프로젝트
 

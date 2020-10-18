@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399536"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168038"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -167,7 +167,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 - 스토리지: 모든 정보 스토리지 개체, 컨테이너 및 물리적 미디어(자기 또는 광 디스크)에 정적으로 존재하는 유형이 여기에 포함됩니다.
 - 전송 중: 데이터를 구성 요소, 위치 또는 프로그램 간에 전송 하는 경우 (예: Express 경로와 같은 하이브리드 연결을 포함 하 여 온-프레미스에서 클라우드로 또는 그 반대의 경우) 또는 입/출력 프로세스 중에는 이동 중 이라고 생각 합니다.
 
-### <a name="encryption-at-rest"></a>미사용 암호화
+### <a name="encryption-at-rest"></a>저장 데이터 암호화
 
 휴지 상태의 암호화에 대해서는 [Azure 미사용 데이터 암호화](encryption-atrest.md)에 자세히 설명 되어 있습니다.
 
@@ -367,7 +367,8 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다.
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) 또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
+![모니터링 데이터를 사용 하 여 응용 프로그램에 대 한 심층 통찰력을 얻을 수 있음을 보여 주는 다이어그램입니다.](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
 네트워크 보안 감사는 네트워크 취약성을 검색하고 IT 보안 및 규제 관리 모델을 준수하는 것이 중요합니다. 보안 그룹 보기를 사용하면 구성된 네트워크 보안 그룹과 해당 보안 규칙 및 효과적인 보안 규칙을 검색할 수 있습니다. 적용된 규칙 목록을 사용하면 열려 있는 포트를 확인하고 네트워크 취약성을 평가할 수 있습니다.
 

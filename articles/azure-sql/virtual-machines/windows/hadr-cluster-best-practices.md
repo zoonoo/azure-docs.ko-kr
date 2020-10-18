@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317024"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167953"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,8 +45,6 @@ ms.locfileid: "91317024"
 ||[디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)  |[파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**지원되는 OS**| 모두 |Windows Server 2016+| 모두|
-
-
 
 
 ### <a name="disk-witness"></a>디스크 감시
@@ -84,26 +82,27 @@ Azure 파일 공유를 사용 하려는 경우 [프리미엄 파일 공유를 �
 
 ## <a name="connectivity"></a>연결
 
-기존 온-프레미스 네트워크 환경에서 SQL Server 장애 조치 (failover) 클러스터 인스턴스는 단일 컴퓨터에서 실행 되는 SQL Server 단일 인스턴스로 표시 됩니다. 장애 조치 (failover) 클러스터 인스턴스는 노드 간 장애 조치 (failover)를 수행 하므로 인스턴스의 VNN (가상 네트워크 이름)은 통합 연결 지점을 제공 하며 응용 프로그램에서 현재 활성 상태인 노드를 몰라도 SQL Server 인스턴스에 연결할 수 있도록 합니다. 장애 조치 (failover)가 발생 하면 가상 네트워크 이름이 시작 된 후 새 활성 노드에 등록 됩니다. 이 프로세스는 SQL Server 연결 되는 클라이언트나 응용 프로그램에 투명 하며,이로 인해 클라이언트 또는 응용 프로그램에서 오류가 발생 하는 동안 발생 하는 가동 중지 시간이 최소화 됩니다. 
+기존 온-프레미스 네트워크 환경에서 SQL Server 장애 조치 (failover) 클러스터 인스턴스는 단일 컴퓨터에서 실행 되는 SQL Server 단일 인스턴스로 표시 됩니다. 장애 조치 (failover) 클러스터 인스턴스는 노드 간 장애 조치 (failover)를 수행 하므로 인스턴스의 VNN (가상 네트워크 이름)은 통합 연결 지점을 제공 하며 응용 프로그램에서 현재 활성 상태인 노드를 몰라도 SQL Server 인스턴스에 연결할 수 있도록 합니다. 장애 조치 (failover)가 발생 하면 가상 네트워크 이름이 시작 된 후 새 활성 노드에 등록 됩니다. 이 프로세스는 SQL Server 연결 되는 클라이언트나 응용 프로그램에 투명 하며,이로 인해 클라이언트 또는 응용 프로그램에서 오류가 발생 하는 동안 발생 하는 가동 중지 시간이 최소화 됩니다. 마찬가지로 가용성 그룹 수신기는 VNN을 사용 하 여 트래픽을 적절 한 복제본으로 라우팅합니다. 
 
-Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사용 하 여 Azure Vm의 SQL Server를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스의 VNN으로 트래픽을 라우팅합니다. DNN 기능은 현재 Windows Server 2016 이상 가상 머신에서 SQL Server 2019 CU2 이상 에서만 사용할 수 있습니다. 
+Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사용 하 여 트래픽을 Azure Vm의 SQL Server를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스의 VNN으로 라우트 하거나 가용성 그룹의 기존 VNN 수신기를 바꿉니다. 
+
 
 다음 표에서는 HADR 연결 지원 가능성을 비교 합니다. 
 
 | |**VNN(가상 네트워크 이름)**  |**DNN(분산 네트워크 이름)**  |
 |---------|---------|---------|
-|**최소 OS 버전**| 모두 | 모두 |
-|**최소 SQL Server 버전** |모두 |SQL Server 2019 CU2|
-|**지원 되는 HADR 솔루션** | 장애 조치(Failover) 클러스터 인스턴스 <br/> 가용성 그룹 | 장애 조치(Failover) 클러스터 인스턴스|
+|**최소 OS 버전**| 모두 | Windows Server 2016 |
+|**최소 SQL Server 버전** |모두 |SQL Server 2019 CU2 (FCI 용)<br/> SQL Server 2019 CU8 (AG)|
+|**지원 되는 HADR 솔루션** | 장애 조치(Failover) 클러스터 인스턴스 <br/> 가용성 그룹 | 장애 조치(Failover) 클러스터 인스턴스 <br/> 가용성 그룹|
 
 
 ### <a name="virtual-network-name-vnn"></a>VNN(가상 네트워크 이름)
 
-가상 IP 액세스 지점은 Azure에서 다르게 작동 하므로 FCI 노드의 IP 주소로 트래픽을 라우팅하도록 [Azure Load Balancer](../../../load-balancer/index.yml) 를 구성 해야 합니다. Azure virtual machines에서 부하 분산 장치는 클러스터 된 SQL Server 리소스가 사용 하는 VNN의 IP 주소를 보유 합니다. 부하 분산 장치는 프런트 엔드에 도착 하는 인바운드 흐름을 배포한 다음 해당 트래픽을 백 엔드 풀로 정의 된 인스턴스로 라우팅합니다. 부하 분산 규칙 및 상태 프로브를 사용 하 여 트래픽 흐름을 구성 합니다. SQL Server FCI를 사용 하 여 백 엔드 풀 인스턴스는 SQL Server를 실행 하는 Azure 가상 머신입니다. 
+가상 IP 액세스 지점은 Azure에서 다르게 작동 하므로 FCI 노드 또는 가용성 그룹 수신기의 IP 주소에 트래픽을 라우팅하도록 [Azure Load Balancer](../../../load-balancer/index.yml) 를 구성 해야 합니다. Azure virtual machines에서 부하 분산 장치는 클러스터 된 SQL Server 리소스가 사용 하는 VNN의 IP 주소를 보유 합니다. 부하 분산 장치는 프런트 엔드에 도착 하는 인바운드 흐름을 배포한 다음 해당 트래픽을 백 엔드 풀로 정의 된 인스턴스로 라우팅합니다. 부하 분산 규칙 및 상태 프로브를 사용 하 여 트래픽 흐름을 구성 합니다. SQL Server FCI를 사용 하 여 백 엔드 풀 인스턴스는 SQL Server를 실행 하는 Azure 가상 머신입니다. 
 
 부하 분산 장치를 사용 하는 경우 장애 조치 (failover) 지연 시간이 약간 있습니다. 상태 프로브는 기본적으로 10 초 마다 연결 검사를 수행 하기 때문입니다. 
 
-시작 하려면 [FCI에 대 한 Azure Load Balancer를 구성](hadr-vnn-azure-load-balancer-configure.md)하는 방법을 알아봅니다. 
+시작 하려면 [장애 조치 (failover) 클러스터 인스턴스](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [가용성 그룹](availability-group-vnn-azure-load-balancer-configure.md) 에 대 한 Azure Load Balancer를 구성 하는 방법을 알아봅니다.
 
 **지원되는 OS**: 모두   
 **지원되는 SQL 버전**: 모두   
@@ -112,22 +111,22 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 ### <a name="distributed-network-name-dnn"></a>DNN(분산 네트워크 이름)
 
-분산 네트워크 이름은 SQL Server 2019 CU2에 대 한 새로운 Azure 기능입니다. DNN는 클라이언트에서 부하 분산 장치를 사용 하지 않고 SQL Server 장애 조치 (failover) 클러스터 인스턴스에 연결할 수 있는 대체 SQL Server 방법을 제공 합니다. 
+분산 네트워크 이름은 SQL Server 2019에 대 한 새로운 Azure 기능입니다. DNN는 클라이언트에서 부하 분산 장치를 사용 하지 않고 SQL Server 장애 조치 (failover) 클러스터 인스턴스 또는 가용성 그룹에 연결할 수 있는 대체 SQL Server 방법을 제공 합니다. 
 
-DNN 리소스가 생성 되 면 클러스터는 클러스터에 있는 모든 노드의 IP 주소를 DNS 이름에 바인딩합니다. SQL 클라이언트는 장애 조치 (failover) 클러스터 인스턴스가 현재 실행 중인 노드를 찾기 위해이 목록에 있는 각 IP 주소에 연결을 시도 합니다. 연결 문자열에를 지정 하 여이 프로세스를 가속화할 수 있습니다 `MultiSubnetFailover=True` . 이 설정은 공급자가 모든 IP 주소를 병렬로 시도 하도록 지시 하므로 클라이언트는 FCI에 즉시 연결할 수 있습니다. 
+DNN 리소스가 생성 되 면 클러스터는 클러스터에 있는 모든 노드의 IP 주소를 DNS 이름에 바인딩합니다. SQL 클라이언트는이 목록에 있는 각 IP 주소에 연결을 시도 하 여 연결할 리소스를 찾습니다.  연결 문자열에를 지정 하 여이 프로세스를 가속화할 수 있습니다 `MultiSubnetFailover=True` . 이 설정은 공급자가 모든 IP 주소를 병렬로 시도 하도록 지시 하므로 클라이언트는 FCI 또는 수신기에 즉시 연결할 수 있습니다. 
 
 가능 하면 부하 분산 장치에 대해 분산 네트워크 이름이 권장 됩니다. 
 - 종단 간 솔루션은 더 이상 부하 분산 장치 리소스를 유지 관리할 필요가 없기 때문에 더욱 강력해 집니다. 
 - 부하 분산 장치 프로브를 제거 하면 장애 조치 (failover) 기간이 최소화 됩니다. 
-- DNN는 Azure Vm의 SQL Server를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스의 프로 비전 및 관리를 간소화 합니다. 
+- DNN는 Azure Vm의 SQL Server를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스 또는 가용성 그룹 수신기의 프로 비전 및 관리를 간소화 합니다. 
 
-대부분의 SQL Server 기능은 FCI에서 투명 하 게 작동 합니다. 이러한 경우 기존 VNN DNS 이름을 DNN DNS 이름으로 바꾸거나 DNN 값을 기존 VNN DNS 이름으로 설정 하면 됩니다. 그러나 일부 서버 쪽 구성 요소에는 VNN 이름을 DNN 이름에 매핑하는 네트워크 별칭이 필요 합니다. 서버 쪽 구성에서 특정 Url을 정의 하는 경우와 같이 특정 사례에 DNN DNS 이름을 명시적으로 사용 해야 할 수도 있습니다. 
+DNN를 사용 하는 경우 대부분의 SQL Server 기능은 FCI 및 가용성 그룹과 투명 하 게 작동 하지만 특별 한 고려 사항이 필요할 수 있는 특정 기능이 있습니다. 자세히 알아보려면 [Fci 및 DNN 상호 운용성](failover-cluster-instance-dnn-interoperability.md) 및 [AG 및 DNN 상호 운용성](availability-group-dnn-interoperability.md) 을 참조 하세요. 
 
-시작 하려면 [FCI에 대해 DNN 리소스를 구성](hadr-distributed-network-name-dnn-configure.md)하는 방법을 알아봅니다. 
+시작 하려면 [장애 조치 (failover) 클러스터 인스턴스](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가용성 그룹](availability-group-distributed-network-name-dnn-listener-configure.md) 에 대 한 분산 네트워크 이름 리소스를 구성 하는 방법을 알아봅니다.
 
 **지원되는 OS**: Windows Server 2016 이상   
-**지원 되는 SQL 버전**: SQL Server 2019 이상   
-**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스만
+**지원 되는 SQL 버전**: fci (SQL SERVER 2019 CU2) 및 AG (SQL SERVER 2019 CU8)   
+**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
 ## <a name="limitations"></a>제한 사항
@@ -146,5 +145,5 @@ Azure Virtual Machines는 클러스터링된 공유 볼륨이 있는 Windows Ser
 
 ## <a name="next-steps"></a>다음 단계
 
-솔루션에 대 한 적절 한 모범 사례를 확인 한 후에는 [FCI에 대 한 SQL Server VM 준비](failover-cluster-instance-prepare-vm.md)하 여 시작 하세요. [Azure CLI](availability-group-az-cli-configure.md)또는 [Azure 빠른 시작 템플릿을](availability-group-quickstart-template-configure.md)사용 하 여 가용성 그룹을 만들 수도 있습니다. 
+솔루션에 대 한 적절 한 모범 사례를 확인 한 후에는 [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI/PowerShell](availability-group-az-cli-configure.md)또는 [Azure 빠른 시작 템플릿을](availability-group-quickstart-template-configure.md)사용 하 여 [fci에 대 한 SQL Server VM 준비](failover-cluster-instance-prepare-vm.md) 하거나 가용성 그룹을 만들어 시작 하세요. 
 

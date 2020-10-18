@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444846"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164502"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Always Encrypted 구성 
 
@@ -149,7 +149,7 @@ SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설�
 1. **데이터베이스**  >  **클리닉**  >  **테이블**을 확장 합니다.
 2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
 
-    ![열 암호화](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![암호화 열을 강조 표시 하는 스크린샷 ... 메뉴 옵션입니다.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**, **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 암호화된 열에 일반 텍스트 데이터가 포함되지 않은 것을 볼 수 있습니다.
 
-   ![새 콘솔 애플리케이션](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![암호화 된 열에 일반 텍스트 데이터가 포함 되지 않는 것을 보여 주는 스크린샷](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 사용자가 Azure Key Vault에 대한 적절한 권한(*get*, *unwrapKey* 및 *verify*)을 갖고 있는지 확인해야 합니다. 자세한 내용은 [열 마스터 키(상시 암호화) 만들기 및 저장](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted)을 참조하세요.
 
@@ -584,7 +584,7 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 �
 2. **연결**  >  **데이터베이스 엔진** 을 클릭 하 여 **서버에 연결** 창을 열고 **옵션**을 클릭 합니다.
 3. **추가 연결 매개 변수**를 클릭하고 **열 암호화 설정=활성화**를 입력합니다.
 
-    ![새 콘솔 애플리케이션](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![추가 수정 매개 변수 탭을 보여 주는 스크린샷](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Clinic 데이터베이스에 대해 다음 쿼리를 실행합니다.
 

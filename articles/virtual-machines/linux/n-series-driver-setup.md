@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284883"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168480"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -310,7 +310,7 @@ GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드�
 
 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
-![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi-nv.png)
+![GPU 장치 상태를 쿼리할 때의 출력을 보여 주는 스크린샷](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>X11 서버

@@ -2,28 +2,26 @@
 title: Linux에서 개발 환경 설정
 description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 마치면 애플리케이션을 빌드할 수 있습니다.
 ms.topic: conceptual
-ms.date: 2/23/2018
+ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 211c2c80d0f701176dfcff02872d9f1e30635d94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249997"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168412"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
-Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
+Linux 개발 컴퓨터에서 (Azure Service Fabric 응용 프로그램) [model.md]을 (를) 배포 하 고 실행 하려면 런타임 및 일반 SDK를 설치 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
-이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `mcr.microsoft.com/service-fabric/onebox:latest`를 사용한다고 가정합니다.
+이 문서의 단계에서는 Linux에서 기본적으로를 설치 하거나 (Service Fabric OneBox 컨테이너 이미지) [] ()를 사용 하는 것으로 가정 합니다. https://hub.docker.com/_/microsoft-service-fabric-onebox `mcr.microsoft.com/service-fabric/onebox:u18`
 
-Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
+Azure Service Fabric CLI (명령줄 인터페이스)를 사용 하 여 클라우드 또는 온-프레미스에서 호스트 되는 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -42,9 +40,17 @@ Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치�
 
 ## <a name="installation-methods"></a>설치 방법
 
-### <a name="script-installation-ubuntu"></a>스크립트 설치(Ubuntu)
+<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD024 -->
 
-편의상 스크립트는 **sfctl** CLI와 함께 Service Fabric 런타임 및 Service Fabric 일반 SDK를 설치하기 위해 제공됩니다. 다음 섹션에서 수동 설치 단계를 실행합니다. 설치 항목 및 관련 라이선스를 표시합니다. 스크립트를 실행하면 설치된 모든 소프트웨어에 대한 라이선스에 동의하는 것으로 가정합니다.
+# <a name="ubuntu"></a>[Ubuntu](#tab/sdksetupubuntu)
+
+## <a name="update-your-apt-sources"></a>APT 원본 업데이트
+apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치하려면 먼저 APT(Advanced Packaging Tool) 원본을 업데이트해야 합니다.
+
+## <a name="script-installation"></a>스크립트 설치
+
+편의상 Service Fabric 런타임 및 Service Fabric 일반 SDK를 [ **sfctl** CLI](service-fabric-cli.md)와 함께 설치 하기 위한 스크립트가 제공 됩니다. 스크립트를 실행하면 설치된 모든 소프트웨어에 대한 라이선스에 동의하는 것으로 가정합니다. 또는 설치 되는 구성 요소 뿐만 아니라 관련 라이선스를 제공 하는 다음 섹션에서 [수동 설치](#manual-installation) 단계를 실행할 수 있습니다.
 
 스크립트가 성공적으로 실행된 후에 [로컬 클러스터 설정](#set-up-a-local-cluster)으로 건너뛰어도 됩니다.
 
@@ -52,13 +58,8 @@ Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치�
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### <a name="manual-installation"></a>수동 설치
+## <a name="manual-installation"></a>수동 설치
 Service Fabric 런타임 및 일반 SDK의 수동 설치는 이 가이드의 뒷부분을 수행합니다.
-
-## <a name="update-your-apt-sources-or-yum-repositories"></a>APT 소스 또는 Yum 리포지토리 업데이트
-apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치하려면 먼저 APT(Advanced Packaging Tool) 원본을 업데이트해야 합니다.
-
-### <a name="ubuntu"></a>Ubuntu
 
 1. 터미널을 엽니다.
 
@@ -100,8 +101,30 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
     sudo apt-get update
     ```
 
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>로컬 클러스터에 대해 Service Fabric SDK 설치 및 설정
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
+원본을 업데이트하면 SDK를 설치할 수 있습니다. Service Fabric SDK 패키지를 설치하고, 설치를 확인한 다음, 사용권 계약에 동의합니다.
+
+### <a name="ubuntu"></a>Ubuntu
+
+```bash
+sudo apt-get install servicefabricsdkcommon
+```
+
+> [!TIP]
+>   다음 명령은 Service Fabric 패키지의 라이센스 수락을 자동화합니다.
+>   ```bash
+>   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
+>   ```
+
+# <a name="red-hat-enterprise-linux-74"></a>[Red Hat Enterprise Linux 7.4](#tab/sdksetuprhel74)
+
+## <a name="update-your-yum-repositories"></a>Yum 리포지토리 업데이트
+Yum 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치 하려면 먼저 패키지 원본을 업데이트 해야 합니다.
+
+## <a name="manual-installation-rhel"></a>수동 설치 (RHEL)
+Service Fabric 런타임 및 일반 SDK의 수동 설치는 이 가이드의 뒷부분을 수행합니다.
 
 1. 터미널을 엽니다.
 2. EPEL(Enterprise Linux)에 대한 추가 패키지를 다운로드하여 설치합니다.
@@ -129,50 +152,69 @@ apt-get 명령줄 도구를 통해 SDK 및 관련 런타임 패키지를 설치�
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. .NET SDK를 설치합니다.
-
-    ```bash
-    yum install rh-dotnet20 -y
-    ```
-
-## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>로컬 클러스터에 대해 Service Fabric SDK 설치 및 설정
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster-rhel"></a>로컬 클러스터에 대 한 Service Fabric SDK 설치 및 설정 (RHEL)
 
 원본을 업데이트하면 SDK를 설치할 수 있습니다. Service Fabric SDK 패키지를 설치하고, 설치를 확인한 다음, 사용권 계약에 동의합니다.
-
-### <a name="ubuntu"></a>Ubuntu
-
-```bash
-sudo apt-get install servicefabricsdkcommon
-```
-
-> [!TIP]
->   다음 명령은 Service Fabric 패키지의 라이센스 수락을 자동화합니다.
->   ```bash
->   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
->   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
->   ```
-
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
 
 ```bash
 sudo yum install servicefabricsdkcommon
 ```
 
+---
+
+## <a name="included-packages"></a>포함 된 패키지
 SDK 설치와 함께 제공되는 Service Fabric 런타임에는 다음 표에 나온 패키지가 포함됩니다. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-**Ubuntu** | 2.0.0 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
+**Ubuntu** | 2.0.7 | AzulJDK 1.8 | npm에서 암시적 | 최신 |
 **RHEL** | - | OpenJDK 1.8 | npm에서 암시적 | 최신 |
 
 ## <a name="set-up-a-local-cluster"></a>로컬 클러스터를 설정합니다.
-설치가 완료된 후에 로컬 클러스터를 시작합니다.
+1. 개발용 로컬 Service Fabric 클러스터를 시작 합니다.
+
+# <a name="container-based-local-cluster"></a>[컨테이너 기반 로컬 클러스터](#tab/localclusteroneboxcontainer)
+
+클러스터를 Service Fabric 컨테이너 기반 [상자](https://hub.docker.com/r/microsoft/service-fabric-onebox/)를 시작 합니다.
+
+1. Docker 컨테이너를 배포할 수 있도록 Moby를 설치 합니다.
+    ```bash
+    sudo apt-get install moby-engine moby-cli -y
+    ```
+2. 다음 설정을 사용 하 여 호스트에서 Docker 디먼 구성을 업데이트 하 고 Docker 디먼을 다시 시작 합니다. 세부 정보: [IPv6 지원 사용](https://docs.docker.com/config/daemon/ipv6/)
+
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+
+3. 클러스터를 시작 합니다.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
+    ```
+
+    <b>Ubuntu 16.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
+
+# <a name="local-cluster"></a>[로컬 클러스터](#tab/localcluster)
+
+위의 단계를 사용 하 여 SDK를 설치한 후 로컬 클러스터를 시작 합니다.
 
 1. 클러스터 설치 스크립트를 실행합니다.
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
+---
 
 2. 웹 브라우저를 열고 **Service Fabric Explorer** ()로 이동 `http://localhost:19080/Explorer` 합니다. 클러스터를 시작하는 경우 Service Fabric Explorer 대시보드가 표시됩니다. 클러스터가 완전히 설치될 때까지 몇 분 정도 걸릴 수 있습니다. 브라우저에서 URL이 열리지 않거나 Service Fabric Explorer에 시스템이 준비되었다고 표시되지 않으면 몇 분 후 다시 시도합니다.
 
@@ -217,9 +259,9 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 생성기를 설치한 후에는 각각 `yo azuresfguest` 또는 `yo azuresfcontainer`를 실행하여 게스트 실행 파일 또는 컨테이너 서비스를 만듭니다.
 
-## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 개발 설정
+## <a name="set-up-net-core-31-development"></a>.NET Core 3.1 개발 설정
 
-[Ubuntu용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#linuxubuntu)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작합니다. NuGet.org는 현재 미리 보기 상태인 .NET Core 2.0 Service Fabric 애플리케이션의 패키지를 호스팅합니다.
+[Ubuntu 용 .Net Core 3.1 SDK](https://www.microsoft.com/net/core#linuxubuntu) 를 설치 하 여 [c # Service Fabric 응용 프로그램 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)를 시작 합니다. .NET Core Service Fabric 응용 프로그램에 대 한 패키지는 NuGet.org에서 호스팅됩니다.
 
 ## <a name="set-up-java-development"></a>Java 개발 설정
 

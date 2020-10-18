@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131661"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167817"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>문제 해결: Azure에서 가상 네트워크를 삭제하지 못함
 
@@ -48,7 +48,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 가상 네트워크의 경우 가상 네트워크에 대한 **개요** 페이지로 이동합니다. 가상 네트워크 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
 
-![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Azure Portal의 가상 네트워크에 대 한 연결 된 장치 목록의 스크린샷 목록에 가상 네트워크 게이트웨이가 강조 표시 됩니다.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 게이트웨이를 제거하려면 먼저 게이트웨이에서 **연결** 개체를 제거해야 합니다. 
 
@@ -56,7 +56,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 가상 네트워크에 대한 **개요** 페이지로 이동합니다. 애플리케이션 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
 
-![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Azure Portal의 가상 네트워크에 대 한 연결 된 장치 목록의 스크린샷 응용 프로그램 게이트웨이가 목록에 강조 표시 됩니다.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 애플리케이션 게이트웨이가 있는 경우 이를 제거해야 가상 네트워크를 삭제할 수 있습니다.
 
@@ -64,7 +64,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 Active Directory Domain Service가 사용하도록 설정되어 있고 가상 네트워크에 연결되어 있다면 이 가상 네트워크를 삭제할 수 없습니다. 
 
-![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Azure Portal Azure AD Domain Services 화면의 스크린샷 Virtual Network/서브넷에서 사용 가능 필드가 강조 표시 됩니다.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 서비스를 사용하지 않도록 설정하려면 [Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화](../active-directory-domain-services/delete-aadds.md)를 참조하세요.
 

@@ -13,19 +13,21 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c591bfa911663503b3e8a9101910034c91a8251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78414e26836d1547fe195a0a7844b6a98bb0dfc8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298782"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168259"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 (PowerShell & Az CLI)
+# <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>PowerShell 또는 Az CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 [PowerShell](/powershell/scripting/install/installing-powershell) 또는 [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) 를 사용 하 여 Windows 장애 조치 (failover) 클러스터를 배포 하 고, 클러스터에 SQL Server vm을 추가 하 고, Always On 가용성 그룹에 대 한 내부 부하 분산 장치 및 수신기를 만드는 방법을 설명 합니다. 
+이 문서에서는 [PowerShell](/powershell/scripting/install/installing-powershell) 또는 [Azure CLI](/cli/azure/sql/vm) 를 사용 하 여 Windows 장애 조치 (failover) 클러스터를 배포 하 고, 클러스터에 SQL Server vm을 추가 하 고, Always On 가용성 그룹에 대 한 내부 부하 분산 장치 및 수신기를 만드는 방법을 설명 합니다. 
 
 가용성 그룹의 배포는 아직 SSMS (SQL Server Management Studio) 또는 T-sql (Transact-sql)을 통해 수동으로 수행 됩니다. 
+
+이 문서에서는 PowerShell 및 Az CLI를 사용 하 여 가용성 그룹 환경을 구성 하는 반면, [Azure Portal](availability-group-azure-portal-configure.md)에서 [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용 하 여 또는 [수동으로](availability-group-manually-configure-tutorial.md) 도 수행할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -62,7 +64,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> 오래된 버전의 Azure CLI를 사용하는 경우 `az sql: 'vm' is not in the 'az sql' command group`이라는 오류가 표시될 수 있습니다. 이 오류를 해결하려면 [최신 버전의 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)를 다운로드합니다.
+> 오래된 버전의 Azure CLI를 사용하는 경우 `az sql: 'vm' is not in the 'az sql' command group`이라는 오류가 표시될 수 있습니다. 이 오류를 해결하려면 [최신 버전의 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)를 다운로드합니다.
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -82,7 +84,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>클러스터 메타 데이터 정의
 
-Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) 명령 그룹은 가용성 그룹을 호스팅하는 WSFC(Windows Server 장애 조치(Failover) 클러스터) 서비스의 메타데이터를 관리합니다. 클러스터 메타데이터에는 Active Directory 도메인, 클러스터 계정, 클라우드 감시로 사용되는 스토리지 계정 및 SQL Server 버전이 포함됩니다. [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create)를 사용하여 첫 번째 SQL Server VM이 추가될 때 클러스터가 정의된 대로 만들어지도록 WSFC의 메타데이터를 정의합니다. 
+Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group) 명령 그룹은 가용성 그룹을 호스팅하는 WSFC(Windows Server 장애 조치(Failover) 클러스터) 서비스의 메타데이터를 관리합니다. 클러스터 메타데이터에는 Active Directory 도메인, 클러스터 계정, 클라우드 감시로 사용되는 스토리지 계정 및 SQL Server 버전이 포함됩니다. [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create)를 사용하여 첫 번째 SQL Server VM이 추가될 때 클러스터가 정의된 대로 만들어지도록 WSFC의 메타데이터를 정의합니다. 
 
 다음은 클러스터의 메타데이터를 정의하는 코드 조각입니다.
 
@@ -127,7 +129,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>클러스터에 Vm 추가
 
-클러스터에 첫 번째 SQL Server VM을 추가하면 클러스터가 만들어집니다. [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) 명령은 이전에 지정한 이름으로 클러스터를 만들고, SQL Server VM에 클러스터 역할을 설치하고, 클러스터에 SQL Server VM을 추가합니다. 이후에 `az sql vm add-to-group` 명령을 사용하면 새로 만든 클러스터에 더 많은 SQL Server VM이 추가됩니다. 
+클러스터에 첫 번째 SQL Server VM을 추가하면 클러스터가 만들어집니다. [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) 명령은 이전에 지정한 이름으로 클러스터를 만들고, SQL Server VM에 클러스터 역할을 설치하고, 클러스터에 SQL Server VM을 추가합니다. 이후에 `az sql vm add-to-group` 명령을 사용하면 새로 만든 클러스터에 더 많은 SQL Server VM이 추가됩니다. 
 
 다음은 클러스터를 만들고 클러스터에 첫 번째 SQL Server VM를 추가하는 코드 조각입니다. 
 
@@ -204,6 +206,8 @@ Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러
 
 ## <a name="create-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 내부 인스턴스가 필요합니다. 내부 부하 분산 장치는 더 빠른 장애 조치(failover) 및 다시 연결을 허용하는 가용성 그룹 수신기에 대한 "부동" IP 주소를 제공합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 부하 분산 장치를 사용할 수 있습니다. 그렇지 않으면 표준 부하 분산 장치를 사용해야 합니다.  
 
 > [!NOTE]
@@ -240,7 +244,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 
 ## <a name="create-listener"></a>수신기 만들기
 
-수동으로 가용성 그룹을 만든 후 [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create)를 사용하여 수신기를 만들 수 있습니다. 
+수동으로 가용성 그룹을 만든 후 [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-create)를 사용하여 수신기를 만들 수 있습니다. 
 
 *서브넷 리소스 ID*는 가상 네트워크 리소스의 리소스 ID에 추가된 `/subnets/<subnetname>`의 값입니다. 서브넷 리소스 ID를 확인하려면 다음을 수행합니다.
    1. [Azure Portal](https://portal.azure.com)의 리소스 그룹으로 이동합니다. 
@@ -294,7 +298,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="modify-number-of-replicas"></a>복제본 수 수정 
-Azure에서 호스팅되는 SQL Server VM에 가용성 그룹을 배포하면 더 복잡해집니다. 이제 리소스 공급자와 가상 머신 그룹이 리소스를 관리합니다. 따라서 가용성 그룹에서 복제본을 추가하거나 제거할 때 SQL Server VM에 대한 정보로 수신기 메타데이터를 업데이트하는 추가 단계가 있습니다. 가용성 그룹의 복제본 수를 수정하는 경우 [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) 명령을 사용하여 SQL Server VM의 메타데이터로 수신기도 업데이트해야 합니다. 
+Azure에서 호스팅되는 SQL Server VM에 가용성 그룹을 배포하면 더 복잡해집니다. 이제 리소스 공급자와 가상 머신 그룹이 리소스를 관리합니다. 따라서 가용성 그룹에서 복제본을 추가하거나 제거할 때 SQL Server VM에 대한 정보로 수신기 메타데이터를 업데이트하는 추가 단계가 있습니다. 가용성 그룹의 복제본 수를 수정하는 경우 [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-update) 명령을 사용하여 SQL Server VM의 메타데이터로 수신기도 업데이트해야 합니다. 
 
 
 ### <a name="add-a-replica"></a>복제본 추가

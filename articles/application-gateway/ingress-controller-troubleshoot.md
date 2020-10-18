@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207167"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168191"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>수신 컨트롤러에 대 한 일반적인 질문 및 문제 해결
 
@@ -85,15 +85,15 @@ AKS 클러스터 위에 응용 프로그램을 성공적으로 배포한 후에�
 [Cloud Shell](https://shell.azure.com/)를 사용 하 여 pod 목록을 가져옵니다 `kubectl get pods -o wide` .
 ' Agic-pod ' 라는 pod가 생성 된 것으로 간주 됩니다. IP 주소를 갖게 됩니다. 이 주소는 AKS에서 사용 되는 Application Gateway의 VNET 내에 있어야 합니다.
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Pod 목록에 agic를 포함 하는 목록을 보여 주는 Azure Cloud Shell의 Bash 창 스크린샷](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 서비스 목록을 가져옵니다 `kubectl get services -o wide` . ' Agic ' 라는 서비스가 표시 될 것입니다.
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![목록의 agic를 포함 하는 서비스 목록을 보여 주는 Azure Cloud Shell Bash 창의 스크린샷.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 조절기의 목록을 `kubectl get ingress` 가져옵니다. ' Agic-수신 ' 이라는 수신 리소스가 생성 된 것으로 간주 됩니다. 리소스의 호스트 이름은 ' test.agic.contoso.com '입니다.
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![목록에서 agic-앱 수신을 포함 하는 조절기 목록을 보여 주는 Azure Cloud Shell Bash 창의 스크린샷](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 Pod 중 하나는 AGIC가 됩니다. `kubectl get pods` pod 목록이 표시 되며, 그 중 하나는 ' 수신-azure '로 시작 됩니다. 이 pod의 모든 로그를 가져와서 `kubectl logs <name-of-ingress-controller-pod>` 성공적으로 배포 되었는지 확인 합니다. 성공적으로 배포 되 면 로그에 다음 줄이 추가 됩니다.
 ```
@@ -120,7 +120,7 @@ Application Gateway는 다음 구성을 적용 합니다.
 1. 을 사용 `kubectl get ingress` 하 여 Application Gateway의 공용 IP 주소를 가져옵니다.
 2. `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>` 사용
 
-![pod](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![테스트 앱에 대 한 HTTP 연결을 성공적으로 설정 하는 것을 보여 주는 Azure Cloud Shell Bash 창의 스크린샷](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 의 결과 `HTTP/1.1 200 OK` Application Gateway + AKS + AGIC 시스템이 예상 대로 작동 하 고 있음을 나타냅니다.
 
@@ -236,7 +236,7 @@ AGIC에는 3 개의 로깅 수준이 있습니다. 수준 1은 기본 항목 이
 Kubernetes 커뮤니티는 [kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging) 도구에 대 한 9 가지 로깅 수준을 설정 했습니다. 이 리포지토리에는 다음과 같은 의미 체계를 사용 하 여 세 가지를 활용 합니다.
 
 
-| 자세한 정도 | 설명 |
+| 자세한 정도 | Description |
 |-----------|-------------|
 |  1        | 기본 로그 수준 시작 정보, 경고 및 오류를 표시 합니다. |
 |  3        | 이벤트 및 변경 내용에 대 한 확장 된 정보 만든 개체 목록 |
