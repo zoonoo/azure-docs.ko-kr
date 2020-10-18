@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298714"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164417"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "91298714"
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) 또는 다른 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)에 [준비 된 두 개 이상의 Windows Azure 가상 머신](failover-cluster-instance-prepare-vm.md)
 - 데이터 파일용 데이터베이스의 스토리지 할당량을 기준으로 클러스터형 드라이브로 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md)를 사용합니다.
-- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)입니다. 
+- 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 
 ## <a name="mount-premium-file-share"></a>프리미엄 파일 공유 탑재
 
@@ -194,7 +194,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 를 만들 수도 있고, SQL Server 2019 및 Windows Server 2016를 사용 하는 경우에는 [분산 네트워크 이름](hadr-distributed-network-name-dnn-configure.md) 기능을 미리 볼 수 있습니다. 
+현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 를 만들거나 SQL SERVER 2019 CU2 (이상) 및 Windows Server 2016 이상을 사용 하는 경우 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 기능을 대신 사용할 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 
@@ -204,7 +204,8 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="next-steps"></a>다음 단계
 
-아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](hadr-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
+아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
+
 
 프리미엄 파일 공유가 적합 한 FCI 저장소 솔루션이 아닌 경우 [Azure 공유 디스크](failover-cluster-instance-azure-shared-disks-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 합니다. 
 

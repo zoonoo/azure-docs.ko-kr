@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005941"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164808"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -25,7 +25,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 *평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독
 
@@ -47,7 +47,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
 
-    이 사용자는 **소유자** 역할이 있거나 **기여자**와 **사용자 액세스 관리자** 역할이 모두 있는 Azure 구독의 멤버여야 합니다. 두 개의 역할을 사용 하 여 사용자를 두 번 추가할 수 있습니다. 기여자 역할과 사용자 액세스 관리자 역할이 각각 있는 멤버로 두 번 추가합니다.
+    이 사용자는 **소유자** 역할이 있거나 **기여자**와 **사용자 액세스 관리자** 역할이 모두 있는 Azure 구독의 멤버여야 합니다. 두 개의 역할을 사용 하 여 사용자를 두 번 추가할 수 있습니다. 기여자 역할과 사용자 액세스 관리자 역할이 각각 있는 멤버로 두 번 추가합니다. 자세한 내용은 [Azure 리소스에 대 한 사용자 액세스 권한 보기](https://docs.microsoft.com/azure/role-based-access-control/check-access)를 참조 하세요.
 
     ![액세스 제어](./media/create-account/access-control-iam.png)
 
@@ -144,14 +144,14 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
 |구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 선택 하 고 "구독"을 검색 합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
-|애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
+|애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
 |애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기

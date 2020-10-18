@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 18904987d409f526c2bbd6cd917558e8ce6f751c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72124c7e52afcf68f33a8b8a2295448506b0719f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842634"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165029"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -173,7 +173,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 작업 영역의 실험에서 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다.
 
@@ -204,7 +204,7 @@ datastore = workspace.get_default_datastore()
 datastore.upload(src_dir='data', target_path='data')
 
 # create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv')]
+dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv'))])
 ```
 
 > [!TIP]

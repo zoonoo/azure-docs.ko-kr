@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073804"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164366"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -64,7 +64,7 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 애플리케�
 
 사용자가 이미지를 업로드하면 웹 역할로 실행 중인 프런트 엔드가 [Azure Blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)(영문)에 이미지를 저장하며 Blob을 가리키는 URL을 사용하여 데이터베이스에 광고 정보를 저장합니다. 이와 동시에 Azure 큐에 메시지를 기록합니다. 작업자 역할로 실행되는 백 엔드 프로세스는 정기적으로 큐를 폴링하여 새 메시지를 확인합니다. 새 메시지가 나타나면 작업자 역할은 해당 이미지의 미리 보기를 만들고 광고에 대한 미리 보기 URL 데이터베이스 필드를 업데이트합니다. 다음은 애플리케이션의 여러 부분이 상호 작용하는 방법을 보여 주는 다이어그램입니다.
 
-![Contoso Ads 아키텍처](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![응용 프로그램의 파트가 상호 작용 하는 방법을 보여 주는 다이어그램입니다.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -217,7 +217,7 @@ Azure Storage 계정은 큐 및 Blob 데이터를 클라우드에 저장하기 �
 6. 작업자 역할 프로젝트를 구성하는 다음 단계에서 사용할 수 있도록 연결 문자열을 선택하고 복사합니다(둘러싼 따옴표 미포함).
 7. **솔루션 탐색기**에서, 클라우드 서비스 프로젝트의 **역할** 아래에서 **ContosoAdsWorker**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
-    ![역할 속성](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![속성 메뉴 옵션을 강조 표시 하는 스크린샷](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. **설정** 탭을 클릭합니다.
 9. **서비스 구성**을 **클라우드**로 변경합니다.
 10. `ContosoAdsDbConnectionString` 설정에서 **값** 필드를 선택한 다음 자습서의 이전 섹션에서 복사한 연결 문자열을 붙여넣습니다.
@@ -378,7 +378,7 @@ Contoso Ads 애플리케이션을 만드는 데는 다음 단계가 필요합니
 2. 변경 내용을 저장합니다.
 3. ContosoAdsCloudService 프로젝트에서 **역할**아래의 ContosoAdsWeb을 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 
-    ![역할 속성](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![역할에서 속성 메뉴 옵션을 강조 표시 하는 스크린샷](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. **ContosoAdsWeb [Role]** 속성 창에서 **설정** 탭을 클릭한 다음, **설정 추가**를 클릭합니다.
 
     **서비스 구성**을 **모든 구성**으로 설정해 둡니다.

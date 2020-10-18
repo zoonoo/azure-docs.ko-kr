@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482570"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165556"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>토양 습기 열 지도 생성
 
@@ -54,7 +54,7 @@ Azure FarmBeats에 센서 계정을 연결한 후에는 관심 있는 팜에 토
 2.  **Myfarm**  >  **장치 추가**를 선택 합니다.
 3.  **장치 추가** 창이 표시 됩니다. 팜의 토양 습기 센서에 연결 된 장치를 선택 합니다.
 
-    ![Farm Beats 프로젝트](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![장치 추가 화면을 보여 주는 스크린샷](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. **장치 추가**를 선택 합니다.     
 
@@ -70,7 +70,7 @@ Azure FarmBeats에 센서 계정을 연결한 후에는 관심 있는 팜에 토
 6.  **Select 토양 습기** **센서 측정값**에서 지도에 사용할 측정값을 입력 합니다.
     센서 측정값을 찾으려면 **센서**에서 any 토양 습기 센서를 선택 합니다. **센서 속성**에서 **Measure Name** 값을 사용 합니다.
 
-    ![Farm Beats 프로젝트](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![토양 습기 화면을 보여 주는 스크린샷](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  **맵 생성**을 선택 합니다.

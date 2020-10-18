@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589303"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165772"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -23,17 +23,22 @@ ms.locfileid: "88589303"
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Application Insights에 대 한 계측 키입니다. 또는 중 하나만 사용 `APPINSIGHTS_INSTRUMENTATIONKEY` `APPLICATIONINSIGHTS_CONNECTION_STRING` 합니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요. 
+Application Insights에 대 한 계측 키입니다. 또는 중 하나만 사용 `APPINSIGHTS_INSTRUMENTATIONKEY` `APPLICATIONINSIGHTS_CONNECTION_STRING` 합니다. 소 버린 클라우드에서 Application Insights 실행 되는 경우을 사용 `APPLICATIONINSIGHTS_CONNECTION_STRING` 합니다. 자세한 내용은 [Azure Functions에 대 한 모니터링을 구성 하는 방법](configure-monitoring.md)을 참조 하세요. 
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|55555555-af77-484b-9032-64f83b83bb|
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_CONNECTION_STRING` `APPINSIGHTS_INSTRUMENTATIONKEY` 함수 앱에 연결 문자열을 사용 하 여 지원 되는 추가 된 사용자 지정이 필요한 경우 대신를 사용 합니다. 자세한 내용은 [연결 문자열](../azure-monitor/app/sdk-connection-string.md)을 참조 하세요. 
+Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_CONNECTION_STRING` `APPINSIGHTS_INSTRUMENTATIONKEY` 다음과 같은 경우에는 대신를 사용 합니다.
 
-|Key|샘플 값|
++ 함수 앱에 연결 문자열을 사용 하 여 지원 되는 추가 된 사용자 지정이 필요한 경우 
++ Application Insights 인스턴스가 소 버린 클라우드에서 실행 되는 경우 사용자 지정 끝점이 필요 합니다.
+
+자세한 내용은 [연결 문자열](../azure-monitor/app/sdk-connection-string.md)을 참조 하세요. 
+
+|키|샘플 값|
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey = [key]; IngestionEndpoint = [url]; LiveEndpoint = [url]; ProfilerEndpoint = [url]; SnapshotEndpoint = [url];|
 
@@ -41,7 +46,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 기본적으로 [함수 프록시](functions-proxies.md) 는 바로 가기를 사용 하 여 프록시의 API 호출을 동일한 함수 앱의 함수로 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용 됩니다. 이 설정을 사용 하면 바로 가기 동작을 사용 하지 않도록 설정할 수 있습니다.
 
-|Key|값|설명|
+|키|값|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 기본값입니다. |
@@ -50,7 +55,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 이 설정은 문자를 `%2F` 백 엔드 URL에 삽입할 때 경로 매개 변수에서 슬래시로 디코딩되는 지 여부를 제어 합니다. 
 
-|Key|값|설명|
+|키|값|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시가 있는 경로 매개 변수는 디코딩됩니다. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경 되지 않은 상태로 전달 됩니다. |
@@ -85,7 +90,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 이 설정은 Azure Functions 런타임의 버전 1.x를 대상으로 하는 앱에만 유효 합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
@@ -96,7 +101,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 `true`는 함수 앱의 루트 URL에 표시되는 기본 방문 페이지를 사용하지 않도록 설정한다는 의미입니다. 기본값은 `false`입니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
@@ -108,7 +113,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 `true`는 .NET 코드를 컴파일할 때 릴리스 모드 사용을 의미합니다. `false`는 디버그 모드 사용을 의미합니다. 기본값은 `true`입니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobsDotNetReleaseCompilation|true|
 
@@ -116,7 +121,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 사용하도록 설정할 쉼표로 구분된 베타 기능 목록입니다. 이 플래그로 사용할 수 있는 베타 기능은 프로덕션 준비가 되지 않았지만 실제로 사용하기 전에 실험적 용도로 사용할 수 있습니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
 
@@ -124,7 +129,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 키 스토리지에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob Storage(&quot;Blob&quot;) 및 로컬 파일 시스템(&quot;Files&quot;)입니다. 기본값은 버전 2에서는 Blob, 버전 1에서는 파일 시스템입니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobsSecretStorageType|Files|
 
@@ -132,7 +137,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에 대해 이 스토리지 계정 연결 문자열을 사용합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
@@ -140,7 +145,7 @@ Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에
 
 TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기본값을 재정의할 수 있습니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%HOME%\typescript|
 
@@ -148,7 +153,7 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 
 Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한 값은 "readwrite"및 "readonly"입니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |FUNCTION\_APP\_EDIT\_MODE|readonly|
 
@@ -156,7 +161,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 이 함수 앱에 사용할 Functions 런타임의 버전입니다. 주 버전의 물결표는 해당 주 버전의 최신 버전(예: "~2")을 사용한다는 의미입니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전으로 고정하려면 전체 버전 번호(예: "2.0.12345")를 사용합니다. 기본값은 "~2"입니다. 값이 `~1`이면 앱을 런타임의 버전 1.x로 고정합니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
@@ -169,7 +174,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 에서는 [함수 \_ 확장 \_ 버전이](functions-app-settings.md#functions_extension_version) 로 설정 되어야 `~3` 합니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |함수 \_ V2 \_ 호환성 \_ 모드|true|
 
@@ -177,7 +182,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 기본값을 사용 하 여 언어 작업자 프로세스의 최대 수를 지정 합니다 `1` . 허용 되는 최대 값은 `10` 입니다. 함수 호출은 언어 작업자 프로세스 간에 균등 하 게 분산 됩니다. 언어 작업자 프로세스는 함수 작업자 프로세스 수로 설정 된 개수 \_ \_ 에 도달할 때까지 10 초 마다 생성 됩니다 \_ . 여러 언어 작업자 프로세스를 사용 하는 것은 [크기 조정과](functions-scale.md)동일 하지 않습니다. 작업에 CPU 바인딩과 i/o 바인딩된 호출이 혼합 되어 있는 경우이 설정을 사용 하는 것이 좋습니다. 이 설정은 모든 non-.NET 언어에 적용 됩니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |함수 \_ 작업자 \_ 프로세스 \_ 수|2|
 
@@ -186,7 +191,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet` (c #/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) 및 `python` (Python)입니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
@@ -194,7 +199,7 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 이 설정의 값은 Python 앱에 대 한 사용자 지정 패키지 인덱스 URL을 나타냅니다. 추가 패키지 인덱스에 있는 사용자 지정 종속성을 사용 하 여 원격 빌드를 실행 해야 하는 경우이 설정을 사용 합니다.   
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |PIP \_ 추가 \_ 인덱스 \_ URL|http://my.custom.package.repo/simple |
 
@@ -204,9 +209,9 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 
 _이 설정은 현재 미리 보기로 있습니다._  
 
-이 설정은 Azure Functions 크기 조정 컨트롤러의 로깅을 제어 합니다. 자세한 내용은 [컨트롤러 로그 크기 조정](functions-monitoring.md#scale-controller-logs-preview)을 참조 하세요.
+이 설정은 Azure Functions 크기 조정 컨트롤러의 로깅을 제어 합니다. 자세한 내용은 [컨트롤러 로그 크기 조정](functions-monitoring.md#scale-controller-logs)을 참조 하세요.
 
-|Key|샘플 값|
+|키|샘플 값|
 |-|-|
 |SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: 자세한 정보 표시|
 
@@ -218,7 +223,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 소비 & 프리미엄 요금제에만 해당 합니다. 함수 앱 코드 및 구성이 저장된 스토리지 계정의 연결 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#create-a-function-app)를 참조하세요.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
@@ -226,7 +231,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 소비 & 프리미엄 요금제에만 해당 합니다. 함수 앱 코드 및 구성에 대한 파일 경로입니다. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. 기본값은 함수 앱 이름으로 시작하는 고유한 문자열입니다. [함수 앱 만들기](functions-infrastructure-as-code.md#create-a-function-app)를 참조하세요.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
@@ -237,7 +242,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 > [!IMPORTANT]
 > 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./functions-scale.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
@@ -246,7 +251,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 _Windows에만 해당 합니다._  
 Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합니다. 물결표 (~)를 사용 하 여 런타임에서 대상 주 버전의 사용 가능한 최신 버전을 사용 하도록 해야 합니다. 예를 들어로 설정 하면 `~10` 최신 버전의 Node.js 10이 사용 됩니다. 주 버전의 대상이 물결표 인 경우 부 버전을 수동으로 업데이트 하지 않아도 됩니다. 
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|~ 10|
 
@@ -254,7 +259,7 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합
 
 탑재된 패키지 파일에서 함수 앱을 실행하도록 설정합니다.
 
-|Key|샘플 값|
+|키|샘플 값|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
@@ -264,7 +269,7 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정 합
 
 함수 앱에 대 한 표준 시간대를 설정할 수 있습니다. 
 
-|Key|OS|샘플 값|
+|키|OS|샘플 값|
 |---|--|------------|
 |웹 사이트 \_ 표준 \_ 시간대|Windows|동부 표준시|
 |웹 사이트 \_ 표준 \_ 시간대|Linux|아메리카/New_York|

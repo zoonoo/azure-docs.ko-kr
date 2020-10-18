@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683903"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164213"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>FarmBeats에 대 한 재해 복구
 
@@ -45,18 +45,18 @@ FarmBeats 배포에 대해 위에서 언급 한 각 데이터 저장소에 대 �
 복원 된 Cosmos DB의 선택 키를 복사 하 고 새 FarmBeats Datahub Key Vault를 업데이트 합니다.
 
 
-  ![재해 복구](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![선택 키의 복사본을 가져올 위치를 강조 표시 하는 스크린샷](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > 복원 된 Cosmos DB의 URL을 복사 하 고 새 FarmBeats Datahub App Service 구성에서 업데이트 합니다. 이제 새 FarmBeats 배포에서 Cosmos DB 계정을 삭제할 수 있습니다.
 
-  ![재해 복구](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![복원 된 Cosmos DB의 URL을 복사할 위치를 보여 주는 스크린샷](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>저장소 계정 구성
 
 복원 된 저장소 계정의 액세스 키를 복사 하 고 새 FarmBeats Datahub Key Vault에서 업데이트 합니다.
 
-![재해 복구](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![복원 된 저장소 계정의 액세스 키를 복사할 위치를 보여 주는 스크린샷](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > 새 FarmBeats Batch VM 구성 파일에서 저장소 계정 이름을 업데이트 해야 합니다.

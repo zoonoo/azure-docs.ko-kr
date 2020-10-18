@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108493"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164869"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -39,7 +39,7 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 지정 된 컴퓨터에는 하나의 핵심 도구 버전만 설치할 수 있습니다. 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
 
@@ -574,15 +574,11 @@ func deploy
 
 ### <a name="application-insights-integration"></a>Application Insights 통합
 
-Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하도록 설정 해야 합니다. 일부 이유로 함수 앱이 Application Insights 인스턴스에 연결 되지 않은 경우 Azure Portal에서이 통합을 쉽게 수행할 수 있습니다. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하도록 설정 해야 합니다. 일부 이유로 함수 앱이 Application Insights 인스턴스에 연결 되지 않은 경우 Azure Portal에서이 통합을 쉽게 수행할 수 있습니다. 자세히 알아보려면 [Application Insights 통합 사용](configure-monitoring.md#enable-application-insights-integration)을 참조 하세요.
 
 ### <a name="enable-streaming-logs"></a>스트리밍 로그 사용
 
 로컬 컴퓨터의 명령줄 세션에서 함수에 의해 생성 되는 로그 파일의 스트림을 볼 수 있습니다. 
-
-#### <a name="native-streaming-logs"></a>네이티브 스트리밍 로그
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

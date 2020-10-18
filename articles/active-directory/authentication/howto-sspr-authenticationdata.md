@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966494"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165005"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Azure Active Directory 셀프 서비스 암호 재설정에 대 한 사용자 인증 연락처 정보 미리 채우기 (SSPR)
 
@@ -48,16 +48,14 @@ Azure AD Connect에서 기본 설정을 사용 하는 경우 SSPR에 대 한 인
 
 ## <a name="authentication-contact-info"></a>인증 연락처 정보
 
-Azure Portal에서 Azure AD 사용자에 대 한 **인증 방법** 페이지에서 전역 관리자는 다음 예제 스크린샷에 표시 된 것 처럼 인증 연락처 정보를 수동으로 설정할 수 있습니다.
+Azure Portal에서 Azure AD 사용자에 대 한 **인증 방법** 페이지에서 전역 관리자는 인증 연락처 정보를 수동으로 설정할 수 있습니다. 다음 예제 스크린샷에 표시 된 것 처럼 *사용할 수 있는 인증 방법* 섹션에서 또는 **+ 인증 방법 추가**에서 기존 방법을 검토할 수 있습니다.
 
-![Azure AD의 사용자에 대 한 인증 연락처 정보][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Azure Portal에서 인증 방법 관리":::
 
 이 인증 연락처 정보에는 다음 고려 사항이 적용 됩니다.
 
 * *휴대폰* 필드가 채워지고 SSPR 정책에서 *휴대폰* 필드가 사용 하도록 설정 된 경우 사용자는 암호 재설정 등록 페이지 및 암호 재설정 워크플로 중에 해당 번호를 확인 합니다.
-* *대체 전화* 필드는 암호 재설정에 사용 되지 않습니다.
 * *전자 메일* 필드가 채워지고 SSPR 정책에서 *전자 메일* 을 사용 하도록 설정 하면 사용자가 암호 재설정 등록 페이지 및 암호 재설정 워크플로 중에 해당 전자 메일을 볼 수 있습니다.
-* *대체 전자 메일* 필드가 채워지고 SSPR 정책에서 *전자 메일* 을 사용 하는 경우 사용자는 암호 재설정 등록 페이지에 해당 전자 메일이 표시 되지 않지만 암호 재설정 워크플로 중에 해당 전자 메일이 표시 됩니다.
 
 ## <a name="security-questions-and-answers"></a>보안 질문 및 답변
 
@@ -169,5 +167,3 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 > [!div class="nextstepaction"]
 > [Azure AD 셀프 서비스 암호 재설정 사용](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "전역 관리자는 사용자의 인증 연락처 정보를 수정할 수 있습니다."

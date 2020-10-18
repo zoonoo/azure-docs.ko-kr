@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbcacd7f2094f9b0b9dcea3fea4d804fd96923e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74974941"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165318"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal을 사용하여 디바이스 등록을 관리하는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "74974941"
 
 프로비전 서비스를 사용하여 두 가지 방법으로 디바이스를 등록할 수 있습니다.
 
-* **등록 그룹**은 동일한 서명 인증서([루트 인증서](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) 또는 [중간 인증서](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate))로 서명된 X.509 인증서의 공통 증명 메커니즘을 공유하는 디바이스 그룹에 대한 항목으로써 물리적 디바이스에 디바이스 인증서를 생성하는 데 사용됩니다. 원하는 초기 구성을 공유하는 다수의 디바이스 또는 동일한 테넌트로 이동하는 디바이스에 대한 등록 그룹을 사용하는 것이 좋습니다. X.509 증명 메커니즘을 *등록 그룹*으로 사용하는 디바이스만을 등록할 수 있습니다. 
+* **등록 그룹**은 동일한 서명 인증서([루트 인증서](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) 또는 [중간 인증서](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate))로 서명된 X.509 인증서의 공통 증명 메커니즘을 공유하는 디바이스 그룹에 대한 항목으로써 물리적 디바이스에 디바이스 인증서를 생성하는 데 사용됩니다. 원하는 초기 구성을 공유하는 다수의 디바이스 또는 동일한 테넌트로 이동하는 디바이스에 대한 등록 그룹을 사용하는 것이 좋습니다. 
 
     다음 단계를 사용하여 포털에서 디바이스 그룹에 대한 등록 그룹을 만들 수 있습니다.
 

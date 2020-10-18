@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334914"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167137"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "91334914"
 
 ![SQL Server 관리자](./media/logins-create-manage/sql-admins.png)
 
-![SQL Server 관리자](./media/logins-create-manage/sql-admins2.png)
+![속성 메뉴 옵션을 강조 표시 하는 스크린샷](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > 관리자 로그인 이름은 만든 후에는 변경할 수 없습니다. 서버 관리자에 대한 암호를 다시 설정하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **SQL Server**를 클릭하고 목록에서 서버를 선택한 다음, **암호 재설정**을 클릭합니다. SQL Managed Instance에 대 한 암호를 다시 설정 하려면 Azure Portal로 이동 하 여 인스턴스를 클릭 하 고 **암호 다시 설정**을 클릭 합니다. PowerShell이나 Azure CLI를 사용할 수도 있습니다.

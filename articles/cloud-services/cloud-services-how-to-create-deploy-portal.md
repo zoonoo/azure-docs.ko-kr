@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076694"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164167"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.
@@ -56,7 +56,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기 > Compute**를 클릭한 다음, 아래로 스크롤하여 **클라우드 서비스**를 클릭합니다.
 
-    ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![리소스 만들기 > Compute에서 클라우드 서비스 옵션을 강조 표시 하는 스크린샷](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. 새 **클라우드 서비스** 창에서 **DNS 이름**의 값을 입력합니다.
 4. 새 리소스 그룹을 만들거나 기존 **리소스 그룹** 을 선택 합니다.
 5. **위치**를 선택합니다.
@@ -74,7 +74,7 @@ Azure에서 애플리케이션을 클라우드 서비스로 배포하려면 다�
 2. **인증서 첨부**를 클릭한 다음, **인증서 추가** 창에서 **확인**을 클릭합니다.
 3. **클라우드 서비스** 창에서 **만들기**를 클릭합니다. 배포가 **준비** 상태에 도달하면 다음 단계로 진행할 수 있습니다.
 
-    ![클라우드 서비스 게시](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![인증서를 업로드 하는 프로세스를 강조 표시 하는 스크린샷](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>배포가 완료되었는지 확인
 1. 클라우드 서비스 인스턴스를 클릭합니다.

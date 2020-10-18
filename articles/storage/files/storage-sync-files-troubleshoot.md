@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018597"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164230"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -734,7 +734,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **오류 문자열** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **재구성 필요** | 예 |
 
-파일별 동기화 오류가 많은 경우 동기화 세션이 시작되지 않을 수 있습니다. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+항목 별 오류와 동기화 되지 않는 파일이 많은 경우 동기화 세션은 이러한 오류 중 하나를 사용 하 여 실패 합니다. 어떻게 할까요?에 설명 된 단계를 수행 하 여 항목 별로 오류를 해결 하려면 [동기화 되지 않는 특정 파일이 나 폴더가 있는지 확인](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) 합니다. 동기화 오류 ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED의 경우 지원 사례를 여세요.
 
 > [!NOTE]
 > Azure 파일 동기화는 핸들이 열려 있는 파일을 동기화하기 위해 하루 한 번 서버에 임시 VSS 스냅샷을 만듭니다.

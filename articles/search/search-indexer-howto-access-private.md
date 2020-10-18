@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b81d3f74c20f42620ceeae08bec5d484909377a7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150415"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167477"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>개인 끝점을 통한 인덱서 연결 (Azure Cognitive Search)
 
@@ -23,7 +23,7 @@ ms.locfileid: "92150415"
 
 + 콘텐츠 또는 코드를 제공 하는 Azure 리소스는 이전에 [Azure 개인 링크 서비스](https://azure.microsoft.com/services/private-link/)에 등록 되어 있어야 합니다.
 
-+ Azure Cognitive Search 서비스는 기본 이상 이어야 합니다 (무료 계층에서는 사용할 수 없음). 또한 기술를 포함 하는 인덱서의 경우 검색 서비스는 S2 이상 이어야 합니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md#shared-private-link-resource-limits)을 참조 하세요.
++ Azure Cognitive Search 서비스는 기본 이상 이어야 합니다 (무료 계층에서는 사용할 수 없음). 또한 인덱서에 기술이 있는 경우 계층은 표준 2 (S2) 이상 이어야 합니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md#shared-private-link-resource-limits)을 참조 하세요.
 
 ## <a name="shared-private-link-resources-management-apis"></a>공유 개인 링크 리소스 관리 Api
 

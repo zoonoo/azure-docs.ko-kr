@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444780"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164519"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Windows 인증서 저장소를 사용 하 여 Always Encrypted 구성
 
@@ -97,7 +97,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 1. **데이터베이스**  >  **클리닉**  >  **테이블**을 확장 합니다.
 2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
 
-    ![열 암호화](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![암호화 된 열을 보여 주는 스크린샷 ... 환자 테이블의 메뉴 옵션을 선택 합니다.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
@@ -149,7 +149,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 1. Visual Studio를 열고 새 C# 콘솔 애플리케이션을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
 2. 프로젝트 이름을 **AlwaysEncryptedConsoleApp**으로 지정하고 **확인**을 클릭합니다.
 
-![새 콘솔 애플리케이션](./media/always-encrypted-certificate-store-configure/console-app.png)
+![새로 명명 된 AlwaysEncryptedConsoleApp 프로젝트를 보여 주는 스크린샷](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>연결 문자열을 수정하여 상시 암호화 사용
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 암호화된 열에 일반 텍스트 데이터가 포함되지 않은 것을 볼 수 있습니다.
 
-   ![새 콘솔 애플리케이션](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![암호화 된 열에 암호화 된 데이터를 표시 하는 스크린샷](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암호화 설정=활성화** 매개 변수를 연결에 추가할 수 있습니다.
 
@@ -518,7 +518,7 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 2. **연결**  >  **데이터베이스 엔진** 을 클릭 하 여 **서버에 연결** 창을 열고 **옵션**을 클릭 합니다.
 3. **추가 연결 매개 변수**를 클릭하고 **열 암호화 설정=활성화**를 입력합니다.
 
-    ![새 콘솔 애플리케이션](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![상자에 입력 된 열 암호화 설정 = 활성화 된 추가 연결 매개 변수 탭을 보여 주는 스크린샷](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. **Clinic** 데이터베이스에 대해 다음 쿼리를 실행합니다.
 
     ```tsql

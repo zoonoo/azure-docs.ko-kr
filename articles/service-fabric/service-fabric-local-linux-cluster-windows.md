@@ -1,33 +1,34 @@
 ---
 title: Windows에서 Azure Service Fabric Linux 클러스터 설정
-description: 이 문서에서는 Windows 개발 컴퓨터에서 실행되는 Service Fabric Linux 클러스터를 설정하는 방법을 알아봅니다. 이 기능은 크로스 플랫폼 개발에 특히 유용합니다.
+description: 이 문서에서는 Windows 개발 컴퓨터에서 실행되는 Service Fabric Linux 클러스터를 설정하는 방법을 알아봅니다. 이 방법은 플랫폼 간 개발에 유용 합니다.
 ms.topic: conceptual
-ms.date: 11/20/2017
-ms.openlocfilehash: 83d494d777a4a1e1586707c8848056ca8fe9780a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: e25c6adf5e5f5101025aa883ef2ff9750c113a76
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537075"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164111"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Windows 개발자 컴퓨터에서 Linux Service Fabric 클러스터 설정
 
-이 문서에서는 Windows 개발 컴퓨터에 로컬 Linux Service Fabric을 설정하는 방법을 설명합니다. 로컬 Linux 클러스터를 설정하는 경우 Linux 클러스터를 대상으로 하지만 Windows 컴퓨터에서 개발되는 애플리케이션을 빠르게 테스트하는 데 유용합니다.
+이 문서에서는 Windows 개발 컴퓨터에서 로컬 Linux Service Fabric 클러스터를 설정 하는 방법을 설명 합니다. 로컬 Linux 클러스터를 설정하는 경우 Linux 클러스터를 대상으로 하지만 Windows 컴퓨터에서 개발되는 애플리케이션을 빠르게 테스트하는 데 유용합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행되지 않습니다. 로컬 Service Fabric 클러스터를 실행하기 위해 미리 구성된 Docker 컨테이너 이미지를 제공합니다. 시작하기 전에 다음 항목이 필요합니다.
+Linux 기반 Service Fabric 클러스터는 Windows에서 실행 되지 않지만 플랫폼 간 프로토타입을 사용 하도록 설정 하기 위해 Windows용 Docker를 통해 배포할 수 있는 Linux Service Fabric 1 box 클러스터 docker 컨테이너를 제공 했습니다.
+
+시작하기 전에 다음 항목이 필요합니다.
 
 * RAM 4GB 이상
-* 최신 버전의 [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker는 Linux 모드에서 실행되어야 합니다.
+* 최신 버전의 [Windows용 Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+* Docker는 Linux 컨테이너 모드에서 실행 되어야 합니다.
 
 >[!TIP]
-> * 공식 Docker [설명서](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)에서 언급한 단계를 따라 Windows에 Docker를 설치할 수 있습니다. 
-> * 설치가 완료되면 [여기](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine)에서 언급된 단계를 따라 적절하게 설치되었는지 유효성을 검사합니다.
-
+> Windows 컴퓨터에 Docker를 설치 하려면 [docker 설명서](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)의 단계를 따르세요. 설치 후 [설치를 확인합니다](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine).
+>
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>로컬 컨테이너 만들기 및 Service Fabric 설치
-로컬 Docker 컨테이너를 설정하고 서비스 패브릭 클러스터가 실행되도록 하려면 PowerShell에서 다음 단계를 수행합니다.
+로컬 Docker 컨테이너를 설정 하 고 Service Fabric 클러스터를 실행 하려면 다음 단계를 실행 합니다.
 
 
 1. 다음을 사용하여 호스트에서 Docker 디먼 구성을 업데이트하고 Docker 디먼을 다시 시작합니다. 
@@ -38,33 +39,47 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
       "fixed-cidr-v6": "2001:db8:1::/64"
     }
     ```
-    권장되는 업데이트 방법은 Docker 아이콘 > 설정 > 디먼 > 고급으로 이동하고 업데이트하는 것입니다. 다음으로 변경 내용을 적용하려면 Docker 디먼을 다시 시작합니다. 
+    다음을 업데이트 하는 것이 좋습니다. 
 
-2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
+    * Docker 아이콘 > 설정 > Docker 엔진
+    * 위에 나열 된 새 필드를 추가 합니다.
+    * & 다시 시작-Docker 디먼을 다시 시작 하 여 변경 내용을 적용 합니다.
 
-    ```Dockerfile
-    FROM mcr.microsoft.com/service-fabric/onebox:latest
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+2. PowerShell을 통해 클러스터를 시작 합니다.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```powershell
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
+    <b>Ubuntu 16.04 LTS:</b>
+    ```powershell
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
+
+
+
+3. 선택 사항: 확장 된 Service Fabric 이미지를 빌드합니다.
+
+    새 디렉터리에서 `Dockerfile` 사용자 지정 이미지를 빌드하기 위해 라는 파일을 만듭니다.
+
     >[!NOTE]
-    >컨테이너에 추가 프로그램 또는 종속성을 추가하도록 이 파일을 조정할 수 있습니다.
+    >Dockerfile을 사용 하 여 위의 이미지를 조정 하 여 컨테이너에 프로그램 또는 종속성을 더 추가할 수 있습니다.
     >예를 들어 `RUN apt-get install nodejs -y`를 추가하면 게스트 실행 파일인 `nodejs` 애플리케이션에 대한 지원이 허용됩니다.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조하세요.
+    > 기본적으로 이렇게 하면 최신 버전의 Service Fabric으로 이미지를 가져옵니다. 특정 수정 버전은 [Docker 허브](https://hub.docker.com/r/microsoft/service-fabric-onebox/) 페이지를 참조 하세요.
 
-3. `Dockerfile`에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고 `Dockerfile`을 보관하는 디렉터리에 `cd`한 후 다음을 실행합니다.
+    에서 다시 사용할 수 있는 이미지를 빌드하려면 터미널을 열고를 사용 하 여 `Dockerfile` `cd` 직접를 보유 한 `Dockerfile` 다음를 실행 합니다.
 
     ```powershell 
     docker build -t mysfcluster .
@@ -73,10 +88,10 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
     >[!NOTE]
     >이 작업에 다소 시간이 걸릴 수 있지만 한 번만 수행하면 됩니다.
 
-4. 이제 필요할 때마다 다음을 실행하여 신속하게 Service Fabric의 로컬 복사를 시작할 수 있습니다.
+    이제를 실행 하 여 필요할 때마다 Service Fabric의 로컬 복사본을 신속 하 게 시작할 수 있습니다.
 
     ```powershell 
-    docker run --name sftestcluster -d -v //var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -84,21 +99,22 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
     >
     >애플리케이션을 특정 포트에서 수신 대기하는 경우 추가 `-p` 태그를 사용하여 포트를 지정해야 합니다. 예를 들어 애플리케이션이 포트 8080에서 수신 대기하는 경우 다음 `-p` 태그를 추가합니다.
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. 잠시 후 클러스터가 시작되면, 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 상태(`http://localhost:19080`)를 볼 수 있습니다.
+
+4. 잠시 후 클러스터가 시작되면, 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 상태(`http://localhost:19080`)를 볼 수 있습니다.
 
     ```powershell 
     docker logs sftestcluster
     ```
 
-6. 5단계를 성공적으로 완료한 후 Windows에서 ``http://localhost:19080``으로 이동하고 Service Fabric 탐색기를 볼 수 있습니다. 이때 Windows 개발자 컴퓨터의 도구를 사용하여 이 클러스터에 연결하고 Linux Service Fabric 클러스터용 애플리케이션을 배포할 수 있습니다. 
+5. 4 단계에서 관찰 된 대로 클러스터가 성공적으로 배포 된 후에는 ``http://localhost:19080`` Windows 컴퓨터에서로 이동 하 여 Service Fabric Explorer 대시보드를 찾을 수 있습니다. 이제 Windows 개발자 컴퓨터의 도구를 사용 하 여이 클러스터에 연결 하 고 Linux Service Fabric 클러스터를 대상으로 하는 응용 프로그램을 배포할 수 있습니다. 
 
     > [!NOTE]
     > Eclipse 플러그 인은 현재 Windows에서 지원되지 않습니다. 
 
-7. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리합니다.
+6. 완료 되 면 다음 명령을 사용 하 여 컨테이너를 중지 하 고 정리 합니다.
 
     ```powershell 
     docker rm -f sftestcluster
@@ -108,11 +124,14 @@ Linux 기반 Service Fabric 클러스터는 기본적으로 Windows에서 실행
  
  다음은 Mac용 컨테이너에서 실행하는 로컬 클러스터의 알려진 제한 사항입니다. 
  
- * DNS 서비스가 실행되지 않으며 지원되지 않음 [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * DNS 서비스는 실행 되지 않으며 현재 컨테이너 내에서 지원 되지 않습니다. [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * 컨테이너 기반 앱을 실행 하려면 Linux 호스트에서 SF를 실행 해야 합니다. 중첩 된 컨테이너 앱은 현재 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
+* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
 * [Eclipse](./service-fabric-get-started-eclipse.md) 시작
 * 다른 [Java 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started) 확인
+* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
 
 
 <!-- Image references -->

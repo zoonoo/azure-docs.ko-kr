@@ -5,19 +5,19 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 8665b49aebcb99ef3d3ded17e7e7653027aba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08abd9ff1134415e47923f22e753691225fc23b8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651631"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164723"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
@@ -33,7 +33,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 �
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* 윈도우 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 지원:
@@ -96,6 +96,7 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 * [프로그래밍 모델에 대해 알아보기: Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
 * [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
+* [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"

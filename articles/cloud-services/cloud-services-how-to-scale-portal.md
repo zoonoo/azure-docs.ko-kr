@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076677"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165488"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>포털에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 
@@ -53,7 +53,7 @@ ms.locfileid: "92076677"
 
 **크기 조정 기준** 옵션을 **일정 및 성능 규칙**으로 설정합니다.
 
-![프로필 및 규칙을 사용하는 클라우드 서비스 크기 조정 설정](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![일정 및 성능 규칙 옵션을 보여 주는 스크린샷](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. 기존 프로필입니다.
 2. 부모 프로필에 대한 규칙을 추가합니다.

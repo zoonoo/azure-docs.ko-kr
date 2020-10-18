@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 4d5388f850f47323f6ad79f9f91e617e506546bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205443"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164842"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -249,7 +249,17 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> `TraceWriter` 대신 사용할 수 있는 최신 로깅 프레임워크에 대한 내용은 **Azure Functions 모니터링** 문서에서 [C# 함수로 로그 작성](functions-monitoring.md#write-logs-in-c-functions)을 참조하세요.
+> 대신 사용할 수 있는 최신 로깅 프레임 워크에 대 한 자세한 내용은 `TraceWriter` .net 클래스 라이브러리 개발자 가이드에서 [ILogger](functions-dotnet-class-library.md#ilogger) 설명서를 참조 하세요.
+
+### <a name="custom-metrics-logging"></a>사용자 지정 메트릭 로깅
+
+`LogMetric`에서 확장 메서드를 사용 하 여 `ILogger` Application Insights에서 사용자 지정 메트릭을 만들 수 있습니다. 다음은 샘플 메서드 호출입니다.
+
+```csharp
+logger.LogMetric("TestMetric", 1234);
+```
+
+이 코드는 .NET용 Application Insights API를 사용하여 `TrackMetric`을 호출하는 대안입니다.
 
 ## <a name="async"></a>Async
 

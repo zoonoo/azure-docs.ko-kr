@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 089976f6e97e303dd8faaf854e453a558b9eba84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 453cec1bbb1f9dd61b840457e93cc2c49b956509
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067589"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165998"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files를 사용하여 SUSE Linux Enterprise Server에서 Azure VM의 SAP NetWeaver 고가용성 실현
 
@@ -315,6 +315,10 @@ SUSE 고가용성 아키텍처의 SAP Netweaver에 Azure NetApp Files를 고려�
          * 포트 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 및 ASCS용 TCP에 대해 위의 "d" 단계를 반복
       1. ASCS ERS에 대한 추가 포트
          * 포트 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 및 ASCS ERS용 TCP에 대해 위의 "d" 단계를 반복
+
+      
+      > [!IMPORTANT]
+      > 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
 
       > [!Note]
       > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968636"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166518"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대 한 사용자 설정 관리
 
@@ -36,8 +36,8 @@ Azure Multi-Factor Authentication 사용자를 관리 하려면 사용자가 암
       > 관리자가 MFA를 다시 등록 해야 하는 경우 사용자의 현재 등록 된 인증 방법이 삭제 되지 않습니다. 사용자가 MFA를 다시 등록 한 후에는 보안 정보를 검토 하 고 더 이상 사용할 수 없는 이전에 등록 된 인증 방법을 삭제 하는 것이 좋습니다.
    
    - **Mfa 세션 철회** 사용자의 기억 된 mfa 세션을 지우고 장치에서 정책에 따라 다음에 필요할 때 mfa를 수행 하도록 요구 합니다.
-
-   ![Azure Portal에서 인증 방법 관리](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Azure Portal에서 인증 방법 관리":::
 
 ## <a name="delete-users-existing-app-passwords"></a>사용자 기존 앱 암호 삭제
 

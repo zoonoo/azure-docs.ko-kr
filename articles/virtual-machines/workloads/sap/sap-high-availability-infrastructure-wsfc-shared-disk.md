@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978495"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167341"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -200,6 +200,9 @@ SAP ASCS/SCS 클러스터의 경우 Azure 가용성 집합에 두 개의 Vm을 �
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Azure 내부 부하 분산 장치 만들기
 
 SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소를 사용 합니다. Azure에서 [부하 분산 장치](../../../load-balancer/load-balancer-overview.md) 는 가상 IP 주소를 사용 하는 데 필요 합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용 하는 것이 좋습니다. 
+
+> [!IMPORTANT]
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.    
 
 
 다음 목록에서는 (A) SCS/ERS 부하 분산 장치를 구성 하는 방법을 보여 줍니다. 동일한 Azure 부하 분산 장치에서 실행 되는의 SAP ASCS 및 ERS2에 대 한 구성입니다.  

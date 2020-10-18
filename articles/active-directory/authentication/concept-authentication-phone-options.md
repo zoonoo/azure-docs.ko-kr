@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6b39852668e1b545ce576ac0d04a208e2058e8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965423"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165515"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Azure Active Directory 전화 옵션의 인증 방법
 
@@ -36,7 +36,7 @@ Azure Multi-Factor Authentication 또는 SSPR의 경우 사용자는 로그인 �
 
 사용자가 자신의 휴대폰 번호를 디렉터리에 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 대신 사용자가 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 조합된 보안 정보 등록을 통해 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
 
-![전화번호가 채워진 인증 방법을 보여 주는 Azure Portal의 스크린샷](media/concept-authentication-methods/user-authentication-methods.png)
+:::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="전화번호가 채워진 인증 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Azure Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해 SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하면서 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가/지역에는 짧은 코드를 지원하지 않습니다.
 

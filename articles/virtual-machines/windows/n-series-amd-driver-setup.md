@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6885c28d993b8ddab5fe158ad7b1480259cb8fb0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150762"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92163788"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM에 AMD GPU 드라이버 설치
 
@@ -48,11 +48,12 @@ Microsoft에서 게시하는 GPU 드라이버만 NVv4 VM에서 지원됩니다. 
 
 디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 Radeon Instinct MI25 카드의 성공적인 구성을 보여줍니다.
 <br />
-![GPU 장치 상태](./media/n-series-amd-driver-setup/device-manager.png)
+
+![Azure NVv4 VM에서 Radeon 이러한 MI25 카드의 성공적인 구성을 보여 주는 스크린샷](./media/n-series-amd-driver-setup/device-manager.png)
 
 dxdiag를 사용하여 비디오 RAM을 비롯한 GPU 표시 속성을 확인할 수 있습니다. 다음 예제에서는 Azure NVv4 VM에서 Radeon Instinct MI25 카드의 1/2 파티션을 보여줍니다.
 <br />
-![GPU 속성](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![Azure NVv4 VM에서 Radeon 이러한 MI25 카드의 1/2 파티션을 보여 주는 스크린샷](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Windows 10 빌드 1903 이상을 실행하는 경우 dxdiag는 'Display' 탭에 정보를 표시하지 않습니다. 하단에 있는 '모든 정보 저장' 옵션을 사용하면 출력 파일에 AMD MI25 GPU와 관련된 정보가 표시됩니다.
 

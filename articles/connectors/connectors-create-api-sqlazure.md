@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326782"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166287"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
 
@@ -67,11 +67,14 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Azure SQL Database 또는 Managed Instance에 연결
 
+온-프레미스 데이터 게이트웨이 또는 통합 서비스 환경을 사용 하지 않고 Azure SQL Managed Instance에 액세스 하려면 [AZURE sql Managed Instance에서 공용 끝점을 설정](../azure-sql/managed-instance/public-endpoint-configure.md)해야 합니다. 공용 끝점은 포트 3342를 사용 하므로 논리 앱에서 연결을 만들 때이 포트 번호를 지정 해야 합니다.
+
+
 [Sql 트리거](#add-sql-trigger) 또는 [sql 작업](#add-sql-action)을 처음 추가할 때 이전에 데이터베이스에 대 한 연결을 만들지 않은 경우 다음 단계를 완료 하 라는 메시지가 표시 됩니다.
 
 1. **인증 유형**의 경우 Azure SQL Database 또는 Azure SQL Managed Instance에서 데이터베이스에 대해 필수 및 활성화 된 인증을 선택 합니다.
 
-   | 인증 | 설명 |
+   | 인증 | Description |
    |----------------|-------------|
    | [**Azure AD 통합**](../azure-sql/database/authentication-aad-overview.md) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 액세스할 수 있는 유효한 Azure Active Directory (Azure AD) id가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD 통합 인증](../azure-sql/database/authentication-aad-overview.md) |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -115,7 +118,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. **인증 유형**에 대해 필요한 인증을 선택 하 고 SQL Server에 사용 하도록 설정 합니다.
 
-   | 인증 | 설명 |
+   | 인증 | Description |
    |----------------|-------------|
    | [**Windows 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -다중 테 넌 트 Azure 또는 ISE를 사용 하는지 여부에 관계 없이 Azure에서 이전에 만든 데이터 게이트웨이 리소스를 필요로 하는 비 ISE SQL Server 커넥터만 지원 합니다. <p><p>-Windows 계정을 통해 id를 확인 하려면 올바른 Windows 사용자 이름 및 암호가 필요 합니다. <p>자세한 내용은 [Windows 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) 을 참조 하세요. |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-SQL Server에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 [SQL Server 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)을 참조 하세요. |
@@ -127,7 +130,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. SQL 데이터베이스에 대해 다음 값을 선택 하거나 제공 합니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **SQL server 이름** | 예 | SQL server의 주소입니다 (예:). `Fabrikam-Azure-SQL.database.windows.net` |
    | **SQL 데이터베이스 이름** | 예 | SQL Server 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |
@@ -248,6 +251,18 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 
 1. JSON 콘텐츠 속성을 참조 하려면 동적 콘텐츠 목록이 표시 되도록 해당 속성을 참조 하려는 편집 상자 내부를 클릭 합니다. 목록의 [**Json 구문 분석**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) 제목 아래에서 원하는 json 콘텐츠 속성에 대 한 데이터 토큰을 선택 합니다.
 
+## <a name="troubleshoot-problems"></a>문제 해결
+
+연결 문제가 발생 하는 것은 매우 일반적입니다. 다음은 오류 메시지의 예입니다.
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+[SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) 을 수행 하 여 문제를 해결 하십시오.
+
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
 이 커넥터의 트리거, 작업 및 제한에 대 한 기술 정보는 Swagger 설명에서 생성 된 [커넥터의 참조 페이지](/connectors/sql/)를 참조 하세요.
@@ -255,4 +270,3 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Logic Apps용 다른 커넥터](../connectors/apis-list.md)에 대해 자세히 알아보기
-

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272520"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165242"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -140,7 +140,7 @@ Microsoft 파트너의 공유 스토리지 및 데이터 복제 솔루션의 경
 
 ## <a name="connectivity"></a>연결
 
-Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스는 현재 어떤 노드가 클러스터링된 리소스를 소유하는지에 관계없이 [DNN(분산 네트워크 이름)](hadr-distributed-network-name-dnn-configure.md) 또는 [Azure Load Balancer를 사용하는 VNN(가상 네트워크 이름)](hadr-vnn-azure-load-balancer-configure.md)을 사용하여 트래픽을 SQL Server 인스턴스로 라우팅합니다. SQL Server FCI와 함께 특정 기능 및 DNN을 사용하는 경우 추가로 고려할 사항이 있습니다. 자세한 내용은 [SQL Server FCI와 DNN 상호 운용성](failover-cluster-instance-dnn-interoperability.md)을 참조하세요. 
+Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스는 현재 어떤 노드가 클러스터링된 리소스를 소유하는지에 관계없이 [DNN(분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [Azure Load Balancer를 사용하는 VNN(가상 네트워크 이름)](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 사용하여 트래픽을 SQL Server 인스턴스로 라우팅합니다. SQL Server FCI와 함께 특정 기능 및 DNN을 사용하는 경우 추가로 고려할 사항이 있습니다. 자세한 내용은 [SQL Server FCI와 DNN 상호 운용성](failover-cluster-instance-dnn-interoperability.md)을 참조하세요. 
 
 클러스터 연결 옵션에 대한 자세한 내용은 [Azure VM의 SQL Server에 HADR 연결 라우팅](hadr-cluster-best-practices.md#connectivity)을 참조하세요. 
 

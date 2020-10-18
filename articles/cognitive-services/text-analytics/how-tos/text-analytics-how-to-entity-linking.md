@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f37828d5561ef382f572c1fdd4917a71f8a00407
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930172"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165608"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -43,7 +43,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 자세한 내용은 [언어 지원](../language-support.md) 을 참조 하세요.
 
-### <a name="entity-types"></a>엔터티 형식
+## <a name="entity-types"></a>엔터티 형식
 
 명명 된 엔터티 인식 v3은 여러 형식에서 확장 된 검색을 제공 합니다. 현재 NER v 3.0은 [일반 엔터티 범주의](../named-entity-types.md)엔터티를 인식할 수 있습니다.
 

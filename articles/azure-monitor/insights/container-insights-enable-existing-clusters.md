@@ -4,12 +4,12 @@ description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor�
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994504"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165403"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -132,12 +132,10 @@ Azure Portal에서 AKS 클러스터 중 하나에서 직접 모니터링을 사�
 2. 리소스 목록에서 **컨테이너** 입력을 시작합니다.  입력한 내용을 기반으로 목록이 필터링됩니다.
 
 3. **Kubernetes 서비스**를 선택합니다.
+    
+4. Kubernetes services 목록에서 서비스를 선택 합니다.
 
-    ![Kubernetes 서비스 링크](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. 컨테이너 목록에서 컨테이너를 선택합니다.
-
-5. 컨테이너 개요 페이지에서 **컨테이너 모니터링**을 선택합니다.
+5. Kubernetes service 개요 페이지에서 **모니터링-정보**를 선택 합니다.
 
 6. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.
     구독에서 AKS 컨테이너가 배포된 기본 작업 영역 및 위치가 미리 선택됩니다.

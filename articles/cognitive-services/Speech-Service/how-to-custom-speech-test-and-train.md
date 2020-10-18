@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628048"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165335"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -48,7 +48,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 |-----------|-----------------|----------|-------------------|----------|
 | [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
 | [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1 ~ 1000 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+| [관련 텍스트](#related-text-data-for-training) | No | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -59,7 +59,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 데이터를 업로드 하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털로 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>이동 합니다. 포털에서 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터를 업로드 하기 전에 데이터 집합에 대 한 음성 데이터 형식을 선택 하 라는 메시지가 표시 됩니다.
 
-![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-select-audio.png)
+![음성 포털에서 오디오 업로드 옵션을 강조 표시 하는 스크린샷](./media/custom-speech/custom-speech-select-audio.png)
 
 업로드 하는 각 데이터 집합은 사용자가 선택 하는 데이터 형식에 대 한 요구 사항을 충족 해야 합니다. 데이터를 업로드 하기 전에 올바른 형식으로 지정 해야 합니다. 올바른 형식의 데이터를 사용 하면 Custom Speech 서비스에서 정확 하 게 처리 됩니다. 요구 사항은 다음 섹션에 나열 되어 있습니다.
 
@@ -186,7 +186,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 사용자 지정 된 발음은 영어 ( `en-US` ) 및 독일어 ()로 제공 됩니다 `de-DE` . 다음 표에서는 언어에 따라 지원 되는 문자를 보여 줍니다.
 
-| 언어 | 로캘 | 문자 |
+| Language | 로캘 | 문자 |
 |----------|--------|------------|
 | 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

@@ -14,18 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075708"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166899"
 ---
-# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 Always On 가용성 그룹을 만들기 위한 필수 구성 요소
+# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>자습서: Azure Virtual Machines에서 SQL Server에 가용성 그룹을 만들기 위한 필수 구성 요소
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 자습서에서는 [Azure Virtual Machines (vm)에서 SQL Server Always On 가용성 그룹](availability-group-manually-configure-tutorial.md)을 만들기 위한 필수 구성 요소를 완료 하는 방법을 보여 줍니다. 필수 구성 요소를 완료 하면 단일 리소스 그룹에 도메인 컨트롤러, 두 개의 SQL Server Vm 및 미러링 모니터 서버가 있습니다.
+
+이 문서에서 가용성 그룹 환경을 수동으로 구성 하는 경우에도 [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md)또는 [Azure 빠른 시작 템플릿을](availability-group-quickstart-template-configure.md) 사용 하 여이 작업을 수행할 수 있습니다. 
 
 **예상 시간**: 필수 구성 요소를 완료하는 데 시간이 걸릴 수 있습니다. 이 시간의 대부분은 가상 머신을 만드는 데 소요됩니다.
 
@@ -35,7 +37,7 @@ ms.locfileid: "92075708"
 
 ## <a name="review-availability-group-documentation"></a>가용성 그룹 설명서 검토
 
-이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 이 기술에 익숙하지 않은 경우 [Always On 가용성 그룹 개요(SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
+이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 이 기술에 익숙하지 않은 경우 [Always On 가용성 그룹 개요 (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조 하세요.
 
 
 ## <a name="create-an-azure-account"></a>Azure 계정 만들기
@@ -60,7 +62,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 8. 위치를 선택합니다. 위치는 가용성 그룹을 만들려는 Azure 지역입니다. 이 문서는 하나는 Azure 위치에 모든 리소스를 빌드합니다.
 9. **대시보드에 고정**이 선택되어 있는지 확인합니다. 이 선택적 설정은 Azure 포털 대시보드에 리소스 그룹에 대한 바로 가기를 배치합니다.
 
-   ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Azure Portal에 대 한 리소스 그룹 바로 가기](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. **만들기** 를 선택 하 여 리소스 그룹을 만듭니다.
 
@@ -118,13 +120,13 @@ Azure Portal에서 가상 네트워크를 만들려면 다음을 수행 합니�
 
     이미 만들어진 서브넷을 확인합니다.
 
-   ![가상 네트워크 구성](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![이미 만든 서브넷을 기록해 둡니다.](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. 두 번째 서브넷을 만들려면 **+ 서브넷**을 선택 합니다.
 6. **서브넷 추가**에서 **이름** 아래에 **sqlsubnet**을 입력하여 서브넷을 구성합니다. 유효한 **주소 범위**가 자동으로 지정됩니다. 이 주소 범위에 최소 10개의 주소가 있는지 확인합니다. 프로덕션 환경에서는 더 많은 주소가 필요할 수 있습니다.
 7. **확인**을 선택합니다.
 
-    ![가상 네트워크 구성](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![서브넷 구성](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 다음 표에서는 네트워크 구성 설정을 요약합니다.
 

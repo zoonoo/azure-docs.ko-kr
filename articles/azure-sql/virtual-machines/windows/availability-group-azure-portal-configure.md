@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482802"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164570"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 (Azure Portal-미리 보기)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Azure Portal를 사용 하 여 Azure VM의 SQL Server에 대 한 가용성 그룹 (미리 보기) 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 문서에서는 [Azure Portal](https://portal.azure.com) 를 사용 하 여 Azure vm에서 SQL Server에 대 한 가용성 그룹을 구성 하는 방법을 설명 합니다. 
 
 Azure Portal를 사용 하 여 새 클러스터를 만들거나 기존 클러스터를 온보드 한 다음 가용성 그룹, 수신기 및 내부 부하 분산 장치를 만듭니다. 
 
-   > [!NOTE]
-   > 이 기능은 현재 미리 보기로 제공 되며 원하는 지역을 사용할 수 없는 경우 잠시 후에 다시 확인 하세요. 
+이 기능은 현재 미리 보기로 제공됩니다. 
+
+이 문서에서는 Azure Portal 사용 하 여 가용성 그룹 환경을 구성 하는 동안 [PowerShell 이나 Azure CLI](availability-group-az-commandline-configure.md), [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)또는 [수동으로](availability-group-manually-configure-tutorial.md) 를 사용 하는 것도 가능 합니다. 
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -80,7 +81,7 @@ Azure Portal를 사용 하 여 클러스터를 구성 합니다. 새 클러스�
 
 SQL Server VM 환경에 구성 된 클러스터가 이미 있는 경우 Azure Portal에서 등록할 수 있습니다.
 
-이렇게 하려면 다음 단계를 따르십시오.
+이렇게 하려면 다음 단계를 수행하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL 가상 컴퓨터](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스로 이동 합니다. 
@@ -97,7 +98,7 @@ SQL Server VM 환경에 구성 된 클러스터가 이미 있는 경우 Azure Po
 
 ## <a name="create-availability-group"></a>가용성 그룹 만들기
 
-클러스터가 만들어지거나 등록 된 후 Azure Portal를 사용 하 여 가용성 그룹을 만듭니다. 이렇게 하려면 다음 단계를 따르십시오.
+클러스터가 만들어지거나 등록 된 후 Azure Portal를 사용 하 여 가용성 그룹을 만듭니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 1. [SQL 가상 컴퓨터](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 리소스로 이동 합니다. 
@@ -177,7 +178,7 @@ SQL Server Management Studio를 사용 하 여 가용성 그룹에 데이터베�
 
 ## <a name="remove-cluster"></a>클러스터 제거
 
-클러스터에서 모든 SQL Server Vm을 제거 하 여 삭제 한 다음 SQL VM 리소스 공급자에서 클러스터 메타 데이터를 제거 합니다. 최신 버전의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. 
+클러스터에서 모든 SQL Server Vm을 제거 하 여 삭제 한 다음 SQL VM 리소스 공급자에서 클러스터 메타 데이터를 제거 합니다. 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

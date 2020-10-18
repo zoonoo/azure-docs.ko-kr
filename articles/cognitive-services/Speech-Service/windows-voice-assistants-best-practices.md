@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293645"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165148"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Windows 10 용 디자인 도우미 환경
 
@@ -69,8 +69,8 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 
 길잡이 앱에 포커스가 있는 경우 고객 의도가 명확 하 게 앱과 상호 작용 하 여 모든 음성 활성화 환경을 기본 앱 보기에서 처리 해야 합니다. 이 보기는 고객의 크기를 조정할 수 있습니다. 이 문서의 나머지 부분에서는 도우미 셸 상호 작용을 설명 하기 위해 Contoso 라는 금융 서비스 길잡이의 구체적인 예를 사용 합니다. 이 다이어그램과 이후 다이어그램에서 고객에 게 표시 되는 것은 오른쪽의 카툰 거품형에서 보조자 응답을 사용 하 여 왼쪽에 있는 만화 음성 거품에 표시 됩니다.
 
-**앱 내 보기입니다. 음성 활성화 시작 시 초기 상태:** 
- ![ 활성화 하기 전에 Windows에서 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**앱 내 보기입니다. 음성 활성화가 시작 되는 초기 상태:** 
+ ![ Contoso 재무 길잡이 앱이 기본 캔버스로 열려 있음을 보여 주는 스크린샷 오른쪽에 있는 만화 음성 거품형에는 "Contoso"가 표시 됩니다.](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **앱 내 보기입니다. 음성 활성화가 완료 되 면 수신 환경이 시작 됩니다.** ![ 음성 길잡이가 수신 대기 하는 동안 Windows에서 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 - 앱을 사용 중인 경우 &quot; &quot; 잠금을 계속 진행할 수 있습니다. &quot;in 사용에서 &quot; 입력 또는 출력을 구성 합니다. 예를 들어 음악 또는 동영상을 스트리밍할 때 앱이 잠금을 계속 진행할 수 있습니다. &quot;후속 &quot; 및 기타 multiturn 대화 상자 단계를 통해 앱을 잠금 상태로 유지할 수 있습니다.
 - **응용 프로그램 해제에 대 한 구현 세부 정보** 는 [위의 잠금 구현 가이드에서](windows-voice-assistants-implementation-guide.md#closing-the-application)찾을 수 있습니다.
 
-![정품 인증 전의 Windows 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Contoso 재무 길잡이 앱의 위의 잠금 보기를 보여 주는 스크린샷](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![정품 인증 전의 Windows 음성 길잡이 스크린샷](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Windows 잠금 화면을 표시 하는 바탕 화면의 스크린샷.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>잠금 위에 있는 개인 정보 보호 &amp; 보안 고려 사항
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 31c9f9d94acab7322cf11d084e4010f2defd6f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a8f44831f1af13158261bedb19a254c6a565a6
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261701"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165301"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거를 사용할 때 로그를 구성하고 읽는 방법
 
@@ -25,7 +25,7 @@ Cosmos DB용 Azure Functions 트리거는 내부적으로 [변경 피드 프로�
 
 ## <a name="enabling-logging"></a>로깅을 사용하도록 설정
 
-Cosmos DB용 Azure Functions 트리거를 사용할 때 로깅을 설정하려면 Azure Functions 프로젝트 또는 Azure Functions App에서 `host.json` 파일을 찾아서 [필요한 로깅 수준을 구성](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson)합니다. 다음 샘플에 나온 것처럼 `Host.Triggers.CosmosDB`에 대한 추적을 사용하도록 설정해야 합니다.
+Cosmos DB용 Azure Functions 트리거를 사용할 때 로깅을 설정하려면 Azure Functions 프로젝트 또는 Azure Functions App에서 `host.json` 파일을 찾아서 [필요한 로깅 수준을 구성](../azure-functions/configure-monitoring.md#configure-log-levels)합니다. 다음 샘플에 나온 것처럼 `Host.Triggers.CosmosDB`에 대한 추적을 사용하도록 설정해야 합니다.
 
 ```js
 {
