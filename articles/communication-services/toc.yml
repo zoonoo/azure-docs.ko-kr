@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: 알림
       href: concepts/notifications.md
+    - name: 로깅 및 진단
+      href: concepts/logging-and-diagnostics.md
+    - name: 메트릭
+      href: concepts/metrics.md
 - name: 샘플
   items:
     - name: 그룹 통화 주인공 샘플
