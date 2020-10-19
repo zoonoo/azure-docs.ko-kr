@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89568237"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172908"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -139,7 +139,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Portal를 통해 기존
 변경 피드는 몇 가지 메타 데이터와 로그 파일을 생성 합니다. 이러한 파일은 저장소 계정의 **$blobchangefeed** 컨테이너에 있습니다. 
 
 > [!NOTE]
-> 현재 릴리스에서 **$blobchangefeed** 컨테이너는 Azure Storage 탐색기 나 Azure Portal에 표시 되지 않습니다. 현재 ListContainers API를 호출할 때 $blobchangefeed 컨테이너를 볼 수 없지만 컨테이너에서 직접 Listcontainers API를 호출 하 여 blob을 볼 수 있습니다.
+> 현재 릴리스에서 $blobchangefeed 컨테이너는 Azure Portal에만 표시 되지만 Azure Storage 탐색기에는 표시 되지 않습니다. 현재 ListContainers API를 호출할 때 $blobchangefeed 컨테이너를 볼 수 없지만 컨테이너에서 직접 Listcontainers API를 호출 하 여 blob을 볼 수 있습니다.
 
 클라이언트 응용 프로그램은 변경 피드 프로세서 SDK와 함께 제공 되는 blob 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드를 사용할 수 있습니다. 
 

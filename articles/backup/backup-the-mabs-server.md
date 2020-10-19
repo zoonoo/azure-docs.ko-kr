@@ -3,12 +3,12 @@ title: MABS 서버 백업
 description: MABS (Microsoft Azure Backup 서버)를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946831"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172114"
 ---
 # <a name="back-up-the-mabs-server"></a>MABS 서버 백업
 
@@ -115,13 +115,13 @@ and AG.ServerName like N'%<dpmsqlservername>%' -- <dpmsqlservername> is a placeh
 
 1. 복제본 VHD 경로 `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PhysicalReplicaId\>` 로 이동
 2. 명령을 사용 하 여 disk0를 탑재 **합니다** . `mount-vhd disk0.vhdx`
-3. 복제본 VHD가 탑재 되 면를 사용 `mountvol.exe` 하 여 SQL 스크립트 출력의 실제 복제본 ID를 사용 하 여 복제본 볼륨에 드라이브 문자를 할당 합니다. 예: `mountvol X: \?\Volume{}\`
+3. 복제본 VHD가 탑재 되 면를 사용 `mountvol.exe` 하 여 SQL 스크립트 출력의 실제 복제본 ID를 사용 하 여 복제본 볼륨에 드라이브 문자를 할당 합니다. `mountvol X: \?\Volume{}\`
 
 #### <a name="to-copy-the-database-from-a-previous-recovery-point"></a>이전 복구 지점에서 데이터베이스를 복사하려면
 
 1. DPMDB container 디렉터리로 이동  `\<MABSServer FQDN\>\<PhysicalReplicaId\>` 합니다. MABS DB에 대해 수행 되는 해당 복구 지점이 있는 일부 고유 GUID 식별자가 포함 된 여러 디렉터리가 표시 됩니다. 다른 디렉터리는 PIT/recovery 지점을 나타냅니다.
 2. 모든 PIT vhd 경로 (예:)로 이동 하 `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PITId\>` 고 명령을 사용 하 여 **disk0** 를 탑재 합니다 `mount-vhd disk0.vhdx` .
-3. 복제본 VHD가 탑재 되 면를 사용 `mountvol.exe` 하 여 SQL 스크립트 출력의 실제 복제본 ID를 사용 하 여 복제본 볼륨에 드라이브 문자를 할당 합니다. 예: `mountvol X: \?\Volume{}\`
+3. 복제본 VHD가 탑재 되 면를 사용 `mountvol.exe` 하 여 SQL 스크립트 출력의 실제 복제본 ID를 사용 하 여 복제본 볼륨에 드라이브 문자를 할당 합니다. `mountvol X: \?\Volume{}\`
 
    위의 단계에서 각도 중괄호와 함께 표시 되는 모든 용어는 자리 표시자입니다. 다음과 같이 적절 한 값으로 바꿉니다.
    - SQL 스크립트 출력의 **Refsvolume** -액세스 경로
@@ -168,7 +168,7 @@ MABS 서버가 여전히 작동 하 고 저장소 풀이 손상 된 경우 (예:
 
 1. 데이터베이스를 복구하려는 시간을 결정합니다.
 
-    - MABS 복제본 볼륨에서 직접 가져온 마지막 백업에서 데이터베이스를 복사 하려는 경우 **mountvol.exe** 를 사용 하 여 SQL 스크립트 출력의 GUID를 사용 하 여 복제본 볼륨에 드라이브 문자를 할당 합니다. 예: `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
+    - MABS 복제본 볼륨에서 직접 가져온 마지막 백업에서 데이터베이스를 복사 하려는 경우 **mountvol.exe** 를 사용 하 여 SQL 스크립트 출력의 GUID를 사용 하 여 복제본 볼륨에 드라이브 문자를 할당 합니다. `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
 
     - 이전 복구 지점 (섀도 복사)에서 데이터베이스를 복사 하려는 경우 SQL 스크립트 출력의 볼륨 GUID를 사용 하 여 복제본에 대 한 모든 섀도 복사본을 나열 해야 합니다. 이 명령은 해당 볼륨에 대 한 섀도 복사본을 나열 `C:\>Vssadmin list shadows /for\=\\?\Volume{d7a4fd76-a0a8-11e2-8fd3-001c23cb7375}\` 합니다. 복구 하려는 만든 시간 및 섀도 복사본 ID를 확인 합니다.
 
@@ -184,9 +184,9 @@ MABS 서버가 여전히 작동 하 고 저장소 풀이 손상 된 경우 (예:
 
 MABS와는 독립적으로 네이티브 SQL Server 백업을 사용 하 여 MABS 데이터베이스를 로컬 디스크에 백업할 수 있습니다.
 
-- SQL Server 백업의 [개요](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)를 가져옵니다.
+- SQL Server 백업의 [개요](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)를 가져옵니다.
 
-- 클라우드로 SQL Server를 백업하는 방법에 대해 [알아보세요](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
+- 클라우드로 SQL Server를 백업하는 방법에 대해 [알아보세요](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>MABS로 보호 되는 공유에 백업
 
@@ -238,9 +238,9 @@ MABS와는 독립적으로 네이티브 SQL Server 백업을 사용 하 여 MABS
 
 SQL Server 기본 백업을 사용 하 여 다른 SQL Server 데이터베이스와 마찬가지로 MABS 데이터베이스를 백업할 수 있습니다.
 
-- SQL Server 백업의 [개요](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)를 가져옵니다.
+- SQL Server 백업의 [개요](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)를 가져옵니다.
 
-- 클라우드로 SQL Server를 백업하는 방법에 대해 [알아보세요](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
+- 클라우드로 SQL Server를 백업하는 방법에 대해 [알아보세요](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service).
 
 ### <a name="recover-the-mabs-database"></a>MABS 데이터베이스 복구
 

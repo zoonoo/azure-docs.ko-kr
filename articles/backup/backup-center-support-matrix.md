@@ -3,12 +3,12 @@ title: 백업 센터에 대 한 지원 매트릭스
 description: 이 문서에서는 백업 센터에서 각 워크 로드 유형에 대해 지 원하는 시나리오를 요약 합니다.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 8effc2514abf1cac55abc28b625b869810536baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40582ddc1187082230e2887edcd24b3716811be2
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997000"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173997"
 ---
 # <a name="support-matrix-for-backup-center"></a>백업 센터에 대 한 지원 매트릭스
 
@@ -22,15 +22,15 @@ ms.locfileid: "90997000"
 | 모니터링 | 모든 백업 인스턴스 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | 위와 동일 |
 | 모니터링 | 모든 백업 정책 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | 위와 동일 |
 | 모니터링 | 모든 자격 증명 모음 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | 위와 동일 |
-| 동작 | 백업 구성 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
-| 동작 | 백업 인스턴스 복원 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
-| 동작 | 자격 증명 모음 만들기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [Recovery Services 자격 증명 모음](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support) 에 대 한 지원 매트릭스를 참조 하세요. |
-| 동작 | 백업 정책 만들기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [Recovery Services 자격 증명 모음](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support) 에 대 한 지원 매트릭스를 참조 하세요. |
-| 동작 | 백업 인스턴스에 대해 주문형 백업 실행 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
-| 동작 | 백업 인스턴스 백업 중지 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
-| 자세한 정보 | 백업 보고서 보기 | <li> Azure Virtual Machine <br><br> <li> Azure 가상 컴퓨터의 SQL <br><br> <li> Azure 가상 컴퓨터의 SAP HANA <br><br> <li> Azure 파일 <br><br> <li> System Center Data Protection Manager <br><br> <li> MARS (Azure Backup 에이전트) <br><br> <li> Azure Backup 서버(MABS) | [백업 보고서에 대해 지원 되는 시나리오](https://docs.microsoft.com/azure/backup/configure-reports#supported-scenarios) 참조 |
-| 거버넌스 | ' 백업 ' 범주에서 기본 제공 및 사용자 지정 Azure 정책을 보고 할당 합니다. | N/A | N/A |
-| 거버넌스 | 백업에 대해 구성 되지 않은 데이터 원본 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | N/A |
+| 동작 | 백업 구성 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
+| 동작 | 백업 인스턴스 복원 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
+| 동작 | 자격 증명 모음 만들기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [Recovery Services 자격 증명 모음](./backup-support-matrix.md#vault-support) 에 대 한 지원 매트릭스를 참조 하세요. |
+| 동작 | 백업 정책 만들기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [Recovery Services 자격 증명 모음](./backup-support-matrix.md#vault-support) 에 대 한 지원 매트릭스를 참조 하세요. |
+| 동작 | 백업 인스턴스에 대해 주문형 백업 실행 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
+| 동작 | 백업 인스턴스 백업 중지 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | [AZURE VM 백업](./backup-support-matrix-iaas.md) 및 [Azure Database for PostgreSQL 서버 백업](backup-azure-database-postgresql.md#support-matrix) 에 대 한 지원 매트릭스를 참조 하세요. |
+| 자세한 정보 | 백업 보고서 보기 | <li> Azure Virtual Machine <br><br> <li> Azure 가상 컴퓨터의 SQL <br><br> <li> Azure 가상 컴퓨터의 SAP HANA <br><br> <li> Azure 파일 <br><br> <li> System Center Data Protection Manager <br><br> <li> MARS (Azure Backup 에이전트) <br><br> <li> Azure Backup 서버(MABS) | [백업 보고서에 대해 지원 되는 시나리오](./configure-reports.md#supported-scenarios) 참조 |
+| 거버넌스 | ' 백업 ' 범주에서 기본 제공 및 사용자 지정 Azure 정책을 보고 할당 합니다. | 해당 없음 | 해당 없음 |
+| 거버넌스 | 백업에 대해 구성 되지 않은 데이터 원본 보기 | <li> Azure Virtual Machine <br><br> <li> Azure Database for PostgreSQL 서버 | 해당 없음 |
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
@@ -42,6 +42,6 @@ ms.locfileid: "90997000"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Backup에 대 한 지원 매트릭스를 검토 합니다.](https://docs.microsoft.com/azure/backup/backup-support-matrix)
-* [Azure VM 백업에 대 한 지원 매트릭스를 검토 합니다.](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)
+* [Azure Backup에 대 한 지원 매트릭스를 검토 합니다.](./backup-support-matrix.md)
+* [Azure VM 백업에 대 한 지원 매트릭스를 검토 합니다.](./backup-support-matrix-iaas.md)
 * [Azure Database for PostgreSQL 서버 백업에 대 한 지원 매트릭스를 검토 합니다.](backup-azure-database-postgresql.md#support-matrix)

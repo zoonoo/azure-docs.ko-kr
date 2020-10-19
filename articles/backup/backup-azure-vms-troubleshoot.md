@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: da650453006b77490769d1cef57fc3d4f4447e40
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169373"
+ms.locfileid: "92173837"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -129,9 +129,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 해결 방법:
 
-* VM 디스크에 부하를 분산 시킬 가능성이 있는지 확인 합니다. 이렇게 하면 단일 디스크에 대 한 부하가 줄어듭니다. [저장소 수준에서 진단 메트릭을 사용 하 여 IOPs 제한을 확인할](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm)수 있습니다.
+* VM 디스크에 부하를 분산 시킬 가능성이 있는지 확인 합니다. 이렇게 하면 단일 디스크에 대 한 부하가 줄어듭니다. [저장소 수준에서 진단 메트릭을 사용 하 여 IOPs 제한을 확인할](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm)수 있습니다.
 * VM에 대 한 부하가 가장 낮은 경우 사용량이 적은 시간에 백업을 수행 하도록 백업 정책을 변경 합니다.
-* 더 높은 IOPs를 지원 하도록 Azure 디스크를 업그레이드 합니다. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/virtual-machines/disks-types)
+* 더 높은 IOPs를 지원 하도록 Azure 디스크를 업그레이드 합니다. [여기서 자세히 알아보세요.](../virtual-machines/disks-types.md)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState - VSS(볼륨 섀도 복사본) 서비스가 잘못된 상태여서 스냅샷 작업이 실패했습니다.
 
@@ -157,15 +157,15 @@ VSS (볼륨 섀도 복사본) 서비스를 다시 시작 합니다.
 
 이 오류는 복원 작업 중에 선택한 VM 크기가 지원 되지 않는 크기 이기 때문에 발생 합니다. <br>
 
-이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용 합니다. 이러한 디스크를 사용 하 여 [Powershell cmdlet](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks)을 사용 하 여 [지원 되는 지원 되는 vm 크기](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) 목록에서 vm을 만듭니다.
+이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](./backup-azure-arm-restore-vms.md#restore-disks) 옵션을 사용 합니다. 이러한 디스크를 사용 하 여 [Powershell cmdlet](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks)을 사용 하 여 [지원 되는 지원 되는 vm 크기](./backup-support-matrix-iaas.md#vm-compute-support) 목록에서 vm을 만듭니다.
 
 ### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-시장 진입 구매 요청이 없어서 VM을 만들지 못했습니다.
 
 오류 코드: UserErrorMarketPlaceVMNotSupported 오류 메시지: 시장 위치 구매 요청이 없어서 VM을 만들지 못했습니다.
 
-Azure Backup은 Azure Marketplace에서 사용할 수 있는 Vm의 백업 및 복원을 지원 합니다. 이 오류는 Azure Marketplace에서 더 이상 사용할 수 없는 VM (특정 계획/게시자 설정 사용)을 복원 하려고 할 때 발생 합니다. [여기에서 자세한 내용을 알아보세요](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+Azure Backup은 Azure Marketplace에서 사용할 수 있는 Vm의 백업 및 복원을 지원 합니다. 이 오류는 Azure Marketplace에서 더 이상 사용할 수 없는 VM (특정 계획/게시자 설정 사용)을 복원 하려고 할 때 발생 합니다. [여기에서 자세한 내용을 알아보세요](/legal/marketplace/participation-policy#offering-suspension-and-removal).
 
-* 이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용한 다음 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) 또는 [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlet을 사용 하 여 vm에 해당 하는 최신 마켓플레이스 정보를 사용 하 여 vm을 만듭니다.
+* 이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](./backup-azure-arm-restore-vms.md#restore-disks) 옵션을 사용한 다음 [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 또는 [Azure CLI](./tutorial-restore-disk.md) cmdlet을 사용 하 여 vm에 해당 하는 최신 마켓플레이스 정보를 사용 하 여 vm을 만듭니다.
 * 게시자에 Marketplace 정보가 없는 경우 데이터 디스크를 사용 하 여 데이터를 검색 하 고이를 기존 VM에 연결할 수 있습니다.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
@@ -321,8 +321,8 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 
 복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다.
 
-* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
-* 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세한 정보를 알아보세요](./backup-azure-restore-files-from-vm.md#system-requirements).  
+* 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>Usererroron Antrpnotfound-VM의 스냅숏을 찾을 수 없어서 복원에 실패 했습니다.
 

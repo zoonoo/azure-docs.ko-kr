@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005652"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173001"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
 *메트릭*은 서비스에서 관심을 갖고 클러스터의 노드에서 제공하는 리소스입니다. 메트릭은 서비스 성능을 향상시키거나 모니터링하기 위해 관리하려는 모든 항목입니다. 예를 들어 메모리 사용량을 조사하여 서비스가 오버로드 상태인지 여부를 확인할 수 있습니다. 또 다른 용도는 더 나은 성능을 얻기 위해 메모리 제약이 심하지 않은 위치로 서비스를 이동할 수 있는지 여부를 파악하는 것입니다.
@@ -27,7 +27,7 @@ ms.locfileid: "89005652"
 
 | 메트릭 | 상태 비저장 인스턴스 부하 | 상태 저장 보조 부하 | 상태 저장 기본 부하 | 무게 |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |높음 |
+| PrimaryCount |0 |0 |1 |높은 |
 | ReplicaCount |0 |1 |1 |중간 |
 | 개수 |1 |1 |1 |낮음 |
 
@@ -138,12 +138,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="load"></a>로드
 메트릭 정의의 핵심은 일부 부하에 관한 것입니다. *로드* 는 지정 된 노드의 일부 서비스 인스턴스 또는 복제본에서 사용 되는 지정 된 메트릭의 양입니다. 로드는 거의 모든 지점에서 구성될 수 있습니다. 예를 들면 다음과 같습니다.
 
-  - 서비스를 만들 때 로드를 정의할 수 있습니다. 이를 _기본 로드_라고 합니다.
-  - 기본 로드를 포함하여 서비스에 대한 메트릭 정보는 서비스를 만든 후에 업데이트될 수 있습니다. 이를 _서비스 업데이트_라고 합니다. 
-  - 지정된 파티션에 대한 로드는 해당 서비스의 기본값으로 다시 설정될 수 있습니다. 이를 _파티션 로드 다시 설정_이라고 합니다.
-  - 로드는 런타임에 동적으로 서비스 개체별로 보고될 수 있습니다. 이를 _로드 보고_라고 합니다. 
-  
-이러한 모든 전략은 해당 수명 동안 동일한 서비스 내에서 사용할 수 있습니다. 
+  - 서비스를 만들 때 로드를 정의할 수 있습니다. 이 유형의 로드 구성을 _기본 로드_라고 합니다.
+  - 서비스의 기본 부하를 포함 하 여 서비스에 대 한 메트릭 정보는 서비스를 만든 후에 업데이트할 수 있습니다. 이 메트릭 업데이트는 _서비스를 업데이트_하 여 수행 됩니다.
+  - 지정된 파티션에 대한 로드는 해당 서비스의 기본값으로 다시 설정될 수 있습니다. 이 메트릭 업데이트를 _파티션 로드 다시 설정_이라고 합니다.
+  - 로드는 런타임에 동적으로 서비스 개체 단위로 보고 될 수 있습니다. 이 메트릭 업데이트를 _로드 보고_라고 합니다.
+  - 패브릭 API 호출을 통해 로드 값을 보고 하 여 파티션의 복제본 또는 인스턴스에 대 한 로드를 업데이트할 수도 있습니다. 이 메트릭 업데이트는 _파티션에 대 한 로드 보고_라고 합니다.
+
+이러한 모든 전략은 해당 수명 동안 동일한 서비스 내에서 사용할 수 있습니다.
 
 ## <a name="default-load"></a>기본 부하
 *기본 로드*는 이 서비스의 각 서비스 개체(상태 비저장 인스턴스 또는 상태 저장 복제본)에서 사용하는 메트릭의 양입니다. 클러스터 리소스 관리자는 동적 로드 보고서와 같은 다른 정보를 받을 때까지 서비스 개체의 로드에 이 숫자를 사용합니다. 간단한 서비스의 경우 기본 로드는 정적 정의입니다. 기본 로드는 전혀 업데이트되지 않으며 서비스 수명 동안 사용됩니다. 기본 로드는 여러 워크로드에서 특정 양의 리소스를 전적으로 사용하고 변경하지 않는 간단한 용량 계획 시나리오에 적합합니다.
@@ -175,6 +176,67 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 서비스는 생성 시 정의된 메트릭에 대해 보고할 수 있습니다. 서비스에서 사용하도록 구성되지 않은 메트릭에 대한 로드를 보고하는 경우 Service Fabric에서는 해당 보고서를 무시합니다. 유효한 다른 메트릭이 동시에 보고되는 경우 해당 보고서가 수락됩니다. 서비스 코드는 사용 방법을 인식하고 있는 모든 메트릭을 측정하여 보고할 수 있으며, 작업자는 서비스 코드를 변경하지 않고도 사용할 메트릭 구성을 지정할 수 있습니다. 
+
+## <a name="reporting-load-for-a-partition"></a>파티션에 대 한 로드 보고
+이전 섹션에서는 서비스 복제본 또는 인스턴스 보고서가 스스로를 로드 하는 방법을 설명 합니다. FabricClient를 사용 하 여 부하를 동적으로 보고 하는 추가 옵션이 있습니다. 파티션에 대 한 로드를 보고 하는 경우 한 번에 여러 파티션에 대해 보고할 수 있습니다.
+
+이러한 보고서는 복제본 또는 인스턴스 자체에서 들어오는 부하 보고서와 정확히 동일한 방식으로 사용 됩니다. 새 로드 값을 복제본 또는 인스턴스에서 보고 하거나 파티션에 대 한 새 로드 값을 보고 하기 전 까지는 보고 된 값이 유효 합니다.
+
+이 API를 사용 하면 여러 가지 방법으로 클러스터에서 로드를 업데이트할 수 있습니다.
+
+  - 상태 저장 서비스 파티션은 주 복제본 부하를 업데이트할 수 있습니다.
+  - 상태 비저장 및 상태 저장 서비스는 모두 보조 복제본 또는 인스턴스의 로드를 업데이트할 수 있습니다.
+  - 상태 비저장 및 상태 저장 서비스는 모두 노드의 특정 복제본 또는 인스턴스에 대 한 로드를 업데이트할 수 있습니다.
+
+파티션당 이러한 업데이트를 동시에 결합할 수도 있습니다.
+
+단일 API 호출로 여러 파티션에 대 한 로드를 업데이트할 수 있습니다 .이 경우 출력에는 파티션당 응답이 포함 됩니다. 어떤 이유로 든 파티션 업데이트가 성공적으로 적용 되지 않은 경우에는 해당 파티션에 대 한 업데이트를 건너뛰고 대상 파티션에 대 한 해당 오류 코드가 제공 됩니다.
+
+  - 파티션 ID가 지정 된 파티션 ID가 없습니다.
+  - ReconfigurationPending-파티션이 현재 다시 구성 되 고 있습니다.
+  - InvalidForStatelessServices-상태 비저장 서비스에 속하는 파티션에 대해 주 복제본의 로드를 변경 하려고 했습니다.
+  - ReplicaDoesNotExist-지정 된 노드에 보조 복제본 또는 인스턴스가 없습니다.
+  - InvalidOperation-시스템 응용 프로그램에 속하거나 예측 된 부하를 업데이트 하는 파티션에 대 한 로드 업데이트를 사용할 수 없는 두 가지 경우에 발생할 수 있습니다.
+
+이러한 오류 중 일부가 반환 되 면 특정 파티션에 대 한 입력을 업데이트 하 고 특정 파티션에 대 한 업데이트를 다시 시도할 수 있습니다.
+
+코드:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+이 예에서는 _53df이상 7f-5471-403b-b736-bde6ad584f42_에 대해 마지막으로 보고 된 로드를 업데이트 합니다. 메트릭 _CustomMetricName0_ 주 복제본 부하가 값 100으로 업데이트 됩니다. 동시에 _NodeName0_노드에 있는 특정 보조 복제본에 대 한 동일한 메트릭의 로드가 값 200으로 업데이트 됩니다.
 
 ### <a name="updating-a-services-metric-configuration"></a>서비스의 메트릭 구성 업데이트
 서비스와 관련된 메트릭 목록과 해당 메트릭의 속성은 서비스가 라이브 상태로 있는 동안 동적으로 업데이트될 수 있습니다. 이렇게 하면 실험과 유연성을 허용합니다. 유용한 경우의 몇 가지 예는 다음과 같습니다.

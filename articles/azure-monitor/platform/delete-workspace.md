@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448529"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174164"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복구
 
@@ -112,6 +112,9 @@ PS C:\>New-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-nam
 * 작업 영역을 만들 때 *이 작업 영역 이름은 이미 사용 중입니다* 또는 *충돌* 오류 메시지가 표시되는 원인은 다음과 같습니다.
   * 작업 영역 이름을 사용할 수 없으며 조직의 누군가 또는 다른 고객에 의해 사용되고 있습니다.
   * 최근 14일 이내에 작업 영역이 삭제되었으며 일시 삭제 기간 동안 해당 이름이 예약되어 있습니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하여 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.<br>
-     1. [작업 영역](#recover-workspace)을 복구합니다.
-     2. 작업 영역을 [영구 삭제](#permanent-workspace-delete)합니다.
-     3. 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.
+    1. [작업 영역](#recover-workspace)을 복구합니다.
+    2. 작업 영역을 [영구 삭제](#permanent-workspace-delete)합니다.
+    3. 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.
+* *리소스를 찾을 수 없는*204 응답 코드가 표시 되 면 작업 영역 삭제 작업을 연속 해 서 사용 하려고 시도 하는 것일 수 있습니다. 204는 빈 응답입니다 .이는 일반적으로 리소스가 존재 하지 않음을 의미 하므로 delete는 아무 작업도 수행 하지 않고 완료 됩니다.
+  백 엔드에서 삭제 호출이 성공적으로 완료 되 면 작업 영역을 복원 하 고 앞에서 제안 된 방법 중 하나로 영구 삭제 작업을 완료할 수 있습니다.
+

@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461226"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172382"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -104,7 +104,7 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>TDE (투명한 데이터 암호화)를 설정 하 고 데이터베이스를 전체 백업 프로세스를 통해 암호화 된 상태로 유지 하는 데이터베이스를 보호할 수 있나요?
 
-예, Azure Backup은 SQL Server 데이터베이스 또는 TDE가 설정 된 서버의 백업을 지원 합니다. Backup은 Azure에서 관리 하는 키로 Tde를 지원 하거나 BYOK (고객 관리 키)를 사용 하 여 [Tde](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 를 지원 합니다.  Backup은 백업 프로세스의 일부로 SQL 암호화를 수행 하지 않으므로 백업 시 데이터베이스가 암호화 된 상태로 유지 됩니다.
+예, Azure Backup은 SQL Server 데이터베이스 또는 TDE가 설정 된 서버의 백업을 지원 합니다. Backup은 Azure에서 관리 하는 키로 Tde를 지원 하거나 BYOK (고객 관리 키)를 사용 하 여 [Tde](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 를 지원 합니다.  Backup은 백업 프로세스의 일부로 SQL 암호화를 수행 하지 않으므로 백업 시 데이터베이스가 암호화 된 상태로 유지 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

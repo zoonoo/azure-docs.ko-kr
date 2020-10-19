@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다. 지역 간 복원을 사용 하 여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985391"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172179"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -30,7 +30,7 @@ ms.locfileid: "90985391"
 - 동일한 Azure 지역의 SQL Server 인스턴스에 데이터베이스를 복원할 수 있습니다.
 - 대상 서버를 원본과 동일한 자격 증명 모음에 등록해야 합니다.
 - TDE로 암호화 된 데이터베이스를 다른 SQL Server 복원 하려면 먼저 [대상 서버에 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다.
-- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) 사용 데이터베이스는 [파일로 복원](#restore-as-files) 옵션을 사용 하 여 복원 해야 합니다.
+- [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) 사용 데이터베이스는 [파일로 복원](#restore-as-files) 옵션을 사용 하 여 복원 해야 합니다.
 - "Master" 데이터베이스를 복원 하기 전에 시작 옵션인 **-m AzureWorkloadBackup**을 사용 하 여 SQL Server 인스턴스를 단일 사용자 모드로 시작 합니다.
   - **-M** 에 대 한 값은 클라이언트 이름입니다.
   - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.

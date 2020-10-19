@@ -4,12 +4,12 @@ description: Azure 구독 및 리소스 그룹에서 Recovery Services 자격 �
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056432"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171610"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -178,7 +178,7 @@ Azure backup을 사용 하도록 설정 된 Azure 가상 머신을 이동 하려
   - 이전 자격 증명 모음에 있는 만료 되지 않은 복구 지점의 경우에만 백업 된 데이터를 복원할 수 있습니다.
   - 새 데이터의 초기 복제본을 새 자격 증명 모음에 만들어야 합니다.
 
-- Azure VM의 경우 이전 자격 증명 모음에서 VM에 대 한 [데이터 보관을 사용 하 여 보호를 중지](backup-azure-manage-vms.md#stop-protecting-a-vm) 하 고 vm을 다른 리소스 그룹으로 이동한 다음 새 자격 증명 모음에서 vm을 보호할 수 있습니다. 다른 리소스 그룹으로 VM을 이동 하는 방법에 대 한 [지침 및 제한 사항](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) 을 참조 하세요.
+- Azure VM의 경우 이전 자격 증명 모음에서 VM에 대 한 [데이터 보관을 사용 하 여 보호를 중지](backup-azure-manage-vms.md#stop-protecting-a-vm) 하 고 vm을 다른 리소스 그룹으로 이동한 다음 새 자격 증명 모음에서 vm을 보호할 수 있습니다. 다른 리소스 그룹으로 VM을 이동 하는 방법에 대 한 [지침 및 제한 사항](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) 을 참조 하세요.
 
   VM은 한 번에 하나의 자격 증명 모음 에서만 보호할 수 있습니다. 그러나 새 리소스 그룹의 VM은 다른 VM으로 간주 되는 새 자격 증명 모음에서 보호할 수 있습니다.
 

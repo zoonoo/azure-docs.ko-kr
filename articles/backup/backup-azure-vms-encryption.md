@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c0e879fe2acf241b1ed08a5658209bf70b1b9c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014917"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173898"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 
@@ -16,13 +16,13 @@ ms.locfileid: "89014917"
 
 ## <a name="encryption-using-platform-managed-keys"></a>플랫폼 관리 키를 사용 하 여 암호화
 
-기본적으로 Vm의 모든 디스크는 [storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 사용 하는 플랫폼 관리 키 (PMK)를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다. 최종에서 암호화를 지 원하는 데 필요한 특정 작업 없이 Azure Backup를 사용 하 여 이러한 Vm을 백업할 수 있습니다. 플랫폼 관리 키를 사용 하 여 암호화 하는 방법에 대 한 자세한 내용은 [이 문서를 참조](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys)하세요.
+기본적으로 Vm의 모든 디스크는 [storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 사용 하는 플랫폼 관리 키 (PMK)를 사용 하 여 미사용 상태로 자동으로 암호화 됩니다. 최종에서 암호화를 지 원하는 데 필요한 특정 작업 없이 Azure Backup를 사용 하 여 이러한 Vm을 백업할 수 있습니다. 플랫폼 관리 키를 사용 하 여 암호화 하는 방법에 대 한 자세한 내용은 [이 문서를 참조](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)하세요.
 
 ![암호화된 디스크](./media/backup-encryption/encrypted-disks.png)
 
 ## <a name="encryption-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 암호화
 
-CMK (사용자 지정 관리 키)를 사용 하 여 디스크를 암호화 하는 경우 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. CMK를 사용 하는 SSE (저장소 서비스 암호화)는 Azure Disk Encryption (ADE) 암호화와 다릅니다. ADE는 운영 체제의 암호화 도구를 사용 합니다. SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 고객이 관리 하는 키를 사용 하 여 관리 디스크를 암호화 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)를 참조 하세요.
+CMK (사용자 지정 관리 키)를 사용 하 여 디스크를 암호화 하는 경우 디스크 암호화에 사용 되는 키는 Azure Key Vault에 저장 되며 사용자가 관리 합니다. CMK를 사용 하는 SSE (저장소 서비스 암호화)는 Azure Disk Encryption (ADE) 암호화와 다릅니다. ADE는 운영 체제의 암호화 도구를 사용 합니다. SSE는 저장소 서비스의 데이터를 암호화 하 여 Vm에 대 한 모든 OS 또는 이미지를 사용할 수 있도록 합니다. 고객이 관리 하는 키를 사용 하 여 관리 디스크를 암호화 하는 방법에 대 한 자세한 내용은 [이 문서](../virtual-machines/windows/disk-encryption.md#customer-managed-keys)를 참조 하세요.
 
 ## <a name="encryption-support-using-ade"></a>ADE를 사용 하 여 암호화 지원
 
@@ -145,8 +145,8 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 1. [VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks).
 2. 다음 중 하나를 수행 하 여 가상 머신 인스턴스를 다시 만듭니다.
-    1. 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세히 알아봅니다](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    2. PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아봅니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    1. 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세한 정보를 알아보세요](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세한 정보를 알아보세요](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Linux Vm의 경우 데이터 디스크가 열리고 탑재 되도록 ADE 확장을 다시 설치 합니다.
 
 ## <a name="next-steps"></a>다음 단계

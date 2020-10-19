@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044201"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171915"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -63,7 +63,7 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
     }
 ```
 
-| Name | 유형 | 설명 |
+| 이름 | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | items | JSON 배열 | 및 튜플을 포함 하는 배열 `id` `filter` 입니다. |
@@ -82,7 +82,7 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
 
 로그를 성공적으로 검색 하면 **"status": 200** 다음에 모듈에서 검색 된 로그가 포함 된 페이로드가 반환 되어 요청에 지정 하는 설정에 따라 필터링 됩니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +123,7 @@ Azure Portal에서 메서드 이름 `GetModuleLogs` 및 다음 JSON 페이로드
 
 ![Azure Portal에서 직접 메서드 ' GetModuleLogs '를 호출 합니다.](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-CLI 출력을 [gzip](https://en.wikipedia.org/wiki/Gzip)과 같은 Linux 유틸리티로 파이프 하 여 압축 된 응답을 처리할 수도 있습니다. 예:
+CLI 출력을 [gzip](https://en.wikipedia.org/wiki/Gzip)과 같은 Linux 유틸리티로 파이프 하 여 압축 된 응답을 처리할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -164,7 +164,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | 설명 |
+| 이름 | Type | Description |
 |-|-|-|
 | sasURL | 문자열 (URI) | [Azure Blob Storage 컨테이너에 대 한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
 
@@ -178,13 +178,13 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | Description |
+| 이름 | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 
-예:
+예를 들면 다음과 같습니다.
 
 다음 호출은 모든 모듈의 마지막 100 로그 줄을 압축 된 JSON 형식으로 업로드 합니다.
 
@@ -273,7 +273,7 @@ Azure Portal에서 `UploadModuleLogs` sasURL을 사용자의 정보로 채운 �
     }
 ```
 
-| Name | 유형 | 설명 |
+| 이름 | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | sasURL | 문자열 (URI) | [Azure Blob Storage 컨테이너에 대 한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -294,13 +294,13 @@ Azure Portal에서 `UploadModuleLogs` sasURL을 사용자의 정보로 채운 �
     }
 ```
 
-| Name | 유형 | Description |
+| 이름 | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 
-예:
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -352,13 +352,13 @@ Azure Portal에서 `UploadSupportBundle` sasURL을 사용자의 정보로 채운
     }
 ```
 
-| Name | 유형 | Description |
+| 이름 | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 
-예:
+예를 들면 다음과 같습니다.
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -370,7 +370,7 @@ az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <
 '
 ```
 
-Azure Portal에서 `UploadModuleLogs` GUID를 정보로 채운 후 메서드 이름 및 다음 JSON 페이로드를 사용 하 여 메서드를 호출 합니다.
+Azure Portal에서 `GetTaskStatus` GUID를 정보로 채운 후 메서드 이름 및 다음 JSON 페이로드를 사용 하 여 메서드를 호출 합니다.
 
 ```json
     {

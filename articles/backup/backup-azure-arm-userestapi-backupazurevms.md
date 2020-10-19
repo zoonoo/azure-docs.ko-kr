@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506630"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171457"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-to-get-operation"></a>가져오기 작업에 대 한 응답
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
@@ -323,7 +323,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -348,7 +348,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -437,7 +437,7 @@ Azure VM이 이미 백업 된 경우 보호 정책을 변경 하 여 백업 하�
 > [!IMPORTANT]
 > 위의 요청 본문은 항상 제외 하거나 포함할 데이터 디스크의 최종 복사본입니다. 이전 구성에는 *추가* 되지 않습니다. 예: 먼저 "제외 데이터 디스크 1"로 보호를 업데이트 한 후 "데이터 디스크 2 제외"로 반복 하면 후속 백업에서 *데이터 디스크 2만 제외 되* 고 데이터 디스크 1이 포함 됩니다. 이는 항상 후속 백업에서 포함/제외 되는 최종 목록입니다.
 
-제외 되거나 포함 된 디스크의 현재 목록을 가져오려면 [여기](https://docs.microsoft.com/rest/api/backup/protecteditems/get)에 설명 된 대로 보호 된 항목 정보를 가져옵니다. 응답은 데이터 디스크 Lun 목록을 제공 하 고이를 포함 하거나 제외할지를 나타냅니다.
+제외 되거나 포함 된 디스크의 현재 목록을 가져오려면 [여기](/rest/api/backup/protecteditems/get)에 설명 된 대로 보호 된 항목 정보를 가져옵니다. 응답은 데이터 디스크 Lun 목록을 제공 하 고이를 포함 하거나 제외할지를 나타냅니다.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>보호를 중지하지만 기존 데이터는 보존
 
@@ -477,7 +477,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure 가상 머신 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506681"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174032"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -31,7 +31,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="responses"></a>응답
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       정상  |
 
@@ -122,7 +122,7 @@ X-Powered-By: ASP.NET
 ***백업 항목에 대 한 모든 복원 작업은 동일한 *POST* API를 사용 하 여 수행 됩니다. 복원 시나리오에서는 요청 본문만 변경 됩니다.***
 
 > [!IMPORTANT]
-> 다양 한 복원 옵션 및 해당 종속성에 대 한 모든 세부 정보는 [여기](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options)에 설명 되어 있습니다. 이러한 작업을 계속 하기 전에를 검토 하십시오.
+> 다양 한 복원 옵션 및 해당 종속성에 대 한 모든 세부 정보는 [여기](./backup-azure-arm-restore-vms.md#restore-options)에 설명 되어 있습니다. 이러한 작업을 계속 하기 전에를 검토 하십시오.
 
 복원 작업 트리거는 *POST* 요청입니다. API에 대 한 자세한 내용은 ["복원 트리거" REST API](/rest/api/backup/restores/trigger)를 참조 하세요.
 
@@ -144,7 +144,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -216,7 +216,7 @@ X-Powered-By: ASP.NET
 
 Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -246,7 +246,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 ### <a name="restore-disks-selectively"></a>선택적으로 디스크 복원
 
-[디스크를 선택적으로 백업](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)하는 경우 현재 백업 된 디스크 목록이 [복구 지점 요약](#select-recovery-point) 및 [자세한 응답](https://docs.microsoft.com/rest/api/backup/recoverypoints/get)에 제공 됩니다. [여기](selective-disk-backup-restore.md#selective-disk-restore)에서 디스크를 선택적으로 복원 하 고 자세한 정보를 확인할 수도 있습니다. 백업 된 디스크 목록에서 디스크를 선택적으로 복원 하려면 복구 지점 응답에서 디스크의 LUN을 찾아 아래와 같이 [위의 요청 본문](#example-request) 에 **restoreDiskLunList** 속성을 추가 합니다.
+[디스크를 선택적으로 백업](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)하는 경우 현재 백업 된 디스크 목록이 [복구 지점 요약](#select-recovery-point) 및 [자세한 응답](/rest/api/backup/recoverypoints/get)에 제공 됩니다. [여기](selective-disk-backup-restore.md#selective-disk-restore)에서 디스크를 선택적으로 복원 하 고 자세한 정보를 확인할 수도 있습니다. 백업 된 디스크 목록에서 디스크를 선택적으로 복원 하려면 복구 지점 응답에서 디스크의 LUN을 찾아 아래와 같이 [위의 요청 본문](#example-request) 에 **restoreDiskLunList** 속성을 추가 합니다.
 
 ```json
 {
@@ -278,7 +278,7 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
 
 Azure VM 백업에서 디스크 교체를 트리거하기 위해 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|이름  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 

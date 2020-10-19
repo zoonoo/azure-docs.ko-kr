@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563350"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173682"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Azure Static Web Apps에서 사용자 지정 도메인 설정 미리 보기
 
@@ -29,11 +29,11 @@ ms.locfileid: "87563350"
 
 애플리케이션에 사용할 수 있는 몇 가지 유형의 DNS 구성이 있습니다.
 
-| 원하는 경우                                 | 작업                                                |
-| -----------------------------------------------| --------------------------------------------------- |
-| 지원 `www.example.com` 또는 `blog.example.net`| [CNAME 레코드 매핑](#map-a-cname-record)           |
-| `example.com` 지원                          | [루트 도메인 구성](#configure-a-root-domain) |
-| `www.example.com`으로 모든 하위 도메인 가리키기      | [와일드카드 매핑](#map-a-wildcard-domain)            |
+| 원하는 경우 | 작업 |
+|--|--|
+| 지원 `www.example.com` 또는 `blog.example.net` | [CNAME 레코드 매핑](#map-a-cname-record) |
+| `example.com` 지원 | [루트 도메인 구성](#configure-a-root-domain) |
+| `www.example.com`으로 모든 하위 도메인 가리키기 | [와일드카드 매핑](#map-a-wildcard-domain) |
 
 ## <a name="map-a-cname-record"></a>CNAME 레코드 매핑
 
@@ -46,6 +46,8 @@ CNAME 레코드는 하나의 도메인을 다른 도메인에 매핑합니다. C
 1. _Static Web Apps_ 페이지에서 앱의 이름을 선택합니다.
 
 1. 메뉴에서 **사용자 지정 도메인**을 클릭합니다.
+
+1. **추가** 단추를 클릭 합니다.
 
 1. _사용자 지정 도메인_ 창에서 **값** 필드에 URL을 복사합니다.
 

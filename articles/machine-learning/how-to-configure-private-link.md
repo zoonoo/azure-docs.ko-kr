@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bad470d5ead43b79e3691343b53fff796f7abc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828132"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172778"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성
 
@@ -39,20 +39,28 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>개인 끝점을 사용 하는 작업 영역 만들기
 
-다음 방법 중 하나를 사용 하 여 개인 끝점이 있는 작업 영역을 만듭니다.
+다음 방법 중 하나를 사용 하 여 개인 끝점이 있는 작업 영역을 만듭니다. 이러한 각 방법에 __는 기존 가상 네트워크가 필요 합니다__.
 
 > [!TIP]
-> 필요한 경우 Azure Resource Manager 템플릿이 새 가상 네트워크를 만들 수 있습니다. 다른 방법에는 모두 기존 가상 네트워크가 필요 합니다.
-
-# <a name="resource-manager-template"></a>[Resource Manager 템플릿](#tab/azure-resource-manager)
-
-의 Azure Resource Manager 템플릿은 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) 개인 끝점 및 가상 네트워크를 사용 하 여 작업 영역을 만드는 쉬운 방법을 제공 합니다.
-
-개인 끝점을 포함 하 여이 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기](how-to-create-workspace-template.md)를 참조 하세요.
+> 작업 영역, 개인 끝점 및 가상 네트워크를 동시에 만들려면 [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기](how-to-create-workspace-template.md)를 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
 Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) 클래스를 제공 합니다 [. create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) 를 사용 하 여 개인 끝점으로 작업 영역을 만들 수 있습니다. 이 클래스에는 기존 가상 네트워크가 필요 합니다.
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.create(name='myworkspace',
+    subscription_id='<my-subscription-id>',
+    resource_group='myresourcegroup',
+    location='eastus2',
+    private_endpoint_config=pe,
+    private_endpoint_auto_approval=True,
+    show_output=True)
+```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -67,6 +75,78 @@ Azure Machine Learning Python SDK는 작업 영역에서 사용할 수 있는 [P
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Machine Learning studio의 __네트워킹__ 탭에서는 개인 끝점을 구성할 수 있습니다. 그러나 기존 가상 네트워크가 필요 합니다. 자세한 내용은 [포털에서 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+
+---
+
+## <a name="add-a-private-endpoint-to-a-workspace"></a>작업 영역에 개인 끝점 추가
+
+다음 방법 중 하나를 사용 하 여 개인 끝점을 기존 작업 영역에 추가 합니다.
+
+> [!IMPORTANT]
+>
+> 에서 개인 끝점을 만들 기존 가상 네트워크가 있어야 합니다. 또한 개인 끝점을 추가 하기 전에 [개인 끝점에 대 한 네트워크 정책을 사용 하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md) 해야 합니다.
+
+> [!WARNING]
+>
+> 이 작업 영역에 연결 된 기존 계산 대상이 있는 경우 해당 가상 네트워크와는 다른 가상 네트워크를 tha는 안 됩니다. 개인 끝점은에서 생성 되지만 작동 하지 않습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.from_config()
+ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
+```
+
+이 예제에 사용 된 클래스 및 메서드에 대 한 자세한 내용은 [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) 및 [Workspace.add_private_endpoint](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-)를 참조 하세요.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace private-endpoint add](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) 명령을 제공 합니다.
+
+```azurecli
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+```
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+포털의 Azure Machine Learning 작업 영역에서 __개인 끝점 연결__ 을 선택 하 고 __+ 개인 끝점__을 선택 합니다. 필드를 사용 하 여 새 개인 끝점을 만듭니다.
+
+* __지역을__선택 하는 경우 가상 네트워크와 동일한 지역을 선택 합니다. 
+* __리소스 종류__를 선택 하는 경우 __MachineLearningServices/작업 영역__을 사용 합니다. 
+* __리소스__ 를 작업 영역 이름으로 설정 합니다.
+
+마지막으로 __만들기__ 를 선택 하 여 개인 끝점을 만듭니다.
+
+---
+
+## <a name="remove-a-private-endpoint"></a>개인 끝점 제거
+
+다음 방법 중 하나를 사용 하 여 작업 영역에서 개인 끝점을 제거 합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+[Workspace.delete_private_endpoint_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) 를 사용 하 여 개인 끝점을 제거 합니다.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+# get the connection name
+_, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].rpartition('/')
+ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace private-endpoint delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) 명령을 제공 합니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+포털의 Azure Machine Learning 작업 영역에서 __개인 끝점 연결__을 선택 하 고 제거 하려는 끝점을 선택 합니다. 마지막으로 __제거__를 선택 합니다.
 
 ---
 

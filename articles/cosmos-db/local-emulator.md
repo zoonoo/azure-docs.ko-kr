@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627598"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173785"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos 에뮬레이터 설치 및 사용
 
@@ -243,7 +243,7 @@ Linux 또는 macOS 환경에서 에뮬레이터를 사용 하려면 다음 단�
 1. Windows VM에서 다음 옵션을 사용 하 여 명령줄에서 Azure Cosmos emulator를 시작 합니다. 명령줄에서 지 원하는 매개 변수에 대 한 자세한 내용은 [에뮬레이터 명령줄 도구 참조](emulator-command-line-parameters.md):
 
    ```bash
-   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 
 1. 마지막으로 Linux 또는 Mac 환경에서 실행 중인 응용 프로그램과 에뮬레이터 간에 인증서 신뢰 프로세스를 해결 해야 합니다. 다음 두 가지 옵션 중 하나를 사용 하 여 인증서를 확인할 수 있습니다.
@@ -313,7 +313,7 @@ SSL 유효성 검사를 사용 하지 않도록 설정 하는 것은 개발 목�
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
 
 Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZED` 응용 프로그램을 시작 하는 동안를 설정 하도록 파일을 수정할 수 있습니다.
 

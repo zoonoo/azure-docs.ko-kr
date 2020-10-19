@@ -4,12 +4,12 @@ description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093891"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173587"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)
 
@@ -244,7 +244,7 @@ Azure Backup은 엄격한 보안 지침을 따릅니다. 네이티브 Azure 서�
 
 백업 하거나 복원할 PG 서버에서 백업 자격 증명 모음 MSI **읽기** 액세스 권한을 부여 합니다.
 
-PostgreSQL 데이터베이스에 대 한 보안 연결을 설정 하기 위해 Azure Backup [관리 서비스 ID (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 인증 모델을 사용 합니다. 이는 백업 자격 증명 모음이 사용자에 게 명시적으로 권한이 부여 된 리소스에만 액세스할 수 있음을 의미 합니다.
+PostgreSQL 데이터베이스에 대 한 보안 연결을 설정 하기 위해 Azure Backup [관리 서비스 ID (MSI)](../active-directory/managed-identities-azure-resources/overview.md) 인증 모델을 사용 합니다. 이는 백업 자격 증명 모음이 사용자에 게 명시적으로 권한이 부여 된 리소스에만 액세스할 수 있음을 의미 합니다.
 
 시스템 MSI는 생성 시 자격 증명 모음에 자동으로 할당 됩니다. 이 자격 증명 모음 MSI에 데이터베이스를 백업 하려는 PostgreSQL 서버에 대 한 액세스 권한을 부여 해야 합니다.
 
@@ -308,7 +308,7 @@ OSS 서버에 Active Directory 관리자를 추가 합니다.
 
     ![저장소 Blob 데이터 참가자 역할 할당](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. 또는 Azure CLI [az role 대입문 create](https://docs.microsoft.com/cli/azure/role/assignment) 명령을 사용 하 여 복원 하는 특정 컨테이너에 세부적인 사용 권한을 부여 합니다.
+1. 또는 Azure CLI [az role 대입문 create](/cli/azure/role/assignment) 명령을 사용 하 여 복원 하는 특정 컨테이너에 세부적인 사용 권한을 부여 합니다.
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

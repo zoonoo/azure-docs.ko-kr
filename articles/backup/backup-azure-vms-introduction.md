@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30d27f3f9c559fd149bd45f303127e0eec40b878
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371510"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173860"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -51,7 +51,7 @@ Azure Backup을 사용하여 Azure VM을 백업하면 미사용 상태의 VM이 
 
 **암호화** | **세부 정보** | **지원**
 --- | --- | ---
-**SSE** | SSE를 사용 Azure Storage는 데이터를 저장 하기 전에 데이터를 자동으로 암호화 하 여 미사용 암호화를 제공 합니다. 또한 데이터를 검색 하기 전에 암호를 해독 Azure Storage 합니다. Azure Backup는 두 가지 유형의 저장소 서비스 암호화를 사용 하는 Vm의 백업을 지원 합니다.<li> **플랫폼 관리 키를 사용 하는 SSE**:이 암호화는 기본적으로 vm의 모든 디스크에 대해 사용 됩니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys)를 참조 하세요.<li> **고객 관리 키를 사용 하는 SSE** CMK를 사용 하 여 디스크를 암호화 하는 데 사용 되는 키를 관리 합니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys)를 참조 하세요. | Azure Backup은 Azure Vm의 미사용 암호화에 SSE를 사용 합니다.
+**SSE** | SSE를 사용 Azure Storage는 데이터를 저장 하기 전에 데이터를 자동으로 암호화 하 여 미사용 암호화를 제공 합니다. 또한 데이터를 검색 하기 전에 암호를 해독 Azure Storage 합니다. Azure Backup는 두 가지 유형의 저장소 서비스 암호화를 사용 하는 Vm의 백업을 지원 합니다.<li> **플랫폼 관리 키를 사용 하는 SSE**:이 암호화는 기본적으로 vm의 모든 디스크에 대해 사용 됩니다. 자세한 내용은 [여기](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)를 참조 하세요.<li> **고객 관리 키를 사용 하는 SSE** CMK를 사용 하 여 디스크를 암호화 하는 데 사용 되는 키를 관리 합니다. 자세한 내용은 [여기](../virtual-machines/windows/disk-encryption.md#customer-managed-keys)를 참조 하세요. | Azure Backup은 Azure Vm의 미사용 암호화에 SSE를 사용 합니다.
 **Azure 디스크 암호화** | Azure Disk Encryption은 Azure Vm의 OS 및 데이터 디스크를 모두 암호화 합니다.<br/><br/> Azure Disk Encryption는 키 자격 증명 모음에 비밀으로 보호는 BEKs (BitLocker 암호화 키)와 통합 됩니다. Azure Disk Encryption은 KEKs (Azure Key Vault 키 암호화 키)와도 통합 됩니다. | Azure Backup는 BEKs 전용으로 암호화 된 관리 되는 Azure Vm 또는 KEKs와 함께 BEKs를 사용 하 여 암호화 된 Azure Vm의 백업을 지원 합니다.<br/><br/> BEKs와 KEKs는 모두 백업 및 암호화 됩니다.<br/><br/> KEKs 및 BEKs가 백업 되기 때문에 필요한 권한이 있는 사용자는 필요한 경우 키와 암호를 키 자격 증명 모음으로 다시 복원할 수 있습니다. 이러한 사용자는 암호화 된 VM을 복구할 수도 있습니다.<br/><br/> 암호화 된 키와 암호는 권한이 없는 사용자 또는 Azure에서 읽을 수 없습니다.
 
 관리 및 관리 되지 않는 Azure Vm의 경우 Backup은 BEKs로 암호화 된 Vm 또는 KEKs와 함께 BEKs로 암호화 된 Vm을 모두 지원 합니다.
@@ -113,7 +113,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 - 총 복원 시간은 IOPS (초당 입/출력 작업 수) 및 저장소 계정의 처리량에 따라 달라 집니다.
 - 대상 저장소 계정이 다른 응용 프로그램 읽기 및 쓰기 작업과 함께 로드 되는 경우 총 복원 시간이 영향을 받을 수 있습니다. 복원 작업을 향상 시키려면 다른 응용 프로그램 데이터와 함께 로드 되지 않는 저장소 계정을 선택 합니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 VM 백업을 구성할 때 다음 사례를 따르는 것이 좋습니다.
 

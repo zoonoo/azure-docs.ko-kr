@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936999"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171932"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -32,7 +32,7 @@ AKS 관리 Azure Active Directory 통합은 [AKS가 지원](https://azure.micros
 ## <a name="limitations"></a>제한 사항 
 
 * AKS에서 관리 되는 Azure AD 통합을 사용 하지 않도록 설정할 수 없음
-* 비 RBAC 사용 클러스터는 AKS 관리 Azure AD 통합에 대해 지원 되지 않습니다.
+* 비 RBAC 사용 클러스터는 AKS로 관리 되는 Azure AD 통합에 대해 지원 되지 않습니다.
 * AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
 ## <a name="prerequisites"></a>필수 구성 요소

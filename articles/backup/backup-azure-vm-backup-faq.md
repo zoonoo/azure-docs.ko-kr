@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056721"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172827"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -24,7 +24,7 @@ VM을 만들 때 [지원 되는 운영 체제](backup-support-matrix-iaas.md#sup
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>초기 백업을 완료하는 데 시간이 많이 걸리는 이유는 무엇인가요?
 
 초기 백업은 항상 전체 백업 이며 데이터의 크기 및 백업이 처리 되는 시기에 따라 달라 집니다. <br>
-백업 성능을 향상 시키려면 [백업 모범 사례](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices)를 참조 하세요. [백업 고려 사항](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) 및 [백업 성능](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+백업 성능을 향상 시키려면 [백업 모범 사례](./backup-azure-vms-introduction.md#best-practices)를 참조 하세요. [백업 고려 사항](./backup-azure-vms-introduction.md#backup-and-restore-considerations) 및 [백업 성능](./backup-azure-vms-introduction.md#backup-performance)<br>
 증분 백업의 총 백업 시간은 24시간 미만이지만 첫 번째 백업은 그렇지 않을 수 있습니다.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>백업 비용이 VM 비용에 포함 되나요?
@@ -109,7 +109,7 @@ VM 또는 VM 리소스 그룹의 대/소문자를 변경 하는 경우 백업 �
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>백업 하는 동안 테 넌 트 변경이 발생 하는 경우 관리 되는 id가 유지 되나요?
 
-[테 넌 트가 변경](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) 되 면 백업이 다시 작동 하도록 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다.
+[테 넌 트가 변경](/azure/devops/organizations/accounts/change-azure-ad-connection) 되 면 백업이 다시 작동 하도록 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다.
 
 ## <a name="restore"></a>복원
 
@@ -207,6 +207,6 @@ VM을 새 리소스 그룹으로 이동한 후 동일한 자격 증명 모음이
 
 현재 VM에 할당 된 백업 정책에 따라 VM (백업 항목) 수준에서 보존 설정을 볼 수 있습니다.
 
-백업에 대 한 보존 설정을 확인 하는 한 가지 방법은 Azure Portal에서 VM에 대 한 백업 항목 [대시보드로](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) 이동 하는 것입니다. 해당 백업 정책에 대 한 링크를 선택 하면 VM에 연결 된 매일, 매주, 매월 및 매년 보존 지점의 보존 기간을 볼 수 있습니다.
+백업에 대 한 보존 설정을 확인 하는 한 가지 방법은 Azure Portal에서 VM에 대 한 백업 항목 [대시보드로](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) 이동 하는 것입니다. 해당 백업 정책에 대 한 링크를 선택 하면 VM에 연결 된 매일, 매주, 매월 및 매년 보존 지점의 보존 기간을 볼 수 있습니다.
 
-또한 [Backup 탐색기](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) 를 사용 하 여 단일 창에 있는 모든 vm의 보존 설정을 볼 수 있습니다. 모든 Recovery Services 자격 증명 모음에서 Backup 탐색기로 이동 하 고, **백업 항목** 탭으로 이동 하 고, 고급 보기를 선택 하 여 각 VM에 대 한 자세한 보존 정보를 확인 합니다.
+또한 [Backup 탐색기](./monitor-azure-backup-with-backup-explorer.md) 를 사용 하 여 단일 창에 있는 모든 vm의 보존 설정을 볼 수 있습니다. 모든 Recovery Services 자격 증명 모음에서 Backup 탐색기로 이동 하 고, **백업 항목** 탭으로 이동 하 고, 고급 보기를 선택 하 여 각 VM에 대 한 자세한 보존 정보를 확인 합니다.

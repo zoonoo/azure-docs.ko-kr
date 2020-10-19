@@ -3,12 +3,12 @@ title: Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145436"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174096"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -24,6 +24,8 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 대시보드를 사용 하 고 개별 Vm으로 드릴 다운 하 여 백업을 관리할 수 있습니다. 컴퓨터 백업을 시작 하려면 대시보드에서 자격 증명 모음을 엽니다.
 
 ![슬라이더가 있는 전체 대시보드 보기](./media/backup-azure-manage-vms/bottom-slider.png)
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="view-vms-on-the-dashboard"></a>대시보드에서 Vm 보기
 

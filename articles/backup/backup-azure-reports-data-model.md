@@ -3,12 +3,12 @@ title: Azure Backup 진단 이벤트에 대 한 데이터 모델
 description: 이 데이터 모델은 Log Analytics (LA)로 진단 이벤트를 보내는 리소스 특정 모드를 참조 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569597"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173970"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure Backup 진단 이벤트에 대 한 데이터 모델
 
@@ -84,7 +84,7 @@ ms.locfileid: "91569597"
 | BackupItemUniqueId             | 텍스트          | 경고와 연결 된 백업 항목의 고유 식별자 |
 | BackupManagementServerUniqueId | 텍스트          | 해당 하는 경우 백업 항목을 보호 하는 백업 관리 서버를 고유 하 게 식별 하는 필드입니다. |
 | BackupManagementType           | 텍스트          | 백업 작업을 수행 하는 서버에 대 한 공급자 유형 (예: 예 iaasvm, FileFolder) |
-| CountOfAlertsConsolidated      | 숫자        | 통합 된 경고 인 경우 통합 된 경고 수  |
+| CountOfAlertsConsolidated      | Number        | 통합 된 경고 인 경우 통합 된 경고 수  |
 | ProtectedContainerUniqueId     | 텍스트          | 경고와 연결 된 보호 된 서버의 고유 식별자입니다. |
 | RecommendedAction              | 텍스트          | 경고를 해결하기 위한 권장 작업                      |
 | schemaVersion                  | 텍스트          | 스키마의 현재 버전(예: **V2**)            |
@@ -208,8 +208,8 @@ ms.locfileid: "91569597"
 | ProtectedContainerUniqueId     | 텍스트          | 백업 항목과 연결 된 보호 된 컨테이너의 고유 식별자 |
 | schemaVersion                  | 텍스트          | 스키마의 버전입니다. 예: **V2**                   |
 | 시스템 상태                          | 텍스트          | 백업 항목 개체의 상태입니다. 예: 활성, 삭제 됨 |
-| StorageAllocatedInMBs          | 숫자        | 디스크 형식의 해당 저장소에 있는 해당 백업 항목에 의해 할당 된 저장소 크기 |
-| StorageConsumedInMBs           | 숫자        | 해당 하는 저장소의 해당 백업 항목에서 사용 하는 저장소 크기 |
+| StorageAllocatedInMBs          | Number        | 디스크 형식의 해당 저장소에 있는 해당 백업 항목에 의해 할당 된 저장소 크기 |
+| StorageConsumedInMBs           | Number        | 해당 하는 저장소의 해당 백업 항목에서 사용 하는 저장소 크기 |
 | StorageName                    | 텍스트          | 저장소 엔터티의 이름입니다. 예: E:\                      |
 | StorageTotalSizeInGBs          | 텍스트          | 스토리지 엔터티에서 사용한 총 스토리지 크기(GB)     |
 | StorageType                    | 텍스트          | 스토리지 유형(예: 클라우드, 볼륨, 디스크)             |
@@ -239,7 +239,7 @@ ms.locfileid: "91569597"
 | AddonAzureBackupPolicy | 정책 |  백업 및 보존 정책의 모든 세부 정보를 포함 하는 레코드를 나타냅니다. 예를 들어 ID, 이름, 보존 설정 등이 있습니다. |
 | AddonAzureBackupPolicy | PolicyAssociation | 백업 항목과 해당 백업 정책에 적용 되는 백업 정책 간의 매핑을 나타냅니다. |   
 
-경우에 따라 분석에 필요한 모든 필드를 가져오기 위해 동일한 테이블 (작업 이름으로 구분 됨)의 일부인 여러 레코드 집합 뿐만 아니라 서로 다른 테이블 간에 조인을 수행 해야 하는 경우가 많습니다. 시작 하려면 [샘플 쿼리](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) 를 참조 하세요. 
+경우에 따라 분석에 필요한 모든 필드를 가져오기 위해 동일한 테이블 (작업 이름으로 구분 됨)의 일부인 여러 레코드 집합 뿐만 아니라 서로 다른 테이블 간에 조인을 수행 해야 하는 경우가 많습니다. 시작 하려면 [샘플 쿼리](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) 를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 대규모로 자격 증명 모음 진단 설정 구성
 description: Azure Policy를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 Log Analytics 진단 설정 구성
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293087"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171526"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
 
@@ -27,6 +27,8 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 * 관리 그룹 범위는 현재 지원 되지 않습니다.
 
 * 기본 제공 정책은 현재 국가별 클라우드에서 사용할 수 없습니다.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="assigning-the-built-in-policy-to-a-scope"></a>범위에 기본 제공 정책 할당
 

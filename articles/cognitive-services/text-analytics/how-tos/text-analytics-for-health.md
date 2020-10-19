@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309203"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173960"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -227,7 +227,11 @@ docker-compose up
 
 
 ## <a name="example-api-request"></a>API 요청 예
-컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.
+컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.  또한 컨테이너의 끝점에 **데모** 를 추가 하 여 액세스할 수 있는 시각화 도구를 컨테이너에 제공 했습니다. 예를 들면 다음과 같습니다.
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 아래 예제 말아 예를 사용 하 여 배포 된 컨테이너에 쿼리를 제출 하 고 `serverURL` 변수를 적절 한 값으로 바꿉니다.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 0d36a09b67e110551470f3908800e77c35b1e3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843879"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173592"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Azure Stack Edge Pro GPU 장치 오류에 대 한 준비
 
@@ -66,7 +66,8 @@ Kubernetes 또는 IoT Edge을 배포 하는 경우 응용 프로그램 데이터
 | 타사 소프트웨어           | 솔루션에 대 한 참조                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> 자세한 내용은 Cohesity에 문의 하세요.          |
-| Veritas                        | 자세한 내용은 Veritas에 문의 하세요.   |
+| Commvault                      | https://www.commvault.com/azure <br> 자세한 내용은 Commvault에 문의 하세요.          |
+| Veritas                        | http://veritas.com/azure <br> 자세한 내용은 Veritas에 문의 하세요.   |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>Vm에서 파일 및 폴더 보호
@@ -78,7 +79,8 @@ Azure Stack Edge는 Azure Backup 및 기타 타사 데이터 보호 솔루션과
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Azure Backup에 대 한 MARS (Microsoft Azure Recovery Services) 에이전트 | Windows        | [MARS 에이전트 정보](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure 통합, 백업 및 복구 솔루션 brief](https://www.cohesity.com/solution/cloud/azure) <br>자세한 내용은 Cohesity에 문의 하세요.                          |
-| Veritas                 | Windows, Linux | 자세한 내용은 Veritas에 문의 하세요.                    |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br>자세한 내용은 Commvault에 문의 하세요.                          |
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> 자세한 내용은 Veritas에 문의 하세요.                    |
 
 
 

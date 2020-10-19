@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: ed511f25132ea6bb766736804a5257ad7f6eff0a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 65b31bd39c85ea9073bb9415b9829df12b7d9e35
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149061"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171577"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Java 앱 구성
 
@@ -692,11 +692,15 @@ App Service를 통해 사용자는 JVM의 주 버전 (예: Java 8 또는 Java 11
 
 부 버전을 고정 하도록 선택 하는 경우 사이트에서 JVM 부 버전을 주기적으로 업데이트 해야 합니다. 최신 부 버전에서 응용 프로그램을 실행 하려면 준비 슬롯을 만들고 준비 사이트에서 부 버전을 증가 시킵니다. 새 부 버전에서 응용 프로그램이 올바르게 실행 되었는지 확인 한 후에는 스테이징 및 프로덕션 슬롯을 교환할 수 있습니다.
 
+## <a name="jboss-eap-hardware-options"></a>JBoss EAP 하드웨어 옵션
+
+JBoss EAP는 프리미엄 및 격리 된 하드웨어 옵션 에서만 사용할 수 있습니다. 공개 미리 보기로 제공 되는 무료, 공유, 기본 또는 표준 계층에서 JBoss EAP 사이트를 만든 고객은 예기치 않은 동작을 방지 하기 위해 프리미엄 또는 격리 된 하드웨어 계층으로 확장 해야 합니다.
+
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 버전 및 유지 관리
 
-Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다. OpenJDK의 Azul Zulu Enterprise 빌드는 Microsoft와 Azul Systems가 후원하는 Azure 및 Azure Stack에 대한 OpenJDK의 무료 다중 플랫폼 프로덕션 준비 배포입니다. 여기에는 Java SE 애플리케이션을 빌드하고 실행하기 위한 모든 구성 요소가 포함됩니다. [Java JDK 설치](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 JDK를 설치할 수 있습니다.
+Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다. OpenJDK의 Azul Zulu Enterprise 빌드는 Microsoft와 Azul Systems가 후원하는 Azure 및 Azure Stack에 대한 OpenJDK의 무료 다중 플랫폼 프로덕션 준비 배포입니다. 여기에는 Java SE 애플리케이션을 빌드하고 실행하기 위한 모든 구성 요소가 포함됩니다. [Java JDK 설치](https://aka.ms/azure-jdks)에서 JDK를 설치할 수 있습니다.
 
 주 버전 업데이트는 Azure App Service의 새로운 런타임 옵션을 통해 제공 됩니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
 

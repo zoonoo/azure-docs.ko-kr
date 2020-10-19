@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048460"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172252"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -170,7 +170,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `fr-CH` <sup>새로 만들기</sup> | 프랑스어(스위스) | Female | `fr-CH-ArianeNeural` | 일반 |
 | `fr-FR` | 프랑스어 (프랑스) | Female | `fr-FR-DeniseNeural` | 일반 |
 | `fr-FR` <sup>새로 만들기</sup> | 프랑스어(프랑스) | Male | `fr-FR-HenriNeural` | 일반 |
-| `he-IL` <sup>새로 만들기</sup> | 히브리어 (Isareal) | Female | `he-IL-HilaNeural` | 일반 |
+| `he-IL` <sup>새로 만들기</sup> | 히브리어(이스라엘) | Female | `he-IL-HilaNeural` | 일반 |
 | `hi-IN` | 힌디어 (인도) | Female | `hi-IN-SwaraNeural` | 일반 |
 | `hr-HR` <sup>새로 만들기</sup> | 크로아티아어(크로아티아) | Female | `hr-HR-GabrijelaNeural` | 일반 |
 | `hu-HU` <sup>새로 만들기</sup> | 헝가리어(헝가리) | Female | `hu-HU-NoemiNeural` | 일반 |

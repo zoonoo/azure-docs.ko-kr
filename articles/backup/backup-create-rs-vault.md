@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recove
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981516"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171623"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -35,7 +35,7 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
    - Azure를 기본 백업 저장소 끝점으로 사용 하는 경우 기본 **지역 중복** 설정을 계속 사용 하는 것이 좋습니다.
    - Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다.
    - [지역](../storage/common/storage-redundancy.md#geo-redundant-storage) 및 [로컬](../storage/common/storage-redundancy.md#locally-redundant-storage) 중복성에 대해 자세히 알아보세요.
-   - 지역에서 가동 중지 시간 없이 데이터 가용성이 필요한 경우에는 상주 데이터를 보장 하 고 [영역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage)를 선택 합니다.
+   - 지역에서 가동 중지 시간 없이 데이터 가용성이 필요한 경우에는 상주 데이터를 보장 하 고 [영역 중복 저장소](../storage/common/storage-redundancy.md#zone-redundant-storage)를 선택 합니다.
 
 >[!NOTE]
 >현재 솔루션이 스냅숏 기반 이며 자격 증명 모음으로 전송 된 데이터가 없으므로 자격 증명 모음에 대 한 저장소 복제 설정은 Azure 파일 공유 백업과 관련이 없습니다. 스냅숏은 백업 된 파일 공유와 동일한 저장소 계정에 저장 됩니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093364"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174131"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -436,7 +436,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -612,7 +612,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -818,9 +818,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
-* [Key Vault에 인증 하는 방법](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
-* [Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -868,7 +868,7 @@ App Service, Data Lake Storage 및 Blob Storage와 같은 비 계산 Azure 리�
 
 - [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](../security/fundamentals/antimalware.md)
 
-- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](../security-center/threat-protection.md)
+- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -924,7 +924,7 @@ Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
 **지침**: 온-프레미스 백업의 경우 Azure에 백업할 때 제공 하는 암호를 사용 하 여 미사용 암호화가 제공 됩니다. Azure VM의 경우 SSE(스토리지 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다. Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호할 수 있습니다.
 
-- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 

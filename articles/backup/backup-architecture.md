@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6f95e8f6edaef61a7c5971a46ed4bff1a34e3dbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614005"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173281"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -43,9 +43,9 @@ Azure Backup는 자격 증명 모음 Recovery Services 자격 증명 모음 및 
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS (영역 중복 저장소)**: [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. [자세한 정보](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS (영역 중복 저장소)**: [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 Recovery Services 자격 증명 모음에는 다음과 같은 추가 기능이 있습니다.

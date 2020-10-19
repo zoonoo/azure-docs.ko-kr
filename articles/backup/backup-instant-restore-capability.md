@@ -4,12 +4,12 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000382"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173927"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -60,6 +60,8 @@ ms.locfileid: "89000382"
 ## <a name="configure-snapshot-retention"></a>스냅숏 보존 구성
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Azure Portal에서 **VM 백업 정책** 창의 **인스턴트 복원** 섹션에 추가 된 필드를 볼 수 있습니다. **VM 백업 정책** 창에서 특정 백업 정책과 연결 된 모든 vm에 대 한 스냅숏 보존 기간을 변경할 수 있습니다.
 

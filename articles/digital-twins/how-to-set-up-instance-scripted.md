@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fd48ff8dd0f4fa44206f6636f869d4ea3f959ae5
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132519"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174184"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -59,10 +59,10 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
     컴퓨터의 _**deploy.ps1**_ 파일 ( _Azure_Digital_Twins_end_to_end_samples > 스크립트 > **deploy.ps1** _)로 이동 하 고 "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드 됩니다.
 
-4. Cloud Shell 창에서 명령을 전송 하 여 스크립트를 실행 `./deploy.ps1` 합니다. (Cloud Shell에 붙여넣으려면 Windows 및 Linux에서 **Ctrl + shift + v** 를 사용 하거나 Macos에서 **Cmd + shift + v** 를 사용할 수 있습니다. 오른쪽 클릭 메뉴를 사용할 수도 있습니다.
+4. `./deploy.ps1`앱 등록 설정이 포함 된 스위치를 사용 하 여 Cloud Shell 창에 명령을 전송 하 여 스크립트를 실행 합니다. 아래 명령을 복사 (Cloud Shell에 붙여 넣을 수 있습니다. Windows 및 Linux에서는 **Ctrl + shift + v** 를 사용 하거나 Macos에서는 **Cmd + shift + v** 를 사용할 수 있습니다. 오른쪽 클릭 메뉴를 사용할 수도 있습니다.
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
     스크립트가 자동화 된 설치 단계를 실행 하면 다음 값을 전달 하 라는 메시지가 표시 됩니다.

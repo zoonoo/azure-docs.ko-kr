@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087964ab64c94d5dfe223ce4e47355784003b627
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371187"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173345"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
@@ -26,7 +26,7 @@ DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클�
 
 DDoS Protection 표준은 간단히 사용하도록 설정할 수 있고 애플리케이션을 변경할 필요가 없습니다. 보호 정책은 전용 트래픽 모니터링 및 기계 학습 알고리즘을 통해 조정됩니다. 정책은 Azure Load Balancer, Azure Application Gateway 및 Azure Service Fabric 인스턴스 같은 가상 네트워크에 배포된 리소스에 연결된 공용 IP 주소에 적용되지만, 이 보호는 App Service 환경에 적용되지 않습니다.공격을 받고 있을 때 기록을 위해 Azure Monitor 뷰를 통해 실시간 원격 분석을 사용할 수 있습니다. 진단 설정을 통해 다양한 공격 완화 분석을 사용할 수 있습니다. [Azure Application Gateway 웹 애플리케이션 방화벽](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 또는 Azure Marketplace에서 타사 방화벽을 설치하여 애플리케이션 계층 보호를 추가할 수 있습니다. IPv4 및 IPv6 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
 
-![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddoscomparison.png)
+![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddosfeatures.png)
 
 Azure DDoS protection은 고객 데이터를 저장 하지 않습니다.
 
@@ -41,8 +41,6 @@ DDoS Protection 표준은 다음 유형의 공격을 완화할 수 있습니다.
 DDoS Protection 표준은 가상 머신과 연결된 공용 IP 주소, 부하 분산 장치 및 애플리케이션 게이트웨이를 비롯한 가상 네트워크의 리소스를 보호합니다. Application Gateway 웹 응용 프로그램 방화벽이 나 공용 IP를 사용 하는 가상 네트워크에 배포 된 타사 웹 응용 프로그램 방화벽과 함께 사용 하는 경우 DDoS Protection Standard는 계층 7 완화 기능에 전체 계층 3을 제공할 수 있습니다.
 
 ## <a name="ddos-protection-standard-features"></a>DDoS Protection 표준 기능
-
-![DDoS 기능](./media/ddos-protection-overview/ddosfeatures.png)
 
 DDoS Protection 표준 기능에는 다음이 포함됩니다.
 

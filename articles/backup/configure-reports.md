@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: d40da1ebd87ef7d7a43d0be9ae0d34911e854d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11893488c59781bb78cf913a30069e920c66bc71
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567437"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172459"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -30,6 +30,8 @@ ms.locfileid: "91567437"
 - 고객의 구독에 대한 위임된 액세스 권한이 있는 [Azure Lighthouse](../lighthouse/index.yml) 사용자인 경우 Azure Lighthouse에서 이러한 보고서를 사용하여 모든 테넌트의 보고서를 볼 수 있습니다.
 - 현재는 최대 100개 Log Analytics 작업 영역(테넌트 전체)에서 Backup 보고서를 통해 데이터를 볼 수 있습니다.
 - 로그 백업 작업에 대한 데이터는 현재 보고서에 표시되지 않습니다.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="get-started"></a>시작하기
 

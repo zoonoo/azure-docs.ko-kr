@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: b11a2e3ec2fdf3a46b324dcc0f95d4666a84c179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332681"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173535"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -67,14 +67,14 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 위에 나열 된 모든 Url 및 IP 주소에 대 한 액세스는 포트 443에서 HTTPS 프로토콜을 사용 합니다.
 
-MARS 에이전트를 사용 하 여 Azure Vm에서 파일 및 폴더를 백업 하는 경우 Azure virtual network도 액세스를 허용 하도록 구성 해야 합니다. NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD(*AzureActiveDirectory*) 및 Azure Storage(*Storage*)에 대해 유사한 [NSG 규칙](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결을 허용해야 합니다. 다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
+MARS 에이전트를 사용 하 여 Azure Vm에서 파일 및 폴더를 백업 하는 경우 Azure virtual network도 액세스를 허용 하도록 구성 해야 합니다. NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용하세요. Azure Backup 태그 외에도 Azure AD(*AzureActiveDirectory*) 및 Azure Storage(*Storage*)에 대해 유사한 [NSG 규칙](../virtual-network/network-security-groups-overview.md#service-tags)을 만들어 인증 및 데이터 전송에 대한 연결을 허용해야 합니다. 다음 단계에서는 Azure Backup 태그에 대한 규칙을 만드는 프로세스에 대해 설명합니다.
 
 1. **모든 서비스**에서 **네트워크 보안 그룹**으로 이동하여 네트워크 보안 그룹을 선택합니다.
 2. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
-3. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
+3. **추가**를 선택합니다. [보안 규칙 설정](../virtual-network/manage-network-security-group.md#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
 4. **추가** 를 선택 하 여 새로 만든 아웃 바운드 보안 규칙을 저장 합니다.
 
-마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)를 참조하세요.
+마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/service-tags-overview.md)를 참조하세요.
 
 ### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 
@@ -130,13 +130,13 @@ MARS 에이전트를 사용 하 여에서 실행 되는 아래 나열 된 운영
 
 **운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
 --- | --- | --- | ---
-Windows 10(Enterprise, Pro, Home) | 예 | 아니요 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8.1(Enterprise, Pro)| 예 |아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8(Enterprise, Pro) | 예 | 아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 10(Enterprise, Pro, Home) | 예 | 예 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8.1(Enterprise, Pro)| 예 |예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8(Enterprise, Pro) | 예 | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니요 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
@@ -151,9 +151,9 @@ Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <b
 
 | **운영 체제**                                       | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 아니요                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 예                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
 | Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | 예               | 예                | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 아니요                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 예                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Backup 제한
 

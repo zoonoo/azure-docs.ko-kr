@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사�
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271378"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174106"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 
@@ -240,6 +240,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Azure Portal 사용
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Azure Portal를 사용 하 여 VM 백업 세부 정보 창 및 백업 작업 세부 정보 창에서 포함 및 제외 된 디스크를 볼 수 있습니다.  복원 하는 동안 복원할 복구 지점을 선택 하면 해당 복구 지점에서 백업 된 디스크를 볼 수 있습니다.
 

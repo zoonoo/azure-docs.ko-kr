@@ -3,12 +3,12 @@ title: Backup 센터를 사용하여 백업 자산 관리
 description: 모든 리소스가 백업 센터를 사용 하 여 백업 관점에서 준수 하는지 확인 하기 위해 Azure 환경을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614341"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173806"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Backup 센터를 사용하여 백업 자산 관리
 
@@ -26,15 +26,15 @@ Backup Center를 사용 하면 Azure 환경을 관리 하 여 모든 리소스�
 
 ## <a name="azure-policies-for-backup"></a>백업용 Azure 정책
 
-백업에 사용할 수 있는 모든 [Azure 정책을](https://docs.microsoft.com/azure/governance/policy/overview) 보려면 **백업에 대 한 azure 정책** 메뉴 항목을 선택 합니다. 그러면 구독 및 리소스 그룹에 할당할 수 있는 모든 기본 제공 및 사용자 지정 [Azure 정책 정의가 백업에 대해](policy-reference.md) 표시 됩니다.
+백업에 사용할 수 있는 모든 [Azure 정책을](../governance/policy/overview.md) 보려면 **백업에 대 한 azure 정책** 메뉴 항목을 선택 합니다. 그러면 구독 및 리소스 그룹에 할당할 수 있는 모든 기본 제공 및 사용자 지정 [Azure 정책 정의가 백업에 대해](policy-reference.md) 표시 됩니다.
 
-정의 중 하나를 선택 하면 범위에 [정책을 할당할](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) 수 있습니다.
+정의 중 하나를 선택 하면 범위에 [정책을 할당할](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) 수 있습니다.
 
 ![Azure Policy 정의 선택](./media/backup-center-govern-environment/azure-policy-definitions.png)
 
 ## <a name="backup-compliance"></a>백업 준수
 
-백업 준수 메뉴 항목을 클릭 하면 Azure 환경에 할당 된 다양 한 기본 제공 정책에 따라 리소스의 [호환성](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) 을 확인할 수 있습니다. 하나 이상의 비규격 리소스가 있는 정책 뿐만 아니라 모든 정책에서 준수 하는 리소스의 백분율을 볼 수 있습니다.
+백업 준수 메뉴 항목을 클릭 하면 Azure 환경에 할당 된 다양 한 기본 제공 정책에 따라 리소스의 [호환성](../governance/policy/how-to/get-compliance-data.md) 을 확인할 수 있습니다. 하나 이상의 비규격 리소스가 있는 정책 뿐만 아니라 모든 정책에서 준수 하는 리소스의 백분율을 볼 수 있습니다.
 
 ![백업 준수 보기](./media/backup-center-govern-environment/azure-policy-compliance.png)
 

@@ -4,16 +4,18 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377406"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174006"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
 Azure Backup는 백업 요구 사항 및 인프라 토폴로지 (온-프레미스 vs Azure)를 기반으로 여러 백업 솔루션을 제공 합니다. 모든 백업 사용자 또는 관리자는 모든 솔루션에서 발생 하는 상황을 확인 하 고 중요 한 시나리오에서 알림이 발생할 수 있습니다. 이 문서에서는 Azure Backup 서비스에서 제공 하는 모니터링 및 알림 기능에 대해 자세히 설명 합니다.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 작업
 
@@ -36,6 +38,9 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 > Azure Vm 내에서 SQL 및 SAP HANA 백업 같은 azure 워크 로드에는 상당한 수의 백업 작업이 있습니다. 예를 들어 로그 백업은 15 분 마다 실행할 수 있습니다. 따라서 이러한 DB 워크 로드의 경우 사용자가 트리거한 작업만 표시 됩니다. 예약 된 백업 작업은 표시 되지 않습니다.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 경고
+
+> [!NOTE]
+> 자격 증명 모음에 대 한 경고 보기는 현재 백업 센터에서 지원 되지 않습니다. 해당 자격 증명 모음에 대 한 경고를 보려면 개별 자격 증명 모음으로 이동 해야 합니다.
 
 경고는 사용자가 관련 작업을 수행할 수 있도록 사용자에 게 알림을 제공 하는 경우 주로 발생 합니다. **백업 경고** 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다. 이러한 경고는 서비스에서 정의 되며 사용자가 경고를 만들 수 없습니다.
 
