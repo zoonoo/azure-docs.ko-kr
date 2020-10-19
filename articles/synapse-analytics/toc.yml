@@ -482,7 +482,11 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Cosmos DB용 Azure Synapse Link에 연결
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Azure Synapse Analytics용 Apache Spark와 함께 Azure Cosmos DB 분석 저장소 쿼리
+            - name: Power BI 및 서버리스 SQL 풀을 사용하여 Azure Cosmos DB 분석
+              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 서버리스 SQL 풀을 사용하여 Azure Cosmos DB 데이터 쿼리
+              href: ./sql/query-cosmos-db-analytical-store.md
+            - name: Apache Spark를 사용하여 Azure Cosmos DB Analytical Store 쿼리
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Apache Spark를 사용하여 Synapse Link에서 SQL 풀로 데이터 복사
               href: ./synapse-link/how-to-copy-to-sql-pool.md

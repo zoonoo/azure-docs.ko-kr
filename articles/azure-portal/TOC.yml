@@ -21,7 +21,7 @@
           href: quick-create-template.md
 - name: 개념
   items:
-    - name: 역할 기반 액세스 제어로 대시보드 공유
+    - name: Azure 역할 기반 액세스 제어로 대시보드 공유
       href: azure-portal-dashboard-share-access.md
     - name: Azure 대시보드를 프로그래밍 방식으로 만들기
       href: azure-portal-dashboards-create-programmatically.md

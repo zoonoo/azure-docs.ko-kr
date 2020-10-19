@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863ab9b600b81006cdeb670811c61ed961e8c623
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983699"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170257"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -46,7 +46,7 @@ ms.locfileid: "90983699"
 | **ApiManagement** | Azure API Management 전용 배포에 대한 관리 트래픽입니다. <br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Azure API Management 서비스 엔드포인트를 나타냅니다. 이렇게 하면 고객이 API Management 서비스에 구성된 API, 작업, 정책, 명명된 값에 대해 관리 작업을 수행할 수 있습니다.  | 인바운드 | 예 | 예 |
 | **ApplicationInsightsAvailability** | Application Insights 가용성입니다. | 인바운드 | 예 | 예 |
 | **AppConfiguration** | 앱 구성입니다. | 아웃바운드 | 예 | 예 |
-| **AppService**    | Azure App Service 이 태그는 웹앱 프런트 엔드에 대한 아웃바운드 보안 규칙에 권장됩니다. | 아웃바운드 | 예 | 예 |
+| **AppService**    | Azure App Service 이 태그는 웹 앱 및 함수 앱에 대 한 아웃 바운드 보안 규칙에 권장 됩니다.  | 아웃바운드 | 예 | 예 |
 | **AppServiceManagement** | App Service Environment 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **AzureActiveDirectory** | Azure Active Directory. | 아웃바운드 | 예 | 예 |
 | **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 전용 배포에 대한 관리 트래픽 | 모두 | 예 | 예 |

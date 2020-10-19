@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작
+        - name: 시작하기
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -34,7 +34,11 @@
     - name: 개념
       items:
         - name: 요구 사항 검토
-          href: azure-stack-edge-gpu-system-requirements.md
+          items:
+            - name: Azure Stack Edge의 경우
+              href: azure-stack-edge-gpu-system-requirements.md
+            - name: Azure Stack Edge Blob 스토리지의 경우
+              href: azure-stack-edge-gpu-system-requirements-rest.md
         - name: 제한 이해
           href: azure-stack-edge-limits.md
         - name: 보안 개요

@@ -6,10 +6,8 @@
       href: introduction.md
 - name: 빠른 시작
   items:
-    - name: 배포 전 프로세스
+    - name: 0- 배포 계획
       href: production-ready-deployment-steps.md
-    - name: 배포 전 검사 목록
-      href: pre-deployment-checklist.md
     - name: 1 - Azure VMware Solution 배포
       href: deploy-azure-vmware-solution.md
     - name: 2- 온-프레미스에 연결
@@ -104,3 +102,7 @@
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md
+- name: 참조
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.vmware

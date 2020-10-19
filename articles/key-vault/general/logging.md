@@ -10,27 +10,27 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a51e9a628f67269357d42bd1d3af10c1d86f301a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739785"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131176"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 이 작업은 제공하는 정보를 Azure 스토리지 계정에 저장하는 Azure Key Vault에서 로깅을 사용하도록 설정하여 수행할 수 있습니다. 지정한 스토리지 계정에 대해 **insights-logs-auditevent**라는 새 컨테이너가 자동으로 만들어집니다. 여러 키 자격 증명 모음에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
+하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 이 작업은 제공하는 정보를 Azure 스토리지 계정에 저장하는 Azure Key Vault에서 로깅을 사용하도록 설정하여 수행할 수 있습니다. 이를 설정하는 방법에 대한 단계별 지침은 [키 자격 증명 모음 로깅을 사용하는 방법](howto-logging.md)을 참조하세요.
 
 키 자격 증명 모음 작업 후 최대 10분 동안 로깅 정보에 액세스할 수 있습니다. 대부분의 경우 이것보다 빠릅니다.  스토리지 계정의 로그 관리에 따라 다릅니다.
 
 * 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 * 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 
-Key Vault에 대한 개요 정보는 [Azure Key Vault란?](overview.md)을 참조하세요). Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. [Key Vault에 대한 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) 사용에 대한 정보입니다.
+Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세요. Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. [Key Vault에 대한 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) 사용에 대한 정보입니다.
 
 ## <a name="interpret-your-key-vault-logs"></a>Key Vault 로그 해석
+
+로깅을 사용하면 지정한 스토리지 계정에 대해 **insights-logs-auditevent**라는 새 컨테이너가 자동으로 만들어집니다. 여러 키 자격 증명 모음에 대한 로그를 수집하는 데 이 동일한 스토리지 계정을 사용할 수 있습니다.
 
 개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 로그 항목 예제를 살펴보겠습니다. 
 
@@ -122,16 +122,15 @@ Key Vault에 대한 개요 정보는 [Azure Key Vault란?](overview.md)을 참�
 | **CertificateNearExpiryEventGridNotification** |인증서가 곧 만료되는 이벤트가 게시됨 |
 | **CertificateExpiredEventGridNotification** |인증서가 만료된 이벤트가 게시됨 |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Azure Monitor 로그 사용
+## <a name="use-azure-monitor-logs"></a>Azure Monitor 로그 사용
 
 Azure Monitor 로그에서 Key Vault 솔루션을 사용하여 Key Vault `AuditEvent` 로그를 검토할 수 있습니다. Azure Monitor 로그에서 로그 쿼리를 사용하여 데이터를 분석하고 필요한 정보를 가져옵니다. 
 
 이를 설정하는 방법을 포함한 자세한 내용은 [Azure Monitor의 Azure Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md)를 참조하세요.
 
-## <a name="next-steps"></a><a id="next"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
-.NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
-
-프로그래밍 참조는 [Azure Key Vault 개발자 가이드](developers-guide.md)를 참조하세요.
-
-Azure Key Vault용 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)을 참조하세요.
+- [키 자격 증명 모음 로깅을 사용하는 방법](howto-logging.md)
+- .NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
+- 프로그래밍 참조는 [Azure Key Vault 개발자 가이드](developers-guide.md)를 참조하세요.
+- Azure Key Vault용 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)을 참조하세요.

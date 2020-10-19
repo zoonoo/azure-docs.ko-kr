@@ -92,6 +92,8 @@
     - name: 문제 자체 진단 및 해결
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: 모니터
+    - name: 역할 및 권한 만들기
+      href: spring-cloud-howto-permissions.md
       items:
         - name: 분산 추적 및 앱 인사이트
           href: spring-cloud-tutorial-distributed-tracing.md

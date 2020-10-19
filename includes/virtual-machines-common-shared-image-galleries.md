@@ -4,15 +4,15 @@ description: 포함 파일
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/08/2020
-ms.author: akjosh
+ms.date: 10/14/2020
+ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89494319"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116745"
 ---
 Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
@@ -56,19 +56,36 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 
 이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 형식은 최신 버전의 Marketplace 이미지를 가져오기 위해 Azure PowerShell에서 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md)의 게시자, 제품 및 SKU를 지정하는 방법과 비슷합니다. 각 이미지 정의에는 이와 같이 고유한 값 세트가 필요합니다.
 
+다음 매개 변수는 포함할 수 있는 이미지 버전 유형을 결정합니다.
+
+- 운영 체제 상태 - OS 상태를 [일반화 또는 특수화](#generalized-and-specialized-images)로 설정할 수 있습니다. 이 필드는 필수 필드입니다.
+- 운영 체제 - Windows 또는 Linux입니다. 이 필드는 필수 필드입니다.
+-   Hyper-V 생성 - 이미지가 1세대 또는 [2세대](../articles/virtual-machines/generation-2.md) Hyper-V VHD 중 무엇으로 만들었는지 여부를 지정합니다. 기본값은 1세대입니다.
+
+
 다음은 리소스를 보다 쉽게 추적할 수 있도록 이미지 정의에 대해 설정할 수 있는 다른 매개 변수입니다.
 
-* 운영 체제 상태 - OS 상태를 [일반화 또는 특수화](#generalized-and-specialized-images)로 설정할 수 있습니다.
-* 운영 체제 - Windows 또는 Linux입니다.
-* 설명 - 설명을 사용하여 이미지 정의가 존재하는 이유를 자세히 알려줍니다. 예를 들어 애플리케이션이 미리 설치된 프런트 엔드 서버의 이미지 정의가 있을 수 있습니다.
-* Eula - 이미지 정의와 관련된 최종 사용자 사용권 계약을 가리키는 데 사용할 수 있습니다.
-* 개인정보처리방침 및 릴리스 정보 - 릴리스 정보와 개인정보처리방침을 Azure 스토리지에 저장하고 이미지 정의 과정에서 액세스할 수 있도록 URI를 제공합니다.
-* 수명 종료 데이터 - 수명 종료 날짜를 이미지 정의에 연결하면 오래된 이미지 정의를 자동으로 삭제할 수 있습니다.
-* 태그 - 이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md)을 참조하세요.
-* 최소/최대 vCPU 및 메모리 권장 사항 - 이미지에 대한 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
-* 허용되지 않는 디스크 유형 - VM의 스토리지 요구 사항에 대한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합하지 않은 경우 허용되지 않는 유형 목록에 추가합니다.
-* Hyper-V 생성 - 이미지가 1세대 또는 2세대 Hyper-V VHD 중 무엇으로 만들었는지 지정할 수 있습니다.
-* Marketplace 이미지(`-PurchasePlanPublisher `, `-PurchasePlanName` 및 `-PurchasePlanProduct`)에 대한 구매 계획 정보입니다. 구매 계획 정보에 대한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 및 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조하세요.
+- 설명 - 설명을 사용하여 이미지 정의가 존재하는 이유를 자세히 알려줍니다. 예를 들어 애플리케이션이 미리 설치된 프런트 엔드 서버의 이미지 정의가 있을 수 있습니다.
+- Eula - 이미지 정의와 관련된 최종 사용자 사용권 계약을 가리키는 데 사용할 수 있습니다.
+- 개인정보처리방침 및 릴리스 정보 - 릴리스 정보와 개인정보처리방침을 Azure 스토리지에 저장하고 이미지 정의 과정에서 액세스할 수 있도록 URI를 제공합니다.
+- 수명 종료 데이터 - 수명 종료 날짜를 이미지 정의에 연결하면 오래된 이미지 정의를 자동으로 삭제할 수 있습니다.
+- 태그 - 이미지 정의를 만들 때 태그를 추가할 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md)을 참조하세요.
+- 최소/최대 vCPU 및 메모리 권장 사항 - 이미지에 대한 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
+- 허용되지 않는 디스크 유형 - VM의 스토리지 요구 사항에 대한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합하지 않은 경우 허용되지 않는 유형 목록에 추가합니다.
+- Marketplace 이미지(`-PurchasePlanPublisher`, `-PurchasePlanName` 및 `-PurchasePlanProduct`)에 대한 구매 계획 정보입니다. 구매 계획 정보에 대한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 및 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조하세요.
+
+
+## <a name="image-versions"></a>이미지 버전
+
+VM을 만드는 데 사용하는 것은 **이미지 버전**입니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다.
+
+이미지 버전의 속성은 다음과 같습니다.
+
+- 버전 번호. 이는 이미지 버전의 이름으로 사용됩니다. 항상 다음과 같은 형식입니다. MajorVersion.MinorVersion.Patch. VM을 만들 때 **최신**을 사용하도록 지정하면 가장 높은 MajorVersion, 다음으로 MinorVersion, 다음으로 패치를 기준으로 최신 이미지가 선택됩니다. 
+- 원본. 원본은 VM, 관리 디스크, 스냅샷, 관리형 이미지 또는 다른 이미지 버전일 수 있습니다. 
+- 최신 항목에서 제외. 버전을 최신 이미지 버전으로 사용하지 않도록 할 수 있습니다. 
+- 수명 주기 끝. 이 이미지에서 VM을 만들 수 없는 날짜입니다.
+
 
 ## <a name="generalized-and-specialized-images"></a>일반화 이미지와 특수화 이미지
 

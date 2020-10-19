@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 9f64d6da399285b82d1222a768b344dfdf6a317b
-  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+  ms.openlocfilehash: 546cde760946c2cd63bef539180395160acf3608
+  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92047045"
+  ms.lasthandoff: 10/16/2020
+  ms.locfileid: "92131669"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:
@@ -71,7 +71,7 @@ landingContent:
     links:
     - text: 앱 인증 코드 쓰기
       url: how-to-authenticate-client.md
-- title: API 참조
+- title: API 참조 보기
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -85,3 +85,29 @@ landingContent:
     links:
     - text: REST API
       url: /rest/api/azure-digitaltwins/
+- title: 코드 샘플 살펴보기
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: 엔드투엔드 샘플
+      url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Azure Digital Twins 탐색기(샘플)
+      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explore
+  - linkListType: sample
+    links:
+    - text: DTDL 유효성 검사기(샘플)
+      url: /samples/azure-samples/dtdl-validator/dtdl-validator/
+  - linkListType: sample
+    links:
+    - text: DPS 및 IoT Hub 통합 샘플
+      url: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+  - linkListType: sample
+    links:
+    - text: SignalR 통합 샘플
+      url: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+  - linkListType: sample
+    links:
+    - text: Logic Apps 커넥터용 사용자 지정 Swagger
+      url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595991"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125255"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
@@ -52,6 +52,8 @@ Azure CLI `az keyvault set-policy` 명령 또는 Azure PowerShell Set-AzKeyVault
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>기존 액세스 정책을 삭제하지 않고 ARM 템플릿을 사용하여 Key Vault를 재배포하려면 어떻게 해야 하나요?
 
 현재 Key Vault 재배포는 Key Vault의 모든 액세스 정책을 삭제하고 ARM 템플릿의 액세스 정책으로 바꿉니다. Key Vault 액세스 정책에 대한 증분 옵션은 없습니다. Key Vault에서 액세스 정책을 유지하려면 Key Vault에서 기존 액세스 정책을 읽고 이러한 정책을 사용하여 ARM 템플릿을 채워 액세스 중단을 방지해야 합니다.
+
+이 시나리오에 도움이 될 수 있는 또 다른 옵션은 액세스 정책의 대안으로 RBAC 역할을 사용하는 것입니다. RBAC를 사용하면 정책을 다시 지정하지 않고 키 자격 증명 모음을 다시 배포할 수 있습니다. [여기](https://docs.microsoft.com/azure/key-vault/general/rbac-guide)에서 이 솔루션에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>다음 오류 유형에 대한 권장되는 문제 해결 단계
 

@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9ebf07a5125995e66297d89643845b54aad246b8
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999879"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170300"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서를 사용 하 여 장치를 연결 하는 방법
 
@@ -20,7 +20,7 @@ IoT Central는 SAS (공유 액세스 서명) 및 x.509 인증서를 모두 지�
 
 이 문서에서는 일반적으로 프로덕션 환경에서 사용 되는 x.509 [등록](how-to-connect-devices-x509.md#use-a-group-enrollment) 를 사용 하는 두 가지 방법을 보여 주고 [개별 등록](how-to-connect-devices-x509.md#use-an-individual-enrollment) 는 테스트에 유용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [클라이언트 응용 프로그램을 만들고 Azure IoT Central 응용 프로그램 (Node.js) 자습서에 연결](./tutorial-connect-device-nodejs.md) 합니다.
 - [Git](https://git-scm.com/download/)
@@ -50,12 +50,15 @@ IoT Central는 SAS (공유 액세스 서명) 및 x.509 인증서를 모두 지�
     npm install
     ```
 
-1. 루트 인증서를 만든 다음 스크립트를 실행 하 여 장치 인증서를 파생 시킵니다. 인증서 이름에는 소문자 영숫자 및 하이픈만 사용 해야 합니다.
+1. 루트 인증서를 만든 다음 스크립트를 실행 하 여 장치 인증서를 파생 합니다.
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
+
+    > [!TIP]
+    > 장치 ID에는 문자, 숫자 및 문자를 사용할 수 있습니다 `-` .
 
 이러한 명령은 루트 및 장치 인증서 각각에 대해 3 개의 파일을 생성 합니다.
 

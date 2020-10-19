@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperfq2
-ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850101"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170341"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 디바이스 관리
 
@@ -60,7 +60,7 @@ Azure IoT Central 애플리케이션에 디바이스를 추가하려면:
 
 대량의 디바이스를 애플리케이션에 연결하려면 CSV 파일에서 대량으로 디바이스를 가져오면 됩니다. CSV 파일에는 다음 열과 헤더가 있습니다.
 
-* **IOTC_DeviceID** - 디바이스 ID는 모두 소문자여야 합니다.
+* **IOTC_DeviceID** -장치 ID는 문자, 숫자 및 문자를 포함할 수 있습니다 `-` .
 * **IOTC_DeviceName** - 이 열은 선택 사항입니다.
 
 디바이스를 애플리케이션에 대량으로 등록하려면:

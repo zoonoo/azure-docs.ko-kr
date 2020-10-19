@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371754"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116710"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)의 할당량과 제한을 제공합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -71,7 +71,7 @@ Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최�
 | 스키마당 크기(바이트) | 1MB |   
 | 스키마 그룹당 속성 수 | 1024 |
 | 그룹 속성 키당 크기(바이트) | 256 | 
-| 그룹 속성 키당 크기(바이트) | 1024 | 
+| 그룹 속성 값당 크기(바이트) | 1024 | 
 
 
 #### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>**표준** 및 **전용** 계층에 대해 다른 제한 

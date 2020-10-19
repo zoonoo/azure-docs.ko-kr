@@ -230,12 +230,8 @@
               href: application-sign-in-problem-application-error.md
             - name: Microsoft 앱에 로그인하는 문제
               href: application-sign-in-problem-first-party-microsoft.md
-            - name: 페더레이션된 Single Sign-On 관련 문제 - 비갤러리 앱
-              href: application-sign-in-problem-federated-sso-non-gallery.md
-            - name: 페더레이션된 Single Sign-On 관련 문제 - 갤러리 앱
+            - name: Single Sign-On 문제
               href: application-sign-in-problem-federated-sso-gallery.md
-            - name: 사용자 지정 개발 앱 관련 문제
-              href: application-sign-in-problem-custom-dev.md
         - name: 온-프레미스 앱 문제 해결
           items:
             - name: 애플리케이션 프록시 문제 해결

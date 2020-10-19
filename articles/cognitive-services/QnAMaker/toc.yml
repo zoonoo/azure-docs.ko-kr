@@ -24,26 +24,14 @@
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
     - name: Azure Bot Service로 FAQ 봇 만들기
       href: Tutorials/create-faq-bot-with-azure-bot-service.md
-    - name: 배치 파일을 사용하여 테스트
-      href: Quickstarts/batch-testing.md
 - name: 개념
   items:
     - name: 기술 자료 계획
       href: Concepts/plan.md
     - name: QnA Maker 리소스 계획
       href: Concepts/azure-resources.md
-    - name: 기술 자료 디자인
-      items:
-        - name: 언어용
-          href: Concepts/design-language-culture.md
-        - name: 클라이언트 애플리케이션용
-          href: Concepts/integration-with-other-applications.md
     - name: 데이터 원본 및 콘텐츠
-      items:
-        - name: 데이터 원본에서 가져오기
-          href: Concepts/knowledge-base.md
-        - name: 콘텐츠 유형 가져옴
-          href: Concepts/content-types.md
+      href: Concepts/data-sources-and-content.md
     - name: 프로세스 순위 지정
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -58,22 +46,14 @@
 - name: 방법 가이드
   items:
     - name: Azure 리소스 관리
-      items:
-        - name: 리소스 관리
-          href: How-To/set-up-qnamaker-service-azure.md
-          displayName: 'azure, resource, key, upgrade, pricing, tier,'
-        - name: 공동 작업
-          href: How-To/collaborate-knowledge-base.md
-        - name: 활성 학습 설정
-          href: How-To/use-active-learning.md
-        - name: 기본 답변 변경
-          href: How-To/change-default-answer.md
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: 'azure, resource, key, upgrade, pricing, tier,'
+    - name: QnA Maker 앱 관리
+      href: How-To/manage-qna-maker-app.md
     - name: 기술 자료 관리
       items:
         - name: 기술 자료 만들기
           href: How-To/manage-knowledge-bases.md
-        - name: 언어 선택
-          href: How-To/language-knowledge-base.md
         - name: 잡담 추가
           href: How-to/chit-chat-knowledge-base.md
         - name: 새 기술 자료로 마이그레이션
@@ -102,7 +82,7 @@
       href: Overview/language-support.md
     - name: 제한
       href: limits.md
-    - name: RBAC(역할 기반 액세스 제어)
+    - name: Azure RBAC(Azure 역할 기반 액세스 제어)
       href: Concepts/role-based-access-control.md
     - name: 능동적 학습
       href: Concepts/active-learning-suggestions.md
@@ -115,6 +95,8 @@
     - name: 보안 SharePoint 파일 추가
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'
+    - name: 기본 답변 변경
+      href: How-To/change-default-answer.md
     - name: 서비스 구성
       href: reference-app-service.md
     - name: 콘텐츠 및 데이터 형식

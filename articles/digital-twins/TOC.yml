@@ -193,7 +193,7 @@
       items:
         - name: 디바이스 시뮬레이터 서비스
           href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
-        - name: Azure Digital Twins 샘플
+        - name: Azure Digital Twins 엔드투엔드 샘플
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Azure Digital Twins 탐색기(샘플)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
@@ -201,10 +201,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DPS 및 IoT Hub 통합 샘플
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Logic Apps 커넥터용 Azure Digital Twins 사용자 지정 Swagger
-          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: SignalR 통합 샘플
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
+        - name: Logic Apps 커넥터용 Azure Digital Twins 사용자 지정 Swagger
+          href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell

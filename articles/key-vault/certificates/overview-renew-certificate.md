@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588806"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124154"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -25,12 +25,20 @@ Azure Key Vault를 사용하여 네트워크에 대한 디지털 인증서를 �
 
 이 문서에서는 Azure Key Vault 인증서를 갱신하는 방법을 설명합니다.
 
-## <a name="get-notified-about-certificate-expirations"></a>인증서 만료에 대한 알림 받기
-인증서가 곧 만료될 때 알림을 받으려면 다음을 수행합니다.
+## <a name="get-notified-about-certificate-expiration"></a>인증서 만료에 대한 알림 받기
+인증서 수명 이벤트에 대한 알림을 받으려면 인증서 연락처를 추가해야 합니다. 인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다.
 
-첫째, PowerShell cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)를 사용하여 키 자격 증명 모음에 인증서 연락처를 추가합니다.
+### <a name="steps-to-set-certificate-notifications"></a>인증서 알림을 설정하는 단계는 다음과 같습니다.
+먼저 인증서 연락처를 키 자격 증명 모음에 추가합니다. Azure Portal 또는 PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)를 사용하여 추가할 수 있습니다.
 
 둘째, 인증서 만료에 대한 알림을 받을 조건을 구성합니다. 인증서의 수명 주기 특성을 구성하려면 [Key Vault에서 인증서 자동 순환 구성](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate)을 참조하세요.
+
+인증서를 자동으로 갱신하도록 정책이 설정되는 경우 알림을 보내는 이벤트는 다음과 같습니다.
+
+- 인증서 갱신 전
+- 인증서 갱신 후 - 인증서가 성공적으로 갱신된 경우에 시작되거나, 오류가 있는 경우 인증서를 수동으로 갱신해야 합니다.  
+
+  인증서를 수동으로(이메일을 통해서만) 갱신하는 정책을 설정하는 경우 인증서를 갱신할 시간이 되면 알림이 전송됩니다.  
 
 Key Vault에는 다음과 같은 세 가지 범주의 인증서가 있습니다.
 -   DigiCert 또는 GlobalSign과 같은 통합 CA(인증 기관)를 통해 생성된 인증서

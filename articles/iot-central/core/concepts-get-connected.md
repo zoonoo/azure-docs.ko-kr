@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126844"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170054"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -113,7 +113,7 @@ X.509 인증서가 있는 장치를 응용 프로그램에 연결 하려면 다�
 
 ### <a name="register-and-connect-devices"></a>장치 등록 및 연결
 
-X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV 파일을 사용 하 여 응용 프로그램에 장치를 등록 하 여 [장치 id 및 장치 이름을 가져옵니다](howto-manage-devices.md#import-devices). 장치 Id는 모두 소문자 여야 합니다.
+X.509 인증서를 사용 하 여 장치를 대량 연결 하려면 먼저 CSV 파일을 사용 하 여 응용 프로그램에 장치를 등록 하 여 [장치 id 및 장치 이름을 가져옵니다](howto-manage-devices.md#import-devices). 장치 ID에는 문자, 숫자 및 문자를 사용할 수 있습니다 `-` .
 
 X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 x.509 리프 인증서를 생성 합니다. 리프 인증서의 값으로 **장치 ID** 를 사용 `CNAME` 합니다. 장치 코드에는 응용 프로그램에 대 한 **id 범위** 값, **장치 id**및 해당 장치 인증서가 필요 합니다.
 
@@ -149,7 +149,7 @@ X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 �
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="X.509 등록 그룹 스크린샷 추가":::
 
-1. 명령을 사용 `az iot central device compute-device-key` 하 여 장치 SAS 키를 생성 합니다. 이전 단계의 그룹 기본 키를 사용 합니다. 장치 Id는 소문자 여야 합니다.
+1. 명령을 사용 `az iot central device compute-device-key` 하 여 장치 SAS 키를 생성 합니다. 이전 단계의 그룹 기본 키를 사용 합니다. 장치 ID에는 문자, 숫자 및 문자를 사용할 수 있습니다 `-` .
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 �
 
 1. [등록 그룹을 만든](#create-an-enrollment-group) 다음 [루트 또는 중간 x.509 인증서](#add-and-verify-a-root-or-intermediate-x509-certificate) 를 IoT Central 응용 프로그램에 추가 하 고 확인 합니다.
 
-1. IoT Central 응용 프로그램에 추가한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 리프 인증서에서로 소문자 장치 Id를 사용 `CNAME` 합니다.
+1. IoT Central 응용 프로그램에 추가한 루트 또는 중간 인증서를 사용 하 여 장치에 대 한 리프 인증서를 생성 합니다. 리프 인증서의로 장치 Id를 사용 합니다 `CNAME` . 장치 ID에는 문자, 숫자 및 문자를 사용할 수 있습니다 `-` .
 
 1. OEM은 장치 ID, 생성 된 리프 x.509 인증서 및 응용 프로그램 **ID 범위** 값을 사용 하 여 각 장치를 깜박입니다.
 
@@ -185,7 +185,7 @@ X.509 등록 그룹에 업로드 한 루트 또는 중간 인증서를 사용 �
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>개별 등록 기반 장치 연결
 
-각각 고유한 인증 자격 증명이 있는 장치를 연결 하는 고객의 경우 개별 등록를 사용 합니다. 개별 등록은 연결을 허용 하는 단일 장치에 대 한 항목입니다. 개별 등록는 x.509 리프 인증서 또는 SAS 토큰 (실제 또는 가상의 신뢰할 수 있는 플랫폼 모듈)을 증명 메커니즘으로 사용할 수 있습니다. 개별 등록에서 장치 ID (등록 ID 라고도 함)는 영숫자, 소문자 이며 하이픈을 포함할 수 있습니다. 자세한 내용은 [DPS 개별 등록](../../iot-dps/concepts-service.md#individual-enrollment)을 참조 하세요.
+각각 고유한 인증 자격 증명이 있는 장치를 연결 하는 고객의 경우 개별 등록를 사용 합니다. 개별 등록은 연결을 허용 하는 단일 장치에 대 한 항목입니다. 개별 등록는 x.509 리프 인증서 또는 SAS 토큰 (실제 또는 가상의 신뢰할 수 있는 플랫폼 모듈)을 증명 메커니즘으로 사용할 수 있습니다. 개별 등록에서 장치 ID (등록 ID 라고도 함)는 장치 ID에 문자, 숫자 및 문자를 포함할 수 있습니다 `-` . 자세한 내용은 [DPS 개별 등록](../../iot-dps/concepts-service.md#individual-enrollment)을 참조 하세요.
 
 > [!NOTE]
 > 장치에 대 한 개별 등록을 만들 때 IoT Central 응용 프로그램의 기본 그룹 등록 옵션 보다 우선 적용 됩니다.

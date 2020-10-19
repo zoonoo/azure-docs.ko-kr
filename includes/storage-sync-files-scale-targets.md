@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/05/2019
+ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84466881"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116717"
 ---
 | 리소스 | 대상 | 하드 한도 |
 |----------|--------------|------------|
@@ -27,7 +27,7 @@ ms.locfileid: "84466881"
 | 디렉터리에 있는 파일 시스템 개체(디렉터리 및 파일)의 최대 수 | 500만 개 개체 | 예 |
 | 최대 개체(디렉터리 및 파일) 보안 설명자 크기 | 64KiB | 예 |
 | 파일 크기 | 100GiB | 아니요 |
-| 계층화할 파일에 대한 최소 파일 크기 | V9: 파일 시스템 클러스터 크기를 기준으로 합니다(이중 파일 시스템 클러스터 크기). 예를 들어 파일 시스템 클러스터 크기가 4kb이면 최소 파일 크기는 8kb입니다.<br> V8 이하: 64KiB  | 예 |
+| 계층화할 파일에 대한 최소 파일 크기 | V9 이상: 파일 시스템 클러스터 크기를 기준으로 합니다(이중 파일 시스템 클러스터 크기). 예를 들어 파일 시스템 클러스터 크기가 4kb이면 최소 파일 크기는 8kb입니다.<br> V8 이하: 64KiB  | 예 |
 
 > [!Note]  
 > Azure 파일 동기화 엔드포인트는 Azure 파일 공유의 크기로 확장할 수 있습니다. Azure 파일 공유 크기 제한에 도달하면 동기화가 작동할 수 없습니다.

@@ -23,6 +23,10 @@
 - name: 빠른 시작
   expanded: true
   items:
+    - name: 네트워크 준비
+      href: quickstart-prepare-network-for-defender-for-iot.md
+    - name: 온보드 센서
+      href: quickstart-onboard-sensors.md
     - name: Azure RTOS용 보안 모듈 구성
       href: quickstart-azure-rtos-security-module.md
     - name: Azure Defender for IoT를 IoT Hub에 온보딩
@@ -63,6 +67,10 @@
       href: concept-pricing.md
 - name: 방법 가이드
   items:
+    - name: 센서 보기 및 관리
+      href: how-to-deploy-view-sensors.md
+    - name: 온-프레미스 관리 콘솔 배포
+      href: how-to-deploy-management-console-appliance.md
     - name: Azure RTOS용 보안 모듈 작업
       href: how-to-azure-rtos-security-module.md
     - name: 어떤 에이전트를 배포해야 하나요?
@@ -95,14 +103,16 @@
       href: how-to-investigate-device.md
     - name: Azure Sentinel에 연결
       href: how-to-configure-with-sentinel.md
-    - name: 솔루션 사용자 지정
+    - name: 에이전트 사용자 지정
       href: how-to-customize-solution.md
 - name: 참조
   items:
     - name: Azure RTOS API용 보안 모듈
       href: azure-rtos-security-module-api.md
-    - name: 질문과 대답
+    - name: 질문과 대답 - 서비스
       href: resources-frequently-asked-questions.md
+    - name: 질문과 대답 - 에이전트
+      href: resources-agent-frequently-asked-questions.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
 - name: 리소스

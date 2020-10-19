@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: d36fe791e34544a4d6132a49fc5ec3f2aa334654
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: cc32a67ab681341fd8320b9445f4e00013f2aa51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127287"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170279"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -104,7 +104,7 @@ SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니�
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. Azure Database for MySQL에서 App Service를 사용 하는 경우 미치는 영향은 무엇입니까?
 Azure Database for MySQL에 연결 하는 Azure app services의 경우 두 가지 시나리오를 사용할 수 있으며, 응용 프로그램에서 SSL을 사용 하는 방법에 따라 달라 집니다.
 *   이 새 인증서는 플랫폼 수준에서 App Service에 추가 되었습니다. 응용 프로그램의 App Service 플랫폼에 포함 된 SSL 인증서를 사용 하는 경우 아무 작업도 필요 하지 않습니다.
-*   코드에 SSL 인증서 파일의 경로를 명시적으로 포함 하는 경우 새 인증서를 다운로드 하 고 새 인증서를 사용 하도록 코드를 업데이트 해야 합니다.
+*   코드에 SSL 인증서 파일의 경로를 명시적으로 포함 하는 경우 새 인증서를 다운로드 하 고 새 인증서를 사용 하도록 코드를 업데이트 해야 합니다. 이 시나리오의 좋은 예는 [App Service 설명서](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md) 에서 공유 된 App Service의 사용자 지정 컨테이너를 사용 하는 경우입니다.
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. Azure Database for MySQL에서 AKS (Azure Kubernetes Services)를 사용 하는 경우 미치는 영향은 무엇 인가요?
 AKS (Azure Kubernetes Services)를 사용 하 여 Azure Database for MySQL에 연결 하려는 경우 전용 고객 호스트 환경에서 액세스 하는 것과 비슷합니다. [여기](../aks/ingress-own-tls.md)에서 단계를 참조 하세요.

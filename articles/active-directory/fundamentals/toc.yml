@@ -49,6 +49,34 @@
           href: active-directory-architecture.md
         - name: 모든 앱을 Azure AD와 통합
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: 인증 및 프로비저닝 프로토콜
+          items:
+            - name: 개요
+              href: auth-sync-overview.md
+            - name: 헤더 기반 인증
+              href: auth-header-based.md
+            - name: LDAP 인증
+              href: auth-ldap.md
+            - name: OAuth 2.0 인증
+              href: auth-oauth2.md
+            - name: Open ID Connect 인증
+              href: auth-oidc.md
+            - name: 암호 기반 인증
+              href: auth-password-based-sso.md
+            - name: RADIUS 인증
+              href: auth-radius.md
+            - name: 원격 데스크톱 게이트웨이 인증
+              href: auth-remote-desktop-gateway.md
+            - name: SAML 인정
+              href: auth-saml.md
+            - name: Windows 인증 - KCD
+              href: auth-kcd.md
+            - name: 디렉터리 동기화
+              href: sync-directory.md
+            - name: LDAP 동기화
+              href: sync-ldap.md
+            - name: SCIM 동기화
+              href: sync-scim.md
     - name: 배포 가이드
       items:
         - name: '배포 30, 90 이상'

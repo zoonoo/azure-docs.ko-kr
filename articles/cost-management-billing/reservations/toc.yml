@@ -118,6 +118,10 @@
       items:
         - name: 예약 갱신
           href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: 문제 해결
+      items:
+        - name: 적격 구독 없음
+          href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: 참조
   items:
     - name: 예약 REST API

@@ -180,7 +180,7 @@
           href: basic-age-gating.md
         - name: 사용자 지정 특성 정의
           href: user-flow-custom-attributes.md
-        - name: API 커넥터
+        - name: API 커넥터(미리 보기)
           items:
             - name: 개요
               href: api-connectors-overview.md
