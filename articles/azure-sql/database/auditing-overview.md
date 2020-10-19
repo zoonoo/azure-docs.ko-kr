@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828040"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169417"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,6 +94,17 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
   
    ![스토리지 옵션](./media/auditing-overview/auditing-select-destination.png)
 
+### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Microsoft 지원 작업 감사 (미리 보기)
+
+Azure SQL Server에 대 한 Microsoft 지원 작업 (미리 보기) 감사를 통해 지원 요청 중에 서버에 액세스 해야 하는 경우 Microsoft 지원 엔지니어의 작업을 감사할 수 있습니다. 감사와 함께이 기능을 사용 하 여 직원에 게 더 많은 투명성을 사용 하 고 변칙 검색, 추세 시각화 및 데이터 손실 방지를 허용 합니다.
+
+Microsoft 지원 작업 (미리 보기)에 대 한 감사를 사용 하도록 설정 하려면 **AZURE SQL server** 창의 보안 제목에서 **감사** 로 이동 하 고 **Microsoft 지원 작업 (미리 보기)의 감사** 를 **켜기**로 전환 합니다.
+
+  > [!IMPORTANT]
+  > Microsoft 지원 운영 (미리 보기) 감사는 저장소 계정 대상을 지원 하지 않습니다. 기능을 사용 하도록 설정 하려면 Log Analytics 작업 영역 또는 이벤트 허브 대상을 구성 해야 합니다.
+
+![Microsoft 지원 작업 스크린샷](./media/auditing-overview/support-operations.png)
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>저장소 대상 감사
 
 스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 그런 후 **OK**를 클릭합니다. 보존 기간 보다 오래된 로그는 삭제됩니다.
@@ -111,7 +122,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
 - VNet 또는 방화벽 뒤에 Azure Storage 계정에 감사 로그를 쓸 수 있습니다. 특정 지침은 [VNet 및 방화벽 뒤에 있는 저장소 계정에 감사 작성](audit-write-storage-account-behind-vnet-firewall.md)을 참조 하세요.
 - 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](threat-detection-overview.md)을 참조하세요.
 - 로그 형식, 스토리지 폴더의 계층 구조 및 명명 규칙에 대한 자세한 내용은 [Blob 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
-- AAD 인증을 사용하는 경우 실패한 로그인 레코드는 SQL 감사 로그에 나타나지 *않습니다*. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
+- Azure AD 인증 사용 하는 경우 실패 한 로그인 레코드가 SQL 감사 로그에 표시 *되지* 않습니다. 실패한 로그인 감사 레코드를 보려면 이러한 이벤트의 세부 정보를 로깅하는 [Azure Active Directory 포털](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)을 방문해야 합니다.
 - 읽기 전용 [복제본](read-scale-out.md) 에 대 한 감사는 자동으로 설정 됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](audit-log-format.md)을 참조 하세요.
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Log Analytics 대상 감사

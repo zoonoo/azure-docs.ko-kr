@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166287"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169390"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
 
@@ -253,15 +253,13 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 
 ## <a name="troubleshoot-problems"></a>문제 해결
 
-연결 문제가 발생 하는 것은 매우 일반적입니다. 다음은 오류 메시지의 예입니다.
+일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 몇 가지 예제는 다음과 같습니다.
 
-> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
->
-> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
->
-> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-[SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) 을 수행 하 여 문제를 해결 하십시오.
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
