@@ -37,6 +37,8 @@
       href: concepts-route-events.md
     - name: Azure Digital Twins 솔루션에 대한 보안
       href: concepts-security.md
+    - name: 고가용성 및 재해 복구
+      href: concepts-high-availability-disaster-recovery.md
 - name: 방법 가이드
   items:
     - name: 배포
@@ -199,7 +201,7 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DPS 및 IoT Hub 통합 샘플
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-        - name: Azure Digital Twins 사용자 지정 Swagger
+        - name: Logic Apps 커넥터용 Azure Digital Twins 사용자 지정 Swagger
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
         - name: SignalR 통합 샘플
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
