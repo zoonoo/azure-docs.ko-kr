@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 87c8a7523222afd3ae4daeb8fb5824025e693cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fad1bca18d16ac3b6a654a3c289d0a14e3cd2e2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569631"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204795"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -34,14 +34,14 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 * **라우팅**: Microsoft Cloud에 연결하는 방법에 따라 사용자와 공급자는 [라우팅 도메인](expressroute-circuit-peerings.md)에 대한 BGP 세션을 설정 및 관리해야 합니다. 일부 이더넷 연결 공급자 또는 클라우드 Exchange 공급자는 가치 추가 서비스로 BGP 관리를 제공할 수 있습니다.
 * **NAT**: Microsoft만 Microsoft 피어링을 통해 공용 IP 주소를 허용합니다. 온-프레미스 네트워크에서 개인 IP 주소를 사용하는 경우 사용자 또는 공급자는 [NAT를 사용](expressroute-nat.md)하여 개인 IP 주소를 공용 IP 주소로 번역해야 합니다.
 * **QoS**: 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 서비스(예: 음성, 비디오, 텍스트)가 있습니다. 사용자와 공급자는 [QoS 요구 사항](expressroute-qos.md)을 따라야 합니다.
-* **네트워크 보안**: ExpressRoute를 통해 Microsoft Cloud에 연결할 때 [네트워크 보안](../best-practices-network-security.md)을 고려합니다.
+* **네트워크 보안**: ExpressRoute를 통해 Microsoft Cloud에 연결할 때 [네트워크 보안](/azure/cloud-adoption-framework/reference/networking-vdc)을 고려합니다.
 
 ## <a name="microsoft-365"></a>Microsoft 365
 Express 경로에서 Microsoft 365를 사용 하도록 설정 하려는 경우 Microsoft 365 요구 사항에 대 한 자세한 내용은 다음 문서를 검토 하세요.
 
 * [Microsoft 365 용 Azure Express 경로](/microsoft-365/enterprise/azure-expressroute)
 * [Microsoft 365 용 Express 경로를 사용 하 여 라우팅](/microsoft-365/enterprise/routing-with-expressroute)
-* [ExpressRoute를 사용한 고가용성 및 장애 조치(failover)](https://aka.ms/erhighavailability)
+* [ExpressRoute를 사용한 고가용성 및 장애 조치(failover)](/microsoft-365/enterprise/network-planning-with-expressroute)
 * [Microsoft 365 Url 및 IP 주소 범위](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Microsoft 365에 대 한 네트워크 계획 및 성능 조정](/microsoft-365/enterprise/network-planning-and-performance)
 * [Microsoft 365에 대 한 네트워크 및 마이그레이션 계획](/microsoft-365/enterprise/network-and-migration-planning)

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097527"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207549"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -40,16 +40,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 
 이 문서에서 Logic Apps 하기 위해 Azure Digital Twins 인스턴스를 연결 하려면 **Azure Digital Twins 인스턴스가** 이미 설정 되어 있어야 합니다. 
 
-먼저 Azure Digital Twins 인스턴스와 작업을 수행할 수 있는 필수 인증을 설정합니다. 그렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 선호하는 환경에 따라 설치 문서는 [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) 또는 [자동화 Cloud Shell 배포 스크립트 샘플](how-to-set-up-instance-scripted.md)에 대해 제공됩니다. 모든 버전의 지침에는 각 단계를 성공적으로 완료했으며 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
+먼저 **Azure Digital Twins 인스턴스와** 작업을 수행할 수 있는 필수 인증을 설정 합니다. 그렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 선호하는 환경에 따라 설치 문서는 [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) 또는 [자동화 Cloud Shell 배포 스크립트 샘플](how-to-set-up-instance-scripted.md)에 대해 제공됩니다. 모든 버전의 지침에는 각 단계를 성공적으로 완료했으며 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
+* Azure Digital Twins 인스턴스를 설정한 후에는 인스턴스의 **_호스트 이름이_** 필요 합니다 ([Azure Portal에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-이 자습서에서는 인스턴스를 설정 하는 경우의 여러 값이 필요 합니다. 이러한 값을 다시 수집해야 하는 경우 설정 문서의 해당 섹션에 대한 아래 링크를 사용하여 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
-* Azure Digital Twins 인스턴스 **_호스트 이름_**([포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure AD 앱 등록 **_애플리케이션(클라이언트) ID_**([포털에서 찾기](how-to-set-up-instance-portal.md#collect-important-values))
-* Azure AD 앱 등록 **_디렉터리(테넌트) ID_**([포털에서 찾기](how-to-set-up-instance-portal.md#collect-important-values))
+ADT 탐색기 응용 프로그램을 인증 하려면 **앱 등록**도 설정 해야 합니다. [*방법: 앱 등록 만들기*](how-to-create-app-registration.md) 의 지침에 따라 설정 합니다. 
+* 앱을 등록 한 후에는 등록의 **_응용 프로그램 (클라이언트) id_** 및 **_디렉터리 (테 넌 트) id_** ([Azure Portal에서 찾기](how-to-create-app-registration.md#collect-client-id-and-tenant-id))가 필요 합니다.
 
 ### <a name="get-app-registration-client-secret"></a>앱 등록 클라이언트 암호 가져오기
 
-또한 Azure AD 앱 등록에 대 한 **_클라이언트 암호_** 를 만들어야 합니다. 이렇게 하려면 Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. 목록에서 등록을 선택 하 여 세부 정보를 엽니다. 
+또한 Azure AD 앱 등록에 대 한 **_클라이언트 암호_** 를 만들어야 합니다. 이렇게 하려면 Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. 세부 정보를 열기 위해 목록에서 이전 섹션에서 만든 등록을 선택 합니다. 
 
 등록 메뉴에서 *인증서 및 비밀* 을 적중 하 고 *+ 새 클라이언트 암호*를 선택 합니다.
 

@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939605"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202959"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
 
@@ -33,7 +33,7 @@ ms.locfileid: "90939605"
 
 각 권한 부여 옵션에 대 한 간략 한 설명은 다음과 같습니다.
 
-- SMS 및 관리 작업에 대 한 **액세스 키** 인증 액세스 키 인증은 신뢰할 수 있는 서비스 환경에서 실행 되는 응용 프로그램에 적합 합니다. 액세스 키를 사용 하 여 인증 하기 위해 클라이언트는 [HMAC (해시 기반 메서드 인증 코드)](https://en.wikipedia.org/wiki/HMAC) 를 생성 하 고 `Authorization` 각 HTTP 요청의 헤더 내에 포함 합니다. 자세한 내용은 [액세스 키를 사용 하 여 인증](#authenticate-with-an-access-key)을 참조 하세요.
+- SMS 및 관리 작업에 대 한 **액세스 키** 인증 액세스 키 인증은 신뢰할 수 있는 서비스 환경에서 실행 되는 응용 프로그램에 적합 합니다. 액세스 키를 사용 하 여 인증 하기 위해 클라이언트는 [HMAC (해시 기반 메시지 인증 코드)](https://en.wikipedia.org/wiki/HMAC) 를 생성 하 고 `Authorization` 각 HTTP 요청의 헤더 내에 포함 합니다. 자세한 내용은 [액세스 키를 사용 하 여 인증](#authenticate-with-an-access-key)을 참조 하세요.
 - 채팅 및 호출에 대 한 **사용자 액세스 토큰** 인증입니다. 사용자 액세스 토큰을 통해 클라이언트 응용 프로그램에서 Azure Communication Services에 대해 직접 인증할 수 있습니다. 이러한 토큰은 사용자가 만든 서버 쪽 토큰 프로 비전 서비스에 생성 됩니다. 그런 다음 토큰을 사용 하 여 채팅을 초기화 하 고 클라이언트 라이브러리를 호출 하는 클라이언트 장치에 제공 됩니다. 자세한 내용은 [사용자 액세스 토큰을 사용 하 여 인증](#authenticate-with-a-user-access-token)을 참조 하세요.
 
 ## <a name="authenticate-with-an-access-key"></a>액세스 키를 사용 하 여 인증
@@ -192,5 +192,5 @@ CommunicationUserCredential credential = new CommunicationUserCredential(tokenRe
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 - [클라이언트 및 서버 아키텍처에 대한 자세한 정보](../concepts/client-and-server-architecture.md)

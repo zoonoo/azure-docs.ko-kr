@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021163"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204098"
 ---
 # <a name="create-client-side-performance-traces"></a>클라이언트 쪽 성능 추적 만들기
 
@@ -24,7 +24,7 @@ Windows 기능을 처음 접하는 경우 :::no-loc text="performance tracing"::
 
 ### <a name="installation"></a>설치
 
-ARR을 사용 하 여 추적 하는 데 사용 되는 응용 프로그램은 모든 Windows 개발에 사용할 수 있는 범용 도구입니다. [Windows 성능 도구 키트](https://docs.microsoft.com/windows-hardware/test/wpt/)를 통해 제공 됩니다. 이 도구 키트를 다운로드 하려면 [Windows 평가 및 배포 키트](https://docs.microsoft.com/windows-hardware/get-started/adk-install)를 다운로드 하세요.
+ARR을 사용 하 여 추적 하는 데 사용 되는 응용 프로그램은 모든 Windows 개발에 사용할 수 있는 범용 도구입니다. [Windows 성능 도구 키트](/windows-hardware/test/wpt/)를 통해 제공 됩니다. 이 도구 키트를 다운로드 하려면 [Windows 평가 및 배포 키트](/windows-hardware/get-started/adk-install)를 다운로드 하세요.
 
 ### <a name="terminology"></a>용어
 
@@ -35,13 +35,13 @@ ARR을 사용 하 여 추적 하는 데 사용 되는 응용 프로그램은 모
 * `WPR`
 * `WPA`
 
-**ETW** 는 [ **W**windows에 **T**대 한 **E**환풍구](https://docs.microsoft.com/windows/win32/etw/about-event-tracing)를 나타냅니다. Windows에 기본 제공 되는 효율적인 커널 수준 추적 기능에 대 한 단순한 이름입니다. ETW를 지 원하는 응용 프로그램에서 성능 문제를 추적 하는 데 도움이 될 수 있는 작업을 기록 하기 때문에 *이벤트* 추적 이라고 합니다. 기본적으로 운영 체제는 디스크 액세스, 작업 스위치 등과 같은 항목에 대 한 이벤트를 이미 내보냅니다. ARR과 같은 응용 프로그램은 사용자 지정 이벤트 (예: 삭제 된 프레임, 네트워크 지연 등)를 추가로 내보냅니다.
+**ETW** 는 [ **W**windows에 **T**대 한 **E**환풍구](/windows/win32/etw/about-event-tracing)를 나타냅니다. Windows에 기본 제공 되는 효율적인 커널 수준 추적 기능에 대 한 단순한 이름입니다. ETW를 지 원하는 응용 프로그램에서 성능 문제를 추적 하는 데 도움이 될 수 있는 작업을 기록 하기 때문에 *이벤트* 추적 이라고 합니다. 기본적으로 운영 체제는 디스크 액세스, 작업 스위치 등과 같은 항목에 대 한 이벤트를 이미 내보냅니다. ARR과 같은 응용 프로그램은 사용자 지정 이벤트 (예: 삭제 된 프레임, 네트워크 지연 등)를 추가로 내보냅니다.
 
 **ETL** 은 **E**배기 **T**레이스 **L**ogging을 나타냅니다. 단순히 추적이 수집 (기록) 되었으며 일반적으로 추적 데이터를 저장 하는 파일에 대 한 파일 확장명으로 사용 됨을 의미 합니다. 따라서 추적을 수행할 때 일반적으로 \* 나중에 .etl 파일을 갖게 됩니다.
 
-**WPR** 는 [ **W**windows **P**성능 **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) 를 나타내며,는 이벤트 추적 기록을 시작 하 고 중지 하는 응용 프로그램의 이름입니다. WPR는 \* 로깅할 정확한 이벤트를 구성 하는 프로필 파일 (.wggga)을 사용 합니다. 이러한 `wprp` 파일은 ARR SDK와 함께 제공 됩니다. 데스크톱 PC에서 추적을 수행할 때 WPR를 직접 시작할 수 있습니다. HoloLens에서 추적을 수행할 때 일반적으로 웹 인터페이스를 통해 이동 합니다.
+**WPR** 는 [ **W**windows **P**성능 **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) 를 나타내며,는 이벤트 추적 기록을 시작 하 고 중지 하는 응용 프로그램의 이름입니다. WPR는 \* 로깅할 정확한 이벤트를 구성 하는 프로필 파일 (.wggga)을 사용 합니다. 이러한 `wprp` 파일은 ARR SDK와 함께 제공 됩니다. 데스크톱 PC에서 추적을 수행할 때 WPR를 직접 시작할 수 있습니다. HoloLens에서 추적을 수행할 때 일반적으로 웹 인터페이스를 통해 이동 합니다.
 
-**WPA** 는 [ **W**windows **P**성능 **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) 를 나타내며, \* 데이터를 통해 etl 파일 및 자세히 살펴볼를 열어 성능 문제를 식별 하는 데 사용 되는 GUI 응용 프로그램의 이름입니다. WPA를 사용 하면 다양 한 조건에 따라 데이터를 정렬 하 고, 여러 가지 방법으로 데이터를 표시 하 고, 세부 정보를 확인 하 고, 정보를 연결할 수 있습니다
+**WPA** 는 [ **W**windows **P**성능 **A**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) 를 나타내며, \* 데이터를 통해 etl 파일 및 자세히 살펴볼를 열어 성능 문제를 식별 하는 데 사용 되는 GUI 응용 프로그램의 이름입니다. WPA를 사용 하면 다양 한 조건에 따라 데이터를 정렬 하 고, 여러 가지 방법으로 데이터를 표시 하 고, 세부 정보를 확인 하 고, 정보를 연결할 수 있습니다
 
 ETL 추적은 모든 Windows 장치 (로컬 PC, HoloLens, 클라우드 서버 등)에서 만들 수 있지만 일반적으로 디스크에 저장 되 고 데스크톱 PC에서 WPA를 사용 하 여 분석 됩니다. ETL 파일은 다른 개발자에 게 서 볼 수 있습니다. 그러나 파일 경로 및 IP 주소와 같은 중요 한 정보는 ETL 추적에서 캡처될 수 있습니다. ETW는 추적을 기록 하거나 추적을 분석 하는 두 가지 방법으로 사용할 수 있습니다. 기록을 추적 하는 것은 매우 간단 하며 최소한의 설정으로 수행 해야 합니다. 반면 추적을 분석 하는 경우에는 WPA 도구와 조사 중인 문제에 대 한 훌륭한 이해가 필요 합니다. WPA 학습에 대 한 일반적인 자료 뿐만 아니라 ARR 특정 추적을 해석 하는 방법에 대 한 지침을 제공 합니다.
 
@@ -51,7 +51,7 @@ ARR 성능 문제를 식별 하려면 HoloLens에서 직접 추적을 수행 하
 
 ### <a name="wpr-configuration"></a>WPR 구성
 
-1. [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) *시작 메뉴*에서를 시작 합니다.
+1. [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) *시작 메뉴*에서를 시작 합니다.
 1. **기타 옵션** 확장
 1. **프로필 추가** ...를 클릭 합니다.
 1. AzureRemoteRenderingNetworkProfiling 파일을 선택 합니다 *.* 이 파일은 ARR SDK의 *Tools/ETLProfiles*에서 찾을 수 있습니다.
@@ -95,7 +95,7 @@ HoloLens에 추적을 기록 하려면 장치를 부팅 하 고 브라우저에 
 
 Windows 성능 분석기는 ETL 파일을 열고 추적을 검사 하는 표준 도구입니다. WPA 작동 방법에 대 한 설명은이 문서의 범위를 벗어났습니다. 시작 하려면 다음 리소스를 살펴보세요.
 
-* 첫 번째 개요는 [소개 비디오](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) 를 시청 하세요.
+* 첫 번째 개요는 [소개 비디오](/windows-hardware/test/wpt/windows-performance-analyzer) 를 시청 하세요.
 * WPA 자체에는 일반적인 단계를 설명 하는 *시작* 탭이 있습니다. 사용 가능한 항목을 살펴보세요. 특히 "데이터 보기"에서 특정 데이터에 대 한 그래프를 만드는 방법에 대 한 간략 한 소개를 볼 수 있습니다.
 * [이 웹 사이트에](https://randomascii.wordpress.com/2015/09/24/etw-central/)대 한 유용한 정보가 있지만 일부는 초보자와 관련이 없습니다.
 

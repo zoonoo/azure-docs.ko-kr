@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742976"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200851"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -37,7 +37,7 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> 새 **PremiumV3** 가격 책정 계층은 **표준** 계층에 비해 더 빠른 프로세서, SSD 저장소 및 4 개의 메모리 대 코어 비율을 포함 하는 [Dv3 시리즈 vm](../virtual-machines/dv3-dsv3-series.md) 을 보장 합니다. 또한 **표준** 계층에서 제공 되는 모든 고급 기능을 제공 하면서 늘어난 인스턴스 수를 통해 더 높은 규모의 **PremiumV3** 지원 합니다. 기존 **PremiumV2** 계층에서 사용할 수 있는 모든 기능은 **PremiumV3**에 포함 되어 있습니다.
+> 새 **PremiumV3** 가격 책정 계층은 **표준** 계층에 비해 더 빠른 프로세서 (가상 CPU 당 최소 195 [acu](https://docs.microsoft.com/azure/virtual-machines/acu) ), SSD 저장소 및 4 개의 메모리 대 코어 비율을 사용 하는 컴퓨터를 보장 합니다. 또한 **표준** 계층에서 제공 되는 모든 고급 기능을 제공 하면서 늘어난 인스턴스 수를 통해 더 높은 규모의 **PremiumV3** 지원 합니다. 기존 **PremiumV2** 계층에서 사용할 수 있는 모든 기능은 **PremiumV3**에 포함 되어 있습니다.
 >
 > 다른 전용 계층과 마찬가지로 다음 3가지 VM 크기를 이 계층에 사용할 수 있습니다.
 >

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e79055c3dbc710be23a82eede98e1b55b17e10d5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978023"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205033"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
 
@@ -750,7 +750,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Automation 소개](../../automation/automation-intro.md)
 
-* [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/change-tracking.md)
+* [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../../automation/change-tracking/overview.md)
 
 * [Azure Automation 상태 구성 개요](../../automation/automation-dsc-overview.md)
 

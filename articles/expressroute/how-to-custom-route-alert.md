@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b812a727a555f8c4c95389f2ba0cc5ccea2f608a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766666"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205562"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -42,7 +42,7 @@ ms.locfileid: "91766666"
 
 * [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에 대해 잘 알고 있습니다.
 
-* Azure PowerShell 사용에 대해 잘 알고 있습니다. Express 경로 게이트웨이에서 네트워크 접두사를 수집 하려면 Azure PowerShell 필요 합니다. 일반적인 Azure PowerShell에 대 한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0)를 참조 하십시오.
+* Azure PowerShell 사용에 대해 잘 알고 있습니다. Express 경로 게이트웨이에서 네트워크 접두사를 수집 하려면 Azure PowerShell 필요 합니다. 일반적인 Azure PowerShell에 대 한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/?view=azps-4.1.0)를 참조 하십시오.
 
 ### <a name="notes-and-limitations"></a><a name="limitations"></a>참고 사항 및 제한 사항
 
@@ -257,7 +257,7 @@ PowerShell 스크립트를 실행 하면 값 목록이 수집 됩니다.
 
 * 상태에 대 한 자세한 설명 (확인, 경고, 경고)에 대 한 경고 메시지
 
-PowerShell 스크립트는 수집 된 정보를 JSON 출력으로 변환 합니다. Runbook은 출력 스트림으로 PowerShell cmdlet [쓰기 출력](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  을 사용 하 여 정보를 클라이언트에 전달 합니다.
+PowerShell 스크립트는 수집 된 정보를 JSON 출력으로 변환 합니다. Runbook은 출력 스트림으로 PowerShell cmdlet [쓰기 출력](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  을 사용 하 여 정보를 클라이언트에 전달 합니다.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. runbook의 유효성을 검사 합니다.
 

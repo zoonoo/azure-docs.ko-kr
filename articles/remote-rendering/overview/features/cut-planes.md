@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8905fbdcfc03f2683698cca57ab6c066e77863
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904876"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205934"
 ---
 # <a name="cut-planes"></a>평면 잘라내기
 
@@ -77,8 +77,8 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 |--------------------|-------------------|-------------------|:----------------------------:|
 | (0000 0001) = = 1   | (0000 0001) = = 1  | (0000 0001) = = 1  | 예 |
 | (1111 0000) = = 240 | (0001 0001) = = 17 | (0001 0000) = = 16 | 예 |
-| (0000 0001) = = 1   | (0000 0010) = = 2  | (0000 0000) = = 0  | 아니요 |
-| (0000 0011) = = 3   | (0000 1000) = = 8  | (0000 0000) = = 0  | 아니요 |
+| (0000 0001) = = 1   | (0000 0010) = = 2  | (0000 0000) = = 0  | 예 |
+| (0000 0011) = = 3   | (0000 1000) = = 8  | (0000 0000) = = 0  | 예 |
 
 >[!TIP]
 > 자르기 평면의를 `ObjectFilterMask` 0으로 설정 하면 논리의 결과가 null이 될 수 없으므로 기 하 도형에 영향을 주지 않습니다 `AND` . 렌더링 시스템은 이러한 평면을 첫 번째 위치로 고려 하지 않으므로 개별 잘림 평면을 사용 하지 않도록 설정 하는 간단한 방법입니다. 이러한 잘라내기 평면은 활성 평면 8 개로 제한 되지 않습니다.
@@ -94,8 +94,8 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # CutPlaneComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
-* [C + + CutPlaneComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
+* [C # CutPlaneComponent 클래스](/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [C + + CutPlaneComponent 클래스](/cpp/api/remote-rendering/cutplanecomponent)
 
 ## <a name="next-steps"></a>다음 단계
 

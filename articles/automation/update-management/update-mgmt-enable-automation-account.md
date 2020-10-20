@@ -2,15 +2,15 @@
 title: Automation 계정에서 Azure Automation 업데이트 관리 사용
 description: 이 문서에서는 Automation 계정에서 업데이트 관리를 사용하도록 설정하는 방법을 설명합니다.
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b46bd1e30efff81748389ef62c46410479fb4b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669503"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206631"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Automation 계정에서 업데이트 관리 사용
 
@@ -65,9 +65,9 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다.
 
     ![저장된 검색](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. 작업 영역에 보고 하는 모든 사용 가능한 컴퓨터에 대해 업데이트 관리를 사용 하도록 설정 하려면 컴퓨터 관리 페이지에서 사용 **가능한 모든 컴퓨터에서 사용** 을 선택 합니다. 이 작업은 머신을 개별적으로 추가할 수 있는 컨트롤을 비활성화합니다. 이 작업은 작업 영역에 보고 하는 컴퓨터의 모든 이름을 컴퓨터 그룹 저장 된 검색 쿼리에 추가 합니다 `MicrosoftDefaultComputerGroup` . 이 작업을 선택하면 **컴퓨터 관리** 단추를 사용할 수 없게 됩니다.
+3. 작업 영역에 보고 하는 모든 사용 가능한 컴퓨터에 대해 업데이트 관리를 사용 하도록 설정 하려면 컴퓨터 관리 페이지에서 사용 **가능한 모든 컴퓨터에서 사용** 을 선택 합니다. 이 작업을 수행 하면 컨트롤에서 컴퓨터를 개별적으로 추가 하 고 작업 영역에 보고 하는 모든 컴퓨터를 컴퓨터 그룹 저장 된 검색 쿼리에 추가 합니다 `MicrosoftDefaultComputerGroup` . 이 작업을 선택 하면 **컴퓨터 관리** 옵션을 사용 하지 않도록 설정 합니다.
 
-4. 사용 가능한 모든 향후 머신에서 기능을 사용하려면 **사용 가능한 모든 향후 머신에서 사용**을 선택합니다. 이 옵션은 작업 영역에서 저장 된 검색 및 범위 구성을 삭제 하 고, 현재 또는 향후에 보고 되는 모든 Azure 및 비 Azure 컴퓨터를 작업 영역에 포함 하는 기능을 허용 합니다. 이 작업을 선택 하면 사용 가능한 범위 구성이 없으므로 **컴퓨터 관리** 단추가 영구적으로 사용 하지 않도록 설정 됩니다.
+4. 사용 가능한 모든 향후 머신에서 기능을 사용하려면 **사용 가능한 모든 향후 머신에서 사용**을 선택합니다. 이 옵션은 작업 영역에서 저장 된 검색 및 범위 구성을 삭제 하 고, 현재 또는 향후에 보고 되는 모든 Azure 및 비 Azure 컴퓨터를 작업 영역에 포함 하는 기능을 허용 합니다. 이 옵션을 선택 하면 사용할 수 있는 범위 구성이 없으므로 **컴퓨터 관리** 옵션을 영구적으로 사용 하지 않도록 설정 합니다.
 
     > [!NOTE]
     > 이 옵션은 Log Analytics 내에서 저장 된 검색 및 범위 구성을 삭제 하므로이 옵션을 선택 하기 전에 Log Analytics 작업 영역에서 삭제 잠금을 제거 하는 것이 중요 합니다. 그렇지 않은 경우이 옵션을 선택 하면 구성이 제거 되지 않으므로 수동으로 제거 해야 합니다.

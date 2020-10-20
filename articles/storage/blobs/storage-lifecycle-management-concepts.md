@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822397"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203775"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -22,8 +22,9 @@ ms.locfileid: "91822397"
 
 수명 주기 관리 정책을 사용하여 다음을 수행할 수 있습니다.
 
-- BLOB을 쿨 스토리지 계층으로 전환하여(핫 스토리지 계층에서 쿨 스토리지 계층으로, 핫 스토리지 계층에서 보관 스토리지 계층으로 또는 쿨 스토리지 계층에서 보관 스토리지 계층으로) 성능 및 비용 최적화
-- 수명 주기가 끝나면 BLOB 삭제
+- 성능 최적화를 위해 액세스 한 경우 쿨에서 핫으로 blob 전환 
+- 비용을 최적화 하는 일정 기간 동안 액세스 하거나 수정 하지 않은 경우 blob, blob 버전 및 blob 스냅숏을 냉각기 저장소 계층 (핫에서 쿨, 핫에서 보관 중 또는 쿨로 보관)으로 전환
+- 수명 주기 끝에서 blob, blob 버전 및 blob 스냅숏 삭제
 - 스토리지 계정 수준에서 하루에 한 번 실행할 규칙 정의
 - 컨테이너 또는 blob의 하위 집합에 규칙 적용 (이름 접두사 또는 [blob 인덱스 태그](storage-manage-find-blobs.md) 를 필터로 사용)
 
@@ -33,7 +34,7 @@ ms.locfileid: "91822397"
 
 ## <a name="availability-and-pricing"></a>가용성 및 가격 책정
 
-수명 주기 관리 기능은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob 저장소 계정에 대 한 모든 Azure 지역에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+수명 주기 관리 기능은 범용 v2 (GPv2) 계정, Blob storage 계정, 프리미엄 블록 Blob storage 계정 및 Azure Data Lake Storage Gen2 계정에 대 한 모든 Azure 지역에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 수명 주기 관리 기능은 무료로 제공 됩니다. 고객에 게는 [Set Blob 계층](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대 한 일반 작업 비용이 청구 됩니다. 삭제 작업은 무료입니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
@@ -243,10 +244,10 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 | 매개 변수 이름 | 매개 변수 형식 | 참고 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. | True |
-| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
-| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | True |
-| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
+| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. | 참 |
+| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | 거짓 | 
+| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle` 입니다. | 참 |
+| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | 참 |
 
 ## <a name="rules"></a>규칙
 
@@ -263,29 +264,41 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 - 마지막으로 수정한 시점으로부터 30일 후 Blob을 쿨 계층으로 이동
 - 마지막으로 수정한 시점으로부터 90일 후 Blob을 보관 계층으로 이동
 - 마지막으로 수정한 시점으로부터 2,555일(7년) 후 BLOB 삭제
-- 스냅샷을 생성한 시점으로부터 90일 후 Blob 스냅샷 삭제
+- 만든 후 이전 blob 버전 90 일을 삭제 합니다.
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -302,8 +315,8 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 | 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 및를 지원 합니다 `blockBlob` `appendBlob` . 에는 delete만 지원 되며 `appendBlob` 집합 계층은 지원 되지 않습니다. | 예 |
-| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
-| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 아니요 |
+| prefixMatch | 일치 시킬 접두사의 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 `https://myaccount.blob.core.windows.net/container1/foo/...` prefixMatch은 `container1/foo` 입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
+| blobIndexMatch | 일치 시킬 Blob 인덱스 태그 키 및 값 조건으로 구성 된 사전 값의 배열입니다. 각 규칙은 최대 10 개의 Blob 인덱스 태그 조건을 정의할 수 있습니다. 예를 들어 규칙에 대해에서의 모든 blob을 일치 시키려는 경우 `Project = Contoso` `https://myaccount.blob.core.windows.net/` blobIndexMatch는 `{"name": "Project","op": "==","value": "Contoso"}` 입니다. | BlobIndexMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다. | 예 |
 
 > [!NOTE]
 > Blob 인덱스는 공개 미리 보기 상태 이며 **캐나다 중부**, **캐나다 동부**, **프랑스 중부**및 **프랑스 남부** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께 이 기능에 대한 자세한 내용은 [Blob 인덱스(미리 보기)를 사용하여 Azure Blob 스토리지에서 데이터 관리 및 찾기](storage-manage-find-blobs.md)를 참조하세요.
@@ -312,27 +325,27 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 실행 조건이 충족 되 면 필터링 된 blob에 동작이 적용 됩니다.
 
-수명 주기 관리는 blob의 계층화 및 삭제와 blob 스냅숏 삭제를 지원 합니다. Blob 또는 Blob 스냅샷에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
+수명 주기 관리는 blob, 이전 blob 버전 및 blob 스냅숏의 계층화 및 삭제를 지원 합니다. 기본 blob의 각 규칙, 이전 blob 버전 또는 blob 스냅숏에 대해 하나 이상의 작업을 정의 합니다.
 
-| 작업                      | 기본 Blob                                   | 스냅샷      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
-| enableAutoTierToHotFromCool | 현재 쿨 계층에서 blob 지원        | 지원되지 않음 |
-| tierToArchive               | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
-| 삭제                      | 및에 대해 지원 됩니다. `blockBlob``appendBlob`  | 지원됨     |
+| 작업                      | 기본 Blob                                  | 스냅샷      | 버전
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | `blockBlob`에 지원됨                  | 지원됨     | 지원됨     |
+| enableAutoTierToHotFromCool | `blockBlob`에 지원됨                  | 지원되지 않음 | 지원되지 않음 |
+| tierToArchive               | `blockBlob`에 지원됨                  | 지원됨     | 지원됨     |
+| delete                      | 및에 대해 지원 됩니다. `blockBlob``appendBlob` | 지원됨     | 지원됨     |
 
 >[!NOTE]
 >동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
 
-실행 조건은 age를 기준으로 합니다. 기본 Blob은 마지막으로 수정된 시간을 사용하여 보존 기간을 추적하고 Blob 스냅샷은 스냅샷 생성 시간을 사용하여 보존 기간을 추적합니다.
+실행 조건은 age를 기준으로 합니다. 기본 blob는 마지막으로 수정 된 시간을 사용 하 고 blob 버전은 버전 만든 시간을 사용 하며 blob 스냅숏은 스냅숏 생성 시간을 사용 하 여 사용 기간을 추적 합니다.
 
-| 작업 실행 조건               | 조건 값                          | 설명                                                                      |
+| 작업 실행 조건               | 조건 값                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | 일 단위로 보존 기간을 나타내는 정수 값 | 기본 blob 동작의 조건입니다.                                              |
-| daysAfterCreationGreaterThan       | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 스냅숏 작업 조건                                          |
+| daysAfterCreationGreaterThan       | 일 단위로 보존 기간을 나타내는 정수 값 | Blob 버전 및 blob 스냅숏 작업에 대 한 조건                         |
 | daysAfterLastAccessTimeGreaterThan | 일 단위로 보존 기간을 나타내는 정수 값 | 모드 마지막으로 액세스 한 시간을 사용 하는 경우 기본 blob 동작에 대 한 조건 |
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예는 수명 주기 정책 규칙을 사용하여 일반 시나리오를 해결하는 방법을 보여줍니다.
 
@@ -522,26 +535,35 @@ Azure Data Lake Storage Gen2에서 사용 하도록 설정 된 계층적 네임 
 }
 ```
 
-### <a name="delete-old-snapshots"></a>오래된 스냅샷 삭제
+### <a name="manage-versions"></a>버전 관리
 
-전체 수명 주기 동안 주기적으로 수정되고 액세스되는 데이터의 경우 해당 데이터의 이전 버전을 추적하기 위해 스냅샷이 자주 사용됩니다. 스냅샷 기간에 따라 오래된 스냅샷을 삭제하는 정책을 만들 수 있습니다. 스냅샷 기간은 스냅샷 생성 시간을 평가하여 확인합니다. 이 정책 규칙은 `activedata` 컨테이너 내에 있고 스냅샷 생성 후 90일 이상이 경과된 블록 Blob 스냅샷을 삭제합니다.
+수명이 지속 되는 동안 정기적으로 수정 되 고 액세스 되는 데이터의 경우 Blob 저장소 버전 관리를 사용 하도록 설정 하 여 이전 버전의 개체를 자동으로 유지 관리할 수 있습니다. 정책을 만들거나 이전 버전을 삭제할 수 있습니다. 버전 기간은 버전 생성 시간을 평가 하 여 결정 됩니다. 이 정책 규칙은 버전을 쿨 계층으로 만든 후 90 일 또는 그 이전 버전의 컨테이너 내에서 이전 버전을 계층 `activedata` 으로 만들고 365 일 이전 버전을 삭제 합니다.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

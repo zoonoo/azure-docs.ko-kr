@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398089"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202551"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Express 경로 공용 피어 링 만들기 및 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "89398089"
 
 ## <a name="connectivity"></a>연결
 
-연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. Azure 공용 피어 링에 대해 Express 경로 회로를 사용 하도록 설정한 경우 회로를 통해 [azure에서 사용 되는 공용 IP 범위](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) 에 액세스할 수 있습니다.
+연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. Azure 공용 피어 링에 대해 Express 경로 회로를 사용 하도록 설정한 경우 회로를 통해 [azure에서 사용 되는 공용 IP 범위](../virtual-network/public-ip-addresses.md#public-ip-addresses) 에 액세스할 수 있습니다.
 
 공용 피어 링을 사용 하도록 설정 하면 대부분의 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "89398089"
 * 공용 피어 링 라우팅 도메인을 통해 클라우드 서비스의 Vip를 포함 하 여 공용 IP 주소에서 호스트 되는 서비스에 개인적으로 연결할 수 있습니다.
 * 인터넷을 통해 연결하지 않고도 공용 피어링 도메인을 DMZ에 연결하고 WAN에서 해당 공용 IP 주소의 모든 Azure 서비스에 연결할 수 있습니다.
 
-## <a name="services"></a><a name="services"></a>Services
+## <a name="services"></a><a name="services"></a>서비스
 
 이 섹션에서는 공용 피어 링을 통해 사용할 수 있는 서비스를 보여 줍니다. 공용 피어 링은 더 이상 사용 되지 않으므로 공용 피어 링에 새 서비스 또는 추가 서비스를 추가할 계획이 없습니다. 공용 피어 링을 사용 하 고 사용 하려는 서비스가 Microsoft 피어 링을 통해서만 지원 되는 경우 Microsoft 피어 링으로 전환 해야 합니다. 지원 되는 서비스 목록은 [Microsoft 피어 링](expressroute-faqs.md#microsoft-peering) 을 참조 하세요.
 
@@ -60,7 +60,7 @@ ms.locfileid: "89398089"
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Azure 공용 피어 링에는 각 BGP 세션에 연결 된 1 개의 NAT IP 주소가 있습니다. NAT IP 주소 2 개를 초과 하는 경우 Microsoft 피어 링으로 이동 합니다. Microsoft 피어 링을 사용 하면 사용자 고유의 NAT 할당을 구성 하 고 선택적 접두사 광고에 경로 필터를 사용할 수 있습니다. 자세한 내용은 [Microsoft 피어 링으로 이동](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)을 참조 하세요.
+> Azure 공용 피어 링에는 각 BGP 세션에 연결 된 1 개의 NAT IP 주소가 있습니다. NAT IP 주소 2 개를 초과 하는 경우 Microsoft 피어 링으로 이동 합니다. Microsoft 피어 링을 사용 하면 사용자 고유의 NAT 할당을 구성 하 고 선택적 접두사 광고에 경로 필터를 사용할 수 있습니다. 자세한 내용은 [Microsoft 피어 링으로 이동](./how-to-move-peering.md)을 참조 하세요.
 >
 
 ## <a name="custom-route-filters"></a>사용자 지정 경로 필터

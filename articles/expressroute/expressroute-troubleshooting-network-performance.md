@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a021d658711e77c3e3be0df722223cefe506abba
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566078"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204591"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
 ## <a name="overview"></a>개요
@@ -190,7 +190,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 | Seattle | 영국 남부         |  7,708km | 146ms |  10.6Mbits/sec |   896Mbits/sec |
 | Seattle | 서유럽      |  7,834km | 153ms |  10.2Mbits/sec |   761Mbits/sec |
 | Seattle | 오스트레일리아 동부   | 12,484km | 165ms |   9.4Mbits/sec |   794Mbits/sec |
-| Seattle | 동남 아시아   | 12,989km | 170ms |   9.2Mbits/sec |   756Mbits/sec |
+| Seattle | 동남아시아   | 12,989km | 170ms |   9.2Mbits/sec |   756Mbits/sec |
 | Seattle | 브라질 남부 *   | 10,930km | 189ms |   8.2Mbits/sec |   699Mbits/sec |
 | Seattle | 인도 남부      | 12,918km | 202ms |   7.7Mbits/sec |   634Mbits/sec |
 
@@ -209,6 +209,6 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index
+[Network Docs]: ../index.yml
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT

@@ -5,21 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 8f3b144a7790c3122d59d27183b3037998ddadd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565860"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202721"
 ---
 # <a name="configure-authentication"></a>인증 구성
 
-Azure 원격 렌더링은 [Azure 공간 앵커 (global.asa)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp)와 동일한 인증 메커니즘을 사용 합니다. 클라이언트는 REST Api를 성공적으로 호출 하기 위해 다음 중 *하나* 를 설정 해야 합니다.
+Azure 원격 렌더링은 [Azure 공간 앵커 (global.asa)](../../spatial-anchors/concepts/authentication.md?tabs=csharp)와 동일한 인증 메커니즘을 사용 합니다. 클라이언트는 REST Api를 성공적으로 호출 하기 위해 다음 중 *하나* 를 설정 해야 합니다.
 
 * **AccountKey**: Azure Portal의 원격 렌더링 계정에 대 한 "키" 탭에서 가져올 수 있습니다. 계정 키는 개발/프로토타입화에만 권장 됩니다.
     ![계정 ID](./media/azure-account-primary-key.png)
 
-* **Authenticationtoken**:은 [msal 라이브러리](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)를 사용 하 여 가져올 수 있는 Azure AD 토큰입니다. 사용자 자격 증명을 수락 하 고 이러한 자격 증명을 사용 하 여 액세스 토큰을 가져오는 데 사용할 수 있는 여러 가지 흐름이 있습니다.
+* **Authenticationtoken**:은 [msal 라이브러리](../../active-directory/develop/msal-overview.md)를 사용 하 여 가져올 수 있는 Azure AD 토큰입니다. 사용자 자격 증명을 수락 하 고 이러한 자격 증명을 사용 하 여 액세스 토큰을 가져오는 데 사용할 수 있는 여러 가지 흐름이 있습니다.
 
 * **MRAccessToken**:는 MR 토큰으로, Azure MIXED Reality STS (보안 토큰 서비스)에서 가져올 수 있습니다. `https://sts.mixedreality.azure.com`아래 호출과 유사한 REST 호출을 사용 하 여 끝점에서 검색 됩니다.
 
@@ -44,7 +44,7 @@ Azure 원격 렌더링은 [Azure 공간 앵커 (global.asa)](https://docs.micros
 
 계정 키는 개발 하는 동안 빠른 프로토타입 제작에 권장 됩니다. 응용 프로그램에 포함 된 계정 키를 사용 하 여 프로덕션 환경에 응용 프로그램을 제공 하지 않는 것이 좋습니다. 권장 되는 방법은 사용자 기반 또는 서비스 기반 Azure AD 인증 방법을 사용 하는 것입니다.
 
- Azure AD 인증은 azure [공간 앵커 (global.asa)](https://docs.microsoft.com/azure/spatial-anchors/) 서비스의 [azure ad 사용자 인증](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) 섹션에 설명 되어 있습니다.
+ Azure AD 인증은 azure [공간 앵커 (global.asa)](../../spatial-anchors/index.yml) 서비스의 [azure ad 사용자 인증](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) 섹션에 설명 되어 있습니다.
 
  자세한 내용은 [자습서: Azure 원격 렌더링 및 모델 저장소 보안 설정-Azure Active Directory 인증](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication) 을 참조 하세요.
 

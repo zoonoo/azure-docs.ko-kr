@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318027"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201837"
 ---
 # <a name="security-control-v2-asset-management"></a>보안 제어 V2: 자산 관리
 
@@ -150,7 +150,7 @@ Azure Automation 변경 내용 추적 및 인벤토리를 사용 하 여 Windows
 
 - [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../../security-center/security-center-adaptive-application.md)
 
-- [Azure Automation 변경 내용 추적 및 인벤토리 이해](../../automation/change-tracking.md)
+- [Azure Automation 변경 내용 추적 및 인벤토리 이해](../../automation/change-tracking/overview.md)
 
 - [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 

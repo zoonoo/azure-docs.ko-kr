@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 072eeb0bee0d0441549d2edad448f3b1c85a28a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566503"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202347"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
 
@@ -70,7 +70,7 @@ ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용�
 
 ## <a name="expressroute-health"></a><a name="health"></a>ExpressRoute 상태
 
-ExpressRoute 회로는 NPM([네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
+ExpressRoute 회로는 NPM([네트워크 성능 모니터](../networking/network-monitoring-overview.md))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
 
 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어링의 상태를 모니터링합니다. 자세한 내용은 [포스트](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
 

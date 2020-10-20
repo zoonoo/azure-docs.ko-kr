@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302624"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207940"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -376,6 +376,10 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 Azure Policy에 대 한 자세한 내용은 [Azure Policy 설명서](/azure/governance/policy/overview)를 참조 하세요.
 
 Azure Machine Learning 관련 된 정책에 대 한 자세한 내용은 [Azure Policy 준수 감사 및 관리](how-to-integrate-azure-policy.md)를 참조 하세요.
+
+## <a name="resource-locks"></a>리소스 잠금
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

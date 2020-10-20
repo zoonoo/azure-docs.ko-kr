@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42b86cadefea41bc438c8f2e91c5eaa86af172b0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055217"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204974"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 (미리 보기) 제한
 
@@ -139,15 +139,16 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 - Teams
 - Outlook (OWA)
 - SharePoint
+- 팀의 플래너
+- Planner 웹 앱
 
 ### <a name="services-currently-not-supported"></a>현재 지원 되지 않는 서비스
 
 현재 지원 하지 않는 서비스에는 새 게스트 제한 설정과의 호환성 문제가 있을 수 있습니다.
 
 - 양식
-- 팀의 플래너
-- Planner 앱
-- 프로젝트
+- Planner 모바일 앱
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
@@ -157,7 +158,7 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 이러한 사용 권한은 어디에 적용 되나요? | 이러한 디렉터리 수준 권한은 Microsoft Graph, PowerShell v2, Azure Portal 및 My Apps 포털을 포함 하 여 Azure AD 서비스 및 포털 전체에 적용 됩니다. 공동 작업 시나리오에 대 한 Microsoft 365 그룹을 활용 하는 Microsoft 365 서비스는 특히 Outlook, Microsoft 팀 및 SharePoint에도 영향을 줍니다.
 이 기능에 영향을 주는 내 앱 포털의 부분은 무엇입니까? | 내 앱 포털의 그룹 기능에는 이러한 새 사용 권한이 적용 됩니다. 여기에는 내 앱의 그룹 목록 및 그룹 멤버 자격을 볼 수 있는 모든 경로가 포함 됩니다. 그룹 타일 가용성이 변경 되지 않았습니다. 그룹 타일 가용성은 여전히 Azure 관리 포털의 기존 그룹 설정에 의해 제어 됩니다.
 이러한 권한은 SharePoint 또는 Microsoft 팀 게스트 설정 보다 우선 합니다. | 아니요. 이러한 기존 설정은 여전히 이러한 응용 프로그램의 경험과 액세스를 제어 합니다. 예를 들어 SharePoint에서 문제가 표시 되는 경우 외부 공유 설정을 다시 확인 합니다.
-Planner 및 Yammer에서 알려진 호환성 문제는 무엇 인가요? | <li>사용 권한이 ' 제한 됨 '으로 설정 되 면 Planner 앱에 로그인 하거나 Microsoft 팀의 Planner에 액세스 하면 해당 계획 또는 작업에 액세스할 수 없습니다.<li>사용 권한이 ' 제한 됨 '으로 설정 된 경우 Yammer에 로그인 한 게스트는 그룹을 벗어날 수 없습니다.
+Planner 및 Yammer에서 알려진 호환성 문제는 무엇 인가요? | <li>사용 권한이 ' 제한 됨 '으로 설정 되어 있으면 Planner 모바일 앱에 로그인 한 게스트가 해당 계획 또는 작업에 액세스할 수 없습니다.<li>사용 권한이 ' 제한 됨 '으로 설정 된 경우 Yammer에 로그인 한 게스트는 그룹을 벗어날 수 없습니다.
 내 테 넌 트에서 기존 게스트 권한이 변경 됩니까? | 현재 설정이 변경 되지 않았습니다. 기존 설정과의 호환성을 유지 합니다. 변경 하려는 경우를 결정 합니다.
 이러한 사용 권한은 기본적으로 설정 됩니까? | 아니요. 기존 기본 사용 권한은 변경 되지 않은 상태로 유지 됩니다. 필요에 따라 사용 권한을 더 제한적인 것으로 설정할 수 있습니다.
 이 기능에 대 한 라이선스 요구 사항이 있나요? | 아니요,이 기능을 사용 하는 새로운 라이선스 요구 사항은 없습니다.

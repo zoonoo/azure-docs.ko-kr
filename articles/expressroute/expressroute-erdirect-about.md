@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566401"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202159"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -73,7 +73,7 @@ ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대�
     * Microsoft에서 지정한 VLAN ID에 따라 외부 VLAN 태그 (STAG)를 추가 해야 합니다 ( *QinQ에만 해당* ).
     * 포트 및 장치당 여러 BGP 세션 (Vlan)을 지원 해야 합니다.
     * IPv4 및 IPv6 연결 I p v 6 *의 경우 하위 인터페이스가 추가로 생성 되지 않습니다. IPv6 주소가 기존 하위 인터페이스에 추가*됩니다. 
-    * 선택 사항: [BFD (양방향 전달 검색)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) 지원: express 경로 회로의 모든 개인 피어 링에 대해 기본적으로 구성 됩니다.
+    * 선택 사항: [BFD (양방향 전달 검색)](./expressroute-bfd.md) 지원: express 경로 회로의 모든 개인 피어 링에 대해 기본적으로 구성 됩니다.
 
 ## <a name="vlan-tagging"></a>VLAN 태그 지정
 

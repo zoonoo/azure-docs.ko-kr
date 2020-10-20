@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938644"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201905"
 ---
 # <a name="securing-azure-sql-edge"></a>Azure SQL Edge 보안
 
@@ -92,8 +92,8 @@ Azure sql 및 Microsoft SQL Server와 유사 하 게 Azure SQL Edge는 인증서
 
 Azure SQL Edge 보안 모범 사례에는 보안 클라이언트 응용 프로그램 작성이 포함 됩니다. 네트워킹 계층에서 클라이언트 애플리케이션의 보안을 설정하는 방법은 [Client Network Configuration](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration)을 참조하십시오.
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>SQL Server 보안 카탈로그 뷰 및 함수  
- 보안 정보는 성능 및 유틸리티에 대해 최적화 된 여러 가지 뷰와 함수에서 제공 됩니다. 다음 표에서는 보안 뷰 및 함수에 대한 자세한 정보를 제공합니다.  
+### <a name="security-catalog-views-and-functions"></a>보안 카탈로그 뷰 및 함수  
+보안 정보는 성능 및 유틸리티에 대해 최적화 된 여러 가지 뷰와 함수에서 제공 됩니다. 다음 표에는 Azure SQL Edge의 보안 뷰 및 함수에 대 한 정보가 포함 되어 있습니다.  
   
 |함수 및 뷰|링크|  
 |---------------------------|---------|  

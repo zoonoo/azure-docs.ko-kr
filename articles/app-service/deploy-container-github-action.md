@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150279"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203197"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -28,7 +28,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>App Service 컨테이너에 배포
 
-App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 작업을 사용 `azure/webapps-deploy@v2` 합니다. 이 작업에는 5 개의 매개 변수가 있습니다.
+App Service의 사용자 지정 컨테이너에 이미지를 배포 하려면 작업을 사용 `azure/webapps-deploy@v2` 합니다. 이 작업에는 다음과 같은 7 개의 매개 변수가 있습니다.
 
 | **매개 변수**  | **설명**  |
 |---------|---------|
 | **app-name** | (필수) App Service 앱의 이름 | 
-| **publish-profile** | (선택 사항) 웹 배포 비밀을 포함하는 게시 프로필 파일 콘텐츠 |
-| **images** | 정규화 된 컨테이너 이미지 이름입니다. 예: ' myregistry.azurecr.io/nginx:latest ' 또는 ' python: 3.7.2-알파인/'. 다중 컨테이너 시나리오의 경우 여러 컨테이너 이미지 이름을 제공할 수 있습니다 (여러 줄로 구분). |
+| **publish-profile** | 필드 Web Apps (Windows 및 Linux) 및 웹 앱 컨테이너 (Linux)에 적용 됩니다. 다중 컨테이너 시나리오는 지원 되지 않습니다. \*웹 배포 암호를 사용 하 여 프로필 (publishsettings) 파일 콘텐츠 게시 | 
 | **slot-name** | (선택 사항) 프로덕션 슬롯이 아닌 기존 슬롯 입력 |
-| **구성-파일** | 필드 Docker-Compose 파일의 경로 |
+| **package** | 필드 웹 앱에만 적용: 패키지 또는 폴더에 대 한 경로입니다. \*.zip, \* war, \* jar 또는 배포할 폴더 |
+| **images** | 하다 웹 앱 컨테이너에만 적용: 정규화 된 컨테이너 이미지 이름을 지정 합니다. 예: ' myregistry.azurecr.io/nginx:latest ' 또는 ' python: 3.7.2-알파인/'. 다중 컨테이너 앱의 경우 여러 개의 컨테이너 이미지 이름을 제공할 수 있습니다 (여러 줄로 구분). |
+| **구성-파일** | 필드 웹 앱 컨테이너에만 적용: Docker-Compose 파일의 경로입니다. 는 정규화 된 경로 이거나 기본 작업 디렉터리에 대 한 상대 경로 여야 합니다. 다중 컨테이너 앱에 필요 합니다. |
+| **시작-명령** | 필드 시작 명령을 입력 합니다. 예: dotnet 실행 또는 dotnet filename.dll |
 
 # <a name="publish-profile"></a>[프로필 게시](#tab/publish-profile)
 

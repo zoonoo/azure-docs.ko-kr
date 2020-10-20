@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106317"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204676"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -138,7 +138,7 @@ ExpressRoute는 전송 라우터로 구성할 수 없습니다. 전송 라우팅
 * 사용자 정의 라우팅을 사용하여 인터넷 연결이 필요한 모든 서브넷에 인터넷 연결을 허용할 수 있습니다.
 
 > [!NOTE]
-> 기본 경로를 보급하면 Windows 및 다른 VM 라이선스 정품 인증이 중단됩니다. [여기](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) 서 지침을 수행하여 이 문제를 해결합니다.
+> 기본 경로를 보급하면 Windows 및 다른 VM 라이선스 정품 인증이 중단됩니다. [여기](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) 서 지침을 수행하여 이 문제를 해결합니다.
 > 
 > 
 

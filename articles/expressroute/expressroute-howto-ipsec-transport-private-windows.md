@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396491"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208246"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
 
@@ -65,12 +65,12 @@ IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것�
 
 다음 필수 조건을 충족하는지 확인합니다.
 
-* 그룹 정책 설정을 구현하는 데 사용할 수 있는 작동하는 Active Directory 구성이 있어야 합니다. GPO에 대한 자세한 내용은 [그룹 정책 개체](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx)를 참조하세요.
+* 그룹 정책 설정을 구현하는 데 사용할 수 있는 작동하는 Active Directory 구성이 있어야 합니다. GPO에 대한 자세한 내용은 [그룹 정책 개체](/previous-versions/windows/desktop/Policy/group-policy-objects)를 참조하세요.
 
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
   * ExpressRoute 회로 생성에 대한 내용은 [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)를 참조하세요. 
   * 연결 제공자가 회로를 사용하도록 설정하는지 확인합니다. 
-  * 회로에 대해 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침은 [라우팅 구성](expressroute-howto-routing-arm.md) 문서를 참조 하세요. 
+  * 회로에 대해 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md) 을 참조하세요. 
   * VNet 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 * ExpressRoute 가상 네트워크 게이트웨이가 ExpressRoute 회로에 연결되어 있어야 합니다. 자세한 내용은 [ExpressRoute 회로에 VNet 연결](expressroute-howto-linkvnet-arm.md)을 참조하세요.

@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151872"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207294"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -493,7 +493,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 **지침:** Azure Automation는 워크 로드 및 리소스의 배포, 작업 및 서비스 해제 중에 완전 한 제어를 제공 합니다. 구독 관리자는 변경 내용 추적를 사용 하 여 DevTest Labs에서 호스트 되는 Vm에 설치 된 모든 소프트웨어를 식별할 수 있습니다. 사용자 고유의 프로세스를 구현 하거나 인증 되지 않은 소프트웨어를 제거 하기 위해 Azure Automation 상태 구성을 사용할 수 있습니다.
 
 - [Azure Automation 소개](../automation/automation-intro.md)
-- [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking.md)
+- [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking/overview.md)
 - [Azure Automation 상태 구성 개요](../automation/automation-dsc-overview.md)
 
 **Azure Security Center 모니터링:** 사용할 수 없음

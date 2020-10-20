@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756622"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207090"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -256,6 +256,7 @@ Jupyter Notebook 또는 RStudio에 직접 패키지를 설치할 수 있습니�
 * Python: 설치 코드를 추가 하 고 Jupyter Notebook 셀에를 실행 합니다.
 
 또는 터미널 창에서를 설치할 수 있습니다. Python **3.6-AzureML** 환경에 python 패키지를 설치 합니다.  **R** 환경에 R 패키지를 설치합니다.
+% pip 및% conda magic 함수는 Jupyter 노트북 세션에서 현재 실행 중인 커널에 패키지를 자동으로 설치 합니다.
 
 ## <a name="add-new-kernels"></a>새 커널 추가
 

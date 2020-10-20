@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782520"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207175"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Azure 원격 렌더링 지원 옵션
 
@@ -56,7 +56,7 @@ Azure 원격 렌더링을 위한 Azure Portal 내에서 기술 지원 티켓을 
 
 ## <a name="microsoft-qa"></a>Microsoft Q&A
 
-Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html)에 참여하세요.
+Microsoft 엔지니어, Azure MVP(가장 귀중한 전문가) 또는 전문가 커뮤니티의 기술 제품 관련 질문에 대한 빠르고 안정적인 답변을 얻으려면 Azure가 커뮤니티 지원을 위해 선호하는 대상인 [Microsoft Q&A](/answers/topics/azure-remote-rendering.html)에 참여하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
