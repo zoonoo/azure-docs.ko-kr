@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 9506b3430775f137c09fe3d155b203cdcbd14783
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d46b3ba9e3df5e2b3600db2be2a41789fed5242f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070557"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207974"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -193,7 +193,7 @@ AKS에는 이러한 구성을 견디고 복구할 수 있는 복원 메커니즘
 
 ## <a name="can-i-use-custom-vm-extensions"></a>사용자 지정 VM 확장을 사용할 수 있나요?
 
-AKS는 관리형 서비스이며 IaaS 리소스 조작은 지원되지 않습니다. 사용자 지정 구성 요소 등을 설치하려면 Kubernetes API 및 메커니즘을 활용하세요. 예를 들어 DaemonSets를 활용하여 필수 구성 요소를 설치합니다.
+아니요, AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않습니다. 사용자 지정 구성 요소 등을 설치하려면 Kubernetes API 및 메커니즘을 활용하세요. 예를 들어 DaemonSets를 활용하여 필수 구성 요소를 설치합니다.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS는 고객 데이터를 클러스터 영역 외부에 저장 하나요?
 

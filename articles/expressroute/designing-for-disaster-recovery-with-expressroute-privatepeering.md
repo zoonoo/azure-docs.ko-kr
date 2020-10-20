@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
-ms.openlocfilehash: 0c85272989a362da77b01af7bb1fe968516e53b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398004"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202416"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
@@ -80,7 +80,7 @@ Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트�
 
 다음 다이어그램에서는 연결 가중치를 사용 하는 Express 경로 선택 경로 선택에 대해 설명 합니다. 기본 연결 가중치는 0입니다. 아래 예제에서는 Express 경로 1에 대 한 연결의 가중치가 100로 구성 됩니다. VNet은 둘 이상의 Express 경로 회로를 통해 보급 된 경로 접두사를 받을 때 가장 높은 가중치가 있는 연결을 선호 합니다.
 
-[![4]][4]
+[![3-4]][4]
 
 Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
@@ -151,13 +151,8 @@ Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네
 [10 개의]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "활성-활성 express 경로 회로 솔루션 2"
 
 <!--Link References-->
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
+[HA]: ./designing-for-high-availability-with-expressroute.md
 [Enterprise DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/
 [SMB DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/
-[con wgt]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection
-[AS Path Pre]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending
-
-
-
-
-
+[con wgt]: ./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection
+[AS Path Pre]: ./expressroute-optimize-routing.md#solution-use-as-path-prepending

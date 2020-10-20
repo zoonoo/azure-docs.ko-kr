@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d71a7535c40d240b6c9bf53cff906f12b4b8b5df
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043037"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204302"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -22,7 +22,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 이 문서에서는 클라이언트 라이브러리를 사용 하 여 자격 증명을 가져오는 방법을 설명 합니다 `Azure.Identity` . 이 문서에서는 [.net (c #) sdk](https://www.nuget.org/packages/Azure.DigitalTwins.Core)에 대해 작성 하는 것과 같은 c #의 코드 예제를 보여 주지만, 사용 중인 sdk에 관계 없이 버전을 사용할 수 있습니다. `Azure.Identity` Azure digital twins에 사용할 수 있는 sdk에 대 한 자세한 내용은 [*방법: azure 디지털 쌍 api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
 
@@ -105,9 +105,9 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) 메서드는 대화형 응용 프로그램을 위한 것 이며 인증을 위해 웹 브라우저를 엽니다. 대화형 인증을 요구 하는 경우 대신이를 사용할 수 있습니다 `DefaultAzureCredential` .
 
-대화형 브라우저 자격 증명을 사용 하려면 Azure Digital Twins Api에 대 한 사용 권한이 있는 **앱 등록이** 필요 합니다. 이 앱 등록을 설정 하는 방법에 대 한 단계 *는 방법: 인스턴스 및 인증 설정*의 [*클라이언트 응용 프로그램에 대 한 액세스 권한 설정*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) 섹션을 참조 하세요. 앱 등록을 설정한 후에는 다음이 필요 합니다.
-* 앱 등록의 *응용 프로그램 (클라이언트) ID*
-* 앱 등록의 *디렉터리 (테 넌 트) ID*
+대화형 브라우저 자격 증명을 사용 하려면 Azure Digital Twins Api에 대 한 사용 권한이 있는 **앱 등록이** 필요 합니다. 이 앱 등록을 설정 하는 방법에 대 한 단계 [*는 방법: 앱 등록 만들기*](how-to-create-app-registration.md)를 참조 하세요. 앱 등록을 설정한 후에는 다음이 필요 합니다.
+* 앱 등록의 *응용 프로그램 (클라이언트) ID* ([찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* 앱 등록의 *디렉터리 (테 넌 트) ID* ([찾을 지침](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * Azure Digital Twins 인스턴스의 URL ([찾을 지침](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 다음은를 사용 하 여 인증 된 SDK 클라이언트를 만드는 코드의 예제입니다 `InteractiveBrowserCredential` .

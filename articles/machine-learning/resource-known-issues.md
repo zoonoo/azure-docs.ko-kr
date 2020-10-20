@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
-ms.openlocfilehash: 365d38eedd327bb50bbbea01a6847738c482b1bd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d214a746a4eb5035e007136da80f4c69ae1dd1c8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091188"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204467"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -306,20 +306,20 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
  
 * **Nameerror (이름이 정의 되지 않음), attributeerror (개체에 특성이 없음)**:이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서를 사용 `run.get_details()` 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 실행을 다시 전송 하기 전에 학습 스크립트를 확인 하 고 오류를 수정 하세요. 
 
-* **Horovod 종료**됨: 대부분의 경우 "AbortedError: Horovod가 종료 되었습니다."이 예외는 Horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs` 입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름의 접미사가 지정 됩니다 `_rank` . Horovod가 종료 되는 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 `Traceback` driver_log 파일의 끝에 있는을 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+* **Horovod 종료**됨: 대부분의 경우 "AbortedError: Horovod가 종료 되었습니다."이 예외는 Horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 학습의 경우 로그를 쉽게 구별할 수 있도록 로그 이름 뒤에 `_rank`가 붙습니다. Horovod가 종료 되는 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 `Traceback` driver_log 파일의 끝에 있는을 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
 
 * **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
 
-    개별 실험 또는 실행을 영구적으로 삭제 하는 것은 현재 지원 되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
+    개별 실험 또는 실행의 영구 삭제는 현재 지원되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
 
-* **메트릭 문서가 너무 큼**: Azure Machine Learning 학습 실행에서 한 번에 기록할 수 있는 메트릭 개체 크기에 대 한 내부 제한이 있습니다. 목록 값 메트릭을 로깅할 때 "메트릭 문서가 너무 커서" 오류가 발생 하는 경우 목록을 더 작은 청크로 분할 해 보세요. 예를 들면 다음과 같습니다.
+* **메트릭 문서가 너무 큼**: Azure Machine Learning 학습 실행에서 한 번에 기록할 수 있는 메트릭 개체 크기에 대 한 내부 제한이 있습니다. 목록 값 메트릭을 로깅할 때 "메트릭 문서가 너무 큼" 오류가 발생하면 목록을 더 작은 청크로 분할해보세요. 예를 들면 다음과 같습니다.
 
     ```python
     run.log_list("my metric name", my_metric[:N])
     run.log_list("my metric name", my_metric[N:])
     ```
 
-    내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속 된 목록에 연결 합니다.
+    내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속된 목록에 연결합니다.
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
@@ -365,7 +365,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
 * **automl_setup 실패**: 
-    * Windows에서는 Anaconda 프롬프트에서 automl_setup를 실행 합니다. Miniconda를 설치 하려면 [여기](https://docs.conda.io/en/latest/miniconda.html)를 클릭 하세요.
+    * Windows에서는 Anaconda 프롬프트에서 automl_setup를 실행 합니다. 이 링크를 사용 하 여 [Miniconda를 설치](https://docs.conda.io/en/latest/miniconda.html)합니다.
     * 명령을 실행 하 여 32 비트가 아닌 conda 64 비트를 설치 했는지 확인 `conda info` 합니다. 는 `platform` `win-64` Windows 또는 Mac 용 이어야 합니다 `osx-64` .
     * Conda 4.4.10 이상이 설치 되어 있는지 확인 합니다. 명령을 사용 하 여 버전을 확인할 수 있습니다 `conda -V` . 이전 버전이 설치 되어 있는 경우 명령을 사용 하 여 업데이트할 수 있습니다 `conda update conda` .
     * 용 `gcc: error trying to exec 'cc1plus'`
@@ -380,10 +380,10 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **구성. ipynb 실패**:
   * 로컬 conda의 경우 먼저 automl_setup 성공적으로 실행 되었는지 확인 합니다.
-  * Subscription_id 올바른지 확인 하십시오. 모든 서비스를 선택 하 고 구독을 선택 하 여 Azure Portal에서 subscription_id를 찾습니다. 문자 "<" 및 ">"는 subscription_id 값에 포함 되지 않아야 합니다. 예를 들어에는 `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 유효한 형식이 있습니다.
+  * Subscription_id 올바른지 확인 하십시오. 모든 서비스를 선택한 다음 구독을 선택 하 여 Azure Portal에서 subscription_id를 찾습니다. 문자 "<" 및 ">"는 subscription_id 값에 포함 되지 않아야 합니다. 예를 들어에는 `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` 유효한 형식이 있습니다.
   * 구독에 대 한 참가자 또는 소유자의 액세스 권한이 있는지 확인 합니다.
   * 지역이 지원 되는 지역,,,,,,, 중 하나 인지 확인 `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` 합니다.
-  * Azure Portal을 사용 하 여 지역에 대 한 액세스를 보장 합니다.
+  * Azure Portal를 사용 하 여 지역에 대 한 액세스를 확인 합니다.
   
 * **AutoMLConfig 가져오기 실패**: 자동화 된 machine learning 버전 1.0.76에서 패키지 변경 내용이 있습니다 .이는 새 버전으로 업데이트 하기 전에 이전 버전을 제거 해야 합니다. `ImportError: cannot import name AutoMLConfig`V 1.0.76에서 v 1.0.76 이상으로 업그레이드 한 후에이 발생 하면을 실행 하 여 오류를 해결 한 다음를 실행 `pip uninstall azureml-train automl` `pip install azureml-train-auotml` 합니다. Automl_setup 스크립트는이를 자동으로 수행 합니다. 
 
@@ -481,6 +481,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 Azure 역할 기반 액세스 제어를 사용 하 여 Azure Machine Learning에서 수행할 수 있는 작업을 제한할 수 있습니다. 이러한 제한으로 인해 Azure Machine Learning studio에서 사용자 인터페이스 항목이 표시 되지 않을 수 있습니다. 예를 들어 계산 인스턴스를 만들 수 없는 역할이 할당 된 경우 계산 인스턴스를 만드는 옵션은 스튜디오에 표시 되지 않습니다.
 
 자세한 내용은 [사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
+
+## <a name="compute-cluster-wont-resize"></a>계산 클러스터의 크기를 조정 하지 않음
+
+Azure Machine Learning 계산 클러스터가 노드 상태에 대 한 크기 조정 (0-> 0)에서 멈춘 것 처럼 보이는 경우 Azure 리소스 잠금으로 인해 발생할 수 있습니다.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

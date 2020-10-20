@@ -3,12 +3,12 @@ title: 정기 백업 구성 이해
 description: Service Fabric의 정기 백업 및 복원 기능을 사용 하 여 신뢰할 수 있는 상태 저장 서비스 또는 Reliable Actors의 정기적 백업을 구성 합니다.
 ms.topic: article
 ms.date: 2/01/2019
-ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b13104ecc1697685f49a42b2a9c76b43b81d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538622"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205696"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -23,6 +23,9 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 백업 정책은 다음 구성으로 이루어집니다.
 
 * **데이터 손실 시 자동 복원**: 파티션에 데이터 손실 이벤트가 발생할 경우 사용 가능한 최신 백업을 사용하여 복원을 자동으로 트리거할지 여부를 지정합니다.
+> [!NOTE]
+> 프로덕션 클러스터에서 자동 복원을 설정 하지 않는 것이 좋습니다.
+>
 
 * **최대 증분 백업**: 두 개의 전체 백업 간에 수행할 증분 백업의 최대 수를 정의합니다. 최대 증분 백업은 상한을 지정합니다. 다음 중 한 가지 조건에서, 지정된 수의 증분 백업이 완료되기 전에 전체 백업이 수행될 수 있습니다.
 
@@ -86,6 +89,9 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
             "ContainerName": "BackupContainer"
         }
         ```
+> [!NOTE]
+> 백업 복원 서비스가 v1 Azure storage에서 작동 하지 않음
+>
 
     2. **파일 공유**: 데이터 백업을 온-프레미스에 저장 해야 하는 경우 _독립 실행형_ 클러스터에 대해이 저장소 유형을 선택 해야 합니다. 이 스토리지 유형에 대한 설명에는 백업을 업로드해야 하는 파일 공유 경로가 필요합니다. 파일 공유에 대한 액세스는 다음 옵션 중 하나를 사용하여 구성할 수 있습니다.
         1. Windows 통합 인증의 경우, 파일 공유에 대한 액세스가 Service Fabric 클러스터에 속하는 모든 컴퓨터에 제공됩니다.__ 이 경우 다음 필드를 설정하여 파일 공유 기반 백업 스토리지를 구성합니다.__
@@ -129,6 +135,10 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 
 ## <a name="enable-periodic-backup"></a>정기적 백업 사용
 데이터 백업 요구 사항을 충족하도록 백업 정책을 정의한 후에는 백업 정책이 애플리케이션이나 서비스 또는 파티션과 적절하게 연결되어야 합니다.______
+
+> [!NOTE]
+> 백업을 사용 하도록 설정 하기 전에 진행 중인 응용 프로그램 업그레이드가 없는지 확인
+>
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>백업 정책의 계층적 전파
 Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계는 [애플리케이션 모델](./service-fabric-application-model.md).에서 설명한대로 계층적입니다. 백업 정책은 계층 구조의 애플리케이션, 서비스 또는 파티션과 연결될 수 있습니다.______ 백업 정책은 다음 수준에 계층적으로 전파됩니다. 백업 정책이 하나만 생성되어 애플리케이션과 연결된다고 가정하면 모든 _Reliable Stateful _ 서비스에 속하는 모든 상태 저장 파티션과 해당 애플리케이션의 _Reliable Actors_는 백업 정책을 사용하여 백업됩니다.____ 또는 백업 정책이 Reliable Stateful 서비스와 연결되어 있으면 모든 파티션이 백업 정책을 사용하여 백업됩니다.__
@@ -186,6 +196,9 @@ Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계�
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> 백업을 사용 하지 않도록 설정 하기 전에 진행 중인 응용 프로그램 업그레이드가 없는지 확인
+>
 
 ## <a name="suspend--resume-backup"></a>백업 일시 중단 및 다시 시작
 데이터에 대한 정기적인 백업을 일시 중단해야 하는 특정한 상황이 있을 수 있습니다. 이런 경우 요구 사항에 따라 애플리케이션, 서비스 또는 파티션에 백업 일시 중단 API를 사용할 수 있습니다.______ 정기적인 백업 일시 중단은 적용되는 시점부터 애플리케이션 계층 구조의 하위 트리로 전이됩니다. 
@@ -213,6 +226,10 @@ Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계�
 예기치 않은 오류로 인해 서비스 파티션의 데이터가 손실될 수 있습니다. 예를 들어, 파티션에 대한 세 복제본 중 두 복제본(주 복제본 포함)에 대한 디스크가 손상되거나 초기화되었습니다.
 
 파티션에서 데이터 손실이 발생한 것을 Service Fabric이 감지하면, 해당 파티션에 `OnDataLossAsync` 인터페이스 메서드를 호출하여 데이터 손실 문제를 해결하는 데 필요한 조치가 파티션에서 취해지기를 요구합니다. 이런 경우 파티션의 유효 백업 정책에 `AutoRestoreOnDataLoss` 플래그가 `true`로 설정되어 있으면, 이 파티션에 사용 가능한 최신 백업을 사용하여 복원이 자동으로 트리거됩니다.
+
+> [!NOTE]
+> 프로덕션 클러스터에서 자동 복원을 설정 하지 않는 것이 좋습니다.
+>
 
 ## <a name="get-backup-configuration"></a>백업 구성 정보 가져오기
 애플리케이션, 서비스 및 파티션 범위에서 백업 구성 정보를 가져올 수 있는 별도의 API가 있습니다.______ [Get Application Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)(응용 프로그램 백업 구성 정보 가져오기), [Get Service Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)(서비스 백업 구성 정보 가져오기) 및 [Get Partition Backup Configuration Info](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)(파티션 백업 구성 정보 가져오기)가 각각 여기에 해당하는 입니다. 대개, 이러한 API는 적용 가능한 백업 정책, 백업 정책이 적용되는 범위 및 백업 일시 중단 세부 정보를 반환합니다. 다음은 이러한 API가 반환한 결과에 대한 간략한 설명입니다.

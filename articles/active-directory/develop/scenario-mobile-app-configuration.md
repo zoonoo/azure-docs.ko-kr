@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 52bfd76a12f431576d4fc3cc7a51c6e58c7551ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442754"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204221"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱 구성
 
@@ -160,7 +160,7 @@ Xamarin.ios에 대해 조정 된 인증을 사용 하도록 설정 하려면이 
 
 ### <a name="enable-the-broker-for-msal-for-android"></a>Android에 대 한 MSAL에 broker를 사용 하도록 설정
 
-Android에서 broker를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [android에서](brokered-auth.md)조정 된 인증을 참조 하세요.
+Android에서 broker를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [android에서](msal-android-single-sign-on.md)조정 된 인증을 참조 하세요.
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL에 대해 broker를 사용 하도록 설정
 

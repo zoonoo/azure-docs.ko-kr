@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 306b70fb08622d161ab8f150dc5eec3fdbacaeeb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072869"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201701"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -854,7 +854,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [파일 무결성 모니터링을 사용 하는 방법](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Azure 변경 내용 추적 이해](../automation/change-tracking.md)
+- [Azure 변경 내용 추적 이해](../automation/change-tracking/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
