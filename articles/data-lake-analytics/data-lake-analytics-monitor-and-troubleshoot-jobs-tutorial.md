@@ -3,15 +3,14 @@ title: 모니터 Azure Data Lake Analytics-Azure Portal
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Data Lake Analytics 작업의 문제를 해결하는 방법을 설명합니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: troubleshooting
 ms.date: 12/05/2016
-ms.openlocfilehash: 5445ad61295be3637005ead734cc31126c88a440
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddcf41a333d261bd9c5f669fde724a25eeba670e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132078"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220281"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics에서 작업 모니터링
 
