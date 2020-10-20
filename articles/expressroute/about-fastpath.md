@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: bf600d835e177ce51870ed2a8894adcd667e3901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c44e6c6a7a9af4edc2c711b17ec50aa2bf62c98
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398055"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202450"
 ---
 # <a name="about-expressroute-fastpath"></a>ExpressRoute FastPath 정보
 
@@ -41,7 +41,7 @@ FastPath는 대부분의 구성을 지원 하지만 다음과 같은 기능은 �
 
 * VNet 피어 링: Express 경로에 연결 된 다른 가상 네트워크를 사용 하는 경우 피어 링는 온-프레미스 네트워크에서 다른 가상 네트워크 (즉, "스포크" Vnet)로의 네트워크 트래픽이 계속 가상 네트워크 게이트웨이로 전송 됩니다. 해결 방법은 모든 가상 네트워크를 Express 경로 회로에 직접 연결 하는 것입니다.
 
-* 기본 Load Balancer: 가상 네트워크에 기본 내부 부하 분산 장치를 배포 하거나 가상 네트워크에 배포 하는 Azure PaaS 서비스에서 기본 내부 부하 분산 장치를 사용 하는 경우, 온-프레미스 네트워크에서 기본 부하 분산 장치에 호스팅된 가상 Ip로의 네트워크 트래픽이 가상 네트워크 게이트웨이로 전송 됩니다. 이 솔루션은 기본 부하 분산 장치를 [표준 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)장치로 업그레이드 하는 것입니다.
+* 기본 Load Balancer: 가상 네트워크에 기본 내부 부하 분산 장치를 배포 하거나 가상 네트워크에 배포 하는 Azure PaaS 서비스에서 기본 내부 부하 분산 장치를 사용 하는 경우, 온-프레미스 네트워크에서 기본 부하 분산 장치에 호스팅된 가상 Ip로의 네트워크 트래픽이 가상 네트워크 게이트웨이로 전송 됩니다. 이 솔루션은 기본 부하 분산 장치를 [표준 부하 분산](../load-balancer/load-balancer-overview.md)장치로 업그레이드 하는 것입니다.
 
 * 개인 링크: 온-프레미스 네트워크에서 가상 네트워크의 [개인 끝점](../private-link/private-link-overview.md) 에 연결 하는 경우 연결은 가상 네트워크 게이트웨이를 통해 이동 합니다.
  

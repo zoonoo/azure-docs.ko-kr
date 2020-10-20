@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044499"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206580"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Azure Marketplace에 대 한 가상 머신 이미지를 인증할 때 발생 하는 일반적인 문제
 
@@ -29,13 +29,13 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 
 이 오류는 다른 게시자에 속하는 기본 이미지를 사용 하 여 이미지를 업데이트 한 경우에 발생 합니다. 이 경우 이미지를 게시할 수 없습니다.
 
-이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 항목을 참조하세요.
 
 - [Linux 이미지](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows 이미지](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 첫 번째 파티션을 2048 KB로 오프셋할 수 있습니다. 이렇게 하면 포맷 되지 않은 공간을 새 청구 정보를 추가 하는 데 사용할 수 있으며 Azure에서 Marketplace에 VM을 게시 하도록 할 수 있습니다.  
+> Azure Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 첫 번째 파티션을 2048 KB로 오프셋할 수 있습니다. 이렇게 하면 포맷 되지 않은 공간을 새 청구 정보를 추가 하는 데 사용할 수 있으며, Azure는 Azure Marketplace에 VM을 게시 하는 데 사용할 수 있습니다.  
 
 ## <a name="vm-extension-failure"></a>VM 확장 오류
 
@@ -87,7 +87,7 @@ Visual Studio 또는 Office 사용이 허가 된 제품을 설치 하려는 경�
 
 승인 된 기본을 선택 하는 방법에 대 한 자세한 내용은 [Azure virtual machine 기술 자산 만들기](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)를 참조 하세요.
 
-## <a name="tool-kit-test-case-execution-failed"></a>도구 키트 테스트 사례 실행 실패 
+## <a name="tool-kit-test-case-execution-failed"></a>도구 키트 테스트 사례 실행 실패
 
 Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 이미지가 Azure 환경과 호환 되는지 확인 하는 데 도움이 될 수 있습니다.
 
@@ -97,7 +97,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|설명|
+|시나리오|테스트 사례|Description|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -125,7 +125,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|설명|
+|시나리오 |테스트 사례|Description|
 |---|---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -145,7 +145,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 |16|Windows Internet Name Service|Windows 인터넷 이름 서비스입니다. 이 서버 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
 |17|무선 LAN 서비스|무선 LAN 서비스. 이 서버 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
 
-이전 테스트 사례와 관련 된 모든 오류를 발생 하는 경우 솔루션에 대 한 표의 **설명** 열을 참조 하세요. 자세한 정보가 필요한 경우 지원 팀에 문의 하세요. 
+이전 테스트 사례와 관련 된 모든 오류를 발생 하는 경우 솔루션에 대 한 표의 **설명** 열을 참조 하세요. 자세한 정보가 필요한 경우 지원 팀에 문의 하세요.
 
 ## <a name="data-disk-size-verification"></a>데이터 디스크 크기 확인
 
@@ -199,8 +199,8 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 
 다음 커널 버전 중 하나를 사용 하 여 이미지를 설치 하지 않은 경우 올바른 패치로 업데이트 합니다. 이러한 필수 패치를 사용 하 여 이미지를 업데이트 한 후 지원 팀의 필요한 승인을 요청 합니다.
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS 제품군|버전|커널|
@@ -261,12 +261,12 @@ VM에서 테스트 사례를 실행 하는 동안 액세스 거부 문제가 발
 자체 테스트 사례가 실행 되 고 있는 계정에 대 한 적절 한 액세스를 사용 하도록 설정 했는지 확인 하십시오. 액세스를 사용할 수 없는 경우 테스트 사례를 실행할 수 있도록 설정 합니다. 액세스를 사용 하지 않으려면 자체 테스트 사례 결과를 지원 팀과 공유할 수 있습니다.
 
 ## <a name="download-failure"></a>다운로드 실패
-    
+
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드할 때 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
 |시나리오|오류|이유|해결 방법|
 |---|---|---|---|
-|1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
+|1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.||
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
 |3|잘못 된 SAS URL|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |4|잘못 된 서명|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
@@ -317,7 +317,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 ## <a name="remote-access-issue"></a>원격 액세스 문제
 
-Windows 이미지에 RDP (원격 데스크톱 프로토콜) 옵션을 사용할 수 없는 경우이 오류가 표시 됩니다. 
+Windows 이미지에 RDP (원격 데스크톱 프로토콜) 옵션을 사용할 수 없는 경우이 오류가 표시 됩니다.
 
 Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설정 합니다.
 
@@ -334,11 +334,11 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 
 명령: Azure Portal에 대 한 "cat/sv/null > ~/.bash_history && 기록-c" ![ Bash 기록 명령](./media/vm-certification-issues-solutions-4.png)
 
-3단계: 명령을 성공적으로 실행 한 후 VM을 다시 시작 합니다.
+3 단계. 명령을 성공적으로 실행 한 후 VM을 다시 시작 합니다.
 
-4단계. VM을 일반화 하 고 이미지 VHD를 사용 하 여 VM을 중지 합니다.
+4 단계. VM을 일반화 하 고 이미지 VHD를 사용 하 여 VM을 중지 합니다.
 
-5단계.     일반화 된 이미지를 Re-Submit 합니다.
+5단계. 일반화 된 이미지를 Re-Submit 합니다.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>선택적 테스트에 대 한 VM 이미지에서 예외 (사용자 지정 템플릿) 요청
 
@@ -349,7 +349,7 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 
 예외 시나리오
 
-일반적으로 게시자가 이러한 예외를 요청 하는 세 가지 시나리오/사례가 있습니다. 
+일반적으로 게시자가 이러한 예외를 요청 하는 세 가지 시나리오/사례가 있습니다.
 
 * **하나 이상의 테스트 사례에 대 한 예외:** 게시자는 [Marketplace 게시자](https://aka.ms/marketplacepublishersupport) 에 게 연락 하 여 테스트 사례에 대 한 요청 예외를 지원할 수 있습니다. 
 
@@ -357,20 +357,22 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
        이 경우, 게시자는 여기에서 [인증 된 테스트 도구](https://aka.ms/AzureCertificationTestTool) 를 다운로드 하 고 [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 에서 보고서를 제공할 수 있습니다.
 
 
-* **사용자 지정 템플릿:** 일부 게시자는 vm을 배포 하기 위해 사용자 지정 ARM 템플릿이 필요한 VM 이미지를 게시 합니다. 이 경우 인증 팀에서 유효성 검사에 사용할 수 있도록 게시자는 [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 에서 사용자 지정 템플릿을 제공 하도록 요청 됩니다. 
+* **사용자 지정 템플릿:** 일부 게시자는 vm을 배포 하기 위해 사용자 지정 ARM 템플릿이 필요한 VM 이미지를 게시 합니다.
+
+이 경우 인증 팀에서 유효성 검사에 사용할 수 있도록 게시자는 [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 에서 사용자 지정 템플릿을 제공 하도록 요청 됩니다.
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>예외 시나리오에 제공할 정보
 
 게시자는 다음 정보를 사용 하 여 위의 시나리오에 대 한 예외를 요청 하기 위한 [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 에 문의 해야 합니다.
 
-   1.   게시자 ID – 파트너 센터 포털의 게시자 ID
-   2.   제품 i d/이름 – 예외가 요청 된 제품 ID/이름 
-   3.   SKU/계획 ID – 예외가 요청 된 VM 제안의 계획 ID/sku
-   4.    버전 – 예외가 요청 된 VM 제품의 버전입니다.
-   5.   예외 유형 – 테스트, 잠긴 VM, 사용자 지정 템플릿
-   6.   요청 이유 –이 예외에 대 한 이유 및 예외가 발생할 테스트에 대 한 정보 
-   7. 타임 라인-이 예외가 요청 된 날짜 
-   8.   첨부 파일-중요도 증명 문서를 첨부 합니다. 잠긴 Vm의 경우 테스트 보고서를 연결 하 고 사용자 지정 템플릿에 대해 사용자 지정 ARM 템플릿을 첨부 파일로 제공 합니다. 잠긴 Vm 및 사용자 지정 템플릿에 대 한 사용자 지정 ARM 템플릿에 대 한 보고서를 첨부 하지 못하면 요청이 거부 됩니다.
+   1. 게시자 ID – 파트너 센터 포털의 게시자 ID
+   1. 제품 i d/이름 – 예외가 요청 된 제품 ID/이름 
+   1. SKU/계획 ID – 예외가 요청 된 VM 제안의 계획 ID/sku
+   1. 버전 – 예외가 요청 된 VM 제품의 버전입니다.
+   1. 예외 유형 – 테스트, 잠긴 VM, 사용자 지정 템플릿
+   1. 요청 이유 –이 예외에 대 한 이유 및 예외가 발생할 테스트에 대 한 정보 
+   1. 타임 라인-이 예외가 요청 된 날짜 
+   1. 첨부 파일-중요도 증명 문서를 첨부 합니다. 잠긴 Vm의 경우 테스트 보고서를 연결 하 고 사용자 지정 템플릿에 대해 사용자 지정 ARM 템플릿을 첨부 파일로 제공 합니다. 잠긴 Vm 및 사용자 지정 템플릿에 대 한 사용자 지정 ARM 템플릿에 대 한 보고서를 첨부 하지 못하면 요청이 거부 됩니다.
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>VM 제품에서 취약점 또는 악용을 해결 하는 방법
 
@@ -403,7 +405,7 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 1. **계획 개요** 탭의 **이름** 열에서 VM을 추가 하려는 계획을 선택 합니다.
 1. **기술 구성** 탭의 **vm 이미지**에서 **+ vm 이미지 추가**를 선택 합니다.
    > [!NOTE]
-   > 한 번에 하나의 VM 이미지만 계획에 추가할 수 있습니다. 여러 VM 이미지를 추가 하려면 첫 번째 이미지를 게시 한 다음, 다음 VM 이미지를 추가 하기 전에 _게시자_ 의 승인 단계에 도달할 때까지 기다립니다.
+   > 한 번에 하나의 VM 이미지만 계획에 추가할 수 있습니다. 여러 VM 이미지를 추가 하려면 각 VM 이미지를 게시 한 다음 VM 이미지를 추가 합니다.
 1. 표시 되는 상자에 새 디스크 버전 및 가상 머신 이미지를 제공 합니다.
 1. **초안 저장**을 선택합니다.
 1. 다음 섹션으로 계속 진행 하 여 보안 취약성으로 VM 이미지를 제거 합니다.
@@ -425,6 +427,7 @@ VM 이미지를 제거 하거나 바꾼 후 제품을 다시 게시 해야 합�
 1. **검토 및 게시**를 선택 합니다.
 1. 인증 팀에 정보를 제공 해야 하는 경우 **인증에 대 한** 정보 상자에 추가 합니다.
 1. **게시**를 선택합니다.
+1. 게시 상태가 게시 단계에 도달 하면 **라이브 이동**을 선택 합니다.
 
 게시 프로세스에 대 한 자세한 내용은 [상용 marketplace에 제품을 검토 하 고 게시 하는 방법](../review-publish-offer.md)을 참조 하세요.
 

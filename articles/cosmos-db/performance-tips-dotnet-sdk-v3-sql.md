@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802993"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204030"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -163,7 +163,7 @@ Azure Functions에서 작업 하는 경우 인스턴스는 기존 [지침](../az
 생성 페이로드가 많은 작업의 경우 `EnableContentResponseOnWrite` 요청 옵션을로 설정 `false` 합니다. 서비스는 더 이상 생성 되거나 업데이트 된 리소스를 SDK로 반환 하지 않습니다. 일반적으로 응용 프로그램에는 만들어지는 개체가 있으므로 서비스에서 반환 하지 않아도 됩니다. 요청 요금 처럼 헤더 값에 계속 액세스할 수 있습니다. 콘텐츠 응답을 사용 하지 않도록 설정 하면 SDK가 더 이상 메모리를 할당 하거나 응답의 본문을 serialize 할 필요가 없기 때문에 성능을 향상 시킬 수 있습니다. 또한 네트워크 대역폭 사용량을 줄여 성능을 향상 시킬 수 있습니다.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource

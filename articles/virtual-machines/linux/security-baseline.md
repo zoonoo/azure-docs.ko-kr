@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970319"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205152"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linux Virtual Machines에 대 한 Azure 보안 기준
 
@@ -760,7 +760,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Automation 소개](../../automation/automation-intro.md)
 
-* [변경 내용 추적 이해](../../automation/change-tracking.md)
+* [변경 내용 추적 이해](../../automation/change-tracking/overview.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 

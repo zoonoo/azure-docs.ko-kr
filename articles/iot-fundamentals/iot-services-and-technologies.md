@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977564"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206087"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>IoT 솔루션을 만드는 데 사용할 수 있는 Azure 기술 및 서비스는 무엇인가요?
 
@@ -61,7 +61,7 @@ IoT 솔루션을 처음부터 새로 빌드하거나 IoT Central 또는 솔루�
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md)를 사용하여 IoT 워크로드 일부를 Azure 클라우드 서비스에서 디바이스로 오프로드할 수 있습니다. IoT Edge는 솔루션의 대기 시간을 줄이고, 디바이스가 클라우드와 교환하는 데이터 양을 줄이고, 오프라인 시나리오를 사용할 수 있습니다. IoT Central 및 일부 솔루션 가속기에서 IoT Edge 디바이스를 관리할 수 있습니다.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere)는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전한 마이크로 컨트롤러 장치, 사용자 지정 Linux 기반 운영 체제, 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스를 포함하고 있습니다.
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere)는 인터넷에 연결된 디바이스를 위한 기본 제공 통신 및 보안 기능을 갖춘 안전한 고급 애플리케이션 플랫폼입니다. 안전한 마이크로 컨트롤러 장치, 사용자 지정 Linux 기반 운영 체제, 지속적이고 갱신 가능한 보안을 제공하는 클라우드 기반 보안 서비스를 포함하고 있습니다.
 
 ### <a name="cloud-connectivity"></a>클라우드 연결
 
@@ -76,7 +76,7 @@ IoT Hub는 솔루션 가속기의 핵심 구성 요소이며, 다음과 같은 I
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>실제 세계와 디지털 세계 사이의 격차 해소
 
-[Azure Digital Twins](../digital-twins/about-digital-twins.md)는 물리적 환경을 모델링할 수 있는 IoT 서비스입니다. 공간 인텔리전스 그래프를 사용하여 사람, 공간, 디바이스 간의 관계를 모델링합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.
+[Azure Digital Twins](../digital-twins/overview.md)는 물리적 환경을 모델링할 수 있는 IoT 서비스입니다. 공간 인텔리전스 그래프를 사용하여 사람, 공간, 디바이스 간의 관계를 모델링합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.
 
 Iot Central은 디지털 쌍을 사용하여 실제 세계의 디바이스와 데이터를 사용자가 연결된 디바이스를 모니터링하고 관리할 수 있는 디지털 모델과 동기화합니다.
 
@@ -84,7 +84,7 @@ Iot Central은 디지털 쌍을 사용하여 실제 세계의 디바이스와 �
 
 IoT 디바이스는 일반적으로 센서의 온도 판독값 같은 대량의 시계열 데이터를 생성합니다. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md)는 IoT 허브에 연결하고, 디바이스에서 원격 분석 스트림을 읽고, 해당 데이터를 저장하고, 데이터를 쿼리하고 시각화할 수 있습니다.
 
-[Azure Maps](/azure/azure-maps)는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하기 위해 최신 매핑 데이터를 사용하는 지리 공간적 서비스의 컬렉션입니다. REST API, 웹 기반 JavaScript 컨트롤 또는 Android SDK를 사용하여 애플리케이션을 빌드할 수 있습니다.
+[Azure Maps](../azure-maps/index.yml)는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하기 위해 최신 매핑 데이터를 사용하는 지리 공간적 서비스의 컬렉션입니다. REST API, 웹 기반 JavaScript 컨트롤 또는 Android SDK를 사용하여 애플리케이션을 빌드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

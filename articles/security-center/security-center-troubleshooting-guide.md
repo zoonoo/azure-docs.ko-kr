@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9afc827d1cef4ae1f0ed304b3c1d3cfbfe89b82e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904737"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201803"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -91,7 +91,7 @@ Security Center는 Azure Monitor 서비스에서 사용하는 것과 동일한 �
 | 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Log Analytics 에이전트를 설치하지 못했습니다. Security Center에서 VM에 이미 설치된 로컬 에이전트(Log Analytics 또는 System Center Operations Manager)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Log Analytics 에이전트 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
 | 에이전트에서 작업 영역에 연결할 수 없음 | Log Analytics 에이전트가 설치되었지만 네트워크 연결로 인해 실패했습니다.  인터넷 액세스가 있는지 또는 에이전트에 대해 유효한 HTTP 프록시가 구성되어 있는지 확인합니다. | [모니터링 에이전트 네트워크 요구 사항]을 참조하세요. |
 | 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | Security Center에서 VM에 설치된 Log Analytics 에이전트가 액세스 권한이 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 에이전트를 올바른 작업 영역으로 다시 설치하거나, 에이전트를 제거하고 Security Center에서 자동 프로비전 설치를 수행하도록 합니다. 두 번째 경우는 작업 영역이 Security Center에 대한 권한이 없는 구독의 일부입니다. Security Center에는 Microsoft 보안 리소스 공급자가 액세스할 수 있게 하는 구독이 필요합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털을 통하거나 Security Center **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
-| 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines)을 참조하세요. |
+| 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#troubleshoot-and-support)을 참조하세요. |
 | 에이전트가 설치되지 않음 | 데이터 수집을 사용하지 않도록 설정되었습니다. | 보안 정책에서 데이터 수집을 설정하거나 Log Analytics 에이전트를 수동으로 설치합니다. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>모니터링 에이전트 네트워크 요구 사항 문제 해결 <a name="mon-network-req"></a>

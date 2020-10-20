@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 31660d13fe69d393a19167eaea8a69bfb6260467
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097340"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202075"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>클라우드 솔루션 공급자(CSP)용 ExpressRoute
 Microsoft는 새 서비스 개발에 투자할 필요 없이 고객을 위한 새 서비스 및 솔루션을 신속하게 프로비전할 수 있도록 기존 대리점 및 배포자(CSP)를 위한 대규모 서비스를 제공합니다. 클라우드 솔루션 공급자(CSP)에 이러한 새 서비스를 직접 관리하는 능력을 부여하기 위해 Microsoft는 CSP가 고객을 대신해 Microsoft Azure 리소스를 관리할 수 있도록 하는 프로그램 및 API를 제공합니다. 이러한 리소스 중 하나가 ExpressRoute입니다. ExpressRoute를 통해 CSP는 기존 고객 리소스를 Azure 서비스에 연결할 수 있습니다. Express 경로는 Azure에서 서비스에 대 한 고속 개인 통신 연결입니다. 
@@ -28,7 +28,7 @@ Express 경로는 단일 고객의 구독에 연결 되 고 여러 고객이 공
 Microsoft Azure에서는 고객에게 제공할 수 있는 서비스를 점점 더 많이 제공합니다. Express 경로를 사용 하면 사용자와 고객이 Microsoft Azure 환경에 고속 낮은 대기 시간 액세스를 제공 하 여 이러한 서비스를 활용할 수 있습니다.
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure 관리
-Microsoft는 고유한 서비스 관리 시스템과의 프로그래밍 방식 통합을 허용 하 여 Azure 고객 구독을 관리 하는 Api와 Csp를 제공 합니다. 지원되는 관리 기능은 [여기](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx)에서 확인할 수 있습니다.
+Microsoft는 고유한 서비스 관리 시스템과의 프로그래밍 방식 통합을 허용 하 여 Azure 고객 구독을 관리 하는 Api와 Csp를 제공 합니다. 지원되는 관리 기능은 [여기](/previous-versions/windows/mt844538(v=win.10))에서 확인할 수 있습니다.
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure 리소스 관리
 고객과 맺은 계약에 따라 구독이 관리되는 방법이 결정됩니다. CSP는 리소스의 생성 및 유지 관리를 직접 관리할 수 있으며 고객은 Microsoft Azure 구독에 대한 제어를 유지 관리하고 필요한 Azure 리소스를 만들 수 있습니다. 고객이 해당 Microsoft Azure 구독에서 리소스 생성을 관리 하는 경우 "*연결*" 모델 또는 "*직접*" 모델 중 하나를 사용 합니다. 이러한 모델은 다음 섹션에 자세히 설명되어 있습니다.  
@@ -129,6 +129,6 @@ Azure Virtual Network를 만들면 vNet에서 vNet 서브넷 간의 직접 트�
 
 추가 정보는 다음 링크에서 확인할 수 있습니다.
 
-[클라우드 솔루션 공급자 프로그램의 Azure](https://docs.microsoft.com/azure/cloud-solution-provider)  
+[클라우드 솔루션 공급자 프로그램의 Azure](/azure/cloud-solution-provider)  
 [클라우드 솔루션 공급자로 거래 준비](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud 솔루션 공급자 리소스](https://partner.microsoft.com/solutions/cloud-reseller-resources).

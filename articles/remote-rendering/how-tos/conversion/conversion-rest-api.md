@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87985617"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201786"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>모델 변환 REST API 사용
 
@@ -45,7 +45,7 @@ ms.locfileid: "87985617"
 ### <a name="start-conversion-using-a-linked-storage-account"></a>연결 된 저장소 계정을 사용 하 여 변환 시작
 Azure 원격 렌더링 계정에는 [저장소 계정을 연결](../create-an-account.md#link-storage-accounts)하는 방법에 대 한 단계를 수행 하 여 제공 된 저장소 계정에 대 한 액세스 권한이 있어야 합니다.
 
-| 엔드포인트 | 방법 |
+| 엔드포인트 | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/create | POST |
 
@@ -54,7 +54,7 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 #### <a name="request-body"></a>요청 본문
 
 > [!NOTE]
-> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
+> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
 
 ```json
 {
@@ -77,7 +77,7 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 ### <a name="start-conversion-using-provided-shared-access-signatures"></a>제공 된 공유 액세스 서명을 사용 하 여 변환 시작
 ARR 계정이 저장소 계정에 연결 되지 않은 경우이 REST 인터페이스를 사용 하 여 *SAS (공유 액세스 서명)* 를 사용 하 여 액세스를 제공할 수 있습니다.
 
-| 엔드포인트 | 방법 |
+| 엔드포인트 | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
@@ -91,7 +91,7 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 > 이러한 SAS URI 토큰은 쿼리 문자열이 며 전체 URI가 아닙니다. 
 
 > [!NOTE]
-> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
+> 아래의 모든 항목 `input.folderPath` 을 검색 하 여 Azure에서 변환을 수행 합니다. `input.folderPath`을 지정 하지 않으면 컨테이너의 전체 콘텐츠가 검색 됩니다. 검색 된 모든 blob 및 폴더에는 [유효한 Windows 파일 이름이](/windows/win32/fileio/naming-a-file#naming-conventions)있어야 합니다.
 
 ```json
 {
@@ -118,7 +118,7 @@ JSON 문서에 래핑된 진행 중인 변환의 ID를 반환 합니다. 필드 
 위의 REST 호출 중 하나로 시작 하는 진행 중인 변환의 상태는 다음 인터페이스를 사용 하 여 쿼리할 수 있습니다.
 
 
-| 엔드포인트 | 방법 |
+| 엔드포인트 | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/**conversionId** | GET |
 

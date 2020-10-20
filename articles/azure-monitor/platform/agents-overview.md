@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ec7b776f7d573ea07f010eeab81d98222102be41
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131023"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202007"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -81,8 +81,8 @@ Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
 * Azure 내부 또는 외부의 가상 또는 물리적 컴퓨터에서 로그 및 성능 데이터를 수집 합니다. 
 * Log Analytics 작업 영역으로 데이터를 전송 하 여 [로그 쿼리와](../log-query/log-query-overview.md)같은 [Azure Monitor 로그](data-platform-logs.md) 에서 지원 되는 기능을 활용 합니다.
 * 규모에 따라 가상 컴퓨터를 모니터링 하 고 다른 리소스 및 외부 프로세스에 대 한 프로세스 및 종속성을 모니터링 하는 데 사용할 수 있는 [VM용 Azure Monitor](../insights/vminsights-overview.md) 을 사용 합니다.  
-* [Azure Security Center](../../security-center/security-center-introduction.md) 또는 [Azure 센티널](../../sentinel/overview.md)을 사용 하 여 가상 컴퓨터의 보안을 관리 합니다.
-* [Azure Automation 업데이트 관리](../../automation/update-management/update-mgmt-overview.md), [Azure Automation 상태 구성](../../automation/automation-dsc-overview.md)또는 [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking.md) 를 사용 하 여 Azure vm의 포괄적인 관리 제공
+* [Azure Security Center](../../security-center/security-center-intro.md) 또는 [Azure 센티널](../../sentinel/overview.md)을 사용 하 여 가상 컴퓨터의 보안을 관리 합니다.
+* [Azure Automation 업데이트 관리](../../automation/update-management/update-mgmt-overview.md), [Azure Automation 상태 구성](../../automation/automation-dsc-overview.md)또는 [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 를 사용 하 여 Azure vm의 포괄적인 관리 제공
 * 다른 [솔루션](../monitor-reference.md#insights-and-core-solutions) 을 사용 하 여 특정 서비스 또는 응용 프로그램을 모니터링할 수 있습니다.
 
 Log Analytics 에이전트의 제한 사항은 다음과 같습니다.

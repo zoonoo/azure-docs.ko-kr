@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ef99ff874376e0d76e45e4b0b2c36a78d938130b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843878"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205581"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>실패 한 Azure Stack Edge Pro GPU 장치에서 복구 
 
@@ -62,7 +62,8 @@ ms.locfileid: "91843878"
 | 타사 소프트웨어           | 솔루션에 대 한 참조                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> 자세한 내용은 Cohesity에 문의 하세요.          |
-| Veritas                        | 자세한 내용은 Veritas에 문의 하세요.   |
+| Commvault                      | https://www.commvault.com/azure <br> 자세한 내용은 Commvault에 문의 하세요. |
+| Veritas                        | http://veritas.com/azure <br> 자세한 내용은 Veritas에 문의 하세요.   |
 
 교체 장치가 완전히 구성 된 후에는 로컬 저장소에 대해 장치를 사용 하도록 설정 합니다. 
 
@@ -82,7 +83,8 @@ ms.locfileid: "91843878"
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Azure Backup에 대 한 MARS (Microsoft Azure Recovery Services) 에이전트 | Windows        | [MARS 에이전트 정보](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure 통합, 백업 및 복구 솔루션 brief](https://www.cohesity.com/solution/cloud/azure) <br>자세한 내용은 Cohesity에 문의 하세요.                          |
-| Veritas                 | Windows, Linux | 자세한 내용은 Veritas에 문의 하세요.                    |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br> 자세한 내용은 Commvault에 문의 하세요.
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> 자세한 내용은 Veritas에 문의 하세요.                    |
 
 교체 장치가 완전히 구성 된 후 이전에 사용한 VM 이미지를 사용 하 여 Vm을 다시 배포할 수 있습니다. 
 

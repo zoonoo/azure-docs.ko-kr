@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80680077"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204744"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>ArrInspector 검사 도구
 
@@ -29,7 +29,7 @@ ARR 서버의 호스트 이름 (종료)을 가져온 후에는 `mixedreality.azu
 
 앱이 HoloLens에서 실행 되는 경우:
 
-1. [Windows 장치 포털](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)을 사용 하 여 HoloLens에 액세스 합니다.
+1. [Windows 장치 포털](/windows/mixed-reality/using-the-windows-device-portal)을 사용 하 여 HoloLens에 액세스 합니다.
 1. *시스템 > 파일 탐색기*로 이동 합니다.
 1. *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도*로 이동 합니다.
 1. *StartArrInspector.html* 을 PC에 저장 합니다.

@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리에 대 한 경고를 만드는 방�
 description: 이 문서에서는 업데이트 평가 또는 배포 상태에 대해 알리도록 Azure alerts를 구성 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f832f0359bd8f9caf13008939f482b440faa1a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976998"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203180"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>업데이트 관리에 대 한 경고를 만드는 방법
 
@@ -86,3 +86,8 @@ Azure Automation 수집 되 고 Azure Monitor에 전달 되는 업데이트 관�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure Monitor의 경고](../../azure-monitor/platform/alerts-overview.md)에 대해 자세히 알아보세요.
+
+* Log Analytics 작업 영역에서 데이터를 검색 하 고 분석 하는 [로그 쿼리에](../../azure-monitor/log-query/log-query-overview.md) 대해 알아봅니다.
+
+* [Azure Monitor 로그를 사용 하 여 사용량 및 비용](../../azure-monitor/platform/manage-cost-storage.md) 관리 데이터 보존 기간을 변경 하 여 비용을 제어 하는 방법 및 데이터 사용량을 분석 하 고 경고 하는 방법을 설명 합니다.

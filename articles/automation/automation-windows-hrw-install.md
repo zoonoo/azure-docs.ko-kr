@@ -3,14 +3,14 @@ title: Azure Automation에 Windows Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경에서 Windows 기반 컴퓨터에서 runbook을 실행 하는 데 사용할 수 있는 Hybrid Runbook Worker을 배포 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/20/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a03d14fa272f5f86af1caf0ce9537bbb186d13cc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660515"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204522"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -28,7 +28,7 @@ Hybrid Runbook Worker 역할은 Azure Monitor Log Analytics 작업 영역에 따
 
 Azure Monitor Log Analytics 작업 영역이 없는 경우 작업 영역을 만들기 전에 [Azure Monitor 로그 디자인 지침](../azure-monitor/platform/design-logs-deployment.md) 을 검토 합니다.
 
-작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](update-management/update-mgmt-overview.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
+작업 영역이 있지만 Automation 계정에 연결 되어 있지 않은 경우 자동화 기능을 사용 하도록 설정 하면 Hybrid Runbook Worker에 대 한 지원을 포함 하 여 Azure Automation 기능을 추가할 수 있습니다. Log Analytics 작업 영역의 Azure Automation 기능 중 하나 (특히 [업데이트 관리](update-management/update-mgmt-overview.md) 또는 [변경 내용 추적 및 인벤토리](change-tracking/overview.md))를 사용 하도록 설정 하면 작업자 구성 요소가 에이전트 컴퓨터에 자동으로 푸시됩니다.
 
 > [!NOTE]
 > 업데이트 관리 또는 변경 내용 추적 및 인벤토리 기능을 사용 하도록 설정 하는 경우 Azure Automation는 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 필요한 특정 영역만 지원 합니다. 지원되는 매핑 쌍 목록은 [Automation 계정의 지역 매핑 및 Log Analytics 작업 영역](how-to/region-mappings.md)을 참조하세요. 두 기능을 사용 하도록 설정 하기 전에 Azure Automation에 대 한 [Azure 가격 책정](https://azure.microsoft.com/pricing/details/automation/) 정보를 검토 합니다.
@@ -175,7 +175,7 @@ Heartbeat
 
 검색 결과에는 컴퓨터에 대 한 하트 비트 레코드가 표시 되 고이 레코드가 서비스에 연결 되 고 보고 되 고 있음을 나타냅니다. 기본적으로 모든 에이전트는 하트비트 레코드를 할당된 작업 영역으로 전달합니다. 다음 단계를 수행하여 에이전트 설치 및 설정을 완료합니다.
 
-1. 기능을 사용하도록 설정하여 에이전트 컴퓨터를 추가합니다. 업데이트 관리 및 Azure Vm의 경우 [Automation 계정에서 업데이트 관리 사용](update-management/update-mgmt-enable-automation-account.md)업데이트 관리을 참조 하 고, [Azure Portal 찾아보거나](update-management/update-mgmt-enable-portal.md), [runbook에서 업데이트 관리를 사용 하도록](update-management/update-mgmt-enable-runbook.md)설정 하거나, [azure VM에서 업데이트 관리](update-management/update-mgmt-enable-vm.md)를 사용 하도록 설정 합니다. 변경 내용 추적 및 Azure Vm의 경우 azure [Vm 사용](automation-enable-changes-from-auto-acct.md#enable-azure-vms)및 비 azure vm의 경우 [작업 영역에서 컴퓨터 사용](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace)을 참조 하세요.
+1. 기능을 사용하도록 설정하여 에이전트 컴퓨터를 추가합니다. 업데이트 관리 및 Azure Vm의 경우 [Automation 계정에서 업데이트 관리 사용](update-management/update-mgmt-enable-automation-account.md)업데이트 관리을 참조 하 고, [Azure Portal 찾아보거나](update-management/update-mgmt-enable-portal.md), [runbook에서 업데이트 관리를 사용 하도록](update-management/update-mgmt-enable-runbook.md)설정 하거나, [azure VM에서 업데이트 관리](update-management/update-mgmt-enable-vm.md)를 사용 하도록 설정 합니다. 변경 내용 추적 및 Azure Vm의 경우 azure [Vm 사용](change-tracking/enable-from-automation-account.md#enable-azure-vms)및 비 azure vm의 경우 [작업 영역에서 컴퓨터 사용](change-tracking/enable-from-automation-account.md#enable-machines-in-the-workspace)을 참조 하세요.
 
 2. Hybrid Runbook Worker 버전을 확인 하려면로 이동 하 여 `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` **버전** 하위 폴더를 확인 합니다.
 
@@ -214,7 +214,7 @@ Runbook은 Azure Automation 환경에 설치된 모듈에 정의된 활동 및 c
 
 Hybrid Runbook Worker의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈(특히, `PowerShellGet` 모듈)을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [Windows PowerShell](/powershell/scripting/developer/windows-powershell)을 참조하세요.
 
-설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 `PSModulePath` 환경 변수가 참조하는 위치에 있어야 합니다. 자세한 내용은 [PSModulePath에서 모듈 설치](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7)를 참조하세요.
+설치된 모듈은 Hybrid Worker가 자동으로 가져올 수 있도록 `PSModulePath` 환경 변수가 참조하는 위치에 있어야 합니다. 자세한 내용은 [PSModulePath에서 모듈 설치](/powershell/scripting/developer/module/installing-a-powershell-module)를 참조하세요.
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>온-프레미스 Windows 컴퓨터에서 Hybrid Runbook Worker 제거
 

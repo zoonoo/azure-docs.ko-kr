@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047406"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205497"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -24,7 +24,8 @@ ms.locfileid: "92047406"
 * CLI를 사용 하 여 이러한 단계를 수동으로 진행 하려면이 문서의 CLI 버전 [*(방법: 인스턴스 및 인증 설정 (cli))*](how-to-set-up-instance-cli.md)을 참조 하세요.
 * 배포 스크립트 샘플을 사용 하 여 자동화 된 설치를 실행 하려면이 문서의 스크립팅된 버전 [*(방법: 인스턴스 및 인증 설정 (스크립팅된))*](how-to-set-up-instance-scripted.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 만들기
 
@@ -94,72 +95,7 @@ ms.locfileid: "92047406"
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
-이제 Azure Digital Twins 인스턴스를 사용할 준비가 되 고 관리 권한이 할당 됩니다. 다음으로 클라이언트 앱에 액세스할 수 있는 권한을 설정 합니다.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>클라이언트 응용 프로그램에 대 한 액세스 권한 설정
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Azure Portal에서 [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 로 이동 하 여 시작 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. 서비스 메뉴에서 *앱 등록* 를 선택 하 고 *+ 새로 만들기*를 선택 합니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-뒤에 나오는 *응용 프로그램 등록* 페이지에서 요청 된 값을 입력 합니다.
-* **이름**: 등록과 연결할 Azure AD 응용 프로그램 표시 이름입니다.
-* **지원 되는 계정 유형**: *이 조직 디렉터리 에서만 계정 선택 (기본 디렉터리만-단일 테 넌 트)*
-* **리디렉션 URI**: azure ad 응용 프로그램에 대 한 *azure ad 응용 프로그램 회신 URL* 입니다. 에 대 한 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 추가 `http://localhost` 합니다.
-
-작업이 완료 되 면 *등록* 단추를 누릅니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-등록이 완료 되 면 포털에서 세부 정보 페이지로 리디렉션됩니다.
-
-### <a name="provide-azure-digital-twins-api-permission"></a>Azure Digital Twins API 권한 제공
-
-다음으로, 기본 사용 권한으로 만든 앱 등록을 Azure Digital Twins Api에 구성 합니다.
-
-앱 등록에 대 한 포털 페이지의 메뉴에서 *API 권한* 을 선택 합니다. 다음 사용 권한 페이지에서 *+ 권한 추가* 단추를 누릅니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-다음에 나오는 *api 권한 요청* 페이지에서 *내 조직* 에서 tab 키를 사용 하 고 *azure digital 쌍*를 검색 하는 api로 전환 합니다. Azure Digital Twins Api에 대 한 권한 할당을 진행 하려면 검색 결과에서 _**Azure Digital Twins**_ 를 선택 합니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
->[!NOTE]
-> 구독에 서비스의 이전 공개 미리 보기 (7 월 2020 일 이전)에서 기존 Azure Digital Twins 인스턴스가 있는 경우 대신 _**Azure 스마트 공간 서비스**_ 를 검색 하 고 선택 해야 합니다. 동일한 Api 집합의 이전 이름입니다. *응용 프로그램 (클라이언트) ID* 는 위의 스크린샷에서와 동일 하며,이 단계를 벗어나 사용자 환경이 변경 되지 않습니다.
-> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-다음으로 이러한 Api에 부여할 사용 권한을 선택 합니다. **읽기 (1)** 권한을 확장 하 고 *읽기. 쓰기* 확인란을 선택 하 여이 앱 등록 판독기 및 작성기 권한을 부여 합니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-완료 되 면 *권한 추가* 를 누릅니다.
-
-### <a name="verify-success"></a>성공 확인
-
-*API 사용 권한* 페이지로 돌아가서 읽기/쓰기 권한을 반영 하는 Azure Digital twins의 항목이 이제 있는지 확인 합니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-API 사용 권한을 추가할 때 Azure Digital Twins 정보를 사용 하 여 자동으로 업데이트 된 앱 등록의 *manifest.js*에서 Azure Digital twins에 대 한 연결을 확인할 수도 있습니다.
-
-이렇게 하려면 메뉴에서 *매니페스트* 를 선택 하 여 앱 등록의 매니페스트 코드를 확인 합니다. 코드 창의 아래쪽으로 스크롤하고 아래에서 이러한 필드를 찾습니다 `requiredResourceAccess` . 값은 아래 스크린샷에 있는 값과 일치 해야 합니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-### <a name="collect-important-values"></a>중요 한 값 수집
-
-그런 다음 메뉴 모음에서 *개요* 를 선택 하 여 앱 등록에 대 한 세부 정보를 확인 합니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
-
-**페이지에** 표시 된 *응용 프로그램 (클라이언트) id* 및 *디렉터리 (테 넌 트) id* 를 기록해 둡니다. 이러한 값은 나중에 [Azure Digital Twins api에 대해 클라이언트 앱을 인증](how-to-authenticate-client.md)하는 데 필요 합니다. 이러한 응용 프로그램에 대 한 코드를 작성 하는 사람이 아닌 경우이 값을 지정할 사용자와 공유 해야 합니다.
-
-### <a name="other-possible-steps-for-your-organization"></a>조직의 다른 가능한 단계
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+이제 Azure Digital Twins 인스턴스를 사용할 준비가 되 고 관리 권한이 할당 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -167,5 +103,5 @@ Azure Digital Twins CLI 명령을 사용 하 여 인스턴스에서 개별 REST 
 * [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
 
-또는 클라이언트 앱의 인증 코드를 작성 하 여 클라이언트 응용 프로그램을 인스턴스에 연결 하는 방법을 참조 하세요.
+또는 인증 코드를 사용 하 여 인스턴스에 클라이언트 응용 프로그램을 연결 하는 방법을 참조 하세요.
 * [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)

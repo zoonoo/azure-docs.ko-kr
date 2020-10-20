@@ -5,16 +5,16 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
-ms.openlocfilehash: 180af30f57a8123b6e90cc8b11848b92b3c86db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd69710b6e4404a76d3cca385b6c07ea7c1f3f5c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802177"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201820"
 ---
 # <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Unity에서 Holographic 원격 및 Remote Rendering 사용
 
-[Holographic Remoting](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) 과 Azure 원격 렌더링은 하나의 응용 프로그램 내에서 함께 사용할 수 없습니다. 따라서 [Unity 재생 모드](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) 도 사용할 수 없습니다.
+[Holographic Remoting](/windows/mixed-reality/holographic-remoting-player) 과 Azure 원격 렌더링은 하나의 응용 프로그램 내에서 함께 사용할 수 없습니다. 따라서 [Unity 재생 모드](/windows/mixed-reality/unity-play-mode) 도 사용할 수 없습니다.
 
 Unity 편집기를 실행할 때마다 둘 중 하나만 사용할 수 있습니다. 다른 항목을 사용 하려면 먼저 Unity를 다시 시작 합니다.
 

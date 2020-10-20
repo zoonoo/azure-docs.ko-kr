@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562743"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201442"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청이 실패 했습니다. 상태: 403 (사용할 수 없음)
 
@@ -29,9 +29,9 @@ ms.locfileid: "90562743"
 
 ### <a name="cause-2"></a>원인 #2
 
-클라이언트 앱을 사용 하 여 Azure Digital Twins와 통신 하는 경우이 오류는 azure [AD (Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) ) 앱 등록에 Azure Digital twins 서비스에 대해 설정 된 권한이 없기 때문에 발생할 수 있습니다.
+[앱 등록](how-to-create-app-registration.md)을 사용 하 여 인증 하는 Azure Digital twins와 통신 하기 위해 클라이언트 앱을 사용 하는 경우 앱 등록에 Azure Digital twins 서비스에 대해 설정 된 권한이 없기 때문에이 오류가 발생할 수 있습니다.
 
-앱 등록은 Azure Digital Twins Api에 대 한 액세스 권한이 구성 되어 있어야 합니다. 그런 다음 응용 프로그램 등록에 대해 클라이언트 앱이 인증 되 면 앱 등록이 구성 된 사용 권한이 부여 됩니다.
+앱 등록에는 Azure Digital Twins Api에 대해 구성 된 액세스 권한이 있어야 합니다. 그런 다음 응용 프로그램 등록에 대해 클라이언트 앱이 인증 되 면 앱 등록이 구성 된 사용 권한이 부여 됩니다.
 
 ## <a name="solutions"></a>솔루션
 
@@ -59,23 +59,33 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 이 역할 요구 사항과 할당 프로세스에 대 한 자세한 내용은 *방법: 인스턴스 및 인증 설정 (CLI 또는 포털)* 의 [ *사용자 액세스 권한 설정* 섹션](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) 을 참조 하세요.
 
-이 역할 할당이 이미 있고 403 문제가 계속 발생 하는 경우 다음 솔루션을 계속 진행 합니다.
+이 역할 할당이 이미 *있고* Azure AD 앱 등록을 사용 하 여 클라이언트 앱을 인증 하는 경우이 솔루션에서 403 문제를 해결 하지 않은 경우 다음 솔루션을 계속 진행할 수 있습니다.
 
 ### <a name="solution-2"></a>솔루션 #2
 
-두 번째 솔루션은 Azure AD 앱 등록에 Azure Digital Twins 서비스에 대해 구성 된 권한이 있는지 확인 하는 것입니다. 구성 되지 않은 경우 설정 합니다.
+Azure AD 앱 등록을 사용 하 여 클라이언트 앱을 인증 하는 경우 두 번째 가능한 해결 방법은 앱 등록에 Azure Digital Twins 서비스에 대해 구성 된 권한이 있는지 확인 하는 것입니다. 구성 되지 않은 경우 설정 합니다.
 
 #### <a name="check-current-setup"></a>현재 설치 확인
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+사용 권한이 올바르게 구성 되었는지 확인 하려면 Azure Portal에서 [AZURE AD 앱 등록 개요 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 이동 합니다. 포털 검색 창에서 *앱 등록* 을 검색 하 여이 페이지로 직접 이동할 수 있습니다.
+
+*모든 응용 프로그램* 탭으로 전환 하 여 구독에 생성 된 모든 앱 등록을 확인 합니다.
+
+목록에서 방금 만든 앱 등록이 표시 됩니다. 이를 선택 하 여 세부 정보를 엽니다.
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Azure Portal 앱 등록 페이지":::
 
 먼저, 등록에 Azure Digital Twins 권한 설정이 올바르게 설정 되었는지 확인 합니다. 이렇게 하려면 메뉴 모음에서 *매니페스트* 를 선택 하 여 앱 등록의 매니페스트 코드를 확인 합니다. 코드 창의 아래쪽으로 스크롤하고 아래에서 이러한 필드를 찾습니다 `requiredResourceAccess` . 값은 아래 스크린샷에 있는 값과 일치 해야 합니다.
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Azure Portal 앱 등록 페이지":::
+
+그런 다음 메뉴 모음에서 *API 권한* 을 선택 하 여이 앱 등록에 Azure Digital twins에 대 한 읽기/쓰기 권한이 포함 되어 있는지 확인 합니다. 다음과 같은 항목이 표시 됩니다.
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Azure Portal 앱 등록 페이지":::
 
 #### <a name="fix-issues"></a>문제 해결
 
-설명 된 것과 다르게 표시 되는 경우 *방법: 인스턴스 및 인증 (CLI 또는 포털) 설정*의 [ *클라이언트 응용 프로그램에 대 한 액세스 권한 설정* 섹션](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) 에서 앱 등록을 설정 하는 방법에 대 한 지침을 따르세요.
+설명 된 것과 다르게 표시 되는 경우 [*방법: 앱 등록 만들기*](how-to-create-app-registration.md)에서 앱 등록을 설정 하는 방법에 대 한 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 

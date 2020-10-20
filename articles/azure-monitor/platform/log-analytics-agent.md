@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 015bd48060f47023877d8c48601770228b1500fe
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c09b50272ce73fe084e84d49be7d9d81cbe725aa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104345"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207141"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드 및 온-프레미스 컴퓨터의 Windows 및 Linux 가상 컴퓨터 및 [System Center Operations Manager](/system-center/scom/) 에서 모니터링 하는 원격 분석을 수집 하 고 Azure Monitor의 Log Analytics 작업 영역에 수집 된 데이터를 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항 및 배포 방법에 대 한 자세한 개요를 제공 합니다.
@@ -51,7 +51,7 @@ Log Analytics 에이전트에 대한 비용은 없지만 데이터 수집에 대
 Log Analytics 에이전트는 Azure Monitor의 Log Analytics 작업 영역으로 데이터를 보냅니다. Windows 에이전트를 멀티호밍하여 여러 작업 영역과 System Center Operations Manager 관리 그룹으로 데이터를 보낼 수 있습니다. Linux 에이전트는 작업 영역 또는 관리 그룹 중 하나만 단일 대상으로 보낼 수 있습니다.
 
 ## <a name="other-services"></a>기타 서비스
-Linux 및 Windows 용 에이전트는 Azure Monitor에 연결 하는 데만 사용할 수 있습니다. Azure Security Center 및 Azure 센티널와 같은 기타 서비스는 에이전트와 연결 된 Log Analytics 작업 영역을 사용 합니다. 또한이 에이전트는 Hybrid Runbook worker 역할 및 [변경 내용 추적](../../automation/change-tracking.md), [업데이트 관리](../../automation/update-management/update-mgmt-overview.md), [Azure Security Center](../../security-center/security-center-introduction.md)등의 기타 서비스를 호스트 하는 Azure Automation 지원 합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
+Linux 및 Windows 용 에이전트는 Azure Monitor에 연결 하는 데만 사용할 수 있습니다. Azure Security Center 및 Azure 센티널와 같은 기타 서비스는 에이전트와 연결 된 Log Analytics 작업 영역을 사용 합니다. 또한이 에이전트는 Hybrid Runbook worker 역할 및 [변경 내용 추적](../../automation/change-tracking/overview.md), [업데이트 관리](../../automation/update-management/update-mgmt-overview.md), [Azure Security Center](../../security-center/security-center-intro.md)등의 기타 서비스를 호스트 하는 Azure Automation 지원 합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="workspace-and-management-group-limitations"></a>작업 영역 및 관리 그룹 제한 사항
 

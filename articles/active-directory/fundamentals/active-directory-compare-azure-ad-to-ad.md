@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c8cf84aa697512b6d1147bf853d30761792370b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318559"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207311"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Active Directory와 Azure Active Directory 비교
 
@@ -39,7 +39,7 @@ Azure AD는 클라우드 및 온-프레미스에서 모든 앱에 대 한 IDaaS 
 | 기존 앱 및 레거시 앱| 대부분의 온-프레미스 앱은 LDAP, Windows-Integrated 인증 (NTLM 및 Kerberos) 또는 헤더 기반 인증을 사용 하 여 사용자에 대 한 액세스를 제어 합니다.| Azure AD는 온-프레미스에서 실행 되는 [AZURE ad 응용 프로그램 프록시](../manage-apps/application-proxy.md) 에이전트를 사용 하 여 이러한 유형의 온-프레미스 앱에 대 한 액세스를 제공할 수 있습니다. 이 방법을 사용 하는 경우 Azure AD는 마이그레이션하는 동안 Kerberos를 사용 하 여 온-프레미스에서 사용자 Active Directory 인증할 수 있으며 레거시 앱과 함께 사용 해야 합니다. |
 | SaaS 앱|Active Directory는 SaaS 앱을 기본적으로 지원 하지 않으며 AD FS와 같은 페더레이션 시스템이 필요 합니다.|OAuth2, SAML 및 WS 인증을 지 원하는 SaaS 앱 \* 을 통합 하 여 인증을 위해 AZURE AD를 사용할 수 있습니다. |
 | 최신 인증을 사용 하는 LOB (기간 업무) 앱|조직에서는 Active Directory와 함께 AD FS를 사용 하 여 최신 인증을 요구 하는 LOB 앱을 지원할 수 있습니다.| 인증을 위해 Azure AD를 사용 하도록 최신 인증을 요구 하는 LOB 앱을 구성할 수 있습니다. |
-| 중간 계층/디먼 서비스|온-프레미스 환경에서 실행 되는 서비스는 일반적으로 AD 서비스 계정 또는 gMSA (그룹 관리 서비스 계정)를 사용 하 여 실행 합니다. 이러한 앱은 서비스 계정의 사용 권한을 상속 합니다.| Azure AD는 클라우드에서 다른 작업을 실행 하기 위해 [관리 되는 id](../managed-identities-azure-resources/index.yml) 를 제공 합니다. 이러한 id의 수명 주기는 Azure AD에서 관리 되 고, 리소스 공급자에 연결 되어 백도어 액세스를 얻는 다른 용도로 사용할 수 없습니다.|
+| 중간 계층/디먼 서비스|온-프레미스 환경에서 실행 되는 서비스는 일반적으로 AD 서비스 계정 또는 gMSA (그룹 관리 서비스 계정)를 사용 하 여 실행 합니다. 이러한 앱은 서비스 계정의 사용 권한을 상속 합니다.| Azure AD는 클라우드에서 다른 작업을 실행 하기 위해 [관리 되는 id](../managed-identities-azure-resources/index.yml) 를 제공 합니다. 이러한 id의 수명 주기는 Azure AD에서 관리 되며 리소스 공급자에 연결 되므로 백도어 액세스를 얻는 다른 용도로 사용할 수 없습니다.|
 | **디바이스**|||
 | 모바일|Active Directory는 타사 솔루션이 없는 모바일 장치를 기본적으로 지원 하지 않습니다.| Microsoft의 모바일 장치 관리 솔루션 Microsoft Intune는 Azure AD와 통합 됩니다. Microsoft Intune는 인증 중에 평가할 id 시스템에 장치 상태 정보를 제공 합니다. |
 | Windows 데스크톱|Active Directory 그룹 정책, System Center Configuration Manager 또는 기타 타사 솔루션을 사용 하 여 Windows 장치를 관리 하는 도메인 가입 기능을 제공 합니다.|Windows 장치 [를 AZURE AD에 조인할](../devices/index.yml)수 있습니다. 조건부 액세스는 장치가 인증 프로세스의 일부로 Azure AD에 가입 되어 있는지 확인할 수 있습니다. [Microsoft Intune](/intune/what-is-intune)를 사용 하 여 Windows 장치를 관리할 수도 있습니다. 이 경우 조건부 액세스는 앱에 대 한 액세스를 허용 하기 전에 장치가 호환 되는지 (예: 최신 보안 패치와 바이러스 서명)를 고려 합니다.|

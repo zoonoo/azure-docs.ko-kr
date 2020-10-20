@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019395"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203054"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 리소스에 대한 할당량 관리 및 늘리기
 
@@ -178,11 +178,13 @@ Virtual Machines, Storage, 네트워크 등 다양 한 Azure 리소스에 대 �
     | 문제 유형 | 기술 |
     | 서비스 | 내 서비스. 드롭다운 목록에서 __Machine Learning__ 을 선택 합니다. |
     | 문제 유형 | 작업 영역 설치, SDK 및 CLI |
-    | 문제 하위 유형 | 작업 영역 프로비저닝 또는 관리 문제 |
+    | 문제 하위 유형 | 개인 끝점 및 사설 DNS 영역 허용 요청 |
 
 2. __세부 정보__ 섹션에서 __설명__ 필드를 사용 하 여 사용 하려는 Azure 지역 및 사용할 시나리오를 제공 합니다. 여러 구독에 대 한 할당량 증가가 요청 해야 하는 경우이 필드에 구독 Id를 나열 합니다.
 
 3. __만들기__ 를 선택 하 여 요청을 만듭니다.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="개인 끝점 및 개인 DNS 할당량 증가 요청의 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

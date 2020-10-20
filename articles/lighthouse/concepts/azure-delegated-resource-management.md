@@ -1,18 +1,18 @@
 ---
 title: Azure 위임 리소스 관리
 description: Azure 위임 된 리소스 관리는 Azure Lighthouse의 핵심 부분이 며, 서비스 공급자는 민첩성 및 전체 자릿수를 사용 하 여 위임 된 리소스를 대규모로 관리할 수 있습니다.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163529"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203860"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 
-Azure 위임 된 리소스 관리는 [Azure Lighthouse](../overview.md)의 주요 구성 요소 중 하나입니다. Azure 위임 리소스 관리를 통해 서비스 공급자는 고객 참여 및 온보딩 환경을 간소화하는 동시에, 민첩하고 정확하게 대규모의 위임된 리소스를 관리할 수 있습니다.
+Azure 위임 된 리소스 관리는 [Azure Lighthouse](../overview.md)의 주요 구성 요소 중 하나입니다. Azure 위임 리소스 관리를 통해 서비스 공급자는 고객 참여 및 온보딩 환경을 간소화하는 동시에, 민첩하고 정확하게 대규모의 위임된 리소스를 관리할 수 있습니다. 고객은 테 넌 트에 액세스할 수 있는 서비스 공급자에 대 한 제어를 유지 하 고, 고객은 테 넌 트에 액세스할 수 있는 사용자, 액세스할 수 있는 리소스 및 수행할 수 있는 작업에 대 한 제어를 유지 합니다.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Azure 위임 리소스 관리란?
 
@@ -35,7 +35,8 @@ Azure Lighthouse에 고객을 쉽게 등록할 수 있도록 [새 관리 서비�
 2. 다음 두 가지 방법 중 하나로 Azure Lighthouse에이 액세스를 지정 하 고 고객을 등록 합니다.
    - 고객이 허용할 [Azure Marketplace 관리 서비스 제품](../how-to/publish-managed-services-offers.md) (개인 또는 공용)을 게시 합니다.
    - 하나 이상의 특정 구독 또는 리소스 그룹에 대해 [고객의 테넌트에 Azure Resource Manager 템플릿 배포](../how-to/onboard-customer.md)
-3. 고객이 등록 된 후에는 권한 있는 사용자가 관리 되는 테 넌 트에 로그인 하 고 사용자가 정의한 액세스를 기준으로 지정 된 고객 범위에서 작업을 수행할 수 있습니다.
+
+3. 고객이 등록 된 후에는 권한 있는 사용자가 관리 되는 테 넌 트에 로그인 하 고 사용자가 정의한 액세스를 기준으로 지정 된 고객 범위에서 작업을 수행할 수 있습니다. 고객은 서비스 공급자 작업을 검토 하 고 필요한 경우 액세스 권한을 제거 하는 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
 > 다른 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임 된 리소스를 관리할 수 있습니다. 그러나 [국가 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 공용 클라우드 또는 별도의 두 국가에서 구독을 위임 하는 것은 지원 되지 않습니다.

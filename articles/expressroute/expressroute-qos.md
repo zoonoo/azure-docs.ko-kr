@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
-ms.openlocfilehash: 871af5b767e8cfe10db3a0a1c15c47340e25581f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f14f43fa341df40ecd35340b7311e1acd18004c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395029"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204710"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 요구 사항
 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 워크로드가 있습니다. ExpressRoute를 통해 음성 서비스를 사용하려면 아래에 설명한 요구 사항을 준수해야 합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "89395029"
 > 
 > 
 
-다음 표에서는 Microsoft 팀과 비즈니스용 Skype에서 사용 하는 DSCP 표시 목록을 제공 합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 를 참조합니다.
+다음 표에서는 Microsoft 팀과 비즈니스용 Skype에서 사용 하는 DSCP 표시 목록을 제공 합니다. 자세한 내용은 [비즈니스용 Skype에 대한 QoS 관리](/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) 를 참조합니다.
 
 | **트래픽 클래스** | **처리(DSCP 표시)** | **Microsoft 팀 및 비즈니스용 Skype 워크 로드** |
 | --- | --- | --- |
@@ -34,7 +34,7 @@ ms.locfileid: "89395029"
 | **기본값** |AF11 (10) |파일 전송 |
 | |CS0 (0) |다른 항목 |
 
-* 워크로드를 분류하고 올바른 DSCP 값을 표시해야 합니다. 네트워크에서 DSCP 표시를 설정하는 방법은 [여기](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) 에 제공된 가이드를 따릅니다.
+* 워크로드를 분류하고 올바른 DSCP 값을 표시해야 합니다. 네트워크에서 DSCP 표시를 설정하는 방법은 [여기](/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) 에 제공된 가이드를 따릅니다.
 * 네트워크 내에서 여러 QoS 큐를 구성하고 지원해야 합니다. 음성은 독립 실행형 클래스 여야 하 고 [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt)에 지정 된 EF 처리를 받아야 합니다. 
 * 큐 메커니즘, 정체 감지 정책 및 트래픽 클래스 당 대역폭 할당을 결정할 수 있습니다. 하지만 비즈니스 워크로드용 Skype에 대한 DSCP 표시를 유지해야 합니다. AF31 (26)와 같이 위에 나열되지 않은 DSCP 표시를 사용하면 패킷을 Microsoft에 보내기 전에 이 DSCP 값을 0으로 다시 작성해야 합니다. Microsoft는 위의 테이블에 나와 있는 DSCP 값으로 표시되는 패킷을 보냅니다. 
 
@@ -45,4 +45,3 @@ ms.locfileid: "89395029"
   * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md)
   * [라우팅 구성](expressroute-howto-routing-classic.md)
   * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-classic.md)
-

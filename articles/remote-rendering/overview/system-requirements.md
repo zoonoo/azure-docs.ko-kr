@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323728"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207413"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
@@ -68,7 +68,7 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 디바이스의 방화벽, 라우터 내부의 방화벽 등 방화벽이 다음 포트를 차단하지 않는지 확인합니다.
 
-| 포트              | 프로토콜 | 허용    | 설명 |
+| 포트              | 프로토콜 | 허용    | Description |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | 나가는 포트 | 초기 연결 (HTTP 핸드셰이크) |
 | 8266              | UDP      | 나가는 포트 | 데이터 전송 |
@@ -80,7 +80,7 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 다음 소프트웨어가 설치되어 있어야 합니다.
 
 * 최신 버전의 **Visual Studio 2019** [(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [혼합 현실용 Visual Studio 도구](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
+* [혼합 현실용 Visual Studio 도구](/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
   * **C++를 사용한 데스크톱 개발**
   * **UWP(유니버설 Windows 플랫폼) 개발**
 * **Windows SDK 10.0.18362.0** [(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)

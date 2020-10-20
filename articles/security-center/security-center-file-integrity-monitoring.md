@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946096"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205390"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용 하 여 Azure Security Center에서 FIM (파일 무결성 모니터링)을 구성 하는 방법에 대해 알아봅니다.
@@ -31,7 +31,7 @@ ms.locfileid: "91946096"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md)가 필요 합니다.<br>FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
 |필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
-|클라우드:|![예 ](./media/icons/yes-icon.png) 상업적 클라우드<br>![예 ](./media/icons/yes-icon.png) US Gov<br>![](./media/icons/no-icon.png)중국 .gov, 기타 .gov<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역 에서만 지원 됩니다.<br>[연결 된 Log Analytics 작업 영역에 대해 지원 되는 지역을](../automation/how-to/region-mappings.md)참조 하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking.md).|
+|클라우드:|![예 ](./media/icons/yes-icon.png) 상업적 클라우드<br>![예 ](./media/icons/yes-icon.png) US Gov<br>![](./media/icons/no-icon.png)중국 .gov, 기타 .gov<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역 에서만 지원 됩니다.<br>[연결 된 Log Analytics 작업 영역에 대해 지원 되는 지역을](../automation/how-to/region-mappings.md)참조 하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Security Center의 FIM이란?
@@ -56,7 +56,7 @@ Security Center는 FIM을 사용 하 여 모니터링 하는 엔터티를 권장
 
 FIM은 이러한 항목의 현재 상태와 이전 검색 중의 상태를 비교 하 여 의심 스러운 수정을 수행 했을 때 경고를 표시 합니다.
 
-FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 하도록 설정 하면 **솔루션**형식 **변경 내용 추적** 리소스가 있습니다. 데이터 수집 빈도에 대한 자세한 내용은 Azure 변경 내용 추적의 [변경 내용 추적 데이터 수집 세부 정보](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)를 참조하세요.
+FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 하도록 설정 하면 **솔루션**형식 **변경 내용 추적** 리소스가 있습니다. 데이터 수집 빈도에 대 한 자세한 내용은 [변경 내용 추적 데이터 수집 세부 정보](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection)를 참조 하세요.
 
 > [!NOTE]
 > **변경 내용 추적** 리소스를 제거 하는 경우 Security Center 에서도 파일 무결성 모니터링 기능을 사용 하지 않도록 설정 합니다.

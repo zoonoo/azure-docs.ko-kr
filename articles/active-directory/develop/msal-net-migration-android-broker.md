@@ -12,16 +12,16 @@ ms.date: 08/31/2020
 ms.author: aiwang
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 47902b29da1dfe20fb54d633a0559e6a337fd771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01af0e620ecb100839f7b1101e5ff9fcfc874eea
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89183634"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206672"
 ---
 # <a name="migrate-android-applications-that-use-a-broker-from-adalnet-to-msalnet"></a>ADAL.NET에서 MSAL.NET로 broker를 사용 하는 Android 응용 프로그램 마이그레이션
 
-현재 .NET 용 Azure Active Directory 인증 라이브러리 (ADAL.NET) 및 [authentication broker](brokered-auth.md)를 사용 하는 Xamarin Android 앱이 있는 경우 MSAL.NET ( [Microsoft authentication library for .net ](msal-overview.md) )로 마이그레이션해야 합니다.
+현재 .NET 용 Azure Active Directory 인증 라이브러리 (ADAL.NET) 및 [authentication broker](msal-android-single-sign-on.md)를 사용 하는 Xamarin Android 앱이 있는 경우 MSAL.NET ( [Microsoft authentication library for .net ](msal-overview.md) )로 마이그레이션해야 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -113,7 +113,7 @@ MSAL.NET에서 다음 두 가지 작업을 수행 하 여 Android에 대 한 작
 
 1. AcquireTokenInteractive 호출에서를 사용 하 `.WithParentActivityOrWindow(App.RootViewController)` 고 사용할 활동에 대 한 참조를 전달 합니다. 이 예에서는 MainActivity를 사용 합니다.
 
-**예를 들면 다음과 같습니다.**
+**예를 들어:**
 
 *App.cs*:
 

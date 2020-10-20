@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: 25c8288e1804e6a08ae2b5b128ab6fbc699563f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80392231dba26a10141dcd8247b092e8171894c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397851"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202483"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Express 경로 CrossConnnections API 개발 및 통합
 
@@ -30,7 +30,7 @@ ExpressRouteCrossConnections 리소스로 이동할 경우의 이점:
 
 * Express 경로 파트너에 대 한 향후 개선 사항은 ExpressRouteCrossConnection 리소스에서 제공 될 예정입니다.
 
-* 파트너는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
+* 파트너는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
 
 * ExpressRouteCrossConnection 리소스는 Express 경로 연결 문제를 해결 하는 데 도움이 될 수 있는 Api를 노출 합니다. 여기에는 ARP 테이블, BGP 경로 테이블 요약 및 BGP 경로 테이블 정보가 포함 됩니다. 이 기능은 클래식 배포 Api에서 지원 되지 않습니다.
 
@@ -51,7 +51,7 @@ ExpressRouteCrossConnections 리소스로 이동할 경우의 이점:
 
 ### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. expressRouteCrossConnections API에 액세스 하는 Dev_Provider 구독 등록
 
-ExpressRouteCrossConnections API에 액세스 하려면 파트너 구독을 **Microsoft 네트워크 리소스 공급자**에 등록 해야 합니다. [Azure 리소스 공급자 및 유형](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) 문서의 단계에 따라 등록 프로세스를 완료 합니다.
+ExpressRouteCrossConnections API에 액세스 하려면 파트너 구독을 **Microsoft 네트워크 리소스 공급자**에 등록 해야 합니다. [Azure 리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 문서의 단계에 따라 등록 프로세스를 완료 합니다.
 
 ### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. Azure Resource Manager REST API 호출에 대 한 인증 설정
 
@@ -59,8 +59,8 @@ ExpressRouteCrossConnections API에 액세스 하려면 파트너 구독을 **Mi
 
 인증 프로세스에는 두 가지 주요 단계가 포함 됩니다.
 
-1. [클라이언트를 등록](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)합니다.
-2. [액세스 요청을 만듭니다](https://docs.microsoft.com/rest/api/azure/#create-the-request).
+1. [클라이언트를 등록](/rest/api/azure/#register-your-client-application-with-azure-ad)합니다.
+2. [액세스 요청을 만듭니다](/rest/api/azure/#create-the-request).
 
 ### <a name="4-provide-network-contributor-permission-to-the-client-application"></a>4. 클라이언트 응용 프로그램에 대 한 네트워크 참가자 권한 제공
 
@@ -76,12 +76,12 @@ ExpressRouteCrossConnections API에 액세스 하려면 파트너 구독을 **Mi
 
 ### <a name="5-develop"></a>5. 개발
 
-[EXPRESSROUTECROSSCONNECTIONS API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections)에 대해 개발 합니다.
+[EXPRESSROUTECROSSCONNECTIONS API](/rest/api/expressroute/expressroutecrossconnections)에 대해 개발 합니다.
 
 ## <a name="rest-api"></a>REST API
 
-REST API 설명서 [REST API express 경로 연결](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) 을 참조 하세요.
+REST API 설명서 [REST API express 경로 연결](/rest/api/expressroute/expressroutecrossconnections) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-모든 Express 경로 REST Api에 대 한 자세한 내용은 [express 경로 Rest api](https://docs.microsoft.com/rest/api/expressroute/)를 참조 하세요.
+모든 Express 경로 REST Api에 대 한 자세한 내용은 [express 경로 Rest api](/rest/api/expressroute/)를 참조 하세요.

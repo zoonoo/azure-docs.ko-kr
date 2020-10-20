@@ -8,12 +8,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856435"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207583"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 비즈니스 연속성 아키텍처
 
@@ -24,7 +24,7 @@ ms.locfileid: "91856435"
 
 ## <a name="apache-hive-and-interactive-query"></a>Apache Hive 및 대화형 쿼리
 
-[Hive 복제 V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) 는 HDInsight Hive 및 대화형 쿼리 클러스터의 비즈니스 연속성에 권장 됩니다. 복제 해야 하는 독립 실행형 Hive 클러스터의 영구적 섹션은 저장소 계층과 Hive metastore입니다. Enterprise Security Package를 사용 하는 다중 사용자 시나리오의 Hive 클러스터는 Azure Active Directory Domain Services 및 레인저 Metastore 필요 합니다.
+HDInsight Hive 및 대화형 쿼리 클러스터의 비즈니스 연속성을 위해 [Hive 복제 V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) 가 권장 됩니다. 복제 해야 하는 독립 실행형 Hive 클러스터의 영구적 섹션은 저장소 계층과 Hive metastore입니다. Enterprise Security Package를 사용 하는 다중 사용자 시나리오의 Hive 클러스터는 Azure Active Directory Domain Services 및 레인저 Metastore 필요 합니다.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
 
@@ -57,6 +57,8 @@ Hive 이벤트 기반 복제는 기본 클러스터와 보조 클러스터 간�
 대기 보조 데이터베이스를 사용 하는 *활성 주*에서 응용 프로그램은 활성 주 지역에 기록 하는 반면, 정상 작업 중에는 읽기 전용 모드의 대기 상태의 보조 클러스터가 실행 됩니다. 정상적인 작업 중에는 지역별 특정 읽기 작업을 보조 복제본으로 오프 로드 하도록 선택할 수 있습니다.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+
+Hive 복제 및 코드 샘플에 대 한 자세한 내용은 [Azure HDInsight 클러스터의 Apache Hive 복제](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication) 를 참조 하세요.
 
 ## <a name="apache-spark"></a>Apache Spark
 

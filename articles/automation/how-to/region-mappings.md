@@ -1,16 +1,16 @@
 ---
 title: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 description: 이 문서에서는 Azure Automation의 특정 기능과 관련이 있으므로 Automation 계정과 Log Analytics 작업 영역 간에 지원 되는 지역 매핑을 설명 합니다.
-ms.date: 09/03/2020
+ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440663"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207328"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 
@@ -32,6 +32,7 @@ Azure Automation에서 서버 및 가상 컴퓨터에 대 한 업데이트 관�
 |**US**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
+|SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
 |**캐나다**||
 |CanadaCentral|CanadaCentral|
@@ -44,6 +45,7 @@ Azure Automation에서 서버 및 가상 컴퓨터에 대 한 업데이트 관�
 |**유럽**||
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>2</sup>|USGovArizona|
@@ -86,5 +88,5 @@ Automation 계정을 Log Analytics작업 영역에 더 이상 통합하지 않�
 ## <a name="next-steps"></a>다음 단계
 
 * [업데이트 관리 개요](../update-management/update-mgmt-overview.md)에서 업데이트 관리에 대해 알아봅니다.
-* [변경 내용 추적 및 인벤토리 개요](../change-tracking.md)에서 변경 내용 추적 및 인벤토리에 대해 알아봅니다.
+* [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)에서 변경 내용 추적 및 인벤토리에 대해 알아봅니다.
 * [작업 시간 외 VM 시작/중지](../automation-solution-vm-management.md)에서 작업 시간 외 VM 시작/중지에 대해 알아봅니다.

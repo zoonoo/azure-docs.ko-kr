@@ -4,21 +4,21 @@ description: Azure App Service의 네트워크 기능 및 보안 또는 기능�
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/16/2020
+ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743049"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207059"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
 Azure App Service의 응용 프로그램은 여러 가지 방법으로 배포할 수 있습니다. 기본적으로 App Service 호스팅된 앱은 인터넷에 직접 액세스할 수 있으며 인터넷에 호스트 된 끝점에만 연결할 수 있습니다. 그러나 많은 고객 응용 프로그램에서 인바운드 및 아웃 바운드 네트워크 트래픽을 제어 해야 합니다. 이러한 요구를 충족 하기 위해 App Service에서 사용할 수 있는 몇 가지 기능이 있습니다. 문제는 지정 된 문제를 해결 하는 데 사용 해야 하는 기능을 파악 하는 것입니다. 이 문서는 고객이 몇 가지 예제 사용 사례에 따라 어떤 기능을 사용 해야 하는지 결정 하는 데 도움이 됩니다.
 
-Azure App Service에 대 한 두 가지 기본 배포 유형이 있습니다. 무료, 공유, 기본, 표준, 프리미엄, PremiumV2 및 PremiumV3 가격 책정 Sku에서 App Service 계획을 호스트 하는 다중 테 넌 트 공용 서비스가 있습니다. 그런 다음 Azure Virtual Network (VNet)에서 직접 격리 된 SKU App Service 계획을 호스트 하는 ASE (단일 테 넌 트 App Service Environment)가 있습니다. 다중 테 넌 트 서비스 또는 ASE에 있는 경우 사용 하는 기능이 달라 집니다. 
+Azure App Service에 대 한 두 가지 기본 배포 유형이 있습니다. 무료, 공유, 기본, 표준, 프리미엄, Premiumv2 및 Premiumv3 가격 책정 Sku에서 App Service 계획을 호스트 하는 다중 테 넌 트 공용 서비스가 있습니다. 그런 다음 Azure Virtual Network (VNet)에서 직접 격리 된 SKU App Service 계획을 호스트 하는 ASE (단일 테 넌 트 App Service Environment)가 있습니다. 다중 테 넌 트 서비스 또는 ASE에 있는 경우 사용 하는 기능이 달라 집니다. 
 
 ## <a name="multi-tenant-app-service-networking-features"></a>다중 테 넌 트 App Service 네트워킹 기능 
 
@@ -41,9 +41,9 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 | 앱에 대 한 IP 기반 SSL 요구 사항 지원 | 앱 할당 주소 |
 | 공유 안 함, 앱에 대 한 전용 인바운드 주소 | 앱 할당 주소 |
 | 잘 정의 된 주소 집합에서 앱에 대 한 액세스 제한 | 액세스 제한 |
-| VNet의 리소스에서 내 앱에 대 한 액세스 제한 | 서비스 엔드포인트 </br> ILB ASE </br> 개인 끝점 (미리 보기) |
-| 내 VNet의 개인 IP에서 내 앱 노출 | ILB ASE </br> 서비스 끝점을 사용 하는 Application Gateway에서 인바운드에 대 한 개인 IP </br> 서비스 끝점 (미리 보기) |
-| WAF를 사용 하 여 내 앱 보호 | Application Gateway + ILB ASE </br> 서비스 엔드포인트가 있는 애플리케이션 게이트웨이 </br> 액세스 제한이 있는 Azure Front 도어 |
+| VNet의 리소스에서 내 앱에 대 한 액세스 제한 | 서비스 엔드포인트 </br> ILB ASE </br> 프라이빗 엔드포인트 |
+| 내 VNet의 개인 IP에서 내 앱 노출 | ILB ASE </br> 프라이빗 엔드포인트 </br> 서비스 끝점을 사용 하는 Application Gateway에서 인바운드에 대 한 개인 IP |
+| WAF (웹 응용 프로그램 방화벽)를 사용 하 여 내 앱 보호 | Application Gateway + ILB ASE </br> 전용 끝점을 사용 하 여 Application Gateway </br> 서비스 끝점으로 Application Gateway </br> 액세스 제한이 있는 Azure Front 도어 |
 | 다른 지역의 내 앱에 트래픽 부하 분산 | 액세스 제한이 있는 Azure Front 도어 | 
 | 동일한 지역에서 트래픽 부하 분산 | [서비스 엔드포인트가 있는 애플리케이션 게이트웨이][appgwserviceendpoints] | 
 
@@ -62,11 +62,15 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 
 ### <a name="default-networking-behavior"></a>기본 네트워킹 동작
 
-Azure App Service 배율 단위는 각 배포에서 많은 고객을 지원 합니다. 무료 및 공유 SKU 요금제는 다중 테 넌 트 작업자에 대 한 고객 작업을 호스팅합니다. 기본 및 위의 계획은 하나의 ASP (App Service 계획)만을 전담 하는 고객 작업을 호스팅합니다. 표준 App Service 계획이 있는 경우 해당 계획의 모든 앱이 동일한 작업자에서 실행 됩니다. 작업자를 규모 확장 하는 경우 asp의 각 인스턴스에 대해 해당 ASP의 모든 앱이 새 작업자에 복제 됩니다. PremiumV2 및 PremiumV3에 사용 되는 작업자는 다른 계획에 사용 되는 작업자와 다릅니다. 각 App Service 배포에는 해당 App Service 배포에서 앱에 대 한 모든 인바운드 트래픽에 사용 되는 IP 주소가 하나 있습니다. 그러나 아웃 바운드 호출에 사용 되는 주소는 4 ~ 11입니다. 이러한 주소는 해당 App Service 배포의 모든 앱에서 공유 됩니다. 아웃 바운드 주소는 다른 작업자 유형에 따라 다릅니다. 즉, 무료, 공유, 기본, 표준 및 프리미엄 Asp에서 사용 하는 주소가 PremiumV2 및 PremiumV3 Asp의 아웃 바운드 호출에 사용 되는 주소와 다릅니다. 앱에 대 한 속성을 살펴보면 앱에서 사용 하는 인바운드 및 아웃 바운드 주소를 볼 수 있습니다. IP ACL을 사용 하 여 종속성을 잠가야 하는 경우 possibleOutboundAddresses를 사용 합니다. 
+Azure App Service 배율 단위는 각 배포에서 많은 고객을 지원 합니다. 무료 및 공유 SKU 요금제는 다중 테 넌 트 작업자에 대 한 고객 작업을 호스팅합니다. 기본 및 위의 계획은 하나의 ASP (App Service 계획)만을 전담 하는 고객 작업을 호스팅합니다. 표준 App Service 계획이 있는 경우 해당 계획의 모든 앱이 동일한 작업자에서 실행 됩니다. 작업자를 규모 확장 하는 경우 asp의 각 인스턴스에 대해 해당 ASP의 모든 앱이 새 작업자에 복제 됩니다. 
+
+#### <a name="outbound-addresses"></a>아웃 바운드 주소
+
+작업자 Vm은 App Service 가격 책정 계획에 따라 크게 분할 됩니다. Free, Shared, Basic, Standard 및 Premium은 모두 동일한 작업자 VM 유형을 사용 합니다. Premiumv2는 다른 VM 유형에 있습니다. Premiumv3가 아직 다른 VM 유형입니다. VM 패밀리의 각 변경 내용에는 서로 다른 아웃 바운드 주소 집합이 있습니다. 표준에서 Premiumv2로 크기를 조정 하는 경우 아웃 바운드 주소가 변경 됩니다. Premiumv2에서 Premiumv3로 크기를 조정 하는 경우 아웃 바운드 주소가 변경 됩니다. 표준에서 Premiumv2로 확장할 때 인바운드 및 아웃 바운드 주소를 모두 변경 하는 일부 이전 배율 단위가 있습니다. 아웃 바운드 호출을 수행 하는 데 사용 되는 주소는 여러 가지가 있습니다. 아웃 바운드 호출을 수행 하기 위해 앱에서 사용 하는 아웃 바운드 주소는 앱에 대 한 속성에 나열 됩니다. 이러한 주소는 해당 App Service 배포의 동일한 작업자 VM 제품군에서 실행 되는 모든 앱에서 공유 됩니다. 앱이 해당 배율 단위에서 사용할 수 있는 모든 가능한 주소를 확인 하려는 경우 possibleOutboundAddresses 라는 다른 속성을 나열 합니다. 
 
 ![앱 속성](media/networking-features/app-properties.png)
 
-App Service에는 서비스를 관리 하는 데 사용 되는 여러 끝점이 있습니다.  이러한 주소는 개별 문서에 게시 되며 AppServiceManagement IP 서비스 태그에도 있습니다. AppServiceManagement 태그는 이러한 트래픽을 허용 해야 하는 ASE (App Service Environment) 에서만 사용 됩니다. App Service 인바운드 주소는 AppService IP 서비스 태그에서 추적 됩니다. App Service에서 사용 하는 아웃 바운드 주소를 포함 하는 IP 서비스 태그는 없습니다. 
+App Service에는 서비스를 관리 하는 데 사용 되는 여러 끝점이 있습니다.  이러한 주소는 개별 문서에 게시 되며 AppServiceManagement IP 서비스 태그에도 있습니다. AppServiceManagement 태그는 이러한 트래픽을 허용 해야 하는 App Service Environment 에서만 사용 됩니다. App Service 인바운드 주소는 AppService IP 서비스 태그에서 추적 됩니다. App Service에서 사용 하는 아웃 바운드 주소를 포함 하는 IP 서비스 태그는 없습니다. 
 
 ![인바운드 및 아웃 바운드 다이어그램 App Service](media/networking-features/default-behavior.png)
 
@@ -100,7 +104,7 @@ Azure Virtual Network (VNet)의 리소스에서만 연결할 수 있도록 앱�
 
 ### <a name="service-endpoints"></a>서비스 엔드포인트
 
-서비스 끝점을 사용 하면 원본 주소를 선택 하는 서브넷 집합에서 가져와야 하는 앱에 대 한 **인바운드** 액세스를 잠글 수 있습니다. 이 기능은 IP 액세스 제한과 함께 작동 합니다. 서비스 끝점은 IP 액세스 제한과 동일한 사용자 환경에서 설정 됩니다. Vnet에 서브넷 뿐만 아니라 공용 주소를 포함 하는 액세스 규칙의 허용/거부 목록을 작성할 수 있습니다. 이 기능은 다음과 같은 시나리오를 지원 합니다.
+서비스 끝점을 사용 하 여 앱에 대 한 **인바운드** 액세스를 잠그고 원본 주소를 선택한 서브넷 집합에서 가져와야 합니다. 이 기능은 IP 액세스 제한과 함께 작동 합니다. 서비스 끝점은 원격 디버깅과 호환 되지 않습니다. 앱에서 원격 디버깅을 사용 하려면 클라이언트가 서비스 끝점을 사용 하도록 설정 된 서브넷에 있을 수 없습니다. 서비스 끝점은 IP 액세스 제한과 동일한 사용자 환경에서 설정 됩니다. Vnet에 서브넷 뿐만 아니라 공용 주소를 포함 하는 액세스 규칙의 허용/거부 목록을 작성할 수 있습니다. 이 기능은 다음과 같은 시나리오를 지원 합니다.
 
 ![서비스 엔드포인트](media/networking-features/service-endpoints.png)
 
@@ -111,10 +115,18 @@ Azure Virtual Network (VNet)의 리소스에서만 연결할 수 있도록 앱�
 
 [서비스 끝점 액세스 제한 구성][serviceendpoints] 의 자습서에서 앱을 사용 하 여 서비스 끝점을 구성 하는 방법에 대해 자세히 알아볼 수 있습니다.
 
-### <a name="private-endpoint-preview"></a>개인 끝점 (미리 보기)
+### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 개인 끝점은 Azure 개인 링크를 통해 웹 앱에 안전 하 게 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 웹 앱을 VNet에 효과적으로 제공 합니다. 이 기능은 웹 앱에 대 한 **인바운드** 흐름에만 해당 됩니다.
-[Azure 웹앱용 프라이빗 엔드포인트 사용(미리 보기)][privateendpoints]
+[Azure 웹 앱에 대 한 개인 끝점 사용][privateendpoints]
+
+개인 끝점은 다음과 같은 시나리오를 가능 하 게 합니다.
+
+* VNet의 리소스에서 내 앱에 대 한 액세스 제한 
+* 내 VNet의 개인 IP에서 내 앱 노출 
+* WAF를 사용 하 여 내 앱 보호 
+
+개인 끝점은 개인 끝점에서 연결할 수 있는 유일한 사항은 구성 된 앱 인 경우에만 데이터 반출을 방지 합니다. 
  
 ### <a name="hybrid-connections"></a>하이브리드 연결
 
@@ -132,7 +144,7 @@ App Service 하이브리드 연결 기능은 Azure Relay 하이브리드 연결 
 * 다른 아웃 바운드 연결 방법에서 다루지 않는 시나리오를 소개 합니다.
 * 앱이 온-프레미스 리소스를 쉽게 활용할 수 있는 App Service에서 개발을 수행 합니다. 
 
-이 기능은 인바운드 방화벽을 사용 하지 않고 온-프레미스 리소스에 대 한 액세스를 허용 하므로 개발자는 널리 사용 됩니다. 다른 아웃 바운드 App Service 네트워킹 기능은 매우 Azure 가상 네트워킹 관련 기능입니다. 하이브리드 연결는 VNet을 통과 하는 종속성이 없으며 광범위 한 네트워킹 요구 사항에 사용할 수 있습니다. App Service 하이브리드 연결 기능은이 기능을 통해 수행 하는 작업을 고려 하거나 알지 못합니다. 즉, 데이터베이스, 웹 서비스 또는 메인프레임의 임의 TCP 소켓에 액세스 하는 데 사용할 수 있습니다. 이 기능은 기본적으로 TCP 패킷을 터널링 합니다. 
+이 기능은 인바운드 방화벽을 사용 하지 않고 온-프레미스 리소스에 대 한 액세스를 허용 하므로 개발자는 널리 사용 됩니다. 다른 아웃 바운드 App Service 네트워킹 기능은 Azure 가상 네트워킹 관련 기능입니다. 하이브리드 연결는 VNet을 통과 하는 종속성이 없으며 광범위 한 네트워킹 요구 사항에 사용할 수 있습니다. App Service 하이브리드 연결 기능은이 기능을 통해 수행 하는 작업을 고려 하거나 알지 못합니다. 즉, 데이터베이스, 웹 서비스 또는 메인프레임의 임의 TCP 소켓에 액세스 하는 데 사용할 수 있습니다. 이 기능은 기본적으로 TCP 패킷을 터널링 합니다. 
 
 하이브리드 연결는 개발에 널리 사용 되지만 많은 프로덕션 응용 프로그램 에서도 사용 됩니다. 웹 서비스 또는 데이터베이스에 액세스 하는 것이 좋지만 많은 연결을 만드는 경우에는 적합 하지 않습니다. 
 
@@ -152,7 +164,7 @@ VNet 통합 기능 App Service 필요한 게이트웨이를 사용 하면 앱에
 
 ### <a name="vnet-integration"></a>VNet 통합
 
-게이트웨이 필수 VNet 통합 기능은 매우 유용 하지만 Express 경로에서 리소스에 대 한 액세스를 아직 해결 하지 않습니다. Express 경로 연결을 통해 연결 해야 하는 경우 앱이 서비스 끝점 보안 서비스를 호출할 수 있어야 합니다. 이러한 추가 요구 사항을 모두 해결 하기 위해 다른 VNet 통합 기능이 추가 되었습니다. 새 VNet 통합 기능을 사용 하면 동일한 지역의 리소스 관리자 VNet에 있는 서브넷에 앱 백 엔드를 추가할 수 있습니다. 이 기능은 이미 VNet에 있는 App Service Environment에서 사용할 수 없습니다. 이 기능을 통해 다음을 수행할 수 있습니다.
+게이트웨이 필수 VNet 통합 기능이 유용 하지만 Express 경로에서 리소스에 대 한 액세스를 아직 해결 하지 않습니다. Express 경로 연결을 통해 연결 해야 하는 경우 앱이 서비스 끝점 보안 서비스를 호출할 수 있어야 합니다. 이러한 추가 요구 사항을 모두 해결 하기 위해 다른 VNet 통합 기능이 추가 되었습니다. 새 VNet 통합 기능을 사용 하면 동일한 지역의 리소스 관리자 VNet에 있는 서브넷에 앱 백 엔드를 추가할 수 있습니다. 이 기능은 이미 VNet에 있는 App Service Environment에서 사용할 수 없습니다. 이 기능을 통해 다음을 수행할 수 있습니다.
 
 * 동일한 지역에서 리소스 관리자 Vnet의 리소스에 액세스
 * 서비스 끝점으로 보안이 유지 되는 리소스에 액세스 
@@ -213,22 +225,58 @@ ASE는 격리 되 고 전용 응용 프로그램 호스팅에 대 한 최상의 
 
 ### <a name="create-multi-tier-applications"></a>다중 계층 응용 프로그램 만들기
 
-다중 계층 응용 프로그램은 프런트 엔드 계층 에서만 API 백 엔드 앱에 액세스할 수 있는 응용 프로그램입니다. 다중 계층 응용 프로그램을 만들려면 다음을 수행할 수 있습니다.
+다중 계층 응용 프로그램은 프런트 엔드 계층 에서만 API 백 엔드 앱에 액세스할 수 있는 응용 프로그램입니다. 다중 계층 응용 프로그램을 만드는 방법에는 두 가지가 있습니다. 둘 다 VNet 통합을 사용 하 여 프런트 엔드 웹 앱을 VNet의 서브넷과 연결 합니다. 이렇게 하면 웹 앱에서 VNet에 대 한 호출을 수행할 수 있습니다. 프런트 엔드 앱이 VNet에 연결 된 후에는 API 응용 프로그램에 대 한 액세스를 잠그는 방법을 선택 해야 합니다.  다음과 같습니다.
 
-* VNet 통합을 사용 하 여 VNet의 서브넷과 프런트 엔드 웹 앱의 백 엔드 연결
-* 서비스 끝점을 사용 하 여 API 앱에 대 한 인바운드 트래픽을 보안 하 고 프런트 엔드 웹 앱에서 사용 하는 서브넷 에서만 가져오도록 합니다.
+* 동일한 ILB ASE에서 프런트 엔드 및 API 앱을 모두 호스팅하고 응용 프로그램 게이트웨이를 사용 하 여 프런트 엔드 앱을 인터넷에 노출 합니다.
+* 다중 테 넌 트 서비스 및 ILB ASE의 백 엔드에서 프런트 엔드 호스트
+* 다중 테 넌 트 서비스에서 프런트 엔드 및 API 앱 모두 호스팅
 
-![다중 계층 앱](media/networking-features/multi-tier-app.png)
+다중 계층 응용 프로그램에 대 한 프런트 엔드 및 API 앱을 모두 호스팅하는 경우 다음을 수행할 수 있습니다.
 
-다른 프런트 엔드 앱에서 VNet 통합을 사용 하 여 여러 프런트 엔드 앱에서 동일한 API 앱을 사용 하 고 API 앱에서 해당 서브넷을 사용 하 여 서비스 끝점을 사용할 수 있습니다.  
+VNet에서 개인 끝점을 사용 하 여 API 응용 프로그램 노출
+
+![전용 끝점 2 계층 앱](media/networking-features/multi-tier-app-private-endpoint.png)
+
+서비스 끝점을 사용 하 여 API 앱에 대 한 인바운드 트래픽을 보안 하 고 프런트 엔드 웹 앱에서 사용 하는 서브넷 에서만 가져오도록 합니다.
+
+![서비스 끝점 보안 된 앱](media/networking-features/multi-tier-app.png)
+
+두 기술 간의 장단점은 다음과 같습니다.
+
+* 서비스 끝점을 사용 하는 경우 API 앱에 대 한 트래픽 보안을 통합 서브넷에만 해야 합니다. 이렇게 하면 API 앱이 보호 되지만, 프런트 엔드 앱에서 App Service의 다른 앱으로 데이터를 필터링 할 가능성이 있습니다.
+* 개인 끝점을 사용 하면 두 개의 서브넷을 재생할 수 있습니다. 이렇게 하면 복잡성이 증가 합니다. 또한 개인 끝점은 최상위 리소스 이며 관리할 추가를 추가 합니다. 개인 끝점을 사용 하는 경우의 장점에는 데이터 반출 가능성이 없습니다. 
+
+두 기술은 여러 프런트 엔드에 대해 작동 합니다. 작은 규모에서 서비스 끝점은 프런트 엔드 통합 서브넷의 API 앱에 대 한 서비스 엔드포인트를 사용 하도록 설정 하기 때문에 사용 하기가 훨씬 쉽습니다. 프런트 엔드 앱을 더 추가할 때 통합 서브넷을 사용 하 여 서비스 끝점을 포함 하도록 모든 API 앱을 조정 해야 합니다. 전용 끝점을 사용 하면 더 복잡 하지만 개인 끝점을 설정한 후에는 API 앱에서 아무것도 변경할 필요가 없습니다. 
+
+### <a name="line-of-business-applications"></a>기간 업무 애플리케이션
+
+LOB (기간 업무) 응용 프로그램은 인터넷에서 액세스 하기 위해 일반적으로 노출 되지 않는 내부 응용 프로그램입니다. 이러한 응용 프로그램은 액세스를 엄격 하 게 제어할 수 있는 회사 네트워크 내부에서 호출 됩니다. ILB ASE를 사용 하는 경우 lob (기간 업무) 응용 프로그램을 쉽게 호스트할 수 있습니다. 다중 테 넌 트 서비스를 사용 하는 경우 Application Gateway와 결합 된 개인 끝점 또는 서비스 끝점을 사용할 수 있습니다. 개인 끝점 대신 서비스 끝점과 함께 Application Gateway를 사용 하는 두 가지 이유는 다음과 같습니다.
+
+* LOB 앱에 대 한 WAF 보호가 필요 합니다.
+* LOB 앱의 여러 인스턴스에 부하를 분산 하려고 합니다.
+
+두 경우 모두 전용 끝점을 사용 하는 것이 더 좋습니다. App Service에서 사용할 수 있는 개인 끝점을 사용 하 여 VNet의 개인 주소에 앱을 노출할 수 있습니다. Express 경로 및 VPN 연결에서 VNet에 배치한 개인 끝점에 연결할 수 있습니다. 개인 끝점을 구성 하면 개인 주소에 앱이 노출 되지만 온-프레미스에서 해당 주소에 연결 하도록 DNS를 구성 해야 합니다. 이러한 작업을 수행 하려면 개인 끝점을 포함 하는 Azure DNS 개인 영역을 온-프레미스 DNS 서버에 전달 해야 합니다. Azure DNS 개인 영역은 영역 전달을 지원 하지 않지만이를 위해 DNS 서버를 사용 하 여 지원할 수 있습니다. 이 템플릿, [DNS 전달자](https://azure.microsoft.com/resources/templates/301-dns-forwarder/)를 사용 하면 Azure DNS 개인 영역을 온-프레미스 DNS 서버에 쉽게 전달할 수 있습니다.
+
+## <a name="app-service-ports"></a>App Service 포트
+
+App Service를 검색 하는 경우 인바운드 연결에 대해 노출 되는 여러 포트를 찾을 수 있습니다. 다중 테 넌 트 서비스에서 이러한 포트에 대 한 액세스를 차단 하거나 제어 하는 방법은 없습니다. 노출 되는 포트는 다음과 같습니다.
+
+| 기능 | 포트 |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  관리 | 454, 455 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Visual Studio 원격 디버깅  |  4020, 4022, 4024 |
+|  웹 배포 서비스 | 8172 |
+|  인프라 사용 | 7654, 1221 |
 
 <!--Links-->
-[appassignedaddress]: ./configure-ssl-certificate.md
-[iprestrictions]: ./app-service-ip-restrictions.md
-[serviceendpoints]: ./app-service-ip-restrictions.md
-[hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
-[networkinfo]: ./environment/network-info.md
-[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
-[privateendpoints]: ./networking/private-endpoint.md
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
+[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
+[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

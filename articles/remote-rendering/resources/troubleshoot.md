@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803826"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203673"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -88,7 +88,7 @@ REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>MRC로 녹화된 비디오는 라이브 환경의 품질을 반영하지 않습니다.
 
-비디오가 [혼합 현실 캡처 (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers)를 통해 HoloLens에 기록 될 수 있습니다. 그러나 녹화된 비디오는 다음 두 가지 이유로 라이브 환경보다 품질이 떨어집니다.
+비디오가 [혼합 현실 캡처 (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers)를 통해 HoloLens에 기록 될 수 있습니다. 그러나 녹화된 비디오는 다음 두 가지 이유로 라이브 환경보다 품질이 떨어집니다.
 * 비디오 프레임 속도는 60Hz가 아닌 30Hz로 제한됩니다.
 * 비디오 이미지가 [후기 단계 다시 프로젝션](../overview/features/late-stage-reprojection.md) 처리 단계를 거치지 않으므로 뚝뚝 끊어집니다.
 

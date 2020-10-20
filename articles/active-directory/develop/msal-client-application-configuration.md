@@ -13,12 +13,12 @@ ms.date: 09/27/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b4595a63613afa3c6fef2fa2a85647d8b70b1388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 910007109e4751cf2fd509d1d568c66ae2a22cd2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534468"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200834"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -126,7 +126,7 @@ Broker를 사용 하는 경우와 같이 속성을 사용 하 여 리디렉션 U
 - `RedirectUriOnIos` = $ "msauth. {번들 ID}:/인증 ";
 
 IOS에 대 한 자세한 내용은 [Microsoft Authenticator를 사용 하는 ios 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션](msal-net-migration-ios-broker.md) 및 [Ios에서 broker 활용](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)을 참조 하세요.
-Android에 대 한 추가 정보는 [android에서](brokered-auth.md)조정 된 인증을 참조 하세요.
+Android에 대 한 추가 정보는 [android에서](msal-android-single-sign-on.md)조정 된 인증을 참조 하세요.
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>기밀 클라이언트 앱에 대 한 리디렉션 URI
 
