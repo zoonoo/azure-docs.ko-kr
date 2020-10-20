@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315578"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216915"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "91315578"
 
 ## <a name="testing-scripts-locally"></a>로컬에서 스크립트 테스트
 
-기계 학습 파이프라인은 [로컬에서 스크립트 테스트 섹션](how-to-debug-pipelines.md#debug-scripts-locally)을 참조하세요. ParallelRunStep은 ML 파이프라인에서 한 단계로 실행되므로 동일한 답변이 모두에게 적용됩니다.
+기계 학습 파이프라인은 [로컬에서 스크립트 테스트 섹션](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines)을 참조하세요. ParallelRunStep은 ML 파이프라인에서 한 단계로 실행되므로 동일한 답변이 모두에게 적용됩니다.
 
 ## <a name="debugging-scripts-from-remote-context"></a>원격 컨텍스트에서 스크립트 디버그
 
@@ -141,6 +141,8 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
+* [Azure Machine Learning 파이프라인을 보여 주는 이러한 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) 참조
 
 * [Azureml-파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) 를 봅니다.
 

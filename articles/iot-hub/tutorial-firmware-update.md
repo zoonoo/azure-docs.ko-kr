@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: fe6c7f10ce64e25f46444cd2db8b67aab4ae2135
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308303"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842821"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -184,7 +184,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 펌웨어 desired 속성을 업데이트하도록 구성을 만드는 방법을 강조 표시합니다.
 
-![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd1.png)
+![백 엔드 애플리케이션의 출력을 보여주는 스크린샷.](./media/tutorial-firmware-update/BackEnd1.png)
 
 다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 시뮬레이션된 디바이스의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
 

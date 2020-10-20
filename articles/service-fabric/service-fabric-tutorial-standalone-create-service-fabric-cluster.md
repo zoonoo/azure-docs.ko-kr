@@ -1,17 +1,15 @@
 ---
 title: Service Fabric 독립 실행형 클라이언트 설치
-description: 이 자습서에서는 이전 자습서 문서에서 만든 클러스터에 Service Fabric 독립 실행형 클라이언트를 설치하는 방법을 알아봅니다.
-author: dkkapur
+description: 이 자습서에서는 클러스터에 Service Fabric 독립 실행형 클라이언트를 설치하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae0b343be986f4d8d5176c1f39eef6b23ca81278
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75613944"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840645"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
@@ -19,7 +17,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 이 자습서는 시리즈의 2부입니다. 이 자습서에서는 Service Fabric 독립 실행형 클러스터를 만들기 위한 단계를 안내합니다.
 
-시리즈 2부에서는 다음 방법에 대해 알아봅니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Service Fabric 독립 실행형 패키지 다운로드 및 설치
@@ -38,7 +36,7 @@ zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **
 
 3개의 노드 창 클러스터를 빌드하고 있으므로 `ClusterConfig.Unsecure.MultiMachine.json` 파일을 수정해야 합니다.
 
-다음으로 8, 15, 22줄의 파일에서 발생하는 세 개의 ipAddress 줄을 각 인스턴스에 대한 IP 주소로 업데이트합니다.
+다음으로 8, 15, 22줄의 파일에서 발생하는 3개의 ipAddress 줄을 각 인스턴스에 대한 IP 주소로 업데이트합니다.
 
 노드를 업데이트하면 다음과 같이 나타납니다.
 
@@ -77,7 +75,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-아래와 유사한 출력이 표시됩니다. 아래쪽 필드 "Passed"가 `True`로 반환되는 경우 온전성 검사를 통과했고 클러스터는 입력 구성에 따라 배포 가능한 것으로 보입니다.
+아래 예제와 같은 출력이 표시되어야 합니다. 아래쪽 필드 "Passed"가 `True`로 반환되는 경우 온전성 검사를 통과했고 클러스터는 입력 구성에 따라 배포 가능한 것으로 보입니다.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -118,7 +116,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 >
 >
 
-### <a name="bring-up-service-fabric-explorer"></a>Service Fabric Explorer 표시
+### <a name="open-service-fabric-explorer"></a>Service Fabric Explorer 열기
 
 이제 http:\//localhost:19080/Explorer/index.html을 사용하여 머신 중 하나에서 직접 또는 http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html을 사용하여 원격으로 Service Fabric Explorer를 사용하여 클러스터에 연결할 수 있습니다.
 
@@ -128,7 +126,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ## <a name="next-steps"></a>다음 단계
 
-시리즈 2부에서는 다음 방법을 통해 스토리지 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 배웠습니다.
+이 문서에서는 다음 방법과 같이 스토리지 계정에 대량의 임의 데이터를 병렬로 업로드하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 연결 문자열 구성

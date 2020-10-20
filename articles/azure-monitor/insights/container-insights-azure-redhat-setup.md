@@ -3,14 +3,23 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994564"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216371"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성 
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
+
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11은 6 월 2022에 사용 중지 됩니다.
+>
+> 2020 년 10 월에는 더 이상 새 3.11 클러스터를 만들 수 없습니다.
+> 기존 3.11 클러스터는 6 월 2022 일까 지 계속 작동 하지만 해당 날짜 이후에는 더 이상 지원 되지 않습니다.
+>
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:aro-feedback@microsoft.com).
 
 컨테이너에 대 한 Azure Monitor는 AKS (Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 3 및 지원 되는 최신 버전 3 버전에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 

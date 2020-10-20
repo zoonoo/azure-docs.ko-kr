@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 6282e159a537eb3b9bf5d9a44c7498f3f1db0019
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 032f35fcf5ff661f5a0bfb59be191ffae93272a0
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550727"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>자습서: HappyFox와 Azure Active Directory 통합
 
@@ -132,19 +132,19 @@ HappyFox에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. **관리**로 이동하고 **통합** 탭을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/happyfox-tutorial/header.png) 
+    !["통합" 탭이 선택된 "관리" 페이지를 보여주는 스크린샷.](./media/happyfox-tutorial/header.png) 
 
 3. 통합 탭에서 **SAML 통합** 아래의 **구성**을 클릭하여 Single Sign On 설정을 엽니다.
 
-    ![Single Sign-on 구성](./media/happyfox-tutorial/configure.png)
+    !["구성" 작업이 선택된 "SAML 통합" 설정을 보여주는 스크린샷.](./media/happyfox-tutorial/configure.png)
 
 4. SAML 구성 섹션에서 Azure Portal에서 복사한 **로그인 URL** 값을 **SSO 대상 URL** 텍스트 상자에 붙여넣습니다.
 
-    ![Single Sign-on 구성](./media/happyfox-tutorial/targeturl.png)
+    !["SSO 대상 URL" 텍스트 상자가 강조 표시된 "SAML 구성" 섹션을 보여주는 스크린샷.](./media/happyfox-tutorial/targeturl.png)
 
 5. Azure Portal에서 다운로드한 인증서를 메모장에서 열고 해당 내용을 **IdP 서명** 섹션에 붙여 넣습니다.
 
-    ![Single Sign-on 구성](./media/happyfox-tutorial/cert.png)
+    ![강조 표시된 "IdP 서명" 섹션을 보여주는 스크린샷.](./media/happyfox-tutorial/cert.png)
 
 6. **설정 저장** 단추를 클릭합니다.
 

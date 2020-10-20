@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: ce5572c4c5aca6f48496250c942d50b90551f36f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6742253ad815ab8058a9c05d82200e77d9d18a43
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546943"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>자습서: Kantega SSO for FishEye/Crucible과 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Kantega SSO for FishEye/Crucible 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자" 및 "회신 URL" 텍스트 상자가 강조 표시되고 "저장" 단추가 선택된 "기본 SAML 구성" 섹션을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
@@ -134,43 +134,43 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
+    !["Cog" 아이콘과 선택된 "추가 기능"을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
 1. 시스템 설정 섹션에서 **새 추가 기능 찾기**를 클릭합니다. 
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
+    !["새 추가 기능 찾기"가 선택된 "시스템 설정" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
 1. **Kantega SSO for Crucible**을 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
+    ![검색 상자의 "Kantega SSO for Crucible" 및 "설치" 단추가 선택된 "Attlasian Marketplace for FishEye" 페이지를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
 1. 플러그 인 설치가 시작됩니다. 
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
+    ![플러그 인에 대한 "설치" 대화 상자를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
 1. 설치가 완료되면 **닫기**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
+    !["설치 및 준비 완료" 대화 상자와 선택된 "닫기" 단추를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
 1.  **관리**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
+    !["Kantega SSO for Crucible SAML 및 Kerberos" 앱 페이지와 선택된 "관리" 단추를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
 1. **구성**을 클릭하여 새 플러그 인을 구성합니다. 
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
+    !["사용자 설치 추가 기능" 페이지와 선택된 "구성" 단추를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
 1. **SAML** 섹션의 **ID 공급자 추가** 드롭다운에서 **Azure AD(Azure Active Directory)** 를 선택합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
+    !["ID 공급자 추가" 드롭다운 및 "Azure AD(Azure Active Directory)"가 선택된 "추가 기능 - Kantega Single Sign-On" 페이지를 보여주는 스크린샷. ](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
 1. 구독 수준을 **기본**으로 선택합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
+    !["기본 사항"이 선택된 "Azure AD 준비" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
 1. **앱 속성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
+    !["앱 ID URI" 텍스트 상자와 복사 단추가 선택된 "앱 속성" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
     a. **앱 ID URI**를 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에서 **식별자, 회신 URL 및 로그온 URL**로 사용합니다.
 
@@ -178,7 +178,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
+    !["내 컴퓨터의 메타데이터 파일"이 선택된 "메타데이터 가져오기" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
     a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
@@ -186,7 +186,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
+    !["ID 공급자 이름" 텍스트 상자가 강조 표시되고 "다음" 단추가 선택된 "이름 및 SSO 위치"를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
     a. **ID 공급자 이름** 텍스트 상자에 ID 공급자의 이름(예: Azure AD)을 입력합니다.
 
@@ -194,11 +194,11 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 1. 서명 인증서를 확인하고 **다음**을 클릭합니다.   
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
+    !["서명 확인" 섹션 정보와 선택된 "다음" 단추를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
 1. **FishEye 사용자 계정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
+    !["필요한 경우 FishEye의 내부 디렉터리에 사용자 만들기" 옵션과 "다음" 단추가 선택된 "FishEye 사용자 계정" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
     a. **필요한 경우 FishEye의 내부 디렉터리에 사용자 만들기**를 선택하고 사용자에 대한 적절한 그룹 이름을 입력합니다(그룹이 여러 개인 경우 쉼표로 구분 가능).
 
@@ -206,11 +206,11 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하려�
 
 1. **Finish**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
+    !["마침" 단추가 선택된 "요약" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
 1. **Known domains for Azure AD**(Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.  
 
-    ![Single Sign-on 구성](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
+    !["저장" 단추가 선택된 "Azure AD의 알려진 도메인" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
     a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
 
@@ -278,11 +278,11 @@ Azure AD 사용자가 FishEye/Crucible에 로그인할 수 있도록 하려면 F
 
 1. 마우스로 톱니바퀴를 가리키고 **사용자**를 클릭합니다.
 
-    ![직원 추가](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
+    ![선택된 "Cog" 아이콘과 드롭다운에서 선택된 "사용자"를 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
 
 1. **사용자** 탭 섹션에서 **사용자 추가** 탭을 클릭합니다.
 
-    ![직원 추가](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+    !["사용자 추가" 단추가 선택된 "사용자" 섹션을 보여주는 스크린샷.](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 1. **새 사용자 추가** 대화 상자 페이지에서 다음 단계를 수행합니다.
 

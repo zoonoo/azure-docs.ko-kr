@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05ec19fd2351b3a9ac1f383ce4747404eeead936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2bad99a836da7aab64e8cc0d454423fd56ffce1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067827"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217799"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "89067827"
 
 이 문서에서는 저장 프로시저 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 이 문서의 연습에서는 Azure SQL Database를 사용 하 여 SSIS 카탈로그를 호스팅합니다. Azure SQL Managed Instance를 사용할 수도 있습니다.
@@ -38,7 +38,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 ## <a name="data-factory-ui-azure-portal"></a>Data Factory UI(Azure Portal )
 이 섹션에서는 Data Factory UI를 사용하여 SSIS 패키지를 호출하는 저장 프로시저 작업이 있는 Data Factory 파이프라인을 만듭니다.
 
-### <a name="create-a-data-factory"></a>데이터 팩터리 만들기
+### <a name="create-a-data-factory"></a>Data Factory 만들기
 먼저, Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
@@ -95,7 +95,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
     7. **연결 테스트** 단추를 클릭하여 데이터베이스에 대한 연결을 테스트합니다.
     8. **저장** 단추를 클릭하여 연결된 서비스를 저장합니다. 
 
-        ![Azure SQL Database 연결된 서비스](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![새 연결 된 서비스를 추가 하는 프로세스를 보여 주는 스크린샷](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. 속성 창의 **SQL 계정** 탭에서 **저장 프로시저** 탭으로 전환 하 고 다음 단계를 수행 합니다. 
 
     1. **편집**을 선택합니다. 
@@ -155,7 +155,7 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다. 
 
-### <a name="create-a-data-factory"></a>데이터 팩터리 만들기
+### <a name="create-a-data-factory"></a>Data Factory 만들기
 Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도의 데이터 팩터리를 만들 수 있습니다. 다음 절차에서는 데이터 팩터리를 만드는 단계를 설명합니다. 이 데이터 팩터리의 저장 프로시저 작업을 사용하여 파이프라인을 만듭니다. 저장 프로시저 작업은 SSISDB 데이터베이스의 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
 
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 

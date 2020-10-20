@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297670"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048494"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -79,7 +79,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 > 모델을 직접 만들려는 경우 *AdtSampleApp\SampleClientApp\Models* 폴더에 *.json* 확장자로 저장하는 새 파일에 *Room* 모델 코드를 붙여 넣을 수 있습니다. 그런 다음, 속성과 관계를 추가하여 원하는 대로 구성합니다. 이 폴더의 다른 샘플 모델을 보고 아이디어를 얻을 수도 있습니다.
 
 > [!TIP] 
-> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-parse-models.md)를 참조하세요.
+> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-parse-models.md)를 참조하세요.
 
 ### <a name="get-started-with-the-command-line-app"></a>명령줄 앱 시작
 
@@ -171,7 +171,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 #### <a name="modify-a-digital-twin"></a>디지털 트윈 수정
 
-만든 트윈의 속성을 수정할 수도 있습니다. 이 명령을 실행하여 *room0*의 RoomName을 *Room0*에서 *PresidentialSuite*로 변경해 봅니다.
+사용자가 만든 트윈의 속성을 수정할 수도 있습니다. 이 명령을 실행하여 *room0*의 RoomName을 *Room0*에서 *PresidentialSuite*로 변경해 봅니다.
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b8bf8ef1affc42027ef0bec149f8e7c9eb9b2b90
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b1034454bbdee32b33222321ded2421b83bfd0d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546951"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>자습서: Kantega SSO for Bamboo와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Kantega SSO for Bamboo 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
@@ -107,7 +107,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Kantega SSO for Bamboo 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
@@ -134,39 +134,39 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 추가 기능을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon1.png)
 
 1. [추가 기능] 탭 섹션에서 **새 추가 기능 찾기**를 클릭합니다. **Kantega SSO for Bamboo(SAML & Kerberos)** 를 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon2.png)
+    ![스크린샷은 Bamboo용 Kantega SSO가 선택된 Bamboo 관리를 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon2.png)
 
 1. 플러그 인 설치가 시작됩니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon21.png)
+    ![스크린샷은 Bamboo용 Kantega SSO의 설치 진행률을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon21.png)
 
 1. 설치가 완료되면 **닫기**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon33.png)
+    ![스크린샷은 닫기 단추를 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon33.png)
 
 1. **관리**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon34.png)
+    ![스크린샷은 관리 단추를 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon34.png)
 
 1. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon3.png)
+    ![스크린샷은 구성이 선택된 사용자 설치 추가 기능을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon3.png)
 
 1. **SAML** 섹션의 **ID 공급자 추가** 드롭다운에서 **Azure AD(Azure Active Directory)** 를 선택합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon4.png)
+    ![스크린샷은 ID 공급자로 Azure AD가 선택된 Kantega Single Sign-On을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon4.png)
 
 1. 구독 수준을 **기본**으로 선택합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon5.png)
+    ![스크린샷은 기본 사항이 선택된 Azure AD 준비를 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon5.png)
 
 1. **앱 속성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon6.png)
+    ![스크린샷은 이 단계에서 정보를 제공할 수 있는 앱 속성 섹션을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon6.png)
 
     a. **앱 ID URI**를 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에서 **식별자, 회신 URL 및 로그온 URL**로 사용합니다.
 
@@ -174,7 +174,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon7.png)
+    ![스크린샷은 메타데이터 파일을 찾을 수 있는 메타데이터 가져오기 섹션을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon7.png)
 
     a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
@@ -182,7 +182,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon8.png)
+    ![스크린샷은 Azure AD가 ID 공급자 이름인 Name 및 SSO 위치를 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon8.png)
 
     a. **ID 공급자 이름** 텍스트 상자에 ID 공급자의 이름(예: Azure AD)을 입력합니다.
 
@@ -190,11 +190,11 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 1. 서명 인증서를 확인하고 **다음**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon9.png)
+    ![스크린샷은 서명 확인을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon9.png)
 
 1. **Bamboo 사용자 계정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon10.png)
+    ![스크린샷은 사용자를 만들 수 있는 옵션이 있는 Bamboo 사용자 계정을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon10.png)
 
     a. **필요한 경우 Bamboo의 내부 디렉터리에 사용자 만들기**를 선택하고 사용자에 대한 적절한 그룹 이름을 입력합니다(그룹이 여러 개인 경우 쉼표로 구분 가능).
 
@@ -202,11 +202,11 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 1. **Finish**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon11.png)
+    ![스크린샷은 요약 페이지를 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon11.png)
 
 1. **Known domains for Azure AD**(Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/kantegassoforbamboo-tutorial/addon12.png)
+    ![스크린샷은 이러한 단계를 수행할 수 있는 Azure AD의 알려진 도메인을 보여줍니다.](./media/kantegassoforbamboo-tutorial/addon12.png)
 
     a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
 
@@ -275,11 +275,11 @@ Azure AD 사용자가 Bamboo에 로그인하려면 Bamboo에 프로비저닝되�
 
 1. 마우스로 선 위를 가리키고 **사용자 관리**를 클릭합니다.
 
-    ![직원 추가](./media/kantegassoforbamboo-tutorial/user1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 사용자 관리를 보여줍니다.](./media/kantegassoforbamboo-tutorial/user1.png)
 
 1. **사용자**를 클릭합니다. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
 
-    ![직원 추가](./media/kantegassoforbamboo-tutorial/user2.png)
+    ![스크린샷은 이러한 단계를 수행할 수 있는 사용자 추가 창을 보여줍니다.](./media/kantegassoforbamboo-tutorial/user2.png)
 
     a. **사용자 이름** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 

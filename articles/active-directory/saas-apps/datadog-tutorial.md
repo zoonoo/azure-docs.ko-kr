@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-ms.openlocfilehash: d3bb0ad5305ccba412a403352405711be8f183a2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 75f2574a656f659dfed12b59d52c9f147527c65d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555938"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950012"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datadog"></a>자습서: Datadog와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -141,6 +141,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Datadog 타일을 클릭하면 SSO를 설정한 Datadog에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+
+### <a name="enable-all-users-from-your-tenant-to-authenticate-with-the-app"></a>테넌트의 모든 사용자가 앱으로 인증할 수 있도록 설정
+
+이 섹션에서는 한 사용자가 Datadog 쪽에 계정이 있는 경우 테넌트 내의 모든 사용자가 Datadog에 액세스할 수 있도록 설정합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. 애플리케이션 목록에서 **Datadog**를 선택합니다.
+1. 앱의 개요 페이지의 **관리**에서 **속성**을 선택합니다.
+
+    !["속성" 링크](common/properties.png)
+
+1. **사용자 할당이 필요하나요?** 에 대해 **아니요**를 선택합니다.
+
+    ![사용자 할당이 필요하지 않음](common/user-assignment-not-required.png)
+
+1. **저장**을 선택합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

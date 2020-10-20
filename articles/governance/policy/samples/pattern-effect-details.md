@@ -1,14 +1,14 @@
 ---
 title: 패턴 정책 정의의 효과
 description: 이 Azure Policy 패턴은 정책 정의의 다른 효과를 사용하는 방법에 대한 예제를 제공합니다.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85565738"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073039"
 ---
 # <a name="azure-policy-pattern-effects"></a>Azure Policy 패턴: 효과
 
@@ -24,7 +24,7 @@ Azure Policy에는 서비스에서 비준수 리소스에 반응하는 방법을
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-**modify** 효과를 적용하려면 **roleDefinitionIds** 및 **operations**를 정의하는 **policyRule.then.details** 블록이 필요합니다. 이러한 매개 변수는 태그를 추가하고 리소스를 수정하는 데 필요한 역할 및 수행할 **modify** 작업을 Azure Policy에 알려 줍니다. 이 예제에서 **operation**이 _추가_되며 태그와 해당 값을 설정하는 데 매개 변수가 사용됩니다.
+**modify** 효과를 적용하려면 **roleDefinitionIds** 및 **operations**를 정의하는 **policyRule.then.details** 블록이 필요합니다. 이러한 매개 변수는 태그를 추가하고 리소스를 수정하는 데 필요한 역할과 사용할 **수정** 작업을 Azure Policy에 알려줍니다. 이 예제에서는 _추가_ **작업** 및 매개 변수를 사용하여 태그와 해당 값을 설정합니다.
 
 ## <a name="sample-2-complex-effect"></a>샘플 2: 복합 효과
 

@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 42aa51fdd3b0da5a0d438ba46b39bada159aeba6
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 429d0b9c3a118061d713484a7db3aca376a24d04
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611474"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873186"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Blazor Server 앱 만들기
 
@@ -84,7 +84,7 @@ dotnet run --framework netcoreapp3.1
 
 ## <a name="retrieving-data-from-microsoft-graph"></a>Microsoft Graph에서 데이터 검색
 
-[Microsoft Graph](/graph/overview)는 사용자의 Microsoft 365 데이터에 대한 액세스를 제공하는 다양한 API를 제공합니다. Microsoft Graph는 Microsoft ID 플랫폼에서 발급한 토큰을 직접 지원하므로, Microsoft ID 플랫폼을 앱에 대한 ID 공급자로 사용하면 이 정보에 손쉽게 액세스할 수 있습니다. 이 섹션에서 코드를 추가하면 로그인한 사용자의 이메일이 애플리케이션의 “데이터 페치” 페이지에 표시됩니다.
+[Microsoft Graph](/graph/overview)는 사용자의 Microsoft 365 데이터에 대한 액세스를 제공하는 다양한 API를 제공합니다. Microsoft Graph는 Microsoft ID 플랫폼에서 발급한 토큰을 직접 지원하므로, Microsoft ID 플랫폼을 앱에 대한 ID 공급자로 사용하면 이 정보에 손쉽게 액세스할 수 있습니다. 이 섹션에서는 애플리케이션의 "데이터 가져오기" 페이지에 로그인한 사용자의 이메일을 표시하는 코드를 추가합니다.
 
 시작하기 전에 필요한 권한을 변경하고 현재 토큰은 작동하지 않으므로 앱에서 로그아웃합니다. 아직 로그아웃하지 않은 경우 다음 코드를 업데이트하기 전에 앱을 다시 실행하고 **로그아웃**을 선택합니다.
 

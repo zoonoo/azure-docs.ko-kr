@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385963"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214960"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
@@ -34,7 +34,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 1. **등록**을 선택합니다.
 1. 웹 API의 코드에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
 
-JavaScript 기반 SPA (단일 페이지 응용 프로그램)와 같이 암시적 권한 부여 흐름을 구현 하는 응용 프로그램이 있는 경우 다음 단계를 수행 하 여 흐름을 사용 하도록 설정할 수 있습니다.
+[JavaScript 기반 SPA (단일 페이지 응용 프로그램)](tutorial-register-spa.md)와 같이 암시적 권한 부여 흐름을 구현 하는 응용 프로그램이 있는 경우 다음 단계를 수행 하 여 흐름을 사용 하도록 설정할 수 있습니다.
 
 1. **관리**에서 **인증**을 선택합니다.
 1. **암시적 권한 부여**에서 **액세스 토큰** 및 **ID 토큰** 확인란을 둘 다 선택합니다.

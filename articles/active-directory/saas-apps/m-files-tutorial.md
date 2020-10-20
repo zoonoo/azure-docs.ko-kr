@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77c83e82577cb1d6d07c90a0260a5fa006fd8625
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8cf4df682a5c141e39a3860547a5b6130e2a3002
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554838"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>자습서: Azure Active Directory와 M-Files 통합
 
@@ -133,11 +133,11 @@ M-Files에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 1. **M-Files 데스크톱 설정** 창을 엽니다. 그런 다음 **추가**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![스크린샷은 추가를 선택할 수 있는 M-Files Desktop 설정을 보여줍니다.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. **문서 자격 증명 모음 연결 속성** 창에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![스크린샷은 설명된 값을 입력할 수 있는 문서 자격 증명 모음 연결 속성을 보여줍니다.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     서버 섹션 아래에서 다음과 같이 값을 입력합니다.  
 

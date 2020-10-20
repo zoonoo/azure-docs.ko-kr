@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 2128559d8074281c1019d99e1316da34c7ec6797
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ed3d5de27a2d9ce5060ff4bfe71c595512658e58
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554603"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940619"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mondaycom"></a>자습서: monday.com과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -88,14 +88,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 기본 SAML 구성 섹션에 자동으로 채워집니다.
 
-    ![이미지](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     > [!Note]
     > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 수동으로 값을 입력합니다. **식별자** 및 **회신 URL**은 동일하며 값의 패턴은 다음과 같습니다. `https://<your-domain>.monday.com/saml/saml_callback`
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![이미지](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<YOUR_DOMAIN>.monday.com` 패턴을 사용하여 URL을 입력합니다.
 
@@ -104,7 +104,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. monday.com 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/default-attributes.png)
+    ![스크린샷은 Givenname user.givenname 및 Emailaddress User.mail과 같은 기본값이 있는 사용자 특성 및 크레임을 보여줍니다.](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 monday.com 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
@@ -166,15 +166,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 페이지 오른쪽 위 모서리의 **프로필**로 이동하여 **관리자**를 클릭합니다.
 
-    ![monday.com 구성](./media/mondaycom-tutorial/configuration01.png)
+    ![스크린샷은 선택된 관리자 프로필을 보여줍니다.](./media/mondaycom-tutorial/configuration01.png)
 
 1. **보안**을 선택하고 SAML 옆에 있는 **열기**를 클릭해야 합니다.
 
-    ![monday.com 구성](./media/mondaycom-tutorial/configuration02.png)
+    ![스크린샷은 SAML 옆에 열기 옵션이 있는 보안 탭을 보여줍니다.](./media/mondaycom-tutorial/configuration02.png)
 
 1. IDP에서 아래 세부 정보를 입력합니다.
 
-    ![monday.com 구성](./media/mondaycom-tutorial/configuration03.png)
+    ![스크린샷은 IDP에서 정보를 입력할 수 있는 SAML 공급자를 보여줍니다.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > 자세한 내용은 [이](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) 문서를 참조하세요.

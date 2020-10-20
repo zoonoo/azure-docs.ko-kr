@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0e7b09c13cd27bd8197f6b65a1213d3154db6ac3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553837"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>자습서: Pingboard와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ Pingboard에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Pingboard 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자" 및 "회신 URL" 텍스트 상자가 강조 표시되고 "저장" 단추가 선택된 "기본 SAML 구성"을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `http://app.pingboard.com/sp`
 

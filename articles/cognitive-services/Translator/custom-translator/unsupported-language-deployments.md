@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964688"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221199"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
@@ -35,11 +35,11 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 ## <a name="process"></a>프로세스
 배포 후보가 되는 허브에서 모델을 마이그레이션한 후에는 작업 영역에 대 한 **설정** 페이지로 이동 하 여 **지원 되지 않는 Translator 허브 학습** 섹션이 표시 되는 페이지의 끝으로 스크롤하여 해당 모델을 찾을 수 있습니다.  이 섹션은 위에서 언급 한 필수 조건을 충족 하는 프로젝트가 있는 경우에만 표시 됩니다.
 
-![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![지원 되지 않는 Translator 허브 학습 섹션을 강조 표시 하는 스크린샷](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 **지원 되지 않는 변환기 허브 학습** 선택 페이지 내에서 **요청** 되지 않은 학습 탭은 배포에 적합 한 모델을 포함 합니다.  배포 하려는 모델을 선택 하 고 요청을 제출 합니다.   4 월 30 일 배포 최종 기한 이전에는 배포에 사용할 모델을 원하는 만큼 선택할 수 있습니다.
  
-![허브에서 마이그레이션하는 방법](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![요청 하지 않은 학습 탭을 보여 주는 스크린샷](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 제출한 후에는 요청 되지 않은 **학습** 탭에서 모델을 더 이상 사용할 수 없으며 **요청 된 학습** 탭에 대신 표시 됩니다.  언제 든 지 요청 된 학습를 볼 수 있습니다.
 

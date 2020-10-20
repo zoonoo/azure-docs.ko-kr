@@ -1,14 +1,14 @@
 ---
 title: '자습서: 규정 준수를 적용하는 정책 빌드'
 description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
-ms.date: 06/15/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: d8dc65d50182b5336a683c2da8e2a5d8ebb9e849
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650085"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876388"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -36,11 +36,11 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
 
-   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="정책 개요 페이지에서 할당 노드를 선택하는 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 1. **정책 - 할당** 창의 위쪽에서 **정책 할당**을 선택합니다.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="할당 페이지에서 '정책 할당' 단추를 선택하는 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 1. **정책 할당** 페이지와 **기본 사항** 탭에서 줄임표를 선택하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다.
    그런 다음, **범위** 페이지의 맨 위에서 **선택**을 선택합니다.
@@ -54,7 +54,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 1. **누락된 경우 리소스 그룹에서 태그 상속**을 선택합니다. 즉시 찾을 수 없는 경우 검색 상자에 **태그 상속**을 입력한 다음, ENTER를 누르거나 검색 상자 바깥쪽을 선택합니다.
    정책 정의를 찾아서 선택했으면 **사용 가능한 정의** 페이지의 맨 아래에서 **선택**을 선택합니다.
 
-   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="정책 정의를 선택하는 검색 필터의 스크린샷.":::
+   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="검색 창에서 정책을 검색하는 스크린샷.":::
 
 1. 선택한 정책 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예제에서는 _누락된 경우 리소스 그룹에서 태그 상속_을 그대로 둡니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
 
@@ -82,7 +82,7 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. Azure Policy 페이지의 왼쪽에 있는 **작성**에서 **정의**를 선택합니다.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="작성 그룹 아래의 정의 페이지 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 1. 페이지 위쪽에서 **+ 정책 정의**를 선택합니다. 이 단추를 선택하면 **정책 정의** 페이지가 열립니다.
 
@@ -342,13 +342,13 @@ az policy definition list
 
 1. Azure Policy 페이지의 왼쪽에 있는 **작성**에서 **정의**를 선택합니다.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="작성 그룹 아래의 정의 페이지 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="검색 창에서 정책을 검색하는 스크린샷.":::
 
-1. 페이지 위쪽에서 **+ 이니셔티브 정의**를 선택하여 **이니셔티브 정의** 페이지를 엽니다.
+1. 페이지 위쪽에서 **+ 이니셔티브 정의**를 선택하여 **이니셔티브 정의** 마법사를 엽니다.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="설정할 이니셔티브 정의 페이지 및 속성의 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="검색 창에서 정책을 검색하는 스크린샷.":::
 
-1. **정의 위치** 줄임표를 사용하여 해당 정의를 저장할 관리 그룹 또는 구독을 선택합니다. 이전 페이지의 범위를 단일 관리 그룹 또는 구독으로 지정한 경우 **정의 위치**가 자동으로 채워집니다. 선택을 마치면 **사용 가능한 정의**가 채워집니다.
+1. **이니셔티브 위치** 줄임표를 사용하여 해당 정의를 저장할 관리 그룹 또는 구독을 선택합니다. 이전 페이지의 범위를 단일 관리 그룹 또는 구독으로 지정한 경우 **이니셔티브 위치**가 자동으로 채워집니다.
 
 1. 이니셔티브의 **이름**과 **설명**을 입력합니다.
 
@@ -356,28 +356,53 @@ az policy definition list
 
 1. **범주**로는 기존 옵션에서 선택하거나 새 범주를 만듭니다.
 
-1. **사용 가능한 정의** 목록(**이니셔티브 정의** 페이지의 오른쪽 절반)을 검색하고 이 이니셔티브에 추가할 정책 정의를 선택합니다. **보안 강화** 이니셔티브의 경우 정책 정의 정보 옆에 있는 **+** 기호를 선택하거나 정책 정의 행을 클릭하고 세부 정보 페이지에서 **+ 추가**를 선택하여 다음과 같은 기본 제공 정의를 추가합니다.
+1. 이니셔티브의 **버전**을 설정합니다(예: _1.0_).
+
+   > [!NOTE]
+   > 버전 값은 전적으로 메타데이터이며 Azure Policy 서비스의 업데이트 또는 프로세스에는 사용되지 않습니다.
+
+1. 페이지의 아래쪽에서 **다음**을 선택하거나 마법사의 위쪽에서 **정책** 탭을 선택합니다.
+
+1. **정책 정의 추가** 단추를 선택하고 목록을 살펴봅니다. 이 이니셔티브에 추가할 정책 정의를 선택합니다. **보안 강화** 이니셔티브의 경우 정책 정의 옆에 있는 확인란을 선택하여 다음과 같은 기본 제공 정책 정의를 추가합니다.
 
    - 허용되는 위치
    - Azure Security Center에서 누락된 Endpoint Protection 모니터링
-   - 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
+   - 네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함
    - Virtual Machines에 Azure Backup을 사용하도록 설정해야 합니다.
    - 가상 머신에서 디스크 암호화를 적용해야 합니다.
+   - 리소스에 대한 태그 추가 또는 바꾸기(이 정책 정의를 두 번 추가)
 
-   목록에서 정책 정의를 선택하면 각 정책 정의가 **범주** 아래에 추가됩니다.
+   목록에서 각 정책 정의를 선택한 후에는 목록의 맨 아래에서 **추가**를 선택합니다.
+   _리소스에 대한 태그 추가 또는 바꾸기_ 정책 정의가 두 번 추가되므로 _참조 ID_가 서로 다릅니다.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="이니셔티브 정의 페이지의 매개 변수 및 값 정의 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="검색 창에서 정책을 검색하는 스크린샷.":::
 
-1. 이니셔티브에 추가되는 정책 정의에 매개 변수가 있는 경우 해당 매개 변수는 **범주** 영역의 정책 이름 아래에 표시됩니다. _값_은 '값 설정'(이 이니셔티브의 모든 할당에 대해 하드 코드됨) 또는 '이니셔티브 매개 변수 사용'(각 이니셔티브 할당 중에 설정됨)으로 설정할 수 있습니다. '값 설정'을 선택하면 _값_ 오른쪽의 드롭다운에서 값을 입력하거나 선택할 수 있습니다. '이니셔티브 매개 변수 사용'을 선택하면 새 **이니셔티브 매개 변수** 섹션이 표시되어 이니셔티브 할당 중에 설정될 매개 변수를 정의할 수 있습니다. 이니셔티브 매개 변수에 허용되는 값은 이니셔티브 할당 중에 설정될 수 있는 값을 더 자세히 제한할 수 있습니다.
+   > [!NOTE]
+   > 선택한 정책 정의는 추가된 정의를 하나 이상 선택하고 **그룹에 선택한 정책 추가**를 선택하여 그룹에 추가할 수 있습니다. 먼저 그룹이 있어야 하며 마법사의 **그룹** 탭에서 그룹을 만들 수 있습니다.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="이니셔티브 정의 페이지의 효과 매개 변수에 허용되는 값에 대한 옵션 스크린샷." border="false":::
+1. 페이지의 아래쪽에서 **다음**을 선택하거나 마법사의 위쪽에서 **그룹** 탭을 선택합니다. 이 탭에서 새 그룹을 추가할 수 있습니다. 이 자습서에서는 그룹을 추가하지 않습니다.
+
+1. 페이지의 아래쪽에서 **다음**을 선택하거나 마법사의 위쪽에서 **이니셔티브 매개 변수** 탭을 선택합니다. 하나 이상의 포함된 정책 정의에 전달하기 위해 이니셔티브에 매개 변수가 있어야 하는 경우 매개 변수는 여기에서 정의된 후 **정책 매개 변수** 탭에서 사용됩니다. 이 자습서에서는 이니서티브 매개 변수를 추가하지 않습니다.
+
+   > [!NOTE]
+   > 이니셔티브 정의에 저장된 이니셔티브 매개 변수는 이니셔티브에서 삭제할 수 없습니다. 이니셔티브 매개 변수가 더 이상 필요 없으면 정책 정의 매개 변수에 사용되지 않도록 제거합니다.
+
+1. 페이지의 아래쪽에서 **다음**을 선택하거나 마법사의 위쪽에서 **정책 매개 변수** 탭을 선택합니다.
+
+1. 매개 변수가 있는 이니셔티브에 추가된 정책 정의가 그리드에 표시됩니다. _값 형식_은 '기본값', '값 설정' 또는 '이니셔티브 매개 변수 사용'입니다. '값 설정'을 선택하면 _값_에 관련 값이 입력됩니다. 정책 정의에 대한 매개 변수에 허용되는 값 목록이 있으면 해당 항목 상자는 드롭다운 선택기입니다. '이니셔티브 매개 변수 사용'을 선택하면 **이니셔티브 매개 변수** 탭에서 만든 이니셔티브 매개 변수의 이름과 함께 드롭다운 옵션이 제공됩니다.
+
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="검색 창에서 정책을 검색하는 스크린샷.":::
 
    > [!NOTE]
    > 일부 `strongType` 매개 변수의 경우 값 목록은 자동으로 결정할 수 없습니다. 이러한 경우 매개 변수 행의 오른쪽에 줄임표가 표시됩니다. 이를 선택하면 '매개 변수 범위(&lt;매개 변수 이름&gt;)' 페이지가 열립니다. 이 페이지에서 값 옵션을 제공하는 데 사용할 구독을 선택합니다. 이 매개 변수 범위는 이니셔티브 정의를 만드는 중에 사용되며, 할당되는 경우 정책 평가 또는 이니셔티브의 범위에는 영향을 주지 않습니다.
 
-   'Allowed locations' 매개 변수를 '미국 동부 2'로 설정하고 나머지는 기본값인 'AuditifNotExists'로 둡니다.
+   '허용 위치' _값 형식_을 '값 설정'으로 설정하고 드롭다운에서 '미국 동부 2'를 선택합니다. _리소스에 태그 추가 또는 바꾸기_ 정책 정의의 두 가지 인스턴스와 관련하여, 아래와 같이 **태그 이름** 매개 변수를 'Env' 및 'CostCenter'로 설정하고 **태그 값** 매개 변수를 '테스트' 및 '랩'으로 설정합니다. 나머지는 '기본값'으로 둡니다. 매개 변수가 다른 동일한 정의를 이니셔티브에 두 번 사용하는 이 구성은 'Env' 태그를 'Test'라는 값으로 바꾸거나 추가하고, 'CostCenter' 태그를 할당 범위에서 리소스에 대한 '랩' 값으로 바꾸거나 추가합니다.
 
-1. **저장**을 선택합니다.
+   :::image type="content" source="../media/create-and-manage/initiative-definition-4.png" alt-text="검색 창에서 정책을 검색하는 스크린샷.":::
+
+1. 페이지의 아래쪽 또는 마법사의 위쪽에서 **검토 + 만들기**를 선택합니다.
+
+1. 설정을 검토하고 **만들기**를 선택합니다.
 
 #### <a name="create-a-policy-initiative-definition-with-azure-cli"></a>Azure CLI를 사용하여 정책 이니셔티브 정의 만들기
 
@@ -426,11 +451,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. 앞에서 만든 **보안 강화** 이니셔티브 정의를 찾아서 선택합니다. 페이지 위쪽에서 **할당**을 선택하여 **보안 강화: 이니셔티브 할당** 페이지를 엽니다.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="이니셔티브 정의 페이지에 있는 '할당' 단추의 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
    또한 선택한 행을 마우스 오른쪽 단추로 클릭하거나 행 끝에 있는 줄임표(...)를 선택하여 상황에 맞는 메뉴를 표시할 수 있습니다. 그리고 **할당**을 선택합니다.
 
-   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="할당 기능을 선택하는 이니셔티브에 대한 컨텍스트 메뉴의 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 1. 다음 예제 정보를 입력하여 **보안 강화: 이니셔티브 할당** 페이지를 채웁니다. 사용자 고유의 정보를 사용해도 됩니다.
 
@@ -455,27 +480,30 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Azure Policy 페이지의 왼쪽에서 **규정 준수**를 선택합니다.
 
 1. **보안 가져오기** 이니셔티브를 찾습니다. ‘규정 준수 상태’가 **시작되지 않음**일 가능성이 여전히 있습니다.__
-   이니셔티브를 선택하여 할당 진행 상황에 대한 자세한 내용을 가져옵니다.
+   이니셔티브를 선택하여 할당에 대한 모든 세부 정보를 가져옵니다.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="시작 안 함 상태의 할당 평가를 보여주는 이니셔티브 규정 준수 페이지의 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 1. 이니셔티브 할당이 완료되었으면 규정 준수 페이지에서 **준수 상태**가 _준수_로 업데이트됩니다
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="완료 및 규정 준수 상태의 할당 평가를 보여주는 이니셔티브 규정 준수 페이지의 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 1. 이니셔티브 규정 준수 페이지에서 아무 정책을 선택하면 해당 정책에 대한 규정 준수 세부 정보 페이지가 열립니다. 이 페이지는 규정 준수에 대한 리소스 수준의 세부 정보를 제공합니다.
 
-## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>배제를 사용하여 규정 비준수 또는 거부된 리소스 제외
+## <a name="remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion"></a>제외가 포함된 범위에서 비규격 또는 거부된 리소스 제거
 
 특정 위치를 요구하도록 정책 이니셔티브를 할당한 후에는 다른 위치에서 생성된 리소스가 거부됩니다. 이 섹션에서는 단일 리소스 그룹에 대한 제외를 만들어서 리소스 생성 요청이 거부되는 문제 해결 방법을 단계별로 안내합니다. 제외는 해당 리소스 그룹에 정책(또는 이니셔티브)이 적용되지 않도록 방지합니다. 다음 예제에서는 모든 위치가 제외된 리소스 그룹에서 허용됩니다. 구독, 리소스 그룹 또는 개별 리소스에 제외를 적용할 수 있습니다.
 
+> [!NOTE]
+> [정책 예외](../concepts/exemption-structure.md)를 사용하여 리소스 평가를 건너뛸 수도 있습니다. 자세한 내용은 [Azure Policy의 범위](../concepts/scope.md)를 참조하세요.
+
 할당된 정책 또는 이니셔티브에 의해 금지되는 배포는 배포 대상으로 지정된 리소스 그룹에서 볼 수 있습니다. 페이지 왼쪽에서 **배포**를 선택하고 실패한 배포에서 **배포 이름**을 선택합니다. 거부된 리소스가 _사용할 수 없음_ 상태와 함께 나열됩니다. 리소스를 거부한 정책 또는 이니셔티브와 할당을 확인하려면 개요 페이지에서 **실패했습니다. 자세한 내용을 보려면 여기를 클릭하세요. ->** 를 클릭합니다. 페이지 오른쪽에 창이 열리고 오류 정보가 표시됩니다. **오류 세부 정보** 아래에 관련 정책 개체의 GUID가 있습니다.
 
-:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="정책 할당에 의해 거부되어 실패한 배포의 스크린샷." border="false":::
+:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 Azure Policy 페이지: 페이지 왼쪽에서 **규정 준수**를 선택하고 **보안 강화** 정책 이니셔티브를 선택합니다. 이 페이지에서는 차단된 리소스의 **거부** 수가 증가합니다. **이벤트** 탭에는 정책 정의에 의해 거부된 리소스를 만들거나 배포하려고 시도한 사용자에 대한 세부 정보가 있습니다.
 
-:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="이니셔티브 규정 준수 페이지의 이벤트 탭 및 정책 이벤트 세부 정보에 대한 스크린샷." border="false":::
+:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
 이 예제에서는 Contoso의 수석 가상화 전문가 중 한 명인 Trent Baker가 필수 작업을 수행하고 있었습니다. Trent에 예외를 위한 공간을 부여해야 합니다. 그래서 **LocationsExcluded**라고 하는 새 리소스 그룹을 만들었으며, 이제 이 정책 할당에 예외를 부여할 것입니다.
 
@@ -487,7 +515,7 @@ Azure Policy 페이지: 페이지 왼쪽에서 **규정 준수**를 선택하고
 
 1. 줄임표를 선택하고 제외할 리소스 그룹(이 예제에서는 _LocationsExcluded_)을 선택하여 **제외**를 설정합니다. **선택한 범위에 추가**를 선택하고 **저장**을 선택합니다.
 
-   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="정책 할당에 제외된 리소스 그룹을 추가하는 이니셔티브 할당 페이지의 제외 옵션 스크린샷." border="false":::
+   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="검색 창에서 정책을 검색하는 스크린샷." border="false":::
 
    > [!NOTE]
    > 정책 정의 및 그 영향에 따라 할당 범위 내의 리소스 그룹에 속한 특정 리소스에 제외를 부여할 수도 있습니다. 이 자습서에서 사용한 **거부** 효과와 마찬가지로, 이미 있는 특정 리소스에 제외를 설정하는 것은 의미가 없습니다.

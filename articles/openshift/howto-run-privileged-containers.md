@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271369"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218870"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 권한 있는 컨테이너 실행
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11는 30 월 2022에 사용 중지 됩니다. 새 Azure Red Hat OpenShift 3.11 클러스터 만들기에 대 한 지원은 30 년 11 2020 월 30 일까 지 계속 됩니다. 사용 중지 후에는 나머지 Azure Red Hat OpenShift 3.11 클러스터가 종료 되어 보안 취약점을 방지 합니다.
+> 
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:arofeedback@microsoft.com).
 
 Azure Red Hat OpenShift 클러스터에서 임의의 권한 있는 컨테이너를 실행할 수 없습니다.
 두 보안 모니터링 및 규정 준수 솔루션은 ARO 클러스터에서 실행할 수 있습니다.
@@ -115,7 +121,7 @@ Enforcers를 배포할 때 다음 필드를 설정 합니다.
 | -------------- | ------------- |
 | 오케스트레이터   | OpenShift     |
 | ServiceAccount | 바다색-계정  |
-| 프로젝트        | 바다색-보안 |
+| Project        | 바다색-보안 |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Twistlock Sma Cloud/에 대 한 제품별 단계
 
@@ -128,7 +134,7 @@ Enforcers를 배포할 때 다음 필드를 설정 합니다.
 oc new-project twistlock
 ```
 
-선택적 섹션인 "개인 레지스트리에 대 한 대상 레지스트리를 푸시합니다." 섹션을 건너뜁니다. Azure Red Hat Openshift에서는 작동 하지 않습니다. 대신 온라인 레지스트리를 사용 하십시오.
+선택적 섹션인 "개인 레지스트리에 대 한 대상 레지스트리를 푸시합니다." 섹션을 건너뜁니다. Azure Red Hat OpenShift에서는 작동 하지 않습니다. 대신 온라인 레지스트리를 사용 하십시오.
 
 아래에 설명 된 수정 내용을 적용 하는 동안 공식 설명서를 따를 수 있습니다.
 "콘솔 설치" 섹션으로 시작 합니다.

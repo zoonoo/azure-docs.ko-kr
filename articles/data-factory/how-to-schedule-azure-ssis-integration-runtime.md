@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187254"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219465"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -149,7 +149,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 1. 파이프라인 도구 모음에서 **트리거**를 선택하고 **새로 만들기/편집**을 선택합니다. 
 
-   ![트리거 -> 새로 만들기/편집](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![트리거-> 새로 만들기/편집 메뉴 옵션을 강조 표시 하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. **트리거 추가** 창에서 **+ 새로 만들기**를 선택합니다.
 
@@ -220,7 +220,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
 3. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **모니터링 + 관리**를 선택한 후 **Automation**을 선택합니다. 
 
-   ![새로 만들기 -> 모니터링 + 관리 -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![모니터링 + 관리 > Automation 옵션을 강조 표시 하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. **Automation 계정 추가** 창에서 다음 작업을 수행합니다.
 
@@ -262,7 +262,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
 
 1. **Runbook** 탭으로 전환한 후 도구 모음에서 **+ Runbook 추가**를 선택합니다. 
 
-   ![Runbook 추가 단추](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![+ Runbook 추가 단추를 강조 표시 하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. **새 Runbook 만들기**를 선택하고 다음 작업을 수행합니다. 
 
@@ -345,7 +345,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
    
 6. 작업 창에서 **출력** 타일을 선택합니다. 출력 창에 **##### Starting #####** 메시지가 표시된 후 **##### Completed #####** 메시지가 표시될 때까지 기다립니다. Azure-SSIS IR을 시작하는 데 20분 정도 걸립니다. **작업** 창을 닫고 **Runbook** 창으로 돌아갑니다.
 
-   ![Azure SSIS IR - 시작됨](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![출력 타일을 강조 표시 하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. **OPERATION** 값으로 **STOP**을 사용하여 위의 두 단계를 반복합니다. 도구 모음에서 **시작** 단추를 선택하여 Runbook을 다시 시작합니다. 리소스 그룹, ADF 및 Azure-SSIS IR 이름을 입력합니다. **OPERATION**에 대해 **STOP**을 입력합니다. 출력 창에 **##### Stopping #####** 메시지가 표시된 후 **##### Completed #####** 메시지가 표시될 때까지 기다립니다. Azure-SSIS IR 중지는 시작만큼 오래 걸리지 않습니다. **작업** 창을 닫고 **Runbook** 창으로 돌아갑니다.
 
@@ -373,7 +373,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](tutorial-cr
     
 3. **매개 변수 및 실행 설정** 탭으로 전환 합니다. 리소스 그룹, ADF 및 Azure-SSIS IR 이름을 지정 합니다. **OPERATION**에 **START**를 입력하고 **확인**을 선택합니다. **확인**을 다시 선택하여 Runbook의 **일정** 페이지에서 일정을 확인합니다. 
 
-   ![Azure SSIS IR 시작 일정](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![작업 필드를 강조 표시 하는 스크린샷](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. 이전 2단계를 반복해서 **IR 매일 중지**라는 일정을 만듭니다. **IR 매일 시작** 일정에 대해 지정한 시간보다 적어도 30분 뒤의 시간을 입력합니다. **OPERATION**에 **STOP**을 입력하고 **확인**을 선택합니다. **확인**을 다시 선택하여 Runbook의 **일정** 페이지에서 일정을 확인합니다. 
 

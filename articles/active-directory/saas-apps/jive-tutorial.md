@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 432ca72a667caa9c2a78b08396884d957b4c650b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da0e042664d6ca90c53b83bb38770a97d4e97498
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547106"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850754"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>자습서: Jive와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -140,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 메뉴 위쪽에서 **SAML**을 클릭합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/jive-tutorial/tutorial_jive_002.png)
+    ![스크린샷은 사용이 선택된 SAML 탭을 보여줍니다.](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. **일반** 탭에서 **사용**을 선택합니다.
 
@@ -148,7 +148,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP 메타데이터** 탭으로 이동합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/jive-tutorial/tutorial_jive_003.png)
+    ![스크린샷은 선택된 SAML 탭 IDP 메타데이터를 보여줍니다.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. 다운로드한 메타데이터 XML 파일의 내용을 복사한 다음 **IDP(ID 공급자) 메타데이터** 텍스트 상자에 붙여 넣습니다.
 
@@ -156,7 +156,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자 특성 매핑** 탭을 선택합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/jive-tutorial/tutorial_jive_004.png)
+    ![스크린샷은 사용자 특성 매핑이 선택된 SAML 탭을 보여줍니다.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. **전자 메일** 텍스트 상자에서 **mail** 값의 특성 이름을 복사한 후 붙여넣습니다.
 

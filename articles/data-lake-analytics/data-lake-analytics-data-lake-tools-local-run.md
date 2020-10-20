@@ -1,21 +1,18 @@
 ---
 title: 로컬 머신에서 Azure Data Lake U-SQL 스크립트 실행
 description: 로컬 컴퓨터에서 Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 작업을 실행하는 방법을 알아봅니다.
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 24f1156fa4a97adb500033034bc7396fd1badbeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9410cc91174420662bb5efc67c8904b5d5e647
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125737"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219686"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>로컬 머신에서 U-SQL 스크립트 실행
 
@@ -28,7 +25,7 @@ U-SQL 스크립트를 개발하는 경우 스크립트를 로컬로 실행하여
 |구성 요소|로컬 실행|클라우드 실행|
 |---------|---------|---------|
 |스토리지|로컬 데이터 루트 폴더|기본 Azure Data Lake Store 계정|
-|컴퓨팅|U-SQL 로컬 실행 엔진|Azure Data Lake Analytics 서비스|
+|Compute|U-SQL 로컬 실행 엔진|Azure Data Lake Analytics 서비스|
 |실행 환경|로컬 컴퓨터의 작업 디렉터리|Azure Data Lake Analytics 클러스터|
 
 다음 섹션에서는 로컬 실행 구성 요소에 대한 자세한 정보를 제공합니다.

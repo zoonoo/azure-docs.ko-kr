@@ -2,7 +2,6 @@
 title: Azure Security Center 경고에 대 한 스키마
 description: 이 문서에서는 Azure Security Center에서 보안 경고에 사용 하는 다양 한 스키마에 대해 설명 합니다.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901346"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220672"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
@@ -173,7 +172,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 Microsoft Graph은 Microsoft 365의 데이터 및 인텔리전스에 대 한 게이트웨이입니다. Microsoft 365, Windows 10 및 Enterprise Mobility + Security에서 엄청난 양의 데이터에 액세스 하는 데 사용할 수 있는 통합 프로그래밍 모델을 제공 합니다. Microsoft Graph의 다양 한 데이터를 사용 하 여 수백만 명의 사용자와 상호 작용 하는 조직과 소비자를 위한 앱을 빌드할 수 있습니다.
 
-MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0)에서 사용할 수 있습니다.
+MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true)에서 사용할 수 있습니다.
 
 ---
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 45ad613fd250f905dd1cd5e14b5c8aeb42896a51
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: edfd14d979b84061690410f3da9e29ba07899654
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554654"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>자습서: MobileIron과 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![MobileIron 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://www.mobileiron.com/<key>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -107,7 +107,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     다. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![MobileIron 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<host>.mobileiron.com/user/login.html` 패턴을 사용하여 URL을 입력합니다.
 
@@ -124,11 +124,11 @@ MobileIron에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 2. **관리자** > **ID**로 차례로 이동하고, **클라우드 IDP 설정에 대한 정보** 필드에서 **AAD** 옵션을 선택합니다.
 
-    ![Single Sign-On 관리 구성 단추](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![스크린샷은 ID가 선택된 MobileIron 사이트의 관리자 탭을 보여줍니다.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. **키** 및 **호스트** 값을 복사하고 Azure Portal의 **기본 SAML 구성** 섹션에 붙여넣어 URL을 완성합니다.
 
-    ![Single Sign-On 관리 구성 단추](./media/mobileiron-tutorial/key.png)
+    ![스크린샷은 키 및 호스트 값이 있는 SAML 설정 옵션을 보여줍니다.](./media/mobileiron-tutorial/key.png)
 
 4. **AAD에서 메타데이터 파일 내보내기 및 MobileIron 클라우드 필드로 가져오기**에서 **파일 선택**을 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다. 일단 업로드되면 **완료**를 클릭합니다.
 

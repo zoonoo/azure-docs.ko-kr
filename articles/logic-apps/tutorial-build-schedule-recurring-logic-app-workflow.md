@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: 3bf4ad12bab3e71675ff35203bf69526b3b8614f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574734"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842566"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 일정 기반의 되풀이 자동화 워크플로 만들기
 
@@ -335,7 +335,7 @@ ms.locfileid: "91574734"
 
 ## <a name="run-your-logic-app"></a>논리 앱 실행
 
-수동으로 논리 앱을 시작하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
+논리 앱을 수동으로 시작하려면 디자이너 도구 모음에서 **실행**을 선택합니다.
 
 * 현재 이동 시간이 제한 내에서 유지되면 논리 앱은 다른 작업을 수행하지 않고, 다시 확인하기 전에 다음 간격을 기다립니다. 
 
@@ -360,18 +360,18 @@ ms.locfileid: "91574734"
 
 1. Azure Portal의 검색 상자에 앞에서 만든 리소스 그룹의 이름을 입력합니다. 결과의 **리소스 그룹**에서 리소스 그룹을 선택합니다.
 
-   이 예제에서는 `LA-TravelTime-RG`라는 리소스 그룹을 만들었습니다. 
+   이 예제에서는 `LA-TravelTime-RG`라는 리소스 그룹을 만들었습니다.
 
    !["la-travel-time-rg"를 입력하고 **LA-TravelTime-RG**를 선택한 Azure 검색 상자를 보여주는 스크린샷](./media/tutorial-build-scheduled-recurring-logic-app-workflow/find-resource-group.png)
 
    > [!TIP]
    > Azure 홈 페이지의 **최근 리소스**에 리소스 그룹이 표시되는 경우 홈 페이지에서 그룹을 선택할 수 있습니다.
 
-1. 리소스 그룹 메뉴에서 **개요**가 선택되었는지 확인합니다. **개요** 창의 도구 모음에서 **리소스 그룹 삭제**를 선택합니다. 
+1. 리소스 그룹 메뉴에서 **개요**가 선택되었는지 확인합니다. **개요** 창의 도구 모음에서 **리소스 그룹 삭제**를 선택합니다.
 
    ![리소스 그룹의 "개요" 창과 이 창의 도구 모음에서 "리소스 그룹 삭제"를 선택한 스크린샷](./media/tutorial-build-scheduled-recurring-logic-app-workflow/delete-resource-group.png)
 
-1. 확인 창에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+1. 표시되는 확인 창에서 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

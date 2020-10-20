@@ -12,18 +12,16 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434540"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217204"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
 Microsoft ID 플랫폼에서 SPA(단일 페이지 애플리케이션)를 등록하려면 다음 단계를 완료합니다. 암시적 허용 흐름을 지원하는 MSAL.js 1.0 및 PKCE를 사용하는 인증 코드 흐름을 지원하는 MSAL.js 2.0의 등록 단계는 서로 다릅니다.
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>앱 등록 만들기
 

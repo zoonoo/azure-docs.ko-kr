@@ -120,6 +120,7 @@
                   href: container-registry-repository-scoped-permissions.md
             - name: Azure 역할 기반 액세스 제어
               href: container-registry-roles.md
+              displayName: 'permissions, authorization'
             - name: 콘텐츠 신뢰
               href: container-registry-content-trust.md
             - name: Security Center를 사용하여 이미지 검색

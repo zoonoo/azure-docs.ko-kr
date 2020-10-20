@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: ce4cccba678a934780dc987f1441ea658a70f8eb
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705625"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996625"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
@@ -99,19 +99,19 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
     a. 메뉴의 왼쪽에서 **앱 등록**을 클릭하고 검색 상자에 애플리케이션 이름을 입력하여 애플리케이션을 엽니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/application.png)
+    ![왼쪽 메뉴에서 선택한 "앱 등록"과 강조 표시된 "애플리케이션 ID" 검색 상자를 보여주는 스크린샷.](./media/openidoauth-tutorial/application.png)
 
     b. **API 권한 보기**를 클릭합니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/api-permission.png)
+    !["API 권한 보기" 단추가 선택된 "API 호출" 페이지를 보여주는 스크린샷.](./media/openidoauth-tutorial/api-permission.png)
 
     다. **권한 추가**를 클릭합니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/add-permission.png)
+    !["권한 추가" 단추가 선택된 "API 권한" 섹션을 보여주는 스크린샷.](./media/openidoauth-tutorial/add-permission.png)
 
     d. **Microsoft Graph**를 클릭합니다.
 
-    ![그래프 API](./media/openidoauth-tutorial/microsoft-graph.png)
+    !["Microsoft API" 탭과 "Microsoft Graph" 타일이 선택된 "API 권한 요청" 페이지를 보여주는 스크린샷.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. **위임된 권한** 및 **애플리케이션 권한**에서 필수 옵션을 선택합니다.
 

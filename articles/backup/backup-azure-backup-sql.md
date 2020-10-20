@@ -3,12 +3,12 @@ title: SQL Server를 DPM 작업으로 Azure에 백업
 description: Azure Backup 서비스를 사용 하 여 SQL Server 데이터베이스를 백업 하는 방법 소개
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 85cb84ac376abbf0ead13e64c4dff7c8b916aac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8130990f86311221ae6d097137a66a6e9b81be73
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254587"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218088"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
 
@@ -23,7 +23,8 @@ Azure에 SQL Server 데이터베이스를 백업 하 고 Azure에서 복구 하�
 1. Azure에서 데이터베이스를 복구합니다.
 
 >[!NOTE]
->DPM 2019 U R 2은 CSV (클러스터 공유 볼륨)를 사용 하 여 FCI (장애 조치 (Failover) 클러스터 인스턴스)를 SQL Server 지원 합니다.
+>DPM 2019 U R 2은 CSV (클러스터 공유 볼륨)를 사용 하 여 FCI (장애 조치 (Failover) 클러스터 인스턴스)를 SQL Server 지원 합니다.<br><br>
+>Azure [에서 스토리지 공간 다이렉트를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)  를 보호 하 고 [azure 공유 디스크가 있는 SQL Server 장애 조치 (failover](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure) ) 클러스터 인스턴스를 보호 합니다. Azure Vm에 배포 된 SQL FCI 인스턴스를 보호 하려면 DPM 서버를 Azure 가상 컴퓨터에 배포 해야 합니다. 
 
 ## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
@@ -132,7 +133,7 @@ Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정�
 
     ![보존 정책 선택](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    이 예제에 대한 설명:
+    이 예제에서는 다음이 적용됩니다.
 
     * 백업은 매일 오후 12:00 시와 오후 8:00에 수행 됩니다. 180 일 동안 유지 됩니다.
     * 토요일 12:00 PM의 백업은 104 주 동안 보관 됩니다.

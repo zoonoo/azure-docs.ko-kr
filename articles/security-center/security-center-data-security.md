@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 8e92c893d97ce9fadfa2d40476631c2b9ba5d177
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999266"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018273"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 
@@ -57,19 +57,19 @@ Azure Defender를 사용하지 않는 경우 보안 정책의 가상 머신에�
 
 컴퓨터에서 수집한 데이터가 저장되는 작업 영역과 지역을 지정할 수 있습니다. 기본값은 다음 표에 나와 있는 것처럼 가장 가까운 작업 영역에 있는 컴퓨터에서 수집된 데이터를 저장하는 것입니다.
 
-| VM 지역                              | 작업 영역 지역 |
-|-------------------------------------|---------------|
-| 미국, 브라질, 남아프리카 공화국 | 미국 |
-| Canada                              | Canada        |
-| 유럽(영국 제외)   | 유럽        |
-| United Kingdom                      | United Kingdom |
-| 아시아(인도, 대한민국, 일본, 중국 제외)   | 아시아 태평양  |
-| 한국                              | 아시아 태평양  |
-| 인도                               | 인도         |
-| 일본                               | 일본         |
-| 중국                               | 중국         |
-| 오스트레일리아                           | 오스트레일리아     |
-|||
+| VM 지역                                      | 작업 영역 지역  |
+|---------------------------------------------|----------------|
+| 미국, 브라질, 남아프리카 공화국         | 미국  |
+| Canada                                      | Canada         |
+| 유럽(영국 제외)           | 유럽         |
+| United Kingdom                              | United Kingdom |
+| 아시아(인도, 대한민국, 일본, 중국 제외) | 아시아 태평양   |
+| 한국                                       | 아시아 태평양   |
+| 인도                                       | 인도          |
+| 일본                                       | 일본          |
+| 중국                                       | 중국          |
+| 오스트레일리아                                   | 오스트레일리아      |
+|                                             |                |
 
 > [!NOTE]
 > **Azure Defender for Storage**는 관련 Azure 리소스의 위치에 따라 지역적으로 아티팩트를 저장합니다. [Azure Defender for Storage 소개](defender-for-storage-introduction.md)에서 자세히 알아보세요.
@@ -80,18 +80,16 @@ Azure Defender를 사용하지 않는 경우 보안 정책의 가상 머신에�
 고객은 다음 데이터 스트림에서 Security Center 관련 데이터에 액세스할 수 있습니다.
 
 
-|STREAM  |데이터 형식  |
-|---------|---------|
-|[Azure 활동 로그](../azure-monitor/platform/activity-log.md)| 모든 보안 경고, 승인된 Security Center [just-in-time](security-center-just-in-time.md) 요청 및 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에서 생성된 모든 경고 |
-|[Azure Monitor 로그](../azure-monitor/platform/data-platform.md)|모든 보안 경고.|
-|[Azure Resource Graph](../governance/resource-graph/overview.md)|보안 경고, 보안 권장 사항, 취약성 평가 결과, 보안 점수 정보, 규정 준수 확인 상태 등.|
-|[Azure Security Center REST API](https://docs.microsoft.com/rest/api/securitycenter/)|보안 경고, 보안 권장 사항 등. .|
-|||
+| STREAM                                                                                | 데이터 형식                                                                                                                                                                                                          |
+|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Azure 활동 로그](../azure-monitor/platform/activity-log.md)                       | 모든 보안 경고, 승인된 Security Center [Just-In-Time](security-center-just-in-time.md) 액세스 요청 및 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에서 생성된 모든 경고.|
+| [Azure Monitor 로그](../azure-monitor/platform/data-platform.md)                      | 모든 보안 경고.                                                                                                                                                                                                |
+| [Azure Resource Graph](../governance/resource-graph/overview.md)                      | 보안 경고, 보안 권장 사항, 취약성 평가 결과, 보안 점수 정보, 규정 준수 확인 상태 등.                                                                       |
+| [Azure Security Center REST API](https://docs.microsoft.com/rest/api/securitycenter/) | 보안 경고, 보안 권장 사항 등.                                                                                                                                                                |
+|                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Security Center에서 데이터 관리하고 보호하는 방법을 알아봅니다. 
 
-Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
-
-- [Azure Security Center란?](security-center-introduction.md)
+Azure Security Center에 대한 자세한 내용은 [Azure Security Center란?](security-center-introduction.md)을 참조하세요.

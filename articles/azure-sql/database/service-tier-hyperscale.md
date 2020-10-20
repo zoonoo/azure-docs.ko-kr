@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/03/2020
-ms.openlocfilehash: 3455503570d09daedc5e34cba0bf36d71ddcdcbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 547e56dbc72e283b6c186380a01580982e029a64
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988111"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216643"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -87,17 +87,19 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성 요소가 포함 됩니다.
 
-### <a name="compute"></a>컴퓨팅
+### <a name="compute"></a>Compute
 
-컴퓨팅 노드는 관계형 엔진이 존재하는 위치이므로 모든 언어 요소, 쿼리 처리 등이 발생합니다. 하이퍼스케일 데이터베이스와의 모든 사용자 상호 작용은 이러한 컴퓨팅 노드를 통해 발생합니다. 컴퓨팅 노드에는 데이터 페이지를 가져오는 데 필요한 네트워크 왕복 횟수를 최소화하기 위해 SSD 기반 캐시[이전 다이어그램에 나오는 RBPEX(Resilient Buffer Pool Extension)]가 있습니다. 모든 읽기/쓰기 워크로드 및 트랜잭션이 처리되는 기본 컴퓨팅 노드가 1개 있습니다. 장애 조치(Failover)를 위해 핫 대기 노드의 역할을 할 뿐만 아니라 읽기 워크로드를 오프로드하기 위한 읽기 전용 컴퓨팅 노드(이 기능이 필요한 경우)의 역할을 하는 하나 이상의 보조 컴퓨팅 노드도 있습니다.
+계산 노드는 관계형 엔진의 위치입니다. 여기에는 언어, 쿼리 및 트랜잭션 처리가 발생 합니다. 하이퍼스케일 데이터베이스와의 모든 사용자 상호 작용은 이러한 컴퓨팅 노드를 통해 발생합니다. 컴퓨팅 노드에는 데이터 페이지를 가져오는 데 필요한 네트워크 왕복 횟수를 최소화하기 위해 SSD 기반 캐시[이전 다이어그램에 나오는 RBPEX(Resilient Buffer Pool Extension)]가 있습니다. 모든 읽기/쓰기 워크로드 및 트랜잭션이 처리되는 기본 컴퓨팅 노드가 1개 있습니다. 장애 조치(Failover)를 위해 핫 대기 노드의 역할을 할 뿐만 아니라 읽기 워크로드를 오프로드하기 위한 읽기 전용 컴퓨팅 노드(이 기능이 필요한 경우)의 역할을 하는 하나 이상의 보조 컴퓨팅 노드도 있습니다.
+
+하이퍼 크기 조정 계산 노드에서 실행 되는 데이터베이스 엔진은 다른 Azure SQL Database 서비스 계층의 경우와 동일 합니다. 사용자가 Wscale 계산 노드에서 데이터베이스 엔진과 상호 작용할 때 지원 되는 노출 영역 및 엔진 동작은 다른 서비스 계층의 경우와 동일 하지만 [알려진 제한 사항은](#known-limitations)예외입니다.
 
 ### <a name="page-server"></a>페이지 서버
 
-페이지 서버는 스케일 아웃된 스토리지 엔진을 나타내는 시스템입니다.  각 페이지 서버는 데이터베이스의 페이지 하위 집합을 담당합니다.  명목상 각 페이지 서버는 128 GB와 1tb의 데이터를 제어 합니다. 데이터는 둘 이상의 (중복 및 가용성을 위해 유지되는 복제본 외부) 페이지 서버에서 공유되지 않습니다. 페이지 서버의 업무는 요청 시 컴퓨팅 노드에 데이터베이스 페이지를 제공하고, 트랜잭션으로 인해 데이터가 업데이트될 때 페이지를 최신 상태로 유지하는 것입니다. 페이지 서버는 로그 서비스에서 로그 레코드를 재생 하 여 최신 상태로 유지 됩니다. 또한 페이지 서버는 성능 향상을 위해 SSD 기반 캐시를 유지 관리합니다. 데이터 페이지의 장기 스토리지는 추가 안정성을 위해 Azure Storage에 보관됩니다.
+페이지 서버는 스케일 아웃된 스토리지 엔진을 나타내는 시스템입니다.  각 페이지 서버는 데이터베이스의 페이지 하위 집합을 담당합니다.  명목상 각 페이지 서버는 최대 128 GB 또는 최대 1tb의 데이터를 제어 합니다. 두 개 이상의 페이지 서버 (중복성 및 가용성을 위해 유지 되는 페이지 서버 복제본 외부)에서 데이터를 공유 하지 않습니다. 페이지 서버의 업무는 요청 시 컴퓨팅 노드에 데이터베이스 페이지를 제공하고, 트랜잭션으로 인해 데이터가 업데이트될 때 페이지를 최신 상태로 유지하는 것입니다. 페이지 서버는 로그 서비스에서 로그 레코드를 재생 하 여 최신 상태로 유지 됩니다. 또한 페이지 서버는 성능을 향상 시키기 위해 SSD 기반 캐시에 대 한 처리를 유지 합니다. 데이터 페이지의 장기 스토리지는 추가 안정성을 위해 Azure Storage에 보관됩니다.
 
 ### <a name="log-service"></a>로그 서비스
 
-로그 서비스는 기본 계산 복제본의 로그 레코드를 수락 하 고, 영구 캐시에 보관 하 고, 로그 레코드를 관련 페이지 서버 뿐만 아니라 관련 페이지 서버에 전달 하 여 데이터를 업데이트할 수 있도록 합니다. 이러한 방식으로 기본 계산 복제본의 모든 데이터 변경 내용은 모든 보조 계산 복제본 및 페이지 서버로 로그 서비스를 통해 전파 됩니다. 마지막으로 로그 레코드는 거의 무한 한 저장소 저장소 인 Azure Storage의 장기 저장소로 푸시됩니다. 이 메커니즘을 통해 로그 잘림을 자주 수행 하지 않아도 됩니다. 로그 서비스에는 로그 레코드에 대 한 액세스를 가속화 하는 로컬 캐시도 있습니다.
+로그 서비스는 기본 계산 복제본의 로그 레코드를 수락 하 고, 영구 캐시에 보관 하 고, 로그 레코드를 관련 페이지 서버 뿐만 아니라 관련 페이지 서버에 전달 하 여 데이터를 업데이트할 수 있도록 합니다. 이러한 방식으로 기본 계산 복제본의 모든 데이터 변경 내용은 모든 보조 계산 복제본 및 페이지 서버로 로그 서비스를 통해 전파 됩니다. 마지막으로 로그 레코드는 거의 무한 한 저장소 저장소 인 Azure Storage의 장기 저장소로 푸시됩니다. 이 메커니즘을 통해 로그 잘림을 자주 수행 하지 않아도 됩니다. 로그 서비스에는 로그 레코드에 대 한 액세스를 가속화 하는 로컬 메모리 및 SSD 캐시도 있습니다.
 
 ### <a name="azure-storage"></a>Azure Storage
 
@@ -105,7 +107,7 @@ Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니�
 
 ## <a name="backup-and-restore"></a>백업 및 복원
 
-백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 PITR (지정 시간 복구)는 파일 스냅숏으로 되돌리고 데이터 작업의 크기가 아니라는 것입니다. 동일한 Azure 지역에 있는 하이퍼 규모의 데이터베이스 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분 안에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능이 활용 됩니다. 또한 1tb 크기의 데이터베이스를 포함 하 여 개발 또는 테스트 목적으로 데이터베이스 복사본을 만드는 작업은 몇 분 안에 심지어 됩니다.
+백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 PITR (지정 시간 복구)는 파일 스냅숏으로 되돌리고 데이터 작업의 크기가 아니라는 것입니다. 동일한 Azure 지역에 있는 하이퍼 규모의 데이터베이스 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분 안에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능을 활용할 수 있습니다. 또한 여러 테라바이트 데이터베이스를 포함 하 여 개발 또는 테스트 목적으로 데이터베이스 복사본을 만드는 작업은 몇 분 안에 심지어 됩니다.
 
 하이퍼 규모의 데이터베이스에 대 한 지역 복원의 경우 [다른 지역으로 hyperscale 데이터베이스 복원](#restoring-a-hyperscale-database-to-a-different-region)을 참조 하세요.
 
@@ -115,7 +117,7 @@ Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니�
 
 ## <a name="create-a-hyperscale-database"></a>Hyperscale 데이터베이스 만들기
 
-[Azure Portal](https://portal.azure.com), [t-sql](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용 하 여 hyperscale 데이터베이스를 만들 수 있습니다. Hyperscale 데이터베이스는 [Vcore 기반 구매 모델](service-tiers-vcore.md)을 사용 하는 경우에만 사용할 수 있습니다.
+[Azure Portal](https://portal.azure.com), [t-sql](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase)또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용 하 여 hyperscale 데이터베이스를 만들 수 있습니다. Hyperscale 데이터베이스는 [Vcore 기반 구매 모델](service-tiers-vcore.md)을 사용 하는 경우에만 사용할 수 있습니다.
 
 다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다. 유효한 서비스 목표 목록은 [리소스 제한을](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) 참조 하세요.
 
@@ -129,7 +131,7 @@ GO
 
 ## <a name="upgrade-existing-database-to-hyperscale"></a>기존 데이터베이스를 Hyperscale으로 업그레이드
 
-[Azure Portal](https://portal.azure.com), [t-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)를 사용 하 여 Azure SQL Database에서 기존 데이터베이스를 hyperscale으로 이동할 수 있습니다. 이번에는 단방향 마이그레이션입니다. 데이터를 내보내고 가져오는 것 외에는 Hyperscale에서 다른 서비스 계층으로 데이터베이스를 이동할 수 없습니다. POCs (개념 증명)의 경우 프로덕션 데이터베이스의 복사본을 만들고 복사본을 Hyperscale으로 마이그레이션하는 것이 좋습니다. Azure SQL Database의 기존 데이터베이스를 Hyperscale 계층으로 마이그레이션하는 작업은 데이터 작업의 크기입니다.
+[Azure Portal](https://portal.azure.com), [t-sql](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)를 사용 하 여 Azure SQL Database에서 기존 데이터베이스를 hyperscale으로 이동할 수 있습니다. 이번에는 단방향 마이그레이션입니다. 데이터를 내보내고 가져오는 것 외에는 Hyperscale에서 다른 서비스 계층으로 데이터베이스를 이동할 수 없습니다. POCs (개념 증명)의 경우 프로덕션 데이터베이스의 복사본을 만들고 복사본을 Hyperscale으로 마이그레이션하는 것이 좋습니다. Azure SQL Database의 기존 데이터베이스를 Hyperscale 계층으로 마이그레이션하는 작업은 데이터 작업의 크기입니다.
 
 다음 T-SQL 명령은 하이퍼스케일 서비스 계층으로 데이터베이스를 이동합니다. `ALTER DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다.
 
@@ -218,18 +220,18 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
 
-| 문제 | 설명 |
+| 문제 | Description |
 | :---- | :--------- |
 | 서버에 대 한 백업 관리 창에는 Hyperscale 데이터베이스가 표시 되지 않습니다. 이러한 필터는 뷰에서 필터링 됩니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있으므로 Long-Term 보존 및 지정 시간 백업 보존 설정이 적용 되지 않습니다. 따라서 Hyperscale 데이터베이스는 백업 관리 창에 표시 되지 않습니다.<br><br>다른 Azure SQL Database 서비스 계층에서 Hyperscale으로 마이그레이션된 데이터베이스의 경우 마이그레이션 전 백업은 원본 데이터베이스의 [백업 보존](automated-backups-overview.md#backup-retention) 기간 동안 유지 됩니다. 이러한 백업은 마이그레이션 전 시점으로 원본 데이터베이스를 [복원](recovery-using-backups.md#programmatic-recovery-using-automated-backups) 하는 데 사용할 수 있습니다.|
 | 지정 시간 복원 | Hyperscale이 아닌 데이터베이스를 하이퍼 규모의 데이터베이스로 복원할 수 없으며 Hyperscale 데이터베이스를 비 Hyperscale 데이터베이스로 복원할 수 없습니다. 서비스 계층을 변경 하 여 Hyperscale으로 마이그레이션된 비 Hyperscale 데이터베이스의 경우 마이그레이션 전 지정 시간으로 복원 하 고 데이터베이스의 백업 보존 기간 내에서 [프로그래밍 방식으로](recovery-using-backups.md#programmatic-recovery-using-automated-backups)데이터베이스를 실행 합니다. 복원 된 데이터베이스는 Hyperscale이 아닙니다. |
 | 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL Managed Instance | Azure SQL Managed Instance는 현재 Hyperscale 데이터베이스에서 지원 되지 않습니다. |
 | 탄력적 풀 |  탄력적 풀은 현재 Hyperscale에서 지원 되지 않습니다.|
-| 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스를 Hyperscale으로 마이그레이션한 후에는 비-Hyperscale 서비스 계층으로 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 bacpac 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다. [AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)를 사용 하 여 PowerShell에서, Azure CLI에서 [az sql db export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) 및 [az sql db import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)를 사용 하 여 Azure Portal에서 Bacpac 내보내기/가져오기 및 [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) 지원 되지 않습니다. 더 작은 Hyperscale 데이터베이스 (최대 200 GB)의 Bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 버전 18.4 이상을 사용 하 여 지원 됩니다. 대형 데이터베이스의 경우에는 bacpac 내보내기/가져오기 시간이 오래 걸릴 수 있으며 여러 가지 이유로 실패할 수 있습니다.|
+| 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스를 Hyperscale으로 마이그레이션한 후에는 비-Hyperscale 서비스 계층으로 직접 마이그레이션할 수 없습니다. 현재는 데이터베이스를 Hyperscale에서 비-Hyperscale 마이그레이션하는 유일한 방법은 bacpac 파일이 나 기타 데이터 이동 기술 (대량 복사, Azure Data Factory, Azure Databricks, SSIS 등)을 사용 하 여 내보내거나 가져오는 것입니다. [AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) 또는 [AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport)를 사용 하 여 PowerShell에서, Azure CLI에서 [az sql db export](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-export) 및 [az sql db import](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-import)를 사용 하 여 Azure Portal에서 Bacpac 내보내기/가져오기 및 [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) 지원 되지 않습니다. 더 작은 Hyperscale 데이터베이스 (최대 200 GB)의 Bacpac 가져오기/내보내기는 SSMS 및 [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) 버전 18.4 이상을 사용 하 여 지원 됩니다. 대형 데이터베이스의 경우에는 bacpac 내보내기/가져오기 시간이 오래 걸릴 수 있으며 여러 가지 이유로 실패할 수 있습니다.|
 | In-Memory OLTP 개체가 포함 된 데이터베이스 마이그레이션 | Hyperscale은 메모리 최적화 테이블 형식, 테이블 변수 및 고유 하 게 컴파일된 모듈을 포함 하 여 In-Memory OLTP 개체의 하위 집합을 지원 합니다. 그러나 마이그레이션되는 데이터베이스에 In-Memory OLTP 개체의 모든 종류가 있는 경우 Premium 및 중요 비즈니스용 서비스 계층에서 Hyperscale으로의 마이그레이션은 지원 되지 않습니다. 이러한 데이터베이스를 Hyperscale으로 마이그레이션하려면 모든 In-Memory OLTP 개체와 해당 종속성을 삭제 해야 합니다. 데이터베이스를 마이그레이션한 후에는 이러한 개체를 다시 만들 수 있습니다. 내구성 있고 내구성이 없는 메모리 최적화 테이블은 현재 Hyperscale에서 지원 되지 않으므로 디스크 테이블로 다시 만들어야 합니다.|
 | 지역 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다. |
 | 데이터베이스 복사 | Hyperscale의 데이터베이스 복사는 현재 공개 미리 보기로 제공 됩니다. |
-| TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 현재 미리 보기 상태입니다. |
+| TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 현재 공개 미리 보기로 제공 됩니다. |
 | Intelligent Database 기능 | "강제 계획" 옵션을 제외 하 고 다른 모든 자동 조정 옵션은 Hyperscale에서 아직 지원 되지 않습니다. 옵션은 사용 하도록 설정 된 것 처럼 보일 수 있지만 권장 사항이 나 작업은 적용 되지 않습니다. |
 | Query Performance Insight | 쿼리 성능 정보는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |
 | 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |

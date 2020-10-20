@@ -1,20 +1,20 @@
 ---
 title: Face Python 클라이언트 라이브러리 빠른 시작
-description: Python용 Face 클라이언트 라이브러리를 사용하여 얼굴을 감지하고, 유사 얼굴을 찾고(이미지별 얼굴 검색), 얼굴을 식별하고(얼굴 인식 검색), 얼굴 데이터를 마이그레이션합니다.
+description: Python용 Face 클라이언트 라이브러리를 사용하여 얼굴을 감지하고, 유사 얼굴을 찾고(이미지별 얼굴 검색), 얼굴을 식별(얼굴 인식 검색)합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
-ms.openlocfilehash: f746a61850567014ce216c47df472d035f1ae123
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 587e702f5c74149542e2fffcf7891b7ea41f4202
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322977"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91859381"
 ---
 Python용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -25,11 +25,10 @@ Python용 Face 클라이언트 라이브러리를 사용하여 다음을 수행�
 * 사람 그룹 만들기 및 학습
 * 얼굴 식별
 * 얼굴 확인
-* 데이터 마이그레이션용 스냅샷 만들기
 
 [참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [샘플](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Python 3.x](https://www.python.org/)
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
@@ -85,7 +84,6 @@ Face Python 클라이언트 라이브러리의 주요 기능 중 일부를 처�
 * [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)
 * [얼굴 식별](#identify-a-face)
 * [얼굴 확인](#verify-faces)
-* [데이터 마이그레이션용 스냅샷 만들기](#take-a-snapshot-for-data-migration)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -207,52 +205,6 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## <a name="take-a-snapshot-for-data-migration"></a>데이터 마이그레이션용 스냅샷 만들기
-
-스냅샷 기능을 사용하면 학습된 **PersonGroup**과 같은 저장된 얼굴 데이터를 다른 Azure Cognitive Services Face 구독으로 이동할 수 있습니다. 예를 들어 체험 구독을 사용하여 **PersonGroup** 개체를 만들었고 이제 유료 구독으로 마이그레이션하려는 경우 이 기능을 사용할 수 있습니다. 스냅샷 기능에 대한 광범위한 개요는 [얼굴 데이터 마이그레이션](../../Face-API-How-to-Topics/how-to-migrate-face-data.md)을 참조하세요.
-
-다음 예제에서는 [사람 그룹 만들기 및 학습](#create-and-train-a-person-group)에서 만든 **PersonGroup**을 마이그레이션합니다. 해당 섹션을 먼저 완료하거나 사용자 고유의 Face 데이터 구문을 사용할 수 있습니다.
-
-### <a name="set-up-target-subscription"></a>대상 구독 설정
-
-먼저, Face 리소스가 포함된 두 번째 Azure 구독이 있어야 합니다. 이 작업은 [설정](#setting-up) 섹션의 단계에 따라 수행할 수 있습니다. 
-
-그런 다음, 다음 변수를 스크립트의 위쪽 근처에 만듭니다. 또한 Azure 계정의 구독 ID와 새(대상) 계정의 키, 엔드포인트 및 구독 ID에 대한 새 환경 변수를 만들어야 합니다. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### <a name="authenticate-target-client"></a>대상 클라이언트 인증
-
-스크립트의 뒷부분에서 현재 클라이언트 개체를 원본 클라이언트로 저장한 다음, 대상 구독에 대한 새 클라이언트 개체를 인증합니다. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### <a name="use-a-snapshot"></a>스냅샷 사용
-
-나머지 스냅샷 작업은 비동기 함수 내에서 수행됩니다. 
-
-1. 첫 번째 단계는 스냅샷을 **take**(수행)하여 원래 구독의 얼굴 데이터를 임시 클라우드 위치에 저장하는 것입니다. 이 메서드는 작업 상태를 쿼리하는 데 사용하는 ID를 반환합니다.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. 다음으로, 작업이 완료될 때까지 ID를 쿼리합니다.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    이 코드는 `wait_for_operation` 함수를 사용하여 별도로 정의해야 합니다.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. 비동기 함수로 돌아갑니다. **apply**(적용) 작업을 사용하여 얼굴 데이터를 대상 구독에 씁니다. 또한 이 메서드는 ID도 반환합니다.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. 다시 한 번, `wait_for_operation` 함수를 사용하여 작업이 완료될 때까지 ID를 쿼리합니다.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-이러한 단계가 완료되면 새 (대상) 구독에서 얼굴 데이터 구문에 액세스할 수 있습니다.
-
 ## <a name="run-the-application"></a>애플리케이션 실행
 
 `python` 명령을 사용하여 애플리케이션 디렉터리에서 얼굴 인식 앱을 실행합니다.
@@ -271,10 +223,6 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 이 빠른 시작에서는 **PersonGroup**을 만들었으며, 이를 삭제하려면 스크립트에서 다음 코드를 실행합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-이 빠른 시작에서 스냅샷 기능을 사용하여 데이터를 마이그레이션한 경우 대상 구독에 저장된 **PersonGroup**도 삭제해야 합니다.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,17 +3,17 @@ title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스
 description: Python을 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
 author: elhorton
 ms.author: elhorton
-ms.date: 7/13/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: be5ff3e863752dfc187bd91257425af5e8de85c4
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574972"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946079"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Python)
 
@@ -73,13 +73,16 @@ pip install azure-iot-hub
 
 이 빠른 시작에서는 Python에서 샘플 IoT 솔루션을 사용하여 방금 설정한 샘플 디바이스와 상호 작용합니다.
 
-1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다. 
+1. **서비스** 터미널로 사용할 또 다른 터미널 창을 엽니다.
 
 1. 복제된 Python SDK 리포지토리의 */azure-iot-sdk-python/azure-iot-hub/samples* 폴더로 이동합니다.
 
-1. 샘플 폴더에는 Digital Twin Manager 클래스를 사용하는 작업을 보여 주는 4개의 샘플 파일이 있습니다. *get_digital_twin_sample.py, update_digitial_twin_sample.py, invoke_command_sample.py 및 invoke_component_command_sample-.py*  이 샘플은 각 API를 사용하여 IoT 플러그 앤 플레이 디바이스와 상호 작용하는 방법을 보여줍니다.
+1. *registry_manager_pnp_sample.py* 파일을 열고 코드를 검토합니다. 이 샘플에서는 **IoTHubRegistryManager** 클래스를 사용하여 IoT 플러그 앤 플레이 디바이스와 상호 작용하는 방법을 보여줍니다.
 
-### <a name="get-digital-twin"></a>디지털 쌍 가져오기
+> [!NOTE]
+> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트**에서 **IoTHubRegistryManager** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+
+### <a name="get-the-device-twin"></a>디바이스 쌍 가져오기
 
 [IoT 플러그 앤 플레이 빠른 시작 및 자습서](set-up-environment.md)에서는 IoT 허브 및 디바이스에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만들었습니다.
 
@@ -89,79 +92,77 @@ pip install azure-iot-hub
 **서비스** 터미널에서 다음 명령을 사용하여 이 샘플을 실행합니다.
 
 ```cmd/sh
-python get_digital_twin_sample.py
+set IOTHUB_METHOD_NAME="getMaxMinReport"
+set IOTHUB_METHOD_PAYLOAD="hello world"
+python registry_manager_pnp_sample.py
 ```
 
-출력은 디바이스의 디지털 쌍을 표시하고 해당하는 모델 ID를 출력합니다.
+> [!NOTE]
+> Linux에서 이 샘플을 실행하는 경우 `set` 대신 `export`를 사용합니다.
+
+출력은 디바이스 쌍을 표시하고 해당 모델 ID를 출력합니다.
 
 ```cmd/sh
-{'$dtId': 'mySimpleThermostat', '$metadata': {'$model': 'dtmi:com:example:Thermostat;1'}}
-Model Id: dtmi:com:example:Thermostat;1
+The Model ID for this device is:
+dtmi:com:example:Thermostat;1
 ```
 
-다음 코드 조각은 *get_digital_twin_sample.py*의 샘플 코드를 보여 줍니다.
+다음 코드 조각은 *registry_manager_pnp_sample.py*의 샘플 코드를 보여줍니다.
 
 ```python
-    # Get digital twin and retrieve the modelId from it
-    digital_twin = iothub_digital_twin_manager.get_digital_twin(device_id)
-    if digital_twin:
-        print(digital_twin)
-        print("Model Id: " + digital_twin["$metadata"]["$model"])
-    else:
-        print("No digital_twin found")
+    # Create IoTHubRegistryManager
+    iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
+
+    # Get device twin
+    twin = iothub_registry_manager.get_twin(device_id)
+    print("The device twin is: ")
+    print("")
+    print(twin)
+    print("")
+
+    # Print the device's model ID
+    additional_props = twin.additional_properties
+    if "modelId" in additional_props:
+        print("The Model ID for this device is:")
+        print(additional_props["modelId"])
+        print("")
 ```
 
-### <a name="update-a-digital-twin"></a>디지털 쌍 업데이트
+### <a name="update-a-device-twin"></a>디바이스 쌍 업데이트
 
-이 샘플은 *patch*를 사용하여 디바이스의 디지털 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다. *update_digital_twin_sample.py*의 다음 코드 조각은 패치를 구성하는 방법을 보여 줍니다.
+이 샘플에서는 디바이스에서 `targetTemperature` 쓰기 가능 속성을 업데이트하는 방법을 보여줍니다.
 
 ```python
-# If you already have a component thermostat1:
-# patch = [{"op": "replace", "path": "/thermostat1/targetTemperature", "value": 42}]
-patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
-iothub_digital_twin_manager.update_digital_twin(device_id, patch)
-print("Patch has been succesfully applied")
-```
-
-**서비스** 터미널에서 다음 명령을 사용하여 이 샘플을 실행합니다.
-
-```cmd/sh
-python update_digital_twin_sample.py
+    # Update twin
+    twin_patch = Twin()
+    twin_patch.properties = TwinProperties(
+        desired={"targetTemperature": 42}
+    )  # this is relevant for the thermostat device sample
+    updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
+    print("The twin patch has been successfully applied")
+    print("")
 ```
 
 다음과 같은 출력이 표시되는 **디바이스** 터미널에서 업데이트가 적용되었는지 확인할 수 있습니다.
 
 ```cmd/sh
 the data in the desired properties patch was: {'targetTemperature': 42, '$version': 2}
-previous values
-42
 ```
 
 **서비스** 터미널에 패치 적용에 성공한 것이 확인됩니다.
 
 ```cmd/sh
-Patch has been successfully applied
+The twin patch has been successfully applied
 ```
 
 ### <a name="invoke-a-command"></a>명령 호출
 
-명령을 호출하려면 *invoke_command_sample.py* 샘플을 실행합니다. 이 샘플은 간단한 자동 온도 조절 디바이스에서 명령을 호출하는 방법을 보여줍니다. 이 샘플을 실행하기 전에 **서비스** 터미널에서 `IOTHUB_COMMAND_NAME` 및 `IOTHUB_COMMAND_PAYLOAD` 환경 변수를 설정합니다.
-
-```cmd/sh
-set IOTHUB_COMMAND_NAME="getMaxMinReport" # this is the relevant command for the thermostat sample
-set IOTHUB_COMMAND_PAYLOAD="hello world" # this payload doesn't matter for this sample
-```
-
-**서비스** 터미널에서 다음 명령을 사용하여 샘플을 실행합니다.
-  
-```cmd/sh
-python invoke_command_sample.py
-```
+그런 다음, 이 샘플은 다음 명령을 호출합니다.
 
 **서비스** 터미널에 디바이스의 확인 메시지가 표시됩니다.
 
 ```cmd/sh
-{"tempReport": {"avgTemp": 34.5, "endTime": "13/07/2020 16:03:38", "maxTemp": 49, "minTemp": 11, "startTime": "13/07/2020 16:02:18"}}
+The device method has been successfully invoked
 ```
 
 **디바이스** 터미널에, 디바이스가 명령을 수신한 것이 보입니다.
@@ -172,7 +173,6 @@ hello world
 Will return the max, min and average temperature from the specified time hello to the current time
 Done generating
 {"tempReport": {"avgTemp": 34.2, "endTime": "09/07/2020 09:58:11", "maxTemp": 49, "minTemp": 10, "startTime": "09/07/2020 09:56:51"}}
-Sent message
 ```
 
 ## <a name="next-steps"></a>다음 단계

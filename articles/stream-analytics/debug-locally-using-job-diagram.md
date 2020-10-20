@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045402"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218258"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Visual Studio에서 작업 다이어그램을 사용 하 여 로컬에서 Azure Stream Analytics 쿼리 디버그
 
@@ -52,7 +52,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 라이브 입력 원본](./media/debug-locally-using-job-diagram/live-input.png)
 
-|메트릭|설명|
+|메트릭|Description|
 |-|-|
 |**TaxiRide**| 입력의 이름입니다.|
 |**이벤트 허브** | 입력 원본 유형입니다.|
@@ -68,7 +68,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 로컬 입력 소스](./media/debug-locally-using-job-diagram/local-input.png)
 
-|메트릭|설명|
+|메트릭|Description|
 |-|-|
 |**TaxiRide**| 입력의 이름입니다.|
 |**행 개수**| 단계에서 생성 된 행 수입니다.|
@@ -79,7 +79,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 쿼리 단계](./media/debug-locally-using-job-diagram/query-step.png)
 
-|메트릭|설명|
+|메트릭|Description|
 |-|-|
 |**Hubway-tripdata**|임시 결과 집합의 이름입니다.|
 |**행 개수**| 단계에서 생성 된 행 수입니다.|
@@ -87,9 +87,9 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
   
 #### <a name="output-sinks-live-output"></a>출력 싱크 (실시간 출력)
 
-![작업 다이어그램 로컬 출력 싱크](./media/debug-locally-using-job-diagram/live-output.png)
+![로컬 출력 싱크를 표시 하는 작업 다이어그램](./media/debug-locally-using-job-diagram/live-output.png)
 
-|메트릭|설명|
+|메트릭|Description|
 |-|-|
 |**지역 Aggeh**|출력의 이름입니다.|
 |**이벤트**|싱크에 대 한 이벤트 출력 수입니다.|
@@ -98,7 +98,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ![작업 다이어그램 로컬 출력 싱크](./media/debug-locally-using-job-diagram/local-output.png)
 
-|메트릭|설명|
+|메트릭|Description|
 |-|-|
 |**지역 Aggeh**|출력의 이름입니다.|
 |**로컬 출력**| 로컬 파일에 결과를 출력 합니다.|

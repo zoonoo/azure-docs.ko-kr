@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201857"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215487"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용 하 여 단일 페이지 로그인
 
@@ -26,7 +26,9 @@ ms.locfileid: "85201857"
 - 많은 권한 부여 서버 및 ID 공급자에서 CORS(원본 간 리소스 공유) 요청을 지원하지 않습니다.
 - 응용 프로그램에서 전체 페이지 브라우저 리디렉션은 사용자 환경에 침입 될 수 있습니다.
 
-이러한 애플리케이션을 지원하기 위해 Azure AD B2C(Azure Active Directory B2C)에서는 OAuth 2.0 암시적 흐름을 사용합니다. OAuth 2.0 암시적 권한 부여 흐름은 [OAuth 2.0 사양의 4.2 섹션](https://tools.ietf.org/html/rfc6749)(영문)에서 설명하고 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 엔드포인트에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 페이지 리디렉션 또는 팝업 상자를 사용 하 여 JavaScript 클라이언트에서 전적으로 수행 됩니다.
+단일 페이지 응용 프로그램을 지원 하기 위해 권장 되는 방법은 [PKCE를 사용 하는 OAuth 2.0 인증 코드 흐름](./authorization-code-flow.md)입니다.
+
+1.x [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)와 같은 일부 프레임 워크에서는 암시적 부여 흐름이 지원 됩니다. 이러한 경우 Azure Active Directory B2C (Azure AD B2C)는 OAuth 2.0 권한 부여 암시적 부여 흐름을 지원 합니다. 흐름은 [OAuth 2.0 사양의 섹션 4.2](https://tools.ietf.org/html/rfc6749)에 설명 되어 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 엔드포인트에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 페이지 리디렉션 또는 팝업 상자를 사용 하 여 JavaScript 클라이언트에서 전적으로 수행 됩니다.
 
 Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인증 및 권한 부여보다 더 많은 작업을 수행합니다. Azure AD B2C는 [정책 매개 변수](user-flow-overview.md)를 도입했습니다. 정책 매개 변수를 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리 사용자 흐름과 같은 정책을 앱에 추가할 수 있습니다. 이 문서의 예제 HTTP 요청에서 **{테 넌 트}. onmicrosoft .com** 이 예로 사용 되었습니다. 은 `{tenant}` 테 넌 트의 이름으로 바꾸고 사용자 흐름을 만든 경우에도를 사용 합니다.
 
@@ -102,7 +104,7 @@ error=access_denied
 
 | 매개 변수 | Description |
 | --------- | ----------- |
-| error | 발생 한 오류 유형을 분류 하는 데 사용 되는 코드입니다. |
+| 오류 | 발생 한 오류 유형을 분류 하는 데 사용 되는 코드입니다. |
 | error_description | 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 | state | `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다.|
 
@@ -129,7 +131,7 @@ ID 토큰에 서명하는 데 사용된 사용자 흐름(및 메타데이터를 
 OpenID Connect 메타데이터 엔드포인트에서 메타데이터 문서를 가져오면 이 엔드포인트에 있는 RSA-256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시간에 이 엔드포인트에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid`로 식별됩니다. `id_token`의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. [토큰 유효성을 검사하는 방법](tokens-overview.md)을 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](tokens-overview.md)를 참조하세요.
 <!--TODO: Improve the information on this-->
 
-ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 몇 가지 클레임이 있습니다. 예를 들면 다음과 같습니다.
+ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 몇 가지 클레임이 있습니다. 예를 들어:
 
 * `nonce` 클레임의 유효성을 검사하여 토큰 재생 공격을 방지합니다. 해당 값이 로그인 요청에 지정된 값이어야 합니다.
 * `aud` 클레임의 유효성을 검사하여 앱에 대한 ID 토큰이 발급되었는지 확인합니다. 해당 값이 앱의 애플리케이션 ID여야 합니다.
@@ -212,7 +214,7 @@ error=user_authentication_required
 
 | 매개 변수 | Description |
 | --- | --- |
-| error |발생하는 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
+| 오류 |발생하는 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 iFrame 요청에 이러한 오류를 수신하면, 사용자는 새 토큰을 얻기 위해 대화형으로 다시 로그인해야 합니다.
@@ -223,7 +225,7 @@ ID 토큰 및 액세스 토큰은 모두 짧은 기간 후에 만료됩니다. �
 ## <a name="send-a-sign-out-request"></a>로그아웃 요청 보내기
 사용자를 앱에서 로그 아웃 하려는 경우 사용자를 Azure AD로 리디렉션하여 로그 아웃 합니다. 사용자를 리디렉션하지 않으면 자격 증명을 다시 입력 하지 않고 앱에 다시 인증할 수 있습니다. Azure AD에 유효한 Single Sign-On 세션이 있기 때문입니다.
 
-[ID 토큰 유효성 검사](#validate-the-id-token)에서 설명한 동일한 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`로 사용자를 리디렉션할 수 있습니다. 예를 들면 다음과 같습니다.
+[ID 토큰 유효성 검사](#validate-the-id-token)에서 설명한 동일한 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`로 사용자를 리디렉션할 수 있습니다. 예를 들어:
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F

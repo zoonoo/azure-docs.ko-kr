@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: deb64aa0c344e818b5fd85ca1a161293fd35d6f6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554002"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995406"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>자습서: Percolate와 Azure Active Directory 통합
 
@@ -103,7 +103,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. SP 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, **로그온 URL** 상자에서 **https://percolate.com/app/login** 을 입력합니다.
 
-   ![Percolate 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+   !["로그온 URL" 텍스트 상자가 강조 표시된 상태에서 선택된 "추가 URL 설정"을 보여주는 스크린샷.](common/metadata-upload-additional-signon.png)
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **복사** 아이콘을 선택하여 **앱 페더레이션 메타데이터 URL**을 복사합니다. 이 URL을 저장합니다.
 
     ![앱 페더레이션 메타데이터 URL 복사](common/copy-metadataurl.png)
@@ -184,7 +184,7 @@ Percolate에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 및 그룹 선택](common/users-groups-blade.png)
+    ![왼쪽 창에서 선택된 "사용자 및 그룹"을 보여주는 스크린샷.](common/users-groups-blade.png)
 
 4. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fe7e0d43050120daa017669a96e90f96b873530
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 39f2f592601f60f060cce8ded2b5303dc6b10e8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543791"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>자습서: Azure Active Directory와 Origami 통합
 
@@ -126,11 +126,11 @@ Origami에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_51.png)
+    !["관리자"가 선택된 Origami 홈페이지를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. Single Sign-On 설정 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_531.png)
+    !["Single Sign-On 사용" 페이지가 선택되고 텍스트 상자가 강조 표시된 "Single Sign-On 설정" 페이지를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. **Single Sign-On 사용**을 선택합니다.
 
@@ -201,19 +201,19 @@ Origami에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_51.png)
+    !["관리자"가 선택된 Origami 계정 홈페이지를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. **사용자 및 보안** 대화 상자에서 **사용자**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_54.png)
+    !["사용자"가 선택된 "사용자 및 보안" 대화 상자를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. **새 사용자 추가**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_55.png)
+    ![선택된 "새 사용자 추가" 단추를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. 새 사용자 추가 대화 상자에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_56.png)
+    !["사용자 이름", "이름" 및 "성" 텍스트 상자가 강조 표시된 "새 사용자 추가" 대화 상자를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. **사용자 이름** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com**)을 입력합니다.
 
@@ -227,7 +227,7 @@ Origami에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     f. **저장**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/origami-tutorial/tutorial_origami_57.png)
+    ![선택된 "저장" 단추를 보여주는 스크린샷.](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. 사용자에게 **사용자 역할** 및 **클라이언트 액세스**를 할당합니다. 
    

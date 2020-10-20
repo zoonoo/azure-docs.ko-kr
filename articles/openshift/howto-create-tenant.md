@@ -6,16 +6,22 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e949f1ac5259ba35772ce98c2ee88e5ea66c2d84
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469986"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221165"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure AD 테 넌 트 만들기
 
-Red Hat OpenShift를 Microsoft Azure 클러스터를 만들 [Azure Active Directory (AZURE AD)](../active-directory/develop/quickstart-create-new-tenant.md) 테 넌 트가 필요 합니다. *테 넌 트는* azure, Microsoft Intune 또는 Microsoft 365에 등록 하 여 Microsoft와의 관계를 만들 때 조직 또는 앱 개발자가 받는 azure AD의 전용 인스턴스입니다. 각 Azure AD 테 넌 트는 서로 다르며 다른 Azure AD 테 넌 트와 별개 이며 고유한 회사 및 학교 id와 앱 등록을 포함 합니다.
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11는 30 월 2022에 사용 중지 됩니다. 새 Azure Red Hat OpenShift 3.11 클러스터 만들기에 대 한 지원은 30 년 11 2020 월 30 일까 지 계속 됩니다. 사용 중지 후에는 나머지 Azure Red Hat OpenShift 3.11 클러스터가 종료 되어 보안 취약점을 방지 합니다.
+> 
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:arofeedback@microsoft.com).
+
+Red Hat OpenShift를 Microsoft Azure 클러스터를 만들 [Azure Active Directory (AZURE AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 테 넌 트가 필요 합니다. *테 넌 트는* azure, Microsoft Intune 또는 Microsoft 365에 등록 하 여 Microsoft와의 관계를 만들 때 조직 또는 앱 개발자가 받는 azure AD의 전용 인스턴스입니다. 각 Azure AD 테 넌 트는 서로 다르며 다른 Azure AD 테 넌 트와 별개 이며 고유한 회사 및 학교 id와 앱 등록을 포함 합니다.
 
 Azure AD 테 넌 트가 아직 없는 경우 다음 지침에 따라 새로 만듭니다.
 

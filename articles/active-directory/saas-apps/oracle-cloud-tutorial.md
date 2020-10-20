@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: d4a478c402346e33a4f27ff2a363de75285b435b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7a0da85aeba1a9736884a6b8b345efd3f0a8544c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543842"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996545"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>자습서: Azure Active Directory와 Oracle Cloud Infrastructure Console 통합
 
@@ -101,7 +101,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Oracle Cloud Infrastructure Console 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
-   ![이미지](common/edit-attribute.png)
+   ![오른쪽 상단에 있는 "편집" 아이콘이 선택된 "사용자 특성" 대화 상자를 보여주는 스크린샷.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도, Oracle Cloud Infrastructure Console 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
@@ -111,9 +111,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
    1. **저장**을 클릭합니다.
 
-      ![이미지](./media/oracle-cloud-tutorial/config07.png)
+      !["이름 식별자 값" 및 "클레임에서 반환된 그룹"에 대한 "편집" 아이콘이 강조 표시된 "사용자 특성 및 클레임" 섹션을 보여주는 스크린샷.](./media/oracle-cloud-tutorial/config07.png)
     
-      ![이미지](./media/oracle-cloud-tutorial/config11.png)
+      !["영구" 및 "저장" 단추가 선택된 "사용자 클레임 관리" 대화 상자를 보여주는 스크린샷.](./media/oracle-cloud-tutorial/config11.png)
 
    1. **클레임에서 반환되는 그룹** 옆에 있는 **펜**을 클릭합니다.
 
@@ -173,15 +173,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 메뉴의 왼쪽 부분을 클릭하고 **ID**를 클릭한 후 **페더레이션**으로 이동합니다.
 
-   ![구성](./media/oracle-cloud-tutorial/config01.png)
+   ![왼쪽 위에 있는 메뉴에서 "ID" 및 "페더레이션"이 선택된 "Oracle 클라우드 인프라 콘솔"을 보여주는 스크린샷.](./media/oracle-cloud-tutorial/config01.png)
 
 1. **이 문서 다운로드** 링크를 클릭하여 **서비스 공급자 메타데이터 파일**을 저장하고 Azure Portal의 **기본 SAML 구성** 섹션에 업로드한 후 **ID 공급자 추가**를 클릭합니다.
 
-   ![구성](./media/oracle-cloud-tutorial/config02.png)
+   ![왼쪽 메뉴와 "ID 공급자 추가" 단추에서 선택된 "페더레이션" 및 선택된 "이 문서 다운로드" 작업을 보여주는 스크린샷.](./media/oracle-cloud-tutorial/config02.png)
 
 1. **ID 공급자 추가** 팝업에서 다음 단계를 수행합니다.
 
-   ![구성](./media/oracle-cloud-tutorial/config03.png)
+   !["ID 공급자 추가" 팝업을 보여주는 스크린샷.](./media/oracle-cloud-tutorial/config03.png)
 
    1. **이름** 텍스트 상자에 이름을 입력합니다.
 
@@ -193,7 +193,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    1. **계속**을 클릭하고 **ID 공급자 편집** 섹션에서 다음 단계를 수행합니다.
 
-      ![구성](./media/oracle-cloud-tutorial/config09.png)
+      !["ID 공급자 그룹", "OCI 그룹", "매핑 추가" 및 "제출" 단추가 강조 표시된 "ID 공급자 편집" 섹션을 보여주는 스크린샷.](./media/oracle-cloud-tutorial/config09.png)
 
    1. **ID 공급자 그룹**을 [사용자 지정 그룹]으로 선택해야 합니다. 그룹 ID는 Azure Active Directory의 그룹 GUID여야 합니다. 그룹을 **OCI 그룹** 필드의 해당 그룹과 매핑해야 합니다.
 
