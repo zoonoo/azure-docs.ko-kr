@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544063"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>자습서: OnTrack과 Azure Active Directory 통합
 
@@ -118,7 +118,7 @@ OnTrack에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 5. OnTrack 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![오른쪽 상단에 있는 "편집" 아이콘이 선택된 "사용자 특성" 대화 상자를 보여주는 스크린샷.](common/edit-attribute.png)
 
 6. 위에서 언급한 특성 외에도, OnTrack 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
@@ -132,7 +132,7 @@ OnTrack에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    !["새 클레임 추가" 및 "저장" 작업이 선택된 "사용자 클레임" 대화 상자를 보여주는 스크린샷.](common/new-save-attribute.png)
 
     ![이미지](common/new-attribute-details.png)
 

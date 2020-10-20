@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-ms.openlocfilehash: a35fb30ca19e08c68c99c9c9524231706b066e11
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fc6cb5d992d4c961e23034560a688c7090622359
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549894"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858101"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>자습서: KnowledgeOwl과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -167,11 +167,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **설정**을 클릭한 다음, **보안**을 선택합니다.
 
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 보안을 보여줍니다.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. **SAML SSO 통합**으로 스크롤하여 다음 단계를 수행합니다.
 
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure2.png)
+    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML SSO 통합을 보여줍니다.](./media/knowledgeowl-tutorial/configure2.png)
 
     a. **SAML SSO 사용**을 선택합니다.
 
@@ -189,7 +189,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     h. **맵 SAML 특성**을 클릭하여 특성을 매핑하고 다음 단계를 수행합니다.
 
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure3.png)
+    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML 특성 매핑을 보여줍니다.](./media/knowledgeowl-tutorial/configure3.png)
 
     * **SSO ID** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid`를 입력합니다.
     * **사용자 이름/이메일** 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`를 입력합니다.
@@ -199,7 +199,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     i. 페이지 맨 아래에서 **저장**을 클릭합니다.
 
-    ![KnowledgeOwl 구성](./media/knowledgeowl-tutorial/configure4.png)
+    ![스크린샷은 저장 단추를 보여줍니다.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-knowledgeowl-test-user"></a>KnowledgeOwl 테스트 사용자 만들기
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 18814d23c634dc58148c26b67c2f669e22a136ee
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b84cbe57c40b12ae01952963b324b8bcfdcfd2e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554297"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945484"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>자습서: Nuclino와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -155,15 +155,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **ICON**을 클릭합니다.
 
-    ![Nuclino 구성](./media/nuclino-tutorial/configure1.png)
+    !["Azure AD SSO" 옆에 선택된 "메뉴" 아이콘을 보여주는 스크린샷.](./media/nuclino-tutorial/configure1.png)
 
 5. **Azure AD SSO**를 클릭하고 드롭다운에서 **팀 설정**을 클릭합니다.
 
-    ![Nuclino 구성](./media/nuclino-tutorial/configure2.png)
+    !["팀 설정"이 선택된 "Azure AD SSO" 드롭다운을 보여주는 스크린샷.](./media/nuclino-tutorial/configure2.png)
 
 6. 왼쪽 탐색 창에서 **인증**을 선택합니다.
 
-    ![Nuclino 구성](./media/nuclino-tutorial/configure3.png)
+    ![선택된 "인증"을 보여주는 스크린샷.](./media/nuclino-tutorial/configure3.png)
 
 7. **인증** 섹션에서 다음 단계를 수행합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543910"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996572"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>자습서: OpsGenie와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -133,15 +133,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. SSO를 사용하려면 **사용**을 선택합니다.
    
-    ![OpsGenie 설정](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![선택된 "사용" 확인란을 보여주는 스크린샷.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. **공급자** 섹션에서 **Azure Active Directory** 탭을 클릭합니다.
    
-    ![OpsGenie 설정](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    !["Azure Active Directory" 탭이 선택된 "공급자" 섹션을 보여주는 스크린샷.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. Azure Active Directory 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![OpsGenie 설정](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    !["Single Sign-On 사용" 토글, "SAML 2.0 엔드포인트" 및 "메타데이터 URL"이 있는 "Single sign-On" 섹션을 보여주는 스크린샷.](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. **앱 ID URI** 값을 복사하고 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
@@ -169,7 +169,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
    
-    ![OpsGenie 설정](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    !["이메일" 및 "전체 이름" 텍스트 상자가 강조 표시되고 "저장" 단추가 선택된 "사용자 추가" 대화 상자를 보여주는 스크린샷.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. **이메일** 텍스트 상자에 Azure Active Directory에 나열된 B.Simon의 이메일 주소를 입력합니다.
    

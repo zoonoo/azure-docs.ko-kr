@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central용 디바이스 개발 | Microsoft Docs
-description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하는 IoT 애플리케이션 플랫폼입니다. 이 문서에서는 IoT Central 애플리케이션에 연결할 디바이스를 개발하는 방법에 대한 개요를 제공합니다.
+description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하는 IoT 애플리케이션 플랫폼입니다. 이 문서에서는 IoT Central 애플리케이션에 연결할 디바이스를 개발하는 방법에 대한 개요를 제공합니다. 디바이스는 원격 분석을 사용하여 스트리밍 데이터 및 속성을 전송하여 디바이스 상태를 보고합니다. Iot Central은 쓰기 가능한 속성을 사용하여 디바이스 상태를 설정하고 디바이스에서 명령을 호출할 수 있습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39ce436cd59447b2b6f8d9f88deaab80b00dd639
+ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90017526"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91812355"
 ---
 # <a name="iot-central-device-development-overview"></a>IoT Central 디바이스 개발 개요
 
@@ -26,7 +26,7 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 디바이스는 다음과 같은 기본 원칙을 사용하여 IoT Central 애플리케이션과 상호 작용합니다.
 
 - _원격 분석 데이터_는 디바이스가 IoT Central로 전송하는 데이터입니다. 온보드 센서의 온도 값 스트림을 예로 들 수 있습니다.
-- _속성_은 디바이스가 IoT Central에 보고하는 상태 값입니다. 디바이스의 현재 펌웨어 버전을 예로 들 수 있습니다. IoT Central이 디바이스에서 업데이트할 수 있는 쓰기 가능 속성도 사용할 수 있습니다.
+- _속성_은 디바이스가 IoT Central에 보고하는 상태 값입니다. 디바이스의 현재 펌웨어 버전을 예로 들 수 있습니다. IoT Central이 대상 온도와 같이 디바이스에서 업데이트할 수 있는 쓰기 가능 속성도 사용할 수 있습니다.
 - _명령_은 디바이스의 동작을 제어하기 위해 IoT Central에서 호출됩니다. 예를 들어 IoT Central 애플리케이션에서 디바이스 재부팅 명령을 호출할 수 있습니다.
 
 솔루션 빌더는 원격 분석 데이터를 시각화하고, 속성을 관리하고, 명령을 호출할 수 있도록 IoT Central 웹 UI에서 대시보드와 보기를 구성하는 역할을 담당합니다.

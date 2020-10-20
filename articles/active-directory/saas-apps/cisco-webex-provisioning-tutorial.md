@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 2500a22d4d3775f7cfea7afbf4e8d106ec2da139
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 069c8a8e2a595248afe45bbb90de877b3b6fc87d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647971"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91849347"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cisco Webex 구성
 
@@ -87,25 +87,25 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![Cisco Webex 프로비전](common/provisioning.png)
+    :::image type="content" source="common/provisioning.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![Cisco Webex 프로비전](common/provisioning-automatic.png)
+    :::image type="content" source="common/provisioning-automatic.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
 5. **관리자 자격 증명** 섹션 아래에서 Cisco Webex 계정의 **테넌트 URL** 및 **비밀 토큰**을 입력합니다.
 
-    ![Cisco Webex 프로비전](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/secrettoken1.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
 6.  **테넌트 URL** 필드에 `https://api.ciscospark.com/v1/scim/[OrgId]` 형식으로 값을 입력합니다. `[OrgId]`를 얻으려면 [Cisco Webex 컨트롤 허브](https://admin.webex.com/login)에 로그인합니다. 왼쪽 아래에서 조직 이름을 클릭하고 **조직 ID**의 값을 복사합니다. 
 
     * **비밀 토큰**의 값을 얻으려면 이 [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose)로 이동합니다. 표시되는 webex 로그인 페이지에서 조직의 전체 Cisco Webex 관리자 계정으로 로그인합니다. 사이트에 연결할 수 없다는 오류 페이지가 표시되지만, 이는 정상적인 동작입니다.
 
-        ![Cisco Webex 프로비전](./media/cisco-webex-provisioning-tutorial/test.png)
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
  
     * 아래에 강조 표시된 대로 URL에서 생성된 전달자 토큰의 값을 복사합니다. 이 토큰은 365일 동안 유효합니다.
         
-        ![Cisco Webex 프로비전](./media/cisco-webex-provisioning-tutorial/test1.png)
+        :::image type="content" source="./media/cisco-webex-provisioning-tutorial/test1.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
 7. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD에서 Clarizen에 연결할 수 있는지 확인합니다. 연결이 실패하면 Cisco Webex 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
@@ -119,11 +119,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 10. **매핑** 섹션에서 **Azure Active Directory 사용자를 Cisco Webex에 동기화**를 선택합니다.
 
-    ![Cisco Webex 프로비전](./media/cisco-webex-provisioning-tutorial/usermapping.png)
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermapping.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Cisco Webex로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Cisco Webex의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Cisco Webex 프로비전](./media/cisco-webex-provisioning-tutorial/usermappingattributes.png)
+    :::image type="content" source="./media/cisco-webex-provisioning-tutorial/usermappingattributes.png" alt-text="Azure Portal에 있는 메뉴의 스크린샷. 관리 아래에서 프로비저닝이 강조 표시됩니다." border="false":::
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

@@ -11,18 +11,22 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83652285"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962448"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
 Azure Key Vault는 보안 비밀 저장소를 제공하는 클라우드 서비스입니다. 키, 암호, 인증서 및 기타 비밀을 안전하게 저장할 수 있습니다. Azure Portal을 통해 Azure Key Vault를 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Key Vault를 만든 다음, 비밀을 저장하는 데 사용합니다. Key Vault에 대한 자세한 내용을 보려면 [개요](../general/overview.md)를 검토합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+비밀에 대한 자세한 내용은 (about-secrets.md)를 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -46,6 +50,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2**입니다. 다른 단계에서 이 이름을 사용합니다.
 * **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+
+Azure CLI 및 PowerShell을 사용하여 Key Vault를 만들 수도 있습니다. [PowerShell을 사용하여 Key Vault 만들기](../general/quick-create-powershell.md)
+[Azure CLI를 사용하여 Key Vault 만들기](../general/quick-create-cli.md)
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
 
@@ -90,5 +97,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
+- [Key Vault에 대한 액세스 보안](../general/secure-your-key-vault.md) 읽기
+- [App Service 웹앱에서 Key Vault 사용](../general/tutorial-net-create-vault-azure-web-app.md) 참조
+- [VM에 배포된 애플리케이션과 함께 Key Vault 사용](../general/tutorial-net-virtual-machine.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
 - [Azure Key Vault 모범 사례](../general/best-practices.md) 검토

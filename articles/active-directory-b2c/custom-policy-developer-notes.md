@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852047"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214909"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -66,7 +66,7 @@ ms.locfileid: "88852047"
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 인증 코드](authorization-code-flow.md) |  |  | X |  |
-| PKCE를 사용하는 OAuth2 인증 코드 |  |  | X | 모바일 애플리케이션 전용  |
+| PKCE를 사용하는 OAuth2 인증 코드 |  |  | X | [공용 클라이언트 및 단일 페이지 응용 프로그램](authorization-code-flow.md)  |
 | [OAuth2 암시적 흐름](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 리소스 소유자 암호 자격 증명](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |

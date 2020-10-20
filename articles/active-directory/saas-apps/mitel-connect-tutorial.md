@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 63f1d1d40d8aff21641f3fa4ee10a289de40800d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dae9db6dd20ef4346050be73250c7a10f7a449ec
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552611"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>자습서: Mitel MiCloud Connect 또는 CloudLink 플랫폼과 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ Azure AD용 SSO를 사용하여 MiCloud Connect를 구성하려면 Azure Portal�
 
 4. Azure Portal의 **기본 SAML 구성** 섹션에서 **편집** 아이콘을 선택합니다.
    
-    ![이미지](common/edit-urls.png)
+    ![스크린샷은 편집 아이콘이 선택된 SAML로 Single Sign-On 설정 페이지를 보여줍니다.](common/edit-urls.png)
 
     기본 SAML 구성 대화 상자가 표시됩니다.
 
@@ -120,7 +120,7 @@ Azure AD용 SSO를 사용하여 MiCloud Connect를 구성하려면 Azure Portal�
 
 6. Mitel 계정 포털의 **Reply URL (Assertion Consumer Service URL)**(회신 URL(Assertion Consumer Service URL)) 필드에서 URL을 복사하여 Azure Portal의 **회신 URL(Assertion Consumer Service URL)** 필드에 붙여넣습니다.
 
-   ![이미지](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
+   ![스크린샷은 Azure Portal의 기본 SAML 구성 및 Mitel 계정 포털의 ID 공급자 설정 섹션과 이들 간의 관계를 나타내는 줄을 보여줍니다.](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
 7. **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
 
@@ -134,11 +134,11 @@ Azure AD용 SSO를 사용하여 MiCloud Connect를 구성하려면 Azure Portal�
 
 9. Azure Portal의 **SAML 기반 로그온** 페이지에 있는 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 옆의 **다운로드**를 선택하여 **서명 인증서**를 다운로드하고 컴퓨터에 저장합니다.
 
-    ![이미지](./media/mitel-connect-tutorial/azure-signing-certificate.png)
+    ![스크린샷은 인증서를 다운로드할 수 있는 SAML 서명 인증서 창을 보여줍니다.](./media/mitel-connect-tutorial/azure-signing-certificate.png)
 
 10. 텍스트 편집기에서 서명 인증서 파일을 열고, 파일의 모든 데이터를 복사한 다음, 데이터를 Mitel 계정 포털의 **Signing Certificate**(서명 인증서) 필드에 붙여넣습니다. 
 
-      ![이미지](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
+      ![스크린샷은 서명 인증서 필드를 보여줍니다.](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
 
 11. Azure Portal의 **SAML 기반 로그인** 페이지에 있는 **Mitel Connect 설정** 섹션에서 다음을 수행합니다.
 
@@ -146,7 +146,7 @@ Azure AD용 SSO를 사용하여 MiCloud Connect를 구성하려면 Azure Portal�
 
      1. **Azure AD 식별자** 필드에서 URL을 복사하여 Mitel 계정 포털의 **Entity ID**(엔터티 ID) 필드에 붙여넣습니다.
          
-         ![이미지](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
+         ![스크린샷은 Azure Portal 및 Mitel 계정 포털의 SAML 기반 로그온 페이지 간의 관계를 보여줍니다.](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
 
 12. Mitel 계정 포털의 **Connect Single Sign-On 설정** 대화 상자에서 **저장**을 선택합니다.
 
@@ -241,7 +241,7 @@ CloudLink 플랫폼에 Azure AD Single Sign-On을 사용하도록 구성하려�
     
        **SAML 기반 로그온** 페이지가 열리고 **기본 SAML 구성** 섹션이 표시됩니다.
 
-       ![이미지](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
+       ![스크린샷은 기본 SAML 구성이 포함된 SAML 기반 로그온 페이지를 보여줍니다.](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
 
 2. CloudLink 계정 포털에서 **Azure AD Single Sign-on** 구성 패널에 액세스하려면 다음을 수행합니다.
 
@@ -251,33 +251,33 @@ CloudLink 플랫폼에 Azure AD Single Sign-On을 사용하도록 구성하려�
 
     1. **타사** 탭을 선택합니다. 지원되는 타사 애플리케이션 목록이 표시됩니다. **Azure AD Single Sign On**과 연결된 **추가** 단추를 선택하고, **완료**를 선택합니다.
 
-       ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
+       ![스크린샷은 Azure AD Single Sign-On을 추가할 수 있는 통합 페이지를 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
 
        **Azure AD Single Sign-On**은 고객 계정에 대해 사용하도록 설정되며, **계정 정보** 페이지의 **통합** 섹션에 추가됩니다.   
 
    1. **설정 완료**를 선택합니다.
     
-      ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
+      ![스크린샷은 Azure AD Single Sign-On에 대한 전체 설치 옵션을 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
       
       **Azure AD Single Sign On** 구성 패널이 열립니다.
       
-       ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
+       ![스크린샷은 Azure AD Single Sign-On 구성을 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
        
        Mitel은 **선택적 Mitel 자격 증명** 섹션의 **Mitel 자격 증명 사용(선택 사항**) 확인란을 선택하지 않는 것이 좋습니다. 사용자가 Single Sign-On 옵션 외에도 Mitel 자격 증명을 사용하여 CloudLink 애플리케이션에 로그인할 수 있게 하려는 경우에만 이 확인란을 선택하세요.
 
 3. Azure Portal의 **SAML 기반 로그온** 페이지에 있는 **기본 SAML 구성** 섹션에서 **편집** 아이콘을 선택합니다. **기본 SAML 구성** 패널이 열립니다.
 
-    ![이미지](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
+    ![스크린샷은 편집 아이콘이 선택된 기본 SAML 구성 창을 보여줍니다.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
  4. CloudLink 계정 포털의 **Mitel 식별자(엔터티 ID)** 필드에서 URL을 복사하여 Azure Portal의 **식별자(엔터티 ID)** 필드에 붙여넣습니다.
 
  5. CloudLink 계정 포털의 **회신 URL(Assertion Consumer Service URL)** 필드에서 URL을 복사하여 Azure Portal의 **회신 URL(Assertion Consumer Service URL)** 필드에 붙여넣습니다.  
     
-    ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
+    ![스크린샷은 CloudLink 계정 포털과 Azure Portal의 페이지 간의 관계를 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
 
  6. **로그온 URL** 텍스트 상자에 URL `https://accounts.mitel.io`를 입력하여 CloudLink 계정 포털을 기본 Mitel 애플리케이션으로 사용합니다.
      
-     ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
+     ![스크린샷은 로그온 URL 텍스트 상자를 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
   
      > [!NOTE]
      > 기본 Mitel 애플리케이션은 사용자가 [액세스 패널]에서 Mitel Connect 타일을 선택할 때 열리는 애플리케이션입니다. 또한 사용자가 Azure AD에서 테스트 설정을 구성할 때 액세스되는 애플리케이션이기도 합니다.
@@ -286,14 +286,14 @@ CloudLink 플랫폼에 Azure AD Single Sign-On을 사용하도록 구성하려�
 
 8. Azure Portal의 **SAML 기반 로그온** 페이지에 있는 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 옆의 **다운로드**를 선택하여 **서명 인증서**를 다운로드합니다. 인증서를 컴퓨터에 저장합니다.
   
-    ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
+    ![스크린샷은 Base64 인증서를 다운로드할 수 있는 SAML 서명 인증서 섹션을 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
 
 9. 텍스트 편집기에서 서명 인증서 파일을 열고, 파일의 모든 데이터를 복사한 다음, 데이터를 CloudLink 계정 포털의 **서명 인증서** 필드에 붙여넣습니다.  
 
     > [!NOTE]
     > 인증서가 여러 개 있는 경우 하나씩 붙여넣는 것이 좋습니다. 
        
-    ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
+    ![스크린샷은 Azure AD 통합에서 값을 입력하는 절차의 2단계를 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
 
 10. Azure Portal의 **SAML 기반 로그인** 페이지에 있는 **Mitel Connect 설정** 섹션에서 다음을 수행합니다.
 
@@ -301,7 +301,7 @@ CloudLink 플랫폼에 Azure AD Single Sign-On을 사용하도록 구성하려�
 
      1. **Azure AD 식별자** 필드의 URL을 복사하여 CloudLink 계정 포털의 **IDP 식별자(엔터티 ID)** 필드에 붙여넣습니다.
      
-        ![이미지](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
+        ![스크린샷은 여기에 Mintel Connect에서 설명된 값의 원본을 보여줍니다.](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
 
 11. CloudLink 계정 포털의 **Azure AD Single Sign-On** 패널에서 **저장**을 선택합니다.
 

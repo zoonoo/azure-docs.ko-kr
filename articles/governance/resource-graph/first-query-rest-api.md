@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 REST API 쿼리'
 description: 이 빠른 시작에서는 REST API용 Resource Graph 엔드포인트를 호출하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85802615"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057232"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>빠른 시작: REST API를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-구독에 대한 정보를 얻으려면 위의 **$restUri** 변수에서 `{subscriptionId}`를 대체합니다. $response 변수는 `Invoke-RestMethod` cmdlet의 결과를 보관하며 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)과 같은 cmdlet으로 구문 분석이 가능합니다. REST API 서비스 엔드포인트에 **요청 본문**이 필요하면 JSON 형식의 변수를 `Invoke-RestMethod`의 `-Body` 매개 변수에 제공합니다.
+`$restUri` 변수의 `{subscriptionId}`를 대체하여 구독에 대한 정보를 가져옵니다.
+`$response` 변수는 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)과 같은 cmdlet으로 구문 분석할 수 있는 `Invoke-RestMethod` cmdlet의 결과를 보관합니다. REST API 서비스 엔드포인트에 **요청 본문**이 필요하면 JSON 형식의 변수를 `Invoke-RestMethod`의 `-Body` 매개 변수에 제공합니다.
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 

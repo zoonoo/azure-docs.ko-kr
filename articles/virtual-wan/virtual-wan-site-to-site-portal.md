@@ -1,19 +1,19 @@
 ---
-title: 'Azure Virtual WAN: 사이트 간 연결 만들기'
+title: '자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기'
 description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure에 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 8a25ead5983e56f56ba0daea23c2775b3332fb8b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439359"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057912"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "91439359"
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -242,6 +242,17 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="'보기/구성' 작업을 가리키는 화살표가 있는 'VPN(사이트 간)' 페이지를 보여주는 스크린샷." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
+
+리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-가상 WAN에 대해 자세히 알아보려면 [가상 WAN 개요](virtual-wan-about.md) 페이지를 참조하세요.
+다음으로, Virtual WAN에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> * [가상 WAN FAQ](virtual-wan-faq.md)

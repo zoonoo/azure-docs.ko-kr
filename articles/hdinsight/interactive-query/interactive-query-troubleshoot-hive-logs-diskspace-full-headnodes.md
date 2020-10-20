@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
-ms.date: 03/05/2020
-ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/05/2020
+ms.openlocfilehash: a102c9f375b37579cf6f92b08d67f762d3dfd26a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78943957"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220893"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>시나리오: Apache Hive 로그가 Azure HDInsight에서 헤드 노드의 디스크 공간을 채우고 있습니다.
 
@@ -24,6 +24,7 @@ Apache Hive/LLAP 클러스터에서 원치 않는 로그는 헤드 노드에서 
 
 1. 헤드 노드에 남아 있는 공간이 없으므로 SSH 액세스가 실패 합니다.
 2. Ambari는 *HTTP 오류를 제공 합니다. 503 서비스를 사용할 수 없습니다*.
+3. HiveServer2 Interactive를 다시 시작 하지 못했습니다.
 
 `ambari-agent`문제가 발생 하면 로그에 다음이 표시 됩니다.
 ```
@@ -35,7 +36,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>원인
 
-고급 Hive log4j 구성에서는 *log4j 어 펜더* 매개 변수를 생략 합니다. 이로 인해 로그 파일이 무한 생성 됩니다.
+고급 hive log4j 구성에서는 마지막으로 수정한 날짜를 기준으로 30 일 이전 파일에 대해 현재 기본 삭제 일정이 설정 됩니다.
 
 ## <a name="resolution"></a>해결 방법
 
@@ -43,30 +44,28 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 2. `Advanced hive-log4j`고급 설정 내의 섹션으로 이동 합니다.
 
-3. `log4j.appender.RFA`매개 변수를 RollingFileAppender로 설정 합니다. 
+3. `appender.RFA.strategy.action.condition.age`매개 변수를 원하는 기간으로 설정 합니다. 14 일에 대 한 예제: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. `log4j.appender.RFA.MaxFileSize` `log4j.appender.RFA.MaxBackupIndex` 다음과 같이를 설정 합니다.
+4. 관련 설정이 표시 되지 않으면 다음 설정을 추가 하세요.
+    ```
+    # automatically delete hive log
+    appender.RFA.strategy.action.type = Delete
+    appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
+    appender.RFA.strategy.action.condition.type = IfLastModified
+    appender.RFA.strategy.action.condition.age = 30D
+    appender.RFA.strategy.action.PathConditions.type = IfFileName
+    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    ```
 
-```
-log4jhive.log.maxfilesize=1024MB
-log4jhive.log.maxbackupindex=10
-
-log4j.appender.RFA=org.apache.log4j.RollingFileAppender
-log4j.appender.RFA.File=${hive.log.dir}/${hive.log.file}
-log4j.appender.RFA.MaxFileSize=${log4jhive.log.maxfilesize}
-log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
-log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
-log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
-```
 5. `hive.root.logger` `INFO,RFA` 다음과 같이로 설정 합니다. 기본 설정은 디버그로, 로그가 매우 커질 수 있습니다.
 
-```
-# Define some default values that can be overridden by system properties
-hive.log.threshold=ALL
-hive.root.logger=INFO,RFA
-hive.log.dir=${java.io.tmpdir}/${user.name}
-hive.log.file=hive.log
-```
+    ```
+    # Define some default values that can be overridden by system properties
+    hive.log.threshold=ALL
+    hive.root.logger=INFO,RFA
+    hive.log.dir=${java.io.tmpdir}/${user.name}
+    hive.log.file=hive.log
+    ```
 
 6. Configs를 저장 하 고 필수 구성 요소를 다시 시작 합니다.
 

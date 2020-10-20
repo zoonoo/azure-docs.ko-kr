@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509688"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220859"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -70,12 +70,12 @@ ms.locfileid: "88509688"
 
 2. 성공적으로 훈련된 모델에는 (아직 배포되지 않은 경우) “배포” 단추가 표시됩니다.
 
-    ![모델 배포](media/how-to/how-to-deploy-model.png)
+    ![모델 배포에 대 한 배포 단추를 강조 표시 하는 스크린샷](media/how-to/how-to-deploy-model.png)
 
 3.  [배포]를 클릭합니다.
 4.  모델을 배포할 지역에 대해 **배포됨**을 선택하고 [저장]을 클릭합니다. 여러 개의 지역에 대해 **배포됨**을 선택할 수 있습니다.
 
-    ![모델 배포](media/how-to/how-to-deploy-model-regions.png)
+    ![모델을 배포 하거나 배포 취소할 수 있는 위치를 보여 주는 스크린샷](media/how-to/how-to-deploy-model-regions.png)
 
 5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "88509688"
 
 2. 성공적으로 배포된 모델에는 **업데이트** 단추가 표시됩니다.
 
-    ![모델 배포](media/how-to/how-to-update-undeploy-model.png)
+    ![배포 설정 업데이트를 위한 업데이트 단추를 강조 표시 하는 스크린샷](media/how-to/how-to-update-undeploy-model.png)
 
 3.  **업데이트**를 선택합니다.
 4.  모델을 배포 또는 배포 취소할 지역에 대해 **배포됨** 또는 **배포 취소됨**을 선택하고 **저장**을 클릭합니다.

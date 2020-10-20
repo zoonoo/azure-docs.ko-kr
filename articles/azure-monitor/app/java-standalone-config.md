@@ -4,12 +4,12 @@ description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537660"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215266"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -132,7 +132,7 @@ Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해
 | 심각한             | 심각한  | 오류   | SEVERE  |
 | 오류 (또는 심각한) | 오류  | 오류   | SEVERE  |
 | 경고 (또는 경고) | 게   | 게    | 경고 |
-| 정보              | INFO   | INFO    | INFO    |
+| 정보              | 정보   | 정보    | 정보    |
 | CONFIG            | DEBUG  | DEBUG   | CONFIG  |
 | 디버그 (또는 자세히)   | DEBUG  | DEBUG   | FINE    |
 | FINER             | DEBUG  | DEBUG   | FINER   |
@@ -164,9 +164,10 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 }
 ```
 
-환경 변수를 사용 하 여 JMX 메트릭을 설정할 수도 있습니다 `APPLICATIONINSIGHTS_JMX_METRICS` .
+숫자 및 부울 JMX 메트릭 값이 지원 됩니다. 부울 JMX 메트릭은 `0` false에 대해, true의 경우로 매핑됩니다 `1` .
 
-이 환경 변수 콘텐츠는 위의 구조와 일치 하는 json 데이터 여야 합니다 (예:). `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
+[//]: # "참고: 여기 APPLICATIONINSIGHTS_JMX_METRICS 문서화 하지 않음"
+[//]: # "env var에 포함 된 json은 복잡 하며 코드 없는 attach 시나리오용 으로만 설명 해야 합니다."
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>마이크로 측정기 (스프링 부트 발동기의 메트릭 포함)
 

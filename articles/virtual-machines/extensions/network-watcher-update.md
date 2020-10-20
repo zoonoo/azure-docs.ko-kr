@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: e367c348364d03cec6914c99e7ff112803fc58f6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 640b148dc22aa87592a6adcfca99c8ed35731934
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132434"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220604"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Network Watcher 확장을 최신 버전으로 업데이트 합니다.
 
@@ -52,20 +52,22 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 확장 버전을 확
 Azure CLI 프롬프트에서 다음 명령을 실행 합니다.
 
 ```azurecli
-az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
+az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
+출력에서 **"AzureNetworkWatcherExtension"** 를 찾고 출력의 *"typehandlerversion"* 필드에서 버전 번호를 확인 합니다.  참고: 확장에 대 한 정보는 JSON 출력에 여러 번 나타납니다. "Extensions" 블록 아래에서 확장의 전체 버전 번호를 확인 해야 합니다. 
 
-출력에서 AzureNetworkWatcher 확장을 찾습니다. 출력에서 "TypeHandlerVersion" 필드의 버전 번호를 확인 합니다.  
+아래와 같은 내용이 표시 됩니다. ![ Azure CLI 스크린 샷](./media/network-watcher/azure-cli-screenshot.png)
 
 #### <a name="usepowershell"></a>PowerShell 사용
 
 PowerShell 프롬프트에서 다음 명령을 실행 합니다.
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
+Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
+출력에서 Azure Network Watcher 확장을 찾아 출력의 *"Typehandlerversion"* 필드에서 버전 번호를 확인 합니다.   
 
-출력에서 AzureNetworkWatcher 확장을 찾습니다. 출력에서 "TypeHandlerVersion" 필드의 버전 번호를 확인 합니다.
+PowerShell 스크린샷에는 다음과 같은 내용이 표시 됩니다. ![](./media/network-watcher/powershell-screenshot.png)
 
 ### <a name="update-your-extension"></a>확장 업데이트
 
@@ -81,6 +83,25 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 
 #Windows command
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
+```
+
+작동 하지 않는 경우입니다. 아래 단계를 사용 하 여 확장을 제거 하 고 다시 설치 합니다. 그러면 최신 버전이 자동으로 추가 됩니다.
+
+확장 제거 
+
+```powershell
+#Same command for Linux and Windows
+Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
+``` 
+
+확장을 다시 설치 하는 중
+
+```powershell
+#Linux command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux" -typeHandlerVersion "1.4"
+
+#Windows command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -typeHandlerVersion "1.4"
 ```
 
 #### <a name="option-2-use-the-azure-cli"></a>옵션 2: Azure CLI 사용

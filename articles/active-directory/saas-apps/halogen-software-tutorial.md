@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 1743908652a70667a368dced18b2e808ce590a1b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 746f60374a4e8f01af119d6e9c604b941e7c4950
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549996"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944243"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>자습서: Saba TalentSpace와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -131,15 +131,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **옵션** 탭을 클릭합니다.
   
-    ![Azure AD Connect의 정의](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    !["옵션" 탭이 선택된 "Saba TalentSpace" 홈페이지를 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. 왼쪽 탐색 창에서 **SAML 구성**을 클릭합니다.
   
-    ![Azure AD Connect의 정의](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    !["SAML 구성"이 선택된 "사용자 인터페이스" 왼쪽 탐색 창을 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. **SAML 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![Azure AD Connect의 정의](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    !["설정" 옵션이 강조 표시된 "SAML 구성" 페이지를 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. **고유 식별자**로 **NameID**를 선택합니다.
 
@@ -166,7 +166,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **사용자 센터** 탭을 클릭한 후 **사용자 만들기**를 클릭합니다.
 
-    ![Azure AD Connect의 정의](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    !["사용자 센터" 탭과 선택된 "사용자 만들기"를 보여주는 스크린샷.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. **새 사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
 

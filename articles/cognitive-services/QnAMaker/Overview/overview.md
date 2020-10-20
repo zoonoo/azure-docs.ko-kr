@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
-ms.openlocfilehash: fe46fadc6d3f5a74c95faeec6b7759f18e843f7d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6a5ea51086e3ab532966c9cea9eb866334494bba
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776785"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874427"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -83,9 +83,9 @@ QnA Maker는 협업 권한과 함께 작성, 학습 및 게시를 제공하여 �
 
 Microsoft는 빠른 시작을 가장 많이 사용되는 프로그래밍 언어로 제공하며, 각각 기본 디자인 패턴을 학습하고 코드를 10분 이내에 실행할 수 있도록 설계되었습니다. 각 기능에 대한 빠른 시작은 다음 목록을 참조하세요.
 
-* [LUIS 클라이언트 라이브러리 시작](../quickstarts/quickstart-sdk.md)
-* [LUIS 포털 시작](../quickstarts/create-publish-knowledge-base.md)
-* [LUIS REST API 시작](../quickstarts/quickstart-rest-curl.md)
+* [QnA Maker 클라이언트 라이브러리 시작](../quickstarts/quickstart-sdk.md)
+* [QnA Maker 포털 시작](../quickstarts/create-publish-knowledge-base.md)
+* [QnA Maker REST API 시작](../quickstarts/quickstart-rest-curl.md)
 
 
 ## <a name="next-steps"></a>다음 단계

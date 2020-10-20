@@ -8,24 +8,16 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 6c29141a2e255588ffa581b84ffeb4ddd7fdb703
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87d7bbaa40226e02726b92cf7f7705c8028149f7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87324712"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019633"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 클라이언트 라이브러리
+# <a name="quickstart-azure-key-vault-secret-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 비밀 클라이언트 라이브러리
 
-Java용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
-
-Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Java용 Key Vault 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
-
-- 키 및 암호에 대한 보안과 제어를 강화합니다.
-- 몇 분 안에 암호화 키를 만들고 가져옵니다.
-- 클라우드 규모와 글로벌 중복성을 통해 대기 시간을 줄입니다.
-- TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
-- FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
+Java용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다.
 
 추가 리소스:
 
@@ -37,13 +29,29 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [JDK(Java Development Kit)](/java/azure/jdk/?view=azure-java-stable), 버전 8 이상
+- [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상
 - [Apache Maven](https://maven.apache.org)
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
-이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Apache Maven](https://maven.apache.org)을 실행하고 있다고 가정합니다.
+이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli) 및 [Apache Maven](https://maven.apache.org)을 실행하고 있다고 가정합니다.
 
 ## <a name="setting-up"></a>설치
+
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 또한 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요.
+
+### <a name="sign-in-to-azure"></a>Azure에 로그인
+
+1. `login` 명령을 실행합니다.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    CLI는 기본 브라우저를 열 수 있으면 기본 브라우저를 열고 Azure 로그인 페이지를 로드합니다.
+
+    그렇지 않으면 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)에서 브라우저 페이지를 열고 터미널에 표시된 권한 부여 코드를 입력합니다.
+
+2. 브라우저에서 계정 자격 증명으로 로그인합니다.
 
 ### <a name="create-new-java-console-app"></a>새 Java 콘솔 앱 만들기
 
@@ -109,21 +117,35 @@ cd akv-java
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="create-a-service-principal"></a>서비스 주체 만들기
+#### <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+비밀 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한을 서비스 주체에 부여
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+```
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+#### <a name="set-environment-variables"></a>환경 변수 설정
 
-#### <a name="set-environmental-variables"></a>환경 변수 설정
+이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
 
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
+```
+
+macOS 또는 Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="object-model"></a>개체 모델
 
-Java용 Azure Key Vault 클라이언트 라이브러리를 사용하면 키 및 관련 자산(예: 인증서 및 비밀)을 관리할 수 있습니다. 아래의 코드 샘플에서는 클라이언트를 만들고, 비밀을 설정, 검색 및 삭제하는 방법을 보여 줍니다.
+Java용 Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 비밀을 관리할 수 있습니다. [코드 예제](#code-examples) 섹션에서는 클라이언트를 만들고, 비밀을 설정, 검색 및 삭제하는 방법을 보여줍니다.
 
 전체 콘솔 앱은 [아래에](#sample-code) 있습니다.
 
@@ -143,7 +165,9 @@ import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 
-Key Vault 인증을 받고 Key Vault 클라이언트를 생성하는 작업은 위에 나오는 [환경 변수 설정](#set-environmental-variables) 단계의 환경 변수에 따라 달라집니다. 키 자격 증명 모음 이름은 `https://<your-key-vault-name>.vault.azure.net` 형식의 Key Vault URI로 확장됩니다.
+이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
+
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](https://docs.microsoft.com/java/api/com.azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요. 
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -163,7 +187,7 @@ SecretClient secretClient = new SecretClientBuilder()
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
-[az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
+[az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) 명령을 사용하여 비밀이 설정되었는지 확인할 수 있습니다.
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -187,7 +211,7 @@ KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 secretClient.beginDeleteSecret(secretName);
 ```
 
-[az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
+[az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -272,4 +296,5 @@ public class App {
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
+- [키 자격 증명 모음에 대한 액세스를 보호](../general/secure-your-key-vault.md)하는 방법
 - [Azure Key Vault 모범 사례](../general/best-practices.md) 검토

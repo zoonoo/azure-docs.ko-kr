@@ -3,12 +3,12 @@ title: 서비스 엔드포인트를 사용한 액세스 제한
 description: Azure 가상 네트워크의 서비스 끝점을 사용 하 여 Azure container registry에 대 한 액세스를 제한 합니다. 서비스 끝점 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488673"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215504"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure Virtual Network의 서비스 엔드포인트를 사용하여 컨테이너 레지스트리에 대한 액세스 제한
 
@@ -49,13 +49,11 @@ ms.locfileid: "89488673"
 
 ## <a name="configure-network-access-for-registry"></a>레지스트리에 대한 네트워크 액세스 구성
 
-이 섹션에서는 Azure Virtual Network에서 서브넷으로부터의 액세스를 허용하도록 컨테이너 레지스트리를 구성합니다. Azure CLI 및 Azure Portal 사용에 해당하는 단계가 제공됩니다.
+이 섹션에서는 Azure Virtual Network에서 서브넷으로부터의 액세스를 허용하도록 컨테이너 레지스트리를 구성합니다. Azure CLI를 사용 하 여 단계를 제공 합니다.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>가상 네트워크로부터의 액세스 허용 - CLI
+### <a name="add-a-service-endpoint-to-a-subnet"></a>서브넷에 서비스 엔드포인트 추가
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>서브넷에 서비스 엔드포인트 추가
-
-VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 머신의 이름을 기반으로 합니다. 예를 들어 가상 머신의 이름을 *myDockerVM*으로 지정하는 경우, 기본 가상 네트워크 이름은 *myDockerVMVNET*이며 서브넷 이름은 *myDockerVMSubnet*으로 지정됩니다. Azure Portal에서, 또는 [az network vnet list][az-network-vnet-list] 명령을 사용하여 이 항목을 확인합니다.
+VM을 만들 때 Azure는 기본적으로 동일한 리소스 그룹에 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 가상 머신의 이름을 기반으로 합니다. 예를 들어 가상 머신의 이름을 *myDockerVM*으로 지정하는 경우, 기본 가상 네트워크 이름은 *myDockerVMVNET*으로 설정되며 서브넷 이름은 *myDockerVMSubnet*으로 지정됩니다. [Az network vnet list][az-network-vnet-list] 명령을 사용 하 여이를 확인 합니다.
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ az network vnet subnet show \
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>레지스트리에 대한 기본 네트워크 액세스 변경
+### <a name="change-default-network-access-to-registry"></a>레지스트리에 대한 기본 네트워크 액세스 변경
 
 기본적으로 Azure Container Registry는 모든 네트워크에 있는 호스트로부터의 연결을 허용합니다. 선택한 네트워크로 액세스를 제한하려면 기본 작업을 액세스 거부로 변경합니다. 다음 [az acr update][az-acr-update] 명령에서 레지스트리 이름을 바꿉니다.
 
@@ -109,7 +107,7 @@ az network vnet subnet show \
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>레지스트리에 네트워크 규칙 추가
+### <a name="add-network-rule-to-registry"></a>레지스트리에 네트워크 규칙 추가
 
 [az acr network-rule add][az-acr-network-rule-add] 명령을 사용하여 VM 서브넷으로부터의 액세스를 허용하는 네트워크 규칙을 레지스트리에 추가합니다. 다음 명령에서 컨테이너 레지스트리 이름과 서브넷 리소스 ID를 바꿉니다. 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>기본 레지스트리 액세스 복원
 
-기본적으로 액세스를 허용하도록 레지스트리를 복원하려면 구성된 모든 네트워크 규칙을 제거합니다. 그런 다음, 기본 작업을 액세스 허용으로 설정합니다. Azure CLI 및 Azure Portal 사용에 해당하는 단계가 제공됩니다.
+기본적으로 액세스를 허용하도록 레지스트리를 복원하려면 구성된 모든 네트워크 규칙을 제거합니다. 그런 다음, 기본 작업을 액세스 허용으로 설정합니다. 
 
-### <a name="restore-default-registry-access---cli"></a>기본 레지스트리 액세스 복원 - CLI
-
-#### <a name="remove-network-rules"></a>네트워크 규칙 제거
+### <a name="remove-network-rules"></a>네트워크 규칙 제거
 
 레지스트리에 대해 구성된 네트워크 규칙 목록을 보려면 다음과 같이 [az acr network-rule list][az-acr-network-rule-list] 명령을 실행합니다.
 
@@ -166,7 +162,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>액세스 허용
+### <a name="allow-access"></a>액세스 허용
 
 다음 [az acr update][az-acr-update] 명령에서 레지스트리 이름을 바꿉니다.
 ```azurecli
@@ -175,13 +171,11 @@ az acr update --name myContainerRegistry --default-action Allow
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-동일한 리소스 그룹에서 모든 Azure 리소스를 만들었으며 이 리소스가 더 이상 필요하지 않은 경우, 단일 [az group delete](/cli/azure/group) 명령을 사용하여 리소스를 선택적으로 삭제할 수 있습니다.
+동일한 리소스 그룹에서 모든 Azure 리소스를 만들었으며 이 리소스가 더 이상 필요하지 않은 경우, 단일한 [az group delete](/cli/azure/group) 명령을 사용하여 리소스를 선택적으로 삭제할 수 있습니다.
 
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-포털에서 리소스를 정리하려면 myResourceGroup 리소스 그룹으로 이동합니다. 리소스 그룹이 로드되면 **리소그 그룹 삭제**를 클릭하여 리소스 그룹 및 이 그룹에 저장된 리소스를 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

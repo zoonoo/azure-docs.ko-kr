@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-ms.openlocfilehash: a5d10d776de483919a64ccc46ca4cbb2b633f250
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6b8ea30e9d6c9b4557643d461d39b6375e987784
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552580"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta4-global-hr"></a>자습서: Meta4 Global HR과 Azure Active Directory 통합
 
@@ -103,13 +103,13 @@ Meta4 Global HR에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Meta4 Global HR 도메인 및 URL Single Sign-On 정보](common/both-replyurl.png)
+    ![스크린샷은 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/both-replyurl.png)
 
     **회신 URL** 텍스트 상자에 `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST` 패턴을 사용하여 URL을 입력합니다.
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Meta4 Global HR 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/both-signonurl.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.meta4globalhr.com` 패턴을 사용하여 URL을 입력합니다.
 

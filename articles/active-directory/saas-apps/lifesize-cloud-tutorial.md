@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 0ff2464705a770e257010347f0f04e9b695bb6e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b462dff45263ba3f5e533cd6bd7c4ce089933f66
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540104"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91855483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>자습서: Lifesize Cloud와 Azure Active Directory 통합
 
@@ -137,15 +137,15 @@ Lifesize Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 2. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **고급 설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![스크린샷은 고급 설정 메뉴 항목을 보여줍니다.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. 고급 설정에서 이제 **SSO 구성** 링크를 클릭합니다. 현재 인스턴스에 대한 SSO 구성 페이지가 열립니다.
 
-    ![Single Sign-on 구성](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![스크린샷은 SSO 구성을 선택할 수 있는 고급 설정을 보여줍니다.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. 이제 SSO 구성 UI에서 다음 값을 구성합니다.
 
-    ![Single Sign-on 구성](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SSO 구성 페이지를 보여줍니다.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
     a. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **ID 공급자 발급자** 텍스트 상자에 붙여넣습니다.
 

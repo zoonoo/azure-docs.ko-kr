@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: e0226392ff96c6dc10cbd729135a15c066378f68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5486752c8a1e36eba047ffd4d82b10cddfc771a1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552729"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850042"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>자습서: iSAMS와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -132,16 +132,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 제어판으로 이동하고 **인증** 모듈을 엽니다.
 1. 오른쪽 메뉴에서 **ID 공급자**를 선택합니다.
 
-    ![구성](./media/isams-tutorial/click-identity-provider.png)
+    ![스크린샷은 ID 공급자가 선택된 Active Directory 구성을 보여줍니다.](./media/isams-tutorial/click-identity-provider.png)
 
 1. **공급자 추가**를 선택합니다.
 
-    ![구성](./media/isams-tutorial/add-identity-provider.png)
+    ![스크린샷은 공급자 추가가 선택된 ID 공급자를 보여줍니다.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 
-    ![구성](./media/isams-tutorial/configure-isams.png)
+    ![스크린샷은 설명된 단계를 수행할 수 있는 ID 공급자 마법사를 보여줍니다.](./media/isams-tutorial/configure-isams.png)
 
     a. **이름** 텍스트 상자에서 `Saml2 Azure`와 같은 유효한 이름을 지정합니다. 로그인 페이지에 표시되는 이름입니다.
 
@@ -159,12 +159,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2.  **제어판 홈** -> **보안 및 권한** -> **사용자 계정** -> **사용자 옵션 및 작업** -> **사용자 속성 수정**으로 이동합니다.
 
-    ![사용자 테스트](./media/isams-tutorial/modify-user-properties.png)
+    ![스크린샷은 사용자 속성 수정이 선택된 사용자 계정 페이지를 보여줍니다.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. 결과 팝업 창에서 **계정 세부 정보** 탭을 선택하고 **권한 부여**를 새로 만든 ID 공급자의 권한으로 변경합니다.
 
-    ![사용자 테스트](./media/isams-tutorial/account-details.png)
+    ![스크린샷은 권한 부여에 대한 값이 있는 계정 세부 정보를 보여줍니다.](./media/isams-tutorial/account-details.png)
 
 4. **저장 후 닫기**를 클릭합니다.
 

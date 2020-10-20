@@ -1,20 +1,17 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유의 사용 모니터링 | Microsoft Docs'
+title: 'PowerShell 스크립트: Azure 데이터 공유의 사용 모니터링'
 description: 이 PowerShell 스크립트는 보낸 데이터 공유의 사용 메트릭을 검색 합니다.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 0a4084d309dd0160970f1c03540705b310eb8e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9ff7a29cba9b8e9ca058bfe742f484c5b495cd7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307198"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221318"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>PowerShell을 사용 하 여 전송 된 데이터 공유의 사용 모니터링
 
@@ -44,12 +41,12 @@ Get-AzDataShareSynchronizationDetails -ResourceGroupName $resourceGroupName -Acc
 
 | 명령 | 메모 |
 |---|---|
-| [AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | 공유에 대 한 동기화를 나열 합니다. |
-| [AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | 공유 동기화의 동기화 세부 정보를 가져옵니다. |
+| [AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization) | 공유에 대 한 동기화를 나열 합니다. |
+| [AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail) | 공유 동기화의 동기화 세부 정보를 가져옵니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
 추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.

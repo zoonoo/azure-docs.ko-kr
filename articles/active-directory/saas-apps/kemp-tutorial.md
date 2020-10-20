@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 37b21a5e9e2839fba24b3dcc861fc7c42bdb4547
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91300037"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945212"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>자습서: Kemp LoadMaster Azure AD integration과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -145,7 +145,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 가상 서비스에 대한 매개 변수를 지정합니다.
 
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-1.png)
+    ![상자에 예제 값이 있는 "가상 서비스에 대한 매개 변수를 지정하세요." 페이지를 보여주는 스크린샷.](./media/kemp-tutorial/kemp-1.png)
 
     a. 가상 주소
     
@@ -161,7 +161,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 실제 서버에 대한 매개 변수를 지정합니다.
     
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-2.png)
+    ![상자에 예제 값이 있는 "실제 서버에 대한 매개 변수를 지정하세요." 페이지를 보여주는 스크린샷.](./media/kemp-tutorial/kemp-2.png)
 
     a. [원격 주소 허용] 선택
     
@@ -203,7 +203,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. SSL 속성(계층 7에서 작동)을 클릭합니다.
     
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-3.png)
+    !["SSL 가속 - 사용"이 선택되고 예제 인증서가 선택된 "SSL 속성" 섹션을 보여주는 스크린샷.](./media/kemp-tutorial/kemp-3.png)
     
     a. [SSL 가속]에서 [사용]을 클릭합니다.
     
@@ -222,7 +222,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔로 이동합니다.
 
 1. [인증서 및 인증 기관] 아래에서 [중간 인증서]를 클릭합니다.
 
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-6.png)
+    ![예제 인증서가 선택된 "현재 설치된 중간 인증서" 섹션을 보여주는 스크린샷.](./media/kemp-tutorial/kemp-6.png)
 
     a. [새 중간 인증서 추가]에서 [파일 선택]을 클릭합니다.
     
@@ -238,7 +238,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔로 이동합니다.
  
 [가상 서비스]에서 [SSO 관리]로 이동합니다.
 
-   ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-7.png)
+   !["SSO 관리" 페이지를 보여주는 스크린샷.](./media/kemp-tutorial/kemp-7.png)
    
    a. 이름을 지정한 후 [새 클라이언트 쪽 구성 추가]에서 [추가]를 클릭합니다.
 
@@ -268,7 +268,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔에서
 
 1. [수정]을 클릭하고 [ESP 옵션]으로 이동합니다.
     
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-8.png)
+    !["ESP 옵션" 및 "실제 서버" 섹션이 확장된 "서비스 보기/수정" 페이지를 보여주는 스크린샷.](./media/kemp-tutorial/kemp-8.png)
 
     a. [ESP 사용]을 클릭합니다.
     
@@ -286,7 +286,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔에서
 
 이전에 인증되지 않은 액세스 대신 테넌트 로그인 페이지가 표시됩니다. 
 
-![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-9.png)
+![테넌트 "로그인" 페이지를 보여주는 스크린샷.](./media/kemp-tutorial/kemp-9.png)
 
 ## <a name="configuring-kerberos-based-authentication"></a>Kerberos 기반 인증 구성 
  
@@ -294,7 +294,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔에서
 
 1. 사용자 계정(이 예제에서는 AppDelegation)을 만듭니다.
     
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-10.png)
+    !["계정" 탭이 선택된 "kcd 사용자 속성" 창을 보여주는 스크린샷.](./media/kemp-tutorial/kemp-10.png)
 
 
     a. [특성 편집기] 탭을 선택합니다.
@@ -311,7 +311,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔에서
 
 1. [위임] 탭을 선택합니다.
 
-    ![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-11.png)
+    !["위임" 탭이 선택된 "kcd 사용자 속성" 창을 보여주는 스크린샷.](./media/kemp-tutorial/kemp-11.png)
 
     a. [지정한 서비스에 대한 위임용으로만 이 사용자 트러스트]를 선택합니다.
 
@@ -332,7 +332,7 @@ Kemp LoadMaster Azure AD integration 웹 콘솔에서
 
 Kemp LoadMaster Azure AD integration 웹 콘솔 > 가상 서비스 > SSO 관리로 이동합니다.
 
-![Kemp LoadMaster Azure AD integration 웹 서버](./media/kemp-tutorial/kemp-12.png)
+!["SSO 관리 - 도메인 관리" 페이지를 보여주는 스크린샷.](./media/kemp-tutorial/kemp-12.png)
 
 a. 서버 쪽 Single Sign On 구성으로 이동합니다.
 

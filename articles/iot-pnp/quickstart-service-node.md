@@ -3,17 +3,17 @@ title: Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스
 description: Node.js를 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
 author: elhorton
 ms.author: elhorton
-ms.date: 08/11/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6ad6e48642e7b7df4b93b37b5ef66381833d8bbc
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574996"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946130"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md)를 참조하세요.
 
-이 빠른 시작에서는 Node.js로 작성한 샘플 자동 온도 조절 디바이스를 IoT 플러그 앤 플레이 디바이스로 사용할 수 있습니다. 샘플 디바이스를 실행하려면 다음을 수행합니다.
+이 빠른 시작에서는 Node.js로 작성된 샘플 자동 온도 조절 디바이스를 IoT 플러그 앤 플레이 디바이스로 사용합니다. 샘플 디바이스를 실행하려면 다음을 수행합니다.
 
 1. 터미널 창을 열고 GitHub에서 복제한 Node.js용 Microsoft Azure IoT SDK 리포지토리가 포함된 로컬 폴더로 이동합니다.
 
@@ -94,48 +94,103 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 1. **서비스** 터미널로 이동한 후 다음 명령을 사용하여 디바이스 정보를 읽는 샘플을 실행합니다.
 
     ```cmd/sh
-    node get_digital_twin.js
+    node twin.js
     ```
 
-1. **service** 터미널 출력에서 디지털 쌍의 응답을 확인합니다. 보고된 디바이스의 모델 ID 및 관련 속성이 다음과 같이 표시됩니다.
+1. **서비스** 터미널 출력에서 디바이스 쌍의 응답을 확인합니다. 보고된 디바이스의 모델 ID 및 관련 속성이 다음과 같이 표시됩니다.
 
     ```json
-    "$dtId": "mySimpleThermostat",
-    "serialNumber": "123abc",
-    "maxTempSinceLastReboot": 51.96167432818655,
-    "$metadata": {
-      "$model": "dtmi:com:example:Thermostat;1",
-      "serialNumber": { "lastUpdateTime": "2020-07-09T14:04:00.6845182Z" },
-      "maxTempSinceLastReboot": { "lastUpdateTime": "2020-07-09T14:04:00.6845182" }
+    Model Id: dtmi:com:example:Thermostat;1
+    {
+      "deviceId": "my-pnp-device",
+      "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "Njc3MDMxNDcy",
+      "status": "enabled",
+      "statusUpdateTime": "0001-01-01T00:00:00Z",
+      "connectionState": "Connected",
+      "lastActivityTime": "0001-01-01T00:00:00Z",
+      "cloudToDeviceMessageCount": 0,
+      "authenticationType": "sas",
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      },
+      "modelId": "dtmi:com:example:Thermostat;1",
+      "version": 4,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2020-10-05T11:35:19.4574755Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "maxTempSinceLastReboot": 31.343640523762232,
+          "serialNumber": "123abc",
+          "$metadata": {
+            "$lastUpdated": "2020-10-05T11:35:23.7339042Z",
+            "maxTempSinceLastReboot": {
+              "$lastUpdated": "2020-10-05T11:35:23.7339042Z"
+            },
+            "serialNumber": {
+              "$lastUpdated": "2020-10-05T11:35:23.7339042Z"
+            }
+          },
+          "$version": 3
+        }
+      },
+      "capabilities": {
+        "iotEdge": false
+      },
+      "tags": {}
     }
     ```
 
-1. 다음 코드 조각은 장치 쌍의 모델 ID를 검색하는 *get_digital_twin.js*의 코드를 보여줍니다.
+1. 다음 코드 조각은 디바이스 쌍의 모델 ID를 검색하는 *twin.js*의 코드를 보여줍니다.
 
     ```javascript
-    console.log("Model Id: " + inspect(digitalTwin.$metadata.$model))
+    var registry = Registry.fromConnectionString(connectionString);
+    registry.getTwin(deviceId, function(err, twin) {
+      if (err) {
+        console.error(err.message);
+      } else {
+        console.log('Model Id: ' + twin.modelId);
+        //...
+      }
+      //...
+    }
     ```
 
 이 시나리오에서는 `Model Id: dtmi:com:example:Thermostat;1`을 출력합니다.
 
+> [!NOTE]
+> 이러한 서비스 샘플은 **IoT Hub 서비스 클라이언트**에서 **Registry** 클래스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+
 ### <a name="update-a-writable-property"></a>쓰기 가능 속성 업데이트
 
-1. 코드 편집기에서 *update_digital_twin.js* 파일을 엽니다.
+1. 코드 편집기에서 *twin.js* 파일을 엽니다.
 
-1. 샘플 코드를 검토합니다. 디바이스의 디지털 쌍을 업데이트 하는 JSON 패치를 만드는 방법을 볼 수 있습니다. 이 샘플에서는 코드가 자동 온도 조절기의 온도를 42라는 값으로 바꿉니다.
+1. 샘플 코드를 검토합니다. 디바이스 쌍을 업데이트하는 두 가지 방법을 보여줍니다. 첫 번째 방법을 사용하려면 `twinPatch` 변수를 다음과 같이 수정합니다.
 
     ```javascript
-    const patch = [{
-        op: 'add',
-        path: '/targetTemperature',
-        value: '42'
-      }]
+    var twinPatch = {
+      tags: {
+        city: "Redmond"
+      },
+      properties: {
+        desired: {
+          targetTemperature: 42
+        }
+      }
+    };
     ```
+
+    `targetTemperature` 속성은 자동 온도 조절기 디바이스 모델에서 쓰기 가능한 속성으로 정의됩니다.
 
 1. **서비스** 터미널에서 다음 명령을 사용하여 속성을 업데이트하는 샘플을 실행합니다.
 
     ```cmd/sh
-    node update_digital_twin.js
+    node twin.js
     ```
 
 1. **디바이스** 터미널로 이동하면 디바이스가 업데이트를 수신한 것을 볼 수 있습니다.
@@ -151,44 +206,54 @@ git clone https://github.com/Azure/azure-iot-sdk-node
       }
     }
     updated the property
-    Properties have been reported for component
     ```
 
 1. **서비스** 터미널에서 다음 명령을 실행하여 속성이 업데이트되었는지 확인합니다.
 
     ```cmd/sh
-    node get_digital_twin.js
+    node twin.js
     ```
 
-1. **서비스** 터미널 출력의 `thermostat1` 구성 요소 아래에 있는 디지털 쌍 응답에서 업데이트된 대상 온도가 보고된 것을 볼 수 있습니다. 디바이스가 업데이트를 완료하는 데 시간이 걸릴 수 있습니다. 디바이스가 속성 업데이트를 처리할 때까지 이 단계를 반복합니다.
+1. **서비스** 터미널 출력의 ¬reported` 속성 섹션에서 업데이트된 대상 온도가 보고된 것을 확인할 수 있습니다. 디바이스가 업데이트를 완료하는 데 시간이 걸릴 수 있습니다. 디바이스가 속성 업데이트를 처리할 때까지 이 단계를 반복합니다.
 
     ```json
-    targetTemperature: 42,
+    "reported": {
+      //...
+      "targetTemperature": {
+        "value": 42,
+        "ac": 200,
+        "ad": "Successfully executed patch for targetTemperature",
+        "av": 4
+      },
+      //...
+    }
     ```
 
 ### <a name="invoke-a-command"></a>명령 호출
 
-1. *invoke_command.js* 파일을 열고 코드를 검토합니다.
+1. *device_method.js* 파일을 열고 코드를 검토합니다.
 
 1. **서비스** 터미널로 이동합니다. 다음 명령을 사용하여 명령을 호출하는 샘플을 실행합니다.
 
     ```cmd/sh
-    set IOTHUB_COMMAND_NAME=getMaxMinReport
-    set IOTHUB_COMMAND_PAYLOAD=commandpayload
-    node invoke_command.js
+    set IOTHUB_METHOD_NAME=getMaxMinReport
+    set IOTHUB_METHOD_PAYLOAD=commandpayload
+    node device_method.js
     ```
 
 1. **서비스** 터미널의 출력에 다음과 같은 확인이 표시됩니다.
 
     ```cmd/sh
+    getMaxMinReport on my-pnp-device:
     {
-        xMsCommandStatuscode: 200,  
-        xMsRequestId: 'ee9dd3d7-4405-4983-8cee-48b4801fdce2',  
-        connection: 'close',  'content-length': '18',  
-        'content-type': 'application/json; charset=utf-8',  
-        date: 'Thu, 09 Jul 2020 15:05:14 GMT',  
-        server: 'Microsoft-HTTPAPI/2.0',  vary: 'Origin',  
-        body: 'min/max response'
+      "status": 200,
+      "payload": {
+        "maxTemp": 23.460596940801928,
+        "minTemp": 23.460596940801928,
+        "avgTemp": 23.460596940801928,
+        "endTime": "2020-10-05T12:48:08.562Z",
+        "startTime": "2020-10-05T12:47:54.450Z"
+      }
     }
     ```
 

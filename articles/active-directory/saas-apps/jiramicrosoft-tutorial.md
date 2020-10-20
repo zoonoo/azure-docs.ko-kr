@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d55f461205ceecad098319d7b4b41c175390abfd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891609"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850526"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs
 
@@ -156,11 +156,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 추가 기능을 보여줍니다.](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56506)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon12.png)
+    ![스크린샷은 추가 기능 업로드 링크가 호출된 추가 기능 관리를 보여줍니다.](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. JIRA 역방향 프록시 시나리오 또는 부하 분산 장치 시나리오를 실행하려면 다음 단계를 수행합니다.
 
@@ -171,19 +171,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![스크린샷은 새 줄이 추가된 편집기의 server.xml 파일을 보여줍니다.](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. 프록시/부하 분산 장치에 따라 **시스템 설정**에서 **기준 URL**을 변경합니다.
 
-    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![스크린샷은 기준 URL을 변경할 수 있는 관리 설정을 보여줍니다.](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon14.png)
+    ![스크린샷은 구성이 선택된 Jira용 Azure AD SAML Single Sign-On 섹션을 보여줍니다.](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/jiramicrosoft-tutorial/addon54.png)
+    ![스크린샷은 Jira에 대한 Microsoft Azure Active Directory Single Sign-On 구성 페이지를 보여줍니다.](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -230,19 +230,19 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 2. 마우스로 선 위를 가리키고 **사용자 관리**를 클릭합니다.
 
-    ![직원 추가](./media/jiramicrosoft-tutorial/user1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 사용자 관리를 보여줍니다.](./media/jiramicrosoft-tutorial/user1.png)
 
 3. 리디렉션된 [관리자 액세스] 페이지에서 **암호**를 입력하고 **확인** 단추를 클릭합니다.
 
-    ![직원 추가](./media/jiramicrosoft-tutorial/user2.png)
+    ![스크린샷은 자격 증명을 입력하는 관리자 액세스 페이지를 보여줍니다.](./media/jiramicrosoft-tutorial/user2.png)
 
 4. **사용자 관리** 탭 섹션 아래에서  **사용자 만들기**를 클릭합니다.
 
-    ![직원 추가](./media/jiramicrosoft-tutorial/user3.png) 
+    ![스크린샷은 사용자를 만들 수 있는 사용자 관리 탭을 보여줍니다.](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. **“새 사용자 만들기”** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![직원 추가](./media/jiramicrosoft-tutorial/user4.png) 
+    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 새 사용자 만들기 대화 상자를 보여줍니다.](./media/jiramicrosoft-tutorial/user4.png) 
 
     a. **이메일 주소** 텍스트 상자에서 B.simon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553979"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>자습서: PerformanceCentre와 Azure Active Directory 통합
 
@@ -128,19 +128,19 @@ PerformanceCentre에서 Azure AD Single Sign-on을 구성하려면 다음 단계
 
 2. 왼쪽 탭에서 **구성**을 클릭합니다.
    
-    ![Azure AD Single Sign-On][10]
+    !["구성"이 선택된 "PerformanceCenter" 메뉴를 보여주는 스크린샷.][10]
 
 3. 왼쪽 탭에서 **Miscellaneous**를 클릭하고 **Single Sign-On**을 클릭합니다.
    
-    ![Azure AD Single Sign-On][11]
+    !["기타" 메뉴에서 "Single Sign-On"이 선택된 "구성" 탭을 보여주는 스크린샷.][11]
 
 4. **프로토콜**로 **SAML**을 선택합니다.
    
-    ![Azure AD Single Sign-On][12]
+    !["프로토콜" 메뉴에서 "SAML"이 선택된 "Single Sign-On 구성" 섹션을 보여주는 스크린샷.][12]
 
 5. 다운로드한 메타데이터 파일을 메모장에서 열고 내용을 복사한 다음 **ID 공급자 메타데이터** 텍스트 상자에 붙여넣은 다음 **저장**을 클릭합니다.
    
-    ![Azure AD Single Sign-On][13]
+    !["ID 공급자 메타데이터" 텍스트 상자를 보여주는 스크린샷.][13]
 
 6. **엔터티 기준 URL** 및 **엔터티 ID URL**의 값이 올바른지 확인합니다.
     
@@ -207,7 +207,7 @@ PerformanceCentre에서 Azure AD Single Sign-on을 구성하려면 다음 단계
 
 2. 왼쪽 메뉴에서 **밀접한 연관**을 클릭한 다음 **참가자 만들기**를 클릭합니다.
    
-    ![사용자 만들기][400]
+    !["참가자 만들기" 단추가 선택된 "PerformanceCenter" 회사 사이트 "밀접한 연관 - 참가자" 페이지를 보여주는 스크린샷.][400]
 
 3. **밀접한 연관 - 참가자 만들기** 대화 상자에서 다음 단계를 수행합니다.
    

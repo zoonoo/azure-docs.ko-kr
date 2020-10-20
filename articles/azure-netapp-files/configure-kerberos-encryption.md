@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461481"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217051"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
 
@@ -75,7 +75,7 @@ NFSv 4.1 Kerberos를 구성 하면 Active Directory에 두 개의 컴퓨터 계�
 * SMB 공유에 대 한 컴퓨터 계정
 * NFSv 4.1의 컴퓨터 계정--접두사를 통해이 계정을 식별할 수 있습니다 `NFS-` . 
 
-첫 번째 NFSv 4.1 Kerberos 볼륨을 만든 후 다음 PowerShell 명령을 사용 하 여 암호화 유형 또는 컴퓨터 계정을 설정 합니다.
+첫 번째 NFSv 4.1 Kerberos 볼륨을 만든 후 다음 PowerShell 명령을 사용 하 여 컴퓨터 계정에 대 한 암호화 종류를 설정 합니다.
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -89,18 +89,18 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    예를 들면 다음과 같습니다. 
+    예를 들어: 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
 3. 새 볼륨의 디렉터리 (탑재 지점)를 만듭니다.  
 
 4. 컴퓨터 계정에 대 한 기본 암호화 종류를 AES 256로 설정 합니다.  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * 이 명령은 각 컴퓨터 계정에 대해 한 번만 실행 해야 합니다.
     * 도메인 컨트롤러 또는 [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) 가 설치 된 PC에서이 명령을 실행할 수 있습니다. 
-    * `$COMPUTERACCOUNT`변수는 Kerberos 볼륨을 배포할 때 Active Directory에서 생성 된 컴퓨터 계정입니다. 접두사가 있는 계정입니다 `NFS-` . 
+    * `$NFSCOMPUTERACCOUNT`변수는 Kerberos 볼륨을 배포할 때 Active Directory에서 생성 된 컴퓨터 계정입니다. 접두사가 있는 계정입니다 `NFS-` . 
     * `$ANFSERVICEACCOUNT`변수는 컴퓨터 계정이 만들어진 조직 구성 단위에 대해 위임 된 컨트롤이 있는 권한이 없는 Active Directory 사용자 계정입니다. 
 
 5. 호스트에 볼륨을 탑재 합니다. 

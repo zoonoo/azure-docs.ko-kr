@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 5892fd732a1e66b2b7dd4c1031cabfcbcc768c6d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326153"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945773"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -28,9 +28,53 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 * 타사 공급자의 프라이빗 인증서(즉, 자체 서명된 인증서) 인증서는 도메인과 일치해야 합니다.
 * 배포된 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 인스턴스
 
-## <a name="import-certificate"></a>인증서 가져오기 
-인증서를 가져오는 절차를 수행하려면 PEM 또는 PFX로 인코딩된 파일이 디스크에 있어야 하며 프라이빗 키가 필요합니다. 
+## <a name="import-certificate"></a>인증서 가져오기
+### <a name="prepare-your-certificate-file-in-pfx-optional"></a>PFX에서 인증서 파일 준비(선택 사항)
+Azure Key Vault는 PEM 및 PFX 형식의 프라이빗 인증서 가져오기를 지원합니다. 인증서 공급자로부터 가져온 PEM 파일이 아래 섹션에서 작동하지 않으면 다음을 수행합니다. [Key Vault에 인증서를 저장](#save-certificate-in-key-vault)하고 여기에 있는 단계에 따라 Azure Key Vault에 대한 PFX를 생성합니다.
 
+#### <a name="merge-intermediate-certificates"></a>중간 인증서 병합
+
+인증 기관에서 여러 인증서를 인증서 체인에 제공하면 인증서를 순서대로 병합해야 합니다.
+
+이렇게 하려면 받은 각 인증서를 텍스트 편집기에서 엽니다.
+
+_mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍스트 편집기에서 각 인증서의 내용을 이 파일에 복사합니다. 사용자 인증서의 순서는 사용자의 인증서로 시작하고 루트 인증서로 끝나는 인증서 체인의 순서에 따라야 합니다. 다음 예제와 유사합니다.
+
+```
+-----BEGIN CERTIFICATE-----
+<your entire Base64 encoded SSL certificate>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 1>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 2>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded root certificate>
+-----END CERTIFICATE-----
+```
+
+#### <a name="export-certificate-to-pfx"></a>PFX로 인증서 내보내기
+
+인증서 요청 생성에 사용된 프라이빗 키로 병합된 TLS/SSL 인증서를 내보냅니다.
+
+OpenSSL을 사용하여 인증서 요청을 생성한 경우 프라이빗 키 파일을 만든 것입니다. 인증서를 PFX로 내보내려면 다음 명령을 실행합니다. 자리 표시자 _&lt;private-key-file&gt;_ 및 _&lt;merged-certificate-file&gt;_ 을 사용자의 프라이빗 키 및 병합된 인증서 파일에 대한 경로로 바꿉니다.
+
+```bash
+openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
+```
+
+메시지가 표시되면 내보내기 암호를 정의합니다. 나중에 TLS/SSL 인증서를 Azure Key Vault에 업로드할 때 이 암호를 사용합니다.
+
+IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 인증서를 로컬 컴퓨터에 설치한 다음 [해당 인증서를 PFX로 내보냅니다](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+
+### <a name="save-certificate-in-key-vault"></a>Key Vault에 인증서 저장
+인증서를 가져오는 절차를 수행하려면 PEM 또는 PFX로 인코딩된 파일이 디스크에 있어야 하며 프라이빗 키가 필요합니다. 
+#### <a name="portal"></a>[포털](#tab/Azure-portal)
 인증서를 주요 자격 증명 모음에 업로드하려면 다음을 수행합니다.
 1. 키 자격 증명 모음 인스턴스로 이동합니다.
 1. 왼쪽 탐색 창에서 **인증서**를 클릭합니다.
@@ -42,7 +86,17 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 
     ![인증서 가져오기 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
-인증서를 가져오기 전에 키 자격 증명 모음에 Azure Spring Cloud 액세스 권한을 부여하려면 다음을 수행합니다.
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
+
+```azurecli
+az keyvault certificate import --file <path to .pfx file> --name <certificate name> --vault-name <key vault name> --password <export password>
+```
+---
+
+### <a name="grant-azure-spring-cloud-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Spring Cloud 액세스 권한 부여
+
+인증서를 가져오기 전에 키 자격 증명 모음에 Azure Spring Cloud 액세스 권한을 부여해야 합니다.
+#### <a name="portal"></a>[포털](#tab/Azure-portal)
 1. 키 자격 증명 모음 인스턴스로 이동합니다.
 1. 왼쪽 탐색 창에서 **액세스 정책**을 클릭합니다.
 1. 위쪽 메뉴에서 **액세스 정책 추가**를 클릭합니다.
@@ -54,50 +108,41 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 
 ![인증서 가져오기 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
-또는 Azure CLI를 사용하여 Azure Spring Cloud 액세스를 키 자격 증명 모음에 부여할 수 있습니다.
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
-다음 명령을 통해 개체 ID를 가져옵니다.
+키 자격 증명 모음에 Azure Spring Cloud 읽기 액세스 권한을 부여하고, 다음 명령에서 `<key vault resource group>` 및 `<key vault name>`을 바꿉니다.
 ```
-az ad sp show --id <service principal id> --query objectId
-```
-
-키 자격 증명 모음에 Azure Spring Cloud 읽기 액세스 권한을 부여하고, 다음 명령에서 개체 ID를 바꿉니다.
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 ``` 
+---
 
-Azure Spring Cloud로 인증서를 가져오려면 다음을 수행합니다.
+### <a name="import-certificate-to-azure-spring-cloud"></a>Azure Spring Cloud로 인증서 가져오기
+#### <a name="portal"></a>[포털](#tab/Azure-portal)
 1. 서비스 인스턴스로 이동합니다. 
 1. 앱의 왼쪽 탐색 창에서 **TLS/SSL 설정**을 선택합니다.
 1. **Key Vault 인증서 가져오기**를 클릭합니다.
 
     ![인증서 가져오기](./media/custom-dns-tutorial/import-certificate.png)
 
-또는 Azure CLI를 사용하여 인증서를 가져올 수 있습니다.
+1. 인증서를 성공적으로 가져왔다면 **프라이빗 키 인증서** 목록에 표시됩니다.
+
+    ![프라이빗 키 인증서](./media/custom-dns-tutorial/key-certificates.png)
+
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
 ```
 az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
 ```
 
-> [!IMPORTANT] 
-> 이전 인증서 가져오기 명령을 실행하기 전에 키 자격 증명 모음에 Azure Spring Cloud 액세스 권한을 부여해야 합니다. 그렇지 않은 경우 다음 명령을 실행하여 액세스 권한을 부여할 수 있습니다.
-
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
-``` 
-
-인증서를 성공적으로 가져왔다면 **프라이빗 키 인증서** 목록에 표시됩니다.
-
-![프라이빗 키 인증서](./media/custom-dns-tutorial/key-certificates.png)
-
-또는 Azure CLI를 사용하여 인증서 목록을 표시할 수 있습니다.
+가져온 인증서 목록을 표시하려면 다음을 수행합니다.
 
 ```
 az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!IMPORTANT] 
-> 이 인증서로 사용자 지정 도메인을 보호하려면 여전히 인증서를 특정 도메인에 바인딩해야 합니다. 이 문서의 **SSL 바인딩** 섹션에 설명된 단계를 따릅니다.
+> 이 인증서로 사용자 지정 도메인을 보호하려면 여전히 인증서를 특정 도메인에 바인딩해야 합니다. 다음 섹션의 단계를 따릅니다. [SSL 바인딩을 추가](#add-ssl-binding)합니다.
 
 ## <a name="add-custom-domain"></a>사용자 지정 도메인 추가
 CNAME 레코드를 사용하여 사용자 지정 DNS 이름을 Azure Spring Cloud에 매핑할 수 있습니다. 
@@ -113,6 +158,7 @@ DNS 공급자로 이동한 후 CNAME 레코드를 추가하여 도메인을 <ser
 ## <a name="map-your-custom-domain-to-azure-spring-cloud-app"></a>Azure Spring Cloud 앱에 사용자 지정 도메인 매핑
 Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master)의 지침을 따릅니다.
 
+#### <a name="portal"></a>[포털](#tab/Azure-portal)
 애플리케이션 페이지로 이동합니다.
 
 1. **사용자 지정 도메인**을 선택합니다.
@@ -126,34 +172,38 @@ Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azu
 
     ![사용자 지정 도메인 추가](./media/custom-dns-tutorial/add-custom-domain.png)
 
-또는 Azure CLI를 사용하여 사용자 지정 도메인을 추가할 수 있습니다.
-```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
-```
-
 하나의 앱이 여러 도메인을 포함할 수 있지만, 하나의 도메인은 하나의 앱에만 매핑할 수 있습니다. 사용자 지정 도메인을 앱에 성공적으로 매핑했다면 사용자 지정 도메인 테이블에 표시됩니다.
 
 ![사용자 지정 도메인 테이블](./media/custom-dns-tutorial/custom-domain-table.png)
 
-또는 Azure CLI를 사용하여 사용자 지정 도메인의 목록을 표시할 수 있습니다.
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
+```
+
+사용자 지정 도메인 목록을 표시하려면 다음을 수행합니다.
 ```
 az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!NOTE]
 > 사용자 지정 도메인에 **안전하지 않음**이라는 레이블이 있으면 아직 SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 오류 또는 경고를 수신합니다.
 
 ## <a name="add-ssl-binding"></a>SSL 바인딩 추가
+
+#### <a name="portal"></a>[포털](#tab/Azure-portal)
 위의 그림처럼 사용자 지정 도메인 테이블에서 **SSL 바인딩 추가**를 선택합니다.  
 1. **인증서**를 선택하거나 가져옵니다.
 1. **저장**을 클릭합니다.
 
     ![SSL 바인딩 추가 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
-또는 Azure CLI를 사용하여 **ssl 바인딩을 추가**할 수 있습니다.
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 SSL 바인딩을 성공적으로 추가한 후에는 도메인 상태가 안전함을 나타내는 **정상**으로 표시됩니다. 
 
@@ -161,16 +211,16 @@ SSL 바인딩을 성공적으로 추가한 후에는 도메인 상태가 안전�
 
 ## <a name="enforce-https"></a>HTTPS 적용
 기본적으로 여전히 누구나 HTTP를 사용하여 앱에 액세스할 수 있지만, 모든 HTTP 요청을 HTTPS 포트로 리디렉션할 수 있습니다.
-
+#### <a name="portal"></a>[포털](#tab/Azure-portal)
 앱 페이지의 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. **HTTPS만 사용**을 *True*로 설정합니다.
 
 ![SSL 바인딩 추가 3](./media/custom-dns-tutorial/enforce-http.png)
 
-또는 Azure CLI를 사용하여 HTTPS를 적용할 수 있습니다.
+#### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring-cloud app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
 ```
-
+---
 작업이 완료되면 앱을 가리키는 HTTPS URL 중 하나로 이동합니다. HTTP URL은 작동하지 않습니다.
 
 ## <a name="see-also"></a>참고 항목

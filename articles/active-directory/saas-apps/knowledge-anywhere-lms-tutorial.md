@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 507298f323fe14e3b114afebed5f2f258145a76e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bc820eb282d08c248b588aa926eb3fd837fe51c3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549945"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91858118"
 ---
 # <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>자습서: Azure Active Directory와 Knowledge Anywhere LMS 통합
 
@@ -111,19 +111,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **사이트** 탭을 선택합니다.
 
-    ![Knowledge Anywhere LMS 구성](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![스크린샷은 사이트 탭을 보여줍니다.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. **SAML 설정** 탭을 선택합니다.
 
-    ![Knowledge Anywhere LMS 구성](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![스크린샷은 SAML 설정이 선택된 Knowledge Anywhere 페이지를 보여줍니다.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. **새로 추가**를 클릭합니다.
 
-    ![Knowledge Anywhere LMS 구성](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![스크린샷은 서비스 공급자 설정의 새로 추가 단추를 보여줍니다.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. **SAML 설정 추가/업데이트** 페이지에서 다음 단계를 수행합니다.
 
-    ![Knowledge Anywhere LMS 구성](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML 설정 추가/업데이트 페이지를 보여줍니다.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. 조직별 IDP 이름을 입력합니다. 예:- `Azure`.
 

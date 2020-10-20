@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6f502374996f01363ad27ff10dff3b34964a3474
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018214"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220757"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -103,7 +103,7 @@ SSIS 패키지가 특정 고정 공용 IP 주소만 허용 하는 데이터 저�
 
 이 다이어그램은 Azure-SSIS IR에 필요한 연결을 보여 줍니다.
 
-![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
+![Azure-SSIS IR에 대 한 필수 연결을 보여 주는 다이어그램입니다.](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="set-up-permissions"></a><a name="perms"></a> 권한 설정
 

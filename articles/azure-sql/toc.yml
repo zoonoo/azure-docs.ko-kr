@@ -977,7 +977,7 @@
                   href: virtual-machines/windows/backup-restore.md
                 - name: 백업용 Azure Storage
                   href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-                - name: Always On 가용성 그룹
+                - name: AG(가용성 그룹)
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: 장애 조치(Failover) 클러스터 인스턴스
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
@@ -1054,28 +1054,40 @@
                       href: virtual-machines/windows/automated-backup.md
                     - name: 자동화된 백업(SQL 2014)
                       href: virtual-machines/windows/automated-backup-sql-2014.md
-                - name: Always On 가용성 그룹
+                - name: AG(가용성 그룹)
                   items:
-                    - name: Azure portal
-                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
-                    - name: PowerShell 또는 Az CLI
-                      href: virtual-machines/windows/availability-group-az-commandline-configure.md
-                    - name: Azure 빠른 시작 템플릿
-                      href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-                    - name: 다중 영역
-                      href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-                    - name: 도메인 독립형(작업 그룹)
-                      href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-                    - name: 수동으로 구성
+                    - name: AG 만들기
                       items:
-                        - name: 사전 요구 사항
-                          href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-                        - name: 자습서
-                          href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-                        - name: 부하 분산 장치 - Azure Portal
-                          href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-                        - name: 부하 분산 장치 - Azure PowerShell
-                          href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                        - name: Azure portal
+                          href: virtual-machines/windows/availability-group-azure-portal-configure.md
+                        - name: PowerShell 또는 Az CLI
+                          href: virtual-machines/windows/availability-group-az-commandline-configure.md
+                        - name: Azure 빠른 시작 템플릿
+                          href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+                        - name: 다중 영역
+                          href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+                        - name: 도메인 독립형(작업 그룹)
+                          href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+                        - name: 수동으로 구성
+                          items:
+                            - name: 필수 구성 요소
+                              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+                            - name: 자습서
+                              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                            - name: 부하 분산 장치 - Azure Portal
+                              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+                            - name: 부하 분산 장치 - Azure PowerShell
+                              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+                    - name: 연결 구성
+                      items:
+                        - name: VNN 수신기
+                          displayName: virtual network name
+                          href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+                        - name: DNN 수신기
+                          displayName: distributed network name
+                          href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+                        - name: DNN 상호 운용성
+                          href: virtual-machines/windows/availability-group-dnn-interoperability.md
                 - name: 장애 조치 클러스터 인스턴스(FCI)
                   items:
                     - name: FCI용 VM 준비
@@ -1088,16 +1100,14 @@
                           href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
                         - name: 프리미엄 파일 공유(Win2012+)
                           href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-                    - name: DNN(분산 네트워크 이름)
+                    - name: 연결 구성
                       items:
-                        - name: FCI용 DNN 만들기
-                          href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-                        - name: FCI DNN 및 SQL Server 기능
+                        - name: VNN(가상 네트워크 이름)
+                          href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+                        - name: DNN(분산 네트워크 이름)
+                          href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+                        - name: DNN 상호 운용성
                           href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
-                - name: 연결 구성
-                  items:
-                    - name: VNN(가상 네트워크 이름)
-                      href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
         - name: 참조
           items:
             - name: Azure PowerShell

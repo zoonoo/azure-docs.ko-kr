@@ -3,12 +3,12 @@ title: 모든 환경에서 Java 응용 프로그램 모니터링-Azure Monitor A
 description: 앱을 계측 하지 않고 모든 환경에서 실행 되는 Java 응용 프로그램에 대 한 응용 프로그램 성능 모니터링. 분산 추적 및 애플리케이션 맵.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370037"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215283"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights-공개 미리 보기
 
@@ -114,8 +114,8 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 ### <a name="logs"></a>로그
 
 * java.
-* Log4j
-* SLF4J/Logback
+* Log4j (MDC 속성 포함)
+* SLF4J/Logback (MDC 속성 포함)
 
 ### <a name="metrics"></a>메트릭
 
@@ -135,7 +135,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
 | **사용자 지정 이벤트**   |            |                     |  예    |
-| **사용자 지정 메트릭**  |  예       |                     |  예    |
+| **사용자 지정 메트릭**  |  예       |                     |  yes    |
 | **종속성**    |            |                     |  예    |
 | **예외**      |            |  예                |  예    |
 | **페이지 보기**      |            |                     |  예    |

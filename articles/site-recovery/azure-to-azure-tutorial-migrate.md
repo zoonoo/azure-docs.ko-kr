@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006417"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045349"
 ---
 # <a name="move-vms-to-another-azure-region"></a>다른 Azure 지역으로 VM 이동
 
@@ -100,8 +100,8 @@ ms.locfileid: "90006417"
 1. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 1. **ContosoRG** 리소스 그룹을 만듭니다.
 1. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
-1. **Recovery Services 자격 증명 모음**에서 **개요** > **ContosoVMVault** > **복제된 항목** >  **+복제**를 선택합니다.
-1. **원본**에서 **Azure**를 선택합니다.
+1. **Recovery Services 자격 증명 모음**에서 **ContosoVMVault** > **복제된 항목** >  **+복제**를 선택합니다.
+1. 드롭다운에서 **Azure Virtual Machines**를 선택합니다.
 1. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
 1. 리소스 관리자 배포 모델을 선택합니다. 그런 다음, **원본 구독** 및 **원본 리소스 그룹**을 선택합니다.
 1. **확인**을 선택하여 설정을 저장합니다.

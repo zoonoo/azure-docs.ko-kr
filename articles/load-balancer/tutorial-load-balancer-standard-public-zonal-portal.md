@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251902"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044958"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>자습서: Azure Portal에서 표준 Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
@@ -38,6 +38,10 @@ ms.locfileid: "78251902"
 표준 Load Balancer에서 가용성 영역 사용에 대한 자세한 내용은 [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)을 참조하세요.
 
 원하는 경우 [Azure CLI](load-balancer-standard-public-zonal-cli.md)를 사용하여 이 자습서를 완료합니다.
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* Azure 구독
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -228,5 +232,6 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
-- [가용성 영역에 VM 부하 분산](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+다음 문서로 이동하여 가용성 영역 간에 VM을 부하 분산하는 방법을 알아봅니다.
+> [!div class="nextstepaction"]
+> [가용성 영역에 VM 부하 분산](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

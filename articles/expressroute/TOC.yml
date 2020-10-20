@@ -166,7 +166,7 @@
     - name: 모범 사례
       items:
         - name: 네트워크 보안 및 클라우드 서비스에 대한 모범 사례
-          href: ../best-practices-network-security.md
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
         - name: 라우팅 최적화
           href: expressroute-optimize-routing.md
         - name: 비대칭 라우팅
@@ -192,9 +192,9 @@
     - name: Azure CLI
       href: /cli/azure/network/express-route
     - name: REST (영문)
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: /rest/api/expressroute/
     - name: REST(클래식)
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
     - name: Resource Manager 템플릿
       displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits

@@ -141,6 +141,9 @@
           displayName: 'secure, ssl'
         - name: 보안 기준
           href: security-baseline.md
+    - name: 모니터링
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: 진단
       href: functions-diagnostics.md
     - name: 소비 계획 비용
@@ -282,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: 모니터
       items:
-        - name: 모니터 함수
-          href: functions-monitoring.md
+        - name: 모니터링 구성
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
-        - name: 로그 분석
+        - name: 원격 분석 데이터 분석
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: 스트리밍 로그
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: 진단 로그
           href: functions-monitor-log-analytics.md
+          displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
     - name: 보안
       items:
         - name: SSL 인증서 추가

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446116"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047814"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -630,5 +630,6 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 * 2개의 VM을 부하 분산 장치에 연결했습니다.
 * 부하 분산 장치 트래픽 규칙, 상태 프로브를 구성한 다음, 부하 분산 장치를 테스트했습니다. 
 
-Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer란?](load-balancer-overview.md) 및 [Load Balancer 질문과 대답](load-balancer-faqs.md)으로 계속 진행하세요.
-
+Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
+> [!div class="nextstepaction"]
+> [Azure Load Balancer란?](load-balancer-overview.md) 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e0ea1d3f5c2676176e2f6e15077d13ec43e673af
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b40a124c9cee05e8d06df3de6539c566bb2ac76a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544301"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>자습서: GTNexus SSO System과 Azure Active Directory 통합
 
@@ -101,11 +101,11 @@ GTNexus SSO System에서 Azure AD Single Sign-on을 구성하려면 다음 단�
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
-    ![이미지](common/upload-metadata.png)
+    !["메타데이터 파일 업로드" 작업이 선택된 "기본 SAML 구성" 페이지를 보여주는 스크린샷.](common/upload-metadata.png)
 
     b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
-    ![이미지](common/browse-upload-metadata.png)
+    !["폴더" 로고 및 "업로드" 단추가 선택된 "파일 선택" 필드를 보여주는 스크린샷.](common/browse-upload-metadata.png)
 
     다. 메타데이터 파일이 정상적으로 업로드되면 GTNexus SSO System 섹션 텍스트 상자에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
 

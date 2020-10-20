@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631127"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930716"
 ---
 # <a name="tutorial-mock-api-responses"></a>자습서: 모의 API 응답
 
@@ -107,7 +107,7 @@ API는 하나 이상의 작업을 공개합니다. 이 섹션에서는 앞에서
 1. **저장**을 선택합니다.
 
     > [!TIP]
-    > API에 대한 **모의가 활성화됨** 텍스트가 있는 노란색 막대는 응답이 API Management에서 반환되었음을 나타내고, 실제 백 엔드 응답이 아닌 모의 정책을 전송합니다.
+    > API에 대한 **모의가 활성화됨** 텍스트가 있는 노란색 막대는 API Management에서 반환된 응답이 [모의 정책](api-management-advanced-policies.md#mock-response)에 의해 모의 처리되고 백 엔드에서 생성되지 않음을 나타냅니다.
 
 ## <a name="test-the-mocked-api"></a>모의 API 테스트
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: d3a5f2bd4bf536c1bc5b3723b9b612beef6a647c
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d74c3e42317b954a510f3276db38c0dcdf5e2362
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812321"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850382"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -29,8 +29,9 @@ ms.locfileid: "91812321"
 1. [Azure Portal](https://portal.azure.com)을 열고, 위쪽에서 **Synapse**를 검색합니다.
 1. **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics(작업 영역 미리 보기)** 를 선택합니다.
 1. **추가**를 선택하여 작업 영역을 만듭니다.
-1. **기본 사항**에서 필수 필드를 입력하고 작업 영역 이름을 선택합니다. 이 자습서에서는 **myworkspace**를 사용합니다.
-1. 작업 영역을 만들려면 ADLSGEN2 계정이 필요합니다. 새 항목을 만드는 것이 가장 간단합니다. 기존 항목을 다시 사용하려는 경우 몇 가지 추가 구성을 수행해야 합니다. 
+1. **기본 사항**에서 원하는 **구독**, **리소스 그룹**, **지역**을 입력한 다음, 작업 영역 이름을 선택합니다. 이 자습서에서는 **myworkspace**를 사용합니다.
+1. 작업 영역을 만들려면 ADLSGEN2 계정과 해당 계정의 컨테이너가 필요합니다. 새 항목을 만드는 것이 가장 간단합니다. 기존 항목을 다시 사용하려는 경우 몇 가지 추가 구성을 수행해야 합니다. 
+    1. Synapse 작업 영역은 이 컨테이너를 기본 위치로 사용하여 Spark 로그 및 Spark 테이블에 대한 데이터를 저장합니다.
 1. 옵션 1: 새 ADLSGEN2 계정 만들기 
     1. **Data Lake Storage Gen 2**로 이동합니다. 
     1. **새로 만들기**를 클릭하고 이름을 **contosolake**로 지정합니다.

@@ -10,12 +10,12 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b1dc7d7eee263b781d39c4beccf9388efbaa3d8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb183b5c8aff018d4dc73819b938b24ad0daa934
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334140"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975793"
 ---
 # <a name="deploy-javascript-app-to-read-data-from-fhir-service"></a>FHIR 서비스에서 데이터를 읽을 수 있는 JavaScript 앱 배포
 이 자습서에서는 FHIR 서비스에서 데이터를 읽는 작은 JavaScript 앱을 배포합니다. 이 자습서의 단계는 다음과 같습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "91334140"
 ## <a name="deploy-azure-api-for-fhir"></a>Azure API for FHIR 배포
 자습서의 첫 번째 단계는 Azure API for FHIR을 올바르게 설정하는 것입니다.
 
-1. [Azure API for FHIR](fhir-paas-portal-quickstart.md) 배포
+1. 아직 없는 경우 [Azure API for FHIR](fhir-paas-portal-quickstart.md)을 배포합니다.
 1. Azure API for FHIR을 배포한 후 Azure API for FHIR로 이동하고 CORS를 선택하여 [CORS](configure-cross-origin-resource-sharing.md) 설정을 구성합니다. 
     1. **원본**을 *로 설정
     1. **헤더**를 *로 설정

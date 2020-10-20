@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 831af87159b909ca744839d2997aa2b70cbc72e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e63d2cac97a16674c4e2e880f94373b0af1510de
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627128"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056415"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼이란?
 
@@ -74,8 +74,7 @@ Microsoft ID 플랫폼을 사용하여 앱에서 인증 및 권한 부여를 통
 
 [Azure AD B2B](../external-identities/what-is-b2b.md) - 외부 사용자를 "게스트" 사용자로 Azure AD에 초대하고, 인증을 위해 기존 자격 증명을 사용하는 동안 권한 부여에 대한 권한을 할당합니다.
 
-> [!TIP]
-> *Azure Active Directory 개발자 플랫폼(v1.0)* 설명서를 찾으시나요? [개발자용 Azure Active Directory(v1.0) 개요](../azuread-dev/v1-overview.md)를 참조하세요.
+[개발자용 Azure Active Directory(v1.0)](../azuread-dev/v1-overview.md) - 이전 v1.0 엔드포인트를 사용하는 기존 앱이 있는 개발자를 위해 여기에 표시됩니다. 새 프로젝트에는 v1.0을 사용하지 **마세요**.
 
 ## <a name="next-steps"></a>다음 단계
 

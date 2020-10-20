@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446096"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048358"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -40,6 +40,10 @@ Standard Load Balancer에서 가용성 영역 사용에 대한 자세한 내용�
 원하는 경우 [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md)를 사용하여 이 자습서를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* Azure 구독
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -231,8 +235,10 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 부하 분산 장치가 포함된 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 부하 분산 장치가 포함된 리소스 그룹을 선택하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
+특정 가용성 영역 내에 VM 부하 분산에 대해 자세히 알아봅니다.
+> [!div class="nextstepaction"]
+> [가용성 영역 내에 VM 부하 분산](tutorial-load-balancer-standard-public-zonal-portal.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 53a224f53f0270166ce75e718e670780730a10c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e772dc39374b178743a6c8b93e6b48e62b1e2ed
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995949"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>자습서: Paylocity와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -106,7 +106,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **편집 아이콘**을 선택합니다.
 
-    ![SAML 서명 인증서 편집 관리](./media/paylocity-tutorial/edit-samlassertion.png)
+    !["페더레이션 메타데이터 XML"에 대한 "다운로드" 작업이 선택된 "SAML 서명 인증서"를 보여주는 스크린샷.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. **서명 옵션**을 **SAML 응답 및 어설션 서명**으로 선택하고 **저장**을 클릭합니다.
 

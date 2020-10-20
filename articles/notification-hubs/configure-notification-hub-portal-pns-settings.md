@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87761028"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876569"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
@@ -67,14 +67,11 @@ Google FCM용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-시작하기 전에 다음이 있어야 합니다.
+- Notification Hubs를 사용하려면 Azure CLI 2.0.67 이상 버전이 필요합니다. [az version](/cli/azure/reference-index?#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index?#az_upgrade)를 실행합니다.
 
-* [Azure CLI](/cli/azure/install-azure-cli) 버전 2.0.67 이상.
-
-* [Notification Hubs용 Azure CLI 확장](/cli/azure/ext/notification-hub/notification-hub).
-* Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키**.
+- Google FCM(Firebase Cloud Messaging) 프로젝트용 **API 키**가 필요합니다.
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Google FCM용 푸시 알림 설정
 

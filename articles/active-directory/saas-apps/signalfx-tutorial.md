@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 3eae423763d2d4a05b33e4e1d4b6e9e087a47ba3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521572"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856826"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -159,7 +159,7 @@ SSO 테스트 방법 및 SignalFx에 처음 로그인하는 데 필요한 항목
         * 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 * SignalFx 애플리케이션은 액세스 패널 또는 조직에 할당된 사용자 지정 로그인 페이지를 통해 액세스할 수 있습니다. 테스트 사용자는 이러한 위치 중 하나에서 시작하여 통합을 테스트해야 합니다.
-    * 테스트 사용자는 이 프로세스에서 이전에 만든 자격 증명을 **b.simon@contoso.com** 에 사용할 수 있습니다.
+    * 테스트 사용자는 이 프로세스에서 이전에 만든 자격 증명을 **b.simon\@contoso.com**에 사용할 수 있습니다.
 
 ### <a name="first-time-logins"></a>처음 로그인
 

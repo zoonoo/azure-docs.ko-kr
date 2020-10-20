@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b583e3d86ba193a92080f2da9cc0b16d07c5a993
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91447176"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946018"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>빠른 시작: Azure Security Center 설정
 
@@ -33,7 +33,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 구독에 Azure Defender를 사용하도록 설정하려면 구독 소유자, 구독 기여자 또는 보안 관리자 역할을 할당 받아야 합니다.
 
 
-## <a name="open-security-center-for-the-first-time"></a>처음으로 Security Center 열기
+## <a name="enable-security-center-on-your-azure-subscription"></a>Azure 구독에서 Security Center 활성화
 
 1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 
@@ -54,6 +54,8 @@ Security Center를 처음 시작하면 수분 내에 다음이 표시될 수 있
 
 Security Center를 최대한 활용하려면 아래 단계를 완료하여 Azure Defender를 사용하도록 설정하고 Log Analytics 에이전트를 설치해야 합니다.
 
+> [!TIP]
+> 관리 그룹 내의 모든 구독에서 Security Center를 사용하도록 설정하려면 [여러 Azure 구독에서 Security Center 사용](onboard-management-group.md)을 참조하세요.
 
 ## <a name="enable-azure-defender"></a>Azure Defender 사용
 

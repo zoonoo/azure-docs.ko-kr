@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56f17f6c60f30a38431ee347c7bdfc5b200b641
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328595"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047015"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>빠른 시작: 가상 Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -22,12 +22,10 @@ ms.locfileid: "91328595"
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
-> [!div class="checklist"]
->
-> * IoT Hub를 만듭니다.
-> * IoT Edge 디바이스를 IoT Hub에 등록합니다.
-> * 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
-> * 원격으로 모듈을 IoT Edge 디바이스에 배포하고 IoT Hub에 원격 분석을 전송합니다.
+* IoT Hub를 만듭니다.
+* IoT Edge 디바이스를 IoT Hub에 등록합니다.
+* 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
+* 원격으로 모듈을 IoT Edge 디바이스에 배포하고 IoT Hub에 원격 분석을 전송합니다.
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart/install-edge-full.png)
 
@@ -76,11 +74,11 @@ IoT Edge 디바이스:
   원격 데스크톱 연결을 통해 이 파일을 열어 `az vm create` 명령으로 지정한 관리자 이름과 암호를 사용하여 Windows 가상 머신에 연결합니다.
 
 > [!NOTE]
-> Windows 가상 머신은 최신 [Windows 장기 지원 빌드](https://docs.microsoft.com/windows/release-information/)인 Windows 버전 1809(빌드 17763)로 시작됩니다. Windows에서는 기본적으로 22시간마다 자동으로 업데이트를 확인합니다. 가상 머신을 확인한 후 Windows는 Windows용 IoT Edge와 호환되지 않는 버전 업데이트를 푸시하므로 Windows용 IoT Edge 기능을 더 이상 사용할 수 없습니다. 가상 머신 사용을 22시간 이내 또는 [임시로 Windows 업데이트를 일시 중지](https://support.microsoft.com/help/4028233/windows-10-manage-updates)하는 것이 좋습니다.
+> Windows 가상 머신은 최신 [Windows 장기 지원 빌드](/windows/release-information/)인 Windows 버전 1809(빌드 17763)로 시작됩니다. Windows에서는 기본적으로 22시간마다 자동으로 업데이트를 확인합니다. 가상 머신을 확인한 후 Windows는 Windows용 IoT Edge와 호환되지 않는 버전 업데이트를 푸시하므로 Windows용 IoT Edge 기능을 더 이상 사용할 수 없습니다. 가상 머신 사용을 22시간 이내 또는 [임시로 Windows 업데이트를 일시 중지](https://support.microsoft.com/help/4028233/windows-10-manage-updates)하는 것이 좋습니다.
 >
 > 이 빠른 시작에서는 간단하게 하기 위해 Windows 데스크톱 가상 머신을 사용합니다. 일반적으로 프로덕션 시나리오에 사용할 수 있는 Windows 운영 체제에 대한 정보는 [Azure IoT Edge 지원 시스템](support.md)을 참조하세요.
 >
-> IoT Core를 실행하는 디바이스를 포함하여 IoT Edge에 대한 windows 디바이스를 구성할 준비가 되면 [Windows에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)의 단계를 따르세요.
+> IoT Edge에 대해 고유한 Windows 디바이스를 구성하려면 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -144,9 +142,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니다. IoT Hub에서 검색한 디바이스 연결 문자열을 사용하여 디바이스를 구성합니다.
 
-1. 아직 없는 경우 [새 Azure IoT Edge 디바이스 등록](how-to-register-device.md)의 단계를 따라 디바이스를 등록하고 디바이스 연결 문자열을 검색합니다.
-
-2. 가상 머신에서 PowerShell을 관리자 권한으로 실행합니다.
+1. 가상 머신에서 PowerShell을 관리자 권한으로 실행합니다.
 
    >[!NOTE]
    >PowerShell(x86)이 아닌 IoT Edge를 설치하려면 PowerShell의 AMD64 세션을 사용합니다. 사용 중인 세션 형식을 잘 모르는 경우 다음 명령을 실행합니다.
@@ -155,25 +151,25 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. **Deploy-IoTEdge** 명령은 사용자의 Windows 머신이 지원되는 버전인지 확인하고, 컨테이너 기능을 작동하도록 켜고, Moby 런타임을 다운로드한 다음, IoT Edge 런타임을 다운로드합니다.
+2. **Deploy-IoTEdge** 명령은 사용자의 Windows 머신이 지원되는 버전인지 확인하고, 컨테이너 기능을 작동하도록 켜고, Moby 런타임을 다운로드한 다음, IoT Edge 런타임을 다운로드합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. 사용자의 머신은 자동으로 다시 시작될 수도 있습니다. Deploy-IoTEdge 명령에서 다시 부팅한다는 메시지가 표시되면 바로 수행합니다.
+3. 사용자의 머신은 자동으로 다시 시작될 수도 있습니다. Deploy-IoTEdge 명령에서 다시 부팅한다는 메시지가 표시되면 바로 수행합니다.
 
-5. PowerShell을 관리자 권한으로 다시 실행합니다.
+4. PowerShell을 관리자 권한으로 다시 실행합니다.
 
-6. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다.
+5. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. **DeviceConnectionString**을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요.
+6. **DeviceConnectionString**을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 

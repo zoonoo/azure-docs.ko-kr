@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151359"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220461"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -34,7 +34,7 @@ ms.locfileid: "92151359"
     1. **Microsoft.DataShare**를 검색합니다.
     1. **등록**을 클릭합니다. 
 
-    이러한 단계를 완료 하려면 Azure 구독에 대 한 [Azure 참가자 역할이](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) 있어야 합니다. 
+    이러한 단계를 완료 하려면 Azure 구독에 대 한 [Azure 참가자 역할이](../role-based-access-control/built-in-roles.md#contributor) 있어야 합니다. 
 
 * **초대가 Azure 로그인 이메일 대신 이메일 별칭으로 전송됩니다.** Azure Data Share 서비스를 등록했거나 Azure 테넌트에서 Data Share 리소스를 이미 만들었지만 여전히 초대를 볼 수 없는 경우 공급자가 Azure 로그인 이메일 주소 대신 이메일 별칭을 받는 사람으로 입력했기 때문일 수 있습니다. 데이터 공급자에게 연락하여 이메일 별칭이 아닌 Azure 로그인 이메일 주소로 초대를 보냈는지 확인합니다.
 
@@ -81,4 +81,3 @@ SQL 원본의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다
 데이터 공유를 시작하는 방법을 알아보려면 [데이터 공유](share-your-data.md) 자습서로 계속 진행하세요. 
 
 데이터를 수신 하는 방법을 알아보려면 [데이터 수락 및 받기](subscribe-to-data-share.md) 자습서를 계속 진행 합니다.
-

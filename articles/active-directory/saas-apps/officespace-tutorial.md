@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.openlocfilehash: ae8a1fa68e61e160ce08b93bf66776a050b45613
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e05a2a4ba12d5fc665090d5bf078da520000f43b
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554177"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945365"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>자습서: OfficeSpace Software와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -150,11 +150,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **설정**으로 이동한 후 **커넥터**를 클릭합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/officespace-tutorial/tutorial_officespace_002.png)
+    !["커넥터"가 선택된 "설정" 드롭다운을 보여주는 스크린샷.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. **SAML 인정**을 클릭합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/officespace-tutorial/tutorial_officespace_003.png)
+    !["SAML 인증" 작업이 선택된 "인증" 섹션을 보여주는 스크린샷.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. **SAML Authentication** 섹션에서 다음 단계를 수행합니다.
 

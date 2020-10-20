@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
-ms.openlocfilehash: cfa81b52e8479851fc22b12cbc96a9507f0b2dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e49fc29f03269096bfc7d6bb6e905187bb8788ff
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551390"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944107"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>자습서: Harness와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -138,15 +138,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. 페이지의 오른쪽 위에서 **연속 보안** > **액세스 관리** > **인증 설정**을 클릭합니다.
 
-    ![Harness 구성](./media/harness-tutorial/configure01.png)
+    !["액세스 관리" 및 "인증 설정"이 선택된 "연속 보안" 메뉴를 보여주는 스크린샷.](./media/harness-tutorial/configure01.png)
 
 5. **SSO 공급자** 섹션에서 **+ SSO 공급자 추가** > **SAML**을 클릭합니다.
 
-    ![Harness 구성](./media/harness-tutorial/configure03.png)
+    !["+ SSO 공급자 추가 - SAML"이 선택된 "SSO 공급자"를 보여주는 스크린샷.](./media/harness-tutorial/configure03.png)
 
 6. **SAML 공급 기업** 팝업에서 다음 단계를 수행합니다.
 
-    ![Harness 구성](./media/harness-tutorial/configure02.png)
+    !["URL" 및 "표시 이름" 필드가 강조 표시되고 "파일 선택" 및 "제출" 단추가 선택된 "SAML 공급자" 팝업을 보여주는 스크린샷.](./media/harness-tutorial/configure02.png)
 
     a. **SSO 공급 기업에서 SAML 기반 로그인을 사용하도록 설정한 다음, 다음 URL** 인스턴스를 입력하고 Azure Portal의 **기본 SAML 구성** 섹션에 있는 회신 URL 텍스트 상자에 붙여넣습니다.
 
@@ -166,11 +166,11 @@ Azure AD 사용자가 Harness에 로그인하도록 설정하려면 Harness에 �
 
 1. 페이지의 오른쪽 위에서 **연속 보안** > **액세스 관리** > **사용자**를 클릭합니다.
 
-    ![Harness 구성](./media/harness-tutorial/configure04.png)
+    !["액세스 관리" 및 "사용자"가 선택된 "연속 보안" 메뉴를 보여주는 스크린샷.](./media/harness-tutorial/configure04.png)
 
 1. 페이지 오른쪽 상단에서 **+ 사용자 추가**를 클릭합니다.
 
-    ![Harness 구성](./media/harness-tutorial/configure05.png)
+    !["+ 사용자 추가" 작업이 선택된 "사용자" 페이지를 보여주는 스크린샷.](./media/harness-tutorial/configure05.png)
 
 1. **사용자 추가** 팝업에서 다음 단계를 수행합니다.
 

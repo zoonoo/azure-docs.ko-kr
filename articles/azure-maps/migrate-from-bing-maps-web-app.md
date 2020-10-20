@@ -1,6 +1,6 @@
 ---
 title: '자습서: Bing Maps에서 웹앱 마이그레이션 | Microsoft Azure Maps'
-description: Bing Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법을 알아봅니다.
+description: Bing Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법에 대한 자습서.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319744"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876518"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>Bing Maps에서 웹앱 마이그레이션
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>자습서 - Bing Maps에서 웹앱 마이그레이션
 
 Bing Maps를 사용하는 웹앱은 Bing Maps V8 JavaScript SDK를 사용하는 경우가 많습니다. Azure Maps 웹 SDK는 마이그레이션에 적합한 Azure 기반 SDK입니다. Azure Maps 웹 SDK를 사용하면 웹 또는 모바일 애플리케이션에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 이 SDK로 개발하세요.
 

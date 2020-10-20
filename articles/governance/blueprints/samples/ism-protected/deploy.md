@@ -3,12 +3,12 @@ title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 오스트레일리아 정부 ISM PROTECTED 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 13d378132c928dd673cb5cb98b59abcecb321785
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 4d38a5ad6790b8b2ef09476f4779ef596be9734b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90038729"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950519"
 ---
 # <a name="deploy-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플 배포
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|VM을 구성해야 하는 Log Analytics 작업 영역 ID|VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다.|
-|\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
+|\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 리소스 로그 범주](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type)에서 찾을 수 있습니다.|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|Windows VM 관리자 그룹에서 제외해야 하는 사용자 목록|관리자 로컬 그룹에서 제외해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|Windows VM 관리자 그룹에 포함해야 하는 사용자 목록|관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |\[미리 보기\]: Linux VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|Linux VMSS(VM Scale Sets)용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
@@ -158,7 +158,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|HTTPS v2를 통해서만 함수 앱에 액세스할 수 있어야 함  |정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|취약성 평가 솔루션으로 취약성을 수정해야 합니다.  |정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|Azure 구독에는 활동 로그에 대한 로그 프로필이 있어야 합니다.  |정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다.|
+|\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 리소스 로그 범주](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type)에서 찾을 수 있습니다.|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|머신에 시스템 업데이트를 설치해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|App Service에 최신 TLS 버전을 사용해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하도록 특정 VM 확장 배포|정책 할당|구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|

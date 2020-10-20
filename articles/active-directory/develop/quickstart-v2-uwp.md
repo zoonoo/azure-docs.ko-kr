@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/12/2019
+ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 5b954c5eae9c203efa65dc9dc1883d8e00f3937a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630528"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91824407"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
-이 빠른 시작에는 UWP(유니버설 Windows 플랫폼) 애플리케이션이 개인 개정 또는 회사 및 학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
+이 빠른 시작에서는 코드 샘플을 사용하여 UWP(유니버설 Windows 플랫폼) 애플리케이션에서 개인 개정 또는 회사/학교 계정으로 사용자를 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출하는 방법을 보여 줍니다. 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>필수 구성 요소
@@ -49,16 +49,17 @@ ms.locfileid: "91630528"
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://aka.ms/MobileAppReg) 페이지로 이동합니다.
 > 1. **새 등록**을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
+> 1. **애플리케이션 등록**에서 다음과 같이 애플리케이션의 등록 정보를 입력합니다.
 >      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `UWP-App-calling-MsGraph`)을 입력합니다.
 >      - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
->      - **등록**을 선택하여 애플리케이션을 만듭니다.
-> 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-> 1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
-> 1. **저장**을 선택합니다.
+> 1. **등록**을 선택하여 애플리케이션을 만든 다음, 이후 단계에서 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+> 1. **관리**에서 **인증**을 선택합니다.
+> 1. **플랫폼 추가** > **모바일 및 데스크톱 애플리케이션**을 차례로 선택합니다.
+> 1. **리디렉션 URI** 아래에서 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 선택합니다.
+> 1. **구성**을 선택합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
+> #### <a name="step-1-configure-the-application"></a>1단계: 애플리케이션 구성
 > 이 빠른 시작용 코드 샘플이 작동하려면 리디렉션 URI를 **https://login.microsoftonline.com/common/oauth2/nativeclient** 로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
@@ -66,14 +67,14 @@ ms.locfileid: "91630528"
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-uwp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
+#### <a name="step-2-download-the-visual-studio-project"></a>2단계: Visual Studio 프로젝트 다운로드
 
 > [!div renderon="docs"]
 > [Visual Studio 프로젝트 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -85,33 +86,39 @@ ms.locfileid: "91630528"
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
+> #### <a name="step-3-configure-the-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 >
-> 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-> 1. Visual Studio에서 프로젝트를 엽니다. UWP SDK를 설치하라는 메시지가 표시될 수 있습니다. 이 경우 설치를 수락합니다.
-> 1. **MainPage.Xaml.cs**를 편집하고 `ClientId` 필드의 값을 바꿉니다.
+> 1. .zip 보관 파일을 드라이브 루트에 가까운 로컬 폴더에 추출합니다. 예를 들어 **C:\Azure-Samples**입니다.
+> 1. Visual Studio에서 프로젝트를 엽니다. 메시지가 표시되면 **유니버설 Windows 플랫폼 개발** 워크로드 및 개별 SDK 구성 요소를 설치합니다.
+> 1. *MainPage.Xaml.cs*에서 `ClientId` 변수의 값을 이전에 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**로 변경합니다.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
-> 위치:
-> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 >
-> > [!TIP]
-> > *애플리케이션 ID* 값을 찾으려면 포털의 **개요** 섹션으로 이동합니다.
+>    **애플리케이션(클라이언트) ID**는 Azure Portal(**Azure Active Directory** > **애플리케이션 등록** >  *{사용자의 앱 등록}* )에 있는 앱의 **개요** 창에서 찾을 수 있습니다.
+> 1. 패키지에 대한 새 자체 서명된 테스트 인증서를 만든 다음, 이를 선택합니다.
+>     1. **솔루션 탐색기**에서 *Package.appxmanifest* 파일을 두 번 클릭합니다.
+>     1. **패키징** > **인증서 선택...**  > **만들기...** 를 차례로 선택합니다.
+>     1. 암호를 입력한 다음, **확인**을 선택합니다.
+>     1. **... 파일에서 선택**, 방금 만든 *Native_UWP_V2_TemporaryKey.pfx* 파일, **확인**을 차례로 선택합니다.
+>     1. *Package.appxmanifest* 파일을 닫습니다(파일을 저장하라는 메시지가 표시되면 **확인**을 선택함).
+>     1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Native_UWP_V2** 프로젝트를 클릭하고, **속성**을 선택합니다.
+>     1. **서명**을 선택한 다음, **강력한 이름 키 파일 선택** 드롭다운에서 만든 .pfx를 선택합니다.
 
-#### <a name="step-4-run-your-application"></a>4단계: 애플리케이션 실행
+#### <a name="step-4-run-the-application"></a>4단계: 애플리케이션 실행
 
-Windows 머신에서 빠른 시작을 시도하려면 다음을 수행합니다.
+로컬 컴퓨터에서 샘플 애플리케이션을 실행합니다.
 
-1. Visual Studio 도구 모음에서 올바른 플랫폼을 선택합니다(ARM이 아닌 **x64** 또는 **x86**). 대상 디바이스가 *디바이스*에서 *로컬 머신*으로 변경되는지 관찰합니다.
-1. 디버그 선택 | **디버깅 없이 시작**
+1. Visual Studio 도구 모음에서 올바른 플랫폼을 선택합니다(ARM이 아닌 **x64** 또는 **x86**). 대상 디바이스가 *디바이스*에서 *로컬 컴퓨터*로 변경됩니다.
+1. **디버그** > **디버그하지 않고 시작**을 선택합니다.
+    
+    이 작업을 수행하라는 메시지가 표시되면 먼저 **개발자 모드**를 사용하도록 설정한 다음, **디버그하지 않고 시작**을 다시 사용하도록 설정해야 할 수 있습니다.
 
-## <a name="more-information"></a>자세한 정보
+앱 창이 표시되면 **Microsoft Graph API 호출** 단추를 선택하고, 자격 증명을 입력하고, 애플리케이션에서 요청한 권한에 동의할 수 있습니다. 성공하면 애플리케이션에서 Microsoft Graph API에 대한 호출에서 가져온 일부 토큰 정보 및 데이터를 표시합니다.
 
-이 섹션에서는 빠른 시작에 대한 자세한 정보를 제공합니다.
+## <a name="how-the-sample-works"></a>샘플 작동 방법
 
-### <a name="how-the-sample-works"></a>샘플 작동 방법
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
@@ -139,9 +146,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |위치: | Description |
-> |---------|---------|
-> | `ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
+`ClientId`의 값은 Azure Portal에 등록한 앱의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다.
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
@@ -161,9 +166,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |위치:| Description |
-> |---------|---------|
-> | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
+`scopes` 매개 변수에는 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }` 또는 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)가 포함됩니다.
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
@@ -176,10 +179,8 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |위치: | Description |
-> |---------|---------|
-> | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
-> | `firstAccount` | 캐시의 첫 번째 사용자 계정을 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원). |
+* `scopes`에는 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }` 또는 사용자 지정 웹 API의 경우 `{ "api://<Application ID>/access_as_user" }`)가 포함됩니다.
+* `firstAccount`는 캐시의 첫 번째 사용자 계정을 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원함).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

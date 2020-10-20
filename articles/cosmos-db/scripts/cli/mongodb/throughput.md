@@ -1,30 +1,30 @@
 ---
-title: Azure Cosmos DB의 MongoDB API용 데이터베이스 및 컬렉션에 대한 RU/s 업데이트
-description: Azure Cosmos DB의 MongoDB API용 데이터베이스 및 컬렉션에 대한 RU/s 업데이트
+title: Azure Cosmos DB API for MongoDB 리소스에 대한 처리량(RU/s) 작업을 위한 Azure CLI 스크립트
+description: Azure Cosmos DB API for MongoDB 리소스에 대한 처리량(RU/s) 작업을 위한 Azure CLI 스크립트
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 07/29/2020
-ms.openlocfilehash: 6f3bd23f11abf0e72dc4b7affe54ada42e0cf712
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 10/07/2020
+ms.openlocfilehash: 785f77df117b8072f6b8970287f4051795d07167
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432167"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91838631"
 ---
-# <a name="update-rus-for-a-database-and-collection-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB의 MongoDB API용 데이터베이스 및 컬렉션에 대한 RU/s 업데이트
+# <a name="throughput-rus-operations-with-azure-cli-for-a-database-or-graph-for-azure-cosmos-db-api-for-mongodb"></a>데이터베이스용 Azure CLI 또는 Azure Cosmos DB API for MongoDB용 그래프를 사용한 처리량(RU/s) 작업
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.9.1 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.12.1 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 스크립트는 공유 처리량이 있는 데이터베이스와 MongoDB API의 Azure Cosmos DB에 대한 전용 처리량이 있는 컬렉션을 만든 다음, 데이터베이스와 컬렉션 모두에 대한 처리량을 업데이트합니다.
+이 스크립트는 공유 처리량이 있는 MongoDB 데이터베이스 및 전용 처리량이 있는 수집을 만든 다음, 모두에 대한 처리량을 업데이트합니다. 그런 다음, 이 스크립트는 표준에서 자동 크기 조정 처리량으로 마이그레이션한 다음, 마이그레이션된 후 자동 크기 조정 처리량 값을 읽습니다.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Update RU/s for an Azure Cosmos DB MongoDB API database and collection.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Throughput operations for Azure Cosmos DB API for MongoDB.")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
@@ -46,6 +46,8 @@ az group delete --name $resourceGroupName
 | [az cosmosdb mongodb collection create](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create) | Azure Cosmos MongoDB API 컬렉션을 만듭니다. |
 | [az cosmosdb mongodb database throughput update](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-update) | Azure Cosmos MongoDB API 데이터베이스에 대한 RUs를 업데이트합니다. |
 | [az cosmosdb mongodb collection throughput update](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-update) | Azure Cosmos MongoDB API 컬렉션에 대한 RUs를 업데이트합니다. |
+| [az cosmosdb mongodb database throughput migrate](/cli/azure/cosmosdb/mongodb/database/throughput#az-cosmosdb-mongodb-database-throughput-migrate) | 데이터베이스에 대한 처리량을 마이그레이션합니다. |
+| [az cosmosdb mongodb collection throughput migrate](/cli/azure/cosmosdb/mongodb/collection/throughput#az-cosmosdb-mongodb-collection-throughput-migrate) | 컬렉션에 대한 처리량을 마이그레이션합니다. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

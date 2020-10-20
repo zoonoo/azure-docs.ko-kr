@@ -1,5 +1,5 @@
 ---
-title: 자습서 - IoT Edge 라이브 비디오 분석 모듈 수정
+title: 자습서 - Azure IoT Edge 라이브 비디오 분석 모듈 수정
 description: 이 자습서에서는 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿에서 사용하는 라이브 비디오 분석 게이트웨이 모듈을 수정하고 빌드하는 방법을 보여 줍니다.
 services: iot-central
 ms.service: iot-central
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: d21eb8d8d79ec04f0f7e766b4eeb370811553e64
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037995"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873475"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>자습서: 라이브 비디오 분석 게이트웨이 모듈 수정 및 빌드
 
@@ -50,7 +50,7 @@ VS Code를 사용하여 로컬 *live-video-analytics* 리포지토리 폴더를 
 1. `LvaEdgeGatewayModule` 모듈 섹션을 편집하여 `env:amsAccountName:value`에 이미지 이름과 AMS 계정 이름을 추가합니다.
 1. `lvaYolov3` 모듈 섹션을 편집하고 이미지의 이름을 추가합니다.
 1. `lvaEdge` 모듈 섹션을 편집하고 이미지의 이름을 추가합니다.
-1. 구성을 완료하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](tutorial-video-analytics-create-app.md)를 참조하세요.
+1. 구성을 완료하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](tutorial-video-analytics-create-app-yolo-v3.md)를 참조하세요.
 
 ## <a name="build-the-code"></a>코드 빌드
 

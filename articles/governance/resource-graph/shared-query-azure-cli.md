@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 공유 쿼리를 만듭니다.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667659"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057198"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Resource Graph 공유 쿼리 만들기
 
@@ -84,7 +84,7 @@ Azure CLI 확장이 선택한 환경에 추가되었으므로 Resource Graph 공
    ```
 
 1. [az graph query](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query) 명령에서 `{{shared-query-uri}}` 구문을 사용하여 Azure CLI에서 공유 쿼리를 실행합니다.
-   먼저 위의 `show` 명령 결과에서 `id` 필드를 복사합니다. 예제의 `shared-query-uri` 텍스트를 `id` 필드의 값으로 바꾸고 주변 `{{` 및 `}}` 문자를 그대로 둡니다.
+   먼저 이전 `show` 명령의 결과에서 `id` 필드를 복사합니다. 예제의 `shared-query-uri` 텍스트를 `id` 필드의 값으로 바꾸고 주변 `{{` 및 `}}` 문자를 그대로 둡니다.
 
    ```azurecli-interactive
    # Run a Azure Resource Graph shared query

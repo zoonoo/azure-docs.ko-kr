@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f6f87ed4ba74c3f7750e56d4bb8473cf4b1a4341
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575387"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945535"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>자습서: Windows에서 실행되는 IoT 플러그 앤 플레이 다중 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(C#)
 
@@ -33,7 +33,7 @@ Windows에서 이 자습서를 완료하려면 로컬 Windows 환경에 다음 �
 
 [빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub(C#)에 연결](quickstart-connect-device-csharp.md)을 완료한 경우 이미 리포지토리를 복제한 것입니다.
 
-.NET용 Microsoft Azure IoT SDK GitHub 리포지토리에서 샘플을 복제합니다. 선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [.NET용 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 복제합니다.
+C#용 Azure IoT 샘플 GitHub 리포지토리에서 샘플을 복제합니다. 선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [.NET용 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 복제합니다.
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git

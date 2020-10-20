@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 0b39ec9c8cb70adac1474b2647ac1c9591b9d5cd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526394"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873281"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)
 
@@ -34,7 +34,7 @@ IoT Edge에서 이러한 서비스는 플랫폼 간 IoT 디바이스에서 직�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에, 이전 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app.md) 자습서를 먼저 완료해야 합니다.
+시작하기 전에, 이전 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app-yolo-v3.md) 또는 [Azure IoT Central(OpenVINO&trade;)에서 비디오 분석 만들기](tutorial-video-analytics-create-app-openvino.md) 자습서를 완료해야 합니다.
 
 또한 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 무료로 만들 수 있습니다.
 

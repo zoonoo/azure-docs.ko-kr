@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 494a698ac4b6f8262851878cfee4bb91126d9f02
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a050f7a7d86ef8586cab3e90d9c1bac310a7f18b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823033"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91854548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-litmus"></a>자습서: Litmus와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -129,11 +129,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 패널에서 **보안**을 클릭합니다.
 
-    ![Litmus 구성](./media/litmus-tutorial/security-img.png)
+    ![스크린샷은 선택된 보안 항목을 보여줍니다.](./media/litmus-tutorial/security-img.png)
 
 1. **SAML 인증 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Litmus 구성](./media/litmus-tutorial/configure1.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 인증 구성 섹션을 보여줍니다.](./media/litmus-tutorial/configure1.png)
 
     a. **SAML 사용**을 켭니다.
 
@@ -143,7 +143,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다음 단계를 수행합니다.
 
-    ![Litmus 구성](./media/litmus-tutorial/configure3.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 섹션을 보여줍니다.](./media/litmus-tutorial/configure3.png)
 
     a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 2.0 엔드포인트(HTTP)** 텍스트 상자에 붙여넣습니다.
 
@@ -157,15 +157,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 패널에서 **계정**을 클릭합니다.
 
-    ![Litmus 구성](./media/litmus-tutorial/accounts-img.png)
+    ![스크린샷은 선택된 계정 항목을 보여줍니다.](./media/litmus-tutorial/accounts-img.png)
 
 1. **새 사용자 추가** 탭을 클릭합니다.
 
-    ![Litmus 구성](./media/litmus-tutorial/add-new-user.png)
+    ![스크린샷은 선택된 새 사용자 추가 항목을 보여줍니다.](./media/litmus-tutorial/add-new-user.png)
 
 1. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
 
-    ![Litmus 구성](./media/litmus-tutorial/user-profile.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 사용자 추가 섹션을 보여줍니다.](./media/litmus-tutorial/user-profile.png)
 
     a. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: **B.Simon\@contoso.com**)를 입력합니다.
 

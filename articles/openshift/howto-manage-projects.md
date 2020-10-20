@@ -8,14 +8,20 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816442"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216932"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 프로젝트, 템플릿, 이미지 스트림 관리
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11는 30 월 2022에 사용 중지 됩니다. 새 Azure Red Hat OpenShift 3.11 클러스터 만들기에 대 한 지원은 30 년 11 2020 월 30 일까 지 계속 됩니다. 사용 중지 후에는 나머지 Azure Red Hat OpenShift 3.11 클러스터가 종료 되어 보안 취약점을 방지 합니다.
+> 
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](tutorial-create-cluster.md).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:arofeedback@microsoft.com).
 
 OpenShift 컨테이너 플랫폼에서 프로젝트는 관련 개체를 그룹화 하 고 격리 하는 데 사용 됩니다. 관리자는 개발자에 게 특정 프로젝트에 대 한 액세스 권한을 부여 하 고 자신의 프로젝트를 만들 수 있도록 하며 개별 프로젝트에 대 한 관리 권한을 부여할 수 있습니다.
 
@@ -25,9 +31,9 @@ OpenShift 컨테이너 플랫폼에서 프로젝트는 관련 개체를 그룹�
 
 프로젝트 요청이 제출 되 면 API는 템플릿에서 다음 매개 변수를 대체 합니다.
 
-| 매개 변수               | 설명                                    |
+| 매개 변수               | Description                                    |
 | ----------------------- | ---------------------------------------------- |
-| PROJECT_NAME            | 프로젝트의 이름입니다. 필수 사항입니다.             |
+| PROJECT_NAME            | 프로젝트의 이름입니다. 필수 요소.             |
 | PROJECT_DISPLAYNAME     | 프로젝트의 표시 이름입니다. 비어 있을 수 있습니다. |
 | PROJECT_DESCRIPTION     | 프로젝트에 대한 설명입니다. 비어 있을 수 있습니다.  |
 | PROJECT_ADMIN_USER      | 관리 사용자의 사용자 이름입니다.       |

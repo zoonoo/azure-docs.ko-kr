@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554669"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>자습서: moconavi와 Azure Active Directory 통합
 
@@ -191,15 +191,15 @@ moconavi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 3. **설정 연결** 단추를 클릭합니다.
 
-    ![Single Sign-On 테스트](./media/moconavi-tutorial/testing1.png)
+    ![스크린샷은 연결 설정 단추가 있는 moconavi를 보여줍니다.](./media/moconavi-tutorial/testing1.png)
 
 4. **URL에 연결** 텍스트 상자에서 `https://mcs-admin.moconavi.biz/gateway`를 입력한 다음, **완료** 단추를 클릭합니다.
 
-    ![Single Sign-On 테스트](./media/moconavi-tutorial/testing2.png)
+    ![스크린샷은 [URL에 연결] 상자 및 [완료] 단추를 보여줍니다.](./media/moconavi-tutorial/testing2.png)
 
 5. 다음 스크린샷에서 후속 단계를 수행합니다.
 
-    ![Single Sign-On 테스트](./media/moconavi-tutorial/testing3.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 moconavi 페이지를 보여줍니다.](./media/moconavi-tutorial/testing3.png)
 
     a. **인증 키 입력** 텍스트 상자에서 **인증 키 입력**: `azureAD`를 입력합니다.
 
@@ -209,11 +209,11 @@ moconavi에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. Azure AD 암호를 **암호** 텍스트 상자에 입력한 다음, **로그인** 단추를 클릭합니다.
 
-    ![Single Sign-On 테스트](./media/moconavi-tutorial/testing4.png)
+    ![스크린샷은 Azure AD 암호를 입력할 위치를 보여줍니다.](./media/moconavi-tutorial/testing4.png)
 
 7. 메뉴가 표시되면 Azure AD 인증이 성공합니다.
 
-    ![Single Sign-On 테스트](./media/moconavi-tutorial/testing5.png)
+    ![스크린샷은 moconavi의 전화 아이콘을 보여줍니다.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>추가 리소스
 

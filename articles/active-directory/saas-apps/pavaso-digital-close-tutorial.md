@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ef4515b7ecee3ea814d9a34d3bf3c217d551934
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31e05e45713100c321440d63fe51586204d07231
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543756"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>자습서: Pavaso Digital Close와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Pavaso Digital Close 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    !["식별자" 및 "회신 URL" 텍스트 상자가 강조 표시되고 "저장" 작업이 선택된 "기본 SAML 구성"을 보여주는 스크린샷.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.pavaso.com/AuthServices` 패턴을 사용하여 URL을 입력합니다.
 

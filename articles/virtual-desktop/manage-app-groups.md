@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 앱 그룹 관리 포털 - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 앱 그룹을 관리하는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ec26f021ffa581b0713973904c97349df83a08ef
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320220"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930274"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>자습서: Azure Portal을 사용하여 앱 그룹 관리
 
@@ -124,7 +124,7 @@ Azure Portal 또는 PowerShell을 사용하여 호스트 풀 및 세션 호스�
 - 나중에 다운로드하여 저장할 수 있는 구성에 따라 Azure Resource Manager 템플릿에 대한 링크를 만듭니다.
 
 >[!IMPORTANT]
->각 Azure Active Directory 테넌트에 대해 50개의 애플리케이션 그룹만 만들 수 있습니다. 사용자의 피드를 검색하는 서비스 제한으로 인해 이 제한을 추가했습니다. 이 제한은 Windows Virtual Desktop(클래식)에서 만든 앱 그룹에는 적용되지 않습니다.
+>각 Azure Active Directory 테넌트에 대해 200개의 애플리케이션 그룹만 만들 수 있습니다. 사용자의 피드를 검색하는 서비스 제한으로 인해 이 제한을 추가했습니다. 이 제한은 Windows Virtual Desktop(클래식)에서 만든 앱 그룹에는 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

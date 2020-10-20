@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 9b712c1b2e8ac33ec189542bf6f60929ac59858d
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 61e03f539f000b55ae00d90afa769ca9c1c30dc1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420560"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048290"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>자습서: PowerShell을 사용하여 S2S VPN 연결 만들기 및 관리
 
@@ -33,7 +33,7 @@ Azure S2S VPN 연결은 고객 프레미스와 Azure 사이에 안전한 프레�
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## <a name="requirements"></a>요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 첫 번째 자습서: [Azure PowerShell을 사용하여 VPN 게이트웨이 만들기](vpn-gateway-tutorial-create-gateway-powershell.md)를 완료하여 다음 리소스를 만듭니다.
 
@@ -242,8 +242,7 @@ Remove-AzResourceGroup -Name $RG1
 > * VPN 연결 추가
 > * VPN 연결 삭제
 
-그 다음 자습서로 넘어가서 S2S, VNet-VNet 연결 및 P2S 연결에 대해 알아보세요.
+다음으로, P2S 연결을 추가할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> * [VNet-VNet 연결 만들기](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [P2S 연결 만들기](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

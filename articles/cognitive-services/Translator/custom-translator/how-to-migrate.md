@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537989"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220876"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -55,7 +55,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 3. 해당 프로젝트에서 “마이그레이션” 링크를 클릭합니다.
 
-    ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub.png)
+    ![선택한 프로젝트에 대 한 마이그레이션 단추를 강조 표시 하는 스크린샷](media/how-to/how-to-migrate-from-hub.png)
 
 4. 마이그레이션 링크를 누르면 다음을 수행할 수 있는 양식이 표시됩니다.
    * Custom Translator로 전송하려는 작업 영역 지정
@@ -76,7 +76,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 3. “설정” 페이지에서 “Custom Translator로 작업 영역 데이터 마이그레이션”을 클릭합니다.
 
-    ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![사용자 지정 번역기로 작업 영역 데이터 마이그레이션 옵션을 강조 표시 하는 스크린샷](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. 다음 페이지에서 다음과 같은 두 옵션 중 하나를 선택합니다.
 
@@ -84,7 +84,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
     b. 모든 성공적인 학습: 이 옵션을 선택하면 성공적인 학습 및 관련된 문서가 모두 마이그레이션됩니다.
 
-    다. Custom Translator의 대상 작업 영역 ID를 입력합니다.
+    c. Custom Translator의 대상 작업 영역 ID를 입력합니다.
 
     ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub-screen.png)
 

@@ -4,14 +4,14 @@ description: Azure PowerShell 샘플을 가져와 Azure Cosmos DB에 일반 작�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/30/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 678e9490fe52a329365174e1a2283a475f3312e5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505017"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842974"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플
 
@@ -37,8 +37,7 @@ ms.locfileid: "87505017"
 |[큰 파티션 키로 컨테이너 만들기](scripts/powershell/sql/create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 큰 파티션 키로 컨테이너를 만듭니다. |
 |[인덱스 정책이 없는 컨테이너 만들기](scripts/powershell/sql/create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 인덱스 정책을 해제한 Azure Cosmos 컨테이너를 만듭니다.|
 |[데이터베이스 또는 컨테이너 나열 또는 가져오기](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컨테이너를 나열하거나 가져옵니다. |
-|[처리량 가져오기](scripts/powershell/sql/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컨테이너의 처리량을 가져옵니다. |
-|[처리량 업데이트](scripts/powershell/sql/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컨테이너의 처리량을 업데이트합니다. |
+|[처리량 작업](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 크기 조정과 표준 처리량 간의 가져오기, 업데이트 및 마이그레이션을 포함하여 데이터베이스 또는 컨테이너에 대한 처리량 작업입니다. |
 |[삭제에서 리소스 잠그기](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||
 
@@ -49,8 +48,7 @@ ms.locfileid: "87505017"
 |[계정 Keyspace 및 테이블 만들기](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정, Keyspace 및 테이블을 만듭니다. |
 |[자동 스케일링되는 계정, 키스페이스 및 테이블 만들기](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 스케일링되는 Azure Cosmos 계정, 키스페이스 및 테이블을 만듭니다. |
 |[Keyspace 또는 목록 나열 또는 가져오기](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Keyspace 또는 목록을 나열하거나 가져옵니다. |
-|[처리량 가져오기](scripts/powershell/cassandra/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 키스페이스 또는 테이블의 처리량을 가져옵니다. |
-|[처리량 업데이트](scripts/powershell/cassandra/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 키스페이스 또는 테이블의 처리량을 업데이트합니다. |
+|[처리량 작업](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 크기 조정과 표준 처리량 간의 가져오기, 업데이트 및 마이그레이션을 포함하여 키스페이스 또는 테이블에 대한 처리량 작업입니다. |
 |[삭제에서 리소스 잠그기](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||
 
@@ -61,8 +59,7 @@ ms.locfileid: "87505017"
 |[계정, 데이터베이스 및 컬렉션 만들기](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 |[자동 스케일링되는 계정, 데이터베이스 및 컬렉션 만들기](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 |[데이터베이스 또는 컬렉션 나열 또는 가져오기](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션을 나열하거나 가져옵니다. |
-|[처리량 가져오기](scripts/powershell/mongodb/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션의 처리량을 가져옵니다. |
-|[처리량 업데이트](scripts/powershell/mongodb/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 컬렉션의 처리량을 업데이트합니다. |
+|[처리량 작업](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 크기 조정과 표준 처리량 간의 가져오기, 업데이트 및 마이그레이션을 포함하여 데이터베이스 또는 컬렉션에 대한 처리량 작업입니다. |
 |[삭제에서 리소스 잠그기](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||
 
@@ -73,8 +70,7 @@ ms.locfileid: "87505017"
 |[계정, 데이터베이스 및 그래프 만들기](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정, 데이터베이스 및 그래프를 만듭니다. |
 |[자동 스케일링되는 계정, 데이터베이스 및 그래프 만들기](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 그래프를 만듭니다. |
 |[데이터베이스 또는 그래프 나열 또는 가져오기](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 그래프를 나열하거나 가져옵니다. |
-|[처리량 가져오기](scripts/powershell/gremlin/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 그래프의 처리량을 가져옵니다. |
-|[처리량 업데이트](scripts/powershell/gremlin/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 데이터베이스 또는 그래프의 처리량을 업데이트합니다. |
+|[처리량 작업](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 크기 조정과 표준 처리량 간의 가져오기, 업데이트 및 마이그레이션을 포함하여 데이터베이스 또는 그래프에 대한 처리량 작업입니다. |
 |[삭제에서 리소스 잠그기](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||
 
@@ -85,7 +81,6 @@ ms.locfileid: "87505017"
 |[계정 및 테이블 만들기](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Azure Cosmos 계정 및 테이블을 만듭니다. |
 |[자동 스케일링되는 계정 및 테이블 만들기](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 스케일링되는 Azure Cosmos 계정 및 테이블을 만듭니다. |
 |[테이블 나열 또는 가져오기](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 테이블을 나열하거나 가져옵니다. |
-|[처리량 가져오기](scripts/powershell/table/throughput-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 테이블의 처리량을 가져옵니다. |
-|[처리량 업데이트](scripts/powershell/table/throughput-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 테이블의 처리량을 업데이트합니다. |
+|[처리량 작업](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 자동 크기 조정과 표준 처리량 간의 가져오기, 업데이트 및 마이그레이션을 포함하여 테이블에 대한 처리량 작업입니다. |
 |[삭제에서 리소스 잠그기](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다. |
 |||

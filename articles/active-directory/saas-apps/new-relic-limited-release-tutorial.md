@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: a1d74e79f2b375f481c6557c04deb80dcb929b99
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62732f92d0739018863229da0a05646cfa817006
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554424"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941029"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>자습서: New Relic(By Organization)과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -82,15 +82,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
-    ![이미지](common/upload-metadata.png)
+    ![스크린샷은 메타데이터 파일 업로드 링크가 있는 기본 SAML 구성을 보여줍니다.](common/upload-metadata.png)
 
     b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
-    ![이미지](common/browse-upload-metadata.png)
+    ![스크린샷은 파일을 선택하고 업로드할 수 있는 대화 상자를 보여줍니다.](common/browse-upload-metadata.png)
 
     다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 기본 SAML 구성 섹션에 자동으로 채워집니다.
 
-    ![이미지](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     > [!Note]
     > **식별자** 및 **회신 URL** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b35268cd8d36901f750225713407c5392e5c429e
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759172"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945379"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용(C#)
 
@@ -34,7 +34,7 @@ Windows에서 이 빠른 시작을 완료하려면 개발 머신에 다음과 �
 
 [빠른 시작: Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 IoT Hub(C#)에 연결](quickstart-connect-device-csharp.md)을 완료한 경우 이미 리포지토리를 복제한 것입니다.
 
-.NET용 Microsoft Azure IoT SDK GitHub 리포지토리에서 샘플을 복제합니다. 선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [.NET용 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 복제합니다.
+C#용 Azure IoT 샘플 GitHub 리포지토리에서 샘플을 복제합니다. 선택한 폴더에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [.NET용 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리를 복제합니다.
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -55,7 +55,6 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     | IOTHUB_DEVICE_DPS_ID_SCOPE | [환경 설정](set-up-environment.md)을 완료했을 때 기록한 값 |
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | [환경 설정](set-up-environment.md)을 완료했을 때 기록한 값 |
-
 
 1. 이제 Visual Studio에서 샘플을 빌드하고 디버그 모드에서 실행할 수 있습니다.
 
@@ -81,9 +80,9 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 
 1. 이제 Visual Studio에서 샘플을 빌드하고 디버그 모드에서 실행할 수 있습니다.
 
-### <a name="get-digital-twin"></a>디지털 쌍 가져오기
+### <a name="get-device-twin"></a>디바이스 쌍 가져오기
 
-다음 코드 조각에서는 서비스 애플리케이션이 디지털 쌍을 검색하는 방법을 보여 줍니다.
+다음 코드 조각에서는 서비스 애플리케이션이 디바이스 쌍을 검색하는 방법을 보여줍니다.
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -92,7 +91,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> 이 샘플에서는 **IoT Hub 서비스 클라이언트**에서 **Microsoft.Azure.Devices.Client;** 네임스페이스를 사용합니다. 모델 ID를 검색하는 방법에 대해 자세히 알아보려면 [개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
+> 이 샘플에서는 **IoT Hub 서비스 클라이언트**에서 **Microsoft.Azure.Devices.Client** 네임스페이스를 사용합니다. 디지털 쌍 API를 비롯한 API에 대한 자세한 내용은 [서비스 개발자 가이드](concepts-developer-guide-service.md)를 참조하세요.
 
 이 코드는 다음과 같은 출력을 생성합니다.
 
@@ -101,7 +100,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-다음 코드 조각에서는 *patch*를 사용하여 디지털 쌍을 통해 속성을 업데이트하는 방법을 보여 줍니다.
+다음 코드 조각에서는 *패치*를 사용하여 디바이스 쌍을 통해 속성을 업데이트하는 방법을 보여줍니다.
 
 ```C#
 // Update the twin
