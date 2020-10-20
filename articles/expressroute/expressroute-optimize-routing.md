@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f35f1d390762d3f83176d7b36db8959dc5ed0157
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653386"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204880"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute 라우팅 최적화
 여러 개의 ExpressRoute 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 애플리케이션 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
@@ -64,7 +64,7 @@ Microsoft 또는 공용 피어 링을 활용 하는 경우 하나 이상의 Expr
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Microsoft에서 고객에 이르는 최적이 아닌 라우팅
-다음은 Microsoft의 연결에서 더 긴 경로로 네트워크에 연결하는 다른 예입니다. 이 경우 [하이브리드 환경](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx)에서 온-프레미스 Exchange Server와 Exchange Online을 사용합니다. 사무실이 WAN에 연결됩니다. 두 ExpressRoute 회로를 통해 두 사무실의 온-프레미스 서버 접두사를 Microsoft에 알립니다. Exchange Online은 사서함 마이그레이션과 같은 경우에 온-프레미스 서버로의 연결을 시작합니다. 아쉽게도 로스앤젤레스 사무실에 대한 연결은 다시 전체 대륙을 서부 연안으로 탐색하기 전에 미국 동부 ExpressRoute 회로로 라우팅됩니다. 문제의 원인은 첫 번째 예와 비슷합니다. 어떠한 힌트도 없이 Microsoft 네트워크는 어떤 고객 접두사가 미국 동부에 근접하고 어떤 고객 접두사가 미국 서부에 근접한지를 알려줄 수 없습니다. 로스앤젤레스의 사무실에 대한 잘못된 경로를 선택하는 일이 발생합니다.
+다음은 Microsoft의 연결에서 더 긴 경로로 네트워크에 연결하는 다른 예입니다. 이 경우 [하이브리드 환경](/exchange/exchange-hybrid)에서 온-프레미스 Exchange Server와 Exchange Online을 사용합니다. 사무실이 WAN에 연결됩니다. 두 ExpressRoute 회로를 통해 두 사무실의 온-프레미스 서버 접두사를 Microsoft에 알립니다. Exchange Online은 사서함 마이그레이션과 같은 경우에 온-프레미스 서버로의 연결을 시작합니다. 아쉽게도 로스앤젤레스 사무실에 대한 연결은 다시 전체 대륙을 서부 연안으로 탐색하기 전에 미국 동부 ExpressRoute 회로로 라우팅됩니다. 문제의 원인은 첫 번째 예와 비슷합니다. 어떠한 힌트도 없이 Microsoft 네트워크는 어떤 고객 접두사가 미국 동부에 근접하고 어떤 고객 접두사가 미국 서부에 근접한지를 알려줄 수 없습니다. 로스앤젤레스의 사무실에 대한 잘못된 경로를 선택하는 일이 발생합니다.
 
 ![ExpressRoute 사례 2 - Microsoft에서 고객에 이르는 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
