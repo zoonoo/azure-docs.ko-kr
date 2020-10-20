@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 0b6973f50e4d51c1c94e262a08681ec0431f511e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d78b67cbd811ae0f3b7cea8aec119d05464c124a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333992"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047797"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -1080,6 +1080,6 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 * 부하 분산 장치 트래픽 규칙 및 상태 프로브를 구성했습니다.
 * 부하 분산 장치를 테스트했습니다.
 
-Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer란?](load-balancer-overview.md) 및 [Load Balancer 질문과 대답](load-balancer-faqs.md)으로 계속 진행하세요.
-
-[Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
+Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
+> [!div class="nextstepaction"]
+> [Azure Load Balancer란?](load-balancer-overview.md)

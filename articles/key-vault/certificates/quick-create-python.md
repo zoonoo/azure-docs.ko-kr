@@ -8,58 +8,95 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b9ff7397ad29ac681e21c32608ade9c6ce557c37
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d06d7b328525f9d6329f17a10dea9c89a753d533
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89488629"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017270"
 ---
-# <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 인증서 클라이언트 라이브러리
+# <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 인증서 클라이언트 라이브러리
 
-Python용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다. Key Vault를 사용하여 인증서를 저장하면 코드에 인증서를 저장하지 않아도 되므로 앱의 보안이 강화됩니다.
+Python용 Azure Key Vault 인증서 클라이언트 라이브러리를 시작합니다. 아래 단계에 따라 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 봅니다. Key Vault를 사용하여 인증서를 저장하면 코드에 인증서를 저장하지 않아도 되므로 앱의 보안이 강화됩니다.
 
-[API 참조 설명서](/python/api/overview/azure/keyvault-certificates-readme?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-certificates)
+[API 참조 설명서](/python/api/overview/azure/keyvault-certificates-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-certificates)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- [Python 2.7+ 또는 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [Azure CLI](/cli/azure/install-azure-cli)
+
+이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli)를 실행하고 있다고 가정합니다.
 
 ## <a name="set-up-your-local-environment"></a>로컬 환경 설정
 
-[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 또한 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](https://docs.microsoft.com/java/api/overview/azure/identity-readme)을 참조하세요.
 
-7. Key Vault 인증서 라이브러리를 설치합니다.
+### <a name="sign-in-to-azure"></a>Azure에 로그인
+
+1. `login` 명령을 실행합니다.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    CLI는 기본 브라우저를 열 수 있으면 기본 브라우저를 열고 Azure 로그인 페이지를 로드합니다.
+
+    그렇지 않으면 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)에서 브라우저 페이지를 열고 터미널에 표시된 권한 부여 코드를 입력합니다.
+
+2. 브라우저에서 계정 자격 증명으로 로그인합니다.
+
+### <a name="install-the-packages"></a>패키지 설치
+
+1. 터미널 또는 명령 프롬프트에서 적절한 프로젝트 폴더를 만든 다음, [Python 가상 환경 사용](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)에 설명된 대로 Python 가상 환경을 만들고 활성화합니다.
+
+1. Azure Active Directory ID 라이브러리를 설치합니다.
+
+    ```terminal
+    pip install azure.identity
+    ```
+
+
+1. Key Vault 인증서 클라이언트 라이브러리를 설치합니다.
 
     ```terminal
     pip install azure-keyvault-certificates
     ```
 
-## <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
+### <a name="create-a-resource-group-and-key-vault"></a>리소스 그룹 및 키 자격 증명 모음 만들기
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-## <a name="give-the-service-principal-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한을 서비스 주체에 부여
+### <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
 
-다음 [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 실행하여 인증서에 대한 가져오기, 나열 및 만들기 작업에 대한 서비스 주체에 권한을 부여합니다.
+비밀 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
 
-# <a name="cmd"></a>[cmd](#tab/cmd)
-
-```azurecli
-az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --certificate-permissions delete get list create
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-# <a name="bash"></a>[bash](#tab/bash)
+#### <a name="set-environment-variables"></a>환경 변수 설정
 
-```azurecli
-az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --certificate-permissions delete get list create 
+이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
+
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
----
-
-이 명령은 이전 단계에서 만든 `KEY_VAULT_NAME` 및 `AZURE_CLIENT_ID` 환경 변수를 사용합니다.
-
-자세한 내용은 [액세스 정책 할당 - CLI](../general/assign-access-policy-cli.md)를 참조하세요.
+macOS 또는 Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="create-the-sample-code"></a>샘플 코드 만들기
 
-Python용 Azure Key Vault 클라이언트 라이브러리를 사용하면 인증서 및 관련 자산(예: 비밀 및 암호화 키)을 관리할 수 있습니다. 다음 코드 샘플에서는 클라이언트를 만들고, 비밀을 설정하고, 비밀을 검색하고 비밀을 삭제하는 방법을 보여 줍니다.
+Python용 Azure Key Vault 인증서 클라이언트 라이브러리를 사용하면 인증서를 관리할 수 있습니다. 다음 코드 샘플에서는 클라이언트 생성, 인증서 설정, 인증서 검색 및 인증서 삭제 방법을 보여줍니다.
 
 이 코드가 포함된 *kv_certificates.py*라는 파일을 만듭니다.
 
@@ -105,14 +142,16 @@ print(" done.")
 python kv_certificates.py
 ```
 
-- 권한 오류가 발생한 경우 [`az keyvault set-policy` 명령](#give-the-service-principal-access-to-your-key-vault)을 실행했는지 확인합니다.
+- 권한 오류가 발생한 경우 [`az keyvault set-policy` 명령](#grant-access-to-your-key-vault)을 실행했는지 확인합니다.
 - 동일한 키 이름으로 코드를 다시 실행하면 "(충돌) 인증서 <name>이 현재 삭제되었지만 복구 가능한 상태에 있습니다."라는 오류가 발생할 수 있습니다. 다른 키 이름을 사용합니다.
 
 ## <a name="code-details"></a>코드 세부 정보
 
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 
-앞의 코드에서 [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) 개체는 서비스 주체에 대해 만든 환경 변수를 사용합니다. 해당 클라이언트를 통해 작업하려는 리소스의 URI와 함께 Azure 라이브러리(예: [`CertificateClient`](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python))에서 클라이언트 개체를 만들 때마다 이 자격 증명을 제공합니다.
+이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
+
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](https://docs.microsoft.com/python/api/overview/azure/identity-readme)을 참조하세요. 
 
 ```python
 credential = DefaultAzureCredential()
@@ -121,7 +160,7 @@ client = CertificateClient(vault_url=KVUri, credential=credential)
 
 ### <a name="save-a-certificate"></a>인증서 저장
 
-키 자격 증명 모음에 대한 클라이언트 개체를 가져온 후에는 [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#begin-create-certificate-certificate-name--policy----kwargs-) 메서드를 사용하여 인증서를 만들 수 있습니다. 
+키 자격 증명 모음에 대한 클라이언트 개체를 가져온 후에는 [begin_create_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-create-certificate-certificate-name--policy----kwargs-) 메서드를 사용하여 인증서를 만들 수 있습니다. 
 
 ```python
 policy = CertificatePolicy.get_default()
@@ -129,27 +168,26 @@ poller = client.begin_create_certificate(certificate_name=certificateName, polic
 certificate = poller.result()
 ```
 
-여기에서 인증서에는 [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?view=azure-python#get-default--) 메서드를 사용하여 가져온 정책이 필요합니다.
+여기에서 인증서에는 [CertificatePolicy.get_default](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificatepolicy?#get-default--) 메서드를 사용하여 가져온 정책이 필요합니다.
 
 `begin_create_certificate` 메서드를 호출하면 키 자격 증명 모음용 Azure REST API에 대한 비동기 호출이 생성됩니다. 비동기 호출은 폴러 개체를 반환합니다. 작업의 결과를 대기하려면 폴러의 `result` 메서드를 호출합니다.
 
 요청을 처리할 때 Azure는 클라이언트에 제공한 자격 증명 개체를 사용하여 호출자의 ID(서비스 주체)를 인증합니다.
 
-또한 호출자에게 요청된 작업을 수행할 권한이 있는지 확인합니다. 이전에 [`az keyvault set-policy` 명령](#give-the-service-principal-access-to-your-key-vault)을 사용하여 서비스 주체에게 이 권한을 부여했습니다.
 
 ### <a name="retrieve-a-certificate"></a>인증서 검색
 
-Key Vault에서 인증서를 읽으려면 [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#get-certificate-certificate-name----kwargs-) 메서드를 사용합니다.
+Key Vault에서 인증서를 읽으려면 [get_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#get-certificate-certificate-name----kwargs-) 메서드를 사용합니다.
 
 ```python
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-Azure CLI 명령 [az keyvault certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)를 사용하여 인증서가 설정되었는지 확인할 수도 있습니다.
+Azure CLI 명령 [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show)를 사용하여 인증서가 설정되었는지 확인할 수도 있습니다.
 
 ### <a name="delete-a-certificate"></a>인증서 삭제
 
-인증서를 삭제하려면 [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?view=azure-python#begin-delete-certificate-certificate-name----kwargs-) 메서드를 사용합니다.
+인증서를 삭제하려면 [begin_delete_certificate](/python/api/azure-keyvault-certificates/azure.keyvault.certificates.certificateclient?#begin-delete-certificate-certificate-name----kwargs-) 메서드를 사용합니다.
 
 ```python
 poller = client.begin_delete_certificate(certificateName)
@@ -158,7 +196,7 @@ deleted_certificate = poller.result()
 
 `begin_delete_certificate` 메서드는 비동기식이며 폴러 개체를 반환합니다. 폴러의 `result` 메서드를 호출하면 작업이 완료될 때까지 대기합니다.
 
-Azure CLI 명령 [az keyvault certificate show](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)를 사용하여 인증서가 삭제되었는지 확인할 수 있습니다.
+Azure CLI 명령 [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show)를 사용하여 인증서가 삭제되었는지 확인할 수 있습니다.
 
 인증서가 삭제되었지만 당분간 복구 가능한 상태로 유지됩니다. 코드를 다시 실행하는 경우 다른 인증서 이름을 사용합니다.
 
@@ -175,6 +213,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 개요](../general/overview.md)
+- [Key vault에 대한 액세스 보안](../general/secure-your-key-vault.md)
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
 - [Azure Key Vault 모범 사례](../general/best-practices.md)
 - [Key Vault로 인증](../general/authentication.md)

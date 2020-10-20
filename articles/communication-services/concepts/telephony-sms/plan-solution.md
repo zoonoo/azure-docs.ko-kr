@@ -10,12 +10,12 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6a63df282cadf86668e69d2422a6c791e86010b6
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767144"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048222"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>전화 통신 및 SMS 솔루션 계획
 
@@ -74,7 +74,9 @@ Communication Services는 **현지** 및 **무료**라는 두 가지 유형의 �
 
 ## <a name="azure-subscriptions-eligibility"></a>Azure 구독 자격
 
-전화 번호를 얻으려면 유료 Azure 구독에 있어야 합니다. 체험 계정에서는 전화 번호를 얻을 수 없습니다. 
+전화 번호를 얻으려면 유료 Azure 구독에 있어야 합니다. 평가판 계정 또는 Azure 체험 크레딧으로는 전화 번호를 얻을 수 없습니다. 
+
+현재 전화 번호 가용성은 미국에 청구 주소가 있는 Azure 구독으로 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

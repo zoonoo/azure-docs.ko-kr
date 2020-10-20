@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 94c67be39ddd9f52087fa4632e239a8e85930886
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4373618bacad00675d5f639225c435296010949b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171469"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221425"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 
@@ -108,6 +108,16 @@ Notebook을 편집하려면 작업 영역의 **사용자 파일** 섹션에 있�
 계산 인스턴스가 실행 되는 경우 모든 Python 노트북에서 [Intellisense](https://code.visualstudio.com/docs/editor/intellisense)에서 제공 하는 코드 완성 기능을 사용할 수도 있습니다.
 
 Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있습니다.  Azure Machine Learning은 Microsoft 지원이 안 되는 오픈 소스 제품이므로 Jupyter 또는 JupyterLab에서 업데이트를 제공하거나 버그를 수정하지 않습니다.
+
+### <a name="focus-mode"></a>포커스 모드
+
+활성 탭에 집중할 수 있도록 포커스 모드를 사용 하 여 현재 보기를 확장 합니다. 포커스 모드는 전자 필기장 파일 탐색기를 숨깁니다.
+
+1. 터미널 창 도구 모음 **에서 포커스 모드를 선택**   하 여 포커스 모드를 설정 합니다. 창 너비에 따라 도구 모음의 **...** 메뉴 항목 아래에 있을 수 있습니다.
+1. 포커스 모드에서 **표준 뷰**를 선택 하 여 표준 뷰로 돌아갑니다.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="새 파일을 만듭니다.":::
+
 
 ### <a name="use-intellisense"></a>IntelliSense 사용
 

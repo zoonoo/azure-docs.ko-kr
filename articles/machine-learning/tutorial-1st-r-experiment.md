@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906728"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019378"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 
@@ -68,11 +68,11 @@ Azure ML 컴퓨팅 인스턴스에서 RStudio를 사용하여 이 자습서를 �
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>샘플 vignettes 복제 
 
-이 자습서에서 실행할 vignettes 파일의 복사본에 대한 https://github.com/azure/azureml-sdk-for-r GitHub 리포지토리를 복제합니다.
+이 자습서에서 실행할 vignettes 파일의 복사본에 대한 https://github.com/Azure/azureml-sdk-for-r GitHub 리포지토리를 복제합니다.
 
 1. RStudio에서 "터미널" 탭으로 이동하고 리포지토리를 복제할 디렉터리에 cd를 넣습니다.
 
-1. 터미널에서 "git 복제 https://github.com/Azure/azureml-sdk-for-r"를 실행하여 리포지토리를 복제합니다.
+1. 터미널에서 `git clone https://github.com/Azure/azureml-sdk-for-r`을 실행하여 리포지토리를 복제합니다.
 
 1. RStudio에서 복제된 *azureml-sdk-for-r* 폴더의 *vignettes* 폴더로 이동합니다.  *vignettes*에서 *train-and-deploy-first-model.Rmd* 파일을 선택하여 이 자습서에 사용되는 vignette를 찾습니다. vignette에 사용되는 추가 파일은 *train-and-deploy-first-model* 하위 폴더에 있습니다. vignette를 연 후 **세션 > 작업 디렉터리 설정 > 원본 파일 위치로**를 통해 작업 디렉터리를 파일 위치로 설정합니다. 
 

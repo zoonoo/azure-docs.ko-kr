@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Anomaly Detector API 및 Azure Databricks를 사용하여 데이터의 변칙을 모니터링하는 방법을 알아봅니다.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: mbullwin
+ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245607"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017661"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -63,7 +63,7 @@ Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/co
 
 1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks**를 차례로 선택합니다.
 
-    ![Azure Portal의 Databricks](../media/tutorials/azure-databricks-on-portal.png "Azure Portal의 Databricks")
+    ![포털의 Azure Databricks](../media/tutorials/azure-databricks-on-portal.png "Azure Portal의 Databricks")
 
 3. **Azure Databricks 서비스** 아래에서 다음 값을 입력하여 Databricks 작업 영역을 만듭니다.
 
@@ -115,7 +115,7 @@ Azure 구독이 없는 경우 [Azure 구독](https://azure.microsoft.com/free/co
 
 3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
-    ![Twitter 애플리케이션 세부 정보](../media/tutorials/twitter-app-key-secret.png "Twitter 애플리케이션 세부 정보")
+    ![Twitter 애플리케이션 세부 정보 2](../media/tutorials/twitter-app-key-secret.png "Twitter 애플리케이션 세부 정보")
 
 Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
 
@@ -193,7 +193,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 2. **Notebook 만들기** 대화 상자에서 이름으로 **SendTweetsToEventHub**를 입력하고, 언어로 **Scala**를 선택하고, 이전에 만든 Spark 클러스터를 선택합니다.
 
-    ![Databricks에서 Notebook 만들기](../media/tutorials/databricks-notebook-details.png "Databricks에서 Notebook 만들기")
+    ![Notebook 세부 정보](../media/tutorials/databricks-notebook-details.png "Databricks에서 Notebook 만들기")
 
     **만들기**를 선택합니다.
 

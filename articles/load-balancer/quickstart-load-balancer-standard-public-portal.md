@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607211"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047746"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -626,6 +626,6 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 * 세 개의 VM을 부하 분산 장치에 연결했습니다.
 * 부하 분산 장치 트래픽 규칙, 상태 프로브를 구성한 다음, 부하 분산 장치를 테스트했습니다. 
 
-Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer란?](load-balancer-overview.md) 및 [Load Balancer 질문과 대답](load-balancer-faqs.md)으로 계속 진행하세요.
-
-[Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
+Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
+> [!div class="nextstepaction"]
+> [Azure Load Balancer란?](load-balancer-overview.md)

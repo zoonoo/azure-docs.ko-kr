@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 JavaScript 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 JavaScript용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 06/23/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91251969"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057419"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>빠른 시작: JavaScript를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -23,11 +23,11 @@ ms.locfileid: "91251969"
 
 - **Node.js**: [Node.js](https://nodejs.org/) 버전 12 이상이 필요합니다.
 
-## <a name="application-setup"></a>애플리케이션 설정
+## <a name="application-initialization"></a>애플리케이션 초기화
 
-JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경을 설정해야 합니다. 이 설정은 [Windows 10의 bash](/windows/wsl/install-win10)를 비롯하여 JavaScript를 사용할 수 있는 모든 위치에서 작동합니다.
+JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경을 구성해야 합니다. 이 설정은 [Windows 10의 bash](/windows/wsl/install-win10)를 비롯하여 JavaScript를 사용할 수 있는 모든 위치에서 작동합니다.
 
-1. 다음 명령을 실행하여 새 Node.js 프로젝트를 설정합니다.
+1. 다음 명령을 실행하여 새 Node.js 프로젝트를 초기화합니다.
 
    ```bash
    npm init -y

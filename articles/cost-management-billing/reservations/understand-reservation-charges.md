@@ -6,18 +6,18 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681960"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057878"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Azure SQL Database에 예약 할인이 적용되는 방법
 
-Azure SQL Database 예약 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 SQL 데이터베이스에 자동으로 적용됩니다. 예약은 SQL Database의 컴퓨팅 비용을 포함합니다. 정상 요금으로 소프트웨어, 스토리지 및 네트워킹에 대한 요금이 청구됩니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Database에 대한 라이선스 비용을 처리할 수 있습니다.
+Azure SQL Database 예약 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 SQL 데이터베이스에 자동으로 적용됩니다. 예약은 기본 복제본 및 청구 가능한 보조 복제본을 포함하여 SQL Database의 컴퓨팅 비용에 적용됩니다. 정상 요금으로 소프트웨어, 스토리지 및 네트워킹에 대한 요금이 청구됩니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Database에 대한 라이선스 비용을 처리할 수 있습니다.
 
 Azure SQL Database 서버리스에는 예약 할인이 적용되지 않습니다.
 
@@ -31,7 +31,7 @@ Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인
 
 ## <a name="discount-applied-to-running-sql-databases"></a>실행 중인 SQL 데이터베이스에 적용되는 할인
 
- SQL Database 예약 용량 할인은 매시간으로 실행 중인 SQL 데이터베이스에 적용됩니다. 구입하는 예약은 실행 중인 SQL 데이터베이스에서 내보낸 컴퓨팅 사용량과 일치합니다. 전체 시간 동안 실행되지 않는 SQL 데이터베이스의 경우 예약 특성과 일치하는 다른 SQL 데이터베이스에 예약이 자동으로 적용됩니다. 할인은 동시에 실행되는 SQL 데이터베이스에 적용할 수 있습니다. 예약 특성과 일치하는 전체 시간 동안 실행되는 SQL 데이터베이스가 없는 경우 해당 시간 동안 예약 할인의 모든 이점을 활용할 수 없습니다.
+SQL Database 예약 용량 할인은 매시간으로 실행 중인 SQL 데이터베이스에 적용됩니다. 구입하는 예약은 실행 중인 SQL 데이터베이스에서 내보낸 컴퓨팅 사용량과 일치합니다. 전체 시간 동안 실행되지 않는 SQL 데이터베이스의 경우 예약 특성과 일치하는 다른 SQL 데이터베이스에 예약이 자동으로 적용됩니다. 할인은 동시에 실행되는 SQL 데이터베이스에 적용할 수 있습니다. 예약 특성과 일치하는 전체 시간 동안 실행되는 SQL 데이터베이스가 없는 경우 해당 시간 동안 예약 할인의 모든 이점을 활용할 수 없습니다.
 
 다음 예제에서는 구입한 코어 수 및 실행되는 시기에 따라 SQL Database 예약된 용량 할인이 적용되는 방법을 보여줍니다.
 
@@ -42,6 +42,7 @@ Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인
 - 시나리오 2: 8개 코어가 있는 2개의 SQL 데이터베이스를 각각 1시간 동안 실행합니다. 16개의 코어 예약 할인은 8개의 코어 SQL 데이터베이스 모두에 대한 컴퓨팅 사용량에 적용됩니다.
 - 시나리오 3: 하나의 16개 코어 SQL Database를 오후 1시에서 오후 1시 30분까지 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 둘 다 예약 할인에 포함됩니다.
 - 시나리오 4: 하나의 16개 코어 SQL Database를 오후 1시에서 오후 1시 45분까지 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 컴퓨팅 사용량에 적용됩니다.
+- 시나리오 5: 각각 4개의 코어가 있는 3개의 보조 복제본이 포함된 하나의 4코어 SQL 하이퍼스케일 데이터베이스를 실행합니다. 예약은 기본 복제본과 모든 보조 복제본의 컴퓨팅 사용량에 적용됩니다.
 
 청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
 

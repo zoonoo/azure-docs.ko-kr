@@ -3,16 +3,25 @@ title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815439"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216541"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
-Azure Red Hat OpenShift 버전 3.x 클러스터의 모니터링을 사용 하도록 설정한 후에는 더 이상 모니터링 하지 않기로 결정 한 경우 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터의 모니터링을 중지할 수 있습니다. 이 문서에서는 제공 된 Azure Resource Manager 템플릿을 사용 하 여이를 수행 하는 방법을 보여 줍니다. 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11은 6 월 2022에 사용 중지 됩니다.
+>
+> 2020 년 10 월에는 더 이상 새 3.11 클러스터를 만들 수 없습니다.
+> 기존 3.11 클러스터는 6 월 2022 일까 지 계속 작동 하지만 해당 날짜 이후에는 더 이상 지원 되지 않습니다.
+>
+> 이 가이드에 따라 [Azure Red Hat OpenShift 4 클러스터를 만듭니다](../../openshift/tutorial-create-cluster.md).
+> 특정 질문이 있는 경우 문의해 주시기 [바랍니다](mailto:aro-feedback@microsoft.com).
+
+Azure Red Hat OpenShift 버전 3.x 클러스터의 모니터링을 사용 하도록 설정한 후에는 더 이상 모니터링 하지 않기로 결정 한 경우 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터의 모니터링을 중지할 수 있습니다. 이 문서에서는 제공 된 Azure Resource Manager 템플릿을 사용 하 여이를 수행 하는 방법을 보여 줍니다.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8818047dd4fef9c495c46b353e68841f83e9677c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070336"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217221"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -45,7 +45,7 @@ Error details: Failed to enable the Update solution
 
 * [네트워크 구성](../automation-hybrid-runbook-worker.md#network-planning)으로 이동하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.  
 
-* 범위 구성 문제가 있는지 확인합니다. [범위 구성](../update-management/update-mgmt-scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 컴퓨터가 작업 영역에 표시 되지만 업데이트 관리에 표시 되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 설정 해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터 사용](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
+* 범위 구성 문제가 있는지 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 컴퓨터가 작업 영역에 표시 되지만 업데이트 관리에 표시 되지 않는 경우 컴퓨터를 대상으로 하는 범위 구성을 설정 해야 합니다. 범위 구성에 대해 알아보려면 [작업 영역에서 컴퓨터 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
 
 * [온-프레미스 Windows 컴퓨터에서 Hybrid Runbook Worker 제거](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) 또는 컴퓨터에서 [온-프레미스 Linux 컴퓨터에서 Hybrid Runbook Worker 제거](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)의 단계에 따라 작업자 구성을 제거합니다.
 
@@ -63,13 +63,13 @@ Error details: Failed to enable the Update solution
 
 대체 된 업데이트가 100% 적용할 수 없게 되 면 WSUS에서 해당 업데이트의 승인 상태를로 변경 해야 합니다 `Declined` . 모든 업데이트에 대한 승인 상태를 변경하려면
 
-1. Automation 계정에서 **업데이트 관리**를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/update-mgmt-view-update-assessments.md)를 참조하세요.
+1. Automation 계정에서 **업데이트 관리**를 선택하여 머신 상태를 확인합니다. [업데이트 평가 보기](../update-management/view-update-assessments.md)를 참조하세요.
 
 2. 대체된 업데이트를 확인하여 100% 적용되지 않는지 확인합니다.
 
 3. 컴퓨터에서 보고 하는 WSUS 서버에서 [업데이트를 거부](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates)합니다.
 
-4. **컴퓨터**를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/update-mgmt-manage-updates-for-vm.md)를 참조 하세요.
+4. **컴퓨터**를 선택하고 **규정 준수** 열에서 규정 준수를 강제로 다시 검사합니다. [Vm에 대 한 업데이트 관리](../update-management/manage-updates-for-vm.md)를 참조 하세요.
 
 5. 대체된 다른 업데이트에 대해 위 단계를 반복합니다.
 
@@ -112,9 +112,9 @@ Error details: Failed to enable the Update solution
 
 4. 쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
 
-5. 머신이 쿼리 결과에 표시되면 범위 구성에 문제가 있는지 확인합니다. [범위 구성](../update-management/update-mgmt-scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다.
+5. 머신이 쿼리 결과에 표시되면 범위 구성에 문제가 있는지 확인합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다.
 
-6. 머신이 작업 영역에 표시되지만 업데이트 관리에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 지정해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [작업 영역에서 머신 사용](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
+6. 머신이 작업 영역에 표시되지만 업데이트 관리에는 표시되지 않는 경우 해당 머신을 대상으로 하도록 범위 구성을 지정해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [작업 영역에서 머신 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)를 참조하세요.
 
 7. 작업 영역에서 이 쿼리를 실행합니다.
 
@@ -190,11 +190,11 @@ Automation 리소스 공급자에 대해 구독이 구성되지 않은 경우 �
 
 #### <a name="machines-not-available-or-not-tagged-correctly-when-schedule-executed"></a>예약 실행 시 머신을 사용할 수 없거나 태그가 올바르게 지정되지 않음
 
-구독이 Automation 리소스 공급자에 대해 구성되어 있지만 지정된 [동적 그룹](../update-management/update-mgmt-groups.md)을 사용하여 업데이트 일정을 실행할 경우 일부 머신이 누락되면 다음 절차를 사용합니다.
+구독이 Automation 리소스 공급자에 대해 구성되어 있지만 지정된 [동적 그룹](../update-management/configure-groups.md)을 사용하여 업데이트 일정을 실행할 경우 일부 머신이 누락되면 다음 절차를 사용합니다.
 
 1. Azure Portal에서 Automation 계정을 열고 **업데이트 관리**를 선택합니다.
 
-2. 업데이트 배포가 실행된 정확한 시간을 확인하려면 [업데이트 관리 기록](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment)를 확인합니다.
+2. 업데이트 배포가 실행된 정확한 시간을 확인하려면 [업데이트 관리 기록](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment)를 확인합니다.
 
 3. 업데이트 관리에서 누락된 것으로 의심되는 머신의 경우 ARG(Azure Resource Graph)를 사용하여 [머신 변경 내용을 찾습니다](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
 
@@ -230,7 +230,7 @@ Azure Portal에는 지정된 범위에서 쓰기 권한이 있는 머신만 표�
 
 아래 단계에 따라 쿼리가 제대로 작동하고 있는지 확인합니다.
 
-1. Azure Portal의 Resource Graph 탐색기 블레이드에서 아래와 같이 형식이 지정된 ARG 쿼리를 실행합니다. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리에서 동적 그룹 사용](../update-management/update-mgmt-groups.md)을 참조하세요.
+1. Azure Portal의 Resource Graph 탐색기 블레이드에서 아래와 같이 형식이 지정된 ARG 쿼리를 실행합니다. 이 쿼리는 업데이트 관리에서 동적 그룹을 만들 때 선택한 필터를 모방합니다. [업데이트 관리에서 동적 그룹 사용](../update-management/configure-groups.md)을 참조하세요.
 
     ```kusto
     where (subscriptionId in~ ("<subscriptionId1>", "<subscriptionId2>") and type =~ "microsoft.compute/virtualmachines" and properties.storageProfile.osDisk.osType == "<Windows/Linux>" and resourceGroup in~ ("<resourceGroupName1>","<resourceGroupName2>") and location in~ ("<location1>","<location2>") )
@@ -303,7 +303,7 @@ Update
 
 #### <a name="communication-with-automation-account-blocked"></a>Automation 계정에 대한 통신이 차단됨
 
-[네트워크 계획](../update-management/update-mgmt-overview.md#ports)으로 이동하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
+[네트워크 계획](../update-management/overview.md#ports)으로 이동하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
 
 #### <a name="duplicate-computer-name"></a>중복 컴퓨터 이름
 
@@ -389,9 +389,9 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>해결 방법
 
-해당하는 경우 업데이트 배포에 [동적 그룹](../update-management/update-mgmt-groups.md)을 사용합니다. 또한 다음 단계를 수행할 수 있습니다.
+해당하는 경우 업데이트 배포에 [동적 그룹](../update-management/configure-groups.md)을 사용합니다. 또한 다음 단계를 수행할 수 있습니다.
 
-1. 컴퓨터 또는 서버에서 [요구 사항을](../update-management/update-mgmt-overview.md#client-requirements)충족 하는지 확인 합니다.
+1. 컴퓨터 또는 서버에서 [요구 사항을](../update-management/overview.md#client-requirements)충족 하는지 확인 합니다.
 2. Hybrid Runbook Worker 에이전트 문제 해결사를 사용하여 Hybrid Runbook Worker에 대한 연결을 확인합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>시나리오: 배포 없이 업데이트가 설치됨
@@ -487,11 +487,11 @@ Hybrid Runbook Worker가 자체 서명 인증서를 생성할 수 없습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-성공적으로 시작 된 후 업데이트가 실행 되는 동안이 오류가 발생 한 이유를 이해 하려면 실행 시 영향을 받는 컴퓨터에서 [작업 출력을 확인 하세요](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) . 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다.  
+성공적으로 시작 된 후 업데이트가 실행 되는 동안이 오류가 발생 한 이유를 이해 하려면 실행 시 영향을 받는 컴퓨터에서 [작업 출력을 확인 하세요](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) . 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다.  
 
 모든 실패한 예약 업데이트 배포를 편집하고 유지 관리 기간을 늘립니다.
 
-유지 관리 기간에 대한 자세한 내용은 [업데이트 설치](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment)를 참조하세요.
+유지 관리 기간에 대한 자세한 내용은 [업데이트 설치](../update-management/deploy-updates.md#schedule-an-update-deployment)를 참조하세요.
 
 ## <a name="scenario-machine-shows-as-not-assessed-and-shows-an-hresult-exception"></a><a name="hresult"></a>시나리오: 머신이 "평가되지 않음"으로 표시되고 HRESULT 예외를 표시함
 
@@ -522,7 +522,7 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 |예외  |해결 방법 또는 작업  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | [Windows 업데이트 오류 코드 목록](https://support.microsoft.com/help/938205/windows-update-error-code-list)에서 관련 오류 코드를 검색하여 예외의 원인에 대한 추가 세부 정보를 찾을 수 있습니다.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 네트워크 연결 이슈를 나타냅니다. 머신이 네트워크를 통해 업데이트 관리에 연결되어 있는지 확인합니다. 필요한 포트 및 주소 목록은 [네트워크 계획](../update-management/update-mgmt-overview.md#ports) 섹션을 참조하세요.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | 네트워크 연결 이슈를 나타냅니다. 머신이 네트워크를 통해 업데이트 관리에 연결되어 있는지 확인합니다. 필요한 포트 및 주소 목록은 [네트워크 계획](../update-management/overview.md#ports) 섹션을 참조하세요.        |
 |`0x8024001E`| 서비스 또는 시스템이 종료 중이어서 업데이트 작업이 완료되지 않았습니다.|
 |`0x8024002E`| Windows 업데이트 서비스를 사용할 수 없습니다.|
 |`0x8024402C`     | WSUS 서버를 사용하는 경우 레지스트리 키 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 아래에 있는 `WUServer` 및 `WUStatusServer`의 레지스트리 값에 올바른 WSUS 서버를 지정합니다.        |
@@ -556,9 +556,9 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 
 ### <a name="resolution"></a>해결 방법
 
-업데이트 실행이 제대로 시작된 후 실행 중에 실패할 경우 실행에서 영향을 받는 머신의 [작업 출력을 확인합니다](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment). 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다. 업데이트 관리에서 업데이트 배포에 성공하려면 패키지 관리자가 정상 상태여야 합니다.
+업데이트 실행이 제대로 시작된 후 실행 중에 실패할 경우 실행에서 영향을 받는 머신의 [작업 출력을 확인합니다](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment). 머신에서 특정 오류 메시지를 찾아 조치를 취할 수 있습니다. 업데이트 관리에서 업데이트 배포에 성공하려면 패키지 관리자가 정상 상태여야 합니다.
 
-작업이 실패하기 직전에 특정 패치, 패키지 또는 업데이트가 표시되는 경우 다음 업데이트 배포에서 이러한 항목을 [제외](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment)할 수 있습니다. Windows 업데이트에서 로그 정보를 수집하려면 [Windows 업데이트 로그 파일](/windows/deployment/update/windows-update-logs)을 참조하세요.
+작업이 실패하기 직전에 특정 패치, 패키지 또는 업데이트가 표시되는 경우 다음 업데이트 배포에서 이러한 항목을 [제외](../update-management/deploy-updates.md#schedule-an-update-deployment)할 수 있습니다. Windows 업데이트에서 로그 정보를 수집하려면 [Windows 업데이트 로그 파일](/windows/deployment/update/windows-update-logs)을 참조하세요.
 
 패치 이슈를 해결할 수 없는 경우 **/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log** 파일의 복사본을 만들고, 다음 업데이트 배포가 시작되기 전에 문제를 해결할 수 있도록 유지합니다.
 
@@ -568,7 +568,7 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 
 머신에서 직접 업데이트를 실행해 봅니다. 머신이 업데이트를 적용할 수 없는 경우 [문제 해결 가이드의 잠재적 오류 목록](#hresult)을 참조하세요.
 
-업데이트가 로컬로 실행되는 경우 [업데이트 관리에서 VM 제거](../update-management/update-mgmt-remove-vms.md)의 지침에 따라 머신에서 에이전트를 제거했다가 다시 설치해 봅니다.
+업데이트가 로컬로 실행되는 경우 [업데이트 관리에서 VM 제거](../update-management/remove-vms.md)의 지침에 따라 머신에서 에이전트를 제거했다가 다시 설치해 봅니다.
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>업데이트를 사용할 수 있는 것을 알지만, 내 머신에는 업데이트가 사용 가능한 것으로 표시되지 않음
 
@@ -588,7 +588,7 @@ HRESULT가 표시되는 경우 전체 예외 메시지를 보려면 빨간색으
 
 ### <a name="installing-updates-by-classification-on-linux"></a>Linux에서 분류를 기준으로 업데이트 설치
 
-분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 제한 사항은 [업데이트 관리 개요 페이지](../update-management/update-mgmt-overview.md#linux)에 설명되어 있습니다.
+분류("중요 업데이트 및 보안 업데이트")를 기준으로 Linux에 업데이트를 배포할 때, 특히 CentOS와 관련하여 중요한 주의 사항이 있습니다. 이러한 제한 사항은 [업데이트 관리 개요 페이지](../update-management/overview.md#linux)에 설명되어 있습니다.
 
 ### <a name="kb2267602-is-consistently-missing"></a>KB2267602가 지속적으로 누락됨
 

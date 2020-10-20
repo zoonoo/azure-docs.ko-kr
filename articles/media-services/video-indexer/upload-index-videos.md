@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268828"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218982"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -72,15 +72,15 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 > 비디오 이름은 80자를 넘지 않아야 합니다.
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
-2. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
+1. 비디오를 업로드하려면 **업로드** 단추나 링크를 누릅니다.
 
-    ![업로드](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="업로드":::
+1. 비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다.
 
-    비디오가 업로드되면 Video Indexer가 인덱싱 및 비디오 분석을 시작합니다.
-
-    ![업로드됨](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Video Indexer가 분석을 완료하면 비디오에 대한 링크와 비디오 분석 결과에 관한 간단한 설명이 포함된 알림을 받게 됩니다. 예: 사람, 주제, OCR.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="업로드":::
+1. 분석이 완료 되 Video Indexer 면 비디오에 대 한 링크가 포함 된 전자 메일 및 비디오에 있는 항목에 대 한 간략 한 설명이 포함 된 전자 메일을 받게 됩니다. 예: 사람, 주제, OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>API를 사용 하 여 업로드 및 인덱싱
 
@@ -359,7 +359,7 @@ public class AccountContractSlim
 
 다음 표에 나열된 상태 코드는 업로드 작업에서 반환될 수 있습니다.
 
-|상태 코드|ErrorType(응답 본문 내)|설명|
+|상태 코드|ErrorType(응답 본문 내)|Description|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|지정된 계정에서 동일한 비디오가 이미 처리되고 있습니다.|
 |400|VIDEO_ALREADY_FAILED|지정된 계정에서 2시간 이내에 동일한 비디오를 처리하지 못했습니다. API 클라이언트에서 2시간 이상 기다린 후에 비디오를 다시 업로드해야 합니다.|

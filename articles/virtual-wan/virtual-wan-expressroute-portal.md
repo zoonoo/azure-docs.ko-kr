@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기
+title: '자습서: Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기'
 description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure 및 온-프레미스 환경에 대한 ExpressRoute 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/07/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 1694c8a602315ab5f0ffa5d4e0bc218f03220c30
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7d880be6cbc37b273258075e6efc7a98d3478384
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91821888"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054817"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "91821888"
 > * 게이트웨이 크기 변경
 > * 기본 경로 알리기
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "91821888"
 
 * 허브 지역의 IP 주소 범위를 확보합니다. 허브는 Virtual WAN에서 만들고 사용하는 가상 네트워크입니다. 허브에 지정하는 주소 범위는 연결하는 기존 가상 네트워크와 겹칠 수 없습니다. 온-프레미스에 연결하는 주소 범위와도 겹칠 수 없습니다. 온-프레미스 네트워크 구성에 있는 IP 주소 범위를 잘 모른다면 세부 정보를 알고 있는 다른 사람의 도움을 받으세요.
 
-* 허브 게이트웨이에 연결하려면 ExpressRoute 회로가 프리미엄/표준 회로여야 합니다.
+* 허브 게이트웨이에 연결하려면 ExpressRoute 회로가 프리미엄 또는 표준 회로여야 합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -153,6 +153,17 @@ Azure 가상 허브가 기본 경로 0.0.0.0/0을 ExpressRoute 엔드포인트�
 
    ![기본 경로 전파](./media/virtual-wan-expressroute-portal/defaultroute2.png "기본 경로 전파")
 
+## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
+
+리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-가상 WAN에 대해 자세히 알아보려면 [가상 WAN 개요](virtual-wan-about.md) 페이지를 참조하세요.
+다음으로, Virtual WAN에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> * [가상 WAN FAQ](virtual-wan-faq.md)

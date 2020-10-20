@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801923"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217391"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -30,6 +30,12 @@ Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 �
 - Load Balancer 뒤의 VM이 구성된 포트의 트래픽에 응답하지 않습니다.
 
 백 엔드 VM에 대한 외부 클라이언트가 부하 분산 장치를 통과하면 클라이언트의 IP 주소가 통신에 사용됩니다. 클라이언트의 IP 주소가 NSG 허용 목록에 추가되어 있는지 확인합니다. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>증상: 표준 내부 부하 분산 장치 (ILB)에서 아웃 바운드 연결이 없습니다.
+
+**유효성 검사 및 해결**
+
+표준 ILBs는 **기본적으로 안전**합니다. 기본 ILBs는 *숨겨진* 공용 IP 주소를 통해 인터넷에 연결할 수 있습니다. IP 주소가 정적이 아니고 사용자가 소유 하는 NSGs를 통해 잠겨 있지 않으므로 프로덕션 워크 로드에는 것 좋습니다 되지 않습니다. 최근에 기본 ILB에서 표준 ILB로 이동 하는 경우 NSGs를 통해 IP의 잠금을 해제 하는 [아웃 바운드 전용](egress-only.md) 구성을 통해 명시적으로 공용 IP를 만들어야 합니다. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>증상: Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다.
 백 엔드 서버가 Load Balancer 집합에 참여하려면 프로브 검사를 통과해야 합니다. 상태 프로브에 대한 자세한 내용은 [Load Balancer 프로브 이해](load-balancer-custom-probe-overview.md)를 참조하세요. 

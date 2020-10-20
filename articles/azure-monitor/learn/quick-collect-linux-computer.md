@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b856381e8d085c6839effd1de6d9867b214d24ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 04d53dc213d5e992dc79e322b071025bdb447b1b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020391"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057504"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
@@ -62,11 +62,9 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 2. Log Analytics 작업 영역 목록에서 이전에 만든 작업 영역을 선택합니다. (이름은 **DefaultLAWorkspace**로 지정했을 수 있습니다.)
 
-3. **고급 설정**을 선택합니다.
-
-    ![Azure Portal의 Log Analytics에 대한 고급 설정 메뉴](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+3. **에이전트 관리**를 선택합니다.
  
-4. **연결된 원본**을 선택한 다음 **Linux 서버**를 선택합니다.
+4. 그런 다음, **Linux 서버**를 선택합니다.
 
 5. **작업 영역 ID** 및 **기본 키**의 오른쪽에 값이 있습니다. 두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 

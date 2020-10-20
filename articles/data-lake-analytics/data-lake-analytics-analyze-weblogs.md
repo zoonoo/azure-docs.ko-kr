@@ -1,18 +1,16 @@
 ---
 title: Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 description: Azure Data Lake Analytics를 사용 하 여 웹 사이트 로그를 분석 하 여 U-SQL 함수 및 쿼리를 실행 하는 방법을 알아봅니다.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 5ad837c51fafd7df2b019c78ae4adaf4967f2df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2764e5e3994eb7b80a8e7cf62fb7f437323c97e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132639"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219397"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
@@ -185,4 +183,4 @@ U-SQL 애플리케이션은 대부분 U-SQL 스크립트입니다. U-SQL에 대�
 
 * [Azure Portal을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
 * [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
-* [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)
+* [.NET SDK를 사용하여 데이터 레이크 분석 시작](./data-lake-analytics-get-started-cli.md)

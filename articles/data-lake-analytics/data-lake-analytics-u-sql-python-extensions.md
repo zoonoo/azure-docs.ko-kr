@@ -1,22 +1,21 @@
 ---
 title: Azure Data Lake Analytics에서 Python으로 U-SQL 스크립트 확장
 description: Azure Data Lake Analytics를 사용하여 U-SQL 스크립트로 Python 코드를 실행하는 방법 알아보기
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: devx-track-python
-ms.openlocfilehash: b15ab268433e4220d499f3e1fe7cb90ffac2a1be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d81e529d7073e8200c5a1d1fa8f51504b1dc9259
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87876020"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218445"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 Python 코드로 U-SQL 스크립트 확장
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 Azure Data Lake Analytics 계정에 Python 확장이 설치되어 있는지 확인하세요.
 
@@ -101,5 +100,5 @@ Python 3.5.1(Windows용으로 컴파일)만 지원됩니다.
 
 * [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Visual Studio용 데이터 레이크 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)
-* [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](data-lake-analytics-use-window-functions.md)
+* [Azure 데이터 레이크 분석 작업에 U-SQL 창 함수 사용](./data-lake-analytics-u-sql-get-started.md)
 * [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)

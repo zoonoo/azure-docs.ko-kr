@@ -1,19 +1,17 @@
 ---
 title: Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
 description: 이 문서에서는 Node.js용 Azure SDK를 사용하여 Data Lake Analytics 계정, 데이터 원본, 작업 및 사용자를 관리하는 방법을 설명합니다.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: how-to
 ms.date: 12/05/2016
 ms.custom: devx-track-js
-ms.openlocfilehash: 86f5f4faaaf1c2177e3dcbb8f357bca54554aacd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1c865b31739e7163b0db26cb666a8a42edbaa2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318639"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218462"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Node.js용 Azure SDK를 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -128,5 +126,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고자료
 * [Node.js용 Microsoft Azure SDK](https://github.com/azure/azure-sdk-for-node)

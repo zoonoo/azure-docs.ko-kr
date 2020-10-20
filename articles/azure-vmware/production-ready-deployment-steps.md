@@ -3,12 +3,12 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: e279f14406d464171f0879d85cc33f9844d22ec3
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802211"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055089"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -104,7 +104,7 @@ Azure VMware Solution 프라이빗 클라우드에 액세스하려면 Azure VMwa
 Azure VMware Solution의 ExpressRoute 회로는 이 단계에서 정의하는 Azure Virtual Network의 ExpressRoute 게이트웨이에 연결합니다.  
 
 >[!IMPORTANT]
->기존 가상 네트워크를 선택하는 경우 기존 게이트웨이 서브넷이 없는 가상 네트워크를 선택해야 합니다.  
+>가상 네트워크당 4개의 ExpressRoute 회로 제한을 초과하지 않는 한 기존 ExpressRoute 게이트웨이를 사용하여 Azure VMware Solution에 연결할 수 있습니다.  그러나 ExpressRoute를 통해 온-프레미스에서 Azure VMware Solution에 액세스하려면 ExpressRoute 게이트웨이가 연결된 회로 간에 전이적 라우팅을 제공하지 않으므로 ExpressRoute Global Reach가 있어야 합니다.  
 
 ExpressRoute 회로를 Azure VMware Solution에서 기존 ExpressRoute 게이트웨이로 연결하려는 경우 배포 후에 이 작업을 수행할 수 있습니다.  
 

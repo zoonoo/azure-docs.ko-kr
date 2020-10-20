@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083160"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215776"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Azure 애플리케이션 게이트웨이로 URL 재작성-Azure Portal (미리 보기)
 
@@ -69,7 +69,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     
     b. 이 예제에서는 URL 경로에서 pattern */article* 을 확인 하 고 **확인할 변수 형식** 목록에서 **서버 변수**를 선택 합니다.
     
-    다. **서버 변수** 목록에서 uri_path을 선택 합니다.
+    c. **서버 변수** 목록에서 uri_path을 선택 합니다.
     
     d. **대/소문자 구분**에서 **아니요**를 선택 합니다.
     
@@ -91,7 +91,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    b. **작업 유형** 목록에서 **설정**을 선택 합니다.
 
-   다. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
+   c. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
 
    d. **URL 경로 값**에 경로에 대 한 새 값을 입력 합니다. 이 예제에서는 **/article.aspx** 를 사용 합니다. 
 

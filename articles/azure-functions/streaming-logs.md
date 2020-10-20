@@ -3,14 +3,13 @@ title: Azure Functions에서 스트림 실행 로그
 description: 공백을 포함 하는 115-145 문자 이 추상은 검색 결과에 표시됩니다.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.service: azure-functions
-ms.custom: can-be-multiple-comma-separated
-ms.openlocfilehash: e2e4bdb2c1adf53fabf593a4f0c84873786ca32a
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: contperfq2
+ms.openlocfilehash: 61756afb5111da3d5573e967a6ca13f25354aef5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168948"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216099"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Azure Functions에서 스트리밍 실행 로그 사용
 

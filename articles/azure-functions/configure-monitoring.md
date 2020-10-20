@@ -3,12 +3,13 @@ title: Azure Functions에 대 한 모니터링 구성
 description: 모니터링을 위해 함수 앱을 Application Insights에 연결 하 고 데이터 수집을 구성 하는 방법에 대해 알아봅니다.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.openlocfilehash: 4b2c4e23bf54dc87325af7068b287fad2f9314a0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: contperfq2
+ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169002"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217187"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 

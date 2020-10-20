@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420657"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048273"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -28,7 +28,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 ![VNet 및 VPN 게이트웨이](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell 및 Azure PowerShell 사용
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -184,9 +184,7 @@ Remove-AzResourceGroup -Name $RG1
 > * VPN 게이트웨이 크기 조정
 > * VPN Gateway 다시 설정
 
-그 다음 자습서로 넘어가서 S2S, VNet-VNet 연결 및 P2S 연결에 대해 알아보세요.
+다음으로, 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> * [S2S 연결 만들기](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [VNet-VNet 연결 만들기](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [P2S 연결 만들기](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [연결 만들기](vpn-gateway-tutorial-vpnconnection-powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 연결 만들기 | Microsoft Docs
+title: '자습서: Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 연결 만들기'
 description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure에 지점 및 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84f8563a6b03f10f4cbc647426c350d9fac52780
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812687"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056585"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사용자 VPN 연결 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "91812687"
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwanp2s.png)
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
 
@@ -82,4 +82,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-가상 WAN에 대해 자세히 알아보려면 [가상 WAN 개요](virtual-wan-about.md) 페이지를 참조하세요.
+다음으로, Virtual WAN에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> * [가상 WAN FAQ](virtual-wan-faq.md)

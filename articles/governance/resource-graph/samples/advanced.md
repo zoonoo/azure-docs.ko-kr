@@ -1,14 +1,14 @@
 ---
 title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425299"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057147"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>게스트 구성 할당 보고서의 쿼리 세부 정보
 
-[게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 세부 정보에서 보고서를 표시합니다.
-아래 예제에서 쿼리는 게스트 할당 이름이 `installed_application_linux`이고 출력에 `Python` 문자열이 포함된 결과만 반환하여 **Python** 이름을 포함하는 패키지가 설치된 모든 Linux 머신을 나열합니다.
-특정 할당에 대한 모든 머신의 규정 준수를 쿼리하려면 두 번째 `where` 절을 제거합니다.
+[게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 세부 정보에서 보고서를 표시합니다. 다음 예제에서 쿼리는 게스트 할당 이름이 `installed_application_linux`이고 출력에 `Python` 문자열이 포함된 결과만 반환하여 **Python** 이름을 포함하는 패키지가 설치된 모든 Linux 머신을 나열합니다. 특정 할당에 대한 모든 머신의 규정 준수를 쿼리하려면 두 번째 `where` 절을 제거합니다.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>머신이 게스트 구성 할당에 대해 비규격인 모든 이유 찾기
 
-특정 머신에 대한 [게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 모두 표시합니다.
-머신이 규정을 준수하는 감사도 포함하려면 첫 번째 `where` 절을 제거합니다.
+특정 머신에 대한 [게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 모두 표시합니다. 머신이 규정을 준수하는 감사도 포함하려면 첫 번째 `where` 절을 제거합니다.
 
 ```kusto
 GuestConfigurationResources

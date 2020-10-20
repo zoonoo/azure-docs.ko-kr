@@ -1,20 +1,17 @@
 ---
-title: 'PowerShell 스크립트: 새 Azure 데이터 공유 계정 만들기 | Microsoft Docs'
+title: 'PowerShell 스크립트: 새 Azure 데이터 공유 계정 만들기'
 description: 이 PowerShell 스크립트는 새 데이터 공유 계정을 만듭니다.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: c3852dd5f1d3d3df8a982716ce5dab9426782869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4608afc16398a4cd1fa47ee1ae2cd4a4489a3f96
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307265"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221369"
 ---
 # <a name="use-powershell-to-create-a-data-share-account-in-azure"></a>PowerShell을 사용 하 여 Azure에서 데이터 공유 계정 만들기
 
@@ -38,11 +35,11 @@ New-AzDataShareAccount -ResourceGroupName $resourceGroupName -Name $dataShareAcc
 
 | 명령 | 메모 |
 |---|---|
-| [AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount?view=azps-2.6.0) | 데이터 공유 계정을 만듭니다. |
+| [AzDataShareAccount](/powershell/module/az.datashare/new-azdatashareaccount) | 데이터 공유 계정을 만듭니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
 추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.

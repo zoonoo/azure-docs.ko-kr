@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772722"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017015"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -134,7 +134,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
 
-그러나 Azure Lighthouse를 통해 고객 리소스를 관리하는 경우 고객 리소스에 대한 액세스 권한이 있는 계정을 사용하여 서비스 공급자 테넌트에서 링크를 만들어야 합니다. 자세한 내용은 [위임된 리소스에서 파트너 획득 크레딧을 사용하도록 파트너 ID 연결](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
+그러나 Azure Lighthouse를 통해 고객 리소스를 관리하는 경우 고객 리소스에 대한 액세스 권한이 있는 계정을 사용하여 서비스 공급자 테넌트에서 링크를 만들어야 합니다. 자세한 내용은 [파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
 
 **다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
 
@@ -164,7 +164,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 [관리형 서비스 제품을 Azure Marketplace에 게시](../../lighthouse/how-to/publish-managed-services-offers.md)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다.
 
-[Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](../../lighthouse/how-to/onboard-customer.md)하는 경우 MPN ID를 각 온보딩된 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 각 고객 테넌트가 아닌 서비스 공급자 테넌트에서 이 작업을 수행해야 합니다. 간단히 하기 위해 테넌트에 서비스 주체 계정을 만들고, MPN ID와 연결하고, [파트너 획득 크레딧을 받을 수 있는 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용하여 등록한 모든 고객에게 액세스 권한을 부여하는 것이 좋습니다. 자세한 내용은 [위임된 리소스에서 파트너 획득 크레딧을 사용하도록 파트너 ID 연결](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
+[Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](../../lighthouse/how-to/onboard-customer.md)하는 경우 MPN ID를 각 온보딩된 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 각 고객 테넌트가 아닌 서비스 공급자 테넌트에서 이 작업을 수행해야 합니다. 간단히 하기 위해 테넌트에 서비스 주체 계정을 만들고, MPN ID와 연결하고, [파트너 획득 크레딧을 받을 수 있는 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용하여 등록한 모든 고객에게 액세스 권한을 부여하는 것이 좋습니다. 자세한 내용은 [파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
 
 **고객에게 PAL(파트너 관리자 링크)을 어떻게 설명하나요?**
 

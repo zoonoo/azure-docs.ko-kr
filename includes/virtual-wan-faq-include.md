@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fac71572446a80ff00368991d6cb80c572864ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859762"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038471"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -228,7 +228,7 @@ VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN�
 Virtual Hub가 여러 원격 허브에서 동일한 경로를 학습하는 경우 이를 결정하는 순서는 다음과 같습니다.
 
 1. 가장 긴 접두사 일치
-2. interhub를 통한 로컬 경로
+2. Interhub를 통한 로컬 경로(가상 허브는 interhub AS에 65520-65520을 할당)
 3. BGP를 통한 고정 경로 이는 가상 허브 라우터에서 결정하는 내용에 따라 좌우됩니다. 그러나 BGP를 통해 경로를 보급하거나 고정 주소 접두사를 제공하는 VPN 게이트웨이가 결정권자인 경우 BGP 경로를 통해 고정 경로를 사용하는 방법이 더 좋을 수 있습니다.
 4. VPN을 통한 ER(ExpressRoute): 컨텍스트가 로컬 허브인 경우 VPN을 통한 ER이 선호됩니다. ExpressRoute 회로 간의 전송 연결은 Global Reach를 통해서만 사용할 수 있습니다. 따라서 ExpressRoute 회로가 한 허브에 연결되고 또 다른 ExpressRoute 회로가 VPN 연결을 통해 다른 허브에 연결되는 시나리오에서는 허브 간 시나리오에 VPN을 사용하는 것이 더 좋을 수 있습니다.
 5. AS 경로 길이

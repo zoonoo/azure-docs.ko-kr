@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 15609435c7bc099d0ffe40759ea0f323b58a4545
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee7c1c57c271a6173f4ee978a10ff37526c04c33
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89087581"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047851"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -1066,8 +1066,8 @@ Remove-AzResourceGroup -Name $rg
 * 부하 분산 장치 트래픽 규칙 및 상태 프로브를 구성했습니다.
 * 부하 분산 장치를 테스트했습니다.
 
-Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer란?](load-balancer-overview.md) 및 [Load Balancer 질문과 대답](load-balancer-faqs.md)으로 계속 진행하세요.
-
-* [Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
+Azure Load Balancer에 대해 자세히 알아보려면 계속 진행하세요.
+> [!div class="nextstepaction"]
+> [Azure Load Balancer란?](load-balancer-overview.md)
 
 

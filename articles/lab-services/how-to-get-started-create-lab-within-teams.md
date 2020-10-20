@@ -3,12 +3,12 @@ title: 팀 내에서 시작 및 Azure Lab Services 랩 만들기
 description: 팀 내에서 Azure Lab Services 랩을 시작 하 고 만드는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092140"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217085"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>팀 내에서 랩 서비스 랩 시작 및 만들기
 
@@ -24,6 +24,9 @@ ms.locfileid: "92092140"
 1. [랩 계정 작성자는 다른 사용자](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 를 **랩 작성자** 역할에 추가 합니다. 예를 들어 랩 계정 작성자/관리자는 **랩 작성자** 역할에 교육자를 추가하여 해당 클래스에 대한 랩을 만들 수 있습니다.
 1. 그런 다음, 교육자는 랩을 만들고, 템플릿 VM을 미리 구성 하 고, 팀의 모든 사람에 게 VM을 프로 비전 하는 랩을 게시 합니다.
 1. 랩을 게시 한 후에는 팀 (SSO) 내에서 **Azure Lab Services** 앱을 포함 하는 탭을 클릭 하거나 [labs 웹 사이트](https://labs.azure.com)에 액세스 하 여 Azure Lab Services에 대 한 첫 번째 로그인의 팀 멤버 자격 목록에 있는 모든 사용자에 게 VM이 할당 됩니다. 그러면 사용자가 VM을 사용 하 여 클래스 작업 및 과제를 수행할 수 있습니다.
+
+> [!IMPORTANT]
+> 랩 계정이 팀과 같은 테 넌 트에 생성 된 경우에만 팀 내에서 Azure Lab Services를 사용할 수 있습니다.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>팀에 탭으로 Azure Lab Services 앱 추가
 
@@ -60,7 +63,7 @@ ms.locfileid: "92092140"
 
 [팀 내의 Lab Services 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>추가 정보
+### <a name="see-also"></a>참고자료
 
 다음 문서도 참조합니다.
 

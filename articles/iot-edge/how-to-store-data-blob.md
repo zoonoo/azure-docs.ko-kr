@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048154"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219737"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -53,7 +53,7 @@ Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전�
 * Blob이 자동으로 삭제 되는 시간 (분)을 지정 합니다 (deleteAfterMinutes).
 * DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure IoT Edge 디바이스:
 
@@ -92,7 +92,7 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 | 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
 | deleteOn | true, false | `false`기본적으로로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 설정 `true` 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈에서 로컬 저장소의 blob을 자동으로 삭제 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈에서 로컬 저장소의 blob을 자동으로 삭제 합니다. 현재 허용 되는 최대 시간 (분)은 35791입니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | 기본적으로로 설정 되며 `true` , deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 로 설정할 수 `false` 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고:이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다.  <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 값이 만료 될 때 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램에서 수행 하는 추가 작업의 예상 된 빈도로 만료 값이 충분 한지 확인 하는 것이 좋습니다.<br><br> 환경 변수: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>로컬 저장소로 SMB 공유 사용
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-예:
+예를 들어:
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-예:
+예를 들어:
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -195,7 +195,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 로컬 저장소에 연결
 
-[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 로컬 저장소 계정에 연결할 수 있습니다.
+[Azure Storage 탐색기](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) 를 사용 하 여 로컬 저장소 계정에 연결할 수 있습니다.
 
 1. Azure Storage Explorer 다운로드 및 설치
 

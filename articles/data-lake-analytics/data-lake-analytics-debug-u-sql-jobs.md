@@ -1,22 +1,20 @@
 ---
 title: 'Azure Data Lake U-SQL 작업에 대 한 c # 코드 디버그'
 description: 이 문서에서는 Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 설명합니다.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131874"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218020"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
 
-U-SQL은 C#을 사용하는 확장성 모델을 제공합니다. U-SQL 스크립트에서는 간단하게 C# 함수를 호출하고 선언적 SQL 유사 언어를 지원하지 않는 분석 기능을 수행할 수 있습니다. U-SQL 확장성에 대한 자세한 내용은 [U-SQL 프로그래밍 기능 가이드](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf)를 참조하세요. 
+U-SQL은 C#을 사용하는 확장성 모델을 제공합니다. U-SQL 스크립트에서는 간단하게 C# 함수를 호출하고 선언적 SQL 유사 언어를 지원하지 않는 분석 기능을 수행할 수 있습니다. U-SQL 확장성에 대한 자세한 내용은 [U-SQL 프로그래밍 기능 가이드](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf)를 참조하세요. 
 
 실제로 모든 코드에는 디버깅이 필요하지만 제한된 로그 파일을 사용하여 클라우드에서 사용자 지정 코드를 포함하는 분산된 작업을 디버그하기 어렵습니다. [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)는 **실패한 꼭짓점 디버그**라는 기능을 제공합니다. 이를 통해 사용자 지정 코드에서 발생한 실패를 간단하게 디버그할 수 있습니다. U-SQL 작업에 실패하면 서비스는 오류 상태를 유지하며 해당 도구를 통해 클라우드 오류 환경을 디버깅할 로컬 컴퓨터에 다운로드할 수 있습니다. 로컬 다운로드는 모든 입력 데이터와 사용자 코드를 비롯한 전체 클라우드 환경을 캡처합니다.
 

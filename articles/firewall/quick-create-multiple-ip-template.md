@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 282ce16c926c61008d0ebd70106b161425a15c9e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89079084"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057980"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - ARM 템플릿
 
-이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 여러 공용 IP 주소로 Azure Firewall을 배포합니다. 배포된 방화벽에는 두 개의 Windows Server 2019 가상 머신에 대한 RDP 연결을 허용하는 NAT 규칙 수집 규칙이 있습니다.
+이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 공용 IP 주소 접두사에서 여러 공용 IP 주소로 Azure Firewall을 배포합니다. 배포된 방화벽에는 두 개의 Windows Server 2019 가상 머신에 대한 RDP 연결을 허용하는 NAT 규칙 수집 규칙이 있습니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,6 +42,7 @@ ms.locfileid: "89079084"
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPPrefix**](/azure/templates/microsoft.network/publicipprefixes)
 - [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150388"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217544"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -39,7 +39,7 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
 * SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다.
 * 데이터 웨어하우스에 액세스할 수 있는 데이터 공유에 대한 권한. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 SQL server로 이동 하 고 Azure Active Directory 관리자로 설정 합니다.
-    1. Azure Active Directory 인증을 사용 하 여 [쿼리 편집기](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) 또는 SQL Server Management Studio를 사용 하 여 Azure SQL Database/데이터 웨어하우스에 연결 합니다. 
+    1. Azure Active Directory 인증을 사용 하 여 [쿼리 편집기](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) 또는 SQL Server Management Studio를 사용 하 여 Azure SQL Database/데이터 웨어하우스에 연결 합니다. 
     1. 다음 스크립트를 실행 하 여 데이터 공유 리소스 관리 Id를 db_datareader 추가 합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
     
         ```sql
@@ -144,7 +144,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 ### <a name="prerequisites-for-target-storage-account"></a>대상 저장소 계정에 대 한 필수 구성 요소
 Azure Storage 데이터를 수신 하도록 선택 하는 경우 다음은 필수 구성 요소 목록입니다.
 
-* Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들 수 있습니다. 
+* Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](../storage/common/storage-account-create.md)을 만들 수 있습니다. 
 * 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
 * 스토리지 계정에 역할 할당을 추가할 수 있는 권한입니다. 이 권한은 *Microsoft.Authorization/role assignments/write*에 있습니다. 이 권한은 소유자 역할에 있습니다.  
 
@@ -154,7 +154,7 @@ Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synap
 * SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
 * 데이터 공유 리소스의 관리 ID가 Azure SQL Database 또는 Azure Synapse Analytics에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 SQL server로 이동 하 고 Azure Active Directory 관리자로 설정 합니다.
-    1. Azure Active Directory 인증을 사용 하 여 [쿼리 편집기](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) 또는 SQL Server Management Studio를 사용 하 여 Azure SQL Database/데이터 웨어하우스에 연결 합니다. 
+    1. Azure Active Directory 인증을 사용 하 여 [쿼리 편집기](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) 또는 SQL Server Management Studio를 사용 하 여 Azure SQL Database/데이터 웨어하우스에 연결 합니다. 
     1. 다음 스크립트를 실행 하 여 데이터 공유 관리 Id를 ' db_datareader, db_datawriter db_ddladmin ' (으)로 추가 합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
 
         ```sql
@@ -263,7 +263,7 @@ SQL 원본에서 데이터를 공유 하는 경우 스냅숏 프로세스 중에
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |개체 |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -275,7 +275,7 @@ SQL 원본에서 데이터를 공유 하는 경우 스냅숏 프로세스 중에
 
 >[!NOTE]
 > 1. Decimal 중간 형식에 매핑되는 데이터 형식의 경우 현재 스냅숏은 최대 28 까지의 전체 자릿수를 지원 합니다. 전체 자릿수가 28 보다 큰 데이터를 사용 하는 경우 문자열로 변환 하는 것이 좋습니다. 
-> 1.  Azure SQL database에서 Azure Synapse Analytics로 데이터를 공유 하는 경우 모든 데이터 형식이 지원 되는 것은 아닙니다. 자세한 내용은 [SYNAPSE SQL pool의 테이블 데이터 형식](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) 을 참조 하세요. 
+> 1.  Azure SQL database에서 Azure Synapse Analytics로 데이터를 공유 하는 경우 모든 데이터 형식이 지원 되는 것은 아닙니다. 자세한 내용은 [SYNAPSE SQL pool의 테이블 데이터 형식](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) 을 참조 하세요. 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Always Encrypted 또는 동적 데이터 마스킹
 현재 Azure 데이터 공유는 Always Encrypted 구성 된 Azure SQL database를 지원 하지 않습니다. 
@@ -294,6 +294,3 @@ SQL 스냅숏 성능은 여러 가지 요인의 영향을 받습니다. 항상 �
 
 ## <a name="next-steps"></a>다음 단계
 Azure 데이터 공유 서비스를 사용 하 여 SQL 원본에서 데이터를 공유 하 고 수신 하는 방법을 배웠습니다. 다른 데이터 원본에서 공유 하는 방법에 대 한 자세한 내용은 [지원 되는 데이터 저장소](supported-data-stores.md)를 계속 확인 하세요.
-
-
-

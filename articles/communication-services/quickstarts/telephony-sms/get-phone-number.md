@@ -9,12 +9,12 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: e06c3720e180c1dc4fa2f227fd86d15cbbb0ff33
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a9c33fad6d376c2f568f4eefbb0379486b5c40f3
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756917"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044771"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전화 번호 받기
 
@@ -103,7 +103,7 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 > [!NOTE]
 > 프로비저닝된 번호가 이 페이지에 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
 
-### <a name="customizing-phone-number-plans"></a>전화 번호 계획 사용자 지정
+### <a name="customizing-phone-number-features"></a>전화 번호 기능 사용자 지정
 `Numbers` 페이지에서 계획을 사용자 지정할 번호를 클릭하여 전화 번호를 선택할 수 있습니다.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::

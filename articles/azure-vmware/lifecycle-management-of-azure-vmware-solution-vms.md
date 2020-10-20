@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950366"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216252"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -53,8 +53,8 @@ Azure VMware 솔루션 Vm은 MMA (Log Analytics 에이전트 또는 OMS Linux �
 Azure Automation의 **Azure 업데이트 관리** 는 하이브리드 환경에서 Windows 및 Linux 컴퓨터에 대 한 운영 체제 업데이트를 관리 합니다. 패치 준수를 모니터링 하 고 패치 편차 경고를 수정 하기 위해 Azure Monitor으로 전달 합니다. Azure 업데이트 관리는 저장 된 데이터를 사용 하 여 Vm에 대 한 업데이트 상태를 평가 하기 위해 Log Analytics 작업 영역에 연결 해야 합니다.
 - Azure 업데이트 관리에 Log Analytics를 추가 하려면 먼저 [Azure Automation 계정을 만들어야](../automation/automation-create-standalone-account.md)합니다.
 - Log Analytics 작업 영역을 automation 계정에 연결 하려면 [Log Analytics 작업 영역 및 automation 계정](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)을 참조 하세요.
-- Vm에 대 한 Azure 업데이트 관리를 사용 하도록 설정 하려면 [Automation 계정에서 업데이트 관리 사용](../automation/update-management/update-mgmt-enable-automation-account.md)을 참조 하세요.
-- Azure 업데이트 관리에 Vm을 추가 하면 [vm에 업데이트를 배포 하 고 결과를 검토할](../automation/update-management/update-mgmt-deploy-updates.md)수 있습니다. 
+- Vm에 대 한 Azure 업데이트 관리를 사용 하도록 설정 하려면 [Automation 계정에서 업데이트 관리 사용](../automation/update-management/enable-from-automation-account.md)을 참조 하세요.
+- Azure 업데이트 관리에 Vm을 추가 하면 [vm에 업데이트를 배포 하 고 결과를 검토할](../automation/update-management/deploy-updates.md)수 있습니다. 
 
 **Azure Security Center** 는 클라우드 및 온-프레미스에서 하이브리드 워크 로드에 대해 고급 위협 방지 기능을 제공 합니다. Azure VMware 솔루션 Vm의 취약성을 평가 하 고 필요에 따라 경고를 발생 시킵니다. 이러한 보안 경고를 Azure Monitor에 전달 하 여 해결할 수 있습니다.
 - Azure Security Center는 배포가 필요 하지 않습니다. 자세한 내용은 [가상 컴퓨터에 대해 지원 되는 기능](../security-center/security-center-services.md)목록을 참조 하세요.

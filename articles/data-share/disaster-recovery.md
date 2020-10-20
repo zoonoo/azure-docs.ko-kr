@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 61804aaf65a97485e2b2b5bb4869c335a14ce812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7c9935d7e0d6bb2d457aa4c08f9b2b3e5fa910
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513561"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218700"
 ---
 # <a name="disaster-recovery-for-azure-data-share"></a>Azure 데이터 공유에 대 한 재해 복구
 
@@ -29,13 +29,9 @@ ms.locfileid: "87513561"
 
 ## <a name="related-information"></a>관련 정보
 
-- [비즈니스 연속성 및 재해 복구](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
-- [BCDR 전략에 고가용성 구축](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
+- [비즈니스 연속성 및 재해 복구](../best-practices-availability-paired-regions.md)
+- [BCDR 전략에 고가용성 구축](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## <a name="next-steps"></a>다음 단계
 
 데이터 공유를 시작하는 방법을 알아보려면 [데이터 공유](share-your-data.md) 자습서로 계속 진행하세요.
-
-
-
-

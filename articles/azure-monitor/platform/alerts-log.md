@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299423"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217561"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -55,7 +55,7 @@ ms.locfileid: "91299423"
 
 1. 로그 경고는 다음과 같은 두 가지 유형의 [**측정값**](alerts-unified-log.md#measure)을 기반으로 할 수 있습니다.
     1. **결과 수** -쿼리에서 반환 된 레코드 수입니다.
-    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들면 다음과 같습니다.
+    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들어:
 
     ```Kusto
     // Reported errors
@@ -201,7 +201,7 @@ ms.locfileid: "91299423"
     > [!NOTE]
     > 로그 경고 규칙은 현재 [상태 비저장 이며 확인 되지](alerts-unified-log.md#state-and-resolving-alerts)않습니다.
 
-1. 규칙을 편집 하려면 위쪽 표시줄에서 **규칙 관리** 단추를 선택 합니다.
+1. 규칙을 편집 하려면 위쪽 표시줄에서 **경고 규칙 관리** 단추를 선택 합니다.
 
     ![ 경고 규칙 관리](media/alerts-log/manage-alert-rules.png)
 

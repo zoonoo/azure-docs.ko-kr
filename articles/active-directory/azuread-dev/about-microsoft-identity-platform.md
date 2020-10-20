@@ -12,16 +12,16 @@ ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv, marsma
 ms.custom: aaddev
-ms.openlocfilehash: 23ab8c5092a546a7b66b93900c6c083ac8e84394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3a631a80e7ac5eed3c3239cb79e35b87c70ab1b0
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88117773"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055463"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
-Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자는 사용자를 로그인하고, Microsoft Graph 같은 API 또는 개발자가 빌드한 API를 호출하는 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 이 플랫폼은 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록 및 구성(개발자 포털 및 애플리케이션 API를 통해), 완전한 개발자 설명서, 빠른 시작 샘플, 코드 샘플, 자습서, 방법 가이드, 기타 개발자 콘텐츠로 구성되어 있습니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
+[Microsoft ID 플랫폼](../develop/index.yml)은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자는 사용자를 로그인하고, Microsoft Graph 같은 API 또는 개발자가 빌드한 API를 호출하는 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 이 플랫폼은 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록 및 구성(개발자 포털 및 애플리케이션 API를 통해), 완전한 개발자 설명서, 빠른 시작 샘플, 코드 샘플, 자습서, 방법 가이드, 기타 개발자 콘텐츠로 구성되어 있습니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
 
 많은 개발자는 이전에 ADAL(Azure AD 인증 라이브러리), 애플리케이션 등록 및 구성을 위한 Azure Portal, 프로그래밍 방식으로 애플리케이션 구성을 위한 Microsoft Graph API를 사용하여 Azure AD v1.0 엔드포인트에서 토큰을 요청하는 방법으로 Azure AD v1.0 플랫폼을 작업하여 회사 및 학교 계정(Azure AD로 프로비저닝된)을 인증했습니다.
 
@@ -49,7 +49,7 @@ Azure Portal **[앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)** �
 
 Azure AD B2C와 통합하려면(소셜 또는 로컬 ID를 인증할 때) 애플리케이션을 Azure AD B2C 테넌트에 등록해야 합니다. 이 환경은 Azure Portal의 일부이기도 합니다.
 
-[Application API](/graph/api/resources/application?view=graph-rest-1.0)를 사용하여 모든 Microsoft ID를 인증하도록 Microsoft ID 플랫폼과 통합된 애플리케이션을 프로그래밍 방식으로 구성합니다.
+[Application API](/graph/api/resources/application)를 사용하여 모든 Microsoft ID를 인증하도록 Microsoft ID 플랫폼과 통합된 애플리케이션을 프로그래밍 방식으로 구성합니다.
 
 ### <a name="msal-libraries"></a>MSAL 라이브러리
 
@@ -57,15 +57,10 @@ MSAL 라이브러리를 사용하여 모든 Microsoft ID를 인증하는 애플�
 
 또한 MSAL 라이브러리를 사용하여 애플리케이션을 Azure AD B2C와 통합할 수 있습니다.
 
-웹앱 및 웹 API 빌드에 사용되는 서버 쪽 라이브러리는 현재 일반 공급됩니다. [ASP.NET](/aspnet/overview) 및 [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
-
 ### <a name="microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트
 
 Microsoft ID 플랫폼(v2.0) 엔드포인트는 OIDC 인증을 획득했습니다. MSAL(Microsoft 인증 라이브러리) 및 기타 표준 규격 라이브러리를 지원하며, 산업 표준에 따라 사람이 읽을 수 있는 범위를 구현합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-v1.0 및 v2.0에 대해 자세히 알아봅니다.
-
-* [Microsoft ID 플랫폼(v2.0)](../develop/v2-overview.md) 개요
-* [개발자용 Azure Active Directory(v1.0)](v1-overview.md) 개요
+[Microsoft ID 플랫폼 설명서](../develop/index.yml)에서 자세히 알아보세요.

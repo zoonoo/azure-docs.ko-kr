@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 09/23/2020
-ms.openlocfilehash: d16285d6ba21c04e35f4bd5e334ac62ea83b8c87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/13/2020
+ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252878"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044057"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -84,6 +84,8 @@ ms.locfileid: "91252878"
 [평면화 결합](https://youtu.be/VY2tFQJoAXE)
 
 [계층적 데이터 변환](https://youtu.be/oAEh21NFgWQ)
+
+[순위 변환](https://youtu.be/6XvgkbMtws0)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 

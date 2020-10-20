@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 템플릿을 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 OS별 가상 머신 수를 계산하는 Resource Graph 공유 쿼리를 만듭니다.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685530"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057011"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 쿼리 만들기
 
@@ -53,9 +53,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. |
    | 위치 | 지역을 선택합니다. 예: **미국 중부** |
-   | 쿼리 이름 | 기본값인 **OS별 VM 수 계산**을 유지합니다. |
-   | 쿼리 코드 | 기본값인 `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)`을 유지합니다. |
-   | 쿼리 설명 | 기본값을 유지합니다. **이 공유 쿼리는 OS 유형별로 모든 가상 머신 리소스 수를 계산하고 요약합니다.** |
+   | 쿼리 이름 | 기본값을 그대로 둡니다. **OS별 VM 수를 계산**합니다. |
+   | 쿼리 코드 | 기본값(`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)`)을 그대로 둡니다. |
+   | 쿼리 설명 | 기본값을 그대로 둡니다. **이 공유 쿼리는 OS 유형별로 모든 가상 머신 리소스 수를 계산하고 요약합니다.** |
    | 위에 명시된 사용 약관에 동의함 | (선택) |
 
 1. **구매**를 선택합니다.
@@ -75,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **OS별 VM 수 계산**이라는 공유 쿼리를 선택한 다음, **개요** 페이지에서 **결과** 탭을 선택합니다.
 
-또는 Resource Graph Explorer에서 공유 쿼리를 열 수 있습니다.
+Resource Graph Explorer에서 공유 쿼리를 열 수도 있습니다.
 
 1. 포털 검색 창에서 **Resource Graph Explorer**를 검색하여 선택합니다.
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **형식**을 _공유 쿼리_로 변경합니다. 목록에 **OS별 VM 수 계산**이 보이지 않으면 필터 상자를 사용하여 결과를 제한합니다. **OS별 VM 수 계산**이라는 공유 쿼리가 보이면 이름을 선택합니다.
 
-1. 쿼리가 로드되면 **쿼리 실행** 단추를 선택합니다. 결과는 아래의 **결과** 테이블에 표시됩니다.
+1. 쿼리가 로드되면 **쿼리 실행** 단추를 선택합니다. 결과는 **결과** 탭에 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

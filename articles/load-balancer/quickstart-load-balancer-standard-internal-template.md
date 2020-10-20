@@ -1,6 +1,6 @@
 ---
-title: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 내부 부하 분산 장치 만들기
-description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
+title: '빠른 시작: 템플릿을 사용하여 내부 부하 분산 장치 만들기'
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 내부 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: 287afc51aa15ed4cadba7e2d6cd389e4869d7d61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: aa68dad2f8f018a9f3f70f2f02fd5e989ccbad4e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532836"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047763"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 

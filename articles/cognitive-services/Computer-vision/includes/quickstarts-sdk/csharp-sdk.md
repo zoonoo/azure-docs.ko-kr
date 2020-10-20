@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6315ca68c8e58c3ba04e616967c233c81fda9b19
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321913"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92038420"
 ---
 <a name="HOLTop"></a>
 
@@ -24,27 +24,34 @@ ms.locfileid: "89321913"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/)
+* [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
     * 애플리케이션을 Computer Vision 서비스에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
-* 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ## <a name="setting-up"></a>설치
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
-선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다. 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다. 
+
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
+
+새 프로젝트를 만든 후 **솔루션 탐색기**에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기**를 선택하고, **시험판 포함**을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`를 검색합니다. `6.0.0-preview.1` 버전, **설치**를 차례로 선택합니다. 
+
+#### <a name="cli"></a>[CLI](#tab/cli)
 
 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `computer-vision-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *ComputerVisionQuickstart.cs*.
 
-```dotnetcli
-dotnet new console -n computer-vision-quickstart
+```console
+dotnet new console -n (product-name)-quickstart
 ```
 
 새로 만든 앱 폴더로 디렉터리를 변경합니다. 다음을 통해 애플리케이션을 빌드할 수 있습니다.
 
-```dotnetcli
+```console
 dotnet build
 ```
 
@@ -58,6 +65,19 @@ Build succeeded.
 ...
 ```
 
+### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+
+애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Computer Vision 클라이언트 라이브러리를 설치합니다.
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
+```
+
+---
+
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
+
 프로젝트 디렉터리의 선호하는 편집기 또는 IDE에서 *ComputerVisionQuickstart.cs* 파일을 엽니다. 다음 `using` 지시문을 추가합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
@@ -66,21 +86,25 @@ Build succeeded.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_vars)]
 
-### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+> [!IMPORTANT]
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Computer Vision 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) 문서를 참조하세요.
 
-애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Computer Vision 클라이언트 라이브러리를 설치합니다.
+애플리케이션의 `Main` 메서드에서 이 빠른 시작에 사용된 메서드에 대한 호출을 추가합니다. 나중에 만들 것입니다.
 
-```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
-```
 
-Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다운로드 가능한 NuGet 패키지로 제공됩니다.
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ## <a name="object-model"></a>개체 모델
 
 Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-|속성|Description|
+|Name|Description|
 |---|---|
 | [ComputerVisionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-dotnet) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
 |[ComputerVisionClientExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions?view=azure-dotnet)| 이 클래스는 **ComputerVisionClient**에 대한 추가 메서드를 포함하고 있습니다.|
@@ -103,17 +127,12 @@ Computer Vision .NET SDK의 주요 기능 중 일부를 처리하는 클래스�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
-`Main` 메서드에서 다음 메서드를 호출하는 것이 좋습니다.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
 다음 코드는 클라이언트 개체를 사용하여 원격 이미지를 분석하고 결과를 출력하는 `AnalyzeImageUrl` 메서드를 정의합니다. 이 메서드는 텍스트 설명, 분류, 태그 목록, 감지된 얼굴, 성인 콘텐츠 플래그, 기본 색 및 이미지 형식을 반환합니다.
 
-`Main` 메서드에서 메서드 호출을 추가합니다.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
@@ -214,9 +233,6 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 문자 인식)](../../concept-recognizing-text.md#read-api) 개념 문서를 참조하세요. 이 섹션의 코드는 최신 [Read 3.0용 Computer Vision SDK 릴리스](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)를 사용하고, 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
 
-`Main` 메서드에서 메서드 호출을 추가합니다.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
@@ -247,11 +263,19 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+IDE 창의 맨 위에 있는 **디버그** 단추를 클릭하여 애플리케이션을 실행합니다.
+
+#### <a name="cli"></a>[CLI](#tab/cli)
+
 `dotnet run` 명령을 사용하여 애플리케이션 디렉터리에서 애플리케이션을 실행합니다.
 
-```dotnetcli
+```dotnet
 dotnet run
 ```
+
+---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

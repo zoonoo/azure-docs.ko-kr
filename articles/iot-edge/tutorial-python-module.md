@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 Python 모듈 만들기 - Azure IoT Edge | Microsoft Docs
+title: 자습서 - 사용자 지정 Python 모듈 만들기 - Azure IoT Edge | Microsoft Docs
 description: 이 자습서에서는 Python 코드를 사용하여 IoT Edge 모듈을 만들고, 에지 디바이스에 배포하는 방법을 보여줍니다.
 services: iot-edge
 author: kgremban
@@ -10,12 +10,12 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c05124a1f5e5920b94d1925490b6714ba3b33c83
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1cc3db32650891c5f95be05267541f93ca49218e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336771"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047967"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
 
@@ -51,7 +51,7 @@ Visual Studio Code를 사용하여 Python 코드를 개발하고 Azure IoT Edge�
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
-* [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)와 같은 컨테이너 레지스트리
+* [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)
 
@@ -269,7 +269,7 @@ Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 I
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 코드가 포함된 IoT Edge 모듈을 만들었습니다. 고유한 모듈을 빌드할 준비가 되면 [고유한 IoT Edge 모듈 개발](module-development.md) 또는 [Visual Studio Code를 사용하여 모듈을 개발](how-to-vs-code-develop-module.md)하는 방법을 알아볼 수 있습니다. 시뮬레이션된 온도 모듈을 포함한 IoT Edge 모듈의 예제는 [IoT Edge 모듈 샘플](https://github.com/Azure/iotedge/tree/master/edge-modules) 및 [IoT Python SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios)을 참조하세요.
+이 자습서에서는 IoT Edge 디바이스에서 생성된 원시 데이터를 필터링하는 코드가 포함된 IoT Edge 모듈을 만들었습니다.
 
 다음 자습서를 계속 진행하면서 Azure Cloud Services를 배포하여 에지에서 데이터를 처리 및 분석하는 데 Azure IoT Edge를 어떻게 활용할 수 있는지 알아볼 수 있습니다.
 

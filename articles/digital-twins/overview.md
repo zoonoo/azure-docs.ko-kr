@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89003850"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044669"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -38,13 +38,13 @@ Azure Digital Twins에서 [**모델**](concepts-models.md)이라는 사용자 �
 * 모델은 엔터티 간에 의미 체계 **관계**를 정의하여 해당 상호 작용을 반영하는 지식 그래프에 쌍을 연결할 수 있도록 합니다. 모델을 세계 설명에서 명사로, 관계를 동사로 간주할 수 있습니다.
 * 또한 모델 상속을 사용하여 쌍을 특수화할 수도 있습니다. 한 모델은 다른 모델에서 상속할 수 있습니다.
 
-DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/time-series-insights-update-overview.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이렇게 하면 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
+DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이렇게 하면 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
 
 ### <a name="live-execution-environment"></a>라이브 실행 환경
 
 Azure Digital Twins의 디지털 모델은 실제 세계의 실시간, 최신 표현입니다. 사용자 지정 DTDL 모델에서 관계를 사용하 여 사용자 환경을 나타내는 **실시간 그래프**에 쌍을 연결합니다.
 
-샘플 애플리케이션 [**Azure Digital Twins 탐색기**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)의 도움을 통해 Azure Digital Twins 그래프의 시각화를 볼 수 있습니다.
+샘플 애플리케이션 [**Azure Digital Twins 탐색기**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)의 도움을 통해 Azure Digital Twins 그래프의 시각화를 볼 수 있습니다.
 
 샘플 시각화의 모양은 다음과 같습니다.
 
@@ -84,7 +84,7 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 * 모델을 구성하고 토폴로지를 만들고 쌍 그래프에서 인사이트를 추출하여 Azure Digital Twins 인스턴스를 구동하는 하나 이상의 클라이언트 앱입니다.
 * Azure Digital Twins에 의해 생성된 이벤트를 처리하는 하나 이상의 외부 계산 리소스 또는 장치와 같이 연결된 데이터 원본입니다. 계산 리소스를 제공하는 일반적인 방법 중 하나는 [Azure Functions](../azure-functions/functions-overview.md)을 통하는 것입니다.
 * IoT hub를 통해 장치 관리 및 IoT 데이터 스트림 기능을 제공합니다.
-* 워크플로 통합(예: [Logic Apps](../logic-apps/logic-apps-overview.md), 콜드 스토리지, 시계열 통합 또는 분석)과 같은 태스크를 처리하는 다운스트림 서비스입니다. 
+* 워크플로 통합(예: [Logic Apps](../logic-apps/logic-apps-overview.md), 콜드 스토리지, 시계열 통합 또는 분석)과 같은 태스크를 처리하는 다운스트림 서비스입니다.
 
 다음 다이어그램에서는 Azure Digital Twins 이 더 큰 Azure IoT 솔루션의 컨텍스트에서 발생하는 위치를 보여줍니다.
 

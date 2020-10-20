@@ -1,17 +1,15 @@
 ---
 title: Visual Studio 용 Data Lake 도구에서 꼭 짓 점 실행 보기
 description: 이 문서에서는 Vertex Execution View를 사용하여 Data Lake Analytics 작업을 검사하는 방법을 설명합니다.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fba7bdaa5db1d812fbcd479e5f1eab50c8d1032
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331950"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215861"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake Tools의 Vertex Execution View 사용
 Data Lake Analytics 작업을 검사하기 위해 Vertex Execution View를 사용하는 방법을 알아봅니다.

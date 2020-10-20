@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d6ef0b0d437674d78064e6c5c5a91e1b2b89074a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fb158b713bea588e9de94e13ac194ec0a4d0020a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324674"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058151"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>자습서: Node.js에서 Language Understanding으로 구현된 웹앱 봇 사용
 
@@ -27,7 +27,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [봇 에뮬레이터](https://aka.ms/abs/build/emulatordownload)
+* [Bot Framework 에뮬레이터](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 ## <a name="create-a-web-app-bot-resource"></a>웹앱 봇 리소스 만들기
@@ -371,20 +371,20 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 ![홈페이지는 봇에 대한 정보를 표시합니다.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>봇 에뮬레이터를 사용하여 봇 테스트
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>Bot Framework 에뮬레이터를 사용하여 봇 테스트
 
 봇에게 항공편 예약 의도에 대해 질문을 합니다.
 
-1. 봇 에뮬레이터를 시작하고 **봇 열기**를 선택합니다.
+1. Bot Framework 에뮬레이터를 시작하고 **봇 열기**를 선택합니다.
 1. **봇 열기** 팝업 대화 상자에서 봇 URL(예: `http://localhost:3978/api/messages`)을 입력합니다. `/api/messages` 경로는 봇의 웹 주소입니다.
 1. 다운로드한 봇 코드의 루트에 있는 **.env** 파일에서 확인할 수 있는 **Microsoft 앱 ID** 및 **Microsoft 앱 암호**를 입력합니다.
 
-1. 봇 에뮬레이터에서 `Book a flight from Seattle to Berlin tomorrow`를 입력하고 **웹 채팅에서 테스트**에서 받은 것과 동일한 기본 봇 응답을 받습니다.
+1. Bot Framework 에뮬레이터에서 `Book a flight from Seattle to Berlin tomorrow`를 입력하고 **웹 채팅에서 테스트**에서 받은 것과 동일한 기본 봇에 대한 응답을 받습니다.
 
     [![에뮬레이터의 기본 봇 응답](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. **예**를 선택합니다. 봇이 해당 작업의 요약으로 응답합니다.
-1. 봇 에뮬레이터 로그에서 `<- trace LuisV3 Trace`가 포함된 줄을 선택합니다. 여기에는 발화의 의도 및 엔터티에 대한 LUIS의 JSON 응답이 표시됩니다.
+1. Bot Framework 에뮬레이터 로그에서 `<- trace LuisV3 Trace`가 포함된 줄을 선택합니다. 여기에는 발화의 의도 및 엔터티에 대한 LUIS의 JSON 응답이 표시됩니다.
 
     [![에뮬레이터의 기본 봇 응답](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

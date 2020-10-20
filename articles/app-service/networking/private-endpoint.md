@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873101"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217068"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Azure 웹 앱에 대 한 개인 끝점 사용
 
@@ -68,7 +68,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 기본적으로 개인 끝점을 사용 하지 않고 웹 앱의 공개 이름은 클러스터에 대 한 정식 이름입니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |유형 |값 |
+|Name |Type |값 |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -78,7 +78,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 개인 끝점을 배포할 때 정식 이름 mywebapp.privatelink.azurewebsites.net을 가리키도록 DNS 항목을 업데이트 합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |유형 |값 |설명 |
+|Name |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -89,9 +89,9 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 만들어야 하는 DNS 영역은 **privatelink.azurewebsites.net**입니다. A 레코드와 개인 끝점 IP를 사용 하 여 웹 앱에 대 한 레코드를 등록 합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |유형 |값 |설명 |
+|Name |Type |값 |설명 |
 |-----|-----|------|-------|
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<-Azure 공용 DNS에서이 항목을 만들어 app service가 privatelink를 가리키도록 합니다 .이 항목은 microsoft에서 관리 합니다.|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-개인 끝점 IP 주소를 가리키도록 DNS 시스템에서이 항목을 관리 합니다.|
 
 이 DNS 구성 후에는 기본 이름인 mywebappname.azurewebsites.net를 사용 하 여 개인적으로 웹 앱에 연결할 수 있습니다. 기본 인증서가 *. azurewebsites.net에 대해 발급 되었으므로이 이름을 사용 해야 합니다.
@@ -101,7 +101,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 
 Kudu 콘솔 또는 Kudu REST API (예: Azure DevOps 자체 호스팅 에이전트로 배포)의 경우 Azure DNS 개인 영역 또는 사용자 지정 DNS 서버에서 두 개의 레코드를 만들어야 합니다. 
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 

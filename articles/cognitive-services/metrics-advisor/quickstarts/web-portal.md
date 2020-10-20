@@ -3,19 +3,19 @@ title: '빠른 시작: Metrics Advisor 웹 포털'
 titleSuffix: Azure Cognitive Services
 description: Metrics Advisor 웹 포털 사용을 시작하는 방법을 알아봅니다.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.author: mbullwin
+ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631381"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048239"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>빠른 시작: 웹 포털을 사용하여 첫 번째 메트릭 모니터링
 
@@ -41,7 +41,7 @@ Metrics Advisor 인스턴스를 프로비저닝할 때 API 및 웹 기반 작업
 
 ## <a name="sign-in-to-your-workspace"></a>작업 영역에 로그인
 
-리소스를 배포한 후 [Metrics Advisor 관리자 포털](https://go.microsoft.com/fwlink/?linkid=2143774)에 로그인합니다. 작업 영역을 선택하여 메트릭 모니터링을 시작합니다. 
+리소스를 만든 후 [Metrics Advisor 포털](https://go.microsoft.com/fwlink/?linkid=2143774)에 로그인합니다. 작업 영역을 선택하여 메트릭 모니터링을 시작합니다. 
  
 현재 사용 가능한 각 지역에서 하나의 Metrics Advisor 리소스를 만들 수 있습니다. 언제든지 Metrics Advisor 포털에서 작업 영역을 전환할 수 있습니다.
 

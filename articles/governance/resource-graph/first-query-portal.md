@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 포털 쿼리'
 description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 따릅니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4d68366005ad6379669d29fb8264f78d1b8f4972
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88056383"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057385"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Resource Graph 쿼리에서 차트 만들기
 
-위의 마지막 쿼리를 실행한 후 **차트** 탭을 선택하면 "결과 세트가 원형 차트 시각화와 호환되지 않습니다."라는 메시지가 표시됩니다. 결과를 나열하는 쿼리는 차트로 만들 수 없지만, 리소스 수를 제공하는 쿼리는 만들 수 있습니다. [샘플 쿼리 - OS 유형별 가상 머신 개수 계산](./samples/starter.md#count-os)을 사용하여 Resource Graph 쿼리에서 시각화를 만들어 보겠습니다.
+이전 쿼리를 실행한 후 **차트** 탭을 선택하면 "결과 세트가 원형 차트 시각화와 호환되지 않습니다."라는 메시지가 표시됩니다. 결과를 나열하는 쿼리는 차트로 만들 수 없지만, 리소스 수를 제공하는 쿼리는 만들 수 있습니다. [샘플 쿼리 - OS 유형별 가상 머신 개수 계산](./samples/starter.md#count-os)을 사용하여 Resource Graph 쿼리에서 시각화를 만들어 보겠습니다.
 
 1. 창의 **쿼리 1** 부분에서 다음 쿼리를 입력하고 **쿼리 실행**을 선택합니다.
 
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="pin-the-query-visualization-to-a-dashboard"></a>대시보드에 쿼리 시각화 고정
 
-시각화할 수 있는 쿼리의 결과가 있으면 해당 데이터 시각화를 대시보드 중 하나에 고정할 수 있습니다. 위의 쿼리가 실행되면 다음 단계를 수행합니다.
+시각화할 수 있는 쿼리의 결과가 있으면 해당 데이터 시각화를 대시보드 중 하나에 고정할 수 있습니다. 이전 쿼리를 실행한 후 다음 단계를 수행합니다.
 
 1. **저장**을 선택하고, "OS 유형별 VM 수"라는 이름을 제공합니다. 그런 다음, 오른쪽 창의 아래쪽에서 **저장**을 선택합니다.
 

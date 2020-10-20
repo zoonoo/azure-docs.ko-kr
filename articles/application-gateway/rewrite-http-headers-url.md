@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281194"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216677"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 및 URL 다시 작성
 
@@ -50,7 +50,7 @@ Application Gateway에서 URL 재작성 기능을 사용 하면 다음을 수행
 
 Azure Portal를 사용 하 여 URL을 다시 작성 하는 방법에 대 한 자세한 내용은 [여기](rewrite-url-portal.md)를 참조 하십시오. Application Gateway
 
-![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Application Gateway를 사용 하 여 URL을 다시 작성 하는 프로세스를 설명 하는 다이어그램입니다.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > URL 다시 쓰기 기능은 미리 보기 상태 이며 Application Gateway의 Standard_v2 및 WAF_v2 SKU에 대해서만 사용할 수 있습니다. 프로덕션 환경에서는 사용 하지 않는 것이 좋습니다. 미리 보기에 대 한 자세한 내용은 [여기의 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
