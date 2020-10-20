@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251884"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842770"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -191,11 +191,11 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 처리하는 방법을 강조 표시하고 있습니다. 최상위 처리기와 climate component(기후 구성 요소) 처리기가 모두 실행되는 방식을 확인할 수 있습니다.
 
-![시뮬레이션된 디바이스](./media/tutorial-device-twins/SimulatedDevice1.png)
+![최상위 처리기와 기후 구성 요소 처리기가 모두 실행되는 방식을 보여주는 스크린샷.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 보내는 방법을 강조 표시하고 있습니다.
 
-![백 엔드 애플리케이션](./media/tutorial-device-twins/BackEnd1.png)
+![백 엔드 애플리케이션의 출력을 표시하고 업데이트를 보내는 방법을 강조 표시하는 스크린샷.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## <a name="receive-state-information"></a>상태 정보 받기
 

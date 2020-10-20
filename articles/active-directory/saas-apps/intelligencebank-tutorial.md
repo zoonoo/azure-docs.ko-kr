@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 5956623876646d976c2c93b4953adab33e8231b2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429820f41025eda262742ac9aec1de3b646b141f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535597"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intelligencebank"></a>자습서: IntelligenceBank와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -137,11 +137,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Authenticator**를 클릭하고 **새로 추가**를 클릭합니다.
 
-    ![IntelligenceBank 구성](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![스크린샷은 선택된 관리자 탭과 새로 추가 아이콘을 보여줍니다.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. 다음 단계를 수행합니다.
 
-    ![IntelligenceBank 구성](./media/intelligencebank-tutorial/urls.PNG)
+    ![스크린샷은 이 단계에서 정보를 입력하는 필드를 보여줍니다.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. **이름** 텍스트 상자에 이름(예: `azureadsso`)을 입력합니다.
 
@@ -165,11 +165,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리자** -> **사용자**로 이동하여 **새 사용자 추가 아이콘**을 누르고 **사용자**를 추가합니다.
 
-    ![IntelligenceBank 구성](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![스크린샷은 사용자 탭에서 선택한 사용자 아이콘을 보여줍니다.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. 조직의 요구 사항에 따라 필요한 필드를 추가하고 **저장**을 클릭합니다.
 
-    ![IntelligenceBank 구성](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![스크린샷은 사용자 정보를 입력하는 새 사용자 추가 페이지를 보여줍니다.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## <a name="test-sso"></a>SSO 테스트 
 

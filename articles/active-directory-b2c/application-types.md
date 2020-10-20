@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84295425"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215407"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
-
+ 
 Azure Active Directory B2C (Azure AD B2C)는 다양 한 최신 응용 프로그램 아키텍처에 대 한 인증을 지원 합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](protocols-overview.md) 또는 [OpenID Connect](protocols-overview.md)를 기반으로 합니다. 이 문서에서는 선호 하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 응용 프로그램의 유형을 설명 합니다. 또한 애플리케이션 빌드를 시작하기 전에 대략적인 시나리오에 대한 이해를 돕습니다.
 
 Azure AD B2C를 사용 하는 모든 응용 프로그램은 [Azure Portal](https://portal.azure.com/)을 사용 하 여 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md) 에 등록 해야 합니다. 애플리케이션 등록 프로세스는 다음과 같은 값을 수집하고 할당합니다.
@@ -75,6 +75,26 @@ Azure AD에서 수신한 공개 서명 키를 사용하여 `id_token` 의 유효
 
 간단한 로그인뿐 아니라 웹 서버 애플리케이션은 백 엔드 웹 서비스에 액세스해야 할 수도 있습니다. 이 경우, 웹 애플리케이션은 약간 다른 [OpenID Connect 흐름](openid-connect.md)을 수행하고 권한 부여 코드를 사용하여 토큰을 획득하며 토큰을 새로 고칠 수 있습니다. 이 시나리오는 다음 [Web API 섹션](#web-apis)에서 설명합니다.
 
+## <a name="single-page-applications"></a>단일 페이지 애플리케이션
+많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램 ("SPAs")으로 빌드됩니다. 개발자는 JavaScript를 사용 하 여, 또는의 SPA 프레임 워크 (예: 각도, Vue 및 반응)를 사용 하 여 작성 합니다. 이러한 응용 프로그램은 웹 브라우저에서 실행 되며 기존 서버 쪽 웹 응용 프로그램과는 다른 인증 특징이 있습니다.
+
+Azure AD B2C는 단일 페이지 응용 프로그램에서 사용자에 게 로그인 하 고 토큰을 가져와서 백 엔드 서비스 또는 웹 Api에 액세스할 수 있도록 하는 **두 가지** 옵션을 제공 합니다.
+
+### <a name="authorization-code-flow-with-pkce"></a>권한 부여 코드 흐름 (PKCE 포함)
+- [OAuth 2.0 인증 코드 흐름 (PKCE 포함)](./authorization-code-flow.md). 권한 부여 코드 흐름을 사용 하면 응용 프로그램이 **ID** 토큰에 대 한 권한 부여 코드를 교환 하 여 보호 된 api를 호출 하는 데 필요한 인증 된 사용자 및 **액세스** 토큰을 나타낼 수 있습니다. 또한 사용자를 대신 하 여 리소스에 대 한 장기 액세스를 제공 하는 **새로 고침** 토큰을 반환 합니다. 
+
+이것이 **권장** 되는 방법입니다. 제한 된 수명 새로 고침 토큰을 사용 하면 응용 프로그램이 Safari ITP와 같은 [최신 브라우저 쿠키 개인 정보 보호 제한](../active-directory/develop/reference-third-party-cookies-spas.md)에 맞게 조정 됩니다.
+
+이 흐름을 활용 하기 위해 응용 프로그램은 [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)2.x와 같이 지원 되는 인증 라이브러리를 사용할 수 있습니다.
+
+<!-- ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg) -->
+![단일 페이지 응용 프로그램-인증](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
+
+### <a name="implicit-grant-flow"></a>암시적 권한 부여 흐름
+- [OAuth 2.0 암시적 흐름](implicit-flow-single-page-application.md)입니다. 1.x [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)와 같은 일부 프레임 워크에서는 암시적 부여 흐름이 지원 됩니다. 암시적 권한 부여 흐름을 사용 하면 응용 프로그램에서 **ID** 및 **액세스** 토큰을 가져올 수 있습니다. 권한 부여 코드 흐름과 달리 암시적 허용 흐름은 **새로 고침 토큰**을 반환 하지 않습니다. 
+
+이 인증 흐름에는 전자 및 반응-네이티브와 같은 플랫폼 간 JavaScript 프레임 워크를 사용 하는 응용 프로그램 시나리오가 포함 되지 않습니다. 이러한 시나리오에는 네이티브 플랫폼과의 상호 작용을 위한 추가 기능이 필요 합니다.
+
 ## <a name="web-apis"></a>Web API
 
 Azure AD B2C를 사용하여 애플리케이션의 RESTful Web API와 같은 웹 서비스의 보안을 유지할 수 있습니다. Web API는 토큰을 사용하는 들어오는 HTTP 요청을 인증하여 해당 데이터를 보호하는 데 OAuth 2.0을 사용할 수 있습니다. Web API 호출자는 HTTP 요청의 권한 부여 헤더에 토큰을 추가합니다.
@@ -85,7 +105,7 @@ Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
 Accept: application/json
 ...
-```
+``` 
 
 그러면 Web API는 토큰을 사용하여 API 호출자의 ID를 확인하고 토큰에 인코드된 클레임에서 호출자에 대한 정보를 추출할 수 있습니다. [Azure AD B2C 토큰 참조](tokens-overview.md)에서 앱이 사용할 수 있는 토큰 및 클레임 유형에 대해 알아볼 수 있습니다.
 

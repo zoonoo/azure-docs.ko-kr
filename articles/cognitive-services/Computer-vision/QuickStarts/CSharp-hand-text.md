@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: Computer Vision 3.0 REST API 읽기 작업 및 C#을 사용하여 텍스트 추출'
+title: '빠른 시작: Computer Vision 3.1 REST API 읽기 작업 및 C#을 사용하여 텍스트 추출'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Computer Vision 3.0 REST API 읽기 작업 및 C#을 사용하여 이미지에 OCR을 적용합니다.
+description: 이 빠른 시작에서는 Computer Vision 3.1 REST API 읽기 작업 및 C#을 사용하여 이미지에 OCR을 적용합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 2f7678e2dd9f04f7aa930271c69c2d4ccf1e692b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 603a002b4d9088295f7050afc47e643290818e0b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88928244"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969486"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>빠른 시작: Computer Vision 3.0 REST API 읽기 작업 및 C#을 사용하여 텍스트 추출
+# <a name="quickstart-extract-text-using-the-computer-vision-31-rest-api-read-operation-and-c"></a>빠른 시작: Computer Vision 3.1 REST API 읽기 작업 및 C#을 사용하여 텍스트 추출
 
-이 빠른 시작에서는 Computer Vision 3.0 REST API의 일부로 제공되는 새로운 OCR 기술을 사용하여 이미지에서 인쇄 및 필기 텍스트를 추출합니다. 새 [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 및 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 메서드를 사용하면 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. 
+이 빠른 시작에서는 Computer Vision 3.1 REST API의 일부로 제공되는 새로운 OCR 기술을 사용하여 이미지에서 인쇄 및 필기 텍스트를 추출합니다. 새 [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 및 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 메서드를 사용하면 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. 
 
 > [!IMPORTANT]
-> [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Location` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API를 나타내는 이 URI를 호출하여 상태를 확인하고 읽기 메서드 호출 결과를 반환할 수 있습니다.
+> [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Location` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) API를 나타내는 이 URI를 호출하여 상태를 확인하고 읽기 메서드 호출 결과를 반환할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.1/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";
@@ -213,7 +213,7 @@ namespace CSHttpClientSample
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

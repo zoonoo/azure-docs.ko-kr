@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2019
 ms.author: yelevin
-ms.openlocfilehash: f75731fab9a238ffcac2e620235c9d8c5da97549
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 0e7d790fa9c5d4052ddb1e20defed1d1cc457a2e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053493"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840203"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화된 위협 응답 설정
 
@@ -72,7 +72,7 @@ ms.locfileid: "88053493"
 
 5. [**논리 앱 디자이너**](../logic-apps/logic-apps-overview.md)에서 사용하려는 템플릿을 선택합니다. 자격 증명이 필요한 템플릿을 선택할 경우에는 자격 증명을 제공해야 합니다. 또는 처음부터 새로운 빈 플레이북을 만들 수도 있습니다. **빈 논리 앱**을 선택합니다. 
 
-   ![논리 앱 디자이너](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![빈 논리 앱 패널을 보여주는 스크린샷.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. 템플릿을 새로 빌드하거나 편집할 수 있는 논리 앱 디자이너로 연결됩니다. [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md)를 사용하여 플레이북을 만드는 방법에 대한 자세한 내용
 

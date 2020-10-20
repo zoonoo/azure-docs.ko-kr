@@ -94,25 +94,24 @@
     - name: 모니터
     - name: 역할 및 권한 만들기
       href: spring-cloud-howto-permissions.md
-      items:
-        - name: 분산 추적 및 앱 인사이트
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: 로그 및 메트릭 분석
-          href: diagnostic-services.md
-        - name: 실시간으로 로그 스트림
-          href: spring-cloud-howto-log-streaming.md
-    - name: DevOps 배포
-      items:
-        - name: Azure DevOps를 사용하는 CI/CD
-          href: spring-cloud-howto-cicd.md
-        - name: GitHub 작업을 사용하는 CI/CD
-          href: spring-cloud-howto-github-actions.md
-        - name: GitHub 작업에서 Key Vault를 사용한 인증
-          href: spring-cloud-github-actions-key-vault.md
-    - name: 문제 해결
-      items:
-        - name: 문제 해결 가이드
-          href: spring-cloud-troubleshoot.md
+    - name: 분산 추적 및 앱 인사이트
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: 로그 및 메트릭 분석
+      href: diagnostic-services.md
+    - name: 실시간으로 로그 스트림
+      href: spring-cloud-howto-log-streaming.md
+- name: DevOps 배포
+  items:
+    - name: Azure DevOps를 사용하는 CI/CD
+      href: spring-cloud-howto-cicd.md
+    - name: GitHub 작업을 사용하는 CI/CD
+      href: spring-cloud-howto-github-actions.md
+    - name: GitHub 작업에서 Key Vault를 사용한 인증
+      href: spring-cloud-github-actions-key-vault.md
+- name: 문제 해결
+  items:
+    - name: 문제 해결 가이드
+      href: spring-cloud-troubleshoot.md
 - name: 참조
   items:
     - name: Azure CLI 플러그 인

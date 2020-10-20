@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543995"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>자습서: Optimizely와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 5. Optimizely 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![오른쪽 상단에 있는 "편집" 아이콘이 선택된 "사용자 특성" 대화 상자를 보여주는 스크린샷.](common/edit-attribute.png)
 
 6. 위에서 언급한 특성 외에도, Optimizely 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
 
@@ -120,7 +120,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    !["새 클레임 추가" 및 "저장" 작업이 강조 표시된 "사용자 클레임" 대화 상자를 보여주는 스크린샷.](common/new-save-attribute.png)
 
     ![이미지](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 4. 오른쪽 위 구석에 있는 계정 이름을 클릭하고 **계정 설정**을 클릭합니다.
 
-    ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![메뉴에서 "계정 설정"이 선택된 상태에서 오른쪽 위 모서리에서 선택된 계정 이름을 보여주는 스크린샷.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. 계정 탭에서 **개요** 섹션의 Single Sign-On 아래에 있는 **SSO 사용** 확인란을 선택합니다.
   
@@ -231,7 +231,7 @@ Optimizely에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 2. 프로젝트에 새 공동 작업자를 추가하려면 **New Collaborator** 를 클릭합니다.
    
-    ![Azure AD 테스트 사용자 만들기](./media/optimizely-tutorial/create_aaduser_10.png)
+    !["협력자" 탭과 "새 협력자" 단추가 선택된 Optimizely 홈페이지를 보여주는 스크린샷.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. 전자 메일 주소를 입력하고 역할을 할당합니다. **초대**를 클릭합니다.
 

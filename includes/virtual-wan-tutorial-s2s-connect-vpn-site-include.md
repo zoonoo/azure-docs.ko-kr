@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90606695"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856728"
 ---
 1. **VPN 사이트 연결**을 선택하여 **사이트 연결** 페이지를 엽니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "90606695"
    다음 필드를 작성합니다.
 
    * 미리 공유한 키를 입력합니다. 키를 입력하지 않으면 Azure에서 자동으로 키를 생성합니다.
-   * 프로토콜 및 IPsec 설정을 선택합니다. [기본/사용자 지정 IPSec 세부 정보]를 참조하세요(https://docs.microsoft.com/azure/virtual-wan/virtual-wan-ipsec).
+   * 프로토콜 및 IPsec 설정을 선택합니다. 자세한 내용은 [기본/사용자 지정 IPsec](../articles/virtual-wan/virtual-wan-ipsec.md)을 참조하세요.
    * **기본 경로 전파**에 대한 적절한 옵션을 선택합니다. **사용** 옵션을 설정하면 가상 허브가 학습한 기본 경로를 이 연결에 전파합니다. 허브에 방화벽을 배포하여 Virtual WAN 허브에서 기본 경로를 이미 학습한 경우나 연결된 다른 사이트에서 강제로 터널링을 사용한 경우에만 이 플래그가 연결에 기본 경로 전파를 사용하도록 설정합니다. 기본 경로는 Virtual WAN 허브에서 시작되지 않습니다.
 
 2. **연결**을 선택합니다.

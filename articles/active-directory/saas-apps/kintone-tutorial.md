@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e831fd561b7c8dcf78e9203ec6d38c60c22a5bf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e1e966595422f353067d66483defa0b880874415
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535342"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>자습서: Kintone과 Azure Active Directory 통합
 
@@ -145,7 +145,7 @@ Kintone에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 1. **SAML 인증 사용**을 클릭합니다.
 
-    ![SAML 인증](./media/kintone-tutorial/ic785882.png "SAML 인증")
+    ![선택된 "사용자 및 시스템 관리"를 보여주는 스크린샷.](./media/kintone-tutorial/ic785882.png "SAML 인증")
 
 1. SAML Authentication 섹션에서 다음 단계를 수행합니다.
 
@@ -232,7 +232,7 @@ Azure AD 사용자가 Kintone에 로그인하려면 Kintone에 프로비저닝�
 
 1. **새 사용자**를 클릭합니다.
 
-    ![새 사용자](./media/kintone-tutorial/ic785889.png "새 사용자")
+    !["새 사용자" 작업이 선택된 "사용자" 섹션을 보여주는 스크린샷.](./media/kintone-tutorial/ic785889.png "새 사용자")
 
 1. **새 사용자** 섹션에서 다음 단계를 수행합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e385b40911e1adf4e5142de4fb627334baee4a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 08d9c2f1676c0a04e9cd191b64c41af276521b3d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543746"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>자습서: Peakon과 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Peakon에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Peakon 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    !["로그온 URL" 텍스트 상자가 강조 표시된 상태에서 선택된 "추가 URL 설정"을 보여주는 스크린샷.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 `https://app.peakon.com/login` URL을 입력합니다.
 

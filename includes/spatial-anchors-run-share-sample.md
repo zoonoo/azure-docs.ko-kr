@@ -4,17 +4,22 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: efd5ff494620d4fab3fb904d9bcf054b57a3290b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50e4799f09322eab05b4f8ddf7004c2e0078fdab
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358814"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971491"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
 Java Android 샘플은 디바이스 간 공유를 지원합니다.
-Android Studio의 샘플 폴더에서 `SharedActivity.java` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+Android Studio의 샘플 폴더에서 *SharedActivity.java* 파일을 엽니다. 
+
+이전 단계에서 복사한 URL(ASP.NET 웹앱 Azure 배포에서)을 *SharedActivity.java* 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. 
+
+URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
@@ -23,16 +28,28 @@ Android Studio의 샘플 폴더에서 `SharedActivity.java` 파일을 엽니다.
 ## <a name="ios"></a>[iOS](#tab/iOS)
 
 Objective-C iOS 샘플은 디바이스 간 공유를 지원합니다.
-샘플 폴더에서 `SharedDemoViewController.m` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedDemoViewController.m` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
-디바이스에 앱을 배포합니다. 앱이 시작되면 **탭하여 공유 데모 시작** 옵션을 선택합니다. 앱의 지침을 따르세요. **탭하여 앵커 번호 찾기** 또는 **탭하여 앵커를 만들고 서비스에 저장**을 선택할 수 있습니다.
+샘플 폴더에서 *SharedDemoViewController.m* 파일을 엽니다. 
+
+이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 *SharedDemoViewController.m* 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. 
+
+URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+디바이스에 앱을 배포합니다. 
+
+앱이 시작되면 **탭하여 공유 데모 시작** 옵션을 선택한 다음, 앱의 지침을 따릅니다. **탭하여 앵커 번호 찾기** 또는 **탭하여 앵커를 만들고 서비스에 저장**을 선택할 수 있습니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Xamarin Android와 iOS 샘플 모두 디바이스 간 공유를 지원합니다.
-샘플 폴더에서 `AccountDetails.cs` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `AccountDetails.cs` 파일의 `AnchorSharingServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+샘플 폴더에서 *AccountDetails.cs* 파일을 엽니다. 
+
+이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 *AccountDetails.cs* 파일의 `AnchorSharingServiceUrl`에 대한 값으로 입력합니다. 
+
+URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
@@ -52,21 +69,23 @@ Xamarin Android와 iOS 샘플 모두 디바이스 간 공유를 지원합니다.
 
 [!INCLUDE [Configure Unity Scene](spatial-anchors-unity-configure-scene.md)]
 
-**프로젝트** 창에서 `Assets\AzureSpatialAnchors.Examples\Resources`로 이동합니다. `SpatialAnchorSamplesConfig`를 선택합니다. 그런 다음, **검사기** 창에서 `Sharing Anchors Service url`(ASP.NET 웹앱에서 Azure 배포)을 `Base Sharing Url`에 대한 값으로 입력하고 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+**프로젝트** 창에서 `Assets\AzureSpatialAnchors.Examples\Resources`로 이동합니다. 
+
+**SpatialAnchorSamplesConfig**를 선택합니다. 그런 다음, **검사기** 창에서 `Sharing Anchors Service` URL(ASP.NET 웹앱 Azure 배포에서)을 `Base Sharing Url`에 대한 값으로 입력합니다. `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
 
 **파일** > **저장**을 선택하여 장면을 저장합니다.
 
 ## <a name="deploy-to-your-device"></a>새 디바이스에 배포
 
-### <a name="deploy-to-android-device"></a>Android 디바이스에 배포
+### <a name="deploy-to-an-android-device"></a>Android 디바이스에 배포
 
-Android 디바이스에 로그인하고, USB 케이블을 사용하여 디바이스를 컴퓨터에 연결합니다.
+Android 디바이스에 로그인하고 USB 케이블을 사용하여 컴퓨터에 연결합니다.
 
 **파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.
 
-**빌드 장면** 아래에서 모든 장면 옆에 확인 표시가 있는지 확인합니다.
+**빌드 장면** 아래에서 각 장면 옆에 확인 표시가 있는지 확인합니다.
 
-**프로젝트 내보내기**에는 확인 표시가 없어야 합니다. **빌드 및 실행**을 선택합니다. `.apk` 파일을 저장하라는 메시지가 나타납니다. 아무 이름을 선택해도 됩니다.
+**프로젝트 내보내기**에 확인 표시가 없는지 확인합니다. **빌드 및 실행**을 선택합니다. *.apk* 파일을 저장하라는 메시지가 나타납니다. 아무 이름을 선택해도 됩니다.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -74,7 +93,7 @@ Android 디바이스에 로그인하고, USB 케이블을 사용하여 디바이
 
 **파일** > **빌드 설정**을 선택하여 **빌드 설정**을 엽니다.
 
-**빌드 장면** 아래에서 모든 장면 옆에 확인 표시가 있는지 확인합니다.
+**빌드 장면** 아래에서 각 장면 옆에 확인 표시가 있는지 확인합니다.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552478"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>자습서: Namely와 Azure Active Directory 통합
 
@@ -128,19 +128,19 @@ Namely에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 2. 위쪽 도구 모음에서 **회사**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![스크린샷은 선택된 회사 값을 보여줍니다.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. **설정** 탭을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![스크린샷은 선택된 회사 설정 탭을 보여줍니다.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. **SAML**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![스크린샷은 선택된 SAML을 보여줍니다.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. **SAML 설정** 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_09.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 설정을 보여줍니다.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. **SAML 사용**을 클릭합니다. 
 
@@ -211,15 +211,15 @@ Namely에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행�
 
 2. 위쪽 도구 모음에서 **사람**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![스크린샷은 선택된 사람 값을 보여줍니다.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. **디렉터리** 탭을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![스크린샷은 선택된 사람 디렉터리 탭을 보여줍니다.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. **새 사람 추가**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/namely-tutorial/tutorial_namely_12.png)
+    ![스크린샷은 새 사람 추가 옵션을 보여줍니다.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. **새 사람 추가** 대화 상자에서 다음 단계를 수행합니다.
 

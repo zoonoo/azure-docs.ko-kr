@@ -1,17 +1,15 @@
 ---
 title: Azure CLI를 사용 하 여 Azure Data Lake Analytics 관리
 description: 이 문서에서는 Azure CLI를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 방법을 설명합니다.
-services: data-lake-analytics
-ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19b471d85a52fe38b72ad55847d022fb56b3c4f0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320849"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220927"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -19,18 +17,17 @@ ms.locfileid: "91320849"
 
 Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 리소스가 있어야 합니다.
 
-* Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* Azure CLI [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 참조하세요.
+- Azure CLI [Azure CLI 설치 및 구성](/cli/azure/install-azure-cli)을 참조하세요.
 
-  * 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
+  - 이 데모를 완료하려면 **시험판** [Azure CLI 도구](https://github.com/MicrosoftBigData/AzureDataLake/releases) 를 다운로드하여 설치합니다.
 
-* `az login` 명령을 사용하여 인증하고, 사용하려는 구독을 선택합니다. 회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
+- `az login` 명령을 사용하여 인증하고, 사용하려는 구독을 선택합니다. 회사 또는 학교 계정을 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
    ```azurecli
    az login
@@ -46,11 +43,11 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 
 ## <a name="manage-accounts"></a>계정 관리
 
-데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다. 작업이 실행되는 시간에 대해서만 비용을 지불합니다.  자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.  
+데이터 레이크 분석 작업을 실행하려면 데이터 레이크 분석 계정이 있어야 합니다. Azure HDInsight와 달리 작업을 실행하지 않는 경우 분석 계정에 대해 비용을 지불하지 않습니다. 작업이 실행되는 시간에 대해서만 비용을 지불합니다.  자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 ### <a name="create-accounts"></a>계정 만들기
 
-다음 명령을 실행하여 Data Lake 계정을 만듭니다. 
+다음 명령을 실행하여 Data Lake 계정을 만듭니다.
 
    ```azurecli
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
@@ -88,10 +85,10 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 
 Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
 
-* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+- [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/common/storage-introduction.md)
 
-분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 Data Lake 스토리지 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
+분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 Data Lake 스토리지 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다.
 
 ### <a name="find-the-default-data-lake-store-account"></a>기본 데이터 레이크 저장소 계정 찾기
 
@@ -127,7 +124,7 @@ Java에서 File Storage를 사용하는 방법
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="list-data-sources"></a>데이터 원본 나열:
+### <a name="list-data-sources"></a>데이터 원본 나열
 
 Data Lake Store 계정 나열:
 
@@ -143,7 +140,7 @@ Blob Storage 계정 나열:
 
 !["DataLakeStoreAccounts:" 정보가 강조 표시 된 Azure C L I를 보여 주는 스크린샷](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
-### <a name="delete-data-sources"></a>데이터 원본 삭제:
+### <a name="delete-data-sources"></a>데이터 원본 삭제
 
 데이터 레이크 저장소 계정을 삭제하려면:
 
@@ -185,6 +182,7 @@ Blob Storage 계정 나열:
 >    ```
 
 ### <a name="cancel-jobs"></a>작업 취소
+
 List 명령을 사용 하 여 작업 ID를 찾은 다음, 취소를 사용 하 여 작업을 취소 합니다.
 
    ```azurecli
@@ -212,7 +210,8 @@ az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recu
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
-* [Azure Portal를 사용 하 여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
-* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
-* [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+- [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
+- [Azure Portal를 사용 하 여 Data Lake Analytics 시작](data-lake-analytics-get-started-portal.md)
+- [Azure Portal를 사용 하 여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)
+- [Azure Portal를 사용 하 여 Azure Data Lake Analytics 작업 모니터링 및 문제 해결](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

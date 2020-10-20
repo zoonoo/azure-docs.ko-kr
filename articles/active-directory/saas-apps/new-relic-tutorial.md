@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554467"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940959"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>자습서: New Relic by Account와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -134,7 +134,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 위쪽의 메뉴에서 **계정 설정**을 클릭합니다.
    
-    ![계정 설정](./media/new-relic-tutorial/ic797036.png "계정 설정")
+    ![스크린샷은 계정 설정이 선택된 시작 페이지를 보여줍니다.](./media/new-relic-tutorial/ic797036.png "계정 설정")
 
 3. **보안 및 인증** 탭을 클릭한 후 **Single sign on** 탭을 클릭합니다.
    
@@ -158,11 +158,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 위쪽의 메뉴에서 **계정 설정**을 클릭합니다.
    
-    ![계정 설정](./media/new-relic-tutorial/ic797040.png "계정 설정")
+    ![스크린샷은 시작 페이지에서 선택한 계정 설정을 보여줍니다.](./media/new-relic-tutorial/ic797040.png "계정 설정")
 
 3. 왼쪽의 **계정** 창에서 **요약**을 클릭한 다음 **사용자 추가**를 클릭합니다.
    
-    ![계정 설정](./media/new-relic-tutorial/ic797041.png "계정 설정")
+    ![스크린샷은 사용자 추가를 선택할 수 있는 요약 창을 보여줍니다.](./media/new-relic-tutorial/ic797041.png "계정 설정")
 
 4. **활성 사용자** 대화 상자에서 다음 단계를 수행합니다.
    

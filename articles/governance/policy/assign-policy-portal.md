@@ -1,14 +1,14 @@
 ---
 title: 포털을 사용하여 새 정책 할당
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
-ms.openlocfilehash: 956ec05b5a7fac862eeea86cf96a2db37f1c0536
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 51ca2f9e5d3f3df9304804ba3da2c5c5ceb0c19b
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651969"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875311"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>비규격 리소스를 식별하는 정책 할당 만들기를 참조하세요.
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. 선택한 정책 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예제에서는 _관리 디스크를 사용하지 않는 VM 감사_를 사용합니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
    **할당한 사람**은 로그인한 사용자를 기준으로 자동으로 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
 
-1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 정책이나 이니셔티브에 [deployIfNotExists](./concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 _선택해야 합니다_. 이 빠른 시작에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](./how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 정책 또는 이니셔티브에 [deployIfNotExists](./concepts/effects.md#deployifnotexists) 또는 [수정](./concepts/effects.md#modify)이 적용된 정책이 있는 경우 이 확인란을 선택_해야_ 합니다. 이 빠른 시작에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](./how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
 1. **할당**을 선택합니다.
 
@@ -74,15 +74,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 기존 리소스에 대해 조건을 평가한 결과 이것이 사실로 확인된 경우 해당 리소스는 정책 비준수 항목으로 표시됩니다. 다음 표는 여러 정책 효과가 조건 평가와 함께 작동하여 어떤 준수 상태로 이어지는지 보여줍니다. Azure Portal에는 평가 논리가 표시되지 않지만 규정 준수 상태 결과가 표시됩니다. 규정 준수 상태 결과는 준수 또는 비준수입니다.
 
-| **리소스 상태** | **효과** | **정책 평가** | **규정 준수 상태** |
+| 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
+| 새로운 기능 또는 업데이트된 기능 | 감사, 수정, AuditIfNotExist | True | 비준수 |
+| 새로운 기능 또는 업데이트된 기능 | 감사, 수정, AuditIfNotExist | False | 준수 |
+| Exists | 거부, 감사, 추가, 수정, DeployIfNotExist, AuditIfNotExist | True | 비준수 |
+| Exists | 거부, 감사, 추가, 수정, DeployIfNotExist, AuditIfNotExist | False | 준수 |
 
-\* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
-또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
+> [!NOTE]
+> DeployIfNotExist 및 AuditIfNotExist 효과를 적용하려면 IF 문을 TRUE로 설정하고 존재 조건이 비규격 상태가 되도록 FALSE로 설정해야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

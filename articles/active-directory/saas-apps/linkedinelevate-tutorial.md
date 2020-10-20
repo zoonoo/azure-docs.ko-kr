@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f4569a45b9ed0eee7c375e660df97925335313b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5dcd705719510cce3a113c5b0fdc46d016313b6d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549809"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856414"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-linkedin-elevate"></a>자습서: LinkedIn Elevate와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -144,11 +144,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **계정 센터**의 **설정** 아래에서 **전역 설정**을 클릭합니다. 드롭다운 목록에서 **Elevate - Elevate AAD 테스트**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
+    ![스크린샷은 AAD 테스트 상승을 선택할 수 있는 전역 설정을 보여줍니다.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
 1. **OR Click Here to load and copy individual fields from the form**(또는 양식에서 개별 필드를 로드하여 복사하려면 여기를 클릭)을 클릭하고 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 Single Sign-On을 보여줍니다.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
     a. **엔터티 ID** 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성**의 **식별자** 텍스트 상자에 붙여넣습니다.
 
@@ -156,11 +156,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **LinkedIn 관리 설정** 섹션으로 이동합니다. [XML 파일 업로드] 옵션을 클릭하여 Azure Portal에서 다운로드한 XML 파일을 업로드합니다.
 
-    ![Single Sign-on 구성](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
+    ![스크린샷은 XML 파일을 업로드할 수 있는 LinkedIn 서비스 공급자 SSO 설정 구성을 보여줍니다.](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. **설정**을 클릭하여 SSO를 사용하도록 설정합니다. SSO 상태가 **연결 안 됨**에서 **연결됨**으로 변경됩니다.
 
-    ![Single Sign-on 구성](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
+    ![스크린샷은 자동으로 라이선스 할당을 선택할 수 있는 Single Sign-On을 보여줍니다.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### <a name="create-linkedin-elevate-test-user"></a>LinkedIn Elevate 테스트 사용자 만들기
 

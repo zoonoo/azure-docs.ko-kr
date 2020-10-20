@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4dd83bdd68773ac594c71767b9e316bdd05a0ae7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 774e503bec3f1f8c4cc5b85bb599230a3397f811
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91620276"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858441"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Azure Synapse Analytics 참고 자료
 
@@ -29,7 +29,7 @@ Azure Synapse Analytics 참고 자료는 서비스의 기본 개념과 중요한
 작업 영역에서는 SQL 및 Apache spark를 사용하여 분석을 수행할 수 있습니다. SQL 및 Spark 분석에 사용할 수 있는 리소스는 SQL 및 Spark **풀**로 구성됩니다. 
 
 ## <a name="synapse-sql"></a>Synapse SQL
-**Synapse SQL**은 Synapse 작업 영역에서 T-SQL 기반 분석을 수행할 수 있습니다. Synapse SQL에는 전용 및 서버리스 두 개의 소비 모델이 있습니다.  전용 모델에는 전용 **SQL 풀**을 사용합니다. 작업 영역에는 이러한 풀의 번호가 있을 수 있습니다. 서버리스 모델을 사용하려면 "SQL 주문형"이라고 하는 서버리스 SQL 풀을 사용합니다. 모든 작업 영역에는 다음 풀 중 하나가 있습니다.
+**Synapse SQL**은 Synapse 작업 영역에서 T-SQL 기반 분석을 수행할 수 있습니다. Synapse SQL에는 전용 및 서버리스 두 개의 소비 모델이 있습니다.  전용 모델에는 전용 **SQL 풀**을 사용합니다. 작업 영역에는 이러한 풀이 얼마든지 있을 수 있습니다. 서버리스 모델을 사용하려면 "SQL 주문형"이라고 하는 서버리스 SQL 풀을 사용합니다. 모든 작업 영역에는 다음 풀 중 하나가 있습니다.
 
 ## <a name="apache-spark-for-synapse"></a>Synapse용 Apache Spark
 Spark 분석을 사용하려면 Synapse 작업 영역에서 **Spark 풀**을 만들고 사용합니다.

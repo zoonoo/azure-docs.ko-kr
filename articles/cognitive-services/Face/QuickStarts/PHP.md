@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 7ae54d1d1c649da510c9653acbd7f118069d366c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dc28f5a9c3faa9d1c963a441f79eb1eea3fcba47
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87833915"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91858322"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지
 
@@ -48,59 +48,7 @@ ms.locfileid: "87833915"
 
 문서의 `body` 요소 내에 다음 코드를 추가합니다. 이 코드는 URL 필드, **얼굴 분석** 단추, 응답 창 및 이미지 표시 창이 있는 기본 사용자 인터페이스를 설정합니다.
 
-```php
-<?php
-// Replace <Subscription Key> with a valid subscription key.
-$ocpApimSubscriptionKey = '<Subscription Key>';
-
-// Replace <My Endpoint String> with the string in your endpoint URL.
-$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
-
-$imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
-
-// This sample uses the PHP5 HTTP_Request2 package
-// (https://pear.php.net/package/HTTP_Request2).
-require_once 'HTTP/Request2.php';
-
-$request = new Http_Request2($uriBase . '/detect');
-$url = $request->getUrl();
-
-$headers = array(
-    // Request headers
-    'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
-);
-$request->setHeader($headers);
-
-$parameters = array(
-    // Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' .
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise');
-$url->setQueryVariables($parameters);
-
-$request->setMethod(HTTP_Request2::METHOD_POST);
-
-// Request body parameters
-$body = json_encode(array('url' => $imageUrl));
-
-// Request body
-$request->setBody($body);
-
-try
-{
-    $response = $request->send();
-    echo "<pre>" .
-        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
-}
-catch (HttpException $ex)
-{
-    echo "<pre>" . $ex . "</pre>";
-}
-?>
-```
+:::code language="php" source="~/cognitive-services-quickstart-code/php/face/rest/detect.php":::
 
 `subscriptionKey` 필드를 구독 키의 값으로 업데이트하고, 올바른 엔드포인트 문자열이 포함되도록 `uriBase` 문자열을 변경해야 합니다. `returnFaceAttributes` 필드는 검색할 얼굴 특성을 지정하며 원하는 용도에 맞게 이 문자열을 변경할 수 있습니다.
 
@@ -109,6 +57,34 @@ catch (HttpException $ex)
 ## <a name="run-the-script"></a>스크립트 실행
 
 PHP 지원 웹 브라우저에서 파일을 엽니다. 다음과 유사한 얼굴 데이터의 JSON 문자열이 표시됩니다.
+
+```json
+[
+    {
+        "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+        "faceRectangle": {
+            "top": 621,
+            "left": 616,
+            "width": 195,
+            "height": 195
+        }
+    }
+]
+```
+
+## <a name="extract-face-attributes"></a>얼굴 특성 추출
+ 
+얼굴 특성을 추출하려면 검색 모델 1을 사용하고 `returnFaceAttributes` 쿼리 매개 변수를 추가합니다.
+
+```php
+$parameters = array(
+    // Request parameters
+    'detectionModel' => 'detection_01',
+    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+   'returnFaceId' => 'true');
+```
+
+이제 응답에 얼굴 특성이 포함됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 [

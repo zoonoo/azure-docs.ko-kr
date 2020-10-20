@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: fc60552fadf10dde88c0e6d8c6f46bd25c68cf2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: da8ae35ce85ca9ffb031511e81270afd8529681d
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543944"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-openathens"></a>자습서: OpenAthens와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -134,15 +134,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리** 탭 아래의 목록에서 **연결**을 선택합니다.
 
-    ![Single Sign-On 구성](./media/openathens-tutorial/tutorial_openathens_application1.png)
+    !["관리" 탭에서 "연결"이 선택된 "OpenAthens" 회사 사이트 페이지를 보여주는 스크린샷.](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. **SAML 1.1/2.0**을 선택한 다음 **구성** 단추를 선택합니다.
 
-    ![Single Sign-On 구성](./media/openathens-tutorial/tutorial_openathens_application2.png)
+    !["로컬 인증 시스템 유형 선택"을 보여주는 스크린샷. "SAML 1.1/2.0" 및 "구성" 단추가 선택된 대화 상자.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. 구성을 추가하려면 **찾아보기** 단추를 선택하여 Azure Portal에서 다운로드한 메타데이터 .xml 파일을 업로드한 다음 **추가**를 선택합니다.
 
-    ![Single Sign-On 구성](./media/openathens-tutorial/tutorial_openathens_application3.png)
+    !["SAML 인증 시스템 추가"를 보여주는 스크린샷. "찾아보기" 작업 및 "추가" 단추가 선택된 대화 상자.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. **세부 정보** 탭 아래에서 다음 단계를 수행합니다.
 
@@ -164,7 +164,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     h. **</> 신뢰 당사자** 탭에서 **메타데이터 URL**을 복사하고, 브라우저에서 이 URL을 열어 **SP 메타데이터 XML** 파일을 다운로드합니다. 이 SP 메타데이터 파일을 Azure AD의 **Basic SAML 구성** 섹션에 업로드합니다.
 
-    ![Single Sign-On 구성](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![선택된 "신뢰 당사자" 탭과 강조 표시된 "메타데이터 URL"을 보여주는 스크린샷.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### <a name="create-openathens-test-user"></a>OpenAthens 테스트 사용자 만들기
 

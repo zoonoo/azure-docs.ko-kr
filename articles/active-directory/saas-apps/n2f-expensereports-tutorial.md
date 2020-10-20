@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6036ff86c430422556ed4f7e1bc80fe122ed0a30
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9eee16c1ba207eb35633d7ec1a7167300d40d662
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552565"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>자습서: N2F - Expense Reports와 Azure Active Directory 통합
 
@@ -99,11 +99,11 @@ N2F - Expense Reports에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 4. **기본 SAML 구성** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우에는 앱이 이미 Azure와 사전 통합되어 있으므로 사용자가 수행해야 하는 단계가 없습니다.
 
-    ![N2F - Expense Reports 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
+    ![스크린샷은 기본 SAML 구성이 포함된 SAML 기반 로그온 페이지를 보여줍니다.](common/preintegrated.png)
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![N2F - Expense Reports 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 Azure AD Single Sign-On을 추가할 수 있는 통합 페이지를 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 `https://www.n2f.com/app/` URL을 입력합니다.
 
@@ -127,23 +127,23 @@ N2F - Expense Reports에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 2. **설정**을 클릭한 다음, 드롭다운에서 **고급 설정**을 선택합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/configure1.png)
+    ![스크린샷은 선택된 고급 설정을 보여줍니다.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. **계정 설정**을 선택합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/configure2.png)
+    ![스크린샷은 선택된 계정 설정을 보여줍니다.](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. **인증**을 선택한 다음, **+ Add an authentication method**(인증 방법 추가) 탭을 선택합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/configure3.png)
+    ![스크린샷은 인증 방법을 추가할 수 있는 계정 설정 인증을 보여줍니다.](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. **SAML Microsoft Office 365**를 인증 방법으로 선택합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/configure4.png)
+    ![스크린샷은 SAML Microsoft Office 365가 선택된 인증 방법을 보여줍니다.](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. **인증 방법** 섹션에서 다음 단계를 수행합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/configure5.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 인증 방법을 보여줍니다.](./media/n2f-expensereports-tutorial/configure5.png)
 
     a. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
@@ -212,19 +212,19 @@ Azure AD 사용자가 N2F - Expense Reports에 로그인할 수 있도록 하려
 
 2. **설정**을 클릭한 다음, 드롭다운에서 **고급 설정**을 선택합니다.
 
-    ![N2F - Expense 사용자 추가](./media/n2f-expensereports-tutorial/configure1.png)
+    ![스크린샷은 선택된 고급 설정을 보여줍니다.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. 왼쪽 탐색 창에서 **사용자** 탭을 선택합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/user1.png)
+    ![스크린샷은 선택된 사용자를 보여줍니다.](./media/n2f-expensereports-tutorial/user1.png)
 
 4. **+ 새 사용자** 탭을 선택합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/user2.png)
+    ![스크린샷은 새 사용자 옵션을 보여줍니다.](./media/n2f-expensereports-tutorial/user2.png)
 
 5. **사용자** 섹션에서 다음 단계를 수행합니다.
 
-    ![N2F - Expense Reports 구성](./media/n2f-expensereports-tutorial/user3.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 섹션을 보여줍니다.](./media/n2f-expensereports-tutorial/user3.png)
 
     a. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소(예: **brittasimon\@contoso.com**)를 입력합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 7fffe58dfdb63da28edc19c19b56b576f4fbadd3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544046"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940908"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>자습서: Moxtra와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -156,11 +156,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 왼쪽의 도구 모음에서 **관리 콘솔 > SAML Single Sign-On**을 클릭하고 나서 **새로 만들기**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![스크린샷은 새 SAML Single Sign-On을 만드는 옵션이 있는 SAML Single Sign-On 페이지를 보여줍니다.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. **SAML** 페이지에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 페이지를 보여줍니다.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. **이름** 텍스트 상자에 구성할 이름을 입력합니다(예: *SAML*). 
   
@@ -191,7 +191,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽의 도구 모음에서 **관리 콘솔 > 사용자 관리**, **사용자 추가**를 차례로 클릭합니다.
    
-    ![Single Sign-on 구성](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![스크린샷은 사용자 추가가 선택된 사용자 관리 페이지를 보여줍니다.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
   

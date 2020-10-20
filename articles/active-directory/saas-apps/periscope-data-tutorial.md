@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bfcb0c90142924285215c427a7071297be730
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7f808cff5bddf6566276df2f707232bde1ecca8a
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553919"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>자습서: Periscope Data와 Azure Active Directory 통합
 
@@ -123,7 +123,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 2. 왼쪽 아래에 있는 기어 메뉴를 열고 **청구** > **보안** 메뉴를 연 후 다음 단계를 수행합니다. 관리자만 이러한 설정에 액세스할 수 있습니다.
 
-    ![Periscope Data 구성 정보](./media/periscope-data-tutorial/configure01.png)
+    ![선택한 설정이 있는 "보안" 대화 상자를 보여주는 스크린샷.](./media/periscope-data-tutorial/configure01.png)
 
     a. 5단계 **SAML 서명 인증서**에서 **앱 페더레이션 메타데이터 URL**을 복사하고 브라우저에서 엽니다. 그러면 XML 문서가 열립니다.
 
@@ -143,7 +143,7 @@ Periscope Data에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     i. 마지막으로, **저장**을 클릭하고 **로그아웃**을 입력하여 SSO 설정 변경 사항을 **확인**합니다.
 
-    ![Periscope Data 구성 정보](./media/periscope-data-tutorial/configure02.png)
+    ![텍스트 상자에 "로그아웃"이 입력되고 "확인" 단추가 선택된 "SSO 구성 업데이트" 대화 상자를 보여주는 스크린샷.](./media/periscope-data-tutorial/configure02.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -206,7 +206,7 @@ Azure AD 사용자가 Periscope Data에 로그인할 수 있도록 하려면 이
 
 2. 메뉴의 왼쪽 아래에서 **설정** 아이콘을 클릭하고 **권한**으로 이동합니다.
 
-    ![Periscope Data 구성 정보](./media/periscope-data-tutorial/configure03.png)
+    !["권한"이 선택된 "설정" 메뉴를 보여주는 스크린샷.](./media/periscope-data-tutorial/configure03.png)
 
 3. **사용자 추가**를 클릭하여 다음 단계를 수행합니다.
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: f03f98a1a1f36900d65e132a3420ac037214aaff
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017917"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893543"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -22,7 +22,7 @@ ms.locfileid: "90017917"
 
 이 자습서에서는 Azure Synapse용 Apache Spark를 사용하여 데이터를 로드하고 분석하는 기본 단계에 대해 알아봅니다.
 
-1. **연결됨** 아래의 **데이터** 허브에서 **Azure Blob Storage > 샘플 데이터 세트 > nyc_tlc_yellow**를 마우스 오른쪽 단추로 클릭하고 **새 Notebook 선택**을 선택합니다.
+1. **데이터** 허브에서 **새 리소스 추가**(**연결됨** 위에 단추 추가) >> **샘플 찾아보기**를 클릭합니다. **NYC Taxi 및 리무진 위원회 - 노란색 택시 운행 레코드**를 찾아 클릭합니다. 페이지의 하단에서 **계속**을 누른 후 **데이터 세트 추가**를 누릅니다. 이제 **연결됨** 아래의 **데이터** 허브에서 **Azure Blob Storage > 샘플 데이터 세트 > nyc_tlc_yellow**를 마우스 오른쪽 단추로 클릭하고 **새 Notebook**을 선택합니다.
 1. 그러면 다음 코드에서 새 Notebook이 생성됩니다.
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -119,6 +119,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [스토리지 데이터 분석](get-started-analyze-storage.md)
+> [SQL 주문형 데이터 분석](get-started-analyze-sql-on-demand.md)
 
 

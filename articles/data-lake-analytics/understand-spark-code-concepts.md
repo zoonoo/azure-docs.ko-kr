@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 7b5be20bb8b5eb1d56c1214104037d5d824445b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132350"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221131"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
 
@@ -104,7 +104,7 @@ U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하 고 Spark
 
 다음 표에서는 지정 된 Scala 및 PySpark에서 지정 된 U SQL 형식에 해당 하는 형식에 대해 설명 합니다.
 
-| U-SQL | Spark |  스칼라 | PySpark |
+| U-SQL | Spark |  Scala | PySpark |
 | ------ | ------ | ------ | ------ |
 |`byte`       ||||
 |`sbyte`      |`ByteType` |`Byte` | `ByteType`|
@@ -214,8 +214,8 @@ Spark의 비용 기반 쿼리 최적화 프로그램은 힌트를 제공 하 고
 ## <a name="next-steps"></a>다음 단계
 
 - [U SQL 개발자를 위한 Spark 데이터 형식 이해](understand-spark-data-formats.md)
-- [Apache Spark용 .NET](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드](../storage/blobs/data-lake-storage-upgrade.md)
+- [Apache Spark용 .NET](/dotnet/spark/what-is-apache-spark-dotnet)
+- [빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 - [Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환](../data-factory/transform-data-using-spark.md)
 - [Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환](../data-factory/transform-data-using-hadoop-hive.md)
 - [Azure HDInsight에서 Apache Spark란](../hdinsight/spark/apache-spark-overview.md)

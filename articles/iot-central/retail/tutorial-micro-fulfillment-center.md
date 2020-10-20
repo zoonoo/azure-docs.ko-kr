@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440196"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840441"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -96,4 +96,4 @@ ms.locfileid: "91440196"
 > [!div class="nextstepaction"]
 > [마이크로 처리 센터 솔루션 아키텍처](./architecture-micro-fulfillment-center.md)
 * [Azure IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대한 자세한 정보
-* 기타 [Azure IoT Central 개요](../preview/overview-iot-central.md)에 대한 자세한 정보
+* [Azure IoT Central](../preview/overview-iot-central.md)에 대한 자세한 정보

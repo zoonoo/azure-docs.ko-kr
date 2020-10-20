@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bae3f4a0d8c793061bb3833b04717d378e86f85f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 78f9217ea7288bac56b008911f7b39c73bba7771
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519829"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856554"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>자습서: Azure Active Directory와 LaunchDarkly 통합
 
@@ -100,7 +100,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![LaunchDarkly 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `app.launchdarkly.com`
 
@@ -113,7 +113,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
     **로그인 URL** 텍스트 상자에서 `https://app.launchdarkly.com` 패턴을 사용하여 URL을 입력합니다.
 
-    ![LaunchDarkly 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -135,19 +135,19 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 [애플리케이션 이�
 
 2. 왼쪽 탐색 패널에서 **계정 설정**을 선택합니다.
 
-    ![LaunchDarkly 구성](./media/launchdarkly-tutorial/configure1.png)
+    ![스크린샷은 프로덕션에서 선택한 계정 설정 항목을 보여줍니다.](./media/launchdarkly-tutorial/configure1.png)
 
 3. **보안** 탭을 클릭합니다.
 
-    ![LaunchDarkly 구성](./media/launchdarkly-tutorial/configure2.png)
+    ![스크린샷은 계정 설정의 보안 탭을 보여줍니다.](./media/launchdarkly-tutorial/configure2.png)
 
 4. **ENABLE SSO**(SSO 사용)를 클릭한 다음, **EDIT SAML CONFIGURATION**(SAML 구성 편집)을 클릭합니다.
 
-    ![LaunchDarkly 구성](./media/launchdarkly-tutorial/configure3.png)
+    ![스크린샷은 SSO를 활성화하고 SAML 구성을 편집할 수 있는 Single Sign-On 페이지를 보여줍니다.](./media/launchdarkly-tutorial/configure3.png)
 
 5. **Edit your SAML configuration**(SAML 구성 편집) 섹션에서 다음 단계를 수행합니다.
 
-    ![LaunchDarkly 구성](./media/launchdarkly-tutorial/configure4.png)
+    ![스크린샷은 여기에 설명된 대로 변경할 수 있는 SAML 구성 편집 섹션을 보여줍니다.](./media/launchdarkly-tutorial/configure4.png)
 
     a. 인스턴스에 대한 **SAML 소비자 서비스 URL**을 복사하여 Azure Portal의 **LaunchDarkly 도메인 및 URL** 섹션에서 [회신 URL] 텍스트 상자에 붙여넣습니다.
 

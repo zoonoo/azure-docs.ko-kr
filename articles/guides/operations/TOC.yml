@@ -39,25 +39,25 @@
             - name: Linux VM 만들기 및 관리
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Jenkins CI/CD 파이프라인
-              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: /azure/developer/jenkins/pipeline-with-github-and-docker?toc=%252fazure%252fguides%252foperations%252ftoc.json
             - name: VM 부하 분산
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Azure 리소스 관리자 템플릿 작성
-              href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../azure-resource-manager/templates/template-syntax.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
             - name: 대규모 VM 백업
               href: ../../backup/tutorial-backup-vm-at-scale.md
     - name: 방법 가이드
       items:
         - name: Azure 청구 송장 및 일간 사용량 현황 데이터를 다운로드 하는 방법
-          href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+          href: ../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md?toc=%252fazure%252fguides%252foperations%252ftoc.json
     - name: 리소스
       items:
         - name: Azure 제품 카탈로그
-          href: 'https://docs.microsoft.com/azure/#pivot=products'
+          href: ../../index.yml
         - name: Azure 로드맵
           href: 'https://azure.microsoft.com/roadmap/'
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Microsoft Azure 포털 개요
           href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
-    - name: 참조
+    - name: 참고 자료

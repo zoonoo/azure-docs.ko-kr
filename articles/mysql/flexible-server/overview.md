@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: d3d58cab6e3b9ed0bf3b8ed409aa736357687f09
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: da9b7216908b4a4ba80a421427f473c217f76c28
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759648"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993745"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -117,8 +117,19 @@ Azure Database for MySQL 유연한 서버에 연결하는 두 가지 네트워�
 - **덤프 및 복원** – 사용자가 약간의 가동 중지 시간을 감당할 수 있는 오프라인 마이그레이션의 경우 mysqldump/mydumper 같은 커뮤니티 도구를 사용하여 덤프 및 복원하면 가장 빠르게 마이그레이션할 수 있습니다. 자세한 내용은 [덤프 및 복원을 사용하여 마이그레이션]을 참조하세요. 
 - **Azure Database Migration Service** – [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online)를 활용하면 가동 중지 시간을 최소화하면서 단일 서버로 원활하고 간단하게 마이그레이션할 수 있습니다. 
 
+## <a name="azure-regions"></a>Azure 지역
+
+Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. Azure Database for MySQL에 대한 유연한 서버는 현재 다음 Azure 지역에서 사용할 수 있습니다.
+
+- 북유럽
+- 동남아시아
+- 미국 동부 2
+- 미국 서부 2
+
+곧 새 서버를 추가하기 위해 노력하고 있습니다.
+
 ## <a name="contacts"></a>연락처
-Azure Database for MySQL 작업에 대해 궁금한 점이나 제안하고 싶은 의견이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
+Azure Database for MySQL 유연한 서버에 대한 질문이나 제안이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
 
 또한 문의의 다음 사항을 적절히 고려해 주세요.
 

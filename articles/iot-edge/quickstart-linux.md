@@ -9,24 +9,23 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bbed5899a860f3ba8ac7047a283966536f6c8a87
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ee267bda44cde77cf5d3434cd75eecaf34bd5264
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328618"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978852"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
 이 빠른 시작에서는 컨테이너화된 코드를 가상 Linux IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 IoT Edge 서비스가 설치된 테스트 컴퓨터를 빠르게 만든 다음, 빠른 시작을 마친 후 삭제할 수 있습니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
-> [!div class="checklist"]
->
-> * IoT Hub를 만듭니다.
-> * IoT Edge 디바이스를 IoT Hub에 등록합니다.
-> * 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
-> * 모듈을 IoT Edge 디바이스에 원격으로 배포합니다.
+
+* IoT Hub를 만듭니다.
+* IoT Edge 디바이스를 IoT Hub에 등록합니다.
+* 가상 디바이스에 IoT Edge 런타임을 설치하고 시작합니다.
+* 모듈을 IoT Edge 디바이스에 원격으로 배포합니다.
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart-linux/install-edge-full.png)
 
@@ -110,7 +109,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 ### <a name="deploy-the-iot-edge-device"></a>IoT Edge 디바이스 배포
 
-이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 새 가상 머신을 만들고 IoT Edge 런타임을 설치합니다. 사용자 고유의 Linux 디바이스를 대신 사용하려는 경우 [Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)의 설치 단계를 수행한 다음, 이 빠른 시작으로 돌아오면 됩니다.
+이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 새 가상 머신을 만들고 IoT Edge 런타임을 설치합니다. 사용자 고유의 Linux 디바이스를 대신 사용하려면 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 설치 단계를 수행한 다음, 이 빠른 시작으로 돌아오면 됩니다.
 
 다음 CLI 명령을 사용하여 미리 빌드된 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 템플릿을 기반으로 IoT Edge 디바이스를 만듭니다.
 

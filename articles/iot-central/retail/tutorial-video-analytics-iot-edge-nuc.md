@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037938"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873305"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)
 
@@ -35,7 +35,7 @@ IoT Edge에서 이러한 서비스는 플랫폼 간 IoT 디바이스에서 직�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 시작하기 전에, 이전 [Azure IoT Central에서 라이브 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app.md) 자습서를 먼저 완료해야 합니다.
+* 시작하기 전에, 이전 [Azure IoT Central(YOLO v3)에서 라이브 비디오 분석 애플리케이션 만들기](./tutorial-video-analytics-create-app-yolo-v3.md) 또는 [Azure IoT Central(OpenVINO&trade;)에서 비디오 분석 만들기](tutorial-video-analytics-create-app-openvino.md) 자습서를 완료해야 합니다.
 * Linux를 실행하는 Intel NUC와 같은 디바이스로, Docker 컨테이너를 실행할 수 있고, 비디오 분석을 실행하는 데 충분한 처리 능력이 있습니다.
 * [IoT Edge 런타임이 설치](../../iot-edge/how-to-install-iot-edge-linux.md)되어 있으며 디바이스에서 실행됩니다.
 * Windows 머신에서 IoT Edge 디바이스에 연결할 수 있으려면 [PuTTY SSH 클라이언트](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) 또는 동등한 유틸리티가 필요합니다.

@@ -31,6 +31,8 @@
       href: tutorial-private-endpoint-storage-portal.md
     - name: Cosmos DB 계정에 연결
       href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: 웹앱에 연결
+      href: tutorial-private-endpoint-webapp-portal.md
 - name: 개념
   items:
     - name: Private Endpoint

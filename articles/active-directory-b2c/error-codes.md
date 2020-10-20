@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664854"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215436"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>오류 코드: Azure Active Directory B2C
 
@@ -61,6 +61,7 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90055` | {0}요청에 제공 된 범위 ' '에서 ' '과 (와) 같은 리소스를 지정 해야 합니다 https://example.com/calendar.read . |
 | `AADB2C90057` | 제공 된 응용 프로그램이 OAuth 암시적 흐름을 허용 하도록 구성 되어 있지 않습니다. |
 | `AADB2C90058` | 제공 된 응용 프로그램이 공용 클라이언트를 허용 하도록 구성 되어 있지 않습니다. |
+| `AADB2C99059` | 제공 된 요청은 code_challenge를 제공 해야 합니다. 인증 코드 흐름을 사용 하는 단일 페이지 앱에 필요 합니다.| 
 | `AADB2C90067` | 사후 로그 아웃 리디렉션 URI ' {0} '의 형식이 잘못 되었습니다. ' '과 같은 https 기반 URL을 지정 https://example.com/return 하거나 native client의 경우 ietf native CLIENT URI ' urn: ietf: wg: oauth: 2.0: oob '를 사용 합니다. |
 | `AADB2C90068` | ID가 ' ' 인 제공 된 응용 프로그램이 {0} 이 서비스에 적합 하지 않습니다. B2C 포털을 통해 만든 응용 프로그램을 사용 하 고 다시 시도 하세요. |
 | `AADB2C90075` | {0}' ' 단계에 지정 된 클레임 교환 ' '이 {1} (가) 코드 ' {2} ' 및 이유가 ' ' 인 HTTP 오류 응답을 반환 했습니다 {3} . |

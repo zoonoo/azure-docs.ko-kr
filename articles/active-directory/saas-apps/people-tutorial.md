@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 93b418a2bc4e1b03370b1bb86bd7da95255db0b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fb8374802e7ec2596dc5f65a2acaf739b12dc164
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552393"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995964"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-people"></a>자습서: People과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -142,11 +142,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    
 4. 왼쪽 메뉴에서 **설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/people-tutorial/tutorial_people_001.png)
+    !["설정"이 선택된 왼쪽 메뉴를 보여주는 스크린샷.](./media/people-tutorial/tutorial_people_001.png)
 
 5. **회사**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/people-tutorial/tutorial_people_002.png)
+    !["설정" 메뉴에서 선택한 "회사"를 보여주는 스크린샷.](./media/people-tutorial/tutorial_people_002.png)
 
 6. **‘Single Sign On’ SAML 메타데이터 파일 업로드**에서 **찾아보기**를 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
 

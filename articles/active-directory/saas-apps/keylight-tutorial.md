@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 82af00c091aedb56e0cad954e554094e75df0013
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0832fe9ba65ac0df5dbff60b01b7a5eb91a2c3a2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535846"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>자습서: Azure Active Directory와 LockPath Keylight 통합
 
@@ -133,15 +133,15 @@ LockPath Keylight에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
     b. 위쪽 메뉴에서 **사람**을 클릭하고 **Keylight 설치**를 선택합니다.
 
-    ![Single Sign-on 구성](./media/keylight-tutorial/401.png)
+    ![선택된 "사람" 아이콘과 드롭다운에서 선택된 "Keylight 설정"을 보여주는 스크린샷.](./media/keylight-tutorial/401.png)
 
     다. 왼쪽의 트리 뷰에서 **SAML**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/keylight-tutorial/402.png)
+    ![트리 뷰에서 선택한 "SAML"을 보여주는 스크린샷.](./media/keylight-tutorial/402.png)
 
     d. **SAML 설정** 대화 상자에서 **편집**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/keylight-tutorial/404.png)
+    !["편집" 단추가 선택된 "SAML 설정" 창을 보여주는 스크린샷.](./media/keylight-tutorial/404.png)
 
 1. **SAML 설정 편집** 대화 상자 페이지에서 다음 단계를 수행합니다.
 

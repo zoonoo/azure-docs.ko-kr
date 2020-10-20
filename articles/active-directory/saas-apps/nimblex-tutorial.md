@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 595977635937ec5dcf4a45a1d57524c1d3f41a6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3be17c672eb918c715602c7576c7d682badd925
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554380"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>자습서: Azure Active Directory와 Nimblex 통합
 
@@ -132,19 +132,19 @@ Nimblex에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 2. 페이지의 오른쪽 위에서 **설정** 로고를 클릭합니다.
 
-    ![Nimblex 설정](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+    ![스크린샷은 설정 아이콘을 보여줍니다.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. **제어판** 페이지의 **보안** 섹션에서 **Single Sign-on**을 클릭합니다.
 
-    ![Nimblex 설정](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+    ![스크린샷은 보안 메뉴에서 선택된 Single Sign On을 보여줍니다.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. **Single Sign-On 관리** 페이지에서 인스턴스 이름을 선택하고 **편집**을 클릭합니다.
 
-    ![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+    ![스크린샷은 편집을 선택할 수 있는 Single Sign-On 관리를 보여줍니다.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. **Edit SSO Provider**(SSO 공급자 편집) 페이지에서 다음 단계를 수행합니다.
 
-    ![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SSO 공급자 편집을 보여줍니다.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
     a. **설명** 텍스트 상자에 인스턴스 이름을 입력합니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b8874d8813d6200c915778841c26e77b02e434
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 764f01fa5966a6620612405b4df37fc5ff44f33a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554877"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91857931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>자습서:Azure Active Directory와 Marketo 통합
 
@@ -130,15 +130,15 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
    
     b. 위쪽 탐색 창에서 **관리자** 단추를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![스크린샷은 탐색 창에서 선택한 관리자를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     다. 통합 메뉴로 이동하여 **Munchkin 링크**를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_11.png)
+    ![스크린샷은 통합에서 선택한 Munchkin을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_11.png)
    
     d. 화면에 표시된 Munchkin ID를 복사하고 Azure AD 구성 마법사에서 회신 URL을 완료합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_12.png) 
+    ![스크린샷은 계정 ID를 복사할 수 있는 Munchkin 페이지를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
 2. 아래 단계에 따라 애플리케이션에서 SSO를 구성합니다.
    
@@ -146,15 +146,15 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
    
     b. 위쪽 탐색 창에서 **관리자** 단추를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![스크린샷은 탐색 창에서 선택한 관리자를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     다. 통합 메뉴로 이동하여 **Single Sign On**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_07.png) 
+    ![스크린샷은 통합에서 선택한 Single Sign-On을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_07.png) 
    
     d. SAML 설정을 사용하려면 **편집** 단추를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_08.png) 
+    ![스크린샷은 편집을 선택할 수 있는 SSO 설정을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_08.png) 
    
     e. Single Sign-On 설정을 사용하도록 **설정**합니다.
    
@@ -164,7 +164,7 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
    
     h. **이름 식별자 요소**로 사용자 ID 위치를 선택합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_09.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 설정 편집을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_09.png)
    
     > [!NOTE]
     > 사용자 ID가 UPN 값이 아닌 경우 특성 탭에서 값을 바꿉니다.
@@ -179,7 +179,7 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
    
     m. **오류 URL**에서 **Marketo 인스턴스 URL**을 복사하고 **저장** 단추를 클릭하여 설정을 저장합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_10.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 리디렉션 페이지 편집 대화 상자를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_10.png)
 
 3. 사용자에 대한 SSO를 사용하려면 다음 작업을 완료합니다.
    
@@ -187,15 +187,15 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
    
     b. 위쪽 탐색 창에서 **관리자** 단추를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![스크린샷은 탐색 창에서 선택한 관리자를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_06.png) 
    
     다. **보안** 메뉴로 이동하여 **로그인 설정**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_13.png)
+    ![스크린샷은 보안에서 선택한 로그인 설정을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_13.png)
    
     d. **SSO 필요** 옵션을 선택하고 설정을 **저장**합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_14.png)
+    ![스크린샷은 [SSO 필요]를 선택할 수 있는 암호 강도 설정을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_14.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
@@ -256,21 +256,21 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 2. 위쪽 탐색 창에서 **관리자** 단추를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_06.png) 
+    ![스크린샷은 탐색 창에서 선택한 관리자를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
 3. **보안** 메뉴로 이동하여 **사용자 및 역할**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_19.png)  
+    ![스크린샷은 보안에서 선택한 사용자 및 역할을 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
 4. 사용자 탭에서 **새 사용자 초대** 링크를 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_15.png) 
+    ![스크린샷은 사용자 탭의 새 사용자 초대를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
 5. 새 사용자 초대 마법사에서 다음 정보를 입력합니다.
    
     a. 텍스트 상자에 사용자 **메일** 주소를 입력합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_16.png)
+    ![스크린샷은 사용자 정보를 입력하는 새 사용자 초대 마법사의 첫 번째 단계를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_16.png)
    
     b. 텍스트 상자에 **이름** 을 입력합니다.
    
@@ -280,10 +280,10 @@ Marketo에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 6. **권한** 탭에서 **사용자 역할**을 선택하고 **다음**을 클릭합니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_17.png)
+    ![스크린샷은 권한을 입력하는 새 사용자 초대 마법사의 첫 번째 단계를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_17.png)
 7. **보내기** 단추를 클릭하여 사용자 초대를 보냅니다.
    
-    ![Single Sign-on 구성](./media/marketo-tutorial/tutorial_marketo_18.png)
+    ![스크린샷은 메시지를 입력하는 새 사용자 초대 마법사의 첫 번째 단계를 보여줍니다.](./media/marketo-tutorial/tutorial_marketo_18.png)
 
 8. 사용자는 이메일 알림을 받으면 링크를 클릭하고 암호를 변경하여 계정을 활성화해야 합니다. 
 

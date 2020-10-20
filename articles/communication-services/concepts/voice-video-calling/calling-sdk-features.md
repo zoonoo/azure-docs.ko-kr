@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8216bb8c30448e7e91ec9a1bcc531b720eca30c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665194"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977870"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -34,7 +34,8 @@ ms.locfileid: "91665194"
 |                   | 세 명 이상의 사용자를 포함하는 그룹 통화(최대 350 사용자) 배치                                                       | ✔️   | ✔️            | ✔️ 
 |                   | 세 명 이상의 사용자가 있는 그룹 호출로 일 대 일 호출 승격                                 | ✔️   | ✔️            | ✔️ 
 |                   | 시작된 후 그룹 호출 조인                                                                              | ✔️   | ✔️            | ✔️ 
-|                   | 진행 중인 그룹 호출에 참가하기 위해 다른 VoIP 참가자 초대                                                       | ✔️   | ✔️            | ✔️ 
+|                   | 진행 중인 그룹 호출에 참가하기 위해 다른 VoIP 참가자 초대                                                       | ✔️   | ✔️            | ✔️
+|                   | 비디오 켜기/끄기                                                         | ✔️   | ✔️            | ✔️ 
 |                   | 마이크 음소거/음소거 해제                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | 카메라 간 전환                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | 로컬 보류/유지 취소                                                                                                  | ✔️   | ✔️            | ✔️           

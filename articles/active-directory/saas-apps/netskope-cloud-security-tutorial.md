@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/31/2019
 ms.author: jeedes
-ms.openlocfilehash: daef8a91c2f31379ebf50d1e8ec66d0b33ebb2cc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 081c61610c4134917ffa90cf45fb096f3df4bcbe
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534834"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939293"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>자습서: Netskope 관리자 콘솔과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -148,19 +148,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 구성](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![스크린샷은 탐색 창에서 선택한 설정을 보여줍니다.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. **관리** 탭을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 구성](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![스크린샷은 설정에서 선택한 관리를 보여줍니다.](./media/netskope-cloud-security-tutorial/config-administration.png)
 
 1. **SSO** 탭을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 구성](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![스크린샷은 관리에서 선택한 SSO를 보여줍니다.](./media/netskope-cloud-security-tutorial/config-sso.png)
 
 1. **네트워크 설정** 섹션에서 다음 단계를 수행합니다.
     
-    ![Netskope 관리자 콘솔 구성](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 네트워크 설정을 보여줍니다.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
 
     a. **Assertion Consumer Service URL** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -168,11 +168,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SSO/SLO 설정** 섹션 아래의 **설정 편집**을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 구성](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![스크린샷은 설정 편집을 선택할 수 있는 SSO / SLO 설정을 보여줍니다.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
 
 1. **설정** 팝업 창에서 다음 단계를 수행합니다.
 
-    ![Netskope 관리자 콘솔 구성](./media/netskope-cloud-security-tutorial/configuration.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 설정 대화 상자를 보여줍니다.](./media/netskope-cloud-security-tutorial/configuration.png)
 
     a. **SSO 사용**을 선택합니다.
 
@@ -194,23 +194,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 사용자 만들기](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![스크린샷은 선택된 설정을 보여줍니다.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. **활성 플랫폼** 탭을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 사용자 만들기](./media/netskope-cloud-security-tutorial/user1.png)
+    ![스크린샷은 설정에서 선택한 활성 플랫폼을 보여줍니다.](./media/netskope-cloud-security-tutorial/user1.png)
 
 1. **사용자** 탭을 클릭합니다.
 
-    ![Netskope 관리자 콘솔 사용자 만들기](./media/netskope-cloud-security-tutorial/add-user.png)
+    ![스크린샷은 활성 플랫폼에서 선택한 사용자를 보여줍니다.](./media/netskope-cloud-security-tutorial/add-user.png)
 
 1. **사용자 추가**를 클릭합니다.
 
-    ![Netskope 관리자 콘솔 사용자 만들기](./media/netskope-cloud-security-tutorial/user-add.png)
+    ![스크린샷은 사용자 추가를 선택할 수 있는 사용자 대화 상자를 보여줍니다.](./media/netskope-cloud-security-tutorial/user-add.png)
 
 1. 추가할 사용자의 이메일 주소를 입력하고 **추가**를 클릭합니다.
 
-    ![Netskope 관리자 콘솔 사용자 만들기](./media/netskope-cloud-security-tutorial/add-user-popup.png)
+    ![스크린샷은 사용자 목록을 입력할 수 있는 사용자 추가를 보여줍니다.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>SSO 테스트
 

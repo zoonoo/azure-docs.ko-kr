@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작:  Computer Vision 2.1 및 3.0 - 인쇄 및 필기 텍스트 추출 - REST, Python'
+title: '빠른 시작:  Computer Vision 2.1 및 3.1 - 인쇄 및 필기 텍스트 추출 - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 이미지의 인쇄 및 필기 텍스트를 추출합니다.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: b1b510ebfcf3622aab79762e447802020781aad3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 82e0f31e28839fb3a87e0b2a539290b194b3ad77
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88236253"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960425"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 인쇄 및 필기 텍스트 추출
 
-이 빠른 시작에서는 Computer Vision REST API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 추출합니다. [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 및 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 메서드를 사용하면 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. 
+이 빠른 시작에서는 Computer Vision REST API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 추출합니다. [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 및 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 메서드를 사용하면 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 판독 가능한 문자 스트림으로 추출할 수 있습니다. 
 
 > [!IMPORTANT]
-> [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Location` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API를 나타내는 이 URI를 호출하여 상태를 확인하고 읽기 메서드 호출 결과를 반환할 수 있습니다.
+> [읽기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신, 일괄 읽기 메서드는 `Operation-Location` 응답 헤더 필드의 값으로 URI를 반환합니다. 그러면 [읽기 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) API를 나타내는 이 URI를 호출하여 상태를 확인하고 읽기 메서드 호출 결과를 반환할 수 있습니다.
 
 ---
 
@@ -83,7 +83,7 @@ if missing_env:
     print("**Restart your shell or IDE for changes to take effect.**")
     sys.exit()
 
-text_recognition_url = endpoint + "/vision/v3.0/read/analyze"
+text_recognition_url = endpoint + "/vision/v3.1/read/analyze"
 
 # Set image_url to the URL of an image that you want to recognize.
 image_url = "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg"
@@ -146,7 +146,7 @@ plt.show()
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

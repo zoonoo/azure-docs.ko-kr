@@ -3,15 +3,14 @@ title: '& 쿼리 Azure Data Lake Analytics 만들기-Azure Portal'
 description: Azure Portal을 사용하여 Azure Data Lake Analytics 계정을 만들고 U-SQL 작업을 제출합니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: d8f0a5697a128deb75537f3d48a3830dc7ba9df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e51c6848476147073626119689407ebc02c036d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132537"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220961"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,7 +31,7 @@ ms.locfileid: "87132537"
    * **이름**: Data Lake Analytics 계정의 이름을 지정합니다(소문자와 숫자만 허용).
    * **구독**: 분석 계정에 사용할 Azure 구독을 선택합니다.
    * **리소스 그룹**. 기존 Azure 리소스 그룹을 선택하거나 리소스 그룹을 새로 만듭니다.
-   * **위치**. 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
+   * **위치** - 데이터 레이크 분석 계정에 대한 Azure 데이터 센터를 선택합니다.
    * **Data Lake Storage Gen1**: 지침에 따라 새 Data Lake Storage Gen1 계정을 만들거나 기존 계정을 선택합니다. 
 4. 필요에 따라 Data Lake Analytics 계정에 대한 가격 책정 계층을 선택합니다.
 5. **만들기**를 클릭합니다. 
@@ -63,7 +62,7 @@ OUTPUT @a
 4. 작업의 **상태**를 모니터링하고, 작업 상태가 **성공**으로 변경될 때까지 기다립니다.
 5. **데이터** 탭을 선택 하 고 **출력** 탭을 선택 합니다. 이라는 출력 파일을 선택 `data.csv` 하 고 출력 데이터를 확인 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 * U-SQL 애플리케이션 개발을 시작하려면 [Visual Studio용 Data Lake 도구를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 * U-SQL을 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md)을 참조하세요.

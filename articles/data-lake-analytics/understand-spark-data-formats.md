@@ -6,16 +6,16 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
-ms.openlocfilehash: bff8c89dcdcbb7c319e04e5e7518985badf5a5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399914186ce9de62ef46b682c8d4a6e51426cc26
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132316"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221114"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>U-SQL 및 Spark 데이터 형식 간의 차이점 이해
 
-[Azure Databricks](../azure-databricks/what-is-azure-databricks.md) 또는 [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md)를 사용 하려면 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 에서 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)로 데이터를 마이그레이션하는 것이 좋습니다.
+[Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) 또는 [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md)를 사용 하려면 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 에서 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)로 데이터를 마이그레이션하는 것이 좋습니다.
 
 파일을 이동 하는 것 외에도 데이터를 U-SQL 테이블에 저장 하 여 Spark에서 액세스할 수 있도록 합니다.
 
@@ -26,13 +26,13 @@ ms.locfileid: "87132316"
 - [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 계정에서 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 계정으로 데이터를 복사 하는 [Azure Data Factory](../data-factory/introduction.md) 파이프라인을 작성 합니다.
 - [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 계정에서 데이터를 읽고 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 계정에 쓰는 Spark 작업을 작성 합니다. 사용 사례에 따라 원래 파일 형식을 유지할 필요가 없는 경우 Parquet와 같은 다른 형식으로 작성할 수 있습니다.
 
-[Azure Data Lake Storage Gen1에서 빅 데이터 분석 솔루션 업그레이드 문서를](../storage/blobs/data-lake-storage-upgrade.md) 검토 하는 것이 좋습니다 Azure Data Lake Storage Gen2
+[Azure Data Lake Storage Gen1에서 빅 데이터 분석 솔루션 업그레이드 문서를](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md) 검토 하는 것이 좋습니다 Azure Data Lake Storage Gen2
 
 ## <a name="move-data-stored-in-u-sql-tables"></a>U-SQL 테이블에 저장 된 데이터 이동
 
 U-SQL 테이블은 Spark에서 인식 되지 않습니다. SQL 테이블에 저장 된 데이터가 있는 경우 테이블 데이터를 추출 하 고 Spark에서 인식 하는 형식으로 저장 하는 U-SQL 작업을 실행 합니다. 가장 적절 한 형식은 Hive metastore의 폴더 레이아웃에 따라 Parquet 파일 집합을 만드는 것입니다.
 
-출력은 기본 제공 Parquet outputter를 사용 하 여 U-SQL에서 수행할 수 있으며 파일 집합을 사용 하 여 동적 출력 분할을 사용 하 여 파티션 폴더를 만듭니다. [그 어느 때 보다 많은 파일을 처리 하 고 Parquet를 사용](https://blogs.msdn.microsoft.com/azuredatalake/2018/06/11/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) 하 여 이러한 Spark 사용 가능 데이터를 만드는 방법의 예를 제공 합니다.
+출력은 기본 제공 Parquet outputter를 사용 하 여 U-SQL에서 수행할 수 있으며 파일 집합을 사용 하 여 동적 출력 분할을 사용 하 여 파티션 폴더를 만듭니다. [그 어느 때 보다 많은 파일을 처리 하 고 Parquet를 사용](/archive/blogs/azuredatalake/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) 하 여 이러한 Spark 사용 가능 데이터를 만드는 방법의 예를 제공 합니다.
 
 이 변환 후에는 [Azure Data Lake Storage Gen1 파일에 저장 된 데이터 이동](#move-data-stored-in-azure-data-lake-storage-gen1-files)장에 설명 된 대로 데이터를 복사 합니다.
 
@@ -47,8 +47,8 @@ U-SQL 테이블은 Spark에서 인식 되지 않습니다. SQL 테이블에 저�
 ## <a name="next-steps"></a>다음 단계
 
 - [U SQL 개발자를 위한 Spark 코드 개념 이해](understand-spark-code-concepts.md)
-- [빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드](../storage/blobs/data-lake-storage-upgrade.md)
-- [Apache Spark용 .NET](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [빅 데이터 분석 솔루션을 Azure Data Lake Storage Gen1에서 Azure Data Lake Storage Gen2로 업그레이드](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
+- [Apache Spark용 .NET](/dotnet/spark/what-is-apache-spark-dotnet)
 - [Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환](../data-factory/transform-data-using-spark.md)
 - [Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환](../data-factory/transform-data-using-hadoop-hive.md)
 - [Azure HDInsight에서 Apache Spark란](../hdinsight/spark/apache-spark-overview.md)

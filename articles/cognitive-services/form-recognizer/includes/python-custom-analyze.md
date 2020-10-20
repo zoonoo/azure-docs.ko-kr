@@ -5,18 +5,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 88be632e17912012618ab559f22f97487ad26c9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 262774233871a46cf971d95a6cf5d810adf9746a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88723499"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961795"
 ---
 ## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>키-값 쌍 및 테이블에 대한 양식 분석
 
 다음으로, 새로 학습된 모델을 사용하여 문서를 분석하고 키-값 쌍 및 테이블을 추출합니다. 새 Python 스크립트에서 다음 코드를 실행하여 **[양식 분석](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<file path>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다.
+1. `<file path>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이는 원격 파일의 URL일 수도 있습니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
 1. `<model_id>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
 1. `<endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
 1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`입니다.

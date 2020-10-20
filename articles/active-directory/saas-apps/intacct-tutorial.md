@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: 79a77d3c55ee4ac545712329f0054123bec8fcae
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535845"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850577"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>자습서: Azure Active Directory와 Sage Intacct 통합
 
@@ -189,7 +189,7 @@ Azure AD 사용자가 Sage Intacct에 로그인할 수 있도록 설정하려면
 
 1. **사용자 정보** 섹션에서 다음 단계를 수행합니다.
 
-    ![사용자 정보](./media/intacct-tutorial/ic790043.png "사용자 정보")
+    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 사용자 정보 섹션을 보여줍니다.](./media/intacct-tutorial/ic790043.png "사용자 정보")
 
     a. **사용자 정보** 섹션으로 프로비전하려는 Azure AD 계정의 **사용자 ID**, **성**, **이름**, **전자 메일 주소**, **직함** 및 **전화 번호**를 입력합니다.
 
@@ -204,7 +204,7 @@ Azure AD 사용자가 Sage Intacct에 로그인할 수 있도록 설정하려면
 
 1. **Single Sign-On** 탭을 클릭하고 아래 스크린샷의 **페더레이션된 SSO 사용자 ID**와 Azure Portal의 **사용자 특성** 섹션에 있는 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`와 매핑되는 **원본 특성** 값이 동일해야 합니다.
 
-    ![사용자 정보](./media/intacct-tutorial/ic790044.png "사용자 정보")
+    ![스크린샷은 페더레이션된 SSO 사용자 ID를 입력할 수 있는 사용자 정보 섹션을 보여줍니다.](./media/intacct-tutorial/ic790044.png "사용자 정보")
 
 > [!NOTE]
 > Azure AD 사용자 계정을 프로비저닝하려면 다른 Sage Intacct 사용자 계정 생성 도구 또는 Sage Intacct에서 제공한 API를 사용하면 됩니다.

@@ -1,22 +1,19 @@
 ---
-title: 'PowerShell 스크립트: Azure 데이터 공유 동기화 설정 설정 및 보기 | Microsoft Docs'
+title: 'PowerShell 스크립트: Azure 데이터 공유 동기화 설정 확인 및 보기'
 description: 이 PowerShell 스크립트는 공유 동기화 설정을 설정 하 고 가져옵니다.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 0ced66c1d3023b7edb3220b45e24d3eb54098df8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401754436739e5594c0d7baac6507f9d9984fc31
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512489"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221284"
 ---
-# <a name="use-powershell-to-set-azure-data-share-sychronization-settings"></a>PowerShell을 사용 하 여 Azure 데이터 공유 동기화 설정 설정
+# <a name="use-powershell-to-set-azure-data-share-synchronization-settings"></a>PowerShell을 사용 하 여 Azure 데이터 공유 동기화 설정 설정
 
 이 PowerShell 스크립트는 공유 동기화 설정을 설정 하 고 가져옵니다.
 
@@ -48,12 +45,12 @@ Get-AzDataShareSynchronizationSetting -ResourceGroupName $resourceGroupName -Acc
 
 | 명령 | 메모 |
 |---|---|
-| [AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화를 만듭니다. |
-| [AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | 공유 동기화의 동기화 설정을 가져옵니다. |
+| [AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting) | 공유 동기화를 만듭니다. |
+| [AzDataShareSynchronizationSetting](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting) | 공유 동기화의 동기화 설정을 가져옵니다. |
 |||
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/)를 참조하세요.
+Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/)를 참조하세요.
 
 추가 Azure 데이터 공유 PowerShell 스크립트 샘플은 [Azure 데이터 공유 powershell 샘플](../../samples-powershell.md)에서 찾을 수 있습니다.

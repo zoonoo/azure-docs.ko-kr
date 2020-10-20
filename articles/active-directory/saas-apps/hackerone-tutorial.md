@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 530ef271091afc3e646d375ea471d8c48f0f8651
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d72e6c6a606a199bd8b0ada601479267e0d728d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544199"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>자습서:Azure Active Directory와 HackerOne 통합
 
@@ -126,11 +126,11 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 위쪽 메뉴에서 **설정**을 클릭합니다.
 
-    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![메뉴에서 선택한 "설정"을 보여주는 스크린샷.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. **인증**으로 이동하여 **SAML 설정 추가**를 클릭합니다.
 
-    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    !["SAML 설정 추가" 단추가 선택된 "인증 설정" 페이지를 보여주는 스크린샷.](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. **SAML 설정** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -146,7 +146,7 @@ HackerOne에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 5. 인증 설정 대화 상자에서 다음 단계를 수행합니다.
 
-    ![Single Sign-on 구성](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    !["테스트 실행" 단추가 선택된 "인증 설정" 대화 상자를 보여주는 스크린샷.](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. **테스트 실행**을 클릭합니다.
 

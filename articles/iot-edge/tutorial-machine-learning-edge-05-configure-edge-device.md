@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448512"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974552"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -96,7 +96,7 @@ ms.locfileid: "91448512"
 
 Azure IoT Edge 디바이스를 IoT Hub에 연결하기 위해, 먼저 허브의 디바이스에 대한 ID를 만듭니다. 클라우드의 디바이스 ID에서 연결 문자열을 가져와 IoT Edge 디바이스의 런타임을 구성하는 데 사용합니다. 구성된 디바이스가 허브에 연결되면 모듈을 배포하고 메시지를 보낼 수 있습니다. IoT 허브에서 해당 디바이스 ID의 구성을 변경하여 물리적 IoT Edge 디바이스의 구성을 변경할 수도 있습니다.
 
-이 자습서에서는 Visual Studio Code를 사용하여 새 디바이스 ID를 만듭니다. [Azure Portal](how-to-register-device.md#register-in-the-azure-portal) 또는 [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)를 사용하여 이 단계를 완료할 수도 있습니다.
+이 자습서에서는 Visual Studio Code를 사용하여 새 디바이스 ID를 만듭니다. Azure Portal 또는 Azure CLI를 사용하여 이러한 단계를 완료할 수도 있습니다.
 
 1. 개발 머신에서 Visual Studio Code를 엽니다.
 
@@ -294,12 +294,9 @@ IoT Edge VM을 만들 때 사용한 *Azure IoT Edge on Ubuntu* 이미지는 conf
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
 ## <a name="next-steps"></a>다음 단계
 
 Azure VM을 Azure IoT Edge 투명 게이트웨이로 구성했습니다. 가장 먼저 테스트 인증서를 생성하여 Azure Key Vault에 업로드했습니다. 다음으로, 스크립트와 Resource Manager 템플릿을 사용하여 Azure Marketplace의 "Ubuntu Server 16.04 LTS + Azure IoT Edge 런타임" 이미지로 VM을 배포했습니다. SSH를 통해 연결된 VM을 실행하여 Azure에 로그인하고 Key Vault에서 인증서를 다운로드했습니다. config.yaml 파일을 업데이트하여 IoT Edge 런타임의 구성에 대해 몇 가지 업데이트를 수행했습니다.
-
-자세한 내용은 [IoT Edge 디바이스를 게이트웨이로 구성하는 방법](iot-edge-as-gateway.md) 및 [IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)을 참조하세요.
 
 다음 문서를 계속 진행하여 IoT Edge 모듈을 빌드하세요.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c988168f5d56fd7dcf8142a9f1e68af2defdcfc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2e8f542f8a734f5bd6592ebc743b30676dd61f07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552971"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>자습서: InVision과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -133,15 +133,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Team(팀)** 을 클릭하고 **Settings(설정)** 를 선택합니다.
 
-    ![InVision 구성](./media/invision-tutorial/config1.png)
+    ![스크린샷은 설정이 선택된 팀 탭을 보여줍니다.](./media/invision-tutorial/config1.png)
 
 1. **Single sign-on**까지 아래로 스크롤한 다음, **Change(변경)** 를 클릭합니다.
 
-    ![InVision 구성](./media/invision-tutorial/config3.png)
+    ![스크린샷은 Single Sign-On에 대한 변경 단추를 보여줍니다.](./media/invision-tutorial/config3.png)
 
 1. **Single sign-on** 페이지에서 다음 단계를 수행합니다.
 
-    ![InVision 구성](./media/invision-tutorial/config4.png)
+    ![스크린샷은 이 단계에서 값을 입력하는 Single Sign-On 페이지를 보여줍니다.](./media/invision-tutorial/config4.png)
 
     a. **Require SSO for every member of < account name >(< 계정 이름 >의 모든 멤버에 대해 SSO 요구)** 을 **On(켜기)** 으로 변경합니다.
 
@@ -169,19 +169,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **Team(팀)** 을 클릭하고 **People(사용자)** 을 선택합니다.
 
-    ![InVision 구성](./media/invision-tutorial/config2.png)
+    ![스크린샷은 사람이 선택된 팀 탭을 보여줍니다.](./media/invision-tutorial/config2.png)
 
 1. **+ ICON(아이콘)** 을 클릭하여 새 사용자를 추가합니다.
 
-    ![InVision 구성](./media/invision-tutorial/user1.png)
+    ![스크린샷은 사용자를 추가하기 위한 + 아이콘을 보여줍니다.](./media/invision-tutorial/user1.png)
 
 1. 사용자의 이메일 주소를 입력하고, **Next(다음)** 를 클릭합니다.
 
-    ![InVision 구성](./media/invision-tutorial/user2.png)
+    ![스크린샷은 주소를 입력할 수 있는 초대 대상 대화 상자를 보여줍니다.](./media/invision-tutorial/user2.png)
 
 1. 이메일 주소를 확인한 다음, **Invite(초대)** 를 클릭합니다.
 
-    ![InVision 구성](./media/invision-tutorial/user3.png)
+    ![스크린샷은 계속 진행하기 위한 초대를 선택할 수 있는 초대 대화 상자를 보여줍니다.](./media/invision-tutorial/user3.png)
 
 ## <a name="test-sso"></a>SSO 테스트
 

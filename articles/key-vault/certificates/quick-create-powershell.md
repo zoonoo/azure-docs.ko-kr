@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: efd73907a8ca691ceb451391477c9c8e2239c250
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7ff618024c269a010eddf08128e827ade7921c94
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87043905"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940602"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 
@@ -73,7 +73,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 인증서를 참조할 수 있습니다. 현재 버전을 가져오려면 **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** 를 사용합니다. 
+이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 인증서를 참조할 수 있습니다. **'https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate '** 를 사용하여 현재 버전을 가져옵니다. 
 
 이전에 저장한 인증서를 보려면 다음을 수행합니다.
 

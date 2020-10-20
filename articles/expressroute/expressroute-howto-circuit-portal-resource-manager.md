@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c2e0f7736aa5d6779e4ed7cb3824f6606c121565
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973362"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073141"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>빠른 시작: ExpressRoute 회로 만들기 및 수정
 
@@ -164,7 +164,7 @@ ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-**삭제** 아이콘을 선택하여 ExpressRoute 회로를 삭제할 수 있습니다. 
+**삭제** 아이콘을 선택하여 ExpressRoute 회로를 삭제할 수 있습니다. 계속하기 전에 공급자 상태가 *프로비전 안 됨*인지 확인합니다.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="ExpressRoute 회로 만들기":::
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 245818b60647539c7fff7c45dcecdc6840153fb5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 536fcab8cdfea4846cc1122fa56c939f525388f4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549044"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938477"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>자습서: NetDocuments와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -136,7 +136,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. **보안 센터**를 선택합니다.
    
-    ![리포지토리](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![스크린샷은 법률 문서에서 선택한 Security Center를 보여줍니다.](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. **고급 인증**을 선택합니다.
     
@@ -166,7 +166,7 @@ Azure AD 사용자가 NetDocuments에 로그인할 수 있게 하려면 NetDocum
 
 3. **사용자 및 그룹**을 선택합니다.
    
-    ![리포지토리](./media/netdocuments-tutorial/users-groups.png "리포지토리")
+    ![스크린샷은 법률 문서에서 선택한 사용자 및 그룹을 보여줍니다.](./media/netdocuments-tutorial/users-groups.png "리포지토리")
 
 4. **메일 주소** 텍스트 상자에 프로비전하려는 유효한 Azure Active Directory 계정의 이메일 주소를 입력한 다음 **사용자 추가**를 클릭합니다.
    

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265276"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996534"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -113,6 +113,8 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 | 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 예 |예 |
 | 공지 | 주 단위 요약| 아니요 | 예 | 예 | 
 | | MFA 등록 정책 | 아니요 | 예 | 예 |
+
+이러한 풍부한 보고서에 대한 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#navigating-the-reports) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,14 +1,14 @@
 ---
 title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
-ms.date: 06/16/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649824"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876297"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -66,12 +66,15 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 
 ### <a name="arm-templates"></a>ARM 템플릿
 
-관리하려는 속성을 포함하고 있는 [Resource Manager 템플릿](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)을 찾는 여러 가지 방법이 있습니다.
+관리하려는 속성이 포함된 [ARM](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)을 찾는 여러 가지 방법이 있습니다.
 
 #### <a name="existing-resource-in-the-portal"></a>포털의 기존 리소스
 
 속성을 찾는 가장 간단한 방법은 동일한 형식의 기존 리소스를 살펴보는 것입니다. 적용하려는 설정을 사용하여 이미 구성된 리소스는 비교 값을 제공합니다.
 해당 리소스에 대한 Azure Portal에서 **템플릿 내보내기** 페이지(**설정** 아래)를 확인하세요.
+
+> [!WARNING]
+> Azure Portal에서 내보낸 ARM 템플릿은 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 정책 정의에서 ARM 템플릿의 `deployment` 속성에 직접 연결할 수 없습니다.
 
 :::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Azure Portal의 기존 리소스에 대한 템플릿 내보내기 페이지의 스크린샷." border="false":::
 

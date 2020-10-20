@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554725"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>자습서: Mixpanel과 Azure Active Directory 통합
 
@@ -130,15 +130,15 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 3. **액세스 보안** 탭을 클릭한 후 **설정 변경**을 클릭합니다.
    
-    ![Mixpanel 설정](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![스크린샷은 설정을 변경할 수 있는 액세스 보안 탭을 보여줍니다.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. **인증서 변경** 대화 상자 페이지에서 다운로드한 인증서를 업로드하려면 **파일 선택**을 클릭한 후, **다음**을 클릭합니다.
    
-    ![Mixpanel 설정](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![스크린샷은 인증서 파일을 선택할 수 있는 인증서 변경 대화 상자를 보여줍니다.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  **인증 URL 변경** 대화 상자 페이지의 [인증 URL] 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL**의 값을 붙여넣은 후 **다음**을 클릭합니다.
    
-    ![Mixpanel 설정](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![스크린샷은 로그인 URL을 복사할 수 있는 인증 URL 변경 창을 보여줍니다.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. **Done**을 클릭합니다.
 
@@ -205,7 +205,7 @@ Mixpanel에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **팀 멤버** 텍스트 상자에 Azure에 있는 Britta의 메일 주소를 입력합니다.
    
-    ![Mixpanel 설정](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![스크린샷은 초대할 주소를 추가하는 팀 탭을 보여줍니다.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. **초대**를 클릭합니다. 
 

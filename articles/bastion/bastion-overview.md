@@ -5,20 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 680eb8414696109e8cc15d82d8bd5f2c5740f488
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4aa1ef29ffb27efb29d969e48af4cf5288e08ae
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89291877"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014786"
 ---
 # <a name="what-is-azure-bastion"></a>Azure Bastion 정보
 
-Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 새로운 완전 플랫폼 관리형 PaaS 서비스입니다. TLS를 통해 Azure Portal에서 직접 가상 머신에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다.
+Azure Bastion은 브라우저와 Azure Portal을 사용하여 가상 머신에 연결할 수 있도록 배포하는 서비스입니다. Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 완전 플랫폼 관리형 PaaS 서비스입니다. TLS를 통해 Azure Portal에서 직접 가상 머신에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결할 때 가상 머신에 공용 IP 주소, 에이전트 또는 특수 클라이언트 소프트웨어가 필요하지 않습니다.
 
-Bastion은 프로비저닝된 가상 네트워크의 모든 VM에 대한 안전한 RDP 및 SSH 연결을 제공합니다. Azure Bastion을 사용하면 가상 머신에서 RDP/SSH를 사용하여 안전한 액세스 권한을 계속 제공하며 RDP/SSH 포트가 외부 환경에 노출되는 상황으로부터 보호합니다. Azure Bastion을 통해 Azure Portal에서 직접 가상 머신에 연결합니다. 다른 클라이언트, 에이전트 또는 소프트웨어가 필요하지 않습니다.
+Bastion은 프로비저닝된 가상 네트워크의 모든 VM에 대한 안전한 RDP 및 SSH 연결을 제공합니다. Azure Bastion을 사용하면 가상 머신에서 RDP/SSH를 사용하여 안전한 액세스 권한을 계속 제공하며 RDP/SSH 포트가 외부 환경에 노출되는 상황으로부터 보호합니다.
 
 ## <a name="architecture"></a>Architecture
 
@@ -57,5 +57,5 @@ RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/upda
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Bastion 호스트 리소스를 만듭니다](bastion-create-host-portal.md).
+* [자습서: Azure Bastion 호스트를 만들고 Windows VM에 연결](tutorial-create-host-portal.md)합니다.
 * Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.

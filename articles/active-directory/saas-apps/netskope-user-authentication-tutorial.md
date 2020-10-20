@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a2bd9b7240033df47f57dc3432ce50819d8754b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62d6d5527cd917304e4c8bc0c4740f4edb772218
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544029"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939174"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-user-authentication"></a>자습서: Netskope User Authentication과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -136,15 +136,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **활성 플랫폼** 탭을 클릭합니다.
 
-    ![Netskope User Authentication 구성](./media/netskope-user-authentication-tutorial/user1.png)
+    ![스크린샷은 설정에서 선택한 활성 플랫폼을 보여줍니다.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. **프록시 전달**까지 아래로 스크롤하여 **SAML**을 선택합니다.
 
-    ![Netskope User Authentication 구성](./media/netskope-user-authentication-tutorial/config-saml.png)
+    ![스크린샷은 활성 플랫폼에서 선택한 SAML을 보여줍니다.](./media/netskope-user-authentication-tutorial/config-saml.png)
 
 1. **SAML 설정** 페이지에서 다음 단계를 수행합니다.
 
-    ![Netskope User Authentication 구성](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 설정을 보여줍니다.](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
 
     a. **SAML 엔터티 ID** 값을 복사하고 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
 
@@ -152,11 +152,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **계정 추가**를 클릭합니다.
 
-    ![Netskope User Authentication 구성](./media/netskope-user-authentication-tutorial/config-addaccount.png)
+    ![스크린샷은 SAML 창에서 선택한 계정 추가를 보여줍니다.](./media/netskope-user-authentication-tutorial/config-addaccount.png)
 
 1. **SAML 계정 추가** 페이지에서 다음 단계를 수행합니다.
 
-    ![Netskope User Authentication 구성](./media/netskope-user-authentication-tutorial/config-settings1.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 계정 추가를 보여줍니다.](./media/netskope-user-authentication-tutorial/config-settings1.png)
 
     a. **이름** 텍스트 상자에 Azure AD와 같은 이름을 입력합니다.
 
@@ -174,23 +174,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
 
-    ![Netskope User Authentication 사용자 만들기](./media/netskope-user-authentication-tutorial/config-settings.png)
+    ![스크린샷은 선택된 설정을 보여줍니다.](./media/netskope-user-authentication-tutorial/config-settings.png)
 
 1. **활성 플랫폼** 탭을 클릭합니다.
 
-    ![Netskope User Authentication 사용자 만들기](./media/netskope-user-authentication-tutorial/user1.png)
+    ![스크린샷은 설정에서 선택한 활성 플랫폼을 보여줍니다.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. **사용자** 탭을 클릭합니다.
 
-    ![Netskope User Authentication 사용자 만들기](./media/netskope-user-authentication-tutorial/add-user.png)
+    ![스크린샷은 활성 플랫폼에서 선택한 사용자를 보여줍니다.](./media/netskope-user-authentication-tutorial/add-user.png)
 
 1. **사용자 추가**를 클릭합니다.
 
-    ![Netskope User Authentication 사용자 만들기](./media/netskope-user-authentication-tutorial/user-add.png)
+    ![스크린샷은 사용자 추가를 선택할 수 있는 사용자 대화 상자를 보여줍니다.](./media/netskope-user-authentication-tutorial/user-add.png)
 
 1. 추가할 사용자의 이메일 주소를 입력하고 **추가**를 클릭합니다.
 
-    ![Netskope User Authentication 사용자 만들기](./media/netskope-user-authentication-tutorial/add-user-popup.png)
+    ![스크린샷은 사용자 목록을 입력할 수 있는 사용자 추가를 보여줍니다.](./media/netskope-user-authentication-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>SSO 테스트
 

@@ -1,5 +1,5 @@
 ---
-title: 자습서`:` 관리 ID를 사용하여 Azure SQL Database에 액세스 - Windows - Azure AD
+title: '자습서: 관리 ID를 사용하여 Azure SQL Database에 액세스 - Windows - Azure AD'
 description: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL Database에 액세스하는 프로세스를 단계별로 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d576fb4f5dea10a2adf0d7488aa422e1397fd6d1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255752"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91856515"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
 

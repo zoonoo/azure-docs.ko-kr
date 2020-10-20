@@ -9,17 +9,17 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 840ccb00fdc91cc44fee46500bbc7237fe55ff2a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 24ae71206188dc6d60f6a37629ad55ae4d4c1567
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185522"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015365"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비저닝
 
@@ -176,6 +176,9 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
    1. **패키지 저장소 이름**으로 패키지 저장소의 이름을 입력합니다. 
 
    1. **패키지 저장소 연결된 서비스**로는 패키지가 배포되는 파일 시스템/Azure Files/Azure SQL Managed Instance 대한 액세스 정보를 저장하는 기존의 연결된 서비스를 선택하거나, **새로 만들기**를 선택하여 새로 만듭니다. **새 연결된 서비스** 창에서 다음 단계를 완료합니다. 
+
+      > [!NOTE]
+      > **Azure File Storage** 또는 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. **Azure File Storage** 연결 서비스를 사용하는 경우 Azure-SSIS IR 패키지 저장소는 현재 **기본**(**계정 키** 또는 **SAS URI** 아님) 인증 방법만 지원합니다. **Azure File Storage** 연결 서비스에서 **기본** 인증을 사용하려면 브라우저의 ADF 포털 URL에 `?feature.upgradeAzureFileStorage=false`를 추가하면 됩니다. 또는, 대신 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. 
 
       ![연결된 서비스의 배포 설정](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 

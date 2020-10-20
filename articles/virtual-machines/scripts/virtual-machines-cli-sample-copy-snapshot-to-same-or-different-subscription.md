@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: ce2eaac6189e3b9c0550948eddfddd018deac90b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 52efdb91328b5d9349eb3724c4a146348e4a975a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051845"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978580"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크의 스냅샷을 동일한 구독이나 다른 구독으로 복사
 
@@ -25,6 +25,9 @@ ms.locfileid: "89051845"
 1. Premium Storage(Premium_LRS)의 스냅샷을 Standard Storage(Standard_LRS 또는 Standard_ZRS)로 마이그레이션하여 비용을 절감합니다.
 1. 로컬 중복 저장소(Premium_LRS, Standard_LRS)의 스냅샷을 영역 중복 저장소(Standard_ZRS)로 마이그레이션하여 ZRS 스토리지의 높은 안정성을 누립니다.
 1. 더 오래 보존하기 위해 스냅샷을 같은 지역의 다른 구독으로 이동합니다.
+
+> [!NOTE]
+> 두 구독은 모두 동일한 테넌트 아래에 있어야 합니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

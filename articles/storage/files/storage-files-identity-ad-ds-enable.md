@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 732f143c9cdc0d8fbfdcf1b24f5e73280e036285
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6251894018ceeb2a99ebb62939b6e446fea825a2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042618"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220723"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1 부: Azure 파일 공유에 대 한 AD DS 인증 사용 
 
@@ -155,6 +155,16 @@ $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
+성공 하는 경우 출력은 다음과 같습니다.
+
+```PowerShell
+DomainName:<yourDomainHere>
+NetBiosDomainName:<yourNetBiosDomainNameHere>
+ForestName:<yourForestNameHere>
+DomainGuid:<yourGUIDHere>
+DomainSid:<yourSIDHere>
+AzureStorageID:<yourStorageSIDHere>
+```
 ## <a name="next-steps"></a>다음 단계
 
 이제 저장소 계정에서이 기능을 사용 하도록 설정 했습니다. 기능을 사용 하려면 공유 수준 권한을 할당 해야 합니다. 다음 섹션으로 계속 진행 합니다.

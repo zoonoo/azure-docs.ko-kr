@@ -3,18 +3,17 @@ title: Windows 컨테이너 모니터링 및 진단
 description: 이 자습서에서는 Azure Service Fabric에서 Windows 컨테이너의 모니터링 및 진단을 위해 Azure Monitor 로그를 구성합니다.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6a3a5211864c4cbadc03bbc77bfef2204f6c2ccf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244806"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840679"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>자습서: Azure Monitor 로그를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
-자습서의 3부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 Azure Monitor 로그를 설정하는 과정을 안내합니다.
+이 자습서의 3부이며, Service Fabric에서 오케스트레이션되는 Windows 컨테이너를 모니터링하도록 Azure Monitor 로그를 구성하는 과정을 안내합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -186,19 +185,17 @@ ms.locfileid: "86244806"
 
 ![컨테이너 솔루션 추가](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-*Log Analytics 작업 영역*에 대한 메시지가 표시되면 리소스 그룹에서 만든 작업 영역을 선택하고 **만들기**를 클릭합니다. 이렇게 하면 *컨테이너 모니터링 솔루션*이 작업 영역에 추가되고 템플릿에 의해 배포된 Log Analytics 에이전트가 docker 로그 및 통계 수집을 자동으로 시작합니다. 
+*Log Analytics 작업 영역*에 대한 메시지가 표시되면 리소스 그룹에서 만든 작업 영역을 선택하고 **만들기**를 선택합니다. 이렇게 하면 *컨테이너 모니터링 솔루션*이 작업 영역에 추가되고 템플릿에 의해 배포된 Log Analytics 에이전트가 시작되어 docker 로그 및 통계 수집이 시작됩니다.
 
-*리소스 그룹*으로 돌아가면 이제 새로 추가된 모니터링 솔루션이 표시됩니다. 클릭하면 방문 페이지에 실행 중인 컨테이너 이미지 수가 표시됩니다.
+*리소스 그룹*으로 돌아가면 이제 새로 추가된 모니터링 솔루션이 표시됩니다. 선택하면 방문 페이지에 실행 중인 컨테이너 이미지 수가 표시됩니다.
 
-*자습서의 [2부](service-fabric-host-app-in-a-container.md)에서는 fabrikam 컨테이너 인스턴스를 5개 실행했습니다.*
+*자습서의 [2부](service-fabric-host-app-in-a-container.md)에서는 5개의 fabrikam 컨테이너 인스턴스를 실행했습니다.*
 
 ![컨테이너 솔루션 방문 페이지](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-**컨테이너 모니터 솔루션**을 클릭하면 자세한 대시보드로 이동되며, 여기서 여러 패널을 스크롤하고 Azure Monitor 로그에서 쿼리를 실행할 수 있습니다.
+**컨테이너 모니터 솔루션**을 선택하면 자세한 대시보드로 이동되며, 여기서 여러 패널을 스크롤하고 Azure Monitor 로그에서 쿼리를 실행할 수 있습니다.
 
-*2017년 9월부터 솔루션에서 일부 업데이트가 수행됩니다. 동일한 솔루션에 여러 조정자를 통합할 때 Kubernetes 이벤트에 대해 발생할 수 있는 오류를 무시하세요.*
-
-에이전트는 docker 로그를 수집하기 때문에 기본적으로 *stdout* 및 *stderr*을 표시합니다. 오른쪽으로 스크롤하면 컨테이너 이미지 인벤토리, 상태, 메트릭 및 더 유용한 데이터를 가져오기 위해 실행할 수 있는 샘플 쿼리가 표시됩니다.
+에이전트는 docker 로그를 수집하기 때문에 기본적으로 *stdout* 및 *stderr*을 표시합니다. 가로로 스크롤하면 컨테이너 이미지 인벤토리, 상태, 메트릭 및 더 유용한 데이터를 가져오기 위해 실행할 수 있는 샘플 쿼리가 표시됩니다.
 
 ![컨테이너 솔루션 대시보드](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
@@ -208,12 +205,12 @@ ms.locfileid: "86244806"
 
 ## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>성능 카운터를 수집하도록 Log Analytics 에이전트 구성
 
-Log Analytics 에이전트를 사용하는 또 다른 이점은 Azure 진단 에이전트를 구성하고 Resource Manager 템플릿 기반 업그레이드를 매번 수행하는 대신, Log Analytics UI 환경을 통해 수집할 성능 카운터를 변경하는 기능입니다. 이 작업을 수행하려면 컨테이너 모니터링(또는 Service Fabric) 솔루션의 방문 페이지에서 **OMS 작업 영역**을 클릭합니다.
+Log Analytics 에이전트를 사용하는 또 다른 이점은 Azure 진단 에이전트를 구성하고 Resource Manager 템플릿 기반 업그레이드를 매번 수행하는 대신, Log Analytics UI 환경을 통해 수집할 성능 카운터를 변경하는 기능입니다. 이렇게 하려면 컨테이너 모니터링(또는 Service Fabric) 솔루션의 방문 페이지에서 **OMS 작업 영역**을 선택합니다.
 
 Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, 사용자 지정 대시보드를 만들고, Log Analytics 에이전트를 구성할 수 있습니다. 
-* **고급 설정**을 클릭하여 고급 설정 메뉴를 엽니다.
-* **연결된 원본** > **Windows 서버**를 클릭하여 *5대의 Windows 컴퓨터가 연결*되어 있는지 확인합니다.
-* **데이터** > **Windows 성능 카운터**를 클릭하여 새 성능 카운터를 검색하고 추가합니다. 여기에는 수집할 수 있는 성능 카운터에 대한 Azure Monitor 로그의 권장 사항 목록과 다른 카운터를 검색하는 옵션이 표시됩니다. **Processor(_Total)\% Processor Time** 및 **Memory(*)\Available MBytes** 카운터를 수집했는지 확인합니다.
+* **고급 설정**을 선택하여 고급 설정 메뉴를 엽니다.
+* **연결된 원본** > **Windows Servers**를 선택하여 *5대의 Windows 컴퓨터가 연결*되어 있는지 확인합니다.
+* **데이터** > **Windows 성능 카운터**를 선택하여 새 성능 카운터를 검색하고 추가합니다. 여기에는 수집할 수 있는 성능 카운터에 대한 Azure Monitor 로그의 권장 사항 목록과 다른 카운터를 검색하는 옵션이 표시됩니다. **Processor(_Total)\% Processor Time** 및 **Memory(*)\Available MBytes** 카운터를 수집했는지 확인합니다.
 
 컨테이너 모니터링 솔루션을 몇 분 내에 **새로 고침**하면 *컴퓨터 성능* 데이터가 들어오는 것이 표시되기 시작해야 합니다. 이 정보를 통해 리소스가 사용되는 방식을 이해할 수 있습니다. 이러한 메트릭을 사용하여 클러스터 크기 조정에 대한 적절한 결정을 내리거나 클러스터가 예상대로 부하 균형을 조정하는지 확인할 수도 있습니다.
 
@@ -230,9 +227,9 @@ Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, �
 > * Log Analytics 작업 영역을 사용하여 컨테이너 및 노드의 로그 보기 및 쿼리
 > * 컨테이너 및 노드 메트릭을 수집하도록 Log Analytics 에이전트 구성
 
-이제 컨테이너화된 애플리케이션에 대한 모니터링을 설정했으므로 다음을 시도해 보세요.
+이제 컨테이너화된 애플리케이션에 대한 모니터링을 구성했으므로 다음을 시도해 보세요.
 
-* 위와 유사한 단계에 따라 Linux 클러스터에 대해 Azure Monitor 로그를 설정합니다. [이 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS)을 참조하여 Resource Manager 템플릿 내용을 변경합니다.
+* 이 자습서와 유사한 단계에 따라 Linux 클러스터에 대한 Azure Monitor 로그를 구성합니다. [이 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS)을 참조하여 Resource Manager 템플릿 내용을 변경합니다.
 * 검색 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md)를 설정하도록 Azure Monitor 로그를 구성합니다.
 * 클러스터에 대해 구성할 Service Fabric의 [권장 성능 카운터](service-fabric-diagnostics-event-generation-perf.md) 목록을 탐색합니다.
 * Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.

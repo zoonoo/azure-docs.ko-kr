@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bdeec23b6b0a0ef2884fa35bd0a576ef57bb7853
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518638"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>자습서: Mozy Enterprise와 Azure Active Directory 통합
 
@@ -126,11 +126,11 @@ Mozy Enterprise에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 2. **구성** 섹션에서 **인증 정책**을 클릭합니다.
    
-    ![인증 정책](./media/mozy-enterprise-tutorial/ic777314.png "인증 정책")
+    ![스크린샷은 구성에서 선택한 인증 정책을 보여줍니다.](./media/mozy-enterprise-tutorial/ic777314.png "인증 정책")
 
 3. **인증 정책** 섹션에서 다음 단계를 수행합니다.
    
-    ![인증 정책](./media/mozy-enterprise-tutorial/ic777315.png "인증 정책")
+    ![스크린샷은 설명된 값을 입력할 수 있는 인증 정책 섹션을 보여줍니다.](./media/mozy-enterprise-tutorial/ic777315.png "인증 정책")
    
     a. **디렉터리 서비스**를 **공급자**로 선택합니다.
    

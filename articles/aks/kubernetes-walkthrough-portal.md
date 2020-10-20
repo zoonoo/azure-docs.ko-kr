@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 만들고 애플리케이션을 배포하고 AKS(Azure Kubernetes Service)의 성능을 모니터링하는 방법을 알아봅니다.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/11/2020
+ms.date: 10/06/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 2331f2a9dc4ca0e94b251a03e7917547f360af4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a666f257cf2616d540a70d145647fbc73350cbd
+ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459798"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91850445"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -37,15 +37,15 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
 
 3. **기본** 페이지에서 다음 옵션을 구성합니다.
     - **프로젝트 세부 정보**: Azure **구독**을 선택한 다음, *myResourceGroup* 같은 Azure **리소스 그룹**을 선택하거나 만듭니다.
-    - **클러스터 세부 정보**: *myAKSCluster* 같은 **Kubernetes 클러스터 이름**을 입력합니다. AKS 클러스터의 **지역**, **Kubernetes 버전** 및 **DNS 이름 접두사**를 선택합니다.
-    - **주 노드 풀**: AKS 노드의 VM **노드 크기**를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다*. 
+    - **클러스터 세부 정보**: *myAKSCluster* 같은 **Kubernetes 클러스터 이름**을 입력합니다. AKS 클러스터에 대한 **지역** 및 **Kubernetes 버전**을 선택합니다.
+    - **주 노드 풀**: AKS 노드의 VM **노드 크기**를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 *없습니다*.
             - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수**를 *1*로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 *있습니다*.
     
     ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    완료되면 **다음: 비율 크기 조정**을 선택합니다.
+    완료되면 **다음: 노드 풀**을 선택합니다.
 
-4. **비율 크기 조정** 페이지에서 기본 옵션을 그대로 유지합니다. 화면 아래쪽에서 **다음: 인증**을 클릭합니다.
+4. **노드 풀** 페이지에서 기본 옵션을 유지합니다. 화면 아래쪽에서 **다음: 인증**을 클릭합니다.
     > [!CAUTION]
     > 새 AAD 서비스 주체를 만드는 작업이 전파되고 사용할 수 있게 되기까지 몇 분이 걸릴 수 있으므로, Azure Portal에서 서비스 주체를 찾을 수 없음 오류와 유효성 검사 오류가 발생할 수 있습니다. 이 문제가 발생할 경우 완화하는 방법은 [여기](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster)를 참조하세요.
 

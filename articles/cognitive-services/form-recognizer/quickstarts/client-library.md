@@ -13,16 +13,16 @@ ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
 ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 양식 처리, 자동화된 데이터 처리
-ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b024b3fac76e51264e89100e63a3cdc477443157
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318951"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963063"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>빠른 시작: Form Recognizer 클라이언트 라이브러리 사용
 
-선택한 언어로 Form Recognizer 클라이언트 라이브러리를 시작합니다. Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데이터 처리 소프트웨어를 빌드할 수 있는 인식 서비스입니다. 양식 문서에서 텍스트, 키/값 쌍 및 테이블 데이터를 식별하고 추출합니다. &mdash;서비스는 원본 파일의 관계를 포함하는 구조화된 데이터를 출력합니다. 다음 단계에 따라 SDK 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요.
+선택한 언어로 Form Recognizer 클라이언트 라이브러리를 시작합니다. Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데이터 처리 소프트웨어를 빌드할 수 있는 인식 서비스입니다. 양식 문서에서 텍스트, 키/값 쌍 및 테이블 데이터를 식별하고 추출합니다. &mdash;서비스는 원본 파일의 관계를 포함하는 구조화된 데이터를 출력합니다. 다음 단계에 따라 SDK 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. Form Recognizer 클라이언트 라이브러리는 현재 Form Recognizer 서비스의 v2.0을 대상으로 합니다.
 
 Form Recognizer 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 

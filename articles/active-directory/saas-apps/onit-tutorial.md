@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0a04b893af41f15d0757b781716909535f43239e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8caf136c43f40458634316da4b4002386f1419da
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544012"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997044"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>자습서: Onit와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -132,7 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 위쪽의 메뉴에서 **관리**를 클릭합니다.
    
-    ![관리](./media/onit-tutorial/IC791174.png "관리")
+    !["관리" 작업이 선택된 "MS SSO 테스트" 페이지의 위쪽에 있는 메뉴를 보여주는 스크린샷.](./media/onit-tutorial/IC791174.png "관리")
 
 3. **회사 편집**을 클릭합니다.
    

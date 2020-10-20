@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c3eb3706858bd2bfd2160e58698c0f5136c41f3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3e8ed59783a6a714434b17a1d1abbb22fbe30939
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547913"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944051"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>자습서: OneDesk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -141,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **통합** 탭을 클릭합니다.
 
-    ![설정 탭](./media/onedesk-tutorial/img-integration.png)
+    ![선택된 "통합" 탭을 보여주는 스크린샷.](./media/onedesk-tutorial/img-integration.png)
 
 1. **Single Sign On**, **메타데이터 파일 업로드**, **파일 선택**을 차례로 클릭하고, Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 

@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f453c074126e448eb54d432532b9064b3eb3cb35
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50717c7e8a7b0f748df98c1896e1b7eb64cd7be3
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287895"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91819346"
 ---
 # <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link(미리 보기)에 연결
 
@@ -36,7 +36,7 @@ Azure Cosmos DB 데이터베이스를 작업 영역에 연결하기 전에 다�
 
 ## <a name="navigate-to-synapse-studio"></a>Synapse Studio로 이동
 
-Synapse 작업 영역에서 **Synapse Studio 시작**을 선택합니다. Synapse Studio 홈페이지에서 **데이터를 선택하면 **데이터 개체 탐색기**로 이동합니다.
+Synapse 작업 영역에서 **Synapse Studio 시작**을 선택합니다. Synapse Studio 홈페이지에서 **데이터**를 선택하면 **데이터 개체 탐색기**로 이동합니다.
 
 ## <a name="connect-an-azure-cosmos-db-database-to-a-synapse-workspace"></a>Synapse 작업 영역에 Azure Cosmos DB 데이터베이스 연결
 

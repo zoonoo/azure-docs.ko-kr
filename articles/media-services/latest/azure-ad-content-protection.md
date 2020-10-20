@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318316"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91839540"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>자습서: Azure AD를 사용하여 엔드투엔드 콘텐츠 보호
 
@@ -129,11 +129,11 @@ SPA 플레이어 앱에서 수행하는 작업은 다음과 같습니다.
 
 JWT 토큰(access_token 또는 id_token)을 구문 분석하는 화면은 다음과 같습니다.
 
-![JWT 토큰을 구문 분석하는 화면](media/aad-ams-content-protection/parsing-jwt-tokens.png)
+![JWT 토큰의 구문 분석을 보여주는 스크린샷.](media/aad-ams-content-protection/parsing-jwt-tokens.png)
 
 DRM/AES, 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조합을 사용하여 보호된 콘텐츠를 테스트하는 화면은 다음과 같습니다.
 
-![JWT 토큰을 구문 분석하는 화면](media/aad-ams-content-protection/testing-protected-content.png)
+![DRM 또는 AES와 스트리밍 프로토콜 및 컨테이너 형식의 서로 다른 조합을 사용하여 보호된 콘텐츠를 테스트하는 방법을 보여주는 스크린샷](media/aad-ams-content-protection/testing-protected-content.png)
 -->
 
 <!-- You can see a hosted version of the sample at [https://aka.ms/ott](https://aka.ms/ott)-->

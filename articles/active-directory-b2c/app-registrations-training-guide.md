@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433911"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214926"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 새로운 앱 등록 환경
 
@@ -53,17 +53,17 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 ## <a name="new-supported-account-types"></a>새 지원 계정 유형
 
 새 환경에서는 다음 옵션 중에서 지원 계정 유형을 선택 합니다.
-- 이 조직 디렉터리의 계정에만 해당 됩니다.
+- 이 조직 디렉터리의 계정만
 - 모든 조직 디렉터리의 계정 (모든 Azure AD 디렉터리 – 다중 테 넌 트)
-- 모든 조직 디렉터리 또는 모든 id 공급자의 계정 Azure AD B2C를 사용 하 여 사용자를 인증 합니다.
+- 모든 id 공급자 또는 조직 디렉터리의 계정 (사용자 흐름을 사용 하 여 사용자를 인증 하는 경우)
 
 다른 계정 유형을 이해 하려면 만들기 환경에서 **도움말** 선택을 선택 합니다.
 
-레거시 환경에서 앱은 항상 고객 지향 응용 프로그램으로 생성 되었습니다. 이러한 앱에 대해 계정 유형은 **모든 조직 디렉터리 또는 모든 id 공급자의 계정으로 설정 됩니다. Azure AD B2C를 사용 하 여 사용자를 인증**합니다.
+레거시 환경에서 앱은 항상 고객 지향 응용 프로그램으로 생성 되었습니다. 이러한 앱에 대해 계정 유형은 **모든 id 공급자 또는 조직 디렉터리의 계정으로 설정 됩니다 (사용자 흐름을 사용 하 여**사용자를 인증 하는 경우).
 > [!NOTE]
 > 이 옵션은 Azure AD B2C 사용자 흐름을 실행 하 여이 응용 프로그램에 대 한 사용자를 인증 하는 데 필요 합니다. [사용자 흐름에 사용할 응용 프로그램을 등록 하는 방법](tutorial-register-applications.md) 에 대해 알아봅니다.
 
-이 옵션을 사용 하 여 Azure AD B2C를 SAML 서비스 공급자로 사용할 수도 있습니다. [자세히 알아봅니다](identity-provider-adfs2016-custom.md).
+이 옵션을 사용 하 여 Azure AD B2C를 SAML 서비스 공급자로 사용할 수도 있습니다. [자세히 알아보기](identity-provider-adfs2016-custom.md).
 
 ## <a name="applications-for-devops-scenarios"></a>DevOps 시나리오용 응용 프로그램
 다른 계정 유형을 사용 하 여 Id 경험 프레임 워크 정책을 업로드 하거나 사용자를 프로 비전 하는 Microsoft Graph 같은 DevOps 시나리오를 관리 하는 앱을 만들 수 있습니다. [Microsoft Graph 응용 프로그램을 등록 하 여 Azure AD B2C 리소스를 관리 하는 방법을](microsoft-graph-get-started.md)알아봅니다.
@@ -96,13 +96,12 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Azure AD B2C 테 넌 트에 해당 되지 않는 기능
 다음 Azure AD 앱 등록 기능은 Azure AD B2C 테 넌 트에서 적용 되지 않거나 사용할 수 없습니다.
-- **역할 및 관리자** -현재 Azure AD B2C에 사용할 수 없는 Azure AD Premium P1 또는 P2 라이선스가 필요 합니다.
+- **역할 및 관리자** -현재 Azure AD B2C에서 사용할 수 없습니다.
 - **브랜딩** -UI/UX 사용자 지정은 **회사 브랜딩** 환경 또는 사용자 흐름의 일부로 구성 됩니다. [Azure Active Directory B2C에서 사용자 인터페이스를 사용자 지정 하는](customize-ui-overview.md)방법을 알아봅니다.
 - **게시자 도메인 확인** -앱이 확인 된 도메인이 아닌 onmicrosoft.com에 등록 되어 *있습니다*. 또한 게시자 도메인은 사용자 동의를 부여 하는 데 주로 사용 되며, 사용자 인증을 위해 Azure AD B2C 앱에는 적용 되지 않습니다. [게시자 도메인에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 - **토큰 구성** -토큰이 앱이 아닌 사용자 흐름의 일부로 구성 됩니다.
 - 현재 Azure AD B2C 테 넌 **트에 대해 빠른 시작 환경을 사용할** 수 없습니다.
-- 현재 Azure AD B2C 테 넌 트에 대해 **Integration assistant** 블레이드를 사용할 수 없습니다.
-
+<!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>제한 사항
 새 환경에는 다음과 같은 제한 사항이 있습니다.

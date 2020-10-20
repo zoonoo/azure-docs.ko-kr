@@ -3,12 +3,12 @@ title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 ms.date: 09/30/2020
 ms.topic: overview
-ms.openlocfilehash: f2e3c23c9cb83d2cb58b1e8f69a2a470a6f36f6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91614260"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91892730"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -25,7 +25,7 @@ Azure Blueprints 서비스는 전역적으로 분산된 [Azure Cosmos DB](../../
 
 ## <a name="how-its-different-from-arm-templates"></a>ARM 템플릿과의 차이점
 
-이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 ARM 템플릿 배포 세트로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
+이 서비스는 _환경 설정_에 도움이 되도록 설계되었습니다. 이 설정은 리소스 그룹, 정책, 역할 할당 및 ARM 템플릿 배포 세트로 구성되는 경우가 많습니다. 청사진은 이러한 각 _아티팩트_ 형식을 모두 결합하는 패키지이며, CI/CD(연속 통합 및 지속적인 업데이트) 파이프라인 사용을 포함하여 해당 패키지를 구성하고 버전을 지정할 수 있습니다. 최종적으로 각 청사진은 감사 및 추적이 가능한 한 번의 작업을 통해 구독에 할당됩니다.
 
 Azure Blueprints에 배포하기 위해 포함하려는 거의 모든 항목은 ARM 템플릿으로 수행할 수 있습니다. 하지만 ARM 템플릿은 Azure에서 기본적으로 제공되지 않는 문서이며 로컬이나 소스 제어에 저장됩니다. 템플릿은 Azure 리소스 하나 이상의 배포에 사용되기는 하지만, 해당 리소스가 배포되고 나면 해당 템플릿에 대한 활성 연결과 관계는 손실됩니다.
 
@@ -126,10 +126,10 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 |Object|필드|허용되는 문자|최대 길이|
 |-|-|-|-|
-|청사진|속성|문자, 숫자, 하이픈 및 마침표|48|
+|청사진|Name|문자, 숫자, 하이픈 및 마침표|48|
 |청사진|버전|문자, 숫자, 하이픈 및 마침표|20|
-|청사진 할당|속성|문자, 숫자, 하이픈 및 마침표|90|
-|청사진 아티팩트|속성|문자, 숫자, 하이픈 및 마침표|48|
+|청사진 할당|Name|문자, 숫자, 하이픈 및 마침표|90|
+|청사진 아티팩트|Name|문자, 숫자, 하이픈 및 마침표|48|
 
 ## <a name="video-overview"></a>비디오 개요
 

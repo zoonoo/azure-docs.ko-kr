@@ -11,20 +11,20 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 157f01008636c61d95d479c396cf82d833b3b44d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5632f2495ac5916ac8c86666e973c34d1b789
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259665"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215232"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 OAuth 2.0 인증 코드 흐름
 
-디바이스에 설치된 앱에서 OAuth 2.0 인증 코드 권한 부여를 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하면 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 ID 관리 작업을 추가할 수 있습니다. 이 문서는 언어 독립적입니다. 이 문서에서는 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
+디바이스에 설치된 앱에서 OAuth 2.0 인증 코드 권한 부여를 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure Active Directory B2C (Azure AD B2C) 구현을 사용 하면 단일 페이지, 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 id 관리 작업을 추가할 수 있습니다. 이 문서는 언어 독립적입니다. 이 문서에서는 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다. 가능 하면 지원 되는 MSAL (Microsoft 인증 라이브러리)을 사용 하는 것이 좋습니다. [MSAL을 사용 하는 샘플 앱](code-samples.md)을 살펴보세요.
 
-OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. 웹 애플리케이션 및 기본적으로 설치된 애플리케이션을 포함하여 대부분의 [애플리케이션 형식](application-types.md)에서 인증 및 권한 부여에 사용할 수 있습니다. OAuth 2.0 인증 코드 흐름을 사용하여 [권한 부여 서버](protocols-overview.md)를 통해 보호되는 리소스에 액세스하는 데 사용할 수 있는 애플리케이션에 대한 액세스 토큰 및 새로 고침 토큰을 안전하게 획득할 수 있습니다.  새로 고침 토큰을 사용하면 일반적으로 1시간 후 액세스 토큰이 만료되면 클라이언트가 새 액세스(및 새로 고침) 토큰을 획득할 수 있습니다.
+OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. 웹 응용 프로그램, 단일 페이지 응용 프로그램 및 기본적으로 설치 된 응용 프로그램을 포함 하 여 대부분의 [응용 프로그램 유형에](application-types.md)서 인증 및 권한 부여에 사용할 수 있습니다. OAuth 2.0 인증 코드 흐름을 사용하여 [권한 부여 서버](protocols-overview.md)를 통해 보호되는 리소스에 액세스하는 데 사용할 수 있는 애플리케이션에 대한 액세스 토큰 및 새로 고침 토큰을 안전하게 획득할 수 있습니다.  새로 고침 토큰을 사용하면 일반적으로 1시간 후 액세스 토큰이 만료되면 클라이언트가 새 액세스(및 새로 고침) 토큰을 획득할 수 있습니다.
 
-이 문서에서는 **공용 클라이언트** OAuth 2.0 인증 코드 흐름을 중점적으로 다룹니다. 공용 클라이언트는 보안 암호의 무결성을 안전하게 유지하기 위해 신뢰할 수 없는 클라이언트 애플리케이션입니다. 모바일 앱, 데스크톱 애플리케이션 및 기본적으로 디바이스에서 실행되고 액세스 토큰이 필요한 모든 애플리케이션이 포함됩니다.
+<!-- This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens. -->
 
 > [!NOTE]
 > Azure AD B2C를 사용하여 ID 관리를 웹앱에 추가하려면 OAuth 2.0 대신 [OpenID Connect](openid-connect.md)를 사용합니다.
@@ -36,6 +36,18 @@ Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으�
 1. `{tenant}`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 1. `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`을 Azure AD B2C 테 넌 트에 이전에 등록 한 응용 프로그램의 앱 ID로 바꿉니다.
 1. `{policy}`은 테 넌 트에서 만든 정책 이름으로 대체 합니다 (예:) `b2c_1_sign_in` .
+
+## <a name="redirect-uri-setup-required-for-single-page-apps"></a>단일 페이지 앱에 필요한 리디렉션 URI 설정
+
+단일 페이지 애플리케이션에 대한 인증 코드 흐름에는 몇 가지 추가 설정이 필요합니다.  [단일 페이지 응용 프로그램을 만들기](tutorial-register-spa.md) 위한 지침에 따라 리디렉션 URI를 CORS에 대해 사용 하도록 설정 된 것으로 올바르게 표시 합니다. CORS를 사용 하도록 기존 리디렉션 URI를 업데이트 하려면 매니페스트 편집기를 열고 `type` 섹션에서 리디렉션 uri에 대 한 필드를로 설정 `spa` `replyUrlsWithType` 합니다. 인증 탭의 "웹" 섹션에서 리디렉션 URI를 클릭 하 고 권한 부여 코드 흐름을 사용 하 여 마이그레이션하려는 uri를 선택할 수도 있습니다.
+
+`spa`리디렉션 형식이 암시적 흐름과 이전 버전과 호환 됩니다. 현재 암시적 흐름을 사용 하 여 토큰을 가져오는 앱은 `spa` 문제 없이 리디렉션 URI 형식으로 이동 하 고 암시적 흐름을 계속 사용할 수 있습니다.
+
+인증 코드 흐름을 사용하려고 하면 다음 오류가 표시됩니다.
+
+`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+
+그런 다음, 앱 등록을 방문하고 앱의 리디렉션 URI를 `spa` 형식으로 업데이트해야 합니다.
 
 ## <a name="1-get-an-authorization-code"></a>1. 인증 코드 가져오기
 인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 사용자가 조치를 취하는 흐름의 대화형 부분입니다. 이 요청에서 클라이언트는 사용자로부터 얻어야 하는 사용 권한을 `scope` 매개 변수에 나타냅니다. 다음 세 가지 예제(쉽게 읽을 수 있도록 줄 바꿈 적용)에서는 각각 다른 사용자 흐름을 사용합니다.
@@ -49,10 +61,11 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_mode=query
 &scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6%20offline_access
 &state=arbitrary_data_you_can_receive_in_the_response
+&code_challenge=YTFjNjI1OWYzMzA3MTI4ZDY2Njg5M2RkNmVjNDE5YmEyZGRhOGYyM2IzNjdmZWFhMTQ1ODg3NDcxY2Nl
+&code_challenge_method=S256
 ```
 
-
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
 |넌| 필수 | Azure AD B2C 테 넌 트의 이름|
 | policy | 필수 | 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
@@ -62,9 +75,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |필수 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청되는 사용 권한을 Azure AD(Azure Active Directory)에 둘 다 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 대한 장기 액세스를 위해 앱에 새로 고침 토큰이 필요함을 나타냅니다. `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
 | response_mode |권장 |결과로 생성된 인증 코드를 앱에 다시 보내는 데 사용하는 방법입니다. `query`, `form_post` 또는 `fragment`일 수 있습니다. |
 | state |권장 |사용하려는 콘텐츠의 문자열일 수 있는 요청에 포함된 값입니다. 일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 state(상태)는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보를 인코딩하는 데에도 사용됩니다. 예를 들어 사용자가 보고 있던 페이지 또는 실행 중이었던 사용자 흐름입니다. |
-| prompt |선택 사항 |필요한 사용자 상호 작용 유형입니다. 현재 유효한 값은 `login`뿐이며, 강제로 사용자가 해당 요청에 자격 증명을 입력하도록 합니다. Single Sign-On은 적용되지 않습니다. |
-| code_challenge  | 선택 사항 | PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
-| code_challenge_method | 선택 사항 | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 다음 값 중 하나를 사용할 수 있습니다.<br/><br/>- `plain` <br/>- `S256`<br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Azure AD B2C는 `plain` 및를 모두 지원 `S256` 합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| prompt |Optional |필요한 사용자 상호 작용 유형입니다. 현재 유효한 값은 `login`뿐이며, 강제로 사용자가 해당 요청에 자격 증명을 입력하도록 합니다. Single Sign-On은 적용되지 않습니다. |
+| code_challenge  | 권장/필수 | PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. 이제 모든 애플리케이션 유형(네이티브 앱, SPA 및 웹앱과 같은 기밀 클라이언트)에서 권장됩니다. | 
+| `code_challenge_method` | 권장/필수 | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 이 *는* 여야 `S256` 하지만 `plain` 어떤 이유로 클라이언트가 SHA256을 지원할 수 없는 경우에는를 사용할 수 있습니다. <br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft ID 플랫폼은 `plain` 및 `S256`을 모두 지원합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. [인증 코드 흐름을 사용하는 단일 페이지 앱](tutorial-register-spa.md)에 필요합니다.|
 
 이 시점에서 사용자 흐름의 워크플로를 완료하도록 사용자에게 요청합니다. 이 경우 사용자 이름과 암호를 입력하거나, 소셜 ID로 로그인하거나, 디렉터리를 등록하거나, 다른 단계를 수행할 수도 있습니다. 사용자 작업은 사용자 흐름을 정의한 방식에 따라 다릅니다.
 
@@ -92,13 +105,13 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
-| error |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
+| 오류 |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 | state |잎의 표에 나와 있는 전체 설명을 참조하세요. `state` 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱에서 요청 및 응답의 `state` 값이 동일한지 확인해야 합니다. |
 
-## <a name="2-get-a-token"></a>2. 토큰 가져오기
+## <a name="2-get-an-access-token"></a>2. 액세스 토큰 가져오기
 인증 코드를 받았으므로 이제 POST 요청을 `/token` 엔드포인트로 전송하여 `code`를 의도한 리소스에 대한 토큰으로 교환할 수 있습니다. Azure AD B2C에서는 요청에서 해당 범위를 지정 하 여 일반적인 방식으로 [다른 API에 대 한 액세스 토큰을 요청할](access-tokens.md#request-a-token) 수 있습니다.
 
 앱의 클라이언트 ID를 요청 된 범위로 사용 하는 규칙에 따라 앱 자체 백 엔드 웹 API에 대 한 액세스 토큰을 요청할 수도 있습니다 (해당 클라이언트 ID가 "대상"으로 지정 된 액세스 토큰을 생성 함).
@@ -108,11 +121,10 @@ POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0
 
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
-
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&code_verifier=ThisIsntRandomButItNeedsToBe43CharactersLong 
 ```
 
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
 |넌| 필수 | Azure AD B2C 테 넌 트의 이름|
 |policy| 필수| 권한 부여 코드를 획득하는 데 사용된 사용자 흐름입니다. 이 요청에 다른 사용자 흐름을 사용할 수 없습니다. |
@@ -122,7 +134,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | scope |권장 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 대한 장기 액세스를 위해 앱에 새로 고침 토큰이 필요함을 나타냅니다.  `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
 | code |필수 |흐름의 첫 번째 단계에서 얻은 권한 부여 코드입니다. |
 | redirect_uri |필수 |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
-| code_verifier | 선택 사항 | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| code_verifier | 권장 | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 성공적인 토큰 응답은 다음과 같습니다.
 
@@ -136,7 +148,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | not_before |epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type |토큰 형식 값입니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -154,9 +166,9 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
-| error |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
+| 오류 |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 ## <a name="3-use-the-token"></a>3. 토큰 사용
@@ -179,7 +191,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| 매개 변수 | 필수 여부 | 설명 |
+| 매개 변수 | 필수 여부 | Description |
 | --- | --- | --- |
 |넌| 필수 | Azure AD B2C 테 넌 트의 이름|
 |policy |필수 |원래의 새로 고침 토큰을 얻는 데 사용된 사용자 흐름입니다. 이 요청에 다른 사용자 흐름을 사용할 수 없습니다. |
@@ -187,7 +199,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_secret | 예, Web Apps | [Azure Portal](https://portal.azure.com/)에서 생성 된 응용 프로그램 암호입니다. 클라이언트 암호는 클라이언트 암호를 안전 하 게 저장할 수 있는 웹 앱 시나리오에 대해이 흐름에 사용 됩니다. 네이티브 앱 (공용 클라이언트) 시나리오의 경우 클라이언트 암호를 안전 하 게 저장할 수 없으므로이 호출에서 사용 되지 않습니다. 클라이언트 암호를 사용 하는 경우 주기적으로 변경 하십시오. |
 | grant_type |필수 |권한 부여 유형입니다. 이 인증 코드 흐름 레그에서 권한 부여 유형은 `refresh_token`여야 합니다. |
 | scope |권장 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 Web API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.  `offline_access` 범위는 리소스에 장기간 액세스하기 위한 새로 고침 토큰이 앱에 필요함을 나타냅니다.  `openid` 범위를 사용하여 Azure AD B2C에서 ID 토큰을 요청할 수도 있습니다. |
-| redirect_uri |선택 사항 |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
+| redirect_uri |Optional |인증 코드를 받은 애플리케이션의 리디렉션 URI입니다. |
 | refresh_token |필수 |흐름의 두 번째 단계에서 얻은 원래의 새로 고침 토큰입니다. |
 
 성공적인 토큰 응답은 다음과 같습니다.
@@ -202,7 +214,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | not_before |epoch 시간에서 토큰은 유효한 것으로 간주되는 시간입니다. |
 | token_type |토큰 형식 값입니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -220,9 +232,9 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 }
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
-| error |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
+| 오류 |발생한 오류 유형을 분류하는 데 사용할 수 있는 오류 코드 문자열입니다. 문자열을 사용하여 오류에 대응할 수도 있습니다. |
 | error_description |인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 ## <a name="use-your-own-azure-ad-b2c-directory"></a>사용자 고유의 Azure AD B2C 디렉터리 사용

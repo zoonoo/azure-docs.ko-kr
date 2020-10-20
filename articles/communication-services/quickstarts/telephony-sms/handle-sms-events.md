@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 072e885ec1c618229141dea477cd598d8db34ce7
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756761"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976932"
 ---
 # <a name="quickstart-handle-sms-events"></a>빠른 시작: SMS 이벤트 처리
 
@@ -92,7 +92,7 @@ Azure Portal에서 다음을 수행합니다.
 
 ### <a name="receiving-sms-events"></a>SMS 이벤트 받기
 
-위의 작업 중 하나가 완료되면 `SMS Received` 및 `SMS Delivery Report Received` 이벤트를 엔드포인트로 보낸다는 것을 알 수 있습니다. 이러한 이벤트는 처음에 설정한 [Azure Event Grid Viewer 샘플](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)에 표시됩니다. 이벤트 옆에 있는 눈 모양 아이콘을 눌러 전체 페이로드를 볼 수 있습니다. 이벤트는 다음과 같습니다.
+위의 작업 중 하나가 완료되면 `SMS Received` 및 `SMS Delivery Report Received` 이벤트를 엔드포인트로 보낸다는 것을 알 수 있습니다. 이러한 이벤트는 처음에 설정한 [Azure Event Grid Viewer 샘플](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)에 표시됩니다. 이벤트 옆에 있는 눈 모양 아이콘을 눌러 전체 페이로드를 볼 수 있습니다. 이벤트는 다음과 같이 표시됩니다.
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="리소스의 이벤트 페이지 내에서 이벤트 구독 단추 선택을 보여 주는 스크린샷":::
 

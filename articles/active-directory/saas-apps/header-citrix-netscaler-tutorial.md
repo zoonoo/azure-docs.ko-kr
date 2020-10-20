@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540609"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944228"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>자습서: Citrix NetScaler와 Azure Active Directory Single Sign-On 통합(헤더 기반 인증)
 
@@ -392,7 +392,7 @@ GUI를 사용하여 다시 쓰기 정책을 가상 서버에 바인딩하려면,
 
 1. **부하 분산 가상 서버** 창의 **고급 설정** 아래에서 **정책**을 선택합니다. NetScaler 인스턴스에 대해 구성된 모든 정책이 목록에 표시됩니다.
  
-    ![Citrix NetScaler 구성 - Load Balancing Virtual Server 창](./media/header-citrix-netscaler-tutorial/header05.png)
+    !["이름", "작업" 및 "식" 필드가 강조 표시되고 "만들기" 단추가 선택된 "구성" 탭을 보여주는 스크린샷.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Citrix NetScaler 구성 - Load Balancing Virtual Server 창](./media/header-citrix-netscaler-tutorial/header06.png)
 

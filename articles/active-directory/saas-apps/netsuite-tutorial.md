@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f1845a8371c3b64174b83ce640f91e4ce9221b8e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554518"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940823"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -96,7 +96,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
     * Netsuite 구성 아래의 8 단계 자습서 뒷부분에서 설명하는 Netsuite 구성 섹션에서 **<`Instance ID`>** 값을 가져옵니다. 정확한 도메인(이 경우 system.na0.netsuite.com)을 찾을 수 있습니다.
 
-        ![Single Sign-On 구성](./media/NetSuite-tutorial/domain-value.png)
+        ![스크린샷은 도메인을 가져올 수 있는 SAML 설정 페이지를 보여줍니다.](./media/NetSuite-tutorial/domain-value.png)
 
         > [!NOTE]
         > 이전 URL의 값은 실제 값이 아닙니다. 이 값을 실제 회신 URL로 업데이트합니다. 해당 값을 얻으려면 [NetSuite 클라이언트 지원 팀](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 형식을 참조할 수도 있습니다.
@@ -164,31 +164,31 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
 2. 위쪽 탐색 모음에서 **설정**을 선택한 다음, **회사** > **기능 사용**을 차례로 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-setupsaml.png)
+    ![스크린샷은 회사에서 선택한 기능 사용을 보여줍니다.](./media/NetSuite-tutorial/ns-setupsaml.png)
 
 3. 페이지의 가운데에 있는 도구 모음에서 **SuiteCloud**를 클릭합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-suitecloud.png)
+    ![스크린샷은 선택된 SuiteCloud를 보여줍니다.](./media/NetSuite-tutorial/ns-suitecloud.png)
 
 4. **인증 관리** 아래에서 **SAML Single Sign-On** 확인란을 선택하여 NetSuite에서 SAML Single Sign-On 옵션을 사용하도록 설정합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-ticksaml.png)
+    ![스크린샷은 SAML Single Sign-On을 선택할 수 있는 인증 관리를 보여줍니다.](./media/NetSuite-tutorial/ns-ticksaml.png)
 
 5. 왼쪽 탐색 모음에서 **설정**을 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-setup.png)
+    ![스크린샷은 NETSUITE 탐색 모음에서 선택한 설정을 보여줍니다.](./media/NetSuite-tutorial/ns-setup.png)
 
 6. **설정 작업** 목록에서 **통합**을 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-integration.png)
+    ![스크린샷은 설정 작업에서 선택한 통합을 보여줍니다.](./media/NetSuite-tutorial/ns-integration.png)
 
 7. **인증 관리** 아래에서 **SAML Single Sign-On**을 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-saml.png)
+    ![스크린샷은 설정 작업의 통합 항목에서 선택한 SAML Single Sign-On을 보여줍니다.](./media/NetSuite-tutorial/ns-saml.png)
 
 8. **SAML 설정** 창의 **NetSuite 구성** 아래에서 다음을 수행합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-saml-setup.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SAML 설정을 보여줍니다.](./media/NetSuite-tutorial/ns-saml-setup.png)
   
     a. **기본 인증 방법** 확인란을 선택합니다.
 
@@ -198,9 +198,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
 9. 위쪽의 NetSuite 탐색 모음에서 **설정**을 선택한 다음, **회사** > **회사 정보**를 차례로 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-com.png)
+    ![스크린샷은 회사에서 선택한 회사 정보를 보여줍니다.](./media/NetSuite-tutorial/ns-com.png)
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-account-id.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 창을 보여줍니다.](./media/NetSuite-tutorial/ns-account-id.png)
 
     b. 오른쪽 열의 **회사 정보** 창에서 **계정 ID** 값을 복사합니다.
 
@@ -210,23 +210,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
     a. 왼쪽 탐색 모음에서 **설정**을 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-setup.png)
+    ![스크린샷은 NETSUITE 탐색 모음에서 선택한 설정을 보여줍니다.](./media/NetSuite-tutorial/ns-setup.png)
 
     b. 왼쪽 창에서 **사용자/역할**, **역할 관리**를 차례로 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-manage-roles.png)
+    ![스크린샷은 새 역할을 선택할 수 있는 역할 관리 창을 보여줍니다.](./media/NetSuite-tutorial/ns-manage-roles.png)
 
     다. **새 역할**을 선택합니다.
 
     d. 새 역할의 **이름**을 입력합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-new-role.png)
+    ![스크린샷은 역할의 이름을 입력할 수 있는 설치 관리자를 보여줍니다.](./media/NetSuite-tutorial/ns-new-role.png)
 
     e. **저장**을 선택합니다.
 
     f. 위쪽 탐색 모음에서 **권한**을 선택합니다. 그런 다음, **설정**을 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-sso.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 설정 탭을 보여줍니다.](./media/NetSuite-tutorial/ns-sso.png)
 
     g. **SAML Single Sign-On**, **추가**를 차례로 선택합니다.
 
@@ -234,19 +234,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
     i. 위쪽 탐색 모음에서 **설정**, **설정 관리자**를 차례로 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-setup.png)
+    ![스크린샷은 NETSUITE 탐색 모음에서 선택한 설정을 보여줍니다.](./media/NetSuite-tutorial/ns-setup.png)
 
     j. 왼쪽 창에서 **사용자/역할**, **사용자 관리**를 차례로 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-manage-users.png)
+    ![스크린샷은 Suite 데모 팀을 선택할 수 있는 사용자 관리 창을 보여줍니다.](./media/NetSuite-tutorial/ns-manage-users.png)
 
     k. 테스트 사용자, **편집**, **액세스** 탭을 차례로 선택합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-edit-user.png)
+    ![스크린샷은 편집을 선택할 수 있는 사용자 관리 창을 보여줍니다.](./media/NetSuite-tutorial/ns-edit-user.png)
 
     l. **역할** 창에서 사용자가 만든 적절한 역할을 할당합니다.
 
-    ![Single Sign-On 구성](./media/NetSuite-tutorial/ns-add-role.png)
+    ![스크린샷은 직원에서 선택한 관리자를 보여줍니다.](./media/NetSuite-tutorial/ns-add-role.png)
 
     m. **저장**을 선택합니다.
 

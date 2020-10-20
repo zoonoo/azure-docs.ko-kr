@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552801"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>자습서: ITRP와 Azure Active Directory 통합
 
@@ -94,7 +94,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
-    ![편집 아이콘](common/edit-urls.png)
+    ![스크린샷은 편집 아이콘이 선택된 SAML로 Single Sign-On 설정 페이지를 보여줍니다.](common/edit-urls.png)
 
 4. **기본 SAML 구성** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -113,7 +113,7 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 5. **SAML 서명 인증서** 섹션에서 **편집** 아이콘을 선택하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
-    ![편집 아이콘](common/edit-certificate.png)
+    ![스크린샷은 편집 아이콘이 선택된 SAML 서명 인증서 페이지를 보여줍니다.](common/edit-certificate.png)
 
 6. **SAML 서명 인증서** 섹션에서 **지문** 값을 복사하고 저장합니다.
 
@@ -143,9 +143,9 @@ ITRP에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 1. **Single Sign-On** 구성 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 섹션](./media/itrp-tutorial/ic775572.png "Single Sign-On 섹션")
+    ![스크린샷은 사용이 선택된 Single Sign-On 섹션을 보여줍니다.](./media/itrp-tutorial/ic775572.png "Single Sign-On 섹션")
 
-    ![Single Sign-On 섹션](./media/itrp-tutorial/ic775573.png "Single Sign-On 섹션")
+    ![스크린샷은 이 단계에서 설명하는 정보를 추가할 수 있는 Single Sign-On 섹션을 보여줍니다.](./media/itrp-tutorial/ic775573.png "Single Sign-On 섹션")
 
     1. **사용**을 선택합니다.
 

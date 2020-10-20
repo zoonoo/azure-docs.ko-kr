@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 954215f04525e850151fdad93af6e7272b41b3df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 58460dffad3d44090644a544f4082b7727ece3f2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498466"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91840339"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure CLI 샘플
 
@@ -40,7 +40,7 @@ ms.locfileid: "87498466"
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Core(SQL) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Core(SQL) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
-| [처리량 변경](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컨테이너에서 RU/s를 업데이트합니다.|
+| [처리량 작업](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컨테이너에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||
 
@@ -50,7 +50,7 @@ ms.locfileid: "87498466"
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 컬렉션 만들기](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| MongoDB API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컬렉션을 만듭니다. |
 | [Azure Cosmos 계정, 자동 스케일링을 사용하는 데이터베이스, 처리량을 공유하는 두 개의 컬렉션 만들기](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| MongoDB API에 대한 Azure Cosmos DB 계정, 자동 스케일링을 사용하는 데이터베이스 및 처리량을 공유하는 두 개의 컬렉션을 만듭니다. |
-| [처리량 변경](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컬렉션에서 RU/s를 업데이트합니다.|
+| [처리량 작업](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 컬렉션에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||
 
@@ -60,7 +60,7 @@ ms.locfileid: "87498466"
 |---|---|
 | [Azure Cosmos 계정, 키스페이스 및 테이블 만들기](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Cassandra API에 대한 Azure Cosmos DB 계정, 키스페이스 및 테이블을 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 키스페이스 및 테이블 만들기](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Cassandra API에 대한 Azure Cosmos DB 계정, 키스페이스 및 테이블을 만듭니다. |
-| [처리량 변경](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 키스페이스 및 테이블에서 RU/s를 업데이트합니다.|
+| [처리량 작업](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 키스페이스 및 테이블에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||
 
@@ -70,7 +70,7 @@ ms.locfileid: "87498466"
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 그래프 만들기](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Gremlin API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 그래프 만들기](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Gremlin API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 그래프를 만듭니다. |
-| [처리량 변경](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 그래프에서 RU/s를 업데이트합니다.|
+| [처리량 작업](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 데이터베이스 및 그래프에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||
 
@@ -80,6 +80,6 @@ ms.locfileid: "87498466"
 |---|---|
 | [Azure Cosmos 계정 및 테이블 만들기](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Table API에 대한 Azure Cosmos DB 계정 및 테이블을 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정 및 테이블 만들기](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Table API에 대한 Azure Cosmos DB 계정 및 테이블을 만듭니다. |
-| [처리량 변경](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 테이블에서 RU/s를 업데이트합니다.|
+| [처리량 작업](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | 테이블에서 자동 크기 조정과 표준 처리량 간에 읽기, 업데이트 및 마이그레이션합니다.|
 | [삭제에서 리소스 잠그기](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| 리소스 잠금을 사용하여 리소스를 삭제하지 않습니다.|
 |||

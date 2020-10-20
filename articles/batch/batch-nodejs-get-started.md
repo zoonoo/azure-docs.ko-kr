@@ -2,17 +2,17 @@
 title: 자습서 - Node.js용 Azure Batch 클라이언트 라이브러리 사용
 description: Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다.
 ms.topic: tutorial
-ms.date: 05/22/2017
-ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 10/08/2020
+ms.openlocfilehash: 33ca65421802cdbe31497f3a19ba5992961daa12
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780168"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850611"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
-[Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 애플리케이션에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
+[Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 애플리케이션에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 Node.js에 대한 작업 지식을 갖고 있으며 Linux에 익숙하다고 가정합니다. 또한 Batch 및 Storage 서비스를 만들 액세스 권한이 있는 Azure 계정을 갖고 있다고 가정합니다.
@@ -174,7 +174,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         {
             if(error.statusCode==404)
             {
-                console.log("Pool not found yet returned 404...");    
+                console.log("Pool not found yet returned 404...");
 
             }
             else
@@ -241,7 +241,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
   targetDedicated: 4,
   enableAutoScale: false,
   enableInterNodeCommunication: false,
-  maxTasksPerNode: 1,
+  taskSlotsPerNode: 1,
   taskSchedulingPolicy: { nodeFillType: 'Spread' } }
 ```
 
@@ -252,7 +252,7 @@ Azure Batch 작업은 유사한 작업의 논리적 그룹입니다. 이 시나�
 이러한 작업은 Azure Batch 서비스를 통해 병렬로 실행되어 여러 노드에 배포되고 조정됩니다.
 
 > [!Tip]
-> [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
+> [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
 >
 >
 
@@ -317,7 +317,7 @@ csv 처리 작업을 만들었으니, 해당 작업에 대한 작업을 만들�
 ```nodejs
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
-    container_list.forEach(function(val,index){           
+    container_list.forEach(function(val,index){
 
            var container_name = val;
            var taskID = container_name + "_process";
@@ -325,7 +325,7 @@ var container_list = ["con1","con2","con3","con4"]
            var task = batch_client.task.add(poolid,task_config,function(error,result){
                 if(error != null)
                 {
-                    console.log(error.response);     
+                    console.log(error.response);
                 }
                 else
                 {
@@ -339,7 +339,7 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-이 코드는 풀에 여러 작업을 추가합니다. 각 작업은 앞에서 만든 VM의 풀에 있는 노드에서 실행됩니다. 작업 수가 풀의 VM 수 또는 maxTasksPerNode 속성을 초과할 경우 노드를 사용할 수 있게 될 때까지 작업이 대기합니다. 이 오케스트레이션은 Azure Batch에서 자동으로 처리됩니다.
+이 코드는 풀에 여러 작업을 추가합니다. 각 작업은 앞에서 만든 VM의 풀에 있는 노드에서 실행됩니다. 작업 수가 풀의 VM 수 또는 taskSlotsPerNode 속성을 초과할 경우 노드를 사용할 수 있게 될 때까지 작업이 대기합니다. 이 오케스트레이션은 Azure Batch에서 자동으로 처리됩니다.
 
 포털에 가면 구체적인 작업 상태 보기가 있습니다. Azure Node SDK에서 목록을 사용하여 함수를 가져올 수도 있습니다. 자세한 내용은 설명서 [링크](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)에 제공됩니다.
 

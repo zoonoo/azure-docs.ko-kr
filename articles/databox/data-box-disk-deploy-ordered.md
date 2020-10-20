@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266528"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950944"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -72,7 +72,7 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
   
 4. **Data Box Disk**를 선택합니다. 단일 5개 디스크 주문에 대한 솔루션의 최대 용량은 35TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
 
-     ![Data Box Disk 선택 옵션](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
+     ![Data Box Disk 선택 옵션 2](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
 5. **주문**에서 **주문 세부 정보**를 지정합니다. 다음 정보를 입력하거나 선택합니다.
 

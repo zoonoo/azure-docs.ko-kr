@@ -1,6 +1,6 @@
 ---
 title: '자습서: Bing Maps에서 웹 서비스 마이그레이션 | Microsoft Azure Maps'
-description: 웹 서비스를 Bing Maps에서 Microsoft Azure Maps로 마이그레이션하는 방법을 설명합니다.
+description: Bing Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 14e0998b75e0e5bd3ae996f5f5010ecc50180f14
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 462befd505333902bd4560f8f1dafeecceffd27f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91741672"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873781"
 ---
-# <a name="migrate-web-service-from-bing-maps"></a>Bing Maps에서 웹 서비스 마이그레이션
+# <a name="tutorial---migrate-web-service-from-bing-maps"></a>자습서 - Bing Maps에서 웹 서비스 마이그레이션
 
 Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스할 수 있습니다. 이러한 플랫폼의 API 인터페이스는 비슷한 기능을 수행하지만 서로 다른 명명 규칙과 응답 개체를 사용합니다.
 

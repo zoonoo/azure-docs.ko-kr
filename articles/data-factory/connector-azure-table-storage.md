@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417490"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220485"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사
 
@@ -222,7 +222,7 @@ Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성�
 
 Azure Table과 같이 스키마가 없는 데이터 저장소의 경우 Data Factory 서비스는 다음 방법 중 하나로 스키마를 유추합니다.
 
-* 복사 작업에서 열 매핑을 지정하는 경우 Data Factory는 원본 측 열 목록을 사용하여 데이터를 검색합니다. 이 경우 열 값이 행에 포함되어 있지 않으면 null 값이 제공됩니다.
+* 복사 작업에서 열 매핑을 지정 하는 경우 Data Factory은 원본 쪽 열 목록을 사용 하 여 데이터를 검색 합니다. 이 경우 열 값이 행에 포함되어 있지 않으면 null 값이 제공됩니다.
 * 복사 작업에서 열 매핑을 지정하지 않으면 Data Factory는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 전체 스키마가 첫 번째 행에 포함되어 있지 않으면(예: 일부 열에 null 값이 있음) 복사 작업의 결과에서 일부 열이 누락됩니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -236,7 +236,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |예 |
-| AzureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |예 |
+| AzureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다.<br/>원본 쿼리는 `$filter` Azure Table Storage에서 지 원하는 쿼리 옵션의 직접 맵입니다. [이 문서의](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options)구문에 대해 자세히 알아보고 다음 [azureTableSourceQuery 예제 섹션](#azuretablesourcequery-examples)의 예제를 참조 하세요. |예 |
 | azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |예 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제

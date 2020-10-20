@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766311"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951012"
 ---
 ::: zone target="docs"
 
@@ -116,19 +116,19 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Data Box 공유에 연결된 후에는 데이터를 복사합니다. 데이터 복사를 시작하기 전에 다음 고려 사항을 검토합니다.
 
 * 적절한 데이터 형식에 해당하는 공유에 데이터를 복사해야 합니다. 예를 들어 블록 Blob에 대한 공유에 블록 Blob 데이터를 복사합니다. 페이지 Blob에 VHD를 복사합니다. 데이터 형식이 적절한 공유 형식과 일치하지 않는 경우 이후 단계에서 Azure에 데이터를 업로드하는 작업이 실패합니다.
+* 항상 복사하려는 파일의 공유 아래에 폴더를 만든 다음, 해당 폴더에 파일을 복사합니다. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
 * 데이터를 복사하는 동안 데이터 크기가 [Azure 스토리지 계정 크기 제한](data-box-limits.md#azure-storage-account-size-limits)에 설명된 크기 제한을 준수해야 합니다.
-* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
+* 데이터를 Azure Files로 전송할 때 메타데이터(ACL, 타임스탬프 및 파일 특성)를 보존하려는 경우 [Azure Data Box로 파일 ACL, 특성 및 타임스탬프 보존](data-box-file-acls-preservation.md)의 지침을 따르세요.  
+* Data Box에 의해 업로드되는 데이터가 Data Box 외부의 다른 애플리케이션에 의해서도 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터가 손상될 수 있습니다.
 * 다음이 권장됩니다.
   * SMB와 NFS를 동시에 사용하지 않습니다.
   * 동일한 데이터를 Azure에서 동일한 최종 대상에 복사합니다.
-
   이 경우 최종 결과를 확인할 수 없습니다.
-* 복사하려는 파일의 폴더를 항상 공유 아래에 만든 다음, 해당 폴더에 파일을 복사하세요. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
 
 > [!IMPORTANT]
 > Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 수 있을 때까지 원본 데이터의 복사본을 유지하세요.
 
-SMB 공유에 연결한 후 데이터 복사를 시작합니다. Robocopy처럼 SMB 호환 파일 복사 도구를 사용하여 데이터를 복사할 수 있습니다. Robocopy 명령을 사용하여 여러 복사 작업을 시작할 수 있습니다. 다음 명령을 사용합니다.
+SMB 공유에 연결한 후 데이터 복사를 시작합니다. Robocopy와 같은 SMB 호환 파일 복사 도구를 사용하여 데이터를 복사할 수 있습니다. Robocopy 명령을 사용하여 여러 복사 작업을 시작할 수 있습니다. 다음 명령을 사용합니다.
 
 ```console
 robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>

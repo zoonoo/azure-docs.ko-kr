@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045640"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221267"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
@@ -30,7 +30,7 @@ Azure Stream Analytics 프로젝트에서 **Script.asaql**을 두 번 클릭하�
 
 로컬 정적 데이터에 대해 쿼리 유효성을 검사하려면 입력을 마우스 오른쪽 단추로 클릭하고 **로컬 입력 추가**를 선택합니다.
    
-![로컬 입력 추가](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![로컬 입력 추가 메뉴 옵션을 강조 표시 하는 스크린샷](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
 팝업 창에서 로컬 경로의 샘플 데이터를 선택하고 **저장**을 선택합니다.
    

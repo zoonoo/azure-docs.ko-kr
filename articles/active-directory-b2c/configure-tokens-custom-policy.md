@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9f3cd5c3280308f6da15a52361857fa02567d595
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88505464"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215198"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 
@@ -87,6 +87,9 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 Cl
     ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
+
+> [!NOTE]
+> PKCE를 사용 하는 권한 부여 코드 흐름을 사용 하는 단일 페이지 응용 프로그램에는 항상 새로 고침 토큰 수명이 24 시간입니다. [브라우저에서 새로 고침 토큰의 보안 영향에 대해 자세히 알아보세요](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="next-steps"></a>다음 단계
 

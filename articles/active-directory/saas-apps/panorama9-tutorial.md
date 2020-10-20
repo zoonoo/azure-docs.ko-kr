@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bf3afef81c70355326ed9341f2dd8a39d542b54
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1e2cb00f4b8228b3587930fc5b237d308c532c8c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554110"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>자습서: Panorama9와 Azure Active Directory 통합
 
@@ -210,7 +210,7 @@ Panorama9의 경우 프로비전은 수동 작업입니다.
 
 2. 위쪽 메뉴에서 **관리**를 클릭한 다음 **사용자**를 클릭합니다.
    
-    ![사용자](./media/panorama9-tutorial/ic790027.png "사용자")
+    ![선택된 "관리" 및 "사용자" 탭을 보여주는 스크린샷.](./media/panorama9-tutorial/ic790027.png "사용자")
 
 3. [사용자] 섹션에서 **+** 를 클릭하여 새 사용자를 추가합니다.
 

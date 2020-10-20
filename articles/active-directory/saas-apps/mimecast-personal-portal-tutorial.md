@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-ms.openlocfilehash: c14a519be112e61ed7055debe7a1a454e465bd9b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c006e38d30e4e32645024a8c307a18767e8a1090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549095"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941061"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mimecast-personal-portal"></a>자습서: Mimecast Personal Portal과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -155,23 +155,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리** > **서비스** > **애플리케이션**으로 이동합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/services.png)
+    ![스크린샷은 애플리케이션이 선택된 Mimecast 창을 보여줍니다.](./media/mimecast-personal-portal-tutorial/services.png)
 
 1. **인증 프로필** 탭을 클릭합니다.
     
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
+    ![스크린샷은 인증 프로필이 선택된 애플리케이션 탭을 보여줍니다.](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
 
 1. **새 인증 프로필** 탭을 클릭합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
+    ![스크린샷은 선택된 새 인증 프로필을 보여줍니다.](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
 
 1. **설명** 텍스트 상자에 올바른 설명을 입력하고 **Mimecast Personal Portal에 SAML 인증 적용** 확인란을 선택합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
+    ![스크린샷은 선택된 새 인증 프로필을 보여줍니다.](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
 
 1. **Mimecast Personal Portal의 SAML 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/sso-settings.png)
+    ![스크린샷은 관리 콘솔에 SAML 인증 적용을 선택하는 위치를 보여줍니다.](./media/mimecast-personal-portal-tutorial/sso-settings.png)
 
     a. 드롭다운 목록에서 **공급자**에 **Azure Active Directory**를 선택합니다.
 
@@ -189,19 +189,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **관리** > **디렉터리** > **내부 디렉터리**로 이동합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/internal-directories.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 Mimecast 개인 포털에 대한 SAML 구성을 보여줍니다.](./media/mimecast-personal-portal-tutorial/internal-directories.png)
 
 1. 아래에 도메인이 언급된 경우 도메인을 선택하고, 그렇지 않은 경우 **새 도메인**을 클릭하여 새 도메인을 만듭니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/domain-name.png)
+    ![스크린샷은 내부 디렉터리가 선택된 Mimecast 창을 보여줍니다.](./media/mimecast-personal-portal-tutorial/domain-name.png)
 
 1. **새 주소** 탭을 클릭합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/new-address.png)
+    ![스크린샷은 선택된 도메인을 보여줍니다.](./media/mimecast-personal-portal-tutorial/new-address.png)
 
 1. 다음 페이지에 필수 사용자 정보를 제공합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/user-information.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 페이지를 보여줍니다.](./media/mimecast-personal-portal-tutorial/user-information.png)
 
     a. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소(예: `B.Simon@yourdomainname.com`)를 입력합니다.
 
@@ -215,7 +215,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. 사용자에게 역할을 할당하려면 **역할 편집**을 클릭하고 조직 요구 사항에 따라 사용자에게 필요한 역할을 할당합니다.
 
-    ![Mimecast Personal Portal 구성](./media/mimecast-personal-portal-tutorial/assign-role.png)
+    ![스크린샷은 역할 편집을 선택할 수 있는 주소 설정을 보여줍니다.](./media/mimecast-personal-portal-tutorial/assign-role.png)
 
 
 ## <a name="test-sso"></a>SSO 테스트 

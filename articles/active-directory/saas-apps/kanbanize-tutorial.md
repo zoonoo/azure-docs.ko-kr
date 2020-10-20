@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 686a186650bfe4066533b0f086c080b5ffb14eb6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546834"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91850713"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>자습서: Kanbanize와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -153,7 +153,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. 메뉴 왼쪽의 관리 패널 페이지에서 **통합**을 클릭한 다음, **Single Sign-on**을 사용하도록 설정합니다.
 
-    ![Kanbanize 통합](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+    ![스크린샷은 통합이 선택된 관리 패널을 보여줍니다.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. 통합 섹션 아래에서 **구성**을 클릭하여 **Single Sign-on 통합** 페이지를 엽니다.
 
@@ -161,7 +161,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. **Single Sign-On 통합** 페이지의 **구성**에서 다음 단계를 수행합니다.
 
-    ![Kanbanize 통합](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+    ![스크린샷은 이 단계에서 값을 입력하는 Single Sign-On 통합 페이지를 보여줍니다.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
     a. **IDP 엔터티 ID** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 

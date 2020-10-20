@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554278"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>자습서: ON24 Virtual Environment SAML Connection과 Azure Active Directory 통합
 
@@ -147,7 +147,7 @@ ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성
 
 5.  **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
-    ![ON24 Virtual Environment SAML Connection 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
+    !["로그온 URL" 텍스트 상자가 강조 표시된 "추가 URL 설정" 섹션을 보여주는 스크린샷.](common/both-signonurl.png)
 
     **로그인 URL** 텍스트 상자에서 `https://vshow.on24.com/vshow/<INSTANCENAME>` 패턴을 사용하여 URL을 입력합니다.
 

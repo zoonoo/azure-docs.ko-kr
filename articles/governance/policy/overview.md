@@ -1,14 +1,14 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 596e52cca2be2a347c26502434048053a8b4684c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91538959"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873917"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -72,16 +72,16 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자**는 전체 권한을 보유합니다. **기여자** 및 **읽기 권한자**는 모두 _읽기_ Azure Policy 작업에 액세스할 수 있습니다. **기여자**는 리소스 수정을 트리거할 수 있지만, 정의 또는 할당을 _만들_ 수는 없습니다.
+여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자**는 전체 권한을 보유합니다. **기여자** 및 **읽기 권한자**는 모두 _읽기_ Azure Policy 작업에 액세스할 수 있습니다. **기여자**는 리소스 수정을 트리거할 수 있지만, 정의 또는 할당을 _만들_ 수는 없습니다. **사용자 액세스 관리자**는 **deployIfNotExists**에서 관리 ID를 부여하거나 할당에 필요한 권한을 **수정**하는 데 필요합니다.
 
 기본 제공 역할에 필수 권한이 없는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
 
 > [!NOTE]
-> **deployIfNotExists** 정책 할당의 관리 ID에는 템플릿에 포함된 리소스를 만들거나 업데이트할 수 있는 충분한 권한이 필요합니다. 자세한 내용은 [수정에 대한 정책 정의 구성](./how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
+> **deployIfNotExists** 또는 **수정** 정책 할당의 관리 ID에는 대상 리소스를 만들거나 업데이트할 수 있는 충분한 권한이 필요합니다. 자세한 내용은 [수정에 대한 정책 정의 구성](./how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
 
 ### <a name="resources-covered-by-azure-policy"></a>Azure Policy에서 처리하는 리소스
 
-Azure Policy는 Azure의 모든 리소스를 평가합니다. [게스트 구성](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), [Azure Key Vault](../../key-vault/general/overview.md)와 같은 특정 리소스 공급자의 경우 설정 및 개체 관리를 위해 더 긴밀하게 통합됩니다. 자세한 내용은 [리소스 공급자 모드](./concepts/definition-structure.md)를 참조하세요.
+Azure Policy는 Azure 및 Arc 지원 리소스의 모든 리소스를 평가합니다. [게스트 구성](./concepts/guest-configuration.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), [Azure Key Vault](../../key-vault/general/overview.md)와 같은 특정 리소스 공급자의 경우 설정 및 개체 관리를 위해 더 긴밀하게 통합됩니다. 자세한 내용은 [리소스 공급자 모드](./concepts/definition-structure.md)를 참조하세요.
 
 ### <a name="recommendations-for-managing-policies"></a>정책 관리에 대한 권장 사항
 
@@ -94,7 +94,7 @@ Azure Policy는 Azure의 모든 리소스를 평가합니다. [게스트 구성]
 - 단일 정책 정의에 대해서도 이니셔티브 정의를 만들고 할당하는 것이 좋습니다.
   예를 들어 정책 정의 _policyDefA_가 있고, 이니셔티브 정의 _initiativeDefC_ 아래에 만듭니다. 나중에 _policyDefA_와 비슷한 목표로 _policyDefB_에 대한 다른 정책 정의를 만드는 경우 _initiativeDefC_ 아래에 추가하고 함께 추적할 수 있습니다.
 
-- 이니셔티브 할당을 만들고 나면, 이니셔티브에 추가한 정책 정의도 해당 이니셔티브 할당의 일부가 됩니다.
+- 이니셔티브 할당을 만들면 이니셔티브에 추가된 정책 정의도 해당 이니셔티브 할당의 일부가 됩니다.
 
 - 이니셔티브 할당을 평가할 때 이니셔티브 내의 모든 정책도 평가됩니다.
   정책을 개별적으로 평가해야 하는 경우 이니셔티브에 포함하지 않는 것이 좋습니다.
@@ -112,7 +112,6 @@ Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 
 - **허용되는 위치**(거부): 새 리소스를 사용할 수 있는 위치를 제한합니다. 해당 효과는 지역 규정 준수 요구 사항을 적용하는 데 사용됩니다.
 - **허용되는 가상 머신 SKU**(거부): 배포할 수 있는 가상 머신 SKU 세트를 지정합니다.
 - **리소스에 태그 추가**(수정): 배포 요청에 의해 지정되지 않은 경우 필수 태그 및 해당 기본값을 적용합니다.
-- **태그 및 해당 기본값 추가**(추가): 필수 태그 및 해당 값을 리소스에 강제 적용합니다.
 - **허용되지 않는 리소스 종류**(거부): 리소스 종류 목록이 배포되지 않도록 합니다.
 
 이러한 정책 정의(기본 제공 및 사용자 지정 정의)를 구현하려면 할당해야 합니다. Azure Portal, PowerShell 또는 Azure CLI를 통해 이러한 정책을 할당할 수 있습니다.

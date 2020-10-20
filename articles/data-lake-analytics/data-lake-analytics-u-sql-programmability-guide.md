@@ -1,18 +1,16 @@
 ---
 title: Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드
 description: 클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake Analytics의 서비스 집합에 대해 알아봅니다.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0e914b5f36d58ec3aab24099c8b3787f0cf648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288940"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215453"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -121,7 +119,7 @@ CREATE ASSEMBLY MyDB.[MyAssembly]
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-이 항목을 더 자세히 설명하는 [어셈블리 등록 지침](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/)을 참조하세요.
+이 항목을 더 자세히 설명하는 [어셈블리 등록 지침](/archive/blogs/azuredatalake/how-to-register-u-sql-assemblies-in-your-u-sql-catalog)을 참조하세요.
 
 
 ### <a name="use-assembly-versioning"></a>어셈블리 버전 관리 사용

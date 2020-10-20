@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 7c647ba9a89fedf0d43bd8b10460fed101d166b9
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1ce0368bb86134bd52473b80eabbfaf87e36148d
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801398"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939650"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -62,7 +62,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |Azure Service Bus | 모든 공용 지역<br/>Azure Government 지역  | Azure Service Bus의 프리미엄 계층에서 지원됩니다. [계층 선택](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Azure Service Bus에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | 모든 공용 지역      |  | 미리 보기 <br/> [Azure Relay에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/azure-relay/private-link-service)  |
 |Azure Event Grid| 모든 공용 지역<br/> Azure Government 지역       |  | GA   <br/> [Azure Event Grid에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/event-grid/network-security) |
-|Azure Web Apps | 모든 공용 지역      | PremiumV2 Windows, Linux 및 탄력적 프리미엄 함수에서 지원됨  | 미리 보기   <br/> [Azure Web Apps에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
+|Azure Web Apps | 모든 공용 지역      | PremiumV2, PremiumV3 또는 함수 프리미엄 계획에서 지원됨  | GA   <br/> [Azure Web Apps에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal)   |
 |Azure Machine Learning | 모든 공용 지역    |  | GA   <br/> [Azure Machine Learning에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | 모든 공용 지역 |  | 미리 보기 </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/automation/how-to/private-link-security)| |
 | Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [Azure IoT Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
