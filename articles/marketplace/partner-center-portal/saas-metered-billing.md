@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378606"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279172"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구
 
@@ -153,7 +153,7 @@ SaaS 제품이 요금제 요금을 사용 하려면 먼저 다음을 수행 해�
 - 사용자 측의 오류 또는 버그로 인해 에스컬레이션 해야 하는 문제 (예: 잘못 된 사용 이벤트).
 - 데이터 요금 청구와 관련 된 기타 문제
 
-Microsoft에서 게시자 지원 옵션을 이해 하 고 지원 티켓을 열려면 [파트너 센터에서 상업용 marketplace 프로그램 지원](./support.md)의 지침을 따르세요.
+Microsoft에서 게시자 지원 옵션을 이해 하 고 지원 티켓을 열려면 [파트너 센터에서 상업용 marketplace 프로그램 지원](../support.md)의 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 

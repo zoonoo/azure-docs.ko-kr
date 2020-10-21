@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: jasonh
-ms.openlocfilehash: 01bfff6db7827218dafa539b8bc2c7ce0a7869f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad56bf0295efca45ee958e1ce135d79ed850d62
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409649"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277590"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 
@@ -36,7 +36,7 @@ MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for M
 
 - **탄력적 용량**: 지정된 컬렉션 또는 데이터베이스에 대한 용량은 언제든지 변경할 수 있습니다. 이를 통해 데이터베이스는 워크로드의 처리량 요구 사항에 맞게 탄력적으로 적응할 수 있습니다.
 
-- **자동 분할**: Azure Cosmos DB는 분할(또는 파티션 키)만 필요한 자동 분할 시스템을 제공합니다. [자동 분할 메커니즘](partition-data.md)은 모든 Azure Cosmos DB API에서 공유되고, 원활한 데이터를 허용하고 수평 분산을 통해 전체를 확장할 수 있습니다.
+- **자동 분할**: Azure Cosmos DB는 분할(또는 파티션 키)만 필요한 자동 분할 시스템을 제공합니다. [자동 분할 메커니즘](partitioning-overview.md)은 모든 Azure Cosmos DB API에서 공유되고, 원활한 데이터를 허용하고 수평 분산을 통해 전체를 확장할 수 있습니다.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Azure Cosmos DB의 API for MongoDB에 대한 마이그레이션 옵션
 
@@ -88,7 +88,7 @@ Azure Cosmos DB에서 제공 하는 인덱싱 기능에는 복합 인덱스, 고
 ## <a name="next-steps"></a>다음 단계
 * [Database Migration Service를 사용하여 MongoDB 데이터를 Cosmos DB로 마이그레이션](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량 프로비저닝](set-throughput.md)
-* [Azure Cosmos DB에서 분할](partition-data.md)
+* [Azure Cosmos DB에서 분할](partitioning-overview.md)
 * [Azure Cosmos DB의 글로벌 배포](distribute-data-globally.md)
 * [Azure Cosmos DB의 인덱싱](index-overview.md)
 * [Azure Cosmos DB의 요청 단위](request-units.md)

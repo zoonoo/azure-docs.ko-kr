@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840560"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309675"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 
@@ -59,6 +59,14 @@ Azure AD B2C는 미국, 유럽 또는 아시아 태평양 지역에 사용자 �
 
 > 아르헨티나, 오스트레일리아, 브라질, 칠레, 콜롬비아, 에콰도르, 이라크, 뉴질랜드, 파라과이, 페루, 우루과이 및 베네수엘라.
 
+## <a name="remote-profile-solution"></a>원격 프로필 솔루션
+
+[사용자 지정 정책을](custom-policy-overview.md)Azure AD B2C 사용 하면 [RESTful API 서비스](custom-policy-rest-api-intro.md)와 통합 하 여 원격 데이터베이스 (예: 마케팅 데이터베이스, CRM 시스템 또는 기간 업무 (lob) 응용 프로그램)에서 사용자 프로필을 저장 하 고 읽을 수 있습니다.  
+- 등록 및 프로필 편집 흐름 중 Azure AD B2C는 사용자 지정 REST API를 호출 하 여 사용자 프로필을 원격 데이터 원본에 유지 합니다. 사용자의 자격 증명은 Azure AD B2C directory에 저장 됩니다. 
+- 로그인 할 때 로컬 또는 소셜 계정으로 자격 증명을 확인 한 후 Azure AD B2C는 사용자의 고유 식별자를 사용자 기본 키 (전자 메일 주소 또는 사용자 objectId)로 보내는 REST API를 호출 합니다. REST API은 원격 데이터베이스에서 데이터를 읽고 사용자 프로필을 반환 합니다.  
+
+등록, 프로필 편집 또는 로그인이 완료 되 면 응용 프로그램으로 반환 되는 액세스 토큰에 사용자 프로필이 포함 Azure AD B2C 합니다. 자세한 내용은 GitHub의 [Azure AD B2C 원격 프로필 샘플 솔루션](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) 을 참조 하세요.
+
 ## <a name="preview-tenant"></a>미리 보기 테넌트
 
 Azure AD B2c의 미리 보기 기간 중에 B2C 테 넌 트를 만든 경우 테 넌 트 **형식이** **미리 보기 테 넌**트 라고 표시 될 수 있습니다.
@@ -70,3 +78,7 @@ Preview B2C 테 넌 트에서 프로덕션 규모 B2C 테 넌 트로의 **마이
 미리 보기 B2C 테 넌 트를 삭제 하 고 동일한 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들 때 알려진 문제가 있습니다. *다른 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들어야*합니다.
 
 ![미리 보기 테 넌 트 형식의 스크린샷.](./media/data-residency/preview-b2c-tenant.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure AD B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md).

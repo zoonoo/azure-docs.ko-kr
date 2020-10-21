@@ -3,18 +3,18 @@ title: Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확�
 description: Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확장 집합 확장을 추가 하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 10487bad4fce41c68b4e2cb90c311b986d709eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be51a03494c90ba91cddb383b62b2477fabc8fc3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410321"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309291"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Service Fabric 관리 클러스터 노드 형식에 가상 컴퓨터 확장 집합 확장 추가 (미리 보기)
 
 Service Fabric 관리 클러스터의 각 노드 유형은 가상 머신 확장 집합에 의해 지원 됩니다. 이를 통해 [가상 컴퓨터 확장 집합 확장](../virtual-machines/extensions/overview.md) 을 Service Fabric 관리 클러스터 노드 형식에 추가할 수 있습니다.
 
-[AzServiceFabricManagedNodeTypeVMExtension](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?view=azps-4.7.0&preserve-view=true) PowerShell 명령을 사용 하 여 노드 형식에 가상 머신 확장 집합 확장을 추가할 수 있습니다.
+[AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?preserve-view=true&view=azps-4.7.0) PowerShell 명령을 사용 하 여 노드 형식에 가상 머신 확장 집합 확장을 추가할 수 있습니다.
 
 또는 Azure Resource Manager 템플릿의 Service Fabric 관리 클러스터 노드 형식에 대 한 가상 머신 확장 집합 확장을 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -51,7 +51,7 @@ Service Fabric 관리 클러스터의 각 노드 유형은 가상 머신 확장 
 }
 ```
 
-관리 클러스터 노드 형식 Service Fabric 구성 하는 방법에 대 한 자세한 내용은 [관리 되는 클러스터 노드 형식](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes)을 참조 하세요.
+관리 클러스터 노드 형식 Service Fabric 구성 하는 방법에 대 한 자세한 내용은 [관리 되는 클러스터 노드 형식](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

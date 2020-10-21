@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567590"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277968"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
 
@@ -125,7 +125,7 @@ Azure Cosmos DB는 공유 처리량 데이터베이스에서 최대 25개의 컨
 - 시간 1: T=2: 컨테이너가 요청을 가져오기 시작하며 초당 1,000RU를 사용합니다. 또한 발생해야 하는 200RU 상당 TTL이 있습니다. 청구 가능 RU/s는 여전히 1,000RU/s입니다. TTL은 발생 시점과 관계없이 자동 크기 조정의 크기 조정 논리에 영향을 주지 않습니다.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>최대 RU/s와 실제 파티션 간의 매핑은 무엇입니까?
-최대 RU/s를 처음 선택하면 Azure Cosmos DB가 다음을 프로비전합니다. 최대 RU/s / 10,000RU/s = 실제 파티션 수. 각 [실제 파티션](partition-data.md#physical-partitions)은 최대 10,000RU/s 및 50GB 스토리지를 지원할 수 있습니다. 스토리지 크기가 증가함에 따라 Azure Cosmos DB는 스토리지 증가를 처리하기 위해 파티션을 자동으로 분할하여 더 많은 실제 파티션을 추가하거나, 스토리지가 [연결된 제한을 초과](#what-is-the-storage-limit-associated-with-each-max-rus-option)하는 경우 최대 RU/s를 늘립니다. 
+최대 RU/s를 처음 선택하면 Azure Cosmos DB가 다음을 프로비전합니다. 최대 RU/s / 10,000RU/s = 실제 파티션 수. 각 [실제 파티션](partitioning-overview.md#physical-partitions)은 최대 10,000RU/s 및 50GB 스토리지를 지원할 수 있습니다. 스토리지 크기가 증가함에 따라 Azure Cosmos DB는 스토리지 증가를 처리하기 위해 파티션을 자동으로 분할하여 더 많은 실제 파티션을 추가하거나, 스토리지가 [연결된 제한을 초과](#what-is-the-storage-limit-associated-with-each-max-rus-option)하는 경우 최대 RU/s를 늘립니다. 
 
 데이터베이스 또는 컨테이너의 최대 RU/s가 모든 실제 파티션으로 균등하게 분배됩니다. 따라서 하나의 실제 파티션이 크기 조정될 수 있는 총 처리량은 다음과 같습니다. 데이터베이스 또는 컨테이너의 최대 RU/s / 실제 파티션 수. 
 
@@ -147,5 +147,5 @@ Azure Cosmos DB는 공유 처리량 데이터베이스에서 최대 25개의 컨
 
 * [Azure Cosmos DB 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
 * [자동 크기 조정을 사용하는 프로비전된 처리량의 이점](provision-throughput-autoscale.md#benefits-of-autoscale)에 대해 알아봅니다.
-* [논리적 및 물리적 파티션](partition-data.md)에 대해 자세히 알아봅니다.
+* [논리적 및 물리적 파티션](partitioning-overview.md)에 대해 자세히 알아봅니다.
                         

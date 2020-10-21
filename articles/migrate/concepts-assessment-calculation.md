@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가의 Azure VM 평가
 description: Azure Migrate Server 평가의 평가에 대 한 자세한 정보
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275526"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319325"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>서버 평가 개요 (Azure Vm으로 마이그레이션)
 
@@ -54,7 +54,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 기기가 컴퓨터 검색을 시작한 후에는 평가 하려는 컴퓨터를 그룹으로 수집 하 고 평가 유형이 **AZURE VM**인 그룹에 대 한 평가를 실행할 수 있습니다.
 
-[VMware](tutorial-prepare-vmware.md), [hyper-v](tutorial-prepare-hyper-v.md)또는 [물리적 서버](tutorial-prepare-physical.md) 에 대 한 자습서에 따라 이러한 단계를 수행해 보세요.
+[VMware](./tutorial-discover-vmware.md), [hyper-v](./tutorial-discover-hyper-v.md)또는 [물리적 서버](./tutorial-discover-physical.md) 에 대 한 자습서에 따라 이러한 단계를 수행해 보세요.
 
 ## <a name="how-do-i-assess-with-imported-data"></a>가져온 데이터를 사용 하 여 평가 어떻게 할까요?
 
@@ -152,7 +152,7 @@ Azure VM 평가의 경우 서버 평가는 온-프레미스 VM의 다음 속성�
 --- | --- | ---
 **부팅 유형** | Azure는 UEFI가 아닌 부팅 유형의 BIOS를 사용 하는 Vm을 지원 합니다. | 부팅 유형이 UEFI 인 경우 조건적으로 준비 됨
 **코어 수** | 각 컴퓨터에는 Azure VM에서 지원 되는 최대 수 인 128 코어가 없어야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 평가 설정에서 편안 하 게 요소를 지정 하는 경우 사용 되는 코어 수를 편안 하 게 곱합니다.<br/><br/> 성능 기록이 없으면 할당 된 코어를 사용 하 여 편안 하 게 요소를 적용 Azure Migrate. | 코어 수가 한도 내에 있으면 준비
-**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아봅니다](../virtual-machines/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없으면 할당 된 RAM을 사용 하 여 편안 하 게 요소를 적용 합니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
+**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](../virtual-machines/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없으면 할당 된 RAM을 사용 하 여 편안 하 게 요소를 적용 합니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
 **스토리지 디스크** | 할당 된 디스크 크기는 32 TB이 하 여야 합니다. Azure는 Azure 울트라 SSD 디스크를 사용 하 여 64-TB 디스크를 지원 하지만 Azure Migrate: 서버 평가는 현재 울트라 SSD를 지원 하지 않으므로 디스크 크기 제한으로 32 TB를 확인 합니다. <br/><br/> OS 디스크를 포함 하 여 컴퓨터에 연결 된 디스크 수는 65 미만 이어야 합니다. | 디스크 크기와 숫자가 한도 내에 있으면 준비
 **네트워킹** | 컴퓨터에는 32 개의 Nic (네트워크 인터페이스)가 연결 되어 있어야 합니다. | Nic 수가 한도 내에 있으면 준비
 
@@ -173,7 +173,7 @@ Windows Server 2012 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.
 Windows Server 2012 및 모든 SP | Azure에서 완벽하게 지원합니다. | Azure를 사용할 준비가 되었습니다.
 Windows Server 2008 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.| Azure를 사용할 준비가 되었습니다.
 Windows Server 2008(32비트 및 64비트) | Azure에서 완벽하게 지원합니다. | Azure를 사용할 준비가 되었습니다.
-Windows Server 2003 및 Windows Server 2003 R2 | 이러한 운영 체제는 지원 종료 날짜를 전달 하 고 Azure에서 지원 하기 위해 [CSA (사용자 지정 지원 계약)](https://aka.ms/WSosstatement) 가 필요 합니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 OS를 업그레이드 하는 것이 좋습니다.
+Windows Server 2003 및 Windows Server 2003 R2 | 이러한 운영 체제는 지원 종료 날짜를 전달 하 고 Azure에서 지원 하기 위해 [CSA (사용자 지정 지원 계약)](/troubleshoot/azure/virtual-machines/server-software-support) 가 필요 합니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 OS를 업그레이드 하는 것이 좋습니다.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1 및 MS-DOS | 이러한 운영 체제는 지원 종료 날짜를 통과 했습니다. 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 OS 지원을 제공 하지 않습니다. | 조건부로 Azure를 사용할 준비가 되었습니다. Azure로 마이그레이션하기 전에 OS를 업그레이드 하는 것이 좋습니다.
 Windows 7, Windows 8 및 Windows 10 | Azure는 [Visual Studio 구독에 대해서만](../virtual-machines/windows/client-images.md) 지원 합니다. | 조건부로 Azure를 사용할 준비가 되었습니다.
 Windows 10 Pro | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | 조건부로 Azure를 사용할 준비가 되었습니다.
@@ -297,6 +297,6 @@ Azure Migrate의 각 성능 기반 Azure VM 평가는 신뢰도 등급과 연결
 
 평가를 만드는 모범 사례를 [검토합니다](best-practices-assessment.md). 
 
-- [VMware vm](tutorial-prepare-vmware.md), [hyper-v vm](tutorial-prepare-hyper-v.md)및 [물리적 서버](tutorial-prepare-physical.md)에 대 한 평가를 실행 하는 방법에 대해 알아봅니다.
-- [CSV 파일을 사용 하 여 가져온 서버를 평가 하는](tutorial-assess-import.md)방법을 알아봅니다.
+- [VMware vm](./tutorial-discover-vmware.md), [hyper-v vm](./tutorial-discover-hyper-v.md)및 [물리적 서버](./tutorial-discover-physical.md)에 대 한 평가를 실행 하는 방법에 대해 알아봅니다.
+- [CSV 파일을 사용 하 여 가져온 서버를 평가 하는](./tutorial-discover-import.md)방법을 알아봅니다.
 - [종속성 시각화](concepts-dependency-visualization.md)를 설정 하는 방법에 대해 알아봅니다.

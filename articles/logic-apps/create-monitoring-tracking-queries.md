@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090402"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309924"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Monitor 로그의 모니터링 및 추적을 위한 쿼리 보기 및 만들기
 
-[Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 에서 결과를 생성 하는 기본 쿼리를 확인 하 고 특정 조건에 따라 결과를 필터링 하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다. 쿼리는 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용 하 여 다른 결과를 보려는 경우 편집할 수 있습니다. 자세한 내용은 [Azure Monitor 로그 쿼리](../azure-monitor/log-query/query-language.md)를 참조 하세요.
+[Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 에서 결과를 생성 하는 기본 쿼리를 확인 하 고 특정 조건에 따라 결과를 필터링 하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다. 쿼리는 [Kusto 쿼리 언어](/azure/data-explorer/kusto/query/)를 사용 하 여 다른 결과를 보려는 경우 편집할 수 있습니다. 자세한 내용은 [Azure Monitor 로그 쿼리](/azure/data-explorer/kusto/query/)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -59,7 +59,7 @@ ms.locfileid: "87090402"
 
      !["Logic Apps B2B" 솔루션 미리 작성 된 쿼리를 시작 합니다.](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * 빈 쿼리에서 시작 하려면 쿼리 편집기에서 쿼리에 대 한 [Kusto 쿼리 언어](../azure-monitor/log-query/query-language.md) 를 입력 하기 시작 합니다.
+   * 빈 쿼리에서 시작 하려면 쿼리 편집기에서 쿼리에 대 한 [Kusto 쿼리 언어](/azure/data-explorer/kusto/query/) 를 입력 하기 시작 합니다.
 
      ![빈 쿼리로 시작](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 

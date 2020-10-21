@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8d9740e05bf4236f1b2b722c9a91b3644533fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a3c5274a1b63d486bb7eb48b89560d5684db2e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707903"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317000"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
@@ -54,7 +54,7 @@ ms.locfileid: "90707903"
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
+> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 

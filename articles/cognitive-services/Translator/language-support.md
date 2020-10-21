@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568100"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282312"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -57,6 +57,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 |필리핀어|  `fil`   |
 |핀란드어|   `fi`    |
 |프랑스어|    `fr`    |
+|프랑스어(캐나다)|   `fr-ca` |
 |독일어|    `de`    |
 |그리스어| `el`    |
 |구자라트어|  `gu`    |
@@ -364,6 +365,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |영어|
 |핀란드어|
 |프랑스어|
+|프랑스어(캐나다)|
 |독일어|
 |구자라트어|
 |힌디어|
@@ -401,6 +403,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |영어|
 |핀란드어|
 |프랑스어|
+|프랑스어(캐나다)|
 |독일어|
 |그리스어|
 |히브리어|

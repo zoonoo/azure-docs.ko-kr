@@ -3,12 +3,12 @@ title: Azure managed disks를 사용 하도록 클러스터 노드 업그레이�
 description: 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717526"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316152"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure managed disks를 사용 하도록 클러스터 노드 업그레이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "88717526"
 이 문서에서는 클러스터 가동 중지 시간을 방지 하는 동시에 관리 디스크를 사용 하도록 예제 클러스터의 주 노드 유형을 업그레이드 하는 단계를 안내 합니다 (아래 참고 참조). 예제 테스트 클러스터의 초기 상태는 노드 5 개로 구성 된 단일 확장 집합에 의해 지원 되는 [실버 내구성](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)의 한 노드 형식으로 구성 됩니다.
 
 > [!NOTE]
-> 기본 SKU 부하 분산 장치에 대 한 제한으로 인해 추가 확장 집합이 추가 되지 않습니다. 대신 표준 SKU 부하 분산 장치를 사용 하는 것이 좋습니다. 자세한 내용은 [두 sku의 비교](/azure/load-balancer/skus)를 참조 하세요.
+> 기본 SKU 부하 분산 장치에 대 한 제한으로 인해 추가 확장 집합이 추가 되지 않습니다. 대신 표준 SKU 부하 분산 장치를 사용 하는 것이 좋습니다. 자세한 내용은 [두 sku의 비교](../load-balancer/skus.md)를 참조 하세요.
 
 > [!CAUTION]
 > 클러스터 DNS에 종속성이 있는 경우 (예: [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 액세스할 때)에만이 절차를 중단 합니다. [프런트 엔드 서비스의 아키텍처 모범 사례](/azure/architecture/microservices/design/gateway) 는 중단 없이 노드 교환을 가능 하 게 하기 위해 노드 형식 앞에 일종의 [부하 분산 장치](/azure/architecture/guide/technology-choices/load-balancing-overview) 를 포함 하는 것입니다.

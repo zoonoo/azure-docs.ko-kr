@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020884"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281046"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 
@@ -82,7 +82,7 @@ S3 컬렉션이 있는 경우 2,500RU/s 처리량의 단일 파티션 컬렉션�
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>20gb 이상의 저장소를 필요로 한다면 어떻게 되나요?
 
-컬렉션에 S1, S2 또는 S3 성능 수준이 있거나 단일 파티션 컬렉션이 포함 되어 있든, 모두 20gb의 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용 하 여 거의 무제한 저장소를 사용 하는 분할 된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
+컬렉션에 S1, S2 또는 S3 성능 수준이 있거나 단일 파티션 컬렉션이 포함 되어 있든, 모두 20gb의 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용 하 여 거의 무제한 저장소를 사용 하는 분할 된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요. 
 
 <a name="change-before"></a>
 
@@ -132,6 +132,6 @@ EA 고객에게 적용한 가격은 현재 계약이 종료될 때까지 보호�
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB의 가격 책정 및 데이터 관리에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-1.  [Cosmos DB의 데이터 분할](sql-api-partition-data.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
+1.  [Cosmos DB의 데이터 분할](partitioning-overview.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
 2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 스토리지 소비 비용에 대해 알아봅니다.
 3.  [요청 단위](request-units.md). 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.

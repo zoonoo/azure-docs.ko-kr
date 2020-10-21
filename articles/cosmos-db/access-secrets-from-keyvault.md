@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c4f9954977d6c5523bc70586d3b0cbb0328bcd8
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262670"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278042"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 
@@ -94,5 +94,5 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](firewall-support.md) 문서를 참조하세요.
-* 가상 네트워크 서비스 엔드포인트를 구성하려면 [VNet 서비스 엔드포인트를 사용하여 보안 액세스](vnet-service-endpoint.md)를 참조하세요.
+* Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](how-to-configure-firewall.md) 문서를 참조하세요.
+* 가상 네트워크 서비스 엔드포인트를 구성하려면 [VNet 서비스 엔드포인트를 사용하여 보안 액세스](how-to-configure-vnet-service-endpoint.md)를 참조하세요.

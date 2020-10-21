@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63663d228052934616a59f5d84ff16a6510e46c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361769"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282081"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>NoSQL 및 관계형 데이터베이스의 차이점 이해
 
@@ -93,8 +93,8 @@ Azure Cosmos 계정 및 기타 개념을 관리 하는 방법을 알아봅니다
 * [Azure Cosmos 계정을 관리하는 방법](how-to-manage-database-account.md)
 * [글로벌 분포](distribute-data-globally.md)
 * [일관성 수준](consistency-levels.md)
-* [Azure Cosmos 컨테이너와 항목으로 작업](databases-containers-items.md)
-* [Azure Cosmos 계정에 대한 VNET 서비스 엔드포인트](vnet-service-endpoint.md)
-* [Azure Cosmos 계정에 대한 IP 방화벽](firewall-support.md)
+* [Azure Cosmos 컨테이너와 항목으로 작업](account-databases-containers-items.md)
+* [Azure Cosmos 계정에 대한 VNET 서비스 엔드포인트](how-to-configure-vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대한 IP 방화벽](how-to-configure-firewall.md)
 * [Azure Cosmos 계정에서 Azure 지역을 추가하고 제거하는 방법](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

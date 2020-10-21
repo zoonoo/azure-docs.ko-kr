@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115540"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309023"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
@@ -50,10 +50,15 @@ scope=https://contoso.onmicrosoft.com/api/read openid offline_access
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음과 같은 범위는 사용자 프로필에 액세스하기 위한 권한을 나타냅니다.
+클라이언트 애플리케이션에 부여된 것보다 더 많은 범위가 필요한 경우 하나 이상의 사용 권한이 부여되면 호출이 성공합니다. 결과 액세스 토큰의 **scp** 클레임은 성공적으로 부여된 권한으로만 채워집니다. 
+
+### <a name="openid-connect-scopes"></a>OpenID Connect 범위
+
+OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다음과 같은 범위는 사용자 프로필에 액세스하기 위한 권한을 나타냅니다.
 
 - **openid** - ID 토큰을 요청합니다.
 - **offline_access** - [인증 코드 흐름](authorization-code-flow.md)을 사용하여 새로 고침 토큰을 요청합니다.
+- **00000000-0000-0000-0000-000000000000** -클라이언트 id를 범위로 사용 하는 것은 앱에 동일한 클라이언트 id로 표시 되는 고유한 서비스 또는 web API에 대해 사용할 수 있는 액세스 토큰이 필요 함을 나타냅니다.
 
 `/authorize` 요청의 **response_type** 매개 변수가 `token`을 포함하는 경우 **scope** 매개 변수는 권한이 부여될 하나 이상의 리소스 범위(`openid` 및 `offline_access` 이외)를 포함해야 합니다. 그렇지 않으면 `/authorize` 요청이 실패합니다.
 

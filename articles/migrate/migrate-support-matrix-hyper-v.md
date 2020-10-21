@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 평가 지원
 description: Azure Migrate Server 평가를 통한 Hyper-v 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318180"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311326"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -83,4 +83,4 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 ## <a name="next-steps"></a>다음 단계
 
-[Hyper-v VM 평가 준비](tutorial-prepare-hyper-v.md)
+[Hyper-v VM 평가 준비](./tutorial-discover-hyper-v.md)

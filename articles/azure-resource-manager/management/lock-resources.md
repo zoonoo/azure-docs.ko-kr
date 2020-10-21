@@ -2,14 +2,14 @@
 title: 변경을 방지하기 위해 리소스 잠그기
 description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용자가 중요한 Azure 리소스를 업데이트하거나 삭제하지 못하도록 합니다.
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 10/20/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e76287c4524831a84a22fb23ddf8a5fdee8bc12b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87827285"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281747"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -66,11 +66,13 @@ Azure Databricks와 같은 일부 Azure 서비스는 [관리형 애플리케이�
 
 ![서비스 삭제](./media/lock-resources/delete-service.png)
 
-## <a name="portal"></a>포털
+## <a name="configure-locks"></a>잠금 구성
+
+### <a name="portal"></a>포털
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-## <a name="template"></a>템플릿
+### <a name="arm-template"></a>ARM 템플릿
 
 Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위에 따라 이름 및 형식에 대해 서로 다른 값을 사용합니다.
 
@@ -143,7 +145,7 @@ Resource Manager 템플릿을 사용하여 잠금을 배포할 때 잠금 범위
 
 리소스 그룹에 대한 잠금을 설정하는 방법에 대한 예제는 [리소스 그룹 만들기 및 잠그기](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment)를 참조하세요.
 
-## <a name="powershell"></a>PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) 명령을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠급니다.
 
@@ -184,7 +186,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 [az lock create](/cli/azure/lock#az-lock-create) 명령을 사용하여 Azure CLI를 통해 배포된 리소스를 잠급니다.
 
@@ -225,7 +227,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>REST API
+### <a name="rest-api"></a>REST API
 
 [관리 잠금을 위한 REST API](/rest/api/resources/managementlocks)를 사용하여 배포된 리소스를 잠글 수 있습니다. REST API를 사용하여 잠금을 만들고, 삭제하고, 기존 잠금에 대한 정보를 검색할 수 있습니다.
 

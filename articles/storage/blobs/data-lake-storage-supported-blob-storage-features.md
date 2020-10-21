@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a0cba1c3a7a3b713fa5f0603ad9e116068d8df66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2c7953ea7b85eca3628329b427f960f9466fd6b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618474"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316038"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능
 
@@ -49,7 +49,7 @@ ms.locfileid: "91618474"
 |Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](storage-blob-soft-delete.md)|
 |Blobfuse|미리 보기|아직 지원되지 않음|[blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)|
 |계정 장애 조치(failover)|아직 지원되지 않음|아직 지원되지 않음|[재해 복구 및 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Blob 컨테이너 ACL|아직 지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|아직 지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[컨테이너 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Blob 컨테이너 ACL|지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|지원되지 않음<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|이 표 아래의 관련 정보를 참조 하세요.|
 |고객이 제공한 키|아직 지원되지 않음|아직 지원되지 않음|[Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)|
 |사용자 지정 도메인|아직 지원되지 않음|아직 지원되지 않음|[Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)|
 |암호화 범위|아직 지원되지 않음|아직 지원되지 않음|[암호화 범위 만들기 및 관리 (미리 보기)](encryption-scope-manage.md)|

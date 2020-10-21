@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871186"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314724"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -90,7 +90,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
     **성능 벤치 마크 테스트를 실행 하는 단계:**
     
-      1. [다운로드](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [다운로드](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. 리소스 그룹에서 어플라이언스 저장소 계정을 찾습니다. 저장소 계정의 이름은 migrategwsa와 유사 \* \* \* \* \* \* \* \* \* \* 합니다. 위의 명령에서 [account] 매개 변수의 값입니다.
         
@@ -170,7 +170,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
     **성능 벤치 마크 테스트를 실행 하는 단계:**
     
-      1. [다운로드](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [다운로드](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. 리소스 그룹에서 어플라이언스 저장소 계정을 찾습니다. 저장소 계정의 이름은 migratelsa와 유사 \* \* \* \* \* \* \* \* \* \* 합니다. 위의 명령에서 [account] 매개 변수의 값입니다.
         
@@ -295,4 +295,4 @@ VCenter Server management agent의 작동이 중지 되는 경우이 문제가 �
 
 ## <a name="next-steps"></a>다음 단계
 
-VM 복제를 계속 하 고 [테스트 마이그레이션을](https://go.microsoft.com/fwlink/?linkid=2139333)수행 합니다.
+VM 복제를 계속 하 고 [테스트 마이그레이션을](./tutorial-migrate-vmware.md#run-a-test-migration)수행 합니다.

@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f687923f1185d848c2c4f2f40d949c71a7743d65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940636"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311119"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL 관리 되는 인스턴스 구성
 
@@ -22,11 +22,11 @@ ms.locfileid: "90940636"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="configure-resources-for-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance에 대 한 리소스 구성
+## <a name="configure-resources"></a>리소스 구성
 
-### <a name="configure-using-azdata"></a>Azdata를 사용 하 여 구성
+### <a name="configure-using-azure-data-cli-azdata"></a>구성 사용 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
-CLI를 사용 하 여 Azure Arc 사용 SQL 관리 되는 인스턴스의 구성을 편집할 수 있습니다 `azdata` . 구성 옵션을 보려면 다음 명령을 실행 합니다. 
+을 사용 하 여 Azure Arc 사용 SQL 관리 되는 인스턴스의 구성을 편집할 수 있습니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] . 구성 옵션을 보려면 다음 명령을 실행 합니다. 
 
 ```
 azdata arc sql mi edit --help

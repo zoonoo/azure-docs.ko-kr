@@ -2,13 +2,13 @@
 title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619953"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308634"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
@@ -45,6 +45,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |
 |평균 CPU % |노드당 사용 되는 평균 CPU를 계산 합니다. |평균 노드 CPU 사용률이 80%를 초과 하는 경우 |
 |평균 디스크 사용량 (%) |노드의 평균 디스크 사용량을 계산 합니다.|노드의 디스크 사용량이 80% 보다 큰 경우 |
+|평균 영구적 볼륨 사용량 (%) |Pod 당 평균 PV 사용 현황을 계산 합니다. |Pod 당 평균 PV 사용량이 80% 보다 큰 경우|
 |평균 작업 집합 메모리 (%) |노드의 평균 작업 집합 메모리를 계산 합니다. |노드의 평균 작업 집합 메모리가 80% 보다 큰 경우 |
 |컨테이너 수 다시 시작 |컨테이너 다시 시작 수를 계산 합니다. | 컨테이너 다시 시작이 0 보다 큰 경우 |
 |실패 한 Pod 개수 |실패 상태의 pod가 있는지 여부를 계산 합니다.|실패 상태에 있는 pod 수가 0 보다 큰 경우 |
@@ -75,6 +76,8 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 * *cpuExceededPercentage*, *memoryRssExceededPercentage*및 *MemoryWorkingSetExceededPercentage* 메트릭은 CPU, 메모리 Rss 및 메모리 작업 집합 값이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 95%). 이러한 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 컨테이너 리소스 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요.
 
+* *pvUsageExceededPercentage* 메트릭은 영구적 볼륨 사용 백분율이 구성 된 임계값을 초과할 때 전송 됩니다 (기본 임계값은 60%). 이 임계값은 해당 경고 규칙에 대해 지정 된 경고 조건 임계값을 제외 합니다. 즉, 이러한 메트릭을 수집 하 고 [메트릭 탐색기](../platform/metrics-getting-started.md)에서 분석 하려는 경우 경고 임계값 보다 낮은 값으로 임계값을 구성 하는 것이 좋습니다. 영구적 볼륨 사용률 임계값에 대 한 컬렉션 설정과 관련 된 구성은 ConfigMaps 파일의 섹션 아래에서 재정의할 수 있습니다 `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Configmaps 구성 파일 구성과 관련 된 자세한 내용은 [했어야 메트릭 구성 ConfigMaps](#configure-alertable-metrics-in-configmaps) 섹션을 참조 하세요. *Kube* 네임 스페이스의 클레임이 있는 영구적 볼륨 메트릭의 컬렉션은 기본적으로 제외 됩니다. 이 네임 스페이스에서 컬렉션을 사용 하도록 설정 하려면 `[metric_collection_settings.collect_kube_system_pv_metrics]` ConfigMap 파일의 섹션을 사용 합니다. 자세한 내용은 [메트릭 컬렉션 설정](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) 을 참조 하세요.
+
 ## <a name="metrics-collected"></a>수집 된 메트릭
 
 이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
@@ -97,6 +100,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 |정보. 컨테이너/컨테이너 |cpuExceededPercentage |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대 한 CPU 사용률입니다.<br> 시  |
 |정보. 컨테이너/컨테이너 |memoryRssExceededPercentage |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값을 초과 하는 컨테이너에 대 한 메모리 RSS 비율 (기본값은 95.0)입니다.|
 |정보. 컨테이너/컨테이너 |memoryWorkingSetExceededPercentage |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대 한 메모리 작업 집합 비율입니다.|
+|Persistentvolumes/ |pvUsageExceededPercentage |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대 한 PV 사용률 비율입니다.
 
 ## <a name="enable-alert-rules"></a>경고 규칙 사용
 
@@ -207,29 +211,40 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>ConfigMaps에서 했어야 메트릭 구성
 
-기본 컨테이너 리소스 사용률 임계값을 재정의 하도록 ConfigMap 구성 파일을 구성 하려면 다음 단계를 수행 합니다. 이러한 단계는 다음 했어야 메트릭에만 적용 됩니다.
+기본 사용률 임계값을 재정의 하도록 ConfigMap 구성 파일을 구성 하려면 다음 단계를 수행 합니다. 이러한 단계는 다음 했어야 메트릭에만 적용 됩니다.
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. 섹션 아래의 ConfigMap yaml 파일을 편집 합니다 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` .
+1. 또는 섹션에서 ConfigMap YAML 파일을 편집 `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` 합니다.
 
-2. *CpuExceededPercentage* 임계값을 90%로 수정 하 고 해당 임계값에 도달 하 여이 메트릭의 시작을 수집 하려면 다음 예제를 사용 하 여 configmap 파일을 구성 합니다.
+   - *CpuExceededPercentage* threshold를 90%로 수정 하 고 해당 임계값에 도달 하 여 초과 하는 경우이 메트릭의 수집을 시작 하려면 다음 예제를 사용 하 여 configmap 파일을 구성 합니다.
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. 다음 kubectl 명령을 실행 `kubectl apply -f <configmap_yaml_file.yaml>` 합니다.
+   - *PvUsageExceededPercentage* threshold를 80%로 수정 하 고 해당 임계값에 도달 하 여 초과 하는 경우이 메트릭의 수집을 시작 하려면 다음 예제를 사용 하 여 configmap 파일을 구성 합니다.
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. 다음 kubectl 명령을 실행 `kubectl apply -f <configmap_yaml_file.yaml>` 합니다.
 
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다 `configmap "container-azm-ms-agentconfig" created` .
+구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작입니다. 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음 예제와 유사한 메시지가 표시 되 고 결과가 포함 됩니다 `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="next-steps"></a>다음 단계
 

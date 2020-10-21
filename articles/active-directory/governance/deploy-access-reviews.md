@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306568"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318124"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -87,7 +87,7 @@ ms.locfileid: "91306568"
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](https://aka.ms/deploymentplans)시키고 프로젝트 역할을 명확하게 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](../fundamentals/active-directory-deployment-plans.md)시키고 프로젝트 역할을 명확하게 해야 합니다.
 
 액세스 검토의 경우 조직 내에서 다음 팀의 담당자를 포함할 가능성이 높습니다.
 
@@ -182,7 +182,7 @@ ms.locfileid: "91306568"
 
 * 그룹 [멤버 자격](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure ad 또는 Microsoft 365에서 만들어짐).
 
-* 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](/azure/active-directory/governance/entitlement-management-overview) 합니다.
+* 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](./entitlement-management-overview.md) 합니다.
 
 * [AZURE AD 역할 및 Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-assign-roles.md) 은 Privileged Identity Management에 정의 되어 있습니다.
 
@@ -310,7 +310,7 @@ ms.locfileid: "91306568"
 
 다음을 통해 그룹 멤버 자격을 검토할 수 있습니다. 
 
-* Administrators
+* 관리자
 
 * 그룹 소유자
 
@@ -518,4 +518,3 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 * [Azure AD 자격 관리 란?](entitlement-management-overview.md)
 
 * [Azure AD Privileged Identity Management란?](../privileged-identity-management/pim-configure.md)
-

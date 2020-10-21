@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090096"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315281"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Azure Migrate를 사용하여 마이그레이션 계획 빌드
 
@@ -166,4 +166,4 @@ Azure에 대 한 전체 규모의 마이그레이션을 시작 하기 전에 항
 
 -  [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate)   Azure 클라우드 도입 프레임 워크의 클라우드 마이그레이션 경험을 조사 하세요.
 - Azure Migrate를 [시작](https://youtu.be/wFfq3YPxYHE) 합니다.
-- [VMware vm](tutorial-assess-vmware.md) 또는 [hyper-v vm](tutorial-assess-hyper-v.md)에 대 한 평가를 만듭니다.
+- [VMware vm](./tutorial-assess-vmware-azure-vm.md) 또는 [hyper-v vm](tutorial-assess-hyper-v.md)에 대 한 평가를 만듭니다.

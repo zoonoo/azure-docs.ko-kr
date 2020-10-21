@@ -3,17 +3,17 @@ title: 다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문�
 description: 다중 지역 환경에서 작동 하는 경우 Azure Cosmos SDK 가용성 동작에 대 한 모든 것을 알아봅니다.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743967"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319373"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "91743967"
 | 단일 쓰기 지역 | 기본 지역 | 주 지역  |
 | 여러 쓰기 지역 | 기본 지역 | 기본 지역  |
 
-기본 영역을 설정 하지 않은 경우:
+**기본 지역을 설정 하지**않으면 SDK 클라이언트는 기본 지역으로 기본 설정 됩니다.
 
 |계정 유형 |읽기 |쓰기 |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ ms.locfileid: "91743967"
 > [!NOTE]
 > 주 지역은 [Azure Cosmos 계정 지역 목록의](distribute-data-globally.md) 첫 번째 지역을 나타냅니다.
 
-다음 시나리오 중 하나가 발생 하면 Azure Cosmos SDK를 사용 하는 클라이언트가 로그를 노출 하 고 **작업 진단 정보의**일부로 재시도 정보를 포함 합니다.
+일반적인 상황에서 SDK 클라이언트는 기본 지역 (지역 기본 설정이 설정 된 경우) 또는 주 지역 (기본 설정 되지 않은 경우)에 연결 되 고, 아래 시나리오 중 하나가 발생 하지 않는 한 작업은 해당 지역으로 제한 됩니다.
+
+이러한 경우, Azure Cosmos SDK를 사용 하는 클라이언트는 로그를 노출 하 고 **작업 진단 정보의**일부로 재시도 정보를 포함 합니다.
 
 * .NET V2 SDK의 응답에 대 한 *RequestDiagnosticsString* 속성입니다.
 * .NET V3 SDK의 응답 및 예외에 대 한 *진단* 속성입니다.
@@ -66,7 +68,7 @@ Azure Cosmos SDK 클라이언트는 5 분 마다 계정 구성을 읽고 인식 
 
 Azure Cosmos 계정에 없는 지역에 연결 하기 위해 클라이언트를 구성 하는 경우 기본 지역은 무시 됩니다. 해당 지역을 나중에 추가 하면 클라이언트에서 해당 지역을 검색 하 고 해당 지역으로 영구적으로 전환 합니다.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>단일 쓰기 지역 계정에서 쓰기 지역 장애 조치 (Failover)
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>단일 쓰기 지역 계정에서 쓰기 지역 장애 조치 (failover)
 
 현재 쓰기 지역의 장애 조치 (failover)를 시작 하면 다음 쓰기 요청이 알려진 백 엔드 응답과 함께 실패 합니다. 이 응답이 감지 되 면 클라이언트는 계정을 쿼리하여 새 쓰기 영역을 확인 하 고 현재 작업을 다시 시도 하 고 이후의 모든 쓰기 작업을 새 지역으로 영구적으로 라우팅합니다.
 
@@ -76,7 +78,7 @@ Azure Cosmos 계정에 없는 지역에 연결 하기 위해 클라이언트를 
 
 ## <a name="session-consistency-guarantees"></a>세션 일관성 보장
 
-[세션 일관성](consistency-levels.md#guarantees-associated-with-consistency-levels)을 사용 하는 경우 클라이언트는 자체 쓰기를 읽을 수 있도록 보장 해야 합니다. 읽기 지역 기본 설정이 쓰기 지역과 다른 단일 쓰기 지역 계정에서는 사용자가 쓰기를 실행 하 고 로컬 지역에서 읽기를 수행할 때 로컬 지역에서 데이터 복제를 아직 받지 않은 경우가 있을 수 있습니다 (광원 제약 조건의 속도). 이러한 경우 SDK는 읽기 작업에서 특정 오류를 검색 하 고 허브 지역에서 읽기를 다시 시도 하 여 세션 일관성을 유지 합니다.
+[세션 일관성](consistency-levels.md#guarantees-associated-with-consistency-levels)을 사용 하는 경우 클라이언트는 자체 쓰기를 읽을 수 있도록 보장 해야 합니다. 읽기 지역 기본 설정이 쓰기 지역과 다른 단일 쓰기 지역 계정에서는 사용자가 쓰기를 실행 하 고 로컬 지역에서 읽기를 수행할 때 로컬 지역에서 데이터 복제를 아직 받지 않은 경우가 있을 수 있습니다 (광원 제약 조건의 속도). 이러한 경우 SDK는 읽기 작업에서 특정 오류를 검색 하 고 주 지역에서 읽기를 다시 시도 하 여 세션 일관성을 유지 합니다.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>TCP 프로토콜의 일시적인 연결 문제
 

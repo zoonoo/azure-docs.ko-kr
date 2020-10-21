@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626482"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279219"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
@@ -36,10 +36,10 @@ ms.locfileid: "91626482"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 이 자습서의 지침은 Azure CLI를 사용합니다. [이 가이드를 참조](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true)하여 Azure CLI를 시작하세요.
+- 이 자습서의 지침은 Azure CLI를 사용합니다. [이 가이드를 참조](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest)하여 Azure CLI를 시작하세요.
 
   > [!TIP] 
-  > Azure CLI를 시작하는 쉽고 빠른 방법 [Azure Cloud Shell의 Bash](https://docs.microsoft.com/azure/cloud-shell/quickstart)를 사용하는 것입니다.
+  > Azure CLI를 시작하는 쉽고 빠른 방법 [Azure Cloud Shell의 Bash](../cloud-shell/quickstart.md)를 사용하는 것입니다.
 
 - `front-door` 확장이 Azure CLI에 추가되어 있는지 확인합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "91626482"
    ```
 
 > [!NOTE] 
-> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true)를 참조하세요.
+> 이 자습서에서 사용되는 명령에 대한 자세한 내용은 [Front Door에 대한 Azure CLI 참조](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest)를 참조하세요.
 
 ## <a name="create-an-azure-front-door-resource"></a>Azure Front Door 리소스 만들기
 
@@ -62,7 +62,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: Azure Front Door 리소스의 이름입니다.
 
-`--resource-group`: 이 Azure Front Door 리소스를 배치할 리소스 그룹입니다. 리소스 그룹에 대해 자세히 알아보려면 [Azure에서 리소스 그룹 관리](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)를 참조하세요.
+`--resource-group`: 이 Azure Front Door 리소스를 배치할 리소스 그룹입니다. 리소스 그룹에 대해 자세히 알아보려면 [Azure에서 리소스 그룹 관리](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 
 이 명령을 실행할 때 받는 응답에서 `hostName` 키를 찾습니다. 이후 단계에서 이 값이 필요합니다. `hostName`은 직접 만든 Azure Front Door 리소스의 DNS 이름입니다.
 
@@ -130,21 +130,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 웹 애플리케이션의 사용자 지정 도메인 이름은 고객이 애플리케이션을 참조하는 데 사용하는 이름입니다. 예: www.contoso.com. 처음에는 사용자 지정 도메인 이름이 Azure Front Door를 도입하기 전에 실행 중이던 위치를 가리킵니다. Azure Front Door 및 WAF를 애플리케이션에 추가한 후에는 사용자 지정 도메인에 해당하는 DNS 항목이 Azure Front Door 리소스를 가리켜야 합니다. 이러한 변경은 DNS 서버의 항목을 Azure Front Door 리소스를 만들 때 적어둔 Azure Front Door `hostName`에 다시 매핑하여 수행할 수 있습니다.
 
-DNS 레코드를 업데이트하는 구체적인 단계는 DNS 서비스 공급자에 따라 다릅니다. Azure DNS를 사용하여 DNS 이름을 호스트하는 경우 [DNS 레코드를 업데이트하는 단계](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli)에 대한 설명서를 참조하고 Azure Front Door `hostName`을 가리킵니다. 
+DNS 레코드를 업데이트하는 구체적인 단계는 DNS 서비스 공급자에 따라 다릅니다. Azure DNS를 사용하여 DNS 이름을 호스트하는 경우 [DNS 레코드를 업데이트하는 단계](../dns/dns-operations-recordsets-cli.md)에 대한 설명서를 참조하고 Azure Front Door `hostName`을 가리킵니다. 
 
-고객이 영역 루트(예: contoso.com)를 사용하여 웹 사이트에 액세스해야 하는 경우 유의해야 하는 중요한 사항이 있습니다. 이 경우 Azure DNS 및 해당 [별칭 레코드 유형](https://docs.microsoft.com/azure/dns/dns-alias)을 사용하여 DNS 이름을 호스트해야 합니다. 
+고객이 영역 루트(예: contoso.com)를 사용하여 웹 사이트에 액세스해야 하는 경우 유의해야 하는 중요한 사항이 있습니다. 이 경우 Azure DNS 및 해당 [별칭 레코드 유형](../dns/dns-alias.md)을 사용하여 DNS 이름을 호스트해야 합니다. 
 
-또한 매핑을 인식할 수 있도록 Azure Front Door 구성을 업데이트하여 [사용자 지정 도메인을 추가](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain)해야 합니다.
+또한 매핑을 인식할 수 있도록 Azure Front Door 구성을 업데이트하여 [사용자 지정 도메인을 추가](./front-door-custom-domain.md)해야 합니다.
 
-마지막으로, 사용자 지정 도메인을 사용하여 웹 애플리케이션에 도달하고 HTTPS 프로토콜을 사용하려는 경우입니다. [Azure Front Door에서 사용자 지정 도메인에 대한 인증서를 설정](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https)해야 합니다. 
+마지막으로, 사용자 지정 도메인을 사용하여 웹 애플리케이션에 도달하고 HTTPS 프로토콜을 사용하려는 경우입니다. [Azure Front Door에서 사용자 지정 도메인에 대한 인증서를 설정](./front-door-custom-domain-https.md)해야 합니다. 
 
 ## <a name="lock-down-your-web-application"></a>웹 애플리케이션 잠금
 
-Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하는 것이 좋습니다. 이렇게 하면 아무도 Azure Front Door 보호를 우회하고 애플리케이션에 직접 액세스할 수 없습니다. 이러한 잠금을 설정하려면 [내 백엔드에 Azure Front Door만 액세스하도록 잠그는 방법은 무엇인가요?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)를 참조하세요.
+Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하는 것이 좋습니다. 이렇게 하면 아무도 Azure Front Door 보호를 우회하고 애플리케이션에 직접 액세스할 수 없습니다. 이러한 잠금을 설정하려면 [내 백엔드에 Azure Front Door만 액세스하도록 잠그는 방법은 무엇인가요?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
+이 자습서에 사용된 리소스가 더 이상 필요 없으면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) 명령을 사용하여 리소스 그룹, Front Door, WAF 정책을 제거합니다.
 
 ```azurecli-interactive
   az group delete \

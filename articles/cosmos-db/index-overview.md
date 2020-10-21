@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35d81d0076c4b29a8b1399331aa0254178720931
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068390"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277820"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 
-Azure Cosmos DB는 스키마에 구애되지 않는 데이터베이스로, 스키마나 인덱스 관리를 처리하지 않고도 애플리케이션을 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 스키마 정의나 보조 인덱스 구성 없이도 [컨테이너](databases-containers-items.md#azure-cosmos-containers)의 전체 항목에 대해 모든 자산을 자동으로 인덱싱합니다.
+Azure Cosmos DB는 스키마에 구애되지 않는 데이터베이스로, 스키마나 인덱스 관리를 처리하지 않고도 애플리케이션을 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 스키마 정의나 보조 인덱스 구성 없이도 [컨테이너](account-databases-containers-items.md#azure-cosmos-containers)의 전체 항목에 대해 모든 자산을 자동으로 인덱싱합니다.
 
 이 문서에서는 Azure Cosmos DB의 데이터 인덱싱 방법과 인덱스를 사용하여 쿼리 성능을 개선하는 방법을 설명합니다. [인덱싱 정책](index-policy.md)을 사용자 지정하는 방법을 살펴보기 전에 이 섹션을 진행하는 것이 좋습니다.
 

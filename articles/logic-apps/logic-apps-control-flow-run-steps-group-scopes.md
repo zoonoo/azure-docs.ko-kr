@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575013"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314855"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위를 사용하여 그룹 상태에 따라 작업 실행
 
@@ -31,7 +31,7 @@ ms.locfileid: "91575013"
 
 * Logic Apps에서 지원하는 모든 이메일 공급자의 이메일 계정입니다. 이 예에서는 Outlook.com을 사용합니다. 다른 공급자를 사용하는 경우 일반 흐름은 동일하게 유지되지만 UI는 다르게 표시됩니다.
 
-* Bing 지도 키입니다. 이 키를 가져오려면 <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing 지도 키 가져오기</a>를 참조하세요.
+* Bing 지도 키입니다. 이 키를 가져오려면 <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Bing 지도 키 가져오기</a>를 참조하세요.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 

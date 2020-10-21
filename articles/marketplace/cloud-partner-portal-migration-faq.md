@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369912"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281408"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -78,7 +78,7 @@ Cloud 파트너 포털에서 이전에 지원 되는 모든 제품 유형은 Dyn
 | 제품 유형 <img src="" width=150px>| 파트너 센터로 이동 했습니까? <img src="" width=100px>| 다음 단계 |
 | --- | --- | --- |
 | SaaS | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업적 marketplace에서 새 SaaS 제품 만들기](partner-center-portal/create-new-saas-offer.md)를 확인 하세요. |
-| Virtual Machine | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [Azure Marketplace에서 Azure virtual machine 제품 만들기](partner-center-portal/azure-vm-create-offer.md)를 확인 하세요. |
+| Virtual Machine | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [Azure Marketplace에서 Azure virtual machine 제품 만들기](azure-vm-create.md)를 확인 하세요. |
 | Azure 응용 프로그램 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](partner-center-portal/create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
 | Dynamics 365 Business Central | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
 | 고객 Engagement & PowerApps의 Dynamics 365 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |
@@ -155,16 +155,16 @@ Cloud 파트너 포털와 파트너 센터 간의 차이점은 다음과 같습�
 
 또한 Cloud 파트너 포털의 **Marketplace** 또는 **Storefront Details**  (컨설팅 서비스, Power BI 앱) 페이지에서 이전에 제공한 정보는 이제 파트너 센터의 **제품 목록** 페이지에서 수집 됩니다.
 
-[![스크린샷 파트너 센터 제품 목록 페이지를 표시 합니다.](media/cpp-pc-faq/offer-listing.png "파트너 센터 제공 목록 페이지를 표시 합니다.")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[! [스크린샷 파트너 센터 제공 목록 페이지를 표시 합니다.] (media/cpp-pc-faq/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 이전에 Cloud 파트너 포털의 단일 페이지에 Sku에 대해 제공한 정보는 이제 파트너 센터의 여러 페이지에서 수집 될 수 있습니다.
 
-- 플랜 설정 페이지
+- 계획 설정 페이지
 - 플랜 목록 페이지
 - 플랜 가용성 페이지
 - 다음과 같이 기술 구성 페이지를 계획 합니다.
 
-![! [스크린샷 파트너 센터 기술 구성 페이지를 표시 합니다.] (media/cpp-pc-faq/technical-configuration.png "파트너 센터 기술 구성 페이지 표시")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![파트너 센터 기술 구성 페이지를 표시 합니다.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 제품 ID는 이제 제품의 왼쪽 탐색 모음에 표시 됩니다.
 

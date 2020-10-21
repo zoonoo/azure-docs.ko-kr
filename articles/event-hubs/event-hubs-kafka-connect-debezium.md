@@ -5,18 +5,18 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061685"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318513"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>변경 데이터 캡처에 대 한 Debezium를 사용 하 여 Azure Event Hubs (미리 보기)에 Apache Kafka 연결 지원 통합
 
 **CDC (변경 데이터 캡처)** 는 만들기, 업데이트 및 삭제 작업에 대 한 응답으로 데이터베이스 테이블의 행 수준 변경 내용을 추적 하는 데 사용 되는 기술입니다. [Debezium](https://debezium.io/) 는 다양 한 데이터베이스 (예: [PostgreSQL의 논리적 디코딩](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html))에서 사용할 수 있는 변경 데이터 캡처 기능을 기반으로 구축 되는 분산 플랫폼입니다. 데이터베이스 테이블에서 행 수준 변경 내용을 탭 하 고이를 이벤트 스트림으로 변환한 후 [Apache Kafka](https://kafka.apache.org/)으로 전송 하는 [Kafka Connect 커넥터](https://debezium.io/documentation/reference/1.2/connectors/index.html) 집합을 제공 합니다.
 
-이 자습서에서는 azure [Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (Kafka 용), [Azure DB (PostgreSQL](../postgresql/overview.md) 및 Debezium)를 사용 하 여 azure에서 변경 데이터 캡처 기반 시스템을 설정 하는 방법을 안내 합니다. [Debezium PostgreSQL 커넥터](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) 를 사용 하 여 PostgreSQL의 데이터베이스 수정 내용을 Event Hubs Azure의 Kafka 토픽으로 스트리밍합니다.
+이 자습서에서는 azure [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (Kafka 용), [Azure DB (PostgreSQL](../postgresql/overview.md) 및 Debezium)를 사용 하 여 azure에서 변경 데이터 캡처 기반 시스템을 설정 하는 방법을 안내 합니다. [Debezium PostgreSQL 커넥터](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) 를 사용 하 여 PostgreSQL의 데이터베이스 수정 내용을 Event Hubs Azure의 Kafka 토픽으로 스트리밍합니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 

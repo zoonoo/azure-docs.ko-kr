@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448378"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275971"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -66,7 +66,7 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>REST API를 통해 검사 결과를 가져올 수 있나요?
 예. 결과는 [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/)에 있습니다. 또한 모든 리소스에 대한 Kusto 같은 API인 ARG(Azure Resource Graph)를 사용할 수 있습니다. 쿼리로 특정 검사를 페치할 수 있습니다.
- 
+
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>어떤 레지스트리 유형이 검사되나요? 어떤 유형에 요금이 청구되나요?
 컨테이너 레지스트리용 Azure Defender에서 지원하는 컨테이너 레지스트리 유형의 목록은 [가용성](defender-for-container-registries-usage.md#availability)을 참조하세요.
 

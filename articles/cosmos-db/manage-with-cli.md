@@ -4,14 +4,14 @@ description: Azure CLI를 사용 하 여 Azure Cosmos DB Core (SQL) API 리소�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840594"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277762"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cosmos Core (SQL) API 리소스 관리
 
@@ -19,7 +19,9 @@ ms.locfileid: "91840594"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 항목에서는 Azure CLI 버전 2.12.1 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.12.1 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+
+다른 Api에 대 한 Azure CLI 샘플은 [Cassandra에 대 한 Cli 샘플](cli-samples-cassandra.md), [MongoDB API에](cli-samples-mongodb.md)대 한 cli 샘플, [Gremlin](cli-samples-gremlin.md)에 대 한 cli 샘플, [테이블의 cli](cli-samples-table.md) 샘플을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.

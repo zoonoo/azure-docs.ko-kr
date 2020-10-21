@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69bc58e7d217bbd902a82a15333eee6df40a21c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570110"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276345"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>여러 쓰기 영역을 사용 하는 경우 충돌 형식 및 해결 정책
 
@@ -32,7 +32,7 @@ Azure Cosmos DB는 쓰기 충돌을 해결 하는 유연한 정책 기반 메커
 
 * **마지막 쓰기 Wins (LWW)**:이 해결 정책은 기본적으로 시스템 정의 타임 스탬프 속성을 사용 합니다. 시간 동기화 클록 프로토콜을 기반으로 합니다. SQL API를 사용 하는 경우 충돌 해결에 사용할 다른 사용자 지정 숫자 속성 (예: 타임 스탬프의 고유한 개념)을 지정할 수 있습니다. 사용자 지정 숫자 속성을 *충돌 해결 경로*라고도 합니다. 
 
-  두 개 이상 항목이 삽입 또는 대체 작업에서 충돌하는 경우 충돌 해결 경로에 대한 가장 높은 값이 포함된 항목이 선정됩니다. 여러 항목에 충돌 해결 경로에 대한 동일한 숫자 값이 있는 경우 시스템에서 선정 항목이 결정됩니다. 모든 지역은 단일 선정 항목으로 수렴되고 결국 동일한 버전의 커밋된 항목으로 끝나게 됩니다. 삭제 충돌이 포함되어 있으면 삭제된 버전이 항상 삽입 또는 대체 충돌에 비해 우선적으로 선정됩니다. 이 결과는 충돌 해결 경로의 값에 관계 없이 발생 합니다.
+  두 개 이상 항목이 삽입 또는 대체 작업에서 충돌하는 경우 충돌 해결 경로에 대한 가장 높은 값이 포함된 항목이 선정됩니다. 여러 항목에 충돌 해결 경로에 대한 동일한 숫자 값이 있는 경우 시스템에서 선정 항목이 결정됩니다. 모든 지역은 단일 승자로 수렴 하 고 동일한 버전의 커밋된 항목으로 종료 됩니다. 삭제 충돌이 포함되어 있으면 삭제된 버전이 항상 삽입 또는 대체 충돌에 비해 우선적으로 선정됩니다. 이 결과는 충돌 해결 경로의 값에 관계 없이 발생 합니다.
 
   > [!NOTE]
   > 마지막 쓰기 Wins는 기본 충돌 해결 정책 이며, `_ts` SQL, MongoDB, Cassandra, Gremlin 및 Table api에 대 한 타임 스탬프를 사용 합니다. 사용자 지정 숫자 속성은 SQL API에 대해서만 사용할 수 있습니다.

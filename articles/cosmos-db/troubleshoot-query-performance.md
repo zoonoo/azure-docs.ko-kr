@@ -4,27 +4,27 @@ description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089992"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277172"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 
-이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다.
+이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 [MongoDB 용 api 쿼리 문제 해결 가이드를 Azure Cosmos DB](mongodb-troubleshoot-query.md) 사용 해야 합니다.
 
-Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습니다.
+Azure Cosmos DB의 쿼리 최적화는 광범위 하 게 다음과 같이 분류 됩니다.
 
 - 쿼리의 RU(요청 단위) 비용을 낮추는 최적화
 - 단지 대기 시간을 단축하는 최적화
 
-쿼리의 RU 비용을 낮출 경우 거의 대부분 대기 시간도 단축됩니다.
+쿼리 비용을 줄이는 경우 일반적으로 대기 시간도 줄일 수 있습니다.
 
 이 문서에서는 [영양 데이터 집합](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)을 사용 하 여 다시 만들 수 있는 예제를 제공 합니다.
 
@@ -191,7 +191,7 @@ WHERE c.description = "Malabar spinach, cooked"
 
 **RU 요금:** 2.98RU
 
-쓰기 가용성 또는 성능에 영향을 주지 않고 언제든지 인덱싱 정책에 속성을 추가할 수 있습니다. 인덱스에 새 속성을 추가하는 경우 해당 속성을 사용하는 쿼리는 새로 사용 가능한 인덱스를 즉시 사용합니다. 쿼리는 작성되는 동안에도 새 인덱스를 사용합니다. 따라서 인덱스를 다시 작성하는 동안 쿼리 결과가 일치하지 않을 수 있습니다. 새 속성이 인덱싱되는 경우 기존 인덱스만 사용하는 쿼리는 인덱스를 다시 작성하는 동안 영향을 받지 않습니다. [인덱스 변환 진행률을 추적](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)할 수 있습니다.
+쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 인덱싱 정책에 속성을 추가할 수 있습니다. [인덱스 변환 진행률을 추적](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)할 수 있습니다.
 
 ### <a name="understand-which-system-functions-use-the-index"></a>인덱스를 사용하는 시스템 함수를 파악
 
@@ -469,7 +469,7 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 
 ## <a name="optimizations-that-reduce-query-latency"></a>쿼리 대기 시간을 줄이는 최적화
 
-많은 경우에 RU 요금은 감수할만한 수준이지만 쿼리 대기 시간은 매우 높을 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁을 개략적으로 설명합니다. 동일한 쿼리를 동일한 데이터 세트에서 여러 번 실행하는 경우 매번 RU 요금은 동일합니다. 하지만 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
+많은 경우에 RU 요금은 감수할만한 수준이지만 쿼리 대기 시간은 매우 높을 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁을 개략적으로 설명합니다. 동일한 쿼리를 동일한 데이터 집합에서 여러 번 실행 하는 경우에는 일반적으로 매번 동일한 실행 요금이 발생 합니다. 하지만 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
 
 ### <a name="improve-proximity"></a>근접성 향상
 

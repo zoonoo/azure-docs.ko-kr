@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569927"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275308"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,14 +26,14 @@ ms.locfileid: "91569927"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 이는 동기화 작업을 지원하는 SQL API용 원본 Azure Cosmos DB Sync Java SDK v2입니다.
@@ -232,7 +232,7 @@ ms.locfileid: "91569927"
 * 문서에 대한 TTL(Time to Live) 지원이 추가되었습니다.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
+* [분할된 컬렉션](partitioning-overview.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * 다른 SDK와 일치하도록 little-endian의 해시 값을 생성하는 HashPartitionResolver의 버그를 수정합니다.
@@ -263,7 +263,7 @@ ms.locfileid: "91569927"
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다. 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다.
 
 > [!WARNING]
-> 30 년 5 월 2020, Azure Cosmos DB는 더 이상 버그를 수정 하 고, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 1.x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
+> 30 년 5 월 2020, Azure Cosmos DB는 더 이상 버그를 수정 하 고, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드하지 않으려는 경우 SDK 버전 1.x에서 보낸 요청은 Azure Cosmos DB 서비스에서 계속 제공됩니다.
 >
 > 2016 년 2 월 29 일부 터 Azure Cosmos DB는 더 이상 버그를 수정 하지 않으며, 새 기능을 추가 하 고, Azure Cosmos DB Java SDK for SQL API의 버전 2.x에 대 한 지원을 제공 합니다. 업그레이드 하지 않으려는 경우 SDK의 버전 0. x에서 전송 된 요청은 Azure Cosmos DB 서비스에서 계속 제공 됩니다.
 

@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/24/2020
+ms.date: 10/20/2020
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51f9043dcf329e4f3f23ddb930e53cfdfa2f107a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78871441fe7f9b0f6d02cdf6f05b97933abfca54
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631650"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275639"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -42,7 +42,7 @@ ms.locfileid: "91631650"
 | 아웃 바운드 트래픽에 대 한 TLS 검사를 필터링 하거나 사용 하지 않도록 설정 | 네트워크 계층에서 아웃 바운드 트래픽에 대 한 TLS 검사 또는 종료가 있으면 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. [TLS 검사를 설정 하는 방법](/previous-versions/tn-archive/ee796230(v=technet.10)) 에 대해 자세히 알아보세요. |
 | 에이전트를 실행하는 서버의 방화벽 포트 |에이전트가 Azure AD Health 서비스 엔드포인트와 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.<br /><br /><li>TCP 포트 443</li><li>TCP 포트 5671</li> <br />포트 5671은 최신 버전의 에이전트에 더 이상 필요하지 않습니다. 포트 443만 필요하도록 최신 버전으로 업그레이드합니다. [방화벽 포트 사용](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100))에 대해 자세히 알아보기 |
 | IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용 |에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https:\//sts.contoso.com</li> [IE를 구성 하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)에 대해 자세히 알아보세요. 네트워크 내에 프록시가 있는 경우 아래 참고를 참조 하세요.|
-| PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2008 R2는 에이전트에 충분하지 않은 PowerShell v2.0과 함께 제공됩니다. [Windows Server 2008 R2 서버에 에이전트 설치](#agent-installation-on-windows-server-2008-r2-servers)에 설명된 대로 PowerShell을 업데이트합니다.</li><li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
+| PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
 |FIPS 사용 안 함|FIPS는 Azure AD Connect Health 에이전트에서 지원되지 않습니다.|
 
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ ms.locfileid: "91631650"
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
 | 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
-| Azure 독일 | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
+| Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 
 
@@ -111,17 +111,6 @@ PowerShell 창을 열고 에이전트 등록 프로세스를 시작합니다. �
 
 ![Azure AD Connect Health AD FS 서비스](./media/how-to-connect-health-agent-install/install5.png)
 
-### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Windows Server 2008 R2 서버에서 에이전트 설치
-
-Windows Server 2008 R2 서버에 대한 단계:
-
-1. 서버가 서비스 팩 1 이상에서 실행되고 있는지 확인합니다.
-2. 에이전트 설치에 대해 IE ESC를 끕니다.
-3. AD Health Agent를 설치하기 전에 각 서버에 Windows PowerShell 4.0을 설치합니다. Windows PowerShell 4.0을 설치하려면
-   * 오프라인 설치 관리자를 다운로드하려면 다음 링크를 사용하여 [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779)를 설치합니다.
-   * Windows 기능에서 PowerShell ISE를 설치합니다.
-   * 서버에서 Internet Explorer 버전 10 이상을 설치합니다. (Health Service에서 Azure 관리자 자격 증명을 사용하여 인증하는 데 필요합니다.)
-4. Windows Server 2008 R2에서 Windows PowerShell 4.0을 설치하는 방법에 대한 자세한 내용은 [여기](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)에서 wiki 문서를 참조하세요.
 
 ### <a name="enable-auditing-for-ad-fs"></a>AD FS 감사 사용
 
@@ -130,20 +119,6 @@ Windows Server 2008 R2 서버에 대한 단계:
 >
 
 사용량 현황 분석 기능을 통해 데이터를 수집하고 분석하려면 Azure AD Connect Health Agent에 AD FS 감사 로그의 정보가 필요합니다. 이러한 로그는 기본적으로 사용하지 않도록 설정됩니다. AD FS 서버에서 AD FS 감사를 사용하도록 설정하고 AD FS 감사 로그를 찾으려면 다음 절차에 따르세요.
-
-#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Windows Server 2008 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
-
-1. **시작**을 클릭하고 **프로그램**, **관리 도구**를 차례로 가리킨 다음 **로컬 보안 정책**을 클릭합니다.
-2. **Security Settings\Local Policies\User Rights Assignment** 폴더로 이동한 후 **보안 감사 생성**을 두 번 클릭합니다.
-3. **로컬 보안 설정** 탭에서 AD FS 2.0 서비스 계정이 목록에 있는지 확인합니다. 나열되어 있지 않으면 **사용자 또는 그룹 추가**를 클릭하여 해당 계정을 목록에 추가하고 **확인**을 클릭합니다.
-4. 감사를 사용하려면 상승된 권한으로 명령 프롬프트를 열고 <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code> 명령을 실행합니다.
-5. **로컬 보안 정책**을 닫습니다.
-<br />   -- **다음 단계는 기본 AD FS 서버에만 필요합니다.** -- <br />
-6. **AD FS 관리** 스냅인을 엽니다. AD FS 관리 스냅인을 열려면 **시작**을 클릭하고 **프로그램**, **관리 도구** 순으로 가리킨 다음 **AD FS 2.0 관리**를 클릭합니다.
-7. **작업** 창에서 **페더레이션 서비스 속성 편집**을 클릭합니다.
-8. **페더레이션 서비스 속성** 대화 상자에서 **이벤트** 탭을 클릭합니다.
-9. **성공 감사** 및 **실패 감사** 확인란을 선택합니다.
-10. **확인**을 클릭합니다.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Windows Server 2012 R2에서 AD FS에 대해 감사를 사용하도록 설정하려면
 
@@ -322,7 +297,7 @@ HTTP 프록시와 작동하도록 Azure AD Connect Health Agent를 구성할 수
 HTTP 프록시를 사용하도록 Azure AD Connect Health Agent를 구성하는 옵션은 다음과 같습니다.
 
 > [!NOTE]
-> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령 실행:<br />
+> 프록시 설정이 업데이트되도록 하려면 모든 Azure AD Connect Health Agent 서비스를 다시 시작해야 합니다. 다음 명령을 실행합니다.<br />
 > Restart-Service AzureADConnectHealth *
 >
 >

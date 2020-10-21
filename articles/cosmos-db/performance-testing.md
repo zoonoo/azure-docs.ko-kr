@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ffe368d763ee93d1864f0f807cbe18b8ebfe41c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851664"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281033"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 성능 및 규모 테스트
 
@@ -93,10 +93,10 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 .NET 콘솔 앱을 사용하여 Azure Cosmos DB로 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. 자세한 내용은 다음 아티클을 참조하세요.
+이 문서에서는 .NET 콘솔 앱을 사용하여 Azure Cosmos DB로 성능 및 규모 테스트를 수행하는 방법을 살펴보았습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [Azure Cosmos DB 성능 테스트 샘플](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Azure Cosmos DB 성능 향상을 위한 클라이언트 구성 옵션](performance-tips.md)
-* [Azure Cosmos DB의 서버 쪽 분할](partition-data.md)
+* [Azure Cosmos DB의 서버 쪽 분할](partitioning-overview.md)
 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: ac48973653e89d43521979a5606a8a3a3c2e1346
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4c1005d300a5b326ff2f41d9fa3838dbb1c7552
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319986"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278016"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 Api
 
@@ -273,7 +273,7 @@ OK. 일괄 처리 사용 현황 내보내기가 추가 처리 및 청구를 위�
 
 ## <a name="get-support"></a>지원 받기
 
-[파트너 센터에서 상업용 marketplace 프로그램 지원](./support.md) 의 지침에 따라 게시자 지원 옵션을 이해 하 고 Microsoft에서 지원 티켓을 엽니다.
+[파트너 센터에서 상업용 marketplace 프로그램 지원](../support.md) 의 지침에 따라 게시자 지원 옵션을 이해 하 고 Microsoft에서 지원 티켓을 엽니다.
 
 ## <a name="next-steps"></a>다음 단계
 

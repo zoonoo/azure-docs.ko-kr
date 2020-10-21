@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931804"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275545"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업적 marketplace의 SaaS 등록 Api 버전 2
 
@@ -581,7 +581,7 @@ SaaS 구독에 대해 구매한 기존 계획을 새 요금제 (공용 또는 �
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`)을 입력합니다. |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -646,7 +646,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다.  |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`)을 입력합니다.  |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -711,7 +711,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`)을 입력합니다. |
 
 코드: 400 잘못 된 요청입니다.  `allowedCustomerOperations`이 SaaS 구독의 삭제는 목록에 없습니다.
 
@@ -953,11 +953,11 @@ SaaS 구독 상태를 Microsoft 쪽과 일관 되 게 유지 하려면 게시자
 
 개발 프로세스를 시작 하려면 게시자 쪽에서 더미 API 응답을 만드는 것이 좋습니다.  이러한 응답은이 문서에 제공 된 샘플 응답을 기반으로 할 수 있습니다.
 
-게시자가 종단 간 테스트를 수행할 준비가 되 면 다음을 수행 합니다. 
+게시자가 종단 간 테스트를 수행할 준비가 되 면 다음을 수행 합니다.
 
 * 제한 된 미리 보기 대상에 SaaS 제품을 게시 하 고 미리 보기 단계에 보관 합니다.
-* 이 제품은 테스트 하는 동안 실제 요금 청구 비용을 트리거하지 않도록 0 가격의 요금제가 있어야 합니다.  또 다른 옵션은 0이 아닌 가격을 설정 하 고 24 시간 이내에 모든 테스트 구매를 취소 하는 것입니다. 
-* 고객이 제품을 구매 하는 것 처럼 모든 흐름이 종단 간 호출 되는지 확인 합니다. 
+* 이 제품은 테스트 하는 동안 실제 요금 청구 비용을 트리거하지 않도록 0 가격의 요금제가 있어야 합니다.  또 다른 옵션은 0이 아닌 가격을 설정 하 고 24 시간 이내에 모든 테스트 구매를 취소 하는 것입니다.
+* 고객이 제품을 구매 하는 것 처럼 모든 흐름이 종단 간 호출 되는지 확인 합니다.
 * 파트너가 전체 구매 및 청구 흐름을 테스트 하려는 경우 $0 보다 높은 가격으로 제공 되는 제품을 사용 하 여이를 수행 합니다.  구매가 청구 되 고 송장이 생성 됩니다.
 
 제품이 게시 되는 위치에 따라 Azure Portal 또는 Microsoft AppSource 사이트에서 구매 흐름을 트리거할 수 있습니다.
@@ -966,8 +966,7 @@ SaaS 구독 상태를 Microsoft 쪽과 일관 되 게 유지 하려면 게시자
 
 ## <a name="get-support"></a>지원 받기
 
-게시자 지원 옵션 [은 파트너 센터에서 상업용 marketplace 프로그램 지원](support.md) 을 참조 하세요.
-
+게시자 지원 옵션 [은 파트너 센터에서 상업용 marketplace 프로그램 지원](../support.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
