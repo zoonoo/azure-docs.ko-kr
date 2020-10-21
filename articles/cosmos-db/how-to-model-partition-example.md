@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168378"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277983"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>실제 예제를 사용하여 Azure Cosmos DB에서 데이터를 모델링하고 분할하는 방법
 
@@ -327,7 +327,7 @@ function createComment(postId, comment) {
 - 게시물 대체
 - 새 댓글 추가
 
-저장 프로시저가 원자성 트랜잭션으로 실행되므로 `commentCount`의 값과 실제 댓글 수는 항상 동기화 상태로 유지됩니다.
+저장 프로시저는 원자성 트랜잭션으로 실행 되므로의 값 `commentCount` 과 실제 주석 수는 항상 동기화 된 상태를 유지 합니다.
 
 새 좋아요를 추가하여 `likeCount`를 증분시킬 때도 분명히 이와 비슷한 저장 프로시저를 호출합니다.
 
@@ -586,6 +586,6 @@ function truncateFeed() {
 
 실제적인 데이터 모델링 및 분할에 대한 소개를 살펴보았으면 다음 문서를 확인하여 지금까지 다룬 개념을 검토할 수 있습니다.
 
-- [데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md)
+- [데이터베이스, 컨테이너 및 항목 작업](account-databases-containers-items.md)
 - [Azure Cosmos DB에서 분할](partitioning-overview.md)
 - [Azure Cosmos DB에서 피드 변경](change-feed.md)

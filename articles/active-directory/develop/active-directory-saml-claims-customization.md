@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421461"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275761"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -167,7 +167,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 3. 사용자가 속해야 하는 그룹을 선택합니다. 지정 된 응용 프로그램에 대 한 모든 클레임에서 최대 50 개의 고유 그룹을 선택할 수 있습니다. 
 4. 클레임에서 해당 값을 검색할 **원본**을 선택합니다. 원본 특성 드롭다운에서 사용자 특성을 선택하거나 클레임으로 내보내기 전에 사용자 특성에 변환을 적용할 수 있습니다.
 
-조건을 추가하는 순서는 중요합니다. Azure AD는 클레임에서 내보낼 값을 결정하기 위해 하향식으로 조건을 평가합니다. 
+조건을 추가하는 순서는 중요합니다. Azure AD는 클레임에서 내보낼 값을 결정하기 위해 하향식으로 조건을 평가합니다. 식과 일치 하는 마지막 값이 클레임에서 내보내집니다.
 
 예를 들어 Britta Simon는 Contoso 테넌트의 게스트 사용자입니다. 또한 Azure AD를 사용하는 다른 조직에도 속해 있습니다. Fabrikam 응용 프로그램에 대 한 아래 구성을 고려 하 여 Britta가 Fabrikam에 로그인 하려고 하면 Microsoft identity platform에서 다음과 같이 조건을 평가 합니다.
 

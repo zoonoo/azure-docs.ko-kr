@@ -3,18 +3,18 @@ title: Azure Event Grid 보안 및 인증
 description: Azure Event Grid 및 해당 개념을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8220e0f913a16cc32b4598ecb3836cc892ea83fd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318547"
+ms.locfileid: "92328728"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Event Grid 리소스에 대 한 액세스 권한 부여
-Azure Event Grid를 사용 하면 다양 한 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 **관리 작업** 을 수행 하는 데 지정 된 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure의 RBAC(역할 기반 액세스 제어)를 사용합니다.
+Azure Event Grid를 사용 하면 다양 한 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 **관리 작업** 을 수행 하는 데 지정 된 액세스 수준을 제어할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 Event Grid입니다.
 
 > [!NOTE]
-> EventGrid는 토픽 또는 도메인 Event Grid에 이벤트를 게시 하기 위해 RBAC를 지원 하지 않습니다. SAS (공유 액세스 서명) 키 또는 토큰을 사용 하 여 이벤트를 게시 하는 클라이언트를 인증 합니다. 자세한 내용은 [게시 클라이언트 인증](security-authenticate-publishing-clients.md)을 참조 하세요. 
+> EventGrid는 토픽 또는 도메인 Event Grid에 이벤트를 게시 하기 위해 Azure RBAC를 지원 하지 않습니다. SAS (공유 액세스 서명) 키 또는 토큰을 사용 하 여 이벤트를 게시 하는 클라이언트를 인증 합니다. 자세한 내용은 [게시 클라이언트 인증](security-authenticate-publishing-clients.md)을 참조 하세요. 
 
 ## <a name="operation-types"></a>작업 형식
 

@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 VMware VM 검색의 범위 설정
 description: Azure Migrate를 사용 하 여 VMware VM 평가 및 마이그레이션에 대 한 검색 범위를 설정 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919729"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314037"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>VMware Vm에 대 한 검색 범위 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "88919729"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-검색에 사용 Azure Migrate 하는 vCenter 사용자 계정을 설정 하지 않은 경우 [평가](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) 또는 [에이전트 없는 마이그레이션](tutorial-prepare-vmware.md#assign-permissions-to-an-account)에 대해 지금 수행 합니다.
+검색에 사용 Azure Migrate 하는 vCenter 사용자 계정을 설정 하지 않은 경우 [평가](./tutorial-discover-vmware.md#prepare-vmware) 또는 [에이전트 없는 마이그레이션](./migrate-support-matrix-vmware-migration.md#agentless-migration)에 대해 지금 수행 합니다.
 
 
 ## <a name="assign-permissions-and-roles"></a>권한 및 역할 할당

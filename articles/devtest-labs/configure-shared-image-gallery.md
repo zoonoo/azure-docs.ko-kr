@@ -3,12 +3,12 @@ title: Azure DevTest Labs |에서 공유 이미지 갤러리 구성 Microsoft Do
 description: 사용자가 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있도록 하는 Azure DevTest Labs에서 공유 이미지 갤러리를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271042"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327980"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 이미지 갤러리 구성
 DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/shared-image-galleries.md) 기능을 지원 합니다. 랩 사용자는 랩 리소스를 만드는 동안 공유 위치에서 이미지에 액세스할 수 있습니다. 또한 사용자 지정 관리 VM 이미지를 중심으로 구조와 조직을 구축할 수 있습니다. 공유 이미지 갤러리 기능은 다음을 지원 합니다.
@@ -16,7 +16,7 @@ DevTest Labs는 이제 [공유 이미지 갤러리](../virtual-machines/windows/
 - 이미지의 관리 되는 전역 복제
 - 보다 쉽게 관리할 수 있도록 이미지의 버전 관리 및 그룹화
 - 가용성 영역을 지 원하는 지역에서 ZRS (영역 중복 저장소) 계정을 사용 하 여 이미지를 항상 사용할 수 있도록 합니다. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
-- RBAC (역할 기반 액세스 제어)를 사용 하 여 구독 간 및 테 넌 트 간에도 공유 합니다.
+- Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 구독 간 및 테 넌 트 간에도 공유 합니다.
 
 자세한 내용은 [공유 이미지 갤러리 설명서](../virtual-machines/windows/shared-image-galleries.md)를 참조 하세요. 
  

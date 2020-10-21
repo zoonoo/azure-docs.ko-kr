@@ -3,25 +3,25 @@ title: 특정 랩 정책에 사용자 권한 부여| Microsoft 문서
 description: 각 사용자의 요구에 따라 DevTest Lab에서 특정 랩 정책에 사용자 권한을 부여하는 방법 알아보기
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8e910a5d4499d104e4b09076ec7862ae96272ef4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835683"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328473"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>특정 랩 정책에 사용자 권한 부여
 ## <a name="overview"></a>개요
 이 문서에서는 PowerShell을 사용하여 특정 랩 정책에 사용자 권한을 부여하는 방법을 보여줍니다. 이런 방식으로 각 사용자의 요구 사항에 따라 권한을 적용할 수 있습니다. 예를 들어 특정 사용자에게 VM 정책 설정을 변경할 수 있는 기능은 부여하지만 비용 정책에 대해서는 부여하지 않을 수 있습니다.
 
 ## <a name="policies-as-resources"></a>리소스인 정책
-Azure [rbac (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 문서에 설명 된 대로 RBAC를 사용 하면 azure의 리소스에 대 한 세분화 된 액세스 관리를 수행할 수 있습니다. RBAC를 사용하여 DevOps 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
+Azure rbac [(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 문서에 설명 된 대로 azure Rbac는 azure에 대 한 리소스의 세분화 된 액세스 관리를 가능 하 게 합니다. Azure RBAC를 사용 하 여 DevOps 팀 내에서 업무를 분리 하 고 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
-DevTest Lab에서 정책은 RBAC 작업 **Microsoft.DevTestLab/labs/policySets/policies/** 를 지원하는 리소스 종류입니다. 각 랩 정책은 정책 리소스 종류의 리소스 이며 Azure 역할에 범위로 할당 될 수 있습니다.
+DevTest Labs에서 정책은 Azure RBAC 작업을 사용 하도록 설정 하는 리소스 유형입니다 **. DevTestLab/Labs/policySets/policy/**. 각 랩 정책은 정책 리소스 종류의 리소스 이며 Azure 역할에 범위로 할당 될 수 있습니다.
 
 예를 들어 사용자에 게 허용 되는 **VM 크기** 정책에 대 한 읽기/쓰기 권한을 부여 하려면 **Microsoft. devtestlab/Labs/policysets/policy/** action으로 작동 하는 사용자 지정 역할을 만든 다음 microsoft의 범위에서 적절 한 사용자를이 사용자 지정 역할에 할당 합니다. **Devtestlab/labs/Policysets/policy/AllowedVmSizesInLab**.
 
-RBAC의 사용자 지정 역할에 대한 자세한 내용은 [사용자 지정 역할 액세스 제어](../role-based-access-control/custom-roles.md)를 참조하세요.
+Azure RBAC에서 사용자 지정 역할에 대해 자세히 알아보려면 [azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 ## <a name="creating-a-lab-custom-role-using-powershell"></a>PowerShell을 사용하여 랩 사용자 지정 역할 만들기
 시작 하려면 [Azure PowerShell를 설치](/powershell/azure/install-az-ps)해야 합니다. 

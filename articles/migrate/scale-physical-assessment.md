@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85081079"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317150"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 물리적 서버 평가
 
@@ -30,7 +30,7 @@ ms.locfileid: "85081079"
 
 
 > [!NOTE]
-> 규모를 평가 하기 전에 몇 가지 서버를 평가 하기 위해 개념 증명을 사용해 보려는 경우 [자습서 시리즈](tutorial-prepare-physical.md)를 따르세요.
+> 규모를 평가 하기 전에 몇 가지 서버를 평가 하기 위해 개념 증명을 사용해 보려는 경우 [자습서 시리즈](./tutorial-discover-physical.md)를 따르세요.
 
 ## <a name="plan-for-assessment"></a>평가 계획
 
@@ -64,7 +64,7 @@ ms.locfileid: "85081079"
 2. Azure Migrate와 상호 작용 하도록 Azure 계정에 대 한 사용 권한을 설정 합니다.
 3. 물리적 서버를 준비 합니다.
 
-[이 자습서](tutorial-prepare-physical.md) 의 지침에 따라 이러한 설정을 구성 합니다.
+[이 자습서](./tutorial-discover-physical.md) 의 지침에 따라 이러한 설정을 구성 합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -73,7 +73,7 @@ ms.locfileid: "85081079"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세한 정보](how-to-add-tool-first-time.md)
+[자세히 알아보기](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

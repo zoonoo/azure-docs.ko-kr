@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67d705f8e878cff6934c2e8a172148fab3f1d71
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82598473"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329001"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -20,7 +20,7 @@ ms.locfileid: "82598473"
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
-이전에는 사용자가 권한을 가진 모든 사용자가 사용할 수 있기 때문에 클러스터 사용자가 소유자, 참가자 또는 읽기 권한자 [역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다 `*/read` . 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
+이전에는 사용자가 사용 권한을 가진 모든 사용자가 사용할 수 있게 되었으므로 클러스터 사용자가 소유자, 참가자 또는 독자 [Azure 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다 `*/read` . 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
 
 2019 9 월 3 일부 터 이러한 비밀에 액세스 하려면 권한이 필요 합니다 `Microsoft.HDInsight/clusters/configurations/action` . 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 이 권한이 있는 역할은 참가자, 소유자 및 새 HDInsight 클러스터 운영자 역할 (아래 참조)입니다.
 
@@ -183,7 +183,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리 및 Azure Portal 역할 할당 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)문서를 참조 하세요.
+또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [Azure Portal-역할 할당 추가를 사용 하 여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)설명서를 참조 하세요.
 
 ## <a name="faq"></a>FAQ
 
