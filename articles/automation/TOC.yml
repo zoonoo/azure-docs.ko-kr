@@ -193,29 +193,33 @@
         - name: 변경 내용 추적 및 인벤토리
           items:
             - name: 개요
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: 연결된 Log Analytics 작업 영역에 대한 지원 지역
               href: how-to/region-mappings.md
             - name: 사용
               items:
-                - name: Azure Portal에서 변경 내용 추적 및 인벤토리 사용
-                  href: automation-enable-changes-from-browse.md
-                - name: Azure VM에서 변경 내용 추적 및 인벤토리 사용
-                  href: automation-enable-changes-from-vm.md
-                - name: Automation 계정에서 변경 내용 추적 및 인벤토리 사용
-                  href: automation-enable-changes-from-auto-acct.md
-                - name: Runbook에서 변경 내용 추적 및 인벤토리 사용
-                  href: automation-enable-changes-from-runbook.md
+                - name: Azure Portal에서 사용하도록 설정
+                  href: change-tracking/enable-from-portal.md
+                - name: Azure VM에서 사용
+                  href: change-tracking/enable-from-vm.md
+                - name: Automation 계정에서 사용
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Runbook에서 사용
+                  href: change-tracking/enable-from-runbook.md
             - name: 변경 내용 추적 및 인벤토리 관리
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: VM에서 인벤토리 컬렉션 관리
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: 범위 구성 작업
-              href: automation-scope-configurations-change-tracking.md
-            - name: Automation 계정에서 작업 영역 연결 해제
-              href: automation-unlink-workspace-change-tracking.md
-            - name: 변경 내용 추적 및 인벤토리에서 VM 제거
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: 경고 구성
+              href: change-tracking/configure-alerts.md
+            - name: 사용 안 함
+              items:
+                - name: 변경 내용 추적 및 인벤토리 제거
+                  href: change-tracking/remove-feature.md
+                - name: 변경 내용 추적 및 인벤토리에서 VM 제거
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: 문제 해결
               items:
                 - name: 기능 배포 문제 해결
@@ -239,49 +243,49 @@
     - name: 업데이트 관리
       items:
         - name: 개요
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
           href: how-to/region-mappings.md
         - name: 사용
           items:
-            - name: Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
-              href: update-management/update-mgmt-enable-template.md
-            - name: Azure Portal에서 업데이트 관리 사용
-              href: update-management/update-mgmt-enable-portal.md
-            - name: Azure VM에서 업데이트 관리 사용
-              href: update-management/update-mgmt-enable-vm.md
-            - name: Automation 계정에서 업데이트 관리 사용
-              href: update-management/update-mgmt-enable-automation-account.md
-            - name: Runbook에서 업데이트 관리 사용
-              href: update-management/update-mgmt-enable-runbook.md
+            - name: Azure Resource Manager 템플릿 사용
+              href: update-management/enable-from-template.md
+            - name: Azure Portal에서 사용하도록 설정
+              href: update-management/enable-from-portal.md
+            - name: Azure VM에서 사용
+              href: update-management/enable-from-vm.md
+            - name: Automation 계정에서 사용
+              href: update-management/enable-from-automation-account.md
+            - name: Runbook에서 사용
+              href: update-management/enable-from-runbook.md
         - name: VM 업데이트 관리
           items:
             - name: 시작하기
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: 규정 준수 평가
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: 업데이트 배포 및 상태 검토
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: 사전 스크립트 및 사후 스크립트 사용
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: 경고 구성
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Configuration Manager와 상호 작용
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Windows 업데이트 클라이언트 구성
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: 동적 그룹 사용
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: 업데이트 관리 로그 쿼리
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: 범위 구성 작업
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: 사용 안 함
           items:
             - name: 업데이트 관리 제거
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: 업데이트 관리에서 VM 제거
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: 문제 해결
           items:
             - name: 기능 배포 문제 해결

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: 09b23e9951c6da597b82d2e012a57f2c93410a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289806"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280133"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -28,6 +28,50 @@ ms.locfileid: "91289806"
 - 새로운 기능
 - 버그 수정
 - 사용되지 않는 기능
+
+
+## <a name="april-2020"></a>2020년 4월
+
+4월의 업데이트는 다음과 같습니다.
+- [이제 일반 공급되는 동적 규정 준수 패키지](#dynamic-compliance-packages-are-now-generally-available)
+- [이제 Azure Security Center 무료 계층에 포함되는 ID 권장 사항](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>이제 일반 공급되는 동적 규정 준수 패키지
+
+Azure Security Center 규제 준수 대시보드에는 이제 추가 산업 및 규제 표준을 추적하는 **동적 규정 준수 패키지**(현재 일반 공급)가 포함되어 있습니다.
+
+Security Center 보안 정책 페이지에서 구독 또는 관리 그룹에 동적 규정 준수 패키지를 추가할 수 있습니다. 표준 또는 벤치 마크를 온보딩하면 규정 준수 대시보드에 평가로 매핑된 모든 관련 준수 데이터가 포함된 표준이 표시됩니다. 온보딩된 표준에 대한 요약 보고서는 다운로드할 수 있습니다.
+
+이제 다음과 같은 표준을 추가할 수 있습니다.
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **영국 공식 및 영국 NHS**
+- **캐나다 연방 PBMM**
+- **Azure CIS 1.1.0(신규)** (Azure CIS 1.1.0을 보다 완벽하게 표현)
+
+또한 최근 일반 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침인 **Azure 보안 벤치마크**를 추가했습니다. 추가 표준은 사용할 수 있게 되면 대시보드에서 지원될 예정입니다.  
+ 
+[규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)에 대해 자세히 알아보세요.
+
+
+### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>이제 Azure Security Center 무료 계층에 포함되는 ID 권장 사항
+
+Azure Security Center 무료 계층에 대한 ID 및 액세스에 대한 보안 권장 사항이 이제 일반 공급됩니다. 이는 CSPM(클라우드 보안 상태 관리) 기능을 무료로 제공하는 노력의 일부입니다. 지금까지 이러한 권장 사항은 표준 가격 책정 계층에서만 사용할 수 있었습니다.
+
+ID 및 액세스 권장 사항의 예는 다음과 같습니다.
+
+- "구독에 대한 소유자 권한이 있는 계정에 대해 다단계 인증을 사용하도록 설정해야 합니다."
+- "구독에 대해 최대 3명의 소유자를 지정해야 합니다."
+- "더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다."
+
+무료 가격 책정 계층에 대한 구독이 있는 경우 해당 보안 점수는 ID 및 액세스 보안에 대해 평가하지 않았기 때문에 이 변경의 영향을 받습니다.
+
+[ID 및 액세스 권장 사항](recommendations-reference.md#recs-identity)에 대해 자세히 알아보세요.
+
+[ID 및 액세스 모니터링](security-center-identity-access.md)에 대해 자세히 알아보세요.
+
 
 
 ## <a name="march-2020"></a>2020년 3월

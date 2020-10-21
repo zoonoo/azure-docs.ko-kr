@@ -74,16 +74,8 @@
       href: 'https://arxiv.org/abs/1906.03821'
 - name: 리소스
   items:
-    - name: 지원
-      items:
-        - name: 지원 받기
-          href: 'https://aka.ms/adsupport'
-        - name: Stack Overflow
-          href: 'https://aka.ms/adso'
-        - name: MSDN
-          href: 'https://aka.ms/admsdn'
-        - name: 사용자 의견
-          href: 'https://aka.ms/aduservoice'
+    - name: 지원 및 도움말 옵션
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: 가격 책정
       href: 'https://aka.ms/adpricing'
     - name: 국가별 가용성

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: d0234ca04b772e4ff5127ef9dd896b49141febfb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167562"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278816"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 분할
 
@@ -25,7 +25,7 @@ Cassandra API는 분할을 사용 하 여 응용 프로그램의 성능 요구�
 
 ## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Apache Cassandra와 Azure Cosmos DB 간의 차이점
 
-Azure Cosmos DB에서 파티션이 저장 되는 각 컴퓨터는 [실제 파티션이](partition-data.md#physical-partitions)라고도 합니다. 실제 파티션은 가상 머신과 유사 합니다. 전용 계산 단위 또는 물리적 리소스 집합입니다. 이 계산 단위에 저장 된 각 파티션은 Azure Cosmos DB [논리 파티션](partition-data.md#logical-partitions) 이라고 합니다. Apache Cassandra에 대해 잘 알고 있는 경우 Cassandra의 일반 파티션과 동일한 방식으로 논리 파티션을 생각해 볼 수 있습니다. 
+Azure Cosmos DB에서 파티션이 저장 되는 각 컴퓨터는 [실제 파티션이](partitioning-overview.md#physical-partitions)라고도 합니다. 실제 파티션은 가상 머신과 유사 합니다. 전용 계산 단위 또는 물리적 리소스 집합입니다. 이 계산 단위에 저장 된 각 파티션은 Azure Cosmos DB [논리 파티션](partitioning-overview.md#logical-partitions) 이라고 합니다. Apache Cassandra에 대해 잘 알고 있는 경우 Cassandra의 일반 파티션과 동일한 방식으로 논리 파티션을 생각해 볼 수 있습니다. 
 
 Apache Cassandra은 파티션에 저장할 수 있는 데이터 크기에 대해 100의 제한을 권장 합니다. Azure Cosmos DB에 대 한 Cassandra API는 논리적 파티션당 최대 20gb, 실제 파티션당 최대 30GB의 데이터를 허용 합니다. Azure Cosmos DB Apache Cassandra와 달리 실제 파티션에서 사용 가능한 계산 용량은 [요청 단위](request-units.md)라는 단일 메트릭을 사용 하 여 표현 됩니다 .이 메트릭을 사용 하면 코어, 메모리 또는 IOPS가 아닌 초당 요청 (읽기 또는 쓰기)의 측면에서 워크 로드를 고려할 수 있습니다. 이렇게 하면 각 요청에 대 한 비용을 이해 하 고 나면 용량을 보다 효율적으로 계획할 수 있습니다. 각 실제 파티션에는 사용할 수 있는 계산의 최대 1만 RUs가 있을 수 있습니다. 확장성 옵션에 대 한 자세한 내용은 Cassandra API에서 [탄력적 확장](manage-scale-cassandra.md) 에 대 한 문서를 참조 하세요. 
 
@@ -112,6 +112,6 @@ CREATE TABLE uprofile.user (
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB의 분할 및 수평 확장](partition-data.md)에 대해 알아봅니다.
+* [Azure Cosmos DB의 분할 및 수평 확장](partitioning-overview.md)에 대해 알아봅니다.
 * [Azure Cosmos DB에서 프로 비전 된 처리량](request-units.md)에 대해 알아봅니다.
 * [Azure Cosmos DB의 글로벌 배포](distribute-data-globally.md)에 대해 알아봅니다.

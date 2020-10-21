@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488306"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279025"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1143,7 +1143,7 @@ bool(<value>)
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | 유형 | 반환 값 |
+| 입력 값 | Type | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -4767,7 +4767,21 @@ xpath('<xml>', '<xpath>')
 
 이 XML 문자열이 있다고 가정 합니다 `'items'` . 
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 이 예에서는 XPath 식를 전달 `'/produce/item/name'` 하 여 XML 문자열의 노드와 일치 하는 노드를 찾고 `<name></name>` `'items'` 해당 노드 값이 포함 된 배열을 반환 합니다.
 
@@ -4799,7 +4813,21 @@ xpath('<xml>', '<xpath>')
 
 이 예제에서는 `items` XML 문자열에 및 속성도 포함 되어 있다고 가정 합니다 `expired='true'` `expired='false'` .
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 이 예에서는 XPath 식를 전달 `'//name[@expired]'` 하 여 특성이 있는 모든 요소를 찾습니다 `name` `expired` .
 
@@ -4811,7 +4839,21 @@ xpath('<xml>', '<xpath>')
 
 이 예에서는 `items` XML 문자열에이 특성만 포함 되어 있다고 가정 합니다 `expired = 'true'` .
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 이 예에서는 XPath 식를 전달 `'//name[@expired = 'true']'` 하 여 `name` 특성이 인 모든 요소를 찾습니다 `expired = 'true'` .
 
@@ -4826,7 +4868,21 @@ xpath('<xml>', '<xpath>')
 * `expired='true' price='12'`
 * `expired='false' price='40'`
 
-`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name expired='true' price='12'>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name expired='false' price='40'>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 이 예에서는 XPath 식를 전달 하 여이 있는 `'//name[price>35]'` 모든 요소를 찾습니다 `name` `price > 35` .
 
@@ -4838,7 +4894,21 @@ xpath('<xml>', '<xpath>')
 
 이 예에서는 `items` XML 문자열이 예 1의 경우와 동일 하다 고 가정 합니다.
 
-`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+<?xml version="1.0"?>
+<produce>
+  <item>
+    <name>Gala</name>
+    <type>apple</type>
+    <count>20</count>
+  </item>
+  <item>
+    <name>Honeycrisp</name>
+    <type>apple</type>
+    <count>10</count>
+  </item>
+</produce>
+```
 
 이 예에서는 노드와 일치 하는 노드를 찾은 `<count></count>` 다음 함수를 사용 하 여 해당 노드 값을 추가 합니다 `sum()` .
 
@@ -4850,7 +4920,9 @@ xpath('<xml>', '<xpath>')
 
 이 예제에서는 XML 문서 네임 스페이스를 포함 하는 XML 문자열을 가정 합니다 `xmlns="http://contoso.com"` .
 
-`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+```xml
+<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+```
 
 이러한 식은 XPath 식 `/*[name()="file"]/*[name()="location"]` 또는 `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` 를 사용 하 여 노드와 일치 하는 노드를 찾습니다 `<location></location>` . 다음 예에서는 논리 앱 디자이너나 식 편집기에서 사용 하는 구문을 보여 줍니다.
 

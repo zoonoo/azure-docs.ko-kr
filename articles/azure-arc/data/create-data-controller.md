@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273044"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310914"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -65,7 +65,7 @@ Azure Arc 데이터 컨트롤러를 만드는 방법에는 여러 가지가 있�
 > **작업을 시도해보시겠습니까?**  
 > Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 를 빠르게 시작 하세요.
 > 
-- [Azure Data CLI를 사용 하 여 데이터 컨트롤러 만들기 (azdata)](create-data-controller-using-azdata.md)
+- [를 사용 하 여 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Azure Data Studio를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-azure-data-studio.md)
 - [Azure Data Studio에서 Jupyter 노트북을 통해 Azure Portal에서 데이터 컨트롤러를 만듭니다.](create-data-controller-resource-in-azure-portal.md)
 - [Kubectl 또는 oc와 같은 Kubernetes 도구를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-using-kubernetes-native-tools.md)

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268267"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281283"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -57,7 +57,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
 
-[보안 점수 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져올 수 있습니다. 또한 **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+보안 점수 API (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 [보안 점수 API](https://docs.microsoft.com/rest/api/securitycenter/securescores) 를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 [점수 컨트롤 API](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) 를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
 
 ![API를 통해 단일 보안 점수 검색](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한(최대 점수 4)</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).</td>
+    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).<br>- Azure 방화벽 (미리 보기)으로 가상 네트워크를 보호 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용(최대 점수 3)</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 machine learning을 사용 하 여 컴퓨터 그룹의 알려진 안전한 응용 프로그램 목록을 만듭니다.<br>승인 된 응용 프로그램 목록에 대 한이 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공 합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>

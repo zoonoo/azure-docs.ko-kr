@@ -3,12 +3,12 @@ title: 스크립트를 사용 하 여 Azure Migrate 어플라이언스 설정
 description: 스크립트를 사용 하 여 Azure Migrate 어플라이언스를 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438923"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317325"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용 하 여 어플라이언스 설정
 
@@ -16,7 +16,7 @@ ms.locfileid: "91438923"
 
 스크립트를 사용 하거나 Azure Portal에서 다운로드 한 템플릿을 사용 하 여 VMware 및 Hyper-v Vm에 대 한 어플라이언스를 배포할 수 있습니다. 다운로드 한 템플릿을 사용 하 여 VM을 만들 수 없는 경우 스크립트를 사용 하는 것이 유용 합니다.
 
-- 템플릿을 사용 하려면 [VMware](tutorial-prepare-vmware.md) 또는 [hyper-v](tutorial-prepare-hyper-v.md)에 대 한 자습서를 따르세요.
+- 템플릿을 사용 하려면 [VMware](./tutorial-discover-vmware.md) 또는 [hyper-v](./tutorial-discover-hyper-v.md)에 대 한 자습서를 따르세요.
 - 물리적 서버용 어플라이언스를 설정 하려면 스크립트만 사용 하면 됩니다. [이 문서](how-to-set-up-appliance-physical.md)를 따릅니다.
 - Azure Government 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script-government.md)를 따릅니다.
 
@@ -61,7 +61,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 포털에서 또는 [�
 
 - 에이전트와 웹 응용 프로그램을 설치 합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯 한 Windows 역할을 설치 합니다.
-- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아봅니다](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대 한 영구 설정을 사용 하 여 레지스트리 키 (HKLM)를 업데이트 합니다.
 - 는 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**:%ProgramData%\Microsoft Azure\Config
@@ -108,7 +108,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 포털 또는 [여기]
 
 - 에이전트와 웹 응용 프로그램을 설치 합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯 한 Windows 역할을 설치 합니다.
-- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아봅니다](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대 한 영구 설정을 사용 하 여 레지스트리 키 (HKLM)를 업데이트 합니다.
 - 는 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**:%ProgramData%\Microsoft Azure\Config

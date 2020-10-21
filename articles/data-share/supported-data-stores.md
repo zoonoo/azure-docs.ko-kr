@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ddd586bf9a88b1246fcf20fc19493f5003bbb530
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151739"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318590"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
 
@@ -25,11 +25,11 @@ Azure 데이터 공유는 다양 한 데이터 저장소에서 공유 하는 기
 
 | 데이터 저장소 | 스냅숏 기반 공유 | 내부 공유 
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob Storage |✓ | |
+| Azure Blob 스토리지 |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |퍼블릭 미리 보기 | |
-| Azure Synapse Analytics (이전의 Azure SQL DW) |퍼블릭 미리 보기 | |
+| Azure SQL Database |✓ | |
+| Azure Synapse Analytics (이전의 Azure SQL DW) |✓ | |
 | Azure Data Explorer | |✓ |
 
 ## <a name="data-store-support-matrix"></a>데이터 저장소 지원 매트릭스
@@ -40,7 +40,7 @@ Azure 데이터 공유는 데이터 저장소를 결정할 때 데이터 소비�
 
 | 데이터 저장소 | Azure Blob Storage | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob Storage | ✓ || ✓ ||
+| Azure Blob 스토리지 | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
 | Azure Data Lake Storage Gen2 | ✓ | | ✓ ||
 | Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||

@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 58386786266c48c6e721094f9f2837709bb684e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b9c3c66e58ae51773a959aba0b2c76d97b44445
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631769"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309513"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에서 PostgreSQL 확장 사용
 
@@ -57,7 +57,7 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 #### <a name="get-the-list-of-extensions-enabled"></a>사용 하도록 설정 된 확장 목록을 가져옵니다.
 다음 명령 중 하나를 실행 합니다.
 
-##### <a name="with-azdata"></a>Azdata 사용
+##### <a name="with-azure-data-cli-azdata"></a>[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 사용
 ```console
 azdata arc postgres server show -n <server group name>
 ```

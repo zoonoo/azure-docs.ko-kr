@@ -5,19 +5,19 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 467018e57a0783839cb9495fcc6df89aad9daa8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280612"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313883"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
 - <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">문제 해결 가이드</a> 
 - <a href="https://github.com/Azure/service-fabric-issues" target="blank">문제 추적</a> 
-- <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">지원 옵션</a> 
-- <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">지원 되는 버전</a> 
+- <a href="/azure/service-fabric/service-fabric-support" target="blank">지원 옵션</a> 
+- <a href="/azure/service-fabric/service-fabric-versions" target="blank">지원 되는 버전</a> 
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">코드 샘플</a>
 
 이 문서에서는 최신 릴리스 및 Service Fabric 런타임 및 Sdk 업데이트에 대 한 자세한 정보를 제공 합니다.

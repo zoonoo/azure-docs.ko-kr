@@ -3,12 +3,12 @@ title: Apache Kafka MirrorMaker 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka MirrorMaker를 사용하여 Azure Event Hubs에서 Kafka 클러스터를 미러링하는 방법에 대한 정보를 제공합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab0f78adeeff34334c9800632fc58ab634b4fab6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85320193"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308350"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -33,13 +33,13 @@ ms.locfileid: "85320193"
 
 Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, Kafka 클라이언트)을 사용하여 Azure Event Hubs에 연결할 수 있습니다. Kafka 애플리케이션을 최소한으로 변경하면 Azure Event Hubs에 연결하여 Azure 에코시스템의 이점을 누릴 수 있습니다. Event Hubs 현재 Kafka 버전 1.0 이상을 지원 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
 * [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요. 
 * Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [JDK (Java Development Kit) 1.7 이상](https://aka.ms/azure-jdks)
+* [JDK (Java Development Kit) 1.7 이상](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 * Maven 이진 보관 파일 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)

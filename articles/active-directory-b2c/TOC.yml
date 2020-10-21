@@ -101,8 +101,10 @@
   items:
     - name: 앱 통합
       items:
-        - name: 애플리케이션 등록
+        - name: 웹 애플리케이션 등록
           href: tutorial-register-applications.md
+        - name: SPA(단일 페이지 애플리케이션) 등록
+          href: tutorial-register-spa.md
         - name: SAML 서비스 공급자 등록
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'

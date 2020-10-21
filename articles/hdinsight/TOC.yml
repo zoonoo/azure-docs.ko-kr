@@ -647,6 +647,8 @@
               href: ./kafka/apache-kafka-auto-create-topics.md
             - name: IoT Hub와 함께 Apache Kafka 사용
               href: ./kafka/apache-kafka-connector-iot-hub.md
+            - name: Confluent 스키마 레지스트리
+              href: ./kafka/schema-registry.md
             - name: 스트리밍 파이프라인 만들기
               items:
                 - name: 'Apache Spark, Apache Kafka 및 Azure Cosmos DB'
@@ -845,6 +847,8 @@
               href: ./hdinsight-troubleshoot-hive.md
             - name: Apache Hive 로그가 헤드 노드의 모든 공간 차지
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
+            - name: Hive에 대한 보안 옵션
+              href: ./interactive-query/hdinsight-security-options-for-hive.md
 - name: ML 서비스
   items:
     - name: 개요

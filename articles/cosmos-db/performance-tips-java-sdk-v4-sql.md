@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43206fbc956602ddaf189f45648cf8a44a3dd143
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258317"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277331"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4에 대한 성능 팁
 
@@ -38,14 +38,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 * **연결 모드: 직접 모드 사용**
 <a id="direct-connection"></a>
     
-    클라이언트에서 Azure Cosmos DB에 연결하는 방법은 특히 클라이언트 쪽 대기 시간 측면에서 성능에 중요한 영향을 미칩니다. 연결 모드는 클라이언트를 구성 하는 데 사용할 수 있는 키 구성 설정입니다. Java SDK v4 Azure Cosmos DB 사용 가능한 두 가지 연결 모드는 다음과 같습니다.  
-
-    * 직접 모드 (기본값)      
-    * 게이트웨이 모드
-
-    이러한 연결 모드는 기본적으로 데이터 평면 요청에서 문서 읽기 및 쓰기를 수행 하는 경로를 클라이언트 컴퓨터에서 Azure Cosmos DB 백 엔드의 파티션으로 가져오는 조건입니다. 일반적으로 직접 모드는 최상의 성능을 위해 기본 설정 된 옵션입니다. 클라이언트는 백 엔드를 사용 하지 않고 직접 Azure Cosmos DB 백 엔드에 있는 파티션에 대 한 TCP 연결을 직접 열고 요청을 *직접*보낼 수 있습니다. 반대로 게이트웨이 모드에서는 클라이언트의 요청이 Azure Cosmos DB 프런트 엔드의 소위 "게이트웨이" 서버로 라우팅된 다음, Azure Cosmos DB 백 엔드에서 적절한 파티션으로 전달됩니다. 애플리케이션이 엄격한 방화벽으로 제한된 회사 네트워크 내에서 실행되는 경우 표준 HTTPS 포트 및 단일 엔드포인트를 사용하므로 게이트웨이 모드를 선택하는 것이 가장 좋습니다. 그러나 성능상의 균형을 유지하기 위해 게이트웨이 모드에는 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 추가 네트워크 홉(클라이언트에서 게이트웨이로 및 게이트웨이에서 파티션으로)이 포함됩니다. 이로 인해 네트워크 홉이 적은 직접 모드에서는 더 나은 성능을 제공합니다.
-
-    데이터 평면 요청에 대 한 연결 모드는 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 Azure Cosmos DB 클라이언트 빌더에서 구성 됩니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우*directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()*).
+    Java SDK 기본 연결 모드는 direct입니다. 아래와 같이 *Directmode ()* 또는 *gmode ()* 메서드를 사용 하 여 클라이언트 작성기에서 연결 모드를 구성할 수 있습니다. 기본 설정을 사용 하 여 두 모드를 구성 하려면 인수 없이 메서드를 호출 합니다. 그렇지 않으면 구성 설정 클래스 인스턴스를 인수로 전달 합니다 ( *Directmode ()* 의 경우*directconnectionconfig* , gmode의 경우 *directconnectionconfig* *()*). 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -372,4 +365,4 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 ## <a name="next-steps"></a>다음 단계
 
-확장성 및 고성능을 위한 애플리케이션 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partition-data.md)을 참조하세요.
+확장성 및 고성능을 위한 애플리케이션 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요.

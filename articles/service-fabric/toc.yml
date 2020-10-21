@@ -930,7 +930,7 @@
     - name: 릴리스 정보
       href: release-notes.md
     - name: 예제 코드
-      href: 'https://aka.ms/servicefabricsamples'
+      href: /samples/browse/?products=azure
     - name: 지원 옵션
       href: service-fabric-support.md
     - name: Service Fabric 버전

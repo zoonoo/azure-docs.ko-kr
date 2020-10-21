@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: Azure CLI를 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace-cli.md
+    - name: Azure PowerShell을 사용하여 Synapse 작업 영역 만들기
+      href: quickstart-create-workspace-powershell.md
     - name: 템플릿을 사용하여 배포
       href: quickstart-deployment-template-workspaces.md
     - name: Synapse Studio 사용
@@ -388,7 +390,7 @@
           items:
             - name: SQL 풀에 대한 모델 점수 매기기 마법사
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Azure AutoML을 사용하여 회귀 실험 실행(DW에서 점수 매기기)
+            - name: Azure AutoML을 사용하여 회귀 실험 실행
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: '도구 통합(AI, ETL, BI)'
       items:
@@ -483,9 +485,9 @@
             - name: Cosmos DB용 Azure Synapse Link에 연결
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Power BI 및 서버리스 SQL 풀을 사용하여 Azure Cosmos DB 분석
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 서버리스 SQL 풀을 사용하여 Azure Cosmos DB 데이터 쿼리
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Apache Spark를 사용하여 Azure Cosmos DB Analytical Store 쿼리
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Apache Spark를 사용하여 Synapse Link에서 SQL 풀로 데이터 복사
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: REST API
       href: /rest/api/synapse/

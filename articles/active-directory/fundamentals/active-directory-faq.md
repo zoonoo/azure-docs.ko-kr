@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb6adc38fd44366b837119518622dd8931f9096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565568"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312580"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -162,7 +162,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](../manage-apps/configure-saml-single-sign-on.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---

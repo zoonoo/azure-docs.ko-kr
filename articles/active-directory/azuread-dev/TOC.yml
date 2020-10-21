@@ -97,8 +97,6 @@
               href: howto-v1-enable-sso-android.md
             - name: iOS에서 SSO 사용
               href: howto-v1-enable-sso-ios.md
-            - name: SAML 기반 SSO 디버그
-              href: howto-v1-debug-saml-sso-issues.md
         - name: 클레임 구성
           items:
             - name: 역할 클레임 구성

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207549"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280856"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -200,7 +200,7 @@ _검토 + 만들기_ 단추를 누릅니다.
 새 *DigitalTwinsAdd* 상자에서 다음과 같이 필드를 채웁니다.
 * _id_: 논리 앱을 업데이트 하려는 인스턴스에서 디지털 쌍의 쌍 *id* 를 채웁니다.
 * 쌍:이 필드는 선택한 API 요청에 필요한 본문을 입력 _합니다._ *DigitalTwinsUpdate*의 경우이 본문은 JSON 패치 코드 형식입니다. 쌍을 업데이트 하는 JSON 패치를 구조화 하는 방법에 대 한 자세한 내용은 *방법: 디지털 쌍 관리*의 디지털 쌍 [업데이트](how-to-manage-twin.md#update-a-digital-twin) 섹션을 참조 하십시오.
-* _api-version_: 최신 api 버전입니다. 현재 공개 미리 보기에서이 값은 *2020-05-31-미리 보기* 입니다.
+* _api-version_: 최신 api 버전입니다. 현재이 값은 *2020-10-31*입니다.
 
 Logic Apps 디자이너에서 *저장* 을 누릅니다.
 
