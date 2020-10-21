@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684986"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131091"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Azure 비용 할당 규칙 만들기 및 관리(미리 보기)
 
@@ -58,16 +58,16 @@ ms.locfileid: "88684986"
 
 총 비용에 비례하여 비용을 분산하는 경우 현재 청구 월에 대해 선택한 대상의 합계 또는 총 비용을 기준으로 비례 비율이 할당됩니다.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="할당 백분율을 보여주는 예제" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="규칙 이름 만들기를 보여주는 예제" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 설정이 끝나면 정의된 미리 채우기 백분율이 고정됩니다. 진행 중인 모든 할당에 이 백분율이 사용됩니다. 규칙을 수동으로 업데이트하는 경우에만 백분율이 변경됩니다.
 
 1. **미리 채우기 백분율** 목록에서 다음 옵션 중 하나를 선택합니다.
     - **균등하게 분산** – 각 대상에 동일한 총 비용 대비 비율이 할당됩니다.
     - **총 비용** – 총 비용을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
-    - **컴퓨팅 비용** - Azure 컴퓨팅 비용([Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions) 네임스페이스의 리소스 종류)을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
-    - **스토리지 비용** - Azure 스토리지 비용([Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions) 네임스페이스의 리소스 종류)을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
-    - **네트워크 비용** - Azure 네트워크 비용([Microsoft.Network](https://docs.microsoft.com/azure/templates/microsoft.network/allversions) 네임스페이스의 리소스 종류)을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
+    - **컴퓨팅 비용** - Azure 컴퓨팅 비용([Microsoft.Compute](/azure/templates/microsoft.compute/allversions) 네임스페이스의 리소스 종류)을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
+    - **스토리지 비용** - Azure 스토리지 비용([Microsoft.Storage](/azure/templates/microsoft.storage/allversions) 네임스페이스의 리소스 종류)을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
+    - **네트워크 비용** - Azure 네트워크 비용([Microsoft.Network](/azure/templates/microsoft.network/allversions) 네임스페이스의 리소스 종류)을 기준으로 대상에 비례하는 비율을 만듭니다. 이 비율은 선택한 원본의 비용을 분산하는 데 사용됩니다.
     - **사용자 지정** – 정수 백분율을 수동으로 지정할 수 있습니다. 지정된 합계는 100%여야 합니다.
 1. 규칙을 구성할 때 **만들기**를 선택합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "88684986"
 
 비용 분석에서 할당 규칙의 영향을 볼 수 있습니다. Azure Portal에서 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)으로 이동합니다. 목록에서 활성 비용 할당 규칙의 대상으로 지정된 구독을 선택합니다. 그런 다음, 메뉴에서 **비용 분석**을 선택합니다. 비용 분석에서 **그룹화 방법**을 선택한 다음, **비용 할당**을 선택합니다. 그 결과로 표시되는 보기는 구독에서 생성한 빠른 비용 분석을 보여줍니다. 다음 이미지처럼 구독에 할당된 비용도 표시됩니다.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="비용 분석을 보여주는 예제" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="규칙 이름 만들기를 보여주는 예제" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>리소스 그룹의 비용 할당 보기
 
@@ -94,7 +94,7 @@ ms.locfileid: "88684986"
 
 Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용 분석**으로 이동합니다. 비용 분석에서 **필터 추가**를 선택합니다. **태그**를 선택하고, 태그 키를 선택하고, 할당된 비용이 있는 태그 값을 선택합니다.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="태그가 지정된 항목의 비용을 보여주는 예제" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="규칙 이름 만들기를 보여주는 예제" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>기존 비용 할당 규칙 편집
 
@@ -112,10 +112,10 @@ Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용
 다음 항목은 현재 비용 할당 공개 미리 보기에서 지원되지 않습니다.
 
 - 예약된 [내보내기](tutorial-export-acm-data.md)
-- [사용량 세부 정보](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API에서 공개하는 데이터
+- [사용량 세부 정보](/rest/api/consumption/usagedetails/list) API에서 공개하는 데이터
 - 청구 구독 영역
 - [Cost Management Power BI 앱](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Power BI Desktop 커넥터](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Power BI Desktop 커넥터](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>비용은 예산 및 예측 보기에 포함되나요?
 <a name="budgets-forecast"></a>
@@ -144,5 +144,5 @@ Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용
 
 ## <a name="next-steps"></a>다음 단계
 
-- [비용 할당 Rest API](https://go.microsoft.com/fwlink/?linkid=2135004)를 사용하여 할당 규칙 만들기 또는 업데이트
+- [비용 할당 Rest API](/rest/api/cost-management/costallocationrules)를 사용하여 할당 규칙 만들기 또는 업데이트
 - [Azure Cost Management를 통해 클라우드 투자를 최적화하는 방법](cost-mgt-best-practices.md) 자세히 알아보기

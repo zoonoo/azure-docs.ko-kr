@@ -4,17 +4,17 @@ description: Synapse Studio를 사용하여 Synapse SQL에서 데이터 대량 �
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: quickstart
 ms.subservice: sql
+ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 142309f75d3b7c93204bb9eaa8e5e0254f879c43
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 4dd0455c73395b3f3b883032d25160f0ea299cea
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568911"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090627"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>빠른 시작: Synapse SQL을 사용하여 대량 로드
 

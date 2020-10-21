@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a6f0af188bb999acecad7fee0a90256eff05f902
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742080"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332011"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -120,10 +120,6 @@ Security Center는 무차별 암호 대입 공격(brute force attack)에 대한 
 ### <a name="protect-data-services"></a>데이터 서비스 보호
 
 Security Center에는 Azure SQL에서 데이터 자동 분류를 수행하는 데 도움이 되는 기능이 포함되어 있습니다. Azure SQL 및 Storage 서비스 전체의 잠재적 취약성 평가 및 취약성을 완화하는 방법에 대한 권장 사항을 확인할 수도 있습니다.
-
-### <a name="protect-iot-and-hybrid-cloud-workloads"></a>IoT 및 하이브리드 클라우드 워크로드 보호
-
-Defender for IoT(사물 인터넷)는 에지, 온-프레미스, Azure 및 기타 클라우드에서 실행되는 워크로드 전반에 걸쳐 통합된 가시성과 제어, 적응형 위협 예방, 지능형 위협 보호 및 응답을 제공하여 하이브리드 워크로드 보호를 간소화합니다. 자세한 내용은 [Defender for IoT](../defender-for-iot/index.yml)를 참조하세요.
 
 ## <a name="get-secure-faster"></a>보다 신속한 보안 설정
 

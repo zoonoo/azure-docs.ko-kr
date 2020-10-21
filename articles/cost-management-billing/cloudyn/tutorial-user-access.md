@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
-ms.openlocfilehash: f981e347b809f5df87e3b5379c69aab83ecf74eb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a3c10d95a57ea81f269af8f8f1cad49fc1c1b845
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687623"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131261"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>자습서: Cloudyn 데이터 액세스 권한 할당
 
@@ -135,4 +135,4 @@ Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법�
 계정에 대해 Azure Resource Manager API 액세스를 아직 사용하도록 설정하지 않은 경우 다음 문서를 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 구독 및 계정 활성화](../../cost-management/activate-subs-accounts.md)
+> [Azure 구독 및 계정 활성화](./activate-subs-accounts.md)

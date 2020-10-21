@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371884"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132570"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
@@ -84,7 +84,7 @@ ms.locfileid: "91371884"
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-    [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다. **사용해 보세요**를 선택하여 [Azure Cloud Shell](https://shell.azure.com/)을 엽니다. 코드를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭하고 **붙여넣기**를 선택합니다.
+    [az billing enrollment-account list](/cli/azure/billing) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다. **사용해 보세요**를 선택하여 [Azure Cloud Shell](https://shell.azure.com/)을 엽니다. 코드를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭하고 **붙여넣기**를 선택합니다.
 
     ```azurecli-interactive
     az billing enrollment-account list

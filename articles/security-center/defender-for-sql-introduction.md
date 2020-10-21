@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7301f6bbb33c3eedff2e8c41edeaacb3df66d4c2
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449057"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342028"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
-SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지](../azure-sql/database/advanced-data-security.md)를 확장하여 데이터베이스와 해당 데이터를 어디서나 안전하게 보호하는 두 개의 Azure Defender 요금제가 포함되어 있습니다. 
+SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지](../azure-sql/database/azure-defender-for-sql.md)를 확장하여 데이터베이스와 해당 데이터를 어디서나 안전하게 보호하는 두 개의 Azure Defender 요금제가 포함되어 있습니다. 
 
 ## <a name="availability"></a>가용성
 
@@ -69,5 +69,5 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 관련 자료는 다음 문서를 참조하세요. 
 
 - [머신의 SQL 서버용 Azure Defender를 사용하도록 설정하는 방법](defender-for-sql-usage.md)
-- [SQL 데이터베이스 서버용 Azure Defender를 사용하도록 설정하는 방법](../azure-sql/database/advanced-data-security.md)
+- [SQL 데이터베이스 서버용 Azure Defender를 사용하도록 설정하는 방법](../azure-sql/database/azure-defender-for-sql.md)
 - [SQL용 Azure Defender 경고 목록](alerts-reference.md#alerts-sql-db-and-warehouse)

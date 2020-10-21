@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2854f4124a570de4fb467eb6a5d49a3214742e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613648"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341824"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>이미 Azure Monitor 로그를 사용 하는 고객에 대 한 FAQ<a name="existingloganalyticscust"></a>
 
@@ -26,13 +26,13 @@ ms.locfileid: "91613648"
 
 VM에 이미 Azure 확장으로 설치 된 Log Analytics 에이전트가 있는 경우 Security Center는 기존 작업 영역 연결을 재정의 하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다. "보안" 또는 "보안 강화" 솔루션이 보고 하는 작업 영역에 설치 되어 있으면 VM이 보호 됩니다. 
 
-Security Center 솔루션은 아직 없는 경우 데이터 수집 화면에서 선택한 작업 영역에 설치 되 고 솔루션은 관련 Vm에만 적용 됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
+Security Center 솔루션은 아직 없는 경우 데이터 수집 화면에서 선택한 작업 영역에 설치 되 고 솔루션은 관련 Vm에만 적용 됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.
 
 > [!TIP]
 > Log Analytics 에이전트가 Azure Security Center 확장이 아닌 VM에 직접 설치 된 경우에는 Log Analytics 에이전트를 설치 하지 않고 보안 모니터링이 제한 됩니다.
 
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center에서 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
-Security Center에서 만든 작업 영역에 VM이 이미 연결 되어 있음을 확인 하는 경우 가격 책정 구성에 따라이 작업 영역에서 솔루션을 사용 하도록 설정 Security Center. 솔루션이 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
+Security Center에서 만든 작업 영역에 VM이 이미 연결 되어 있음을 확인 하는 경우 가격 책정 구성에 따라이 작업 영역에서 솔루션을 사용 하도록 설정 Security Center. 솔루션이 [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
 - **Azure Defender off** – Security Center 작업 영역에 ' 보안 센터 무료 ' 솔루션을 설치 합니다. 요금은 청구 되지 않습니다.
 - **Azure Defender on** – Security Center 작업 영역에 ' Security ' 솔루션을 설치 합니다.
@@ -40,7 +40,7 @@ Security Center에서 만든 작업 영역에 VM이 이미 연결 되어 있음�
    ![기본 작업 영역의 솔루션](./media/security-center-platform-migration-faq/solutions.png)
 
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>내 환경에 이미 작업 영역이 있는 경우 보안 데이터를 수집하는 데 사용할 수 있나요?
-VM에 이미 Azure 확장으로 설치 된 Log Analytics 에이전트가 있는 경우 Security Center는 기존 연결 된 작업 영역을 사용 합니다. Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 통해 관련 VM에만 적용됩니다.
+VM에 이미 Azure 확장으로 설치 된 Log Analytics 에이전트가 있는 경우 Security Center는 기존 연결 된 작업 영역을 사용 합니다. Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 통해 관련 VM에만 적용됩니다.
 
 Security Center Vm에 Log Analytics 에이전트를 설치 하는 경우 Security Center 기존 작업 영역을 가리키고 있지 않으면 Security Center에서 만든 기본 작업 영역을 사용 합니다.
 

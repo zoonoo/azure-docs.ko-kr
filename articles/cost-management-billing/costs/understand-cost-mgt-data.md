@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683184"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132315"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -110,7 +110,7 @@ Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코�
 
 - 태그는 리소스에 직접 적용해야 하며 부모 리소스 그룹에서 암시적으로 상속되지 않습니다.
 - 리소스 태그는 리소스 그룹에 배포된 리소스에 대해서만 지원됩니다.
-- 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다. [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
+- 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다. [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/management/tag-support.md)을 참조하세요.
 - 태그를 적용하는 동안에는 사용량 데이터에만 리소스 태그가 포함됩니다. 태그는 기록 데이터에 적용되지 않습니다.
 - 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다. [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
 - 리소스 태그는 리소스가 활성/실행 중이고 사용량 레코드를 생성하는 경우(예제: VM이 할당 취소되지 않은 경우)에만 Cost Management에서 사용할 수 있습니다.
@@ -121,7 +121,7 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 
 - 태그가 리소스에 직접 적용되었습니까?
 - 태그가 24시간 전에 적용되었습니까? [비용, 사용량 데이터 업데이트 및 보존](#cost-and-usage-data-updates-and-retention)을 참조하세요.
-- 리소스 종류가 태그를 지원하나요? 다음 리소스 종류는 2019년 12월 1일 현재 사용량 데이터의 태그를 지원하지 않습니다. 지원되는 항목의 전체 목록은 [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
+- 리소스 종류가 태그를 지원하나요? 다음 리소스 종류는 2019년 12월 1일 현재 사용량 데이터의 태그를 지원하지 않습니다. 지원되는 항목의 전체 목록은 [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/management/tag-support.md)을 참조하세요.
     - Azure Active Directory B2C 디렉터리
     - Azure Bastion
     - Azure Firewall
@@ -185,4 +185,4 @@ Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 �
 
 ## <a name="see-also"></a>참고 항목
 
-- Cost Management에 대한 첫 번째 빠른 시작을 아직 완료하지 않은 경우 [비용 분석 시작](../../cost-management/quick-acm-cost-analysis.md)을 참조하세요.
+- Cost Management에 대한 첫 번째 빠른 시작을 아직 완료하지 않은 경우 [비용 분석 시작](./quick-acm-cost-analysis.md)을 참조하세요.

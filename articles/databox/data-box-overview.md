@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206221"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123565"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -144,7 +144,7 @@ Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/�
 
 - **서비스 가용성** - 가져오기 또는 내보내기 순서에 Data Box를 사용하는 경우 지역 가용성에 대한 정보를 가져오려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box의 내보내기 기능은 현재 미리 보기로 제공됩니다. 
 
-    가져오기 순서의 경우 Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. 
+    가져오기 순서의 경우 Data Box는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](../azure-government/documentation-government-welcome.md)을 참조하세요. 
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 서비스를 사용할 수 있는 모든 Azure 지역에서 사용할 수 있습니다.
 
@@ -154,7 +154,3 @@ Data Box는 서비스가 배포된 지역, 디바이스가 배송되는 국가/�
 - [Data Box 시스템 요구 사항](data-box-system-requirements.md)을 검토합니다.
 - [Data Box 제한](data-box-limits.md)을 알아봅니다.
 - Azure Portal에서 [Azure Data Box](data-box-quickstart-portal.md)를 빠르게 배포합니다.
-
-
-
-

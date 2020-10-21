@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 204e89bdf8c660a7e96438f8cb3b8a18aeaec306
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742386"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123911"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>자습서: SMB를 통해 Azure Data Box에서 데이터 복사(미리 보기)
 
@@ -82,7 +82,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
-Linux 클라이언트를 사용하는 경우 다음 명령을 사용하여 SMB 공유를 탑재합니다. 아래에서 "vers" 매개 변수는 Linux 호스트에서 지원하는 SMB 버전입니다. 아래 명령에서 적절한 버전을 삽입합니다. Data Box에서 지원하는 SMB 버전은 [Linux 클라이언트에 지원되는 파일 시스템](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients)을 참조하세요. 
+Linux 클라이언트를 사용하는 경우 다음 명령을 사용하여 SMB 공유를 탑재합니다. 아래에서 "vers" 매개 변수는 Linux 호스트에서 지원하는 SMB 버전입니다. 아래 명령에서 적절한 버전을 삽입합니다. Data Box에서 지원하는 SMB 버전은 [Linux 클라이언트에 지원되는 파일 시스템](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients)을 참조하세요. 
 
 ```console
 sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox
@@ -119,4 +119,3 @@ Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 �
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 배송](./data-box-deploy-export-picked-up.md)
-

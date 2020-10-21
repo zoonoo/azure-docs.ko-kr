@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 73442bc927826bd03ed2624cadb60dd19b05a736
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2695126b8ad515735907558e3c316b87ac5dfbdc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91459951"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070744"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -310,7 +310,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

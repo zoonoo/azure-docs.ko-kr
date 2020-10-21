@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962992"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124588"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
 
@@ -30,7 +30,7 @@ Azure Communication Services **그룹 채팅 주인공 샘플**은 Communication
 이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 컴퓨터에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
 > [!IMPORTANT]
-> [GitHub에서 샘플 다운로드](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+> [GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>개요
 
@@ -107,7 +107,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 ## <a name="next-steps"></a>다음 단계
 
 >[!div class="nextstepaction"] 
->[GitHub에서 샘플 다운로드](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+>[GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 자세한 내용은 다음 문서를 참조하세요.
 

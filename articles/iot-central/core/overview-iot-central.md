@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 6d95c07e5bec810ce82e98b2291b348fbcc2d8bc
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 3952736af9cf7c3b720769cee6a58e3fc52a6111
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812440"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127406"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -114,7 +114,7 @@ IoT Central 설명서는 IoT Central 애플리케이션과 상호 작용하는 �
 
 ## <a name="integrate-with-other-services"></a>다른 서비스와 통합
 
-애플리케이션 플랫폼인 IoT Central에서는 IoT 데이터를, 실행 가능한 결과를 도출하는 비즈니스 인사이트로 변환할 수 있습니다. [규칙](./tutorial-create-telemetry-rules.md), [데이터 내보내기](./howto-export-data.md) 및 [공용 REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/)는 IoT Central을 LOB(기간 업무) 애플리케이션과 통합하는 방법을 보여주는 예입니다.
+애플리케이션 플랫폼인 IoT Central에서는 IoT 데이터를, 실행 가능한 결과를 도출하는 비즈니스 인사이트로 변환할 수 있습니다. [규칙](./tutorial-create-telemetry-rules.md), [데이터 내보내기](./howto-export-data.md) 및 [공용 REST API](/learn/modules/manage-iot-central-apps-with-rest-api/)는 IoT Central을 LOB(기간 업무) 애플리케이션과 통합하는 방법을 보여주는 예입니다.
 
 ![IoT Central에서 IoT 데이터를 변환하는 방법](media/overview-iot-central/transform.png)
 

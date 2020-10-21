@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 8c7d7f84e02cdd2cd4f53bc9eb42c78f936146ae
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408372"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150993"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>빠른 시작: ASP.NET과 SignalR Service를 사용하여 대화방 만들기
 
-Azure SignalR Service는 ASP.NET SignalR과 100% 호환되지 **않는** [ASP.NET Core 2.1용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)을 기반으로 합니다. Azure SignalR Service는 최신 ASP.NET Core 기술을 기반으로 ASP.NET SignalR 데이터 프로토콜을 재구현했습니다. ASP.NET SignalR용 Azure SignalR Service 서비스를 사용하는 경우 일부 ASP.NET SignalR 기능은 더 이상 지원되지 않습니다. 예를 들어 Azure SignalR은 클라이언트가 다시 연결되어도 메시지를 회신하지 않습니다. 또한 Forever Frame 전송 및 JSONP가 지원되지 않습니다. ASP.NET SignalR 애플리케이션이 SignalR Service와 작동하려면 일부 코드 변경과 적절한 버전의 종속 라이브러리가 필요합니다.
+Azure SignalR Service는 ASP.NET SignalR과 100% 호환되지 **않는** [ASP.NET Core 2.1용 SignalR](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)을 기반으로 합니다. Azure SignalR Service는 최신 ASP.NET Core 기술을 기반으로 ASP.NET SignalR 데이터 프로토콜을 재구현했습니다. ASP.NET SignalR용 Azure SignalR Service 서비스를 사용하는 경우 일부 ASP.NET SignalR 기능은 더 이상 지원되지 않습니다. 예를 들어 Azure SignalR은 클라이언트가 다시 연결되어도 메시지를 회신하지 않습니다. 또한 Forever Frame 전송 및 JSONP가 지원되지 않습니다. ASP.NET SignalR 애플리케이션이 SignalR Service와 작동하려면 일부 코드 변경과 적절한 버전의 종속 라이브러리가 필요합니다.
 
-ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 보려면 [버전 차이 문서](https://docs.microsoft.com/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1)를 참조하세요.
+ASP.NET SignalR과 ASP.NET Core SignalR의 기능을 비교한 전체 목록을 보려면 [버전 차이 문서](/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1)를 참조하세요.
 
 이 빠른 시작에서는 유사한 [대화방 애플리케이션](./signalr-quickstart-dotnet-core.md)에 대해 ASP.NET과 Azure SignalR Service를 시작하는 방법을 알아봅니다.
 

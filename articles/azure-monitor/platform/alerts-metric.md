@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065865"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342164"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -43,17 +43,17 @@ ms.locfileid: "88065865"
 8. 메트릭에 차원이 있으면 차원 테이블이 표시 됩니다. 차원당 하나 이상의 값을 선택하세요.
     - 표시 된 차원 값은 지난 3 일간의 메트릭 데이터를 기반으로 합니다.
     - 찾고자 하는 차원 값이 표시 되지 않으면 "+"를 클릭 하 여 사용자 지정 값을 추가 합니다.
-    - 차원에 대해 **\*를 선택**할 수도 있습니다. **\*를 선택**하면 선택 항목이 동적으로 차원의 모든 현재 및 미래 값으로 조정됩니다.
+    - 모든 차원에 대해 *를*선택할 \* *수도 있습니다. _*선택 \* *_ 는 차원의 모든 현재 및 미래 값으로 선택 영역을 동적으로 조정 합니다.
 
     메트릭 경고 규칙은 선택한 모든 값 조합에 대 한 조건을 평가 합니다. [다차원 메트릭에 대한 경고의 작동 방식에 대해 자세히 알아보세요](alerts-metric-overview.md).
 
-9. **임계값** 유형, **연산자**및 **집계 유형을**선택 합니다. 이를 통해 메트릭 경고 규칙이 평가할 논리를 결정 합니다.
+9. _*임계값** 유형, **연산자**및 **집계 유형을**선택 합니다. 이를 통해 메트릭 경고 규칙이 평가할 논리를 결정 합니다.
     - **정적** 임계값을 사용 하는 경우 **임계값**을 계속 정의 합니다. 메트릭 차트는 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다.
     - **동적** 임계값을 사용 하는 경우 **임계값 민감도**를 계속 정의 합니다. 최근 데이터에 기반하여 계산된 임계값이 메트릭 차트에 표시됩니다. [동적 임계값 조건 형식 및 민감도 옵션에 대해 자세히 알아보세요](alerts-dynamic-thresholds.md).
 
 10. 필요에 따라 **집계 세분성** 및 **평가 빈도**를 조정 하 여 조건을 구체화 합니다. 
 
-11. **완료**를 클릭합니다.
+11. **Done**을 클릭합니다.
 
 12. 필요에 따라 복잡한 경고 규칙을 모니터링하려면 다른 조건을 추가합니다. 현재 사용자가 동적 임계값을 단일 조건으로 적용하는 경고 규칙을 사용할 수 있습니다.
 
@@ -154,8 +154,8 @@ ms.locfileid: "88065865"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 템플릿을 사용하여 메트릭 경고를 만듭니다](./alerts-metric-create-templates.md).
-- [메트릭 경고의 작동 원리를 이해합니다](alerts-metric-overview.md).
-- [동적 임계값 조건을 사용하는 메트릭 경고의 작동 원리를 이해합니다](alerts-dynamic-thresholds.md).
+- [Azure Resource Manager 템플릿을 사용 하 여 메트릭 경고 만들기](./alerts-metric-create-templates.md)
+- [메트릭 경고의 작동 방식 이해](alerts-metric-overview.md)
+- [동적 임계값을 사용 하 여 메트릭 경고를 해결 하는 방법 이해](alerts-dynamic-thresholds.md)
 - [메트릭 경고에 대한 웹후크 스키마를 이해합니다](./alerts-metric-near-real-time.md#payload-schema).
-
+- [메트릭 경고 문제 해결](alerts-troubleshoot-metric.md)

@@ -15,12 +15,12 @@ ms.custom:
 - mqtt
 - devx-track-java
 ms.date: 06/21/2019
-ms.openlocfilehash: 3c6a8285c672e6683a259b2a65be4e6ecbd4aafa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2865d0fc082244e1b135275ecda58edc5649d82b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87322281"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150724"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>빠른 시작: Java를 사용하여 Azure IoT Hub에 연결된 디바이스 제어
 
@@ -32,7 +32,7 @@ ms.locfileid: "87322281"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
+* Java SE Development Kit 8. [Azure 및 Azure Stack에 대한 Java 장기 지원](/java/azure/jdk/?view=azure-java-stable)의 **장기 지원** 에서 **Java 8**을 선택합니다.
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 

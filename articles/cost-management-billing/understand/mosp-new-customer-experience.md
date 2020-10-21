@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371745"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149400"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -104,8 +104,8 @@ Cost Management 또는 청구 API를 사용하여 청구 또는 비용 데이터
 
 |API | 변경  |
 |---------|---------|
-|[청구 계정 - 나열](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram**이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement**입니다. agreementType을 사용하는 경우 업데이트하세요. |
-|[청구서 - 청구 구독별 나열](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
+|[청구 계정 - 나열](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | 청구 계정 - 나열 API에서 이전 청구 계정의 agreementType은 **MicrosoftOnlineServiceProgram**이고, 새 청구 계정의 agreementType은 **MicrosoftCustomerAgreement**입니다. agreementType을 사용하는 경우 업데이트하세요. |
+|[청구서 - 청구 구독별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | 이 API는 계정이 업데이트되기 전에 생성된 청구서만 반환합니다. 새 청구 계정에서 생성된 청구서를 가져오려면 [청구서 - 청구서 계정별 나열](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API를 사용해야 합니다. |
 
 ## <a name="additional-information"></a>추가 정보
 

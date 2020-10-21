@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993603"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340872"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -86,7 +86,7 @@ Azure Stack VM을 추가하려면 **에이전트 관리** 페이지의 정보가
 1. **Azure Stack** 포털에 로그인하여 **가상 머신** 페이지를 엽니다.
 1. Security Center로 보호하려는 가상 머신을 선택합니다.
     >[!TIP]
-    > Azure Stack에서 가상 머신을 만드는 방법에 대한 자세한 내용은 [Windows 가상 머신용 빠른 시작](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Linux 가상 머신용 빠른 시작](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal)을 참조하세요.
+    > Azure Stack에서 가상 머신을 만드는 방법에 대한 자세한 내용은 [Windows 가상 머신용 빠른 시작](/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Linux 가상 머신용 빠른 시작](/azure-stack/user/azure-stack-quick-linux-portal)을 참조하세요.
 1. **확장**을 섡택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
 1. **추가** 탭을 선택합니다. **새 리소스** 메뉴에 사용 가능한 가상 머신 확장 목록이 표시됩니다.
 1. **Azure Monitor, Update 및 Configuration Management** 확장을 선택하고 **만들기**를 선택합니다. **확장 설치** 구성 페이지가 열립니다.

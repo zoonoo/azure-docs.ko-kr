@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 729150188e918d4964f8abe729c66032d8e6c9c0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4dd22427038bc7c4052ee714c3ec3ce45d7a1837
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689153"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132825"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -126,7 +126,7 @@ Azure 가격 계산기를 사용하면 Azure 서비스의 다양한 조합을 �
 
 Azure Migrate는 온-프레미스 데이터 센터에서 조직의 현재 워크로드를 평가하는 서비스입니다. Azure 대체 솔루션을 통해 무엇이 필요할지를 파악할 수 있습니다. 먼저 마이그레이션은 온-프레미스 머신을 분석하여 마이그레이션이 가능한지 여부를 확인합니다. 그런 다음 Azure에서 성능 최대화를 위한 VM 크기 조정을 권장합니다. 마지막으로, Azure 기반 솔루션에 대한 비용 견적을 생성합니다.
 
-자세한 내용은 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview)를 참조하세요.
+자세한 내용은 [Azure Migrate](../../migrate/migrate-services-overview.md)를 참조하세요.
 
 ## <a name="analyze-and-manage-your-costs"></a>비용 분석 및 관리
 

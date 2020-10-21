@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dd2305e13322540e9e30223f200baed9919d1840
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767643"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075402"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Java Spring 앱 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "91767643"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-- 버전 8 이상이 설치된 지원되는 [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk)
+- 버전 8 이상이 설치된 지원되는 [JDK(Java Development Kit)](/java/azure/jdk)
 - [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
 
 ## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
@@ -188,7 +188,7 @@ ms.locfileid: "91767643"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만들고, Java Spring 앱에서 사용했습니다. 자세한 내용은 [Azure의 Spring](https://docs.microsoft.com/java/azure/spring-framework/)을 참조하세요. Java Spring 앱에서 구성 설정을 동적으로 새로 고치도록 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 빠른 시작에서는 새 App Configuration 저장소를 만들고, Java Spring 앱에서 사용했습니다. 자세한 내용은 [Azure의 Spring](/java/azure/spring-framework/)을 참조하세요. Java Spring 앱에서 구성 설정을 동적으로 새로 고치도록 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [동적 구성을 사용하도록 설정](./enable-dynamic-configuration-java-spring-app.md)

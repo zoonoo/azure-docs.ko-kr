@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440785"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339733"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Active Directory 테 넌 트에 연결 된 모든 Azure 구독에 보안 정책을 적용 하 여 조직의 보안 상태를 대규모로 관리 하는 방법을 설명 합니다.
@@ -33,10 +33,10 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 2. API 호출을 통해 관리 그룹을 만듭니다.
 3. PowerShell을 사용하여 관리 그룹을 만듭니다.
 
-관리 그룹의 자세한 개요는 [Azure 관리 그룹으로 리소스 구성](../azure-resource-manager/management-groups-overview.md) 문서를 참조하세요.
+관리 그룹의 자세한 개요는 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md) 문서를 참조하세요.
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 만들기
-관리 그룹에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 관리 그룹은 Security Center에 등록할 필요가 없지만 루트 관리 그룹이 생성되도록 적어도 하나의 관리 그룹을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. PowerShell에 대한 지침 및 추가 정보는 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../azure-resource-manager/management-groups-create.md)를 참조하세요.
+관리 그룹에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 관리 그룹은 Security Center에 등록할 필요가 없지만 루트 관리 그룹이 생성되도록 적어도 하나의 관리 그룹을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. PowerShell에 대한 지침 및 추가 정보는 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../governance/management-groups/create-management-group-portal.md)를 참조하세요.
 
  
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.

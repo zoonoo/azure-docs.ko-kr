@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 8e9b1faf2521e0698052dd1cdd1253191ae6f8bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea9353ed8c1938fa9b33585a0650b4507c671451
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84187401"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125033"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -104,7 +104,7 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 ## <a name="region-availability"></a>지역 가용성
 
-지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box Disk는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요.
+지역 가용성에 대한 정보는 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동하세요. Data Box Disk는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](../azure-government/documentation-government-welcome.md)을 참조하세요.
 
 ## <a name="pricing"></a>가격 책정
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 8cc12ba40b6722f75e4f3f4e8ce7023a0523c278
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 778feda8d72101d4ae2a0f0c27549701dfb53340
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219669"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341416"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
@@ -29,9 +29,9 @@ Azure Security Center은 [지원 되](security-center-services.md#endpoint-suppo
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* [Get MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) 를 실행 하 고 결과를 **amserviceenabled: False로 설정** 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center
+* [Get MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) 를 실행 하 고 결과를 **amserviceenabled: False로 설정** 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center
 
-* [Get MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps&preserve-view=true) 를 실행 하 고 다음 중 하나를 수행 하는 경우 " **컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
+* [Get MpComputerStatus](/powershell/module/defender/get-mpcomputerstatus?preserve-view=true&view=win10-ps) 를 실행 하 고 다음 중 하나를 수행 하는 경우 " **컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
 
   * 다음 속성은 모두 false입니다.
 

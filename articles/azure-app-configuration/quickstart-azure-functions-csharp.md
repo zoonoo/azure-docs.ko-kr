@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: b62bf900e3e7859437b10b7b45801ee0dc575282
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 24620351cdd831ec5079e1f37726b2aa65339205
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767773"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075861"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
@@ -120,7 +120,7 @@ ms.locfileid: "91767773"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 스토리지를 만들고, [App Configuration 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 Azure Functions 앱에서 사용했습니다. 구성 설정을 동적으로 새로 고치도록 Azure Functions 앱을 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 빠른 시작에서는 새 App Configuration 스토리지를 만들고, [App Configuration 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 Azure Functions 앱에서 사용했습니다. 구성 설정을 동적으로 새로 고치도록 Azure Functions 앱을 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [동적 구성을 사용하도록 설정](./enable-dynamic-configuration-azure-functions-csharp.md)

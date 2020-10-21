@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f12c1f20e01cb67adff2c83c7262f92daf8da969
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371697"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151491"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 
@@ -115,4 +115,4 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)
-- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
+- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)

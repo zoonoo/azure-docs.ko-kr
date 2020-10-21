@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2020
 ms.author: duau
-ms.openlocfilehash: 6aa960837a3bfc7f8a04ca1f554fb10d635c2ea2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a24c0fdb244f87dbf281bcf59b5e1986a215142a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348261"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275617"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하는 고가용성 글로벌 웹 애플리케이션을 위한 Front Door 만들기
 
@@ -46,7 +46,7 @@ Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 기존 리�
 
 이 빠른 시작에서는 두 개의 리소스 그룹이 필요합니다. *미국 중부*에서 하나이며 *미국 중남부*에서 두 번째입니다.
 
-[az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)를 사용하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)를 사용하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create \
@@ -68,7 +68,7 @@ az group create \
 
 웹앱을 만들기 전에 *미국 중부*에서 하나와 *미국 중남부*에서 하나씩 두 개의 앱 서비스 계획이 필요합니다.
 
-[az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true)를 사용하여 앱 서비스 계획을 만듭니다.
+[az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create&preserve-view=true)를 사용하여 앱 서비스 계획을 만듭니다.
 
 ```azurecli-interactive
 az appservice plan create \
@@ -84,7 +84,7 @@ az appservice plan create \
 
 다음 명령을 실행하면 이전 단계의 각 앱 서비스 계획에 웹앱이 만들어집니다. 웹앱 이름은 전역적으로 고유해야 합니다.
 
-[az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true)를 사용하여 웹앱을 만듭니다.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create&preserve-view=true)를 사용하여 웹앱을 만듭니다.
 
 ```azurecli-interactive
 az webapp create \
@@ -104,7 +104,7 @@ az webapp create \
 
 다음을 실행하여 기본 부하 분산 설정, 상태 프로브 및 라우팅 규칙을 사용하여 기본 Front 도어를 만듭니다.
 
-[az network front-door create](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true)를 사용하여 Front Door를 만듭니다.
+[az network front-door create](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext_front_door_az_network_front_door_create&preserve-view=true)를 사용하여 Front Door를 만듭니다.
 
 ```azurecli-interactive
 az network front-door create \
@@ -134,7 +134,7 @@ az network front-door create \
 
 Front Door로 만든 리소스가 더 이상 필요하지 않으면 두 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 Front Door 및 모든 관련 리소스도 함께 삭제됩니다. 
 
-리소스 그룹을 삭제하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)를 사용합니다.
+리소스 그룹을 삭제하려면 [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true)를 사용합니다.
 
 ```azurecli-interactive
 az group delete \

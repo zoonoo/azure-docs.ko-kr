@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 20a9fb6a158134ffc18dc5bbb7eddd34d2b79562
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682011"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151789"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업계약 예약 비용 및 사용량 가져오기
 
@@ -55,7 +55,7 @@ Azure 사용량 데이터에 제공되는 다른 정보가 변경되었습니다
 - Term - 12개월 또는 36개월입니다.
 - RINormalizationRatio - AdditionalInfo에서 사용할 수 있습니다. 사용량 레코드에 예약이 적용되는 비율입니다. 예약에 인스턴스 크기 유연성을 사용하도록 설정한 경우 다른 크기에 적용될 수 있습니다. 이 값은 사용량 레코드에 예약이 적용된 비율을 보여줍니다.
 
-[필드 정의 참조](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[필드 정의 참조](/rest/api/consumption/usagedetails/list#definitions)
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>API를 사용하여 Azure 소비 및 예약 사용량 데이터 가져오기
 
@@ -71,7 +71,7 @@ API를 사용하여 데이터를 가져오거나 Azure Portal에서 데이터를
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-{enrollmentId} 및 {billingPeriodId}에 대한 자세한 내용은 [사용량 세부 정보 – 나열](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API 문서를 참조하세요.
+{enrollmentId} 및 {billingPeriodId}에 대한 자세한 내용은 [사용량 세부 정보 – 나열](/rest/api/consumption/usagedetails/list) API 문서를 참조하세요.
 
 메트릭 및 필터에 대한 다음 표의 정보는 일반적인 예약 문제를 해결하는 데 도움이 될 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0cc9fd5836371a925be531de773ea9c2e276c0eb
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970441"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127355"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>IoT Central을 사용하여 에너지 산업 솔루션 빌드 
 
@@ -66,6 +66,6 @@ Azure 구독 및 약정 없이 [무료로 태양 전지판 모니터링 앱](htt
 ## <a name="next-steps"></a>다음 단계
 에너지 솔루션 빌드를 시작하려면 다음을 수행하세요.
 * 무료로 애플리케이션 템플릿 만들기: [스마트 미터 앱](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), [태양 전지판 앱](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* [스마트 미터 모니터링 앱 개념](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)에 대해 알아보기
-* [태양 전지판 모니터링 앱 개념](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)에 대해 알아보기
-* [IoT Central 플랫폼](https://docs.microsoft.com/azure/iot-central/)에 대해 알아보기
+* [스마트 미터 모니터링 앱 개념](./concept-iot-central-smart-meter-app.md)에 대해 알아보기
+* [태양 전지판 모니터링 앱 개념](./concept-iot-central-solar-panel-app.md)에 대해 알아보기
+* [IoT Central 플랫폼](../index.yml)에 대해 알아보기

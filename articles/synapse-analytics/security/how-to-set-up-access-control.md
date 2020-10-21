@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260158"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341552"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호
+# <a name="secure-your-synapse-workspace-preview"></a>Synapse 작업 영역(미리 보기) 보호 
 
 이 문서에서는 역할 및 액세스 제어를 사용하여 작업을 제어하고 데이터에 액세스하는 방법을 설명합니다. 이러한 지침을 따르면 Azure Synapse Analytics에서 액세스를 간단하게 제어할 수 있습니다. 세 가지 보안 그룹 중 하나에 사용자를 추가하고 제거하기만 하면 됩니다.
 
@@ -31,7 +31,7 @@ Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성�
   - Azure Synapse Analytics용 Apache Spark 관리자
 - ADLSGEN2(Azure Data Lake Storage Gen 2)의 데이터 액세스 제어
 - Synapse SQL 및 Spark 데이터베이스에 대한 액세스 제어
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Synapse 작업 영역을 보호하는 단계
 
 이 문서에서는 지침을 단순화하기 위해 표준 이름을 사용합니다. 표준 이름을 원하는 이름으로 바꾸세요.
@@ -71,11 +71,12 @@ Synapse 작업 영역(미리 보기)을 보호하려면 다음 항목을 구성�
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>3단계: Synapse 작업 영역 만들기 및 구성
 
-Azure Portal에서 다음과 같이 Synapse 작업 영역을 만듭니다.
+ Azure Portal에서 다음과 같이 Synapse 작업 영역을 만듭니다.
 
+- 구독 선택
+- 리소스 그룹 선택- **소유자** 역할이 할당 된 리소스 그룹에 대 한 액세스 권한이 있어야 합니다.
 - 작업 영역 WS1의 이름 지정
-- 스토리지 계정으로 STG1 선택
-- "파일 시스템"으로 사용할 컨테이너로 CNT1 선택
+- 저장소 계정에 대해 STG1를 선택 합니다. "파일 시스템"으로 사용할 컨테이너로 CNT1 선택
 - Synapse Studio에서 WS1 열기
 - **관리** > **액세스 제어**를 선택하고 다음 Synapse 역할에 보안 그룹 할당
   - **WS1\_WSAdmins**를 Synapse 작업 영역 관리자에게 할당

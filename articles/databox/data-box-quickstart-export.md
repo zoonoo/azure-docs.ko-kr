@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/17/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 01fdaa95dd396e5545b65bada2a9d6410169230b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 789bd2f62673e7faf562d3a407bf2f0a4fd861bf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052463"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125495"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>빠른 시작: Azure에서 데이터를 내보내는 Azure Data Box 시작
 
@@ -28,7 +28,7 @@ ms.locfileid: "90052463"
 
 * Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
   * Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
-  * CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
+  * CSP(클라우드 솔루션 공급자). [CSP 프로그램](/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
   * Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/offers/ms-azr-0036p/)에 대해 자세히 알아보세요.
 
 * Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
@@ -96,7 +96,7 @@ Data Box를 받으면 다음 단계를 수행하여 디바이스에 케이블을
 
 이 작업을 완료하는 시간은 데이터 크기와 네트워크 속도에 따라 달라집니다.
 
-1. Windows 클라이언트를 사용하는 경우 Robocopy와 같은 SMB 호환 파일 복사 도구를 사용합니다. NFS 호스트의 경우에는 `cp` 명령 또는 `rsync`를 사용하여 데이터를 복사합니다. Robocopy를 사용하여 데이터를 복사하는 방법에 대한 자세한 내용을 확인하려면 [Robocopy](https://technet.microsoft.com/library/ee851678.aspx)를 방문하세요.
+1. Windows 클라이언트를 사용하는 경우 Robocopy와 같은 SMB 호환 파일 복사 도구를 사용합니다. NFS 호스트의 경우에는 `cp` 명령 또는 `rsync`를 사용하여 데이터를 복사합니다. Robocopy를 사용하여 데이터를 복사하는 방법에 대한 자세한 내용을 확인하려면 [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10))를 방문하세요.
 2. 디바이스 공유에 연결하고 호스트 컴퓨터에 데이터 복사를 시작합니다.
 <!-- 1. Connect to the device shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box. --> 
 

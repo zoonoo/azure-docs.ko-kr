@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89462669"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148920"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub 및 스토리지 계정 배포
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     [![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. [IoT C# 샘플](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/)을 다운로드하고 압축을 풉니다.
+1. [IoT C# 샘플](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/)을 다운로드하고 압축을 풉니다.
 
 1. 명령 창을 열고, IoT C# 샘플의 압축을 푼 폴더로 이동합니다. arm-read-write.csproj 파일이 있는 폴더를 찾습니다. 이 명령 창에서 환경 변수를 만듭니다. [Azure Portal](https://portal.azure.com )에 로그인하여 키를 가져옵니다. **리소스 그룹**을 선택한 다음, 이 빠른 시작에서 사용되는 리소스 그룹을 선택합니다.
 
@@ -134,4 +134,4 @@ ARM 템플릿을 배포하여 IoT Hub 및 스토리지 계정을 만들고, 프�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

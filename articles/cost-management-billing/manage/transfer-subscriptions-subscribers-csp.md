@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371408"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132366"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -26,7 +26,7 @@ ms.locfileid: "91371408"
 요청이 승인되면 CSP는 고객에게 결합된 청구서를 제공할 수 있습니다. 구독을 전송하는 CSP에 대한 자세한 내용은 [MPA 계정에 대한 Azure 구독의 청구 소유권 얻기](mpa-request-ownership.md)를 참조하세요.
 
 >[!IMPORTANT]
-> EA 구독을 CSP 파트너에게 전송한 후 이전에 EA 구독에 적용된 할당량 증가는 기본값으로 다시 설정됩니다. 구독 전송 후 추가 할당량이 필요한 경우 CSP 공급자가 [할당량 증가](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests) 요청을 제출하도록 합니다. 
+> EA 구독을 CSP 파트너에게 전송한 후 이전에 EA 구독에 적용된 할당량 증가는 기본값으로 다시 설정됩니다. 구독 전송 후 추가 할당량이 필요한 경우 CSP 공급자가 [할당량 증가](../../azure-portal/supportability/regional-quota-requests.md) 요청을 제출하도록 합니다. 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>CSP 파트너에 대한 기타 구독 전송
 
@@ -42,7 +42,7 @@ ms.locfileid: "91371408"
 1. 시작하기 전에 모든 Azure 리소스를 원본 구독에서 대상 구독으로 이동할 수 있는지 [유효성을 검사](/rest/api/resources/resources/validatemoveresources)합니다.  
     일부 Azure 리소스는 구독 간에 이동할 수 없습니다. 이동할 수 있는 Azure 리소스의 전체 목록을 보려면 [리소스에 대한 이동 작업 지원](../../azure-resource-manager/management/move-support-resources.md)을 참조하세요.
     > [!IMPORTANT]
-    >  - Azure CSP는 Azure Resource Manager 서비스만 지원합니다. 원본 구독에 Azure 클래식 배포 모델을 사용하여 만든 Azure 리소스가 있는 경우 마이그레이션하기 전에 [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm)로 마이그레이션해야 합니다. 웹 페이지를 보려면 파트너여야 합니다.
+    >  - Azure CSP는 Azure Resource Manager 서비스만 지원합니다. 원본 구독에 Azure 클래식 배포 모델을 사용하여 만든 Azure 리소스가 있는 경우 마이그레이션하기 전에 [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm)로 마이그레이션해야 합니다. 웹 페이지를 보려면 파트너여야 합니다.
 
 1. 모든 원본 구독 서비스에서 Azure Resource Manager 모델을 사용하는지 확인합니다. 그런 다음, [Azure Resource Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md)를 사용하여 원본 구독에서 대상 구독으로 리소스를 전송합니다.
     > [!IMPORTANT]

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: efec40e4236c00fd4792e9d6aa51943cf43838ca
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 434093df3465e363d95fb79342d1854b99583d08
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001419"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091426"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11
 
@@ -33,7 +33,7 @@ ms.locfileid: "89001419"
 
 추가 리소스:
 
-* [API 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [API 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 * [샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
@@ -205,7 +205,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 ### <a name="authenticate-the-client"></a>클라이언트 인증
 
-아래 코드에서는 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet) 메서드를 사용합니다. `TryParse`가 성공하면 `storageAccount` 변수를 초기화하고 `true`를 반환합니다.
+아래 코드에서는 환경 변수에 스토리지 계정을 가리키는 [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) 개체를 만들도록 구문 분석될 수 있는 연결 문자열이 포함되는지 확인합니다. 연결 문자열이 유효한지 확인하려면 [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) 메서드를 사용합니다. `TryParse`가 성공하면 `storageAccount` 변수를 초기화하고 `true`를 반환합니다.
 
 다음 코드를 `ProcessAsync` 메서드 내에 추가합니다.
 

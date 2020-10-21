@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 237565a7b72c3317e2c443f86965634ed7c9942c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336958"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149372"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Azure 구독의 청구 소유권을 양도하는 방법 소개
 
@@ -63,7 +63,7 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 ## <a name="resources-transferred-with-subscriptions"></a>구독과 함께 양도되는 리소스
 
-VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩니다. 그러나 구독을 다른 Azure AD 테넌트의 계정에 양도하는 경우 구독에 대한 [관리자 역할](../manage/add-change-subscription-administrator.md) 및 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)은 양도되지 않습니다. 또한 [앱 등록](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 및 다른 테넌트 관련 서비스는 구독과 함께 양도되지 않습니다.
+VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩니다. 그러나 구독을 다른 Azure AD 테넌트의 계정에 양도하는 경우 구독에 대한 [관리자 역할](../manage/add-change-subscription-administrator.md) 및 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)은 양도되지 않습니다. 또한 [앱 등록](../../active-directory/develop/quickstart-register-app.md) 및 다른 테넌트 관련 서비스는 구독과 함께 양도되지 않습니다.
 
 ## <a name="transfer-account-ownership-to-another-countryregion"></a>다른 국가/지역에 계정 소유권 양도
 
@@ -99,7 +99,7 @@ Visual Studio 또는 Microsoft 파트너 네트워크 구독이 있는 경우 �
 양도 과정에서 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)이 제거되더라도 원래 소유자 계정에 속한 사용자는 다음을 비롯한 다른 보안 메커니즘을 통해 구독에 계속 액세스할 수도 있습니다.
 
 * 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../../cloud-services/cloud-services-certs-create.md)를 참조하세요.
-* 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
+* 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-account-create.md)를 참조하세요.
 * Azure Virtual Machines 같은 서비스에 대한 원격 액세스 자격 증명.
 
 수신자가 리소스 액세스를 제한해야 하는 경우 서비스와 연결된 비밀을 업데이트하는 것을 고려해야 합니다. 대부분의 리소스를 업데이트할 수 있습니다. [Azure Portal](https://portal.azure.com)에 로그인한 후 허브 메뉴에서 **모든 리소스**를 선택합니다. 다음으로, 리소스를 선택합니다. 그리고 리소스 페이지에서 **설정**을 선택합니다. 여기서 기존 비밀을 보고 업데이트할 수 있습니다.

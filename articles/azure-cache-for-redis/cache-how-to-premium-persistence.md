@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125682"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339546"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성하는 방법
 이 문서에서는 Azure Portal를 통해 프리미엄 Azure Cache for Redis 인스턴스에 지 속성을 구성 하는 방법에 대해 알아봅니다. Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 
@@ -83,11 +83,11 @@ Azure Cache for Redis에서 Redis 지속성을 제공하는 데 사용하는 모
 
 11. 필요에 따라 리소스를 분류하려는 경우 **태그** 탭에서 이름 및 값을 입력합니다. 
 
-12.  **검토 + 만들기**를 선택합니다. 검토 + 만들기 탭으로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.
+12. **검토 + 만들기**를 선택합니다. 검토 + 만들기 탭으로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.
 
 13. 녹색 유효성 검사 통과 메시지가 표시되면 **만들기**를 선택합니다.
 
-캐시를 만드는 데 잠시 시간이 걸립니다. Azure Cache for Redis **개요** 페이지에서 진행률을 모니터링할 수 있습니다.  **상태**가  **실행 중**으로 표시되면 캐시를 사용할 준비가 된 것입니다. 
+캐시를 만드는 데 잠시 시간이 걸립니다. Azure Cache for Redis **개요** 페이지에서 진행률을 모니터링할 수 있습니다. **상태**가 **실행 중**으로 표시되면 캐시를 사용할 준비가 된 것입니다. 
 
 ## <a name="persistence-faq"></a>지속성 FAQ
 Azure Cache for Redis 지속성에 대해 자주 묻는 질문과 대답이 나와 있는 목록은 다음과 같습니다.
@@ -96,6 +96,7 @@ Azure Cache for Redis 지속성에 대해 자주 묻는 질문과 대답이 나�
 * [AOF 및 RDB 지속성을 동시에 사용할 수 있나요?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [어떤 지속성 모델을 선택해야 하나요?](#which-persistence-model-should-i-choose)
 * [다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 됩니까?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [서로 다른 두 캐시에서 지 속성에 동일한 저장소 계정을 사용할 수 있나요?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### <a name="rdb-persistence"></a>RDB 지속성
@@ -135,6 +136,9 @@ RDB 및 AOF 지속성:
 * 더 큰 크기로 조정했다면 영향은 없습니다.
 * 더 작은 크기를 조정했고 새 크기에 대한 [데이터베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이터베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [사용자 지정 데이터베이스 설정이 크기 조정 동안 영향을 받나요?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * 더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys-lru](https://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 프로세스 중에 키가 제거됩니다.
+
+### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>서로 다른 두 캐시에서 지 속성에 동일한 저장소 계정을 사용할 수 있나요?
+예, 서로 다른 두 캐시에서 지 속성에 동일한 저장소 계정을 사용할 수 있습니다.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?
 예, **데이터 지 속성** 블레이드에서 RDB 지 속성의 백업 빈도를 변경할 수 있습니다. 자세한 내용은 Redis 지속성 구성을 참조하세요.

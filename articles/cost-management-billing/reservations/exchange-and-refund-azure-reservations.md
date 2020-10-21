@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 553652832f3f4ce84a0a141455551e4977215184
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684425"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150119"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -21,7 +21,7 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능을 사용할 수 없습니다. 종량제와 CSP(클라우드 솔루션 공급자)를 비롯한 다른 US Government 구독 유형은 지원됩니다.
 
 > [!NOTE]
-> - **기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다**. [예약을 관리할 수 있는 사용자를 추가 또는 변경](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation)할 수 있습니다.
+> - **기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다**. [예약을 관리할 수 있는 사용자를 추가 또는 변경](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)할 수 있습니다.
 > - Microsoft는 현재 예약 환불에 대해 조기 종료 수수료를 청구하지 않습니다. 향후에 환불에 대한 수수료가 부과될 수 있습니다. 현재 이 요금을 사용하도록 설정된 날짜가 없습니다.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>기존 예약을 교환하거나 환불하는 방법

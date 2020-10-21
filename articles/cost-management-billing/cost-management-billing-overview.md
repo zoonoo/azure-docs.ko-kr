@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: ''
-ms.openlocfilehash: 7f4585d7199b44c82df9a03ea3244885da72d2fa
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685173"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131057"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Azure Cost Management + 청구란?
 
@@ -112,7 +112,7 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 비�
 Azure에는 Azure Cost Management + 청구 기능 세트에 포함되지 않는 다른 도구가 있습니다. 그러나 비용 관리 프로세스에서 중요한 역할을 합니다. 이러한 도구에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 - [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) - 이 도구를 사용하여 선불 클라우드 비용을 예측합니다.
-- [Azure Migrate](../migrate/migrate-overview.md) - 현재 데이터 센터 워크로드를 평가하여 Azure 대체 솔루션에서 필요한 항목을 이해합니다.
+- [Azure Migrate](/azure/cost-management-billing/migrate-services-overview) - 현재 데이터 센터 워크로드를 평가하여 Azure 대체 솔루션에서 필요한 항목을 이해합니다.
 - [Azure Advisor](../advisor/advisor-overview.md) - 사용하지 않은 VM을 식별하고 Azure 예약 인스턴스 구매에 대한 권장 사항을 받습니다.
 - [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) - Azure의 VM에 대해 현재 온-프레미스 Windows Server 또는 SQL Server 라이선스를 사용하여 비용을 절감합니다.
 

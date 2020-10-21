@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9a781fd48b30ccb32b0a733e5aa1ac054b96dc12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039fabbbb04f352042973f559e34a3c3a77e7500
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323658"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340430"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -85,7 +85,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 ### <a name="discovered-solutions"></a>검색된 솔루션
 
-Security Center는 Azure에서 실행 되는 보안 솔루션을 자동으로 검색 하지만 Security Center에 연결 되지 않고 **검색 된 솔루션** 섹션에 솔루션을 표시 합니다. 이러한 솔루션에는 [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)및 파트너 솔루션과 같은 Azure 솔루션이 포함 됩니다.
+Security Center는 Azure에서 실행 되는 보안 솔루션을 자동으로 검색 하지만 Security Center에 연결 되지 않고 **검색 된 솔루션** 섹션에 솔루션을 표시 합니다. 이러한 솔루션에는 [Azure AD ID 보호](../active-directory/identity-protection/overview-identity-protection.md)및 파트너 솔루션과 같은 Azure 솔루션이 포함 됩니다.
 
 > [!NOTE]
 > 검색 된 솔루션 기능에 대해 구독 수준에서 **Azure Defender** 를 사용 하도록 설정 합니다. 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md) 을 참조 하세요.
