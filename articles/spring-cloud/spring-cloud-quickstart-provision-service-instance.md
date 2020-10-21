@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f44ebc3885fe57d68756d908c4b392cd43b0366f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a248699b47cf99980c9490bf16c10e7196ee6ecf
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326204"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091086"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
@@ -24,7 +24,7 @@ ms.locfileid: "91326204"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure Spring Cloud 서비스는 .NET Core 3.1 이상 버전을 지원합니다.
-* [Azure CLI 버전 2.0.67 이상](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure CLI 버전 2.0.67 이상](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Git](https://git-scm.com/)
 
 ## <a name="install-azure-cli-extension"></a>Azure CLI 확장 설치
@@ -90,10 +90,10 @@ az extension add --name spring-cloud
 Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스화할 수 있습니다.  두 방법 모두 다음 절차에 설명되어 있습니다.
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [JDK 8 설치](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
-* (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
+* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
+* (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Azure Spring Cloud의 인스턴스 프로비저닝
 

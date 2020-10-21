@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102156"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342130"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -228,7 +228,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 메트릭 경고 규칙을 만들려면 다음과 같은 사용 권한이 있어야 합니다.
 
 - 경고 규칙의 대상 리소스에 대 한 읽기 권한
-- 경고 규칙이 생성 되는 리소스 그룹에 대 한 쓰기 권한 (Azure Portal에서 경고 규칙을 만드는 경우 대상 리소스가 있는 동일한 리소스 그룹에서 경고 규칙을 만듦)
+- 경고 규칙이 생성 되는 리소스 그룹에 대 한 쓰기 권한 (Azure Portal에서 경고 규칙을 만드는 경우 경고 규칙이 대상 리소스가 있는 리소스 그룹에 기본적으로 생성 됨)
 - 경고 규칙에 연결 된 모든 작업 그룹에 대 한 읽기 권한 (해당 하는 경우)
 
 

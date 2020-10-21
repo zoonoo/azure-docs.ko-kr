@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712292"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344035"
 ---
-# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 자동 응답 만들기
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>워크플로 자동화를 사용하여 경고 및 권장 사항에 대한 자동 응답 만들기
 
 모든 보안 프로그램에는 인시던트 응답을 위한 여러 워크플로가 포함되어 있습니다. 이러한 프로세스에는 관련 이해 관계자에게 알리고, 변경 관리 프로세스를 시작하고, 특정 수정 단계를 적용하는 것이 포함될 수 있습니다. 보안 전문가는 가능한 한 해당 절차의 여러 단계를 자동화할 것을 권장합니다. 자동화를 통해 오버 헤드가 감소 합니다. 또한 프로세스 단계가 미리 정의 된 요구 사항에 따라 빠르고 일관 되 게 수행 되도록 하 여 보안을 향상 시킬 수 있습니다.
 
-이 문서에서는 Azure Security Center의 워크플로 자동화 기능에 대해 설명 합니다. 이 기능은 보안 경고 및 권장 사항에 대 한 Logic Apps를 트리거할 수 있습니다. 예를 들어 경고가 발생 하는 경우 특정 사용자에 게 전자 메일을 보내는 Security Center를 원할 수 있습니다. 또한 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 사용 하 여 Logic Apps를 만드는 방법도 알아봅니다.
+이 문서에서는 Azure Security Center의 워크플로 자동화 기능에 대해 설명 합니다. 이 기능은 보안 경고 및 권장 사항에 대 한 Logic Apps를 트리거할 수 있습니다. 예를 들어 경고가 발생 하는 경우 특정 사용자에 게 전자 메일을 보내는 Security Center를 원할 수 있습니다. 또한 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용 하 여 Logic Apps를 만드는 방법도 알아봅니다.
 
 > [!NOTE]
 > 이전에 사이드바에서 플레이 북 (미리 보기) 보기를 사용한 경우 새 워크플로 자동화 페이지에서 확장 된 기능과 함께 동일한 기능을 찾을 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "91712292"
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
-|필요한 역할 및 권한:|리소스 그룹에 대 한 **보안 관리자 역할** 또는 **소유자**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.<br><br>Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한도 있어야 합니다.<br> - [논리 앱 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.<br> - 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) 권한이 필요 합니다.<br>논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.|
+|필요한 역할 및 권한:|리소스 그룹에 대 한 **보안 관리자 역할** 또는 **소유자**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.<br><br>Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한도 있어야 합니다.<br> - [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.<br> - 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 권한이 필요 합니다.<br>논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
@@ -82,9 +82,9 @@ ms.locfileid: "91712292"
 
 관련 자료는 다음을 참조 하세요. 
 
-- [워크플로 자동화를 사용 하 여 보안 응답을 자동화 하는 방법에 대 한 Microsoft Learn 모듈](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [워크플로 자동화를 사용 하 여 보안 응답을 자동화 하는 방법에 대 한 Microsoft Learn 모듈](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)
 - [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
-- [Azure Logic Apps 정보](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Logic Apps 커넥터](https://docs.microsoft.com/connectors/)
+- [Azure Logic Apps 정보](../logic-apps/logic-apps-overview.md)
+- [Logic Apps 커넥터](/connectors/)
 - [워크플로 자동화 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

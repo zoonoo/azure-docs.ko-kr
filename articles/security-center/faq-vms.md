@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d91f8242e31aa1efdf9301101307d5bad39a459
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436001"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342215"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>FAQ-가상 컴퓨터에 대 한 질문
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 머신이 지원되나요?
 
-[클래식 및 Resource Manager 배포 모델](../azure-classic-rm.md)을 모두 사용하여 작성된 VM(가상 머신)에 대해 모니터링 및 권장 사항이 제공됩니다.
+[클래식 및 Resource Manager 배포 모델](/azure/security-center/./azure-resource-manager/management/deployment-models)을 모두 사용하여 작성된 VM(가상 머신)에 대해 모니터링 및 권장 사항이 제공됩니다.
 
 지원되는 플랫폼 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
 
@@ -51,7 +51,7 @@ VM에 대한 검색 데이터가 없는 경우 이 메시지가 표시됩니다.
 Security Center는 일반적으로 한 시간마다 새 데이터를 검사하며 그에 따라 권장 사항을 새로 고칩니다. 
 
 > [!NOTE]
-> Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요.
+> Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](./security-center-enable-data-collection.md)을 참조하세요.
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?

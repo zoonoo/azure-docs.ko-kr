@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대해 간략히 설명하고, BCDR(비�
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968331"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172481"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Azure Backup 서비스란?
 
@@ -46,7 +46,7 @@ Azure Backup에서 제공하는 주요 이점은 다음과 같습니다.
 - **여러 스토리지 옵션** - Azure Backup은 스토리지/데이터의 고가용성을 유지하는 두 가지 종류의 복제를 제공합니다.
   - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy.md#locally-redundant-storage)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
   - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 더 많은 비용이 들지만, 지역 가동 중단이 발생하는 경우에도 높은 수준의 데이터 내구성을 제공합니다.
-  - [ZRS(영역 중복 스토리지)](../storage/common/storage-redundancy.md#zone-redundant-storage)는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. ZRS에는 가동 중지 시간이 없습니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)가 필요하고, 가동 중지 시간이 없어야 하는 중요한 워크로드를 ZRS에서 백업할 수 있습니다.
+  - [ZRS(영역 중복 스토리지)](../storage/common/storage-redundancy.md#zone-redundant-storage)는 [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. ZRS에는 가동 중지 시간이 없습니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)가 필요하고, 가동 중지 시간이 없어야 하는 중요한 워크로드를 ZRS에서 백업할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

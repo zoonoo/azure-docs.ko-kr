@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400129"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151629"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -110,7 +110,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Reserved VM Instances에 대한 최적화 설정 변경
 
- Reserved VM Instance를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 선택합니다. 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](https://aka.ms/RIVMGroups)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 이 옵션을 사용하면 필요할 때 VM 인스턴스를 보다 확실히 시작할 수 있게 됩니다.
+ Reserved VM Instance를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 선택합니다. 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](../../virtual-machines/reserved-vm-instance-size-flexibility.md)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 이 옵션을 사용하면 필요할 때 VM 인스턴스를 보다 확실히 시작할 수 있게 됩니다.
 
 기본적으로 예약의 범위를 공유할 경우 인스턴스 크기 유연성이 켜집니다. 데이터 센터 용량은 VM 배포에서 우선적으로 고려되지 않습니다.
 
@@ -173,7 +173,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 소프트웨어 요금제 구입:
-- [Azure Reservations에서 Red Hat 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Azure Reservations에서 Red Hat 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 할인 및 사용량 이해:

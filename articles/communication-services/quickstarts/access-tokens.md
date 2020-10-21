@@ -2,20 +2,20 @@
 title: 빠른 시작 - 액세스 토큰 만들기 및 관리
 titleSuffix: An Azure Communication Services quickstart
 description: Azure Communication Services 관리 클라이언트 라이브러리를 사용하여 ID 및 액세스 토큰을 관리하는 방법을 알아봅니다.
-author: matthewrobertson
+author: tomaschladek
 manager: jken
 services: azure-communication-services
-ms.author: marobert
+ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: a76000ecacdf78196ec1b80a60940484f6421641
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945741"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074127"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 
@@ -60,7 +60,7 @@ Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Communication Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](./create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
+Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](./create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
 
 
 ## <a name="next-steps"></a>다음 단계

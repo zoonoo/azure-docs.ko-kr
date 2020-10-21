@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327402"
+ms.locfileid: "92344018"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -65,7 +65,7 @@ Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기�
 
 또한 단순 DNS 서버를 사용 하 여 사용 가능한 모든 캐시 탑재 지점의 클라이언트 연결 부하를 분산할 수 있습니다.
 
-Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)의 azure virtual NETWORK 및 DNS 서버 구성에 대해 자세히 알아보세요.
+Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)의 azure virtual NETWORK 및 DNS 서버 구성에 대해 자세히 알아보세요.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -110,7 +110,7 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 
 [NAS 구성 문제 해결 및 NFS 저장소 대상 문제](troubleshoot-nas.md)에 대 한 자세한 정보가 포함 되어 있습니다.
 
-* **네트워크 연결:** Azure HPC 캐시는 캐시 서브넷과 NFS 시스템의 데이터 센터 간에 고대역폭 네트워크 액세스가 필요 합니다. [Express](https://docs.microsoft.com/azure/expressroute/) 경로 또는 유사한 액세스를 사용 하는 것이 좋습니다. VPN을 사용 하는 경우 대량 패킷이 차단 되지 않도록 1350에서 클램프 TCP MSS를 사용 하도록 구성 해야 할 수 있습니다. Vpn 설정 문제 해결에 대 한 추가 도움말은 [vpn 패킷 크기 제한](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) 을 참조 하세요.
+* **네트워크 연결:** Azure HPC 캐시는 캐시 서브넷과 NFS 시스템의 데이터 센터 간에 고대역폭 네트워크 액세스가 필요 합니다. [Express](../expressroute/index.yml) 경로 또는 유사한 액세스를 사용 하는 것이 좋습니다. VPN을 사용 하는 경우 대량 패킷이 차단 되지 않도록 1350에서 클램프 TCP MSS를 사용 하도록 구성 해야 할 수 있습니다. Vpn 설정 문제 해결에 대 한 추가 도움말은 [vpn 패킷 크기 제한](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) 을 참조 하세요.
 
 * **포트 액세스:** 캐시는 저장소 시스템의 특정 TCP/UDP 포트에 액세스 해야 합니다. 저장소 유형에 따라 서로 다른 포트 요구 사항이 있습니다.
 

@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, State Configuration, 업데이트 �
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0e4be48157650ace3d7bebcc3a5689caef1ba779
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24aeb37cf868bed5d4211bc9b459a4736ceea4b2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715971"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205339"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -35,7 +35,7 @@ Azure Automation의 구성 관리를 통해 다음과 같은 두 가지 기능�
 
 ### <a name="change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리
 
-변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다. 이 기능에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리](change-tracking.md)를 참조하세요.
+변경 내용 추적 및 인벤토리는 변경 추적 및 인벤토리 기능을 결합하여 가상 머신 및 서버 인프라 변경 내용을 추적할 수 있도록 합니다. 이 서비스는 사용자 환경에서 서비스, 디먼, 소프트웨어, 레지스트리 및 파일에 변경한 내용을 추적하는 기능을 지원하기 때문에 원하지 않는 변경 내용을 진단하고 경고를 생성할 수 있습니다. 인벤토리 지원을 사용하면 게스트 내 리소스를 쿼리하여 설치된 애플리케이션 및 기타 구성 항목을 볼 수 있습니다. 이 기능에 대한 자세한 내용은 [변경 내용 추적 및 인벤토리](change-tracking/overview.md)를 참조하세요.
 
 ### <a name="azure-automation-state-configuration"></a>Azure Automation 상태 구성
 

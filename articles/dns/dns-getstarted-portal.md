@@ -6,14 +6,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 93d9ce50a451221c86f5336107dba30695af159f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be76a7902c2747c7a8dc1bfc21d58ae88f3ff343
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355366"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282145"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -31,6 +31,14 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 모든 포털 단계를 위해 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+
+Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그인합니다.
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
@@ -89,7 +97,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   다음은 그 예입니다. 
+   다음은 그 예입니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

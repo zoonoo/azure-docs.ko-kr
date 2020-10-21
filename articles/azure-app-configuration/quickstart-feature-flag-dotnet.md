@@ -13,14 +13,14 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
+ms.date: 10/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 145015b7645cf7923f15ecd7c0378ff6cb96dd7e
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767691"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201270"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>빠른 시작: .NET Framework 앱에 기능 플래그 추가
 
@@ -30,7 +30,7 @@ ms.locfileid: "91767691"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+- Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -70,6 +70,7 @@ ms.locfileid: "91767691"
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. 기능 플래그가 검색되도록 `UseFeatureFlags` 옵션을 지정하여 App Configuration에 연결하도록 `Main` 메서드를 업데이트합니다. 그런 다음, `Beta` 기능 플래그가 설정된 경우 메시지를 표시합니다.
@@ -99,6 +100,8 @@ ms.locfileid: "91767691"
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 

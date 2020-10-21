@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505616"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342436"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
 
@@ -27,7 +27,7 @@ VFXT 클러스터가 개인 가상 네트워크 내에 있기 때문에 SSH 터�
 > [!NOTE]
 > 이 문서에서는 클러스터 컨트롤러 또는 클러스터의 가상 네트워크 내부에 있는 다른 VM에 공용 IP 주소를 설정했다고 가정합니다. 이 문서에서는 호스트로 해당 VM을 사용하여 클러스터에 액세스하는 방법을 설명합니다. VPN 또는 가상 네트워크 액세스를 위한 Express 경로를 사용 하는 경우 [Avere 제어판에 연결](#connect-to-the-avere-control-panel-in-a-browser)을 건너뜁니다.
 
-연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 퍼블릭/프라이빗 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) 또는 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)용 SSH 키 설명서를 참조하세요. 공개 키 대신 암호를 사용 하는 경우 연결할 때 암호를 입력 하 라는 메시지가 표시 됩니다.
+연결하기 전에 클러스터 컨트롤러를 만들 때 사용한 SSH 퍼블릭/프라이빗 키 쌍이 로컬 머신에 설치되어 있는지 확인합니다. 도움이 필요한 경우 [Windows](../virtual-machines/linux/ssh-from-windows.md) 또는 [Linux](../virtual-machines/linux/mac-create-ssh-keys.md)용 SSH 키 설명서를 참조하세요. 공개 키 대신 암호를 사용 하는 경우 연결할 때 암호를 입력 하 라는 메시지가 표시 됩니다.
 
 ## <a name="create-an-ssh-tunnel"></a>SSH 터널 만들기
 

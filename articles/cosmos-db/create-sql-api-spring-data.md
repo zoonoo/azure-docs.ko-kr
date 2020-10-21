@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0ccab295d39e463d4b6d1e764862678469fba751
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776411"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278358"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Spring Data Azure Cosmos DB v3 앱을 빌드
 
@@ -52,9 +52,9 @@ ms.locfileid: "91776411"
 
 *Cosmos DB 계정의 구조입니다.* API 또는 프로그래밍 언어와 관계없이 Cosmos DB *계정*에는 0개 이상의 *데이터베이스*가 포함되고, *DB(데이터베이스)* 에는 0개 이상의 *컨테이너*가 포함되고, *컨테이너*에는 0개 이상의 항목이 포함됩니다(아래 다이어그램 참조).
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
 
-데이터베이스, 컨테이너 및 항목은 [여기](databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키*)은 컨테이너 수준에서 정의됩니다. 
+데이터베이스, 컨테이너 및 항목은 [여기](account-databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키*)은 컨테이너 수준에서 정의됩니다. 
 
 프로비저닝된 처리량은 *RU(요청 단위)* 로 측정됩니다. 이는 화폐 가격을 포함하고 계정의 운영 비용에 대한 실질적인 결정 요소입니다. 프로비저닝된 처리량은 컨테이너 단위 또는 데이터베이스 단위 세분성에서 선택할 수 있지만 일반적으로 컨테이너 수준 처리량 사양이 선호됩니다. 처리량 프로비저닝은 [여기](set-throughput.md)서 자세히 알아볼 수 있습니다.
 

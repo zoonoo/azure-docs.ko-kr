@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: a8314fed43c8282c536fc6e95e6c3aa877408b09
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: f976bf4260e4a677aee5b5ccc4287db3d0b2e40d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91542498"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074297"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -85,7 +85,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 | 연결된 팩터리      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | 디바이스 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/)를 참조하세요.
+마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](/azure/architecture/reference-architectures/iot/)를 참조하세요.
 
 ## <a name="deployment-options"></a>배포 옵션
 

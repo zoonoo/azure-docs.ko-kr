@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b3219fe3507af1c6020ad3a7d84782847dbb57ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91568440"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275091"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 
 [Azure Cosmos DB](introduction.md)는 Azure Table Storage용으로 작성되었으며 다음과 같은 프리미엄 기능이 필요한 애플리케이션에 대한 테이블 API를 제공합니다.
 
 * [턴키 전역 배포](distribute-data-globally.md)
-* 전 세계적인 [전용 처리량](partition-data.md)
+* 전 세계적인 [전용 처리량](partitioning-overview.md)
 * 99번째 백분위수에서 1자리 밀리초 대기 시간
 * 보장된 고가용성
 * 자동 보조 인덱싱.

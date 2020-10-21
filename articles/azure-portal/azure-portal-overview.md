@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4aa1ccbd9b605850052e190949542eb014fe90a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84763927"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072393"
 ---
 # <a name="azure-portal-overview"></a>Azure 포털 개요
 
@@ -54,7 +54,7 @@ Azure Portal 메뉴와 Azure 기본 보기 둘 다 **포털 설정**에서 변�
 
 ## <a name="getting-around-the-portal"></a>포털 살펴보기
 
-기본 포털 레이아웃 및 상호 작용 방법을 이해하는 것이 좋습니다. 여기서는 사용자 인터페이스의 구성 요소와 지침을 제공하는 데 사용되는 용어를 소개합니다. 포털을 자세히 둘러보려면 과정 단원 [포털 둘러보기](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal)를 참조하세요.
+기본 포털 레이아웃 및 상호 작용 방법을 이해하는 것이 좋습니다. 여기서는 사용자 인터페이스의 구성 요소와 지침을 제공하는 데 사용되는 용어를 소개합니다. 포털을 자세히 둘러보려면 과정 단원 [포털 둘러보기](/learn/modules/tour-azure-portal/3-navigate-the-portal)를 참조하세요.
 
 Azure Portal 메뉴와 페이지 헤더는 항상 존재하는 글로벌 요소입니다. 이러한 영구적 기능은 개별 서비스 또는 기능과 연결된 사용자 인터페이스의 "셸"이며, 헤더는 글로벌 컨트롤에 대한 액세스를 제공합니다. 리소스의 구성 페이지("블레이드"라고도 함)에는 기능 간에 이동하는 데 도움이 되는 리소스 메뉴가 포함될 수도 있습니다.
 

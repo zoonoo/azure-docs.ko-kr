@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272419"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342113"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -42,7 +42,7 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 클러스터에 대한 할당량
 
-다음 Azure 구성 요소에 대 한 할당량이 충분 한지 확인 합니다. 필요한 경우 [할당량 증가를 요청합니다](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+다음 Azure 구성 요소에 대 한 할당량이 충분 한지 확인 합니다. 필요한 경우 [할당량 증가를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 > [!NOTE]
 > 여기에 나와 있는 가상 머신 및 SSD 구성 요소는 vFXT 클러스터 자체에 사용되는 것입니다. 계산 팜에 사용할 Vm 및 Ssd에 대 한 할당량도 필요 합니다.

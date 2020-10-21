@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: ee690a73907eca3bcd577cf2d983c8abc5409925
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743066"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206954"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
 ExpressRoute를 사용하면 연결 공급자의 도움을 받아 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Microsoft 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -36,10 +36,10 @@ ExpressRoute를 사용하면 연결 공급자의 도움을 받아 프라이빗 �
 ## <a name="features"></a>기능
 
 ### <a name="layer-3-connectivity"></a>3계층 연결
-Microsoft는 업계 표준 동적 라우팅 프로토콜인 BGP를 사용합니다. 이는 온-프레미스 네트워크, Azure의 인스턴스 및 Microsoft 공용 주소 간에 경로를 교환합니다. 다른 트래픽 프로필에 네트워크를 사용하여 여러 BGP 세션을 설정합니다. [ExpressRoute 회로 및 라우팅 도메인](expressroute-circuit-peerings.md) 문서에서 자세한 정보를 찾을 수 있습니다.
+Microsoft에서는 업계 표준 동적 라우팅 프로토콜인 BGP를 사용하여 온-프레미스 네트워크, Azure의 인스턴스 및 Microsoft 공용 주소 간에 경로를 교환합니다. 다른 트래픽 프로필에 네트워크를 사용하여 여러 BGP 세션을 설정합니다. [ExpressRoute 회로 및 라우팅 도메인](expressroute-circuit-peerings.md) 문서에서 자세한 정보를 찾을 수 있습니다.
 
 ### <a name="redundancy"></a>중복
-각 ExpressRoute 회로는 연결 공급자/네트워크 에지에서 [ExpressRoute Location](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations)에 있는 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/네트워크 에지 쪽에서 이중 BGP 연결을 요구합니다. 종단에 중복 디바이스/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 디바이스를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](https://azure.microsoft.com/support/legal/sla/) 가 유효한 경우 요구됩니다.
+각 ExpressRoute 회로는 연결 공급자/네트워크 에지에서 [ExpressRoute Location](./expressroute-locations.md#expressroute-locations)에 있는 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/네트워크 에지 쪽에서 이중 BGP 연결을 요구합니다. 종단에 중복 디바이스/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 디바이스를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](https://azure.microsoft.com/support/legal/sla/) 가 유효한 경우 요구됩니다.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Microsoft 클라우드 서비스에 연결
 ExpressRoute 연결을 사용하면 다음 서비스에 액세스할 수 있습니다.
@@ -82,7 +82,7 @@ ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 �
 * 다음과 같이 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리 업계의 물리적 격리입니다.
 * 비즈니스 단위에 따라 세부적으로 회로 배포 제어
 
-자세한 내용은 [ExpressRoute Direct 정보](https://go.microsoft.com/fwlink/?linkid=2022973)를 참조하세요.
+자세한 내용은 [ExpressRoute Direct 정보](./expressroute-erdirect-about.md)를 참조하세요.
 
 ### <a name="bandwidth-options"></a>대역폭 옵션
 다양한 범위의 대역폭에 대해 ExpressRoute 회로를 구입할 수 있습니다. 지원되는 대역폭은 다음과 같습니다. 연결 공급자와 확인하여 지원하는 대역폭을 확인합니다.

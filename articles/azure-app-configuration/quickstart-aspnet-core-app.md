@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440422"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075844"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -117,7 +117,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     ---
 
-    위의 변경 내용으로 [App Configuration에 대한 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)가 .NET Core 구성 API에 등록되었습니다.
+    위의 변경 내용으로 [App Configuration에 대한 구성 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)가 .NET Core 구성 API에 등록되었습니다.
 
 ## <a name="read-from-the-app-configuration-store"></a>App Configuration 저장소에서 읽기
 

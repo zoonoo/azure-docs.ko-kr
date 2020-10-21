@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3366f1a16777ecf46951296e4a1c2c28aed75feb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c15b6115c2b07503320cd7b5f3c790be03aeea94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031928"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278119"
 ---
 # <a name="tutorial-configure-your-rules-engine"></a>자습서: 규칙 엔진 구성
 
@@ -58,7 +58,7 @@ ms.locfileid: "90031928"
 
 ## <a name="configure-rules-engine-in-azure-cli"></a>Azure CLI에서 규칙 엔진 구성
 
-1. 아직 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 설치하지 않았다면 설치합니다. “front-door” 확장을 추가합니다(az extension add --name front-door). 그런 다음, 로그인하고 본인의 구독으로 전환합니다(az account set --subscription <name_or_Id>).
+1. 아직 [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 설치하지 않았다면 설치합니다. “front-door” 확장을 추가합니다(az extension add --name front-door). 그런 다음, 로그인하고 본인의 구독으로 전환합니다(az account set --subscription <name_or_Id>).
 
 1. 먼저 규칙 엔진을 만듭니다. 이 예제에서는 헤더 기반 작업과 일치 조건이 각각 하나씩 있는 규칙 하나를 보여줍니다. 
 
@@ -96,7 +96,7 @@ ms.locfileid: "90031928"
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-자세한 내용은 [여기](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true)서 AFD 규칙 엔진 명령 전체 목록을 참조하세요.   
+자세한 내용은 [여기](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest)서 AFD 규칙 엔진 명령 전체 목록을 참조하세요.   
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342402"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
@@ -73,7 +73,7 @@ Avere vFXT 클러스터의 네트워크 인프라를 계획 하는 경우 다음
 
   | 리소스 | 기존를 사용 하 시겠습니까? | 요구 사항 |
   |----------|-----------|----------|
-  | Resource group | 예 (비어 있는 경우) | 비어 있어야 합니다.|
+  | 리소스 그룹 | 예 (비어 있는 경우) | 비어 있어야 합니다.|
   | 스토리지 계정 | 클러스터를 만든 후 기존 Blob 컨테이너를 연결 하는 경우 **예** <br/>  클러스터를 만드는 동안 새 Blob 컨테이너를 만드는 경우 **아니요** | 기존 Blob 컨테이너는 비어 있어야 합니다. <br/> &nbsp; |
   | 가상 네트워크 | 예 | 새 Azure Blob 컨테이너를 만드는 경우 저장소 서비스 끝점을 포함 해야 합니다. |
   | 서브넷 | 예 | 다른 리소스를 포함할 수 없음 |
@@ -109,7 +109,7 @@ Azure Blob storage를 사용 하는 경우 클러스터의 가상 네트워크�
 
 노드당 디스크 캐시의 크기를 구성할 수 있으며, 범위는 1,000-8,000GB입니다. 노드당 4tb는 Standard_E32s_v3 노드에 대해 권장 되는 캐시 크기입니다.
 
-이러한 Vm에 대 한 자세한 내용은 메모리 액세스에 최적화 된 [가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) Microsoft Azure 설명서를 참조 하세요.
+이러한 Vm에 대 한 자세한 내용은 메모리 액세스에 최적화 된 [가상 머신 크기](../virtual-machines/sizes-memory.md) Microsoft Azure 설명서를 참조 하세요.
 
 ## <a name="account-quota"></a>계정 할당량
 

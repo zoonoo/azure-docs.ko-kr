@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8b27c3d0982e945fcabc6e7748646ea2ee1a4184
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ffc74e05d6cbe7722b9bf293c1a1e75a7de1b879
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945293"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342062"
 ---
 # <a name="continuously-export-security-alerts-and-recommendations"></a>계속 해 서 보안 경고 및 권장 사항 내보내기
 
@@ -80,7 +80,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>REST API를 사용 하 여 연속 내보내기 구성
 
-연속 내보내기는 Azure Security Center [자동화 API](https://docs.microsoft.com/rest/api/securitycenter/automations)를 통해 구성 및 관리할 수 있습니다. 이 API를 사용 하 여 가능한 다음 대상으로 내보내기 위한 규칙을 만들거나 업데이트 합니다.
+연속 내보내기는 Azure Security Center [자동화 API](/rest/api/securitycenter/automations)를 통해 구성 및 관리할 수 있습니다. 이 API를 사용 하 여 가능한 다음 대상으로 내보내기 위한 규칙을 만들거나 업데이트 합니다.
 
 - Azure Event Hub
 - Log Analytics 작업 영역
@@ -97,7 +97,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공 합니다
     > [!TIP]
     > API를 사용 하 여 여러 내보내기 구성을 설정 했거나 API 전용 매개 변수를 사용한 경우 해당 추가 기능은 Security Center UI에 표시 되지 않습니다. 대신 다른 구성이 존재 한다는 것을 알리는 배너가 표시 됩니다.
 
-[REST API 설명서](https://docs.microsoft.com/rest/api/securitycenter/automations)의 자동화 API에 대해 자세히 알아보세요.
+[REST API 설명서](/rest/api/securitycenter/automations)의 자동화 API에 대해 자세히 알아보세요.
 
 
 
@@ -169,7 +169,7 @@ Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석 하
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Azure Monitor에서 내보낸 경고 및 권장 사항 보기
 
-경우에 따라 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수 있습니다. 
+경우에 따라 [Azure Monitor](../azure-monitor/platform/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수 있습니다. 
 
 Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역 쿼리를 기반으로 하는 사용자 지정 경고를 비롯 한 다양 한 Azure 경고에 대 한 통합 경고 환경을 제공 합니다.
 
@@ -179,13 +179,13 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
     ![Azure Monitor의 경고 페이지](./media/continuous-export/azure-monitor-alerts.png)
 
-1. 규칙 만들기 페이지에서 새 규칙을 구성 합니다 ( [Azure Monitor에서 로그 경고 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)을 구성 하는 것과 같은 방식으로).
+1. 규칙 만들기 페이지에서 새 규칙을 구성 합니다 ( [Azure Monitor에서 로그 경고 규칙](../azure-monitor/platform/alerts-unified-log.md)을 구성 하는 것과 같은 방식으로).
 
     * **리소스**에서 보안 경고 및 권장 사항을 내보낸 Log Analytics 작업 영역을 선택 합니다.
 
     * **조건**에 대해 **사용자 지정 로그 검색**을 선택 합니다. 표시 되는 페이지에서 query, lookback period 및 frequency period를 구성 합니다. 검색 쿼리에서는 Log Analytics으로 연속 내보내기를 사용 하도록 설정 하는 경우 *Securityalert* 또는 *securityalert* 을 입력 하 여 Security Center 연속으로 내보낼 데이터 형식을 쿼리할 수 있습니다. 
     
-    * 필요에 따라 트리거할 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 을 구성 합니다. 작업 그룹은 전자 메일 전송, ITSM 티켓, 웹 후크 등을 트리거할 수 있습니다.
+    * 필요에 따라 트리거할 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 구성 합니다. 작업 그룹은 전자 메일 전송, ITSM 티켓, 웹 후크 등을 트리거할 수 있습니다.
     ![Azure Monitor 경고 규칙](./media/continuous-export/azure-monitor-alert-rule.png)
 
 이제 작업 그룹 (제공 된 경우)의 자동 트리거를 사용 하 여 Azure Monitor 경고에서 구성 된 연속 내보내기 규칙 및 Azure Monitor 경고 규칙에서 정의한 조건에 따라 새로운 Azure Security Center 경고 또는 권장 사항이 표시 됩니다.
@@ -220,7 +220,7 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 관련 자료는 다음 설명서를 참조 하세요. 
 
 - [워크플로 자동화 템플릿에](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)대해 자세히 알아보세요.
-- [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)
-- [Azure Sentinel 설명서](https://docs.microsoft.com/azure/sentinel/)
-- [Azure Monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/)
+- [Azure Event Hubs 설명서](../event-hubs/index.yml)
+- [Azure Sentinel 설명서](../sentinel/index.yml)
+- [Azure Monitor 설명서](../azure-monitor/index.yml)
 - [데이터 형식 스키마 내보내기](https://aka.ms/ASCAutomationSchemas)

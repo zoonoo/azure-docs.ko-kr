@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: f2f40d2ac6652b2b7c968a428961a9bd7f7b4288
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6be5e9bda27ddff157eda10bbb695dfacaecda7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217510"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342266"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Azure FXT Edge 필터에 대 한 추가 설명서
 
@@ -19,7 +19,7 @@ ms.locfileid: "92217510"
 
 ## <a name="avere-vfxt-for-azure-cache-documentation"></a>Avere vFXT for Azure cache 설명서
 
-[Avere vFXT In Azure](https://docs.microsoft.com/azure/avere-vfxt/) 는 Microsoft Azure의 가상 노드를 사용 하는 유사한 클러스터 캐시 제품입니다. Azure Portal를 사용 하 여 만들어지지만 Azure FXT Edge 필터 하드웨어 캐시와 동일한 제어판 구성 소프트웨어를 사용 합니다.
+[Avere vFXT In Azure](../avere-vfxt/index.yml) 는 Microsoft Azure의 가상 노드를 사용 하는 유사한 클러스터 캐시 제품입니다. Azure Portal를 사용 하 여 만들어지지만 Azure FXT Edge 필터 하드웨어 캐시와 동일한 제어판 구성 소프트웨어를 사용 합니다.
 
 ## <a name="legacy-hardware-documentation"></a>레거시 하드웨어 설명서
 

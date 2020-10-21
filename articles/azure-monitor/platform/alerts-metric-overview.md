@@ -4,12 +4,12 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578073"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342181"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -179,4 +179,5 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - [Azure Resource Manager 템플릿을 사용한 메트릭 경고 배포 방법 알아보기](./alerts-metric-create-templates.md)
 - [작업 그룹에 대 한 자세한 정보](action-groups.md)
 - [동적 임계값 조건 형식에 대해 자세히 알아봅니다](alerts-dynamic-thresholds.md).
+- [메트릭 경고의 문제 해결에 대 한 자세한 정보](alerts-troubleshoot-metric.md)
 

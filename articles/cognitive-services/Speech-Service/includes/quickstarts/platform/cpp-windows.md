@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/14/2019
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 856d3519ee614ac461cafd6a58417576164959ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eff21545ab56b1ff3d1126f862fa7293a38abb39
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "75469701"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097102"
 ---
 이 가이드에서는 Windows Desktop에 C++용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 

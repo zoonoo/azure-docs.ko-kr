@@ -1,20 +1,18 @@
 ---
 title: Azure Data Lake Analytics 개요
 description: Data Lake Analytics를 통해 모든 규모의 클라우드 데이터에서 얻는 정보를 사용하여 비즈니스를 이끌 수 있습니다.
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
-ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 5503a4734ca687ba89d7d40270ae9157deb0ca91
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e49dd110c85573c034d593940e4d19a5466a1511
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489989"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220128"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics이란?
 

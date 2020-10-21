@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88509368"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207226"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
@@ -33,7 +33,7 @@ Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들�
 
 * Windows SDK 10.0.18362.0[(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [혼합 현실용 Visual Studio 도구](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
+* [혼합 현실용 Visual Studio 도구](/windows/mixed-reality/install-the-tools). 특히, 다음 *워크로드* 설치는 필수입니다.
   * **C++를 사용한 데스크톱 개발**
   * **UWP(유니버설 Windows 플랫폼) 개발**
 * GIT([다운로드](https://git-scm.com/downloads))

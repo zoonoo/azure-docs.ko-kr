@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d368c938e805164b70c7d3a22f9229b5efd89dde
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045403"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092956"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -187,10 +187,10 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [JDK 8 설치](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
-* (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
+* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
+* (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
 
 ## <a name="deployment-procedures"></a>배포 절차
 
@@ -304,7 +304,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
     ![프로젝트 가져오기](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Azure Spring Cloud에 게이트웨이 앱 배포
-Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정으로 로그인하고 구독을 선택해야 합니다. 로그인 세부 정보는 [설치 및 로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
+Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정으로 로그인하고 구독을 선택해야 합니다. 로그인 세부 정보는 [설치 및 로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
 
 1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** -> **Azure Spring Cloud에 배포**를 선택합니다.
 
@@ -313,7 +313,7 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
 1. **이름** 필드에서 *:게이트웨이*를 기존 **이름**에 추가합니다.
 1. **아티팩트** 텍스트 상자에서 *com.piggymetrics:gateway:1.0-SNAPSHOT*을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
-1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
+1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./spring-cloud-quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
 1. **퍼블릭 엔드포인트**를 *사용*으로 설정합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
 1. *게이트웨이*를 입력한 다음, **확인**을 클릭합니다.

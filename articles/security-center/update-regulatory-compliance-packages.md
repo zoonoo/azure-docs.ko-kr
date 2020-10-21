@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106266"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342198"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 세트 사용자 지정
 
@@ -41,7 +41,7 @@ Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마
 
 NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, 영국 공식 및 영국 NHS, 캐나다 연방 PBMM 및 Azure CIS 1.1.0(신규)과 같은 표준을 추가하면 Azure CIS 1.1.0을 보다 완전하게 표현할 수 있습니다. 
 
-또한 공통 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침인 **Azure 보안 벤치마크**를 추가할 수 있습니다. ([Azure Security Benchmark에 대해 자세히 알아봅니다](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+또한 공통 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침인 **Azure 보안 벤치마크**를 추가할 수 있습니다. ([Azure Security Benchmark에 대해 자세히 알아봅니다](../security/benchmarks/introduction.md).)
 
 추가 표준은 사용할 수 있게 되면 대시보드에서 지원됩니다. 
 
@@ -116,6 +116,6 @@ NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, 영국 공식 및 영국 NHS, 캐나다
 
 기타 관련 자료는 다음 문서를 참조하세요. 
 
-- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [보안 센터 규정 준수 대시보드](security-center-compliance-dashboard.md)
 - [보안 정책 작업](tutorial-security-policy.md)

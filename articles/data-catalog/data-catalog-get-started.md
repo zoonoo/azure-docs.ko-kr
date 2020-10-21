@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a7d575b92bff69c13ded70187005ce1db018ea4c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88118793"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151993"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>빠른 시작: Azure Data Catalog 만들기
 
@@ -24,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!Note]
-> Azure 보안 요구 사항으로 인해 Azure Data Catalog는 TLS(전송 계층 보안) 1.2를 강화했습니다. TLS 1.0 및 TLS 1.1이 비활성화되었습니다. 머신이 TLS 1.2용으로 업데이트되지 않은 경우 등록 도구를 실행하는 동안 오류가 발생할 수 있습니다. TLS 1.2에 대해 머신을 업데이트하려면 [전송 계층 보안(1.2) 사용](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2)을 참조하세요.
+> Azure 보안 요구 사항으로 인해 Azure Data Catalog는 TLS(전송 계층 보안) 1.2를 강화했습니다. TLS 1.0 및 TLS 1.1이 비활성화되었습니다. 머신이 TLS 1.2용으로 업데이트되지 않은 경우 등록 도구를 실행하는 동안 오류가 발생할 수 있습니다. TLS 1.2에 대해 머신을 업데이트하려면 [전송 계층 보안(1.2) 사용](/mem/configmgr/core/plan-design/security/enable-tls-1-2)을 참조하세요.
 
 시작하려면 다음이 필요합니다.
 

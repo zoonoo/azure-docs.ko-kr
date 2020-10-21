@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: bf715d872fab421de30ebcb146a1981a7d008738
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e270185550fac5a06d800d74d5fcd751aceb25d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80585984"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342232"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Azure Security Center에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 사용자 데이터 관리에는 데이터에 액세스하거나, 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
@@ -87,7 +87,7 @@ Security Center 사용자는 경고 인시던트를 삭제할 수 없습니다. 
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-자세한 내용은 [보안 경고 가져오기 (컬렉션 가져오기)](https://msdn.microsoft.com/library/mt704050.aspx)를 참조 하세요.
+자세한 내용은 [보안 경고 가져오기 (컬렉션 가져오기)](/previous-versions/azure/reference/mt704050(v=azure.100))를 참조 하세요.
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>동의 없이 프로파일링 또는 마케팅을 위해 개인 데이터 사용 제한
 Security Center 사용자는 해당 [보안 연락처 데이터](security-center-provide-security-contact-details.md)를 삭제하여 옵트아웃하도록 선택할 수 있습니다.

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448473"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342096"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
@@ -47,7 +47,7 @@ ms.locfileid: "91448473"
 
 :::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="경고 표시 안 함 규칙 만들기":::
 
-## <a name="create-a-suppression-rule"></a>비 표시 규칙 만들기
+## <a name="create-a-suppression-rule"></a>제거 규칙 만들기
 
 원치 않는 보안 경고를 표시하지 않는 규칙을 만드는 몇 가지 방법이 있습니다.
 
@@ -139,7 +139,7 @@ REST API에서 중복된 경고 제거 규칙의 관련 HTTP 메서드는 다음
 
 - **DELETE**: 기존 규칙을 삭제하되 이 규칙에 의해 이미 해제된 경고의 상태는 변경하지 않습니다.
 
-전체 세부 정보 및 사용 예제는 [API 설명서](https://docs.microsoft.com/rest/api/securitycenter/)를 참조하세요. 
+전체 세부 정보 및 사용 예제는 [API 설명서](/rest/api/securitycenter/)를 참조하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

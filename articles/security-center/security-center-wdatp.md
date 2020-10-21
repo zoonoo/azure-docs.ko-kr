@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275346"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342147"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -81,7 +81,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
     > [!NOTE]
     > Azure Arc 사용 가능 컴퓨터를 보호 하려면 [빠른 시작: Azure arc 사용 서버와 하이브리드 컴퓨터 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)의 지침을 사용 합니다.
 
-1. 서버에서 끝점에 대해 Microsoft Defender를 이미 사용 허가 하 고 배포한 경우 [Offboard Windows servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)에 설명 된 절차를 사용 하 여 제거 합니다.
+1. 서버에서 끝점에 대해 Microsoft Defender를 이미 사용 허가 하 고 배포한 경우 [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)에 설명 된 절차를 사용 하 여 제거 합니다.
 1. Security Center 메뉴에서 **가격 책정 및 설정**을 선택합니다.
 1. 변경하려는 구독을 선택합니다.
 1. **위협 탐지**를 선택합니다.
@@ -94,11 +94,11 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>끝점 포털에 대 한 Microsoft Defender 액세스
 
-1. 사용자 계정에 필요한 권한이 있는지 확인 합니다. [자세히 알아보기](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. 사용자 계정에 필요한 권한이 있는지 확인 합니다. [자세히 알아보기](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-1. 익명 트래픽을 차단 하는 프록시 또는 방화벽이 있는지 확인 합니다. Defender for Endpoint 센서는 시스템 컨텍스트에서 연결 하므로 익명 트래픽이 허용 되어야 합니다. 되어야에 끝점 포털에 대 한 액세스를 보장 하려면 [프록시 서버에서 서비스 url에 대 한 액세스 사용](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
+1. 익명 트래픽을 차단 하는 프록시 또는 방화벽이 있는지 확인 합니다. Defender for Endpoint 센서는 시스템 컨텍스트에서 연결 하므로 익명 트래픽이 허용 되어야 합니다. 되어야에 끝점 포털에 대 한 액세스를 보장 하려면 [프록시 서버에서 서비스 url에 대 한 액세스 사용](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
 
-1. [Microsoft Defender Security Center 포털](https://securitycenter.windows.com/)을 엽니다. [Microsoft Defender Security Center 포털 개요](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview)에서 포털의 기능 및 아이콘에 대해 자세히 알아보세요. 
+1. [Microsoft Defender Security Center 포털](https://securitycenter.windows.com/)을 엽니다. [Microsoft Defender Security Center 포털 개요](/windows/security/threat-protection/microsoft-defender-atp/portal-overview)에서 포털의 기능 및 아이콘에 대해 자세히 알아보세요. 
 
 ## <a name="send-a-test-alert"></a>테스트 경고 보내기
 
@@ -128,7 +128,7 @@ Defender for Endpoint는 **서버에 대 한 Azure defender**를 사용 하 여 
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>타사 EDR 도구에서 전환할 어떻게 할까요? 있나요?
 
-Microsoft 끝점 이외의 솔루션에서 전환 하는 방법에 대 한 전체 지침은 Microsoft Defender for Endpoint 설명서에서 제공 됩니다. [마이그레이션 개요](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+Microsoft 끝점 이외의 솔루션에서 전환 하는 방법에 대 한 전체 지침은 Microsoft Defender for Endpoint 설명서에서 제공 됩니다. [마이그레이션 개요](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 
 

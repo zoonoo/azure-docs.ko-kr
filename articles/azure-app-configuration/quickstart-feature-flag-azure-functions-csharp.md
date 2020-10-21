@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: f57163b3d17877f7f8c66fa57fc8a0736c6affb7
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: d1dc843ff676429f202c0b9077057d067294f738
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767699"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076167"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>빠른 시작: Azure Functions 앱에 기능 플래그 추가
 
@@ -149,7 +149,7 @@ ms.locfileid: "91767699"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 기능 플래그를 만들고, [App Configuration 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 Azure Functions 앱에서 사용했습니다.
+이 빠른 시작에서는 기능 플래그를 만들고, [App Configuration 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 Azure Functions 앱에서 사용했습니다.
 
 - [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
 - [기능 플래그 관리](./manage-feature-flags.md)

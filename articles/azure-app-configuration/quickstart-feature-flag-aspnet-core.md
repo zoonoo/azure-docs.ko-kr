@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7d146004fb4fa120e08b4d67c1d68d51cc6f3c8f
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767718"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074450"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
@@ -106,7 +106,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    위의 변경 내용으로 [App Configuration에 대한 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)가 .NET Core 구성 API에 등록되었습니다.
+    위의 변경 내용으로 [App Configuration에 대한 구성 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)가 .NET Core 구성 API에 등록되었습니다.
 
 1. *Startup.cs*에서 .NET Core 기능 관리자에 대한 참조를 추가합니다.
 
@@ -260,7 +260,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 기능을 관리하는 데 사용했습니다.
+이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 ASP.NET Core 웹앱에서 기능을 관리하는 데 사용했습니다.
 
 * [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
 * [기능 플래그 관리](./manage-feature-flags.md)
