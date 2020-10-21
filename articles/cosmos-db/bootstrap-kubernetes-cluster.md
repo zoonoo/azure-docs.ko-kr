@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbfa780269f28e269fed51a25ec4255d18d8ab39
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570116"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277880"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Azure Cosmos DB(미리 보기)에서 Azure Kubernetes를 사용하는 방법
 
@@ -181,6 +181,6 @@ Azure Cosmos 계정의 이름은 k8s에 지정된 DNS 접두사가 붙은 항목
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos 데이터베이스, 컨테이너 및 항목으로 작업](databases-containers-items.md)하는 방법 알아보기
+* [Azure Cosmos 데이터베이스, 컨테이너 및 항목으로 작업](account-databases-containers-items.md)하는 방법 알아보기
 * [프로비전된 처리량 비용을 최적화](optimize-cost-throughput.md)하는 방법 알아보기
 

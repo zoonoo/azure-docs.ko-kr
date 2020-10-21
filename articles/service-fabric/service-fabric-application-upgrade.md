@@ -3,18 +3,18 @@ title: Service Fabric 애플리케이션 업그레이드
 description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 Service Fabric 애플리케이션 업그레이드를 소개합니다.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eecd923b009ecbe9f4e607ad57a99b3f20955b9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067514"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309845"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드
 Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 Service Fabric은 새로운 [애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)를 이전 버전과 비교하여 애플리케이션의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
 
 > [!NOTE]
-> [Applicationparameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
+> [Applicationparameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters

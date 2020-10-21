@@ -109,6 +109,8 @@
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/personalizer/context/context
     - name: 문제 해결
       href: troubleshooting.md
     - name: 국가별 가용성
@@ -121,7 +123,3 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: 가격 책정
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/personalizer'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/921562-personalizer'

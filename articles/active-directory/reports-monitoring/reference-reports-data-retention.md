@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239556"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308876"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Azure AD 저장소에서 데이터를 보고 하는 기간은 얼마 인가요?
 
@@ -34,7 +34,7 @@ ms.locfileid: "80239556"
 | Azure AD 버전 | 수집 시작 |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | 구독을 위한 가입 시기 |
-| Azure AD Free| 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](https://aka.ms/aadreports)를 사용할 때  |
+| Azure AD Free| 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](./overview-reports.md)를 사용할 때  |
 
 ---
 

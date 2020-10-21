@@ -4,12 +4,12 @@ description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 애플
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee040916ae1ce6ac931abc1fc07021b08cdbf895
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075191"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309062"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 애플리케이션 업그레이드
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "89075191"
 서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 경우 수행할 작업을 구성할 수 있습니다 (예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용 하는 SDK 샘플 중 하나에 대해 모니터링 되는 업그레이드를 안내 합니다. 
 
 > [!NOTE]
-> [Applicationparameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
+> [Applicationparameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -149,4 +149,3 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
 [애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
-

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650102"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276055"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 기존 제품 업데이트
 
@@ -67,7 +67,7 @@ ms.locfileid: "89650102"
 
 1. 파트너 센터에서 **계획 개요**로 돌아갑니다.
 2. **새 플랜 만들기**를 선택합니다. **계획 ID** 와 **계획 이름을**입력 하 고 **만들기**를 선택 합니다.
-1. 숨겨진 계획에서 기술 구성을 다시 사용 하려면 **기술 구성 다시 사용** 확인란을 선택 합니다. 자세한 내용은 [계획 개요](azure-vm-create-offer.md#plan-overview) 를 참조 하세요.
+1. 숨겨진 계획에서 기술 구성을 다시 사용 하려면 **기술 구성 다시 사용** 확인란을 선택 합니다. 자세한 내용은 [VM 제품에 대 한 계획 만들기](../azure-vm-create-plans.md) 를 참조 하세요.
     > [!IMPORTANT]
     > 이 계획을 선택 하 여 **다른 계획의 기술 구성**다시 사용할 경우 나중에 부모 계획의 판매를 중지할 수 없습니다. 부모 계획의 판매를 중지 하려면이 옵션을 사용 하지 마세요.
 3. 새 가격을 포함 하 여 새 계획에 대 한 모든 필수 섹션을 완료 합니다.

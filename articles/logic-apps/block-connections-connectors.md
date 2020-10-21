@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269763"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310029"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Azure Logic Apps 커넥터에서 만든 연결 차단
 
@@ -224,7 +224,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
 
 * [정책 구조 정의](../governance/policy/concepts/definition-structure.md)
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의](../logic-apps/policy-samples.md)
+* [Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -311,7 +311,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
 
 * [정책 구조 정의](../governance/policy/concepts/definition-structure.md)
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의](../logic-apps/policy-samples.md)
+* [Azure Logic Apps에 대한 Azure Policy 기본 제공 정책 정의](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 

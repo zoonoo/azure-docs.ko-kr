@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 08abd9ff1134415e47923f22e753691225fc23b8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f32bc444ba753f48955de4a4c16bde8dfb7a05fc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164723"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316655"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -94,7 +94,7 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 
 * [애플리케이션 만들기, 배포 및 관리하는 방법 알아보기](service-fabric-tutorial-create-dotnet-app.md)
 * [프로그래밍 모델에 대해 알아보기: Reliable Services 및 Reliable Actors](service-fabric-choose-framework.md)
-* [GitHub의 서비스 패브릭 코드 샘플 확인](https://aka.ms/servicefabricsamples)
+* [GitHub의 서비스 패브릭 코드 샘플 확인](/samples/browse/?products=azure)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 * [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
 * [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보

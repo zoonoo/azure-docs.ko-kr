@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310013"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -95,11 +95,11 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    > [!NOTE]
    > 시나리오에서 액세스가 필요한 IP 주소 수를 제한해야 하는 경우 단일 ISE에 이 방법을 사용할 수 있습니다. 방화벽 또는 가상 네트워크 어플라이언스에 대한 추가 비용이 시나리오에 적합한지 고려하십시오. [Azure Firewall 가격 책정](https://azure.microsoft.com/pricing/details/azure-firewall/)에 대해 자세히 알아보세요.
 
-* 제약 조건 없이 새 Azure 가상 네트워크 및 서브넷을 만든 경우, 서브넷 전체의 트래픽을 제어하기 위해 가상 네트워크에 [NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups)를 설정할 필요가 없습니다.
+* 제약 조건 없이 새 Azure 가상 네트워크 및 서브넷을 만든 경우, 서브넷 전체의 트래픽을 제어하기 위해 가상 네트워크에 [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md#network-security-groups)를 설정할 필요가 없습니다.
 
-* 기존 가상 네트워크의 경우 선택적으로 [NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups)를 설정하여 [서브넷 전체에서 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)할 수 있습니다. 이 경로로 이동하거나 이미 NSG를 사용하는 경우에는 해당 NSG에 대해 [이 표에 설명되어 있는 포트를 열어야](#network-ports-for-ise)합니다.
+* 기존 가상 네트워크의 경우 선택적으로 [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md#network-security-groups)를 설정하여 [서브넷 전체에서 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)할 수 있습니다. 이 경로로 이동하거나 이미 NSG를 사용하는 경우에는 해당 NSG에 대해 [이 표에 설명되어 있는 포트를 열어야](#network-ports-for-ise)합니다.
 
-  [NSG 보안 규칙](../virtual-network/security-overview.md#security-rules)을 설정하는 경우 **TCP**와 **UDP** 프로토콜을 모두 사용해야 합니다. 그렇지 않으면 각 프로토콜에 대해 별도의 규칙을 만들 필요가 없도록 **임의**를 선택합니다. NSG 보안 규칙은 포트에 액세스해야 하는 IP 주소에 대해 열어야 하는 해당 포트를 설명합니다. 이러한 엔드포인트 사이에 존재하는 방화벽, 라우터 또는 기타 항목도 해당 포트가 IP 주소에 액세스할 수 있도록 유지해야 합니다.
+  [NSG 보안 규칙](../virtual-network/network-security-groups-overview.md#security-rules)을 설정하는 경우 **TCP**와 **UDP** 프로토콜을 모두 사용해야 합니다. 그렇지 않으면 각 프로토콜에 대해 별도의 규칙을 만들 필요가 없도록 **임의**를 선택합니다. NSG 보안 규칙은 포트에 액세스해야 하는 IP 주소에 대해 열어야 하는 해당 포트를 설명합니다. 이러한 엔드포인트 사이에 존재하는 방화벽, 라우터 또는 기타 항목도 해당 포트가 IP 주소에 액세스할 수 있도록 유지해야 합니다.
 
 * 방화벽을 통해 강제 터널링을 설정 하 여 인터넷 바인딩된 트래픽을 리디렉션하는 경우 [추가 강제 터널링 요구 사항을](#forced-tunneling)검토 합니다.
 

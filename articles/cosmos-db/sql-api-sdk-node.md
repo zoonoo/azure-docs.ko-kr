@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 106f446c56377c1211d04e388608cd31e2aeef23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3834b1890cb20b717462c4cb8ed1f779570c675
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804217"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275216"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Node.js SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,14 +26,14 @@ ms.locfileid: "91804217"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 |리소스  |링크  |
@@ -353,7 +353,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 * 문서의 TTL(Time to Live) 기능에 대한 지원이 추가되었습니다.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
+* [분할된 컬렉션](partitioning-overview.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다.
 
 ### <a name="156"></a><a name="1.5.6"></a>1.5.6
 * 잘못된 concat 결과로 인해 링크를 반환하지 못했던 RangePartitionResolver.resolveForRead 버그가 수정되었습니다.

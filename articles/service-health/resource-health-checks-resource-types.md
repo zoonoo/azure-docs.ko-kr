@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447050"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316116"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -51,7 +51,7 @@ ms.locfileid: "91447050"
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
 |실행된 검사|
 |---|
-|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에 걸쳐 정상 상태 인가요?</li><li>모든 VM 인스턴스에서 역할이 정상 상태 인가요?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떻습니까?</li><li>플랫폼 또는 고객이 시작한 작업으로 인해 VM 상태가 변경 되었습니까?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li><li>실행 되는 검사에 대 한 [자세한 정보](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services)</li></ul>|
+|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에 걸쳐 정상 상태 인가요?</li><li>모든 VM 인스턴스에서 역할이 정상 상태 인가요?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떻습니까?</li><li>플랫폼 또는 고객이 시작한 작업으로 인해 VM 상태가 변경 되었습니까?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li><li>실행 되는 검사에 대 한 [자세한 정보](../cloud-services/resource-health-for-cloud-services.md)</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |실행된 검사|
@@ -257,4 +257,4 @@ ms.locfileid: "91447050"
 ## <a name="next-steps"></a>다음 단계
 -  [Azure Service Health 대시보드 소개](service-health-overview.md) 및 [Azure Resource Health 소개](resource-health-overview.md)를 참조하여 자세한 내용을 확인합니다. 
 -  [Azure Resource Health에 대한 질문과 대답](resource-health-faq.md)
-- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md)을 참조하세요. 
+- 상태 문제 알림을 받도록 경고를 설정합니다. 자세한 내용은 [Service Health 이벤트에 대한 경고 구성](./alerts-activity-log-service-notifications-portal.md)을 참조하세요.

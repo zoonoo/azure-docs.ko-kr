@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397459"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310287"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
@@ -46,7 +46,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>문자열 비교
 
-연산자       |Description                         |대/소문자 구분|예제(`true` 생성)
+연산자       |설명                         |대/소문자 구분|예제(`true` 생성)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |같음                              |예           |`"aBc" == "aBc"`
 `!=`           |같지 않음                          |예           |`"abc" != "ABC"`
@@ -74,8 +74,8 @@ print @"C:\backslash\not\escaped\with @ prefix"
 `!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|예        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아니요             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아니요         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |예           |`"Fabrikam" matches regex "b.*k"`
 `in`           |요소 중 하나와 같음       |예           |`"abc" in ("123", "345", "abc")`
 `!in`          |어떤 요소와도 같지 않음   |예           |`"bca" !in ("123", "345", "abc")`

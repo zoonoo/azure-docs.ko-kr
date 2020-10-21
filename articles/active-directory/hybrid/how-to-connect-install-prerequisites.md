@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662159"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276947"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -47,6 +47,14 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * "점으로 구분 된" (이름에 마침표 ".")를 사용 하 여 온-프레미스 포리스트 또는 도메인을 사용 합니다. NetBIOS 이름은 *지원 되지 않습니다*.
 * [Active Directory 휴지통을 사용 하도록 설정](how-to-connect-sync-recycle-bin.md)하는 것이 좋습니다.
 
+### <a name="powershell-execution-policy"></a>PowerShell 실행 정책
+Azure Active Directory Connect는 설치의 일부로 서명 된 PowerShell 스크립트를 실행 합니다. PowerShell 실행 정책에서 스크립트 실행을 허용 하는지 확인 합니다.
+
+설치 중에 권장 되는 실행 정책은 "RemoteSigned"입니다.
+
+PowerShell 실행 정책 설정에 대 한 자세한 내용은 [set-executionpolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)를 참조 하세요.
+
+
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
 Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니다. 이 서버에 대 한 관리자 액세스 권한이 적절 하 게 보호 되는 것이 중요 합니다. [권한 있는 액세스 보안에 대](/windows-server/identity/securing-privileged-access/securing-privileged-access)한 지침을 따릅니다. 
 
@@ -54,7 +62,7 @@ Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니
 
 Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
 
-#### <a name="installation-prerequisites"></a>설치 필수 구성 요소
+#### <a name="installation-prerequisites"></a>설치 필수 조건
 
 - Azure AD Connect 도메인에 가입 된 Windows Server 2012 이상에 설치 해야 합니다. 
 - Azure AD Connect는 Small Business Server 또는 Windows Server Essentials 2019 이전에 설치할 수 없습니다 (Windows Server Essentials 2019이 지원 됨). 서버는 Windows Server Standard 이상을 사용해야 합니다. 

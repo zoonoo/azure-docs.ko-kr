@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203054"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275554"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 리소스에 대한 할당량 관리 및 늘리기
 
@@ -173,11 +173,11 @@ Virtual Machines, Storage, 네트워크 등 다양 한 Azure 리소스에 대 �
 
 1. [Azure 지원 요청을 만들고](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) __기본 사항__ 섹션에서 다음 옵션을 선택 합니다.
 
-    | 필드 | 선택 영역 |
+    | 필드 | 선택 |
     | ----- | ----- |
     | 문제 유형 | 기술 |
     | 서비스 | 내 서비스. 드롭다운 목록에서 __Machine Learning__ 을 선택 합니다. |
-    | 문제 유형 | 작업 영역 설치, SDK 및 CLI |
+    | 문제 유형 | 작업 영역 구성 및 보안 |
     | 문제 하위 유형 | 개인 끝점 및 사설 DNS 영역 허용 요청 |
 
 2. __세부 정보__ 섹션에서 __설명__ 필드를 사용 하 여 사용 하려는 Azure 지역 및 사용할 시나리오를 제공 합니다. 여러 구독에 대 한 할당량 증가가 요청 해야 하는 경우이 필드에 구독 Id를 나열 합니다.

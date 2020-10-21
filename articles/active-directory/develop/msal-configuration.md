@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88854910"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275603"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
 
@@ -34,7 +34,8 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 |-----------|------------|-------------|-------|
 | `client_id` | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 클라이언트 ID |
 | `redirect_uri`   | String | 예 | [응용 프로그램 등록 페이지](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에서 앱의 리디렉션 URI |
-| `authorities` | 목록\<Authority> | 아니요 | 앱에 필요한 권한 목록 |
+| `broker_redirect_uri_registered` | 부울 | 아니요 | 가능한 값: `true` , `false` |
+| `authorities` | 은\<Authority> | 아니요 | 앱에 필요한 권한 목록 |
 | `authorization_user_agent` | AuthorizationAgent (enum) | 아니요 | 가능한 값: `DEFAULT` , `BROWSER` , `WEBVIEW` |
 | `http` | HttpConfiguration | 아니요 | 구성 `HttpUrlConnection` `connect_timeout` 및 `read_timeout` |
 | `logging` | LoggingConfiguration | 아니요 | 로깅 세부 정보 수준을 지정 합니다. 선택적 구성에는 `pii_enabled` 부울 값을 사용 하는 및,, `log_level` `ERROR` `WARNING` `INFO` 또는를 사용 `VERBOSE` 하는가 포함 됩니다. |
@@ -46,6 +47,10 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 ### <a name="redirect_uri"></a>redirect_uri
 
 응용 프로그램을 등록할 때 등록 한 리디렉션 URI입니다. Broker 응용 프로그램에 대 한 리디렉션 uri 인 경우 broker 앱에 대 한 올바른 리디렉션 URI 형식을 사용 하 고 있는지 확인 하려면 [공용 클라이언트 앱에 대 한 리디렉션 uri](msal-client-application-configuration.md#redirect-uri-for-public-client-apps) 를 참조 하세요.
+
+### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
+
+조정 된 인증을 사용 하려는 경우 속성을 `broker_redirect_uri_registered` 로 설정 해야 합니다 `true` . 조정 된 인증 시나리오에서 응용 프로그램이 [공용 클라이언트 앱에 대 한 Uri 리디렉션](msal-client-application-configuration.md#redirect-uri-for-public-client-apps)에 설명 된 대로 broker와 통신 하기 위한 올바른 형식이 아닌 경우 응용 프로그램은 리디렉션 uri의 유효성을 검사 하 고 시작 시 예외를 throw 합니다.
 
 ### <a name="authorities"></a>권한
 
@@ -86,7 +91,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>AAD authority & 대상을 Microsoft identity platform 끝점에 매핑
 
-| 형식 | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 참고 |
+| Type | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 메모 |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` 는 계정이 인에 대 한 테 넌 트 별칭입니다. 예: 특정 Azure Active Directory 테 넌 트 또는 Microsoft 계정 시스템 |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Contoso.com에 있는 계정만 토큰을 획득할 수 있습니다. 확인 된 도메인 또는 테 넌 트 GUID는 테 넌 트 ID로 사용 될 수 있습니다. |
@@ -98,6 +103,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 > MSAL에서는 인증 기관 유효성 검사를 사용 하거나 사용 하지 않도록 설정할 수 없습니다.
 > 구성 또는 메타 데이터를 통해 Microsoft에 알려진 권한을 개발자에 게 사용자에 게 알려 두는 것입니다.
 > MSAL에서 토큰에 대 한 요청을 알 수 없는 기관에 수신 하는 경우 `MsalClientException` 형식의이 `UnknownAuthority` 반환 됩니다.
+> Azure AD B2C에 대해 조정 된 인증이 작동 하지 않습니다.
 
 #### <a name="authority-properties"></a>인증 기관 속성
 
@@ -138,7 +144,7 @@ Microsoft Identity broker와 호환 되는 브로커 리디렉션 URI를 사용 
 
 HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
-| 속성 | 데이터 형식 | 필수 | 참고 |
+| 속성 | 데이터 형식 | 필수 | 메모 |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | Int | 아니요 | 시간 (밀리초) |
 | `read_timeout` | Int | 아니요 | 시간 (밀리초) |
@@ -147,7 +153,7 @@ HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
 로깅에 대 한 전역 설정은 다음과 같습니다.
 
-| 속성 | 데이터 형식  | 필수 | 참고 |
+| 속성 | 데이터 형식  | 필수 | 메모 |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | 아니요 | 개인 데이터를 내보낼지 여부 |
 | `log_level`   | 문자열 | No | 출력할 로그 메시지입니다. 지원 되는 로그 수준 `ERROR` 에는,, 및가 `WARNING` `INFO` `VERBOSE` 있습니다. |
@@ -341,7 +347,7 @@ MSAL과 함께 제공 되는 기본 MSAL 구성은 아래와 같습니다. [GitH
 ## <a name="how-to-use-a-configuration-file"></a>구성 파일을 사용 하는 방법
 
 1. 구성 파일을 만듭니다. 에서 사용자 지정 구성 파일을 만드는 것이 좋습니다 `res/raw/auth_config.json` . 하지만 원하는 위치에 배치할 수 있습니다.
-2. 을 생성할 때 구성을 찾을 위치를 MSAL에 알려 주십시오 `PublicClientApplication` . 예를 들어:
+2. 을 생성할 때 구성을 찾을 위치를 MSAL에 알려 주십시오 `PublicClientApplication` . 예:
 
    ```java
    //On Worker Thread

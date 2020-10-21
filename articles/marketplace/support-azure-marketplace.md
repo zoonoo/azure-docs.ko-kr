@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329757"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275412"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 지원
 
@@ -45,6 +45,6 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 ## <a name="next-steps"></a>다음 단계
 
 * [상업용 Marketplace 게시자 가이드 페이지](index.yml)를 참조하세요.
-* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](partner-center-portal/support.md)에 대해 자세히 알아보세요.
+* [파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원](support.md)에 대해 자세히 알아보세요.
 
 ---

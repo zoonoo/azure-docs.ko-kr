@@ -6,15 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998546"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277028"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
 
@@ -68,15 +68,15 @@ ms.locfileid: "88998546"
 
 변경 피드 프로세서는 사용자 코드 오류에 대한 복원력이 있습니다. 즉, 대리자 구현에 처리되지 않은 예외가 있는 경우(#4단계) 특정 변경 내용의 일괄 처리를 처리하는 스레드가 중지되고 새 스레드가 생성됩니다. 새 스레드는 해당 파티션 키 값 범위에 대한 임대 저장소의 최신 시점을 확인하고, 해당 위치에서 다시 시작하여 대리자에게 동일한 변경 내용의 일괄 처리를 효율적으로 보냅니다. 이 동작은 대리자가 변경사항을 올바르게 처리할 때까지 계속되며, 대리자 코드가 예외를 throw하는 경우 해당 일괄 처리를 다시 시도하므로 변경 피드 프로세서에서 "한 번 이상"의 보장을 가지는 이유입니다.
 
-변경 피드 프로세서가 동일한 변경 내용의 일괄 처리를 계속해서 다시 시도하는 것에 “고착”되지 않도록 하려면 예외 발생 시 배달 못 한 큐에 문서를 쓰도록 처리 함수에 논리를 추가해야 합니다. 이 디자인은 계속해서 나중에 변경 내용을 처리할 수 있는 동안 처리되지 않은 변경 내용을 추적할 수 있도록 합니다. 배달 못 한 편지 큐는 단순히 다른 Cosmos 컨테이너가 될 수 있습니다. 정확한 데이터 저장소는 중요하지 않습니다. 단지 처리되지 않은 변경 내용이 지속됩니다.
+변경 피드 프로세서가 동일한 변경 내용의 일괄 처리를 계속해서 다시 시도하는 것에 “고착”되지 않도록 하려면 예외 발생 시 배달 못 한 큐에 문서를 쓰도록 처리 함수에 논리를 추가해야 합니다. 이 디자인은 계속해서 나중에 변경 내용을 처리할 수 있는 동안 처리되지 않은 변경 내용을 추적할 수 있도록 합니다. 배달 못 한 편지 큐는 다른 Cosmos 컨테이너가 될 수 있습니다. 정확한 데이터 저장소는 중요하지 않습니다. 단지 처리되지 않은 변경 내용이 지속됩니다.
 
-또한 [변경 피드 평가기](how-to-use-change-feed-estimator.md)를 사용하여 변경 피드를 읽을 때 변경 피드 프로세서 인스턴스의 진행률을 모니터링할 수 있습니다. 변경 피드 프로세서에서 계속해서 동일한 변경 내용의 일괄 처리를 다시 시도하는 경우를 모니터링하는 것 외에도, 변경 피드 프로세서가 CPU, 메모리, 네트워크 대역폭 등의 사용 가능한 리소스로 인해 지연되는지 여부를 파악할 수도 있습니다.
+또한 [변경 피드 평가기](how-to-use-change-feed-estimator.md)를 사용하여 변경 피드를 읽을 때 변경 피드 프로세서 인스턴스의 진행률을 모니터링할 수 있습니다. 이 예측을 사용 하 여 변경 피드 프로세서가 CPU, 메모리 및 네트워크 대역폭과 같은 사용 가능한 리소스로 인해 "중단" 되는지 또는 지연 수 있는지 파악할 수 있습니다.
 
 ## <a name="deployment-unit"></a>배포 단위
 
 단일 변경 피드 프로세서 배포 단위는 동일한 `processorName` 및 임대 컨테이너 구성을 사용하는 하나 이상의 인스턴스로 구성됩니다. 하나 이상의 인스턴스로 구성된 각 배포 단위 및 변경 내용에 대해 서로 다른 비즈니스 흐름이 있는 여러 배포 단위를 사용할 수 있습니다. 
 
-예를 들어 컨테이너에 변경 내용이 있을 때마다 외부 API를 트리거하는 하나의 배포 단위가 있을 수 있습니다. 다른 배포 단위는 변경 내용이 있을 때마다 데이터를 실시간으로 이동할 수 있습니다. 모니터링되는 컨테이너에서 변경이 발생하면 모든 배포 단위에 대한 알림이 표시됩니다.
+예를 들어 컨테이너에 변경 내용이 있을 때마다 외부 API를 트리거하는 하나의 배포 단위가 있을 수 있습니다. 다른 배포 단위는 변경 내용이 있을 때마다 실시간으로 데이터를 이동할 수 있습니다. 모니터링되는 컨테이너에서 변경이 발생하면 모든 배포 단위에 대한 알림이 표시됩니다.
 
 ## <a name="dynamic-scaling"></a>동적 크기 조정
 
@@ -94,7 +94,32 @@ ms.locfileid: "88998546"
 
 ## <a name="change-feed-and-provisioned-throughput"></a>변경 피드 및 프로비전된 처리량
 
-Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용하므로 사용된 RU 요금이 청구됩니다. 임대 컨테이너에서 사용되는 RU 요금이 청구됩니다.
+모니터링 되는 컨테이너에 대 한 변경 피드 읽기 작업은 RUs를 사용 합니다. 
+
+임대 컨테이너에 대 한 작업은 RUs를 사용 합니다. 동일한 임대 컨테이너를 사용 하는 인스턴스 수가 많을 수록 더 높은 수준의 사용이 증가 합니다. 인스턴스 수를 확장 하 고 증가 하기로 결정 한 경우 임대 컨테이너에서 사용을 모니터링 해야 합니다.
+
+## <a name="starting-time"></a>시작 시간
+
+기본적으로 변경 피드 프로세서는 처음 시작 될 때 임대 컨테이너를 초기화 하 고 [처리 수명 주기](#processing-life-cycle)를 시작 합니다. 변경 피드 프로세서가 처음으로 초기화 되기 전에 모니터링 되는 컨테이너에서 발생 한 모든 변경 내용은 검색 되지 않습니다.
+
+### <a name="reading-from-a-previous-date-and-time"></a>이전 날짜와 시간에서 읽기
+
+`DateTime` 인스턴스를 `WithStartTime` 빌더 확장에 전달하여 **특정 날짜와 시간**에 시작되는 변경 사항을 읽도록 변경 피드 프로세서를 초기화할 수 있습니다.
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+특정 날짜 및 시간에 변경 피드 프로세서가 초기화되고 이후에 발생한 변경 내용을 읽기 시작합니다.
+
+### <a name="reading-from-the-beginning"></a>시작부터 읽기
+
+데이터 마이그레이션이나 컨테이너의 전체 기록 분석과 같은 다른 시나리오에서는 **컨테이너 수명이 시작**될 때부터 변경 피드를 읽어야 합니다. 이렇게 하려면 빌더 확장에 `WithStartTime`을 사용하면 되지만 `DateTime.MinValue.ToUniversalTime()`을 전달하면 다음과 같이 최소 `DateTime` 값의 UTC 표현이 생성됩니다.
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+변경 피드 프로세서가 초기화되고 컨테이너 수명이 시작되는 시점부터 변경 내용을 읽기 시작합니다.
+
+> [!NOTE]
+> 이러한 사용자 지정 옵션은 변경 피드 프로세서의 시작 시점을 설정 하는 데만 작동 합니다. 임대 컨테이너가 처음으로 초기화되고 나면 변경해도 아무런 영향이 없습니다.
 
 ## <a name="where-to-host-the-change-feed-processor"></a>변경 피드 프로세서를 호스트할 위치
 
@@ -105,7 +130,7 @@ Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용
 * [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)의 백그라운드 작업입니다.
 * [ASP.NET 호스 티 드 서비스](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services)입니다.
 
-변경 피드 프로세서는 수명이 짧은 환경에서 실행 될 수 있지만, 임대 컨테이너는 상태를 유지 하기 때문에 이러한 환경의 시작 및 중지 주기는 환경을 시작할 때마다 프로세서를 시작 하는 오버 헤드로 인해 알림을 수신 하는 지연을 추가 합니다.
+변경 피드 프로세서는 수명이 짧은 환경에서 실행 될 수 있지만 임대 컨테이너는 상태를 유지 하기 때문에 이러한 환경의 시작 주기는 환경을 시작할 때마다 프로세서를 시작 하는 오버 헤드로 인해 알림을 수신 하는 지연을 추가 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

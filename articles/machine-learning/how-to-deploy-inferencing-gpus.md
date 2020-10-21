@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 0fda407a916ca43ed36fa567374752bbb7a49a80
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998965"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314798"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
 
@@ -26,7 +26,7 @@ ms.locfileid: "91998965"
 유추 또는 모델 점수 매기기는 배포 된 모델을 사용 하 여 예측을 수행 하는 단계입니다. Cpu 대신 Gpu를 사용 하면 매우 병렬화 계산에서 성능상의 이점이 있습니다.
 
 > [!IMPORTANT]
-> 웹 서비스 배포의 경우 GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다. __기계 학습 파이프라인__을 사용 하는 유추의 경우 gpu는 Azure Machine Learning 계산 에서만 지원 됩니다. ML 파이프라인 사용에 대 한 자세한 내용은 [일괄 처리 예측 실행](how-to-use-parallel-run-step.md)을 참조 하세요. 
+> 웹 서비스 배포의 경우 GPU 유추는 Azure Kubernetes Service 에서만 지원 됩니다. __기계 학습 파이프라인__을 사용 하는 유추의 경우 gpu는 Azure Machine Learning 계산 에서만 지원 됩니다. ML 파이프라인 사용에 대 한 자세한 내용은 [자습서: 일괄 처리 점수 매기기를 위한 Azure Machine Learning 파이프라인 빌드](tutorial-pipeline-batch-scoring-classification.md)를 참조 하세요. 
 
 > [!TIP]
 > 이 문서의 코드 조각에서는 TensorFlow 모델을 사용 하지만 Gpu를 지 원하는 모든 기계 학습 프레임 워크에 정보를 적용할 수 있습니다.

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 245b7c63b3c459d545dfd39fe162df1ee4f816f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e54f153738d232eaddff8b0fc499a763581ca726
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031044"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277428"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인하고 앱 시작
 
@@ -42,7 +42,7 @@ ms.locfileid: "90031044"
 
 컴퓨터 또는 iOS 또는 Android 모바일 장치에서 Edge 브라우저의 모바일 버전에서 내 앱 포털에 액세스 하 여 사용할 수 있습니다.
 
-![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-portal-apps-page.png)
+![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-home.png)
 
 ## <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>컴퓨터에서 내 앱 포털에 액세스 및 사용
 

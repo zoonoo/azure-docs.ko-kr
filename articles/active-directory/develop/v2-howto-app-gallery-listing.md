@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 08/19/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439747"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275693"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -240,7 +240,7 @@ Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그
 
 ![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 
-암호 SSO를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려면 다음과 같이 **암호 sso** 를 선택 합니다.
+암호 SSO를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려면 다음과 같이 **암호 sso (사용자 이름 & 암호)** 를 선택 합니다.
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 

@@ -44,10 +44,6 @@
         - name: Azure Data Explorer에서 공유
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: 모니터
-      href: how-to-monitor.md
-    - name: 문제 해결
-      href: data-share-troubleshoot.md
     - name: 데이터 세트 추가
       href: how-to-add-datasets.md
     - name: 데이터 세트 매핑 구성
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: 공유 구독 철회
       href: how-to-revoke-share-subscription.md
+    - name: 모니터
+      href: how-to-monitor.md
     - name: 보안
       href: security.md
     - name: 재해 복구
       href: disaster-recovery.md
+    - name: 문제 해결
+      href: data-share-troubleshoot.md
 - name: 참조
   items:
     - name: .NET

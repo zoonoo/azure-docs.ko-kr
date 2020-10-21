@@ -197,6 +197,8 @@
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
     - name: 샘플
       items:
         - name: 이미지 처리 앱 검색
@@ -211,10 +213,6 @@
       href: language-support.md
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 국가별 가용성

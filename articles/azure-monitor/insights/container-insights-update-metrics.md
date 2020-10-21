@@ -2,14 +2,14 @@
 title: 메트릭에 대 한 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법 | Microsoft Docs
 description: 이 문서에서는 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 컨테이너에 Azure Monitor을 업데이트 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a94f250c83fbd2779620376087a83b8851e583e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618148"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309442"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용할 수 있도록 컨테이너용 Azure Monitor를 업데이트하는 방법
 
@@ -26,6 +26,7 @@ ms.locfileid: "91618148"
 | 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | *노드* 메트릭에는 *호스트가* 차원으로 포함 됩니다. 또한<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
 | Pod/ | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | *Pod* 메트릭에는 ControllerName, Kubernetes namespace, name, phase로 다음이 포함 됩니다. |
 | 정보. 컨테이너/컨테이너 | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Persistentvolumes/ | pvUsageExceededPercentage | |
 
 이러한 새 기능을 지원 하기 위해 새로운 컨테이너 화 된 에이전트가 릴리스에 포함 되어 있습니다. 버전 **microsoft/oms: ciprod05262020** for AKS 및 버전 **microsoft/oms: Ciprod09252020** For Azure Arc enabled Kubernetes 클러스터. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다. 이 기능을 지원 하도록 클러스터를 업데이트 하려면 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 합니다. 이 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다.
 
