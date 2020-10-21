@@ -1,29 +1,29 @@
 ---
-title: 코드 제공 정책 워크플로 설계
+title: 코드 워크플로로 Azure Policy 디자인
 description: Azure Policy 정의를 코드로 배포하고 리소스의 유효성을 자동으로 검사하는 워크플로를 설계하는 방법을 알아봅니다.
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598216"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320608"
 ---
-# <a name="design-policy-as-code-workflows"></a>코드 제공 정책 워크플로 설계
+# <a name="design-azure-policy-as-code-workflows"></a>코드 워크플로로 Azure Policy 디자인
 
 Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 통해 각 정책 정의를 수동으로 관리하는 방식을 엔터프라이즈 규모에서 보다 관리하기 쉽고 반복 가능한 방식으로 전환하려고 합니다. 클라우드에서 대규모로 시스템을 관리하는 일반적인 방법 두 가지는 다음과 같습니다.
 
 - 코드로 서의 인프라: 환경을 정의 하는 콘텐츠를 처리 하는 방법입니다. Azure Resource Manager 템플릿 (ARM 템플릿)에서 Azure 청사진에 대 한 정의를 소스 코드로 Azure Policy 하는 것입니다.
 - DevOps: 최종 사용자에게 가치를 지속적으로 제공할 수 있도록 하는 사람, 프로세스 및 제품을 통칭
 
-이러한 아이디어의 조합이 바로 코드 제공 정책입니다. 기본적으로 정책 정의를 소스 제어에서 유지하고, 변경 내용이 적용될 때마다 해당 변경 내용을 테스트하고, 유효성을 검사합니다. 그러나 이는 코드 제공 인프라 또는 DevOps와 관련된 정책 범위에 있어서는 안 됩니다.
+Azure Policy 코드는 이러한 아이디어의 조합입니다. 기본적으로 정책 정의를 소스 제어에서 유지하고, 변경 내용이 적용될 때마다 해당 변경 내용을 테스트하고, 유효성을 검사합니다. 그러나 이는 코드 제공 인프라 또는 DevOps와 관련된 정책 범위에 있어서는 안 됩니다.
 
 또한 유효성 검사 단계는 다른 연속 통합 또는 지속적인 배포 워크플로의 구성 요소여야 합니다. 예를 들어 애플리케이션 환경 또는 가상 인프라 배포 등이 있습니다. 응용 프로그램 및 운영 팀은 빌드 및 배포 프로세스의 초기 구성 요소에 대 한 Azure Policy 유효성 검사를 수행 하 여 변경 내용이 비규격 인지 여부를 확인 합니다.
 
 ## <a name="definitions-and-foundational-information"></a>정의 및 기본 정보
 
-정책 세부 정보를 코드 워크플로로 가져오기 전에 다음 정의 및 예제를 검토 합니다.
+Azure Policy의 세부 정보를 코드 워크플로로 가져오기 전에 다음 정의 및 예제를 검토 합니다.
 
 - [정책 정의](./definition-structure.md)
 - [이니셔티브 정의](./initiative-definition-structure.md)
@@ -43,10 +43,10 @@ Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 �
 
 ## <a name="workflow-overview"></a>워크플로 개요
 
-코드 제공 정책에 권장되는 일반적인 워크플로는 다음 다이어그램과 같습니다.
+코드와 같이 Azure Policy의 권장 되는 일반적인 워크플로는 다음과 같습니다.
 
-:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="만들 테스트에서 배포할 테스트에 대 한 코드 워크플로 상자로 정책을 표시 하는 다이어그램입니다." border="false":::
-   정책을 코드 워크플로 상자로 표시 하는 다이어그램입니다. 정책 및 이니셔티브 정의를 만드는 과정을 만듭니다. 적용 모드를 사용 하지 않도록 설정 된 테스트 커버 할당입니다. 준수 상태에 대 한 게이트웨이 확인 다음에 할당 M S 사용 권한 및 수정 리소스를 부여 합니다.  적용 모드를 사용 하도록 설정 하 여 할당을 업데이트 하는 커버를 배포 합니다.
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="만들기에서 테스트에 배포할 코드 워크플로 상자로 Azure Policy를 보여 주는 다이어그램입니다." border="false":::
+   Azure Policy를 코드 워크플로 상자로 표시 하는 다이어그램입니다. 정책 및 이니셔티브 정의를 만드는 과정을 만듭니다. 적용 모드를 사용 하지 않도록 설정 된 테스트 커버 할당입니다. 준수 상태에 대 한 게이트웨이 확인 다음에 할당 M S 사용 권한 및 수정 리소스를 부여 합니다.  적용 모드를 사용 하도록 설정 하 여 할당을 업데이트 하는 커버를 배포 합니다.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>정책 정의 만들기 및 관리
@@ -56,22 +56,19 @@ Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 �
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -89,17 +86,15 @@ Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 �
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -114,7 +109,7 @@ Automation에서 새로 생성되거나 업데이트된 정책 또는 이니셔�
 > [!NOTE]
 > 적용 모드는 유용하지만 다양한 조건에서 정책 정의를 철저히 테스트하지 않고 사용해서는 안 됩니다. 정책 정의는 `PUT` 및 `PATCH` REST API 호출, 준수 및 미준수 리소스, 리소스에서 누락된 속성과 같은 에 지 사례를 사용하여 테스트해야 합니다.
 
-할당을 배포한 후 정책 SDK 또는 [Azure Policy 준수 검색 GitHub 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan) 을 사용 하 여 새 할당에 대 한 [호환성 데이터를 가져옵니다](../how-to/get-compliance-data.md) . 정책 및 할당을 테스트하는 데 사용되는 환경에는 준수 및 미준수 리소스가 둘 다 있어야 합니다.
+할당이 배포 된 후 Azure Policy SDK, [Azure Policy 준수 검사 GitHub 작업](https://github.com/marketplace/actions/azure-policy-compliance-scan)또는 [Azure Pipelines 보안 및 준수 평가 작업](/azure/devops/pipelines/tasks/deploy/azure-policy) 을 사용 하 여 새 할당에 대 한 [호환성 데이터를 가져옵니다](../how-to/get-compliance-data.md) . 정책 및 할당을 테스트하는 데 사용되는 환경에는 준수 및 미준수 리소스가 둘 다 있어야 합니다.
 코드에 대한 유용한 단위 테스트와 마찬가지로, 리소스가 예상대로 작동하고 가양성 또는 가음성이 없는지도 테스트하려고 합니다. 예상되는 항목에 대해서만 테스트 및 유효성 검사를 수행하는 경우 미처 파악하지 못한 예기치 않은 정책 영향이 있을 수 있습니다. 자세한 내용은 [새 Azure Policy 정의의 영향 평가](./evaluate-impact.md)를 참조하세요.
 
 ### <a name="enable-remediation-tasks"></a>수정 작업 사용
@@ -138,13 +133,13 @@ Automation에서 새로 생성되거나 업데이트된 정책 또는 이니셔�
 
 ## <a name="process-integrated-evaluations"></a>프로세스 통합 평가
 
-일반적인 코드 제공 정책 워크플로는 정책 및 이니셔티브를 대규모로 개발하고 환경에 배포하기 위한 것입니다. 그러나 정책 평가는 인프라를 만들기 위해 응용 프로그램 배포 또는 ARM 템플릿 실행과 같이 Azure에서 리소스를 배포 하거나 만드는 모든 워크플로에 대 한 배포 프로세스의 일부 여야 합니다.
+코드로 Azure Policy에 대 한 일반적인 워크플로는 정책 및 이니셔티브를 규모에 따라 환경으로 개발 하 고 배포 하기 위한 것입니다. 그러나 정책 평가는 인프라를 만들기 위해 응용 프로그램 배포 또는 ARM 템플릿 실행과 같이 Azure에서 리소스를 배포 하거나 만드는 모든 워크플로에 대 한 배포 프로세스의 일부 여야 합니다.
 
 이러한 경우 테스트 구독 또는 리소스 그룹에 대해 애플리케이션 또는 인프라 배포가 수행된 후 해당 범위에 대한 정책 평가를 수행하여 모든 기존 정책과 이니셔티브의 유효성을 확인해야 합니다. 이러한 환경에서는 **enforcementMode**가 _사용 안 함_으로 구성될 수 있지만 애플리케이션 또는 인프라 배포가 정책 정의를 위반하는지 초기에 확인하기에 유용합니다. 따라서 이 정책 평가는 이러한 워크플로의 한 단계로 포함되어야 하며 미준수 리소스를 만드는 배포에 실패합니다.
 
 ## <a name="review"></a>검토
 
-이 문서에서는 일반적인 코드 제공 정책 워크플로를 설명하고, 정책 평가가 다른 배포 워크플로에 포함되어야 하는 경우도 설명합니다. 이 워크플로는 트리거를 기반으로 하는 스크립팅된 단계 및 자동화를 지원하는 모든 환경에서 사용할 수 있습니다.
+이 문서에서는 코드와 Azure Policy에 대 한 일반적인 워크플로와 정책 평가가 다른 배포 워크플로에 포함 되어야 하는 경우에 대해 설명 합니다. 이 워크플로는 트리거를 기반으로 하는 스크립팅된 단계 및 자동화를 지원하는 모든 환경에서 사용할 수 있습니다. GitHub에서이 워크플로를 사용 하는 방법에 대 한 자습서는 [자습서: github를 사용 하 여 Azure Policy를 코드로 구현](../tutorials/policy-as-code-github.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

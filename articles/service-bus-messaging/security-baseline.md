@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e844904f236e9d81404a3481af9349ac8881085
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761161"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310445"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Service Bus에 대 한 Azure 보안 기준
 
@@ -62,7 +62,7 @@ Azure Security Center를 사용 하 고 네트워크 보호 권장 사항을 따
 
 - [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
 
-- [Azure Security Center 통합 위협 인텔리전스](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -111,7 +111,7 @@ Azure Security Center를 사용 하 고 네트워크 보호 권장 사항을 따
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Service Bus 네임 스페이스에 대 한 Azure 기본 제공 정책](/azure/service-bus-messaging/policy-samples#azure-service-bus-messaging)
+- [Service Bus 네임 스페이스에 대 한 Azure 기본 제공 정책](./policy-reference.md#azure-service-bus-messaging)
 
 - [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
@@ -129,7 +129,7 @@ Azure Security Center를 사용 하 고 네트워크 보호 권장 사항을 따
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다. 
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags) 
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md) 
 
 - [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md) 
 
@@ -143,7 +143,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Service Bus와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -177,7 +177,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Service Bus에 대 한 진단 설정을 사용 하도록 설정 하는 방법](service-bus-diagnostic-logs.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -231,9 +231,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Service Bus에 대 한 기본 제공 역할](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -311,7 +311,7 @@ Service Bus에 대 한 데이터 평면 액세스는 관리 되는 Id, 앱 등�
 
 **지침**: Azure Active Directory 보안 보고서 및 모니터링을 사용 하 여 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 시기를 검색 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
@@ -347,7 +347,7 @@ Service Bus에 대 한 데이터 평면 액세스는 관리 되는 Id, 앱 등�
 
 추가로 Service Bus 네임 스페이스의 공유 액세스 서명을 정기적으로 회전 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -363,7 +363,7 @@ Service Bus에 대 한 데이터 평면 액세스는 관리 되는 Id, 앱 등�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. 그런 다음 Azure Monitor 로그에서 발생 하는 특정 작업에 대 한 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Active Directory를 사용 하 여 Service Bus 리소스에 대 한 액세스 권한 부여](authenticate-application.md)
 
@@ -375,7 +375,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Active Directory의 id 보호 및 위험 검색 기능을 사용 하 여 Service Bus 사용 가능한 리소스와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다. 조직의 보안 응답을 구현 하기 위해 Azure 센티널을 통해 자동화 된 응답을 사용 하도록 설정 해야 합니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -403,7 +403,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 중요 한 정보를 저장 하거나 처리 하는 Azure 리소스를 추적 하는 데 도움이 되도록 Service Bus와 관련 된 리소스에 태그를 사용 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -413,11 +413,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및 관리 그룹을 구현 합니다. Service Bus 네임 스페이스는 전용 끝점을 구성 하 고 적절 하 게 태그를 지정 하 여 가상 네트워크로 구분 해야 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 활용 하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 활용 하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
@@ -437,7 +437,7 @@ Microsoft는 Azure Service Bus에 대 한 기본 인프라를 관리 하 고, �
 
 - [전용 끝점을 통해 Azure Service Bus 네임 스페이스에 대 한 액세스 허용](private-link-service.md)
 
-- [네트워크 보안 그룹 및 서비스 태그 이해](/azure/virtual-network/security-overview)
+- [네트워크 보안 그룹 및 서비스 태그 이해](../virtual-network/network-security-groups-overview.md)
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
@@ -507,7 +507,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -527,11 +527,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 해당 하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 Azure Service Bus 네임 스페이스 및 관련 리소스를 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -574,7 +574,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -603,9 +603,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 "ServiceBus" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [Service Bus에 대 한 Azure 기본 제공 정책 ](/azure/service-bus-messaging/policy-samples)
+- [Service Bus에 대 한 Azure 기본 제공 정책 ](./policy-reference.md)
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -653,7 +653,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Service Bus에 대 한 고객 관리 키 구성](configure-customer-managed-key.md)
 
-- [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal)
+- [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -731,7 +731,7 @@ Microsoft 맬웨어 방지는 Azure 서비스를 지 원하는 기본 호스트�
 
 - [미사용 데이터를 암호화 하기 위해 고객이 관리 하는 키를 구성 하는 방법 Azure Service Bus](configure-customer-managed-key.md)
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -741,7 +741,7 @@ Microsoft 맬웨어 방지는 Azure 서비스를 지 원하는 기본 호스트�
 
 **지침**: Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호 합니다. Azure Service Bus에는 고객이 관리 하는 키에 일시 삭제 및 구성 제거 안 함이 필요 합니다.
 
-- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [키를 사용 하 여 키 자격 증명 모음 설정](../event-hubs/configure-customer-managed-key.md)
 
@@ -775,7 +775,7 @@ Microsoft 맬웨어 방지는 Azure 서비스를 지 원하는 기본 호스트�
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md) 
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -843,5 +843,5 @@ Microsoft 맬웨어 방지는 Azure 서비스를 지 원하는 기본 호스트�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

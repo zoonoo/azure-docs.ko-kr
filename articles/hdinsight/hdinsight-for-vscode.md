@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/07/2020
+ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c9a610eb30b33adb82cebda74e99c37f84dacf9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530156"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319413"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -75,7 +75,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 1. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **Azure: Sign In**을 입력합니다.
 
-    ![Visual Studio Code용 Spark & Hive Tools 로그인](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
+   ![Visual Studio Code용 Spark & Hive Tools 로그인](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 2. 로그인 지침에 따라 Azure에 로그인합니다. 연결되면 Visual Studio Code 창 아래쪽의 상태 표시줄에 Azure 계정 이름이 표시됩니다.  
 
@@ -115,8 +115,10 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 3. 제네릭 Livy 끝점을 입력 합니다. 예: http \: //10.172.41.42:18080.
 
 4. 인증 형식 **기본** 또는 **없음**을 선택합니다.  **기본**을 선택 하는 경우:  
-    &emsp;a. Ambari 사용자 이름을 입력 합니다. 기본값은 **admin**입니다.  
-    &emsp;b. Ambari 암호를 입력 합니다.
+   
+   1. Ambari 사용자 이름을 입력 합니다. 기본값은 **admin**입니다.  
+
+   2. Ambari 암호를 입력 합니다.
 
 5. 확인을 위해 **출력** 뷰를 검토합니다.
 
@@ -128,7 +130,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 3. **출력** 뷰를 검토합니다. 이 보기에는 Azure 구독에 연결 된 클러스터 (또는 클러스터)와 모든 클러스터가 표시 됩니다.
 
-    ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result1.png)
+   ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="set-the-default-cluster"></a>기본 클러스터 설정
 
@@ -154,9 +156,9 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 3. 다음 코드를 복사 하 여 Hive 파일에 붙여넣은 다음 저장 합니다.
 
-    ```hiveql
-    SELECT * FROM hivesampletable;
-    ```
+   ```hiveql
+   SELECT * FROM hivesampletable;
+   ```
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
@@ -166,9 +168,9 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
    ![대화형 Apache Hive 쿼리 결과](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - **결과** 패널: 전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
+   - **결과** 패널: 전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
 
-    - **메시지** 패널: **줄** 번호를 선택 하면 실행 중인 스크립트의 첫 번째 줄로 이동 합니다.
+   - **메시지** 패널: **줄** 번호를 선택 하면 실행 중인 스크립트의 첫 번째 줄로 이동 합니다.
 
 ## <a name="submit-interactive-pyspark-queries"></a>대화형 PySpark 쿼리 제출
 
@@ -197,61 +199,74 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
         print(sortedCollection[i])
    ```
 
-4. PySpark 커널을 설치 하 라는 메시지가 창의 오른쪽 아래 모퉁이에 표시 됩니다. **설치** 단추를 클릭 하 여 PySpark 설치를 계속할 수 있습니다. 또는 [ **건너뛰기** ] 단추를 클릭 하 여이 단계를 건너뜁니다.
+4. PySpark/Synapse Pyspark 커널을 설치하라는 메시지가 창의 오른쪽 아래 모서리에 표시됩니다. **설치** 단추를 클릭하여 PySpark/Synapse Pyspark 설치를 진행하거나 **건너뛰기** 단추를 클릭하여 이 단계를 건너뜁니다.
 
    ![PySpark 설치를 건너뛰는 옵션을 보여 주는 스크린샷](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. 나중에 설치해야 하는 경우 **파일** > **기본 설정** > **설정**으로 이동한 다음, 설정에서 **Hdinsight: Pyspark 설치 건너뛰기 사용**을 선택 취소합니다. 
+5. 나중에 설치 해야 하는 경우 **파일**  >  **기본**  >  **설정**으로 이동한 다음 설정에서 **HDInsight: Skip Pyspark 설치 사용** 을 선택 취소할 수 있습니다. 
     
     ![Pyspark 건너뛰기 설치를 사용 하도록 설정 하는 옵션을 보여 줍니다.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. 4 단계에서 설치가 성공적으로 완료 되 면 "PySpark 설치 되었습니다." 라는 메시지 상자가 창의 오른쪽 아래 모서리에 표시 됩니다. **다시 로드** 단추를 클릭하여 창을 다시 로드합니다.
-    ![pyspark 설치 성공](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
+   ![pyspark 설치 성공](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-8. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark Interactive** 를 선택 하 여 쿼리를 제출 합니다. 또는 Ctrl + Alt + I 바로 가기를 사용 합니다.
+7. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server**를 입력합니다.
+
+   ![jupyter 서버를 시작할 인터프리터 선택](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
+
+8. 아래의 python 옵션을 선택합니다.
+
+   ![아래 옵션을 선택합니다.](./media/hdinsight-for-vscode/choose-the-below-option.png)
+    
+9. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window**를 입력합니다.
+
+   ![창 다시 로드](./media/hdinsight-for-vscode/reload-window.png)
+
+10. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
+
+11. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark interactive/Synapse: PySpark interactive** 를 선택 하 여 쿼리를 제출 합니다. 
 
     ![pyspark 대화형 상황에 맞는 메뉴](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark**로 전환 하면 코드가 성공적으로 실행 됩니다. 도구를 사용하면 바로 가기 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
+12. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark**로 전환 하면 코드가 성공적으로 실행 됩니다. Synapse Pyspark kernel로 전환 하려는 경우 Azure Portal에서 자동 설정을 사용 하지 않도록 설정 하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 도구를 통해 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
 
-   ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+    ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-10. **%% Info**를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
+13. **%% Info**를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
 
     ![pyspark 대화형 보기 작업 정보](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 이 도구는 **SPARK SQL** 쿼리도 지원 합니다.
 
-   ![pyspark 대화형 보기 결과](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+  ![pyspark 대화형 보기 결과](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
 
 
 ### <a name="perform-interactive-query-in-py-file-using-a--comment"></a>#%% 주석을 사용하여 PY 파일에서 대화형 쿼리 수행
 
 1. **#%%** Py 코드 앞에를 추가 하 여 노트북 환경을 가져옵니다.
 
-    ![#%% 추가](./media/hdinsight-for-vscode/run-cell.png)
+   ![#%% 추가](./media/hdinsight-for-vscode/run-cell.png)
 
-2. **셀 실행**을 클릭합니다. 몇 분 후에 Python 대화형 결과가 새 탭에 나타납니다.
+2. **셀 실행**을 클릭합니다. 몇 분 후에 Python 대화형 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 PySpark/Synapse PySpark로 전환한 다음 **셀 실행** 을 다시 클릭 하면 코드가 성공적으로 실행 됩니다.
 
    ![셀 실행 결과](./media/hdinsight-for-vscode/run-cell-get-results.png)
-
-   > [!NOTE]  
-   > 커널은 커널 또는 설정을 사용 하는 경우 **Python: 선택 인터프리터를 사용 하 여 Jupyter 서버 명령을 시작** 하 고 **IPython Kernel를 다시 시작한**다음 vscode를 다시 로드 하 여 해결할 수 있습니다.
 
 ## <a name="leverage-ipynb-support-from-python-extension"></a>Python 확장의 IPYNB 지원 활용
 
 1. 명령 팔레트의 명령을 사용하거나 작업 영역에서 새 .ipynb 파일을 생성하여 Jupyter Notebook을 만들 수 있습니다. 자세한 내용은 [Visual Studio Code에서 Jupyter Notebook 작업](https://code.visualstudio.com/docs/python/jupyter-support)을 참조하세요.
 
-2. PySpark을 클릭 하 여 커널을 **PySpark**로 전환 하 고, 잠시 후 **셀 실행**을 클릭 하면 결과가 표시 됩니다.
+2. **셀 실행** 단추를 클릭하고 프롬프트에 따라 **기본 Spark 풀을 설정**한(Notebook을 열기 전에 매번 기본 클러스터/풀을 설정하는 것이 좋음) 다음, 창을 **다시 로드**합니다.
+
+   ![기본 Spark 풀을 설정하고 다시 로드](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
+
+3. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark**로 전환 하 고, 잠시 후 **셀 실행**을 클릭 하면 결과가 표시 됩니다.
 
    ![ipynb 실행 결과](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
 > [!NOTE]
->
->Ms-python >=2020.5.78807 버전이 이 확장에서 지원되지 않는 것은 [알려진 문제](#known-issues)입니다.
+> Ms-python >=2020.5.78807 버전이 이 확장에서 지원되지 않는 것은 [알려진 문제](#known-issues)입니다.
 
 ## <a name="submit-pyspark-batch-job"></a>PySpark 일괄 작업 제출
 
@@ -261,36 +276,36 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 3. 다음 코드를 복사하여 스크립트 파일에 붙여넣습니다.
 
-    ```python
-    from __future__ import print_function
-    import sys
-    from operator import add
-    from pyspark.sql import SparkSession
-    if __name__ == "__main__":
-        spark = SparkSession\
-            .builder\
-            .appName("PythonWordCount")\
-            .getOrCreate()
-    
-        lines = spark.read.text('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv').rdd.map(lambda r: r[0])
-        counts = lines.flatMap(lambda x: x.split(' '))\
-                    .map(lambda x: (x, 1))\
-                    .reduceByKey(add)
-        output = counts.collect()
-        for (word, count) in output:
-            print("%s: %i" % (word, count))
-        spark.stop()
-    ```
+   ```python
+   from __future__ import print_function
+   import sys
+   from operator import add
+   from pyspark.sql import SparkSession
+   if __name__ == "__main__":
+       spark = SparkSession\
+           .builder\
+           .appName("PythonWordCount")\
+           .getOrCreate()
+   
+       lines = spark.read.text('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv').rdd.map(lambda r: r[0])
+       counts = lines.flatMap(lambda x: x.split(' '))\
+                  .map(lambda x: (x, 1))\
+                   .reduceByKey(add)
+       output = counts.collect()
+       for (word, count) in output:
+           print("%s: %i" % (word, count))
+       spark.stop()
+   ```
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark Batch**를 선택 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다.
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark batch**또는 * * Synapse: PySpark batch * * *를 선택 합니다.
 
-6. PySpark 작업을 제출할 클러스터를 선택 합니다.
+6. PySpark 작업을 제출할 클러스터/spark 풀을 선택 하세요.
 
    ![Python 작업 결과 출력 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로그가 표시됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
+Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로그가 표시됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>HIB(HDInsight Identity Broker)와 통합
 
@@ -306,62 +321,66 @@ Hive 작업을 실행 하려면 일반 단계를 수행 하 여 ID Broker를 사
 
 PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID Broker (ID Broker)를 사용 하 여 HDInsight ESP 클러스터에 작업을 제출할 수 있습니다. 자세한 내용은 [PySpark batch 작업 제출](#submit-pyspark-batch-job) 을 참조 하세요.
 
-
 ## <a name="apache-livy-configuration"></a>Apache Livy 구성
 
 [Apache Livy](https://livy.incubator.apache.org/) 구성이 지원 됩니다. 작업 영역 폴더의 **.VSCode\settings.js** 파일에서 구성할 수 있습니다. 현재, Livy 구성은 Python 스크립트만 지원합니다. 자세한 내용은 [LIVY 추가](https://github.com/cloudera/livy/blob/master/README.rst )정보를 참조 하세요.
 
 <a id="triggerlivyconf"></a>**Livy 구성을 트리거하는 방법**
 
-방법 1  
+### <a name="method-1"></a>방법 1  
+
 1. 메뉴 모음에서 **파일**  >  **기본**  >  **설정 설정**으로 이동 합니다.
 2. **검색 설정** 상자에 **HDInsight 작업 제출: Livy 회의**를 입력 합니다.  
 3. 관련 검색 결과에 대해 **settings.json에서 편집**을 선택합니다.
 
-방법 2 파일을 제출 하면 `.vscode` 폴더가 작업 폴더에 자동으로 추가 됩니다. **.vscode\settings.json을**선택 하 여 Livy 구성을 볼 수 있습니다.
+### <a name="method-2"></a>방법 2
 
-+ 프로젝트 설정:
+파일을 제출 `.vscode` 합니다. 그러면 폴더가 작업 폴더에 자동으로 추가 됩니다. **.vscode\settings.json을**선택 하 여 Livy 구성을 볼 수 있습니다.
 
-    ![HDInsight Apache Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
+- 프로젝트 설정:
 
-    >[!NOTE]
-    >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예: 1g 또는 1024m.
+  ![HDInsight Apache Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
-+ 지원 되는 Livy 구성:
+  >[!NOTE]
+  >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예: 1g 또는 1024m.
 
-    **사후 배치/일괄 처리** 요청 본문
+- 지원 되는 Livy 구성:
 
-    | name | description | type |
-    | --- | --- | --- |
-    | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
-    | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
-    | className | 애플리케이션 Java/Spark 주 클래스 | String |
-    | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
-    | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
-    | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
-    | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
-    | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
-    | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
-    | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |
-    | executorCores | 각 실행기에 사용할 코어 수 | Int |
-    | numExecutors | 이 세션에서 시작할 실행기 수 | Int |
-    | archives | 이 세션에서 사용할 보관 파일 | 문자열 목록 |
-    | queue | 제출할 YARN 큐의 이름입니다.| String |
-    | name | 이 세션의 이름 | String |
-    | conf | Spark 구성 속성 | 키=값 맵 |
+  **POST/일괄 처리**
+  
+  **요청 본문**
 
-    응답 본문 생성 된 일괄 처리 개체입니다.
+  | name | description | type |
+  | --- | --- | --- |
+  | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
+  | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
+  | className | 애플리케이션 Java/Spark 주 클래스 | String |
+  | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
+  | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
+  | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
+  | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
+  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
+  | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
+  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |
+  | executorCores | 각 실행기에 사용할 코어 수 | Int |
+  | numExecutors | 이 세션에서 시작할 실행기 수 | Int |
+  | archives | 이 세션에서 사용할 보관 파일 | 문자열 목록 |
+  | queue | 제출할 YARN 큐의 이름입니다.| String |
+  | name | 이 세션의 이름 | String |
+  | conf | Spark 구성 속성 | 키=값 맵 |
 
-    | name | description | type |
-    | --- | ---| --- |
-    | ID | 세션 ID | Int |
-    | appId | 이 세션의 응용 프로그램 ID | String |
-    | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
-    | log | 로그 줄 | 문자열 목록 |
-    | state |일괄 처리 상태 | String |
+  **응답 본문** 만든 일괄 처리 개체입니다.
 
-    > [!NOTE]
-    > 할당 된 Livy 구성은 스크립트를 제출할 때 출력 창에 표시 됩니다.
+  | name | description | type |
+  | --- | ---| --- |
+  | ID | 세션 ID | Int |
+  | appId | 이 세션의 응용 프로그램 ID | String |
+  | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
+  | log | 로그 줄 | 문자열 목록 |
+  | state |일괄 처리 상태 | String |
+
+  > [!NOTE]
+  > 할당 된 Livy 구성은 스크립트를 제출할 때 출력 창에 표시 됩니다.
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>탐색기에서 Azure HDInsight와 통합
 
@@ -388,15 +407,16 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
    전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
 
 - 메시지 패널
-   1. 테이블의 행 수가 100 보다 큰 경우 "Hive 테이블에 대해 첫 번째 100 행이 표시 됩니다." 라는 메시지가 표시 됩니다.
-   2. 테이블의 행 수가 100 보다 작거나 같으면 "Hive 테이블에 대해 60 행이 표시 됩니다." 라는 메시지가 표시 됩니다.
-   3. 테이블에 내용이 없는 경우 다음 메시지가 표시 됩니다. " `0 rows are displayed for Hive table.` "
 
-        >[!NOTE]
-        >
-        >Linux에서 xclip을 설치 하 여 복사 테이블 데이터를 사용 하도록 설정 합니다.
-        >
-        >![Linux에서 Visual Studio code에 대 한 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+  1. 테이블의 행 수가 100 보다 큰 경우 "Hive 테이블에 대해 첫 번째 100 행이 표시 됩니다." 라는 메시지가 표시 됩니다.
+  2. 테이블의 행 수가 100 보다 작거나 같으면 "Hive 테이블에 대해 60 행이 표시 됩니다." 라는 메시지가 표시 됩니다.
+  3. 테이블에 내용이 없는 경우 다음 메시지가 표시 됩니다. " `0 rows are displayed for Hive table.` "
+
+     >[!NOTE]
+     >
+     >Linux에서 xclip을 설치 하 여 복사 테이블 데이터를 사용 하도록 설정 합니다.
+     >
+     >![Linux에서 Visual Studio code에 대 한 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
 
 ## <a name="additional-features"></a>추가 기능
 
@@ -413,7 +433,7 @@ Visual Studio Code에 대 한 Spark & Hive는 또한 다음과 같은 기능을 
 
 ## <a name="reader-only-role"></a>독자 전용 역할
 
-클러스터에 대 한 읽기 전용 역할이 할당 된 사용자는 HDInsight 클러스터에 작업을 제출 하거나 Hive 데이터베이스를 볼 수 없습니다. 클러스터 관리자에 게 문의 하 여 [Azure Portal](https://ms.portal.azure.com/)에서 [**HDInsight 클러스터 운영자**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 에 게 역할을 업그레이드 하십시오. 유효한 Ambari 자격 증명이 있는 경우 다음 지침을 사용 하 여 클러스터를 수동으로 연결할 수 있습니다.
+클러스터에 대 한 읽기 전용 역할이 할당 된 사용자는 HDInsight 클러스터에 작업을 제출 하거나 Hive 데이터베이스를 볼 수 없습니다. 클러스터 관리자에 게 문의 하 여 [Azure Portal](https://portal.azure.com/)에서 [**HDInsight 클러스터 운영자**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 에 게 역할을 업그레이드 하십시오. 유효한 Ambari 자격 증명이 있는 경우 다음 지침을 사용 하 여 클러스터를 수동으로 연결할 수 있습니다.
 
 ### <a name="browse-the-hdinsight-cluster"></a>HDInsight 클러스터 찾아보기  
 
@@ -432,11 +452,11 @@ HDInsight 클러스터에 작업을 제출 하는 경우 클러스터에 대 한
 
    ![Visual Studio Code 암호를 위한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
 
-  > [!NOTE]
-  >
-  >`Spark / Hive: List Cluster`를 사용 하 여 연결 된 클러스터를 확인할 수 있습니다.
-  >
-  >![연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구](./media/hdinsight-for-vscode/list-cluster-result1.png)
+   > [!NOTE]
+   >
+   >`Spark / Hive: List Cluster`를 사용 하 여 연결 된 클러스터를 확인할 수 있습니다.
+   >
+   >![연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
@@ -467,6 +487,7 @@ Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제
 메뉴 모음에서 **보기**  >  **명령 팔레트**로 이동한 다음 **Azure: 로그 아웃**을 입력 합니다.
 
 ## <a name="known-issues"></a>알려진 문제
+
 ### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>ms-python >=2020.5.78807 버전은 이 확장에서 지원되지 않음 
 
 "Jupyter Notebook에 연결하지 못했습니다."는 python 버전 >=2020.5.78807의 알려진 문제입니다. 이 문제를 방지하려면 사용자가 **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** 버전의 ms-python을 사용하는 것이 좋습니다.

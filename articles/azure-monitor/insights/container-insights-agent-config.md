@@ -2,13 +2,13 @@
 title: 컨테이너 에이전트 데이터 컬렉션에 대 한 Azure Monitor 구성 | Microsoft Docs
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 수집을 제어 하기 위해 컨테이너 에이전트에 대 한 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994617"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320406"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor에 대한 에이전트 데이터 수집 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "91994617"
 
 ### <a name="data-collection-settings"></a>데이터 컬렉션 설정
 
-다음은 데이터 수집을 제어 하도록 구성할 수 있는 설정입니다.
+다음 표에서는 데이터 수집을 제어 하기 위해 구성할 수 있는 설정을 설명 합니다.
 
 | 키 | 데이터 형식 | 값 | 설명 |
 |--|--|--|--|
@@ -43,16 +43,24 @@ ms.locfileid: "91994617"
 | `[log_collection_settings.enrich_container_logs] enabled =` | 부울 | true 또는 false | 이 설정은 컨테이너 로그 보강를 제어 하 여 이름 및 이미지 속성 값을 채웁니다.<br> 클러스터의 모든 컨테이너 로그에 대해 ContainerLog 테이블에 기록 된 모든 로그 레코드<br> `enabled = false`ConfigMap에 지정 되지 않은 경우 기본적으로로 설정 됩니다. |
 | `[log_collection_settings.collect_all_kube_events]` | 부울 | true 또는 false | 이 설정을 사용 하면 모든 유형의 Kube 이벤트를 수집할 수 있습니다.<br> 기본적으로 *Normal* 형식의 Kube 이벤트는 수집 되지 않습니다. 이 설정이로 설정 되 면 `true` *일반적인* 이벤트가 더 이상 필터링 되지 않으며 모든 이벤트가 수집 됩니다.<br> 이 매개 변수는 기본적으로 `false`로 설정됩니다. |
 
+### <a name="metric-collection-settings"></a>메트릭 컬렉션 설정
+
+다음 표에서는 메트릭 수집을 제어 하기 위해 구성할 수 있는 설정을 설명 합니다.
+
+| 키 | 데이터 형식 | 값 | 설명 |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | 부울 | true 또는 false | 이 설정을 사용 하 여 kube 네임 스페이스에서 영구적 볼륨 (PV) 사용 메트릭을 수집할 수 있습니다. 기본적으로 kube 네임 스페이스에서 영구적 볼륨 클레임이 있는 영구적 볼륨에 대 한 사용 메트릭은 수집 되지 않습니다. 이 설정을로 설정 하면 `true` 모든 네임 스페이스에 대 한 PV 사용 메트릭이 수집 됩니다. 이 매개 변수는 기본적으로 `false`로 설정됩니다. |
+
 ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적용 될 수 있습니다. 컬렉션에서 다른 ConfigMaps을 과도 하 게 사용할 수 없습니다.
 
 ## <a name="configure-and-deploy-configmaps"></a>ConfigMaps 구성 및 배포
 
 ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다음 단계를 수행 합니다.
 
-1. 템플릿 ConfigMap yaml 파일을 [다운로드](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) 하 고 azm로 저장 합니다. 
+1. [템플릿 ConfigMap yaml 파일](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) 을 다운로드 하 고 azm로 저장 합니다. 
 
-   >[!NOTE]
-   >ConfigMap 템플릿이 클러스터에 이미 있기 때문에 Azure Red Hat OpenShift를 사용 하는 경우에는이 단계가 필요 하지 않습니다.
+   > [!NOTE]
+   > Azure Red Hat OpenShift를 사용 하는 경우에는 ConfigMap 템플릿이 클러스터에 이미 있기 때문에이 단계가 필요 하지 않습니다.
 
 2. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집 하 여 stdout, stderr 및/또는 환경 변수를 수집 합니다. Azure Red Hat OpenShift에 대 한 ConfigMap yaml 파일을 편집 하는 경우 먼저 명령을 실행 `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` 하 여 텍스트 편집기에서 파일을 엽니다.
 

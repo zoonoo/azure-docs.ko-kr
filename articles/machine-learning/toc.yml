@@ -520,9 +520,6 @@
           href: how-to-debug-pipelines.md
         - name: Application Insights에 파이프라인 데이터 기록
           href: how-to-log-pipelines-application-insights.md
-        - name: 병렬 실행 단계 사용
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-use-parallel-run-step.md
         - name: 병렬 실행 단계 디버그 및 문제 해결
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md

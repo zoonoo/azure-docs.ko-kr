@@ -17,23 +17,23 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347712"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319771"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Azure Active Directory 로그인 활동 보고서-미리 보기
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **작업** 
+- **활동** 
     - **로그인** -사용자, 응용 프로그램 및 관리 되는 리소스가 Azure AD에 로그인 하 고 리소스에 액세스 하는 시기에 대 한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
 - **보안** 
-    - **위험한 로그인** - [위험한 로그인](concept-risky-sign-ins.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
-    - **위험 플래그가 지정된 사용자** - [위험한 사용자](concept-user-at-risk.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+    - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
+    - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사용자 로그인에 대 한 개요를 제공 합니다. 또한 이제 미리 보기로 제공 되는 세 가지 추가 로그인 보고서에 액세스할 수 있습니다.
 
@@ -86,7 +86,7 @@ Azure Active Directory의 클래식 로그인 보고서에서는 대화형 사�
 
 - **서비스 사용자 로그인** -사용자를 포함 하지 않는 앱 및 서비스 사용자에의 한 로그인입니다. 이러한 로그인에서 앱 또는 서비스는 리소스를 인증 하거나 액세스 하기 위해 자체 자격 증명을 제공 합니다.
 
-- Azure **리소스에 대 한 관리 되는 id 로그인** -azure에서 관리 하는 암호를 포함 하는 azure 리소스에서 로그인 합니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 을 참조 하세요. 
+- Azure **리소스에 대 한 관리 되는 id 로그인** -azure에서 관리 하는 암호를 포함 하는 azure 리소스에서 로그인 합니다. 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../managed-identities-azure-resources/overview.md) 을 참조 하세요. 
 
 
 ![로그인 보고서 유형](./media/concept-all-sign-ins/sign-ins-report-types.png)

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 2604a1608f21d7239db755027e15b8198fb3f9f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f3a58d3a7470867ab23249bbd645289e010ad89
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81791650"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223110"
 ---
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
@@ -31,7 +31,7 @@ ms.locfileid: "81791650"
 |속성  |기본값 | 설명 |
 |---------|---------|---------|
 |maxBatchSize|10|수신 루프 당 받은 최대 이벤트 수입니다.|
-|prefetchCount|300|기본 `EventProcessorHost`에서 사용하는 기본 프리페치 횟수입니다.|
+|prefetchCount|300|기본 `EventProcessorHost`에서 사용하는 기본 프리페치 횟수입니다. 허용되는 최솟값은 10초입니다.|
 |batchCheckpointFrequency|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.|
 
 > [!NOTE]
@@ -57,4 +57,3 @@ ms.locfileid: "81791650"
 
 > [!NOTE]
 > Azure Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](../articles/azure-functions/functions-host-json-v1.md)를 확인하세요.
-

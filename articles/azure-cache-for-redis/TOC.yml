@@ -59,6 +59,8 @@
       href: cache-best-practices.md
     - name: 보안
       items:
+        - name: 네트워크 격리 옵션
+          href: cache-network-isolation.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -166,7 +168,7 @@
       href: /powershell/module/az.rediscache
     - name: Azure CLI
       href: /cli/azure/redis
-    - name: REST
+    - name: REST (영문)
       href: 'https://docs.microsoft.com/rest/api/redis/'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047644"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311667"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -19,7 +19,7 @@ ms.locfileid: "92047644"
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>Cloud Shell의 "400 클라이언트 오류: 잘못 된 요청"
 
-"400 클라이언트 오류: url에 대 한 잘못 된 요청: http://localhost:50342/oauth2/token " 및 전체 스택 추적이 발생 하 여 Cloud Shell의 명령이 간헐적으로 실패할 수 있습니다.
+에서 실행 중인 Cloud Shell의 명령은 *https://shell.azure.com* "400 클라이언트 오류: url에 대 한 잘못 된 요청 http://localhost:50342/oauth2/token " 및 전체 스택 추적으로 인해 간헐적으로 실패할 수 있습니다.
 
 특히 Azure Digital Twins의 경우 다음 명령 그룹에 영향을 줍니다.
 * `az dt route`
@@ -30,7 +30,11 @@ ms.locfileid: "92047644"
 
 이는 `az login` Cloud Shell에서 명령을 다시 실행 하 고 후속 로그인 단계를 완료 하 여 해결할 수 있습니다. 그런 다음 명령을 다시 실행할 수 있습니다.
 
-다른 해결 방법은 Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 것입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
+또는 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료할 수 있습니다.
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="' Cloud Shell ' 아이콘이 강조 표시 된 Azure Portal 보기 및 포털 창의 맨 아래에 표시 되는 Cloud Shell":::
+
+마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
 
 ### <a name="possible-causes"></a>가능한 원인
 

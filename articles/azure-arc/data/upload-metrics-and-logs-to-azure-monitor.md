@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108170"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320175"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드
 
@@ -23,9 +23,9 @@ ms.locfileid: "92108170"
 > [!NOTE] 
 > 미리 보기 기간 중에는 Azure Arc 사용 데이터 서비스를 사용 하는 비용이 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure CLI (az) 및 Azure Data CLI (azdata)가 설치 되어 있어야 합니다.  [도구를 설치](./install-client-tools.md)합니다.
+Azure CLI (az) 및가 설치 되어 있어야 합니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .  [도구를 설치](./install-client-tools.md)합니다.
 
 Azure에 데이터를 업로드 하기 전에 Azure 구독에 Microsoft AzureData 리소스 공급자가 등록 되어 있는지 확인 해야 합니다.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 인벤토리 및 리소스 사용량과 같은 사용 정보는 다음과 같은 두 단계를 통해 Azure에 업로드할 수 있습니다.
 
-1. 다음과 같이 명령을 사용 하 여 사용 현황 데이터를 내보냅니다 ```azdata export``` .
+1. 다음과 같이 명령을 사용 하 여 사용 현황 데이터를 내보냅니다 `azdata export` .
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ az provider register -n Microsoft.AzureData --wait
    ```
    이 명령은 `usage.json` 데이터 컨트롤러에 생성 된 모든 Azure Arc 사용 가능한 데이터 리소스 (예: SQL 관리 되는 인스턴스 및 PostgreSQL Hyperscale 인스턴스 등)를 사용 하 여 파일을 만듭니다.
 
-2. 명령을 사용 하 여 사용 현황 데이터 업로드 ```azdata upload```
+2. 명령을 사용 하 여 사용 현황 데이터 업로드 `azdata upload`
 
    > [!NOTE]
    > 업로드를 실행 하기 전에 Azure Arc 데이터 컨트롤러를 만든 후 최소 24 시간 동안 기다려 주세요.
@@ -313,7 +313,7 @@ Azure arc 사용 설정 SQL 관리 되는 인스턴스 및 Azure Arc 사용 Post
    >[!NOTE]
    >첫 번째 업로드에 대해 Azure Arc 사용 데이터 인스턴스를 만든 후 30 분 이상 기다립니다.
    >
-   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세한 정보](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
+   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세히 알아보기](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
 
 
 내보내기 중에 "메트릭 가져오기 실패"를 나타내는 오류가 표시 되는 경우 ```true``` 다음 명령을 실행 하 여 데이터 수집이로 설정 되었는지 확인 합니다.

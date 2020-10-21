@@ -1,22 +1,25 @@
 ---
-title: Azure Cosmos DB에서 자동 크기 조정 처리량 프로비전
-description: Azure Portal, CLI, PowerShell 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB의 컨테이너 및 데이터베이스 수준에서 자동 크기 조정 처리량을 프로비전하는 방법을 알아봅니다.
+title: Azure Cosmos DB SQL API에서 자동 크기 조정 처리량 프로 비전
+description: Azure Portal, CLI, PowerShell 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB SQL API의 컨테이너 및 데이터베이스 수준에서 자동 크기 조정 처리량을 프로 비전 하는 방법에 대해 알아봅니다.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017144"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277838"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로비전
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB SQL API에서 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로 비전
 
-이 문서에서는 Azure Cosmos DB에서 데이터베이스 또는 컨테이너(컬렉션, 그래프 또는 테이블)에 자동 크기 조정 처리량을 프로비전하는 방법을 설명합니다. 단일 컨테이너에서 자동 크기 조정을 사용하도록 설정하거나 데이터베이스에서 자동 크기 조정 처리량을 프로비전하고 데이터베이스의 모든 컨테이너 간에 공유할 수 있습니다.
+이 문서에서는 SQL API Azure Cosmos DB 데이터베이스 또는 컨테이너 (컬렉션, 그래프 또는 테이블)에서 자동 크기 조정 처리량을 프로 비전 하는 방법을 설명 합니다. 단일 컨테이너에서 자동 크기 조정을 사용하도록 설정하거나 데이터베이스에서 자동 크기 조정 처리량을 프로비전하고 데이터베이스의 모든 컨테이너 간에 공유할 수 있습니다.
+
+다른 API를 사용 하는 경우 [MongoDB](how-to-provision-throughput-mongodb.md), [CASSANDRA API](how-to-provision-throughput-cassandra.md), [Gremlin api](how-to-provision-throughput-gremlin.md) 문서를 참조 하 여 처리량을 프로 비전 합니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -52,7 +55,7 @@ ms.locfileid: "89017144"
 > [!NOTE]
 > 기존 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정하면 현재의 수동 프로비전된 처리량 설정 및 스토리지에 따라 최대 RU/s의 시작 값이 시스템에 의해 결정됩니다. 작업이 완료된 후 필요하면 최대 RU/s를 변경할 수 있습니다. [자세한 정보](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>SQL API용 Azure Cosmos DB .NET V3 SDK
+## <a name="azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB .NET V3 SDK
 
 SQL API용 Azure Cosmos DB .NET SDK의 [버전 3.9 이상](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)을 사용하여 자동 크기 조정 리소스를 관리합니다. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>SQL API용 Azure Cosmos DB Java V4 SDK
+## <a name="azure-cosmos-db-java-v4-sdk"></a>Azure Cosmos DB Java V4 SDK
 
 SQL API용 Azure Cosmos DB Java SDK의 [버전 4.0 이상](https://mvnrepository.com/artifact/com.azure/azure-cosmos)을 사용하여 자동 크기 조정 리소스를 관리할 수 있습니다.
 
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>Cassandra API
-
-[CQL commands](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) 또는 [Azure Resource Manager 템플릿을](resource-manager-samples.md)사용 하 여 자동 크기 조정을 위해 Cassandra API에 대 한 Azure Cosmos DB 계정을 프로 비전 할 수 있습니다.
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB
-
-MongoDB API에 대 한 Azure Cosmos DB 계정은 [MongoDB 확장 명령](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) 또는 [Azure Resource Manager 템플릿을](resource-manager-samples.md)사용 하 여 자동 크기 조정을 위해 프로 비전 할 수 있습니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 

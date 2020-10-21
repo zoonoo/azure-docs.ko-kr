@@ -125,6 +125,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Batch 보안 기준
       href: ../../batch/security-baseline.md
+    - name: Cloud Shell 보안 기준
+      href: ../../cloud-shell/security-baseline.md
     - name: Cognitive Services 보안 기준
       href: ../../cognitive-services/security-baseline.md
     - name: Container Instances 보안 기준

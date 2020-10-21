@@ -1,6 +1,6 @@
 ---
-title: Azure Data CLI를 사용 하 여 데이터 컨트롤러 만들기 (azdata)
-description: Azdata (Azure Data CLI)를 사용 하 여 이미 만든 일반적인 다중 노드 Kubernetes 클러스터에서 Azure Arc 데이터 컨트롤러를 만듭니다.
+title: 을 사용 하 여 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+description: 를 사용 하 여 이미 만든 일반적인 다중 노드 Kubernetes 클러스터에서 Azure Arc 데이터 컨트롤러를 만듭니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a405a7a32b1f54732589fb14e34ff52db4992028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5fac5987a36c425b9e130df17412e5ad902345
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761688"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310935"
 ---
-# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Azure Data CLI를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 (azdata)
+# <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>을 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,9 +24,9 @@ ms.locfileid: "91761688"
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
-Azure 데이터 CLI를 사용 하 여 azure Arc 데이터 컨트롤러를 만들려면 Azure Data CLI가 설치 되어 있어야 합니다.
+을 사용 하 여 Azure Arc 데이터 컨트롤러를 만들려면가 설치 되어 있어야 합니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 
-   [Azure 데이터 CLI 설치](install-client-tools.md)
+   [설치 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
 선택한 대상 플랫폼에 관계 없이 데이터 컨트롤러 관리자 사용자를 만들기 전에 다음 환경 변수를 설정 해야 합니다. 필요에 따라 데이터 컨트롤러에 대 한 관리자 액세스 권한을 보유 해야 하는 다른 사용자에 게 이러한 자격 증명을 제공할 수 있습니다.
 

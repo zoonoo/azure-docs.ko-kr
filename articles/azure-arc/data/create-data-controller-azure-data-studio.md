@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273146"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310962"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Azure Data Studio에서 데이터 컨트롤러 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "91273146"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Kubernetes 클러스터에 액세스 하 고 배포 하려는 Kubernetes 클러스터를 가리키도록 kubeconfig 파일을 구성 해야 합니다.
-- **Azure Arc** 및 **azure Data CLI**라는 Azure Data Studio 확장 **Azure Data Studio** 포함 하 [는 클라이언트 도구를 설치](install-client-tools.md) 해야 합니다.
+- **Azure Arc** 및 라는 Azure Data Studio 확장 **Azure Data Studio** 포함 하 [는 클라이언트 도구를 설치](install-client-tools.md) 해야 **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 합니다.
 - Azure Data Studio에서 Azure에 로그인 해야 합니다.  이렇게 하려면 CTRL/Command + SHIFT + P를 입력 하 여 명령 텍스트 창을 열고 **Azure**를 입력 합니다.  **Azure: 로그인**을 선택 합니다.   패널에서 오른쪽 위에 있는 + 아이콘을 클릭 하 여 Azure 계정을 추가 합니다.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>배포 마법사를 사용 하 여 Azure Arc 데이터 컨트롤러 만들기

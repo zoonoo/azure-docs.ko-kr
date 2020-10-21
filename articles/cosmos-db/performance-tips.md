@@ -4,15 +4,15 @@ description: Azure Cosmos DB .NET v2 SDK 성능 향상을 위한 클라이언트
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802143"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277219"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Azure Cosmos DB 및 .NET SDK v2에 대한 성능 팁
 
@@ -69,28 +69,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 **연결 정책: 직접 연결 모드 사용**
 
-클라이언트에서 Azure Cosmos DB에 연결 하는 방법은 특히 관찰 되는 클라이언트 쪽 대기 시간에 대해 중요 한 성능에 영향을 미칩니다. 클라이언트 연결 정책 구성에 사용할 수 있는 두 가지 주요 구성 설정: 연결 *모드* 및 연결 *프로토콜*입니다.  두 가지 사용 가능한 모드는 같습니다.
-
-  * 게이트웨이 모드 (기본값)
-      
-    게이트웨이 모드는 모든 SDK 플랫폼에서 지원 되며, [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md)에 대해 구성 된 기본값입니다. 응용 프로그램이 엄격한 방화벽 제한을 사용 하는 회사 네트워크 내에서 실행 되는 경우 표준 HTTPS 포트 및 단일 DNS 끝점을 사용 하기 때문에 게이트웨이 모드를 선택 하는 것이 가장 좋습니다. 그러나 성능 단점은 데이터를 Azure Cosmos DB에서 읽거나 쓸 때마다 게이트웨이 모드에 추가 네트워크 홉이 포함 된다는 것입니다. 따라서 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공 합니다. 또한 소켓 연결 수가 제한 된 환경에서 응용 프로그램을 실행할 때 게이트웨이 연결 모드를 권장 합니다.
-
-    특히 [소비 계획](../azure-functions/functions-scale.md#consumption-plan)에서 Azure Functions SDK를 사용 하는 경우 [연결에 대 한 현재 제한](../azure-functions/manage-connections.md)사항을 알고 있어야 합니다. 이 경우 Azure Functions 응용 프로그램 내에서 다른 HTTP 기반 클라이언트를 사용 하는 경우에도 게이트웨이 모드가 더 좋을 수 있습니다.
-
-  * 직접 모드
-
-    직접 모드는 TCP 프로토콜을 통한 연결을 지원 합니다.
-     
-직접 모드에서 TCP를 사용 하는 경우 게이트웨이 포트 외에도 Azure Cosmos DB에서 동적 TCP 포트를 사용 하므로 1만과 2만 사이의 포트 범위가 열려 있는지 확인 해야 합니다. [전용 끝점](./how-to-configure-private-endpoints.md)에서 직접 모드를 사용 하는 경우 TCP 포트의 전체 범위 (0 ~ 65535)가 열려 있어야 합니다. 이러한 포트가 열려 있지 않은 상태에서 TCP 프로토콜을 사용 하려고 하면 503 서비스를 사용할 수 없음 오류가 표시 됩니다. 다음 표에서는 각 API에 사용 되는 다양 한 Api 및 서비스 포트에 사용할 수 있는 연결 모드를 보여 줍니다.
-
-|연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
-|---------|---------|---------|---------|
-|게이트웨이  |   HTTPS    |  모든 Sdk    |   SQL (443), MongoDB (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443) <br> 10250 포트는 지역에서 복제를 사용 하지 않고 MongoDB 인스턴스에 대 한 기본 Azure Cosmos DB API에 매핑됩니다. 반면에 포트 10255 및 10256은 지역에서 복제를 포함 하는 인스턴스에 매핑됩니다.   |
-|직접    |     TCP    |  .NET SDK    | 공개/서비스 끝점을 사용 하는 경우: 1만 ~ 2만 범위의 포트<br>개인 끝점을 사용 하는 경우: 0-65535 범위의 포트 |
-
-Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공 합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. TCP 프로토콜은 초기 인증 및 암호화 트래픽에 TLS를 사용 합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
-
-Microsoft.Azure.DocumentDB SDK의 경우 `DocumentClient` 매개 변수를 사용 하 여 인스턴스를 생성 하는 동안 연결 모드를 구성 합니다 `ConnectionPolicy` . 직접 모드를 사용 하는 경우 `Protocol` 매개 변수를 사용 하 여를 설정할 수도 있습니다 `ConnectionPolicy` .
+.NET V2 SDK 기본 연결 모드는 게이트웨이입니다. `DocumentClient`매개 변수를 사용 하 여 인스턴스를 생성 하는 동안 연결 모드를 구성 합니다 `ConnectionPolicy` . 직접 모드를 사용 하는 경우 `Protocol` 매개 변수를 사용 하 여도 설정 해야 합니다 `ConnectionPolicy` . 다양 한 연결 옵션에 대해 자세히 알아보려면 [연결 모드](sql-sdk-connection-modes.md) 문서를 참조 하세요.
 
 ```csharp
 Uri serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -102,10 +81,6 @@ new ConnectionPolicy
    ConnectionProtocol = Protocol.Tcp
 });
 ```
-
-TCP는 직접 모드 에서만 지원 되므로 게이트웨이 모드를 사용 하는 경우 항상 HTTPS 프로토콜을 사용 하 여 게이트웨이와 통신 하 고 `Protocol` 의 값은 무시 됩니다 `ConnectionPolicy` .
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Azure Cosmos DB 연결 정책" border="false":::
 
 **사용 후 삭제되는 포트 고갈**
 
@@ -284,4 +259,4 @@ SDK는 이 응답을 암시적으로 모두 catch하고, server-specified retry-
 
 몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대 한 Azure Cosmos DB를 평가 하는 데 사용 되는 샘플 응용 프로그램은 [Azure Cosmos DB을 사용한 성능 및 규모 테스트](performance-testing.md)를 참조 하세요.
 
-확장성 및 고성능을 위한 애플리케이션 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partition-data.md)을 참조하세요.
+확장성 및 고성능을 위한 애플리케이션 설계 방법에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요.

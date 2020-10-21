@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdbddfc84b3f71576cfd0299f2babec859b4ef1f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939204"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311056"
 ---
 # <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 데이터베이스 엔진 설정 지정
 
@@ -45,9 +45,9 @@ ms.locfileid: "90939204"
 azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
 ```
 
-## <a name="show-the-current-custom-values-of-the-parameters-settings"></a>매개 변수 설정의 현재 사용자 지정 값 표시
+## <a name="show-current-custom-values"></a>현재 사용자 지정 값 표시
 
-## <a name="with-azdata-cli-command"></a>With azdata CLI 명령
+### <a name="with-azure-data-cli-azdata-command"></a>With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 명령
 
 ```console
 azdata arc postgres server show -n <server group name>
@@ -74,77 +74,77 @@ engine": {
 ...
 ```
 
-## <a name="with-kubectl-command"></a>With kubectl 명령
+### <a name="with-kubectl-command"></a>With kubectl 명령
 
 아래 단계를 수행 합니다.
 
-### <a name="1-retrieve-the-kind-of-custom-resource-definition-for-your-server-group"></a>1. 서버 그룹에 대 한 사용자 지정 리소스 정의의 종류를 검색 합니다.
+1. 서버 그룹에 대 한 사용자 지정 리소스 정의의 종류를 검색 합니다.
 
-다음을 실행합니다.
+   다음을 실행합니다.
 
-```console
-azdata arc postgres server show -n <server group name>
-```
+   ```console
+   azdata arc postgres server show -n <server group name>
+   ```
 
-예를 들면 다음과 같습니다.
+   예를 들면 다음과 같습니다.
 
-```console
-azdata arc postgres server show -n postgres01
-```
+   ```console
+   azdata arc postgres server show -n postgres01
+   ```
 
-이 명령은 사용자가 설정한 매개 변수를 확인 하는 서버 그룹의 사양을 반환 합니다. Engine\settings 섹션이 없는 경우 모든 매개 변수가 해당 기본값에서 실행 됨을 의미 합니다.
+   이 명령은 사용자가 설정한 매개 변수를 확인 하는 서버 그룹의 사양을 반환 합니다. Engine\settings 섹션이 없는 경우 모든 매개 변수가 해당 기본값에서 실행 됨을 의미 합니다.
 
-```
-> {
-  >"apiVersion": "arcdata.microsoft.com/v1alpha1",
-  >"**kind**": "**postgresql-12**",
-  >"metadata": {
-    >"creationTimestamp": "2020-08-25T14:32:23Z",
-    >"generation": 1,
-    >"name": "postgres01",
-    >"namespace": "arc",
-```
+   ```output
+   > {
+     >"apiVersion": "arcdata.microsoft.com/v1alpha1",
+     >"**kind**": "**postgresql-12**",
+     >"metadata": {
+       >"creationTimestamp": "2020-08-25T14:32:23Z",
+       >"generation": 1,
+       >"name": "postgres01",
+       >"namespace": "arc",  
+   ```
 
-여기에서 "kind" 필드를 찾아 값을 따로 설정 합니다 (예:) `postgresql-12` .
+   출력 결과에서 필드를 찾아 `kind` 값을 따로 설정 합니다 (예:) `postgresql-12` .
 
-### <a name="2-describe-the-kubernetes-custom-resource-corresponding-to-your-server-group"></a>2. 서버 그룹에 해당 하는 Kubernetes 사용자 지정 리소스 설명 
+2. 서버 그룹에 해당 하는 Kubernetes 사용자 지정 리소스 설명 
 
-명령의 일반적인 형식은 다음과 같습니다.
+   명령의 일반적인 형식은 다음과 같습니다.
 
-```console
-kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
-```
+   ```console
+   kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
+   ```
 
-예를 들면 다음과 같습니다.
+   예를 들면 다음과 같습니다.
 
-```console
-kubectl describe postgresql-12 postgres01
-```
+   ```console
+   kubectl describe postgresql-12 postgres01
+   ```
 
-엔진 설정에 대해 설정 된 사용자 지정 값이 있는 경우 반환 됩니다. 예를 들면 다음과 같습니다.
+   엔진 설정에 설정 된 사용자 지정 값이 있는 경우 해당 값을 반환 합니다. 예를 들면 다음과 같습니다.
 
-```console
-Engine:
-...
+   ```output
+   Engine:
+   ...
     Settings:
       Default:
         autovacuum_vacuum_threshold:  65
-```
+   ```
 
-엔진 설정에 대 한 사용자 지정 값을 설정 하지 않은 경우 결과 집합의 엔진 설정 섹션은 다음과 같이 비어 있게 됩니다.
+   엔진 설정에 대 한 사용자 지정 값을 설정 하지 않은 경우의 엔진 설정 섹션은 `resultset` 다음과 같이 비어 있게 됩니다.
 
-```console
-Engine:
-...
-    Settings:
-      Default:
-```
+   ```output
+   Engine:
+   ...
+       Settings:
+         Default:
+   ```
 
-## <a name="set-custom-values-for-the-engine-settings"></a>엔진 설정에 대 한 사용자 지정 값 설정
+## <a name="set-custom-values-for-engine-settings"></a>엔진 설정에 대 한 사용자 지정 값 설정
 
 아래 명령은 코디네이터 노드의 매개 변수와 PostgreSQL Hyperscale의 작업자 노드를 동일한 값으로 설정 합니다. 서버 그룹에는 역할 당 매개 변수를 설정할 수 없습니다. 즉, 지정 된 매개 변수를 코디네이터 노드의 특정 및 작업자 노드에 대 한 다른 값으로 구성할 수 없습니다.
 
-## <a name="set-a-single-parameter"></a>단일 매개 변수 설정
+### <a name="set-a-single-parameter"></a>단일 매개 변수 설정
 
 ```console
 azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
@@ -156,7 +156,7 @@ azdata arc server edit -n <server group name> -e <parameter name>=<parameter val
 azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
 ```
 
-## <a name="set-multiple-parameters-with-a-single-command"></a>단일 명령을 사용 하 여 여러 매개 변수 설정
+### <a name="set-multiple-parameters-with-a-single-command"></a>단일 명령을 사용 하 여 여러 매개 변수 설정
 
 ```console
 azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
@@ -168,7 +168,7 @@ azdata arc postgres server edit -n <server group name> -e '<parameter name>=<par
 azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
 ```
 
-## <a name="reset-a-parameter-to-its-default-value"></a>매개 변수를 기본값으로 다시 설정 합니다.
+### <a name="reset-a-parameter-to-its-default-value"></a>매개 변수를 기본값으로 다시 설정 합니다.
 
 매개 변수를 기본값으로 다시 설정 하려면 값을 표시 하지 않고 매개 변수를 설정 합니다. 
 
@@ -178,7 +178,7 @@ azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connec
 azdata arc postgres server edit -n postgres01 -e shared_buffers=
 ```
 
-## <a name="reset-all-parameters-to-their-default-values"></a>모든 매개 변수를 기본값으로 다시 설정
+### <a name="reset-all-parameters-to-their-default-values"></a>모든 매개 변수를 기본값으로 다시 설정
 
 ```console
 azdata arc postgres server edit -n <server group name> -e '' -re
@@ -213,8 +213,6 @@ azdata arc postgres server edit -n postgres01 -e 'custom_variable_classes = "plp
 ```console
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
-
-
 
 ## <a name="next-steps"></a>다음 단계
 - 서버 그룹에 대 한 [규모 확장 (작업자 노드 추가)을](scale-out-postgresql-hyperscale-server-group.md) 참조 하세요.
