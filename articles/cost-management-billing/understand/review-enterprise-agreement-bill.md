@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5340d6124ae4fdc669a30458b9e58cf4c86d6746
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684663"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150079"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -436,7 +436,7 @@ Power BI 관련 문제의 경우 [Power BI 지원 팀](https://support.powerbi.c
 
 ### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>보고서에 리소스 태그가 표시되지 않는 이유는 무엇인가요?
 
-리소스 태그는 Azure Portal에서 관리됩니다. [Azure Portal](https://portal.azure.com)에서 Azure 구독 팀에 문의할 수 있습니다. [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 문서의 단계를 수행합니다.
+리소스 태그는 Azure Portal에서 관리됩니다. [Azure Portal](https://portal.azure.com)에서 Azure 구독 팀에 문의할 수 있습니다. [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md) 문서의 단계를 수행합니다.
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>리소스 요금이 매일 변경되는 이유는 무엇인가요?
 

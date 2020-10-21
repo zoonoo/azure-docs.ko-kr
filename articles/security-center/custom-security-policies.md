@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448391"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341892"
 ---
 # <a name="using-custom-security-policies"></a>사용자 지정 보안 정책 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "91448391"
 
 이 기능을 사용하여 사용자 고유의 *사용자 지정* 이니셔티브를 추가할 수 있습니다. 그러면 환경이 사용자가 만든 정책을 따르지 않을 경우 권장 사항이 제공됩니다. [규정 준수 개선](security-center-compliance-dashboard.md) 자습서에 설명된 대로 사용자가 만든 사용자 지정 이니셔티브는 규정 준수 대시보드에 기본 제공 이니셔티브와 함께 나타납니다.
 
-[Azure Policy 설명서](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location)에 설명된 대로 관리 그룹 또는 구독을 사용자 지정 이니셔티브의 위치로 지정해야 합니다. 
+[Azure Policy 설명서](../governance/policy/concepts/definition-structure.md#definition-location)에 설명된 대로 관리 그룹 또는 구독을 사용자 지정 이니셔티브의 위치로 지정해야 합니다. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>구독에 사용자 지정 이니셔티브를 추가하려면 
 
@@ -136,7 +136,7 @@ Azure Security Center에서 제공하는 기본 제공 권장 사항에는 심�
 }
   ```
 
-securityCenter 속성 사용의 다른 예는 [REST API 설명서의 이 섹션](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples)을 참조하세요.
+securityCenter 속성 사용의 다른 예는 [REST API 설명서의 이 섹션](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -146,4 +146,4 @@ securityCenter 속성 사용의 다른 예는 [REST API 설명서의 이 섹션]
 기타 관련 자료는 다음 문서를 참조하세요. 
 
 - [보안 정책 개요](tutorial-security-policy.md)
-- [기본 제공 보안 정책 목록](security-center-policy-definitions.md)
+- [기본 제공 보안 정책 목록](./policy-reference.md)

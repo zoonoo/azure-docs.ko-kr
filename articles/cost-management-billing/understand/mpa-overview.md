@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447935"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150095"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
 
@@ -29,7 +29,7 @@ Microsoft 파트너 계약에 대한 청구 계정에는 비즈니스에서 수�
 
 ![Microsoft 파트너 계약 청구 계층을 보여 주는 다이어그램](./media/mpa-overview/mpa-hierarchy.svg)
 
-조직에서 **글로벌 관리** 및 **관리 에이전트** 역할을 가진 사용자는 청구 계정, 청구 프로필 및 고객을 관리할 수 있습니다. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.
+조직에서 **글로벌 관리** 및 **관리 에이전트** 역할을 가진 사용자는 청구 계정, 청구 프로필 및 고객을 관리할 수 있습니다. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조하세요.
 
 ## <a name="billing-profiles"></a>청구 프로필
 
@@ -47,7 +47,7 @@ Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 �
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>정책을 활성화하여 비용에 대한 가시성 제공
 
-고객 조직의 사용자가 Azure 사용량에 대한 종량제 요금으로 비용을 보고 분석할 수 있는지 여부를 제어하는 정책을 적용합니다. 기본적으로 이 정책은 해제되어 있으며 사용자가 비용을 볼 수 없습니다. 이 기능이 활성화되면 구독에 대한 적절한 [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 액세스 권한이 있는 사용자는 구독에 대한 비용을 보고 분석할 수 있습니다.
+고객 조직의 사용자가 Azure 사용량에 대한 종량제 요금으로 비용을 보고 분석할 수 있는지 여부를 제어하는 정책을 적용합니다. 기본적으로 이 정책은 해제되어 있으며 사용자가 비용을 볼 수 없습니다. 이 기능이 활성화되면 구독에 대한 적절한 [Azure RBAC](../../role-based-access-control/overview.md) 액세스 권한이 있는 사용자는 구독에 대한 비용을 보고 분석할 수 있습니다.
 
 정책을 켜려면 다음을 수행합니다.
 
@@ -69,7 +69,7 @@ Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 �
 
 ## <a name="resellers"></a>재판매인
 
-CSP [2계층 모델](https://docs.microsoft.com/partner-center)의 간접 공급자는 Azure Portal에서 고객에 대한 구독을 만드는 동안 재판매인을 선택할 수 있습니다. 만든 후에는 재판매인에 의해 필터링된 구독 목록을 보고, Azure 비용 분석에서 재판매인을 통해 고객에 대한 비용을 분석할 수 있습니다.
+CSP [2계층 모델](/partner-center)의 간접 공급자는 Azure Portal에서 고객에 대한 구독을 만드는 동안 재판매인을 선택할 수 있습니다. 만든 후에는 재판매인에 의해 필터링된 구독 목록을 보고, Azure 비용 분석에서 재판매인을 통해 고객에 대한 비용을 분석할 수 있습니다.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Microsoft 파트너 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -83,5 +83,5 @@ CSP [2계층 모델](https://docs.microsoft.com/partner-center)의 간접 공급
 청구 계정에 대해 알아보려면 다음 문서를 참조하세요.
 
 - [Microsoft 파트너 계약에 대한 추가 Azure 구독 만들기](../manage/create-subscription.md)
-- [Azure 청구 API](https://docs.microsoft.com/rest/api/billing/)를 사용하여 청구 데이터를 사용자 고유의 보고 시스템과 통합합니다.
-- [파트너를 위한 Azure Cost Management 빠른 시작 가이드](https://go.microsoft.com/fwlink/?linkid=2106482)
+- [Azure 청구 API](/rest/api/billing/)를 사용하여 청구 데이터를 사용자 고유의 보고 시스템과 통합합니다.
+- [파트너를 위한 Azure Cost Management 빠른 시작 가이드](../costs/get-started-partners.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c277da54e56fcd0ce68444d499b17e84f706ad03
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442499"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132587"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 
@@ -25,15 +25,15 @@ Microsoft Enterprise Azure 고객은 REST API를 통해 사용량 및 청구 정
 
 ### <a name="available-apis"></a>사용 가능한 API
 
-**잔액 및 요약** - [잔액 및 요약 API](../../billing/billing-enterprise-api-balance-summary.md)는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과분 요금에 대한 월별 요약 정보를 제공합니다. 자세한 내용은 [기업 고객을 위한 보고 API - 잔액 및 요약](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)을 참조하세요.
+**잔액 및 요약** - [잔액 및 요약 API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)는 잔액, 신규 구매, Azure Marketplace 서비스 요금, 조정 및 초과분 요금에 대한 월별 요약 정보를 제공합니다. 자세한 내용은 [기업 고객을 위한 보고 API - 잔액 및 요약](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)을 참조하세요.
 
-**사용량 세부 정보** - [사용량 세부 정보 API](../../billing/billing-enterprise-api-usage-detail.md)는 등록별 사용량과 예상 요금의 일별 분석 결과를 제공합니다. 이 결과에는 인스턴스, 미터 및 부서에 대한 정보도 포함됩니다. 청구 기간 또는 지정된 시작 날짜와 종료 날짜를 기준으로 API를 쿼리할 수 있습니다. 자세한 내용은 [기업 고객을 위한 보고 API - 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)를 참조하세요.
+**사용량 세부 정보** - [사용량 세부 정보 API](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)는 등록별 사용량과 예상 요금의 일별 분석 결과를 제공합니다. 이 결과에는 인스턴스, 미터 및 부서에 대한 정보도 포함됩니다. 청구 기간 또는 지정된 시작 날짜와 종료 날짜를 기준으로 API를 쿼리할 수 있습니다. 자세한 내용은 [기업 고객을 위한 보고 API - 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)를 참조하세요.
 
-**Marketplace 스토어 요금** - [Marketplace 스토어 요금 API](../../billing/billing-enterprise-api-marketplace-storecharge.md)는 지정된 청구 기간 또는 시작 날짜와 종료 날짜의 일별 사용량 기반 마켓플레이스 요금 분석 결과를 반환합니다. 자세한 내용은 [기업 고객을 위한 보고 API - Marketplace 스토어 요금](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)을 참조하세요.
+**Marketplace 스토어 요금** - [Marketplace 스토어 요금 API](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)는 지정된 청구 기간 또는 시작 날짜와 종료 날짜의 일별 사용량 기반 마켓플레이스 요금 분석 결과를 반환합니다. 자세한 내용은 [기업 고객을 위한 보고 API - Marketplace 스토어 요금](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)을 참조하세요.
 
 **가격표**: [가격표 API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)는 등록 및 청구 기간의 각 미터에 적용할 수 있는 가격을 제공합니다. 자세한 내용은 [기업 고객을 위한 보고 API - 가격표](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)를 참조하세요.
 
-**청구 기간** - [청구 기간 API](../../billing/billing-enterprise-api-billing-periods.md)는 등록의 사용량 데이터를 역방향 시간 순서로 표시한 청구 기간 목록을 반환합니다. 각 기간에는 4개의 데이터 세트(BalanceSummary, UsageDetails, Marketplace 요금 및 PriceSheet)에 대한 API 경로를 가리키는 속성이 포함되어 있습니다. 자세한 내용은 [기업 고객을 위한 보고 API - 청구 기간](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)을 참조하세요.
+**청구 기간** - [청구 기간 API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)는 등록의 사용량 데이터를 역방향 시간 순서로 표시한 청구 기간 목록을 반환합니다. 각 기간에는 4개의 데이터 세트(BalanceSummary, UsageDetails, Marketplace 요금 및 PriceSheet)에 대한 API 경로를 가리키는 속성이 포함되어 있습니다. 자세한 내용은 [기업 고객을 위한 보고 API - 청구 기간](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)을 참조하세요.
 
 ### <a name="enable-api-data-access"></a>API 데이터 액세스 사용
 

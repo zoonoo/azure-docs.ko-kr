@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972512"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341314"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "91972512"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -119,11 +119,11 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법에는 두 가지가 있습니다.
 
-* __PRIVATE AKS cluster__:이 방법은 Azure 개인 링크를 사용 하 여 VNet 내에서 AKS 클러스터에 대 한 개인 끝점을 만듭니다.
-* __내부 AKS 부하 분산 장치__:이 접근 방식은 VNet에서 내부 IP 주소를 사용 하도록 클러스터에 대 한 부하 분산 장치를 구성 합니다.
+* __PRIVATE AKS cluster__:이 방법은 Azure 개인 링크를 사용 하 여 배포/관리 작업을 위한 클러스터와의 통신을 보호 합니다.
+* __내부 AKS 부하 분산 장치__:이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
 
 > [!WARNING]
-> 두 구성은 모두 동일한 목표를 달성 하는 다양 한 방법 (VNet 내의 AKS 클러스터에 대 한 트래픽 보안)입니다. **둘 중 하나 또는 둘 중 하나만 사용**합니다.
+> **개인 AKS 또는 내부 부하 분산 장치 중 하나만 사용**합니다.
 
 ### <a name="private-aks-cluster"></a>개인 AKS 클러스터
 

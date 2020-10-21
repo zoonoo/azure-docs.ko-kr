@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: ca83760f09ea29ba0b21a0f7177dd3f3188c44cd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b82f4252754e79813629e0c792ee0ba35e437714
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686142"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151521"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>예약 용량을 사용하여 Azure Synapse Analytics 요금에 대한 비용 절감
 
@@ -27,7 +27,7 @@ ms.locfileid: "88686142"
 
 가격 책정 정보는 [Azure Synapse Analytics 예약 용량 제품](https://azure.microsoft.com/pricing/details/synapse-analytics/)을 참조하세요.
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 Azure Synapse Analytics 예약 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)에서 Azure Synapse Analytics 예약 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](./prepare-buy-reservation.md)로 처리할 수 있습니다. 예약 용량을 구입할 수 있는 조건은 다음과 같습니다.
 
 - 하나 이상의 Enterprise 또는 종량제 구독의 소유자 역할이 있어야 합니다.
 - Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 활성화해야 합니다. 이 설정을 비활성화하려면 EA 관리자여야 합니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: c8ab6f51daf18802b83508a3e1bbd5af3ee59799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336967"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150112"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Azure 비용 관리 계획
 
@@ -24,7 +24,7 @@ ms.locfileid: "91336967"
 - [가격 계산기](https://azure.microsoft.com/pricing/calculator/), Azure 가격표를 사용하여 서비스를 추가하기 전에 또는 Azure Portal에서 서비스를 추가하면서 예상 비용을 얻습니다.
 - [예산](../costs/tutorial-acm-create-budgets.md), [경고](../costs/cost-mgt-alerts-monitor-usage-spending.md) 및 [비용 분석](../costs/quick-acm-cost-analysis.md)을 사용하여 비용을 모니터링합니다.
 - 청구서의 요금을 [상세 사용 현황 파일](../manage/download-azure-invoice-daily-usage-date.md)과 비교하여 검토합니다.
-- [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 사용자 고유의 보고 시스템과 통합합니다.
+- [청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 사용자 고유의 보고 시스템과 통합합니다.
 - EA(기업계약), CSP(클라우드 솔루션 공급자) 및 Azure 스폰서쉽 고객을 위한 추가 리소스와 도구를 사용합니다.
 - [Azure 체험 계정](https://azure.microsoft.com/free/)으로 [가장 인기 있는 Azure 서비스 중 일부를 12개월 동안 무료로](../manage/create-free-services.md) 사용합니다. 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](../manage/avoid-charges-free-account.md)를 참조하세요.
 
@@ -125,7 +125,7 @@ Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사�
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>청구 및 사용량 API와 통합
 
-Azure [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 프로그래밍 방식으로 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](../manage/usage-rate-card-overview.md)를 참조하세요.
+Azure [청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API를 사용하여 청구 및 비용 데이터를 프로그래밍 방식으로 가져옵니다. RateCard API 및 사용 현황 API를 함께 사용하여 청구된 사용량을 확인합니다. 자세한 내용은 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](../manage/usage-rate-card-overview.md)를 참조하세요.
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> 추가 리소스 및 특수 사례
 

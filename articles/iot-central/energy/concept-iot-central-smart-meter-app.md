@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001845"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125614"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - 스마트 미터 앱 아키텍처
 
@@ -28,7 +28,7 @@ ms.locfileid: "87001845"
 
 ## <a name="smart-meters-and-connectivity"></a>스마트 미터 및 연결 
 
-스마트 미터는 모든 에너지 자산에서 가장 중요한 디바이스 중 하나입니다. 에너지 소비 데이터를 기록하고 모니터링 및 기타 사용 사례(예: 청구 및 수요 대응)를 위해 유틸리티로 전달합니다. 미터 유형에 따라 게이트웨이나 다른 중간 디바이스 또는 시스템(예: 에지 디바이스 및 헤드엔드 시스템)을 사용하여 IoT Central에 연결할 수 있습니다. 직접 연결할 수 없는 디바이스를 연결하기 위해 IoT Central 디바이스 브리지를 빌드합니다. IoT Central 디바이스 브리지는 오픈 소스 솔루션이며 [여기](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)에서 전체 세부 정보를 확인할 수 있습니다. 
+스마트 미터는 모든 에너지 자산에서 가장 중요한 디바이스 중 하나입니다. 에너지 소비 데이터를 기록하고 모니터링 및 기타 사용 사례(예: 청구 및 수요 대응)를 위해 유틸리티로 전달합니다. 미터 유형에 따라 게이트웨이나 다른 중간 디바이스 또는 시스템(예: 에지 디바이스 및 헤드엔드 시스템)을 사용하여 IoT Central에 연결할 수 있습니다. 직접 연결할 수 없는 디바이스를 연결하기 위해 IoT Central 디바이스 브리지를 빌드합니다. IoT Central 디바이스 브리지는 오픈 소스 솔루션이며 [여기](../core/howto-build-iotc-device-bridge.md)에서 전체 세부 정보를 확인할 수 있습니다. 
 
 
 ## <a name="iot-central-platform"></a>IoT Central 플랫폼
@@ -42,4 +42,4 @@ IoT Central 플랫폼은 두 가지 확장성 옵션인 CDE(연속 데이터 내
 ## <a name="next-steps"></a>다음 단계
 
 * 지금까지 이 아키텍처에 대해 알아보았으므로 [무료로 스마트 미터를 만들어 봅니다](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring).
-* [Azure IoT Central 개요](https://docs.microsoft.com/azure/iot-central/)를 참조하여 Azure IoT Central에 대해 자세히 알아보기
+* [Azure IoT Central 개요](../index.yml)를 참조하여 Azure IoT Central에 대해 자세히 알아보기

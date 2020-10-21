@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: e5c9540bed34de3cad5c74c7041c8d7e06aef9ca
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 68df6d6707ebe4f1a4b75a8005e746e2c1eba864
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946062"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341586"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure(온-프레미스 포함) 컴퓨터에서 데이터를 수집하여 보안 취약성 및 위협을 모니터링합니다. 데이터는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사하는 Log Analytics 에이전트를 사용하여 수집됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다.
@@ -133,7 +133,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 
 
 ## <a name="cross-subscription-workspace-selection"></a>구독 간 작업 영역 선택
-데이터를 저장할 작업 영역을 선택할 때 모든 구독에서 모든 작업 영역을 사용할 수 있습니다. 구독 간 작업 영역 선택을 사용하면 서로 다른 구독에서 실행 중인 가상 머신에서 데이터를 수집하고 사용자가 선택한 작업 영역에 저장할 수 있습니다. 이 옵션은 조직에서 중앙 집중식 작업 영역을 사용하고 있으며 보안 데이터 컬렉션에도 사용하려는 경우에 유용합니다. 작업 영역을 관리하는 방법에 대한 자세한 내용은 [작업 영역 액세스 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)를 참조하세요.
+데이터를 저장할 작업 영역을 선택할 때 모든 구독에서 모든 작업 영역을 사용할 수 있습니다. 구독 간 작업 영역 선택을 사용하면 서로 다른 구독에서 실행 중인 가상 머신에서 데이터를 수집하고 사용자가 선택한 작업 영역에 저장할 수 있습니다. 이 옵션은 조직에서 중앙 집중식 작업 영역을 사용하고 있으며 보안 데이터 컬렉션에도 사용하려는 경우에 유용합니다. 작업 영역을 관리하는 방법에 대한 자세한 내용은 [작업 영역 액세스 관리](../azure-monitor/platform/manage-access.md)를 참조하세요.
 
 
 
@@ -174,9 +174,9 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - GPO(그룹 정책 개체)를 사용하는 경우 감사 정책인 프로세스 만들기 이벤트 4688과 *CommandLine* 필드 내부 이벤트 4688을 사용하는 것이 좋습니다. 프로세스 만들기 이벤트 4688에 대한 자세한 내용은 Security Center의 [FAQ](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)를 참조하세요. 감사 정책에 대한 자세한 내용은 [감사 정책 권장 사항](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)을 참조하세요.
+> - GPO(그룹 정책 개체)를 사용하는 경우 감사 정책인 프로세스 만들기 이벤트 4688과 *CommandLine* 필드 내부 이벤트 4688을 사용하는 것이 좋습니다. 프로세스 만들기 이벤트 4688에 대한 자세한 내용은 Security Center의 [FAQ](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)를 참조하세요. 감사 정책에 대한 자세한 내용은 [감사 정책 권장 사항](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)을 참조하세요.
 > -  [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하기 위해 Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이렇게 하면 AppLocker가 이벤트를 생성하게 되고, 이 이벤트를 Security Center에서 수집하여 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
-> - Windows 필터링 플랫폼 [이벤트 ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)을 수집하려면 [감사 필터링 플랫폼 연결](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection)을 사용하도록 설정해야 합니다(Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable).
+> - Windows 필터링 플랫폼 [이벤트 ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)을 수집하려면 [감사 필터링 플랫폼 연결](/windows/security/threat-protection/auditing/audit-filtering-platform-connection)을 사용하도록 설정해야 합니다(Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable).
 >
 
 필터링 정책을 선택하려면 다음을 수행합니다.
@@ -204,7 +204,7 @@ Security Center는 Log Analytics 에이전트 확장을 기존 Operations Manage
 
 - 기존 VM 확장이 있음<br>
     - 모니터링 에이전트가 확장으로 설치되면 확장 구성을 통해 단일 작업 영역에만 보고할 수 있습니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "security" 또는 "securityFree" 솔루션이 설치되어 있으면 Security Center는 이미 연결된 작업 영역에 있는 VM의 보안 데이터를 저장합니다. 이 프로세스에서 Security Center가 확장 버전을 최신 버전으로 업그레이드할 수 있습니다.  
-    - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택하고, VM을 선택하고, Log Analytics 에이전트 연결을 확인하는 방법도 있습니다. 
+    - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택하고, VM을 선택하고, Log Analytics 에이전트 연결을 확인하는 방법도 있습니다. 
     - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치되어 있고 기존 Log Analytics 작업 영역에 보고하는 환경을 갖고 있는 경우 [Azure Security Center에서 지원하는 운영 체제](security-center-os-coverage.md) 목록을 검토하여 현재 운영 체제가 지원되는지 확인하세요. 자세한 내용은 [기존 Log Analytics 고객](./faq-azure-monitor-logs.md)을 참조하세요.
  
 ### <a name="turn-off-automatic-provisioning"></a>자동 프로비전 끄기 <a name="offprovisioning"></a>
@@ -265,8 +265,8 @@ Security Center가 VM의 보안 데이터를 수집하고 권장 사항 및 경�
 
 1. PowerShell을 사용하여 확장을 배포하려면 가상 머신 설명서의 지침을 참고하세요.
 
-    - [Windows 컴퓨터의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-    - [Linux 머신의 경우](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [Windows 컴퓨터의 경우](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
+    - [Linux 머신의 경우](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
 
 
 

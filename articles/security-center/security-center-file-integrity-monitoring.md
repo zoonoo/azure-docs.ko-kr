@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205390"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341535"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용 하 여 Azure Security Center에서 FIM (파일 무결성 모니터링)을 구성 하는 방법에 대해 알아봅니다.
@@ -30,7 +30,7 @@ ms.locfileid: "92205390"
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md)가 필요 합니다.<br>FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
-|필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
+|필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
 |클라우드:|![예 ](./media/icons/yes-icon.png) 상업적 클라우드<br>![예 ](./media/icons/yes-icon.png) US Gov<br>![](./media/icons/no-icon.png)중국 .gov, 기타 .gov<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역 에서만 지원 됩니다.<br>[연결 된 Log Analytics 작업 영역에 대해 지원 되는 지역을](../automation/how-to/region-mappings.md)참조 하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
 |||
 
@@ -120,7 +120,7 @@ FIM은 Azure Portal Security Center 페이지 에서만 사용할 수 있습니�
 
     - 각 작업 영역의 상태 및 설정 액세스 및 보기
 
-    - ![업그레이드 계획 아이콘 ][4] Azure Defender를 사용 하도록 작업 영역을 업그레이드 합니다. 이 아이콘은 작업 영역 또는 구독이 Azure Defender에 의해 보호 되지 않음을 나타냅니다. FIM 기능을 사용 하려면 Azure Defender에서 구독을 보호 해야 합니다. [자세한 정보를 알아보세요](security-center-pricing.md).
+    - ![업그레이드 계획 아이콘 ][4] Azure Defender를 사용 하도록 작업 영역을 업그레이드 합니다. 이 아이콘은 작업 영역 또는 구독이 Azure Defender에 의해 보호 되지 않음을 나타냅니다. FIM 기능을 사용 하려면 Azure Defender에서 구독을 보호 해야 합니다. [자세히 알아보기](security-center-pricing.md).
 
     - ![사용 아이콘:][3] 작업 영역 아래의 모든 컴퓨터에서 FIM을 사용 하도록 설정 하 고 FIM 옵션을 구성 합니다. 이 아이콘은 작업 영역에 FIM이 사용 하도록 설정 되어 있지 않음을 나타냅니다.
 
@@ -262,7 +262,7 @@ FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 �
 
 * [보안 정책 설정](tutorial-security-policy.md) --Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
 * [보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항을 통해 Azure 리소스를 보호하는 방법을 알아봅니다.
-* [Azure 보안 블로그](https://docs.microsoft.com/archive/blogs/azuresecurity/)-- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
+* [Azure 보안 블로그](/archive/blogs/azuresecurity/)-- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

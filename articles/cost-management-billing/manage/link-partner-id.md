@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017015"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132553"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -25,13 +25,13 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
 
 파트너 ID를 연결하려면 먼저 고객이 다음 옵션 중 하나를 사용하여 해당 Azure 리소스에 대한 액세스 권한을 사용자에게 부여해야 합니다.
 
-- **게스트 사용자**: 고객은 사용자를 게스트 사용자로 추가하고 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
+- **게스트 사용자**: 고객은 사용자를 게스트 사용자로 추가하고 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](../../active-directory/external-identities/what-is-b2b.md)를 참조하세요.
 
 - **디렉터리 계정**: 고객은 자신의 디렉터리에 사용자 계정을 만들고 Azure 역할을 할당할 수 있습니다.
 
 - **서비스 주체**: 고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 Azure 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID를 서비스 주체라고 합니다.
 
-- **Azure Lighthouse**: 사용자가 테넌트 내에서 작업할 수 있도록 고객이 구독(또는 리소스 그룹)을 위임할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)를 참조하세요.
+- **Azure Lighthouse**: 사용자가 테넌트 내에서 작업할 수 있도록 고객이 구독(또는 리소스 그룹)을 위임할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 참조하세요.
 
 ## <a name="link-to-a-partner-id"></a>파트너 ID에 연결
 
@@ -55,7 +55,7 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
 
 1. [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell 모듈을 설치합니다.
 
-2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [PowerShell로 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)을 참조하세요.
+2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [PowerShell로 로그인](/powershell/azure/authenticate-azureps)을 참조하세요.
 
    ```azurepowershell-interactive
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -89,7 +89,7 @@ C:\> remove-AzManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ```
 
-2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [Azure CLI로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조하세요.
+2. 사용자 계정 또는 서비스 주체를 사용하여 고객의 테넌트에 로그인합니다. 자세한 내용은 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)을 참조하세요.
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -152,9 +152,9 @@ C:\ az managementpartner delete --partner-id 12345
 
 다음과 같은 이유로 인해 보고서에서 고객을 볼 수 없습니다.
 
-1. 연결된 사용자 계정에는 고객 Azure 구독 또는 리소스에 대한 [Azure RBAC(Azure 역할 기반 액세스)](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 없습니다.
+1. 연결된 사용자 계정에는 고객 Azure 구독 또는 리소스에 대한 [Azure RBAC(Azure 역할 기반 액세스)](../../role-based-access-control/overview.md) 권한이 없습니다.
 
-2. 사용자에게 [Azure RBAC(Azure 역할 기반 액세스)](https://docs.microsoft.com/azure/role-based-access-control/overview) 권한이 있는 Azure 구독에는 사용 권한이 없습니다.
+2. 사용자에게 [Azure RBAC(Azure 역할 기반 액세스)](../../role-based-access-control/overview.md) 권한이 있는 Azure 구독에는 사용 권한이 없습니다.
 
 **연결 파트너 ID는 Azure Stack과 작동하나요?**
 

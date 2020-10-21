@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: bfa84a993fafe9240ba765de8d87ea4afb69cbd5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca4c1810912771f56661ca5b682b6991735f526e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015950"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150816"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 
@@ -121,4 +121,4 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 * [Azure용 예약 관리](manage-reserved-vm-instance.md)  
 * [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)  
 * [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
-* [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
+* [CSP 구독의 예약 사용량 이해](/partner-center/azure-reservations)

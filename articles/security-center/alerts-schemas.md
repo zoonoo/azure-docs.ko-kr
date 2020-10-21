@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220672"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341943"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
@@ -24,9 +24,9 @@ ms.locfileid: "92220672"
 
 Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같은 외부 도구를 통해 이러한 보안 경고를 볼 수 있습니다.
 
-- [Azure 센티널](https://docs.microsoft.com/azure/sentinel/) -Microsoft의 클라우드 기본 siem. 센티널 커넥터는 Azure Security Center에서 경고를 가져오고 Azure 센티널의 [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 으로 보냅니다.
-- 타사 SIEMs-Security Center의 [연속 내보내기](continuous-export.md) 도구를 사용 하 여 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)에 데이터를 전송 합니다. 그런 다음 이벤트 허브 데이터를 타사 SIEM과 통합 합니다.
-- [REST API](https://docs.microsoft.com/rest/api/securitycenter/) -REST API를 사용 하 여 경고에 액세스 하는 경우 [온라인 경고 API 설명서](https://docs.microsoft.com/rest/api/securitycenter/alerts)를 참조 하세요.
+- [Azure 센티널](../sentinel/index.yml) -Microsoft의 클라우드 기본 siem. 센티널 커넥터는 Azure Security Center에서 경고를 가져오고 Azure 센티널의 [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) 으로 보냅니다.
+- 타사 SIEMs-Security Center의 [연속 내보내기](continuous-export.md) 도구를 사용 하 여 [Azure Event Hubs](../event-hubs/index.yml)에 데이터를 전송 합니다. 그런 다음 이벤트 허브 데이터를 타사 SIEM과 통합 합니다.
+- [REST API](/rest/api/securitycenter/) -REST API를 사용 하 여 경고에 액세스 하는 경우 [온라인 경고 API 설명서](/rest/api/securitycenter/alerts)를 참조 하세요.
 
 프로그래밍 방법을 사용 하 여 경고를 사용 하는 경우 적절 한 스키마를 사용 하 여 관련 필드를 찾아야 합니다. 또한 이벤트 허브로 내보내거나 일반 HTTP 커넥터를 사용 하 여 워크플로 자동화를 트리거하기를 시도 하는 경우 스키마를 사용 하 여 JSON 개체를 올바르게 구문 분석 합니다.
 
@@ -60,7 +60,7 @@ Workflow automation 기능에 대 한 자세한 내용은 [경고 및 권장 사
 
 Security Center 경고를 사용 하 여 센티널 사례 또는 인시던트를 만들려면 아래에 표시 된 해당 경고에 대 한 스키마가 필요 합니다. 
 
-Azure 센티널에 대 한 자세한 내용은 [설명서](https://docs.microsoft.com/azure/sentinel/)를 참조 하세요.
+Azure 센티널에 대 한 자세한 내용은 [설명서](../sentinel/index.yml)를 참조 하세요.
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -139,7 +139,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|Description|
+|필드|설명|
 |----|----|
 |**채널이**|상수, "Operation"|
 |**correlationId**|Azure Security Center 경고 ID|
@@ -172,7 +172,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 Microsoft Graph은 Microsoft 365의 데이터 및 인텔리전스에 대 한 게이트웨이입니다. Microsoft 365, Windows 10 및 Enterprise Mobility + Security에서 엄청난 양의 데이터에 액세스 하는 데 사용할 수 있는 통합 프로그래밍 모델을 제공 합니다. Microsoft Graph의 다양 한 데이터를 사용 하 여 수백만 명의 사용자와 상호 작용 하는 조직과 소비자를 위한 앱을 빌드할 수 있습니다.
 
-MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true)에서 사용할 수 있습니다.
+MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 [Microsoft Graph 설명서](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0)에서 사용할 수 있습니다.
 
 ---
 
@@ -183,7 +183,7 @@ MS Graph로 전송 되는 보안 경고에 대 한 스키마 및 JSON 표현은 
 
 외부 Security Center에서 보안 경고에 액세스 하는 방법에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
 
-- [Azure 센티널](https://docs.microsoft.com/azure/sentinel/) -Microsoft의 클라우드-기본 siem
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) -Microsoft의 완전히 관리 되는 실시간 데이터 수집 서비스
+- [Azure 센티널](../sentinel/index.yml) -Microsoft의 클라우드-기본 siem
+- [Azure Event Hubs](../event-hubs/index.yml) -Microsoft의 완전히 관리 되는 실시간 데이터 수집 서비스
 - Security Center의 [연속 내보내기 기능](continuous-export.md)
-- [Log Analytics 작업 영역](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) -데이터 및 구성 정보를 포함 하는 컨테이너 Log Analytics 작업 영역에 로그 데이터를 저장 Azure Monitor
+- [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) -데이터 및 구성 정보를 포함 하는 컨테이너 Log Analytics 작업 영역에 로그 데이터를 저장 Azure Monitor

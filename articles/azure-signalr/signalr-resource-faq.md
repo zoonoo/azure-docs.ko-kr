@@ -7,18 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405125"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150965"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Azure SignalR Service가 프로덕션에 사용할 준비가 되었나요?
 
-예, [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) 및 [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr)에 대한 지원은 모두 일반 공급됩니다.
+예, [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) 및 [ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr)에 대한 지원은 모두 일반 공급됩니다.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>애플리케이션 서버가 여러 개 있으면 클라이언트 메시지가 모든 서버에 전송되나요? 아니면 그 중 하나에만 전송되나요?
 
@@ -48,7 +48,7 @@ Azure SignalR Service SDK에서 `HubConnectionContext context`는 논리적 클�
 
 Azure SignalR Service는 기본적으로 ASP.NET Core SignalR에서 지원하는 세 가지 전송을 모두 제공합니다. 이 사항은 구성할 수 없습니다. Azure SignalR Service는 연결 및 모든 클라이언트에 대한 전송을 처리합니다.
 
-[ASP.NET Core SignalR 구성](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1)에 설명된 대로 클라이언트 쪽 전송을 구성할 수 있습니다.
+[ASP.NET Core SignalR 구성](/aspnet/core/signalr/configuration#configure-allowed-transports-1)에 설명된 대로 클라이언트 쪽 전송을 구성할 수 있습니다.
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Azure Portal에 표시된 메시지 수 또는 연결 수와 같은 메트릭의 의미는 무엇인가요? 어떤 종류의 집계 유형을 선택해야 하나요?
 

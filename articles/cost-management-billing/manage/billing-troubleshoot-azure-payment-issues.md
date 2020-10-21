@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: jaserano
-ms.openlocfilehash: adc3874ba211de270589d8ea36a04b9431e9e12a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 77ca8e8425326cec31fce345600bdd0174ab5f4e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684918"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131856"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Azure 결제 문제 해결
 
@@ -102,4 +102,4 @@ Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Billing 설명서](../../billing/index.md)
+- [Azure Billing 설명서](../index.yml)

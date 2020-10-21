@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be2dd4235883601b0b13c5783e4c7c7c106c20e9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0691ec320b62ed212235a63dacedcf3ec38a23ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682028"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151470"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>Azure Database for MariaDB에 예약 할인이 적용되는 방법
 
@@ -30,7 +30,7 @@ Azure Database for MariaDB 예약된 용량 할인은 시간 단위로 MariaDB �
 
 다음 예제에서는 구입한 코어 수 및 실행되는 시기에 따라 Azure Database for MariaDB 예약된 용량 할인이 적용되는 방법을 보여줍니다.
 
-* **예제 1**: 8 vCore에 대해 Azure Database for MariaDB 예약된 용량을 구입합니다. 예약의 나머지 특성과 일치하는 16 vCore Azure Database for MariaDB 서버를 실행하는 경우 MariaDB 서버 컴퓨팅 사용량의 8 vCore에 대한 종량제 가격이 청구되고 1시간의 8 vCore MariaDB 서버 컴퓨팅 사용량에 대해 예약 할인이 적용됩니다.
+**예제 1**: 8 vCore에 대해 Azure Database for MariaDB 예약된 용량을 구입합니다. 예약의 나머지 특성과 일치하는 16 vCore Azure Database for MariaDB 서버를 실행하는 경우 MariaDB 서버 컴퓨팅 사용량의 8 vCore에 대한 종량제 가격이 청구되고 1시간의 8 vCore MariaDB 서버 컴퓨팅 사용량에 대해 예약 할인이 적용됩니다.
 
 이러한 예제의 나머지 부분에서는 구매한 Azure Database for MariaDB 예약된 용량이 16 vCore Azure Database for MariaDB에 대한 것이며 나머지 예약 특성은 실행 중인 MariaDB 서버와 일치하는 것으로 가정합니다.
 
@@ -40,7 +40,7 @@ Azure Database for MariaDB 예약된 용량 할인은 시간 단위로 MariaDB �
 
 * **예제 4**: 오후 1시에서 오후 1시 45분까지 하나의 16 vCore Azure Database for MariaDB 서버를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16 vCore Azure Database for MariaDB 서버를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 컴퓨팅 사용량에 적용됩니다.
 
-청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)를 참조하세요.
+청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](./understand-reserved-instance-usage-ea.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

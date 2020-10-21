@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: 2ca4affaeae7f19cf3c913b5dfcf89a04e5bc628
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 32c0779f4086574aeaf8d38ea675f80fbd2c1ec7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026530"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132230"
 ---
 # <a name="troubleshoot-mca-billing-issues-with-usage-file-pivot-tables"></a>사용량 파일 피벗 테이블을 사용하여 MCA 청구 문제 해결
 
@@ -27,13 +27,13 @@ ms.locfileid: "92026530"
 
 사용량 파일의 정보를 사용하면 사용량 문제를 더 잘 이해하고 진단할 수 있습니다. 사용량 파일은 CSV(쉼표로 구분) 형식으로 생성됩니다. 사용량 파일은 큰 CSV 파일일 수 있으므로 Excel과 같은 스프레드시트 애플리케이션에서 더 쉽게 피벗 테이블로 조작하여 볼 수 있습니다. 이 문서의 예에서는 Excel을 사용하지만 원하는 스프레드시트 애플리케이션을 사용할 수 있습니다.
 
-청구 프로필 소유자, 기여자, 읽기 권한자 또는 송장 관리자만 사용량 파일을 다운로드할 수 있습니다. 자세한 내용은 [Microsoft 고객 계약에 대한 사용량 다운로드](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-your-microsoft-customer-agreement)를 참조하세요. 
+청구 프로필 소유자, 기여자, 읽기 권한자 또는 송장 관리자만 사용량 파일을 다운로드할 수 있습니다. 자세한 내용은 [Microsoft 고객 계약에 대한 사용량 다운로드](./download-azure-invoice-daily-usage-date.md#download-usage-for-your-microsoft-customer-agreement)를 참조하세요. 
 
 ## <a name="get-the-data-and-format-it"></a>데이터 가져오기 및 형식 지정
 
 Azure 사용량 파일은 CSV 형식이므로 Excel에서 사용할 수 있도록 데이터를 준비해야 합니다. 다음 단계에 따라 데이터를 테이블 형식으로 지정합니다.
 
-1. [Azure Portal에서 사용량 다운로드](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)의 지침에 따라 사용량 파일을 다운로드합니다.
+1. [Azure Portal에서 사용량 다운로드](./download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal)의 지침에 따라 사용량 파일을 다운로드합니다.
 1. Excel에서 파일을 엽니다.
 1. 형식이 지정되지 않은 데이터는 다음 예와 비슷합니다.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" alt-text="형식이 지정되지 않은 데이터를 보여 주는 예" lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" :::

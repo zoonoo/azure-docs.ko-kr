@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326609"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131074"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
 Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 문제가 발생할 수 있습니다. 이 짧은 가이드에서는 등록 프로세스를 안내하고 각 단계에서는 몇 가지 일반적인 문제에 대해 설명합니다.
 
 > [!NOTE]
-> 이미 기존 계정이 있고 로그인 문제를 해결하기 위한 지침을 찾고 있는 경우 [Azure 구독 로그인 문제 해결](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)을 참조하세요.
+> 이미 기존 계정이 있고 로그인 문제를 해결하기 위한 지침을 찾고 있는 경우 [Azure 구독 로그인 문제 해결](./troubleshoot-sign-in-issue.md)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -76,8 +76,8 @@ InPrivate 브라우징 방법
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>'현재 계정 유형이 지원되지 않습니다.' 메시지가 표시됩니다.
 
-이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
-이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)를 참조하세요.
+이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](../../active-directory/users-groups-roles/directory-self-service-signup.md)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
+이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](../../active-directory/users-groups-roles/domains-admin-takeover.md)를 참조하세요.
 
 ## <a name="identity-verification-by-phone"></a>전화로 ID 검증
 
@@ -107,7 +107,7 @@ InPrivate 브라우징 방법
 
 #### <a name="credit-card-declined-or-not-accepted"></a>신용 카드가 거부되거나 승인되지 않습니다.
 
-가상 카드, 선불 카드 또는 직불 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다. 카드가 거부될 수 있는 다른 항목을 확인 하려면 [Azure 등록에서 거부된 카드 문제 해결](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)을 참조하세요.
+가상 카드, 선불 카드 또는 직불 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다. 카드가 거부될 수 있는 다른 항목을 확인 하려면 [Azure 등록에서 거부된 카드 문제 해결](./troubleshoot-declined-card.md)을 참조하세요.
 
 #### <a name="credit-card-form-doesnt-support-my-billing-address"></a>신용 카드 양식이 내 청구 주소를 지원하지 않습니다.
 
@@ -144,7 +144,7 @@ InPrivate 브라우징 방법
 올바른 로그인 자격 증명을 사용하고 있는지 확인합니다. 그런 다음, 혜택 프로그램에서 자격이 있는지 확인합니다.
 - MSDN
   - [MSDN 계정 페이지](https://msdn.microsoft.com/subscriptions/manage/default.aspx)에서 자격 상태를 확인합니다.
-  - 자신의 상태를 확인할 수 없는 경우 [MSDN 구독 고객 서비스 센터](https://msdn.microsoft.com/library/aa493452.aspx)에 문의하세요.
+  - 자신의 상태를 확인할 수 없는 경우 [MSDN 구독 고객 서비스 센터](/previous-versions/mappoint/aa493452(v=msdn.10))에 문의하세요.
 - Microsoft for Startups
   - [Microsoft for Startups 포털](https://startups.microsoft.com/#start-two)에 로그인하여 Microsoft for Startups에 대한 자격 상태를 확인합니다.
   - 자신의 상태를 확인할 수 없는 경우에는 [Microsoft for Startups 포럼](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups)에서 도움을 받을 수 있습니다.
@@ -161,10 +161,10 @@ Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 �
 
 Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
-- [거부된 카드](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [구독 로그인 문제](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [구독을 찾을 수 없음](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise 비용 보기 사용 안 함](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [거부된 카드](./troubleshoot-declined-card.md)
+- [구독 로그인 문제](./troubleshoot-sign-in-issue.md)
+- [구독을 찾을 수 없음](./no-subscriptions-found.md)
+- [Enterprise 비용 보기 사용 안 함](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>도움이 필요한 경우 문의처
 
@@ -172,4 +172,4 @@ Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
 ## <a name="find-out-more-about-azure-cost-management"></a>Azure Cost Management에 대해 자세히 알아보세요.
 
-- [Azure Cost Management 및 청구 설명서](https://docs.microsoft.com/azure/cost-management-billing)
+- [Azure Cost Management 및 청구 설명서](../index.yml)

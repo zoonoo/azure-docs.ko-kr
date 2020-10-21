@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301451"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341688"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
 
@@ -62,7 +62,7 @@ Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 �
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
 
 * 악성 소프트웨어를 식별하여 제거하는 데 도움을 주는 맬웨어 방지 프로그램 프로비전
-* 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 규칙
+* 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 및 규칙
 * 웹 애플리케이션의 대상을 지정한 공격에 대해 방어하는 데 도움이 되는 웹 애플리케이션 방화벽 프로비전
 * 누락된 시스템 업데이트 배포
 * 권장 기준과 일치하지 않는 OS 구성 해결

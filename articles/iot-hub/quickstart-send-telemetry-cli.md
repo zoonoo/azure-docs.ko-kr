@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: e2b8eecc629e9da75ea15815ee38844c48abb019
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ffcdf8d2baf7a449234ca14d603583f62949159d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499911"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150614"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
 
@@ -55,7 +55,7 @@ Cloud Shell을 시작하려면 다음을 수행합니다.
 
 Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CLI 셸 세션과 IoT Hub 간의 모든 통신을 인증하고 암호화합니다. 따라서 이 빠른 시작에는 연결 문자열과 같은 실제 디바이스에서 사용하는 추가 인증이 필요하지 않습니다.
 
-*  [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
+*  [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli
    az extension add --name azure-iot
@@ -76,13 +76,13 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 > [!TIP]
 > 필요에 따라 [Azure Portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) 또는 기타 프로그래밍 방법을 사용하여 Azure 리소스 그룹, IoT Hub 및 기타 리소스를 만들 수 있습니다.  
 
-1. [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup*이라는 리소스 그룹을 만듭니다. 
+1. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup*이라는 리소스 그룹을 만듭니다. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. [az iot hub create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
+1. [az iot hub create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. IoT Hub 이름은 Azure에서 전역적으로 고유해야 합니다. 이 자리 표시자는 이 빠른 시작의 나머지 부분에서 IoT hub 이름을 표시하는 데 사용됩니다.
 
@@ -94,7 +94,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 이 섹션에서는 첫 번째 CLI 세션에서 시뮬레이트된 디바이스를 만듭니다. 시뮬레이트된 디바이스는 IoT Hub에 디바이스 원격 분석을 보냅니다. 두 번째 CLI 세션에서 이벤트 및 원격 분석을 모니터링하고 클라우드-디바이스 메시지를 시뮬레이트된 디바이스로 보냅니다.
 
 시뮬레이트된 디바이스를 만들고 시작 하려면 다음을 실행합니다.
-1. 첫 번째 CLI 세션에서 [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
+1. 첫 번째 CLI 세션에서 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -104,7 +104,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. 첫 번째 CLI 세션에서 [az iot device simulate](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) 명령을 실행합니다.  그러면 시뮬레이트된 디바이스가 시작됩니다. 이 디바이스는 IoT Hub에 원격 분석을 보내고 메시지를 수신합니다.  
+1. 첫 번째 CLI 세션에서 [az iot device simulate](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) 명령을 실행합니다.  그러면 시뮬레이트된 디바이스가 시작됩니다. 이 디바이스는 IoT Hub에 원격 분석을 보내고 메시지를 수신합니다.  
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -113,7 +113,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     ```
 
 디바이스를 모니터링하려면 다음을 수행합니다.
-1. 두 번째 CLI 세션에서 [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 실행합니다. 그러면 시뮬레이트된 디바이스 모니터링이 시작됩니다. 출력은 시뮬레이트된 디바이스가 IoT Hub에 보내는 원격 분석을 보여 줍니다.
+1. 두 번째 CLI 세션에서 [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 실행합니다. 그러면 시뮬레이트된 디바이스 모니터링이 시작됩니다. 출력은 시뮬레이트된 디바이스가 IoT Hub에 보내는 원격 분석을 보여 줍니다.
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -136,7 +136,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. 두 번째 CLI 세션에서 [az iot device c2d-message send](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) 명령을 실행합니다. 그러면 IoT Hub에서 시뮬레이트된 디바이스로 클라우드-디바이스 메시지를 보냅니다. 이 메시지에는 문자열 1개와 키-값 쌍 2개가 포함됩니다.  
+1. 두 번째 CLI 세션에서 [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) 명령을 실행합니다. 그러면 IoT Hub에서 시뮬레이트된 디바이스로 클라우드-디바이스 메시지를 보냅니다. 이 메시지에는 문자열 1개와 키-값 쌍 2개가 포함됩니다.  
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -184,12 +184,12 @@ Azure Portal에서 메시징 메트릭을 시각화하려면 다음을 수행합
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
 리소스 그룹을 이름으로 삭제하려면:
-1. [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
+1. [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. [az group list](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
+1. [az group list](/cli/azure/group?view=azure-cli-latest#az-group-list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
 
     ```azurecli
     az group list

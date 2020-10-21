@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946226"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341265"
 ---
 # <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
 
@@ -30,7 +30,7 @@ Id와 관련 된 활동 및 구성 설정을 모니터링 하 여 인시던트�
 
 Azure Security Center에는 조직의 id 및 보안 요구 사항을 충족 하는 데 사용할 수 있는 두 가지 전용 보안 컨트롤이 있습니다. 
 
- - **액세스 및 사용 권한 관리** - [최소 권한 액세스 모델](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 을 채택 하 고 사용자에 게 작업을 수행 하는 데 필요한 액세스만 부여 하도록 권장 합니다. 이 컨트롤에는 리소스에 대 한 액세스를 제어 하기 위해 [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 를 구현 하기 위한 권장 사항도 포함 됩니다.
+ - **액세스 및 사용 권한 관리** - [최소 권한 액세스 모델](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 을 채택 하 고 사용자에 게 작업을 수행 하는 데 필요한 액세스만 부여 하도록 권장 합니다. 이 컨트롤에는 리소스에 대 한 액세스를 제어 하기 위해 [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 를 구현 하기 위한 권장 사항도 포함 됩니다.
  
  - **Mfa 사용** - [mfa](https://www.microsoft.com/security/business/identity/mfa) 를 사용 하도록 설정 하 고, 계정을 더 안전 하 게 유지 하 고, 사용자가 Single Sign-On를 사용 하 여 거의 모든 응용 프로그램에 인증할 수 있습니다.
 
@@ -84,7 +84,7 @@ MFA를 사용 하도록 설정 되지 않은 계정을 확인 하려면 다음 A
     > 계정 소유자의 개인 정보를 보호 하기 위해 계정 이름이 아니라 개체 Id로 표시 됩니다.
 
 > [!TIP]
-> 또는 Security Center의 REST API 메서드 [평가 (Get)](https://docs.microsoft.com/rest/api/securitycenter/assessments/get)를 사용할 수 있습니다.
+> 또는 Security Center의 REST API 메서드 [평가 (Get)](/rest/api/securitycenter/assessments/get)를 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

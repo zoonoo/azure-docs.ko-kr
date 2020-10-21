@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950740"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341926"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>자산 인벤토리 및 관리 도구를 사용하여 리소스 검색 및 관리
 
@@ -68,22 +68,22 @@ Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하
     ![인벤토리에 대 한 내보내기 옵션](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > KQL 설명서에서는 몇 가지 샘플 데이터와 함께 데이터베이스에 몇 가지 간단한 쿼리를 제공 하 여 언어에 대 한 "느낌"을 가져옵니다. [이 KQL 자습서에서 자세히 알아보세요](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > KQL 설명서에서는 몇 가지 샘플 데이터와 함께 데이터베이스에 몇 가지 간단한 쿼리를 제공 하 여 언어에 대 한 "느낌"을 가져옵니다. [이 KQL 자습서에서 자세히 알아보세요](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - **자산 관리 옵션** -인벤토리를 사용 하면 복잡 한 검색 쿼리를 수행할 수 있습니다. 쿼리와 일치 하는 리소스를 찾았으면 인벤토리는 다음과 같은 작업에 대 한 바로 가기를 제공 합니다.
 
     - 필터링 된 리소스에 태그 할당-태그를 지정할 리소스 옆에 있는 확인란을 선택 합니다.
     - Security Center에 새 서버 등록- **비 Azure 서버 추가** 도구 모음 단추를 사용 합니다.
-    - Azure Logic Apps를 사용 하 여 작업을 자동화 합니다. **트리거 논리 앱** 단추를 사용 하 여 하나 이상의 리소스에서 논리 앱을 실행 합니다. 논리 앱을 미리 준비 하 고 관련 트리거 유형 (HTTP 요청)을 적용 해야 합니다. [논리 앱에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Azure Logic Apps를 사용 하 여 작업을 자동화 합니다. **트리거 논리 앱** 단추를 사용 하 여 하나 이상의 리소스에서 논리 앱을 실행 합니다. 논리 앱을 미리 준비 하 고 관련 트리거 유형 (HTTP 요청)을 적용 해야 합니다. [논리 앱에 대해 자세히 알아보세요](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Asset inventory는 어떻게 작동 하나요?
 
-Asset inventory는 여러 구독에서 Security Center의 보안 상태 데이터를 쿼리 하는 기능을 제공 하는 Azure 서비스인 [Azure 리소스 그래프 (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)를 활용 합니다.
+Asset inventory는 여러 구독에서 Security Center의 보안 상태 데이터를 쿼리 하는 기능을 제공 하는 Azure 서비스인 [Azure 리소스 그래프 (ARG)](../governance/resource-graph/index.yml)를 활용 합니다.
 
 ARG는 효율적인 리소스 탐색을 제공 하 여 대규모로 쿼리할 수 있도록 설계 되었습니다.
 
-KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)를 사용 하 여 asset inventory는 다른 리소스 속성과 함께 ASC 데이터를 상호 참조 하 여 심층 통찰력을 신속 하 게 생성할 수 있습니다.
+KQL ( [Kusto Query Language)](/azure/data-explorer/kusto/query/)를 사용 하 여 asset inventory는 다른 리소스 속성과 함께 ASC 데이터를 상호 참조 하 여 심층 통찰력을 신속 하 게 생성할 수 있습니다.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Asset inventory를 사용 하는 방법
@@ -156,5 +156,5 @@ KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kus
 
 관련 도구에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
 
-- [Azure 리소스 그래프 (인수)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Kusto Query Language(KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure 리소스 그래프 (인수)](../governance/resource-graph/index.yml)
+- [Kusto Query Language(KQL)](/azure/data-explorer/kusto/query/)

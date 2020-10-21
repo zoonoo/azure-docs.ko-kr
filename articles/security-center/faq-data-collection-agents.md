@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441494"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341841"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -43,7 +43,7 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 ## <a name="what-is-the-log-analytics-agent"></a>Log Analytics 에이전트는 무엇 인가요?
 
-보안 취약점 및 위협을 모니터링 하려면 Azure Security Center [Log Analytics 에이전트](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) 에 따라 달라 집니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 
+보안 취약점 및 위협을 모니터링 하려면 Azure Security Center [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에 따라 달라 집니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 
 
 에이전트를 Microsoft Monitoring Agent (또는 "MMA") 라고도 합니다. 
 
@@ -66,7 +66,7 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 - Log Analytics 에이전트 확장이 VM에 현재 설치되어 있지 않습니다.
 - VM이 실행 중인 상태입니다.
-- Windows 또는 Linux [Azure Virtual Machine 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)가 설치되어 있습니다.
+- Windows 또는 Linux [Azure Virtual Machine 에이전트](../virtual-machines/extensions/agent-windows.md)가 설치되어 있습니다.
 - VM이 웹 애플리케이션 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
 
 
@@ -88,7 +88,7 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Log Analytics 에이전트에서 수집 하는 데이터는 무엇 인가요?
 
-에이전트에서 모니터링 하는 응용 프로그램 및 서비스의 전체 목록은 [Azure Monitor에서 모니터링 하는 기능](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services)을 참조 하세요.
+에이전트에서 모니터링 하는 응용 프로그램 및 서비스의 전체 목록은 [Azure Monitor에서 모니터링 하는 기능](../azure-monitor/monitor-reference.md#azure-services)을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure 방화벽과 같은 일부 서비스의 경우 로깅을 사용 하도록 설정 하 고 번잡 리소스 (예: 로그를 *자세한 정보*로 설정)를 선택한 경우 Log Analytics 작업 영역 저장소 요구에 상당한 영향을 줄 수 있습니다. 

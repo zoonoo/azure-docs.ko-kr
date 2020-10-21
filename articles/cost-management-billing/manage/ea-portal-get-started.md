@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 617351d5d1bdf9b6528803552e2d34766e9ab217
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371952"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132655"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -561,7 +561,7 @@ Azure EA 등록에서 필요한 만큼 부서를 만들 수 있습니다. 사용
 
 부서 및 구독을 만든 후에는 사용량 보고서에서 데이터를 볼 수 있습니다. 이 정보는 부서 수준에서 사용량을 추적하고 비용 및 지출을 관리하는 데 도움이 됩니다.
 
-Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
+Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](./ea-portal-rest-apis.md)를 참조하세요.
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>지출 할당량을 설정하고 한도에 도달하면 경고를 받을 수 있나요?
 
@@ -573,7 +573,7 @@ Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다.
 
 _리소스 그룹_ 및 _태그_를 사용하는 경우 이 정보는 서비스 수준에서 추적되며, 세부 사용량 다운로드(CSV) 파일에서 이 정보에 액세스할 수 있습니다. Azure Enterprise Portal에서 [사용량 현황 보고서 다운로드](https://ea.azure.com/report/downloadusage)를 참조하세요.
 
-API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
+API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](./ea-portal-rest-apis.md)를 참조하세요.
 
 > [!NOTE]
 > Azure Resource Manager 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 클래식 배포 모델을 통해(예: 클래식 포털을 통해) 가상 머신, 가상 네트워크 또는 스토리지를 만든 경우 해당 리소스에 태그를 적용할 수 없습니다. 태그를 지원하려면 Resource Manager를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.

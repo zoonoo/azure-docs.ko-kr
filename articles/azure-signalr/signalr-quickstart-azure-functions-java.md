@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: ab13c9494ee04d112cec93af9efaab43705297bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fac992ba0d6be945fcb3184d27394ff58d98c44c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319523"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151029"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>빠른 시작: Java를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -102,6 +102,6 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 이 빠른 시작에서는 Maven을 사용하여 실시간 서버리스 애플리케이션을 빌드하고 실행했습니다. 다음 과정으로, Java Azure Functions를 처음부터 새로 만드는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Java 및 Maven을 사용하여 첫 번째 함수 만들기](../azure-functions/functions-create-first-java-maven.md)
+> [Java 및 Maven을 사용하여 첫 번째 함수 만들기](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
 
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjava)
