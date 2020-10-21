@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 17474b4f38ccc6f43e664042b1218a8c253718e5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203418"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327821"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -233,7 +233,7 @@ Azure는 명령줄에서 응용 프로그램 및 서비스를 관리 하는 두 
 
 -   [Azure PowerShell](/powershell/azure/): Windows PowerShell을 사용하여 Azure 리소스를 관리할 수 있도록 하는 cmdlet이 포함된 모듈 집합을 제공합니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 [Azure Portal](https://portal.azure.com) 은 웹 기반 응용 프로그램입니다. Azure Portal를 사용 하 여 Azure 리소스 및 서비스를 만들고, 관리 하 고, 제거할 수 있습니다. 다음을 포함합니다.
 
@@ -259,7 +259,7 @@ REST Api와 함께 많은 Azure 서비스를 사용 하면 다음과 같은 개�
 
 [Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library) 및 [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md)와 같은 서비스는 웹 및 모바일 클라이언트 앱에서 서비스에 액세스할 수 있도록 해주는 클라이언트 쪽 SDK를 제공합니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 Azure에서 앱을 실행 하는 경우 여러 Azure 서비스를 사용 하는 것이 포함 될 수 있습니다. 이러한 서비스는 동일한 수명 주기를 따르고 논리적 단위로 간주할 수 있습니다. 예를 들어 웹앱은 Web Apps, SQL Database, Storage, Azure Cache for Redis 및 Azure Content Delivery Network 서비스를 사용할 수 있습니다. [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 사용하면 그룹으로 애플리케이션에서 리소스와 함께 사용할 수 있습니다. 조정된 단일 작업에서 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다.
 
@@ -281,7 +281,7 @@ Azure 구독을 만들거나 사용 하려면 Azure 계정이 있어야 합니�
 
 모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 디바이스를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 하는 개별 azure 계정 id를 정의할 수 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
+Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 하는 개별 azure 계정 id를 정의할 수 있습니다. 사용자 그룹을 만드는 것은 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 구독의 리소스에 대 한 액세스를 관리 하는 좋은 방법입니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 
@@ -297,17 +297,17 @@ Azure Resource Explorer는 구독에서 이미 만든 리소스를 시각화하�
 
 Azure 리소스에 대 한 액세스를 허용 하는 경우 항상 지정 된 작업을 수행 하는 데 필요한 최소 권한을 사용자에 게 제공 하는 것이 좋습니다.
 
-- **RBAC(역할 기반 액세스 제어)**: Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용 하면 리소스를 리소스 그룹에 배포 하 고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스로만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)?](../../role-based-access-control/overview.md)를 참조 하세요.
+- Azure **RBAC (역할 기반 액세스 제어)**: azure에서 지정 된 범위 (구독, 리소스 그룹 또는 개별 리소스)의 사용자 계정 (주체)에 대 한 액세스 권한을 부여할 수 있습니다. Azure RBAC를 사용 하면 리소스를 리소스 그룹에 배포 하 고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스로만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)?](../../role-based-access-control/overview.md)를 참조 하세요.
 
   > **사용 가능한 상황**: 사용자와 그룹의 액세스를 세부적으로 관리해야 하거나 특정 사용자를 구독 소유자로 지정해야 하는 경우
   >
-  > **시작**: 자세히 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+  > **시작**하기: 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 - **서비스 주체 개체**: 사용자 계정 및 그룹에 대 한 액세스를 제공 하는 것과 함께 서비스 주체에 대 한 동일한 액세스 권한을 부여할 수 있습니다.
 
   > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 애플리케이션에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>태그
 
 Azure Resource Manager를 사용하면 개별 리소스에 사용자 지정 태그를 할당할 수 있습니다. 키-값 쌍인 태그는 청구 또는 모니터링에 대한 리소스를 구성해야 하는 경우에 유용할 수 있습니다. 태그는 여러 리소스 그룹에서 리소스를 추적하는 방법을 제공합니다. 태그는 다음과 같은 방식으로 할당할 수 있습니다.
 

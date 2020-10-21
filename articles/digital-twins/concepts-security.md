@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015007"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331756"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
-보안을 위해 Azure Digital Twins를 사용 하면 배포의 특정 데이터, 리소스 및 작업에 대 한 정확한 액세스를 제어할 수 있습니다. 이를 위해 **RBAC (역할 기반 액세스 제어)** 라고 하는 세분화 된 역할 및 권한 관리 전략을 통해이를 수행 합니다. [여기](../role-based-access-control/overview.md)에서 Azure에 대 한 RBAC의 일반적인 원칙에 대해 알아볼 수 있습니다.
+보안을 위해 Azure Digital Twins를 사용 하면 배포의 특정 데이터, 리소스 및 작업에 대 한 정확한 액세스를 제어할 수 있습니다. Azure **RBAC (역할 기반 액세스 제어)** 라고 하는 세분화 된 역할 및 권한 관리 전략을 통해이를 수행 합니다. Azure RBAC의 일반적인 원칙에 대 한 자세한 내용은 [여기](../role-based-access-control/overview.md)를 참조 하세요.
 
 또한 Azure Digital Twins는 미사용 데이터의 암호화를 지원 합니다.
 
-## <a name="granting-permissions-with-rbac"></a>RBAC를 사용 하 여 권한 부여
+## <a name="granting-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 권한 부여
 
-RBAC는 azure AD ( [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) )와의 통합을 통해 Azure Digital twins에 제공 됩니다.
+Azure RBAC는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (azure AD)와의 통합을 통해 Azure Digital twins에 제공 됩니다.
 
-RBAC를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 *보안 주체*에 권한을 부여할 수 있습니다. 보안 주체는 Azure AD에서 인증 되며 반환에서 OAuth 2.0 토큰을 받습니다. 이 토큰은 Azure Digital Twins 인스턴스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
+Azure RBAC를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 *보안 주체*에 권한을 부여할 수 있습니다. 보안 주체는 Azure AD에서 인증 되며 반환에서 OAuth 2.0 토큰을 받습니다. 이 토큰은 Azure Digital Twins 인스턴스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
 
 ### <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
@@ -57,7 +57,7 @@ Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하
 기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
-* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*AZURE RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
+* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
 * CLI 명령을 통해 역할 추가 또는 제거
 
 이 작업을 수행 하는 방법에 대 한 자세한 단계는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
@@ -95,4 +95,4 @@ Azure Digital Twins는 현재 **CORS (크로스-원본 자원 공유)** 를 지�
 
 * [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)의 클라이언트 응용 프로그램 코드에서 이러한 개념과 상호 작용 하는 방법을 참조 하세요.
 
-* [Azure 용 RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.
+* [AZURE RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.

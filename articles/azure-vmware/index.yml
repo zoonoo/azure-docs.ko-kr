@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 09/21/2020
-  ms.openlocfilehash: 197cf8ca3f819a83d13869a43c3685bba916ce4f
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.date: 10/19/2020
+  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
+  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91949108"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92172145"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -36,14 +36,12 @@ landingContent:
       url: concepts-role-based-access-control.md
     - text: 프라이빗 클라우드 업그레이드
       url: concepts-upgrades.md
-- title: Azure VMware Solution 배포
+- title: 시작
   linkLists:
-  - linkListType: get-started
+  - linkListType: deploy
     links:
-    - text: 배포 전 프로세스
+    - text: 배포 계획
       url: production-ready-deployment-steps.md
-    - text: 배포 전 검사 목록
-      url: pre-deployment-checklist.md
     - text: 1 - Azure VMware Solution 배포
       url: deploy-azure-vmware-solution.md
     - text: 2- 온-프레미스에 연결
@@ -64,14 +62,16 @@ landingContent:
       url: tutorial-nsx-t-network-segment.md
     - text: 온-프레미스에서 프라이빗 클라우드로 피어링
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: VMware HCX 배포 및 구성
-      url: tutorial-deploy-vmware-hcx.md
     - text: 프라이빗 클라우드 스케일링
       url: tutorial-scale-private-cloud.md
 - title: Azure VMware Solution 확장
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Azure VMware 솔루션 사용
+      url: enable-azure-vmware-solution.md
+    - text: 예약 인스턴스로 비용 절감
+      url: reserved-instance.md
     - text: 마이그레이션 평가
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: DHCP 관리
@@ -80,5 +80,49 @@ landingContent:
       url: disaster-recovery-for-virtual-machines.md
     - text: 콘텐츠 라이브러리를 통해 VM 배포
       url: ./deploy-vm-content-library.md
-    - text: 공용 IP 기능 사용
+    - text: GitHub Enterprise 서버 설정
+      url: github-enterprise-server.md
+    - text: 공용 IP 사용량
       url: public-ip-usage.md
+    - text: IPSec 터널 만들기
+      url: create-ipsec-tunnel.md
+- title: Azure 네이티브 통합
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: API Management
+      url: concepts-api-management.md
+    - text: 허브 및 스포크
+      url: concepts-hub-and-spoke.md
+    - text: Azure Backup 서버
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: VM의 수명 주기 관리
+      url: lifecycle-management-of-azure-vmware-solution-vms.md
+    - text: Application Gateway
+      url: protect-azure-vmware-solution-with-application-gateway.md
+    - text: Traffic Manager
+      url: deploy-traffic-manager-balance-workloads.md
+- title: VMware 솔루션
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: vRealize Operations 설정
+      url: vrealize-operations-for-azure-vmware-solution.md
+    - text: VMware Horizon 배포
+      url: azure-vmware-solution-horizon.md
+- title: VMware 에코시스템
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: VM용 백업 솔루션
+      url: ecosystem-back-up-vms.md
+- title: 리소스
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.vmware
+    - text: 배포 또는 프로비저닝 실패에 대한 도움 받기
+      url: fix-deployment-provisioning-failures.md
+    - text: FAQ
+      url: faq.md

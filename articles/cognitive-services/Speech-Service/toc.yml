@@ -229,6 +229,8 @@
   items:
     - name: 의도 인식 설명서
       href: index-intent-recognition.yml
+    - name: 의도 인식 개요
+      href: intent-recognition.md
     - name: 의도 인식 빠른 시작
       href: quickstarts/intent-recognition.md
     - name: 방법 가이드

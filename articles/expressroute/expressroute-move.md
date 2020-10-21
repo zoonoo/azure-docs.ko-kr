@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395165"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331552"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 이 문서에서는 Azure ExpressRoute 회로를 클래식에서 Azure Resource Manager 배포 모델로 이동하는 것에 대해 간략히 설명합니다.
@@ -85,9 +85,9 @@ ExpressRoute 회로는 클래식 및 리소스 관리자 배포 모델 간의 �
 이 섹션에서는 ExpressRoute 회로에 지원되지 않는 내용을 설명합니다.
 
 * 클래식 배포 모델에서 ExpressRoute 회로의 수명 주기를 관리합니다.
-* 클래식 배포 모델에 대한 역할 기반 Access Control(RBAC) 지원 클래식 배포 모델에서 회로에 대한 RBAC 제어를 수행할 수 없습니다. 구독의 모든 관리자/공동 관리자는 가상 네트워크를 회로에 연결하거나 연결을 끊을 수 있습니다.
+* 클래식 배포 모델에 대 한 azure RBAC (역할 기반 액세스 제어) 지원. 클래식 배포 모델에서 회로에 대 한 Azure RBAC 제어를 수행할 수 없습니다. 구독의 모든 관리자/공동 관리자는 가상 네트워크를 회로에 연결하거나 연결을 끊을 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](expressroute-howto-move-arm.md)에서 설명한 지침을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계

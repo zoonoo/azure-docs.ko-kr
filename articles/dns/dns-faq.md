@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa03e9a9bbbc7f8eefc1e0ba57a0a8b18da6e29
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77121727"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328762"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -24,7 +24,7 @@ DNS(Domain Name System)는 웹 사이트 또는 서비스 이름을 해당 IP �
 
 Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크에 호스트됩니다. 이 시스템은 사용 가능한 가장 가까운 DNS 서버에서 각 DNS 쿼리에 응답하도록 애니캐스트 네트워킹을 사용합니다. Azure DNS는 도메인에 대해 빠른 성능과 고가용성을 제공합니다.
 
-Azure DNS는 Azure Resource Manager를 기반으로 합니다. Azure DNS는 역할 기반 액세스 제어, 감사 로그 및 리소스 잠금과 같은 리소스 관리자 기능의 이점을 누릴 수 있습니다. 도메인과 레코드는 Azure 포털, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 통해 관리할 수 있습니다. 자동 DNS 관리가 필요한 애플리케이션은 REST API 및 SDK를 통해 서비스와 통합할 수 있습니다.
+Azure DNS는 Azure Resource Manager를 기반으로 합니다. Azure 역할 기반 액세스 제어, 감사 로그 및 리소스 잠금과 같은 리소스 관리자 기능의 이점을 Azure DNS 합니다. 도메인과 레코드는 Azure 포털, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 통해 관리할 수 있습니다. 자동 DNS 관리가 필요한 애플리케이션은 REST API 및 SDK를 통해 서비스와 통합할 수 있습니다.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Azure DNS 비용은 얼마입니까?
 
@@ -177,7 +177,7 @@ DNS 영역을 이동하는 방법에 대한 자세한 내용 및 지침을 보�
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>실수로 삭제되지 않도록 내 DNS 영역을 보호하려면 어떻게 해야 하나요?
 
-Azure DNS는 Azure Resource Manager를 사용하여 관리됩니다. Azure DNS는 Azure Resource Manager가 제공하는 Access Control 기능을 활용합니다. 역할 기반 액세스 제어는 DNS 영역 및 레코드 집합에 대한 읽기 또는 쓰기 액세스 권한이 있는 사용자를 제어합니다. 리소스 잠금은 실수로 DNS 영역 및 레코드 집합을 수정하거나 삭제하지 않도록 합니다.
+Azure DNS는 Azure Resource Manager를 사용하여 관리됩니다. Azure DNS는 Azure Resource Manager가 제공하는 Access Control 기능을 활용합니다. Azure 역할 기반 액세스 제어를 사용 하 여 DNS 영역 및 레코드 집합에 대 한 읽기 또는 쓰기 액세스 권한이 있는 사용자를 제어할 수 있습니다. 리소스 잠금은 실수로 DNS 영역 및 레코드 집합을 수정하거나 삭제하지 않도록 합니다.
 
 자세한 내용은 [DNS 영역 및 레코드 보호](dns-protect-zones-recordsets.md)를 참조하세요.
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 엔터프라이즈의 Azure DevTest Labs에 대
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144551"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328847"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈를 위한 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 기업의 Azure DevTest Labs 기반 솔루션을 배포 하는 데 도움이 되는 참조 아키텍처를 제공 합니다. 여기에는 다음이 포함 됩니다.
@@ -24,7 +24,7 @@ ms.locfileid: "92144551"
 참조 아키텍처의 핵심 요소는 다음과 같습니다.
 
 - **Azure Active Directory (AZURE ad)**: DevTest Labs는 [Id 관리에 Azure AD 서비스](../active-directory/fundamentals/active-directory-whatis.md)를 사용 합니다. DevTest Labs를 기반으로 환경에 대 한 액세스 권한을 사용자에 게 부여 하는 경우 다음 두 가지 주요 측면을 고려 하세요.
-    - **리소스 관리**: 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (가상 머신 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure에서 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
+    - **리소스 관리**: 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (가상 머신 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
     - **가상 컴퓨터 (네트워크 수준)**: 기본 구성에서 가상 컴퓨터는 로컬 관리자 계정을 사용 합니다. 사용 가능한 도메인 ([Azure AD Domain Services](../active-directory-domain-services/overview.md), 온-프레미스 도메인 또는 클라우드 기반 도메인)이 있으면 컴퓨터를 도메인에 조인할 수 있습니다. 그러면 사용자가 해당 도메인 기반 id를 사용 하 여 Vm에 연결할 수 있습니다.
 - **온-프레미스 연결**: 아키텍처 다이어그램에서 [express](../expressroute/expressroute-introduction.md) 경로를 사용 합니다. 하지만 [사이트 간 VPN](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)을 사용할 수도 있습니다. DevTest Labs에서는 Express 경로를 사용 하지 않아도 되지만 일반적으로 기업에서 사용 됩니다. Express 경로는 회사 리소스에 액세스 해야 하는 경우에만 필요 합니다. 일반적인 시나리오는 다음과 같습니다.
     - 클라우드로 이동할 수 없는 온-프레미스 데이터가 있습니다.

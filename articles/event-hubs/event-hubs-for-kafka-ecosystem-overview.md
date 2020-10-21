@@ -3,12 +3,12 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 95534d32bdf34d44a11b31c2476c153272717941
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319840"
+ms.locfileid: "92327300"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행 하는 대신 대부분의 기존 Apache Kafka 클라이언트 응용 프로그램에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 Api와 호환 되는 끝점을 제공 합니다. Event Hubs는 1.0 이상 버전에서 Apache Kafka의 생산자 및 소비자 Api 클라이언트를 지원 합니다.
@@ -60,7 +60,7 @@ Azure Event Hubs는 보안 리소스에 대 한 액세스 권한을 부여 하�
 - 공유 액세스 서명(SAS)
 
 #### <a name="oauth-20"></a>OAuth 2.0
-Event Hubs는 **OAuth 2.0** 호환 중앙 집중식 권한 부여 서버를 제공 하는 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 클라이언트 id에 대 한 세분화 된 권한을 부여할 수 있습니다. 프로토콜에 대 한 **SASL_SSL** 를 지정 하 고 해당 메커니즘에 대 한  **oauthbearer** 를 지정 하 여이 기능을 kafka 클라이언트와 함께 사용할 수 있습니다. 범위 액세스에 대 한 Azure 역할 및 수준에 대 한 자세한 내용은 [AZURE AD를 사용 하 여 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조 하세요.
+Event Hubs는 **OAuth 2.0** 호환 중앙 집중식 권한 부여 서버를 제공 하는 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 클라이언트 id에 대 한 세분화 된 권한을 부여할 수 있습니다. 프로토콜에 대 한 **SASL_SSL** 를 지정 하 고 해당 메커니즘에 대 한  **oauthbearer** 를 지정 하 여이 기능을 kafka 클라이언트와 함께 사용할 수 있습니다. 범위 액세스에 대 한 Azure 역할 및 수준에 대 한 자세한 내용은 [AZURE AD를 사용 하 여 액세스 권한 부여](authorize-access-azure-active-directory.md)를 참조 하세요.
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

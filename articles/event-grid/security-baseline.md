@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d027797deee9435127592fc91c21d59ee93fe9b5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2a1396f67c94b34b4fdef0bdaf7e01770da91246
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152243"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331518"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Event Grid에 대 한 Azure 보안 기준
 
@@ -70,7 +70,7 @@ Microsoft Azure Event Grid의 Azure 보안 기준에는 배포의 보안 상태�
 
 선택한 가상 네트워크 에서만 액세스를 제한 하도록 개인 끝점을 구성할 수 있습니다.
 
-DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 항목을 참조하세요. 
+DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 아티클을 참조하세요. 
 
 - [Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법](configure-private-endpoints.md)
 
@@ -287,9 +287,9 @@ Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고를 만들 
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: Azure Event Grid를 사용 하면 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 관리 작업을 수행 하기 위해 다른 사용자에 게 제공 되는 액세스 수준을 제어할 수 있습니다. Event Grid는 Azure의 RBAC(역할 기반 액세스 제어)를 사용합니다. Event Grid은 기본 제공 역할 및 사용자 지정 역할을 지원 합니다.
+**지침**: Azure Event Grid를 사용 하면 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 관리 작업을 수행 하기 위해 다른 사용자에 게 제공 되는 액세스 수준을 제어할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 Event Grid입니다. Event Grid은 기본 제공 역할 및 사용자 지정 역할을 지원 합니다.
 
-Azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 역할 할당을 통해 Azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
+Azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 Azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
 
 - [Event Grid 리소스에 대 한 액세스 권한 부여](security-authorization.md)
 
@@ -457,7 +457,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure Active Directory RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
+**지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
 
 - [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
@@ -501,7 +501,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리
 
-**지침**: Azure Event Grid에서는 AZURE ACTIVE DIRECTORY (AD)를 사용 하 여 Event Grid 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
+**지침**: Azure Event Grid에서는 AZURE ACTIVE DIRECTORY (AD)를 사용 하 여 Event Grid 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
 
 - [Event Grid 리소스에 대 한 액세스 권한 부여](security-authorization.md)
 

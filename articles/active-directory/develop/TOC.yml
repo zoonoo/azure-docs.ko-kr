@@ -75,6 +75,8 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: Blazor WebAssembly
+          href: tutorial-blazor-webassembly.md
         - name: JavaScript - 인증 코드 흐름
           href: tutorial-v2-javascript-auth-code.md
         - name: JavaScript - 암시적 흐름
@@ -123,6 +125,9 @@
       href: authentication-flows-app-scenarios.md
     - name: ID 플랫폼 모범 사례
       href: identity-platform-integration-checklist.md
+    - name: 모바일 SSO(Single Sign-On)
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: 애플리케이션 시나리오
       displayName: App scenarios
       items:
@@ -291,10 +296,8 @@
           items:
             - name: 계정 및 테넌트 프로필
               href: accounts-overview.md
-            - name: 권한 부여 에이전트
-              href: authorization-agents.md
-            - name: 조정된 인증
-              href: brokered-auth.md
+            - name: MSAL Android를 사용하는 SSO
+              href: msal-android-single-sign-on.md
             - name: Azure AD B2C와 통합
               href: msal-android-b2c.md
             - name: MSAL.Android로 마이그레이션

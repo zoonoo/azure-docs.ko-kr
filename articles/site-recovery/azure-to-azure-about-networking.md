@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320523"
+ms.locfileid: "92332045"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -29,7 +29,7 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 
 다음 다이어그램에서는 Azure VM에서 실행되는 애플리케이션에 대한 일반적인 Azure 환경을 보여 줍니다.
 
-![고객 환경](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Azure Vm에서 실행 되는 응용 프로그램에 대 한 일반적인 Azure 환경을 보여 주는 다이어그램입니다.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 온-프레미스 네트워크와 Azure 간의 연결에 Azure ExpressRoute 또는 VPN 연결을 사용하는 경우 환경은 다음과 같습니다.
 

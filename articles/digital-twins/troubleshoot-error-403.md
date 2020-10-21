@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201442"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331501"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청이 실패 했습니다. 상태: 403 (사용할 수 없음)
 
@@ -25,7 +25,7 @@ ms.locfileid: "92201442"
 
 ### <a name="cause-1"></a>원인 #1
 
-일반적으로이 오류는 서비스에 대 한 RBAC (역할 기반 액세스 제어) 권한이 올바르게 설정 되지 않았음을 나타냅니다. Azure Digital Twins 인스턴스에 대 한 많은 작업에는 **관리 하려는 인스턴스에**대 한 *Azure Digital twins 소유자 (미리 보기)* 역할이 있어야 합니다. 
+일반적으로이 오류는 서비스에 대 한 Azure RBAC (역할 기반 액세스 제어) 권한이 올바르게 설정 되지 않았음을 나타냅니다. Azure Digital Twins 인스턴스에 대 한 많은 작업에는 **관리 하려는 인스턴스에**대 한 *Azure Digital twins 소유자 (미리 보기)* 역할이 있어야 합니다. 
 
 ### <a name="cause-2"></a>원인 #2
 

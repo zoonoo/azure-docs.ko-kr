@@ -3,19 +3,19 @@ title: Azure DevTest Labs에서 랩 사용자 추가 자동화 | Microsoft Docs
 description: 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 CLI를 사용 하 여 Azure DevTest Labs에서 랩에서 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483825"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327963"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 사용자를 랩에 추가 자동화
 Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비스 개발-테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있는 경우 생성 프로세스를 자동화 하면 시간을 절약할 수 있습니다. [Azure Resource Manager 템플릿을](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 사용 하면 실습, 랩 vm, 사용자 지정 이미지, 수식을 만들고 자동화 된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가 하는 방법을 집중적으로 설명 합니다.
 
 랩에 사용자를 추가 하려면 랩에 대 한 **DevTest Labs 사용자** 역할에 사용자를 추가 합니다. 이 문서에서는 다음 방법 중 하나를 사용 하 여 랩에 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 
-- Azure Resource Manager 템플릿
+- Azure 리소스 관리자 템플릿
 - Azure PowerShell cmdlet 
 - Azure CLI
 
@@ -179,7 +179,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 권한을 부여할 리소스를 지정 하려면 `ResourceName` 매개 변수를 사용 하 여, 또는를 조합 하 여 지정할 수 있습니다 `ResourceType` `ResourceGroup` `scope` . 사용 되는 매개 변수 조합을 사용 하 여 cmdlet에 대 한 충분 한 정보를 제공 하 여 Active Directory 개체 (사용자, 그룹 또는 서비스 사용자), 범위 (리소스 그룹 또는 리소스), 역할 정의를 고유 하 게 식별 합니다.
 
 ## <a name="use-azure-command-line-interface-cli"></a>Azure CLI (명령줄 인터페이스) 사용
-Azure CLI에서 랩 사용자를 랩에 추가 하는 작업은 명령을 사용 하 여 수행 됩니다 `az role assignment create` . Azure CLI cmdlet에 대 한 자세한 내용은 [RBAC 및 Azure CLI를 사용 하 여 Azure 리소스에 대 한 액세스 관리](../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
+Azure CLI에서 랩 사용자를 랩에 추가 하는 작업은 명령을 사용 하 여 수행 됩니다 `az role assignment create` . Azure CLI cmdlet에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-cli.md)를 참조 하세요.
 
 액세스 권한이 부여 되는 개체는 `objectId` , `signInName` , 매개 변수를 통해 지정할 수 있습니다 `spn` . 개체에 대 한 액세스 권한을 부여 하는 랩을 `scope` url 또는 `resource-name` , `resource-type` 및 `resource-group` 매개 변수의 조합으로 식별할 수 있습니다.
 

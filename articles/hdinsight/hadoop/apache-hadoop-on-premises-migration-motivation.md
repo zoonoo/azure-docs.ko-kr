@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072786"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331654"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -39,11 +39,11 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 - **관리 하드웨어 및 구성** - HDInsight 클러스터를 사용하면 물리적 하드웨어 또는 인프라에 대해 걱정할 필요가 없습니다. 클러스터 구성만 지정하면 Azure가 알아서 설정합니다.
 
-- **쉽게 확장 가능** - HDInsight를 사용하면 워크로드를  [확장](../hdinsight-administer-use-portal-linux.md) 또는 축소할 수 있습니다. Azure는 데이터 처리 작업을 중단하지 않고 데이터 재배포 및 워크로드 리밸런싱을 처리합니다.
+- **쉽게 확장할** 수 있습니다. HDInsight를 사용 하면 워크 로드를 [확장](../hdinsight-administer-use-portal-linux.md) 하거나 축소할 수 있습니다. Azure는 데이터 처리 작업을 중단하지 않고 데이터 재배포 및 워크로드 리밸런싱을 처리합니다.
 
 - **글로벌 가용성** -HDInsight는 다른 빅 데이터 분석 제품 보다 더 많은 [지역](https://azure.microsoft.com/regions/services/) 에서 사용할 수 있습니다. Azure HDInsight는 주요 통치 지역에서 엔터프라이즈 요구 사항을 충족할 수 있도록 Azure Government, 중국 및 독일에서도 사용할 수 있습니다.
 
-- **보안 및 규정 준수** - HDInsight를 사용하면  [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md),  [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. 또한 HDInsight는 가장 널리 사용되는 산업 및 정부  [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.
+- **안전 하 고 규정을 준수** 하는 HDInsight를 사용 하면 [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)및 [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)와 통합 하 여 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.
 
 - **간소화 된 버전 관리** -Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리 하 고 최신 상태로 유지 합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
 
@@ -51,9 +51,9 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 - **생산성** - 원하는 개발 환경에서 다양한 Hadoop 및 Spark용 도구를 사용할 수 있습니다.
 
-- **사용자 지정 도구 또는 타사 애플리케이션을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
+- **사용자 지정 도구 또는 타사 응용 프로그램을 사용** 하는 확장성-HDInsight 클러스터는 설치 된 구성 요소로 확장할 수 있으며 Azure Market에서 [한 번 클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 으로 배포 하 여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
 
-- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md)와 통합   하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
+- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 와 통합 하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
 
 - **다른 Azure 서비스와 통합** - HDInsight는 다음과 같은 인기 Azure 서비스와 쉽게 통합할 수 있습니다.
 
@@ -185,7 +185,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |클라우드 전용 사용자입니까?|                 예||
 |MFA가 필요합니까?|                       아니요|| 
 |데이터 권한 부여 요구 사항이 있습니까?|  예||
-|역할 기반 액세스 제어를 사용합니까?|        예||
+|역할 기반 액세스 제어|        예||
 |감사가 필요합니까?|                  예||
 |저장 데이터 암호화를 사용합니까?|          예||
 |전송 중 데이터 암호화를 사용합니까?|       예||

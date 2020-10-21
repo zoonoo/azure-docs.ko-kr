@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401132"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329630"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Event Hubs에 대 한 Azure 보안 기준
 
@@ -397,7 +397,7 @@ Azure에서 명명된 위치를 구성하는 방법: https://docs.microsoft.com/
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Event Hubs와 같은 Azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. 이를 통해 RBAC (역할 기반 액세스 제어)가 중요 한 리소스를 관리할 수 있습니다.
+**지침**: Event Hubs와 같은 Azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 AD (Azure Active Directory)를 사용 합니다. Azure RBAC (역할 기반 액세스 제어)를 통해 중요 한 리소스를 관리할 수 있습니다.
 
  Azure AD 인스턴스를 만들고 구성 하는 방법: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
@@ -539,9 +539,9 @@ Azure의 고객 데이터 보호 이해: https://docs.microsoft.com/azure/securi
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: Azure Event Hubs는 AZURE ACTIVE DIRECTORY (AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있도록 지원 합니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
+**지침**: Azure Event Hubs는 AZURE ACTIVE DIRECTORY (AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있도록 지원 합니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
 
-Azure Event Hubs에 대 한 Azure AD RBAC 및 사용 가능한 역할 이해: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Azure Event Hubs에 대 한 Azure RBAC 및 사용 가능한 역할 이해: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Azure Security Center 모니터링**: 해당 없음
 

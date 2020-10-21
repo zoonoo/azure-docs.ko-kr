@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567539"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328198"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Azure Data Factory의 전역 매개 변수
 
@@ -52,7 +52,7 @@ Side-by-side 탐색에서 이름을 입력 하 고, 데이터 형식을 선택 �
 
 ![ARM 템플릿에 포함](media/author-global-parameters/include-arm-template.png)
 
-ARM 템플릿에 전역 매개 변수를 추가 하면 다른 환경에서 고객이 관리 하는 키 또는 git 구성과 같은 다른 팩터리 수준 설정을 재정의할 수 있는 팩터리 수준 설정이 추가 됩니다. UAT 또는 PROD와 같은 높은 수준의 환경에서 이러한 설정을 사용 하도록 설정한 경우 아래 강조 표시 된 단계에서 PowerShell 스크립트를 통해 전역 매개 변수를 배포 하는 것이 좋습니다.
+ARM 템플릿에 전역 매개 변수를 추가 하면 다른 환경에서 고객이 관리 하는 키 또는 git 구성과 같은 다른 팩터리 수준 설정을 재정의 하는 팩터리 수준 설정이 추가 됩니다. UAT 또는 PROD와 같은 높은 수준의 환경에서 이러한 설정을 사용 하도록 설정한 경우 아래 강조 표시 된 단계에서 PowerShell 스크립트를 통해 전역 매개 변수를 배포 하는 것이 좋습니다.
 
 ### <a name="deploying-using-powershell"></a>PowerShell을 사용 하 여 배포
 

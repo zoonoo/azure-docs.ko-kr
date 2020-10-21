@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288922"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279073"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Synapse SQL의 저장 프로시저 사용
 
-솔루션 개발을 위한 Synapse SQL 풀 (데이터 웨어하우스)에서 저장 프로시저를 구현 하기 위한 팁입니다.
+솔루션 개발을 위해 Synapse SQL 풀에서 저장 프로시저를 구현 하기 위한 팁입니다.
 
 ## <a name="what-to-expect"></a>필요한 항목
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL에서는 INSERT 문을 사용 하 여 저장 프로시저의 결과 집합을 사용할 수 없습니다. 사용할 수 있는 다른 방법이 있습니다. 예를 들어 [임시 테이블](develop-tables-temporary.md)의 문서를 참조하세요.
+Synapse SQL에서는 INSERT 문을 사용 하 여 저장 프로시저의 결과 집합을 사용할 수 없습니다. 사용할 수 있는 다른 방법이 있습니다. 예를 들어 프로 비전 된 Synapse SQL 풀의 [임시 테이블](develop-tables-temporary.md) 에 대 한 문서를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 

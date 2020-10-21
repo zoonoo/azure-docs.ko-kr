@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b812a727a555f8c4c95389f2ba0cc5ccea2f608a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205562"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329852"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -58,7 +58,7 @@ Azure Portal에서 Automation 계정을 만드는 경우 [실행](../automation/
 
 * Azure AD에서 응용 프로그램에 대 한 서비스 사용자 계정을 만듭니다.
 
-* 사용 중인 Azure 구독에 대 한 참가자 역할 (RBAC)을 자신에 게 할당 합니다. 이 역할은 runbook을 사용 하 여 Azure Resource Manager 리소스를 관리 합니다.
+* 사용 중인 Azure 구독에 대 한 참가자 역할 (Azure RBAC)을 자신에 게 할당 합니다. 이 역할은 runbook을 사용 하 여 Azure Resource Manager 리소스를 관리 합니다.
 
 Automation 계정을 만들려면 권한 및 권한이 필요 합니다. 자세한 내용은 [Automation 계정을 만드는 데 필요한 권한](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account)을 참조 하세요.
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 PowerShell 스크립트를 실행 하면 값 목록이 수집 됩니다.
  
-* Resource group
+* 리소스 그룹
 
 * Express 경로 게이트웨이 이름
 

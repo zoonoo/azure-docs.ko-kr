@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d92dad445b1aeace24dc0af7d95289f5535a5680
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281791"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329035"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>가상 컴퓨터 제품을 계획 하는 방법
 
@@ -23,10 +23,7 @@ ms.locfileid: "92281791"
 
 ### <a name="technical-fundamentals"></a>기술 기본 사항
 
-제품을 디자인, 구축 및 테스트 하는 과정은 시간이 걸리고 제품을 빌드하는 데 사용 되는 Azure 플랫폼 및 기술에 대 한 전문 지식이 필요 합니다. 엔지니어링 팀에는 다음 Microsoft 기술에 대 한 실무 지식이 있어야 합니다.
-
-- [Azure 애플리케이션 설계 및 아키텍처](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking#networking)
+제품을 디자인, 구축 및 테스트 하는 과정은 시간이 걸리고 제품을 빌드하는 데 사용 되는 Azure 플랫폼 및 기술에 대 한 전문 지식이 필요 합니다. 엔지니어링 팀은 azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)및 [azure 네트워킹](https://azure.microsoft.com/services/?filter=networking#networking)에 대 한 실무 지식을 갖추고 있으며 [azure 응용 프로그램의 설계 및 아키텍처](https://azure.microsoft.com/solutions/architecture/)를 숙련도 해야 합니다. 이러한 추가 기술 리소스를 참조 하세요. 
 
 - 자습서
   - [Linux VM](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -40,9 +37,17 @@ ms.locfileid: "92281791"
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
+VM 제공의 기술 요구 사항은 다음과 같습니다.
+
+- 운영 체제 VHD (가상 하드 디스크) 하나를 준비 해야 합니다. 데이터 디스크 Vhd는 선택 사항입니다. 이에 대해서는 아래에서 자세히 설명 합니다.
+- 고객은 언제 든 지 제품을 취소할 수 있습니다.
+- 제품에 대 한 계획을 하나 이상 만들어야 합니다. 요금제는 선택한 [라이선스 옵션](#licensing-options) 에 따라 가격이 책정 됩니다.
+   > [!IMPORTANT]
+   > 계획의 모든 VM 이미지에는 동일한 수의 데이터 디스크가 있어야 합니다.
+
 VM에는 다음 두 가지 구성 요소가 포함 됩니다.
 
-- **운영 체제 VHD (가상 하드 디스크)** – 제품과 함께 배포 하는 운영 체제 및 솔루션을 포함 합니다. VHD를 준비 하는 프로세스는 Linux, Windows 또는 사용자 지정 기반 VM 인지에 따라 달라 집니다.
+- **운영 VHD** – 제품과 함께 배포 하는 운영 체제 및 솔루션을 포함 합니다. VHD를 준비 하는 프로세스는 Linux, Windows 또는 사용자 지정 기반 VM 인지에 따라 달라 집니다.
 - **데이터 디스크 vhd** (선택 사항) – VM의 전용 영구 저장소입니다. 운영 체제 VHD(예: C: 드라이브)를 사용하여 영구 정보를 저장하지 마세요. 
     - 최대 16 개의 데이터 디스크를 포함할 수 있습니다.
     - 디스크가 비어 있는 경우에도 데이터 디스크당 하나의 VHD를 사용합니다.
@@ -50,13 +55,7 @@ VM에는 다음 두 가지 구성 요소가 포함 됩니다.
     > [!NOTE]
     > 사용 중인 운영 체제에 상관없이 솔루션에 필요한 최소 개수의 데이터 디스크만 추가합니다. 고객은 배포 시 이미지의 일부인 디스크를 제거할 수 없지만, 배포 중 또는 배포 후에 언제든지 디스크를 추가할 수 있습니다.
 
-VM 제공의 기술 요구 사항은 다음과 같습니다.
-
-- 운영 체제 VHD (가상 하드 디스크) 하나를 준비 해야 합니다. 데이터 디스크 Vhd는 선택 사항입니다.
-- 고객은 언제 든 지 제품을 취소할 수 있습니다.
-- 제품에 대 한 계획을 하나 이상 만들어야 합니다. 요금제는 선택한 [라이선스 옵션](#licensing-options) 에 따라 가격이 책정 됩니다.
-   > [!IMPORTANT]
-   > 계획의 모든 VM 이미지에는 동일한 수의 데이터 디스크가 있어야 합니다.
+기술 자산을 준비 하는 방법에 대 한 자세한 지침은 [승인 된 기본을 사용 하 여 가상 머신 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용 하 여 가상 머신 만들기](azure-vm-create-using-own-image.md)를 참조 하세요.
 
 ## <a name="preview-audience"></a>미리 보기 대상 그룹
 
@@ -134,5 +133,6 @@ VM에 대 한 테스트 드라이브를 사용 하도록 선택할 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Azure Marketplace에서 가상 컴퓨터 제품 만들기](azure-vm-create.md)
 - [승인 된 기반을 사용 하 여 가상 컴퓨터를 만들거나](azure-vm-create-using-approved-base.md) [사용자 고유의 이미지를 사용 하 여 가상 컴퓨터를 만듭니다](azure-vm-create-using-own-image.md).
 - [목록에 제품 추가 모범 사례](gtm-offer-listing-best-practices.md)

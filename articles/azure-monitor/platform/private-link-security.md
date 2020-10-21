@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac64eff8c87046fd1ce76ee71475fda79ac6f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802228"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329256"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -41,6 +41,9 @@ Azure Monitor Private Link 범위는 하나 이상의 프라이빗 엔드포인�
 ## <a name="planning-based-on-your-network"></a>네트워크 기반 계획 수립
 
 AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고려합니다. 퍼블릭 인터넷에 대한 가상 네트워크 액세스 및 각 Azure Monitor 리소스(즉, Application Insights 구성 요소 및 Log Analytics 작업 영역)의 액세스 제한을 평가합니다.
+
+> [!NOTE]
+> 허브 및 스포크 네트워크 또는 피어 링 네트워크의 다른 토폴로지는 각 VNet 및 모든 VNet에 개인 링크를 설정 하는 대신 허브 (주) VNet과 관련 Azure Monitor 리소스 간에 개인 링크를 설정할 수 있습니다. 특히 이러한 네트워크에서 사용 하는 Azure Monitor 리소스를 공유 하는 경우에 적합 합니다. 그러나 각 VNet에서 별도의 모니터링 리소스 집합에 액세스 하도록 허용 하려면 각 네트워크에 대 한 전용 AMPLS 개인 링크를 만듭니다.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Private Link에 연결할 가상 네트워크 평가
 

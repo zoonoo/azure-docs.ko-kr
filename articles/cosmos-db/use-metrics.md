@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6de0a6632c53055dd3d3f428481dcc465b67ef6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568015"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280807"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
@@ -59,7 +59,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Azure Portal에서 Cosmos DB 성능 메트릭":::
 
-불균등 처리량 배포 시 *핫* 파티션이 발생할 수 있고, 이로 인해 제한된 요청이 초래되고 다시 분할해야 할 수 있습니다. Azure Cosmos DB에서 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](./partition-data.md)을 참조하세요.
+불균등 처리량 배포 시 *핫* 파티션이 발생할 수 있고, 이로 인해 제한된 요청이 초래되고 다시 분할해야 할 수 있습니다. Azure Cosmos DB에서 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](./partitioning-overview.md)을 참조하세요.
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>파티션의 스토리지 배포 확인
 
@@ -71,7 +71,7 @@ Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시�
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Azure Portal에서 Cosmos DB 성능 메트릭":::
 
-배포 불균등을 초래하는 파티션 키를 식별한 후 더 많이 배포된 파티션 키로 컨테이너를 다시 분할해야 할 수도 있습니다. Azure Cosmos DB에서 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](./partition-data.md)을 참조하세요.
+배포 불균등을 초래하는 파티션 키를 식별한 후 더 많이 배포된 파티션 키로 컨테이너를 다시 분할해야 할 수도 있습니다. Azure Cosmos DB에서 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](./partitioning-overview.md)을 참조하세요.
 
 ## <a name="compare-data-size-against-index-size"></a>데이터 크기 및 인덱스 크기 비교
 

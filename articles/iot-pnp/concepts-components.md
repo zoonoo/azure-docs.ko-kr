@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574282"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330005"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>모델의 IoT 플러그 앤 플레이 구성 요소
 
@@ -69,7 +69,7 @@ IoT 플러그 앤 플레이 규칙에서 디바이스는 IoT Hub에 연결할 �
 구성 요소가 없는 DTDL 모델은 단일 원격 분석, 속성 및 명령 집합을 사용 하는 장치 또는 IoT Edge 모듈에 유용 하 게 사용할 수 있습니다. 구성 요소를 사용 하지 않는 모델을 사용 하면 기존 장치 또는 모듈을 IoT 플러그 앤 플레이 장치 또는 모듈로 쉽게 마이그레이션할 수 있습니다. 구성 요소를 정의할 필요 없이 실제 장치 또는 모듈을 설명 하는 DTDL 모델을 만듭니다.
 
 > [!TIP]
-> 모듈은 장치 [module] (.. /iot-hub/iot-hub-devguide-module-twins.md 또는 [IoT Edge 모듈](../iot-edge/about-iot-edge.md)
+> 모듈은 장치 [모듈](../iot-hub/iot-hub-devguide-module-twins.md) 이거나 [IoT Edge 모듈인](../iot-edge/about-iot-edge.md)수 있습니다.
 
 ## <a name="multiple-components"></a>여러 구성 요소
 

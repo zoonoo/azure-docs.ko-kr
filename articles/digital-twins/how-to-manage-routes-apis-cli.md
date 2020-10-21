@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 652299ebb98f685a16871cf4e944608a471d8df2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 96d759f0f722e332eb25e049fd336c784eb99789
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279086"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332079"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -24,7 +24,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Azure Portal](https://portal.azure.com)를 통해 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -64,7 +64,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-이제 event grid 토픽은 인수를 사용 하 여 지정 된 이름으로 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 해당 이름을 **이벤트 경로의**대상으로 사용 합니다. [이는이 문서의 뒷부분에서](#event-routes-with-apis-and-the-c-sdk) Azure DIGITAL twins 서비스 API를 사용 하 여 만듭니다.
+이제 event grid 토픽은 인수를 사용 하 여 지정 된 이름으로 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 해당 이름을 **이벤트 경로의**대상으로 사용 합니다. [이는이 문서의 뒷부분에서](#create-an-event-route) Azure DIGITAL twins 서비스 API를 사용 하 여 만듭니다.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Event Hubs 또는 Service Bus 엔드포인트 만들기
 
@@ -150,7 +150,7 @@ SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사�
 }
 ```
 
-## <a name="event-routes-with-apis-and-the-c-sdk"></a>이벤트 경로 (Api 및 c # SDK 포함)
+## <a name="create-an-event-route"></a>이벤트 경로 만들기
 
 실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로**를 정의 해야 합니다. 개발자는 Azure Digital Twins **Eventroutes 경로 api** 를 사용 하 여 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
 
@@ -163,7 +163,7 @@ SAS 토큰에 대 한 자세한 내용은 [sas (공유 액세스 서명)를 사�
 >
 > 이 흐름을 스크립팅 하는 경우 경로 설정으로 이동 하기 전에 끝점 서비스의 배포를 완료 하는 데 2-3 분의 대기 시간으로 구축 하 여이를 고려해 볼 수 있습니다.
 
-### <a name="create-an-event-route"></a>이벤트 경로 만들기
+### <a name="creation-code-with-apis-and-the-c-sdk"></a>Api 및 c # SDK를 사용 하 여 코드 작성
 
 이벤트 경로는 [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)를 사용 하 여 정의 됩니다. 
 
@@ -217,7 +217,7 @@ catch (RequestFailedException e)
 }
 ```
 
-### <a name="filter-events"></a>이벤트 필터링
+## <a name="filter-events"></a>이벤트 필터링
 
 필터링이 없으면 끝점은 Azure Digital Twins에서 다양 한 이벤트를 수신 합니다.
 * Azure digital 쌍 서비스 API를 사용 하 여 [디지털](concepts-twins-graph.md) 쌍에서 발생 하는 원격 분석

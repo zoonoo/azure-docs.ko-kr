@@ -3,18 +3,18 @@ title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144580"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328388"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
 
 ## <a name="blog-post"></a>블로그 게시물
-DevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. 
+DevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>이제부터 기능 업데이트는 어디에서 추적할 수 있나요?
 이제부터는 기능 업데이트와 유익한 블로그 게시물을 Azure 블로그와 Azure 업데이트에 게시할 예정입니다. 블로그 게시물은 필요할 때마다 설명서에도 연결됩니다.
@@ -22,7 +22,7 @@ DevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니
 [DevTest Labs Azure 블로그](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)와 [DevTest Labs Azure 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)를 구독하면 DevTest Labs의 새로운 기능에 대한 정보가 제공됩니다.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>기존 블로그 게시물은 어떻게 되나요?
-현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. 
+현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>중단 업데이트는 어디에서 볼 수 있나요?
@@ -68,7 +68,7 @@ DevTest Labs는 무료 서비스입니다. 즉 DevTest Labs에서 랩을 만들�
 ## <a name="security"></a>보안
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs의 다른 보안 수준은 무엇인가요?
-보안 액세스는 RBAC(역할 기반 액세스 제어)를 통해 결정됩니다. 액세스의 작동 방식을 알아보기 위해 RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 알아보는 데 도움을 줍니다.
+보안 액세스는 azure RBAC (역할 기반 액세스 제어)에 의해 결정 됩니다. 액세스가 작동 하는 방식을 알아보려면 Azure RBAC에서 정의한 대로 사용 권한, 역할 및 범위 간의 차이점을 파악 하는 것이 좋습니다.
 
 - **사용 권한**: 사용 권한은 특정 작업에 대해 정의된 액세스입니다. 예로 모든 VM에 대한 읽기 액세스가 있습니다.
 - **역할**: 역할은 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 세트입니다. 예를 들어 구독 소유자 역할이 있는 사용자는 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
@@ -83,7 +83,7 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 범위의 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 사용자는 구독의 모든 리소스에 대한 액세스를 갖게 됩니다. 이러한 리소스에는 VM, 가상 네트워크 및 랩이 포함됩니다. 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 VM, 가상 네트워크 또는 랩 외부에 있는 다른 모든 리소스를 볼 수 없습니다.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>개발자/테스트 담당자가 해당 작업을 수행하는 동안 IT 부서에서 관리할 수 있도록 내 DevTest Labs의 역할 기반 액세스 제어를 정의하려면 어떻게 해야 하나요?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>DevTest Labs 환경에 대 한 Azure 역할 기반 액세스 제어를 정의 하 여 개발자/테스트에서 작업을 수행할 수 있는 동안 제어할 수 있는지 확인 합니다. 어떻게 할까요?
 광범위하게 적용되는 한 가지 패턴이 있지만 세부 사항은 조직에 따라 다릅니다.
 
 중앙 IT 부서는 필요한 사항만 소유하고 프로젝트 및 애플리케이션 팀이 필요한 수준의 제어 권한을 갖도록 하는 것이 좋습니다. 이에 따라 일반적으로 중앙 IT 부서는 구독을 소유하고 네트워킹 구성과 같은 핵심 IT 기능을 처리합니다. 구독의 **소유자** 집합은 소규모인 것이 좋습니다. 이러한 소유자는 필요할 때 추가 소유자를 지정하거나, 구독자 수준 정책(예: “공용 IP 없음”)을 적용할 수 있습니다.
@@ -92,7 +92,7 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 DevTest Labs 리소스는 프로젝트/애플리케이션 팀에 가까운 소유자가 소유하는 것이 좋습니다. 머신 및 필수 소프트웨어에 대한 자신들의 요구 사항을 잘 이해하고 있기 때문입니다. 대부분의 조직에서 이 DevTest Labs 리소스의 소유자는 일반적으로 프로젝트/개발 책임자입니다. 이 소유자는 랩 환경 내에서 사용자 및 정책을 관리하고 DevTest Labs 환경에서 모든 VM을 관리할 수 있습니다.
 
-프로젝트/애플리케이션 팀 멤버를 **DevTest Labs 사용자** 역할에 추가하는 것이 좋습니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
+프로젝트/응용 프로그램 팀 멤버는 **DevTest Labs 사용자** 역할에 추가 해야 합니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
 
 자세한 내용은 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold) 설명서를 참조하세요.
 

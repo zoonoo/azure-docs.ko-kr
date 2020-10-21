@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479562"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330481"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
 
@@ -71,7 +71,7 @@ Azure FarmBeats의 비용은 기본 Azure 서비스 비용의 집계입니다. [
 
 준비 및 설치를 포함 하 여 Azure FarmBeats의 전체 설정은 한 시간 이내에 소요 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Azure FarmBeats의 실제 설치를 시작 하기 전에 다음 단계를 완료 해야 합니다.
 
@@ -87,7 +87,7 @@ Azure FarmBeats를 설치 하려면 Azure 테 넌 트에서 다음 권한이 필
 
 Marketplace에서 FarmBeats install을 실행 하는 사람은 FarmBeats가 설치 되는 리소스 그룹의 소유자 여야 합니다. 구독 소유자의 경우이는 리소스 그룹을 만들 때 자동으로 발생 합니다. 다른 사용자의 경우 리소스 그룹을 미리 만들고 리소스 그룹의 소유자가 되도록 구독 소유자에 게 요청 하세요.
 
-[역할 기반 access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)에 대 한 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
+[Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/check-access)의 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
 
 ### <a name="decide-subscription-and-region"></a>구독 및 지역 결정
 
