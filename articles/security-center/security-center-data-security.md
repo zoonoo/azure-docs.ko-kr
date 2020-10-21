@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018273"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339478"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 
@@ -51,7 +51,7 @@ Microsoft는 여러 테넌트에 발생하는 패턴 및 위협 인텔리전스�
 ## <a name="manage-data-collection-from-machines"></a>컴퓨터에서 데이터 수집 관리
 Azure에서 Security Center를 사용하는 경우 각 Azure 구독에 대해 데이터 수집이 활성화됩니다. Security Center에서 구독에 대한 데이터 수집을 사용할 수도 있습니다. 데이터 수집을 사용하면 Security Center는 지원되는 모든 기존 Azure 가상 머신과 생성된 모든 새 가상 머신에 Log Analytics 에이전트를 프로비저닝합니다.
 
-Log Analytics 에이전트는 다양한 보안 관련 구성 및 이벤트를 검사하여 [ETW(Windows용 이벤트 추적)](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal)로 보냅니다. 또한 운영 체제는 컴퓨터를 실행하는 동안 이벤트 로그 이벤트를 발생시킵니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. Log Analytics 에이전트는 이벤트 로그 항목 및 ETW 추적을 읽고, 분석을 위해 작업 영역에 복사합니다. 또한 Log Analytics 에이전트를 사용하면 프로세스 만들기 이벤트 및 명령줄 감사를 수행할 수 있습니다.
+Log Analytics 에이전트는 다양한 보안 관련 구성 및 이벤트를 검사하여 [ETW(Windows용 이벤트 추적)](/windows/win32/etw/event-tracing-portal)로 보냅니다. 또한 운영 체제는 컴퓨터를 실행하는 동안 이벤트 로그 이벤트를 발생시킵니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. Log Analytics 에이전트는 이벤트 로그 항목 및 ETW 추적을 읽고, 분석을 위해 작업 영역에 복사합니다. 또한 Log Analytics 에이전트를 사용하면 프로세스 만들기 이벤트 및 명령줄 감사를 수행할 수 있습니다.
 
 Azure Defender를 사용하지 않는 경우 보안 정책의 가상 머신에서 데이터 수집을 해제할 수도 있습니다. Azure Defender에서 보호하는 구독에는 데이터 수집이 필요합니다. VM 디스크 스냅샷 및 아티팩트 컬렉션은 데이터 수집이 사용하지 않도록 설정된 경우에도 여전히 사용하도록 설정됩니다.
 
@@ -85,7 +85,7 @@ Azure Defender를 사용하지 않는 경우 보안 정책의 가상 머신에�
 | [Azure 활동 로그](../azure-monitor/platform/activity-log.md)                       | 모든 보안 경고, 승인된 Security Center [Just-In-Time](security-center-just-in-time.md) 액세스 요청 및 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에서 생성된 모든 경고.|
 | [Azure Monitor 로그](../azure-monitor/platform/data-platform.md)                      | 모든 보안 경고.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | 보안 경고, 보안 권장 사항, 취약성 평가 결과, 보안 점수 정보, 규정 준수 확인 상태 등.                                                                       |
-| [Azure Security Center REST API](https://docs.microsoft.com/rest/api/securitycenter/) | 보안 경고, 보안 권장 사항 등.                                                                                                                                                                |
+| [Azure Security Center REST API](/rest/api/securitycenter/) | 보안 경고, 보안 권장 사항 등.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>다음 단계

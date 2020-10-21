@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131975"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -21,7 +21,7 @@ Cost Management 자동화를 사용하여 비용 데이터를 검색하고 관�
 
 ## <a name="automate-cost-data-retrieval-for-offline-analysis"></a>오프라인 분석을 위한 비용 데이터 검색 자동화
 
-Azure 비용 데이터를 다운로드하여 다른 데이터 세트와 병합해야 할 수도 있습니다. 또는 사용자의 시스템에 비용 데이터를 통합해야 할 수도 있습니다. 관련된 데이터 양에 따라 다양한 옵션을 사용할 수 있습니다. 모든 경우에 API 및 도구를 사용하려면 적절한 범위에서 Cost Management 권한이 있어야 합니다. 자세한 내용은 [데이터에 대한 액세스 권한 할당](https://docs.microsoft.com/azure/cost-management-billing/costs/assign-access-acm-data)을 참조하세요.
+Azure 비용 데이터를 다운로드하여 다른 데이터 세트와 병합해야 할 수도 있습니다. 또는 사용자의 시스템에 비용 데이터를 통합해야 할 수도 있습니다. 관련된 데이터 양에 따라 다양한 옵션을 사용할 수 있습니다. 모든 경우에 API 및 도구를 사용하려면 적절한 범위에서 Cost Management 권한이 있어야 합니다. 자세한 내용은 [데이터에 대한 액세스 권한 할당](./assign-access-acm-data.md)을 참조하세요.
 
 ## <a name="suggestions-for-handling-large-datasets"></a>대량 데이터 세트 처리에 대한 제안
 
@@ -29,33 +29,33 @@ Azure 비용 데이터를 다운로드하여 다른 데이터 세트와 병합�
 
 **Power BI**
 
-Power BI는 많은 양의 데이터를 수집하고 처리하는 데 사용됩니다. 기업계약 고객인 경우 Power BI 템플릿 앱을 사용하여 청구 계정에 대한 비용을 분석할 수 있습니다. 이 보고서에는 고객이 사용하는 주요 보기가 포함되어 있습니다. 자세한 내용은 [Power BI 템플릿 앱을 사용한 Azure 비용 분석](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app)을 참조하세요.
+Power BI는 많은 양의 데이터를 수집하고 처리하는 데 사용됩니다. 기업계약 고객인 경우 Power BI 템플릿 앱을 사용하여 청구 계정에 대한 비용을 분석할 수 있습니다. 이 보고서에는 고객이 사용하는 주요 보기가 포함되어 있습니다. 자세한 내용은 [Power BI 템플릿 앱을 사용한 Azure 비용 분석](./analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 참조하세요.
 
 **Power BI 데이터 커넥터**
 
-매일 데이터를 분석하려면 [Power BI 데이터 커넥터](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)를 사용하여 자세한 분석을 위해 데이터를 가져오는 것이 좋습니다. 생성하는 모든 보고서는 비용이 증가하는 만큼 커넥터에서 최신 상태로 유지됩니다.
+매일 데이터를 분석하려면 [Power BI 데이터 커넥터](/power-bi/connect-data/desktop-connect-azure-cost-management)를 사용하여 자세한 분석을 위해 데이터를 가져오는 것이 좋습니다. 생성하는 모든 보고서는 비용이 증가하는 만큼 커넥터에서 최신 상태로 유지됩니다.
 
 **Cost Management 내보내기**
 
-매일 데이터를 분석할 필요가 없습니다. 이 경우 Cost Management의 [내보내기](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) 기능을 사용하여 Azure Storage 계정으로 데이터 내보내기를 예약합니다. 그런 다음 필요에 따라 Power BI에 데이터를 로드하거나 파일이 충분히 작은 경우 Excel에서 분석할 수 있습니다. 내보내기는 Azure Portal에서 사용할 수 있으며, [API 내보내기](https://docs.microsoft.com/rest/api/cost-management/exports)를 사용하여 내보내기를 구성할 수도 있습니다.
+매일 데이터를 분석할 필요가 없습니다. 이 경우 Cost Management의 [내보내기](./tutorial-export-acm-data.md) 기능을 사용하여 Azure Storage 계정으로 데이터 내보내기를 예약합니다. 그런 다음 필요에 따라 Power BI에 데이터를 로드하거나 파일이 충분히 작은 경우 Excel에서 분석할 수 있습니다. 내보내기는 Azure Portal에서 사용할 수 있으며, [API 내보내기](/rest/api/cost-management/exports)를 사용하여 내보내기를 구성할 수도 있습니다.
 
 **사용량 세부 정보 API**
 
-적은 비용의 데이터 세트를 사용하는 경우 [사용 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usageDetails)를 사용하는 것이 좋습니다. 비용 데이터가 많은 경우에는 기간에 대해 가능한 한 적은 양의 사용 데이터를 요청해야 합니다. 이렇게 하려면 작은 시간 범위를 지정하거나 요청에서 필터를 사용합니다. 예를 들어 3년간의 비용 데이터를 필요로 하는 시나리오에서는 단일 호출이 아닌 여러 시간 범위에 대한 여러 호출을 수행하는 경우 API가 더 효율적입니다. 여기에서 추가 분석을 위해 데이터를 Excel에 로드할 수 있습니다.
+적은 비용의 데이터 세트를 사용하는 경우 [사용 세부 정보 API](/rest/api/consumption/usageDetails)를 사용하는 것이 좋습니다. 비용 데이터가 많은 경우에는 기간에 대해 가능한 한 적은 양의 사용 데이터를 요청해야 합니다. 이렇게 하려면 작은 시간 범위를 지정하거나 요청에서 필터를 사용합니다. 예를 들어 3년간의 비용 데이터를 필요로 하는 시나리오에서는 단일 호출이 아닌 여러 시간 범위에 대한 여러 호출을 수행하는 경우 API가 더 효율적입니다. 여기에서 추가 분석을 위해 데이터를 Excel에 로드할 수 있습니다.
 
 ## <a name="automate-retrieval-with-usage-details-api"></a>사용량 세부 정보 API를 사용하여 검색 자동화
 
-[사용 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usageDetails)는 Azure 청구서에 해당하는 원시 집계 비용 데이터를 가져오는 쉬운 방법을 제공합니다. API는 조직에서 프로그래밍 방식으로 데이터 검색 솔루션을 필요로 하는 경우에 유용합니다. 더 작은 비용 데이터 세트를 분석하려는 경우 API를 사용하는 것이 좋습니다. 그러나 데이터 세트가 큰 경우 이전에 식별된 다른 솔루션을 사용해야 합니다. 사용량 세부 정보의 데이터는 시간당 미터 단위로 제공됩니다. 월별 청구를 계산할 때 사용됩니다. 이러한 API의 GA(일반 공급) 버전은 `2019-10-01`입니다. `2019-04-01-preview`를 사용하여 API로 예약 및 Azure Marketplace 구매 미리 보기 버전에 액세스합니다.
+[사용 세부 정보 API](/rest/api/consumption/usageDetails)는 Azure 청구서에 해당하는 원시 집계 비용 데이터를 가져오는 쉬운 방법을 제공합니다. API는 조직에서 프로그래밍 방식으로 데이터 검색 솔루션을 필요로 하는 경우에 유용합니다. 더 작은 비용 데이터 세트를 분석하려는 경우 API를 사용하는 것이 좋습니다. 그러나 데이터 세트가 큰 경우 이전에 식별된 다른 솔루션을 사용해야 합니다. 사용량 세부 정보의 데이터는 시간당 미터 단위로 제공됩니다. 월별 청구를 계산할 때 사용됩니다. 이러한 API의 GA(일반 공급) 버전은 `2019-10-01`입니다. `2019-04-01-preview`를 사용하여 API로 예약 및 Azure Marketplace 구매 미리 보기 버전에 액세스합니다.
 
 ### <a name="usage-details-api-suggestions"></a>사용량 세부 정보 API 제안
 
 **요청 일정**
 
-하루에 _두 번 이상 사용량 세부 정보 API에 요청하지 않는_ 것이 좋습니다. 비용 데이터를 새로 고침 빈도 및 반올림 처리 방법에 대한 자세한 내용은 [비용 관리 데이터 이해](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#rated-usage-data-refresh-schedule)를 참조하세요.
+하루에 _두 번 이상 사용량 세부 정보 API에 요청하지 않는_ 것이 좋습니다. 비용 데이터를 새로 고침 빈도 및 반올림 처리 방법에 대한 자세한 내용은 [비용 관리 데이터 이해](./understand-cost-mgt-data.md)를 참조하세요.
 
 **필터링하지 않은 최상위 수준 범위를 대상으로 하기**
 
-API를 사용하여 사용 가능한 최상위 범위에서 필요한 모든 데이터를 가져옵니다. 필터링, 그룹화 또는 집계된 분석을 수행하기 전에 필요한 모든 데이터가 수집될 때까지 기다립니다. API는 집계되지 않은 원시 비용 데이터를 제공하기 위해 특별히 최적화되어 있습니다. Cost Management에서 사용할 수 있는 범위에 대한 자세한 내용은 [범위 이해 및 작업](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-work-scopes)을 참조하세요. 범위에 필요한 데이터를 다운로드한 후에는 Excel을 사용하여 필터 및 피벗 테이블로 데이터를 추가로 분석할 수 있습니다.
+API를 사용하여 사용 가능한 최상위 범위에서 필요한 모든 데이터를 가져옵니다. 필터링, 그룹화 또는 집계된 분석을 수행하기 전에 필요한 모든 데이터가 수집될 때까지 기다립니다. API는 집계되지 않은 원시 비용 데이터를 제공하기 위해 특별히 최적화되어 있습니다. Cost Management에서 사용할 수 있는 범위에 대한 자세한 내용은 [범위 이해 및 작업](./understand-work-scopes.md)을 참조하세요. 범위에 필요한 데이터를 다운로드한 후에는 Excel을 사용하여 필터 및 피벗 테이블로 데이터를 추가로 분석할 수 있습니다.
 
 ## <a name="example-usage-details-api-requests"></a>예제 사용량 정보 API 요청
 
@@ -329,6 +329,6 @@ API는 하루에 한 번만 호출하는 것이 좋습니다. Azure 리소스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Power BI 템플릿 앱을 사용하여 Azure 비용 분석](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app)
-- 내보내기로 [내보낸 데이터 만들기 및 관리](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data)
-- [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usageDetails)에 대해 자세히 알아보세요.
+- [Power BI 템플릿 앱을 사용하여 Azure 비용 분석](./analyze-cost-data-azure-cost-management-power-bi-template-app.md)
+- 내보내기로 [내보낸 데이터 만들기 및 관리](./tutorial-export-acm-data.md)
+- [사용량 세부 정보 API](/rest/api/consumption/usageDetails)에 대해 자세히 알아보세요.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280133"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339801"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -93,7 +93,7 @@ Azure Security Center의 워크플로 자동화 기능이 이제 일반 공급�
 
 워크플로를 실행하기 위한 자동 및 수동 Security Center 기능에 대한 자세한 내용은 [워크플로 자동화](workflow-automation.md)를 참조하세요.
 
-[Logic Apps 만들기](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)에 대해 자세히 알아보세요.
+[Logic Apps 만들기](../logic-apps/logic-apps-overview.md)에 대해 자세히 알아보세요.
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Windows Admin Center와 Azure Security Center 통합
@@ -214,7 +214,7 @@ Azure Storage에 대한 위협 방지는 해시 평판 분석 및 활성 Tor 종
 
 워크플로를 실행하기 위한 자동 및 수동 Security Center 기능에 대한 자세한 내용은 [워크플로 자동화](workflow-automation.md)를 참조하세요.
 
-Logic Apps를 만드는 방법에 대한 자세한 내용은 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 참조하세요.
+Logic Apps를 만드는 방법에 대한 자세한 내용은 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 참조하세요.
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>대량 리소스에 대한 빠른 수정 일반 공급
@@ -270,9 +270,9 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 
 IaaS VM에서 실행되는 SQL DB에 대한 위협 방지 및 취약성 평가에 대한 Azure Security Center 지원은 현재 미리 보기로 제공됩니다.
 
-[취약성 평가](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. Azure Secure Score의 일부로 보안 태세에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하는 단계를 포함합니다.
+[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. Azure Secure Score의 일부로 보안 태세에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하는 단계를 포함합니다.
 
-[Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)은 비정상적이며 잠재적으로 유해할 수 있는 SQL Server 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. 데이터베이스에서 의심스러운 활동을 지속적으로 모니터링하고 비정상적인 데이터베이스 액세스 패턴에 대해 작업 지향 보안 경고를 제공합니다. 이러한 경고는 의심스러운 활동 세부 정보와 위협을 조사하고 완화하기 위한 권장 조치를 제공합니다.
+[Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md)은 비정상적이며 잠재적으로 유해할 수 있는 SQL Server 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. 데이터베이스에서 의심스러운 활동을 지속적으로 모니터링하고 비정상적인 데이터베이스 액세스 패턴에 대해 작업 지향 보안 경고를 제공합니다. 이러한 경고는 의심스러운 활동 세부 정보와 위협을 조사하고 완화하기 위한 권장 조치를 제공합니다.
 
 
 ### <a name="support-for-custom-policies-preview"></a>사용자 지정 정책 지원(미리 보기)
@@ -346,7 +346,7 @@ VM에 JIT를 사용하도록 설정하는 경우 보호될 포트, 포트가 열
 
 요청은 Azure 활동 로그에 기록되므로 액세스를 쉽게 모니터링하고 감사할 수 있습니다. JIT(just-in-time) 페이지를 사용하면 JIT가 사용하도록 설정된 기존 VM과 JIT가 권장되는 VM을 빠르게 식별할 수 있습니다.
 
-[Azure Firewall에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/firewall/overview).
+[Azure Firewall에 대해 자세히 알아보세요](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>보안 태세를 높이기 위한 단일 클릭 수정(미리 보기)

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 2a205daeffb659ce0dd5756066d11691a89c166e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67c701946eedf85176b3d14b09d3e723c4c74285
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91664956"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072121"
 ---
 # <a name="event-handling-in-azure-communication-services"></a>Azure Communication Services에서 이벤트 처리
 
@@ -36,9 +36,9 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Microsoft.Communication.SMSReceived                         | Communication Service와 연결된 전화 번호로 SMS를 받을 때 게시됩니다. |
 | Microsoft.Communication.SMSDeliveryReportReceived           | Communication Service에서 보낸 SMS에 대해 배달 보고서를 받을 때 게시됩니다.     |
-| Microsoft.Communication.ChatMessageReceived*                | 자신이 속한 채팅 스레드에서 사용자에 대한 메시지를 받을 때 게시됩니다.        |
-| Microsoft.Communication.ChatMessageEdited*                   | 자신이 속한 채팅 스레드에서 메시지가 편집될 때 게시됩니다.                |
-| Microsoft.Communication.ChatMessageDeleted*                  | 자신이 속한 채팅 스레드에서 메시지가 삭제될 때 게시됩니다.               |
+| Microsoft.Communication.ChatMessageReceived                | 자신이 속한 채팅 스레드에서 사용자에 대한 메시지를 받을 때 게시됩니다.        |
+| Microsoft.Communication.ChatMessageEdited                   | 자신이 속한 채팅 스레드에서 메시지가 편집될 때 게시됩니다.                |
+| Microsoft.Communication.ChatMessageDeleted                  | 자신이 속한 채팅 스레드에서 메시지가 삭제될 때 게시됩니다.               |
 | Microsoft.Communication.ChatThreadCreatedWithUser           | 채팅 스레드를 만들 때 사용자가 멤버로 추가되면 게시됩니다.           |
 | Microsoft.Communication.ChatThreadWithUserDeleted           | 자신이 속한 채팅 스레드가 삭제되면 게시됩니다.                           |
 | Microsoft.Communication.ChatThreadPropertiesUpdatedPerUser  | 자신이 속한 채팅 스레드의 속성이 업데이트되면 게시됩니다.              |
@@ -47,7 +47,6 @@ Azure Communication Services에서 내보내는 이벤트 유형은 다음과 �
 
 Azure Portal 또는 Azure CLI를 사용하여 Communication Services 리소스에서 내보낸 이벤트를 구독할 수 있습니다. [Communication Services에서 SMS 이벤트를 처리하는 방법](../quickstarts/telephony-sms/handle-sms-events.md)을 확인하여 이벤트 처리를 시작합니다.
 
-*이러한 이벤트가 트리거되도록 "메시지 보내기" API 호출에 "보낸 사람 이름"을 입력했는지 확인하세요.
 
 ## <a name="event-subjects"></a>이벤트 제목
 

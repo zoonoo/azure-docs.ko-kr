@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971611"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340821"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -36,7 +36,7 @@ ms.locfileid: "91971611"
 1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 경고가 표시 됩니다.
 
 > [!NOTE]
-> Windows에 대 한이 테스트 경고를 검토할 때 필드 **인수 감사를 사용 하도록 설정** 했는지 확인 **합니다.** **False**인 경우에는 명령줄 인수 감사를 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
+> Windows에 대 한이 테스트 경고를 검토할 때 필드 **인수 감사를 사용 하도록 설정** 했는지 확인 **합니다.** **False**인 경우에는 명령줄 인수 감사를 사용 하도록 설정 해야 합니다. 사용하도록 설정하려면 다음 명령을 사용합니다. 
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
@@ -68,4 +68,4 @@ Kubernetes 노드 및 클러스터를 방어 하는 방법에 대 한 자세한 
 * [Azure Security Center에서 Azure Key Vault 위협 검색의 유효성 검사](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -경고를 관리 하 고 Security Center의 보안 인시던트에 대응 하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center의 보안 경고 이해](security-center-alerts-type.md) -다양 한 유형의 보안 경고에 대해 알아봅니다.
+* [Azure Security Center의 보안 경고 이해](./security-center-alerts-overview.md) -다양 한 유형의 보안 경고에 대해 알아봅니다.

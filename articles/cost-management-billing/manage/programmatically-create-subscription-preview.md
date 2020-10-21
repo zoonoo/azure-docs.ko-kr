@@ -9,12 +9,12 @@ ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1ddd471746224c2084fa11a74d8fcee3b5bd3d5b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026585"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131108"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
@@ -103,7 +103,7 @@ ObjectId                               | PrincipalName
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다.
+[az billing enrollment-account list](/cli/azure/billing) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다.
 
 ```azurecli-interactive
 az billing enrollment-account list

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271110"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342351"
 ---
 # <a name="get-help-with-your-system"></a>시스템 지원 받기
 
@@ -43,7 +43,7 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
     ![Azure Portal의 새 지원 요청 화면 스크린샷 기본 탭이 선택 되어 있습니다. 화면 항목에는 문제 유형, 구독, 서비스, 요약 및 문제 유형이 포함 됩니다.](media/ticket-basics.png)
 
-   **다음**을 클릭하여 계속합니다.
+   **다음** 을 클릭하여 계속합니다.
 
 1. 지원 양식의 두 번째 페이지에는 요약 설명에 따라 문제를 해결 하기 위한 제안 사항이 포함 되어 있습니다. 지원 티켓을 만들어야 하는 경우 아래쪽의 **다음** 단추를 클릭 합니다.
 
@@ -57,4 +57,4 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
 ## <a name="request-a-quota-increase"></a>할당량 증가 요청
 
-Avere vFXT for Azure를 배포하는 데 필요한 구성 요소를 확인하려면 [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)을 참조하세요. Azure Portal에서 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)할 수 있습니다.
+Avere vFXT for Azure를 배포하는 데 필요한 구성 요소를 확인하려면 [vFXT 클러스터에 대한 할당량](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)을 참조하세요. Azure Portal에서 [할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)할 수 있습니다.

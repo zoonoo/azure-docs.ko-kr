@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439845"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340624"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
 
@@ -25,14 +25,11 @@ ms.locfileid: "91439845"
 
 ![B2B 초대 이메일을 보여 주는 스크린샷](media/invitation-email-elements/invitation-email.png)
 
-> [!NOTE]
-> 이 새 전자 메일 템플릿은 여전히 모든 테 넌 트에 롤아웃 되 고 있으므로 일부 테 넌 트는 여전히 이전 디자인을 사용 하 고 있습니다. 2020 년 5 월 말까지 모든 테 넌 트의 초대는이 템플릿을 사용 합니다.
-
 ## <a name="explaining-the-email"></a>전자 메일 설명
 
 전자 메일의 몇 가지 요소를 확인하여 이러한 기능을 최대한 활용하는 방법에 대해 살펴보겠습니다.
 
-### <a name="subject"></a>주체
+### <a name="subject"></a>제목
 
 전자 메일의 제목은 다음 패턴을 따릅니다.
 
@@ -52,17 +49,11 @@ ms.locfileid: "91439845"
 
 ![전자 메일의 피싱 경고 이미지](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>초대자에 대한 정보
+### <a name="inviters-information-and-invitation-message"></a>초대자의 정보 및 초대 메시지
 
-전자 메일에는 초대를 보내는 초대자 및 조직에 대 한 정보가 포함 됩니다. 여기에는 조직과 연결 된 이름 및 주 도메인 뿐만 아니라 발신자의 이름과 전자 메일 주소도 포함 됩니다. 이 모든 정보를 통해 초대를 통해 초대를 수락 하는 것에 대 한 의사 결정을 내리는 데 도움이 됩니다.
+전자 메일에는 초대를 보내는 조직과 연결 된 이름 및 주 도메인이 포함 됩니다. 이 정보는 초대를 통해 초대를 수락 하는 것에 대 한 의사 결정을 내리는 데 도움이 됩니다. 초대자가 [게스트 사용자를 디렉터리, 그룹 또는 앱에 초대](add-users-administrator.md) 하거나 초대 [API를 사용할](customize-invitation-api.md)때 초대의 일부로 메시지를 포함 하는 경우 전자 메일의 주 섹션에 메시지가 강조 표시 됩니다. 초대자의 이름 및 프로필 이미지 (설정 된 경우)도 포함 되어 있습니다. 메시지 자체는 텍스트 영역 이므로 보안상의 이유로 HTML 태그를 처리 하지 않습니다.
 
-![전자 메일의 초대자 정보 이미지](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>초대 메시지
-
-초대자가 [게스트 사용자를 디렉터리, 그룹 또는 앱에 초대](add-users-administrator.md) 하거나 초대 [API를 사용할](customize-invitation-api.md)때 초대의 일부로 메시지를 포함 하는 경우 전자 메일의 주 섹션에 메시지가 강조 표시 됩니다. 초대자의 이름 및 프로필 이미지 (설정 된 경우)도 포함 되어 있습니다. 메시지 자체는 텍스트 영역 이므로 보안상의 이유로 HTML 태그를 처리 하지 않습니다.
-
-![전자 메일의 초대 메시지 이미지](media/invitation-email-elements/invitation-message.png)
+![전자 메일의 초대 메시지 이미지](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>수락 단추 및 리디렉션 URL
 

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447621"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131414"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft 고객 계약 Azure 크레딧 잔액 추적
 
@@ -102,7 +102,7 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
 
 ### <a name="rest-api"></a>[REST API](#tab/rest)
 
-[Azure 청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 계정의 크레딧 잔액을 프로그래밍 방식으로 가져올 수 있습니다.
+[Azure 청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API를 사용하여 청구 계정의 크레딧 잔액을 프로그래밍 방식으로 가져올 수 있습니다.
 
 아래에 표시된 예제에서는 REST API를 사용합니다. 현재 PowerShell 및 Azure CLI는 지원되지 않습니다.
 

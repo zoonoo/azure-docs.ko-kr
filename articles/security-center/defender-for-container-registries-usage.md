@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532604"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342079"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
 
@@ -29,7 +29,7 @@ ms.locfileid: "91532604"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**컨테이너 레지스트리에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |지원 되는 레지스트리 및 이미지:|![예 ](./media/icons/yes-icon.png) Linux에서 호스트 되는 ACR 레지스트리는 공용 인터넷에서 액세스할 수 있고 셸 액세스를 제공 합니다.<br>![](./media/icons/no-icon.png)Windows에서 호스트 되는 ACR 레지스트리 없음.<br>![](./media/icons/no-icon.png)' Private ' 레지스트리를 Security Center 하지 않으면 공용 인터넷에서 레지스트리를 액세스할 수 있어야 합니다. Security Center는 현재 방화벽, 서비스 끝점 또는 Azure 개인 링크와 같은 개인 끝점으로 제한 된 액세스 권한이 있는 레지스트리 또는 검색에 연결할 수 없습니다.<br>![](./media/icons/no-icon.png) [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "distroless" 이미지를 포함 하지 않습니다.|
-|필요한 역할 및 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|필요한 역할 및 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](../container-registry/container-registry-roles.md)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
@@ -132,7 +132,7 @@ ms.locfileid: "91532604"
 다음 조건 중 하나를 사용할 수 있습니다. 
 
 - ID 찾기 
-- 범주
+- Category
 - 보안 검사 
 - CVSS v3 점수
 - 심각도 

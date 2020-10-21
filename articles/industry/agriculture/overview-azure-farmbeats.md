@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439564"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331926"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Azure FarmBeats 개요(미리 보기)
 
@@ -43,7 +43,7 @@ Datahub는 확장 가능한 API 플랫폼으로 설계되었습니다. Azure Far
 
 Azure FarmBeats 액셀러레이터는 Datahub를 기반으로 구축된 샘플 웹 애플리케이션입니다. 액셀러레이터를 통해 사용자 인터페이스와 모델 개발을 신속하게 시작할 수 있습니다. Azure FarmBeats 액셀러레이터는 Azure FarmBeats의 API를 사용합니다. 수집된 센서 데이터를 차트로 시각화하고 모델 출력을 맵으로 시각화합니다. 예를 들어 액셀러레이터를 사용하여 농장을 신속하게 만들고 이 농장에 대한 식생 지수 맵 또는 센서 배치 맵을 쉽게 얻을 수 있습니다.
 
-## <a name="role-based-access-control-rbac"></a>RBAC(역할 기반 Access Control)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
 관리자는 미리 정의된 역할 중 하나를 사용하여 Azure FarmBeats에 대한 액세스 규칙을 정의할 수 있습니다. 역할은 사용자가 액세스할 수 있는 애플리케이션의 영역과 수행할 수 있는 작업을 결정합니다. Azure FarmBeats에는 사용자와 파트너를 위한 두 가지 종류의 역할이 있습니다.
 

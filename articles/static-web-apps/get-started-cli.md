@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e0fdbc50dd36e4ea23903a5929735c1c83bd394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752872"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320338"
 ---
 # <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 웹앱 빌드
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 - [GitHub](https://github.com) 계정
 - [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Azure](https://portal.azure.com) 계정
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 설치(버전 2.8.0 이상)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 설치(버전 2.8.0 이상)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 

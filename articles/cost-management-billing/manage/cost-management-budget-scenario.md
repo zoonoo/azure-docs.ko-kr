@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446456"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131465"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
-비용 제어는 클라우드에서 투자 가치를 극대화하는 데 중요한 구성 요소입니다. 비용 표시, 보고 및 비용 기반 오케스트레이션이 지속적인 비즈니스 운영에 중요한 몇 가지 시나리오가 있습니다. [Azure Cost Management API](https://docs.microsoft.com/rest/api/consumption/)는 이러한 각 시나리오를 지원하기 위한 API 집합을 제공합니다. API는 사용량 세부 정보를 제공하므로 세부적인 인스턴스 레벨의 비용을 볼 수 있습니다.
+비용 제어는 클라우드에서 투자 가치를 극대화하는 데 중요한 구성 요소입니다. 비용 표시, 보고 및 비용 기반 오케스트레이션이 지속적인 비즈니스 운영에 중요한 몇 가지 시나리오가 있습니다. [Azure Cost Management API](/rest/api/consumption/)는 이러한 각 시나리오를 지원하기 위한 API 집합을 제공합니다. API는 사용량 세부 정보를 제공하므로 세부적인 인스턴스 레벨의 비용을 볼 수 있습니다.
 
-예산은 일반적으로 비용 관리의 일부로 사용되며, Azure에서 예산 범위를 지정할 수 있습니다. 예를 들어 구독, 리소스 그룹 또는 리소스의 컬렉션에 따라 예산 보기의 범위를 좁힐 수 있습니다. 예산 임계값에 도달하면 예산 API를 사용하여 이메일을 통해 알려줄 뿐만 아니라, [Azure Monitor 작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)을 사용하여 예산 이벤트로 인해 오케스트레이션된 작업 집합을 트리거할 수 있습니다.
+예산은 일반적으로 비용 관리의 일부로 사용되며, Azure에서 예산 범위를 지정할 수 있습니다. 예를 들어 구독, 리소스 그룹 또는 리소스의 컬렉션에 따라 예산 보기의 범위를 좁힐 수 있습니다. 예산 임계값에 도달하면 예산 API를 사용하여 이메일을 통해 알려줄 뿐만 아니라, [Azure Monitor 작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용하여 예산 이벤트로 인해 오케스트레이션된 작업 집합을 트리거할 수 있습니다.
 
 중요하지 않은 워크로드를 실행하는 고객의 일반적인 예산 시나리오는 예산에 맞게 비용을 관리하고 월간 청구서를 살펴 볼 때 예측 가능한 비용에 이르게 될 때에도 발생할 수 있습니다. 이 시나리오의 경우 Azure 환경에 포함된 일부 리소스를 비용에 기반하여 오케스트레이션해야 합니다. 이 시나리오에서 구독에 월간 $1000의 예산이 설정되었으며, 몇 가지 오케스트레이션을 트리거하도록 알림 임계값도 설정되었습니다. 이 시나리오는 비용 임계값이 최저 80%이며, 이 임계값에 도달하면 리소스 그룹 **Optional**의 모든 VM이 중지됩니다. 그다음으로, 100% 비용 임계값에서 모든 VM 인스턴스가 중지됩니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "91446456"
 
 ## <a name="create-an-azure-automation-runbook"></a>Azure Automation Runbook 만들기
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)은 리소스 관리 작업의 대부분을 스크립팅하고 이러한 작업을 예약 또는 주문형으로 실행할 수 있는 서비스입니다. 이 시나리오의 일부로, VM을 중지하는 데 사용될 [Azure Automation Runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types)을 만들게 됩니다. [갤러리](https://docs.microsoft.com/azure/automation/automation-runbook-gallery)에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 그래픽 Runbook을 사용하여 이 시나리오를 빌드하게 됩니다. 이 Runbook을 Azure 계정으로 가져와서 게시하면 예산 임계값 도달 시 VM을 중지할 수 있습니다.
+[Azure Automation](../../automation/automation-intro.md)은 리소스 관리 작업의 대부분을 스크립팅하고 이러한 작업을 예약 또는 주문형으로 실행할 수 있는 서비스입니다. 이 시나리오의 일부로, VM을 중지하는 데 사용될 [Azure Automation Runbook](../../automation/automation-runbook-types.md)을 만들게 됩니다. [갤러리](../../automation/automation-runbook-gallery.md)에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 그래픽 Runbook을 사용하여 이 시나리오를 빌드하게 됩니다. 이 Runbook을 Azure 계정으로 가져와서 게시하면 예산 임계값 도달 시 VM을 중지할 수 있습니다.
 
 ### <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -49,7 +49,7 @@ ms.locfileid: "91446456"
 
 ### <a name="import-the-stop-azure-v2-vms-runbook"></a>Azure V2 VM 중지 Runbook 가져오기
 
-[Azure Automation Runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types)을 사용하여 갤러리에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 그래픽 Runbook을 가져옵니다.
+[Azure Automation Runbook](../../automation/automation-runbook-types.md)을 사용하여 갤러리에서 [Azure V2 VM 중지](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) 그래픽 Runbook을 가져옵니다.
 
 1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **모든 서비스** > **Automation 계정**을 선택하여 Automation 계정을 엽니다. 그런 다음, 사용자의 Automation 계정을 선택합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "91446456"
 1. Runbook 가져오기 프로세스가 완료되면 **편집**을 선택하여 그래픽 Runbook 편집기와 게시 옵션을 표시합니다.  
     ![Azure - 그래픽 Runbook 편집](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. **게시**를 선택하여 Runbook을 게시한 다음, 메시지가 표시되면 **예**를 선택합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 경우 Runbook을 만들었으므로 게시된 버전이 없습니다.
-    Runbook을 게시하는 방법에 대한 자세한 내용은 [그래픽 Runbook 만들기](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical)를 참조하세요.
+    Runbook을 게시하는 방법에 대한 자세한 내용은 [그래픽 Runbook 만들기](../../automation/learn/automation-tutorial-runbook-graphical.md)를 참조하세요.
 
 ## <a name="create-webhooks-for-the-runbook"></a>Runbook에 대한 Webhook 만들기
 
@@ -91,7 +91,7 @@ ms.locfileid: "91446456"
 
 ## <a name="create-an-azure-logic-app-for-orchestration"></a>오케스트레이션을 위해 Azure 논리 앱 만들기
 
-Logic Apps를 사용하면 프로세스를 워크플로로 빌드, 예약 및 자동화하여 기업이나 조직에서 앱, 데이터, 시스템 및 서비스를 통합할 수 있습니다. 이 시나리오에서 만드는 [논리 앱](https://docs.microsoft.com/azure/logic-apps/)은 단순히 사용자가 만든 자동화 Webhook를 호출하는 것 보다 약간 더 많은 것을 하게 됩니다.
+Logic Apps를 사용하면 프로세스를 워크플로로 빌드, 예약 및 자동화하여 기업이나 조직에서 앱, 데이터, 시스템 및 서비스를 통합할 수 있습니다. 이 시나리오에서 만드는 [논리 앱](../../logic-apps/index.yml)은 단순히 사용자가 만든 자동화 Webhook를 호출하는 것 보다 약간 더 많은 것을 하게 됩니다.
 
 지정된 임계값이 충족되면 알림을 트리거하도록 예산을 설정할 수 있습니다. 알림을 받을 수 있는 여러 임계값을 제공할 수 있으며 논리 앱은 사용자가 충족된 임계값에 기반하여 다양한 작업을 수행할 수 있음을 보여 줍니다. 이 예에서는 여러 알림을 받는 시나리오를 설정합니다. 첫 번째 알림은 예산의 80%에 도달했을 때이고 두 번째 알림은 예산의 100%에 도달했을 때입니다. 이 논리 앱은 리소스 그룹의 모든 VM을 종료하는 데 사용됩니다. 먼저, **Optional** 임계값이 80%에 도달한 다음, 두 번째 임계값에 도달하면 구독의 모든 VM은 종료됩니다.
 
@@ -122,11 +122,11 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 트리거를 통해 시작되어야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다. 작업은 트리거 후 발생하는 모든 단계입니다.
 
 1. **Logic Apps 디자이너** 영역의 **템플릿**에서 **비어 있는 논리 앱**을 선택합니다.
-1. **Logic Apps 디자이너** 검색창에 "http 요청"을 입력하여 [트리거](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)를 추가하고 **Request – HTTP request is received**로 명명된 트리거를 찾아 선택합니다.  
+1. **Logic Apps 디자이너** 검색창에 "http 요청"을 입력하여 [트리거](../../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가하고 **Request – HTTP request is received**로 명명된 트리거를 찾아 선택합니다.  
     ![Azure - 논리 앱 - Http 트리거](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. **새 단계** > **작업 추가**를 선택합니다.  
     ![Azure - 새 단계 - 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. **Logic Apps 디자이너** 검색창에서 "JSON 구문 분석"을 검색하여 **데이터 작업 - JSON 구문 분석** [작업](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)을 찾아 선택합니다.  
+1. **Logic Apps 디자이너** 검색창에서 "JSON 구문 분석"을 검색하여 **데이터 작업 - JSON 구문 분석** [작업](../../logic-apps/logic-apps-overview.md#logic-app-concepts)을 찾아 선택합니다.  
     ![Azure - 논리 앱 - JSON 구문 분석 작업 추가](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. JSON 구문 분석 페이로드에 대한 **콘텐츠** 이름으로 “Payload”를 입력하거나, 동적 콘텐츠의 “Body” 태그를 사용합니다.
 1. **JSON 구분 분석** 상자에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
@@ -311,7 +311,7 @@ Cost Management의 [예산 기능](../costs/tutorial-acm-create-budgets.md)을 �
     ```
 1. **보내기**를 눌러 요청을 보냅니다.
 
-이제 [예산 API](https://docs.microsoft.com/rest/api/consumption/budgets)를 호출하는 데 필요한 모든 요소를 갖추었습니다. 예산 API 참조에는 다음을 포함해 특정 요청에 대한 추가적인 세부 정보가 있습니다.
+이제 [예산 API](/rest/api/consumption/budgets)를 호출하는 데 필요한 모든 요소를 갖추었습니다. 예산 API 참조에는 다음을 포함해 특정 요청에 대한 추가적인 세부 정보가 있습니다.
 
 - **budgetName** - 여러 예산이 지원됩니다.  예산 이름은 고유해야 합니다.
 - **범주** - **비용** 또는 **사용량**이어야 합니다. API는 비용 및 사용량 예산을 모두 지원합니다.

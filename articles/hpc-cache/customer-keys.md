@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092527"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340532"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC 캐시에 대해 고객이 관리 하는 암호화 키 사용
 
@@ -58,7 +58,7 @@ Azure HPC 캐시에 대해 고객이 관리 하는 키 암호화를 사용 하�
 
 * Azure HPC 캐시를 만드는 사용자에 게 [Key Vault 참여자 역할](../role-based-access-control/built-in-roles.md#key-vault-contributor)에 해당 하는 권한이 있어야 합니다. Azure Key Vault를 설정 하 고 관리 하는 데에도 동일한 사용 권한이 필요 합니다.
 
-  자세한 내용은 [주요 자격 증명 모음에 대 한 보안 액세스를](../key-vault/key-vault-secure-your-key-vault.md) 참조 하세요.
+  자세한 내용은 [주요 자격 증명 모음에 대 한 보안 액세스를](../key-vault/general/secure-your-key-vault.md) 참조 하세요.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Azure Key Vault 설정
 
@@ -66,7 +66,7 @@ Azure HPC 캐시에 대해 고객이 관리 하는 키 암호화를 사용 하�
 
 캐시를 만들 때 캐시의 암호화에 사용할 자격 증명 모음, 키 및 키 버전을 지정 해야 합니다.
 
-자세한 내용은 [Azure Key Vault 설명서](../key-vault/key-vault-overview.md) 를 참조 하세요.
+자세한 내용은 [Azure Key Vault 설명서](../key-vault/general/overview.md) 를 참조 하세요.
 
 > [!NOTE]
 > Azure Key Vault는 동일한 구독을 사용 해야 하며, Azure HPC 캐시와 동일한 지역에 있어야 합니다. 선택한 지역이 [고객이 관리 하는 키 기능을 지원](hpc-cache-overview.md#region-availability)하는지 확인 합니다.
@@ -92,7 +92,7 @@ Azure HPC 캐시를 만들 때 암호화 키 원본을 지정 해야 합니다. 
 
 1. 자격 증명 모음을 선택한 후 사용 가능한 옵션에서 개별 키를 선택 하거나 새 키를 만듭니다. 키는 2048 비트 RSA 키 여야 합니다.
 
-1. 선택한 키의 버전을 지정 합니다. [Azure Key Vault 설명서](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning)의 버전 관리에 대해 자세히 알아보세요.
+1. 선택한 키의 버전을 지정 합니다. [Azure Key Vault 설명서](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)의 버전 관리에 대해 자세히 알아보세요.
 
 나머지 사양을 계속 진행 하 고 [AZURE HPC 캐시 만들기](hpc-cache-create.md)에 설명 된 대로 캐시를 만듭니다.
 

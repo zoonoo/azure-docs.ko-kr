@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cavoeg
+ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007573"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339511"
 ---
 # <a name="features"></a>기능
 
@@ -27,7 +27,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 ## <a name="rest-api"></a>REST API
 
-| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석                                             |
+| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | 읽기                           | 예       | 예       | 예       |                                                     |
 | vread                          | 예       | 예       | 예       |                                                     |
@@ -36,7 +36,8 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | update (조건부)           | 예       | 예       | 예       |                                                     |
 | 패치나                          | 아니요        | 아니요        | 아니요        |                                                     |
 | delete                         | 예       | 예       | 예       |                                                     |
-| delete (조건부)           | 아니요        | 아니요        | 예        |                                                     |
+| delete (조건부)           | 아니요        | 아니요        | 아니요        |                                                     |
+| history                        | 예       | 예       | 예       |                                                     |
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       |                                                     |
 | search                         | Partial   | Partial   | Partial   | 아래 참조                                           |
@@ -45,7 +46,6 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | capabilities                   | 예       | 예       | 예       |                                                     |
 | 일괄 처리                          | 예       | 예       | 예       |                                                     |
 | 트랜잭션                    | 아니요        | 예       | 아니요        |                                                     |
-| history                        | 예       | 예       | 예       |                                                     |
 | 페이징                         | Partial   | Partial   | Partial   | `self` 및 `next` 가 지원 됩니다.                     |
 | 매개자                 | 아니요        | 아니요        | 예        |                                                     |
 
@@ -53,7 +53,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 모든 검색 매개 변수 유형이 지원 됩니다. 
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
 |-----------------------|-----------|-----------|-----------|---------|
 | 숫자                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
@@ -94,28 +94,30 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_has`                  | 아니요        | 아니요        | 아니요        |         |
 | `_type`                 | 예       | 예       | 예       |         |
 | `_query`                | 아니요        | 아니요        | 아니요        |         |
-
-| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
+
+| 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
-| `_score`                | 아니요        | 아니요        | 아니요        |         |
-| `_count`                | 예       | 예       | 예       |         |
-| `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
+| `_count`                | 예       | 예       | 예       | `_count` 는 100 자로 제한 됩니다. 100 보다 높게 설정 하면 100만 반환 되 고 번들에 경고가 반환 됩니다. |
 | `_include`              | 아니요        | 예       | 아니요        |         |
 | `_revinclude`           | 아니요        | 예       | 아니요        | 포함 된 항목은 100 개로 제한 됩니다. |
+| `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
+| `_total`                | Partial   | Partial   | Partial   | _total = non _total = 정확성      |
+| `_elements`             | 예       | 예       | 예       |         |
 | `_contained`            | 아니요        | 아니요        | 아니요        |         |
-| `_elements`             | 예        | 예        | 예        |         |
+| `containedType`         | 아니요        | 아니요        | 아니요        |         |
+| `_score`                | 아니요        | 아니요        | 아니요        |         |
 
 ## <a name="extended-operations"></a>확장 된 작업
 
 RESTful API를 확장 하는 지원 되는 모든 작업입니다.
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
-|-----------------------|-----------|-----------|-----------|---------|
-| $export (전체 시스템)                | 예       | 예       | 예       |         |
-| 환자/$export         | 예       | 예       | 예       |         |
-| 그룹/$export               | 예       | 예       | 예       |         |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+|------------------------|-----------|-----------|-----------|---------|
+| $export (전체 시스템) | 예       | 예       | 예       |         |
+| 환자/$export        | 예       | 예       | 예       |         |
+| 그룹/$export          | 예       | 예       | 예       |         |
 
 ## <a name="persistence"></a>지속성
 

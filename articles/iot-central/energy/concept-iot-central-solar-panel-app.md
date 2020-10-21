@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316037"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127509"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - 태양 전지판 앱 아키텍처
 
@@ -29,7 +29,7 @@ ms.locfileid: "91316037"
 
 ## <a name="solar-panels-and-connectivity"></a>태양 전지판 및 연결 
 
-태양 전지판은 재생 에너지의 중요한 소스 중 하나입니다. 태양 전지판 유형 및 설정에 따라 게이트웨이이나 다른 중간 디바이스 및 독점 시스템을 사용하여 연결할 수 있습니다. 직접 연결할 수 없는 디바이스를 연결하기 위해 IoT Central 디바이스 브리지를 빌드해야 할 수도 있습니다. IoT Central 디바이스 브리지는 오픈 소스 솔루션이며 [여기](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge)에서 전체 세부 정보를 확인할 수 있습니다. 
+태양 전지판은 재생 에너지의 중요한 소스 중 하나입니다. 태양 전지판 유형 및 설정에 따라 게이트웨이이나 다른 중간 디바이스 및 독점 시스템을 사용하여 연결할 수 있습니다. 직접 연결할 수 없는 디바이스를 연결하기 위해 IoT Central 디바이스 브리지를 빌드해야 할 수도 있습니다. IoT Central 디바이스 브리지는 오픈 소스 솔루션이며 [여기](../core/howto-build-iotc-device-bridge.md)에서 전체 세부 정보를 확인할 수 있습니다. 
 
 
 
@@ -43,4 +43,4 @@ IoT Central 플랫폼은 두 가지 확장성 옵션인 CDE(연속 데이터 내
 ## <a name="next-steps"></a>다음 단계
 
 * 지금까지 이 아키텍처에 대해 알아보았으므로 [무료로 태양 전지판을 만들어 봅니다](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring).
-* [Azure IoT Central 개요](https://docs.microsoft.com/azure/iot-central/)를 참조하여 Azure IoT Central에 대해 자세히 알아보기
+* [Azure IoT Central 개요](../index.yml)를 참조하여 Azure IoT Central에 대해 자세히 알아보기

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272694"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342368"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
@@ -160,7 +160,7 @@ SSD 분리 및 다시 연결은 지원되지 않습니다. 원본의 메타데�
 
 ### <a name="does-the-system-encrypt-the-cache"></a>시스템에서 캐시를 암호화하나요?
 
-데이터는 디스크에서 스트라이핑되지만 암호화되지는 않습니다. 그러나 디스크 자체는 암호화할 수 있습니다. 자세한 내용은 [Azure의 가상 머신에서 보안 적용 및 정책 사용](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption)을 참조하세요.
+데이터는 디스크에서 스트라이핑되지만 암호화되지는 않습니다. 그러나 디스크 자체는 암호화할 수 있습니다. 자세한 내용은 [Azure의 가상 머신에서 보안 적용 및 정책 사용](../virtual-machines/security-policy.md#encryption)을 참조하세요.
 
 ## <a name="technical-networking"></a>기술: 네트워킹
 
@@ -259,7 +259,7 @@ Avere vFXT는 프라이빗 개체 스토리지를 지원하지 않습니다.
 
 쿨 계층 blob 저장소는 일반적으로 Azure core 필터의 Avere vFXT에 권장 되지 않습니다. 쿨 계층은 낮은 저장소 비용을 제공 하지만 작업 비용은 더 높습니다. 자세한 내용은 [블록 blob 가격 책정](<https://azure.microsoft.com/pricing/details/storage/blobs/>) 을 참조 하세요. 데이터에 자주 액세스 하 고 수정 하거나 삭제 하는 경우에는 핫 계층을 사용 하십시오.
 
-[액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) 은 vFXT core 필터로 쿨 계층 저장소를 사용 하는 것이 적합할 수 있는 경우에 대 한 자세한 정보를 제공 합니다.
+[액세스 계층](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) 은 vFXT core 필터로 쿨 계층 저장소를 사용 하는 것이 적합할 수 있는 경우에 대 한 자세한 정보를 제공 합니다.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Blob 컨테이너를 암호화하려면 어떻게 할까요?
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611298"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340311"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -74,9 +74,9 @@ Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>계정에 액세스 제어 역할 추가
 
-Azure HPC 캐시는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/index) 를 사용 하 여 azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 캐시 서비스에 권한을 부여 합니다.
+Azure HPC 캐시는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 azure Blob 저장소 대상에 대 한 저장소 계정에 액세스 하도록 캐시 서비스에 권한을 부여 합니다.
 
-저장소 계정 소유자는 "HPC 캐시 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
+저장소 계정 소유자는 "HPC 캐시 리소스 공급자" 사용자에 대 한 역할 [저장소 계정 참가자](../role-based-access-control/built-in-roles.md#storage-account-contributor) 및 [저장소 Blob 데이터 참가자](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 를 명시적으로 추가 해야 합니다.
 
 이렇게 하려면 나중에 또는 Blob 저장소 대상을 추가 하는 페이지의 링크를 클릭 하면 됩니다. 역할 설정이 Azure 환경을 통해 전파 되는 데 최대 5 분이 걸릴 수 있으므로 저장소 대상을 만들기 전에 역할을 추가한 후 몇 분 정도 기다려야 합니다.
 
@@ -185,9 +185,9 @@ NFS 저장소 시스템을 가리키는 저장소 대상을 만들 때 해당 �
 
 | 사용 모델                   | 캐싱 모드 | 백 엔드 확인 | 최대 다시 쓰기 지연 |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기         | 안 함                 | 없음                     |
+| 자주 발생 하지 않는 매우 많은 쓰기 읽기 | 읽기         | 안 함                 | None                     |
 | 쓰기 15% 초과       | 읽기/쓰기   | 안 함                 | 1시간                   |
-| 클라이언트에서 캐시 무시      | 읽기         | 30초            | 없음                     |
+| 클라이언트에서 캐시 무시      | 읽기         | 30초            | None                     |
 
 ### <a name="create-an-nfs-storage-target"></a>NFS 저장소 대상 만들기
 

@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b03bedd9abbe59ed3bc1b0ec1439aa27af57e6da
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 159851f5b1ca38cc34da785b39229a6a91e1e4dd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758900"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090695"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
 Azure Spring Cloud를 사용하면 코드 변경 없이 Spring Boot 기반 마이크로서비스 애플리케이션을 Azure에 쉽게 배포할 수 있습니다.  Azure Spring Cloud는 Spring Cloud 애플리케이션의 인프라를 관리하므로 개발자는 코드에 집중할 수 있습니다.  Spring Cloud는 포괄적인 모니터링 및 진단, 구성 관리, 서비스 검색, CI/CD 통합, blue-green 배포 등을 사용하여 수명 주기 관리를 제공합니다.
 
-Azure Spring Cloud는 Java [Spring Boot](https://spring.io/projects/spring-boot) 및 ASP.NET Core [Steeltoe](https://steeltoe.io/) 앱을 모두 지원합니다. Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 공개 미리 보기 제품을 통해 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 제출하세요.
+Azure Spring Cloud는 Java [Spring Boot](https://spring.io/projects/spring-boot) 및 ASP.NET Core [Steeltoe](https://steeltoe.io/) 앱을 모두 지원합니다. Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 공개 미리 보기 제품을 통해 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
 Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리지, 데이터베이스, 모니터링 등을 비롯한 다른 Azure 서비스에 쉽게 바인딩할 수 있습니다.
 

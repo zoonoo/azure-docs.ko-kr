@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372360"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132298"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -180,7 +180,7 @@ Microsoft 고객 계약과 체결한 CSP에 대해 지원되는 범위는 다음
 
 *글로벌 관리자* 및 *관리 에이전트* 역할이 있는 사용자만 파트너의 Azure 테넌트에서 직접 청구 계정, 청구 프로필 및 고객에 대한 비용을 관리하고 볼 수 있습니다. 파트너 센터 역할에 대한 자세한 내용 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요.
 
-고객이 Microsoft 고객 계약을 체결한 경우 Azure Cost Management는 CSP 파트너 고객만 지원합니다. 아직 Microsoft 고객 계약을 체결하지 않은 CSP 지원 고객은 [파트너 센터](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview)를 참조하세요.
+고객이 Microsoft 고객 계약을 체결한 경우 Azure Cost Management는 CSP 파트너 고객만 지원합니다. 아직 Microsoft 고객 계약을 체결하지 않은 CSP 지원 고객은 [파트너 센터](/azure/cloud-solution-provider/overview/partner-center-overview)를 참조하세요.
 
 CSP 범위의 관리 그룹은 Cost Management에서 지원되지 않습니다. CSP 구독이 있고 비용 분석에서 범위를 관리 그룹으로 설정하는 경우 다음과 유사한 오류가 표시됩니다.
 

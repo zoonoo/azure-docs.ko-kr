@@ -8,12 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
-ms.openlocfilehash: 8e53e8ad26ddac1006a28fea2ddee9990533e8c9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: subject-armqs
+ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647886"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093823"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>ARM 템플릿을 사용하여 Azure DNS 영역 및 레코드 만들기
 

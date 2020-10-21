@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824195"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075538"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -23,7 +23,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* 버전 8이 설치된 지원되는 [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk)
+* 버전 8이 설치된 지원되는 [Java Development Kit SDK](/java/azure/jdk)
 * [Apache Maven](https://maven.apache.org/download.cgi) 버전 3.0 이상
 
 ## <a name="create-an-app-configuration-instance"></a>App Configuration 인스턴스 만들기
@@ -304,7 +304,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 Spring Boot 웹앱에서 기능을 관리하는 데 사용했습니다.
+이 빠른 시작에서는 새 App Configuration 저장소를 만든 후 [기능 관리 라이브러리](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 Spring Boot 웹앱에서 기능을 관리하는 데 사용했습니다.
 
 * [기능 관리](./concept-feature-management.md)에 대한 자세한 정보
 * [기능 플래그 관리](./manage-feature-flags.md)

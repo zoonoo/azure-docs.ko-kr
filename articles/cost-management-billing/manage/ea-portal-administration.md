@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 33a53fa46d7d07183b77f2608d44f8ea5d0d2804
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371918"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132264"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -71,13 +71,13 @@ Azure EA Portal에서 Azure EA 비용 및 사용량을 관리할 수 있습니�
 
 각 역할의 액세스 및 권한 수준은 서로 다릅니다.
 
-사용자 역할에 대한 자세한 내용은 [엔터프라이즈 사용자 역할](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles)을 참조하세요.
+사용자 역할에 대한 자세한 내용은 [엔터프라이즈 사용자 역할](./ea-portal-get-started.md#enterprise-user-roles)을 참조하세요.
 
 ## <a name="add-an-azure-ea-account"></a>Azure EA 계정 추가
 
 Azure EA 계정은 Azure EA Portal의 조직 구성 단위입니다. 구독을 관리하는 데 사용되며, 보고하는 데에도 사용됩니다. Azure 서비스에 액세스하여 사용하려면 계정을 만들거나 다른 사람이 대신 계정을 만들어주어야 합니다.
 
-Azure 계정에 대한 자세한 내용은 [계정 추가](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account)를 참조하세요.
+Azure 계정에 대한 자세한 내용은 [계정 추가](./ea-portal-get-started.md#add-an-account)를 참조하세요.
 
 ## <a name="enterprise-devtest-offer"></a>Enterprise 개발/테스트 제안
 

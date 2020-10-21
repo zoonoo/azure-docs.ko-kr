@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5a0a040d80911b086561213bd0884ed67545c618
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920792"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122826"
 ---
 ::: zone target = "docs"
 
@@ -124,7 +124,7 @@ Data Box Heavy를 받으면 다음 단계에 따라 디바이스의 전원 케�
  
 1. 두 개의 40Gbps 데이터 인터페이스를 동시에 사용하여 데이터를 두 개의 디바이스 노드에 복사합니다.
 
-    - Windows 호스트를 사용하는 경우 [Robocopy](https://technet.microsoft.com/library/ee851678.aspx)와 같은 SMB 호환 파일 복사 도구를 사용합니다.
+    - Windows 호스트를 사용하는 경우 [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10))와 같은 SMB 호환 파일 복사 도구를 사용합니다.
     - NFS 호스트의 경우에는 `cp` 명령 또는 `rsync`를 사용하여 데이터를 복사합니다.
 2. `\\<IP address of your device>\ShareName` 경로를 사용하여 디바이스의 공유에 연결합니다. 공유 액세스 자격 증명을 가져오려면 Data Box Heavy의 로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다.
 3. 공유 및 폴더 이름과 데이터가 [Azure Storage 및 Data Box Heavy 서비스 제한](data-box-heavy-limits.md)에서 설명하는 지침을 따르는지 확인합니다.

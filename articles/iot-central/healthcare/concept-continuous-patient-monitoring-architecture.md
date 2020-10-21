@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ffecd09d1084188195da83568ab3fe32ef2cdaac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972228"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122154"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>환자 연속 모니터링 아키텍처
 
@@ -33,11 +33,11 @@ ms.locfileid: "90972228"
 
 ### <a name="mobile-phone-gateway"></a>휴대폰 게이트웨이
 
-휴대폰 애플리케이션의 기본 기능은 의료 디바이스에서 BLE 데이터를 수집하여 IoT Central에 전달하는 것입니다. 이 앱은 디바이스 설정을 통해 환자를 안내하고 개인 상태 데이터를 볼 수 있도록 합니다. 다른 솔루션은 병실에 있는 태블릿 게이트웨이 또는 정적 게이트웨이를 사용할 수 있습니다. Android 및 iOS용 오픈 소스 샘플 모바일 애플리케이션을 애플리케이션 개발의 출발점으로 사용할 수 있습니다. 자세한 내용은 [IoT Central Continuous Patient Monitoring 모바일 앱](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/)을 참조하세요.
+휴대폰 애플리케이션의 기본 기능은 의료 디바이스에서 BLE 데이터를 수집하여 IoT Central에 전달하는 것입니다. 이 앱은 디바이스 설정을 통해 환자를 안내하고 개인 상태 데이터를 볼 수 있도록 합니다. 다른 솔루션은 병실에 있는 태블릿 게이트웨이 또는 정적 게이트웨이를 사용할 수 있습니다. Android 및 iOS용 오픈 소스 샘플 모바일 애플리케이션을 애플리케이션 개발의 출발점으로 사용할 수 있습니다. 자세한 내용은 [IoT Central Continuous Patient Monitoring 모바일 앱](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/)을 참조하세요.
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Azure API for FHIR에 배포&reg;
 
-Azure IoT Central은 HIPAA 규격이며 HITRUST&reg; 인증을 받았습니다. [Azure API for FHIR](../../healthcare-apis/overview.md)을 사용하여 환자 상태 데이터를 다른 서비스로 보낼 수 있습니다. Azure API for FHIR은 임상 상태 데이터를 위한 표준 기반 API입니다. [FHIR용 Azure IoT 커넥터](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart)를 사용하면 Azure API for FHIR을 IoT Central의 연속 데이터 내보내기 대상으로 사용할 수 있습니다.
+Azure IoT Central은 HIPAA 규격이며 HITRUST&reg; 인증을 받았습니다. [Azure API for FHIR](../../healthcare-apis/overview.md)을 사용하여 환자 상태 데이터를 다른 서비스로 보낼 수 있습니다. Azure API for FHIR은 임상 상태 데이터를 위한 표준 기반 API입니다. [FHIR용 Azure IoT 커넥터](../../healthcare-apis/iot-fhir-portal-quickstart.md)를 사용하면 Azure API for FHIR을 IoT Central의 연속 데이터 내보내기 대상으로 사용할 수 있습니다.
 
 ### <a name="machine-learning"></a>기계 학습
 

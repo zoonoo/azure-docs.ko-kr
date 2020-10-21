@@ -4,12 +4,12 @@ description: Visual Studio를 사용하여 C# 클래스 라이브러리 함수�
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: b18401037bf14c99ed198eb3754438ece5718c9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0711516143839dbcdbafec56ab1d9643b4b8cdc7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84235364"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167124"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
 
@@ -106,7 +106,7 @@ Storage 큐에 데이터를 쓰도록 HTTP 트리거 함수를 업데이트했�
 다음으로, 함수 앱에 Application Insights 모니터링을 사용하도록 설정해야 합니다.
 
 > [!div class="nextstepaction"]
-> [Application Insights 통합 사용](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Application Insights 통합 사용](configure-monitoring.md#add-to-an-existing-function-app)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
 [이전 빠른 시작 문서]: functions-create-your-first-function-visual-studio.md
