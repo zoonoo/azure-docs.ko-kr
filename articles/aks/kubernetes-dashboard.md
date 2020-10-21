@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570822"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314514"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
@@ -102,7 +102,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>대시보드에 로그인 (kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> Kubernetes 대시보드 또는 Kubernetes v 1.16 + [의 v 1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 에서 서비스 계정 "Kubernetes-대시보드"는 [해당 릴리스의 보안 수정](https://github.com/kubernetes/dashboard/pull/3400)으로 인해 더 이상 리소스를 검색 하는 데 사용할 수 없습니다. 따라서 인증 정보가 없는 요청은 401 권한 없음 오류를 반환 합니다. 서비스 계정에서 검색 된 전달자 토큰은이 [Kubernetes 대시보드 예제](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)와 같이 여전히 사용할 수 있지만이는 이전 버전과 비교 하 여 대시보드 추가 기능에 대 한 로그인 흐름에 영향을 줍니다.
+> Kubernetes 대시보드 또는 Kubernetes v 1.16 + [의 v 1.10.1](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) 에서 서비스 계정 "Kubernetes-대시보드"는 [해당 릴리스의 보안 수정](https://github.com/kubernetes/dashboard/pull/3400)으로 인해 더 이상 리소스를 검색 하는 데 사용할 수 없습니다. 따라서 인증 정보가 없는 요청은 [401 권한 없음 오류](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998)를 반환 합니다. 서비스 계정에서 검색 된 전달자 토큰은이 [Kubernetes 대시보드 예제](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui)와 같이 여전히 사용할 수 있지만이는 이전 버전과 비교 하 여 대시보드 추가 기능에 대 한 로그인 흐름에 영향을 줍니다.
 >
 >1.16 이전 버전을 실행 하는 경우에도 "kubernetes" 서비스 계정에 권한을 부여할 수 있지만 **권장 되지는 않습니다**.
 > ```console

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601313"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312601"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
 
@@ -91,7 +91,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 #### <a name="on-premises-agents-logs-recommended-reading"></a>온-프레미스 에이전트에서 권장 읽기를 기록 합니다.
 
 - [애플리케이션 프록시 문제 해결](../manage-apps/application-proxy-troubleshoot.md)
-- [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Azure AD 애플리케이션 프록시 커넥터 이해](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: 통과 인증 문제 해결](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Azure MFA NPS 확장에 대 한 오류 코드 문제 해결](../authentication/howto-mfa-nps-extension-errors.md)
@@ -123,7 +123,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 현재 조직에 Id 보안 점수 변경을 모니터링할 프로그램이 없는 경우 계획을 구현 하 고 소유자를 할당 하 여 개선 작업을 모니터링 하 고 구동 하는 것이 좋습니다. 조직은 가능한 한 빨리 30 보다 큰 점수를 사용 하 여 개선 작업을 수정 해야 합니다.
 
-### <a name="notifications"></a>알림
+### <a name="notifications"></a>공지
 
 Microsoft는 관리자에 게 전자 메일 통신을 보내 서비스의 다양 한 변경 내용, 필요한 구성 업데이트 및 관리자 개입이 필요한 오류를 알립니다. 모든 알림을 승인 하 고 작업할 수 있는 적절 한 팀 구성원에 게 알림이 전송 되도록 고객은 알림 전자 메일 주소를 설정 하는 것이 중요 합니다. [메시지 센터](/office365/admin/manage/message-center) 에 여러 받는 사람을 추가 하 고 메일 그룹 또는 공유 사서함에 알림 (Azure AD Connect Health 알림 포함)을 보내도록 요청 하는 것이 좋습니다. 전자 메일 주소를 가진 전역 관리자 계정이 하나만 있는 경우 전자 메일을 사용할 수 있는 계정을 두 개 이상 구성 해야 합니다.
 

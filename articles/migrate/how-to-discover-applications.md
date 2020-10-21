@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 온-프레미스 서버에서 앱, 역할
 description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118650"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315205"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>컴퓨터 앱, 역할 및 기능 검색
 
@@ -46,7 +46,7 @@ ms.locfileid: "86118650"
 
 ## <a name="verify-permissions"></a>권한 확인
 
-검색 및 평가를 위해 [vCenter Server 읽기 전용 계정을 만들었습니다](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) . **Virtual Machines**  >  앱 검색용 VM과 상호 작용 하기 위해 읽기 전용 계정에는 Virtual Machines**게스트 작업**에 대해 사용 하도록 설정 된 권한이 있어야 합니다.
+검색 및 평가를 위해 [vCenter Server 읽기 전용 계정을 만들었습니다](./tutorial-discover-vmware.md#prepare-vmware) . **Virtual Machines**  >  앱 검색용 VM과 상호 작용 하기 위해 읽기 전용 계정에는 Virtual Machines**게스트 작업**에 대해 사용 하도록 설정 된 권한이 있어야 합니다.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>사용자 계정을 어플라이언스에 추가 합니다.
 

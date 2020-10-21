@@ -3,12 +3,12 @@ title: Azure Migrate에서 평가 도구 추가
 description: Azure Migrate에서 평가 도구를 추가 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122118"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317360"
 ---
 # <a name="add-assessment-tools"></a>평가 도구 추가
 
@@ -60,4 +60,4 @@ ms.locfileid: "86122118"
 
 ## <a name="next-steps"></a>다음 단계
 
-[VMware](tutorial-prepare-vmware.md) Vm, [hyper-v](tutorial-prepare-hyper-v.md)또는 [물리적 서버](tutorial-prepare-physical.md) 에 대 한 Azure Migrate 서버 평가를 사용 하 여 평가를 사용해 보세요.
+[VMware](./tutorial-discover-vmware.md) Vm, [hyper-v](./tutorial-discover-hyper-v.md)또는 [물리적 서버](./tutorial-discover-physical.md) 에 대 한 Azure Migrate 서버 평가를 사용 하 여 평가를 사용해 보세요.

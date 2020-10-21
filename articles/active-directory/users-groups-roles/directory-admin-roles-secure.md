@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7224f8fe1461727504a85df4a5fd95ba871258a8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055812"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308723"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -302,7 +302,7 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결�
 
 #### <a name="establish-integrated-monitoring"></a>통합 모니터링 설정
 
-[Azure Security Center](../../security-center/security-center-intro.md):
+[Azure Security Center](../../security-center/security-center-introduction.md):
 
 * Azure 구독 전체에서 통합된 보안 모니터링 및 정책 관리를 제공합니다.
 * 다른 방법으로 탐지되지 않을 수 있는 위협을 탐지할 수 있도록 지원합니다.

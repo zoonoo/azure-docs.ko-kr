@@ -84,6 +84,8 @@
           href: request-limits.md
     - name: 리소스
       items:
+        - name: 지원 및 도움말 옵션
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: GitHub의 코드 샘플
           href: 'https://aka.ms/TranslatorGitHub'
         - name: FAQ
@@ -94,8 +96,6 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: 규정 준수
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Custom Translator
   items:
     - name: 개요
@@ -148,6 +148,8 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: 리소스
       items:
+        - name: 지원 및 도움말 옵션
+          href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
         - name: 용어
           href: custom-translator/glossary.md
         - name: FAQ
@@ -158,5 +160,3 @@
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: 암호화
           href: translator-encryption-of-data-at-rest.md
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

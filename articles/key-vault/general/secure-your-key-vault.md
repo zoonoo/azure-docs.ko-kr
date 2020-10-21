@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04bd6975a2ba8824124c769e66da1e4ebe7534a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019888"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309931"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -130,7 +130,7 @@ RBAC를 사용 하 여 데이터 평면 Key Vault 하는 방법에 대 한 자�
 
 ## <a name="private-endpoint-connection"></a>개인 끝점 연결
 
-공개에 대 한 Key Vault 노출을 완전히 차단 해야 하는 경우 Azure 개인 끝점을 사용할 수 있습니다. Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
+공개에 대 한 Key Vault 노출을 완전히 차단 해야 하는 경우 [Azure 개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 을 사용할 수 있습니다. Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나리오는 다음과 같습니다.
 
@@ -187,7 +187,7 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 | 보안 팀 | [키 자격 증명 모음 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | 인증서: 모든 작업 <br> 키: 모든 작업 <br> 비밀: 모든 작업 | [Key Vault 관리자 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | None | None |
 | 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | [Key Vault 판독기 (미리 보기)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Azure Storage 계정 | 없음 | 키: get, list, wrapKey, unwrapKey <br> | [암호화 서비스 암호화 Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Azure Storage 계정 | None | 키: get, list, wrapKey, unwrapKey <br> | [암호화 서비스 암호화 Key Vault](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
 | 애플리케이션 | None | 비밀: get, list <br> 인증서: get, list | [Key Vault 판독기 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Key Vault 비밀 사용자 (미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. Vm (또는 Azure App Service의 Web Apps 기능)을 배포 하려면 개발자와 운영자에 게 배포 액세스 권한이 있어야 합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.
@@ -199,11 +199,11 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 
 ## <a name="resources"></a>리소스
 
-[Azure Key Vault 정보](overview.md) 
- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
- [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
- [개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Azure Key Vault 정보](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>다음 단계
 

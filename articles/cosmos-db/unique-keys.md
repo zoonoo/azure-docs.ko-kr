@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132656"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280988"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키 제약 조건
 
-고유 키는 Azure Cosmos 컨테이너에 데이터 무결성 계층을 추가합니다. Azure Cosmos 컨테이너를 만들 때 고유 키 정책을 만듭니다. 고유 키를 사용하여 논리 파티션 내의 하나 이상 값이 고유한지 확인합니다. [파티션 키](partition-data.md)별로 고유성을 보장할 수도 있습니다.
+고유 키는 Azure Cosmos 컨테이너에 데이터 무결성 계층을 추가합니다. Azure Cosmos 컨테이너를 만들 때 고유 키 정책을 만듭니다. 고유 키를 사용하여 논리 파티션 내의 하나 이상 값이 고유한지 확인합니다. [파티션 키](partitioning-overview.md)별로 고유성을 보장할 수도 있습니다.
 
 고유 키 정책을 사용 하 여 컨테이너를 만든 후에는 unique key 제약 조건에 지정 된 대로 기존 항목의 새 또는 업데이트를 생성 하 여 논리적 파티션 내에서 중복이 발생 하지 않도록 방지 합니다. 파티션 키를 고유 키와 결합하면 컨테이너 범위 내에서 항목의 고유성이 보장됩니다.
 
@@ -55,5 +55,5 @@ Azure Cosmos 컨테이너를 만들 때만 고유 키를 정의할 수 있습니
 
 ## <a name="next-steps"></a>다음 단계
 
-* [논리 파티션에](partition-data.md) 대해 자세히 알아보기
+* [논리 파티션에](partitioning-overview.md) 대해 자세히 알아보기
 * 컨테이너를 만들 때 [고유한 키를 정의 하는 방법을](how-to-define-unique-keys.md) 알아봅니다.

@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f14960f98a4257b0c8f920915327661cd8b867c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053755"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310401"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Azure Active Directory에서 역할 할당 가능 그룹 만들기
 
-' IsAssignableToRole ' 속성을 True로 설정 하 여 만든 그룹에만 역할을 할당할 수 있으며, azure ad 역할을 사용 하 여 azure ad 포털에서 만든 그룹에는 설정 된 **그룹** 에 역할을 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당 될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수 한 종류의 그룹을 만드는 방법을 설명 합니다. **참고:** IsAssignableToRole 속성이 true로 설정 된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [그룹을 사용 하 여 AZURE AD 역할 할당 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept)를 참조 하세요.
+' IsAssignableToRole ' 속성을 True로 설정 하 여 만든 그룹에만 역할을 할당할 수 있으며, azure ad 역할을 사용 하 여 azure ad 포털에서 만든 그룹에는 설정 된 **그룹** 에 역할을 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당 될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수 한 종류의 그룹을 만드는 방법을 설명 합니다. **참고:** IsAssignableToRole 속성이 true로 설정 된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [그룹을 사용 하 여 AZURE AD 역할 할당 관리](./roles-groups-concept.md)를 참조 하세요.
 
 ## <a name="using-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
 

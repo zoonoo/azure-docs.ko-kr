@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509672"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279913"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 
@@ -24,7 +24,7 @@ JavaScript에서 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 
 * **절차적 논리:** JavaScript는 비즈니스 논리를 표현할 수 있는 풍부 하 고 친숙 한 인터페이스를 제공 하는 상위 수준의 프로그래밍 언어입니다. 데이터에 대해 복잡한 작업 시퀀스를 수행할 수 있습니다.
 
-* **원자성 트랜잭션:** Azure Cosmos DB는 단일 저장 프로시저 또는 트리거 내에서 수행 되는 데이터베이스 작업이 원자성을 보장 합니다. 이 원자성 기능을 사용하면 애플리케이션이 관련 작업을 단일 배치로 결합하여 모든 작업이 성공하거나 모두 실패하도록 할 수 있습니다.
+* **원자성 트랜잭션:** 단일 저장 프로시저 또는 트리거 내에서 수행 되는 Azure Cosmos DB 데이터베이스 작업은 원자성입니다. 이 원자성 기능을 사용하면 애플리케이션이 관련 작업을 단일 배치로 결합하여 모든 작업이 성공하거나 모두 실패하도록 할 수 있습니다.
 
 * **성능:** JSON 데이터는 본질적으로 JavaScript 언어 형식 시스템에 매핑됩니다. 이 매핑을 사용하면 버퍼 풀에 있는 JSON 문서의 지연 구체화, 실행 중인 코드에서 요청 시 사용 가능과 같은 다양한 최적화가 허용됩니다. 데이터베이스에 비즈니스 논리를 전달할 경우 다음과 같은 기타 성능상의 이점이 있습니다.
 
@@ -55,7 +55,7 @@ Azure Cosmos DB에서 JavaScript 런타임의 호스트는 데이터베이스 �
 
 ### <a name="scope-of-a-transaction"></a>트랜잭션의 범위
 
-저장 프로시저는 Azure Cosmos 컨테이너와 연결 되 고 저장 프로시저 실행 범위는 논리적 파티션 키로 지정 됩니다. 저장 프로시저는 실행 하는 동안 트랜잭션 범위에 대 한 논리 파티션을 정의 하는 논리적 파티션 키 값을 포함 해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partition-data.md) 문서를 참조하세요.
+저장 프로시저는 Azure Cosmos 컨테이너와 연결 되 고 저장 프로시저 실행 범위는 논리적 파티션 키로 지정 됩니다. 저장 프로시저는 실행 하는 동안 트랜잭션 범위에 대 한 논리 파티션을 정의 하는 논리적 파티션 키 값을 포함 해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partitioning-overview.md) 문서를 참조하세요.
 
 ### <a name="commit-and-rollback"></a>커밋 및 롤백
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227715"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309149"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Service Fabric에 대 한 Azure 보안 기준
 
@@ -78,7 +78,7 @@ Service Fabric에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 * [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/threat-protection.md)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -488,7 +488,7 @@ AAD 사용자 계정에 대 한 진단 설정을 만들어 Azure Log Analytics �
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 * [Azure에서 미사용 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
-* [고객이 관리 하는 암호화 키를 구성 하는 방법](../storage/common/storage-encryption-keys-portal.md)
+* [고객이 관리 하는 암호화 키를 구성 하는 방법](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Windows에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화 사용](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Azure virtual machines 및 컨테이너 이미지에 대 한 취약성 평가를
 
 * [Service Fabric 클러스터에서 제어 되는 비정상 상황 유도](./service-fabric-controlled-chaos.md)
 
-* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -698,7 +698,7 @@ Azure virtual machines 및 컨테이너 이미지에 대 한 취약성 평가를
 
 * [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어
 
 * [Azure Storage 미사용 데이터 암호화](../storage/common/storage-service-encryption.md)
 
-* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

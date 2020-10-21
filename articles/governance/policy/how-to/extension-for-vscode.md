@@ -1,20 +1,20 @@
 ---
 title: Visual Studio Code용 Azure Policy 확장
 description: Visual Studio Code Azure Policy 확장을 사용 하 여 Azure Resource Manager 별칭을 조회 하는 방법에 대해 알아봅니다.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077935"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317625"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code Azure Policy 확장 사용
 
-> Azure Policy 확장 버전 **0.0.21** 이상에 적용 됩니다.
+> Azure Policy 확장 버전 **0.1.0** 이상에 적용 됩니다.
 
-Visual Studio Code Azure Policy 확장을 사용 하 여 [별칭](../concepts/definition-structure.md#aliases) 을 조회 하 고 리소스 및 정책을 검토 하는 방법에 대해 알아봅니다. 먼저 Visual Studio Code에서 Azure Policy 확장을 설치 하는 방법을 설명 합니다. 그런 다음 별칭을 조회 하는 방법을 안내 합니다.
+Visual Studio Code에 대 한 Azure Policy 확장을 사용 하 여 [별칭](../concepts/definition-structure.md#aliases)을 조회 하 고, 리소스 및 정책을 검토 하 고, 개체를 내보내고, 정책 정의를 평가 하는 방법을 알아봅니다. 먼저 Visual Studio Code에서 Azure Policy 확장을 설치 하는 방법을 설명 합니다. 그런 다음 별칭을 조회 하는 방법을 안내 합니다.
 
 Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 지 원하는 모든 플랫폼에 설치할 수 있습니다. 이 지원에는 Windows, Linux 및 macOS가 포함 됩니다.
 
@@ -151,6 +151,51 @@ Azure Policy 확장 **에는 정책 창에** 표시 하기 위해 선택한 구�
 1. 필터를 사용 하 여 표시할 정책 또는 표시를 선택 합니다. 필터는 정책 정의 또는 정책 할당의 _displayName_ 에 대해 작동 합니다.
 
 검색 인터페이스를 통해 또는 treeview에서이를 선택 하 여 정책 또는 할당을 선택 하는 경우 Azure Policy 확장은 정책 또는 할당과 모든 리소스 관리자 속성 값을 나타내는 JSON을 엽니다. 확장은 열린 Azure Policy JSON 스키마의 유효성을 검사할 수 있습니다.
+
+## <a name="export-objects"></a>개체 내보내기
+
+구독의 개체를 로컬 JSON 파일로 내보낼 수 있습니다. **리소스** 또는 **정책** 창에서 내보낼 수 있는 개체를 가리키거나 선택 합니다. 강조 표시 된 행의 끝에서 저장 아이콘을 선택 하 고 해당 리소스를 저장할 폴더를 선택 합니다.
+
+다음 개체는 로컬로 내보낼 수 있습니다.
+
+- 리소스 창
+  - 리소스 그룹
+  - 개별 리소스 (리소스 그룹 또는 리소스 공급자 아래에 있는)
+- 정책 창
+  - 정책 할당
+  - 기본 제공 정책 정의
+  - 사용자 지정 정책 정의
+  - 이니셔티브
+
+## <a name="on-demand-evaluation-scan"></a>주문형 평가 검사
+
+평가 검사는 Visual Studio Code에 대 한 Azure Policy 확장을 사용 하 여 시작할 수 있습니다. 평가를 시작 하려면 리소스, 정책 정의 및 정책 할당과 같은 각 개체를 선택 하 고 고정 합니다.
+
+1. 각 개체를 고정 하려면 **리소스** 창이 나 **정책** 창에서 찾아서 편집 탭에 고정 아이콘을 선택 합니다. 개체를 고정 하면 확장의 **평가** 창에 추가 됩니다.
+1. **평가** 창에서 각 개체 중 하나를 선택 하 고 평가에 대해 선택 아이콘을 사용 하 여 평가에 포함 된 것으로 표시 합니다.
+1. **평가** 창 맨 위에서 실행 평가 아이콘을 선택 합니다. 결과 평가 세부 정보가 JSON 형식으로 Visual Studio Code 새 창이 열립니다.
+
+> [!NOTE]
+> 선택한 정책 정의가 [AuditIfNotExists](../concepts/effects.md#auditifnotexists) 또는 [Deployifnotexists](../concepts/effects.md#deployifnotexists)인 경우 **평가** 창에서 더하기 아이콘을 사용 하 여 존재 확인에 대 한 _관련_ 리소스를 선택 합니다.
+
+평가 결과에는 정책 정의 및 정책 할당에 대 한 정보와 함께 **policyEvaluations. evaluationResult** 속성이 제공 됩니다. 출력은 다음 예제와 같이 표시됩니다.
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>로그아웃
 

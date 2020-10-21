@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801327"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281065"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -26,7 +26,7 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 
 * 데이터베이스에 대한 처리량을 프로비전하는 경우 모든 컨테이너(예: 해당 데이터베이스 내의 컬렉션/테이블/그래프)는 부하에 따라 처리량을 공유할 수 있습니다. 데이터베이스 수준에서 예약된 처리량은 특정 컨테이너 세트에 대한 워크로드에 따라 비균일하게 공유됩니다.
 
-* 컨테이너에 대한 처리량을 프로비전하는 경우 SLA에서 지원하는 처리량이 해당 컨테이너에 대해 보장됩니다. 컨테이너의 모든 논리 파티션에 균일하게 부하를 분산하려면 논리 파티션 키를 적절히 선택해야 합니다. 자세한 내용은 [분할](partitioning-overview.md) 및 [수평적 크기 조정](partition-data.md) 문서를 참조하세요.
+* 컨테이너에 대한 처리량을 프로비전하는 경우 SLA에서 지원하는 처리량이 해당 컨테이너에 대해 보장됩니다. 컨테이너의 모든 논리 파티션에 균일하게 부하를 분산하려면 논리 파티션 키를 적절히 선택해야 합니다. 자세한 내용은 [분할](partitioning-overview.md) 및 [수평적 크기 조정](partitioning-overview.md) 문서를 참조하세요.
 
 다음은 프로비전된 처리량 전략을 결정하기 위한 몇 가지 지침입니다.
 

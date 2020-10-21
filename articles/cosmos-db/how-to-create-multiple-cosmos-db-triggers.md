@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019983"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279640"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "89019983"
 
 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 서버리스 아키텍처를 구축하는 경우 장기 실행 함수 대신 함께 작동하는 작은 함수 세트를 만드는 것이 [좋습니다](../azure-functions/functions-best-practices.md#avoid-long-running-functions).
 
-[Cosmos DB용 Azure Functions 트리거](./change-feed-functions.md)를 사용하여 이벤트 기반 서버리스 흐름을 작성하면 특정 [Azure Cosmos 컨테이너](./databases-containers-items.md#azure-cosmos-containers)에 새 이벤트가 있을 때마다 여러 작업을 수행하려는 시나리오와 충돌합니다. 트리거하려는 작업이 서로 독립적인 경우 가장 적절한 해결 방법은 동일한 Azure Cosmos 컨테이너에서 변경 내용을 수행하려는 **작업당 하나의 Cosmos DB용 Azure Functions 트리거를 만들어** 동일한 Azure Cosmos 컨테이너에서 모든 변경 내용을 수신 대기하는 것입니다.
+[Cosmos DB용 Azure Functions 트리거](./change-feed-functions.md)를 사용하여 이벤트 기반 서버리스 흐름을 작성하면 특정 [Azure Cosmos 컨테이너](./account-databases-containers-items.md#azure-cosmos-containers)에 새 이벤트가 있을 때마다 여러 작업을 수행하려는 시나리오와 충돌합니다. 트리거하려는 작업이 서로 독립적인 경우 가장 적절한 해결 방법은 동일한 Azure Cosmos 컨테이너에서 변경 내용을 수행하려는 **작업당 하나의 Cosmos DB용 Azure Functions 트리거를 만들어** 동일한 Azure Cosmos 컨테이너에서 모든 변경 내용을 수신 대기하는 것입니다.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>여러 트리거에 대한 컨테이너 최적화
 

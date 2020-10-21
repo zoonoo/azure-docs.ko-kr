@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570736"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282108"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>자동 크기 조정 처리량을 사용하여 Azure Cosmos 컨테이너 및 데이터베이스 만들기
 
@@ -85,6 +85,6 @@ Azure Cosmos DB를 사용하면 데이터베이스 및 컨테이너에서 표준
 * [자동 크기 조정 FAQ](autoscale-faq.md)를 검토합니다.
 * [수동 및 자동 크기 조정 처리량 중 선택하는 방법](how-to-choose-offer.md)을 알아봅니다.
 * [Azure Cosmos 데이터베이스 또는 컨테이너에서 자동 크기 조정 처리량을 프로비저닝](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
-* Azure Cosmos DB의 [분할](partition-data.md)에 대해 자세히 알아봅니다.
+* Azure Cosmos DB의 [분할](partitioning-overview.md)에 대해 자세히 알아봅니다.
 
 

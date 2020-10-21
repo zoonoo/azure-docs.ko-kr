@@ -2,20 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 802a98c76106fade2b4fffa3fa0e8ff6ad5ceb96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77613cbc0317691a60089156769e2d39d503d5e1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91859628"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317897"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[권한 있는 IP 범위는 Kubernetes Services에 정의되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |특정 범위의 IP 주소에만 API 액세스 권한을 부여하여 Kubernetes Service Management API에 대한 액세스를 제한합니다. 허용된 네트워크의 애플리케이션만 클러스터에 액세스할 수 있도록 인증된 IP 범위에 대한 액세스를 제한하는 것이 좋습니다. |감사, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json) |
 |[클러스터에 AKS(Azure Kubernetes Service)용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |AKS(Azure Kubernetes Service)용 Azure Policy 추가 기능은 OPA(Open Policy Agent)용 허용 컨트롤러 웹후크인 Gatekeeper v3를 확장하여 일관된 중앙 집중식 방법으로 클러스터에 대규모 규약 및 세이프가드를 적용합니다. |감사, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
+|[Azure Kubernetes Service 클러스터에 Azure Policy 추가 기능 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Azure Policy 추가 기능을 사용 하 여 AKS (Azure Kubernetes Service) 클러스터의 준수 상태를 관리 하 고 보고 합니다. 자세한 내용은 [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc)를 참조하세요. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Kubernetes 클러스터에 GitOps 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |이 정책은 Kubernetes 클러스터에 'sourceControlConfiguration'을 배포하여 클러스터가 정의된 git 리포지토리에서 해당 원본을 가져올 수 있도록 합니다. 이 정책 사용에 대한 지침은 [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy)를 방문하세요. |DeployIfNotExists |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |
 |[Kubernetes 클러스터에서 권한 있는 컨테이너를 허용하지 않음](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |이 정책은 Kubernetes 클러스터에서 권한 있는 컨테이너를 생성하는 것을 허용하지 않습니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilege.json) |
 |[Kubernetes 클러스터에서 HTTPS 수신 적용](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d) |이 정책은 Kubernetes 클러스터에서 HTTPS 수신을 적용합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/IngressHttpsOnly.json) |

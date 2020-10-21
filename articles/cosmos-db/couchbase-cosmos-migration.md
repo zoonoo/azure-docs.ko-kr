@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366724"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282471"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
 
@@ -33,7 +33,7 @@ Azure Cosmos DB는 확장 가능하고 전 세계적으로 분산되고 완전�
 
 * Azure Cosmos DB에는 문서 내에 "ID" 필드가 있고, Couchbase에서는 이 ID가 버킷의 일부입니다. "ID" 필드는 파티션 전체에서 고유합니다.
 
-* Azure Cosmos DB는 분할 기술을 사용하여 크기를 조정합니다. 즉, 데이터를 여러 분할 영역/파티션으로 분할합니다. 이러한 파티션/분할 영역은 사용자가 제공하는 파티션 키 속성을 기반으로 생성됩니다. 파티션 키를 선택하여 읽기 작업뿐 아니라 쓰기 작업 또는 읽기/쓰기도 최적화할 수 있습니다. 자세히 알아보려면 [분할](./partition-data.md) 문서를 참조하세요.
+* Azure Cosmos DB는 분할 기술을 사용하여 크기를 조정합니다. 즉, 데이터를 여러 분할 영역/파티션으로 분할합니다. 이러한 파티션/분할 영역은 사용자가 제공하는 파티션 키 속성을 기반으로 생성됩니다. 파티션 키를 선택하여 읽기 작업뿐 아니라 쓰기 작업 또는 읽기/쓰기도 최적화할 수 있습니다. 자세히 알아보려면 [분할](./partitioning-overview.md) 문서를 참조하세요.
 
 * Azure Cosmos DB에서는 컬렉션 이름이 이미 존재하기 때문에 최상위 계층 구조에서 컬렉션을 표시할 필요가 없습니다. 이 기능 덕분에 JSON 구조가 훨씬 간단해집니다. 다음은 데이터 모델에서 Couchbase와 Azure Cosmos DB 간 차이점을 보여 주는 예제입니다.
 

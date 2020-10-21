@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70279450"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317170"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 Hyper-v Vm 평가
 
@@ -30,7 +30,7 @@ ms.locfileid: "70279450"
 
 
 > [!NOTE]
-> 규모를 평가 하기 전에 몇 가지 Vm을 평가 하는 개념 증명을 사용해 보려면 [자습서 시리즈](tutorial-prepare-hyper-v.md) 를 따르세요.
+> 규모를 평가 하기 전에 몇 가지 Vm을 평가 하는 개념 증명을 사용해 보려면 [자습서 시리즈](./tutorial-discover-hyper-v.md) 를 따르세요.
 
 ## <a name="plan-for-assessment"></a>평가 계획
 
@@ -66,7 +66,7 @@ ms.locfileid: "70279450"
 2. Azure Migrate와 상호 작용 하도록 Azure 계정에 대 한 사용 권한 설정
 3. Hyper-v 호스트 및 Vm 준비
 
-[이 자습서](tutorial-prepare-hyper-v.md) 의 지침에 따라 이러한 설정을 구성 합니다.
+[이 자습서](./tutorial-discover-hyper-v.md) 의 지침에 따라 이러한 설정을 구성 합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -75,7 +75,7 @@ ms.locfileid: "70279450"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세한 정보](how-to-add-tool-first-time.md)
+[자세히 알아보기](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 

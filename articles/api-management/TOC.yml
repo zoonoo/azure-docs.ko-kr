@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: 가시성
       href: observability.md
+    - name: ARM 템플릿을 사용하는 CI/CD
+      href: devops-api-development-templates.md
 - name: 방법 가이드
   items:
     - name: API 정의

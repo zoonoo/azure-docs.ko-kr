@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 6831cb3f39c25eb69d16300156f456980cf57fa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88604818"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282043"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -38,42 +38,50 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
 작업에서 사용 하는 RUs의 수를 예상 하는 동안 다음 요인을 고려 합니다.
 
-* **항목 크기**: 항목 크기가 늘어나면 항목을 읽거나 쓰는 데 사용되는 RU 수도 증가합니다.
+- **항목 크기**: 항목 크기가 늘어나면 항목을 읽거나 쓰는 데 사용되는 RU 수도 증가합니다.
 
-* **항목 인덱싱**: 기본적으로 각 항목은 자동으로 인덱싱됩니다. 컨테이너에서 일부 항목을 인덱싱하지 않도록 선택하면 사용되는 RU 수가 감소합니다.
+- **항목 인덱싱**: 기본적으로 각 항목은 자동으로 인덱싱됩니다. 컨테이너에서 일부 항목을 인덱싱하지 않도록 선택하면 사용되는 RU 수가 감소합니다.
 
-* **항목 속성 수**: 모든 속성에 기본 인덱싱이 있다고 가정하면 항목 속성 수가 증가함에 따라 항목을 작성하는 데 사용되는 RU 수도 증가합니다.
+- **항목 속성 수**: 모든 속성에 기본 인덱싱이 있다고 가정하면 항목 속성 수가 증가함에 따라 항목을 작성하는 데 사용되는 RU 수도 증가합니다.
 
-* **인덱싱되는 속성 수**: 각 컨테이너의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 쓰기 작업에 필요한 RU 사용량을 줄이려면 인덱싱된 속성 수를 제한합니다.
+- **인덱싱되는 속성 수**: 각 컨테이너의 인덱스 정책에 따라 기본적으로 인덱싱되는 속성이 결정됩니다. 쓰기 작업에 필요한 RU 사용량을 줄이려면 인덱싱된 속성 수를 제한합니다.
 
-* **데이터 일관성**: 강력 하 고 제한 된 부실 일관성 수준에는 다른 완화 된 일관성 수준과 비교할 때 읽기 작업을 수행 하는 동안 두 배 더 많은 RUs가 사용 됩니다.
+- **데이터 일관성**: 강력 하 고 제한 된 부실 일관성 수준에는 다른 완화 된 일관성 수준과 비교할 때 읽기 작업을 수행 하는 동안 두 배 더 많은 RUs가 사용 됩니다.
 
-* **읽기 유형**: Point reads는 쿼리 보다 RUs의 비용을 크게 줄일 수 있습니다.
+- **읽기 유형**: Point reads는 쿼리 보다 RUs의 비용을 크게 줄일 수 있습니다.
 
-* **쿼리 패턴**: 쿼리의 복잡성은 작업에 사용되는 RU 수에 영향을 줍니다. 쿼리 작업 비용에 영향을 주는 요소는 다음과 같습니다. 
-    
-    - 쿼리 결과 수
-    - 조건자 수
-    - 조건자 특성
-    - 사용자 정의 함수의 수
-    - 원본 데이터 크기
-    - 결과 집합 크기
-    - 프로젝션 수
+- **쿼리 패턴**: 쿼리의 복잡성은 작업에 사용되는 RU 수에 영향을 줍니다. 쿼리 작업 비용에 영향을 주는 요소는 다음과 같습니다. 
 
-  Azure Cosmos DB는 동일한 데이터에 대한 동일한 쿼리에서 반복 실행 시 항상 동일한 수의 RU를 사용하도록 보장합니다.
+  - 쿼리 결과 수
+  - 조건자 수
+  - 조건자 특성
+  - 사용자 정의 함수의 수
+  - 원본 데이터 크기
+  - 결과 집합 크기
+  - 프로젝션 수
 
-* **스크립트 사용법**: 쿼리를 사용할 때와 마찬가지로 저장 프로시저와 트리거는 수행 되는 작업의 복잡성을 기준으로 RUs를 사용 합니다. 애플리케이션을 개발하는 과정에서 각 작업에 사용되는 RU 용량을 더 잘 파악할 수 있도록 [요청 요금 헤더](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query)를 살펴보세요.
+  동일한 데이터에 대 한 동일한 쿼리는 반복 실행에서 항상 동일한 수의 RUs를 비용으로 청구 합니다.
+
+- **스크립트 사용법**: 쿼리를 사용할 때와 마찬가지로 저장 프로시저와 트리거는 수행 되는 작업의 복잡성을 기준으로 RUs를 사용 합니다. 애플리케이션을 개발하는 과정에서 각 작업에 사용되는 RU 용량을 더 잘 파악할 수 있도록 [요청 요금 헤더](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query)를 살펴보세요.
+
+## <a name="request-units-and-multiple-regions"></a>요청 단위 및 여러 지역
+
+Cosmos 컨테이너 (또는 데이터베이스 Cosmos DB)에 *' r '* rus를 프로 비전 하는 경우 Cosmos 계정에 연결 된 *각* 지역에서 *' r '* rus를 사용할 수 있도록 합니다. 특정 영역에 RU를 선택적으로 할당할 수 없습니다. Cosmos 컨테이너 (또는 데이터베이스)에 프로 비전 된 RUs는 Cosmos 계정과 연결 된 모든 지역에 프로 비전 됩니다.
+
+Cosmos 컨테이너가 *' R '* RUs로 구성 되어 있고 Cosmos 계정에 연결 된 *' N '* 지역이 있다면 컨테이너에서 전역적으로 사용할 수 있는 총 RUs = *R* x *N*을 가정 합니다.
+
+[일관성 모델](consistency-levels.md) 을 선택 하는 것도 처리량에 영향을 줍니다. 더 강력한 일관성 수준 (예: *제한 된 부실* 또는 *강력한* 일관성)과 비교 하 여 더 완화 된 일관성 수준 (예: *세션*, *일관 된 접두사* 및 *최종* 일관성)에 대해 약 2x 읽기 처리량을 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량을 프로비전](set-throughput.md)하는 방법을 자세히 알아봅니다.
-* [Azure Cosmos DB에서 서버를](serverless.md)사용 하지 않는 방법에 대해 자세히 알아보세요.
-* [논리 파티션](partition-data.md)에 대해 자세히 알아봅니다.
-* [프로비전된 처리량 크기를 전역적으로 조정](scaling-throughput.md)하는 방법을 자세히 알아봅니다.
-* [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
-* [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.
-* [작업에 대 한 요청 단위 요금을 찾는](find-request-unit-charge.md)방법에 대해 알아봅니다.
-* [Azure Cosmos DB에서 프로 비전 된 처리량 비용을 최적화](optimize-cost-throughput.md)하는 방법을 알아봅니다.
-* [Azure Cosmos DB에서 읽기 및 쓰기 비용을 최적화](optimize-cost-reads-writes.md)하는 방법을 알아봅니다.
-* [Azure Cosmos DB에서 쿼리 비용을 최적화](optimize-cost-queries.md)하는 방법을 알아봅니다.
-* [메트릭을 사용](use-metrics.md)하 여 처리량을 모니터링 하는 방법에 대해 알아봅니다.
+- [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량을 프로비전](set-throughput.md)하는 방법을 자세히 알아봅니다.
+- [Azure Cosmos DB에서 서버를](serverless.md)사용 하지 않는 방법에 대해 자세히 알아보세요.
+- [논리 파티션](partition-data.md)에 대해 자세히 알아봅니다.
+- [프로비전된 처리량 크기를 전역적으로 조정](scaling-throughput.md)하는 방법을 자세히 알아봅니다.
+- [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
+- [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.
+- [작업에 대 한 요청 단위 요금을 찾는](find-request-unit-charge.md)방법에 대해 알아봅니다.
+- [Azure Cosmos DB에서 프로 비전 된 처리량 비용을 최적화](optimize-cost-throughput.md)하는 방법을 알아봅니다.
+- [Azure Cosmos DB에서 읽기 및 쓰기 비용을 최적화](optimize-cost-reads-writes.md)하는 방법을 알아봅니다.
+- [Azure Cosmos DB에서 쿼리 비용을 최적화](optimize-cost-queries.md)하는 방법을 알아봅니다.
+- [메트릭을 사용](use-metrics.md)하 여 처리량을 모니터링 하는 방법에 대해 알아봅니다.

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
-description: 이 문서에서는 자동 백업, 주문형 데이터 복원의 작동 방식, Azure Cosmos DB에서 백업 간격 및 보존을 구성 하는 방법을 설명 합니다.
+description: 이 문서에서는 자동 백업, 주문형 데이터 복원의 작동 방식, 백업 간격 및 보존을 구성 하는 방법, Azure Cosmos DB에서 데이터 복원에 대 한 지원 담당자에 게 연락 하는 방법을 설명 합니다.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 08/24/2020
+ms.topic: how-to
+ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803877"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279505"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
 
@@ -34,15 +34,7 @@ Azure Cosmos DB를 사용하면 데이터뿐만 아니라 데이터의 백업도
 
 * 백업은 애플리케이션의 성능이나 가용성에 영향을 주지 않고 수행됩니다. Azure Cosmos DB는 프로비전된 추가 처리량(RU)을 사용하지 않으며 데이터베이스의 성능 및 가용성에 영향을 주지 않고 백그라운드에서 데이터 백업을 수행합니다.
 
-## <a name="options-to-manage-your-own-backups"></a>사용자 고유의 백업을 관리하기 위한 옵션
-
-Azure Cosmos DB SQL API 계정을 통해 다음 방법 중 하나를 사용하면 백업을 직접 유지할 수도 있습니다.
-
-* [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 주기적으로 선택한 스토리지로 이동합니다.
-
-* Azure Cosmos DB [변경 피드](change-feed.md) 를 사용 하 여 전체 백업 또는 증분 변경에 대 한 데이터를 주기적으로 읽거나 증분 변경 내용을 저장소에 저장 합니다.
-
-## <a name="modify-the-backup-interval-and-retention-period"></a>백업 간격 및 보존 기간 수정
+## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>백업 간격 및 보존 기간 수정
 
 Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 수행 하 고, 언제 든 지 최신 두 개의 백업이 저장 됩니다. 이 구성은 기본 옵션이 며 추가 비용 없이 제공 됩니다. Azure Cosmos 계정을 만드는 동안 또는 계정을 만든 후에 기본 백업 간격과 보존 기간을 변경할 수 있습니다. 백업 구성은 Azure Cosmos 계정 수준에서 설정되며, 각 계정에 대해 구성해야 합니다. 계정에 대 한 백업 옵션을 구성한 후에는 해당 계정 내의 모든 컨테이너에 적용 됩니다. 현재는 Azure Portal에서만 백업 옵션을 변경할 수 있습니다.
 
@@ -65,7 +57,32 @@ Azure Cosmos DB는 4 시간 마다 데이터의 전체 백업을 자동으로 �
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업" border="true":::
 
-## <a name="restore-data-from-an-online-backup"></a>온라인 백업에서 데이터 복원
+## <a name="request-data-restore-from-a-backup"></a>백업에서 데이터 복원 요청
+
+데이터베이스나 컨테이너를 실수로 삭제 한 경우 [지원 티켓을](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 제출 하거나 [Azure 지원에 문의](https://azure.microsoft.com/support/options/) 하 여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **표준**, **개발자**및 계획 보다 높은 요금제와 같은 선택 된 계획에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요.
+
+백업의 특정 스냅샷을 복원하려면 Azure Cosmos DB에서 해당 스냅샷의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
+복원을 요청하려면 다음 세부 정보가 필요합니다.
+
+* 구독 ID를 준비합니다.
+
+* 데이터가 어떻게 실수로 삭제되거나 수정되었는지에 따라 추가 정보를 준비해야 합니다. 일부 시간에 구애 받는 경우 불리할 수 있는 전후 과정을 최소화하기 위해 사전에 사용 가능한 정보를 확보하는 것이 좋습니다.
+
+* 전체 Azure Cosmos DB 계정이 삭제된 경우 삭제된 계정의 이름을 제공해야 합니다. 삭제된 계정과 동일한 이름을 가진 다른 계정을 만들 경우 올바른 계정을 선택하는 데 도움이 되므로 이를 지원팀과 공유하세요. 복원 상태에 대 한 혼동을 최소화 하기 때문에 삭제 된 각 계정에 대해 다른 지원 티켓을 파일 하는 것이 좋습니다.
+
+* 하나 이상의 데이터베이스가 삭제된 경우 Azure Cosmos 계정뿐 아니라 Azure Cosmos 데이터베이스 이름을 제공하고 동일한 이름의 새 데이터베이스가 있는지 여부를 지정해야 합니다.
+
+* 하나 이상의 컨테이너가 삭제된 경우 Azure Cosmos 계정 이름, 데이터베이스 이름 및 컨테이너 이름을 제공해야 합니다. 또한 같은 이름의 컨테이너가 존재하는지 여부를 지정합니다.
+
+* 실수로 데이터를 삭제 하거나 손상 한 경우 8 시간 이내에 [Azure 지원](https://azure.microsoft.com/support/options/) 에 문의 하 여 Azure Cosmos DB 팀이 백업에서 데이터를 복원 하는 데 도움을 받을 수 있도록 해야 합니다. **데이터 복원에 대 한 지원 요청을 만들기 전에 계정에 대 한 [백업 보존](#configure-backup-interval-retention) 기간을 7 일 이상으로 늘려야 합니다. 이 이벤트의 8 시간 이내에 보존 기간을 늘리는 것이 가장 좋습니다.** 이러한 방식으로 Azure Cosmos DB 지원 팀은 계정을 복원 하는 데 충분 한 시간을 갖게 됩니다.
+
+Azure Cosmos 계정 이름, 데이터베이스 이름, 컨테이너 이름 외에도 데이터를 복원할 수 있는 시점을 지정 해야 합니다. 가능한 한 정확하게 해야 해당 시점에 가장 적합한 백업을 결정할 수 있습니다. **또한 시간을 UTC로 지정하는 것도 중요합니다.**
+
+다음 스크린샷은 Azure Portal을 사용하여 데이터를 복원하기 위해 컨테이너(컬렉션/그래프/테이블)에 대한 지원 요청을 만드는 방법을 보여줍니다. 요청의 우선 순위를 지정하는 데 도움이 되도록 데이터의 유형, 복원의 목적, 데이터가 삭제된 시간과 같은 추가 정보를 제공합니다.
+
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업":::
+
+## <a name="considerations-for-restoring-the-data-from-a-backup"></a>백업에서 데이터를 복원할 때의 고려 사항
 
 다음 시나리오 중 하나에서 실수로 데이터를 삭제 하거나 수정할 수 있습니다.  
 
@@ -85,38 +102,48 @@ Azure Cosmos 계정을 실수로 삭제 하면 계정 이름이 사용 되지 �
 
 Azure Cosmos 데이터베이스를 실수로 삭제 하는 경우 해당 데이터베이스 내의 전체 데이터베이스 또는 컨테이너의 하위 집합을 복원할 수 있습니다. 또한 데이터베이스에서 특정 컨테이너를 선택 하 고 새 Azure Cosmos 계정으로 복원할 수 있습니다.
 
-컨테이너 내에서 실수로 하나 이상의 항목을 삭제 하거나 수정 하는 경우 (데이터 손상 사례) 복원할 시간을 지정 해야 합니다. 데이터 손상이 있는 경우 시간이 중요 합니다. 컨테이너가 라이브 상태 이기 때문에 백업이 계속 실행 되므로 보존 기간 (기본값은 8 시간)을 초과 하 여 대기 하는 경우 백업을 덮어쓰게 됩니다. **백업을 덮어쓰는 것을 방지 하기 위해 계정에 대 한 백업 보존 기간을 7 일 이상으로 늘립니다. 데이터 손상 으로부터 8 시간 이내에 보존 기간을 늘리는 것이 가장 좋습니다.**
+컨테이너 내에서 실수로 하나 이상의 항목을 삭제 하거나 수정 하는 경우 (데이터 손상 사례) 복원할 시간을 지정 해야 합니다. 데이터 손상이 있는 경우 시간이 중요 합니다. 컨테이너가 라이브 상태 이기 때문에 백업이 계속 실행 되므로 보존 기간 (기본값은 8 시간)을 초과 하 여 대기 하는 경우 백업을 덮어쓰게 됩니다. 백업을 덮어쓰는 것을 방지 하기 위해 계정에 대 한 백업 보존 기간을 7 일 이상으로 늘립니다. 데이터 손상 으로부터 8 시간 이내에 보존 기간을 늘리는 것이 가장 좋습니다.
 
 실수로 데이터를 삭제 하거나 손상 한 경우 8 시간 이내에 [Azure 지원](https://azure.microsoft.com/support/options/) 에 문의 하 여 Azure Cosmos DB 팀이 백업에서 데이터를 복원 하는 데 도움을 받을 수 있도록 해야 합니다. 이러한 방식으로 Azure Cosmos DB 지원 팀은 계정을 복원 하는 데 충분 한 시간을 갖게 됩니다.
 
 > [!NOTE]
 > 데이터를 복원한 후에는 일부 원본 기능 또는 설정이 복원 된 계정으로 전달 되지 않습니다. 다음 설정은 새 계정으로 전달 되지 않습니다.
-
 > * VNET 액세스 제어 목록
 > * 저장 프로시저, 트리거 및 사용자 정의 함수
 > * 다중 지역 설정  
 
 데이터베이스 수준에서 처리량을 프로 비전 하는 경우이 경우 백업 및 복원 프로세스는 개별 컨테이너 수준이 아니라 전체 데이터베이스 수준에서 발생 합니다. 이러한 경우에는 복원할 컨테이너의 하위 집합을 선택할 수 없습니다.
 
-## <a name="migrate-data-to-the-original-account"></a>원본 계정으로 데이터 마이그레이션
+## <a name="options-to-manage-your-own-backups"></a>사용자 고유의 백업을 관리하기 위한 옵션
 
-데이터 복원의 기본 목표는 실수로 삭제 하거나 수정한 데이터를 복구 하는 것입니다. 따라서 예상하는 것을 포함하도록 하려면 복구된 데이터의 콘텐츠를 먼저 검사하는 것이 좋습니다. 나중에 기본 계정으로 데이터를 다시 마이그레이션할 수 있습니다. 복원 된 계정을 새 활성 계정으로 사용할 수 있지만 프로덕션 워크 로드가 있는 경우에는 권장 되는 옵션이 아닙니다.  
+Azure Cosmos DB SQL API 계정을 통해 다음 방법 중 하나를 사용하면 백업을 직접 유지할 수도 있습니다.
 
-다음은 원래 Azure Cosmos 계정으로 다시 데이터를 마이그레이션하는 다양한 방법입니다.
+* [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 주기적으로 선택한 스토리지로 이동합니다.
+
+* Azure Cosmos DB [변경 피드](change-feed.md) 를 사용 하 여 전체 백업 또는 증분 변경에 대 한 데이터를 주기적으로 읽거나 증분 변경 내용을 저장소에 저장 합니다.
+
+## <a name="post-restore-actions"></a>복원 후 작업
+
+데이터 복원의 기본 목표는 실수로 삭제 하거나 수정한 데이터를 복구 하는 것입니다. 따라서 예상하는 것을 포함하도록 하려면 복구된 데이터의 콘텐츠를 먼저 검사하는 것이 좋습니다. 모든 항목이 양호 하면 다시 기본 계정으로 데이터를 마이그레이션할 수 있습니다. 복원 된 계정을 새 활성 계정으로 사용할 수 있지만 프로덕션 워크 로드가 있는 경우에는 권장 되는 옵션이 아닙니다. 
+
+데이터를 복원한 후 새 계정 이름(일반적으로 `<original-name>-restored1` 형식임) 및 계정이 복구된 시간에 대한 알림을 받습니다. 복원된 계정은 프로비저닝된 처리량과 인덱싱 정책이 동일하며 원래 계정과 동일한 영역에 있습니다. 구독 관리자 또는 공동 관리자 인 사용자는 복원 된 계정을 볼 수 있습니다.
+
+### <a name="migrate-data-to-the-original-account"></a>원본 계정으로 데이터 마이그레이션
+
+다음은 원래 계정으로 데이터를 다시 마이그레이션하는 다양 한 방법입니다.
 
 * [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용 합니다.
 * [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용 합니다.
 * Azure Cosmos DB에서 [변경 피드](change-feed.md) 를 사용 합니다.
 * 사용자 고유의 사용자 지정 코드를 작성할 수 있습니다.
 
-데이터가 마이그레이션되는 즉시 복원 된 계정을 삭제 해야 합니다 .이 경우에는 지속적으로 요금이 부과 됩니다.
+데이터를 마이그레이션하는 즉시 컨테이너 또는 데이터베이스를 삭제하는 것이 좋습니다. 복원된 데이터베이스 또는 컨테이너를 삭제하지 않으면 요청 단위, 스토리지 및 송신 관련 비용이 발생합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음으로 Azure Cosmos 계정의 데이터를 복원하는 방법 또는 Azure Cosmos 계정으로 데이터를 마이그레이션하는 방법을 알아봅니다
 
 * 복원 요청을 수행하려면 Azure 지원에 문의하여 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
-* [Azure Cosmos 계정에서 데이터를 복원하는 방법](how-to-backup-and-restore.md)
 * [Cosmos DB 변경 피드를 사용](change-feed.md)하여 Azure Cosmos DB로 데이터를 이동합니다.
 * [Azure Data Factory를 사용](../data-factory/connector-azure-cosmos-db.md)하여 데이터를 Azure Cosmos DB로 이동합니다.
 

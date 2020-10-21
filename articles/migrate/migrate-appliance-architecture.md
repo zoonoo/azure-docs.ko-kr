@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스 아키텍처
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322260"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312901"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -51,8 +51,8 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **동작** | **세부 정보** | **권한**
 --- | --- | ---
 **소스 공급자 등록** | 이러한 리소스 공급자는 어플라이언스 설정 중에 선택 하는 구독에 등록 됩니다. 예: Microsoft. OffAzure, microsoft. 마이그레이션 및 Microsoft.<br/><br/> 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. | 리소스 공급자를 등록하려면 구독에 대한 기여자 또는 소유자 역할이 필요합니다.
-**Azure AD 앱 만들기-통신** | Azure Migrate는 어플라이언스에서 실행 되는 에이전트와 Azure에서 실행 되는 각 서비스 간의 통신 (인증 및 권한 부여)을 위한 Azure Active Directory (Azure AD) 앱을 만듭니다.<br/><br/> 이 앱에는 모든 리소스에 대 한 Azure Resource Manager 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) 필요 합니다.
-**Azure AD 앱 만들기-주요 자격 증명 모음** | 이 앱은 VMware Vm을 Azure로 마이그레이션할 때만 생성 됩니다.<br/><br/> 에이전트 없는 마이그레이션을 위해 사용자의 구독에서 생성 된 키 자격 증명 모음에 액세스 하는 데만 사용 됩니다.<br/><br/> 검색을 어플라이언스에서 시작 하는 경우 Azure key vault (고객의 테 넌 트에서 만들어짐)에 대 한 RBAC 액세스 권한이 있습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) 필요 합니다.
+**Azure AD 앱 만들기-통신** | Azure Migrate는 어플라이언스에서 실행 되는 에이전트와 Azure에서 실행 되는 각 서비스 간의 통신 (인증 및 권한 부여)을 위한 Azure Active Directory (Azure AD) 앱을 만듭니다.<br/><br/> 이 앱에는 모든 리소스에 대 한 Azure Resource Manager 호출 또는 RBAC 액세스를 수행할 수 있는 권한이 없습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](./tutorial-discover-vmware.md#prepare-an-azure-user-account) 필요 합니다.
+**Azure AD 앱 만들기-주요 자격 증명 모음** | 이 앱은 VMware Vm을 Azure로 마이그레이션할 때만 생성 됩니다.<br/><br/> 에이전트 없는 마이그레이션을 위해 사용자의 구독에서 생성 된 키 자격 증명 모음에 액세스 하는 데만 사용 됩니다.<br/><br/> 검색을 어플라이언스에서 시작 하는 경우 Azure key vault (고객의 테 넌 트에서 만들어짐)에 대 한 RBAC 액세스 권한이 있습니다. | 앱을 만들려면 Azure Migrate에 대해 [이러한 권한이](./tutorial-discover-vmware.md#prepare-an-azure-user-account) 필요 합니다.
 
 
 
@@ -91,4 +91,3 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "자동 업데이트" 키�
 ## <a name="next-steps"></a>다음 단계
 
 어플라이언스 지원 매트릭스를 [검토](migrate-appliance.md) 합니다.
-

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008695"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280520"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -26,7 +26,7 @@ Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않�
 
 ## <a name="about-sql-query-execution"></a>SQL 쿼리 실행 정보
 
-Azure Cosmos DB에는 컨테이너에 데이터를 저장하여 [스토리지 크기 또는 요청 처리량](partition-data.md)에 맞게 확장할 수 있습니다. Azure Cosmos DB는 데이터 증가 또는 프로비전된 처리량 증가를 처리하도록 데이터를 실제 파티션 간에 원활하게 조정합니다. REST API 또는 지원되는 [SQL SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하여 모든 컨테이너에 대해 SQL 쿼리를 실행할 수 있습니다.
+Azure Cosmos DB에는 컨테이너에 데이터를 저장하여 [스토리지 크기 또는 요청 처리량](partitioning-overview.md)에 맞게 확장할 수 있습니다. Azure Cosmos DB는 데이터 증가 또는 프로비전된 처리량 증가를 처리하도록 데이터를 실제 파티션 간에 원활하게 조정합니다. REST API 또는 지원되는 [SQL SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하여 모든 컨테이너에 대해 SQL 쿼리를 실행할 수 있습니다.
 
 분할에 대한 간략한 개요: 데이터를 실제 파티션 간에 분할하는 방법을 결정하는 파티션 키(예: “city”)를 정의합니다. 단일 파티션 키에 속하는 데이터(예를 들어 "city" == "Seattle")는 실제 파티션 내에 저장되지만 일반적으로 실제 파티션 하나는 여러 파티션 키를 포함합니다. 파티션이 스토리지 크기에 도달하면 서비스는 파티션을 두 개의 새로운 파티션으로 원활하게 분할하고 파티션 키를 이러한 파티션 간에 균등하게 나눕니다. 파티션은 일시적이므로 API는 파티션 키 해시의 범위를 나타내는 “파티션 키 범위”의 추상화를 사용합니다. 
 
@@ -163,7 +163,7 @@ Azure Cosmos DB에서 쿼리는 일반적으로 가장 빠른/가장 효율적�
 
 모든 파티션을 참조해야 하는 쿼리는 높은 대기 시간이 필요하며 더 높은 RU를 사용할 수 있습니다. 각 파티션에는 모든 속성에 대한 자동 인덱싱을 포함하므로 이 경우 인덱스에서 쿼리를 효율적으로 제공할 수 있습니다. 병렬 처리 옵션을 사용하여 파티션 간의 쿼리를 보다 신속하게 만들 수 있습니다.
 
-분할 및 파티션 키에 대해 자세히 알아보려면 [Azure Cosmos DB의 분할](partition-data.md)을 참조하세요.
+분할 및 파티션 키에 대해 자세히 알아보려면 [Azure Cosmos DB의 분할](partitioning-overview.md)을 참조하세요.
 
 ### <a name="sdk-and-query-options"></a>SDK 및 쿼리 옵션
 Azure Cosmos DB에서 가장 좋은 클라이언트 쪽 성능을 얻는 방법은 [성능 팁](performance-tips.md) 및 [성능 테스트](performance-testing.md)를 참조하세요. 여기에는 최신 SDK 사용, 기본 연결 수와 같은 플랫폼별 구성, 가비지 수집 빈도 및 직접/TCP와 같은 경량의 연결 옵션 사용이 포함됩니다. 
@@ -250,9 +250,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | 밀리초 | 문서를 로드하는 데 소요된 시간  | 
 | `systemFunctionExecuteTimeInMs` | 밀리초 | 시스템(기본 제공) 함수를 실행하는 데 소요된 총 시간(밀리초)  | 
 | `userFunctionExecuteTimeInMs` | 밀리초 | 사용자 정의 함수를 실행하는 데 소요된 총 시간(밀리초) | 
-| `retrievedDocumentCount` | count() | 검색된 총 문서 수  | 
+| `retrievedDocumentCount` | 개수 | 검색된 총 문서 수  | 
 | `retrievedDocumentSize` | 바이트 | 검색된 총 문서 크기(바이트)  | 
-| `outputDocumentCount` | count() | 출력 문서 수 | 
+| `outputDocumentCount` | 개수 | 출력 문서 수 | 
 | `writeOutputTimeInMs` | 밀리초 | 쿼리 실행 시간(밀리초) | 
 | `indexUtilizationRatio` | 비율(<=1) | 로드된 문서 수에 대한 필터에 의해 일치하는 문서 수의 비율  | 
 

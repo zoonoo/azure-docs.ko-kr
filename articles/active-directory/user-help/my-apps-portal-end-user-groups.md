@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798077"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277493"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
 
-웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
+웹 기반 **내 앱** 포털에서 회사 또는 학교 계정을 사용 하 여 여러 조직의 클라우드 기반 앱을 보고 시작 하 고, 일부 프로필 및 계정 정보를 업데이트 하 고, **그룹** 정보를 확인 하 고, 앱 및 그룹에 대 한 **액세스 검토** 를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -44,13 +44,11 @@ ms.locfileid: "88798077"
 
     조직에서 소유하고 사용자가 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
-    ![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![내 앱 포털의 앱 페이지](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. **그룹** 타일을 선택하여 그룹 관련 정보를 확인합니다.
+3. **내 앱** 메뉴를 끌어와 **내 그룹** 을 선택 하 여 그룹 관련 정보를 확인 합니다.
 
-    ![소유 그룹과 멤버 그룹이 모두 포함된 그룹 페이지](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. 권한에 따라 **그룹** 페이지를 사용하여 다음 작업을 수행할 수 있습니다.
+4. 사용 권한에 따라 **내 그룹** 페이지를 사용 하 여 다음 작업을 수행할 수 있습니다.
 
     - **소유하고 있는 그룹 검토.** **내가 소유한 그룹** 영역에서 조직 내에서 소유한 모든 그룹에 대한 정보를 봅니다. 특정 그룹 이름을 선택하면 그룹 유형, 멤버 수, 가입 정책 및 활성 멤버 목록을 포함하여 그룹에 대한 자세한 정보가 제공됩니다.
 

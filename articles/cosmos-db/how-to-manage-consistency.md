@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330590"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279608"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
@@ -288,8 +288,9 @@ item = client.ReadItem(doc_link, options)
 데이터 충돌을 관리하는 방법을 자세히 알아보거나 Azure Cosmos DB의 다음 핵심 개념으로 이동합니다. 다음 문서를 참조하세요.
 
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
-* [Azure 지역 간 충돌 관리](how-to-manage-conflicts.md)
 * [분할 및 데이터 배포](partition-data.md)
+* [Azure 지역 간 충돌 관리](how-to-manage-conflicts.md)
+* [분할 및 데이터 배포](partitioning-overview.md)
 * [최신 분산 데이터베이스 시스템 디자인의 일관성 절충](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [고가용성](high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
