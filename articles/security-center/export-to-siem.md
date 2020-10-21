@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 0800c0d6fb2cf57b919d29ac354d2d89c06c7aeb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946730"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341807"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>SIEM, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림
 
@@ -60,7 +60,7 @@ Security Center에는 Microsoft Graph Security API와의 기본 통합 기능이
 이 API를 사용 하 여 **전체 테 넌 트** (및 기타 여러 Microsoft 보안 제품의 데이터)에서 타사 siems 및 기타 인기 있는 플랫폼으로 경고를 스트리밍할 수 있습니다.
 
 - **Splunk Enterprise 및 Splunk Cloud**  -  [Splunk에 대 한 Microsoft Graph SECURITY API Add-On 사용](https://splunkbase.splunk.com/app/4564/) 
-- **Power BI**  -  [Power BI Desktop에서 Microsoft Graph 보안 API에 연결](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-graph-security)
+- **Power BI**  -  [Power BI Desktop에서 Microsoft Graph 보안 API에 연결](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [지침에 따라 ServiceNow 저장소에서 Microsoft Graph SECURITY API 응용 프로그램을 설치 하 고 구성](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html) 합니다.
 - **Qradar**  -  [MICROSOFT GRAPH API를 통한 Azure Security Center 용 IBM의 장치 지원 모듈](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **Anomali**, **망루**, **InSpark**및 [Microsoft Graph 보안 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767741"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075793"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "91767741"
 
 ## <a name="create-a-net-core-console-app"></a>.NET Core 콘솔 앱 만들기
 
-[.NET Core CLI(명령줄 인터페이스)](https://docs.microsoft.com/dotnet/core/tools/)를 사용하여 새 .NET Core 콘솔 앱 프로젝트를 만듭니다. Visual Studio 대신 .NET Core CLI를 사용하면 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있다는 이점이 있습니다.  또는 [Azure Cloud Shell](https://shell.azure.com)에서 사용할 수 있는 미리 설치된 도구를 사용합니다.
+[.NET Core CLI(명령줄 인터페이스)](/dotnet/core/tools/)를 사용하여 새 .NET Core 콘솔 앱 프로젝트를 만듭니다. Visual Studio 대신 .NET Core CLI를 사용하면 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있다는 이점이 있습니다.  또는 [Azure Cloud Shell](https://shell.azure.com)에서 사용할 수 있는 미리 설치된 도구를 사용합니다.
 
 1. 프로젝트에 대한 새 폴더를 만듭니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "91767741"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만들고, [App Configuration 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 .NET Core 콘솔 앱에서 사용했습니다. 구성 설정을 동적으로 새로 고치도록 .NET Core 앱을 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 빠른 시작에서는 새 App Configuration 저장소를 만들고, [App Configuration 공급자](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)를 통해 .NET Core 콘솔 앱에서 사용했습니다. 구성 설정을 동적으로 새로 고치도록 .NET Core 앱을 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [동적 구성을 사용하도록 설정](./enable-dynamic-configuration-dotnet-core.md)

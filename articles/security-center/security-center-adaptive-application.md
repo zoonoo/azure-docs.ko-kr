@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076983"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339716"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -52,7 +52,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
-|지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 컴퓨터|
+|지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) 컴퓨터|
 |필요한 역할 및 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
@@ -85,7 +85,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
     - **권장 사항 없음** -정의 된 허용 응용 프로그램 목록이 없는 컴퓨터 이며 기능을 지원 하지 않습니다. 다음과 같은 이유로이 탭에 컴퓨터가 있을 수 있습니다.
       - Log Analytics 에이전트가 없습니다.
       - Log Analytics 에이전트가 이벤트를 보내지 않습니다.
-      - GPO 또는 로컬 보안 정책에서 사용 하도록 설정 된 기존 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책을 사용 하는 Windows 컴퓨터입니다.
+      - GPO 또는 로컬 보안 정책에서 사용 하도록 설정 된 기존 [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책을 사용 하는 Windows 컴퓨터입니다.
 
       > [!TIP]
       > Security Center는 컴퓨터 그룹당 고유한 권장 사항을 정의 하기 위해 2 주 이상의 데이터가 필요 합니다. 최근에 만들었거나 Azure Defender를 사용 하 여 최근에 사용 하도록 설정 된 구독에 속하는 컴퓨터는 **권장 사항 없음** 탭 아래에 표시 됩니다.
@@ -224,7 +224,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 적응 응용 프로그램 컨트롤을 프로그래밍 방식으로 관리 하려면 REST API을 사용 합니다. 
 
-전체 API 설명서는 [여기](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols)에 있습니다.
+전체 API 설명서는 [여기](/rest/api/securitycenter/adaptiveapplicationcontrols)에 있습니다.
 
 REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 
@@ -245,5 +245,5 @@ REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure 컴퓨터에서 실행 되는 응용 프로그램의 허용 목록을 정의 하는 방법을 배웠습니다. Security Center의 다른 클라우드 워크 로드 보호 기능에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [JIT (just-in-time) VM 액세스 이해](just-in-time-explained.md)
+* [JIT(Just-In-Time) VM 액세스 이해](just-in-time-explained.md)
 * [Azure Kubernetes 클러스터 보안 설정](defender-for-kubernetes-introduction.md)

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803503"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107490"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -151,6 +151,7 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 | CREATE USER(네이티브 Apache Cassandra에서는 사용되지 않음) | 예 |
 | Delete | 예 |
 | DELETE(IF CONDITION이 있는 경량 트랜잭션)| 예 |
+| DISTINCT | 예 |
 | DROP AGGREGATE | 예 |
 | .DROP FUNCTION | 예 |
 | DROP INDEX | 예 |

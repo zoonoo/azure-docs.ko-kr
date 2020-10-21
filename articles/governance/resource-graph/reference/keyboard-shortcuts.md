@@ -1,15 +1,15 @@
 ---
 title: Azure 리소스 그래프 탐색기의 Azure Portal에 있는 바로 가기 키
 description: Azure Portal의 Azure 리소스 그래프 탐색기는 작업을 수행 하 고 탐색 하는 데 도움이 되는 바로 가기 키를 지원 합니다.
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146439"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340124"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Azure 리소스 그래프 탐색기의 바로 가기 키
 
@@ -24,7 +24,7 @@ ms.locfileid: "89146439"
 |들여쓰기 |<kbd>Ctrl</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
 |줄을 아래로 이동 |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>옵션</kbd> + <kbd>↓</kbd> |
 |줄을 위로 이동 합니다. |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>옵션</kbd> + <kbd>↑</kbd> |
-|바꾸기 |<kbd>Ctrl</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |
+|바꾸기 |<kbd>Ctrl</kbd>+<kbd>H</kbd> |<kbd>Cmd</kbd> + <kbd>H</kbd> |
 |모두 선택 |<kbd>Ctrl</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>A</kbd> |
 |아래쪽 선택 |<kbd>SHIFT</kbd> + <kbd>↓</kbd> |<kbd>SHIFT</kbd> + <kbd>↓</kbd> |
 |오른쪽 선택 |<kbd>SHIFT</kbd> + <kbd>→</kbd> |<kbd>SHIFT</kbd> + <kbd>→</kbd> |

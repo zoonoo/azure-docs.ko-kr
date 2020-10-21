@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683405"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131873"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>비용 분석의 그룹 및 필터 옵션
 
@@ -49,10 +49,10 @@ ms.locfileid: "88683405"
 | **서비스 이름** 또는 **미터 범주** | Azure 서비스별 비용을 분류합니다. | 구매 및 Marketplace 사용량은 **해당 없음** 또는 **할당되지 않음**으로 표시됩니다. |
 | **서비스 계층** 또는 **미터 하위 범주** | Azure 사용량 미터 하위 범주별 비용을 분류합니다. | 구매 및 Marketplace 사용량은 **해당 없음** 또는 **할당되지 않음**으로 표시됩니다. |
 | **구독** | 비용을 Azure 구독 및 AWS 연결된 계정별로 분류합니다. | 구매 및 테넌트 리소스는 **해당 없음**으로 표시될 수 있습니다. |
-| **Tag** | 특정 태그 키에 대한 태그 값별 비용을 분류합니다. | 태그는 구매, 구독과 연결되지 않은 테넌트 리소스, 리소스 그룹에 배포되지 않은 구독 리소스 또는 클래식 리소스에 사용할 수 없습니다. 일부 서비스는 사용량 데이터에 태그를 포함하지 않습니다. [각 리소스 종류에 대한 태그 지원](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support)에 대해 자세히 알아보세요. |
+| **Tag** | 특정 태그 키에 대한 태그 값별 비용을 분류합니다. | 태그는 구매, 구독과 연결되지 않은 테넌트 리소스, 리소스 그룹에 배포되지 않은 구독 리소스 또는 클래식 리소스에 사용할 수 없습니다. 일부 서비스는 사용량 데이터에 태그를 포함하지 않습니다. [각 리소스 종류에 대한 태그 지원](../../azure-resource-manager/management/tag-support.md)에 대해 자세히 알아보세요. |
 
 용어에 대한 자세한 내용은 [Azure 사용량 및 요금 파일에 사용되는 용어 이해](../understand/understand-usage.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [비용 분석 시작](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [비용 분석 시작](./quick-acm-cost-analysis.md).

@@ -4,12 +4,12 @@ description: Azure Migrate 서비스에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86122084"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314759"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -124,5 +124,5 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [VMware VM](tutorial-prepare-vmware.md), [Hyper-V VM](tutorial-prepare-hyper-v.md) 또는 [물리적 서버](tutorial-prepare-physical.md)를 평가하는 자습서를 사용해 보세요.
+- [VMware VM](./tutorial-discover-vmware.md), [Hyper-V VM](./tutorial-discover-hyper-v.md) 또는 [물리적 서버](./tutorial-discover-physical.md)를 평가하는 자습서를 사용해 보세요.
 - Azure Migrate에 대한 [질문과 대답을 검토합니다](resources-faq.md).

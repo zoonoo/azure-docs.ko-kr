@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001640"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317218"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -121,7 +121,7 @@ Windows Server 2012 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.
 Windows Server 2012 및 모든 SP | Azure에서 완벽하게 지원합니다. | Azure 준비 완료
 Windows Server 2008 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.| Azure 준비 완료
 Windows Server 2008(32비트 및 64비트) | Azure에서 완벽하게 지원합니다. | Azure 준비 완료
-Windows Server 2003, 2003 R2 | 지원되지 않으며, Azure에서 지원되려면 [CSA(사용자 지정 지원 계약)](https://aka.ms/WSosstatement)가 필요합니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
+Windows Server 2003, 2003 R2 | 지원되지 않으며, Azure에서 지원되려면 [CSA(사용자 지정 지원 계약)](/troubleshoot/azure/virtual-machines/server-software-support)가 필요합니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | 지원되지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Windows 클라이언트 7, 8, 10 | Azure는 [Visual Studio 구독만 지원합니다.](../virtual-machines/windows/client-images.md) | 조건부 Azure 준비 완료
 Windows 10 Pro Desktop | Azure는 [다중 테넌트 호스팅 권한을 지원합니다.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | 조건부 Azure 준비 완료

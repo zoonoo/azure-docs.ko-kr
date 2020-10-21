@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3ee600cb72d06781f87c8f68640576afa50cea06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686499"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132332"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Azure 구독 로그인 문제 해결
 
 이 가이드는 Azure Portal 또는 Azure 계정 센터에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 새 Azure 계정을 가입하는 데 문제가 있는 경우 [Azure 구독 가입 문제 해결](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)을 참조하세요.
+> 새 Azure 계정을 가입하는 데 문제가 있는 경우 [Azure 구독 가입 문제 해결](./troubleshoot-azure-sign-up.md)을 참조하세요.
 
 ## <a name="page-hangs-in-the-loading-status"></a>페이지가 로딩 상태에서 중지됨
 
@@ -66,7 +66,7 @@ ms.locfileid: "88686499"
 이 문제를 해결하려면
 
 - 오른쪽 위 모서리에서 계정을 선택하여 올바른 Azure 디렉터리를 선택했는지 확인합니다.
-- 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 계정을 [소유자로 추가](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator)합니다.
+- 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 계정을 [소유자로 추가](./add-change-subscription-administrator.md)합니다.
 
 **시나리오 2:** [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인하는 동안 오류 발생
 
@@ -80,11 +80,11 @@ ms.locfileid: "88686499"
 
 Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
-- [거부된 카드](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [구독 등록 문제](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [구독을 찾을 수 없음](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise 비용 보기 사용 안 함](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Azure Billing 설명서](https://docs.microsoft.com/azure/cost-management-billing/)
+- [거부된 카드](./troubleshoot-declined-card.md)
+- [구독 등록 문제](./troubleshoot-azure-sign-up.md)
+- [구독을 찾을 수 없음](./no-subscriptions-found.md)
+- [Enterprise 비용 보기 사용 안 함](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Azure Billing 설명서](../index.yml)
 
 ## <a name="contact-us-for-help"></a>도움이 필요한 경우 문의처
 

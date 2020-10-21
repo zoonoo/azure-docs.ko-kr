@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9f42359cc843a934cf1258576d13eec8af2279cc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9afe34097d005daeedf46fbaf30b37e53a8e3658
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687657"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132043"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
@@ -205,5 +205,5 @@ ms.locfileid: "88687657"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Cloudyn 보고서 사용](../../cost-management/use-reports.md)에서 Cloudyn에 포함된 보고서에 대해 알아봅니다.
-- 보고서를 사용하여 [대시보드](../../cost-management/dashboards.md)를 만드는 방법을 알아보세요.
+- [Cloudyn 보고서 사용](./use-reports.md)에서 Cloudyn에 포함된 보고서에 대해 알아봅니다.
+- 보고서를 사용하여 [대시보드](./dashboards.md)를 만드는 방법을 알아보세요.

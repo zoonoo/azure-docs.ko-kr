@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440249"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124965"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 소매업 솔루션 빌드
 
@@ -185,4 +185,4 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 * [스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-smart-inventory-management.md)
 * [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-micro-fulfillment-center.md)
 * [비디오 분석 애플리케이션 템플릿을 배포하고 살펴봅니다](./tutorial-video-analytics-deploy.md).
-* [IoT Central 개요](../preview/overview-iot-central.md)에서 IoT Central에 대해 자세히 알아봅니다.
+* [IoT Central 개요](../core/overview-iot-central.md)에서 IoT Central에 대해 자세히 알아봅니다.

@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261077"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340090"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor에서 동적 임계값을 사용 하는 메트릭 경고
 
@@ -98,7 +98,7 @@ ms.locfileid: "81261077"
 
 ## <a name="dynamic-thresholds-best-practices"></a>동적 임계값 모범 사례
 
-동적 임계값은 Azure Monitor의 모든 플랫폼 또는 사용자 지정 메트릭에 적용할 수 있으며, 일반 애플리케이션 및 인프라 메트릭에 맞게 조정되었습니다.
+동적 임계값은 Azure Monitor의 대부분의 플랫폼과 사용자 지정 메트릭에 적용할 수 있으며, 일반적인 응용 프로그램 및 인프라 메트릭에 대해서도 조정 되었습니다.
 다음 항목은 동적 임계값을 사용하여 이러한 메트릭 중 일부에 대한 경고를 구성하는 방법에 대한 모범 사례입니다.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>가상 머신 CPU 백분율 메트릭의 동적 임계값
@@ -127,7 +127,7 @@ ms.locfileid: "81261077"
 
 8. 최근 데이터에 기반하여 계산된 임계값이 메트릭 차트에 표시됩니다.
 
-9. **완료**를 클릭합니다.
+9. **Done**을 클릭합니다.
 
 10. **경고 규칙 이름**, **설명** 및 **심각도**와 같은 **경고 세부 정보**를 입력합니다.
 
@@ -162,7 +162,7 @@ ms.locfileid: "81261077"
 
 8. 최근 데이터에 기반하여 계산된 임계값이 메트릭 차트에 표시됩니다.
 
-9. **완료**를 클릭합니다.
+9. **Done**을 클릭합니다.
 
 10. **경고 규칙 이름**, **설명** 및 **심각도**와 같은 **경고 세부 정보**를 입력합니다.
 

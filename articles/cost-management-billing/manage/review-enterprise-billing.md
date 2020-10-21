@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 652348d5feb7e382287c91536f1479f9aec126e1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031809"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132417"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>REST API를 사용하여 기업 등록 청구 검토
 
@@ -37,9 +37,9 @@ Authorization: Bearer
 |요청 헤더|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
 
-이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
+이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
 
 
 ## <a name="response"></a>응답  
@@ -90,9 +90,9 @@ Authorization: Bearer
 |요청 헤더|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
 
-이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
+이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
 
 ### <a name="response"></a>응답  
 
@@ -146,9 +146,9 @@ Authorization: Bearer
 |요청 헤더|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [API 키](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based)를 설정합니다. |  
 
-이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
+이 예에서는 현재 청구 주기의 세부 정보를 반환하는 동기 호출을 나타냅니다. 성능상의 이유로 동기 호출은 지난 달에 대한 정보를 반환합니다.  [API 비동기](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) 호출을 통해 36개월의 데이터를 반환할 수도 있습니다.
 
 ### <a name="response"></a>응답  
 
@@ -183,6 +183,6 @@ Authorization: Bearer
 이 예제는 요약된 것입니다. 각 응답 필드 및 오류 처리에 대한 전체 설명은 [등록 계정에 대한 사용량 상세 정보 가져오기](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [기업 보고 개요](https://docs.microsoft.com/azure/billing/billing-enterprise-api) 검토
-- [기업 청구 REST API](https://docs.microsoft.com/rest/api/billing/) 살펴보기   
-- [Azure REST API 시작하기](https://docs.microsoft.com/rest/api/azure/)   
+- [기업 보고 개요](./enterprise-api.md) 검토
+- [기업 청구 REST API](/rest/api/billing/) 살펴보기   
+- [Azure REST API 시작하기](/rest/api/azure/)

@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527142"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132808"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
 Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 있습니다. 예산을 사용하여 특정 기간 중 사용자가 소비 또는 구독하는 Azure 서비스를 설명할 수 있습니다. 비용을 적극적으로 관리하고 지출이 진행되는 방식을 모니터링하기 위해 지출에 대해 다른 사람들에게 알리는 데 도움이 됩니다. 사용자가 만든 예산 임계값이 초과된 경우 알림만 트리거되고 리소스에는 영향을 미치지 않으며 소비도 중단되지 않습니다. 예산을 사용하여 비용 분석 시 지출을 비교하고 추적할 수 있습니다.
 
-비용 및 사용량 데이터는 일반적으로 8~24시간 이내에 사용할 수 있으며 예산은 12~14시간마다 이러한 비용에 대해 계산됩니다. [비용 및 사용량 데이터 업데이트](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention) 세부 사항에 대해 잘 알고 있어야 합니다. 예산 임계값에 도달하면 일반적으로 계산 후 1시간 이내에 이메일 알림이 전송됩니다.
+비용 및 사용량 데이터는 일반적으로 8~24시간 이내에 사용할 수 있으며 예산은 12~14시간마다 이러한 비용에 대해 계산됩니다. [비용 및 사용량 데이터 업데이트](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention) 세부 사항에 대해 잘 알고 있어야 합니다. 예산 임계값에 도달하면 일반적으로 계산 후 1시간 이내에 이메일 알림이 전송됩니다.
 
 예산은 미래의 만료 날짜를 선택한 경우 동일한 예산 금액에 대해 기간(월별, 분기별 또는 연간)이 끝나면 자동으로 다시 설정됩니다. 동일한 예산 금액으로 다시 설정하므로, 미래 기간에 대해 예산 책정된 통화 금액이 다를 경우 별도의 예산을 만들어야 합니다.
 
@@ -72,7 +72,7 @@ Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다.
 - 기여자 및 Cost Management 기여자 – 자신의 예산을 만들거나, 수정하거나, 삭제할 수 있습니다. 다른 사용자가 만든 예산에 대한 예산 금액을 수정할 수 있습니다.
 - 읽기 권한자 및 Cost Management 읽기 권한자 - 사용 권한이 있는 예산을 볼 수 있습니다.
 
-Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대한 자세한 내용은 [Cost Management 데이터에 대한 액세스 할당](../../cost-management/assign-access-acm-data.md)을 참조하세요.
+Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대한 자세한 내용은 [Cost Management 데이터에 대한 액세스 할당](./assign-access-acm-data.md)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -104,7 +104,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 예산 금액을 구성한 후 **다음**을 선택하여 예산 경고를 구성합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 일반적으로 계산 후 1시간 이내에 이메일 알림이 전송됩니다.
 
-이메일을 받으려면 이메일이 정크 메일 폴더로 이동하지 않도록 승인된 보낸 사람 목록에 azure-noreply@microsoft.com을 추가합니다. 알림에 대한 자세한 내용은 [비용 경고 사용](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
+이메일을 받으려면 이메일이 정크 메일 폴더로 이동하지 않도록 승인된 보낸 사람 목록에 azure-noreply@microsoft.com을 추가합니다. 알림에 대한 자세한 내용은 [비용 경고 사용](./cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
 
 아래 예제에서 예산의 90%에 도달했을 때 이메일 경고가 생성되었습니다. 예산 API를 사용하여 예산을 만드는 경우 사용자가 경고를 수신하도록 역할을 할당할 수도 있습니다. 사용자에게 역할을 할당하는 것은 Azure Portal에서 지원되지 않습니다. Azure 예산 API에 대한 자세한 내용은 [예산 API](/rest/api/consumption/budgets)를 참조하세요. 이메일 경고를 다른 언어로 전송하려면 [예산 경고 이메일이 지원되는 로캘](manage-automation.md#supported-locales-for-budget-alert-emails)을 참조하세요.
 
@@ -112,7 +112,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![경고 조건을 보여주는 예제](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-예산을 만들면 비용 분석에 표시됩니다. 지출 추세에 대한 예산을 보는 것은 [비용 및 지출을 분석](../../cost-management/quick-acm-cost-analysis.md)하기 위해 시작하는 첫 단계 중 하나입니다.
+예산을 만들면 비용 분석에 표시됩니다. 지출 추세에 대한 예산을 보는 것은 [비용 및 지출을 분석](./quick-acm-cost-analysis.md)하기 위해 시작하는 첫 단계 중 하나입니다.
 
 ![비용 분석에 표시된 예산 및 지출 예제](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

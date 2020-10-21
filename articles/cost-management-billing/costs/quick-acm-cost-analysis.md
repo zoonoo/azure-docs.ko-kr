@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 89a12be047a3571c1d85febc246a1ed8a3c8b720
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 62651f611654fa601752308ac2fa7f4c388297d6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297864"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132842"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -32,7 +32,7 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 비용 분석은 다양한 종류의 Azure 계정 유형을 지원합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
-Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](../../cost-management/assign-access-acm-data.md)을 참조하세요.
+Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [데이터에 대한 액세스 할당](./assign-access-acm-data.md)을 참조하세요.
 
 새 구독이 있는 경우 Cost Management 기능을 즉시 사용할 수 없습니다. 모든 Cost Management 기능을 사용하려면 최대 48시간이 걸릴 수 있습니다.
 
@@ -108,7 +108,7 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 일반적으로 8-12시간 이내에 사용된 리소스에 대한 데이터 또는 알림을 볼 수 있습니다.
 
-비용을 세분화하고 상위 기여자를 식별하기 위한 **그룹화 방법** 공용 속성이 있습니다. 예를 들어 리소스 태그별로 그룹화하려면 그룹화하려는 태그 키를 선택합니다. 비용은 해당 태그가 적용되지 않는 리소스에 대한 추가 세그먼트를 포함하여 각 태그 값에 따라 세분화됩니다.  그룹화 및 필터링 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter)을 참조하세요.
+비용을 세분화하고 상위 기여자를 식별하기 위한 **그룹화 방법** 공용 속성이 있습니다. 예를 들어 리소스 태그별로 그룹화하려면 그룹화하려는 태그 키를 선택합니다. 비용은 해당 태그가 적용되지 않는 리소스에 대한 추가 세그먼트를 포함하여 각 태그 값에 따라 세분화됩니다.  그룹화 및 필터링 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](./group-filter.md)을 참조하세요.
 
 대부분의 [Azure 리소스는 태그 지정을 지원합니다](../../azure-resource-manager/management/tag-support.md). 그렇지만 일부 태그는 Cost Management 및 청구에 사용할 수 없습니다. 또한 리소스 그룹 태그는 지원되지 않습니다. 태그에 대한 지원은 리소스에 적용된 *후*에 보고된 사용량에 적용됩니다. 비용 롤업에는 태그가 소급 적용되지 않습니다.
 

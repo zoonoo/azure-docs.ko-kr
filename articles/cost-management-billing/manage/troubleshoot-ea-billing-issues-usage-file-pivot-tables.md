@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: a30f85ae1b65321a25ee93239374d2a8aae26769
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b32bb979176af8a8a3751db8edf9c129caf1002e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026428"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131992"
 ---
 # <a name="troubleshoot-ea-billing-issues-with-usage-file-pivot-tables"></a>사용량 파일 피벗 테이블을 사용하여 EA 청구 문제 해결
 
@@ -33,7 +33,7 @@ EA 관리자, 계정 소유자 및 부서 관리자만 사용량 파일을 다�
 
 Azure 사용량 파일은 CSV 형식이므로 Excel에서 사용할 수 있도록 데이터를 준비해야 합니다. 다음 단계에 따라 데이터를 테이블 형식으로 지정합니다.
 
-1. [EA 고객의 사용량 다운로드](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-ea-customers)의 지침에 따라 모든 요금(사용량 및 구매) 파일이 포함된 사용량 세부 정보 버전 2를 다운로드합니다.
+1. [EA 고객의 사용량 다운로드](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers)의 지침에 따라 모든 요금(사용량 및 구매) 파일이 포함된 사용량 세부 정보 버전 2를 다운로드합니다.
 1. Excel에서 파일을 엽니다.
 1. 형식이 지정되지 않은 데이터는 다음 예와 비슷합니다.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Excel에서 형식이 지정되지 않은 데이터를 보여 주는 예" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::

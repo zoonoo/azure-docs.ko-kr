@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215198"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340294"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SSO 및 토큰 사용자 지정 관리
 
@@ -90,6 +90,45 @@ BasePolicy 요소와 신뢰 당사자 파일의 RelyingParty 요소 사이에 Cl
 
 > [!NOTE]
 > PKCE를 사용 하는 권한 부여 코드 흐름을 사용 하는 단일 페이지 응용 프로그램에는 항상 새로 고침 토큰 수명이 24 시간입니다. [브라우저에서 새로 고침 토큰의 보안 영향에 대해 자세히 알아보세요](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+## <a name="provide-optional-claims-to-your-app"></a>앱에 선택적 클레임 제공
+
+[신뢰 당사자 정책 기술 프로필](relyingparty.md#technicalprofile) 출력 클레임은 응용 프로그램에 반환 되는 값입니다. 출력 클레임을 추가 하면 사용자가 성공적으로 경험 한 후 토큰에 클레임이 발급 되며 응용 프로그램으로 전송 됩니다. 신뢰 당사자 섹션 내에서 기술 프로필 요소를 수정 하 여 원하는 클레임을 출력 클레임으로 추가 합니다.
+
+1. 사용자 지정 정책 파일(예: SignUpOrSignin.xml)을 엽니다.
+1. OutputClaims 요소를 찾습니다. 토큰에 포함 하려는 OutputClaim을 추가 합니다. 
+1. 출력 클레임 특성을 설정 합니다. 
+
+다음 예에서는 클레임을 추가 합니다 `accountBalance` . AccountBalance 클레임은 분산으로 응용 프로그램에 전송 됩니다. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+OutputClaim 요소에는 다음 특성이 포함됩니다.
+
+  - **ClaimTypeReferenceId** -정책 파일 또는 부모 정책 파일의 [ClaimsSchema](claimsschema.md) 섹션에 이미 정의 된 클레임 유형의 식별자입니다.
+  - 및 **claimtype** -토큰의 클레임 이름을 변경할 수 있습니다. 
+  - **DefaultValue** -기본값입니다. 또한 테 넌 트 ID와 같은 [클레임 확인자](claim-resolver-overview.md)에 대 한 기본값을 설정할 수 있습니다.
+  - **AlwaysUseDefaultValue** -기본값을 강제로 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
