@@ -4,12 +4,12 @@ description: 물리적 서버 평가를 위해 Azure Migrate 어플라이언스�
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e9d79d16e805eeaf770327a56a4247067c78a35
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448075"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314147"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
@@ -122,7 +122,7 @@ Azure Migrate 어플라이언스에 대해 [자세히 알아봅니다](migrate-a
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 성공적으로 로그인하면 웹앱으로 돌아갑니다. 
-4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](tutorial-prepare-physical.md)이 있는 경우 어플라이언스 등록이 시작됩니다.
+4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](./tutorial-discover-physical.md)이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기**를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
 
 

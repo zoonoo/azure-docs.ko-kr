@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos 컨테이너의 고유 키 정의
-description: Azure Portal, PowerShell, .Net, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
+description: Azure Portal, PowerShell, .NET, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b275703e0f5952be9ab052a789b64d2ea171922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330539"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279549"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
 
@@ -151,5 +151,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [분할](partition-data.md) 에 대 한 자세한 정보
+- [분할](partitioning-overview.md) 에 대 한 자세한 정보
 - [인덱싱 작동 원리](index-overview.md) 알아보기

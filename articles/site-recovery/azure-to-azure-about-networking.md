@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 622f0d66f2c8a9f7cf0539d14499897acf7b68e6
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 525ab34bb9edff737686a88d7a8e664500282555
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096337"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320523"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -41,8 +41,8 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 > 인증된 프록시를 사용한 네트워크 연결 제어는 Site Recovery에서 지원되지 않으며 복제를 사용할 수 없습니다.
 
 >[!NOTE]
-> 아웃 바운드 연결을 제어 하기 위해 IP 주소 기반 필터링을 수행 하면 안 됩니다.
-> 아웃 바운드 연결을 제어 하려면 Azure Site Recovery IP 주소를 Azure 라우팅 테이블에 추가 하면 안 됩니다.
+>- 아웃 바운드 연결을 제어 하기 위해 IP 주소 기반 필터링을 수행 하면 안 됩니다.
+>- 아웃 바운드 연결을 제어 하려면 Azure Site Recovery IP 주소를 Azure 라우팅 테이블에 추가 하면 안 됩니다.
 
 ## <a name="outbound-connectivity-for-urls"></a>URL에 대한 아웃바운드 연결
 

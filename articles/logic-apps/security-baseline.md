@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 16ee5fb59741d57f47083a0c5db852872ceb91d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296093"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315832"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -24,7 +24,7 @@ Logic Apps에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개�
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](/azure/security/benchmarks/security-control-network-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -102,7 +102,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 - [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -200,13 +200,13 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
 - [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Logic Apps에 대 한 Azure Policy 정의 목록](/azure/logic-apps/policy-samples)
+- [Logic Apps에 대 한 Azure Policy 정의 목록](./policy-reference.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -216,7 +216,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Logic Apps 인스턴스와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -226,7 +226,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](/azure/security/benchmarks/security-control-logging-monitoring)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조 하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
@@ -242,7 +242,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
 - [Azure Monitor 로그를 설정 하 고 Azure Logic Apps에 대 한 진단 데이터를 수집 하는 방법](monitor-logic-apps-log-analytics.md)
 
@@ -258,7 +258,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
 - [Azure Monitor 로그를 설정 하 고 Azure Logic Apps에 대 한 진단 데이터를 수집 하는 방법](monitor-logic-apps-log-analytics.md)
 
@@ -300,9 +300,9 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 - [Azure Monitor 로그를 설정 하 고 Azure Logic Apps에 대 한 진단 데이터를 수집 하는 방법](monitor-logic-apps-log-analytics.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure Monitor의 Log Analytics에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](/azure/azure-monitor/platform/activity-log-collect)
+- [Azure Monitor의 Log Analytics에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
@@ -352,7 +352,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -362,11 +362,11 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 논리 앱의 모든 요청 끝점에는 끝점의 URL에 SAS (공유 액세스 서명)가 있습니다. 요청 기반 트리거에 대한 엔드포인트 URL을 다른 상대방과 공유하는 경우 특정 키를 사용하고 만료 날짜가 있는 콜백 URL을 생성할 수 있습니다. 이렇게 하면 특정 시간 범위에 따라 키를 원활하게 롤링하거나 논리 앱을 트리거하는 액세스를 제한할 수 있습니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](create-managed-service-identity.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [SAS를 사용 하 여 Azure Logic Apps에서 액세스 및 데이터를 보호 하는 방법](logic-apps-securing-a-logic-app.md#sas)
 
@@ -460,7 +460,7 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 
 - [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -508,7 +508,7 @@ Azure Logic Apps는 시스템 할당 및 사용자 할당 관리 id를 모두 �
 
 **지침**: AD (Azure Active Directory)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다. 
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -524,7 +524,7 @@ Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -536,7 +536,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD 위험 및 ID 보호 기능을 사용하여 사용자 ID와 관련하여 감지된 의심스러운 동작에 대한 자동 응답을 구성합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다. 
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -558,13 +558,13 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조 하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -584,11 +584,11 @@ ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하
 
 - [ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스](connect-virtual-network-vnet-isolated-environment-overview.md)
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription) 
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md) 
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create) 
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md) 
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -693,7 +693,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](/azure/security/benchmarks/security-control-vulnerability-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조 하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
@@ -737,7 +737,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조 하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
@@ -747,7 +747,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -759,7 +759,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -774,11 +774,11 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -847,7 +847,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -889,7 +889,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [보안 구성을 사용 하 여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create) 
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md) 
 
 - [RBAC를 통해 Logic Apps에 대 한 액세스를 보호 하는 방법](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
@@ -899,7 +899,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](/azure/security/benchmarks/security-control-secure-configuration)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조 하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -909,7 +909,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 또한 보안 매개 변수를 사용 하 여 중요 한 데이터 및 비밀을 보호 합니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -979,9 +979,9 @@ Azure Policy를 사용 하 여 Azure Logic Apps 인스턴스에 대 한 표준 �
 
 또한 Azure Resource Manager은 구성이 조직의 보안 요구 사항을 충족 하거나 초과 하는지 확인 하기 위해 검토 해야 하는 JavaScript Object Notation (JSON)에서 템플릿을 내보낼 수 있습니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 - [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1092,7 +1092,7 @@ Azure Policy를 사용 하 여 Azure Logic Apps 인스턴스에 대 한 표준 �
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [Azure 보안 벤치 마크: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조 하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙에서 관리 하는 맬웨어 방지 소프트웨어 사용
 
@@ -1112,7 +1112,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 - [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 이해](../security/fundamentals/antimalware.md)
 
-- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](/azure/security-center/security-center-alerts-data-services)
+- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](../security-center/azure-defender.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1128,7 +1128,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [Azure 보안 벤치 마크: 데이터 복구](/azure/security/benchmarks/security-control-data-recovery)를 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조 하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
 
@@ -1178,7 +1178,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 - [고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1196,7 +1196,7 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 - [고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1204,7 +1204,7 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](/azure/security/benchmarks/security-control-incident-response)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -1228,7 +1228,7 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1278,7 +1278,7 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조 하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -1294,5 +1294,5 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

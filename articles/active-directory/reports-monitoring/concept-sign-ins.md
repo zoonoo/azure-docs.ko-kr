@@ -17,21 +17,21 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b295a481d7b986f08f1d758edb8d5adca5717
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812831"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319768"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **작업** 
+- **활동** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
-    - **프로 비전 로그**  -  [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 를 통해 고객은 ServiceNow에서 그룹 만들기 또는 Workday에서 가져온 사용자와 같은 프로 비전 서비스의 작업을 모니터링할 수 있습니다. 
+    - **프로 비전 로그**  -  [프로 비전 로그](./concept-provisioning-logs.md) 를 통해 고객은 ServiceNow에서 그룹 만들기 또는 Workday에서 가져온 사용자와 같은 프로 비전 서비스의 작업을 모니터링할 수 있습니다. 
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
     - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
@@ -230,7 +230,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 사용자 ID
 - 사용자
 - 사용자 이름
-- 애플리케이션 UI
+- 애플리케이션 ID
 - 애플리케이션
 - 클라이언트
 - 위치

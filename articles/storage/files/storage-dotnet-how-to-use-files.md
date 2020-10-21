@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fbfc347e1b514f9f59e2f238d2b1bfbaf59f2172
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21b407002adce01155b37321c068fb10d2c003f6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710705"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319789"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -160,7 +160,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-다음 메서드는이 아직 없는 경우 파일 공유를 만듭니다. 메서드는 연결 문자열에서 [Shareclient](/dotnet/api/azure.storage.files.shares.shareclient) 개체를 만들어 시작 합니다. 그런 다음이 샘플은 이전에 만든 파일을 다운로드 하려고 시도 합니다. 에서이 메서드를 호출 `Main()` 합니다.
+다음 메서드는 아직 없는 경우 파일 공유를 만듭니다. 메서드는 연결 문자열에서 [Shareclient](/dotnet/api/azure.storage.files.shares.shareclient) 개체를 만들어 시작 합니다. 그런 다음이 샘플은 이전에 만든 파일을 다운로드 하려고 시도 합니다. 에서이 메서드를 호출 `Main()` 합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 

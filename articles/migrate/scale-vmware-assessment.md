@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 Azure로의 마이그레이션에 대 한
 description: Azure Migrate 서비스를 사용 하 여 Azure로 마이그레이션하기 위해 많은 수의 VMware Vm을 평가 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171911"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314108"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 VMware Vm 평가
 
@@ -26,7 +26,7 @@ ms.locfileid: "87171911"
 
 
 > [!NOTE]
-> 규모를 평가 하기 전에 몇 가지 Vm을 평가 하는 개념 증명을 사용해 보려면 [자습서 시리즈](tutorial-prepare-vmware.md) 를 따르세요.
+> 규모를 평가 하기 전에 몇 가지 Vm을 평가 하는 개념 증명을 사용해 보려면 [자습서 시리즈](./tutorial-discover-vmware.md) 를 따르세요.
 
 ## <a name="plan-for-assessment"></a>평가 계획
 
@@ -68,7 +68,7 @@ ms.locfileid: "87171911"
 
 - 어플라이언스 검색 범위는 vCenter Server 데이터 센터, 클러스터 또는 클러스터, 호스트 또는 호스트의 폴더 또는 개별 Vm으로 설정할 수 있습니다.
 - 사용자 환경이 테 넌 트 간에 공유 되 고 각 테 넌 트를 개별적으로 검색 하려는 경우 어플라이언스에서 검색에 사용 하는 vCenter 계정에 대 한 액세스 범위를 지정할 수 있습니다. 
-    - 테 넌 트가 호스트를 공유 하는 경우 VM 폴더로 범위를 지정할 수 있습니다. Vcenter 계정에 vCenter VM 폴더 수준에서 액세스 권한이 부여 된 경우 Vm을 검색할 수 Azure Migrate. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다. [자세히 알아봅니다](set-discovery-scope.md).
+    - 테 넌 트가 호스트를 공유 하는 경우 VM 폴더로 범위를 지정할 수 있습니다. Vcenter 계정에 vCenter VM 폴더 수준에서 액세스 권한이 부여 된 경우 Vm을 검색할 수 Azure Migrate. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다. [자세히 알아보기](set-discovery-scope.md).
 
 ## <a name="prepare-for-assessment"></a>평가 준비
 
@@ -78,7 +78,7 @@ ms.locfileid: "87171911"
 2. Azure Migrate와 상호 작용 하도록 Azure 계정에 대 한 사용 권한을 설정 합니다.
 3. 평가를 위해 VMware를 준비 합니다.
 
-[이 자습서](tutorial-prepare-vmware.md) 의 지침에 따라 이러한 설정을 구성 합니다.
+[이 자습서](./tutorial-discover-vmware.md) 의 지침에 따라 이러한 설정을 구성 합니다.
 
 
 ## <a name="create-a-project"></a>프로젝트 만들기
@@ -88,7 +88,7 @@ ms.locfileid: "87171911"
 1. Azure Migrate 프로젝트를 만듭니다.
 2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
 
-[자세한 정보](how-to-add-tool-first-time.md)
+[자세히 알아보기](how-to-add-tool-first-time.md)
 
 ## <a name="create-and-review-an-assessment"></a>평가 만들기 및 검토
 
@@ -96,7 +96,7 @@ ms.locfileid: "87171911"
 1. 마이그레이션 계획 준비에 대 한 평가를 검토 합니다.
 
 
-[이 자습서](tutorial-assess-vmware.md) 의 지침에 따라 이러한 설정을 구성 합니다.
+[이 자습서](./tutorial-assess-vmware-azure-vm.md) 의 지침에 따라 이러한 설정을 구성 합니다.
     
 
 ## <a name="next-steps"></a>다음 단계

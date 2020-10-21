@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056160"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319720"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
@@ -61,7 +61,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
-![프로 비전 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
+![프로비저닝 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
 
 
 프로 비전 로그에는 다음을 보여 주는 기본 목록 보기가 있습니다.
@@ -130,7 +130,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 생성 
 - 업데이트
-- DELETE
+- 삭제
 - 사용 안 함
 - 기타
 
@@ -215,7 +215,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 변경 ID 특성을 고유 식별자로 사용할 수 있습니다. 예를 들어 제품 지원과 상호 작용할 때 유용 합니다.
 
-- 현재는 프로 비전 데이터를 CSV 파일로 다운로드 하는 옵션은 없지만 [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http)를 사용 하 여 데이터를 내보낼 수 있습니다.
+- 현재는 프로 비전 데이터를 CSV 파일로 다운로드 하는 옵션은 없지만 [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta)를 사용 하 여 데이터를 내보낼 수 있습니다.
 
 - 범위에 없는 사용자에 대 한 건너뛴 이벤트를 볼 수 있습니다. 이는 특히 동기화 범위가 모든 사용자 및 그룹으로 설정 된 경우에 필요 합니다. 서비스는 범위를 벗어난 모든 개체를 포함 하 여 테 넌 트의 모든 개체를 평가 합니다. 
 
@@ -245,10 +245,10 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 |DuplicateSourceEntries | 구성 된 일치 특성을 가진 사용자를 둘 이상 찾았지만 작업을 완료할 수 없습니다. 중복 사용자를 제거 하거나 [여기](../app-provisioning/customize-application-attributes.md)에 설명 된 대로 특성 매핑을 다시 구성 하십시오.|
 |ImportSkipped | 각 사용자를 평가할 때 원본 시스템에서 사용자를 가져오려고 시도 합니다. 이 오류는 가져올 사용자에 게 특성 매핑에 정의 된 일치 속성이 없는 경우에 일반적으로 발생 합니다. 일치 특성에 대 한 사용자 개체에 값이 없으면 범위 지정, 일치 또는 변경 내용 내보내기를 평가할 수 없습니다. 이 오류가 있는 경우 사용자의 범위를 아직 평가 하지 않았으므로 사용자가 범위 내에 있는 것으로 표시 되지 않습니다.|
 |EntrySynchronizationSkipped | 프로 비전 서비스에서 원본 시스템을 쿼리하고 사용자를 식별 했습니다. 사용자에 대 한 추가 작업을 수행 하지 않았으므로 건너뛰었습니다. Skip은 사용자가 범위를 벗어난 것 이거나 추가로 변경 해야 하는 대상 시스템에 이미 존재 하는 사용자로 인해 발생할 수 있습니다.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| 사용자 또는 그룹을 검색 하기 위해 GET 요청을 수행 하는 경우 응답에 여러 사용자 또는 그룹을 받았습니다. 응답에는 사용자 또는 그룹을 하나만 받아야 합니다. [예](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)를 들어, 그룹을 검색 하 고 멤버를 제외 하는 필터를 제공 하는 GET 요청을 수행 하 고 scim 끝점에서 멤버를 반환 하면이 오류가 발생 합니다.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| 사용자 또는 그룹을 검색 하기 위해 GET 요청을 수행 하는 경우 응답에 여러 사용자 또는 그룹을 받았습니다. 응답에는 사용자 또는 그룹을 하나만 받아야 합니다. [예](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group)를 들어, 그룹을 검색 하 고 멤버를 제외 하는 필터를 제공 하는 GET 요청을 수행 하 고 scim 끝점에서 멤버를 반환 하면이 오류가 발생 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
 * [사용자 프로 비전 상태를 확인 합니다.](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제](../app-provisioning/application-provisioning-config-problem.md)
-* [프로 비전 로그 그래프 API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [프로 비전 로그 그래프 API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

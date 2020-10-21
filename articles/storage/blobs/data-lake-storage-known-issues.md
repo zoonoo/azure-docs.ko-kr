@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876127"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282200"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -92,7 +92,11 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 컨테이너에 [익명 읽기 액세스](storage-manage-access-to-resources.md)가 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>프리미엄 성능 BlockBlobStorage 스토리지 계정
+### <a name="diagnostic-logs"></a>진단 로그
+
+보존 기간 (일)의 설정은 아직 지원 되지 않지만 Azure Storage 탐색기, REST 또는 SDK와 같은 지원 되는 도구를 사용 하 여 수동으로 로그를 삭제할 수 있습니다.
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>프리미엄 성능 블록 Blobstorage 저장소 계정과 관련 한 문제
 
 ### <a name="diagnostic-logs"></a>진단 로그
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-보존 기간 (일)의 설정은 아직 지원 되지 않지만 Azure Storage 탐색기, REST 또는 SDK와 같은 지원 되는 도구를 사용 하 여 수동으로 로그를 삭제할 수 있습니다.
 
 ### <a name="lifecycle-management-policies"></a>수명 주기 관리 정책
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151849"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320230"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 관리
 
@@ -25,10 +25,10 @@ ms.locfileid: "92151849"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azdata, Azure Data Studio 및 Azure CLI 설치](install-client-tools.md)
-- **Azure 데이터 CLI** 및 **Azure Arc** 및 **PostgreSQL** 확장 Azure Data Studio에 설치
+- Azure Data Studio **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** 및 **Azure Arc** 및 **PostgreSQL** 확장을 설치 합니다.
 - [Azure Arc 데이터 컨트롤러](create-data-controller-using-azdata.md) 만들기
 - 시작 Azure Data Studio
 

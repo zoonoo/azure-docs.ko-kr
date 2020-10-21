@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 188c30a79074b819c5785cf5560f5843a3fcf6b4
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131618"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320467"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)
 
@@ -79,7 +79,7 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
-| 4            | `R--`        | 읽기                   |
+| 4            | `R--`        | Read                   |
 | 0            | `---`        | 사용 권한 없음         |
 
 ### <a name="permissions-inheritance"></a>권한 상속
@@ -199,7 +199,7 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 새 Data Lake Storage Gen2 컨테이너의 경우 루트 디렉터리 ("/")의 액세스 ACL에 대 한 마스크는 기본적으로 디렉터리의 경우 **750** 이 고 파일의 경우 **640** 입니다. 다음 표에서는 이러한 권한 수준의 기호화 된 표기법을 보여 줍니다.
 
-|엔터티|디렉터리|Files|
+|엔터티|디렉터리|파일|
 |--|--|--|
 |소유 사용자|`rwx`|`r-w`|
 |소유 그룹|`r-x`|`r--`|
@@ -326,6 +326,11 @@ OID가 표시 됩니다.
 
 서비스 사용자에 대 한 올바른 OID가 있는 경우 **액세스 관리** Storage 탐색기 페이지로 이동 하 여 oid를 추가 하 고 oid에 대 한 적절 한 사용 권한을 할당 합니다. **저장**을 선택해야 합니다.
 
+### <a name="can-i-set-the-acl-of-a-container"></a>컨테이너의 ACL을 설정할 수 있나요?
+
+아니요. 컨테이너에는 ACL이 없습니다. 그러나 컨테이너의 루트 디렉터리에 대 한 ACL을 설정할 수 있습니다. 모든 컨테이너에는 루트 디렉터리가 있으며 컨테이너와 같은 이름을 공유 합니다. 예를 들어 컨테이너 이름이 인 경우 `my-container` 루트 디렉터리의 이름은 `myContainer/` 입니다. 
+
+Azure Storage REST API에는 [Set CONTAINER ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)이라는 작업이 포함 되어 있지만 컨테이너 또는 컨테이너의 루트 디렉터리에 대 한 acl을 설정 하는 데 해당 작업을 사용할 수 없습니다. 대신이 작업을 사용 하 여 컨테이너의 blob에 공개적으로 [액세스할](anonymous-read-access-configure.md)수 있는지 여부를 나타냅니다. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 
@@ -338,6 +343,6 @@ OID가 표시 됩니다.
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

@@ -1,19 +1,19 @@
 ---
 title: 보안 연결을 위한 개인 끝점 만들기
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 서비스에 대 한 보안 연결을 위해 가상 네트워크에서 개인 끝점 설정
+description: Azure Cognitive Search 서비스에 대 한 보안 연결을 위해 가상 네트워크에서 개인 끝점을 설정 합니다.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935758"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280394"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기
 
@@ -47,7 +47,7 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
     | 구독 | 구독 선택|
     | 리소스 그룹 | **새로 만들기**를 선택 하 고 *myresourcegroup*을 입력 한 다음 **확인** 을 선택 합니다. |
     | Name | *MyVirtualNetwork* 입력 |
-    | 지역 | 원하는 지역 선택 |
+    | Azure 지역 | 원하는 지역 선택 |
     |||
 
 1. 나머지 설정에 대 한 기본값을 그대로 둡니다. **검토 + 만들기** 및 **만들기** 를 차례로 클릭 합니다.
@@ -152,10 +152,16 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
     | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다.|
     ||
 
+   > [!NOTE]
+   > IPv4 주소는 [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 형식으로 표현할 수 있습니다. [RFC 1918](https://tools.ietf.org/html/rfc1918)에 설명 된 대로 개인 네트워킹에 예약 된 IP 범위를 피해 야 합니다.
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.
 
 1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다. 
-
 
 ## <a name="connect-to-the-vm"></a>VM에 연결
 
@@ -181,7 +187,6 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 1. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속**을 선택합니다.
 
 1. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.  
-
 
 ## <a name="test-connections"></a>연결 테스트
 

@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706770db4309d1a909bc1161ab9d6657b6c5310a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cbe32125d957bb1fd53e7cb5a39ae9f745cef4a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533551"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317026"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 보안 경고 구성
 
@@ -120,7 +120,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
-| **포털 내 완화 작업** | N/A |
+| **포털 내 완화 작업** | 해당 없음 |
 | **트리거** | 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다. |
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 사용자가 선택한 기간 내에 통지를 받으려는 2에서 100 까지의 정품 인증 수를 지정 합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |
@@ -186,7 +186,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
-| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세한 정보](https://aka.ms/breakglass) |
+| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세히 알아보기](../users-groups-roles/directory-admin-roles-secure.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>역할이 Privileged Identity Management 외부에서 할당 됨
 
@@ -219,7 +219,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
-| **포털 내 완화 작업** | N/A |
+| **포털 내 완화 작업** | 해당 없음 |
 | **트리거** | 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다. |
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 사용자가 선택한 기간 내에 통지를 받으려는 2에서 100 까지의 정품 인증 수를 지정 합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |

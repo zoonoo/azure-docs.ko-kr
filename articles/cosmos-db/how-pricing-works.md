@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605258"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281543"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델
 
@@ -19,7 +19,7 @@ Azure Cosmos DB의 가격 책정 모델은 비용 관리 및 계획을 간소화
 
 - **데이터베이스 작업**: 데이터베이스 작업에 대해 부과 되는 방법은 사용 하는 Azure Cosmos 계정 유형에 따라 달라 집니다.
 
-  - **프로 비전**된 처리량: [프로 비전](set-throughput.md) 된 처리량 (예약 된 처리량이 라고도 함)은 모든 규모에서 높은 성능을 보장 합니다. 초당 [요청 단위](request-units.md) (전용/s)에 필요한 처리량을 지정 하 고 구성 된 처리량을 보장 하는 데 필요한 리소스를 Azure Cosmos DB 합니다. [데이터베이스 또는 컨테이너에 대해 처리량을 프로비전](set-throughput.md)할 수 있습니다. 워크 로드 요구 사항에 따라 언제 든 지 처리량을 확장/축소 하거나 [자동 크기 조정을](provision-throughput-autoscale.md) 사용할 수 있습니다 (sla를 보장 하는 데 필요한 최소 처리량은 데이터베이스 또는 컨테이너에만 필요 함). 지정된 시간의 최대 프로비전된 처리량을 기준으로 시간별로 요금이 청구됩니다.
+  - **프로 비전**된 처리량: [프로 비전](set-throughput.md) 된 처리량 (예약 된 처리량이 라고도 함)은 모든 규모에서 높은 성능을 제공 합니다. 초당 [요청 단위](request-units.md) (전용/s)에 필요한 처리량을 지정 하 고 구성 된 처리량을 제공 하는 데 필요한 리소스를 Azure Cosmos DB 합니다. [데이터베이스 또는 컨테이너에 대해 처리량을 프로비전](set-throughput.md)할 수 있습니다. 워크 로드 요구 사항에 따라 언제 든 지 처리량을 확장/축소 하거나 [자동 크기 조정을](provision-throughput-autoscale.md) 사용할 수 있습니다 (sla를 보장 하는 데 필요한 최소 처리량은 데이터베이스 또는 컨테이너에만 필요 함). 지정된 시간의 최대 프로비전된 처리량을 기준으로 시간별로 요금이 청구됩니다.
 
    > [!NOTE]
    > 프로 비전 된 처리량 모델은 리소스를 컨테이너 또는 데이터베이스에 전용 워크 로드를 실행 하지 않는 경우에도 프로 비전 한 처리량에 대해 요금이 청구 됩니다.

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 59c5473e88e0c4a8108f651e9543ec90c08290ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04f95372eb050c3eea08d50d4c9bdbd3a0232b1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759094"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282338"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
@@ -196,7 +196,7 @@ API를 사용 하 여 개별 가격 (설정 된 방법에 따라, 저장 된 날
 
 - [Azure 애플리케이션 제품 만들기](partner-center-portal/create-new-azure-apps-offer.md)
 - [Azure 컨테이너 제안 만들기](partner-center-portal/create-azure-container-offer.md)
-- [Azure 가상 머신 제품 만들기](partner-center-portal/azure-vm-create-offer.md)
+- [Azure 가상 머신 제품 만들기](azure-vm-create.md)
 - [컨설팅 서비스 제품 만들기](partner-center-portal/create-consulting-service-offer.md)
 - [Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Dynamics 365 for Operations 제품 만들기](partner-center-portal/create-new-operations-offer.md)

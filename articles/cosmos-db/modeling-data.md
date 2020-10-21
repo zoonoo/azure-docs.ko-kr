@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: a34544eb29f0a1417d10955bba755fb4f9965320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136042"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278404"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터 모델링
 
@@ -440,6 +440,6 @@ Review documents:
 
 Azure Cosmos DB에 대한 자세한 내용은 서비스의 [설명서](https://azure.microsoft.com/documentation/services/cosmos-db/) 페이지를 참조하세요.
 
-여러 파티션에 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 데이터 분할](sql-api-partition-data.md)을 참조하세요.
+여러 파티션에 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 데이터 분할](partitioning-overview.md)을 참조하세요.
 
 실제 예제를 사용 하 여 Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법에 대 한 자세한 내용은 [ 데이터 모델링 및 분할-Real-World 예](how-to-model-partition-example.md)를 참조 하세요.

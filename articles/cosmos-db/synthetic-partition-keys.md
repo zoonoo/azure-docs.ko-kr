@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75441212"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279850"
 ---
 # <a name="create-a-synthetic-partition-key"></a>가상 파티션 키 만들기
 
@@ -58,7 +58,7 @@ ms.locfileid: "75441212"
 
 다음 문서에서 분할이라는 개념에 대해 좀 더 자세히 알아볼 수 있습니다.
 
-* [논리 파티션](partition-data.md)에 대해 자세히 알아봅니다.
+* [논리 파티션](partitioning-overview.md)에 대해 자세히 알아봅니다.
 * [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량을 프로비전](set-throughput.md)하는 방법을 자세히 알아봅니다.
 * [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
 * [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16008ac4a328f93669179ccca783efb9ef092a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b076c757c8f86941c79da4f0be598aaa5ea6761
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773508"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317954"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -68,7 +68,7 @@ Azure AD Connect 클라우드 프로 비전 공개 미리 보기 새로 고침 �
 
 - Azure Portal을 통한 특성 매핑 환경
 
-    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세한 정보](../cloud-provisioning/how-to-attribute-mapping.md)
+    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세히 알아보기](../cloud-provisioning/how-to-attribute-mapping.md)
 
 - 주문형 프로 비전 또는 테스트 사용자 환경
 
@@ -84,7 +84,7 @@ Azure AD Connect 클라우드 프로 비전 공개 미리 보기 새로 고침 �
  
 IT 관리자 또는 최종 사용자가 액세스할 수 있는 BitLocker 복구 키를 읽으면 Azure Active Directory은 이제 복구 키에 액세스 한 사용자를 캡처하는 감사 로그를 생성 합니다. 동일한 감사는 BitLocker 키가 연결 된 장치에 대 한 세부 정보를 제공 합니다.
 
-최종 사용자는 [내 계정을 통해 복구 키에 액세스할](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key)수 있습니다. IT 관리자는 [베타의 BitLocker 복구 키 API](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta,) 또는 Azure AD 포털을 통해 복구 키에 액세스할 수 있습니다. 자세히 알아보려면 [AZURE AD 포털에서 BitLocker 키 보기 또는 복사](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys)를 참조 하세요.
+최종 사용자는 [내 계정을 통해 복구 키에 액세스할](../user-help/my-account-portal-devices-page.md#view-a-bitlocker-key)수 있습니다. IT 관리자는 [베타의 BitLocker 복구 키 API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) 또는 Azure AD 포털을 통해 복구 키에 액세스할 수 있습니다. 자세히 알아보려면 [AZURE AD 포털에서 BitLocker 키 보기 또는 복사](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys)를 참조 하세요.
 
 ---
 
@@ -412,7 +412,7 @@ Insights 관리자 역할의 사용자는 [M365 Insights 응용 프로그램](ht
  
 조건부 액세스에서 클라이언트 앱 조건의 GA 릴리스를 사용 하면 이제 모든 클라이언트 응용 프로그램에 새 정책이 기본적으로 적용 됩니다. 여기에는 레거시 인증 클라이언트가 포함 됩니다. 기존 정책은 변경 되지 않고 그대로 유지 되지만, 정책에 따라 적용 되는 클라이언트 앱을 쉽게 확인 하기 위해 기존 정책에서 *예/아니요 구성* 토글이 제거 됩니다. 
 
-새 정책을 만들 때 여전히 레거시 인증을 사용 하는 사용자 및 서비스 계정을 제외 해야 합니다. 그렇지 않으면 차단 됩니다. [자세히 알아봅니다](https://aka.ms/caclientapps).
+새 정책을 만들 때 여전히 레거시 인증을 사용 하는 사용자 및 서비스 계정을 제외 해야 합니다. 그렇지 않으면 차단 됩니다. [자세히 알아보기](../conditional-access/concept-conditional-access-conditions.md).
  
 ---
 
@@ -422,7 +422,7 @@ Insights 관리자 역할의 사용자는 [M365 Insights 응용 프로그램](ht
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** Id 수명 주기 관리
  
-Azure AD 프로 비전 서비스는 응용 프로그램과 통합 하기 위해 SCIM 표준을 활용 합니다. SCIM 표준의 구현은 진화 하 고 있으며, 패치 작업을 수행 하는 방법에 대 한 동작을 변경 하 고 리소스에 "active" 속성을 설정 하는 것이 좋습니다. [자세히 알아봅니다](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
+Azure AD 프로 비전 서비스는 응용 프로그램과 통합 하기 위해 SCIM 표준을 활용 합니다. SCIM 표준의 구현은 진화 하 고 있으며, 패치 작업을 수행 하는 방법에 대 한 동작을 변경 하 고 리소스에 "active" 속성을 설정 하는 것이 좋습니다. [자세히 알아보기](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
  
 ---
 
@@ -470,7 +470,7 @@ Azure AD 등록 서비스에 대 한 TLS 1.2에 대해 [자세히 알아보세�
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** Id 수명 주기 관리
  
-이전에는 그룹이 "범위 내"에서 "범위를 벗어났습니다."로 변경 되 고 관리자가 변경을 완료 하기 전에 다시 시작을 클릭 했을 때 그룹 개체를 삭제 하지 않았습니다. 이제 범위를 벗어나면 (사용 안 함, 삭제 됨, 할당 되지 않음 또는 범위 지정 필터를 전달 하지 않음) 그룹 개체가 대상 응용 프로그램에서 삭제 됩니다. [자세히 알아봅니다](../app-provisioning/how-provisioning-works.md#incremental-cycles).
+이전에는 그룹이 "범위 내"에서 "범위를 벗어났습니다."로 변경 되 고 관리자가 변경을 완료 하기 전에 다시 시작을 클릭 했을 때 그룹 개체를 삭제 하지 않았습니다. 이제 범위를 벗어나면 (사용 안 함, 삭제 됨, 할당 되지 않음 또는 범위 지정 필터를 전달 하지 않음) 그룹 개체가 대상 응용 프로그램에서 삭제 됩니다. [자세히 알아보기](../app-provisioning/how-provisioning-works.md#incremental-cycles).
  
 ---
 
@@ -853,7 +853,7 @@ Cloud MFA에 대 한 전자 메일 알림을 다음과 같이 변경 합니다.
 **서비스 범주:** Azure AD 클라우드 프로 비전  
 **제품 기능:** Id 수명 주기 관리
  
-IT 관리자는 Azure ADConnect 클라우드 프로 비전을 설정 하는 데 필요한 최소 권한 역할로 새로운 "하이브리드 관리자" 역할을 사용 하 여 시작할 수 있습니다. 이 새로운 역할을 사용 하는 경우 더 이상 전역 관리자 역할을 사용 하 여 클라우드 프로 비전을 설정 하 고 구성할 필요가 없습니다. [자세히 알아봅니다](../users-groups-roles/roles-delegate-by-task.md#connect).
+IT 관리자는 Azure ADConnect 클라우드 프로 비전을 설정 하는 데 필요한 최소 권한 역할로 새로운 "하이브리드 관리자" 역할을 사용 하 여 시작할 수 있습니다. 이 새로운 역할을 사용 하는 경우 더 이상 전역 관리자 역할을 사용 하 여 클라우드 프로 비전을 설정 하 고 구성할 필요가 없습니다. [자세히 알아보기](../users-groups-roles/roles-delegate-by-task.md#connect).
  
 ---
 
@@ -978,7 +978,7 @@ Microsoft Graph Directory 개체 Api에 대 한 새로운 기능이 도입 되�
 **서비스 범주:** 앱 프로비전  
 **제품 기능:** Id 수명 주기 관리
  
-이제 Workday 쓰기 저장 프로 비전 앱이 회사 전화 번호 및 모바일 번호 특성의 쓰기 저장을 지원 하도록 향상 되었습니다. 전자 메일 및 사용자 이름 외에도 이제 Workday 쓰기 저장 프로 비전 앱을 Azure AD에서 Workday로 이동 하는 전화 번호 값을 구성할 수 있습니다. 전화 번호 쓰기 저장을 구성 하는 방법에 대 한 자세한 내용은 [Workday 쓰기 저장](https://aka.ms/WorkdayWriteback) 앱 자습서를 참조 하세요. 
+이제 Workday 쓰기 저장 프로 비전 앱이 회사 전화 번호 및 모바일 번호 특성의 쓰기 저장을 지원 하도록 향상 되었습니다. 전자 메일 및 사용자 이름 외에도 이제 Workday 쓰기 저장 프로 비전 앱을 Azure AD에서 Workday로 이동 하는 전화 번호 값을 구성할 수 있습니다. 전화 번호 쓰기 저장을 구성 하는 방법에 대 한 자세한 내용은 [Workday 쓰기 저장](../saas-apps/workday-writeback-tutorial.md) 앱 자습서를 참조 하세요. 
 
 ---
 
@@ -1025,7 +1025,7 @@ Azure AD B2C 서비스를 탐색 하 고 앱 등록 블레이드를 선택 하 �
 
 Azure AD B2C 앱 등록 환경은 Azure AD 테 넌 트에 대 한 일반 [앱 등록 환경을](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) 기반으로 하지만 Azure AD B2C에 맞게 조정 됩니다. 레거시 "응용 프로그램" 환경은 향후 더 이상 사용 되지 않습니다.
 
-자세한 내용은 [Azure AD B2C에 대 한 새로운 앱 등록 환경](https://aka.ms/b2cappregtraining)을 참조 하세요.
+자세한 내용은 [Azure AD B2C에 대 한 새로운 앱 등록 환경](../../active-directory-b2c/app-registrations-training-guide.md)을 참조 하세요.
 
 ---
 
@@ -1051,7 +1051,7 @@ Multi-Factor Authentication (MFA) 및 Self-Service 암호 재설정 (SSPR)에 �
 
 **제품 기능:** Id 보안 & 보호
 
-연속 액세스 평가는 Azure AD에서 이벤트가 발생 하는 경우 (예: 사용자 계정 삭제) Azure AD 액세스 토큰을 사용 하는 신뢰 당사자에 대해 거의 실시간으로 정책을 적용할 수 있는 새로운 보안 기능입니다. 팀과 Outlook 클라이언트를 위해이 기능을 먼저 롤링 합니다. 자세한 내용은 [블로그](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) 및  [설명서](./concept-fundamentals-continuous-access-evaluation.md)를 참조 하세요.
+연속 액세스 평가는 Azure AD에서 이벤트가 발생 하는 경우 (예: 사용자 계정 삭제) Azure AD 액세스 토큰을 사용 하는 신뢰 당사자에 대해 거의 실시간으로 정책을 적용할 수 있는 새로운 보안 기능입니다. 팀과 Outlook 클라이언트를 위해이 기능을 먼저 롤링 합니다. 자세한 내용은 [블로그](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) 및  [설명서](../conditional-access/concept-continuous-access-evaluation.md)를 참조 하세요.
 
 ---
 
@@ -1127,7 +1127,7 @@ Microsoft는 향후 b2b 공동 작업 자격 증명을 사용 하도록 기존 �
 
 [SincroPool Apps](https://www.sincropool.com/), [smartdb](https://hibiki.dreamarts.co.jp/smartdb/trial/), [Float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [iwt-9j-u8d 조달 Suite](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/),, [Jira에 대 한](../saas-apps/easysso-for-jira-tutorial.md) [가상 교육 아카데미](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), [Meraki 대시보드](../saas-apps/meraki-dashboard-tutorial.md), [Microsoft 365](https://app.mover.io/login)이동 기 [, 발표자 참여](https://speakerengage.com/login.php), [솔직히](../saas-apps/honestly-tutorial.md), [동맹](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/), [alertmedia](../saas-apps/alertmedia-tutorial.md), [gr8 사람](../saas-apps/gr8-people-tutorial.md), [Pendo](../saas-apps/pendo-tutorial.md), [highground](../saas-apps/highground-tutorial.md), [조화](../saas-apps/harmony-tutorial.md), [Timetabling 솔루션](../saas-apps/timetabling-solutions-tutorial.md), [SynchroNet 클릭](../saas-apps/synchronet-click-tutorial.md), [역량](https://www.made-in-office.com/en/), [fortes 자료 변경 클라우드](../saas-apps/fortes-change-cloud-tutorial.md), [Litmus](../saas-apps/litmus-tutorial.md), [groupcoa](https://recorder.grouptalk.com/), Frontify, [MongoDB cloud](../saas-apps/mongodb-cloud-tutorial.md), [TickitLMS 배우기](../saas-apps/tickitlms-learn-tutorial.md), [coco](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [nitro 생산성 도구](../saas-apps/nitro-productivity-suite-tutorial.md) , [(Trend 마이크로 웹 보안)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial) [Frontify](../saas-apps/frontify-tutorial.md)
 
-앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
+앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](../saas-apps/tutorial-list.md)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](../azuread-dev/howto-app-gallery-listing.md)을 참조하세요.
 
 ---
 
@@ -1211,7 +1211,7 @@ OAuth2PermissionGrant에 대 한 델타 쿼리는 공개 미리 보기에서 사
 - 관리 단위의 Azure AD 사용자만 관리 권한을 사용 하 여 역할 할당
 - 필요에 따라 사용자 및 그룹으로 관리 단위 채우기
 
-자세한 내용은 [Azure Active Directory의 관리 단위 관리 (미리 보기)](https://aka.ms/AdminUnitsDocs)를 참조 하세요.
+자세한 내용은 [Azure Active Directory의 관리 단위 관리 (미리 보기)](../users-groups-roles/directory-administrative-units.md)를 참조 하세요.
 
 ---
 
@@ -1282,7 +1282,7 @@ Azure AD 관리 포털 환경에서 Azure AD 리소스 목록을 다운로드할
 
 **제품 기능:**
 
-직원 들이 자신의 직원 구성원이 자신의 Azure AD 계정에 액세스할 수 있도록 내 직원은 저장소 관리자와 같은 Firstline 관리자를 사용 하도록 설정 합니다. 조직에서는 중앙 기술 지원팀에 의존 하는 대신 암호 재설정 또는 전화 번호 변경과 같은 일반적인 작업을 Firstline Manager로 위임할 수 있습니다. 직원 들이 자신의 계정에 액세스할 수 없는 사용자는 기술 지원팀 또는 IT 담당자가 필요 하지 않은 두 번의 클릭 만으로 액세스 권한을 다시 얻을 수 있습니다. 자세한 내용은 내 [직원 (미리 보기)을 사용](https://aka.ms/MyStaffAdminDocs) 하 여 사용자 관리 및 [내 직원 (미리 보기)을 사용 하 여 사용자 관리 위임 (미리 보기)](https://aka.ms/MyStaffUserDocs)을 참조 하세요.
+직원 들이 자신의 직원 구성원이 자신의 Azure AD 계정에 액세스할 수 있도록 내 직원은 저장소 관리자와 같은 Firstline 관리자를 사용 하도록 설정 합니다. 조직에서는 중앙 기술 지원팀에 의존 하는 대신 암호 재설정 또는 전화 번호 변경과 같은 일반적인 작업을 Firstline Manager로 위임할 수 있습니다. 직원 들이 자신의 계정에 액세스할 수 없는 사용자는 기술 지원팀 또는 IT 담당자가 필요 하지 않은 두 번의 클릭 만으로 액세스 권한을 다시 얻을 수 있습니다. 자세한 내용은 내 [직원 (미리 보기)을 사용](../users-groups-roles/my-staff-configure.md) 하 여 사용자 관리 및 [내 직원 (미리 보기)을 사용 하 여 사용자 관리 위임 (미리 보기)](../user-help/my-staff-team-manager.md)을 참조 하세요.
 
 ---
 

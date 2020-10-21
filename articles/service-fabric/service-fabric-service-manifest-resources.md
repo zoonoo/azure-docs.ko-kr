@@ -4,12 +4,12 @@ description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017593"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313580"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
@@ -158,7 +158,7 @@ HTTPS 끝점에 필요한 구성을 보여 주는 예제 ApplicationManifest는 
 
 Linux 클러스터의 경우 **내** 저장소는 기본적으로 **/var/lib/sfcerts** 폴더입니다.
 
-HTTPS 끝점을 사용 하는 전체 응용 프로그램의 예제는 [Kestrel을 사용 하 여 ASP.NET Core WEB API 프런트 엔드 서비스에 https 끝점 추가](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest)를 참조 하세요.
+HTTPS 끝점을 사용 하는 전체 응용 프로그램의 예제는 [Kestrel을 사용 하 여 ASP.NET Core WEB API 프런트 엔드 서비스에 https 끝점 추가](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest)를 참조 하세요.
 
 ## <a name="port-acling-for-http-endpoints"></a>HTTP 끝점에 대 한 포트 ACLing
 Service Fabric는 기본적으로 지정 된 HTTP (S) 끝점을 자동으로 ACL에 지정 합니다. 끝점에 [Securityaccesspolicy](service-fabric-assign-policy-to-endpoint.md) 가 연결 되어 있지 않고 Service Fabric 관리자 권한이 있는 계정을 사용 하 여 실행 되도록 구성 된 경우 자동으로 ACLing를 수행 **하지** 않습니다.

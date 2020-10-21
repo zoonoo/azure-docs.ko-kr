@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: cb134c82f231eb8b6329b1acafb181032edd6936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320088"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280544"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
@@ -74,7 +74,7 @@ Microsoft에 잘못 된 사용량을 전송 했거나 고객의 요금을 지불
     - **상업적 마켓플레이스**  >  **요금제 청구**  >  **SaaS 제품에 대해 잘못 된 사용법이 전송** 됨
 3. **다음 단계**에서 파트너 센터에 로그인 하도록 **솔루션 검토** 단추를 선택 하 여 지원 티켓을 제출 합니다.
 
-더 많은 게시자 지원 옵션 [은 파트너 센터에서 상용 marketplace 프로그램 지원](support.md)을 참조 하세요.
+더 많은 게시자 지원 옵션 [은 파트너 센터에서 상용 marketplace 프로그램 지원](../support.md)을 참조 하세요.
 
 ## <a name="next-step"></a>다음 단계
 

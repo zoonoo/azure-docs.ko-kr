@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: joflore
-ms.openlocfilehash: 5d89f1a3d6028afb3450e0112a6081c9c706775b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962465"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275860"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>SUSE Linux Enterprise 가상 머신을 Azure Active Directory Domain Services 관리 되는 도메인에 가입
 
@@ -60,7 +60,7 @@ VM 호스트 이름이 관리 되는 도메인에 대해 올바르게 구성 되
 sudo vi /etc/hosts
 ```
 
-*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서는
+*Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서,
 
 * *aaddscontoso.com* 는 관리 되는 도메인의 DNS 도메인 이름입니다.
 * *q2gr* 는 관리 되는 도메인에 가입 하는 SLE VM의 호스트 이름입니다.
@@ -165,7 +165,7 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
 
 1. Samba 사용자 및 그룹에 대 한 UID 및 GID 범위를 변경 하려면 *전문가 설정*을 선택 합니다.
 
-1. *Ntp 구성*을 선택 하 여 관리 되는 도메인에 대 한 ntp 시간 동기화를 구성 합니다. 관리 되는 도메인의 IP 주소를 입력 합니다. 이러한 IP 주소는 관리 되는 도메인에 대 한 Azure Portal의 *속성* 창에 표시 됩니다 (예: *10.0.2.4* 및 *10.0.2.5*).
+1. *Ntp 구성*을 선택 하 여 관리 되는 도메인에 대 한 Ntp (Network time Protocol) 시간 동기화를 구성 합니다. 관리 되는 도메인의 IP 주소를 입력 합니다. 이러한 IP 주소는 관리 되는 도메인에 대 한 Azure Portal의 *속성* 창에 표시 됩니다 (예: *10.0.2.4* 및 *10.0.2.5*).
 
 1. **확인** 을 선택 하 고 메시지가 표시 되 면 도메인 가입을 확인 합니다.
 
@@ -174,6 +174,127 @@ VM이 관리 되는 도메인에 등록 된 후 다음 예제 스크린샷에 �
     ![SLE VM을 관리 되는 도메인에 연결 하는 경우 인증 대화 상자 프롬프트의 예제 스크린샷](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 관리 되는 도메인에 가입한 후에는 데스크톱 또는 콘솔의 디스플레이 관리자를 사용 하 여 워크스테이션에서 해당 도메인에 로그인 할 수 있습니다.
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>YaST 명령줄 인터페이스에서 Winbind를 사용 하 여 VM을 관리 되는 도메인에 가입
+
+**Winbind** 및 *yast 명령줄 인터페이스*를 사용 하 여 관리 되는 도메인에 가입 하려면 다음을 수행 합니다.
+
+* 도메인에 가입:
+
+  ```console
+  sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+  ```
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>터미널에서 Winbind를 사용 하 여 VM을 관리 되는 도메인에 가입
+
+**Winbind** 및 * `samba net` 명령을*사용 하 여 관리 되는 도메인에 가입 하려면 다음을 수행 합니다.
+
+1. Kerberos 클라이언트 및 samba-winbind를 설치 합니다.
+
+   ```console
+   sudo zypper in krb5-client samba-winbind
+   ```
+
+2. 구성 파일을 편집 합니다.
+
+   * /etc/samba/smb.conf
+   
+     ```ini
+     [global]
+         workgroup = AADDSCONTOSO
+         usershare allow guests = NO #disallow guests from sharing
+         idmap config * : backend = tdb
+         idmap config * : range = 1000000-1999999
+         idmap config AADDSCONTOSO : backend = rid
+         idmap config AADDSCONTOSO : range = 5000000-5999999
+         kerberos method = secrets and keytab
+         realm = AADDSCONTOSO.COM
+         security = ADS
+         template homedir = /home/%D/%U
+         template shell = /bin/bash
+         winbind offline logon = yes
+         winbind refresh tickets = yes
+     ```
+
+   * /etc/krb5.conf
+   
+     ```ini
+     [libdefaults]
+         default_realm = AADDSCONTOSO.COM
+         clockskew = 300
+     [realms]
+         AADDSCONTOSO.COM = {
+             kdc = PDC.AADDSCONTOSO.COM
+             default_domain = AADDSCONTOSO.COM
+             admin_server = PDC.AADDSCONTOSO.COM
+         }
+     [domain_realm]
+         .aaddscontoso.com = AADDSCONTOSO.COM
+     [appdefaults]
+         pam = {
+             ticket_lifetime = 1d
+             renew_lifetime = 1d
+             forwardable = true
+             proxiable = false
+             minimum_uid = 1
+         }
+     ```
+
+   * /etc/security/pam_winbind.
+   
+     ```ini
+     [global]
+         cached_login = yes
+         krb5_auth = yes
+         krb5_ccache_type = FILE
+         warn_pwd_expire = 14
+     ```
+
+   * /etc/nsswitch.conf
+   
+     ```ini
+     passwd: compat winbind
+     group: compat winbind
+     ```
+
+3. Azure AD 및 Linux의 날짜 및 시간이 동기화 되어 있는지 확인 합니다. Azure AD 서버를 NTP 서비스에 추가 하 여이 작업을 수행할 수 있습니다.
+   
+   1. /Etc/ntp.conf에 다음 줄을 추가 합니다.
+     
+      ```console
+      server aaddscontoso.com
+      ```
+
+   1. NTP 서비스를 다시 시작 합니다.
+     
+      ```console
+      sudo systemctl restart ntpd
+      ```
+
+4. 도메인에 가입:
+
+   ```console
+   sudo net ads join -U Administrator%Mypassword
+   ```
+
+5. Linux PAM (플러그형 인증 모듈)에서 winbind을 로그인 원본으로 사용 하도록 설정 합니다.
+
+   ```console
+   pam-config --add --winbind
+   ```
+
+6. 사용자가 로그인 할 수 있도록 홈 디렉터리 자동 생성을 사용 하도록 설정 합니다.
+
+   ```console
+   pam-config -a --mkhomedir
+   ```
+
+7. Winbind 서비스를 시작 하 고 사용 하도록 설정 합니다.
+
+   ```console
+   sudo systemctl enable winbind
+   sudo systemctl start winbind
+   ```
 
 ## <a name="allow-password-authentication-for-ssh"></a>SSH에 대 한 암호 인증 허용
 

@@ -3,12 +3,12 @@ title: Azure Event Hubs에 대 한 네트워크 보안
 description: 이 문서에서는 프라이빗 엔드포인트에서 액세스를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ae6cbdc8258cde9bb2da961cb452f996f0797cfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02a3a3436c354f7a9c817298d0ce887e33d8016a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767789"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318493"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 네트워크 보안 
 이 문서에서는 Azure Event Hubs에서 다음 보안 기능을 사용 하는 방법을 설명 합니다. 
@@ -22,7 +22,7 @@ ms.locfileid: "91767789"
 ## <a name="service-tags"></a>서비스 태그
 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대 한 자세한 내용은 [서비스 태그 개요](../virtual-network/service-tags-overview.md)를 참조 하세요.
 
-서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에 대한 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본*또는 대상 필드에서 서비스 태그 이름 (예: **EventHub**)을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
+서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에 대한 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본*또는 대상 필드에서 서비스 태그 이름 (예: **EventHub**)을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
 | 서비스 태그 | 목적 | 인바운드 또는 아웃바운드를 사용할 수 있나요? | 지역 범위를 지원할 수 있나요? | Azure Firewall에서 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|

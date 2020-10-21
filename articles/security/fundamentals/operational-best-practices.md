@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 2c949447635ccdf4cf36acec43a09c1104b9fdd4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943869"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280029"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -53,7 +53,7 @@ Azure 운영 보안은 사용자가 Azure에서 자신의 데이터, 애플리�
 Azure 등록 포털에서 보안 작업에 알리는 세부 정보를 관리 담당자 정보에 포함할 수 있습니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Azure 구독을 관리 그룹으로 구성
-조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
+조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹이라고 하는 컨테이너에 구성하고 거버넌스 조건을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
 
 관리 그룹 및 구독의 유연한 구조를 디렉터리에 빌드할 수 있습니다. 각 디렉터리에는 루트 관리 그룹 이라는 단일 최상위 관리 그룹이 제공 됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 루트 관리 그룹을 사용 하면 글로벌 정책과 Azure 역할 할당을 디렉터리 수준에서 적용할 수 있습니다.
 
@@ -122,7 +122,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **세부 정보**: [Azure Monitor을 사용 하 여 데이터를 수집 하 고 내보냅니다](/azure/azure-monitor/overview#integrate-and-export-data). 이 방법은 보안 인시던트 조사를 사용 하도록 설정 하는 데 중요 하며 온라인 로그 보존은 제한적입니다. Azure 센티널를 사용 하는 경우 [연결 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.
 
 **모범 사례**: 공격 조사에 Edr (끝점 검색 및 응답) 기능을 통합 하 여 조사 및 구하기 프로세스를 가속화 하 고 가양성을 줄입니다.   
-**세부 정보**: Security Center 보안 정책을 통해 [Microsoft Defender ATP 통합을 사용 하도록 설정](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) 합니다. 위협 구하기 및 인시던트 대응을 위해 Azure 센티널을 사용 하는 것이 좋습니다.
+**세부 정보**: Security Center 보안 정책을 통해 [Microsoft Defender에서 끝점 통합을 사용 하도록 설정](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) 합니다. 위협 구하기 및 인시던트 대응을 위해 Azure 센티널을 사용 하는 것이 좋습니다.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>엔드투엔드 시나리오 기반 네트워크 모니터링
 고객은 가상 네트워크, ExpressRoute, Application Gateway, 부하 분산 장치 등의 네트워크 리소스를 결합하여 Azure에서 엔드투엔드 네트워크를 빌드합니다. 모니터링은 각 네트워크 리소스에서 사용할 수 있습니다.

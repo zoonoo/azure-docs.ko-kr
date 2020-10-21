@@ -3,12 +3,12 @@ title: 템플릿 개요
 description: 리소스 배포를 위한 Azure Resource Manager 템플릿을 사용 하는 이점에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1873c737d17fc8774ddd1276d1375799ca2da35e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119364"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280045"
 ---
 # <a name="what-are-arm-templates"></a>ARM 템플릿이란?
 
@@ -54,7 +54,7 @@ ARM 템플릿과 다른 인프라 중 하나를 코드 서비스로 사용 하�
 
 * **내보낼**수 있는 코드: 리소스 그룹의 현재 상태를 내보내거나 특정 배포에 사용 된 템플릿을 확인 하 여 기존 리소스 그룹에 대 한 템플릿을 가져올 수 있습니다. [내보낸 템플릿](export-template-portal.md) 보기는 템플릿 구문에 대해 알아보는 데 유용한 방법입니다.
 
-* **작성 도구**: [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) 및 템플릿 도구 확장을 사용 하 여 템플릿을 제작할 수 있습니다. Intellisense, 구문 강조 표시, 온라인 도움말 및 기타 많은 언어 함수를 얻을 수 있습니다. Visual Studio code 외에도 [Visual studio](create-visual-studio-deployment-project.md)를 사용할 수 있습니다.
+* **작성 도구**: [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md) 및 템플릿 도구 확장을 사용 하 여 템플릿을 제작할 수 있습니다. Intellisense, 구문 강조 표시, 온라인 도움말 및 기타 많은 언어 함수를 얻을 수 있습니다. Visual Studio Code 외에도 [Visual Studio](create-visual-studio-deployment-project.md)를 사용할 수 있습니다.
 
 ## <a name="template-file"></a>템플릿 파일
 

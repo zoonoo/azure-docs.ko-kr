@@ -3,12 +3,12 @@ title: Azure Service Fabric-Service Fabric 응용 프로그램 KeyVault 참조 �
 description: 이 문서에서는 응용 프로그램 암호에 대 한 service fabric KeyVaultReference 지원을 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261144"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313787"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "91261144"
 > 프로덕션 환경에서는이 미리 보기 기능을 사용 하지 않는 것이 좋습니다.
 
 > [!NOTE]
-> KeyVault 참조 미리 보기 기능은 [버전이](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) 지정 된 암호만 지원 합니다. Versionless 비밀은 지원 되지 않습니다.
+> KeyVault 참조 미리 보기 기능은 [버전이](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) 지정 된 암호만 지원 합니다. Versionless 비밀은 지원 되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

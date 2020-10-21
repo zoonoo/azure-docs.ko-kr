@@ -3,12 +3,12 @@ title: VMware에 대 한 Azure Migrate 어플라이언스 설정
 description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f20bb77c29d98ab4e3549bfed43d47d1f1f7dc0c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448641"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318213"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -58,7 +58,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 2. 다음 명령을 실행 하 여 OVA에 대 한 해시를 생성 합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
-3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](./tutorial-assess-vmware.md#verify-security)일치 해야 합니다.
+3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](./tutorial-discover-vmware.md#verify-security)일치 해야 합니다.
 
 
 
@@ -117,7 +117,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 성공적으로 로그인하면 웹앱으로 돌아갑니다. 
-4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](tutorial-prepare-vmware.md#prepare-azure)이 있는 경우 어플라이언스 등록이 시작됩니다.
+4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](./tutorial-discover-vmware.md#prepare-an-azure-user-account)이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기**를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
 
 
@@ -126,7 +126,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 어플라이언스는 VM의 구성 및 성능 데이터를 검색하기 위해 vCenter Server에 연결해야 합니다.
 
 1. **1단계: vCenter Server 자격 증명 제공**에서 **자격 증명 추가**를 클릭하여 자격 증명 이름을 지정하고, 어플라이언스가 vCenter Server 인스턴스에서 VM을 검색하는 데 사용할 vCenter Server 계정에 대한 **사용자 이름** 및 **암호**를 추가합니다.
-    - [이전 자습서](tutorial-prepare-vmware.md#set-up-permissions-for-assessment)에서 필요한 권한이 있는 계정을 설정했어야 합니다.
+    - [이전 자습서](./tutorial-discover-vmware.md#create-an-account-to-access-vcenter)에서 필요한 권한이 있는 계정을 설정했어야 합니다.
     - 검색 범위를 특정 VMware 개체(vCenter Server 데이터 센터, 클러스터, 클러스터 폴더, 호스트, 호스트 폴더 또는 개별 VM)로 지정하려면 [이 문서](set-discovery-scope.md)의 지침을 검토하여 Azure Migrate에서 사용하는 계정을 제한합니다.
 1. **2단계: vCenter Server 세부 정보 제공**에서 **검색 원본 추가**를 클릭하여 드롭다운에서 자격 증명 이름을 선택하고, vCenter Server 인스턴스의 **IP 주소/FQDN**을 지정합니다. **포트**를 기본값(443)으로 그대로 두거나 vCenter Server에서 수신 대기하는 사용자 지정 포트를 지정하고, **저장**을 클릭할 수 있습니다.
 1. [저장]을 클릭하면 어플라이언스에서 제공된 자격 증명을 사용하여 vCenter Server에 대한 연결의 유효성을 검사하고, vCenter Server IP 주소/FQDN에 대한 **유효성 검사 상태**를 테이블에 표시합니다.
@@ -145,4 +145,4 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[VMware 평가](tutorial-assess-vmware.md) 및 [에이전트 없는 마이그레이션](tutorial-migrate-vmware.md)에 대 한 자습서를 검토 합니다.
+[VMware 평가](./tutorial-assess-vmware-azure-vm.md) 및 [에이전트 없는 마이그레이션](tutorial-migrate-vmware.md)에 대 한 자습서를 검토 합니다.

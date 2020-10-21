@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273010"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310908"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 만들기
 
@@ -62,7 +62,7 @@ OpenShift의 SCCs에 대 한 자세한 내용은 [openshift 설명서](https://d
 1. 연결 탭에서 왼쪽 위에 있는 세 개의 점을 클릭 하 고 "새 배포"를 선택 합니다.
 1. 배포 옵션에서 **PostgreSQL Hyperscale 서버 그룹-Azure Arc** 를 선택 합니다.
     >[!NOTE]
-    > `azdata`현재 설치 되어 있지 않은 경우 여기에 CLI를 설치 하 라는 메시지가 표시 될 수 있습니다.
+    > 현재 설치 되어 있지 않으면 여기를 설치할지 묻는 메시지가 표시 될 수 있습니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .
 1. 개인 정보 및 사용 조건에 동의 하 고 맨 아래에서 **선택** 을 클릭 합니다.
 1. PostgreSQL Hyperscale 서버 그룹 배포-Azure Arc 블레이드에서 다음 정보를 입력 합니다.
    - 서버 그룹의 이름을 입력 하십시오.

@@ -1,22 +1,25 @@
 ---
-title: Azure Cosmos DB에서 컨테이너 처리량 프로비전
-description: Azure Portal, CLI, PowerShell 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB의 컨테이너 수준에서 처리량을 프로비저닝하는 방법을 알아봅니다.
+title: Azure Cosmos DB SQL API에서 컨테이너 처리량 프로 비전
+description: Azure Portal, CLI, PowerShell 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB SQL API의 컨테이너 수준에서 처리량을 프로 비전 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8c4259383196734c6e15c4ea261092938b1dd404
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6855a1c730c33a835e5033041ee7978be28fc6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282819"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278683"
 ---
-# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 표준(수동) 처리량 프로비전
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Azure Cosmos 컨테이너에서 표준 (수동) 처리량 프로 비전-SQL API
 
-이 문서에서는 Azure Cosmos DB에서 컨테이너(컬렉션, 그래프 또는 테이블)의 표준(수동) 처리량을 프로비저닝하는 방법을 설명합니다. 단일 컨테이너 또는 [데이터베이스의 처리량을 프로비저닝](how-to-provision-database-throughput.md)하고 데이터베이스 내부의 컨테이너와 처리량을 공유할 수 있습니다. Azure Portal, Azure CLI 또는 Azure Cosmos DB SDK를 사용하여 컨테이너의 처리량을 프로비저닝할 수 있습니다.
+이 문서에서는 SQL API Azure Cosmos DB의 컨테이너에 대 한 표준 (수동) 처리량을 프로 비전 하는 방법을 설명 합니다. 단일 컨테이너 또는 [데이터베이스의 처리량을 프로비저닝](how-to-provision-database-throughput.md)하고 데이터베이스 내부의 컨테이너와 처리량을 공유할 수 있습니다. Azure Portal, Azure CLI 또는 Azure Cosmos DB SDK를 사용하여 컨테이너의 처리량을 프로비저닝할 수 있습니다.
+
+다른 API를 사용 하는 경우 [MongoDB](how-to-provision-throughput-mongodb.md), [CASSANDRA API](how-to-provision-throughput-cassandra.md), [Gremlin api](how-to-provision-throughput-gremlin.md) 문서를 참조 하 여 처리량을 프로 비전 합니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -24,15 +27,15 @@ ms.locfileid: "91282819"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 Azure Cosmos 계정을 선택합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 컬렉션**을 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열고 **새 컨테이너**를 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다.
-   * 컨테이너(테이블 또는 그래프) ID를 입력합니다.
-   * 파티션 키 값을 입력합니다(예: `/userid`).
+   * 컨테이너 ID를 입력 하십시오.
+   * 파티션 키 값을 입력합니다(예: `/ItemID`).
    * 프로비저닝하려는 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 
-    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="새 컬렉션이 강조 표시된 데이터 탐색기 스크린샷":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="새 컬렉션이 강조 표시된 데이터 탐색기 스크린샷":::
 
 ## <a name="azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell
 
@@ -41,15 +44,10 @@ ms.locfileid: "91282819"
 * [Azure CLI를 사용하여 컨테이너 만들기](manage-with-cli.md#create-a-container)
 * [PowerShell을 사용하여 컨테이너 만들기](manage-with-powershell.md#create-container)
 
-> [!Note]
-> Azure Cosmos DB API for MongoDB를 사용하여 구성한 Azure Cosmos 계정의 컨테이너에 처리량을 프로비저닝하는 경우 파티션 키 경로로 `/myShardKey`를 사용합니다. Cassandra API를 사용하여 구성한 Azure Cosmos 계정의 컨테이너에 처리량을 프로비저닝하는 경우 파티션 키 경로로 `/myPrimaryKey`를 사용합니다.
-
 ## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
 > Cosmos Sdk for SQL API를 사용 하 여 Cassandra 및 MongoDB API를 제외한 모든 Cosmos DB Api에 대 한 처리량을 프로 비전 합니다.
-
-### <a name="sql-gremlin-and-table-apis"></a><a id="dotnet-most"></a>SQL, Gremlin 및 Table Api
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -99,47 +97,6 @@ offer.content.offerThroughput = 2000;
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
 ```
-
-### <a name="mongodb-api"></a><a id="dotnet-mongodb"></a>MongoDB API
-
-```csharp
-// refer to MongoDB .NET Driver
-// https://docs.mongodb.com/drivers/csharp
-
-// Create a new Client
-String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
-mongoUrl = new MongoUrl(mongoConnectionString);
-mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
-mongoClient = new MongoClient(mongoClientSettings);
-
-// Change the database name
-mongoDatabase = mongoClient.GetDatabase("testdb");
-
-// Change the collection name, throughput value then update via MongoDB extension commands
-// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
-
-var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
-```
-
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API
-
-CQL 규격 드라이버를 통해 비슷한 명령을 실행할 수 있습니다.
-
-```csharp
-// Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
-session.Execute("CREATE TABLE myKeySpace.myTable(
-    user_id int PRIMARY KEY,
-    firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=400");
-
-```
-### <a name="alter-or-change-throughput-for-cassandra-table"></a>Cassandra 테이블의 처리량 변경
-
-```csharp
-// Altering the throughput too can be done through code by issuing following command
-session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throughput=5000");
-```
-
 
 ## <a name="next-steps"></a>다음 단계
 

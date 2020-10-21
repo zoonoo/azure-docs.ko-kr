@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145979"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282250"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. 먼저 `EventRoute` 개체가 만들어지고 생성자는 끝점의 이름을 사용 합니다. 이 `endpointName` 필드는 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
 
-2. 이벤트 경로 개체에는이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있는 [**필터**](./how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. 필터는 `true` 추가 필터링 없이 경로를 사용 하도록 설정 합니다. 필터는 `false` 경로를 사용 하지 않도록 설정 합니다. 
+2. 이벤트 경로 개체에는이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있는 [**필터**](how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. 필터는 `true` 추가 필터링 없이 경로를 사용 하도록 설정 합니다. 필터는 `false` 경로를 사용 하지 않도록 설정 합니다. 
 
 3. 그런 다음이 이벤트 경로 개체는 `CreateEventRoute` 경로에 대 한 이름과 함께에 전달 됩니다.
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용 하 여 경로를 만들 수도 있습니다.
 
 ## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
+
 끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다. **다음 조건 중 하나가** 충족 되 면 Azure Digital twins는 이벤트를 배달 하지 않습니다. 
 
-- 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
-- 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
+* 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
+* 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
 
-조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다.  기본적으로 각 끝점은 배달 못 한 문자를 설정 **하지** 않습니다. 이를 사용 하도록 설정 하려면 끝점을 만들 때 배달 되지 않은 이벤트를 보관할 저장소 계정을 지정 해야 합니다. 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
+조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다. 기본적으로 각 끝점은 배달 못 한 문자를 설정 **하지** 않습니다. 이를 사용 하도록 설정 하려면 끝점을 만들 때 배달 되지 않은 이벤트를 보관할 저장소 계정을 지정 해야 합니다. 그런 다음이 저장소 계정에서 이벤트를 끌어와 배달 문제를 해결할 수 있습니다.
 
 배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 끝점을 만들 때이 컨테이너의 URL을 제공 합니다. 배달 못 한 편지는 SAS 토큰을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 SAS 토큰에 대 한 자세한 내용은 [ *sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여* 를 참조 하세요.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-배달 못 한 편지를 설정 하는 방법을 알아보려면 [*방법: Azure 디지털 쌍에서 끝점 및 경로 관리 (api 및 CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조 하세요.
+배달 못 한 문자를 사용 하 여 끝점을 설정 하는 방법을 알아보려면 [*방법: Azure 디지털 쌍의 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조 하세요.
 
 ### <a name="types-of-event-messages"></a>이벤트 메시지 유형
 

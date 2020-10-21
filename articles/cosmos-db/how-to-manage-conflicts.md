@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 657d3f84a1dd196733ed23dd3b68db92e4b35e25
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570686"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279465"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 충돌 해결 정책 관리
 
@@ -517,5 +517,5 @@ while conflict:
 - [멀티 호 밍에 대 한 클라이언트 구성](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [응용 프로그램에서 지역 쓰기를 configuremulti 하는 방법](how-to-multi-master.md)입니다.
-- [분할 및 데이터 배포](partition-data.md)
+- [분할 및 데이터 배포](partitioning-overview.md)
 - [Azure Cosmos DB의 인덱싱](indexing-policies.md)

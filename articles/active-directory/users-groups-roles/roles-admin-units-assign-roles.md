@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea638124ed81a494231c814962345c028fc12c9
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 00d60d803fb73a0f299b00179e5f598f3189e03e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940857"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309657"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
@@ -29,7 +29,7 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ## <a name="roles-available"></a>사용 가능한 역할
 
-역할  |  Description
+역할  |  설명
 ----- |  -----------
 인증 관리자  |  할당 된 관리 단위 에서만 관리자가 아닌 사용자에 대 한 인증 방법 정보를 보고 설정 하 고 다시 설정 하기 위한 액세스 권한이 있습니다.
 그룹 관리자  |  할당 된 관리 단위로 명명 및 만료 정책 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.
@@ -60,7 +60,7 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 > [!Note]
 >
-> PIM을 사용 하 여 관리 단위에 역할을 할당 하려면 [다음](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user?tabs=new#assign-a-role-with-restricted-scope)단계를 수행 합니다.
+> PIM을 사용 하 여 관리 단위에 역할을 할당 하려면 [다음](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope)단계를 수행 합니다.
 
 ### <a name="powershell"></a>PowerShell
 

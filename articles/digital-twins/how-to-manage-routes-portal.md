@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252836"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279364"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -29,7 +29,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - Resource group
+    - 리소스 그룹
 
 인스턴스를 설정한 후 [Azure Portal](https://portal.azure.com) 에서 이러한 세부 정보를 찾을 수 있습니다. 포털에 로그인 하 고 포털 검색 표시줄에서 인스턴스 이름을 검색 합니다.
  
@@ -117,6 +117,14 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
 이제 Service Bus 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
+
+끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자**라고 합니다.
+
+배달 못 한 편지 처리를 사용 하도록 설정 된 끝점을 만들려면 [ARM api](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 Azure Portal 아니라 끝점을 만들어야 합니다.
+
+Api를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은이 문서의 [*api 및 CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) 버전을 참조 하세요.
 
 ## <a name="event-routes"></a>이벤트 경로
 

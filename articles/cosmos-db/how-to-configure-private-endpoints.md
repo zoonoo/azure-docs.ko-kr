@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334432"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279712"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Azure Cosmos 계정에 대한 Azure Private Link 구성
 
@@ -684,7 +684,7 @@ DNS 레코드를 정리하지 않으면 예기치 않은 데이터 평면 문제
 
 Azure Cosmos DB 보안 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](firewall-support.md)을 참조하세요.
+* Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](how-to-configure-firewall.md)을 참조하세요.
 
 * Azure Cosmos 계정에 대한 가상 네트워크 서비스 엔드포인트를 구성하는 방법에 대한 자세한 내용은 [가상 네트워크 액세스 구성](how-to-configure-vnet-service-endpoint.md)을 참조하세요.
 

@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576594"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314753"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -26,11 +26,11 @@ ms.locfileid: "91576594"
 **문제점** | **해결**
 --- | ---
 지원되지 않는 부팅 유형 | Azure는 EFI 부팅 유형을 사용 하는 Vm을 지원 하지 않습니다. 마이그레이션을 실행 하기 전에 부팅 유형을 BIOS로 변환 하는 것이 좋습니다. <br/><br/>Azure Migrate Server Migration을 사용 하 여 이러한 Vm의 마이그레이션을 처리할 수 있습니다. 마이그레이션하는 동안 VM의 부팅 유형을 BIOS로 변환 합니다.
-조건부로 지원 되는 Windows 운영 체제 | 운영 체제에서 지원 종료 날짜를 통과 했으며 [Azure에서 지원](https://aka.ms/WSosstatement)하기 위해 CSA (사용자 지정 지원 계약)가 필요 합니다. Azure로 마이그레이션하기 전에 업그레이드 하는 것이 좋습니다.
-지원 되지 않는 Windows 운영 체제 | Azure는 [선택한 WINDOWS OS 버전만](https://aka.ms/WSosstatement)지원 합니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다.
-조건부로 보증되는 Linux OS | Azure 보증에는 [선택한 LINUX OS 버전만](../virtual-machines/linux/endorsed-distros.md)있습니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) 를 참조 하세요.
+조건부로 지원 되는 Windows 운영 체제 | 운영 체제에서 지원 종료 날짜를 통과 했으며 [Azure에서 지원](/troubleshoot/azure/virtual-machines/server-software-support)하기 위해 CSA (사용자 지정 지원 계약)가 필요 합니다. Azure로 마이그레이션하기 전에 업그레이드 하는 것이 좋습니다.
+지원 되지 않는 Windows 운영 체제 | Azure는 [선택한 WINDOWS OS 버전만](/troubleshoot/azure/virtual-machines/server-software-support)지원 합니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다.
+조건부로 보증되는 Linux OS | Azure 보증에는 [선택한 LINUX OS 버전만](../virtual-machines/linux/endorsed-distros.md)있습니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다. 자세한 내용은 [여기](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) 를 참조 하세요.
 보증되지 않는 Linux OS | 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 운영 체제를 지원 하지 않습니다. Azure로 마이그레이션하기 전에 [보증 Linux 버전](../virtual-machines/linux/endorsed-distros.md) 으로 업그레이드 하는 것이 좋습니다.
-알 수 없는 운영 체제 | VCenter Server에서 VM의 운영 체제가 "기타"로 지정 되었습니다. 이 동작은 VM의 Azure 준비 상태를 확인 하는 Azure Migrate 차단 합니다. 컴퓨터를 마이그레이션하기 전에 Azure에서 운영 체제가 [지원](https://aka.ms/azureoslist) 되는지 확인 합니다.
+알 수 없는 운영 체제 | VCenter Server에서 VM의 운영 체제가 "기타"로 지정 되었습니다. 이 동작은 VM의 Azure 준비 상태를 확인 하는 Azure Migrate 차단 합니다. 컴퓨터를 마이그레이션하기 전에 Azure에서 운영 체제가 [지원](./migrate-support-matrix-vmware-migration.md#azure-vm-requirements) 되는지 확인 합니다.
 지원 되지 않는 비트 버전 | 32 비트 운영 체제를 사용 하는 Vm은 Azure에서 부팅 될 수 있지만, Azure로 마이그레이션하기 전에 64 비트로 업그레이드 하는 것이 좋습니다.
 Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Studio 구독을 통해서만 지원 되는 Windows 클라이언트 운영 체제를 실행 하 고 있습니다.
 필요한 저장소 성능에 대 한 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 저장소 성능 (초당 입/출력 작업 수 [IOPS] 및 처리량)이 Azure VM 지원을 초과 합니다. 마이그레이션을 시작하기 전에 컴퓨터의 스토리지 요구 사항을 낮춰봅니다.
@@ -61,7 +61,7 @@ VMware 및 Hyper-v Vm의 경우 서버 평가는 서버 평가의 알려진 간�
 - 이 차이는 온-프레미스 Vm에 설치 된 Linux OS의 부 버전을 검색 하는 것을 방지 합니다.
 - 예를 들어 RHEL 6.10의 경우 현재 서버 평가는 OS 버전으로 RHEL 6만 검색 합니다. 이는 Hyper-v 호스트 vCenter Server ar가 Linux VM 운영 체제의 커널 버전을 제공 하지 않기 때문입니다.
 -  Azure는 특정 버전의 Linux만 보증 때문에 Linux Vm은 현재 서버 평가에서 조건부로 준비 된 것으로 표시 되어 있습니다.
-- [Azure linux 지원](https://aka.ms/migrate/selfhost/azureendorseddistros)을 검토 하 여 온-프레미스 VM에서 실행 되는 Linux OS가 azure에서 보증 여부를 확인할 수 있습니다.
+- [Azure linux 지원](../virtual-machines/linux/endorsed-distros.md)을 검토 하 여 온-프레미스 VM에서 실행 되는 Linux OS가 azure에서 보증 여부를 확인할 수 있습니다.
 -  보증 배포를 확인 한 후에는이 경고를 무시 해도 됩니다.
 
 이 간격은 VMware Vm에서 [응용 프로그램 검색](./how-to-discover-applications.md) 을 사용 하도록 설정 하 여 해결할 수 있습니다. 서버 평가는 제공된 게스트 자격 증명을 사용하여 VM에서 검색된 운영 체제를 사용합니다. 이 운영 체제 데이터는 Windows 및 Linux Vm의 경우 적절 한 OS 정보를 식별 합니다.
@@ -107,7 +107,7 @@ Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권�
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>내 평가의 신뢰 등급이 낮은 이유는 무엇인가요?
 
-신뢰 등급은 평가를 계산하는 데 필요한 [사용 가능한 데이터 요소](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings)의 백분율을 기준으로 "성능 기반" 평가에 대해 계산됩니다. 아래에는 평가의 신뢰 등급이 낮아질 수 있는 이유가 나와 있습니다.
+신뢰 등급은 평가를 계산하는 데 필요한 [사용 가능한 데이터 요소](./concepts-assessment-calculation.md#ratings)의 백분율을 기준으로 "성능 기반" 평가에 대해 계산됩니다. 아래에는 평가의 신뢰 등급이 낮아질 수 있는 이유가 나와 있습니다.
 
 - 평가를 작성하는 기간 동안 환경을 프로파일링하지 않았습니다. 예를 들어 성능 기간을 일주일로 설정하여 평가를 만드는 경우 검색 시작 후 일주일 이상 기다려야 데이터 요소가 수집됩니다. 이 기간 동안 기다릴 수 없으면 성능 기간을 더 짧은 기간으로 변경하고 평가를 '다시 계산'하세요.
  
@@ -115,7 +115,7 @@ Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권�
 
 - Server Assessment에서 검색이 시작된 후 VM 몇 개가 생성되었습니다. 예를 들어 마지막 1달의 성능 기록에 대한 평가를 만들려고 하는데, 일부 VM이 불과 일주일 전에 환경에서 생성되었습니다. 이 경우 새 VM의 성능 데이터를 전체 기간에 사용할 수 없으며 신뢰 등급이 낮아집니다.
 
-신뢰 등급에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based).
+신뢰 등급에 대해 [자세히 알아보세요](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Azure VM 평가에 운영 체제 라이선스가 포함 되어 있나요?
 
@@ -126,7 +126,7 @@ Azure Migrate Server 평가는 현재 Windows 컴퓨터에 대해서만 운영 �
 Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 성능 기반 데이터를 수집 [하는 방법을 알아봅니다](concepts-assessment-calculation.md#calculate-sizing-performance-based) .
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>예약 인스턴스, VM 작동 시간 및 할인율 (%)의 잘못 된 조합을 사용 하 여 생성 되었다는 경고가 표시 되는 이유는 무엇 인가요?
-' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아봅니다](https://go.microsoft.com/fwlink/?linkid=2131554).
+' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아보기](./concepts-assessment-calculation.md#whats-an-assessment).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>실제 서버의 일부 네트워크 어댑터에 대 한 성능 데이터가 표시 되지 않습니다.
 
@@ -161,7 +161,7 @@ Windows VM의 경우
 
     ![MMA 상태](./media/troubleshoot-assessment/mma-properties.png)
 
-Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했는지 확인 합니다. 자세한 문제 해결 지침은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues)를 참조 하세요.
+Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했는지 확인 합니다. 자세한 문제 해결 지침은 [여기](../azure-monitor/insights/service-map.md#post-installation-issues)를 참조 하세요.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
