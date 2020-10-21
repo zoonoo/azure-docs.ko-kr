@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs 리소스에 대 한 액세스
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85323178"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332385"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Azure Event Hubs에 대한 액세스 권한 부여
 이벤트 허브에서 이벤트/데이터를 게시 하거나 사용할 때마다 클라이언트가 Event Hubs 리소스에 액세스 하려고 합니다. 보안 리소스에 대 한 모든 요청은 서비스에서 클라이언트에 데이터를 게시/사용 하는 데 필요한 권한이 있는지 확인할 수 있도록 권한을 부여 해야 합니다. 
@@ -23,7 +23,7 @@ Azure Event Hubs는 보안 리소스에 대 한 액세스 권한을 부여 하�
 > 이 문서는 Event Hubs 및 [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 시나리오에 모두 적용 됩니다. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Event Hubs 리소스에 대 한 Azure Active Directory (Azure AD) 통합은 클라이언트의 리소스 액세스를 세부적으로 제어 하기 위해 RBAC (역할 기반 액세스 제어)를 제공 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰은 Event Hubs 리소스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
+Event Hubs 리소스에 대 한 Azure Active Directory (Azure AD) 통합은 클라이언트에서 리소스에 대 한 액세스를 세부적으로 제어할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 제공 합니다. Azure RBAC를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰은 Event Hubs 리소스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.
 
 Azure AD를 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -40,7 +40,7 @@ Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응
 SAS를 사용한 권한 부여에 대 한 자세한 내용은 [공유 액세스 서명을 사용 하 여 Event Hubs 리소스에](authorize-access-shared-access-signature.md)대 한 액세스 권한 부여를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- GitHub 리포지토리에 게시 된 [RBAC 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 을 검토 합니다. 
+- GitHub 리포지토리에 게시 된 [AZURE RBAC 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) 을 검토 합니다. 
 - 다음 문서를 참조하세요.
     - [Azure Active Directory를 사용 하 여 응용 프로그램에서 Azure Event Hubs에 대 한 요청 인증](authenticate-application.md)
     - [Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](authenticate-managed-identity.md)

@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843314"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320500"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure의 Service Fabric 클러스터 개요
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
@@ -78,7 +78,7 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대해 �
 ### <a name="network-security-groups"></a>네트워크 보안 그룹 
 NSG(네트워크 보안 그룹)은 서브넷, VM 또는 특정 NIC의 인바운드 및 아웃바운드 트래픽을 제어합니다.  기본적으로 여러 VM을 동일한 가상 네트워크에 배치하면 임의 포트를 통해 서로 통신할 수 있습니다.  컴퓨터 간 통신을 제한하려는 경우 NSG를 정의하여 네트워크를 분할하거나 VM을 서로 격리할 수 있습니다.  클러스터에 여러 노드 형식이 있는 경우 서브넷에 NSG를 적용하여 다른 노드 형식에 속하는 컴퓨터가 다른 컴퓨터와 통신하지 못하게 할 수 있습니다.  
 
-자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
+자세한 내용은 [보안 그룹](../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
 ## <a name="scaling"></a>확장
 

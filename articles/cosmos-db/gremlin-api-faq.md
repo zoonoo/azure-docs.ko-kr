@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 416cf4f027b6f1e72641324be39ba0304301db37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43bd0a076a21429a5f6fe05ef0c20d62674acdf
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82614500"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281549"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API에 대 한 질문과 대답
 
@@ -99,7 +99,7 @@ RU 청구는 결과 집합이 아닌 횡단의 유효 데이터 집합에 기반
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Graph 데이터베이스가 Azure Cosmos DB Gremlin API에서 가질 수 있는 최대 크기는 얼마 인가요?
 
-Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 스토리지 및 처리량 요구 사항 증가를 자동으로 해결합니다. 작업의 최대 처리량 및 저장소 용량은 지정 된 컨테이너와 연결 된 파티션 수에 따라 결정 됩니다. 그러나 Gremlin API 컨테이너에는 적절 한 규모의 성능 환경을 보장 하기 위한 특정 지침 집합이 있습니다. 분할에 대한 자세한 내용 및 모범 사례는 [Azure Cosmos DB에서 분할](partition-data.md) 문서를 참조하세요.
+Azure Cosmos DB는 [수평 분할](partitioning-overview.md)을 활용하여 스토리지 및 처리량 요구 사항 증가를 자동으로 해결합니다. 작업의 최대 처리량 및 저장소 용량은 지정 된 컨테이너와 연결 된 파티션 수에 따라 결정 됩니다. 그러나 Gremlin API 컨테이너에는 적절 한 규모의 성능 환경을 보장 하기 위한 특정 지침 집합이 있습니다. 분할에 대한 자세한 내용 및 모범 사례는 [Azure Cosmos DB에서 분할](partitioning-overview.md) 문서를 참조하세요.
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>C#.NET 개발의 경우 Microsoft.Azure.Graphs 패키지 또는 Gremlin.NET를 사용해야 하나요?
 

@@ -3,12 +3,12 @@ title: Azure Event Grid의 이벤트 도메인
 description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 비즈니스 조직, 고객 또는 애플리케이션에 대한 사용자 지정 이벤트의 흐름을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86114366"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328830"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -37,13 +37,13 @@ ms.locfileid: "86114366"
 
 ## <a name="access-management"></a>액세스 관리
 
-도메인을 사용하면 Azure의 RBAC(역할 기반 액세스 제어)를 통해 각 토픽에 대한 권한 부여 및 인증을 세밀하게 제어할 수 있습니다. 이러한 역할을 사용하여 애플리케이션의 각 테넌트를 제한하는 방법으로 원하는 토픽에만 액세스 권한을 부여할 수 있습니다.
+도메인을 사용 하면 azure 역할 기반 액세스 제어 (Azure RBAC)를 통해 각 항목에 대해 세분화 된 권한 부여 및 인증 제어를 받을 수 있습니다. 이러한 역할을 사용하여 애플리케이션의 각 테넌트를 제한하는 방법으로 원하는 토픽에만 액세스 권한을 부여할 수 있습니다.
 
-이벤트 도메인의 RBAC는 Event Grid 및 Azure의 나머지 부분에서 [관리 액세스 제어](security-authorization.md)가 작동하는 방식과 동일하게 작동합니다. RBAC를 사용하여 이벤트 도메인에 사용자 지정 역할 정의를 만들고 적용할 수 있습니다.
+이벤트 도메인의 Azure RBAC는 Event Grid 및 Azure의 나머지 부분에서 [관리 되는 액세스 제어가](security-authorization.md) 작동 하는 것과 동일한 방식으로 작동 합니다. Azure RBAC를 사용 하 여 이벤트 도메인에서 사용자 지정 역할 정의를 만들고 적용 합니다.
 
 ### <a name="built-in-roles"></a>기본 제공 역할
 
-Event Grid에는 RBAC를 이벤트 도메인 작업에 보다 쉽게 적용할 수 있는 두 개의 기본 제공 역할 정의가 제공됩니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 사용자가 구독 해야 하는 토픽 으로만 역할 할당의 범위를 지정 합니다.
+Event Grid에는 Azure RBAC를 사용 하 여 이벤트 도메인 작업을 용이 하 게 하는 두 개의 기본 제공 역할 정의가 있습니다. 이러한 역할은 **EventGrid EventSubscription 기여자(미리 보기)** 및 **EventGrid EventSubscription 읽기 권한자(미리 보기)** 입니다. 이벤트 도메인의 토픽을 구독해야 하는 사용자에게 이러한 역할을 할당합니다. 사용자가 구독 해야 하는 토픽 으로만 역할 할당의 범위를 지정 합니다.
 
 이러한 역할에 대한 자세한 내용은 [Event Grid의 기본 제공 역할](security-authorization.md#built-in-roles)을 참조하세요.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217391"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314809"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -157,6 +157,17 @@ Load Balancer의 백 엔드 VM에서 호스트된 애플리케이션이 동일�
 - VNet 내의 백 엔드 VM 중 하나에서 Psping을 사용하여 프로브 포트 응답을 테스트하고(예: psping 10.0.0.4:3389) 결과를 기록합니다. 
 - 이러한 ping 테스트에서 응답이 수신되지 않으면 PsPing을 실행하는 동안 백 엔드 VM 및 VNet 테스트 VM에 대해 동시 Netsh 추적을 실행한 후 Netsh 추적을 중지합니다. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>증상: 실패 상태 Load Balancer 
+
+**해결 방법**
+
+- 실패 상태에 있는 리소스를 확인 한 후 [Azure Resource Explorer](https://resources.azure.com/) 으로 이동 하 여이 상태에서 리소스를 식별 합니다. 
+- 오른쪽 위 모퉁이의 설정/해제를 읽기/쓰기로 업데이트 합니다.
+- 실패 상태에서 리소스에 대 한 편집을 클릭 합니다.
+- PUT, GET을 차례로 클릭 하 여 프로 비전 상태가 성공으로 업데이트 되었는지 확인 합니다.
+- 그런 다음 리소스가 실패 상태를 초과 하 여 다른 작업을 계속 진행할 수 있습니다.
+
+
 ## <a name="next-steps"></a>다음 단계
 
 앞의 단계에서 문제가 해결되지 않으면 [지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.

@@ -9,19 +9,21 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: dad1f9f232cb9d713af81f6aea57a4ffe651da19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331967"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328286"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Azure Data Factory의 Excel 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 **Excel 파일을 구문 분석**하려는 경우이 문서를 따릅니다. Azure Data Factory ".xls" 및 ".xlsx"를 모두 지원 합니다.
 
-Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)및 [SFTP](connector-sftp.md)커넥터에 대해 지원 됩니다. 원본으로 지원 되며 싱크로는 지원 되지 않습니다.
+Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)및 [SFTP](connector-sftp.md)커넥터에 대해 지원 됩니다. 원본으로 지원 되며 싱크로는 지원 되지 않습니다. 
+
+**참고**: [HTTP](connector-http.md)를 사용 하는 동안에는 ".xls" 형식이 지원 되지 않습니다. 
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -71,7 +73,7 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure 
 
 ### <a name="excel-as-source"></a>원본으로 Excel 
 
-복사 작업 *** \* 원본 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 **_ \_ 원본 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |

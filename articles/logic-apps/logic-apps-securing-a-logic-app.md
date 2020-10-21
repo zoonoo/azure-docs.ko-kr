@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168500"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317564"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -1065,7 +1065,7 @@ Azure Logic Apps를 사용 하 여 [Azure Government 영향 수준 5 격리 지�
 
   * [Azure App Service 계획](../app-service/overview-hosting-plans.md)
   * [Azure Functions 네트워킹 옵션](../azure-functions/functions-networking-options.md)
-  * [가상 컴퓨터용 Azure 전용 호스트](../virtual-machines/windows/dedicated-hosts.md)
+  * [가상 컴퓨터용 Azure 전용 호스트](../virtual-machines/dedicated-hosts.md)
   * [Azure의 가상 머신 격리](../virtual-machines/isolation.md)
   * [가상 네트워크에 전용 Azure 서비스 배포](../virtual-network/virtual-network-for-azure-services.md)
 

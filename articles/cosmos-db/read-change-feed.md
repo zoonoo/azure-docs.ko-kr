@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018972"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282067"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 변경 피드를 사용하는 대부분의 시나리오에서는
 
 ### <a name="azure-functions"></a>Azure 기능
 
-Azure Functions는 단순히 변경 피드를 사용하여 시작하는 경우 가장 간단한 옵션입니다. 이러한 단순함 덕분에 대부분의 변경 피드 사용 사례에 권장되는 옵션이기도 합니다. Azure Cosmos DB에 대한 Azure Functions 트리거를 생성할 때 연결할 컨테이너를 선택하면 컨테이너에 변경 내용이 있을 때마다 Azure 함수가 트리거됩니다. Azure Functions는 백그라운드에서 변경 피드 프로세서를 사용하므로, 컨테이너의 [파티션](partition-data.md)에서 변경 내용 처리를 자동으로 병렬화합니다.
+Azure Functions는 단순히 변경 피드를 사용하여 시작하는 경우 가장 간단한 옵션입니다. 이러한 단순함 덕분에 대부분의 변경 피드 사용 사례에 권장되는 옵션이기도 합니다. Azure Cosmos DB에 대한 Azure Functions 트리거를 생성할 때 연결할 컨테이너를 선택하면 컨테이너에 변경 내용이 있을 때마다 Azure 함수가 트리거됩니다. Azure Functions는 백그라운드에서 변경 피드 프로세서를 사용하므로, 컨테이너의 [파티션](partitioning-overview.md)에서 변경 내용 처리를 자동으로 병렬화합니다.
 
 Azure Functions를 사용하여 개발하는 것은 손쉬운 환경으로, 변경 피드 프로세서를 직접 배포하는 것보다 더 빠를 수 있습니다. 트리거는 Azure Functions 포털을 사용하거나, SDK를 사용하여 프로그래밍 방식으로 만들 수 있습니다. Visual Studio 및 VS Code는 Azure Functions를 작성하는 지원을 제공하며 플랫폼 간 개발을 위해 Azure Functions CLI를 사용할 수도 있습니다. 데스크톱에서 코드를 작성하고 디버그한 다음, 클릭 한 번으로 함수를 배포할 수 있습니다. 자세한 내용은 [Azure Functions를 사용한 서버리스 데이터베이스 컴퓨팅](serverless-computing-database.md) 및 [Azure Functions와 함께 변경 피드 사용](change-feed-functions.md) 문서를 참조하세요.
 

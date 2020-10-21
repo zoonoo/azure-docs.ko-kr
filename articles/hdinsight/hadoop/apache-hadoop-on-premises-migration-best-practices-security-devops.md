@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751288"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329426"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -69,7 +69,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 **데이터 액세스를 위한 인증 및 권한 부여**
     - Azure Active Directory Domain Services를 사용하여 도메인에 조인된 HDInsight 클러스터를 만듭니다. (Enterprise Security Package)
-    - Ambari를 사용하여 AD 사용자용 클러스터 리소스에 대한 역할 기반 액세스를 제공합니다.
+    - Ambari를 사용 하 여 AD 사용자에 대 한 클러스터 리소스에 대 한 역할 기반 액세스를 제공 합니다.
     - Apache Ranger를 사용하여 테이블/열/행 수준에서 Hive에 대한 액세스 제어 정책을 설정합니다.
     - 클러스터에 대한 SSH 액세스를 관리자로 제한할 수 있습니다.
 

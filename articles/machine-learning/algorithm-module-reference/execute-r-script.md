@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542291"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330396"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -194,11 +194,11 @@ R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
     > [!NOTE]
     > 기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
 
-    스크립트가 16kb 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 자 제한을 초과*하는 오류를 방지 합니다. 
+1. 스크립트가 16kb 보다 큰 경우 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 자 제한을 초과*하는 오류를 방지 합니다. 
     
     1. 스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들로 묶습니다.
     1. **파일 데이터 집합** 으로 zip 파일을 스튜디오에 업로드 합니다. 
-    1. 디자이너 제작 페이지의 왼쪽 모듈 창에 있는 *내 데이터* 집합 목록에서 데이터 집합 모듈을 끌어 옵니다. 
+    1. 디자이너 제작 페이지의 왼쪽 모듈 창에 *있는 데이터 집합 목록에서* 데이터 집합 모듈을 끌어 옵니다. 
     1. **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 데이터 집합 모듈을 연결 합니다.
     
     스크립트 번들에서 스크립트를 사용 하는 샘플 코드는 다음과 같습니다.

@@ -7,24 +7,26 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8c971168add1aa63599a22f81a3b517d6cc561a1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281307"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329120"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 모델을 학습 하는 경우 사용자 지정 Docker 이미지를 사용 하는 방법에 대해 알아봅니다. 이 문서의 예제 스크립트를 사용 하 여 나선형 신경망을 만들어 pet 이미지를 분류 합니다. 
 
-Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [Azure Machine Learning 기본](https://github.com/Azure/AzureML-Containers) 이미지 중 하나 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)와 같은 다른 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다. 
+Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [Azure Machine Learning 기본](https://github.com/Azure/AzureML-Containers) 이미지 중 하나 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)와 같은 다른 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>전제 조건
+
 이러한 환경 중 하나에서 코드를 실행 합니다.
+
 * 계산 인스턴스 Azure Machine Learning (다운로드 또는 설치 필요 없음):
   * SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 된 전용 노트북 서버를 만들려면 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md) 자습서를 완료 합니다.
   * Azure Machine Learning [예제 리포지토리](https://github.com/Azure/azureml-examples)에서 **노트북**  >  **fastai**  >  **resnet34-. ipynb** 디렉터리로 이동 하 여 완료 된 노트북을 찾습니다. 
@@ -33,10 +35,12 @@ Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure
   * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 설치합니다. 
   * 인터넷에서 사용할 수 있는 [Azure container registry](/azure/container-registry) 또는 기타 Docker 레지스트리를 만듭니다.
 
-## <a name="set-up-the-experiment"></a>실험 설정 
-이 섹션에서는 작업 영역을 초기화 하 고, 실험을 만들고, 학습 데이터 및 학습 스크립트를 업로드 하 여 학습 실험을 설정 합니다.
+## <a name="set-up-a-training-experiment"></a>학습 실험 설정
+
+이 섹션에서는 작업 영역을 초기화 하 고, 환경을 정의 하 고, 계산 대상을 구성 하 여 학습 실험을 설정 합니다.
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
+
 [Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만든 모든 아티팩트를 사용 하 여 작업할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다 [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) .
 
 `Workspace` [필수 구성](#prerequisites)요소로 만든 파일의 config.js에서 개체를 만듭니다.
@@ -47,11 +51,9 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="prepare-scripts"></a>스크립트 준비
-이 자습서에서는 [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)의 교육 스크립트 *train.py* 을 사용 합니다. 실제로 사용자 지정 학습 스크립트를 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
-
 ### <a name="define-your-environment"></a>환경 정의
-개체를 만들고 `Environment` Docker를 사용 하도록 설정 합니다. 
+
+개체를 만들고 `Environment` Docker를 사용 하도록 설정 합니다.
 
 ```python
 from azureml.core import Environment
@@ -69,6 +71,8 @@ fastai_env.docker.base_image = "fastdotai/fastai2:latest"
 fastai_env.python.user_managed_dependencies = True
 ```
 
+#### <a name="use-a-private-container-registry-optional"></a>개인 컨테이너 레지스트리 사용 (선택 사항)
+
 작업 영역에 없는 개인 컨테이너 레지스트리에서 이미지를 사용 하려면를 사용 `docker.base_image_registry` 하 여 리포지토리의 주소와 사용자 이름 및 암호를 지정 합니다.
 
 ```python
@@ -77,6 +81,8 @@ fastai_env.docker.base_image_registry.address = "myregistry.azurecr.io"
 fastai_env.docker.base_image_registry.username = "username"
 fastai_env.docker.base_image_registry.password = "password"
 ```
+
+#### <a name="use-a-custom-dockerfile-optional"></a>사용자 지정 Dockerfile 사용 (선택 사항)
 
 사용자 지정 Dockerfile도 사용할 수 있습니다. 비 Python 패키지를 종속성으로 설치 해야 하는 경우이 방법을 사용 합니다. 기본 이미지를로 설정 해야 `None` 합니다.
 
@@ -98,12 +104,13 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 Azure Machine Learning 환경을 만들고 관리 하는 방법에 대 한 자세한 내용은 [소프트웨어 환경 만들기 및 사용](how-to-use-environments.md)을 참조 하세요. 
 
-### <a name="create-or-attach-an-amlcompute-resource"></a>AmlCompute 리소스 만들기 또는 연결
+### <a name="create-or-attach-a-compute-target"></a>계산 대상 만들기 또는 연결
+
 모델 학습을 위한 [계산 대상을](concept-azure-machine-learning-architecture.md#compute-targets) 만들어야 합니다. 이 자습서에서는를 `AmlCompute` 학습 계산 리소스로 만듭니다.
 
-만들기는 `AmlCompute` 5 분 정도 걸립니다. `AmlCompute`리소스가 이미 작업 영역에 있는 경우이 코드는 생성 프로세스를 건너뜁니다.
+만들기는 `AmlCompute` 몇 분 정도 걸립니다. `AmlCompute`리소스가 이미 작업 영역에 있는 경우이 코드는 생성 프로세스를 건너뜁니다.
 
-다른 Azure 서비스와 마찬가지로 `AmlCompute` Azure Machine Learning 서비스와 연결 된 특정 리소스 (예:)에 대 한 제한이 있습니다. 자세한 내용은 [기본 한도 및 더 높은 할당량을 요청 하는 방법](how-to-manage-quotas.md)을 참조 하세요. 
+다른 Azure 서비스와 마찬가지로 `AmlCompute` Azure Machine Learning 서비스와 연결 된 특정 리소스 (예:)에 대 한 제한이 있습니다. 자세한 내용은 [기본 한도 및 더 높은 할당량을 요청 하는 방법](how-to-manage-quotas.md)을 참조 하세요.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -129,7 +136,10 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
-### <a name="create-a-scriptrunconfig-resource"></a>ScriptRunConfig 리소스 만들기
+## <a name="configure-your-training-job"></a>교육 작업 구성
+
+이 자습서에서는 [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py)의 교육 스크립트 *train.py* 을 사용 합니다. 실제로 사용자 지정 학습 스크립트를 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
+
 `ScriptRunConfig`원하는 [계산 대상](how-to-set-up-training-targets.md)에서 실행 되도록 작업을 구성 하는 리소스를 만듭니다.
 
 ```python
@@ -141,7 +151,8 @@ src = ScriptRunConfig(source_directory='fastai-example',
                       environment=fastai_env)
 ```
 
-### <a name="submit-your-run"></a>실행 제출
+## <a name="submit-your-training-job"></a>학습 작업 제출
+
 개체를 사용 하 여 학습 실행을 제출 하는 경우 `ScriptRunConfig` `submit` 메서드는 형식의 개체를 반환 합니다 `ScriptRun` . 반환 된 `ScriptRun` 개체는 학습 실행에 대 한 정보에 대 한 프로그래밍 방식의 액세스를 제공 합니다. 
 
 ```python

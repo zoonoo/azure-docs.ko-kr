@@ -4,12 +4,12 @@ description: 이 문서에서는 비용을 최적화 하 고 사용자 환경에
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476260"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328269"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Azure DevTest Labs 인프라의 거버넌스 - 비용 및 소유권 관리
 비용 및 소유권은 개발 및 테스트 환경의 구축을 고려할 때 주요 관심사입니다. 이 섹션에서는 비용을 최적화하고 사용자 환경에서 소유권을 조정하는 데 유용한 도움이 되는 정보를 찾을 수 있습니다.
@@ -34,9 +34,9 @@ DevTest Labs 환경 내에서 비용을 최적화하려면 어떻게 해야 하�
 
 DevTest 제안을 사용하기로 결정한 경우 이 혜택이 개발 및 애플리케이션 테스트에만 해당된다는 것에 유의합니다. Azure DevOps 및 HockeyApp을 사용하는 경우를 제외하고 구독 내에서의 사용에는 재정적으로 지원되는 SLA가 적용되지 않습니다.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>조직 전체에서 역할 기반 액세스 정의
+## <a name="define-role-based-access-across-your-organization"></a>조직 전체에서 역할 기반 액세스 정의
 ### <a name="question"></a>질문
-개발자/테스트 담당자가 해당 작업을 수행하는 동안 IT 부서에서 관리할 수 있도록 내 DevTest Labs의 역할 기반 액세스 제어를 정의하려면 어떻게 해야 하나요? 
+DevTest Labs 환경에 대 한 Azure 역할 기반 액세스 제어를 정의 하 여 개발자/테스트에서 작업을 수행할 수 있는 동안 제어할 수 있는지 확인 합니다. 어떻게 할까요? 
 
 ### <a name="answer"></a>답변
 광범위하게 적용되는 한 가지 패턴이 있지만 세부 사항은 조직에 따라 다릅니다.

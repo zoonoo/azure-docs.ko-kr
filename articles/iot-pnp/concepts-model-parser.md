@@ -3,18 +3,17 @@ title: Digital Twins 모델 파서 이해 | Microsoft Docs
 description: 개발자는 DTDL 파서를 사용 하 여 모델의 유효성을 검사 하는 방법을 알아봅니다.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87352430"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331790"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>디지털 트윈 모델 파서 이해
 
@@ -28,9 +27,12 @@ Dtdl (디지털 Twins 정의 언어)는 [Dtdl 사양](https://github.com/Azure/o
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> 작성 시 파서 버전은 `3.12.5` 입니다.
+
 ## <a name="use-the-parser-to-validate-a-model"></a>파서를 사용 하 여 모델 유효성 검사
 
-유효성을 검사 하려는 모델은 JSON 파일에 설명 된 하나 이상의 인터페이스로 구성 될 수 있습니다. 파서를 사용 하 여 지정 된 폴더의 모든 파일을 로드 하 고 파서를 사용 하 여 파일 간의 모든 참조를 포함 하 여 전체 파일의 유효성을 검사할 수 있습니다.
+모델은 JSON 파일에 설명 된 하나 이상의 인터페이스로 구성 될 수 있습니다. 파서를 사용 하 여 지정 된 폴더의 모든 파일을 로드 하 고 파서를 사용 하 여 파일 간의 모든 참조를 포함 하 여 전체 파일의 유효성을 검사할 수 있습니다.
 
 1. `IEnumerable<string>`모든 모델 콘텐츠 목록을 포함 하는을 만듭니다.
 
@@ -57,18 +59,20 @@ dotnet add package Microsoft.Azure.DigitalTwins.Parser
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. 유효성 검사 오류를 확인합니다. 파서가 오류를 발견 하면 `AggregateException` 자세한 오류 메시지 목록을 포함 하는을 throw 합니다.
+1. 유효성 검사 오류를 확인합니다. 파서가 오류를 발견 하면 `ParsingException` 오류 목록과 함께이 throw 됩니다.
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ dotnet add package Microsoft.Azure.DigitalTwins.Parser
 1. 를 검사 `Model` 합니다. 유효성 검사가 성공 하면 모델 파서 API를 사용 하 여 모델을 검사할 수 있습니다. 다음 코드 조각에서는 구문 분석 된 모든 모델을 반복 하 고 기존 속성을 표시 하는 방법을 보여 줍니다.
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

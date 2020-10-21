@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570010"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320226"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>PostgreSQL Hyperscale 서버 그룹 문제 해결
 이 문서에서는 서버 그룹 문제를 해결 하는 데 사용할 수 있는 몇 가지 기법을 설명 합니다. 이 문서 외에도 [Kibana](monitor-grafana-kibana.md) 를 사용 하 여 로그를 검색 하거나 [Grafana](monitor-grafana-kibana.md) 를 사용 하 여 서버 그룹에 대 한 메트릭을 시각화 하는 방법을 읽을 수 있습니다. 
@@ -51,13 +51,13 @@ Notebook은 markdown 콘텐츠를 포함하여 수행할 작업 및 방법을 �
 
 ### <a name="install-tools"></a>도구 설치
 
-`kubectl` `azdata` Azure Data Studio에서 노트북을 실행 하는 데 사용 하는 클라이언트 컴퓨터에 Azure Data Studio 및를 설치 합니다. 이렇게 하려면 [클라이언트 도구 설치](install-client-tools.md) 의 지침을 따르세요.
+`kubectl` [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Azure Data Studio에서 노트북을 실행 하는 데 사용 하는 클라이언트 컴퓨터에 Azure Data Studio 및를 설치 합니다. 이렇게 하려면 [클라이언트 도구 설치](install-client-tools.md) 의 지침을 따르세요.
 
 ### <a name="update-the-path-environment-variable"></a>PATH 환경 변수 업데이트
 
 이러한 도구는이 클라이언트 컴퓨터의 어디에서 나 호출할 수 있는지 확인 합니다. 예를 들어 Windows 클라이언트 컴퓨터에서 PATH 시스템 환경 변수를 업데이트 하 고 kubectl를 설치한 폴더를 추가 합니다.
 
-### <a name="sign-in-with-azdata"></a>로그인 `azdata`
+### <a name="sign-in-with-azure-data-cli-azdata"></a>로그인 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 이 클라이언트 컴퓨터에서 Arc 데이터 컨트롤러에 로그인 하 고 Azure Data Studio를 시작 합니다. 이렇게 하려면 다음과 같은 명령을 실행 합니다.
 

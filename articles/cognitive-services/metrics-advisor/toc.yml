@@ -45,6 +45,8 @@
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
     - name: 가격 책정
       href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
     - name: 국가별 가용성

@@ -3,19 +3,19 @@ title: Azure DevTest Labs에 소유자 및 사용자 추가 | Microsoft 문서
 description: Azure Portal 또는 PowerShell을 사용하여 Azure DevTest Labs에 소유자 및 사용자 추가
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d6af68cd663e88af90d690375a4d45c538aad1d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533328"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330192"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Azure DevTest Labs의 액세스는 azure [역할 기반 access control (AZURE RBAC)](../role-based-access-control/overview.md)에 의해 제어 됩니다. RBAC를 사용하면 팀 내에서 업무를 수행하기 위해 사용자에게 필요한 만큼의 액세스 권한을 부여하는 *역할* 로 업무를 분리할 수 있습니다. 이러한 Azure 역할 중 세 가지는 *소유자*, *DevTest Labs 사용자*및 *참가자*입니다. 이 문서에서는 세 가지 주요 Azure 역할 각각에서 수행할 수 있는 작업을 알아봅니다. 여기서 포털 및 PowerShell 스크립트를 통해 랩에 사용자를 추가하는 방법과 구독 수준에서 사용자를 추가하는 방법을 설명합니다.
+Azure DevTest Labs의 액세스는 azure [역할 기반 access control (AZURE RBAC)](../role-based-access-control/overview.md)에 의해 제어 됩니다. Azure RBAC를 사용 하면 팀 내에서 업무를 수행 하는 데 필요한 액세스 권한만 부여 하는 *역할로* 구분할 수 있습니다. 이러한 Azure 역할 중 세 가지는 *소유자*, *DevTest Labs 사용자*및 *참가자*입니다. 이 문서에서는 세 가지 주요 Azure 역할 각각에서 수행할 수 있는 작업을 알아봅니다. 여기서 포털 및 PowerShell 스크립트를 통해 랩에 사용자를 추가하는 방법과 구독 수준에서 사용자를 추가하는 방법을 설명합니다.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>각 역할에서 수행할 수 있는 작업
 사용자를 할당할 수 있는 세 가지 주요 역할이 있습니다.

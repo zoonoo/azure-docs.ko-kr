@@ -3,15 +3,15 @@ title: Azure Active Directory를 사용하여 액세스 권한 부여
 description: 이 문서에서는 Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566264"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332402"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
-Azure Event Hubs는 Azure Active Directory (Azure AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여 합니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
+Azure Event Hubs는 Azure Active Directory (Azure AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여 합니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="overview"></a>개요
 보안 주체 (사용자 또는 응용 프로그램)가 Event Hubs 리소스에 액세스 하려고 하는 경우 요청에 권한이 부여 되어야 합니다. Azure AD를 사용 하 여 리소스에 대 한 액세스는 2 단계 프로세스입니다. 
@@ -39,7 +39,7 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 | [Azure Event Hubs 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 송신 액세스를 제공 합니다. |
 | [Azure Event Hubs 데이터 수신기](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | 이 역할을 사용 하 여 Event Hubs 리소스에 대 한 사용/수신 액세스를 제공 합니다. |
 
-스키마 레지스트리 기본 제공 역할은 [스키마 레지스트리 역할](schema-registry-overview.md#role-based-access-control)을 참조 하세요.
+스키마 레지스트리 기본 제공 역할은 [스키마 레지스트리 역할](schema-registry-overview.md#azure-role-based-access-control)을 참조 하세요.
 
 ## <a name="resource-scope"></a>리소스 범위 
 Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여해야 하는 액세스 범위를 결정합니다. 모범 사례에 따르면 항상 가능한 가장 좁은 범위만 부여하는 것이 가장 좋습니다.
@@ -73,7 +73,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 ## <a name="next-steps"></a>다음 단계
 - Azure 기본 제공 역할을 보안 주체에 할당 하는 방법에 대해 알아봅니다. [Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증](authenticate-application.md)을 참조 하세요.
-- [RBAC를 사용 하 여 사용자 지정 역할을 만드는 방법](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)에 대해 알아봅니다.
+- [AZURE RBAC를 사용 하 여 사용자 지정 역할을 만드는 방법](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole)에 대해 알아봅니다.
 - [EH와 Azure Active Directory를 사용 하는 방법을](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK) 알아봅니다.
 
 다음 관련 문서를 참조 하세요.

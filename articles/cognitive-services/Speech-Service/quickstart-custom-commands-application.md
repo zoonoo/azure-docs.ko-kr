@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289425"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329154"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>사용자 지정 명령을 사용하여 음성 도우미 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "87289425"
 * 동아시아
 * 동남아시아
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">사용자 지정 명령을 지 원하는 지역에서 Azure Speech 리소스를 만듭니다.<span class="docon docon-navigate-external x-hidden-focus"></span></a> 지원 되는 지역 목록에 대해서는 위의 **지역 가용성** 섹션을 참조 하세요.
@@ -123,7 +123,7 @@ Speech Studio 외부에서이 응용 프로그램에 액세스 하려면 먼저 
 1. **VoiceAssistantClient.exe**를 시작 합니다.
 1. 새 게시 프로필을 만들고 **연결 프로필**에 대 한 값을 입력 합니다. **일반 설정** 섹션에서 값 **구독 키** (응용 프로그램을 게시할 때 저장 한 **음성 리소스 키** 값과 동일), **구독 키 지역** 및 **사용자 지정 명령 앱 ID**를 입력 합니다.
     > [!div class="mx-imgBorder"]
-    > ![WVAC 프로필 만들기](media/custom-commands/create-profile.png)
+    > ![WVAC 프로필을 만들기 위한 일반 설정 섹션을 강조 표시 하는 스크린샷](media/custom-commands/create-profile.png)
 1. **프로필 저장 및 적용을**선택 합니다.
 1. 이제 음성/텍스트를 통해 다음 입력을 사용해 보세요.
     > [!div class="mx-imgBorder"]

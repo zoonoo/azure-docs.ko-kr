@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131380"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332028"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -42,11 +42,11 @@ Data Lake Storage Gen2에 대 한 액세스 권한이 있는 HDInsight 클러스
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>Data Lake Storage Gen2는 어떤 종류의 권한을 지원하나요?
 
-Data Lake Storage Gen2에서는 RBAC (역할 기반 액세스 제어) 및 POSIX와 같은 액세스 제어 목록 (Acl)을 모두 지 원하는 액세스 제어 모델을 사용 합니다. Data Lake Storage Gen1는 데이터에 대 한 액세스를 제어 하기 위한 액세스 제어 목록만 지원 합니다.
+Data Lake Storage Gen2는 azure RBAC (역할 기반 액세스 제어) 및 POSIX와 유사한 Acl (액세스 제어 목록)을 모두 지 원하는 액세스 제어 모델을 사용 합니다. Data Lake Storage Gen1는 데이터에 대 한 액세스를 제어 하기 위한 액세스 제어 목록만 지원 합니다.
 
-RBAC는 역할 할당을 사용 하 여 Azure 리소스에 대 한 사용자, 그룹 및 서비스 사용자에 게 사용 권한 집합을 효과적으로 적용 합니다. 일반적으로 이러한 Azure 리소스는 최상위 리소스 (예: Azure Blob storage 계정)로 제한 됩니다. Azure Blob storage의 경우에도 Data Lake Storage Gen2이 메커니즘이 파일 시스템 리소스로 확장 되었습니다.
+Azure RBAC는 역할 할당을 사용 하 여 Azure 리소스에 대 한 사용자, 그룹 및 서비스 사용자에 게 사용 권한 집합을 효과적으로 적용 합니다. 일반적으로 이러한 Azure 리소스는 최상위 리소스 (예: Azure Blob storage 계정)로 제한 됩니다. Azure Blob storage의 경우에도 Data Lake Storage Gen2이 메커니즘이 파일 시스템 리소스로 확장 되었습니다.
 
-RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)를 참조 하세요.
+Azure RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE rbac)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)를 참조 하세요.
 
 Acl을 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [파일 및 디렉터리에 대 한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md)을 참조 하십시오.
 

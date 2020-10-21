@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450132"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330372"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -120,9 +120,47 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
 
     ![Python 입력 맵 실행](media/module/python-module.png)
 
-4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스가 포함 된 압축 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. **데이터 집합 자산 페이지** 에서 데이터 집합을 업로드할 수 있습니다. 디자이너 제작 페이지에서 왼쪽 모듈 트리의 **내 데이터** 집합 목록에서 데이터 집합 모듈을 끌 수 있습니다. 
+4. 새 Python 패키지 또는 코드를 포함 하려면 이러한 사용자 지정 리소스가 포함 된 압축 파일을 **스크립트 번들** 포트에 연결 합니다. 또는 스크립트가 16kb 보다 큰 경우에는 **스크립트 번들** 포트를 사용 하 여 *명령줄에서 16597 문자 제한을 초과*하는 오류를 방지 합니다. 
 
-    업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 되지만 **src** 라는 디렉터리 앞에 경로를 추가 해야 합니다.
+    
+    1. 스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들로 묶습니다.
+    1. **파일 데이터 집합** 으로 zip 파일을 스튜디오에 업로드 합니다. 
+    1. 디자이너 제작 페이지의 왼쪽 모듈 창에 *있는 데이터 집합 목록에서* 데이터 집합 모듈을 끌어 옵니다. 
+    1. **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 데이터 집합 모듈을 연결 합니다.
+    
+    업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 됩니다.
+    
+    다음은 python 스크립트 파일 및 txt 파일이 포함 된 스크립트 번들 예제입니다.
+      
+    > [!div class="mx-imgBorder"]
+    > ![스크립트 번들 예제](media/module/python-script-bundle.png)  
+
+    다음은의 내용입니다 `my_script.py` .
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    다음은 스크립트 번들의 파일을 사용 하는 방법을 보여 주는 샘플 코드입니다.    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. **Python 스크립트** 텍스트 상자에 올바른 Python 스크립트를 입력 하거나 붙여 넣습니다.
 

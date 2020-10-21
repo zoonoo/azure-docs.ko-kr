@@ -4,17 +4,17 @@ description: 이제 Service Fabric 컨테이너 서비스에 인증서 파일을
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219882a3f7f6db665f1ec311098ef53464773b71
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050746"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313693"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기
 
 > [!NOTE]
-> Azure에서 실행 되는 Service Fabric 클러스터의 경우 [Service Fabric 응용 프로그램 관리 id](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) 를 사용 하 여 컨테이너 내에서 응용 프로그램 인증서를 프로 비전 하는 것이 좋습니다. 관리 Id는 서비스 수준에서 비밀 및 인증서의 격리를 제공 하 고, 응용 프로그램 인증서 프로 비전은 인프라의 워크플로가 아닌 응용 프로그램의 워크플로에 포함 될 수 있도록 합니다. CertificateRef 메커니즘은 이후 릴리스에서 더 이상 사용 되지 않습니다.
+> Azure에서 실행 되는 Service Fabric 클러스터의 경우 [Service Fabric 응용 프로그램 관리 id](./concepts-managed-identity.md) 를 사용 하 여 컨테이너 내에서 응용 프로그램 인증서를 프로 비전 하는 것이 좋습니다. 관리 Id는 서비스 수준에서 비밀 및 인증서의 격리를 제공 하 고, 응용 프로그램 인증서 프로 비전은 인프라의 워크플로가 아닌 응용 프로그램의 워크플로에 포함 될 수 있도록 합니다. CertificateRef 메커니즘은 이후 릴리스에서 더 이상 사용 되지 않습니다.
 
 인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 인증서는 클러스터의 모든 노드에서 LocalMachine 아래 인증서 저장소에 설치해야 합니다. 인증서에 해당하는 프라이빗 키는 사용이 가능하고, 액세스가 가능하며 Windows에서 내보낼 수 있어야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 애플리케이션 매니페스트에서 제공됩니다.
 

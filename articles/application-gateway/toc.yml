@@ -80,10 +80,10 @@
           href: redirect-overview.md
         - name: HTTP 헤더 및 URL 다시 쓰기
           href: rewrite-http-headers-url.md
-        - name: 보안
-          items:
-            - name: 보안 기준
-              href: security-baseline.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: SSL
       items:
         - name: SSL 종료 및 엔드투엔드 SSL

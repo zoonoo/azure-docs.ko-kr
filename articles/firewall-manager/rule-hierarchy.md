@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893722"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331739"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Azure 방화벽 정책을 사용 하 여 규칙 계층 구조 정의
 
@@ -21,7 +21,7 @@ ms.locfileid: "88893722"
 Azure 방화벽 정책을 사용 하 여 규칙 계층을 정의 하 고 규정 준수를 적용할 수 있습니다.
 
 - 자식 응용 프로그램 팀 정책 위에 중앙 기본 정책을 오버레이 하는 계층 구조를 제공 합니다. 기본 정책은 우선 순위가 높고 자식 정책 보다 먼저 실행 됩니다.
-- 사용자 지정 RBAC (역할 기반 액세스 제어) 정의를 사용 하 여 실수로 인 한 기본 정책 제거를 방지 하 고 구독 또는 리소스 그룹 내에서 규칙 컬렉션 그룹에 대 한 선택적 액세스를 제공 합니다. 
+- Azure 사용자 지정 역할 정의를 사용 하 여 실수로 인 한 기본 정책 제거를 방지 하 고 구독 또는 리소스 그룹 내에서 규칙 컬렉션 그룹에 대 한 선택적 액세스를 제공 합니다. 
 
 ## <a name="solution-overview"></a>솔루션 개요
 
@@ -153,7 +153,7 @@ Azure Portal에서 사용자 지정 역할을 볼 수도 있습니다. 구독으
 
 ### <a name="summary"></a>요약
 
-이제 사용자 지정 RBAC를 사용 하는 방화벽 정책에서 방화벽 정책 규칙 컬렉션 그룹에 대 한 선택적 액세스를 제공 합니다.
+이제 사용자 지정 역할이 있는 방화벽 정책에서 방화벽 정책 규칙 컬렉션 그룹에 대 한 선택적 액세스를 제공 합니다.
 
 사용자에 게 다음에 대 한 권한이 없습니다.
 - Azure 방화벽 또는 방화벽 정책을 삭제 합니다.

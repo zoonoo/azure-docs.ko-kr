@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 77c54d6ea463b5a8a4952d243886b80f38312d27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291489"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319915"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -81,13 +81,12 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 | **Azure DB for MySQL** | MySQL | ✔ | GA |
 |   | RDS MySQL | ✔ | GA |
 | **PostgreSQL 용 Azure DB-단일 서버** | PostgreSQL | ✔ | GA |
-|   | PostgreSQL 용 Azure DB-단일 서버 * | ✔ | GA |
+|   | PostgreSQL 용 Azure DB-단일 서버 | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 |   | Oracle | ✔ | 퍼블릭 미리 보기 |
 | **Azure DB for PostgreSQL-Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
 
-* PostgreSQL 버전 10 이상에서 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

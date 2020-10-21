@@ -1,16 +1,16 @@
 ---
 title: Bridge to Kubernetes로 마이그레이션
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에서 Kubernetes로의 마이그레이션 프로세스에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
-ms.openlocfilehash: 008cb90c172d8106115e4424956d82d026dbcee0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044703"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329801"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
 
@@ -44,13 +44,13 @@ Kubernetes에는 비슷한 기능이 포함 되어 있으며, 다음과 같은 �
 | 요구 사항  | Azure Dev Spaces  | Kubernetes에 대한 브리지  |
 |---------------|-------------------|--------------------------------|
 | Azure Kubernetes Service | Azure 지역 15 개 | 모든 AKS 서비스 지역    |
-| **보안** |
+| **Security** |
 | 클러스터에 필요한 보안 액세스  | AKS 클러스터 기여자  | Kubernetes RBAC-배포 업데이트   |
 | 개발 컴퓨터에 필요한 보안 액세스  | 해당 없음  | 로컬 관리자/sudo   |
 | **유용성** |
 | Kubernetes 및 Docker 아티팩트와 독립적  | 아니요  | 예   |
 | 변경 내용 자동 롤백, 사후 디버그  | 아니요  | 예   |
-| **환경** |
+| **지원 되는 클라이언트 도구** |
 | Visual Studio 2019에서 작동  | 예  | 예   |
 | Visual Studio Code에서 작동  | 예  | 예   |
 | CLI에서 작동  | 예  | 아니요   |

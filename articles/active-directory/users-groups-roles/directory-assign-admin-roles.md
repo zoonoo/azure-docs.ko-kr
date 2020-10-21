@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ea814f3f855758895a5a887b944e5f760edb5e9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 93b2bdef6ddacb08a49a974fe1e74ac47e21150e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313176"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -142,7 +142,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="compliance-data-administrator"></a>[규정 준수 데이터 관리자](#compliance-data-administrator-permissions)
 
-이 역할이 있는 사용자는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 추적할 수 있는 권한이 있습니다. 또한 사용자는 Exchange 관리 센터, Compliance Manager, Teams 및 비즈니스용 Skype 관리 센터 내에서 규정 준수 데이터를 추적하고 Azure 및 Microsoft 365의 지원 티켓을 만들 수 있습니다. [이 설명서](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) 에서는 준수 관리자와 규정 준수 데이터 관리자의 차이점에 대해 자세히 설명 합니다.
+이 역할이 있는 사용자는 Microsoft 365 규정 준수 센터, Microsoft 365 관리 센터 및 Azure에서 데이터를 추적할 수 있는 권한이 있습니다. 또한 사용자는 Exchange 관리 센터, Compliance Manager, Teams 및 비즈니스용 Skype 관리 센터 내에서 규정 준수 데이터를 추적하고 Azure 및 Microsoft 365의 지원 티켓을 만들 수 있습니다. [이 설명서](/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) 에서는 준수 관리자와 규정 준수 데이터 관리자의 차이점에 대해 자세히 설명 합니다.
 
 그런 다음 | 가능한 작업
 ----- | ----------

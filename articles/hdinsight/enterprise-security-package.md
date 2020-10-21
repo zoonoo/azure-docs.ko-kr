@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8801929412da614784c76dbdf7c8282b31364409
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567098"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327895"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Azure HDInsight에 대 한 Enterprise Security Package
 
@@ -20,7 +20,7 @@ ms.locfileid: "89567098"
 
 * 인증을 위한 Active Directory와 통합
 
-    이전에는 로컬 관리자 사용자 및 로컬 SSH 사용자를 사용 하 여 HDInsight 클러스터를 만들었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  Enterprise Security Package에서 HDInsight를 Azure Active Directory Domain Services와 통합 하 여 역할 기반 액세스 제어를 사용 하도록 설정 합니다.
+    이전에는 로컬 관리자 사용자 및 로컬 SSH 사용자를 사용 하 여 HDInsight 클러스터를 만들었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  Enterprise Security Package를 사용 하 여 HDInsight를 Azure Active Directory Domain Services와 통합 하 여 Azure 역할 기반 액세스 제어를 사용 하도록 설정 합니다.
 
     자세한 내용은 다음을 참조하세요.
 
