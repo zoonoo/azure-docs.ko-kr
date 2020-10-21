@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307452"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329647"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -43,6 +43,7 @@ Azure Monitor Logs는 클라우드와 온-프레미스 자산에서 모니터링
 
 | Log Analytics Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
+| 1.13.27 | [1.13.27](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.27-0) |
 | 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
@@ -104,7 +105,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

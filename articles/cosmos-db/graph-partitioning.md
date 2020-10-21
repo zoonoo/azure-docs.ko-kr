@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400505"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279745"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할된 그래프 사용
 
 Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장을 통해 대규모 그래프를 처리하는 기능입니다. 컨테이너는 스토리지 및 처리량 측면에서 독립적으로 확장할 수 있습니다. 그래프 데이터를 저장하기 위해 자동으로 크기를 조정할 수 있는 Azure Cosmos DB에서 컨테이너를 만들 수 있습니다. 데이터는 지정된 **파티션 키**를 기준으로 자동으로 균형이 조정됩니다.
 
-컨테이너가 크기가 20mb를 초과 하거나 요청 단위 (초당 요청 단위)를 1만 할당 하려는 경우 **분할이 필요** 합니다. [Azure Cosmos DB 분할 메커니즘과](partition-data.md) 동일한 일반적인 원칙은 아래에 설명 된 몇 가지 그래프 특정 최적화와 함께 적용 됩니다.
+컨테이너가 크기가 20mb를 초과 하거나 요청 단위 (초당 요청 단위)를 1만 할당 하려는 경우 **분할이 필요** 합니다. [Azure Cosmos DB 분할 메커니즘과](partitioning-overview.md) 동일한 일반적인 원칙은 아래에 설명 된 몇 가지 그래프 특정 최적화와 함께 적용 됩니다.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="그래프 분할." border="false":::
 
@@ -78,7 +78,7 @@ Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장�
 
 - **가능한 경우 모서리를 쿼리할 때마다 돌출된 방향을 사용합니다**. 위에서 언급한 것처럼 모서리는 돌출 방향의 원본 꼭짓점과 함께 저장됩니다. 따라서 이 패턴을 염두에 두고 데이터 및 쿼리를 설계하면 교차 파티션 쿼리를 다시 정렬할 가능성이 최소화됩니다. 이와 반대로 `in()` 쿼리는 항상 비용이 많이 드는 팬 아웃 쿼리가 됩니다.
 
-- 파티션 **간에 데이터를 균등 하 게 분산 하는 파티션 키를 선택**합니다. 이러한 선택은 솔루션의 데이터 모델에 크게 좌우됩니다. [Azure Cosmos DB에서 분할 및 확장](partition-data.md)에서 해당 파티션 키를 만드는 방법에 대해 자세히 알아봅니다.
+- 파티션 **간에 데이터를 균등 하 게 분산 하는 파티션 키를 선택**합니다. 이러한 선택은 솔루션의 데이터 모델에 크게 좌우됩니다. [Azure Cosmos DB에서 분할 및 확장](partitioning-overview.md)에서 해당 파티션 키를 만드는 방법에 대해 자세히 알아봅니다.
 
 - **파티션 경계 내의 데이터를 가져오도록 쿼리를 최적화합니다**. 최적의 분할 전략은 쿼리 패턴에 맞추는 것입니다. 단일 파티션의 데이터를 가져오는 쿼리는 가능한 최상의 성능을 제공합니다.
 
@@ -86,6 +86,6 @@ Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장�
 
 이제 다음 문서를 읽어보세요.
 
-* [Azure Cosmos DB에서 분할 및 확장](partition-data.md)에 대해 알아봅니다.
+* [Azure Cosmos DB에서 분할 및 확장](partitioning-overview.md)에 대해 알아봅니다.
 * [Gremlin API의 Gremlin 지원](gremlin-support.md)에 대해 알아봅니다.
 * [Gremlin API 소개](graph-introduction.md)에 대해 알아봅니다.

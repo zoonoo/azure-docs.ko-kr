@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282289"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331586"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -161,6 +161,10 @@ Azure 전면 도어 (AFD)에는 트래픽을 라우팅하는 공용 IP 또는 �
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>프런트 도어 규칙 엔진에 추가 된 후 규칙이 적용 되려면 얼마나 걸립니까?
 
 규칙 엔진 구성은 업데이트를 완료 하는 데 약 10 ~ 15 분이 걸립니다. 업데이트가 완료 되는 즉시 규칙이 적용 될 것으로 예측할 수 있습니다. 
+
+### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-vice-versa"></a>내 전방 도어 프로필 뒤에 Azure CDN을 구성할 수 있나요? 아니면 그 반대의 경우도 가능 합니까?
+
+두 서비스 모두 요청에 응답할 때 동일한 Azure edge 사이트를 활용 하기 때문에 azure 프런트 도어 및 Azure CDN 함께 구성할 수 없습니다. 
 
 ## <a name="performance"></a>성능
 

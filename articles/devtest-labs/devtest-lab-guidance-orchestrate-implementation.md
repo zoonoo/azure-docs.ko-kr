@@ -4,12 +4,12 @@ description: 이 문서에서는 조직의 Azure DevTest Labs 구현을 오케�
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480850"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330617"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs의 구현 오케스트레이션
 이 문서에서는 Azure DevTest Labs의 빠른 배포와 구현을 위한 권장 방식을 제공합니다. 아래 그림에는 다양한 업계 요구 사항과 시나리오 지원을 위한 유연성을 확인하면서 진행할 수 있는 전체 프로세스가 규범 지침 형식으로 강조 표시되어 있습니다.
@@ -36,7 +36,7 @@ Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 
 
 1. 초기 DevTest Labs 환경을 만듭니다.
 2. 랩에서 사용할 허용 가능한 VM 이미지와 크기를 결정합니다. DevTest Labs에 사용할 사용자 지정 이미지를 Azure에 업로드할 수 있는지 여부를 결정합니다.
-3. 랩용 초기 RBAC(역할 기반 액세스 제어)를 작성하여 랩 액세스를 보호합니다(랩 소유자 및 랩 사용자). DevTest Labs의 ID로는 Azure Active Directory와 동기화되는 Active Directory 계정을 사용하것는 이 좋습니다.
+3. 랩 (랩 소유자 및 랩 사용자)에 대 한 초기 Azure RBAC (역할 기반 액세스 제어)를 만들어 랩에 대 한 액세스를 보호 합니다. DevTest Labs의 ID로는 Azure Active Directory와 동기화되는 Active Directory 계정을 사용하것는 이 좋습니다.
 4. 일정, 비용 관리, 클레임할 수 있는 VM, 사용자 지정 이미지 또는 수식과 같은 정책을 사용하도록 DevTest Labs를 구성합니다.
 5. Azure Repos/Git 등의 온라인 리포지토리를 설정합니다.
 6. 사용할 리포지토리(공용 리포지토리, 프라이빗 리포지토리 또는 두 리포지토리의 조합)를 결정합니다. 배포 및 장기 유지용으로 JSON 템플릿을 구성합니다.

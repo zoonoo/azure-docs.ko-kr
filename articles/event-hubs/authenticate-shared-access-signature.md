@@ -4,12 +4,12 @@ description: 이 문서에서는 공유 액세스 서명을 사용 하 여 Event
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270103"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332436"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증
 공유 액세스 서명 (SAS)은 공유 액세스 서명을 보유 한 클라이언트에 부여 하는 액세스 유형에 대 한 세부적인 제어를 제공 합니다. 다음은 SAS에서 설정할 수 있는 몇 가지 컨트롤입니다. 
@@ -222,7 +222,7 @@ Event Hubs 생산자에 의해 생성 된 데이터를 사용 하는 백 엔드 
 다음 문서를 참조하세요.
 
 - [SAS를 사용 하 여 권한 부여](authenticate-shared-access-signature.md)
-- [RBAC (역할 기반 액세스 제어)를 사용 하 여 권한 부여](authenticate-shared-access-signature.md)
+- [Azure 역할 기반 access control (Azure RBAC)을 사용 하 여 권한 부여](authenticate-shared-access-signature.md)
 - [Event Hubs에 대 한 자세한 정보](event-hubs-about.md)
 
 다음 관련 문서를 참조 하세요.

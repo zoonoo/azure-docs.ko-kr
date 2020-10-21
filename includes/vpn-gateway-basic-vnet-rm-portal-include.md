@@ -5,23 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/27/2020
+ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89052479"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328443"
 ---
-다음 단계에 따라 Resource Manager 배포 모델과 Azure Portal을 사용하여 VNet을 만들 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
-
->[!NOTE]
->가상 네트워크를 크로스-프레미스 아키텍처의 일부로 사용할 경우 온-프레미스 네트워크 관리자와 협의하여 이 가상 네트워크 전용으로 사용할 수 있는 IP 주소 범위를 만들어야 합니다. VPN 연결의 양쪽 모두에 중복 주소 범위가 있는 경우 트래픽이 예기치 않은 방식으로 라우팅됩니다. 또한 이 가상 네트워크를 다른 가상 네트워크에 연결하려는 경우 주소 공간이 다른 가상 네트워크와 겹칠 수 없습니다. 이에 따라 네트워크 구성을 적절히 계획합니다.
->
->
-
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **검색 리소스, 서비스 및 문서(G +/)** 에서 *가상 네트워크*를 입력합니다.
 

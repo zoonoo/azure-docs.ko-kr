@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331202"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311232"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -73,7 +73,7 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](https://aka.ms/deploymentplans)합니다. 또한 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지 하려면 [올바른 관련자에 게 관심이 있는지 확인](../fundamentals/active-directory-deployment-plans.md)합니다. 또한 관련자와 해당 프로젝트 입력 및 accountabilities를 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
 
 ### <a name="plan-communications"></a>통신 계획
 
@@ -133,7 +133,7 @@ Azure AD 활동 로그에 대해 미리 작성 된 보기를 설치 하 여 로�
 
 로그를 Azure 이벤트 허브로 라우팅하는 경우 타사 SIEM 도구와 통합할 수 있습니다. 이 통합을 통해 Azure AD 활동 로그 데이터를 SIEM에서 관리하는 다른 데이터와 결합하여 환경에 보다 풍부한 인사이트를 얻을 수 있습니다. 
 
-[로그를 이벤트 허브로 스트리밍](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)하는 방법을 알아보세요.
+[로그를 이벤트 허브로 스트리밍](./tutorial-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아보세요.
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Azure AD 보고 및 모니터링을 위한 계획 작업 및 보안
 

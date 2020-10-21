@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282572"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331824"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 
@@ -96,7 +96,7 @@ Azure Cosmos DB 계정에 컨테이너가 25개 이상인 공유 처리량 데�
 
 Azure Cosmos 컨테이너 또는 데이터베이스를 만든 후 프로비전된 처리량을 업데이트할 수 있습니다. 데이터베이스 또는 컨테이너에 구성할 수 있는 최대 프로비전된 처리량에는 제한이 없습니다.
 
-### <a name="current-provisioned-throughput"></a>현재 프로 비전 된 처리량
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> 현재 프로 비전 된 처리량
 
 Azure Portal에서 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스의 프로 비전 된 처리량을 검색할 수 있습니다.
 
@@ -135,6 +135,14 @@ Azure Portal 또는 Sdk를 사용 하 여 컨테이너 또는 데이터베이스
 * Java SDK의 [isReplacePending ()을 ThroughputResponse.](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true)
 
 [Azure Monitor 메트릭을](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) 사용 하 여 리소스에서 프로 비전 된 처리량 (r u/초) 및 저장소의 기록을 볼 수 있습니다.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> 높은 저장소/낮은 처리량 프로그램
+
+위의 [현재 프로 비전 된 처리량](#current-provisioned-throughput) 섹션에 설명 된 대로 컨테이너 또는 데이터베이스에서 프로 비전 할 수 있는 최소 처리량은 여러 가지 요인에 따라 달라 집니다. 그 중 하나는 현재 저장 된 데이터의 양입니다. Azure Cosmos DB는 저장소의 GB 당 최소 처리량이 10 r u/초까지 적용 됩니다.
+
+많은 양의 데이터를 저장 해야 하지만 처리량 요구 사항이 적은 경우에는이 문제가 발생할 수 있습니다. 이러한 시나리오를 보다 잘 활용 하기 위해 Azure Cosmos DB에는 적격 계정에 대해 10에서 1 사이의 GB/GB 제약 조건을 줄이는 **"높은 저장소/낮은 처리량" 프로그램이** 도입 되었습니다.
+
+현재 계정에 1TB가 넘는 데이터를 포함 하는 하나 이상의 컨테이너 또는 공유 처리량 데이터베이스가 있어야 합니다. 이 프로그램에 참여 하 고 모든 자격을 평가 하려면 [이 설문 조사](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u)를 작성 해야 합니다. 그러면 Azure Cosmos DB 팀이 후속 작업을 진행 하 고 온 보 딩을 진행 합니다.
 
 ## <a name="comparison-of-models"></a>모델 비교
 다음 표에서는 데이터베이스 및 컨테이너에 대한 표준(수동) 처리량 프로비전을 비교합니다. 

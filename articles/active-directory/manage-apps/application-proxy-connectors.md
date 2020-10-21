@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319829"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282142"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -161,8 +161,11 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+정부의 경우를 사용 `-EnvironmentName "AzureUSGovernment"` 합니다. 자세한 내용은 [Azure Government 클라우드의 에이전트 설치](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)를 참조 하세요.
+
 인증서를 확인 하 고 문제를 해결 하는 방법에 대 한 자세한 내용은 [응용 프로그램 프록시 신뢰 인증서에 대 한 컴퓨터 및 백 엔드 구성 요소 지원](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate)을 참조 하세요.
 
 ## <a name="under-the-hood"></a>기본적인 이해

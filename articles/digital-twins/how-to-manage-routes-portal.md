@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279364"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332096"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -24,7 +24,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Eventroutes api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -72,7 +72,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
-이제 event grid 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+이제 event grid 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의**대상으로 사용 합니다.
 
 ### <a name="create-an-event-hubs-endpoint"></a>Event Hubs 끝점 만들기
 
@@ -94,7 +94,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
-이제 이벤트 허브는 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+이제 이벤트 허브는 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의**대상으로 사용 합니다.
 
 ### <a name="create-a-service-bus-endpoint"></a>Service Bus 끝점 만들기
 
@@ -116,7 +116,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 끝점을 만들 때 오류가 발생 하면 오류 메시지를 확인 하 고 몇 분 후에 다시 시도 합니다.
 
-이제 Service Bus 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#event-routes)만들 **이벤트 경로의**대상으로 사용 합니다.
+이제 Service Bus 토픽은 _이름_ 필드에 지정 된 이름으로 Azure Digital twins 내부의 끝점으로 사용할 수 있습니다. 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의**대상으로 사용 합니다.
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
 
@@ -126,7 +126,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 Api를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은이 문서의 [*api 및 CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) 버전을 참조 하세요.
 
-## <a name="event-routes"></a>이벤트 경로
+## <a name="create-an-event-route"></a>이벤트 경로 만들기
 
 실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로**를 정의 해야 합니다. 이러한 경로를 통해 개발자는 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
 
@@ -135,7 +135,7 @@ Api를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은이 
 >[!NOTE]
 >최근에 끝점을 배포한 경우 새 이벤트 경로에 대 한 사용을 시도 **하기 전에** 배포를 완료 했는지 확인 합니다. 끝점이 준비 되지 않았기 때문에 경로를 설정할 수 없는 경우 몇 분 정도 기다린 후 다시 시도 하세요.
 
-### <a name="create-an-event-route"></a>이벤트 경로 만들기 
+### <a name="creation-steps-with-the-azure-portal"></a>Azure Portal 만들기 단계
 
 이벤트 경로 정의에는 다음 요소가 포함 됩니다.
 * 사용 하려는 경로 이름
@@ -161,7 +161,7 @@ Api를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은이 
 
 완료 되 면 _저장_ 단추를 눌러 이벤트 경로를 만듭니다.
 
-### <a name="filter-events"></a>이벤트 필터링
+## <a name="filter-events"></a>이벤트 필터링
 
 위에서 설명한 것 처럼 경로에는 **필터** 필드가 있습니다. 경로의 필터 값이 이면 `false` 끝점으로 전송 되는 이벤트가 없습니다. 
 

@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877097"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328882"
 ---
-# <a name="configure-device-redirections"></a>장치 리디렉션 구성
+# <a name="configure-device-redirections"></a>디바이스 리디렉션 구성
 
 Windows 가상 데스크톱 환경에 대 한 장치 리디렉션을 구성 하면 원격 세션에서 프린터, USB 장치, 마이크 및 기타 주변 장치를 사용할 수 있습니다. 일부 장치 리디렉션은 원격 데스크톱 프로토콜 (RDP) 속성과 그룹 정책 설정을 변경 해야 합니다.
 
@@ -50,7 +50,10 @@ PowerShell 또는 Azure Portal를 사용 하 여 호스트 풀의 RDP 속성을 
 - `camerastoredirect:s:*` 모든 카메라를 리디렉션합니다.
 - `camerastoredirect:s:` 카메라 리디렉션을 사용 하지 않도록 설정 합니다.
 
-와 같은 KSCATEGORY_VIDEO_CAMERA 인터페이스의 세미콜론으로 구분 된 목록을 사용 하 여 특정 카메라를 리디렉션할 수도 있습니다 `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
+>[!NOTE]
+>`camerastoredirect:s:`속성이 사용 하지 않도록 설정 된 경우에도 로컬 카메라는 속성을 통해 리디렉션될 수 있습니다 `devicestoredirect:s:` . 카메라 리디렉션을 완전히 사용 하지 않도록 설정 하 `camerastoredirect:s:` 고 `devicestoredirect:s:` 카메라를 포함 하지 않는 플러그 앤 플레이 장치의 일부 하위 집합을 설정 하거나 정의 합니다.
+
+와 같은 KSCATEGORY_VIDEO_CAMERA 인터페이스의 세미콜론으로 구분 된 목록을 사용 하 여 특정 카메라를 리디렉션할 수도 있습니다 `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
 
 ### <a name="clipboard-redirection"></a>클립보드 리디렉션
 

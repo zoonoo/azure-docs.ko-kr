@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하기 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010021"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332453"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 Azure Event Hubs [는 azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 Azure Active Directory (azure AD) 인증을 지원 합니다. Azure 리소스에 대 한 관리 id는 azure Virtual Machines (Vm), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다 Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.
@@ -26,7 +26,7 @@ Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 Event Hubs 리소
 - [Azure Resource Manager 클라이언트 라이브러리](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Azure AD에서 관리 되는 id에 대 한 사용 권한 부여
-응용 프로그램의 관리 되는 id에서 Event Hubs 서비스에 대 한 요청에 권한을 부여 하려면 먼저 관리 되는 id에 대 한 RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Event Hubs는 Event Hubs에서 전송 및 읽기 권한을 포함 하는 Azure 역할을 정의 합니다. Azure 역할이 관리 id에 할당 되 면 관리 되는 id에 적절 한 범위에서 Event Hubs 데이터에 대 한 액세스 권한이 부여 됩니다.
+응용 프로그램의 관리 되는 id에서 Event Hubs 서비스에 대 한 요청에 권한을 부여 하려면 먼저 해당 관리 되는 id에 대 한 Azure RBAC (역할 기반 액세스 제어) 설정을 구성 합니다. Azure Event Hubs는 Event Hubs에서 전송 및 읽기 권한을 포함 하는 Azure 역할을 정의 합니다. Azure 역할이 관리 id에 할당 되 면 관리 되는 id에 적절 한 범위에서 Event Hubs 데이터에 대 한 액세스 권한이 부여 됩니다.
 
 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Event Hubs 리소스에 대 한 액세스를 위해 Azure Active Directory 인증](authorize-access-azure-active-directory.md)을 참조 하세요.
 

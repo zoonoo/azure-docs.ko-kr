@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013749"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332504"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -43,9 +43,11 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
 >[!NOTE]
 >현재 지원되지 않고 Microsoft 지원 모델에 맞지 않는 배포판 또는 버전을 사용하는 경우 이 리포지토리를 포크하고, Microsoft 기술 지원에서 포크된 에이전트 버전에 대한 지원을 제공하지 않는다는 것을 확인하는 것이 좋습니다.
 
-### <a name="python-2-requirement"></a>Python 2 요구 사항
+### <a name="python-requirement"></a>Python 요구 사항
 
- Log Analytics 에이전트에는 Python 2가 필요 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
+에이전트 버전 1.13.27부터 Linux 에이전트는 Python 2와 3을 모두 지원 합니다. 항상 최신 에이전트를 사용 하는 것이 좋습니다. 
+
+이전 버전의 에이전트를 사용 하는 경우 가상 머신에서 기본적으로 python 2를 사용 해야 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -71,7 +73,7 @@ OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공
 현재 지원 되는 기능은 다음과 같습니다. 
 - 서명에
 
-다음은 계획 되었지만 아직 지원 되지 않습니다.
+다음 사항을 고려 하지만 아직 지원 되지 않습니다.
 - 들
 - SELINUX
 
@@ -126,9 +128,9 @@ Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-예: `https://proxy01.contoso.com:30443`
+`https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     

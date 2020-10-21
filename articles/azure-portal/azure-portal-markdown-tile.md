@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263949"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281757"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Azure 대시보드에서 markdown 타일을 사용하여 사용자 지정 콘텐츠 표시
 
@@ -48,7 +48,7 @@ Azure 대시보드에 markdown 타일을 추가하여 사용자 지정 정적 �
       ![URL 입력을 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > 보안을 강화 하기 위해 markdown 파일을 만들어 [암호화가 사용 되는 Azure storage 계정 blob](../storage/common/storage-service-encryption.md)에 저장 한 다음 URL 옵션을 사용 하 여 파일을 가리킬 수 있습니다. Markdown 콘텐츠는 저장소 계정의 암호화 옵션을 통해 암호화 됩니다. 파일에 대 한 권한이 있는 사용자만 대시보드의 markdown 콘텐츠를 볼 수 있습니다.
+      > 보안을 강화 하기 위해 markdown 파일을 만들어 [암호화가 사용 되는 Azure storage 계정 blob](../storage/common/storage-service-encryption.md)에 저장 한 다음 URL 옵션을 사용 하 여 파일을 가리킬 수 있습니다. Markdown 콘텐츠는 저장소 계정의 암호화 옵션을 통해 암호화 됩니다. 파일에 대 한 권한이 있는 사용자만 대시보드의 markdown 콘텐츠를 볼 수 있습니다. Azure Portal ( _https://portal.azure.com/_ )가 blob의 markdown 파일에 액세스할 수 있도록 저장소 계정에 대 한 CORS (원본 간 리소스 공유) 규칙을 설정 합니다.
 
 1. **완료**를 선택하여 **markdown 편집** 창을 해제합니다. 콘텐츠는 오른쪽 아래 모서리에서 핸들을 끌어 크기를 조정할 수 있는 Markdown 타일에 표시 됩니다.
 

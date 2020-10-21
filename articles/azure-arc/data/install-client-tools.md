@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d61bc99e851b28712262dba8512c06b6e8872c0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ecf0f54913f980d879b562eb4aa8063acf6c4772
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108221"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320247"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Azure Arc 지원 데이터 서비스 배포 및 관리를 위한 클라이언트 도구 설치
 
 > [!IMPORTANT]
-> 새 월별 릴리스로 업데이트 하는 경우 최신 버전의 Azure Data Studio, Azure Data CLI (azdata) 도구, Azure Data CLI 및 Azure Data Studio 용 Azure Arc 확장도 업데이트 해야 합니다.
+> 새 월별 릴리스로 업데이트 하는 경우 최신 버전의 Azure Data Studio, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 도구 및 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Azure Data Studio 용 및 Azure Arc 확장도 업데이트 해야 합니다.
 
-이 문서에서는 클라이언트 컴퓨터에 Azure Data CLI (azdata), Azure Data Studio, Azure CLI (az) 및 Kubernetes CLI 도구 (kubectl)를 설치 하는 단계를 안내 합니다.
+이 문서에서는 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 클라이언트 컴퓨터에, Azure Data Studio, Azure CLI (az) 및 KUBERNETES CLI 도구 (kubectl)를 설치 하는 단계를 안내 합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -31,10 +31,10 @@ ms.locfileid: "92108221"
 
 | 도구 | 필수 | Description | 설치 |
 |---|---|---|---|
-| Azure Data CLI (azdata) | 예 | 빅 데이터 클러스터를 설치하고 관리하기 위한 명령줄 도구입니다. Azure 데이터 CLI에는 명령을 사용 하 여 Azure SQL 및 SQL Server 인스턴스와 Postgres 서버에 연결 하 고 쿼리 하는 명령줄 유틸리티 ( `azdata sql query` 명령줄에서 단일 쿼리 실행), `azdata sql shell` (대화형 셸) 및를 포함 `azdata postgres query` `azdata postgres shell` 합니다. | [설치](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
+| [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] | 예 | 빅 데이터 클러스터를 설치하고 관리하기 위한 명령줄 도구입니다. [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 에는 명령을 사용 하 여 Azure SQL 및 SQL Server 인스턴스와 Postgres 서버에 연결 하 고 쿼리 하는 명령줄 유틸리티 ( `azdata sql query` 명령줄에서 단일 쿼리 실행), `azdata sql shell` (대화형 셸) 및가 포함 되어 `azdata postgres query` `azdata postgres shell` 있습니다. | [설치](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
 | Azure Data Studio | 예 | Azure SQL, SQL Server, PostrgreSQL 및 MySQL을 비롯 한 다양 한 데이터베이스에 연결 하 고 쿼리 하는 데 사용할 수 있는 풍부한 환경 도구입니다. Azure Arc 사용 데이터 서비스에 대 한 관리 환경을 제공 하 Azure Data Studio에 대 한 확장입니다. | [설치](/sql/azure-data-studio/download-azure-data-studio) |
-| Azure Data Studio에 대 한 Azure 데이터 CLI 확장 | 예 | Azure Data CLI를 아직 설치 하지 않은 경우이를 설치 하는 Azure Data Studio에 대 한 확장입니다.| Azure Data Studio의 확장 갤러리에서 설치 합니다.|
-| Azure Data Studio에 대 한 Azure Arc 확장 | 예 | Azure Arc 사용 데이터 서비스에 대 한 관리 환경을 제공 하는 Azure Data Studio에 대 한 확장입니다. Azure Data Studio에 대 한 Azure 데이터 CLI 확장에 대 한 종속성이 있습니다. | Azure Data Studio의 확장 갤러리에서 설치 합니다.|
+| [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Azure Data Studio 확장 | 예 | 아직 없는 경우 설치 하는 Azure Data Studio에 대 한 확장 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 입니다.| Azure Data Studio의 확장 갤러리에서 설치 합니다.|
+| Azure Data Studio에 대 한 Azure Arc 확장 | 예 | Azure Arc 사용 데이터 서비스에 대 한 관리 환경을 제공 하는 Azure Data Studio에 대 한 확장입니다. [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]Azure Data Studio 확장에 대 한 종속성이 있습니다. | Azure Data Studio의 확장 갤러리에서 설치 합니다.|
 | Azure Data Studio의 PostgreSQL 확장 | 아니요 | PostgreSQL에 대 한 관리 기능을 제공 하는 Azure Data Studio에 대 한 PostgreSQL 확장입니다. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Azure Data Studio의 확장 갤러리에서 설치 합니다.|
 | Azure CLI (az)<sup>1</sup> | 예 | Azure 서비스를 관리하기 위한 최신 명령줄 인터페이스입니다. AKS 배포와 함께 사용 되며 azure Arc 사용 데이터 서비스 인벤토리 및 청구 데이터를 Azure에 업로드 합니다. ([자세한 정보](/cli/azure/?view=azure-cli-latest&preserve-view=true)). | [설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) |
 | Kubernetes CLI (kubectl)<sup>2</sup> | 예 | Kubernetes 클러스터를 관리 하기 위한 명령줄 도구 ([추가 정보](https://kubernetes.io/docs/tasks/tools/install-kubectl/)) | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |

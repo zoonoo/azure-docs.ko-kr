@@ -9,16 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706135"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327552"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
 
@@ -64,5 +63,4 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [앱을 다중 테넌트로 변환하는 방법](howto-convert-app-to-be-multi-tenant.md) 참조
-* 좀 더 깊이 있는 이해를 위해 [인증 코드 권한 부여 흐름 동안 OAuth 2.0 프로토콜 계층에서 동의가 지원되는 방식](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code) 알아보기
+[앱을 다중 테넌트로 변환하는 방법](howto-convert-app-to-be-multi-tenant.md) 참조

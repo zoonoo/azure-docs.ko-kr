@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821959"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330413"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps의 트리거 및 동작 유형에 대 한 스키마 참조 가이드
 
@@ -502,7 +502,7 @@ ms.locfileid: "91821959"
 
 | 값 | Type | 설명 | 
 |-------|------|-------------| 
-| <*시작-날짜-시간-YYYY-MM-Yyyy-mm-ddthh: MM: ss*> | String | 다음 형식의 시작 날짜 및 시간: <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>또는 <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>따라서 예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 “2017-09-18T14:00:00”을 지정하고 “태평양 표준시”와 같은 표준 시간대를 지정하거나 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
+| <*시작-날짜-시간-YYYY-MM-Yyyy-mm-ddthh: MM: ss*> | String | 다음 형식의 시작 날짜 및 시간: <p>YYYY-MM-DDThh:mm:ss(표준 시간대를 지정하는 경우) <p>-또는- <p>YYYY-MM-DDThh:mm:ssZ(표준 시간대를 지정하지 않는 경우) <p>따라서 예를 들어 2017년 9월 18일, 오후 2시를 원할 경우 “2017-09-18T14:00:00”을 지정하고 “태평양 표준시”와 같은 표준 시간대를 지정하거나 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 지정하지 않으면 공백 없이 맨 끝에 문자 "Z"를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. 시작 날짜 및 시간에 대한 자세한 내용은 [정기적으로 실행되는 작업 만들기 및 예약](../connectors/connectors-native-recurrence.md)을 참조하세요. | 
 | <*표준 시간대*> | String | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 지정합니다. | 
 | <*1 ~ 1 시간 표시*> | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~23 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 시간으로 지정할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
 | <*1 분 이상 표시*> | 정수 또는 정수 배열 | `frequency`에 대해 "Day" 또는 "Week"를 지정하는 경우 0~59 사이의 정수 하나 이상을 쉼표로 구분해서 워크플로를 실행하려는 분으로 지정할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
@@ -823,11 +823,11 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | [**JavaScript 코드 실행**](#run-javascript-code) | 특정 조건에 맞는 JavaScript 코드 조각을 실행 합니다. 코드 요구 사항 및 자세한 내용은 [인라인 코드를 사용 하 여 코드 조각 추가 및 실행](../logic-apps/logic-apps-add-run-inline-code.md)을 참조 하세요. |
 | [**함수**](#function-action) | Azure 함수를 호출합니다. | 
 | [**HTTP**](#http-action) | HTTP 엔드포인트을 호출합니다. | 
-| [**조인**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
+| [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 지정한 구분 기호를 사용하여 해당 항목을 구분합니다. | 
 | [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에서 친숙한 토큰을 만듭니다. 논리 앱에 토큰을 포함하여 해당 속성을 참조할 수 있습니다. | 
 | [**쿼리**](#query-action) | 조건 또는 필터를 기준으로 다른 배열에 있는 항목에서 배열을 만듭니다. | 
 | [**응답이**](#response-action) | 들어오는 호출 또는 요청에 대한 응답을 만듭니다. | 
-| [**[**](#select-action) | 지정된 맵을 기준으로 다른 배열의 항목을 변형하여 JSON 개체를 포함하는 배열을 만듭니다. | 
+| [**선택**](#select-action) | 지정된 맵을 기준으로 다른 배열의 항목을 변형하여 JSON 개체를 포함하는 배열을 만듭니다. | 
 | [**테이블**](#table-action) | 배열에서 CSV 또는 HTML 테이블을 만듭니다. | 
 | [**끝나야**](#terminate-action) | 현재 실행 중인 워크플로를 중지합니다. | 
 | [**대기한**](#wait-action) | 지정된 기간 동안 또는 지정된 날짜 및 시간까지 워크플로를 일시중지합니다. | 
@@ -853,9 +853,9 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 | 작업 유형 | 설명 | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | 배열에 있는 모든 항목에 대해 동일한 작업을 반복해서 실행합니다. | 
-| [**때**](#if-action) | 지정된 조건이 true인지 또는 false인지에 따라 작업을 실행합니다. | 
+| [**조건**](#if-action) | 지정된 조건이 true인지 또는 false인지에 따라 작업을 실행합니다. | 
 | [**범위**](#scope-action) | 작업 집합의 그룹 상태를 기준으로 작업을 실행합니다. | 
-| [**바꿀**](#switch-action) | 식, 개체 또는 토큰의 값이 각 사례에 지정된 값과 일치할 때 사례로 구성된 작업을 실행합니다. | 
+| [**스위치**](#switch-action) | 식, 개체 또는 토큰의 값이 각 사례에 지정된 값과 일치할 때 사례로 구성된 작업을 실행합니다. | 
 | [**발생할**](#until-action) | 지정된 조건이 충족될 때까지 작업을 반복해서 실행합니다. | 
 |||  
 
@@ -2308,6 +2308,9 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | <*루프-개수*> | 정수 | 작업이 실행할 수 있는 가장 많은 루프 수에 대한 제한입니다. 기본 제한 및 최대 한도에 대 한 자세한 내용은 [Azure Logic Apps에 대 한 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요. | 
 | <*루프-시간 제한*> | String | 루프가 실행될 수 있는 가장 긴 시간의 제한입니다. 기본 `timeout` 값은 필요한 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 해당하는 `PT1H`입니다. |
 |||| 
+
+> [!NOTE]
+> 식이 Until 루프 내에서 작업의 출력에 따라 달라 지는 경우 해당 동작에서 발생 하는 모든 오류를 고려해 야 합니다.
 
 *예제*
 

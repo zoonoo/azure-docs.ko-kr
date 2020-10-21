@@ -3,12 +3,12 @@ title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873628"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320417"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -157,19 +157,24 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>주문형 평가 검사-Visual Studio Code
+
+Visual Studio code에 대 한 Azure Policy 확장은 특정 리소스에 대 한 평가 검색을 실행할 수 있습니다. 이 검색은 Azure PowerShell 및 REST 메서드와 달리 동기 프로세스입니다.
+자세한 내용과 단계 [는 VS Code 확장을 사용 하 여 요청 시 평가](./extension-for-vscode.md#on-demand-evaluation-scan)를 참조 하세요.
+
 ## <a name="how-compliance-works"></a>준수 작동 방식
 
 할당에서 정책이 나 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 이며 _예외_는 아닙니다. 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
 | 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| 새로운 기능 또는 업데이트된 기능 | Audit, Modify, AuditIfNotExist | True | 비준수 |
-| 새로운 기능 또는 업데이트된 기능 | Audit, Modify, AuditIfNotExist | False | 준수 |
-| 있음 | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | 비준수 |
-| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | 준수 |
+| 새로운 기능 또는 업데이트된 기능 | 감사, 수정, AuditIfNotExist | True | 비준수 |
+| 새로운 기능 또는 업데이트된 기능 | 감사, 수정, AuditIfNotExist | False | 준수 |
+| Exists | 거부, 감사, 추가, 수정, DeployIfNotExist, AuditIfNotExist | True | 비준수 |
+| Exists | 거부, 감사, 추가, 수정, DeployIfNotExist, AuditIfNotExist | False | 준수 |
 
 > [!NOTE]
-> DeployIfNotExist 및 AuditIfNotExist 효과를 적용 하려면 IF 문을 TRUE로 설정 하 고 존재 조건을 준수 하지 않으려면 FALSE로 설정 해야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
+> DeployIfNotExist 및 AuditIfNotExist 효과를 적용하려면 IF 문을 TRUE로 설정하고 존재 조건이 비규격 상태가 되도록 FALSE로 설정해야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
 
 예를 들어, 공용 네트워크에 노출되는 일부 스토리지 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 

@@ -1,24 +1,24 @@
 ---
 title: Azure Marketplace에서 가상 컴퓨터 제품을 만듭니다.
-description: Azure Marketplace에서 가상 컴퓨터 제품을 만드는 방법에 대해 알아봅니다.
+description: Microsoft 상업적 marketplace에서 virtual machine 제품을 만드는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: 9395b607f235ab606c9013f9273c4162b8c953d7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.date: 10/20/2020
+ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284294"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331263"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 가상 컴퓨터 제품을 만드는 방법
 
-이 문서에서는 Azure 가상 머신 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 만들고 게시하는 방법에 대해 설명합니다. 운영 체제, VHD(가상 하드 디스크) 및 최대 16개의 데이터 디스크가 포함된 Windows 기반 및 Linux 기반 가상 머신을 모두 처리합니다.
+이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 대 한 Azure 가상 머신 제품을 만드는 방법을 설명 합니다. 운영 체제, VHD(가상 하드 디스크) 및 최대 16개의 데이터 디스크가 포함된 Windows 기반 및 Linux 기반 가상 머신을 모두 처리합니다.
 
-시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만듭니다](partner-center-portal/create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+시작 하기 전에 [파트너 센터에서 상용 marketplace 계정을 만듭니다](partner-center-portal/create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

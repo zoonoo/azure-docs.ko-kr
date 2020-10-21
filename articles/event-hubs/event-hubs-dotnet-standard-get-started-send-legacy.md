@@ -4,12 +4,12 @@ description: 이 문서에서는 이전 EventHubs 패키지를 사용 하 여 Az
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d33ebcabb728cf2fbf43b393de5eec6cb58af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8819a95364bf41c6f9837c3db31a9800968d096c
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010701"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332164"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET Core를 사용 하 여 Azure Event Hubs에서 이벤트 보내기 또는 받기 (EventHubs)
 이 빠른 시작에서는 **EventHubs** .net Core 라이브러리를 사용 하 여 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 줍니다.
@@ -17,7 +17,7 @@ ms.locfileid: "89010701"
 > [!WARNING]
 > 이 빠른 시작에서는 이전 **EventHubs** 패키지를 사용 합니다. 최신  **EventHubs** 라이브러리를 사용 하는 빠른 시작은 [EventHubs 라이브러리를 사용 하 여 이벤트 전송 및 수신](event-hubs-dotnet-standard-getstarted-send.md)을 참조 하세요. 이전 라이브러리를 사용 하 여 응용 프로그램을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -362,7 +362,7 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 읽어보세요.
 
-- [RBAC (역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+- Azure [RBAC (역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
 - [EventProcessorHost](event-hubs-event-processor-host.md)

@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c2b606059f92cafc44e383c2aced0d6bed467c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5fdaa1346e4837b3bf611d964158d132dcdfeeda
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149882"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282670"
 ---
-# <a name="backup-and-restore-on-sap-hana-on-azure"></a>Azure에서 SAP HANA의 Backup 및 복원
+# <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>HANA Large Instances의 SAP HANA 백업 및 복원
 
 >[!IMPORTANT]
 >이 문서는 SAP HANA 관리 설명서 또는 SAP 노트를 대체하지 않습니다. 특히 백업, 복원, 고가용성 및 재해 복구에 대 한 SAP HANA 관리 및 운영에 대 한 전문 지식이 있는 것으로 간주 됩니다. 이 문서에서는 SAP HANA Studio의 스크린샷이 표시됩니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.

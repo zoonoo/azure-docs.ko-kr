@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443811"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328194"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일 Azure SQL Database 및 Azure SQL Managed Instance로 내보내기
 
@@ -48,7 +48,7 @@ Azure Portal를 사용 하 여 [AZURE SQL Managed Instance](../managed-instance/
 
 1. [Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다.
 
-   ![데이터베이스 내보내기](./media/database-export/database-export1.png)
+   ![내보내기 단추를 강조 표시 하는 스크린샷](./media/database-export/database-export1.png)
 
 2. BACPAC 파일 이름을 지정하고 내보내기에 대해 기존 Azure Storage 계정 및 컨테이너를 선택한 다음, 원본 데이터베이스에 액세스할 수 있는 적절한 자격 증명을 제공합니다. Azure 관리자 인 경우에는 azure 관리자가 Azure SQL Database 또는 Azure SQL Managed Instance에서 관리자 권한을 보유 하 고 있지 않으므로 SQL **Server 관리자 로그인** 이 필요 합니다.
 

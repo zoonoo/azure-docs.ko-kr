@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281408"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331212"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 전환 하는 방법에 대 한 질문과 대답
 
@@ -77,8 +77,8 @@ Cloud 파트너 포털에서 이전에 지원 되는 모든 제품 유형은 Dyn
 
 | 제품 유형 <img src="" width=150px>| 파트너 센터로 이동 했습니까? <img src="" width=100px>| 다음 단계 |
 | --- | --- | --- |
-| SaaS | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업적 marketplace에서 새 SaaS 제품 만들기](partner-center-portal/create-new-saas-offer.md)를 확인 하세요. |
-| Virtual Machine | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [Azure Marketplace에서 Azure virtual machine 제품 만들기](azure-vm-create.md)를 확인 하세요. |
+| SaaS | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. 자세한 내용은 [상업 marketplace에 대 한 SaaS 제안 계획을](plan-saas-offer.md)확인 하세요. |
+| Virtual Machine | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Virtual machine 제안 계획](marketplace-virtual-machines.md)에서 자세히 알아보세요. |
 | Azure 응용 프로그램 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Azure 응용 프로그램 제품 만들기](partner-center-portal/create-new-azure-apps-offer.md)에서 자세히 알아보세요. |
 | Dynamics 365 Business Central | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Dynamics 365 비즈니스 센터 제품 만들기](partner-center-portal/create-new-business-central-offer.md)에서 자세히 알아보세요. |
 | 고객 Engagement & PowerApps의 Dynamics 365 | 예 | 파트너 센터에 로그인 하 여 새 제품을 만들고 Cloud 파트너 포털에서 만든 제안을 관리 합니다. [Customer Engagement에 대 한 Dynamics 365 만들기 (PowerApps 제품 &](partner-center-portal/create-new-customer-engagement-offer.md))에서 자세히 알아보세요. |

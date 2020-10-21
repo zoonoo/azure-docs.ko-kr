@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/06/2020
-ms.openlocfilehash: ab7ed95ba4b9a4fa6f0bafb78ea80a2d4acac71d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5645bd37ec466619a4093d767db1c846b90a4365
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827891"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281423"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -155,7 +155,7 @@ ___
 ___
 ### <code>collect</code>
 <code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-집계 그룹에 있는 식의 모든 값을 배열로 수집합니다. 이 프로세스 중에 구조를 수집하고 대체 구조로 변환할 수 있습니다. 항목 수는 해당 그룹의 행 수와 동일하며 Null 값을 포함할 수 있습니다. 수집 된 항목의 수는 작아야 합니다.  
+집계 된 그룹에 있는 식의 모든 값을 배열로 수집 합니다. 이 프로세스 중에 구조를 수집하고 대체 구조로 변환할 수 있습니다. 항목 수는 해당 그룹의 행 수와 동일하며 Null 값을 포함할 수 있습니다. 수집 된 항목의 수는 작아야 합니다.  
 * ``collect(salesPerson)``
 * ``collect(firstName + lastName))``
 * ``collect(@(name = salesPerson, sales = salesAmount) )``
@@ -682,7 +682,7 @@ ___
 * ``rpad('dumbo', 4, '-') -> 'dumb'``  
 * ``rpad('dumbo', 8, '<>') -> 'dumbo<><'``  ___
 ### <code>rtrim</code>
-<code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></코드><br/><br/>는 선행 문자 문자열을 자릅니다. 두 번째 매개 변수를 지정하지 않으면 공백을 삭제합니다. 그 밖에는 s에서 지정 된 모든 문자를 자릅니다.econd parameter.  
+<code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></코드><br/><br/>는 후행 문자 문자열을 자릅니다. 두 번째 매개 변수를 지정하지 않으면 공백을 삭제합니다. 그 밖에는 s에서 지정 된 모든 문자를 자릅니다.econd parameter.  
 * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___
@@ -1524,7 +1524,7 @@ Right pads the string by the supplied padding until it is of a certain length. I
 ___
 ### <code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
-Right trims a string of leading characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
+Right trims a string of trailing characters. If second parameter is unspecified, it trims whitespace. Else it trims any character specified in the second parameter.  
 * ``rtrim('  dumbo  ') -> '  dumbo'``  
 * ``rtrim('!--!du!mbo!', '-!') -> '!--!du!mbo'``  
 ___

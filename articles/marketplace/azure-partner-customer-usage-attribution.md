@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261382"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282358"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -268,7 +268,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="get-support"></a>지원 받기
 
-[파트너 센터에서 상업적 marketplace 프로그램 지원](./partner-center-portal/support.md)의 지원 옵션에 대해 알아봅니다.
+[파트너 센터에서 상업적 marketplace 프로그램 지원](support.md)의 지원 옵션에 대해 알아봅니다.
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>기술 상담 요청을 제출하는 방법
 

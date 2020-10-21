@@ -263,6 +263,8 @@
           items:
             - name: 서버 수준 IP 방화벽 규칙
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub 작업
+          href: database/connect-github-actions-sql-db.md
     - name: 자습서
       items:
         - name: 데이터베이스 설계
@@ -1070,7 +1072,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 필수 구성 요소
+                            - name: 사전 요구 사항
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708954"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329375"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -19,7 +19,7 @@ ms.locfileid: "91708954"
 
 ## <a name="storage-and-database-operations"></a>저장소 및 데이터베이스 작업
 
-구독 아래에 Azure Cosmos 계정을 만든 후에는 [데이터베이스, 컨테이너 및 항목](databases-containers-items.md)을 만들어 계정의 데이터를 관리할 수 있습니다.
+구독 아래에 Azure Cosmos 계정을 만든 후에는 [데이터베이스, 컨테이너 및 항목](account-databases-containers-items.md)을 만들어 계정의 데이터를 관리할 수 있습니다.
 
 ### <a name="provisioned-throughput"></a>프로비전된 처리량
 
@@ -27,15 +27,15 @@ ms.locfileid: "91708954"
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 컨테이너당 최대 RU([전용 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다. |
-| 데이터베이스당 최대 RU([공유 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다. |
+| 컨테이너당 최대 RU([전용 처리량 프로비저닝 모드](account-databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다. |
+| 데이터베이스당 최대 RU([공유 처리량 프로비저닝 모드](account-databases-containers-items.md#azure-cosmos-containers)) | 기본값은 1,000,000입니다. [Azure 지원 티켓을 작성](create-support-request-quota-increase.md)하여 늘릴 수 있습니다. |
 | (논리적) 파티션당 최대 RUs | 10000 |
 | (논리) 파티션당 모든 항목에 대 한 최대 저장소 | 20GB |
 | 고유한(논리적) 파티션 키의 최대 수 | 제한 없음 |
 | 컨테이너당 최대 스토리지 | 제한 없음 |
 | 데이터베이스당 최대 스토리지 | 제한 없음 |
 | 계정 당 최대 첨부 파일 크기 (첨부 기능을 사용 하지 않는 경우) | 2GB |
-| 1GB당 최소 RU | 10RU/s |
+| 1gb 당 최소 r u/s가 필요 합니다. | 10RU/s<br>**참고:** 컨테이너 또는 데이터베이스에 1tb가 넘는 데이터가 포함 된 경우 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program) 에 적합 한 것일 수 있습니다. |
 
 > [!NOTE]
 > 파티션 키의 스토리지 또는 처리량 제한을 높여야 하는 워크로드 관리에 대한 모범 사례는 [가상 파티션 키 만들기](synthetic-partition-keys.md)를 참조하세요.
@@ -55,8 +55,8 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 컨테이너당 최소 RU([전용 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| 데이터베이스당 최소 RU([공유 처리량 프로비저닝 모드](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| 컨테이너당 최소 RU([전용 처리량 프로비저닝 모드](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| 데이터베이스당 최소 RU([공유 처리량 프로비저닝 모드](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | 공유 처리량 데이터베이스 내의 컨테이너당 최소 RU | 100 |
 
 Cosmos DB는 SDK 또는 포털을 통해 컨테이너당 또는 데이터베이스당 처리량을 탄력적으로 스케일링할 수 있습니다. 각 컨테이너를 스케일링 범위 10~100회 내에서 최솟값~최댓값 사이에서 동기적으로, 즉시 스케일링할 수 있습니다. 요청된 처리량 값이 범위를 벗어나면 스케일링이 비동기적으로 수행됩니다. 요청된 처리량과 컨테이너의 데이터 스토리지 크기에 따라 비동기 스케일링을 완료하는 데 몇 분에서 몇 시간이 걸릴 수 있습니다.  
