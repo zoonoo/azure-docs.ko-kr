@@ -17,12 +17,12 @@ ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 027bbebaaab0694cfa0157464d47ef2c8e08fbff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998223"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320583"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>자습서: 유니버설 Windows 플랫폼 애플리케이션을 실행하는 특정 디바이스에 알림 전송
 
@@ -197,7 +197,7 @@ ms.locfileid: "88998223"
 1. 범주 기반 구독에 `notifications` 클래스를 사용하려면 *App.xaml.cs* 파일을 연 다음, `InitNotificationsAsync` 메서드를 업데이트합니다.
 
     ```csharp
-    // *** Remove or comment out these lines ***
+    // *** Remove or comment out these lines **_
     //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     //var hub = new NotificationHub("your hub name", "your listen connection string");
     //var result = await hub.RegisterNativeAsync(channel.Uri);
@@ -270,4 +270,4 @@ ms.locfileid: "88998223"
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
-[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: /previous-versions/azure/reference/jj860484(v=azure.100)

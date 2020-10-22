@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108306"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364425"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -138,7 +138,7 @@ Azure VM을 사용 하 여 테스트 하는 경우 아래 지침을 따르세요
 
 Azure 가상 컴퓨터를 사용 하는 경우 끝점 IP 주소는 _공용_ ip 주소를 표시 하지 않습니다. 공용 IP 주소를 찾으려면 다음 명령을 사용 합니다.
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -148,7 +148,7 @@ NSG (네트워크 보안 게이트웨이)를 통해 PostgreSQL Hyperscale 서버
 
 규칙을 설정 하려면 NSG의 이름을 알아야 합니다. 다음 명령을 사용 하 여 NSG를 확인 합니다.
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -156,7 +156,7 @@ NSG의 이름이 있으면 다음 명령을 사용 하 여 방화벽 규칙을 �
 
 아래의--destination-port-범위 매개 변수 값을 위의 ' azdata arc postgres server list ' 명령에서 가져온 포트 번호로 바꿉니다.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -169,7 +169,7 @@ Azure Data Studio를 열고 위의 외부 끝점 IP 주소와 포트 번호 및 
 
 Azure VM을 사용 하는 경우 다음 명령을 통해 액세스할 수 있는 _공용_ IP 주소가 필요 합니다.
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

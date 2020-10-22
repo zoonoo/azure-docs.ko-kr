@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77560223"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127151"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box Heavy로 데이터 복사(미리 보기)
 
@@ -64,7 +64,7 @@ NAS 디바이스에 연결된 후, 다음 단계는 데이터를 복사하는 �
     |**대상 스토리지 계정**    |목록에서 데이터를 업로드하려면 대상 스토리지 계정을 선택합니다.         |
     |**대상 유형**       |다음 목록에서 대상 스토리지 유형을 선택합니다. **블록 Blob**, **페이지 Blob** 또는 **Azure Files**.        |
     |**대상 컨테이너/공유**    |대상 스토리지 계정에 데이터를 업로드할 컨테이너 또는 공유의 이름을 입력합니다. 공유 이름 또는 컨테이너 이름일 수 있습니다. 예를 들면 `myshare` 또는 `mycontainer`를 사용합니다. 또한 `sharename\directory_name` 또는 `containername\virtual_directory_name` 형식으로 이름을 입력할 수 있습니다.        |
-    |**패턴과 일치하는 파일 복사**    | 다음 두 가지 방법으로 패턴과 일치하는 파일 이름을 입력할 수 있습니다.<ul><li>**와일드카드 식을 사용합니다.** 와일드카드 식에서는 `*` 및 `?`만 지원됩니다. 예를 들어 `*.vhd` 식은 `.vhd` 확장명을 가진 모든 파일과 일치합니다. 마찬가지로 `*.dl?`는 확장명이 `.dl`이거나 `.dl`(예: `.dll`)로 시작하는 모든 파일과 일치합니다. 또한 `*foo`는 이름이 `foo`로 끝나는 모든 파일과 일치합니다.<br>필드에 와일드카드 식을 직접 입력할 수 있습니다. 기본적으로 필드에 입력된 값은 와일드카드 식으로 처리됩니다.</li><li>**정규식을 사용합니다.** POSIX 기반 정규식이 지원됩니다. 예를 들어, 정규식 `.*\.vhd`는 확장명이 `.vhd`인 모든 파일과 일치합니다. 정규식의 경우 `<pattern>`을 `regex(<pattern>)`로 직접 입력합니다. 정규식에 대한 자세한 내용은 [정규식 언어 - 빠른 참조](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference)를 참조하세요.</li><ul>|
+    |**패턴과 일치하는 파일 복사**    | 다음 두 가지 방법으로 패턴과 일치하는 파일 이름을 입력할 수 있습니다.<ul><li>**와일드카드 식을 사용합니다.** 와일드카드 식에서는 `*` 및 `?`만 지원됩니다. 예를 들어 `*.vhd` 식은 `.vhd` 확장명을 가진 모든 파일과 일치합니다. 마찬가지로 `*.dl?`는 확장명이 `.dl`이거나 `.dl`(예: `.dll`)로 시작하는 모든 파일과 일치합니다. 또한 `*foo`는 이름이 `foo`로 끝나는 모든 파일과 일치합니다.<br>필드에 와일드카드 식을 직접 입력할 수 있습니다. 기본적으로 필드에 입력된 값은 와일드카드 식으로 처리됩니다.</li><li>**정규식을 사용합니다.** POSIX 기반 정규식이 지원됩니다. 예를 들어, 정규식 `.*\.vhd`는 확장명이 `.vhd`인 모든 파일과 일치합니다. 정규식의 경우 `<pattern>`을 `regex(<pattern>)`로 직접 입력합니다. 정규식에 대한 자세한 내용은 [정규식 언어 - 빠른 참조](/dotnet/standard/base-types/regular-expression-language-quick-reference)를 참조하세요.</li><ul>|
     |**파일 최적화**              |이 기능을 사용하는 경우 1MB 미만의 파일만 수집하는 동안 압축됩니다. 이 압축으로 작은 파일에 대한 데이터 복사 속도가 빨라집니다. 또한 파일 수가 디렉터리 수보다 훨씬 많은 경우 상당한 시간이 절약됩니다.        |
  
 4. **시작**을 선택합니다. 입력의 유효성이 확인되고 유효성 검사에 성공하면 작업이 시작됩니다. 작업이 시작될 때까지 몇 분 정도 걸립니다.
@@ -147,4 +147,3 @@ Data Box Heavy 디바이스를 Microsoft로 다시 배송하는 방법을 알아
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box Heavy 디바이스 배송](./data-box-heavy-deploy-picked-up.md)
-

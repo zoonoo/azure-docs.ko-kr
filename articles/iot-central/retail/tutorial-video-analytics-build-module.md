@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873475"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124897"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>자습서: 라이브 비디오 분석 게이트웨이 모듈 수정 및 빌드
 
@@ -28,8 +28,8 @@ ms.locfileid: "91873475"
 * [Node.js](https://nodejs.org/en/download/) v10 이상
 * [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) 확장이 설치된 [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Docker](https://www.docker.com/products/docker-desktop) 엔진
-* 모듈 버전을 호스트하는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)
-* [Azure Media Services](https://docs.microsoft.com/azure/media-services/) 계정 이전 자습서를 완료한 경우 이전에 만든 자습서를 다시 사용할 수 있습니다.
+* 모듈 버전을 호스트하는 [Azure Container Registry](../../container-registry/index.yml)
+* [Azure Media Services](../../media-services/index.yml) 계정 이전 자습서를 완료한 경우 이전에 만든 자습서를 다시 사용할 수 있습니다.
 
 ## <a name="clone-the-repository"></a>리포지토리 복제
 

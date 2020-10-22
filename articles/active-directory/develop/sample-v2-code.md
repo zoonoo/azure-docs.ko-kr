@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91773895"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327657"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -27,9 +27,6 @@ Microsoft ID 플랫폼을 사용하여 다음을 수행할 수 있습니다.
 - 보호되는 web API에 액세스하려면 액세스 토큰 요구.
 
 이 문서에서는 Microsoft ID 플랫폼 엔드포인트에 대해 간략하게 설명하고 샘플 링크를 제공합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 안에 있는 주석은 중요한 섹션을 이해하는 데 도움이 됩니다.
-
-> [!NOTE]
-> v1.0 샘플에 관심이 있는 경우 [Azure AD 코드 샘플(v1.0 엔드포인트)](../azuread-dev/sample-v1-code.md)을 참조하세요.
 
 각 샘플 형식에 대한 기본 시나리오를 이해하려면 [Microsoft ID 플랫폼 엔드포인트에 대한 앱 형식](v2-app-types.md)을 참조하세요.
 
@@ -142,5 +139,4 @@ Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패�
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Active Directory(v1.0) 개발자 가이드](../azuread-dev/v1-overview.md)
-- [Microsoft Graph API 개념 및 참조](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API 개념 및 참조](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

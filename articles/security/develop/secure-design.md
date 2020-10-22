@@ -13,23 +13,23 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246812"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364051"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
 이 문서에서는 클라우드 용 응용 프로그램을 디자인할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 요구 사항 및 디자인 단계에서 고려해 야 하는 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 목표는 보다 안전한 응용 프로그램을 디자인 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
-- 교육
+- 학습
 - 요구 사항
 - 디자인
 
-## <a name="training"></a>교육
+## <a name="training"></a>학습
 클라우드 응용 프로그램 개발을 시작 하기 전에 Azure에서 보안 및 개인 정보를 이해 하는 데 시간이 걸립니다. 이 단계를 수행 하 여 응용 프로그램에서 악용 가능한 취약점의 수 및 심각도를 줄일 수 있습니다. 지속적으로 변화 하는 위협 환경에 적절 하 게 대응할 수 있도록 준비 하는 것이 좋습니다.
 
 학습 단계 중에 다음 리소스를 사용 하 여 개발자가 사용할 수 있는 Azure 서비스와 Azure에 대 한 보안 모범 사례를 숙지 합니다.
@@ -226,7 +226,7 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 
 #### <a name="implement-just-in-time-access"></a>Just-in-time 액세스 구현
 
-JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 낮게 합니다. [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) 사용:
+JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 낮게 합니다. [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) 사용:
 
 - JIT만 필요한 사용 권한을 사용자에 게 제공 합니다.
 - 권한을 자동으로 해지하는 짧은 기간 동안 자신 있게 역할을 할당합니다.

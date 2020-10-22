@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388683"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363932"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
 
@@ -33,7 +33,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
+* [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
 * Microsoft Graph API 권한 정책을 사용 하 여 테 넌 트에 등록 된 [관리 앱](microsoft-graph-get-started.md) *입니다. ReadWrite. trustframework*
 * [Azure 파이프라인](https://azure.microsoft.com/services/devops/pipelines/)및 [Azure DevOps Services 프로젝트][devops-create-project] 에 대 한 액세스
@@ -131,7 +131,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 1. **변수** 탭을 선택 합니다.
 1. **파이프라인 변수** 아래에 다음 변수를 추가 하 고 지정 된 대로 값을 설정 합니다.
 
-    | 속성 | 값 |
+    | Name | 값 |
     | ---- | ----- |
     | `clientId` | 이전에 등록 한 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다. |
     | `clientSecret` | 이전에 만든 **클라이언트 암호** 의 값입니다. <br /> 변수 유형을 **secret** (잠금 아이콘 선택)로 변경 합니다. |
@@ -151,7 +151,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
     * **작업 버전**: 2. *
     * **표시 이름**:이 작업에서 업로드할 정책의 이름입니다. 예를 들어 *B2C_1A_TrustFrameworkBase*합니다.
     * **유형**: 파일 경로
-    * **스크립트 경로**: 줄임표 (***...***)를 선택 하 고 *Scripts* 폴더로 이동한 다음 *DeployToB2C.ps1* 파일을 선택 합니다.
+    * **스크립트 경로**: 줄임표 (**_..._* _) _Scripts * 폴더로 이동한 다음 *DeployToB2C.ps1* 파일을 선택 합니다.
     * **인수:**
 
         **인수**에 대해 다음 값을 입력 합니다. `{alias-name}`을 이전 섹션에서 지정한 별칭으로 바꿉니다.

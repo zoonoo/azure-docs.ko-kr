@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91739870"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124016"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
@@ -38,7 +38,7 @@ ms.locfileid: "91739870"
 4. 다음을 검토했습니다.
 
     - [Azure 개체 크기 제한에서 지원되는 관리 디스크 크기](data-box-limits.md#azure-object-size-limits).
-    - [Azure 관리 디스크 소개](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Azure 관리 디스크 소개](../virtual-machines/managed-disks-overview.md). 
 
 5. Data Box에서 Azure Storage로 데이터를 전송했음을 확인할 때까지 원본 데이터의 복사본을 유지 관리합니다.
 
@@ -183,4 +183,3 @@ Data Box를 Microsoft로 다시 배송하는 방법을 알아보려면 다음 �
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box 배송](./data-box-deploy-picked-up.md)
-
