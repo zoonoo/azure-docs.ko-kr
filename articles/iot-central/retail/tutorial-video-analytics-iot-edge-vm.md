@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873281"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127031"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)
 
@@ -94,7 +94,7 @@ sudo iotedge list
 
 이 배포에서는 라이브 비디오 분석에 필요한 모듈을 사용하여 맞춤형 IoT Edge 환경을 만들었습니다. 이 배포에서는 IoT Edge 런타임이 IoT 디바이스 프로비저닝 서비스를 사용하여 IoT Central에 연결하도록 기본 **config.yaml**을 업데이트했습니다. 또한 이 배포에서는 모듈에 추가 구성 데이터를 제공하기 위해 **data/storage** 폴더에 **state.json**이라는 파일을 만들었습니다. 자세한 내용은 [비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) 자습서를 참조하세요.
 
-IoT Edge 디바이스 문제를 해결하려면 [IoT Edge 디바이스 문제 해결](https://docs.microsoft.com/azure/iot-edge/troubleshoot)을 참조하세요.
+IoT Edge 디바이스 문제를 해결하려면 [IoT Edge 디바이스 문제 해결](../../iot-edge/troubleshoot.md)을 참조하세요.
 
 ## <a name="use-the-rtsp-simulator"></a>RTSP 시뮬레이터 사용
 

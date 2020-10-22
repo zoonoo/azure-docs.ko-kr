@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269559"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365819"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>안전 하 고 Azure로 관리 되는 워크스테이션 배포
 
@@ -51,11 +51,11 @@ ms.locfileid: "89269559"
 
 이 가이드에서 설명 하는 개념은 E5 또는 동등한 SKU Microsoft 365 Enterprise 있다고 가정 합니다. 이 가이드의 일부 권장 사항은 낮은 Sku를 사용 하 여 구현할 수 있습니다. 자세한 내용은 [Microsoft 365 Enterprise 라이선스](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise)를 참조 하세요.
 
-라이선스 프로 비전을 자동화 하려면 사용자에 대 한 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 고려 합니다.
+라이선스 프로 비전을 자동화 하려면 사용자에 대 한 [그룹 기반 라이선스](../enterprise-users/licensing-groups-assign.md) 를 고려 합니다.
 
 ## <a name="azure-active-directory-configuration"></a>Azure Active Directory 구성
 
-Azure AD (Azure Active Directory)는 관리자 워크스테이션의 사용자, 그룹 및 장치를 관리 합니다. [관리자 계정을](../users-groups-roles/directory-assign-admin-roles.md)사용 하 여 id 서비스 및 기능을 사용 하도록 설정 합니다.
+Azure AD (Azure Active Directory)는 관리자 워크스테이션의 사용자, 그룹 및 장치를 관리 합니다. [관리자 계정을](../roles/permissions-reference.md)사용 하 여 id 서비스 및 기능을 사용 하도록 설정 합니다.
 
 보안 워크스테이션 관리자 계정을 만들 때 현재 워크스테이션에 계정을 노출 합니다. 이 초기 구성과 모든 전역 구성을 수행 하려면 알려진 안전한 장치를 사용 해야 합니다. 첫 번째 환경의 공격 노출을 줄이려면 [맬웨어 감염을 방지 하는 지침](/windows/security/threat-protection/intelligence/prevent-malware-infection)을 수행 하는 것이 좋습니다.
 
@@ -77,7 +77,7 @@ Azure AD (Azure Active Directory)는 관리자 워크스테이션의 사용자, 
 
 Azure Portal에서 **Azure Active Directory**  >  **그룹**  >  **새 그룹**으로 이동 합니다.
 
-1. 워크스테이션 사용자 그룹의 경우 사용자에 대 한 라이선스 프로 비전을 자동화 하도록 [그룹 기반 라이선스](../users-groups-roles/licensing-groups-assign.md) 를 구성 해야 할 수 있습니다.
+1. 워크스테이션 사용자 그룹의 경우 사용자에 대 한 라이선스 프로 비전을 자동화 하도록 [그룹 기반 라이선스](../enterprise-users/licensing-groups-assign.md) 를 구성 해야 할 수 있습니다.
 1. 워크스테이션 사용자 그룹에 대해 다음을 입력 합니다.
 
    * **그룹 종류** -보안
@@ -131,7 +131,7 @@ Azure 포털에서 다음을 수행합니다.
 
 #### <a name="azure-ad-conditional-access"></a>Azure AD 조건부 액세스
 
-Azure AD 조건부 액세스를 사용 하면 권한 있는 관리 작업을 규격 장치로 제한할 수 있습니다. **보안 워크스테이션 사용자** 그룹의 미리 정의 된 구성원은 클라우드 응용 프로그램에 로그인 할 때 multi-factor authentication을 수행 해야 합니다. 모범 사례는 정책에서 응급 액세스 계정을 제외 하는 것입니다. 자세한 내용은 [AZURE AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)를 참조 하세요.
+Azure AD 조건부 액세스를 사용 하면 권한 있는 관리 작업을 규격 장치로 제한할 수 있습니다. **보안 워크스테이션 사용자** 그룹의 미리 정의 된 구성원은 클라우드 응용 프로그램에 로그인 할 때 multi-factor authentication을 수행 해야 합니다. 모범 사례는 정책에서 응급 액세스 계정을 제외 하는 것입니다. 자세한 내용은 [AZURE AD에서 응급 액세스 계정 관리](../roles/security-emergency-access.md)를 참조 하세요.
 
 ## <a name="intune-configuration"></a>Intune 구성
 
@@ -231,7 +231,7 @@ Windows Defender ATP 및 Intune의 통합을 구성 하려면 Azure Portal으로
 
 | 프로필 | 다운로드 위치 | 파일 이름 |
 | --- | --- | --- |
-| 낮은 보안 | N/A | N/A |
+| 낮은 보안 | 해당 없음 | 해당 없음 |
 | 향상된 보안 | https://aka.ms/securedworkstationgit | Windows10-(1809). p s 1 |
 | 높은 수준의 보안 | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809) ps1 |
 | 특수화 | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC Windows10 (1803) SecurityBaseline.ps1 |
@@ -308,7 +308,7 @@ Intune에서 관리 하는 [회사 포털](/Intune/store-apps-company-portal-app
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>보안 워크스테이션에서 Azure Portal에 액세스할 수 있도록 허용 하는 조건부 액세스
 
-Azure AD는 Azure 클라우드 관리 포털에 액세스할 수 있는 사용자 및 사용자를 관리 하 고 제한 하는 기능을 제공 합니다. [조건부 액세스](../conditional-access/overview.md) 를 사용 하도록 설정 하면 보안 워크스테이션 에서만 리소스를 관리 하거나 변경할 수 있습니다. [응급 액세스](../users-groups-roles/directory-emergency-access.md) 기능을 사용 하는 경우에만 극단적인 사례 및 정책을 통해 관리 되는 계정에만 사용 해야 하는 경우이 기능을 배포 하는 것이 중요 합니다.
+Azure AD는 Azure 클라우드 관리 포털에 액세스할 수 있는 사용자 및 사용자를 관리 하 고 제한 하는 기능을 제공 합니다. [조건부 액세스](../conditional-access/overview.md) 를 사용 하도록 설정 하면 보안 워크스테이션 에서만 리소스를 관리 하거나 변경할 수 있습니다. [응급 액세스](../roles/security-emergency-access.md) 기능을 사용 하는 경우에만 극단적인 사례 및 정책을 통해 관리 되는 계정에만 사용 해야 하는 경우이 기능을 배포 하는 것이 중요 합니다.
 
 > [!NOTE]
 > 사용자 그룹을 만들고 조건부 액세스 정책을 무시할 수 있는 응급 사용자를 포함 해야 합니다. 이 예에서는 **긴급** 도로 불리는 보안 그룹이 있습니다.

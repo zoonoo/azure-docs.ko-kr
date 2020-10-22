@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938353"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368811"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -32,9 +32,9 @@ ms.locfileid: "90938353"
 
 다음 단계를 사용 하 여 IoT Edge에 대 한 IoT 용 Defender 보안 모듈을 배포 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)되어 있는지 확인 합니다.
+1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device)되어 있는지 확인 합니다.
 
 1. Defender for IoT Edge 모듈을 사용 하려면 IoT Edge 장치에 [Auditd framework](https://linux.die.net/man/8/auditd) 가 설치 되어 있어야 합니다.
 
@@ -175,7 +175,7 @@ ms.locfileid: "90938353"
 
 1. 다음 컨테이너가 실행 중인지 확인 합니다.
 
-   | Name | 이미지 |
+   | Name | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

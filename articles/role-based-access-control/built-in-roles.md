@@ -9,18 +9,18 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: f5d5b4f801dd406518a6ba516bf2e38e01cb96ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db16ba415e609827f6b775840f153489702ecca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275271"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370562"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
 [Azure RBAC(역할 기반 액세스 제어)](overview.md)는 사용자, 그룹, 서비스 주체 및 관리 ID에 할당할 수 있는 여러 가지 Azure 기본 제공 역할을 제공합니다. 역할 할당은 Azure 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
 
-이 문서에는 Azure 기본 제공 역할 목록이 포함되어 있으며, 이 목록은 지속적으로 업데이트됩니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure AD(Azure Active Directory)의 관리자 역할을 찾고 있는 경우 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+이 문서에는 Azure 기본 제공 역할 목록이 포함되어 있으며, 이 목록은 지속적으로 업데이트됩니다. 최신 역할을 가져오려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. Azure AD(Azure Active Directory)의 관리자 역할을 찾고 있는 경우 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
 다음 표에서는 각 기본 제공 역할에 대한 간략한 설명과 고유 ID를 제공합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다. 이러한 작업의 의미와 작업이 관리 및 데이터 평면에 적용되는 방식에 대한 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
 

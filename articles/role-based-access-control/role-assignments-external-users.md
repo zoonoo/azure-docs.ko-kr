@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361907"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368386"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 게스트 사용자에 대 한 Azure 역할 할당 추가 또는 제거
 
@@ -183,7 +183,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 ![게스트 사용자가 디렉터리의 사용자를 찾을 수 없음](./media/role-assignments-external-users/directory-no-users.png)
 
-게스트 사용자에 게 디렉터리에서 추가 권한이 필요한 경우 게스트 사용자에 게 디렉터리 역할을 할당할 수 있습니다. 게스트 사용자에 게 디렉터리에 대 한 전체 읽기 액세스 권한을 원하는 경우 Azure AD의 [디렉터리 독자](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 역할에 게스트 사용자를 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 테 넌 트의 파트너 조직에서 사용자에 게 권한 부여](../active-directory/b2b/add-guest-to-role.md)를 참조 하세요.
+게스트 사용자에 게 디렉터리에서 추가 권한이 필요한 경우 게스트 사용자에 게 디렉터리 역할을 할당할 수 있습니다. 게스트 사용자에 게 디렉터리에 대 한 전체 읽기 액세스 권한을 원하는 경우 Azure AD의 [디렉터리 독자](../active-directory/roles/permissions-reference.md) 역할에 게스트 사용자를 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 테 넌 트의 파트너 조직에서 사용자에 게 권한 부여](../active-directory/b2b/add-guest-to-role.md)를 참조 하세요.
 
 ![디렉터리 판독기 역할 할당](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 ![게스트 사용자가 보안 주체를 검색 하 여 역할을 할당할 수 없음](./media/role-assignments-external-users/directory-no-browse.png)
 
-게스트 사용자가 디렉터리에서 사람의 정확한 로그인 이름을 알고 있는 경우 액세스 권한을 부여할 수 있습니다. 게스트 사용자에 게 디렉터리에 대 한 전체 읽기 액세스 권한을 원하는 경우 Azure AD의 [디렉터리 독자](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 역할에 게스트 사용자를 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 테 넌 트의 파트너 조직에서 사용자에 게 권한 부여](../active-directory/b2b/add-guest-to-role.md)를 참조 하세요.
+게스트 사용자가 디렉터리에서 사람의 정확한 로그인 이름을 알고 있는 경우 액세스 권한을 부여할 수 있습니다. 게스트 사용자에 게 디렉터리에 대 한 전체 읽기 액세스 권한을 원하는 경우 Azure AD의 [디렉터리 독자](../active-directory/roles/permissions-reference.md) 역할에 게스트 사용자를 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 테 넌 트의 파트너 조직에서 사용자에 게 권한 부여](../active-directory/b2b/add-guest-to-role.md)를 참조 하세요.
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>게스트 사용자가 응용 프로그램을 등록 하거나 서비스 사용자를 만들 수 없음
 
-게스트 사용자에게는 제한된 디렉터리 권한이 있습니다. 게스트 사용자가 응용 프로그램을 등록 하거나 서비스 사용자를 만들 수 있어야 하는 경우 Azure AD의 [응용 프로그램 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 역할에 게스트 사용자를 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 테 넌 트의 파트너 조직에서 사용자에 게 권한 부여](../active-directory/b2b/add-guest-to-role.md)를 참조 하세요.
+게스트 사용자에게는 제한된 디렉터리 권한이 있습니다. 게스트 사용자가 응용 프로그램을 등록 하거나 서비스 사용자를 만들 수 있어야 하는 경우 Azure AD의 [응용 프로그램 개발자](../active-directory/roles/permissions-reference.md) 역할에 게스트 사용자를 추가할 수 있습니다. 자세한 내용은 [Azure Active Directory 테 넌 트의 파트너 조직에서 사용자에 게 권한 부여](../active-directory/b2b/add-guest-to-role.md)를 참조 하세요.
 
 ![게스트 사용자가 응용 프로그램을 등록할 수 없음](./media/role-assignments-external-users/directory-access-denied.png)
 

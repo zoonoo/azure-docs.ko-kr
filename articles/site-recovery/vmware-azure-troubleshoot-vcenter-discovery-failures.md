@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8471305af93194ccae7b0928685e10d4d64726
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135343"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366662"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>vCenter Server 검색 오류 문제 해결
 
@@ -54,7 +54,7 @@ vCenter 검색은 시스템 사용자가 구성한 시스템 기본 프록시 �
 
 문제를 해결하려면:
 
-[PsExec 도구](https://aka.ms/PsExec)를 다운로드합니다. 
+[PsExec 도구](/sysinternals/downloads/psexec)를 다운로드합니다. 
 
 PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에 액세스 하 고 프록시 주소가 구성 되었는지 여부를 확인 합니다. 다음 절차를 사용 하 여 바이패스 목록에 vCenter를 추가할 수 있습니다.
 
@@ -81,4 +81,4 @@ DRA 프록시 구성의 경우:
 
 ## <a name="next-steps"></a>다음 단계
 
-[VMware VM 재해 복구용 구성 서버 관리](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
+[VMware VM 재해 복구용 구성 서버 관리](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

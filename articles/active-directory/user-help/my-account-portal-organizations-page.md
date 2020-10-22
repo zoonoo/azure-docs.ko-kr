@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005074"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370341"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>내 계정 포털에서 액세스할 수 있는 조직 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "90005074"
 - **기타 조직.** 기타 조직은 이전에 회사 또는 학교 계정을 사용하여 로그인한 임의의 그룹입니다. 언제든지 이러한 조직 중 어느 곳도 나갈 수 있습니다.
 
 >[!Important]
->이 문서는 회사 또는 학교 계정에서 액세스 하는 조직 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 직원용 및 기타 용도의 그룹 및 사용자 관리에 관한 정보를 찾는 관리자는 [엔터프라이즈 사용자 관리 문서](../users-groups-roles/index.yml)를 참조하세요.
+>이 문서는 회사 또는 학교 계정에서 액세스 하는 조직 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 직원용 및 기타 용도의 그룹 및 사용자 관리에 관한 정보를 찾는 관리자는 [엔터프라이즈 사용자 관리 문서](../enterprise-users/index.yml)를 참조하세요.
 
 ## <a name="view-your-organizations"></a>조직 보기
 

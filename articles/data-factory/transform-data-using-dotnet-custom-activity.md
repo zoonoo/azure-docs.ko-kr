@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276501"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368998"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 
@@ -310,7 +310,7 @@ Activity Error section:
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 
-이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들면 다음과 같습니다.
+이 문서의 일부 예제에 표시된 대로 *SecureString* 유형으로 지정된 민감한 속성 값은 Data Factory 사용자 인터페이스의 모니터링 탭에서 마스크 처리됩니다.  그러나 실제 파이프라인 실행에서는 *SecureString* 속성이 일반 텍스트로 `activity.json` 파일 내에서 JSON으로 serialize됩니다. 예를 들어:
 
 ```json
 "extendedProperties": {
@@ -387,5 +387,5 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

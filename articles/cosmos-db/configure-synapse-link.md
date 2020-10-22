@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757846"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370715"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 
@@ -218,9 +218,6 @@ Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분
 ## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> 서버를 사용 하지 않는 Synapse SQL을 사용 하 여 분석 저장소 쿼리
 
 서버를 사용 하지 않는 Synapse (이전에는 **sql 주문형**이라고 했던 미리 보기 기능)를 사용 하면 Azure Synapse 링크로 사용 되는 Azure Cosmos DB 컨테이너의 데이터를 쿼리하고 분석할 수 있습니다. 트랜잭션 워크 로드의 성능에 영향을 주지 않고 데이터를 거의 실시간으로 분석할 수 있습니다. 분석 저장소에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 T-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다. 자세히 알아보려면 [SYNAPSE SQL 서버를 사용 하지 않는 쿼리 분석 저장소](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) 문서를 참조 하세요.
-
-> [!NOTE]
-> Synapse SQL server를 사용 하지 않는 Azure Cosmos DB 분석 저장소를 사용 하는 것은 현재 제어 된 미리 보기로 제공 됩니다. 액세스를 요청 하려면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Synapse SQL server 서버를 사용 하 여 Power BI에서 데이터 분석 및 시각화
 

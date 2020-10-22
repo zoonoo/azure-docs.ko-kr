@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601367"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371055"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -42,13 +42,13 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 | Azure AD ID 보호에서 위험 및 취약성 보고서에 대해 플래그가 지정 된 사용자를 심사 하 고 조사 합니다. | InfoSec 운영 팀 |
 
 > [!NOTE]
-> Azure AD ID 보호에 Azure AD Premium P2 라이선스가 필요 합니다. 요구 사항에 맞는 적절 한 라이선스를 찾으려면 [Azure AD Free 및 Azure AD Premium 버전의 일반 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
+> Azure AD ID 보호에 Azure AD Premium P2 라이선스가 필요 합니다. 요구 사항에 맞는 적절 한 라이선스를 찾으려면 [Azure AD Free 및 Azure AD Premium 버전의 일반 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
 목록을 검토할 때 소유자가 없는 작업의 소유자를 할당 하거나 위의 권장 사항에 맞지 않는 소유자가 있는 작업에 대 한 소유권을 조정 해야 할 수 있습니다.
 
 #### <a name="owner-recommended-reading"></a>소유자 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md)
 - [Azure에서 거버넌스](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>자격 증명 관리
@@ -119,7 +119,7 @@ PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 �
 
 ### <a name="device-trust-access-policies"></a>장치 신뢰 액세스 정책
 
-디바이스는 조직의 사용자처럼 보호해야 하는 핵심 ID입니다. 디바이스의 ID를 사용하여 언제 어디서든 리소스를 보호할 수 있습니다.장치를 인증 하 고 해당 신뢰 유형에 대해 계정을 인증 하면 다음과 같은 방식으로 보안 상태 및 사용 편리성을 향상 시킵니다.
+디바이스는 조직의 사용자처럼 보호해야 하는 핵심 ID입니다. 디바이스의 ID를 사용하여 언제 어디서든 리소스를 보호할 수 있습니다. 장치를 인증 하 고 해당 신뢰 유형에 대해 계정을 인증 하면 다음과 같은 방식으로 보안 상태 및 사용 편리성을 향상 시킵니다.
 
 - 장치를 신뢰할 수 있는 경우와 같이 원활한 방지
 - 신뢰할 수 없는 장치에서 액세스 차단
@@ -128,7 +128,7 @@ PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 �
 다음 방법 중 하나를 사용 하 여 장치 id를 가져오고 Azure AD에서 관리 하 여이 목표를 수행할 수 있습니다.
 
 - 조직에서는 [Microsoft Intune](/intune/what-is-intune) 를 사용 하 여 장치를 관리 하 고 규정 준수 정책을 적용 하며 장치 상태를 증명 하 고, 장치가 규격 인지 여부에 따라 조건부 액세스 정책을 설정할 수 있습니다. IOS 장치, Mac 데스크톱 (JAMF 통합을 통해), Windows 데스크톱 (Windows 10의 경우 기본적으로 모바일 장치 관리를 사용 하 고, Microsoft 엔드포인트 Configuration Manager로 공동 관리) 및 Android 모바일 장치를 관리할 수 Microsoft Intune.
-- [하이브리드 AZURE AD 조인은](../devices/hybrid-azuread-join-managed-domains.md) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책 또는 Microsoft 끝점 Configuration Manager에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에서 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에 [조건부 액세스](../conditional-access/overview.md)를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있습니다   .
+- [하이브리드 AZURE AD 조인은](../devices/hybrid-azuread-join-managed-domains.md) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책 또는 Microsoft 끝점 Configuration Manager에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에서 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있습니다.
 
 클라우드에 등록 되지 않은 도메인 가입 windows 장치 또는 클라우드에 등록 되어 있고 조건부 액세스 정책을 사용 하지 않는 도메인에 가입 된 windows 장치를 사용 하는 경우 등록 되지 않은 장치를 등록 하 고 두 경우 모두 조건부 액세스 정책에서 [컨트롤로 하이브리드 AZURE AD 조인을 사용](../conditional-access/require-managed-devices.md) 합니다.
 
@@ -177,7 +177,7 @@ Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-prot
 
 ### <a name="assign-users-to-applications"></a>응용 프로그램에 사용자 할당
 
-[응용 프로그램에 사용자를 할당](../manage-apps/assign-user-or-group-access-portal.md) 하는 것은 대규모의 유연성과 관리 기능을 허용 하므로 그룹을 사용 하 여 가장 잘 매핑됩니다. 그룹을 사용할 경우의 이점에는 [특성 기반 동적 그룹 멤버 자격](../users-groups-roles/groups-dynamic-membership.md) 및 [앱 소유자에 대 한 위임이](../fundamentals/active-directory-accessmanagement-managing-group-owners.md)포함 됩니다. 따라서 그룹을 이미 사용 하 고 관리 하는 경우 다음 작업을 수행 하 여 규모에 따라 관리를 개선 하는 것이 좋습니다.
+[응용 프로그램에 사용자를 할당](../manage-apps/assign-user-or-group-access-portal.md) 하는 것은 대규모의 유연성과 관리 기능을 허용 하므로 그룹을 사용 하 여 가장 잘 매핑됩니다. 그룹을 사용할 경우의 이점에는 [특성 기반 동적 그룹 멤버 자격](../enterprise-users/groups-dynamic-membership.md) 및 [앱 소유자에 대 한 위임이](../fundamentals/active-directory-accessmanagement-managing-group-owners.md)포함 됩니다. 따라서 그룹을 이미 사용 하 고 관리 하는 경우 다음 작업을 수행 하 여 규모에 따라 관리를 개선 하는 것이 좋습니다.
 
 - 그룹 관리 및 관리를 응용 프로그램 소유자에 게 위임 합니다.
 - 응용 프로그램에 대 한 셀프 서비스 액세스를 허용 합니다.
@@ -189,8 +189,8 @@ Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-prot
 #### <a name="assign-users-to-applications-recommended-reading"></a>응용 프로그램에 사용자 할당 권장 읽기
 
 - [Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
-- [Azure Active Directory에서 앱 등록 권한 위임](../users-groups-roles/roles-delegate-app-roles.md)
-- [Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙](../users-groups-roles/groups-dynamic-membership.md)
+- [Azure Active Directory에서 앱 등록 권한 위임](../roles/delegate-app-roles.md)
+- [Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>액세스 정책
 
@@ -248,7 +248,7 @@ MAM (Microsoft Intune 응용 프로그램 관리)은 저장소 암호화, PIN, �
 - 조건부 액세스 정책을 사용 하 여 **사용자 단위 mfa** 를 사용 하는 대신 [mfa 구현](../conditional-access/plan-conditional-access.md)
 - 여러 응용 프로그램에 적용할 수 있는 몇 가지 핵심 정책 집합이 있어야 합니다.
 - 빈 예외 그룹을 정의 하 고 정책에 추가 하 여 예외 전략을 포함 합니다.
-- MFA 컨트롤이 없는 [브레이크 유리](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) 계정 계획
+- MFA 컨트롤이 없는 [브레이크 유리](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) 계정 계획
 - Microsoft 365 클라이언트 응용 프로그램 (예: 팀, OneDrive, Outlook 등) 간에 일관 된 환경을 보장 합니다. Exchange Online, Sharepoint Online 등의 서비스에 대해 동일한 컨트롤 집합을 구현 하 여
 - 정책에 대 한 할당은 개인이 아닌 그룹을 통해 구현 되어야 합니다.
 - 정책에 사용 되는 예외 그룹을 정기적으로 검토 하 여 사용자가 보안 상태를 벗어나는 시간을 제한 합니다. Azure AD P2를 소유 하는 경우 액세스 검토를 사용 하 여 프로세스를 자동화할 수 있습니다.
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
 
 |리소스 | 사용 권한 |
 | :- | :- |
@@ -347,7 +347,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 - [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-register-app.md)
 - [Azure Active Directory에서 앱, 사용 권한 및 동의 합니다.](../develop/quickstart-register-app.md)
 - [그룹을 사용 하 여 Azure Active Directory 리소스에 대 한 액세스 관리](./active-directory-manage-groups.md)
-- [Azure Active Directory에서 셀프 서비스 응용 프로그램 액세스 관리 설정](../users-groups-roles/groups-self-service-management.md)
+- [Azure Active Directory에서 셀프 서비스 응용 프로그램 액세스 관리 설정](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>예기치 않은 위치에서의 트래픽
 

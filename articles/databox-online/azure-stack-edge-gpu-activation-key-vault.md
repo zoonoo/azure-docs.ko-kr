@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976834"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367604"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Azure Stack Edge와 Azure Key Vault 통합 
 
@@ -22,7 +22,7 @@ Azure Key Vault는 비밀 관리를 위해 Azure Stack에 지 리소스와 통�
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>Key vault 및 Azure Stack Edge 정보
 
-Azure Key Vault 클라우드 서비스는 토큰, 암호, 인증서, API 키 및 기타 암호에 대 한 액세스를 안전 하 게 저장 하 고 제어 하는 데 사용 됩니다. 또한 Key Vault를 사용 하면 데이터를 암호화 하는 데 사용 되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
+Azure Key Vault 클라우드 서비스는 토큰, 암호, 인증서, API 키 및 기타 암호에 대 한 액세스를 안전 하 게 저장 하 고 제어 하는 데 사용 됩니다. 또한 Key Vault를 사용 하면 데이터를 암호화 하는 데 사용 되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 허용 되는 트랜잭션과 해당 요금에 대 한 자세한 내용은 [Azure Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)을 참조 하세요.
 
 Azure Stack Edge 서비스의 경우 사용 되는 암호 중 하나는 HK (채널 무결성 키)입니다. 이 키를 사용 하 여 암호를 암호화할 수 있습니다. 키 자격 증명 모음을 통합 하 여 CIK는 키 자격 증명 모음에 안전 하 게 저장 됩니다. 자세한 내용은 [안전 하 게 비밀 및 키 저장](../key-vault/general/overview.md#securely-store-secrets-and-keys)을 참조 하세요.
 
@@ -44,6 +44,8 @@ Azure Stack Edge 서비스의 경우 사용 되는 암호 중 하나는 HK (채�
 - 기본 키 이름을 적용 하거나 키 자격 증명 모음에 대 한 사용자 지정 이름을 지정 하도록 선택할 수 있습니다. 키 자격 증명 모음 이름은 3 자에서 24 자 사이 여야 합니다. 이미 사용 중인 주요 자격 증명 모음을 사용할 수 없습니다. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![Azure Stack Edge 리소스 생성 중에 생성 되는 MSI](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Azure 주요 자격 증명 모음을 찾아보려면 Azure Stack Edge 리소스의 **속성** 으로 이동 하 고 키 자격 증명 모음 이름을 선택 합니다. 
 
 - 실수로 인 한 삭제를 방지 하기 위해 키 자격 증명 모음에서 리소스 잠금이 사용 됩니다. 또한 키 자격 증명 모음에 대 한 일시 삭제는 키 자격 증명 모음을 90 복원 하는 데 사용할 수 있습니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 를 참조 하세요.
 

@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 0398c035eeac7d02ac38f798cb58c513279fc709
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819993"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368658"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -185,6 +185,7 @@ spec:
 1. 비밀을 가져올 수 있는 권한을 서비스 주체에 부여합니다.
     ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
+    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
     ```
 
 1. 이제 키 자격 증명 모음에서 비밀을 읽을 수 있는 권한을 사용하여 서비스 주체를 구성했습니다. **$AZURE_CLIENT_SECRET**은 서비스 주체의 암호입니다. 서비스 주체 자격 증명을 비밀 저장소 CSI 드라이버에서 액세스할 수 있는 Kubernetes 비밀로 추가합니다.
@@ -214,8 +215,6 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
-
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
@@ -239,6 +238,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
+    az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
     ```
 
 ## <a name="deploy-your-pod-with-mounted-secrets-from-your-key-vault"></a>키 자격 증명 모음에서 탑재된 비밀을 사용하여 Pod 배포
@@ -311,8 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:
-          name: secrets-store-creds 
+        nodePublishSecretRef:           # Only required when using service principal mode
+          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 다음 명령을 실행하여 Pod를 배포합니다.
