@@ -4,10 +4,10 @@ description: 기존 Azure Service Bus 표준 네임 스페이스를 premium으�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "85340754"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>기존 Azure Service Bus 표준 네임 스페이스를 프리미엄 계층으로 마이그레이션
@@ -137,7 +137,7 @@ Azure Service Bus 표준 계층에서 제공 하는 일부 기능은 Azure Servi
 
    ARM 템플릿에서 특정 큐 또는 토픽에 대해 ' enablePartitioning '을 ' t r u e '로 설정 하면 broker에서 무시 됩니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 ### <a name="what-happens-when-the-migration-is-committed"></a>마이그레이션이 커밋되면 어떻게 되나요?
 
@@ -176,7 +176,7 @@ Azure Service Bus 표준 계층에서 제공 하는 일부 기능은 Azure Servi
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
 ```
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 
 ![흐름 중단-동기화 중단 ][]
  ![ 흐름 중단-중단 완료][]

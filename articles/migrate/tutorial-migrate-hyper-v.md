@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: fbf436f501ef2d21dcd3394e61a40d354376efb9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 84f04d2f1f8c9b54a1f2a2a13cc97954ac5add90
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979090"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308546"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -151,7 +151,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 - **서비스 버스**: Azure Migrate: 서버 마이그레이션은 Service Bus를 사용하여 복제 오케스트레이션 메시지를 어플라이언스에 보냅니다.
 - **게이트웨이 스토리지 계정**: Azure Migrate: 서버 마이그레이션은 게이트웨이 스토리지 계정을 사용하여 복제되는 VM에 대한 상태 정보를 저장합니다.
 - **로그 스토리지 계정**: Azure Migrate 어플라이언스는 VM에 대한 복제 로그를 로그 스토리지 계정에 업로드합니다. Azure Migrate는 복제 정보를 복제본 관리 디스크에 적용합니다.
-- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. Hyper-V VM 평가 및 마이그레이션을 위해 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)할 때 Key Vault가 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. 
+- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. Hyper-V VM 평가 및 마이그레이션을 위해 [Azure를 준비](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account)할 때 Key Vault가 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. 
 
 
 ## <a name="track-and-monitor"></a>추적 및 모니터링
@@ -232,7 +232,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
     - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:

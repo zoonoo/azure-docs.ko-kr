@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977017"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359716"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 라이선스 할당 또는 제거
 
@@ -144,10 +144,10 @@ ms.locfileid: "91977017"
 
 라이선스가 할당되면 다음 프로세스를 수행할 수 있습니다.
 
-- [라이선스 할당 문제 식별 및 해결](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [라이선스 할당 문제 식별 및 해결](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [라이선싱을 위해 그룹에 허가된 사용자 추가](../users-groups-roles/licensing-groups-migrate-users.md)
+- [라이선싱을 위해 그룹에 허가된 사용자 추가](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제](../users-groups-roles/licensing-group-advanced.md)
+- [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제](../enterprise-users/licensing-group-advanced.md)
 
 - [프로필 정보 추가 또는 변경](active-directory-users-profile-azure-portal.md)

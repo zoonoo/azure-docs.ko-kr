@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 335b564225bc2b7a4c2217c1d912f952239ecf24
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951437"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127202"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box Heavy를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
@@ -38,7 +38,7 @@ ms.locfileid: "91951437"
 4. 다음을 검토했습니다.
 
     - [Azure 개체 크기 제한에서 지원되는 관리 디스크 크기](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Azure 관리 디스크 소개](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Azure 관리 디스크 소개](../virtual-machines/managed-disks-overview.md). 
 
 ## <a name="connect-to-data-box-heavy"></a>Data Box Heavy에 연결
 
@@ -182,4 +182,3 @@ Data Box Heavy를 Microsoft로 다시 배송하는 방법을 알아보려면 다
 
 > [!div class="nextstepaction"]
 > [Microsoft로 Azure Data Box Heavy 배송](./data-box-heavy-deploy-picked-up.md)
-

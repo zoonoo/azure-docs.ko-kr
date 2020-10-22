@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 836a5a003268a98dd8e63eed9bfdba741abcf4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397048"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371463"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "91397048"
 * 기존 AKS 클러스터는 관리 되는 id로 마이그레이션할 수 없습니다.
 * 클러스터 **업그레이드** 작업 중에 관리 되는 id를 일시적으로 사용할 수 없습니다.
 * 테 넌 트 이동/관리 되는 id 사용 클러스터의 마이그레이션은 지원 되지 않습니다.
-* 클러스터가 `aad-pod-identity` 사용 하도록 설정 된 경우 NMI (Node Managed Identity) pod는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)을 참조 하세요.
+* 클러스터가 `aad-pod-identity` 사용 하도록 설정 된 경우 NMI (Node Managed Identity) pod는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 참조 하세요.
   예외를 구성 하려면 [mic 예외 YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)을 설치 합니다.
 
 ## <a name="summary-of-managed-identities"></a>관리 id 요약

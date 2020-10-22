@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049573"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366567"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -120,7 +120,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 도메인 가입을 제어로 사용 하는 보고서 전용 상태의 정책을 타사 MFA 공급자가 필요한 활성 정책에 대 한 백업으로 구성 합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](./tutorial-enable-sspr.md) 및 [Azure AD 암호 보호](./howto-password-ban-bad-on-premises-deploy.md)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들면 다음과 같습니다.
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어:
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
@@ -285,7 +285,7 @@ NPS 확장 사용 안 함:
 ## <a name="learn-more"></a>자세한 정보
 
 * [Azure AD 인증 설명서](./howto-mfaserver-iis.md)
-* [Azure AD에서 응급 액세스 관리 계정 관리](../users-groups-roles/directory-emergency-access.md)
+* [Azure AD에서 응급 액세스 관리 계정 관리](../roles/security-emergency-access.md)
 * [Azure Active Directory에서 명명 된 위치 구성](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../devices/hybrid-azuread-join-plan.md)

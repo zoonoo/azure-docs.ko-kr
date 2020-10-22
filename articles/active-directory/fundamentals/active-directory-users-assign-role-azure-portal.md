@@ -13,25 +13,25 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321245"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370936"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
 
 Azure AD (Azure Active Directory)에서 사용자 중 한 명에 게 Azure AD 리소스를 관리할 수 있는 권한이 필요한 경우 필요한 권한을 제공 하는 역할에 할당 해야 합니다. Azure 리소스를 관리 하는 역할과 Azure AD 리소스를 관리 하는 역할에 대 한 정보는 [클래식 구독 관리자 역할, azure 역할 및 AZURE ad 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조 하세요.
 
-사용 가능한 Azure AD 역할에 대 한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요. 사용자를 추가 하려면 [Azure Active Directory에 새 사용자 추가](add-users-azure-active-directory.md)를 참조 하세요.
+사용 가능한 Azure AD 역할에 대 한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md)을 참조 하세요. 사용자를 추가 하려면 [Azure Active Directory에 새 사용자 추가](add-users-azure-active-directory.md)를 참조 하세요.
 
 ## <a name="assign-roles"></a>역할 할당
 
 사용자에 게 Azure AD 역할을 할당 하는 일반적인 방법은 사용자에 **게 할당 된 역할** 페이지를 사용 하는 것입니다. 또한 PIM (Privileged Identity Management)을 사용 하 여 사용자 자격을 역할로 승격 되도록 구성할 수 있습니다. PIM을 사용 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management](../privileged-identity-management/index.yml)를 참조 하세요.
 
 > [!Note]
-> Azure AD Premium P2 라이선스 계획이 있고 PIM을 이미 사용 하는 경우 모든 역할 관리 작업은 [Privileged Identity Management 환경](../users-groups-roles/directory-manage-roles-portal.md)에서 수행 됩니다. 이 기능은 현재 한 번에 하나의 역할만 할당 하도록 제한 되어 있습니다. 현재 여러 역할을 선택 하 고 사용자에 게 한 번에 할당할 수는 없습니다.
+> Azure AD Premium P2 라이선스 계획이 있고 PIM을 이미 사용 하는 경우 모든 역할 관리 작업은 [Privileged Identity Management 환경](../roles/manage-roles-portal.md)에서 수행 됩니다. 이 기능은 현재 한 번에 하나의 역할만 할당 하도록 제한 되어 있습니다. 현재 여러 역할을 선택 하 고 사용자에 게 한 번에 할당할 수는 없습니다.
 >
 > ![이미 PIM을 사용 하 고 프리미엄 P2 라이선스가 있는 사용자를 위해 PIM에서 관리 되는 Azure AD 역할](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -81,4 +81,4 @@ Azure AD (Azure Active Directory)에서 사용자 중 한 명에 게 Azure AD �
 
 - [다른 디렉터리에서 게스트 사용자 추가](../external-identities/what-is-b2b.md)
 
-체크 아웃할 수 있는 다른 사용자 관리 작업은 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)에서 제공 됩니다.
+체크 아웃할 수 있는 다른 사용자 관리 작업은 [Azure Active Directory 사용자 관리 설명서](../enterprise-users/index.yml)에서 제공 됩니다.

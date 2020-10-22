@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68795033d36ad0bcb36b7cd81cea0d848ecd5113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049012"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367842"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>권한 있는 액세스 그룹 (미리 보기)을 Privileged Identity Management로 가져오기
 
@@ -27,7 +27,7 @@ Azure AD (Azure Active Directory)에서 클라우드 그룹에 Azure AD 기본 �
 
 ## <a name="identify-groups-to-manage"></a>관리할 그룹 식별
 
-[Azure Active Directory에서 역할 할당 가능 그룹 만들기](../users-groups-roles/roles-groups-create-eligible.md)에 설명 된 대로 Azure AD에서 역할 할당 가능한 그룹을 만들 수 있습니다. Privileged Identity Management를 사용 하 여 관리 하는 그룹의 소유자 여야 합니다.
+[Azure Active Directory에서 역할 할당 가능 그룹 만들기](../roles/groups-create-eligible.md)에 설명 된 대로 Azure AD에서 역할 할당 가능한 그룹을 만들 수 있습니다. Privileged Identity Management를 사용 하 여 관리 하는 그룹의 소유자 여야 합니다.
 
 1. 권한 있는 역할 관리자 역할 권한을 사용 하 여 [AZURE AD에 로그인](https://aad.portal.azure.com) 합니다.
 1. **그룹** 을 선택한 다음 PIM에서 관리 하려는 역할 할당 가능 그룹을 선택 합니다. 목록을 검색 하 고 필터링 할 수 있습니다.

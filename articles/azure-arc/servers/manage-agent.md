@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371429"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -138,7 +138,7 @@ Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 최
     zypper update
     ```
 
-패키지 설치 및 제거와 같은 [zypper](https://en.opensuse.org/Portal:Zypper) 명령의 동작은 `/var/log/zypper.log` 로그 파일에 기록됩니다. 
+패키지 설치 및 제거와 같은 [zypper](https://en.opensuse.org/Portal:Zypper) 명령의 동작은 `/var/log/zypper.log` 로그 파일에 기록됩니다.
 
 ## <a name="about-the-azcmagent-tool"></a>Azcmagent 도구 정보
 
@@ -148,9 +148,11 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
 * **Disconnect** - Azure Arc에서 머신의 연결을 끊습니다.
 
-* **Reconnect** - 연결되지 않은 머신을 Azure Arc에 다시 연결합니다.
+* **Show** - 에이전트와 관련된 문제를 해결할 때 도움이 될 수 있는 에이전트 상태 및 해당 구성 속성(리소스 그룹 이름, 구독 ID, 버전 등)을 표시합니다. `-j`매개 변수를 포함 하 여 JSON 형식으로 결과를 출력 합니다.
 
-* **Show** - 에이전트와 관련된 문제를 해결할 때 도움이 될 수 있는 에이전트 상태 및 해당 구성 속성(리소스 그룹 이름, 구독 ID, 버전 등)을 표시합니다.
+* **로그** -문제 해결에 도움이 되는 로그를 포함 하는 .zip 파일을 현재 디렉터리에 만듭니다.
+
+* **버전** -연결 된 컴퓨터 에이전트 버전을 표시 합니다.
 
 * **-h 또는 --help** - 사용 가능한 명령줄 매개 변수를 표시합니다.
 
@@ -158,7 +160,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
 * **-v 또는 --verbose** - 자세한 정보 로깅을 사용합니다.
 
-대화형으로 로그온하는 동안 수동으로 **Connect**, **Disconnect** 및 **Reconnect**를 수행하거나 여러 에이전트를 온보딩할 때 사용한 동일한 서비스 주체를 사용하거나 Microsoft ID 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용하여 자동화합니다. 서비스 주체를 사용 하 여 Azure Arc 사용 서버에 컴퓨터를 등록 하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 를 참조 하세요.
+대화형으로 로그온 하는 동안 **연결** 및 **연결** 을 수동으로 수행 하거나, 여러 에이전트를 등록 하는 데 사용한 것과 동일한 서비스 주체를 사용 하거나 Microsoft id 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용 하 여 자동화할 수 있습니다. 서비스 주체를 사용 하 여 Azure Arc 사용 서버에 컴퓨터를 등록 하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 를 참조 하세요.
 
 >[!NOTE]
 >**Azcmagent**를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
@@ -198,28 +200,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
 관리자 권한으로 로그온한 자격 증명을 사용하여 연결을 끊으려면(대화형) 다음 명령을 실행합니다.
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>다시 연결
-
-> [!WARNING]
-> `reconnect`명령은 더 이상 사용 되지 않으므로 사용 하면 안 됩니다. 이후 에이전트 릴리스에서 명령이 제거 되 고 기존 에이전트는 다시 연결 요청을 완료할 수 없습니다. 대신 컴퓨터의 [연결을 끊은](#disconnect) 다음 다시 [연결](#connect) 하세요.
-
-이 매개 변수는 이미 등록 된 컴퓨터 또는 연결 된 컴퓨터를 Azure Arc 사용 서버에 다시 연결 합니다. 머신이 45일 이상 꺼져 인증서가 만료되는 경우 이 매개 변수가 필요할 수 있습니다. 이 매개 변수는 제공된 인증 옵션을 사용하여 이 머신을 나타내는 Azure Resource Manager 리소스에 해당하는 새 자격 증명을 검색합니다.
-
-이 명령을 사용하려면 [Azure Connected Machine 온보딩](agent-overview.md#required-permissions) 역할보다 높은 권한이 필요합니다.
-
-서비스 주체를 사용하여 다시 연결하려면 다음 명령을 실행합니다.
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-액세스 토큰을 사용하여 다시 연결하려면 다음 명령을 실행합니다.
-
-`azcmagent reconnect --access-token <accessToken>`
-
-관리자 권한으로 로그온한 자격 증명을 사용하여 다시 연결하려면(대화형) 다음 명령을 실행합니다.
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>에이전트 제거
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164808"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371378"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -25,7 +25,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 *평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독
 
@@ -33,7 +33,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 * Azure Active Directory (Azure AD) 도메인입니다.
 
-    Azure AD 도메인이 없는 경우 Azure 구독을 사용하여 이 도메인을 만듭니다. 자세한 내용은 [AZURE AD에서 사용자 지정 도메인 이름 관리](../../active-directory/users-groups-roles/domains-manage.md) 를 참조 하세요.
+    Azure AD 도메인이 없는 경우 Azure 구독을 사용하여 이 도메인을 만듭니다. 자세한 내용은 [AZURE AD에서 사용자 지정 도메인 이름 관리](../../active-directory/enterprise-users/domains-manage.md) 를 참조 하세요.
 
 * **응용 프로그램 관리자** 역할을 사용 하는 Azure AD 도메인의 사용자입니다. 이 멤버는 Video Indexer 계정을 Azure에 연결할 때 사용합니다.
 
@@ -144,7 +144,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|Description|
+|설정|설명|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|

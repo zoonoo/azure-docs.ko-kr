@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146344"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359835"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "92146344"
 
 다음은 문서의 그림에 대한 범례입니다.
 
-| Description | 기호 |
+| 설명 | 기호 |
 | --- | --- |
 | 온-프레미스 Active Directory 포리스트 |![온-프레미스 Active Directory 포리스트](./media/plan-connect-topologies/legendad1.png) |
 | 필터링된 가져오기를 사용한 온-프레미스 Active Directory |![필터링된 가져오기를 사용한 Active Directory](./media/plan-connect-topologies/legendad2.png) |
@@ -142,7 +142,7 @@ Azure AD Connect는 *준비 모드*에서 두 번째 서버의 설치를 지원�
 
 ## <a name="multiple-azure-ad-tenants"></a>여러 Azure AD 테넌트
 조직의 Azure AD에 테넌트를 하나만 보유할 것을 권장합니다.
-다중 Azure AD 테넌트를 사용하기 위한 계획을 세우기 전에 [Azure AD에서 관리 단위 관리](../users-groups-roles/directory-administrative-units.md)를 참조하세요. 단일 테넌트를 사용할 수 있는 일반적인 시나리오에 대해 설명되어 있습니다.
+다중 Azure AD 테넌트를 사용하기 위한 계획을 세우기 전에 [Azure AD에서 관리 단위 관리](../roles/administrative-units.md)를 참조하세요. 단일 테넌트를 사용할 수 있는 일반적인 시나리오에 대해 설명되어 있습니다.
 
 ![다중 포리스트 및 다중 테넌트를 위한 토폴로지](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
@@ -168,7 +168,7 @@ DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온
 * Windows 10 디바이스는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
 * 암호 해시 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
 
-상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 해당 기능은 다음과 같습니다.
+상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능으로는 다음이 포함됩니다.
 
 * 기본 구성으로 쓰기 저장 그룹화.
 * 디바이스 쓰기 저장.

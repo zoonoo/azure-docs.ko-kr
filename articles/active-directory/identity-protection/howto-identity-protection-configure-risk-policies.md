@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337452"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367468"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>방법: 위험 정책 구성 및 사용
 
@@ -45,7 +45,7 @@ Microsoft는 사용자 위험 정책 임계값을 **높음** 으로, 로그인 �
 
 ## <a name="exclusions"></a>제외
 
-모든 정책에서 [긴급 액세스 또는 비상 관리자 계정](../users-groups-roles/directory-emergency-access.md)과 같은 사용자를 제외할 수 있습니다. 조직에서 계정이 사용 되는 방식에 따라 특정 정책에서 다른 계정을 제외 해야 하는지 결정할 수 있습니다. 모든 제외를 정기적으로 검토 하 여 해당 사항이 여전히 적용 되는지 확인 해야 합니다.
+모든 정책에서 [긴급 액세스 또는 비상 관리자 계정](../roles/security-emergency-access.md)과 같은 사용자를 제외할 수 있습니다. 조직에서 계정이 사용 되는 방식에 따라 특정 정책에서 다른 계정을 제외 해야 하는지 결정할 수 있습니다. 모든 제외를 정기적으로 검토 하 여 해당 사항이 여전히 적용 되는지 확인 해야 합니다.
 
 구성 된 신뢰할 수 있는 [네트워크 위치](../conditional-access/location-condition.md) 는 거짓 긍정을 줄이기 위해 일부 위험 검색에서 id 보호에 사용 됩니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f420f66e1db6efc6a0aa43cb88f26687839f0d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321517"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370970"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Azure Active Directory 거 버 넌 스 작업 참조 가이드
 
@@ -49,7 +49,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="owner-recommended-reading"></a>소유자 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md)
 - [Azure에서 거버넌스](../../governance/index.yml)
 
 ### <a name="configuration-changes-testing"></a>구성 변경 테스트
@@ -66,7 +66,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 |새 기능 롤아웃|기능이 대상 사용자 집합에 대해 롤아웃을 지 원하는 경우 파일럿 사용자를 식별 하 고 빌드합니다. 예를 들어 셀프 서비스 암호 재설정 및 multi-factor authentication은 특정 사용자 또는 그룹을 대상으로 할 수 있습니다.|
 |온-프레미스 IdP (Id 공급자) (예: Active Directory)에서 Azure AD로 응용 프로그램을 시작 합니다.|응용 프로그램에서 Salesforce와 같이 여러 IdP 구성을 지 원하는 경우에는 변경 기간 (응용 프로그램에 HRD 페이지가 도입 되는 경우) 중에 Azure AD와 테스트를 모두 구성 합니다. 응용 프로그램에서 여러 IdPs를 지원 하지 않는 경우 변경 제어 창 및 프로그램 가동 중지 시간 중에 테스트를 예약 합니다.|
 |동적 그룹 규칙 업데이트|새 규칙을 사용 하 여 병렬 동적 그룹을 만듭니다. 계산 된 결과와 비교 합니다. 예를 들어 동일한 조건으로 PowerShell을 실행 합니다.<br>테스트를 통과 하는 경우 이전 그룹이 사용 된 위치 (가능한 경우)를 바꿉니다.|
-|제품 라이선스 마이그레이션|[Azure Active Directory에서 라이선스 그룹의 단일 사용자에 대 한 라이선스를 변경](../users-groups-roles/licensing-groups-change-licenses.md)하려면을 참조 하세요.|
+|제품 라이선스 마이그레이션|[Azure Active Directory에서 라이선스 그룹의 단일 사용자에 대 한 라이선스를 변경](../enterprise-users/licensing-groups-change-licenses.md)하려면을 참조 하세요.|
 |권한 부여, 발급, MFA 등의 AD FS 규칙 변경|그룹 클레임을 사용 하 여 사용자의 하위 집합을 대상으로 합니다.|
 |AD FS 인증 환경 또는 이와 유사한 팜 전체 변경 내용 변경|동일한 호스트 이름을 사용 하 여 병렬 팜을 만들고, 구성 변경 내용을 구현 하 고, 호스트 파일, NLB 라우팅 규칙 또는 유사한 라우팅을 사용 하 여 클라이언트에서 테스트 합니다.<br>대상 플랫폼에서 호스트 파일 (예: 모바일 장치)을 지원 하지 않는 경우 변경 내용을 제어 합니다.|
 
@@ -92,9 +92,9 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="privileged-account-usage"></a>권한 있는 계정 사용
 
-해커가 중요 한 데이터 및 시스템에 빠르게 액세스할 수 있도록 관리자 계정 및 권한 있는 액세스의 다른 요소를 대상으로 하는 경우가 많습니다.권한 있는 역할을 가진 사용자는 시간이 지남에 따라 누적 되기 때문에 관리자 액세스를 정기적으로 검토 및 관리 하 고 Azure AD 및 Azure 리소스에 대 한 just-in-time 권한 액세스를 제공 하는 것이 중요 합니다.
+해커가 중요 한 데이터 및 시스템에 빠르게 액세스할 수 있도록 관리자 계정 및 권한 있는 액세스의 다른 요소를 대상으로 하는 경우가 많습니다. 권한 있는 역할을 가진 사용자는 시간이 지남에 따라 누적 되기 때문에 관리자 액세스를 정기적으로 검토 및 관리 하 고 Azure AD 및 Azure 리소스에 대 한 just-in-time 권한 액세스를 제공 하는 것이 중요 합니다.
 
-권한 있는 계정을 관리 하기 위해 조직에 프로세스가 없거나, 현재 일반 사용자 계정을 사용 하 여 서비스 및 리소스를 관리 하는 관리자가 있는 경우, 일상적인 일상 활동의 경우와 같이 별도의 계정을 사용 하 여 즉시 시작 해야 합니다. 기타는 특권 수준의 액세스를 위해 MFA를 사용 하 여 구성 됩니다. 그러나 조직에 Azure AD Premium P2 구독이 있는 경우 PIM ( [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) )을 즉시 배포 해야 합니다. 동일한 토큰에서 해당 하는 경우 권한 있는 계정도 검토 하 고 [권한이 적은 역할을 할당](../users-groups-roles/directory-admin-roles-secure.md) 해야 합니다.
+권한 있는 계정을 관리 하기 위해 조직에 프로세스가 없거나, 현재 일반 사용자 계정을 사용 하 여 서비스 및 리소스를 관리 하는 관리자가 있는 경우, 일상적인 일상 활동의 경우와 같이 별도의 계정을 사용 하 여 즉시 시작 해야 합니다. 기타는 특권 수준의 액세스를 위해 MFA를 사용 하 여 구성 됩니다. 그러나 조직에 Azure AD Premium P2 구독이 있는 경우 PIM ( [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) )을 즉시 배포 해야 합니다. 동일한 토큰에서 해당 하는 경우 권한 있는 계정도 검토 하 고 [권한이 적은 역할을 할당](../roles/security-planning.md) 해야 합니다.
 
 구현 해야 하는 권한 있는 계정 관리의 또 다른 측면은 [PIM을 통해](../privileged-identity-management/pim-how-to-perform-security-review.md)수동 또는 자동화 된 계정에 대 한 [액세스 검토](../governance/access-reviews-overview.md) 를 정의 하는 것입니다.
 
@@ -104,12 +104,12 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="emergency-access-accounts"></a>응급 액세스 계정
 
-조직은 다음과 같은 인증 중단 등의 경우 Azure AD를 관리 하기 위해 준비할 [응급 계정을](../users-groups-roles/directory-emergency-access.md) 만들어야 합니다.
+조직은 다음과 같은 인증 중단 등의 경우 Azure AD를 관리 하기 위해 준비할 [응급 계정을](../roles/security-emergency-access.md) 만들어야 합니다.
 
 - 인증 인프라의 작동 중단 구성 요소 (AD FS, 온-프레미스 AD, MFA 서비스)
 - 관리 직원 회전율
 
-관리자 권한으로 기존 개인 사용자의 계정을 로그인 하거나 활성화할 수 없어 테 넌 트에서 실수로 잠기는 것을 방지 하기 위해 두 개 이상의 응급 계정을 만들어 [Microsoft의 모범 사례](../users-groups-roles/directory-admin-roles-secure.md) 및 충돌 방지 [절차](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency)에 맞게 구현 및 맞춰야 합니다.
+관리자 권한으로 기존 개인 사용자의 계정을 로그인 하거나 활성화할 수 없어 테 넌 트에서 실수로 잠기는 것을 방지 하기 위해 두 개 이상의 응급 계정을 만들어 [Microsoft의 모범 사례](../roles/security-planning.md) 및 충돌 방지 [절차](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency)에 맞게 구현 및 맞춰야 합니다.
 
 ### <a name="privileged-access-to-azure-ea-portal"></a>Azure EA 포털에 대 한 권한 있는 액세스
 
@@ -119,7 +119,7 @@ Azure [EA (azure 기업계약) 포털](https://azure.microsoft.com/blog/create-e
 
 #### <a name="privileged-access-recommended-reading"></a>권한 있는 액세스 권장 읽기
 
-- [Azure Active Directory의 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory의 관리자 역할 사용 권한](../roles/permissions-reference.md)
 
 ## <a name="entitlement-management"></a>권한 관리
 

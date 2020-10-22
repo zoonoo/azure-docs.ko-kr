@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317515"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370222"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -93,7 +93,7 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)과 같은 오류가 표시됩니다.
 
-| Error | 오류 텍스트 | 주석 |
+| Error | 오류 텍스트 | 의견 |
 | --- | --- | --- |
 | 403 |사용할 수 없음 |요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 이 열려 있는지 확인합니다. |
 | 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우이 설정이 machine.config에 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
@@ -186,7 +186,7 @@ MFA (multi-factor authentication) 챌린지를 취소 했습니다.
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Azure AD 전역 관리자 역할 필요
-사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다.
+사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../roles/permissions-reference.md)입니다.
 
 <div id="privileged-identity-management">
 <!--

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
-ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2365317d83a4c11fa17cb5c449a25b70da17c2eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395454"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368369"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach 구성
 
@@ -105,17 +105,17 @@ ms.locfileid: "89395454"
 
 구성이 수행된 회로(예를 들어, 이전 예제의 회로 1)에서 구성을 확인하려면 다음 명령을 사용합니다.
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-PowerShell에서 *$ckt1*만 실행하는 경우 *CircuitConnectionStatus*가 출력됩니다. 연결이 설정되면 "연결됨", 설정되지 않으면 "연결 끊김"이 표시됩니다. 
+PowerShell에서 *$ckt _1* 을 실행 하는 경우 출력에 *CircuitConnectionStatus* 가 표시 됩니다. 연결이 설정되면 "연결됨", 설정되지 않으면 "연결 끊김"이 표시됩니다. 
 
 ## <a name="disable-connectivity"></a>연결 사용 안 함
 
 온-프레미스 네트워크 간의 연결을 사용 하지 않도록 설정 하려면 구성이 이루어진 회로에 대해 명령을 실행 합니다 (예: 이전 예제의 회로 1).
 
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```

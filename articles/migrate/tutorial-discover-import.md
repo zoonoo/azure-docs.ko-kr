@@ -3,12 +3,12 @@ title: Azure Migrate 서버 평가에서 가져온 CSV 파일을 사용하여 �
 description: Azure Migrate 서버 평가에서 가져온 CSV 파일을 사용하여 Azure로 마이그레이션할 온-프레미스 서버를 검색하는 방법에 대해 설명합니다.
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30f17bb6b22d4d19cf225aa52d8284f5306a44ee
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604226"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308381"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>자습서: 가져온 CSV 파일을 사용하여 서버 평가
 
@@ -203,4 +203,4 @@ Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentO
 
 > [!div class="checklist"]
 > * Azure Migrate 프로젝트를 만들었습니다. 
-> * 가져온 CSV 파일을 사용하여 서버를 검색했습니다. 이제 [Azure VM으로 VMware VM 마이그레이션](tutorial-assess-vmware.md)에 대한 평가를 실행합니다.
+> * 가져온 CSV 파일을 사용하여 서버를 검색했습니다. 이제 [Azure VM으로 VMware VM 마이그레이션](./tutorial-assess-vmware-azure-vm.md)에 대한 평가를 실행합니다.

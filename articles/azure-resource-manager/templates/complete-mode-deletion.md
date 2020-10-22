@@ -2,13 +2,13 @@
 title: 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
 ms.topic: conceptual
-ms.date: 10/06/2020
-ms.openlocfilehash: 72303a7916aec39c05f9b4fa2cbc77de18b7fb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: b1f7623d6eee1ff629412a4cc0d76e59e6c9e847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766721"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370127"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -24,7 +24,6 @@ ms.locfileid: "91766721"
 
 > [!NOTE]
 > 템플릿을 전체 모드로 배포 하기 전에 항상 [가상 작업](template-deploy-what-if.md) 을 사용 합니다. 대상-생성, 삭제 또는 수정 되는 리소스를 표시 합니다. 리소스를 실수로 삭제 하지 않도록 하려면 가상-if를 사용 합니다.
-
 리소스 공급자 네임스페이스로 이동합니다.
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -47,6 +46,7 @@ ms.locfileid: "91766721"
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -176,6 +176,7 @@ ms.locfileid: "91766721"
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [특이성](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft .SQL](#microsoftsql)
@@ -364,6 +365,7 @@ ms.locfileid: "91766721"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | privateClouds | 예 |
+> | privateClouds/addons | 아니요 |
 > | privateClouds/권한 부여 | 아니요 |
 > | privateClouds/클러스터 | 아니요 |
 > | privateClouds / globalReachConnections | 아니요 |
@@ -426,12 +428,21 @@ ms.locfileid: "91766721"
 > | ------------- | ----------- |
 > | clusters | 예 |
 
+## <a name="microsoftbaremetalinfrastructure"></a>BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 전체 모드 삭제 |
+> | ------------- | ----------- |
+> | bareMetalInstances | 예 |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | batchAccounts | 예 |
+> | batchAccounts / certificates | 아니요 |
+> | batchAccounts / pools | 예 |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -928,7 +939,7 @@ ms.locfileid: "91766721"
 > | 보고서 | 아니요 |
 > | 설정 | 아니요 |
 > | showbackRules | 아니요 |
-> | 뷰 | 예 |
+> | 보기 | 예 |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -973,7 +984,6 @@ ms.locfileid: "91766721"
 > | ------------- | ----------- |
 > | workspaces | 예 |
 > | workspace/dbWorkspaces | 아니요 |
-> | 작업 영역/storageEncryption | 아니요 |
 > | 작업 영역/virtualNetworkPeerings | 예 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1129,6 +1139,7 @@ ms.locfileid: "91766721"
 > | applicationgroups / desktops | 예 |
 > | applicationgroups / startmenuitems | 예 |
 > | hostpools | 예 |
+> | hostpools/msixpackages | 아니요 |
 > | hostpools / sessionhosts | 예 |
 > | hostpools / sessionhosts / usersessions | 예 |
 > | hostpools / usersessions | 예 |
@@ -1381,12 +1392,14 @@ ms.locfileid: "91766721"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 디바이스 | 예 |
+> | networkFunctions | 예 |
+> | networkFunctionVendors | 아니요 |
 > | registeredSubscriptions | 아니요 |
 > | 판매 | 아니요 |
-> | 공급 업체/vendorskus | 아니요 |
-> | 공급 업체/vendorskus/previewSubscriptions | 아니요 |
-> | virtualnetworkfunctions | 예 |
-> | virtualnetworkfunctionvendors | 예 |
+> | 공급 업체/vendorSkus | 아니요 |
+> | 공급 업체/vendorSkus/previewSubscriptions | 아니요 |
+> | virtualNetworkFunctions | 예 |
+> | virtualNetworkFunctionVendors | 예 |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1507,9 +1520,20 @@ ms.locfileid: "91766721"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | workspaces | 예 |
+> | 작업 영역/batchEndpoints | 예 |
+> | 작업 영역/batchEndpoints/배포 | 예 |
+> | 작업 영역/코드 | 아니요 |
+> | 작업 영역/코드/버전 | 예 |
 > | workspaces / computes | 예 |
+> | 작업 영역/데이터 저장소 | 아니요 |
 > | workspace/eventGridFilters | 아니요 |
-> | 작업 영역/Linkedservices.json 및 datasets.json | 예 |
+> | 작업 영역/작업 | 아니요 |
+> | 작업 영역/labelingJobs | 아니요 |
+> | 작업 영역/Linkedservices.json 및 datasets.json | 아니요 |
+> | 작업 영역/모델 | 아니요 |
+> | 작업 영역/모델/버전 | 아니요 |
+> | 작업 영역/onlineEndpoints | 예 |
+> | 작업 영역/onlineEndpoints/배포 | 예 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2155,7 +2179,18 @@ ms.locfileid: "91766721"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | SignalR | 예 |
-> | SignalR/eventGridFilters | 예 |
+> | SignalR/eventGridFilters | 아니요 |
+
+## <a name="microsoftsingularity"></a>특이성
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 전체 모드 삭제 |
+> | ------------- | ----------- |
+> | 계정 | 예 |
+> | 계정/accountQuotaPolicies | 아니요 |
+> | 계정/그룹 정책 | 아니요 |
+> | 계정/작업 | 아니요 |
+> | 계정/storageContainers | 예 |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
@@ -2289,6 +2324,7 @@ ms.locfileid: "91766721"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | clusters | 예 |
+> | 클러스터/privateEndpoints | 예 |
 > | streamingjobs | 예 |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
@@ -2422,7 +2458,9 @@ ms.locfileid: "91766721"
 > | resourceHealthMetadata | 예 |
 > | runtimes | 예 |
 > | serverFarms | 예 |
-> | serverFarms/eventGridFilters | 예 |
+> | serverFarms/eventGridFilters | 아니요 |
+> | serverFarms/firstPartyApps | 아니요 |
+> | serverFarms/firstPartyApps/keyVaultSettings | 예 |
 > | sites | 예 |
 > | 사이트/구성  | 아니요 |
 > | sites/eventGridFilters | 아니요 |

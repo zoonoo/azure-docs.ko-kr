@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: d8268ebf89bed6b67919e77576118343b58edb6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88516625"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367689"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure SQL을 사용하는 Azure Active Directory 서비스 주체
 
@@ -74,12 +74,12 @@ Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에
     > [!NOTE]
     > CLI 명령을 사용 하 여 서버 id를 할당할 수도 있습니다. 자세한 내용은 [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) 및 [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update)를 참조 하십시오.
 
-2. 서버에 생성 되거나 할당 된 서버 id에 대 한 Azure AD [**디렉터리 판독기**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 권한을 부여 합니다.
+2. 서버에 생성 되거나 할당 된 서버 id에 대 한 Azure AD [**디렉터리 판독기**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 부여 합니다.
     - 이 권한을 부여 하려면 [AZURE AD 관리자 프로 비전 (sql Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance) 문서에서 사용할 수 있는 sql Managed Instance에 사용 된 설명을 따르세요.
     - 이 사용 권한을 부여 하는 Azure AD 사용자는 Azure AD **전역 관리자** 또는 **권한 있는 역할 관리자** 역할의 일부 여야 합니다.
 
 > [!IMPORTANT]
-> 1 단계와 2 단계는 위의 순서 대로 실행 해야 합니다. 먼저 서버 id를 만들거나 할당 한 다음 [**디렉터리 판독기**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 권한을 부여 합니다. 이러한 단계 중 하나 또는 둘 다 생략 하면 azure AD 응용 프로그램을 대신 하 여 azure SQL에서 azure AD 개체를 만드는 동안 실행 오류가 발생 합니다. Azure ad 응용 프로그램을 대신 하 여 Azure AD 사용자를 만드는 단계별 지침은 [자습서: azure ad 응용 프로그램을 사용 하 여 azure](authentication-aad-service-principal-tutorial.md)Ad 사용자 만들기를 참조 하세요.
+> 1 단계와 2 단계는 위의 순서 대로 실행 해야 합니다. 먼저 서버 id를 만들거나 할당 한 다음 [**디렉터리 판독기**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 부여 합니다. 이러한 단계 중 하나 또는 둘 다 생략 하면 azure AD 응용 프로그램을 대신 하 여 azure SQL에서 azure AD 개체를 만드는 동안 실행 오류가 발생 합니다. Azure ad 응용 프로그램을 대신 하 여 Azure AD 사용자를 만드는 단계별 지침은 [자습서: azure ad 응용 프로그램을 사용 하 여 azure](authentication-aad-service-principal-tutorial.md)Ad 사용자 만들기를 참조 하세요.
 >
 > **공개 미리 보기**에서 Azure AD의 그룹에 **디렉터리 독자** 역할을 할당할 수 있습니다. 그런 다음 그룹 소유자는이 그룹의 구성원으로 관리 되는 id를 추가할 수 있습니다 .이 경우 **전역 관리자** 또는 권한 있는 **역할 관리자가** **디렉터리 구독자** 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
 

@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bbd3ab02cd1eccd00e2d36c14eebf2f63205
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319731"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360316"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -62,3 +62,8 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 - Postgres Hyperscale worker 노드 수는 _축소할_ 수 없습니다.
 - Azure Arc 데이터 컨트롤러 및 데이터베이스 인스턴스를 사용 하는 Azure Stack 허브에서 AKS 엔진 (Azure Kubernetes Service Engine)을 사용 하는 경우 최신 Kubernetes 버전으로 업그레이드할 수 없습니다. Kubernetes 클러스터를 업그레이드 하기 전에 Azure Arc data controller 및 모든 데이터베이스 인스턴스를 제거 합니다.
 - Preview는 Postgres 버전 11 엔진에 대 한 백업/복원을 지원 하지 않습니다. Postgres 버전 12에 대 한 백업/복원만 지원 합니다.
+- Azure Kubernetes 서비스 (AKS)는 [여러 가용성 영역](../../aks/availability-zones.md) 에 걸쳐 있는 클러스터가 현재 azure Arc 사용 데이터 서비스에서 지원 되지 않습니다. 이 문제를 방지 하려면 Azure Portal에서 AKS 클러스터를 만들 때 영역을 사용할 수 있는 지역을 선택 하는 경우 선택 컨트롤에서 모든 영역을 선택 취소 합니다. 다음 이미지를 참조하세요.
+
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="없음을 지정 하려면 각 영역에 대 한 확인란의 선택을 취소 합니다.":::
+
+  

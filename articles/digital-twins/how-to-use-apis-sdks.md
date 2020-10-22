@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aa8d08dde3cf2dbfb5cb1e819ba9941aea4e387
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203707"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359019"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -58,12 +58,13 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
    - GitHub: [Azure IoT Digital Twins client library for .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)의 샘플 폴더를 포함 하 여 SDK 원본을 찾을 수 있습니다. 
    - [SDK 참조 설명서](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview)를 볼 수 있습니다.
    - 이 문서의 [.net (c #) SDK (데이터 평면)](#net-c-sdk-data-plane) 섹션을 계속 진행 하 여 자세한 정보 및 사용 예를 볼 수 있습니다.
-* **JavaScript** SDK를 사용할 수 있습니다. JavaScript SDK를 사용 하려면 ...
-   - npm: [Azure Azure Digital Twins client library For JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)에서 패키지를 보고 설치할 수 있습니다.
-   - [SDK 참조 설명서](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)를 볼 수 있습니다.
 * **Java** SDK를 사용할 수 있습니다. Java SDK를 사용 하려면 ...
    - Maven에서 패키지를 보고 설치할 수 있습니다. [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - GitHub에서 SDK 원본을 찾을 수 있습니다. [Java 용 Azure IoT Digital Twins 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - [SDK 참조 설명서](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview) 를 볼 수 있습니다.
+* **JavaScript** SDK를 사용할 수 있습니다. JavaScript SDK를 사용 하려면 ...
+   - npm: [Azure Azure Digital Twins client library For JavaScript](https://www.npmjs.com/package/@azure/digital-twins)에서 패키지를 보고 설치할 수 있습니다.
+   - [SDK 참조 설명서](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest)를 볼 수 있습니다.
 * AutoRest를 사용 하 여 다른 언어용 SDK를 생성할 수 있습니다. [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 지침을 따릅니다.
 
 [CLI](how-to-use-cli.md)를 통해 Azure Digital twins와 상호 작용 하 여 날짜 평면 api를 연습할 수도 있습니다.

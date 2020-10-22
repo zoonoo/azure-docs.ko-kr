@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b7e96934c96dd944e17a1ef1ffb51a6ee89bf4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318912"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360005"
 ---
 # <a name="azure-data-factory---samples"></a>Azure 데이터 팩터리 - 샘플
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "85318912"
 | [크로스 AppDomain .Net 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |이 샘플에서는 ADF 시작 관리자에서 사용하는 어셈블리 버전(예: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x 등)의 제약을 받지 않는 사용자 지정 .NET 작업을 만드는 방법을 보여 줍니다. |
 | [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |이 샘플에서는 RScript.exe를 호출하는 데 사용할 수 있는 Data Factory 사용자 지정 작업이 포함되어 있습니다. 이 샘플은 R이 이미 설치되어 있는 사용자 고유(주문형 아님) HDInsight 클러스터에만 작동합니다. |
 | [HDInsight Hadoop 클러스터에서 Spark 작업 호출](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |이 샘플에서는 MapReduce 작업을 사용하여 Spark 프로그램을 호출하는 방법을 보여 줍니다. Spark 프로그램은 단순히 Azure Blob 컨테이너에서 다른 컨테이너로 데이터를 복사합니다. |
-| [Azure Machine Learning Batch 평가 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |이 샘플에서는 AzureMLBatchScoringActivity를 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure Machine Learning 모델을 호출하는 방법을 보여 줍니다. |
+| [Azure Machine Learning Studio (클래식) 일괄 처리 점수 매기기 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |이 샘플에서는 AzureMLBatchScoringActivity를 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure Machine Learning 모델을 호출하는 방법을 보여 줍니다. |
 | [사용자 지정 작업을 사용한 Twitter 분석](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |이 샘플에서는 사용자 지정 .NET 작업을 사용하여 Twitter 감성 분석, 점수 지정, 예측 등을 수행하는 Azure Machine Learning 모델을 호출하는 방법을 보여 줍니다. |
 | [Azure Machine Learning에 대한 매개 변수가 있는 파이프라인](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |이 샘플에서는 지역 목록을 이 샘플에 포함된 parameters.txt 파일에서 가져오는 다른 지역 매개 변수를 사용하여 각각의 점수를 매기고 제한하기 위해 N 파이프라인을 배포하는 엔드투엔드 C# 코드를 제공합니다. |
 | [Azure Stream Analytics 작업에 대한 참조 데이터 새로 고침](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |이 샘플에서는 Azure Data Factory 및 Azure Stream Analytics를 함께 사용하여 참조 데이터로 쿼리를 실행하고 일정에 따라 참조 데이터에 대한 새로 고침을 설정하는 방법을 보여 줍니다. |
@@ -46,7 +46,7 @@ ms.locfileid: "85318912"
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 GitHub의 데이터 팩터리에 대한 다음 Azure Resource Manager 템플릿을 찾을 수 있습니다.
 
-| 템플릿 | Description |
+| 템플릿 | 설명 |
 | --- | --- |
 | [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |이 템플릿을 배포 하면 지정 된 Azure blob 저장소의 데이터를 Azure SQL Database로 복사 하는 파이프라인이 있는 Azure 데이터 팩터리가 생성 됩니다. |
 | [Salesforce에서 Azure Blob Storage로 데이터 복사](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |이 템플릿을 배포하면 지정된 Salesforce 계정에서 Azure Blob Storage에 데이터를 복사하는 파이프라인으로 Azure Data Factory가 만들어집니다. |

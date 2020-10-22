@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398309"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368012"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -60,7 +60,7 @@ Microsoft 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습
 #### <a name="resolution"></a>해결 방법
 
 - Azure Site Recovery 인증을 위해 Microsoft 365 IP 범위에 대 한 액세스가 필요 합니다.
-- Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 Microsoft 365 IP 범위에 대 한 통신을 허용 해야 합니다. Azure AD에 해당 하는 모든 IP 주소에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 하는 [Azure Active Directory (AZURE ad) 서비스 태그](../virtual-network/security-overview.md#service-tags) 를 만듭니다.
+- Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 Microsoft 365 IP 범위에 대 한 통신을 허용 해야 합니다. Azure AD에 해당 하는 모든 IP 주소에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 하는 [Azure Active Directory (AZURE ad) 서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 를 만듭니다.
 - 향후 Azure AD에 새 주소를 추가 하는 경우 새 NSG 규칙을 만들어야 합니다.
 
 ### <a name="example-nsg-configuration"></a>NSG 구성 예제
@@ -108,7 +108,7 @@ Azure Site Recovery 서비스 끝점에 대 한 연결을 설정할 수 없습�
 
 #### <a name="resolution"></a>해결 방법
 
-Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세히 알아봅니다](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과 하는 경우 Azure-Azure 복제가 실패 함 (151072)
 

@@ -3,12 +3,12 @@ title: Azure에 하이브리드 머신을 대규모로 연결
 description: 이 문서에서는 서비스 주체를 사용 하 여 Azure Arc 사용 서버를 통해 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d789061c741b8a0da2edabcb56a67898ea28ec90
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f71bbc46ccac533db39176363f206ab033e60316
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108918"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360124"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
 
@@ -16,7 +16,7 @@ ms.locfileid: "92108918"
 
 Connected Machine 에이전트를 설치하고 구성하는 설치 메서드는 사용하는 자동화 메서드에서 머신에 대한 관리자 권한을 요구합니다. Linux에서는 루트 계정을 사용하고 Windows에서는 로컬 관리자 그룹의 멤버여야 합니다.
 
-시작하려면 먼저 [사전 요구 사항](agent-overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다.
+시작하려면 먼저 [사전 요구 사항](agent-overview.md#prerequisites)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다. 지원 되는 지역 및 기타 관련 고려 사항에 대 한 자세한 내용은 [지원 되는 Azure 지역](overview.md#supported-regions)을 참조 하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
