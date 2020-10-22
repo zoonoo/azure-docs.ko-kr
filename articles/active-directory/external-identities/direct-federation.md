@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909558"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362895"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
 
@@ -45,7 +45,7 @@ ms.locfileid: "87909558"
 ## <a name="limitations"></a>제한 사항
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Azure AD의 DNS 확인 도메인
-페더레이션하려는 도메인의 DNS는 Azure AD에서 확인되지 ***않아야*** 합니다. 비관리형(이메일 확인 또는 "바이럴") Azure AD 테넌트의 DNS는 확인되지 않으므로 이러한 테넌트와의 직접 페더레이션을 설정할 수 있습니다.
+페더레이션 하려는 도메인은 Azure AD에서 DNS를 확인**하지**않아야 합니다. 비관리형(이메일 확인 또는 "바이럴") Azure AD 테넌트의 DNS는 확인되지 않으므로 이러한 테넌트와의 직접 페더레이션을 설정할 수 있습니다.
 
 ### <a name="authentication-url"></a>인증 URL
 직접 페더레이션은 인증 URL의 도메인이 대상 도메인과 일치하거나 인증 URL이 다음과 같은 허용된 ID 공급자 중 하나인 정책에만 허용됩니다(이 목록은 변경될 수 있음).
@@ -60,7 +60,7 @@ ms.locfileid: "87909558"
 -   federation.exostar.com
 -   federation.exostartest.com
 
-예를 들어 **fabrikam.com**에 대한 직접 페더레이션을 설정하는 경우 `https://fabrikam.com/adfs` 인증 URL은 유효성 검사를 통과합니다. 동일한 도메인의 호스트(예: `https://sts.fabrikam.com/adfs`)도 통과됩니다. 그러나 동일한 도메인의 `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 인증 URL은 통과되지 않습니다.
+예를 들어 _ * fabrikam .com * *에 대 한 직접 페더레이션을 설정 하는 경우 인증 URL은 `https://fabrikam.com/adfs` 유효성 검사를 통과 합니다. 동일한 도메인의 호스트(예: `https://sts.fabrikam.com/adfs`)도 통과됩니다. 그러나 동일한 도메인의 `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 인증 URL은 통과되지 않습니다.
 
 ### <a name="signing-certificate-renewal"></a>서명 인증서 갱신
 ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
@@ -73,7 +73,7 @@ ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>비관리형(이메일 확인) 테넌트가 있는 도메인과의 직접 페더레이션을 설정할 수 있나요? 
-예. 도메인이 확인되지 않고 테넌트에서 [관리자 인수](../users-groups-roles/domains-admin-takeover.md)를 수행하지 않은 경우 해당 도메인과의 직접 페더레이션을 설정할 수 있습니다. 사용자가 B2B 초대에 응하거나 현재 존재하지 않는 도메인을 사용하여 Azure AD에 대한 셀프 서비스 가입을 수행하는 경우 비관리형 또는 이메일 확인 테넌트가 만들어집니다. 이러한 도메인과의 직접 페더레이션은 설정할 수 있습니다. Azure Portal 또는 PowerShell을 통해 DNS 확인 도메인과의 직접 페더레이션을 설정하려고 하면 오류가 표시됩니다.
+예. 도메인이 확인되지 않고 테넌트에서 [관리자 인수](../enterprise-users/domains-admin-takeover.md)를 수행하지 않은 경우 해당 도메인과의 직접 페더레이션을 설정할 수 있습니다. 사용자가 B2B 초대에 응하거나 현재 존재하지 않는 도메인을 사용하여 Azure AD에 대한 셀프 서비스 가입을 수행하는 경우 비관리형 또는 이메일 확인 테넌트가 만들어집니다. 이러한 도메인과의 직접 페더레이션은 설정할 수 있습니다. Azure Portal 또는 PowerShell을 통해 DNS 확인 도메인과의 직접 페더레이션을 설정하려고 하면 오류가 표시됩니다.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>직접 페더레이션과 일회용 이메일 암호 인증을 모두 사용하도록 설정하는 경우 우선적으로 적용되는 방법은 무엇인가요?
 파트너 조직과의 직접 페더레이션을 설정하는 경우 이 설정은 해당 조직의 새 게스트 사용자에 대한 일회용 이메일 암호 인증보다 우선적으로 적용됩니다. 게스트 사용자가 직접 페더레이션을 설정하기 전에 일회용 암호 인증을 사용하여 초대에 응한 경우 일회용 암호 인증을 계속 사용합니다. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>직접 페더레이션에서 부분적으로 동기화된 테넌트로 인한 로그인 문제를 해결하나요?

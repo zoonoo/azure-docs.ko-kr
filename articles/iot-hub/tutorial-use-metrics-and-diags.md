@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b24d9e1cbbcf875d7b4bde3981b28d8999ba8d47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019133"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149198"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -190,7 +190,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 포털에서 허브로 이동합니다. **리소스 그룹**을 클릭하고 *ContosoResources*를 선택한 다음, IoT Hub *ContosoTestHub*를 선택합니다. 
 
-IoT Hub가 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-collection#metrics)에 마이그레이션되지 않은 경우 [클래식 경고](/azure/azure-monitor/platform/alerts-classic.overview)를 사용해야 합니다.
+IoT Hub가 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform.md#metrics)에 마이그레이션되지 않은 경우 [클래식 경고](../azure-monitor/platform/alerts-classic.overview.md)를 사용해야 합니다.
 
 1. **모니터링**에서 **경고**를 클릭합니다. 그러면 기본 경고 화면이 표시됩니다. 
 
@@ -369,7 +369,7 @@ await Task.Delay(10);
 
 이 자습서에서 만든 리소스를 모두 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우 IoT Hub, 스토리지 계정 및 리소스 그룹 자체가 제거됩니다. 메트릭을 대시보드에 고정한 경우에는 각각의 오른쪽 위 모서리에 있는 세 점을 클릭하고 **제거**를 선택하여 수동으로 제거해야 합니다.
 
-리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다.
+리소스 그룹을 제거하려면 [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

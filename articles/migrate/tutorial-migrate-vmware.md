@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 에이전트 없는 마�
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530525"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310626"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -36,8 +36,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
-1. [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)하여 마이그레이션을 위해 Azure 및 VMware를 준비합니다.
-2. Azure로 마이그레이션하기 전에 [VMware VM을 평가](tutorial-assess-vmware.md)하는 두 번째 자습서를 완료하는 것이 좋지만, 반드시 그럴 필요는 없습니다. 
+1. [첫 번째 자습서를 완료](./tutorial-discover-vmware.md)하여 마이그레이션을 위해 Azure 및 VMware를 준비합니다.
+2. Azure로 마이그레이션하기 전에 [VMware VM을 평가](./tutorial-assess-vmware-azure-vm.md)하는 두 번째 자습서를 완료하는 것이 좋지만, 반드시 그럴 필요는 없습니다. 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가
@@ -59,7 +59,7 @@ Azure Migrate 프로젝트를 아직 설정하지 않은 경우 도구를 추가
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
-Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 없는 마이그레이션에 사용되는 간단한 VMware VM 어플라이언스를 실행합니다. [평가 자습서](tutorial-assess-vmware.md)를 따르는 경우 어플라이언스를 이미 설정했습니다. 그렇지 않은 경우 다음 방법 중 하나를 사용하여 지금 설정합니다.
+Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 없는 마이그레이션에 사용되는 간단한 VMware VM 어플라이언스를 실행합니다. [평가 자습서](./tutorial-assess-vmware-azure-vm.md)를 따르는 경우 어플라이언스를 이미 설정했습니다. 그렇지 않은 경우 다음 방법 중 하나를 사용하여 지금 설정합니다.
 
 - **OVA 템플릿**: 다운로드한 OVA 템플릿을 사용하여 VMware VM에 [설정](how-to-set-up-appliance-vmware.md)합니다.
 - **스크립트**: PowerShell 설치 관리자 스크립트를 사용하여 VMware VM 또는 물리적 머신에 [설정](deploy-appliance-script.md)합니다. OVA 템플릿을 사용하여 VM을 설정할 수 없거나 Azure Government에 있는 경우 이 방법을 사용해야 합니다.
@@ -210,7 +210,7 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
     - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:

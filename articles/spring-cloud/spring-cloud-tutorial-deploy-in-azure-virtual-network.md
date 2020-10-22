@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892898"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088672"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>자습서: Azure 가상 네트워크에 Azure Spring Cloud 배포(VNet 삽입)
 
@@ -27,7 +27,7 @@ ms.locfileid: "90892898"
 * Azure Spring Cloud에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어하는 고객의 역량 강화
 
 ## <a name="prerequisites"></a>사전 요구 사항
-[Azure Portal에서 리소스 공급자 등록](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) 지침을 따르거나 다음 az CLI 명령을 실행하여 `Microsoft.AppPlatform` Azure Spring Cloud 리소스 공급자를 등록해야 합니다.
+[Azure Portal에서 리소스 공급자 등록](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) 지침을 따르거나 다음 az CLI 명령을 실행하여 `Microsoft.AppPlatform` Azure Spring Cloud 리소스 공급자를 등록해야 합니다.
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform

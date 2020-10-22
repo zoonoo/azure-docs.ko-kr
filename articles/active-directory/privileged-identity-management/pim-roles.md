@@ -14,16 +14,16 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0403fe3cf0bf8cfaf9c722edadbecd2fee61cb46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72587c5486ed61215fd20c215a1dd194f4b7bc4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056288"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372415"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 수 없는 역할
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 모든 [AZURE ad 역할](../users-groups-roles/directory-assign-admin-roles.md) 및 모든 [azure 역할](../../role-based-access-control/built-in-roles.md)을 관리할 수 있습니다. 또한 Azure 역할에는 관리 그룹, 구독, 리소스 그룹 및 리소스에 연결 된 사용자 지정 역할이 포함 될 수 있습니다. 그러나 관리할 수 없는 몇 가지 역할이 있습니다. 이 문서에서는 Privileged Identity Management에서 관리할 수 없는 역할에 대해 설명 합니다.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용 하 여 모든 [AZURE ad 역할](../roles/permissions-reference.md) 및 모든 [azure 역할](../../role-based-access-control/built-in-roles.md)을 관리할 수 있습니다. 또한 Azure 역할에는 관리 그룹, 구독, 리소스 그룹 및 리소스에 연결 된 사용자 지정 역할이 포함 될 수 있습니다. 그러나 관리할 수 없는 몇 가지 역할이 있습니다. 이 문서에서는 Privileged Identity Management에서 관리할 수 없는 역할에 대해 설명 합니다.
 
 ## <a name="classic-subscription-administrator-roles"></a>클래식 구독 관리자 역할
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827524"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371208"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 
 
@@ -56,7 +56,7 @@ Azure 통합 런타임은 다음과 같은 작업을 수행할 수 있습니다.
 
 - Azure에서 데이터 흐름 실행 
 - 클라우드 데이터 저장소 간에 복사 작업 실행
-- 공용 네트워크에서 Databricks 노트북/Jar/Python 작업, hdinsight Hive 작업, hdinsight Pig 작업, hdinsight MapReduce 작업, HDInsight Spark 작업, hdinsight Streaming activity, Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업을 디스패치합니다.
+- 공용 네트워크에서 Databricks 노트북/Jar/Python 작업, hdinsight Hive 작업, hdinsight Pig 작업, hdinsight MapReduce 작업, HDInsight Spark 작업, hdinsight Streaming activity, Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업, Azure Machine Learning Studio (클래식) 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업을 수행 합니다.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
 
@@ -79,7 +79,7 @@ Azure IR를 만들고 구성 하는 방법에 대 한 자세한 내용은 [Azure
 자체 호스팅 IR로 다음을 수행할 수 있습니다.
 
 - 클라우드 데이터 저장소와 프라이빗 네트워크의 데이터 저장소 간에 복사 작업을 실행합니다.
-- 온-프레미스 또는 Azure Virtual Network의 계산 리소스에 대해 다음과 같은 변환 작업을 발송 합니다. HDInsight Hive 작업 (BYOC-사용자 고유의 클러스터 가져오기), hdinsight Pig 활동 (byoc), hdinsight Spark 활동 (byoc), hdinsight Streaming activity (byoc), Machine Learning 일괄 처리 실행 작업, Machine Learning 업데이트 리소스 활동, 저장 프로시저 활동, Data Lake Analytics U-SQL 활동, 사용자 지정 활동 (Azure Batch에서 실행) , 조회 작업 및 메타 데이터 가져오기 작업을 제공 합니다.
+- 온-프레미스 또는 Azure Virtual Network의 계산 리소스에 대해 다음과 같은 변환 작업을 발송 합니다. HDInsight Hive 작업 (BYOC-사용자 고유의 클러스터 가져오기), hdinsight Pig 활동 (byoc), hdinsight Spark 활동 (byoc), hdinsight Streaming activity (byoc), Azure Machine Learning Studio (클래식) Batch 실행 활동, Azure Machine Learning Studio (클래식) 업데이트 리소스 활동, 저장 프로시저 활동, Data Lake Analytics U-SQL 활동 , 사용자 지정 작업 (Azure Batch에서 실행), 조회 작업 및 메타 데이터 가져오기 작업을 제공 합니다.
 
 > [!NOTE] 
 > 자체 호스팅 integration runtime을 사용 하 여 SAP Hana, MySQL 등 자신의 드라이버를 사용 해야 하는 데이터 저장소를 지원할 수 있습니다.  자세한 내용은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조 하세요.

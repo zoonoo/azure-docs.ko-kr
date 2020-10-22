@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a983931bd372931eacff2f7b21f3358f536046
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278790"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362929"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "91278790"
 
 기본적으로 디렉터리에 있는 모든 사용자와 게스트는 관리자 역할에 할당되지 않은 경우에도 게스트를 초대할 수 있습니다. 외부 협업 설정을 사용하여 조직에서 다양한 유형의 사용자에 대해 게스트 초대를 설정하거나 해제할 수 있습니다. 또한 게스트 초대를 허용하는 역할을 할당하여 개별 사용자에게 초대를 위임할 수도 있습니다.
 
-Azure AD를 사용 하면 외부 게스트 사용자가 Azure AD 디렉터리에서 볼 수 있는 항목을 제한할 수 있습니다. 기본적으로 게스트 사용자는 제한 된 권한 수준으로 설정 되므로 사용자, 그룹 또는 기타 디렉터리 리소스를 열거 하는 것을 차단 하지 않지만 숨겨진 그룹의 멤버 자격을 볼 수 있습니다. 새 미리 보기 설정을 사용 하 여 게스트 액세스를 추가로 제한할 수 있으므로 게스트가 자신의 프로필 정보만 볼 수 있습니다. 자세한 내용은 [게스트 액세스 권한 제한 (미리 보기)](../users-groups-roles/users-restrict-guest-permissions.md)을 참조 하세요.
+Azure AD를 사용 하면 외부 게스트 사용자가 Azure AD 디렉터리에서 볼 수 있는 항목을 제한할 수 있습니다. 기본적으로 게스트 사용자는 제한 된 권한 수준으로 설정 되므로 사용자, 그룹 또는 기타 디렉터리 리소스를 열거 하는 것을 차단 하지 않지만 숨겨진 그룹의 멤버 자격을 볼 수 있습니다. 새 미리 보기 설정을 사용 하 여 게스트 액세스를 추가로 제한할 수 있으므로 게스트가 자신의 프로필 정보만 볼 수 있습니다. 자세한 내용은 [게스트 액세스 권한 제한 (미리 보기)](../enterprise-users/users-restrict-guest-permissions.md)을 참조 하세요.
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>B2B 외부 협업 설정 구성
 

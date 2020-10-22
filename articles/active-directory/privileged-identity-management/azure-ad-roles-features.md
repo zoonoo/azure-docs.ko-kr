@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88784014"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371514"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 관리 기능
 
@@ -69,4 +69,4 @@ Azure AD 역할에 Privileged Identity Management PowerShell 모듈을 사용 �
 - [Azure AD 사용자 지정 역할 할당](azure-ad-custom-roles-assign.md)
 - [Azure AD 사용자 지정 역할 할당 제거 또는 업데이트](azure-ad-custom-roles-update-remove.md)
 - [Azure AD 사용자 지정 역할 할당 구성](azure-ad-custom-roles-configure.md)
-- [Azure AD의 역할 정의](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD의 역할 정의](../roles/permissions-reference.md)

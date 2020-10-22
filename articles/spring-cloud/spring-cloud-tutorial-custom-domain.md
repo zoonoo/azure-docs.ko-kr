@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945773"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088757"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -26,7 +26,7 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 * Azure Spring Cloud에 배포된 애플리케이션. [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)을 참조하거나 기존 앱을 사용하세요.
 * GoDaddy 같은 도메인 공급자의 DNS 레지스트리에 대한 액세스 권한이 있는 도메인
 * 타사 공급자의 프라이빗 인증서(즉, 자체 서명된 인증서) 인증서는 도메인과 일치해야 합니다.
-* 배포된 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 인스턴스
+* 배포된 [Azure Key Vault](../key-vault/general/overview.md) 인스턴스
 
 ## <a name="import-certificate"></a>인증서 가져오기
 ### <a name="prepare-your-certificate-file-in-pfx-optional"></a>PFX에서 인증서 파일 준비(선택 사항)
@@ -224,7 +224,6 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 작업이 완료되면 앱을 가리키는 HTTPS URL 중 하나로 이동합니다. HTTP URL은 작동하지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
-* [Azure Key Vault란?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [인증서 가져오기](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Azure CLI를 사용하여 Spring Cloud 앱 시작](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
-
+* [Azure Key Vault란?](../key-vault/general/overview.md)
+* [인증서 가져오기](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+* [Azure CLI를 사용하여 Spring Cloud 앱 시작](./spring-cloud-quickstart.md)

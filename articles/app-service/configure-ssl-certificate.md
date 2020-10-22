@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420883"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149079"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -145,8 +145,8 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
-| 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-portal)의 단계에 따라 구성할 수 있습니다. |
-| Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](/azure/key-vault/general/network-security)의 단계에 따라 구성할 수 있습니다. |
+| 액세스 정책| 애플리케이션 및 자격 증명 모음 리소스에 허용된 액세스를 정의합니다. 나중에 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)의 단계에 따라 구성할 수 있습니다. |
+| Virtual Network 액세스 | 특정 Azure Virtual Network에 대한 자격 증명 모음 액세스 액세스를 제한합니다. 나중에 [Azure Key Vault 방화벽 및 Virtual Network 구성](../key-vault/general/network-security.md)의 단계에 따라 구성할 수 있습니다. |
 
 자격 증명 모음을 선택한 후에는 **Key Vault 리포지토리** 페이지를 닫습니다. **1단계: 저장소** 옵션에는 성공을 나타내는 녹색 확인 표시가 나타납니다. 다음 단계를 위해 페이지를 열어둡니다.
 
@@ -189,7 +189,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [요구 사항을 충족](#private-certificate-requirements)하는 PKCS12 인증서를 App Service으로 가져올 수 있습니다.
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>자격 증명 모음에서 읽을 App Service 권한 부여
-기본적으로 App Service 리소스 공급자는 Key Vault에 대한 액세스 권한이 없습니다. 인증서 배포에 Key Vault를 사용하려면 [KeyVault에 대한 읽기 액세스 권한을 부여](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault)해야 합니다. 
+기본적으로 App Service 리소스 공급자는 Key Vault에 대한 액세스 권한이 없습니다. 인증서 배포에 Key Vault를 사용하려면 [KeyVault에 대한 읽기 액세스 권한을 부여](../key-vault/general/assign-access-policy-cli.md)해야 합니다. 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd`는 App Service의 리소스 공급자 서비스 주체 이름으로, 모든 Azure 구독에 대해 동일합니다. Azure Government 클라우드 환경의 경우 리소스 공급자 서비스 주체 이름으로 대신 `6a02c803-dafd-4136-b4c3-5a6f318b4714`를 사용합니다.
 
@@ -378,11 +378,11 @@ App Service 인증서를 삭제하면 다시 되돌릴 수 없습니다. App Ser
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>추가 리소스
 

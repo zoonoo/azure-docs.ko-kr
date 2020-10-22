@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979872"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362555"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
@@ -92,7 +92,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| Task | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
+| Task | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -124,20 +124,20 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 | Azure AD 디렉터리 역할 | 자격 관리 역할 | 보안 그룹을 추가할 수 있음 | Microsoft 365 그룹 추가 가능 | 앱 추가 가능 | SharePoint Online 사이트 추가 가능 |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Intune 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Exchange 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
-| [팀 서비스 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
-| [SharePoint 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
-| [클라우드 애플리케이션 관리자](../users-groups-roles/directory-assign-admin-roles.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [전역 관리자](../roles/permissions-reference.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [사용자 관리자](../roles/permissions-reference.md) | 해당 없음 |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Intune 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Exchange 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
+| [팀 서비스 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
+| [SharePoint 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [클라우드 애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
 > [!NOTE]
-> 사용자가 보안 그룹 또는 Microsoft 365 그룹을 추가 하는 경우에는 해당 그룹을 역할에 할당할 수 없습니다. 사용자가 액세스 패키지를 만들 때 역할 할당을 할 수 있는 그룹을 추가 하는 경우 해당 역할 할당 가능 그룹의 소유자 이기도 해야 합니다. 자세한 내용은 [Azure Active Directory에서 역할 할당 가능 그룹 만들기](../users-groups-roles/roles-groups-create-eligible.md)를 참조 하세요.
+> 사용자가 보안 그룹 또는 Microsoft 365 그룹을 추가 하는 경우에는 해당 그룹을 역할에 할당할 수 없습니다. 사용자가 액세스 패키지를 만들 때 역할 할당을 할 수 있는 그룹을 추가 하는 경우 해당 역할 할당 가능 그룹의 소유자 이기도 해야 합니다. 자세한 내용은 [Azure Active Directory에서 역할 할당 가능 그룹 만들기](../roles/groups-create-eligible.md)를 참조 하세요.
 
-태스크에 대 한 최소 권한 있는 역할을 확인 하려면 [Azure Active Directory에서 관리자 작업을 통해 관리자 역할](../users-groups-roles/roles-delegate-by-task.md#entitlement-management)을 참조할 수도 있습니다.
+태스크에 대 한 최소 권한 있는 역할을 확인 하려면 [Azure Active Directory에서 관리자 작업을 통해 관리자 역할](../roles/delegate-by-task.md#entitlement-management)을 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

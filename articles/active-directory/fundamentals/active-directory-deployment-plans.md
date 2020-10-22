@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318430"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371888"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 찾으십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포 하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내 합니다.
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 첫 번째 wave에서 테스트 하 고 피드백을 제공할 수 있는 IT, 유용성 및 기타 적절 한 사용자를 대상으로 합니다. 이 피드백은 사용자에 게 보내는 통신 및 지침을 추가로 개발 하 고 지원 담당자가 볼 수 있는 문제 유형에 대 한 정보를 제공 하는 데 사용 됩니다. 
 
-더 큰 사용자 그룹에 대 한 롤아웃 확대는 대상 그룹의 범위를 늘려 수행 해야 합니다. [동적 그룹 멤버 자격](../users-groups-roles/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
+더 큰 사용자 그룹에 대 한 롤아웃 확대는 대상 그룹의 범위를 늘려 수행 해야 합니다. [동적 그룹 멤버 자격](../enterprise-users/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
 
 
 ## <a name="deploy-authentication"></a>인증 배포
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 | -| -|
 | [암호 해시 동기화에 ADFS 사용](../hybrid/plan-migrate-adfs-password-hash-sync.md)| 암호 해시 동기화를 사용 하 여 사용자 암호의 해시는 온-프레미스 Active Directory에서 Azure AD로 동기화 되므로 Azure AD에서 온-프레미스와 상호 작용 하지 않고 사용자를 인증할 수 있습니다 Active Directory |
 | [통과 인증에 ADFS 사용](../hybrid/plan-migrate-adfs-pass-through-authentication.md)| Azure AD 통과 인증을 사용 하면 사용자가 동일한 암호를 사용 하 여 온-프레미스 및 클라우드 기반 응용 프로그램에 로그인 할 수 있습니다. 이 기능을 사용 하면 사용자에 게 더 나은 환경을 제공할 수 있으며, 사용자가 로그인 하는 방법을 잊은 경우를 줄일 수 있기 때문에 IT 기술 지원팀 비용을 줄일 수 있습니다. 사람들이 Azure AD를 사용하여 로그인할 때 이 기능은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다. |
-| [Azure AD 응용 프로그램 프록시](../manage-apps/application-proxy-deployment-plan.md) |요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다. |
+| [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy-deployment-plan.md) |요즈음 직원은 어디서나 언제든지 어느 디바이스에서나 생산성을 높이기를 원합니다. 클라우드 및 회사 앱 온-프레미스에서 SaaS 앱에 액세스해야 합니다. Azure AD 애플리케이션 프록시를 사용하면 비싸고 복잡한 VPN(가상 사설망) 또는 DMZ(경계 네트워크) 없이 견고한 액세스가 가능합니다. |
 | [매끄러운 SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용 하면 사용자가 Azure AD에 로그인 하기 위해 암호를 입력할 필요가 없으며 일반적으로 사용자 이름을 입력할 필요가 없습니다. 이 기능을 사용 하면 추가 온-프레미스 구성 요소가 없어도 권한 있는 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다. |
 
 ## <a name="deploy-user-provisioning"></a>사용자 프로 비전 배포

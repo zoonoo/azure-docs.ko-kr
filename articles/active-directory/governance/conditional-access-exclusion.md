@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783691"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362725"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Azure AD 액세스 검토를 사용하여 조건부 액세스 정책에서 제외된 사용자 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "88783691"
 
 ![조건부 액세스의 명명된 위치](./media/conditional-access-exclusion/named-locations.png)
 
-일부 사용자는 이와 같이 차단된 국가/지역에서 로그인하는 타당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장 중에 회사 리소스에 액세스해야 할 수 있습니다. 이러한 경우 이러한 국가/지역을 차단하는 조건부 액세스 정책은 정책에서 제외된 사용자 전용 클라우드 보안 그룹을 사용할 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
+일부 사용자는 이와 같이 차단된 국가/지역에서 로그인하는 타당한 이유가 있을 수 있습니다. 예를 들어 사용자가 출장 중에 회사 리소스에 액세스해야 할 수 있습니다. 이러한 경우 이러한 국가/지역을 차단하는 조건부 액세스 정책은 정책에서 제외된 사용자 전용 클라우드 보안 그룹을 사용할 수 있습니다. 여행하는 동안 액세스해야 하는 사용자는 [Azure AD 셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)를 사용하여 그룹에 자신을 추가할 수 있습니다.
 
 또 다른 예로 [대부분의 사용자에 대해 레거시 인증을 차단하는](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/) 조건부 액세스 정책이 있는 경우를 들 수 있습니다. 그러나 일부 사용자가 반드시 레거시 인증 방법을 사용하여 Office 2010 또는 POP/IMAP/SMTP 기반 클라이언트를 통해 리소스에 액세스해야 하는 경우 이러한 사용자를 레거시 인증 방법을 차단하는 정책에서 제외할 수 있습니다.
 

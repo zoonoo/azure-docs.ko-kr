@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 8ea8376307807abff8227d82bb6de7956fa3de99
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664990"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088536"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Azure Spring Cloud 앱에서 Azure Functions 호출
 
@@ -23,9 +23,9 @@ Azure Functions 및 App Services는 모두 Azure AD(Azure Active Directory) 인�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* [Azure CLI 버전 2.0.67 이상 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure CLI 버전 2.0.67 이상 설치](/cli/azure/install-azure-cli)
 * [Maven 3.0 이상 설치](https://maven.apache.org/download.cgi)
-* [Azure Functions Core Tools 버전 3.0.2009 이상 설치](https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools)
+* [Azure Functions Core Tools 버전 3.0.2009 이상 설치](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
@@ -77,7 +77,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-기본적으로 Functions는 키 기반 인증을 사용하여 Http 엔드포인트를 보호합니다. Functions에 대한 액세스를 보호하기 위해 Azure AD 인증을 사용하도록 설정하므로 [함수 인증 수준을 익명으로 설정](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger#secure-an-http-endpoint-in-production)하려고 합니다.
+기본적으로 Functions는 키 기반 인증을 사용하여 Http 엔드포인트를 보호합니다. Functions에 대한 액세스를 보호하기 위해 Azure AD 인증을 사용하도록 설정하므로 [함수 인증 수준을 익명으로 설정](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production)하려고 합니다.
 
 ```json function.json
 {
@@ -124,7 +124,7 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 ## <a name="build-sample-spring-boot-app-to-invoke-the-function"></a>함수를 호출하는 Spring Boot 앱 샘플 빌드
 
-이 샘플은 먼저 [MSI 엔드포인트](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http)에 액세스 토큰을 요청하고 해당 토큰을 사용하여 함수 http 요청을 인증함으로써 Http 트리거 함수를 호출합니다.
+이 샘플은 먼저 [MSI 엔드포인트](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http)에 액세스 토큰을 요청하고 해당 토큰을 사용하여 함수 http 요청을 인증함으로써 Http 트리거 함수를 호출합니다.
 
 1. 샘플 프로젝트를 복제합니다. 
 
@@ -173,6 +173,6 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 ## <a name="next-steps"></a>다음 단계
 
-* [시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
+* [시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Azure 리소스의 관리 ID에 대해 자세히 알아보기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [서비스 간 호출에 대한 디먼 클라이언트 애플리케이션 구성](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad#configure-a-daemon-client-application-for-service-to-service-calls)
+* [서비스 간 호출에 대한 디먼 클라이언트 애플리케이션 구성](../app-service/configure-authentication-provider-aad.md#configure-a-daemon-client-application-for-service-to-service-calls)

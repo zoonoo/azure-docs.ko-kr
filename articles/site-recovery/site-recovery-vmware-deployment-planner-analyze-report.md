@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef4baa4be7f6058ca704f8f499c47099de7c1a85
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654874"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372092"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure에 대 한 VMware 재해 복구를 위한 Deployment Planner 보고서 분석
 
@@ -102,7 +102,7 @@ VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하�
 ![Deployment Planner에 필요한 Azure 코어 수](media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png)
 
 ### <a name="required-on-premises-infrastructure"></a>필요한 온-프레미스 인프라
-이 숫자는 호환되는 모든 VM을 보호하기에 충분하도록 구성해야 할 구성 서버 및 추가 프로세스 서버의 총 수입니다. 지원되는 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)에 따라 도구가 추가 서버를 권장할 수 있습니다. 권장 사항은 구성 서버 또는 추가 프로세스 서버 중 어느 것에서 먼저 적중되든지 간에 일일 변동량 또는 보호되는 VM의 최대 수(가상 컴퓨터당 평균 3개의 디스크를 가정) 중 더 큰 수를 기반으로 합니다. 일일 총 변동량 및 보호된 디스크의 총 수에 대한 세부 정보는 "온-프레미스 요약" 섹션에 있습니다.
+이 숫자는 호환되는 모든 VM을 보호하기에 충분하도록 구성해야 할 구성 서버 및 추가 프로세스 서버의 총 수입니다. 지원되는 [구성 서버에 대한 크기 권장 사항](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server)에 따라 도구가 추가 서버를 권장할 수 있습니다. 권장 사항은 구성 서버 또는 추가 프로세스 서버 중 어느 것에서 먼저 적중되든지 간에 일일 변동량 또는 보호되는 VM의 최대 수(가상 컴퓨터당 평균 3개의 디스크를 가정) 중 더 큰 수를 기반으로 합니다. 일일 총 변동량 및 보호된 디스크의 총 수에 대한 세부 정보는 "온-프레미스 요약" 섹션에 있습니다.
 
 ![Deployment Planner에 필요한 온-프레미스 인프라](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
@@ -165,7 +165,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **로그 저장소 계정 유형**: 모든 복제 로그는 standard Storage 계정에 저장 됩니다.
 
-**저장소 계정에 대 한 제안 된 접두사**: 캐시 저장소 계정의 이름을 지정 하는 데 사용할 수 있는 제안 된 3 자 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [스토리지 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
+**저장소 계정에 대 한 제안 된 접두사**: 캐시 저장소 계정의 이름을 지정 하는 데 사용할 수 있는 제안 된 3 자 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [스토리지 계정에 대 한 파티션 명명 규칙](/en-in/azure/storage/blobs/storage-performance-checklist)을 따릅니다.
 
 **제안 된 로그 계정 이름**: 제안 된 접두사를 포함 한 후의 저장소 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
@@ -178,7 +178,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **예** 및 **예\*** 입니다. **예** \* 는 VM이 [Premium ssd](../virtual-machines/disks-types.md)에 적합 한 인스턴스에 대 한입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예를 들면 다음과 같습니다.
+**Vm 호환성**: 값은 **예** 및 **예 \* *_입니다.*** 예를 \* 들어 vm이 [premium ssd](../virtual-machines/disks-types.md)에 적합 한 경우에는 예입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예를 들어:
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -219,7 +219,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 VMDK를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [스토리지 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
+**VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [스토리지 한도](/en-in/azure/storage/common/scalability-targets-standard-account)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
 * 데이터 디스크 크기가 잘못 되었거나 OS 디스크 크기가 잘못 되었습니다. 지원 제한을 [검토](vmware-physical-azure-support-matrix.md#azure-vm-requirements) 합니다. 
 * 총 VM 크기(복제 + TFO)가 지원되는 스토리지 계정 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 스토리지에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 Premium Storage 영역에 푸시합니다. 그러나 Premium Storage 계정의 최대 지원 크기는 35TB이며, 보호된 단일 VM을 여러 스토리지 계정에서 보호할 수 없습니다. 또한 보호되는 VM에 대해 테스트 장애 조치를 실행하면 복제가 진행 중인 스토리지 계정과 동일한 계정에서 실행된다는 점에 유의해야 합니다. 이 인스턴스에서 복제 진행과 테스트 장애 조치를 동시에 성공하려면 디스크 크기를 2배로 설정합니다.

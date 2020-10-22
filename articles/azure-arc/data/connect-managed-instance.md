@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939194"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372364"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance에 연결
 
@@ -49,7 +49,7 @@ Azure Data Studio, SQL Server Management Studio 또는 SQLCMD를 사용 하 여 
 
 Azure Data Studio를 열고 위의 외부 끝점 IP 주소와 포트 번호를 사용 하 여 인스턴스에 연결 합니다. Azure VM을 사용 하는 경우 [azure 가상 머신 배포에 대 한 특별 정보](#special-note-about-azure-virtual-machine-deployments)를 사용 하 여 식별할 수 있는 _공용_ IP 주소가 필요 합니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 - 서버: 52.229.9.30, 30913
 - 사용자 이름: sa
@@ -68,7 +68,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 Azure 가상 컴퓨터를 사용 하는 경우 끝점 IP 주소는 공용 IP 주소를 표시 하지 않습니다. 외부 IP 주소를 찾으려면 다음 명령을 사용 합니다.
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -78,7 +78,7 @@ NSG (네트워크 보안 게이트웨이)를 통해 sql 인스턴스의 포트�
 
 규칙을 설정 하려면 아래 명령을 사용 하 여 찾을 수 있는 NSG의 이름을 알아야 합니다.
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -86,7 +86,7 @@ NSG의 이름이 있으면 다음 명령을 사용 하 여 방화벽 규칙을 �
 
 `--destination-port-ranges`아래 매개 변수 값을 위의 F 명령에서 가져온 포트 번호로 바꿉니다 `azdata sql instance list` .
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

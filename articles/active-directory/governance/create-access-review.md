@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602934"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362776"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "90602934"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -164,6 +164,7 @@ ms.locfileid: "90602934"
 |자동 검토 | 검토 하지 않은 모든 사용자에 대해 시스템에서 결정을 기록 했습니다. 자동 적용이 사용 하도록 설정 **된 경우 검토를 계속** 진행할 준비가 되었습니다. |
 |넣으려면 | 승인 된 사용자에 대 한 액세스는 변경 되지 않습니다. |
 |적용됨 | 거부 된 사용자 (있는 경우)가 리소스 또는 디렉터리에서 제거 되었습니다. |
+|Failed | 검토를 진행할 수 없습니다. 이 오류는 테 넌 트 삭제, 라이선스 변경 또는 기타 내부 테 넌 트 변경 내용과 관련이 있을 수 있습니다. |
 
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 

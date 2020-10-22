@@ -4,12 +4,12 @@ description: 지리적 복제 Azure Container Registry의 컨테이너 이미지
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328692"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148431"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "91328692"
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Web App for Containers에 자동 배포
 
-Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App for Containers](../app-service/containers/index.yml)에 직접 배포할 수 있도록 지원합니다. 이 자습서에서는 Azure Portal을 사용하여 이전 자습서에서 만든 컨테이너 이미지를 다른 Azure 영역에 있는 두 개의 웹앱 계획에 배포합니다.
+Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App for Containers](../app-service/index.yml)에 직접 배포할 수 있도록 지원합니다. 이 자습서에서는 Azure Portal을 사용하여 이전 자습서에서 만든 컨테이너 이미지를 다른 Azure 영역에 있는 두 개의 웹앱 계획에 배포합니다.
 
 레지스트리의 컨테이너 이미지에서 웹앱을 배포하고 같은 영역에 지리적 복제 레지스트리가 있는 경우 Azure Container Registry는 이미지 배포 [webhook](container-registry-webhook.md)를 만듭니다. 새 이미지를 컨테이너 리포지토리로 푸시하면 webhook가 변경 사항을 선택하고 새 컨테이너 이미지를 웹앱에 자동으로 배포합니다.
 

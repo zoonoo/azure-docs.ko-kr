@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318124"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362702"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -198,7 +198,7 @@ ms.locfileid: "92318124"
 | 액세스 패키지| 전역 관리자<p>액세스 패키지 작성자| 전역 관리자만 |
 
 
-자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>리소스에 대 한 액세스를 검토 하는 사람은 누구 인가요?
 
@@ -310,7 +310,7 @@ ms.locfileid: "92318124"
 
 다음을 통해 그룹 멤버 자격을 검토할 수 있습니다. 
 
-* 관리자
+* Administrators
 
 * 그룹 소유자
 
@@ -343,7 +343,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 ### <a name="review-external-users-group-memberships"></a>외부 사용자의 그룹 멤버 자격 검토
 
-수동 작업 및 연결 된 잠재적 오류를 최소화 하려면 [동적 그룹](../users-groups-roles/groups-create-rule.md) 을 사용 하 여 사용자의 특성에 따라 그룹 멤버 자격을 할당 하는 것이 좋습니다. 외부 사용자에 대해 하나 이상의 동적 그룹을 만들려고 할 수 있습니다. 내부 스폰서는 그룹의 멤버 자격에 대 한 검토자 역할을 할 수 있습니다. 
+수동 작업 및 연결 된 잠재적 오류를 최소화 하려면 [동적 그룹](../enterprise-users/groups-create-rule.md) 을 사용 하 여 사용자의 특성에 따라 그룹 멤버 자격을 할당 하는 것이 좋습니다. 외부 사용자에 대해 하나 이상의 동적 그룹을 만들려고 할 수 있습니다. 내부 스폰서는 그룹의 멤버 자격에 대 한 검토자 역할을 할 수 있습니다. 
 
 참고: 액세스 검토의 결과로 그룹에서 제거 된 외부 사용자는 테 넌 트에서 삭제 되지 않습니다. 
 
@@ -389,7 +389,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Azure AD 및 Azure 리소스 역할의 계획 검토
 
-[PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 은 기업이 Azure AD의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이렇게 하면 [AZURE AD](../users-groups-roles/directory-assign-admin-roles.md) 와 [azure 리소스](../../role-based-access-control/built-in-roles.md) 모두에서 권한 있는 역할의 목록을 훨씬 더 작게 유지 하 고 디렉터리의 전반적인 보안을 향상 시킵니다.
+[PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 은 기업이 Azure AD의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이렇게 하면 [AZURE AD](../roles/permissions-reference.md) 와 [azure 리소스](../../role-based-access-control/built-in-roles.md) 모두에서 권한 있는 역할의 목록을 훨씬 더 작게 유지 하 고 디렉터리의 전반적인 보안을 향상 시킵니다.
 
 액세스 검토를 통해 검토자는 사용자가 여전히 역할에 있어야 하는지 여부를 증명할 수 있습니다. 액세스 패키지에 대 한 액세스 검토와 마찬가지로 Azure AD 역할 및 Azure 리소스에 대 한 검토가 PIM admin 사용자 환경에 통합 되어 있습니다. 정기적으로 다음 역할 할당을 검토 하는 것이 좋습니다.
 
@@ -496,7 +496,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 액세스 검토 작업은 [AZURE AD의 감사 로그](../reports-monitoring/concept-audit-logs.md)에서 기록 되 고 사용할 수 있습니다. 범주, 활동 유형 및 날짜 범위에서 감사 데이터를 필터링 할 수 있습니다. 예제 쿼리는 다음과 같습니다.
 
-| 범주| 정책 |
+| Category| 정책 |
 | - | - |
 | 활동 유형| 액세스 검토 만들기 |
 | | 액세스 검토 업데이트 |

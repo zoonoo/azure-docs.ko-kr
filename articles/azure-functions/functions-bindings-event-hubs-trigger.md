@@ -6,14 +6,14 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 72312df41a74ac8f2321b31287cbb3cd87d1a04b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffec1b0e5fd57a19c5b5c940ec921b43970387e8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87041735"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372143"
 ---
-# <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
+# <a name="azure-event-hubs-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Event Hubs 트리거
 
 이 문서에서는 Azure Functions에 대해 [Azure Event Hubs](../event-hubs/event-hubs-about.md) 트리거를 사용 하는 방법을 설명 합니다. Azure Functions는 Event Hubs에 대 한 트리거 및 [출력 바인딩을](functions-bindings-event-hubs-output.md) 지원 합니다.
 

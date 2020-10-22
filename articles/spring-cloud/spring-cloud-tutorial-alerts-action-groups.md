@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c706f38dabbe21e5bafb096bf406e70af0855aa3
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892537"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089981"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스를 모니터링하는 방법
 
@@ -113,7 +113,7 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 이 자습서에서는 Azure Spring Cloud 애플리케이션에 대한 경고 및 작업 그룹을 설정하는 방법에 대해 알아보았습니다. 작업 그룹에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+> [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [작업 그룹의 SMS 경고 동작](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
+> [작업 그룹의 SMS 경고 동작](../azure-monitor/platform/alerts-sms-behavior.md)

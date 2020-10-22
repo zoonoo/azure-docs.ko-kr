@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534440"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372432"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Azure AD 역할에 대 한 검색 및 통찰력 (미리 보기) (이전의 보안 마법사)
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
 조직에서 Privileged Identity Management 사용을 시작 하기 전에 모든 역할 할당이 영구적입니다. 사용자는 권한이 필요 하지 않은 경우에도 항상 할당 된 역할에 포함 됩니다. 이전 보안 마법사를 대체 하는 검색 및 정보 (미리 보기)는 권한 있는 역할 목록과 현재 이러한 역할에 있는 사용자 수를 보여 줍니다. 역할에 대 한 할당을 나열 하 여 할당 된 사용자 중 하나 이상이 익숙하지 않은 경우 해당 사용자에 대 한 자세한 정보를 확인할 수 있습니다.
 
-: heavy_check_mark: 전역 관리자 역할에 영구적으로 할당 되는 두 개의 브레이크 유리 계정을 유지 하는 것 **이 좋습니다** . [AZURE AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)에 설명 된 대로 이러한 계정에는 일반 관리자 계정과 동일한 multi-factor authentication 메커니즘이 필요 하지 않은지 확인 하세요.
+: heavy_check_mark: 전역 관리자 역할에 영구적으로 할당 되는 두 개의 브레이크 유리 계정을 유지 하는 것 **이 좋습니다** . [AZURE AD에서 응급 액세스 계정 관리](../roles/security-emergency-access.md)에 설명 된 대로 이러한 계정에는 일반 관리자 계정과 동일한 multi-factor authentication 메커니즘이 필요 하지 않은지 확인 하세요.
 
 또한 사용자에 게 Microsoft 계정 (즉, Skype 또는 Outlook.com와 같은 Microsoft 서비스에 로그인 하는 데 사용 하는 계정)가 있는 경우 역할 할당을 영구적으로 유지 합니다. 역할 할당을 활성화 하는 Microsoft 계정 사용자에 대 한 multi-factor authentication이 필요한 경우 사용자가 잠깁니다.
 
