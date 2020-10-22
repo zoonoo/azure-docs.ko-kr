@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcd232a3242b0341bfc81fa9785f76b0d3bd90cb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361486"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369457"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버를 재해 복구하기 위한 구성 서버 관리
 
@@ -164,17 +164,17 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들면 다음과 같습니다.
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들어:
 
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
 
-Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [여기](https://aka.ms/asr_support_statement)를 참조하세요.
-모든 버전의 구성 서버로 업그레이드하기 위한 업데이트 롤업 링크는 [여기](https://aka.ms/asr_update_rollups)에서 사용할 수 있습니다.
+Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [여기](./service-updates-how-to.md#support-statement-for-azure-site-recovery)를 참조하세요.
+모든 버전의 구성 서버로 업그레이드하기 위한 업데이트 롤업 링크는 [여기](./service-updates-how-to.md#links-to-currently-supported-update-rollups)에서 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 릴리스된 Azure Site Recovery 구성 요소의 모든 새 버전 ‘N’을 사용하면 ‘N-4’ 이전의 모든 버전은 지원되지 않는 것으로 간주됩니다. 항상 사용 가능한 최신 버전으로 업그레이드하는 것이 좋습니다.</br>
-> Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [여기](https://aka.ms/asr_support_statement)를 참조하세요.
+> Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [여기](./service-updates-how-to.md#support-statement-for-azure-site-recovery)를 참조하세요.
 
 다음과 같이 서버를 업그레이드합니다.
 
@@ -192,7 +192,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
     ![업데이트](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. **마침**을 클릭하여 설치 관리자를 닫습니다.
-8. 나머지 Site Recovery 구성 요소를 업그레이드하려면 [업그레이드 지침](https://aka.ms/asr_vmware_upgrades)을 참조하세요.
+8. 나머지 Site Recovery 구성 요소를 업그레이드하려면 [업그레이드 지침](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure)을 참조하세요.
 
 ## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>명령줄에서 구성 서버/프로세스 서버 업그레이드
 
@@ -212,7 +212,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| 유형 | 설명| 값|
+|매개 변수 이름| 형식 | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|

@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640755"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362368"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 애플리케이션 할당을 구성하는 방법
 
@@ -82,4 +82,4 @@ ms.locfileid: "88640755"
 셀프 서비스 응용 프로그램 구성을 완료 한 후에는 사용자가 [내 앱](https://myapps.microsoft.com/) 으로 이동 하 여 셀프 서비스 **앱 추가** 단추를 클릭 하 여 셀프 서비스 액세스를 사용 하도록 설정 된 앱을 찾을 수 있습니다. 비즈니스 승인자는 [내 앱](https://myapps.microsoft.com/)에서도 알림을 볼 수 있습니다. 사용자가 승인이 필요한 애플리케이션에 대한 액세스를 요청한 경우 비즈니스 승인자에게 알리는 이메일을 활성화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](../users-groups-roles/groups-self-service-management.md)
+[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](../enterprise-users/groups-self-service-management.md)

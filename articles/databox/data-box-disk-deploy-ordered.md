@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b24d3aa9b5071a69e3e3fb866dc5ba2ac3e57b19
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950944"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125272"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>자습서: Azure Data Box Disk 주문
 
@@ -49,7 +49,7 @@ Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 로그인합니다.
 
 * Azure Portal(https://portal.azure.com )에 로그인하여 Data Box Disk를 주문합니다.
-* 또는 URL https://portal.azure.us 에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)로 이동합니다.
+* 또는 URL https://portal.azure.us 에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](../azure-government/documentation-government-get-started-connect-with-portal.md)로 이동합니다.
 
 Data Box Disk를 주문하려면 다음 단계를 수행합니다.
 
@@ -83,7 +83,7 @@ Data Box Disk를 주문하려면 다음 단계를 수행합니다.
     |대상 Azure 지역| 스토리지 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 스토리지 계정이 지원됩니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
     |디스크 암호| **Azure에서 생성한 암호가 아닌 사용자 지정 키 사용**을 선택하는 경우 디스크 암호를 제공합니다. <br> 적어도 하나의 숫자 및 하나의 특수 문자를 포함한 12~32개 영숫자 키를 제공합니다. 허용되는 특수 문자는 `@?_+`입니다. <br> 이 옵션을 건너뛰고 Azure에서 생성된 암호를 사용하여 디스크의 잠금을 해제하도록 선택할 수 있습니다.|
-    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정한 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 스토리지 계정을 선택합니다. Data Box Disk는 1개의 스토리지 계정에만 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)하는 방법을 참조하세요.|
+    |스토리지 대상     | 스토리지 계정이나 관리형 디스크 또는 둘 다를 선택합니다. <br> 지정한 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 스토리지 계정을 선택합니다. Data Box Disk는 1개의 스토리지 계정에만 연결할 수 있습니다. <br> 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정**도 만들 수 있습니다. <br>가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.|
 
     스토리지 계정을 스토리지 대상으로 사용하는 경우 다음 스크린샷을 참조하세요.
 

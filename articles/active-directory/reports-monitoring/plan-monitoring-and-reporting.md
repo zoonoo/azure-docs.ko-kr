@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311232"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362402"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -151,7 +151,7 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 
 * 보고서 읽기 권한자
 
-[AZURE AD 관리 역할](../users-groups-roles/directory-assign-admin-roles.md)에 대해 자세히 알아보세요.
+[AZURE AD 관리 역할](../roles/permissions-reference.md)에 대해 자세히 알아보세요.
 
 *계정 손상의 위험을 줄이려면 항상 최소 권한 개념을 적용*합니다. [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 구현 하 여 조직의 보안을 강화 하는 것이 좋습니다.
 

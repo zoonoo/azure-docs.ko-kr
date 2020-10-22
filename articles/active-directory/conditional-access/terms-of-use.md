@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145399"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366499"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -44,7 +44,7 @@ Azure AD 사용 약관에는 다음과 같은 기능이 있습니다.
 - MFA (Azure Multi-Factor Authentication)에 보안 정보를 등록 하기 전에 직원 또는 게스트가 사용 약관에 동의 해야 합니다.
 - Azure AD 셀프 서비스 암호 재설정 (SSPR)에 보안 정보를 등록 하기 전에 직원이 사용 약관에 동의 해야 합니다.
 - 조직의 모든 사용자에 게 일반적인 사용 약관을 제공 합니다.
-- 사용자 특성을 기반으로 특정 사용 약관을 표시 합니다 (예: [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)을 사용하여 의사와 간호사, 국내 직원과 해외 직원에게 맞는 사용 약관을 각각 제공).
+- 사용자 특성을 기반으로 특정 사용 약관을 표시 합니다 (예: [동적 그룹](../enterprise-users/groups-dynamic-membership.md)을 사용하여 의사와 간호사, 국내 직원과 해외 직원에게 맞는 사용 약관을 각각 제공).
 - Salesforce와 같은 높은 비즈니스 영향 응용 프로그램에 액세스할 때 특정 사용 약관을 제공 합니다.
 - 다른 언어로 사용 약관을 제공 합니다.
 - 사용 약관에 동의 하지 않은 사용자를 나열 합니다.
@@ -117,7 +117,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
    ![정책 템플릿을 선택 하는 조건부 액세스 드롭다운 목록](./media/terms-of-use/conditional-access-templates.png)
 
-   | 템플릿 | Description |
+   | 템플릿 | 설명 |
    | --- | --- |
    | **모든 게스트에 대한 클라우드 앱 액세스** | 모든 게스트 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이 항목이 생성되면 로그아웃했다 로그인해야 할 수 있습니다. |
    | **모든 사용자에 대한 클라우드 앱 액세스** | 모든 사용자 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이 항목이 생성되면 로그아웃했다 로그인해야 할 수 있습니다. |

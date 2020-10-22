@@ -1,6 +1,6 @@
 ---
 title: 데이터 변환
-description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용 하 여 Azure Data Factory 데이터를 변환 하거나 데이터를 처리 합니다.
+description: Hadoop, Azure Machine Learning Studio (클래식) 또는 Azure Data Lake Analytics를 사용 하 여 Azure Data Factory 데이터를 변환 하거나 데이터를 처리 합니다.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442788"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368862"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 
@@ -26,7 +26,7 @@ ms.locfileid: "89442788"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight 스트리밍](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (클래식)](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Databricks 노트북](transform-data-databricks-notebook.md)
@@ -70,12 +70,12 @@ Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고�
 ### <a name="hdinsight-spark-activity"></a>HDInsight Spark 작업
 Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](transform-data-using-spark.md) 을 참조하세요. 
 
-### <a name="machine-learning-activities"></a>Machine Learning 작업
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [배치 실행 작업](transform-data-using-machine-learning.md)을 사용하여 Machine Learning 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Azure Machine Learning Studio (클래식) 활동
+Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 처리 실행 작업](transform-data-using-machine-learning.md) 을 사용 하 여 Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리에서 데이터에 대 한 예측을 만들 수 있습니다.
 
-시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
+시간이 지남에 따라 스튜디오 (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 재 학습을 완료 한 후에는 다시 학습 machine learning 모델을 사용 하 여 점수 매기기 웹 서비스를 업데이트 하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
 
-이러한 Machine Learning 작업에 대한 자세한 내용은 [Machine Learning 작업 사용](transform-data-using-machine-learning.md)을 참조하세요. 
+이러한 Studio (클래식) 활동에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 활동 사용](transform-data-using-machine-learning.md) 을 참조 하세요. 
 
 ### <a name="stored-procedure-activity"></a>저장 프로시저 작업
 Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
