@@ -6,12 +6,12 @@ manager: gaggupta
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: sharrai
-ms.openlocfilehash: 51f45b5c0b8a2729f64eb376e06875719474cbfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb89a9d18e4550fa1d6162920d60507fd50c208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664181"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359869"
 ---
 # <a name="monitoring-churn-patterns-on-virtual-machines"></a>가상 컴퓨터에서 변동 패턴 모니터링
 
@@ -19,9 +19,9 @@ ms.locfileid: "89664181"
 
 ## <a name="for-azure-virtual-machines-windows-or-linux"></a>Azure virtual machines (Windows 또는 Linux)의 경우
 
-컴퓨터가 Azure에서 호스트 되 고 저장소에 대해 관리 되거나 관리 되지 않는 디스크를 사용 하는 경우 디스크 메트릭을 추적 하 여 성능을 쉽게 추적할 수 있습니다. 이를 통해 응용 프로그램 사용 패턴에 맞게 적절 한 디스크 선택을 면밀 하 게 모니터링 하 고 만들 수 있습니다. 또한 경고, 진단 및 빌드 자동화를 만드는 데 사용할 수 있습니다. [자세히 알아봅니다](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
+컴퓨터가 Azure에서 호스트 되 고 저장소에 대해 관리 되거나 관리 되지 않는 디스크를 사용 하는 경우 디스크 메트릭을 추적 하 여 성능을 쉽게 추적할 수 있습니다. 이를 통해 응용 프로그램 사용 패턴에 맞게 적절 한 디스크 선택을 면밀 하 게 모니터링 하 고 만들 수 있습니다. 또한 경고, 진단 및 빌드 자동화를 만드는 데 사용할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
-Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Monitor 로그 및 Log Analytics를 사용 하 여 컴퓨터를 모니터링할 수 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics).
+Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Monitor 로그 및 Log Analytics를 사용 하 여 컴퓨터를 모니터링할 수 있습니다. [자세히 알아보기](./monitor-log-analytics.md).
 
 또한 사용할 수 있는 운영 체제별 도구도 있습니다.
 
@@ -62,7 +62,7 @@ Azure Site Recovery를 사용 하 여 컴퓨터를 보호 한 후에는 Azure Mo
 
     ![성능 모니터 3 단계](./media/monitoring-high-churn/perfmon-step3.png)
 
-성능 모니터에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data)를 참조 하세요.
+성능 모니터에 대 한 자세한 내용은 [여기](/dynamics365/business-central/dev-itpro/administration/monitor-use-performance-monitor-collect-event-trace-data)를 참조 하세요.
 
 ## <a name="for-linux-machines"></a>Linux 컴퓨터의 경우
 

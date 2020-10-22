@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92208246"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
@@ -158,7 +158,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 1. 암호화해야 하는 트래픽 유형을 규정하려면 **IP 필터 목록**을 사용합니다. **IP 필터 목록 관리** 탭에서 **추가**를 클릭하여 새 IP 필터 목록을 추가합니다.
 
    [![24]][24]
-2. **이름:** 필드에 IP 필터 목록의 이름을 입력합니다. 예: **azure-onpremises-HTTP8080** 그런 다음 **추가**를 클릭 합니다.
+2. **이름:** 필드에 IP 필터 목록의 이름을 입력합니다. 예: **azure-onpremises-HTTP8080** 그런 다음 **추가**를 클릭합니다.
 
    [![25]][25]
 3. **IP Filter Description and Mirrored property**(IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored**(미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. 그런 후 **Next** 를 클릭합니다.

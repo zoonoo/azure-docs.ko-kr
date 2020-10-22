@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3ea719a26f47da98e80abd9e3fcd1785ed8efa69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97e2be64818888040b7e6ac3bc8861da24ebdbbd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82185594"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359954"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -26,8 +26,8 @@ ms.locfileid: "82185594"
 > * [MapReduce 작업](data-factory-map-reduce.md)
 > * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)
 > * [Spark 작업](data-factory-spark.md)
-> * [Machine Learning Batch 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning 리소스 업데이트 작업](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (클래식) 리소스 업데이트 작업](data-factory-azure-ml-update-resource-activity.md)
 > * [저장 프로시저 작업](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL 작업](data-factory-usql-activity.md)
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
@@ -122,7 +122,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     b. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
 
-    다. 사용자의 암호를 지정합니다.
+    c. 사용자의 암호를 지정합니다.
 
     d. HDInsight Spark 클러스터와 연결되는 Storage 연결된 서비스를 지정합니다. 이 예제에서는 AzureStorageLinkedService입니다.
 
@@ -219,7 +219,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     b. **rootPath** 속성은 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예제에서 Blob Storage는 Spark 클러스터와 연결된 스토리지입니다. 파일은 다른 스토리지 계정에 업로드할 수 있습니다. 이렇게 하면 Storage 연결된 서비스를 만들어 해당 스토리지 계정을 데이터 팩터리에 연결합니다. 그런 다음 **sparkJobLinkedService** 속성에 대 한 값으로 연결 된 서비스의 이름을 지정 합니다. 이 속성과 Spark 작업에서 지원하는 다른 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
 
-    다. **entryFilePath** 속성은 Python 파일인 **test.py**로 설정됩니다.
+    c. **entryFilePath** 속성은 Python 파일인 **test.py**로 설정됩니다.
 
     d. **GetDebugInfo** 속성은 **항상**로 설정 됩니다. 즉, 로그 파일이 항상 생성 됩니다 (성공 또는 실패).
 
@@ -273,7 +273,7 @@ getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles �
 문제를 추가로 해결하려면 다음 단계를 수행합니다.
 
 
-1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`로 이동합니다.
+1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster` 로 이동합니다.
 
     ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 

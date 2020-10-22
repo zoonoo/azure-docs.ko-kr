@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdaaed72b85bc3c0196a8897be311efa5fb714e2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91705061"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366346"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 
@@ -28,7 +28,7 @@ ms.locfileid: "91705061"
 
 응급 액세스 계정에 대 한 자세한 내용 및 중요 한 이유는 다음 문서에서 찾을 수 있습니다. 
 
-* [Azure AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)
+* [Azure AD에서 응급 액세스 계정 관리](../roles/security-emergency-access.md)
 * [Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립](../authentication/concept-resilient-controls.md)
 
 ## <a name="typical-policies-deployed-by-organizations"></a>조직에서 배포 하는 일반적인 정책

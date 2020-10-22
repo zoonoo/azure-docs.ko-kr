@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
-ms.openlocfilehash: f930fbb9cad893363db2b1a6b9b6ea8acade5a54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a78b0ec53dfce0a1c1478790f404adb78a8c6b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083789"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359852"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 정보
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -76,7 +76,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 
 | 서버 요구 사항 | 설명|
 |---|---|
-|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](https://aka.ms/asr-v2a-on-prem-components)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure (*. blob.core.windows.net)에 대 한 인터넷 액세스, 포트 443<br>[이 옵션은 선택 사항입니다. 보고서를 생성 하는 동안 사용 가능한 대역폭을 수동으로 제공 하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>vCenter 포트 허용(기본 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
+|프로파일링 및 처리량 측정| <ul><li>운영 체제: Windows Server 2016 또는 Windows Server 2012 R2<br>(적어도 [구성 서버에 대한 크기 권장 사항](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server)을 일치하는 것이 이상적)</li><li>컴퓨터 구성: 8개 vCPus, 16GB RAM, 300GB HDD</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure (*. blob.core.windows.net)에 대 한 인터넷 액세스, 포트 443<br>[이 옵션은 선택 사항입니다. 보고서를 생성 하는 동안 사용 가능한 대역폭을 수동으로 제공 하도록 선택할 수 있습니다.]</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 평균 3개의 디스크가 있는 1,000개의 VM 가정하에 30일 동안 프로파일링)</li><li>VMware vCenter 통계 수준 설정은 1 이상일 수 있습니다.</li><li>vCenter 포트 허용(기본 443): Site Recovery Deployment Planner는 이 포트를 사용하여 vCenter 서버/ESXi 호스트에 연결합니다.</ul></ul>|
 | 보고서 생성 | Excel 2013 이상이 설치된 Windows PC 또는 Windows Server<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)은 VM의 최신 VM 구성 정보를 가져오기 위해 보고서 생성 명령에 사용자 옵션을 전달하는 경우에만 필요합니다. Deployment Planner는 vCenter 서버에 연결됩니다. vCenter 포트(기본값 443)를 vCenter 서버에 연결하도록 허용합니다.</li>|
 | 사용자 권한 | 프로파일링 중에 VMware vCenter 서버/VMware vSphere ESXi 호스트에 액세스하는 데 사용되는 사용자 계정에 대한 읽기 전용 권한 |
 
@@ -90,7 +90,7 @@ Site Recovery Deployment Planner의 실행 인스턴스당 프로파일링할 �
 이 도구는 .zip 폴더에 패키지되어 있습니다. 현재 버전의 도구는 Azure 시나리오를 위해 VMware만 지원합니다.
 
 2. 도구를 실행하려는 Windows Server에 zip 폴더를 복사합니다.
-서버가 프로파일링할 VM을 보유하는 vCenter 서버/vSphere ESXi 호스트에 연결할 네트워크 액세스 권한을 가지고 있는 경우 Windows Server 2012 R2에서 도구를 실행할 수 있습니다. 그러나 하드웨어 구성이 [구성 서버 크기 조정 지침](https://aka.ms/asr-v2a-on-prem-components)을 충족하는 서버에서 도구를 실행하는 것이 좋습니다. 이미 Site Recovery 구성 요소를 온-프레미스에 배포한 경우 구성 서버에서 도구를 실행합니다.
+서버가 프로파일링할 VM을 보유하는 vCenter 서버/vSphere ESXi 호스트에 연결할 네트워크 액세스 권한을 가지고 있는 경우 Windows Server 2012 R2에서 도구를 실행할 수 있습니다. 그러나 하드웨어 구성이 [구성 서버 크기 조정 지침](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server)을 충족하는 서버에서 도구를 실행하는 것이 좋습니다. 이미 Site Recovery 구성 요소를 온-프레미스에 배포한 경우 구성 서버에서 도구를 실행합니다.
 
     도구를 실행하는 서버에 구성 서버(기본 제공 프로세스 서버가 있는)와 같은 하드웨어 구성이 있는 것이 좋습니다. 그러한 구성이 있으면 도구가 보고하는 달성된 처리량이 Site Recovery에서 복제 중에 달성할 수 있는 실제 처리량과 확실히 일치합니다. 처리량 계산은 서버에서 사용 가능한 네트워크 대역폭 및 서버의 하드웨어 구성(예: CPU 및 스토리지)에 따라 달라집니다. 다른 서버에서 도구를 실행하는 경우 해당 서버에서 Azure로의 처리량이 계산됩니다. 또한 서버의 하드웨어 구성은 구성 서버와 다를 수 있으므로 도구가 보고하는 달성된 처리량이 정확하지 않을 수 있습니다.
 

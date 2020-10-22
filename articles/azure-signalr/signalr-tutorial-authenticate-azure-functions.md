@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327621"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150903"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
@@ -356,13 +356,13 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 ### <a name="configure-function-app-for-authentication"></a>인증을 위한 함수 앱 구성
 
-지금까지 채팅 앱은 익명으로 작동합니다. Azure에서는 [App Service 인증](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)을 사용하여 사용자를 인증합니다. 인증된 사용자의 사용자 ID 또는 사용자 이름을 *SignalRConnectionInfo* 바인딩에 전달하여 사용자로 인증된 연결 정보를 생성할 수 있습니다.
+지금까지 채팅 앱은 익명으로 작동합니다. Azure에서는 [App Service 인증](../app-service/overview-authentication-authorization.md)을 사용하여 사용자를 인증합니다. 인증된 사용자의 사용자 ID 또는 사용자 이름을 *SignalRConnectionInfo* 바인딩에 전달하여 사용자로 인증된 연결 정보를 생성할 수 있습니다.
 
 메시지를 보내는 경우 연결된 모든 클라이언트에 보낼지, 아니면 지정한 사용자에게 인증된 클라이언트에만 보낼지 여부를 결정할 수 있습니다.
 
 1. VS Code에서 **negotiate/function.json**을 엽니다.
 
-1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
+1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](../azure-functions/functions-triggers-bindings.md)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
 
     ```json
     {
@@ -431,11 +431,11 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. 선택한 로그인 공급자에 대한 설명서에 따라 구성을 완료합니다.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Microsoft 계정](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Microsoft 계정](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### <a name="update-the-web-app"></a>웹앱 업데이트
 
@@ -517,4 +517,3 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 > [Azure Functions를 사용하여 실시간 앱 빌드](signalr-concept-azure-functions.md)
 
 [문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsauth)
-

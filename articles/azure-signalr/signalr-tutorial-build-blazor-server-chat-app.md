@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90525019"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150894"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>자습서: Blazor Server 채팅 앱 빌드
 
@@ -361,7 +361,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
 
 ## <a name="publish-to-azure"></a>Azure에 게시
 
-   지금까지는 Blazor 앱에서 로컬 SignalR 작업을 수행했습니다. Azure App Service에 배포하는 경우 Blazor Server 앱을 많은 수의 동시 SignalR 연결로 확장할 수 있는 [Azure SignalR Service](https://docs.microsoft.com/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service)를 사용하는 것이 좋습니다. 또한 SignalR 서비스의 글로벌 및 고성능 데이터 센터는 지리적 위치로 인한 대기 시간을 줄이는 데 큰 도움이 됩니다.
+   지금까지는 Blazor 앱에서 로컬 SignalR 작업을 수행했습니다. Azure App Service에 배포하는 경우 Blazor Server 앱을 많은 수의 동시 SignalR 연결로 확장할 수 있는 [Azure SignalR Service](/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service)를 사용하는 것이 좋습니다. 또한 SignalR 서비스의 글로벌 및 고성능 데이터 센터는 지리적 위치로 인한 대기 시간을 줄이는 데 큰 도움이 됩니다.
 
 > [!IMPORTANT]
 > Blazor Server 앱에서 UI 상태는 서버 쪽에서 유지 관리되며, 이 경우 서버 고정이 필요합니다. 단일 앱 서버가 있는 경우 설계상 서버 고정(server sticky)이 보장됩니다. 그러나 여러 앱 서버가 있는 경우 클라이언트 협상 및 연결이 다른 서버로 이동하여 Blazor 앱에서 UI 오류가 발생할 수 있습니다. 따라서 `appsettings.json`에서 아래와 같이 서버 고정을 사용하도록 설정해야 합니다.
@@ -385,7 +385,7 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
 
    서비스 종속성은 Azure에서 앱이 Azure SignalR Service로 자동으로 전환되도록 하기 위해 아래 작업을 수행합니다.
 
-   * Azure SignalR Service를 사용하도록 [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1)를 업데이트합니다.
+   * Azure SignalR Service를 사용하도록 [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1)를 업데이트합니다.
    * Azure SignalR Service NuGet 패키지 참조를 추가합니다.
    * 종속성 설정을 저장하도록 프로필 속성을 업데이트합니다.
    * 비밀 저장소 구성은 사용자의 선택에 따라 달라집니다.
@@ -423,10 +423,10 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
    }
    ```
 
-1. `appsetting.json`에서 또는 [비밀 관리자](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=visual-studio#secret-manager) 도구를 사용하여 `ConnectionString` Azure SignalR Service를 구성합니다.
+1. `appsetting.json`에서 또는 [비밀 관리자](/aspnet/core/security/app-secrets?tabs=visual-studio&view=aspnetcore-3.1#secret-manager) 도구를 사용하여 `ConnectionString` Azure SignalR Service를 구성합니다.
 
 > [!NOTE]
-> 2단계는 SignalR SDK에 [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1)를 사용하여 바꿀 수 있습니다.
+> 2단계는 SignalR SDK에 [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1)를 사용하여 바꿀 수 있습니다.
 > 
 > 1. `appsetting.json`에서 Azure SignalR Service를 설정하는 구성을 추가합니다.
 >    ```js
@@ -470,4 +470,4 @@ Visual Studio 2019 버전 16.2.0부터 Azure SignalR Service는 기본 제공 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [ASP.NET Core Blazor](https://docs.microsoft.com/aspnet/core/blazor)
+* [ASP.NET Core Blazor](/aspnet/core/blazor)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497049"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127083"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>자습서: Power BI 공급자 대시보드 빌드
 
@@ -44,14 +44,14 @@ ms.locfileid: "86497049"
 
 * Azure IoT Central 지속적인 환자 모니터링 애플리케이션 템플릿. 아직 템플릿이 없는 경우 [애플리케이션 템플릿 배포](overview-iot-central-healthcare.md) 단계를 따르면 됩니다.
 
-* Azure [Event Hubs 네임스페이스 및 Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Azure [Event Hubs 네임스페이스 및 Event Hub](../../event-hubs/event-hubs-create.md).
 
-* Event Hub에 액세스하려는 논리 앱. Azure Event Hubs 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)이 필요합니다.
+* Event Hub에 액세스하려는 논리 앱. Azure Event Hubs 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
 
-* Power BI 서비스 계정. 아직 계정이 없는 경우 [Power BI 서비스 평가판 계정을 만들 수 있습니다](https://app.powerbi.com/). 이전에 Power BI를 사용한 적이 없는 경우 [Power BI 시작](https://docs.microsoft.com/power-bi/service-get-started)을 수행하면 도움이 될 수 있습니다.
+* Power BI 서비스 계정. 아직 계정이 없는 경우 [Power BI 서비스 평가판 계정을 만들 수 있습니다](https://app.powerbi.com/). 이전에 Power BI를 사용한 적이 없는 경우 [Power BI 시작](/power-bi/service-get-started)을 수행하면 도움이 될 수 있습니다.
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Azure Event Hubs로 지속적인 데이터 내보내기 설정
-먼저 Azure IoT Central 앱 템플릿에서 구독의 Azure Event Hub로 지속적인 데이터 내보내기를 설정해야 합니다. 이렇게 하려면 [Event Hubs로 내보내기](https://docs.microsoft.com/azure/iot-central/core/howto-export-data)에 대한 이 Azure IoT Central 자습서의 단계를 따르면 됩니다. 이 자습서의 목적에 맞게 원격 분석이 가능하도록 내보내기만 하면 됩니다.
+먼저 Azure IoT Central 앱 템플릿에서 구독의 Azure Event Hub로 지속적인 데이터 내보내기를 설정해야 합니다. 이렇게 하려면 [Event Hubs로 내보내기](../core/howto-export-data.md)에 대한 이 Azure IoT Central 자습서의 단계를 따르면 됩니다. 이 자습서의 목적에 맞게 원격 분석이 가능하도록 내보내기만 하면 됩니다.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Power BI 스트리밍 데이터 세트 만들기
 
@@ -72,10 +72,10 @@ ms.locfileid: "86497049"
     >[!div class="mx-imgBorder"] 
     >![데이터 세트 값 입력](media/enter-dataset-values.png)
 
-Power BI의 스트리밍 데이터 세트에 대한 자세한 내용은 [Power BI의 실시간 스트리밍](https://docs.microsoft.com/power-bi/service-real-time-streaming) 문서를 참조하세요.
+Power BI의 스트리밍 데이터 세트에 대한 자세한 내용은 [Power BI의 실시간 스트리밍](/power-bi/service-real-time-streaming) 문서를 참조하세요.
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>논리 앱을 Azure Event Hubs에 연결
-논리 앱을 Azure Event Hubs에 연결하려면 [Azure Event Hubs 및 Azure Logic Apps를 사용하여 이벤트 전송](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action) 문서에 설명된 지침을 따르면 됩니다. 다음은 몇 가지 제안하는 매개 변수입니다.
+논리 앱을 Azure Event Hubs에 연결하려면 [Azure Event Hubs 및 Azure Logic Apps를 사용하여 이벤트 전송](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action) 문서에 설명된 지침을 따르면 됩니다. 다음은 몇 가지 제안하는 매개 변수입니다.
 
 |매개 변수|값|
 |---|---|
@@ -91,7 +91,7 @@ Power BI의 스트리밍 데이터 세트에 대한 자세한 내용은 [Power B
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>논리 앱에서 Power BI로 데이터 스트리밍
 다음 단계는 Event Hub에서 들어오는 데이터를 구문 분석하여 이전에 만든 Power BI 데이터 세트로 스트리밍하는 것입니다.
 
-1. 이 작업을 수행하려면 먼저 디바이스에서 Event Hub로 전송되는 JSON 페이로드를 이해해야 합니다. 그러려면 이 [샘플 스키마](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry)를 확인하고 스키마에 맞게 수정하거나 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용하여 메시지를 검사합니다. 지속적인 환자 모니터링 애플리케이션을 사용하는 경우 메시지는 다음과 같습니다.
+1. 이 작업을 수행하려면 먼저 디바이스에서 Event Hub로 전송되는 JSON 페이로드를 이해해야 합니다. 그러려면 이 [샘플 스키마](../core/howto-export-data.md#telemetry-format)를 확인하고 스키마에 맞게 수정하거나 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용하여 메시지를 검사합니다. 지속적인 환자 모니터링 애플리케이션을 사용하는 경우 메시지는 다음과 같습니다.
 
 **스마트 바이탈 패치 원격 분석**
 

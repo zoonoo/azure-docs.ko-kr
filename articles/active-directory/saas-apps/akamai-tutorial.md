@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329519"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319009"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,9 +26,9 @@ ms.locfileid: "91329519"
 * 사용자가 해당 Azure AD 계정으로 Akamai에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-Azure Active Directory와 Akamai 엔터프라이즈 애플리케이션을 통합하면 클라우드 또는 온-프레미스에 호스트되는 레거시 애플리케이션에 원활하게 액세스할 수 있습니다. 통합 솔루션은 앱을 수정하거나 에이전트를 설치할 필요 없이 [Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 및 [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)와 같은 Azure Active Directory의 모든 최신 기능을 레거시 애플리케이션에 활용합니다.
+Azure Active Directory와 Akamai 엔터프라이즈 애플리케이션을 통합하면 클라우드 또는 온-프레미스에 호스트되는 레거시 애플리케이션에 원활하게 액세스할 수 있습니다. 통합 솔루션은 앱을 수정하거나 에이전트를 설치할 필요 없이 [Azure AD 조건부 액세스](../conditional-access/overview.md), [Azure AD ID 보호](../identity-protection/overview-identity-protection.md) 및 [Azure AD Identity Governance](../governance/identity-governance-overview.md)와 같은 Azure Active Directory의 모든 최신 기능을 레거시 애플리케이션에 활용합니다.
 
 아래 이미지는 Akamai EAA가 광범위한 하이브리드 보안 액세스 시나리오에 적합하다는 것을 보여줍니다.
 
@@ -589,14 +589,14 @@ ID 공급자 할당
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Akamai 타일을 클릭하면 SSO를 설정한 Akamai에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 Akamai 타일을 클릭하면 SSO를 설정한 Akamai에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
 - [Azure AD에서 Akamai 사용해보기](https://aad.portal.azure.com/)

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d9f08840165e7e4cf4d13e9a66cbb59489a2b3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974267"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150210"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP 및 MySQL 앱 빌드
 
@@ -153,7 +153,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
-이 단계에서는 [Azure Database for MySQL](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다.
+이 단계에서는 [Azure Database for MySQL](../mysql/index.yml)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -163,7 +163,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest&preserve-view=true#az-mysql-server-create) 명령을 사용하여 Azure Database for MySQL에 서버를 만듭니다.
 
-다음 명령에서 *\<mysql-server-name>* 자리 표시자의 고유한 서버 이름, *\<admin-user>* 의 사용자 이름 및 *\<admin-password>* 사용자 자리 표시자의 암호를 바꿉니다. 서버 이름은 MySQL 엔드포인트(`https://<mysql-server-name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. MySQL DB SKU 선택에 대한 자세한 내용은 [MySQL 서버용 Azure Database 만들기](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server)를 참조하세요.
+다음 명령에서 *\<mysql-server-name>* 자리 표시자의 고유한 서버 이름, *\<admin-user>* 의 사용자 이름 및 *\<admin-password>* 사용자 자리 표시자의 암호를 바꿉니다. 서버 이름은 MySQL 엔드포인트(`https://<mysql-server-name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. MySQL DB SKU 선택에 대한 자세한 내용은 [MySQL 서버용 Azure Database 만들기](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md#create-an-azure-database-for-mysql-server)를 참조하세요.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
