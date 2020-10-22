@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46b764c9fcdb771f0a82fa47c0b1aa9112bb9e94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f9dd69c147dff1bf0bd10ca070e023bb6f7692a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150517"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368437"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -505,12 +505,6 @@ Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/c
 ```azurecli
 az group delete --name <your-resource-group>
 ```
-<!-- 
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-``` -->
 
 그런 다음 로컬 컴퓨터에서 다운로드 한 프로젝트 샘플 폴더를 삭제 합니다.
 

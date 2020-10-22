@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528131"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365914"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
@@ -43,7 +43,7 @@ ms.locfileid: "90528131"
 
 1. **장치 관리자** 는 조직의 장치를 관리 하는 MICROSOFT INTUNE 같은 MDM (모바일 장치 관리) 공급자를 사용 하 여 장치를 공유할 준비를 합니다. MDM은 Microsoft Authenticator 앱을 장치에 푸시 하 고 장치에 대 한 프로필 업데이트를 통해 각 장치에 대해 "공유 모드"를 설정 합니다. 이 공유 모드 설정은 장치에서 지원 되는 앱의 동작을 변경 합니다. MDM 공급자의이 구성은 장치에 대 한 공유 장치 모드를 설정 하 고 공유 장치 모드에 필요한 [Apple 장치에 대 한 Microsoft Enterprise SSO 플러그](apple-sso-plugin.md) 인을 사용 하도록 설정 합니다.
 
-1. [**공개 미리 보기 중에만 필요**] [클라우드 장치 관리자](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 시작 하 고 조직에 장치를 연결 해야 합니다.
+1. [**공개 미리 보기 중에만 필요**] [클라우드 장치 관리자](../roles/permissions-reference.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 시작 하 고 조직에 장치를 연결 해야 합니다.
 
     Azure Portal에서 조직 역할의 멤버 자격을 구성 하려면: **Azure Active Directory**  >  **역할 및 관리자**  >  **클라우드 장치 관리자**
 

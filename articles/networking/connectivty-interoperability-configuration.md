@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "86171859"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -164,7 +164,7 @@ ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
 
 ExpressRoute 1은 허브 VNet과 온-프레미스 위치 1을 모두 서로 다른 Azure 지역의 원격 VNet에 연결합니다.
 
-[![8]][8]
+[![20cm(8]][8]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>탠덤에서 ExpressRoute 및 사이트 간 VPN 연결
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801803"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366686"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -65,15 +65,15 @@ Azure AD에서 SaaS 애플리케이션으로의 아웃바운드 프로비저닝�
 
 * **그룹.** Azure AD Premium 라이선스 플랜에서는 그룹을 사용해 SaaS 애플리케이션에 대한 액세스 권한을 할당할 수 있습니다. 그런 다음 프로비저닝 범위를 **할당된 사용자 및 그룹만 동기화**로 설정하면 Azure AD 프로비저닝 서비스는 사용자가 애플리케이션에 할당된 그룹의 멤버인지 여부에 따라 사용자를 프로비저닝하거나 프로비저닝 해제합니다. 그룹 개체 자체는 애플리케이션이 그룹 개체를 지원하지 않는 한 프로비저닝되지 않습니다. 애플리케이션에 할당된 그룹에서 “SecurityEnabled” 속성이 “True”로 설정되어 있는지 확인합니다.
 
-* **동적 그룹.** Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../users-groups-roles/groups-create-rule.md)에 있는 사용자를 읽고 프로비저닝할 수 있습니다. 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
+* **동적 그룹.** Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../enterprise-users/groups-create-rule.md)에 있는 사용자를 읽고 프로비저닝할 수 있습니다. 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
 
   * 동적 그룹은 Azure AD에서 SaaS 애플리케이션으로의 엔드투엔드 프로비저닝의 전체 성능에 영향을 줄 수 있습니다.
 
-  * 동적 그룹의 사용자가 SaaS 애플리케이션에서 프로비저닝 또는 프로비저닝 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 관리 규칙에 대한 처리 상태 확인](../users-groups-roles/groups-create-rule.md)을 참조하세요.
+  * 동적 그룹의 사용자가 SaaS 애플리케이션에서 프로비저닝 또는 프로비저닝 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 관리 규칙에 대한 처리 상태 확인](../enterprise-users/groups-create-rule.md)을 참조하세요.
 
   * 사용자가 동적 그룹의 멤버 자격을 잃은 경우 이는 프로비저닝 해제 이벤트로 간주됩니다. 동적 그룹에 대한 규칙을 만들 때 이 시나리오를 고려하세요.
 
-* **중첩 그룹.** Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비저닝할 수 없습니다. 서비스는 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비저닝할 수 있습니다. 이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항입니다([그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](../users-groups-roles/groups-saasapps.md) 참조). 대신 프로비저닝해야 하는 사용자를 포함하는 그룹을 직접 할당하거나 그 밖의 방식으로 [범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)해야 합니다.
+* **중첩 그룹.** Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비저닝할 수 없습니다. 서비스는 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비저닝할 수 있습니다. 이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항입니다([그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](../enterprise-users/groups-saasapps.md) 참조). 대신 프로비저닝해야 하는 사용자를 포함하는 그룹을 직접 할당하거나 그 밖의 방식으로 [범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)해야 합니다.
 
 ### <a name="attribute-based-scoping"></a>특성 기반 범위 지정 
 
@@ -184,12 +184,12 @@ Azure AD 프로 비전 서비스는 사용자 액세스를 제거할 때 프로 
 
 다음 시나리오에서는 사용 안 함 또는 삭제를 트리거합니다. 
 * 사용자가 Azure AD에서 일시 삭제 됩니다 (휴지통/AccountEnabled 속성을 false로 설정 하 여 보냄).
-    사용자가 Azure AD에서 삭제되고 30일이 지나면 테넌트에서 영구 삭제됩니다. 이 시점에서 프로비저닝 서비스는 DELETE 요청을 보내서 애플리케이션에서 사용자를 영구 삭제합니다. 30 일 기간 동안 언제 든 지 [사용자를 영구적으로 삭제](../fundamentals/active-directory-users-restore.md)하 여 응용 프로그램에 삭제 요청을 보낼 수 있습니다.
+    사용자가 Azure AD에서 삭제되고 30일이 지나면 테넌트에서 영구 삭제됩니다. 이 시점에서 프로비저닝 서비스는 DELETE 요청을 보내서 애플리케이션에서 사용자를 영구 삭제합니다. 30일 기간 중 언제든지 [사용자를 수동으로 삭제](../fundamentals/active-directory-users-restore.md)할 수 있으며, 이렇게 하면 애플리케이션으로 삭제 요청이 전송됩니다.
 * 사용자가 Azure AD의 휴지통에서 영구적으로 삭제/제거 됩니다.
 * 사용자는 앱에서 할당을 해제 합니다.
 * 사용자가 범위를 벗어나는 범위에서 이동 합니다 (범위 지정 필터를 더 이상 전달 하지 않음).
     
-기본적으로 Azure AD 프로비저닝 서비스는 범위를 벗어나는 사용자를 일시 삭제하거나 비활성화합니다. 이 기본 동작을 재정의 하려는 경우 [범위를 벗어난 삭제를 건너뛰도록](skip-out-of-scope-deletions.md) 플래그를 설정할 수 있습니다.
+기본적으로 Azure AD 프로비저닝 서비스는 범위를 벗어나는 사용자를 일시 삭제하거나 비활성화합니다. 이 기본 동작을 재정의 하려는 경우 [범위를 벗어난 삭제를 건너뛰도록](skip-out-of-scope-deletions.md) 플래그를 설정할 수 있습니다.
 
 위의 4개 이벤트 중 하나가 발생하고 대상 애플리케이션에서 일시 삭제를 지원하지 않는 경우 프로비저닝 서비스는 DELETE 요청을 보내서 앱에서 사용자를 영구 삭제합니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145416"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366363"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
@@ -46,13 +46,13 @@ ms.locfileid: "92145416"
 > 사용자 또는 그룹이 2048를 초과 하는 그룹의 구성원 인 경우 해당 액세스는 차단 될 수 있습니다. 이 제한은 직접 및 중첩 그룹 멤버 자격에 모두 적용 됩니다.
 
 > [!WARNING]
-> 조건부 액세스 정책은 사용자 [지정 역할](../users-groups-roles/roles-create-custom.md)을 사용 하는 것과 같이 개체에 직접 범위가 지정 된 [관리 단위나](../users-groups-roles/roles-admin-units-assign-roles.md) 디렉터리 역할로 범위가 지정 된 사용자를 지원 하지 않습니다.
+> 조건부 액세스 정책은 사용자 [지정 역할](../roles/custom-create.md)을 사용 하는 것과 같이 개체에 직접 범위가 지정 된 [관리 단위나](../roles/admin-units-assign-roles.md) 디렉터리 역할로 범위가 지정 된 사용자를 지원 하지 않습니다.
 
 ## <a name="exclude-users"></a>사용자 제외
 
 조직에서 사용자 또는 그룹을 포함 하 고 제외 하는 경우 사용자 또는 그룹이 정책에서 제외 됩니다. 제외 작업은 정책에 포함을 재정의 합니다. 제외는 일반적으로 응급 액세스 또는 투명 계정에 사용 됩니다. 응급 액세스 계정에 대 한 자세한 내용 및 중요 한 이유는 다음 문서에서 찾을 수 있습니다. 
 
-* [Azure AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)
+* [Azure AD에서 응급 액세스 계정 관리](../roles/security-emergency-access.md)
 * [Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립](../authentication/concept-resilient-controls.md)
 
 조건부 액세스 정책을 만들 때 다음 옵션을 제외 하는 데 사용할 수 있습니다.

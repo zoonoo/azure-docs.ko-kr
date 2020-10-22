@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265904"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366159"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -45,7 +45,7 @@ Azure AD 테 넌 트에 응용 프로그램을 등록 하 고 Azure 구독의 �
 1. 왼쪽 창에서 **사용자 설정**을 선택 합니다.
 1. **앱 등록** 설정을 확인합니다. 이 값은 관리자만 설정할 수 있습니다. **예**로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.
 
-앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles) 및 [역할 권한](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)을 참조하세요. 계정에 사용자 역할이 할당 되어 있지만 앱 등록 설정이 관리자 사용자로 제한 되는 경우, 관리자에 게 앱 등록의 모든 측면을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당 하거나 사용자가 앱을 등록할 수 있도록 하는 것을 요청 합니다.
+앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../roles/permissions-reference.md#available-roles) 및 [역할 권한](../roles/permissions-reference.md#role-permissions)을 참조하세요. 계정에 사용자 역할이 할당 되어 있지만 앱 등록 설정이 관리자 사용자로 제한 되는 경우, 관리자에 게 앱 등록의 모든 측면을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당 하거나 사용자가 앱을 등록할 수 있도록 하는 것을 요청 합니다.
 
 ### <a name="check-azure-subscription-permissions"></a>Azure 구독 권한 확인
 

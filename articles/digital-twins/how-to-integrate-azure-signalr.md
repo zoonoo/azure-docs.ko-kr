@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131550"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367655"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -244,12 +244,6 @@ Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/c
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Azure Digital Twins 인스턴스를 삭제 하는 경우 다음 명령을 사용 하 여 종단 간 자습서에서 만든 Azure AD 앱 등록을 삭제할 수도 있습니다.
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 마지막으로, 로컬 컴퓨터에 다운로드 한 프로젝트 샘플 폴더 (*Azure_Digital_Twins_end_to_end_samples.zip* 및 *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*)를 삭제 합니다.

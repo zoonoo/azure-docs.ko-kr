@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758373"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367485"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
@@ -34,11 +34,11 @@ ms.locfileid: "91758373"
 
 Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 및 Azure AD에 대 한 JIT (just-in-time) 권한 있는 액세스를 사용 하도록 설정할 수 있습니다. JIT는 사용자가 필요한 경우에만 권한 있는 작업을 수행할 수 있는 임시 권한을 부여 합니다. 또한 PIM은 Azure AD 조직에 의심 스러운 또는 안전 하지 않은 활동이 있을 때 보안 경고를 생성할 수 있습니다.
 
-- [Azure AD의 관리자 역할 권한](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD의 관리자 역할 권한](../../active-directory/roles/permissions-reference.md)
 
 - [Azure Privileged Identity Management 보안 경고 사용](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../../active-directory/roles/security-planning.md)
 
 **책임**: Customer
 
@@ -50,7 +50,7 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 작업](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 업무상 중요 한 시스템에 대 한 관리 액세스 제한
 
@@ -114,7 +114,7 @@ Azure AD Privileged Identity Management (PIM)를 사용 하 여 Azure 리소스 
 실수로 Azure AD 조직에서 잠기는 것을 방지 하려면 일반 관리 계정을 사용할 수 없는 경우 액세스를 위한 응급 액세스 계정을 설정 합니다. 응급 액세스 계정은 일반적으로 매우 특권 이며 특정 사용자에 게 할당 되 면 안 됩니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다.
 응급 액세스 계정에 대 한 자격 증명 (예: 암호, 인증서 또는 스마트 카드)을 안전 하 게 유지 하 고 비상 시에만 사용할 권한이 있는 개인 에게만 알려집니다.
 
-- [Azure AD에서 응급 액세스 계정 관리](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [Azure AD에서 응급 액세스 계정 관리](../../active-directory/roles/security-emergency-access.md)
 
 **책임**: Customer
 

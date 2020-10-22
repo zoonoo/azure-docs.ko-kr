@@ -9,17 +9,17 @@ ms.subservice: availability
 ms.date: 12/18/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 32efde2cb2497fb8aab415d09a1063ff07c6b0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1a131daf95a9b0f6ae75c022dec2fdbc394a7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837196"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366663"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>가상 머신 확장 집합에 대해 적절한 수의 장애 도메인 선택
 가상 머신 확장 집합은 영역 없는 Azure 지역에서 기본적으로 5개의 장애 도메인으로 만들어집니다. 가상 머신 확장 집합의 영역 배포를 지 원하는 지역의 경우이 옵션을 선택 하면 각 영역에 대해 장애 도메인 개수의 기본값은 1입니다. 이 경우 FD=1은 확장 집합에 속하는 VM 인스턴스가 최선의 결과를 얻기 위해 여러 랙에 걸쳐 분산될 것임을 의미합니다.
 
-Managed Disks 장애 도메인 수에 맞게 확장 집합 장애 도메인 수를 조정하는 것이 바람직할 수도 있습니다. 이러한 조정을 통해 전체 Managed Disks 장애 도메인이 다운될 경우에도 쿼럼 손실을 방지할 수 있습니다. FD 수는 각 지역에서 사용할 수 있는 Managed Disks 장애 도메인 수보다 작거나 같게 설정할 수 있습니다. 이 [문서](../virtual-machines/windows/manage-availability.md)를 참조하여 지역별 Managed Disks 장애 도메인 수에 대해 자세히 알아보세요.
+Managed Disks 장애 도메인 수에 맞게 확장 집합 장애 도메인 수를 조정하는 것이 바람직할 수도 있습니다. 이러한 조정을 통해 전체 Managed Disks 장애 도메인이 다운될 경우에도 쿼럼 손실을 방지할 수 있습니다. FD 수는 각 지역에서 사용할 수 있는 Managed Disks 장애 도메인 수보다 작거나 같게 설정할 수 있습니다. 이 [문서](../virtual-machines/manage-availability.md)를 참조하여 지역별 Managed Disks 장애 도메인 수에 대해 자세히 알아보세요.
 
 ## <a name="rest-api"></a>REST API
 속성은 `properties.platformFaultDomainCount` 1, 2 또는 3으로 설정할 수 있습니다 (지정 하지 않은 경우 기본값은 3). [여기](/rest/api/compute/virtualmachinescalesets/createorupdate)에서 REST API 설명서를 참조하세요.

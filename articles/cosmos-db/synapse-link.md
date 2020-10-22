@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 97f24537f2fa68f1a9be83e2c9abdc8101edb8d0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 731e23c99a92d8f7d3558ea111d19f179db61da4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014548"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367621"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Microsoft Azure Cosmos DB용 Synapse Link(미리 보기)란?
 
@@ -119,8 +119,6 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 * Azure Cosmos DB에 대 한 현재 Azure Synapse 링크는 SQL API 및 MongoDB 용 Azure Cosmos DB API에 대해 지원 됩니다. Gremlin API 및 Table API에 대해 지원 되지 않습니다. Cassandra API에 대 한 지원은 비공개 미리 보기입니다. 자세한 내용은 [Azure Synapse Link 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.  
 
 * 현재 분석 저장소는 새 컨테이너에 대해서만 사용할 수 있습니다. 기존 컨테이너에 분석 저장소를 사용 하려면 [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md)를 사용 하 여 기존 컨테이너에서 새 컨테이너로 데이터를 마이그레이션합니다. 신규 및 기존 Azure Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 수 있습니다.
-
-* Synapse SQL 서버리스를 사용한 Microsoft Azure Cosmos DB 분석 저장소 액세스는 현재 제한된 미리 보기로 제공됩니다. 액세스를 요청 하려면 [Azure Synapse Link 팀](mailto:cosmosdbsynapselink@microsoft.com)에 전자 메일을 보내세요.
 
 * 분석 저장소가 설정 된 컨테이너의 경우 지금은 분석 저장소에서 데이터의 자동 백업 및 복원이 지원 되지 않습니다. 데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하면 Azure Cosmos DB는 항상으로 예약 된 백업 간격으로 컨테이너의 트랜잭션 저장소 (만)에 대 한 데이터 백업을 자동으로 [수행](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) 합니다. 분석 저장소가 설정 된 컨테이너가 새 계정으로 복원 되 면 컨테이너는 트랜잭션 저장소로만 복원 되 고 분석 저장소는 사용 하도록 설정 되지 않습니다. 
 

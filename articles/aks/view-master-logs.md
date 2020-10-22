@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드에 
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076388"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368454"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
@@ -37,9 +37,11 @@ Azure Monitor 로그는 Azure Portal에서 사용 하도록 설정 되 고 관�
 
 Kubernetes에서 작성 한 항목 외에도 프로젝트의 감사 로그에는 AKS의 항목이 있습니다.
 
-감사 로그는 *kube* 및 *kube*의 두 가지 범주로 기록 됩니다. *Kube* 범주에는 *get*, *list*, *create*, *update*, *delete*, *patch*, *post*등의 모든 감사 이벤트에 대 한 모든 감사 로그 데이터가 포함 되어 있습니다.
+감사 로그는 *kube*, *kube*및 *guard*의 세 가지 범주로 기록 됩니다.
 
-*Kube* 범주는 *kube* 로그 범주의 하위 집합입니다. *kube-admin* 은 로그의 *get* 및 *list* 감사 이벤트를 제외 하 여 로그 수를 크게 줄입니다.
+- *Kube* 범주에는 *get*, *list*, *create*, *update*, *delete*, *patch*, *post*등의 모든 감사 이벤트에 대 한 모든 감사 로그 데이터가 포함 되어 있습니다.
+- *Kube* 범주는 *kube* 로그 범주의 하위 집합입니다. *kube-admin* 은 로그의 *get* 및 *list* 감사 이벤트를 제외 하 여 로그 수를 크게 줄입니다.
+- *가드* 범주는 관리 되는 azure AD 및 azure RBAC 감사입니다. 관리 되는 Azure AD:의 토큰, 사용자 정보 출력 Azure RBAC:에 대 한 액세스 검토
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>AKS 클러스터의 테스트 Pod 예약
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>수집된 로그 보기
 
-진단 로그를 사용 하도록 설정 하 고 표시 하는 데 몇 분 정도 걸릴 수 있습니다.
+진단 로그를 사용 하도록 설정 하 고 표시 하는 데 최대 10 분 정도 걸릴 수 있습니다.
 
 > [!NOTE]
 > 준수 또는 기타 목적을 위해 모든 감사 로그 데이터를 요구 하는 경우 blob 저장소와 같은 저렴 한 저장소에 수집 하 여 저장 합니다. *Kube* 로그 범주를 사용 하 여 모니터링 및 경고를 위해 의미 있는 감사 로그 데이터 집합을 수집 하 고 저장 합니다.

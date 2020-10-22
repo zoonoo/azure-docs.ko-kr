@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658792"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366856"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>개인 끝점을 사용 하 여 온-프레미스 컴퓨터 복제
 
@@ -123,7 +123,7 @@ Recovery Services 자격 증명 모음에는 컴퓨터의 복제 정보가 포�
 > [!NOTE]
 > 범용 v2 저장소 계정 에서만 저장소에 대 한 개인 끝점을 만들 수 있습니다. 가격 책정 정보는 [Azure 페이지 blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/page-blobs/)을 참조 하세요.
 
-개인 [저장소 만들기에 대 한 지침](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) 에 따라 개인 끝점을 사용 하 여 저장소 계정을 만듭니다. **개인 DNS 영역과 통합**에서 **예** 를 선택 해야 합니다. 기존 DNS 영역을 선택 하거나 새 DNS 영역을 만듭니다.
+개인 [저장소 만들기에 대 한 지침](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) 에 따라 개인 끝점을 사용 하 여 저장소 계정을 만듭니다. **개인 DNS 영역과 통합**에서 **예** 를 선택 해야 합니다. 기존 DNS 영역을 선택 하거나 새 DNS 영역을 만듭니다.
 
 ### <a name="grant-required-permissions-to-the-vault"></a>자격 증명 모음에 필요한 권한 부여
 

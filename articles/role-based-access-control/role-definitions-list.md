@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982495"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368250"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
 역할 정의는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 사용 권한 컬렉션입니다. 일반적으로 단지 역할이라고 합니다. Azure [RBAC (역할 기반 액세스 제어)](overview.md) 는 120의 [기본 제공 역할을 사용](built-in-roles.md) 하거나 사용자 고유의 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure 리소스에 대 한 액세스 권한을 부여 하는 데 사용할 수 있는 기본 제공 및 사용자 지정 역할을 나열 하는 방법을 설명 합니다.
 
-Azure Active Directory에 대 한 관리자 역할 목록을 보려면 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
+Azure Active Directory에 대 한 관리자 역할 목록을 보려면 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조 하세요.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="list-all-roles"></a>모든 역할 나열
 
@@ -344,10 +344,10 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
@@ -429,10 +429,10 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | 형식 |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
      

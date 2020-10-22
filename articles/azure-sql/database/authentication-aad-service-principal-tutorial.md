@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444171"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367723"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>자습서: Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기
 
@@ -65,7 +65,7 @@ Azure SQL의 Azure AD 인증에 대한 자세한 내용은 [Azure Active Directo
     자세한 내용은 [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) 명령을 참조하세요.
 
     > [!IMPORTANT]
-    > Azure SQL 논리 서버에 대해 Azure AD ID가 설정된 경우 [**디렉터리 읽기 권한자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 권한을 해당 ID에 부여해야 합니다. 이 단계는 다음 섹션에서 안내합니다. Azure AD 인증의 작동이 중지되므로 이 단계를 건너뛰지 **마세요**.
+    > Azure SQL 논리 서버에 대해 Azure AD ID가 설정된 경우 [**디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 해당 ID에 부여해야 합니다. 이 단계는 다음 섹션에서 안내합니다. Azure AD 인증의 작동이 중지되므로 이 단계를 건너뛰지 **마세요**.
 
     - 이전에 `AssignIdentity` 매개 변수와 함께 [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) 명령을 사용하여 새 SQL 서버를 만든 경우 나중에 [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) 명령을 별도의 명령으로 실행하여 Azure 패브릭에서 이 속성을 사용하도록 설정해야 합니다.
 

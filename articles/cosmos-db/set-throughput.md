@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331824"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367128"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 프로비전된 처리량 소개
 
@@ -43,9 +43,6 @@ Azure Cosmos 컨테이너에 프로비전된 처리량은 해당 컨테이너 �
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="컨테이너의 논리 파티션을 하나 이상 호스트 하는 실제 파티션" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>데이터베이스의 처리량 설정
-
-> [!NOTE]
-> Azure Cosmos 데이터베이스에 대 한 프로 비전 처리량은 현재 [고객이 관리](how-to-setup-cmk.md) 하는 키를 사용 하도록 설정 된 계정에서 사용할 수 없습니다.
 
 Azure Cosmos 데이터베이스의 처리량을 프로비전하는 경우 데이터베이스의 모든 컨테이너(공유 데이터베이스 컨테이너라고 함) 간에 처리량이 공유됩니다. 단, 데이터베이스의 특정 컨테이너에 프로비전된 처리량을 지정한 경우는 예외입니다. 컨테이너 간에 데이터베이스 수준 프로비전된 처리량을 공유하는 것은 머신 클러스터에 데이터베이스를 호스트하는 것과 비슷합니다. 데이터베이스 내의 모든 컨테이너가 머신에 제공되는 리소스를 공유하므로 당연히 특정 컨테이너에 대한 예상 성능이 제공되지 않습니다. 데이터베이스에서 프로비전된 처리량을 구성하는 방법을 알아보려면 [Azure Cosmos 데이터베이스에 프로비전된 처리량 구성](how-to-provision-database-throughput.md)을 참조하세요. 데이터베이스에서 자동 크기 조정 처리량을 구성하는 방법을 알아보려면 [자동 크기 조정 처리량 프로비전](how-to-provision-autoscale-throughput.md)을 참조하세요.
 

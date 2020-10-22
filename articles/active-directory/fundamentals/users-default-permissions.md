@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101865"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367825"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 유형, [역할 할당](active-directory-users-assign-role-azure-portal.md) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
@@ -48,19 +48,18 @@ Subscriptions | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사�
 사용 권한 | 설정 설명
 ---------- | ------------
 사용자가 응용 프로그램을 등록할 수 있음 | 이 옵션을 아니요로 설정 하면 사용자가 응용 프로그램 등록을 만들 수 없습니다. 그런 다음 해당 기능을 응용 프로그램 개발자 역할에 추가 하 여 특정 개인에 게 다시 부여할 수 있습니다.
-사용자가 LinkedIn을 사용 하 여 회사 또는 학교 계정에 연결 하도록 허용 | 이 옵션을 아니요로 설정 하면 사용자가 자신의 회사 또는 학교 계정을 LinkedIn 계정에 연결할 수 없습니다. 자세한 내용은 [LinkedIn 계정 연결 데이터 공유 및 동의](../users-groups-roles/linkedin-user-consent.md)(영문)를 참조 하세요.
-보안 그룹 만들기 기능 | 이 옵션을 아니요로 설정하면 사용자가 보안 그룹을 만들 수 없습니다. 전역 관리자 및 사용자 관리자는 보안 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)을 참조하세요.
-Microsoft 365 그룹을 만드는 기능 | 이 옵션을 아니요로 설정 하면 사용자가 Microsoft 365 그룹을 만들 수 없습니다. 이 옵션을 설정 하면 선택 된 사용자 집합에서 Microsoft 365 그룹을 만들 수 있습니다. 전역 관리자 및 사용자 관리자는 계속 해 서 Microsoft 365 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)을 참조하세요.
+사용자가 LinkedIn을 사용 하 여 회사 또는 학교 계정에 연결 하도록 허용 | 이 옵션을 아니요로 설정 하면 사용자가 자신의 회사 또는 학교 계정을 LinkedIn 계정에 연결할 수 없습니다. 자세한 내용은 [LinkedIn 계정 연결 데이터 공유 및 동의](../enterprise-users/linkedin-user-consent.md)(영문)를 참조 하세요.
+보안 그룹 만들기 기능 | 이 옵션을 아니요로 설정하면 사용자가 보안 그룹을 만들 수 없습니다. 전역 관리자 및 사용자 관리자는 보안 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)을 참조하세요.
+Microsoft 365 그룹을 만드는 기능 | 이 옵션을 아니요로 설정 하면 사용자가 Microsoft 365 그룹을 만들 수 없습니다. 이 옵션을 설정 하면 선택 된 사용자 집합에서 Microsoft 365 그룹을 만들 수 있습니다. 전역 관리자 및 사용자 관리자는 계속 해 서 Microsoft 365 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md)을 참조하세요.
 Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 설정 하면 비관리자가 Azure AD 관리 포털을 사용 하 여 Azure AD 리소스를 읽고 관리할 수 있습니다. 예를 통해 관리자가 아닌 모든 관리자가 관리 포털의 Azure AD 데이터에 액세스 하는 것을 제한 합니다.<p>**참고**:이 설정은 PowerShell 또는 Visual Studio와 같은 다른 클라이언트를 사용 하 여 Azure AD 데이터에 대 한 액세스를 제한 하지 않습니다. 예로 설정 된 경우 관리자가 아닌 특정 사용자에 게 azure ad 관리 포털을 사용 하는 기능을 부여 하려면 디렉터리 구독자 역할과 같은 관리 역할을 할당 합니다.<p>이 역할을 통해 기본 디렉터리 정보를 읽을 수 있습니다 .이 정보는 멤버 사용자에 게 기본적으로 포함 됩니다 (게스트 및 서비스 주체는 그렇지 않음).
 다른 사용자를 읽을 수 있는 기능 | 이 설정은 PowerShell에서만 사용할 수 있습니다. 이 플래그를 $false으로 설정 하면 관리자가 아닌 모든 사용자가 디렉터리에서 사용자 정보를 읽을 수 없습니다. 이 플래그는 Exchange Online과 같은 다른 Microsoft 서비스에서 사용자 정보를 읽을 수 없도록 합니다. 이 설정은 특수 한 상황을 위한 것 이며 $false이 플래그를 설정 하지 않는 것이 좋습니다.
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>게스트 사용자 기본 권한 제한
 
 게스트 사용자에 대 한 기본 권한은 다음과 같은 방법으로 제한할 수 있습니다.
 
->[!NOTE] 
->게스트 **사용자 액세스 제한** 설정은 **게스트 사용자 권한이 제한** 된 설정으로 바뀌었습니다. 이 기능을 사용 하는 방법에 대 한 지침은 [Azure Active Directory에서 게스트 액세스 권한 제한 (미리 보기)](../users-groups-roles/users-restrict-guest-permissions.md)을 참조 하세요.
+>[!NOTE]
+>게스트 사용자 액세스 제한 설정은 **게스트 사용자 권한이 제한** 된 설정으로 바뀌었습니다. 이 기능을 사용 하는 방법에 대 한 지침은 [Azure Active Directory에서 게스트 액세스 권한 제한 (미리 보기)](../enterprise-users/users-restrict-guest-permissions.md)을 참조 하세요.
 
 사용 권한 | 설정 설명
 ---------- | ------------
@@ -143,7 +142,7 @@ Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 게스트 사용자 액세스 제한 설정에 대해 자세히 알아보려면 [Azure Active Directory에서 게스트 액세스 권한 제한 (미리 보기)](../users-groups-roles/users-restrict-guest-permissions.md)을 참조 하세요.
+* 게스트 사용자 액세스 제한 설정에 대해 자세히 알아보려면 [Azure Active Directory에서 게스트 액세스 권한 제한 (미리 보기)](../enterprise-users/users-restrict-guest-permissions.md)을 참조 하세요.
 * Azure AD 관리자 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md) 참조
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
