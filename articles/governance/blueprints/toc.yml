@@ -31,6 +31,9 @@
     - name: 청사진 리소스 잠금으로 새 리소스 보호
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
+    - name: '학습: Azure Blueprints를 사용하여 여러 구독 관리'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: 샘플
   items:
     - name: 인덱스

@@ -24,7 +24,7 @@
       items:
         - name: 클라이언트 도구 설치
           href: install-client-tools.md
-        - name: azdata
+        - name: Azure Data CLI(azdata)
           items:
             - name: 설치
               href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
@@ -46,7 +46,7 @@
           href: create-data-controller-azure-data-studio.md
         - name: 데이터 컨트롤러 리소스 만들기(포털)
           href: create-data-controller-resource-in-azure-portal.md
-        - name: 데이터 컨트롤러 만들기(azdata)
+        - name: 데이터 컨트롤러 만들기(Azure Data CLI)
           href: create-data-controller-using-azdata.md
         - name: Kubernetes를 사용하여 데이터 컨트롤러 만들기
           href: create-data-controller-using-kubernetes-native-tools.md

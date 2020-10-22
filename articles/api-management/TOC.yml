@@ -62,8 +62,6 @@
       items:
         - name: 보안 기준
           href: security-baseline.md
-        - name: 기본 제공 보안 컨트롤
-          href: api-management-security-controls.md
     - name: Subscriptions
       href: api-management-subscriptions.md
     - name: 버전
@@ -160,6 +158,8 @@
       items:
         - name: 개발자 포털 이해
           href: api-management-howto-developer-portal.md
+        - name: 더 이상 사용되지 않는 포털에서 새 개발자 포털로 마이그레이션
+          href: developer-portal-deprecated-migration.md
         - name: Azure AD를 사용하여 인증
           href: api-management-howto-aad.md
         - name: Azure AD B2C를 사용하여 인증
@@ -170,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: 콘솔 OAuth 지원 사용
           href: api-management-howto-oauth2.md
-        - name: 레거시 포털 - 포털 사용자 지정
+        - name: 더 이상 사용되지 않는 포털 - 포털 사용자 지정
           href: api-management-customize-styles.md
-        - name: 레거시 포털 - 페이지 및 레이아웃 수정
+        - name: 더 이상 사용되지 않는 포털 - 페이지 및 레이아웃 수정
           href: api-management-modify-content-layout.md
-        - name: 레거시 포털 - 템플릿으로 사용자 지정
+        - name: 더 이상 사용되지 않는 포털 - 템플릿으로 사용자 지정
           href: api-management-developer-portal-templates.md
-    - name: 레거시 포털 템플릿
+    - name: 더 이상 사용되지 않는 포털 템플릿
       items:
         - name: 데이터 모델 참조
           href: api-management-template-data-model-reference.md

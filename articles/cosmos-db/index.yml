@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure Cosmos DB 설명서
-summary: Azure Cosmos DB는 운영 및 분석 워크로드를 위한 Microsoft의 전역적으로 분산된 다중 모델 데이터베이스 서비스입니다. 처리량, 컴퓨팅 및 스토리지 크기를 자동으로 조정하여 다중 마스터링 기능을 제공합니다.
+summary: Azure Cosmos DB - SLA 지원 속도 및 가용성, 자동 및 즉각적인 확장성, MongoDB 및 Cassandra용 오픈 소스 API를 지원하는 고속 NoSQL 데이터베이스입니다.
 metadata:
   title: Azure Cosmos DB
-  description: Azure Cosmos DB는 운영 및 분석 워크로드를 위한 Microsoft의 전역적으로 분산된 다중 모델 데이터베이스 서비스입니다. 처리량, 컴퓨팅 및 스토리지 크기를 자동으로 조정하여 다중 마스터링 기능을 제공합니다.
+  description: Azure Cosmos DB - SLA 지원 속도 및 가용성, 자동 및 즉각적인 확장성, MongoDB 및 Cassandra용 오픈 소스 API를 지원하는 고속 NoSQL 데이터베이스입니다.
   services: service
   ms.service: cosmos-db
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: SnehaGunda
   ms.author: sngun
   ms.date: 09/10/2019
-  ms.openlocfilehash: 8f2dea260472da4178173d110c33d2681520cfce
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3daa7ed6e59230fe0f6c66e01982f6021f8e1ba7
+  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91566723"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92278446"
 landingContent:
 - title: Azure Cosmos DB 정보
   linkLists:
@@ -24,184 +24,78 @@ landingContent:
     links:
     - text: Azure Cosmos DB란 무엇인가요?
       url: introduction.md
-  - linkListType: concept
+  - linkListType: get-started
     links:
-    - text: MongoDB와 유선 프로토콜 호환
-      url: mongodb-feature-support-36.md
-    - text: Apache Cassandra와 유선 프로토콜 호환
-      url: cassandra-support.md
-    - text: Tinkerpop의 Gremlin과 유선 프로토콜 호환
-      url: gremlin-support.md
+    - text: NoSQL Vs 관계형 데이터베이스
+      url: relational-nosql.md
+    - text: Azure Cosmos DB 리소스 모델
+      url: account-databases-containers-items.md
+    - text: 전역적으로 데이터 배포
+      url: distribute-data-globally.md
+    - text: 분할
+      url: partitioning-overview.md
+    - text: 처리량 및 요청 단위
+      url: request-units.md
+    - text: 데이터 모델링 및 분할
+      url: how-to-model-partition-example.md
+    - text: 서비스 할당량
+      url: concepts-limits.md
   - linkListType: quickstart
     links:
     - text: Azure Cosmos 계정 만들기
       url: create-cosmosdb-resources-portal.md
-- title: 글로벌 분포
-  linkLists:
-  - linkListType: concept
+  - linkListType: video
     links:
-    - text: 개요
-      url: distribute-data-globally.md
-    - text: 일관성 수준
-      url: consistency-levels.md
-    - text: 올바른 일관성 수준 선택
-      url: consistency-levels-choosing.md
-    - text: 일관성 수준 및 API
-      url: consistency-levels-across-apis.md
-    - text: 일관성, 가용성 및 성능의 장단점
-      url: consistency-levels-tradeoffs.md
-    - text: 고가용성
-      url: high-availability.md
-    - text: 충돌 유형 및 해결 정책
-      url: conflict-resolution-policies.md
-    - text: 글로벌 데이터 분산 - 내부 살펴보기
-      url: global-dist-under-the-hood.md
-    - text: 지역 존재
-      url: regional-presence.md
-  - linkListType: how-to-guide
-    links:
-    - text: 다중 지역 쓰기 구성
-      url: how-to-multi-master.md
-    - text: 일관성 수준 구성
-      url: how-to-manage-consistency.md
-    - text: 사용자 지정 동기화 구현
-      url: how-to-manage-conflicts.md
-    - text: 충돌 해결 정책 구성
-      url: how-to-manage-conflicts.md
-- title: 데이터 분할 및 모범 사례
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 개요
-      url: partitioning-overview.md
-    - text: 분할 및 수평 확장
-      url: partition-data.md
-    - text: 가상 파티션 키
-      url: synthetic-partition-keys.md
-    - text: 데이터 모델링
-      url: modeling-data.md
-  - linkListType: how-to-guide
-    links:
-    - text: 큰 파티션 키로 컨테이너 만들기
-      url: large-partition-keys.md
-    - text: 분할된 컨테이너로 마이그레이션
-      url: migrate-containers-partitioned-to-nonpartitioned.md
-- title: Cosmos DB 리소스 만들기 및 관리
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Azure Cosmos 계정이란?
-      url: account-overview.md
-    - text: Azure Cosmos 데이터베이스, 컨테이너 및 항목
-      url: databases-containers-items.md
-    - text: Cosmos DB에서 데이터를 인덱싱하는 방법
-      url: index-overview.md
-    - text: 인덱싱 정책, 포함 및 제외 속성
-      url: index-policy.md
-    - text: TTL(Time to live)
-      url: time-to-live.md
-    - text: 고유 키 제약 조건
-      url: unique-keys.md
-  - linkListType: how-to-guide
-    links:
-    - text: 데이터베이스 만들기
-      url: how-to-manage-database-account.md
-    - text: 컨테이너 만들기
-      url: how-to-create-container.md
-    - text: 컨테이너의 데이터 쿼리
-      url: how-to-query-container.md
-    - text: 컨테이너 및 항목의 TTL(Time to live) 구성
-      url: how-to-time-to-live.md
-    - text: 인덱싱 정책 구성
-      url: how-to-manage-indexing-policy.md
-    - text: 고유 키 정의
-      url: how-to-define-unique-keys.md
-    - text: 로컬 개발에 에뮬레이터 사용
-      url: local-emulator.md
-    - text: Azure PowerShell을 사용하여 관리
-      url: manage-with-powershell.md
-    - text: Azure CLI를 사용하여 관리
-      url: manage-with-cli.md
-    - text: Resource Manager(ARM) 템플릿을 사용하여 관리
-      url: manage-sql-with-resource-manager.md
-- title: 프로비전된 처리량
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 요청 단위
-      url: request-units.md
-    - text: 데이터베이스 및 컨테이너 수준 처리량
-      url: set-throughput.md
-  - linkListType: how-to-guide
-    links:
-    - text: 필요한 처리량 예측
-      url: estimate-ru-with-capacity-planner.md
-    - text: 데이터베이스에서 처리량 프로비전
-      url: how-to-provision-database-throughput.md
-    - text: 컨테이너에서 처리량 프로비전
-      url: how-to-provision-container-throughput.md
-    - text: 요청 단위 요금 가져오기
-      url: find-request-unit-charge.md
-    - text: Azure Functions 타이머를 사용하여 크기 조정
-      url: scale-on-schedule.md
-- title: SQL API를 사용하여 앱 빌드
+    - text: 데이터 모델링 - 애플리케이션의 속도 및 성능 개선
+      url: https://www.youtube.com/watch?v=wOWa8ecFo88
+- title: Azure Cosmos DB SQL API 사용
   linkLists:
   - linkListType: quickstart
     links:
-    - text: .NET 콘솔 앱
-      url: create-sql-api-dotnet.md
-    - text: Java 앱
+    - text: .NET 콘솔 앱을 사용하여 데이터 관리
+      url: create-sql-api-dotnet-v4.md
+    - text: Java 앱을 사용하여 데이터 관리
       url: create-sql-api-java.md
-    - text: Node.js 앱
-      url: create-sql-api-nodejs.md
-    - text: Python 앱
-      url: create-sql-api-python.md
-    - text: Xamarin 앱
-      url: create-sql-api-xamarin-dotnet.md
+  - linkListType: concept
+    links:
+    - text: SQL 쿼리 시작
+      url: sql-query-getting-started.md
+    - text: 변경 피드란?
+      url: change-feed.md
   - linkListType: tutorial
     links:
-    - text: .NET 웹앱
+    - text: 데이터를 관리하는 .NET 웹앱 빌드
       url: sql-api-dotnet-application.md
     - text: Async SDK를 사용하는 Java 앱
       url: sql-api-async-java-get-started.md
-    - text: 변경 피드를 사용하는 Java 앱 샘플
-      url: create-sql-api-java-changefeed.md
     - text: SQL 쿼리를 사용하여 데이터 쿼리
       url: tutorial-query-sql-api.md
   - linkListType: how-to-guide
     links:
-    - text: Power BI를 사용하여 데이터 시각화
-      url: powerbi-visualize.md
+    - text: 쿼리 성능 조정
+      url: sql-api-query-metrics.md
     - text: 저장 프로시저, 트리거 및 UDF 정의
       url: how-to-write-stored-procedures-triggers-udfs.md
-    - text: 저장 프로시저, 트리거 및 UDF 실행
-      url: how-to-use-stored-procedures-triggers-udfs.md
-  - linkListType: reference
-    links:
-    - text: .NET
-      url: sql-api-sdk-dotnet.md
-    - text: Java
-      url: sql-api-sdk-java.md
-    - text: JavaScript
-      url: sql-api-sdk-node.md
-    - text: REST (영문)
-      url: /rest/api/cosmos-db/
-  - linkListType: learn
-    links:
-    - text: SQL API 데이터 만들기 및 관리
-      url: /learn/modules/store-access-data-cosmos-table-api/
-- title: MongoDB API를 사용하여 앱 빌드
+- title: Azure Cosmos DB API for MongoDB 사용
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Cosmos DB API for MongoDB란?
+      url: mongodb-introduction.md
   - linkListType: quickstart
     links:
-    - text: .NET 앱
+    - text: .NET 앱을 사용하여 데이터 관리
       url: create-mongodb-dotnet.md
-    - text: Java 앱
-      url: create-mongodb-java.md
-    - text: Node.js 앱
-      url: create-mongodb-nodejs.md
-    - text: Python 앱
-      url: create-mongodb-flask.md
+    - text: GoLang 앱을 사용하여 데이터 관리
+      url: create-mongodb-go.md
+  - linkListType: concept
+    links:
+    - text: MongoDB와 유선 프로토콜 호환
+      url: mongodb-feature-support-36.md
+    - text: MongoDB 확장 명령
+      url: mongodb-custom-commands.md
+    - text: 스트림 변경
+      url: mongodb-change-streams.md
   - linkListType: tutorial
     links:
     - text: MongoDB 셸을 사용하여 데이터 쿼리
@@ -210,78 +104,62 @@ landingContent:
     links:
     - text: 데이터 인덱싱 관리
       url: mongodb-indexing.md
-    - text: TTL 설정
-      url: mongodb-time-to-live.md
     - text: Robo 3T와 연결
       url: mongodb-robomongo.md
-- title: Gremlin API를 사용하여 앱 빌드
+- title: Azure Cosmos DB Gremlin API 사용
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Cosmos Gremlin API란?
+      url: graph-introduction.md
   - linkListType: quickstart
     links:
-    - text: Gremlin 콘솔 사용
+    - text: Gremlin 콘솔을 사용하여 데이터 관리
       url: create-graph-gremlin-console.md
-    - text: .NET 앱
+    - text: .NET 앱을 사용하여 데이터 관리
       url: create-graph-dotnet.md
-    - text: Java 앱
-      url: create-graph-java.md
-    - text: Node.js 앱
-      url: create-graph-nodejs.md
-    - text: Python 앱
-      url: create-graph-python.md
-    - text: PHP 앱
-      url: create-graph-php.md
+  - linkListType: concept
+    links:
+    - text: Tinkerpop의 Gremlin과 유선 프로토콜 호환
+      url: gremlin-support.md
+    - text: Gremlin API 서비스 제한
+      url: gremlin-limits.md
   - linkListType: how-to-guide
     links:
     - text: 그래프 데이터 모델링
       url: graph-modeling.md
-    - text: 그래프 데이터 분할 모범 사례
+    - text: Graph 데이터 분할 모범 사례
       url: graph-partitioning.md
     - text: Gremlin 쿼리 최적화
       url: graph-execution-profile.md
-  - linkListType: learn
-    links:
-    - text: 그래프 데이터 저장 및 액세스
-      url: /learn/modules/store-access-data-cosmos-graph-api/
-- title: Cassandra API를 사용하여 앱 빌드
+- title: Azure Cosmos DB Cassandra API 사용
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Cosmos DB Cassandra API란?
+      url: cassandra-introduction.md
   - linkListType: quickstart
     links:
-    - text: .NET
-      url: create-cassandra-dotnet.md
-    - text: .NET Core
+    - text: .NET Core 앱을 사용하여 데이터 관리
       url: create-cassandra-dotnet-core.md
-    - text: Java v3
-      url: create-cassandra-java.md
-    - text: Java v4
+    - text: Java 앱을 사용하여 데이터 관리
       url: create-cassandra-java-v4.md
-    - text: Node.js
-      url: create-cassandra-nodejs.md
-    - text: Python
-      url: create-cassandra-python.md
+  - linkListType: concept
+    links:
+    - text: Apache Cassandra와 유선 프로토콜 호환
+      url: cassandra-support.md
+    - text: 탄력적 크기 조정
+      url: manage-scale-cassandra.md
+    - text: 보조 인덱스
+      url: cassandra-secondary-index.md
+    - text: 분할
+      url: cassandra-partitioning.md
   - linkListType: how-to-guide
     links:
     - text: Spark에서 Cassandra API에 연결
       url: cassandra-spark-generic.md
-- title: 성능 및 비용 최적화
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 처리량 비용
-      url: optimize-cost-throughput.md
-    - text: 쿼리 비용
-      url: optimize-cost-queries.md
-    - text: 스토리지 비용
-      url: optimize-cost-storage.md
-    - text: 읽기 및 쓰기 비용
-      url: optimize-cost-reads-writes.md
-    - text: 다중 지역 비용
-      url: optimize-cost-regions.md
-    - text: 쿼리 성능
-      url: sql-api-query-metrics.md
-  - linkListType: how-to-guide
-    links:
-    - text: 데이터 모델링을 사용하여 최적화
-      url: how-to-model-partition-example.md
+    - text: 쿼리 조건자를 사용하여 변경 피드 지원
+      url: cassandra-change-feed.md?tabs=java
 - title: Cosmos DB로 데이터 마이그레이션
   linkLists:
   - linkListType: tutorial
@@ -320,3 +198,15 @@ landingContent:
     links:
     - text: Azure Synapse Link 구성
       url: configure-synapse-link.md
+- title: Azure Cosmos DB Table API 사용
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET 앱을 사용하여 데이터 관리
+      url: create-table-dotnet.md
+    - text: Java 앱을 사용하여 데이터 관리
+      url: create-table-java.md
+  - linkListType: concept
+    links:
+    - text: Table API와 Azure Table Storage의 차이점
+      url: table-support.md

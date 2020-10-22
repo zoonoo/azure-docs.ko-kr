@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 07/30/2020
-  ms.openlocfilehash: 6a21841d24fcafefe25473e428e1926849f5e9cf
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: eda40d7dafa2c9946798067622e2732cf9de738d
+  ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87446734"
+  ms.lasthandoff: 10/20/2020
+  ms.locfileid: "92282492"
 landingContent:
 - title: ARM 템플릿 정보
   linkLists:
@@ -49,18 +49,30 @@ landingContent:
       url: quickstart-create-templates-use-the-portal.md
     - text: 템플릿 만들기 - VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
+    - text: 템플릿 사양 만들기 및 배포
+      url: quickstart-create-template-specs.md
   - linkListType: tutorial
     links:
     - text: 초보자를 위한 자습서
       url: template-tutorial-create-first-template.md
     - text: 배포
       url: deployment-tutorial-local-template.md
+    - text: 템플릿 사양
+      url: template-specs-create-linked.md
+    - text: 고급 템플릿
+      url: template-tutorial-use-template-reference.md
+    - text: 배포 관리자
+      url: deployment-manager-tutorial.md
   - linkListType: learn
     links:
     - text: 일관된 인프라
       url: /learn/modules/create-azure-resource-manager-template-vs-code/
     - text: 여러 환경
       url: /learn/modules/modify-azure-resource-manager-template-reuse/
+    - text: 배포 유효성 검사
+      url: /learn/modules/arm-template-test/
+    - text: 템플릿 배포
+      url: /learn/modules/deploy-templates-command-line-github-actions/
 - title: 템플릿 개발
   linkLists:
   - linkListType: how-to-guide
@@ -101,7 +113,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Subscription
+    - text: 구독
       url: deploy-to-subscription.md
     - text: 관리 그룹
       url: deploy-to-management-group.md

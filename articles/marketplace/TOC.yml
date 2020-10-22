@@ -107,28 +107,36 @@
               href: partner-center-portal/create-azure-container-offer.md
     - name: Azure 가상 머신 제품
       items:
-        - name: 가상 머신 제품 계획
+        - name: VM 제품 계획
           href: marketplace-virtual-machines.md
-        - name: 가상 머신 제품 생성 및 게시
+        - name: VM 제품 만들기 및 게시
           items:
-            - name: Azure 가상 머신 제품 만들기
-              href: partner-center-portal/azure-vm-create-offer.md
-            - name: Azure VM 기술 자산 만들기
+            - name: VM 기술 자산 만들기
               items:
-                - name: 가상 머신 인증 문제
-                  href: partner-center-portal/vm-certification-issues-solutions.md
-                - name: Azure VM 기술 자산 만들기
-                  href: partner-center-portal/create-azure-vm-technical-asset.md
-                - name: Azure VM 기술 자산 FAQ
-                  href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: VHD에서 배포된 가상 머신 테스트
-                  href: partner-center-portal/azure-vm-image-certification.md
-                - name: SAS URI
-                  items:
-                    - name: SAS URI 가져오기
-                      href: partner-center-portal/get-sas-uri.md
-                    - name: SAS URI FAQ
-                      href: partner-center-portal/common-sas-uri-issues.md
+                - name: 승인된 베이스에서 VM 만들기
+                  href: azure-vm-create-using-approved-base.md
+                - name: 자체 이미지를 사용하여 VM 만들기
+                  href: azure-vm-create-using-own-image.md
+                - name: VM 이미지 테스트
+                  href: azure-vm-image-test.md
+                - name: SAS URI 가져오기
+                  href: azure-vm-get-sas-uri.md
+                - name: SAS 오류 메시지
+                  href: azure-vm-sas-failure-messages.md
+                - name: VM 만들기 FAQ
+                  href: azure-vm-create-faq.md
+                - name: VM 인증 문제 해결
+                  href: azure-vm-create-certification-faq.md
+            - name: VM 제품 만들기
+              href: azure-vm-create.md
+            - name: VM 제품 속성 구성
+              href: azure-vm-create-properties.md
+            - name: VM 제품 목록 구성
+              href: azure-vm-create-listing.md
+            - name: VM 계획 만들기
+              href: azure-vm-create-plans.md
+            - name: 미리 보기 대상 추가
+              href: azure-vm-create-preview.md
     - name: 컨설팅 서비스
       items:
         - name: 컨설팅 서비스 제품 계획
@@ -329,7 +337,7 @@
     - name: 기술 및 게시 업무 시간
       href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: 파트너 센터 지원 옵션
-      href: partner-center-portal/support.md
+      href: support.md
     - name: 파트너 센터 공지
       href: /partner-center/announcements
     - name: Microsoft 파트너 커뮤니티
