@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 10/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: f7b9cabdc7c2c706ff3b8dd5a0b3b5f7ed3666d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931039"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369032"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>Azure NetApp Files SDK 및 CLI 도구
+# <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>Azure NetApp Files Sdk, CLI 도구 및 ARM 템플릿
 
-이 문서에는 Azure NetApp Files에서 지 원하는 Sdk 및 명령줄 (CLI) 도구가 나열 되어 있습니다.
+이 문서에는 Azure NetApp Files에서 지 원하는 Sdk, 명령줄 (CLI) 도구 및 Azure Resource Manager (ARM) 템플릿이 나열 되어 있습니다.
 
 ## <a name="supported-sdks"></a>지원되는 SDK 
 
@@ -44,12 +44,18 @@ ms.locfileid: "91931039"
 
 |    도구    |    명령 참조    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure NetApp Files에 대 한 Azure PowerShell](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
+|    PowerShell   |    [Azure NetApp Files에 대 한 Azure PowerShell](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
 
 ## <a name="code-samples"></a>코드 샘플
 
 [Azure NetApp Files에 대 한 코드 샘플을](/samples/browse/?filter-products=netapp&products=azure-netapp-files)참조 하세요.
+
+## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿  
+
+ARM (Azure Resource Manager)을 사용 하면 선언적 템플릿을 사용 하 여 응용 프로그램을 프로 비전 할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계 중에 애플리케이션을 반복해서 배포합니다.   
+
+[Azure NetApp Files에 대 한 사용 가능한 ARM 템플릿을](https://azure.microsoft.com/resources/templates/?term=anf)참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계   
  [Azure Sdk 다운로드](https://azure.microsoft.com/downloads/)

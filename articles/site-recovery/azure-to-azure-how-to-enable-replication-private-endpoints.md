@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db8d09511385039ea79ad1ed1f50177156f69c8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658260"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369933"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>개인 끝점을 사용 하 여 컴퓨터 복제
 
@@ -125,7 +125,7 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 > [!NOTE]
 > 저장소에 대 한 개인 끝점은 범용 **v2** 저장소 계정에만 만들 수 있습니다. 가격 책정에 대 한 자세한 내용은 [표준 페이지 blob 가격](https://azure.microsoft.com/pricing/details/storage/page-blobs/)을 참조 하세요.
 
-개인 [저장소 만들기에 대 한 지침](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) 에 따라 개인 끝점을 사용 하 여 저장소 계정을 만듭니다. 사설 DNS 영역과 통합 하려면 **예** 를 선택 합니다. 이미 생성 된 DNS 영역을 선택 하거나 새로 만듭니다.
+개인 [저장소 만들기에 대 한 지침](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) 에 따라 개인 끝점을 사용 하 여 저장소 계정을 만듭니다. 사설 DNS 영역과 통합 하려면 **예** 를 선택 합니다. 이미 생성 된 DNS 영역을 선택 하거나 새로 만듭니다.
 
 ## <a name="grant-required-permissions-to-the-vault"></a>자격 증명 모음에 필요한 권한 부여
 

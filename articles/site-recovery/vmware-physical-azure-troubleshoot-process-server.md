@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499758"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369406"
 ---
 # <a name="troubleshoot-the-process-server"></a>프로세스 서버 문제 해결
 
@@ -54,11 +54,11 @@ ms.locfileid: "87499758"
 ![Healthy][green] | None  | 프로세스 서버가 연결되어 있고 정상 상태입니다.
 ![Warning][yellow] | 지정한 서비스가 실행되고 있지 않습니다. | 1. 서비스가 실행 중인지 확인합니다.<br/> 2. 서비스가 예상대로 실행되는 경우 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.
 ![Warning][yellow]  | 지난 15분 동안 CPU 사용률이 80% 초과입니다. | 1. 새 머신을 추가하면 안 됩니다.<br/>2. 프로세스 서버를 사용하는 VM 수가 [정의된 제한](site-recovery-plan-capacity-vmware.md#capacity-considerations)에 부합하는지 확인하고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정하는 것이 좋습니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.
-![위험][red] |  지난 15분 동안 CPU 사용률이 95% 초과입니다. | 1. 새 머신을 추가하면 안 됩니다.<br/>2. 프로세스 서버를 사용하는 VM 수가 [정의된 제한](site-recovery-plan-capacity-vmware.md#capacity-considerations)에 부합하는지 확인하고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정하는 것이 좋습니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.<br/> 4. 문제가 지속되면 VMware/물리적 서버 복제에 대해 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner)를 실행합니다.
+![위험][red] |  지난 15분 동안 CPU 사용률이 95% 초과입니다. | 1. 새 머신을 추가하면 안 됩니다.<br/>2. 프로세스 서버를 사용하는 VM 수가 [정의된 제한](site-recovery-plan-capacity-vmware.md#capacity-considerations)에 부합하는지 확인하고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정하는 것이 좋습니다.<br/>3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.<br/> 4. 문제가 지속되면 VMware/물리적 서버 복제에 대해 [Deployment Planner](./site-recovery-deployment-planner.md)를 실행합니다.
 ![Warning][yellow] | 지난 15분 동안 메모리 사용량이 80% 초과입니다. |  1. 새 머신을 추가하면 안 됩니다.<br/>2. 프로세스 서버를 사용하는 VM 수가 [정의된 제한](site-recovery-plan-capacity-vmware.md#capacity-considerations)에 부합하는지 확인하고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md)를 설정하는 것이 좋습니다.<br/>3. 경고와 관련된 지침을 따르세요.<br/> 4. 문제가 지속되면 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.
-![위험][red] | 지난 15분 동안 메모리 사용량이 95% 초과입니다. | 1. 새 머신을 추가하지 말고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md) 설정을 고려합니다.<br/> 2. 경고와 관련된 지침을 따르세요.<br/> 3. 4. 문제가 지속되면 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.<br/> 4. 문제가 지속되면 VMware/물리적 서버 복제 문제에 대해 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner)를 실행합니다.
+![위험][red] | 지난 15분 동안 메모리 사용량이 95% 초과입니다. | 1. 새 머신을 추가하지 말고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md) 설정을 고려합니다.<br/> 2. 경고와 관련된 지침을 따르세요.<br/> 3. 4. 문제가 지속되면 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.<br/> 4. 문제가 지속되면 VMware/물리적 서버 복제 문제에 대해 [Deployment Planner](./site-recovery-deployment-planner.md)를 실행합니다.
 ![Warning][yellow] | 지난 15분 동안 캐시 폴더의 사용 가능한 공간이 30% 미만입니다. | 1. 새 머신을 추가하지 말고 [추가 프로세스 서버](vmware-azure-set-up-process-server-scale.md) 설정을 고려합니다.<br/>2. 프로세스 서버를 사용하는 VM 수가 [지침](site-recovery-plan-capacity-vmware.md#capacity-considerations)에 부합하는지 확인합니다.<br/> 3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.
-![위험][red] |  지난 15분 동안 사용 가능한 공간이 25% 미만입니다. | 1. 이 문제에 대한 경고와 관련된 지침을 따릅니다.<br/> 2. 3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.<br/> 3. 문제가 지속되면 VMware/물리적 서버 복제에 대해 [Deployment Planner](https://aka.ms/asr-v2a-deployment-planner)를 실행합니다.
+![위험][red] |  지난 15분 동안 사용 가능한 공간이 25% 미만입니다. | 1. 이 문제에 대한 경고와 관련된 지침을 따릅니다.<br/> 2. 3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.<br/> 3. 문제가 지속되면 VMware/물리적 서버 복제에 대해 [Deployment Planner](./site-recovery-deployment-planner.md)를 실행합니다.
 ![위험][red] | 15분 이상 동안 프로세스 서버에서 하트비트가 없습니다. tmansvs 서비스가 구성 서버와 통신하지 않습니다. | 1) 프로세스 서버가 실행 중인지 확인합니다.<br/> 2. 프로세스 서버에서 tmassvc가 실행되고 있는지 확인합니다.<br/> 3. 아래 지침에 따라 [연결 및 복제 문제 해결](#check-connectivity-and-replication)을 수행합니다.
 
 

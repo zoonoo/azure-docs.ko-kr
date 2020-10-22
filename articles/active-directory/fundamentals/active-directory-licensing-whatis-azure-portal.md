@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565058"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369814"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
@@ -65,9 +65,9 @@ Microsoft 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한
 
 그룹 기반 라이선스를 통한 라이선스 관리에 대한 기타 시나리오에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-* [Azure Active Directory에서 그룹에 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)
-* [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](../users-groups-roles/licensing-groups-migrate-users.md)
-* [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](../users-groups-roles/licensing-group-advanced.md)
-* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](../users-groups-roles/licensing-ps-examples.md)
+* [Azure Active Directory에서 그룹에 라이선스 할당](../enterprise-users/licensing-groups-assign.md)
+* [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](../enterprise-users/licensing-groups-resolve-problems.md)
+* [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](../enterprise-users/licensing-groups-migrate-users.md)
+* [Azure Active Directory에서 그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 마이그레이션하는 방법](../enterprise-users/licensing-groups-change-licenses.md)
+* [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](../enterprise-users/licensing-group-advanced.md)
+* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](../enterprise-users/licensing-ps-examples.md)

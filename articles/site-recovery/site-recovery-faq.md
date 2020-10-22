@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950496"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369440"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -71,7 +71,7 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 
 Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr_pricing_calculator)를 사용하여 비용을 예측할 수 있습니다.
 
-자세한 예상 비용을 보려면 배포 플래너 도구[VMware](https://aka.ms/siterecovery_deployment_planner) 또는 [Hyper-V](https://aka.ms/asr-deployment-planner)용 배포 플래너 도구를 실행하고 [비용 예상 보고서](https://aka.ms/asr_DP_costreport)를 사용합니다.
+자세한 예상 비용을 보려면 배포 플래너 도구[VMware](./site-recovery-deployment-planner.md) 또는 [Hyper-V](https://aka.ms/asr-deployment-planner)용 배포 플래너 도구를 실행하고 [비용 예상 보고서](./site-recovery-vmware-deployment-planner-cost-estimation.md)를 사용합니다.
 
 
 ### <a name="managed-disks-are-now-used-to-replicate-vmware-vms-and-physical-servers-do-i-incur-additional-charges-for-the-cache-storage-account-with-managed-disks"></a>이제 VMware VM 및 물리적 서버를 복제하는 데 관리 디스크를 사용합니다. 관리 디스크를 사용하는 캐시 스토리지 계정에 대해 추가 요금이 발생하나요?
@@ -224,7 +224,7 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 4. 루트 사용자에 대 한 execute 권한이 있는 "customscript.sh" 라는 bash 셸 스크립트를 만듭니다.<br>
     a. 스크립트는 "--pre" 및 "--post"를 지원 해야 합니다 (이중 대시 참고) 명령줄 옵션<br>
     b. 사전 옵션을 사용 하 여 스크립트를 호출 하는 경우 응용 프로그램 입/출력을 고정 하 고 사후 옵션을 사용 하 여 호출 하면 응용 프로그램 입/출력을 재개 해야 합니다.<br>
-    다. 샘플 템플릿-<br>
+    c. 샘플 템플릿-<br>
 
     `# cat customscript.sh`<br>
 

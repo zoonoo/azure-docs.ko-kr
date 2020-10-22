@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 991201429bdc09a03ddc46c5beb9d0f4d6744ed5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548895"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>자습서: Rackspace SSO와 Azure Active Directory 통합
 
@@ -101,11 +101,11 @@ Rackspace SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
-    ![이미지](common/upload-metadata.png)
+    ![스크린샷은 메타데이터 파일 업로드 링크가 있는 기본 SAML 구성을 보여줍니다.](common/upload-metadata.png)
 
     b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
-    ![이미지](common/browse-upload-metadata.png)
+    ![스크린샷은 파일을 선택하고 업로드할 수 있는 대화 상자를 보여줍니다.](common/browse-upload-metadata.png)
 
     다. 메타데이터 파일이 성공적으로 업로드되면 필요한 URL이 자동으로 채워집니다.
 

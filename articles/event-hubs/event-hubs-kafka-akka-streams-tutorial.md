@@ -3,12 +3,12 @@ title: Apache Kafka용 Akka Streams 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Akka streams 스트림을 Azure event hub에 연결 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 43f0c359af6f699ce3e7c19948d706c09adeba70
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 92ab927189329493696c70b61ffc7f11cad22a66
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316332"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369576"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
 
@@ -77,6 +77,10 @@ akka.kafka.producer {
 }
 ```
 
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대 한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조 하세요. 구성 예는 다음과 같습니다. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
+
 ### <a name="run-producer-from-the-command-line"></a>명령줄에서 생성자 실행
 
 명령줄에서 생성자를 실행하려면 JAR을 생성한 다음, Maven 내에서 실행하거나, Maven을 사용하여 JAR을 생성한 다음, 필요한 Kafka JAR을 클래스 경로에 추가하여 Java에서 실행합니다.
@@ -116,6 +120,10 @@ akka.kafka.consumer {
     }
 }
 ```
+
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대 한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조 하세요. 구성 예는 다음과 같습니다. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ### <a name="run-consumer-from-the-command-line"></a>명령줄에서 소비자 실행
 

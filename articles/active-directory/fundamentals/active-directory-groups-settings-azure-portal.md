@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e9b38208526ba83e0a0e31e2e139e340a3ee511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c346877d29c5fef03b45c895cbf8d462f90d0979
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797528"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369134"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 정보 편집
 
@@ -53,7 +53,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
     
     - **멤버 자격 유형입니다.** 멤버 자격 유형을 변경합니다. 사용 가능한 다양 한 멤버 자격 형식에 대 한 자세한 내용은 [방법: 기본 그룹 만들기 및 Azure Active Directory 포털을 사용 하 여 구성원 추가](active-directory-groups-create-azure-portal.md)를 참조 하세요.
     
-    - **개체 ID입니다.** 개체 ID를 변경할 수는 없지만, 개체 ID를 복사하여 그룹용 PowerShell 명령에서 사용할 수 있습니다. PowerShell cmdlet 사용에 대한 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)을 참조하세요.
+    - **개체 ID입니다.** 개체 ID를 변경할 수는 없지만, 개체 ID를 복사하여 그룹용 PowerShell 명령에서 사용할 수 있습니다. PowerShell cmdlet 사용에 대한 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../enterprise-users/groups-settings-v2-cmdlets.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
@@ -64,7 +64,7 @@ Azure AD(Azure Active Directory)를 사용하여 이름, 설명 또는 멤버 �
 
 - [그룹에서 멤버를 추가 또는 제거하는 방법](active-directory-groups-members-azure-portal.md)
 
-- [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-create-rule.md)
+- [그룹의 사용자에 대한 동적 규칙 관리](../enterprise-users/groups-create-rule.md)
 
 - [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
 

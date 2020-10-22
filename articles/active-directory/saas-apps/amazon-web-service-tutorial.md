@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe591c55065372245d95210ab0282a0070c96434
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713640"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318799"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "91713640"
 * 사용자가 자신의 Azure AD 계정으로 AWS(Amazon Web Services)에 자동으로 로그온되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ![Azure AD 및 AWS 관계에 대한 다이어그램](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
@@ -61,7 +61,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * AWS(Amazon Web Services)에서 **SP 및 IDP** 시작 SSO 지원
-* AWS(Amazon Web Services)를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* AWS(Amazon Web Services)를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -366,17 +366,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 SSO를 설정하기 위한 AWS(Amazon Web Services)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 AWS(Amazon Web Services) 타일을 클릭하면 SSO를 설정하기 위한 AWS(Amazon Web Services)에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="known-issues"></a>알려진 문제
 
  * **프로비저닝** 섹션에서 **매핑** 하위 섹션에 "로드 중..." 메시지가 표시되고 특성 매핑이 표시되지 않습니다. 현재 지원되는 유일한 프로비저닝 워크플로는 사용자 또는 그룹을 할당하는 중에 선택할 수 있도록 역할을 AWS에서 Azure AD로 가져오는 것입니다. 이에 대한 특성 매핑은 미리 결정되어 있으며 구성할 수 없습니다.
 
- * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다.
+ * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [`servicePrincipal` 개체](/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 `appRoles` 속성에 기록됩니다.
 
    프로비저닝을 위해 여러 AWS 테넌트(`servicePrincipals`로 표시됨)를 갤러리에서 Azure AD에 추가할 수 있습니다. 그러나 SSO에 사용되는 단일 `servicePrincipal`에 프로비저닝하는 데 사용되는 여러 AWS `servicePrincipals`에서 가져온 역할을 모두 자동으로 작성할 수 없는 알려진 문제가 있습니다.
 
-   해결 방법으로 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
+   해결 방법으로 [Microsoft Graph API](/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 `appRoles`를 프로비저닝이 구성된 각 AWS `servicePrincipal`에 추출할 수 있습니다. 그런 다음, 이러한 역할 문자열을 SSO가 구성된 AWS `servicePrincipal`에 추가할 수 있습니다.
 
 * AWS에서 Azure AD로 가져올 수 있으려면 역할이 다음 요구 사항을 충족해야 합니다.
 
@@ -384,17 +384,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
 - [Azure AD에서 AWS(Amazon Web Services) 사용해 보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
 
-- [고급 표시 유형 및 컨트롤을 사용하여 AWS(Amazon Web Services)를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/protect-aws)
+- [고급 표시 유형 및 컨트롤을 사용하여 AWS(Amazon Web Services)를 보호하는 방법](/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

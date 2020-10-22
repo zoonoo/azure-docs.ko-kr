@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662517"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369797"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Azure AD가 온-프레미스 워크 로드에 대 한 클라우드 관리 관리를 제공 하는 방법
 
@@ -107,7 +107,7 @@ Azure AD는 필요에 따라 [게스트 사용자를 위해 AD에서 자동으�
 
 IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승인 결정에 액세스합니다. 또한 IT에는 사용자가 스스로가 포함될 수 있습니다. 예를 들어 유럽에 있는 회사의 마케팅 애플리케이션에서 기밀 고객 데이터에 액세스하는 사용자는 회사의 정책을 알아야 합니다. 또한 게스트 사용자는 초대 된 조직의 데이터에 대 한 처리 요구 사항을 모르고 있을 수 있습니다.
 
-조직은 [동적 그룹과](../users-groups-roles/groups-dynamic-membership.md)같은 기술 (예: [SaaS 응용 프로그램](../saas-apps/tutorial-list.md)에 대 한 사용자 프로 비전 및 [Scim (도메인 간 Id 관리) 표준을 위해 시스템을 사용 하 여 통합 된 응용 프로그램](../app-provisioning/use-scim-to-provision-users-and-groups.md))을 통해 액세스 수명 주기 프로세스를 자동화할 수 있습니다. 또한 조직에서는 [온-프레미스 응용 프로그램에 대 한 액세스 권한이 있는 게스트 사용자](../external-identities/hybrid-cloud-to-on-premises.md)를 제어할 수 있습니다. 그런 다음, 정기 [Azure AD 액세스 검토](../governance/access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.
+조직은 [동적 그룹과](../enterprise-users/groups-dynamic-membership.md)같은 기술 (예: [SaaS 응용 프로그램](../saas-apps/tutorial-list.md)에 대 한 사용자 프로 비전 및 [Scim (도메인 간 Id 관리) 표준을 위해 시스템을 사용 하 여 통합 된 응용 프로그램](../app-provisioning/use-scim-to-provision-users-and-groups.md))을 통해 액세스 수명 주기 프로세스를 자동화할 수 있습니다. 또한 조직에서는 [온-프레미스 응용 프로그램에 대 한 액세스 권한이 있는 게스트 사용자](../external-identities/hybrid-cloud-to-on-premises.md)를 제어할 수 있습니다. 그런 다음, 정기 [Azure AD 액세스 검토](../governance/access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.
 
 ## <a name="future-directions"></a>이후 지침
 

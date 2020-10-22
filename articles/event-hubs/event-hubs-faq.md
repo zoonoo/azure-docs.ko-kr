@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 65b6fd40c66ec055a5b80ccea9d2dd9ba1510d54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729103"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369610"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -132,7 +132,7 @@ bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.p
 
 예제:
 
-bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
+부트스트랩. servers = dummynamespace: servicebus: 9093 요청. timeout = 60000 보안. protocol = SASL_SSL SASL. mechanism = 일반 sasl.jaas.config= PlainLoginModule required username = "$ConnectionString" password = "Endpoint = sb://dummynamespace.servicebus.windows.net/;을 입력 합니다. SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
 
 참고: sasl.jaas.config가 프레임워크에서 지원되는 구성이 아닌 경우 SASL 사용자 이름과 암호를 설정하는 데 사용되는 구성을 찾아 대신 사용하세요. 사용자 이름은 $ConnectionString으로 설정하고, 암호는 Event Hubs 연결 문자열로 설정합니다.
 
@@ -274,7 +274,7 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
-Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hubs SDK가 Azure Stack Hub 플랫폼에서는 사용할 수 없는 Azure에서 사용 가능한 최신 Azure Storage API를 사용하기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
 
 예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 3caf12e13b5999c40843f1203ac8ce7f2f21ef6b
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 01169f3e73fb1d6ddf0ecaf4958c6121cb21c295
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91665874"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216133"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -30,8 +30,6 @@ ms.locfileid: "91665874"
 > * Microsoft ID 플랫폼 엔드포인트에서 가져온 액세스 토큰이 필요한 Microsoft Graph 또는 사용자 고유의 API 호출
 
 MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원하여 MSAL.js 1.0에서 향상되었습니다. MSAL.js 2.0은 암시적 흐름을 **지원하지 않습니다**.
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -120,13 +118,13 @@ MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부�
 ```
 msal-spa-tutorial/
 ├── app
-│   ├── authConfig.js
-│   ├── authPopup.js
-│   ├── authRedirect.js
-│   ├── graphConfig.js
-│   ├── graph.js
-│   ├── index.html
-│   └── ui.js
+│   ├── authConfig.js
+│   ├── authPopup.js
+│   ├── authRedirect.js
+│   ├── graphConfig.js
+│   ├── graph.js
+│   ├── index.html
+│   └── ui.js
 └── server.js
 ```
 

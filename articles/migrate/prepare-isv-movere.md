@@ -3,12 +3,12 @@ title: ISV 도구/Movere와 함께 사용할 Azure Migrate 준비
 description: 이 문서에서는 ISV 도구 또는 Movere와 함께 사용할 Azure Migrate를 준비하는 방법과 이 도구를 사용하여 시작하는 방법을 차례로 설명합니다.
 ms.topic: how-to
 ms.date: 06/10/2020
-ms.openlocfilehash: ed7652cb34705bac56a79b5c30e6bda3dac69af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 885e64536e516e4fd96233c37a68f6e77fb84e33
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103928"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369151"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>ISV 도구 또는 Movere로 작업 준비
 
@@ -26,7 +26,7 @@ Azure 사용자 계정에는 다음 권한이 필요합니다.
 
 1. Azure AD에서 계정의 역할을 확인합니다.
 2. 사용자 역할이 있는 경우 왼쪽에서 **사용자 설정**을 선택하고 사용자가 애플리케이션을 등록할 수 있는지 확인합니다. **예**로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다. **아니요**로 설정되어 있으면 관리 사용자만 앱을 등록할 수 있습니다.   
-3. 권한이 없는 경우 관리 사용자가 사용자 계정에 [애플리케이션 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-administrator) 역할을 제공하여 앱을 등록하도록 할 수 있습니다.
+3. 권한이 없는 경우 관리 사용자가 사용자 계정에 [애플리케이션 관리자](../active-directory/roles/permissions-reference.md#application-administrator) 역할을 제공하여 앱을 등록하도록 할 수 있습니다.
 4. Azure Migrate에 도구가 연결되면 관리자가 계정에서 역할을 제거할 수 있습니다.
 
 ### <a name="set-permissions-to-assign-a-role-to-an-azure-ad-app"></a>Azure AD 앱에 역할을 할당할 수 있는 권한 설정

@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600800"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369780"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
 
@@ -156,7 +156,7 @@ MFA [로그인 보고서](../authentication/howto-mfa-reporting.md) 에는 mfa �
 * 동적 그룹 멤버 자격을 사용한 특성 기반
 * 앱 소유자에 게 위임
 
-Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다. 이러한 그룹은 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있는 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)라고 하는이 기능은 관리자를 사용 하 여 요청을 처리 하지 않고도 그룹을 만들고 관리할 수 있도록 관리 역할이 할당 되지 않은 그룹 소유자에 게 시간을 절약 합니다.
+Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다. 이러한 그룹은 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있는 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)라고 하는이 기능은 관리자를 사용 하 여 요청을 처리 하지 않고도 그룹을 만들고 관리할 수 있도록 관리 역할이 할당 되지 않은 그룹 소유자에 게 시간을 절약 합니다.
 
 ## <a name="step-4---operationalize-your-insights"></a>4 단계-통찰력 운영
 
@@ -172,9 +172,9 @@ Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스�
 
 작업에 대 한 접근 방식에 대해 생각해 볼 때 고려해 야 할 몇 가지 관리가 있습니다. 첫 번째 수준은 전역 관리자에 대 한 관리 부담을 부과 합니다. 항상 전역 관리자 역할을 사용 하는 것은 소규모 회사에 적합할 수 있습니다. 그러나 지원 센터 담당자와 특정 작업을 담당 하는 관리자가 있는 대규모 조직의 경우 전역 관리자의 역할을 할당 하면 해당 사용자에 게 수행할 수 있는 작업을 초과 하는 작업을 관리할 수 있는 기능을 제공 하므로 보안 위험이 발생할 수 있습니다.
 
-이 경우 다음 수준의 관리를 고려해 야 합니다. Azure AD를 사용 하면 권한이 낮은 역할의 작업을 관리할 수 있는 "제한 된 관리자"로 최종 사용자를 지정할 수 있습니다. 예를 들어 읽기 전용 액세스를 통해 보안 관련 기능을 관리할 수 있도록 지원 센터 담당자에 게 [보안 읽기 권한자](../users-groups-roles/directory-assign-admin-roles.md#security-reader) 역할을 할당할 수 있습니다. 또는 [인증 관리자](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) 역할을 개인에 게 할당 하 여 암호를 사용 하지 않는 자격 증명을 다시 설정 하거나 Azure Service Health를 읽고 구성 하는 기능을 제공 하는 것이 좋습니다.
+이 경우 다음 수준의 관리를 고려해 야 합니다. Azure AD를 사용 하면 권한이 낮은 역할의 작업을 관리할 수 있는 "제한 된 관리자"로 최종 사용자를 지정할 수 있습니다. 예를 들어 읽기 전용 액세스를 통해 보안 관련 기능을 관리할 수 있도록 지원 센터 담당자에 게 [보안 읽기 권한자](../roles/permissions-reference.md#security-reader) 역할을 할당할 수 있습니다. 또는 [인증 관리자](../roles/permissions-reference.md#authentication-administrator) 역할을 개인에 게 할당 하 여 암호를 사용 하지 않는 자격 증명을 다시 설정 하거나 Azure Service Health를 읽고 구성 하는 기능을 제공 하는 것이 좋습니다.
 
-자세히 알아보려면 [Azure Active Directory의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조 하세요.
+자세히 알아보려면 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조 하세요.
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용 하 여 하이브리드 구성 요소 (Azure AD Connect 동기화, AD FS) 모니터링
 

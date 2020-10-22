@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653582"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369950"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서 분석
 이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 Excel 보고서에 포함된 시트에 대해 설명합니다.
@@ -154,7 +154,7 @@ Site Recovery 복제를 위해 xMbps 이상의 대역폭을 설정할 수 없다
 
 **디스크 스토리지 유형**: **배치할 VM** 열에 언급된 해당 가상 컴퓨터를 모두 복제하는 데 사용되는 표준 또는 프리미엄 Storage 계정입니다.
 
-**제안된 접두사**: 스토리지 계정 이름을 지정하는 데 사용할 수 있는 3자로 구성된 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [스토리지 계정에 대 한 파티션 명명 규칙](https://aka.ms/storage-performance-checklist)을 따릅니다.
+**제안된 접두사**: 스토리지 계정 이름을 지정하는 데 사용할 수 있는 3자로 구성된 접두사입니다. 고유한 접두사를 사용할 수 있지만 도구의 제안은 [스토리지 계정에 대 한 파티션 명명 규칙](/en-in/azure/storage/blobs/storage-performance-checklist)을 따릅니다.
 
 **제안된 계정 이름**: 제안된 접두사를 포함한 후 스토리지 계정 이름입니다. 꺾쇠 괄호(< 및 >) 안의 이름을 사용자 지정 입력으로 바꿉니다.
 
@@ -220,7 +220,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름입니다. 또한 이 열에는 VM에 연결된 디스크(VHD)가 나열됩니다. 이 이름에는 프로파일링 기간 동안 VM이 도구를 검색했을 때 VM이 있었던 Hyper-V 호스트 이름이 포함됩니다.
 
-**VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [스토리지 한도](https://aka.ms/azure-storage-scalbility-performance)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
+**VM 호환성**: 지정된 VM을 Site Recovery에서 사용할 수 없는 이유를 나타냅니다. 이유는 게시된 [스토리지 한도](/en-in/azure/storage/common/scalability-targets-standard-account)를 기반으로 VM의 각 호환되지 않는 디스크에 대해 설명되며 다음 중 하나일 수 있습니다.
 
 * 디스크 크기가 4,095GB보다 큽니다. Azure Storage는 현재 4,095GB보다 큰 디스크 크기를 지원하지 않습니다.
 

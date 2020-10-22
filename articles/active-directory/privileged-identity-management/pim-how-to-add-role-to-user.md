@@ -13,16 +13,16 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533845"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369831"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
-전역 관리자는 Azure Active Directory (Azure AD)를 사용 하 여 **영구** Azure AD 관리자 역할 할당을 만들 수 있습니다. 이러한 역할은 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
+전역 관리자는 Azure Active Directory (Azure AD)를 사용 하 여 **영구** Azure AD 관리자 역할 할당을 만들 수 있습니다. 이러한 역할은 [Azure Portal](../roles/permissions-reference.md) 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 할당할 수 있습니다.
 
 PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 있는 역할 관리자가 영구 관리 역할 할당을 수행할 수도 있습니다. 또한 권한 있는 역할 관리자는 사용자에 게 Azure AD 관리자 역할에 대 한 **자격** 을 제공할 수 있습니다. 적격인 관리자는 필요할 때 역할을 활성화할 수 있으며 작업을 완료하고 나면 권한이 만료됩니다.
 
@@ -30,7 +30,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 11 월 2019부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치 하는 새 버전으로 업데이트 됩니다. 그러면 [기존 API에 대 한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성 됩니다. 새 버전이 롤아웃 되는 동안이 문서에서 수행 하는 절차는 현재 보유 하 고 있는 Privileged Identity Management 버전에 따라 달라 집니다. 이 섹션의 단계에 따라 Privileged Identity Management 버전을 확인 합니다. Privileged Identity Management 버전을 확인 한 후에는이 문서에서 해당 버전과 일치 하는 절차를 선택할 수 있습니다.
 
-1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
   [![Azure AD > Privileged Identity Management를 선택 합니다.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -41,7 +41,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 사용자에 게 Azure AD 관리자 역할에 대 한 자격을 부여 하려면 다음 단계를 수행 합니다.
 
-1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할의 구성원 인 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할의 구성원 인 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
     다른 관리자에 게 Privileged Identity Management 관리 권한을 부여 하는 방법에 대 한 자세한 내용은 [다른 관리자에 게 Privileged Identity Management를 관리할](pim-how-to-give-access-to-pim.md)수 있는 권한 부여를 참조 하세요.
 
@@ -77,7 +77,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 ## <a name="assign-a-role-with-restricted-scope"></a>제한 된 범위의 역할 할당
 
-특정 역할의 경우 부여 된 사용 권한의 범위는 단일 관리 단위, 서비스 주체 또는 응용 프로그램으로 제한 될 수 있습니다. 이 절차는 관리 단위의 범위를 포함 하는 역할을 할당 하는 경우의 예입니다. 관리 단위를 통해 범위를 지 원하는 역할 목록은 [관리 단위에 범위 지정 역할 할당](../users-groups-roles/roles-admin-units-assign-roles.md)을 참조 하세요. 이 기능은 현재 Azure AD 조직에 롤아웃 되 고 있습니다.
+특정 역할의 경우 부여 된 사용 권한의 범위는 단일 관리 단위, 서비스 주체 또는 응용 프로그램으로 제한 될 수 있습니다. 이 절차는 관리 단위의 범위를 포함 하는 역할을 할당 하는 경우의 예입니다. 관리 단위를 통해 범위를 지 원하는 역할 목록은 [관리 단위에 범위 지정 역할 할당](../roles/admin-units-assign-roles.md)을 참조 하세요. 이 기능은 현재 Azure AD 조직에 롤아웃 되 고 있습니다.
 
 1. 권한 있는 역할 관리자 권한으로 [Azure Active Directory 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
 
@@ -97,7 +97,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
    - 역할 범위 (이 경우에는 관리 단위)를 선택 합니다.
    - 범위에 대 한 관리 단위를 선택 합니다.
 
-관리 단위를 만드는 방법에 대 한 자세한 내용은 [관리 단위 추가 및 제거](../users-groups-roles/roles-admin-units-manage.md)를 참조 하세요.
+관리 단위를 만드는 방법에 대 한 자세한 내용은 [관리 단위 추가 및 제거](../roles/admin-units-manage.md)를 참조 하세요.
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>기존 역할 할당 업데이트 또는 제거
 

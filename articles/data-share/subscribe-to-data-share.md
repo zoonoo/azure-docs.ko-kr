@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4ef9f1d80604373463450adf597f8202611175
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489921"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216575"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -34,7 +34,7 @@ ms.locfileid: "89489921"
 
 ### <a name="receive-data-into-a-storage-account"></a>스토리지 계정으로 데이터를 받습니다. 
 
-* Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들 수 있습니다. 
+* Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](../storage/common/storage-account-create.md)을 만들 수 있습니다. 
 * 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
 * 스토리지 계정에 역할 할당을 추가할 수 있는 권한입니다. 이 권한은 *Microsoft.Authorization/role assignments/write*에 있습니다. 이 권한은 소유자 역할에 있습니다.  
 
@@ -62,7 +62,7 @@ ms.locfileid: "89489921"
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터로 데이터를 받습니다. 
 
-* 데이터 공급자의 데이터 탐색기 클러스터와 동일한 Azure 데이터 센터에 있는 Azure Data Explorer 클러스터: 아직 없는 경우 [Azure Data Explorer 클러스터](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal)를 만들 수 있습니다. 데이터 공급자 클러스터의 Azure 데이터 센터를 모르는 경우 나중에 프로세스에서 클러스터를 만들 수 있습니다.
+* 데이터 공급자의 데이터 탐색기 클러스터와 동일한 Azure 데이터 센터에 있는 Azure Data Explorer 클러스터: 아직 없는 경우 [Azure Data Explorer 클러스터](/azure/data-explorer/create-cluster-database-portal)를 만들 수 있습니다. 데이터 공급자 클러스터의 Azure 데이터 센터를 모르는 경우 나중에 프로세스에서 클러스터를 만들 수 있습니다.
 * Azure Data Explorer 클러스터에 쓸 수 있는 권한으로, *Microsoft.Kusto/clusters/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
 * Azure Data Explorer 클러스터에 역할 할당을 추가할 수 있는 권한으로, *Microsoft.Authorization/role assignments/write*에 있습니다. 이 권한은 소유자 역할에 있습니다. 
 

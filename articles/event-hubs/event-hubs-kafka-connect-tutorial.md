@@ -3,12 +3,12 @@ title: Apache Kafka Connect와의 통합 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Kafka에 대해 Azure Event Hubs와 함께 Kafka Connect를 사용 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37d2465d9389a0bcfaabdec32bad0c86846cfb2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061668"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369542"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs(미리 보기)에 Apache Kafka Connect 지원 통합
 수집되는 비즈니스 요구 사항이 증가함에 따라 다양한 외부 소스 및 싱크에 대한 수집 요구 사항도 증가합니다. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크를 제공합니다. 이 자습서에서는 Event Hubs와 함께 Kafka Connect 프레임 워크를 사용 하는 과정을 안내 합니다.
@@ -90,6 +90,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대 한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조 하세요. 구성 예는 다음과 같습니다. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ## <a name="run-kafka-connect"></a>Kafka Connect 실행
 

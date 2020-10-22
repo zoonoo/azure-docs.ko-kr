@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4e23a9d5334af5ebdaab2ef15a5c39f232095
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552257"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>자습서: Quantum Workplace와 Azure Active Directory 통합
 
@@ -99,11 +99,11 @@ Quantum Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
 4. **기본 SAML 구성** 섹션에서 애플리케이션은 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
-    ![Quantum Workplace 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
+    ![스크린샷은 기본 SAML 구성을 보여줍니다.](common/preintegrated.png)
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Quantum Workplace 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에 `https://auth.quantumworkplace.com/Account/Login` URL을 입력합니다.
 
