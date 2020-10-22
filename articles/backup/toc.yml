@@ -406,8 +406,6 @@
           href: backup-encryption.md
         - name: 고객 관리형 키를 사용하여 암호화
           href: encryption-at-rest-with-cmk.md
-        - name: 기본 제공 보안 컨트롤
-          href: backup-security-controls.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

@@ -148,8 +148,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric 클러스터 보안
           href: service-fabric-cluster-security.md
-        - name: 기본 제공 보안 컨트롤
-          href: service-fabric-security-controls.md
         - name: Service Fabric의 인증서 기반 인증
           href: cluster-security-certificates.md
         - name: Service Fabric에서 인증서 관리

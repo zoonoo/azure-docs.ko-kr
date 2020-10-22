@@ -115,8 +115,6 @@
               href: authenticate-shared-access-signature.md
         - name: 네트워크 보안
           href: network-security.md
-        - name: 기본 제공 보안 컨트롤
-          href: event-hubs-security-controls.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

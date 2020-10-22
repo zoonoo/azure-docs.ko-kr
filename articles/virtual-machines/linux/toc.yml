@@ -354,8 +354,6 @@
           href: ../security-controls-policy.md
         - name: Azure Security Benchmark에 대한 보안 기준
           href: security-baseline.md
-        - name: 기본 제공 보안 컨트롤
-          href: virtual-machines-linux-security-controls.md
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: 상태 및 수명 주기

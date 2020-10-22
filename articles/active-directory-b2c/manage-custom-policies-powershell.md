@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387680"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363864"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure AD B2C 사용자 지정 정책 관리
 
@@ -29,7 +29,7 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
+* [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
 * [Graph **preview 모듈인** Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ Azure PowerShell은 Azure AD B2C 테 넌 트에서 명령줄 및 스크립트 �
 
 Azure AD B2C 테 넌 트에서 사용자 지정 정책에 대 한 작업을 수행 하려면 먼저 [AzureAD][Connect-AzureAD] 명령을 사용 하 여 PowerShell 세션을 테 넌 트에 연결 해야 합니다.
 
-`{b2c-tenant-name}`Azure AD B2C 테 넌 트의 이름으로 대체 하 여 다음 명령을 실행 합니다. 디렉터리에서 [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할이 할당 된 계정으로 로그인 합니다.
+`{b2c-tenant-name}`Azure AD B2C 테 넌 트의 이름으로 대체 하 여 다음 명령을 실행 합니다. 디렉터리에서 [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할이 할당 된 계정으로 로그인 합니다.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"

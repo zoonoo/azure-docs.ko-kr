@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 478b53b78fb72a01ad028c7fb6b7683b34cbca14
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019218"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370800"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
@@ -853,5 +853,5 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 * [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/templates/deploy-portal.md): Azure Portal에서 리소스 그룹을 만들고 관리하는 방법
 * [Azure 블로그](https://azure.microsoft.com/blog/): Azure의 새로운 기능에 대해 알아봅니다.
 * [Windows PowerShell 블로그](https://devblogs.microsoft.com/powershell/): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
-* ["Hey, Scripting Guy!" 블로그](https://blogs.technet.microsoft.com/heyscriptingguy/author/the-scripting-guys/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
+* ["Hey, Scripting Guy!" 블로그](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 

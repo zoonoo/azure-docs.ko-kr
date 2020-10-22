@@ -203,8 +203,6 @@
           href: disk-encryption-overview.md
         - name: Azure 보안 기준
           href: security-baseline.md
-        - name: 기본 제공 보안 컨트롤
-          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: 모니터링
       href: ../azure-monitor/insights/monitor-vm-azure.md

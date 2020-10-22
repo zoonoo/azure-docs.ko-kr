@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4e2e18f3bb9d1c972d805a60493897d605921e4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88782739"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365530"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 게스트 사용자를 초대 하 고 Azure 리소스 역할을 할당 합니다.
 
@@ -67,7 +67,7 @@ B2B 공동 작업을 사용 하는 경우 외부 사용자를 조직에 게스�
 
 Privileged Identity Management를 사용 하 여 게스트를 초대 하 고 Azure 리소스 역할에 적합 하 게 만들 수 있습니다.
 
-1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 또는 [사용자 관리자](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) 역할의 구성원 인 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 또는 [사용자 관리자](../roles/permissions-reference.md#user-administrator) 역할의 구성원 인 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

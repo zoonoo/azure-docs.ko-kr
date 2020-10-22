@@ -44,8 +44,6 @@
       href: quickstart-create-workspace-powershell.md
     - name: 템플릿을 사용하여 배포
       href: quickstart-deployment-template-workspaces.md
-    - name: Synapse Studio 사용
-      href: quickstart-synapse-studio.md
     - name: Power BI 작업 영역 연결
       href: quickstart-power-bi.md
     - name: 풀 만들기

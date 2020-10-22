@@ -95,6 +95,10 @@
       href: expressroute-connect-azure-to-public-cloud.md
     - name: 네트워크 간 연결
       href: cross-network-connectivity.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 보안 특성
       href: expressroute-security-controls.md
     - name: ExpressRoute를 통한 BFD
@@ -269,5 +273,3 @@
           href: expressroute-howto-add-gateway-classic.md
         - name: 공용 피어링 생성 및 수정
           href: about-public-peering.md
-    - name: 보안 기준
-      href: security-baseline.md

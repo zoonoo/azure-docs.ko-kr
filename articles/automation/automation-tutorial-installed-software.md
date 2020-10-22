@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: cad92ef376a14805049772cd0bfdbac04309f6c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185826"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207566"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>VM에 설치된 소프트웨어 검색
 
@@ -151,4 +151,4 @@ ConfigurationData
 자세히 알아보려면 변경 내용 추적 및 인벤토리 기능에 대한 개요로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [변경 내용 추적 및 인벤토리 개요](change-tracking.md)
+> [변경 내용 추적 및 인벤토리 개요](change-tracking/overview.md)

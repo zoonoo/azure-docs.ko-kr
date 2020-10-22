@@ -93,7 +93,7 @@
 - name: 참조
   items:
     - name: REST API 설명서
-      href: 'https://docs.microsoft.com/rest/api/azure/'
+      href: 'https://docs.microsoft.com/rest/api/communication/'
     - name: 통화 라이브러리(Android/Java)
       href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
     - name: 통화 라이브러리(JS)

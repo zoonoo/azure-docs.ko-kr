@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f67d1bb1e4502d918cd7af6d98ce5ed5f76c969
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273775"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>자습서: RStudio Connect와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ RStudio Connect에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행하고, 다음과 같이 `<example.com>`을 RStudio Connect 서버 주소 및 포트로 바꿉니다.
 
-    ![RStudio Connect 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<example.com>/__login__/saml` 패턴을 사용하여 URL을 입력합니다.
 
@@ -109,7 +109,7 @@ RStudio Connect에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![RStudio Connect 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<example.com>/` 패턴을 사용하여 URL을 입력합니다.
 

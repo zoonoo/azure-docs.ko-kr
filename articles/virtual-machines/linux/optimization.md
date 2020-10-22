@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654194"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370239"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure에서 Linux VM 최적화
 Linux 가상 머신(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서에서는 Microsoft Azure Platform에서 해당 성능을 최적화하도록 설정하는 방법을 보여줍니다. 이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 Linux 가상 머신을 만들 수도 있습니다.  
@@ -47,7 +47,38 @@ Azure CLI를 사용하여 VM을 만들 때 기본 작업은 Azure Managed Disks�
 ## <a name="linux-swap-partition"></a>Linux 스왑 파티션
 Azure VM을 Ubuntu 또는 CoreOS 이미지에서 가져온 경우 CustomData를 사용하여 cloud-config를 cloud-init으로 보낼 수 있습니다. cloud-init를 사용하는 [사용자 지정 Linux 이미지를 업로드](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)한 경우에도 cloud-init를 사용하여 스왑 파티션을 구성할 수 있습니다.
 
-Ubuntu Cloud Images에서는 cloud-init를 사용하여 스왑 파티션을 구성하해야 합니다. 자세한 내용은 [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)을 참조하세요.
+**/Etc/waagent.conf** 파일을 사용 하 여 클라우드 init에서 프로 비전 되 고 지원 되는 모든 이미지에 대 한 교환을 관리할 수 없습니다. 전체 이미지 목록은 [클라우드 초기화 사용](using-cloud-init.md)을 참조 하세요. 
+
+이러한 이미지에 대 한 교체를 관리 하는 가장 쉬운 방법은 다음 단계를 완료 하는 것입니다.
+
+1. **/Var/lib/cloud/scripts/per-boot** 폴더에서 **create_swapfile. sh**라는 파일을 만듭니다.
+
+   **$ sudo touch/var/lib/cloud/scripts/per-boot/create_swapfile sh**
+
+1. 파일에 다음 줄을 추가 합니다.
+
+   **$ sudo vi/var/lib/cloud/scripts/per-boot/create_swapfile sh**
+
+   ```
+   #!/bin/sh
+   if [ ! -f '/mnt/swapfile' ]; then
+   fallocate --length 2GiB /mnt/swapfile
+   chmod 600 /mnt/swapfile
+   mkswap /mnt/swapfile
+   swapon /mnt/swapfile
+   swapon -a ; fi
+   ```
+
+   > [!NOTE]
+   > 사용 중인 VM 크기에 따라 달라 지는 리소스 디스크의 사용 가능한 공간에 따라 필요에 따라 값을 변경할 수 있습니다.
+
+1. 파일 실행 파일을 만듭니다.
+
+   **$ sudo chmod + x/var/lib/cloud/scripts/per-boot/create_swapfile. sh**
+
+1. 스왑를 만들려면 마지막 단계 바로 다음에 스크립트를 실행 합니다.
+
+   **$ sudo/var/lib/cloud/scripts/per-boot/./create_swapfile sh**
 
 cloud-init를 지원하지 않는 이미지의 경우 Azure Marketplace에서 배포된 VM 이미지에는 OS와 통합된 VM Linux 에이전트가 있습니다. 이 에이전트를 사용하면 VM에서 다양한 Azure 서비스와 상호 작용할 수 있습니다. Azure Marketplace에서 표준 이미지를 배포한 경우 다음을 수행하여 Linux 스왑 파일 설정을 올바르게 구성해야 합니다.
 
