@@ -2,13 +2,13 @@
 title: Azure Event Hubs 리소스에 액세스 하는 응용 프로그램 인증
 description: 이 문서에서는 Azure Event Hubs 리소스에 액세스 하 Azure Active Directory 응용 프로그램 인증에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 50c697e5c430b72f8d5da393e90f1db7ff6d48a1
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 10/21/2020
+ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332487"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359937"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Azure Active Directory를 사용 하 여 응용 프로그램을 인증 Event Hubs 리소스에 액세스
 Microsoft Azure는 Azure AD(Active Directory)를 기반으로 하는 리소스 및 애플리케이션에 대해 통합된 액세스 제어 관리 기능을 제공합니다. Azure Event Hubs에서 Azure AD를 사용 하는 경우의 주요 이점은 더 이상 코드에 자격 증명을 저장할 필요가 없다는 것입니다. 대신 Microsoft Id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. 토큰을 요청 하는 리소스 이름은입니다 `https://eventhubs.azure.net/` . Kafka 클라이언트의 경우 토큰을 요청 하는 리소스가입니다 `https://<namespace>.servicebus.windows.net` . Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Event Hubs 리소스에 대 한 요청에 권한을 부여할 수 있습니다.
@@ -29,34 +29,6 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 
 > [!IMPORTANT]
 > Preview 릴리스는 소유자 또는 참가자 역할에 Event Hubs 데이터 액세스 권한을 추가 하는 것을 지원 합니다. 그러나 소유자 및 참여자 역할에 대 한 데이터 액세스 권한은 더 이상 허용 되지 않습니다. 소유자 또는 참가자 역할을 사용 하는 경우 Azure Event Hubs 데이터 소유자 역할을 사용 하도록 전환 합니다.
-
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
-Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
-
-역할 할당에 적절 한 범위를 결정 한 후 Azure Portal에서 해당 리소스로 이동 합니다. 리소스에 대 한 액세스 제어 (IAM) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.
-
-> [!NOTE]
-> 아래에 설명 된 단계는 Event Hubs 네임 스페이스에서 이벤트 허브에 역할을 할당 하지만 동일한 단계를 수행 하 여 범위를 Event Hubs 리소스에 할당할 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com/)에서 Event Hubs 네임스페이스로 이동합니다.
-2. **개요** 페이지에서 역할을 할당할 이벤트 허브를 선택 합니다.
-
-    ![이벤트 허브를 선택 합니다.](./media/authenticate-application/select-event-hub.png)
-1. **Access Control (IAM)** 을 선택 하 여 이벤트 허브에 대 한 액세스 제어 설정을 표시 합니다. 
-1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가**를 선택 합니다. 
-
-    ![도구 모음에 단추 추가](./media/authenticate-application/role-assignments-add-button.png)
-1. **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다.
-    1. 할당 하려는 **Event Hubs 역할** 을 선택 합니다. 
-    1. 역할을 할당 하려는 **보안 주체** (사용자, 그룹, 서비스 사용자)를 검색 합니다.
-    1. **저장** 을 선택 하 여 역할 할당을 저장 합니다. 
-
-        ![사용자에 게 역할 할당](./media/authenticate-application/assign-role-to-user.png)
-    4. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지는 Azure 사용자가 Azure Event Hubs 데이터 소유자 역할에 있음을 보여 줍니다. 
-        
-        ![목록의 사용자](./media/authenticate-application/user-in-list.png)
-
-비슷한 단계에 따라 네임 스페이스, 리소스 그룹 또는 구독 Event Hubs 범위에 역할을 할당할 수 있습니다. 역할 및 해당 범위를 정의한 후 [에는이 GitHub 위치에서](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)샘플을 사용 하 여이 동작을 테스트할 수 있습니다.
 
 
 ## <a name="authenticate-from-an-application"></a>애플리케이션에서 인증
@@ -93,6 +65,30 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 1. 새 암호의 값을 안전한 위치에 즉시 복사 합니다. 채우기 값은 한 번만 표시 됩니다.
 
     ![클라이언트 암호](./media/authenticate-application/client-secret.png)
+
+
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
+응용 프로그램을 등록 한 후에는 [azure Event Hubs에 대 한 빌드 역할](#built-in-roles-for-azure-event-hubs) 섹션에 설명 된 EVENT HUBS azure AD 역할에 응용 프로그램의 서비스 주체를 할당 합니다. 
+
+1. [Azure Portal](https://portal.azure.com/)에서 Event Hubs 네임스페이스로 이동합니다.
+2. **개요** 페이지에서 역할을 할당할 이벤트 허브를 선택 합니다.
+
+    ![이벤트 허브를 선택 합니다.](./media/authenticate-application/select-event-hub.png)
+1. **Access Control (IAM)** 을 선택 하 여 이벤트 허브에 대 한 액세스 제어 설정을 표시 합니다. 
+1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가**를 선택 합니다. 
+
+    ![도구 모음에 단추 추가](./media/authenticate-application/role-assignments-add-button.png)
+1. **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다.
+    1. 할당 하려는 **Event Hubs 역할** 을 선택 합니다. 
+    1. 역할을 할당 하려는 **보안 주체** (사용자, 그룹, 서비스 사용자)를 검색 합니다. 목록에서 **등록 된 응용 프로그램** 을 선택 합니다. 
+    1. **저장** 을 선택 하 여 역할 할당을 저장 합니다. 
+
+        ![사용자에 게 역할 할당](./media/authenticate-application/assign-role-to-user.png)
+    4. **역할 할당** 탭으로 전환 하 여 역할 할당을 확인 합니다. 예를 들어 다음 이미지에서는 **mywebapp** 가 **Azure Event Hubs 데이터 발신자** 역할에 있음을 보여 줍니다. 
+        
+        ![목록의 사용자](./media/authenticate-application/user-in-list.png)
+
+비슷한 단계에 따라 네임 스페이스, 리소스 그룹 또는 구독 Event Hubs 범위에 역할을 할당할 수 있습니다. 역할 및 해당 범위를 정의한 후 [에는이 GitHub 위치에서](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)샘플을 사용 하 여이 동작을 테스트할 수 있습니다. Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
 
 
 ### <a name="client-libraries-for-token-acquisition"></a>토큰 획득을 위한 클라이언트 라이브러리  

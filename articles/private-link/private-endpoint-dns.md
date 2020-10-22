@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: e71325246b69f501ec8af91c59cb4f042180542c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999661"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369967"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -40,7 +40,7 @@ Azure 서비스는 공용 DNS 서비스에서 CNAME (정식 이름 DNS 레코드
 Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이름을 사용합니다.
 
 | 개인 링크 리소스 유형/하위 리소스 |사설 DNS 영역 이름 | 공용 DNS 영역 전달자 |
-|---|---|---|---|
+|---|---|---|
 | Azure Automation/(Microsoft Automation/automationAccounts)/Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft .Sql/servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft .Sql/servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
@@ -77,6 +77,8 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Monitor (Microsoft Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Cognitiveservices account/accounts)/계정 | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure File Sync (Microsoft.storagesync/storageSyncServices)/afs |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure Data Factory (DataFactory/factory)/dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
+| Azure Data Factory (DataFactory/factory)/포털 |  privatelink.azure.com  |  azure.com  |
 
  
 ## <a name="dns-configuration-scenarios"></a>DNS 구성 시나리오
@@ -130,38 +132,37 @@ DNS는 개인 끝점 IP 주소를 성공적으로 확인 하 여 응용 프로�
 다음 시나리오는 Azure에서 DNS 전달자를 사용 하는 온-프레미스 네트워크에 적합 합니다 .이는 azure에서 제공 하는 dns [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md)서버 수준 전달자를 통해 모든 dns 쿼리를 확인 하는 일을 담당 합니다. 
 
 > [!NOTE]
-> 이 시나리오에서는 Azure SQL Database 권장 되는 개인 DNS 영역을 사용 합니다.다른 서비스의 경우 다음 참조를 사용 하 여 모델을 조정할 수 있습니다. [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration).
+> 이 시나리오에서는 Azure SQL Database 권장 되는 개인 DNS 영역을 사용 합니다. 다른 서비스의 경우 다음 참조를 사용 하 여 모델을 조정할 수 있습니다. [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration).
 
 제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 온-프레미스 네트워크
-- 가상 네트워크 [온-프레미스에 연결됨](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
-- Azure에 배포된 DNS 전달자 
--  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)    [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 privatelink.database.windows.net
+- [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+- Azure에 배포된 DNS 전달자 
+- [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
 
 다음 다이어그램은 Azure에 배포 된 DNS 전달자를 사용 하는 온-프레미스 네트워크의 DNS 확인 시퀀스를 보여 줍니다. 여기서는 [가상 네트워크에 연결 된](../dns/private-dns-virtual-network-links.md)개인 DNS 영역에 의해 확인 됩니다.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="단일 가상 네트워크 및 Azure 제공 DNS":::
 
-이 구성은 이미 DNS 솔루션이 있는 온-프레미스 네트워크에 대해 확장할 수 있습니다. 
-온-프레미스 DNS 솔루션은 Azure에 배포 된 DNS 전달자를 참조 하는 [조건부 전달자](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 를 통해 AZURE DNS에 DNS 트래픽을 전달 하도록 구성 해야 합니다.
+이 구성은 이미 DNS 솔루션이 있는 온-프레미스 네트워크에 대해 확장할 수 있습니다. 온-프레미스 DNS 솔루션은 Azure에 배포 된 DNS 전달자를 참조 하는 [조건부 전달자](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 를 통해 AZURE DNS에 DNS 트래픽을 전달 하도록 구성 해야 합니다.
 
 > [!NOTE]
-> 이 시나리오에서는 Azure SQL Database 권장 되는 개인 DNS 영역을 사용 합니다. 다른 서비스의 경우 다음 참조를 사용 하 여 모델을 조정할 수 있습니다. [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration)
+> 이 시나리오에서는 Azure SQL Database 권장 되는 개인 DNS 영역을 사용 합니다. 다른 서비스의 경우 다음 참조를 사용 하 여 모델을 조정할 수 있습니다. [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration)
 
 제대로 구성 하려면 다음 리소스가 필요 합니다.
 
-- 사용자 지정 DNS 솔루션이 있는 온-프레미스 네트워크 
-- 가상 네트워크 [온-프레미스에 연결됨](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- 사용자 지정 DNS 솔루션이 있는 온-프레미스 네트워크 
+- [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
 - Azure에 배포된 DNS 전달자
--  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)     [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 privatelink.database.windows.net
+- [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
 
-다음 다이어그램은 [가상 네트워크에 연결](../dns/private-dns-virtual-network-links.md)된 개인 dns 영역에서 확인 되는 AZURE에 dns 트래픽을 조건부로 전달 하는 온-프레미스 네트워크의 dns 확인 시퀀스를 보여 줍니다.
+다음 다이어그램은 [가상 네트워크에 연결](../dns/private-dns-virtual-network-links.md)된 개인 dns 영역에서 확인 되는 AZURE에 dns 트래픽을 조건부로 전달 하는 온-프레미스 네트워크의 dns 확인 시퀀스를 보여 줍니다.
 
 > [!IMPORTANT]
-> 권장 되는 [공용 DNS 영역 전달자](#azure-services-dns-zone-configuration)에 대 한 조건부 전달이 이루어져야 합니다.예를 들면  `database.windows.net`    **privatelink**. database.windows.net 대신.
+> 권장 되는 [공용 DNS 영역 전달자](#azure-services-dns-zone-configuration)에 대 한 조건부 전달이 이루어져야 합니다. 예를 들면 `database.windows.net` **privatelink**. database.windows.net 대신.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="단일 가상 네트워크 및 Azure 제공 DNS":::
 
@@ -177,18 +178,18 @@ DNS는 개인 끝점 IP 주소를 성공적으로 확인 하 여 응용 프로�
 > 이 구성에는 단일 개인 DNS 영역이 필요 합니다. 온-프레미스 및 [피어 링 가상 네트워크](../virtual-network/virtual-network-peering-overview.md) 에서 만든 모든 클라이언트 연결은 동일한 개인 DNS 영역도 사용 해야 합니다.
 
 > [!NOTE]
-> 이 시나리오에서는 Azure SQL Database 권장 되는 개인 DNS 영역을 사용 합니다. 다른 서비스의 경우 다음 참조를 사용 하 여 모델을 조정할 수 있습니다. [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration).
+> 이 시나리오에서는 Azure SQL Database 권장 되는 개인 DNS 영역을 사용 합니다. 다른 서비스의 경우 다음 참조를 사용 하 여 모델을 조정할 수 있습니다. [Azure 서비스 DNS 영역 구성](#azure-services-dns-zone-configuration).
 
 제대로 구성 하려면 다음 리소스가 필요 합니다.
 
 - 온-프레미스 네트워크
-- 가상 네트워크 [온-프레미스에 연결됨](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
-- [피어 링 가상 네트워크](../virtual-network/virtual-network-peering-overview.md) 
+- [온-프레미스에 연결 된](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+- [피어 링 가상 네트워크](../virtual-network/virtual-network-peering-overview.md) 
 - Azure에 배포된 DNS 전달자
--  [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)     [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 privatelink.database.windows.net
+- [유형 A 레코드](../dns/dns-zones-records.md#record-types) 를 사용 하는 사설 DNS 영역 [privatelink.database.windows.net](../dns/private-dns-privatednszone.md)
 - 개인 끝점 정보 (FQDN 레코드 이름 및 개인 IP 주소)
 
-다음 다이어그램에서는 Azure에 배포 된 DNS 전달자를 사용 하는 온-프레미스 및 가상 네트워크의 DNS 확인 시퀀스를 보여 줍니다. 여기서는 [가상 네트워크에 연결 된](../dns/private-dns-virtual-network-links.md)개인 DNS 영역에 의해 확인 됩니다.
+다음 다이어그램에서는 Azure에 배포 된 DNS 전달자를 사용 하는 온-프레미스 및 가상 네트워크의 DNS 확인 시퀀스를 보여 줍니다. 여기서는 [가상 네트워크에 연결 된](../dns/private-dns-virtual-network-links.md)개인 DNS 영역에 의해 확인 됩니다.
 
 :::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="단일 가상 네트워크 및 Azure 제공 DNS":::
 

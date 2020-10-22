@@ -1,18 +1,18 @@
 ---
 title: Azure Database for PostgreSQL에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Database for PostgreSQL에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 766c0b5090c65a048a954be8feab151f1d13ab74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f17ff4d2bb1e52456cf22fc99e2b4a0a5807dd2d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826712"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312838"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대한 Azure Policy 규정 준수 컨트롤
 

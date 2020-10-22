@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 02bfb7da51f243de8320d0230259577e337231fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ac7666f4c4e68d24499f9c097dc9bd021d270355
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149283"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370698"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 저장된 데이터 보호
 Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니다.  Azure RBAC (역할 기반 액세스 제어) 및 Acl (액세스 제어 목록)을 모두 사용자 및 보안 그룹의 데이터에 완전히 액세스할 수 있도록 설정 해야 합니다.
@@ -39,7 +39,7 @@ Azure Data Lake Storage Gen1의 데이터 보호는 3단계로 이루어집니�
 Azure AD 보안 그룹을 만드는 방법 및 그룹에 사용자를 추가 하는 방법에 대 한 지침은 [Azure Active Directory에서 보안 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조 하세요.
 
 > [!NOTE] 
-> Azure Portal을 사용하여 Azure AD에서 그룹에 사용자 및 다른 그룹을 추가할 수 있습니다. 그러나 서비스 사용자를 그룹에 추가하기 위해서는 [Azure AD PowerShell 모듈](../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)을 사용하세요.
+> Azure Portal을 사용하여 Azure AD에서 그룹에 사용자 및 다른 그룹을 추가할 수 있습니다. 그러나 서비스 사용자를 그룹에 추가하기 위해서는 [Azure AD PowerShell 모듈](../active-directory/enterprise-users/groups-settings-v2-cmdlets.md)을 사용하세요.
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565467"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371803"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 다른 그룹에서 그룹 추가 또는 제거
 이 문서는 Azure Active Directory를 사용하여 다른 그룹에서 그룹을 추가 및 제거하는 데 도움이 됩니다.
@@ -78,6 +78,6 @@ ms.locfileid: "89565467"
 
 - [그룹 설정 편집](active-directory-groups-settings-azure-portal.md)
 
-- [SaaS 애플리케이션에 대한 액세스를 관리할 그룹 사용](../users-groups-roles/groups-saasapps.md)
+- [SaaS 애플리케이션에 대한 액세스를 관리할 그룹 사용](../enterprise-users/groups-saasapps.md)
 
-- [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)

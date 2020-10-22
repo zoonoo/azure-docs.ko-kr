@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/06/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: bf4a1feb91a1ac4b0bca0d6afdbac41a8be3aa4f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049876"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370987"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>이미지 버전에서 관리 디스크 만들기
 
@@ -23,10 +23,10 @@ ms.locfileid: "92049876"
 
 ## <a name="cli"></a>CLI
 
-변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk.md#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
+변수를 `source` 이미지 버전의 ID로 설정한 다음 [az disk create](/cli/azure/disk#az_disk_create) 를 사용 하 여 관리 디스크를 만듭니다. 
 
 
-[Az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list)를 사용 하 여 목록 이미지 버전을 볼 수 있습니다. 이 예제에서는 *Mygallery* 이미지 갤러리에서 *myimagedefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
+[Az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용 하 여 목록 이미지 버전을 볼 수 있습니다. 이 예제에서는 *Mygallery* 이미지 갤러리에서 *myimagedefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
 
 ```azurecli-interactive
 az sig image-version list \

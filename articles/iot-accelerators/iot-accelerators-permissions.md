@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447457"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370613"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>azureiotsolutions.com 사이트를 사용하여 솔루션 가속기 배포
 
@@ -38,7 +38,7 @@ ms.locfileid: "61447457"
 
 솔루션 가속기를 배포하고 사용자를 관리하며 Azure 서비스를 관리하는 권한은 선택한 디렉터리 내의 역할에 따라 다릅니다. 솔루션 가속기와 연관된 일반적인 Azure AD 역할은 다음과 같습니다.
 
-* **전역 관리자**: Azure AD 테 넌 트 당 많은 [전역 관리자가](../active-directory/users-groups-roles/directory-assign-admin-roles.md) 있을 수 있습니다.
+* **전역 관리자**: Azure AD 테 넌 트 당 많은 [전역 관리자가](../active-directory/roles/permissions-reference.md) 있을 수 있습니다.
 
   * Azure AD 테넌트를 만들 때, 만드는 사람은 기본적으로 해당 테넌트의 전역 관리자입니다.
   * 전역 관리자는 기본 및 표준 솔루션 가속기를 배포할 수 있습니다.

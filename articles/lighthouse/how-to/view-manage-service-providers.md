@@ -3,12 +3,12 @@ title: 서비스 공급자 보기 및 관리
 description: 고객은 Azure Portal의 서비스 공급자 페이지를 사용하여 서비스 공급자, 서비스 공급자 제공 및 위임된 리소스의 정보를 볼 수 있습니다.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974399"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371106"
 ---
 # <a name="view-and-manage-service-providers"></a>서비스 공급자 보기 및 관리
 
@@ -78,7 +78,7 @@ Azure Portal의 **서비스 공급자** 페이지에 액세스하려면 고객�
 
 [관리 테 넌 트에 대 한 범위 위임을 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)하는 [Azure Policy 기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#lighthouse) 를 제공 합니다. 감사 하려는 모든 구독이 포함 된 관리 그룹에이 정책을 할당할 수 있습니다. 이 정책에 대 한 준수 여부를 확인 하는 경우 정책이 할당 된 관리 그룹 내에서 위임 된 구독 및/또는 리소스 그룹이 비규격 상태로 표시 됩니다. 그런 다음 결과를 검토 하 고 예기치 않은 위임이 있는지 확인할 수 있습니다.
 
-다른 [기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#lighthouse) 를 사용 하면 [특정 관리 테 넌 트로 위임을 제한할](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json)수 있습니다. 이 정책은 마찬가지로 위임을 제한 하려는 모든 구독이 포함 된 관리 그룹에도 적용할 수 있습니다. 정책이 배포 된 후에는 사용자가 지정 하는 항목의 외부에 있는 테 넌 트에 구독을 위임 하려는 시도는 거부 됩니다.
+다른 [기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#lighthouse) 를 사용 하면 [특정 관리 테 넌 트로 위임을 제한할](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json)수 있습니다. 이 정책은 마찬가지로 위임을 제한 하려는 모든 구독이 포함 된 관리 그룹에도 적용할 수 있습니다. 정책이 배포 된 후에는 사용자가 지정 하는 항목의 외부에 있는 테 넌 트에 구독을 위임 하려는 시도는 거부 됩니다.
 
 정책을 할당 하 고 준수 상태 결과를 확인 하는 방법에 대 한 자세한 내용은 [빠른 시작: 정책 할당 만들기](../../governance/policy/assign-policy-portal.md)를 참조 하세요.
 

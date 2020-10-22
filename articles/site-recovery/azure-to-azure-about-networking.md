@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332045"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370443"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 
 NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 동안 이러한 서비스 태그를 허용 해야 합니다.
 
 - 원본 지역의 저장소 계정:
-    - 원본 지역에 대한 NSG 규칙을 기반으로 [스토리지 서비스 태그](../virtual-network/security-overview.md#service-tags)를 만듭니다.
+    - 원본 지역에 대한 NSG 규칙을 기반으로 [스토리지 서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags)를 만듭니다.
     - VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
-- AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
+- AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
 - 대상 지역에 대 한 EventsHub 서비스 태그 기반 NSG 규칙을 만들어 Site Recovery 모니터링에 대 한 액세스를 허용 합니다.
 - 모든 지역에서 Site Recovery 서비스에 대 한 액세스를 허용 하기 위한 AzureSiteRecovery 서비스 태그 기반 NSG 규칙을 만듭니다.
 - AzureKeyVault 서비스 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 경우에만 필요 합니다.

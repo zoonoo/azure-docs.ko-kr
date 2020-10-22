@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Key Vault에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6812e84282f1a6e8074ac3788f02c5f67167353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9fbf94a6244f198e9aab8be3b8c49cd195fcfa
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818920"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308484"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-key-vault"></a>Azure Key Vault에 대한 Azure Policy 규정 준수 컨트롤
 

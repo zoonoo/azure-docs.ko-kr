@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400692"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370596"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -170,7 +170,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ### <a name="create-new-users"></a>새 사용자 만들기
 
-새로운 사용자 계정을 만들려면 [**전역 관리자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한을 보유한 계정이 있어야 합니다.
+새로운 사용자 계정을 만들려면 [**전역 관리자**](../../active-directory/roles/permissions-reference.md) 권한을 보유한 계정이 있어야 합니다.
 
 1. **사용자**(**계정 설정** 아래)로 이동하여 **사용자 추가**를 선택한 후 **새 사용자 만들기**를 선택합니다.
 1. 새로운 각 사용자의 이름과 성, 사용자 이름을 입력합니다. 
@@ -184,7 +184,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ### <a name="invite-new-users-by-email"></a>전자 메일로 새 사용자 초대
 
-현재 회사 계정(Azure AD 테넌트)에 속하지 않은 사용자를 전자 메일로 초대하려면 [**전역 관리자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한을 보유한 계정이 있어야 합니다.
+현재 회사 계정(Azure AD 테넌트)에 속하지 않은 사용자를 전자 메일로 초대하려면 [**전역 관리자**](../../active-directory/roles/permissions-reference.md) 권한을 보유한 계정이 있어야 합니다.
 
 1. **사용자**(**계정 설정** 아래)로 이동하여 **사용자 추가**를 선택한 후 **전자 메일로 사용자 초대**를 선택합니다.
 2. 하나 이상의 전자 메일 주소 (최대 10 개)를 쉼표나 세미콜론으로 구분 하 여 입력 합니다.
@@ -204,7 +204,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ### <a name="change-a-user-password"></a>사용자 암호 변경
 
-사용자 중 한 명이 암호를 변경해야 하는 경우, 사용자 계정을 만들 때 **암호 복구 전자 메일**을 제공했다면 본인이 직접 암호를 변경할 수 있습니다. 아래 단계를 수행하여 사용자 암호를 업데이트할 수도 있습니다. 회사 계정(Azure AD 테넌트)에서 사용자 암호를 변경하려면 [**전역 관리자**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) 권한이 있는 계정에 로그인해야 합니다. 파트너 센터에 액세스 하는 데 사용 하는 암호와 함께 Azure AD 테 넌 트에서 사용자의 암호가 변경 됩니다.
+사용자 중 한 명이 암호를 변경해야 하는 경우, 사용자 계정을 만들 때 **암호 복구 전자 메일**을 제공했다면 본인이 직접 암호를 변경할 수 있습니다. 아래 단계를 수행하여 사용자 암호를 업데이트할 수도 있습니다. 회사 계정(Azure AD 테넌트)에서 사용자 암호를 변경하려면 [**전역 관리자**](../../active-directory/roles/permissions-reference.md) 권한이 있는 계정에 로그인해야 합니다. 파트너 센터에 액세스 하는 데 사용 하는 암호와 함께 Azure AD 테 넌 트에서 사용자의 암호가 변경 됩니다.
 
 1. **사용자** 페이지(**계정 설정** 아래)에서 편집하려는 사용자 계정의 이름을 선택합니다.
 2. 페이지 아래에 있는 **암호 재설정** 단추를 선택합니다.

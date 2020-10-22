@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341265"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371072"
 ---
 # <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
 
@@ -56,7 +56,7 @@ Security Center의 id 및 액세스 보호에는 몇 가지 제한 사항이 있
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>MFA (multi-factor authentication) 및 Azure Active Directory 
 
-MFA를 사용하려면 [Azure AD(Active Directory) 테넌트 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)이 필요합니다.
+MFA를 사용하려면 [Azure AD(Active Directory) 테넌트 권한](../active-directory/roles/permissions-reference.md)이 필요합니다.
 
 - AD Premium Edition을 사용하는 경우 [조건부 액세스](../active-directory/conditional-access/concept-conditional-access-policy-common.md)를 사용하여 MFA를 사용하도록 설정합니다.
 - AD free edition을 사용 하는 경우 [Azure Active Directory 설명서](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)에 설명 된 대로 **보안 기본값** 을 사용 하도록 설정 합니다.

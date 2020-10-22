@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Arc 지원 클러스터 구성에 GitOps 사용(미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714182"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371259"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster (Preview)에서 GitOps를 사용 하 여 구성 배포
 
@@ -96,19 +96,18 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 다음은 --repository url 매개 변수의 값에 대해 지원되는 시나리오입니다.
 
-| 시나리오 | 형식 | Description |
+| 시나리오 | 형식 | 설명 |
 | ------------- | ------------- | ------------- |
-| 프라이빗 GitHub 리포지토리 - SSH | git@github.com:username/repo | Flux에 의해 생성된 SSH 키 쌍입니다.  사용자는 공개 키를 GitHub 계정에 배포 키로 추가해야 합니다. |
-| 공용 GitHub 리포지토리 | `http://github.com/username/repo` 또는 git://github.com/username/repo   | 공용 Git 리포지토리  |
+| 공용 Git 리포지토리 | http [s]://server/repo.git 또는 git://server/repo.git   | 공용 Git 리포지토리  |
+| 개인 Git 리포지토리 – SSH – Flux에서 만든 키 | ssh://[user@] 서버/리포지토리. git 또는 [user@] 서버: 리포지토리. git | Flux에서 생성 된 공개 키를 Git 서비스 공급자의 사용자 계정 또는 리포지토리에 추가 해야 합니다. 자세한 내용은 [여기](#apply-configuration-from-a-private-git-repository) |
 
-이러한 시나리오는 Flux에서 지원되지만 아직 sourceControlConfiguration에서는 지원되지 않습니다. 
+이러한 시나리오는 Flux에서 지원 되지만 아직 sourceControlConfiguration에서 지원 되지 않습니다.
 
-| 시나리오 | 형식 | Description |
+| 시나리오 | 형식 | 설명 |
 | ------------- | ------------- | ------------- |
-| 프라이빗 GitHub 리포지토리 - HTTPS | `https://github.com/username/repo` | Flux는 SSH 키 쌍을 생성하지 않습니다.  [지침](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
-| 프라이빗 Git 호스트 | user@githost:path/to/repo | [지침](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
-| 프라이빗 GitHub 리포지토리 - SSH(사용자 고유 키 가져오기) | git@github.com:username/repo | [사용자 고유 SSH 키 쌍 사용](https://docs.fluxcd.io/en/1.17.0/guides/provide-own-ssh-key.html) |
-
+| 개인 Git 리포지토리-HTTPS | https://server/repo.git | 곧 제공 됩니다 (사용자 이름/암호, 사용자 이름/토큰, 인증서를 지원 함). |
+| 개인 Git 리포지토리-SSH – 사용자 제공 키 | ssh://[user@] 서버/리포지토리. git 또는 [user@] 서버: 리포지토리. git | 제공 예정 |
+| 개인 Git 호스트 – SSH-사용자 지정 known_hosts | ssh://[user@] 서버/리포지토리. git 또는 [user@] 서버: 리포지토리. git | 제공 예정 |
 
 #### <a name="additional-parameters"></a>추가 매개 변수
 
@@ -225,7 +224,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 **공개 키를 git 리포지토리에 배포 키로 추가**
 
-1. GitHub를 열고 포크로 이동한 다음 **설정**, **배포 키**로 이동합니다.
+1. GitHub를 열고 리포지토리로 이동한 다음 **설정**으로 이동한 다음 **키를 배포** 합니다.
 2. **배포 키 추가**를 클릭합니다.
 3. 제목을 제공합니다.
 4. **쓰기 액세스 허용**을 선택합니다.

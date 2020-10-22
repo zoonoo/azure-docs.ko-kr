@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55df425367cc8295ef6a3899e2edb47669fe57b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba8a0898c11cf1af150f4824d9bef5e9e03576e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741179"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370885"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
 사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일이라는 기간이 지나면 사용자가 자동으로 영구적으로 삭제됩니다.
@@ -90,4 +90,4 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 
 - [다른 조직에서 게스트 사용자 추가](../external-identities/what-is-b2b.md)
 
-사용 가능한 다른 사용자 관리 작업에 대 한 자세한 내용은 [AZURE AD 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조 하세요.
+사용 가능한 다른 사용자 관리 작업에 대 한 자세한 내용은 [AZURE AD 사용자 관리 설명서](../enterprise-users/index.yml)를 참조 하세요.

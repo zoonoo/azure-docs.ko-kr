@@ -2,13 +2,13 @@
 title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385758"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371446"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -26,7 +26,7 @@ Batch의 모든 컴퓨팅 노드는 다음 사항도 포함합니다.
 
 - 태스크에서 참조로 사용할 수 있는 표준 [폴더 구조](files-and-directories.md) 및 연결된 [환경 변수](jobs-and-tasks.md)
 - **방화벽** 설정
-- [원격 액세스](error-handling.md#connect-to-compute-nodes)
+- 원격 액세스를 [사용 하지 않도록 설정 된 풀을 만들지](pool-endpoint-configuration.md)않는 경우 Windows (원격 데스크톱 프로토콜 (RDP)) 및 Linux (Secure Shell) 노드에 대 한 [원격 액세스](error-handling.md#connect-to-compute-nodes) .
 
 기본적으로 노드는 서로 통신할 수 있지만 동일한 풀에 속하지 않는 가상 머신과 통신할 수 없습니다. 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전 하 게 통신할 수 있도록 하려면 [Azure VNet (가상 네트워크)의 서브넷에](batch-virtual-network.md)풀을 프로 비전 할 수 있습니다. 이렇게 하면 공용 IP 주소를 통해 노드에 액세스할 수 있습니다. 이러한 공용 IP 주소는 일괄 처리로 생성 되며 풀의 수명 동안 변경 될 수 있습니다. 사용자가 제어 하는 [고정 공용 IP 주소를 사용 하 여 풀을 만들어](create-pool-public-ip.md) 예기치 않게 변경 되지 않도록 할 수도 있습니다.
 

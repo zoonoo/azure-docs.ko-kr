@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f584ba1021e9cc66454e3aebd7f51b34e72885f5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438826"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369185"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Azure Data Factory 버전 1에서 지 원하는 계산 환경
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "89438826"
 | ---------------------------------------- | ---------------------------------------- |
 | [주문형 Azure HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 자신의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 작업: Batch 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (클래식)](#azure-machine-learning-studio-classic-linked-service) | [Studio (클래식) 활동: 일괄 처리 실행 및 업데이트 리소스](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md) |
 | [AZURE SQL](#azure-sql-linked-service), [azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저 작업](data-factory-stored-proc-activity.md) |
 
@@ -230,7 +230,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 **headNod
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning
+* Azure Machine Learning Studio (클래식)
 * Azure 데이터 레이크 분석
 * Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), SQL Server
 
@@ -272,7 +272,7 @@ Batch 서비스를 처음 사용하는 경우:
 * [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet에 대해 알아봅니다. 이 cmdlet을 사용하여 Batch 계정을 만듭니다. 또는 [Azure Portal](../../batch/batch-account-create-portal.md)을 사용하여 Batch 계정을 만들 수 있습니다. cmdlet 사용에 대한 자세한 내용은 [PowerShell을 사용하여 Batch 계정 관리](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx)를 참조하세요.
 * [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet에 대해 자세히 알아봅니다. 이 cmdlet을 사용하여 Batch 풀을 만듭니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```json
 {
@@ -289,13 +289,13 @@ Batch 서비스를 처음 사용하는 경우:
 }
 ```
 
-**AccountName** 속성의 경우를 추가 **합니다 \<region name\> .** 배치 계정의 이름. 예를 들면 다음과 같습니다.
+**AccountName** 속성의 경우를 추가 **합니다 \<region name\> .** 배치 계정의 이름. 예를 들어:
 
 ```json
 "accountName": "mybatchaccount.eastus"
 ```
 
-또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예를 들면 다음과 같습니다.
+또 다른 옵션은 **batchUri** 엔드포인트를 제공하는 것입니다. 예를 들어:
 
 ```json
 "accountName": "adfteam",
@@ -311,8 +311,8 @@ Batch 서비스를 처음 사용하는 경우:
 | poolName          | VM의 풀 이름입니다.    | 예      |
 | linkedServiceName | Batch 연결된 서비스와 관련된 스토리지 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. | 예      |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
-Machine Learning 연결된 서비스를 만들어서 Machine Learning 일괄 처리 점수 매기기 엔드포인트를 데이터 팩터리에 등록합니다.
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning Studio (클래식) 연결 된 서비스
+Azure Machine Learning Studio (클래식) 연결 된 서비스를 만들어 데이터 팩터리에 Studio (클래식) 일괄 처리 점수 매기기 끝점을 등록할 수 있습니다.
 
 ### <a name="example"></a>예제
 

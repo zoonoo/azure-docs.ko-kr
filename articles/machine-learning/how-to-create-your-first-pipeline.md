@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 9bfec8c1da0581fa7f17dd671358218f22c877c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6cbda4067e98c16ea26f3436b5f65e696549462
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708478"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370307"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -32,7 +32,7 @@ ML 파이프라인은 계산 대상에서 실행 됩니다 ( [Azure Machine Lear
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -251,6 +251,18 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### <a name="how-python-environments-work-with-pipeline-parameters"></a>Python 환경이 파이프라인 매개 변수를 사용 하는 방법
+
+앞서 [학습 실행 환경 구성](#configure-the-training-runs-environment)에서 설명한 대로 환경 상태와 Python 라이브러리 종속성은 개체를 사용 하 여 지정 됩니다 `Environment` . 일반적으로 이름을 참조 하 여 기존을 지정 하 고 선택적으로 버전을 지정할 수 있습니다 `Environment` .
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
+
+그러나 파이프라인 단계에서 개체를 사용 하 여 런타임에 동적으로 변수를 설정 하도록 선택한 경우에는 `PipelineParameter` 이 기술을 사용 하 여 기존를 참조할 수 없습니다 `Environment` . 대신 개체를 사용 하려면 `PipelineParameter` 의 필드를 개체로 설정 해야 합니다 `environment` `RunConfiguration` `Environment` . 이러한가 `Environment` 외부 Python 패키지에 대 한 종속성을 제대로 설정 했는지 확인 하는 것은 사용자의 책임입니다.
+
 ### <a name="use-a-dataset"></a>데이터 세트 사용 
 
 Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 만든 데이터 집합은 모든 파이프라인 단계에 대 한 입력으로 사용할 수 있습니다. [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)에 대 한 출력을 작성 하거나 특정 데이터 저장소에 데이터를 쓰려면 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true)를 사용 합니다. 
@@ -337,6 +349,8 @@ pipeline_run1.wait_for_completion()
 ![실험을 파이프라인으로 실행하는 다이어그램](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 자세한 내용은 [실험 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) 참조를 참조 하세요.
+
+## <a name="use-pipeline-parameters-for-arguments-that-change-at-inference-time"></a>유추 시 변경 되는 인수에 파이프라인 매개 변수 사용
 
 ## <a name="view-results-of-a-pipeline"></a>파이프라인 결과 보기
 

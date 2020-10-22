@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329852"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371497"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -70,7 +70,7 @@ Automation 계정을 만들려면 권한 및 권한이 필요 합니다. 자세�
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. 실행 계정에 역할을 할당 합니다.
 
-기본적으로 **참가자** 역할은 **실행** 계정에서 사용 하는 서비스 주체에 할당 됩니다. 기본 역할을 서비스 주체에 게 할당 된 상태로 유지 하거나 [기본 제공 역할](../role-based-access-control/built-in-roles.md) (예: Reader) 또는 [사용자 지정 역할](../active-directory/users-groups-roles/roles-create-custom.md)을 할당 하 여 권한을 제한할 수 있습니다.
+기본적으로 **참가자** 역할은 **실행** 계정에서 사용 하는 서비스 주체에 할당 됩니다. 기본 역할을 서비스 주체에 게 할당 된 상태로 유지 하거나 [기본 제공 역할](../role-based-access-control/built-in-roles.md) (예: Reader) 또는 [사용자 지정 역할](../active-directory/roles/custom-create.md)을 할당 하 여 권한을 제한할 수 있습니다.
 
  다음 단계를 사용 하 여 실행 계정에서 사용 하는 서비스 주체에 할당 된 역할을 확인 합니다.
 
