@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: c3fd06e2ac399fa18b588b1db5e154eaf013753b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2baccec75c7b525c0837cebd9d828dff3a79543
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979484"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150185"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
@@ -108,7 +108,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-postgres-in-azure"></a>Azure에서 Postgres 만들기
 
-이 단계에서는 [Azure Database for PostgreSQL](/azure/postgresql/)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 애플리케이션을 구성합니다.
+이 단계에서는 [Azure Database for PostgreSQL](../postgresql/index.yml)에서 Postgres 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 Ruby on Rails 애플리케이션을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -117,7 +117,7 @@ Rails 서버를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 ## <a name="create-postgres-database-in-azure"></a>Azure에서 Postgres 데이터베이스 만들기
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
 
 이 섹션에서는 Azure Database for PostgreSQL 서버 및 데이터베이스를 만듭니다. 시작하려면 다음 명령을 사용하여 `db-up` 확장을 설치합니다.
 

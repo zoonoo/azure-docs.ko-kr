@@ -7,12 +7,12 @@ keywords: 변경 내용, 추적, 변경 내용 추적, 인벤토리, 자동화
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530542"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204251"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Azure VM의 변경 내용 문제 해결
 
@@ -238,4 +238,4 @@ Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 
 자세히 알아보려면 변경 내용 추적 및 인벤토리 기능에 대한 개요로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [변경 내용 추적 및 인벤토리 개요](./change-tracking.md)
+> [변경 내용 추적 및 인벤토리 개요](change-tracking/overview.md)

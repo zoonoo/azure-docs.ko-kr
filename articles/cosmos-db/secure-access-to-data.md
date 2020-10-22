@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760872"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371735"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 
@@ -29,20 +29,7 @@ Azure Cosmos DB는 두 가지 유형의 키를 사용하여 사용자를 인증�
 
 ## <a name="primary-keys"></a>기본 키
 
-기본 키는 데이터베이스 계정에 대 한 모든 관리 리소스에 대 한 액세스를 제공 합니다. 기본 키:
-
-- 계정, 데이터베이스, 사용자 및 사용 권한에 대한 액세스를 제공합니다. 
-- 컨테이너 및 문서에 대한 세분화된 액세스를 제공하는 데 사용할 수 없습니다.
-- 계정 생성 중에 만들어집니다.
-- 언제든지 다시 생성할 수 있습니다.
-
-각 계정은 기본 키와 보조 키의 두 가지 기본 키로 구성 됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다.
-
-Cosmos DB 계정의 두 가지 기본 키 외에도 두 개의 읽기 전용 키가 있습니다. 이러한 읽기 전용 키는 계정에 대한 읽기 작업만 허용합니다. 읽기 전용 키는 읽기 권한 리소스에 대한 액세스를 제공하지 않습니다.
-
-Azure Portal를 사용 하 여 기본, 보조, 읽기 전용 및 읽기/쓰기 기본 키를 검색 하 고 다시 생성할 수 있습니다. 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#regenerate-account-key)을 참조하세요.
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명":::
+기본 키는 데이터베이스 계정에 대 한 모든 관리 리소스에 대 한 액세스를 제공 합니다. 각 계정은 기본 키와 보조 키의 두 가지 기본 키로 구성 됩니다. 이중 키를 사용하는 목적은 키를 다시 생성하거나 롤링하여 계정 및 데이터에 지속적인 액세스를 제공하는 것입니다. 기본 키에 대 한 자세한 내용은 [데이터베이스 보안](database-security.md#primary-keys) 문서를 참조 하세요.
 
 ### <a name="key-rotation"></a>키 회전<a id="key-rotation"></a>
 
@@ -54,7 +41,7 @@ Azure Portal를 사용 하 여 기본, 보조, 읽기 전용 및 읽기/쓰기 �
 4. 새 기본 키가 모든 리소스에 대해 작동 하는지 확인 합니다. 키 회전 프로세스는 Cosmos DB 계정의 크기에 따라 1 분에서 몇 시간까지 걸릴 수 있습니다.
 5. 보조 키를 새 기본 키로 바꿉니다.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Azure Portal의 기본 키 회전-NoSQL 데이터베이스 보안을 보여 줍니다." border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>기본 키를 사용 하는 코드 샘플
 
@@ -102,9 +89,9 @@ Cosmos DB 리소스 토큰은 사용자가 부여한 권한에 따라 기본 또
 7. 전화 앱은 계속 리소스 토큰을 사용해서 리소스의 토큰으로 정의된 권한을 사용하여 리소스 토큰에서 허용하는 간격으로 Cosmos DB 리소스에 직접 액세스합니다.
 8. 리소스 토큰이 만료되면 후속 요청은 401 허가되지 않은 예외를 수신합니다.  이 지점에서는 전화 앱이 ID 를 다시 설정하고 새로운 리소스 토큰을 요청합니다.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Portal에서 액세스 제어(IAM) - NoSQL 데이터베이스 보안 설명" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Portal의 기본 키 회전-NoSQL 데이터베이스 보안을 보여 줍니다." border="false":::
 
-리소스 토큰 생성 및 관리는 네이티브 Cosmos DB 클라이언트 라이브러리에서 처리하지만 REST를 사용하는 경우 요청/인증 헤더를 구성해야 합니다. REST에 대 한 인증 헤더를 만드는 방법에 대 한 자세한 내용은 [Cosmos DB 리소스에](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) 대 한 Access Control 또는 [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) 또는 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts)의 소스 코드를 참조 하세요.
+리소스 토큰 생성 및 관리는 네이티브 Cosmos DB 클라이언트 라이브러리에 의해 처리 됩니다. 그러나 REST를 사용 하는 경우 요청/인증 헤더를 구성 해야 합니다. REST에 대 한 인증 헤더를 만드는 방법에 대 한 자세한 내용은 [Cosmos DB 리소스에](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) 대 한 Access Control 또는 [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) 또는 [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts)의 소스 코드를 참조 하세요.
 
 리소스 토큰을 생성하거나 broker하는 데 사용되는 중간 계층 서비스의 예는 [ResourceTokenBroker 앱](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers)을 참조하세요.
 
@@ -168,7 +155,7 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 4. 다음에 대 한 **액세스 할당 상자**에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택 합니다.
 5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 애플리케이션을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
     선택한 사용자, 그룹 또는 애플리케이션이 선택한 멤버 목록에 나타납니다.
-6. **Save**을 클릭합니다.
+6. **저장**을 클릭합니다.
 
 이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
 

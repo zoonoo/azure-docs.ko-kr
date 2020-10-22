@@ -5,6 +5,8 @@
   items:
     - name: 애플리케이션 프로비저닝이란?
       href: user-provisioning.md
+    - name: Docs의 새로운 기능
+      href: whats-new-docs.md
 - name: 자습서
   expanded: true
   items:

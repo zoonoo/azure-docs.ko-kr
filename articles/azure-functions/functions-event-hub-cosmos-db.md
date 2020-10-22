@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: ef2b774195f522be3520850d2e6e7193e70dd4fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ba15047d04d3af25518e8c55a50c55bcacf9037
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103937"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>자습서: Java에서 Event Hub 트리거 및 Azure Cosmos DB 출력 바인딩을 사용하여 함수 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "87372453"
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), 버전 8
+* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
 * [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 * [Azure CLI](/cli/azure/install-azure-cli)(Cloud Shell을 사용하지 않으려는 경우)
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 버전 2.6.666 이상

@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/01/2020
-  ms.openlocfilehash: 66d082c844e3c9c78bf8dbec09e52f8efaf1ee57
-  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+  ms.date: 11/21/2020
+  ms.openlocfilehash: 4b3308b7475d9f1adc5446907e19d363fc4faca0
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92132281"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92367026"
 landingContent:
 - title: 비용 분석
   linkLists:
@@ -72,14 +72,10 @@ landingContent:
     links:
     - text: 비용 경고 사용
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
-    - text: 비용 할당
-      url: costs/allocate-costs.md
     - text: Azure 청구서 보기 및 다운로드
       url: understand/download-azure-invoice.md
     - text: Azure 사용량 및 요금 보기 및 다운로드
       url: understand/download-azure-daily-usage.md
-    - text: 외부 서비스 요금 보기
-      url: understand/understand-azure-marketplace-charges.md
 - title: 비용 최적화
   linkLists:
   - linkListType: concept
@@ -142,23 +138,3 @@ landingContent:
       url: understand/mca-download-tax-document.md
     - text: Microsoft 고객 계약 청구서 결제
       url: understand/pay-bill.md
-- title: 예약 구매
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 구매할 예약 선택
-      url: reservations/determine-reservation-purchase.md
-    - text: 예약 변경 및 환불
-      url: reservations/exchange-and-refund-azure-reservations.md
-  - linkListType: how-to-guide
-    links:
-    - text: 예약 구입
-      url: reservations/prepare-buy-reservation.md
-    - text: 예약 관리
-      url: reservations/manage-reserved-vm-instance.md
-    - text: 예약 구매 보기
-      url: reservations/view-purchase-refunds.md
-    - text: 예약 차지백(charge back)
-      url: reservations/charge-back-usage.md
-    - text: 예약 갱신
-      url: reservations/reservation-renew.md
