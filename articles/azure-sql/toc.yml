@@ -51,8 +51,6 @@
               href: ./database/security-controls-policy.md
             - name: 보안 기준
               href: database/security-baseline.md
-            - name: 보안 특성
-              href: database/security-controls.md
             - name: Azure Defender for SQL
               href: database/azure-defender-for-sql.md
             - name: Advanced Threat Protection
@@ -113,7 +111,7 @@
                   href: database/long-term-retention-overview.md
         - name: 모니터링 및 튜닝
           items:
-            - name: 설명서
+            - name: 문서화
               href: database/monitoring-tuning-index.yml
             - name: 개요
               href: database/monitor-tune-overview.md
@@ -225,7 +223,7 @@
                   href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 - name: SQL Database(SQL DB)
   items:
-    - name: 설명서
+    - name: 문서화
       href: database/index.yml
     - name: 개요
       items:
@@ -637,7 +635,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Managed Instance(SQL MI)
   items:
-    - name: 설명서
+    - name: 문서화
       href: managed-instance/index.yml
     - name: 개요
       items:
@@ -950,7 +948,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Azure VM의 SQL Server
   items:
-    - name: 설명서
+    - name: 문서화
       href: virtual-machines/index.yml
     - name: Windows
       items:

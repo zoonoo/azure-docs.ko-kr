@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965100"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363677"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -78,7 +78,7 @@ SSPR을 시작 하려면 다음 자습서를 완료 하세요.
 Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용자가 SSPR 등록을 완료 하도록 요구 하는 옵션을 사용 하도록 설정할 수 있습니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
 * Microsoft 365
-* Azure portal
+* Azure Portal
 * 액세스 패널
 * 페더레이션된 애플리케이션
 * Azure AD를 사용하여 애플리케이션 사용자 지정
@@ -106,7 +106,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 
 * 모바일 앱 알림
 * 모바일 앱 코드
-* Email
+* 메일
 * 휴대폰
 * 사무실 전화
 * 본인 확인 질문
@@ -166,7 +166,7 @@ SSPR에는 다음과 같은 인증 방법을 사용할 수 있습니다.
 1. 관리자는 더 이상 보안 질문을 사용하지 않도록 정책을 변경하지만 휴대폰 및 보조 메일은 사용하도록 허용합니다.
 1. 휴대폰 또는 대체 전자 메일 필드를 입력 하지 않은 사용자는 이제 암호를 재설정할 수 없습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 SSPR를 사용 하 여 암호 이벤트의 인식을 향상 시키기 위해 사용자 및 id 관리자에 대 한 알림을 구성할 수 있습니다.
 
@@ -227,7 +227,7 @@ SSPR은 Active Directory에서 관리자가 시작한 암호 재설정에 해당
 암호 재설정 및 변경은 모든 B2B(기업 간 전자 상거래) 구성에서 완전히 지원됩니다. B2B 사용자 암호 재설정은 다음 세 가지 경우에 지원됩니다.
 
 * **기존 AZURE ad 테 넌 트를 사용 하는 파트너 조직의 사용자**: 파트너를 사용 하는 조직에 기존 azure ad 테 넌 트가 있는 경우 해당 테 넌 트에서 사용 하도록 설정 된 모든 암호 재설정 정책을 적용 합니다. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Microsoft 365 고객에 게는 추가 요금이 부과 되지 않습니다.
-* 셀프 서비스 등록을 **통해 등록** 하는 사용자: 파트너가 파트너에 게 제공 하는 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용 하 여 테 넌 트에 등록 하는 경우 등록 한 전자 메일을 사용 하 여 암호를 다시 설정할 수 있습니다.
+* 셀프 서비스 등록을 **통해 등록** 하는 사용자: 파트너가 파트너에 게 제공 하는 [셀프 서비스 등록](../enterprise-users/directory-self-service-signup.md) 기능을 사용 하 여 테 넌 트에 등록 하는 경우 등록 한 전자 메일을 사용 하 여 암호를 다시 설정할 수 있습니다.
 * **B2B 사용자**: 새 [Azure AD B2B 기능](../external-identities/what-is-b2b.md) 을 사용 하 여 만든 모든 새 b2b 사용자는 초대 프로세스 중에 등록 한 전자 메일을 사용 하 여 암호를 재설정할 수도 있습니다.
 
 이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.

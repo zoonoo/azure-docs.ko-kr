@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce38fd1a9c49a1715562b59fb14667a88ce44181
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653165"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203843"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -237,7 +237,7 @@ ms.locfileid: "91653165"
     ```
 
     > [!NOTE]
-    > Unity에는 [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html)라는 클래스가 있고, Azure Remote Rendering에는 [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit)라는 클래스가 있습니다. 대문자 **C**는 컴파일 오류를 방지하기 위한 중요한 차이입니다.
+    > Unity에는 [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html)라는 클래스가 있고, Azure Remote Rendering에는 [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit)라는 클래스가 있습니다. 대문자 **C**는 컴파일 오류를 방지하기 위한 중요한 차이입니다.
 
     **RemoteRayCaster**는 원격 광선을 현재 세션으로 캐스팅하기 위한 공통 액세스 지점을 제공합니다. 더 구체적으로, MRTK 포인터 처리기는 다음에 구현합니다. 이 스크립트는 스크립트에서 [혼합 현실 포인터](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) 이벤트를 수신 대기하도록 MRTK에 알려주는 `IMixedRealityPointerHandler` 인터페이스를 구현합니다.
 

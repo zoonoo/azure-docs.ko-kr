@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510932"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207498"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>자습서: 상용 준비된 Azure Remote Rendering 애플리케이션 만들기
 
@@ -35,8 +35,8 @@ Azure Remote Rendering은 혼합 현실에서 수행할 수 있는 작업을 확
 
 시스템 수준의 아키텍처 모범 사례에 대한 광범위한 개요는 다음을 참조하세요.
 
-* [Azure 아키텍처 센터](https://docs.microsoft.com/azure/architecture/)
-* [Azure 개발자를 위한 시작 가이드](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Azure 아키텍처 센터](/azure/architecture/)
+* [Azure 개발자를 위한 시작 가이드](../../../../guides/developer/azure-developer-guide.md)
 
 ## <a name="analytics"></a>분석
 
@@ -54,7 +54,7 @@ Azure Remote Rendering은 혼합 현실에서 수행할 수 있는 작업을 확
 
 리소스 명명 및 태그 지정에 대한 자세한 내용을 알아보려면 다음을 시작하는 것이 좋습니다.
 
-* [리소스 명명 및 태그 지정 의사 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [리소스 명명 및 태그 지정 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 ### <a name="diagnostics"></a>진단
 
@@ -62,9 +62,9 @@ ETW(Windows용 이벤트 추적) 및 ETL(이벤트 추적 로깅)과 같은 강�
 
 자세한 내용은 다음을 참조하세요.
 
-* [클라이언트 쪽 성능 추적 만들기](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [ETW(Windows용 이벤트 추적) 데이터를 수집하는 방법](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Windows 디바이스 포털 사용: 로깅](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [클라이언트 쪽 성능 추적 만들기](../../../how-tos/performance-tracing.md)
+* [ETW(Windows용 이벤트 추적) 데이터를 수집하는 방법](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Windows 디바이스 포털 사용: 로깅](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### <a name="usage-analysis"></a>사용량 분석
 
@@ -72,7 +72,7 @@ Azure Application Insights는 사용자가 Azure Remote Rendering 애플리케�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Application Insights를 사용하여 사용량 분석](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Application Insights를 사용하여 사용량 분석](../../../../azure-monitor/app/usage-overview.md)
 
 ## <a name="fast-startup-time-strategies"></a>빠른 시작 시간 전략
 
@@ -102,7 +102,7 @@ Azure Remote Rendering에는 전처리된 3D 모델이 필요하며, Azure에서
 
 Azure Remote Rendering 세션에 대한 자세한 내용은 다음을 확인하세요.
 
-* [Remote Rendering 세션](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Remote Rendering 세션](../../../concepts/sessions.md)
 
 ## <a name="standard-vs-premium-server-size-routing-strategies"></a>표준 및 프리미엄 서버 크기 라우팅 전략
 
@@ -164,9 +164,9 @@ Azure Remote Rendering VM과 최종 클라이언트 사이에 있을 수 있는 
 네트워크 분석에 대한 자세한 내용은 다음을 확인하세요.
 
 * [Azure Storage Blob 다운로드 속도 테스트](https://www.azurespeed.com/Azure/Download)
-* [Azure 네트워크 왕복 대기 시간 통계](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [서버 쪽 성능 추적](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [클라이언트 쪽 성능 추적](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Azure 네트워크 왕복 대기 시간 통계](../../../../networking/azure-network-latency.md)
+* [서버 쪽 성능 추적](../../../overview/features/performance-queries.md)
+* [클라이언트 쪽 성능 추적](../../../how-tos/performance-tracing.md)
 
 ## <a name="collaboration-considerations"></a>협업 고려 사항
 
@@ -192,8 +192,8 @@ Azure Remote Rendering과의 공유 환경을 지원하려면 ARR 세션을 만�
 
 자세한 내용은 다음을 참조하세요.
 
-* [혼합 현실의 공유 환경](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Azure Storage 중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [혼합 현실의 공유 환경](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Azure Storage 중복성](../../../../storage/common/storage-redundancy.md)
 
 ## <a name="managing-model-access"></a>모델 액세스 관리
 
@@ -230,7 +230,7 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 자세한 내용은 다음을 참조하세요.
 
 * [OneDrive를 Azure Storage에 복제하는 Microsoft Power Automate 템플릿](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [OneDrive 파일 스토리지 API 개요](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [OneDrive 파일 스토리지 API 개요](/graph/onedrive-concept-overview)
 
 ### <a name="direct-cad-access"></a>직접 CAD 액세스
 
@@ -255,7 +255,7 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 자세한 내용은 다음을 참조하세요.
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [자습서: Marketplace에서 Azure 관리형 애플리케이션 게시](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [자습서: Marketplace에서 Azure 관리형 애플리케이션 게시](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>보안
 
@@ -277,6 +277,6 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD 서비스 인증](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Azure AD 서비스 인증](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Azure를 사용하여 보안 상태 강화](https://azure.microsoft.com/overview/security/)
 * [클라우드 보안](https://azure.microsoft.com/product-categories/security/)

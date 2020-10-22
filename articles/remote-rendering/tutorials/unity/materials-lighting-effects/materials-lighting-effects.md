@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021071"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203248"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>자습서: 재질, 조명 및 효과 구체화
 
@@ -32,7 +32,7 @@ ms.locfileid: "89021071"
 
 사용자에게 시각적 피드백을 제공하는 것은 모든 애플리케이션에서 사용자 환경의 중요한 부분입니다. Azure Remote Rendering은 [계층 상태 재정의](../../../overview/features/override-hierarchical-state.md)를 통해 시각적 피드백 메커니즘을 제공합니다. 계층 상태 재정의는 모델의 로컬 인스턴스에 연결된 구성 요소를 사용하여 구현됩니다. [원격 개체 그래프를 Unity 계층 구조에 동기화](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy)에서 이러한 로컬 인스턴스를 만드는 방법을 알아보았습니다.
 
-먼저 래퍼를 [**HierarchicalStateOverrideComponent**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) 구성 요소 주위에 만듭니다. **HierarchicalStateOverrideComponent**는 원격 엔터티에 대한 재정의를 제어하는 로컬 스크립트입니다. [**자습서 자산**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial)에는 래퍼를 만들기 위해 확장할 **BaseEntityOverrideController**라는 추상 기본 클래스가 포함되어 있습니다.
+먼저 래퍼를 [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) 구성 요소 주위에 만듭니다. **HierarchicalStateOverrideComponent**는 원격 엔터티에 대한 재정의를 제어하는 로컬 스크립트입니다. [**자습서 자산**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial)에는 래퍼를 만들기 위해 확장할 **BaseEntityOverrideController**라는 추상 기본 클래스가 포함되어 있습니다.
 
 1. **EntityOverrideController**라는 새 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
 

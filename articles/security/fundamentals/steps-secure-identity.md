@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107813"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364119"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -135,7 +135,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 Azure AD PIM을 사용하도록 설정한 다음, 관리자 역할이 할당된 사용자를 보고, 해당 역할에서 필요 없는 계정을 제거합니다. 나머지 권한 있는 사용자의 경우 영구 상태에서 적격 상태로 이동합니다. 마지막으로, 사용자가 권한 있는 역할에 대한 액세스 권한을 얻어야 하는 경우 필요한 변경 제어를 통해 안전하게 얻을 수 있습니다.
 
-권한 있는 계정 프로세스 배포의 일부로, 직접 잠글 경우 Azure AD에 액세스할 수 있도록 [두 개 이상의 비상 계정을 만드는 모범 사례](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)를 수행합니다.
+권한 있는 계정 프로세스 배포의 일부로, 직접 잠글 경우 Azure AD에 액세스할 수 있도록 [두 개 이상의 비상 계정을 만드는 모범 사례](../../active-directory/roles/security-planning.md)를 수행합니다.
 
 ## <a name="step-3---automate-threat-response"></a>3단계 - 위협 응답 자동화
 
@@ -193,7 +193,7 @@ IT 관리자는 Azure AD의 [SSPR(셀프 서비스 암호 재설정)](../../acti
 
 ### <a name="implement-self-service-group-and-application-access"></a>셀프 서비스 그룹 및 애플리케이션 액세스 구현
 
-Azure AD는 보안 그룹, Microsoft 365 그룹, 응용 프로그램 역할 및 액세스 패키지 카탈로그를 사용 하 여 관리자가 아닌 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다.  [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md)를 통해 그룹 소유자는 관리 역할을 할당하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용 하 여 요청을 처리 하지 않고 Microsoft 365 그룹을 만들고 관리할 수 있으며 사용 하지 않는 그룹은 자동으로 만료 됩니다.  [Azure AD 권한 관리](../../active-directory/governance/entitlement-management-overview.md)는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 강화합니다.  직원의 관리자 및 비즈니스 파트너 스폰서를 승인자로 구성하는 등 액세스를 승인해야 하는 사용자에 대한 사용자 지정 정책을 사용하여 자신이 소유한 그룹, 팀, 애플리케이션 및 SharePoint Online 사이트에 대한 고유한 액세스 패키지를 구성하는 기능을 비관리자에게 위임할 수 있습니다.
+Azure AD는 보안 그룹, Microsoft 365 그룹, 응용 프로그램 역할 및 액세스 패키지 카탈로그를 사용 하 여 관리자가 아닌 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다.  [셀프 서비스 그룹 관리](../../active-directory/enterprise-users/groups-self-service-management.md)를 통해 그룹 소유자는 관리 역할을 할당하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용 하 여 요청을 처리 하지 않고 Microsoft 365 그룹을 만들고 관리할 수 있으며 사용 하지 않는 그룹은 자동으로 만료 됩니다.  [Azure AD 권한 관리](../../active-directory/governance/entitlement-management-overview.md)는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 강화합니다.  직원의 관리자 및 비즈니스 파트너 스폰서를 승인자로 구성하는 등 액세스를 승인해야 하는 사용자에 대한 사용자 지정 정책을 사용하여 자신이 소유한 그룹, 팀, 애플리케이션 및 SharePoint Online 사이트에 대한 고유한 액세스 패키지를 구성하는 기능을 비관리자에게 위임할 수 있습니다.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Azure AD 액세스 검토 구현
 

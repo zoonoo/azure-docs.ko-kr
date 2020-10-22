@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070370"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363694"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -139,13 +139,13 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 프로덕션의 모든 사용자로 크기를 조정 하기 전에 사용자 수가 작은 테스트 환경에서 자동 사용자 프로 비전의 초기 구성을 수행 하는 것이 좋습니다. 파일럿 실행에 대 한 [모범 사례](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) 를 참조 하세요.
 
-#### <a name="best-practices-for-a-pilot"></a>파일럿에 대 한 모범 사례  
+#### <a name="best-practices-for-a-pilot"></a>파일럿에 대 한 모범 사례  
 
 파일럿을 통해 모든 사용자에 게 기능을 배포 하기 전에 작은 그룹으로 테스트할 수 있습니다. 테스트의 일부로 조직 내의 각 사용 사례가 철저 하 게 테스트 되었는지 확인 합니다.
 
 첫 번째 wave에서 테스트 하 고 피드백을 제공할 수 있는 IT, 유용성 및 기타 적절 한 사용자를 대상으로 합니다. 이 피드백을 사용 하 여 사용자에 게 보내는 통신 및 지침을 추가로 개발 하 고 지원 담당자에 게 표시 되는 문제 유형에 대 한 통찰력을 얻을 수 있습니다.
 
-대상 그룹의 범위를 늘려 더 큰 사용자 그룹에 대 한 롤아웃을 확장 합니다. [동적 그룹 멤버 자격](../users-groups-roles/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
+대상 그룹의 범위를 늘려 더 큰 사용자 그룹에 대 한 롤아웃을 확장 합니다. [동적 그룹 멤버 자격](../enterprise-users/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
 
 ## <a name="plan-application-connections-and-administration"></a>응용 프로그램 연결 및 관리 계획
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070387"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363660"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -79,10 +79,10 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-- Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  입니다.
-- Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) 역할
+- Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../roles/permissions-reference.md#hybrid-identity-administrator)  입니다.
+- Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator) 역할
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스입니다.
 - 클라우드 HR 앱에서 시스템 통합 사용자를 만들고 테스트 목적으로 직원 데이터를 변경 하는 관리자 권한
 - Active Directory에 대 한 사용자 프로 비전을 위해 Azure AD Connect 프로 비전 에이전트를 호스트 하려면 .NET 4.7.1 + runtime을 사용 하 여 Windows Server 2012 이상을 실행 하는 서버가 필요 합니다.
@@ -96,7 +96,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 | | [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) |
 | 자습서 | [SaaS 앱을 Azure AD와 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md) |
 | | [자습서: 자동 사용자 프로비저닝을 위한 Workday 구성](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| FAQ | [자동화된 사용자 프로비전](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| FAQ | [자동화 된 사용자 프로 비전](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Workday에서 Azure AD로 프로 비전](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
@@ -110,7 +110,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 #### <a name="description-of-workflow"></a>워크플로에 대한 설명
 
-다이어그램에는 다음과 같은 주요 단계가 나와 있습니다.  
+다이어그램에는 다음과 같은 주요 단계가 나와 있습니다.  
 
 1. **Hr 팀** 은 cloud hr 앱 테 넌 트에서 트랜잭션을 수행 합니다.
 2. **AZURE AD 프로 비전 서비스** 는 클라우드 HR 앱 테 넌 트에서 예약 된 주기를 실행 하 고 Active Directory와 동기화 하기 위해 처리 해야 하는 변경 내용을 식별 합니다.

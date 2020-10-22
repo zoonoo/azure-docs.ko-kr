@@ -4,12 +4,12 @@ description: Azure Migrate 서버 평가 도구를 사용하여 온-프레미스
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442325"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317162"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>자습서: 서버 평가를 사용하여 Hyper-V VM 검색
 
@@ -204,7 +204,7 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 성공적으로 로그인하면 웹앱으로 돌아갑니다. 
-4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](tutorial-prepare-hyper-v.md#prepare-azure)이 있는 경우 어플라이언스 등록이 시작됩니다.
+4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 권한이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기**를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
 
 

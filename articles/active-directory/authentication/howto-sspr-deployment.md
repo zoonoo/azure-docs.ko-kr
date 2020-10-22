@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657219"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363728"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Azure Active Directory 셀프 서비스 암호 재설정 배포 계획
 
@@ -313,7 +313,7 @@ Azure AD는 감사 및 보고서를 통해 SSPR 성능에 대한 추가 정보�
 Azure Portal에서 미리 빌드된 보고서를 사용하여 SSPR 성능을 측정할 수 있습니다. 적절히 라이선스를 받은 경우 사용자 지정 쿼리를 만들 수도 있습니다. 자세한 내용은 [Azure AD 암호 관리에 대한 보고 옵션](./howto-sspr-reporting.md)을 참조하세요.
 
 > [!NOTE]
->  사용자는 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md)여야 하며 조직의 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 보고 탭이나 감사 로그를 방문해야 합니다. 그때까지는 조직에 데이터가 수집되지 않습니다.
+>  사용자는 [전역 관리자](../roles/permissions-reference.md)여야 하며 조직의 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 보고 탭이나 감사 로그를 방문해야 합니다. 그때까지는 조직에 데이터가 수집되지 않습니다.
 
 등록 및 암호 재설정을 위한 감사 로그는 30일 동안 사용할 수 있습니다. 회사 내의 보안 감사에 더 긴 보존이 필요한 경우 로그를 내보내고 [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk 또는 ArcSight와 같은 SIEM 도구로 사용해야 합니다.
 

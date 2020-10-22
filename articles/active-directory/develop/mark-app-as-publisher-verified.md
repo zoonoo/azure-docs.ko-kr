@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258339"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363456"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>앱을 게시자 확인으로 표시
 
@@ -42,7 +42,7 @@ ms.locfileid: "91258339"
 
 1. 파트너 센터의 MPN 계정에 게시자 확인으로 표시 하려는 앱을 변경할 수 있는 권한이 있는 조직 (Azure AD) 계정에 대 한 [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) 을 사용 하 여 로그인 했는지 확인 합니다.
 
-    - Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자, 전역 관리자 [역할](../users-groups-roles/directory-assign-admin-roles.md)중 하나의 멤버 여야 합니다. 
+    - Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자, 전역 관리자 [역할](../roles/permissions-reference.md)중 하나의 멤버 여야 합니다. 
 
     - 파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다. 
 

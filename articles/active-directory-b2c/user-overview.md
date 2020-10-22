@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9630e1f23b6595ca690ecafcf0c4b9bfff603f2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78185661"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363847"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 계정 개요
 
@@ -43,7 +43,7 @@ Azure Active Directory B2C (Azure AD B2C)에는 여러 가지 유형의 계정�
 
     - **사용자** - 사용자는 할당된 리소스에 액세스할 수 있지만, 대부분의 테넌트 리소스를 관리할 수는 없습니다.
     - **전역 관리자** - 전역 관리자는 전체 테넌트 리소스에 대한 모든 권한을 보유합니다.
-    - **제한된 관리자** - 사용자에 대한 관리 역할을 선택합니다. 선택할 수 있는 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+    - **제한된 관리자** - 사용자에 대한 관리 역할을 선택합니다. 선택할 수 있는 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../active-directory/roles/permissions-reference.md)을 참조하세요.
 
 ### <a name="create-a-work-account"></a>회사 계정 만들기
 

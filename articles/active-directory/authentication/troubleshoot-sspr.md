@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963825"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363541"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 문제 해결
 
@@ -32,7 +32,7 @@ Azure Portal에서 SSPR 옵션을 보거나 구성 하는 데 문제가 있는 �
 
 작업을 수행 하는 관리자에 게 Azure AD 라이선스가 할당 되어 있지 않은 경우 **암호 다시 설정** 메뉴 옵션이 표시 되지 않습니다.
 
-문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다.
+문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다.
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>특정 구성 옵션이 보이지 않습니다.
 
@@ -52,7 +52,7 @@ Azure Portal에서 SSPR 보고에 문제가 있는 경우 다음 문제 해결 �
 
 작업을 수행하는 관리자에게 Azure AD 라이선스가 할당되지 않은 경우에 발생할 수 있습니다.
 
-문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다.
+문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다.
 
 ### <a name="user-registrations-show-multiple-times"></a>사용자 등록이 여러 번 표시됩니다
 
@@ -74,7 +74,7 @@ Azure Portal에서 **셀프 서비스 암호 재설정 사용** 구성을 *선�
 
 현재 Azure Portal을 사용하여 SSPR에 대해 하나의 Azure AD 그룹만 사용하도록 설정할 수 있습니다. 더 광범위한 SSPR 배포의 일부로 중첩된 그룹이 지원됩니다. 선택한 그룹의 사용자에게 적절한 라이선스가 할당되어 있는지 확인합니다. 이전 문제 해결 단계를 검토 하 여 필요에 따라 SSPR를 사용 하도록 설정 합니다.
 
-또한 구성 옵션을 수행 하는 관리자에 게 라이선스가 할당 되었는지 확인 하는 문제 해결 단계를 검토 합니다. 문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다.
+또한 구성 옵션을 수행 하는 관리자에 게 라이선스가 할당 되었는지 확인 하는 문제 해결 단계를 검토 합니다. 문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다.
 
 ### <a name="theres-an-error-processing-the-request"></a>요청을 처리 하는 동안 오류가 발생 했습니다.
 
@@ -87,7 +87,7 @@ SSPR를 사용 하 여 사용자 또는 사용자에 게 문제가 있는 경우
 | Error | 해결 방법 |
 | --- | --- |
 | 암호 재설정에 디렉터리를 사용할 수 없습니다. | Azure Portal에서 **셀프 서비스 암호 재설정 사용** 구성을 *선택* 됨 또는 *모두* 로 변경 하 고 **저장**을 선택 합니다. |
-| 사용자에 게 Azure AD 라이선스가 할당 되어 있지 않습니다. | 이 문제는 원하는 사용자에 게 Azure AD 라이선스가 할당 되지 않은 경우에 발생할 수 있습니다. 문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다. |
+| 사용자에 게 Azure AD 라이선스가 할당 되어 있지 않습니다. | 이 문제는 원하는 사용자에 게 Azure AD 라이선스가 할당 되지 않은 경우에 발생할 수 있습니다. 문제의 관리자 계정에 라이선스를 할당 하려면 [라이선스 관련 문제를 할당, 확인 및 해결](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)하는 단계를 수행 합니다. |
 | 암호 재설정에 디렉터리를 사용할 수 있지만 사용자가 인증 정보를 누락했거나 형식이 잘못 되었습니다. | 사용자의 디렉터리에 있는 파일에 대 한 연락처 데이터가 올바르게 구성 되어 있는지 확인 합니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요. |
 | 암호 재설정에 디렉터리를 사용할 수 있지만 두 개의 검증 단계가 필요하도록 정책이 설정된 경우 사용자는 파일에 하나의 연락처 데이터만 유지하게 됩니다. | 사용자에 게 올바르게 구성 된 연락 방법이 두 개 이상 있는지 확인 합니다. 예로 휴대폰 번호*와* 사무실 전화 번호를 둘 다 사용하는 경우를 예로 들 수 있습니다. |
 | 암호 재설정에 디렉터리를 사용할 수 있고 사용자가 올바르게 구성되어 있지만 사용자와 연결할 수 없습니다. | 이것은 임시 서비스 오류가 발생 하거나 제대로 검색할 수 없는 잘못 된 연락처 데이터가 있는 경우에 발생할 수 있습니다. <br> <br> 사용자가 10 초 동안 기다리면 링크가 "다시 시도" 및 "관리자에 게 문의"에 표시 됩니다. 사용자가 "다시 시도"를 선택 하면 호출을 다시 시도 합니다. 사용자가 "관리자에 게 문의"를 선택 하는 경우 관리자에 게 해당 사용자 계정에 대해 암호 재설정을 수행 하도록 요청 하는 전자 메일 양식을 보냅니다. |
