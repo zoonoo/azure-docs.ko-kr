@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 440d8af17bccaf8d3fcb92f65e5d91ed969aec31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29873e161b64c52abbfdf3f2611714f6b012361
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971413"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097289"
 ---
 # <a name="tutorial-share-spatial-anchors-across-sessions-and-devices"></a>자습서: 세션 및 디바이스에서 공간 앵커 공유
 
@@ -86,7 +86,7 @@ Visual Studio Code에서 서비스를 배포하기 전에 리소스 그룹 및 A
 
 Visual Studio Code를 연 다음, *Sharing\SharingServiceSample* 폴더에서 프로젝트를 엽니다. 
 
-Visual Studio Code를 통해 공유 서비스를 배포하려면 <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Visual Studio Code를 사용하여 Azure에 ASP.NET Core 앱 게시</a>의 지침을 따릅니다. "Visual Studio Code를 사용하여 열기" 섹션에서 시작합니다. 배포하고 게시할 프로젝트(SharingServiceSample)가 이미 있으므로 이전 단계에서 설명한 대로 다른 ASP.NET 프로젝트를 만들지 마세요.
+Visual Studio Code를 통해 공유 서비스를 배포하려면 <a href="/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Visual Studio Code를 사용하여 Azure에 ASP.NET Core 앱 게시</a>의 지침을 따릅니다. "Visual Studio Code를 사용하여 열기" 섹션에서 시작합니다. 배포하고 게시할 프로젝트(SharingServiceSample)가 이미 있으므로 이전 단계에서 설명한 대로 다른 ASP.NET 프로젝트를 만들지 마세요.
 
 ---
 
@@ -104,4 +104,3 @@ Azure Cosmos DB를 사용하여 공유된 공간 앵커 식별자의 스토리�
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB를 사용하여 앵커 저장](./tutorial-use-cosmos-db-to-store-anchors.md)
-

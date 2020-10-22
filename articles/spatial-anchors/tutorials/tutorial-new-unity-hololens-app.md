@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee7a0ca1abedd2f80cd8f5fe66e603315a10966f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939531"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096541"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 단계별 지침
 
@@ -25,7 +25,7 @@ ms.locfileid: "91939531"
 
 1. **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
 2. Visual Studio용 [C++/WinRT Visual Studio 확장(VSIX)](https://aka.ms/cppwinrt/vsix)은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)에서 설치합니다.
-3. [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2020년 5월 업데이트](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 )가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
+3. [개발자 모드](/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2020년 5월 업데이트](/windows/mixed-reality/whats-new/release-notes-may-2020)가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -89,7 +89,7 @@ ms.locfileid: "91939531"
 이제 **프로젝트** 창에 구체 prefab이 생겼습니다.
 
 ## <a name="trying-it-out"></a>사용해 보기
-모든 항목이 작동하는지 테스트하려면 **Unity**에서 앱을 빌드하고 **Visual Studio**에서 배포합니다. [**MR 기본 사항 100: Unity 시작** 과정](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio)의 6장을 진행하여 이 작업을 수행합니다. Unity 시작 화면이 표시된 후 명확한 화면이 표시됩니다.
+모든 항목이 작동하는지 테스트하려면 **Unity**에서 앱을 빌드하고 **Visual Studio**에서 배포합니다. [**MR 기본 사항 100: Unity 시작** 과정](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio)의 6장을 진행하여 이 작업을 수행합니다. Unity 시작 화면이 표시된 후 명확한 화면이 표시됩니다.
 
 ## <a name="place-an-object-in-the-real-world"></a>실제 환경에 개체 배치
 앱을 사용하여 개체를 만들고 배치해 보겠습니다. [앱을 배포](#trying-it-out)할 때 만든 Visual Studio 솔루션을 엽니다.
@@ -208,7 +208,7 @@ Azure Spatial Anchors 계정 식별자, 키 및 도메인이 있으면 `Account 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-**Visual Studio**에서 앱을 한 번 더 실행합니다. 머리를 움직여본 후 에어 탭을 움직여 구를 배치합니다. 충분한 프레임이 있으면 구의 색이 노란색으로 변하고 클라우드 업로드가 시작됩니다. 업로드가 완료되면 구의 색이 파란색으로 변합니다. 필요에 따라 **Visual Studio** 내에서 디버깅하는 동안 [출력 창](https://docs.microsoft.com/visualstudio/ide/reference/output-window)을 사용하여 앱에서 보내는 로그 메시지를 모니터링할 수도 있습니다. 로그 메시지를 보려면 Visual Studio에서 앱의 `Debug` 구성을 배포해야 합니다. `RecommendedForCreateProgress`를 시청할 수 있고 업로드가 완료되면 클라우드에서 반환된 앵커 식별자를 볼 수 있습니다.
+**Visual Studio**에서 앱을 한 번 더 실행합니다. 머리를 움직여본 후 에어 탭을 움직여 구를 배치합니다. 충분한 프레임이 있으면 구의 색이 노란색으로 변하고 클라우드 업로드가 시작됩니다. 업로드가 완료되면 구의 색이 파란색으로 변합니다. 필요에 따라 **Visual Studio** 내에서 디버깅하는 동안 [출력 창](/visualstudio/ide/reference/output-window)을 사용하여 앱에서 보내는 로그 메시지를 모니터링할 수도 있습니다. 로그 메시지를 보려면 Visual Studio에서 앱의 `Debug` 구성을 배포해야 합니다. `RecommendedForCreateProgress`를 시청할 수 있고 업로드가 완료되면 클라우드에서 반환된 앵커 식별자를 볼 수 있습니다.
 
 > [!NOTE]
 > "DllNotFoundException: DLL 'AzureSpatialAnchors'를 로드할 수 없습니다. 지정된 모듈을 찾을 수 없습니다."가 표시되면 솔루션을 다시 **정리** 및 **빌드**해야 합니다.

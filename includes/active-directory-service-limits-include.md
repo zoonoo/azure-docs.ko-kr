@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 49d0d3e8665e0e80b1626c180300611149eff23f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 819a897e2a785991378ce4b6cb19194665b569f0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005986"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363405"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "90005986"
 | --- | --- |
 | 테넌트 | 단일 사용자는 멤버 또는 게스트로 최대 500개의 Azure AD 테넌트에 속할 수 있습니다.<br/>단일 사용자는 최대 200개의 디렉터리를 만들 수 있습니다. |
 | 도메인 | 관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 모든 도메인을 온-프레미스 Active Directory와 페더레이션하도록 설정하는 경우 450개 이하의 도메인 이름을 각 테넌트에 추가할 수 있습니다. |
-|리소스 |<ul><li>기본적으로 Azure Active Directory 평가판 버전의 사용자는 최대 50,000개의 Azure AD 리소스를 단일 테넌트에 만들 수 있습니다. 확인된 도메인이 하나 이상 있는 경우 조직의 기본 Azure AD 서비스 할당량은 Azure AD 리소스 300,000개로 확장됩니다. 이 서비스 제한은 Azure AD 가격 책정 페이지의 리소스 500,000개 가격 책정 계층 제한과는 관련이 없습니다. 기본 할당량을 초과하여 사용하려면 Microsoft 지원에 문의해야 합니다.</li><li>관리자가 아닌 사용자는 Azure AD 리소스를 250개까지 만들 수 있습니다. 이러한 할당량에는 활성 리소스와 삭제되었지만 복원 가능한 리소스가 포함됩니다. 삭제 후 30일이 넘지 않은 Azure AD 리소스만 복원할 수 있습니다. 지난 30일 동안 삭제된 Azure AD 리소스 중 더 이상 복원할 수 없는 개체는 1/4 값으로 이 할당량에 포함됩니다. 정규 업무를 수행하는 동안 이 할당량을 반복적으로 초과할 가능성이 높은 개발자가 있는 경우 앱 등록을 무제한으로 만들 수 있는 권한이 있는 [사용자 지정 역할을 만들고 할당](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md)할 수 있습니다.</li></ul> |
+|리소스 |<ul><li>기본적으로 Azure Active Directory 평가판 버전의 사용자는 최대 50,000개의 Azure AD 리소스를 단일 테넌트에 만들 수 있습니다. 확인된 도메인이 하나 이상 있는 경우 조직의 기본 Azure AD 서비스 할당량은 Azure AD 리소스 300,000개로 확장됩니다. 이 서비스 제한은 Azure AD 가격 책정 페이지의 리소스 500,000개 가격 책정 계층 제한과는 관련이 없습니다. 기본 할당량을 초과하여 사용하려면 Microsoft 지원에 문의해야 합니다.</li><li>관리자가 아닌 사용자는 Azure AD 리소스를 250개까지 만들 수 있습니다. 이러한 할당량에는 활성 리소스와 삭제되었지만 복원 가능한 리소스가 포함됩니다. 삭제 후 30일이 넘지 않은 Azure AD 리소스만 복원할 수 있습니다. 지난 30일 동안 삭제된 Azure AD 리소스 중 더 이상 복원할 수 없는 개체는 1/4 값으로 이 할당량에 포함됩니다. 정규 업무를 수행하는 동안 이 할당량을 반복적으로 초과할 가능성이 높은 개발자가 있는 경우 앱 등록을 무제한으로 만들 수 있는 권한이 있는 [사용자 지정 역할을 만들고 할당](../articles/active-directory/roles/quickstart-app-registration-limits.md)할 수 있습니다.</li></ul> |
 | 스키마 확장 |<ul><li>문자열 형식 확장은 최대 256자까지 가능합니다. </li><li>이진 형식 확장은 256바이트로 제한됩니다.</li><li>*모든* 형식 및 *모든* 애플리케이션에서 단일 Azure AD 리소스에는 확장 값을 100개만 작성할 수 있습니다.</li><li>User, Group, TenantDetail, Device, Application 및 ServicePrincipal 엔터티만 String 형식 또는 Binary 형식의 단일 값 특성으로 확장할 수 있습니다.</li><li>스키마 확장은 Graph API 버전 1.21 미리 보기에서만 사용할 수 있습니다. 확장을 등록하려면 애플리케이션에 쓰기 권한이 있어야 합니다.</li></ul> |
 | 애플리케이션 |최대 100명의 사용자가 단일 애플리케이션의 소유자가 될 수 있습니다. |
 |애플리케이션 매니페스트 |애플리케이션 매니페스트에서 최대 1200개 항목을 추가할 수 있습니다. |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930291"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166933"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -36,7 +36,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 | Linux 기반 [Docker 컨테이너](text-analytics-how-to-install-containers.md) | X  |  |
 | 의견 마이닝                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>감정 채점 및 레이블 지정
+## <a name="sentiment-scoring-and-labeling"></a>감정 채점 및 레이블 지정
 
 감정 분석 v3는 텍스트에 감정 레이블을 적용합니다. 이는 문장과 문서 각각에 대한 신뢰도 점수와 함께 문장과 문서 수준에서 반환됩니다. 
 
@@ -51,7 +51,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 신뢰도 점수의 범위는 1에서 0까지입니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 각 문서 또는 각 문장에 대해 레이블(긍정, 부정 및 중립)과 관련된 예측 점수는 최대 1까지 추가됩니다.
 
-### <a name="opinion-mining"></a>의견 마이닝
+## <a name="opinion-mining"></a>의견 마이닝
 
 의견 마이닝은 버전 3.1-preview.1부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
 

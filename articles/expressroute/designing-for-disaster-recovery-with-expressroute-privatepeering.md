@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92202416"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
@@ -80,7 +80,7 @@ Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트�
 
 다음 다이어그램에서는 연결 가중치를 사용 하는 Express 경로 선택 경로 선택에 대해 설명 합니다. 기본 연결 가중치는 0입니다. 아래 예제에서는 Express 경로 1에 대 한 연결의 가중치가 100로 구성 됩니다. VNet은 둘 이상의 Express 경로 회로를 통해 보급 된 경로 접두사를 받을 때 가장 높은 가중치가 있는 연결을 선호 합니다.
 
-[![3-4]][4]
+[![4]][4]
 
 Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
@@ -118,7 +118,7 @@ Azure에 영향을 주는 방법 중 하나를 사용 하 여 다른 사용자�
 
 Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네트워크 바운드 트래픽에 대 한 로컬 피어 링 위치에 대 한 연결을 선호 하는 시나리오를 설계할 수 있습니다. 이 솔루션을 완료 하려면 대칭 역방향 트래픽 흐름을 확인 해야 합니다. BGP 라우터 (온-프레미스 쪽에서 Express 경로 회로가 종료 됨) 간의 iBGP 세션에서 로컬 기본 설정을 사용 하 여 Express 경로 회로를 선호 합니다. 이 솔루션은 다음 다이어그램에 설명 되어 있습니다. 
 
-[![8]][8]
+[![20cm(8]][8]
 
 ### <a name="scenario-2"></a>시나리오 2
 

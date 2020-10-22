@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92166593"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure Monitor의 뷰 디자이너 시각화 요소에 대 한 참조 가이드
@@ -24,7 +24,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 사용 가능한 뷰 디자이너 타일 유형은 다음 표에 설명되어 있습니다.
 
-| 보기 유형 | Description |
+| 보기 유형 | 설명 |
 |:--- |:--- |
 | [쿼리 목록](#list-of-queries-part) |로그 쿼리 목록을 표시 합니다. 각 쿼리를 선택하면 결과를 표시할 수 있습니다. |
 | [숫자 및 목록](#number-and-list-part) |머리글에 로그 쿼리의 레코드 수를 표시 하는 단일 숫자가 표시 됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다. |
@@ -203,9 +203,9 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 | 색 |머리글의 배경색입니다. |
 | **Header** | |
 | 이미지 |머리글에 표시되는 이미지 파일입니다. |
-| label |머리글에 표시되는 텍스트입니다. |
+| 레이블 |머리글에 표시되는 텍스트입니다. |
 | **Header** |**> 링크** |
-| label |링크 텍스트입니다. |
+| 레이블 |링크 텍스트입니다. |
 | Url |링크의 URL입니다. |
 | **정보 항목** | |
 | 제목 |각 항목의 제목에 표시되는 텍스트입니다. |
@@ -322,11 +322,11 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 다음 표에서는 클릭 탐색에 대한 설정을 설명합니다.
 
-| 설정           | Description |
+| 설정           | 설명 |
 |:--|:--|
 | 로그 검색(자동) | 헤더 항목을 선택할 때 실행할 로그 쿼리입니다.  항목의 기반이 되는 것과 동일한 로그 쿼리입니다.
 | 로그 검색        | 목록에서 항목을 선택할 때 실행할 로그 쿼리입니다.  **탐색 쿼리** 상자에 쿼리를 입력합니다.   *{selected item}* 을 사용하면 사용자가 선택한 항목의 구문의 포함됩니다.  예를 들어 쿼리에 *Computer*라는 열이 있고 탐색 쿼리가 *{selected item}* 인 경우 컴퓨터를 선택하면 *Computer="MyComputer"* 와 같은 쿼리가 실행됩니다. 탐색 쿼리가 *Type=Event {selected item}* 이면 *Type=Event Computer="MyComputer"* 쿼리가 실행됩니다. |
-| 보기              | 헤더 항목 또는 목록의 항목을 선택할 때 열 보기입니다.  **보기 이름** 상자의 작업 영역에서 보기의 이름을 선택합니다. |
+| View              | 헤더 항목 또는 목록의 항목을 선택할 때 열 보기입니다.  **보기 이름** 상자의 작업 영역에서 보기의 이름을 선택합니다. |
 
 
 
@@ -335,7 +335,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 다음 표에서는 스파크라인의 설정을 설명합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |:--- |:--- |
 | 스파크라인 사용 |가로 막대 대신 스파크라인을 표시하려면 이 링크를 선택합니다. |
 | 작업(Operation) |스파크라인을 사용하는 경우 목록의 각 속성에서 수행하여 스파크라인 값을 계산하는 연산 작업입니다.<ul><li>최종 샘플: 시간 간격별 계열의 마지막 값입니다.</li><li>최대: 시간 간격별 계열의 최댓값입니다.</li><li>최소: 시간 간격별 계열의 최솟값입니다.</li><li>합계: 시간 간격별 계열 값의 합계입니다.</li><li>요약: 머리글의 쿼리와 동일한 `measure` 명령을 사용합니다.</li></ul> |
@@ -349,7 +349,7 @@ Azure Monitor에서 뷰 디자이너를 사용 하 여 Log Analytics 작업 영�
 
 다음 표에서는 임계값에 대한 설정을 설명합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |:--- |:--- |
 | 임계값 사용 |각 값의 왼쪽에 색 아이콘을 표시하려면 이 링크를 선택합니다. 이 아이콘은 지정된 임계값을 기준으로 값의 상태를 나타냅니다. |
 | Name |임계값의 이름입니다. |
