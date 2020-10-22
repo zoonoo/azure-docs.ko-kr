@@ -4,12 +4,12 @@ description: 이 자습서에서는 테스트를 위해 Service Fabric 관리형
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410245"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316180"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터 배포(미리 보기)
 
@@ -37,7 +37,7 @@ ms.locfileid: "91410245"
 
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
 
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric)(이상)을 설치합니다.
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric)(이상)을 설치합니다.
 
 ## <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 
@@ -73,7 +73,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 * **클러스터 이름**: 클러스터에 대한 고유 이름(예: *mysfcluster*)을 입력합니다.
 * **관리자 암호**: 클러스터의 기본 VM에서 RDP에 사용할 관리자에 대한 암호를 입력합니다.
-* **클라이언트 인증서 지문**: 클러스터에 액세스하는 데 사용할 클라이언트 인증서의 지문을 제공합니다. 인증서가 없는 경우 [인증서 설정 및 검색](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal)을 수행하여 자체 서명된 인증서를 만듭니다.
+* **클라이언트 인증서 지문**: 클러스터에 액세스하는 데 사용할 클라이언트 인증서의 지문을 제공합니다. 인증서가 없는 경우 [인증서 설정 및 검색](../key-vault/certificates/quick-create-portal.md)을 수행하여 자체 서명된 인증서를 만듭니다.
 * **클러스터 SKU**: 배포할 [Service Fabric 관리형 클러스터의 유형](overview-managed-cluster.md#service-fabric-managed-cluster-skus)을 지정합니다. *기본* SKU 클러스터는 테스트 배포용으로만 사용하여야 하며, 노드 유형 추가 또는 제거용으로는 허용되지 않습니다.
 
 ```powershell

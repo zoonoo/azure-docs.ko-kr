@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0531ff7765fbcfb304d58e5b444eafdb3ad4fb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404802"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152006"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -35,7 +35,7 @@ ms.locfileid: "91404802"
 
 * 고유한 컴퓨터에 설치된 [Azure CLI](/cli/azure/overview) 
 * [Git](https://git-scm.com/)
-* [Java JDK](https://aka.ms/azure-jdks)
+* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>샘플 TODO 앱 복제 및 리포지토리 준비
@@ -299,8 +299,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
-  
+다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```

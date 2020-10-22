@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979124"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364170"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -278,7 +278,7 @@ Service cannot be started.
 
 Azure Dev Spaces가 클러스터에서 실행하는 서비스는 클러스터의 관리 ID를 활용하여 클러스터 외부의 Azure Dev Spaces 백 엔드 서비스와 통신합니다. Pod 관리 ID가 설치되면 클러스터의 노드에서 관리 ID 자격 증명에 대한 모든 호출을 [클러스터에 설치된 NMI(Node Managed Identity) DaemonSet](https://github.com/Azure/aad-pod-identity#node-managed-identity)로 리디렉션하는 네트워킹 규칙이 구성됩니다. 이 NMI DaemonSet은 호출 pod를 식별하고 pod에 요청된 관리 ID에 액세스하도록 적절히 레이블이 지정되었는지 확인합니다. Azure Dev Spaces는 클러스터에 pod 관리 ID가 설치되어 있는지와 Azure Dev Spaces 서비스에서 클러스터의 관리 ID에 액세스할 수 있도록 하는 데 필요한 구성을 수행할 수 없는지를 확인할 수 없습니다. Azure Dev Spaces 서비스는 클러스터의 관리 id에 액세스 하도록 구성 되지 않았기 때문에 NMI DaemonSet는 관리 되는 id에 대 한 Azure AD 토큰을 가져오는 것을 허용 하지 않으며 Azure Dev Spaces 백엔드 서비스와 통신 하지 못합니다.
 
-이 이슈를 해결하려면 *azds-injector-webhook*에 [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)을 적용하고 Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트합니다.
+이 이슈를 해결하려면 *azds-injector-webhook*에 [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 적용하고 Azure Dev Spaces에서 관리 ID에 액세스하기 위해 계측하는 pod를 업데이트합니다.
 
 *webhookException.yaml*이라는 파일을 만들고 다음 YAML 정의를 복사합니다.
 

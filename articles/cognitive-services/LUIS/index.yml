@@ -12,12 +12,12 @@ metadata:
   title: LUIS(Language Understanding) 설명서
   titleSuffix: Azure Cognitive Services
   description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션은 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
-  ms.openlocfilehash: 6e34c5e39118565e14a40765443583b0b9ed237b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3bae2e6e0a79dbc0106dc71a9510aa4dc318650c
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89322486"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92364187"
 landingContent:
 - title: LUIS(Language Understanding) 정보
   linkLists:
@@ -137,9 +137,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
     - text: 문제 해결
       url: troubleshooting.md
-    - text: Stack Overflow에 대한 질문
-      url: https://stackoverflow.com/questions/tagged/LUIS
-    - text: UserVoice를 통한 서비스 영향
-      url: https://cognitive.uservoice.com/forums/551524-luis

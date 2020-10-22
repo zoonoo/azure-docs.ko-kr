@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터 확장 방법(미리 보기)
 description: 이 자습서에서는 Service Fabric 관리형 클러스터의 노드 유형을 확장하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: a6777743932f3cc73db973c4d9935d4b5827700b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01b299744d462496296884211eff08b7a9c64687
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410239"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316134"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터 확장 방법(미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "91410239"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Service Fabric 관리형 클러스터([*관리형 클러스터 배포*](tutorial-managed-cluster-deploy.md) 참조)
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) 이상([*Azure PowerShell 설치*](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true) 참조)
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) 이상([*Azure PowerShell 설치*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0) 참조)
 
 ## <a name="scale-a-service-fabric-managed-cluster"></a>Service Fabric 관리형 클러스터 크기 조정
 크기를 조정하려는 노드 유형의 노드 수를 늘리거나 줄이려면 인스턴스 수를 변경합니다. 클러스터 배포나 Service Fabric Explorer에서 ARM 템플릿(Azure Resource Manager 템플릿)의 노드 유형 이름을 찾을 수 있습니다.  
