@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
-ms.openlocfilehash: edc337849b53cb8e818114d3dd100d30cf00b895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 556cc7fb5f735346a35903840501cf8f8e1be033
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84871383"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372177"
 ---
 # <a name="partner-ecosystem-for-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 파트너 에코 시스템
 Azure API for FHIR은 일반적으로 모든 Azure 고객에 게 제공 됩니다. Microsoft는 서비스를 사용 하 여 빌드하는 솔루션에 대 한 더 많은 기대를 제공 합니다.  
@@ -25,7 +25,7 @@ FHIR 용 Azure API를 기반으로 하는 종단 간 솔루션을 만들 때 고
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | 장            | 식별 취소, 레거시-FHIR 변환  | 미국                         | [Contact](http://www.medal.com/)                                                                                           |
 | Rhapsody         | 레거시-FHIR 변환                     | 미국, 오스트레일리아, 뉴질랜드 | [Contact](https://rhapsody.health/contact-us)                                                                                          |
-| 인터페이스    | 레거시-FHIR 변환                     | 미국, 캐나다                 | [Contact](https://www.interfaceware.com/contact.html)                                                                                  |
+| 인터페이스    | 레거시-FHIR 변환                     | 미국, 캐나다                 | [Contact](https://www.interfaceware.com/contact)                                                                                  |
 | Darena 솔루션 | 응용 프로그램 개발, 시스템 통합자 | 미국                         | [Contact](https://www.darenasolutions.com/contact)                                                                                     |
 | NewWave          | 응용 프로그램 개발, 시스템 통합자 | 미국                         | [Contact](https://newwave.io/get-in-touch/)                                                                                            |
 | Dapasoft         | 응용 프로그램 개발, 시스템 통합자 | 미국, 캐나다                 | [Contact](https://www.dapasoft.com/contact-us/)                                                                                        |

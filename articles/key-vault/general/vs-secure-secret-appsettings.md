@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79fa01e53b53f3066e55736c105d6489ccbd96e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019847"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372058"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
@@ -56,14 +56,19 @@ ms.locfileid: "89019847"
     > Visual Studio 2017 V 15.6 이전에는 Visual Studio 용 Azure 서비스 인증 확장을 설치 하는 것이 좋습니다. 그러나이 기능은 Visual Studio 내에서 통합 되기 때문에 이제는 더 이상 사용 되지 않습니다. 따라서 이전 버전의 visual Studio 2017을 사용 하는 경우이 기능을 기본적으로 사용 하 고 Visual Studio 로그인 Id 자체를 사용 하 여 키 자격 증명 모음에 액세스할 수 있도록 VS 2017 15.6 이상으로 업데이트 하는 것이 좋습니다.
     >
 
-4. 다음 NuGet 패키지를 프로젝트에 추가합니다.
+4. CLI를 사용 하 여 Azure에 로그인 하 고 다음을 입력할 수 있습니다.
+
+    ```azurecli
+    az login
+    ```
+
+5. 다음 NuGet 패키지를 프로젝트에 추가합니다.
 
     ```
-    Microsoft.Azure.KeyVault
-    Microsoft.Azure.Services.AppAuthentication
-    Microsoft.Extensions.Configuration.AzureKeyVault
+    Azure.Identity
+    Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
-5. 다음 코드를 Program.cs 파일에 추가합니다.
+6. 다음 코드를 Program.cs 파일에 추가합니다.
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -73,12 +78,7 @@ ms.locfileid: "89019847"
                     var keyVaultEndpoint = GetKeyVaultEndpoint();
                     if (!string.IsNullOrEmpty(keyVaultEndpoint))
                     {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        builder.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential(), new KeyVaultSecretManager());
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -88,11 +88,12 @@ ms.locfileid: "89019847"
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Key Vault URL을 launchsettings.json 파일에 추가합니다. 환경 변수 이름인 *KEYVAULT_ENDPOINT*는 6단계에서 추가한 코드에서 정의됩니다.
+
+7. Key Vault URL을 launchsettings.json 파일에 추가합니다. 환경 변수 이름 *KEYVAULT_ENDPOINT* 는 7 단계에서 추가한 코드에 정의 되어 있습니다.
 
     ![Key Vault URL을 프로젝트 환경 변수로 추가](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. 프로젝트 디버그를 시작합니다. 성공적으로 실행되어야 합니다.
+8. 프로젝트 디버그를 시작합니다. 성공적으로 실행되어야 합니다.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET 및 .NET 애플리케이션
 

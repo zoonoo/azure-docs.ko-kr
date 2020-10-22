@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eace1ee1f97acaf04608d37c9edba482622bd59
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548291"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097374"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>C++/WinRT의 광역 위치 재결정을 사용하여 앵커를 만들고 찾는 방법
 
@@ -31,7 +31,7 @@ Azure Spatial Anchors는 사용자가 만든 앵커와 디바이스 내 위치 �
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- C++ 및 <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows 런타임 API</a>에 대한 기본 지식.
+- C++ 및 <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows 런타임 API</a>에 대한 기본 지식.
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
 - [앵커 만들기 및 찾기 방법](../create-locate-anchors-overview.md)을 통해 읽습니다.

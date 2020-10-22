@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: d46b3ba9e3df5e2b3600db2be2a41789fed5242f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8f50475d7ba9117fd32951b401b24b63d192fcd8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207974"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372381"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -198,6 +198,13 @@ AKS에는 이러한 구성을 견디고 복구할 수 있는 복원 메커니즘
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS는 고객 데이터를 클러스터 영역 외부에 저장 하나요?
 
 단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다.
+
+## <a name="are-aks-images-required-to-run-as-root"></a>AKS 이미지가 root로 실행 되어야 하나요?
+
+다음 두 이미지를 제외 하 고 AKS 이미지를 루트로 실행 하지 않아도 됩니다.
+
+- *mcr.microsoft.com/oss/kubernetes/coredns*
+- *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
 
 <!-- LINKS - internal -->
 

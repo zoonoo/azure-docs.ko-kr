@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327821"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372211"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -281,7 +281,7 @@ Azure 구독을 만들거나 사용 하려면 Azure 계정이 있어야 합니�
 
 모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 디바이스를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 하는 개별 azure 계정 id를 정의할 수 있습니다. 사용자 그룹을 만드는 것은 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 구독의 리소스에 대 한 액세스를 관리 하는 좋은 방법입니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
+Azure AD에서 *그룹* 을 정의 하는 것은 물론, *사용자*라고도 하는 개별 azure 계정 id를 정의할 수 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 

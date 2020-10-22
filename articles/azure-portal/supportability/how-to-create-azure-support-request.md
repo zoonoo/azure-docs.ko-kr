@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f937b03b2f838f69f56a4b132d0ea7a7e298b532
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091443"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372126"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
@@ -41,7 +41,7 @@ Azure Portal에서 **도움말 + 지원**으로 이동할 수 있습니다. Azur
 
 ### <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
-지원 요청을 만들려면 구독 수준에서 [소유자](../../role-based-access-control/built-in-roles.md#owner), [기여자](../../role-based-access-control/built-in-roles.md#contributor) 또는 [지원 요청 기여자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할에 할당되어야 합니다. Azure Active Directory 시나리오와 같이 구독 없이 지원 요청을 만들려면 [관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)여야 합니다.
+지원 요청을 만들려면 구독 수준에서 [소유자](../../role-based-access-control/built-in-roles.md#owner), [기여자](../../role-based-access-control/built-in-roles.md#contributor) 또는 [지원 요청 기여자](../../role-based-access-control/built-in-roles.md#support-request-contributor) 역할에 할당되어야 합니다. Azure Active Directory 시나리오와 같이 구독 없이 지원 요청을 만들려면 [관리자](../../active-directory/roles/permissions-reference.md)여야 합니다.
 
 ### <a name="go-to-help--support-from-the-global-header"></a>글로벌 헤더에서 도움말 + 지원으로 이동합니다.
 

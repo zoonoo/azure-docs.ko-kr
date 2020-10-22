@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355043"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371990"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -55,7 +55,7 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
     하이드레이션 필요한 경우 다음 결과가 표시됩니다.
 
     ```output
-    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
     This system doesn't meet no-hydration requirement.
     ```
@@ -168,7 +168,7 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 2. 이전 명령의 출력에 http_proxy 또는 https_proxy 설정이 정의된 것으로 표시될 경우, 다음 방법 중 하나를 사용하여 구성 서버와 마스터 대상 간의 통신 차단을 해제하세요.
    
-   - [PsExec 도구](https://aka.ms/PsExec)를 다운로드합니다.
+   - [PsExec 도구](/sysinternals/downloads/psexec)를 다운로드합니다.
    - 도구를 사용하여 시스템 사용자 컨텍스트에 액세스하고 프록시 주소가 구성되었는지 여부를 확인합니다. 
    - 프록시가 구성된 경우, PsExec 도구를 사용하여 시스템 사용자 컨텍스트에서 IE를 엽니다.
   

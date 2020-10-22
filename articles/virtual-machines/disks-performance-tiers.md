@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939020"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359682"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
 
@@ -24,7 +24,7 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 
 이 기능은 휴일 쇼핑, 성능 테스트 또는 교육 환경 실행과 같은 일관 된 높은 수준의 성능이 일시적으로 필요한 이벤트에 적합 합니다. 이러한 이벤트를 처리 하기 위해 필요할 때까지 더 높은 성능 계층을 사용할 수 있습니다. 그런 다음 추가 성능이 더 이상 필요 하지 않은 경우 원래 계층으로 돌아갈 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 디스크를 처음 배포 하거나 프로 비전 할 때 해당 디스크의 기준 성능 계층은 프로 비전 된 디스크 크기에 따라 설정 됩니다. 높은 성능 계층을 사용 하 여 더 높은 수요를 달성할 수 있습니다. 더 이상 해당 성능 수준이 필요 하지 않은 경우 초기 기준 성능 계층으로 돌아갈 수 있습니다.
 
@@ -42,19 +42,19 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | None |
+| 4TiB | P50 | 없음 |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | None |
+| 32TiB | P80 | 없음 |
 
 청구 정보 [는 관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 
 ## <a name="restrictions"></a>제한
 
 - 이 기능은 현재 premium Ssd에 대해서만 지원 됩니다.
-- 디스크의 계층을 변경 하려면 먼저 실행 중인 VM에서 디스크를 분리 해야 합니다.
+- 디스크의 계층을 변경 하려면 먼저 VM의 할당을 취소 하거나 실행 중인 VM에서 디스크를 분리 해야 합니다.
 - P60, P70 및 P80 성능 계층의 사용은 4096 GiB 이상 디스크로 제한 됩니다.
-- 디스크의 성능 계층은 24 시간 마다 한 번만 변경할 수 있습니다.
+- 디스크의 성능 계층은 24 시간 마다 한 번만 다운 그레이드할 수 있습니다.
 
 ## <a name="regional-availability"></a>국가별 가용성
 

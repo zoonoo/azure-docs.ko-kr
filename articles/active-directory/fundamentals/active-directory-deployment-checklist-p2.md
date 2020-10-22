@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd33845c331f907dbd5720ac92c6b1c627f01873
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318412"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371905"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
 
@@ -26,7 +26,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 또한 고객은 해당 [ID 보안 점수](identity-secure-score.md)를 확인하여 Microsoft 모범 사례에 얼마나 잘 맞는지 알 수 있습니다. 이러한 권장 사항을 구현하기 전과 후에 보안 점수를 확인하여 업계의 다른 기업 및 같은 규모의 다른 조직과 비교할 때 얼마나 잘 하고 있는지 파악합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드의 많은 권장 사항은 Azure AD Free 하거나 라이선스 없이 구현할 수 있습니다. 필요한 라이선스는 작업 완료를 위해 최소한으로 필요한 라이선스를 나타냅니다.
 
@@ -43,8 +43,8 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 
 | Task | 세부 정보 | 필수 라이선스 |
 | ---- | ------ | ---------------- |
-| [둘 이상의 전역 관리자 지정](../users-groups-roles/directory-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. | Azure AD Free |
-| [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. | Azure AD Free |
+| [둘 이상의 전역 관리자 지정](../roles/security-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. | Azure AD Free |
+| [가능한 경우 비전역 관리 역할 사용](../roles/permissions-reference.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. | Azure AD Free |
 | [관리자 역할 사용을 추적하기 위해 Privileged Identity Management 사용](../privileged-identity-management/pim-getting-started.md) | 관리자 역할 사용을 추적하려면 Privileged Identity Management를 사용하도록 설정합니다. | Azure AD Premium P2 |
 | [셀프 서비스 암호 재설정 롤아웃](../authentication/howto-sspr-deployment.md) | 직원들이 정책에 따라 자신의 암호를 재설정할 수 있도록 하여 암호 재설정과 관련된 기술 지원팀 문의 전화 횟수를 줄입니다. | |
 | [조직 특정 사용자 지정 금지 된 암호 목록 만들기](../authentication/tutorial-configure-custom-password-protection.md) | 사용자가 조직이나 영역에서 사용하는 일반적인 단어 또는 구를 포함하여 암호를 만들지 못하도록 합니다. | |
@@ -69,7 +69,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 | [암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md) | 암호 해시를 동기화하여 암호 변경 내용 복제, 잘못된 암호 검색 및 수정, 누출된 자격 증명 보고를 허용합니다. | Azure AD Free |
 | [비밀번호 쓰기 저장 구현](../authentication/tutorial-enable-sspr-writeback.md) | 클라우드에서 암호 변경 내용을 온-프레미스 Windows Server Active Directory 환경에 다시 쓸 수 있도록 합니다. | Azure AD Premium P1 |
 | [Azure AD Connect Health 구현](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Azure AD Connect 서버, AD FS 서버 및 도메인 컨트롤러의 주요 상태 통계를 모니터링할 수 있도록 합니다. | Azure AD Premium P1 |
-| [Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당](../users-groups-roles/licensing-groups-assign.md) | 사용자 기준 설정 대신, 그룹별로 기능을 사용하거나 사용하지 않도록 설정하는 라이선스 그룹을 만들어 시간과 노력을 절약합니다. | |
+| [Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당](../enterprise-users/licensing-groups-assign.md) | 사용자 기준 설정 대신, 그룹별로 기능을 사용하거나 사용하지 않도록 설정하는 라이선스 그룹을 만들어 시간과 노력을 절약합니다. | |
 | [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 게스트 사용자가 자신의 회사, 학교 또는 소셜 ID로 앱 및 서비스에 로그인할 수 있도록 하여 공동으로 작업합니다. | [Azure AD B2B 라이선스 지침](../external-identities/licensing-guidance.md) |
 | [디바이스 관리 전략 결정](../devices/overview.md) | 디바이스에 대해 조직이 허용하는 작업을 결정합니다. 등록 및 참가, BYOD(Bring Your Own Device) 및 회사 제공 | |
 | [조직의 비즈니스용 Windows Hello 배포](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Windows Hello를 사용 하 여 암호 없는 인증 준비 | |
@@ -93,7 +93,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 | ---- | ------ | ---------------- |
 | [Privileged Identity Management 사용 적용](../privileged-identity-management/pim-security-wizard.md) | 매일 사용하는 일반 사용자 계정에서 관리자 역할을 제거합니다. Multi-Factor Authentication 검사를 성공하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청한 후에 관리자가 해당 역할을 사용할 수 있도록 지정합니다. | Azure AD Premium P2 |
 | [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 완료](../privileged-identity-management/pim-how-to-start-security-review.md) | 보안 및 리더십 팀과 협의하여 조직의 정책을 기준으로 관리 액세스 권한을 검토하는 액세스 검토 정책을 만듭니다. | Azure AD Premium P2 |
-| [동적 그룹 멤버 자격 정책 구현](../users-groups-roles/groups-dynamic-membership.md) | 동적 그룹을 사용하여 부서, 직함, 지역 및 기타 속성과 같은 HR(또는 진실의 근원)의 특성을 기반으로 사용자를 그룹에 자동으로 할당합니다. |  |
+| [동적 그룹 멤버 자격 정책 구현](../enterprise-users/groups-dynamic-membership.md) | 동적 그룹을 사용하여 부서, 직함, 지역 및 기타 속성과 같은 HR(또는 진실의 근원)의 특성을 기반으로 사용자를 그룹에 자동으로 할당합니다. |  |
 | [그룹 기반 애플리케이션 프로비전 구현](../manage-apps/what-is-access-management.md) | 그룹 기반 액세스 관리 프로비전을 사용하여 SaaS 애플리케이션에 사용자를 자동으로 프로비전합니다. |  |
 | [사용자 프로비전 및 프로비전 해제 자동화](../app-provisioning/user-provisioning.md) | 무단 액세스를 방지하려면 직원 계정 수명 주기에서 수동 단계를 제거합니다. HR 시스템(진실의 근원)의 ID를 Azure AD에 동기화합니다. |  |
 

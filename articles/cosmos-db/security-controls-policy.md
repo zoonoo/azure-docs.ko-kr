@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Cosmos DB에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: be9dc3e583d179536a1df35677ec4d3a1ce0b541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfa5be6ed7cc933513b4c42a05a7ccdd40e8c13f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827329"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314341"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure Policy 규정 준수 컨트롤
 

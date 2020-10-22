@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 084058edca59eda776c47a3e20bb49178de78681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c11e87934ee3ba2af97ee8d885b87d087a1c531
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74790073"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096422"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>C++/WinRT에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 
@@ -38,11 +38,11 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
-- C++ 및 <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows 런타임 API</a>에 대한 기본 지식.
+- C++ 및 <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows 런타임 API</a>에 대한 기본 지식.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
-[CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) 클래스에 대해 자세히 알아봅니다.
+[CloudSpatialAnchorSession](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) 클래스에 대해 자세히 알아봅니다.
 
 ```cpp
     CloudSpatialAnchorSession m_cloudSession{ nullptr };
@@ -52,7 +52,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
-[SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionconfiguration) 클래스에 대해 자세히 알아봅니다.
+[SessionConfiguration](/cpp/api/spatial-anchors/winrt/sessionconfiguration) 클래스에 대해 자세히 알아봅니다.
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
@@ -68,7 +68,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
-[TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) 위임에 대해 자세히 알아봅니다.
+[TokenRequiredDelegate](/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {
@@ -117,7 +117,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
-[Start](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) 메서드에 대해 자세히 알아봅니다.
+[Start](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     m_cloudSession.Start();
@@ -125,7 +125,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-[ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) 메서드에 대해 자세히 알아봅니다.
+[ProcessFrame](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     m_cloudSession->ProcessFrame(ar_frame_);
@@ -133,7 +133,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
-[SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) 위임에 대해 자세히 알아봅니다.
+[SessionUpdatedDelegate](/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```cpp
     m_sessionUpdatedToken = m_cloudSession.SessionUpdated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -147,7 +147,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
-[CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor) 클래스에 대해 자세히 알아봅니다.
+[CloudSpatialAnchor](/cpp/api/spatial-anchors/winrt/cloudspatialanchor) 클래스에 대해 자세히 알아봅니다.
 
 ```cpp
     // Initialization
@@ -183,7 +183,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
-[GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) 메서드에 대해 자세히 알아봅니다.
+[GetSessionStatusAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     SessionStatus status = co_await m_cloudSession.GetSessionStatusAsync();
@@ -193,7 +193,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
-[AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) 메서드에 대해 자세히 알아봅니다.
+[AppProperties](/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     CloudSpatialAnchor cloudAnchor = CloudSpatialAnchor();
@@ -206,7 +206,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
-[UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
+[UpdateAnchorPropertiesAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -216,7 +216,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
-[GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
+[GetAnchorPropertiesAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     CloudSpatialAnchor anchor = co_await m_cloudSession.GetAnchorPropertiesAsync(LR"(anchorId)");
@@ -229,7 +229,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-[Expiration](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) 메서드에 대해 자세히 알아봅니다.
+[Expiration](/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     const int64_t oneWeekFromNowInHours = 7 * 24;
@@ -239,7 +239,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
-[CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) 메서드에 대해 자세히 알아봅니다.
+[CreateWatcher](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     AnchorLocateCriteria criteria = AnchorLocateCriteria();
@@ -249,7 +249,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
-[AnchorLocatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) 위임에 대해 자세히 알아봅니다.
+[AnchorLocatedDelegate](/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) 위임에 대해 자세히 알아봅니다.
 
 ```cpp
     m_anchorLocatedToken = m_cloudSession.AnchorLocated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -279,7 +279,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
-[DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) 메서드에 대해 자세히 알아봅니다.
+[DeleteAnchorAsync](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     co_await m_cloudSession.DeleteAnchorAsync(cloudAnchor);
@@ -288,7 +288,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
-[Stop](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) 메서드에 대해 자세히 알아봅니다.
+[Stop](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     m_cloudSession.Stop();
@@ -296,7 +296,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-[Reset](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) 메서드에 대해 자세히 알아봅니다.
+[Reset](/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) 메서드에 대해 자세히 알아봅니다.
 
 ```cpp
     m_cloudSession.Reset();

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905393"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091069"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>자습서: 마이크로서비스 애플리케이션에 대한 자동 크기 조정 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "90905393"
 이러한 절차를 따르려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](./spring-cloud-quickstart.md)을 수행하여 시작하세요.
 * 해당 서비스 인스턴스에서 이미 하나 이상의 애플리케이션이 생성되었습니다.
 
 ## <a name="navigate-to-the-autoscale-page-in-the-azure-portal"></a>Azure Portal에서 자동 스케일링 페이지로 이동합니다.
@@ -70,5 +70,5 @@ Azure CLI를 사용하여 자동 스케일링 모드를 설정할 수도 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Azure 자동 스케일링의 개요](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Azure CLI 모니터링 자동 스케일링](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Microsoft Azure 자동 스케일링의 개요](../azure-monitor/platform/autoscale-overview.md)
+* [Azure CLI 모니터링 자동 스케일링](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)
