@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050202"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367808"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -58,7 +58,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>PIM에 의해 관리할 수 있는 역할
 
-**AZURE AD 역할** 은 모두 Azure Active Directory (예: 전역 관리자, Exchange 관리자 및 보안 관리자)에 있습니다. [Azure Active Directory의 관리자 역할 사용 권한](../users-groups-roles/directory-assign-admin-roles.md)에서 역할 및 해당 역할의 기능에 대해 더 자세히 읽을 수 있습니다. 관리자에게 할당하는 역할을 결정하는 데 도움이 필요한 경우 [작업별 최소 권한 있는 역할](../users-groups-roles/roles-delegate-by-task.md)을 참조하세요.
+**AZURE AD 역할** 은 모두 Azure Active Directory (예: 전역 관리자, Exchange 관리자 및 보안 관리자)에 있습니다. [Azure Active Directory의 관리자 역할 사용 권한](../roles/permissions-reference.md)에서 역할 및 해당 역할의 기능에 대해 더 자세히 읽을 수 있습니다. 관리자에게 할당하는 역할을 결정하는 데 도움이 필요한 경우 [작업별 최소 권한 있는 역할](../roles/delegate-by-task.md)을 참조하세요.
 
 **Azure 역할** 은 azure 리소스, 리소스 그룹, 구독 또는 관리 그룹에 연결 된 역할입니다. PIM을 사용 하 여 소유자, 사용자 액세스 관리자 및 참가자와 같은 기본 제공 Azure 역할 뿐만 아니라 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)에 대 한 just-in-time 액세스를 제공할 수 있습니다. Azure 역할에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조 하세요.
 
@@ -111,7 +111,7 @@ Azure AD 역할의 경우에는 대부분의 관리자에 게 하나 또는 두 
 
 Azure AD 역할에 대 한 최소 권한의 원칙을 구현 하려면 다음 단계를 수행 합니다.
 
-1. [사용할 수 있는 Azure AD 관리자 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles)을 읽고 이해하여 역할의 세분성을 알아 두세요. 또한 자신과 자신의 팀이 특정 작업에 대한 최소 권한 있는 역할을 설명하는 [Azure AD의 ID 작업별 관리자 역할](../users-groups-roles/roles-delegate-by-task.md)도 참조하는 것이 좋습니다.
+1. [사용할 수 있는 Azure AD 관리자 역할](../roles/permissions-reference.md#available-roles)을 읽고 이해하여 역할의 세분성을 알아 두세요. 또한 자신과 자신의 팀이 특정 작업에 대한 최소 권한 있는 역할을 설명하는 [Azure AD의 ID 작업별 관리자 역할](../roles/delegate-by-task.md)도 참조하는 것이 좋습니다.
 
 1. 조직에서 권한 있는 역할을 가진 담당자를 나열합니다. Privileged Identity Management [검색 및 정보 (미리 보기)](pim-security-wizard.md) 를 사용 하 여 노출을 줄일 수 있습니다.
 
@@ -200,11 +200,11 @@ Azure 리소스에 대 한 Privileged Identity Management는 시간 제한 서�
 
 #### <a name="many-users-are-assigned-to-a-role"></a>여러 사용자가 역할에 할당 됨
 
-역할에 할당 된 사용자를 추적 하 고 필요한 시기에 따라 할당을 관리 하는 작업은 수동으로 수행 하는 데 시간이 걸릴 수 있습니다. 역할에 그룹을 할당 하려면 먼저 역할 할당 가능 [그룹을 만든](../users-groups-roles/roles-groups-create-eligible.md) 다음 해당 그룹을 역할에 적합 한 것으로 할당 합니다. 이 작업은 그룹의 모든 사용자에 게 역할을 상승 시킬 수 있는 개별 사용자와 동일한 정품 인증 프로세스를 주체 합니다. 그룹 멤버는 Privileged Identity Management 활성화 요청 및 승인 프로세스를 사용 하 여 그룹에 대 한 할당을 개별적으로 활성화 합니다. 그룹이 활성화 되지 않았습니다. 사용자의 그룹 구성원 자격만 있습니다.
+역할에 할당 된 사용자를 추적 하 고 필요한 시기에 따라 할당을 관리 하는 작업은 수동으로 수행 하는 데 시간이 걸릴 수 있습니다. 역할에 그룹을 할당 하려면 먼저 역할 할당 가능 [그룹을 만든](../roles/groups-create-eligible.md) 다음 해당 그룹을 역할에 적합 한 것으로 할당 합니다. 이 작업은 그룹의 모든 사용자에 게 역할을 상승 시킬 수 있는 개별 사용자와 동일한 정품 인증 프로세스를 주체 합니다. 그룹 멤버는 Privileged Identity Management 활성화 요청 및 승인 프로세스를 사용 하 여 그룹에 대 한 할당을 개별적으로 활성화 합니다. 그룹이 활성화 되지 않았습니다. 사용자의 그룹 구성원 자격만 있습니다.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>역할 할당을 위임 하려고 합니다.
 
-그룹 소유자는 그룹의 멤버 자격을 관리할 수 있습니다. Azure AD 역할 할당 가능 그룹의 경우 권한 있는 역할 관리자, 전역 관리자 및 그룹 소유자만 그룹 멤버 자격을 관리할 수 있습니다. 멤버는 그룹에 새 멤버를 추가 하 여 할당이 적격 또는 활성 인지 여부에 관계 없이 그룹이 할당 된 역할에 대 한 액세스 권한을 얻습니다. 그룹 소유자를 사용 하 여 할당 된 역할에 대 한 그룹 멤버 관리를 위임 하 여 필요한 권한 범위를 줄입니다. 그룹을 만들 때 그룹에 소유자를 할당 하는 방법에 대 한 자세한 내용은 [AZURE AD에서 역할 할당 가능 그룹 만들기](../users-groups-roles/roles-groups-create-eligible.md)를 참조 하세요.
+그룹 소유자는 그룹의 멤버 자격을 관리할 수 있습니다. Azure AD 역할 할당 가능 그룹의 경우 권한 있는 역할 관리자, 전역 관리자 및 그룹 소유자만 그룹 멤버 자격을 관리할 수 있습니다. 멤버는 그룹에 새 멤버를 추가 하 여 할당이 적격 또는 활성 인지 여부에 관계 없이 그룹이 할당 된 역할에 대 한 액세스 권한을 얻습니다. 그룹 소유자를 사용 하 여 할당 된 역할에 대 한 그룹 멤버 관리를 위임 하 여 필요한 권한 범위를 줄입니다. 그룹을 만들 때 그룹에 소유자를 할당 하는 방법에 대 한 자세한 내용은 [AZURE AD에서 역할 할당 가능 그룹 만들기](../roles/groups-create-eligible.md)를 참조 하세요.
 
 > [!TIP]
 > : heavy_check_mark: Privileged Identity Management에서 관리 하는 Azure AD 역할 할당 가능 그룹을 가져오는 것 **이 좋습니다** . 역할 할당 가능 그룹을 PIM에서 관리 하는 경우 권한 있는 액세스 그룹 이라고 합니다. PIM을 사용 하 여 그룹 소유자가 그룹 멤버 자격을 관리 하려면 먼저 소유자 역할 할당을 활성화 해야 합니다. PIM 관리에서 그룹을 만드는 방법에 대 한 자세한 내용은 [권한 있는 액세스 그룹 가져오기 (미리 보기)를 Privileged Identity Management](groups-discover-groups.md)를 참조 하세요.
@@ -214,7 +214,7 @@ Azure 리소스에 대 한 Privileged Identity Management는 시간 제한 서�
 Privileged Identity Management에서 관리할 역할 목록을 결정 한 후에는 적절 한 역할 및 영구 활성 역할을 가져올 사용자를 결정 해야 합니다. 영구적으로 활성 역할은 Azure Active Directory 및 Azure 리소스를 통해 할당 된 일반 역할이 며, 적격 역할은 Privileged Identity Management 에서만 할당 될 수 있습니다.
 
 > [!TIP]
-> : heavy_check_mark: Azure AD 역할 및 Azure 역할 모두에 대해 영구적으로 영구 활성 할당을 **사용 하는** 것이 좋습니다 .이 [계정](../users-groups-roles/directory-emergency-access.md)에는 영구 전역 관리자 역할이 있어야 합니다.
+> : heavy_check_mark: Azure AD 역할 및 Azure 역할 모두에 대해 영구적으로 영구 활성 할당을 **사용 하는** 것이 좋습니다 .이 [계정](../roles/security-emergency-access.md)에는 영구 전역 관리자 역할이 있어야 합니다.
 
 현재 관리자가 없도록 하는 것이 좋지만 조직이 지금 바로 이렇게 하는 것은 어려운 경우가 있습니다. 다음은 이 결정을 내릴 때 고려해야 하는 사항입니다.
 

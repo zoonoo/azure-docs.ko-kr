@@ -2,13 +2,13 @@
 title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 27e25b1048bb759a3b38859788c27c03f1cf0447
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: c3a94ece52e5c5b17a50fed9810303480a9c974a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371544"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370290"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/group-filter.md) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -37,6 +37,7 @@ ms.locfileid: "91371544"
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
+> - [BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -167,6 +168,7 @@ ms.locfileid: "91371544"
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft.Services](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [특이성](#microsoftsingularity)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft .SQL](#microsoftsql)
@@ -361,6 +363,7 @@ ms.locfileid: "91371544"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | 예 | 예 |
+> | privateClouds/addons | 아니요 | 아니요 |
 > | privateClouds/권한 부여 | 아니요 | 아니요 |
 > | privateClouds/클러스터 | 아니요 | 아니요 |
 > | privateClouds / globalReachConnections | 아니요 | 아니요 |
@@ -423,12 +426,21 @@ ms.locfileid: "91371544"
 > | ------------- | ----------- | ----------- |
 > | clusters | 예 | 예 |
 
+## <a name="microsoftbaremetalinfrastructure"></a>BareMetalInfrastructure
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
+> | ------------- | ----------- | ----------- |
+> | bareMetalInstances | 예 | 예 |
+
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | batchAccounts | 예 | 예 |
+> | batchAccounts / certificates | 아니요 | 아니요 |
+> | batchAccounts / pools | 아니요 | 예 |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -737,7 +749,7 @@ ms.locfileid: "91371544"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 플랜 | 예 | 예 |
+> | 플랜 | 예 | 아니요 |
 > | registeredSubscriptions | 아니요 | 예 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
@@ -928,7 +940,7 @@ ms.locfileid: "91371544"
 > | 보고서 | 아니요 | 아니요 |
 > | 설정 | 아니요 | 아니요 |
 > | showbackRules | 아니요 | 아니요 |
-> | 뷰 | 아니요 | 예 |
+> | 보기 | 아니요 | 예 |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -973,7 +985,6 @@ ms.locfileid: "91371544"
 > | ------------- | ----------- | ----------- |
 > | workspaces | 예 | 예 |
 > | workspace/dbWorkspaces | 아니요 | 아니요 |
-> | 작업 영역/storageEncryption | 아니요 | 아니요 |
 > | 작업 영역/virtualNetworkPeerings | 아니요 | 예 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -1132,6 +1143,7 @@ ms.locfileid: "91371544"
 > | applicationgroups / desktops | 예 | 예 |
 > | applicationgroups / startmenuitems | 예 | 예 |
 > | hostpools | 예 | 예 |
+> | hostpools/msixpackages | 아니요 | 아니요 |
 > | hostpools / sessionhosts | 예 | 예 |
 > | hostpools / sessionhosts / usersessions | 예 | 예 |
 > | hostpools / usersessions | 예 | 예 |
@@ -1384,12 +1396,14 @@ ms.locfileid: "91371544"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 디바이스 | 예 | 예 |
+> | networkFunctions | 예 | 예 |
+> | networkFunctionVendors | 아니요 | 아니요 |
 > | registeredSubscriptions | 아니요 | 아니요 |
 > | 판매 | 아니요 | 아니요 |
-> | 공급 업체/vendorskus | 아니요 | 아니요 |
-> | 공급 업체/vendorskus/previewSubscriptions | 아니요 | 아니요 |
-> | virtualnetworkfunctions | 예 | 예 |
-> | virtualnetworkfunctionvendors | 아니요 | 예 |
+> | 공급 업체/vendorSkus | 아니요 | 아니요 |
+> | 공급 업체/vendorSkus/previewSubscriptions | 아니요 | 아니요 |
+> | virtualNetworkFunctions | 예 | 예 |
+> | virtualNetworkFunctionVendors | 아니요 | 예 |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1537,9 +1551,20 @@ ms.locfileid: "91371544"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | workspaces | 예 | 예 |
+> | 작업 영역/batchEndpoints | 예 | 예 |
+> | 작업 영역/batchEndpoints/배포 | 예 | 예 |
+> | 작업 영역/코드 | 아니요 | 아니요 |
+> | 작업 영역/코드/버전 | 아니요 | 예 |
 > | workspaces / computes | 예 | 아니요 |
+> | 작업 영역/데이터 저장소 | 아니요 | 아니요 |
 > | workspace/eventGridFilters | 아니요 | 아니요 |
-> | 작업 영역/Linkedservices.json 및 datasets.json | 아니요 | 예 |
+> | 작업 영역/작업 | 아니요 | 아니요 |
+> | 작업 영역/labelingJobs | 아니요 | 아니요 |
+> | 작업 영역/Linkedservices.json 및 datasets.json | 아니요 | 아니요 |
+> | 작업 영역/모델 | 아니요 | 아니요 |
+> | 작업 영역/모델/버전 | 아니요 | 아니요 |
+> | 작업 영역/onlineEndpoints | 예 | 예 |
+> | 작업 영역/onlineEndpoints/배포 | 예 | 예 |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -2192,7 +2217,18 @@ ms.locfileid: "91371544"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | SignalR | 예 | 예 |
-> | SignalR/eventGridFilters | 아니요 | 예 |
+> | SignalR/eventGridFilters | 아니요 | 아니요 |
+
+## <a name="microsoftsingularity"></a>특이성
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
+> | ------------- | ----------- | ----------- |
+> | 계정 | 예 | 예 |
+> | 계정/accountQuotaPolicies | 아니요 | 아니요 |
+> | 계정/그룹 정책 | 아니요 | 아니요 |
+> | 계정/작업 | 아니요 | 아니요 |
+> | 계정/storageContainers | 아니요 | 예 |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
@@ -2332,6 +2368,7 @@ ms.locfileid: "91371544"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | clusters | 예 | 예 |
+> | 클러스터/privateEndpoints | 아니요 | 예 |
 > | streamingjobs | 예(아래 참고를 참조) | 예 |
 
 > [!NOTE]
@@ -2434,7 +2471,7 @@ ms.locfileid: "91371544"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 계정 | 예 | 예 |
-> | 플랜 | 예 | 예 |
+> | 플랜 | 예 | 아니요 |
 > | registeredSubscriptions | 아니요 | 예 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -2468,7 +2505,9 @@ ms.locfileid: "91371544"
 > | resourceHealthMetadata | 아니요 | 예 |
 > | runtimes | 예 | 아니요 |
 > | serverFarms | 예 | 예 |
-> | serverFarms/eventGridFilters | 아니요 | 예 |
+> | serverFarms/eventGridFilters | 아니요 | 아니요 |
+> | serverFarms/firstPartyApps | 아니요 | 아니요 |
+> | serverFarms/firstPartyApps/keyVaultSettings | 아니요 | 예 |
 > | sites | 예 | 예 |
 > | 사이트/구성  | 아니요 | 아니요 |
 > | sites/eventGridFilters | 아니요 | 아니요 |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601312"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371004"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Azure Active Directory Id 및 액세스 관리 작업 참조 가이드
 
@@ -45,7 +45,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 
 
 #### <a name="assigning-owners-recommended-reading"></a>소유자 할당 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure Active Directory에서 관리자 역할 할당](../roles/permissions-reference.md)
 - [Azure에서 거버넌스](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>온-프레미스 id 동기화
@@ -157,13 +157,13 @@ Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기�
 - 필요에 따라 특성을 정의 하 여 사용자에 대 한 패키지를 저장할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure AD의 그룹 기반 라이선스에는 라이선스 오류 상태의 사용자에 대 한 개념이 도입 되었습니다. 라이선스 오류가 발생 하는 경우에는 즉시 라이선스 할당 문제를 [식별 하 고 해결](../users-groups-roles/licensing-groups-resolve-problems.md) 해야 합니다.
+> Azure AD의 그룹 기반 라이선스에는 라이선스 오류 상태의 사용자에 대 한 개념이 도입 되었습니다. 라이선스 오류가 발생 하는 경우에는 즉시 라이선스 할당 문제를 [식별 하 고 해결](../enterprise-users/licensing-groups-resolve-problems.md) 해야 합니다.
 
 ![자동으로 생성 된 컴퓨터 화면 설명의 스크린샷](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>수명 주기 관리
 
-현재 온-프레미스 인프라에 의존 하는 [Microsoft Identity Manager](/microsoft-identity-manager/) 또는 타사 시스템과 같은 도구를 사용 하 고 있는 경우 기존 도구에서 할당을 오프 로드 하 고 그룹 기반 라이선스를 구현 하며 [그룹을 기반](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups)으로 그룹 수명 주기 관리를 정의 하는 것이 좋습니다. 마찬가지로 기존 프로세스에서 조직을 떠나는 새 직원 또는 직원을 고려 하지 않는 경우 동적 그룹을 기반으로 그룹 기반 라이선스를 배포 하 고 그룹 멤버 자격 수명 주기를 정의 해야 합니다. 마지막으로, 그룹 기반 라이선스가 수명 주기 관리가 없는 온-프레미스 그룹에 대해 배포 된 경우 클라우드 그룹을 사용 하 여 위임 된 소유권 또는 특성 기반 동적 멤버 자격과 같은 기능을 사용 하도록 설정 하는 것이 좋습니다.
+현재 온-프레미스 인프라에 의존 하는 [Microsoft Identity Manager](/microsoft-identity-manager/) 또는 타사 시스템과 같은 도구를 사용 하 고 있는 경우 기존 도구에서 할당을 오프 로드 하 고 그룹 기반 라이선스를 구현 하며 [그룹을 기반](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups)으로 그룹 수명 주기 관리를 정의 하는 것이 좋습니다. 마찬가지로 기존 프로세스에서 조직을 떠나는 새 직원 또는 직원을 고려 하지 않는 경우 동적 그룹을 기반으로 그룹 기반 라이선스를 배포 하 고 그룹 멤버 자격 수명 주기를 정의 해야 합니다. 마지막으로, 그룹 기반 라이선스가 수명 주기 관리가 없는 온-프레미스 그룹에 대해 배포 된 경우 클라우드 그룹을 사용 하 여 위임 된 소유권 또는 특성 기반 동적 멤버 자격과 같은 기능을 사용 하도록 설정 하는 것이 좋습니다.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>"모든 사용자" 그룹을 사용 하 여 앱 할당
 

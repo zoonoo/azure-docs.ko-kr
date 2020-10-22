@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310914"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372296"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "92310914"
 > * Kubernetes의 지원 되는 최소 버전은 v 1.14입니다.
 > * 환경 및 Azure 간에 필요한 연결을 이해 하려면 [연결 요구 사항](connectivity.md) 을 참조 하세요.
 > * 영구 저장소를 구성 하는 방법에 대 한 세부 정보를 이해 하려면 [저장소 구성 지침](storage-configuration.md) 을 참조 하세요.
-> * Azure Kubernetes Service를 사용 하는 경우 클러스터의 작업자 노드 VM 크기는 **Standard_D8s_v3** 이상 이어야 하며 **프리미엄 디스크** 를 사용 해야 합니다. 
+> * Azure Kubernetes Service를 사용 하는 경우 클러스터의 작업자 노드 VM 크기는 **Standard_D8s_v3** 이상 이어야 하며 **프리미엄 디스크** 를 사용 해야 합니다. 클러스터가 여러 가용성 영역에 걸쳐 있지 않아야 합니다. 
 > * 다른 Kubernetes 배포 또는 서비스를 사용 하는 경우 모든 Kubernetes 노드에서 사용할 수 있는 최소 노드 크기는 8gb RAM, 4 코어, 32 GB RAM의 총 용량을 사용 하도록 해야 합니다. 예를 들어 1 개의 노드가 32 g b RAM 및 4 코어에 있을 수 있으며, 각각 16GB RAM 및 4 개 코어를 포함 하는 2 개의 노드가 있을 수 있습니다.
 
 > [!NOTE]

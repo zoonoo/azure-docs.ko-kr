@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398649"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367995"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure ExpressRoute
 
@@ -37,7 +37,7 @@ Site Recovery는 공용 끝점을 통해 대상 Azure 지역에서 Azure Storage
 
 온-프레미스에서 프록시를 사용 하 고 복제 트래픽에 대해 Express 경로를 사용 하려는 경우 구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성 해야 합니다. 아래 단계를 따릅니다.
 
-- 시스템 사용자 컨텍스트에 액세스 하려면 [여기](https://aka.ms/PsExec) 에서 PsExec 도구를 다운로드 하세요.
+- 시스템 사용자 컨텍스트에 액세스 하려면 [여기](/sysinternals/downloads/psexec) 에서 PsExec 도구를 다운로드 하세요.
 - 다음 명령줄을 실행 하 여 Internet Explorer를 시스템 사용자 컨텍스트에서 엽니다. psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"
 - IE에서 프록시 설정 추가
 - 바이패스 목록에서 Azure storage URL *. blob.core.windows.net을 추가 합니다.

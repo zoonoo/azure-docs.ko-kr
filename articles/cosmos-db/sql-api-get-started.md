@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801514"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278466"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -117,7 +117,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
     ```
 
    > [!NOTE]
-   > 이전 버전의 .NET SDK에 익숙한 경우 *컬렉션*과 *문서*라는 용어가 친숙할 수 있습니다. Azure Cosmos DB는 여러 API 모델을 지원하기 때문에 .NET SDK 버전 3.0에서는 *컨테이너*와 *항목*이라는 일반적인 용어가 사용됩니다. *컨테이너*는 컬렉션, 그래프 또는 테이블이 될 수 있습니다. *항목*은 문서, 가장자리/꼭짓점 또는 행이 될 수 있고, 컨테이너 내부의 콘텐츠입니다. 자세한 내용은 [Azure Cosmos DB에서 데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md)을 참조하세요.
+   > 이전 버전의 .NET SDK에 익숙한 경우 *컬렉션*과 *문서*라는 용어가 친숙할 수 있습니다. Azure Cosmos DB는 여러 API 모델을 지원하기 때문에 .NET SDK 버전 3.0에서는 *컨테이너*와 *항목*이라는 일반적인 용어가 사용됩니다. *컨테이너*는 컬렉션, 그래프 또는 테이블이 될 수 있습니다. *항목*은 문서, 가장자리/꼭짓점 또는 행이 될 수 있고, 컨테이너 내부의 콘텐츠입니다. 자세한 내용은 [Azure Cosmos DB에서 데이터베이스, 컨테이너 및 항목 작업](account-databases-containers-items.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. Azure Cosmos DB 계정을 찾은 다음, **키**를 선택합니다.
 
@@ -260,7 +260,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 1. F5 키를 선택하여 애플리케이션을 실행합니다.
 
    > [!NOTE]
-   > "503 서비스를 사용할 수 없는 예외" 오류가 발생하면 직접 연결 모드에 필요한 [포트](performance-tips.md#networking)가 방화벽에 의해 차단되었을 수 있습니다. 이 문제를 해결하려면 다음 코드와 같이 필요한 포트를 열거나 게이트웨이 모드 연결을 사용합니다.
+   > "503 서비스를 사용할 수 없는 예외" 오류가 발생하면 직접 연결 모드에 필요한 [포트](sql-sdk-connection-modes.md#service-port-ranges)가 방화벽에 의해 차단되었을 수 있습니다. 이 문제를 해결하려면 다음 코드와 같이 필요한 포트를 열거나 게이트웨이 모드 연결을 사용합니다.
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

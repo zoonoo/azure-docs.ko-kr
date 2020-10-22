@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: ea963b143cedf36137d9c36bc57d323353da6786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231355"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340515"
 ---
 # <a name="tutorial-mount-the-cluster"></a>자습서: 클러스터 탑재
 
@@ -20,6 +20,7 @@ ms.locfileid: "86231355"
 이 자습서에서는 다음 내용을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * 클라이언트 측 IP 주소 범위에 클라이언트 부하를 분산하는 전략
 > * 클라이언트 측 IP 주소 및 네임스페이스 접합으로 탑재 경로를 생성하는 방법
 > * 탑재 명령에서 사용할 인수
@@ -108,6 +109,6 @@ IP 주소와 네임스페이스 경로를 결합하여 탑재 명령의 클러�
 
 클라이언트를 탑재한 후 워크플로를 테스트하고 클러스터를 시작할 수 있습니다.
 
-데이터를 새 클라우드 핵심 파일러(filer)로 이동해야 할 경우 병렬 데이터 수집을 통해 캐시 구조를 활용하세요. [vFXT 클러스터로 데이터 이동](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest)에 몇 가지 전략이 설명되어 있습니다. (Avere vFXT for Azure는 Azure FXT Edge Filer와 매우 유사한 캐싱 기술을 사용하는 클라우드 기반 제품입니다.)
+데이터를 새 클라우드 핵심 파일러(filer)로 이동해야 할 경우 병렬 데이터 수집을 통해 캐시 구조를 활용하세요. [vFXT 클러스터로 데이터 이동](../avere-vfxt/avere-vfxt-data-ingest.md)에 몇 가지 전략이 설명되어 있습니다. (Avere vFXT for Azure는 Azure FXT Edge Filer와 매우 유사한 캐싱 기술을 사용하는 클라우드 기반 제품입니다.)
 
 하드웨어 문제를 해결해야 하는 경우에는 [Azure FXT Edge Filer 하드웨어 상태 모니터링](fxt-monitor.md)을 참조하세요.

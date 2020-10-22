@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
-ms.openlocfilehash: 292496c4d458621213fe62105149ac845d78891e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 162049c12c0618298695e43dae43f16e9fb50260
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479589"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372194"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "79479589"
 HDInsight SDK for Go는 HDInsight 클러스터를 관리 하는 데 사용할 수 있는 클래스와 함수를 제공 합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
 
 > [!NOTE]  
->이 SDK에 대한 GoDoc 참조 자료도 [여기](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)서 사용할 수 있습니다.
+>이 SDK에 대한 GoDoc 참조 자료도 [여기](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight)서 사용할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -142,7 +142,7 @@ func main() {
 
 `client.Create()`을(를) 호출하여 새 클러스터를 만들 수 있습니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 이 예제에서는 두 개의 헤드 노드와 하나의 작업자 노드를 사용 하 여 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법을 보여 줍니다.
 
@@ -261,7 +261,7 @@ client.Create(context.Background(), resourceGroupName, clusterName, parameters)
 client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 를 사용 하 여 `get` 클러스터를 성공적으로 만들었는지 확인할 수 있습니다.
 
@@ -298,7 +298,7 @@ client.ListByResourceGroup("<Resource Group Name>")
 > [!NOTE]  
 > `List()` 및 `ListByResourceGroup()` 모두 `ClusterListResultPage` 구조체를 반환합니다. 다음 페이지를 가져오려면 `Next()`을(를) 호출할 수 있습니다. 이 작업은 아래 예제에 표시된 것처럼 `ClusterListResultPage.NotDone()`에서 `false`를 반환할 때까지 반복할 수 있습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 다음 예제는 현재 구독에 대해 모든 클러스터 속성을 출력합니다.
 
@@ -334,7 +334,7 @@ client.Delete(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterPatchParameters{<map[string]*string} of Tags>)
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```golang
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
@@ -433,7 +433,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 scriptActionsClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```golang
 page, err := scriptActionsClient.ListByCluster(context.Background(), resourceGroupName, clusterName)
@@ -469,7 +469,7 @@ scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 scriptExecutionHistoryClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 이 예제는 모든 과거 스크립트 실행에 대한 모든 세부 정보를 출력합니다.
 
@@ -491,4 +491,4 @@ for (page.NotDone()) {
 
 ## <a name="next-steps"></a>다음 단계
 
-[GoDoc 참조 자료](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)를 탐색합니다. GoDocs는 SDK의 모든 함수에 대한 참조 설명서를 제공합니다.
+[GoDoc 참조 자료](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight)를 탐색합니다. GoDocs는 SDK의 모든 함수에 대한 참조 설명서를 제공합니다.

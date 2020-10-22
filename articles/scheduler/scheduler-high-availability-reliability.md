@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a6672af7e74fdd0732f3ba03264d2f674eb44f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898553"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368148"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Azure Scheduler의 고가용성 및 안정성
 
@@ -22,7 +22,7 @@ ms.locfileid: "78898553"
 >
 > Scheduler는 더 이상 Azure Portal에서 사용할 수 없지만 [REST API](/rest/api/scheduler) 및 [Azure Scheduler PowerShell cmdlet](scheduler-powershell-reference.md)은 현재 사용 가능하므로 작업 및 작업 컬렉션을 관리할 수 있습니다.
 
-Azure Scheduler는 작업에 [고가용성](https://docs.microsoft.com/azure/architecture/framework/#resiliency)과 안정성을 제공합니다. 자세한 내용은 [Scheduler에 대한 SLA](https://azure.microsoft.com/support/legal/sla/scheduler)를 참조하세요.
+Azure Scheduler는 작업에 [고가용성](/azure/architecture/framework/#resiliency)과 안정성을 제공합니다. 자세한 내용은 [Scheduler에 대한 SLA](https://azure.microsoft.com/support/legal/sla/scheduler)를 참조하세요.
 
 ## <a name="high-availability"></a>고가용성
 

@@ -16,16 +16,16 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421164"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371616"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 활성화
 
-이제 Azure AD(Azure Active Directory)의 Privileged Identity Management에서 ID 및 액세스 관리 환경의 애플리케이션 관리를 위해 만든 사용자 지정 역할에 대해 Just-In-Time 및 시간 제한 할당이 지원됩니다. Azure AD에서 애플리케이션 관리를 위임하기 위한 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory의 사용자 지정 관리자 역할(미리 보기)](../users-groups-roles/roles-custom-overview.md)을 참조하세요.
+이제 Azure AD(Azure Active Directory)의 Privileged Identity Management에서 ID 및 액세스 관리 환경의 애플리케이션 관리를 위해 만든 사용자 지정 역할에 대해 Just-In-Time 및 시간 제한 할당이 지원됩니다. Azure AD에서 애플리케이션 관리를 위임하기 위한 사용자 지정 역할을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory의 사용자 지정 관리자 역할(미리 보기)](../roles/custom-overview.md)을 참조하세요.
 
 > [!NOTE]
 > 미리 보기 기간 중에는 Azure AD 사용자 지정 역할이 기본 제공 디렉터리 역할과 통합되지 않습니다. 이 기능이 일반 공급되면 기본 제공 역할 환경에서 역할 관리가 수행됩니다. 다음 배너가 표시 되는 경우 이러한 역할은 [기본 제공 역할 환경에서](pim-how-to-activate-role.md) 관리 해야 하며이 문서는 적용 되지 않습니다.
@@ -67,4 +67,4 @@ Azure AD 사용자 지정 역할을 활성화 해야 하는 경우 Privileged Id
 - [Azure AD 사용자 지정 역할 할당](azure-ad-custom-roles-assign.md)
 - [Azure AD 사용자 지정 역할 할당 제거 또는 업데이트](azure-ad-custom-roles-update-remove.md)
 - [Azure AD 사용자 지정 역할 할당 구성](azure-ad-custom-roles-configure.md)
-- [Azure AD의 역할 정의](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure AD의 역할 정의](../roles/permissions-reference.md)

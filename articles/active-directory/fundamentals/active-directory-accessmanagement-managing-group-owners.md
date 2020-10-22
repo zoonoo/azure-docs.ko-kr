@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969917"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371939"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
 Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 사용자 또는 서비스 사용자 일 수 있으며 구성원 자격을 포함 하 여 그룹을 관리할 수 있습니다. 기존 그룹 소유자 또는 그룹 관리 관리자만 그룹 소유자를 할당할 수 있습니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다.
@@ -63,10 +63,10 @@ Azure AD를 사용하여 그룹에서 소유자를 제거합니다.
 ## <a name="next-steps"></a>다음 단계
 - [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](active-directory-manage-groups.md)
 
-- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../users-groups-roles/groups-settings-cmdlets.md)
+- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../enterprise-users/groups-settings-cmdlets.md)
 
-- [그룹을 사용하여 통합 SaaS 앱에 대한 액세스 할당](../users-groups-roles/groups-saasapps.md)
+- [그룹을 사용하여 통합 SaaS 앱에 대한 액세스 할당](../enterprise-users/groups-saasapps.md)
 
 - [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)
 
-- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../enterprise-users/groups-settings-v2-cmdlets.md)

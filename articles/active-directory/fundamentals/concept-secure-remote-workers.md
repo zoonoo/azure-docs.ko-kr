@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705370"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370205"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
 
@@ -34,7 +34,7 @@ ms.locfileid: "90705370"
 - 클라우드 인텔리전스를 활용합니다.
 - 최종 사용자 셀프 서비스를 사용하도록 설정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드에서는 Azure AD에서 클라우드 전용 또는 하이브리드 id가 이미 설정 되어 있다고 가정 합니다. Id 유형 선택에 대 한 도움말은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 문서를 참조 하세요. 
 
@@ -61,7 +61,7 @@ ms.locfileid: "90705370"
 | [SaaS 응용 프로그램에서 사용자 프로비저닝 자동화 및 프로](../app-provisioning/user-provisioning.md) 비전 해제 (해당 하는 경우) | 사용자가 액세스 해야 하는 클라우드 (SaaS) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만듭니다. 사용자 id를 만드는 것 외에도 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id를 유지 관리 및 제거 하 여 조직의 보안을 강화 하는 작업이 포함 됩니다. |
 | [보안 하이브리드 액세스 사용: 기존 앱 배달 컨트롤러 및 네트워크를 사용 하 여 레거시 앱 보호 (해당 하는](../manage-apps/secure-hybrid-access.md) 경우) | 기존 응용 프로그램 제공 컨트롤러나 네트워크를 사용 하 여 Azure AD에 연결 하 여 온-프레미스 및 클라우드 레거시 인증 응용 프로그램을 게시 하 고 보호 합니다. |
 | [셀프 서비스 암호 재설정 사용](../authentication/tutorial-enable-sspr.md) (클라우드 전용 계정에 적용 가능) | 이 기능을 통해 사용자가 장치 또는 응용 프로그램에 로그인 할 수 없는 경우 지원 센터에 대 한 지원 및 생산성 저하를 줄일 수 있습니다. |
-| [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
+| [가능한 경우 비전역 관리 역할 사용](../roles/permissions-reference.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
 | [Microsoft의 암호 지침 사용](https://www.microsoft.com/research/publication/password-guidance/) | 사용자에게 설정된 일정에 따라 자신의 암호를 변경하도록 더 이상 요구하지 않고, 복잡성 요구를 사용하지 않도록 설정합니다. 그러면 사용자는 암호를 기억하고 안전하게 유지하려고 노력합니다. |
 
 
@@ -90,8 +90,8 @@ ms.locfileid: "90705370"
 | [SaaS 응용 프로그램에서 사용자 프로비저닝 자동화 및 프로](../app-provisioning/user-provisioning.md) 비전 해제 (해당 하는 경우) | 사용자가 액세스 해야 하는 클라우드 (SaaS) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만듭니다. 사용자 id를 만드는 것 외에도 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id를 유지 관리 및 제거 하 여 조직의 보안을 강화 하는 작업이 포함 됩니다. |
 | [조건부 액세스 사용-장치 기반](../conditional-access/require-managed-devices.md) | 장치 기반 조건부 액세스를 사용 하 여 보안 및 사용자 환경을 개선 합니다. 이 단계를 통해 사용자는 보안 및 규정 준수에 대 한 표준을 충족 하는 장치 에서만 액세스할 수 있습니다. 이러한 디바이스는 관리 디바이스라고도 합니다. 관리 되는 장치는 Intune 규격 또는 하이브리드 Azure AD 조인 장치 일 수 있습니다. |
 | [암호 보호 사용](../authentication/howto-password-ban-bad-on-premises-deploy.md) | 사용자가 취약 하 고 추측 하기 쉬운 암호를 사용 하는 것을 방지 합니다. |
-| [둘 이상의 전역 관리자 지정](../users-groups-roles/directory-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. 투명 계정은 응급 상황에서 서비스에 액세스할 수 있도록 합니다. |
-| [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
+| [둘 이상의 전역 관리자 지정](../roles/security-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. 투명 계정은 응급 상황에서 서비스에 액세스할 수 있도록 합니다. |
+| [가능한 경우 비전역 관리 역할 사용](../roles/permissions-reference.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
 | [Microsoft의 암호 지침 사용](https://www.microsoft.com/research/publication/password-guidance/) | 사용자에게 설정된 일정에 따라 자신의 암호를 변경하도록 더 이상 요구하지 않고, 복잡성 요구를 사용하지 않도록 설정합니다. 그러면 사용자는 암호를 기억하고 안전하게 유지하려고 노력합니다. |
 | [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 자신의 회사, 학교 또는 소셜 id를 사용 하 여 앱 및 서비스에 로그인 하도록 허용 하 여 게스트 사용자와 공동 작업 합니다. |
 
@@ -122,8 +122,8 @@ ms.locfileid: "90705370"
 | [SaaS 응용 프로그램에서 사용자 프로비저닝 자동화 및 프로](../app-provisioning/user-provisioning.md) 비전 해제 (해당 하는 경우) | 사용자가 액세스 해야 하는 클라우드 (SaaS) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만듭니다. 사용자 id를 만드는 것 외에도 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id를 유지 관리 및 제거 하 여 조직의 보안을 강화 하는 작업이 포함 됩니다. |
 | [조건부 액세스 사용-장치 기반](../conditional-access/require-managed-devices.md) | 장치 기반 조건부 액세스를 사용 하 여 보안 및 사용자 환경을 개선 합니다. 이 단계를 통해 사용자는 보안 및 규정 준수에 대 한 표준을 충족 하는 장치 에서만 액세스할 수 있습니다. 이러한 디바이스는 관리 디바이스라고도 합니다. 관리 되는 장치는 Intune 규격 또는 하이브리드 Azure AD 조인 장치 일 수 있습니다. |
 | [암호 보호 사용](../authentication/howto-password-ban-bad-on-premises-deploy.md) | 사용자가 취약 하 고 추측 하기 쉬운 암호를 사용 하는 것을 방지 합니다. |
-| [둘 이상의 전역 관리자 지정](../users-groups-roles/directory-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. 투명 계정은 응급 상황에서 서비스에 액세스할 수 있도록 합니다. |
-| [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
+| [둘 이상의 전역 관리자 지정](../roles/security-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. 투명 계정은 응급 상황에서 서비스에 액세스할 수 있도록 합니다. |
+| [가능한 경우 비전역 관리 역할 사용](../roles/permissions-reference.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
 | [Microsoft의 암호 지침 사용](https://www.microsoft.com/research/publication/password-guidance/) | 사용자에게 설정된 일정에 따라 자신의 암호를 변경하도록 더 이상 요구하지 않고, 복잡성 요구를 사용하지 않도록 설정합니다. 그러면 사용자는 암호를 기억하고 안전하게 유지하려고 노력합니다. |
 | [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 자신의 회사, 학교 또는 소셜 id를 사용 하 여 앱 및 서비스에 로그인 하도록 허용 하 여 게스트 사용자와 공동 작업 합니다. |
 | [Privileged Identity Management 사용](../privileged-identity-management/pim-configure.md) | 조직에서 중요 한 리소스에 대 한 액세스를 관리, 제어 및 모니터링할 수 있으므로 관리자가 필요한 경우에만 액세스 권한을 보유 하 고 승인을 받을 수 있습니다. |

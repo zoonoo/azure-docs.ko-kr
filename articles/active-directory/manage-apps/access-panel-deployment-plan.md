@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146626"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372483"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>내 앱 배포 Azure Active Directory 계획
 
@@ -117,7 +117,7 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 다음 표에서는 몇 가지 중요 한 내 앱 구성 및 사용할 수 있는 일반적인 값을 보여 줍니다.
 
-| Configuration| 일반적인 값 |
+| 구성| 일반적인 값 |
 | - | - |
 | 파일럿 그룹 결정| 사용할 Azure AD 보안 그룹을 식별 하 고 모든 파일럿 구성원이 그룹에 속해 있는지 확인 합니다. |
 | 프로덕션에 사용할 그룹을 결정 합니다.| 사용할 azure AD 보안 그룹 또는 Azure AD에 동기화 된 Active Directory 그룹을 식별 합니다. 모든 파일럿 구성원이 그룹의 일부 인지 확인 합니다. |
@@ -225,13 +225,13 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 사용자가 Azure AD에서 자신의 보안 그룹 또는 Microsoft 365 그룹을 만들고 관리할 수 있도록 설정할 수 있습니다. 그룹 소유자는 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있습니다. 메일 사용이 가능한 보안 그룹이 나 메일 그룹에는 셀프 서비스 그룹 관리 기능을 사용할 수 없습니다.
 
-셀프 서비스 그룹 멤버 자격에 대 한 계획을 수립 하려면 조직의 모든 사용자가 그룹을 만들고 관리할 수 있도록 허용할지 또는 사용자의 하위 집합만 허용할지 결정 합니다. 사용자의 하위 집합을 허용 하는 경우 해당 사용자가 추가 되는 그룹을 설정 해야 합니다. 이러한 시나리오를 사용 하는 방법에 대 한 자세한 내용은 [Azure Active Directory의 셀프 서비스 그룹 관리 설정](../users-groups-roles/groups-self-service-management.md) 을 참조 하세요.
+셀프 서비스 그룹 멤버 자격에 대 한 계획을 수립 하려면 조직의 모든 사용자가 그룹을 만들고 관리할 수 있도록 허용할지 또는 사용자의 하위 집합만 허용할지 결정 합니다. 사용자의 하위 집합을 허용 하는 경우 해당 사용자가 추가 되는 그룹을 설정 해야 합니다. 이러한 시나리오를 사용 하는 방법에 대 한 자세한 내용은 [Azure Active Directory의 셀프 서비스 그룹 관리 설정](../enterprise-users/groups-self-service-management.md) 을 참조 하세요.
 
 ## <a name="plan-reporting-and-auditing"></a>보고 및 감사 계획
 
 Azure AD [는 기술 및 비즈니스 정보를 제공 하는 보고서를](../reports-monitoring/overview-reports.md)제공 합니다. 비즈니스 및 기술 응용 프로그램 소유자와 협력 하 여 이러한 보고서의 소유권을 가정 하 고 정기적으로 사용 합니다. 다음 표에서는 일반적인 보고 시나리오에 대 한 몇 가지 예를 제공 합니다.
 
-| 예 | 위험 관리| 생산성 향상| 거버넌스 및 규정 준수 |
+| 예제 | 위험 관리| 생산성 향상| 거버넌스 및 규정 준수 |
 |  - |- | - | - |
 | 보고서 유형|  응용 프로그램 사용 권한 및 사용| 계정 프로비전 활동| 응용 프로그램에 액세스 하는 사용자 검토 |
 | 잠재적 작업| 감사 액세스 권한 해지| 프로 비전 오류 수정| 액세스 취소 |
@@ -299,7 +299,7 @@ Microsoft 365 응용 프로그램의 경우 사용자는 할당 된 라이선스
 
 ## <a name="manage-your-implementation"></a>구현 관리
 
-최소 권한 역할을 사용 하 여 Azure Active Directory 내에서 필요한 작업을 수행 합니다. [사용 가능한 다른 역할을 검토](../users-groups-roles/directory-assign-admin-roles.md) 하 고 올바른 역할을 선택 하 여이 응용 프로그램의 각 가상 사용자에 대 한 요구 사항을 해결 합니다. 일부 역할은 배포를 완료 한 후 임시로 적용 해야 할 수도 있습니다.
+최소 권한 역할을 사용 하 여 Azure Active Directory 내에서 필요한 작업을 수행 합니다. [사용 가능한 다른 역할을 검토](../roles/permissions-reference.md) 하 고 올바른 역할을 선택 하 여이 응용 프로그램의 각 가상 사용자에 대 한 요구 사항을 해결 합니다. 일부 역할은 배포를 완료 한 후 임시로 적용 해야 할 수도 있습니다.
 
 | 가상 사용자| 역할| Azure AD 역할  |
 | - | -| -|

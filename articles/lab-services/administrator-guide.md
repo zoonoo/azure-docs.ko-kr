@@ -2,13 +2,13 @@
 title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 만들고 관리하는 관리자에게 도움을 줍니다.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444151"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371412"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리하는 IT(정보 기술) 관리자가 일반적으로 학교의 랩 계정을 설정합니다. 랩 계정이 설정되면 관리자 또는 교육자가 랩 계정 내에 포함된 클래스룸 랩을 만듭니다. 이 문서에서는 관련 Azure 리소스 및 해당 리소스를 만들기 위한 지침에 대한 대략적인 개요를 제공합니다.
@@ -144,11 +144,11 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스팅할 �
     > [!NOTE]
     > 랩 계정이 VNet과 피어링되면 **랩 작성자가 랩 위치를 선택하도록 허용** 설정을 사용할 수 없습니다. 이 설정에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다. [랩 작성자가 랩의 위치를 선택하도록 허용](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **피어링된 VNet이 없으며****** 랩 작성자가 랩 위치를 선택할 수 없음**
+  - * * VNet No 피어 링 **_및_*_ lab 작성자는 lab location_를 선택할 수 없습니다. *
   
     랩 계정과 피어링된 VNet이 **없고** *그리고* [랩 작성자가 랩 위치를 선택할 수 **없으면**](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location) 클래스룸 랩이 사용 가능한 VM 용량이 있는 지역에 자동으로 만들어집니다.  특히 Azure Lab Services는 [랩 계정과 동일한 지리적 위치 내에 있는 지역](https://azure.microsoft.com/global-infrastructure/regions)에서 가용성을 찾습니다.
 
-  - **피어링된 VNet이 없으며****** 랩 작성자가 랩 위치를 선택할 수 있음**
+  - * * VNet No 피어 링 **_및_*_ lab 작성자가 lab location_를 선택할 수 있습니다. *
        
     피어링된 VNet이 **없고** [랩 작성자 랩 위치를 선택할 수 있는 경우](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location) 랩 작성자가 선택할 수 있는 위치는 사용 가능한 용량을 기준으로 합니다.
 
@@ -171,7 +171,7 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스팅할 �
 | 중간 | <ul><li>4개 코어</li><li>7GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다. |
 | 중간(중첩된 가상화) | <ul><li>4개 코어</li><li>16GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 이 크기는 관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다.
 | 큰 | <ul><li>8개 코어</li><li>16GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다.  이 크기는 중첩된 가상화도 지원합니다. |
-| 대형(중첩된 가상화) | <ul><li>8개 코어</li><li>16GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. |
+| 대형(중첩된 가상화) | <ul><li>8개 코어</li><li>32GB RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | 이 크기는 더 빠른 CPU, 향상된 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시가 필요한 애플리케이션에 가장 적합합니다. |
 | 소형 GPU(시각화) | <ul><li>6개 코어</li><li>56GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
 | 소형 GPU(컴퓨팅) | <ul><li>6개 코어</li><li>56GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |이 크기는 인공 지능과 Deep Learning 같은 컴퓨팅을 많이 사용하는 애플리케이션에 가장 적합합니다. |
 | 중간 GPU(시각화) | <ul><li>12개 코어</li><li>112GB RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | 이 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다. |
