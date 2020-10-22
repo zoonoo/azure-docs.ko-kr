@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
-ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069682"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367977"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Azure Site Recovery에서 네트워크 보안 그룹 사용
 
-네트워크 보안 그룹은 네트워크 트래픽을 가상 네트워크의 리소스로 제한하는 데 사용됩니다. [NSG(네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups)에는 원본 또는 대상 IP 주소, 포트 및 프로토콜에 따라 인바운드 또는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다.
+네트워크 보안 그룹은 네트워크 트래픽을 가상 네트워크의 리소스로 제한하는 데 사용됩니다. [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md#network-security-groups)에는 원본 또는 대상 IP 주소, 포트 및 프로토콜에 따라 인바운드 또는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다.
 
 Resource Manager 배포 모델에서 NSG는 서브넷 또는 개별 네트워크 인터페이스에 연결할 수 있습니다. NSG를 서브넷에 연결하면 규칙이 서브넷에 연결된 모든 리소스에 적용됩니다. 이미 연결된 NSG가 있는 서브넷 내의 개별 네트워크 인터페이스에 NSG를 연결하여 트래픽을 추가로 제한할 수 있습니다.
 
@@ -37,7 +37,7 @@ Resource Manager 배포 모델에서 NSG는 서브넷 또는 개별 네트워크
 
 이렇게 하면 세부적인 보안 규칙을 적용할 수 있습니다. 예를 들어 서브넷에 속한 일부 애플리케이션 VM(예: 프런트 엔드 VM)에 대한 인바운드 인터넷 액세스는 허용하고, 다른 VM(예: 데이터베이스 및 다른 백 엔드 VM)에 대한 인바운드 인터넷 액세스는 제한할 수 있습니다. 이 경우 서브넷 NSG에 더 완화된 규칙을 적용하여 인터넷 트래픽을 허용하고, VM NSG에서 액세스를 거부하여 특정 VM에 대한 액세스를 제한할 수 있습니다. 아웃바운드 트래픽에도 동일하게 적용할 수 있습니다.
 
-이러한 NSG 구성을 설정하는 경우 올바른 우선 순위가 [보안 규칙](../virtual-network/security-overview.md#security-rules)에 적용되는지 확인합니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.
+이러한 NSG 구성을 설정하는 경우 올바른 우선 순위가 [보안 규칙](../virtual-network/network-security-groups-overview.md#security-rules)에 적용되는지 확인합니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.
 
 네트워크 인터페이스와 서브넷에 네트워크 보안 그룹이 적용되는 시점을 항상 알 수는 없습니다. 네트워크 인터페이스에 대한 [효과적인 보안 규칙](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules)을 확인하여 네트워크 인터페이스에 적용되는 집계 규칙을 확인할 수 있습니다. [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) 의 [IP 흐름 확인](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) 기능을 사용 하 여 네트워크 인터페이스에서 통신이 허용 되는지 여부를 확인할 수도 있습니다. 이 도구에서는 통신이 허용되는지 여부 및 어떤 네트워크 보안 규칙이 트래픽을 허용하거나 거부하는지를 알려줍니다.
 
@@ -72,7 +72,7 @@ Site Recovery는 장애 조치 작업의 일부로 NSG를 만들거나 복제하
 NSG를 만들고 구성한 경우 [테스트 장애 조치](azure-to-azure-tutorial-dr-drill.md)를 실행하여 스크립팅된 NSG 연결 및 장애 조치 후 VM 연결을 확인하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
--    [네트워크 보안 그룹](../virtual-network/security-overview.md#network-security-groups)에 대해 자세히 알아보세요.
--    NSG [보안 규칙](../virtual-network/security-overview.md#security-rules)에 대해 자세히 알아보세요.
+-    [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#network-security-groups)에 대해 자세히 알아보세요.
+-    NSG [보안 규칙](../virtual-network/network-security-groups-overview.md#security-rules)에 대해 자세히 알아보세요.
 -    NSG에 대한 [효과적인 보안 규칙](../virtual-network/diagnose-network-traffic-filter-problem.md)에 대해 자세히 알아보세요.
 -    애플리케이션 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

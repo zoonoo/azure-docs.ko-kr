@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 8a21fecbe39008a79b60bdc9f133c3540d440207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a467da5d249ee1c1c49a4630d281c914506690e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545083"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>자습서: Soonr Workplace와 Azure Active Directory 통합
 
@@ -99,7 +99,7 @@ Soonr Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Soonr Workplace 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<servername>.soonr.com/singlesignon/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
 
@@ -107,7 +107,7 @@ Soonr Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Soonr Workplace 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<servername>.soonr.com/singlesignon/saml/SSO` 패턴을 사용하여 URL을 입력합니다.
 

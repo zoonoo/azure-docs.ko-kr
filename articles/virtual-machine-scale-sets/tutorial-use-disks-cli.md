@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5dedee5e9ef4d036305a545201afc03d90750189
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e9e1fa567ae282a4472fa728e53e720bf8ff6f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568321"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367927"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -76,7 +76,7 @@ Standard Storage는 HDD에서 지원되며, 비용 효율적인 스토리지 및
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 확장 집합을 만들 때 또는 기존 확장 집합을 사용하여 디스크를 만들고 연결할 수 있습니다.
 
-API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 속성을 사용하여 가상 머신 확장 집합에서 OS 디스크의 크기를 설정할 수 있습니다. 프로비저닝한 후에는 전체 공간을 사용하기 위해 디스크를 확장하거나 다시 분할해야 할 수 있습니다. [여기에서 디스크 확장](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os)에 대해 자세히 알아보세요.
+API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) 속성을 사용하여 가상 머신 확장 집합에서 OS 디스크의 크기를 설정할 수 있습니다. 프로비저닝한 후에는 전체 공간을 사용하기 위해 디스크를 확장하거나 다시 분할해야 할 수 있습니다. [여기에서 디스크 확장](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os)에 대해 자세히 알아보세요.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>확장 집합을 만들 때 디스크 연결
 먼저 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.

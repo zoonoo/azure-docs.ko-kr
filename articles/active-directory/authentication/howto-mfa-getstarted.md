@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964471"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366482"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Azure Multi-Factor Authentication 배포 계획
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 MFA 및 기타 제어가 필요한 시기를 결정하는 조건부 액세스 정책 전략을 계획하려면 [일반 조건부 액세스 정책](../conditional-access/concept-conditional-access-policy-common.md)을 참조하세요.
 
-Azure AD 테넌트에서 실수로 차단되는 것을 방지하는 것이 중요합니다. 테넌트에 두 개 이상의 [응급 액세스 계정](../users-groups-roles/directory-emergency-access.md)을 만들고 이 계정을 조건부 액세스 정책에서 제외하면 실수로 관리 액세스 권한이 부족해 지면서 미치는 영향을 완화할 수 있습니다.
+Azure AD 테넌트에서 실수로 차단되는 것을 방지하는 것이 중요합니다. 테넌트에 두 개 이상의 [응급 액세스 계정](../roles/security-emergency-access.md)을 만들고 이 계정을 조건부 액세스 정책에서 제외하면 실수로 관리 액세스 권한이 부족해 지면서 미치는 영향을 완화할 수 있습니다.
 
 ### <a name="create-conditional-access-policy"></a>조건부 액세스 정책 만들기
 

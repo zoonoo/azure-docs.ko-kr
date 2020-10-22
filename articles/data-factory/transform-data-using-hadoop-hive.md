@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
-ms.openlocfilehash: 877c1719a76f23f8446164b641dc2dac84261e0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5381fea4c492c6bcf61c392ea8a8f9bee8860644
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849283"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368930"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환
 
@@ -80,5 +80,5 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

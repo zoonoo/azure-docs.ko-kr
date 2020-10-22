@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117620"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366397"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -38,7 +38,7 @@ Azure AD는 두 종류의 권한을 정의합니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 
-* 위임된 권한의 경우 앱의 효과적인 권한은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자의 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+* 위임된 권한의 경우 앱의 효과적인 권한은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자의 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
     예를 들어 사용자의 앱에 Microsoft Graph의 `User.ReadWrite.All` 위임된 권한을 부여한 것으로 가정합니다. 이 권한은 일반적으로 조직에 있는 모든 사용자의 프로필을 읽고 업데이트하는 앱 권한을 부여합니다. 로그인한 사용자가 전역 관리자인 경우 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있게 됩니다. 그러나 로그인한 사용자가 관리자 역할이 아니면 앱은 로그인한 사용자의 프로필만 업데이트할 수 있게 됩니다. 즉, 대신 행동할 권한을 가진 사용자가 조직에 있는 다른 사용자의 프로필에 대한 권한을 가지고 있지 않으므로 해당 다른 사용자의 프로필을 업데이트할 수 없습니다.
 * 애플리케이션 권한의 경우 앱의 효과적인 권한은 권한이 암시하는 권한의 전체 수준입니다. 예를 들어 `User.ReadWrite.All` 애플리케이션 권한을 가진 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure AD의 권한은 사용자, 관리자 또는 앱 개발자가 액세스할 
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| 속성 이름 | Description | 예제 |
+| 속성 이름 | 설명 | 예제 |
 | --- | --- | --- |
 | `ID` | 이 권한을 고유하게 식별하는 GUID 값입니다. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | 이 권한이 사용할 수 있는지 여부를 나타냅니다. | true |
@@ -82,7 +82,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   
 * **관리자 동의** - 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 관리자 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다. [관리자 동의를 부여하는 방법에 대해 자세히 알아봅니다](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 ### <a name="client-best-practices"></a>클라이언트 모범 사례
 
@@ -102,7 +102,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
   - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
-    예를 들면 다음과 같습니다.
+    예를 들어:
   - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
   - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
   - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

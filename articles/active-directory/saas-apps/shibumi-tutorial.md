@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d03b9ba3a78664e7050313f361c94c2930a87c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fa7aef6c4c094ae391f9649a810971d4a33e670
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548713"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>자습서: Shibumi와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ Shibumi에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Shibumi 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://<SUBDOMAIN>.shibumi.com` 패턴을 사용하여 URL을 입력합니다.
 
@@ -109,7 +109,7 @@ Shibumi에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
-    ![Shibumi 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.shibumi.com/saml/SSO` 패턴을 사용하여 URL을 입력합니다.
 

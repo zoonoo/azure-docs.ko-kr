@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145286"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366329"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -220,7 +220,7 @@ CA 정책 조건에서 액세스 제어를 트리거하지 않으면 액세스 �
 
 ### <a name="set-up-emergency-access-accounts"></a>응급 액세스 계정 설정
 
-정책을 잘못 구성하면 조직이 Azure Portal에서 잠길 수 있습니다. 조직에서 둘 이상의 [응급 액세스 계정](../users-groups-roles/directory-emergency-access.md)을 만들어 실수로 인한 관리자 잠금의 영향을 완화합니다.
+정책을 잘못 구성하면 조직이 Azure Portal에서 잠길 수 있습니다. 조직에서 둘 이상의 [응급 액세스 계정](../roles/security-emergency-access.md)을 만들어 실수로 인한 관리자 잠금의 영향을 완화합니다.
 
 * 정책 관리 전용 사용자 계정을 만들고 모든 정책에서 제외합니다.
 

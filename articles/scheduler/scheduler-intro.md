@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898548"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368131"
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler 정의
 
@@ -25,7 +25,7 @@ ms.locfileid: "78898548"
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/)는 작업을 선언적으로 설명하여 클라우드에서 실행되는 [작업](../scheduler/scheduler-concepts-terms.md)을 만드는 데 도움이 됩니다. 그런 다음, 해당 작업이 자동으로 예약되고 실행됩니다. 예를 들어, HTTP 또는 HTTPS 엔드포인트 호출과 같이 Azure 내부 및 외부에서 서비스를 호출하고, Azure Storage 큐 및 Azure Service Bus 큐 또는 토픽에 메시지를 게시할 수도 있습니다. 작업은 바로 또는 나중에 실행할 수 있습니다. Scheduler는 [복잡한 일정 및 고급 되풀이](../scheduler/scheduler-advanced-complexity.md)를 손쉽게 지원합니다. Scheduler는 작업을 실행하는 경우를 지정하고, 검토할 수 있는 작업 결과의 기록을 유지한 다음, 예측 가능하고 안정적으로 실행할 워크로드를 예약합니다.
 
-[Azure WebJobs](../app-service/webjobs-create.md)(Azure App Service에서 [Web Apps](https://azure.microsoft.com/services/app-service/web/) 기능의 일부)와 같은 다른 Azure 일정 기능은 백그라운드에서 Scheduler를 사용합니다. 이러한 작업의 통신을 관리 하는 데 도움이 되는 [스케줄러 REST API](https://docs.microsoft.com/rest/api/scheduler/)를 사용 하 여 이러한 작업에 대 한 통신을 관리할 수 있습니다.
+[Azure WebJobs](../app-service/webjobs-create.md)(Azure App Service에서 [Web Apps](https://azure.microsoft.com/services/app-service/web/) 기능의 일부)와 같은 다른 Azure 일정 기능은 백그라운드에서 Scheduler를 사용합니다. 이러한 작업의 통신을 관리 하는 데 도움이 되는 [스케줄러 REST API](/rest/api/scheduler/)를 사용 하 여 이러한 작업에 대 한 통신을 관리할 수 있습니다.
 
 Scheduler가 유용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
 
@@ -37,7 +37,7 @@ Scheduler가 유용할 수 있는 몇 가지 시나리오는 다음과 같습니
 
 Scheduler를 사용하여 예약된 워크로드를 만들기, 유지 관리 및 실행할 수는 있지만, Scheduler가 워크로드를 호스트하거나 코드를 실행하지는 않습니다. 서비스는 Azure, 온-프레미스 또는 다른 공급자를 통해 다른 곳에서 호스트되는 서비스 또는 코드를 *호출*하기만 합니다. Scheduler는 HTTP, HTTPS, Storage 큐, Service Bus 큐 또는 Service Bus 토픽을 통해 호출합니다.
 
-작업 및 [작업 컬렉션](../scheduler/scheduler-concepts-terms.md)을 만들고, 예약 하 고, 관리 하 고, 업데이트 하거나, 삭제 하려면 코드, [스케줄러 REST API](https://docs.microsoft.com/rest/api/scheduler/)또는 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md)을 사용할 수 있습니다.
+작업 및 [작업 컬렉션](../scheduler/scheduler-concepts-terms.md)을 만들고, 예약 하 고, 관리 하 고, 업데이트 하거나, 삭제 하려면 코드, [스케줄러 REST API](/rest/api/scheduler/)또는 [Azure scheduler PowerShell cmdlet](scheduler-powershell-reference.md)을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

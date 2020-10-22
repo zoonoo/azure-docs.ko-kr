@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971312"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123928"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>자습서: 태양광 패널 모니터링 앱 템플릿 만들기 및 연습 
 
@@ -108,6 +108,6 @@ Adatum은 태양광 패널을 모니터링 및 관리하는 가상의 에너지 
 ## <a name="next-steps"></a>다음 단계
 * 태양광 패널 앱 아키텍처에 대한 자세한 내용은 다음을 참조하세요. 
 > [!div class="nextstepaction"]
-> [개념 문서](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+> [개념 문서](./concept-iot-central-solar-panel-app.md)
 * [태양광 패널 앱](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)을 참조하여 무료로 태양광 패널 애플리케이션 템플릿을 만들어보세요.
-* [IoT Central 개요](https://docs.microsoft.com/azure/iot-central/)를 참조하여 IoT Central에 대해 자세히 알아보세요.
+* [IoT Central 개요](../index.yml)를 참조하여 IoT Central에 대해 자세히 알아보세요.

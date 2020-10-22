@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "89401200"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
@@ -35,7 +35,7 @@ ms.locfileid: "89401200"
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 다음 사항을 확인합니다.
 
 * 새 공존 Express 경로 및 VPN Gateway 구성을 구성 하지 않습니다.
@@ -62,7 +62,7 @@ ms.locfileid: "89401200"
      ![연결 추가 페이지](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "연결 추가 페이지")<br>
 
 ## <a name="part-2---add-a-local-network-gateway"></a><a name="part2"></a>2부 - 로컬 네트워크 게이트웨이 추가
-1. **로컬 네트워크 게이트웨이를 클릭하고 ** ***로컬 네트워크 게이트웨이를 선택 합니다***. **로컬 네트워크 게이트웨이 선택** 페이지가 열립니다.
+1. **로컬 네트워크 게이트웨이** ** _를 클릭 하 여 로컬 네트워크 게이트웨이를 선택_*합니다. 그러면 _* 로컬 네트워크 게이트웨이 선택 페이지가 열립니다** .
    
     ![로컬 네트워크 게이트웨이 선택](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "로컬 네트워크 게이트웨이 선택")<br>
 2. **새로 만들기**를 클릭하여 **로컬 네트워크 게이트웨이 만들기** 페이지를 엽니다.

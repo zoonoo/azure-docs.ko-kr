@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342147"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368091"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -85,7 +85,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 1. Security Center 메뉴에서 **가격 책정 및 설정**을 선택합니다.
 1. 변경하려는 구독을 선택합니다.
 1. **위협 탐지**를 선택합니다.
-1. **Windows DEFENDER ATP가 내 데이터에 액세스 하도록 허용**을 선택 하 고 **저장**을 선택 합니다.
+1. **Microsoft Defender For Endpoint에서 내 데이터에 액세스 하도록 허용**을 선택 하 고 **저장**을 선택 합니다.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="끝점 자체 Security Center 용 Microsoft Defender":::
 

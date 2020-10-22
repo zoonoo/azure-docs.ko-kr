@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: eff3ff3d8fa2ab3025ca8b8d4f974d6944c88433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac90d3cabc179ecd1c1e421fd026a584f7158e3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649646"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368573"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
 
@@ -22,7 +22,7 @@ Dv3 시리즈는 Intel® Xeon® 플래티넘 827272CL (Cascade Lake)에서 실�
 
 ## <a name="dv3-series"></a>Dv3 시리즈
 
-Dv3 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 되는 Intel 터보 부스트 기술 2.0입니다. Dv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 스토리지의 조합을 제공합니다.
+Dv3 시리즈 크기는 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 되는 [intel &reg; 터보 부스트 기술 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)입니다. Dv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 스토리지의 조합을 제공합니다.
 
 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 Dsv3 크기를 사용합니다. Dsv3 크기의 가격 및 요금 청구 기준은 Dv3 시리즈와 동일합니다.
 
@@ -48,7 +48,7 @@ Dv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 
 ## <a name="dsv3-series"></a>Dsv3 시리즈
 
-Dsv3 시리즈 크기는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 intel 터보 부스트 기술 2.0을 사용 하는 intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 되며 premium storage를 사용 합니다. Dsv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 스토리지의 조합을 제공합니다.
+Dsv3 시리즈 크기는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M 2.1 g h z (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 intel [ &reg; 터보 부스트 기술 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) 을 사용 하는 intel® xeon® e5-2673 v3 2.4 Ghz (haswell) 프로세서에서 실행 되며 premium storage를 사용 합니다. Dsv3 시리즈 크기는 대부분의 프로덕션 워크로드에 적합한 vCPU, 메모리 및 임시 스토리지의 조합을 제공합니다.
 
 Dsv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 

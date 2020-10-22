@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4203c572ed040b37a377e8d4a6b1bc82c883ebd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804368"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368505"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "91804368"
 
 그룹 데이터에 액세스 하는 앱에 대 한 그룹 소유자 동의를 관리 하려면 다음 단계를 따르세요.
 
-1. [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator)로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **사용자 동의 설정**을 선택합니다.
 3. **데이터에 액세스하는 앱에 대한 그룹 소유자 동의** 아래에서 사용하도록 설정하려는 옵션을 선택합니다.
 4. **저장**을 선택하여 설정을 저장합니다.
@@ -73,7 +73,7 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](https://docs.microsoft.com/p
 
 1. 설정 값을 이해합니다. 앱에서 해당 그룹의 데이터에 액세스하도록 허용할 수 있는 사용자를 정의하는 두 가지 설정 값이 있습니다.
 
-    | 설정       | 유형         | Description  |
+    | 설정       | Type         | Description  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | 부울 | 그룹 소유자가 그룹 관련 권한을 부여할 수 있는지 여부를 나타내는 플래그입니다. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | _EnableGroupSpecificConsent_를 "True"로 설정하고 이 값을 그룹의 개체 ID로 설정하면 식별된 그룹의 멤버가 자신이 소유한 그룹에 대한 그룹 관련 권한을 부여할 수 있습니다. |

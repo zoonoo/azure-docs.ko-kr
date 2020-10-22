@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 69aac7dff80b7c85212602f1c03957a117628737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54fb11598dc794248c1aae81734b548341c0eee6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400335"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369474"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -102,7 +102,7 @@ AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페�
 > 중요한 계정이 상주할 디렉터리와 사용하는 관리자 워크스테이션을 새 클라우드 서비스에서 관리할 것인지 아니면 기존 프로세스에서 관리할 것인지 선택해야 합니다. 기존 관리 및 ID 프로비저닝 프로세스를 사용하면 일부 위험을 줄일 수 있지만, 공격자가 온-프레미스 계정을 손상시키고 클라우드로 피벗할 위험이 생길 수도 있습니다. 역할에 따라 다른 전략을 사용해야 합니다. 예를 들어 IT 관리자와 사업부 관리자는 서로 다른 전략을 사용해야 합니다. 두 가지 옵션이 있습니다. 첫 번째 옵션은 온-프레미스 Active Directory 인스턴스와 동기화되지 않는 Azure AD 계정을 만드는 것입니다. 관리자 워크스테이션을 Azure AD에 조인하면 Microsoft Intune을 사용하여 관리하고 패치할 수 있습니다. 두 번째 옵션은 온-프레미스 Active Directory 인스턴스와 동기화하여 기존 관리자 계정을 사용하는 것입니다. 관리 및 보안을 위해 Active Directory 도메인에서 기존 워크스테이션을 사용합니다.
 
 ## <a name="manage-connected-tenants"></a>연결된 테넌트 관리
-보안 조직에서는 위험을 평가하고 조직의 정책 및 규정 요구 사항이 준수되고 있는지 확인하기 위한 가시성이 필요합니다. 보안 조직에서는 [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)을 통해 프로덕션 환경 및 네트워크에 연결된 모든 구독 관련 정보를 볼 수 있어야 합니다. Azure AD의 [전역 관리자/회사 관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions)는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 대한 액세스 권한을 높일 수 있으며 환경에 연결된 모든 구독과 관리 그룹을 볼 수 있습니다.
+보안 조직에서는 위험을 평가하고 조직의 정책 및 규정 요구 사항이 준수되고 있는지 확인하기 위한 가시성이 필요합니다. 보안 조직에서는 [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)을 통해 프로덕션 환경 및 네트워크에 연결된 모든 구독 관련 정보를 볼 수 있어야 합니다. Azure AD의 [전역 관리자/회사 관리자](../../active-directory/roles/permissions-reference.md#company-administrator-permissions)는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할에 대한 액세스 권한을 높일 수 있으며 환경에 연결된 모든 구독과 관리 그룹을 볼 수 있습니다.
 
 환경에 연결된 모든 구독 또는 관리 그룹을 사용자와 보안 그룹이 볼 수 있게 하려면 [모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승](../../role-based-access-control/elevate-access-global-admin.md)을 참조하세요. 위험을 평가한 후에는 상승된 액세스 권한을 제거해야 합니다.
 

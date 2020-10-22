@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 66eee67ae191d764228a85aaf1e63eae43208cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16412e6949bd6bf3d9496b33a900a0331bd1e9fb
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537738"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278160"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>자습서: 데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -344,7 +344,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a name="import-to-the-sql-api-bulk-import"></a><a id="SQLBulkTarget"></a>SQL API로 가져오기(대량 가져오기)
 
-Azure Cosmos DB 대량 가져오기를 사용하면 효율성을 위해 Azure Cosmos DB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 도구는 하나의 단일 분할 Azure Cosmos 컨테이너로의 가져오기를 지원합니다. 또한 둘 이상의 단일 분할 Azure Cosmos 컨테이너 간에 데이터를 분할하는 분할된 가져오기를 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partition-data.md)을 참조하세요. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.  
+Azure Cosmos DB 대량 가져오기를 사용하면 효율성을 위해 Azure Cosmos DB 저장 프로시저를 통해 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 도구는 하나의 단일 분할 Azure Cosmos 컨테이너로의 가져오기를 지원합니다. 또한 둘 이상의 단일 분할 Azure Cosmos 컨테이너 간에 데이터를 분할하는 분할된 가져오기를 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partitioning-overview.md)을 참조하세요. 이 도구는 대상 컬렉션에서 저장 프로시저를 만들고 실행한 다음 삭제합니다.  
 
 :::image type="content" source="./media/import-data/documentdbbulk.png" alt-text="JSON 파일 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구":::
 
@@ -403,7 +403,7 @@ Azure Cosmos DB 대량 가져오기에는 다음과 같은 추가 고급 옵션�
 
 ## <a name="import-to-the-sql-api-sequential-record-import"></a><a id="SQLSeqTarget"></a>SQL API로 가져오기(순차 레코드 가져오기)
 
-Azure Cosmos DB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 도구는 단일(단일 파티션 및 다중 파티션 모두) Azure Cosmos 컨테이너로의 가져오기를 지원합니다. 또한 둘 이상의 단일 파티션 또는 다중 파티션 Azure Cosmos 컨테이너 간에 데이터를 분할하는 분할된 가져오기를 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partition-data.md)을 참조하세요.
+Azure Cosmos DB 순차 레코드 가져오기를 사용하면 레코드 단위로 사용 가능한 모든 원본 옵션에서 가져올 수 있습니다. 저장 프로시저의 할당량에 도달한 기존 컬렉션으로 가져오는 경우 이 옵션을 선택할 수 있습니다. 도구는 단일(단일 파티션 및 다중 파티션 모두) Azure Cosmos 컨테이너로의 가져오기를 지원합니다. 또한 둘 이상의 단일 파티션 또는 다중 파티션 Azure Cosmos 컨테이너 간에 데이터를 분할하는 분할된 가져오기를 지원합니다. 데이터를 분할하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 분할 및 크기 조정](partitioning-overview.md)을 참조하세요.
 
 :::image type="content" source="./media/import-data/documentdbsequential.png" alt-text="JSON 파일 원본 옵션의 스크린샷 - 데이터베이스 마이그레이션 도구":::
 

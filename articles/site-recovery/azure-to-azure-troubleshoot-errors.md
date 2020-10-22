@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397966"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368046"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -202,7 +202,7 @@ Microsoft 365 인증 및 id IP4 끝점에 대 한 연결을 설정할 수 없습
 #### <a name="fix-the-problem"></a>문제 해결
 
 인증을 위해 Microsoft 365 IP 범위에 필요한 액세스를 Azure Site Recovery 합니다.
-Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 aad에 대 한 액세스를 허용 하기 위해 [aad (Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 nsg 규칙을 사용 해야 합니다. IP 주소 기반 NSG 규칙을 더 이상 지원 하지 않습니다.
+Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 VM에서 아웃 바운드 네트워크 연결을 제어 하는 경우 aad에 대 한 액세스를 허용 하기 위해 [aad (Azure Active Directory) 서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 기반 nsg 규칙을 사용 해야 합니다. IP 주소 기반 NSG 규칙을 더 이상 지원 하지 않습니다.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
 
@@ -239,7 +239,7 @@ Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 
 > [!NOTE]
 > 모바일 서비스 에이전트는 **인증 되지 않은 프록시**만 지원 합니다.
 
-### <a name="more-information"></a>자세한 정보
+### <a name="more-information"></a>추가 정보
 
 [필수 url](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필수 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)를 지정 하려면 azure [에서 Azure로 복제에 대 한 정보](azure-to-azure-about-networking.md)를 참조 하세요.
 
@@ -475,7 +475,7 @@ Linux 그랜드 통합 부팅 로더 (GRUB) 구성 파일 (_/boot/grub/menu.lst_
 
 각 장치 이름을 해당 하는 UUID로 바꿉니다.
 
-1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예를 들면 다음과 같습니다.
+1. 명령을 실행 하 여 장치의 UUID를 찾습니다 `blkid <device name>` . 예를 들어:
 
    ```shell
    blkid /dev/sda1

@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842685"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365853"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -54,13 +54,13 @@ OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다
 
 Microsoft ID 플랫폼은 **위임된 권한** 및 **애플리케이션 권한**의 두 가지 사용 권한을 지원합니다.
 
-* **위임된 권한**은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 앱은 대상 리소스에 대 한 호출을 수행할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+* **위임된 권한**은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 앱은 대상 리소스에 대 한 호출을 수행할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
 * **애플리케이션 권한**은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](#requesting-consent-for-an-entire-tenant).
 
 _유효 권한_ 은 앱이 대상 리소스를 요청할 때 갖게 되는 권한입니다. 응용 프로그램에 부여 되는 위임 된 권한 및 응용 프로그램 권한과 대상 리소스를 호출할 때의 유효 사용 권한 간의 차이점을 이해 하는 것이 중요 합니다.
 
-- 위임된 권한의 경우 앱의 _유효 권한_ 은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자가 가진 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+- 위임된 권한의 경우 앱의 _유효 권한_ 은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자가 가진 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
    예를 들어 앱에 _User.ReadWrite.All_ 위임된 권한이 부여되었다고 가정해 봅시다. 이 권한은 일반적으로 조직에 있는 모든 사용자의 프로필을 읽고 업데이트하는 앱 권한을 부여합니다. 로그인한 사용자가 전역 관리자인 경우 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있게 됩니다. 그러나 로그인 한 사용자가 관리자 역할에 없으면 앱은 로그인 한 사용자의 프로필만 업데이트할 수 있습니다. 즉, 대신 행동할 권한을 가진 사용자가 조직에 있는 다른 사용자의 프로필에 대한 권한을 가지고 있지 않으므로 해당 다른 사용자의 프로필을 업데이트할 수 없습니다.
 

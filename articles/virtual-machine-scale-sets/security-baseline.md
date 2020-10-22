@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a015c3881e2fa51ecfaaba57e6bb6262194012d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398447"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367876"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure 보안 기준
 
 Virtual Machine Scale Sets에 대 한 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
@@ -32,13 +32,13 @@ Virtual Machine Scale Sets에 대 한 Azure 보안 기준에는 배포의 보안
 
 또는 중앙 방화벽에 대 한 특정 사용 사례가 있는 경우 Azure 방화벽을 사용 하 여 이러한 요구 사항을 충족할 수도 있습니다.
 
-* [Azure 가상 머신 확장 집합에 대한 네트워킹](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
+* [Azure 가상 머신 확장 집합에 대한 네트워킹](./virtual-machine-scale-sets-networking.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Azure 방화벽을 배포 및 구성 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 및 구성 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -48,9 +48,9 @@ Virtual Machine Scale Sets에 대 한 Azure 보안 기준에는 배포의 보안
 
 **지침**: Azure Security Center을 사용 하 여 Azure에서 azure VM (가상 머신) 리소스를 보호 하는 데 도움이 되는 네트워크 보호 권장 사항을 확인 하 고 따릅니다. NSG 흐름 로그를 사용 하도록 설정 하 고 비정상적인 활동의 Vm에 대 한 트래픽 감사를 위해 저장소 계정에 로그를 보냅니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Azure Security Center에서 제공 하는 네트워크 보안 이해](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -62,9 +62,9 @@ Virtual Machine Scale Sets에 대 한 Azure 보안 기준에는 배포의 보안
 
 들어오는 트래픽의 추가 검사를 위해 중요 한 웹 응용 프로그램 앞에 Azure WAF (웹 응용 프로그램 방화벽)를 배포할 수도 있습니다. WAF에 대해 진단 설정을 사용 하도록 설정 하 고 로그를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역에 수집 합니다.
 
-* [Azure 가상 머신 확장 집합에 대한 네트워킹](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking)
+* [Azure 가상 머신 확장 집합에 대한 네트워킹](./virtual-machine-scale-sets-networking.md)
 
-* [Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal)
+* [Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -76,15 +76,15 @@ Virtual Machine Scale Sets에 대 한 Azure 보안 기준에는 배포의 보안
 
 Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 제한 된 기간 동안 Windows Virtual Machines의 노출을 승인 된 IP 주소로 제한할 수 있습니다. 또한 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-* [DDoS 보호를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure Security Center 통합 위협 인텔리전스 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+* [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
-* [적응 네트워크 강화 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+* [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
-* [Azure Security Center Just-in-time 네트워크 Access Control 이해](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Azure Security Center Just-in-time 네트워크 Access Control 이해](../security-center/security-center-just-in-time.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -94,9 +94,9 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **지침**: Azure Virtual Machines에 대 한 흐름 레코드를 생성 하기 위해 nsg 흐름 로그를 저장소 계정에 기록할 수 있습니다. 비정상적인 활동을 조사할 때 네트워크 트래픽을 비정상적이 고 예기치 않은 활동에 대해 검토할 수 있도록 Network Watcher 패킷 캡처를 사용 하도록 설정할 수 있습니다.
 
-* [NSG 흐름 로그를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Network Watcher를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Network Watcher를 사용하도록 설정하는 방법](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -106,11 +106,11 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **지침**: Network Watcher에서 제공 하는 패킷 캡처와 오픈 소스 id 도구를 결합 하 여 다양 한 위협에 대 한 네트워크 침입 검색을 수행할 수 있습니다. 또한 위협 인텔리전스를 사용 하도록 설정 하 고 악의적인 네트워크 트래픽에 대해 "경고 및 거부"로 구성 하 여 Virtual Network 세그먼트에 Azure 방화벽을 적절 하 게 배포할 수 있습니다.
 
-* [Network Watcher 및 오픈 소스 도구를 사용 하 여 네트워크 침입 감지 수행](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
+* [Network Watcher 및 오픈 소스 도구를 사용 하 여 네트워크 침입 감지 수행](../network-watcher/network-watcher-intrusion-detection-open-source-tools.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Azure 방화벽을 사용 하 여 경고를 구성 하는 방법](../firewall/threat-intel.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -120,13 +120,13 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **지침**: Vmss (Virtual Machine Scale Set)를 사용 하 여 웹 응용 프로그램을 호스트 하는 경우 신뢰할 수 있는 인증서에 대해 HTTPS/SSL을 사용 하도록 설정 된 웹 응용 프로그램용 Azure 애플리케이션 게이트웨이를 배포할 수 있습니다. Azure 애플리케이션 Gateway를 사용 하 여 포트에 수신기를 할당 하 고, 규칙을 만들고, VMSS 등의 백 엔드 풀에 리소스를 추가 하 여 응용 프로그램 웹 트래픽을 특정 리소스로 보냅니다.
 
-* [Application Gateway 배포 하는 방법](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+* [Application Gateway 배포 하는 방법](../application-gateway/quick-create-portal.md)
 
-* [HTTPS를 사용 하도록 Application Gateway를 구성 하는 방법](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+* [HTTPS를 사용 하도록 Application Gateway를 구성 하는 방법](../application-gateway/create-ssl-portal.md)
 
-* [Application Gateway를 참조하는 확장 집합 만들기](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#create-a-scale-set-that-references-an-application-gateway)
+* [Application Gateway를 참조하는 확장 집합 만들기](./virtual-machine-scale-sets-networking.md#create-a-scale-set-that-references-an-application-gateway)
 
-* [Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 분산 이해](https://docs.microsoft.com/azure/application-gateway/overview)
+* [Azure 웹 응용 프로그램 게이트웨이를 사용 하 여 계층 7 부하 분산 이해](../application-gateway/overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -136,7 +136,7 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **지침**: Virtual Network 서비스 태그를 사용 하 여 azure 가상 머신에 대해 구성 된 네트워크 보안 그룹 또는 azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 서비스 태그 이름(예: ApiManagement)을 규칙의 적절한 원본 또는 대상 필드에 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-* [서비스 태그 이해 및 사용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -146,13 +146,13 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **지침**: Azure Policy를 사용 하 여 Azure Virtual Machine Scale Sets에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. 또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, 역할 할당 및 Azure Policy 할당 등의 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure VM 배포를 간소화할 수 있습니다. 청사진을 구독에 적용 하 고 청사진 버전 관리를 통해 리소스 관리를 사용 하도록 설정할 수 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [가상 머신 확장 집합 템플릿에 대해 알아보기](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start)
+* [가상 머신 확장 집합 템플릿에 대해 알아보기](./virtual-machine-scale-sets-mvss-start.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
-* [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -162,11 +162,11 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **지침**: nsg (네트워크 보안 그룹) 및 Windows 가상 머신에 대해 구성 된 네트워크 보안 및 트래픽 흐름과 관련 된 기타 리소스에 대 한 태그를 사용할 수 있습니다. 개별 NSG 규칙에 대해 "설명" 필드를 사용 하 여 네트워크에서 들어오고 나가는 트래픽을 허용 하는 모든 규칙에 대 한 비즈니스 필요 및/또는 기간을 지정 합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -178,13 +178,13 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 Azure Policy를 사용 하 여 가상 머신 확장 집합과 관련 된 네트워크 리소스에 대 한 구성을 확인 (및/또는 재구성) 합니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+* [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -192,15 +192,15 @@ Azure Policy를 사용 하 여 가상 머신 확장 집합과 관련 된 네트�
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
 
 **지침**: Microsoft는 Azure 리소스에 대 한 시간 원본을 유지 관리 하지만 Virtual Machines에 대 한 시간 동기화 설정을 관리할 수 있는 옵션이 있습니다.
 
-* [Azure Windows 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Azure Windows 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](../virtual-machines/windows/time-sync.md)
 
-* [Azure Linux 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
+* [Azure Linux 계산 리소스에 대 한 시간 동기화를 구성 하는 방법](../virtual-machines/linux/time-sync.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -216,15 +216,15 @@ Azure Security Center를 사용 하 여 Azure Virtual Machines에 대 한 보안
 
 조직에서 가상 컴퓨터의 보안 이벤트 로그 데이터를 유지 하려는 경우 Azure Security Center 내에서 구성 된 원하는 데이터 컬렉션 계층의 Log Analytics 작업 영역에 저장할 수 있습니다.
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 * [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
-* [Azure Security Center에서 데이터 수집](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [Azure에서 가상 머신을 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Azure에서 가상 머신을 모니터링하는 방법](../azure-monitor/insights/monitor-vm-azure.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -238,13 +238,13 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 서비스에 대 한 고급 표시를 위해 VM용 Azure Monitor와 Application insights를 모두 사용 하도록 설정할 수 있습니다. Application Insights를 사용 하 여 응용 프로그램을 모니터링 하 고 HTTP 요청, 예외 등의 원격 분석을 캡처할 수 있으므로 Vm과 응용 프로그램 간의 문제를 상호 연결할 수 있습니다.
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Azure 활동 로그 이벤트를 보고 검색하기](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Azure 활동 로그 이벤트를 보고 검색하기](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Azure에서 가상 머신을 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Azure에서 가상 머신을 모니터링하는 방법](../azure-monitor/insights/monitor-vm-azure.md)
 
-* [Application Insights 개요](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Application Insights 개요](../azure-monitor/app/app-insights-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -256,9 +256,9 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 조직에서 가상 컴퓨터의 보안 이벤트 로그 데이터를 유지 하려는 경우 Azure Security Center 내에서 구성 된 원하는 데이터 컬렉션 계층의 Log Analytics 작업 영역에 저장할 수 있습니다.
 
-* [Azure Security Center에서 데이터 수집](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [Azure에서 가상 머신을 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Azure에서 가상 머신을 모니터링하는 방법](../azure-monitor/insights/monitor-vm-azure.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -268,9 +268,9 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 **참고**: 가상 머신 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에는 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 
-* [Azure에서 가상 머신을 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Azure에서 가상 머신을 모니터링하는 방법](../azure-monitor/insights/monitor-vm-azure.md)
 
-* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage)
+* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -282,11 +282,11 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 또는 Azure 센티널 또는 타사 SIEM에 대 한 온보드 데이터를 사용 하도록 설정 하 여 로그를 모니터링 하 고 검토할 수 있습니다.
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Log Analytics 작업 영역 이해](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -298,11 +298,11 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 또는 Azure 센티널 또는 타사 SIEM에 대 한 온보드 데이터를 사용 하도록 설정 하 여 비정상 활동에 대 한 경고를 설정할 수 있습니다.
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Security Center에서 경고를 관리 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Log analytics 로그 데이터를 경고 하는 방법](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -312,13 +312,13 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 **지침**: Azure Cloud Services에 Microsoft 맬웨어 방지 프로그램을 사용 하 Virtual Machines 고 Windows 가상 머신을 Azure Storage 계정에 이벤트를 기록 하도록 구성할 수 있습니다. 저장소 계정에서 이벤트를 수집 하 고 해당 하는 경우 경고를 생성 하도록 Log Analytics 작업 영역을 구성 합니다. Azure Security Center "계산 앱"의 권장 사항을 따릅니다 &amp; . Linux 가상 머신의 경우 맬웨어 방지 취약성 검색을 위한 타사 도구가 필요 합니다.
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지를 구성 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지를 구성 하는 방법](../security/fundamentals/antimalware.md)
 
-* [Virtual Machines에 대 한 게스트 수준 모니터링을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
+* [Virtual Machines에 대 한 게스트 수준 모니터링을 사용 하도록 설정 하는 방법](../cost-management-billing/cloudyn/azure-vm-extended-metrics.md)
 
-* [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](https://docs.microsoft.com/azure/security-center/quick-onboard-linux-computer)
+* [Azure Security center에 Linux 서버를 등록 하는 방법에 대 한 지침](../security-center/quickstart-onboard-machines.md)
 
-* [다음 링크는 선택한 취약점 소프트웨어의 조건 목록으로 사용할 수 있는 Microsoft 권장 보안 지침을 제공 합니다.](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
+* [다음 링크는 선택한 취약점 소프트웨어의 조건 목록으로 사용할 수 있는 Microsoft 권장 보안 지침을 제공 합니다.](../virtual-machines/linux/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -338,11 +338,11 @@ Azure 가상 머신 확장 집합에서 지 원하는 응용 프로그램 및 �
 
 Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구성 하 고 syslog를 사용 하 여 데이터를 저장할 수 있습니다. 또한 Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 Azure Virtual machines의 syslog 데이터에서 로그를 검토 하 고 쿼리를 수행 합니다.
 
-* [Azure Security Center에서 데이터 수집](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+* [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
-* [Azure Monitor의 Syslog 데이터 원본](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog)
+* [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/platform/data-sources-syslog.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -350,15 +350,15 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
 **지침**: Azure Active Directory는 사용자 액세스를 관리할 수 있는 권장 방법 이지만, Azure Virtual Machines에는 로컬 계정이 있을 수 있습니다. 로컬 및 도메인 계정은 일반적으로 최소한의 공간을 사용 하 여 검토 하 고 관리 해야 합니다. 또한 가상 컴퓨터 리소스에 액세스 하는 데 사용 되는 관리 계정에 대해 Azure Privileged Identity Management를 활용 합니다.
 
-* [로컬 계정에 대 한 정보는에서 확인할 수 있습니다.](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+* [로컬 계정에 대 한 정보는에서 확인할 수 있습니다.](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
-* [권한 있는 Id 관리자에 대 한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [권한 있는 Id 관리자에 대 한 정보](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -376,9 +376,9 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: 가상 컴퓨터에 대 한 액세스 권한이 있는 전용 관리 계정의 사용에 대 한 표준 운영 절차를 만듭니다. Azure Security Center id 및 액세스 관리를 사용 하 여 관리 계정 수를 모니터링 합니다. Azure 가상 컴퓨터 리소스에 액세스 하는 데 사용 되는 모든 관리자 계정은 PIM (Azure Privileged Identity Management)에서 관리할 수도 있습니다. Azure Privileged Identity Management는 특정 시간 프레임에 대 한 사용 권한만 사용할 수 있도록 하 고 승인자가 필요한 경우에만 Just-in-time 권한 상승 등의 몇 가지 옵션을 제공 하 여 역할을 가정 하기 전에 Multi-Factor Authentication 필요 합니다.
 
-* [Azure Security Center Id 및 액세스 이해](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center Id 및 액세스 이해](../security-center/security-center-identity-access.md)
 
-* [권한 있는 Id 관리자에 대 한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [권한 있는 Id 관리자에 대 한 정보](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -388,9 +388,9 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: 가능 하면 서비스 별로 개별 독립 실행형 자격 증명을 구성 하는 대신 AZURE ACTIVE DIRECTORY에서 SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다.
 
-* [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -400,9 +400,9 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure AD MFA를 사용하도록 설정하고 Azure Security Center ID 및 액세스 관리 권장 사항을 따릅니다.
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -412,9 +412,9 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: MFA가 구성된 PAW(Privileged Access Workstation)를 사용하여 Azure 리소스에 로그인하고 구성합니다.
 
-* [권한 있는 액세스 워크스테이션에 대해 알아보기](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [권한 있는 액세스 워크스테이션에 대해 알아보기](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -424,13 +424,13 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고를 생성 하는 데 PIM (Azure AD Privileged Identity Management)을 사용 합니다. Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경고 및 보고서를 봅니다. 필요에 따라 고객은 Azure Security Center 위험 검색 경고를 Azure Monitor에 수집 하 고 작업 그룹을 사용 하 여 사용자 지정 경고/알림을 구성할 수 있습니다.
 
-* [PIM(Privileged Identity Management)을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Azure Security Center 위험 탐지 이해 (의심 스러운 활동)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Azure Security Center 위험 탐지 이해 (의심 스러운 활동)](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+* [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../azure-monitor/platform/action-groups.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -440,7 +440,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure Active Directory 조건부 액세스 정책 및 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 액세스할 수 있도록 합니다.
 
-* [Azure에서 명명 된 위치를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Azure에서 명명 된 위치를 구성 하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -450,9 +450,9 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다. 관리 id를 사용 하 여 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다. 가상 머신에서 실행 되는 코드는 관리 되는 id를 사용 하 여 Azure AD 인증을 지 원하는 서비스에 대 한 액세스 토큰을 요청할 수 있습니다.
 
-* [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
-* [Azure 리소스에 대한 관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+* [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -462,7 +462,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure AD는 부실 계정을 검색하는 데 유용한 로그를 제공합니다. 또한 Azure Active Directory id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. Azure 가상 컴퓨터를 사용 하는 경우 로컬 보안 그룹 및 사용자를 검토 하 여 시스템을 손상 시킬 수 있는 예기치 않은 계정이 없는지 확인 해야 합니다.
 
-* [Azure ID 액세스 검토를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -472,13 +472,13 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure Active Directory에 대 한 진단 설정을 구성 하 여 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. 또한 Azure Monitor를 사용 하 여 Azure 가상 머신에서 로그 데이터에 대 한 로그를 검토 하 고 쿼리를 수행 합니다.
 
-* [Log Analytics 작업 영역 이해](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/get-started-portal.md)
 
-* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
-* [Azure에서 가상 머신을 모니터링하는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
+* [Azure에서 가상 머신을 모니터링하는 방법](../azure-monitor/insights/monitor-vm-azure.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -488,11 +488,11 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Azure Active Directory의 위험 및 id 보호 기능을 사용 하 여 저장소 계정 리소스와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다. 조직의 보안 응답을 구현 하기 위해 Azure 센티널을 통해 자동화 된 응답을 사용 하도록 설정 해야 합니다.
 
-* [Azure AD 위험한 로그인을 확인하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -502,7 +502,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: Microsoft에서 고객 데이터에 액세스 해야 하는 지원 시나리오에서 (예: 지원 요청 시) Azure virtual machines에 대 한 고객 Lockbox를 사용 하 여 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부 합니다.
 
-* [고객 Lockbox 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [고객 Lockbox 이해](../security/fundamentals/customer-lockbox-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -510,13 +510,13 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Azure 가상 컴퓨터를 추적 하는 데 도움을 줍니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -526,19 +526,19 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 리소스는 가상 네트워크/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, NSG (네트워크 보안 그룹) 또는 Azure 방화벽 내에서 보호 되어야 합니다. 중요 한 데이터를 저장 하거나 처리 Virtual Machines 하는 경우 정책 및 프로시저를 구현 하 여 사용 하지 않을 때이를 해제 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [Virtual Network를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
-* [보안 구성을 사용하여 NSG를 만드는 방법](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [보안 구성을 사용하여 NSG를 만드는 방법](../virtual-network/tutorial-filter-network-traffic.md)
 
-* [Azure 방화벽을 배포 하는 방법](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+* [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Azure 방화벽을 사용 하 여 경고 또는 경고 및 거부를 구성 하는 방법](https://docs.microsoft.com/azure/firewall/threat-intel)
+* [Azure 방화벽을 사용 하 여 경고 또는 경고 및 거부를 구성 하는 방법](../firewall/threat-intel.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -550,7 +550,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요 한 것으로 간주 하 여 고객 데이터 손실 및 노출을 방지 합니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-* [Azure의 고객 데이터 보호 이해](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -562,7 +562,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우드 서비스와 고객 간에 이동할 때 데이터를 보호 합니다.
 
-* [VM의 전송 중 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#in-transit-encryption-in-vms)
+* [VM의 전송 중 암호화](../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms)
 
 **Azure Security Center 모니터링**: 예
 
@@ -580,9 +580,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 팀 내에서 업무를 분리 하 고 작업을 수행 하는 데 필요한 가상 머신 (VM)의 사용자에 게 액세스 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. Azure CLI 또는 Azure PowerShell를 사용 하 여 Azure Portal에서 VM에 대 한 액세스 제어를 구성할 수 있습니다.
 
-* [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC](../role-based-access-control/overview.md)
 
-* [Azure 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
+* [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -600,7 +600,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: VM (Virtual Machines)의 가상 디스크는 서버 쪽 암호화 또는 ADE (Azure disk encryption)를 사용 하 여 미사용으로 암호화 됩니다. Azure Disk Encryption은 Linux의 DM-Crypt 기능을 활용 하 여 게스트 VM 내에서 고객 관리 키를 사용 하 여 관리 디스크를 암호화 합니다. 고객 관리형 키를 사용하는 서버 쪽 암호화는 스토리지 서비스의 데이터를 암호화하여 VM에 대한 모든 OS 유형 및 이미지를 사용할 수 있도록 설정하여 ADE에서 향상됩니다.
 
-* [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-overview)
+* [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](./disk-encryption-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -610,9 +610,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 가상 머신 확장 집합 및 관련 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Azure Storage 분석 로깅](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+* [Azure Storage 분석 로깅](../storage/common/storage-analytics-logging.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -620,13 +620,13 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
 **지침**: Azure Virtual Machines에서 취약점 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다. Azure 보안 권장 또는 타사 솔루션을 사용 하 여 가상 컴퓨터에 대 한 취약성 평가를 수행 합니다.
 
-* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+* [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -636,7 +636,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 지원 되는 운영 체제 버전에 대해 자동 OS 업그레이드를 사용 하도록 설정 하거나 공유 이미지 갤러리에 저장 된 사용자 지정 이미지를 사용 하도록 설정 합니다.
 
-* [Azure의 가상 머신 확장 집합에 대 한 자동 OS 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+* [Azure의 가상 머신 확장 집합에 대 한 자동 OS 업그레이드](./virtual-machine-scale-sets-automatic-upgrade.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -646,7 +646,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Virtual Machine Scale Sets (vmss)는 자동 OS 이미지 업그레이드를 사용할 수 있습니다. VMSS의 기본 가상 머신에 대해 Azure DSC (필요한 상태 구성) 확장을 사용할 수 있습니다. DSC는 Vm이 온라인 상태가 되 면 원하는 소프트웨어를 실행 하도록 구성 하는 데 사용 됩니다.
 
-* [Azure DSC 확장에 Virtual Machine Scale Sets 사용](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-dsc)
+* [Azure DSC 확장에 Virtual Machine Scale Sets 사용](./virtual-machine-scale-sets-dsc.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -664,7 +664,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Security Center에서 제공 하는 기본 위험 등급 (보안 점수)을 사용 합니다.
 
-* [보안 점수 Azure Security Center 이해](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [보안 점수 Azure Security Center 이해](../security-center/secure-score-security-controls.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -672,17 +672,17 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내의 모든 리소스 (가상 머신 포함)를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)이 있는지 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거할 수 있습니다.
 
-* [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -692,7 +692,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure 리소스에 태그를 적용 하 여 분류에 따라 논리적으로 구성 하는 메타 데이터를 제공 합니다.
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -702,11 +702,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 적절 한 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 Virtual Machines 확장 집합 및 관련 리소스를 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-* [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-* [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-* [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -728,9 +728,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 또한 Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색합니다. 이는 저장소 계정을 사용 하는 환경 등의 높은 보안 기반 환경에서 유용할 수 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -742,9 +742,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 현재 적응 응용 프로그램 제어는 Virtual Machine Scale Sets 사용할 수 없습니다.
 
-* [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation 소개](../automation/automation-intro.md)
 
-* [Azure VM 인벤토리를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+* [Azure VM 인벤토리를 사용 하도록 설정 하는 방법](../automation/automation-tutorial-installed-software.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -754,11 +754,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Automation는 작업 및 리소스의 배포, 작업 및 서비스 해제 중에 완전 한 제어를 제공 합니다. 변경 내용 추적를 사용 하 여 Virtual Machines에 설치 된 모든 소프트웨어를 식별할 수 있습니다. 사용자 고유의 프로세스를 구현 하거나 인증 되지 않은 소프트웨어를 제거 하기 위해 Azure Automation 상태 구성을 사용할 수 있습니다.
 
-* [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation 소개](../automation/automation-intro.md)
 
-* [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](https://docs.microsoft.com/azure/automation/change-tracking)
+* [변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적](../automation/change-tracking.md)
 
-* [Azure Automation 상태 구성 개요](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+* [Azure Automation 상태 구성 개요](../automation/automation-dsc-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -778,9 +778,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -790,7 +790,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 현재 적응형 응용 프로그램 제어는 Virtual Machine Scale Sets 사용할 수 없습니다. 조직의 요구 사항에 맞지 않는 경우 타사 솔루션을 구현 합니다.
 
-* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -800,7 +800,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성함으로써 Azure 조건부 액세스를 사용하여 Azure Resource Manager와 상호 작용하는 사용자 기능을 제한합니다.
 
-* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -810,7 +810,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 스크립트 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스 내에서 스크립트를 실행 하는 사용자의 기능을 제한할 수 있습니다.
 
-* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -820,19 +820,19 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: azure 환경에 배포 된 위험도 높은 응용 프로그램은 가상 네트워크, 서브넷, 구독, 관리 그룹 등을 사용 하 여 격리 될 수 있으며, azure 방화벽, Waf (웹 응용 프로그램 방화벽) 또는 nsg (네트워크 보안 그룹)를 사용 하 여 충분히 안전 하 게 보호할 수 있습니다.
 
-* [Azure의 가상 네트워크 및 가상 머신](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+* [Azure의 가상 네트워크 및 가상 머신](../virtual-machines/network-overview.md)
 
-* [Azure Firewall 개요](https://docs.microsoft.com/azure/firewall/overview)
+* [Azure Firewall 개요](../firewall/overview.md)
 
-* [웹 애플리케이션 방화벽 개요](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [웹 애플리케이션 방화벽 개요](../web-application-firewall/overview.md)
 
-* [네트워크 보안 개요](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [네트워크 보안 개요](../virtual-network/network-security-groups-overview.md)
 
-* [Azure Virtual Network 개요](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)
 
-* [Azure 관리 그룹으로 리소스 구성](https://docs.microsoft.com/azure/governance/management-groups/overview)
+* [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
 
-* [구독 관련 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+* [구독 관련 결정 가이드](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Azure Security Center 모니터링**: 예
 
@@ -840,15 +840,15 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
 **지침**: Azure Policy 또는 Azure Security Center를 사용 하 여 모든 Azure 리소스에 대 한 보안 구성을 유지 합니다. 또한 Azure Resource Manager은 구성이 회사의 보안 요구 사항을 충족 하거나 초과 하는지 확인 하기 위해 검토 해야 하는 JavaScript Object Notation (JSON)에서 템플릿을 내보낼 수 있습니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -858,9 +858,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 모든 계산 리소스에 대 한 보안 구성을 유지 하려면 Azure Security Center 권장 사항 [Virtual Machines 보안 구성의 취약성 수정]을 사용 하세요.
 
-* [Azure Security Center 권장 사항을 모니터링 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+* [Azure Security Center 권장 사항을 모니터링 하는 방법](../security-center/security-center-recommendations.md)
 
-* [Azure Security Center 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Azure Security Center 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -870,11 +870,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Resource Manager 템플릿 및 azure 정책을 사용 하 여 Virtual Machines 확장 집합에 연결 된 azure 리소스를 안전 하 게 구성 합니다. Azure Resource Manager 템플릿은 Azure 리소스와 함께 가상 머신을 배포 하는 데 사용 되는 JSON 기반 파일이 며 사용자 지정 템플릿은 유지 관리 해야 합니다. Microsoft는 기본 템플릿에 대 한 유지 관리를 수행 합니다. [거부] 및 [존재하지 않으면 배포] Azure 정책을 사용하여 보안 설정을 Azure 리소스 전체에 적용합니다.
 
-* [Azure Resource Manager 템플릿 만들기에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [Azure Resource Manager 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -892,11 +892,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 대부분의 시나리오에서 Azure Automation 필요한 상태 구성과 결합 된 Microsoft 기본 VM 템플릿은 보안 요구 사항을 충족 하 고 유지 관리 하는 데 도움이 될 수 있습니다.
 
-* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
 
-* [ARM 템플릿 만들기에 대 한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+* [ARM 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -906,9 +906,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure devops를 사용 하 여 사용자 지정 azure 정책, Azure Resource Manager 템플릿, 필요한 상태 구성 스크립트 등과 같은 코드를 안전 하 게 저장 하 고 관리 합니다.  코드, 빌드 및 작업 추적과 같은 Azure DevOps에서 관리 하는 리소스에 액세스 하려면 해당 특정 리소스에 대 한 사용 권한이 있어야 합니다. 사용 권한 및 액세스에 설명 된 대로 기본 제공 보안 그룹을 통해 대부분의 사용 권한을 부여 합니다. Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 사용 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure DevOps의 사용 권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -918,9 +918,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 사용자 지정 이미지 (예: 가상 하드 디스크)를 사용 하는 경우 azure 역할 기반 액세스 제어 (azure RBAC)를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다.
 
-* [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Azure RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -930,7 +930,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Policy 활용 하 여 가상 머신에 대 한 시스템 구성을 경고, 감사 및 적용 합니다. 또한 정책 예외를 관리하는 프로세스와 파이프라인을 개발합니다.
 
-* [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -940,7 +940,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Automation 상태 구성은 모든 클라우드 또는 온-프레미스 데이터 센터에서 DSC (Desired State configuration) 노드에 대 한 구성 관리 서비스입니다. 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 온보드하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정한 필요 상태에 대한 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다.
 
-* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](../automation/automation-dsc-onboarding.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -950,9 +950,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Security Center 활용 하 여 Azure 가상 머신에 대 한 기준 검색을 수행 합니다. 자동화 된 구성의 추가 방법에는 Azure Automation 상태 구성을 사용 하는 작업이 포함 됩니다.
 
-* [Azure Security Center에서 권장 사항을 수정 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+* [Azure Security Center에서 권장 사항을 수정 하는 방법](../security-center/security-center-remediate-recommendations.md)
 
-* [Azure Automation 상태 구성 시작하기](https://docs.microsoft.com/azure/automation/automation-dsc-getting-started)
+* [Azure Automation 상태 구성 시작하기](../automation/automation-dsc-getting-started.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -962,7 +962,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Automation 상태 구성은 모든 클라우드 또는 온-프레미스 데이터 센터에서 DSC (Desired State configuration) 노드에 대 한 구성 관리 서비스입니다. 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 온보드하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정한 필요 상태에 대한 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다.
 
-* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+* [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](../automation/automation-dsc-onboarding.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -972,9 +972,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure Key Vault와 함께 관리 서비스 ID를 사용 하 여 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 하 고 보호 합니다.
 
-* [Azure 관리 Id와 통합 하는 방법](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+* [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+* [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
 * [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
@@ -988,7 +988,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: 관리 되는 id를 사용 하 여 azure AD에서 자동으로 관리 되는 Id를 azure 서비스에 제공 합니다. 관리 ID를 사용하면 코드에 자격 증명 없이 Key Vault를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 
-* [관리 Id를 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [관리 Id를 구성 하는 방법](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1006,13 +1006,13 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙에서 관리 하는 맬웨어 방지 소프트웨어 사용
 
 **지침**: Azure Windows 가상 머신에 대 한 Microsoft 맬웨어 방지 프로그램을 사용 하 여 리소스를 지속적으로 모니터링 하 고 방어할 수 있습니다. Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구가 필요 합니다.
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../security/fundamentals/antimalware.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1032,11 +1032,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구가 필요 합니다.
 
-* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 프로그램을 배포 하는 방법](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Azure Cloud Services 및 Virtual Machines에 대 한 Microsoft 맬웨어 방지 프로그램을 배포 하는 방법](../security/fundamentals/antimalware.md)
 
-* [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
+* [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
 
-* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/security-recommendations)
+* [Cloud Services 및 Virtual Machines에 대해 Microsoft 맬웨어 방지 프로그램을 구성 하는 방법](../virtual-machines/linux/security-recommendations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1044,15 +1044,15 @@ Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구�
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 정기 자동 백업 확인
 
 **지침**: POWERSHELL 또는 REST api를 사용 하 여 인스턴스에 연결 된 Azure 가상 머신 확장 집합 인스턴스 또는 관리 디스크의 스냅숏을 만듭니다. Azure Automation를 사용 하 여 정기적으로 백업 스크립트를 실행할 수도 있습니다.
 
-* [가상 머신 확장 집합 인스턴스 및 관리 디스크의 스냅숏을 만드는 방법](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
+* [가상 머신 확장 집합 인스턴스 및 관리 디스크의 스냅숏을 만드는 방법](./virtual-machine-scale-sets-faq.md#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
-* [Azure Automation 소개](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Azure Automation 소개](../automation/automation-intro.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1064,13 +1064,13 @@ Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구�
 
 원하는 주파수와 보존 기간 뿐만 아니라 Azure Backup 및 대상 Azure Virtual Machines (VM)을 사용 하도록 설정 합니다. 여기에는 전체 시스템 상태 백업이 포함 됩니다. Azure disk encryption을 사용 하는 경우 Azure VM 백업은 고객이 관리 하는 키의 백업을 자동으로 처리 합니다.
 
-* [암호화를 사용 하는 Azure Vm에 백업](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)
+* [암호화를 사용 하는 Azure Vm에 백업](../backup/backup-azure-vms-encryption.md)
 
-* [Azure VM 백업 개요](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+* [Azure VM 백업 개요](../backup/backup-azure-vms-introduction.md)
 
-* [가상 머신 확장 집합 인스턴스 및 관리 디스크의 스냅숏을 만드는 방법](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
+* [가상 머신 확장 집합 인스턴스 및 관리 디스크의 스냅숏을 만드는 방법](./virtual-machine-scale-sets-faq.md#how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1082,13 +1082,13 @@ Azure Linux 가상 머신에서 맬웨어 방지 보호를 위한 타사 도구�
 
 Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 하 여 가상 머신 확장 집합을 복원할 수 있습니다. 디스크 암호화를 사용 하는 경우 디스크 암호화 키를 사용 하 여 Azure VM을 복원할 수 있습니다.
 
-* [암호화를 사용 하는 Azure Vm에 백업](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)
+* [암호화를 사용 하는 Azure Vm에 백업](../backup/backup-azure-vms-encryption.md)
 
-* [Azure에서 디스크 복원 및 복구된 VM 만들기](https://docs.microsoft.com/azure/backup/tutorial-restore-disk)
+* [Azure에서 디스크 복원 및 복구된 VM 만들기](../backup/tutorial-restore-disk.md)
 
-* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Azure Virtual Machine Scale Sets에 대해 디스크 암호화를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-overview)
+* [Azure Virtual Machine Scale Sets에 대해 디스크 암호화를 사용 하도록 설정 하는 방법](./disk-encryption-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1098,9 +1098,9 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: 잠금을 사용 하 여 관리 디스크에 대 한 삭제 방지를 사용 하도록 설정 합니다. Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다.
 
-* [예기치 않은 변경을 방지하기 위해 리소스 잠그기](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)
+* [예기치 않은 변경을 방지하기 위해 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)
 
-* [Azure Key Vault 일시 삭제 및 보호 제거 개요](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+* [Azure Key Vault 일시 삭제 및 보호 제거 개요](../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1108,7 +1108,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -1130,9 +1130,9 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 또한 태그를 사용하여 구독(예: 프로덕션, 비 프로덕션)을 명확하게 표시하고 Azure 리소스, 특히 중요한 데이터를 처리하는 리소스를 명확하게 식별하고 분류하는 명명 시스템을 만듭니다. 인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
-* [Azure Security Center의 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-* [태그를 사용하여 Azure 리소스 구성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+* [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 예
 
@@ -1152,7 +1152,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
-* [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1162,9 +1162,9 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: Azure 리소스에 대한 위험을 식별하는 데 도움이 되도록 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
 
-* [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
-* [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1174,7 +1174,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **지침**: Azure Security Center의 Workflow Automation 기능을 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 
-* [워크플로 자동화 및 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [워크플로 자동화 및 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1182,7 +1182,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -1198,5 +1198,5 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

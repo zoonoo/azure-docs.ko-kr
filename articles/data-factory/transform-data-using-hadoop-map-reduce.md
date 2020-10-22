@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 48afff71d4b5241ede1783a270658e56e4b8c242
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab7bb96c6b367b3520676a36c3d52b49ba90eb26
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849249"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368948"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환
 
@@ -123,5 +123,5 @@ HDInsight MapReduce 작업을 사용하여 HDInsight 클러스터에서 모든 M
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Batch 실행 작업](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (클래식) 일괄 처리 실행 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)
