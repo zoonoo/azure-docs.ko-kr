@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613988"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441677"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
@@ -44,7 +44,7 @@ ms.locfileid: "91613988"
 > 이전에는 API에 보낼 사용자 특성 (' 보낼 클레임 ') 및 API에서 수락할 사용자 특성 (' 수신 클레임 ')을 구성 해야 했습니다. 이제 값이 있는 경우 모든 사용자 특성은 기본적으로 전송 되 고, 모든 사용자 특성은 API에서 ' 연속 ' 응답으로 반환 될 수 있습니다.
 
 ## <a name="the-request-sent-to-your-api"></a>API로 전송 된 요청
-API 커넥터는 **HTTP POST** 요청으로 구체화 되어 사용자 특성 (' 클레임 ')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) 사용자 속성과 유사 하 게 직렬화 됩니다. 
+API 커넥터는 **HTTP POST** 요청으로 구체화 되어 사용자 특성 (' 클레임 ')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](/graph/api/resources/user#properties) 사용자 속성과 유사 하 게 직렬화 됩니다. 
 
 **요청 예**
 ```http
@@ -85,7 +85,7 @@ Content-type: application/json
 > 보낼 클레임에 API 끝점이 호출 될 때 값이 없으면 클레임은 API로 보내지지 않습니다. API는 예상 되는 값을 명시적으로 확인 하도록 디자인 되어야 합니다.
 
 > [!TIP] 
-> [**id (' id ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) 및 **전자 메일 주소 (' 메일 ')** 클레임은 API에서 사용자가 테 넌 트에 계정을 포함 하기 전에 사용자를 식별 하는 데 사용할 수 있습니다. ' Id ' 클레임은 사용자가 Google 또는 Facebook과 같은 id 공급자를 사용 하 여 인증할 때 전송 됩니다. ' email '은 항상 전송 됩니다.
+> [**id (' id ')**](/graph/api/resources/objectidentity) 및 **전자 메일 주소 (' 메일 ')** 클레임은 API에서 사용자가 테 넌 트에 계정을 포함 하기 전에 사용자를 식별 하는 데 사용할 수 있습니다. ' Id ' 클레임은 사용자가 Google 또는 Facebook과 같은 id 공급자를 사용 하 여 인증할 때 전송 됩니다. ' email '은 항상 전송 됩니다.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>사용자 흐름에서 API 커넥터를 사용 하도록 설정
 
@@ -106,7 +106,7 @@ Content-type: application/json
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Id 공급자를 사용 하 여 로그인 한 후
 
-사용자가 id 공급자 (Google, Facebook, Azure AD)를 사용 하 여 인증 하는 즉시 등록 프로세스의이 단계에서 API 커넥터가 호출 됩니다. 이 단계는 사용자 특성을 수집 하기 위해 사용자에 게 표시 되는 형식인 ***특성 컬렉션 페이지***앞에 나옵니다. 
+사용자가 id 공급자 (Google, Facebook, Azure AD)를 사용 하 여 인증 하는 즉시 등록 프로세스의이 단계에서 API 커넥터가 호출 됩니다. 이 단계는 사용자 특성을 수집 하기 위해 사용자에 게 표시 되는 형식인 **_특성 컬렉션 페이지_* 앞에 나옵니다. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -244,11 +244,11 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | 형식              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | API 커넥터 구성에서 *를*수신할 _ 클레임*으로 선택 하 고 사용자 흐름의 **사용자 특성** 을 선택 하는 경우 디렉터리에 값을 저장할 수 있습니다. **응용 프로그램 클레임**으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 값이 디렉터리에 저장 됩니다. 사용자 지정 특성은 토큰으로 다시 보낼 수 없습니다. |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
@@ -266,7 +266,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | Description                                                                |
+| 매개 변수   | 형식   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -292,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | Description                                                                |
+| 매개 변수   | 형식    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
@@ -310,7 +310,7 @@ Content-type: application/json
 ### <a name="using-serverless-cloud-functions"></a>서버 리스 클라우드 함수 사용
 Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥터에서 사용할 API 끝점을 만드는 간단한 방법을 제공 합니다. 서버 리스 클라우드 함수를 사용 하 여 [예](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)를 들어 유효성 검사 논리를 수행 하 고 등록을 특정 도메인으로 제한할 수 있습니다. 서버를 사용 하지 않는 클라우드 함수는 보다 복잡 한 시나리오에 대해 다른 웹 Api, 사용자 저장소 및 기타 클라우드 서비스를 호출 하 고 호출할 수도 있습니다.
 
-### <a name="best-practices"></a>최선의 구현 방법
+### <a name="best-practices"></a>모범 사례
 다음 사항을 확인합니다.
 * API는 위에 설명 된 대로 API 요청 및 응답 계약을 따라 수행 됩니다. 
 * API 커넥터의 **끝점 URL** 은 올바른 api 끝점을 가리킵니다.

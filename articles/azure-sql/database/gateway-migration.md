@@ -4,18 +4,18 @@ description: 문서에서는 사용자에 게 Azure SQL Database 게이트웨이
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004275"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427100"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
-### <a name="october-2020"></a>10 월 2020
+### <a name="october-2020"></a>2020년 10월
 
 새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
 
@@ -70,7 +70,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 기존 SQL 게이트웨이는 다음 지역에서 트래픽을 수락 하기 시작 합니다. 이러한 SQL 게이트웨이는 **1 월 2020** 일에 고객 트래픽을 수락 하기 시작 합니다.
 - 일본 동부: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Completed](#tab/completed-ip)
+# <a name="completed"></a>[완료됨](#tab/completed-ip)
 
 다음 게이트웨이 마이그레이션이 완료 되었습니다. 
 
@@ -108,7 +108,8 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 
 - 온-프레미스 방화벽의 특정 게이트웨이에 대 한 IP 주소 하드 코딩
 - Microsoft .SQL를 서비스 엔드포인트로 사용 하는 서브넷이 있지만 게이트웨이 IP 주소와 통신할 수 없습니다.
-- 데이터베이스에 대 한 [영역 중복 구성](high-availability-sla.md#zone-redundant-configuration) 사용
+- 범용 [계층에 대해 영역 중복 구성](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) 사용
+- [프리미엄 & 업무상 중요 한 계층에 대 한 영역 중복 구성](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) 사용
 
 다음이 있는 경우에는 영향을 받지 않습니다.
  

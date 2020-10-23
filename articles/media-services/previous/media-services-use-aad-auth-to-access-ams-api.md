@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c0d3ece75d15ae07091f613348389f845ec74ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262518"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425918"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스 
 
@@ -29,7 +29,7 @@ ms.locfileid: "89262518"
 
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 
-Media Services [은 Azure Active Directory (AZURE AD) 기반 인증](../../active-directory/fundamentals/active-directory-whatis.md)을 지원 합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 애플리케이션이 리소스에 액세스하기 위해 **기여자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../../role-based-access-control/overview.md)을 참조하세요.  
+Media Services [은 Azure Active Directory (AZURE AD) 기반 인증](../../active-directory/fundamentals/active-directory-whatis.md)을 지원 합니다. Azure Media REST 서비스의 경우 REST API 요청을 하는 사용자 또는 애플리케이션이 리소스에 액세스하기 위해 **기여자** 또는 **소유자** 역할을 포함해야 합니다. 자세한 내용은 [azure 역할 기반 액세스 제어 (AZURE RBAC) 란?](../../role-based-access-control/overview.md)을 참조 하세요.  
 
 이 문서에서는 REST 또는 .NET API를 사용하여 Media Services API에 액세스하는 방법에 대한 개요를 제공합니다.
 
@@ -153,7 +153,7 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 
 - [Azure AD로 해결된 인증 시나리오](../../active-directory/develop/authentication-vs-authorization.md)
 - [Azure AD에서 애플리케이션 추가, 업데이트 또는 제거](../../active-directory/develop/quickstart-register-app.md)
-- [PowerShell을 사용하여 역할 기반 Access Control 구성 및 관리](../../role-based-access-control/role-assignments-powershell.md)
+- [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>다음 단계
 

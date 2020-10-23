@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3001b8829660f2891cb051269026bf7100a8f938
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425001"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461001"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -37,7 +37,7 @@ ms.locfileid: "92425001"
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -281,6 +281,13 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
     ]
     }
     ```
+
+    이 템플릿은 작업 영역에서 ACR로의 네트워크 액세스를 위한 _개인 끝점_ 을 만듭니다. 아래 스크린샷에서는이 개인 끝점의 예를 보여 줍니다.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="작업 영역에 대한 Azure Container Registry":::
+
+    > [!IMPORTANT]
+    > 이 끝점을 삭제 하지 마세요. 실수로 삭제 한 경우이 단계에서 템플릿을 다시 적용 하 여 새 템플릿을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

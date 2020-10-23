@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359019"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461263"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -42,10 +42,10 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 ## <a name="overview-data-plane-apis"></a>개요: 데이터 평면 Api
 
 데이터 평면 Api는 Azure Digital Twins 인스턴스 내에서 요소를 관리 하는 데 사용 되는 Azure Digital Twins Api입니다. 여기에는 경로 만들기, 모델 업로드, 관계 만들기, 쌍 관리 등의 작업이 포함 됩니다. 이러한 항목은 다음 범주로 크게 나눌 수 있습니다.
-* **DigitalTwinsModels** -DigitalTwinsModels 범주에는 Azure Digital twins 인스턴스에서 [모델](concepts-models.md) 을 관리 하는 api가 포함 되어 있습니다. 관리 작업에는 DTDL에서 작성 된 모델의 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다.
+* **DigitalTwinModels** -DigitalTwinModels 범주에는 Azure Digital twins 인스턴스에서 [모델](concepts-models.md) 을 관리 하는 api가 포함 되어 있습니다. 관리 작업에는 DTDL에서 작성 된 모델의 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다.
 * **DigitalTwins** -DigitalTwins 범주에는 개발자가 Azure digital 쌍 인스턴스에서 [디지털](concepts-twins-graph.md) 쌍 및 해당 관계를 만들고, 수정 하 고, 삭제할 수 있도록 하는 api가 포함 되어 있습니다.
 * **쿼리** -쿼리 범주를 통해 개발자는 관계 간에 쌍으로 된 쌍의 [디지털 쌍 집합을 찾을](how-to-query-graph.md) 수 있습니다.
-* **Eventroutes** - [eventroutes](concepts-route-events.md)범주는 시스템 및 다운스트림 서비스를 통해 데이터를 라우팅하는 api를 포함 합니다.
+* **이벤트 경로** -이벤트 경로 범주는 시스템 및 다운스트림 서비스를 통해 [데이터를 라우팅하](concepts-route-events.md)는 api를 포함 합니다.
 
 공개 미리 보기에 대 한 최신 데이터 평면 API 버전은 _**2020-10-31**_ 입니다.
 
@@ -56,7 +56,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 * **.Net (c #)** SDK를 사용할 수 있습니다. .NET SDK를 사용 하려면 ...
    - NuGet: [DigitalTwins](https://www.nuget.org/packages/Azure.DigitalTwins.Core)에서 패키지를 보고 추가할 수 있습니다. 
    - GitHub: [Azure IoT Digital Twins client library for .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)의 샘플 폴더를 포함 하 여 SDK 원본을 찾을 수 있습니다. 
-   - [SDK 참조 설명서](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview)를 볼 수 있습니다.
+   - [SDK 참조 설명서](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview)를 볼 수 있습니다.
    - 이 문서의 [.net (c #) SDK (데이터 평면)](#net-c-sdk-data-plane) 섹션을 계속 진행 하 여 자세한 정보 및 사용 예를 볼 수 있습니다.
 * **Java** SDK를 사용할 수 있습니다. Java SDK를 사용 하려면 ...
    - Maven에서 패키지를 보고 설치할 수 있습니다. [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)

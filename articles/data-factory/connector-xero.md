@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 10/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ac5645ccbb9c926bc5ff70605dd1e5de14e823
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529996"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427609"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Xero에서 데이터 복사
 
@@ -55,13 +55,13 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성은 **Xero**로 설정해야 합니다. | 예 |
 | connectionProperties | Xero에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
-| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
+| **_ `connectionProperties` :_*_ | | |
 | 호스트 | Xero 서버(`api.xero.com`)의 엔드포인트입니다.  | 예 |
 | authenticationType | 허용 되는 값은 `OAuth_2.0` 및 `OAuth_1.0` 입니다. | 예 |
 | consumerKey | Xero 애플리케이션과 연결된 소비자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| privateKey | Xero 프라이빗 애플리케이션에 대해 생성된 .pem 파일의 프라이빗 키는 [공개/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. 참고 512를 사용 하 여 **numbits 인 privatekey을 생성** 하려면 `openssl genrsa -out privatekey.pem 512` 1024이 지원 되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| privateKey | Xero 프라이빗 애플리케이션에 대해 생성된 .pem 파일의 프라이빗 키는 [공개/프라이빗 키 쌍 만들기](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key)를 참조하세요. 512 *를 사용 하는 *를 사용 하 여*privatekey를 생성*합니다 `openssl genrsa -out privatekey.pem 512` . 1024은 지원 되지 않습니다. Unix 줄 끝(\n)을 포함하여 .pem 파일의 모든 텍스트를 포함합니다. 아래 샘플을 참조하세요.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenantId | Xero 응용 프로그램에 연결 된 테 넌 트 ID입니다. OAuth 2.0 인증에 적용 됩니다.<br>[액세스 권한이 부여 된 테 넌 트 확인 섹션](https://developer.xero.com/documentation/oauth2/auth-flow)에서 테 넌 트 ID를 가져오는 방법에 대해 알아봅니다. | OAuth 2.0 인증의 경우 예 |
-| refreshToken | 액세스 토큰이 만료 될 때 액세스 토큰을 새로 고치는 데 사용 되는 Xero 응용 프로그램과 연결 된 OAuth 2.0 새로 고침 토큰입니다. OAuth 2.0 인증에 적용 됩니다. [이 문서](https://developer.xero.com/documentation/oauth2/auth-flow)에서 새로 고침 토큰을 가져오는 방법에 대해 알아봅니다.<br>새로 고침 토큰은 만료 되지 않습니다. 새로 고침 토큰을 가져오려면 [offline_access 범위](https://developer.xero.com/documentation/oauth2/scopes)를 요청 해야 합니다.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | OAuth 2.0 인증의 경우 예 |
+| refreshToken | OAuth 2.0 인증에 적용 됩니다.<br/>OAuth 2.0 refresh 토큰은 Xero 응용 프로그램과 연결 되며 액세스 토큰을 새로 고치는 데 사용 됩니다. 액세스 토큰은 30 분 후에 만료 됩니다. Xero 권한 부여 흐름이 작동 하는 방법 및 [이 문서](https://developer.xero.com/documentation/oauth2/auth-flow)에서 새로 고침 토큰을 가져오는 방법에 대해 알아봅니다. 새로 고침 토큰을 가져오려면 [offline_access 범위](https://developer.xero.com/documentation/oauth2/scopes)를 요청 해야 합니다. <br/>**인식 제한**: 참고 Xero는 액세스 토큰 새로 고침에 사용 된 후 새로 고침 토큰을 다시 설정 합니다. 조작 가능한 워크 로드의 경우 각 복사 작업이 실행 되기 전에 ADF에서 사용할 올바른 새로 고침 토큰을 설정 해야 합니다.<br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | OAuth 2.0 인증의 경우 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
@@ -210,9 +210,9 @@ Xero에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Xero
 
 Xero 쿼리를 지정할 때 다음 사항에 유의합니다.
 
-- 복잡한 항목이 있는 테이블은 여러 테이블로 분할됩니다. 예를 들어 은행 거래에는 "LineItems"라는 복합 데이터 구조가 있기 때문에, 은행 거래의 데이터는 `Bank_Transaction` 및 `Bank_Transaction_Line_Items` 테이블로 매핑되고 `Bank_Transaction_ID`가 이들을 연결하는 외래 키로 사용됩니다.
+- 복잡한 항목이 있는 테이블은 여러 테이블로 분할됩니다. 예를 들어 은행 거래에는 복잡 한 데이터 구조 "LineItems"가 있으므로 은행 거래의 데이터는 테이블 및에 매핑되고 `Bank_Transaction` `Bank_Transaction_Line_Items` `Bank_Transaction_ID` 외래 키를 사용 하 여 함께 연결 합니다.
 
-- Xero 데이터는 `Minimal`(기본값) 및 `Complete`라는 두 가지 스키마를 통해 사용할 수 있습니다. Complete 스키마는 원하는 쿼리를 만들기 전에 추가 데이터(예: ID 열)가 필요한 필수 구성 요소 호출 테이블을 포함합니다.
+- Xero 데이터는 `Minimal`(기본값) 및 `Complete`라는 두 가지 스키마를 통해 사용할 수 있습니다. 전체 스키마에는 원하는 쿼리를 만들기 전에 추가 데이터 (예: ID 열)가 필요한 필수 구성 요소 호출 테이블이 포함 되어 있습니다.
 
 다음 테이블에는 Minimal 및 Complete 스키마와 동일한 정보가 있습니다. API 호출 수를 줄이기 위해 Minimal 스키마(기본값)를 사용합니다.
 

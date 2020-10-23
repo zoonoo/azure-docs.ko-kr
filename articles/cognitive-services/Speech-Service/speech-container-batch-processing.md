@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319081"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425798"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>음성 컨테이너 용 Batch 처리 키트
 
@@ -75,9 +75,8 @@ Batch 클라이언트는 컨테이너를 다시 시작 하거나 네트워킹 �
 > [!NOTE] 
 > * 이 예에서는 `/my_nfs` 구성 파일 및 입력, 출력 및 로그 디렉터리에 동일한 디렉터리 ()를 사용 합니다. 이러한 폴더에 대해 호스트 되거나 NFS로 탑재 된 디렉터리를 사용할 수 있습니다.
 > * 에서 클라이언트를 실행 `–h` 하면 사용 가능한 명령줄 매개 변수와 해당 기본값이 나열 됩니다. 
+> * 일괄 처리 컨테이너는 Linux 에서만 지원 됩니다.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Docker 명령을 사용 `run` 하 여 컨테이너를 시작 합니다. 그러면 컨테이너 내에서 대화형 셸이 시작 됩니다.
 
 ```Docker
@@ -95,17 +94,6 @@ run-batch-client -config /my_nfs/config.yaml -input_folder /my_nfs/audio
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-단일 명령으로 batch 클라이언트 및 컨테이너를 실행 하려면 다음을 수행 합니다.
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 클라이언트가 실행을 시작 합니다. 이전 실행에서 오디오 파일이 이미 transcribed 된 경우 클라이언트는 자동으로 파일을 건너뜁니다. 일시적인 오류가 발생 하는 경우 자동으로 다시 시도 하 여 파일이 전송 되며, 클라이언트에서 다시 시도할 오류를 구분할 수 있습니다. 기록 오류가 발생 하면 클라이언트는 기록을 계속 하 고 진행률을 잃지 않고 다시 시도할 수 있습니다.  

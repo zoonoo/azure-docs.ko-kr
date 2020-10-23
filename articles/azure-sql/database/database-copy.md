@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124398"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460957"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -82,7 +82,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
 
 서버 관리자 로그인 또는 복사할 데이터베이스를 만든 로그인을 사용 하 여 master 데이터베이스에 로그인 합니다. 데이터베이스 복사가 성공 하려면 서버 관리자가 아닌 로그인이 역할의 멤버 여야 합니다 `dbmanager` . 서버에 로그인 및 연결하는 방법에 대한 자세한 내용은 [로그인 관리](logins-create-manage.md)를 참조하세요.
 
-CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작 합니다. [ 문을 복사](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) 합니다. T-sql 문은 데이터베이스 복사 작업이 완료 될 때까지 계속 실행 됩니다.
+CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작 합니다. [ 문을 복사](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) 합니다. T-sql 문은 데이터베이스 복사 작업이 완료 될 때까지 계속 실행 됩니다.
 
 > [!NOTE]
 > T-sql 문을 종료 해도 데이터베이스 복사 작업은 종료 되지 않습니다. 작업을 종료 하려면 대상 데이터베이스를 삭제 합니다.
@@ -100,6 +100,21 @@ CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
+
+### <a name="copy-to-an-elastic-pool"></a>탄력적 풀에 복사
+
+서버 관리자 로그인 또는 복사할 데이터베이스를 만든 로그인을 사용 하 여 master 데이터베이스에 로그인 합니다. 데이터베이스 복사에 성공 하려면 서버 관리자가 아닌 로그인이 역할의 멤버 여야 합니다 `dbmanager` .
+
+이 명령은 Database1를 pool1 이라는 탄력적 풀의 Database2 라는 새 데이터베이스에 복사 합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
+
+Database1는 단일 또는 풀링된 데이터베이스 일 수 있지만 pool1는 Database1와 동일한 서비스 계층 이어야 합니다. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
    ```
 
 ### <a name="copy-to-a-different-server"></a>다른 서버에 복사
@@ -167,7 +182,7 @@ Azure Portal를 사용 하 여 데이터베이스 복사를 관리 하려면 다
 
 ## <a name="resolve-logins"></a>로그인 확인
 
-대상 서버에서 새 데이터베이스가 온라인 상태가 되 면 [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) 문을 사용 하 여 새 데이터베이스의 사용자를 대상 서버의 로그인에 다시 매핑합니다. 분리된 사용자를 확인하려면 [분리된 사용자 문제 해결](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)을 참조하세요. [재해 복구 후에도 Azure SQL Database 보안을 관리 하는 방법을](active-geo-replication-security-configure.md)참조 하세요.
+대상 서버에서 새 데이터베이스가 온라인 상태가 되 면 [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) 문을 사용 하 여 새 데이터베이스의 사용자를 대상 서버의 로그인에 다시 매핑합니다. 분리된 사용자를 확인하려면 [분리된 사용자 문제 해결](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)을 참조하세요. [재해 복구 후에도 Azure SQL Database 보안을 관리 하는 방법을](active-geo-replication-security-configure.md)참조 하세요.
 
 새 데이터베이스의 모든 사용자가 원본 데이터베이스에서 가졌던 사용 권한을 그대로 유지합니다. 데이터베이스 복사본을 시작한 사용자는 새 데이터베이스의 데이터베이스 소유자가 됩니다. 복사가 성공 하 고 다른 사용자를 다시 매핑하기 전에는 데이터베이스 소유자만 새 데이터베이스에 로그인 할 수 있습니다.
 

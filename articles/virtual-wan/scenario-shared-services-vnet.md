@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461467"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>시나리오: 공유 서비스로 라우팅 Vnet
 
@@ -24,15 +24,17 @@ ms.locfileid: "91267485"
 
 ## <a name="design"></a><a name="design"></a>디자인
 
-연결 매트릭스를 사용 하 여이 시나리오의 요구 사항을 요약할 수 있습니다. 행렬에서 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "대상" 쪽, 테이블의 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
+연결 매트릭스를 사용 하 여이 시나리오의 요구 사항을 요약할 수 있습니다.
 
 **연결 매트릭스**
 
 | From             | 아래와 같이 변경합니다.   |*격리 된 Vnet*|*공유 VNet*|*분기*|
 |---|---|---|---|---|
-|**격리 된 Vnet**|&#8594;|                |        X        |       X      |
-|**공유 Vnet**  |&#8594;|       X        |        X        |       X      |
-|**분기**      |&#8594;|       X        |        X        |       X      |
+|**격리 된 Vnet**|&#8594;|        | 직접 | 직접 |
+|**공유 Vnet**  |&#8594;| 직접 | 직접 | 직접 |
+|**분기**      |&#8594;| 직접 | 직접 | 직접 |
+
+위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상과 통신 하는지 여부를 설명 합니다 (흐름의 "To" 쪽에서 열 머리글은 기울임꼴로). 이 시나리오에서는 방화벽이 나 네트워크 가상 어플라이언스를 사용할 수 없으므로 가상 WAN (따라서 테이블의 "Direct")에서 직접 통신 흐름이 전달 됩니다.
 
 [Isolated VNet 시나리오](scenario-isolate-vnets.md)와 마찬가지로이 연결 행렬에서는 두 개의 경로 테이블로 변환 하는 두 개의 서로 다른 행 패턴을 제공 합니다. 즉, 공유 서비스 vnet와 분기에 동일한 연결 요구 사항이 있습니다. 가상 WAN에는 이미 기본 경로 테이블이 있으므로이 예제에서 **RT_SHARED** 를 호출 하는 다른 사용자 지정 경로 테이블이 필요 합니다.
 

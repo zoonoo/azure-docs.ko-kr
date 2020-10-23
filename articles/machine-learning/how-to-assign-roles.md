@@ -1,7 +1,7 @@
 ---
 title: 작업 영역에서 역할 관리
 titleSuffix: Azure Machine Learning
-description: RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Machine Learning 작업 영역에 액세스 하는 방법에 대해 알아봅니다.
+description: Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Machine Learning 작업 영역에 액세스 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966409"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425637"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -34,9 +34,9 @@ Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure �
 | **사용자 지정 역할** | 작업 영역 내에서 특정 컨트롤이 나 데이터 평면 작업에 대 한 액세스를 사용자 지정할 수 있습니다. 예를 들어 실행을 제출 하 고, 계산을 생성 하 고, 모델을 배포 하거나, 데이터 집합을 등록 합니다. |
 
 > [!IMPORTANT]
-> Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 사용자에 게는 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [RBAC 작동 방식](/azure/role-based-access-control/overview#how-rbac-works)을 참조 하세요.
+> Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 사용자에 게는 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 자세한 내용은 [AZURE RBAC 작동 방식](/azure/role-based-access-control/overview#how-azure-rbac-works)을 참조 하세요.
 
-특정 기본 제공 역할에 대 한 자세한 내용은 [Azure에 대 한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조 하세요.
+특정 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](/azure/role-based-access-control/built-in-roles)을 참조 하세요.
 
 ## <a name="manage-workspace-access"></a>작업 영역 액세스 관리
 
@@ -71,7 +71,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 이 표에서는 MLflow 작업을 수행 하기 위해 만든 사용자 지정 역할의 작업에 추가 해야 하는 권한 범위에 대해 설명 합니다.
 
-| MLflow 작업 | 범위 |
+| MLflow 작업 | Scope |
 | --- | --- |
 | 작업 영역 추적 저장소의 모든 실험을 나열 하 고, id로 실험을 가져오고, 이름별로 실험을 가져옵니다. | MachineLearningServices/작업 영역/실험/읽기 |
 | 이름으로 실험을 만들고, 실험에서 태그를 설정 하 고, 삭제 하도록 표시 된 실험을 복원 합니다.| MachineLearningServices/작업 영역/실험/쓰기 | 
@@ -432,13 +432,13 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 �
     - VNet 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
     - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
     
-    네트워크를 사용 하는 RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking)을 참조 하세요.
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking)을 참조 하세요.
 
 - 경우에 따라 새 역할 할당이 스택에 캐시 된 사용 권한에 적용 되는 데 1 시간 정도 걸릴 수 있습니다.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>17. 사용자 할당 관리 id를 내 Amlcompute 클러스터와 함께 사용 하는 데 필요한 권한은 무엇 인가요?
 
-Amlcompute 클러스터에 사용자 할당 id를 할당 하려면 계산을 만들기 위한 쓰기 권한과 [관리 Id 운영자 역할이](/azure/role-based-access-control/built-in-roles#managed-identity-operator)있어야 합니다. 관리 Id를 사용 하는 RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 을 참조 하세요.
+Amlcompute 클러스터에 사용자 할당 id를 할당 하려면 계산을 만들기 위한 쓰기 권한과 [관리 Id 운영자 역할이](/azure/role-based-access-control/built-in-roles#managed-identity-operator)있어야 합니다. 관리 Id를 사용 하는 Azure RBAC에 대 한 자세한 내용은 [사용자 할당 id를 관리 하는 방법](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 을 참조 하세요.
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>17. 스튜디오 포털에서 역할 기반 액세스 제어를 지원 하나요?

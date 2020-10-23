@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85963243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461348"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
 이 문서에서는 특정 애플리케이션에 대한 성능 카운터를 Azure Monitor로 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 방법에 대한 세부 정보를 제공합니다.  이 문서에 포함된 애플리케이션은 다음과 같습니다.  
 
 - [MySQL](#mysql)
@@ -41,7 +41,7 @@ MySQL 인증 파일은 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-aut
 
 인증 파일의 항목은 다음 테이블에 설명되어 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | 포트 | MySQL 인스턴스가 수신 대기 중인 현재 포트를 나타냅니다. 포트 0은 뒤에 나오는 속성이 기본 인스턴스에 사용된다는 것을 지정합니다. |
 | 바인딩 주소| 현재 MySQL 바인딩-주소입니다. |
@@ -54,7 +54,7 @@ MySQL OMI 인증 파일은 하나의 Linux 호스트에서 여러 MySQL 인스�
 
 다음 테이블에는 예제 인스턴스 설정이 있습니다. 
 
-| 설명 | 파일 |
+| Description | 파일 |
 |:--|:--|
 | 기본 인스턴스 및 포트 3308의 인스턴스입니다. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | 기본 인스턴스 및 포트 3308의 인스턴스, 다른 사용자 이름 및 암호입니다. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -70,7 +70,7 @@ MySQL OMI 공급자의 설치에 포함된 것은 MySQL OMI 인증 파일 편집
 
 다음 테이블에서 mycimprovauth 사용에 대한 구문의 세부 정보를 제공합니다.
 
-| 작업 | 예제 | 설명
+| 작업 | 예제 | Description
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | 다시 시작 또는 업데이트 시 인증 파일이 자동으로 업데이트될지 여부를 설정합니다. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | MySQL OMI 인증 파일에서 기본 인스턴스를 설정합니다.<br>암호 필드는 일반 텍스트로 입력되어야 하며 MySQL OMI 인증 파일의 암호는 Base 64로 인코딩됩니다. |

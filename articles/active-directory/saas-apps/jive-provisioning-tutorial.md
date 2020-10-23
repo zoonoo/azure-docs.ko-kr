@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fa45ece76499b50694d366ed2dcdd57cc1e0c7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312099"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459376"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Jive 구성
 
@@ -35,7 +35,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Jive 앱에 액세스해야 하는 사용자를 나타내는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지침에 따라 이러한 사용자를 Jive 앱에 할당할 수 있습니다.
 
-[엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-jive"></a>Jive에 사용자를 할당하기 위한 주요 팁
 
@@ -71,7 +71,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     b. **Jive 관리자 암호** 텍스트 상자에 해당 계정의 암호를 입력합니다.
    
-    다. **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
+    c. **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
       
       > [!NOTE]
       > Jive 테넌트 URL은 조직에서 Jive에 로그인할 때 사용하는 URL입니다.  

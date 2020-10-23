@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945994"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441099"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대 한 투명 한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 및 Azure Synapse의 경우 TDE 보호기는 [서버](logical
 > SQL Database에서 새로 만든 모든 데이터베이스는 서비스 관리 투명 한 데이터 암호화를 사용 하 여 기본적으로 암호화 됩니다. 2017 년 5 월 이전에 만든 기존 SQL database와 복원, 지리적 복제 및 데이터베이스 복사를 통해 만든 SQL 데이터베이스는 기본적으로 암호화 되지 않습니다. 2019 2 월 이전에 만든 기존 SQL Managed Instance 데이터베이스는 기본적으로 암호화 되지 않습니다. 복원을 통해 만든 SQL Managed Instance 데이터베이스는 원본에서 암호화 상태를 상속 합니다.
 
 > [!NOTE]
-> TDE는 Azure SQL Database 및 Azure SQL Managed Instance에서 **master** 데이터베이스를 암호화 하는 데 사용할 수 없습니다. **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
+> TDE는 Azure SQL Database 및 Azure SQL Managed Instance에서 **master** 데이터베이스와 같은 시스템 데이터베이스를 암호화 하는 데 사용할 수 없습니다. **master** 데이터베이스에는 사용자 데이터베이스에서 TDE 작업을 수행하는 데 필요한 개체가 포함되어 있습니다.
 
 ## <a name="service-managed-transparent-data-encryption"></a>서비스 관리 투명한 데이터 암호화
 
@@ -99,7 +99,7 @@ PowerShell을 통해 TDE를 구성하려면 Azure 소유자, 참가자 또는 SQ
 
 Azure SQL Database 및 Azure Synapse에 다음 cmdlet을 사용 합니다.
 
-| cmdlet | 설명 |
+| cmdlet | Description |
 | --- | --- |
 | [AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |데이터베이스에 대해 투명 한 데이터 암호화를 사용 하거나 사용 하지 않도록 설정 합니다.|
 | [AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |데이터베이스에 대 한 투명 한 데이터 암호화 상태를 가져옵니다. |
@@ -120,7 +120,7 @@ Transact-sql을 사용 하 여 TDE를 관리 합니다.
 
 master 데이터베이스에서 **dbmanager** 역할의 관리자 또는 구성원으로 로그인하여 데이터베이스에 연결합니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [ALTER DATABASE(Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF는 데이터베이스를 암호화하거나 해독합니다. |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |데이터베이스 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
@@ -136,7 +136,7 @@ REST API를 사용 하 여 TDE를 관리 합니다.
 REST API를 통해 TDE를 구성 하려면 Azure 소유자, 참가자 또는 SQL 보안 관리자로 연결 되어 있어야 합니다.
 Azure SQL Database 및 Azure Synapse에 대해 다음과 같은 명령 집합을 사용 합니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 |[서버 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|서버에 Azure Active Directory id를 추가 합니다. (Key Vault에 대 한 액세스 권한을 부여 하는 데 사용 됨)|
 |[서버 키 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|서버에 Key Vault 키를 추가 합니다.|

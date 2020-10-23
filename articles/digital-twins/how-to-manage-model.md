@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dbe1c368a730fcd09cf5e5f6435ca247150b5c3c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102496"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426200"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
-[**DigitalTwinsModels api**](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
+[**DigitalTwinsModels api**](how-to-use-apis-sdks.md), [.net (c #) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)또는 [azure digital twins CLI](how-to-use-cli.md)를 사용 하 여 azure digital twins 인스턴스에서 알고 있는 [모델](concepts-models.md) 을 관리할 수 있습니다. 
 
 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함 됩니다. 
 

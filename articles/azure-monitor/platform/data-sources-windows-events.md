@@ -1,25 +1,28 @@
 ---
-title: Azure Monitor에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs
+title: Azure Monitor에서 Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집
 description: Azure Monitor에 의한 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고,생성되는 레코드에 대한 자세한 정보를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 109e96f862ec2f3ddf879bccba114c44aecfe3c8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075252"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440606"
 ---
-# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
-많은 애플리케이션이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
+# <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집
+Windows 이벤트 로그는 windows 이벤트 로그에 많은 응용 프로그램을 작성 하기 때문에 Windows 가상 컴퓨터의 Log Analytics 에이전트에 대 한 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 를 사용 하 여 Windows 이벤트를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 ![Windows 이벤트](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Windows 이벤트 로그 수집
-[고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Windows 이벤트 로그를 구성합니다.
+Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources) 에서 Windows 이벤트 로그를 구성 합니다.
 
 Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이벤트를 수집합니다.  로그 이름을 입력 하 고를 클릭 하 여 이벤트 로그를 추가할 수 있습니다 **+** .  각 로그의 경우 선택한 심각도의 이벤트만 수집됩니다.  수집하려는 특정 로그에 대한 심각도를 확인합니다.  이벤트를 필터링할 추가 조건을 제공할 수 없습니다.
 

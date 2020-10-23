@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 447b781ec83a01a58e6af9e9e43f75b3fc56b10f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64d45861f37e2015b747a4db0feb2d32e68fe893
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370783"
+ms.locfileid: "92427323"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결
 
@@ -57,7 +57,10 @@ ITSMC는 사용자 이름 및 암호 자격 증명을 사용 합니다. 보안 �
 
 1. Azure AD에 앱을 등록합니다.
 2. 보안 Webhook 작업 그룹을 만듭니다.
-3. 파트너 환경을 구성 합니다. 현재는 BMC Helix 하나의 공급 업체를 지원 합니다.
+3. 파트너 환경을 구성 합니다. 
+
+보안 내보내기는 다음 ITSM 도구와의 연결을 지원 합니다.
+* [BMC Helix](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Azure Active Directory 등록
 
@@ -86,24 +89,24 @@ Azure AD에 응용 프로그램을 등록 하려면 다음 단계를 따르세�
 5. **보안 Webhook**를 선택 합니다.
 6. 다음 세부 정보를 선택 합니다.
    1. 등록 한 Azure Active Directory 인스턴스의 개체 ID를 선택 합니다.
-   2. URI에 대해 공급 업체 환경에서 복사한 webhook URL에 붙여넣습니다.
+   2. URI에 대해 [Itsm 도구 환경](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#configure-the-partner-environment)에서 복사한 webhook URL에 붙여넣습니다.
    3. **일반 경고 스키마 사용** 을 **예**로 설정 합니다. 
 
    다음 이미지는 샘플 보안 Webhook 작업의 구성을 보여 줍니다.
 
    ![보안 Webhook 작업을 보여 주는 스크린샷](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
 
-## <a name="configure-the-partner-environment"></a>파트너 환경 구성
+## <a name="configure-the-itsm-tool-environment"></a>ITSM 도구 환경 구성
 
 구성에는 두 단계가 포함 됩니다.
 1. 보안 내보내기 정의에 대 한 URI를 가져옵니다.
-2. 공급 업체의 흐름에 따라 정의 됩니다.
+2. ITSM 도구의 흐름에 따라 정의 됩니다.
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>BMC Helix Azure Monitor에 연결
 
 다음 섹션에서는 Azure에서 BMC Helix 제품 및 보안 내보내기를 연결 하는 방법에 대 한 세부 정보를 제공 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 
