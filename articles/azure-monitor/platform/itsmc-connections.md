@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 3cb335cb32ded68377b4eec0af3b1ebbc19e77d9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9db20fd357a50a92384b3c3f483f8d75b67b3e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328304"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427362"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -214,6 +214,8 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 > 3. 액세스 철회, 철회를 차례로 클릭합니다.
 
 - Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> ITSMC는 ServiceNow 저장소에서 다운로드 된 Microsoft Log Analytics 통합을 위한 공식 사용자 앱만 지원 합니다. ITSMC는 ServiceNow 쪽의 코드 수집과 공식 ServiceNow 솔루션에 포함 되지 않은 응용 프로그램을 지원 하지 않습니다. 
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
 
 ### <a name="connection-procedure"></a>**연결 절차**

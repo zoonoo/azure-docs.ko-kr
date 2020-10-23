@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614677"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427492"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure 개인 링크에 대 한 azure 보안 기준
 
@@ -268,7 +268,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 비즈니스 요구 사항에 따라 응용 프로그램 및 엔터프라이즈 환경으로 Azure 리소스에 대 한 액세스 수준을 제한 합니다. 
 
-Azure Active Directory 역할 기반 액세스 제어를 통해 Azure 리소스에 대 한 액세스를 제어 합니다.
+Azure RBAC (역할 기반 액세스 제어)를 통해 Azure 리소스에 대 한 액세스를 제어 합니다.
 
 - [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
 
@@ -292,7 +292,7 @@ Azure Active Directory 역할 기반 액세스 제어를 통해 Azure 리소스�
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않으면 서비스별 액세스 제어 방법을 사용 합니다.
 

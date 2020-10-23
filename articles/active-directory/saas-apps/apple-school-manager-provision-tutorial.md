@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fed376eae1c3dadb17f5ecf8e7f1c3422e07b9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757455"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426423"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Apple School Manager 구성
 
@@ -62,7 +62,7 @@ ms.locfileid: "91757455"
 > [!NOTE]
 > 비밀 토큰은 Azure AD 관리자가 아닌 다른 사용자와 공유 해서는 안 됩니다.
 
-## <a name="step-3-add-apple-school-manager-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Apple School Manager 추가
+## <a name="step-3-add-apple-school-manager-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Apple School Manager 추가
 
 Apple school manager에 프로 비전 관리를 시작 하려면 Azure AD 응용 프로그램 갤러리에서 Apple School Manager를 추가 합니다. 이전에 SSO 용 Apple School Manager를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
@@ -103,7 +103,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **Apple School Manager에 Azure Active Directory 사용자 동기화를**선택 합니다.
 
@@ -160,7 +160,6 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [Apple School Manager에서 SCIM 활동 보기](https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
 * [Apple School Manager에서 기존 SCIM 토큰 및 연결 관리](https://support.apple.com/guide/apple-school-manager/apdc9a823611)
 * [Apple School Manager에서 SCIM 연결 끊기](https://support.apple.com/guide/apple-school-manager/apd609be3a61)
-* [Apple School Manager에서 기존 SCIM 토큰 및 연결 관리](https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
 * [Apple School Manager에서 SCIM 연결 문제 해결](https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>다음 단계

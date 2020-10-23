@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: acbccd09fc8bc765083fea7b3a8d6ad749003ae9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048324"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427999"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -50,7 +50,7 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Event Grid 트리거를 사용 하 여 Azure 함수 작성
 
-함수 앱에 SDK를 추가 하 여 Azure 함수를 작성할 수 있습니다. 함수 앱은 [.net 용 Azure IoT 디지털 쌍 클라이언트 라이브러리 (c #)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)를 사용 하 여 Azure Digital twins와 상호 작용 합니다. 
+함수 앱에 SDK를 추가 하 여 Azure 함수를 작성할 수 있습니다. 함수 앱은 [Azure Digital TWINS SDK for .net (c #)](https://www.nuget.org/packages/Azure.DigitalTwins.Core)을 사용 하 여 azure 디지털 쌍과 상호 작용 합니다. 
 
 SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니다. Visual studio NuGet 패키지 관리자를 사용 하 여 패키지를 설치 하거나 명령줄 도구를 사용 하 여 패키지를 추가할 수 있습니다 `dotnet` . 다음 방법 중 하나를 선택 합니다. 
 

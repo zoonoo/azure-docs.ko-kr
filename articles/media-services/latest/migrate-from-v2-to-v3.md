@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017746"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426875"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -47,7 +47,7 @@ ms.locfileid: "92017746"
 * [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://aka.ms/ams-v3-go-ref) 및 Ruby에 SDK를 사용할 수 있습니다.
 * [Azure CLI](/cli/azure/ams) 통합을 통해 간단한 스크립팅을 지원합니다.
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.<br/>아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "92017746"
 * 라이브 출력은 v2 API의 Program 엔터티보다 사용 방법이 간단합니다. 
 * RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
 * RTMPS 보안 수집<br/>라이브 이벤트를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
-* 엔터티에 대한 RBAC(역할 기반 Access Control)를 갖습니다. 
+* 엔터티에 대 한 Azure RBAC (역할 기반 액세스 제어)가 있습니다. 
 
 ## <a name="known-issues"></a>알려진 문제
 

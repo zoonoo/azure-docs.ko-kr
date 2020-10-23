@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6763450b98b803b0b2e4d35108e10992ce1e7596
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 565e6fb2def64dd594e1b0018f3378ea09bc63cb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123099"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426183"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB에 대 한 개인 링크 만들기 및 관리
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -195,7 +195,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 에 대해 자세히 알아보세요.
+[Azure 개인 끝점 이란?](../private-link/private-endpoint-overview.md) 에 대해 자세히 알아보세요.
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

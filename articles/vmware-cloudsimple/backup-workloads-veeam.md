@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525044"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419931"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
 
@@ -56,7 +56,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 * Azure의 Linux 기반 기본 백업 리포지토리는 백업 작업의 대상으로 구성 됩니다.
 * `azcopy` 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
 
-![기본 배포 시나리오](media/veeam-basicdeployment.png)
+![기본 Veeam 배포 시나리오를 보여 주는 다이어그램입니다.](media/veeam-basicdeployment.png)
 
 **고급 배포**
 

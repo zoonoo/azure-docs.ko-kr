@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710722"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428215"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -153,7 +153,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 **속성** 페이지에서는 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주, 앱 버전 및 제품을 지 원하는 법적 계약을 정의 합니다.
 
-### <a name="category"></a>범주
+### <a name="category"></a>Category
 
 범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
@@ -328,16 +328,16 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 ### <a name="create-new-plan"></a>새 플랜 만들기
 
-***플랜 ID*** – 이 제품에서 각 플랜의 고유한 플랜 ID를 만듭니다. 이 ID는 고객에게 제품 URL로 표시됩니다.  소문자 영숫자, 대시 또는 밑줄만 사용합니다. 이 플랜 ID에는 최대 50자를 사용할 수 있습니다. 만들기를 선택한 후에는 이 ID를 수정할 수 없습니다.
+**_계획 id_*_ –이 제안의 각 계획에 대 한 고유한 계획 Id를 만듭니다. 이 ID는 고객에게 제품 URL로 표시됩니다.  소문자 영숫자, 대시 또는 밑줄만 사용합니다. 이 플랜 ID에는 최대 50자를 사용할 수 있습니다. 만들기를 선택한 후에는 이 ID를 수정할 수 없습니다.
 
-***계획 이름*** – 제품 내에서 선택할 계획을 결정할 때 고객에 게이 이름이 표시 됩니다. 이 제품의 각 플랜에 고유한 제품 이름을 만듭니다. 플랜 이름은 동일한 제품에 포함될 수 있는 소프트웨어 플랜을 구분하는 데 사용됩니다(예: 제품 이름: Windows Server, 플랜: Windows Server 2016, Windows Server 2019).
+_*_계획 이름_*_ – 제품 내에서 선택할 계획을 결정할 때 고객에 게이 이름이 표시 됩니다. 이 제품의 각 플랜에 고유한 제품 이름을 만듭니다. 플랜 이름은 동일한 제품에 포함될 수 있는 소프트웨어 플랜을 구분하는 데 사용됩니다(예: 제품 이름: Windows Server, 플랜: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>플랜 설정
 
 이 탭에서는 플랜 유형의 개략적인 구성, 플랜이 다른 플랜의 패키지를 다시 사용하는지 여부 및 플랜을 사용할 수 있는 클라우드를 설정할 수 있습니다. 이 탭에 있는 응답은 동일한 플랜에 대해 다른 탭에 표시되는 필드에 영향을 줍니다.
 
 #### <a name="plan-type"></a>플랜 유형
-제품의 플랜 유형을 선택합니다. **솔루션 템플릿** 플랜은 고객이 완전히 관리합니다. **관리형 애플리케이션** 플랜을 사용하면 게시자가 고객 대신 애플리케이션을 관리할 수 있습니다. 자세한 내용은 [Azure 애플리케이션 플랜 유형](#types-of-azure-application-plans)을 참조하세요.
+제품의 플랜 유형을 선택합니다. _*솔루션 템플릿** 계획은 전적으로 고객에 의해 관리 됩니다. **관리형 애플리케이션** 플랜을 사용하면 게시자가 고객 대신 애플리케이션을 관리할 수 있습니다. 자세한 내용은 [Azure 애플리케이션 플랜 유형](#types-of-azure-application-plans)을 참조하세요.
 
 #### <a name="re-use-technical-configuration"></a>기술 구성 다시 사용
 
@@ -508,7 +508,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 기본적으로 사용할 수 있는 “`*/read`” 작업 외에 관리되는 리소스에서 고객이 할 수 있는 작업을 지정하려면 이 옵션을 선택합니다.
 
-고객이 여기에서 수행할 수 있도록 할 추가 작업을 세미콜론으로 구분하여 나열합니다.  자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요. 사용 가능한 작업에 대해서는 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
+고객이 여기에서 수행할 수 있도록 할 추가 작업을 세미콜론으로 구분하여 나열합니다.  자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](../../role-based-access-control/deny-assignments.md)를 참조하세요. 사용 가능한 작업은 [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조 하세요. 예를 들어 소비자가 가상 머신을 다시 시작하도록 허용하려면 허용되는 작업에 `Microsoft.Compute/virtualMachines/restart/action`을 추가합니다.
 
 #### <a name="global-azure--azure-government-cloud"></a>글로벌 Azure/Azure Government 클라우드
 
@@ -518,7 +518,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 **권한 부여** – 관리되는 리소스 그룹에 권한을 부여하려는 사용자, 그룹 또는 애플리케이션의 Azure Active Directory 개체 ID를 추가합니다. 사용자를 해당 보안 주체 ID로 식별하며, 이 ID는 [Azure Portal의 Azure Active Directory 사용자 블레이드](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)에서 찾을 수 있습니다.
 
-각 보안 주체의 Azure AD 기본 제공 역할(소유자 또는 기여자) 중 하나를 목록에서 선택합니다. 선택하는 역할은 보안 주체가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. RBAC(역할 기반 액세스 제어)에 관한 자세한 내용은 [Azure Portal에서 RBAC 시작](../../role-based-access-control/overview.md)을 참조하세요.
+각 보안 주체의 Azure AD 기본 제공 역할(소유자 또는 기여자) 중 하나를 목록에서 선택합니다. 선택하는 역할은 보안 주체가 고객 구독의 리소스에 대해 가질 수 있는 권한을 설명합니다. 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. Azure RBAC (역할 기반 액세스 제어)에 대 한 자세한 내용은 [AZURE rbac 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
 >[!Note]
 >클라우드당 100개까지 권한 부여를 추가할 수 있지만 일반적으로 Active Directory 사용자 그룹을 만들고 “보안 주체 ID”에 해당 ID를 지정하는 것이 더 쉽습니다. 이렇게 하면 플랜이 배포된 후 관리 그룹에 더 많은 사용자를 추가하고 더 많은 권한 부여만을 추가하기 위해 플랜을 업데이트할 필요성을 줄일 수 있습니다.

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297980"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426787"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
 
@@ -62,7 +62,7 @@ Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 �
 
 ### <a name="creating-transforms"></a>변환 만들기
 
-REST, CLI 또는 게시 된 Sdk를 사용 하 여 변환을 만들 수 있습니다. Media Services v3 API는 Azure Resource Manager에 의해 실행되기 때문에 Resource Manager 템플릿을 사용하여 Media Services 계정에 변환을 만들고 배포할 수 있습니다. 역할 기반 액세스 제어를 사용하여 변환에 대한 액세스를 잠글 수 있습니다.
+REST, CLI 또는 게시 된 Sdk를 사용 하 여 변환을 만들 수 있습니다. Media Services v3 API는 Azure Resource Manager에 의해 실행되기 때문에 Resource Manager 템플릿을 사용하여 Media Services 계정에 변환을 만들고 배포할 수 있습니다. Azure 역할 기반 액세스 제어를 사용 하 여 변환에 대 한 액세스를 잠글 수 있습니다.
 
 ### <a name="updating-transforms"></a>변환 업데이트
 

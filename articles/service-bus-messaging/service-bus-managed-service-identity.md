@@ -2,13 +2,13 @@
 title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Service Bus 엔터티 (큐, 토픽 및 구독)를 통해 액세스 하는 방법을 설명 합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079861"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425526"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -45,7 +45,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Service Bus 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 
-- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 Azure 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. 다음은 Azure CLI 명령을 사용 하는 예제입니다. [az-role-create-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 를 사용 하 여 id를 Service Bus Azure 역할에 할당 합니다. 
+- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 Azure 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. 다음은 Azure CLI 명령을 사용 하는 예제입니다. [az-role-create-create](/cli/azure/role/assignment?#az-role-assignment-create) 를 사용 하 여 id를 Service Bus Azure 역할에 할당 합니다. 
 
     ```azurecli
     az role assignment create \
@@ -91,6 +91,9 @@ Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [Service Bus
 
 이 설정을 사용 하도록 설정 하면 Azure Active Directory (Azure AD)에서 새 서비스 id가 만들어지고 App Service 호스트로 구성 됩니다.
 
+> [!NOTE]
+> 관리 id를 사용 하는 경우 연결 문자열은 형식 이어야 합니다 `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity` .
+
 이제 Service Bus 리소스에서 필요한 범위의 역할에이 서비스 id를 할당 합니다.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할을 할당 하려면
@@ -114,8 +117,10 @@ Service Bus 네임 스페이스에 역할을 할당 하려면 Azure Portal에서
 
 역할을 할당 하면 웹 응용 프로그램은 정의 된 범위에서 Service Bus 엔터티에 대 한 액세스 권한을 갖게 됩니다. 
 
-### <a name="run-the-app"></a>앱 실행
 
+
+
+### <a name="run-the-app"></a>앱 실행
 이제 만든 ASP.NET 애플리케이션의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)의 웹 애플리케이션 코드를 사용할 수 있습니다.  
 
 Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs 파일에서 찾을 수 있습니다. 그 결과 몇 가지 입력 필드와 메시지를 보내거나 받기 위해 Service Bus에 연결되는 **전송** 및 **수신** 단추가 있는 최소 웹 애플리케이션이 생성됩니다.

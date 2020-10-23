@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e3b9b841c8e6ff17a29ac9c6a5e746ed6b687b9
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f99a3110880626b3a809e6bab5edc02398094547
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128489"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426219"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Azure Stack Edge Blob 저장소 요구 사항
 
@@ -21,16 +21,14 @@ ms.locfileid: "92128489"
 
 Azure Stack Edge Blob storage에 연결 하기 전에 정보를 신중 하 게 검토 하 고 필요에 따라 다시 참조 하는 것이 좋습니다.
 
-
 ## <a name="storage-differences"></a>스토리지 차이점
 
 |     기능                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File 스토리지                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
-|    미사용 데이터에 대한 서비스 암호화                  |    256비트 AES 암호화                             |    256비트 AES 암호화 |
+|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
 |    Storage 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
-|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    4.75 TB (100 MB x 5만 블록) Azure Stack Edge v 2.1.1377.2170 이상|
+|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Stack Edge 용 4.75 TB (100 MB x 5만 블록)|
 |    페이지 Blob 최대 크기                               |    8 TB                                               |    1TB                   |
 |    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KB                   |
 
@@ -44,7 +42,7 @@ Azure Stack Edge Blob storage에 연결 하기 전에 정보를 신중 하 게 �
 
 ## <a name="supported-azure-client-libraries"></a>지원되는 Azure 클라이언트 라이브러리
 
-Edge Blob storage Azure Stack에는 특정 클라이언트 라이브러리 및 특정 끝점 접미사 요구 사항이 있습니다. Azure Stack Edge Blob storage 끝점은 최신 버전의 Azure Blob Storage REST API를 사용 하 여 전체 패리티를 갖지 않습니다. [Azure Stack Edge 2.1.1377.2170 이상에 대해 지원 되는 API 버전](#supported-api-versions)을 참조 하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
+Edge Blob storage Azure Stack에는 특정 클라이언트 라이브러리 및 특정 끝점 접미사 요구 사항이 있습니다. Azure Stack Edge Blob storage 끝점은 최신 버전의 Azure Blob Storage REST API를 사용 하 여 전체 패리티를 갖지 않습니다. [Azure Stack Edge에 대해 지원 되는 API 버전](#supported-api-versions)을 참조 하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
 
 ### <a name="azure-stack-edge-2113772170-onwards"></a>Azure Stack Edge 2.1.1377.2170 이상
 
@@ -52,10 +50,11 @@ Edge Blob storage Azure Stack에는 특정 클라이언트 라이브러리 및 �
 
 [!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
-### <a name="install-php-client-via-composer---current"></a>작성기를 통해 PHP 클라이언트 설치 - 현재
+### <a name="install-the-php-client-via-composer---current"></a>작성기를 통해 PHP 클라이언트 설치-현재
 
-작성기를 통해 설치하려면: (Blob을 예로 사용).
-1. 다음 코드를 사용하여 프로젝트 루트에 composer.json이라는 파일을 만듭니다.
+작성기를 통해 PHP 클라이언트를 설치 하려면:
+
+1. 다음 코드를 사용 하 여 프로젝트의 루트에 composer.js라는 파일을 만듭니다 (예: Azure Storage Blob 서비스 사용).
 
     ```
     {
@@ -68,10 +67,12 @@ Edge Blob storage Azure Stack에는 특정 클라이언트 라이브러리 및 �
 
 3. 실행: php composer.phar install.
 
-### <a name="endpoint-declaration"></a>엔드포인트 선언
+
+## <a name="endpoint-declaration"></a>엔드포인트 선언
 
 Azure Stack Edge Blob storage SDK에서 끝점 접미사-는 Azure Stack에 `<device serial number>.microsoftdatabox.com` 지 도메인을 식별 합니다. Blob service 끝점에 대 한 자세한 내용은 [Edge PRO GPU를 사용 하 Azure Stack 여 저장소 계정을 통해 데이터 전송](azure-stack-edge-j-series-deploy-add-storage-accounts.md)으로 이동 합니다.
- 
+
+
 ## <a name="examples"></a>예
 
 ### <a name="net"></a>.NET

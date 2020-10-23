@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6a907ce855fbb7c1ef96236766beef9b25b2ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400469"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428361"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault에 대한 Azure 보안 기준
 
@@ -566,7 +566,9 @@ Azure Key Vault 로깅: https://docs.microsoft.com/azure/key-vault/key-vault-log
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요한 정보 암호화
 
-**지침**: 인증, 관리 및 데이터 평면 액세스를 위해 Azure Key Vault에 대 한 모든 트래픽은 암호화 되며 HTTPS: 포트 443을 통해 전달 됩니다. 그러나 CRL의 경우에 따라 HTTP [포트 80] 트래픽이 발생 합니다. 
+**지침**: 인증, 관리 및 데이터 평면 액세스를 위해 Azure Key Vault에 대 한 모든 트래픽은 암호화 되며 HTTPS: 포트 443을 통해 전달 됩니다. 그러나 CRL의 경우에 따라 HTTP [포트 80] 트래픽이 발생 합니다. Azure Key Vault는 TLS 1.1 및 TLS 1.0 데이터를 수집 하는 것을 계속 허용 합니다. 클라이언트 쪽에서 구성을 통해 TLS 1.2로 데이터를 제한할 수 있습니다.
+
+
 
 방화벽 뒤에 Azure Key Vault 액세스: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 

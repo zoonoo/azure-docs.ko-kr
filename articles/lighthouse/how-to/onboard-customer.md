@@ -3,12 +3,12 @@ title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109071"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426348"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>역할 및 권한 정의
 
-서비스 공급자는 단일 고객을 위해 여러 작업을 수행하고, 범위마다 다른 액세스 권한을 요구할 수 있습니다. 테 넌 트의 사용자에 게 적절 한 [RBAC (역할 기반 액세스 제어) 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 할당 하기 위해 필요한 만큼의 권한 부여를 정의할 수 있습니다.
+서비스 공급자는 단일 고객을 위해 여러 작업을 수행하고, 범위마다 다른 액세스 권한을 요구할 수 있습니다. 테 넌 트의 사용자에 게 적절 한 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 할당 하기 위해 필요한 만큼의 권한 부여를 정의할 수 있습니다.
 
 관리를 용이 하 게 하려면 각 역할에 대해 Azure AD 사용자 그룹을 사용 하는 것이 좋습니다. 이를 통해 액세스 권한이 있는 그룹에 개별 사용자를 추가 하거나 제거할 수 있으므로 사용자를 변경 하기 위해 온 보 딩 프로세스를 반복할 필요가 없습니다. 자동화 시나리오에 유용할 수 있는 서비스 주체에 역할을 할당할 수 있습니다.
 

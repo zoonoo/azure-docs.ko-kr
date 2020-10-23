@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dobett
-ms.openlocfilehash: 3a294368e82bcd00f98c26504b3141e8f39fe0c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e492ebf70f69c985691852a1c1f2351d1e09578e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261603"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425019"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>연결된 팩터리 IoT 솔루션 가속기란?
 
@@ -58,7 +58,7 @@ ms.locfileid: "91261603"
 
 ## <a name="end-to-end-security"></a>엔드투엔드 보안
 
-- RBAC(역할 기반 Access Control)를 사용하여 사용자에 대한 보안 권한을 구성합니다.
+- RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자에 대 한 보안 권한을 구성 합니다.
 - OPC UA 인증(X.509 인증서 사용) 및 보안 토큰을 사용하여 엔드투엔드 암호화를 구현합니다.
 
 ## <a name="customizability"></a>사용자 지정 가능

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362519"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428428"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 (미리 보기)를 기반으로 응용 프로그램, 프로세스 또는 CI/CD 워크플로 트리거
 
@@ -62,7 +62,7 @@ Azure Machine Learning은 기계 학습 수명 주기의 다양한 지점에서 
 
 이벤트를 설정할 때 특정 이벤트 데이터에 대한 트리거에만 필터를 적용할 수 있습니다. 아래 예제의 실행 상태가 변경된 이벤트를 실행 유형으로 필터링 할 수 있습니다. 이 이벤트는 조건이 충족될 때만 트리거됩니다. 필터링할 수 있는 이벤트 데이터에 대한 자세한 내용은 [Azure Machine Learning 이벤트 그리드 스키마](/azure/event-grid/event-schema-machine-learning)를 참조하세요. 
 
-Azure Machine Learning 이벤트에 대한 구독은 RBAC(역할 기반 액세스 제어)로 보호됩니다. 작업 영역의 [기여자 또는 소유자](how-to-assign-roles.md#default-roles)만이 이벤트 구독을 만들고, 업데이트하고, 삭제할 수 있습니다.  이벤트 구독을 [만드는 동안](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) 또는 나중에 이벤트 구독에 필터를 적용할 수 있습니다. 
+Azure Machine Learning 이벤트에 대 한 구독은 azure 역할 기반 access control (Azure RBAC)에 의해 보호 됩니다. 작업 영역의 [기여자 또는 소유자](how-to-assign-roles.md#default-roles)만이 이벤트 구독을 만들고, 업데이트하고, 삭제할 수 있습니다.  이벤트 구독을 [만드는 동안](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) 또는 나중에 이벤트 구독에 필터를 적용할 수 있습니다. 
 
 
 1. Azure Portal로 이동하여 새 구독 또는 기존 구독을 선택합니다. 

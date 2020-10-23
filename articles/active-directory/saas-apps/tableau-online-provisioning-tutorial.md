@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613930"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425557"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Tableau Online 구성
 
@@ -98,7 +98,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
    * **도메인** 상자에서 6 단계에 따라 하위 도메인을 입력 합니다.
 
-   * **관리자 사용자 이름** 상자에서 Clarizen 테 넌 트의 관리자 계정에 대 한 사용자 이름을 입력 합니다. 예제는 admin@contoso.com입니다.
+   * **관리자 사용자 이름** 상자에서 Tableau Online 테 넌 트의 관리자 계정에 대 한 사용자 이름을 입력 합니다. 예제는 admin@contoso.com입니다.
 
    * 관리자 **암호** 상자에 관리자 사용자 이름에 해당 하는 관리자 계정의 암호를 입력 합니다.
 

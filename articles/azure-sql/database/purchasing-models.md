@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5760d3daaa13a5ed16230e1ffb7fe3691455e09
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319455"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427039"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>VCore 및 DTU 구매 모델 중에서 선택-Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 성능 및 �
 
 VCore (가상 코어)는 논리적 CPU를 나타내며 하드웨어 세대와 하드웨어의 물리적 특성 (예: 코어 수, 메모리 및 저장소 크기) 중에서 선택할 수 있는 옵션을 제공 합니다. VCore 기반 구매 모델은 개별 리소스 소비의 유연성, 제어, 투명성 및 온-프레미스 워크 로드 요구 사항을 클라우드로 변환 하는 간단한 방법을 제공 합니다. 이 모델을 사용 하면 워크 로드 요구 사항에 따라 계산, 메모리 및 저장소 리소스를 선택할 수 있습니다.
 
-VCore 기반 구매 모델에서는 SQL Database 및 SQL Managed Instance의 범용 및 [중요 비즈니스용](high-availability-sla.md#premium-and-business-critical-service-tier-availability) 서비스 계층 [중에서 선택할](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) 수 있습니다.  단일 데이터베이스의 경우에는 [Hyperscale 서비스 계층](service-tier-hyperscale.md)을 선택할 수도 있습니다.
+VCore 기반 구매 모델에서는 SQL Database 및 SQL Managed Instance의 범용 및 [중요 비즈니스용](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) 서비스 계층 [중에서 선택할](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) 수 있습니다.  단일 데이터베이스의 경우에는 [Hyperscale 서비스 계층](service-tier-hyperscale.md)을 선택할 수도 있습니다.
 
 VCore 기반 구매 모델을 사용 하 여 독립적으로 계산 및 저장소 리소스를 선택 하 고, 온-프레미스 성능을 일치 시키고, 가격을 최적화할 수 있습니다. VCore 기반 구매 모델에서 다음에 대 한 비용을 지불 합니다.
 

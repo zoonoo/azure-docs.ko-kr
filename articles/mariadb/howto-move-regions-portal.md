@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542430"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425897"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB 서버를 다른 지역으로 이동
 
@@ -21,7 +21,7 @@ ms.locfileid: "91542430"
 Azure Database for MariaDB [지역 간 읽기 복제본](concepts-read-replicas.md#cross-region-replication) 을 사용 하 여 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 이렇게 하려면 먼저 대상 지역에서 읽기 복제본을 만듭니다. 그런 다음 읽기 복제본 서버에 대 한 복제를 중지 하 여 읽기 및 쓰기 트래픽을 모두 수락 하는 독립 실행형 서버로 만듭니다. 
 
 > [!NOTE]
-> 이 문서에서는 서버를 다른 지역으로 이동 하는 방법을 집중적으로 설명 합니다. 서버를 다른 리소스 그룹 또는 구독으로 이동 하려면 [이동](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) 문서를 참조 하세요. 
+> 이 문서에서는 서버를 다른 지역으로 이동 하는 방법을 집중적으로 설명 합니다. 서버를 다른 리소스 그룹 또는 구독으로 이동 하려면 [이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조 하세요. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319430"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426993"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 오프 로드
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-고가용성 [아키텍처](high-availability-sla.md#premium-and-business-critical-service-tier-availability)의 일부로 프리미엄 및 중요 비즈니스용 서비스 계층의 각 단일 데이터베이스, 탄력적 풀 데이터베이스 및 관리 되는 인스턴스는 주 읽기-쓰기 복제본과 여러 보조 읽기 전용 복제본으로 자동으로 프로 비전 됩니다. 보조 복제본은 주 복제본과 동일한 계산 크기로 프로 비전 됩니다. 읽기 *확장* 기능을 사용 하면 읽기 전용 복제본에서 실행 하는 대신 읽기 전용 복제본 중 하나의 계산 용량을 사용 하 여 읽기 전용 작업을 오프 로드할 수 있습니다. 이러한 방식으로 일부 읽기 전용 작업은 읽기-쓰기 작업에서 격리 될 수 있으며 성능에 영향을 주지 않습니다. 이 기능은 분석과 같이 논리적으로 구분 된 읽기 전용 작업을 포함 하는 응용 프로그램을 위한 것입니다. 프리미엄 및 중요 비즈니스용 서비스 계층에서 응용 프로그램은 추가 비용 없이이 추가 용량을 사용 하 여 성능상의 이점을 얻을 수 있습니다.
+고가용성 [아키텍처](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)의 일부로 프리미엄 및 중요 비즈니스용 서비스 계층의 각 단일 데이터베이스, 탄력적 풀 데이터베이스 및 관리 되는 인스턴스는 주 읽기-쓰기 복제본과 여러 보조 읽기 전용 복제본으로 자동으로 프로 비전 됩니다. 보조 복제본은 주 복제본과 동일한 계산 크기로 프로 비전 됩니다. 읽기 *확장* 기능을 사용 하면 읽기 전용 복제본에서 실행 하는 대신 읽기 전용 복제본 중 하나의 계산 용량을 사용 하 여 읽기 전용 작업을 오프 로드할 수 있습니다. 이러한 방식으로 일부 읽기 전용 작업은 읽기-쓰기 작업에서 격리 될 수 있으며 성능에 영향을 주지 않습니다. 이 기능은 분석과 같이 논리적으로 구분 된 읽기 전용 작업을 포함 하는 응용 프로그램을 위한 것입니다. 프리미엄 및 중요 비즈니스용 서비스 계층에서 응용 프로그램은 추가 비용 없이이 추가 용량을 사용 하 여 성능상의 이점을 얻을 수 있습니다.
 
 *읽기 확장* 기능은 하나 이상의 보조 복제본이 생성 될 때 hyperscale 서비스 계층 에서도 사용할 수 있습니다. 하나의 보조 복제본에서 사용할 수 있는 것 보다 더 많은 리소스를 필요로 하는 로드 밸런싱 읽기 전용 작업에는 여러 개의 보조 복제본을 사용할 수 있습니다.
 

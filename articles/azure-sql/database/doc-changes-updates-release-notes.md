@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079210"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426268"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |**Azure SQL Database**|*단일 데이터베이스* Azure SQL Database| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다. |
 |**Azure SQL Database**|Azure SQL Database *탄력적 풀*| 달리 명시적으로 지정 하지 않는 한 제품 이름 Azure SQL Database에는 단일 데이터베이스와 탄력적 풀에 배포 된 데이터베이스가 모두 포함 됩니다.  |
 |**Azure SQL Database** |Azure SQL Database | 용어는 동일 하 게 유지 되지만 이제는 단일 데이터베이스 및 탄력적 풀 배포에만 적용 되며 관리 되는 인스턴스는 포함 하지 않습니다. |
-| **Azure SQL**| N/A | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
+| **Azure SQL**| 해당 없음 | Azure에서 사용할 수 있는 SQL Server 데이터베이스 엔진 제품의 패밀리 (Azure SQL Database, Azure SQL Managed Instance 및 Azure Vm의 SQL Server를 나타냅니다. | 
 
 ## <a name="features-in-public-preview"></a>공개 미리 보기의 기능
 
@@ -73,7 +73,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 ---
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Managed Instance H2 2019 업데이트
 
@@ -100,7 +100,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |---------|---------|---------|---------|
 |[서버 트러스트 그룹에서 Managed Instance를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|10 월 2020|해결 방법 있음||
 |[Managed Instance 크기 조정 작업 후에는 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|10 월 2020|해결 방법 있음||
-|Azure SQL의 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD id 관리를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) / Azure SQL의 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) 및 `BACKUP` / `RESTORE` Managed Instance의 문은 azure AD 관리 id를 사용 하 여 azure storage에 인증할 수 없습니다.|9 월 2020|해결 방법 있음||
 |[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
@@ -139,7 +139,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 관리 되는 Id를 사용 하 여 Azure storage에 액세스할 수 없습니다.
 
-Bulk insert 문은 `DATABASE SCOPED CREDENTIAL` Azure storage에 인증 하는 데 관리 id와 함께 사용할 수 없습니다. 이 문제를 해결 하려면 공유 액세스 서명 인증으로 전환 합니다. 다음 예제는 Azure SQL (데이터베이스 및 Managed Instance)에서 작동 하지 않습니다.
+Bulk insert, BACKUP 및 RESTORE 문 및 OPENROWSET 함수 `DATABASE SCOPED CREDENTIAL` 는 관리 id와 함께를 사용 하 여 Azure storage에 인증할 수 없습니다. 이 문제를 해결 하려면 공유 액세스 서명 인증으로 전환 합니다. 다음 예제는 Azure SQL (데이터베이스 및 Managed Instance)에서 작동 하지 않습니다.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019616"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426879"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -34,7 +34,7 @@ ms.locfileid: "92019616"
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Azure Media Services 리소스에 대 한 작업을 수행할 수 있는 Azure 역할은 무엇 인가요? 
 
-[Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
+[Media Services 계정에 대 한 AZURE RBAC (역할 기반 액세스 제어)를](rbac-overview.md)참조 하세요.
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Apple iOS 장치로 stream을 어떻게 할까요? 하 시겠습니까?
 

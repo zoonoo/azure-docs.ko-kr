@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 3fe99543b821810b1479f1e504098d81fd20c534
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb3d29a339911b0ec05b543257974014a1bcbe22
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711449"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425488"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Azure Queue storage 모니터링
 
@@ -46,7 +46,7 @@ Azure Queue storage는 다른 Azure 리소스와 동일한 종류의 모니터�
 
 Azure 큐 저장소에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 내용은 [Azure 큐 저장소 모니터링 데이터 참조](monitor-queue-storage-reference.md) 를 참조 하세요.
 
-Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)을 참조하세요.
+Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](/azure/virtual-machines/windows/migration-classic-resource-manager-overview)을 참조하세요.
 
 원한다면 클래식 메트릭 및 로그를 계속 사용할 수 있습니다. 실제로 클래식 메트릭 및 로그는 Azure Monitor의 메트릭 및 로그와 동시에 사용할 수 있습니다. 이 지원은 Azure Storage가 레거시 메트릭 및 로그에 대한 서비스를 종료할 때까지 유지됩니다.
 
@@ -56,7 +56,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 진단 설정을 만들려면 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요. 
 
-진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대 한 진단 설정](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)을 참조 하세요.
+진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대 한 진단 설정](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)을 참조 하세요.
 
 진단 설정을 만들 때 로그를 사용할 스토리지 유형(예: BLOB, 큐, 테이블, 파일)을 선택하세요. 큐 저장소에 대해 **큐**를 선택 합니다. 
 
@@ -64,7 +64,7 @@ Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 �
 
 또한 로그를 수집 하려는 다음 작업 범주 중 하나를 지정 해야 합니다. 
 
-| 범주 | Description |
+| Category | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |
@@ -89,7 +89,7 @@ Azure Queue storage에 대 한 메트릭은 다음 네임 스페이스에 있습
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/queueServices
 
-Azure Queue storage를 포함 하 여 모든 Azure Monitor 지원 메트릭의 목록은 [지원 되는 Azure Monitor 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)을 참조 하세요.
+Azure Queue storage를 포함 하 여 모든 Azure Monitor 지원 메트릭의 목록은 [지원 되는 Azure Monitor 메트릭](/azure/azure-monitor/platform/metrics-supported)을 참조 하세요.
 
 
 ### <a name="accessing-metrics"></a>메트릭 액세스
@@ -101,7 +101,7 @@ Azure Queue storage를 포함 하 여 모든 Azure Monitor 지원 메트릭의 �
 
 #### <a name="list-the-metric-definition"></a>메트릭 정의 나열
 
-저장소 계정 또는 큐 저장소 서비스의 메트릭 정의를 나열할 수 있습니다. [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition)을 사용합니다.
+저장소 계정 또는 큐 저장소 서비스의 메트릭 정의를 나열할 수 있습니다. [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition)을 사용합니다.
 
 이 예제에서는 `<resource-ID>` 자리 표시자를 전체 저장소 계정의 리소스 id 또는 Queue storage 서비스의 리소스 id로 바꿉니다.  리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
 
@@ -112,7 +112,7 @@ Azure Queue storage를 포함 하 여 모든 Azure Monitor 지원 메트릭의 �
 
 #### <a name="reading-metric-values"></a>메트릭 값 읽기
 
-저장소 계정 또는 큐 저장소 서비스의 계정 수준 메트릭 값을 읽을 수 있습니다. [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet을 사용합니다.
+저장소 계정 또는 큐 저장소 서비스의 계정 수준 메트릭 값을 읽을 수 있습니다. [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet을 사용합니다.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -123,7 +123,7 @@ Azure Queue storage를 포함 하 여 모든 Azure Monitor 지원 메트릭의 �
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
 
-저장소 계정 또는 큐 저장소 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 명령을 사용합니다.
+저장소 계정 또는 큐 저장소 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 명령을 사용합니다.
  
 이 예제에서는 `<resource-ID>` 자리 표시자를 전체 저장소 계정의 리소스 id 또는 Queue storage 서비스의 리소스 id로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
 
@@ -133,7 +133,7 @@ Azure Queue storage를 포함 하 여 모든 Azure Monitor 지원 메트릭의 �
 
 #### <a name="read-account-level-metric-values"></a>계정 수준 메트릭 값 읽기
 
-저장소 계정 또는 큐 저장소 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령을 사용합니다.
+저장소 계정 또는 큐 저장소 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령을 사용합니다.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -330,19 +330,19 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 ![감사 로그](media/monitor-queue-storage/event-hub-log.png)
 
-보안 정보와 이벤트 관리 및 모니터링 도구를 사용하여 이벤트 허브로 전송된 로그 데이터에 액세스하여 읽을 수 있습니다. 자세한 내용은 [내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)를 참조하세요.
+보안 정보와 이벤트 관리 및 모니터링 도구를 사용하여 이벤트 허브로 전송된 로그 데이터에 액세스하여 읽을 수 있습니다. 자세한 내용은 [내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?](/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)를 참조하세요.
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 로그 액세스
 
 Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 전송된 로그에 액세스할 수 있습니다.
 
-자세한 내용은 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조하세요.
+자세한 내용은 [Azure Monitor에서 Log Analytics 시작](/azure/azure-monitor/log-query/get-started-portal)을 참조하세요.
 
 데이터는 **StorageQueueLogs** 테이블에 저장 됩니다.  
 
 #### <a name="sample-kusto-queries"></a>샘플 Kusto 쿼리
 
-다음은 큐 저장소를 모니터링 하기 위해 **로그 검색** 표시줄에 입력할 수 있는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)에서 작동합니다.
+다음은 큐 저장소를 모니터링 하기 위해 **로그 검색** 표시줄에 입력할 수 있는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](/azure/azure-monitor/log-query/log-query-overview)에서 작동합니다.
 
 > [!IMPORTANT]
 > 저장소 계정 리소스 그룹 메뉴에서 **로그** 를 선택 하면 현재 리소스 그룹으로 설정 된 쿼리 범위를 사용 하 여 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함 됩니다. 다른 리소스의 데이터 또는 다른 Azure 서비스의 데이터를 포함 하는 쿼리를 실행 하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/log-query/scope/)를 참조하세요.

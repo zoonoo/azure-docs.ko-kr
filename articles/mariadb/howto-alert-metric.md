@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 6ed890fca9dddcbc7f04914a6f920d530d18ed0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c972bd3b770f42353d285d0c69aacef56d6e04d5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742845"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426127"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Azure Portal을 사용하여 Azure Database for MariaDB의 메트릭에 대한 경고를 설정합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "91742845"
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 * [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>메트릭에 대한 경고 규칙 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for MariaDB 서버를 선택합니다.
@@ -85,5 +85,5 @@ ms.locfileid: "91742845"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에서의 webhook 구성](../monitoring-and-diagnostics/insights-webhooks-alerts.md)에 대해 자세히 알아봅니다.
-* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 의 개요를 살펴봅니다.
+* [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
+* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/platform/data-platform.md) 의 개요를 살펴봅니다.

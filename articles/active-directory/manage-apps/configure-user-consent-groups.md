@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: c4203c572ed040b37a377e8d4a6b1bc82c883ebd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368505"
+ms.locfileid: "92427644"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>그룹 데이터에 액세스하는 앱에 대한 그룹 소유자 동의 구성
 
@@ -73,7 +74,7 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](https://docs.microsoft.com/p
 
 1. 설정 값을 이해합니다. 앱에서 해당 그룹의 데이터에 액세스하도록 허용할 수 있는 사용자를 정의하는 두 가지 설정 값이 있습니다.
 
-    | 설정       | Type         | Description  |
+    | 설정       | 유형         | Description  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | 부울 | 그룹 소유자가 그룹 관련 권한을 부여할 수 있는지 여부를 나타내는 플래그입니다. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | _EnableGroupSpecificConsent_를 "True"로 설정하고 이 값을 그룹의 개체 ID로 설정하면 식별된 그룹의 멤버가 자신이 소유한 그룹에 대한 그룹 관련 권한을 부여할 수 있습니다. |

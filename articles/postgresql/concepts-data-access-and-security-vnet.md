@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 170d5eaa4c14c6de54825bc08f3aef0fd0dfa0c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708002"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425512"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -82,7 +82,7 @@ Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 �
 - **네트워크 관리자:** &nbsp; 엔드포인트를 켭니다.
 - **데이터베이스 관리자:** &nbsp; ACL(액세스 제어 목록)을 업데이트하여 제공된 서브넷을 Azure Database for PostgreSQL 서버에 추가합니다.
 
-*RBAC 대체:*
+*Azure RBAC 대안:*
 
 네트워크 관리자 및 데이터베이스 관리자 역할에는 가상 네트워크 규칙을 관리하는 데 필요한 것보다 많은 기능이 포함됩니다. 해당 기능의 하위 집합만 필요합니다.
 
@@ -128,7 +128,7 @@ Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 
 
 Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다.
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 - [Azure 가상 네트워크][vm-virtual-network-overview]
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 
@@ -147,7 +147,7 @@ VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124761"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426321"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>활성 지역 복제 만들기 및 사용-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,14 +83,14 @@ ms.locfileid: "92124761"
 > 주 데이터베이스에 스키마 업데이트가 있는 경우 보조 데이터베이스에서 로그 재생이 지연됩니다. 후자의 경우 보조 데이터베이스에 대한 스키마 잠금이 필요합니다.
 
 > [!IMPORTANT]
-> 지역에서 복제를 사용 하 여 주 데이터베이스와 동일한 지역에 보조 데이터베이스를 만들 수 있습니다. 이 보조 데이터베이스를 사용 하 여 동일한 지역에서 읽기 전용 작업의 부하를 분산할 수 있습니다. 그러나 동일한 지역의 보조 데이터베이스는 추가 오류 복원 력을 제공 하지 않으므로 재해 복구를 위한 적절 한 장애 조치 (failover) 대상이 아닙니다. 또한 가용성 영역 격리를 보장 하지 않습니다. [영역 중복 구성을](high-availability-sla.md#zone-redundant-configuration) 통해 업무상 중요 한 또는 프리미엄 서비스 계층을 사용 하 여 가용성 영역 격리를 달성할 수 있습니다.
+> 지역에서 복제를 사용 하 여 주 데이터베이스와 동일한 지역에 보조 데이터베이스를 만들 수 있습니다. 이 보조 데이터베이스를 사용 하 여 동일한 지역에서 읽기 전용 작업의 부하를 분산할 수 있습니다. 그러나 동일한 지역의 보조 데이터베이스는 추가 오류 복원 력을 제공 하지 않으므로 재해 복구를 위한 적절 한 장애 조치 (failover) 대상이 아닙니다. 또한 가용성 영역 격리를 보장 하지 않습니다. [영역 중복 구성](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) 또는 범용 서비스 계층 [영역 중복 구성을](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) 통해 업무상 중요 또는 프리미엄 서비스 계층을 사용 하 여 가용성 영역 격리를 달성할 수 있습니다.
 >
 
 - **계획 된 장애 조치**
 
   계획 된 장애 조치 (failover)는 전체 동기화가 완료 된 후 주 데이터베이스와 보조 데이터베이스의 역할을 전환 합니다. 데이터 손실을 초래 하지 않는 온라인 작업입니다. 작업 시간은 동기화 해야 하는 주 복제본의 트랜잭션 로그 크기에 따라 달라 집니다. 계획 된 장애 조치 (failover)는 데이터 손실이 허용 되지 않는 경우 프로덕션 환경에서 DR 드릴을 수행 하는 (a) 시나리오를 위해 설계 되었습니다. (b) 다른 지역으로 데이터베이스를 재배치 하려면 가동 중단이 완화 (장애 복구) 된 후 데이터베이스를 주 지역으로 반환 하는 경우 (c)
 
-- **계획 되지 않은 장애 조치**
+- **계획되지 않은 장애 조치(Failover)**
 
   계획되지 않은 장애 조치 또는 강제 장애 조치(failover)는 주 데이터베이스와의 동기화 없이 보조 역할을 주 역할로 즉시 전환합니다. 주 복제본에 커밋된 모든 트랜잭션은 손실 됩니다. 이 작업은 주 데이터베이스에 액세스할 수 없지만 데이터베이스 가용성을 신속 하 게 복원 해야 하는 경우 중단 시 복구 방법으로 설계 되었습니다. 원래 주 데이터베이스가 다시 온라인 상태가 되 면 자동으로 다시 연결 되 고 새 보조 데이터베이스가 됩니다. 장애 조치 (failover) 전에 동기화 되지 않은 모든 트랜잭션은 백업 파일에 유지 되지만 충돌을 피하기 위해 새 주 복제본과 동기화 되지 않습니다. 이러한 트랜잭션을 주 데이터베이스의 최신 버전과 수동으로 병합 해야 합니다.
 

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629729"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425092"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -42,12 +42,12 @@ ms.locfileid: "91629729"
 
 + 계산 리소스에 사용할 기존 가상 네트워크 및 서브넷
 
-+ 가상 네트워크 또는 서브넷에 리소스를 배포 하려면 사용자 계정에 Azure 역할 기반 액세스 제어 (RBAC)에서 다음 작업을 수행할 수 있는 권한이 있어야 합니다.
++ 가상 네트워크 또는 서브넷에 리소스를 배포 하려면 사용자 계정에 azure 역할 기반 액세스 제어 (Azure RBAC)에서 다음 작업에 대 한 사용 권한이 있어야 합니다.
 
     - 가상 네트워크 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
     - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
 
-    네트워크를 사용 하는 RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>컴퓨팅 클러스터 및 인스턴스 

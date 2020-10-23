@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400420"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428405"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -46,7 +46,7 @@ Runbook이 3회 실행을 시도한 직후 일시 중단됩니다. Runbook 완�
 
 #### <a name="resolution"></a>해결 방법
 
-* **.azure-automation.net**에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
+컴퓨터의 포트 443에서 ** \* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
 
 Hybrid Runbook Worker가 실행되는 컴퓨터는 작업자가 이 기능을 호스트하도록 구성하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. Runbook 및 여기에 사용되는 백그라운드 프로세스로 인해 시스템이 과도하게 사용되어 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
 
@@ -226,7 +226,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="cause"></a>원인
 
-이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. * **.azure-automation.net**에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
+이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. 컴퓨터의 포트 443에서 ** \* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>시나리오: Hybrid Runbook Worker를 추가할 수 없음
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>시나리오: Windows Hybrid Runbook Worker를 추가할 수 없음
 
 #### <a name="issue"></a>문제
 
@@ -312,6 +312,46 @@ Machine is already registered
 이 문제를 해결하려면 다음 레지스트리 키를 제거하고 `HealthService`를 다시 시작한 후 `Add-HybridRunbookWorker` cmdlet을 다시 시도해보세요.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>시나리오: Linux Hybrid Runbook Worker를 추가할 수 없음
+
+#### <a name="issue"></a>문제
+
+Python 스크립트를 사용 하 여 Hybrid Runbook Worker를 추가 하려고 하면 다음과 같은 메시지가 표시 됩니다 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` .
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+또한 python 스크립트를 사용 하 여 Hybrid Runbook Worker 등록을 취소 하려고 합니다 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` .
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>원인
+
+이 문제는 컴퓨터가 다른 Automation 계정에 이미 등록 되어 있거나, Azure Hybrid Worker 그룹이 삭제 되었거나, 컴퓨터에서 제거 하 고 나 서 Hybrid Runbook Worker를 다시 추가 하려고 할 때 발생할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 문제를 해결하려면:
+
+1. 에이전트를 제거 `sudo sh onboard_agent.sh --purge` 합니다.
+
+1. 다음 명령을 실행합니다.
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. 에이전트를 다시 등록 `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` 합니다.
+
+1. 폴더가 채워질 때까지 기다립니다 `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` .
+
+1. `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register`Python 스크립트를 다시 시도 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

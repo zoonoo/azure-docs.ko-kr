@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0efb2c26a63418835dd2b7561a1fb9d3a9d5fee8
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f3fb31dc7db4808db83f33abdf14179265d147f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945563"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425182"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
@@ -75,7 +75,10 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
  
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 권장 사항을 수정 하는 방법을 알아보려면 다음을 수행 하십시오.
+이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 관련 정보:
 
 - [권장 사항](security-center-remediate-recommendations.md) 수정-Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
 - [강제 적용/거부 권장 구성으로 잘못 된 구성을 방지](prevent-misconfigurations.md)합니다.
+- [권장 사항에 대한 응답 자동화](workflow-automation.md)
+- [권장 사항에서 리소스 제외](exempt-resource.md)
+- [보안 권장 사항 - 참조 가이드](recommendations-reference.md)
