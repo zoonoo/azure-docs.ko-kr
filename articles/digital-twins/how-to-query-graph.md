@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078479"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461280"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
-이 문서에서는 [Azure Digital Twins 쿼리 언어](concepts-query-language.md) 를 사용 하 여 정보에 대 한 쌍 [그래프](concepts-twins-graph.md) 를 쿼리 하는 방법에 대 한 예제 및 자세한 정보를 제공 합니다. Azure Digital Twins [**쿼리 api**](how-to-use-apis-sdks.md)를 사용 하 여 그래프에서 쿼리를 실행 합니다.
+이 문서에서는 [Azure Digital Twins 쿼리 언어](concepts-query-language.md) 를 사용 하 여 정보에 대 한 쌍 [그래프](concepts-twins-graph.md) 를 쿼리 하는 방법에 대 한 예제 및 자세한 정보를 제공 합니다. Azure Digital Twins [**쿼리 api**](/rest/api/digital-twins/dataplane/query)를 사용 하 여 그래프에서 쿼리를 실행 합니다.
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -268,7 +268,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 조합 연산자를 사용 하 여 위의 쿼리 유형을 조합 하 여 단일 쿼리에 자세한 정보를 **포함할 수 있습니다** . 다음은 한 번에 둘 이상의 쌍 설명자 유형을 쿼리 하는 복합 쿼리의 몇 가지 추가 예입니다.
 
-| 설명 | 쿼리 |
+| Description | 쿼리 |
 | --- | --- |
 | *공간 123* 가 있는 장치에서 운영자 역할을 하는 MxChip 장치를 반환 합니다. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | ID가 *id1* 인 다른 쌍이 *포함* 된 relationship 이라는 관계가 있는 쌍을 가져옵니다. | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -288,11 +288,11 @@ AND Room.$dtId IN ['room1', 'room2']
 | 비교 |=,! =, <, >, <=, >= |
 | 포함 | 에서 NIN |
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 기능 | 설명 |
+| 함수 | Description |
 | -------- | ----------- |
 | IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
 | IS_OF_MODEL | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -305,7 +305,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 기능 | 설명 |
+| 함수 | Description |
 | -------- | ----------- |
 | STARTSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | ENDSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |

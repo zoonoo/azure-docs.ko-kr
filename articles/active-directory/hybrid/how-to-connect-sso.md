@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658361"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457994"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -64,18 +64,20 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |윈도우 10|예\*|예|예|예\*\*\*|해당 없음
-|Windows 8.1|예\*|해당 없음|예|예\*\*\*|해당 없음
+|Windows 8.1|예\*|예로\*\*\*|예|예\*\*\*|해당 없음
 |Windows 8|예\*|해당 없음|예|예\*\*\*|해당 없음
 |Windows 7|예\*|해당 없음|예|예\*\*\*|해당 없음
 |Windows Server 2012 R2 이상|예\*\*|해당 없음|예|예\*\*\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
 
 
-\*Internet Explorer 버전 10 이상 필요
+\*Internet Explorer 버전 10 이상이 필요 합니다.
 
-\*\*Internet Explorer 버전 10 이상 필요. 향상된 보호 모드 사용 안 함
+\*\*Internet Explorer 버전 10 이상이 필요 합니다. 향상 된 보호 모드를 사용 하지 않습니다.
 
-\*\*\*[추가 구성](how-to-connect-sso-quick-start.md#browser-considerations)이 필요합니다.
+\*\*\*[추가 구성이](how-to-connect-sso-quick-start.md#browser-considerations)필요 합니다.
+
+\*\*\*\*Microsoft Edge 버전 77 이상이 필요 합니다.
 
 >[!NOTE]
 >Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../devices/concept-azure-ad-join.md)을 사용하는 것이 좋습니다.

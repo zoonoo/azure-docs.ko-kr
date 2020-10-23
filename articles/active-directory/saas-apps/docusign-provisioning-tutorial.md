@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0a69784be3b03b030ef599037b57c2c20ea2c6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317432"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454680"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 DocuSign 구성
 
@@ -35,7 +35,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 DocuSign 앱에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 DocuSign 앱에 할당할 수 있습니다.
 
-[엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>DocuSign에 사용자를 할당하기 위한 주요 팁
 
@@ -93,6 +93,12 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 사용자 및 그룹 섹션에서 DocuSign에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 DocuSign 앱의 프로비저닝 서비스에서 수행한 모든 작업을 설명하는 프로비저닝 활동 로그를 확인할 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
+
+## <a name="troubleshooting-tips"></a>문제 해결 팁
+* Docusign에서 사용자에 대 한 역할 또는 권한 프로필을 프로 비전 하려면 [스위치](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) 및 [Singleapproleassignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) 을 사용 하 여 특성 매핑에 식을 사용 하면 됩니다. 예를 들어, 아래 식은 사용자에 게 Azure AD에서 "DS Admin" 역할이 할당 된 경우 ID "8032066"을 프로 비전 합니다. 사용자가 Azure AD 쪽에서 역할을 할당 하지 않은 경우에는 사용 권한 프로필을 프로 비전 하지 않습니다. ID는 DocuSign [포털](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)에서 검색할 수 있습니다.
+
+Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "DS Admin")
+
 
 ## <a name="additional-resources"></a>추가 리소스
 

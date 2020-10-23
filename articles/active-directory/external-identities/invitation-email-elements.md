@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340624"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441881"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
 
@@ -63,7 +63,7 @@ ms.locfileid: "92340624"
 
 ### <a name="footer-section"></a>바닥글 섹션
 
-바닥글에는 전송 중인 초대에 대 한 자세한 정보가 포함 됩니다. 초대를 받은 후에는 항상 초대를 차단할 수 있는 옵션이 있습니다. 조직에서 [개인 정보 취급 방침을 설정한](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)경우 문에 대 한 링크가 여기에 표시 됩니다.  그렇지 않으면 조직이 개인 정보 취급 방침을 설정 하지 않았음을 나타냅니다.
+바닥글에는 전송 중인 초대에 대 한 자세한 정보가 포함 됩니다. 초대를 받은 후에는 항상 초대를 차단할 수 있는 옵션이 있습니다. 조직에서 [개인 정보 취급 방침을 설정한](../fundamentals/active-directory-properties-area.md)경우 문에 대 한 링크가 여기에 표시 됩니다.  그렇지 않으면 조직이 개인 정보 취급 방침을 설정 하지 않았음을 나타냅니다.
 
 ![전자 메일의 바닥글 섹션 이미지](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ ms.locfileid: "92340624"
 
 초대 이메일에서 게스트 사용자에게 표시되는 언어는 다음 설정에 의해 결정됩니다. 이러한 설정은 우선 순위 순서대로 나열됩니다. 설정이 구성되지 않은 경우 목록의 다음 설정이 언어를 결정합니다.
 
-- 초대 만들기 API를 사용하는 경우 [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) 개체의 **messageLanguage** 속성
--   게스트의 [사용자 개체](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)에 지정한 **preferredLanguage** 속성
+- 초대 만들기 API를 사용하는 경우 [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) 개체의 **messageLanguage** 속성
+-   게스트의 [사용자 개체](/graph/api/resources/user?view=graph-rest-1.0)에 지정한 **preferredLanguage** 속성
 -   게스트 사용자의 홈 테넌트의 속성에 설정된 **알림 언어**(Azure AD 테넌트만 해당)
 -   리소스 테넌트의 속성에 설정된 **알림 언어**
 

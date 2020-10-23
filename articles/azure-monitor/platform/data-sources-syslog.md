@@ -1,20 +1,23 @@
 ---
-title: Azure Monitor에서 Syslog 메시지 수집 및 분석 | Microsoft Docs
+title: Azure Monitor에서 Log Analytics 에이전트를 사용 하 여 Syslog 데이터 원본 수집
 description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, 생성되는 레코드에 대한 자세한 정보를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322315"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440623"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Syslog 데이터 원본 수집
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
+
+> [!IMPORTANT]
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 를 사용 하 여 Syslog 이벤트를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 > [!NOTE]
 > Azure Monitor는 rsyslog 또는 syslog-ng에서 보낸 메시지의 컬렉션을 지원합니다. 여기서 rsyslog는 기본 디먼입니다. Red Hat Enterprise Linux 버전 5, CentOS 및 Oracle Linux 버전(sysklog)에서는 syslog 이벤트 수집을 위한 기본 syslog 디먼이 지원되지 않습니다. 이 버전의 배포에서 syslog 데이터를 수집 하려면 [rsyslog 디먼](http://rsyslog.com) 을 설치 하 고 sysklog를 대체 하도록 구성 해야 합니다.
@@ -45,7 +48,7 @@ Syslog 수집기에서 지원 되는 기능은 다음과 같습니다.
 Linux용 Log Analytics 에이전트는 해당 구성에 지정된 기능 및 심각도에 따라서만 이벤트를 수집합니다. Azure Portal을 통해 또는 Linux 에이전트의 구성 파일을 관리하여 Syslog를 구성할 수 있습니다.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure Portal에서 Syslog 구성
-[고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 Syslog를 구성합니다. 이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
+Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources) 에서 Syslog를 구성 합니다. 이 구성은 각 Linux 에이전트의 구성 파일에 전달됩니다.
 
 먼저 **내 컴퓨터에 아래 구성 적용** 옵션을 선택한 다음 이름을 입력 하 고 클릭 하 여 새 기능을 추가할 수 있습니다 **+** . 각 기능에 대해, 선택한 심각도의 메시지만 수집됩니다.  수집하려는 특정 기능의 심각도를 확인합니다. 이벤트를 필터링하는 추가 조건을 제공할 수는 없습니다.
 

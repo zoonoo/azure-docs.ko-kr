@@ -16,17 +16,17 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319982"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457965"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype와 같은 Microsoft 365 작업을 사용 하는 사용자는 전자 메일을 보내고 모든 사용자를 호출할 수 있도록 전체 전체 주소 목록을 활용 하는 것이 좋습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
 
-경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 몇 가지 예제는 다음과 같습니다.
+경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 다음은 몇 가지 예입니다.
 
 * [여러 Azure AD 디렉터리 토폴로지](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant)를 사용할 계획입니다. 그러면 필터를 적용하여 특정 Azure AD 디렉터리에 동기화할 개체를 제어해야 합니다.
 * Azure 또는 Microsoft 365에 대 한 파일럿을 실행 하 고 Azure AD에서 사용자의 하위 집합만 사용할 수 있습니다. 작은 파일럿에서는 해당 기능을 보여 주기 위해 완전한 전체 주소 목록이 필요하지 않습니다.
@@ -127,7 +127,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3.  **동기화 옵션 사용자 지정** 을 선택 하 고 **다음**을 클릭 합니다.
 4.  Azure AD 자격 증명 입력
 5.  **연결 된 디렉터리** 화면에서 **다음**을 클릭 합니다.
-6.  **도메인 및 OU 필터링 페이지** 에서 **새로 고침**을 클릭 합니다.  이제 새 도메인이 표시 되지 않으며 삭제 된 도메인이 사라집니다.
+6.  **도메인 및 OU 필터링 페이지** 에서 **새로 고침**을 클릭 합니다.  이제 새 도메인이 표시 되 고 삭제 된 도메인이 사라집니다.
    ![파티션](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>실행 프로필 업데이트
@@ -279,7 +279,7 @@ Active Directory에서 메타버스로의 [인바운드](#inbound-filtering) 및
 5. 팝업에서 **예** 를 선택하여 규칙의 복사본을 만듭니다.
 6. **설명** 페이지에서 50과 같은 사용하지 않는 값으로 **우선 순위**를 변경합니다.
 7. 왼쪽 탐색에서 **범위 지정 필터**를 클릭한 다음 **절 추가**를 클릭합니다. **특성**에서 **메일**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에 ** \@ contoso.com**를 입력 한 다음 **절 추가**를 클릭 합니다. **특성**에서 **userPrincipalName**을 선택합니다. **연산자**에서 **ENDSWITH**를 선택합니다. **값**에 ** \@ contoso.com**를 입력 합니다.
-8. **Save**을 클릭합니다.
+8. **저장**을 클릭합니다.
 9. 구성을 완료 하려면 **전체 동기화**를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 
 ## <a name="apply-and-verify-changes"></a>변경 사항을 적용하고 확인합니다

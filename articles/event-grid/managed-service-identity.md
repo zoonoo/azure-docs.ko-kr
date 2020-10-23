@@ -1,14 +1,14 @@
 ---
-title: 관리형 서비스 ID를 사용하여 이벤트 전달
+title: 이벤트 배달, 관리 서비스 id 및 개인 링크
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 지원되는 대상에 이벤트를 전달합니다.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534246"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460923"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 id를 사용 하 여 이벤트 배달
 이 문서에서는 Azure event grid 토픽 또는 도메인에 대해 [관리 서비스 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정 하는 방법을 설명 합니다. 이 ID를 사용하여 Service Bus 큐 및 토픽, Event Hubs, 스토리지 계정 등의 지원되는 대상으로 이벤트를 전달합니다.
@@ -17,6 +17,9 @@ ms.locfileid: "87534246"
 1. 시스템이 할당 한 id를 사용 하 여 토픽 또는 도메인을 만들거나, id를 사용 하도록 기존 토픽 또는 도메인을 업데이트 합니다. 
 1. 대상의 적절 한 역할 Service Bus (예: Service Bus 큐)에 id를 추가 합니다.
 1. 이벤트 구독을 만들 때 id를 사용 하 여 대상에 이벤트를 전달 하도록 설정 합니다. 
+
+> [!NOTE]
+> 현재 [개인 끝점](../private-link/private-endpoint-overview.md)을 사용 하 여 이벤트를 전달할 수 없습니다. 자세한 내용은이 문서의 끝에 있는 [개인 끝점](#private-endpoints) 섹션을 참조 하세요. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>ID를 사용하여 토픽 또는 도메인 만들기
 먼저 시스템 관리 ID를 사용하여 토픽 또는 도메인을 만드는 방법을 살펴보겠습니다.
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>프라이빗 엔드포인트
+현재 [개인 끝점](../private-link/private-endpoint-overview.md)을 사용 하 여 이벤트를 전달할 수 없습니다. 즉, 전달 된 이벤트 트래픽이 개인 IP 공간을 떠나지 않아야 하는 엄격한 네트워크 격리 요구 사항이 있는 경우에는 지원 되지 않습니다. 
+
+그러나 요구 사항에 따라 암호화 된 채널을 사용 하 여 이벤트를 전송 하는 안전한 방법을 호출 하 고 보낸 사람 (이 경우에는 Event Grid)의 알려진 id를 사용 하 여 공용 IP 공간을 사용 하는 경우 Azure Event Grid 토픽 또는이 문서에 표시 된 것 처럼 시스템 관리 id가 구성 된 도메인을 사용 하 여 Event Hubs, Service Bus 또는 Azure Storage 서비스에 이벤트를 전달할 수 그런 다음 Azure Functions에 구성 된 개인 링크나 가상 네트워크에 배포 된 웹 후크를 사용 하 여 이벤트를 끌어올 수 있습니다. 샘플: Azure Functions을 [사용 하 여 전용 끝점에 연결](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)을 참조 하세요.
+
+이 구성에서 트래픽은 공용 IP/인터넷을 통해 Event Grid에서 Event Hubs, Service Bus 또는 Azure Storage로 이동 하지만 채널을 암호화 하 고 Event Grid의 관리 되는 id를 사용할 수 있습니다. 개인 링크를 통해 Event Hubs, Service Bus 또는 Azure Storage를 사용 하도록 가상 네트워크에 배포 된 Azure Functions 또는 webhook를 구성 하는 경우 해당 트래픽 섹션은 Azure 내에서 분명히 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

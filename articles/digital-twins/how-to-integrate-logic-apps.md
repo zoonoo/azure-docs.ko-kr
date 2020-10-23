@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427983"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461076"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 먼저 **Azure Digital Twins 인스턴스와** 작업을 수행할 수 있는 필수 인증을 설정 합니다. 그렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 선호하는 환경에 따라 설치 문서는 [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) 또는 [자동화 Cloud Shell 배포 스크립트 샘플](how-to-set-up-instance-scripted.md)에 대해 제공됩니다. 모든 버전의 지침에는 각 단계를 성공적으로 완료했으며 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
 * Azure Digital Twins 인스턴스를 설정한 후에는 인스턴스의 **_호스트 이름이_** 필요 합니다 ([Azure Portal에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-ADT 탐색기 응용 프로그램을 인증 하려면 **앱 등록**도 설정 해야 합니다. [*방법: 앱 등록 만들기*](how-to-create-app-registration.md) 의 지침에 따라 설정 합니다. 
+커넥터를 인증 하려면 **앱 등록**도 설정 해야 합니다. [*방법: 앱 등록 만들기*](how-to-create-app-registration.md) 의 지침에 따라 설정 합니다. 
 * 앱을 등록 한 후에는 등록의 **_응용 프로그램 (클라이언트) id_** 및 **_디렉터리 (테 넌 트) id_** ([Azure Portal에서 찾기](how-to-create-app-registration.md#collect-client-id-and-tenant-id))가 필요 합니다.
 
 ### <a name="get-app-registration-client-secret"></a>앱 등록 클라이언트 암호 가져오기
@@ -66,7 +66,7 @@ ADT 탐색기 응용 프로그램을 인증 하려면 **앱 등록**도 설정 �
 
 이 문서에서는 Logic Apps를 사용 하 여 Azure Digital Twins 인스턴스의 쌍을 업데이트 합니다. 계속 하려면 인스턴스에 하나 이상의 쌍을 추가 해야 합니다. 
 
-[DigitalTwins api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)또는 [Azure Digital 쌍 CLI](how-to-use-cli.md)를 사용 하 여 쌍를 추가할 수 있습니다. 이러한 방법을 사용 하 여 쌍를 만드는 방법에 대 한 자세한 단계 [*는 방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
+[DigitalTwins api](/rest/api/digital-twins/dataplane/twins), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)또는 [Azure Digital 쌍 CLI](how-to-use-cli.md)를 사용 하 여 쌍를 추가할 수 있습니다. 이러한 방법을 사용 하 여 쌍를 만드는 방법에 대 한 자세한 단계 [*는 방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
 사용자가 만든 인스턴스에 쌍의 쌍 **_ID_** 가 필요 합니다.
 

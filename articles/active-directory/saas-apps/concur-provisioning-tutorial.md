@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317449"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455423"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Concur 구성
 
@@ -35,7 +35,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Concur 앱에 대한 액세스가 필요한 사용자를 대표하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Concur 앱에 할당할 수 있습니다.
 
-[엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>Concur에 사용자 할당을 위한 주요 팁
 
@@ -121,4 +121,3 @@ Concur 컨설턴트 또는 클라이언트 관리자는 고유한 웹 서비스 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](concur-tutorial.md)
-

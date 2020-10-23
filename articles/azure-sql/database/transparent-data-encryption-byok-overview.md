@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602672"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441133"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 및 Azure Synapse Analytics의 경우 TDE 보호기는 서버
 > 고객이 관리 하는 TDE를 사용 하 여 시작 하려는 서비스 관리 TDE를 사용 하는 경우 데이터를 전환 하는 동안 데이터는 암호화 된 상태로 유지 되며 가동 중지 또는 데이터베이스 파일의 다시 암호화는 발생 하지 않습니다. 서비스 관리 키에서 고객 관리 키로 전환 하는 경우에만 빠른 온라인 작업 인 DEK를 다시 암호화 해야 합니다.
 
 > [!NOTE]
-> 휴지 상태의 데이터에 대 한 두 가지 계층의 데이터 암호화를 Azure SQL 고객에 게 제공 하기 위해 플랫폼 관리 키에 대 한 인프라 암호화 (AES-256 암호화 알고리즘 사용)가 롤아웃 됩니다. 이는 이미 사용 가능한 고객 관리 키를 사용 하 여 TDE와 함께 휴지 상태의 암호화를 추가로 제공 합니다. 지금은 고객이이 기능에 대 한 액세스를 요청 해야 합니다. 이 기능에 관심이 있는 경우에 문의 하세요 AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> 휴지 상태의 데이터에 대 한 두 가지 계층의 데이터 암호화를 Azure SQL 고객에 게 제공 하기 위해 플랫폼 관리 키에 대 한 인프라 암호화 (AES-256 암호화 알고리즘 사용)가 롤아웃 됩니다. 이는 이미 사용 가능한 고객 관리 키를 사용 하 여 TDE와 함께 휴지 상태의 암호화를 추가로 제공 합니다. Azure SQL Database 및 Managed Instance의 경우 인프라 암호화가 설정 되 면 master 데이터베이스 및 기타 시스템 데이터베이스를 비롯 한 모든 데이터베이스가 암호화 됩니다. 지금은 고객이이 기능에 대 한 액세스를 요청 해야 합니다. 이 기능에 관심이 있는 경우에 문의 하세요 AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>고객 관리 TDE의 이점
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362895"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442085"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
 
@@ -66,7 +66,7 @@ ms.locfileid: "92362895"
 ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
 
 ### <a name="limit-on-federation-relationships"></a>페더레이션 관계에 대한 제한
-현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션이 모두 포함됩니다.
+현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션이 모두 포함됩니다.
 
 ### <a name="limit-on-multiple-domains"></a>여러 도메인에 대한 제한
 현재 동일한 테넌트의 여러 도메인과의 직접 페더레이션을 지원하지 않습니다.
@@ -87,7 +87,7 @@ ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에
 
 ### <a name="saml-20-configuration"></a>SAML 2.0 구성
 
-Azure AD B2B는 아래에 나열된 특정 요구 사항에 따라 SAML 프로토콜을 사용하는 ID 공급자와 페더레이션하도록 구성할 수 있습니다. SAML ID 공급자와 Azure AD 간의 트러스트를 설정하는 방법에 대한 자세한 내용은 [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp)을 참조하세요.  
+Azure AD B2B는 아래에 나열된 특정 요구 사항에 따라 SAML 프로토콜을 사용하는 ID 공급자와 페더레이션하도록 구성할 수 있습니다. SAML ID 공급자와 Azure AD 간의 트러스트를 설정하는 방법에 대한 자세한 내용은 [Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용](../hybrid/how-to-connect-fed-saml-idp.md)을 참조하세요.  
 
 > [!NOTE]
 > 직접 페더레이션의 대상 도메인에 대한 DNS는 Azure AD에서 확인되지 않아야 합니다. 인증 URL 도메인은 대상 도메인과 일치하거나 허용된 ID 공급자의 도메인이어야 합니다. 자세한 내용은[제한 사항](#limitations) 섹션을 참조하세요. 

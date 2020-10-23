@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705472"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441371"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -104,11 +104,11 @@ PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대�
 ![사용자 설정에서 외부 사용자 옵션을 보여 주는 스크린샷](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
-예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Microsoft 365 그룹의 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)에서 **게스트 개체를 전체 주소 목록에 표시할 수 있나요?** 를 참조 하세요.
+예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Microsoft 365 그룹의 게스트 액세스 관리](/office365/admin/create-groups/manage-guest-access-in-groups)에서 **게스트 개체를 전체 주소 목록에 표시할 수 있나요?** 를 참조 하세요.
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>게스트 사용자의 전자 메일 주소를 업데이트할 수 있나요?
 
-게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)를 통해 생성 됩니다. Microsoft Graph API, Exchange 관리 센터 또는 [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)을 통해 메일 속성을 업데이트할 수 있습니다. 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
+게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](/graph/api/resources/user?view=graph-rest-1.0)를 통해 생성 됩니다. Microsoft Graph API, Exchange 관리 센터 또는 [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)을 통해 메일 속성을 업데이트할 수 있습니다. 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

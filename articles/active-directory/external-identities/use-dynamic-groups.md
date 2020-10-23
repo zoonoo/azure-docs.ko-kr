@@ -11,17 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369168"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441558"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>동적 그룹 및 Azure Active Directory B2B 협업
 
 ## <a name="what-are-dynamic-groups"></a>동적 그룹이란?
-Azure AD(Azure Active Directory)에 대한 보안 그룹 구성원의 동적 구성은 [Azure Portal](https://portal.azure.com)에서 사용할 수 있습니다. 관리자는 사용자 특성 (예: userType, 부서 또는 국가/지역)에 따라 Azure AD에서 생성 된 그룹을 채우도록 규칙을 설정할 수 있습니다. 특성에 따라 구성원을 보안 그룹에 자동으로 추가하거나 보안 그룹에서 제거할 수 있습니다. 이러한 그룹은 SharePoint 사이트, 문서 등의 애플리케이션 또는 클라우드 리소스에 대한 액세스 권한을 제공하고 구성원에게 라이선스를 할당할 수 있습니다. [Azure Active Directory의 전용 그룹](../active-directory-accessmanagement-dedicated-groups.md)에서 동적 그룹에 대해 자세히 알아보세요.
+Azure AD(Azure Active Directory)에 대한 보안 그룹 구성원의 동적 구성은 [Azure Portal](https://portal.azure.com)에서 사용할 수 있습니다. 관리자는 사용자 특성 (예: userType, 부서 또는 국가/지역)에 따라 Azure AD에서 생성 된 그룹을 채우도록 규칙을 설정할 수 있습니다. 특성에 따라 구성원을 보안 그룹에 자동으로 추가하거나 보안 그룹에서 제거할 수 있습니다. 이러한 그룹은 SharePoint 사이트, 문서 등의 애플리케이션 또는 클라우드 리소스에 대한 액세스 권한을 제공하고 구성원에게 라이선스를 할당할 수 있습니다. [Azure Active Directory의 전용 그룹](../fundamentals/active-directory-groups-create-azure-portal.md)에서 동적 그룹에 대해 자세히 알아보세요.
 
 동적 그룹을 만들고 사용하려면 적절한 [Azure AD Premium P1 또는 P2 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)가 필요합니다. 자세한 내용은 [Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기](../enterprise-users/groups-dynamic-membership.md) 문서를 참조하세요.
 
@@ -76,4 +76,3 @@ Azure AD(Azure Active Directory)에 대한 보안 그룹 구성원의 동적 구
 - [B2B 협업 사용자 속성](user-properties.md)
 - [역할에 B2B 협업 사용자 추가](add-guest-to-role.md)
 - [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)
-

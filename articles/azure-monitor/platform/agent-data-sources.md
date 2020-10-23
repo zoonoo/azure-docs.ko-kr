@@ -1,25 +1,28 @@
 ---
-title: Azure Monitor에서 에이전트 데이터 원본 구성 | Microsoft Docs
+title: Azure Monitor에서 에이전트 데이터 원본 Log Analytics
 description: 데이터 원본은 Azure Monitor가 에이전트 및 기타 연결된 원본에서 수집하는 로그 데이터를 정의합니다.  이 문서에서는 Azure Monitor에서 데이터 원본을 사용하는 방법에 대한 개념을 제공하고, 데이터 원본을 구성하는 방법을 자세히 설명하며, 사용 가능한 여러 데이터 원본을 요약합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073697"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460804"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor의 에이전트 데이터 원본
-Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  에이전트의 데이터는 레코드 세트를 사용하여 [로그 데이터](data-platform-logs.md)로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
+# <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Azure Monitor에서 에이전트 데이터 원본 Log Analytics
+[Log Analytics](log-analytics-agent.md) 에이전트를 사용 하 여 가상 머신에서 Azure Monitor 수집 하는 데이터는 [Log Analytics 작업 영역](data-platform-logs.md)에서 구성 하는 데이터 원본에 의해 정의 됩니다.   각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
+
+> [!IMPORTANT]
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 에 대 한 데이터 원본을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 ![로그 데이터 수집](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>데이터 원본 요약
-다음 표에는 현재 Azure Monitor에서 사용할 수 있는 에이전트 데이터 원본이 나와 있습니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.   수집 방법 및 빈도에 대한 정보도 제공합니다. 
+다음 표에서는 현재 Log Analytics 에이전트에서 사용할 수 있는 에이전트 데이터 원본을 보여 줍니다.  각각 해당 데이터 원본에 대한 세부 정보를 제공하는 별도의 문서에 대한 링크가 있습니다.   수집 방법 및 빈도에 대한 정보도 제공합니다. 
 
 
 | 데이터 원본 | 플랫폼 | Log analytics 에이전트 | Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
@@ -34,14 +37,12 @@ Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이�
 
 
 ## <a name="configuring-data-sources"></a>데이터 원본 구성
-작업 영역에 대한 **고급 설정**의 **데이터** 메뉴에서 데이터 원본을 구성합니다.  모든 구성은 작업 영역의 모든 연결된 원본으로 전달됩니다.  현재 이 구성에서 에이전트를 제외할 수는 없습니다.
+Log Analytics 에이전트에 대 한 데이터 원본을 구성 하려면 Azure Portal의 **Log Analytics 작업 영역** 메뉴로 이동 하 여 작업 영역을 선택 합니다. **고급 설정** 및 **데이터**를 차례로 클릭 합니다. 구성 하려는 데이터 원본을 선택 합니다. 위의 표에 있는 링크를 따라 각 데이터 원본에 대 한 설명서와 구성에 대 한 세부 정보를 볼 수 있습니다.
+
+모든 구성은 해당 작업 영역에 연결 된 모든 에이전트로 배달 됩니다.  이 구성에서는 연결 된 에이전트를 제외할 수 없습니다.
 
 ![Windows 이벤트 구성](media/agent-data-sources/configure-events.png)
 
-1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **고급 설정**을 선택합니다.
-2. **데이터**를 선택 합니다.
-3. 구성할 데이터 원본을 클릭합니다.
-4. 해당 구성에 대한 세부 정보를 보려면 위 표에서 각 데이터 원본에 대한 설명서 링크를 따릅니다.
 
 
 ## <a name="data-collection"></a>데이터 수집

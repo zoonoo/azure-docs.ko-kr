@@ -1,20 +1,23 @@
 ---
-title: Azure Monitor의 IIS 로그 | Microsoft Docs
+title: Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 description: IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Azure Monitor에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008186"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461195"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Azure Monitor에서 IIS 로그 수집
-IIS(인터넷 정보 서비스)는 Azure Monitor에서 수집할 수 있고 [로그 데이터](data-platform.md)로 저장되는 로그 파일에 사용자 활동을 저장합니다.
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
+인터넷 정보 서비스 (IIS)는 Log Analytics 에이전트가 수집 하 고 [Azure Monitor 로그](data-platform.md)에 저장할 수 있는 로그 파일에 사용자 작업을 저장 합니다.
+
+> [!IMPORTANT]
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 를 사용 하 여 IIS 로그를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 ![IIS 로그](media/data-sources-iis-logs/overview.png)
 
@@ -23,7 +26,7 @@ Azure Monitor는 IIS에서 생성된 로그 파일의 항목을 수집하므로 
 
 Azure Monitor는 W3C 형식으로 저장된 IIS 로그 파일만 지원하며 사용자 지정 필드 또는 IIS 고급 로깅을 지원하지 않습니다. NCSA 또는 IIS 네이티브 형식의 로그는 수집하지 않습니다.
 
-[고급 설정 메뉴](agent-data-sources.md#configuring-data-sources)에서 Azure Monitor의 IIS 로그를 구성합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
+Log Analytics 에이전트에 대 한 [고급 설정 메뉴](agent-data-sources.md#configuring-data-sources) 에서 Azure Monitor IIS 로그를 구성 합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
 
 
 ## <a name="data-collection"></a>데이터 수집

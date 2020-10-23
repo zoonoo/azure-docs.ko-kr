@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055939"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441111"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -36,7 +36,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="current-limitations"></a>현재 제한 사항
 
 - 현재 CLI 또는 REST 요청을 사용 해야만 구성을 수행할 수 있습니다. Azure Portal 또는 PowerShell을 사용할 수 없습니다.
-- 지원 되는 테이블은 현재 아래의 (#supported tabes) 섹션에 지정 된 테이블에 한정 되어 있습니다. 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 작업이 성공 하지만 해당 테이블에 대 한 데이터는 내보내지 않습니다. 데이터 내보내기 규칙에 존재 하지 않는 테이블이 포함 된 경우 * <tableName> 작업 영역에 오류 테이블이 없다는* 오류와 함께 실패 합니다.
+- 지원 되는 테이블은 현재 아래의 [지원 되는 테이블](#supported-tables) 섹션에 한정 되어 있습니다. 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 작업이 성공 하지만 해당 테이블에 대 한 데이터는 내보내지 않습니다. 데이터 내보내기 규칙이 존재 하지 않는 테이블을 포함 하는 경우 오류와 함께 실패 합니다. ```Table <tableName> does not exist in the workspace.```
 - Log Analytics 작업 영역은 다음을 제외 하 고 모든 지역에 있을 수 있습니다.
   - 스위스 북부
   - 스위스 서부
@@ -57,7 +57,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="data-completeness"></a>데이터 완전성
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터를 계속 해 서 다시 전송 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
 현재 데이터 내보내기 기능에 대 한 추가 요금은 없습니다. 데이터 내보내기에 대 한 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 됩니다. 알림 기간 후에도 계속 해 서 데이터 내보내기를 사용 하도록 선택 하면 해당 하는 요금으로 요금이 청구 됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
@@ -79,7 +79,7 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 Log Analytics 데이터 내보내기를 구성 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - 저장소 계정 및 이벤트 허브는 이미 만들고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 저장소 계정에 복제 해야 하는 경우 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md)중 하나를 사용할 수 있습니다.  
@@ -239,7 +239,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>지원 되지 않는 테이블
 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 구성이 성공 하지만 해당 테이블에 대 한 데이터는 내보내지 않습니다. 테이블이 나중에 지원 되는 경우 해당 데이터는 해당 시점에 내보내집니다.
 
-데이터 내보내기 규칙에 존재 하지 않는 테이블이 포함 된 경우 * <tableName> 작업 영역에 오류 테이블이 없다는*오류와 함께 실패 합니다.
+데이터 내보내기 규칙이 존재 하지 않는 테이블을 포함 하는 경우 오류와 함께 실패 합니다. ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>지원 되는 테이블
@@ -406,7 +406,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | 업데이트 | 부분 지원. 일부 데이터는 내보내기를 지원 하지 않는 내부 서비스를 통해 수집 됩니다. 이 데이터는 현재 내보내지 않습니다. |
 | UpdateRunProgress | |
 | UpdateSummary | |
-| 사용량 | |
+| 사용 | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
 | 관심 목록 | |
