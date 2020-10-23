@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285590"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427968"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>자습서: 새 Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능(미리 보기)을 사용하도록 설정합니다.
 
@@ -87,7 +87,7 @@ az group create --name myResourceGroup --location canadacentral
 기존 Application Gateway 인스턴스를 지정하지 않고 AGIC 추가 기능을 사용하도록 설정하여 새 AKS 클러스터를 배포하면 Standard_v2 SKU Application Gateway 인스턴스가 자동으로 생성됩니다. 따라서 Application Gateway 인스턴스의 이름 및 서브넷 주소 공간도 지정합니다. Application Gateway 인스턴스의 이름은 *myApplicationGateway*가 되며 사용 중인 서브넷 주소 공간은 10.2.0.0/16입니다. 이 자습서의 시작 부분에서 aks-preview 확장을 추가하거나 업데이트했는지 확인합니다. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 `az aks create` 명령에 대한 추가 매개 변수를 구성하려면 [이러한 참조](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create)를 참조하세요. 

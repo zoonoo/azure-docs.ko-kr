@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019021"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440793"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -138,7 +138,7 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface*입니다. |
@@ -230,7 +230,7 @@ Dtdl 당 *속성* 및 *원격 분석* 특성의 스키마는 표준 기본 유�
 
 ## <a name="next-steps"></a>다음 단계
 
-DigitalTwinsModels Api를 사용 하 여 모델을 관리 하는 방법을 참조 하세요.
+DigitalTwinModels Api를 사용 하 여 모델을 관리 하는 방법을 참조 하세요.
 * [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
 
 또는 모델을 기반으로 디지털 쌍을 만드는 방법에 대해 알아봅니다.

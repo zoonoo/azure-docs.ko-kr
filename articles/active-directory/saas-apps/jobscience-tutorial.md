@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 715e99f07d0fcbc77fd1769e5da1cae6b46ac97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850737"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>자습서: Jobscience와 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ Jobscience를 Azure AD와 통합하면 다음과 같은 이점이 있습니다.
 
 Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자세한 내용은 [응용 프로그램 액세스 및 Azure Active Directory Single Sign-On](../manage-apps/what-is-single-sign-on.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 Jobscience와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -42,7 +42,7 @@ Jobscience와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1 개월 평가판을 얻을 수 있습니다.
+- Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -115,7 +115,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
 1. **SAML 서명 인증서** 섹션에서 **인증서 (Base64)** 를 클릭 한 다음 컴퓨터에 인증서 파일을 저장 합니다.
 
-    ![스크린샷 인증서를 다운로드할 수 있는 SAML 서명 인증서 창을 보여 줍니다.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
+    ![스크린샷은 인증서를 다운로드할 수 있는 SAML 서명 인증서 창을 보여줍니다.](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
 1. **저장** 단추를 클릭합니다.
 
@@ -129,7 +129,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 1. **설정**으로 이동합니다.
    
-   ![스크린샷 회사의 설정 항목을 표시 합니다.](./media/jobscience-tutorial/IC784358.png "설정")
+   ![스크린샷 회사의 설정 항목을 표시 합니다.](./media/jobscience-tutorial/IC784358.png "설치 프로그램")
 
 1. 왼쪽 탐색창의 **관리** 섹션에서 **도메인 관리**를 클릭해 관련된 섹션을 확장한 다음 **내 도메인**을 클릭해 **내 도메인** 페이지를 엽니다. 
    
@@ -159,7 +159,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
-    다. **엔터티 ID** 텍스트 상자에 `https://salesforce-jobscience.com`을 입력합니다.
+    c. **엔터티 ID** 텍스트 상자에 `https://salesforce-jobscience.com`을 입력합니다.
 
     d. **찾아보기**를 클릭하여 Azure AD 인증서를 업로드합니다.
 
@@ -222,7 +222,7 @@ Jobscience에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
-    다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
+    c. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
  
@@ -255,7 +255,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
    
    b. **Last Name**(성) 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
    
-   다. **Alias**(별칭) 텍스트 상자에 사용자의 별칭(예: brittas)을 입력합니다.
+   c. **Alias**(별칭) 텍스트 상자에 사용자의 별칭(예: brittas)을 입력합니다.
 
    d. **전자 메일** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 
@@ -304,7 +304,7 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Jobscience 타일을 클릭하면 Jobscience 애플리케이션에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -324,4 +324,3 @@ Azure AD 사용자가 Jobscience에 로그인할 수 있도록 하려면 Jobscie
 [201]: ./media/jobscience-tutorial/tutorial_general_201.png
 [202]: ./media/jobscience-tutorial/tutorial_general_202.png
 [203]: ./media/jobscience-tutorial/tutorial_general_203.png
-

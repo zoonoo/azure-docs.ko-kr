@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983962"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428421"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
@@ -28,6 +28,7 @@ ms.locfileid: "90983962"
 *   Azure Active Directory 테넌트.
 *   Netsuite OneWorld 구독. 자동 사용자 프로비저닝은 현재 NetSuite OneWorld에서만 지원됩니다.
 *   관리자 권한이 있는 Netsuite의 사용자 계정
+*   Azure AD와 통합 하려면 2FA 예외가 필요 합니다. 이 예외는 Netsuite 지원 팀에 문의 하세요.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Netsuite OneWorld에 사용자 할당
 

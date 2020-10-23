@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589013"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427021"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault에 대 한 모니터링 및 경고
 
@@ -53,7 +53,7 @@ ms.locfileid: "88589013"
 3. **모니터링** 아래에서 **메트릭** 선택 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-1.png)
+> ![모니터링 섹션에서 메트릭 옵션을 강조 표시 하는 스크린샷](../media/alert-1.png)
 
 4. 대시보드에 표시 하려는 차트의 제목을 업데이트 합니다. 
 5. 범위를 선택 합니다. 이 예제에서는 단일 키 자격 증명 모음을 선택 합니다. 
@@ -61,7 +61,7 @@ ms.locfileid: "88589013"
 7. 시간 범위를 지난 24 시간으로 업데이트 하 고 시간 세분성을 1 분으로 업데이트 합니다. 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-2.png)
+> ![전체 자격 증명 모음 가용성 메트릭을 보여 주는 스크린샷](../media/alert-2.png)
 
 8. 자격 증명 모음 채도 및 서비스 API 대기 시간 메트릭에 대해 위의 단계를 반복 합니다. 대시보드에 **고정** 을 선택 하 여 메트릭을 대시보드에 저장 합니다. 
 
@@ -71,19 +71,19 @@ ms.locfileid: "88589013"
 9. 주요 자격 증명 모음에 대 한 모든 유형의 작업을 모니터링 하려면 **Total SERVICE API 적중** 메트릭을 사용 하 고 **활동 유형별 분할 적용** 을 선택 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-3.png)
+> ![분할 적용 단추를 보여 주는 스크린샷](../media/alert-3.png)
 
 10. 주요 자격 증명 모음에 대 한 오류 코드를 모니터링 하려면 **Total SERVICE API 결과** 메트릭을 사용 하 고 **활동 유형별 분할 적용** 을 선택 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-4.png)
+> ![선택한 Total Service API 결과 메트릭을 보여 주는 스크린샷](../media/alert-4.png)
 
 이제 다음과 같은 대시보드가 표시 됩니다. 각 타일의 오른쪽 위에 있는 3 개의 점을 클릭 하 고 필요에 따라 타일을 다시 정렬 하 고 크기를 조정할 수 있습니다. 
 
 대시보드를 저장 하 고 게시 한 후에는 Azure 구독에서 새 리소스를 만듭니다. 언제 든 지 "공유 대시보드"를 검색 하 여 볼 수 있습니다. 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-5.png)
+> ![게시 된 대시보드를 보여 주는 스크린샷](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Key Vault에 대 한 경고를 구성 하는 방법 
 
@@ -101,20 +101,20 @@ ms.locfileid: "88589013"
 3. **작업 관리** 선택
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-6.png)
+> ![작업 관리 단추를 강조 표시 하는 스크린샷](../media/alert-6.png)
 
 4. **+ 작업 그룹 추가** 를 선택 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-7.png)
+> ![+ 작업 그룹 추가 단추를 강조 표시 하는 스크린샷](../media/alert-7.png)
 
 5. 작업 그룹에 대 한 **작업 유형을** 선택 합니다. 이 예제에서는 전자 메일 알림을 만듭니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-8.png)
+> ![작업 그룹을 추가 하는 데 필요한 필드를 강조 표시 하는 스크린샷](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-9.png)
+> ![전자 메일 또는 SMS 메시지 경고를 추가 하는 데 필요한 항목을 보여 주는 스크린샷](../media/alert-9.png)
 
 6. 페이지 아래쪽에서 **확인**을 클릭합니다. 작업 그룹을 성공적으로 만들었습니다. 
 
@@ -125,12 +125,12 @@ ms.locfileid: "88589013"
 1. Azure Portal에서 주요 자격 증명 모음 리소스를 선택 하 고 **모니터링** 아래에서 **경고** 를 선택 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-10.png)
+> ![모니터링 섹션에서 경고 메뉴 옵션을 보여 주는 스크린샷](../media/alert-10.png)
 
 2. **새 경고 규칙** 선택
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-11.png)
+> ![+ 새 경고 규칙 단추를 표시 하는 스크린샷](../media/alert-11.png)
 
 3. 경고 규칙의 범위를 선택 합니다. 단일 자격 증명 모음 또는 여러 개를 선택할 수 있습니다. 
 
@@ -138,7 +138,7 @@ ms.locfileid: "88589013"
 > 경고 범위에 대해 여러 자격 증명 모음을 선택 하는 경우 선택한 모든 자격 증명 모음이 동일한 지역에 있어야 합니다. 다른 지역의 자격 증명 모음에 대해 별도의 경고 규칙을 구성 해야 합니다. 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-12.png)
+> ![자격 증명 모음을 선택할 수 있는 방법을 보여 주는 스크린샷](../media/alert-12.png)
 
 4. 경고에 대 한 조건을 선택 합니다. 다음 신호 중 하나를 선택 하 고 경고에 대 한 논리를 정의할 수 있습니다. Key Vault 팀에서는 다음과 같은 경고 임계값을 구성 하는 것이 좋습니다. 
 
@@ -149,13 +149,13 @@ ms.locfileid: "88589013"
     + 평균 보다 높은 총 오류 코드 (동적 임계값) 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-13.png)
+> ![경고에 대 한 조건을 선택 하는 위치를 보여 주는 스크린샷](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>예 1: 대기 시간에 대 한 정적 경고 임계값 구성
 
 **전체 서비스 API 대기 시간** 을 신호 이름으로 선택
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-14.png)
+> ![전반적인 서비스 API 대기 시간 신호 이름을 보여 주는 스크린샷](../media/alert-14.png)
 
 다음 구성 매개 변수를 참조 하세요.
 
@@ -168,14 +168,14 @@ ms.locfileid: "88589013"
 + **완료**를 선택합니다.  
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-15.png)
+> ![구성 된 경고 논리를 강조 표시 하는 스크린샷](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>예 2: 자격 증명 모음 채도에 대 한 동적 경고 임계값 구성 
 
 동적 경고를 사용 하는 경우 선택한 key vault의 기록 데이터를 볼 수 있습니다. 파란색 영역은 key vault의 평균 사용량을 나타냅니다. 빨간색 영역에는 경고 구성의 다른 기준이 충족 되는 경우 경고를 트리거한 스파이크가 표시 됩니다. 빨간색 점은 집계 기간 동안 경고에 대 한 조건이 충족 된 위반 인스턴스를 표시 합니다. 설정 된 시간 내에 특정 위반 횟수 후에 발생 하도록 경고를 설정할 수 있습니다. 이전 데이터를 포함 하지 않으려는 경우 고급 설정에서 이전 데이터를 제외 하는 옵션이 있습니다. 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-16.png)
+> ![전체 자격 증명 모음 채도의 그래프를 보여 주는 스크린샷](../media/alert-16.png)
 
 다음 구성 매개 변수를 참조 하세요.
 
@@ -194,12 +194,12 @@ ms.locfileid: "88589013"
 5. 구성한 작업 그룹을 추가 합니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-18.png)
+> ![작업 그룹을 추가 하는 방법을 보여 주는 스크린샷](../media/alert-18.png)
 
 6. 경고를 사용 하도록 설정 하 고 심각도 할당
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-19.png)
+> ![경고를 사용 하도록 설정 하 고 심각도를 할당 하는 위치를 보여 주는 스크린샷](../media/alert-19.png)
 
 7. 경고 만들기 
 
@@ -211,4 +211,4 @@ ms.locfileid: "88589013"
 ### <a name="example-email-alert"></a>예제 전자 메일 경고 
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal 스크린샷](../media/alert-20.png)
+> ![전자 메일 경고를 구성 하는 데 필요한 정보를 강조 표시 하는 스크린샷](../media/alert-20.png)

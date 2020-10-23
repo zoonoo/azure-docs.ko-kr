@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b2b5538df894e17449e173baa3e402d6c59654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354992"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441439"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 언어 지정(미리 보기)
 
@@ -146,7 +146,7 @@ Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원�
 
 ## <a name="supported-languages"></a>지원되는 언어
 
-Azure AD에는 다음 언어에 대한 지원이 포함되어 있습니다. 사용자 흐름 언어는 Azure AD에서 제공합니다. MFA(다단계 인증) 알림 언어는 [Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)에서 제공합니다.
+Azure AD에는 다음 언어에 대한 지원이 포함되어 있습니다. 사용자 흐름 언어는 Azure AD에서 제공합니다. MFA(다단계 인증) 알림 언어는 [Azure MFA](../authentication/concept-mfa-howitworks.md)에서 제공합니다.
 
 | 언어              | 언어 코드 | 사용자 흐름         | MFA 알림  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

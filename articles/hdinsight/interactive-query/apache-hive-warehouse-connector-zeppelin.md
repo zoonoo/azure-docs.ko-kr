@@ -7,16 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6ee1c70ec02af2a24f7867a6e6b06593361612b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bccf2b9a3dfe42ca439a45eb1e35cfaff58d0208
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083120"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426958"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
 HDInsight Spark 클러스터에는 다른 인터프리터를 사용하는 Apache Zeppelin 노트북이 포함되어 있습니다. 이 문서에서는 Hive Warehouse Connector를 사용하여 Spark에서 Hive 테이블에 액세스하기 위해 Livy 인터프리터에 대해서만 중점적으로 설명합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록*용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -82,8 +85,8 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
     | livy.spark.sql.hive.llap | true |
     | livy.spark.yarn.security.credentials.hiveserver2.enabled | true |
     | livy.superusers | livy,zeppelin |
-    | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`입니다.<br>VERSION을 앞부분의 [시작](#getting-started)에서 가져온 값으로 바꿉니다. |
-    | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`입니다.<br>VERSION을 앞부분의 [시작](#getting-started)에서 가져온 값으로 바꿉니다. |
+    | livy.spark.jars | `file:///usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-VERSION.jar`.<br>VERSION을 앞부분의 [시작](#getting-started)에서 가져온 값으로 바꿉니다. |
+    | livy.spark.submit.pyFiles | `file:///usr/hdp/current/hive_warehouse_connector/pyspark_hwc-VERSION.zip`.<br>VERSION을 앞부분의 [시작](#getting-started)에서 가져온 값으로 바꿉니다. |
     | livy.spark.sql.hive.hiveserver2.jdbc.url | 대화형 쿼리 클러스터의 HiveServer2 대화형 JDBC URL로 설정합니다. |
     | spark.security.credentials.hiveserver2.enabled | true |
 

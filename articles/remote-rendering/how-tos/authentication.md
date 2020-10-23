@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202721"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427470"
 ---
 # <a name="configure-authentication"></a>인증 구성
 
@@ -48,7 +48,7 @@ Azure 원격 렌더링은 [Azure 공간 앵커 (global.asa)](../../spatial-ancho
 
  자세한 내용은 [자습서: Azure 원격 렌더링 및 모델 저장소 보안 설정-Azure Active Directory 인증](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication) 을 참조 하세요.
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
 서비스에 부여 된 액세스 수준을 제어 하려면 역할 기반 액세스 권한을 부여할 때 다음 역할을 사용 합니다.
 

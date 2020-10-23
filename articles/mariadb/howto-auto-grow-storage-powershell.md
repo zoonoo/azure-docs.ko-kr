@@ -7,34 +7,34 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2d03a67fc8a8172573598662ad9770b28493e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da49f574ceadf98d0870fdd94b7d86f26d840d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497106"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426052"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MariaDB 서버에서 저장소 자동 증가
 
 이 문서에서는 워크 로드에 영향을 주지 않고 확장 되도록 Azure Database for MariaDB server 저장소를 구성 하는 방법을 설명 합니다.
 
-저장소 자동 증가 [는 서버가 저장소 제한에 도달](/azure/mariadb/concepts-pricing-tiers#reaching-the-storage-limit) 하 고 읽기 전용이 되지 않도록 합니다. 100 GB 이하의 서버가 프로 비전 된 저장소의 경우 사용 가능한 공간이 10% 미만이 면 크기가 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버의 경우 사용 가능한 공간이 10gb 미만이 면 크기가 5% 증가 합니다. 최대 저장소 제한은 [Azure Database for MariaDB 가격 책정 계층](/azure/mariadb/concepts-pricing-tiers#storage)의 저장소 섹션에 지정 된 대로 적용 됩니다.
+저장소 자동 증가 [는 서버가 저장소 제한에 도달](concepts-pricing-tiers.md#reaching-the-storage-limit) 하 고 읽기 전용이 되지 않도록 합니다. 100 GB 이하의 서버가 프로 비전 된 저장소의 경우 사용 가능한 공간이 10% 미만이 면 크기가 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버의 경우 사용 가능한 공간이 10gb 미만이 면 크기가 5% 증가 합니다. 최대 저장소 제한은 [Azure Database for MariaDB 가격 책정 계층](concepts-pricing-tiers.md#storage)의 저장소 섹션에 지정 된 대로 적용 됩니다.
 
 > [!IMPORTANT]
 > 저장소는 다운 되지 않고 확장만 가능 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
-- 로컬에 설치 되거나 브라우저에 [Azure Cloud Shell](https://shell.azure.com/) 된 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- 로컬에 설치 되거나 브라우저에 [Azure Cloud Shell](https://shell.azure.com/) 된 [Az PowerShell 모듈](/powershell/azure/install-az-ps)
 - [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Az.MariaDb PowerShell 모듈이 미리 보기에 있지만 `Install-Module -Name Az.MariaDb -AllowPrerelease` 명령을 사용하여 Az PowerShell 모듈과 별도로 설치해야 합니다.
 > Az.MariaDb PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스에 포함되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
 
-PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 Azure 계정에 연결 합니다.
+PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 Azure 계정에 연결 합니다.
 
 ## <a name="enable-mariadb-server-storage-auto-grow"></a>MariaDB 서버 저장소 자동 증가 사용
 

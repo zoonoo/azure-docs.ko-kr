@@ -1,25 +1,28 @@
 ---
-title: Azure Monitor의 성능 카운터 수집 및 분석 | Microsoft Docs
+title: Azure Monitor에서 Log Analytics 에이전트를 사용 하 여 Windows 및 Linux 성능 데이터 원본 수집
 description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Azure Monitor에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131193"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461365"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
-Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 및 Linux 성능 데이터 원본 수집
+Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  장기적인 분석 및 보고를 위해 성능 데이터를 집계 하는 것 외에도, NRT (거의 실시간) 분석을 위해 Log Analytics 에이전트에서 성능 카운터를 자주 수집할 수 Azure Monitor.
+
+> [!IMPORTANT]
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](log-analytics-agent.md) 를 사용 하 여 성능 데이터를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](agents-overview.md) 를 참조 하세요.
 
 ![성능 카운터](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>성능 카운터 구성
-성능 카운터는 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources)에서 구성합니다.
+Log Analytics 작업 영역에 대 한 [고급 설정의 데이터 메뉴](agent-data-sources.md#configuring-data-sources) 에서 성능 카운터를 구성 합니다.
 
 새 작업 영역에 대한 Windows 또는 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다.  각 항목은 옆에 확인란과 함께 나열됩니다.  초기에 만들 카운터를 모두 선택한 후 **Add the selected performance counters**(선택한 성능 카운터 추가)를 클릭합니다.
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5f48cd0056d40ed7dc5c99c4260621533c1f71f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9b7a82d611743f2ba76e20f47670771e2e38904
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369083"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448965"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "92369083"
 * Azure Active Directory 테넌트
 * [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
 * 조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
-* [GitHub Enterprise 클라우드 조직을 위해 구성 된 SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
+* [GitHub Enterprise 클라우드 조직을 위해 구성 된 SAML](./github-tutorial.md)
 * [여기](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization) 에 설명 된 대로 조직에 대 한 OAuth 액세스가 제공 되었는지 확인 합니다.
 * 단일 조직에 대 한 SCIM 프로 비전은 조직 수준에서 SSO를 사용 하도록 설정한 경우에만 지원 됩니다.
 

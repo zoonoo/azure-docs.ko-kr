@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1db1ef3a8fa7de557444c25650410b4e84422be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33329fc30d1c20b4e20901d06a061accb2aeceb0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849293"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456903"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Bonusly 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "91849293"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서 설명한 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -64,7 +64,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 자동 사용자 프로비전을 구성하고 사용하도록 설정하기 전에 Bonusly에 액세스해야 하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정되면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 Bonusly에 할당할 수 있습니다.
 
-* [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>Bonusly에 사용자를 할당하기 위한 주요 팁
 
@@ -123,7 +123,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     :::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Bonusly-프로 비전 탭의 스크린샷 관리 아래에서 프로 비전이 강조 표시 됩니다." border="false":::
 
-10. **Save**을 클릭합니다.
+10. **저장**을 클릭합니다.
 
 11. **매핑** 섹션에서 **Azure Active Directory 사용자를 Bonusly에 동기화**를 선택합니다.
 
