@@ -1,53 +1,63 @@
-- name: Azure DevOps Starter 설명서
+- name: DevOps Starter 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure DevOps Starter란?
+    - name: DevOps Starter란?
       href: overview.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: .NET
-      href: ./azure-devops-project-aspnet-core.md
-      maintainContext: true
-    - name: Node.js
-      href: ./azure-devops-project-nodejs.md
-      maintainContext: true
-    - name: Java
-      href: ./azure-devops-project-java.md
-      maintainContext: true
-    - name: Python
-      href: ./azure-devops-project-python.md
-      maintainContext: true
-    - name: PHP
-      href: ./azure-devops-project-php.md
-      maintainContext: true
-    - name: Ruby
-      href: ./azure-devops-project-ruby.md
-      maintainContext: true
-    - name: Go
-      href: ./azure-devops-project-go.md
-      maintainContext: true
+    - name: GitHub 작업
+      items:
+        - name: Node.js
+          href: ./devops-starter-gh-nodejs.md
+          maintainContext: true
+    - name: Azure DevOps
+      items:
+        - name: .NET
+          href: ./azure-devops-project-aspnet-core.md
+          maintainContext: true
+        - name: Node.js
+          href: ./azure-devops-project-nodejs.md
+          maintainContext: true
+        - name: Java
+          href: ./azure-devops-project-java.md
+          maintainContext: true
+        - name: Python
+          href: ./azure-devops-project-python.md
+          maintainContext: true
+        - name: PHP
+          href: ./azure-devops-project-php.md
+          maintainContext: true
+        - name: Ruby
+          href: ./azure-devops-project-ruby.md
+          maintainContext: true
+        - name: Go
+          href: ./azure-devops-project-go.md
+          maintainContext: true
 - name: 자습서
   items:
-    - name: 1 - GitHub 및 DevOps Starter
+    - name: GitHub Actions를 사용하여 Azure 웹앱에 배포
+      href: devops-starter-gh-web-app.md
+      maintainContext: true
+    - name: GitHub를 사용한 BYOC
       href: azure-devops-project-github.md
       maintainContext: true
-    - name: 2 - VM에 배포
+    - name: Azure DevOps를 사용하여 VM에 배포
       href: azure-devops-project-vms.md
       maintainContext: true
-    - name: 3 - Azure SQL Database에 배포
+    - name: Azure DevOps를 사용하여 Azure SQL Database에 배포
       href: azure-devops-project-sql-database.md
       maintainContext: true
-    - name: 4 - AKS에 배포
+    - name: Azure DevOps를 사용하여 AKS에 배포
       href: azure-devops-project-aks.md
       maintainContext: true
-    - name: 5 - Azure Service Fabric에 배포
+    - name: Azure DevOps를 사용하여 Azure Service Fabric에 배포
       href: azure-devops-project-service-fabric.md
       maintainContext: true
-    - name: 6 - Azure Cosmos DB에 배포
+    - name: Azure DevOps를 사용하여 Azure Cosmos DB에 배포
       href: azure-devops-project-cosmos-db.md
       maintainContext: true
-    - name: 7 - Azure Functions에 배포
+    - name: Azure DevOps를 사용하여 Azure Functions에 배포
       href: azure-devops-project-functions.md
       maintainContext: true

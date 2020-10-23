@@ -139,9 +139,9 @@
           href: data-factory-hadoop-streaming-activity.md
         - name: HDInsight Spark 작업
           href: data-factory-spark.md
-        - name: Machine Learning Batch 실행 작업
+        - name: Azure Machine Learning Studio(클래식) 일괄 처리 실행 작업
           href: data-factory-azure-ml-batch-execution-activity.md
-        - name: Machine Learning 업데이트 리소스 활동
+        - name: Azure Machine Learning Studio(클래식) 업데이트 리소스 작업
           href: data-factory-azure-ml-update-resource-activity.md
         - name: 저장 프로시저 작업
           href: data-factory-stored-proc-activity.md

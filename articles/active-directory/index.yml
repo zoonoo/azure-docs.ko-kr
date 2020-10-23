@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 05/29/2020
-  ms.openlocfilehash: 13e69e5f45244be79d06b0014d32e5c8192c777c
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 33bba82d473d6c9c39e78e2e3587fc4f886fd1ba
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "86038075"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92359546"
 highlightedContent:
   items:
   - title: Azure AD란?
@@ -140,17 +140,17 @@ conceptualContent:
       text: 자세히 보기
   - title: Enterprise 사용자
     links:
-    - url: ./users-groups-roles/groups-create-rule.md
+    - url: ./enterprise-users/groups-create-rule.md
       itemType: how-to-guide
       text: 동적 그룹 만들기
-    - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
+    - url: ./enterprise-users/groups-settings-v2-cmdlets.md
       itemType: how-to-guide
       text: Azure AD 그룹에 대한 PowerShell
-    - url: ./users-groups-roles/directory-service-limits-restrictions.md
+    - url: ./enterprise-users/directory-service-limits-restrictions.md
       itemType: reference
       text: Azure AD 서비스 제한 및 제한 사항
     footerLink:
-      url: ./users-groups-roles/index.yml
+      url: ./enterprise-users/index.yml
       text: 자세히 보기
   - title: 외부 ID
     links:
@@ -263,6 +263,20 @@ conceptualContent:
       text: 로그인 오류 코드 참조
     footerLink:
       url: ./reports-monitoring/index.yml
+      text: 자세히 보기
+  - title: 역할
+    links:
+    - url: ./roles/groups-assign-role.md
+      itemType: how-to-guide
+      text: 클라우드 그룹에 역할 할당
+    - url: ./roles/custom-create.md
+      itemType: how-to-guide
+      text: 사용자 지정 역할 만들기
+    - url: ./roles/groups-view-assignments.md
+      itemType: reference
+      text: 그룹에 할당된 역할 보기
+    footerLink:
+      url: ./roles/index.yml
       text: 자세히 보기
 additionalContent:
   sections:

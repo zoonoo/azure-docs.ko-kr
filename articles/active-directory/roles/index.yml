@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Azure AD 역할 설명서 - Azure AD
+summary: Azure AD 역할 기반 액세스 제어는 Azure AD 리소스에 대한 액세스를 관리합니다. 사용자 지정 역할을 만들거나, 관리 단위를 사용하여 제어 범위를 제한하는 역할을 할당하거나, 그룹 또는 사용자에게 애플리케이션 액세스를 할당하거나, PIM(Privileged Identity Management)을 사용하여 자격을 관리하거나, ID 관리 작업을 배포할 권한을 위임합니다.
+metadata:
+  title: Azure Active Directory 역할 설명서
+  description: Azure AD 역할을 사용하여 조직에서 액세스를 관리하는 방법을 알아봅니다.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: roles
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+  ms.openlocfilehash: 16a64fd66ab391436f991b5f92f306f7ecf2eb58
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372835"
+landingContent:
+- title: Azure AD 역할 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 사용자 지정 역할 개요
+      url: custom-overview.md
+  - linkListType: concept
+    links:
+    - text: 관리 위임
+      url: concept-delegation.md
+    - text: Azure AD의 관리 단위 이해
+      url: administrative-units.md
+    - text: 클라우드 그룹을 사용하여 역할 할당 관리
+      url: groups-concept.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 무제한 앱 등록 만들기에 대한 사용 권한 부여
+      url: quickstart-app-registration-limits.md
+- title: 역할 위임
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 작업별 역할 위임
+      url: delegate-by-task.md
+    - text: 애플리케이션 관리 위임
+      url: delegate-app-roles.md
+- title: 사용자에게 역할 할당
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 역할 만들기
+      url: custom-create.md
+    - text: Graph API를 사용하여 역할 할당
+      url: custom-assign-graph.md
+    - text: PowerShell을 사용하여 할당
+      url: custom-assign-powershell.md
+    - text: Graph API를 사용하여 역할 할당
+      url: custom-assign-graph.md
+- title: 그룹에 역할 할당
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 역할 할당 가능 그룹 만들기
+      url: groups-create-eligible.md
+    - text: 클라우드 그룹에 역할 할당
+      url: groups-assign-role.md
+    - text: PIM에 적합한 그룹 만들기
+      url: groups-pim-eligible.md
+    - text: 그룹 할당 보기
+      url: groups-view-assignments.md
+- title: 관리 단위를 사용하여 범위 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 관리 단위 추가 및 제거
+      url: admin-units-manage.md
+    - text: 단위에 사용자 할당
+      url: admin-units-add-manage-users.md
+    - text: 단위에 그룹 할당
+      url: admin-units-add-manage-groups.md
+    - text: 범위를 사용하여 그룹 할당
+      url: admin-units-assign-roles.md

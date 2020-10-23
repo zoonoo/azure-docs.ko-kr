@@ -111,7 +111,7 @@
           href: azure-netapp-files-develop-with-rest-api.md
         - name: PowerShell을 사용하는 REST API
           href: develop-rest-api-powershell.md
-        - name: Azure NetApp Files SDK 및 CLI 도구
+        - name: 'SDK, CLI 도구 및 ARM 템플릿'
           href: azure-netapp-files-sdk-cli.md
         - name: Azure NetApp Files 리소스 공급자 오류 문제 해결
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md

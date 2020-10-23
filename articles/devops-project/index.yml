@@ -1,35 +1,37 @@
 ### YamlMime:Landing
-title: Azure DevOps Starter 설명서
-summary: Azure DevOps Starter는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.
+title: Azure에 배포하기 위한 DevOps Starter 설명서
+summary: DevOps Starter는 기존 코드와 Git 리포지토리를 가져오거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인 또는 워크플로를 만드는 간소화된 환경을 제공합니다. 이제 DevOps Starter에서 GitHub Actions 워크플로를 만들 수 있습니다.
 metadata:
-  title: Azure DevOps Starter 설명서
+  title: DevOps Starter 설명서
   description: 기존 코드와 Git 리포지토리를 가져오거나 샘플 앱을 선택하여 Azure에 CI(지속적인 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
   ms.date: 03/24/2020
-  ms.openlocfilehash: 62e95192f25487be60ed0334054f200447fc64cb
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7521a5a57b6dd1c090fbc880033fc5fc0707419b
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91855942"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92330685"
 landingContent:
-- title: Azure DevOps Starter 정보
+- title: DevOps Starter 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure DevOps Starter란?
+    - text: DevOps Starter란?
       url: overview.md
   - linkListType: video
     links:
-    - text: DevOps Starter로 CI/CD 만들기 비디오(8:53)
+    - text: Azure DevOps를 사용하는 DevOps Starter로 CI/CD 만들기(8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
-- title: CI/CD 파이프라인 만들기
+- title: CI/CD 구성
   linkLists:
   - linkListType: quickstart
     links:
+    - text: GitHub Actions를 사용하는 Node.js
+      url: /azure/devops-project/devops-starter-gh-nodejs
     - text: .NET
       url: ./azure-devops-project-aspnet-core.md
     - text: Node.js
@@ -44,10 +46,12 @@ landingContent:
       url: ./azure-devops-project-ruby.md
     - text: Go
       url: ./azure-devops-project-go.md
-- title: 릴리스 파이프라인 만들기
+- title: Azure에 배포
   linkLists:
   - linkListType: tutorial
     links:
+    - text: GitHub Actions를 사용하여 앱을 Azure 웹앱에 배포
+      url: devops-starter-gh-web-app.md
     - text: GitHub를 사용하여 사용자 고유의 코드 가져오기
       url: azure-devops-project-vms.md
     - text: Azure Virtual Machines에 ASP.NET 앱 배포

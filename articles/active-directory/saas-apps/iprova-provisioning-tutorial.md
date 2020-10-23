@@ -34,7 +34,7 @@ ms.locfileid: "92459780"
 > * IProva에서 그룹 및 그룹 멤버 자격 프로 비전
 > * IProva에 대 [한 Single sign-on](./iprova-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

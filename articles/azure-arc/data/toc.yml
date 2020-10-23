@@ -66,8 +66,16 @@
       items:
         - name: Grafana & Kibana를 사용하여 모니터링
           href: monitor-grafana-kibana.md
-        - name: 메트릭 및 로그 업로드
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Azure Monitor에 업로드
+          items:
+            - name: 필수 구성 요소 업로드
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: 로그 업로드
+              href: upload-logs.md
+            - name: 메트릭 업로드
+              href: upload-metrics.md
+            - name: 사용량 데이터 업로드
+              href: upload-usage-data.md
         - name: 인벤토리 데이터베이스 인스턴스
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: 데이터 컨트롤러 사용자 이름 및 암호 가져오기

@@ -1,0 +1,128 @@
+- name: Azure AD 역할 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure AD 역할
+      href: custom-overview.md
+- name: 빠른 시작
+  items:
+    - name: 무제한 앱 등록 만들기
+      href: quickstart-app-registration-limits.md
+- name: 자습서
+  items:
+    - name: 동적 그룹 만들기
+      href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+- name: 개념
+  expanded: true
+  items:
+    - name: Azure AD 관리자 역할 위임
+      href: concept-delegation.md
+    - name: 기본 사용자 사용 권한 비교
+      href: /azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Azure 및 Azure AD 역할 비교
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Azure AD의 관리 단위 이해
+      href: administrative-units.md
+- name: 방법 가이드
+  expanded: true
+  items:
+    - name: 사용자 및 역할
+      items:
+        - name: 관리자 역할에 사용자 할당
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: 사용자의 액세스 권한 취소
+          href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: 게스트 사용자에게 역할 할당
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+        - name: 게스트 사용자 액세스 제한
+          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: 동적 그룹 및 게스트
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
+    - name: 역할 및 권한
+      expanded: true
+      items:
+        - name: 역할 및 권한
+          href: permissions-reference.md
+        - name: 역할 보기 및 할당
+          href: manage-roles-portal.md
+        - name: 내 직원 위임
+          href: my-staff-configure.md
+    - name: 사용자 지정 역할
+      expanded: true
+      items:
+        - name: 사용자 지정 역할 개요
+          href: custom-overview.md
+        - name: 사용자 지정 역할 만들기
+          href: custom-create.md
+        - name: 사용자 지정 역할 할당 보기
+          href: custom-view-assignments.md
+        - name: Azure Portal에서 사용자 지정 역할 할당
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: PowerShell에서 사용자 지정 역할 할당
+          href: custom-assign-powershell.md
+        - name: 엔터프라이즈 앱에 대한 사용자 지정 역할 할당
+          href: custom-enterprise-apps.md
+        - name: 사용자 지정 역할
+          items:
+            - name: 앱 등록 권한
+              href: custom-available-permissions.md
+            - name: 엔터프라이즈 앱 사용 권한
+              href: custom-enterprise-app-permissions.md
+            - name: 앱 동의 권한
+              href: custom-consent-permissions.md
+        - name: 앱 관리자 역할 위임
+          href: delegate-app-roles.md
+    - name: 그룹에 역할 할당
+      items:
+        - name: 그룹 기반 역할 할당 미리 보기
+          href: groups-concept.md
+        - name: 역할 할당 가능 그룹 만들기
+          href: groups-create-eligible.md
+        - name: 그룹에 역할 할당
+          href: groups-assign-role.md
+        - name: 그룹에서 역할 할당 제거
+          href: groups-remove-assignment.md
+        - name: 그룹 역할 할당 보기
+          href: groups-view-assignments.md
+        - name: PIM에서 역할에 적합한 그룹 만들기
+          href: groups-pim-eligible.md
+        - name: FAQ 및 문제 해결
+          href: groups-faq-troubleshooting.md
+    - name: 역할 보호
+      items:
+        - name: 역할 보안 계획
+          href: security-planning.md
+        - name: 비상 계정 만들기
+          href: security-emergency-access.md
+    - name: 관리 단위
+      items:
+        - name: 관리 단위 개요
+          href: administrative-units.md
+        - name: 추가 및 관리
+          href: admin-units-manage.md
+        - name: 사용자 추가 및 관리
+          href: admin-units-add-manage-users.md
+        - name: 그룹 추가 및 관리
+          href: admin-units-add-manage-groups.md
+        - name: 범위를 사용하여 역할 할당
+          href: admin-units-assign-roles.md
+        - name: FAQ 및 문제 해결
+          href: admin-units-faq-troubleshoot.md
+    - name: 문제 해결
+      items:
+        - name: Azure AD에 대한 지원
+          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+- name: 참조
+  items:
+    - name: 태스크별 최소 권한 있는 역할
+      href: delegate-by-task.md
+    - name: Microsoft 365 역할 설명서
+      href: m365-workload-docs.md
+    - name: 그래프 API
+      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+    - name: Azure AD CLI
+      href: /cli/azure/ad
+    - name: Azure AD PowerShell for Graph
+      href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+    - name: Azure AD 서비스 제한
+      href: /azure/active-directory/fundamentals/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context

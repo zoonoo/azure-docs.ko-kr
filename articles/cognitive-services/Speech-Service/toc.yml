@@ -401,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: 웹 엔드포인트 설정
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: 사용자 지정 명령 앱을 기술로 내보내기
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: 배포
                   items:
                     - name: Azure DevOps를 사용한 지속적인 배포

@@ -1,0 +1,71 @@
+### YamlMime:Landing
+title: 엔터프라이즈 사용자 관리 설명서 - Azure AD
+summary: Azure AD는 사용자 관리 서비스를 제공합니다. 이러한 그룹 및 라이선스는 상위 사용자 관리 작업을 신속하게 수행하는 데 도움이 됩니다. 라이선스를 할당하고, 그룹 또는 사용자에게 애플리케이션 액세스를 할당하고, 도메인 이름을 추가하거나 관리합니다.
+metadata:
+  title: Azure Active Directory 사용자, 그룹, 라이선스 및 도메인 설명서
+  description: 그룹, 도메인 이름 및 라이선스를 사용하여 Azure AD 조직에서 사용자 인증을 관리하는 방법에 대해 알아봅니다.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: enterprise-users
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+  ms.openlocfilehash: 3918c28d9657b077eefd5226be656ab6ad5a7dbf
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372733"
+landingContent:
+- title: 엔터프라이즈 사용자 관리 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 사용자, 그룹, 도메인 및 라이선스
+      url: directory-overview-user-model.md
+    - text: 사용자 지정 역할 개요
+      url: ../roles/custom-overview.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+  - linkListType: concept
+    links:
+    - text: Azure AD 조직 독립성
+      url: licensing-directory-independence.md
+    - text: 그룹을 사용하여 액세스 관리
+      url: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 사용자 추가
+      url: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: 그룹의 만료 정책 설정
+      url: groups-quickstart-expiration.md
+    - text: 사용자에게 라이선스 할당
+      url: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+- title: Azure AD 도메인 이름 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 도메인 이름 추가
+      url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: 사용자 지정 도메인 이름 관리
+      url: domains-manage.md
+- title: 그룹 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 동적 그룹 만들기
+      url: groups-create-rule.md
+    - text: PowerShell의 그룹 설정
+      url: groups-settings-v2-cmdlets.md
+    - text: 그룹에 대한 명명 정책 설정
+      url: groups-naming-policy.md
+- title: 도메인 추가
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 도메인 이름 추가
+      url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: 사용자 지정 도메인 이름 관리
+      url: domains-manage.md
