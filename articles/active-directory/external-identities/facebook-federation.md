@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b5e1db2c86f6118c3cd333974c9cfd64f747128
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 547b455dc776b7304e413b3b6f1330e7cedcf2a2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909488"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442000"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Facebook을 외부 ID에 대한 ID 공급자로 추가
 
@@ -78,7 +78,7 @@ ms.locfileid: "87909488"
    `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Facebook 개발자 콘솔에서 위에서 만든 앱의 클라이언트 ID 및 클라이언트 암호를 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
+   > Facebook 개발자 콘솔에서 위에서 만든 앱의 클라이언트 ID 및 클라이언트 암호를 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
 
 ## <a name="how-do-i-remove-facebook-federation"></a>Facebook 페더레이션을 제거하려면 어떻게 해야 하나요?
 Facebook 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 Facebook 계정으로 사용자 흐름을 통해 가입한 모든 사용자가 더 이상 로그인할 수 없습니다. 
@@ -99,7 +99,7 @@ Facebook 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이�
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
 
    > [!NOTE]
-   > 자세한 내용은 [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)를 참조하세요. 
+   > 자세한 내용은 [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

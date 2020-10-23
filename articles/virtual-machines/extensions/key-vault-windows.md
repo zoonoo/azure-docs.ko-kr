@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 78231fa5cc6e5061ab3e2b26faf97da76da83b32
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201684"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427908"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -26,6 +26,8 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
+
+Key Vault VM 확장는 Windows Server 2019 core 설치를 사용 하 여 Azure에서 사용 하기 위해 업로드 하 고 특수 이미지로 변환 되는 사용자 지정 로컬 VM 에서도 지원 됩니다.
 
 ### <a name="supported-certificate-content-types"></a>지원되는 인증서 콘텐츠 형식
 
@@ -59,7 +61,7 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
@@ -194,9 +196,9 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
     
     ```azurecli
        # Start the deployment
-         az vm extension set -n "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```

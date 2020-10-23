@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0283688ca2de4e7978da69753d08dd4763d30a75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532310"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425971"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 Advanced Threat Protection
 
@@ -62,5 +62,5 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
-* 가격 책정에 대 한 자세한 내용은 [Azure Database for MariaDB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/) 를 참조 하세요.  
+* [Azure Security Center](../security-center/security-center-introduction.md)에 대한 자세한 정보
+* 가격 책정에 대 한 자세한 내용은 [Azure Database for MariaDB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/) 를 참조 하세요.

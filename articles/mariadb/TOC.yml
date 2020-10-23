@@ -81,6 +81,8 @@
           href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
+    - name: 계획된 유지 보수
+      href: concepts-planned-maintenance-notification.md
     - name: 비즈니스 연속성
       items:
         - name: 비즈니스 연속성 소개
@@ -260,7 +262,7 @@
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/mariadb/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-mariadb.html'
+      href: /answers/topics/azure-database-mariadb.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
     - name: 기능 요청

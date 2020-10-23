@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265795"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442068"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD 외부 Id에 대 한 청구 모델
 
-Azure AD (Azure Active Directory) 외부 Id 가격은 월별 활성 사용자 (MAU)를 기반으로 합니다 .이는 일정 월 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD 게스트 B2B (사용자 공동 작업) 및 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/billing)에 모두 적용 됩니다. MAU 청구는 무료 계층과 유연 하 고 예측 가능한 가격을 제공 하 여 비용을 절감 하는 데 도움이 됩니다. 이 문서에서는 MAU 청구에 대해 알아보고 구독에 Azure AD 테 넌 트를 연결 합니다.
+Azure AD (Azure Active Directory) 외부 Id 가격은 월별 활성 사용자 (MAU)를 기반으로 합니다 .이는 일정 월 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD 게스트 B2B (사용자 공동 작업) 및 [Azure AD B2C 테 넌 트](../../active-directory-b2c/billing.md)에 모두 적용 됩니다. MAU 청구는 무료 계층과 유연 하 고 예측 가능한 가격을 제공 하 여 비용을 절감 하는 데 도움이 됩니다. 이 문서에서는 MAU 청구에 대해 알아보고 구독에 Azure AD 테 넌 트를 연결 합니다.
 
 > [!IMPORTANT]
 > 이 문서에는 가격 정보가 포함 되어 있지 않습니다. 사용량 청구 및 가격 책정에 대 한 최신 정보는 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조 하세요.
@@ -45,7 +45,7 @@ Azure AD 테 넌 트에서 게스트 사용자 공동 작업 사용은 일정 �
 
 Azure AD 테 넌 트는 적절 한 청구 및 기능에 대 한 액세스를 위해 Azure 구독에 연결 되어야 합니다. 디렉터리에 연결할 수 있는 구독이 아직 없는 경우이 프로세스 중 하나를 추가할 수 있습니다.
 
-1. 구독 내에서 적어도 [참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 역할이 할당 된 Azure 계정 또는 구독 내의 리소스 그룹을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
+1. 구독 내에서 적어도 [참가자](../../role-based-access-control/built-in-roles.md) 역할이 할당 된 Azure 계정 또는 구독 내의 리소스 그룹을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
 2. 연결할 디렉터리를 선택 합니다. Azure Portal 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음 디렉터리를 선택 합니다.
 

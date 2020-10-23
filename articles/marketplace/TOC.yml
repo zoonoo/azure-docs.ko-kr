@@ -163,14 +163,14 @@
                   href: dynamics-365-finance-operations-functional-validation.md
             - name: Dynamics 365 Business Central 제품 만들기
               href: partner-center-portal/create-new-business-central-offer.md
-        - name: IoT Edge 모듈 제품
-          items:
-            - name: IoT Edge 모듈 제품 계획
-              href: iot-edge-module.md
-            - name: IoT Edge 모듈 제품 만들기
-              href: partner-center-portal/azure-iot-edge-module-creation.md
-            - name: IoT Edge 모듈 기술 자산 준비
-              href: partner-center-portal/create-iot-edge-module-asset.md
+    - name: IoT Edge 모듈 제품
+      items:
+        - name: IoT Edge 모듈 제품 계획
+          href: iot-edge-module.md
+        - name: IoT Edge 모듈 제품 만들기
+          href: partner-center-portal/azure-iot-edge-module-creation.md
+        - name: IoT Edge 모듈 기술 자산 준비
+          href: partner-center-portal/create-iot-edge-module-asset.md
     - name: 관리되는 서비스 제품
       items:
         - name: 관리되는 서비스 제품 만들기

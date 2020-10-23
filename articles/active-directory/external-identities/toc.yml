@@ -9,7 +9,7 @@
         - name: B2B 게스트 사용자 액세스란?
           href: what-is-b2b.md
         - name: Azure AD B2C란?
-          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
+          href: ../../active-directory-b2c/overview.md
     - name: 빠른 시작
       items:
         - name: 포털에서 게스트 사용자 추가
@@ -137,13 +137,13 @@
         - name: FAQ
           href: faq.md
         - name: 지원 받기
-          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md
         - name: Azure 피드백 포럼
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Azure 로드맵
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: Microsoft Q&A 질문 페이지
-          href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
+          href: /answers/topics/azure-active-directory.html
         - name: 가격 책정
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: 요금 계산기

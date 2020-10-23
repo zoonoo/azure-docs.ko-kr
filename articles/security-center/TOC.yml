@@ -44,8 +44,6 @@
         - name: SQL용 Azure Defender
           displayName: database
           href: defender-for-sql-introduction.md
-        - name: IoT용 Azure Defender
-          href: defender-for-iot-introduction.md
         - name: Key Vault용 Azure Defender
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
@@ -255,7 +253,7 @@
 - name: 참조
   items:
     - name: REST API
-      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+      href: /rest/api/securitycenter/
     - name: Azure Security Center에 대한 FAQ
       items:
         - name: 일반적인 질문
@@ -283,9 +281,9 @@
     - name: 사용자 데이터 관리
       href: security-center-privacy.md
     - name: IoT용 Azure Defender 설명서
-      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
+      href: /azure/asc-for-iot/
     - name: Azure 보안 설명서
-      href: /azure/security/
+      href: ../security/index.yml
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: 준비 로드맵

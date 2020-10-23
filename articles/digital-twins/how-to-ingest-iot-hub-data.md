@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131499"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461552"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
 Azure Digital Twins는 IoT 장치 및 기타 원본의 데이터를 기반으로 합니다. Azure Digital Twins에서 사용할 장치 데이터의 공통 소스는 [IoT Hub](../iot-hub/about-iot-hub.md)됩니다.
 
-Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function](../azure-functions/functions-overview.md)과 같은 외부 계산 리소스를 설정 하 여 데이터를 수신 하 고, [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 속성을 설정 하거나, 그에 따라 [디지털](concepts-twins-graph.md) 쌍에서 원격 분석 이벤트를 발생 시킵니다. 
+Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function](../azure-functions/functions-overview.md)과 같은 외부 계산 리소스를 설정 하 여 데이터를 수신 하 고, [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 속성을 설정 하거나, 그에 따라 [디지털](concepts-twins-graph.md) 쌍에서 원격 분석 이벤트를 발생 시킵니다. 
 
 이 방법 문서에서는 IoT Hub에서 원격 분석을 수집할 수 있는 Azure 함수를 작성 하는 프로세스를 안내 합니다.
 
@@ -228,7 +228,7 @@ namespace IotHubtoTwins
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다.":::
 
 열리는 _Azure 함수 선택_ 페이지에서 아래 세부 정보를 확인 합니다.
- 1. **구독**: Azure 구독
+ 1. **구독**: ‘Azure 구독’
  2. **리소스 그룹**: 리소스 그룹
  3. **함수 앱**: 함수 앱 이름
  4. **슬롯**: _프로덕션_

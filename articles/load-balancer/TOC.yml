@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: 아웃바운드 프록시
       href: load-balancer-outbound-connections.md
-    - name: TCP 초기화 및 TCP 유휴 시간 제한
     - name: 아웃바운드 규칙
       href: outbound-rules.md
     - name: 유휴 시간 제한에 도달하면 TCP 재설정

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 9eac4b08b590f93b3ec450eb1e1329d706fa09a3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 89a87cd881689f58bbc4d2b4bf2a63a992e8dae9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206206"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461637"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -164,7 +164,7 @@ ms.locfileid: "92206206"
 
 * 5 개 언어로 된 단어 수준 음성 정확도 향상
 
-    | Language | 음성 오류 감소 |
+    | 언어 | 음성 오류 감소 |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -177,7 +177,7 @@ ms.locfileid: "92206206"
 * 통화 판독값
     * 및에 대 한 통화 읽기와 관련 된 문제를 해결 했습니다. `es-ES``es-MX`
      
-    | Language | 입력 | 개선 후의 기능 |
+    | 언어 | 입력 | 개선 후의 기능 |
     |---|---|---|
     | `es-MX` | $1.58 | un 페소 cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
@@ -216,7 +216,7 @@ ms.locfileid: "92206206"
 **샘플**
 -   **C #**: 스피커 인식을 위한 [코드 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) 입니다.
 -   **C + +**: 스피커 인식을 위한 [코드 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) 입니다.
--   **Java**: Android의 의도 인식에 대 한 [코드 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) 입니다. 
+-   **Java**: Android의 의도 인식에 대 한 [코드 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) 입니다. 
 
 **Covid-19 요약 테스트:** 지난 몇 주 동안 원격으로 작업 하기 때문에 일반적으로 수행 하는 것 처럼 많은 수동 확인 테스트를 수행할 수 없습니다. 모든 항목을 손상 했을 수 있으며 자동화 된 테스트가 모두 통과 했을 수 있습니다. 오류가 발생 하지 않은 경우 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
 정상 상태를 유지 하세요.
@@ -251,7 +251,7 @@ ms.locfileid: "92206206"
 **샘플**
 - **Go**: [음성 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) 및 [사용자 지정 음성 도우미](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go)에 대 한 빠른 시작을 추가 했습니다. [여기](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples)에서 샘플 코드를 찾습니다. 
 - **JavaScript**: [텍스트 음성](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript)변환, [변환](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)및 [의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript)에 대 한 빠른 시작을 추가 했습니다.
-- [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) 및 [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) 에 대 한 키워드 인식 샘플 (Android).  
+- [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) 및 [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) 에 대 한 키워드 인식 샘플 (Android).  
 
 **Covid-19 요약 테스트:** 지난 몇 주 동안 원격으로 작업 하기 때문에 일반적으로 수행 하는 것 처럼 많은 수동 확인 테스트를 수행할 수 없습니다. 모든 항목을 손상 했을 수 있으며 자동화 된 테스트가 모두 통과 했을 수 있습니다. 누락 된 내용이 있으면 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
 정상 상태를 유지 하세요.
@@ -260,7 +260,7 @@ ms.locfileid: "92206206"
 **새로운 기능**
 - Linux: Speech SDK 용 시스템을 구성 하는 방법에 대 한 [지침](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) 과 함께 RED HAT ENTERPRISE LINUX (RHEL)/CentOS 7 x64에 대 한 지원이 추가 되었습니다.
 - Linux: Linux ARM32 및 ARM64의 .NET Core c #에 대 한 지원이 추가 되었습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux)를 읽어보세요. 
-- C #, c + +: `UtteranceId` `ConversationTranscriptionResult` 모든 intermediates 및 최종 음성 인식 결과에서 일관 된 ID를에 추가 했습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대 한 세부 정보입니다.
+- C #, c + +: `UtteranceId` `ConversationTranscriptionResult` 모든 intermediates 및 최종 음성 인식 결과에서 일관 된 ID를에 추가 했습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet&preserve-view=true), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대 한 세부 정보입니다.
 - Python:에 대 한 지원이 추가 되었습니다 `Language ID` . [GitHub 리포지토리의](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)speech_sample py를 참조 하세요.
 - Windows: 모든 win32 콘솔 응용 프로그램에 대해 Windows 플랫폼에서 압축 된 오디오 입력 형식 지원을 추가 했습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)를 참조 하세요. 
 - JavaScript: NodeJS에서 음성 합성 (텍스트-음성)을 지원 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech)에서 자세한 내용을 알아보세요. 
@@ -268,7 +268,7 @@ ms.locfileid: "92206206"
         
 **버그 수정**
 - C #, c + +: `SendMessageAsync` 이제 이진 메시지를 이진 형식으로 전송 하는 문제가 해결 되었습니다. [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)에 대 한 세부 정보입니다.
-- C #, c + +: `Connection MessageReceived` `Recognizer` 개체가 이전에 삭제 된 경우 이벤트를 사용 하 여 충돌이 발생할 수 있는 문제를 해결 함. `Connection` [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived)에 대 한 세부 정보입니다.
+- C #, c + +: `Connection MessageReceived` `Recognizer` 개체가 이전에 삭제 된 경우 이벤트를 사용 하 여 충돌이 발생할 수 있는 문제를 해결 함. `Connection` [C #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet&preserve-view=true), [c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived)에 대 한 세부 정보입니다.
 - Android: 대기 시간을 개선 하기 위해 마이크의 오디오 버퍼 크기를 800ms에서 100ms로 줄였습니다.
 - Android: Android Studio의 x86 Android emulator [문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) 를 해결 했습니다.
 - JavaScript: API를 사용 하 여 중국의 지역에 대 한 지원이 추가 되었습니다 `fromSubscription` . 자세한 내용은 [여기](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#fromsubscription-string--string-)를 참조 하세요. 

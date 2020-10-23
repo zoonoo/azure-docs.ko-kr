@@ -4,10 +4,10 @@ description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 �
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "92368760"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링
@@ -117,7 +117,7 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor 포�
 
 메트릭 탐색기에서 컨테이너에 대 한 Azure Monitor 집계 된 노드 및 pod 사용률 메트릭을 볼 수 있습니다. 다음 표에서는 메트릭 차트를 사용 하 여 컨테이너 메트릭을 시각화 하는 방법을 이해 하는 데 도움이 되는 세부 정보를 요약 하 여 보여 줍니다.
 
-|네임스페이스 | 메트릭 | 설명 |
+|네임스페이스 | 메트릭 | Description |
 |----------|--------|-------------|
 | 정보. 컨테이너/노드 | |
 | | cpuUsageMillicores | 클러스터 전반의 CPU 사용률 집계 측정. 1000 단위로 분할 된 CPU 코어 (밀리초 = 1000)입니다. 많은 응용 프로그램에서 코어 하나를 사용할 수 있는 컨테이너의 코어 사용량을 확인 하는 데 사용 됩니다.|
@@ -189,7 +189,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 **노드** 탭을 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | Name | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
@@ -232,7 +232,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨트롤러를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | Name | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지*됨 또는 *일시 중지*됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음*으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
@@ -269,7 +269,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 컨테이너를 볼 때 표시 되는 정보는 다음 표에 설명 되어 있습니다.
 
-| 열 | 설명 |
+| 열 | Description |
 |--------|-------------|
 | Name | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|

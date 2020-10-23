@@ -12,18 +12,18 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7f46c77d463873a5cdd5d8c4ac1b28f1b7d0b9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299000"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427066"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>기존 정책에서 서명 키 가져오기
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api는 **가져오기** 또는 **나열** 작업에 대 한 암호 또는 자격 증명을 반환 하지 않습니다. 자세한 내용은 여기를 참조 하세요. 자세한 내용은 [RBAC 및 Media Services 계정](rbac-overview.md) 을 참조 하세요.
+v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api는 **가져오기** 또는 **나열** 작업에 대 한 암호 또는 자격 증명을 반환 하지 않습니다. 자세한 내용은 여기를 참조 하세요. 자세한 내용은 [AZURE RBAC 및 Media Services 계정](rbac-overview.md) 을 참조 하세요.
 
 이 문서의 예제에서는 .NET을 사용하여 기존 정책에서 서명 키를 가져오는 방법을 보여 줍니다. 
  

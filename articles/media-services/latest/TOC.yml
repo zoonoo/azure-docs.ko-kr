@@ -215,7 +215,7 @@
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: '엔터티 필터링, 순서 지정 및 페이징'
           href: entities-overview.md
-        - name: RBAC
+        - name: Azure RBAC
           href: rbac-overview.md
         - name: 오류 코드
           items:

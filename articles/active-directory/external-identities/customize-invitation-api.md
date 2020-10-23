@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295161"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442051"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
 
-조직에 가장 잘 작동하는 방식으로 초대 프로세스를 사용자 지정하기 원하는 많은 고객이 있습니다. API를 사용하면 이 작업을 수행할 수 있습니다. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+조직에 가장 잘 작동하는 방식으로 초대 프로세스를 사용자 지정하기 원하는 많은 고객이 있습니다. API를 사용하면 이 작업을 수행할 수 있습니다. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>초대 API의 기능
 
@@ -115,9 +115,9 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-에서 초대 API 참조를 확인 하세요 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
+에서 초대 API 참조를 확인 하세요 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 
 ## <a name="next-steps"></a>다음 단계
 

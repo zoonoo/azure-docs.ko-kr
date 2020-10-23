@@ -3,13 +3,13 @@ title: AKS(Azure Kubernetes Service) 클러스터 업그레이드
 description: AKS (Azure Kubernetes Service) 클러스터를 업그레이드 하 여 최신 기능 및 보안 업데이트를 가져오는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461450"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS 클러스터 업그레이드
 
-AKS 클러스터에 대한 사용 가능한 버전 목록을 통해 [az aks upgrade][az-aks-upgrade] 명령을 사용하여 업그레이드합니다. 업그레이드 프로세스가 진행 되는 동안 AKS는 지정 된 Kubernetes 버전을 실행 하는 클러스터에 새 노드를 추가한 다음 실행 중인 응용 프로그램의 중단을 최소화 하기 위해 이전 노드 중 하나를 중단 [하 고 드레이닝][kubernetes-drain] 합니다. 새 노드가 application pod를 실행 하는 것으로 확인 되 면 이전 노드가 삭제 됩니다. 이 프로세스는 클러스터의 모든 노드가 업그레이드 될 때까지 반복 됩니다.
+AKS 클러스터에 대한 사용 가능한 버전 목록을 통해 [az aks upgrade][az-aks-upgrade] 명령을 사용하여 업그레이드합니다. 업그레이드 프로세스가 진행 되는 동안 AKS는 지정 된 Kubernetes 버전을 실행 하는 클러스터에 새 버퍼 노드 (또는 [최대 서](#customize-node-surge-upgrade-preview)수에 구성 된 것과 같은 노드)를 추가 합니다. 그런 다음 실행 중인 응용 프로그램의 중단을 최소화 하기 위해 이전 노드 중 하나를 손상 시킬 수 있습니다. 최대 서 수를 사용 [하는 경우][kubernetes-drain] 지정 된 버퍼 노드 수와 동시에 많은 노드를 동시에 [드레이닝][kubernetes-drain] 하지 않습니다. 이전 노드가 완전히 방전 되 면 새 버전을 수신 하는 것이 이미지로 다시 설치 다음 노드를 업그레이드할 버퍼 노드가 됩니다. 이 프로세스는 클러스터의 모든 노드가 업그레이드 될 때까지 반복 됩니다. 프로세스가 끝나면 마지막으로 종료 된 노드가 삭제 되어 기존 에이전트 노드 수가 유지 됩니다.
 
 ```azurecli-interactive
 az aks upgrade \

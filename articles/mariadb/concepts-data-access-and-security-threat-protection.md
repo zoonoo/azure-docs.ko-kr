@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79532181"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425661"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB Advanced Threat Protection
 
@@ -42,6 +42,6 @@ Azure Database for MariaDB에 대 한 Advanced Threat Protection은 비정상적
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
+* [Azure Security Center](../security-center/security-center-introduction.md)에 대한 자세한 정보
 * 가격 책정에 대 한 자세한 내용은 [Azure Database for MariaDB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/mariadb/) 를 참조 하세요. 
-* Azure Portal를 사용 하 여 [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) 구성  
+* Azure Portal를 사용 하 여 [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) 구성

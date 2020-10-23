@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208008"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426467"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -121,7 +122,7 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
 * 모든 대상에 대한 커넥터 아웃바운드 액세스 허용
-* 모든 Azure 데이터 센터 IP 범위에 대한 커넥터 아웃바운드 액세스 허용. Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다. IP 주소 서브넷만 사용하면 구성이 중단될 수 있습니다. 최신 Azure 데이터 센터 IP 범위를 다운로드 하려면로 이동 하 여 [https://download.microsoft.com](https://download.microsoft.com) "AZURE IP 범위 및 서비스 태그"를 검색 합니다. 관련 클라우드를 선택 해야 합니다. 예를 들어 공용 클라우드 IP 범위는 "Azure IP 범위 및 서비스 태그 – 공용 클라우드"를 사용 하 여 찾을 수 있습니다. US 정부 클라우드는 "Azure IP 범위 및 서비스 태그 – US 정부 클라우드"를 검색 하 여 찾을 수 있습니다.
+* 모든 Azure 데이터 센터 IP 범위에 대한 커넥터 아웃바운드 액세스 허용. Azure 데이터 센터 IP 범위 목록의 사용과 관련된 문제는 매주 업데이트됩니다. 액세스 규칙을 적절하게 업데이트하도록 프로세스를 실행해야 합니다. IP 주소 서브넷만 사용하면 구성이 중단될 수 있습니다. 최신 Azure 데이터 센터 IP 범위를 다운로드 하려면로 이동 하 여 [https://download.microsoft.com](https://download.microsoft.com) "AZURE IP 범위 및 서비스 태그"를 검색 합니다. 관련 클라우드를 선택 해야 합니다. 예를 들어 공용 클라우드 IP 범위는 "Azure IP 범위 및 서비스 태그 – 공용 클라우드"를 사용 하 여 찾을 수 있습니다. 미국 정부 클라우드는 "Azure IP 범위 및 서비스 태그 – 미국 정부 클라우드"를 검색 하 여 찾을 수 있습니다.
 
 #### <a name="proxy-authentication"></a>프록시 인증
 

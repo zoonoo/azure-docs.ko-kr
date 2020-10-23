@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305656"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445702"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 도구 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91305656"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명 된 시나리오에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -99,7 +99,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 도구를 구성 
 이 섹션에서는 azure ad의 사용자 또는 그룹 할당을 기반으로 하 여 사용자 또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [도구 Single Sign-On 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial)의 지침에 따라 도구에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. 자동 사용자 프로 비전에 관계 없이 Single Sign-On를 구성할 수 있습니다. 하지만 이러한 두 가지 기능은 서로 보완적입니다.
+> [도구 Single Sign-On 자습서](./harness-tutorial.md)의 지침에 따라 도구에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. 자동 사용자 프로 비전에 관계 없이 Single Sign-On를 구성할 수 있습니다. 하지만 이러한 두 가지 기능은 서로 보완적입니다.
 
 > [!NOTE]
 > SCIM 끝점에 대 한 자세한 내용은 도구 [API 키](https://docs.harness.io/article/smloyragsm-api-keys) 문서를 참조 하세요.
@@ -128,7 +128,7 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
  
    a. **테 넌 트 URL** 상자에을 입력 **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** 합니다. 도구에 로그인 할 때 브라우저의 URL에서 사용자의 계정 ID를 가져올 수 있습니다.
    b. **비밀 토큰** 상자에 "프로 비전을 위한 도구 설정" 섹션의 6 단계에서 저장 한 Scim 인증 토큰 값을 입력 합니다.  
-   다. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
+   c. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
 
 1. **알림 전자 메일** 상자에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 한 다음 **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
 

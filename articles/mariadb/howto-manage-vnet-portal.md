@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 8e32b2b2e619d37323b2516178ab2b24cede4ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4606755aedc9b34b257a7534d5c678bdeea7c0d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101344"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425931"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
@@ -43,7 +43,7 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
     
    VNet에 대한 Azure 서비스 리소스를 보호하려면 사용자는 추가되는 서브넷의 "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/"에 대한 사용 권한을 갖고 있어야 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어서 수정될 수 있습니다.
     
-   [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) 및 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)에 특정 권한 할당에 대해 자세히 알아보세요.
+   [기본 제공 역할](../role-based-access-control/built-in-roles.md) 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md)에 특정 권한 할당에 대해 자세히 알아보세요.
     
    VNet 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. VNet 및 Azure 서비스 리소스가 서로 다른 구독에 있는 경우 리소스가 동일한 AD(Active Directory) 테넌트에 있어야 합니다. 두 구독 모두에 **Microsoft .Sql** 리소스 공급자가 등록되어 있는지 확인합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
