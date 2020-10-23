@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354975"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441507"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
@@ -93,11 +93,11 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
 
 사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에는 전역 또는 회사 관리자가 없습니다.
 
-이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
+이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](../users-groups-roles/domains-admin-takeover.md)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Just-in-Time 또는 "바이럴" 테넌트가 있는 게스트 사용자가 암호를 재설정할 수 없음
 
-ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
+ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](../users-groups-roles/domains-admin-takeover.md)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>게스트 사용자가 AzureAD PowerShell V1 모듈을 사용할 수 없습니다.
 
@@ -105,7 +105,7 @@ ID 테넌트가 JIT(Just-In-Time) 또는 "바이럴" 테넌트(별개의 관리�
 
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Azure 미국 정부 테 넌 트에서 B2B 공동 작업 게스트 사용자를 초대할 수 없습니다.
 
-Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에만 지원 됩니다. Azure US 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 사용자를 초대 하는 경우 오류가 발생 합니다. 세부 정보 및 제한 사항은 [Azure Active Directory Premium P1 및 P2 변형](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
+Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에만 지원 됩니다. Azure US 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 사용자를 초대 하는 경우 오류가 발생 합니다. 세부 정보 및 제한 사항은 [Azure Active Directory Premium P1 및 P2 변형](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
 
 ## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Azure AD에서 내 테 넌 트의 aad-확장 앱을 찾을 수 없다는 오류가 표시 됩니다.
 
@@ -123,4 +123,4 @@ Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미
 
 ## <a name="next-steps"></a>다음 단계
 
-[B2B Collaboration에 대한 지원 받기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)
+[B2B Collaboration에 대한 지원 받기](../fundamentals/active-directory-troubleshooting-support-howto.md)

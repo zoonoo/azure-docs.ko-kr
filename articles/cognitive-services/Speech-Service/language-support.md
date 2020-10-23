@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 6f484277ee940c63888fff068739598dd553b515
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172252"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440896"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -138,67 +138,67 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 |로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
-| `ar-EG` | 아랍어 (이집트) | Female | `ar-EG-SalmaNeural` | 일반 |
-| `ar-SA` | 아랍어 (사우디아라비아) | Female | `ar-SA-ZariyahNeural` | 일반 |
+| `ar-EG` | 아랍어(이집트) | Female | `ar-EG-SalmaNeural` | 일반 |
+| `ar-SA` | 아랍어(사우디아라비아) | Female | `ar-SA-ZariyahNeural` | 일반 |
 | `bg-BG` <sup>새로 만들기</sup> | 불가리아어 (Bulgary) | Female | `bg-BG-KalinaNeural` | 일반 |
-| `ca-ES` | 카탈로니아어 (스페인) | Female | `ca-ES-AlbaNeural` | 일반 |
-| `cs-CZ` <sup>새로 만들기</sup> | 체코어 (체코)  | Female | `cs-CZ-VlastaNeural` | 일반 |
-| `da-DK` | 덴마크어 (덴마크) | Female | `da-DK-ChristelNeural` | 일반 |
+| `ca-ES` | 카탈로니아어(스페인) | Female | `ca-ES-AlbaNeural` | 일반 |
+| `cs-CZ` <sup>새로 만들기</sup> | 체코어 (체코) | Female | `cs-CZ-VlastaNeural` | 일반 |
+| `da-DK` | 덴마크어(덴마크) | Female | `da-DK-ChristelNeural` | 일반 |
 | `de-AT` <sup>새로 만들기</sup> | 독일어(오스트리아) | Female | `de-AT-IngridNeural` | 일반 |
 | `de-CH` <sup>새로 만들기</sup> | 독일어(스위스) | Female | `de-CH-LeniNeural` | 일반 |
-| `de-DE` | 독일어 (독일) | Female | `de-DE-KatjaNeural` | 일반 |
+| `de-DE` | 독일어(독일) | Female | `de-DE-KatjaNeural` | 일반 |
 | `de-DE` <sup>새로 만들기</sup> | 독일어 (독일) | Male | `de-DE-ConradNeural` | 일반 |
 | `el-GR` <sup>새로 만들기</sup> | 그리스어(그리스) | Female | `el-GR-AthinaNeural` | 일반 |
-| `en-AU` | 영어 (오스트레일리아) | Female | `en-AU-NatashaNeural` | 일반 |
-| `en-AU` <sup>새로 만들기</sup> | 오스트레일리아 (오스트레일리아) | Male | `en-AU-WilliamNeural` | 일반 |
-| `en-CA` | 영어 (캐나다) | Female | `en-CA-ClaraNeural` | 일반 |
-| `en-GB` | 영어 (영국) | Female | `en-GB-LibbyNeural` | 일반 |
-| `en-GB` | 영어 (영국) | Female | `en-GB-MiaNeural` | 일반 |
+| `en-AU` | 영어(오스트레일리아) | Female | `en-AU-NatashaNeural` | 일반 |
+| `en-AU` <sup>새로 만들기</sup> | 영어(오스트레일리아) | Male | `en-AU-WilliamNeural` | 일반 |
+| `en-CA` | 영어(캐나다) | Female | `en-CA-ClaraNeural` | 일반 |
+| `en-GB` | 영어(영국) | Female | `en-GB-LibbyNeural` | 일반 |
+| `en-GB` | 영어(영국) | Female | `en-GB-MiaNeural` | 일반 |
 | `en-GB` <sup>새로 만들기</sup> | 영어(영국) | Male | `en-GB-RyanNeural` | 일반 |
-| `en-IE` <sup>새로 만들기</sup> | 아일랜드 영어 (아일랜드) | Female | `en-IE-EmilyNeural` | 일반 |
-| `en-IN` | 영어 (인도) | Female | `en-IN-NeerjaNeural` | 일반 |
-| `en-US` | 영어 (미국) | Female | `en-US-AriaNeural` | 일반, 여러 음성 스타일 사용 가능 |
-| `en-US` | 영어 (미국) | Male | `en-US-GuyNeural` | 일반 |
-| `en-US` <sup>새로 만들기</sup> | 영어 (미국) | Female | `en-US-JennyNeural` | 일반, 여러 음성 스타일 사용 가능 |
-| `es-ES` | 스페인어 (스페인) | Female | `es-ES-ElviraNeural` | 일반 |
-| `es-ES` <sup>새로 만들기</sup> | 스페인어 (스페인) | Male | `es-ES-AlvaroNeural` | 일반 |
-| `es-MX` | 스페인어 (멕시코) | Female | `es-MX-DaliaNeural` | 일반 |
+| `en-IE` <sup>새로 만들기</sup> | 영어(아일랜드) | Female | `en-IE-EmilyNeural` | 일반 |
+| `en-IN` | 영어(인도) | Female | `en-IN-NeerjaNeural` | 일반 |
+| `en-US` | 영어(미국) | Female | `en-US-AriaNeural` | 일반, 여러 음성 스타일 사용 가능 |
+| `en-US` | 영어(미국) | Male | `en-US-GuyNeural` | 일반 |
+| `en-US` <sup>새로 만들기</sup> | 영어(미국) | Female | `en-US-JennyNeural` | 일반, 여러 음성 스타일 사용 가능 |
+| `es-ES` | 스페인어(스페인) | Female | `es-ES-ElviraNeural` | 일반 |
+| `es-ES` <sup>새로 만들기</sup> | 스페인어(스페인) | Male | `es-ES-AlvaroNeural` | 일반 |
+| `es-MX` | 스페인어(멕시코) | Female | `es-MX-DaliaNeural` | 일반 |
 | `es-MX` <sup>새로 만들기</sup> | 스페인어(멕시코) | Male | `es-MX-JorgeNeural` | 일반 |
-| `fi-FI` | 핀란드어 (핀란드) | Female | `fi-FI-NooraNeural` | 일반 |
-| `fr-CA` | 프랑스어 (캐나다) | Female | `fr-CA-SylvieNeural` | 일반 |
+| `fi-FI` | 핀란드어(핀란드) | Female | `fi-FI-NooraNeural` | 일반 |
+| `fr-CA` | 프랑스어(캐나다) | Female | `fr-CA-SylvieNeural` | 일반 |
 | `fr-CA` <sup>새로 만들기</sup> | 프랑스어(캐나다) | Male | `fr-CA-JeanNeural` | 일반 |
 | `fr-CH` <sup>새로 만들기</sup> | 프랑스어(스위스) | Female | `fr-CH-ArianeNeural` | 일반 |
-| `fr-FR` | 프랑스어 (프랑스) | Female | `fr-FR-DeniseNeural` | 일반 |
+| `fr-FR` | 프랑스어(프랑스) | Female | `fr-FR-DeniseNeural` | 일반 |
 | `fr-FR` <sup>새로 만들기</sup> | 프랑스어(프랑스) | Male | `fr-FR-HenriNeural` | 일반 |
 | `he-IL` <sup>새로 만들기</sup> | 히브리어(이스라엘) | Female | `he-IL-HilaNeural` | 일반 |
-| `hi-IN` | 힌디어 (인도) | Female | `hi-IN-SwaraNeural` | 일반 |
+| `hi-IN` | 힌디어(인도) | Female | `hi-IN-SwaraNeural` | 일반 |
 | `hr-HR` <sup>새로 만들기</sup> | 크로아티아어(크로아티아) | Female | `hr-HR-GabrijelaNeural` | 일반 |
 | `hu-HU` <sup>새로 만들기</sup> | 헝가리어(헝가리) | Female | `hu-HU-NoemiNeural` | 일반 |
-| `id-ID` <sup>새로 만들기</sup> | 공용 어 인도네시아어 (인도네시아) | Male | `id-ID-ArdiNeural` | 일반 |
-| `it-IT` | 이탈리아어 (이탈리아) | Female | `it-IT-ElsaNeural` | 일반 |
+| `id-ID` <sup>새로 만들기</sup> | 인도네시아어(인도네시아) | Male | `id-ID-ArdiNeural` | 일반 |
+| `it-IT` | 이탈리아어(이탈리아) | Female | `it-IT-ElsaNeural` | 일반 |
 | `it-IT` <sup>새로 만들기</sup> | 이탈리아어(이탈리아) | Female | `it-IT-IsabellaNeural` | 일반 |
 | `it-IT` <sup>새로 만들기</sup> | 이탈리아어(이탈리아) | Male | `it-IT-DiegoNeural` | 일반 |
 | `ja-JP` | 일본어 (일본) | Female | `ja-JP-NanamiNeural` | 일반 |
 | `ja-JP` <sup>새로 만들기</sup> | 일본어 (일본) | Male | `ja-JP-KeitaNeural` | 일반 |
-| `ko-KR` | 한국어 (대한민국) | Female | `ko-KR-SunHiNeural` | 일반 |
+| `ko-KR` | 한국어(한국) | Female | `ko-KR-SunHiNeural` | 일반 |
 | `ko-KR` <sup>새로 만들기</sup> | 한국어(한국) | Male | `ko-KR-InJoonNeural` | 일반 |
 | `ms-MY` <sup>새로 만들기</sup> | 말레이어(말레이시아) | Female | `ms-MY-YasminNeural` | 일반 |
 | `nb-NO` | 노르웨이어, 복말 (노르웨이) | Female | `nb-NO-IselinNeural` | 일반 |
-| `nl-NL` | 네덜란드어 (네덜란드) | Female | `nl-NL-ColetteNeural` | 일반 |
-| `pl-PL` | 폴란드어 (폴란드) | Female | `pl-PL-ZofiaNeural` | 일반 |
-| `pt-BR` | 포르투갈어 (브라질) | Female | `pt-BR-FranciscaNeural` | 일반, 여러 음성 스타일 사용 가능 |
-| `pt-BR` <sup>새로 만들기</sup> | 포르투갈어 (브라질) | Male | `pt-BR-AntonioNeural` | 일반 |
-| `pt-PT` | 포르투갈어 (포르투갈) | Female | `pt-PT-FernandaNeural` | 일반 |
+| `nl-NL` | 네덜란드어(네덜란드) | Female | `nl-NL-ColetteNeural` | 일반 |
+| `pl-PL` | 폴란드어(폴란드) | Female | `pl-PL-ZofiaNeural` | 일반 |
+| `pt-BR` | 포르투갈어(브라질) | Female | `pt-BR-FranciscaNeural` | 일반, 여러 음성 스타일 사용 가능 |
+| `pt-BR` <sup>새로 만들기</sup> | 포르투갈어(브라질) | Male | `pt-BR-AntonioNeural` | 일반 |
+| `pt-PT` | 포르투갈어(포르투갈) | Female | `pt-PT-FernandaNeural` | 일반 |
 | `ro-RO` <sup>새로 만들기</sup> | 루마니아어(루마니아) | Female | `ro-RO-AlinaNeural` | 일반 |
-| `ru-RU` | 러시아어 (러시아) | Female | `ru-RU-DariyaNeural` | 일반 |
+| `ru-RU` | 러시아어(러시아) | Female | `ru-RU-DariyaNeural` | 일반 |
 | `sk-SK` <sup>새로 만들기</sup> | 슬로바키아어(슬로바키아) | Female | `sk-SK-ViktoriaNeural` | 일반 |
 | `sl-SI` <sup>새로 만들기</sup> | 슬로베니아어(슬로베니아) | Female | `sl-SI-PetraNeural` | 일반 |
-| `sv-SE` | 스웨덴어 (스웨덴) | Female | `sv-SE-HilleviNeural` | 일반 |
+| `sv-SE` | 스웨덴어(스웨덴) | Female | `sv-SE-HilleviNeural` | 일반 |
 | `ta-IN` <sup>새로 만들기</sup> | 타밀어(인도) | Female | `ta-IN-PallaviNeural` | 일반 |
 | `te-IN` <sup>새로 만들기</sup> | 텔루구어(인도) | Female | `te-IN-ShrutiNeural` | 일반 |
-| `th-TH` | 태국어 (태국) | Female | `th-TH-AcharaNeural` | 일반 |
+| `th-TH` | 태국어(태국) | Female | `th-TH-AcharaNeural` | 일반 |
 | `th-TH` <sup>새로 만들기</sup> | 태국어(태국) | Female | `th-TH-PremwadeeNeural` | 일반 |
-| `tr-TR` | 터키어 (터키) | Female | `tr-TR-EmelNeural` | 일반 |
+| `tr-TR` | 터키어(터키) | Female | `tr-TR-EmelNeural` | 일반 |
 | `vi-VN` <sup>새로 만들기</sup> | 베트남어(베트남) | Female | `vi-VN-HoaiMyNeural` | 일반 |
 | `zh-CN` | 북경어 (중국어 간체, 중국) | Female | `zh-CN-XiaoxiaoNeural` | 일반, 여러 음성 스타일 사용 가능 |
 | `zh-CN` | 북경어 (중국어 간체, 중국) | Female | `zh-CN-XiaoyouNeural` | 어린이 음성, 이야기 내레이션에 최적화 |
@@ -206,7 +206,6 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | `zh-CN` | 북경어 (중국어 간체, 중국) | Male | `zh-CN-YunyeNeural` | 이야기 내레이션에 최적화 |
 | `zh-HK` | 광둥어 (중국어 번체, 홍콩) | Female | `zh-HK-HiuGaaiNeural` | 일반 |
 | `zh-TW` | 북경어 (중국어 번체, 대만) | Female | `zh-TW-HsiaoYuNeural` | 일반 |
-
 
 > [!IMPORTANT]
 > `en-US-JessaNeural` 음성이 `en-US-AriaNeural`로 변경되었습니다. 이전에 "Jessa"를 사용했다면 "Aria"로 변환하세요.

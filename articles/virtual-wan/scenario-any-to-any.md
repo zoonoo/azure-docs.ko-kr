@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267740"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440487"
 ---
 # <a name="scenario-any-to-any"></a>시나리오: 임의의 위치
 
@@ -22,14 +22,14 @@ ms.locfileid: "91267740"
 
 ## <a name="design"></a><a name="design"></a>디자인
 
-가상 WAN 시나리오에서 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 여기서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타냅니다. 이 시나리오의 연결 행렬은 간단 하지만 다른 시나리오와 일치 하기 위해 포함 되었습니다.
+가상 WAN 시나리오에서 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 여기서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타냅니다.
 
-| From |   받는 사람 |  *Vnet* | *분기* |
+| From |   대상 |  *Vnet* | *분기* |
 | -------------- | -------- | ---------- | ---|
-| VNet     | &#8594;|      X     |     X    |
-| 분기   | &#8594;|    X     |     X    |
+| VNet     | &#8594;| 직접 | 직접 |
+| 분기   | &#8594;| 직접  | 직접 |
 
-위의 표에 나와 있는 각 셀은 가상 wan 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사를 학습 하는지 여부를 설명 합니다. 여기서 "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
+위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상 접두사 (흐름의 "To" 쪽, 즉 열 머리글이 이탤릭체 인 경우)와 통신 하는지 여부를 설명 합니다. 이 시나리오에서는 방화벽이 나 네트워크 가상 어플라이언스를 사용할 수 없으므로 가상 WAN (따라서 테이블의 "Direct")에서 직접 통신 흐름이 전달 됩니다.
 
 Vnet 및 분기 (VPN, Express 경로 및 사용자 VPN)의 모든 연결에는 동일한 연결 요구 사항이 있으므로 단일 경로 테이블이 필요 합니다. 결과적으로 모든 연결이 연결 되 고 동일한 경로 테이블인 기본 경로 테이블로 전파 됩니다.
 

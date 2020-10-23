@@ -11,12 +11,12 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87908940"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441456"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>사용자 흐름의 사용자 지정 특성 정의(미리 보기)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87908940"
 
 각 애플리케이션의 경우 가입 중에 수집하려는 정보에 대한 요구 사항이 서로 다를 수 있습니다. Azure AD에는 이름, 성, 도시, 우편 번호 등의 특성에 저장된 일련의 기본 정보가 포함되어 있습니다. Azure AD를 사용하면 외부 사용자가 사용자 흐름을 통해 가입할 때 게스트 계정에 저장된 특성 세트를 확장할 수 있습니다.
 
-Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사용자 흐름에서 사용할 수 있습니다. 또한 [Microsoft Graph API](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 `extension_<extensions-app-id>_attributename` 규칙을 사용하여 명명됩니다. 다음은 그 예입니다.
+Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사용자 흐름에서 사용할 수 있습니다. 또한 [Microsoft Graph API](../../active-directory-b2c/manage-user-accounts-graph-api.md)를 사용하여 이러한 특성을 읽고 쓸 수도 있습니다. Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트하는 것을 지원합니다. Graph API의 확장 특성은 `extension_<extensions-app-id>_attributename` 규칙을 사용하여 명명됩니다. 다음은 그 예입니다.
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

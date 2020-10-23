@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba9a227956e7879a7c0f49e0534146fa01a49759
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909743"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442221"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
 
@@ -28,7 +28,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
  - 셀프 서비스에 대한 앱 구성 및 앱에 그룹 할당
 
 > [!NOTE]
-> 이 문서에서는 Azure AD 테넌트에 추가한 갤러리 및 SAML 기반 앱의 셀프 서비스 관리를 설정하는 방법을 설명합니다. 사용자가 자신의 Microsoft 365 그룹에 대 한 액세스를 관리할 수 있도록 [셀프 서비스 Microsoft 365 그룹을 설정할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) 수도 있습니다. 사용자가 게스트 사용자와 Office 파일 및 앱을 공유할 수 있는 방법에 대 한 자세한 내용은 [Microsoft 365 그룹의 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) 및 [SharePoint 파일 또는 폴더 공유](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c)를 참조 하세요.
+> 이 문서에서는 Azure AD 테넌트에 추가한 갤러리 및 SAML 기반 앱의 셀프 서비스 관리를 설정하는 방법을 설명합니다. 사용자가 자신의 Microsoft 365 그룹에 대 한 액세스를 관리할 수 있도록 [셀프 서비스 Microsoft 365 그룹을 설정할](../users-groups-roles/groups-self-service-management.md) 수도 있습니다. 사용자가 게스트 사용자와 Office 파일 및 앱을 공유할 수 있는 방법에 대 한 자세한 내용은 [Microsoft 365 그룹의 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) 및 [SharePoint 파일 또는 폴더 공유](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c)를 참조 하세요.
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>액세스 패널에서 앱에 게스트 사용자 초대
 
@@ -73,9 +73,9 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 7. **추가**를 선택하여 게스트 사용자에게 자동으로 초대를 발송합니다. 초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-셀프 서비스 앱 관리를 위해서는 글로벌 관리자 및 Azure AD 관리자가 일부 초기 설정을 해야 합니다. 이 설정의 일부로 셀프 서비스를 위해 앱을 구성하고 애플리케이션 소유자가 관리할 수 있는 그룹을 앱에 할당합니다. 모든 사용자가 멤버 자격을 요청할 수 있지만 그룹 소유자의 승인이 필요하도록 그룹을 구성할 수도 있습니다. ([셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)에 대해 자세히 알아보세요.) 
+셀프 서비스 앱 관리를 위해서는 글로벌 관리자 및 Azure AD 관리자가 일부 초기 설정을 해야 합니다. 이 설정의 일부로 셀프 서비스를 위해 앱을 구성하고 애플리케이션 소유자가 관리할 수 있는 그룹을 앱에 할당합니다. 모든 사용자가 멤버 자격을 요청할 수 있지만 그룹 소유자의 승인이 필요하도록 그룹을 구성할 수도 있습니다. ([셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)에 대해 자세히 알아보세요.) 
 
 > [!NOTE]
 > 동적 그룹 또는 온-프레미스 Active Directory와 동기화된 그룹에는 게스트 사용자를 추가할 수 없습니다.
@@ -105,8 +105,8 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
 3. **관리**에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 4. 애플리케이션 목록에서 앱을 찾아 엽니다.
-5. **관리**에서 **Single Sign-On**을 선택하고 Single Sign-On에 대한 애플리케이션을 구성합니다. (자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)을 참조하세요.)
-6. **관리**에서 **셀프 서비스**를 선택하고 셀프 서비스 앱 액세스를 설정합니다. (자세한 내용은 [셀프 서비스 앱 액세스 사용 방법](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)을 참조하세요.) 
+5. **관리**에서 **Single Sign-On**을 선택하고 Single Sign-On에 대한 애플리케이션을 구성합니다. (자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리 방법](../manage-apps/view-applications-portal.md)을 참조하세요.)
+6. **관리**에서 **셀프 서비스**를 선택하고 셀프 서비스 앱 액세스를 설정합니다. (자세한 내용은 [셀프 서비스 앱 액세스 사용 방법](../manage-apps/access-panel-manage-self-service-access.md)을 참조하세요.) 
 
     > [!NOTE]
     > **할당된 사용자는 어느 그룹에 추가되어야 합니까?** 설정에 대해서는 이전 섹션에서 만든 그룹을 선택합니다.

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
-ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283380"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461722"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -312,7 +312,7 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 다음 가상 네트워크 기능은 현재 SQL Managed Instance에서 지원 되지 않습니다.
 
 - **Microsoft 피어 링**: express 경로 회로에서 [microsoft 피어 링](../../expressroute/expressroute-faqs.md#microsoft-peering) 을 사용 하도록 설정 하는 것은 가상 네트워크와 직접 또는 전이적으로 피어 링 하는 가상 Managed Instance 네트워크에서 가상 네트워크 내의 구성 요소 Managed Instance 간 트래픽 흐름에 영향을 줍니다. Microsoft 피어 링을 사용 하 여 가상 네트워크에 대 한 SQL Managed Instance 배포가 실패 하 게 됩니다.
-- **글로벌 가상 네트워크 피어 링**: Azure 지역 간에 [가상 네트워크 피어 링](../../virtual-network/virtual-network-peering-overview.md) 연결은 [문서화 된 부하 분산 장치 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)으로 인해 SQL Managed Instance에 대해 작동 하지 않습니다.
+- **글로벌 가상 네트워크 피어 링**: Azure 지역 간에 [가상 네트워크 피어 링](../../virtual-network/virtual-network-peering-overview.md) 연결은 9/22/2020 이전에 만든 서브넷에 배치 되는 SQL 관리 되는 인스턴스에 대해 작동 하지 않습니다.
 - **AzurePlatformDNS**: AzurePlatformDNS [service 태그](../../virtual-network/service-tags-overview.md) 를 사용 하 여 플랫폼 DNS 확인을 차단 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance는 엔진 내에서 DNS 확인을 위해 고객이 정의한 DNS를 지원 하지만 플랫폼 작업을 위한 플랫폼 DNS에는 종속성이 있습니다.
 - **Nat 게이트웨이**: [Azure Virtual Network nat](../../virtual-network/nat-overview.md) 를 사용 하 여 특정 공용 IP 주소와의 아웃 바운드 연결을 제어 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance 서비스는 현재 Virtual Network NAT를 사용 하 여 인바운드 및 아웃 바운드 흐름을 공존 하지 않는 기본 부하 분산 장치의 사용으로 제한 됩니다.
 

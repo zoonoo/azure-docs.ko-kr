@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: efcf634c9f34fd2b479140af800bb650f66bd821
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453931"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory와 E Sales Manager Remix 통합
 
@@ -100,7 +100,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     b. **식별자** 상자에 다음 형식으로 URL을 입력 합니다. *https:// \<Server-Based-URL> / \<sub-domain> / *.
 
-    다. 이 자습서의 뒷부분에서 사용할 수 있게 **식별자** 값을 적어둡니다.
+    c. 이 자습서의 뒷부분에서 사용할 수 있게 **식별자** 값을 적어둡니다.
     
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트합니다. 값을 얻으려면 [E Sales Manager Remix 고객 지원 팀](mailto:esupport@softbrain.co.jp)에 문의하세요.
@@ -153,7 +153,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     
     b. **협업 항목** 섹션의 드롭다운 목록에서 **이메일**을 선택합니다.
 
-    다. **협업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
+    c. **협업 항목** 상자에 이전에 Azure Portal에서 복사한 클레임 값을 붙여넣습니다(즉, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
 
     d. **발급자(엔터티 ID)** 상자에 이전에 Azure Portal의 **E Sales Manager Remix 도메인 및 URL** 섹션에서 복사한 식별자 값을 붙여넣습니다.
 
@@ -197,7 +197,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     b. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시 되는 값을 확인 합니다.
+    c. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시 되는 값을 확인 합니다.
 
     d. **만들기**를 선택합니다.
  
@@ -221,7 +221,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     b. 나머지 필수 필드를 완료합니다.
     
-    다. SAML을 사용하도록 설정하면 관리자는 로그인 페이지에서 로그인할 수 없습니다. **관리자 로그인** 확인란을 선택하여 관리자에게 사용자에 대한 로그인 권한을 부여합니다.
+    c. SAML을 사용하도록 설정하면 관리자는 로그인 페이지에서 로그인할 수 없습니다. **관리자 로그인** 확인란을 선택하여 관리자에게 사용자에 대한 로그인 권한을 부여합니다.
 
     d. **등록**을 선택합니다.
 
@@ -263,7 +263,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 액세스 패널에서 E Sales Manager Remix 타일을 선택하면 E Sales Manager Remix 애플리케이션에 자동으로 로그인됩니다.
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -283,4 +283,3 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 [201]: ./media/esalesmanagerremix-tutorial/tutorial_general_201.png
 [202]: ./media/esalesmanagerremix-tutorial/tutorial_general_202.png
 [203]: ./media/esalesmanagerremix-tutorial/tutorial_general_203.png
-

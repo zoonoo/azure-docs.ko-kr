@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b503c7494d1b5e1821718fab5577bca88be65169
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909778"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442289"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "87909778"
 게스트 사용자를 디렉터리에 추가한 후에 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 또는 게스트 사용자는 초대 이메일에서 상환 URL을 클릭할 수 있습니다. 상환 프로세스에 대한 자세한 내용은 [B2B 협업 초대 상환](redemption-experience.md)을 참조하세요.
 
 > [!IMPORTANT]
-> [방법: Azure Active Directory에서 조직의 개인 정보를 추가](https://aka.ms/adprivacystatement)의 단계를 수행하여 조직 개인정보처리방침의 URL을 추가해야 합니다. 첫 번째 초대 상환 프로세스의 일환으로 초대된 사용자는 계속하여 개인정보취급방침 사용 약관에 동의해야 합니다. 
+> [방법: Azure Active Directory에서 조직의 개인 정보를 추가](../fundamentals/active-directory-properties-area.md)의 단계를 수행하여 조직 개인정보처리방침의 URL을 추가해야 합니다. 첫 번째 초대 상환 프로세스의 일환으로 초대된 사용자는 계속하여 개인정보취급방침 사용 약관에 동의해야 합니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -124,4 +124,3 @@ B2B 협업 사용자를 애플리케이션에 추가하려면 다음 단계를 �
 
 - 비 Azure AD 관리자가 B2B 게스트 사용자를 추가할 수 있는 방법을 알려면 [정보 작업자가 B2B 협업 사용자를 추가하는 방법은?](add-users-information-worker.md)을 참조합니다.
 - 초대 이메일에 대한 내용은 [B2B 협업 이메일 요소](invitation-email-elements.md)를 참조합니다.
-
