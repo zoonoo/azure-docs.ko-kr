@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598192"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426005"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -45,7 +45,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 > [!NOTE]
 > 바이어스 없는 통신
 >
-> Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
+> Microsoft는 다양하고 포용적인 환경을 지원합니다. 이 문서에는 _slave(슬레이브)_ 라는 단어에 대한 참조가 포함되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md)에서는 이 단어를 '배제(exclusionary)'라는 단어로 인식합니다. 이 단어는 현재 소프트웨어에 표시되는 단어이므로 일관성을 위해 이 문서에서 사용됩니다. 이 단어를 제거하도록 소프트웨어가 업데이트되면 이 문서도 이에 맞춰 업데이트됩니다.
 >
 
 ## <a name="configure-the-source-server"></a>원본 서버 구성
@@ -56,7 +56,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 2. 원본 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS가 공개적으로 액세스할**수 있거나 FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다. 
    
-   다른 컴퓨터에서 호스트 되는 MySQL 명령줄 또는 Azure Portal에서 사용할 수 있는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 와 같은 도구에서 연결을 시도 하 여 원본 서버에 대 한 연결을 테스트 합니다.
+   다른 컴퓨터에서 호스트 되는 MySQL 명령줄 또는 Azure Portal에서 사용할 수 있는 [Azure Cloud Shell](../cloud-shell/overview.md) 와 같은 도구에서 연결을 시도 하 여 원본 서버에 대 한 연결을 테스트 합니다.
 
    조직에서 엄격한 보안 정책을 사용 하 고 원본 서버의 모든 IP 주소가 Azure에서 원본 서버로의 통신을 사용 하도록 허용 하지 않는 경우, 아래 명령을 사용 하 여 Azure Database for MariaDB 서버의 IP 주소를 확인할 수 있습니다.
     
@@ -212,7 +212,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 1. 원본 서버를 설정 합니다.
 
-   모든 데이터 내부 복제 기능은 저장 프로시저에 의해 수행됩니다. [데이터 내부 복제 저장 프로시저](reference-data-in-stored-procedures.md)에서 모든 프로시저를 확인할 수 있습니다. 저장 프로시저는 MySQL 셸 또는 MySQL 워크 벤치에서 실행할 수 있습니다.
+   모든 데이터 내부 복제 기능은 저장 프로시저에 의해 수행됩니다. [데이터 내부 복제 저장 프로시저](reference-stored-procedures.md)에서 모든 프로시저를 확인할 수 있습니다. 저장 프로시저는 MySQL 셸 또는 MySQL 워크 벤치에서 실행할 수 있습니다.
 
    두 서버를 연결 하 고 복제를 시작 하려면 Azure DB for MariaDB 서비스에서 대상 복제본 서버에 로그인 합니다. 그런 다음, `mysql.az_replication_change_master` `mysql.az_replication_change_master_with_gtid` Azure DB For MariaDB 서버에서 또는 저장 프로시저를 사용 하 여 외부 인스턴스를 원본 서버로 설정 합니다.
 

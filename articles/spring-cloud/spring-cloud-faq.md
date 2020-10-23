@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 48a2f7f6587d22c34e240fb3e784eb980c81b6b3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094010"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419856"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -106,7 +106,7 @@ Azure CLI를 사용 하 여 스프링 클라우드의 진단 설정을 삭제할
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 지원 되는 Java runtime 버전은 무엇 인가요?
 
-Azure 스프링 클라우드는 최신 빌드를 사용 하 여 Java LTS 버전을 지원 합니다. 현재 6 월 2020, Java 8 빌드 252 및 Java 11 빌드 7이 지원 됩니다. [Azure 및 Azure Stack에 대 한 JDK 설치를](/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
+Azure 스프링 클라우드는 최신 빌드를 사용 하 여 Java LTS 버전을 지원 합니다. 현재 6 월 2020, Java 8 및 Java 11이 지원 됩니다. [Azure 및 Azure Stack에 대 한 JDK 설치를](/azure/developer/java/fundamentals/java-jdk-install) 참조 하세요.
 
 ### <a name="who-built-these-java-runtimes"></a>이러한 Java 런타임을 만든 사람은 누구 인가요?
 

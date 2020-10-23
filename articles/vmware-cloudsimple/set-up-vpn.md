@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77087137"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424679"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에 대 한 VPN 연결 구성
 
@@ -63,7 +63,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
 4. 사용 하려는 프로토콜에 대 한 OpenVPN 구성 파일 (. ovpn)을 선택 하 고 **열기**를 클릭 합니다.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![선택할 수 있는 OpenVPN 구성 파일을 강조 표시 하는 스크린샷](media/import-p2s-vpn-config-choose-ovpn.png)
 
 이제 연결이 Viscosity 메뉴에 표시 됩니다.
 
@@ -71,7 +71,7 @@ VPN 클라이언트는 컴퓨터에서 CloudSimple에 연결 하는 데 필요 �
 
 Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메뉴에서 연결을 선택 합니다. 메뉴 아이콘이 업데이트 되어 연결이 설정 되었음을 표시 합니다.
 
-![VPN](media/vis03.png)
+![CloudSimple VPN 연결 상태를 보여 주는 스크린샷](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>여러 사설 클라우드에 연결
 

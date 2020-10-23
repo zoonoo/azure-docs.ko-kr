@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002179"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428050"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure Storage Table 디자인 가이드: 확장 가능하고 성능이 우수한 테이블
 
@@ -476,7 +476,7 @@ Table Storage는 `PartitionKey` 및 `RowKey` 값을 사용하여 엔터티를 �
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 Table Storage는 `PartitionKey` 및 `RowKey` 값을 사용하여 엔터티를 자동으로 인덱싱합니다. 따라서 클라이언트 애플리케이션이 이러한 값을 사용하여 엔터티를 효율적으로 검색할 수 있습니다. 예를 들어 다음 테이블 구조를 사용할 경우 클라이언트 애플리케이션은 지점 쿼리를 사용하여 부서 이름 및 직원 ID(`PartitionKey` 및 `RowKey` 값)로 개별 직원 엔터티를 검색할 수 있습니다. 또한 클라이언트는 각 부서 내에서 직원 ID별로 정렬된 엔터티를 검색할 수 있습니다.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="부서 엔터티와 직원 엔터티를 보여 주는 그래픽":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="부서 엔터티와 직원 엔터티를 보여 주는 그래픽"::: 되었는지
 
 전자 메일 주소와 같은 다른 속성 값으로 기반으로 직원 엔터티를 찾을 수 있도록 하려면 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. Table Storage에서는 보조 인덱스를 제공하지 않기 때문입니다. 또한 `RowKey`와 다른 순서로 정렬된 직원 목록을 요청하는 옵션도 없습니다.  
 

@@ -1,22 +1,22 @@
 ---
 title: Azure Resource Manager 템플릿을 사용 하 여 Redis 용 Azure Cache 배포
-description: Azure Resource Manager 템플릿을 사용 하 여 Azure Cache for Redis 리소스를 배포 하는 방법을 알아봅니다. 일반적인 시나리오에 대 한 템플릿이 제공 됩니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 Redis 용 Azure 캐시 리소스를 배포 하는 방법을 알아봅니다. 일반적인 시나리오에 대 한 템플릿이 제공 됩니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0445aeaea6f99754469d5c0e46972aef2ed667aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461241"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424219"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Redis 용 Azure Cache 만들기
+# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 Redis 용 Azure Cache 만들기
 
-Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다. 기존 스토리지 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 현재 진단 설정은 구독에 대한 동일한 지역의 모든 캐시에서 공유됩니다. 지역의 캐시 하나를 업데이트하면 해당 지역의 다른 모든 캐시에 영향을 줍니다.
+Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿 (ARM 템플릿)을 만드는 방법에 대해 알아봅니다. 기존 스토리지 계정과 함께 캐시를 사용하여 진단 데이터를 유지할 수 있습니다. 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법도 알아봅니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 현재 진단 설정은 구독에 대한 동일한 지역의 모든 캐시에서 공유됩니다. 지역의 캐시 하나를 업데이트하면 해당 지역의 다른 모든 캐시에 영향을 줍니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿을 만�
 * [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Virtual Network에 배포 된 프리미엄 Redis Cache 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 `Azure Cache for Redis`에 대한 검색을 참조하세요.
+최신 템플릿을 확인 하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 을 참조 하 고 _Redis 용 azure Cache_를 검색 합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -59,7 +59,7 @@ Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿을 만�
     * **리소스 그룹**: **새로 만들기**를 선택하여 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
     * **위치**: 리소스 그룹에 대한 위치를 선택합니다. 저장소 계정과 Redis cache는 동일한 지역에 있어야 합니다. 기본적으로 Redis 캐시는 리소스 그룹과 동일한 위치를 사용 합니다. 따라서 저장소 계정과 동일한 위치를 지정 합니다.
     * **Redis Cache 이름**: Redis 캐시의 이름을 입력 합니다.
-    * **기존 진단 저장소 계정**: 저장소 계정의 리소스 ID를 입력 합니다. 구문은 **/Subscriptions/ &lt; 구독 ID>/Sourceggs/ &lt; 리소스 그룹 이름>/PROVIDERS/MICROSOFT.STORAGE/STORAGEACCOUNTS/ &lt; Storage ACCOUNT name>** 입니다.
+    * **기존 진단 저장소 계정**: 저장소 계정의 리소스 ID를 입력 합니다. 구문은 `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`입니다.
 
     나머지 설정에 대해서는 기본값을 사용합니다.
 1. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다.

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885181"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427283"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -255,7 +255,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다.
   - 보안 배포
   - 관리자
-  - 개발자
+  - Developer
   - 지원 담당자
   - 감사자
   - 자동화 된 프로세스
@@ -791,12 +791,14 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 - Azure는 기본적으로 고가용성: [SQL Database 및 SQL을 사용 하 여](high-availability-sla.md) 고가용성을 제공 Managed Instance
 
-- 중요 비즈니스용 계층에는 장애 조치 (failover) 그룹, 다중 가용성 영역, 전체 및 차등 로그 백업, 기본적으로 사용 하도록 설정 된 지정 시간 복원 백업이 포함 됩니다.  
-  - [고가용성 영역 중복 구성](high-availability-sla.md#zone-redundant-configuration)
+- 중요 비즈니스용 계층에는 장애 조치 (failover) 그룹, 전체 및 차등 로그 백업, 기본적으로 사용 하도록 설정 된 지정 시간 복원 백업 등이 포함 됩니다.  
   - [자동화된 백업](automated-backups-overview.md)
   - [자동화 된 데이터베이스 백업 (지정 시간 복원)을 사용 하 여 데이터베이스 복구](recovery-using-backups.md#point-in-time-restore)
 
-- 다른 Azure 지역에 걸친 자동 장애 조치 (failover) 그룹과 같은 추가 비즈니스 연속성 기능은 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md) 에서 설명한 대로 구성할 수 있습니다.
+- 서로 다른 Azure 지역에서 영역 중복 구성 및 자동 장애 조치 (failover) 그룹과 같은 추가 비즈니스 연속성 기능을 구성할 수 있습니다. 
+    - [프리미엄 & 중요 비즈니스용 서비스 계층에 대 한 고가용성 영역 중복 구성](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [범용 서비스 계층에 대 한 고가용성 영역 중복 구성](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

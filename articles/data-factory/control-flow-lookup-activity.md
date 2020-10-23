@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 371afbd9380ed1ecf28d0b26e2b4c5cd16ae6317
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044074"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425700"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -72,7 +72,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 조회 결과는 작업 실행 결과의 `output` 섹션에 반환됩니다.
 
-* **`firstRowOnly`가 `true`(기본값)로 설정되면** 출력 형식은 다음 코드와 같습니다. 조회 결과는 고정된 `firstRow` 키 아래에 있습니다. 후속 작업에서 결과를 사용 하려면 패턴을 사용  `@{activity('LookupActivity').output.firstRow.table` 합니다.
+* **`firstRowOnly`가 `true`(기본값)로 설정되면** 출력 형식은 다음 코드와 같습니다. 조회 결과는 고정된 `firstRow` 키 아래에 있습니다. 후속 작업에서 결과를 사용 하려면 패턴을 사용  `@{activity('LookupActivity').output.firstRow.table}` 합니다.
 
     ```json
     {

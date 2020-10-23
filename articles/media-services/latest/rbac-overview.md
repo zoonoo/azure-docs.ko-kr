@@ -1,6 +1,6 @@
 ---
-title: Media Services 계정에 대 한 역할 기반 액세스 제어-Azure | Microsoft Docs
-description: 이 문서에서는 Azure Media Services 계정의 RBAC (역할 기반 액세스 제어)에 대해 설명 합니다.
+title: Media Services 계정에 대 한 azure 역할 기반 액세스 제어-Azure | Microsoft Docs
+description: 이 문서에서는 Azure Media Services 계정에 대 한 azure RBAC (역할 기반 액세스 제어)에 대해 설명 합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d6bc37a8aaddfb48e6d06eb46d9c1648e815b5ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fba3db14c2a950dd230a4721841b4baa9f64636
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289258"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426801"
 ---
-# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 RBAC (역할 기반 액세스 제어)
+# <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Media Services 계정에 대 한 azure RBAC (역할 기반 액세스 제어)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "89289258"
 
 ## <a name="design-principles"></a>디자인 원칙
 
-v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api는 **가져오기** 또는 **나열** 작업에 대 한 암호 또는 자격 증명을 반환 하지 않습니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 사용자는 별도의 작업 메서드를 호출 하 여 암호 또는 자격 증명을 가져와야 합니다. **판독기** 역할은 ListContainerSas, StreamingLocator. ListContentKeys, contentkeypolicy 등의 작업을 호출할 수 없습니다. 별도의 작업을 사용 하면 원하는 경우 사용자 지정 역할에서 보다 세분화 된 RBAC 보안 권한을 설정할 수 있습니다.
+v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드는 것입니다. v3 Api는 **가져오기** 또는 **나열** 작업에 대 한 암호 또는 자격 증명을 반환 하지 않습니다. 키는 항상 null이거나, 비어 있거나, 응답에서 삭제됩니다. 사용자는 별도의 작업 메서드를 호출 하 여 암호 또는 자격 증명을 가져와야 합니다. **판독기** 역할은 ListContainerSas, StreamingLocator. ListContentKeys, contentkeypolicy 등의 작업을 호출할 수 없습니다. 별도의 작업을 사용 하면 원하는 경우 사용자 지정 역할에서 보다 세부적인 Azure RBAC 보안 권한을 설정할 수 있습니다.
 
 Media Services에서 지 원하는 작업을 나열 하려면 다음을 수행 합니다.
 
@@ -42,9 +42,9 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)
-- [RBAC를 사용 하 여 액세스 관리](../../role-based-access-control/role-assignments-rest.md)
+- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-rest.md)
 - [Media Services 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79246111"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424705"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 사설 클라우드 vCenter 액세스의 이름 확인에 대 한 DNS 구성
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. DNS 서버를 마우스 오른쪽 단추로 클릭 하 고 **새 영역**을 선택 합니다. 
   
-    ![새 영역](media/DNS01.png)
+    ![새 영역 메뉴 옵션을 강조 표시 하는 스크린샷](media/DNS01.png)
 2. **스텁 영역** 을 선택 하 고 **다음**을 클릭 합니다.
 
-    ![새 영역](media/DNS02.png)
+    ![스텁 영역 옵션을 강조 표시 하는 스크린샷](media/DNS02.png)
 3. 사용자 환경에 따라 적절 한 옵션을 선택 하 고 **다음**을 클릭 합니다.
 
-    ![새 영역](media/DNS03.png)
+    ![영역 데이터 복제 옵션을 보여 주는 스크린샷](media/DNS03.png)
 4. **전방 조회 영역** 을 선택 하 고 **다음**을 클릭 합니다.
 
-    ![새 영역](media/DNS01.png)
+    ![전방 조회 영역 옵션을 강조 표시 하는 스크린샷](media/DNS01.png)
 5. 영역 이름을 입력 하 고 **다음**을 클릭 합니다.
 
-    ![새 영역](media/DNS05.png)
+    ![영역 이름을 입력할 위치를 보여 주는 스크린샷](media/DNS05.png)
 6. CloudSimple 포털에서 가져온 사설 클라우드에 대 한 DNS 서버의 IP 주소를 입력 합니다.
 
     ![새 영역](media/DNS06.png)

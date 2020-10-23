@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207090"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427526"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -111,7 +111,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 * [Azure Resource Manager 템플릿입니다](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  이 템플릿에 필요한 TenantID 및 ObjectID를 찾는 방법에 대 한 자세한 내용은 [인증 구성에 대 한 id 개체 Id 찾기](../healthcare-apis/find-identity-object-ids.md)를 참조 하세요.  Azure Active Directory 포털에서 이러한 값을 찾을 수도 있습니다.
 * REST API
 
-계산 인스턴스를 만드는 데이터 과학자는 다음과 같은 [Azure 역할 기반 액세스 제어 (RBAC)](../role-based-access-control/overview.md) 권한이 필요 합니다. 
+계산 인스턴스를 만드는 데이터 과학자에는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md) 권한이 필요 합니다. 
 * *MachineLearningServices/작업 영역/계산/시작/작업*
 * *MachineLearningServices/작업 영역/계산/중지/작업*
 * *MachineLearningServices/작업 영역/계산/다시 시작/작업*
@@ -161,7 +161,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* DELETE
+* 삭제
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
     자세한 내용은 [az ml computetarget restart 확인 einstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
 
-* DELETE
+* 삭제
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
@@ -226,9 +226,9 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 
 
 ---
 
-[RBAC](/azure/role-based-access-control/overview)를 사용하면 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있는 사용자를 제어할 수 있습니다. 작업 영역 기여자 및 소유자 역할의 모든 사용자는 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있습니다. 그러나 특정 계산 인스턴스의 작성자나 사용자를 대신 하 여 생성 된 사용자만 해당 계산 인스턴스의 Jupyter, JupyterLab 및 RStudio에 액세스할 수 있습니다. 계산 인스턴스는 루트 액세스 권한이 있는 단일 사용자 전용 이며 Jupyter/JupyterLab/RStudio를 통해에서 터미널 할 수 있습니다. 계산 인스턴스는 단일 사용자 로그인을 포함 하 고 모든 작업은 해당 사용자의 id를 사용 하 여 RBAC 및 실험 실행의 특성을 사용 합니다. SSH 액세스는 공개/프라이빗 키 메커니즘을 통해 제어됩니다.
+[AZURE RBAC](/azure/role-based-access-control/overview) 를 사용 하면 작업 영역에서 계산 인스턴스를 만들고 삭제, 시작, 중지 및 다시 시작할 수 있는 사용자를 제어할 수 있습니다. 작업 영역 기여자 및 소유자 역할의 모든 사용자는 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있습니다. 그러나 특정 계산 인스턴스의 작성자나 사용자를 대신 하 여 생성 된 사용자만 해당 계산 인스턴스의 Jupyter, JupyterLab 및 RStudio에 액세스할 수 있습니다. 계산 인스턴스는 루트 액세스 권한이 있는 단일 사용자 전용 이며 Jupyter/JupyterLab/RStudio를 통해에서 터미널 할 수 있습니다. 계산 인스턴스는 단일 사용자 로그인을 포함 하 고 모든 작업은 Azure RBAC 및 실험 실행의 특성에 해당 사용자의 id를 사용 합니다. SSH 액세스는 공개/프라이빗 키 메커니즘을 통해 제어됩니다.
 
-이러한 작업은 RBAC로 제어할 수 있습니다.
+이러한 작업은 Azure RBAC를 통해 제어할 수 있습니다.
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/computes/delete*

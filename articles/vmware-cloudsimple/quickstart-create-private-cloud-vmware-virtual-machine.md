@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140856"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427763"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
 
@@ -58,37 +58,37 @@ VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 �
 1. VCenter에서 **호스트 및 클러스터** 아이콘을 클릭 합니다.
 
 2. **작업** 을 마우스 오른쪽 단추로 클릭 하 고 **새 가상 컴퓨터**를 선택 합니다.
-    ![새 VM](media/vcvm01.png)
+    ![새 가상 컴퓨터 메뉴 옵션을 강조 표시 하는 스크린샷](media/vcvm01.png)
 
 3. **새 가상 컴퓨터 만들기** 를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm02.png)
+    ![새 가상 컴퓨터 만들기 옵션을 강조 표시 하는 스크린샷](media/vcvm02.png)
 
 4. 컴퓨터 이름을로, **작업 VM의** 위치를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm03.png)
+    ![워크 로드 Vm 옵션을 강조 표시 하는 스크린샷](media/vcvm03.png)
 
 5. **작업** 계산 리소스를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm04.png)
+    ![워크 로드 계산 리소스를 강조 표시 하는 스크린샷](media/vcvm04.png)
 
 6. **Vsandatastore 저장소** 를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm05.png)
+    ![VsanDatastore 저장소 옵션을 강조 표시 하는 스크린샷](media/vcvm05.png)
 
 7. 기본 ESXi 6.5 호환성 선택 항목을 유지 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm06.png)
+    ![선택한 ESXi 6.5 호환성 옵션을 보여 주는 스크린샷](media/vcvm06.png)
 
 8. 만들려는 VM에 대 한 ISO의 게스트 OS를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm07.png)
+    ![VM에 대 한 ISO의이 ISO OS를 선택 하는 방법을 보여 주는 스크린샷](media/vcvm07.png)
 
 9. 하드 디스크 및 네트워크 옵션을 선택 합니다. 새 CD/DVD 드라이브의 경우 **데이터 저장소 ISO 파일**을 선택 합니다.  공용 IP 주소에서이 VM으로의 트래픽을 허용 하려면 **vm-1**로 네트워크를 선택 합니다.
-    ![새 VM](media/vcvm08.png)
+    ![데이터 저장소 ISO 파일을 선택 하는 위치를 강조 표시 하는 스크린샷](media/vcvm08.png)
 
 10. 선택 창이 열립니다. 이전에 Iso 및 Templates 폴더에 업로드 한 파일을 선택 하 고 **확인**을 클릭 합니다.
     ![새 VM](media/vcvm10.png)
 
 11. 설정을 검토 하 고 **확인** 을 클릭 하 여 VM을 만듭니다.
-    ![새 VM](media/vcvm11.png)
+    ![설정을 검토 하는 위치를 보여 주는 스크린샷](media/vcvm11.png)
 
 이제 VM이 워크 로드 계산 리소스에 추가 되 고 사용할 준비가 됩니다. 
-![새 VM](media/vcvm12.png)
+![워크 로드 계산 리소스에 추가 된 VM을 보여 주는 스크린샷](media/vcvm12.png)
 
 이제 기본 설정이 완료 되었습니다. 온-프레미스 VM 인프라를 사용 하는 방법과 유사 하 게 사설 클라우드 사용을 시작할 수 있습니다.
 
@@ -139,7 +139,7 @@ CloudSimple 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방
 5. 원하는 경우 슬라이더를 사용 하 여 유휴 시간 제한을 변경 합니다.
 6. 공용 IP 주소를 할당 하려는 로컬 IP 주소를 입력 합니다.
 7. 원하는 경우 연결 된 DNS 이름을 입력 합니다.
-8. **완료**를 클릭합니다.
+8. **Done**을 클릭합니다.
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 

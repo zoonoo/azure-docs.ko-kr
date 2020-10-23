@@ -10,23 +10,23 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 14e4cd141094763d37a1309572bb4da4efb3f7ce
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378107"
+ms.locfileid: "92428022"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
-Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다.
+Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 응용 프로그램 관리 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
 
 ## <a name="september-2020"></a>2020년 9월
 
 ### <a name="new-articles"></a>새 문서
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
 - [빠른 시작: Azure AD를 ID 공급자로 사용하는 앱에 사용자 할당](add-application-portal-assign-users.md)
-- [새로운 기능](whats-new-docs.md)
+- [Docs의 새로운 기능](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>업데이트된 문서

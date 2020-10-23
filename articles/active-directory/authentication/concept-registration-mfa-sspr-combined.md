@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965151"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424572"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
@@ -34,7 +34,7 @@ ms.locfileid: "91965151"
 
 새 환경을 사용 하도록 설정 하기 전에이 관리자 중심 설명서 및 사용자 중심의 설명서를 검토 하 여이 기능의 기능과 영향을 이해 해야 합니다. [사용자 설명서](../user-help/security-info-setup-signin.md) 에 대 한 교육을 바탕으로 사용자에 게 새로운 환경을 준비 하 고 성공적으로 롤아웃 하도록 도움을 줍니다.
 
-Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일 또는 Azure 중국 21Vianet과 같은 국가별 클라우드에서 사용할 수 없습니다.
+Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 21Vianet과 같은 국가별 클라우드에서 사용할 수 없습니다. Azure 미국 정부에서 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 원본 미리 보기와 향상 된 결합 등록 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 동작을 볼 수 있습니다. 두 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 내 프로필 환경만 볼 수 있습니다. 새 *내 프로필* 은 결합 된 등록의 모양과 느낌을 맞추고 사용자에 게 원활한 환경을 제공 합니다. 사용자는로 이동 하 여 내 프로필을 볼 수 있습니다 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
@@ -59,7 +59,7 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 | Phone | 예 | 예 | 예 |
 | 대체 전화 | 예 | 예 | 예 |
 | 사무실 전화 | 아니요 | 아니요 | 아니요 |
-| Email | 예 | 예 | 예 |
+| 메일 | 예 | 예 | 예 |
 | 본인 확인 질문 | 예 | 아니요 | 예 |
 | 앱 암호 | 예 | 아니요 | 예 |
 | FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976224"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424341"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>게이트웨이 SKU 구성
 
-#### <a name="azure-portal"></a>Azure portal
+**Azure Portal**
 
 Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨이를 만드는 경우 드롭다운을 사용하여 게이트웨이 SKU를 선택할 수 있습니다. 표시되는 옵션은 선택한 게이트웨이 형식 및 선택한 VPN 형식에 해당합니다.
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 다음 PowerShell 예제에서는 `-GatewaySku`를 VpnGw1으로 지정합니다. PowerShell을 사용하여 게이트웨이를 만드는 경우 먼저 IP 구성을 만든 다음, 변수를 사용하여 참조해야 합니다. 이 예제에서 구성 변수는 $gwipconfig입니다.
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 �
 3. Basic/Standard/HighPerformance Sku에서 VpnGw Sku로 크기를 조정할 **수 없습니다** . 대신 새 SKU로 [변경](#change)해야 합니다.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>게이트웨이의 크기를 조정하려면
+
+**Azure Portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 

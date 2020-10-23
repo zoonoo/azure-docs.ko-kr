@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315942"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424150"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -160,7 +160,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 모든 시나리오에서 다음과 같은 현재 제한 사항을 알고 있어야 합니다.
 
 - Azure Resource Manager에서 처리 되는 요청은 Azure Lighthouse를 사용 하 여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형 (예: Key Vault 비밀 액세스 또는 저장소 데이터 액세스)의 인스턴스에서 처리 되는 요청은 Azure Lighthouse에서 지원 되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다.
-- 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용해야 합니다. 모든 기본 제공 역할은 현재 소유자 또는 권한이 있는 기본 제공 역할을 제외 하 고 Azure 위임 된 리소스 관리에서 지원 됩니다 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) . 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
+- 역할 할당은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 해야 합니다. 모든 기본 제공 역할은 현재 소유자 또는 권한이 있는 기본 제공 역할을 제외 하 고 Azure 위임 된 리소스 관리에서 지원 됩니다 [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) . 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 - Azure Databricks를 사용하는 구독을 온보딩할 수 있지만 관리 테넌트의 사용자는 현재 위임된 구독에서 Azure Databricks 작업 영역을 시작할 수 없습니다.
 - 리소스 잠금을 포함 하는 구독 및 리소스 그룹을 등록할 수 있지만 이러한 잠금은 관리 테 넌 트의 사용자가 작업을 수행 하는 것을 방지 하지 않습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](../../role-based-access-control/deny-assignments.md)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
 

@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366686"
+ms.locfileid: "92424650"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -179,6 +180,8 @@ Azure AD 프로 비전 서비스는 사용자 액세스를 제거할 때 프로 
 
 응용 프로그램에 대 한 *활성* 매핑이 있는지 확인 합니다. 앱 갤러리에서 응용 프로그램을 사용 하는 경우 매핑이 약간 다를 수 있습니다. 갤러리 응용 프로그램에 대 한 기본 매핑을 사용 하는지 확인 하세요.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="사용자 사용 안 함" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **사용자를 삭제 하도록 응용 프로그램 구성**
 
@@ -188,7 +191,9 @@ Azure AD 프로 비전 서비스는 사용자 액세스를 제거할 때 프로 
 * 사용자가 Azure AD의 휴지통에서 영구적으로 삭제/제거 됩니다.
 * 사용자는 앱에서 할당을 해제 합니다.
 * 사용자가 범위를 벗어나는 범위에서 이동 합니다 (범위 지정 필터를 더 이상 전달 하지 않음).
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="사용자 사용 안 함" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 기본적으로 Azure AD 프로비저닝 서비스는 범위를 벗어나는 사용자를 일시 삭제하거나 비활성화합니다. 이 기본 동작을 재정의 하려는 경우 [범위를 벗어난 삭제를 건너뛰도록](skip-out-of-scope-deletions.md) 플래그를 설정할 수 있습니다.
 
 위의 4개 이벤트 중 하나가 발생하고 대상 애플리케이션에서 일시 삭제를 지원하지 않는 경우 프로비저닝 서비스는 DELETE 요청을 보내서 앱에서 사용자를 영구 삭제합니다.

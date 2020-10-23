@@ -1,29 +1,25 @@
 ---
-title: 애플리케이션 프록시를 사용하는 Single Sign-On | Microsoft Docs
-description: Azure AD 애플리케이션 프록시를 사용하여 Single Sign-On을 제공하는 방법을 설명합니다.
+title: 응용 프로그램 프록시를 사용 하는 Azure Active Directory의 Kerberos 기반 Single Sign-On (SSO)
+description: Azure Active Directory 응용 프로그램 프록시를 사용 하 여 Single Sign-On를 제공 하는 방법을 설명 합니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq2
+ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299751"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426496"
 ---
-# <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
+# <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용 하 여 앱에 대 한 Single Sign-On (SSO)에 대 한 Kerberos 제한 위임
 
 Windows 통합 인증으로 보안되는 애플리케이션 프록시를 통해 게시된 온-프레미스 애플리케이션에 대한 Single Sign-On을 제공할 수 있습니다. 이러한 애플리케이션은 액세스를 위해 Kerberos 티켓이 필요합니다. 애플리케이션 프록시는 KCD(Kerberos 제한된 위임)을 사용하여 이러한 애플리케이션을 지원합니다. 
 

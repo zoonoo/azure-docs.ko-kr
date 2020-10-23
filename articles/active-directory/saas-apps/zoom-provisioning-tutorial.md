@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f4947fe379f19593d06ba9efb6bfc43c397e9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333446"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424406"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 확대/축소 구성
 
@@ -66,7 +66,7 @@ ms.locfileid: "91333446"
 
     ![앱 자격 증명 페이지의 스크린샷](media/zoom-provisioning-tutorial/zoom05.png)
 
-## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 확대/축소 추가
+## <a name="step-3-add-zoom-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 확대/축소 추가
 
 Azure AD 응용 프로그램 갤러리에서 확대/축소를 추가 하 여 확대/축소 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 확대/축소를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -152,6 +152,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="change-log"></a>로그 변경
 * 05/14/2020-전자 메일 [type eq "work"] 특성에 대해 추가 된 업데이트 작업 지원
+* 10/20/2020-"사용이 허가 됨" 및 "온-프레미스" 라는 두 개의 새 역할에 대 한 지원이 추가 되어 기존 역할 "Pro" 및 "Corp"를 대체 합니다. "Pro" 및 "Corp" 역할에 대 한 지원은 나중에 제거 될 예정입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

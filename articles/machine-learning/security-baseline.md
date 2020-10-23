@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204336"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426309"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -303,13 +303,13 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: Azure Portal에서 리소스에 대 한 Id 및 액세스 관리 탭을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Machine Learning 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
+**지침**: Azure Portal에서 리소스에 대 한 Id 및 액세스 관리 탭을 사용 하 여 azure RBAC (역할 기반 액세스 제어)를 구성 하 고 Azure Machine Learning 리소스에 대 한 인벤토리를 유지 관리할 수 있습니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다.
 
-Azure Machine Learning은 Azure Machine Learning의 일반적인 관리 시나리오에 대 한 기본 제공 RBAC를 제공 합니다. Azure Active Directory (Azure AD)에 프로필이 있는 개인은 이러한 RBAC 역할을 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 Azure Machine Learning 리소스에 대 한 작업을 수행할 수 있습니다.
+Azure Machine Learning Azure Machine Learning의 일반적인 관리 시나리오에 대 한 기본 제공 역할을 제공 합니다. Azure Active Directory (Azure AD)에 프로필이 있는 개인은 이러한 역할을 사용자, 그룹, 서비스 주체 또는 관리 id에 할당 하 여 리소스에 대 한 액세스를 부여 하거나 거부 하 고 Azure Machine Learning 리소스에 대 한 작업에 대 한 액세스를 거부할 수 있습니다.
 
 또한 Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색할 수 있습니다.
 
-- [Azure Machine Learning의 역할 기반 액세스 제어 이해](how-to-assign-roles.md)
+- [Azure Machine Learning의 Azure 역할 기반 액세스 제어 이해](how-to-assign-roles.md)
 
 - [PowerShell을 사용 하 여 Azure Active Directory에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -902,13 +902,13 @@ Azure Machine Learning는 작업 추적을 위한 Git 리포지토리를 완벽 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전하게 저장
 
-**지침**: Azure Machine Learning 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 권한 있는 사용자만 사용자 지정 이미지에 액세스할 수 있도록 합니다. Azure 공유 이미지 갤러리를 사용 하 여 조직 내의 다른 사용자, 서비스 주체 또는 Azure AD 그룹에 이미지를 공유할 수 있습니다. 컨테이너 이미지를 Azure Container Registry에 저장 하 고 RBAC를 사용 하 여 권한 있는 사용자만 액세스할 수 있도록 합니다.
+**지침**: Azure Machine Learning 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 권한 있는 사용자만 사용자 지정 이미지에 액세스할 수 있도록 합니다. Azure 공유 이미지 갤러리를 사용 하 여 조직 내의 다른 사용자, 서비스 주체 또는 Azure AD 그룹에 이미지를 공유할 수 있습니다. 컨테이너 이미지를 Azure Container Registry에 저장 하 고 Azure RBAC를 사용 하 여 권한이 있는 사용자만 액세스할 수 있도록 합니다.
 
-- [Azure의 RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Azure RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Container Registry에 대 한 RBAC 이해](../container-registry/container-registry-roles.md)
+- [Container Registry에 대 한 Azure RBAC 이해](../container-registry/container-registry-roles.md)
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [공유 이미지 갤러리 개요](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1088,7 +1088,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
-**지침**: 온-프레미스 백업의 경우 Azure에 백업할 때 제공 하는 암호를 사용 하 여 미사용 암호화가 제공 됩니다. 역할 기반 액세스 제어를 사용 하 여 백업과 고객이 관리 하는 키를 보호 합니다. 
+**지침**: 온-프레미스 백업의 경우 Azure에 백업할 때 제공 하는 암호를 사용 하 여 미사용 암호화가 제공 됩니다. Azure 역할 기반 액세스 제어를 사용 하 여 백업과 고객이 관리 하는 키를 보호 합니다. 
 
 Key Vault에서 일시 삭제 및 보호 제거를 사용 하도록 설정 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. 백업을 저장 하는 데 Azure Storage를 사용 하는 경우 blob 또는 blob 스냅숏이 삭제 될 때 일시 삭제를 사용 하 여 데이터를 저장 하 고 복구 합니다.
  

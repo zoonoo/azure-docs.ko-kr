@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 44dac73f4e51214dbc41e8663dd44550dc9549f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97f5bd1718c7612ce330ee27ee64f9ad885591b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715400"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425840"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Queue storage에 대 한 보안 권장 사항
 
@@ -65,5 +65,5 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 설명서](https://docs.microsoft.com//azure/security/)
-- [보안 개발 설명서](https://docs.microsoft.com/azure/security/develop/)입니다.
+- [Azure 보안 설명서](/azure/security/)
+- [보안 개발 설명서](/azure/security/develop/)입니다.

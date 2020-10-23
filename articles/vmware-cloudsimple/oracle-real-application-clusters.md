@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507674"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424694"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위한 CloudSimple 사설 클라우드 최적화
 
@@ -44,7 +44,7 @@ Oracle RAC 가상 컴퓨터에는 특정 기능에 사용 되는 여러 디스�
 
 다음 예에서는 아래 테이블에 정의 된 디스크를 사용 합니다.
 
-| 디스크                                      | 목적                                       | 공유 디스크 |
+| 디스크                                      | 용도                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
 | OS                                        | 운영 체제 디스크                         | 아니요          |
 | 그리드에                                      | Oracle 그리드 소프트웨어의 설치 위치     | 아니요          |
@@ -79,7 +79,7 @@ Oracle RAC 가상 컴퓨터에는 특정 기능에 사용 되는 여러 디스�
 * 공유는 **공유 안 함**으로 설정 됩니다.
 * 중복성은 vSAN 정책을 사용 하 여 저장소에 정의 됩니다.  
 
-![Oracle RAC 데이터 디스크 그룹 구성](media/oracle-vm-os-disks.png)
+![Oracle RAC OS 디스크 실제 구성을 보여 주는 다이어그램입니다.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>데이터 디스크 구성
 
@@ -148,7 +148,7 @@ FRA (빠른 복구 영역)는 Oracle ASM 디스크 그룹에 의해 관리 되�
 * 디스크는 ASM 디스크 그룹으로 구성 해야 합니다.  
 * ASM 중복은 **외부** 중복성으로 설정 됩니다.
 
-![Oracle RAC 투표 디스크 그룹 구성](media/oracle-vm-fra-disks.png)
+![Oracle RAC 투표 디스크 그룹 구성을 보여 주는 다이어그램입니다.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>CloudSimple 사설 클라우드 vSphere 클러스터 배포
 
@@ -220,7 +220,7 @@ Oracle은 공유 디스크를 사용 하 여 데이터, 로그 및 다시 실행
 9. 공유의 경우 **다중 기록기**를 지정 합니다.
 10. 가상 장치 노드에 대해 2 단계에서 만든 새 SCSI 컨트롤러를 선택 합니다.
 
-    ![첫 번째 VM에 디스크 만들기](media/oracle-rac-new-hard-disk.png)
+    ![첫 번째 VM에서 디스크를 만드는 데 필요한 필드를 강조 표시 하는 스크린샷](media/oracle-rac-new-hard-disk.png)
 
 Oracle 데이터, 로그 및 다시 실행 로그 파일에 필요한 모든 새 디스크에 대해 2 ~ 10 단계를 반복 합니다.
 

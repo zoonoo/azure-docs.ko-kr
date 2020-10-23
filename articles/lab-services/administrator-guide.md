@@ -3,12 +3,12 @@ title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 만들고 관리하는 관리자에게 도움을 줍니다.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371412"
+ms.locfileid: "92425302"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리하는 IT(정보 기술) 관리자가 일반적으로 학교의 랩 계정을 설정합니다. 랩 계정이 설정되면 관리자 또는 교육자가 랩 계정 내에 포함된 클래스룸 랩을 만듭니다. 이 문서에서는 관련 Azure 리소스 및 해당 리소스를 만들기 위한 지침에 대한 대략적인 개요를 제공합니다.
@@ -178,7 +178,7 @@ Azure Lab Services 리소스를 설정하는 경우 리소스를 호스팅할 �
 
 ## <a name="manage-identity"></a>ID 관리
 
-[Azure의 역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용하여 랩 계정 및 클래스룸 랩에 대한 액세스를 제공하기 위해 다음 역할을 할당할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 사용 하 여 랩 계정 및 교실 랩에 대 한 액세스를 제공 하기 위해 다음 역할을 할당할 수 있습니다.
 
 - **랩 계정 소유자**
 

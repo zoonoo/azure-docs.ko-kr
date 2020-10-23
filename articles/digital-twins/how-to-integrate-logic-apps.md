@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280856"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427983"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -66,7 +66,7 @@ ADT 탐색기 응용 프로그램을 인증 하려면 **앱 등록**도 설정 �
 
 이 문서에서는 Logic Apps를 사용 하 여 Azure Digital Twins 인스턴스의 쌍을 업데이트 합니다. 계속 하려면 인스턴스에 하나 이상의 쌍을 추가 해야 합니다. 
 
-[DigitalTwins api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital 쌍 CLI](how-to-use-cli.md)를 사용 하 여 쌍를 추가할 수 있습니다. 이러한 방법을 사용 하 여 쌍를 만드는 방법에 대 한 자세한 단계 [*는 방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
+[DigitalTwins api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)또는 [Azure Digital 쌍 CLI](how-to-use-cli.md)를 사용 하 여 쌍를 추가할 수 있습니다. 이러한 방법을 사용 하 여 쌍를 만드는 방법에 대 한 자세한 단계 [*는 방법: 디지털 쌍 관리*](how-to-manage-twin.md)를 참조 하세요.
 
 사용자가 만든 인스턴스에 쌍의 쌍 **_ID_** 가 필요 합니다.
 

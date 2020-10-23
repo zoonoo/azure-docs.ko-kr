@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4842c55b2b1fd23f4d6b7996ccf02e7141504836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ae2a876d6a3772d941fec0b8a1ea3f537e60c3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73495735"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424304"
 ---
 `Resize-AzVirtualNetworkGateway` PowerShell cmdlet을 사용하여 Generation1.xml 또는 Generation2 SKU를 업그레이드하거나 다운그레이드할 수 있습니다(기본 SKU를 제외한 모든 VpnGw SKU의 크기를 조정할 수 있음). 기본 게이트웨이 SKU를 사용하는 경우 [대신 이러한 지침을 사용하여](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) 게이트웨이의 크기를 조정합니다.
 
@@ -23,5 +23,3 @@ ms.locfileid: "73495735"
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```
-
-가상 네트워크 게이트웨이에 대한 **구성** 페이지로 이동하고 드롭다운 목록에서 다른 SKU를 선택하여 Azure Portal에서 게이트웨이의 크기를 조정할 수도 있습니다.

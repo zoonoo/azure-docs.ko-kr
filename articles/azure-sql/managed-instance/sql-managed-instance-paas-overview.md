@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618157"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424226"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,7 +96,7 @@ SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습�
 
 - 일반적인 성능 요구 사항이 있는 대부분의 비즈니스 애플리케이션에 적합한 디자인
 - 고성능 Azure Blob Storage(8TB)
-- 신뢰할 수 있는 Azure Blob Storage 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)에 기반한 [고가용성](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) 기본 제공
+- 신뢰할 수 있는 Azure Blob Storage 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)에 기반한 [고가용성](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) 기본 제공
 
 자세한 내용은 [범용 계층의 스토리지 레이어](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) 및 [SQL Managed Instance(범용)의 스토리지 성능 모범 사례 및 고려 사항](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)을 참조하세요.
 
@@ -110,7 +110,7 @@ SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습�
 
 - 최고의 성능과 HA 요구 사항을 가진 대부분의 비즈니스 애플리케이션용으로 설계됨
 - 초고속 로컬 SSD 스토리지(4세대의 최대 1TB 및 5세대의 최대 4TB)와 함께 제공됨
-- [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)을 기반으로 [고가용성](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) 기본 제공
+- [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)을 기반으로 [고가용성](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) 기본 제공
 - 보고 및 기타 읽기 전용 워크로드에 사용할 수 있는 추가적인 [읽기 전용 데이터베이스 복제본](../database/read-scale-out.md) 기본 제공
 - 고성능 요구 사항이 있는 워크로드에 사용할 수 있는 [메모리 내 OLTP](../in-memory-oltp-overview.md)  
 

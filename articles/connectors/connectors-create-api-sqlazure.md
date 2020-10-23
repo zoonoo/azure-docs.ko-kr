@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169390"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426619"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL database에 대 한 워크플로 자동화
 
@@ -74,7 +74,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. **인증 유형**의 경우 Azure SQL Database 또는 Azure SQL Managed Instance에서 데이터베이스에 대해 필수 및 활성화 된 인증을 선택 합니다.
 
-   | 인증 | Description |
+   | 인증 | 설명 |
    |----------------|-------------|
    | [**Azure AD 통합**](../azure-sql/database/authentication-aad-overview.md) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 액세스할 수 있는 유효한 Azure Active Directory (Azure AD) id가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD 통합 인증](../azure-sql/database/authentication-aad-overview.md) |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-데이터베이스에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p>- [Azure SQL 보안 개요-인증](../azure-sql/database/security-overview.md#authentication) <br>- [Azure SQL에 대 한 데이터베이스 액세스 권한 부여-인증 및 권한 부여](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
@@ -118,7 +118,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. **인증 유형**에 대해 필요한 인증을 선택 하 고 SQL Server에 사용 하도록 설정 합니다.
 
-   | 인증 | Description |
+   | 인증 | 설명 |
    |----------------|-------------|
    | [**Windows 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -다중 테 넌 트 Azure 또는 ISE를 사용 하는지 여부에 관계 없이 Azure에서 이전에 만든 데이터 게이트웨이 리소스를 필요로 하는 비 ISE SQL Server 커넥터만 지원 합니다. <p><p>-Windows 계정을 통해 id를 확인 하려면 올바른 Windows 사용자 이름 및 암호가 필요 합니다. <p>자세한 내용은 [Windows 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) 을 참조 하세요. |
    | [**SQL Server 인증**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -비 ISE 및 ISE SQL Server 커넥터를 모두 지원 합니다. <p><p>-SQL Server에 생성 되 고 저장 되는 유효한 사용자 이름과 강력한 암호가 필요 합니다. <p>자세한 내용은 [SQL Server 인증](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)을 참조 하세요. |
@@ -130,7 +130,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 1. SQL 데이터베이스에 대해 다음 값을 선택 하거나 제공 합니다.
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **SQL server 이름** | 예 | SQL server의 주소입니다 (예:). `Fabrikam-Azure-SQL.database.windows.net` |
    | **SQL 데이터베이스 이름** | 예 | SQL Server 데이터베이스의 이름입니다 (예:). `Fabrikam-Azure-SQL-DB` |
@@ -214,19 +214,16 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 커넥터에서 모든 결과를 동시에 반환할 수 없을 만큼 너무 큰 결과 집합을 사용하거나 결과 집합의 크기와 구조를 더 효율적으로 제어하려는 경우가 있습니다. 이러한 큰 결과 집합을 처리할 수 있는 몇 가지 방법은 다음과 같습니다.
 
-* 더 작은 집합으로 결과를 관리하는 데 도움이 있도록 *페이지 매김*을 설정합니다. 자세한 내용은 [페이지 매김을 사용하여 대량 데이터, 레코드 및 항목 가져오기](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)를 참조하세요.
+* 더 작은 집합으로 결과를 관리하는 데 도움이 있도록 *페이지 매김*을 설정합니다. 자세한 내용은 [페이지 매김을 사용하여 대량 데이터, 레코드 및 항목 가져오기](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md)를 참조하세요. 자세한 내용은 [Logic Apps를 사용 하 여 대량 데이터 전송에 대 한 SQL 페이지 매김](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)을 참조 하세요.
 
-* 원하는 방식으로 결과를 구성하는 저장 프로시저를 만듭니다.
+* 결과를 원하는 방식으로 구성 하는 [*저장 프로시저*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) 를 만듭니다. Sql 커넥터는 Azure Logic Apps를 사용 하 여 액세스할 수 있는 여러 백 엔드 기능을 제공 하므로 SQL database 테이블로 작업 하는 비즈니스 작업을 보다 쉽게 자동화할 수 있습니다.
 
   여러 행을 가져오거나 삽입하는 경우 논리 앱은 이 [제한](../logic-apps/logic-apps-limits-and-config.md) 내에서 [‘until 루프’](../logic-apps/logic-apps-control-flow-loops.md#until-loop)를 사용하여 이러한 행을 반복할 수 있습니다. 하지만 논리 앱에서 수천 또는 수백만 개의 행과 같이 너무 큰 레코드 집합을 사용하여 데이터베이스에 대한 호출로 인한 비용을 최소화하려는 경우가 있습니다.
 
-  원하는 방식으로 결과를 구성하려면 SQL 인스턴스에서 실행되는 [‘저장 프로시저’](/sql/relational-databases/stored-procedures/stored-procedures-database-engine)를 만들고, **SELECT - ORDER BY** 문을 사용할 수 있습니다. 이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다.
+  원하는 방식으로 결과를 구성하려면 SQL 인스턴스에서 실행되는 ‘저장 프로시저’를 만들고, SELECT - ORDER BY 문을 사용할 수 있습니다. 이 솔루션을 사용하면 결과의 크기와 구조를 더 많이 제어할 수 있습니다. 논리 앱은 SQL Server 커넥터의 **저장 프로시저 실행** 작업을 사용하여 저장 프로시저를 호출합니다. 자세한 내용은 [SELECT-ORDER By 절](/sql/t-sql/queries/select-order-by-clause-transact-sql)을 참조 하세요.
 
-  솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-  * [Logic Apps를 사용한 대량 데이터 전송에 대한 SQL 페이지 매김](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
-
-  * [SELECT - ORDER BY 절](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > 이 커넥터를 사용 하 여 저장 프로시저 실행은 [2 분 미만 제한 시간 제한](/connectors/sql/#known-issues-and-limitations)으로 제한 됩니다. 일부 저장 프로시저는 처리 하는 데이 제한 보다 오래 걸리고 `504 TIMEOUT` 오류가 발생 합니다. 실제로 일부 장기 실행 프로세스는 이러한 용도로 명시적으로 저장 프로시저로 코딩 됩니다. Azure Logic Apps에서 이러한 프로시저를 호출 하면 제한 시간 제한으로 인해 문제가 발생할 수 있습니다. SQL connector는 기본적으로 비동기 모드를 지원 하지 않지만 [Azure 탄력적 작업 에이전트](../azure-sql/database/elastic-jobs-overview.md)를 사용 하 여 sql 완료 트리거, 네이티브 sql 통과 쿼리, 상태 테이블 및 서버 쪽 작업을 사용 하 여이 모드를 시뮬레이션할 수 있습니다.
 
 ### <a name="handle-dynamic-bulk-data"></a>동적 대량 데이터 처리
 
@@ -253,13 +250,13 @@ SQL Server 커넥터를 사용 하 여 저장 프로시저를 호출 하는 경�
 
 ## <a name="troubleshoot-problems"></a>문제 해결
 
-일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 몇 가지 예제는 다음과 같습니다.
+* 일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결 하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토 하십시오. 다음은 몇 가지 예입니다.
 
-* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
-* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 

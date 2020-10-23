@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315832"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424063"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -182,7 +182,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
-또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
+또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -578,7 +578,7 @@ Azure 가상 네트워크의 리소스에 직접 액세스 해야 하는 논리 
 
 ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 선택은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다.
 
-또한 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure Active Directory 역할 기반 액세스 제어를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
+또한 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
 
 - [Logic Apps 커넥터 이해](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: 특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행 하도록 허용할 수 있습니다. 이들의 권한을 제어하려면 Azure RBAC(Role-Based Access Control)를 사용합니다. 그러면 Azure 구독의 멤버에게 사용자 지정 또는 기본 제공 역할을 할당할 수 있습니다.
+**지침**: 특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행 하도록 허용할 수 있습니다. 사용자의 권한을 제어 하려면 azure 구독에서 구성원에 사용자 지정 또는 기본 제공 역할을 할당할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 사용 합니다.
 
 - 논리 앱 참가자: 논리 앱을 관리할 수 있지만 앱에 대한 액세스는 변경할 수 없습니다.
 - 논리 앱 운영자: 논리 앱을 읽고 사용하거나 사용하지 않도록 설정할 수는 있지만 편집하거나 업데이트할 수 없습니다.
@@ -883,7 +883,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 비즈니스 운영에 필요한 Logic Apps 관련 된 리소스 이지만 조직에 대 한 위험이 높아질 수 있으며, 자체 가상 머신 및/또는 가상 네트워크 내에서 격리 되 고 Azure 방화벽 또는 네트워크 보안 그룹을 사용 하 여 충분히 안전 하 게 보호 되어야 합니다.
 
-비즈니스 작업을 수행 하는 데 필요한 Logic Apps, 조직에 대 한 위험이 높아질 수 있으므로, 특정 권한 및 RBAC 경계를 포함 하는 별도의 리소스 그룹을 통해 가능한 모든 경우에 격리 해야 합니다.
+비즈니스 작업을 수행 하는 데 필요 하지만 조직에서 더 높은 위험을 초래할 수 있는 Logic Apps, 특정 권한 및 Azure RBAC 경계를 포함 하는 별도의 리소스 그룹을 통해 가능한 한 격리 해야 합니다.
 
 - [가상 네트워크를 만드는 방법](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md) 
 
-- [RBAC를 통해 Logic Apps에 대 한 액세스를 보호 하는 방법](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Azure RBAC를 통해 Logic Apps에 대 한 액세스를 보호 하는 방법](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center 모니터링**: 해당 없음
 

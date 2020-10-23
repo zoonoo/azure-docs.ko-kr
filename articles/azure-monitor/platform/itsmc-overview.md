@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613767"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427314"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -106,6 +106,11 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 ## <a name="using-the-solution"></a>솔루션 사용
    ITSM 커넥터 솔루션을 사용하면 Azure 경고, Log Analytics 경고 및 Log Analytics 로그 레코드에서 작업 항목을 만들 수 있습니다.
 
+## <a name="template-definitions"></a>템플릿 정의
+   ITSM 도구에 정의 된 템플릿을 사용할 수 있는 **작업 항목** 의 형식이 있습니다.
+템플릿을 사용 하면 고객이 작업 그룹의 일부로 정의 된 고정 값에 따라 자동으로 채워질 필드를 정의할 수 있습니다. 이 정의는 ITSM 도구에서 수행 됩니다.
+이러한 경우 "사용자 지정 템플릿 사용" 확인란을 선택 하면 사용자가 작업 그룹의 일부로 정의 된 고정 값에 따라 자동으로 채워지는 필드를 사용할 수 있습니다.
+   
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Azure Alerts에서 ITSM 작업 항목 만들기
 
 ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용하여 Azure 경고를 기반으로 ITSM 도구에서 작업 항목을 만들 수 있습니다.
@@ -133,8 +138,10 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
     ![ITSM 작업 세부 정보](media/itsmc-overview/itsm-action-details.png)
 
 6. 드롭다운 메뉴에서 **작업 항목** 유형을 선택합니다.
-   기존 템플릿을 사용하거나 ITSM 제품에 필요한 필드를 채우도록 선택합니다.
-7. **확인**을 클릭합니다.
+
+7. 기존 템플릿을 사용 하거나 일반 템플릿을 사용 하 고 ITSM 제품에 필요한 필드를 채우도록 선택 합니다.
+
+8. **확인**을 클릭합니다.
 
 Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작업 그룹을 사용합니다. 경고가 트리거되면 작업 항목이 ITSM 도구에 만들어지거나 업데이트됩니다.
 

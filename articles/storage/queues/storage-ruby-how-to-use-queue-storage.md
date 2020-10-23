@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459609"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425471"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "89459609"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Ruby 애플리케이션 만들기
-Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/quickstart-ruby)를 참조하세요.
+Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](/azure/app-service/quickstart-ruby)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>다음 단계
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* [Azure Storage 팀 블로그](/archive/blogs/windowsazurestorage/)
 * GitHub에서 [AZURE SDK For Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리 방문
 
 이 항목에서 다룬 Azure 큐 서비스와 [Service Bus 큐를 사용하는 방법](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure Service Bus 큐를 비교하려면 [Azure Queues 및 Service Bus 큐 - 비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조하세요.

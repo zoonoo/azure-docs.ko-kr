@@ -3,12 +3,12 @@ title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399247"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424107"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 
@@ -22,7 +22,7 @@ ms.locfileid: "91399247"
 
 ## <a name="role-support-for-azure-lighthouse"></a>Azure Lighthouse에 대 한 역할 지원
 
-권한 부여를 정의할 때 각 사용자 계정에는 [RBAC(역할 기반 액세스 제어) 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 중 하나를 할당해야 합니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
+권한 부여를 정의할 때 각 사용자 계정에는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)중 하나를 할당 해야 합니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](../../role-based-access-control/classic-administrators.md)은 지원되지 않습니다.
 
 모든 [기본 제공 역할](../../role-based-access-control/built-in-roles.md) 은 현재 Azure Lighthouse에서 지원 되며, 다음과 같은 경우는 예외입니다.
 

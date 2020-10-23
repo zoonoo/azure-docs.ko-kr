@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369705"
+ms.locfileid: "92426404"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포 하 고 결과를 검토 하는 방법
 
@@ -111,7 +111,7 @@ ms.locfileid: "92369705"
     > [!NOTE]
     > 선택한 Arc 사용 서버에 대 한 배포 일정을 구성 했으면 **검토 + 만들기**를 선택 합니다.
 
-15. 상태 대시보드로 돌아갑니다. **배포** 일정을 선택 하 여 만든 배포 일정을 표시 합니다. 최대 500 일정이 나열 됩니다. 일정이 500 개를 초과 하는 경우 전체 목록을 검토 하려면 [소프트웨어 업데이트 구성-](/rest/api/automation/softwareupdateconfigurations/list) 2019-06-01 버전을 사용 하는 REST API 방법을 참조 하세요.
+15. 상태 대시보드로 돌아갑니다. **배포** 일정을 선택 하 여 만든 배포 일정을 표시 합니다. 최대 500 일정이 나열 됩니다. 일정이 500 개를 초과 하 고 전체 목록을 검토 하려는 경우 [소프트웨어 업데이트 구성-목록](/rest/api/automation/softwareupdateconfigurations/list) REST API 메서드를 참조 하세요. API 버전 2019-06-01 이상을 지정 합니다.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>프로그래밍 방식으로 업데이트 배포 예약
 
