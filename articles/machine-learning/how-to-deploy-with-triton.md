@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998752"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428343"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -30,7 +30,7 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 > Azure Machine Learning에서 배포 하는 데 Triton를 사용 하는 것은 현재 __미리 보기__상태입니다. 미리 보기 기능은 고객 지원에 포함 되지 않을 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
 
 > [!TIP]
-> 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://aka.ms/aml-triton-sample)을 참조 하세요.
+> 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://github.com/Azure/azureml-examples/tree/main/tutorials)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -47,7 +47,7 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 유추 요청은 __점수 매기기 URI__를 사용 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
+* 유추 요청은 __점수 매기기 URI__를 사용 합니다. 예: `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 
@@ -56,7 +56,7 @@ Triton는 *유추에 최적화*된 프레임 워크입니다. Gpu 및 더 비용
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 요청은 **Triton 서버로**전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. `https://myserevice.azureml.net/score`)을 입력합니다.
+* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 

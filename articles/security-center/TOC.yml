@@ -131,10 +131,6 @@
           href: security-center-monitoring.md
         - name: 권장 사항 참조 목록
           href: recommendations-reference.md
-        - name: 네트워크 리소스 사용
-          href: security-center-network-recommendations.md
-        - name: ID 및 액세스 보호
-          href: security-center-identity-access.md
         - name: 보안 권장 사항 관리
           items:
             - name: 권장 사항에 대한 응답 자동화
@@ -142,6 +138,10 @@
               href: workflow-automation.md
             - name: 권장 사항에서 리소스 제외
               href: exempt-resource.md
+        - name: 네트워크 리소스 사용
+          href: security-center-network-recommendations.md
+        - name: ID 및 액세스 보호
+          href: security-center-identity-access.md
     - name: Azure Defender 경고
       items:
         - name: Azure Defender 경고 개요
@@ -170,7 +170,7 @@
         - name: 취약성 검색
           items:
             - name: 머신용 통합 VA 스캐너
-              displayName: 'qualys, vulnerability, arc'
+              displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: BYOL VA 솔루션을 사용하여 VM 검사
               displayName: 'qualys, rapid7, vulnerability'
@@ -179,7 +179,7 @@
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: 특정 취약점 발견 사용 안 함
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, rapid7'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Just-In-Time VM 액세스로 관리 포트 보호
           items:
@@ -187,20 +187,24 @@
               displayName: 'jit, management'
               href: just-in-time-explained.md
             - name: Just-In-Time 액세스 관리
-              displayName: 'jit, management'
+              displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: 통합된 Microsoft Defender for Endpoint 라이선스 사용
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
         - name: 적응형 애플리케이션 제어 관리
+          displayName: 'aac, whitelist, allowlist, reviewgroup'
           href: security-center-adaptive-application.md
         - name: 파일 무결성 모니터링 사용
           items:
             - name: 파일 무결성 모니터링 개요
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring.md
             - name: 파일 무결성 모니터링을 사용하는 기준 비교
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
         - name: 적응형 네트워크 강화 관리
+          displayName: anh
           href: security-center-adaptive-network-hardening.md
         - name: Docker 호스트 강화
           displayName: containers

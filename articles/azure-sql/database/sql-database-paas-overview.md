@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617233"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428309"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,7 @@ Azure SQL Database를 사용하면 중단 중에 비즈니스를 계속 진행�
 
 재해 복구는 데이터 사본이 있는 다른 컴퓨터 또는 컴퓨터 집합이 멀리 떨어져 위치하도록 치명적인 이벤트가 국지적으로만 발생한다고 가정합니다. SQL Server에서 비동기 모드로 실행되는 Always On 가용성 그룹을 사용하면 이 기능을 얻을 수 있습니다. 사용자는 트랜잭션을 커밋하기 전에 복제가 발생할 때까지 기다리지 않으려는 경우가 종종 있기 때문에 계획되지 않은 장애 조치를 수행하면 데이터 손실이 발생할 가능성이 있습니다.
 
-프리미엄 및 중요 비즈니스용 서비스 계층의 데이터베이스는 가용성 그룹의 동기화와 [유사한 것을 이미 수행](high-availability-sla.md#premium-and-business-critical-service-tier-availability)하고 있습니다. 낮은 서비스 계층의 데이터베이스는 [상이하지만 동등한 메커니즘](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability)을 사용하여 스토리지를 통한 중복성을 제공합니다. 기본 제공 논리는 단일 시스템 오류를 방지하는 데 도움이 됩니다. 활성 지역 복제 기능을 사용하면 전체 지역이 제거되는 재해를 방지할 수 있습니다.
+프리미엄 및 중요 비즈니스용 서비스 계층의 데이터베이스는 가용성 그룹의 동기화와 [유사한 것을 이미 수행](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)하고 있습니다. 낮은 서비스 계층의 데이터베이스는 [상이하지만 동등한 메커니즘](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability)을 사용하여 스토리지를 통한 중복성을 제공합니다. 기본 제공 논리는 단일 시스템 오류를 방지하는 데 도움이 됩니다. 활성 지역 복제 기능을 사용하면 전체 지역이 제거되는 재해를 방지할 수 있습니다.
 
 Azure 가용성 영역은 단일 지역 내에서 단일 데이터 센터 빌드가 중단되는 것을 방지하려고 합니다. 이는 빌드에 대한 전원 또는 네트워크의 손실을 방지하는 데 도움이 됩니다. SQL Database에서는 서로 다른 가용 영역(실제로는 다른 건물)에 서로 다른 복제본을 배치합니다.
 
