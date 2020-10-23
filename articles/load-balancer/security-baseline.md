@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940330"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425282"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 Azure 보안 기준
 
@@ -104,7 +104,7 @@ Security Center의 적응 네트워크 강화 기능을 사용 하 여 실제 �
 
 - [위협 방지 및 Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
 
-- [Just-in-time 액세스를 사용 하 여 관리 포트 보호](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Just-In-Time 액세스를 사용하여 관리 포트 보호](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
 - [Azure Security Center의 적응 네트워크 강화](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
 
@@ -402,7 +402,7 @@ Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 사용 하 �
 
 **지침**: Azure RBAC를 사용 하 여 Load Balancer 리소스에 대 한 액세스를 제어 합니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Azure Security Center 모니터링**: 예
 

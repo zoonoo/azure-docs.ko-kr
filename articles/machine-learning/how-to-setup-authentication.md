@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729035"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424988"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정
 
@@ -28,7 +28,7 @@ Azure Machine Learning 작업 영역을 인증 하 고 웹 서비스로 배포 �
 * __대화형__: Azure Active Directory에서 계정을 사용 하 여 직접 인증 하거나 인증에 사용 되는 토큰을 가져옵니다. 대화형 인증은 실험 및 반복적인 개발 중에 사용 됩니다. 또는 사용자 별로 리소스 (예: 웹 서비스)에 대 한 액세스를 제어 하려는 경우.
 * __서비스 사용자__: Azure Active Directory에서 서비스 사용자 계정을 만들고이 계정을 사용 하 여 인증 하거나 토큰을 가져옵니다. 서비스 주체는 사용자 상호 작용 없이 서비스에 인증 하는 자동화 된 프로세스가 필요한 경우에 사용 됩니다. 예를 들어 학습 코드가 변경 될 때마다 모델을 학습 하 고 테스트 하는 연속 통합 및 배포 스크립트입니다. 또한 서비스 주체를 사용 하 여 서비스의 최종 사용자가 인증 하지 않으려는 경우 웹 서비스에 인증 하는 토큰을 검색할 수 있습니다. 또는 Azure Active Directory를 사용 하 여 최종 사용자 인증을 직접 수행 하지 않습니다.
 
-사용 된 인증 유형에 관계 없이 RBAC (역할 기반 액세스 제어)를 사용 하 여 리소스에 허용 되는 액세스 수준 범위를 지정할 수 있습니다. 예를 들어 배포 된 모델에 대 한 액세스 토큰을 가져오는 데 사용 되는 계정에는 작업 영역에 대 한 읽기 액세스만 필요 합니다. RBAC에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
+사용 된 인증 유형에 관계 없이 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 리소스에 허용 되는 액세스 수준 범위를 지정할 수 있습니다. 예를 들어 배포 된 모델에 대 한 액세스 토큰을 가져오는 데 사용 되는 계정에는 작업 영역에 대 한 읽기 액세스만 필요 합니다. Azure RBAC에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

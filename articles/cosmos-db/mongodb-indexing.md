@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282365"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425030"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
 
@@ -40,7 +40,10 @@ MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스 (MongoDB server 버전 3.6)
 
-Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. **MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다.** 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다.
+Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
+
+> [!NOTE]
+> 중첩 된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
 
 다음 명령은 및 필드에 복합 인덱스를 만듭니다 `name` `age` .
 
@@ -50,7 +53,7 @@ Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 �
 
 `db.coll.find().sort({name:1,age:1})`
 
-앞의 복합 인덱스를 사용 하 여 모든 필드에서 정렬 순서가 반대인 쿼리를 효율적으로 정렬할 수도 있습니다. 예는 다음과 같습니다.
+앞의 복합 인덱스를 사용 하 여 모든 필드에서 정렬 순서가 반대인 쿼리를 효율적으로 정렬할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -59,7 +62,7 @@ Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 �
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> 중첩 된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
+> 복합 인덱스는 결과를 정렬 하는 쿼리에만 사용 됩니다. 정렬할 필요가 없는 여러 필터가 있는 쿼리의 경우 다중 pe 단일 필드 인덱스를 만듭니다.
 
 ### <a name="multikey-indexes"></a>Multikey 인덱스
 
@@ -75,7 +78,7 @@ Azure Cosmos DB는 배열에 저장 된 콘텐츠를 인덱싱하는 여러 키 
 
 ### <a name="text-indexes"></a>텍스트 인덱스
 
-Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 않습니다. 문자열에 대 한 텍스트 검색 쿼리를 사용 하려면 Azure Cosmos DB와 [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) 통합을 사용 해야 합니다.
+Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 않습니다. 문자열에 대 한 텍스트 검색 쿼리를 사용 하려면 Azure Cosmos DB와 [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) 통합을 사용 해야 합니다. 
 
 ## <a name="wildcard-indexes"></a>와일드 카드 인덱스
 
@@ -131,7 +134,10 @@ Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 �
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-개발을 시작할 때 모든 필드에 와일드 카드 인덱스를 만드는 것이 유용할 수 있습니다. 문서에 더 많은 속성이 인덱싱되 면 문서를 작성 하 고 업데이트 하는 데 필요한 부담 (요청 단위) 요금은 늘어납니다. 따라서 쓰기 작업이 많은 경우에는 와일드 카드 인덱스를 사용 하는 대신 개별적으로 경로를 인덱싱합니다.
+> [!NOTE]
+> 개발을 시작 하는 경우 모든 필드에서 와일드 카드 인덱스를 사용 하 여 시작 하는 **것이 좋습니다** . 이를 통해 개발을 간소화 하 고 쿼리를 보다 쉽게 최적화할 수 있습니다.
+
+많은 필드가 있는 문서는 쓰기 및 업데이트에 대 한 높은 수준의 (요청 단위) 요금이 부과 될 수 있습니다. 따라서 쓰기 작업이 많은 경우에는 와일드 카드 인덱스를 사용 하는 대신 개별적으로 경로를 인덱싱합니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -335,7 +341,7 @@ MongoDB에 대 한 Azure Cosmos DB의 API 버전 3.6은 `currentOp()` 데이터�
 
 ## <a name="indexing-for-mongodb-version-32"></a>MongoDB 버전 3.2에 대 한 인덱싱
 
-사용 가능한 인덱싱 기능 및 기본값은 MongoDB 유선 프로토콜의 3.2 버전과 호환 되는 Azure Cosmos 계정에 대해 다릅니다. [계정 버전을 확인할](mongodb-feature-support-36.md#protocol-support)수 있습니다. [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 3.6 버전으로 업그레이드할 수 있습니다.
+사용 가능한 인덱싱 기능 및 기본값은 MongoDB 유선 프로토콜의 3.2 버전과 호환 되는 Azure Cosmos 계정에 대해 다릅니다. [계정의 버전을 확인](mongodb-feature-support-36.md#protocol-support) 하 고 [3.6 버전으로 업그레이드할](mongodb-version-upgrade.md)수 있습니다.
 
 버전 3.2을 사용 하는 경우이 섹션에서는 버전 3.6의 주요 차이점에 대해 간략하게 설명 합니다.
 
@@ -352,11 +358,11 @@ MongoDB에 대 한 Azure Cosmos DB API의 3.6 버전과 달리 버전 3.2은 기
 
 ### <a name="compound-indexes-version-32"></a>복합 인덱스 (버전 3.2)
 
-복합 인덱스는 문서의 여러 필드에 대한 참조를 유지합니다. 복합 인덱스를 만들려는 경우 [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 버전 3.6으로 업그레이드 합니다.
+복합 인덱스는 문서의 여러 필드에 대한 참조를 유지합니다. 복합 인덱스를 만들려면 [버전 3.6으로 업그레이드](mongodb-version-upgrade.md)합니다.
 
 ### <a name="wildcard-indexes-version-32"></a>와일드 카드 인덱스 (버전 3.2)
 
-와일드 카드 인덱스를 만들려면 [지원 요청](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출 하 여 버전 3.6으로 업그레이드 합니다.
+와일드 카드 인덱스를 만들려면 [버전 3.6으로 업그레이드](mongodb-version-upgrade.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

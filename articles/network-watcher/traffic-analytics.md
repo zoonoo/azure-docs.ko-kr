@@ -13,12 +13,12 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7a5157c955a51215a9e62711ebb7838b61fda496
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951590"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424262"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -164,7 +164,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ### <a name="user-access-requirements"></a>사용자 액세스 요구 사항
 
-계정은 다음 Azure [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 중 하나의 구성원이어야 합니다.
+계정은 다음 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)중 하나의 구성원 이어야 합니다.
 
 |배포 모델   | 역할                   |
 |---------          |---------               |

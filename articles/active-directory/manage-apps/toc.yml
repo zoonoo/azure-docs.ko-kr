@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: SAML 기반 Single Sign-On 문제 해결
           href: troubleshoot-saml-based-sso.md
+        - name: SAML 기반 Single Sign-On 디버그
+          href: debug-saml-sso-issues.md
         - name: 사용자 로그인 문제 해결
           items:
             - name: 예기치 않은 동의 확인 프롬프트

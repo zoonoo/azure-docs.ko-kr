@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150937"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425118"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경에 적합 한 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정&#39;이제는 잠재적 디자인 패턴을 탐색 하는 것&#39;이 좋습니다.
@@ -184,7 +184,7 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 
 디지털 길잡이가 지 원하는 항목에 대 한 정확한 기대를 설정 하 여 암시적으로 공개를 구현할 수 있습니다. 사용자가 디지털 길잡이와 상호 작용 하는 방법을 배울 수 있도록 샘플 명령을 제공 하 고, 경험의 초기 단계에서 가상 음성에 대 한 자세한 정보를 제공 하는 상황에 맞는 도움말을 제공 합니다.
 
-![시각적 신호 및 피드백](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![사용자가 만들 수 있는 대화에 대 한 기본 응답의 예입니다.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>대화형 투명도
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267638"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424750"
 ---
 # <a name="scenario-isolating-vnets"></a>시나리오: Vnet 격리
 
@@ -24,12 +24,12 @@ ms.locfileid: "91267638"
 
 이 시나리오에서는 특정 VNet 내의 워크 로드가 격리 된 상태를 유지 하 고 다른 Vnet와 통신할 수 없습니다. 그러나 Vnet는 모든 분기 (VPN, ER 및 사용자 VPN)에 도달 하는 데 필요 합니다. 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음 표와 같습니다.
 
-| From |   받는 사람 |  *Vnet* | *분기* |
+| From |   대상 |  *Vnet* | *분기* |
 | -------------- | -------- | ---------- | ---|
-| VNet     | &#8594;|           |     X    |
-| 분기   | &#8594;|    X     |     X    |
+| VNet     | &#8594;| 직접 |   직접    |
+| 분기   | &#8594;|  직접  |   직접    |
 
-위의 표에 나와 있는 각 셀은 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "보낸 사람" 쪽, 행 머리글)가 대상 접두사 (흐름의 "대상" 쪽, 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. 여기서 "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
+위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상 접두사 (흐름의 "To" 쪽, 즉 열 머리글이 이탤릭체 인 경우)와 통신 하는지 여부를 설명 합니다. 이 시나리오에는 방화벽이 나 네트워크 가상 어플라이언스가 없으므로 통신이 가상 WAN을 통해 직접 흐릅니다 (따라서 테이블의 "Direct" 라는 단어).
 
 이 연결 매트릭스는 두 개의 서로 다른 행 패턴을 제공 하며 두 개의 경로 테이블로 변환 됩니다. 가상 WAN에는 이미 기본 경로 테이블이 있으므로 다른 경로 테이블이 필요 합니다. 이 예에서는 경로 테이블의 이름을 **RT_VNET**로 합니다.
 

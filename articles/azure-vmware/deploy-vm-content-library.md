@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러�
 description: Azure VMware 솔루션 사설 클라우드에 VM을 배포 하는 콘텐츠 라이브러리를 만듭니다.
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 3a1b0a091dcdf9a225b4bf91ec83f542c2310285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575808"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461688"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "91575808"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 NSX 논리 스위치 세그먼트 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [Azure VMWare 솔루션에서 DHCP를 관리 하는 방법](manage-dhcp.md) 문서를 참조 하세요.
+이 자습서를 완료하려면 NSX 논리 스위치 세그먼트 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [Azure VMware 솔루션에서 DHCP를 관리 하는 방법](manage-dhcp.md) 문서를 참조 하세요.
 
 ## <a name="create-a-content-library"></a>콘텐츠 라이브러리 만들기
 
@@ -92,7 +92,7 @@ ms.locfileid: "91575808"
 
 ## <a name="next-steps"></a>다음 단계
 
-HCX(Hybrid Cloud Extension)를 사용하여 VM 워크로드를 프라이빗 클라우드로 마이그레이션할 계획이라면 [Azure VMware Solution용 HCX 설치](tutorial-deploy-vmware-hcx.md) 절차를 사용하세요.
+VMware HCX를 사용 하 여 VM 워크 로드를 사설 클라우드로 마이그레이션하려면 [VMWARE Hcx 배포 및 구성](tutorial-deploy-vmware-hcx.md) 절차를 사용 합니다.
 
 <!-- LINKS - external-->
 

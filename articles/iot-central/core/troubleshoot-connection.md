@@ -7,12 +7,13 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 34a9350f830171a137ca3a63ecae2203edec92b2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.custom: device-developer
+ms.openlocfilehash: 6438b938dc007e8d157f6549b3ed164cd2a723e8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127372"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424473"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
 
@@ -131,7 +132,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | 장치 프로 비전 상태 | 설명 | 가능한 완화 방법 |
 | - | - | - |
-| 프로비전됨 | 바로 인식할 때 문제가 없습니다. | N/A |
+| 프로비전됨 | 바로 인식할 때 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 장치가 IoT Central에 아직 연결 되지 않았습니다. | 연결 문제에 대 한 장치 로그를 확인 합니다. |
 | 차단 | 장치가 IoT Central에 연결 되지 못하도록 차단 되었습니다. | 장치가 IoT Central 응용 프로그램에 대 한 연결을 차단 합니다. IoT Central에서 장치 차단을 해제 하 고 다시 시도 하세요. 자세히 알아보려면 [장치 차단](concepts-get-connected.md#device-status-values)을 참조 하세요. |
 | 안 | 장치가 승인 되지 않았습니다. | 장치가 IoT Central 응용 프로그램에 연결 하도록 승인 되지 않았습니다. IoT Central에서 장치를 승인한 후 다시 시도 하세요. 자세히 알아보려면 [장치 승인](concepts-get-connected.md#connect-without-registering-devices) 을 참조 하세요. |

@@ -28,6 +28,11 @@
     - name: 관리 그룹 만들기 - REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md
+- name: 자습서
+  items:
+    - name: '학습: 구독 거버넌스 전략 만들기'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/3-create-subscription-governance-strategy
 - name: 방법 가이드
   expanded: true
   items:

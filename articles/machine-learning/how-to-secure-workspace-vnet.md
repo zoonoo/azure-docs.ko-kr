@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776048"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425001"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
 
@@ -43,12 +43,12 @@ ms.locfileid: "91776048"
 
 + 계산 리소스에 사용할 기존 가상 네트워크 및 서브넷
 
-+ 가상 네트워크 또는 서브넷에 리소스를 배포 하려면 사용자 계정에 Azure 역할 기반 액세스 제어 (RBAC)에서 다음 작업을 수행할 수 있는 권한이 있어야 합니다.
++ 가상 네트워크 또는 서브넷에 리소스를 배포 하려면 사용자 계정에 azure 역할 기반 액세스 제어 (Azure RBAC)에서 다음 작업에 대 한 사용 권한이 있어야 합니다.
 
     - 가상 네트워크 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
     - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
 
-    네트워크를 사용 하는 RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
+    네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>개인 끝점을 사용 하 여 작업 영역 보호

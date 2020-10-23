@@ -67,6 +67,8 @@
       items:
         - name: 원격 파일 REST 인코딩 및 스트리밍
           href: stream-files-tutorial-with-rest.md
+        - name: Media Services를 사용하는 고객 관리형 키
+          href: tutorial-byok.md
     - name: CLI
       items:
         - name: 원격 파일 CLI 인코딩 및 스트리밍
@@ -175,6 +177,8 @@
         - name: 동적 암호화 및 키 전달
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: 고객 관리 키
+          href: concept-use-customer-managed-keys-byok.md
         - name: 다중 DRM 시스템 디자인
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

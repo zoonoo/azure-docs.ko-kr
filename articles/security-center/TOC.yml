@@ -191,6 +191,9 @@
             - name: Just-In-Time 액세스 관리
               displayName: 'jit, management'
               href: security-center-just-in-time.md
+        - name: 통합된 Microsoft Defender for Endpoint 라이선스 사용
+          displayName: 'ATP, mdatp, wdatp'
+          href: security-center-wdatp.md
         - name: 적응형 애플리케이션 제어 관리
           href: security-center-adaptive-application.md
         - name: 파일 무결성 모니터링 사용
@@ -201,8 +204,6 @@
               href: security-center-file-integrity-monitoring-baselines.md
         - name: 적응형 네트워크 강화 관리
           href: security-center-adaptive-network-hardening.md
-        - name: Microsoft Defender ATP 통합
-          href: security-center-wdatp.md
         - name: Docker 호스트 강화
           displayName: containers
           href: harden-docker-hosts.md

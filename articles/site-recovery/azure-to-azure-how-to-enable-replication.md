@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135772"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424799"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Azure VM을 다른 Azure 지역에 복제
 
@@ -36,10 +36,10 @@ ms.locfileid: "86135772"
    - **원본 구독**: 원본 vm이 속한 구독입니다. 복구 서비스 자격 증명 모음이 있는 동일한 Azure Active Directory 테넌트 내에 있는 구독일 수 있습니다.
    - **리소스 그룹**: 원본 가상 머신이 속해 있는 리소스 그룹입니다. 선택한 리소스 그룹 아래의 모든 VM은 다음 단계에서 보호를 위해 나열됩니다.
 
-     ![복제 사용](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![복제를 구성 하는 데 필요한 필드를 강조 표시 하는 스크린샷](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 3. **Virtual Machines > 가상 컴퓨터를 선택**하 고 복제 하려는 각 VM을 클릭 하 여 선택 합니다. 복제를 활성화할 수 있는 컴퓨터만 선택할 수 있습니다. 그런 후 **OK**를 클릭합니다.
-    ![복제 활성화](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![가상 컴퓨터를 선택 하는 위치를 강조 표시 하는 스크린샷](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. **설정**에서 대상 사이트 설정을 선택적으로 구성할 수 있습니다.
 
@@ -101,7 +101,7 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
     - **가용성 집합**에서 가용성 집합 설정이 원본 지역 가용성 집합의 일부인 경우 VM에 가용성 집합 설정을 추가할 수 있습니다.
     - **대상 스토리지 계정**에서 사용할 계정을 선택합니다.
 
-        ![복제 사용](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![대상 구독 설정을 사용자 지정 하는 방법을 보여 주는 스크린샷](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. **사용자 지정**을 클릭하여 복제 설정을 수정합니다.
 4. **다중 VM 일관성**에서 함께 복제 하려는 vm을 선택 합니다.
     - 복제 그룹의 모든 컴퓨터는 장애 조치(failover) 시에 충돌 일치/앱 일치 복구 지점을 공유합니다.
@@ -111,7 +111,7 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
     - 다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다.
     - 20004 포트를 통한 Vm 간의 내부 통신을 차단 하는 방화벽 어플라이언스를 확인 합니다.
     - Linux Vm이 복제 그룹의 일부가 되도록 하려면 특정 Linux 버전에 대 한 지침에 따라 포트 20004의 아웃 바운드 트래픽을 수동으로 열어야 합니다.
-![복제 활성화](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+![다중 VM 일관성 설정을 보여 주는 스크린샷](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. **대상 리소스 만들기**  >  **복제 사용**을 클릭 합니다.
 6. VM이 복제에 대해 사용하도록 설정된 후 **복제된 항목**에서 VM 상태를 확인할 수 있습니다.

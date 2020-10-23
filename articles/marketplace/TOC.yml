@@ -111,6 +111,16 @@
           href: marketplace-virtual-machines.md
         - name: VM 제품 만들기 및 게시
           items:
+            - name: VM 제품 만들기
+              href: azure-vm-create.md
+            - name: VM 제품 속성 구성
+              href: azure-vm-create-properties.md
+            - name: VM 제품 목록 구성
+              href: azure-vm-create-listing.md
+            - name: VM 계획 만들기
+              href: azure-vm-create-plans.md
+            - name: 미리 보기 대상 추가
+              href: azure-vm-create-preview.md
             - name: VM 기술 자산 만들기
               items:
                 - name: 승인된 베이스에서 VM 만들기
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: VM 인증 문제 해결
                   href: azure-vm-create-certification-faq.md
-            - name: VM 제품 만들기
-              href: azure-vm-create.md
-            - name: VM 제품 속성 구성
-              href: azure-vm-create-properties.md
-            - name: VM 제품 목록 구성
-              href: azure-vm-create-listing.md
-            - name: VM 계획 만들기
-              href: azure-vm-create-plans.md
-            - name: 미리 보기 대상 추가
-              href: azure-vm-create-preview.md
     - name: 컨설팅 서비스
       items:
         - name: 컨설팅 서비스 제품 계획

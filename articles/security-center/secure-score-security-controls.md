@@ -11,49 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 24e10dad6a4b9a6232ce74b5365d9a9df7860079
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339937"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425374"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
 ## <a name="introduction-to-secure-score"></a>보안 점수 소개
 
-Azure Security Center에는 현재 보안 상황을 이해하고 효과적이고 효율적으로 보안을 개선하도록 지원한다는 두 가지 주요 목표가 있습니다. 이러한 목표를 달성할 수 있도록 하는 Security Center의 핵심적인 측면은 보안 점수입니다.
+Azure Security Center에는 두 가지 주요 목표가 있습니다. 
+
+- 현재 보안 상황을 이해 하는 데 도움을 줍니다.
+- 효율적이 고 효과적으로 보안을 개선 하는 데 도움이 됩니다.
+
+이러한 목표를 달성 하는 데 사용할 수 있는 Security Center의 중앙 기능은 **보안 점수**입니다.
 
 Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으로 평가합니다. 그런 다음, 현재 보안 상황을 한눈에 파악할 수 있도록 모든 결과를 단일 점수에 집계합니다. 즉, 점수가 높을수록 식별된 위험 수준은 낮습니다.
 
-Security Center의 보안 점수 페이지에는 다음이 포함됩니다.
+보안 점수는 Azure Portal 페이지에 백분율 값으로 표시 되지만 기본 값도 명확 하 게 표시 됩니다.
 
-- **점수** - 보안 점수는 백분율 값으로 표시되지만 기본 값도 명확히 표시됩니다.
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="포털에 표시 된 전체 보안 점수":::
 
-    [![명확한 기본 수치를 포함하는 백분율 값으로 표시되는 보안 점수](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+보안을 강화 하려면 점수를 올리는 데 필요한 처리 중인 작업에 대해 Security Center의 권장 사항 페이지를 검토 합니다. 각 권장 사항에는 특정 문제를 해결 하는 데 도움이 되는 지침이 포함 되어 있습니다.
 
-- **보안 컨트롤** - 각 컨트롤은 관련된 보안 권장 사항의 논리적 그룹으로, 취약한 공격 노출 영역을 반영합니다. 컨트롤은 이러한 권장 사항을 구현하는 데 도움이 되는 지침을 포함하는 보안 권장 사항 세트입니다. 점수는 컨트롤 내의 단일 리소스에 대한 *모든* 권장 사항에 따라 수정해야만 향상됩니다.
+권장 사항은 **보안 제어**로 그룹화 됩니다. 각 컨트롤은 관련 된 보안 권장 사항의 논리적 그룹 이며 취약 한 공격 노출 영역을 반영 합니다. 점수는 컨트롤 내의 단일 리소스에 대한 *모든* 권장 사항에 따라 수정해야만 향상됩니다. 조직이 각 개별 공격 노출 영역을 얼마나 잘 보호 하 고 있는지 확인 하려면 각 보안 제어의 점수를 검토 합니다.
 
-    조직이 각 개별 공격 노출 영역을 얼마나 잘 보호하고 있는지 즉시 확인하려면 각 보안 컨트롤의 점수를 검토합니다.
-
-    자세한 내용은 아래의 [보안 점수를 계산 하는 방법](secure-score-security-controls.md#how-your-secure-score-is-calculated) 을 참조 하세요. 
-
-
->[!TIP]
-> 권장 사항 수준에서 이전 버전의 Security Center 제안 사항: 단일 리소스에 대 한 권장 사항에 따라 수정하면 보안 점수가 향상됩니다. 현재, 점수는 컨트롤 내의 단일 리소스에 대한 *모든* 권장 사항에 따라 수정해야만 향상됩니다. 따라서 리소스의 보안이 향상된 경우에만 점수가 향상됩니다.
+자세한 내용은 아래의 [보안 점수를 계산 하는 방법](secure-score-security-controls.md#how-your-secure-score-is-calculated) 을 참조 하세요. 
 
 
 ## <a name="access-your-secure-score"></a>보안 점수 액세스
 
-Azure Portal 또는 Azure Security Center REST API를 사용 하 여 프로그래밍 방식으로 전체 보안 점수 뿐만 아니라 구독 당 점수를 확인할 수 있습니다.
+다음 섹션에 설명 된 대로 Azure Portal를 통해 또는 프로그래밍 방식으로 전체 보안 점수 뿐만 아니라 구독 당 점수를 확인할 수 있습니다.
+
+- [포털에서 보안 점수 얻기](#get-your-secure-score-from-the-portal)
+- [REST API에서 보안 점수 얻기](#get-your-secure-score-from-the-rest-api)
+- [Azure 리소스 그래프 (ARG)에서 보안 점수 가져오기](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### <a name="get-your-secure-score-from-the-portal"></a>포털에서 보안 점수 얻기
 
-Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개요 페이지에 표시 되는 첫 번째 항목입니다. 전용 보안 점수 페이지를 클릭하면 구독별로 분석된 점수를 볼 수 있습니다. 단일 구독을 클릭하여 우선 순위가 지정된 권장 사항의 세부 목록과 이러한 권장 사항에 따라 수정할 때 구독의 점수에 미치는 영향을 확인할 수 있습니다.
+Security Center는 포털에서 점수를 두드러지게 표시 합니다. Security Center 개요 페이지의 첫 번째 주 타일입니다. 이 타일을 선택 하면 전용 보안 점수 페이지로 이동 하 여 구독 별로 세분화 된 점수를 볼 수 있습니다. 단일 구독을 선택 하 여 우선 순위가 지정 된 권장 사항의 세부 목록과 구독의 점수를 수정 하 게 될 잠재적 영향을 확인 합니다.
 
-![포털에 표시 된 전체 보안 점수](media/secure-score-security-controls/single-secure-score-via-ui.png)
+Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표시 됩니다.
+
+- Security Center **개요** 의 타일 (주 대시보드):
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="포털에 표시 된 전체 보안 점수":::
+
+- 전용 **보안 점수** 페이지에서 다음을 수행 합니다.
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="포털에 표시 된 전체 보안 점수":::
+
+- **권장 사항** 페이지의 맨 위에:
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="포털에 표시 된 전체 보안 점수":::
+
+
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
 
@@ -62,6 +79,40 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 ![API를 통해 단일 보안 점수 검색](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 보안 점수 API를 기반으로 하는 도구에 대 한 예제는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조 하세요. 
+
+
+
+### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Azure 리소스 그래프 (ARG)에서 보안 점수 가져오기
+
+Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 정렬 기능을 통해 클라우드 환경에서 리소스 정보에 즉시 액세스할 수 있습니다. Azure 구독 간에 프로그래밍 방식으로 또는 Azure Portal 내에서 정보를 쿼리하는 빠르고 효율적인 방법입니다. [Azure 리소스 그래프에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+인수를 사용 하 여 여러 구독의 보안 점수에 액세스 하려면:
+
+1. Azure Portal에서 **Azure 리소스 그래프 탐색기**를 엽니다.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="포털에 표시 된 전체 보안 점수" :::
+
+1. (지침을 보려면 아래 예제를 사용 하 여) Kusto 쿼리를 입력 합니다.
+
+    - 이 쿼리는 구독 ID, 점의 현재 점수 및 백분율을 반환 하 고 구독의 최대 점수를 반환 합니다. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - 이 쿼리는 모든 보안 컨트롤의 상태를 반환 합니다. 각 컨트롤에 대해 비정상 리소스의 수, 현재 점수 및 최대 점수를 얻을 수 있습니다. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. **쿼리 실행**을 선택 합니다.
 
 ## <a name="how-your-secure-score-is-calculated"></a>보안 점수를 계산 하는 방법 
 
@@ -99,7 +150,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 
 미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="포털에 표시 된 전체 보안 점수":::
 
 ## <a name="improve-your-secure-score"></a>보안 점수 향상
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85412586"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461790"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
 
@@ -33,7 +33,12 @@ ms.locfileid: "85412586"
 
 ### <a name="rest-api"></a>REST API
 
-응용 프로그램에서 REST API 사용 하는 경우 감정 분석을 위해 해당 요청 끝점을 v3 끝점으로 업데이트 합니다. 예를 들면와 같습니다 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . [JSON 응답](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results)에서 반환 된 감정 레이블을 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다. 
+응용 프로그램에서 REST API 사용 하는 경우 감정 분석을 위해 해당 요청 끝점을 v3 끝점으로 업데이트 합니다. 예를 들면와 같습니다 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . [API의 응답](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results)에서 반환 된 감정 레이블을 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다. 
+
+JSON 응답의 예제는 참조 설명서를 참조 하세요.
+* [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+* [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
+* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -60,7 +65,12 @@ ms.locfileid: "85412586"
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-[JSON 응답](how-tos/text-analytics-how-to-entity-linking.md#view-results)에서 반환 된 [엔터티 범주](named-entity-types.md) 를 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다.
+[API의 응답](how-tos/text-analytics-how-to-entity-linking.md#view-results)에 반환 된 [엔터티 범주](named-entity-types.md) 를 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다.
+
+JSON 응답의 예제는 참조 설명서를 참조 하세요.
+* [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+* [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
+* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -77,7 +87,12 @@ NER
 
 ### <a name="rest-api"></a>REST API
 
-응용 프로그램에서 REST API 사용 하는 경우 언어 검색을 위해 해당 요청 끝점을 v3 끝점으로 업데이트 합니다. 예를 들면와 같습니다 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . `ConfidenceScore` `score` [JSON 응답](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results)대신을 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다. 
+응용 프로그램에서 REST API 사용 하는 경우 언어 검색을 위해 해당 요청 끝점을 v3 끝점으로 업데이트 합니다. 예를 들면와 같습니다 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . `ConfidenceScore`API의 응답 대신을 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다 `score` . [API's response](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results) 
+
+JSON 응답의 예제는 참조 설명서를 참조 하세요.
+* [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
+* [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -96,6 +111,11 @@ NER
 
 응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
+JSON 응답의 예제는 참조 설명서를 참조 하세요.
+* [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
+* [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
+
 ### <a name="client-libraries"></a>클라이언트 라이브러리
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
@@ -105,7 +125,6 @@ NER
 
 ## <a name="see-also"></a>참고 항목
 
-* [텍스트 분석 API v2 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [Text Analytics API란?](overview.md)
 * [언어 지원](language-support.md)
 * [모델 버전 관리](concepts/model-versioning.md)

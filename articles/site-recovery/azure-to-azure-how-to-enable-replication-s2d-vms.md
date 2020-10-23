@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135763"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424829"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>스토리지 공간 다이렉트 실행 중인 Azure Vm을 다른 지역에 복제
 
@@ -49,12 +49,12 @@ ms.locfileid: "86135763"
 1. 애플리케이션 일관성이 해제*된 복제 정책을 선택합니다(크래시 일관성 지원만 사용 가능).
 1. 복제를 사용하도록 설정합니다.
 
-   ![storagespacesdirect 보호](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![복제 설정을 구성할 위치를 보여 주는 스크린샷](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. 복제된 항목으로 이동합니다. 그러면 두 가상 머신 상태가 모두 표시됩니다.
 3. 두 가상 머신이 모두 보호되고 있으며 다중 VM 일관성 그룹의 멤버로도 표시됩니다.
 
-   ![storagespacesdirect 보호](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![가상 컴퓨터가 보호 되 고 다중 VM 일관성 그룹의 일부가 표시 되는 스크린샷](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>복구 계획 만들기
 복구 계획은 장애 조치(failover) 시에 다중 계층 애플리케이션에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 애플리케이션의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 애플리케이션에 대한 복구 계획을 생성할 때는 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명하는 단계를 수행합니다.

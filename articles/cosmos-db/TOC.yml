@@ -86,7 +86,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure 리소스 관리자
-      href: resource-manager-samples.md
+      href: templates-samples-sql.md
 - name: 개념
   items:
     - name: NoSQL 및 관계형 데이터베이스
@@ -99,31 +99,17 @@
         - name: 일관성 수준
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: consistency-levels.md
-        - name: 올바른 일관성 수준 선택
-          displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
-          href: consistency-levels-choosing.md
-        - name: 일관성 수준 및 Azure Cosmos DB API
-          href: consistency-levels-across-apis.md
-        - name: '일관성, 가용성 및 성능의 장단점'
-          href: consistency-levels-tradeoffs.md
         - name: 고가용성
           href: high-availability.md
-        - name: 전역적으로 프로비전된 처리량 크기 조정
-          displayName: 'request units, RUs, RU'
-          href: scaling-throughput.md
         - name: 충돌 유형 및 해결 정책
           displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: 글로벌 배포 - 내부 살펴보기
           href: global-dist-under-the-hood.md
-        - name: 지역 존재
-          href: regional-presence.md
     - name: 분할
       items:
-        - name: 분할 개요
-          href: partitioning-overview.md
         - name: 분할 및 수평 확장
-          href: partition-data.md
+          href: partitioning-overview.md
         - name: 가상 파티션 키
           href: synthetic-partition-keys.md
     - name: 용량
@@ -389,6 +375,9 @@
                     - name: LTRIM
                       displayName: 'LTRIM, left trim, built-in functions'
                       href: sql-query-ltrim.md
+                    - name: REGEXMATCH
+                      displayName: 'REGEXMATCH, built-in functions'
+                      href: sql-query-regexmatch.md
                     - name: REPLACE
                       displayName: 'REPLACE, built-in functions'
                       href: sql-query-replace.md
@@ -486,13 +475,11 @@
         - name: LINQ to SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
-    - name: Azure Cosmos 계정 작업
-      href: account-overview.md
+    - name: Azure Cosmos DB 리소스 모델
+      displayName: 'collection, document'
+      href: account-databases-containers-items.md
     - name: 컨테이너 및 항목
       items:
-        - name: '데이터베이스, 컨테이너 및 항목 작업'
-          displayName: 'collection, document'
-          href: databases-containers-items.md
         - name: 모델 문서 데이터
           displayName: document
           href: modeling-data.md
@@ -564,12 +551,11 @@
         - name: 프로비전된 처리량 비용 최적화
           displayName: 'request units, RUs, RU'
           href: optimize-cost-throughput.md
-        - name: 쿼리 비용 최적화
-          href: optimize-cost-queries.md
+        - name: 요청 비용 최적화
+          displayName: 'request, cost, read, write, query, queries, RUs, RU'
+          href: optimize-cost-reads-writes.md
         - name: 스토리지 비용 최적화
           href: optimize-cost-storage.md
-        - name: 읽기 및 쓰기 비용 최적화
-          href: optimize-cost-reads-writes.md
         - name: 다중 지역 비용 최적화
           href: optimize-cost-regions.md
         - name: 개발/테스트 비용 최적화
@@ -586,11 +572,6 @@
         - name: 데이터에 안전하게 액세스
           displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
-        - name: IP 방화벽
-          href: firewall-support.md
-        - name: 가상 네트워크에서 액세스
-          displayName: service endpoint
-          href: vnet-service-endpoint.md
         - name: 서비스 태그
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: 역할 기반 액세스 제어
@@ -605,8 +586,6 @@
           href: security-baseline.md
     - name: 엔터프라이즈 준비
       items:
-        - name: 온라인 백업 및 주문형 복원
-          href: online-backup-and-restore.md
         - name: 규정 준수
           href: compliance.md
         - name: Azure Policy 지원
@@ -663,6 +642,8 @@
               href: cassandra-partitioning.md
             - name: 보조 인덱스
               href: cassandra-secondary-index.md
+            - name: 매핑 일관성 수준
+              href: cassandra-consistency.md
         - name: 방법 가이드
           items:
             - name: Cassandra API로 마이그레이션
@@ -675,6 +656,14 @@
                   href: cassandra-migrate-cosmos-db-blitzz.md
             - name: 변경 피드
               href: cassandra-change-feed.md
+            - name: 컨테이너 만들기 - Cassandra API
+              href: how-to-create-container-cassandra.md
+            - name: 처리량 프로비저닝 - Cassandra API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-cassandra.md
+            - name: 요청 단위 요금 찾기
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-cassandra.md
             - name: Spring 데이터 저장 및 관리
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra 및 Spark
@@ -700,12 +689,12 @@
                 - name: 테이블 데이터 복사
                   href: cassandra-spark-table-copy-ops.md
             - name: Resource Manager 템플릿을 사용하여 관리
-              href: manage-cassandra-with-resource-manager.md
+              href: templates-samples-cassandra.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples.md
+              href: powershell-samples-cassandra.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples.md
+              href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
         - name: 개요
@@ -760,6 +749,8 @@
               href: mongodb-feature-support.md
             - name: FAQ
               href: mongodb-api-faq.md
+            - name: 매핑 일관성 수준
+              href: mongodb-consistency.md
         - name: 방법 가이드
           items:
             - name: MongoDB API로 마이그레이션
@@ -793,18 +784,28 @@
               href: mongodb-change-streams.md
             - name: 데이터 인덱싱 관리
               href: mongodb-indexing.md
+            - name: 컨테이너 만들기 - MongoDB API
+              href: how-to-create-container-mongodb.md
+            - name: 처리량 프로비저닝 - MongoDB API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-mongodb.md
+            - name: 요청 단위 요금 찾기
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-mongodb.md
+            - name: 쿼리 성능 문제 해결
+              href: mongodb-troubleshoot-query.md
             - name: Spring 데이터 저장 및 관리
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: MongoDB 확장 명령
               href: mongodb-custom-commands.md
               displayName: custom commands
             - name: Resource Manager 템플릿을 사용하여 관리
-              href: manage-mongodb-with-resource-manager.md
+              href: templates-samples-mongodb.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples.md
+              href: powershell-samples-mongodb.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples.md
+              href: cli-samples-mongodb.md
             - name: 일반적인 문제 해결
               href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -838,6 +839,10 @@
           items:
             - name: FAQ
               href: gremlin-api-faq.md
+            - name: 응답 헤더
+              href: gremlin-headers.md
+            - name: 제한
+              href: gremlin-limits.md
         - name: 방법 가이드
           items:
             - name: 그래프 데이터 모델링
@@ -848,6 +853,14 @@
               href: bulk-executor-graph-dotnet.md
             - name: Gremlin 쿼리 최적화
               href: graph-execution-profile.md
+            - name: 컨테이너 만들기 - Gremlin API
+              href: how-to-create-container-gremlin.md
+            - name: 처리량 프로비저닝 - Gremlin API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-gremlin.md
+            - name: 요청 단위 요금 찾기
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-gremlin.md
             - name: 리소스 토큰 사용
               href: how-to-use-resource-tokens-gremlin.md
             - name: 지역별 엔드포인트 사용
@@ -859,12 +872,12 @@
             - name: Spring 데이터 저장 및 관리
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Resource Manager 템플릿을 사용하여 관리
-              href: manage-gremlin-with-resource-manager.md
+              href: templates-samples-gremlin.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples.md
+              href: powershell-samples-gremlin.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples.md
+              href: cli-samples-gremlin.md
         - name: 참조
           items:
             - name: 응답 헤더
@@ -927,15 +940,20 @@
           items:
             - name: Table API를 사용하여 앱 빌드
               href: table-support.md
+            - name: 컨테이너 만들기 - Table API
+              href: how-to-create-container-table.md
+            - name: 요청 단위 요금 찾기
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-table.md
             - name: Table Storage 디자인 가이드
               href: table-storage-design-guide.md
             - name: Resource Manager 템플릿을 사용하여 관리
-              href: manage-table-with-resource-manager.md
+              href: templates-samples-table.md
               displayName: ARM
             - name: Powershell을 사용하여 관리
-              href: powershell-samples.md
+              href: powershell-samples-table.md
             - name: Azure CLI를 사용하여 관리
-              href: cli-samples.md
+              href: cli-samples-table.md
         - name: 참조
           items:
             - name: .NET
@@ -971,7 +989,7 @@
         - name: Azure CLI 사용
           href: manage-with-cli.md
         - name: Resource Manager 템플릿 사용
-          href: manage-sql-with-resource-manager.md
+          href: manage-with-templates.md
           displayName: ARM
         - name: 영역 간 이동
           href: how-to-move-regions.md
@@ -1018,7 +1036,7 @@
               href: storage-explorer.md
             - name: Azure Cosmos 탐색기를 사용하여 데이터 작업
               href: data-explorer.md
-        - name: 컨테이너 만들기
+        - name: 컨테이너 만들기 - SQL API
           href: how-to-create-container.md
         - name: 큰 파티션 키로 컨테이너 만들기
           href: large-partition-keys.md
@@ -1038,6 +1056,8 @@
           href: how-to-define-unique-keys.md
     - name: 성능
       items:
+        - name: 연결 모드
+          href: sql-sdk-connection-modes.md
         - name: 쿼리
           items:
             - name: 쿼리 실행 메트릭 가져오기
@@ -1102,16 +1122,12 @@
               href: troubleshoot-java-async-sdk.md
     - name: 피드 변경
       items:
-        - name: Azure Cosmos DB 트리거 로그
-          href: how-to-configure-cosmos-db-trigger-logs.md
-        - name: Azure Cosmos DB 트리거 연결 정책
-          href: how-to-configure-cosmos-db-trigger-connection-policy.md
+        - name: Azure Cosmos DB 트리거 고급 구성
+          href: how-to-configure-cosmos-db-trigger.md
         - name: 여러 Azure Cosmos DB 트리거
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Azure Cosmos DB 트리거 문제 해결
           href: troubleshoot-changefeed-functions.md
-        - name: 변경 피드 프로세서 시작 시간
-          href: how-to-configure-change-feed-start-time.md
         - name: 변경 피드 평가기 사용
           href: how-to-use-change-feed-estimator.md
         - name: 변경 피드 프로세서 라이브러리에서 마이그레이션
@@ -1180,8 +1196,8 @@
           href: how-to-setup-cmk.md
     - name: 엔터프라이즈 준비
       items:
-        - name: 백업에서 데이터 복원
-          href: how-to-backup-and-restore.md
+        - name: 온라인 백업 및 주문형 복원
+          href: online-backup-and-restore.md
         - name: 할당량 증가 요청
           href: create-support-request-quota-increase.md
     - name: 모니터

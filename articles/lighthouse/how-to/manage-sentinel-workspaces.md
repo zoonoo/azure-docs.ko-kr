@@ -3,12 +3,12 @@ title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596941"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424094"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
@@ -39,7 +39,7 @@ Azure 센티널을 사용 하 여 보안 서비스 제공 서비스를 빌드하
 > [!NOTE]
 > 다른 [지역](../../availability-zones/az-overview.md#regions)에 있는 위임 된 리소스를 관리할 수 있습니다. 그러나 [국가 클라우드](../../active-directory/develop/authentication-national-cloud.md) 및 Azure 공용 클라우드 또는 별도의 두 국가에서 구독을 위임 하는 것은 지원 되지 않습니다.
 
-## <a name="granular-role-based-access-control-rbac"></a>세분화 된 역할 기반 액세스 제어 (RBAC)
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>세부적인 Azure 역할 기반 액세스 제어 (Azure RBAC)
 
 MSSP에서 관리 하는 각 고객 구독은 [Azure Lighthouse로 등록](onboard-customer.md)되어야 합니다. 이렇게 하면 관리 테 넌 트의 지정 된 사용자가 고객 테 넌 트에 배포 된 Azure 센티널 작업 영역에 액세스 하 고 관리 작업을 수행할 수 있습니다.
 

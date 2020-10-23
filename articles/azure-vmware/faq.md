@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368981"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461654"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -61,14 +61,14 @@ Azure VMware 솔루션은 시작 시 온-프레미스 및 사설 클라우드 �
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Red Hat 솔루션은 Azure VMware 솔루션에서 지원 되나요?
 
-Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 공동 배치 된 통합 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로, Azure VMware 솔루션은 클라우드 액세스 및 통합 지원에 포함 되며, Red Hat Enterprise Linux azure 내 Azure VMware 솔루션을 기반으로 실행 될 수 있습니다.
+Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 통합 된 공동 배치 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로, Azure VMware 솔루션은 클라우드 액세스 및 통합 지원에 포함 되며, Red Hat Enterprise Linux azure 내 Azure VMware 솔루션을 기반으로 실행 될 수 있습니다.
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition을 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
 
-VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware Solution을 위한 VMware HCX EE는 현재 미리 보기로 제공되는 무료 기능/서비스이며 미리 보기 서비스 사용 약관을 따릅니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 해지/옵트아웃하는 옵션도 제공됩니다.
+VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX EE는 미리 보기 상태 이지만 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃 (opt out) 할 수 있습니다.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>VMRC를 통해 Azure VMware 솔루션 Vm을 관리할 수 있나요?
-예, 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하는 경우 (ESXi 호스트 이름을 확인할 수 있음)
+예, 설치 되어 있는 시스템이 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인할 수 있습니다.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm과 함께 VMRC를 설치 하 고 사용 하기 위한 특별 지침이 있나요?
 아니요, [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 구성 요소를 충족 합니다. 
@@ -116,7 +116,7 @@ Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 �
 
 이러한 백업 솔루션은 고객에 의해 설치 되 고 관리 되므로 지원 하기 위해 각 ISV에 게 연락할 수 있습니다. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>중복 제거 설정에 대 한 올바른 저장소 정책은 무엇 인가요?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>중복 제거 설정에 대 한 올바른 저장소 정책은 무엇입니까?
 
 VM 템플릿에 대 한 *thin_provision* 저장소 정책을 사용 합니다.  기본값은 *thick_provision*입니다.
 
@@ -239,7 +239,7 @@ Azure 구독의 Azure 계정이 필요합니다.
 * Microsoft와 함께 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) 가 필요 합니다.
 * Azure 구독의 Azure 계정이 필요합니다.
 
-Azure VMware Solution 리소스를 만들기 전에 노드가 할당되도록 지원 티켓을 제출해야 합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
+Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 지원 티켓을 제출 해야 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 
 1. Azure Portal의 **도움말 + 지원**에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.

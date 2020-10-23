@@ -292,8 +292,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
-                - name: Resource Manager 템플릿
-                  href: ./samples/resource-manager-workspace.md
+            - name: 작업 영역 모니터링
+              href: platform/monitor-workspace.md
             - name: 작업 영역 삭제 및 복구
               href: platform/delete-workspace.md
             - name: 액세스 관리

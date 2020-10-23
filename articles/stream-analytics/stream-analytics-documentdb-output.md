@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596574"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424784"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
-비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Azure Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
+비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Azure Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다. Azure Cosmos DB를 출력으로 사용 하는 경우 작업을 호환성 수준 1.2으로 설정 하는 것이 좋습니다.
 
 Azure Cosmos DB에 익숙하지 않은 상태에서 시작하려면 [Azure Cosmos DB 설명서](https://docs.microsoft.com/azure/cosmos-db/)를 참조하세요. 
 
@@ -137,3 +137,17 @@ Stream Analytics에서 Azure Cosmos DB으로 이벤트를 전송하는 동안 �
 - NotFound(HTTP 오류 코드 404)
 - Forbidden(HTTP 오류 코드 403)
 - BadRequest(HTTP 오류 코드 400)
+
+## <a name="common-issues"></a>일반적인 문제
+
+1. 고유 인덱스 제약 조건이 컬렉션에 추가 되 고 Stream Analytics의 출력 데이터가이 제약 조건을 위반 합니다. Stream Analytics의 출력 데이터가 unique 제약 조건을 위반 하거나 제약 조건을 제거 하지 않도록 합니다. 자세한 내용은 [Azure Cosmos DB의 Unique key 제약 조건](../cosmos-db/unique-keys.md)을 참조 하세요.
+
+2. `PartitionKey`열이 존재 하지 않습니다.
+
+3. `Id`열이 없습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure Stream Analytics의 출력 이해](stream-analytics-define-outputs.md) 
+* [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)
+* [Azure Stream Analytics 사용자 지정 Blob 출력 분할](stream-analytics-custom-path-patterns-blob-storage-output.md)

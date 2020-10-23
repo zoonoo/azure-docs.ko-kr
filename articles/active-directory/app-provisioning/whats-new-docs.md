@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377050"
+ms.locfileid: "92424553"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 응용 프로그램 프로 비전: 새로운 기능
 
-Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다.
+Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 프로 비전 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
 
 ## <a name="september-2020"></a>2020년 9월
 
 ### <a name="new-articles"></a>새 문서
 
-- [새로운 기능](whats-new-docs.md)
+- [Docs의 새로운 기능](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 - [격리 상태의 응용 프로그램 프로 비전](application-provisioning-quarantine-status.md)

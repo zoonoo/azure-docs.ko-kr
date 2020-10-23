@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206036"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461807"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -120,7 +120,7 @@ ms.locfileid: "92206036"
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
 |AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 예 | 예 |  |
+|Load Balancer | 예 | 아니요 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
 |Managed Applications  | 예 | 예 | 예 |  |
@@ -142,7 +142,7 @@ ms.locfileid: "92206036"
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
 |Red Hat OpenShift | 예 | 예 | 예 |  |
 |Redis Cache | 예 | 예 | [예](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | 예 | 예 | 예 |  |
+|Resource Graph | 예 | 아니요 | 예 |  |
 |리소스 관리자 | 예 | 예 | 예 |  |
 |소매점 검색 – Bing에서 | 예 | 예 | 예 |  |
 |검색 | 예 | 예 | 예 |  |
@@ -150,25 +150,38 @@ ms.locfileid: "92206036"
 |Service Fabric | 예 | 예 | 예 | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다.  |
 |등록 포털 | 예 | 예 | 예 |  |
 |Site Recovery | 예 | 예 | 예 |  |
-|Spring Cloud Service | 예 | 예 | 예 |  |
+|Spring Cloud Service | 예 | 아니요 | 예 |  |
 |Azure Synapse Analytics | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
-|스택 | 예 | 예 | 예 |  |
+|스택 | 예 | 아니요 | 예 |  |
 |스토리지 | 예 | 예 | [예](insights/storage-insights-overview.md) |  |
 |스토리지 캐시 | 예 | 예 | 예 |  |
 |스토리지 동기화 서비스 | 예 | 예 | 예 |  |
 |Stream Analytics | 예 | 예 | 예 |  |
 |Time Series Insights | 예 | 예 | 예 |  |
-|TINA | 예 | 예 | 예 |  |
+|TINA | 예 | 아니요 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
-|유니버설 인쇄 | 예 | 예 | 예 |  |
+|유니버설 인쇄 | 예 | 아니요 | 예 |  |
 |Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
-|Windows Virtual Desktop | 예 | 예 | 예 |  |
+|Windows Virtual Desktop | 예 | 아니요 | 예 |  |
+
+## <a name="virtual-machine-agents"></a>가상 머신 에이전트
+다음 표에는 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하 고 모니터에 데이터를 보낼 수 있는 에이전트가 나열 되어 있습니다. 각 에이전트는 서로 다른 데이터를 수집 하 여 Azure Monitor의 메트릭 또는 로그에 보낼 수 있습니다. 
+
+각 에이전트가 수집할 수 있는 데이터에 대 한 자세한 내용은 [Azure Monitor 에이전트 개요](platform/agents-overview.md) 를 참조 하세요.
+
+| 에이전트 |  메트릭 | 로그 |
+|:---|:---|:---|:---|
+| [Azure Monitor 에이전트 (미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
+| [Log Analytics 에이전트](platform/log-analytics-agent.md) | 아니요 | 예|
+| [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 아니요 |
+| [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
+| [종속성 에이전트](insights/vminsights-enable-overview.md) | 아니요 | 예 |
 
 
 ## <a name="product-integrations"></a>제품 통합

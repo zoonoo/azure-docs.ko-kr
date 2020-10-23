@@ -43,6 +43,12 @@
     - name: 태그 거버넌스 관리
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: GitHub를 사용하여 코드로 Azure Policy 구현
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: '학습: Azure Policy를 사용하여 리소스 제어 및 감사'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: 샘플
   items:
     - name: 인덱스
@@ -113,7 +119,7 @@
     - name: 규정 준수
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: 코드 워크플로서의 디자인 정책
+    - name: 코드 워크플로로 Azure Policy 디자인
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Kubernetes 통합

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 8669330a8cfccea0dcc10c318c2be4acbcb7788c
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169356"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424080"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -41,32 +41,31 @@ ms.locfileid: "92169356"
 
 <a name="run-duration-retention-limits"></a>
 
-## <a name="run-duration-and-retention-limits"></a>실행 기간 및 보존 한도
+## <a name="run-duration-and-retention-history-limits"></a>실행 지속 시간 및 보존 기록 제한
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
 | 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
-| 실행 기간 | 90일 | 366일 | 실행 기간은 실행의 시작 시간과 *시작할 때* 워크플로 설정 [**실행 기록 보존 기간(일)** ](#change-duration)에서 지정한 제한을 사용하여 계산됩니다. <p><p>기본 제한(90일)을 변경하려면 [실행 기간 변경](#change-duration)을 참조하세요. |
-| 스토리지의 실행 보존 기간 | 90일 | 366일 | 실행 보존 기간은 실행의 시작 시간과 *현재 시간에* 워크플로 설정 [**실행 기록 보존 기간(일)** ](#change-retention)에서 지정한 제한을 사용하여 계산됩니다. 실행이 완료되든 제한 시간이 초과되든, 보존 기간 계산에는 항상 실행의 시작 시간이 사용됩니다. 실행 기간이 *현재* 보존 제한을 초과하면 실행 기록에서 실행이 제거됩니다. <p><p>이 설정을 변경하면 이전 제한과 상관없이 항상 현재 제한이 보존 기간 계산에 사용됩니다. 예를 들어 보존 제한을 90일에서 30일로 줄이면 60일 된 실행이 실행 기록에서 제거됩니다. 보존 기간을 30일에서 60일로 늘리면 20일 된 실행은 40일 더 실행 기록에 보존됩니다. <p><p>기본 제한(90일)을 변경하려면 [스토리지의 실행 보존 기간 변경](#change-retention)을 참조하세요. |
+| 실행 기간 | 90일 | 366일 | 실행 시간은 실행 시작 시간을 사용 하 여 계산 됩니다. |
+| 저장소에서 실행 기록 보존 | 90일 | 366일 | 실행이 완료 되거나 시간이 초과 되 면 실행 기록 보존은 항상 실행의 시작 시간 및 *현재 시간* 에 지정 된 제한 (워크플로 설정)을 사용 하 여 계산 됩니다. [**기록 보존 기간 (일)을 실행**](#change-retention)합니다. 이 설정을 변경 하는 경우 *현재* 제한은 이전 제한과 상관 없이 항상 보존을 계산 하는 데 사용 됩니다. 실행 기간이 현재 한도를 초과 하면 실행 기록에서 실행이 제거 됩니다. <p><p>예를 들어 보존 한도를 90 일에서 30 일로 줄일 수 있습니다. 60-일-이전 실행이 실행 기록에서 제거 되었습니다. 보존 기간을 30 일에서 60 일로 늘리면 20 일 이전 실행은 다른 40 일에 대 한 실행 기록에 유지 됩니다. <p><p>기본 제한 (90 일)을 변경 하려면 [저장소에서 실행 기록 보존 변경](#change-retention)을 참조 하세요. |
 | 최소 되풀이 간격 | 1초 | 1초 ||
 | 최대 되풀이 간격 | 500일 | 500일 ||
 |||||
 
-<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-run-retention-in-storage"></a>스토리지의 실행 기간 및 실행 보존 기간 변경
+### <a name="change-run-history-retention-in-storage"></a>저장소에서 실행 기록 보존 변경
 
-스토리지의 실행 기간 및 실행 보존 기간에 대한 기본 제한을 변경하려면 다음 단계를 수행합니다. 최대 제한을 늘리려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
+저장소의 실행 기록 보존에 대 한 기본 제한을 변경 하려면 다음 단계를 수행 합니다. 최대 제한을 늘리려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요.
 
 > [!NOTE]
 > 다중 테넌트 Azure의 논리 앱은 기본 제한과 최대 제한이 똑같이 90일입니다. 이 값을 줄이는 것만 가능합니다.
 > 통합 서비스 환경의 논리 앱은 90일 기본 제한을 늘리거나 줄일 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다. 포털 검색 상자에서 **논리 앱**을 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 검색 상자에서 **논리 앱**을 찾아 선택 합니다.
 
-1. 논리 앱을 선택한 다음, 논리 앱 디자이너에서 논리 앱을 엽니다.
+1. 논리 앱을 찾아 선택 합니다. 논리 앱 디자이너에서 논리 앱을 엽니다.
 
 1. 논리 앱 메뉴에서 **워크플로 설정**을 선택합니다.
 
