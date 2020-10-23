@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145940"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440838"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -39,11 +39,11 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 ## <a name="create-with-the-apis"></a>Api를 사용 하 여 만들기
 
-이 섹션에서는 클라이언트 응용 프로그램에서 디지털 쌍 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins api](how-to-use-apis-sdks.md)를 활용 하는 .net 코드 예제를 포함 하 여 이러한 각 개념 내에서 수행 되는 작업에 대 한 추가 컨텍스트를 제공 합니다.
+이 섹션에서는 클라이언트 응용 프로그램에서 디지털 쌍 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins api](/rest/api/digital-twins/dataplane/twins)를 활용 하는 .net 코드 예제를 포함 하 여 이러한 각 개념 내에서 수행 되는 작업에 대 한 추가 컨텍스트를 제공 합니다.
 
 ### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
-다음은 [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 *대화방*형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *대화방*형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
 
 Azure Digital Twins의 현재 미리 보기에서 쌍을 만들려면 쌍의 모든 속성을 초기화 해야 합니다. 이 작업은 필요한 초기화 값을 제공 하는 JSON 문서를 만들어 수행 합니다.
 
@@ -53,7 +53,7 @@ Azure Digital Twins의 현재 미리 보기에서 쌍을 만들려면 쌍의 모
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음은 [DigitalTwins api](how-to-use-apis-sdks.md) 를 사용 하 여 *GroundFloor* 라는 *바닥*형식의 디지털 쌍과 *Cafe*라는 *방*형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *GroundFloor* 라는 *바닥*형식의 디지털 쌍과 *Cafe*라는 *방*형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample

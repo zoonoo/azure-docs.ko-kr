@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531193"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460872"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -23,7 +23,37 @@ ms.locfileid: "91531193"
 * Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
 * [OMI 문제 해결 가이드](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)를 사용하여 OMI 문제를 진단합니다.
 * [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출합니다.
-* Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다.  
+* Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 문제 해결 도구
+
+Log Analytics Agent Linux 문제 해결 도구는 Log Analytics 에이전트의 문제를 찾아 진단 하는 데 도움이 되도록 설계 된 스크립트입니다. 설치 시 에이전트에 자동으로 포함 됩니다. 이 도구를 실행 하는 것은 문제를 진단 하기 위한 첫 번째 단계 여야 합니다.
+
+### <a name="how-to-use"></a>사용 방법
+Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령을 붙여넣어 문제 해결 도구를 실행할 수 있습니다. `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>수동 설치
+문제 해결 도구는 Log Analytics 에이전트 설치 시 자동으로 포함 됩니다. 그러나 설치에 실패 하는 경우 다음 단계를 수행 하 여 수동으로 설치할 수도 있습니다.
+
+1. 문제 해결사 번들을 컴퓨터에 복사 합니다. `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. 번들의 압축을 풉니다. `tar -xzvf omsagent_tst.tar.gz`
+3. 수동 설치를 실행 합니다. `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>적용되는 시나리오
+다음은 문제 해결 도구에서 확인 한 시나리오의 목록입니다.
+
+1. 에이전트가 비정상입니다. 하트 비트가 제대로 작동 하지 않습니다.
+2. 에이전트가 시작 되지 않아 로그 분석 서비스에 연결할 수 없습니다.
+3. 에이전트 syslog가 작동 하지 않습니다.
+4. 에이전트의 CPU/메모리 사용률이 높습니다.
+5. 에이전트에 설치 문제가 있음
+6. 에이전트 사용자 지정 로그가 작동 하지 않음
+7. 에이전트 로그 수집
+
+자세한 내용은 [Github 설명서](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md)를 확인 하세요.
+
+ >[!NOTE]
+ >문제가 발생 하는 경우 로그 수집기 도구를 실행 하세요. 처음에 로그를 만들면 지원 팀에서 문제를 더 빨리 해결할 수 있습니다.
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 
@@ -36,7 +66,7 @@ ms.locfileid: "91531193"
 
 ## <a name="important-configuration-files"></a>중요 구성 파일
 
- 범주 | 파일 위치
+ Category | 파일 위치
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf` 또는 `/etc/rsyslog.conf` 또는 `/etc/rsyslog.d/95-omsagent.conf`
  성능, Nagios, Zabbix, Log Analytics 출력 및 일반 에이전트 | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`

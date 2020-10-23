@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149097"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427857"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -170,7 +170,7 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>라우팅을 위한 스토리지 계정 엔드포인트로의 송신 연결
 
-IoT Hub는 고객 소유 스토리지 계정으로 메시지를 라우팅할 수 있습니다. 방화벽 제한 사항이 있는 경우에도 라우팅 기능이 스토리지 계정에 액세스할 수 있도록 하려면 IoT Hub에 [관리 ID](#turn-on-managed-identity-for-iot-hub)가 있어야 합니다. 관리 ID를 프로비저닝한 후에는 아래 단계에 따라 허브의 리소스 ID에 스토리지 계정에 액세스할 수 있는 RBAC 권한을 부여합니다.
+IoT Hub는 고객 소유 스토리지 계정으로 메시지를 라우팅할 수 있습니다. 방화벽 제한 사항이 있는 경우에도 라우팅 기능이 스토리지 계정에 액세스할 수 있도록 하려면 IoT Hub에 [관리 ID](#turn-on-managed-identity-for-iot-hub)가 있어야 합니다. 관리 id를 프로 비전 한 후에는 다음 단계에 따라 허브의 리소스 id에 저장소 계정에 액세스할 수 있는 Azure RBAC 권한을 부여 합니다.
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 
@@ -188,7 +188,7 @@ IoT Hub는 고객 소유 스토리지 계정으로 메시지를 라우팅할 수
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>라우팅을 위한 이벤트 허브 엔드포인트로의 송신 연결
 
-IoT Hub는 메시지를 고객 소유 이벤트 허브 네임스페이스로 라우팅하도록 구성할 수 있습니다. 방화벽 제한 사항이 있는 경우에도 라우팅 기능이 이벤트 허브 리소스에 액세스할 수 있도록 하려면 IoT Hub에 관리 ID가 있어야 합니다. 관리 ID를 만든 후에는 아래 단계에 따라 허브의 리소스 ID에 이벤트 허브에 액세스할 수 있는 RBAC 권한을 부여합니다.
+IoT Hub는 메시지를 고객 소유 이벤트 허브 네임스페이스로 라우팅하도록 구성할 수 있습니다. 방화벽 제한 사항이 있는 경우에도 라우팅 기능이 이벤트 허브 리소스에 액세스할 수 있도록 하려면 IoT Hub에 관리 ID가 있어야 합니다. 관리 id를 만든 후에는 다음 단계를 수행 하 여 event hubs에 액세스 하기 위해 허브의 리소스 id에 대 한 Azure RBAC 권한을 부여 합니다.
 
 1. Azure Portal에서 이벤트 허브의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 
@@ -206,7 +206,7 @@ IoT Hub는 메시지를 고객 소유 이벤트 허브 네임스페이스로 라
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>라우팅을 위한 서비스 버스 엔드포인트로의 송신 연결
 
-IoT Hub는 메시지를 고객 소유 서비스 버스 네임스페이스로 라우팅하도록 구성할 수 있습니다. 방화벽 제한 사항이 있는 경우에도 라우팅 기능이 서비스 버스 리소스에 액세스할 수 있도록 하려면 IoT Hub에 관리 ID가 있어야 합니다. 관리 ID를 프로비저닝한 후에는 아래 단계에 따라 허브의 리소스 ID에 서비스 버스에 액세스할 수 있는 RBAC 권한을 부여합니다.
+IoT Hub는 메시지를 고객 소유 서비스 버스 네임스페이스로 라우팅하도록 구성할 수 있습니다. 방화벽 제한 사항이 있는 경우에도 라우팅 기능이 서비스 버스 리소스에 액세스할 수 있도록 하려면 IoT Hub에 관리 ID가 있어야 합니다. 관리 id를 프로 비전 한 후에는 다음 단계를 수행 하 여 service bus에 액세스 하기 위해 허브의 리소스 id에 대 한 Azure RBAC 권한을 부여 합니다.
 
 1. Azure Portal에서 서비스 버스의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 
@@ -224,7 +224,7 @@ IoT Hub는 메시지를 고객 소유 서비스 버스 네임스페이스로 라
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>파일 업로드를 위한 스토리지 계정으로의 송신 연결
 
-IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토리지 계정으로 파일을 업로드할 수 있도록 허용합니다. 파일 업로드가 기능하도록 하려면 디바이스와 IoT Hub가 모두 스토리지 계정에 연결되어 있어야 합니다. 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, 디바이스는 스토리지 계정의 지원되는 메커니즘([프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md), [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 또는 [직접 방화벽 구성](../storage/common/storage-network-security.md))을 사용하여 연결을 설정해야 합니다. 마찬가지로, 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, IoT Hub는 신뢰할 수 있는 Microsoft 서비스 예외를 통해 스토리지 리소스에 액세스하도록 구성되어야 합니다. 이를 위해 IoT Hub에는 관리 ID가 있어야 합니다. 관리 ID를 프로비저닝한 후에는 아래 단계에 따라 허브의 리소스 ID에 스토리지 계정에 액세스할 수 있는 RBAC 권한을 부여합니다.
+IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토리지 계정으로 파일을 업로드할 수 있도록 허용합니다. 파일 업로드가 기능하도록 하려면 디바이스와 IoT Hub가 모두 스토리지 계정에 연결되어 있어야 합니다. 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, 디바이스는 스토리지 계정의 지원되는 메커니즘([프라이빗 엔드포인트](../private-link/tutorial-private-endpoint-storage-portal.md), [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 또는 [직접 방화벽 구성](../storage/common/storage-network-security.md))을 사용하여 연결을 설정해야 합니다. 마찬가지로, 스토리지 계정에서 방화벽 제한이 적용되어 있는 경우, IoT Hub는 신뢰할 수 있는 Microsoft 서비스 예외를 통해 스토리지 리소스에 액세스하도록 구성되어야 합니다. 이를 위해 IoT Hub에는 관리 ID가 있어야 합니다. 관리 id를 프로 비전 한 후에는 다음 단계에 따라 허브의 리소스 id에 저장소 계정에 액세스할 수 있는 Azure RBAC 권한을 부여 합니다.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +244,7 @@ IoT Hub의 파일 업로드 기능에서는 디바이스가 고객 소유 스토
 
 IoT Hub는 고객이 제공한 스토리지 Blob에서/(으)로 디바이스의 정보를 대량으로 [가져오기/내보내기](./iot-hub-bulk-identity-mgmt.md)하는 기능을 지원합니다. 대량 가져오기/내보내기가 기능하도록 하려면 디바이스와 IoT Hub가 모두 스토리지 계정에 연결되어 있어야 합니다.
 
-이 기능을 사용하려면 IoT Hub에서 스토리지 계정으로의 연결이 필요합니다. 방화벽 제한 사항이 있는 경우에도 서비스 버스 리소스에 액세스할 수 있도록 하려면 IoT Hub에 관리 ID가 있어야 합니다. 관리 ID를 프로비저닝한 후에는 아래 단계에 따라 허브의 리소스 ID에 서비스 버스에 액세스할 수 있는 RBAC 권한을 부여합니다.
+이 기능을 사용하려면 IoT Hub에서 스토리지 계정으로의 연결이 필요합니다. 방화벽 제한 사항이 있는 경우에도 서비스 버스 리소스에 액세스할 수 있도록 하려면 IoT Hub에 관리 ID가 있어야 합니다. 관리 id를 프로 비전 한 후에는 다음 단계를 수행 하 여 service bus에 액세스 하기 위해 허브의 리소스 id에 대 한 Azure RBAC 권한을 부여 합니다.
 
 1. Azure Portal에서 스토리지 계정의 **액세스 제어(IAM)** 탭으로 이동하여 **역할 할당 추가** 섹션에서 **추가**를 클릭합니다.
 

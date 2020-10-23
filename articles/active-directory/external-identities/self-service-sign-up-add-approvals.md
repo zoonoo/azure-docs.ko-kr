@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165249"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441626"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "88165249"
 
 ## <a name="register-an-application-for-your-approval-system"></a>승인 시스템용 응용 프로그램 등록
 
-Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한이 있는 Azure AD 테 넌 트의 응용 프로그램으로 승인 시스템을 등록 해야 합니다. [Microsoft Graph에 대 한 인증 및 권한 부여 기본 사항](https://docs.microsoft.com/graph/auth/auth-concepts)에 대해 자세히 알아보세요.
+Azure AD를 사용 하 여 인증 하 고 사용자를 만들 수 있는 권한이 있는 Azure AD 테 넌 트의 응용 프로그램으로 승인 시스템을 등록 해야 합니다. [Microsoft Graph에 대 한 인증 및 권한 부여 기본 사항](/graph/auth/auth-concepts)에 대해 자세히 알아보세요.
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services** 아래에서 **Azure Active Directory**를 선택합니다.
@@ -263,14 +263,14 @@ Content-type: application/json
 
 ## <a name="user-account-creation-after-manual-approval"></a>수동 승인 후 사용자 계정 만들기
 
-수동 승인을 얻은 후 사용자 지정 승인 시스템은 [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)를 사용 하 여 [사용자](https://docs.microsoft.com/graph/azuread-users-concept-overview) 계정을 만듭니다. 승인 시스템이 사용자 계정을 프로 비전 하는 방법은 사용자가 사용 하는 id 공급자에 따라 다릅니다.
+수동 승인을 얻은 후 사용자 지정 승인 시스템은 [Microsoft Graph](/graph/use-the-api)를 사용 하 여 [사용자](/graph/azuread-users-concept-overview) 계정을 만듭니다. 승인 시스템이 사용자 계정을 프로 비전 하는 방법은 사용자가 사용 하는 id 공급자에 따라 다릅니다.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>페더레이션된 Google 또는 Facebook 사용자의 경우
 
 > [!IMPORTANT]
 > 승인 시스템은이를 명시적으로 확인 하 고 `identities` `identities[0]` `identities[0].issuer` `identities[0].issuer` 이 메서드를 사용 하려면 ' facebook ' 또는 ' google '과 동일한 지 확인 해야 합니다.
 
-사용자가 Google 또는 Facebook 계정으로 로그인 한 경우 [사용자 만들기 API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http)를 사용할 수 있습니다.
+사용자가 Google 또는 Facebook 계정으로 로그인 한 경우 [사용자 만들기 API](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0)를 사용할 수 있습니다.
 
 1. 승인 시스템은를 사용 하 여 사용자 흐름에서 HTTP 요청을 받습니다.
 
@@ -330,7 +330,7 @@ Content-type: application/json
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>페더레이션된 Azure Active Directory 사용자의 경우
 
-사용자가 페더레이션된 Azure Active Directory 계정으로 로그인 하는 경우 [초대 api](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) 를 사용 하 여 사용자를 만든 다음 필요에 따라 사용자에 게 더 많은 특성을 할당 하는 [사용자 업데이트 api](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) 를 사용 해야 합니다.
+사용자가 페더레이션된 Azure Active Directory 계정으로 로그인 하는 경우 [초대 api](/graph/api/invitation-post?view=graph-rest-1.0) 를 사용 하 여 사용자를 만든 다음 필요에 따라 사용자에 게 더 많은 특성을 할당 하는 [사용자 업데이트 api](/graph/api/user-update?view=graph-rest-1.0) 를 사용 해야 합니다.
 
 1. 승인 시스템은 사용자 흐름에서 HTTP 요청을 수신 합니다.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Function 빠른 시작 샘플](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts)을 사용 하 여 시작 하세요.
-- [수동 승인 예제를 사용 하 여 게스트 사용자에 대 한 셀프 서비스 등록](code-samples-self-service-sign-up.md#custom-approval-workflows)을 체크 아웃 합니다. 
+- [수동 승인 예제를 사용 하 여 게스트 사용자에 대 한 셀프 서비스 등록](code-samples-self-service-sign-up.md#custom-approval-workflows)을 체크 아웃 합니다.

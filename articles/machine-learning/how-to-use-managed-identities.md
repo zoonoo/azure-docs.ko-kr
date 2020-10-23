@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079679"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440453"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 되는 id 사용 (미리 보기)
 
@@ -29,7 +29,6 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
 
  * ACR에 대 한 관리 사용자 액세스를 사용 하도록 설정 하지 않고도 Azure Machine Learning 작업 영역에 대 한 ACR을 구성 하 고 사용 합니다.
  * 작업 영역 외부의 개인 ACR에 액세스 하 여 학습 또는 유추를 위한 기본 이미지를 끌어옵니다.
- * 저장소 액세스 키 대신 관리 되는 id를 사용 하 여 학습을 위한 데이터 집합에 액세스 합니다.
 
 > [!IMPORTANT]
 > 관리 id를 사용 하 여 Azure Machine Learning 있는 리소스에 대 한 액세스를 제어 하는 기능은 현재 미리 보기로 제공 됩니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 "있는 그대로" 제공 됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>학습 데이터 액세스
-
-앞서 설명한 대로 관리 id를 사용 하 여 machine learning 계산 클러스터를 만든 후에는 해당 id를 사용 하 여 저장소 계정 키 없이 학습 데이터에 액세스할 수 있습니다. 이 시나리오에는 시스템 또는 사용자 할당 관리 id 중 하나를 사용할 수 있습니다.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>저장소 계정에 계산 관리 id 액세스 권한 부여
-
-학습 데이터를 저장 하는 저장소 계정에 대 [한 읽기 권한자 역할에 관리 되는 id를 부여](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) 합니다.
-
-### <a name="register-data-store-with-workspace"></a>작업 영역에 데이터 저장소 등록
-
-관리 id를 할당 한 후에는 저장소 자격 증명을 지정 하지 않고 데이터 저장소를 만들 수 있습니다.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>교육 실행 제출
-
-데이터 저장소를 사용 하 여 학습 실행을 제출 하면 machine learning 계산에서 관리 되는 id를 사용 하 여 데이터에 액세스 합니다.
 
 ## <a name="use-docker-images-for-inference"></a>Docker 이미지를 사용 하 여 유추
 

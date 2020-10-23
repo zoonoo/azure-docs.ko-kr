@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147922"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426395"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -59,6 +59,8 @@ Azure Key Vault에 대 한 전용 끝점은 지원 되지 않습니다. 미사�
 표준 부하 분산 장치는 기본 부하 분산 장치 처럼 [공용 아웃 바운드 NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 를 자동으로 제공 하지 않습니다. 아웃 바운드 종속성을 위해 NAT 또는 [방화벽과](./hdinsight-restrict-outbound-traffic.md)같은 [VIRTUAL NETWORK](../virtual-network/nat-overview.md) 사용자 고유의 nat 솔루션을 제공 해야 합니다. HDInsight 클러스터는 여전히 아웃 바운드 종속성에 액세스할 수 있어야 합니다. 이러한 아웃 바운드 종속성을 사용할 수 없는 경우 클러스터 만들기가 실패할 수 있습니다.
 
 ### <a name="prepare-your-environment"></a>환경 준비
+
+Successgfull 개인 링크 서비스를 만들려면 [개인 링크 서비스에 대 한 네트워크 정책을 명시적으로 사용 하지 않도록 설정](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)해야 합니다.
 
 다음 다이어그램에서는 클러스터를 만들기 전에 필요한 네트워킹 구성의 예를 보여 줍니다. 이 예제에서 모든 아웃 바운드 트래픽은 UDR을 사용 하 여 Azure 방화벽에 [강제](../firewall/forced-tunneling.md) 적용 되며 클러스터를 만들기 전에 방화벽에서 필요한 아웃 바운드 종속성이 "허용" 이어야 합니다. Enterprise Security Package 클러스터의 경우 VNet 피어 링에서 Azure Active Directory Domain Services에 대 한 네트워크 연결을 제공할 수 있습니다.
 

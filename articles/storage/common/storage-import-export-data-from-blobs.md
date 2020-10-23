@@ -5,21 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441884"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440736"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -36,6 +36,8 @@ ms.locfileid: "91441884"
     - [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>1단계: 내보내기 작업 만들기
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 다음 단계를 수행하여 Azure Portal에서 내보내기 작업을 만듭니다.
 
@@ -57,7 +59,7 @@ ms.locfileid: "91441884"
     - 구독을 선택합니다.
     - 리소스 그룹을 입력하거나 선택합니다.
 
-        ![기본 사항](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![기본](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
 5. **작업 세부 정보**에서:
 
@@ -99,6 +101,83 @@ ms.locfileid: "91441884"
         > 항상 Azure Portal에 기록된 데이터 센터로 디스크를 보냅니다. 디스크가 잘못된 데이터 센터로 배송되면 작업이 처리되지 않습니다.
 
     - **확인**을 클릭하여 내보내기 작업 만들기를 완료합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+다음 단계를 사용 하 여 Azure Portal에서 내보내기 작업을 만들 수 있습니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>작업 만들기
+
+1. Az [extension add](/cli/azure/extension#az_extension_add) 명령을 사용 하 여 [az import export](/cli/azure/ext/import-export/import-export) 확장을 추가 합니다.
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. 디스크를 받을 수 있는 위치의 목록을 가져오려면 [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 명령을 사용 합니다.
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. 다음 [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) 명령을 실행 하 여 기존 저장소 계정을 사용 하는 내보내기 작업을 만듭니다.
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
+
+   이 작업은 저장소 계정의 모든 blob을 내보냅니다. **--Export**에 대해이 값을 바꿔서 내보내기에 대 한 blob을 지정할 수 있습니다.
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   이 매개 변수 값은 루트 컨테이너의 *logo.bmp* 이라는 blob를 내보냅니다.
+
+   또한 접두사를 사용 하 여 컨테이너의 모든 blob을 선택 하는 옵션도 있습니다. **--Export**에 대해이 값을 바꿉니다.
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.
+
+   > [!NOTE]
+   > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅샷을 가져와 해당 스냅샷을 복사합니다.
+
+1. [Az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) 명령을 사용 하 여 리소스 그룹 myierg에 대 한 모든 작업을 볼 수 있습니다.
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. 작업을 업데이트 하거나 작업을 취소 하려면 [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) 명령을 실행 합니다.
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 <!--## (Optional) Step 2: -->
 
@@ -142,7 +221,7 @@ ms.locfileid: "91441884"
 이 *선택적인* 단계는 내보내기 작업에 필요한 드라이브 수를 결정하는 데 도움이 됩니다. [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템에서 이 단계를 수행합니다.
 
 1. Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다.
-2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
+2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
 3. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
 
    `cd C:\WaImportExportV1`
@@ -153,14 +232,14 @@ ms.locfileid: "91441884"
 
     다음 표에는 매개 변수가 나와 있습니다.
 
-    |명령줄 매개 변수|설명|  
+    |명령줄 매개 변수|Description|  
     |--------------------------|-----------------|  
-    |**/logdir**|(선택 사항) 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
-    |**/sn**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
+    |**/logdir**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
+    |**/sn**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
     |**/sk**|컨테이너 SAS가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|  
     |**/csas:**|스토리지 계정 키가 지정되지 않은 경우에만 필요합니다. 내보내기 작업에서 내보낼 Blob을 나열하기 위한 컨테이너 SAS입니다.|  
-    |**/ExportBlobListFile:**|필수 사항입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
-    |**/DriveSize:**|필수 사항입니다. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
+    |**/ExportBlobListFile:**|필수 요소. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|  
+    |**/DriveSize:**|필수 요소. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|  
 
     [PreviewExport 명령 예제](#example-of-previewexport-command)를 참조하세요.
 
@@ -207,7 +286,7 @@ Number of drives needed:        3
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | 설명 |
+   | 선택기 | Blob 경로 | Description |
    | --- | --- | --- |
    | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
    | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |

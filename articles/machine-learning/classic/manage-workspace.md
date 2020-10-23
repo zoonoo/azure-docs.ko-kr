@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 50607093dd71184740e972a3c8572630df609453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f136d0818daca1585de3896305a080ddbabfbe2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361143"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426919"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Azure Machine Learning Studio (클래식) 작업 영역 관리
 
@@ -48,7 +48,7 @@ Azure Portal에서 Studio (클래식) 작업 영역을 관리 하려면 다음�
 > [!NOTE]
 > 새로운 웹 서비스를 배포 또는 관리하려면 웹 서비스가 배포된 구독에 대한 참여자 또는 관리자 역할을 할당받아야 합니다. Machine learning Studio (클래식) 작업 영역에 다른 사용자를 초대 하는 경우 웹 서비스를 배포 하거나 관리 하려면 먼저 구독에 대 한 참가자 또는 관리자 역할에 해당 사용자를 할당 해야 합니다. 
 > 
->액세스 권한 설정에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+>액세스 권한 설정에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Resource Manager 템플릿을 사용하여 Machine Learning을 배포](deploy-with-resource-manager-template.md)하는 방법에 대해 자세히 알아봅니다. 

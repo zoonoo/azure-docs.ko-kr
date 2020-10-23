@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83651017"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427263"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -118,7 +118,7 @@ VMware NSX-T 2.3 릴리스 기준:
 
 3. Edge VM의 관리 IP 주소에 대한 SSH 세션을 엽니다. 사용자 이름 **admin** 및 암호 **CloudSimple 123!** 를 사용하여 ```get logical-router``` 명령을 실행합니다.
 
-    ![get logical-router 출력](media/l2vpn-fetch03.png)
+    ![열려 있는 SSH 세션을 보여 주는 스크린샷](media/l2vpn-fetch03.png)
 
 4. 'DR-Provider-LR' 항목이 표시되지 않으면 다음 단계를 완료합니다.
 
@@ -132,7 +132,7 @@ VMware NSX-T 2.3 릴리스 기준:
 
 7. Edge VM의 SSH 세션에 `get logical-router` 명령을 다시 실행합니다. 'DR-Provider-LR' 논리 라우터의 UUID가 표시됩니다. L2VPN을 구성할 때 필요한 UUID를 기록해 둡니다.
 
-    ![get logical-router 출력](media/l2vpn-fetch06.png)
+    ![논리 라우터의 UUID를 보여 주는 스크린샷](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>L2VPN에 필요한 logical-switch ID를 가져옵니다.
 
@@ -430,7 +430,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 2. 추출된 파일이 모두 있는 폴더로 이동합니다. 모든 vmdks(큰 어플라이언스 크기의 경우 NSX-l2t-client-large.mf 및 NSX-l2t-client-large.ovf, 매우 큰 어플라이언스 크기의 경우 NSX-l2t-client-Xlarge.mf 및 NSX-l2t-client-Xlarge.ovf)를 선택합니다. **다음**을 클릭합니다.
 
-    ![템플릿 선택](media/l2vpn-deploy-client02.png) ![템플릿 선택](media/l2vpn-deploy-client03.png)
+    ![](media/l2vpn-deploy-client02.png) ![ 선택한 vmdk 파일을 표시 하는 템플릿 스크린샷을 선택 합니다.](media/l2vpn-deploy-client03.png)
 
 3. NSX-T 독립 실행형 클라이언트의 이름을 입력하고 **다음**을 클릭합니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424150"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460668"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -81,6 +81,10 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 [AKS(Azure Kubernetes Service)](../../aks/index.yml):
 
 - 호스트된 Kubernetes 환경 관리 및 고객 테넌트 내 컨테이너화된 애플리케이션을 배포 및 관리합니다.
+
+[Azure Migrate](../../migrate/index.yml):
+
+- 고객 테 넌 트에서 마이그레이션 프로젝트 만들기 및 Vm 마이그레이션
 
 [Azure Monitor](../../azure-monitor/index.yml):
 

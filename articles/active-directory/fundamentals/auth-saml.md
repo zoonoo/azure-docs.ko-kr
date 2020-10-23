@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory 사용 하는 SAML 인증
-description: 이 인증 패턴을 달성 하는 데 대 한 아키텍처 지침
+description: Azure Active Directory를 사용 하 여 SAML 인증을 얻기 위한 아키텍처 지침
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b13e04db8e83a8a10c2d7fe0aea202dfa3b69c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114502"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441218"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>Azure Active Directory 사용 하는 SAML 인증
 
@@ -37,7 +37,7 @@ SAML 사양은 다음과 같은 세 가지 역할을 정의 합니다.
 
 SAML 주소를 사용 하는 가장 중요 한 사용 사례 중 하나는 SSO 이며 특히 보안 도메인 간에 SSO를 확장 하는 경우에는 다른 사용 사례 (프로필 이라고 함)도 있습니다. 
 
-![아키텍처 다이어그램](./media/authentication-patterns/saml-auth.png)
+![SAML 아키텍처 다이어그램](./media/authentication-patterns/saml-auth.png)
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 

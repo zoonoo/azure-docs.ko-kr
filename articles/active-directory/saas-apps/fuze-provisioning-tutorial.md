@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3c6288cd071e7c94026a0eb58c6b60ecd91d9137
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c92d7afb4c1de2596b4c98f50a003fe31176fbb7
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312671"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92449813"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Fuze 구성
 
@@ -31,22 +31,22 @@ ms.locfileid: "91312671"
 > * Fuze에서 사용자 만들기
 > * 더 이상 액세스할 필요가 없는 경우 Fuze에서 사용자 제거
 > * Azure AD와 Fuze 간에 사용자 특성을 동기화 상태로 유지
-> * Fuze에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/fuze-tutorial) (권장)
+> * Fuze에 대 [한 Single sign-on](./fuze-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
-* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
-* 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
+* [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
+* 프로비저닝을 구성할 [권한](../users-groups-roles/directory-assign-admin-roles.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
 * [Fuze 테 넌 트](https://www.fuze.com/)입니다.
 * 관리자 권한이 있는 Fuze의 사용자 계정
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
-1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
-2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
-3. [AZURE AD와 Fuze 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
+1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
+2. [프로비저닝 범위](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 있는 사용자를 결정합니다.
+3. [AZURE AD와 Fuze 간에 매핑할](../app-provisioning/customize-application-attributes.md)데이터를 결정 합니다. 
 
 ## <a name="step-2-configure-fuze-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 Fuze 구성
 
@@ -62,17 +62,17 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Fuze를 구�
 
 3. 요구 사항이 수신 되 면 Fuze 담당자는 통합을 사용 하도록 설정 하는 데 필요한 Fuze 인증 토큰을 제공 합니다. 이 값은 Azure Portal Fuze 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
 
-## <a name="step-3-add-fuze-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Fuze 추가
+## <a name="step-3-add-fuze-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Fuze 추가
 
-Azure AD 응용 프로그램 갤러리에서 Fuze를 추가 하 여 Fuze에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 Fuze를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
+Azure AD 응용 프로그램 갤러리에서 Fuze를 추가 하 여 Fuze에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 Fuze를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
-Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
+Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* Fuze에 사용자를 할당할 때 **기본 액세스**외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
+* Fuze에 사용자를 할당할 때 **기본 액세스**외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](../develop/howto-add-app-roles-in-azure-ad-apps.md)하여 역할을 더 추가할 수 있습니다. 
 
-* 소규모로 시작합니다. 모든 사용자에 게 롤아웃 전에 작은 사용자 집합으로 테스트 합니다. 프로 비전 범위가 할당 된 사용자로 설정 된 경우 앱에 한 명 또는 두 명의 사용자를 할당 하 여이를 제어할 수 있습니다. Scope를 모든 사용자로 설정 하면 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
+* 소규모로 시작합니다. 모든 사용자에 게 롤아웃 전에 작은 사용자 집합으로 테스트 합니다. 프로 비전 범위가 할당 된 사용자로 설정 된 경우 앱에 한 명 또는 두 명의 사용자를 할당 하 여이를 제어할 수 있습니다. Scope를 모든 사용자로 설정 하면 [특성 기반 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)를 지정할 수 있습니다. 
 
 ## <a name="step-5-configuring-automatic-user-provisioning-to-fuze"></a>5단계. Fuze에 자동 사용자 프로 비전 구성 
 
@@ -104,7 +104,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **Fuze에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
@@ -137,9 +137,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
-3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
+1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
+2. [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 

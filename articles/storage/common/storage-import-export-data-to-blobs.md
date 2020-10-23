@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3be13dade9cae45994b5f7a9d6f7479e2de6256
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514212"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460736"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -33,13 +33,13 @@ ms.locfileid: "85514212"
 * Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
 * Windows 시스템에서 [최신 WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659) 합니다. 최신 버전의 도구에는 BitLocker 키에 대 한 외부 보호기 및 업데이트 된 잠금 해제 모드 기능을 허용 하기 위한 보안 업데이트가 있습니다.
 
-  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`
+  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
 * FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 캐리어를 사용 하려는 경우에는 Azure Data Box 운영 팀에 문의 하세요 `adbops@microsoft.com` .  
   * 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   * 내보내기 작업의 추적 번호를 생성합니다.
   * 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
   * 운송업체 계정이 없는 경우, 다음으로 이동합니다.
-    * [FedEX 계정 만들기](https://www.fedex.com/en-us/create-account.html) 또는
+    * [FedEx 계정을 만들거나](https://www.fedex.com/en-us/create-account.html)
     * [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>1단계: 드라이브 준비
@@ -77,13 +77,13 @@ ms.locfileid: "85514212"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |설명  |
+    |옵션  |Description  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. `manage-bde -protectors -get D:` 출력의 숫자 암호입니다.      |
-    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
     |/blobtype     |이 옵션은 데이터를 가져올 blob의 유형을 지정 합니다. 블록 blob의 경우이 `BlockBlob` 고, 페이지 blob의 경우 `PageBlob` 입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
@@ -94,6 +94,8 @@ ms.locfileid: "85514212"
     > * 저널 파일과 함께 `<Journal file name>_DriveInfo_<Drive serial ID>.xml` 파일도 도구가 있는 폴더와 동일한 폴더에 만들어집니다. 저널 파일이 너무 큰 경우 작업을 만들 때는 .xml 파일이 저널 파일 대신 사용됩니다.
 
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
 
@@ -142,6 +144,85 @@ ms.locfileid: "85514212"
    * **확인**을 클릭하여 가져오기 작업을 만듭니다.
 
      ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+다음 단계를 사용 하 여 Azure CLI에서 가져오기 작업을 만듭니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>작업 만들기
+
+1. Az [extension add](/cli/azure/extension#az_extension_add) 명령을 사용 하 여 [az import export](/cli/azure/ext/import-export/import-export) 확장을 추가 합니다.
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. 기존 리소스 그룹을 사용 하거나 하나를 만들 수 있습니다. 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 실행 합니다.
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. 기존 저장소 계정을 사용 하거나 하나를 만들 수 있습니다. 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 실행 합니다.
+
+    ```azurecli
+    az storage account create --resource-group myierg --name myssdocsstorage --https-only
+    ```
+
+1. 디스크를 제공할 수 있는 위치 목록을 가져오려면 [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 명령을 사용 합니다.
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. [Az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) 명령을 사용 하 여 해당 지역의 위치를 가져옵니다.
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. 다음 [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) 명령을 실행 하 여 가져오기 작업을 만듭니다.
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
+
+1. [Az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) 명령을 사용 하 여 myierg 리소스 그룹에 대 한 모든 작업을 볼 수 있습니다.
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. 작업을 업데이트 하거나 작업을 취소 하려면 [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) 명령을 실행 합니다.
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>3 단계 (선택 사항): 고객 관리 키 구성
 

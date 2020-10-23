@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: aee886e4e5ccaa3e07851ba839532f47c0a46ef8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: fa7d252246ed37160ba2a5cfcd90557df1375bc3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342045"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461535"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -49,7 +49,7 @@ ms.locfileid: "92342045"
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계. SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
 
 - **AZURE vm에서 SQL Server** -SQL 컴퓨터가 azure vm에서 호스트 되는 경우 [Log Analytics 에이전트를 자동으로 프로 비전](security-center-enable-data-collection.md#workspace-configuration)할 수 있습니다. 또는 [Azure Stack vm](quickstart-onboard-machines.md#onboard-your-azure-stack-vms)을 등록 하는 수동 절차를 따를 수 있습니다.
-- **Azure arc에 SQL Server** -SQL Server [azure arc](../azure-arc/index.yml) 컴퓨터에서 호스트 되는 경우 Security Center 권장 사항을 사용 하 여 Log Analytics 에이전트를 배포할 수 있습니다. "Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다. 또는 [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal)의 수동 절차를 따를 수도 있습니다.
+- **Azure arc에서 SQL Server** -SQL Server [azure arc](../azure-arc/index.yml) 사용 서버를 통해 관리 되는 경우 Security Center 권장 사항을 사용 하 여 Log Analytics 에이전트를 배포할 수 있습니다. "Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다. 또는 [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md)에 설명 된 설치 방법을 따를 수 있습니다.
 
 - **SQL Server 온-프레미스** -SQL Server azure Arc 없이 온-프레미스 Windows 컴퓨터에서 호스트 되는 경우 azure에 연결 하는 두 가지 옵션이 있습니다.
     

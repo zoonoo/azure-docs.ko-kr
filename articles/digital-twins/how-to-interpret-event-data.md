@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587636"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461025"
 ---
 # <a name="understand-event-data"></a>이벤트 데이터 이해
 
@@ -202,7 +202,7 @@ Azure Digital Twins에서 Event Grid에 내보내는 알림은 Event Grid 토픽
 
 #### <a name="body-details"></a>본문 정보
 
-본문은 JSON 형식의 관계에 대 한 페이로드 이기도 합니다. `GET` [DigitalTwins API](how-to-use-apis-sdks.md)를 통한 관계 요청과 동일한 형식을 사용 합니다. 
+본문은 JSON 형식의 관계에 대 한 페이로드 이기도 합니다. `GET` [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 통한 관계 요청과 동일한 형식을 사용 합니다. 
 
 "관계 업데이트"는 관계의 속성이 변경 되었음을 의미 합니다. 
 

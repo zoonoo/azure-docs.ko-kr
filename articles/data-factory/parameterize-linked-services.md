@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e6c00a0d2b6ff8bbb4ba9e51110e995e93d6b558
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131397"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426970"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 
@@ -32,16 +32,18 @@ Azure Portal 또는 프로그래밍 인터페이스에서 Data Factory UI를 사
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
-## <a name="supported-data-stores"></a>지원되는 데이터 저장소
+## <a name="supported-linked-service-types"></a>지원 되는 연결 된 서비스 유형
 
 모든 유형의 연결 된 서비스를 매개 변수화 할 수 있습니다.
-UI에서 연결 된 서비스를 제작할 때 Data Factory는 다음과 같은 커넥터 형식의 기본 제공 매개 변수화 환경을 제공 합니다. 연결 된 서비스 만들기/편집 블레이드에서 새 매개 변수에 대 한 옵션을 찾고 동적 콘텐츠를 추가할 수 있습니다.
+UI에서 연결 된 서비스를 제작할 때 Data Factory는 다음과 같은 유형의 연결 된 서비스에 대 한 기본 제공 매개 변수화 환경을 제공 합니다. 연결 된 서비스 만들기/편집 블레이드에서 새 매개 변수에 대 한 옵션을 찾고 동적 콘텐츠를 추가할 수 있습니다.
 
 - Amazon Redshift
 - Amazon S3
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
+- Azure Databricks
 - Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Synapse Analytics(이전의 SQL DW)
 - MySQL
 - Oracle
@@ -49,7 +51,7 @@ UI에서 연결 된 서비스를 제작할 때 Data Factory는 다음과 같은 
 - 일반 HTTP
 - 일반 REST
 
-다른 형식의 경우 UI에서 JSON을 편집 하 여 연결 된 서비스를 매개 변수화 할 수 있습니다.
+위의 목록에 없는 다른 연결 된 서비스 유형의 경우 UI에서 JSON을 편집 하 여 연결 된 서비스를 매개 변수화 할 수 있습니다.
 
 - 연결 된 서비스 만들기/편집 블레이드에서 "고급"을 확장 하 고, "JSON 형식의 동적 콘텐츠 지정" 확인란을 선택 하 고, 연결 된 서비스 JSON 페이로드를 지정 > > > 합니다. 
 - 또는 매개 변수화를 사용 하지 않고 연결 된 서비스를 만든 후 [관리 허브](author-visually.md#management-hub) -> 연결 된 서비스-> 특정 연결 된 서비스를 찾을 수 있습니다. > "코드" (단추 " {} ")를 클릭 하 여 JSON을 편집 합니다. 
