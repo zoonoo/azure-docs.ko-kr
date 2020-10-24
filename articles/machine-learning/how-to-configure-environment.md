@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203095"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495235"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 개발 환경 설정
 
@@ -37,7 +37,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Visual Studio Code: Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역입니다. 아직 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
@@ -139,10 +139,10 @@ Azure Machine Learning [계산 인스턴스](concept-compute-instance.md) 는 �
 
 Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. [설정 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 사용 하 여 지금 사용해 보세요.
 
-패키지를 설치 하는 방법을 비롯 하 여 계산 인스턴스에 대해 자세히 알아보려면 [계산 인스턴스](concept-compute-instance.md)를 참조 하세요.
+패키지를 설치 하는 방법을 비롯 하 여 계산 인스턴스에 대해 자세히 알아보려면 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조 하세요.
 
 > [!TIP]
-> 사용 하지 않는 계산 인스턴스에 대 한 요금 발생을 방지 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-bring-data.md#clean-up-resources)합니다.
+> 사용 하지 않는 계산 인스턴스에 대 한 요금 발생을 방지 하려면 [계산 인스턴스를 중지](how-to-create-manage-compute-instance.md#manage)합니다.
 
 Jupyter Notebook 서버 및 JupyterLab 외에도 [Azure Machine Learning studio 내의 통합 된 노트북 기능](how-to-run-jupyter-notebooks.md)에서 계산 인스턴스를 사용할 수 있습니다.
 

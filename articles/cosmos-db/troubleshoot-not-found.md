@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802399"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496083"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
 HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타냅니다.
@@ -28,7 +28,7 @@ HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타�
 
 #### <a name="solution"></a>해결 방법:
 1. Azure Cosmos DB에 대 한 기본 계정 일관성은 세션 일관성입니다. 항목이 만들어지거나 업데이트 되 면 응답은 읽기 요청이 해당 변경 내용으로 복제본에서 읽기를 보장 하기 위해 SDK 인스턴스 간에 전달 될 수 있는 세션 토큰을 반환 합니다.
-1. [일관성 수준을](consistency-levels-choosing.md) [더 강력한 수준](consistency-levels-tradeoffs.md)으로 변경 합니다.
+1. [일관성 수준을](./consistency-levels.md) [더 강력한 수준](./consistency-levels.md)으로 변경 합니다.
 
 ### <a name="invalid-partition-key-and-id-combination"></a>파티션 키 및 ID 조합이 잘못 되었습니다.
 파티션 키와 ID 조합이 잘못 되었습니다.
@@ -37,7 +37,7 @@ HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타�
 잘못 된 조합을 유발 하는 응용 프로그램 논리를 수정 합니다. 
 
 ### <a name="invalid-character-in-an-item-id"></a>항목 ID에 잘못 된 문자가 있습니다.
-항목 ID에 [잘못 된 문자가](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) 있는 Azure Cosmos DB에 항목이 삽입 되었습니다.
+항목 ID에 [잘못 된 문자가](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) 있는 Azure Cosmos DB에 항목이 삽입 되었습니다.
 
 #### <a name="solution"></a>해결 방법:
 ID를 특수 문자를 포함 하지 않는 다른 값으로 변경 합니다. ID를 변경 하는 옵션이 아닌 경우 ID를 Base64로 인코딩하여 특수 문자를 이스케이프할 수 있습니다.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Ttl (Time to Live) 제거
-항목의 [TTL (Time To Live)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) 속성이 설정 되었습니다. TTL 속성이 만료 되어 항목이 제거 되었습니다.
+항목의 [TTL (Time To Live)](./time-to-live.md) 속성이 설정 되었습니다. TTL 속성이 만료 되어 항목이 제거 되었습니다.
 
 #### <a name="solution"></a>해결 방법:
 항목이 제거 되지 않도록 TTL 속성을 변경 합니다.
@@ -94,11 +94,11 @@ while (invalidItemsIterator.HasMoreResults)
 항목이 존재 하는 데이터베이스 또는 컨테이너가 삭제 되었습니다.
 
 #### <a name="solution"></a>해결 방법:
-1. 부모 리소스를 [복원](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) 하거나 리소스를 다시 만듭니다.
+1. 부모 리소스를 [복원](./online-backup-and-restore.md#request-data-restore-from-a-backup) 하거나 리소스를 다시 만듭니다.
 1. 삭제 된 리소스를 대체할 새 리소스를 만듭니다.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. 컨테이너/컬렉션 이름은 대/소문자를 구분 합니다.
-컨테이너/컬렉션 이름은 Cosmos DB의 대/소문자를 sesnsitive 합니다.
+컨테이너/컬렉션 이름은 Cosmos DB에서 대/소문자를 구분 합니다.
 
 #### <a name="solution"></a>해결 방법:
 Cosmos DB에 연결 하는 동안 정확한 이름을 사용 해야 합니다.

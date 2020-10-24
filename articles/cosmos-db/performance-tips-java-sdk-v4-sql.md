@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369984"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475229"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Azure Cosmos DB Java SDK v4에 대한 성능 팁
 
@@ -85,13 +85,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
 * **짧은 대기 시간을 위해 Azure VM에서 가속화된 네트워킹 사용**
 
-성능을 최대화하려면 지침에 따라 [Windows(지침을 보려면 클릭)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) 또는 [Linux(지침을 보려면 클릭)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) Azure VM에서 가속화된 네트워킹을 사용하도록 설정하는 것이 좋습니다.
+성능을 최대화하려면 지침에 따라 [Windows(지침을 보려면 클릭)](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [Linux(지침을 보려면 클릭)](../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM에서 가속화된 네트워킹을 사용하도록 설정하는 것이 좋습니다.
 
 가속화된 네트워킹을 사용하지 않으면 Azure VM과 다른 Azure 리소스 간에 전송되는 IO가 VM과 해당 네트워크 카드 사이에 위치한 호스트 및 가상 스위치를 통해 불필요하게 라우팅될 수 있습니다. 데이터 경로에 호스트 및 가상 스위치를 인라인으로 두면 통신 채널의 대기 시간과 jitter가 증가할 뿐만 아니라 VM의 CPU 사이클도 도용합니다. 가속화된 네트워킹을 사용하면 VM에서 중간자 없이 NIC와 직접 상호 작용합니다. 호스트와 가상 스위치에서 처리되었던 네트워크 정책 세부 정보는 이제 NIC의 하드웨어에서 처리되며, 호스트와 가상 스위치가 무시됩니다. 일반적으로 가속화된 네트워킹을 사용하도록 설정하는 경우 대기 시간이 줄어들고 처리량이 향상될 뿐만 아니라 더 *일관된* 대기 시간이 유지되며 CPU 사용률이 줄어들 수도 있습니다.
 
 제한 사항: 가속화된 네트워킹은 VM OS에서 지원되어야 하며, VM이 중지 및 할당 취소된 경우에만 사용하도록 설정할 수 있습니다. VM은 Azure Resource Manager를 사용하여 배포할 수 없습니다.
 
-자세한 내용은 [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) 및 [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 지침을 참조하세요.
+자세한 내용은 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 및 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 지침을 참조하세요.
 
 ## <a name="sdk-usage"></a>SDK 사용
 * **최신 SDK 설치**
@@ -311,7 +311,7 @@ _ **클라이언트 규모 확장-워크 로드**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](indexing-policies.md)을 참조하세요.
+    자세한 내용은 [Azure Cosmos DB 인덱싱 정책](index-policy.md)을 참조하세요.
 
 ## <a name="throughput"></a>처리량
 <a id="measure-rus"></a>

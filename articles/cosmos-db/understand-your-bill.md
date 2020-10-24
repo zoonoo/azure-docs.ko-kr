@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567862"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476402"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
 
@@ -313,5 +313,5 @@ Microsoft Azure Cosmos DB 예약 용량을 사용하여 모든 Azure 지역의 �
 * [처리량 비용 최적화](optimize-cost-throughput.md)에 대한 자세한 정보
 * [스토리지 비용 최적화](optimize-cost-storage.md)에 대한 자세한 정보
 * [읽기 및 쓰기 비용 최적화](optimize-cost-reads-writes.md)에 대한 자세한 정보
-* [쿼리 비용 최적화](optimize-cost-queries.md)에 대한 자세한 정보
+* [쿼리 비용 최적화](./optimize-cost-reads-writes.md)에 대한 자세한 정보
 * [다중 지역 Azure Cosmos 계정 비용 최적화](optimize-cost-regions.md)에 대한 자세한 정보

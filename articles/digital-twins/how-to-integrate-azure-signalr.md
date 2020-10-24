@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367655"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495848"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -147,7 +147,7 @@ ms.locfileid: "92367655"
 
 1. 마지막으로 다음 Azure CLI 명령을 사용 하 여 이전의 Azure SignalR **연결 문자열** 을 함수의 앱 설정에 추가 합니다. 이 명령은 [Azure Cloud Shell](https://shell.azure.com)에서 실행 하거나, [컴퓨터에 Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)되어 있는 경우 로컬로 실행할 수 있습니다.
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -242,7 +242,7 @@ Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/c
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

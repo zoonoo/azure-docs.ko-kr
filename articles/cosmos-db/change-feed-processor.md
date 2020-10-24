@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277028"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475807"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
 
@@ -125,10 +125,10 @@ ms.locfileid: "92277028"
 
 변경 피드 프로세서는 장기 실행 프로세스나 작업을 지 원하는 모든 플랫폼에서 호스팅될 수 있습니다.
 
-* 연속 실행 중인 [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* [Azure 가상 컴퓨터](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines)의 프로세스입니다.
-* [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)의 백그라운드 작업입니다.
-* [ASP.NET 호스 티 드 서비스](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services)입니다.
+* 연속 실행 중인 [Azure WebJob](/learn/modules/run-web-app-background-task-with-webjobs/).
+* [Azure 가상 컴퓨터](/azure/architecture/best-practices/background-jobs#azure-virtual-machines)의 프로세스입니다.
+* [Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)의 백그라운드 작업입니다.
+* [ASP.NET 호스 티 드 서비스](/aspnet/core/fundamentals/host/hosted-services)입니다.
 
 변경 피드 프로세서는 수명이 짧은 환경에서 실행 될 수 있지만 임대 컨테이너는 상태를 유지 하기 때문에 이러한 환경의 시작 주기는 환경을 시작할 때마다 프로세서를 시작 하는 오버 헤드로 인해 알림을 수신 하는 지연을 추가 합니다.
 
@@ -147,4 +147,4 @@ ms.locfileid: "92277028"
 * [변경 피드 풀 모델](change-feed-pull-model.md)
 * [변경 피드 프로세서 라이브러리에서 마이그레이션하는 방법](how-to-migrate-from-change-feed-library.md)
 * [변경 피드 평가기 사용](how-to-use-change-feed-estimator.md)
-* [변경 피드 프로세서 시작 시간](how-to-configure-change-feed-start-time.md)
+* [변경 피드 프로세서 시작 시간](#starting-time)

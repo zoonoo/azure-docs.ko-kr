@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628197"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496074"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 웹 응용 프로그램을 계산 하는 사용자 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "91628197"
 * 웹 응용 프로그램에서 IoT Hub 연결 구성
 * 웹 응용 프로그램 배포 및 테스트
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure IoT Edge 배포 구성 및 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 에 대 한 기본적인 이해
@@ -63,10 +63,10 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>호스트 컴퓨터의 Azure IoT Edge에 컨테이너 배포
 
-Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. GitHub에서 샘플 [배포 매니페스트](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 를 찾을 수 있습니다. 여기에는 *공간 분석* 컨테이너에 대 한 기본 배포 구성이 포함 됩니다. 
+Azure CLI를 사용 하 여 공간 분석 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포 합니다. 배포 프로세스에는 배포에 필요한 컨테이너, 변수 및 구성을 설명 하는 배포 매니페스트 파일이 필요 합니다. *공간 분석* 컨테이너에 대 한 기본 배포 구성을 포함 하는 GitHub에서 [Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 지 특정 배포 매니페스트 뿐만 아니라 [edge 별 배포 매니페스트 Azure Stack](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) 샘플을 찾을 수 있습니다. 
 
 > [!NOTE] 
-> *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 * 의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. [Github에서](https://go.microsoft.com/fwlink/?linkid=2142179) 파일의 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다. 
+> *Telegraf* 및 *공간 분석-진단* 컨테이너는 선택 사항입니다. 파일 * 의DeploymentManifest.js* 에서 제거 하도록 결정할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조 하세요. Github의 파일에서 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 두 개의 샘플 *DeploymentManifest.js* 를 찾을 수 있습니다.
 
 ### <a name="set-environment-variables"></a>환경 변수 설정
 
@@ -89,7 +89,7 @@ IoT Edge 모듈에 대 한 대부분의 **환경 변수** 는 위에 연결 된 
 
 이제 *공간 분석* 컨테이너의 초기 구성이 완료 되었으므로 다음 단계는 작업 매개 변수를 구성 하 고 배포에 추가 하는 것입니다. 
 
-첫 번째 단계는 아래와 같이 샘플 [배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2142179) 를 업데이트 하 고에 대 한 operationId를 구성 하는 것입니다 `cognitiveservices.vision.spatialanalysis-personcount` .
+첫 번째 단계는 위에 연결 된 샘플 배포 매니페스트를 업데이트 하 고 아래와 같이에 대해 operationId를 구성 하는 것입니다 `cognitiveservices.vision.spatialanalysis-personcount` .
 
 
 ```json
@@ -107,7 +107,7 @@ IoT Edge 모듈에 대 한 대부분의 **환경 변수** 는 위에 연결 된 
 },
 ```
 
-[배포 매니페스트가](https://go.microsoft.com/fwlink/?linkid=2142179) 업데이트 된 후 카메라 제조업체의 지침에 따라 카메라를 설치 하 고, 카메라 url을 구성 하 고, 사용자 이름 및 암호를 구성 합니다. 
+배포 매니페스트가 업데이트 된 후 카메라 제조업체의 지침에 따라 카메라를 설치 하 고, 카메라 url을 구성 하 고, 사용자 이름 및 암호를 구성 합니다. 
 
 그런 다음 `VIDEO_URL` 카메라의 RTSP url로 설정 하 고, 카메라에 연결 하기 위한 자격 증명을 설정 합니다.
 
@@ -122,7 +122,7 @@ Edge 장치에 GPU가 둘 이상 있는 경우이 작업을 실행할 GPU를 선
 
 ### <a name="execute-the-deployment"></a>배포 실행
 
-이제 [배포 매니페스트가](https://go.microsoft.com/fwlink/?linkid=2142179) 완료 되었으므로 Azure CLI에서이 명령을 사용 하 여 호스트 컴퓨터에 IoT Edge 모듈로 컨테이너를 배포 합니다.
+이제 배포 매니페스트가 완료 되었으므로 Azure CLI에서이 명령을 사용 하 여 호스트 컴퓨터에 IoT Edge 모듈로 컨테이너를 배포 합니다.
 
 ```azurecli
 az login
@@ -145,7 +145,7 @@ Azure Portal의 IoT Hub 인스턴스에서 공간 분석 모듈의 IoT Edge 모�
 
 ![배포 확인 예](./media/spatial-analysis/deployment-verification.png)
 
-이 시점에서 공간 분석 컨테이너는 작업을 실행 하 고 있습니다. 작업에 대 한 AI 정보를 내보내고 `cognitiveservices.vision.spatialanalysis-personcount` 이러한 정보를 Azure IoT Hub 인스턴스에 원격 분석으로 라우팅합니다. 추가 카메라를 구성 하기 위해 [배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2142179) 파일을 업데이트 하 고 배포를 다시 실행할 수 있습니다.
+이 시점에서 공간 분석 컨테이너는 작업을 실행 하 고 있습니다. 작업에 대 한 AI 정보를 내보내고 `cognitiveservices.vision.spatialanalysis-personcount` 이러한 정보를 Azure IoT Hub 인스턴스에 원격 분석으로 라우팅합니다. 추가 카메라를 구성 하기 위해 배포 매니페스트 파일을 업데이트 하 고 배포를 다시 실행할 수 있습니다.
 
 ## <a name="person-counting-web-application"></a>웹 응용 프로그램을 계산 하는 사람
 
@@ -156,7 +156,7 @@ Azure Portal의 IoT Hub 인스턴스에서 공간 분석 모듈의 IoT Edge 모�
 이 앱의 컨테이너 형식은 Azure Container Registry에서 사용할 수 있습니다. 다음 docker pull 명령을 사용 하 여 다운로드 합니다. 액세스 토큰은 Microsoft에 문의 하세요 projectarchon@microsoft.com .
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 

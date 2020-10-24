@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075028"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476096"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Synapse SQL 풀에 대한 데이터 로드 전략
 
-기존의 SMP SQL 풀은 데이터를 로드할 때 ETL(추출, 변환 및 로드) 프로세스를 사용합니다. Azure Synapse Analytics 내의 Synapse SQL 풀은 확장성과 유연성이 뛰어난 컴퓨팅 및 스토리지 리소스를 활용하는 MPP(대규모 병렬 처리) 아키텍처입니다.
+기존의 SMP SQL 풀은 데이터를 로드할 때 ETL(추출, 변환 및 로드) 프로세스를 사용합니다. Synapse SQL은 Azure Synapse Analytics 내에서 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 분산 쿼리 처리 아키텍처를 사용 합니다.
 
-ELT(추출, 로드 및 변환) 프로세스를 사용하면 MPP를 활용할 수 있으며, 데이터를 로드하기 전에 변환하기 위한 리소스가 필요하지 않습니다.
+ELT (추출, 로드 및 변환) 프로세스를 사용 하 여 기본 제공 분산 쿼리 처리 기능을 활용 하 고 로드 하기 전에 데이터 변환에 필요한 리소스를 제거 합니다.
 
 SQL 풀은 [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)와 같은 인기 있는 SQL Server 옵션을 포함 하 여 많은 로드 방법을 지원 하지만, 데이터를 로드 하는 가장 빠르고 확장성 있는 방법은 PolyBase 외부 테이블 및 [COPY 문을](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)사용 하는 것입니다.
 

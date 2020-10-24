@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327708"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484613"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight 용 Azure 보안 기준
 
@@ -146,9 +146,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 사용 가능한 Azure 정책 별칭을 확인하는 방법: 
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Azure Policy를 구성하고 관리하는 방법: 
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Azure Policy를 구성 하 고 관리 하는 방법:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Azure Security Center를 사용 하 여 id 및 액세스를 모니터링 하는 방법:
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Azure 구독을 확인하는 방법: 
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Azure RBAC 이해: 
 
@@ -942,7 +940,7 @@ Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세�
 
 사용 가능한 Azure 정책 별칭을 확인하는 방법: 
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Azure Policy를 구성하고 관리하는 방법: 
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-코드를 Azure DevOps에 저장하는 방법: 
+[Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Azure Repos 설명서:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **지침**: "Microsoft hdinsight" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 HDInsight 클러스터의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-사용 가능한 Azure 정책 별칭을 확인하는 방법: 
+[사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Azure Policy를 구성하고 관리하는 방법: 
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Azure에서 Key Vault 키를 백업 하는 방법:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Azure에서 주요 자격 증명 모음 키를 복원 하는 방법:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1234,7 +1224,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
-**지침**: 시스템의 인시던트 대응 기능을 정기적으로 테스트합니다. 필요에 따라 weak 점수와 격차 및 수정 계획을 식별 합니다. IT 계획 및 기능에 대 한 NIST의 게시: 테스트, 학습 및 실습 프로그램 가이드를 참조 하세요.https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**지침**: 정기적으로 시스템의 인시던트 응답 기능을 테스트 하는 연습을 수행 합니다. 필요에 따라 weak 점수와 격차 및 수정 계획을 식별 합니다. IT 계획 및 기능에 대 한 NIST의 게시: 테스트, 학습 및 실습 프로그램 가이드를 참조 하세요.https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center 모니터링**: 해당 없음
 

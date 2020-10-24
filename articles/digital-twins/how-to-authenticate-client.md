@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d4e150eddee947aa4ed6f88c122c0fa6d01a0bae
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460651"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495791"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -22,7 +22,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 이 문서에서는 클라이언트 라이브러리를 사용 하 여 자격 증명을 가져오는 방법을 설명 합니다 `Azure.Identity` . 이 문서에서는 [.net (c #) sdk](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)에 대해 작성 하는 것과 같은 c #의 코드 예제를 보여 주지만, 사용 중인 sdk에 관계 없이 버전을 사용할 수 있습니다. `Azure.Identity` Azure digital twins에 사용할 수 있는 sdk에 대 한 자세한 내용은 [*방법: azure 디지털 쌍 api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
 
@@ -83,6 +83,10 @@ try
     Environment.Exit(0);
 }
 ```
+
+#### <a name="set-up-local-azure-credentials"></a>로컬 Azure 자격 증명 설정
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](../../includes/digital-twins-local-credentials-inner.md)]
 
 ### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential 메서드
 

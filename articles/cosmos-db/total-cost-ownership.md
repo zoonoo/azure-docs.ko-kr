@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569498"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476997"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB의 TCO (총 소유 비용)
 
@@ -40,7 +40,7 @@ Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인
 
 * **시간 단위로 요금을 지불 합니다.** 특정 시점에 크기를 조정 해야 하는 대규모 작업의 경우에는 시간 단위로 요금이 부과 됩니다. 애플리케이션에 대한 워크로드는 일반적으로 연중 시간 및 쿼리되는 데이터에 따라 달라집니다. Azure Cosmos DB를 사용하는 경우 필요할 때 규모를 확장 및 축소할 수 있고 필요한 크기 만큼만 요금을 부과할 수 있습니다. 온-프레미스 또는 IaaS 호스팅 시스템에서는 매시간 하드웨어를 서비스 해제할 수 있는 방법이 없기 때문에이 모델을 일치 시킬 수 없습니다. 이러한 경우 Azure Cosmos DB를 사용하여 평균적으로 10~14배의 비용을 절감할 수 있습니다.
 
-* **다양 한 기능을 무료로 이용할 수 있습니다.** Azure Cosmos DB에 대 한 쓰기 작업은 대체 데이터베이스 서비스에 비해 상당히 저렴 합니다. 또한 Azure Cosmos DB는 추가 요금 없이 [자동 인덱싱](indexing-policies.md), [TTL(Time to Live)](time-to-live.md), [변경 피드](change-feed.md)와 같은 기능 및 다른 데이터베이스 서비스에서는 일반적으로 요금이 청구되는 기능을 제공합니다.
+* **다양 한 기능을 무료로 이용할 수 있습니다.** Azure Cosmos DB에 대 한 쓰기 작업은 대체 데이터베이스 서비스에 비해 상당히 저렴 합니다. 또한 Azure Cosmos DB는 추가 요금 없이 [자동 인덱싱](index-policy.md), [TTL(Time to Live)](time-to-live.md), [변경 피드](change-feed.md)와 같은 기능 및 다른 데이터베이스 서비스에서는 일반적으로 요금이 청구되는 기능을 제공합니다.
 
 * **다양 한 워크 로드에 대해 통합 된 통화를 사용 합니다.** 대체 기능과 달리 Azure Cosmos DB에서는 작업 (예: 읽기 및 쓰기)을 분할할 필요가 없습니다. 또는 워크로드 유형별로 읽기 처리량 및 쓰기 처리량에 해당하는 처리량을 프로비전합니다. Azure Cosmos DB에서 프로비전된 처리량은 요청 단위 또는 RU/초를 기준으로 통합되고 정규화된 통화를 사용하여 예약됩니다. Azure Cosmos DB는 강제로 워크로드에 우선 순위를 할당하도록 하거나, 용량 계획을 수행하거나, 용량 유형별로 요금을 부과하지 않습니다. 이러한 접근 방식을 통해 다양한 작업 및 워크로드 유형 간에 동일한 RU/초를 쉽게 교환할 수 있습니다.
 
@@ -63,6 +63,6 @@ Azure Cosmos DB의 서버리스 프로비저닝 모델은 데이터베이스 인
 * [처리량 비용 최적화](optimize-cost-throughput.md)에 대한 자세한 정보
 * [스토리지 비용 최적화](optimize-cost-storage.md)에 대한 자세한 정보
 * [읽기 및 쓰기 비용 최적화](optimize-cost-reads-writes.md)에 대한 자세한 정보
-* [쿼리 비용 최적화](optimize-cost-queries.md)에 대한 자세한 정보
+* [쿼리 비용 최적화](./optimize-cost-reads-writes.md)에 대한 자세한 정보
 * [다중 지역 Cosmos 계정 비용 최적화](optimize-cost-regions.md)에 대한 자세한 정보
 * [NoSQL 데이터베이스 클라우드 서비스의 총 (비)소유 비용](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)에 대한 자세한 정보

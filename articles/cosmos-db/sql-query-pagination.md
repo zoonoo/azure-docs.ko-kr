@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485038"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB의 페이지 매김
 
@@ -56,7 +56,7 @@ Azure Cosmos DB 쿼리에서는 결과의 여러 페이지가 있을 수 있습�
 
 Azure Cosmos DB의 REST API에서 헤더를 사용 하 여 연속 토큰을 관리할 수 있습니다 `x-ms-continuation` . .NET 또는 Java SDK를 사용한 쿼리와 마찬가지로 `x-ms-continuation` 응답 헤더가 비어 있지 않으면 쿼리에 추가 결과가 있음을 의미 합니다.
 
-동일한 SDK 버전을 사용 하는 동안에는 연속 토큰이 만료 되지 않습니다. 선택적으로 [연속 토큰의 크기를 제한할](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)수 있습니다. 데이터의 양과 컨테이너의 실제 파티션 수에 관계 없이 쿼리는 단일 연속 토큰을 반환 합니다.
+동일한 SDK 버전을 사용 하는 동안에는 연속 토큰이 만료 되지 않습니다. 선택적으로 [연속 토큰의 크기를 제한할](/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb)수 있습니다. 데이터의 양과 컨테이너의 실제 파티션 수에 관계 없이 쿼리는 단일 연속 토큰을 반환 합니다.
 
 [GROUP BY](sql-query-group-by.md) 또는 [DISTINCT](sql-query-keywords.md#distinct) 를 포함 하는 쿼리에는 연속 토큰을 사용할 수 없습니다. 이러한 쿼리는 상당한 양의 상태를 저장 해야 하기 때문입니다. 를 사용 하 `DISTINCT` 는 쿼리의 경우 쿼리에를 추가할 때 연속 토큰을 사용할 수 있습니다 `ORDER BY` .
 

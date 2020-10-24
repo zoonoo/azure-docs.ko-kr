@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282043"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475076"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -62,7 +62,7 @@ Azure Cosmos DB는 SQL, MongoDB, Cassandra, Gremlin, Table 등의 많은 API를 
 
   동일한 데이터에 대 한 동일한 쿼리는 반복 실행에서 항상 동일한 수의 RUs를 비용으로 청구 합니다.
 
-- **스크립트 사용법**: 쿼리를 사용할 때와 마찬가지로 저장 프로시저와 트리거는 수행 되는 작업의 복잡성을 기준으로 RUs를 사용 합니다. 애플리케이션을 개발하는 과정에서 각 작업에 사용되는 RU 용량을 더 잘 파악할 수 있도록 [요청 요금 헤더](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query)를 살펴보세요.
+- **스크립트 사용법**: 쿼리를 사용할 때와 마찬가지로 저장 프로시저와 트리거는 수행 되는 작업의 복잡성을 기준으로 RUs를 사용 합니다. 애플리케이션을 개발하는 과정에서 각 작업에 사용되는 RU 용량을 더 잘 파악할 수 있도록 [요청 요금 헤더](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request)를 살펴보세요.
 
 ## <a name="request-units-and-multiple-regions"></a>요청 단위 및 여러 지역
 
@@ -76,12 +76,12 @@ Cosmos 컨테이너가 *' R '* RUs로 구성 되어 있고 Cosmos 계정에 연�
 
 - [Azure Cosmos 컨테이너 및 데이터베이스에 대한 처리량을 프로비전](set-throughput.md)하는 방법을 자세히 알아봅니다.
 - [Azure Cosmos DB에서 서버를](serverless.md)사용 하지 않는 방법에 대해 자세히 알아보세요.
-- [논리 파티션](partition-data.md)에 대해 자세히 알아봅니다.
-- [프로비전된 처리량 크기를 전역적으로 조정](scaling-throughput.md)하는 방법을 자세히 알아봅니다.
+- [논리 파티션](./partitioning-overview.md)에 대해 자세히 알아봅니다.
+- [프로비전된 처리량 크기를 전역적으로 조정]()하는 방법을 자세히 알아봅니다.
 - [Azure Cosmos 컨테이너의 처리량을 프로비전](how-to-provision-container-throughput.md)하는 방법을 알아봅니다.
 - [Azure Cosmos 데이터베이스의 처리량을 프로비전](how-to-provision-database-throughput.md)하는 방법을 알아봅니다.
 - [작업에 대 한 요청 단위 요금을 찾는](find-request-unit-charge.md)방법에 대해 알아봅니다.
 - [Azure Cosmos DB에서 프로 비전 된 처리량 비용을 최적화](optimize-cost-throughput.md)하는 방법을 알아봅니다.
 - [Azure Cosmos DB에서 읽기 및 쓰기 비용을 최적화](optimize-cost-reads-writes.md)하는 방법을 알아봅니다.
-- [Azure Cosmos DB에서 쿼리 비용을 최적화](optimize-cost-queries.md)하는 방법을 알아봅니다.
+- [Azure Cosmos DB에서 쿼리 비용을 최적화](./optimize-cost-reads-writes.md)하는 방법을 알아봅니다.
 - [메트릭을 사용](use-metrics.md)하 여 처리량을 모니터링 하는 방법에 대해 알아봅니다.

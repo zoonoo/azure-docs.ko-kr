@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483731"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474668"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀의 PolyBase 데이터 로드 전략 디자인
 
-기존 SMP 데이터 웨어하우스는 데이터를 로드 하기 위한 ETL (추출, 변환 및 로드) 프로세스를 사용 합니다. Azure SQL 풀은 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 MPP (대규모 parallel processing) 아키텍처입니다. ELT (추출, 로드 및 변환) 프로세스를 사용 하면 MPP를 활용 하 여 로드 전에 데이터를 변환 하는 데 필요한 리소스를 제거할 수 있습니다.
+기존 SMP 데이터 웨어하우스는 데이터를 로드 하기 위한 ETL (추출, 변환 및 로드) 프로세스를 사용 합니다. Azure SQL 풀은 계산 및 저장소 리소스의 확장성과 유연성을 활용 하는 MPP (대규모 parallel processing) 아키텍처입니다. ELT (추출, 로드 및 변환) 프로세스를 사용 하면 기본 제공 분산 쿼리 처리 기능을 활용 하 고 로드 전에 데이터를 변환 하는 데 필요한 리소스를 제거할 수 있습니다.
 
 SQL 풀은 BCP 및 SQL 대량 복사 API와 같은 비 Polybase 옵션을 비롯 한 여러 로드 메서드를 지원 하지만, 가장 빠르고 확장성이 뛰어난 데이터 로드 방법은 PolyBase를 통한 것입니다.  PolyBase는 T-SQL 언어를 통해 Azure Blob Storage 또는 Azure Data Lake Store에 저장된 외부 데이터에 액세스하는 기술입니다.
 
@@ -112,7 +112,7 @@ Azure 스토리지에 데이터를 두려면 [Azure Blob Storage](../../storage/
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. PolyBase를 사용 하 여 SQL 풀 준비 테이블에 데이터 로드
 
-데이터는 준비 테이블로 로드하는 것이 가장 좋습니다. 준비 테이블을 사용하면 프로덕션 테이블에 영향을 주지 않고 오류를 처리할 수 있습니다. 또한 준비 테이블을 사용 하면 데이터를 프로덕션 테이블에 삽입 하기 전에 데이터를 변환 하기 위해 SQL 풀 MPP를 사용할 수 있습니다.
+데이터는 준비 테이블로 로드하는 것이 가장 좋습니다. 준비 테이블을 사용하면 프로덕션 테이블에 영향을 주지 않고 오류를 처리할 수 있습니다. 또한 준비 테이블을 사용 하면 데이터를 프로덕션 테이블에 삽입 하기 전에 데이터 변환을 위해 SQL 풀의 기본 제공 분산 쿼리 처리 기능을 사용할 수 있습니다.
 
 ### <a name="options-for-loading-with-polybase"></a>PolyBase로 로드하기 위한 옵션
 

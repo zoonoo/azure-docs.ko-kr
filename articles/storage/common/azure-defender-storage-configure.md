@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289772"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474855"
 ---
 # <a name="configure-azure-defender-for-storage"></a>저장소에 대 한 Azure Defender 구성
 
@@ -37,7 +37,7 @@ Data Lake Storage에 대해 계층적 네임 스페이스를 사용 하도록 �
 
 - 릴리스 상태:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (일반 공급)
+  - [Azure Files](/azure/storage/files/storage-files-introduction) (일반 공급)
   - Azure Data Lake Storage Gen2 (일반 공급)
 - 클라우드:<br>
     ✔ 상용 클라우드<br>
@@ -98,16 +98,16 @@ Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장�
 
 Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 Azure Defender 설정을 만들거나 업데이트 하거나 가져옵니다.
 
-- [Advanced threat protection-만들기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Advanced threat protection-Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Advanced threat protection-만들기](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Advanced threat protection-Get](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell cmdlet을 사용합니다.
 
-- [Advanced threat protection 사용](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Advanced threat protection 가져오기](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Advanced threat protection 사용 안 함](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Advanced threat protection 사용](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Advanced threat protection 가져오기](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Advanced threat protection 사용 안 함](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 

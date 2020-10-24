@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320900"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482233"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
 
@@ -134,4 +134,4 @@ az provider show --namespace Microsoft.DocumentDB --expand "resourceTypes/aliase
 
 - 위에 표시 된 다중 쓰기 위치 및 VNet 필터링 정책을 포함 하 여 [Azure Cosmos DB에 대 한 샘플 사용자 지정 정책 정의를 검토](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB)합니다.
 - [Azure Portal에서 정책 할당 만들기](../governance/policy/assign-policy-portal.md)
-- [Azure Cosmos DB용 Azure Policy 기본 제공 정책 정의 검토](./policy-samples.md)
+- [Azure Cosmos DB용 Azure Policy 기본 제공 정책 정의 검토](./policy-reference.md)

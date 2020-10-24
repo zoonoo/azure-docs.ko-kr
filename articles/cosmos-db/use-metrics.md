@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280807"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476317"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그
 
-Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. 컨테이너 이름과 같은 메트릭에 대 한 차원 값은 대/소문자를 구분 하지 않습니다. 따라서 이러한 차원 값에 대해 문자열 비교를 수행 하는 경우 대/소문자를 구분 하지 않는 비교를 사용 해야 합니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서를 참조 하세요.
+Azure Cosmos DB는 처리량, 스토리지, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. Azure Portal은 이러한 메트릭의 집계 보기를 제공합니다. Azure Monitor API에서 Azure Cosmos DB 메트릭을 볼 수도 있습니다. 컨테이너 이름과 같은 메트릭에 대 한 차원 값은 대/소문자를 구분 하지 않습니다. 따라서 이러한 차원 값에 대해 문자열 비교를 수행 하는 경우 대/소문자를 구분 하지 않는 비교를 사용 해야 합니다. Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](./monitor-cosmos-db.md) 문서를 참조 하세요.
 
 이 문서에서는 일반적인 사용 사례와 Azure Cosmos DB 메트릭을 사용하여 이러한 문제를 분석 및 디버그할 수 있는 방법을 안내합니다. 메트릭은 5분마다 수집되고 7일 동안 유지됩니다.
 
@@ -112,6 +112,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Azure Portal에서 제공된 메트릭을 사용하여 문제를 모니터링 및 디버그하는 방법을 알아보았습니다. 다음 문서를 참조하여 데이터베이스 성능 개선에 대해 자세히 알아볼 수 있습니다.
 
-* Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](cosmos-db-azure-monitor-metrics.md) 문서를 참조 하세요. 
+* Azure monitor에서 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 가져오기](./monitor-cosmos-db.md) 문서를 참조 하세요. 
 * [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)
 * [Azure Cosmos DB에 대한 성능 팁](performance-tips.md)

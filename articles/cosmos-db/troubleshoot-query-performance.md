@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277172"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476708"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 
@@ -191,7 +191,7 @@ WHERE c.description = "Malabar spinach, cooked"
 
 **RU 요금:** 2.98RU
 
-쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 인덱싱 정책에 속성을 추가할 수 있습니다. [인덱스 변환 진행률을 추적](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)할 수 있습니다.
+쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 인덱싱 정책에 속성을 추가할 수 있습니다. [인덱스 변환 진행률을 추적](./how-to-manage-indexing-policy.md#dotnet-sdk)할 수 있습니다.
 
 ### <a name="understand-which-system-functions-use-the-index"></a>인덱스를 사용하는 시스템 함수를 파악
 
@@ -491,5 +491,5 @@ Azure Cosmos DB에서 프로비전된 처리량은 RU(요청 단위)로 측정�
 쿼리당 RU를 측정하고 쿼리를 튜닝하기 위한 실행 통계를 가져오는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [.NET SDK를 사용하여 SQL 쿼리 실행 메트릭 가져오기](profile-sql-api-query.md)
-* [Azure Cosmos DB와 함께 쿼리 성능 튜닝](sql-api-sql-query-metrics.md)
+* [Azure Cosmos DB와 함께 쿼리 성능 튜닝](./sql-api-query-metrics.md)
 * [.NET SDK용 성능 팁](performance-tips.md)

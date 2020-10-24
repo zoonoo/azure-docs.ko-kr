@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707951"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485463"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용하여 데이터베이스에서 로드하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드한 확장은 기본 제공 기능처럼 작동합니다.
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL 확장을 사용하는 방법
-PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)   psql 도구에서 CREATE extension 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
+PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치하려면 psql 도구에서 [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) 명령을 실행하여 패키지 개체를 데이터베이스에 로드합니다.
 
 Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하위 집합을 지원 합니다. 이 정보를 `SELECT * FROM pg_available_extensions;`를 실행하여 얻을 수도 있습니다. 나열 된 확장 이외의 확장은 지원 되지 않습니다. Azure Database for PostgreSQL에서 사용자 고유의 확장을 만들 수 없습니다.
 
@@ -205,7 +205,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg_stat_statements 확장](https://www.postgresql.org/docs/current/pgstatstatements.html) 은 SQL 문의 실행 통계를 추적 하는 방법을 제공 하기 위해 모든 Azure Database for PostgreSQL 서버에 미리 로드 됩니다.
-확장을 통해 어떤 명령문을 계산할지 제어하는 `pg_stat_statements.track` 설정의 기본값은 `top`이며 이것은 클라이언트가 직접 실행하는 모든 명령문이 추적된다는 의미입니다. 다른 두 가지 추적 수준은 `none`과 `all`입니다. 이 설정은 [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal)이나 [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli)를 통해 서버 매개 변수로 구성할 수 있습니다.
+확장을 통해 어떤 명령문을 계산할지 제어하는 `pg_stat_statements.track` 설정의 기본값은 `top`이며 이것은 클라이언트가 직접 실행하는 모든 명령문이 추적된다는 의미입니다. 다른 두 가지 추적 수준은 `none`과 `all`입니다. 이 설정은 [Azure Portal](./howto-configure-server-parameters-using-portal.md)이나 [Azure CLI](./howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수로 구성할 수 있습니다.
 
 pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을 기록할 때 서버 성능에 미치는 영향 사이에는 상충 관계가 있습니다. pg_stat_statements 확장을 적극적으로 사용하지 않는 경우에는 `pg_stat_statements.track`을 `none`으로 설정하는 것이 좋습니다. 일부 타사 모니터링 서비스가 pg_stat_statements에 기반하여 쿼리 성능 정보를 제공할 수 있으므로 여기에 해당하는 경우인지 여부를 확인하십시오.
 

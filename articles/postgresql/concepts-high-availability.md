@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485446"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Azure Database for PostgreSQL에서 고가용성 – 단일 서버
 Azure Database for PostgreSQL – 단일 서버 서비스는 재정적 지원 되는 SLA (서비스 수준 계약) [99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) 가동 시간을 보장 하는 높은 수준의 가용성을 제공 합니다. Azure Database for PostgreSQL은 사용자가 제공 하는 크기 조정 계산 작업 등의 계획 된 이벤트 중에 고가용성을 제공 하며, 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획 되지 않은 이벤트가 발생 하는 경우에도 제공 합니다. 이 서비스를 사용 하는 경우 응용 프로그램 작동 중단 시간이 거의 없도록 하 여 대부분의 중요 한 상황에서 신속 하 게 복구할 수 Azure Database for PostgreSQL.
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL는 높은 가동 시간이 필요한 중요 업무
 | ------------ | ----------- |
 | <b>PostgreSQL 데이터베이스 서버 | Azure Database for PostgreSQL는 데이터베이스 서버에 대 한 보안, 격리, 리소스 보호 및 빠른 다시 시작 기능을 제공 합니다. 이러한 기능은 가동 중단 후 몇 초 후에 크기 조정 및 데이터베이스 서버 복구 작업과 같은 작업을 용이 하 게 합니다. <br/> 데이터베이스 서버의 데이터 수정은 일반적으로 데이터베이스 트랜잭션 컨텍스트에서 발생 합니다. 모든 데이터베이스 변경 내용은 데이터베이스 서버에 연결 된 Azure Storage에서 WAL (write 미리 로그) 형식으로 동기적으로 기록 됩니다. 데이터베이스 [검사점](https://www.postgresql.org/docs/11/sql-checkpoint.html) 프로세스 중에 데이터베이스 서버 메모리의 데이터 페이지도 저장소로 플러시됩니다. |
 | <b>원격 스토리지 | 모든 PostgreSQL 물리적 데이터 파일 및 WAL 파일은 데이터 중복성, 가용성 및 안정성을 보장 하기 위해 지역 내에 세 개의 데이터 복사본을 저장 하도록 설계 된 Azure Storage에 저장 됩니다. 저장소 계층은 데이터베이스 서버와도 독립적입니다. 실패 한 데이터베이스 서버에서 분리 하 고 몇 초 내에 새 데이터베이스 서버에 다시 연결할 수 있습니다. 또한 Azure Storage는 저장소 오류를 지속적으로 모니터링 합니다. 블록 손상이 감지 되 면 새 저장소 복사본을 인스턴스화하여 자동으로 수정 됩니다. |
-| <b>관문 | 게이트웨이는 데이터베이스 프록시로 작동 하며 모든 클라이언트 연결을 데이터베이스 서버로 라우팅합니다. |
+| <b>게이트웨이 | 게이트웨이는 데이터베이스 프록시로 작동 하며 모든 클라이언트 연결을 데이터베이스 서버로 라우팅합니다. |
 
 ## <a name="planned-downtime-mitigation"></a>계획 된 가동 중지 시간 완화
 Azure Database for PostgreSQL는 계획 된 가동 중지 시간 동안 고가용성을 제공 하도록 설계 되었습니다. 
@@ -40,8 +40,8 @@ Azure Database for PostgreSQL는 계획 된 가동 중지 시간 동안 고가�
 | ------------ | ----------- |
 | <b>수직 계산 확장/축소 | 사용자가 계산 확장/축소 작업을 수행 하면 크기 조정 된 계산 구성을 사용 하 여 새 데이터베이스 서버가 프로 비전 됩니다. 이전 데이터베이스 서버에서 활성 검사점을 완료할 수 있으며, 클라이언트 연결이 종료 되 고, 커밋되지 않은 트랜잭션이 취소 되 고 종료 됩니다. 그런 다음 이전 데이터베이스 서버에서 저장소를 분리 하 고 새 데이터베이스 서버에 연결 합니다. 클라이언트 응용 프로그램에서 연결을 다시 시도 하거나 새 연결을 시도 하는 경우 게이트웨이는 새 데이터베이스 서버로 연결 요청을 보냅니다.|
 | <b>저장소 확장 | 저장소 확장은 온라인 작업 이며 데이터베이스 서버를 중단 하지 않습니다.|
-| <b>새 소프트웨어 배포 (Azure) | 새 기능 출시 또는 버그 수정은 서비스의 계획 된 유지 관리의 일부로 자동으로 발생 합니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)를 참조 하 고 [포털](https://aka.ms/servicehealthpm)도 확인 하세요.|
-| <b>부 버전 업그레이드 | Azure에서 결정 하는 부 버전에 데이터베이스 서버를 자동으로 패치 Azure Database for PostgreSQL 합니다. 서비스의 계획 된 유지 관리의 일환으로 발생 합니다. 이로 인해 몇 초 후에 짧은 가동 중지 시간이 발생 하 고 데이터베이스 서버가 새 부 버전으로 자동으로 다시 시작 됩니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)를 참조 하 고 [포털](https://aka.ms/servicehealthpm)도 확인 하세요.|
+| <b>새 소프트웨어 배포 (Azure) | 새 기능 출시 또는 버그 수정은 서비스의 계획 된 유지 관리의 일부로 자동으로 발생 합니다. 자세한 내용은 [설명서](./concepts-monitoring.md#planned-maintenance-notification)를 참조 하 고 [포털](https://aka.ms/servicehealthpm)도 확인 하세요.|
+| <b>부 버전 업그레이드 | Azure에서 결정 하는 부 버전에 데이터베이스 서버를 자동으로 패치 Azure Database for PostgreSQL 합니다. 서비스의 계획 된 유지 관리의 일환으로 발생 합니다. 이로 인해 몇 초 후에 짧은 가동 중지 시간이 발생 하 고 데이터베이스 서버가 새 부 버전으로 자동으로 다시 시작 됩니다. 자세한 내용은 [설명서](./concepts-monitoring.md#planned-maintenance-notification)를 참조 하 고 [포털](https://aka.ms/servicehealthpm)도 확인 하세요.|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>계획 되지 않은 가동 중지 시간 완화
@@ -68,8 +68,8 @@ Azure Database for PostgreSQL는 계획 된 가동 중지 시간 동안 고가�
 
 | **시나리오** | **복구 계획** |
 | ---------- | ---------- |
-| <b> 지역 오류 | 지역 오류는 드문 이벤트입니다. 그러나 지역 장애 로부터 보호 해야 하는 경우에는 재해 복구 (DR)를 위해 다른 지역에 하나 이상의 읽기 복제본을 구성할 수 있습니다. 자세한 내용은 읽기 복제본 만들기 및 관리에 대 한 [이 문서](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 를 참조 하세요. 영역 수준 실패가 발생할 경우 다른 지역에 구성 된 읽기 복제본을 프로덕션 데이터베이스 서버로 수동으로 승격할 수 있습니다. |
-| <b> 논리적/사용자 오류 | 실수로 삭제 된 테이블 또는 잘못 업데이트 된 데이터와 같은 사용자 오류 로부터 복구 하려면 오류가 발생 하기 직전까지 데이터를 복원 및 복구 하 여 PITR (지정 [시간 복구](https://docs.microsoft.com/azure/postgresql/concepts-backup) )를 수행 해야 합니다.<br> <br>  데이터베이스 서버의 모든 데이터베이스가 아니라 데이터베이스 또는 특정 테이블의 하위 집합만 복원 하려면 새 인스턴스에서 데이터베이스 서버를 복원 하 고 [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)를 통해 테이블을 내보낸 다음 [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) 를 사용 하 여 해당 테이블을 데이터베이스로 복원할 수 있습니다. |
+| <b> 지역 오류 | 지역 오류는 드문 이벤트입니다. 그러나 지역 장애 로부터 보호 해야 하는 경우에는 재해 복구 (DR)를 위해 다른 지역에 하나 이상의 읽기 복제본을 구성할 수 있습니다. 자세한 내용은 읽기 복제본 만들기 및 관리에 대 한 [이 문서](./howto-read-replicas-portal.md) 를 참조 하세요. 영역 수준 실패가 발생할 경우 다른 지역에 구성 된 읽기 복제본을 프로덕션 데이터베이스 서버로 수동으로 승격할 수 있습니다. |
+| <b> 논리적/사용자 오류 | 실수로 삭제 된 테이블 또는 잘못 업데이트 된 데이터와 같은 사용자 오류 로부터 복구 하려면 오류가 발생 하기 직전까지 데이터를 복원 및 복구 하 여 PITR (지정 [시간 복구](./concepts-backup.md) )를 수행 해야 합니다.<br> <br>  데이터베이스 서버의 모든 데이터베이스가 아니라 데이터베이스 또는 특정 테이블의 하위 집합만 복원 하려면 새 인스턴스에서 데이터베이스 서버를 복원 하 고 [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)를 통해 테이블을 내보낸 다음 [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) 를 사용 하 여 해당 테이블을 데이터베이스로 복원할 수 있습니다. |
 
 
 

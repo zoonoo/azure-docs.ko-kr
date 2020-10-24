@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424452"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496029"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "92424452"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -123,7 +123,7 @@ AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법
 * __내부 AKS 부하 분산 장치__:이 방법은 가상 네트워크 내에서 개인 IP를 사용 하도록 AKS에 배포 하기 위한 끝점을 구성 합니다.
 
 > [!WARNING]
-> **개인 AKS 또는 내부 부하 분산 장치 중 하나만 사용**합니다.
+> 내부 부하 분산 장치는 kubenet를 사용 하는 AKS 클러스터에서 작동 하지 않습니다. 내부 부하 분산 장치 및 개인 AKS 클러스터를 동시에 사용 하려면 CNI (Azure Container 네트워킹 인터페이스)를 사용 하 여 개인 AKS 클러스터를 구성 합니다. 자세한 내용은 [Azure Kubernetes Service에서 azure CNI 네트워킹 구성](../aks/configure-azure-cni.md)을 참조 하세요.
 
 ### <a name="private-aks-cluster"></a>개인 AKS 클러스터
 
@@ -134,7 +134,7 @@ AKS 클러스터와 가상 네트워크 간에 트래픽을 격리 하는 방법
 > [!IMPORTANT]
 > Azure Machine Learning에서 개인 링크 사용 AKS 클러스터를 사용 하려면 먼저 지원 인시던트를 열어이 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
-## <a name="internal-aks-load-balancer"></a>내부 AKS 부하 분산 장치
+### <a name="internal-aks-load-balancer"></a>내부 AKS 부하 분산 장치
 
 기본적으로 AKS 배포는 [공용 부하 분산 장치](../aks/load-balancer-standard.md)를 사용 합니다. 이 섹션에서는 내부 부하 분산 장치를 사용 하도록 AKS를 구성 하는 방법에 대해 알아봅니다. 내부 (또는 개인) 부하 분산 장치는 개인 Ip만 프런트 엔드로 허용 되는 경우에 사용 됩니다. 내부 부하 분산 장치는 가상 네트워크 내에서 트래픽 부하를 분산 하는 데 사용 됩니다.
 
