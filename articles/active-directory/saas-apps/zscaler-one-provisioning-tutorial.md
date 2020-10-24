@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e306c65735d8a5682cd90a1ce28fceec7d045c4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545865"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519761"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전에 대해 Zscaler One 구성
 
 이 자습서에서는 Zscaler One으로 사용자 및 그룹을 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 Zscaler One and Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스를 기반으로 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 정보는 [Azure Active Directory를 사용하여 SaaS(Software as a Service) 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스를 기반으로 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 정보는 [Azure Active Directory를 사용하여 SaaS(Software as a Service) 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -63,7 +63,7 @@ Marketplace에서 Zscaler One을 추가 하려면 다음 단계를 수행 합니
 
 Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 할당된 사용자 또는 그룹만 동기화됩니다.
 
-자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Zscaler One에 대 한 액세스가 필요한 Azure AD의 사용자 또는 그룹을 결정 합니다. 이러한 사용자 또는 그룹을 Zscaler One에 할당 하려면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)의 지침을 따르세요.
+자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Zscaler One에 대 한 액세스가 필요한 Azure AD의 사용자 또는 그룹을 결정 합니다. 이러한 사용자 또는 그룹을 Zscaler One에 할당 하려면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)의 지침을 따르세요.
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-one"></a>Zscaler One에 사용자를 할당 하기 위한 주요 팁
 
@@ -134,7 +134,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
     ![Zscaler 단일 일치 그룹 특성](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
-14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](./../active-directory-saas-scoping-filters.md)의 지침을 따르세요.
+14. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)의 지침을 따르세요.
 
 15. Zscaler One에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 설정 하려면 **설정** 섹션에서 **프로 비전 상태** 를 **켜기**로 변경 합니다.
 
@@ -152,7 +152,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비저닝 활동 보고서를 확인할 수 있습니다. 이 보고서는 Zscaler One에서 Azure AD 프로 비전 서비스가 수행 하는 모든 작업을 설명 합니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -161,7 +161,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../active-directory-saas-provisioning-reporting.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png

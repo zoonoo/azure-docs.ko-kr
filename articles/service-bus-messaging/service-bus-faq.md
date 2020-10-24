@@ -3,12 +3,12 @@ title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894525"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518758"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -83,11 +83,11 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     > 명령에서 반환 된 IP 주소는 `nslookup` 고정 ip 주소가 아닙니다. 그러나 기본 배포가 삭제 되거나 다른 클러스터로 이동 될 때까지 일정 하 게 유지 됩니다.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>네임 스페이스에서 메시지를 보내고 받는 클라이언트의 IP 주소는 어디에서 찾을 수 있나요? 
-네임 스페이스에서 메시지를 보내거나 받는 클라이언트의 IP 주소를 기록 하지 않습니다. 키를 다시 생성 하 여 모든 기존 클라이언트가 인증에 실패 하 고 허용 되는 사용자 또는 응용 프로그램만이 네임 스페이스에 액세스할 수 있도록[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)(역할 기반 액세스 제어) 설정을 검토 합니다. 
+네임 스페이스에서 메시지를 보내거나 받는 클라이언트의 IP 주소를 기록 하지 않습니다. 키를 다시 생성 하 여 모든 기존 클라이언트가 인증에 실패 하 고 [AZURE RBAC (역할 기반 액세스 제어](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) 설정을 검토 하 여 허용 된 사용자나 응용 프로그램만 네임 스페이스에 액세스할 수 있도록 합니다. 
 
 **프리미엄** 네임 스페이스를 사용 하는 경우 [IP 필터링](service-bus-ip-filtering.md), [가상 네트워크 서비스 끝점](service-bus-service-endpoints.md)및 [개인 끝점](private-link-service.md) 을 사용 하 여 네임 스페이스에 대 한 액세스를 제한 합니다. 
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>일부 Azure Service Bus 모범 사례는 무엇인가요?
 [Service Bus를 사용한 성능 향상에 대한 모범 사례][Best practices for performance improvements using Service Bus] 참조 - 이 문서에서는 메시지를 교환할 때 성능을 최적화하는 방법을 설명합니다.
 

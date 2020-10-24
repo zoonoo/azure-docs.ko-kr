@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f3fa755f61d398ce7f0965fba86262c3e3ec863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef38e36ce1d2c7968e3eb7079270626629523334
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021156"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518738"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure 스토리지 분석 메트릭(클래식)
 
@@ -176,7 +176,10 @@ Azure Portal에서 스토리지 계정의 메뉴 창의 **모니터링(클래식
 >
 
 ## <a name="access-metrics-data-programmatically"></a>프로그래밍 방식으로 메트릭 데이터 액세스  
-다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 코드 샘플은 스토리지의 메트릭 테이블 액세스를 간소화하는 **CloudAnalyticsClient** 클래스가 포함된 Azure Storage 클라이언트 라이브러리 버전 4.x 이상을 사용합니다.  
+다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 코드 샘플은 스토리지의 메트릭 테이블 액세스를 간소화하는 **CloudAnalyticsClient** 클래스가 포함된 Azure Storage 클라이언트 라이브러리 버전 4.x 이상을 사용합니다. 
+
+> [!NOTE]
+> **Cloudanalyticsclient 클래스가** 클래스는 .Net 용 Azure Blob storage 클라이언트 라이브러리 v12에 포함 되어 있지 않습니다. **2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용 하는 경우 해당 날짜 이전의 Azure Monitor로 전환 하는 것이 좋습니다. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  

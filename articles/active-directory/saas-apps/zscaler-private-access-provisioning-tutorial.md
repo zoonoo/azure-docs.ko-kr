@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ecb4d249c8c2167ec61740eb9515fd1937230b0
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312338"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519744"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 ZPA (Zscaler Private Access) 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91312338"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -114,7 +114,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 ZPA (Zscaler Private Access)에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 해제 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [ZPA (Zscaler Private access) single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)에 제공 된 지침에 따라 Zpa (Zscaler private access)에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
+> [ZPA (Zscaler Private access) single sign-on 자습서](./zscalerprivateaccess-tutorial.md)에 제공 된 지침에 따라 Zpa (Zscaler private access)에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
 
 > [!NOTE]
 > Zscaler 개인 액세스의 SCIM 끝점에 대 한 자세한 내용은 [다음](https://www.zscaler.com/partners/microsoft)을 참조 하세요.
@@ -145,7 +145,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Zpa (Zscaler Private Access)에 동기화를**선택 합니다.
 
@@ -189,4 +189,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
-

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945916"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521308"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -107,7 +107,7 @@ Azure 갤러리 이미지 (Microsoft에서 게시) | 지원됨 | VM이 지원되
 Azure 갤러리 이미지 (타사에서 게시)  | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 (타사에서 게시)| 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용 하는 Vm | 지원되지 않음 | 백 엔드에서 Site Recovery를 사용 하 여 Vm의 지역 간에 리소스를 이동 합니다. 이미 Site Recovery를 사용 하 고 있는 경우 복제를 사용 하지 않도록 설정 하 고 준비 프로세스를 시작 합니다.
-RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책이 대상 지역의 VM에 복사 되지 않습니다.
+Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세스 제어) 정책이 대상 지역의 VM에 복사 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 VM에 복사 되지 않습니다. 이동이 완료 된 후 수동으로 설치 합니다.
 
 
@@ -170,7 +170,7 @@ IP 구성 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본�
 
  URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-**이름** | **Azure 퍼블릭 클라우드** | **세부 정보** 
+**이름** | **Azure 공용 클라우드** | **세부 정보** 
 --- | --- | --- 
 스토리지 | `*.blob.core.windows.net`  | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. 
 Azure Active Directory | `login.microsoftonline.com`  | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. 

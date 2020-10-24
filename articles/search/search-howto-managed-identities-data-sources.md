@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f1c4bf9b599da8285ac69e299549e5aa73c2f9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275101"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519591"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>관리 id를 사용 하 여 데이터 원본에 대 한 인덱서 연결 설정
 
@@ -31,7 +31,7 @@ Azure Cognitive Search의 [인덱서](search-indexer-overview.md)는 데이터 �
 
 ## <a name="using-managed-identities"></a>관리 ID 사용
 
-[관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 Azure 서비스에 제공하는 기능입니다. Azure Cognitive Search에서 이 기능을 사용하여 자격 증명을 포함하지 않는 연결 문자열을 사용하여 데이터 원본 개체를 만들 수 있습니다. 대신, 검색 서비스에 RBAC(역할 기반 액세스 제어)를 통해 데이터 원본에 대한 액세스 권한이 부여됩니다.
+[관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 Azure 서비스에 제공하는 기능입니다. Azure Cognitive Search에서 이 기능을 사용하여 자격 증명을 포함하지 않는 연결 문자열을 사용하여 데이터 원본 개체를 만들 수 있습니다. 대신, azure RBAC (역할 기반 액세스 제어)를 통해 검색 서비스에 데이터 원본에 대 한 액세스 권한이 부여 됩니다.
 
 관리 ID를 사용하여 데이터 원본을 설정할 때 데이터 원본 자격 증명을 변경할 수 있으며, 인덱서는 여전히 데이터 원본에 연결할 수 있습니다. 계정 키를 포함하거나 Key Vault를 사용하여 계정 키를 검색하지 않고도 코드에서 데이터 원본 개체를 만들 수도 있습니다.
 

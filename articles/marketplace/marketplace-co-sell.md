@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207713"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520995"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -49,7 +49,7 @@ ms.locfileid: "92207713"
 ||[파트너 센터에서 공동 판매 옵션을 사용](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) *하지 않는* IP 제안|<li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.|공동 판매 준비|
 ||컨설팅 서비스|<li>[클라우드 전문가와 협력](https://partner.microsoft.com/campaigns/ced-nomination-form/) 하 여 필요한 공동 판매 설명서를 제공 하는 요청입니다.</li><li>적극적인 골드 역량.</li>|공동 판매 준비|
 |<ol start=3><li>IP 공동 판매 성과급을 위한 자격</li>|Azure 응용 프로그램, Azure 컨테이너, IoT Edge 모듈, SaaS, Vm|공동 판매 준비를 완료 한 후에는 다음과 같은 두 가지 요구 사항이 추가로 적용 됩니다. <ul> 요구 사항 1: 다음 중 하나를 수행 합니다.<ul><li>*조직 수준에서:* 지난 12 개월 동안 Azure에서 사용 된 수익의 $10만 USD를 충족 하거나 초과 합니다.</li><li>*제안 수준:* $10만 USD의 누적 marketplace 청구 수익</li></ul><br>요구 사항 2: 제품 인프라의 50% 이상이 Azure에서 실행 되어야 합니다.<ul><li>[파트너 센터의 공동 판매 옵션인](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) *IP 제품:* 검토를 위해 파트너 센터에서 공동 판매 문서로 아키텍처 다이어그램 업로드</li><li>[파트너 센터에서 공동 판매 옵션을 사용](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) *하지 않는* IP 제공: OCP GTM에 아키텍처 다이어그램 업로드|Azure IP 공동 판매 incentivized|
-||Dynamics|<li>ISV Connect premium 계층에 활성 등록이 있습니다.</li>|Business Applications 공동 판매 incentivized|
+||역동성|<li>ISV Connect premium 계층에 활성 등록이 있습니다.</li>|Business Applications 공동 판매 incentivized|
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>파트너 센터에서 공동 판매 자료를 제출 하는 방법
 
@@ -75,11 +75,13 @@ ms.locfileid: "92207713"
  
 1. **연락처** 섹션에서 판매 담당자 정보를 업로드 합니다. Microsoft 판매자는 이러한 연락처에 연락 하 여 제품에 대 한 추가 정보를 요청할 수 있습니다. (*필수: 제품을 사용할 수 있는 각 지리에 대 한 연락처입니다.*)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다.":::
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다." 드롭다운 목록에서 "공동 판매 준비 완료"를 선택 합니다.
+<ul><ul>
 
-1. 계속 하기 전에 초안을 저장 합니다.
-1. 제품의 모든 필수 섹션이 완료되면 검토 및 게시를 위해 제출할 수 있습니다. 오른쪽 위에서 **검토 및 게시**를 선택 합니다. 제품 세부 정보를 검토 한 다음 **게시**를 선택 합니다.
-1. 업로드 한 자료를 검토 하 고 제품이 공동 판매 프로그램에 적합 한지 확인 합니다.
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다.":::
+
+이렇게 하면 프로세스를 완료 하는 데 도움이 됩니다.
+</ul></ul>
 
 ## <a name="next-steps"></a>다음 단계
 

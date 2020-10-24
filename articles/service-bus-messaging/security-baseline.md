@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4e844904f236e9d81404a3481af9349ac8881085
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3604a2efb4d6f8c08a19d832c8523e44df352444
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310445"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518775"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Service Bus에 대 한 Azure 보안 기준
 
@@ -227,7 +227,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. Service Bus에 대 한 미리 정의 된 기본 제공 역할이 있습니다. 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. Service Bus에 대 한 미리 정의 된 기본 제공 역할이 있습니다. 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
 
 - [Azure Service Bus에 대 한 기본 제공 역할](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 

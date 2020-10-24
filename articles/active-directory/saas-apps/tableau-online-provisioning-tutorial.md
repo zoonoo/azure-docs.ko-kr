@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fa28b299a33f5386edc6ce14c523d2c332b0767b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425557"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520509"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Tableau Online 구성
 
@@ -61,7 +61,7 @@ Marketplace에서 Tableau Online을 추가 하려면 다음 단계를 수행 합
 
 Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 할당된 사용자 또는 그룹만 동기화됩니다.
 
-자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Tableau Online에 액세스 해야 하는 Azure AD의 사용자 또는 그룹을 결정 합니다. 이러한 사용자 또는 그룹을 Tableau Online에 할당 하려면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)의 지침을 따르세요.
+자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Tableau Online에 액세스 해야 하는 Azure AD의 사용자 또는 그룹을 결정 합니다. 이러한 사용자 또는 그룹을 Tableau Online에 할당 하려면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)의 지침을 따르세요.
 
 ### <a name="important-tips-for-assigning-users-to-tableau-online"></a>Tableau Online에 사용자를 할당하기 위한 주요 팁
 

@@ -3,7 +3,7 @@ title: Azure Media Indexer를 사용하여 미디어 파일 인덱싱
 description: Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 Media Indexer를 사용하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Asolanki
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/22/2019
-ms.author: juliako
+ms.date: 10/21/2020
+ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06bd9f159281a1353ca9474bf0876e99b6d1940a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 12a4099a6a3f0d06dfbb40171970c7386c3e4d22
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018961"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518843"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer를 사용하여 미디어 파일 인덱싱
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> **Azure Media Indexer** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요.
+> [!IMPORTANT]
+> 고객은 [Media Services V3 AudioAnalyzerPreset Basic 모드](../latest/analyzing-video-audio-files-concept.md)를 사용 하 여 인덱서 V1 및 인덱서 v 2에서로 마이그레이션하는 것이 좋습니다. [Azure Media Indexer](media-services-index-content.md) media 프로세서 및 [Azure Media Indexer 2 Preview](./legacy-components.md) 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요.
 
 Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.  
 
@@ -154,7 +154,7 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 | --- | --- |
 | **InputFileName.ttml**<br/>**InputFileName.vtt** |TTML 및 WebVTT 형식의 자막 (참조) 파일입니다.<br/><br/>청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.<br/><br/>폐쇄 캡션 파일에는 원본 비디오에서 음성이 인식 되는 정도에 따라 인덱싱 작업을 점수를 <b>Recognizability</b> 라는 태그가 포함 됩니다.  유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |키워드 및 정보 파일입니다. <br/><br/>키워드 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함하는 XML 파일입니다. <br/><br/>정보 파일은 인식된 각 용어에 대한 세부적인 정보를 포함하는 일반 텍스트 파일입니다. 첫 번째 줄은 특수하며 Recognizability 점수를 포함합니다. 이후 각 줄은 탭으로 구분된 데이터 목록이며, 다음과 같습니다. 시작 시간, 종료 시간, 단어/구, 신뢰도 시간은 초 단위로 제공되며 신뢰도는 0-1의 숫자로 지정됩니다. <br/><br/>예제 줄: "1.20    1.45    word    0.67" <br/><br/>음성 분석을 수행하거나, Bing, Google 또는 Microsoft SharePoint와 같은 검색 엔진에 노출하여 미디어 파일을 보다 검색하기 쉽게 하거나, 보다 관련 있는 광고를 제공하는 데에도 사용하는 등의 여러 가지 목적을 위해 이들 파일을 사용할 수 있습니다. |
-| **JobResult.txt** |여러 파일을 인덱싱할 때만 표시되는 출력 매니페스트에는 다음 정보가 포함됩니다.<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>오류</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **JobResult.txt** |여러 파일을 인덱싱할 때만 표시되는 출력 매니페스트에는 다음 정보가 포함됩니다.<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Error</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
 모든 입력 미디어 파일이 성공적으로 인덱싱되지 않으면, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 

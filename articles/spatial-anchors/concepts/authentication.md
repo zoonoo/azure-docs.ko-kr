@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328541"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516922"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 인증 및 권한 부여
 
-이 문서에서는 앱 또는 웹 서비스에서 Azure 공간 앵커로 인증할 수 있는 다양 한 방법을 알아봅니다. 또한 Azure AD (Azure Active Directory)에서 역할 기반 액세스 제어를 사용 하 여 공간 앵커 계정에 대 한 액세스를 제어 하는 방법에 대해 알아봅니다.
+이 문서에서는 앱 또는 웹 서비스에서 Azure 공간 앵커로 인증할 수 있는 다양 한 방법을 알아봅니다. Azure AD (역할 기반 액세스 제어) Azure Active Directory에서 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 공간 앵커 계정에 대 한 액세스를 제어 하는 방법에 대해서도 알아봅니다.
 
 ## <a name="overview"></a>개요
 
@@ -108,7 +108,7 @@ Azure Active Directory 사용자를 대상으로 하는 응용 프로그램의 �
    1.    Azure Portal의 공간 앵커 리소스로 이동 합니다.
    2.    **액세스 제어 (IAM)** 탭으로 이동 합니다.
    3.    **역할 할당 추가**를 선택합니다.
-   1.    [역할을 선택](#role-based-access-control)합니다.
+   1.    [역할을 선택](#azure-role-based-access-control)합니다.
    2.    **선택** 상자에서 액세스 권한을 할당 하려는 사용자, 그룹 및/또는 응용 프로그램의 이름을 입력 합니다.
    3.    **저장**을 선택합니다.
 
@@ -182,7 +182,7 @@ Azure AD 액세스 토큰은 [Msal](../../active-directory/develop/msal-overview
         1.    Azure Portal의 공간 앵커 리소스로 이동 합니다.
         2.    **액세스 제어 (IAM)** 탭으로 이동 합니다.
         3.    **역할 할당 추가**를 선택합니다.
-        1.    [역할을 선택](#role-based-access-control)합니다.
+        1.    [역할을 선택](#azure-role-based-access-control)합니다.
         2.    **선택** 상자에 액세스 권한을 할당 하려는 응용 프로그램의 이름 또는 이름을 입력 합니다. 앱의 사용자에 게 공간 앵커 계정에 대해 다른 역할을 지정 하려면 Azure AD에 여러 응용 프로그램을 등록 하 고 각 응용 프로그램에 별도의 역할을 할당 합니다. 그런 다음 사용자에게 올바른 역할을 사용하도록 권한 부여 논리를 구현합니다.
         
               > [!NOTE] 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 
 서비스의 응용 프로그램, 서비스 또는 Azure AD 사용자에 게 부여 되는 액세스 수준을 제어할 수 있도록 Azure 공간 앵커 계정에 필요에 따라 다음과 같은 기존 역할을 할당할 수 있습니다.
 

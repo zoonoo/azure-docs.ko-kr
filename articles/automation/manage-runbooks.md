@@ -3,14 +3,14 @@ title: Azure Automation에서 Runbook 관리
 description: 이 문서에서는 Azure Automation에서 Runbook을 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/10/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987584"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521070"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -20,9 +20,8 @@ ms.locfileid: "90987584"
 
 Azure Portal 또는 Windows PowerShell을 사용하여 Azure Automation에서 새 Runbook을 만듭니다. Runbook을 만든 후에는 다음의 정보를 사용하여 Runbook을 편집할 수 있습니다.
 
-* [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md) 
+* [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)
 * [Automation Runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습](automation-powershell-workflow.md)
-* [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
 * [Azure Automation에서 Python 2 패키지 관리](python-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Azure Portal에서 Runbook 만들기
@@ -35,7 +34,7 @@ Azure Portal 또는 Windows PowerShell을 사용하여 Azure Automation에서 �
 
 ### <a name="create-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 만들기
 
-[New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) cmdlet을 사용하여 빈 Runbook을 만듭니다. `Type` 매개 변수를 사용하여 `New-AzAutomationRunbook`에 대해 정의된 Runbook 유형 중 하나를 지정합니다.
+[New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook) cmdlet을 사용하여 빈 Runbook을 만듭니다. `Type` 매개 변수를 사용하여 `New-AzAutomationRunbook`에 대해 정의된 Runbook 유형 중 하나를 지정합니다.
 
 다음 예제에서는 빈 Runbook을 새로 만드는 방법을 보여줍니다.
 
@@ -77,7 +76,7 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 
 ### <a name="import-a-runbook-with-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook 가져오기
 
-[Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) cmdlet을 사용하여 스크립트 파일을 초안 Runbook으로 가져옵니다. 해당 Runbook이 이미 있는 경우 cmdlet에 `Force` 매개 변수를 사용하지 않으면 가져오기에 실패합니다.
+[Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) cmdlet을 사용하여 스크립트 파일을 초안 Runbook으로 가져옵니다. 해당 Runbook이 이미 있는 경우 cmdlet에 `Force` 매개 변수를 사용하지 않으면 가져오기에 실패합니다.
 
 다음 예제는 Runbook에 스크립트 파일을 가져오는 방법을 보여줍니다.
 
@@ -147,7 +146,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="track-progress"></a>진행률 추적
 
-쉽게 재사용 및 재시작할 수 있는 논리를 포함하여 Runbook을 모듈식으로 작성하는 것이 좋습니다. Runbook에서 진행률을 추적하면 문제가 있는 경우 Runbook 논리가 올바르게 실행되도록 할 수 있습니다. 
+쉽게 재사용 및 재시작할 수 있는 논리를 포함하여 Runbook을 모듈식으로 작성하는 것이 좋습니다. Runbook에서 진행률을 추적하면 문제가 있는 경우 Runbook 논리가 올바르게 실행되도록 할 수 있습니다.
 
 스토리지 계정, 데이터베이스 또는 공유 파일과 같은 외부 원본을 사용하여 Runbook의 진행률을 추적할 수 있습니다. Runbook에서 논리를 만들어서 마지막으로 수행한 작업의 상태를 먼저 확인합니다. 그런 다음 검사 결과에 따라 논리는 Runbook의 특정 작업을 건너뛰거나 계속할 수 있습니다.
 
@@ -192,35 +191,33 @@ Runbook이 시간 제약 조건 내에서 정상적으로 실행되는 경우 �
 
 ## <a name="work-with-multiple-subscriptions"></a>여러 구독 작업
 
-Runbook은 [구독](automation-runbook-execution.md#subscriptions)을 사용하여 작업할 수 있어야 합니다. 예를 들어 여러 구독을 처리하기 위해 Runbook은 [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet을 사용합니다. 이 cmdlet을 사용하면 동일한 샌드박스에서 실행되는 다른 Runbook에서 인증 컨텍스트가 검색되지 않습니다. Runbook은 또한 cmdlet을 사용 하 여 `Get-AzContext` 현재 세션의 컨텍스트를 검색 하 고 변수에 할당 `$AzureContext` 합니다.
+Runbook은 [구독](automation-runbook-execution.md#subscriptions)을 사용하여 작업할 수 있어야 합니다. 예를 들어 여러 구독을 처리하기 위해 Runbook은 [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave) cmdlet을 사용합니다. 이 cmdlet을 사용하면 동일한 샌드박스에서 실행되는 다른 Runbook에서 인증 컨텍스트가 검색되지 않습니다. Runbook은 또한 cmdlet을 사용 하 여 `Get-AzContext` 현재 세션의 컨텍스트를 검색 하 고 변수에 할당 `$AzureContext` 합니다.
 
 ```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
+$AzureContext = Connect-AzAccount -ServicePrincipal `
 -Tenant $Conn.TenantID `
 -ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$AzureContext = Get-AzContext
+-CertificateThumbprint $Conn.CertificateThumbprint `
+-Subscription $Conn.SubscriptionId
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
 $ResourceGroupName = 'myResourceGroup'
 
 Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $AzureContext
+-ResourceGroupName $ResourceGroupName `
+-AutomationAccountName $AutomationAccountName `
+-Name $ChildRunbookName `
+-DefaultProfile $AzureContext
 ```
 
 ## <a name="work-with-a-custom-script"></a>사용자 지정 스크립트 작업
 
 > [!NOTE]
-> 일반적으로 Log Analytics 에이전트가 설치된 호스트에서 사용자 지정 스크립트 및 Runbook을 실행할 수 없습니다. 
+> 일반적으로 Log Analytics 에이전트가 설치된 호스트에서 사용자 지정 스크립트 및 Runbook을 실행할 수 없습니다.
 
 사용자 지정 스크립트 사용:
 
@@ -257,7 +254,7 @@ Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며
 
 ### <a name="publish-a-runbook-using-powershell"></a>PowerShell을 사용하여 Runbook 게시
 
-[Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) cmdlet을 사용하여 Runbook을 게시합니다. 
+[Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook) cmdlet을 사용하여 Runbook을 게시합니다. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -277,7 +274,7 @@ Runbook이 게시되면 작업에 대해 일정을 지정할 수 있습니다.
 3. **일정 추가**를 선택합니다.
 4. Runbook 예약 창에서 **Runbook에 일정 연결**을 선택합니다.
 5. 일정 창에서 **새 일정 만들기**를 선택합니다.
-6. 새 일정 창에 이름, 설명 및 기타 매개 변수를 입력합니다. 
+6. 새 일정 창에 이름, 설명 및 기타 매개 변수를 입력합니다.
 7. 일정이 생성되면 강조 표시하고 **확인**을 클릭합니다. 이제 Runbook에 연결될 것입니다.
 8. 사용자의 사서함에서 Runbook 상태를 알리는 전자 메일을 찾습니다.
 
@@ -285,7 +282,7 @@ Runbook이 게시되면 작업에 대해 일정을 지정할 수 있습니다.
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Azure Portal에서 상태 보기
 
-Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automation-runbook-execution.md#jobs)에서 제공됩니다. Runbook 작업을 볼 준비가 되면 Azure Portal을 사용하여 Automation 계정에 액세스합니다. 오른쪽에 있는 **작업 통계**에서 모든 Runbook 작업의 요약을 볼 수 있습니다. 
+Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automation-runbook-execution.md#jobs)에서 제공됩니다. Runbook 작업을 볼 준비가 되면 Azure Portal을 사용하여 Automation 계정에 액세스합니다. 오른쪽에 있는 **작업 통계**에서 모든 Runbook 작업의 요약을 볼 수 있습니다.
 
 ![작업 통계 타일](./media/manage-runbooks/automation-account-job-status-summary.png)
 
@@ -305,7 +302,7 @@ Azure Automation에서의 작업 처리 관련 세부 정보는 [작업](automat
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>PowerShell을 사용하여 작업 상태 검색
 
-[Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) cmdlet을 사용하여 Runbook에 대해 생성된 작업 및 특정 작업을 검색합니다. `Start-AzAutomationRunbook`을 사용하여 Runbook을 시작하는 경우 결과로 나온 작업이 반환됩니다. [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0)을 사용하여 작업 출력을 검색합니다.
+[Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) cmdlet을 사용하여 Runbook에 대해 생성된 작업 및 특정 작업을 검색합니다. `Start-AzAutomationRunbook`을 사용하여 Runbook을 시작하는 경우 결과로 나온 작업이 반환됩니다. [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput)을 사용하여 작업 출력을 검색합니다.
 
 다음 예제는 샘플 Runbook에 대한 마지막 작업을 가져오고 작업의 상태, Runbook 매개 변수에 제공된 값, 작업 출력을 표시합니다.
 
@@ -340,6 +337,4 @@ foreach($item in $output)
 
 * Runbook 관리에 대한 자세한 내용은 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
 * PowerShell Runbook을 준비하려면 [Azure Automation에서 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
-* PowerShell 워크플로 Runbook 작성에 대한 도움말은 [Azure Automation에 대한 PowerShell 워크플로 학습](automation-powershell-workflow.md)을 참조하세요.
-* 그래픽 Runbook 작성에 대한 세부 정보는 [Azure Automation에서 그래픽 Runbook 작성](automation-graphical-authoring-intro.md)을 참조하세요.
-* Runbook 실행 관련 문제 해결은 [Runbook 문제 해결](troubleshoot/runbooks.md)을 참조하세요.
+* Runbook 실행과 관련된 문제 해결은 [Runbook 문제 해결](troubleshoot/runbooks.md)을 참조하세요.

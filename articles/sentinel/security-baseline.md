@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 25571db967608c238bccb1ab44f75a0a163803d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4c6bf8b203f9721436ab3dde1f80837df92234d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90020312"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518265"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azure 센티널에 대 한 azure 보안 기준
 
@@ -325,7 +325,7 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 
 또한 각 센티널 통합 문서는 Azure 리소스 이며 액세스를 관리 하기 위해 사용자에 게 역할을 할당할 수 있습니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [사용자 지정 역할 이해](../role-based-access-control/custom-roles.md)
 

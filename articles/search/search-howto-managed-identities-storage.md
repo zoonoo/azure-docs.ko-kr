@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b877ff912470cc19082410fddab64c84824eb269
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275135"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519557"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "91275135"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중에 데이터 액세스를 허용하는 RBAC(역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중 데이터에 액세스할 수 있도록 하는 azure RBAC (역할 기반 액세스 제어) 할당에서이 id를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 

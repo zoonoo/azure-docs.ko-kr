@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 05994a61b0afd0190e3fc1d4b841d576cec047f5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 023cd13c40bdd6aae9febaf7d929f94fe26ef6d3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015849"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519642"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services를 사용 하 여 비디오 및 오디오 파일 분석
 
@@ -27,10 +27,12 @@ ms.locfileid: "92015849"
 
 Azure Media Services v3를 사용 하면 Video Indexer를 통해 비디오 및 오디오 파일에서 정보를 추출할 수 있습니다. 이 문서에서는 이러한 정보를 추출 하는 데 사용 되는 Media Services v3 분석기 사전 설정을 설명 합니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer와 Media Services analyzer 기본 설정을 사용 하는 경우를 이해 하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인 하세요.
 
+Audio Analyzer 사전 설정에는 기본 및 표준의 두 가지 모드가 있습니다. 아래 표의 차이점에 대 한 설명을 참조 하십시오.
+
 Media Services v3 사전 설정을 사용 하 여 콘텐츠를 분석 하려면 **변환을** 만들고 이러한 사전 설정 중 하나를 사용 하는 **작업** 을 제출 합니다. [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 또는 **AudioAnalyzerPreset**. **VideoAnalyzerPreset**를 사용 하는 방법을 보여 주는 자습서는 [Azure Media Services으로 비디오 분석](analyze-videos-tutorial-with-api.md)을 참조 하세요.
 
 > [!NOTE]
-> 비디오 또는 오디오 분석기 사전 설정을 사용할 때는 Azure Portal을 통해 S3 미디어 예약 10단위를 갖도록 계정을 설정합니다. 자세한 내용은 [미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
+> 비디오 또는 오디오 분석기 사전 설정을 사용 하는 경우 Azure Portal를 사용 하 여 10 개의 S3 미디어 예약 단위를 포함 하도록 계정을 설정 합니다. 단,이는 필수 사항은 아닙니다. 오디오 사전 설정에는 S1 또는 S2를 사용할 수 있습니다. 자세한 내용은 [미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
 
@@ -42,17 +44,29 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 |**기본 설정 이름**|**시나리오**|**세부 정보**|
 |---|---|---|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 표준 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원 되는 언어는 영어 (' en-us ' 및 ' en-us '), 스페인어 (' es ' 및 ' es-mx '), 프랑스어 (' fr-fr '), 이탈리아어 (' it '), 일본어 (' ja-jp '), 포르투갈어 (' pt-BR '), 중국어 (' zh-cn '), 독일어 (' de-de '), 아랍어 (' ar-예 ' 및 ' ar-SY '), 러시아어 (' '), 힌디어 (' hi ') 및 한국어 (' ko ').<br/><br/> 언어가 지정 되지 않았거나 null로 설정 된 경우 자동 언어 검색은 검색 된 첫 번째 언어를 선택 하 고 파일 기간 동안 선택한 언어를 계속 합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 첫 번째 언어가 검색 된 후 언어 간의 동적 전환을 지원 하지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 검색에서 언어를 찾지 못하는 경우에는 해당 내용은 영어로 대체 됩니다.|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 기본 분석|"이 모드는 VTT 부제/캡션 파일의 음성 텍스트 기록 및 생성을 수행 합니다. 이 모드의 출력에는 키워드, 기록 및 타이밍 정보만 포함 된 Insights JSON 파일이 포함 됩니다. 자동 언어 감지 및 스피커 diarization이 모드에 포함 되지 않습니다. " 지원 되는 언어 목록은 여기에서 확인할 수 있습니다. https://go.microsoft.com/fwlink/?linkid=2109463|
-|[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
-|[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|비디오에 있는 얼굴 감지|비디오를 분석 하 여 있는 모든 얼굴을 검색할 때 사용할 설정을 설명 합니다.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 표준 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원 되는 언어는 영어 (' en-us ' 및 ' en-us '), 스페인어 (' es ' 및 ' es-mx '), 프랑스어 (' fr-fr '), 이탈리아어 (' it '), 일본어 (' ja-jp '), 포르투갈어 (' pt-BR '), 중국어 (' zh-cn '), 독일어 (' de-de '), 아랍어 (' ar-예 ' 및 ' ar-SY '), 러시아어 (' '), 힌디어 (' hi ') 및 한국어 (' ko ').<br/><br/> 언어가 지정 되지 않았거나 null로 설정 된 경우 자동 언어 검색은 검색 된 첫 번째 언어를 선택 하 고 파일 기간 동안 선택한 언어를 계속 합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 첫 번째 언어가 검색 된 후 언어 간의 동적 전환을 지원 하지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 검색에서 언어를 찾지 못하는 경우에는 해당 내용은 영어로 대체 됩니다.|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 기본 분석|이 모드는 VTT 부제목/캡션 파일의 음성 텍스트 기록 및 생성을 수행 합니다. 이 모드의 출력에는 키워드, 기록 및 타이밍 정보만 포함 된 Insights JSON 파일이 포함 됩니다. 자동 언어 감지 및 스피커 diarization이 모드에 포함 되지 않습니다. 지원 되는 언어 목록은 [여기](https://go.microsoft.com/fwlink/?linkid=2109463) 에서 제공 됩니다.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|비디오에 있는 얼굴 감지|비디오를 분석 하 여 있는 모든 얼굴을 검색할 때 사용할 설정을 설명 합니다.|
 
-### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+### <a name="audioanalyzerpreset-standard-mode"></a>AudioAnalyzerPreset 표준 모드
 
-미리 설정을 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 대본의 VTT 파일과 JSON 파일(모든 인사이트 포함)이 포함됩니다. 이 사전 설정은 입력 파일의 언어를 [BCP47](https://tools.ietf.org/html/bcp47) 문자열의 형태로 지정하는 속성을 허용합니다. 오디오 인사이트는 다음 정보를 포함합니다.
+미리 설정을 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다.
+
+출력에는 오디오 대본의 VTT 파일과 JSON 파일(모든 인사이트 포함)이 포함됩니다. 이 사전 설정은 입력 파일의 언어를 [BCP47](https://tools.ietf.org/html/bcp47) 문자열의 형태로 지정하는 속성을 허용합니다. 오디오 인사이트는 다음 정보를 포함합니다.
 
 * **오디오 녹음**: 타임 스탬프가 있는 음성의 기록입니다. 여러 언어가 지원 됩니다.
 * **스피커 인덱싱**: 스피커와 해당 하는 음성 단어의 매핑입니다.
 * **Speech 감정 analysis**: 오디오 녹음에 대해 수행 된 감정 분석의 출력입니다.
+* **키워드**: 오디오 녹음에서 추출 되는 키워드입니다.
+
+### <a name="audioanalyzerpreset-basic-mode"></a>AudioAnalyzerPreset 기본 모드
+
+미리 설정을 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다.
+
+출력에는 오디오 녹음/출력에 대 한 JSON 파일 및 VTT 파일이 포함 됩니다. 이 사전 설정은 입력 파일의 언어를 [BCP47](https://tools.ietf.org/html/bcp47) 문자열의 형태로 지정하는 속성을 허용합니다. 출력에는 다음이 포함 됩니다.
+
+* **오디오 녹음**: 타임 스탬프가 있는 음성의 기록입니다. 여러 언어를 지원 하지만 자동 언어 검색 및 스피커 diarization 포함 되지 않습니다.
 * **키워드**: 오디오 녹음에서 추출 되는 키워드입니다.
 
 ### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
@@ -74,7 +88,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |이름|Description|
 |---|---|
 |id|줄 ID입니다.|
-|text|자체 대본입니다.|
+|텍스트|자체 대본입니다.|
 |언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
@@ -112,7 +126,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |이름|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
-|text|OCR 텍스트입니다.|
+|텍스트|OCR 텍스트입니다.|
 |신뢰도|인식 신뢰도입니다.|
 |언어|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
@@ -363,7 +377,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |이름|Description|
 |---|---|
 |id|키워드 ID입니다.|
-|text|키워드 텍스트입니다.|
+|텍스트|키워드 텍스트입니다.|
 |신뢰도|키워드의 인식 신뢰도입니다.|
 |언어|키워드 언어(번역된 경우)입니다.|
 |인스턴스|키워드가 표시되는 시간 범위 목록(키워드가 여러 번 나타날 수 있음)입니다.|

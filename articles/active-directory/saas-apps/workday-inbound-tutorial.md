@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541291"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520237"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -311,7 +311,7 @@ Workday를 Active Directory 사용자 프로 비전을 구성 하려면 다음�
 Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7.1 이상이 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 Provisioning Agent를 설치해야 합니다.
 
 > [!TIP]
-> [여기](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
+> [여기](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
 > 서버에 .NET 4.7.1 이상이 설치되어 있지 않으면 [여기](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)에서 다운로드할 수 있습니다.  
 
 다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 아래에 제시된 단계에 따라 에이전트 구성을 완료합니다.
@@ -390,8 +390,8 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    
      | URL 형식 | 사용 되는 WWS API 버전 | XPATH 변경 필요 |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 아니요 |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | 아니요 |
+     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 예 |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | 예 |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # # # | 예 |
 
       > [!NOTE]
@@ -410,7 +410,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    * **알림 메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
 
      > [!NOTE]
-     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
+     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](../app-provisioning/application-provisioning-quarantine-status.md) 상태가 되면 이메일 알림을 보냅니다.
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
@@ -594,7 +594,7 @@ HR 팀은 채용 프로세스의 일부로 일반적으로 신원 조사를 실�
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>솔루션에서 온-프레미스 AD 그룹을 사용자에게 할당할 수 있나요?
 
-이 기능은 현재 지원되지 않습니다. 이를 해결하려면 [감사 로그 데이터](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta)에 대한 Microsoft Graph API 엔드포인트를 쿼리하는 PowerShell 스크립트를 배포하고 이 스크립트를 사용하여 그룹 할당과 같은 시나리오를 트리거하는 것이 좋습니다. 이 PowerShell 스크립트는 작업 스케줄러에 연결되고 프로비전 에이전트를 실행하는 동일한 상자에 배포될 수 있습니다.  
+이 기능은 현재 지원되지 않습니다. 이를 해결하려면 [감사 로그 데이터](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta)에 대한 Microsoft Graph API 엔드포인트를 쿼리하는 PowerShell 스크립트를 배포하고 이 스크립트를 사용하여 그룹 할당과 같은 시나리오를 트리거하는 것이 좋습니다. 이 PowerShell 스크립트는 작업 스케줄러에 연결되고 프로비전 에이전트를 실행하는 동일한 상자에 배포될 수 있습니다.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>솔루션에서 Workday 작업자 프로필을 쿼리 및 업데이트하는 데 사용하는 Workday API는 무엇인가요?
 
@@ -679,7 +679,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>프로비전 에이전트가 Azure AD 테넌트와 통신할 수 있고 에이전트에 필요한 포트를 차단하는 방화벽이 없는지 확인하려면 어떻게 할까요?
 
-[필요한 모든 포트가](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) 열려 있는지 여부도 확인할 수 있습니다.
+[필요한 모든 포트가](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) 열려 있는지 여부도 확인할 수 있습니다.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>단일 프로비전 에이전트가 여러 AD 도메인을 프로비전하도록 구성할 수 있나요?
 
@@ -1157,4 +1157,4 @@ Azure AD 프로비전 서비스는 GDPR 분류의 **데이터 프로세서** 범
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
-* [Microsoft Graph API를 사용하여 프로비전 구성을 관리하는 방법 알아보기](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Microsoft Graph API를 사용하여 프로비전 구성을 관리하는 방법 알아보기](/graph/api/resources/synchronization-overview)

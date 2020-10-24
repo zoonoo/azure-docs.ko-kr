@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323025"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518809"
 ---
 # <a name="face-recognition-concepts"></a>얼굴 인식 개념
 
@@ -25,7 +25,7 @@ ms.locfileid: "91323025"
 
 인식 작업에서는 주로 다음과 같은 데이터 구조를 사용 합니다. 이러한 개체는 클라우드에 저장 되며 해당 ID 문자열에서 참조할 수 있습니다. ID 문자열은 항상 구독 내에서 고유 합니다. 이름 필드는 중복 될 수 있습니다.
 
-|Name|설명|
+|이름|설명|
 |:--|:--|
 |DetectedFace| 이 단일 얼굴 표현은 [얼굴 감지](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md) 작업에서 검색 됩니다. 해당 ID는 만든 후 24 시간 후에 만료 됩니다.|
 |PersistedFace| DetectedFace 개체를 그룹에 추가 하면 (예: FaceList 또는 Person) PersistedFace 개체가 됩니다. 언제 든 지 [검색할](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) 수 있으며 만료 되지 않습니다.|
@@ -58,7 +58,7 @@ ms.locfileid: "91323025"
 다음 팁을 사용 하 여 입력 이미지가 가장 정확한 인식 결과를 제공 하는지 확인 합니다.
 
 * 지원 되는 입력 이미지 형식은 JPEG, PNG, GIF (첫 번째 프레임), BMP입니다.
-* 이미지 파일 크기는 4mb 보다 크지 않아야 합니다.
+* 이미지 파일 크기는 6mb 보다 크지 않아야 합니다.
 * Person 개체를 만들 때 다양 한 종류의 각도와 조명을 지 원하는 사진을 사용 합니다.
 * 일부 면은 다음과 같은 기술적인 문제로 인해 인식 되지 않을 수 있습니다.
   * 매우 조명이 있는 이미지 (예: 심각한 backlighting).
