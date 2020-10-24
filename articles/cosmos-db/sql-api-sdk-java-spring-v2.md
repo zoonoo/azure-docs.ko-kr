@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5a906e12df14c6c3ffec704310bbede742ad841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15d3b5eb0dfd5eb35b81da1c0c1ef629aa0def63
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760828"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477422"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Core (SQL) API에 대 한 스프링 데이터 Azure Cosmos DB v2: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,14 +26,14 @@ ms.locfileid: "91760828"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
  Core (SQL) 용 스프링 데이터 Azure Cosmos DB 버전 2를 통해 개발자는 스프링 응용 프로그램에서 Azure Cosmos DB를 사용할 수 있습니다. 스프링 데이터 Azure Cosmos DB는 데이터베이스 및 컬렉션을 조작 하 고, 문서 작업을 수행 하 고, 쿼리를 실행 하기 위한 스프링 데이터 인터페이스를 제공 합니다. 동기화 및 비동기 (대응식) Api는 모두 동일한 Maven 아티팩트에서 지원 됩니다. 
@@ -48,14 +48,14 @@ ms.locfileid: "91760828"
 > Spring Data Azure Cosmos DB는 SQL API만 지원합니다.
 >
 > 다른 Azure Cosmos DB Api의 스프링 데이터에 대 한 자세한 내용은 다음 문서를 참조 하세요.
-> * [Azure Cosmos DB의 Spring Data for Apache Cassandra](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Azure Cosmos DB의 Spring Data MongoDB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Azure Cosmos DB의 Spring Data Gremlin](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data MongoDB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data Gremlin](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > 신속 하 게 진행 하 고 싶으세요?
 > 1. SDK를 사용할 수 있도록 [지원 되는 최소 Java RUNTIME JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)을 설치 합니다.
-> 2. [스타터](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)를 사용 하 여 스프링 데이터 Azure Cosmos DB 앱을 만듭니다. 간단합니다.
-> 3. 기본 Azure Cosmos DB 요청을 안내 하는 [스프링 데이터 Azure Cosmos DB 개발자 가이드를 참조](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb)하세요.
+> 2. [스타터](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)를 사용 하 여 스프링 데이터 Azure Cosmos DB 앱을 만듭니다. 간단합니다.
+> 3. 기본 Azure Cosmos DB 요청을 안내 하는 [스프링 데이터 Azure Cosmos DB 개발자 가이드를 참조](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb)하세요.
 >
 > 스프링 [Inr](https://start.spring.io/)을 사용 하 여 스프링 부팅 시작 앱을 빠르게 회전할 수 있습니다.
 >
@@ -69,9 +69,9 @@ ms.locfileid: "91760828"
 |**SDK에 기여** | [GitHub의 스프링 데이터 Azure Cosmos DB 리포지토리](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**스프링 부팅 스타터**| [Java 용 Azure Cosmos DB 스프링 부팅 스타터 클라이언트 라이브러리](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Azure Cosmos DB를 사용 하는 스프링 TODO 앱 샘플**| [App Service Linux에서 종단 간 Java 환경 (2 부)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
-|**개발자 가이드** | [Spring Data Azure Cosmos DB 개발자 가이드](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**스타터 사용** | [Azure Cosmos DB SQL API에서 스프링 부팅 스타터를 사용 하는 방법](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Azure Cosmos DB 스프링 부팅 스타터 용 GitHub 리포지토리](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
-|**Azure App Service 사용 예제** | [Azure App Service on Linux를 통해 Spring 및 Cosmos DB를 사용하는 방법](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [TODO 앱 샘플](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**개발자 가이드** | [Spring Data Azure Cosmos DB 개발자 가이드](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
+|**스타터 사용** | [Azure Cosmos DB SQL API에서 스프링 부팅 스타터를 사용 하는 방법](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [Azure Cosmos DB 스프링 부팅 스타터 용 GitHub 리포지토리](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
+|**Azure App Service 사용 예제** | [Azure App Service on Linux를 통해 Spring 및 Cosmos DB를 사용하는 방법](/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [TODO 앱 샘플](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>릴리스 기록
 

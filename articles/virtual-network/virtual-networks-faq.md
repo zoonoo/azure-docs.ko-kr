@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d676d891683cc11dd8c1999c26464373d17e97be
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932025"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489407"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -283,7 +283,7 @@ VNet 피어 링 연결이 *연결이 끊어진* 상태 이면 만든 링크 중 
 VNet 피어링 연결을 만드는 데는 비용이 없습니다. 피어링 연결 간의 데이터 전송에는 요금이 청구됩니다. [여기를 참조](https://azure.microsoft.com/pricing/details/virtual-network/)하세요.
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>VNet 피어링 트래픽은 암호화되나요?
-아니요. 피어로 연결된 VNet의 리소스 간 트래픽은 프라이빗이며 격리됩니다. Microsoft 백본에 그대로 남아 있습니다.
+Vnet 피어 링 트래픽이 데이터 센터 간에 이동 하는 경우 (또는 Microsoft--Macsec를 대신 하 여 [데이터 연결 계층 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) 가 기본 네트워크 하드웨어에서 활용 됨)
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>피어 링 연결이 *끊어진* 상태에 있는 이유는 무엇 인가요?
 VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태가 됩니다. 다시 피어링 연결에 성공하려면 두 링크를 모두 삭제해야 합니다.

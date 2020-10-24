@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 5e32e269a36196d774bb1163a1c70c5d818ddcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000620"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488999"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 c # 사용자 정의 함수 사용
 
@@ -24,13 +24,13 @@ HDInsight의 [Apache Hive](https://hive.apache.org) 및 [Apache Pig](https://pig
 
 Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처리할 수 있습니다. 이 프로세스를 _스트리밍_이라고 합니다. .NET 애플리케이션을 사용하는 경우 데이터가 STDIN의 애플리케이션으로 전달된 다음 애플리케이션이 STDOUT에서 결과를 반환합니다. STDIN 및 STDOUT에서 읽거나 쓰려면 콘솔 애플리케이션에서 `Console.ReadLine()` 및 `Console.WriteLine()`을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * .NET Framework 4.5를 대상으로 하는 C# 코드 작성 및 빌드에 대해 잘 알고 있어야 합니다.
 
     원하는 IDE를 사용합니다. [Visual Studio](https://www.visualstudio.com/vs) 또는 [Visual Studio Code](https://code.visualstudio.com/)을 권장 합니다. 이 문서의 단계는 Visual Studio 2019을 사용 합니다.
 
-* .exe 파일을 클러스터로 업로드하고 Pig 및 Hive 작업을 실행하는 방법. Visual Studio, [Azure PowerShell](/powershell/azure)및 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) [에 대 한 Data Lake 도구](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md)를 권장 합니다. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 파일을 업로드하고 예제 Hive 쿼리를 실행합니다.
+* .exe 파일을 클러스터로 업로드하고 Pig 및 Hive 작업을 실행하는 방법. Visual Studio, [Azure PowerShell](/powershell/azure)및 [Azure CLI](/cli/azure/install-azure-cli) [에 대 한 Data Lake 도구](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md)를 권장 합니다. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 파일을 업로드하고 예제 Hive 쿼리를 실행합니다.
 
     Hive 쿼리를 실행 하는 다른 방법에 대 한 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL?](hdinsight-use-hive.md)을 참조 하세요.
 
@@ -52,7 +52,7 @@ HDInsight 버전에 포함 된 .NET Framework 및 Mono 버전에 대 한 자세�
 
 Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
-1. Visual Studio를 실행합니다.
+1. Visual Studio를 시작합니다.
 
 2. **새 프로젝트 만들기**를 선택합니다.
 

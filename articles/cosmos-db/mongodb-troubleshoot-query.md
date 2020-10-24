@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284187"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488387"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API를 사용 하는 경우 쿼리 문제 해결
 
@@ -116,7 +116,7 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 | `timeInclusiveMS` | 백 엔드 쿼리 대기 시간 |
 | `pathsIndexed` | 쿼리에서 사용한 인덱스를 표시 합니다. | 
 | `pathsNotIndexed` | 쿼리에서 사용할 수 있는 인덱스를 표시 합니다 (사용 가능한 경우). | 
-| `shardInformation` | 특정 [물리적 파티션의](partition-data.md#physical-partitions) 쿼리 성능 요약 | 
+| `shardInformation` | 특정 [물리적 파티션의](./partitioning-overview.md#physical-partitions) 쿼리 성능 요약 | 
 | `retrievedDocumentCount` | 쿼리 엔진에서 로드 한 문서 수 | 
 | `outputDocumentCount` | 쿼리 결과에 반환 된 문서 수 | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | 요금 제한으로 인 한 추가 쿼리 대기 시간 | 
@@ -256,13 +256,13 @@ MongoDB에 대 한 Azure Cosmos DB API의 인덱싱 모범 사례는 MongoDB와 
 
 [와일드 카드 인덱스](mongodb-indexing.md#wildcard-indexes) 는 인덱싱을 단순화할 수 있습니다. MongoDB와 달리 와일드 카드 인덱스는 쿼리 조건자의 여러 필드를 지원할 수 있습니다. 각 속성에 대 한 별도의 인덱스를 만드는 대신 하나의 와일드 카드 인덱스를 사용 하는 경우 쿼리 성능에 차이가 없습니다. 모든 속성에 대해 와일드 카드 인덱스를 추가 하는 것이 모든 쿼리를 최적화 하는 가장 쉬운 방법입니다.
 
-쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 새 인덱스를 추가할 수 있습니다. [인덱스 변환 진행률을 추적](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)할 수 있습니다.
+쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 새 인덱스를 추가할 수 있습니다. [인덱스 변환 진행률을 추적](./how-to-manage-indexing-policy.md#dotnet-sdk)할 수 있습니다.
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>인덱스를 사용 하는 집계 작업 이해
 
 대부분의 경우 MongoDB에 대 한 Azure Cosmos DB API의 집계 작업은 인덱스를 부분적으로 사용 합니다. 일반적으로 쿼리 엔진은 같음 및 범위 필터를 먼저 적용 하 고 인덱스를 사용 합니다. 쿼리 엔진은 이러한 필터를 적용한 후 추가 필터를 평가하고 필요한 경우 집계를 계산하기 위해 나머지 문서를 로드할 수 있습니다. 
 
-예는 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```
 db.coll.aggregate( [

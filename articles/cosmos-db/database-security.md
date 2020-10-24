@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372245"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487469"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 
@@ -69,7 +69,7 @@ ms.locfileid: "92372245"
 |자동 온라인 백업|Azure Cosmos 데이터베이스는 정기적으로 백업 되어 지역 중복 저장소에 저장 됩니다. <br><br>[Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)에서 자세히 알아보세요.|
 |삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[Azure Cosmos DB를 사용 하 여 자동 온라인 백업 및 복원](online-backup-and-restore.md) 에서 자세히 알아보세요.|
 |중요한 데이터 보호 및 격리|이제 새로운 기능에 나열된 지역의 모든 데이터가 미사용 상태에서 암호화됩니다.<br><br>개인 데이터 및 기타 기밀 데이터를 특정 컨테이너 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|
-|공격 모니터|[감사 로깅 및 활동 로그](logging.md)를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 이 표 다음의 스크린샷에 나와 있는 것처럼, 리소스에 대해 어떤 작업이 누구에 의해 수행되었는지, 작업 상태 등을 확인할 수 있습니다.|
+|공격 모니터|[감사 로깅 및 활동 로그](./monitor-cosmos-db.md)를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 이 표 다음의 스크린샷에 나와 있는 것처럼, 리소스에 대해 어떤 작업이 누구에 의해 수행되었는지, 작업 상태 등을 확인할 수 있습니다.|
 |공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)에 대한 자세한 정보|
 |지오-펜싱|Azure Cosmos DB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스를 보장합니다.|
 |보호된 기능|Azure Cosmos DB의 데이터는 SSD의 Azure 보호된 데이터 센터에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
@@ -104,6 +104,6 @@ Azure Portal를 사용 하 여 기본, 보조, 읽기 전용 및 읽기/쓰기 �
 
 기본 키 및 리소스 토큰에 대 한 자세한 내용은 [Azure Cosmos DB 데이터에 대 한 액세스 보호](secure-access-to-data.md)를 참조 하세요.
 
-감사 로깅에 대 한 자세한 내용은 [Azure Cosmos DB 진단 로깅](logging.md)을 참조 하세요.
+감사 로깅에 대 한 자세한 내용은 [Azure Cosmos DB 진단 로깅](./monitor-cosmos-db.md)을 참조 하세요.
 
 Microsoft 인증에 대 한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조 하세요.

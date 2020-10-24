@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490631"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API에 대한 그래프 데이터 모델링
 
@@ -37,7 +37,7 @@ ms.locfileid: "91409768"
 
 위의 조건을 충족하면, 그래프 데이터베이스 접근 방식이 **쿼리 복잡성**, **데이터 모델 확장성** 및 **쿼리 성능**에 대한 이점을 누릴 가능성이 높습니다.
 
-다음 단계는 분석 또는 트랜잭션 중에 어떤 용도로 그래프를 사용할지 결정하는 것입니다. 대량 계산 및 데이터 처리 워크로드에 그래프를 사용하려는 경우에는 [Cosmos DB Spark 커넥터](https://docs.microsoft.com/azure/cosmos-db/spark-connector)와 [GraphX 라이브러리](https://spark.apache.org/graphx/) 사용에 대해 살펴볼 가치가 있습니다. 
+다음 단계는 분석 또는 트랜잭션 중에 어떤 용도로 그래프를 사용할지 결정하는 것입니다. 대량 계산 및 데이터 처리 워크로드에 그래프를 사용하려는 경우에는 [Cosmos DB Spark 커넥터](./spark-connector.md)와 [GraphX 라이브러리](https://spark.apache.org/graphx/) 사용에 대해 살펴볼 가치가 있습니다. 
 
 ## <a name="how-to-use-graph-objects"></a>그래프 개체를 사용하는 방법
 
@@ -51,9 +51,9 @@ ms.locfileid: "91409768"
 | 꼭짓점 | label | String | 이 속성은 꼭짓점이 나타내는 엔터티 유형을 정의하는 데 사용됩니다. 값을 제공하지 않으면 기본값인 "꼭짓점"이 사용됩니다. |
 | 꼭짓점 | properties | 문자열, 부울, 숫자 | 꼭짓점마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 | 꼭짓점 | 파티션 키 | 문자열, 부울, 숫자 | 이 속성은 꼭짓점과 나가는 가장자리를 저장할 위치를 정의합니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 읽어보세요. |
-| Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
-| Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
-| Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
+| Microsoft Edge | ID | String | 파티션별로 고유하게 적용됩니다. 기본적으로 자동 생성됩니다. 가장자리는 대개 ID로 고유하게 검색할 필요가 없습니다. |
+| Microsoft Edge | label | String | 이 속성은 두 꼭짓점의 관계 유형을 정의하는 데 사용됩니다. |
+| Microsoft Edge | properties | 문자열, 부울, 숫자 | 가장자리마다 키-값 쌍으로 저장된 별도의 속성 목록입니다. |
 
 > [!NOTE]
 > 가장자리 값은 원본 꼭짓점에 따라 자동으로 할당되기 때문에 가장자리에는 파티션 키 값이 필요하지 않습니다. 자세한 내용은 [그래프 분할](graph-partitioning.md) 문서를 참조하세요.

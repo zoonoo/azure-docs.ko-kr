@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: eaddae04c198742007947831046139d80828534b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd81a15853f1c3b0eb1b1cdd40cc4c7ebf713308
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006588"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490308"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 
@@ -21,7 +21,7 @@ ms.locfileid: "87006588"
 
 HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방법에는 세 가지가 있습니다.
 
-* Azure PowerShell 사용
+* Azure Powershell 사용
 * .NET SDK 사용
 * Azure Resource Manager 템플릿 사용
 
@@ -50,7 +50,7 @@ HDInsight 클러스터를 만들 때 구성 파일 설정을 설정 하는 방�
 
 * PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/)이 필요합니다.
 
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
+## <a name="use-azure-powershell"></a>Azure Powershell 사용
 
 다음 PowerShell 코드는 [Apache Hive](https://hive.apache.org/) 구성을 사용자 지정합니다.
 
@@ -108,7 +108,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>.NET SDK 사용
 
-[.Net 용 Azure HDINSIGHT SDK를](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)참조 하세요.
+[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)참조 하세요.
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 

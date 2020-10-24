@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d801499360bd05cee4c01aefd873337303017f3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 682a580d15af44ca69d9cb12a5349beaca2d28b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427508"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489917"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>관리 ID를 사용하여 Azure Database for PostgreSQL에 연결
 
@@ -34,13 +34,13 @@ ms.locfileid: "92427508"
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>VM에 대한 사용자가 할당한 관리 ID 만들기
 
-[az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 가상 머신이 실행되는 것과 동일한 리소스 그룹 또는 다른 리소스 그룹을 사용할 수 있습니다.
+[az identity create](/cli/azure/identity#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 가상 머신이 실행되는 것과 동일한 리소스 그룹 또는 다른 리소스 그룹을 사용할 수 있습니다.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-다음 단계에서 ID를 구성하려면 [az identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) 명령을 사용하여 ID의 리소스 ID 및 클라이언트 ID를 변수에 저장합니다.
+다음 단계에서 ID를 구성하려면 [az identity show](/cli/azure/identity#az-identity-show) 명령을 사용하여 ID의 리소스 ID 및 클라이언트 ID를 변수에 저장합니다.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-이제 [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) 명령을 사용하여 사용자가 할당한 ID를 VM에 할당할 수 있습니다.
+이제 [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) 명령을 사용하여 사용자가 할당한 ID를 VM에 할당할 수 있습니다.
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

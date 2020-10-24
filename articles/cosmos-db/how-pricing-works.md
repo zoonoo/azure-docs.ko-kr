@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7d54dfe2efa82aaa650168c476da03d89fe4527
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281543"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490495"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델
 
@@ -36,7 +36,7 @@ Azure Cosmos DB 계정을 미국의 비 정부 지역에 배포 하는 경우 �
 
 Azure Cosmos DB는 개발자에 게 무료로 제공 되는 다양 한 옵션을 제공 합니다. 이러한 옵션에는 다음이 포함됩니다.
 
-* **Azure Cosmos DB 무료 계층**: Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수도 있습니다. 계정에 대 한 무료 계층을 사용 하는 경우 계정 수명 동안 계정에 처음 400 r u/초 및 5gb의 저장소를 무료로 얻을 수 있습니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](manage-sql-with-resource-manager.md#free-tier)사용 합니다.
+* **Azure Cosmos DB 무료 계층**: Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프로그램을 개발 하 고 테스트 하거나, 소규모 프로덕션 워크 로드를 무료로 실행할 수도 있습니다. 계정에 대 한 무료 계층을 사용 하는 경우 계정 수명 동안 계정에 처음 400 r u/초 및 5gb의 저장소를 무료로 얻을 수 있습니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](./manage-with-templates.md#free-tier)사용 합니다.
 
 * **Azure 무료 계정**: azure는 처음 30 일 동안 azure 크레딧을 $200 제공 하 고 12 개월 동안 무료 서비스의 제한 된 수량을 제공 하는 [무료 계층](https://azure.microsoft.com/free/) 을 제공 합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. 특히 Azure Cosmos DB의 경우이 무료 계정은 5gb 저장소를 제공 하 고 전체 년도에 대해 프로 비전 된 처리량을 400 r u/초까지 제공 합니다.
 
@@ -59,7 +59,7 @@ Azure Cosmos DB [예약 된 용량](cosmos-db-reserved-capacity.md) 을 사용 �
 * [처리량 비용 최적화](optimize-cost-throughput.md)에 대한 자세한 정보
 * [스토리지 비용 최적화](optimize-cost-storage.md)에 대한 자세한 정보
 * [읽기 및 쓰기 비용 최적화](optimize-cost-reads-writes.md)에 대한 자세한 정보
-* [쿼리 비용 최적화](optimize-cost-queries.md)에 대한 자세한 정보
+* [쿼리 비용 최적화](./optimize-cost-reads-writes.md)에 대한 자세한 정보
 * [다중 지역 Cosmos 계정 비용 최적화](optimize-cost-regions.md)에 대한 자세한 정보
 * [Azure Cosmos DB 예약 용량](cosmos-db-reserved-capacity.md)에 대한 자세한 정보
 * [Azure Cosmos DB 에뮬레이터](local-emulator.md)에 대한 자세한 정보

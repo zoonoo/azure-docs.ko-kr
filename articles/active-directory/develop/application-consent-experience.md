@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115478"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478136"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
 
@@ -65,13 +65,13 @@ Azure AD(Azure Active Directory) 애플리케이션 동의 사용자 환경에 �
     
     2. 사용자에게는 기존의 동의 확인 프롬프트가 표시됩니다.
 
-        ![시나리오 1b에 대한 동의 확인 프롬프트](./media/application-consent-experience/consent_prompt_1b.png)
+        ![기존 동의 확인 프롬프트를 보여 주는 스크린샷](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. 권한 범위 밖에 있는 하나 이상의 사용 권한이 필요한 앱에 액세스하는 개인 사용자.
     1. 관리자에게는 위에 표시된 1.i과 동일한 프롬프트가 표시됩니다.
     2. 사용자는 애플리케이션에 대한 동의를 부여하는 것이 차단되므로 앱에 액세스하려면 관리자에게 요청하라는 메시지가 나타납니다. 
                 
-        ![시나리오 1b에 대한 동의 확인 프롬프트](./media/application-consent-experience/consent_prompt_2b.png)
+        ![관리자에 게 앱에 대 한 액세스를 요청 하도록 요청 하는 동의 프롬프트의 스크린샷](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. 관리지 동의 흐름으로 이동하거나 안내되는 개인 사용자.
     1. 관리 사용자에게는 관리자 동의 확인 프롬프트가 표시됩니다. 이 프롬프트에서 제목 및 사용 권한 설명이 변경됐습니다. 이 변경 사항은 이 프롬프트에 대한 동의를 통해 전체 테넌트를 대신해 요청된 데이터에 대한 액세스 권한이 앱에 부여된다는 사실을 강조 표시합니다.

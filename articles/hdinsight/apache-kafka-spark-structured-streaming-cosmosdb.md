@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203467"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487333"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
@@ -86,7 +86,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 이 문서에 사용되는 프로젝트는 Cosmos DB에 데이터를 저장합니다. 코드를 실행하기 전에 먼저 Cosmos DB 인스턴스에서 _데이터베이스_ 및 _컬렉션_을 만들어야 합니다. Cosmos DB에 대한 요청을 인증하는 데 사용된 문서 엔드포인트 및 _키_도 검색해야 합니다.
 
-이 작업을 수행하는 한 가지 방법은 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용하는 것입니다. 다음 스크립트는 `kafkadata`라는 데이터베이스 및 `kafkacollection`이라는 컬렉션을 만듭니다. 그런 다음, 기본 키를 반환합니다.
+이 작업을 수행하는 한 가지 방법은 [Azure CLI](/cli/azure/)를 사용하는 것입니다. 다음 스크립트는 `kafkadata`라는 데이터베이스 및 `kafkacollection`이라는 컬렉션을 만듭니다. 그런 다음, 기본 키를 반환합니다.
 
 ```azurecli
 #!/bin/bash

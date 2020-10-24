@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9a6d8843acf27a53e261d9c7180906b15d05cc33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314813"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487996"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>모니터링 및 조정 Azure Database for PostgreSQL-Hyperscale (Citus)
 
@@ -22,7 +22,7 @@ ms.locfileid: "91314813"
 
 Hyperscale (Citus)은 서버 그룹의 각 노드에 대 한 메트릭을 제공 합니다. 메트릭은 지원 리소스의 동작에 대 한 통찰력을 제공 합니다. 각 메트릭은 1분 빈도로 내보내지며, 최대 30일 동안 기록됩니다.
 
-메트릭의 그래프를 보는 것 외에도 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-hyperscale-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요.  다른 작업에는 자동화 된 작업 설정, 고급 분석 실행 및 기록 보관이 포함 됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+메트릭의 그래프를 보는 것 외에도 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-hyperscale-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요.  다른 작업에는 자동화 된 작업 설정, 고급 분석 실행 및 기록 보관이 포함 됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 

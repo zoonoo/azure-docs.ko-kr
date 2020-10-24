@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: aaff5adf358c31d99df7a51305c4e3554c3259c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3aec6cf2fa515d71b93d84cf8c4fc901fc847162
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166253"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487435"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB SQL API 계정으로 일 대 일 관계형 데이터 마이그레이션
 
@@ -334,5 +334,5 @@ pool.map(writeOrder, orderids)
 :::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="SQL 데이터베이스의 Orders 및 OrderDetails 테이블을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cosmos DB에서 데이터 모델링](https://docs.microsoft.com/azure/cosmos-db/modeling-data) 에 대 한 자세한 정보
-* [Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법을](https://docs.microsoft.com/azure/cosmos-db/how-to-model-partition-example) 알아봅니다.
+* [Azure Cosmos DB에서 데이터 모델링](./modeling-data.md) 에 대 한 자세한 정보
+* [Azure Cosmos DB에서 데이터를 모델링 하 고 분할 하는 방법을](./how-to-model-partition-example.md) 알아봅니다.

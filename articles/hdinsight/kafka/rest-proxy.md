@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8d2c7d48dc0b77d3be0b9019d4bbf1da8a40c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541733"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490274"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
@@ -97,7 +97,7 @@ REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이�
 1. Azure AD에서 OAuth 토큰을 가져옵니다.
 1. Kafka REST 프록시로 요청을 만드는 방법을 보여줍니다.
 
-Python에서 OAuth 토큰을 가져오는 방법에 대한 자세한 내용은 [Python AuthenticationContext 클래스](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python)를 참조하세요. Kafka REST 프록시를 통해 생성 또는 삭제되지 않은 `topics`이 거기에서 리플렉트되고 있다면 지연 시간이 표시될 수 있습니다. 이 지연 시간은 캐시 새로 고침으로 인해 발생합니다.
+Python에서 OAuth 토큰을 가져오는 방법에 대한 자세한 내용은 [Python AuthenticationContext 클래스](/python/api/adal/adal.authentication_context.authenticationcontext)를 참조하세요. Kafka REST 프록시를 통해 생성 또는 삭제되지 않은 `topics`이 거기에서 리플렉트되고 있다면 지연 시간이 표시될 수 있습니다. 이 지연 시간은 캐시 새로 고침으로 인해 발생합니다.
 
 ```python
 #Required python packages

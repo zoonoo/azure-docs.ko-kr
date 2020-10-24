@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: d3ab49d0ad24c2b2c8859408ed103178cede5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082106"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487110"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -162,7 +162,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 * GatewaySubnet = 192.168.0.0/26 <br>
 * 첫 번째 IP 구성 = rmgwpip <br>
 
-[!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Add gateway](../../includes/vpn-gateway-add-gw-rm-portal-empty.md)]
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -177,7 +177,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 
 로컬 네트워크 게이트웨이는 클래식 VNet 및 가상 네트워크 게이트웨이에 연결된 주소 범위 및 공용 IP 주소를 지정합니다. 이 단계를 연습으로 수행하는 경우 예제 값을 참조하세요.
 
-[!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="modifylng"></a>섹션 3 - 클래식 VNet 로컬 사이트 설정 수정
 

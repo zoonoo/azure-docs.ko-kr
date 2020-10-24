@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290840"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487316"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -36,7 +36,7 @@ HDInsight는 두 가지 계층에서 여러 유형의 암호화를 지원 합니
 |클러스터 유형 |OS 디스크 (관리 디스크) |데이터 디스크 (관리 디스크) |임시 데이터 디스크 (로컬 SSD) |
 |---|---|---|---|
 |Kafka, 가속화 된 쓰기를 사용 하는 HBase|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) , Layer2: cmk를 사용 하 여 휴지 상태의 선택적 암호화|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
-|다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|해당 없음|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
+|다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|N/A|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
 
@@ -121,13 +121,13 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4` 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 정의합니다(예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`). 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Azure CLI 사용
 
-다음 예에서는 Azure CLI를 사용 하 여 디스크 암호화를 사용 하는 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [Azure CLI az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)를 참조 하세요.
+다음 예에서는 Azure CLI를 사용 하 여 디스크 암호화를 사용 하는 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [Azure CLI az hdinsight create](/cli/azure/hdinsight#az-hdinsight-create)를 참조 하세요.
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -365,7 +365,7 @@ HDInsight 클러스터를 만든 후에 사용 되는 암호화 키를 변경 �
 
 #### <a name="using-azure-cli"></a>Azure CLI 사용
 
-다음 예제에서는 기존 HDInsight 클러스터에 대 한 디스크 암호화 키를 회전 하는 방법을 보여 줍니다. 자세한 내용은 [Azure CLI az hdinsight rotate-encryption-key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key)를 참조 하세요.
+다음 예제에서는 기존 HDInsight 클러스터에 대 한 디스크 암호화 키를 회전 하는 방법을 보여 줍니다. 자세한 내용은 [Azure CLI az hdinsight rotate-encryption-key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key)를 참조 하세요.
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -398,7 +398,7 @@ Hdinsight는 HDInsight 클러스터와 연결 하는 관리 id를 사용 하 여
 
 **키가 삭제될 경우 클러스터를 어떻게 복구할 수 있나요?**
 
-"일시 삭제" 사용 키만 지원 되므로 키 자격 증명 모음에서 키를 복구 하는 경우 클러스터에서 키에 대 한 액세스 권한을 다시 확보 해야 합니다. Azure Key Vault 키를 복구 하려면 [AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) 또는 [Az-keyvault](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover)를 참조 하세요.
+"일시 삭제" 사용 키만 지원 되므로 키 자격 증명 모음에서 키를 복구 하는 경우 클러스터에서 키에 대 한 액세스 권한을 다시 확보 해야 합니다. Azure Key Vault 키를 복구 하려면 [AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) 또는 [Az-keyvault](/cli/azure/keyvault/key#az-keyvault-key-recover)를 참조 하세요.
 
 
 **클러스터가 확장 되 면 새 노드에서 고객이 관리 하는 키를 원활 하 게 지원 하나요?**

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b016468d858162123e2796e0d76b83b0a1bbf33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568049"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480057"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Microsoft Azure Cosmos DB용 Synapse Link: 근 실시간 분석 사용 사례
 
@@ -118,7 +118,7 @@ Azure Synapse Link를 통해 Microsoft Azure Cosmos DB는 트랜잭션 워크로
 
   * 트랜잭션 저장소에서 [실시간 인덱싱](index-policy.md)을 사용하여 일괄 처리와 스트리밍 데이터 피드의 수집 처리량이 높습니다.
 
-  * Microsoft Azure Cosmos DB 트랜잭션 저장소는 비즈니스 요구에 따라 [가용성과 성능을 절충](consistency-levels-tradeoffs.md)할 수 있도록 강력하고 최종적인 2가지 일관성 수준보다 더 많은 3가지 옵션을 제공합니다.
+  * Microsoft Azure Cosmos DB 트랜잭션 저장소는 비즈니스 요구에 따라 [가용성과 성능을 절충](./consistency-levels.md)할 수 있도록 강력하고 최종적인 2가지 일관성 수준보다 더 많은 3가지 옵션을 제공합니다.
 
 * CompanyXYZ의 공급망 파트너의 트래픽 패턴은 초당 트래픽 수가 수백 개에서 수백만 개로 증가하는 등 변동이 많으므로 인벤토리 플랫폼에서 예기치 않은 트래픽 급증을 처리해야 합니다.  Microsoft Azure Cosmos DB 사용의 이점:
 

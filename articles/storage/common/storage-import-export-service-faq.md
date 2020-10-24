@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e50502c8c3e37c5d48359079e2e72c13feea4a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399043"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487877"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답
 
@@ -132,7 +132,7 @@ Azure 데이터 센터에서는 지원 요구 사항에 맞지 않는 드라이�
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>이 서비스를 통해 가져오는 데이터에 액세스하려면 어떻게 하나요?
 
-Azure Portal 또는 [Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) 를 사용 하 여 Azure Storage 계정에 있는 데이터에 액세스 합니다.  
+Azure Portal 또는 [Storage 탐색기](/azure/vs-azure-tools-storage-manage-with-storage-explorer) 를 사용 하 여 Azure Storage 계정에 있는 데이터에 액세스 합니다.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>가져오기 작업을 완료한 후에 스토리지 계정에서 데이터는 어떻게 표시되나요? 디렉터리 계층 구조가 유지되나요?
 
@@ -144,7 +144,7 @@ Azure Portal 또는 [Storage 탐색기](https://docs.microsoft.com/azure/vs-azur
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 도구는 32비트 운영 체제와 호환되나요?
 
-아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)로 이동합니다.
+아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](/azure/storage/common/storage-import-export-requirements)로 이동합니다.
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure Import/Export에서 지원하는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
 

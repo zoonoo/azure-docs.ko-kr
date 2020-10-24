@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b403a960016be3795857ddd5645eb73e53e83bd6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714385"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488608"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure Storage 탐색기 보안 가이드
 
@@ -44,13 +44,13 @@ Azure Storage 리소스에 가장 쉽고 안전 하 게 액세스 하는 방법�
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
 
-Azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 는 azure 리소스에 대 한 세부적인 액세스 제어를 제공 합니다. Azure Portal에서 Azure 역할 및 사용 권한을 관리할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 는 azure 리소스에 대 한 세부적인 액세스 제어를 제공 합니다. Azure Portal에서 Azure 역할 및 사용 권한을 관리할 수 있습니다.
 
 Storage 탐색기는 저장소 계정, Blob 및 큐에 대 한 Azure RBAC 액세스를 지원 합니다. 파일 공유 또는 테이블에 액세스 해야 하는 경우 저장소 계정 키를 나열 하는 권한을 부여 하는 Azure 역할을 할당 해야 합니다.
 
 #### <a name="access-control-lists-acls"></a>ACL(액세스 제어 목록)
 
-[Acl (액세스 제어 목록)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) 을 사용 하면 ADLS Gen2 blob 컨테이너에서 파일 및 폴더 수준 액세스를 제어할 수 있습니다. Storage 탐색기를 사용 하 여 Acl을 관리할 수 있습니다.
+[Acl (액세스 제어 목록)](/azure/storage/blobs/data-lake-storage-access-control) 을 사용 하면 ADLS Gen2 blob 컨테이너에서 파일 및 폴더 수준 액세스를 제어할 수 있습니다. Storage 탐색기를 사용 하 여 Acl을 관리할 수 있습니다.
 
 ### <a name="shared-access-signatures-sas"></a>SAS(공유 액세스 서명)
 
@@ -102,4 +102,4 @@ Blob 컨테이너에 대 한 공용 액세스를 사용 하도록 설정 하는 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [보안 권장 사항](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [보안 권장 사항](/azure/storage/blobs/security-recommendations)

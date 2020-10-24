@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707662"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489747"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 Azure 데이터베이스를 다른 지역으로 이동
 
@@ -21,9 +21,9 @@ ms.locfileid: "91707662"
 Azure Database for PostgreSQL [지역 간 읽기 복제본](concepts-read-replicas.md#cross-region-replication) 을 사용 하 여 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 이렇게 하려면 먼저 대상 지역에서 읽기 복제본을 만듭니다. 그런 다음 읽기 복제본 서버에 대 한 복제를 중지 하 여 읽기 및 쓰기 트래픽을 모두 수락 하는 독립 실행형 서버로 만듭니다. 
 
 > [!NOTE]
-> 이 문서에서는 서버를 다른 지역으로 이동 하는 방법을 집중적으로 설명 합니다. 서버를 다른 리소스 그룹 또는 구독으로 이동 하려면 [이동](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) 문서를 참조 하세요. 
+> 이 문서에서는 서버를 다른 지역으로 이동 하는 방법을 집중적으로 설명 합니다. 서버를 다른 리소스 그룹 또는 구독으로 이동 하려면 [이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 지역 간 읽기 복제본 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층에서 Azure Database for PostgreSQL 단일 서버에만 사용할 수 있습니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
 

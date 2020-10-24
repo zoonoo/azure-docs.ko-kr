@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: c8862398d5c79335e4ed59f4ca42df9abd58965e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856588"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488115"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -25,7 +25,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 * [cURL](https://curl.haxx.se/) - 웹 기반 서비스와 통신하는 데 사용됩니다.
 * **jq** 명령줄 JSON 프로세서입니다.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - Azure 서비스를 원격으로 관리하는 데 사용됩니다.
+* [Azure CLI](/cli/azure/install-azure-cli) - Azure 서비스를 원격으로 관리하는 데 사용됩니다.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="users"></a>사용자
@@ -191,7 +191,7 @@ HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방�
 
 __Azure Blob storage__를 사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 스토리지 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
+* [Azure CLI](/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 스토리지 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Azure Storage의 Blob 작업을 위한 Python 스크립트입니다.
 * 다양한 SDK:
 

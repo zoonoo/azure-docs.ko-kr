@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26794f0d743bc701879a161f69e374340206e5d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570362"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488472"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -70,7 +70,7 @@ Azure를 처음 사용하는 경우 [Azure 체험 계정](https://azure.microsof
 
 기술 관련 질문을 하려면 다음 두 가지의 질문 및 답변 포럼 중 하나에 게시합니다.
 
-* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&A 질문 페이지](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask).
 
 새로운 기능을 요청하려면 [사용자 의견](https://feedback.azure.com/forums/263030-azure-cosmos-db)에서 새 요청을 만듭니다.
@@ -179,7 +179,7 @@ SQL API는 `COUNT`, `MIN`, `MAX`, `AVG` 집계 함수를 통해 모든 규모의
 
 SQL API는 HTTP 엔터티 태그 또는 ETag를 통해 OCC(낙관적 동시성 제어)를 지원합니다. 모든 SQL API 리소스에는 ETag가 있고 ETag는 문서가 업데이트될 때마다 서버에서 설정됩니다. ETag 헤더 및 현재 값은 모든 응답 메시지에 포함됩니다. ETag는 If-Match 헤더와 함께 사용하여 서버가 리소스를 업데이트해야 하는지를 결정하도록 할 수 있습니다. If-Match 값은 검사해야 할 ETag 값입니다. ETag 값이 서버 ETag 값과 일치하는 경우 리소스가 업데이트됩니다. ETag가 최신 상태가 아닌 경우 서버에서는 "HTTP 412 사전 조건 실패" 응답 코드와 함께 작업을 거부합니다. 그러면 클라이언트는 리소스를 다시 페치하여 리소스에 대한 현재 ETag 값을 가져옵니다. 또한 If-None-Match 헤더와 함께 ETag를 사용하여 리소스를 다시 페치해야 하는지를 확인합니다.
 
-.NET에서 낙관적 동시성을 사용하려면 [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) 클래스를 사용합니다. .NET 샘플은 GitHub에 있는 DocumentManagement 샘플에서 [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) 를 참조하세요.
+.NET에서 낙관적 동시성을 사용하려면 [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) 클래스를 사용합니다. .NET 샘플은 GitHub에 있는 DocumentManagement 샘플에서 [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) 를 참조하세요.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>SQL API에서 어떻게 트랜잭션을 수행하나요?
 
@@ -210,7 +210,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 ResourceTokens를 사용한 사용 권한 만들기는 컨테이너 수준 및 해당 하위 항목에서 허용됩니다(예: 문서, 첨부 파일). 이는 데이터베이스에서 권한을 생성하려고 하거나 계정 수준이 현재 허용되지 않음을 의미합니다.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>다음 단계
 

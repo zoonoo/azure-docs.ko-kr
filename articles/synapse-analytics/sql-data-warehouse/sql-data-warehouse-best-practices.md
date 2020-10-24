@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206651"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489645"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics의 Synapse SQL 풀에 대한 모범 사례(이전 명칭: SQL DW)
 
@@ -64,7 +64,7 @@ INSERT 문을 이용한 작은 테이블에 대한 일회성 로드 또는 조�
 
 SQL 풀은 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 통해 데이터 로드 및 내보내기를 지원합니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  그러나 대량의 데이터를 로드 또는 내보내거나 빠른 성능이 필요한 경우 PolyBase가 가장 좋습니다.  
 
-PolyBase는 MPP(대규모 병렬 처리) 아키텍처를 활용하도록 디자인되었으며 데이터 로드 및 내보내기 성능이 다른 도구보다 빠릅니다.  PolyBase 로드는 CTAS 또는 INSERT INTO를 사용하여 실행할 수 있습니다.  
+PolyBase는 시스템의 분산 된 특성을 활용 하도록 설계 되었으며 다른 도구 보다 더 빠르게 크고 많을 데이터를 로드 하 고 내보냅니다.  PolyBase 로드는 CTAS 또는 INSERT INTO를 사용하여 실행할 수 있습니다.   
 
 > [!TIP]
 > CTAS를 사용하면 트랜잭션 로깅을 최소화하고 데이터를 가장 빠르게 로드할 수 있습니다.

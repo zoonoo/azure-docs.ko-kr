@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400550"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488693"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
 
@@ -71,15 +71,15 @@ Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송*
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage Explorer 소개](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [AzCopy의 개요 읽기](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy의 개요 읽기](/azure/storage/common/storage-use-azcopy-v10)
 - [빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열](../blobs/storage-quickstart-blobs-powershell.md)
 - [빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../blobs/storage-quickstart-blobs-cli.md)
 - 자세한 정보:
 
-    - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](https://docs.microsoft.com/azure/databox/)
-    - [온라인 전송에 대해 Edge를 Azure Data Box Gateway 하 고 Azure Stack](https://docs.microsoft.com/azure/databox-online/)합니다.
-- [Azure Data Factory 알아보기](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](/azure/databox/)
+    - [온라인 전송에 대해 Edge를 Azure Data Box Gateway 하 고 Azure Stack](/azure/databox-online/)합니다.
+- [Azure Data Factory 알아보기](/azure/data-factory/copy-activity-overview).
 - REST API를 사용하여 데이터 전송
 
-    - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Java에서](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [.NET](/dotnet/api/overview/azure/storage)
+    - [Java에서](/java/api/overview/azure/storage)

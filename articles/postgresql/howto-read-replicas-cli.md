@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707543"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489713"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Azure CLI에서 읽기 복제본을 만들고 관리 REST API
 
@@ -32,9 +32,9 @@ ms.locfileid: "91707543"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-- [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 주 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md) 입니다.
 
 
@@ -60,7 +60,7 @@ Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습�
 
 ### <a name="create-a-read-replica"></a>읽기 복제본 만들기
 
-[Az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) 명령에는 다음 매개 변수가 필요 합니다.
+[Az postgres server replica create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) 명령에는 다음 매개 변수가 필요 합니다.
 
 | 설정 | 예제 값 | Description  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > 주 서버 설정을 새 값으로 업데이트 하기 전에 복제본 설정을 같거나 큰 값으로 업데이트 합니다. 이 작업을 수행 하면 복제본이 마스터의 모든 변경 내용을 유지 하는 데 도움이 됩니다.
 
 ### <a name="list-replicas"></a>복제본 나열
-[Az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) 명령을 사용 하 여 주 서버의 복제본 목록을 볼 수 있습니다.
+[Az postgres server replica list](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) 명령을 사용 하 여 주 서버의 복제본 목록을 볼 수 있습니다.
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>복제본 서버로의 복제 중지
-[Az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) 명령을 사용 하 여 주 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
+[Az postgres server replica stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) 명령을 사용 하 여 주 서버와 읽기 복제본 간의 복제를 중지할 수 있습니다.
 
 주 서버 및 읽기 복제본에 대 한 복제를 중지 한 후에는 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>주 서버 또는 복제 서버 삭제
-주 서버 또는 복제 서버를 삭제 하려면 [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) 명령을 사용 합니다.
+주 서버 또는 복제 서버를 삭제 하려면 [az postgres server delete](/cli/azure/postgres/server#az-postgres-server-delete) 명령을 사용 합니다.
 
 주 서버를 삭제 하면 모든 읽기 복제본으로의 복제가 중지 됩니다. 그러면 읽기 복제본은 읽기와 쓰기를 모두 지원하는 독립 실행형 서버가 됩니다.
 

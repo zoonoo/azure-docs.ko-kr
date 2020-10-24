@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 823f5f90bc1a72b1df87ee21e37cf39fed0b2340
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277838"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486160"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB SQL API에서 데이터베이스 또는 컨테이너에 자동 크기 조정 처리량 프로 비전
 
@@ -246,9 +246,9 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ---
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Azure Resource Manager 템플릿을 사용 하 여 데이터베이스에 대 한 자동 크기 조정 처리량 또는 모든 Azure Cosmos DB Api에 대 한 컨테이너 수준 리소스를 프로 비전 할 수 있습니다. 예제는 [Azure Cosmos DB Azure Resource Manager 템플릿을](resource-manager-samples.md) 참조 하세요.
+Azure Resource Manager 템플릿을 사용 하 여 데이터베이스에 대 한 자동 크기 조정 처리량 또는 모든 Azure Cosmos DB Api에 대 한 컨테이너 수준 리소스를 프로 비전 할 수 있습니다. 예제는 [Azure Cosmos DB Azure Resource Manager 템플릿을](./templates-samples-sql.md) 참조 하세요.
 
 ## <a name="azure-cli"></a>Azure CLI
 

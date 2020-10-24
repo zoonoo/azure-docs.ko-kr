@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836513"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486211"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 
@@ -277,7 +277,7 @@ Azure Cosmos DB에서 CMK (Customer-Managed 키)를 사용 하는 경우 오류�
 
 Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암호화되며 단, 다음 메타데이터는 제외됩니다.
 
-- Azure Cosmos DB [계정, 데이터베이스 및 컨테이너](./account-overview.md#elements-in-an-azure-cosmos-account)의 이름
+- Azure Cosmos DB [계정, 데이터베이스 및 컨테이너](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account)의 이름
 
 - [저장 프로시저](./stored-procedures-triggers-udfs.md)의 이름
 

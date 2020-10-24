@@ -8,29 +8,29 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cf15898a7077f08ff4ab337cf5ad77ebcd2f3f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fffb5998b0b6a245db3f1c8fcf16f2d576936e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489764"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용하여 Azure Database for PostgreSQL 서버를 백업 및 복원하는 방법
 
 Azure Database for PostgreSQL 서버는 정기적으로 백업 되어 복원 기능을 사용 하도록 설정 합니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
-- 로컬에 설치 되거나 브라우저에 [Azure Cloud Shell](https://shell.azure.com/) 된 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps)
+- 로컬에 설치 되거나 브라우저에 [Azure Cloud Shell](https://shell.azure.com/) 된 [Az PowerShell 모듈](/powershell/azure/install-az-ps)
 - [PostgreSQL용 Azure Database 서버](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Az.PostgreSql PowerShell 모듈이 미리 보기에 있지만 `Install-Module -Name Az.PostgreSql -AllowPrerelease` 명령을 사용하여 Az PowerShell 모듈과 별도로 설치해야 합니다.
 > Az.PostgreSql PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스에 포함되며 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
 
-PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 Azure 계정에 연결 합니다.
+PowerShell을 로컬로 사용 하도록 선택 하는 경우 [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 Azure 계정에 연결 합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,10 +75,10 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Cmdlet의 **PointInTimeRestore** 매개 변수 집합에는 `Restore-AzPostgreSqlServer` 다음 매개 변수가 필요 합니다.
 
-| 설정 | 제안 값 | Description  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| Name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| ResourceGroupName |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
+| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | 복원할 특정 시점을 선택 합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 **2020-03-13T05:59:00-08:00**과 같은 고유한 현지 표준 시간대를 사용할 수 있습니다. UTC 줄루어 형식을 사용할 수도 있습니다 (예: **2018-03-13T13:59:00Z**). |
 | UsePointInTimeRestore | `<SwitchParameter>` | 지정 시간 모드를 사용 하 여 복원 합니다. |
 
@@ -117,10 +117,10 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Cmdlet의 **GeoRestore** 매개 변수 집합에는 `Restore-AzPostgreSqlServer` 다음 매개 변수가 필요 합니다.
 
-| 설정 | 제안 값 | Description  |
+| 설정 | 제안 값 | Description  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | 새 서버가 속한 리소스 그룹의 이름입니다.|
-|Name | mydemoserver-georestored | 새 서버의 이름입니다. |
+|이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
 |위치 | eastus | 새 서버의 위치입니다. |
 |UseGeoRestore | `<SwitchParameter>` | 지역 모드를 사용 하 여 복원 합니다. |
 

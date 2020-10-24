@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 1f1af53388f177dc348c5cb805ef8e6fbe9f9436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27da5f1b731b2cdb0604f91f7f9e78b19ee2908b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710824"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489798"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 최소 가동 중지 시간 마이그레이션
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server-hyperscale.md)]
@@ -25,4 +25,4 @@ Azure DMS는 Azure Database for PostgreSQL에 대한 온-프레미스 초기 로
 
 ## <a name="next-steps"></a>다음 단계
 - PostgreSQL 앱을 Azure Database for PostgreSQL로 마이그레이션하는 방법을 보여주는 데모 버전이 포함된 [Microsoft Azure를 사용한 앱 현대화](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102) 비디오를 봅니다.
-- [DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) 자습서를 참조하세요.
+- [DMS를 사용하여 PostgreSQL을 Azure Database for PostgreSQL로 온라인 마이그레이션](../dms/tutorial-postgresql-azure-postgresql-online.md) 자습서를 참조하세요.

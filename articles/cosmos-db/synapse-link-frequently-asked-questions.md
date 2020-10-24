@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104107"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480074"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 
@@ -37,13 +37,13 @@ Azure Cosmos DB용 Azure Synapse Link는 Azure Cosmos DB와 Azure Synapse Analyt
 
 분석 저장소가 설정 된 컨테이너의 경우 지금은 분석 저장소에서 데이터의 자동 백업 및 복원이 지원 되지 않습니다. 
 
-데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하면 Azure Cosmos DB는 항상으로 예약 된 백업 간격으로 컨테이너의 트랜잭션 저장소 (만)에 대 한 데이터 백업을 자동으로 [수행](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) 합니다. 분석 저장소가 설정 된 컨테이너가 새 계정으로 복원 되 면 컨테이너는 트랜잭션 저장소로만 복원 되 고 분석 저장소는 사용 하도록 설정 되지 않습니다. 
+데이터베이스 계정에서 Synapse 링크를 사용 하도록 설정 하면 Azure Cosmos DB는 항상으로 예약 된 백업 간격으로 컨테이너의 트랜잭션 저장소 (만)에 대 한 데이터 백업을 자동으로 [수행](./online-backup-and-restore.md) 합니다. 분석 저장소가 설정 된 컨테이너가 새 계정으로 복원 되 면 컨테이너는 트랜잭션 저장소로만 복원 되 고 분석 저장소는 사용 하도록 설정 되지 않습니다. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Synapse Link 기능을 사용 하지 않도록 설정할 수 있나요?
 
 현재, 계정 수준에서 Synapse Link 기능을 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다. Synapse Link 기능이 계정 수준에서 사용하도록 설정되어 있지만 분석 스토리지를 사용하도록 설정된 컨테이너가 없으면 청구에 영향을 주지 않습니다. 
 
-이 기능을 해제 해야 하는 경우에는 두 가지 옵션이 있습니다. 첫 번째는 새 Azure Cosmos DB 계정을 삭제 하 고 다시 만들어 필요한 경우 데이터를 마이그레이션하는 것입니다. 두 번째 옵션은 다른 계정으로의 데이터 마이그레이션에 대 한 도움말을 얻기 위해 지원 티켓을 여는 것입니다.
+이 기능을 해제해야 하는 경우에는 두 가지 옵션이 있습니다. 첫 번째는 필요한 경우 데이터를 마이그레이션하여 새 Azure Cosmos DB 계정을 삭제하고 다시 만드는 것입니다. 두 번째 옵션은 다른 계정으로의 데이터 마이그레이션에 대한 지원을 받기 위해 지원 티켓을 여는 것입니다.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소
 
@@ -98,9 +98,9 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 현재는 데이터 항목이 트랜잭션 저장소에서 분석 저장소로 자동 전파될 때 데이터 항목을 변환할 수 없습니다. 이러한 제한으로 인해 차단되는 시나리오가 있으면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 이메일을 보내주세요.
 
-### <a name="is-analytical-store-supported-by-terraform"></a>Terraform에서 분석 저장소를 지원 하나요?
+### <a name="is-analytical-store-supported-by-terraform"></a>Terraform에서 분석 저장소를 지원하나요?
 
-현재 Terraform은 분석 저장소 컨테이너를 지원 하지 않습니다. 자세한 내용은 [Terraform GitHub 문제](https://github.com/hashicorp/terraform/issues) 를 확인 하세요.
+현재 Terraform은 분석 저장소 컨테이너를 지원하지 않습니다. 자세한 내용은 [Terraform GitHub 문제](https://github.com/hashicorp/terraform/issues)를 확인하세요.
 
 ## <a name="analytical-time-to-live-ttl"></a>분석 TTL(Time-to-Live)
 

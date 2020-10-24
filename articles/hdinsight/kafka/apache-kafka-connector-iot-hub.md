@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087387"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485548"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -123,7 +123,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
     |`bootstrap.servers=localhost:9092`|값을 `localhost:9092` 이전 단계의 broker 호스트로 바꿉니다.|Kafka broker를 찾기 위해에 지 노드에 대 한 독립 실행형 구성을 구성 합니다.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|이 변경을 통해 Kafka에 포함된 콘솔 생산자를 사용하여 테스트할 수 있습니다. 다른 생산자와 소비자에 대한 다른 변환기가 필요할 수 있습니다. 다른 변환기 값 사용에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|위와 동일합니다.|
-    |해당 없음|`consumer.max.poll.records=10`|파일의 끝에를 추가 합니다. 이 변경은 한 번에 10개의 레코드로 제한하여 싱크 커넥터에서 시간 제한을 방지하기 위함입니다. 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)를 참조하세요.|
+    |N/A|`consumer.max.poll.records=10`|파일의 끝에를 추가 합니다. 이 변경은 한 번에 10개의 레코드로 제한하여 싱크 커넥터에서 시간 제한을 방지하기 위함입니다. 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)를 참조하세요.|
 
 1. 파일을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
@@ -162,7 +162,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
         > [!IMPORTANT]  
         > 포털에서 엔드포인트 값이 이 예제에서 필요하지 않은 추가 텍스트를 포함할 수 있습니다. 이 패턴 `sb://<randomnamespace>.servicebus.windows.net/`과 일치하는 텍스트를 추출합니다.
 
-   * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
+   * __[Azure CLI](/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -184,7 +184,7 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
         2. __기본 키__ 값을 복사 합니다.
         3. __연결 문자열 - 기본 키__ 값을 복사합니다.
 
-    * __[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
+    * __[Azure CLI](/cli/azure/get-started-with-azure-cli)__ 에서 다음 명령을 입력합니다.
 
         1. 기본 키 값을 가져오려면 다음 명령을 사용합니다.
 

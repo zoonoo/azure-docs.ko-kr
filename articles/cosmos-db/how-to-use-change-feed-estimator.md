@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 442e1c4facce076ce9eeacee772df9381fee6f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997220"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485854"
 ---
 # <a name="use-the-change-feed-estimator"></a>변경 피드 추정기 사용
 
@@ -64,4 +64,4 @@ ms.locfileid: "88997220"
 이제 다음 문서에서 변경 피드 프로세서에 대해 자세히 알아볼 수 있습니다.
 
 * [변경 피드 프로세서 개요](change-feed-processor.md)
-* [변경 피드 프로세서 시작 시간](how-to-configure-change-feed-start-time.md)
+* [변경 피드 프로세서 시작 시간](./change-feed-processor.md#starting-time)

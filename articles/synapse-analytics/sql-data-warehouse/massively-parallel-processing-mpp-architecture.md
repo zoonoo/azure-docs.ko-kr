@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics(이전의 SQL DW) 아키텍처
-description: Azure Synapse Analytics(이전의 SQL DW)가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure Storage를 결합하는 방법을 알아봅니다.
+description: Azure Synapse Analytics (이전의 SQL DW)에서 분산 쿼리 처리 기능을 Azure Storage와 결합 하 여 고성능 및 확장성을 구현 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210969"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479343"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics(이전의 SQL DW) 아키텍처
 
@@ -33,13 +33,13 @@ Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 �
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Synapse SQL 아키텍처 구성 요소
+## <a name="synapse-sql-architecture-components"></a>Synapse SQL 아키텍처 구성 요소
 
 [Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)은 규모 확장 아키텍처를 활용하여 여러 노드에 걸쳐 데이터의 계산 처리를 분산합니다. 규모 단위는 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)로 알려진 컴퓨팅 능력의 추상화입니다. 시스템 데이터와 독립적으로 컴퓨팅을 확장할 수 있도록 컴퓨팅이 스토리지에서 분리됩니다.
 
 ![Synapse SQL 아키텍처](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL은 노드 기반 아키텍처를 사용합니다. 애플리케이션은 Synapse SQL의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위해 쿼리를 최적화하는 MPP 엔진을 실행한 다음, 연산을 컴퓨팅 노드에 전달하여 병렬로 처리되도록 합니다.
+Synapse SQL은 노드 기반 아키텍처를 사용합니다. 애플리케이션은 Synapse SQL의 단일 입력 지점인 제어 노드에 연결하고 T-SQL 명령을 보냅니다. 제어 노드는 병렬 처리를 위한 쿼리를 최적화 하 고 작업을 병렬 작업을 수행 하기 위해 계산 노드에 전달 하는 분산 쿼리 엔진을 호스팅합니다.
 
 컴퓨팅 노드는 모든 사용자 데이터를 Azure Storage에 저장하고 병렬 쿼리를 실행합니다. DMS(Data Movement Service)는 쿼리를 병렬로 실행하고 정확한 결과를 반환하기 위해 필요할 때 노드에서 데이터를 이동시키는 시스템 수준의 내부 서비스입니다.
 
@@ -60,13 +60,13 @@ Synapse SQL은 Azure Storage를 활용하여 사용자 데이터를 안전하게
 
 ### <a name="control-node"></a>제어 노드
 
-제어 노드는 아키텍처의 두뇌입니다. 모든 애플리케이션 및 연결과 상호 작용하는 프런트 엔드입니다. MPP 엔진은 병렬 쿼리를 최적화하고 조정하기 위해 제어 노드에서 실행됩니다. T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
+제어 노드는 아키텍처의 두뇌입니다. 모든 애플리케이션 및 연결과 상호 작용하는 프런트 엔드입니다. 분산 쿼리 엔진은 제어 노드에서 실행 되어 병렬 쿼리를 최적화 하 고 조정 합니다. T-SQL 쿼리를 제출하면 제어 노드는 이것을 각 분산에 대해 병렬로 실행되는 쿼리로 변환합니다.
 
 ### <a name="compute-nodes"></a>컴퓨팅 노드
 
 컴퓨팅 노드는 컴퓨팅 능력을 제공합니다. 분산은 처리를 위해 컴퓨팅 노드로 매핑됩니다. 더 많은 컴퓨팅 리소스에 대한 비용을 지불하는 경우 사용 가능한 컴퓨팅 노드에 분산이 다시 매핑됩니다. 컴퓨팅 노드 수는 1~60 사이이며 Synapse SQL의 서비스 수준에 따라 결정됩니다.
 
-각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+각 컴퓨팅 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 이러한 시스템 뷰 목록은 [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조 하세요.
 
 ### <a name="data-movement-service"></a>데이터 이동 서비스
 

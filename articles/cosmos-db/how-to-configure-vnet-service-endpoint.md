@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c1d96c373103e0a89a9553ce8dab6ce5cce23c7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279699"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490529"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>VNet (가상 네트워크)에서 Azure Cosmos DB에 대 한 액세스 구성
 
@@ -93,7 +93,7 @@ Azure Cosmos DB 계정이 Azure Cognitive Search 같은 다른 Azure 서비스�
 
 Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포인트를 구성하려면 다음 단계를 사용합니다.  
 
-1. [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 설치 및 [로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)  
+1. [Azure PowerShell](/powershell/azure/install-Az-ps) 설치 및 [로그인](/powershell/azure/authenticate-azureps)  
 
 1. 가상 네트워크의 기존 서브넷에 대한 서비스 엔드포인트를 사용하도록 설정합니다.  
 
@@ -317,7 +317,7 @@ IP 방화벽 규칙을 사용 하 여 가상 네트워크 서비스 끝점을 �
 
 ### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>노트북 및 Mongo/Cassandra Shell이 현재 Virtual Network 사용 계정과 호환 되나요?
 
-현재 Cosmos DB 데이터 탐색기 및 [Jupyter 노트북 서비스](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)의 [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) 및 [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) 통합은 VNET 액세스에서 지원 되지 않습니다. 이 기능은 현재 개발 중입니다.
+현재 Cosmos DB 데이터 탐색기 및 [Jupyter 노트북 서비스](./cosmosdb-jupyter-notebooks.md)의 [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) 및 [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) 통합은 VNET 액세스에서 지원 되지 않습니다. 이 기능은 현재 개발 중입니다.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>가상 네트워크 서비스 엔드포인트 및 IP 액세스 제어 정책 모두 Azure Cosmos 계정에서 지정할 수 있나요? 
 

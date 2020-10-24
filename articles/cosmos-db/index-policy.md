@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277797"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489237"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
@@ -34,7 +34,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 기본적으로 인덱싱 정책은로 설정 됩니다 `automatic` . `automatic`인덱싱 정책에서 속성을로 설정 하 여 구현 `true` 합니다. 이 속성을로 설정 `true` 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> 속성 경로 포함 및 제외
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>속성 경로 포함 및 제외
 
 사용자 지정 인덱싱 정책은 명시적으로 포함 되거나 인덱싱에서 제외 되는 속성 경로를 지정할 수 있습니다. 인덱싱된 경로 수를 최적화 하 여 쓰기 작업의 대기 시간 및 대기 시간을 크게 줄일 수 있습니다. 이러한 경로는 [인덱싱 개요 섹션에 설명 된 방법](index-overview.md#from-trees-to-property-paths) 에 따라 다음과 같이 추가 됩니다.
 
@@ -101,7 +101,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 포함 된 경로와 제외 된 경로에 충돌이 있는 경우 보다 정확한 경로가 우선 적용 됩니다.
 
-예는 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 **포함 된 경로**: `/food/ingredients/nutrition/*`
 

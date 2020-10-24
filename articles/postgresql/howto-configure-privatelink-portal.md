@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907504"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489934"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다.  이 문서에서는 azure 개인 끝점을 사용 하 여 Azure Virtual Network 및 Azure Database for PostgreSQL 단일 서버에서 VM을 만드는 Azure Portal를 사용 하는 방법을 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
 > [!NOTE]
 > 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for PostgreSQL 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력 합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 관리자 사용자 이름| 원하는 관리자 이름을 입력합니다. |
     | 암호 | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
     | 위치 | PostgreSQL 서버를 배치 하려는 Azure 지역을 선택 합니다. |
-    |버전  | 필요한 PostgreSQL 서버 데이터베이스 버전을 선택 합니다.|
+    |Version  | 필요한 PostgreSQL 서버 데이터베이스 버전을 선택 합니다.|
     | 컴퓨팅 + 스토리지| 워크 로드에 따라 서버에 필요한 가격 책정 계층을 선택 합니다. |
     |||
  
@@ -222,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Address:  10.1.3.4
     ```
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
@@ -252,7 +252,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법에서는 가상 네트워크, Azure Database for PostgreSQL 단일 서버 및 개인 액세스를 위한 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 PostgreSQL 서버에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)을 참조 하세요.
+이 방법에서는 가상 네트워크, Azure Database for PostgreSQL 단일 서버 및 개인 액세스를 위한 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 PostgreSQL 서버에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](../private-link/private-endpoint-overview.md)을 참조 하세요.
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

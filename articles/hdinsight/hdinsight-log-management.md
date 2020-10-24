@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997560"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487231"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -42,7 +42,7 @@ HDInsight 클러스터 로그 관리 전략을 만드는 첫 번째 단계는 �
 * 마지막 상태 변경 세부 정보를 포함한 클러스터 상태
 * 마스터, 코어 및 작업 노드에 대해 지정된 HDInsight 인스턴스의 유형 및 수
 
-Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수 있습니다.  또는 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 를 사용 하 여 HDInsight 클러스터에 대 한 정보를 가져올 수 있습니다.
+Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수 있습니다.  또는 [Azure CLI](/cli/azure/) 를 사용 하 여 HDInsight 클러스터에 대 한 정보를 가져올 수 있습니다.
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>

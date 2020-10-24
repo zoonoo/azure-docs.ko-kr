@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146639"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490325"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 
@@ -112,7 +112,7 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 1. **메시징**에서 **메시지 라우팅**을 선택 합니다. **메시지 라우팅** 창에서 **사용자 지정 끝점** 탭을 선택 하 고 **+ 추가**를 선택 합니다. 드롭다운 목록에서 **Service bus 큐**를 선택 합니다.
 
-   ![Azure Portal에서 IoT Hub에 엔드포인트 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Service bus 큐 옵션을 강조 표시 하는 스크린샷](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. **Service bus 끝점 추가** 창에서 다음 정보를 입력 합니다.
 
@@ -183,7 +183,7 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 1. Service Bus 연결을 만듭니다.
    1. 연결 이름을 입력 하 고 목록에서 Service Bus 네임 스페이스를 선택 합니다. 다음 화면이 열립니다.
 
-      ![Azure Portal에서 논리 앱에 대한 Service Bus 연결 만들기](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성) 옵션을 강조 표시 하는 스크린샷](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Service bus 정책 (RootManageSharedAccessKey)을 선택 합니다. 그런 다음  **만들기**를 선택 합니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1d25ae127d9a732225859a09622bb057c348e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856786"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488489"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -37,7 +37,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 이러한 파일은 zip 파일 (Windows 및 Mac) 또는 tar 파일 (Linux)로 압축 됩니다. Linux에서 tar 파일을 다운로드 하 고 압축을 풀려면 Linux 배포에 대 한 설명서를 참조 하세요.
 
 > [!NOTE]
-> [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) 서비스로 데이터를 복사 하려면 [AzCopy 버전 7.3](https://aka.ms/downloadazcopynet)을 설치 합니다.
+> [Azure Table storage](/azure/storage/tables/table-storage-overview) 서비스로 데이터를 복사 하려면 [AzCopy 버전 7.3](https://aka.ms/downloadazcopynet)을 설치 합니다.
 
 
 ## <a name="run-azcopy"></a>AzCopy 실행
@@ -80,14 +80,14 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 
 필요한 권한 부여 수준은 파일을 업로드할 것인지 아니면 다운로드할지를 기준으로 합니다.
 
-파일을 다운로드 하려는 경우에는 [저장소 Blob 데이터 판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 가 사용자 id, 관리 id 또는 서비스 주체에 할당 되었는지 확인 합니다.
+파일을 다운로드 하려는 경우에는 [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) 가 사용자 id, 관리 id 또는 서비스 주체에 할당 되었는지 확인 합니다.
 
 > 사용자 id, 관리 id 및 서비스 주체는 각각 *보안 주체의*유형 이므로이 문서의 나머지 부분에는 *보안 주체* 라는 용어를 사용 합니다.
 
 파일을 업로드 하려면 다음 역할 중 하나가 보안 주체에 할당 되었는지 확인 합니다.
 
-- [Storage Blob 데이터 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
-- [Storage Blob 데이터 소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+- [Storage Blob 데이터 기여자](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
+- [Storage Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 이러한 모든 범위에서 보안 주체에 이러한 역할을 할당할 수 있습니다.
 
@@ -96,14 +96,14 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 - Resource group
 - Subscription
 
-역할을 확인 하 고 할당 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
+역할을 확인 하 고 할당 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
 
 > [!NOTE]
 > Azure 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요.
 
 보안 주체를 대상 컨테이너 또는 디렉터리의 ACL (액세스 제어 목록)에 추가 하는 경우 이러한 역할 중 하나를 보안 주체에 할당 하지 않아도 됩니다. ACL에서 보안 주체에는 대상 디렉터리에 대 한 쓰기 권한과 컨테이너 및 각 부모 디렉터리에 대 한 실행 권한이 필요 합니다.
 
-자세히 알아보려면 [Azure Data Lake Storage Gen2의 Access control](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)을 참조 하세요.
+자세히 알아보려면 [Azure Data Lake Storage Gen2의 Access control](/azure/storage/blobs/data-lake-storage-access-control)을 참조 하세요.
 
 #### <a name="authenticate-a-user-identity"></a>사용자 id 인증
 
@@ -137,9 +137,9 @@ azcopy login --tenant-id=<tenant-id>
 
 클라이언트 암호를 사용 하거나 서비스 주체의 앱 등록과 연결 된 인증서의 암호를 사용 하 여 계정에 로그인 할 수 있습니다.
 
-서비스 주체를 만드는 방법에 대해 자세히 알아보려면 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조 하세요.
+서비스 주체를 만드는 방법에 대해 자세히 알아보려면 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](/azure/active-directory/develop/howto-create-service-principal-portal)를 참조 하세요.
 
-일반적으로 서비스 주체에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 를 참조 하세요.
+일반적으로 서비스 주체에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](/azure/active-directory/develop/app-objects-and-service-principals) 를 참조 하세요.
 
 ##### <a name="using-a-client-secret"></a>클라이언트 암호 사용
 
@@ -169,7 +169,7 @@ azcopy login --service-principal  --application-id application-id --tenant-id=te
 
 권한 부여를 위해 자체 자격 증명을 사용 하려는 경우 앱 등록에 인증서를 업로드 한 다음 해당 인증서를 사용 하 여 로그인 할 수 있습니다.
 
-앱 등록에 인증서를 업로드 하는 것 외에도 AzCopy가 실행 되는 컴퓨터 또는 VM에 인증서 복사본을 저장 해야 합니다. 인증서 복사본은에 있어야 합니다. PFX 또는. PEM 형식 및에는 개인 키가 포함 되어야 합니다. 개인 키는 암호로 보호 되어야 합니다. Windows를 사용 하는 경우 인증서가 인증서 저장소에만 있는 경우 해당 인증서를 PFX 파일 (개인 키 포함)로 내보내야 합니다. 지침은 [get-pfxcertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps) 를 참조 하세요.
+앱 등록에 인증서를 업로드 하는 것 외에도 AzCopy가 실행 되는 컴퓨터 또는 VM에 인증서 복사본을 저장 해야 합니다. 인증서 복사본은에 있어야 합니다. PFX 또는. PEM 형식 및에는 개인 키가 포함 되어야 합니다. 개인 키는 암호로 보호 되어야 합니다. Windows를 사용 하는 경우 인증서가 인증서 저장소에만 있는 경우 해당 인증서를 PFX 파일 (개인 키 포함)로 내보내야 합니다. 지침은 [get-pfxcertificate](/powershell/module/pkiclient/export-pfxcertificate) 를 참조 하세요.
 
 그런 다음 `AZCOPY_SPA_CERT_PASSWORD` 환경 변수를 인증서 암호로 설정 합니다.
 
@@ -205,7 +205,7 @@ VM에서 사용 하도록 설정한 시스템 차원의 관리 되는 id를 사�
 
 ##### <a name="using-a-system-wide-managed-identity"></a>시스템 차원의 관리 되는 id 사용
 
-먼저 VM에서 시스템 차원의 관리 되는 id를 사용 하도록 설정 했는지 확인 합니다. [시스템 할당 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)를 참조 하십시오.
+먼저 VM에서 시스템 차원의 관리 되는 id를 사용 하도록 설정 했는지 확인 합니다. [시스템 할당 관리 id](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)를 참조 하십시오.
 
 그런 다음 명령 콘솔에서 다음 명령을 입력 하 고 ENTER 키를 누릅니다.
 
@@ -215,7 +215,7 @@ azcopy login --identity
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>사용자 할당 관리 id 사용
 
-먼저 VM에서 사용자 할당 관리 id를 사용 하도록 설정 했는지 확인 합니다. [사용자 할당 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)를 참조 하십시오.
+먼저 VM에서 사용자 할당 관리 id를 사용 하도록 설정 했는지 확인 합니다. [사용자 할당 관리 id](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)를 참조 하십시오.
 
 그런 다음 명령 콘솔에서 다음 명령 중 하나를 입력 하 고 ENTER 키를 누릅니다.
 
@@ -247,7 +247,7 @@ AzCopy 명령에서 사용 하는 각 원본 또는 대상 URL에 SAS 토큰을 
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-SAS 토큰 및 SAS 토큰을 구하는 방법에 대 한 자세한 내용은 [sas (공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)을 참조 하세요.
+SAS 토큰 및 SAS 토큰을 구하는 방법에 대 한 자세한 내용은 [sas (공유 액세스 서명) 사용](/azure/storage/common/storage-sas-overview)을 참조 하세요.
 
 ## <a name="transfer-files"></a>파일 전송
 
@@ -257,11 +257,11 @@ Id를 인증 하거나 SAS 토큰을 얻은 후 파일 전송을 시작할 수 �
 
 - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
 
-- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 
-- [AzCopy 및 Azure Stack 저장소를 사용 하 여 데이터 전송](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+- [AzCopy 및 Azure Stack 저장소를 사용 하 여 데이터 전송](/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## <a name="use-azcopy-in-a-script"></a>스크립트에서 AzCopy 사용
 
@@ -312,9 +312,9 @@ Storage 탐색기는 계정 키를 사용 하 여 작업을 수행 하므로 Sto
 
 이전 버전의 AzCopy를 사용 해야 하는 경우 다음 링크 중 하나를 참조 하세요.
 
-- [Windows에서 AzCopy(v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [Windows에서 AzCopy(v8)](/previous-versions/azure/storage/storage-use-azcopy)
 
-- [Linux의 AzCopy (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [Linux의 AzCopy (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 

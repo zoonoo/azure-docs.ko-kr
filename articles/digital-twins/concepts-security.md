@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485752"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -48,11 +48,13 @@ Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용�
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 Azure 역할
 
 Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
-* *Azure 디지털 쌍 소유자 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 모든 권한을 부여 합니다.
-* *Azure Digital Twins 판독기 (미리 보기)* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 읽기 전용 액세스 권한을 부여 합니다.
+* *Azure Digital Twins 데이터 소유자* –이 역할을 사용 하 여 Azure Digital twins 리소스를 통해 모든 액세스 권한을 제공 합니다.
+* *Azure Digital Twins 데이터 판독기* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 읽기 전용 액세스를 제공 합니다.
 
-> [!TIP]
-> *Azure Digital Twins 판독기 (미리 보기)* 역할은 이제 검색 관계도 지원 합니다.
+>[!NOTE]
+> 이러한 역할은 최근에 미리 보기의 이전 이름에서 이름이 변경 되었습니다.
+> * *Azure Digital Twins 데이터 소유자* 는 이전에 *Azure 디지털 쌍 소유자 (미리 보기)* 였습니다.
+> * *Azure Digital Twins 데이터 판독기* 는 이전에 *Azure 디지털 쌍 판독기 (미리 보기)* 였습니다.
 
 기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
 

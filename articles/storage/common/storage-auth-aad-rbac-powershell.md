@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d750e1f287ff7dfc5259b704355e026011fa872a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19262441df87b96bbb43a010ca47861ec2b236d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715801"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488761"
 ---
 # <a name="use-powershell-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당
 
@@ -24,7 +24,7 @@ Azure AD (Azure Active Directory)는 azure [역할 기반 access control (AZURE 
 
 Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
-이 문서에서는 Azure PowerShell를 사용 하 여 Azure 기본 제공 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure PowerShell 사용에 대 한 자세한 내용은 [Azure PowerShell 개요](https://docs.microsoft.com/powershell/azure/)를 참조 하세요.
+이 문서에서는 Azure PowerShell를 사용 하 여 Azure 기본 제공 역할을 나열 하 고 사용자에 게 할당 하는 방법을 설명 합니다. Azure PowerShell 사용에 대 한 자세한 내용은 [Azure PowerShell 개요](/powershell/azure/)를 참조 하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

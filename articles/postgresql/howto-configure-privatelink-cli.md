@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6146a2d961a40f0882a3bbd1779bb0c83851dec
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 297190a99f9231cd07cffe1364202a1acbe75323
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126861"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490002"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -168,7 +168,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     Address:  10.1.3.4
     ```
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
 
 4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
@@ -197,7 +197,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 에 대해 자세히 알아보세요.
+- [Azure 개인 끝점 이란?](../private-link/private-endpoint-overview.md) 에 대해 자세히 알아보세요.
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329375"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489288"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -144,7 +144,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 
 ## <a name="per-request-limits"></a>요청당 제한
 
-Azure Cosmos DB는 컨테이너, 항목, 데이터베이스 등의 리소스에 대한 [CRUD 및 쿼리 작업](/rest/api/cosmos-db/)을 지원합니다. 또한 컨테이너에 있는 파티션 키가 동일한 여러 항목에 대해 [트랜잭션 일괄 처리 요청](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch)을 지원합니다.
+Azure Cosmos DB는 컨테이너, 항목, 데이터베이스 등의 리소스에 대한 [CRUD 및 쿼리 작업](/rest/api/cosmos-db/)을 지원합니다. 또한 컨테이너에 있는 파티션 키가 동일한 여러 항목에 대해 [트랜잭션 일괄 처리 요청](/dotnet/api/microsoft.azure.cosmos.transactionalbatch)을 지원합니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
@@ -191,7 +191,7 @@ Azure Cosmos DB는 각 계정에 대 한 시스템 메타 데이터를 유지 �
 
 ## <a name="sql-query-limits"></a>SQL 쿼리 제한
 
-Cosmos DB는 [SQL](how-to-sql-query.md)을 사용하여 항목을 쿼리할 수 있습니다. 다음 표에서는 절 수 또는 쿼리 길이와 같은 쿼리 문의 제한에 대해 설명합니다.
+Cosmos DB는 [SQL](./sql-query-getting-started.md)을 사용하여 항목을 쿼리할 수 있습니다. 다음 표에서는 절 수 또는 쿼리 길이와 같은 쿼리 문의 제한에 대해 설명합니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |

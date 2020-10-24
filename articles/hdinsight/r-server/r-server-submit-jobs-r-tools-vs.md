@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 73d1478ec2d6c90428f22a30ec82634df115d2f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402092f1667abb49da4521b91ba1f0e7d471f0d1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435264"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490257"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
-RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019)에서 사용할 수 없습니다.
+RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019&preserve-view=true)에서 사용할 수 없습니다.
 
 RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https://docs.microsoft.com/visualstudio/rtvs/debugging) 등을 통해 [R 대화형 창](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl)(REPL), intellisense(코드 완성), [플롯 시각화](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data)와 같은 도구를 제공하여 R 워크플로를 개선합니다.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: faf13f580f6600e761cdaa9927fee4efa2b5995f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f157cc7ac2331f948a562dc12e99acc60e979ada
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500183"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488166"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 
@@ -232,7 +232,7 @@ Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clust
 * [Apache Sqoop 작업 제출](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>새 HDInsight .NET SDK로 마이그레이션
-Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 는 이제 사용되지 않습니다. Azure 리소스 관리 기반 [Resource Manager 기반 HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하는 것이 좋습니다. 다음 ASM 기반 HDInsight 패키지는 더 이상 사용되지 않습니다.
+Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 는 이제 사용되지 않습니다. Azure 리소스 관리 기반 [Resource Manager 기반 HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight)를 사용하는 것이 좋습니다. 다음 ASM 기반 HDInsight 패키지는 더 이상 사용되지 않습니다.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
@@ -241,7 +241,7 @@ Azure 서비스 관리 기반 [(ASM) HDInsight.NET SDK](https://msdn.microsoft.c
 
 | 방법... Resource Manager 기반 HDInsight SDK 사용 | 링크 |
 | --- | --- |
-| .NET용 Azure HDInsight SDK|[.Net 용 Azure HDINSIGHT SDK를](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) 참조 하세요. |
+| .NET용 Azure HDInsight SDK|[.Net 용 Azure HDINSIGHT SDK를](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true) 참조 하세요. |
 | .NET SDK와 Azure Active Directory를 사용하여 대화형으로 애플리케이션 인증 |[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요. 이 문서의 코드 조각에서는 대화형 인증 접근 방법을 사용합니다. |
 | .NET SDK와 Azure Active Directory를 사용하여 비대화형으로 애플리케이션 인증 |[HDInsight에 대한 비대화형 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | .NET SDK를 사용하여 Apache Hive 작업 제출 |[Apache Hive 작업 제출](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) 참조 |

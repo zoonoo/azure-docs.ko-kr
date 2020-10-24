@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81402506"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487785"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>모임의 대화 내용 (미리 보기)은 무엇입니까?
 
@@ -34,9 +34,11 @@ ms.locfileid: "81402506"
 > [!NOTE]
 > 대화를 통해 회의실의 스피커 수에 제한이 없지만 세션당 2-10 스피커에 대해 최적화 됩니다.
 
-## <a name="use-cases"></a>사용 사례
+## <a name="get-started"></a>시작
 
-### <a name="inclusive-meetings"></a>포괄 모임
+시작 하려면 실시간 대화 기록 [빠른](how-to-use-conversation-transcription.md) 시작을 참조 하세요.
+
+## <a name="use-cases"></a>사용 사례
 
 청각 장애인을 위한 참가자와 같이 모든 사용자를 위한 모임이 포함 되도록 하려면 실시간으로 기록을 유지 하는 것이 중요 합니다. 실시간 모드의 대화 기록에서는 오디오를 사용 하 고 무엇 인지를 알려 주는 사람을 결정 하 여 모든 모임 참가자가 성적을 따르고 모임에 참여할 수 있도록 합니다.
 
@@ -54,6 +56,10 @@ ms.locfileid: "81402506"
 
 - **멀티 채널 오디오 스트림** -사양 및 디자인 세부 정보는 [MICROSOFT 음성 장치 SDK 마이크](https://aka.ms/cts/microphone)를 참조 하세요. 개발 키트에 대해 자세히 알아보거나 구매 하려면 [Microsoft 음성 장치 SDK 다운로드](https://aka.ms/cts/getsdk)를 참조 하세요.
 - **사용자 음성 샘플** – 대화에 대 한 대화에 앞서 사용자 프로필이 필요 합니다. 각 사용자는 오디오 녹음을 수집한 다음 [서명 생성 서비스로](https://aka.ms/cts/signaturegenservice) 전송 하 여 오디오의 유효성을 검사 하 고 사용자 프로필을 생성 해야 합니다.
+
+> [!NOTE]
+> 사용자 음성 샘플은 선택 사항입니다. 이 입력을 사용 하지 않으면 다른 스피커가 표시 되지만 "Speaker1", "Speaker2" 등으로 표시 되는 미리 등록 된 특정 발표자 이름으로 인식 됩니다.
+
 
 ## <a name="real-time-vs-asynchronous"></a>실시간 및 비동기
 
@@ -73,9 +79,9 @@ ms.locfileid: "81402506"
 
 ## <a name="language-support"></a>언어 지원
 
-현재, 대화에 대 한 내용은 다음 지역에서 "en-us" 및 "zh-cn"를 지원 합니다. *centralus* 및 *e한글*. 추가 로캘이 지원 되어야 하는 경우에는 [대화 기록 기능 Crew](mailto:CTSFeatureCrew@microsoft.com)에 문의 하세요.
+현재 대화 기록을 통해,,, 지역의 [모든 음성 텍스트 언어](language-support.md#speech-to-text) 를 지원 합니다.  `centralus` `eastasia` `eastus` `westeurope` 추가 로캘이 지원 되어야 하는 경우에는 [대화 기록 기능 Crew](mailto:CTSFeatureCrew@microsoft.com)에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [실시간으로 대화 높여줄](how-to-use-conversation-transcription-service.md)
+> [실시간으로 대화 높여줄](how-to-use-conversation-transcription.md)
