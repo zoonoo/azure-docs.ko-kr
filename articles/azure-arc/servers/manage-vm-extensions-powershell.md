@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell를 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure PowerShell를 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 10/19/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631aa323fee8db712acc975336bdbf9436833240
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d2408f75c7b6d81ba297de6dcdb85a712cd8908f
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462930"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495450"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure VM 확장 사용
 
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure Arc 사용 서버에서 지 원하는 Azure VM 확장을 Linux 또는 Windows 하이브리드 컴퓨터에 배포 하 고 제거 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
@@ -35,14 +35,14 @@ Arc 사용 서버에서 VM 확장을 사용 하도록 설정 하려면, [New-AzC
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachine -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
 ```
 
 다음 예에서는 Arc 사용 서버에서 사용자 지정 스크립트 확장을 사용 하도록 설정 합니다.
 
 ```powershell
 PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
-PS C:\> New-AzConnectedMachine -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
+PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
 ## <a name="list-extensions-installed"></a>설치 된 목록 확장

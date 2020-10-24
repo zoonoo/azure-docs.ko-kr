@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 9514d0fb6c9cbc95b82f13ffb576703893f303f2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057538"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484562"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -38,7 +38,7 @@ Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을
 [범용 저장소는 범용 및](concepts-pricing-tiers.md) 메모리 액세스에 [최적화 된 계층](concepts-pricing-tiers.md) 서버를 지 원하는 백 엔드 저장소입니다. 범용 저장소가 최대 4-TB 인 서버의 경우 전체 백업은 매주 한 번 수행 됩니다. 차등 백업은 하루에 두 번 발생 합니다. 트랜잭션 로그 백업은 5 분 마다 발생 합니다. 범용 저장소에서 최대 4mb 저장소로의 백업은 스냅숏 기반이 아니므로 백업 시 IO 대역폭을 소비 합니다. 1tb 저장소에 있는 대량 데이터베이스 (> 1TB)의 경우 다음을 고려 하는 것이 좋습니다. 
 
 - 백업 IOs 또는에 대 한 계정에 더 많은 IOPs 프로 비전
-- 또는 기본 저장소 인프라을 원하는 [Azure 지역](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)에서 사용할 수 있는 경우 최대 16tb 저장소를 지 원하는 범용 저장소로 마이그레이션합니다. 최대 16TB의 저장소를 지 원하는 범용 저장소에 대 한 추가 비용은 없습니다. 16TB 저장소로의 마이그레이션에 대 한 지원을 받으려면 Azure Portal에서 지원 티켓을 여세요. 
+- 또는 기본 저장소 인프라를 원하는 [Azure 지역](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)에서 사용할 수 있는 경우 최대 16tb 저장소로 마이그레이션하는 것이 좋습니다. 최대 16TB의 저장소를 지 원하는 범용 저장소에 대 한 추가 비용은 없습니다. 16TB 저장소로의 마이그레이션에 대 한 지원을 받으려면 Azure Portal에서 지원 티켓을 여세요. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>최대 16TB의 저장소를 포함 하는 범용 저장소 서버
 [Azure 지역의](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 16gb 저장소까지 범용 저장소를 지원할 수 있습니다. 즉, 최대 16TB 저장소 저장소는 지원 되는 모든 [지역](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) 에 대 한 기본 범용 저장소입니다. 이러한 16gb 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다. 
@@ -55,12 +55,16 @@ Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을
 - 최대 2TB 저장소를 포함 하는 서버는 최대 2 개의 전체 데이터베이스 백업, 모든 차등 백업 및 가장 이른 전체 데이터베이스 백업 이후에 수행 된 트랜잭션 로그 백업을 유지 합니다.
 -   최대 16TB의 저장소를 포함 하는 서버는 지난 8 일간 전체 데이터베이스 스냅숏, 모든 차등 스냅숏 및 트랜잭션 로그 백업을 유지 합니다.
 
+#### <a name="long-term-retention"></a>장기 보존
+35 일을 초과 하는 백업에 대 한 장기 보존 기간은 현재 서비스에서 기본적으로 지원 되지 않습니다. Mysqldump를 사용 하 여 백업을 수행 하 고 장기 보존을 위해 저장할 수 있는 옵션이 있습니다. 지원 팀은이를 달성할 수 있는 방법을 공유 하는 단계별 [문서](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) 를 기록 했습니다. 
+
+
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
 Azure Database for MySQL은 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에도 복제됩니다. 이렇게 하면 재해 발생 시 다른 지역에서 서버를 복원하는 데 더 효율적인 보호와 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
 
-> [!IMPORTANT]
-> 백업을 위한 로컬 중복 또는 지역 중복 스토리지를 구성하는 것은 서버를 만드는 동안에만 허용됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>로컬 중복에서 지역 중복 백업 저장소로 이동
+백업을 위한 로컬 중복 또는 지역 중복 스토리지를 구성하는 것은 서버를 만드는 동안에만 허용됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다. 백업 저장소를 로컬 중복 저장소에서 지역 중복 저장소로 이동 하기 위해 새 서버를 만들고 [dump 및 restore](concepts-migrate-dump-restore.md) 를 사용 하 여 데이터를 마이그레이션하는 것은 유일 하 게 지원 되는 옵션입니다.
 
 ### <a name="backup-storage-cost"></a>백업 스토리지 비용
 

@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173785"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482624"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos 에뮬레이터 설치 및 사용
 
@@ -313,7 +313,7 @@ SSL 유효성 검사를 사용 하지 않도록 설정 하는 것은 개발 목�
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# <a name="nodejs"></a>[Node.JS](#tab/ssl-nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
 
 Node.js 응용 프로그램의 경우 `package.json` `NODE_TLS_REJECT_UNAUTHORIZED` 응용 프로그램을 시작 하는 동안를 설정 하도록 파일을 수정할 수 있습니다.
 
@@ -369,7 +369,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>테이블 API
 
-Azure Cosmos emulator가 데스크톱에서 실행 되 면 [Azure Cosmos DB TABLE API SDK](table-storage-how-to-use-dotnet.md) 를 사용 하 여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableTableEndpoint"를 사용 하는 관리자 권한으로 [명령 프롬프트](emulator-command-line-parameters.md) 에서 에뮬레이터를 시작 합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
+Azure Cosmos emulator가 데스크톱에서 실행 되 면 [Azure Cosmos DB TABLE API SDK](./tutorial-develop-table-dotnet.md) 를 사용 하 여 에뮬레이터와 상호 작용할 수 있습니다. "/EnableTableEndpoint"를 사용 하는 관리자 권한으로 [명령 프롬프트](emulator-command-line-parameters.md) 에서 에뮬레이터를 시작 합니다. 그런 다음, 아래 코드를 실행하여 Table API 계정에 연결합니다.
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;

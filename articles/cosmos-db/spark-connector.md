@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 633baafa7f6cb1bc134f07ce64ba98ebd4cb626c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50884a45e60826f09fffcc9f86992563e473424d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603053"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478051"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
 
@@ -33,8 +33,8 @@ Azure에서 관리 되는 Spark 클러스터를 제공 하는 [Azure Databricks]
 
 ## <a name="quickstart"></a>빠른 시작
 
-* [JAVA SDK 시작](sql-api-async-java-get-started.md) 의 단계에 따라 Cosmos DB 계정을 설정 하 고 일부 데이터를 채웁니다.
-* [시작 Azure Databricks](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 의 단계에 따라 Azure Databricks 작업 영역 및 클러스터를 설정 합니다.
+* [JAVA SDK 시작](./create-sql-api-java.md) 의 단계에 따라 Cosmos DB 계정을 설정 하 고 일부 데이터를 채웁니다.
+* [시작 Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) 의 단계에 따라 Azure Databricks 작업 영역 및 클러스터를 설정 합니다.
 * 이제 새 노트북을 만들고 Cosmos DB 커넥터 라이브러리를 가져올 수 있습니다. 작업 영역을 설정 하는 방법에 대 한 자세한 내용은 [Cosmos DB 커넥터 작업](#bk_working_with_connector) 으로 이동 합니다.
 * 다음 섹션에는 커넥터를 사용 하 여 읽고 쓰는 방법에 대 한 조각이 있습니다.
 
@@ -221,7 +221,7 @@ df
 
 GitHub의 원본에서 커넥터를 빌드하거나 아래 링크에서 Maven의 uber jar을 다운로드할 수 있습니다.
 
-| Spark | 스칼라 | 최신 버전 |
+| Spark | Scala | 최신 버전 |
 |---|---|---|
 | 2.4.0 | 2.11 | [cosmosdb-spark_lkg_version](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG)
 | 2.3.0 | 2.11 | [cosmosdb-spark_2 _2.11_1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)

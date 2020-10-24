@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207940"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495998"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -183,6 +183,7 @@ Cosmos DB의 고객 관리형 키에 대한 자세한 내용은 [Azure Cosmos DB
 기존 Azure Container Registry를 사용하여 작업 영역을 만드는 예는 다음 문서를 참조하세요.
 
 * [Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기](how-to-manage-workspace-cli.md)
+* [PYTHON SDK를 사용 하 여 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning의 작업 영역 만들기](how-to-create-workspace-template.md)
 
 #### <a name="azure-container-instance"></a>Azure Container Instance

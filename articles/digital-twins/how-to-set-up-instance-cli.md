@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207787"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494970"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
@@ -36,7 +36,7 @@ ms.locfileid: "92207787"
 
 이 섹션에서는 Cloud Shell 명령을 사용 하 여 **Azure Digital Twins의 새 인스턴스를 만듭니다** . 다음을 제공 해야 합니다.
 * 배포할 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 다음 명령을 사용 하 여 지금 만들 수 있습니다.
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * 배포에 대 한 지역입니다. Azure Digital Twins를 지 원하는 지역을 확인 하려면 [*지역별 제공 되는 azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 방문 하세요.
@@ -44,7 +44,7 @@ ms.locfileid: "92207787"
 
 다음 명령에서 이러한 값을 사용 하 여 인스턴스를 만듭니다.
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -67,8 +67,8 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 
 다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독에 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 실행 해야 함). 명령을 사용 하려면 역할을 할당 해야 하는 사용자에 대 한 Azure AD 계정의 *사용자 계정 이름을* 전달 해야 합니다. 대부분의 경우이는 Azure AD 계정의 사용자 전자 메일과 일치 합니다.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
 이 명령의 결과는 생성 된 역할 할당에 대 한 출력 된 정보입니다.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 5599a64e812c3006cf4379f98c5a0f0b0cd067e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 596d34ef0544f4160c18210f05f68b488ec114d3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801854"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476283"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Azure Cosmos DB Python Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
 
@@ -167,7 +167,7 @@ container = database.create_container_if_not_exists(id='WebsiteData', partition_
 ## <a name="create-a-custom-instance-of-cosmos_client"></a>``cosmos_client``의 사용자 지정 인스턴스 만들기
 더 많은 유연성을 위해 다음과 같은 작업을 위해 ``cosmos_client``의 사용자 지정 인스턴스를 만들 수 있습니다.
 
-- [연결 정책](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true) 사용자 지정
+- [연결 정책](/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?preserve-view=true&view=azure-python-preview) 사용자 지정
 - 현재 사용자가 사용 중인 계정이 아닌 다른 Azure Cosmos 계정에 대해 작업 실행
 
 [환경 변수](#access-the-account-endpoint-and-primary-key-env-variables)를 통해 현재 계정의 연결 문자열 및 기본 키에 액세스할 수 있습니다. 

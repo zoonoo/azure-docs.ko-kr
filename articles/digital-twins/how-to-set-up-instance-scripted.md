@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205588"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495019"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -43,7 +43,7 @@ ms.locfileid: "92205588"
 
 Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같습니다.
 1. 브라우저에서 [Azure Cloud Shell](https://shell.azure.com/) 창으로 이동 합니다. 다음 명령을 사용 하 여 로그인 합니다.
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     CLI는 기본 브라우저를 열 수 있으면 기본 브라우저를 열고 Azure 로그인 페이지를 로드합니다. 그렇지 않으면 *https://aka.ms/devicelogin*에서 브라우저 페이지를 열고 터미널에 표시된 권한 부여 코드를 입력합니다.
@@ -62,11 +62,11 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 4. Cloud Shell 창에서 명령을 전송 하 여 스크립트를 실행 `./deploy.ps1` 합니다. 아래 명령을 복사 (Cloud Shell에 붙여 넣을 수 있습니다. Windows 및 Linux에서는 **Ctrl + shift + v** 를 사용 하거나 Macos에서는 **Cmd + shift + v** 를 사용할 수 있습니다. 오른쪽 클릭 메뉴를 사용할 수도 있습니다.
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    이 스크립트는 azure Digital Twins 인스턴스를 만들고 azure 사용자에 게 인스턴스에 azure *디지털 쌍 소유자 (미리 보기)* 역할을 할당 합니다.
+    이 스크립트는 azure Digital Twins 인스턴스를 만들고 azure 사용자에 게 인스턴스에 azure *Digital Twins 데이터 소유자* 역할을 할당 합니다.
 
     스크립트가 자동화 된 설치 단계를 실행 하면 다음 값을 전달 하 라는 메시지가 표시 됩니다.
     * 인스턴스: 사용할 Azure 구독의 *구독 ID*
@@ -83,10 +83,10 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 스크립트가 성공적으로 완료 되 면 최종 인쇄물은로 표시 됩니다 `Deployment completed successfully` . 그렇지 않으면 오류 메시지를 해결 하 고 스크립트를 다시 실행 합니다. 이미 완료 한 단계를 무시 하 고 종료 된 지점에서 입력 요청을 다시 시작 합니다.
 
 > [!NOTE]
-> 이 스크립트는 현재 Azure Digital Twins (*Azure Digital Twins 소유자 (미리 보기)*) 내에서 필요한 관리 역할을 Cloud Shell 스크립트를 실행 하는 동일한 사용자에 게 할당 합니다. 인스턴스를 관리 하는 다른 사람에 게이 역할을 할당 해야 하는 경우 Azure Portal ([지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 또는 CLI ([지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions))를 통해이 역할을 수행할 수 있습니다.
+> 이 스크립트는 현재 Azure Digital Twins (*Azure Digital Twins 데이터 소유자*) 내에서 Cloud Shell 스크립트를 실행 하는 동일한 사용자에 게 필요한 관리 역할을 할당 합니다. 인스턴스를 관리 하는 다른 사람에 게이 역할을 할당 해야 하는 경우 Azure Portal ([지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 또는 CLI ([지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions))를 통해이 역할을 수행할 수 있습니다.
 
 >[!NOTE]
->현재 스크립팅된 설치에는 **알려진 문제가** 있습니다. 일부 사용자 (특히 [msas (개인 Microsoft 계정](https://account.microsoft.com/account))의 사용자)가 ** _Azure 디지털 쌍 소유자 (미리 보기)_ 에 대 한 역할 할당**을 찾을 수 없습니다.
+>현재 스크립팅된 설치와 관련 하 여 **알려진 문제가** 있습니다. 일부 사용자 (특히 [msas (개인 Microsoft 계정](https://account.microsoft.com/account))의 사용자)가 ** _Azure Digital twins 데이터 소유자_ 에 대 한 역할 할당**을 찾을 수 없습니다.
 >
 >이 문서의 뒷부분에 나오는 [*사용자 역할 할당 확인*](#verify-user-role-assignment) 섹션을 사용 하 여 역할 할당을 확인 하 고 필요한 경우 [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) 또는 [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)를 사용 하 여 역할 할당을 수동으로 설정할 수 있습니다.
 >

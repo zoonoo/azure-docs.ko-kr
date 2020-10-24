@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461620"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495921"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>데이터 처리를 위해 Azure Functions 앱 연결
 
@@ -186,26 +186,28 @@ namespace adtIngestFunctionSample
 
 이전 예제의 Azure function 기초에서는 Azure Digital Twins를 사용 하 여 인증할 수 있도록 전달자 토큰을 전달 해야 합니다. 이 전달자 토큰이 전달 되었는지 확인 하려면 함수 앱에 대해 [MSI (관리 서비스 ID)](../active-directory/managed-identities-azure-resources/overview.md) 를 설정 해야 합니다. 이 작업은 각 함수 앱에 대해 한 번만 수행 해야 합니다.
 
-시스템 관리 id를 만들고 Azure Digital Twins 인스턴스의 _Azure Digital Twins 소유자 (미리 보기)_ 역할에 함수 앱의 id를 할당할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
+시스템 관리 id를 만들고 Azure Digital Twins 인스턴스의 _**Azure Digital Twins 데이터 소유자**_ 역할에 함수 앱의 id를 할당할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
 
- [Azure Cloud Shell](https://shell.azure.com) 를 사용 하 여 명령을 실행 합니다.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+[Azure Cloud Shell](https://shell.azure.com) 를 사용 하 여 명령을 실행 합니다.
 
 다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 _principalId_ 필드를 기록해 둡니다.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-다음 명령에서 _Principalid_ 값을 사용 하 여 Azure Digital twins 인스턴스의 _Azure 디지털 쌍 소유자 (미리 보기)_ 역할에 함수 앱의 id를 할당 합니다.
+다음 명령에서 _principalid_ 값을 사용 하 여 Azure Digital twins 인스턴스의 _Azure Digital Twins 데이터 소유자_ 역할에 함수 앱의 id를 할당 합니다.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 마지막으로 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 설정할 수 있습니다. 환경 변수를 설정 하는 방법에 대 한 자세한 내용은 [*환경 변수*](/sandbox/functions-recipes/environment-variables)를 참조 하세요. 
 
 > [!TIP]
 > Azure Digital Twins 인스턴스의 URL은 Azure Digital Twins 인스턴스의 *호스트 이름*앞에 *https://* 를 추가 하 여 수행 됩니다. 인스턴스의 모든 속성과 함께 호스트 이름을 보려면를 실행할 수 있습니다 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>옵션 2: Azure Portal을 사용 하 여 Azure 함수 앱에 대 한 보안 액세스 설정
@@ -241,7 +243,7 @@ Azure 역할 _할당 단추를_ 선택 하면 *azure 역할 할당* 페이지가
 * _범위_: 리소스 그룹
 * _구독_: Azure 구독을 선택 합니다.
 * _리소스 그룹_: 드롭다운에서 리소스 그룹을 선택 합니다.
-* _역할_: 드롭다운에서 _Azure Digital twins 소유자 (미리 보기)_ 를 선택 합니다.
+* _역할_: 드롭다운에서 _Azure Digital Twins 데이터 소유자_ 를 선택 합니다.
 
 _저장_ 단추를 방문 하 여 세부 정보를 저장 합니다.
 

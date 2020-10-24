@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bd6c504970d4991ee7d5c44b091a5d91c9d0a166
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461399"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494811"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -29,7 +29,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - Resource group
+    - 리소스 그룹
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Azure Digital Twins에 대 한 끝점 만들기
 
@@ -48,19 +48,19 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 먼저 event grid 토픽을 만듭니다. 다음 명령을 사용 하거나 *사용자 지정 이벤트* Event Grid 빠른 시작의 [ *사용자 지정 항목 만들기* 섹션](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 을 방문 하 여 단계를 더 자세히 볼 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
 
 > [!TIP]
 > Azure CLI 명령으로 전달할 수 있는 Azure 지역 이름 목록을 출력하려면 다음 명령을 실행합니다.
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
 토픽을 만든 후에는 다음 [Azure Digital TWINS CLI 명령을](how-to-use-cli.md)사용 하 여 Azure Digital twins에 연결할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -77,12 +77,12 @@ Event Hubs 또는 Service Bus 끝점을 만드는 프로세스는 위에 표시 
 그런 다음, 다음 명령을 사용 하 여 Azure Digital Twins에서 끝점을 만듭니다. 
 
 * Service Bus 토픽 끝점 추가 (미리 만든 Service Bus 리소스가 필요 함)
-```azurecli 
+```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Event Hubs 끝점 추가 (미리 만든 Event Hubs 리소스 필요)
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -242,8 +242,6 @@ catch (RequestFailedException e)
 ## <a name="manage-endpoints-and-routes-with-cli"></a>CLI를 사용 하 여 끝점 및 경로 관리
 
 Azure Digital Twins CLI를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. CLI 사용 방법과 사용할 수 있는 명령에 대 한 자세한 내용은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)을 참조 하세요.
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

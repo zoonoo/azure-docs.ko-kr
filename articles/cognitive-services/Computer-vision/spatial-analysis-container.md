@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277294"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496120"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
 공간 분석 컨테이너를 사용 하 여 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 이해할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동**을 클릭합니다.
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-호스트 컴퓨터가 Azure Stack Edge 장치가 아닌 경우 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 버전 1.0.8를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
+호스트 컴퓨터가 Azure Stack Edge 장치가 아닌 경우 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
 
 Ubuntu Server 18.04:
 ```bash
@@ -286,10 +286,10 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get update
 ```
 
-1.0.8 릴리스를 설치 합니다.
+1.0.9 릴리스를 설치 합니다.
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 그런 다음 [연결 문자열](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal)을 사용 하 여 호스트 컴퓨터를 IoT Hub 인스턴스의 IoT Edge 장치로 등록 합니다.
@@ -314,7 +314,7 @@ sudo systemctl restart iotedge
 
 ### <a name="iot-deployment-manifest"></a>IoT 배포 매니페스트
 
-여러 호스트 컴퓨터에서 컨테이너 배포를 간소화 하기 위해 배포 매니페스트 파일을 만들어 컨테이너 생성 옵션 및 환경 변수를 지정할 수 있습니다. [GitHub에서 배포 매니페스트의](https://go.microsoft.com/fwlink/?linkid=2142179)예제를 찾을 수 있습니다.
+여러 호스트 컴퓨터에서 컨테이너 배포를 간소화 하기 위해 배포 매니페스트 파일을 만들어 컨테이너 생성 옵션 및 환경 변수를 지정할 수 있습니다. Github의 Azure Stack Edge 및 [기타 데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) [에 대 한](https://go.microsoft.com/fwlink/?linkid=2142179) 배포 매니페스트의 예제를 찾을 수 있습니다.
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
@@ -335,17 +335,16 @@ sudo systemctl restart iotedge
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 
-사용자 고유의 설정 및 선택 작업을 사용 하 여 파일 [ 에서 샘플DeploymentManifest.js](https://go.microsoft.com/fwlink/?linkid=2142179) 를 업데이트 한 후 아래 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 명령을 사용 하 여 호스트 컴퓨터에서 컨테이너를 IoT Edge 모듈로 배포할 수 있습니다.
+사용자 고유의 설정과 작업을 선택 하 여 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 에 대 한 배포 매니페스트를 업데이트 한 후 아래 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 명령을 사용 하 여 호스트 컴퓨터에서 컨테이너를 IoT Edge 모듈로 배포할 수 있습니다.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |매개 변수  |설명  |
 |---------|---------|
-| `--deployment-id` | 배포의 새 이름입니다. |
 | `--hub-name` | Azure IoT Hub 이름입니다. |
 | `--content` | 배포 파일의 이름입니다. |
 | `--target-condition` | 호스트 컴퓨터에 대 한 IoT Edge 장치 이름입니다. |
@@ -386,7 +385,7 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 **SAS 토큰 및 URL 생성** 을 클릭 하 고 BLOB SAS url을 복사 합니다. 를로 바꾸고 `https` `http` 비디오 재생을 지 원하는 브라우저에서 URL을 테스트 합니다.
 
-`VIDEO_URL` [배포 매니페스트에서](https://go.microsoft.com/fwlink/?linkid=2142179) 모든 그래프에 대해 만든 URL로 대체 합니다. 로 설정 하 `VIDEO_IS_LIVE` `false` 고 공간 분석 컨테이너를 업데이트 된 매니페스트로 다시 배포 합니다. 아래 예제를 참조하세요.
+`VIDEO_URL`모든 그래프에 대해 사용자가 만든 URL을 사용 하 여 [Azure Stack Edge 장치](https://go.microsoft.com/fwlink/?linkid=2142179) 또는 다른 [데스크톱 컴퓨터](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) 의 배포 매니페스트에서를 바꿉니다. 로 설정 하 `VIDEO_IS_LIVE` `false` 고 공간 분석 컨테이너를 업데이트 된 매니페스트로 다시 배포 합니다. 아래 예제를 참조하세요.
 
 공간 분석 모듈은 비디오 파일 사용을 시작 하 고 계속 해 서 자동으로 재생 됩니다.
 

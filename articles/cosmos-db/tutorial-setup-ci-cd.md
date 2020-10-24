@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34508abdfa509dc2f8238e8e3b0dbac21c26ff7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801922"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476555"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하여 Azure DevOps에서 CI/CD 파이프라인 설정
 
@@ -32,13 +32,13 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 다음으로, 확장을 설치할 조직을 선택합니다. 
 
 > [!NOTE]
-> Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세한 정보](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts&preserve-view=true)
+> Azure DevOps 조직에 확장을 설치하려면 계정 소유자 또는 프로젝트 컬렉션 관리자여야 합니다. 사용 권한이 없지만 계정 멤버인 경우 대신 확장을 요청할 수 있습니다. [자세한 정보](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Azure DevOps Marketplace에서 Azure Cosmos DB 에뮬레이터 빌드 작업 찾기 및 설치":::
 
 ## <a name="create-a-build-definition"></a>빌드 정의 만들기
 
-이제 확장이 설치되었으므로 Azure DevOps 조직에 로그인하여 프로젝트 대시보드에서 프로젝트를 찾습니다. 프로젝트에 [빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&preserve-view=true&tabs=new-nav)을 추가하거나 기존 빌드 파이프라인을 수정합니다. 이미 빌드 파이프라인이 있다면 [빌드 정의에 에뮬레이터 빌드 작업 추가](#addEmulatorBuildTaskToBuildDefinition)로 건너뛸 수 있습니다.
+이제 확장이 설치되었으므로 Azure DevOps 조직에 로그인하여 프로젝트 대시보드에서 프로젝트를 찾습니다. 프로젝트에 [빌드 파이프라인](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts)을 추가하거나 기존 빌드 파이프라인을 수정합니다. 이미 빌드 파이프라인이 있다면 [빌드 정의에 에뮬레이터 빌드 작업 추가](#addEmulatorBuildTaskToBuildDefinition)로 건너뛸 수 있습니다.
 
 1. 새 빌드 정의를 만들려면 Azure DevOps에서 **빌드** 탭으로 이동합니다. **+새로 만들기**로 이동합니다. \> **새 빌드 파이프라인**
 
@@ -51,7 +51,7 @@ Azure DevOps에 대한 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용�
 3. 마지막으로, 빌드 파이프라인에 대해 원하는 템플릿을 선택합니다. 이 자습서에서는 **ASP.NET** 템플릿을 선택합니다. 이제 Azure Cosmos DB 에뮬레이터 빌드 작업을 사용하도록 설정할 수 있는 빌드 파이프라인이 있습니다. 
 
 > [!NOTE]
-> CI의 일부로 이전 작업에서 수동으로 설치가 완료되지 않은 경우 이 CI에 대해 선택할 에이전트 풀에 Windows용 Docker가 설치되어 있어야 합니다. 에이전트 풀 선택에 대한 자세한 내용은 [Microsoft에 호스트된 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&preserve-view=true&tabs=yaml) 문서를 참조하세요. `Hosted VS2017`로 시작하는 것이 좋습니다.
+> CI의 일부로 이전 작업에서 수동으로 설치가 완료되지 않은 경우 이 CI에 대해 선택할 에이전트 풀에 Windows용 Docker가 설치되어 있어야 합니다. 에이전트 풀 선택에 대한 자세한 내용은 [Microsoft에 호스트된 에이전트](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) 문서를 참조하세요. `Hosted VS2017`로 시작하는 것이 좋습니다.
 
 Azure Cosmos DB 에뮬레이터는 현재 호스팅된 VS2019 에이전트 풀을 지원하지 않습니다. 그러나 에뮬레이터에는 이미 VS2019가 설치되어 있으며 다음 PowerShell cmdlet으로 에뮬레이터를 시작하여 사용할 수 있습니다. VS2019를 사용할 때 문제가 발생하면 [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) 팀에 문의하세요.
 
@@ -92,9 +92,9 @@ Start-CosmosDbEmulator
 
 이제 에뮬레이터를 사용하도록 테스트를 구성합니다. 에뮬레이터 빌드 작업은 빌드 파이프라인의 모든 작업이 요청을 발급할 수 있는 'CosmosDbEmulator.Endpoint' 환경 변수를 내보냅니다. 
 
-이 자습서에서는 [Visual Studio 테스트 작업](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md)을 사용하여 **.runsettings** 파일을 통해 구성된 단위 테스트를 실행합니다. 단위 테스트 설정에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017&preserve-view=true)를 참조하세요. 이 문서에서 사용하는 완전한 Todo 애플리케이션 코드 샘플은 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)에서 사용할 수 있습니다.
+이 자습서에서는 [Visual Studio 테스트 작업](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md)을 사용하여 **.runsettings** 파일을 통해 구성된 단위 테스트를 실행합니다. 단위 테스트 설정에 대한 자세한 내용은 [설명서](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017)를 참조하세요. 이 문서에서 사용하는 완전한 Todo 애플리케이션 코드 샘플은 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)에서 사용할 수 있습니다.
 
-애플리케이션의 단위 테스트에 전달할 매개 변수를 정의하는 **.runsettings** 파일의 예제는 다음과 같습니다. 사용된 `authKey` 변수는 에뮬레이터에 대해 [잘 알려진 키](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests)입니다. 이 `authKey`는 에뮬레이터 빌드 작업에서 예상되는 키이며, **.runsettings** 파일에서 정의되어야 합니다.
+애플리케이션의 단위 테스트에 전달할 매개 변수를 정의하는 **.runsettings** 파일의 예제는 다음과 같습니다. 사용된 `authKey` 변수는 에뮬레이터에 대해 [잘 알려진 키](./local-emulator.md#authenticate-requests)입니다. 이 `authKey`는 에뮬레이터 빌드 작업에서 예상되는 키이며, **.runsettings** 파일에서 정의되어야 합니다.
 
 ```csharp
 <RunSettings>
@@ -177,6 +177,6 @@ Visual Studio 테스트 작업의 실행 옵션으로 이동합니다. **설정 
 
 ## <a name="next-steps"></a>다음 단계
 
-로컬 개발 및 테스트에 에뮬레이터를 사용하는 방법을 자세히 알아보려면 [로컬 개발 및 테스트를 위해 Azure Cosmos DB 에뮬레이터 사용](https://docs.microsoft.com/azure/cosmos-db/local-emulator)을 참조하세요.
+로컬 개발 및 테스트에 에뮬레이터를 사용하는 방법을 자세히 알아보려면 [로컬 개발 및 테스트를 위해 Azure Cosmos DB 에뮬레이터 사용](./local-emulator.md)을 참조하세요.
 
-에뮬레이터 TLS/SSL 인증서를 내보내려면 [Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)를 참조하세요.
+에뮬레이터 TLS/SSL 인증서를 내보내려면 [Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기](./local-emulator-export-ssl-certificates.md)를 참조하세요.

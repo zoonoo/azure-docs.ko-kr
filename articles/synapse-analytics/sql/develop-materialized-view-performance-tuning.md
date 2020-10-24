@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289041"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474770"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화된 뷰를 사용한 성능 조정
 
@@ -79,7 +79,9 @@ SQL 풀은 표준 및 구체화된 뷰를 모두 지원합니다.  둘 다 SELEC
 
 **더 빠른 쿼리 성능을 위해 다른 데이터 배포 전략 필요**
 
-Azure Data Warehouse는 MPP(대규모 병렬 처리) 분산 시스템입니다.   데이터 웨어하우스 테이블의 데이터는 세 가지 [배포 전략](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)(해시, 라운드 로빈 또는 복제) 중 하나를 사용하여 60개 노드에 배포됩니다.  
+Azure Data Warehouse는 MPP(대규모 병렬 처리) 분산 시스템입니다.  
+
+Synapse SQL은 기업에서 데이터 엔지니어에게 친숙한 표준 T-SQL 환경을 사용하여 데이터 웨어하우징 및 데이터 가상화 시나리오를 구현할 수 있는 분산 쿼리 시스템입니다. 또한 SQL의 기능을 확장하여 스트리밍 및 기계 학습 시나리오를 처리합니다. 데이터 웨어하우스 테이블의 데이터는 세 가지 [배포 전략](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)(해시, 라운드 로빈 또는 복제) 중 하나를 사용하여 60개 노드에 배포됩니다.  
 
 데이터 배포는 테이블을 만들 때 지정되며 테이블을 삭제할 때까지 변경되지 않고 유지됩니다. 구체화된 뷰를 디스크의 가상 테이블로 유지하면 해시 및 라운드 로빈 데이터 배포가 지원됩니다.  사용자는 기본 테이블과는 다르지만 뷰를 자주 사용하는 쿼리 성능에 가장 적합한 데이터 배포를 선택할 수 있습니다.  
 

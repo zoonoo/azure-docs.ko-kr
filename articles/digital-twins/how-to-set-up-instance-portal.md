@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205497"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478861"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -75,7 +75,7 @@ ms.locfileid: "92205497"
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
 다음 *역할 할당 추가* 페이지에서 값을 입력 합니다 (Azure 구독에서 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 완료 해야 함).
-* **역할**: 드롭다운 메뉴에서 *Azure Digital twins 소유자 (미리 보기)* 를 선택 합니다.
+* **역할**: 드롭다운 메뉴에서 *Azure Digital Twins 데이터 소유자* 를 선택 합니다.
 * **액세스 권한 할당**: 드롭다운 메뉴에서 *Azure AD 사용자, 그룹 또는 서비스 사용자를* 선택 합니다.
 * **선택**: 할당할 사용자의 이름 또는 전자 메일 주소를 검색 합니다. 결과를 선택 하면 사용자가 *선택한 구성원* 섹션에 표시 됩니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "92205497"
 
 ### <a name="verify-success"></a>성공 확인
 
-*액세스 제어 (IAM) > 역할 할당*에 설정 된 역할 할당을 볼 수 있습니다. 사용자는 *Azure 디지털 쌍 소유자 (미리 보기)* 의 역할을 사용 하 여 목록에 표시 되어야 합니다. 
+*액세스 제어 (IAM) > 역할 할당*에 설정 된 역할 할당을 볼 수 있습니다. 사용자는 *Azure Digital Twins 데이터 소유자*역할을 사용 하 여 목록에 표시 되어야 합니다. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 

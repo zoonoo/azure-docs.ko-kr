@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278594"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486109"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB SQL API에서 데이터베이스에 대 한 표준 (수동) 처리량 프로 비전
 
@@ -72,7 +72,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 Azure Cosmos DB에서 프로비저닝된 처리량에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
+* [프로비저닝된 처리량을 전역적으로 크기 조정](./request-units.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너에 표준(수동) 처리량을 프로비저닝하는 방법](how-to-provision-container-throughput.md)
 * [컨테이너에 자동 크기 조정 처리량을 프로비저닝하는 방법](how-to-provision-autoscale-throughput.md)

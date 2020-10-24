@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277677"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482522"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 탄력적으로 크기 조정
 
 Cassandra용 Azure Cosmos DB API의 탄력적 특성을 탐색하는 다양한 옵션이 있습니다. Azure Cosmos DB에서 효과적으로 크기를 조정하는 방법을 이해하려면 시스템의 성능 요구 사항을 고려하여 적절한 양의 요청 단위(RU/초)를 프로비저닝하는 방법을 이해하는 것이 중요합니다. 요청 단위에 대해 알아보려면 [요청 단위](request-units.md) 문서를 참조하세요. 
 
-Cassandra API의 경우 [.NET 및 Java SDK](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api)를 사용하여 개별 쿼리에 대한 요청 단위 요금을 검색할 수 있습니다. 이는 서비스에서 프로비저닝해야 하는 RU/초의 양을 결정하는 데 유용합니다.
+Cassandra API의 경우 [.NET 및 Java SDK](./find-request-unit-charge-cassandra.md)를 사용하여 개별 쿼리에 대한 요청 단위 요금을 검색할 수 있습니다. 이는 서비스에서 프로비저닝해야 하는 RU/초의 양을 결정하는 데 유용합니다.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="데이터베이스 작업은 요청 단위를 사용함" border="false":::
 
@@ -46,7 +46,7 @@ Azure Portal을 사용하여 Azure Cosmos DB Cassandra API 계정에서 리소�
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>컨트롤 플레인
 
-Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 사용하여 프로그래밍 방식으로 처리량을 조정하는 기능을 제공합니다. 지침 및 샘플은 [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md) 및 [Azure CLI](cli-samples.md) 문서를 참조하세요.
+Cassandra용 Azure Cosmos DB의 API는 다양한 컨트롤 플레인 기능을 사용하여 프로그래밍 방식으로 처리량을 조정하는 기능을 제공합니다. 지침 및 샘플은 [Azure Resource Manager](./templates-samples-cassandra.md), [PowerShell](powershell-samples.md) 및 [Azure CLI](cli-samples.md) 문서를 참조하세요.
 
 이 방법의 장점은 최대 작업 또는 낮은 작업 기간을 고려하여 타이머를 기반으로 리소스의 확장 또는 축소를 자동화할 수 있다는 것입니다. Azure Functions 및 PowerShell을 사용하여 이를 수행하는 방법은 [여기](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler)에서 샘플을 살펴보세요.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f0cb3d5f9184bacef42a0258add6dd2461a71dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1695fb04872e505842318d21e856a9a01b1b1f3a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326663"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477371"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core 용 스프링 데이터 Azure Cosmos DB v3 (SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,14 +26,14 @@ ms.locfileid: "91326663"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 Core (SQL)에 대 한 스프링 데이터 Azure Cosmos DB 버전 3을 통해 개발자는 스프링 응용 프로그램에서 Azure Cosmos DB를 사용할 수 있습니다. 스프링 데이터 Azure Cosmos DB는 데이터베이스 및 컬렉션을 조작 하 고, 문서 작업을 수행 하 고, 쿼리를 실행 하기 위한 스프링 데이터 인터페이스를 제공 합니다. 동기화 및 비동기 (대응식) Api는 모두 동일한 Maven 아티팩트에서 지원 됩니다. 
@@ -50,9 +50,9 @@ Core (SQL)에 대 한 스프링 데이터 Azure Cosmos DB 버전 3을 통해 개
 > Spring Data Azure Cosmos DB는 SQL API만 지원합니다.
 >
 > 다른 Azure Cosmos DB API의 Spring Data에 대한 정보는 다음 문서를 참조하세요.
-> * [Azure Cosmos DB의 Spring Data for Apache Cassandra](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Azure Cosmos DB의 Spring Data MongoDB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Azure Cosmos DB의 Spring Data Gremlin](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data MongoDB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Azure Cosmos DB의 Spring Data Gremlin](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="start-here"></a>여기에서 시작

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570660"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486143"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 응용 프로그램에서 다중 지역 쓰기 구성
 
@@ -129,8 +129,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 * [Azure Cosmos DB의 충돌 유형 및 해결 정책](conflict-resolution-policies.md)
 * [Azure Cosmos DB의 고가용성](high-availability.md)
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
-* [Azure Cosmos DB에서 올바른 일관성 수준 선택](consistency-levels-choosing.md)
-* [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
+* [Azure Cosmos DB에서 올바른 일관성 수준 선택](./consistency-levels.md)
+* [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](./consistency-levels.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](./consistency-levels.md)
+* [전역적으로 프로비전된 처리량 크기 조정](./request-units.md)
 * [전역 배포: 내부적으로](global-dist-under-the-hood.md)

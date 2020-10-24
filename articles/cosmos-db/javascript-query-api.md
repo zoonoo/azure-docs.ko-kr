@@ -8,16 +8,16 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334398"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495890"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 
-Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에도 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 는 Cosmos DB 저장 프로시저 및 트리거에서 최적화 된 쿼리를 수행 하기 위한 JavaScript 인터페이스를 제공 합니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
+Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에도 [Cosmos DB 서버 쪽 SDK](https://github.com/Azure/azure-cosmosdb-js-server/) 는 Cosmos DB 저장 프로시저 및 트리거에서 최적화 된 쿼리를 수행 하기 위한 JavaScript 인터페이스를 제공 합니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 
@@ -43,7 +43,7 @@ Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에�
 - 제어 흐름(예: if, for, while)
 - 함수 호출
 
-자세한 내용은 [Cosmos DB 서버 쪽 JavaScript 설명서](https://azure.github.io/azure-cosmosdb-js-server/)를 참조하세요.
+자세한 내용은 [Cosmos DB 서버 쪽 JavaScript 설명서](https://github.com/Azure/azure-cosmosdb-js-server/)를 참조하세요.
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>SQL-JavaScript 치트 시트
 

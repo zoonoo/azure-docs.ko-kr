@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2defeb2c417e94109721d32d8d4b611e2e46569
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01e61abacac63d698456c3ab25826f9799d2837e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003221"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482284"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션
 
@@ -132,6 +132,6 @@ V2 sdk를 사용 하 여 삽입 된 항목 또는 매개 변수를 사용 하 �
 * [Azure Cosmos DB에서 분할](partitioning-overview.md)
 * [Azure Cosmos DB의 요청 단위](request-units.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
-* [Azure Cosmos 계정 작업](account-overview.md)
+* [Azure Cosmos 계정 작업](./account-databases-containers-items.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

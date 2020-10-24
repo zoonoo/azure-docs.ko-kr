@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 38f21ec32d14261c7f1bb5e285180d9721b9dca7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280520"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477830"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
-Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않고도 [데이터를 쿼리하기 위한 SQL API](how-to-sql-query.md)를 제공합니다. 이 문서에서는 개발자를 위한 다음 정보를 제공합니다.
+Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않고도 [데이터를 쿼리하기 위한 SQL API](./sql-query-getting-started.md)를 제공합니다. 이 문서에서는 개발자를 위한 다음 정보를 제공합니다.
 
 * Azure Cosmos DB의 SQL 쿼리 실행 작동 방식에 대한 대략적인 정보
 * 쿼리 요청 및 응답 헤더, 클라이언트 SDK 옵션에 대한 세부 정보
@@ -275,6 +275,4 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 ## <a name="next-steps"></a>다음 단계
 * 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](sql-query-getting-started.md)를 참조하세요. 
 * 요청 단위에 대해 알아보려면 [요청 단위](request-units.md)를 참조하세요.
-* 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](index-policy.md)을 참조하세요. 
-
-
+* 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](index-policy.md)을 참조하세요.

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: f2a7570b7ebed26a06e1bd075c2904bc29061c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498857"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485106"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 
-Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다.
+Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑을 수행 하는 데 가장 적합 한 작업을 수행 합니다. LINQ에서 변환 되는 SQL 쿼리를 가져오려면 `ToString()` 생성 된 개체에 대해 메서드를 사용 `IQueryable` 합니다. 다음 설명에서는 [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)에 대 한 기본적인 지식이 있다고 가정 합니다.
 
 쿼리 공급자 유형 시스템은 JSON 기본 유형인 numeric, Boolean, string 및 null만 지원 합니다.
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들면 다음과 같습니다.
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예:
   
   ```
     family.Id;

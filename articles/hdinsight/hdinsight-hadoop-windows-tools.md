@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75933944"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484766"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -58,7 +58,7 @@ Visual Studio용 Data Lake 도구를 사용하여 Storm 토폴로지를 배포 �
 .NET SDK와 함께 Visual Studio를 사용하여 클러스터를 관리하고 빅 데이터 애플리케이션을 개발할 수 있습니다. 다음 작업에 대해 다른 IDE를 사용할 수 있으나 예제는 Visual Studio에 표시됩니다.
 
 Visual Studio에서 .NET SDK와 함께 수행할 수 있는 작업의 예:
-* [.Net 용 Azure HDINSIGHT SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)
+* [.Net 용 Azure HDINSIGHT SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)
 * [.NET SDK를 사용 하 여 Apache Hive 쿼리를 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)합니다.
 * [Apache Hadoop에서 Apache Hive 및 Apache Pig streaming과 함께 c # 사용자 정의 함수를 사용](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)합니다.
 
@@ -90,7 +90,7 @@ Linux 에서만 사용할 수 있는 도구 또는 기술을 사용 해야 하�
 
 ## <a name="cross-platform-tools"></a>플랫폼 간 도구
 
-Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.  자세한 내용은 [AZURE CLI (Command-Line 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 참조 하세요.
+Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.  자세한 내용은 [AZURE CLI (Command-Line 인터페이스)](/cli/azure/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,13 +2,13 @@
 title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 10/23/2020
+ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424179"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495221"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -181,27 +181,12 @@ TU(처리량 단위)는 시간 단위로 청구됩니다. 청구는 지정된 �
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Event Hubs Dedicated 클러스터란?
 Event Hubs Dedicated 클러스터는 요구 사항이 가장 까다로운 고객을 위한 단일 테넌트 배포를 제공합니다. 이 제안은 처리량 단위로 구속되지 않는 용량 기반 클러스터를 구축합니다. 즉, 클러스터를 사용하여 클러스터의 메모리 사용량 및 CPU에 따라 데이터를 수집하고 스트림할 수 있습니다. 자세한 내용은 [Event Hubs Dedicated 클러스터](event-hubs-dedicated-overview.md)를 참조하세요.
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>단일 용량 단위로 획득할 수 있는 성능은 어떻게 되나요?
-Dedicated 클러스터의 경우 수집하고 스트림할 수 있는 양은 생산자, 소비자, 수집 및 처리 속도 등과 같은 다양한 요인에 따라 달라집니다. 
-
-다음 표에는 테스트를 통해 실현한 벤치마크 결과가 나와 있습니다.
-
-| 페이로드 셰이프 | 수신기 | 수신 대역폭| 수신 메시지 | 송신 대역폭 | 송신 메시지 | 총 TU | CU당 TU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| 100x1KB의 일괄 처리 | 2 | 400MB/초 | 초당 400k 메시지 | 800MB/초 | 초당 800k 메시지 | 400TU | 100TU | 
-| 10x10KB의 일괄 처리 | 2 | 666MB/초 | 초당 66.6k 메시지 | 1.33GB/초 | 초당 133k 메시지 | 666TU | 166TU |
-| 6x32KB의 일괄 처리 | 1 | 1.05GB/초 | 초당 34k 메시지 | 1.05GB/초 | 초당 34k 메시지 | 1,000TU | 250TU |
-
-테스트에 사용된 조건은 다음과 같습니다.
-
-- 4CU(용량 단위)의 Event Hubs 전용 클러스터가 사용되었습니다. 
-- 수집에 사용된 이벤트 허브에는 200개의 파티션이 있었습니다. 
-- 데이터는 모든 파티션으로부터 받는 두 개의 수신기 애플리케이션에서 수집되었습니다.
-
-결과는 Event Hubs 전용 클러스터로 달성할 수 있는 것에 대한 아이디어를 제공합니다. 또한 전용 클러스터는 마이크로 일괄 처리 및 장기 보존 시나리오에 Event Hubs 캡처를 사용하도록 설정된 상태로 제공됩니다.
-
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Event Hubs Dedicated 클러스터를 만들려면 어떻게 할까요?
-[할당량 증가 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 제출하거나 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의하여 Event Hubs Dedicated 클러스터를 만듭니다. 일반적으로 클러스터를 배포하고 전달하여 사용자가 사용할 수 있도록 하는 데 약 2주가 걸립니다. 이 프로세스는 Azure Portal를 통해 전체 셀프 서비스를 사용할 수 있게 될 때까지 일시적입니다.
+Event Hubs 전용 클러스터를 설정 하는 방법에 대 한 단계별 지침과 자세한 내용은 [빠른 시작: Azure Portal를 사용 하 여 전용 Event Hubs 클러스터 만들기](event-hubs-dedicated-cluster-create-portal.md)를 참조 하세요. 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## <a name="best-practices"></a>모범 사례
 

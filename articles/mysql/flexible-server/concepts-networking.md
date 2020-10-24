@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: 48265856e5e745e05f6625766f9cd0c9b15c90a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaccd0559439ce228325205f5845151f0e76bcae
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708665"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484528"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)에 대 한 연결 및 네트워킹 개념
 
@@ -73,6 +73,8 @@ MySQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야 할 
 
 [Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)를 사용 하 여 개인 액세스 (vnet 통합)를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 
+> [!NOTE]
+> 사용자 지정 DNS 서버를 사용 하는 경우에는 DNS 전달자를 사용 하 여 Azure Database for MySQL 유연한 서버의 FQDN을 확인 해야 합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 을 참조 하세요.
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
 공용 액세스 방법의 특성은 다음과 같습니다.

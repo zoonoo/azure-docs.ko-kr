@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278198"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482607"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>의 Cassandra API에 대 한 질문과 대답 Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Azure Cosmos DB는 작업에 대한 상한을 사용하여 성능 및 대기 시
 
 사용 가능한 메트릭은 전체 파티션 또는 집계에서 시간, 일 단위 및 7 일간의 처리량을 사용 하는 방법을 보여 주는 메트릭을 사용할 수 있습니다. 자세한 내용은 [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅](use-metrics.md)을 참조하세요.
 
-진단 로그에 대한 내용은 [Azure Cosmos DB 진단 로깅](logging.md) 문서에 설명되어 있습니다.
+진단 로그에 대한 내용은 [Azure Cosmos DB 진단 로깅](./monitor-cosmos-db.md) 문서에 설명되어 있습니다.
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>기본 키는 Azure Cosmos DB의 파티션 키 개념에 대응하나요?
 
@@ -133,11 +133,11 @@ Azure Cosmos DB는 읽기, 쓰기 및 처리량에 대 한 성능 보장을 제�
 
 ### <a name="how-can-i-monitor-infrastructure-along-with-throughput"></a>처리량과 함께 인프라를 모니터링 하려면 어떻게 해야 하나요?
 
-Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음과 같습니다.
+Azure Cosmos DB는 인프라를 관리하고 모니터링할 걱정 없이 생산성을 높이는 데 도움이 되는 플랫폼 서비스입니다. 예를 들어 다양 한 도구를 사용 하 여 이전에 노드 상태, 복제본 상태, gc 및 OS 매개 변수를 모니터링할 필요가 없습니다. 제한 되는지 확인 하기 위해 포털 메트릭에 제공 되는 처리량을 처리 하 고 처리량을 늘리거나 줄일 수 있습니다. 다음 작업을 수행할 수 있습니다.
 
-- [Sla](monitor-accounts.md) 모니터링
+- [Sla](./monitor-cosmos-db.md) 모니터링
 - [메트릭](use-metrics.md) 사용
-- [진단 로그](logging.md) 사용
+- [진단 로그](./monitor-cosmos-db.md) 사용
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Cassandra API에서 사용할 수 있는 클라이언트 Sdk는 무엇입니까?
 
@@ -187,7 +187,7 @@ Cassandra API은 Azure Cosmos DB의 전역적으로 분산 된 플랫폼에서 �
 피드백은 [사용자 의견 피드백](https://feedback.azure.com/forums/263030-azure-cosmos-db)을 통해 보내주세요.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>다음 단계
 

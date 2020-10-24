@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5203223f8468a4dfa0faf2df92e826a62f7bbfcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fa0b32d21c9a2172fa6093f2f7f57ccacf5e5d6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802755"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477762"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET 대량 실행기 라이브러리: 정보 다운로드 
 
@@ -26,14 +26,14 @@ ms.locfileid: "91802755"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
@@ -41,7 +41,7 @@ ms.locfileid: "91802755"
 | **설명**| 클라이언트 애플리케이션은 .NET 대량 실행기 라이브러리를 통해 Azure Cosmos DB 계정에서 대량 작업을 수행할 수 있습니다. 이 라이브러리는 BulkImport, BulkUpdate 및 BulkDelete 네임스페이스를 제공합니다. BulkImport 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 수집할 수 있습니다. BulkUpdate 모듈은 Azure Cosmos 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다. BulkDelete 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 삭제할 수 있습니다.|
 |**SDK 다운로드**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Github의 대량 실행기**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**API 설명서**|[.NET API 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet&preserve-view=true)|
+|**API 설명서**|[.NET API 참조 설명서](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?preserve-view=true&view=azure-dotnet)|
 |**시작**|[Bulk Executor 라이브러리 .NET SDK 시작](bulk-executor-dot-net.md)|
 | **현재 지원되는 프레임워크**| Microsoft .NET Framework 4.5.2, 4.6.1 및 .NET Standard 2.0 |
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: bc7bc677fb44600721b580ac9efc42feea4d98da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d33308932ecd7c523c6fbe287648d4afc21ef0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252955"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485803"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -23,7 +23,7 @@ Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및
 > [!NOTE]
 > 분할된 컨테이너의 경우 저장 프로시저를 실행할 때 파티션 키 값은 요청 옵션에서 제공되어야 합니다. 저장 프로시저의 범위는 항상 파티션 키로 지정됩니다. 다른 파티션 키 값을 가진 항목은 저장 프로시저에 표시되지 않습니다. 이 트리거에도 적용되었습니다.
 > [!Tip]
-> Cosmos는 저장 프로시저, 트리거 및 사용자 정의 함수를 사용 하 여 컨테이너 배포를 지원 합니다. 자세한 내용은 [서버 쪽 기능을 사용 하 여 Azure Cosmos DB 컨테이너 만들기](manage-sql-with-resource-manager.md#create-sproc) 를 참조 하세요.
+> Cosmos는 저장 프로시저, 트리거 및 사용자 정의 함수를 사용 하 여 컨테이너 배포를 지원 합니다. 자세한 내용은 [서버 쪽 기능을 사용 하 여 Azure Cosmos DB 컨테이너 만들기](./manage-with-templates.md#create-sproc) 를 참조 하세요.
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>저장 프로시저를 작성하는 방법
 

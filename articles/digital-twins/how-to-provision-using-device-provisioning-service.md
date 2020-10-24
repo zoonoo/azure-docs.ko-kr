@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f9dd69c147dff1bf0bd10ca070e023bb6f7692a5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368437"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494740"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -71,7 +71,7 @@ IoT 장치를 프로 비전 하는 데 사용 되는 장치 프로 비전 서비
 
 다음 Azure CLI 명령은 장치 프로 비전 서비스를 만듭니다. 이름, 리소스 그룹 및 지역을 지정 해야 합니다. [컴퓨터에](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ namespace Samples.AdtIothub
 
 이 Azure CLI 명령을 사용 하 여 설정을 추가 합니다.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ node .\adt_custom_register.js
 
 이 문서에서 설정한 흐름의 결과로 장치가 Azure Digital Twins에 자동으로 등록 됩니다. 다음 [Azure Digital TWINS CLI](how-to-use-cli.md) 명령을 사용 하 여 사용자가 만든 Azure Digital twins 인스턴스에서 장치의 쌍을 찾습니다.
 
-```azurecli
+```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -449,13 +449,13 @@ namespace Samples.AdtIothub
 
 이 Azure CLI 명령을 사용 하 여 설정을 추가 합니다. [컴퓨터에](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)Azure CLI가 설치 되어 있는 경우이 명령은 [Cloud Shell](https://shell.azure.com)또는 로컬로 실행할 수 있습니다.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 다음에는 새로 만든 이벤트 허브에 연결 하기 위한 함수 환경 변수를 구성 해야 합니다.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ IoT Hub 경로 만들기에 대 한 지침은이 문서에 설명 되어 있습�
 
 다음 [Azure Digital TWINS CLI](how-to-use-cli.md) 명령을 사용 하 여 Azure Digital twins 인스턴스에서 장치 쌍이 삭제 되었는지 확인 합니다.
 
-```azurecli
+```azurecli-interactive
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Azure Cloud Shell 또는 로컬 Azure CLI를 사용 하 여 [az group delete](/c
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

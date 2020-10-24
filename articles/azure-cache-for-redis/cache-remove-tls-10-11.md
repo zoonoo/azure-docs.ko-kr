@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423924"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496050"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Azure Cache for Redis 사용에서 TLS 1.0과 1.1 제거
 
@@ -19,10 +19,14 @@ ms.locfileid: "84423924"
 
 이러한 노력의 일환으로 Azure Cache for Redis를 다음과 같이 변경할 예정입니다.
 
-* **1단계:** 새로 만든 캐시 인스턴스(이전의 TLS 1.0)에 대해 기본 최소 TLS 버전을 1.2로 구성합니다.  이 시점에 기존 캐시 인스턴스는 업데이트되지 않습니다. 필요한 경우 이전 버전과의 호환성을 위해 [최소 TLS 버전을 1.0 또는 1.1로 다시 변경](cache-configure.md#access-ports)할 수 있습니다. 이러한 변경은 Azure Portal 또는 다른 관리 API를 통해 수행할 수 있습니다.
-* **2단계:** TLS 버전 1.0 및 1.1 지원은 중단됩니다. 이렇게 변경한 후 애플리케이션은 TLS 1.2 이상을 사용하여 캐시와 통신해야 합니다.
+* **1 단계:** 새로 만든 캐시 인스턴스에 대해 기본 최소 TLS 버전을 1.2로 구성 합니다 (이전에는 TLS 1.0 이었습니다). 이 시점에 기존 캐시 인스턴스는 업데이트되지 않습니다. 필요한 경우 이전 버전과의 호환성을 위해 Azure Portal 또는 다른 관리 Api를 사용 하 여 [최소 TLS 버전](cache-configure.md#access-ports) 을 1.0 또는 1.1로 변경할 수 있습니다.
+* **2 단계:** TLS 1.1 및 TLS 1.0은 지원 하지 않습니다. 이렇게 변경한 후에는 응용 프로그램에서 TLS 1.2 이상 버전을 사용 하 여 캐시와 통신 해야 합니다. Redis 용 Azure Cache 서비스는 TLS 1.2 이상만 지원 하도록 마이그레이션하는 동안 사용할 수 있습니다.
 
-또한 이러한 변화의 일환으로 안전하지 않은 오래된 암호화 제품군에 대한 지원이 제거될 예정입니다.  캐시가 최소 TLS 버전 1.2로 구성된 경우 지원되는 암호화 제품군은 다음으로 제한됩니다.
+  > [!NOTE]
+  > 2 단계는 2020 년 12 월 31 일 이전에 시작 되도록 임시로 계획 됩니다. 그러나 지금이 변경에 대 한 계획을 시작 하 고 TLS 1.2 이상을 지원 하도록 클라이언트를 사전에 업데이트 하는 것이 좋습니다. 
+  >
+
+이 변경의 일환으로, 안전 하지 않은 이전 암호 제품군에 대 한 지원도 제거 합니다. 최소 TLS 1.2를 사용 하 여 캐시를 구성 하는 경우 지원 되는 암호 제품군은 다음 그룹으로 제한 됩니다.
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ ms.locfileid: "84423924"
 
 | 클라우드                | 1단계 시작 날짜 | 2단계 시작 날짜         |
 |----------------------|--------------------|----------------------------|
-| Azure(글로벌)       |  2020년 1월 13일  | COVID 19로 인해 연기 됨  |
-| Azure Government     |  2020년 3월 13일    | COVID 19로 인해 연기 됨  |
-| Azure Germany        |  2020년 3월 13일    | COVID 19로 인해 연기 됨  |
-| Azure China 21Vianet |  2020년 3월 13일    | COVID 19로 인해 연기 됨  |
+| Azure(글로벌)       |  2020년 1월 13일  | COVID-19로 인해 연기 됨  |
+| Azure Government     |  2020년 3월 13일    | COVID-19로 인해 연기 됨  |
+| Azure Germany        |  2020년 3월 13일    | COVID-19로 인해 연기 됨  |
+| Azure China 21Vianet |  2020년 3월 13일    | COVID-19로 인해 연기 됨  |
 
-참고: 2 단계에 대 한 새 날짜가 아직 확인 되지 않았습니다.
+> [!NOTE]
+> 2 단계는 2020 년 12 월 31 일 이전에 시작 되도록 임시로 계획 됩니다. 이 문서는 특정 날짜가 설정 될 때 업데이트 됩니다.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>애플리케이션이 이미 규격에 맞는지 확인
 

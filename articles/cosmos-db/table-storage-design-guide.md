@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428050"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477592"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure Storage Table 디자인 가이드: 확장 가능하고 성능이 우수한 테이블
 
@@ -24,7 +24,7 @@ ms.locfileid: "92428050"
 Table Storage는 수십억 개의 데이터 엔터티(관계형 데이터베이스 용어로는 "행")를 포함할 수 있거나 대용량 트랜잭션을 지원해야 하는 데이터 세트에 사용되는 클라우드 규모의 애플리케이션을 지원하도록 디자인된다는 사실을 반영합니다. 따라서 데이터를 저장하는 방법을 다르게 생각하고 Table Storage의 작동 방식을 이해해야 합니다. 잘 디자인된 NoSQL 데이터 저장소는 관계형 데이터베이스를 사용하는 솔루션보다 적은 비용으로 훨씬 뛰어난 확장성을 제공할 수 있습니다. 이 가이드에서는 이러한 항목에 대해 설명합니다.  
 
 ## <a name="about-azure-table-storage"></a>Azure Table Storage 정보
-이 섹션에서는 특히 성능 및 확장성 디자인과 관련된 Table Storage의 몇 가지 주요 기능을 중점적으로 살펴봅니다. Azure Storage와 Table Storage를 처음 접하는 경우 이 아티클의 나머지 내용을 진행하기 전에 먼저 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md) 및 [.NET을 사용하여 Azure Table Storage 시작](table-storage-how-to-use-dotnet.md)을 읽어 보시기 바랍니다. 이 가이드는 Table Storage에 중점을 두지만 Azure Queue Storage 및 Blob 스토리지에 대해 논의하고 솔루션에서 Table Storage와 함께 이러한 기능을 사용할 수 있는 방법도 다룹니다.  
+이 섹션에서는 특히 성능 및 확장성 디자인과 관련된 Table Storage의 몇 가지 주요 기능을 중점적으로 살펴봅니다. Azure Storage와 Table Storage를 처음 접하는 경우 이 아티클의 나머지 내용을 진행하기 전에 먼저 [Microsoft Azure Storage 소개](../storage/common/storage-introduction.md) 및 [.NET을 사용하여 Azure Table Storage 시작](./tutorial-develop-table-dotnet.md)을 읽어 보시기 바랍니다. 이 가이드는 Table Storage에 중점을 두지만 Azure Queue Storage 및 Blob 스토리지에 대해 논의하고 솔루션에서 Table Storage와 함께 이러한 기능을 사용할 수 있는 방법도 다룹니다.  
 
 Table Storage는 테이블 형식을 사용하여 데이터를 저장합니다. 표준 용어로, 테이블의 각 행은 엔터티를 나타내고 행은 해당 엔터티의 여러 속성을 저장합니다. 모든 엔터티에는 고유하게 식별하는 키 쌍 및 Table Storage가 엔터티를 마지막으로 수정한 시간을 추적하는 데 사용하는 타임스탬프 열이 있습니다. 타임스탬프 필드는 자동으로 적용되고 임의의 값으로 타임스탬프를 수동으로 덮어쓸 수 없습니다. Table Storage에서는 LMT(마지막 수정 타임스탬프)를 사용하여 낙관적 동시성을 관리합니다.  
 
@@ -123,7 +123,7 @@ Table Storage는 테이블 형식을 사용하여 데이터를 저장합니다. 
 </table>
 
 
-지금까지는 이 디자인이 관계형 데이터베이스의 테이블과 유사해 보입니다. 주요 차이점은 필수 열과 여러 엔터티 형식을 동일한 테이블에 저장하는 기능입니다. 또한 **FirstName** 또는 **Age**와 같은 각 사용자 정의 속성에 관계형 데이터베이스의 열과 마찬가지로 정수 또는 문자열과 같은 데이터 형식이 있습니다. 그렇지만 관계형 데이터베이스와 달리 Table Storage는 스키마 없음 속성을 갖추고 있기 때문에 각 엔터티의 데이터 유형이 동일하지 않아도 됩니다. 복잡한 데이터 형식을 단일 속성에 저장하려면 JSON 또는 XML과 같은 직렬화된 형식을 사용해야 합니다. 자세한 내용은 [Table Storage 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
+지금까지는 이 디자인이 관계형 데이터베이스의 테이블과 유사해 보입니다. 주요 차이점은 필수 열과 여러 엔터티 형식을 동일한 테이블에 저장하는 기능입니다. 또한 **FirstName** 또는 **Age**와 같은 각 사용자 정의 속성에 관계형 데이터베이스의 열과 마찬가지로 정수 또는 문자열과 같은 데이터 형식이 있습니다. 그렇지만 관계형 데이터베이스와 달리 Table Storage는 스키마 없음 속성을 갖추고 있기 때문에 각 엔터티의 데이터 유형이 동일하지 않아도 됩니다. 복잡한 데이터 형식을 단일 속성에 저장하려면 JSON 또는 XML과 같은 직렬화된 형식을 사용해야 합니다. 자세한 내용은 [Table Storage 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.
 
 `PartitionKey` 및 `RowKey` 선택은 적절한 테이블 디자인의 기본 사항입니다. 테이블에 저장된 모든 엔터티에는 고유하게 조합된 `PartitionKey`와 `RowKey`가 있어야 합니다. 관계형 데이터베이스 테이블의 키와 마찬가지로 `PartitionKey` 및 `RowKey` 값을 인덱싱하여 빠른 조회를 사용하도록 설정하기 위해 클러스터형 인덱스를 만듭니다. 그러나 Table Storage는 보조 인덱스를 만들지 않으므로 이러한 두 개의 인덱싱된 속성만 사용합니다. 뒤쪽에 설명된 패턴 중 일부는 이러한 명백한 제한을 해결할 수 있는 방법을 보여 줍니다.  
 
@@ -134,7 +134,7 @@ Table Storage는 테이블 형식을 사용하여 데이터를 저장합니다. 
 
 Table Storage에서 개별 노드는 하나 이상의 전체 파티션을 지원하며, 서비스는 노드 간에 파티션 부하를 동적으로 분산하여 크기가 조정됩니다. 노드에 부하가 많이 발생한 경우 Table Storage는 해당 노드에서 처리하는 파티션의 범위를 다른 노드로 분할할 수 있습니다. 트래픽이 감소되면 Table Storage는 자동 노드의 파티션 범위를 단일 노드에 다시 병합할 수 있습니다.  
 
-Table Storage의 내부 세부 정보, 특히 이 Storage에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성을 지닌 고가용성 클라우드 스토리지 서비스](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)를 참조하세요.  
+Table Storage의 내부 세부 정보, 특히 이 Storage에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성을 지닌 고가용성 클라우드 스토리지 서비스](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)를 참조하세요.  
 
 ### <a name="entity-group-transactions"></a>엔터티 그룹 트랜잭션
 Table Storage에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 *일괄 처리 트랜잭션*이라고도 합니다. EGT는 동일한 파티션(특정 테이블에서 동일한 파티션 키 공유)에 저장된 엔터티에서만 작동할 수 있으므로 여러 엔터티에서 원자성 트랜잭션 동작이 필요한 경우 해당 엔터티가 동일한 파티션에 있는지 확인합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리하기 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우 해당 EGT가 EGT에서 공통되는 엔터티에서 작동하지 않도록 해야 합니다. 그렇지 않으면 처리가 지연될 수 있습니다.
@@ -156,7 +156,7 @@ Azure storage 계정의 확장성 목표에 대 한 자세한 내용은 [스토�
 | `RowKey`의 크기 |최대 1KB의 크기 문자열 |
 | 엔터티 그룹 트랜잭션의 크기 |한 개 트랜잭션에는 최대 100개의 엔터티가 포함될 수 있고, 페이로드 크기는 4MB 미만이어야 합니다. EGT는 한 번에 하나의 엔터티만 업데이트할 수 있음 |
 
-자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.  
+자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)를 참조하세요.  
 
 ### <a name="cost-considerations"></a>비용 고려 사항
 Table Storage는 비교적 저렴하지만 Table Storage를 사용하는 솔루션을 평가할 때 용량 사용과 트랜잭션 양 둘 다에 대한 예상 비용을 포함해야 합니다. 그러나 대부분의 시나리오에서는 비정규화되거나 중복된 데이터를 저장하여 솔루션의 성능 또는 확장성을 개선하는 것이 유효한 접근 방식입니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.  
@@ -202,7 +202,7 @@ Table Storage는 읽기 집약적 또는 쓰기 집약적이거나 두 가지가
 | `Age` |정수 |
 | `EmailAddress` |String |
 
-Table Storage 쿼리를 디자인하기 위한 몇 가지 일반적인 지침은 다음과 같습니다. 다음 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](https://msdn.microsoft.com/library/azure/dd179421.aspx)를 참조하세요.  
+Table Storage 쿼리를 디자인하기 위한 몇 가지 일반적인 지침은 다음과 같습니다. 다음 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](/rest/api/storageservices/Query-Entities)를 참조하세요.  
 
 * *지점 쿼리*는 사용하기에 가장 효율적인 조회 방법이며, 대용량 조회 또는 가장 낮은 대기 시간이 필요한 조회에 사용하는 것이 좋습니다. 이러한 쿼리에서는 인덱스를 사용해 `PartitionKey` 및 `RowKey` 값을 지정하여 개별 엔터티를 효율적으로 찾을 수 있습니다. 예: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`  
 * 두 번째로 좋은 방법은 *범위 쿼리*입니다. 이 쿼리는 `PartitionKey`를 사용하고 `RowKey` 값 범위를 필터링하여 둘 이상의 엔터티를 반환합니다. `PartitionKey` 값은 특정 파티션을 식별하고, `RowKey` 값은 해당 파티션에 있는 엔터티의 하위 세트를 식별합니다. 예: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`  
@@ -410,7 +410,7 @@ Table Storage에서 관계를 모델링하는 방법에는 여러 가지가 있�
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="부서 엔터티와 직원 엔터티를 보여 주는 그래픽":::
 
-이 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 물론 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table Storage의 주요 시나리오 중 하나는 [Command Query Responsibility Segregation](https://msdn.microsoft.com/library/azure/jj554200.aspx) 패턴에서 [구체화된 뷰 패턴](https://msdn.microsoft.com/library/azure/dn589782.aspx)을 사용하는 것입니다.  
+이 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 물론 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table Storage의 주요 시나리오 중 하나는 [Command Query Responsibility Segregation](/previous-versions/msp-n-p/jj554200(v=pandp.10)) 패턴에서 [구체화된 뷰 패턴](/previous-versions/msp-n-p/dn589782(v=pandp.10))을 사용하는 것입니다.  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>파티션 간 보조 인덱스 패턴
 동일한 파티션에 다른 `RowKey` 값을 사용하여 각 엔터티의 여러 복사본을 저장합니다. 이렇게 하면 다양한 `RowKey` 값을 사용하여 빠르고 효율적으로 조회하고 대체 정렬 순서를 사용할 수 있습니다. EGT를 사용하여 복사본 간의 업데이트를 일관성 있게 유지할 수 있습니다.  
@@ -437,7 +437,7 @@ Table Storage는 `PartitionKey` 및 `RowKey` 값을 사용하여 엔터티를 �
 * 영업 부서에서 직원 ID 범위가 000100~000199인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') 및 (RowKey ge 'empid_000100') 및 (RowKey le 'empid_000199')  
 * Sales 부서에서 메일 주소가 "a"로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-앞의 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](https://msdn.microsoft.com/library/azure/dd179421.aspx)를 참조하세요.  
+앞의 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](/rest/api/storageservices/Query-Entities)를 참조하세요.  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -497,7 +497,7 @@ Table Storage는 `PartitionKey` 및 `RowKey` 값을 사용하여 엔터티를 �
 * 영업 부서에서 직원 ID 순으로 정렬하여 직원 ID 범위가 **000100**~**000199**인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'empid_Sales') 및 (RowKey ge '000100') 및 (RowKey le '000199')  
 * Sales 부서에서 직원 메일 주소순으로 정렬하여 메일 주소가 "a"로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-앞의 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](https://msdn.microsoft.com/library/azure/dd179421.aspx)를 참조하세요.  
+앞의 예제에 사용된 필터 구문은 Table Storage REST API에서 가져온 것입니다. 자세한 내용은 [쿼리 엔터티](/rest/api/storageservices/Query-Entities)를 참조하세요.  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -557,7 +557,7 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 
 #### <a name="recover-from-failures"></a>오류에서 복구
 작업자 역할이 보관 작업을 다시 시작해야 하는 것일 경우 다이어그램의 4-5단계의 작업은 *멱등원*이어야 하는 것이 중요합니다. Table Storage를 사용하는 경우 4단계에서는 "삽입 또는 바꾸기" 작업을 사용하고, 5단계에서는 사용 중인 클라이언트 라이브러리에서 "있는 경우 삭제" 작업을 사용해야 합니다. 다른 스토리지 시스템을 사용하는 경우에는 적절한 멱등원 작업을 사용해야 합니다.  
 
-작업자 역할이 다이어그램의 6단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지 읽기 및 큐에서 제거한 횟수 확인에 대한 자세한 내용은 [메시지 가져오기](https://msdn.microsoft.com/library/azure/dd179474.aspx)를 참조하세요.  
+작업자 역할이 다이어그램의 6단계를 완료하지 못한 경우에는 시간 초과 후 작업자 역할이 작업을 다시 처리할 수 있도록 준비된 큐에 메시지가 다시 나타납니다. 작업자 역할은 큐의 메시지를 읽은 횟수를 확인할 수 있으며, 필요한 경우 별도의 큐로 보내 조사할 수 있도록 "포이즌" 메시지라는 플래그를 지정할 수 있습니다. 큐 메시지 읽기 및 큐에서 제거한 횟수 확인에 대한 자세한 내용은 [메시지 가져오기](/rest/api/storageservices/Get-Messages)를 참조하세요.  
 
 Table Storage 및 Queue Storage의 일부 오류는 일시적 오류이므로 클라이언트 애플리케이션에 이를 처리할 수 있는 적절한 재시도 논리가 있어야 합니다.  
 
@@ -1009,7 +1009,7 @@ Table Storage에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반
 - 쿼리가 5초 이내에 완료되지 않았습니다.
 - 쿼리가 파티션 경계를 교차 합니다. 
 
-연속 토큰의 작동 방식에 대한 자세한 내용은 [쿼리 제한 시간 및 페이지 번호 매김](https://msdn.microsoft.com/library/azure/dd135718.aspx)을 참조하세요.  
+연속 토큰의 작동 방식에 대한 자세한 내용은 [쿼리 제한 시간 및 페이지 번호 매김](/rest/api/storageservices/Query-Timeout-and-Pagination)을 참조하세요.  
 
 Storage 클라이언트 라이브러리를 사용하는 경우 Table Storage에서 엔터티를 반환할 때 연속 토큰을 자동으로 처리할 수 있습니다. 예를 들어, 다음 C# 코드 예제는 Table Storage가 응답으로 반환하는 연속 토큰을 자동으로 처리합니다.  
 
@@ -1415,7 +1415,7 @@ SAS(공유 액세스 서명) 토큰을 사용하여 클라이언트 애플리케
 * 웹 및 작업자 역할이 엔터티 관리에서 수행하는 작업 중 일부를 오프로드할 수 있습니다. 최종 사용자 컴퓨터 및 모바일 디바이스와 같은 클라이언트 디바이스로 오프로드할 수 있습니다.  
 * 제약적이고 시간 제한된 권한 세트(예: 특정 리소스에 대한 읽기 전용 액세스 허용)을 클라이언트에 할당할 수 있습니다.  
 
-Table Storage에서 SAS 토큰 사용에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.  
+Table Storage에서 SAS 토큰 사용에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../storage/common/storage-sas-overview.md)을 참조하세요.  
 
 그러나 Table Storage의 엔터티에 대해 클라이언트 애플리케이션에 권한을 부여하는 SAS 토큰을 여전히 생성해야 합니다. 스토리지 계정 키에 안전하게 액세스할 수 있는 환경에서 이 작업을 수행합니다. 일반적으로 웹 또는 작업자 역할을 사용하여 SAS 토큰을 생성하고 엔터티에 액세스해야 하는 클라이언트 애플리케이션에 이를 제공합니다. SAS 토큰을 생성하여 클라이언트에 제공하는 작업과 관련된 오버헤드가 여전히 있으므로 특히 대용량 시나리오에서 이 오버헤드를 줄일 수 있는 최상의 방법을 고려해야 합니다.  
 
@@ -1512,5 +1512,4 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 * 이제 메서드 서명은 `async` 수정자를 포함하고 `Task` 인스턴스를 반환합니다.  
 * 이 메서드는 이제 `Execute` 메서드를 호출하여 엔터티를 업데이트하는 대신, `ExecuteAsync` 메서드를 호출합니다. 이 메서드는 `await` 한정자를 사용하여 결과를 비동기식으로 검색합니다.  
 
-클라이언트 애플리케이션은 이와 같은 여러 비동기 메서드를 호출할 수 있으며, 각 메서드 호출은 별도의 스레드에서 실행됩니다.  
-
+클라이언트 애플리케이션은 이와 같은 여러 비동기 메서드를 호출할 수 있으며, 각 메서드 호출은 별도의 스레드에서 실행됩니다.

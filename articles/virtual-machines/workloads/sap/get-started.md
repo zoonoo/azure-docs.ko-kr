@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/19/2020
+ms.date: 10/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b481a1ccf36120a30bf7c923e2d59c5782433567
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0ea5995dbd6397c37f88c302754bc7ac1e5ef089
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282512"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478272"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -77,8 +77,9 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 
 
-## <a name="change-log"></a>변경 로그
+## <a name="change-log"></a>로그 변경
 
+- 10/22/2020: SLES에 대 한 Azure Vm의 sap nw에 [대 한 ha](./high-availability-guide-suse.md)변경, [SLES를 사용](./high-availability-guide-suse-netapp-files.md)하는 azure vm의 sap nw에 대 한 HA, [sap 용 RHEL vm](./high-availability-guide-rhel.md) 에 대 한 ha 및 RHEL의 [Azure vm](./high-availability-guide-rhel-netapp-files.md) 에 있는 azure vm의 ha에 대 한 ha에 대 한 권장 사항 조정 net.ipv4.tcp_keepalive_time  
 - 10/16/2020: Pacemaker를 사용 하 여 SLES의 azure vm에서 [Ibm DB2 LUW의 ha](./dbms-guide-ha-ibm.md)를 변경 하 고, SAP 용 RHEL의 azure vm에 대 한 [ha](./high-availability-guide-rhel.md), LUW의 Azure VM에서 [ibm db2 RHEL의 ha](./high-availability-guide-rhel-ibm-db2-luw.md), RHEL [다중 SID 가이드의 azure](./high-availability-guide-rhel-multi-sid.md)vm에 대 한 Ha (영문), RHEL의 [AZURE vm에서 Sap nw에 대 한](./high-availability-guide-rhel-netapp-files.md)ha [SLES의 azure vm에 있는 azure VM](./high-availability-guide-suse.md)의 azure vm에 대 한 ha, [SLES 다중 SID 가이드](./high-availability-guide-suse-multi-sid.md)에서 azure vm의 sap NNW에 대 한 ha, [SLES에서](./high-availability-guide-suse-nfs.md)azure vm의 azure VM [에 대 한](./high-availability-guide-suse-netapp-files.md)ha, SLES에서 azure vm의 [SAP HANA ha](./sap-hana-high-availability.md), RHEL에서 [anf를 사용 하 여 SAP HANA 확장을 위한 ha](./sap-hana-high-availability-netapp-files-red-hat.md) , [RHEL의 Azure vm에 대 한 SAP HANA HA](./sap-hana-high-availability-rhel.md), [RHEL의 Azure vm에서 Pacemaker를 사용 하 여 확장 hsr SAP HANA](./sap-hana-high-availability-scale-out-hsr-rhel.md)wsfc 및 [공유 디스크를 사용 하 여 sap ascs/scs에 대 한 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-shared-disk.md), wsfc 및 [Azure 공유 디스크](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 를 사용 하는 sap ascs/scs 용 다중 sid ha 가이드 및 [WSFC 및 공유 디스크를 사용 하는 SAP ascs/scs에 대 한 다중 sid ha 가이드](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) 를 사용 하 여 보조 ip의 부하 분산 시나리오에서 부동 IP가 지원 되지 않는 문 추가 
 - 10/16/2020: [Hana Large instances의 SAP HANA 백업 및 복원](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore) 에서 Hana large 인스턴스의 저장소 스냅숏을 제어 하는 설명서를 추가 합니다.
 - 10/15/2020: azure에서 SAP BusinessObjects BI 플랫폼 릴리스 설명서, azure의 sap [BUSINESSOBJECTS bi 플랫폼 계획 및 구현 가이드](businessobjects-deployment-guide.md) Azure 및 [sap BusinessObjects bi 플랫폼 배포 가이드](businessobjects-deployment-guide-linux.md) (영문)

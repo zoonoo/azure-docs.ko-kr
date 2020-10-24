@@ -2,13 +2,13 @@
 title: 전용 이벤트 허브 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Event Hubs의 단일 테 넌 트 배포를 제공 하는 전용 Azure Event Hubs에 대 한 개요를 제공 합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 70061b5dc4fe72c9fd2fd60dd8c67da31b1d1e6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: e6208a8d50e21766969dbe9d9739d5003958126a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322444"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495095"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
@@ -53,43 +53,16 @@ Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최�
 
 ## <a name="how-to-onboard"></a>등록 방법
 
-[Azure Portal](https://aka.ms/eventhubsclusterquickstart) 을 통해 [Event Hubs 클러스터를 만드는](event-hubs-dedicated-cluster-create-portal.md) 셀프 서비스 환경은 이제 미리 보기로 제공 됩니다. 질문이 있거나 Event Hubs Dedicated 등록 하는 데 도움이 필요한 경우 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의 하세요.
+[Azure Portal](https://aka.ms/eventhubsclusterquickstart) 를 통해 [Event Hubs 클러스터를 만드는](event-hubs-dedicated-cluster-create-portal.md) 셀프 서비스 환경은 이제 미리 보기로 제공 됩니다. 질문이 있거나 Event Hubs Dedicated 등록 하는 데 도움이 필요한 경우 [Event Hubs 팀](mailto:askeventhubs@microsoft.com)에 문의 하세요.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
-#### <a name="what-can-i-achieve-with-a-cluster"></a>클러스터로 무엇을 할 수 있나요?
-
-Event Hubs 클러스터의 경우 수집 하 고 스트리밍할 수 있는 양은 생산자, 소비자, 수집 및 처리 속도 등 다양 한 요인에 따라 달라 집니다. 
-
-다음 표에는 테스트를 통해 실현한 벤치마크 결과가 나와 있습니다.
-
-| 페이로드 셰이프 | 수신기 | 수신 대역폭| 수신 메시지 | 송신 대역폭 | 송신 메시지 | 총 TU | CU당 TU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| 100x1KB의 일괄 처리 | 2 | 400MB/초 | 초당 400k 메시지 | 800MB/초 | 초당 800k 메시지 | 400TU | 100TU | 
-| 10x10KB의 일괄 처리 | 2 | 666MB/초 | 초당 66.6k 메시지 | 1.33GB/초 | 초당 133k 메시지 | 666TU | 166TU |
-| 6x32KB의 일괄 처리 | 1 | 1.05GB/초 | 초당 34k 메시지 | 1.05GB/초 | 초당 34k 메시지 | 1,000TU | 250TU |
-
-테스트에 사용된 조건은 다음과 같습니다.
-
-- CUs (용량 단위)가 4 개인 전용 계층 Event Hubs 클러스터가 사용 되었습니다. 
-- 수집에 사용된 이벤트 허브에는 200개의 파티션이 있었습니다. 
-- 데이터는 모든 파티션으로부터 받는 두 개의 수신기 애플리케이션에서 수집되었습니다.
-
-#### <a name="can-i-scale-updown-my-cluster"></a>클러스터를 확장/축소할 수 있나요?
-
-만든 후에는 최소 4 시간 사용에 대 한 클러스터가 청구 됩니다. 셀프 서비스 환경의 Preview 릴리스에서는 *기술 > 할당량 > 요청* 하는 Event Hubs 팀에 [지원 요청](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하 여 클러스터를 확장 하거나 축소할 수 있도록 전용 클러스터를 강화 하거나 규모를 확장할 수 있습니다. 클러스터 규모를 축소 하는 요청을 완료 하는 데 최대 7 일까 지 걸릴 수 있습니다. 
-
-#### <a name="how-will-geo-dr-work-with-my-cluster"></a>지리적 DR은 내 클러스터와 어떻게 작동 하나요?
-
-전용 계층 클러스터 아래의 다른 네임 스페이스를 사용 하 여 전용 계층 클러스터에서 네임 스페이스를 지리적으로 쌍으로 연결할 수 있습니다. 처리량 제한이 호환 되지 않아 오류가 발생 하므로 표준 제품에서 전용 계층 네임 스페이스를 네임 스페이스와 페어링 하지 않는 것이 좋습니다. 
-
-#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>표준 네임 스페이스를 전용 계층 클러스터에 속하도록 마이그레이션할 수 있나요?
-현재는 표준 네임 스페이스에서 전용으로 event hubs 데이터를 마이그레이션하기 위한 자동 마이그레이션 프로세스를 지원 하지 않습니다. 
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 Event Hubs Dedicated에 대 한 자세한 내용을 보려면 Microsoft 영업 담당자 또는 Microsoft 지원에 문의 하세요. 다음 링크를 방문 하 여 클러스터를 만들거나 Event Hubs 가격 책정 계층에 대 한 자세한 정보를 확인할 수도 있습니다.
 
-- [Azure Portal을 통해 Event Hubs 클러스터 만들기](https://aka.ms/eventhubsclusterquickstart) 
+- [Azure Portal를 통해 Event Hubs 클러스터 만들기](https://aka.ms/eventhubsclusterquickstart) 
 - [Event Hubs Dedicated 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) Microsoft 영업 담당자 또는 Microsoft 지원 서비스에서 Event Hubs Dedicated 용량에 대한 추가 정보를 얻을 수도 있습니다.
 - [Event Hubs FAQ](event-hubs-faq.md)에서는 가격 책정 정보를 설명하고 이벤트 허브에 대해 일부 자주 묻는 질문에 대한 답변을 제공합니다.

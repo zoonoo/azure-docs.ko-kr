@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 581c8fcad62c40555a90b7455a260259f3a09212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e941c941c7b406be8d6931fd7af4108137220d56
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802416"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476912"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 
@@ -34,8 +34,8 @@ ms.locfileid: "91802416"
 *    최신 [SDK](sql-api-sdk-dotnet-standard.md)를 사용 합니다. Preview Sdk는 프로덕션 환경에서 사용 하면 안 됩니다. 이렇게 하면 이미 수정 된 알려진 문제를 해결할 수 있습니다.
 *    [성능 팁](performance-tips.md)을 검토하고 제안된 사례를 따릅니다. 이렇게 하면 크기 조정, 대기 시간 및 기타 성능 문제를 방지할 수 있습니다.
 *    문제를 해결 하는 데 도움이 되도록 SDK 로깅을 사용 하도록 설정 합니다. 로깅을 사용 하도록 설정 하면 성능에 영향을 줄 수 있으므로 문제를 해결할 때만 사용 하도록 설정 하는 것이 좋습니다. 다음 로그를 사용 하도록 설정할 수 있습니다.
-*    Azure Portal를 사용 하 여 [메트릭을 기록](monitor-accounts.md) 합니다. 포털 메트릭은 Azure Cosmos DB 원격 분석을 표시 합니다 .이는 문제가 Azure Cosmos DB에 해당 하는지 또는 클라이언트 쪽의 것인지를 확인 하는 데 도움이 됩니다.
-*    V2 SDK 또는 V3 SDK의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) 에서 시점 작업 응답의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 을 기록 합니다.
+*    Azure Portal를 사용 하 여 [메트릭을 기록](./monitor-cosmos-db.md) 합니다. 포털 메트릭은 Azure Cosmos DB 원격 분석을 표시 합니다 .이는 문제가 Azure Cosmos DB에 해당 하는지 또는 클라이언트 쪽의 것인지를 확인 하는 데 도움이 됩니다.
+*    V2 SDK 또는 V3 SDK의 [진단](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) 에서 시점 작업 응답의 [진단 문자열](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) 을 기록 합니다.
 *    모든 쿼리 응답에서 [SQL 쿼리 메트릭](sql-api-query-metrics.md) 기록 
 *    [SDK 로깅]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 설정 따르기
 
@@ -51,7 +51,7 @@ ms.locfileid: "91802416"
 * 클라이언트 컴퓨터의 리소스가 부족 하 여 연결/가용성 문제가 발생할 수 있습니다. Azure Cosmos DB 클라이언트를 실행 하는 노드에서 CPU 사용률을 모니터링 하 고 높은 부하 상태에서 실행 중인 경우 확장/축소 하는 것이 좋습니다.
 
 ### <a name="check-the-portal-metrics"></a>포털 메트릭 확인
-[포털 메트릭을](monitor-accounts.md) 확인 하면 클라이언트 쪽 문제 인지 또는 서비스에 문제가 있는지 확인 하는 데 도움이 됩니다. 예를 들어, 메트릭에 처리율이 제한 된 요청 (HTTP 상태 코드 429)이 포함 된 경우 요청을 제한 하는 것을 의미 하는 요청 [빈도 너무 큼](troubleshoot-request-rate-too-large.md) 섹션을 확인 합니다. 
+[포털 메트릭을](./monitor-cosmos-db.md) 확인 하면 클라이언트 쪽 문제 인지 또는 서비스에 문제가 있는지 확인 하는 데 도움이 됩니다. 예를 들어, 메트릭에 처리율이 제한 된 요청 (HTTP 상태 코드 429)이 포함 된 경우 요청을 제한 하는 것을 의미 하는 요청 [빈도 너무 큼](troubleshoot-request-rate-too-large.md) 섹션을 확인 합니다. 
 
 ## <a name="common-error-status-codes"></a>일반적인 오류 상태 코드 <a id="error-codes"></a>
 
@@ -78,11 +78,11 @@ ms.locfileid: "91802416"
 
 * Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요. 
 
-    서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](../virtual-network/virtual-networks-acl.md)을 사용하여 방화벽에 서브넷을 추가합니다.
+    서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](/previous-versions/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * [AZURE VM에 공용 IP](../load-balancer/troubleshoot-outbound-connection.md#assignilpip)를 할당 합니다.
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>높은 네트워크 대기 시간
-높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet&preserve-view=true) 또는 V3 sdk의 [진단](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
+높은 네트워크 대기 시간은 V2 SDK의 [진단 문자열](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) 또는 V3 sdk의 [진단](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) 을 사용 하 여 식별할 수 있습니다.
 
 [시간 초과가](troubleshoot-dot-net-sdk-request-timeout.md) 없고 진단에 단일 요청이 표시 되는 경우 `ResponseTime` `RequestStartTime` (예:이 예에서는 >300 밀리초)와 같이 대기 시간이 긴 단일 요청을 표시 합니다.
 
@@ -94,11 +94,11 @@ ResponseTime: 2020-03-09T22:44:49.9279906Z, StoreResult: StorePhysicalAddress: r
 이 대기 시간에는 여러 원인이 있을 수 있습니다.
 
 * 응용 프로그램이 Azure Cosmos DB 계정과 동일한 지역에서 실행 되 고 있지 않습니다.
-* [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) 또는 [applicationregion](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) 구성이 잘못 되어 응용 프로그램이 현재 실행 중인 다른 지역에 연결 하려고 합니다.
+* [PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) 또는 [applicationregion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) 구성이 잘못 되어 응용 프로그램이 현재 실행 중인 다른 지역에 연결 하려고 합니다.
 * 트래픽이 많아 네트워크 인터페이스에서 병목 상태가 발생할 수 있습니다. 응용 프로그램이 Azure Virtual Machines에서 실행 되는 경우 가능한 해결 방법이 있습니다.
     * [가속화 된 네트워킹을](../virtual-network/create-vm-accelerated-networking-powershell.md)사용 하는 가상 컴퓨터를 사용 하는 것이 좋습니다.
     * [기존 가상 머신에서 가속화 된 네트워킹을](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)사용 하도록 설정 합니다.
-    * [더 높은 최종 가상 컴퓨터](../virtual-machines/windows/sizes.md)를 사용 하는 것이 좋습니다.
+    * [더 높은 최종 가상 컴퓨터](../virtual-machines/sizes.md)를 사용 하는 것이 좋습니다.
 
 ### <a name="common-query-issues"></a>일반적인 쿼리 문제
 

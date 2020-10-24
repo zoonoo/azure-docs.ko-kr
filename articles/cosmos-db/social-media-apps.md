@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850695"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478153"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 
@@ -216,9 +216,9 @@ Azure Cosmos DB를 사용 하 고 있으므로 검색 프로세스 및 UI 이외
 
 이 프로세스는 왜 그렇게 쉬울까요?
 
-Azure Cognitive Search는 [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-documentdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-create-index-portal.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 정말 간단하죠. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
+Azure Cognitive Search는 [인덱서](/rest/api/searchservice/Indexer-operations), 데이터 리포지토리를 연결 하는 백그라운드 프로세스 및 인덱스에서 개체를 추가, 업데이트 또는 제거 하는 자동으로를 구현 합니다. Azure Search는 [Azure SQL Database 인덱서](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure Blob 인덱서](../search/search-howto-indexing-azure-blob-storage.md) 그리고 다행히도 [Azure Cosmos DB 인덱서](../search/search-howto-index-cosmosdb.md)를 지원합니다. Cosmos DB에서 Azure Cognitive Search로 정보를 전환 하는 것은 간단 합니다. 두 기술은 모두 정보를 JSON 형식으로 저장하므로 [인덱스를 만들고](../search/search-what-is-an-index.md) 인덱싱할 문서에서 특성을 매핑하면 됩니다. 정말 간단하죠. 데이터의 크기에 따라, 모든 콘텐츠는 클라우드 인프라에서 최상의 Search-as-a-Service 솔루션을 통해 몇 분 내에 검색될 수 있습니다.
 
-Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 방문 [하 여 검색할](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/)수 있습니다.
+Azure Cognitive Search에 대 한 자세한 내용은 Hitchhiker 가이드를 방문 [하 여 검색할](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search)수 있습니다.
 
 ## <a name="the-underlying-knowledge"></a>기본 지식
 

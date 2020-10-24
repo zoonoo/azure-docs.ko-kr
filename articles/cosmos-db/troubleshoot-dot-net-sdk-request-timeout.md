@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021938"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476929"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>.NET SDK 요청 시간 제한 예외 Azure Cosmos DB 진단 및 문제 해결
 408 시간 제한이 발생 하기 전에 SDK에서 요청을 완료할 수 없는 경우 HTTP 오류가 발생 합니다.
@@ -28,7 +28,7 @@ SDK에는 제한 시간을 제어 하는 두 가지 다른 대안이 있으며 �
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수가 있습니다. 이 [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 매개 변수는 모든 네트워크 요청에서 전체 작업 전체에 사용 됩니다. 네트워크 요청 사이에서 취소 토큰을 확인 하 고 관련 토큰이 만료 되 면 작업을 취소할 수 있습니다. 작업 범위에서 예상 되는 대략적인 시간 제한을 정의 하려면 취소 토큰을 사용 해야 합니다.
+SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수가 있습니다. 이 [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) 매개 변수는 모든 네트워크 요청에서 전체 작업 전체에 사용 됩니다. 네트워크 요청 사이에서 취소 토큰을 확인 하 고 관련 토큰이 만료 되 면 작업을 취소할 수 있습니다. 작업 범위에서 예상 되는 대략적인 시간 제한을 정의 하려면 취소 토큰을 사용 해야 합니다.
 
 > [!NOTE]
 > `CancellationToken`매개 변수는 라이브러리에서 [잘못 된 상태를 발생 시 키](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/)취소를 확인 하는 메커니즘입니다. 취소가 정의 된 시간이 되 면 작업이 취소 되지 않을 수 있습니다. 대신, 시간이 지난 후에는이 작업을 수행 하는 것이 안전 하다 면 취소 합니다.

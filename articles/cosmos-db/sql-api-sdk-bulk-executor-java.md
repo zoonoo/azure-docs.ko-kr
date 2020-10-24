@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 72a224d4ad1807d095baa8db819878bf2e22e133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b487ca5301aebf642c27b78489309d5def9128b7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802721"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477626"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java Bulk Executor 라이브러리: 정보 다운로드
 
@@ -27,14 +27,14 @@ ms.locfileid: "91802721"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [SQL](./sql-query-getting-started.md)
+> * [대량 실행기 - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
@@ -42,7 +42,7 @@ ms.locfileid: "91802721"
 |**설명**|클라이언트 애플리케이션은 Bulk Executor 라이브러리를 통해 Azure Cosmos DB 계정에서 대량 작업을 수행할 수 있습니다. Bulk Executor 라이브러리는 BulkImport 및 BulkUpdate 네임스페이스를 제공합니다. BulkImport 모듈은 컬렉션이 최대 범위 내에 사용되도록 프로비전된 처리량과 같이 최적화된 방법으로 문서를 대량 수집할 수 있습니다. BulkUpdate 모듈은 Azure Cosmos 컨테이너의 기존 데이터를 패치로 대량 업데이트할 수 있습니다.|
 |**SDK 다운로드**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**GitHub의 대량 실행기 라이브러리**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **API 설명서**| [Java API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **API 설명서**| [Java API 참조 설명서](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**시작**|[Bulk Executor 라이브러리 Java SDK 시작](bulk-executor-java.md)|
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
@@ -67,5 +67,3 @@ ms.locfileid: "91802721"
 ### <a name="291"></a><a name="2.9.1"></a>2.9.1
 
 * 동시성의 시작 수준을 1로 업데이트하고 minibatch의 디버그 로그를 추가했습니다.
-
-
