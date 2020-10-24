@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476096"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92507806"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Synapse SQL 풀에 대한 데이터 로드 전략
 
@@ -113,12 +113,14 @@ Parquet 파일을 로드할 때 다음 SQL 데이터 형식 매핑을 사용 합
 |                            INT64                             |            INT(64,   true)            |      bigint      |
 |                            INT64                             |           INT(64, false  )            |  decimal(20,0)   |
 |                            INT64                             |                DECIMAL                |     decimal      |
-|                            INT64                             |         TIME(MICROS / NANOS)         |       time       |
-|                            INT64                             | TIMESTAMP(MILLIS / MICROS / NANOS) |    datetime2     |
+|                            INT64                             |         시간 (MILLIS)                 |       time       |
+|                            INT64                             | TIMESTAMP (MILLIS)                  |    datetime2     |
 | [복합 형식](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 명단 등록                  |   varchar(max)   |
 | [복합 형식](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   varchar(max)   |
 
-
+>[!IMPORTANT] 
+> - SQL 전용 풀은 현재 마이크로 s 및 NANOS 정밀도로 Parquet 데이터 형식을 지원 하지 않습니다. 
+> - Parquet와 SQL 간에 형식이 일치 하지 않거나 Parquet 데이터 형식이 지원 되지 않는 경우 다음과 같은 오류가 발생할 수 있습니다.  **"HdfsBridge:: recordReaderFillBuffer-레코드 판독기 버퍼를 채우는 동안 예기치 않은 오류 발생: ClassCastException: ..."**
 
 외부 개체를 만드는 예제는 [외부 테이블 만들기](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool)를 참조 하세요.
 
