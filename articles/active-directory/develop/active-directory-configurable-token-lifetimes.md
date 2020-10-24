@@ -9,23 +9,45 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 1410af4d3c1fb9974818e5c4ebc469eee03a314c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948626"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503779"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
 Microsoft id 플랫폼에서 발급 한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다. 그러나 현재 [관리 되는 id 서비스 사용자](../managed-identities-azure-resources/overview.md)에 대 한 토큰 수명 구성은 지원 되지 않습니다.
 
 > [!IMPORTANT]
-> 미리 보기 중에 고객의 의견을 확인 한 후 Azure AD 조건부 액세스에서 [인증 세션 관리 기능](../conditional-access/howto-conditional-access-session-lifetime.md) 을 구현 했습니다. 이 새로운 기능을 사용 하 여 로그인 빈도를 설정 하 여 새로 고침 토큰 수명을 구성할 수 있습니다. 5 월 30 2020 일 이후에는 새 테 넌 트가 구성 가능한 토큰 수명 정책을 사용 하 여 세션 및 새로 고침 토큰을 구성할 수 없습니다. 이후 몇 개월 이내에 사용 중단이 발생 합니다. 즉, 기존 세션을 중단 하 고 토큰 정책을 새로 고치는 것이 중지 됩니다. 사용 중단 후에도 액세스 토큰 수명을 구성할 수 있습니다.
+> 2021 년 1 월 30 일 후에는 테 넌 트가 더 이상 새로 고침 및 세션 토큰 수명을 구성할 수 없으며, Azure Active Directory 해당 날짜 이후 정책에서 기존 새로 고침 및 세션 토큰 구성을 다시 설정 하는 것이 중지 됩니다. 사용 중지 후에도 액세스 토큰 수명을 구성할 수 있습니다.
+> Azure AD 조건부 액세스에서 [인증 세션 관리 기능](../conditional-access/howto-conditional-access-session-lifetime.md)   을 구현 했습니다. 이 새로운 기능을 사용 하 여 로그인 빈도를 설정 하 여 새로 고침 토큰 수명을 구성할 수 있습니다. 조건부 액세스는 Azure AD Premium P1 기능이 며 프리미엄 [가격 책정 페이지](https://azure.microsoft.com/en-us/pricing/details/active-directory/)에서 프리미엄이 organzation에 적합 한지 여부를 평가할 수 있습니다. 
+> 
+> 사용 중지 날짜 후 조건부 액세스에서 인증 세션 관리를 사용 하지 않는 테 넌 트의 경우 Azure AD가 다음 섹션에 설명 된 기본 구성에 적용 될 것으로 예측할 수 있습니다.
+
+## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>사용 중지 후 구성 가능한 토큰 수명 속성
+새로 고침 및 세션 토큰 구성은 다음 속성과 각각의 설정 값에 영향을 받습니다. 새로 고침 및 세션 토큰 구성이 중지 된 후에는 정책에 사용자 지정 값이 구성 되어 있는지 여부에 관계 없이 Azure AD는 아래에 설명 된 기본값을 그대로 사용 합니다.  
+
+|속성   |정책 속성 문자열    |영향 |Default |
+|----------|-----------|------------|------------|
+|새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime  |새로 고침 토큰 |90일  |
+|단일 단계 새로 고침 토큰 최대 기간  |MaxAgeSingleFactor  |새로 고침 토큰(모든 사용자)  |Until-revoked  |
+|다단계 새로 고침 토큰 최대 기간  |MaxAgeMultiFactor  |새로 고침 토큰(모든 사용자) |180일  |
+|단일 단계 세션 토큰 최대 기간  |MaxAgeSessionSingleFactor |세션 토큰(영구 및 비영구)  |Until-revoked |
+|다단계 세션 토큰 최대 기간  |MaxAgeSessionMultiFactor  |세션 토큰(영구 및 비영구)  |180일 |
+
+[New-azureadpolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet을 사용 하 여 속성 값이 Azure AD 기본값과 다른 토큰 수명 정책을 식별할 수 있습니다.
+
+테 넌 트에서 정책을 사용 하는 방법을 자세히 이해 하려면 [AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet을 사용 하 여 정책에 연결 된 앱 및 서비스 주체를 식별할 수 있습니다. 
+
+테 넌 트에 새로 고침 및 세션 토큰 구성 속성에 대 한 사용자 지정 값을 정의 하는 정책이 있는 경우 범위 내 정책을 위에서 설명한 기본값을 반영 하는 값으로 업데이트 하는 것이 좋습니다. 변경 내용이 없는 경우 Azure AD는 기본값을 자동으로 적용 합니다.  
+
+## <a name="overview"></a>개요
 
 Azure AD에서 정책 개체는 개별 애플리케이션 또는 조직의 모든 애플리케이션에 적용되는 규칙 집합을 나타냅니다. 각 정책 유형에는 할당된 개체에 적용되는 속성 집합이 포함된 고유의 구조가 있습니다.
 
@@ -85,7 +107,7 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 토큰 수명 정책은 토큰 수명 규칙을 포함하는 정책 개체의 형식입니다. 정책의 속성을 사용하여 지정된 토큰 수명을 제어할 수 있습니다. 설정된 정책이 없는 경우 시스템에서 기본 수명값을 적용합니다.
 
 ### <a name="configurable-token-lifetime-properties"></a>구성 가능한 토큰 수명 속성
-| 속성 | 정책 속성 문자열 | 영향 | 기본값 | 최소 | 최대 |
+| 속성 | 정책 속성 문자열 | 영향 | Default | 최소 | 최대 |
 | --- | --- | --- | --- | --- | --- |
 | 액세스 토큰 수명 |AccessTokenLifetime<sup>2</sup> |액세스 토큰, ID 토큰, SAML2 토큰 |1시간 |10분 |1일 |
 | 새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime |새로 고침 토큰 |90일 |10분 |90일 |
@@ -98,7 +120,7 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 * <sup>2</sup> Microsoft 팀 웹 클라이언트의 작동을 보장 하려면 Microsoft 팀에 대해 15 분 이상 AccessTokenLifetime를 유지 하는 것이 좋습니다.
 
 ### <a name="exceptions"></a>예외
-| 속성 | 영향 | 기본값 |
+| 속성 | 영향 | Default |
 | --- | --- | --- |
 | 새로 고침 토큰 최대 기간(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |새로 고침 토큰(해지 정보가 부족한 페더레이션된 사용자에 대해 발급됨<sup>1</sup>) |12시간 |
 | 새로 고침 토큰 최대 비활성 시간(비밀 클라이언트에 대해 발급됨) |새로 고침 토큰(비밀 클라이언트에 대해 발급됨) |90일 |

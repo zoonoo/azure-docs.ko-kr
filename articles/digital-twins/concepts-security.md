@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485752"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503320"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -20,7 +20,7 @@ ms.locfileid: "92485752"
 
 또한 Azure Digital Twins는 미사용 데이터의 암호화를 지원 합니다.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 권한 부여
+## <a name="roles-and-permissions-with-azure-rbac"></a>Azure RBAC를 사용 하 여 역할 및 사용 권한
 
 Azure RBAC는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (azure AD)와의 통합을 통해 Azure Digital twins에 제공 됩니다.
 
@@ -47,22 +47,32 @@ Azure에서 지원 되는 역할 및 역할 할당에 대 한 자세한 내용�
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins의 Azure 역할
 
-Azure는 Azure Digital Twins 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
-* *Azure Digital Twins 데이터 소유자* –이 역할을 사용 하 여 Azure Digital twins 리소스를 통해 모든 액세스 권한을 제공 합니다.
-* *Azure Digital Twins 데이터 판독기* –이 역할을 사용 하 여 Azure Digital twins 리소스에 대 한 읽기 전용 액세스를 제공 합니다.
+Azure는 Azure Digital Twins [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)에 대 한 액세스 권한을 부여 하기 위한 **두 개의 azure 기본 제공 역할** 을 제공 합니다. 이름 또는 ID를 기준으로 역할을 참조할 수 있습니다.
+
+| 기본 제공 역할 | Description | ID | 
+| --- | --- | --- |
+| Azure Digital Twins 데이터 소유자 | Azure Digital Twins 리소스에 대 한 모든 권한을 제공 합니다. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Azure Digital Twins 데이터 판독기 | Azure Digital Twins 리소스에 대 한 읽기 전용 액세스를 제공 합니다. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > 이러한 역할은 최근에 미리 보기의 이전 이름에서 이름이 변경 되었습니다.
 > * *Azure Digital Twins 데이터 소유자* 는 이전에 *Azure 디지털 쌍 소유자 (미리 보기)* 였습니다.
 > * *Azure Digital Twins 데이터 판독기* 는 이전에 *Azure 디지털 쌍 판독기 (미리 보기)* 였습니다.
 
-기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
-
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
 * Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
 * CLI 명령을 통해 역할 추가 또는 제거
 
 이 작업을 수행 하는 방법에 대 한 자세한 단계는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
+
+기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md) 를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [*azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조 하세요.
+
+##### <a name="automating-roles"></a>역할 자동화
+
+자동화 된 시나리오에서 역할을 참조 하는 경우 이름 대신 **id** 를 참조 하는 것이 좋습니다. 이름은 릴리스 사이에서 변경 될 수 있지만 Id는 더 안정적이 지 않으므로 자동화에서 참조할 수 없습니다.
+
+> [!TIP]
+> (참조)와 같은 cmdlet을 사용 하 여 역할을 assiging 하는 경우 대신 `New-AzRoleAssignment` 매개 변수를 사용 하 여[reference](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0) `-RoleDefinitionId` `-RoleDefinitionName` 역할에 대 한 이름 대신 ID를 전달할 수 있습니다.
 
 ### <a name="permission-scopes"></a>사용 권한 범위
 

@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629372"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516886"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Azure Synapse에서 데이터베이스 보안
 
@@ -92,7 +92,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-Azure Portal에서 데이터베이스 및 서버를 관리 하거나 Azure Resource Manager API를 사용 하 여 포털 사용자 계정의 역할 할당에 의해 제어 됩니다. 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
+Azure Portal에서 데이터베이스 및 서버를 관리 하거나 Azure Resource Manager API를 사용 하 여 포털 사용자 계정의 역할 할당에 의해 제어 됩니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
 
 ## <a name="encryption"></a>암호화
 

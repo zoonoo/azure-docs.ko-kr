@@ -7,15 +7,15 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155485"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516191"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 사용 권한을 사용 하는 방법
-이 문서에서는 Azure 스프링 클라우드 리소스에 대 한 권한을 위임 하는 사용자 지정 역할을 만드는 방법을 보여 줍니다. 사용자 지정 역할은 다양 한 스톡 권한으로 [기본 제공 Azure 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 을 확장 합니다.
+이 문서에서는 Azure 스프링 클라우드 리소스에 대 한 권한을 위임 하는 사용자 지정 역할을 만드는 방법을 보여 줍니다. 사용자 지정 역할은 다양 한 스톡 권한으로 [Azure 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 을 확장 합니다.
 
 다음 사용자 지정 역할을 구현 합니다.
 

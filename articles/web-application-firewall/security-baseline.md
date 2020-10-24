@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5ecfd5e5ff29b2eade4391976947062d6e8f186f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021183"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516157"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 azure 보안 기준
 
@@ -355,7 +355,7 @@ Azure Active Directory (Azure AD) 사용자 계정에 대 한 진단 설정을 �
 
 **지침**: 환경 유형 및 데이터 민감도 수준 (예: 개발, 테스트 및 프로덕션 환경)과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 
 
-Azure AD (Azure Active Directory)를 사용 하 여 azure 리소스에 대 한 액세스를 제어 합니다. azure RBAC (역할 기반 액세스 제어).
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 리소스에 대 한 액세스를 제어 합니다.
 
 - [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
 
@@ -379,10 +379,10 @@ Azure AD (Azure Active Directory)를 사용 하 여 azure 리소스에 대 한 �
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: azure AD (Azure Active Directory) 역할 기반 액세스 제어 (azure RBAC)를 사용 하 여 azure 리소스에 대 한 액세스를 제어 합니다.
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+**지침**: azure 역할 기반 액세스 제어 (azure RBAC)를 사용 하 여 azure 리소스에 대 한 액세스를 제어 합니다.
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

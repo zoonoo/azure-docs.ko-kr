@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: cd1e9431d7125b405f31cb1ed329e6e264cd247e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 135b780f547ddd8e979899898b9971c4dcf89cee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285930"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514710"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SpaceIQ 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91285930"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -95,7 +95,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 SpaceIQ를 �
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 SpaceIQ에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 해제 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [SpaceIQ single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-tutorial)에 제공 된 지침에 따라 SpaceIQ에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
+> [SpaceIQ single sign-on 자습서](./spaceiq-tutorial.md)에 제공 된 지침에 따라 SpaceIQ에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Azure AD에서 SpaceIQ에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
@@ -123,7 +123,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 SpaceIQ를 �
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **SpaceIQ에 사용자 Azure Active Directory 동기화를**선택 합니다.
 

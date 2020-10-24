@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a7f27ff20a4770caea44e73d91001d9785c015
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229007"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517228"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Stream Analytics에 대 한 Azure 보안 기준
 
@@ -248,7 +248,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: 기본 암호 변경(해당하는 경우)
 
-**지침**: 인증은 Azure Active Directory와 함께 제공 되며 서비스를 관리 하기 위해 RBAC (역할 기반 액세스 제어)에 의해 보호 되므로 Stream Analytics 기본 암호의 개념이 없습니다. 삽입 스트림 서비스와 출력 서비스에 따라 작업에 구성 된 자격 증명을 회전 해야 합니다.
+**지침**: 서비스를 관리 하기 위해 azure RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 및 보안을 통해 인증이 제공 되므로 Stream Analytics는 기본 암호의 개념이 없습니다. 삽입 스트림 서비스와 출력 서비스에 따라 작업에 구성 된 자격 증명을 회전 해야 합니다.
 
 * [Stream Analytics 작업의 입력 및 출력에 대 한 로그인 자격 증명 회전](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -260,7 +260,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침**: 관리자 역할에 대 한 최소 권한 액세스 원칙을 포함 하 여 모범 사례에 따라 id 관리 및 역할 보안 계획을 만듭니다. Azure Privileged Identity Management (PIM)를 사용 하 여 Azure AD 및 Azure 리소스에 대 한 just-in-time 권한 액세스를 제공 합니다. Azure PIM 경고 및 감사 기록을 사용 하 여 관리 계정의 활동을 모니터링 합니다. 손상 되었을 수 있는 관리 계정을 식별 하는 데 도움이 되도록 Azure AD 보안 보고서를 사용 합니다.
 
-* [자세한 정보](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [자세한 내용](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
 
 **Azure Security Center 모니터링**: 예
 
@@ -324,7 +324,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 Stream Analytics 리소스에 대 한 클라이언트의 액세스를 세부적으로 제어 하기 위해 RBAC (역할 기반 액세스 제어)를 제공 합니다.
+**지침**: Azure Active Directory (Azure AD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 Stream Analytics 리소스에 대 한 클라이언트의 액세스를 세부적으로 제어할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 제공 합니다.
 
 * [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
