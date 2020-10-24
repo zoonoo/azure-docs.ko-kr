@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709201"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489679"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
 
@@ -48,7 +48,7 @@ IPv4 역방향 조회 영역의 이름은 나타내는 IP 범위를 기반으로
 
 다음 예제에서는 Azure Portal을 통해 Azure DNS에 `2.0.192.in-addr.arpa`라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여줍니다.
 
- ![입력란이 채워진 "DNS 영역 만들기" 창](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Azure Portal를 통해 Azure DNS에서 2.0.192.in 라는 클래스 C 역방향 DNS 영역을 만드는 방법을 보여 주는 스크린샷](./media/dns-reverse-dns-hosting/figure2.png)
 
 **리소스 그룹 위치**는 리소스 그룹의 위치를 정의합니다. DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
 
@@ -117,7 +117,7 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 
 1. **DNS 영역** 창의 위쪽에서 **+ 레코드 집합**을 클릭하여 **레코드 집합 추가** 창을 엽니다.
 
-   ![레코드 집합 만들기 단추](./media/dns-reverse-dns-hosting/figure4.png)
+   ![화살표가 + 레코드 집합 단추를 가리키는 DNS 영역 창의 스크린샷](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. PTR 레코드에 대한 레코드 집합 이름은 반대 순서로 IPv4 주소의 나머지 부분이어야 합니다. 
 
@@ -162,7 +162,7 @@ az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.a
 4. **도메인 이름**에는 IP를 사용하는 리소스의 FQDN을 입력합니다.
 5. 창의 맨 아래에서 **확인**을 선택하여 DNS 레코드를 만듭니다.
 
-![입력란이 채워진 "레코드 집합 추가" 창](./media/dns-reverse-dns-hosting/figure7.png)
+![형식 필드의 값을 가리키는 화살표가 있는의 "레코드 집합 추가" 창을 보여 주는 스크린샷](./media/dns-reverse-dns-hosting/figure7.png)
 
 다음 예제에서는 PowerShell이나 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여줍니다.
 

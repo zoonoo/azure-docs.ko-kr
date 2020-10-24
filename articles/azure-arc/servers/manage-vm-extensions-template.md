@@ -1,14 +1,14 @@
 ---
 title: Azure Resource Manager 템플릿을 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 10/15/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 23cb1e85b9560b7033dc5bdce672ee8718ed326b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 935fa38fbb98622f2da7d2ce9e1d166b12a32e44
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462935"
+ms.locfileid: "92491209"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용 하 여 Azure VM 확장 사용
 
@@ -145,7 +145,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 * 컴퓨터에서 외부 스크립트를 다운로드 해야 하 고 프록시 서버를 통해서만 통신할 수 있는 경우 [연결 된 컴퓨터 에이전트를 구성](manage-agent.md#update-or-remove-proxy-settings) 하 여 프록시 서버 환경 변수를 설정 해야 합니다.
 
-사용자 지정 스크립트 확장 구성은 스크립트 위치 및 실행할 명령 등을 지정합니다. 이 구성은 Linux 및 Windows 하이브리드 컴퓨터에 대해 아래에 제공 된 Azure Resource Manager 템플릿에 지정 됩니다.
+사용자 지정 스크립트 확장 구성은 스크립트 위치 및 실행할 명령과 같은 항목을 지정 합니다. 이 구성은 Linux 및 Windows 하이브리드 컴퓨터에 대해 아래에 제공 된 Azure Resource Manager 템플릿에 지정 됩니다.
 
 ### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
 
@@ -543,7 +543,7 @@ PowerShell DSC 확장을 사용 하기 위해 Windows 및 Linux에서 실행 하
 }
 ```
 
-## <a name="deploy-the-dependency-agent"></a>종속성 에이전트 배포
+## <a name="deploy-the-dependency-agent-extension"></a>종속성 에이전트 확장 배포
 
 Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linux에서 실행할 수 있도록 다음 샘플을 제공 합니다. 종속성 에이전트에 익숙하지 않은 경우 [Azure Monitor 에이전트 개요](../../azure-monitor/platform/agents-overview.md#dependency-agent)를 참조 하세요.
 

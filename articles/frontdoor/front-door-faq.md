@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331586"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488982"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -92,7 +92,6 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 - 백 엔드에 대 한 IP ACLing를 구성 하 여 Azure 전면 도어의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽을 허용 합니다. 백 엔드를 ACLing 아래 IP 세부 정보를 참조 하세요.
  
     - 프런트 도어의 IPv4 백 엔드 IP 주소 범위에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 의 *AzureFrontDoor* 섹션을 참조 하거나 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules)에서 서비스 태그 *AzureFrontDoor* 를 사용할 수도 있습니다.
-    - 서비스 태그에 포함 된 프론트 도어의 **IPv6** 백 엔드 IP 공간은 Azure IP 범위 JSON 파일에 나열 되지 않습니다. 명시적 IPv6 주소 범위를 찾고 있는 경우 현재 다음으로 제한 됩니다. `2a01:111:2050::/44`
     - 가상화 된 호스트 IP 주소를 통한 Azure의 [기본 인프라 서비스](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) : `168.63.129.16` 및 `169.254.169.254`
 
     > [!WARNING]

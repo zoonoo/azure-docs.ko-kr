@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 938968599f1824416666818a46cc73a1d33c5341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987732"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480601"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB 리소스 관리
 
@@ -20,9 +20,9 @@ Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB에 연결할 수 있�
 
 동일한 도구를 사용 하 여 여러 Azure 엔터티를 한 곳에서 관리 합니다. 저장소 blob 및 큐와 같은 다른 Azure 엔터티와 함께 Azure Cosmos DB 엔터티를 관리 하 고, 데이터를 조작 하 고, 저장 프로시저 및 트리거를 업데이트할 수 있습니다.
 
-Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table Api에 대해 구성 된 Cosmos 계정을 지원 합니다. 자세한 내용은 [Azure Storage 탐색기 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) 을 참조 하세요.
+Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table Api에 대해 구성 된 Cosmos 계정을 지원 합니다. 자세한 내용은 [Azure Storage 탐색기 Azure Cosmos DB]() 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 계정이 없으면 Azure Portal에서 계정을 만들 수 있습니다. 자세한 내용은 [Azure Cosmos DB: .net을 사용 하 여 SQL API 웹 앱 빌드 및 Azure Portal](create-sql-api-dotnet.md) 를 참조 하세요.
 
@@ -74,7 +74,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 에뮬레이터를 사용 하 여 Azure Cosmos DB에 연결 하려면 다음 단계를 수행 합니다. 이 메서드는 SQL 계정만 지원 합니다.
 
-1. Cosmos DB 에뮬레이터를 설치 하 고 엽니다. 에뮬레이터를 설치 하는 방법은 [Cosmos DB 에뮬레이터](https://docs.microsoft.com/azure/cosmos-db/local-emulator)를 참조 하세요.
+1. Cosmos DB 에뮬레이터를 설치 하 고 엽니다. 에뮬레이터를 설치 하는 방법은 [Cosmos DB 에뮬레이터](./local-emulator.md)를 참조 하세요.
 
 1. 왼쪽 트리에서 **로컬 및 연결** 을 찾아 **Cosmos DB 계정**을 마우스 오른쪽 단추로 클릭 한 다음 **Cosmos DB 에뮬레이터에 연결**을 선택 합니다.
 
@@ -173,7 +173,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="query-for-documents"></a>문서에 대한 쿼리
 
-* 문서 필터를 편집 하려면 [SQL 쿼리](how-to-sql-query.md)를 입력 한 다음 **적용**을 선택 합니다.
+* 문서 필터를 편집 하려면 [SQL 쿼리](./sql-query-getting-started.md)를 입력 한 다음 **적용**을 선택 합니다.
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -353,4 +353,4 @@ ASE에서 HTTP/HTTPS 프록시를 구성 하는 경우 왼쪽 트리에 Azure Co
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Storage 탐색기에서 Azure Cosmos DB를 사용 하는 방법을 보려면이 비디오를 시청 하세요. [Azure Storage 탐색기에서 Azure Cosmos DB를 사용](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)합니다.
-* [Storage Explorer 시작](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)에서 Storage Explorer에 대해 자세히 알아보고 더 많은 서비스에 연결합니다.
+* [Storage Explorer 시작](../vs-azure-tools-storage-manage-with-storage-explorer.md)에서 Storage Explorer에 대해 자세히 알아보고 더 많은 서비스에 연결합니다.

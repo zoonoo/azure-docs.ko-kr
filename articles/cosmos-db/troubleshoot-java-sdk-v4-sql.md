@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: f90160ba58983414b5421542c6292f4570f1e10a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 708a7139aec7b8d3fe9e5f08df2c5e93b99d0668
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142844"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476793"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
 
@@ -46,7 +46,7 @@ Azure Cosmos DB Java SDK v4는 Azure Cosmos DB SQL API에 액세스하기 위한
 최상의 성능을 얻으려면:
 * 앱이 Azure Cosmos DB 계정과 동일한 지역에서 실행되고 있는지 확인합니다. 
 * 앱이 실행되는 호스트에서 CPU 사용량을 확인합니다. CPU 사용량이 50% 이상인 경우 더 높은 구성을 사용해서 호스트에서 앱을 실행합니다. 또는 더 많은 컴퓨터에서 부하를 분산할 수 있습니다.
-    * Azure Kubernetes Service에서 애플리케이션이 실행 중인 경우 [Azure Monitor를 사용하여 CPU 사용률을 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze)할 수 있습니다.
+    * Azure Kubernetes Service에서 애플리케이션이 실행 중인 경우 [Azure Monitor를 사용하여 CPU 사용률을 모니터링](../azure-monitor/insights/container-insights-analyze.md)할 수 있습니다.
 
 #### <a name="connection-throttling"></a>연결 제한
 연결 제한은 [호스트 컴퓨터의 연결 제한] 또는 [Azure SNAT(PAT) 포트 고갈] 중 하나로 인해 발생할 수 있습니다.
@@ -62,13 +62,13 @@ ulimit -a
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
-공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
+공용 IP 주소 없이 앱이 Azure Virtual Machines에 배포되는 경우 기본적으로 [Azure SNAT 포트](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Azure Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](../load-balancer/load-balancer-outbound-connections.md#preallocatedports)으로 제한됩니다.
 
  Azure SNAT 포트는 VM에 개인 IP 주소 및 VM에서 공용 IP 주소에 연결하려고 하는 프로세스가 있는 경우에만 사용됩니다. Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
 
-* Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)를 참조하세요. 
+* Azure Virtual Machines 가상 네트워크의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 자세한 내용은 [Azure Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요. 
 
-    서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
+    서비스 엔드포인트를 사용하도록 설정한 경우 요청이 더 이상 공용 IP에서 Azure Cosmos DB로 전송되지 않습니다. 대신 가상 네트워크 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용하는 경우 서비스 엔드포인트를 사용하도록 설정하면 [Virtual Network ACL](/previous-versions/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.
 * Azure VM에 공용 IP를 할당합니다.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>서비스에 연결할 수 없음 - 방화벽
@@ -217,5 +217,3 @@ Azure Cosmos DB 엔드포인트에 대한 많은 연결이 `CLOSE_WAIT` 상태�
 [Enable client SDK logging]: #enable-client-sice-logging
 [호스트 컴퓨터의 연결 제한]: #connection-limit-on-host
 [Azure SNAT(PAT) 포트 고갈]: #snat
-
-

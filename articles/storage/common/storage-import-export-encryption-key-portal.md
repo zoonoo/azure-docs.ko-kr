@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345fd486788cfbb69454be488d771d9b4ea394ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83195248"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488642"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용
 
@@ -101,9 +101,9 @@ Import/Export 서비스의 고객 관리형 키를 구성하는 것은 선택 �
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | 고객 관리형 키에 대한 액세스가 철회되었습니다.                                                       | 예, 다음 사항을 확인하세요. <ol><li>키 자격 증명 모음의 액세스 정책에 여전히 MSI가 있습니다.</li><li>액세스 정책에서 가져오기, 래핑 및 래핑 해제 권한이 설정되었습니다.</li><li>키 자격 증명 모음이 방화벽의 보호를 받는 VNet에 있는 경우 **Microsoft에서 신뢰하는 서비스 허용**이 설정되었는지 확인합니다.</li><li>API를 사용하여 작업 리소스의 MSI가 `None`으로 초기화되었는지 확인합니다.<br>초기화되었다면 이 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 작업 리소스의 ID가 다시 생성됩니다.<br>새 ID를 만든 후에는 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | 고객 관리형 키가 사용하지 않도록 설정되었습니다.                                         | 예, 키 버전을 사용하도록 설정하여 복구할 수 있습니다.     |
-| CmkErrorKeyNotFound      | 고객 관리형 키를 찾을 수 없습니다. | 예, 키가 삭제되었지만 여전히 제거 기간 내에 있는 경우 [키 자격 증명 모음 키 제거 실행 취소](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval)를 사용하여 복구할 수 있습니다.<br>또는 <ol><li>예, 고객이 키를 백업해 둔 경우 키를 복원하면 됩니다.</li><li>아니요, 복구할 수 없습니다.</li></ol>
-| CmkErrorVaultNotFound |고객 관리형 키의 키 자격 증명 모음을 찾을 수 없습니다. |   키 자격 증명 모음이 삭제된 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>또는 키 자격 증명 모음이 다른 테넌트로 마이그레이션된 경우 아래 단계 중 하나를 사용하여 복구할 수 있습니다.<ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol>|
+| CmkErrorKeyNotFound      | 고객 관리형 키를 찾을 수 없습니다. | 예, 키가 삭제되었지만 여전히 제거 기간 내에 있는 경우 [키 자격 증명 모음 키 제거 실행 취소](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval)를 사용하여 복구할 수 있습니다.<br>또는 <ol><li>예, 고객이 키를 백업해 둔 경우 키를 복원하면 됩니다.</li><li>아니요, 복구할 수 없습니다.</li></ol>
+| CmkErrorVaultNotFound |고객 관리형 키의 키 자격 증명 모음을 찾을 수 없습니다. |   키 자격 증명 모음이 삭제된 경우:<ol><li>예, 제거 보호 기간 내에 있는 경우 [키 자격 증명 모음 복구](/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault)의 단계에 따라 복구할 수 있습니다.</li><li>아니요, 제거 보호 기간이 지나면 복구할 수 없습니다.</li></ol><br>또는 키 자격 증명 모음이 다른 테넌트로 마이그레이션된 경우 아래 단계 중 하나를 사용하여 복구할 수 있습니다.<ol><li>키 자격 증명 모음을 이전 테넌트로 되돌립니다.</li><li>`Identity = None`을 설정한 다음, 값을 다시 `Identity = SystemAssigned`로 설정합니다. 이렇게 하면 새 ID가 생성될 때 ID가 삭제되고 다시 생성됩니다. 키 자격 증명 모음의 액세스 정책에서 새 ID에 대한 `Get`, `Wrap` 및 `Unwrap` 권한을 사용하도록 설정합니다.</li></ol>|
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Azure Key Vault란](/azure/key-vault/key-vault-overview)?

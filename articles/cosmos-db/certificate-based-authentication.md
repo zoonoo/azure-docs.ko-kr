@@ -7,22 +7,22 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569735"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486534"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 키에 액세스 하기 위해 Azure AD id에 대 한 인증서 기반 인증
 
 인증서 기반 인증을 사용하면 클라이언트 인증서와 함께 Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure의 온-프레미스 컴퓨터 또는 가상 머신과 같이 ID가 필요한 컴퓨터에서 인증서 기반 인증을 수행할 수 있습니다. 응용 프로그램은 응용 프로그램에 직접 키를 포함 하지 않고 Azure Cosmos DB 키를 읽을 수 있습니다. 이 문서에서는 샘플 Azure AD 응용 프로그램을 만들고, 인증서 기반 인증에 대해 구성 하 고, 새 응용 프로그램 id를 사용 하 여 Azure에 로그인 하 고, Azure Cosmos 계정에서 키를 검색 하는 방법을 설명 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 id를 설정 하 고, Azure Cosmos 계정에서 키를 인증 하 고 액세스 하는 c # 샘플 앱을 제공 합니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [최신 버전](/powershell/azure/install-az-ps) 의 Azure PowerShell를 설치 합니다.
 
-* [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 ## <a name="register-an-app-in-azure-ad"></a>Azure AD에 앱 등록
 

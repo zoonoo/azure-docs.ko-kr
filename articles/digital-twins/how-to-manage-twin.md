@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461324"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494789"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -78,7 +78,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateDigitalTwin()` 합니다. 예를 들면 다음과 같습니다.
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateDigitalTwin()` 합니다. 예:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -381,6 +381,8 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 아래 실행 가능한 코드 샘플을 사용 하 여 쌍을 만들고, 해당 세부 정보를 업데이트 하 고, 쌍을 삭제할 수 있습니다. 
 
+### <a name="set-up-the-runnable-sample"></a>실행 가능한 샘플 설정
+
 이 코드 조각은 [*자습서: 샘플 클라이언트 앱을 사용 하 여 Azure Digital Twins 탐색*](tutorial-command-line-app.md)의 모델 정의 [에 대 한Room.js](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) 를 사용 합니다. 이 링크를 사용 하 여 파일로 직접 이동 하거나 [여기](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)에서 전체 종단 간 샘플 프로젝트의 일부로 다운로드할 수 있습니다.
 
 샘플을 실행 하기 전에 다음을 수행 합니다.
@@ -392,7 +394,12 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     dotnet add package Azure.identity
     ```
 
-그런 다음 샘플을 실행 합니다.
+또한 샘플을 직접 실행 하려면 로컬 자격 증명을 설정 해야 합니다. 다음 섹션에서는이 과정을 안내 합니다.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>샘플 실행
+
+위의 단계를 완료 한 후에는 다음 샘플 코드를 직접 실행할 수 있습니다.
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ namespace minimal
 ## <a name="manage-twins-with-cli"></a>CLI를 사용 하 여 쌍 관리
 
 Twins는 Azure Digital Twins CLI를 사용 하 여 관리할 수도 있습니다. 명령은 _How에서 찾을 수 있습니다 [. Azure Digital Twins CLI *를 사용](how-to-use-cli.md)합니다.
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>모든 디지털 쌍 보기
 

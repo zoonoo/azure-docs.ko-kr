@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504307"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491226"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>낮음-보통 네트워크 대역폭에서 작은 데이터 세트의 데이터 전송
  
@@ -52,17 +52,17 @@ ms.locfileid: "85504307"
 | 기능 | Azure Storage Explorer | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API 또는 SDK |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | 가용성 | 다운로드 및 설치 <br>독립 실행형 도구 | Azure Portal의 웹 기반 탐색 도구 | 명령줄 도구 |.NET, Java, Python, JavaScript, C++, Go, Ruby 및 PHP의 프로그래밍 가능한 인터페이스 |
-| 그래픽 인터페이스 | 예 | 예 | 아니요 | 아니요 |
+| 그래픽 인터페이스 | 예 | 예 | 예 | 예 |
 | 지원되는 플랫폼 | Windows, Mac, Linux | 웹 기반 |Windows, Mac, Linux |모든 플랫폼 |
 | Blob 및 폴더에 대해 허용되는 Blob<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 업로드<br>다운로드<br>관리 |업로드<br>다운로드<br>관리 | 예, 사용자 지정 가능 |
-| 파일 및 폴더에 대해 허용되는 Data Lake Gen1<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 아니요 |업로드<br>다운로드<br>관리                   | 아니요 |
+| 파일 및 폴더에 대해 허용되는 Data Lake Gen1<br>스토리지 작업 | 업로드<br>다운로드<br>관리 | 예 |업로드<br>다운로드<br>관리                   | 예 |
 | 파일 및 디렉터리에 대해 허용되는 File<br>Storage 작업 | 업로드<br>다운로드<br>관리 | 업로드<br>다운로드<br>관리   |업로드<br>다운로드<br>관리 | 예, 사용자 지정 가능 |
-| 테이블에 대해 허용되는 Table<br>Storage 작업 |관리 | 아니요 |AzCopy v7의 테이블 지원 |예, 사용자 지정 가능|
-| 허용되는 Queue Storage | 관리 | 아니요  |아니요 | 예, 사용자 지정 가능|
+| 테이블에 대해 허용되는 Table<br>Storage 작업 |관리 | 예 |AzCopy v7의 테이블 지원 |예, 사용자 지정 가능|
+| 허용되는 Queue Storage | 관리 | 예  |예 | 예, 사용자 지정 가능|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Storage Explorer를 사용하여 데이터를 전송](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)하는 방법을 알아봅니다.
-- [AzCopy를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [Azure Storage Explorer를 사용하여 데이터를 전송](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer)하는 방법을 알아봅니다.
+- [AzCopy를 사용하여 데이터 전송](/azure/storage/common/storage-use-azcopy-v10)
 

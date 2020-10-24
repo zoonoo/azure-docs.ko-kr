@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075943"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480652"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결
 
@@ -27,7 +27,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
 ## <a name="recommended-steps"></a>권장되는 단계
 
-1. [스토리지 분석 로그](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data)를 다운로드 합니다.
+1. [스토리지 분석 로그](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data)를 다운로드 합니다.
 
 2. 원시 형식 로그를 테이블 형식으로 변환 하려면 다음 PowerShell 스크립트를 사용 합니다.
 
@@ -99,10 +99,10 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    | Blob 유형 |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장|
    |---|---|---|---|
-   |GetBlob|예|아니요|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
-   |GetBlob|아니요|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|예|아니요|[**Put 작업:** RequestStatus = Success](#put-operation-requeststatus--success)|
-   |PutBlob|아니요|예|[**Put 작업:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|예|예|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
+   |GetBlob|예|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|예|예|[**Put 작업:** RequestStatus = Success](#put-operation-requeststatus--success)|
+   |PutBlob|예|예|[**Put 작업:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>상태 결과
 

@@ -8,12 +8,12 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eab701d22f579a816aa95bd43a74fd9ea07d9e4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469884"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490240"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (포털)
 
@@ -62,7 +62,7 @@ Azure Portal에 로그인 하 여 [앱 등록 블레이드](https://ms.portal.az
 
 **토큰 구성 (미리 보기)** 으로 이동 하 고 **선택적 클레임 추가**를 클릭 합니다. **ID** 를 선택 하 고 **전자 메일** 및 **upn** 클레임을 확인 합니다.
 
-![비밀 만들기](media/aro4-ad-tokens.png)
+![추가 된 전자 메일 및 upn 클레임을 보여 주는 스크린샷](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>클러스터에 사용자 및 그룹 할당 (선택 사항)
 

@@ -7,20 +7,20 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996446"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487979"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 PostgreSQL 확장
 
-PostgreSQL는 확장을 사용 하 여 데이터베이스의 기능을 확장 하는 기능을 제공 합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드 된 확장은 기본 제공 기능 처럼 작동할 수 있습니다. PostgreSQL 확장에 대 한 자세한 내용은 [패키지 관련 개체를 확장](https://www.postgresql.org/docs/current/static/extend-extensions.html)합니다 .를 참조 하세요.
+PostgreSQL는 확장을 사용 하 여 데이터베이스의 기능을 확장 하는 기능을 제공 합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드 된 확장은 기본 제공 기능 처럼 작동할 수 있습니다. PostgreSQL 확장에 대 한 자세한 내용은 [패키지 관련 개체를 확장](https://www.postgresql.org/docs/current/static/extend-extensions.html)합니다 .를 참조 하세요.
 
 ## <a name="use-postgresql-extensions"></a>PostgreSQL 확장 사용
 
-PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html)   Psql 도구에서 CREATE extension 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
+PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 psql 도구에서 [CREATE extension](https://www.postgresql.org/docs/current/static/sql-createextension.html) 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
 
 Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 대로 키 확장의 하위 집합을 지원 합니다. 나열 된 확장 이외의 확장은 지원 되지 않습니다. Azure Database for PostgreSQL를 사용 하 여 사용자 고유의 확장을 만들 수 없습니다.
 
@@ -31,7 +31,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
 > | [큐브](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
@@ -47,7 +47,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/current/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [dict \_ xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 확장 된 동의어 처리를 위한 텍스트 검색 사전 템플릿입니다. |
@@ -56,7 +56,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="functions-extensions"></a>함수 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 자동 증가 필드를 위한 함수입니다. |
 > | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
@@ -78,7 +78,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="hyperscale-citus-extensions"></a>Citus (hyperscale) 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. |
 > | 분할 \_ 재 분산 | 노드 추가 또는 제거의 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
@@ -86,7 +86,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [블 룸](https://www.postgresql.org/docs/current/bloom.html) | 블 룸 access 메서드 서명 파일 기반 인덱스입니다. |
 > | [btree\_gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | 특정 데이터 형식에 대 한 B-트리 형식의 동작을 구현 하는 샘플 GIN 연산자 클래스를 제공 합니다. |
@@ -95,14 +95,14 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대 한 관리 기능. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인 하는 함수입니다. |
@@ -128,7 +128,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장명** | **설명** |
+> | **내선 번호** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
@@ -140,7 +140,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg \_ stat \_ 문 확장](https://www.postgresql.org/docs/current/pgstatstatements.html) 은 SQL 문의 실행 통계를 추적 하는 방법을 제공 하기 위해 모든 Azure Database for PostgreSQL 서버에 미리 로드 됩니다.
 
-설정은 `pg_stat_statements.track` 확장에서 계산 되는 문을 제어 합니다. 기본적으로로 설정 `top` 됩니다. 즉, 클라이언트에서 직접 실행 한 모든 문이 추적 됩니다. 다른 두 가지 추적 수준은 `none`과 `all`입니다. 이 설정은 [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal)이나 [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli)를 통해 서버 매개 변수로 구성할 수 있습니다.
+설정은 `pg_stat_statements.track` 확장에서 계산 되는 문을 제어 합니다. 기본적으로로 설정 `top` 됩니다. 즉, 클라이언트에서 직접 실행 한 모든 문이 추적 됩니다. 다른 두 가지 추적 수준은 `none`과 `all`입니다. 이 설정은 [Azure Portal](./howto-configure-server-parameters-using-portal.md)이나 [Azure CLI](./howto-configure-server-parameters-using-cli.md)를 통해 서버 매개 변수로 구성할 수 있습니다.
 
 에서 제공 하는 쿼리 실행 정보와 서버 성능에 대 한 영향은 각 SQL 문을 로깅할 때 pg_stat_statements 간에 균형을 유지 합니다. Pg_stat_statements 확장을 사용 하지 않는 경우를로 설정 하는 것이 `pg_stat_statements.track` 좋습니다 `none` . 일부 타사 모니터링 서비스는 pg_stat_statements를 사용 하 여 쿼리 성능 정보를 제공할 수 있으므로 이것이 사용자의 사례 인지 여부를 확인 합니다.
 

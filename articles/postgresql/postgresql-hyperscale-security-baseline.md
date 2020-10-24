@@ -7,30 +7,30 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cef787cbf8ae38b5b80b63594710fcc21e124c5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318129"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481077"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 Azure 보안 기준
 
 Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 
-자세한 내용은 [Azure 보안 기준 개요](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)를 참조하세요.
+자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [보안 제어: 네트워크 보안](/azure/security/benchmarks/security-control-network-security)을 참조하세요.*
+*자세한 내용은 [보안 제어: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
 **지침**: Azure Database for PostgreSQL 서버 방화벽은 사용 권한이 있는 컴퓨터를 지정할 때까지 Citus (hyperscale) 코디네이터 노드에 대 한 모든 액세스를 차단 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다. 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 수준의 방화벽 규칙을 만들 수 있습니다.
 
-- [Azure Database for PostgreSQL-Hyperscale에서 방화벽 규칙을 구성 하는 방법 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Azure Database for PostgreSQL-Hyperscale에서 방화벽 규칙을 구성 하는 방법 (Citus)](./concepts-hyperscale-firewall-rules.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -40,11 +40,11 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 **지침**: Azure Policy를 사용하여 Azure Database for PostgreSQL 인스턴스에 연결된 네트워크 설정 및 네트워크 리소스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure Database for PostgreSQL 인스턴스의 네트워크 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
-- [Azure Blueprint를 만드는 방법](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -52,7 +52,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
-*자세한 내용은 [보안 제어: 로깅 및 모니터링](/azure/security/benchmarks/security-control-logging-monitoring)을 참조하세요.*
+*자세한 내용은 [보안 제어: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조하세요.*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
@@ -60,11 +60,11 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 또한 Azure Monitor를 통해 로그를 수집 하 여 Hyperscale (Citus)으로 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. 또는 Azure Sentinel 또는 타사 SIEM(Security Incident and Event Management)을 사용하도록 설정하고 데이터를 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Hyperscale의 메트릭 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Hyperscale의 메트릭 (Citus)](./concepts-hyperscale-monitoring.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -78,11 +78,11 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 또한 Azure Monitor를 통해 로그를 수집 하 여 Hyperscale (Citus)으로 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. 또는 Azure Sentinel 또는 타사 SIEM(Security Incident and Event Management)을 사용하도록 설정하고 데이터를 온보딩할 수 있습니다. 
 
-- [Hyperscale의 메트릭 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Hyperscale의 메트릭 (Citus)](./concepts-hyperscale-monitoring.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -92,9 +92,9 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 **지침**: Azure Monitor 내에서 Citus (hyperscale) 로그를 저장 하는 데 사용 되는 Log Analytics 작업 영역에 대해 조직의 규정 준수 규정에 따라 보존 기간을 설정 합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정에 리소스 로그 저장](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -104,11 +104,11 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 **지침**: 비정상적인 동작에 대 한 Citus (hyperscale) 인스턴스의 로그를 분석 하 고 모니터링 합니다. Azure Monitor의 Log Analytics를 사용하여 로그를 검토하고 로그 데이터에 대한 쿼리를 수행합니다. 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics에 대 한 자세한 내용은](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/log-query/get-started-portal.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -120,11 +120,11 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 Log Analytics 작업 영역을 Azure Sentinel에 등록하여 SOAR(보안 오케스트레이션 자동화 응답) 솔루션을 제공합니다. 이를 통해 플레이북(자동화된 솔루션)을 만들어 보안 문제를 수정하는 데 사용할 수 있습니다.
 
-- [Hyperscale의 메트릭 (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric)
+- [Hyperscale의 메트릭 (Citus)](./howto-hyperscale-alert-on-metric.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -132,7 +132,7 @@ Log Analytics 작업 영역을 Azure Sentinel에 등록하여 SOAR(보안 오케
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-*자세한 내용은 [보안 제어: ID 및 액세스 제어](/azure/security/benchmarks/security-control-identity-access-control)를 참조하세요.*
+*자세한 내용은 [보안 제어: ID 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
@@ -142,15 +142,15 @@ Citus (hyperscale)는 기본 제공 역할 기반 액세스 제어를 지원 하
 
 또한 PostgreSQL 엔진은 역할을 사용 하 여 데이터베이스 개체에 대 한 액세스를 제어 하 고, 새로 만든 Citus (Hyperscale) 서버 그룹에는 미리 정의 된 여러 역할이 있습니다. 사용자 권한을 수정 하려면 PgAdmin 또는 psql과 같은 도구를 사용 하 여 표준 PostgreSQL 명령을 사용 합니다.
 
-- [Azure 구독에 대 한 사용자 지정 역할 이해](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) 
+- [Azure 구독에 대 한 사용자 지정 역할 이해](../role-based-access-control/custom-roles.md) 
 
-- [Azure Database for PostgreSQL 리소스 공급자 작업 이해](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql) 
+- [Azure Database for PostgreSQL 리소스 공급자 작업 이해](../role-based-access-control/resource-provider-operations.md#microsoftdbforpostgresql) 
 
-- [Azure Database for PostgreSQL에 대 한 액세스 관리 이해](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management])
+- [Azure Database for PostgreSQL에 대 한 액세스 관리 이해](./concepts-security.md#access-management)
 
-- [Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자를 만드는 방법](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자를 만드는 방법](./howto-hyperscale-create-users.md)
 
-- [Psql을 사용 하 여 PostgreSQL-Hyperscale (Citus)에 연결 하는 방법](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#connect-to-the-database-using-psql)
+- [Psql을 사용 하 여 PostgreSQL-Hyperscale (Citus)에 연결 하는 방법](./quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -169,9 +169,9 @@ Citus (hyperscale)는 기본 제공 역할 기반 액세스 제어를 지원 하
 
 **지침**: Citus (hyperscale) 인스턴스에 액세스 하는 데 사용 되는 전용 관리 계정 사용과 관련 하 여 표준 운영 절차를 만듭니다. Azure 리소스를 관리 하기 위한 관리자 계정은 Azure Active Directory 연결 되며, 데이터베이스 액세스 권한을 관리 하기 위해 Citus (Hyperscale) 서버 그룹 내에 존재 하는 로컬 서버 관리자 계정도 있습니다. Azure Security Center Id 및 액세스 관리를 사용 하 여 Azure Active Directory 내의 관리 계정 수를 모니터링할 수 있습니다.
 
-- [Azure Security Center Id 및 액세스 이해](https://docs.microsoft.com/azure/security-center/security-center-identity-access) 
+- [Azure Security Center Id 및 액세스 이해](../security-center/security-center-identity-access.md) 
 
-- [Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자를 만드는 방법](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자를 만드는 방법](./howto-hyperscale-create-users.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -181,9 +181,9 @@ Citus (hyperscale)는 기본 제공 역할 기반 액세스 제어를 지원 하
 
 **지침**: Azure Portal에 액세스 하려면 MFA (Azure Active Directory Multi-Factor Authentication)를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
 
 **Azure Security Center 모니터링**: 예
@@ -194,9 +194,9 @@ Citus (hyperscale)는 기본 제공 역할 기반 액세스 제어를 지원 하
 
 **지침**: Azure 리소스에 로그인하여 구성하도록 구성된 MFA(Multi-Factor Authentication)를 통해 PAW(Privileged Access Workstation)를 사용합니다.
 
-- [Privileged Access Workstation에 대한 자세한 정보](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstation에 대한 자세한 정보](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -209,9 +209,9 @@ Citus (hyperscale)는 기본 제공 역할 기반 액세스 제어를 지원 하
 
 Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경고 및 보고서를 봅니다.
 
-- [PIM(Privileged Identity Management)을 배포하는 방법](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -222,7 +222,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 **지침**: 조건부 액세스 명명된 위치를 사용하여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹화에서만 포털 및 Azure Resource Manager에 액세스할 수 있도록 허용합니다.
 
-- [Azure에서 명명된 위치를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Azure에서 명명된 위치를 구성하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -234,9 +234,9 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 Citus (Hyperscale) 서버 그룹 내의 사용자는 Azure Active Directory 계정에 직접 연결할 수 없습니다. 데이터베이스 개체 액세스에 대 한 사용자 권한을 수정 하려면 PgAdmin 또는 psql과 같은 도구를 사용 하 여 표준 PostgreSQL 명령을 사용 합니다.
 
-- [사용자 역할의 권한 수정](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-modify-privileges-for-user-role)
+- [사용자 역할의 권한 수정](./howto-hyperscale-create-users.md#how-to-modify-privileges-for-user-role)
 
-- [AAD 인스턴스를 만들고 구성하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 
 
@@ -252,9 +252,9 @@ Citus (Hyperscale) 서버 그룹 내의 사용자는 Azure Active Directory 계�
 
 - [PostgreSQL 사용자 및 할당 된 역할 검토](https://www.postgresql.org/docs/current/database-roles.html)
 
-- [Azure AD 보고 이해](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
-- [Azure ID 액세스 검토를 사용하는 방법](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -266,7 +266,7 @@ Citus (Hyperscale) 서버 그룹 내의 사용자는 Azure Active Directory 계�
 
 Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics Workspace로 보내면 이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다. 
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -279,11 +279,11 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 추가 조사를 위해 로그를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD ID 보호 개요](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Azure AD ID 보호 개요](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Azure AD 위험한 로그인을 확인하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Azure Sentinel을 온보딩하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -293,7 +293,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 **지침**: 현재 사용할 수 없음 고객 Lockbox는 Citus (Hyperscale)에 대해 아직 지원 되지 않습니다.
 
-- [지원 되 고객 Lockbox 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [지원 되 고객 Lockbox 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -301,13 +301,13 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 ## <a name="data-protection"></a>데이터 보호
 
-*자세한 내용은 [보안 제어: 데이터 보호](/azure/security/benchmarks/security-control-data-protection)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 보호](../security/benchmarks/security-control-data-protection.md)를 참조하세요.*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: 중요한 정보의 인벤토리 유지 관리
 
 **지침**: 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Citus (hyperscale) 인스턴스 또는 관련 리소스를 추적 하는 데 도움을 줍니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -317,13 +317,13 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 관리 역할 및 방화벽 규칙의 조합을 사용 하 여 Azure Database for PostgreSQL 인스턴스에 대 한 네트워크 액세스를 격리 하 고 제한 합니다.
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [Azure Database for PostgreSQL-Hyperscale의 방화벽 규칙 이해 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Azure Database for PostgreSQL-Hyperscale의 방화벽 규칙 이해 (Citus)](./concepts-hyperscale-firewall-rules.md)
 
-- [Hyperscale의 역할 이해 (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Hyperscale의 역할 이해 (Citus)](./howto-hyperscale-create-users.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -337,9 +337,9 @@ Azure Portal를 통해 프로 비전 된 모든 Azure Database for PostgreSQL �
 
 경우에 따라 타사 응용 프로그램은 신뢰할 수 있는 CA (인증 기관) 인증서 파일 (.cer)에서 생성 된 로컬 인증서 파일을 안전 하 게 연결 해야 합니다.
 
-- [Azure Database for PostgreSQL-Hyperscale에서 TLS를 구성 하는 방법 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Azure Database for PostgreSQL-Hyperscale에서 TLS를 구성 하는 방법 (Citus)](./concepts-hyperscale-ssl-connection-security.md)
 
-- [TLS 연결에 대 한 인증서 확인이 필요한 응용 프로그램](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [TLS 연결에 대 한 인증서 확인이 필요한 응용 프로그램](./concepts-hyperscale-ssl-connection-security.md)
 
 
 
@@ -353,9 +353,9 @@ Azure Portal를 통해 프로 비전 된 모든 Azure Database for PostgreSQL �
 
 데이터베이스 수준에서 사용자 권한을 수정 하려면 PgAdmin 또는 psql과 같은 도구를 사용 하 여 표준 PostgreSQL 명령을 사용 합니다.
 
-- [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
-- [Azure Database for PostgreSQL 용 SQL을 사용 하 여 사용자 액세스를 구성 하는 방법](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Azure Database for PostgreSQL 용 SQL을 사용 하 여 사용자 액세스를 구성 하는 방법](./howto-hyperscale-create-users.md)
 
 
 **Azure Security Center 모니터링**: 예
@@ -367,7 +367,7 @@ Azure Portal를 통해 프로 비전 된 모든 Azure Database for PostgreSQL �
 **지침**:  
 Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 데이터베이스 트랜잭션 로그의 스냅숏 백업을 수행 합니다. 백업을 사용 하면 보존 기간 내의 특정 시점으로 서버를 복원할 수 있습니다. (보존 기간은 현재 모든 클러스터에 대해 35 일입니다.) 모든 백업은 AES 256 비트 암호화를 사용 하 여 암호화 됩니다. Citus (PostgreSQL Hyperscale) 제품은 암호화에 Microsoft 관리 키를 사용 합니다.
 
-- [Azure PostgreSQL-Hyperscale (Citus) 백업에 대 한 암호화 이해](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Azure PostgreSQL-Hyperscale (Citus) 백업에 대 한 암호화 이해](./concepts-hyperscale-backup.md)
 
 
 
@@ -379,7 +379,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 Citus (hyperscale)의 프로덕션 인스턴스 및 기타 중요 하거나 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -387,13 +387,13 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="vulnerability-management"></a>취약점 관리
 
-*자세한 내용은 [보안 제어: 취약성 관리](/azure/security/benchmarks/security-control-vulnerability-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 취약성 관리](../security/benchmarks/security-control-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
 **지침**: 현재 사용할 수 없음 Azure Security Center는 Citus (Azure Database for PostgreSQL)에 대 한 취약성 평가를 아직 지원 하지 않습니다.
 
-- [Azure Security Center의 Azure PaaS 서비스에 대 한 기능 검사](https://docs.microsoft.com/azure/security-center/features-paas)
+- [Azure Security Center의 Azure PaaS 서비스에 대 한 기능 검사](../security-center/features-paas.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -401,17 +401,17 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
-*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](/azure/security/benchmarks/security-control-inventory-asset-management)를 참조하세요.*
+*자세한 내용은 [보안 제어: 인벤토리 및 자산 관리](../security/benchmarks/security-control-inventory-asset-management.md)를 참조하세요.*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: 자동화 된 asset discovery 솔루션 사용
 
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내에서 모든 리소스 (Citus (hyperscale) 인스턴스 포함)를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)이 있는지 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거할 수 있습니다.
 
-- [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Azure RBAC 이해](../role-based-access-control/overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -421,7 +421,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Citus (hyperscale) 인스턴스 및 기타 관련 리소스에 태그를 적용 하 여 논리적으로 분류로 구성 하는 메타 데이터를 제공 합니다.
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -431,11 +431,11 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: 태깅, 관리 그룹 및 별도의 구독 (해당 하는 경우)을 사용 하 여 Citus (hyperscale) 인스턴스 및 관련 리소스를 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -451,9 +451,9 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 또한 Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 
 **Azure Security Center 모니터링**: 해당 없음
@@ -469,9 +469,9 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 또한 Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Graph를 사용하여 쿼리를 만드는 방법](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -484,9 +484,9 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -496,7 +496,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: "Microsoft Azure 관리" 앱에 대한 "액세스 차단"을 구성하여 사용자가 Azure Resource Manager와 상호 작용하는 기능을 제한하려면 Azure 조건부 액세스를 사용합니다. 이로 인해 중요 한 정보를 포함 하는 Citus (Hyperscale) 인스턴스와 같이 높은 수준의 보안 환경에서 리소스를 만들고 변경할 수 없습니다.
 
-- [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -504,7 +504,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="secure-configuration"></a>보안 구성
 
-*자세한 내용은 [보안 제어: 보안 구성](/azure/security/benchmarks/security-control-secure-configuration)을 참조하세요.*
+*자세한 내용은 [보안 제어: 보안 구성](../security/benchmarks/security-control-secure-configuration.md)을 참조하세요.*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
@@ -512,11 +512,11 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 또한 Azure Resource Manager은 구성이 조직의 보안 요구 사항을 충족 하거나 초과 하는지 확인 하기 위해 검토 해야 하는 JavaScript Object Notation (JSON)에서 템플릿을 내보낼 수 있습니다. 
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal) 
+- [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md) 
 
 
 
@@ -528,11 +528,11 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: azure 정책 [거부] 및 [배포 되지 않은 경우 배포]를 사용 하 여 azure 리소스에서 보안 설정을 적용 합니다.  또한 Azure Resource Manager 템플릿을 사용 하 여 조직에 필요한 Azure 리소스의 보안 구성을 유지 관리할 수 있습니다. 
 
-- [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-- [규정 준수를 적용 하는 정책 만들기 및 관리](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [규정 준수를 적용 하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Resource Manager 템플릿 개요](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Azure Resource Manager 템플릿 개요](../azure-resource-manager/templates/overview.md)
 
 
 
@@ -544,9 +544,9 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Citus (hyperscale) 인스턴스 및 관련 리소스에 대 한 사용자 지정 Azure 정책 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -556,11 +556,11 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: azure 정책 [거부] 및 [배포 되지 않은 경우 배포]를 사용 하 여 azure 리소스에서 보안 설정을 적용 합니다.  또한 Azure Resource Manager 템플릿을 사용 하 여 조직에 필요한 Azure 리소스의 보안 구성을 유지 관리할 수 있습니다. 
 
-- [Azure Policy 효과 이해](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-- [규정 준수를 적용 하는 정책 만들기 및 관리](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [규정 준수를 적용 하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Resource Manager 템플릿 개요](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Azure Resource Manager 템플릿 개요](../azure-resource-manager/templates/overview.md)
 
 
 
@@ -572,7 +572,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: "Microsoft. DBforPostgreSQL" 네임스페이스에서 Azure Policy 별칭을 사용하여 시스템 구성을 경고, 감사 및 적용하는 사용자 지정 정책을 만듭니다. Azure Database for PostgreSQL 인스턴스 및 관련 리소스에 대 한 구성을 자동으로 적용 하려면 Azure 정책 [감사], [거부] 및 [배포 안 함]을 사용 합니다.
 
-- [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -582,9 +582,9 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Citus (Azure Database for PostgreSQL-hyperscale)는 현재 관리 되는 id를 직접 지원 하지 않습니다. Azure Database for PostgreSQL 서버를 만드는 동안 관리자 사용자에 대 한 자격 증명을 제공 해야 합니다. Azure Portal 인터페이스에서 추가 사용자 역할을 만들 수 있습니다.
 
-- [Azure Database for PostgreSQL 만들기 – 하이퍼스케일(Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Azure Database for PostgreSQL 만들기 – 하이퍼스케일(Citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
 
-- [추가 사용자 역할 만들기](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-create-additional-user-roles)
+- [추가 사용자 역할 만들기](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
@@ -603,7 +603,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
-*자세한 내용은 [보안 제어: 맬웨어 방어](/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
+*자세한 내용은 [보안 제어: 맬웨어 방어](../security/benchmarks/security-control-malware-defense.md)를 참조하세요.*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: 비 컴퓨팅 Azure 리소스에 업로드할 파일 미리 검사
 
@@ -617,13 +617,13 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="data-recovery"></a>데이터 복구
 
-*자세한 내용은 [보안 제어: 데이터 복구](/azure/security/benchmarks/security-control-data-recovery)를 참조하세요.*
+*자세한 내용은 [보안 제어: 데이터 복구](../security/benchmarks/security-control-data-recovery.md)를 참조하세요.*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: 자동화된 정기 백업 보장
 
 **지침**: Azure Database for PostgreSQL – hyperscale (Citus)은 각 노드의 백업을 자동으로 만들고 로컬 중복 저장소에 저장 합니다. 백업을 사용 하 여 Citus (Hyperscale) 클러스터를 지정 된 시간으로 복원할 수 있습니다.
 
-- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](./concepts-hyperscale-backup.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -635,7 +635,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 가용성 영역을 지 원하는 Azure 지역에서 백업 스냅숏은 세 가지 가용성 영역에 저장 됩니다. 하나 이상의 가용성 영역이 온라인 상태 이면 Citus (Hyperscale) 클러스터는 복원 가능한입니다.
 
-- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](./concepts-hyperscale-backup.md)
 
 
 **Azure Security Center 모니터링**: 예
@@ -648,7 +648,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 방화벽 설정 및 PostgreSQL 서버 매개 변수는 원래 서버 그룹에서 유지 되지 않습니다. 이러한 값은 기본값으로 다시 설정 됩니다. 방화벽에서 모든 연결을 차단 합니다. 복원 후에는 이러한 설정을 수동으로 조정 해야 합니다.
 
-- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](./concepts-hyperscale-backup.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -658,7 +658,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: 삭제 된 Citus (hyperscale) 클러스터는 복원할 수 없습니다. 클러스터를 삭제 하면 해당 클러스터에 속하는 모든 노드가 삭제 되며 복구할 수 없습니다. 클러스터 리소스의 배포 후 실수로 삭제 하거나 예기치 않은 변경 내용을 방지 하기 위해 관리자는 관리 잠금을 활용할 수 있습니다.
 
-- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Azure Database for PostgreSQL-Hyperscale에서 백업 및 복원 하는 방법 (Citus)](./concepts-hyperscale-backup.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -666,13 +666,13 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [보안 제어: 인시던트 대응](/azure/security/benchmarks/security-control-incident-response)을 참조하세요.*
+*자세한 내용은 [보안 제어: 인시던트 대응](../security/benchmarks/security-control-incident-response.md)을 참조하세요.*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
 **지침**: 조직에 대한 인시던트 대응 지침을 작성합니다. 검색에서 사후 검토에 이르는 인시던트 처리/관리 단계뿐만 아니라 담당자의 모든 역할을 정의하는 인시던트 대응 계획이 있는지 확인합니다. 
 
-- [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) 
+- [Azure Security Center 내에서 워크플로 자동화를 구성하는 방법](../security-center/security-center-planning-and-operations-guide.md) 
 
 - [자체 보안 인시던트 대응 프로세스를 구축하는 방법에 대한 지침](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
@@ -708,7 +708,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: MSRC(Microsoft 보안 대응 센터)에서 불법적이거나 권한이 없는 당사자가 고객 데이터에 액세스했다고 검색하는 경우 Microsoft에서 보안 인시던트 연락처 정보를 사용하여 사용자에게 연락합니다.  문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다. 
 
-- [Azure Security Center 보안 연락처를 설정하는 방법](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -718,9 +718,9 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: 연속 내보내기 기능을 사용하여 Azure Security Center 경고 및 추천 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고 Sentinel을 스트리밍할 수 있습니다. 
 
-- [연속 내보내기를 구성하는 방법](https://docs.microsoft.com/azure/security-center/continuous-export) 
+- [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md) 
 
-- [경고를 Azure Sentinel로 스트림하는 방법](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -730,7 +730,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Azure Security Center의 워크플로 자동화 기능을 사용하여 보안 경고 및 권장 사항에 대한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다. 
 
-- [워크플로 자동화와 Logic Apps를 구성하는 방법](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [워크플로 자동화와 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -738,7 +738,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
-*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises)을 참조하세요.*
+*자세한 내용은 [보안 제어: 침투 테스트 및 레드 팀 연습](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)을 참조하세요.*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Azure 리소스에 대 한 정기적인 침투 테스트를 수행 하 고 모든 중요 한 보안 결과를 수정 하세요.
 
@@ -752,5 +752,5 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

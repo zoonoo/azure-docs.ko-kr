@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c6a5f69a5a32ed1279b367c93b5246eb77ef0208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1dc0c7f37dc848ecd361848934cbcc5640afc66
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802840"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490767"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Azure Monitor에서 메트릭으로 전환
 
-**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조 하세요. 클래식 메트릭을 사용 하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환 해야 합니다. 이 문서는 전환을 수행 하는 데 도움이 됩니다. 
+**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환해야 합니다. 이 문서는 전환을 수행하는 데 도움이 됩니다. 
 
 ## <a name="steps-to-complete-the-transition"></a>전환을 완료 하는 단계
 
@@ -30,12 +30,12 @@ Azure Monitor에서 메트릭으로 전환 하려면 다음 방법을 사용 하
 
 3. [Azure Monitor에서](#metrics-mapping-between-old-metrics-and-new-metrics) 현재 사용 하는 메트릭과 동일한 데이터를 제공 하는 메트릭을 식별 합니다. 
    
-4. [차트](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) 또는 [대시보드](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) 를 만들어 메트릭 데이터를 봅니다.
+4. [차트](/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) 또는 [대시보드](/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) 를 만들어 메트릭 데이터를 봅니다.
 
    > [!NOTE]
    > Azure Monitor 메트릭은 기본적으로 사용 하도록 설정 되어 있으므로 메트릭을 캡처하기 시작 하기 위해 수행 해야 할 작업이 없습니다. 그러나 이러한 메트릭을 보려면 차트나 대시보드를 만들어야 합니다. 
  
-5. 클래식 저장소 메트릭을 기반으로 하는 경고 규칙을 만든 경우 Azure Monitor의 메트릭을 기반으로 하는 [경고 규칙을 만듭니다](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) . 
+5. 클래식 저장소 메트릭을 기반으로 하는 경고 규칙을 만든 경우 Azure Monitor의 메트릭을 기반으로 하는 [경고 규칙을 만듭니다](/azure/azure-monitor/platform/alerts-overview) . 
 
 6. Azure Monitor의 모든 메트릭을 볼 수 있게 되 면 클래식 로깅을 해제할 수 있습니다. 
 
@@ -53,7 +53,7 @@ Azure Monitor에서 메트릭으로 전환 하려면 다음 방법을 사용 하
 
 계정의 활동이 메트릭을 트리거하지 않는 경우 클래식 메트릭은 해당 메트릭에 대해 0 값을 표시 합니다. Azure Monitor 메트릭은 데이터를 완전히 생략 하 여 클리너 보고서를 발생 시킵니다. 예를 들어 클래식 메트릭을 사용 하는 경우 서버 시간 제한 오류가 보고 되지 않으면 `ServerTimeoutError` 메트릭 테이블의 값이 0으로 설정 됩니다. 차원이와 같은 메트릭 값을 쿼리할 때 Azure Monitor는 데이터를 반환 하지 않습니다 `Transactions` `ResponseType` `ServerTimeoutError` . 
 
-Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
+Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013064"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480686"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>지리적 중복성을 사용하여 고가용성 애플리케이션 설계
 
@@ -24,11 +24,11 @@ Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 
 
 Azure Storage는 지역 중복 복제에 대 한 두 가지 옵션을 제공 합니다. 이러한 두 옵션의 유일한 차이점은 데이터가 주 지역에 복제 되는 방법입니다.
 
-* [GZRS (지역 중복 저장소)](storage-redundancy.md): 데이터는 *ZRS (영역 중복 저장소*)를 사용 하 여 주 지역의 3 개 Azure 가용성 영역에 걸쳐 동기적으로 복제 된 다음, 보조 지역에 비동기식으로 복제 됩니다. 보조 지역의 데이터에 대 한 읽기 액세스의 경우 읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS)를 사용 하도록 설정 합니다.
+* [GZRS (지역 중복 저장소)](storage-redundancy.md): 데이터는 *ZRS (영역 중복 저장소*)를 사용 하 여 주 지역의 3 개 Azure 가용성 영역에 걸쳐 동기적으로 복제 된 다음, 보조 지역에 비동기식으로 복제 됩니다. 보조 지역에 대한 읽기 액세스의 경우 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)를 사용합니다.
 
     최대 가용성 및 내구성을 요구 하는 시나리오의 경우 GZRS/RA-GZRS를 사용 하는 것이 좋습니다.
 
-* [GRS (지역 중복 저장소)](storage-redundancy.md): 데이터는 주 지역에서 *LRS (로컬 중복 저장소)* 를 사용 하 여 동기적으로 세 번 복제 된 다음 보조 지역에 비동기적으로 복제 됩니다. 보조 지역의 데이터에 대 한 읽기 액세스의 경우 읽기 액세스 지역 중복 저장소 (RA-GRS)를 사용 하도록 설정 합니다.
+* [GRS (지역 중복 저장소)](storage-redundancy.md): 데이터는 주 지역에서 *LRS (로컬 중복 저장소)* 를 사용 하 여 동기적으로 세 번 복제 된 다음 보조 지역에 비동기적으로 복제 됩니다. 보조 지역에 대한 읽기 액세스의 경우 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용합니다.
 
 이 문서에서는 주 지역의 가동 중단을 처리 하도록 응용 프로그램을 디자인 하는 방법을 보여 줍니다. 주 지역을 사용할 수 없게 되 면 응용 프로그램은 보조 지역에 대 한 읽기 작업을 대신 수행 하도록 조정할 수 있습니다. 시작 하기 전에 저장소 계정이 RA-GRS 또는 RA-GZRS에 대해 구성 되어 있는지 확인 합니다.
 
@@ -146,7 +146,7 @@ Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 
 
 보조 지역으로 전환하고 애플리케이션을 읽기 전용 모드에서 실행하도록 변경할 때를 결정하기 위해 주 지역에서 재시도 빈도를 모니터링하는 주요 옵션은 세 가지입니다.
 
-* 스토리지 요청에 전달하는 [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) 개체의 [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 엔드포인트에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
+* 스토리지 요청에 전달하는 [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) 개체의 [**Retrying**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) 이벤트에 대해 처리기를 추가합니다. 이 방법은 이 문서에 표시되어 있고 함께 제공되는 샘플에 사용되어 있습니다. 이러한 이벤트는 클라이언트가 요청을 재시도할 때마다 발생하기 때문에 기본 엔드포인트에서 재시도 가능한 오류가 클라이언트에 발생하는 빈도를 추적할 수 있습니다.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -157,7 +157,7 @@ Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 
     };
     ```
 
-* 사용자 지정 다시 시도 정책의 [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
+* 사용자 지정 다시 시도 정책의 [**Evaluate**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) 메서드에서 다시 시도가 발생할 때마다 사용자 지정 코드를 실행할 수 있습니다. 이렇게 하면 다시 시도가 발생하는 때를 기록하는 것 외에 다시 시도 동작을 수정할 수 있는 기회도 갖게 됩니다.
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,

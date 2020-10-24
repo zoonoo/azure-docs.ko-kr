@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511724"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481332"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
@@ -33,7 +33,7 @@ ms.locfileid: "86511724"
 
 Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수천 개의 권한이 있습니다. 다음 네 가지 방법으로 사용자 지정 역할에 추가 하려는 권한을 결정할 수 있습니다.
 
-| 방법 | 설명 |
+| 메서드 | 설명 |
 | --- | --- |
 | 기존 역할 살펴보기 | 기존 역할을 확인 하 여 사용 되는 사용 권한을 확인할 수 있습니다. 자세한 정보는 [Azure 기본 제공 역할](built-in-roles.md)을 참조하세요. |
 | 키워드별 권한 검색 | Azure Portal를 사용 하 여 사용자 지정 역할을 만드는 경우 키워드를 사용 하 여 사용 권한을 검색할 수 있습니다. 예를 들어 *가상 컴퓨터* 또는 *청구* 권한을 검색할 수 있습니다. 이 검색 기능에 대 한 자세한 내용은 [4 단계: 사용 권한](#step-4-permissions)을 참조 하세요. |
@@ -331,7 +331,7 @@ Microsoft.CostManagement/exports/delete
 
 1. 삭제 하려는 사용자 지정 역할에 대 한 줄임표 (**...**)를 클릭 한 다음 **삭제**를 클릭 합니다.
 
-    ![사용자 지정 역할 메뉴](./media/custom-roles-portal/delete-menu.png)
+    ![삭제 하도록 선택할 수 있는 사용자 지정 역할 목록을 보여 주는 스크린샷](./media/custom-roles-portal/delete-menu.png)
 
     사용자 지정 역할을 완전히 삭제 하는 데 몇 분 정도 걸릴 수 있습니다.
 

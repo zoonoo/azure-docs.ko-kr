@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118953"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489356"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 디자인 패턴
 
@@ -52,7 +52,7 @@ Cosmos 컨테이너의 변경 피드에서 읽는 것 외에 Azure Cosmos DB에 
 
 ### <a name="high-availability"></a>고가용성
 
-Azure Cosmos DB는 최대 99.999% 읽기 및 쓰기 가용성을 제공합니다. 많은 메시지 큐와 달리 Azure Cosmos DB 데이터는 [RTO(복구 시간 목표)](consistency-levels-tradeoffs.md#rto)를 0으로 하여 쉽게 전역적으로 배포 및 구성할 수 있습니다.
+Azure Cosmos DB는 최대 99.999% 읽기 및 쓰기 가용성을 제공합니다. 많은 메시지 큐와 달리 Azure Cosmos DB 데이터는 [RTO(복구 시간 목표)](./consistency-levels.md#rto)를 0으로 하여 쉽게 전역적으로 배포 및 구성할 수 있습니다.
 
 변경 피드의 항목을 처리한 후 구체화된 뷰를 작성하고 집계된 값을 Azure Cosmos DB에 다시 유지할 수 있습니다. 예를 들어, Azure Cosmos DB를 사용하여 게임을 빌드하는 경우 변경 피드를 사용하여 완료된 게임의 점수에 따라 실시간 순위표를 구현할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure Cosmos DB는 최대 99.999% 읽기 및 쓰기 가용성을 제공합니다
 
 ## <a name="event-sourcing"></a>이벤트 소싱
 
-[이벤트 소싱 패턴](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)에는 추가 전용 저장소를 사용하여 해당 데이터에 대한 전체 작업을 기록하는 작업이 포함됩니다. Azure Cosmos DB의 변경 피드는 모든 데이터 수집이 쓰기(업데이트 또는 삭제 없음)로 모델링되는 이벤트 소싱 아키텍처의 중앙 데이터 저장소로 선택하는 것이 좋습니다. 이 경우 Azure Cosmos DB에 대한 각 쓰기는 "이벤트"이며, 사용자는 변경 피드의 과거 이벤트에 대한 전체 레코드를 갖게 됩니다. 중앙 이벤트 저장소에서 게시한 이벤트는 일반적으로 구체화된 뷰를 유지 관리하고 외부 시스템과 통합하는 데 사용됩니다. 변경 피드의 보존에 대한 시간 제한이 없기 때문에 Cosmos 컨테이너의 변경 피드의 시작 부분에서 읽어 이전 이벤트를 모두 재생할 수 있습니다.
+[이벤트 소싱 패턴](/azure/architecture/patterns/event-sourcing)에는 추가 전용 저장소를 사용하여 해당 데이터에 대한 전체 작업을 기록하는 작업이 포함됩니다. Azure Cosmos DB의 변경 피드는 모든 데이터 수집이 쓰기(업데이트 또는 삭제 없음)로 모델링되는 이벤트 소싱 아키텍처의 중앙 데이터 저장소로 선택하는 것이 좋습니다. 이 경우 Azure Cosmos DB에 대한 각 쓰기는 "이벤트"이며, 사용자는 변경 피드의 과거 이벤트에 대한 전체 레코드를 갖게 됩니다. 중앙 이벤트 저장소에서 게시한 이벤트는 일반적으로 구체화된 뷰를 유지 관리하고 외부 시스템과 통합하는 데 사용됩니다. 변경 피드의 보존에 대한 시간 제한이 없기 때문에 Cosmos 컨테이너의 변경 피드의 시작 부분에서 읽어 이전 이벤트를 모두 재생할 수 있습니다.
 
 [여러 변경 피드 소비자가 동일한 컨테이너의 변경 피드를 구독](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers)하도록 할 수 있습니다. [임대 컨테이너](change-feed-processor.md#components-of-the-change-feed-processor)의 프로비저닝된 처리량 외에도 변경 피드를 활용하는 비용이 없습니다. 변경 피드는 사용 여부에 관계없이 모든 컨테이너에서 사용할 수 있습니다.
 

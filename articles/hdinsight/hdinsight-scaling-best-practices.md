@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505015"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490971"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -34,7 +34,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
@@ -43,8 +43,8 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
 
 > [!IMPORTANT]  
-> * Azure 클래식 CLI는 더 이상 사용 되지 않으며 클래식 배포 모델에만 사용 해야 합니다. 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 합니다.
-> * PowerShell AzureRM 모듈은 더 이상 사용 되지 않습니다.  가능 하면 [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 을 사용 하세요.
+> * Azure 클래식 CLI는 더 이상 사용 되지 않으며 클래식 배포 모델에만 사용 해야 합니다. 다른 모든 배포의 경우 [Azure CLI](/cli/azure/)를 사용 합니다.
+> * PowerShell AzureRM 모듈은 더 이상 사용 되지 않습니다.  가능 하면 [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 을 사용 하세요.
 
 ## <a name="impact-of-scaling-operations"></a>크기 조정 작업의 영향
 
@@ -146,7 +146,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들면 다음과 같습니다.
+예:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 23f334d28ef5045c68bb84fc0bc34e8f847fe0f9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281853"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490665"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>SQL API Azure Cosmos DB에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
 
@@ -175,8 +175,8 @@ RU 사용량을 최적화하는 방법에 대한 자세한 내용은 다음 문�
 
 * [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)
 * [Azure Cosmos DB의 프로비저닝된 처리량 비용 최적화](optimize-cost-throughput.md)
-* [Azure Cosmos DB의 쿼리 비용 최적화](optimize-cost-queries.md)
-* [프로비저닝된 처리량을 전역적으로 크기 조정](scaling-throughput.md)
+* [Azure Cosmos DB의 쿼리 비용 최적화](./optimize-cost-reads-writes.md)
+* [프로비저닝된 처리량을 전역적으로 크기 조정](./request-units.md)
 * [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [컨테이너의 처리량 프로비전](how-to-provision-container-throughput.md)
 * [Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버그](use-metrics.md)
