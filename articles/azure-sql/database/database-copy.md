@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460957"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516208"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -108,7 +108,7 @@ CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작
 
 이 명령은 Database1를 pool1 이라는 탄력적 풀의 Database2 라는 새 데이터베이스에 복사 합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
-Database1는 단일 또는 풀링된 데이터베이스 일 수 있지만 pool1는 Database1와 동일한 서비스 계층 이어야 합니다. 
+Database1는 단일 또는 풀링된 데이터베이스 일 수 있습니다. 다른 계층 풀 간 복사는 지원 되지만 일부 교차 계층 복사본은 성공 하지 않습니다. 예를 들어 단일 또는 탄력적 표준 db를 일반적인 용도의 풀로 복사할 수 있지만 표준 탄력적인 db를 프리미엄 풀로 복사할 수는 없습니다. 
 
    ```sql
    -- execute on the master database to start copying

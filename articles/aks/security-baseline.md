@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 303720cf50b5eabf22319e1eeae7423c4f1d94bb
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a9410215abeb6fdb413866cbff12cf5f826c0fee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201701"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504374"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -949,7 +949,7 @@ Azure AD PowerShell 모듈을 사용 하 여 AKS 관리 그룹의 구성원 인 
 
 Kubernetes에서 네임 스페이스를 구현 하 여 논리적 격리 경계를 만듭니다. "ContainerService" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 AKS (Azure Kubernetes Service) 인스턴스의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다. 
 
-추가 Kubernetes 기능을 검토 하 고 구현 하 고 격리 및 다중 테 넌 트에 대 한 고려 사항은 예약, 네트워킹, 인증/권한 부여 및 컨테이너 영역을 포함 합니다. 또한 개발, 테스트 및 프로덕션을 위해 별도의 구독 및/또는 관리 그룹을 사용 합니다. 가상 네트워크, 적절 하 게 태그가 지정 된 서브넷 및 WAF (웹 응용 프로그램 방화벽)로 보호 되는 AKS 클러스터를 분리 합니다.
+예약, 네트워킹, 인증/권한 부여 및 컨테이너를 포함 하도록 격리 및 다중 테 넌 트에 대 한 추가 Kubernetes 기능 및 고려 사항을 검토 하 고 구현 합니다. 또한 개발, 테스트 및 프로덕션을 위해 별도의 구독 및/또는 관리 그룹을 사용 합니다. 가상 네트워크, 적절 하 게 태그가 지정 된 서브넷 및 WAF (웹 응용 프로그램 방화벽)로 보호 되는 AKS 클러스터를 분리 합니다.
 
 - [AKS에서의 클러스터 격리 모범 사례에 대해 알아봅니다.](operator-best-practices-cluster-isolation.md)
 
@@ -1235,7 +1235,7 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호에 대 한 정기적으로 자동화 된 백업을 수행 합니다. 
 
-예를 들면 다음과 같습니다.
+예:
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다. 
 
-예를 들면 다음과 같습니다.
+예:
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067157"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515749"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS (Java Message Service) 2.0 응용 프로그램 마이그레이션
 
@@ -62,7 +62,7 @@ Azure Service Bus와 상호 작용 하도록 클라이언트 응용 프로그램
 
 #### <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
-Azure Active Directory에 의해 지원 되는 RBAC (역할 기반 액세스 제어)는 Service Bus에 대 한 기본 인증 메커니즘입니다. RBAC 또는 클레임 기반 인증은 현재 Apache QPID JMS에서 지원 되지 않으므로 인증을 위해 SAS 키를 사용 해야 합니다.
+Azure Active Directory에서 지 원하는 azure RBAC (역할 기반 액세스 제어)는 Service Bus에 대 한 기본 인증 메커니즘입니다. Azure RBAC 또는 클레임 기반 인증은 현재 Apache QPID JMS에서 지원 되지 않으므로 인증을 위해 SAS 키를 사용 해야 합니다.
 
 ## <a name="pre-migration"></a>사전 마이그레이션
 
@@ -89,7 +89,7 @@ Service Bus를 통해 다양 한 엔터프라이즈 보안 및 고가용성 기�
   * [가상 네트워크 서비스 엔드포인트](service-bus-service-endpoints.md)
   * [방화벽](service-bus-ip-filtering.md)
   * [BYOK (고객 관리 키)를 사용 하는 서비스 쪽 암호화](configure-customer-managed-key.md)
-  * [프라이빗 엔드포인트](private-link-service.md)
+  * [전용 끝점](private-link-service.md)
   * [인증 및 권한 부여](service-bus-authentication-and-authorization.md)
 
 ### <a name="monitoring-alerts-and-tracing"></a>모니터링, 경고 및 추적

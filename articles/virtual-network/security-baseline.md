@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629746"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514444"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Virtual Network에 대 한 Azure 보안 기준
 
@@ -118,7 +118,7 @@ Azure Marketplace 제품에서 제공 하는 패킷 브로커 파트너 솔루�
 
 가상 네트워크와 관련 된 사용 가능한 보안 권장 사항을 포함 하는 Security Center에 대 한 기본 정책을 참조 하세요.
 
-Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, Azure RBAC (역할 기반 액세스 제어) 할당 및 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화 합니다. 버전 관리를 통해 세부적으로 조정 된 제어 및 관리를 위해 새 구독에 Azure Blueprint을 적용할 수 있습니다. 
+Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 할당 및 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화 합니다. 버전 관리를 통해 세부적으로 조정 된 제어 및 관리를 위해 새 구독에 Azure Blueprint을 적용할 수 있습니다. 
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -408,13 +408,13 @@ Microsoft에서는 고객이 Azure 네트워크 내에서 내부적으로 전송
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-control-to-manage-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 관리 합니다. 
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6: Azure RBAC를 사용 하 여 리소스에 대 한 액세스 관리 
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 데이터 및 리소스에 대 한 액세스를 관리 합니다. 그렇지 않으면 서비스 특정 액세스 제어 메서드를 사용 합니다. 
 
 소유자, 참가자 또는 네트워크 참가자와 같은 기본 제공 역할을 선택 하 고 해당 범위에 역할을 할당 합니다. 예를 들어 가상 네트워크에 필요한 특정 권한이 있는 가상 네트워크 기능의 하위 집합을 이러한 역할 중 하나에 할당할 수 있습니다. 
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [가상 네트워크 계획](virtual-network-vnet-plan-design-arm.md#permissions)
 

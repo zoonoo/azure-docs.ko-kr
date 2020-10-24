@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543985"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515682"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -50,7 +50,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 * 회사 네트워크 외부에서도 Jira 또는 Confluence를 사용할 수 있습니다.
 * 플러그 인은 Jira 및 Confluence의 온-프레미스 버전에서만 작동합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 플러그 인을 설치하기 전에 다음 정보를 참조하세요.
 
@@ -67,7 +67,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * JIRA Core 및 Software: 6.0~7.12
 * JIRA Service Desk: 3.0.0~3.5.0
-* JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)을 클릭하세요.
+* JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](./jira52microsoft-tutorial.md)을 클릭하세요.
 * Confluence: 5.0 ~ 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1
@@ -185,7 +185,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * JIRA Core 및 Software: 6.0~7.12
 * JIRA Service Desk: 3.0.0~3.5.0
-* JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)을 클릭하세요.
+* JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](./jira52microsoft-tutorial.md)을 클릭하세요.
 * Confluence: 5.0 ~ 5.10
 * Confluence: 6.0.1
 * Confluence: 6.1.1

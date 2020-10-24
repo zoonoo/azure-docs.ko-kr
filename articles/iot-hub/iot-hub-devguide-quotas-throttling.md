@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797805"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504077"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -59,7 +59,7 @@ IoT 플러그 앤 플레이 장치는 루트를 포함 하 여 각 인터페이�
 | 동시에 연결 된 장치 스트림의 최대 수<sup>1</sup> | 50 | 50 | 50 |
 | 최대 장치 스트림 데이터 전송<sup>1</sup> (일일 집계 볼륨) | 300MB | 300MB | 300MB |
 
-<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup> 제한 측정기 크기는 4kb입니다.
+<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup> 제한 측정기 크기는 4kb입니다. 제한은 요청 페이로드 크기만을 기준으로 합니다.
 
 ### <a name="throttling-details"></a>제한 세부 정보
 

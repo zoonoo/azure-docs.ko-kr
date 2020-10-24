@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962329"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515715"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 
@@ -57,13 +57,13 @@ Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
-IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모든 Write Accelerator 디스크는 동일한 VM당 IOPS 제한을 공유합니다.
+IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모든 Write Accelerator 디스크는 동일한 VM당 IOPS 제한을 공유합니다. 연결 된 디스크는 VM에 대 한 쓰기 가속기 IOPS 제한을 초과할 수 없습니다. 예를 들어 연결 된 디스크가 3만 IOPS를 수행할 수 있는 경우에도 시스템에서 M416ms_v2에 대해 2만 IOPS를 초과 하지 않도록 허용 하지 않습니다.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>특정 디스크에 대한 Write Accelerator 사용
 
 다음 몇 가지 섹션에서는 Azure Premium Storage VHD에 Write Accelerator를 사용하도록 설정하는 방법에 대해 설명합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 시점에서 Write Accelerator 사용에 적용되는 필수 조건은 다음과 같습니다.
 

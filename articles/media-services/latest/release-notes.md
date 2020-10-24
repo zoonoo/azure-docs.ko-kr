@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426824"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514489"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -37,6 +37,15 @@ ms.locfileid: "92426824"
 > [Azure Portal](https://portal.azure.com/) 를 사용 하 여 v3 [라이브 이벤트](live-events-outputs-concept.md)를 관리 하 고, v3 [자산](assets-concept.md) 및 작업을 보고, api 액세스에 대 한 정보를 가져오고, 콘텐츠를 암호화할 수 있습니다. 다른 모든 관리 작업 (예: 변환 및 작업 관리)은 [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)또는 지원 되는 [sdk](media-services-apis-overview.md#sdks)중 하나를 사용 합니다.
 >
 > 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
+
+## <a name="october-2020"></a>2020년 10월
+
+### <a name="basic-audio-analysis"></a>기본 오디오 분석
+이제 오디오 분석 기본 설정에 기본 모드 가격 책정 계층이 포함 되어 있습니다. 새로운 기본 오디오 분석기 모드는 음성 기록을 추출 하 고 출력 캡션과 자막의 서식을 지정 하는 저렴 한 옵션을 제공 합니다. 이 모드는 VTT 부제목/캡션 파일의 음성 텍스트 기록 및 생성을 수행 합니다. 이 모드의 출력에는 키워드, 기록 및 타이밍 정보만 포함 된 Insights JSON 파일이 포함 됩니다. 자동 언어 감지 및 스피커 diarization이 모드에 포함 되지 않습니다. [지원 되는 언어](analyzing-video-audio-files-concept.md#built-in-presets) 목록을 참조 하세요.
+
+인덱서 v1 및 인덱서 v2를 사용 하는 고객은 기본 오디오 분석 사전 설정으로 마이그레이션해야 합니다.
+
+기본 오디오 분석기 모드에 대 한 자세한 내용은 [비디오 및 오디오 파일 분석](analyzing-video-audio-files-concept.md)을 참조 하세요.  REST API에서 기본 오디오 분석기 모드를 사용 하는 방법에 대 한 자세한 내용은 [기본 오디오 변환을 만드는 방법](how-to-create-basic-audio-transform.md)을 참조 하세요.
 
 ## <a name="august-2020"></a>2020년 8월
 

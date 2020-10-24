@@ -5,19 +5,22 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102275"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504114"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
+
+> [!IMPORTANT]
+> 등록을 위한 API 커넥터는 Azure AD B2C의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [Api 커넥터](api-connectors-overview.md)를 사용 하려면 먼저 api 커넥터를 만든 다음 사용자 흐름에서 사용 하도록 설정 합니다.
 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -80,7 +83,7 @@ Content-type: application/json
 > API 끝점이 호출 될 때 클레임에 값이 없으면 클레임은 API로 보내지지 않습니다. API는 클레임이 요청에 없는 경우를 명시적으로 확인 하 고 처리 하도록 설계 해야 합니다.
 
 > [!TIP] 
-> [**id (' id ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) 및 **전자 메일 주소 (' 메일 ')** 클레임은 API에서 사용자가 테 넌 트에 계정을 포함 하기 전에 사용자를 식별 하는 데 사용할 수 있습니다. ' Id ' 클레임은 사용자가 Google 또는 Facebook과 같은 id 공급자를 사용 하 여 인증할 때 전송 됩니다. ' email '은 항상 전송 됩니다.
+> [**id (' id ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) 및 **전자 메일 주소 (' 메일 ')** 클레임은 API에서 사용자가 테 넌 트에 계정을 포함 하기 전에 사용자를 식별 하는 데 사용할 수 있습니다. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>사용자 흐름에서 API 커넥터를 사용 하도록 설정
 
@@ -100,7 +103,7 @@ Content-type: application/json
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Id 공급자를 사용 하 여 로그인 한 후
 
-사용자가 id 공급자 (예: Google, Facebook, & Azure AD)를 사용 하 여 인증 한 후 즉시 등록 프로세스의이 단계에서 API 커넥터가 호출 됩니다. 이 단계는 사용자 특성을 수집 하기 위해 사용자에 게 표시 되는 형식인 ***특성 컬렉션 페이지***앞에 나옵니다. 사용자가 로컬 계정으로 등록 하는 경우에는이 단계가 호출 되지 않습니다.
+사용자가 id 공급자 (예: Google, Facebook, & Azure AD)를 사용 하 여 인증 한 후 즉시 등록 프로세스의이 단계에서 API 커넥터가 호출 됩니다. 이 단계는 사용자 특성을 수집 하기 위해 사용자에 게 표시 되는 형식인 **_특성 컬렉션 페이지_* 앞에 나옵니다. 사용자가 로컬 계정으로 등록 하는 경우에는이 단계가 호출 되지 않습니다.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>이 단계에서 API로 보낸 예제 요청
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -234,12 +237,12 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | 형식              | 필수 | Description                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임**으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 클레임은를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임**으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.  |
+| \<builtInUserAttribute>                            | \<attribute-type> | 예       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. _ * 응용 프로그램 클레임 * *로 선택한 경우 토큰에서 반환 될 수도 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 클레임은를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임**으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.  |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 
@@ -255,7 +258,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | 형식   | 필수 | Description                                                                |
+| 매개 변수   | Type   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -281,14 +284,15 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | 형식    | 필수 | Description                                                                |
+| 매개 변수   | Type    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
 | 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
 
-*참고:* HTTP 상태 코드는 응답 본문의 "status" 값 외에도 "400" 이어야 합니다.
+> [!NOTE]
+> HTTP 상태 코드는 응답 본문의 "status" 값 외에도 "400" 이어야 합니다.
 
 **유효성 검사 오류 응답과 함께 최종 사용자 환경**
 
@@ -318,4 +322,4 @@ Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥�
 
 ## <a name="next-steps"></a>다음 단계
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- [Azure Function 빠른 시작 샘플](code-samples.md#api-connectors)을 사용 하 여 시작 하세요.
+- [샘플](code-samples.md#api-connectors)을 시작 해 보세요.

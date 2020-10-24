@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 173ca296689bbdb8d574930ec2549e82839c47e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e71566ea7cd2e8953c84d58128e3380a782ba40
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428466"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516718"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Netskope 사용자 인증 구성
 
@@ -97,7 +97,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Net\\user 인증�
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 Netskope User 인증에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [Net\\user 인증 single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial)에 제공 된 지침에 따라 Netskope user 인증에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
+> [Net\\user 인증 single sign-on 자습서](./netskope-cloud-security-tutorial.md)에 제공 된 지침에 따라 Netskope user 인증에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
 
 > [!NOTE]
 > Netskope User 인증의 SCIM 끝점에 대 한 자세한 내용은 [이](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon)을 참조 하세요.
@@ -172,4 +172,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
-

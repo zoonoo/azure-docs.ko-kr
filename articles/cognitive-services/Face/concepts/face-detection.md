@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743061"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504132"
 ---
 # <a name="face-detection-and-attributes"></a>얼굴 감지 및 특성
 
@@ -47,7 +47,7 @@ ms.locfileid: "73743061"
 * **성별**. 지정 된 면의 예상 성별입니다. 가능한 값은 남성, 여성 및 genderless입니다.
 * **합니다.** 지정 된 면에 안경 있는지 여부입니다. 가능한 값은 NoGlasses, ReadingGlasses, 및 수영 Goggles입니다.
 * **머리카락**. 면의 머리카락 유형입니다. 이 특성은 머리카락 표시 여부, baldness 검색 여부 및 검색 된 머리 색을 표시 합니다.
-* **Head 포즈**. 3D 공간에서의 표면 방향입니다. 이 특성은 피치, 롤 및 요 각도 (도)로 설명 됩니다. 값 범위는-90 ~ 90도,-180도에서 180도,-90도를 각각 90도로 합니다. 각도 매핑에 대 한 다음 다이어그램을 참조 하세요.
+* **Head 포즈**. 3D 공간에서의 표면 방향입니다. 이 특성은 피치, 롤 및 요 각도 (도)로 설명 됩니다. 값 범위는-90 ~ 90도,-90도에서 90도,-90도를 각각 90도로 합니다. 각도 매핑에 대 한 다음 다이어그램을 참조 하세요.
 
     ![레이블, 롤 및 요 축이 있는 헤드](../Images/headpose.1.jpg)
 * **구성을**. 얼굴에 구성을 있는지 여부입니다. 이 특성은 eyeMakeup 및 lipMakeup에 대 한 부울 값을 반환 합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "73743061"
 다음 팁을 사용 하 여 입력 이미지가 가장 정확한 검색 결과를 제공 하는지 확인 합니다.
 
 * 지원 되는 입력 이미지 형식은 첫 번째 프레임에 대 한 JPEG, PNG, GIF 및 BMP입니다.
-* 이미지 파일 크기는 4mb 보다 크지 않아야 합니다.
+* 이미지 파일 크기는 6mb 보다 크지 않아야 합니다.
 * 감지 가능한 얼굴 크기 범위는 36 x 36 픽셀 ~ 4096x4096 픽셀입니다. 이 범위 밖의 얼굴은 검색 되지 않습니다.
 * 기술적 문제 때문에 일부 면이 검색 되지 않을 수 있습니다. 극단적인 얼굴 각도 (head 포즈) 또는 얼굴 폐색 (예: 선글라스 또는 얼굴의)는 검색에 영향을 줄 수 있습니다. 전면 및 전면 면에서 최상의 결과를 제공 합니다.
 
