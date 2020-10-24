@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287324"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519442"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Azure Files 및 AD DS를 사용 하 여 프로필 컨테이너 만들기
 
@@ -19,7 +19,7 @@ ms.locfileid: "91287324"
 
 이 프로세스는 온-프레미스 디렉터리 서비스인 Active Directory Domain Services (AD DS)를 사용 합니다. Azure AD DS를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법에 대 한 자세한 내용은 [Azure Files를 사용 하 여 fslogix 프로필 컨테이너 만들기](create-profile-container-adds.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 도메인 컨트롤러가 Azure에 동기화 되 고 세션 호스트가 연결 된 Azure VNET (가상 네트워크)에서 확인할 수 있는지 확인 합니다.
 
@@ -86,7 +86,7 @@ Windows Virtual Desktop 세션 호스트에 로그인하는 사용자는 파일 
 >[!NOTE]
 >권한을 할당하는 계정 또는 그룹은 도메인에서 만들어지고 Azure AD와 동기화되어 있어야 합니다. Azure AD에서 만든 계정이 작동하지 않습니다.
 
-RBAC (역할 기반 액세스 제어) 권한을 할당 하려면:
+Azure RBAC (역할 기반 액세스 제어) 권한을 할당 하려면:
 
 1. Azure Portal을 엽니다.
 
@@ -106,7 +106,7 @@ RBAC (역할 기반 액세스 제어) 권한을 할당 하려면:
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Azure 파일 공유에 대 한 사용자 할당 권한
 
-사용자에게 RBAC 사용 권한을 할당한 후에는 NTFS 사용 권한을 구성해야 합니다.
+사용자에 게 Azure RBAC 사용 권한을 할당 한 후에는 NTFS 사용 권한을 구성 해야 합니다.
 
 시작 하려면 Azure Portal에서 다음 두 가지를 알고 있어야 합니다.
 
@@ -179,7 +179,7 @@ NTFS 사용 권한을 구성 하려면:
      - <탑재 된 드라이브 문자>를 드라이브를 매핑하는 데 사용한 드라이브의 문자로 바꿉니다.
      - 사용자 전자 메일> <을 공유에 대 한 액세스 권한이 필요한 사용자를 포함 하는 사용자 또는 Active Directory 그룹의 UPN으로 바꿉니다.
 
-     예를 들면 다음과 같습니다.
+     예:
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

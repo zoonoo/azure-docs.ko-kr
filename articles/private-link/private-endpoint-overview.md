@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277503"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508032"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -133,15 +133,16 @@ Azure 서비스에 대한 프라이빗 엔드포인트를 사용하는 경우 �
 
 
 ## <a name="next-steps"></a>다음 단계
-- [포털을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기 ](create-private-endpoint-portal.md)
-- [PowerShell을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기 ](create-private-endpoint-powershell.md)
-- [CLI를 사용 하 여 SQL Database에 대 한 개인 끝점 만들기 ](create-private-endpoint-cli.md)
-- [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](create-private-endpoint-storage-portal.md)
-- [포털을 사용하여 Azure Cosmos 계정용 프라이빗 엔드포인트 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
+- [포털을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-portal.md)
+- [PowerShell을 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-powershell.md)
+- [CLI를 사용 하 여 SQL Database에 대 한 개인 끝점 만들기](create-private-endpoint-cli.md)
+- [포털을 사용 하 여 저장소 계정에 대 한 개인 끝점 만들기](create-private-endpoint-storage-portal.md)
+- [포털을 사용 하 여 Azure Cosmos 계정에 대 한 개인 끝점 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)
-- [포털을 사용하여 Azure Database for PostgreSQL - 단일 서버에 대해 고유한 프라이빗 링크 만들기](../postgresql/howto-configure-privatelink-portal.md)
+- [포털을 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기](../postgresql/howto-configure-privatelink-portal.md)
 - [CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에 대해 고유한 프라이빗 링크 만들기](../postgresql/howto-configure-privatelink-cli.md)
-- [포털을 사용하여 Azure Database for MySQL에 대해 고유한 프라이빗 링크 만들기](../mysql/howto-configure-privatelink-portal.md)
+- [포털을 사용 하 여 Azure Database for MySQL에 대 한 사용자 고유의 개인 링크 만들기](../mysql/howto-configure-privatelink-portal.md)
 - [CLI를 사용하여 Azure Database for MySQL에 대해 고유한 프라이빗 링크 만들기](../mysql/howto-configure-privatelink-cli.md)
-- [포털을 사용하여 Azure Database for MariaDB에 대해 고유한 프라이빗 링크 만들기](../mariadb/howto-configure-privatelink-portal.md)
+- [포털을 사용 하 여 Azure Database for MariaDB에 대 한 사용자 고유의 개인 링크 만들기](../mariadb/howto-configure-privatelink-portal.md)
 - [CLI를 사용하여 Azure Database for MariaDB에 대해 고유한 프라이빗 링크 만들기](../mariadb/howto-configure-privatelink-cli.md)
+- [포털 및 CLI를 사용 하 여 Azure Key Vault에 대 한 사용자 고유의 개인 링크 만들기](../key-vault/general/private-link-service.md)

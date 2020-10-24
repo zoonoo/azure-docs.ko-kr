@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 320debcf2b744e949faf7b29dd72ed334fe0feea
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252116"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503728"
 ---
 # <a name="authentication-vs-authorization"></a>인증 및 권한 부여
 
@@ -35,6 +35,8 @@ ms.locfileid: "86252116"
 ## <a name="authentication-and-authorization-using-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용한 인증 및 권한 부여
 
 여러 앱에서 사용자를 추가하거나 제거해야 하는 경우 각각 자체 사용자 이름 및 암호 정보를 유지 관리하여 높은 관리 부담을 초래하는 앱을 만드는 대신, 앱에서 중앙 집중식 ID 공급자에게 해당 책임을 위임할 수 있습니다.
+
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 Azure AD(Azure Active Directory)는 클라우드의 중앙 집중식 ID 공급자입니다. 인증 및 권한 부여를 위임하면 사용자가 특정 위치에 있어야 하는 조건부 액세스 정책, [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)(2단계 인증 또는 2FA라고도함) 사용, 사용자가 한 번 로그인한 다음, 동일한 중앙 디렉터리를 공유하는 모든 웹앱에 자동으로 로그인되도록 하는 경우와 같은 시나리오를 지원할 수 있습니다. 이 기능을 **SSO(Single Sign On)** 라고 합니다.
 

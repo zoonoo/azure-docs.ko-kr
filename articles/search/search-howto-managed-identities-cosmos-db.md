@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102696"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519608"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "92102696"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중에 데이터 액세스를 허용하는 RBAC(역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중 데이터에 액세스할 수 있도록 하는 azure RBAC (역할 기반 액세스 제어) 할당에서이 id를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
@@ -80,7 +80,7 @@ api-key: [Search service admin key]
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | Description |
+| 필드   | 설명 |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |

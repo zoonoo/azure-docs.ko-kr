@@ -4,12 +4,12 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996497"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519625"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -134,8 +134,6 @@ public class Function {
 
 ## <a name="java-versions"></a>Java 버전
 
-_Java 11에 대 한 지원은 현재 미리 보기 상태입니다._
-
 Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 버전은 pom.xml 파일에 지정 되어 있습니다. Maven 원형는 현재 Java 8에 대 한 pom.xml를 생성 합니다 .이는 게시 하기 전에 변경할 수 있습니다. pom.xml의 Java 버전은 응용 프로그램을 로컬로 개발 하 고 테스트 한 버전과 일치 해야 합니다. 
 
 ### <a name="supported-versions"></a>지원되는 버전
@@ -144,14 +142,14 @@ Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 
 
 | Functions 버전 | Java 버전 (Windows) | Java 버전 (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (미리 보기)<br/>8 | 11 (미리 보기)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | 해당 없음 |
 
 배포에 대 한 Java 버전을 지정 하지 않는 한 Maven 원형는 Azure에 배포 하는 동안 기본적으로 Java 8로 설정 됩니다.
 
 ### <a name="specify-the-deployment-version"></a>배포 버전 지정
 
-매개 변수를 사용 하 여 Maven 원형가 대상으로 하는 Java 버전을 제어할 수 있습니다 `-DjavaVersion` . 이 매개 변수 값은 또는 중 하나일 수 있습니다 `8` `11` . Java 11 지원은 현재 미리 보기 상태입니다. 
+매개 변수를 사용 하 여 Maven 원형가 대상으로 하는 Java 버전을 제어할 수 있습니다 `-DjavaVersion` . 이 매개 변수 값은 또는 중 하나일 수 있습니다 `8` `11` . 
 
 Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 합니다. pom.xml의 다음 요소는 사용할 Java 버전을 표시 합니다.
 

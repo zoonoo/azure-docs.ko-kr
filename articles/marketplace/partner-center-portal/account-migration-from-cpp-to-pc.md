@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9f3b7ea3d99de51b9398bda82b690d2c249a1d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289328"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520968"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 계정을 마이그레이션하는 방법
 

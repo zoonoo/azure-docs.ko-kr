@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 9f2aaaa4138c483224bb3a98266e10b95b9381a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425842"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520941"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -188,7 +188,7 @@ Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 �
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
-RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
+Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다. 장애 조치(failover) 후 수동으로 설치해야 합니다.
 근접 배치 그룹 | 지원됨 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 있습니다.
 

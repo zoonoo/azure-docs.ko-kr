@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299995"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520730"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 로빈 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91299995"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -89,7 +89,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 로빈을 구성 
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [로빈 single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial)에 제공 된 지침에 따라 로빈에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
+> [로빈 single sign-on 자습서](./robin-tutorial.md)에 제공 된 지침에 따라 로빈에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Azure AD에서 로빈을 위한 자동 사용자 프로 비전을 구성 하려면:
 
@@ -117,7 +117,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 로빈을 구성 
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자를 로빈으로 동기화를**선택 합니다.
 
@@ -163,4 +163,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
-

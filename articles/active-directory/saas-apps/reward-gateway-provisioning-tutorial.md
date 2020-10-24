@@ -11,23 +11,23 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881be102a00badf1e03188b26514ad0eb1a9bd90
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255739"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520781"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 보상 게이트웨이 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 보상 게이트웨이로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 보상 게이트웨이 및 Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 >
 > 이 커넥터는 현재 공개 미리 보기 상태입니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -118,7 +118,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션에서 **사용자 Azure Active Directory 보상 게이트웨이에 동기화를**선택 합니다.
 

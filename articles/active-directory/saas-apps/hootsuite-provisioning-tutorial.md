@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443226"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503762"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Hootsuite 구성
 
@@ -49,7 +49,7 @@ dev.support@hootsuite.com에 연결하여 이후 단계에서 필요한 오래 �
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Hootsuite 추가
 
-Azure AD 애플리케이션 갤러리에서 Hootsuite를 추가하여 Hootsuite로 프로비저닝 관리를 시작합니다. 이전에 SSO용 Hootsuite를 설정했다면 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 Hootsuite를 추가하여 Hootsuite로 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 Hootsuite를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
@@ -108,18 +108,30 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |displayName|String|
    |preferredLanguage|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|String|
+   |name.givenName|String|
+   |name.familyName|String|
 
-10. Hootsuite에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태**를 **켜기**로 변경합니다.
+10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹 동기화**를 선택 합니다.
+
+11. **특성 매핑** 섹션에서 Azure AD에서 Hootsuite로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Hootsuite의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+
+      |attribute|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |members|참조|
+
+12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+
+13. Hootsuite에 대한 Azure AD 프로비저닝 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태**를 **켜기**로 변경합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-11. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Hootsuite에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
+14. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Hootsuite에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-12. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
@@ -128,10 +140,14 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-* [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
+* [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 * [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
 
+## <a name="change-log"></a>로그 변경
+
+* 10/22/2020-사용자 특성 "givenName" 및 "familyName"에 대 한 지원이 추가 되었습니다. 사용자에 대 한 사용자 지정 확장 특성 "organizationIds" 및 "teamIds"가 제거 되었습니다.
+그룹 특성 "displayName", "members" 및 "externalId"에 대 한 지원이 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

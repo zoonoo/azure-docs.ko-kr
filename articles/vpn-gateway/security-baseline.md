@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626261"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518188"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>VPN Gateway에 대 한 Azure 보안 기준
 
@@ -178,7 +178,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대 한 미리 정의 된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal와 같은 도구를 통해 인벤토리 또는 쿼리할 수 있습니다.
 
 - [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: VPN gateway에는 각 고객 가상 네트워크에 대 한 전용 VM 인스턴스가 있습니다. 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 가상 네트워크, 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure Active Directory 역할 기반 액세스 제어를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
+**지침**: VPN gateway에는 각 고객 가상 네트워크에 대 한 전용 VM 인스턴스가 있습니다. 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 가상 네트워크, 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
 
 - [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **책임**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: AZURE AD RBAC를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않으면 서비스별 액세스 제어 방법을 사용 합니다. 소유자, 참가자 또는 네트워크 참가자와 같은 기본 제공 역할 기반 액세스 제어 역할을 사용한 다음 적절 한 범위에 역할을 할당 합니다. 사용자 지정 역할을 만들고 가상 네트워크, 서브넷, VPN 게이트웨이, 네트워크 인터페이스, 네트워크 보안 그룹 및 경로 테이블에 필요한 특정 사용 권한을 역할에 할당 하 여 가상 네트워크 기능 하위 집합에 대 한 특정 권한을 할당 합니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않으면 서비스별 액세스 제어 방법을 사용 합니다. 소유자, 참가자 또는 네트워크 참가자와 같은 기본 제공 역할을 사용 하 고 적절 한 범위에 역할을 할당 합니다. 사용자 지정 역할을 만들고 가상 네트워크, 서브넷, VPN 게이트웨이, 네트워크 인터페이스, 네트워크 보안 그룹 및 경로 테이블에 필요한 특정 사용 권한을 역할에 할당 하 여 가상 네트워크 기능 하위 집합에 대 한 특정 권한을 할당 합니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [가상 네트워크 계획](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 

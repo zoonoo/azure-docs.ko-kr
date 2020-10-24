@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd292fa6b4f613e0a5f5a80e0cd87675f529baf5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039046"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516174"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱에서 수동으로 마이그레이션 (클래식)
 
@@ -35,7 +35,7 @@ Windows 가상 데스크톱의 최신 주요 업데이트는 서비스의 변화
 - Azure Portal를 통해 Windows 가상 데스크톱을 관리 합니다.
 - 응용 프로그램 그룹에 AD (Azure Active Directory) 사용자 그룹을 할당 합니다.
 - 향상 된 Log Analytics 기능을 사용 하 여 배포 문제를 해결 합니다.
-- Azure 네이티브 Role-Based 액세스 제어를 사용 하 여 관리 액세스를 관리 합니다.
+- Azure 기본 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 관리 액세스를 관리 합니다.
 
 ## <a name="when-should-i-migrate"></a>언제 마이그레이션해야 하나요?
 

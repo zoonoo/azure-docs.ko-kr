@@ -4,12 +4,12 @@ description: Azure 명령줄 인터페이스를 사용 하 여 새 또는 기존
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303011"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518129"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -40,7 +40,7 @@ ms.locfileid: "91303011"
 
 ### <a name="example"></a>예제
 
-다음 [az container create][az-container-create] 명령은 새 가상 네트워크 및 서브넷에 대 한 설정을 지정 합니다. 가상 네트워크의 컨테이너 그룹 배포를 [사용할 수](container-instances-region-availability.md#availability---virtual-network-deployment)있는 지역에서 만든 리소스 그룹의 이름을 제공 합니다. 이 명령은 정적 웹 페이지를 처리 하는 작은 Node.js 웹 서버를 실행 하는 공용 Microsoft [aci-helloworld][aci-helloworld] 컨테이너를 배포 합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
+다음 [az container create][az-container-create] 명령은 새 가상 네트워크 및 서브넷에 대 한 설정을 지정 합니다. 가상 네트워크의 컨테이너 그룹 배포를 [사용할 수](container-instances-region-availability.md)있는 지역에서 만든 리소스 그룹의 이름을 제공 합니다. 이 명령은 정적 웹 페이지를 처리 하는 작은 Node.js 웹 서버를 실행 하는 공용 Microsoft [aci-helloworld][aci-helloworld] 컨테이너를 배포 합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
 
 ```azurecli
 az container create \
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예를 들면 다음과 같습니다.
+출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예:
 
 ```console
 10.0.0.4

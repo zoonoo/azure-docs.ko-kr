@@ -3,12 +3,12 @@ title: Azure Service Bus 엔터티에 액세스 하는 응용 프로그램 인�
 description: 이 문서에서는 Azure Service Bus 엔터티 (큐, 토픽 등)에 액세스 하 Azure Active Directory 응용 프로그램을 인증 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064828"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518231"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스 하 Azure Active Directory 응용 프로그램 인증 및 권한 부여
 Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터티 (큐, 토픽, 구독 또는 필터)에 대 한 요청 Service Bus에 권한을 부여 하는 것을 지원 합니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -131,7 +131,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 토큰 획득을 지 원하는 시나리오 목록은 .NET GitHub 리포지토리의 [MSAL (Microsoft 인증 라이브러리)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 의 [시나리오](https://aka.ms/msal-net-scenarios) 섹션을 참조 하세요.
 
 ## <a name="sample-on-github"></a>GitHub의 샘플
-GitHub의 [Service Bus에 대 한 역할 기반 액세스 제어](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)에서 다음 샘플을 참조 하세요. 
+GitHub의 [Service Bus에 대 한 Azure 역할 기반 액세스 제어](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)샘플을 참조 하세요. 
 
 **대화형 사용자 로그인** 옵션이 아닌 **클라이언트 암호 로그인** 옵션을 사용 합니다. 클라이언트 암호 옵션을 사용 하면 팝업 창이 표시 되지 않습니다. 응용 프로그램은 인증을 위해 테 넌 트 ID 및 앱 ID를 활용 합니다. 
 

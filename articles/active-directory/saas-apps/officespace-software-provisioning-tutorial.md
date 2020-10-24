@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287218"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518571"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Officespace software 소프트웨어 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91287218"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -89,7 +89,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 Officespac
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 Officespace software Software에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [Officespace software Software single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial)에 제공 된 지침에 따라 officespace software 소프트웨어에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 단,이 두 가지 기능은 서로 보완적입니다.
+> [Officespace software Software single sign-on 자습서](./officespace-tutorial.md)에 제공 된 지침에 따라 officespace software 소프트웨어에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 단,이 두 가지 기능은 서로 보완적입니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Azure AD에서 Officespace software 소프트웨어에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
@@ -117,7 +117,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 Officespac
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **Officespace software Software에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
@@ -153,4 +153,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
-

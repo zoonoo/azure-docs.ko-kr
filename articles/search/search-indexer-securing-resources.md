@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101259"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503490"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Azure 네트워크 보안 기능 (Azure Cognitive Search)을 통해 보호 되는 콘텐츠에 대 한 인덱서 액세스
 
@@ -27,7 +27,7 @@ Azure Cognitive Search 인덱서는 실행 하는 동안 다양 한 Azure 리소
 | Azure SQL Database | 데이터 원본 |
 | Azure 가상 머신의 SQL Server | 데이터 원본 |
 | SQL Managed Instance | 데이터 원본 |
-| Azure Functions | 사용자 지정 web api 기술에 대 한 호스트 |
+| Azure 기능 | 사용자 지정 web api 기술에 대 한 호스트 |
 | Cognitive Services | 20 개의 무료 문서 제한을 초과 하 여 보강를 청구 하는 데 사용 되는 기술에 연결 됩니다. |
 
 > [!NOTE]
@@ -43,7 +43,7 @@ Azure Cognitive Search 인덱서는 실행 하는 동안 다양 한 Azure 리소
 | Azure SQL Database | 지원됨 | 지원됨 |
 | Azure 가상 머신의 SQL Server | 지원됨 | N/A |
 | SQL Managed Instance | 지원됨 | N/A |
-| Azure Functions | 지원됨 | 지원 됨, 특정 계층의 Azure 함수에만 해당 |
+| Azure 기능 | 지원됨 | 지원 됨, 특정 계층의 Azure 함수에만 해당 |
 
 > [!NOTE]
 > 네트워크 보안 Azure Storage 계정에 대해 위에 나열 된 옵션 외에도, 고객은 Azure Cognitive Search가 신뢰할 수 있는 [Microsoft 서비스](../storage/common/storage-network-security.md#trusted-microsoft-services)라는 사실을 활용할 수 있습니다. 즉, 저장소 계정에서 적절 한 역할 기반 액세스 제어를 사용 하도록 설정한 경우 특정 검색 서비스는 저장소 계정에 대 한 가상 네트워크 또는 IP 제한을 무시 하 고 저장소 계정의 데이터에 액세스할 수 있습니다. 자세한 내용은 [신뢰할 수 있는 서비스 예외를 사용 하는 인덱서 연결](search-indexer-howto-access-trusted-service-exception.md)을 참조 하세요. 저장소 계정 또는 검색 서비스를 다른 지역으로 이동할 수 없는 경우에는 IP 제한 경로 대신이 옵션을 사용할 수 있습니다.
@@ -87,7 +87,7 @@ Azure Cognitive Search 인덱서는 데이터 원본에서 콘텐츠를 효율�
 
 고객은 보안 리소스 (예: 저장소 계정)에 대 한 개인 끝점 연결을 만들기 위해 **공유 개인 링크 리소스**에서 검색 관리 작업 인 [CREATEORUPDATE API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) 를 호출 해야 합니다. 이 (아웃 바운드) 개인 끝점 연결을 통해 이동 하는 트래픽은 검색 서비스별 "private" 인덱서 실행 환경에 있는 가상 네트워크 에서만 시작 됩니다.
 
-Azure Cognitive Search는이 API의 호출자에 게 보안 리소스에 대 한 개인 끝점 연결 요청을 승인 하기 위한 RBAC 권한이 있는지 확인 합니다. 예를 들어 읽기 전용 권한을 사용 하 여 저장소 계정에 대 한 개인 끝점 연결을 요청 하면이 호출이 거부 됩니다.
+Azure Cognitive Search는이 API의 호출자에 게 보안 리소스에 대 한 개인 끝점 연결 요청을 승인 하는 Azure RBAC 권한이 있는지 확인 합니다. 예를 들어 읽기 전용 권한을 사용 하 여 저장소 계정에 대 한 개인 끝점 연결을 요청 하면이 호출이 거부 됩니다.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>2 단계: 개인 끝점 연결 승인
 

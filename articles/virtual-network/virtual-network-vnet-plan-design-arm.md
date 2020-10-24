@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ea65e94e97b69e24c6935328cc01c2295adc5a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045504"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518639"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -105,7 +105,7 @@ Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2
 
 ## <a name="permissions"></a>사용 권한
 
-Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 활용합니다. 권한은 관리 그룹, 구독, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) 에 할당 됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 엔드포인트 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 엔드포인트](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 애플리케이션 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
+Azure는 azure 리소스에 대 한 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 를 활용 합니다. 권한은 관리 그룹, 구독, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) 에 할당 됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 엔드포인트 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 엔드포인트](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 애플리케이션 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
 
 ## <a name="policy"></a>정책
 

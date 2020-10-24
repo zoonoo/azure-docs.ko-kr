@@ -4,15 +4,15 @@ description: HPC 용 InfiniBand 사용 H 시리즈 및 N 시리즈 Vm을 구성 
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: a1bfb5988169ba79a6e3e8416804d7d4c896c758
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994815"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516853"
 ---
 # <a name="configure-and-optimize-vms"></a>VM 구성 및 최적화
 
@@ -36,11 +36,24 @@ SR-IOV를 사용 하도록 설정 되지 않은 [RDMA 지원 vm](../../sizes-hpc
   SR-IOV를 사용 하도록 설정 된 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)의 경우 Marketplace에서 [CentOS 버전 7.6 이상](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) 버전 VM 이미지가 적합 합니다. 이러한 VM 이미지는 RDMA 용 OFED 드라이버 및 널리 사용 되는 다양 한 MPI 라이브러리 및 과학적 컴퓨팅 패키지를 사용 하 여 최적화 되 고 미리 로드 되며 시작 하는 가장 쉬운 방법입니다.
 
   기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
+  
+  > [!NOTE] 
+  > 최신 Azure HPC marketplace 이미지에는 ConnectX3-Pro InfiniBand 카드를 지원 하지 않는 Mellanox OFED 5.1 이상이 있습니다. FDR InfiniBand (예: NCv3)를 사용 하는 SR-IOV 사용 N 시리즈 VM 크기는 다음 CentOS HPC VM 이미지 버전을 사용할 수 있습니다.
+  >- OpenLogic: CentOS: 7.6:7.6.2020062900
+  >- OpenLogic: CentOS: 7_6gen2:7.6.2020062901
+  >- OpenLogic: CentOS: 7.7:7.7.2020062600
+  >- OpenLogic: CentOS: 7_7-gen2:7.7.2020062601
+  >- OpenLogic: CentOS: 8_1:8.1.2020062400
+  >- OpenLogic: CentOS: 8_1-gen2:8.1.2020062401
+
 
 ### <a name="rhelcentos-vm-images"></a>RHEL/CentOS VM 이미지
 Marketplace에서 RHEL 또는 CentOS 기반의 HPC가 아닌 VM 이미지는 SR-IOV 지원 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)에서 사용 하도록 구성할 수 있습니다. [InfiniBand를 사용 하도록](enable-infiniband.md) 설정 하 고 VM에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.
 
   기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
+  
+  > [!NOTE]
+  > Mellanox OFED 5.1 이상에서는 FDR InfiniBand (예: NCv3)를 사용 하 여 SR-IOV 사용 N 시리즈 VM 크기에 대 한 ConnectX3-Pro InfiniBand 카드를 지원 하지 않습니다. ConnectX3-Pro 카드와 N 시리즈 VM의 LTS Mellanox OFED 버전 4.9-0.1.7.0 또는 이전 버전을 사용 하세요. 자세한 내용은 [여기](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조 하세요.
 
 ### <a name="ubuntu-vm-images"></a>Ubuntu VM 이미지
 Marketplace의 Ubuntu Server 16.04 LTS, 18.04 LTS 및 20.04 LTS VM 이미지는 SR-IOV 및 비-sr-iov [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)모두에 대해 지원 됩니다. [InfiniBand를 사용 하도록](enable-infiniband.md) 설정 하 고 VM에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.

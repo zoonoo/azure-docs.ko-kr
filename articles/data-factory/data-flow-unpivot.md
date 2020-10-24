@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823578"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521053"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 피벗 해제 변환
 
@@ -28,27 +28,27 @@ ms.locfileid: "91823578"
 
 ![피벗 해제 변환](media/data-flow/unpivot5.png "피벗 해제 옵션 2")
 
-먼저 피벗 집계에 그룹화 기준으로 사용할 열을 설정합니다. 열 목록 옆에 있는 + 기호를 사용하여 그룹 해제할 열을 하나 이상 설정합니다.
+먼저 피벗 해제 집계에 대해 그룹화를 해제 하려는 열을 설정 합니다. 열 목록 옆에 있는 + 기호를 사용하여 그룹 해제할 열을 하나 이상 설정합니다.
 
 ## <a name="unpivot-key"></a>피벗 해제 키
 
 ![피벗 해제 변환](media/data-flow/unpivot6.png "피벗 해제 옵션 3")
 
-피벗 키는 ADF가 행에서 열로 피벗하는 열입니다. 기본적으로 이 필드에 대한 데이터 세트의 각 고유 값은 열로 피벗됩니다. 그러나 열 값으로 피벗하려는 데이터 세트의 값을 선택적으로 입력할 수 있습니다.
+피벗 해제 키는 ADF가 열에서 행으로 피벗 하는 열입니다. 기본적으로이 필드에 대 한 데이터 집합의 각 고유 값은 행으로 피벗 됩니다. 그러나 필요에 따라 행 값에 대해 피벗 하려는 데이터 집합의 값을 입력할 수 있습니다.
 
 ## <a name="unpivoted-columns"></a>피벗 해제된 열
 
 ![피벗 해제 변환](media/data-flow//unpivot7.png "피벗 해제 옵션 4")
 
-마지막으로, 피벗된 값에 사용할 집계와 변환의 새 출력 프로젝션에 열을 표시하는 방법을 선택합니다.
+마지막으로 행으로 변환 된 피벗 해제 열에 대 한 값을 저장 하기 위한 열 이름을 선택 합니다.
 
-(선택 사항) 행 값에서 검색된 각 새 열 이름에 추가할 접두사, 중간 및 접미사를 사용한 이름 지정 패턴을 설정할 수 있습니다.
+필드 Null 값이 있는 행을 삭제할 수 있습니다.
 
-예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값에서 새 열 값이 제공됩니다. 예: "25", "50", "1000", ... 그러나 접두사 값을 "Sales"로 설정 하면 "Sales"가 값 앞에 붙습니다.
+예를 들어 SumCost는 위에서 공유한 예제에서 선택한 열 이름입니다.
 
 ![과일 열을 unipivot 키로 사용 하 여 unipivot 변환 전후에 PO, 공급 업체 및 과일 열을 표시 하는 이미지입니다.](media/data-flow/unpivot3.png)
 
-열 정렬을 “기본”으로 설정하면 피벗된 모든 열이 집계된 값과 함께 그룹화됩니다. 열 정렬을 “횡적”으로 설정하면 열과 값이 교대로 지정됩니다.
+열 정렬을 "Normal"로 설정 하면 단일 값에서 모든 새 피벗 해제 열을 함께 그룹화 합니다. 열 정렬을 "방향"으로 설정 하면 기존 열에서 생성 된 새 피벗 해제 열이 함께 그룹화 됩니다.
 
 ![피벗 해제 변환](media/data-flow//unpivot7.png "피벗 해제 옵션 5")
 

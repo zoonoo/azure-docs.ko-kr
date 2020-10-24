@@ -11,23 +11,23 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: e3ec25504decca0747c8a853bb88ab3e7a10966a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546324"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520033"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Wrike 구성
 
 이 자습서에서는 사용자 또는 그룹을 Wrike로 자동으로 프로 비전 및 프로 비전 해제 하도록 azure AD를 구성 하기 위해 Wrike and Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스에서 수행 하는 작업, 작동 방법 및 질문과 대답에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 SaaS (software as a service) 응용 프로그램에 사용자 프로비저닝 자동화 및 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)해제를 참조 하세요.
+> 이 자습서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스에서 수행 하는 작업, 작동 방법 및 질문과 대답에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 SaaS (software as a service) 응용 프로그램에 사용자 프로비저닝 자동화 및 프로 비전](../app-provisioning/user-provisioning.md)해제를 참조 하세요.
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

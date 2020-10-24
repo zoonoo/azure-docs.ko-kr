@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751196"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521949"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서
 
@@ -25,7 +25,7 @@ Azure Active Directory와 클라우드 지원 [SaaS(Software as a Service)](http
 
 Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps)를 참조하세요.
 
-[응용 프로그램 네트워크 포털](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) 을 사용 하 여 자동 프로 비전을 위해 갤러리에 추가할 [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) 사용 응용 프로그램 또는 sso 용 갤러리에 추가 될 SAML/oidc 사용 응용 프로그램을 요청 합니다.
+[응용 프로그램 네트워크 포털](../azuread-dev/howto-app-gallery-listing.md) 을 사용 하 여 자동 프로 비전을 위해 갤러리에 추가할 [scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) 사용 응용 프로그램 또는 sso 용 갤러리에 추가 될 SAML/oidc 사용 응용 프로그램을 요청 합니다.
 
 ## <a name="quick-links"></a>빠른 링크
 
@@ -34,7 +34,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![로고-Atlassian 클라우드](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian 클라우드-사용자 프로 비전](atlassian-cloud-provisioning-tutorial.md)|
 | ![로고-ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow - 사용자 프로비전](servicenow-provisioning-tutorial.md)|
 | ![로고-여유 시간](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - 사용자 프로비전](slack-provisioning-tutorial.md)|
-| ![로고-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![로고-SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors-사용자 프로 비전](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![로고-Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Workday - 사용자 프로비전](workday-inbound-tutorial.md)|
 
 더 많은 자습서를 찾으려면 왼쪽의 목차를 사용하세요.
@@ -47,7 +47,7 @@ Azure AD에 사전 통합된 SaaS 앱 전체 목록은 [Active Directory Marketp
 | ![Alibaba 클라우드 서비스 (역할 기반 SSO)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba 클라우드 서비스 (역할 기반 SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![로고-Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform-사용자 프로 비전](google-apps-provisioning-tutorial.md) |
 | ![로고-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - 사용자 프로비전](salesforce-provisioning-tutorial.md) |
-| ![로고-SAP 클라우드 Id 플랫폼](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP 클라우드 Id 플랫폼](saphana-tutorial.md)|[SAP 클라우드 Id 플랫폼-프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![로고-SAP 클라우드 Id 플랫폼](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP 클라우드 Id 플랫폼](saphana-tutorial.md)|[SAP 클라우드 Id 플랫폼-프로 비전](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>OneClick SSO
 

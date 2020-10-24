@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495221"
+ms.locfileid: "92518027"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -42,13 +42,13 @@ Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 �
 
 Azure Event Hubs는 지원되는 모든 Azure 지역에서 사용할 수 있습니다. 목록은 [Azure 지역](https://azure.microsoft.com/regions/)를 참조하세요.  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>단일 AMQP 연결을 사용하여 여러 이벤트 허브에서 보내고 받을 수 있나요?
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>단일 고급 메시지 큐 프로토콜 (AMQP) 연결을 사용 하 여 여러 event hubs에서 보내고 받을 수 있나요?
 
 예, 모든 이벤트 허브가 동일한 네임스페이스에 있는 경우 가능합니다.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>이벤트의 최대 보존 기간은 어떻게 되나요?
 
-Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. Event Hubs는 영구 데이터 스토리지로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다. 7일을 초과하여 메시지를 보존해야 하는 경우 Event Hubs에서 [Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하도록 설정하면 Event Hubs의 데이터를 선택한 Storage 계정 또는 Azure Data Lake 서비스 계정으로 가져옵니다. 캡처를 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
+Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. Event Hubs는 영구 데이터 스토리지로 사용되지 않습니다. 24 시간 보다 큰 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하는 데 편리한 시나리오를 위한 것입니다. 예를 들어 기존 데이터에서 새로운 기계 학습 모델을 학습 하거나 확인 합니다. 7일을 초과하여 메시지를 보존해야 하는 경우 Event Hubs에서 [Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하도록 설정하면 Event Hubs의 데이터를 선택한 Storage 계정 또는 Azure Data Lake 서비스 계정으로 가져옵니다. 캡처를 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
 
 스토리지 계정에서 캡처된 데이터의 보존 기간을 구성할 수 있습니다. Azure Storage의 **수명 주기 관리** 기능은 범용 v2 및 Blob 스토리지 계정에 대한 다양한 규칙 기반 정책을 제공합니다. 정책을 사용하여 데이터를 적절한 액세스 계층으로 전환하거나 데이터의 수명 주기 후에 만료합니다. 자세한 내용은 [Azure Blob 스토리지 수명 주기 관리](../storage/blobs/storage-lifecycle-management-concepts.md)를 참조하세요. 
 
@@ -56,12 +56,12 @@ Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니�
 Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](event-hubs-metrics-azure-monitor.md)에 제공되는 모니터링에 대해 알아보세요.
 
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Azure Event Hubs 고객 데이터를 저장 하는 위치
-Azure Event Hubs는 고객 데이터를 저장 합니다. 이 데이터는 Event Hubs에 의해 단일 지역에 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
+Azure Event Hubs는 고객 데이터를 저장 합니다. 이 데이터는 단일 지역에 Event Hubs 의해 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
 
-- AMQP(고급 메시지 큐 프로토콜)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -128,12 +128,23 @@ Event Hubs는 기존 Apache Kafka 기반 애플리케이션에서 사용할 수 
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>기존 애플리케이션에서 Event Hubs와 통신하려면 어떤 구성을 변경해야 하나요?
 이벤트 허브에 연결하려면 Kafka 클라이언트 구성을 업데이트해야 합니다. 이렇게 하려면 Event Hubs 네임스페이스를 만들고 [연결 문자열](event-hubs-get-connection-string.md)을 가져오면 됩니다. Event Hubs FQDN과 포트에서 9093을 가리키도록 bootstrap.servers를 변경합니다. 아래와 같이 올바른 인증으로 Kafka 클라이언트를 Event Hubs 엔드포인트(가져온 연결 문자열)에 연결하도록 sasl.jaas.config를 업데이트합니다.
 
-bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```properties
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 예제:
 
-부트스트랩. servers = dummynamespace: servicebus: 9093 요청. timeout = 60000 보안. protocol = SASL_SSL SASL. mechanism = 일반 sasl.jaas.config= PlainLoginModule required username = "$ConnectionString" password = "Endpoint = sb://dummynamespace.servicebus.windows.net/;을 입력 합니다. SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
-
+```properties
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 참고: sasl.jaas.config가 프레임워크에서 지원되는 구성이 아닌 경우 SASL 사용자 이름과 암호를 설정하는 데 사용되는 구성을 찾아 대신 사용하세요. 사용자 이름은 $ConnectionString으로 설정하고, 암호는 Event Hubs 연결 문자열로 설정합니다.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Event Hubs의 메시지/이벤트 크기는 어떻게 되나요?
@@ -259,9 +270,9 @@ SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계�
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 ### <a name="how-can-i-target-a-specific-version-of-azure-storage-sdk-when-using-azure-blob-storage-as-a-checkpoint-store"></a>Azure Blob Storage를 검사점 저장소로 사용할 때 특정 버전의 Azure Storage SDK를 대상으로 지정 하려면 어떻게 해야 하나요?
-Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hubs SDK가 Azure Stack Hub 플랫폼에서는 사용할 수 없는 Azure에서 사용 가능한 최신 Azure Storage API를 사용하기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hubs SDK가 Azure Stack Hub 플랫폼에서는 사용할 수 없는 Azure에서 사용 가능한 최신 Azure Storage API를 사용하기 때문입니다. Azure Stack 허브는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
 
-예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
+예를 들어 Azure Stack 허브 버전 2005에서 실행 중인 경우 저장소 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 c #, Java, Python 및 JavaScript/TypeScript에 대 한 다음 샘플을 참조 하세요.  
 
 코드에서 특정 Storage API 버전을 대상으로 지정 하는 방법에 대 한 예제는 GitHub의 다음 샘플을 참조 하세요. 
 

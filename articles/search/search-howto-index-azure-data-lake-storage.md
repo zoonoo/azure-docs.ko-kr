@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: b1a88398d657e6bc242c7db12f3c0ddc1af828ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a585fa1c3c56d285859171e6b5673fe57beffb3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935860"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517324"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 문서 인덱싱
 
@@ -44,7 +44,7 @@ Data Lake Storage Gen2의 인덱싱 콘텐츠는 Azure Blob Storage에서 콘텐
 
 ## <a name="access-control"></a>Access Control
 
-Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 POSIX와 같은 Acl (액세스 제어 목록)을 모두 지 원하는 [액세스 제어 모델](../storage/blobs/data-lake-storage-access-control.md) 을 구현 합니다. Data Lake Storage Gen2에서 콘텐츠를 인덱싱할 때 Azure Cognitive Search는 콘텐츠에서 RBAC 및 ACL 정보를 추출 하지 않습니다. 따라서이 정보는 Azure Cognitive Search 인덱스에 포함 되지 않습니다.
+Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 POSIX와 같은 Acl (액세스 제어 목록)을 모두 지 원하는 [액세스 제어 모델](../storage/blobs/data-lake-storage-access-control.md) 을 구현 합니다. Data Lake Storage Gen2에서 콘텐츠를 인덱싱할 때 Azure Cognitive Search는 콘텐츠에서 Azure RBAC 및 ACL 정보를 추출 하지 않습니다. 따라서이 정보는 Azure Cognitive Search 인덱스에 포함 되지 않습니다.
 
 인덱스의 각 문서에 대 한 액세스 제어를 유지 하는 것이 중요 한 경우에는 응용 프로그램 개발자가 [보안 트리밍을](./search-security-trimming-for-azure-search.md)구현 하는 것이 중요 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple에 역할 기반 액세스 제어 사용 | Microsoft Docs
+title: StorSimple에 대 한 Azure 역할 기반 액세스 제어 사용 | Microsoft Docs
 description: StorSimple의 컨텍스트에서 azure RBAC (역할 기반 액세스 제어)를 사용 하는 방법을 설명 합니다.
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c38e23ddbbfe983ff82ad25363c744292d4d69
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920418"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518979"
 ---
-# <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
+# <a name="azure-role-based-access-control-for-storsimple"></a>StorSimple에 대 한 Azure 역할 기반 액세스 제어
 
-이 문서에서는 StorSimple 장치에 azure RBAC (역할 기반 액세스 제어)를 사용 하는 방법에 대 한 간략 한 설명을 제공 합니다. RBAC는 Azure에 대한 정밀 액세스 관리를 제공합니다. RBAC를 사용하여 모든 사람들에게 무제한 액세스 권한을 주는 대신 StorSimple 사용자가 작업을 수행하는 데 필요한 만큼의 액세스 권한을 부여합니다. Azure에서 액세스 관리의 기초에 대한 자세한 내용은 [Azure Portal에서 역할 기반 액세스 제어 시작](../role-based-access-control/overview.md)을 참조하세요.
+이 문서에서는 StorSimple 장치에 azure RBAC (역할 기반 액세스 제어)를 사용 하는 방법에 대 한 간략 한 설명을 제공 합니다. Azure RBAC는 Azure에 대 한 세밀 한 액세스 관리를 제공 합니다. Azure RBAC를 사용 하 여 모든 사용자에 게 무제한 액세스 권한을 부여 하는 대신 StorSimple 사용자에 게 적절 한 크기의 액세스 권한을 부여 하 여 작업을 수행할 수 있습니다. Azure에서 액세스 관리의 기본 사항에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 란? (AZURE RBAC)](../role-based-access-control/overview.md)을 참조 하세요.
 
 이 문서는 Azure Portal에서 실행되는 업데이트 3.0 이상을 실행하는 StorSimple 8000 시리즈 디바이스에 적용됩니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "87920418"
 
 ## <a name="azure-roles-for-storsimple"></a>StorSimple 용 Azure 역할
 
-RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경에서 사용할 수 있는 리소스를 기준으로 특정 권한 수준을 보장합니다. StorSimple 사용자는 기본 제공 또는 사용자 지정의 두 가지 유형 중에서 역할을 선택할 수 있습니다.
+Azure RBAC는 역할을 기반으로 할당 될 수 있습니다. 이 역할은 환경에서 사용할 수 있는 리소스를 기준으로 특정 권한 수준을 보장합니다. StorSimple 사용자는 기본 제공 또는 사용자 지정의 두 가지 유형 중에서 역할을 선택할 수 있습니다.
 
 * **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 Access Control의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조 하세요.
 

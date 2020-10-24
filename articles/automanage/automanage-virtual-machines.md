@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816819"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519659"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -37,7 +37,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
@@ -58,7 +58,7 @@ Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 
 
 참여 하는 Azure 서비스의 전체 목록 및 지원 되는 구성 프로필에 대 한 [Virtual Machines 모범 사례는 Azure Automanage](virtual-machines-best-practices.md) 를 참조 하세요.
 
- 이러한 참여 하는 서비스에 자동으로 등록 됩니다. [클라우드 채택 프레임 워크](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management)에서 찾을 수 있는 모범 사례 백서에 반드시 필요 합니다.
+ 이러한 참여 하는 서비스에 자동으로 등록 됩니다. [클라우드 채택 프레임 워크](/azure/cloud-adoption-framework/manage/azure-server-management)에서 찾을 수 있는 모범 사례 백서에 반드시 필요 합니다.
 
 이러한 모든 서비스에 대해 자동으로 등록 하 고, 자동으로 구성 하 고, 드리프트에 대해 모니터링 하 고, 드리프트가 검색 되 면 중재 합니다.
 
