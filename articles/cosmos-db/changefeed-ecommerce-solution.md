@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356369"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475918"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -50,11 +50,11 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 5. **Event Hub:** 이러한 이벤트를 저장하고 추가 분석을 수행하기 위해 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)로 보냅니다.  
 
-6. **Azure Stream Analytics:** 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop)로 보내집니다.  
+6. **Azure Stream Analytics:** 이벤트를 처리하고 실시간 데이터 분석을 수행하기 위한 쿼리를 정의합니다. 그런 다음, 이 데이터는 [Microsoft Power BI](/power-bi/desktop-what-is-desktop)로 보내집니다.  
 
 7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -257,7 +257,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
    a. **출력 별칭:** incomingRevenueOutput, 데이터 세트 이름: incomingRevenue, 테이블 이름: incomingRevenue  
    b. **출력 별칭:** top5Output, 데이터 세트 이름: top5, 테이블 이름: top5  
-   다. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
+   c. **출력 별칭:** uniqueVisitorCountOutput, 데이터 세트 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
 
    그런 다음, **쿼리 편집**을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
 
@@ -395,4 +395,4 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 ## <a name="next-steps"></a>다음 단계 
   
-* 변경 피드에 대해 자세히 알아보기 위해 [Azure Cosmos DB에서 변경 피드 지원 사용](change-feed.md)을 참조하세요. 
+* 변경 피드에 대해 자세히 알아보기 위해 [Azure Cosmos DB에서 변경 피드 지원 사용](change-feed.md)을 참조하세요.

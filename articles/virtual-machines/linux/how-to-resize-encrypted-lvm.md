@@ -1,17 +1,18 @@
 ---
-title: Azure Disk Encryption를 사용 하 여 암호화 된 논리 볼륨 관리 디스크의 크기를 조정 하는 방법
+title: Azure Disk Encryption를 사용 하 여 암호화 된 디스크 크기를 조정 하는 방법
 description: 이 문서에서는 논리 볼륨 관리를 사용 하 여 ADE 암호화 된 디스크 크기를 조정 하는 지침을 제공 합니다.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978478"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487962"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Azure Disk Encryption를 사용 하는 논리 볼륨 관리 장치의 크기를 조정 하는 방법
 
@@ -27,7 +28,7 @@ ms.locfileid: "91978478"
     - 단일 패스 확장
     - 이중 패스 확장
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 

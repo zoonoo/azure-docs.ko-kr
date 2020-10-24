@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167592"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485004"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Table API에 대한 질문과 대답
 
@@ -97,7 +97,7 @@ Azure Portal을 사용하여 데이터를 찾을 수 있습니다. 또한 Table 
 
 ### <a name="which-tools-work-with-the-table-api"></a>Table API에는 어떤 도구를 사용할 수 있나요?
 
-[Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용할 수 있습니다.
+[Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용할 수 있습니다.
 
 이전에 지정된 형식으로 연결 문자열을 가져오는 유연성이 있는 도구에서 새 Table API를 지원할 수 있습니다. 테이블 도구 목록은 [Azure Storage Client 도구](../storage/common/storage-explorers.md) 페이지에 나와 있습니다.
 
@@ -115,7 +115,7 @@ Azure Portal을 사용하여 데이터를 찾을 수 있습니다. 또한 Table 
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>기존 Azure Table Storage 애플리케이션을 이 제품으로 마이그레이션하려면 어떻게 할까요?
 
-[AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 및 [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)는 모두 지원됩니다.
+[AzCopy](../storage/common/storage-use-azcopy-v10.md) 및 [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)는 모두 지원됩니다.
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>예를 들어 *n*GB에서 시작한 데이터가 시간이 흘러 1TB까지 증가하게 되면 이 서비스의 경우 스토리지 크기를 어떻게 확장할 수 있나요?
 
@@ -231,7 +231,7 @@ Table API는 Azure Cosmos DB라는 세계적으로 분산된 플랫폼을 활용
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>플랫폼인 Azure Cosmos DB에는 정렬, 집계, 계층 구조 등 많은 기능이 있는데, 이러한 기능이 Table API에 추가될 계획이 있나요 ?
 
-Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 자세한 내용은 [SQL 쿼리](how-to-sql-query.md)를 참조하세요.
+Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 자세한 내용은 [SQL 쿼리](./sql-query-getting-started.md)를 참조하세요.
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Table API에 대한 TableThroughput은 언제 변경해야 하나요?
 
@@ -293,7 +293,7 @@ Azure Cosmos DB는 SLA 기반 시스템으로, 대기 시간, 처리량, 가용�
 다음 방법 중 하나로 사용자 의견을 공유할 수 있습니다.
 
 * [사용자 의견](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&A 질문 페이지](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow는 프로그래밍 질문에 가장 적합합니다. 질문이 [주제와 관련된](https://stackoverflow.com/help/on-topic) 것인지 확인하고 [질문에 대해 분명하고 답변할 수 있도록 가능한 한 자세하게 제공하세요](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325388"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479088"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database 및 Azure Synapse Analytics 연결 아키텍처
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "91325388"
 
 다음 다이어그램에서는 연결 아키텍처에 대 한 개략적인 개요를 제공 합니다.
 
-![아키텍처 개요](./media/connectivity-architecture/connectivity-overview.png)
+![연결 아키텍처에 대 한 개략적인 개요를 보여 주는 다이어그램입니다.](./media/connectivity-architecture/connectivity-overview.png)
 
 다음 단계는 Azure SQL Database 연결을 설정 하는 방법을 설명 합니다.
 
@@ -63,7 +63,7 @@ Azure 내부에서 연결하는 경우 연결에는 기본적으로 `Redirect` �
 
 Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연결 정책이 있습니다. `Proxy` 정책의 경우 TCP 세션이 Azure SQL Database 게이트웨이를 통해 설정되고 모든 후속 패킷이 게이트웨이를 통합니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
-![아키텍처 개요](./media/connectivity-architecture/connectivity-onprem.png)
+![Azure SQL Database 게이트웨이를 통해 TCP 세션이 설정 되 고 모든 후속 패킷이 게이트웨이를 통해 전달 되는 방식을 보여 주는 다이어그램입니다.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > 또한 [DAC와의 연결](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 을 설정 하기 위해 TCP 포트 1434 및 14000-14999를 엽니다.

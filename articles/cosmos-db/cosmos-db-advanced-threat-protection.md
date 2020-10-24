@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85119273"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489254"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
 
@@ -26,7 +26,7 @@ Azure Cosmos DB용 Advanced Threat Protection은 Azure Cosmos DB 계정에 액�
 > * Azure Cosmos DB용 Advanced Threat Protection은 현재 SQL API에서만 사용할 수 있습니다.
 > * Azure Cosmos DB용 Advanced Threat Protection은 현재 Azure Government 및 소버린 클라우드 지역에서 사용할 수 없습니다.
 
-보안 경고의 전체 조사 환경의 경우 모든 문서, 컨테이너 및 데이터베이스에 대한 CRUD 작업을 포함하여 데이터베이스 자체에 대한 작업을 기록하는 [Azure Cosmos DB의 진단 로깅](https://docs.microsoft.com/azure/cosmos-db/logging)을 사용하는 것이 좋습니다.
+보안 경고의 전체 조사 환경의 경우 모든 문서, 컨테이너 및 데이터베이스에 대한 CRUD 작업을 포함하여 데이터베이스 자체에 대한 작업을 기록하는 [Azure Cosmos DB의 진단 로깅](./monitor-cosmos-db.md)을 사용하는 것이 좋습니다.
 
 ## <a name="threat-types"></a>위협 유형
 
@@ -59,16 +59,16 @@ Azure Cosmos DB용 Advanced Threat Protection은 비정상적이며 유해할 �
 
 Rest API 명령을 사용하여 특정 Azure Cosmos DB 계정에 대한 Advanced Threat Protection 설정을 만들거나, 업데이트하거나, 가져옵니다.
 
-* [Advanced Threat Protection - 만들기](https://go.microsoft.com/fwlink/?linkid=2099745)
-* [Advanced Threat Protection - 가져오기](https://go.microsoft.com/fwlink/?linkid=2099643)
+* [Advanced Threat Protection - 만들기](/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced Threat Protection - 가져오기](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell cmdlet을 사용합니다.
 
-* [Advanced Threat Protection 사용](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
-* [Advanced Threat Protection 가져오기](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
-* [Advanced Threat Protection 사용 안 함](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+* [Advanced Threat Protection 사용](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Advanced Threat Protection 가져오기](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Advanced Threat Protection 사용 안 함](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
 
 ### <a name="arm-template"></a>[ARM 템플릿](#tab/arm-template)
 
@@ -112,9 +112,9 @@ Azure Cosmos DB 작업 변칙이 발생한 경우 의심스러운 보안 이벤�
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB ATP 경고
 
- Azure Cosmos DB 계정을 모니터링할 때 생성되는 경고 목록을 보려면 Azure Security Center 설명서의 [Cosmos DB 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) 섹션을 참조하세요.
+ Azure Cosmos DB 계정을 모니터링할 때 생성되는 경고 목록을 보려면 Azure Security Center 설명서의 [Cosmos DB 경고](../security-center/alerts-reference.md#alerts-azurecosmos) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Cosmos DB의 진단 로깅](cosmosdb-monitor-resource-logs.md)에 대한 자세한 정보
-* [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
+* [Azure Security Center](../security-center/security-center-introduction.md)에 대한 자세한 정보

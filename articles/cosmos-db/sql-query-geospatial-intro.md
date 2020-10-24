@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482828"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터
 
@@ -210,7 +210,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-위도 및 경도 정보가 없지만 실제 주소 또는 위치 이름 (예: 도시 또는 국가/지역)을 사용 하는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](https://msdn.microsoft.com/library/ff701713.aspx)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
+위도 및 경도 정보가 없지만 실제 주소 또는 위치 이름 (예: 도시 또는 국가/지역)을 사용 하는 경우 Bing 지도 REST 서비스와 같은 지 오 코딩 서비스를 사용 하 여 실제 좌표를 조회할 수 있습니다. [여기](/bingmaps/rest-services/)서 Bing 지도 지오코딩에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

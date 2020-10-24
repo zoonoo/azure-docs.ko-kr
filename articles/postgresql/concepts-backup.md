@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 0c1b0b5ac0c5c71dc5c98cb91d86f879a82809bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b267a97b640c9d069f83223206200fc4814c86b9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708457"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488013"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
 
@@ -32,11 +32,11 @@ Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백�
 
 #### <a name="servers-with-up-to-16-tb-storage"></a>최대 16TB의 저장소를 포함 하는 서버
 
-[Azure 지역의](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 최대 16tb의 저장소를 지원할 수 있습니다. 이러한 대량 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다. 차등 스냅샷 백업은 정해진 일정으로 발생하지 않습니다. 하루에는 세 개의 차등 스냅숏 백업이 수행 됩니다. 트랜잭션 로그 백업은 5분마다 발생합니다. 
+[Azure 지역의](./concepts-pricing-tiers.md#storage)하위 집합에서 새로 프로 비전 된 모든 서버는 최대 16tb의 저장소를 지원할 수 있습니다. 이러한 대량 저장소 서버에 대 한 백업은 스냅숏 기반입니다. 첫 번째 전체 스냅샷 백업은 서버를 만든 직후에 예약됩니다. 첫 번째 전체 스냅숏 백업은 서버의 기본 백업으로 유지 됩니다. 후속 스냅샷 백업은 차등 백업만 수행합니다. 차등 스냅샷 백업은 정해진 일정으로 발생하지 않습니다. 하루에는 세 개의 차등 스냅숏 백업이 수행 됩니다. 트랜잭션 로그 백업은 5분마다 발생합니다. 
 
 ### <a name="backup-retention"></a>백업 보존
 
-백업은 서버의 백업 보존 기간 설정에 따라 보존 됩니다. 7 일에서 35 일의 보존 기간을 선택할 수 있습니다. 기본 보존 기간은 7 일입니다. [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-restore-server-portal#set-backup-configuration) 또는 [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-restore-server-cli#set-backup-configuration)를 사용 하 여 백업 구성을 업데이트 하 여 서버를 만드는 동안 또는 나중에 보존 기간을 설정할 수 있습니다. 
+백업은 서버의 백업 보존 기간 설정에 따라 보존 됩니다. 7 일에서 35 일의 보존 기간을 선택할 수 있습니다. 기본 보존 기간은 7 일입니다. [Azure Portal](./howto-restore-server-portal.md#set-backup-configuration) 또는 [Azure CLI](./howto-restore-server-cli.md#set-backup-configuration)를 사용 하 여 백업 구성을 업데이트 하 여 서버를 만드는 동안 또는 나중에 보존 기간을 설정할 수 있습니다. 
 
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 백업 보존 기간은 복원 관점에서 복구 기간으로 처리 될 수도 있습니다. 백업 보존 기간 내에 지정 시간 복원을 수행 하는 데 필요한 모든 백업은 백업 저장소에 유지 됩니다. 예를 들어 백업 보존 기간을 7 일로 설정 하면 복구 기간이 최근 7 일로 간주 됩니다. 이 시나리오에서는 지난 7 일 동안 서버를 복원 하는 데 필요한 모든 백업이 유지 됩니다. 백업 보존 기간을 7 일로 바꿉니다.
 - 최대 2TB 저장소를 포함 하는 서버는 최대 2 개의 전체 데이터베이스 백업, 모든 차등 백업 및 가장 이른 전체 데이터베이스 백업 이후에 수행 된 트랜잭션 로그 백업을 유지 합니다.
@@ -44,7 +44,7 @@ Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백�
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
-Azure Database for PostgreSQL은 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에도 복제됩니다. 이렇게 하면 재해 발생 시 다른 지역에서 서버를 복원하는 데 더 효율적인 보호와 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
+Azure Database for PostgreSQL은 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)에도 복제됩니다. 이렇게 하면 재해 발생 시 다른 지역에서 서버를 복원하는 데 더 효율적인 보호와 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
 
 > [!IMPORTANT]
 > 백업을 위한 로컬 중복 또는 지역 중복 스토리지를 구성하는 것은 서버를 만드는 동안에만 허용됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다.
@@ -69,7 +69,7 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 크기, 네트워크 대역폭 및 동일한 지역에서 동시에 복구되는 데이터베이스의 총 수를 포함한 여러 요소에 따라 달라집니다. 복구 시간은 일반적으로 12시간 미만입니다.
 
 > [!IMPORTANT]
-> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)을 활용할 수 있습니다.
+> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](../azure-resource-manager/management/lock-resources.md)을 활용할 수 있습니다.
 
 ### <a name="point-in-time-restore"></a>지정 시간 복원
 

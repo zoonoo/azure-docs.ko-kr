@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a5b019068368f1c0c076f5a1ed157c288bb7169c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151685"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479921"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
 
@@ -126,7 +126,7 @@ ms.locfileid: "92151685"
 
     관리 그룹, 구독, 리소스 그룹 또는 리소스와 같은 다양 한 범위에서 선택한 사용자 할당 관리 id에 할당 된 역할 목록이 표시 됩니다. 이 목록에는 읽을 수 있는 권한이 있는 모든 역할 할당이 포함 됩니다.
 
-    ![시스템 할당 관리 id에 대 한 역할 할당](./media/shared/role-assignments-user-assigned.png)
+    ![사용자 할당 관리 id에 대 한 역할 할당을 보여 주는 스크린샷](./media/shared/role-assignments-user-assigned.png)
 
 1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
 
@@ -178,7 +178,7 @@ CSV 또는 JSON 형식으로 된 범위에서 역할 할당을 다운로드할 �
 
     ![역할 할당을 CSV로 다운로드](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![역할 할당을 CSV로 다운로드](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![JSON 형식으로 다운로드 된 역할 할당의 스크린샷](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## <a name="next-steps"></a>다음 단계
 

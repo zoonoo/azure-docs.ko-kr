@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87535045"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487197"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>작업 영역 관리 id에 사용 권한 부여 (미리 보기)
 
@@ -70,7 +70,7 @@ Azure Portal에서 ADLS Gen2 storage 계정을 열고 왼쪽 탐색 영역에서
 
 
 *저장소 Blob 데이터 참가자* 역할을 관리 되는 id에 부여 하려면 동일한 컨테이너 또는 파일 시스템을 선택 합니다.
-![ADLS Gen2 storage 계정 컨테이너 선택](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![선택 해야 하는 컨테이너 또는 파일 시스템을 보여 주는 스크린샷](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>3 단계: 액세스 제어로 이동
 

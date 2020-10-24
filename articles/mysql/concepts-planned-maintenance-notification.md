@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 3a5a4b3997a9286901fc24173e57563c5abe68a1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92429040"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488914"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 계획 된 유지 관리 알림-단일 서버
 
@@ -63,7 +63,7 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 
 **서비스 상태 경고**를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md)를 참조 하세요.
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>알림 이벤트를 받은 후 서버에 대 한 계획 된 유지 관리를 제어 하거나 변경할 수 있나요?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>계획 된 유지 관리를 취소 하거나 연기할 수 있나요?
 
 유지 관리는 서버를 안전 하 고 안정적 이며 최신 상태로 유지 하기 위해 필요 합니다. 계획 된 유지 관리 이벤트는 취소 하거나 연기할 수 없습니다. 지정 된 Azure 지역으로 알림이 전송 되 면 해당 지역의 개별 서버에 대해 패치 일정을 변경할 수 없습니다. 한 번에 전체 지역에 대해 패치가 롤아웃 됩니다. Azure Database for MySQL-단일 서버 서비스는 서비스를 세부적으로 제어 하거나 사용자 지정할 필요가 없는 클라우드 네이티브 응용 프로그램용으로 설계 되었습니다. 서버에 대 한 유지 관리를 예약 하는 기능을 원하는 경우 [유연한 서버](./flexible-server/overview.md)를 고려 하는 것이 좋습니다.
 

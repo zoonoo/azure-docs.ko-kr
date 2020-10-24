@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460550"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486942"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 테이블 디자인
 
@@ -79,7 +79,7 @@ SQL 풀은 가장 일반적으로 사용 되는 데이터 형식을 지원 합�
 
 ## <a name="distributed-tables"></a>분산 테이블
 
-SQL 풀의 기본 기능은 [배포](massively-parallel-processing-mpp-architecture.md#distributions)를 통해 테이블에 저장 하 고 작업할 수 있는 방법입니다.  SQL 풀은 라운드 로빈 (기본값), 해시 및 복제의 세 가지 데이터 배포 방법을 지원 합니다.
+Synapse SQL의 기본 기능은 [배포](massively-parallel-processing-mpp-architecture.md#distributions)를 통해 테이블에 저장 하 고 작업할 수 있는 방법입니다. Synapse SQL은 데이터를 배포 하는 세 가지 방법, 즉 라운드 로빈 (기본값), 해시 및 복제를 지원 합니다.
 
 ### <a name="hash-distributed-tables"></a>해시 분산 테이블
 
@@ -144,7 +144,7 @@ columnstore 기능 목록은 [columnstore 인덱스의 새로운 기능](/sql/re
 
 테이블을 새로운 빈 테이블로 만들 수 있습니다. 테이블을 만들고 select 문의 결과로 채울 수도 있습니다. 다음은 테이블을 만드는 T-SQL 명령입니다.
 
-| T-SQL 문 | Description |
+| T-SQL 문 | 설명 |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 모든 테이블 열과 옵션을 정의하여 빈 테이블을 만듭니다. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | 외부 테이블을 만듭니다. 테이블의 정의는 SQL 풀에 저장 됩니다. 테이블 데이터는 Azure Blob Storage 또는 Azure Data Lake Store에 저장됩니다. |

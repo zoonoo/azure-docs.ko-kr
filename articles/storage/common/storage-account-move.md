@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515017"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488829"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
 
@@ -67,7 +67,7 @@ Azure Portal을 사용하여 템플릿을 내보내려면:
 
 PowerShell을 사용 하 여 템플릿을 내보내려면:
 
-1. [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
          }]          
     ```
 
-    [AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) 명령을 실행 하 여 지역 번호를 가져올 수 있습니다.
+    [AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 실행 하 여 지역 번호를 가져올 수 있습니다.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -196,7 +196,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. [AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0)를 사용 하 여 대상 공용 IP를 배포 하려는 구독 ID를 가져옵니다.
+1. [AzSubscription](/powershell/module/az.accounts/get-azsubscription)를 사용 하 여 대상 공용 IP를 배포 하려는 구독 ID를 가져옵니다.
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -232,14 +232,14 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 ### <a name="move-data-to-the-new-storage-account"></a>새 스토리지 계정으로 데이터 이동
 
-AzCopy은 데이터를 이동 하는 데 선호 되는 도구입니다. 성능에 최적화되어 있습니다.  더 빠른 방법 중 하나는 스토리지 서버 간에 데이터를 직접 복사하여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용하거나 사용자 지정 스크립트의 일부로 사용합니다. [AzCopy 시작](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+AzCopy은 데이터를 이동 하는 데 선호 되는 도구입니다. 성능에 최적화되어 있습니다.  더 빠른 방법 중 하나는 스토리지 서버 간에 데이터를 직접 복사하여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용하거나 사용자 지정 스크립트의 일부로 사용합니다. [AzCopy 시작](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 Azure Data Factory를 사용 하 여 데이터를 이동할 수도 있습니다. 직관적인 사용자 인터페이스를 제공 합니다. Azure Data Factory를 사용 하려면 다음 링크 중 하나를 참조 하세요.. 
 
-  - [Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](/azure/data-factory/connector-azure-blob-storage)
+  - [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사](/azure/data-factory/connector-azure-file-storage)
+  - [Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 이 자습서에서는 Azure storage 계정을 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다.  Azure에서 지역 및 재해 복구 간에 리소스를 이동하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 
-- [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [다른 지역으로 Azure VM 이동](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [새 리소스 그룹 또는 구독으로 리소스 이동](/azure/azure-resource-manager/resource-group-move-resources)
+- [다른 지역으로 Azure VM 이동](/azure/site-recovery/azure-to-azure-tutorial-migrate)

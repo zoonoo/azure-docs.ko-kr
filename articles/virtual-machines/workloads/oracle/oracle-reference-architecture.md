@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993574"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480431"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -72,7 +72,7 @@ Oracle Database 버전 12.2 이상에서는 단일 Oracle Data Guard broker 구�
 
 다음 다이어그램은 가용성 영역을 사용 하 여 Azure에서 Oracle Data Guard를 사용 하기 위한 권장 아키텍처입니다. 이 아키텍처를 통해 99.99%의 VM 작동 시간 SLA를 얻을 수 있습니다.
 
-![Data Guard Broker-FSFO에서 가용성 영역을 사용 하는 Oracle Database](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![가용성 영역을 사용 하 여 Azure에서 Oracle Data Guard를 사용 하기 위한 권장 아키텍처를 보여 주는 다이어그램입니다.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 위의 다이어그램에서 클라이언트 시스템은 웹을 통해 Oracle 백 엔드에서 사용자 지정 응용 프로그램에 액세스 합니다. 웹 프런트 엔드는 부하 분산 장치에 구성 됩니다. 웹 프런트 엔드는 해당 응용 프로그램 서버에 대 한 호출을 수행 하 여 작업을 처리 합니다. 응용 프로그램 서버는 주 Oracle 데이터베이스를 쿼리 합니다. Oracle 데이터베이스는 라이선스 비용을 절감 하 고 성능을 최대화 하기 위해 제약이 있는 [코어 vCPUs](../../../virtual-machines/constrained-vcpu.md) 가 포함 된 하이퍼 스레드 [메모리 최적화 가상 머신을](../../sizes-memory.md) 사용 하 여 구성 되었습니다. 여러 프리미엄 또는 ultra disks (Managed Disks)는 성능과 고가용성에 사용 됩니다.
 

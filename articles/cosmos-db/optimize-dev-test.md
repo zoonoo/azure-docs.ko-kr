@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c2194476dc6e640f9c4b93d564728478de41ef7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606263"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475535"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 개발 및 테스트 비용 최적화
 
@@ -28,7 +28,7 @@ Azure Cosmos DB 무료 계층을 사용 하면 쉽게 시작 하 고, 응용 프
 > [!NOTE]
 > 무료 계층은 프로 비전 된 처리량 모드 에서만 사용할 수 있습니다.
 
-무료 계층은 계정 수명 동안 무기한으로 지속 되며 무제한 저장소 및 처리량 (r u/초), Sla, 고가용성, 턴키 전역 배포를 비롯 하 여 모든 Azure 지역에서 일반 Azure Cosmos DB 계정의 모든 [이점과 기능](introduction.md#key-benefits) 을 제공 합니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](manage-sql-with-resource-manager.md#free-tier)사용 합니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
+무료 계층은 계정 수명 동안 무기한으로 지속 되며 무제한 저장소 및 처리량 (r u/초), Sla, 고가용성, 턴키 전역 배포를 비롯 하 여 모든 Azure 지역에서 일반 Azure Cosmos DB 계정의 모든 [이점과 기능](introduction.md#key-benefits) 을 제공 합니다. Azure 구독 당 최대 1 개의 무료 계층 계정을 가질 수 있으며 계정을 만들 때 옵트인 해야 합니다. 시작 하려면 [무료 계층이 사용 하도록 설정 된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿을](./manage-with-templates.md#free-tier)사용 합니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기
 
@@ -57,5 +57,5 @@ Azure Cosmos DB는 Azure 크레딧과 리소스를 일정 기간 동안 무료�
 * [처리량 비용 최적화](optimize-cost-throughput.md)에 대한 자세한 정보
 * [스토리지 비용 최적화](optimize-cost-storage.md)에 대한 자세한 정보
 * [읽기 및 쓰기 비용 최적화](optimize-cost-reads-writes.md)에 대한 자세한 정보
-* [쿼리 비용 최적화](optimize-cost-queries.md)에 대한 자세한 정보
+* [쿼리 비용 최적화](./optimize-cost-reads-writes.md)에 대한 자세한 정보
 * [다중 지역 Azure Cosmos 계정 비용 최적화](optimize-cost-regions.md)에 대한 자세한 정보

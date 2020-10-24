@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f681a271dcd64468cb471c81496e489f0ce8413f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 391cbbca79560ba57ae2be62accdad8451446227
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713663"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488727"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -61,7 +61,7 @@ Azure 기본 제공 역할을 보안 주체에 할당 하는 방법을 알아보
 
 ### <a name="access-permissions-for-data-operations"></a>데이터 작업에 대 한 액세스 권한
 
-특정 Blob 또는 큐 서비스 작업을 호출 하는 데 필요한 권한에 대 한 자세한 내용은 [blob 및 큐 데이터 작업 호출에 대 한 권한](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요.
+특정 Blob 또는 큐 서비스 작업을 호출 하는 데 필요한 권한에 대 한 자세한 내용은 [blob 및 큐 데이터 작업 호출에 대 한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조 하세요.
 
 ## <a name="resource-scope"></a>리소스 범위
 

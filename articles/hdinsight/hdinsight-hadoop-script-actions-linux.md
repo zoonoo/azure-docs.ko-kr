@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082253"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486313"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -161,13 +161,13 @@ HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니�
 > [!NOTE]  
 > Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용 하 고 만들기가 실패 하는 경우 기록 된 정보에 액세스 하는 다른 방법에 대 한 [스크립트 작업 문제 해결](./troubleshoot-script-action.md) 을 참조 하세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들면 다음과 같습니다.
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예를 들면 다음과 같습니다.
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -319,7 +319,7 @@ Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면
 
 * Azure portal
 * Azure PowerShell
-* Azure Resource Manager 템플릿
+* Azure 리소스 관리자 템플릿
 * HDInsight .NET SDK
 
 각 메서드 사용에 대한 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
@@ -365,5 +365,5 @@ awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 ## <a name="next-steps"></a><a name="seeAlso"></a>다음 단계
 
 * [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)
-* [HDInsight.NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight를 관리하는 .NET 애플리케이션을 만드는 방법을 알아봅니다.
+* [HDInsight.NET SDK 참조](/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight를 관리하는 .NET 애플리케이션을 만드는 방법을 알아봅니다.
 * [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 를 사용하여 REST를 통해 HDInsight 클러스터에서 관리 작업을 수행하는 방법을 알아봅니다.

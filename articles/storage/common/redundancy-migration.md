@@ -1,5 +1,5 @@
 ---
-title: 저장소 계정이 복제 되는 방식 변경
+title: Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 titleSuffix: Azure Storage
 description: 기존 저장소 계정의 데이터가 복제 되는 방식을 변경 하는 방법을 알아봅니다.
 services: storage
@@ -11,14 +11,14 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a16199891c00e2b8133aebebd1eaa6488423896c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827310"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487894"
 ---
-# <a name="change-how-a-storage-account-is-replicated"></a>저장소 계정이 복제 되는 방식 변경
+# <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
 Azure Storage는 항상 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 항상 여러 복사본을 저장합니다. 중복성을 사용하면 저장소 계정은 오류가 발생하는 경우에도 [Azure Storage용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다.
 
@@ -144,9 +144,9 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 > [!NOTE]
 > 실시간 마이그레이션은 프리미엄 파일 공유에 현재 지원 되지 않습니다. 현재 데이터를 수동으로 복사 하거나 이동 하는 것만 지원 됩니다.
 >
-> GZRS 저장소 계정은 현재 보관 계층을 지원 하지 않습니다. 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요.
+> GZRS 저장소 계정은 현재 보관 계층을 지원 하지 않습니다. 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요.
 >
-> 관리 디스크는 LRS에만 사용할 수 있으며 ZRS로 마이그레이션할 수 없습니다. 표준 HDD 저장소에 표준 SSD 관리 디스크에 대 한 스냅숏 및 이미지를 저장 하 고 [LRS 및 ZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)수 있습니다. 가용성 집합과의 통합에 대 한 자세한 내용은 [Azure managed Disks 소개](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)를 참조 하세요.
+> 관리 디스크는 LRS에만 사용할 수 있으며 ZRS로 마이그레이션할 수 없습니다. 표준 HDD 저장소에 표준 SSD 관리 디스크에 대 한 스냅숏 및 이미지를 저장 하 고 [LRS 및 ZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)수 있습니다. 가용성 집합과의 통합에 대 한 자세한 내용은 [Azure managed Disks 소개](/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets)를 참조 하세요.
 
 ## <a name="switch-from-zrs-classic"></a>ZRS 클래식에서 전환
 

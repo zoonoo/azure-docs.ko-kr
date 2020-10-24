@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 1157ca31a66e5df92ff28f5d7190993e51d7dd65
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367638"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480040"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 (미리 보기) 
 
@@ -141,5 +141,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 :::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Synapse Analytics 작업 영역에 SQL 스크립트 추가":::
 
 ## <a name="next-steps"></a>다음 단계
+
+[T-sql을 사용 하 여 Azure Synapse 링크를 사용 하 여 Azure Cosmos DB 데이터 쿼리](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
 서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 azure [Open 데이터 집합 분석 및 Azure Synapse Studio에서 결과 시각화](../synapse-analytics/sql/tutorial-data-analyst.md)

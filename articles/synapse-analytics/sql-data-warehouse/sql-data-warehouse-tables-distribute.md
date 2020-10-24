@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214012"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487010"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Synapse SQL 풀의 분산 테이블 디자인에 대한 지침
 
 Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 
-이 문서에서는 사용자가 Synapse SQL 풀의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure Synapse Analytics MPP(Massively Parallel Processing) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조하세요.
+이 문서에서는 Synapse SQL의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정 합니다.  자세한 내용은 [Azure Synapse 분석 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요.
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 
@@ -32,7 +32,7 @@ Synapse SQL 풀의 해시 분산 테이블 및 라운드 로빈 분산 테이블
 
 또 다른 Table Storage 옵션은 모든 컴퓨팅 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요.
 
-테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음 질문을 고려합니다.
+테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.    예를 들어 다음 질문을 고려합니다.
 
 - 테이블이 얼마나 큰가요?
 - 테이블을 얼마나 자주 새로 고치나요?

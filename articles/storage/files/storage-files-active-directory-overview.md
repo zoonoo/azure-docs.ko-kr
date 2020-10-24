@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716068"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486392"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ Azure 파일 공유에서 id 기반 인증을 사용 하도록 설정 하려면 
 
 다음 다이어그램은 SMB를 통해 Azure 파일 공유에 대 한 온-프레미스 AD DS 인증을 보여 줍니다. 온-프레미스 AD DS Azure AD Connect sync를 사용 하 여 Azure AD에 동기화 해야 합니다. 온-프레미스 AD DS 및 Azure AD 둘 다에 존재 하는 하이브리드 사용자만 인증 하 고 Azure 파일 공유 액세스 권한을 부여할 수 있습니다. 이는 AD DS에서 디렉터리/파일 수준 사용 권한이 적용 되는 Azure AD에 표시 된 id에 대해 공유 수준 권한이 구성 되기 때문입니다. 동일한 하이브리드 사용자에 대해 사용 권한을 올바르게 구성 해야 합니다.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="다이어그램":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="SMB를 통해 Azure 파일 공유에 대 한 온-프레미스 AD DS 인증을 보여 주는 다이어그램입니다.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 
@@ -116,7 +116,7 @@ Azure AD DS 인증의 경우 파일 데이터에 액세스 하려는 Vm에 대 �
 
 - 둘째, Azure AD에 있는 모든 사용자를 인증 하 고 권한을 부여할 수 있습니다. 사용자는 클라우드 전용 또는 하이브리드 일 수 있습니다. Azure AD에서 Azure AD DS로의 동기화는 사용자 구성을 요구 하지 않고 플랫폼에 의해 관리 됩니다. 그러나 클라이언트는 Azure AD DS에 가입 된 도메인 이어야 하며, Azure AD에 조인 되거나 등록 될 수 없습니다. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="다이어그램":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="SMB를 통해 Azure 파일 공유에 대 한 온-프레미스 AD DS 인증을 보여 주는 다이어그램입니다.":::
 
 ### <a name="enable-identity-based-authentication"></a>Id 기반 인증 사용
 
@@ -147,7 +147,7 @@ Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 �
 ## <a name="next-steps"></a>다음 단계
 SMB를 통한 Azure Files 및 id 기반 인증에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
-- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
+- [Azure Files 배포 계획](storage-files-planning.md)
 - [Azure 파일 공유를 위해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-enable.md)
 - [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [FAQ](storage-files-faq.md)

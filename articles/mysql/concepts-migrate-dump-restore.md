@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905903"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484596"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 
@@ -30,11 +30,15 @@ ms.locfileid: "90905903"
 > [!TIP]
 > 데이터베이스 크기가 1tb 이상인 대량 데이터베이스를 마이그레이션하려면 병렬 내보내기 및 가져오기를 지 원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용 하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.
 
-## <a name="common-use-cases-for-dump-and-restore"></a>덤프 및 복원에 대 한 일반적인 사용 사례
-몇 가지 일반적인 시나리오에서 **mysqldump** 및 **Mysqlpump** 와 같은 MySQL 유틸리티를 사용 하 여 데이터베이스를 Azure MySQL 데이터베이스로 덤프 하 고 로드할 수 있습니다. 다른 시나리오에서 대신 [가져오기 및 내보내기](concepts-migrate-import-export.md) 방법을 사용할 수 있습니다.
 
-- **전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용**합니다. 이 권장 사항은 많은 양의 MySQL 데이터를 이동하거나 실시간 사이트 또는 애플리케이션에 대한 서비스 중단을 최소화하려는 경우 유지합니다.
--  **데이터베이스의 모든 테이블이 InnoDB 저장소 엔진을 사용 하는 경우 데이터베이스 덤프를 사용**합니다. Azure Database for MySQL은 InnoDB 스토리지 엔진만을 지원하므로 대체 스토리지 엔진을 지원하지 않습니다. 테이블이 다른 스토리지 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
+## <a name="common-use-cases-for-dump-and-restore"></a>덤프 및 복원에 대 한 일반적인 사용 사례
+
+가장 일반적인 사용 사례는 다음과 같습니다.
+
+- **다른 관리 서비스 공급자에서 이동** -대부분의 관리 되는 서비스 공급자는 보안상의 이유로 실제 저장소 파일에 대 한 액세스를 제공 하지 않을 수 있으므로, 논리적 백업 및 복원만 마이그레이션하는 유일한 옵션입니다.
+- **온-프레미스 환경 또는 가상 Azure Database for MySQL 컴퓨터에서 마이그레이션하** 는 것은 물리적 백업의 복원을 지원 하지 않습니다 .이 경우 유일한 방법으로 논리적 백업 및 복원을 수행 합니다.
+- **백업 저장소를 로컬 중복에서 지역 중복 Azure Database for MySQL 저장소로 이동** 하면 백업에 대 한 로컬 중복 또는 지역 중복 저장소 구성이 서버를 만드는 동안에만 허용 됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다. 백업 저장소를 로컬 중복 저장소에서 지역 중복 저장소로 이동 하기 위해 유일한 옵션은 덤프 및 복원입니다. 
+-  **대체 저장소 엔진에서 InnoDB-Azure Database for MySQL로 마이그레이션하면** InnoDB 저장소 엔진도 지원 되므로 대체 저장소 엔진을 지원 하지 않습니다. 테이블이 다른 스토리지 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
 
     예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MySQL로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다.
 
@@ -165,3 +169,4 @@ PHPMyadmin를 사용 하 여 데이터베이스를 덤프 및 복원 하려면 �
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MySQL에 애플리케이션을 연결합니다](./howto-connection-string.md).
 - Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)을 참조합니다.
+- 데이터베이스 크기가 1tb 이상인 대량 데이터베이스를 마이그레이션하려면 병렬 내보내기 및 가져오기를 지 원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용 하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.

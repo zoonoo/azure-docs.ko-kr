@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714453"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488625"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -23,7 +23,7 @@ Microsoft Azure Storage Explorer는 Windows, macOS 및 Linux에서 Azure Storage
 
 ## <a name="azure-rbac-permissions-issues"></a>Azure RBAC 사용 권한 문제
 
-Azure 역할 기반 access control [AZURE RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 는 권한 집합을 _역할로_결합 하 여 azure 리소스의 매우 세부적인 액세스 관리를 가능 하 게 합니다. Storage 탐색기에서 가장 적합 한 Azure RBAC를 얻기 위한 몇 가지 전략이 있습니다.
+Azure 역할 기반 access control [AZURE RBAC](/azure/role-based-access-control/overview) 는 권한 집합을 _역할로_결합 하 여 azure 리소스의 매우 세부적인 액세스 관리를 가능 하 게 합니다. Storage 탐색기에서 가장 적합 한 Azure RBAC를 얻기 위한 몇 가지 전략이 있습니다.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Storage 탐색기에서 내 리소스에 액세스 어떻게 할까요??
 
@@ -65,7 +65,7 @@ Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명�
 3. 연결 하려는 리소스와 연결 된 사용자 계정 및 테 넌 트를 선택 합니다. 다음을 클릭합니다.
 4. 리소스 종류를 선택 하 고 리소스에 대 한 URL을 입력 한 다음 연결에 대 한 고유한 표시 이름을 입력 합니다. 다음을 클릭합니다. 연결을 클릭합니다.
 
-다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
+다른 리소스 종류의 경우 현재 Azure RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
 ### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 
@@ -100,7 +100,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 2. OpenSSL를 실행 합니다.
     * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe**를 두 번 클릭 합니다.
     * Mac 및 Linux: `openssl` 터미널에서를 실행 합니다.
-3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
+3. `s_client -showcerts -connect microsoft.com:443`를 실행합니다.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제와 발급자의 모든 위치를 기록해 둡니다 `("s:")` `("i:")` .
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 된 모든 항목을 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 새 .cer 파일에 붙여넣습니다.
 6. Storage 탐색기를 열고 **Edit**  >  **SSL 인증서**편집  >  **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
@@ -332,7 +332,7 @@ Storage 탐색기를 사용 하려면 .NET Core가 시스템에 설치 되어 �
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Storage 탐색기 release.tar.gz 파일을 다운로드 합니다.
-2. [.Net Core 런타임](https://docs.microsoft.com/dotnet/core/install/linux)설치:
+2. [.Net Core 런타임](/dotnet/core/install/linux)설치:
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ Storage 탐색기를 사용 하려면 .NET Core가 시스템에 설치 되어 �
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Storage 탐색기 release.tar.gz 파일을 다운로드 합니다.
-2. [.Net Core 런타임](https://docs.microsoft.com/dotnet/core/install/linux)설치:
+2. [.Net Core 런타임](/dotnet/core/install/linux)설치:
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ Storage 탐색기를 사용 하려면 .NET Core가 시스템에 설치 되어 �
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Storage 탐색기 release.tar.gz 파일을 다운로드 합니다.
-2. [.Net Core 런타임](https://docs.microsoft.com/dotnet/core/install/linux)설치:
+2. [.Net Core 런타임](/dotnet/core/install/linux)설치:
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

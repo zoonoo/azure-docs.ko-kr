@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280150"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488863"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -133,7 +133,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 - 테이블 저장소: `https://*mystorageaccount*.table.core.windows.net`
 - 큐 저장소: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` ( [빅 데이터에 대해 특별히 최적화 된 abfs 드라이버](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)를 사용 합니다.)
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` ( [빅 데이터에 대해 특별히 최적화 된 abfs 드라이버](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)를 사용 합니다.)
 
 > [!NOTE]
 > 블록 blob 및 blob 저장소 계정은 Blob service 끝점만 노출 합니다.
@@ -177,7 +177,7 @@ AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계�
 
 범용 v1 저장소 계정에서 Blob storage 계정으로 데이터를 마이그레이션하는 사용자 지정 응용 프로그램을 만들 수 있습니다. Azure 클라이언트 라이브러리 또는 Azure Storage 서비스 REST API 중 하나를 사용 합니다. Azure Storage는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
-Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참조](https://docs.microsoft.com/rest/api/storageservices/)를 참조하세요.
+Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참조](/rest/api/storageservices/)를 참조하세요.
 
 > [!IMPORTANT]
 > 클라이언트 쪽 암호화를 사용하여 암호화된 Blob은 Blob에 암호화 관련 메타데이터를 저장합니다. 클라이언트 쪽 암호화를 사용하여 암호화된 Blob을 복사하는 경우 복사 작업에서 Blob 메타데이터, 특히 암호화 관련 메타데이터를 유지해야 합니다. 암호화 메타데이터 없이 Blob을 복사하면 Blob 콘텐츠를 다시 검색할 수 없습니다. 암호화 관련 메타데이터에 대한 자세한 내용은 [Azure Storage 클라이언트 쪽 암호화](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

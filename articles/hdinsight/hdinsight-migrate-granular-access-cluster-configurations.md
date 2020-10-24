@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 23811f379f8738e3fe9f162e23627d0c3c457621
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8ae16e6799d1253b8b070d59414beaee3c7ff332
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367502"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479785"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -26,10 +26,10 @@ ms.locfileid: "92367502"
 
 또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약:
 
-| 역할                                  | 이전의                                                                                        | 앞으로 이동       |
+| Role                                  | 이전의                                                                                        | 앞으로 이동       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 판독기                                | -암호를 포함 한 읽기 권한입니다.                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
-| HDInsight 클러스터 운영자<br>(새 역할) | 해당 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
+| HDInsight 클러스터 운영자<br>(새 역할) | N/A                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
 | 참가자                           | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.<br>-스크립트 동작을 실행 합니다.     | 변경 내용 없음 |
 | 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 게 액세스 권한을 위임 합니다.<br>-스크립트 동작을 실행 합니다. | 변경 내용 없음 |
 
@@ -112,11 +112,11 @@ HDInsight SDK for .NET의 [2.1.0 버전](https://www.nuget.org/packages/Microsof
 
 .NET 용 HDInsight SDK [버전 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- [`ConfigurationOperationsExtensions.Get`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
-    - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationOperationsExtensions.List`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
-    - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClusterOperationsExtensions.GetGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet) 합니다. 
-- [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperationsExtensions.UpdateGatewaySettings`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet) . 
-- [`ConfigurationsOperationsExtensions.EnableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet) 및 [`DisableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet) 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로 이러한 메서드는 더 이상 필요 하지 않습니다.
+- [`ConfigurationOperationsExtensions.Get`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.get?view=azure-dotnet&preserve-view=true) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+    - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationOperationsExtensions.List`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.list?view=azure-dotnet&preserve-view=true) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
+    - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClusterOperationsExtensions.GetGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.getgatewaysettings?view=azure-dotnet&preserve-view=true) 합니다. 
+- [`ConfigurationsOperationsExtensions.Update`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet&preserve-view=true) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperationsExtensions.UpdateGatewaySettings`](/dotnet/api/microsoft.azure.management.hdinsight.clustersoperationsextensions.updategatewaysettings?view=azure-dotnet&preserve-view=true) . 
+- [`ConfigurationsOperationsExtensions.EnableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet&preserve-view=true) 및 [`DisableHttp`](/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet&preserve-view=true) 는 이제 사용 되지 않습니다. 이제 HTTP는 항상 사용 하도록 설정 되므로 이러한 메서드는 더 이상 필요 하지 않습니다.
 
 ### <a name="sdk-for-python"></a>Python용 SDK
 
@@ -193,7 +193,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Azure CLI 명령을 실행 하 여 다른 사용자 또는 서비스 주체에 HDInsight 클러스터 운영자 역할을 할당 하는 경우 "작업을 완료할 수 있는 권한이 부족 합니다."가 표시 되는 이유는 무엇 인가요?
 
-이 명령을 실행 하는 사용자 또는 서비스 주체에 게 소유자 역할을 보유 하는 것 외에도 담당자의 개체 Id를 조회할 수 있는 충분 한 Azure AD 권한이 있어야 합니다. 이 메시지는 Azure AD 권한이 부족 함을 나타냅니다. `-–assignee`인수를로 바꾸고 `–assignee-object-id` , 담당자의 개체 id를 이름 대신 매개 변수로 제공 합니다 (또는 관리 id의 경우 보안 주체 id). 자세한 정보는 [az role 대입문 create 설명서](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) 의 선택적 매개 변수 섹션을 참조 하세요.
+이 명령을 실행 하는 사용자 또는 서비스 주체에 게 소유자 역할을 보유 하는 것 외에도 담당자의 개체 Id를 조회할 수 있는 충분 한 Azure AD 권한이 있어야 합니다. 이 메시지는 Azure AD 권한이 부족 함을 나타냅니다. `-–assignee`인수를로 바꾸고 `–assignee-object-id` , 담당자의 개체 id를 이름 대신 매개 변수로 제공 합니다 (또는 관리 id의 경우 보안 주체 id). 자세한 정보는 [az role 대입문 create 설명서](/cli/azure/role/assignment#az-role-assignment-create) 의 선택적 매개 변수 섹션을 참조 하세요.
 
 그래도 문제가 해결 되지 않으면 Azure AD 관리자에 게 문의 하 여 올바른 사용 권한을 획득 합니다.
 
