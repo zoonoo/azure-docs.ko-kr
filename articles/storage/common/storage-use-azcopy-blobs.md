@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077911"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488523"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송
 
@@ -31,7 +31,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`를 예로 들 수 있습니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -260,7 +260,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 [Blob 버전 관리](../blobs/versioning-enable.md)를 사용 하도록 설정한 경우 blob의 이전 버전을 하나 이상 다운로드할 수 있습니다. 
 
-먼저 [버전 id](../blobs/versioning-overview.md)목록을 포함 하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시 되어야 합니다. 예를 들면 다음과 같습니다. 
+먼저 [버전 id](../blobs/versioning-overview.md)목록을 포함 하는 텍스트 파일을 만듭니다. 각 버전 ID는 별도의 줄에 표시 되어야 합니다. 예: 
 
 ```
 2020-08-17T05:50:34.2199403Z
@@ -282,7 +282,7 @@ AzCopy은 저장소 계정 간에 데이터를 복사 하거나 저장소 계정
 
 AzCopy를 사용하여 Blob을 다른 스토리지 계정에 복사할 수 있습니다. 복사 작업은 동기식이므로 명령이 반환될 때 모든 파일이 복사되었음을 나타냅니다. 
 
-AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) 간 [api](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)를 사용 하므로 저장소 서버 간에 데이터를 직접 복사 합니다. 이러한 복사 작업은 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. 환경 변수의 값을 설정 하 여 이러한 작업의 처리량을 늘릴 수 있습니다 `AZCOPY_CONCURRENCY_VALUE` . 자세히 알아보려면 [처리량 최적화](storage-use-azcopy-configure.md#optimize-throughput)를 참조 하세요.
+AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest/api/storageservices/put-page-from-url)를 사용 하므로 저장소 서버 간에 데이터를 직접 복사 합니다. 이러한 복사 작업은 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. 환경 변수의 값을 설정 하 여 이러한 작업의 처리량을 늘릴 수 있습니다 `AZCOPY_CONCURRENCY_VALUE` . 자세히 알아보려면 [처리량 최적화](storage-use-azcopy-configure.md#optimize-throughput)를 참조 하세요.
 
 > [!NOTE]
 > 이 시나리오의 현재 릴리스에서는 다음과 같은 제한 사항이 있습니다.
@@ -363,7 +363,7 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 `--delete-destination`플래그를 AzCopy로 설정 하면 `true` 프롬프트를 제공 하지 않고 파일이 삭제 됩니다. AzCopy에서 파일을 삭제 하기 전에 프롬프트가 표시 되도록 하려면 플래그를로 설정 `--delete-destination` `prompt` 합니다.
 
 > [!NOTE]
-> 실수로 인 한 삭제를 방지 하려면 플래그를 사용 하기 전에 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) 기능을 사용 하도록 설정 해야 합니다 `--delete-destination=prompt|true` .
+> 실수로 인 한 삭제를 방지 하려면 플래그를 사용 하기 전에 [일시 삭제](/azure/storage/blobs/storage-blob-soft-delete) 기능을 사용 하도록 설정 해야 합니다 `--delete-destination=prompt|true` .
 
 > [!TIP]
 > 선택적 플래그를 사용 하 여 동기화 작업을 조정할 수 있습니다. 다음은 몇 가지 예입니다.
@@ -420,7 +420,7 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 
 - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 

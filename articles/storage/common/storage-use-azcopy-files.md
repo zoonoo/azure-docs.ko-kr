@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0dcecf6a0da1fbd3561dadcbe001c0ef8d4ebc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871244"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479462"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 
@@ -240,7 +240,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 AzCopy를 사용 하 여 다른 저장소 계정에 파일을 복사할 수 있습니다. 복사 작업은 동기식이므로 명령이 반환될 때 모든 파일이 복사되었음을 나타냅니다.
 
-AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) 간 [api](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)를 사용 하므로 저장소 서버 간에 데이터를 직접 복사 합니다. 이러한 복사 작업은 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. 환경 변수의 값을 설정 하 여 이러한 작업의 처리량을 늘릴 수 있습니다 `AZCOPY_CONCURRENCY_VALUE` . 자세히 알아보려면 [처리량 최적화](storage-use-azcopy-configure.md#optimize-throughput)를 참조 하세요.
+AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest/api/storageservices/put-page-from-url)를 사용 하므로 저장소 서버 간에 데이터를 직접 복사 합니다. 이러한 복사 작업은 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. 환경 변수의 값을 설정 하 여 이러한 작업의 처리량을 늘릴 수 있습니다 `AZCOPY_CONCURRENCY_VALUE` . 자세히 알아보려면 [처리량 최적화](storage-use-azcopy-configure.md#optimize-throughput)를 참조 하세요.
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
@@ -340,7 +340,7 @@ AzCopy는 [서버](https://docs.microsoft.com/rest/api/storageservices/put-block
 | **구문** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **예제** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)를 참조 하세요.
+공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](/azure/storage/files/storage-snapshots-files)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

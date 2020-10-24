@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263547"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480924"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>수백 테라바이트의 데이터를 Azure Cosmos DB로 마이그레이션 
 
@@ -38,7 +38,7 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>대량 실행자 라이브러리를 사용 하는 사용자 지정 도구 
 
-위의 섹션에서 설명 하는 문제는 여러 인스턴스에서 쉽게 확장할 수 있는 사용자 지정 도구를 사용 하 여 해결할 수 있으며 일시적인 오류에 대해 복원 력이 있습니다. 또한 사용자 지정 도구는 다양 한 검사점에서 마이그레이션을 일시 중지 하 고 다시 시작할 수 있습니다. Azure Cosmos DB은 이러한 기능 중 일부를 통합 하는 [대량 실행자 라이브러리](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) 를 이미 제공 합니다. 예를 들어 대량 실행자 라이브러리에는 일시적인 오류를 처리 하는 기능이 이미 포함 되어 있으며, 노드당 약 500 K RUs를 사용 하도록 단일 노드의 스레드를 확장할 수 있습니다. 또한 bulk executor 라이브러리는 검사점의 형태로 독립적으로 작동 하는 마이크로 일괄 처리로 원본 데이터 집합을 분할 합니다.  
+위의 섹션에서 설명 하는 문제는 여러 인스턴스에서 쉽게 확장할 수 있는 사용자 지정 도구를 사용 하 여 해결할 수 있으며 일시적인 오류에 대해 복원 력이 있습니다. 또한 사용자 지정 도구는 다양 한 검사점에서 마이그레이션을 일시 중지 하 고 다시 시작할 수 있습니다. Azure Cosmos DB은 이러한 기능 중 일부를 통합 하는 [대량 실행자 라이브러리](./bulk-executor-overview.md) 를 이미 제공 합니다. 예를 들어 대량 실행자 라이브러리에는 일시적인 오류를 처리 하는 기능이 이미 포함 되어 있으며, 노드당 약 500 K RUs를 사용 하도록 단일 노드의 스레드를 확장할 수 있습니다. 또한 bulk executor 라이브러리는 검사점의 형태로 독립적으로 작동 하는 마이크로 일괄 처리로 원본 데이터 집합을 분할 합니다.  
 
 사용자 지정 도구는 대량 실행자 라이브러리를 사용 하 고 여러 클라이언트에서 확장 하 고 수집 프로세스 중에 오류를 추적할 수 있도록 지원 합니다. 이 도구를 사용 하려면 서로 다른 마이그레이션 작업 자가 각 파일을 선택 하 여 Azure Cosmos DB으로 수집할 수 있도록 Azure Data Lake Storage (ADLS)에서 원본 데이터를 개별 파일로 분할 해야 합니다. 사용자 지정 도구는 ADLS의 개별 원본 파일 각각에 대 한 마이그레이션 진행률에 대 한 메타 데이터를 저장 하 고 이와 관련 된 모든 오류를 추적 하는 별도의 컬렉션을 사용 합니다.  
 
@@ -152,4 +152,4 @@ Azure Cosmos DB로 데이터를 마이그레이션하기 위한 기존 도구에
 
 * [.Net](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행자 라이브러리를 사용 하는 샘플 응용 프로그램을 사용해 보세요. 
 * 대량 실행자 라이브러리는 Cosmos DB Spark 커넥터에 통합 되어 있습니다. 자세한 내용은 [Azure Cosmos DB spark 커넥터](spark-connector.md) 문서를 참조 하세요.  
-* 대규모 마이그레이션에 대 한 추가 도움말을 보려면 "일반 권고" 문제 유형 및 "대규모 (TB +) 마이그레이션" 문제 하위 유형에 서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의 하세요. 
+* 대규모 마이그레이션에 대 한 추가 도움말을 보려면 "일반 권고" 문제 유형 및 "대규모 (TB +) 마이그레이션" 문제 하위 유형에 서 지원 티켓을 열어 Azure Cosmos DB 제품 팀에 문의 하세요.

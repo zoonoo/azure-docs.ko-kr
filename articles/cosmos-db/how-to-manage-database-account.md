@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570723"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491124"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 
@@ -33,7 +33,7 @@ ms.locfileid: "91570723"
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager 템플릿
 
-[Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정 만들기를](manage-sql-with-resource-manager.md) 참조 하세요.
+[Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정 만들기를](./manage-with-templates.md) 참조 하세요.
 
 ## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
 

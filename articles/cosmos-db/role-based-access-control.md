@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9a29a34b25b6834c2c343bd568f3dd3548ceff3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474940"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
@@ -67,7 +67,7 @@ Azure Portal의 **액세스 제어 (IAM)** 창은 Azure Cosmos 리소스에 대 
 
 - 저장 프로시저, 트리거 또는 사용자 정의 함수 수정
 
-응용 프로그램 (또는 Azure Portal를 통한 사용자)이 이러한 작업을 수행 하는 경우 [ARM 템플릿](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure 관리 라이브러리](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행 하려면 마이그레이션해야 합니다. Azure Management는 [여러 언어로](https://docs.microsoft.com/azure/?product=featured#languages-and-tools)제공 됩니다.
+응용 프로그램 (또는 Azure Portal를 통한 사용자)이 이러한 작업을 수행 하는 경우 [ARM 템플릿](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST 또는 [Azure 관리 라이브러리](https://github.com/Azure-Samples/cosmos-management-net)를 통해 실행 하려면 마이그레이션해야 합니다. Azure Management는 [여러 언어로](/azure/?product=featured#languages-and-tools)제공 됩니다.
 
 ### <a name="set-via-arm-template"></a>ARM 템플릿을 통해 설정
 

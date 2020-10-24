@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d1fe28e4339cb4585deeeef1c44e3614fd693943
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284430"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490699"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
 
@@ -91,4 +91,4 @@ RU 사용량을 최적화하는 방법에 대한 자세한 내용은 다음 문�
 
 * [Azure Cosmos DB의 요청 단위 및 처리량](request-units.md)
 * [Azure Cosmos DB의 프로비저닝된 처리량 비용 최적화](optimize-cost-throughput.md)
-* [Azure Cosmos DB의 쿼리 비용 최적화](optimize-cost-queries.md)
+* [Azure Cosmos DB의 쿼리 비용 최적화](./optimize-cost-reads-writes.md)

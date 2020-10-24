@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37e56caa8242709214265af0e1fc03c3853300f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280031"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488795"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 
 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
- 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다.
+ 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](/azure/storage/storage-monitor-storage-account)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다.
 
  서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정의 활동이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
@@ -204,7 +204,7 @@ AzCopy를 시작하려면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조�
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-특정 파일을 다운로드하는 방법에 대한 자세한 내용은 [특정 파일 다운로드](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files)를 참조하세요.
+특정 파일을 다운로드하는 방법에 대한 자세한 내용은 [특정 파일 다운로드](/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files)를 참조하세요.
 
 로그 데이터를 다운로드하면 파일의 로그 항목을 볼 수 있습니다. 이러한 로그 파일은 많은 로그 읽기 도구가 구문 분석할 수 있는 분리 된 텍스트 형식을 사용 합니다 (자세한 내용은 [모니터링, 진단 및 문제 Microsoft Azure Storage 해결](storage-monitoring-diagnosing-troubleshooting.md)가이드 참조). 다양한 도구에는 로그 파일의 콘텐츠를 형식 지정, 필터링, 정렬 및 검색하기 위한 다양한 기능이 포함되어 있습니다. 스토리지 로깅 로그 파일 형식 및 콘텐츠에 대한 자세한 내용은 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 및 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요.
 

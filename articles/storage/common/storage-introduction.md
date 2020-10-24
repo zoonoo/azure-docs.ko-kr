@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091307"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490801"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -46,7 +46,7 @@ Azure Storage 플랫폼은 다음과 같은 데이터 서비스를 포함 합니
 | **Azure 파일** |는 업계 표준 SMB (서버 메시지 블록) 프로토콜을 통해 어디에서 나 액세스할 수 있는 완전히 관리 되는 클라우드 파일 공유를 제공 합니다.<br><br>Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에서 Azure 파일 공유를 탑재할 수 있습니다. | 이미 네이티브 파일 시스템 Api를 사용 하는 클라우드로 응용 프로그램을 "리프트 앤 시프트" 하 여 Azure에서 실행 되는 응용 프로그램과 다른 응용 프로그램 간에 데이터를 공유 하려고 합니다.<br/><br/>온-프레미스 파일 서버 또는 NAS 장치를 교체 하거나 보충 하려고 합니다.<br><br> 여러 가상 머신에서 액세스해야 하는 개발 및 디버깅 도구를 저장하려고 합니다. |
 | **Azure Blob** | 구조화 되지 않은 데이터를 블록 blob에서 대규모로 저장 하 고 액세스할 수 있습니다.<br/><br/>엔터프라이즈 빅 데이터 분석 솔루션을 위한 [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)도 지원합니다. | 애플리케이션에서 스트리밍 및 임의 액세스 시나리오를 지원하도록 하려고 합니다.<br/><br/>어디에서든 애플리케이션 데이터에 액세스할 수 있게 되기를 원합니다.<br/><br/>Azure에서 엔터프라이즈 Data Lake를 빌드하고 빅 데이터 분석을 수행하려고 합니다. |
 | **Azure 디스크** | 연결 된 가상 하드 디스크에서 데이터를 영구적으로 저장 하 고 액세스할 수 있습니다. | 네이티브 파일 시스템 Api를 사용 하는 응용 프로그램을 "리프트 앤 시프트" 하 여 데이터를 영구적 디스크로 읽고 쓰는 것이 좋습니다.<br/><br/>가상 머신 외부에서 액세스할 필요가 없는 데이터를 디스크가 연결된 컴퓨터에 저장하려고 합니다. |
-| **Azure 큐** | 응용 프로그램 구성 요소 간의 비동기 메시지 큐를 허용 합니다. | 응용 프로그램 구성 요소를 분리 하 고 비동기 메시징을 사용 하 여 서로 통신 하려고 합니다.<br><br>큐 저장소와 Service Bus 큐를 사용 하는 경우에 대 한 지침은 [저장소 큐 및 Service Bus 큐-비교 및 대조](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)를 참조 하세요. |
+| **Azure 큐** | 응용 프로그램 구성 요소 간의 비동기 메시지 큐를 허용 합니다. | 응용 프로그램 구성 요소를 분리 하 고 비동기 메시징을 사용 하 여 서로 통신 하려고 합니다.<br><br>큐 저장소와 Service Bus 큐를 사용 하는 경우에 대 한 지침은 [저장소 큐 및 Service Bus 큐-비교 및 대조](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)를 참조 하세요. |
 | **Azure Tables** | 구조화 된 NoSQL 데이터를 클라우드에 저장 하 여 스키마 없는 디자인에 키/특성 저장소를 제공할 수 있습니다. | 웹 응용 프로그램, 주소록, 장치 정보 또는 서비스에 필요한 다른 유형의 메타 데이터에 대 한 사용자 데이터와 같은 유연한 데이터 집합을 저장 하려고 합니다. <br/><br/>테이블 저장소와 Azure Cosmos DB Table API를 사용 하는 경우에 대 한 지침은 [Azure Cosmos DB Table API 및 Azure Table storage](../../cosmos-db/table-support.md)를 사용 하 여 개발을 참조 하세요. |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -61,7 +61,7 @@ Blob 스토리지가 적합한 경우는 다음과 같습니다.
 - 백업/복원, 재해 복구 및 보관용 데이터 저장
 - 온-프레미스 또는 Azure 호스팅 서비스에서 분석하기 위한 데이터 저장.
 
-Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 스토리지 클라이언트 라이브러리는 [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) 및 [Ruby](https://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
+Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. 사용자 또는 클라이언트 애플리케이션은 URL, [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 Blob에 액세스할 수 있습니다. 스토리지 클라이언트 라이브러리는 [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) 및 [Ruby](https://azure.github.io/azure-storage-ruby)를 비롯한 여러 언어에서 사용할 수 있습니다.
 
 Blob 스토리지에 대한 자세한 내용은 [Blob 스토리지 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
@@ -113,7 +113,7 @@ Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azur
 
 - **Blob 및 큐 데이터를 위한 Azure Active Directory (Azure AD) 통합** Azure AD (역할 기반 액세스 제어)를 통해 Blob 및 큐 서비스에 대해 Azure AD를 사용 하 여 인증 및 권한 부여를 지원 Azure Storage. Azure AD를 사용 하 여 요청을 권한 부여 하는 것이 뛰어난 보안과 사용 편의성을 위해 권장 됩니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여](storage-auth-aad.md)를 참조 하세요.
 - **Azure Files에 대 한 SMB를 통한 Azure AD 권한 부여.** Azure Files은 Azure Active Directory Domain Services (Azure AD DS) 또는 온-프레미스 Active Directory Domain Services (미리 보기)를 통해 SMB (서버 메시지 블록)를 통한 id 기반 권한 부여를 지원 합니다. 도메인에 가입 된 Windows Vm은 Azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 id 기반 인증 지원 Azure Files 개요](../files/storage-files-active-directory-overview.md) 및 [Azure Files 배포에 대 한 계획](../files/storage-files-planning.md#identity)을 참조 하세요.
-- **공유 키를 사용 하는 권한 부여입니다.** Azure Storage Blob, 파일, 큐 및 테이블 서비스는 공유 키를 사용 하 여 권한 부여를 지원 합니다. 공유 키 인증을 사용 하는 클라이언트는 저장소 계정 액세스 키를 사용 하 여 서명 된 모든 요청과 함께 헤더를 전달 합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
+- **공유 키를 사용 하는 권한 부여입니다.** Azure Storage Blob, 파일, 큐 및 테이블 서비스는 공유 키를 사용 하 여 권한 부여를 지원 합니다. 공유 키 인증을 사용 하는 클라이언트는 저장소 계정 액세스 키를 사용 하 여 서명 된 모든 요청과 함께 헤더를 전달 합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authorize-with-shared-key)를 참조하세요.
 - **SAS (공유 액세스 서명)를 사용 하는 권한 부여** SAS (공유 액세스 서명)는 저장소 리소스에 대 한 URI에 추가할 수 있는 보안 토큰을 포함 하는 문자열입니다. 보안 토큰은 권한 및 액세스 간격과 같은 제약 조건을 캡슐화 합니다. 자세한 내용은 [SAS (공유 액세스 서명) 사용](storage-sas-overview.md)을 참조 하세요.
 - **컨테이너 및 blob에 대 한 익명 액세스.** 컨테이너 및 해당 blob은 공개적으로 사용할 수 있습니다. 컨테이너 또는 blob을 공용으로 지정 하면 누구나이를 익명으로 읽을 수 있습니다. 인증이 필요 하지 않습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
@@ -121,7 +121,7 @@ Azure Storage에 대 한 모든 요청에는 권한이 있어야 합니다. Azur
 
 핵심 저장소 서비스에는 두 가지 기본 암호화 종류를 사용할 수 있습니다. 보안 및 암호화에 대한 자세한 내용은 [Azure Storage 보안 가이드](../blobs/security-recommendations.md)를 참조하세요.
 
-### <a name="encryption-at-rest"></a>저장 데이터 암호화
+### <a name="encryption-at-rest"></a>미사용 암호화
 
 Azure Storage 암호화는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. Azure Storage는 저장소 계정에 유지 하기 전에 모든 데이터를 자동으로 암호화 하 고 검색 하기 전에 암호를 해독 합니다. 암호화, 암호 해독 및 키 관리 프로세스는 사용자에 게 투명 합니다. 또한 고객은 Azure Key Vault를 사용 하 여 자신의 키를 관리 하도록 선택할 수 있습니다. 자세한 내용은 [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)를 참조하세요.
 
@@ -147,10 +147,10 @@ HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 저장소 계정의 �
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Azure Storage 데이터 API 및 라이브러리 참조
 
-- [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
-- [.NET 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Java/Android 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Node.js용 Azure Storage 클라이언트 라이브러리 ](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Azure Storage REST API](/rest/api/storageservices/)
+- [.NET 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)
+- [Java/Android 용 Azure Storage 클라이언트 라이브러리](/java/api/overview/azure/storage)
+- [Node.js용 Azure Storage 클라이언트 라이브러리 ](/javascript/api/overview/azure/storage-overview)
 - [Python 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
 - [PHP 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-php)
 - [Ruby 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-ruby)
@@ -158,19 +158,19 @@ HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 저장소 계정의 �
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Azure Storage 관리 API 및 라이브러리 참조
 
-- [Storage 리소스 공급자 REST API](https://docs.microsoft.com/rest/api/storagerp/)
-- [.NET용 Storage 리소스 공급자 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+- [Storage 리소스 공급자 REST API](/rest/api/storagerp/)
+- [.NET용 Storage 리소스 공급자 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/management)
 - [Storage 서비스 관리 REST API(클래식](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Storage 데이터 이동 API 및 라이브러리 참조
 
-- [스토리지 Import/Export 서비스 REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [스토리지 Import/Export 서비스 REST API](/rest/api/storageimportexport/)
 - [.NET용 스토리지 데이터 이동 클라이언트 라이브러리](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
 
-- [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)
-- [Storage용 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
+- [Storage용 Azure PowerShell Cmdlet](/powershell/module/az.storage)
+- [Storage용 Azure CLI Cmdlet](/cli/azure/storage)
 - [AzCopy Command-Line 유틸리티](https://aka.ms/downloadazcopy)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 - [Azure Storage에 대 한 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)

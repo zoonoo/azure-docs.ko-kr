@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0b19d7681925296936fee5823f7df32e131f8bb8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482658"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cosmos Core (SQL) API 리소스 관리
 
-이 문서에서는 Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 관리를 자동화하는 일반 명령에 대해 설명합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)에서 제공됩니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
+이 문서에서는 Azure CLI를 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너 관리를 자동화하는 일반 명령에 대해 설명합니다. 모든 Azure Cosmos DB CLI 명령에 대한 참조 페이지는 [Azure CLI 참조](/cli/azure/cosmosdb)에서 제공됩니다. 더 많은 예제는 [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 확인할 수 있습니다. 여기에는 MongoDB, Gremlin, Cassandra 및 Table API에 대한 Cosmos DB 계정, 데이터베이스 및 컨테이너 만들기 및 관리 방법이 포함되어 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -545,5 +545,5 @@ az lock delete --ids $lockid
 Azure CLI에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure CLI 설치](/cli/azure/install-azure-cli)
-* [Azure CLI 참조](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Azure CLI 참조](/cli/azure/cosmosdb)
 * [Azure Cosmos DB에 대한 Azure CLI 추가 샘플](cli-samples.md)

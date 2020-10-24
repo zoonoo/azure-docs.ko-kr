@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802933"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476980"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live)
 
@@ -20,7 +20,7 @@ TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기�
 
 만료 된 항목 삭제는 사용자 요청에서 사용 되지 않은 요청 단위 인 왼쪽 위에 있는 [요청 단위](request-units.md)를 사용 하는 백그라운드 작업입니다. TTL이 만료 된 후에도 컨테이너가 요청으로 오버 로드 되 고 충분 한 사용 가능 공간이 없는 경우 데이터 삭제가 지연 됩니다. 삭제 작업을 수행 하는 데 사용할 수 있는 충분 한 RUs가 있는 경우 데이터가 삭제 됩니다. 데이터 삭제는 지연 되지만 TTL이 만료 된 후에는 모든 API에 의해 데이터가 반환 되지 않습니다.
 
-> 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse 링크](https://docs.microsoft.com/azure/cosmos-db/synapse-link)를 통해 NOETL HTAP 시나리오를 사용 하도록 설정 하는 ANALITYCAL 저장소 TTL을 찾고 있는 경우 [여기](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl)를 클릭 하세요.
+> 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse 링크](./synapse-link.md)를 통해 NOETL HTAP 시나리오를 사용 하도록 설정 하는 ANALITYCAL 저장소 TTL을 찾고 있는 경우 [여기](./analytical-store-introduction.md#analytical-ttl)를 클릭 하세요.
 
 ## <a name="time-to-live-for-containers-and-items"></a>컨테이너 및 항목에 대한 TTL(Time to live)
 
@@ -48,11 +48,11 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
 * 컨테이너에서 TTL이 -1로 설정된 경우 TTL(Time to Live)이 n으로 설정된 이 컨테이너의 항목은 n초 후에 만료되고 나머지 항목은 만료되지 않습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 이 섹션에서는 컨테이너와 항목에 할당 된 ttl (time to live) 값이 다른 몇 가지 예를 보여 줍니다.
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 컨테이너의 TTL이 null (DefaultTimeToLive = null)로 설정 되어 있습니다.
 
@@ -63,7 +63,7 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 |ttl = 2000 |TTL을 사용할 수 없습니다. 항목이 만료 되지 않습니다.|
 
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 컨테이너의 TTL이-1 (DefaultTimeToLive =-1)로 설정 되어 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfedc7d14c234f88e8140281a01ffcc330ba532
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797822"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488370"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 
@@ -66,7 +66,7 @@ Azure Cosmos DB는 다른 Azure 리소스와 동일한 종류의 모니터링 �
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> 메트릭 데이터 분석
 
-Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 제공합니다. 이 환경을 사용하고 다양한 Azure Cosmos DB 시나리오를 분석하는 방법에 대한 자세한 내용은 [Azure Monitor에서 Azure Cosmos DB 메트릭 모니터링 및 디버그](cosmos-db-azure-monitor-metrics.md)를 참조하세요.
+Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 제공합니다. 이 환경을 사용하고 다양한 Azure Cosmos DB 시나리오를 분석하는 방법에 대한 자세한 내용은 [Azure Monitor에서 Azure Cosmos DB 메트릭 모니터링 및 디버그]()를 참조하세요.
 
 메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭으로 Azure Cosmos DB에 대한 메트릭을 분석하려면 **Azure Monitor** 메뉴에서 **메트릭**을 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요. Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네임스페이스에 있습니다. 차트에 필터를 추가할 때 이러한 메트릭에 다음 차원을 사용할 수 있습니다.
 
@@ -118,7 +118,7 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 ### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Monitor의 Azure Cosmos DB Log Analytics 쿼리
 
-**로그 검색** 검색 창에 입력하여 Azure Cosmos 컨테이너를 모니터링하는 데 도움을 받을 수 있는 몇몇 쿼리가 아래에 있습니다. 이러한 쿼리는 [새 언어](../log-analytics/log-analytics-log-search-upgrade.md)에서 작동합니다.
+**로그 검색** 검색 창에 입력하여 Azure Cosmos 컨테이너를 모니터링하는 데 도움을 받을 수 있는 몇몇 쿼리가 아래에 있습니다. 이러한 쿼리는 [새 언어](../azure-monitor/log-query/log-query-overview.md)에서 작동합니다.
 
 다음은 Azure Cosmos 데이터베이스를 모니터링하는 데 사용할 수 있는 쿼리입니다.
 
@@ -151,9 +151,9 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 포털에서 제공되는 계정 수준 메트릭(예: 계정 스토리지 사용 및 총 요청)은 SQL API를 통해 사용할 수 없습니다. 그러나 SQL API를 사용하여 컬렉션 수준에서 사용량 현황 데이터를 검색할 수 있습니다. 컬렉션 수준 데이터를 검색하려면 다음을 수행합니다.
 
-* REST API를 사용하려면 [컬렉션에 대해 GET을 수행](https://msdn.microsoft.com/library/mt489073.aspx)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
+* REST API를 사용하려면 [컬렉션에 대해 GET을 수행](/rest/api/cosmos-db/get-a-collection)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
 
-* .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)를 반환합니다.
+* .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1)를 반환합니다.
 
 추가 메트릭에 액세스하려면 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)를 사용하세요. 가용 메트릭 정의는 다음을 호출하면 검색할 수 있습니다.
 

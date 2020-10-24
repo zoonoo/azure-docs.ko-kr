@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
-ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409700"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475603"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 마이그레이션 후 최적화 단계
 
@@ -53,12 +53,12 @@ Azure Cosmos DB는 전 세계의 모든 [Azure 지역](https://azure.microsoft.c
 
 ## <a name="set-consistency-level"></a>일관성 수준 설정
 
-Azure Cosmos DB는 잘 정의 된 5 가지 [일관성 수준을](consistency-levels.md)제공 합니다. MongoDB와 Azure Cosmos DB 일관성 수준 간의 매핑에 대 한 자세한 내용은 읽기 [일관성 수준 및 Azure Cosmos DB api](consistency-levels-across-apis.md)를 참조 하세요. 기본 일관성 수준은 세션 일관성 수준입니다. 일관성 수준을 변경 하는 것은 선택 사항이 며 앱에 맞게 최적화할 수 있습니다. Azure Portal를 사용 하 여 일관성 수준을 변경 하려면:
+Azure Cosmos DB는 잘 정의 된 5 가지 [일관성 수준을](consistency-levels.md)제공 합니다. MongoDB와 Azure Cosmos DB 일관성 수준 간의 매핑에 대 한 자세한 내용은 읽기 [일관성 수준 및 Azure Cosmos DB api](./consistency-levels.md)를 참조 하세요. 기본 일관성 수준은 세션 일관성 수준입니다. 일관성 수준을 변경 하는 것은 선택 사항이 며 앱에 맞게 최적화할 수 있습니다. Azure Portal를 사용 하 여 일관성 수준을 변경 하려면:
 
 1. 설정에서 **기본 일관성** 블레이드로 이동 합니다.
 2. [일관성 수준](consistency-levels.md) 선택
 
-대부분의 사용자는 기본 세션 일관성 설정에서 일관성 수준을 유지 합니다. 그러나 [다양 한 일관성 수준에 대 한 가용성 및 성능 절충](consistency-levels-tradeoffs.md)은 있습니다.
+대부분의 사용자는 기본 세션 일관성 설정에서 일관성 수준을 유지 합니다. 그러나 [다양 한 일관성 수준에 대 한 가용성 및 성능 절충](./consistency-levels.md)은 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

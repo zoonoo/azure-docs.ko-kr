@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107932"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489441"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -63,6 +63,8 @@ Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로�
 > [!NOTE]
 > Azure Data Lake Storage Gen2 계정은 현재 Azure Portal에서 유효한 옵션으로 나열될 수 있지만 진단 설정의 대상으로 지원되지 않습니다.
 
+> [!NOTE]
+> 가상 네트워크를 사용 하는 경우 Azure Monitor (진단 설정)에서 Event Hubs 리소스에 액세스할 수 없습니다. Azure Monitor (진단 설정) 서비스에 Event Hubs 리소스에 대 한 액세스 권한이 부여 되도록 하려면 신뢰할 수 있는 Microsoft 서비스가 Event Hub에서이 방화벽을 바이패스 하도록 허용 설정을 사용 하도록 설정 해야 합니다. 
 
 
 ## <a name="create-in-azure-portal"></a>Azure Portal에서 만들기
@@ -128,7 +130,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
         >
         > 예를 들어, *WorkflowRuntime* 에 대 한 보존 정책을 180 일로 설정 하 고 24 시간 후에 365 일로 설정 하면, 처음 24 시간 동안 저장 된 로그는 180 일 후 자동으로 삭제 되는 반면, 해당 형식의 모든 후속 로그는 365 일 후에 자동으로 삭제 됩니다. 나중에 보존 정책을 변경 해도 처음 24 시간 동안 로그가 365 일 동안 유지 되지 않습니다.
 
-6. **저장**을 클릭합니다.
+6. **Save**을 클릭합니다.
 
 잠시 후 새 설정이이 리소스에 대 한 설정 목록에 표시 되 고, 새 이벤트 데이터가 생성 될 때 로그가 지정 된 대상으로 스트리밍됩니다. 이벤트가 내보내지는 시간과 [Log Analytics 작업 영역에 표시](data-ingestion-time.md)되는 시간 사이에는 최대 15 분이 걸릴 수 있습니다.
 

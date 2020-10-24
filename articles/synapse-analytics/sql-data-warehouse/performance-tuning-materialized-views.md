@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478323"
 ---
 # <a name="performance-tune-with-materialized-views"></a>구체화 된 뷰로 성능 조정
 
@@ -79,7 +79,7 @@ SQL 풀의 스키마 및 쿼리 변경은 일반적으로 정기적인 ETL 작�
 
 **더 빠른 쿼리 성능을 위해 다른 데이터 배포 전략 필요**
 
-SQL 풀은 분산 MPP(대규모 병렬 처리) 시스템입니다.   SQL 풀 테이블의 데이터는 세 가지 [배포 전략](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)(해시, 라운드 로빈 또는 복제) 중 하나를 사용하여 60개 노드에 배포됩니다.  
+Synapse SQL은 분산 쿼리 처리 시스템입니다.  SQL 테이블의 데이터는 세 가지 [배포 전략](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (해시, round_robin 또는 복제) 중 하나를 사용 하 여 60 노드 간에 분산 됩니다.   
 
 데이터 배포는 테이블을 만들 때 지정되며 테이블을 삭제할 때까지 변경되지 않고 유지됩니다. 구체화된 뷰를 디스크의 가상 테이블로 유지하면 해시 및 라운드 로빈 데이터 배포가 지원됩니다.  사용자는 기본 테이블과는 다르지만 뷰를 가장 많이 사용하는 쿼리 성능에 가장 적합한 데이터 배포를 선택할 수 있습니다.  
 

@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884656"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489509"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>PostgreSQL-Single 서버용 Azure Database에 대 한 개인 링크
 
 개인 링크를 사용 하면 Azure Database for PostgreSQL 단일 서버에 대 한 개인 끝점을 만들 수 있으므로 VNet (개인 Virtual Network) 내에 Azure 서비스를 사용할 수 있습니다. 개인 끝점은 VNet의 다른 리소스와 마찬가지로 데이터베이스 서버에 연결 하는 데 사용할 수 있는 개인 IP를 노출 합니다.
 
-개인 링크 기능을 지 원하는 PaaS 서비스 목록을 보려면 개인 링크 [설명서](https://docs.microsoft.com/azure/private-link/index)를 검토 하세요. 프라이빗 엔드포인트는 특정 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 및 서브넷 내의 개인 IP 주소입니다.
+개인 링크 기능을 지 원하는 PaaS 서비스 목록을 보려면 개인 링크 [설명서](../private-link/index.yml)를 검토 하세요. 프라이빗 엔드포인트는 특정 [VNet](../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다.
 
 > [!NOTE]
 > 개인 링크 기능은 범용 또는 메모리 액세스에 최적화 된 가격 책정 계층의 Azure Database for PostgreSQL 서버에만 사용할 수 있습니다. 데이터베이스 서버가 이러한 가격 책정 계층 중 하나에 있는지 확인 합니다.
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 
 미국 서 부에 프로 비전 된 Azure Database for PostgreSQL 단일 서버에 연결 하는 Azure VM (가상 머신) 내에서 PGAdmin을 실행 하는 사용자가 있는 시나리오를 고려해 보세요. 아래 예제에서는 네트워크 액세스 제어를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 공용 끝점에 대 한 액세스를 제한 하는 방법을 보여 줍니다.
 
-* *Azure 서비스 허용* 을 OFF로 설정 하 여 공용 끝점을 통해 Azure Database for PostgreSQL 단일 서버에 대 한 모든 azure 서비스 트래픽을 사용 하지 않도록 설정 합니다. [방화벽 규칙](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) 또는 [가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)을 통해 서버에 액세스할 수 있는 IP 주소 또는 범위가 없어야 합니다.
+* *Azure 서비스 허용* 을 OFF로 설정 하 여 공용 끝점을 통해 Azure Database for PostgreSQL 단일 서버에 대 한 모든 azure 서비스 트래픽을 사용 하지 않도록 설정 합니다. [방화벽 규칙](./concepts-firewall-rules.md) 또는 [가상 네트워크 서비스 끝점](./concepts-data-access-and-security-vnet.md)을 통해 서버에 액세스할 수 있는 IP 주소 또는 범위가 없어야 합니다.
 
 * VM의 개인 IP 주소를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 트래픽만 허용 합니다. 자세한 내용은 [서비스 끝점](concepts-data-access-and-security-vnet.md) 및 [VNet 방화벽 규칙](howto-manage-vnet-using-portal.md) 에 대 한 문서를 참조 하세요.
 
@@ -45,7 +45,7 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 
 온-프레미스 컴퓨터에서 공용 끝점에 연결 하는 경우 서버 수준 방화벽 규칙을 사용 하 여 ip 기반 방화벽에 IP 주소를 추가 해야 합니다. 이 모델은 개발 또는 테스트 워크로드를 위해 개별 머신에 액세스할 수 있도록 하는 데 효과적이지만 프로덕션 환경에서는 관리하기가 어렵습니다.
 
-개인 링크를 사용 하 여 ER ( [Express Route](https://azure.microsoft.com/services/expressroute/) ), 개인 피어 링 또는 [VPN 터널](https://docs.microsoft.com/azure/vpn-gateway/)을 사용 하 여 개인 끝점에 대 한 프레미스 간 액세스를 사용 하도록 설정할 수 있습니다. 이후에는 공용 끝점을 통해 모든 액세스를 사용 하지 않도록 설정 하 고 IP 기반 방화벽을 사용 하지 않을 수 있습니다.
+개인 링크를 사용 하 여 ER ( [Express Route](https://azure.microsoft.com/services/expressroute/) ), 개인 피어 링 또는 [VPN 터널](../vpn-gateway/index.yml)을 사용 하 여 개인 끝점에 대 한 프레미스 간 액세스를 사용 하도록 설정할 수 있습니다. 이후에는 공용 끝점을 통해 모든 액세스를 사용 하지 않도록 설정 하 고 IP 기반 방화벽을 사용 하지 않을 수 있습니다.
 
 > [!NOTE]
 > Azure Database for PostgreSQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
@@ -57,8 +57,8 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 
 개인 끝점은 개인 링크를 사용 하도록 설정 하는 데 필요 합니다. 다음 방법 가이드를 사용 하 여이 작업을 수행할 수 있습니다.
 
-* [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
+* [Azure Portal](./howto-configure-privatelink-portal.md)
+* [CLI](./howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>승인 프로세스
 네트워크 관리자가 PE (개인 끝점)를 만든 후에는 PostgreSQL 관리자가 PEC (개인 끝점 연결)를 관리 하 여 Azure Database for PostgreSQL 수 있습니다. 네트워크 관리자와 DBA 간의 이러한 업무 분리는 Azure Database for PostgreSQL 연결을 관리 하는 데 유용 합니다. 
@@ -89,17 +89,17 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="개인 끝점 포털을 선택 합니다.":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>피어링된 VNet(가상 네트워크)의 Azure VM에서 연결
-[Vnet 피어 링](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) 을 구성 하 여 피어 링 Vnet의 Azure VM에서 Azure Database for PostgreSQL 단일 서버에 대 한 연결을 설정 합니다.
+[Vnet 피어 링](../virtual-network/tutorial-connect-virtual-networks-powershell.md) 을 구성 하 여 피어 링 Vnet의 Azure VM에서 Azure Database for PostgreSQL 단일 서버에 대 한 연결을 설정 합니다.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>VNet 간 환경의 Azure VM에서 연결
-[Vnet 간 VPN gateway 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 을 구성 하 여 다른 지역 또는 구독의 Azure VM에서 Azure Database for PostgreSQL 단일 서버에 대 한 연결을 설정 합니다.
+[Vnet 간 VPN gateway 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 을 구성 하 여 다른 지역 또는 구독의 Azure VM에서 Azure Database for PostgreSQL 단일 서버에 대 한 연결을 설정 합니다.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>VPN을 통해 온-프레미스 환경에서 연결
 온-프레미스 환경에서 Azure Database for PostgreSQL 단일 서버로의 연결을 설정 하려면 다음 옵션 중 하나를 선택 하 여 구현 합니다.
 
-* [지점 및 사이트 간 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [사이트 간 VPN 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [ExpressRoute 회로](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [지점 및 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [사이트 간 VPN 연결](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [ExpressRoute 회로](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>방화벽 규칙과 결합된 Private Link
 
@@ -128,11 +128,11 @@ Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 대 한 **공�
 
 Azure Database for PostgreSQL 단일 서버 보안 기능에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-* 단일 서버 Azure Database for PostgreSQL에 대 한 방화벽을 구성 하려면 [방화벽 지원](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules)을 참조 하세요.
+* 단일 서버 Azure Database for PostgreSQL에 대 한 방화벽을 구성 하려면 [방화벽 지원](./concepts-firewall-rules.md)을 참조 하세요.
 
-* Azure Database for PostgreSQL 단일 서버에 대 한 가상 네트워크 서비스 끝점을 구성 하는 방법을 알아보려면 [가상 네트워크에서 액세스 구성](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet)을 참조 하세요.
+* Azure Database for PostgreSQL 단일 서버에 대 한 가상 네트워크 서비스 끝점을 구성 하는 방법을 알아보려면 [가상 네트워크에서 액세스 구성](./concepts-data-access-and-security-vnet.md)을 참조 하세요.
 
-* 단일 서버 연결 Azure Database for PostgreSQL에 대 한 개요는 [Azure Database for PostgreSQL 연결 아키텍처](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture) 를 참조 하세요.
+* 단일 서버 연결 Azure Database for PostgreSQL에 대 한 개요는 [Azure Database for PostgreSQL 연결 아키텍처](./concepts-connectivity-architecture.md) 를 참조 하세요.
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

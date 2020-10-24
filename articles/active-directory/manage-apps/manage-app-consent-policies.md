@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 59e00d2bb47826bb4bfa381c42db551f44d84b71
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427606"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486925"
 ---
 # <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
 
@@ -57,14 +57,14 @@ ID가 "microsoft-"로 시작 하는 앱 승인 정책은 기본 제공 정책입
 1. 정책의 "포함" 조건 집합 보기:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. "제외" 조건 집합을 표시 합니다.
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: allensu
-ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b507fbad4d9089d918ae7a85c07f30efcb118476
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649850"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487248"
 ---
 # <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 TCP 유휴 시간 제한 구성
 
@@ -28,7 +28,11 @@ ms.locfileid: "91649850"
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 문서에는 Azure PowerShell 모듈 버전 5.4.1 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-Azure Load Balancer의 유휴 시간 제한 설정은 4 분 120 분입니다. 기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다. [TCP 유휴 시간 제한](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요.
+Azure Load Balancer의 유휴 시간 제한 범위는 다음과 같습니다.
+
+Load Balancer 규칙 및 인바운드 NAT 규칙에 대 한 아웃 바운드 규칙의 4 분 ~ 30 분 100 분 분
+
+기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다. [TCP 유휴 시간 제한](load-balancer-tcp-reset.md)에 대해 자세히 알아보세요.
 
 다음 섹션에서는 공용 IP 및 부하 분산 장치 리소스의 유휴 시간 제한 설정을 변경하는 방법을 설명합니다.
 
@@ -41,7 +45,7 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes`는 선택 사항입니다. 설정하지 않으면 기본 시간 제한은 4분입니다. 허용 되는 시간 제한 범위는 4 ~ 120 분입니다.
+`IdleTimeoutInMinutes`는 선택 사항입니다. 설정하지 않으면 기본 시간 제한은 4분입니다. 
 
 ## <a name="set-the-tcp-idle-timeout-on-rules"></a>규칙에 대 한 TCP 유휴 시간 제한 설정
 

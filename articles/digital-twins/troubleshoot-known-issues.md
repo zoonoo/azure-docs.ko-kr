@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311667"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489016"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -34,7 +34,7 @@ ms.locfileid: "92311667"
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="' Cloud Shell ' 아이콘이 강조 표시 된 Azure Portal 보기 및 포털 창의 맨 아래에 표시 되는 Cloud Shell":::
 
-마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
+마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다.
 
 ### <a name="possible-causes"></a>가능한 원인
 
@@ -46,7 +46,9 @@ ms.locfileid: "92311667"
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>스크립팅된 설치 후 역할 할당이 누락 되었습니다.
 
-일부 사용자에 게 [*는 방법: 인스턴스 및 인증 (스크립팅된) 설정*](how-to-set-up-instance-scripted.md)의 역할 할당 부분과 관련 된 문제가 발생할 수 있습니다. 이 스크립트는 실패를 나타내지는 않지만 *Azure 디지털 쌍 소유자 (미리 보기)* 역할은 사용자에 게 할당 되지 않으며,이 문제는 이동 중에 다른 리소스를 만드는 기능에 영향을 줍니다.
+일부 사용자에 게 [*는 방법: 인스턴스 및 인증 (스크립팅된) 설정*](how-to-set-up-instance-scripted.md)의 역할 할당 부분과 관련 된 문제가 발생할 수 있습니다. 이 스크립트는 실패를 나타내지는 않지만 *Azure Digital Twins 데이터 소유자* 역할은 사용자에 게 할당 되지 않으며,이 문제는 다른 리소스를 다른 리소스를 만들 수 있는 기능에 영향을 줍니다.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 스크립트를 실행 한 후 역할 할당이 성공적으로 설정 되었는지 확인 하려면 설치 문서의 [*사용자 역할 할당 확인*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) 섹션에 있는 지침을 따르세요. 사용자가이 역할에 표시 되지 않는 경우이 문제가 영향을 받습니다.
 
@@ -64,7 +66,7 @@ ms.locfileid: "92311667"
 
 ## <a name="issue-with-interactive-browser-authentication"></a>대화형 브라우저 인증과 관련 된 문제
 
-Azure **1.2.0** ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet) 라이브러리**의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 메서드와 관련 된 문제가 발생할 수 있습니다.
+Azure **1.2.0** ** [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) 라이브러리**의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드와 관련 된 문제가 발생할 수 있습니다.
 
 이는 라이브러리의 최신 버전이 아닙니다. 최신 버전은 **1.2.2**입니다.
 

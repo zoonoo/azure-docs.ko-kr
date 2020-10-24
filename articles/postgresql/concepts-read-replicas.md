@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123300"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490172"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -143,13 +143,13 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 ### <a name="disaster-recovery"></a>재해 복구
 
-가용성 영역 수준 또는 지역 오류와 같은 주요 재해 이벤트가 발생 하는 경우 읽기 복제본을 승격 하 여 재해 복구 작업을 수행할 수 있습니다. UI 포털에서 읽기 복제 서버로 이동할 수 있습니다. 그런 다음 복제 탭을 클릭 하 고 복제본을 중지 하 여 독립 서버로 승격 시킬 수 있습니다. 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) 를 사용 하 여 복제본 서버를 중지 하 고 승격할 수 있습니다.
+가용성 영역 수준 또는 지역 오류와 같은 주요 재해 이벤트가 발생 하는 경우 읽기 복제본을 승격 하 여 재해 복구 작업을 수행할 수 있습니다. UI 포털에서 읽기 복제 서버로 이동할 수 있습니다. 그런 다음 복제 탭을 클릭 하 고 복제본을 중지 하 여 독립 서버로 승격 시킬 수 있습니다. 또는 [Azure CLI](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) 를 사용 하 여 복제본 서버를 중지 하 고 승격할 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 읽기 복제본과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 Postgres write 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
 
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.

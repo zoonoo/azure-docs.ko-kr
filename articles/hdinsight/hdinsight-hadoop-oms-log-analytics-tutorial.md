@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 9781369e862c74afe5a8a94cafafff7ef35e68e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5524c7625678d3bacc5fdbe3c295d8392da2280f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078353"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491005"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/)이 필요합니다. 최신 버전이 있는지 확인합니다. 필요한 경우 `Update-Module -Name Az`를 실행합니다.
 
-* Azure CLI를 사용하려 하나 아직 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* Azure CLI를 사용하려 하나 아직 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 > [!NOTE]  
 > 성능 향상을 위해 동일한 지역에 HDInsight 클러스터와 Log Analytics 작업 영역을 모두 배치하는 것이 좋습니다. Azure Monitor Logs를 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
@@ -105,7 +105,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## <a name="enable-azure-monitor-using-azure-cli"></a>Azure CLI를 통해 Azure Monitor 사용
 
-Azure CLI `[az hdinsight monitor enable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-enable) 명령을 통해 Azure Monitor Logs를 사용할 수 있습니다.
+Azure CLI `[az hdinsight monitor enable` ] (/cli/azure/hdinsight/monitor # az-enable) 명령을 사용 하 여 Azure Monitor 로그를 사용 하도록 설정할 수 있습니다.
 
 ```azurecli
 # set variables
@@ -120,7 +120,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-사용하지 않으려면 [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-disable) 명령을 사용합니다.
+사용하지 않으려면 [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) 명령을 사용합니다.
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup

@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578039"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490750"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -104,7 +104,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 Azure CLI에서 최대 버스트 제한을 늘릴 수도 있습니다.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 모든 계획에 대 한 최소값은 하나 이상의 인스턴스가 됩니다.  실제 최소 인스턴스 수는 계획의 앱에서 요청 하는 항상 준비 된 인스턴스를 기반으로 자동으로 구성 됩니다.  예를 들어 앱 A가 항상 준비 된 인스턴스 5 개를 요청 하 고, 앱 B가 동일한 계획에 두 개의 항상 준비 인스턴스를 요청 하는 경우 최소 계획 크기는 5로 계산 됩니다.  앱 A는 모든 5에서 실행 되며, 앱 B는 2 에서만 실행 됩니다.
@@ -117,7 +117,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 계획에 대해 계산 된 최소값을 늘리려면 Azure CLI를 사용 하 여 수행할 수 있습니다.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>사용 가능한 인스턴스 Sku
@@ -166,7 +166,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 |노르웨이 동부| 100 | 20 |
 |미국 중남부| 100 | 20 |
 |인도 남부 | 100 | 사용할 수 없음 |
-|동남 아시아| 100 | 20 |
+|동남아시아| 100 | 20 |
 |스위스 북부| 100 | 사용할 수 없음 |
 |스위스 서부| 100 | 사용할 수 없음 |
 |영국 남부| 100 | 20 |

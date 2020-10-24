@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5ce805fb302264a0c3907c006983f9d939a2908e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e190c9f06dc2c662760421b7240eafdf22986b0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262075"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491311"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Striim를 사용 하 여 SQL API 계정 Azure Cosmos DB으로 데이터 마이그레이션
  
@@ -22,7 +22,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Azure 구독](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+* [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 * 일부 데이터가 포함 된 온-프레미스에서 실행 되는 Oracle 데이터베이스
 

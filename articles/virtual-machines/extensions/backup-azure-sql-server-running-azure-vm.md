@@ -1,19 +1,19 @@
 ---
 title: Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
 description: 이 문서에서는 Azure 가상 머신에서 실행 되는 SQL Server에 Azure Backup를 등록 하는 방법에 대해 알아봅니다.
-services: backup
 author: dcurwin
 manager: carmonm
-ms.service: backup
+ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 84ff3e18cf488f5536d5945d7b8fc8d78882424e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511180"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490733"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
 
@@ -85,7 +85,7 @@ Azure Backup는 NSG 태그, 프록시 서버 또는 나열 된 IP 범위 배포�
 
 ### <a name="property-values"></a>속성 값
 
-속성 | 값/예제 | 데이터 형식
+Name | 값/예제 | 데이터 형식
  --- | --- | ---
 locale | ko-kr  |  문자열
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | 문자열

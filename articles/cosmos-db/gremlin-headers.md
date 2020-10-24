@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409530"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490580"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin 서버 응답 헤더
 이 문서에서는 Cosmos DB Gremlin 서버가 요청 실행 시 호출자에게 반환하는 헤더에 대해 설명합니다. 이러한 헤더는 Cosmos DB 서비스에 기본적으로 통합되고 고객 지원을 간소화하는 애플리케이션을 구축하는 요청 성능 문제 해결에 유용합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "91409530"
 
 ## <a name="headers"></a>headers
 
-| 헤더 | 유형 | 샘플 값 | 포함 된 경우 | 설명 |
+| 헤더 | Type | 샘플 값 | 포함 된 경우 | 설명 |
 | --- | --- | --- | --- | --- |
 | **x-ms 요청 요금** | double | 11.3243 | Success and Failure | 부분 응답 메시지에 대 한 [요청 단위 (o s/s 또는 RUs)](request-units.md) 에서 사용 되는 수집 또는 데이터베이스 처리량입니다. 이 헤더는 여러 청크를 포함 하는 요청에 대 한 모든 연속에 존재 합니다. 특정 응답 청크의 요금을 반영 합니다. 단일 응답 청크로 구성 된 요청에 대해서만이 헤더는 총 순회 비용과 일치 합니다. 그러나 대부분의 복합 순회에서이 값은 부분 비용을 나타냅니다. |
 | **x-밀리초-총 요청 요금** | double | 423.987 | Success and Failure | 전체 요청에 대 한 [요청 단위 (r u/초 또는 RUs)](request-units.md) 에서 사용 된 수집 또는 데이터베이스 처리량입니다. 이 헤더는 여러 청크를 포함 하는 요청에 대 한 모든 연속에 존재 합니다. 요청 시작 이후 누적 요금을 나타냅니다. 마지막 청크의이 헤더의 값은 전체 요청 요금을 나타냅니다. |
@@ -29,7 +29,7 @@ ms.locfileid: "91409530"
 | **x 밀리초-총 서버 시간-ms** | double | 130.512 | Success and Failure | Cosmos DB Gremlin 서버가 전체 순회를 실행 하는 데 걸린 총 시간 (밀리초)입니다. 이 헤더는 모든 부분 응답에 포함 됩니다. 요청이 시작 된 이후의 누적 실행 시간을 나타냅니다. 마지막 응답은 총 실행 시간을 나타냅니다. 이 헤더는 클라이언트와 서버를 대기 시간 원본으로 구분 하는 데 유용 합니다. 클라이언트의 순회 실행 시간을이 헤더의 값과 비교할 수 있습니다. |
 | **x-m-상태-코드** | long | 200 | Success and Failure | 헤더는 요청 완료 또는 종료에 대 한 내부 이유를 나타냅니다. 응용 프로그램은이 헤더의 값을 확인 하 고 수정 작업을 수행 하는 것이 좋습니다. |
 | **x-m-하위 상태 코드** | long | 1003 | 오류만 | Cosmos DB은 통합 저장소 계층을 기반으로 하는 다중 모델 데이터베이스입니다. 이 헤더에는 고가용성 스택의 하위 계층 내에서 오류가 발생 하는 경우의 실패 원인에 대 한 추가 정보가 포함 되어 있습니다. 응용 프로그램은이 헤더를 저장 하 고 고객 지원 Cosmos DB 연락할 때 사용 하는 것이 좋습니다. 이 헤더의 값은 빠른 문제 해결을 위해 Cosmos DB 엔지니어에 게 유용 합니다. |
-| **x-m-다시 시도-이후-ms** | 문자열 (TimeSpan) | "00:00:03.9500000" | 오류만 | 이 헤더는 .NET [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) 형식의 문자열 표현입니다. 이 값은 프로 비전 된 처리량 고갈로 인해 실패 한 요청에만 포함 됩니다. 응용 프로그램은 지시 시간 후에 다시 전송 해야 합니다. |
+| **x-m-다시 시도-이후-ms** | 문자열 (TimeSpan) | "00:00:03.9500000" | 오류만 | 이 헤더는 .NET [TimeSpan](/dotnet/api/system.timespan) 형식의 문자열 표현입니다. 이 값은 프로 비전 된 처리량 고갈로 인해 실패 한 요청에만 포함 됩니다. 응용 프로그램은 지시 시간 후에 다시 전송 해야 합니다. |
 | **x-y-id** | 문자열 (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Success and Failure | 헤더에는 요청의 고유한 서버 쪽 식별자가 포함 되어 있습니다. 각 요청에는 추적을 위해 서버에서 고유 식별자가 할당 됩니다. 응용 프로그램은 고객이 고객 지원 담당자에 게 문의할 수 있는 요청에 대해 서버에서 반환 하는 작업 식별자를 기록해 야 합니다. Cosmos DB 지원 담당자 Cosmos DB 서비스 원격 분석에서 이러한 식별자로 특정 요청을 찾을 수 있습니다. |
 
 ## <a name="status-codes"></a>상태 코드

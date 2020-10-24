@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331576"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490784"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
@@ -271,7 +271,7 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
-### <a name="version"></a>버전
+### <a name="version"></a>Version
 
 **선택 사항** -또는 스위치를 사용 하 여 설치 된 Azurite 버전 번호를 표시 `-v` `--version` 합니다.
 
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>인증서 구성 (HTTPS)
 
-**선택 사항** -기본적으로 AZURITE는 HTTP 프로토콜을 사용 합니다. 스위치에 Privacy Enhanced Mail (pem) 또는 [개인 정보 교환 (.pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) 인증서 파일의 경로를 제공 하 여 HTTPS 모드를 사용 하도록 설정 합니다 `--cert` .
+**선택 사항** -기본적으로 AZURITE는 HTTP 프로토콜을 사용 합니다. 스위치에 Privacy Enhanced Mail (pem) 또는 [개인 정보 교환 (.pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) 인증서 파일의 경로를 제공 하 여 HTTPS 모드를 사용 하도록 설정 합니다 `--cert` .
 
 `--cert`PEM 파일에 대해가 제공 되는 경우 해당 스위치를 제공 해야 합니다 `--key` .
 

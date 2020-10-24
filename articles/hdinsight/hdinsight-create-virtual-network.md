@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074768"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484817"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
 
@@ -28,7 +28,7 @@ Azure HDInsight에서 가상 네트워크를 사용 하는 방법에 대 한 배
 이 문서의 샘플에 대 한 다른 필수 구성 요소에는 다음 항목이 포함 됩니다.
 
 * PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/)을 설치 해야 합니다.
-* Azure CLI를 사용 하 고 아직 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+* Azure CLI를 사용 하 고 아직 설치 하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 > [!IMPORTANT]  
 > Azure Virtual Network를 사용하여 HDInsight를 온-프레미스 네트워크에 연결하는 단계별 지침을 찾으려면 [온-프레미스 네트워크에 HDInsight 연결](connect-on-premises-network.md) 문서를 참조하세요.
@@ -289,7 +289,7 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
     
     * `192.168.0.1` 값을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 다른 모든 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
 
-1. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`
+1. 구성을 사용하려면 바인딩을 다시 시작합니다. 정의합니다(예: `sudo service bind9 restart`).
 
 1. 온-프레미스 DNS 서버에 조건부 전달자를 추가합니다. 1단계에서 DNS 접미사에 대한 요청을 사용자 지정 DNS 서버에 보내도록 조건부 전달자를 구성합니다.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 5c82c7a3fbe931042c1ae817d2f5b6c9ae6989ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427752"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480737"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 백업 및 복원
 
@@ -44,12 +44,15 @@ Azure Database for MariaDB는 전체, 차등 및 트랜잭션 로그 백업을 �
 - 최대 2TB 저장소를 포함 하는 서버는 최대 2 개의 전체 데이터베이스 백업, 모든 차등 백업 및 가장 이른 전체 데이터베이스 백업 이후에 수행 된 트랜잭션 로그 백업을 유지 합니다.
 -   최대 16TB의 저장소를 포함 하는 서버는 지난 8 일간 전체 데이터베이스 스냅숏, 모든 차등 스냅숏 및 트랜잭션 로그 백업을 유지 합니다.
 
+#### <a name="long-term-retention-of-backups"></a>백업 장기 보존
+35 일을 초과 하는 백업에 대 한 장기 보존 기간은 현재 서비스에서 기본적으로 지원 되지 않습니다. Mysqldump를 사용 하 여 백업을 수행 하 고 장기 보존을 위해 저장할 수 있는 옵션이 있습니다. 지원 팀은이를 달성할 수 있는 방법을 공유 하는 단계별 [문서](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) 를 기록 했습니다. 
+
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
 Azure Database for MariaDB는 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)에도 복제됩니다. 이렇게 하면 재해 발생 시 다른 지역에서 서버를 복원하는 데 더 효율적인 보호와 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
 
-> [!IMPORTANT]
-> 백업을 위한 로컬 중복 또는 지역 중복 스토리지를 구성하는 것은 서버를 만드는 동안에만 허용됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>로컬 중복에서 지역 중복 백업 저장소로 이동
+백업을 위한 로컬 중복 또는 지역 중복 스토리지를 구성하는 것은 서버를 만드는 동안에만 허용됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다. 백업 저장소를 로컬 중복 저장소에서 지역 중복 저장소로 이동 하기 위해 새 서버를 만들고 [dump 및 restore](howto-migrate-dump-restore.md) 를 사용 하 여 데이터를 마이그레이션하는 것은 유일 하 게 지원 되는 옵션입니다.
 
 ### <a name="backup-storage-cost"></a>백업 스토리지 비용
 

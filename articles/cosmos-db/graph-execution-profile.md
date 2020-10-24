@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408235"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490597"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>실행 프로필 단계를 사용하여 Gremlin 쿼리를 평가하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "91408235"
 
 이 단계를 사용 하려면 `executionProfile()` Gremlin 쿼리 끝에 함수 호출을 추가 하면 됩니다. **Gremlin 쿼리가 실행** 되 고 작업 결과가 쿼리 실행 프로필을 사용 하 여 JSON 응답 개체를 반환 합니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ```java
     // Basic traversal
@@ -220,8 +220,8 @@ Cosmos DB Gremlin Runtime 연산자|설명
 
 여기에서 다음과 같은 결론을 수행할 수 있습니다.
 - 이 쿼리는 Gremlin 문이 패턴을 따르며 단일 ID 조회입니다 `g.V('id')` .
-- `time`메트릭에 심사이 쿼리의 대기 시간은 [단일 지점 읽기 작업의 10ms 보다 더](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide)많은 것 같습니다.
-- 개체를 살펴보면 `storeOps` 가 인 것을 확인할 수 있습니다 `fanoutFactor` `5` . 즉,이 작업에서 [5 개의 파티션을](https://docs.microsoft.com/azure/cosmos-db/partition-data) 액세스 했음을 의미 합니다.
+- `time`메트릭에 심사이 쿼리의 대기 시간은 [단일 지점 읽기 작업의 10ms 보다 더](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide)많은 것 같습니다.
+- 개체를 살펴보면 `storeOps` 가 인 것을 확인할 수 있습니다 `fanoutFactor` `5` . 즉,이 작업에서 [5 개의 파티션을](./partitioning-overview.md) 액세스 했음을 의미 합니다.
 
 이 분석을 완료 하면 첫 번째 쿼리가 필요한 것 보다 더 많은 파티션에 액세스 하 고 있음을 확인할 수 있습니다. 쿼리에 조건자로 분할 키를 지정 하면이 문제를 해결할 수 있습니다. 이로 인해 대기 시간이 줄어들고 쿼리 당 비용이 줄어듭니다. [그래프 분할](graph-partitioning.md)에 대해 자세히 알아보세요. 더 최적의 쿼리는 `g.V('tt0093640').has('partitionKey', 't1001')` 입니다.
 

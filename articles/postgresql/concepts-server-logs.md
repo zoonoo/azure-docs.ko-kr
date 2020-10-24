@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ae3c538c78be8af0fa4569592ac60547e7f5912
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710501"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481298"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 
@@ -72,7 +72,7 @@ Powershell, CLI 또는 REST API를 사용 하 여 리소스 로그를 사용 하
 
 ### <a name="access-resource-logs"></a>리소스 로그 액세스
 
-로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs-collect-storage.md) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 문서를 참조 하세요.
+로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
 
 Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
 
@@ -103,7 +103,7 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| 유형 | 로그의 형식 항상 `AzureDiagnostics`입니다. |
+| Type | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL`입니다. |

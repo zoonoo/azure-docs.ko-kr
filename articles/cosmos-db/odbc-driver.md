@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7f9573769beb5bf1f6ebe47e6e0a277185ac42b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084826"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488421"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -134,7 +134,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 1. 예를 들어 `SDS Name`으로 명명된 [2단계](#connect)에서 설명된 대로 시스템 데이터 원본을 만듭니다.
 
-1. [SQL Server Management Studio를 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)하고 서버에 연결합니다. 
+1. [SQL Server Management Studio를 설치](/sql/ssms/download-sql-server-management-studio-ssms)하고 서버에 연결합니다. 
 
 1. SSMS 쿼리 편집기에서 다음 명령을 사용하여 데이터 원본에 대한 연결된 서버 개체 `DEMOCOSMOS`을 만듭니다. `DEMOCOSMOS`을 연결된 서버의 이름으로, `SDS Name`는 시스템 데이터 원본 이름으로 바꿉니다.
 
@@ -192,7 +192,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 1. **새로 만들기**를 클릭하고 뷰 이름(예: EmployeesfromSeattleView)을 입력하고 **확인**을 클릭합니다.
 
-1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. [Azure Cosmos DB SQL 쿼리](how-to-sql-query.md)(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인**을 클릭합니다.
+1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. [Azure Cosmos DB SQL 쿼리](./sql-query-getting-started.md)(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인**을 클릭합니다.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Azure Cosmos DB ODBC 데이터 원본 관리자":::
 

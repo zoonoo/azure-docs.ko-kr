@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 5ea5ee2dfe89b36fce78c369100224718eb5864f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ddb6bc297a32be856172707a220fe1dfaefb9f6d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278760"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487452"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 전역적으로 데이터 배포
 
@@ -55,7 +55,6 @@ Azure Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추�
 * [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [SQL API 계정에 대한 사용자 지정 충돌 해결 정책 만들기](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * [Cosmos DB의 프로그래밍 가능 일관성 모델](consistency-levels.md)
-* [애플리케이션에 대한 올바른 일관성 수준 선택](consistency-levels-choosing.md)
-* [Azure Cosmos DB API 간 일관성 수준](consistency-levels-across-apis.md)
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-
+* [애플리케이션에 대한 올바른 일관성 수준 선택](./consistency-levels.md)
+* [Azure Cosmos DB API 간 일관성 수준](./consistency-levels.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](./consistency-levels.md)

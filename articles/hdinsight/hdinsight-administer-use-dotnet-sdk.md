@@ -8,20 +8,20 @@ ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: dd0d7a3a05c108f0d7e95719356079633a0e2276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367b47e8dbe0e1ee56fea620d97109631ba87a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016090"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484885"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
+[HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 
-**필수 구성 요소**
+**전제 조건**
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -268,7 +268,7 @@ foreach (var key in results.Configuration.Keys)
 
 ## <a name="see-also"></a>참고 항목
 
-* [HDInsight .NET SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK 참조 설명서](/dotnet/api/overview/azure/hdinsight)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]

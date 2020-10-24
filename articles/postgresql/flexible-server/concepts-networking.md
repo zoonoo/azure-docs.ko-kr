@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708784"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485259"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>네트워킹 개요-Azure Database for PostgreSQL 유연한 서버
 
@@ -72,6 +72,9 @@ PostgreSQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야
 * 지역 간 피어 링 Vnet 지원 되지 않습니다.
 
 [Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)에서 개인 액세스 (VNet 통합)를 사용 하 여 유연한 서버를 만드는 방법에 대해 알아봅니다.
+
+> [!NOTE]
+> 사용자 지정 DNS 서버를 사용 하는 경우에는 DNS 전달자를 사용 하 여 Azure Database for MySQL 유연한 서버의 FQDN을 확인 해야 합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 을 참조 하세요.
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
 공용 액세스 방법의 특성은 다음과 같습니다.

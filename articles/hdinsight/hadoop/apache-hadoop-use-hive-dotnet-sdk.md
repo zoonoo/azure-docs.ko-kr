@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: cdb2207ab834ab84cedd2ad23e5e26186ac44039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f815754c099e1e085fb0692285b9e690d68194e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020476"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487673"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
 
@@ -142,10 +142,10 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight .NET SDK를 사용 하 여 Apache Hive 쿼리를 전송 하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 HDInsight .NET SDK를 사용 하 여 Apache Hive 쿼리를 전송 하는 방법을 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
 
 * [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
-* [HDInsight .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK 참조](/dotnet/api/overview/azure/hdinsight)
 * [HDInsight에서 Apache Sqoop 사용](apache-hadoop-use-sqoop-mac-linux.md)
 * [비대화형 인증 .NET HDInsight 애플리케이션 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

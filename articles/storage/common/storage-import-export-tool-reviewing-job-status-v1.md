@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 2fa5cfcf0cb6c20a8a0b64651da0b365e12a3d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be421cc0bb00018b32ee63f2b486c11300627a01
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056325"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488557"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>복사 로그 파일로 Azure Import/Export 작업 상태 검토 | Microsoft Docs
-Microsoft Azure Import/Export 서비스는 가져오기 또는 내보내기 작업과 연결 된 드라이브를 처리할 때 blob을 가져오거나 내보내는 데 사용한 저장소 계정에 복사 로그 파일을 기록 합니다. 로그 파일에는 가져오거나 내보낸 각 파일에 대한 자세한 상태가 포함되어 있습니다. 서비스는 완료 된 작업의 상태를 쿼리할 때 각 복사 로그 파일에 대 한 URL을 반환 합니다. 자세한 내용은 [작업 가져오기](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get)를 참조 하세요.  
+Microsoft Azure Import/Export 서비스는 가져오기 또는 내보내기 작업과 연결 된 드라이브를 처리할 때 blob을 가져오거나 내보내는 데 사용한 저장소 계정에 복사 로그 파일을 기록 합니다. 로그 파일에는 가져오거나 내보낸 각 파일에 대한 자세한 상태가 포함되어 있습니다. 서비스는 완료 된 작업의 상태를 쿼리할 때 각 복사 로그 파일에 대 한 URL을 반환 합니다. 자세한 내용은 [작업 가져오기](/rest/api/storageimportexport/Jobs/Get)를 참조 하세요.  
 
 ## <a name="example-urls"></a>예제 URL
 

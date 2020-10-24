@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490512"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "92279762"
 
 기본적으로 요청에 유효한 권한 부여 토큰이 포함되어 있으면 인터넷에서 Azure Cosmos 계정에 액세스할 수 있습니다. IP 정책 기반 액세스 제어를 구성하려면 사용자가 지정된 Azure Cosmos 계정에 액세스하도록 허용된 클라이언트 IP 목록으로 포함할 IP 주소 또는 IP 주소 범위 집합을 CIDR(Classless Inter-Domain Routing) 형식으로 제공해야 합니다. 이 구성이 적용되면 이 허용되는 목록 이외의 머신에서 보내는 모든 요청은 403(금지됨) 응답을 받습니다. IP 방화벽을 사용하는 경우 계정에 액세스하려면 Azure Portal을 허용하는 것이 좋습니다. 데이터 탐색기를 사용하고 Azure Portal에 표시되는 계정에 대한 메트릭을 검색하려면 액세스 권한이 필요합니다. 데이터 탐색기를 사용 하 여 Azure Portal 계정에 액세스 하도록 허용 하는 것 외에도 방화벽 설정을 업데이트 하 여 현재 IP 주소를 방화벽 규칙에 추가 해야 합니다. 방화벽 변경이 전파 되는 데는 15 분 정도 걸릴 수 있습니다.
 
-서브넷 및 VNET 액세스 제어를 사용하여 IP 기반 방화벽을 결합할 수 있습니다. 결합하면 공용 IP가 있는 모든 원본에 대한 액세스 및/또는 VNET 내 특정 서브넷으로부터의 액세스를 제한할 수 있습니다. 서브넷 및 VNET 기반 액세스 제어 사용에 대해 자세히 알아보려면 [가상 네트워크에서 Azure Cosmos DB 리소스에 액세스](vnet-service-endpoint.md)를 참조하세요.
+서브넷 및 VNET 액세스 제어를 사용하여 IP 기반 방화벽을 결합할 수 있습니다. 결합하면 공용 IP가 있는 모든 원본에 대한 액세스 및/또는 VNET 내 특정 서브넷으로부터의 액세스를 제한할 수 있습니다. 서브넷 및 VNET 기반 액세스 제어 사용에 대해 자세히 알아보려면 [가상 네트워크에서 Azure Cosmos DB 리소스에 액세스](./how-to-configure-vnet-service-endpoint.md)를 참조하세요.
 
 요약하면, Azure Cosmos 계정에 액세스하려면 권한 부여 토큰이 항상 필요합니다. IP 방화벽 및 VNET ACL(액세스 제어 목록)을 설정하지 않은 경우 권한 부여 토큰을 사용하여 Azure Cosmos 계정에 액세스할 수 있습니다. Azure Cosmos 계정에서 IP 방화벽과 VNET ACL 중 하나 또는 모두 설정되면 지정한(및 권한 부여 토큰 사용) 원본에서 발생하는 요청만 유효한 응답을 가져옵니다. 
 
@@ -47,7 +47,7 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 프로그래밍 방식으로 IP 액세스 제어 정책을 사용하도록 설정할 경우 Azure Portal의 IP 주소를 **ipRangeFilter** 속성에 추가해야 액세스가 유지됩니다. 포털 IP 주소는 다음과 같습니다.
 
-|Azure 지역|IP 주소|
+|지역|IP 주소|
 |------|----------|
 |독일|51.4.229.218|
 |중국|139.217.8.252|
@@ -91,7 +91,7 @@ Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계
 
 ### <a name="requests-from-virtual-machines"></a>가상 머신의 요청
 
-Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [가상 머신](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용할 수도 있습니다. 가상 머신에서 액세스할 수 있도록 Cosmos DB 계정을 구성하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 가상 머신 및/또는 가상 머신 확장 집합의 공용 IP 주소를 Azure Cosmos DB 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다.
+Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [가상 머신](https://azure.microsoft.com/services/virtual-machines/) 또는 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용할 수도 있습니다. 가상 머신에서 액세스할 수 있도록 Cosmos DB 계정을 구성하려면 [IP 액세스 제어 정책을 구성](#configure-ip-policy)하여 가상 머신 및/또는 가상 머신 확장 집합의 공용 IP 주소를 Azure Cosmos DB 계정에 허용되는 IP 주소 중 하나로 구성해야 합니다.
 
 다음 스크린샷처럼 Azure Portal에서 가상 머신의 IP 주소를 검색할 수 있습니다.
 
@@ -105,7 +105,7 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Resource Manager 템플릿을 사용하여 IP 방화벽 구성
 
-Azure Cosmos DB 계정에 대 한 액세스 제어를 구성 하려면 리소스 관리자 템플릿이 허용 되는 IP 범위의 배열이 포함 된 **ipRules** 속성을 지정 하는지 확인 합니다. 이미 배포된 Cosmos 계정에 IP 방화벽을 구성하는 경우 `locations` 배열이 현재 배포된 것과 일치하는지 확인합니다. `locations` 배열과 기타 속성을 동시에 수정할 수 없습니다. Azure Cosmos DB에 대 한 Azure Resource Manager 템플릿에 대 한 자세한 내용 및 예제는 [Azure Resource Manager 템플릿](resource-manager-samples.md) 을 참조 하세요 Azure Cosmos DB
+Azure Cosmos DB 계정에 대 한 액세스 제어를 구성 하려면 리소스 관리자 템플릿이 허용 되는 IP 범위의 배열이 포함 된 **ipRules** 속성을 지정 하는지 확인 합니다. 이미 배포된 Cosmos 계정에 IP 방화벽을 구성하는 경우 `locations` 배열이 현재 배포된 것과 일치하는지 확인합니다. `locations` 배열과 기타 속성을 동시에 수정할 수 없습니다. Azure Cosmos DB에 대 한 Azure Resource Manager 템플릿에 대 한 자세한 내용 및 예제는 [Azure Resource Manager 템플릿](./templates-samples-sql.md) 을 참조 하세요 Azure Cosmos DB
 
 > [!IMPORTANT]
 > **IpRules** 속성은 API 버전 2020-04-01에서 도입 되었습니다. 이전 버전에서는 쉼표로 구분 된 IP 주소 목록 인 **ipRangeFilter** 속성을 대신 제공 했습니다.
@@ -221,7 +221,7 @@ Azure Cosmos DB 계정에 대해 IP 액세스 제어 정책을 사용하도록 �
 
 ### <a name="source-ips-in-blocked-requests"></a>차단된 요청의 원본 IP
 
-Azure Cosmos DB 계정에 진단 로깅을 사용하도록 설정합니다. 이러한 로그는 각 요청 및 응답을 보여줍니다. 방화벽 관련 메시지가 403 반환 코드와 함께 로깅됩니다. 이러한 메시지를 필터링하면 차단된 요청에 대한 원본 IP를 확인할 수 있습니다. [Azure Cosmos DB 진단 로깅](logging.md)을 확인합니다.
+Azure Cosmos DB 계정에 진단 로깅을 사용하도록 설정합니다. 이러한 로그는 각 요청 및 응답을 보여줍니다. 방화벽 관련 메시지가 403 반환 코드와 함께 로깅됩니다. 이러한 메시지를 필터링하면 차단된 요청에 대한 원본 IP를 확인할 수 있습니다. [Azure Cosmos DB 진단 로깅](./monitor-cosmos-db.md)을 확인합니다.
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Azure Cosmos DB에 대해 서비스 엔드포인트를 설정한 서브넷의 요청
 

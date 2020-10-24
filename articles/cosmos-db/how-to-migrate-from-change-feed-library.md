@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019524"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490988"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>변경 피드 프로세서 라이브러리에서 Azure Cosmos DB .NET V3 SDK로 마이그레이션
 
@@ -23,7 +23,7 @@ ms.locfileid: "89019524"
 .NET V3 SDK에는 몇 가지 주요 변경 사항이 포함 되어 있으며, 다음은 응용 프로그램을 마이그레이션하는 주요 단계입니다.
 
 1. 인스턴스를 `DocumentCollectionInfo` 모니터링 되 `Container` 는 및 임대 컨테이너에 대 한 참조로 변환 합니다.
-1. 를 사용 하 여 `WithProcessorOptions` `WithLeaseConfiguration` 시작 시간에 대해 및를 사용 하 `WithPollInterval` `WithStartTime` [for start time](how-to-configure-change-feed-start-time.md)고 `WithMaxItems` 최대 항목 수를 정의 하려면를 사용 하는 사용자 지정을 업데이트 해야 합니다.
+1. 를 사용 하 여 `WithProcessorOptions` `WithLeaseConfiguration` 시작 시간에 대해 및를 사용 하 `WithPollInterval` `WithStartTime` [for start time](./change-feed-processor.md#starting-time)고 `WithMaxItems` 최대 항목 수를 정의 하려면를 사용 하는 사용자 지정을 업데이트 해야 합니다.
 1. 에 `processorName` 구성 된 `GetChangeFeedProcessorBuilder` 값과 일치 하도록 on을 설정 `ChangeFeedProcessorOptions.LeasePrefix` 하거나, `string.Empty` 그렇지 않으면를 사용 합니다.
 1. 변경 내용은로 더 이상 전달 되지 않습니다 `IReadOnlyList<Document>` . 대신에서 `IReadOnlyCollection<T>` 정의 해야 하는 `T` 형식이 며 기본 항목 클래스가 더 이상 없습니다.
 1. 변경 내용을 처리 하기 위해 더 이상 구현이 필요 하지 않으며 대신 [대리자를 정의](change-feed-processor.md#implementing-the-change-feed-processor)해야 합니다. 대리자는 정적 함수 이거나 실행 간에 상태를 유지 해야 하는 경우 고유한 클래스를 만들고 인스턴스 메서드를 대리자로 전달할 수 있습니다.
@@ -60,4 +60,4 @@ SDK V3 변경 피드 프로세서는 마이그레이션된 응용 프로그램 �
 
 * [변경 피드 프로세서 개요](change-feed-processor.md)
 * [변경 피드 평가기 사용](how-to-use-change-feed-estimator.md)
-* [변경 피드 프로세서 시작 시간](how-to-configure-change-feed-start-time.md)
+* [변경 피드 프로세서 시작 시간](./change-feed-processor.md#starting-time)

@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9424a56eeda5750afc00dd996be957e67850c30c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426688"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487928"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
-Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1 분 주기로 내보내지고 최대 [93 일의 기록이](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics)있습니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1 분 주기로 내보내지고 최대 [93 일의 기록이](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)있습니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습니다.
@@ -61,6 +61,6 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-on-metric.md)을 참조하세요.
-- Azure Portal, REST API 또는 CLI를 사용 하 여 메트릭을 액세스 하 고 내보내는 방법에 대 한 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 를 참조 하세요.
+- Azure Portal, REST API 또는 CLI를 사용 하 여 메트릭을 액세스 하 고 내보내는 방법에 대 한 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md) 를 참조 하세요.
 - [서버 모니터링에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/)는 블로그를 참조하세요.
 - Azure Database for PostgreSQL 단일 서버에서 [계획 된 유지 관리 알림에](./concepts-planned-maintenance-notification.md) 대해 자세히 알아보세요.

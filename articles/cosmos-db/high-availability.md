@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 85f358d205a4a14874e520efdace5345de837588
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276270"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490546"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법
 
@@ -58,7 +58,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 
 드물지만 지역 가동 중단이 발생 하는 경우에 Azure Cosmos DB 데이터베이스를 항상 항상 사용할 수 있도록 합니다. 다음 세부 정보는 Azure Cosmos 계정 구성에 따라 가동 중단 중에 Azure Cosmos DB 동작을 캡처합니다.
 
-* Azure Cosmos DB를 사용 하는 경우 쓰기 작업이 클라이언트에 승인 되기 전에 쓰기 작업을 수락 하는 지역 내의 복제본 쿼럼에 의해 데이터가 지속적으로 커밋됩니다. 자세한 내용은 [일관성 수준 및 처리량](consistency-levels-tradeoffs.md#consistency-levels-and-throughput) 을 참조 하세요.
+* Azure Cosmos DB를 사용 하는 경우 쓰기 작업이 클라이언트에 승인 되기 전에 쓰기 작업을 수락 하는 지역 내의 복제본 쿼럼에 의해 데이터가 지속적으로 커밋됩니다. 자세한 내용은 [일관성 수준 및 처리량](./consistency-levels.md#consistency-levels-and-throughput) 을 참조 하세요.
 
 * 다중 쓰기 지역으로 구성된 다중 지역 계정은 쓰기 및 읽기 모두에 대해 고가용성을 유지합니다. 지역 장애 조치 (failover)는 Azure Cosmos DB 클라이언트에서 검색 되 고 처리 됩니다. 또한 즉시 적용 되며 응용 프로그램을 변경할 필요가 없습니다.
 
@@ -89,7 +89,7 @@ Azure Cosmos 계정이 *n* 개의 azure 지역에 배포 되는 경우 모든 �
 
 * 후속 읽기는 애플리케이션 코드를 변경하지 않고도 복구된 지역으로 리디렉션됩니다. 이전에 실패 한 지역에 대 한 장애 조치 (failover)와 다시 가입 하기 중에는 Azure Cosmos DB에서 읽기 일관성을 유지 합니다.
 
-* Azure 지역이 영구적으로 복구할 수 없는 때 드물게 발생 하는 이벤트 에서도, 다중 지역 Azure Cosmos 계정이 *강력한* 일관성으로 구성 된 경우 데이터가 손실 되지 않습니다. 제한 된 부실 일관성을 사용 하 여 구성 된 다중 지역 Azure Cosmos 계정에 대 한 영구 복구할 수 없는 쓰기 지역의 경우 잠재적 데이터 손실 기간은 K = 100000 업데이트 및 T = 5 분 인 부실 창 (*k* 또는 *t*)으로 제한 됩니다. 세션, 일관 된 접두사 및 최종 일관성 수준에 대 한 잠재적인 데이터 손실 기간은 최대 15 분으로 제한 됩니다. Azure Cosmos DB의 RTO 및 RPO 대상에 대 한 자세한 내용은 [일관성 수준 및 데이터](consistency-levels-tradeoffs.md#rto) 지 속성을 참조 하세요.
+* Azure 지역이 영구적으로 복구할 수 없는 때 드물게 발생 하는 이벤트 에서도, 다중 지역 Azure Cosmos 계정이 *강력한* 일관성으로 구성 된 경우 데이터가 손실 되지 않습니다. 제한 된 부실 일관성을 사용 하 여 구성 된 다중 지역 Azure Cosmos 계정에 대 한 영구 복구할 수 없는 쓰기 지역의 경우 잠재적 데이터 손실 기간은 K = 100000 업데이트 및 T = 5 분 인 부실 창 (*k* 또는 *t*)으로 제한 됩니다. 세션, 일관 된 접두사 및 최종 일관성 수준에 대 한 잠재적인 데이터 손실 기간은 최대 15 분으로 제한 됩니다. Azure Cosmos DB의 RTO 및 RPO 대상에 대 한 자세한 내용은 [일관성 수준 및 데이터](./consistency-levels.md#rto) 지 속성을 참조 하세요.
 
 ## <a name="availability-zone-support"></a>가용성 영역 지원
 
@@ -131,7 +131,7 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 
 * [Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
-* [Azure 리소스 관리자 템플릿](manage-sql-with-resource-manager.md)
+* [Azure 리소스 관리자 템플릿](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>고가용성 애플리케이션 빌드
 
@@ -143,15 +143,15 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 
 * Azure Cosmos 계정을 항상 사용할 수 있는 경우에도 응용 프로그램이 항상 사용 가능한 상태로 유지 되도록 올바르게 설계 되지 않았을 수 있습니다. 응용 프로그램 테스트 또는 DR (재해 복구) 드릴의 일부로 응용 프로그램의 종단 간 고가용성을 테스트 하려면 계정에 대해 자동 장애 조치 (failover)를 일시적으로 사용 하지 않도록 설정 하 고 [PowerShell, Azure CLI 또는 Azure Portal를 사용 하 여 수동 장애](how-to-manage-database-account.md#manual-failover)조치 (failover)를 호출한 다음 응용 프로그램의 장애 조치 (failover)를 모니터링 합니다. 완료 되 면 주 지역으로 장애 복구 (failback) 하 고 계정에 대 한 자동 장애 조치 (failover)를 복원할 수 있습니다.
 
-* 전역적으로 분산 된 데이터베이스 환경 내에서는 지역 전체 중단이 발생 했을 때 일관성 수준 및 데이터 내 구성을 직접 관계가 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다. Azure Cosmos DB의 RPO 및 RTO를 확인하려면 [일관성 수준 및 데이터 내구성](consistency-levels-tradeoffs.md#rto)을 참조하세요.
+* 전역적으로 분산 된 데이터베이스 환경 내에서는 지역 전체 중단이 발생 했을 때 일관성 수준 및 데이터 내 구성을 직접 관계가 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다. Azure Cosmos DB의 RPO 및 RTO를 확인하려면 [일관성 수준 및 데이터 내구성](./consistency-levels.md#rto)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 이제 다음 문서를 읽을 수 있습니다.
 
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](./consistency-levels.md)
 
-* [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
+* [전역적으로 프로비전된 처리량 크기 조정](./request-units.md)
 
 * [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
 

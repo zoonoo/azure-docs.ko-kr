@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425030"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487384"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
 
@@ -78,7 +78,7 @@ Azure Cosmos DB는 배열에 저장 된 콘텐츠를 인덱싱하는 여러 키 
 
 ### <a name="text-indexes"></a>텍스트 인덱스
 
-Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 않습니다. 문자열에 대 한 텍스트 검색 쿼리를 사용 하려면 Azure Cosmos DB와 [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) 통합을 사용 해야 합니다. 
+Azure Cosmos DB의 MongoDB API는 현재 텍스트 인덱스를 지원 하지 않습니다. 문자열에 대 한 텍스트 검색 쿼리를 사용 하려면 Azure Cosmos DB와 [Azure Cognitive Search](../search/search-howto-index-cosmosdb.md) 통합을 사용 해야 합니다. 
 
 ## <a name="wildcard-indexes"></a>와일드 카드 인덱스
 

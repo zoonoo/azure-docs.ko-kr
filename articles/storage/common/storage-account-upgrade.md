@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0054b6e9bb73ef2918a8e5c52c59a272bae5da26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34b486dc4ccfb116b49cf57217c5b7e5aedbd992
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612509"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488846"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
@@ -40,7 +40,7 @@ ms.locfileid: "91612509"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)을 참조하세요.
+PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 업그레이드하려면 먼저 최신 버전의 **Az.Storage** 모듈을 사용하도록 PowerShell을 업데이트합니다. PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-Az-ps)을 참조하세요.
 
 그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
 
@@ -49,7 +49,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 그런 다음, 리소스 그룹 이름, 저장소 계정 이름 및 원하는 계정 액세스 계층을 대체 하 여 계정을 업그레이드 하는 다음 명령을 호출 합니다.
 

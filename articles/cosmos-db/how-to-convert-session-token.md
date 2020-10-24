@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 787c39681d0e9aff25d205c7b195be00b8c0bc9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020017"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490444"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>.NET SDK에서 세션 토큰 형식 변환
 
@@ -111,6 +111,6 @@ else
 다음 문서를 읽어보세요.
 
 * [Azure Cosmos DB에서 세션 토큰을 사용하여 일관성 관리](how-to-manage-consistency.md#utilize-session-tokens)
-* [Azure Cosmos DB에서 올바른 일관성 수준 선택](consistency-levels-choosing.md)
-* [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
+* [Azure Cosmos DB에서 올바른 일관성 수준 선택](./consistency-levels.md)
+* [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](./consistency-levels.md)
+* [다양한 일관성 수준의 가용성 및 성능 절충](./consistency-levels.md)
