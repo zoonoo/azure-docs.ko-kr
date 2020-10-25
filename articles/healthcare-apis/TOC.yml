@@ -19,6 +19,7 @@
         - name: CLI 사용
           href: fhir-paas-cli-quickstart.md
         - name: ARM 템플릿 사용
+          displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
     - name: Azure IoT Connector for FHIR(미리 보기) 배포 - 포털
       href: iot-fhir-portal-quickstart.md

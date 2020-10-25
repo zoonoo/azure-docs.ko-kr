@@ -194,7 +194,7 @@
                   items:
                     - name: 'FAQ: 로컬로 고정된 볼륨'
                       href: storsimple-8000-local-volume-faq.md
-                - name: 역할 기반 액세스 제어
+                - name: Azure 역할 기반 액세스 제어
                   href: storsimple-8000-role-based-access-control.md
                 - name: ACR 관리
                   href: storsimple-8000-manage-acrs.md
