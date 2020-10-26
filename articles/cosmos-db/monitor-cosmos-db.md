@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6bfedc7d14c234f88e8140281a01ffcc330ba532
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: af1419dfb47f9090fd3aa307c71f7e62206e3e93
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488370"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543358"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 
@@ -66,9 +66,9 @@ Azure Cosmos DB는 다른 Azure 리소스와 동일한 종류의 모니터링 �
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> 메트릭 데이터 분석
 
-Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 제공합니다. 이 환경을 사용하고 다양한 Azure Cosmos DB 시나리오를 분석하는 방법에 대한 자세한 내용은 [Azure Monitor에서 Azure Cosmos DB 메트릭 모니터링 및 디버그]()를 참조하세요.
+Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 제공합니다.
 
-메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭으로 Azure Cosmos DB에 대한 메트릭을 분석하려면 **Azure Monitor** 메뉴에서 **메트릭**을 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요. Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네임스페이스에 있습니다. 차트에 필터를 추가할 때 이러한 메트릭에 다음 차원을 사용할 수 있습니다.
+메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭으로 Azure Cosmos DB에 대한 메트릭을 분석하려면 **Azure Monitor** 메뉴에서 **메트릭** 을 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요. Azure Cosmos DB에 대한 모든 메트릭은 **Cosmos DB 표준 메트릭** 네임스페이스에 있습니다. 차트에 필터를 추가할 때 이러한 메트릭에 다음 차원을 사용할 수 있습니다.
 
 * CollectionName
 * DatabaseName
@@ -80,23 +80,23 @@ Azure Cosmos DB는 메트릭을 사용하기 위한 사용자 지정 환경을 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 왼쪽 탐색 모음에서 **모니터**를 선택하고 **메트릭**을 선택합니다.
+1. 왼쪽 탐색 모음에서 **모니터** 를 선택하고 **메트릭** 을 선택합니다.
 
    :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
-1. **메트릭** 창 > **리소스 선택**에서 필요한 **구독** 및 **리소스 그룹**을 선택합니다. **리소스 유형**으로 **Azure Cosmos DB 계정**을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용**을 선택합니다.
+1. **메트릭** 창 > **리소스 선택** 에서 필요한 **구독** 및 **리소스 그룹** 을 선택합니다. **리소스 유형** 으로 **Azure Cosmos DB 계정** 을 선택하고, 기존 Azure Cosmos 계정 중 하나를 선택한 후 **적용** 을 선택합니다.
 
    :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
-1. 다음에는 사용 가능한 메트릭 목록에서 메트릭을 선택할 수 있습니다. 요청 단위, 스토리지, 대기 시간, 가용성, Cassandra 등과 관련된 메트릭을 선택할 수 있습니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **요청 단위**를 선택하고 **Avg**를 집계 값으로 하겠습니다.
+1. 다음에는 사용 가능한 메트릭 목록에서 메트릭을 선택할 수 있습니다. 요청 단위, 스토리지, 대기 시간, 가용성, Cassandra 등과 관련된 메트릭을 선택할 수 있습니다. 이 목록에서 사용 가능한 모든 메트릭에 대해 자세히 알아 보려면 [범주별 메트릭](monitor-cosmos-db-reference.md) 문서를 참조하세요. 이 예에서는 **요청 단위** 를 선택하고 **Avg** 를 집계 값으로 하겠습니다.
 
-   이러한 세부 정보 외에 메트릭의 **시간 범위**와 **시간 단위**를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
+   이러한 세부 정보 외에 메트릭의 **시간 범위** 와 **시간 단위** 를 선택할 수도 있습니다. 최대는 지난 30일 동안의 메트릭을 볼 수 있습니다.  필터를 적용하면 필터에 기반하여 차트가 표시됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
 
    :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
 ### <a name="add-filters-to-metrics"></a>메트릭에 필터 추가
 
-특정 **CollectionName**, **DatabaseName**, **OperationType**, **Region** 및 **StatusCode**별로 표시되는 메트릭 및 차트를 필터링할 수도 있습니다. 메트릭을 필터링하려면 **필터 추가**를 선택하고 필요한 속성(예: **OperationType**)을 선택하며 **쿼리**와 같은 값을 선택합니다. 그러면 선택한 기간에 쿼리 작업에 소비된 요청 단위가 그래프에 표시됩니다. 저장 프로시저를 통해 실행되는 작업은 기록되지 않으므로 OperationType 메트릭 아래에서 사용할 수 없습니다.
+특정 **CollectionName** , **DatabaseName** , **OperationType** , **Region** 및 **StatusCode** 별로 표시되는 메트릭 및 차트를 필터링할 수도 있습니다. 메트릭을 필터링하려면 **필터 추가** 를 선택하고 필요한 속성(예: **OperationType** )을 선택하며 **쿼리** 와 같은 값을 선택합니다. 그러면 선택한 기간에 쿼리 작업에 소비된 요청 단위가 그래프에 표시됩니다. 저장 프로시저를 통해 실행되는 작업은 기록되지 않으므로 OperationType 메트릭 아래에서 사용할 수 없습니다.
 
 :::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Azure Portal에서 사용할 수 있는 모니터링 옵션":::
 
@@ -114,7 +114,7 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 | AzureActivity    | 활동 로그의 모든 레코드를 저장하는 공통 테이블입니다.
 
 > [!IMPORTANT]
-> Azure Cosmos DB 메뉴에서 **로그**를 선택하면 쿼리 범위가 현재 Azure Cosmos 데이터베이스로 설정된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 Azure 서비스의 데이터 또는 다른 데이터베이스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그**를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../azure-monitor/log-query/scope.md)를 참조하세요.
+> Azure Cosmos DB 메뉴에서 **로그** 를 선택하면 쿼리 범위가 현재 Azure Cosmos 데이터베이스로 설정된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 Azure 서비스의 데이터 또는 다른 데이터베이스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../azure-monitor/log-query/scope.md)를 참조하세요.
 
 ### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Monitor의 Azure Cosmos DB Log Analytics 쿼리
 
@@ -153,7 +153,7 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 * REST API를 사용하려면 [컬렉션에 대해 GET을 수행](/rest/api/cosmos-db/get-a-collection)합니다. 컬렉션에 대한 할당량 및 사용량 정보는 응답의 x-ms-resource-quota 및 x-ms-resource-usage 헤더에서 반환됩니다.
 
-* .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1)를 반환합니다.
+* .NET SDK를 사용하려면 [DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) 메서드를 사용합니다. 이 메서드는 **CollectionSizeUsage** , **DatabaseUsage** , **DocumentUsage** 등의 여러 사용량 속성이 포함된 [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1)를 반환합니다.
 
 추가 메트릭에 액세스하려면 [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)를 사용하세요. 가용 메트릭 정의는 다음을 호출하면 검색할 수 있습니다.
 

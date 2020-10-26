@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84700368"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532767"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
@@ -27,8 +27,8 @@ ms.locfileid: "84700368"
 ### <a name="apache-ambari-ui"></a>Apache Ambari UI
 
 1. Ambari 대시보드로 이동합니다.
-2. 서비스 목록에서 **Storm**을 선택합니다.
-3. **빠른 연결** 메뉴에서 **Storm UI**를 선택합니다.
+2. 서비스 목록에서 **Storm** 을 선택합니다.
+3. **빠른 연결** 메뉴에서 **Storm UI** 를 선택합니다.
 
 ### <a name="direct-link"></a>직접 링크
 
@@ -95,7 +95,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 /Usr/hdp에는 특정 HDP 버전에 대 한 여러 바이너리가 있을 수 있습니다 (예: `/usr/hdp/2.5.0.1233/storm` ). `/usr/hdp/current/storm-client`폴더는 클러스터에서 실행 되는 최신 버전에 연결 되어 있습니다.
 
-자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
+자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
 
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Storm 클러스터의 배포 토폴로지를 확인하는 방법
 
@@ -141,7 +141,7 @@ Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C# 기반 토폴로지(HDInsight 3.4 이상 Linux Storm 클러스터의 Mono)
 
-[HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>HDInsight 3.5 이상 Linux Storm 클러스터용 최신 Apache Storm 이벤트 허브 Spout 이진 파일
 
@@ -186,4 +186,4 @@ Worker Log4J 구성 파일은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/
 
 - [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

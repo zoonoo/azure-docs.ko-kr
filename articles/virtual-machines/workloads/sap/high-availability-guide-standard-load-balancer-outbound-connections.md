@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9d3ecae17ae14effe48f5a7a0ee3f73d3054a220
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d4d21ac0fc0f218b9168adfad3e1b2ec42092b42
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961479"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544752"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 가상 머신에 대한 퍼블릭 엔드포인트 연결
 
@@ -90,14 +90,14 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 ### <a name="deployment-steps"></a>배포 단계
 
 1. 부하 분산 장치 만들기  
-   1. [Azure Portal](https://portal.azure.com)에서 [모든 리소스], [추가]를 차례로 클릭한 다음, **Load Balancer**를 검색합니다.  
-   1. **만들기**를 클릭합니다. 
-   1. Load Balancer 이름을 **MyPublicILB**로 지정합니다.  
-   1. 형식은 **퍼블릭**, SKU는 **표준**을 선택합니다.  
-   1. **공용 IP 주소 만들기**를 선택하고 이름을 **MyPublicILBFrondEndIP**로 지정합니다.  
-   1. 가용성 영역으로 **영역 중복**을 선택합니다.  
+   1. [Azure Portal](https://portal.azure.com)에서 [모든 리소스], [추가]를 차례로 클릭한 다음, **Load Balancer** 를 검색합니다.  
+   1. **만들기** 를 클릭합니다. 
+   1. Load Balancer 이름을 **MyPublicILB** 로 지정합니다.  
+   1. 형식은 **퍼블릭** , SKU는 **표준** 을 선택합니다.  
+   1. **공용 IP 주소 만들기** 를 선택하고 이름을 **MyPublicILBFrondEndIP** 로 지정합니다.  
+   1. 가용성 영역으로 **영역 중복** 을 선택합니다.  
    1. [검토 및 만들기]를 클릭한 다음, [만들기]를 클릭합니다.  
-2. 백 엔드 풀 **MyBackendPoolOfPublicILB**를 만들고 VM을 추가합니다.  
+2. 백 엔드 풀 **MyBackendPoolOfPublicILB** 를 만들고 VM을 추가합니다.  
    1. 가상 네트워크를 선택합니다.  
    1. VM과 IP 주소를 선택한 다음, VM을 백 엔드 풀에 추가합니다.  
 3. [아웃바운드 규칙을 만듭니다](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). 현재는 Azure Portal에서 아웃바운드 규칙을 만들 수 없습니다. [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest)를 사용하여 아웃바운드 규칙을 만들 수 있습니다.  
@@ -109,8 +109,8 @@ SAP 배포 시 퍼블릭 엔드포인트에 대한 아웃바운드 연결이 필
 4. 특정 퍼블릭 엔드포인트에 대한 액세스를 제한하는 네트워크 보안 그룹 규칙을 만듭니다. 기존 네트워크 보안 그룹이 있다면 기존 그룹을 조정해도 됩니다. 아래 예제에서는 Azure 관리 API에 대한 액세스를 사용하도록 설정하는 방법을 보여줍니다. 
    1. 네트워크 보안 그룹으로 이동합니다.
    1. 아웃바운드 보안 규칙을 클릭합니다.
-   1. **인터넷**에 대한 모든 아웃바운드 액세스를 **거부**하는 규칙을 추가합니다.
-   1. **AzureCloud**에 대한 액세스를 **허용**하며 모든 인터넷 액세스를 거부하는 규칙의 우선 순위보다 우선 순위가 낮은 규칙을 추가합니다.
+   1. **인터넷** 에 대한 모든 아웃바운드 액세스를 **거부** 하는 규칙을 추가합니다.
+   1. **AzureCloud** 에 대한 액세스를 **허용** 하며 모든 인터넷 액세스를 거부하는 규칙의 우선 순위보다 우선 순위가 낮은 규칙을 추가합니다.
 
 
    아웃바운드 보안 규칙은 다음과 같습니다. 
@@ -144,17 +144,17 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
 1. 배포 단계에서는 VM에 대한 가상 네트워크와 서브넷이 이미 정의되어 있다고 가정합니다.  
 2. VM과 표준 Load Balancer가 배포되는 동일한 Virtual Network에 **AzureFirewallSubnet** 서브넷을 만듭니다.  
    1. Azure Portal에서 가상 네트워크로 이동합니다. [모든 리소스]를 클릭하고, Virtual Network를 검색하고, Virtual Network를 클릭하고, 서브넷을 선택합니다.  
-   1. [서브넷 추가]를 클릭합니다. 이름으로 **AzureFirewallSubnet**을 입력합니다. 적절한 주소 범위를 입력합니다. 저장합니다.  
+   1. [서브넷 추가]를 클릭합니다. 이름으로 **AzureFirewallSubnet** 을 입력합니다. 적절한 주소 범위를 입력합니다. 저장합니다.  
 3. Azure Firewall을 만듭니다.  
    1. Azure Portal에서 [모든 리소스]를 선택하고 [추가], [방화벽], [만들기]를 차례로 클릭합니다. 리소스 그룹을 선택합니다(Virtual Network가 있는 동일한 리소스 그룹을 선택).  
-   1. Azure Firewall 리소스의 이름을 입력합니다. 예: **MyAzureFirewall**.  
+   1. Azure Firewall 리소스의 이름을 입력합니다. 예: **MyAzureFirewall** .  
    1. VM이 배포되는 가용성 영역에 맞게 지역을 선택하고 2개 이상의 가용성 영역을 선택합니다.  
    1. SAP VM과 Azure 표준 Load Balancer가 배포된 Virtual Network를 선택합니다.  
-   1. 공용 IP 주소: [만들기]를 클릭하고 이름을 입력합니다. 예: **MyFirewallPublicIP**.  
+   1. 공용 IP 주소: [만들기]를 클릭하고 이름을 입력합니다. 예: **MyFirewallPublicIP** .  
 4. 지정된 퍼블릭 엔드포인트에 대한 아웃바운드 연결을 허용하는 Azure Firewall 규칙을 만듭니다. 다음 예제에서는 Azure 관리 API 퍼블릭 엔드포인트에 대한 액세스를 허용하는 방법을 보여줍니다.  
    1. [규칙], [네트워크 규칙 컬렉션]을 차례로 선택하고 [네트워크 규칙 컬렉션 추가]를 클릭합니다.  
-   1. 이름: 이름을 **MyOutboundRule**로 지정하고, 우선 순위를 입력하고, 작업 **허용**을 선택합니다.  
-   1. 서비스: 이름을 **ToAzureAPI**로 지정합니다.  프로토콜: **모두**를 선택합니다. 원본 주소: VM과 표준 Load Balancer가 배포된 서브넷의 범위를 입력합니다. 예: **11.97.0.0/24**. 대상 포트: <b>*</b>를 입력합니다.  
+   1. 이름: 이름을 **MyOutboundRule** 로 지정하고, 우선 순위를 입력하고, 작업 **허용** 을 선택합니다.  
+   1. 서비스: 이름을 **ToAzureAPI** 로 지정합니다.  프로토콜: **모두** 를 선택합니다. 원본 주소: VM과 표준 Load Balancer가 배포된 서브넷의 범위를 입력합니다. 예: **11.97.0.0/24** . 대상 포트: <b>*</b>를 입력합니다.  
    1. 저장
    1. Azure Firewall 내에서 [개요]를 선택합니다. Azure Firewall의 개인 IP 주소를 적어 둡니다.  
 5. Azure Firewall의 경로를 만듭니다.  
@@ -162,11 +162,11 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
    1. 이름으로 MyRouteTable을 입력하고 구독, 리소스 그룹 및 위치(가상 네트워크 및 방화벽 위치와 일치하는)를 선택합니다.  
    1. 저장  
 
-   방화벽 규칙은 다음과 같습니다. ![Azure Firewall과 아웃바운드 연결](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   방화벽 규칙은 ![ 방화벽의 모양을 보여 주는 다이어그램 처럼 보입니다.](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
-6. VM의 서브넷에서 **MyAzureFirewall**의 개인 IP로 이어지는 사용자 정의 경로를 만듭니다.
+6. VM의 서브넷에서 **MyAzureFirewall** 의 개인 IP로 이어지는 사용자 정의 경로를 만듭니다.
    1. [경로 테이블] 내에서 [경로]를 클릭합니다. [추가]를 선택합니다. 
-   1. 경로 이름: ToMyAzureFirewall로 지정, 주소 접두사: **0.0.0.0/0**. 다음 홉 유형: 가상 어플라이언스를 선택합니다. 다음 홉 주소: 구성한 방화벽의 개인 IP 주소 **11.97.1.4**를 입력합니다.  
+   1. 경로 이름: ToMyAzureFirewall로 지정, 주소 접두사: **0.0.0.0/0** . 다음 홉 유형: 가상 어플라이언스를 선택합니다. 다음 홉 주소: 구성한 방화벽의 개인 IP 주소 **11.97.1.4** 를 입력합니다.  
    1. 저장
 
 ## <a name="using-proxy-for-pacemaker-calls-to-azure-management-api"></a>Azure 관리 API에 대한 Pacemaker 호출에 Proxy 사용
@@ -185,7 +185,7 @@ Azure Firewall을 배포하는 방법에 대한 자세한 내용은 [Azure Firew
 
 ### <a name="pacemaker-configuration-with-proxy"></a>프록시를 사용하는 Pacemaker 구성 
 
-업계에서 사용할 수 있는 다양한 프록시 옵션이 있습니다. 프록시 배포에 대한 단계별 지침은 이 문서의 범위를 벗어납니다. 아래 예제에서는 프록시가 **MyProxyService**에 응답하고 **MyProxyPort** 포트에서 수신 대기하는 것으로 가정합니다.  
+업계에서 사용할 수 있는 다양한 프록시 옵션이 있습니다. 프록시 배포에 대한 단계별 지침은 이 문서의 범위를 벗어납니다. 아래 예제에서는 프록시가 **MyProxyService** 에 응답하고 **MyProxyPort** 포트에서 수신 대기하는 것으로 가정합니다.  
 Pacemaker가 Azure 관리 API와 통신할 수 있도록 허용하려면 모든 클러스터 노드에서 다음 단계를 수행합니다.  
 
 1. Pacemaker 구성 파일 /etc/sysconfig/pacemaker를 편집하고 다음 줄을 추가합니다(모든 클러스터 노드에서).

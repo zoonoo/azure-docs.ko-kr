@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504658"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535181"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
-[Enterprise Security Package (ESP)를 사용 하는 HDInsight 클러스터](hdinsight-domain-joined-introduction.md) 는 Azure Active Directory (azure AD) 사용자에 대해 강력한 인증을 사용 하 고 azure *RBAC (역할 기반 액세스 제어)* 정책을 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가 하는 경우 클러스터에 대 한 액세스 권한이 필요한 사용자를 동기화 할 수 있습니다.
+[Enterprise Security Package (ESP)를 사용 하는 HDInsight 클러스터](./domain-joined/hdinsight-security-overview.md) 는 Azure Active Directory (azure AD) 사용자에 대해 강력한 인증을 사용 하 고 azure *RBAC (역할 기반 액세스 제어)* 정책을 사용할 수 있습니다. Azure AD에 사용자 및 그룹을 추가 하는 경우 클러스터에 대 한 액세스 권한이 필요한 사용자를 동기화 할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-아직 하지 않은 경우 [Enterprise Security Package가 포함된 HDInsight 클러스터를 만듭니다](hdinsight-domain-joined-configure.md).
+아직 하지 않은 경우 [Enterprise Security Package가 포함된 HDInsight 클러스터를 만듭니다](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## <a name="add-new-azure-ad-users"></a>새 Azure AD 사용자 추가
 
@@ -29,15 +29,15 @@ ms.locfileid: "89504658"
 
 1. [Azure Portal](https://portal.azure.com)에서 ESP 클러스터와 연결 된 Azure AD 디렉터리로 이동 합니다.
 
-2. 왼쪽 메뉴에서 **모든 사용자**를 선택한 후 **새 사용자**를 선택합니다.
+2. 왼쪽 메뉴에서 **모든 사용자** 를 선택한 후 **새 사용자** 를 선택합니다.
 
     ![사용자 및 그룹 모두 Azure Portal](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
-3. 새 사용자 양식을 완료합니다. 클러스터 기반 사용 권한 할당을 위해 만든 그룹을 선택합니다. 이 예제에서는 새 사용자를 할당할 수 있는 "HiveUsers"라는 그룹을 만듭니다. ESP 클러스터를 만들기 위한 [예제 지침](hdinsight-domain-joined-configure.md)에는 2개의 그룹인 `HiveUsers` 및 `AAD DC Administrators`의 추가가 포함됩니다.
+3. 새 사용자 양식을 완료합니다. 클러스터 기반 사용 권한 할당을 위해 만든 그룹을 선택합니다. 이 예제에서는 새 사용자를 할당할 수 있는 "HiveUsers"라는 그룹을 만듭니다. ESP 클러스터를 만들기 위한 [예제 지침](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)에는 2개의 그룹인 `HiveUsers` 및 `AAD DC Administrators`의 추가가 포함됩니다.
 
     ![사용자 창 Azure Portal 그룹 선택](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. **만들기**를 선택합니다.
+4. **만들기** 를 선택합니다.
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Apache Ambari REST API를 사용하여 사용자 동기화
 
@@ -120,20 +120,20 @@ ms.locfileid: "89504658"
     }
     ```
 
-1. 이 결과는 상태가 **완료**됨, 새 사용자 하나를 만들었습니다. 사용자에 게 멤버 자격이 할당 된 것을 보여 줍니다. 이 예제에서 해당 사용자는 Azure AD의 동일한 그룹에 추가되었으므로 "HiveUsers" 동기화 LDAP 그룹에 할당됩니다.
+1. 이 결과는 상태가 **완료** 됨, 새 사용자 하나를 만들었습니다. 사용자에 게 멤버 자격이 할당 된 것을 보여 줍니다. 이 예제에서 해당 사용자는 Azure AD의 동일한 그룹에 추가되었으므로 "HiveUsers" 동기화 LDAP 그룹에 할당됩니다.
 
     > [!NOTE]  
-    > 이전 메서드는 클러스터를 만드는 동안 도메인 설정의 **사용자 그룹 액세스** 속성에 지정 된 Azure AD 그룹만 동기화 합니다. 자세한 내용은 [HDInsight 클러스터 만들기](domain-joined/apache-domain-joined-configure.md)를 참조하세요.
+    > 이전 메서드는 클러스터를 만드는 동안 도메인 설정의 **사용자 그룹 액세스** 속성에 지정 된 Azure AD 그룹만 동기화 합니다. 자세한 내용은 [HDInsight 클러스터 만들기](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)를 참조하세요.
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>새로 추가된 Azure AD 사용자 확인
 
 [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. 로 이동 하 여 Ambari 웹 UI에 액세스 **`https://CLUSTERNAME.azurehdinsight.net`** 합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
 
-1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
+1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리** 를 선택합니다
 
     ![Apache Ambari 대시보드 관리 Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
-2. 페이지 왼쪽의 **사용자 + 그룹 관리** 메뉴 그룹 아래에서 **사용자**를 선택합니다.
+2. 페이지 왼쪽의 **사용자 + 그룹 관리** 메뉴 그룹 아래에서 **사용자** 를 선택합니다.
 
     ![HDInsight 사용자 및 그룹 메뉴](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
@@ -146,8 +146,8 @@ ms.locfileid: "89504658"
 새 사용자(또는 다른 도메인 사용자)는 Ambari에 로그인할 때 전체 Azure AD 사용자 이름 및 도메인 자격 증명을 사용합니다.  Ambari는 Azure AD에서 사용자의 표시 이름으로 사용되는 사용자 별칭을 표시합니다.
 새로운 예제 사용자의 사용자 이름은 `hiveuser3@contoso.com`입니다. Ambari에서 이 새 사용자는 `hiveuser3`로 표시되지만 사용자는 Ambari에 `hiveuser3@contoso.com`으로 로그인합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-* [ESP가 포함된 HDInsight에서 Apache Hive 정책 구성](hdinsight-domain-joined-run-hive.md)
-* [ESP가 포함된 HDInsight 클러스터 관리](hdinsight-domain-joined-manage.md)
+* [ESP가 포함된 HDInsight에서 Apache Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
+* [ESP가 포함된 HDInsight 클러스터 관리](./domain-joined/apache-domain-joined-manage.md)
 * [사용자에게 Apache Ambari 권한 부여](hdinsight-authorize-users-to-ambari.md)

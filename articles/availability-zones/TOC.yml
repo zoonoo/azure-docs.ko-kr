@@ -61,8 +61,10 @@
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
-            - name: SQL Database를 사용하는 가용성 영역
-              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+            - name: SQL Database 범용 계층을 사용하는 가용성 영역
+              href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+            - name: SQL Database Premium 및 중요 비즈니스용 계층을 사용하는 가용성 영역
+              href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
         - name: 스토리지
           items:
             - name: 영역 중복 스토리지

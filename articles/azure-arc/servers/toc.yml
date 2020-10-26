@@ -41,8 +41,18 @@
           href: onboard-powershell.md
     - name: 관리
       items:
-        - name: Azure VM 확장 관리 및 사용
-          href: manage-vm-extensions.md
+        - name: Azure VM 확장
+          items:
+            - name: 개요
+              href: manage-vm-extensions.md
+            - name: 포털에서 확장 관리
+              href: manage-vm-extensions-portal.md
+            - name: CLI로 확장 관리
+              href: manage-vm-extensions-cli.md
+            - name: PowerShell을 사용하여 확장 관리
+              href: manage-vm-extensions-powershell.md
+            - name: ARM 템플릿을 사용하여 확장 배포
+              href: manage-vm-extensions-template.md
         - name: 에이전트 관리
           href: manage-agent.md
     - name: 문제 해결
@@ -55,8 +65,22 @@
   items:
     - name: 데이터 상주
       href: data-residency.md
+    - name: Azure CLI
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST (영문)
       href: /rest/api/hybridcompute
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
+    - name: Java
+      href: /java/api/overview/azure/hybridcompute/management
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: policy-reference.md

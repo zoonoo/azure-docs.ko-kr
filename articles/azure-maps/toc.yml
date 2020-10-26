@@ -95,6 +95,8 @@
   items:
     - name: Maps 계정 관리
       items:
+        - name: ARM 템플릿으로 계정 만들기
+          href: how-to-create-template.md
         - name: 계정 관리
           href: how-to-manage-account-keys.md
         - name: 인증 관리

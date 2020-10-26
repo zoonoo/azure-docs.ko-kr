@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488914"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544837"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 계획 된 유지 관리 알림-단일 서버
 
@@ -46,22 +46,22 @@ Azure Portal에 대 한 계획 된 유지 관리 알림을 확인 하거나 알�
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Azure Portal에서 계획 된 유지 관리 알림 확인
 
-1. [Azure Portal](https://portal.azure.com)에서 **Service Health**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Service Health** 를 선택 합니다.
 2. **계획 된 유지 관리** 탭 선택
-3. 계획 된 유지 관리 알림을 확인 하려는 **구독**, * * 지역 및 **서비스** 를 선택 합니다. 
+3. 계획 된 유지 관리 알림을 확인 하려는 **구독** , * * 지역 및 **서비스** 를 선택 합니다. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>계획 된 유지 관리 알림을 받으려면
 
-1. [포털](https://portal.azure.com)에서 **서비스 상태**를 선택합니다.
-2. **경고** 섹션에서 **상태 경고**를 선택합니다.
+1. [포털](https://portal.azure.com)에서 **서비스 상태** 를 선택합니다.
+2. **경고** 섹션에서 **상태 경고** 를 선택합니다.
 3. **+ 서비스 상태 경고 추가** 를 선택 하 고 필드를 입력 합니다.
 4. 필수 필드를 입력 합니다. 
-5. **이벤트 유형을**선택 하 고 **계획 된 유지 관리** 를 선택 하거나 **모두를 선택** 합니다.
+5. **이벤트 유형을** 선택 하 고 **계획 된 유지 관리** 를 선택 하거나 **모두를 선택** 합니다.
 6. **작업 그룹** 에서 경고를 수신 하는 방법 (전자 메일 가져오기, 논리 앱 트리거 등)을 정의 합니다.  
 7. 규칙을 만들 때 규칙 사용이 예로 설정 되어 있는지 확인 합니다.
 8. 경고 **규칙 만들기** 를 선택 하 여 경고를 완료 합니다.
 
-**서비스 상태 경고**를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md)를 참조 하세요.
+**서비스 상태 경고** 를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications-portal.md)를 참조 하세요.
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>계획 된 유지 관리를 취소 하거나 연기할 수 있나요?
 

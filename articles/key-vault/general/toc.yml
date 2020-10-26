@@ -100,7 +100,9 @@
           href: rbac-migration.md
         - name: 액세스 문제 해결
           href: troubleshooting-access-issues.md
-    - name: 로깅을 사용 설정하는 방법
+    - name: 일시 삭제 및 제거 보호 사용
+      href: key-vault-recovery.md
+    - name: 로깅 사용
       href: howto-logging.md
     - name: 개발
       items:
@@ -109,7 +111,7 @@
         - name: Azure Resource Manager를 사용하여 Key Vault 배포
           href: vault-create-template.md
         - name: 웹앱 비밀 저장
-          href: vs-secure-secret-appsettings.md
+          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
         - name: .NET을 사용하여 서비스 간 인증
           href: service-to-service-authentication.md
         - name: Key Vault 연결된 서비스 사용
@@ -134,14 +136,6 @@
           href: private-link-service.md
         - name: 방화벽에서 백그라운드로 Key Vault에 액세스 - Azure Key Vault
           href: access-behind-firewall.md
-    - name: 일시 삭제
-      items:
-        - name: Key Vault 복구(일시 삭제 및 보호 제거)
-          href: key-vault-recovery.md
-        - name: CLI에서 일시 삭제 사용
-          href: soft-delete-cli.md
-        - name: PowerShell에서 일시 삭제 사용
-          href: soft-delete-powershell.md
     - name: Key Vault 이동
       items:
         - name: 다른 리소스 그룹으로 Key Vault 이동
@@ -180,7 +174,7 @@
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

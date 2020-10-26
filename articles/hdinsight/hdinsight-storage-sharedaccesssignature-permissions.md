@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e00f7b97b923443cef3b97e0cdeda009ad5c9b03
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2395eb5f5b40a7e3469292ec7faa68d8942dce9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490869"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535198"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Blob storage 공유 액세스 서명을 사용 하 여 HDInsight에서 데이터에 대 한 액세스 제한
 
 HDInsight는 클러스터와 연결 된 Azure Blob storage 계정의 데이터에 대 한 모든 액세스 권한을 가집니다. blob 컨테이너에서 공유 액세스 서명을 사용하여 데이터에 대한 액세스를 제한할 수 있습니다. SAS (공유 액세스 서명)는 데이터에 대 한 액세스를 제한할 수 있는 Azure Blob storage 계정 기능입니다. 예를 들어 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
 > [!IMPORTANT]  
-> Apache Ranger를 사용하는 솔루션의 경우 도메인에 가입된 HDInsight를 사용하는 것이 좋습니다. 자세한 내용은 [도메인에 가입된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md) 문서를 참조하세요.
+> Apache Ranger를 사용하는 솔루션의 경우 도메인에 가입된 HDInsight를 사용하는 것이 좋습니다. 자세한 내용은 [도메인에 가입된 HDInsight 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) 문서를 참조하세요.
 
 > [!WARNING]  
 > HDInsight는 클러스터의 기본 스토리지에 대해 모든 액세스 권한이 있어야 합니다.
@@ -31,7 +31,7 @@ HDInsight는 클러스터와 연결 된 Azure Blob storage 계정의 데이터�
 
 * 기존 [저장소 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)입니다.  
 
-* PowerShell을 사용하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/)이 필요합니다.
+* PowerShell을 사용하는 경우 [Az Module](/powershell/azure/)이 필요합니다.
 
 * Azure CLI를 사용하려 하나 아직 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -76,7 +76,7 @@ HDInsight는 클러스터와 연결 된 Azure Blob storage 계정의 데이터�
 
 항상 저장된 액세스 정책을 사용하는 것이 좋습니다. 저장된 정책을 사용하는 경우 필요에 따라 서명을 철회하거나 만료 날짜를 연장할 수 있습니다. 이 문서의 단계에서는 SAS를 생성하는 데 저장된 액세스 정책을 사용합니다.
 
-공유 액세스 서명에 대한 자세한 내용은 [SAS 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
+공유 액세스 서명에 대한 자세한 내용은 [SAS 모델 이해](../storage/common/storage-sas-overview.md)를 참조하세요.
 
 ## <a name="create-a-stored-policy-and-sas"></a>저장 된 정책 및 SAS 만들기
 
@@ -207,7 +207,7 @@ Set-AzStorageblobcontent `
 
 1. Visual Studio에서 솔루션을 엽니다.
 
-2. 솔루션 탐색기에서 **SASExample** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
+2. 솔루션 탐색기에서 **SASExample** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
@@ -353,27 +353,27 @@ Remove-AzResourceGroup `
 
 1. 클러스터에 대한 Ambari 웹 UI를 엽니다. 이 페이지에 대한 주소는 `https://YOURCLUSTERNAME.azurehdinsight.net`입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 관리자 이름(admin)과 암호를 사용하여 클러스터를 인증합니다.
 
-1. **HDFS**  >  **Configs**  >  **Advanced**  >  **Custom core-site**로 이동 합니다.
+1. **HDFS**  >  **Configs**  >  **Advanced**  >  **Custom core-site** 로 이동 합니다.
 
-1. **사용자 지정 핵심 사이트** 섹션을 확장 하 고 끝으로 스크롤한 다음 **속성 추가 ...** 를 선택 합니다. **키** 와 **값**에 다음 값을 사용 합니다.
+1. **사용자 지정 핵심 사이트** 섹션을 확장 하 고 끝으로 스크롤한 다음 **속성 추가 ...** 를 선택 합니다. **키** 와 **값** 에 다음 값을 사용 합니다.
 
-    * **키**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **값**: 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
+    * **키** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **값** : 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
 
     을 `CONTAINERNAME` c # 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. `STORAGEACCOUNTNAME`을 사용한 저장소 계정 이름으로 바꿉니다.
 
     **추가** 를 선택 하 여이 키 및 값을 저장 합니다.
 
-1. **저장** 단추를 선택 하 여 구성 변경 내용을 저장 합니다. 메시지가 표시 되 면 변경에 대 한 설명 (예: "SAS 저장소 액세스 추가")을 추가 하 고 **저장**을 선택 합니다.
+1. **저장** 단추를 선택 하 여 구성 변경 내용을 저장 합니다. 메시지가 표시 되 면 변경에 대 한 설명 (예: "SAS 저장소 액세스 추가")을 추가 하 고 **저장** 을 선택 합니다.
 
     변경이 완료 되 면 **확인을** 선택 합니다.
 
    > [!IMPORTANT]  
    > 변경 내용을 적용하기 전에 여러 서비스를 다시 시작해야 합니다.
 
-1. **다시 시작** 드롭다운 목록이 표시 됩니다. 드롭다운 목록에서 **영향을 받은 모두 다시 시작** 을 선택 하 고 __모두 다시 시작__을 선택 합니다.
+1. **다시 시작** 드롭다운 목록이 표시 됩니다. 드롭다운 목록에서 **영향을 받은 모두 다시 시작** 을 선택 하 고 __모두 다시 시작__ 을 선택 합니다.
 
-    **MapReduce2** 및 **YARN**에 대해이 프로세스를 반복 합니다.
+    **MapReduce2** 및 **YARN** 에 대해이 프로세스를 반복 합니다.
 
 1. 서비스가 다시 시작된 후 각 서비스를 선택하고 **서비스 작업** 드롭다운에서 유지 관리 모드를 비활성화합니다.
 
@@ -411,7 +411,7 @@ SAS 저장소 계정의 항목만 읽고 나열할 수 있는지 확인 하려�
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    이 명령은 파일을 **testfile.txt**라는 로컬 파일에 다운로드합니다.
+    이 명령은 파일을 **testfile.txt** 라는 로컬 파일에 다운로드합니다.
 
 5. 다음 명령을 사용하여 로컬 파일을 SAS 스토리지의 새 **testupload.txt** 파일에 업로드합니다.
 

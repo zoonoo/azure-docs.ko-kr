@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 1a5a46957c92fb2c14907db728216481f3f57aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087693"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536269"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
@@ -21,14 +21,14 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
+* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
 * SSH(보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>원 박스 구성을 사용하여 ML 서비스 클러스터 운영
 
 > [!NOTE]  
-> 아래 단계는 R Server 9.0 및 ML Server 9.1에 적용할 수 있습니다. ML Server 9.3의 경우 [관리 도구를 사용하여 운영 구성 관리](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch)를 참조하세요.
+> 아래 단계는 R Server 9.0 및 ML Server 9.1에 적용할 수 있습니다. ML Server 9.3의 경우 [관리 도구를 사용하여 운영 구성 관리](/machine-learning-server/operationalize/configure-admin-cli-launch)를 참조하세요.
 
 1. SSH를 에지 노드로 실행합니다.
 
@@ -54,11 +54,11 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. 선택할 수 있는 옵션이 표시됩니다. 다음 스크린샷에 표시된 첫 번째 옵션인 **운영을 위해 ML Server 구성**을 선택합니다.
+1. 선택할 수 있는 옵션이 표시됩니다. 다음 스크린샷에 표시된 첫 번째 옵션인 **운영을 위해 ML Server 구성** 을 선택합니다.
 
     ![R 서버 관리 유틸리티 선택](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-1. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A**를 입력하여 첫 번째 옵션을 선택합니다.
+1. 이제 ML Server를 운영하는 방법을 선택할 수 있는 옵션이 표시됩니다. 표시된 옵션에서 **A** 를 입력하여 첫 번째 옵션을 선택합니다.
 
     ![R server 관리 유틸리티 운영](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -70,23 +70,23 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 1. 필요에 따라 다음과 같이 진단 테스트를 실행하여 진단 검사를 수행할 수 있습니다.
 
-    a. 주 메뉴에서 **6**을 선택하여 진단 테스트를 실행합니다.
+    a. 주 메뉴에서 **6** 을 선택하여 진단 테스트를 실행합니다.
 
     ![R server 관리 유틸리티 진단](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. 진단 테스트 메뉴에서 **를**선택 합니다. 메시지가 표시 되 면 로컬 관리 사용자에 대해 지정한 암호를 입력 합니다.
+    b. 진단 테스트 메뉴에서 **를** 선택 합니다. 메시지가 표시 되 면 로컬 관리 사용자에 대해 지정한 암호를 입력 합니다.
 
     ![R server 관리 유틸리티 테스트](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
-    다. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
+    c. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
 
     ![R server 관리 유틸리티 통과](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
-    d. 표시된 메뉴 옵션에서 **E**를 입력하여 주 메뉴로 돌아간 다음 **8**을 입력하여 관리 유틸리티를 종료합니다.
+    d. 표시된 메뉴 옵션에서 **E** 를 입력하여 주 메뉴로 돌아간 다음 **8** 을 입력하여 관리 유틸리티를 종료합니다.
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Apache Spark에서 웹 서비스를 사용할 때 긴 지연 발생
 
-Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 애플리케이션은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
+Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 애플리케이션은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 ' *rserve2* '라는 사용자에게 속합니다. 이 문제를 해결하려면
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -103,7 +103,7 @@ chmod 777 /var/RevoShare/rserve2
 rxSparkConnect(reset = TRUE)
 ```
 
-이 단계에서 운영화 구성이 완료되었습니다. 이제 RClient의 `mrsdeploy` 패키지를 사용하여 에지 노드의 조작에 연결하고 [원격 실행](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) 및 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)와 같은 기능을 사용할 수 있습니다. 클러스터가 가상 네트워크에 설정되어 있는지 여부에 따라 SSH 로그인을 통해 포트 전달 터널링을 설정할 필요가 있습니다. 다음 섹션에서는 이 터널을 설정하는 방법에 대해 설명합니다.
+이 단계에서 운영화 구성이 완료되었습니다. 이제 RClient의 `mrsdeploy` 패키지를 사용하여 에지 노드의 조작에 연결하고 [원격 실행](/machine-learning-server/r/how-to-execute-code-remotely) 및 [웹 서비스](/machine-learning-server/operationalize/concept-what-are-web-services)와 같은 기능을 사용할 수 있습니다. 클러스터가 가상 네트워크에 설정되어 있는지 여부에 따라 SSH 로그인을 통해 포트 전달 터널링을 설정할 필요가 있습니다. 다음 섹션에서는 이 터널을 설정하는 방법에 대해 설명합니다.
 
 ### <a name="ml-services-cluster-on-virtual-network"></a>가상 네트워크의 ML Server 클러스터
 
@@ -155,17 +155,17 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. 서비스 해제할 작업자 노드를 선택합니다.
 
-1. **작업**  >  **선택한 호스트**  >  **호스트**  >  **유지 관리 모드 켜기를**클릭 합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
+1. **작업**  >  **선택한 호스트**  >  **호스트**  >  **유지 관리 모드 켜기를** 클릭 합니다. 예를 들어 다음 이미지에서는 wn3과 wn4를 선택하여 서비스를 해제했습니다.  
 
    ![Apache Ambari 유지 관리 모드 켜기](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* **작업**선택  >  **선택한 호스트**  >  **DataNodes** > **서비스**해제를 클릭 합니다.
-* **작업**  >  **선택한 호스트**  >  **nodemanagers** > **서비스**해제를 클릭 합니다.
-* **작업**선택  >  **선택한 호스트**  >  **DataNodes** > **중지**를 클릭 합니다.
-* **작업**선택  >  **선택한 호스트**  >  **nodemanagers** > **중지**를 클릭 합니다.
-* **작업**  >  **선택한 호스트**  >  **호스트** > **모든 구성 요소 중지**를 클릭 합니다.
+* **작업** 선택  >  **선택한 호스트**  >  **DataNodes** > **서비스** 해제를 클릭 합니다.
+* **작업**  >  **선택한 호스트**  >  **nodemanagers** > **서비스** 해제를 클릭 합니다.
+* **작업** 선택  >  **선택한 호스트**  >  **DataNodes** > **중지** 를 클릭 합니다.
+* **작업** 선택  >  **선택한 호스트**  >  **nodemanagers** > **중지** 를 클릭 합니다.
+* **작업**  >  **선택한 호스트**  >  **호스트** > **모든 구성 요소 중지** 를 클릭 합니다.
 * 작업자 노드를 선택 취소하고 헤드 노드를 선택합니다.
-* **작업**  >  **선택한 호스트** > "**호스트가**  >  **모든 구성 요소 다시 시작**을 선택 합니다.
+* **작업**  >  **선택한 호스트** > " **호스트가**  >  **모든 구성 요소 다시 시작** 을 선택 합니다.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 컴퓨팅 노드 구성
 
@@ -177,9 +177,9 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
     dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
     ```
 
-1. **1**을 입력하여 **운영을 위해 ML Server 구성** 옵션을 선택합니다.
+1. **1** 을 입력하여 **운영을 위해 ML Server 구성** 옵션을 선택합니다.
 
-1. **C**를 입력하여 `C. Compute node` 옵션을 선택합니다. 그러면 작업자 노드에 컴퓨팅 노드가 구성됩니다.
+1. **C** 를 입력하여 `C. Compute node` 옵션을 선택합니다. 그러면 작업자 노드에 컴퓨팅 노드가 구성됩니다.
 
 1. 관리 유틸리티를 종료합니다.
 
@@ -189,7 +189,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. SSH를 에지 노드로 실행합니다.
 
-1. `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`을 실행합니다.
+1. `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`를 실행합니다.
 
 1. “URI” 섹션을 살펴보고 작업자 노드의 IP 및 포트 세부 정보를 추가합니다.
 

@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: 대화 전사
           items:
-            - name: 개요
-              items:
-                - name: 대화 전사란?
-                  href: conversation-transcription.md
+            - name: 대화 전사 개요
+              href: conversation-transcription.md
+            - name: 실시간 대화 전사 빠른 시작
+              href: how-to-use-conversation-transcription.md
             - name: 방법 가이드
               items:
                 - name: 콜 센터 시나리오 처리
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: 실시간 대화 전사
-                  href: how-to-use-conversation-transcription.md
                 - name: 비동기 대화 전사
                   href: how-to-async-conversation-transcription.md
             - name: 참조
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: 다중 디바이스 대화
           items:
-            - name: 개요
-              items:
-                - name: 다중 디바이스 대화란?
-                  href: multi-device-conversation.md
-            - name: 빠른 시작
-              items:
-                - name: 대화 시작 및 참가
-                  href: quickstarts/multi-device-conversation.md
+            - name: 다중 디바이스 대화 개요
+              href: multi-device-conversation.md
+            - name: 다중 디바이스 대화 빠른 시작
+              href: quickstarts/multi-device-conversation.md
             - name: 참조
               items:
                 - name: Speech SDK
@@ -363,12 +357,8 @@
       items:
         - name: 음성 도우미 설명서
           href: index-voice-assistants.yml
-        - name: 개요
-          items:
-            - name: 음성 도우미란?
-              href: voice-assistants.md
-            - name: 음성 도우미 샘플(GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: 음성 도우미 개요
+          href: voice-assistants.md
         - name: 사용자 지정 명령
           items:
             - name: 사용자 지정 명령이란?

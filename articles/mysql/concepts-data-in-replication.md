@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e84f0c9beaee8a755499467925d28a83ba3139fc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537160"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544055"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Azure Database for MySQL에 데이터를 복제합니다.
 
@@ -41,10 +41,10 @@ ms.locfileid: "91537160"
 - 각 표에는 기본 키가 있어야 합니다.
 - 원본 서버는 MySQL InnoDB 엔진을 사용 해야 합니다.
 - 사용자는 이진 로깅을 구성 하 고 원본 서버에 새 사용자를 만들 수 있는 권한이 있어야 합니다.
-- 원본 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mysql.az_replication_change_master` . 다음 [예제](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
-- 원본 서버의 IP 주소가 Azure Database for MySQL 복제 서버의 방화벽 규칙에 추가 되었는지 확인 합니다. [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) 또는 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli)를 사용하여 방화벽 규칙을 업데이트합니다.
+- 원본 서버에서 SSL을 사용 하도록 설정한 경우 도메인에 제공 된 SSL CA 인증서가 저장 프로시저에 포함 되어 있는지 확인 합니다 `mysql.az_replication_change_master` . 다음 [예제](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) 와 매개 변수를 참조 하세요 `master_ssl_ca` .
+- 원본 서버의 IP 주소가 Azure Database for MySQL 복제 서버의 방화벽 규칙에 추가 되었는지 확인 합니다. [Azure Portal](./howto-manage-firewall-using-portal.md) 또는 [Azure CLI](./howto-manage-firewall-using-cli.md)를 사용하여 방화벽 규칙을 업데이트합니다.
 - 원본 서버를 호스트 하는 컴퓨터에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 둘 다 허용 하는지 확인 합니다.
-- 원본 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
+- 원본 서버에 **공용 IP 주소가** 있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
 ### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.

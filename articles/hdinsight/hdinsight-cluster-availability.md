@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086418"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533566"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -62,7 +62,6 @@ Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많
 | 사용 가능한 JournalNodes 백분율    | 이 경고는 클러스터의 down JournalNodes 수가 구성 된 위험 임계값을 초과 하는 경우에 트리거됩니다. JournalNode 프로세스 검사의 결과를 집계 합니다. |
 | 사용 가능한 DataNodes 백분율       | 이 경고는 클러스터의 down DataNodes 수가 구성 된 위험 임계값을 초과 하는 경우에 트리거됩니다. DataNode 프로세스 검사의 결과를 집계 합니다.|
 
-클러스터의 가용성을 모니터링 하는 데 도움이 되는 Ambari 경고의 전체 목록은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui)에서 찾을 수 있습니다.
 
 경고에 대 한 세부 정보를 보거나 조건을 수정 하려면 경고의 **이름을** 선택 합니다. **DataNode Health Summary** 를 예로 들어 보겠습니다. 경고에 대 한 설명 뿐만 아니라 ' 경고 ' 또는 ' 위험 ' 경고를 트리거하는 특정 조건 및 조건에 대 한 확인 간격을 볼 수 있습니다. 구성을 편집 하려면 구성 상자의 오른쪽 위 모퉁이에 있는 **편집** 단추를 선택 합니다.
 
@@ -87,7 +86,7 @@ Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많
 
 ## <a name="next-steps"></a>다음 단계
 
-- [HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)
+- [HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성](./hdinsight-business-continuity.md)
 - [클러스터 가용성 - Azure Monitor 로그](./cluster-availability-monitor-logs.md)
 - [Azure Monitor 로그 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Apache Ambari 이메일 알림](apache-ambari-email.md)

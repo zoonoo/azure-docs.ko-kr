@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73682200"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535317"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Azure HDInsight 클러스터에 적합 한 VM 크기 선택
 
@@ -32,18 +32,18 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 - RAM: VM 크기는 VM에서 사용할 수 있는 RAM의 양을 나타내기도 합니다. 데이터를 디스크에서 읽지 않고, 처리를 위해 데이터를 메모리에 저장하는 워크로드의 경우, 작업자 노드에 데이터에 맞는 충분한 메모리가 있는지 확인합니다.
 
-- 네트워크: 대부분의 클러스터 유형에 대해 클러스터에서 처리 하는 데이터는 로컬 디스크에 있지 않고 Data Lake Storage 또는 Azure Storage 같은 외부 저장소 서비스에 저장 됩니다. 노드 VM 및 스토리지 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
+- 네트워크: 대부분의 클러스터 유형에 대해 클러스터에서 처리 하는 데이터는 로컬 디스크에 있지 않고 Data Lake Storage 또는 Azure Storage 같은 외부 저장소 서비스에 저장 됩니다. 노드 VM 및 스토리지 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](../virtual-machines/sizes.md)를 참조하세요.
 
 ## <a name="understanding-vm-optimization"></a>VM 최적화 이해
 
 Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화 됩니다. 아래 표에서 가장 인기 있는 사용 사례와 일치 하는 VM 제품군 중 일부를 찾을 수 있습니다.
 
-| Type                     | 크기           |    Description       |
+| Type                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [항목 수준](../virtual-machines/linux/sizes-general.md)          | A, Av2  | 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 경제적 이며 Azure를 시작 하기 위한 저렴 한 옵션을 제공 합니다. |
-| [범용](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
-| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md)        | F           | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다.        |
-| [메모리에 최적화](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [항목 수준](../virtual-machines/sizes-general.md)          | A, Av2  | 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 경제적 이며 Azure를 시작 하기 위한 저렴 한 옵션을 제공 합니다. |
+| [범용](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
+| [컴퓨팅 최적화](../virtual-machines/sizes-compute.md)        | F           | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다.        |
+| [메모리에 최적화](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 
 - HDInsight 지원 지역에서 사용 가능한 VM 인스턴스의 가격 책정에 대 한 자세한 내용은 [Hdinsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조 하세요.
 
@@ -53,7 +53,7 @@ Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화
 
 다음 표에서는 Fsv2 시리즈 Vm을 사용 하 여 만들 수 있는 클러스터 유형 및 노드 유형을 설명 합니다.
 
-| 클러스터 유형 | 버전 | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
+| 클러스터 유형 | Version | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
 |---|---|---|---|---|
 | Spark | 모두 | F4 이상 | 아니요 | 아니요 |
 | Hadoop은 | 모두 | F4 이상 | 아니요 | 아니요 |
@@ -74,4 +74,4 @@ VM Sku 및 클러스터 크기에 대 한 벤치마킹에 대 한 자세한 내�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure HDInsight 지원 노드 구성](hdinsight-supported-node-configuration.md)
-- [Azure에서 Linux 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md)
+- [Azure에서 Linux 가상 머신에 대한 크기](../virtual-machines/sizes.md)

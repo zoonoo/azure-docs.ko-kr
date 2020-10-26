@@ -69,6 +69,8 @@
               href: auth-remote-desktop-gateway.md
             - name: SAML 인정
               href: auth-saml.md
+            - name: SSH 인증
+              href: auth-ssh.md
             - name: Windows 인증 - KCD
               href: auth-kcd.md
             - name: 디렉터리 동기화

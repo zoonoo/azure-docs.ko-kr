@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2cc60af26754eddbe8699019ae8d906a4c1e9e62
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f560f16c6437b219dd1e7017d70976ff4650c2c0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057691"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544361"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용 하 여 모델 구문 분석 및 유효성 검사
 
@@ -36,7 +36,7 @@ DTDL Validator 샘플 폴더에서 *readme.md* 파일을 참조 하 여 샘플�
 DTDLValidator
 ```
 
-이 샘플에서는 기본 옵션을 사용 하 여 `*.json` 현재 디렉터리와 모든 하위 디렉터리에서 파일을 검색 합니다. 다음 옵션을 추가 하 여 지정 된 디렉터리 및 확장명이 *dtdl*인 파일의 모든 하위 디렉터리에서 샘플 검색을 수행할 수도 있습니다.
+이 샘플에서는 기본 옵션을 사용 하 여 `*.json` 현재 디렉터리와 모든 하위 디렉터리에서 파일을 검색 합니다. 다음 옵션을 추가 하 여 지정 된 디렉터리 및 확장명이 *dtdl* 인 파일의 모든 하위 디렉터리에서 샘플 검색을 수행할 수도 있습니다.
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -77,32 +77,50 @@ DTDLValidator -i
 
 아래의 파서 코드 예제를 지원 하려면 Azure Digital Twins 인스턴스에 정의 된 몇 가지 모델을 고려 하세요.
 
-> [!TIP] 
-> `dtmi:com:contoso:coffeeMaker`모델은 *기능 모델* 구문을 사용 하며,이는 해당 모델을 노출 하는 PnP 장치를 연결 하 여 서비스에 설치 되었음을 의미 합니다.
-
 ```json
-{
-  "@id": " dtmi:com:contoso:coffeeMaker",
-  "@type": "CapabilityModel",
-  "implements": [
-        { "name": "coffeeMaker", "schema": " dtmi:com:contoso:coffeeMakerInterface" }
-  ]    
-}
-{
-  "@id": " dtmi:com:contoso:coffeeMakerInterface",
-  "@type": "Interface",
-  "contents": [
-      { "@type": "Property", "name": "waterTemp", "schema": "double" }  
-  ]
-}
-{
-  "@id": " dtmi:com:contoso:coffeeBar",
-  "@type": "Interface",
-  "contents": [
-        { "@type": "relationship", "contains": " dtmi:com:contoso:coffeeMaker" },
-        { "@type": "property", "name": "capacity", "schema": "integer" }
-  ]    
-}
+[
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMaker;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Component",
+        "name": "coffeeMaker",
+        "schema": "dtmi:com:contoso:coffeeMakerInterface;1"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeMakerInterface;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Property",
+        "name": "waterTemp",
+        "schema": "double"
+      }
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:contoso:coffeeBar;1",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": "Relationship",
+        "name": "foo",
+        "target": "dtmi:com:contoso:coffeeMaker;1"
+      },
+      {
+        "@type": "Property",
+        "name": "capacity",
+        "schema": "integer"
+      }
+    ]
+  }
+]
 ```
 
 다음 코드에서는 파서 라이브러리를 사용 하 여 c #에서 이러한 정의를 반영 하는 방법의 예를 보여 줍니다.

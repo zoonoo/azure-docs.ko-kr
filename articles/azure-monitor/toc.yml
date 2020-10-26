@@ -1026,6 +1026,8 @@
           href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: 배포 및 HPA 모니터링
           href: insights/container-insights-deployment-hpa-metrics.md
+        - name: 영구 볼륨(PV) 모니터링
+          href: insights/container-insights-persistent-volumes.md
         - name: 라이브 데이터 보기
           items:
             - name: 라이브 데이터(미리 보기) 개요

@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318598"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Azure Stack Edge Pro R이란?
@@ -36,7 +36,7 @@ Azure Stack Edge Pro R의 기능은 다음과 같습니다.
 |연결 해제 모드| 필요한 경우 Azure Stack Hub를 통해 디바이스와 서비스를 관리할 수 있습니다. 오프라인 모드에서 애플리케이션을 배포, 실행, 관리합니다. <br> 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |지원되는 파일 전송 프로토콜     |데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro R 시스템 요구 사항](azure-stack-edge-gpu-system-requirements.md)을 참조하세요.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
-|이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
+|이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
 
 <!--|Scale out file server| Available as 1-node and 4-node cluster configurations|-->
@@ -75,7 +75,7 @@ Azure Stack Edge Pro R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge
 
 - **리소스 가용성** - Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)으로 이동합니다. 
 
-- **디바이스 가용성** - Azure Stack Edge Pro R 디바이스를 사용할 수 있는 모든 국가 목록을 보려면 [Azure Stack Edge Pro R 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR)의 **Azure Stack Edge Pro R**탭에서 **가용성** 섹션으로 이동합니다.
+- **디바이스 가용성** - Azure Stack Edge Pro R 디바이스를 사용할 수 있는 모든 국가 목록을 보려면 [Azure Stack Edge Pro R 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR)의 **Azure Stack Edge Pro R** 탭에서 **가용성** 섹션으로 이동합니다.
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro R 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 

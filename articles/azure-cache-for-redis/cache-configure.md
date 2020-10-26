@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089726"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544769"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -24,11 +24,11 @@ ms.locfileid: "92089726"
 ## <a name="configure-azure-cache-for-redis-settings"></a>Azure Cache for Redis 설정 구성
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cache for Redis** 블레이드에 표시되고 구성됩니다.
+Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 **Azure Cache for Redis** 블레이드에 표시되고 구성됩니다.
 
 ![Azure Cache for Redis 설정](./media/cache-configure/redis-cache-settings.png)
 
-**리소스 메뉴**를 사용하여 다음 설정을 살펴보고 구성할 수 있습니다.
+**리소스 메뉴** 를 사용하여 다음 설정을 살펴보고 구성할 수 있습니다.
 
 * [개요](#overview)
 * [활동 로그](#activity-log)
@@ -64,7 +64,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 ## <a name="overview"></a>개요
 
-**개요**에서는 이름, 포트, 가격 책정 계층 및 선택한 캐시 메트릭과 같은 캐시에 대한 기본 정보를 제공합니다.
+**개요** 에서는 이름, 포트, 가격 책정 계층 및 선택한 캐시 메트릭과 같은 캐시에 대한 기본 정보를 제공합니다.
 
 ### <a name="activity-log"></a>활동 로그
 
@@ -117,7 +117,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [Keyspace 알림(고급 설정)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>액세스 포트
-기본적으로 새 캐시에 대해 TLS/SSL이 아닌 액세스를 사용할 수 없습니다. TLS 포트가 아닌 포트를 사용 하도록 설정 하려면 **고급 설정** 블레이드에서 **SSL을 통해서만 액세스 허용** 에서 **아니요** 를 클릭 한 다음 **저장**을 클릭 합니다.
+기본적으로 새 캐시에 대해 TLS/SSL이 아닌 액세스를 사용할 수 없습니다. TLS 포트가 아닌 포트를 사용 하도록 설정 하려면 **고급 설정** 블레이드에서 **SSL을 통해서만 액세스 허용** 에서 **아니요** 를 클릭 한 다음 **저장** 을 클릭 합니다.
 
 > [!NOTE]
 > Redis 용 Azure Cache에 대 한 TLS 액세스는 현재 TLS 1.0, 1.1 및 1.2을 지원 하지만, 버전 1.0 및 1.1은 곧 사용 중지 될 예정입니다.  자세한 내용은 [TLS 1.0 및 1.1 제거 페이지](cache-remove-tls-10-11.md) 를 참조 하세요.
@@ -126,11 +126,11 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
 #### <a name="memory-policies"></a>메모리 정책
-**고급 설정** 블레이드의 **Maxmemory 정책**, **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 캐시에 대한 메모리 정책을 구성합니다.
+**고급 설정** 블레이드의 **Maxmemory 정책** , **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 캐시에 대한 메모리 정책을 구성합니다.
 
 ![Azure Cache for Redis Maxmemory 정책](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
-**Maxmemory 정책**은 캐시에 대한 제거 정책을 구성하고, 다음 제거 정책 중에서 선택할 수 있도록 합니다.
+**Maxmemory 정책** 은 캐시에 대한 제거 정책을 구성하고, 다음 제거 정책 중에서 선택할 수 있도록 합니다.
 
 * `volatile-lru` - 기본 제거 정책입니다.
 * `allkeys-lru`
@@ -145,7 +145,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 
 **Maxfragmentationmemory-reserved 설정은-예약** 된 설정은 메모리 조각화를 수용 하기 위해 예약 된 클러스터의 인스턴스당 메모리 양 (MB)을 구성 합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
-새 메모리 예약 값(**maxmemory-reserved** 또는 **maxfragmentationmemory-reserved**)을 선택할 때 고려해야 할 사항 중 하나는 이러한 변경이 이미 많은 양의 데이터로 실행 중인 캐시에 미칠 수 있는 영향력입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템에서 `used_memory`과 `used_memory_rss` 모두가 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다. `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
+새 메모리 예약 값( **maxmemory-reserved** 또는 **maxfragmentationmemory-reserved** )을 선택할 때 고려해야 할 사항 중 하나는 이러한 변경이 이미 많은 양의 데이터로 실행 중인 캐시에 미칠 수 있는 영향력입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템에서 `used_memory`과 `used_memory_rss` 모두가 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다. `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
 
 > [!IMPORTANT]
 > **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 Standard 및 Premium 캐시에만 사용할 수 있습니다.
@@ -194,7 +194,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 
 ### <a name="scale"></a>확장
-**확장**을 클릭하여 캐시에 대한 가격 책정 계층을 보거나 변경합니다. 크기를 조정하는 방법에 대한 자세한 내용은 [Azure Cache for Redis 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
+**확장** 을 클릭하여 캐시에 대한 가격 책정 계층을 보거나 변경합니다. 크기를 조정하는 방법에 대한 자세한 내용은 [Azure Cache for Redis 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
 
 ![Azure Cache for Redis 가격 책정 계층](./media/cache-configure/pricing-tier.png)
 
@@ -205,7 +205,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ![클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
+클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인** 을 클릭하여 저장합니다.
 
 > [!IMPORTANT]
 > Redis 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다. 자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
@@ -234,7 +234,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ![업데이트를 예약](./media/cache-configure/redis-schedule-updates.png)
 
-유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간은 UTC 단위입니다.
+유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인** 을 클릭합니다. 유지 관리 기간은 UTC 단위입니다.
 
 > [!IMPORTANT]
 > **업데이트 예약** 기능은 프리미엄 계층 캐시에만 제공됩니다. 자세한 내용과 지침은 [Azure Cache for Redis 관리 - 업데이트 예약](cache-administration.md#schedule-updates)을 참조하세요.
@@ -246,7 +246,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 **지역 복제** 블레이드에서 두 개의 프리미엄 계층 Azure Cache for Redis 인스턴스를 연결하는 메커니즘을 제공합니다. 한 캐시는 주 연결된 캐시로 지정하고 다른 캐시는 보조 연결된 캐시로 지정합니다. 보조 연결된 캐시는 읽기 전용이 되고 주 캐시에 쓴 데이터는 보조 연결된 캐시에 복제됩니다. 이 기능은 Azure 지역 간에 캐시를 복제하는 데 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> **지역에서 복제**는 프리미엄 계층 캐시에서만 사용할 수 있습니다. 자세한 내용과 지침은 [Azure Cache for Redis에 대한 지역 복제를 구성하는 방법](cache-how-to-geo-replication.md)을 참조하세요.
+> **지역에서 복제** 는 프리미엄 계층 캐시에서만 사용할 수 있습니다. 자세한 내용과 지침은 [Azure Cache for Redis에 대한 지역 복제를 구성하는 방법](cache-how-to-geo-replication.md)을 참조하세요.
 >
 >
 
@@ -262,7 +262,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 방화벽 규칙 구성은 모든 Azure Cache for Redis 계층에서 사용할 수 있습니다.
 
-**방화벽**을 클릭하여 Cache에 대한 방화벽 규칙을 보고 구성합니다.
+**방화벽** 을 클릭하여 Cache에 대한 방화벽 규칙을 보고 구성합니다.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
@@ -274,7 +274,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 
 ### <a name="properties"></a>속성
-**속성**을 클릭하여 캐시 엔드포인트 및 포트 등 캐시에 대한 정보를 봅니다.
+**속성** 을 클릭하여 캐시 엔드포인트 및 포트 등 캐시에 대한 정보를 봅니다.
 
 ![Azure Cache for Redis 속성](./media/cache-configure/redis-cache-properties.png)
 
@@ -283,7 +283,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ### <a name="automation-script"></a>Automation 스크립트
 
-미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내려면 **Automation 스크립트**를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
+미래 배포를 위해 배포된 리소스의 템플릿을 빌드하고 내보내려면 **Automation 스크립트** 를 클릭합니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
 ## <a name="administration-settings"></a>관리 설정
 **관리** 섹션의 설정을 사용하여 캐시에 대해 다음과 같은 관리 작업을 수행할 수 있습니다.
@@ -316,7 +316,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 ![다시 부팅할 캐시의 분할를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 재부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
+하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅** 을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 분할을 선택하고 **다시 부팅** 을 클릭합니다. 몇 분 후 선택된 노드가 재부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
 > [!IMPORTANT]
 > 이제 모든 가격 책정 계층에서 다시 부팅을 사용할 수 있습니다. 자세한 내용과 지침은 [Azure Cache for Redis 관리 - 다시 부팅](cache-administration.md#reboot)을 참조하세요.
@@ -336,15 +336,15 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 * [진단](#diagnostics)
 
 ### <a name="redis-metrics"></a>Redis 메트릭
-캐시에 대한 [메트릭을 보려면](cache-how-to-monitor.md#view-cache-metrics)**Redis 메트릭**을 클릭합니다.
+캐시에 대한 [메트릭을 보려면](cache-how-to-monitor.md#view-cache-metrics)**Redis 메트릭** 을 클릭합니다.
 
 ### <a name="alert-rules"></a>경고 규칙
 
-**경고 규칙**을 클릭하여 Azure Cache for Redis 메트릭을 기반으로 하는 경고를 구성합니다. 자세한 내용은 [경고](cache-how-to-monitor.md#alerts)를 참조하세요.
+**경고 규칙** 을 클릭하여 Azure Cache for Redis 메트릭을 기반으로 하는 경고를 구성합니다. 자세한 내용은 [경고](cache-how-to-monitor.md#alerts)를 참조하세요.
 
 ### <a name="diagnostics"></a>진단
 
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [스토리지 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단** 을 클릭하여 캐시 진단을 저장하는 데 사용되는 [스토리지 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
 
 >[!NOTE]
 >캐시 메트릭을 저장소에 보관 하는 것 외에도 [이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보낼](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)수 있습니다.
@@ -360,7 +360,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 * [새 지원 요청](#new-support-request)
 
 ### <a name="resource-health"></a>리소스 상태
-**리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../resource-health/resource-health-overview.md)를 참조하세요.
+**리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.
 
 > [!NOTE]
 > 리소스 상태는 현재 가상 네트워크에서 호스팅되는 Azure Cache for Redis 인스턴스의 상태를 보고할 수 없습니다. 자세한 내용은 [VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
@@ -382,7 +382,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 >
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >
-> **max-memory-policy**와 같이 구성 가능한 모든 값은 Azure Portal 또는 명령줄 관리 도구(예: Azure CLI 또는 PowerShell)를 통해 구성할 수 있습니다.
+> **max-memory-policy** 와 같이 구성 가능한 모든 값은 Azure Portal 또는 명령줄 관리 도구(예: Azure CLI 또는 PowerShell)를 통해 구성할 수 있습니다.
 >
 >
 
@@ -439,7 +439,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
   * P4(53GB - 530GB) - 최대 40,000개 연결
 
 > [!NOTE]
-> 각 캐시 크기는 특정 횟수의 연결*까지* 허용하지만 Redis에 대한 각 연결에는 오버헤드가 연결되어 있습니다. 이러한 오버헤드의 예로 TLS/SSL 암호화의 결과인 CPU 및 메모리 사용량이 있습니다. 특정 캐시 크기에 대한 최대 연결 제한은 부하가 적은 캐시를 가정합니다. 연결 오버헤드의 부하 *그리고* 클라이언트 작업의 부하가 시스템의 용량을 초과하면 현재 캐시 크기에 대한 연결 제한을 초과하지 않은 경우에도 캐시에 용량 문제가 발생할 수 있습니다.
+> 각 캐시 크기는 특정 횟수의 연결 *까지* 허용하지만 Redis에 대한 각 연결에는 오버헤드가 연결되어 있습니다. 이러한 오버헤드의 예로 TLS/SSL 암호화의 결과인 CPU 및 메모리 사용량이 있습니다. 특정 캐시 크기에 대한 최대 연결 제한은 부하가 적은 캐시를 가정합니다. 연결 오버헤드의 부하 *그리고* 클라이언트 작업의 부하가 시스템의 용량을 초과하면 현재 캐시 크기에 대한 연결 제한을 초과하지 않은 경우에도 캐시에 용량 문제가 발생할 수 있습니다.
 >
 >
 
@@ -464,7 +464,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 Redis 명령에 대 한 자세한 내용은을 참조 하십시오 [https://redis.io/commands](https://redis.io/commands) .
 
 ## <a name="redis-console"></a>Redis 콘솔
-Azure Portal에서 모든 캐시에 제공되는 **Redis 콘솔**을 사용하여 Azure Cache for Redis 인스턴스에 명령을 안전하게 실행할 수 있습니다.
+Azure Portal에서 모든 캐시에 제공되는 **Redis 콘솔** 을 사용하여 Azure Cache for Redis 인스턴스에 명령을 안전하게 실행할 수 있습니다.
 
 > [!IMPORTANT]
 > - Redis 콘솔이 [VNET](cache-how-to-premium-vnet.md)에서 작동하지 않습니다. 캐시가 VNET의 일부인 경우 VNET의 클라이언트만 캐시에 액세스할 수 있습니다. Redis 콘솔은 VNET 외부에 있는 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
@@ -472,7 +472,7 @@ Azure Portal에서 모든 캐시에 제공되는 **Redis 콘솔**을 사용하�
 >
 >
 
-Redis 콘솔에 액세스하려면 **Azure Cache for Redis** 블레이드에서 **콘솔**을 클릭합니다.
+Redis 콘솔에 액세스하려면 **Azure Cache for Redis** 블레이드에서 **콘솔** 을 클릭합니다.
 
 ![콘솔 단추를 강조 표시 하는 스크린샷](./media/cache-configure/redis-console-menu.png)
 
@@ -498,7 +498,7 @@ shard1>get myKey
 
 
 ## <a name="move-your-cache-to-a-new-subscription"></a>캐시를 새 구독으로 이동
-**이동**을 클릭하여 캐시를 새 구독으로 이동할 수 있습니다.
+**이동** 을 클릭하여 캐시를 새 구독으로 이동할 수 있습니다.
 
 ![Azure Cache for Redis 이동](./media/cache-configure/redis-cache-move.png)
 

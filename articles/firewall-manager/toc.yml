@@ -14,6 +14,8 @@
   items:
     - name: 가상 허브 보안 - 포털
       href: secure-cloud-network.md
+    - name: 가상 허브 보안 - PowerShell
+      href: secure-cloud-network-powershell.md
     - name: 허브 가상 네트워크 보안 - 포털
       href: secure-hybrid-network.md
 - name: 개념
@@ -62,7 +64,7 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtualnetwork/firewallpolicies
     - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md

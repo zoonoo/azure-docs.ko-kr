@@ -7,22 +7,22 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: cb986f1e0172c4a44381b2f9cf043025cb5abe8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88705030"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544633"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 
-Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 스토리지 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core에서 응답 캐싱을](https://docs.microsoft.com/aspnet/core/performance/caching/response)읽습니다. 
+Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 스토리지 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다. ASP.NET Core 응용 프로그램의 경우 [ASP.NET Core에서 응답 캐싱을](/aspnet/core/performance/caching/response)읽습니다. 
 
 Redis 출력 캐시 공급자를 사용하려면 먼저 캐시를 구성한 다음, Redis 출력 개시 공급자 NuGet 패키지를 사용하여 사용자의 ASP.NET 애플리케이션을 구성합니다. 이 항목에서는 Redis 출력 캐시 공급자를 사용할 수 있도록 애플리케이션을 구성하는 지침을 제공합니다. Azure Cache for Redis 인스턴스를 만들고 구성하는 방법에 대한 자세한 내용은 [캐시 만들기](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)를 참조하세요.
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>ASP.NET 페이지 출력을 캐시에 저장
 
-Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자** , **패키지 관리자 콘솔** 을 차례로 클릭합니다.
 
 `Package Manager Console` 창에서 다음 명령을 실행합니다.
 
@@ -61,13 +61,13 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 | *databaseIdNumber* | 양의 정수 | 0 | *이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>사용할 Redis 데이터베이스를 지정 합니다. |
 | *connectionTimeoutInMilliseconds* | 양의 정수 | StackExchange에서 제공 합니다. | Redis를 만들 때 *Connecttimeout* 을 설정 하는 데 사용 됩니다. |
 | *operationTimeoutInMilliseconds* | 양의 정수 | StackExchange에서 제공 합니다. | Redis를 만들 때 *Synctimeout* 을 설정 하는 데 사용 됩니다. |
-| *connectionString* (올바른 stackexchange 연결 문자열) | 문자열 | *해당 없음* | AppSettings 또는 web.config에 대 한 매개 변수 참조 또는 유효한 StackExchange 연결 문자열입니다. 이 특성은 *호스트*, *포트*, *AccessKey*, *ssl*및 기타 Redis 특성에 대 한 값을 제공할 수 있습니다. *Connectionstring*에 대해 자세히 살펴보려면 [특성 메모](#attribute-notes) 섹션에서 [connectionstring 설정](#setting-connectionstring) 을 참조 하세요. |
-| *settingsClassName*<br/>*settingsMethodName* | 문자열<br/>문자열 | *해당 없음* | *이러한 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>이러한 특성을 사용 하 여 연결 문자열을 제공 합니다. *Settingsclassname* 은 *settingsclassname*에 지정 된 메서드를 포함 하는 어셈블리의 정규화 된 클래스 이름 이어야 합니다.<br/><br/>*Settingsmethodname* 에 의해 지정 된 메서드는 **문자열**의 반환 형식과 함께 public, static 및 void (매개 변수를 사용 하지 않음) 여야 합니다. 이 메서드는 실제 연결 문자열을 반환 합니다. |
-| *loggingClassName*<br/>*loggingMethodName* | 문자열<br/>문자열 | *해당 없음* | *이러한 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>이러한 특성을 사용 하 여 Redis의 로그와 함께 세션 상태/출력 캐시의 로그를 제공 하 여 응용 프로그램을 디버그할 수 있습니다. *loggingClassName* 는 *loggingMethodName*에 의해 지정 된 메서드를 포함 하는 어셈블리의 정규화 된 클래스 이름 이어야 합니다.<br/><br/>*LoggingMethodName* 에 지정 된 메서드는 반환 형식이 **system.object**인 public, static 및 void (매개 변수를 사용 하지 않음) 여야 합니다. |
+| *connectionString* (올바른 stackexchange 연결 문자열) | 문자열 | *해당 없음* | AppSettings 또는 web.config에 대 한 매개 변수 참조 또는 유효한 StackExchange 연결 문자열입니다. 이 특성은 *호스트* , *포트* , *AccessKey* , *ssl* 및 기타 Redis 특성에 대 한 값을 제공할 수 있습니다. *Connectionstring* 에 대해 자세히 살펴보려면 [특성 메모](#attribute-notes) 섹션에서 [connectionstring 설정](#setting-connectionstring) 을 참조 하세요. |
+| *settingsClassName*<br/>*settingsMethodName* | 문자열<br/>문자열 | *해당 없음* | *이러한 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>이러한 특성을 사용 하 여 연결 문자열을 제공 합니다. *Settingsclassname* 은 *settingsclassname* 에 지정 된 메서드를 포함 하는 어셈블리의 정규화 된 클래스 이름 이어야 합니다.<br/><br/>*Settingsmethodname* 에 의해 지정 된 메서드는 **문자열** 의 반환 형식과 함께 public, static 및 void (매개 변수를 사용 하지 않음) 여야 합니다. 이 메서드는 실제 연결 문자열을 반환 합니다. |
+| *loggingClassName*<br/>*loggingMethodName* | 문자열<br/>문자열 | *해당 없음* | *이러한 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>이러한 특성을 사용 하 여 Redis의 로그와 함께 세션 상태/출력 캐시의 로그를 제공 하 여 응용 프로그램을 디버그할 수 있습니다. *loggingClassName* 는 *loggingMethodName* 에 의해 지정 된 메서드를 포함 하는 어셈블리의 정규화 된 클래스 이름 이어야 합니다.<br/><br/>*LoggingMethodName* 에 지정 된 메서드는 반환 형식이 **system.object** 인 public, static 및 void (매개 변수를 사용 하지 않음) 여야 합니다. |
 | *applicationName* | 문자열 | 현재 프로세스의 모듈 이름 또는 "/" | *SessionStateProvider만*<br/>*이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>Redis cache에서 사용할 앱 이름 접두사입니다. 고객은 다양 한 용도로 동일한 Redis cache를 사용할 수 있습니다. 세션 키가 충돌 하지 않도록 하기 위해 응용 프로그램 이름 앞에 접두사를 붙일 수 있습니다. |
-| *throwOnError* | boolean | true | *SessionStateProvider만*<br/>*이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>오류가 발생할 때 예외를 throw 할지 여부입니다.<br/><br/>*ThrowOnError*에 대 한 자세한 내용은 [특성 메모](#attribute-notes) 섹션에서 [ *throwOnError* 에](#notes-on-throwonerror) 대 한 메모를 참조 하세요. |>*Redis*를 다시 작성 합니다. 단, |
-| *retryTimeoutInMilliseconds* | 양의 정수 | 5,000 | *SessionStateProvider만*<br/>*이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>작업이 실패 하는 경우 다시 시도 하는 시간입니다. 이 값이 *Operationtimeoutinmilliseconds*보다 작은 경우 공급자는 다시 시도 하지 않습니다.<br/><br/>*RetryTimeoutInMilliseconds*에 대 한 자세한 내용은 [특성 메모](#attribute-notes) 섹션에서 [ *retryTimeoutInMilliseconds* 에](#notes-on-retrytimeoutinmilliseconds) 대 한 메모를 참조 하세요. |
-| *redisSerializerType* | 문자열 | *해당 없음* | Redis를 구현 하는 클래스의 정규화 된 어셈블리 형식 이름을 지정 합니다. 값을 serialize 및 deserialize 하는 사용자 지정 논리를 포함 하는 ISerializer 및입니다. 자세한 내용은 [특성 메모](#attribute-notes) 섹션의 [About *redisSerializerType* ](#about-redisserializertype) 를 참조 하세요. |
+| *throwOnError* | boolean | true | *SessionStateProvider만*<br/>*이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>오류가 발생할 때 예외를 throw 할지 여부입니다.<br/><br/>*ThrowOnError* 에 대 한 자세한 내용은 [특성 메모](#attribute-notes) 섹션에서 [ *throwOnError* 에](#notes-on-throwonerror) 대 한 메모를 참조 하세요. |>*Redis* 를 다시 작성 합니다. 단, |
+| *retryTimeoutInMilliseconds* | 양의 정수 | 5,000 | *SessionStateProvider만*<br/>*이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>작업이 실패 하는 경우 다시 시도 하는 시간입니다. 이 값이 *Operationtimeoutinmilliseconds* 보다 작은 경우 공급자는 다시 시도 하지 않습니다.<br/><br/>*RetryTimeoutInMilliseconds* 에 대 한 자세한 내용은 [특성 메모](#attribute-notes) 섹션에서 [ *retryTimeoutInMilliseconds* 에](#notes-on-retrytimeoutinmilliseconds) 대 한 메모를 참조 하세요. |
+| *redisSerializerType* | 문자열 | *해당 없음* | Redis를 구현 하는 클래스의 정규화 된 어셈블리 형식 이름을 지정 합니다. 값을 serialize 및 deserialize 하는 사용자 지정 논리를 포함 하는 ISerializer 및입니다. 자세한 내용은 [특성 메모](#attribute-notes) 섹션의 [About *redisSerializerType*](#about-redisserializertype) 를 참조 하세요. |
 
 ## <a name="attribute-notes"></a>특성 메모
 
@@ -77,7 +77,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 다음 예에서는 *connectionString* 을 사용 하는 방법을 보여 줍니다.
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 
 ```xml
 <connectionStrings>
@@ -97,7 +97,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 </sessionState>
 ```
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 ```xml
 <appSettings>
@@ -135,7 +135,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 
 이 동작은 기존 ASP.NET 세션 상태 제공자 사용자의 기대를 지 원하는 방식으로 수정 되었으며, 원하는 경우 예외에 대 한 작업을 수행할 수 있는 기능도 제공 합니다. 다른 ASP.NET 세션 상태 공급자와 일치 하는 오류가 발생 하는 경우 기본 동작은 여전히 예외를 throw 합니다. 기존 코드는 이전과 동일 하 게 작동 해야 합니다.
 
-*ThrowOnError* 를 **false**로 설정 하는 경우 오류가 발생할 때 예외를 throw 하는 대신 자동으로 실패 합니다. 오류가 있는지 확인 하 고 오류가 있는지 확인 하 고, 오류가 발생 한 경우 예외를 확인 하 고 *Redis*정적 속성을 확인 합니다.
+*ThrowOnError* 를 **false** 로 설정 하는 경우 오류가 발생할 때 예외를 throw 하는 대신 자동으로 실패 합니다. 오류가 있는지 확인 하 고 오류가 있는지 확인 하 고, 오류가 발생 한 경우 예외를 확인 하 고 *Redis* 정적 속성을 확인 합니다.
 
 ### <a name="notes-on-retrytimeoutinmilliseconds"></a>*RetryTimeoutInMilliseconds* 에 대 한 참고 사항
 
@@ -173,7 +173,7 @@ namespace MyCompany.Redis
 }
 ```
 
-이 클래스가 이름이 **MyCompanyDll**인 어셈블리에 정의 된 것으로 가정 하 여 *redisSerializerType* 매개 변수를 사용 하도록 설정할 수 있습니다.
+이 클래스가 이름이 **MyCompanyDll** 인 어셈블리에 정의 된 것으로 가정 하 여 *redisSerializerType* 매개 변수를 사용 하도록 설정할 수 있습니다.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -194,7 +194,7 @@ namespace MyCompany.Redis
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-이전 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. OutputCache 지시문에 대 한 자세한 내용은를 참조 하십시오 [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837) .
+이전 예제에서는 캐시된 페이지 데이터가 캐시에 60초 동안 머물게 되며, 각 매개 변수 조합에 따라 페이지의 다른 버전이 캐시됩니다. OutputCache 지시문에 대 한 자세한 내용은를 참조 하십시오 [@OutputCache](/previous-versions/dotnet/netframework-4.0/hdxfb6cy(v=vs.100)) .
 
 이 단계를 수행하면, 애플리케이션은 Redis 출력 캐시 공급자를 사용하도록 구성됩니다.
 

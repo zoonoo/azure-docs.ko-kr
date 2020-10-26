@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855636"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534824"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -88,7 +88,7 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Azure Storage를 로컬 드라이브로 탑재
 
-[Azure Storage를 로컬 드라이브로 탑재](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive)를 참조하세요.
+[Azure Storage를 로컬 드라이브로 탑재](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive)를 참조하세요.
 
 ## <a name="upload-using-services"></a>서비스를 사용하여 업로드
 
