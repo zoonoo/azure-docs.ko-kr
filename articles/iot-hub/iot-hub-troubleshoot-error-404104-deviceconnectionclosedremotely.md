@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673a76417739fa59a91979cca7c6807a584868f0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81758717"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538258"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
@@ -24,15 +24,15 @@ ms.locfileid: "81758717"
 
 ### <a name="symptom-1"></a>증상 1
 
-장치는 일정 한 간격 (예: 65 분 마다)에서 연결을 끊고 **404104 DeviceConnectionClosedRemotely** IoT Hub 진단 로그에 표시 됩니다. 경우에 따라 **401003 IoTHubUnauthorized** 및 성공한 장치 연결 이벤트는 나중에 1 분 이내에 표시 됩니다.
+장치는 일정 한 간격 (예: 65 분 마다)에서 연결을 끊고 IoT Hub 리소스 로그에 **404104 DeviceConnectionClosedRemotely** 이 표시 됩니다. 경우에 따라 **401003 IoTHubUnauthorized** 및 성공한 장치 연결 이벤트는 나중에 1 분 이내에 표시 됩니다.
 
 ### <a name="symptom-2"></a>증상 2
 
-장치는 임의로 연결을 끊고 **404104 DeviceConnectionClosedRemotely** IoT Hub 진단 로그에 표시 됩니다.
+장치는 임의로 연결을 끊고 IoT Hub 리소스 로그에 **404104 DeviceConnectionClosedRemotely** 이 표시 됩니다.
 
 ### <a name="symptom-3"></a>증상 3
 
-많은 장치는 한 번에 연결을 끊고, 연결 된 [장치 메트릭에](iot-hub-metrics.md)dip가 표시 되며, 일반적인 진단 로그에 **404104 DeviceConnectionClosedRemotely** 및 [500xxx 내부 오류가](iot-hub-troubleshoot-error-500xxx-internal-errors.md) 있습니다.
+여러 장치에서 한 번에 연결을 끊으면 [연결 된 장치 (connectedDeviceCount) 메트릭에](monitor-iot-hub-reference.md)dip가 표시 되 고, Azure Monitor 로그에 **404104 DeviceConnectionClosedRemotely** 및 [500xxx 내부 오류가](iot-hub-troubleshoot-error-500xxx-internal-errors.md) 있습니다.
 
 ## <a name="causes"></a>원인
 

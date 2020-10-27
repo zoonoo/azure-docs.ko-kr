@@ -3,15 +3,15 @@ title: Azure API Management Eapr 통합 정책 | Microsoft Docs
 description: Eapr 마이크로 서비스 확장과 상호 작용 하기 위한 Azure API Management 정책에 대해 알아봅니다.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343029"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558400"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management Eapr 통합 정책
 
@@ -55,7 +55,7 @@ template:
 <set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -89,13 +89,13 @@ template:
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | 기본값 |
+| attribute        | 설명                     | 필수 | Default |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | "Eapr"로 설정 해야 합니다.           | 예      | 해당 없음     |
 | i 4-앱 id      | 대상 마이크로 서비스의 이름입니다. 는 Eapr의 [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
 | aapr-메서드      | 대상 마이크로 서비스 호출할 메서드 또는 URL의 이름입니다. D 4의 [메서드 이름](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -104,19 +104,19 @@ template:
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Pub/Sub 토픽으로 메시지 보내기
 
-이 정책은 API Management 게이트웨이에 게 메시지를 메시지를 만들도록 지시 합니다. 정책에서는 `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` 템플릿 매개 변수를 바꾸고 정책 문에 지정 된 콘텐츠를 추가 하는 HTTP POST 요청을 수행 하 여이 작업을 수행 합니다.
+이 정책은 API Management 게이트웨이에 게 메시지를 메시지를 만들도록 지시 합니다. 정책에서는 `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` 템플릿 매개 변수를 바꾸고 정책 문에 지정 된 콘텐츠를 추가 하는 HTTP POST 요청을 수행 하 여이 작업을 수행 합니다.
 
 이 정책에서는 사이드카가 게이트웨이와 동일한 pod의 컨테이너에서 실행 되 고 있다고 가정 합니다. 6apr 런타임에서는 Pub/Sub 의미 체계를 구현 합니다.
 
 ### <a name="policy-statement"></a>정책 문
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -131,7 +131,8 @@ template:
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -156,16 +157,17 @@ template:
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | 기본값 |
+| attribute        | 설명                     | 필수 | Default |
 |------------------|---------------------------------|----------|---------|
-| 토픽            | 대상 항목 이름               | 예      | 해당 없음     |
+| pubsub 이름      | 대상 PubSub 구성 요소의 이름입니다. 은 (는) d 4에서 [pubceparameter](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) 에 매핑됩니다. 표시 되지 않는 경우 __토픽__ 특성 값은 형식 이어야 합니다 `pubsub-name/topic-name` .    | 예       | None    |
+| 토픽            | 항목의 이름입니다. 는 d 4의 [토픽](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) 매개 변수에 매핑됩니다.               | 예      | 해당 없음     |
 | ignore-error     | 로 설정 하 `true` 는 경우에는 Gapr 런타임에서 오류를 수신 하는 동안 ["오류 발생"](api-management-error-handling-policies.md) 섹션을 트리거하지 않도록 정책에 지시 합니다. | 아니요 | `false` |
 | response-variable-name | 6Apr 런타임의 응답을 저장 하는 데 사용할 [Variables](api-management-policy-expressions.md#ContextVariables) 컬렉션 항목의 이름입니다. | 예 | None |
 | 시간 제한 | 6Apr 런타임이 응답할 때까지 대기 하는 시간 (초)입니다. 범위는 1 ~ 240 초입니다. | 아니요 | 5 |
 | template | 메시지 콘텐츠를 변환 하는 데 사용할 템플릿 엔진입니다. "액체"는 유일 하 게 지원 되는 값입니다. | 예 | None |
 | content-type | 메시지 내용의 유형입니다. "application/json"은 유일 하 게 지원 되는 값입니다. | 예 | None |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -191,7 +193,7 @@ template:
 </invoke-dapr-binding>
 ```
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example"></a>예제
 
@@ -241,7 +243,7 @@ template:
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | 기본값 |
+| attribute        | 설명                     | 필수 | Default |
 |------------------|---------------------------------|----------|---------|
 | name            | 대상 바인딩 이름입니다. 은 (는) d 4에서 [정의](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) 된 바인딩의 이름과 일치 해야 합니다.           | 예      | 해당 없음     |
 | operation       | 대상 작업 이름 (바인딩 관련)입니다. 는 d 4의 [작업](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 | None |
@@ -251,7 +253,7 @@ template:
 | template | 메시지 콘텐츠를 변환 하는 데 사용할 템플릿 엔진입니다. "액체"는 유일 하 게 지원 되는 값입니다. | 예 | None |
 | content-type | 메시지 내용의 유형입니다. "application/json"은 유일 하 게 지원 되는 값입니다. | 예 | None |
 
-### <a name="usage"></a>사용
+### <a name="usage"></a>사용량
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 

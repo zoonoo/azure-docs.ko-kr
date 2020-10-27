@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142814"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536082"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
 
 각 IoT Hub에는 서비스에서 디바이스마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다. C #의 작업 샘플을 확인 하 고 허브를 다른 지역으로 복제할 때이 기능을 사용 하는 방법에 대 한 자세한 내용은 [IoT Hub를 복제 하는 방법](iot-hub-how-to-clone.md)을 참조 하세요.
 
 > [!NOTE]
-> IoT Hub는 제한 된 수의 지역에서 최근에 가상 네트워크 지원을 추가 했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호 하 고 인증을 위해 키를 전달 하지 않아도 됩니다.  처음에는 가상 네트워크 지원은 *WestUS2*, *Eastus*및 *SouthCentralUS*지역 에서만 사용할 수 있습니다. 가상 네트워크 지원 및이를 구현 하는 API 호출에 대 한 자세한 내용은 [virtual networks에 대 한 IoT Hub 지원](virtual-network-support.md)을 참조 하세요.
+> IoT Hub는 제한 된 수의 지역에서 최근에 가상 네트워크 지원을 추가 했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호 하 고 인증을 위해 키를 전달 하지 않아도 됩니다.  처음에는 가상 네트워크 지원은 *WestUS2* , *Eastus* 및 *SouthCentralUS* 지역 에서만 사용할 수 있습니다. 가상 네트워크 지원 및이를 구현 하는 API 호출에 대 한 자세한 내용은 [virtual networks에 대 한 IoT Hub 지원](virtual-network-support.md)을 참조 하세요.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
@@ -37,7 +37,7 @@ ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템
 
 * 사용자에게 많은 양의 데이터를 반환합니다.
 
-단일 API 호출을 기다리거나 작업 결과를 차단하는 대신에 작업은 비동기적으로 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
+단일 API 호출을 기다리거나 작업 결과를 차단하는 대신에 작업은 비동기적으로 해당 IoT Hub에 대한 **작업** 을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
 
 다음 C# 코드 조각은 작업을 만드는 방법을 보여 줍니다.
 
@@ -50,7 +50,7 @@ JobProperties exportJob = await
 > [!NOTE]
 > C# 코드에서 **RegistryManager** 클래스를 사용하려면 프로젝트에 **Microsoft.Azure.Devices** NuGet 패키지를 추가합니다. **RegistryManager** 클래스는 **Microsoft.Azure.Devices** 네임스페이스에 있습니다.
 
-**RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업**의 상태를 쿼리할 수 있습니다. **RegistryManager** 클래스의 인스턴스를 만들려면 **CreateFromConnectionString** 메서드를 사용합니다.
+**RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업** 의 상태를 쿼리할 수 있습니다. **RegistryManager** 클래스의 인스턴스를 만들려면 **CreateFromConnectionString** 메서드를 사용합니다.
 
 ```csharp
 RegistryManager registryManager =
@@ -61,7 +61,7 @@ IoT Hub에 대한 연결 문자열을 찾으려면 Azure Portal에서 다음을 
 
 - IoT Hub로 이동
 
-- **공유 액세스 정책**을 선택합니다.
+- **공유 액세스 정책** 을 선택합니다.
 
 - 필요한 사용 권한을 고려하여 정책을 선택합니다.
 
@@ -109,7 +109,7 @@ while(true)
      | SharedAccessBlobPermissions.Delete
    ```
 
-* 내보내기 데이터에서 인증 키를 제외하려는지 여부를 나타내는 *부울* 값입니다. **false**인 경우 인증 키가 내보내기 출력에 포함됩니다. 그렇지 않으면 키는 **null**로 내보내집니다.
+* 내보내기 데이터에서 인증 키를 제외하려는지 여부를 나타내는 *부울* 값입니다. **false** 인 경우 인증 키가 내보내기 출력에 포함됩니다. 그렇지 않으면 키는 **null** 로 내보내집니다.
 
 다음 C# 코드 조각은 내보내기 데이터에 디바이스 인증 키를 포함하고 있는 내보내기 작업을 시작한 다음 완료를 폴링하는 방법을 보여 줍니다.
 
@@ -134,7 +134,7 @@ while(true)
 }
 ```
 
-작업은 출력을 제공된 blob 컨테이너에 이름 **devices.txt**의 블록 blob로 저장합니다. 출력 데이터는 JSON 직렬화된 디바이스 데이터로 구성되며 한 디바이스가 한 줄에 표시됩니다.
+작업은 출력을 제공된 blob 컨테이너에 이름 **devices.txt** 의 블록 blob로 저장합니다. 출력 데이터는 JSON 직렬화된 디바이스 데이터로 구성되며 한 디바이스가 한 줄에 표시됩니다.
 
 다음 예제에서는 출력 데이터를 보여줍니다.
 
@@ -220,13 +220,13 @@ ID 레지스트리에 새 디바이스를 프로비전할 뿐만 아니라 기�
 
 **ImportDevicesAsync** 메서드에 매개 변수 두 개를 선택합니다.
 
-* 작업에 대한 *입력*으로 [Azure Storage](../storage/index.yml) Blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 디바이스 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 디바이스 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+* 작업에 대한 *입력* 으로 [Azure Storage](../storage/index.yml) Blob 컨테이너의 URI가 포함된 *문자열* . 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 디바이스 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 디바이스 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* 작업에서 *출력*으로 사용할 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 작업은 이 컨테이너에 완료된 가져오기 **작업**에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+* 작업에서 *출력* 으로 사용할 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열* . 작업은 이 컨테이너에 완료된 가져오기 **작업** 에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -243,7 +243,7 @@ JobProperties importJob =
    await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
-디바이스 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 데이터 입력의 형식은 **ExportDevicesAsync** 섹션에 나온 형식과 같습니다. 이러한 방식으로 내보낸 데이터를 다시 가져올 수 있습니다. **$metadata**는 선택 사항입니다.
+디바이스 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 데이터 입력의 형식은 **ExportDevicesAsync** 섹션에 나온 형식과 같습니다. 이러한 방식으로 내보낸 데이터를 다시 가져올 수 있습니다. **$metadata** 는 선택 사항입니다.
 
 ## <a name="import-behavior"></a>가져오기 동작
 
@@ -262,18 +262,18 @@ JobProperties importJob =
 
 각 디바이스에 대한 가져오기 직렬화 데이터에 선택적 **importMode** 속성을 사용하여 가져오기 프로세스를 디바이스별로 제어합니다. **importMode** 속성에 다음과 같은 옵션이 있습니다.
 
-| importMode | Description |
+| importMode | 설명 |
 | --- | --- |
-| **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **create** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **update** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **updateIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
-| **delete** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 삭제 됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **deleteIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 삭제 됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |지정 된 **ID** 를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
+| **create** |지정 된 **ID** 를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
+| **update** |지정 된 **ID** 를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **updateIfMatchETag** |지정 된 **ID** 를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |지정 된 **ID** 를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 etag (지정 된 경우)는 장치의 etag와 독립적으로 처리 됩니다. 기존 쌍의 etag와 일치 하지 않는 경우 오류가 로그 파일에 기록 됩니다. |
+| **delete** |지정 된 **ID** 를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 삭제 됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **deleteIfMatchETag** |지정 된 **ID** 를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 삭제 됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [!NOTE]
-> 직렬화 데이터가 디바이스에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate**를 가정합니다.
+> 직렬화 데이터가 디바이스에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate** 를 가정합니다.
 
 ## <a name="import-devices-example--bulk-device-provisioning"></a>디바이스 가져오기 예제 – 대량 디바이스 프로비저닝
 
@@ -432,8 +432,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 Azure IoT Hub 관리에 대해 자세히 알아보려면 다음 문서를 확인 하세요.
 
-* [IoT Hub 메트릭](iot-hub-metrics.md)
-* [IoT Hub 로그](iot-hub-monitor-resource-health.md)
+* [모니터 IoT Hub](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

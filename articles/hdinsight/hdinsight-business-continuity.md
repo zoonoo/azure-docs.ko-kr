@@ -8,12 +8,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893648"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546945"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Azure HDInsight 비즈니스 연속성
 
@@ -39,7 +39,7 @@ Azure HDInsight 클러스터는 저장소, 데이터베이스, Active Directory,
 
 * HDInsight의 Azure 모니터링 도구를 사용 하 여 클러스터에서 비정상적인 동작을 감지 하 고 해당 하는 경고 알림을 설정 합니다. 특정 클러스터 유형의 중요 한 성능 메트릭을 수집 하는 미리 구성 된 HDInsight 클러스터 특정 관리 솔루션을 배포할 수 있습니다. 자세한 내용은 [HDInsight에 대 한 Azure 모니터링](./hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조 하세요.  
 
-* 구독, 서비스 또는 지역에 대 한 서비스 문제, 계획 된 유지 관리, 상태 및 보안 권고에 대 한 알림을 받으려면 Azure 상태 경고를 구독 합니다. 문제 원인 및 resolute 에타를 포함 하는 상태 알림은 장애 조치 (failover) 및 장애 복구를 보다 효율적으로 실행 하는 데 도움이 됩니다. 자세한 내용은 [Azure Service Health 설명서](/azure/service-health/)를 참조 하세요.
+* 구독, 서비스 또는 지역에 대 한 서비스 문제, 계획 된 유지 관리, 상태 및 보안 권고에 대 한 알림을 받으려면 Azure 상태 경고를 구독 합니다. 문제 원인 및 resolute 에타를 포함 하는 상태 알림은 장애 조치 (failover) 및 장애 복구를 보다 효율적으로 실행 하는 데 도움이 됩니다. 자세한 내용은 [Azure Service Health 설명서](../service-health/index.yml)를 참조 하세요.
 
 ## <a name="single-region-availability"></a>단일 지역 가용성
 
@@ -108,7 +108,7 @@ HDInsight는 기본 저장소 계층으로 Azure Data Lake Storage Gen2를 권�
 
 ### <a name="cost-optimizations"></a>비용 최적화
 
-|영역|비용 에스컬레이션 원인|최적화 전략|
+|Area|비용 에스컬레이션 원인|최적화 전략|
 |----|------------------------|-----------------------|
 |데이터 스토리지|보조 지역의 주 데이터/테이블 복제|큐 레이트 데이터만 복제|
 |데이터 송신|아웃 바운드 교차 지역 데이터 전송은 한 가격으로 제공 됩니다. 대역폭 가격 책정 지침 검토|큐 레이트 데이터만 복제 하 여 지역 송신 공간 줄이기|
@@ -117,7 +117,7 @@ HDInsight는 기본 저장소 계층으로 Azure Data Lake Storage Gen2를 권�
 
 ### <a name="complexity-optimizations"></a>복잡성 최적화
 
-|영역|복잡성 에스컬레이션의 원인|최적화 전략|
+|Area|복잡성 에스컬레이션의 원인|최적화 전략|
 |----|------------------------|-----------------------|
 |읽기 쓰기 패턴 |주 및 보조 복제본을 모두 읽고 쓸 수 있도록 요구 |보조 데이터베이스를 읽기 전용으로 디자인|
 |0 RPO & RTO |데이터 손실 (RPO = 0) 및 가동 중지 시간 0 (RTO = 0) 요구 |장애 조치 (failover)에 필요한 구성 요소 수를 줄이는 방식으로 RPO 및 RTO를 설계 합니다.|

@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362268"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541284"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 세트 캐싱을 사용한 성능 조정
 
@@ -36,11 +36,15 @@ ms.locfileid: "91362268"
 
 데이터베이스에 대해 결과 집합 캐싱이 켜진 경우, 다음 쿼리를 제외하고 캐시가 가득 찰 때까지 모든 쿼리에 대해 결과가 캐시됩니다.
 
-- 비결정적 함수(예: DateTime.Now())를 사용하여 쿼리
+- 기본 테이블의 데이터 또는 쿼리가 변경 되지 않은 경우에도 비결 정적 인 기본 제공 함수 또는 런타임 식으로 쿼리 합니다. 예를 들어 DateTime. Now (), GetDate ()입니다.
 - 사용자 정의 함수를 사용하여 쿼리
 - 행 수준 보안 또는 열 수준 보안이 설정된 테이블을 사용하는 쿼리
 - 행 크기가 64KB보다 큰 데이터를 반환하는 쿼리
 - 크기가 큰 데이터(10GB 초과)를 반환하는 쿼리 
+>[!NOTE]
+> - 명확 하지 않은 일부 함수 및 런타임 식은 동일한 데이터에 대 한 반복적인 쿼리를 결정적으로 수행할 수 있습니다. 예를 들어 ROW_NUMBER ()입니다.  
+> - 쿼리 결과 집합의 행 순서/순서가 응용 프로그램 논리에 중요 한 경우 쿼리에서 ORDER BY를 사용 합니다.
+> - ORDER BY 열의 데이터가 고유 하지 않은 경우 결과 집합 캐싱이 사용 되는지 여부에 관계 없이 ORDER BY 열에 동일한 값이 있는 행에 대 한 garanteed 행 순서는 없습니다.
 
 > [!IMPORTANT]
 > 결과 세트 캐시를 만들고 캐시에서 데이터를 검색하는 작업은 Synapse SQL 풀 인스턴스의 컨트롤 노드에서 수행됩니다.

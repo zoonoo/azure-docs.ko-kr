@@ -1,5 +1,5 @@
 ---
-title: 진단 설정을 통해 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 내보내기
+title: 진단 설정을 통해 Azure IoT Connector for FHIR(미리 보기) 메트릭 내보내기
 description: 이 문서에서는 진단 설정을 통해 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터를 내보내는 방법을 설명 합니다.
 services: healthcare-apis
 author: msjasteppe
@@ -8,14 +8,14 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: c81dcdd2e79f5d89a0766415b47ad118874e5ad2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210034"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558553"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>진단 설정을 통해 FHIR (미리 보기) 메트릭에 대 한 Azure IoT 커넥터 내보내기
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>진단 설정을 통해 Azure IoT Connector for FHIR(미리 보기) 메트릭 내보내기
 
 이 문서에서는 FHIR * 메트릭 로그를 위해 Azure IoT 커넥터를 내보내는 방법에 대해 알아봅니다. 메트릭 로깅을 사용 하도록 설정 하는 기능은 Azure Portal의 [**진단 설정**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 입니다. 
 
@@ -41,7 +41,7 @@ ms.locfileid: "92210034"
 
 6. FHIR 용 Azure IoT 커넥터 및 FHIR 용 Azure API에 대해 캡처할 추가 메트릭 범주에 대 한 **오류, 트래픽 및 대기 시간** 을 선택 합니다.
 
-7. **저장**을 선택합니다.
+7. **저장** 을 선택합니다.
 
    :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
 
@@ -58,7 +58,7 @@ ms.locfileid: "92210034"
 FHIR 용 Azure IoT 커넥터에 대 한 자주 묻는 질문을 확인 합니다.
 
 >[!div class="nextstepaction"]
->[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md)
 
 *Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
 

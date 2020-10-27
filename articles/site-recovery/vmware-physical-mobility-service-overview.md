@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530066"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547659"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -33,7 +33,7 @@ ms.locfileid: "90530066"
 
 강제 설치는 [복제를 사용 하도록 설정](vmware-azure-enable-replication.md#enable-replication)하기 위해 Azure Portal에서 실행 되는 작업의 필수적인 부분입니다. 보호 하려는 Vm 집합을 선택 하 고 복제를 사용 하도록 설정 하 고 나면 구성 서버에서 모바일 서비스 에이전트를 서버에 푸시하고, 에이전트를 설치 하 고, 구성 서버에서 에이전트의 등록을 완료 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 - 모든 푸시 설치 [필수 구성 요소가](vmware-azure-install-mobility-service.md) 충족 되는지 확인 합니다.
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "90530066"
    - 모든 필수 구성 요소가 충족 되 면 설치가 시작 됩니다.
    - 하나 이상의 [필수 구성 요소가](vmware-physical-azure-support-matrix.md) 충족 되지 않으면 설치가 실패 합니다.
 1. 에이전트 설치의 일부로 Azure Site Recovery 용 VSS (볼륨 섀도 복사본 서비스) 공급자가 설치 됩니다. VSS 공급자는 응용 프로그램 일치 복구 지점이 생성 되는 데 사용 됩니다. VSS 공급자 설치에 실패 하는 경우이 단계를 건너뛰고 에이전트 설치를 계속 합니다.
-1. 에이전트 설치에 성공 했지만 VSS 공급자 설치에 실패 한 경우 작업 상태는 **경고**로 표시 됩니다. 크래시 일치 복구 지점 생성에는 영향을 주지 않습니다.
+1. 에이전트 설치에 성공 했지만 VSS 공급자 설치에 실패 한 경우 작업 상태는 **경고** 로 표시 됩니다. 크래시 일치 복구 지점 생성에는 영향을 주지 않습니다.
 
     - 응용 프로그램 일치 복구 지점이 생성 하려면 Site Recovery VSS 공급자의 수동 설치를 완료 하기 위한 [지침](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) 을 참조 하세요.
     - 응용 프로그램 일치 복구 지점이 생성 되지 않도록 하려면 [복제 정책을 수정](vmware-azure-set-up-replication.md#create-a-policy) 하 여 응용 프로그램 일치 복구 지점이 해제 되도록 합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "90530066"
 
 ## <a name="install-the-mobility-service-using-ui"></a>UI를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -78,33 +78,33 @@ ms.locfileid: "90530066"
 > 한 Azure 지역에서 다른 Azure 지역으로 Azure IaaS (Infrastructure as a Service) VM을 복제 하는 경우 UI 설치 방법을 사용 하지 마세요. [명령 프롬프트](#install-the-mobility-service-using-command-prompt) 설치를 사용 합니다.
 
 1. 머신에 설치 파일을 복사하고 실행합니다.
-1. **설치 옵션**에서 **Mobility 서비스 설치**를 선택합니다.
-1. 설치 위치를 선택 하 고 **설치**를 선택 합니다.
+1. **설치 옵션** 에서 **Mobility 서비스 설치** 를 선택합니다.
+1. 설치 위치를 선택 하 고 **설치** 를 선택 합니다.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
-1. **설치 진행률**에서 설치를 모니터링합니다. 설치가 완료되면 **구성으로 계속 진행**을 선택하여 Mobility 서비스를 구성 서버에 등록합니다.
+1. **설치 진행률** 에서 설치를 모니터링합니다. 설치가 완료되면 **구성으로 계속 진행** 을 선택하여 Mobility 서비스를 구성 서버에 등록합니다.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
-1. **구성 서버 세부 정보**에서 구성 된 IP 주소 및 암호를 지정 합니다.
+1. **구성 서버 세부 정보** 에서 구성 된 IP 주소 및 암호를 지정 합니다.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
-1. **등록**을 선택하여 등록을 완료합니다.
+1. **등록** 을 선택하여 등록을 완료합니다.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>명령 프롬프트를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
 
 ### <a name="windows-machine"></a>Windows 컴퓨터
 
-- 명령 프롬프트에서 다음 명령을 실행 하 여 보호 하려는 서버의 로컬 폴더 (예: _C:\Temp_)에 설치 관리자를 복사 합니다. 설치 관리자의 파일 이름을 실제 파일 이름으로 바꿉니다.
+- 명령 프롬프트에서 다음 명령을 실행 하 여 보호 하려는 서버의 로컬 폴더 (예: _C:\Temp_ )에 설치 관리자를 복사 합니다. 설치 관리자의 파일 이름을 실제 파일 이름으로 바꿉니다.
 
   ```cmd
   cd C:\Temp
@@ -134,8 +134,8 @@ Setting | 세부 정보
 설치 로그 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `/InstallLocation`| 선택적 매개 변수입니다. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
-`/Platform` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .<br/><br/> Azure Vm을 물리적 컴퓨터로 처리 하는 경우 **VMware**를 지정 합니다.
-`/Silent`| (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+`/Platform` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .<br/><br/> Azure Vm을 물리적 컴퓨터로 처리 하는 경우 **VMware** 를 지정 합니다.
+`/Silent`| 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
 
@@ -175,7 +175,7 @@ Setting | 세부 정보
 `-r` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `-d` | 선택적 매개 변수입니다. 모바일 서비스 설치 위치를 지정 합니다 `/usr/local/ASR` .
 `-v` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .
-`-q` | (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+`-q` | 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
 
@@ -187,12 +187,12 @@ Setting | 세부 정보
 
 ## <a name="azure-virtual-machine-agent"></a>Azure Virtual Machine 에이전트
 
-- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치 (failover) 되 면 Azure VM은 VM 확장을 사용 하기 위한 에이전트 설치 필수 구성 요소를 충족 합니다.
-- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)가 Azure VM에 수동으로 설치되어야 합니다.
+- **Windows VM** : Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치 (failover) 되 면 Azure VM은 VM 확장을 사용 하기 위한 에이전트 설치 필수 구성 요소를 충족 합니다.
+- **Linux VM** : 장애 조치(failover) 후 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)가 Azure VM에 수동으로 설치되어야 합니다.
 
 ## <a name="locate-installer-files"></a>설치 관리자 파일 찾기
 
-구성 서버에서 _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_폴더로 이동 합니다. 운영 체제에 따라 필요한 설치 관리자를 확인 합니다. 다음 표에는 각 VMware VM 및 물리적 서버 운영 체제에 대 한 설치 관리자 파일이 요약 되어 있습니다. 시작 하기 전에 [지원 되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines)를 검토할 수 있습니다.
+구성 서버에서 _%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository_ 폴더로 이동 합니다. 운영 체제에 따라 필요한 설치 관리자를 확인 합니다. 다음 표에는 각 VMware VM 및 물리적 서버 운영 체제에 대 한 설치 관리자 파일이 요약 되어 있습니다. 시작 하기 전에 [지원 되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines)를 검토할 수 있습니다.
 
 > [!NOTE]
 > 파일 이름에는 다음 표에 나와 있는 구문을 사용 하 여 _버전_ 및 _날짜_ 를 실제 값에 대 한 자리 표시자로 사용 합니다. 실제 파일 이름은 다음 예제와 유사 하 게 표시 됩니다.
@@ -232,7 +232,7 @@ Setting | 세부 정보
 3. 구성 서버로 이동 하 여 SUSE Linux Enterprise Server 11 SP3 에이전트 설치 관리자를 경로에 복사 합니다.-INSTALL_DIR \home\svsystems\pushinstallsvc\repository 아래
 1. 최신 설치 관리자를 복사한 후 InMage PushInstall 서비스를 다시 시작 합니다. 
 1. 이제 연결 된 확장 프로세스 서버로 이동 하 여 3 단계와 4 단계를 반복 합니다.
-1. **예**를 들어 설치 경로가 C:\Program files (x86) \Microsoft Azure Site Recovery 경우 위에 언급 된 디렉터리는
+1. **예** 를 들어 설치 경로가 C:\Program files (x86) \Microsoft Azure Site Recovery 경우 위에 언급 된 디렉터리는
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ### <a name="rhel-5-or-centos-5-server"></a>RHEL 5 또는 CentOS 5 서버
@@ -244,7 +244,7 @@ Setting | 세부 정보
 3. 구성 서버로 이동 하 여 RHEL 5 또는 CentOS 5 에이전트 설치 관리자를 경로 INSTALL_DIR \home\svsystems\pushinstallsvc\repository 아래에 복사 합니다.
 1. 최신 설치 관리자를 복사한 후 InMage PushInstall 서비스를 다시 시작 합니다. 
 1. 이제 연결 된 확장 프로세스 서버로 이동 하 여 3 단계와 4 단계를 반복 합니다.
-1. **예**를 들어 설치 경로가 C:\Program files (x86) \Microsoft Azure Site Recovery 경우 위에 언급 된 디렉터리는
+1. **예** 를 들어 설치 경로가 C:\Program files (x86) \Microsoft Azure Site Recovery 경우 위에 언급 된 디렉터리는
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="debian-7-server"></a>Debian 7 서버
@@ -256,7 +256,7 @@ Setting | 세부 정보
 3. 구성 서버로 이동 하 여 Debian 7 agent installer를 경로에 복사 합니다.-INSTALL_DIR \home\svsystems\pushinstallsvc\repository 아래
 1. 최신 설치 관리자를 복사한 후 InMage PushInstall 서비스를 다시 시작 합니다. 
 1. 이제 연결 된 확장 프로세스 서버로 이동 하 여 3 단계와 4 단계를 반복 합니다.
-1. **예**를 들어 설치 경로가 C:\Program files (x86) \Microsoft Azure Site Recovery 경우 위에 언급 된 디렉터리는
+1. **예** 를 들어 설치 경로가 C:\Program files (x86) \Microsoft Azure Site Recovery 경우 위에 언급 된 디렉터리는
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="next-steps"></a>다음 단계

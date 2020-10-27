@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: b5499a8c4fd6ee200ca0fac800c8c17c92a1cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9b74cc3bff23848bf63859e7e38bb06599956a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087846"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540774"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -21,7 +21,7 @@ ms.locfileid: "86087846"
 
 Microsoft의 빅 데이터 솔루션은 Microsoft BI (비즈니스 인텔리전스) 구성 요소를 HDInsight에 배포 된 Apache Hadoop 클러스터와 통합 합니다. 예를 들어 Hadoop 클러스터의 Hive 데이터 웨어하우스에 Excel을 연결 하는 기능이 있습니다. Microsoft Hive ODBC (Open Database Connectivity) 드라이버를 사용 하 여 연결 합니다.
 
-Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클러스터와 연결 된 데이터를 Excel에서 연결할 수 있습니다. 자세한 내용은 [파워 쿼리를 사용 하 여 HDInsight에 Excel 연결](../hdinsight-connect-excel-power-query.md)을 참조 하세요.
+Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클러스터와 연결 된 데이터를 Excel에서 연결할 수 있습니다. 자세한 내용은 [파워 쿼리를 사용 하 여 HDInsight에 Excel 연결](./apache-hadoop-connect-excel-power-query.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -42,20 +42,20 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
     ![OBDC 데이터 원본 관리자](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "ODBC 데이터 원본 관리자를 사용하여 DSN 구성")
 
-1. **사용자 DSN** 탭에서 **추가**를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
+1. **사용자 DSN** 탭에서 **추가** 를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
 
-1. **Microsoft Hive ODBC 드라이버**를 선택한 다음, **마침**을 선택하여 **Microsoft Hive ODBC 드라이버 DSN 설정** 창을 엽니다.
+1. **Microsoft Hive ODBC 드라이버** 를 선택한 다음, **마침** 을 선택하여 **Microsoft Hive ODBC 드라이버 DSN 설정** 창을 엽니다.
 
 1. 다음 값을 입력하거나 선택합니다.
 
    | 속성 | 설명 |
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
-   |  호스트 |`HDInsightClusterName.azurehdinsight.net`을 입력합니다. 예: `myHDICluster.azurehdinsight.net` 참고: `HDInsightClusterName-int.azurehdinsight.net` 는 클라이언트 VM이 동일한 가상 네트워크에 피어 링 지만 지원 됩니다. |
-   |  포트 |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
-   |  데이터베이스 |**기본값**을 사용 합니다. |
-   |  메커니즘 |**Windows Azure HDInsight Service**를 선택합니다. |
-   |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 **admin**입니다. |
+   |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. 정의합니다(예: `myHDICluster.azurehdinsight.net`). 참고: `HDInsightClusterName-int.azurehdinsight.net` 는 클라이언트 VM이 동일한 가상 네트워크에 피어 링 지만 지원 됩니다. |
+   |  포트 |**443** 을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
+   |  데이터베이스 |**기본값** 을 사용 합니다. |
+   |  메커니즘 |**Windows Azure HDInsight Service** 를 선택합니다. |
+   |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 **admin** 입니다. |
    |  암호 |HDInsight 클러스터 사용자 암호 입력 **암호 저장(암호화됨)** 확인란을 선택합니다.|
 
 1. 선택 사항: **고급 옵션** ...을 선택 합니다.  
@@ -68,13 +68,13 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
     ![고급 DSN 구성 옵션](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "고급 DSN 구성 옵션")
 
-1. **테스트**를 선택하여 데이터 원본을 테스트합니다. 데이터 소스가 올바르게 구성 되 면 테스트 결과에 **성공!** 이 표시 됩니다.
+1. **테스트** 를 선택하여 데이터 원본을 테스트합니다. 데이터 소스가 올바르게 구성 되 면 테스트 결과에 **성공!** 이 표시 됩니다.
 
-1. **확인**을 선택하여 테스트 창을 닫습니다.  
+1. **확인** 을 선택하여 테스트 창을 닫습니다.  
 
-1. **확인**을 선택하여 **Microsoft Hive ODBC Driver DSN 설정** 창을 닫습니다.  
+1. **확인** 을 선택하여 **Microsoft Hive ODBC Driver DSN 설정** 창을 닫습니다.  
 
-1. **확인**을 선택하여 **ODBC 데이터 원본 관리자** 창을 닫습니다.  
+1. **확인** 을 선택하여 **ODBC 데이터 원본 관리자** 창을 닫습니다.  
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>HDInsight에서 Excel로 데이터 가져오기
 
@@ -82,15 +82,15 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 1. Excel에서 새 통합 문서나 기존 통합 문서를 엽니다.
 
-2. **데이터** 탭에서 **데이터 가져오기** > **기타 원본에서** > **ODBC에서**로 이동하여 **ODBC에서** 창을 시작합니다.
+2. **데이터** 탭에서 **데이터 가져오기** > **기타 원본에서** > **ODBC에서** 로 이동하여 **ODBC에서** 창을 시작합니다.
 
     ![Excel 데이터 연결 마법사 열기](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Excel 데이터 연결 마법사 열기")
 
-3. 드롭다운 목록에서 마지막 섹션에서 만든 데이터 원본 이름을 선택 하 고 **확인**을 선택 합니다.
+3. 드롭다운 목록에서 마지막 섹션에서 만든 데이터 원본 이름을 선택 하 고 **확인** 을 선택 합니다.
 
 4. 처음 사용 하는 경우 **ODBC 드라이버** 대화 상자가 열립니다. 왼쪽 메뉴에서 **창** 을 선택 합니다. 그런 다음 **연결** 을 선택 하 여 **탐색기** 창을 엽니다.
 
-5. **탐색기**에서 **HIVE** > **기본값** > **hivesampletable**로 이동한 다음, **로드**를 선택합니다. 데이터를 Excel로 가져올 때까지 잠시 기다립니다.
+5. **탐색기** 에서 **HIVE** > **기본값** > **hivesampletable** 로 이동한 다음, **로드** 를 선택합니다. 데이터를 Excel로 가져올 때까지 잠시 기다립니다.
 
     ![HDInsight Excel Hive ODBC 탐색기](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel Hive ODBC 탐색기")
 

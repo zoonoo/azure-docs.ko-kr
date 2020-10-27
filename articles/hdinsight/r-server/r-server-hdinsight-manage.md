@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898a02796d578d76f9b45d167f4e92a4bf9831ba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087642"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536286"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "86087642"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**으로 **ML Services**를 선택합니다.
+* HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
 * SSH(보안 셸) 클라이언트: SSH 클라이언트는 HDInsight 클러스터에 원격으로 연결하여 클러스터에서 직접 명령을 실행하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조 하세요.
 
@@ -31,8 +31,8 @@ RStudio Community 버전이 실행되는 에지 노드에 대해 더 많은 사�
 
 ![HDI Azure Portal 로그인 매개 변수](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
-- **클러스터 로그인 사용자 이름**: 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
-- **Ssh (Secure Shell) 사용자 이름**: 보안 셸을 통해 클러스터에 액세스 하는 ssh 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
+- **클러스터 로그인 사용자 이름** : 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
+- **Ssh (Secure Shell) 사용자 이름** : 보안 셸을 통해 클러스터에 액세스 하는 ssh 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
 
 HDInsight의 ML 서비스 클러스터에 사용되는 R Studio Server Community 버전은 로그인 메커니즘으로 Linux 사용자 이름과 암호만 허용하며, 토큰 전달은 지원하지 않습니다. 따라서 ML 서비스 클러스터에서 R Studio에 처음 액세스하려는 경우 두 번 로그인해야 합니다.
 
@@ -74,7 +74,7 @@ sudo passwd <yournewusername>
 
 `https://CLUSTERNAME.azurehdinsight.net/rstudio/`에서 RStudio에 액세스합니다. 클러스터를 만든 후 처음 로그인하는 경우, 클러스터 관리자 자격 증명을 입력한 후 만든 SSH 사용자 자격 증명을 입력합니다. 첫 번째 로그인이 아닌 경우 사용자가 만든 SSH 사용자의 자격 증명만 입력하면 됩니다.
 
-또한 다른 브라우저 창에서 원래 자격 증명(기본적으로 *sshuser*)을 사용하여 동시에 로그인할 수도 있습니다.
+또한 다른 브라우저 창에서 원래 자격 증명(기본적으로 *sshuser* )을 사용하여 동시에 로그인할 수도 있습니다.
 
 새로 추가된 사용자는 Linux 시스템에서 루트 권한을 가지고 있지 않지만 원격 HDFS 및 WASB 스토리지의 모든 파일에 동일한 액세스 권한을 가지고 있음에 유의하세요.
 
@@ -106,7 +106,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-자세한 내용은 [Apache Spark 컴퓨팅 컨텍스트에서 RevoScaleR을 사용하는 방법](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Apache Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
+자세한 내용은 [Apache Spark 컴퓨팅 컨텍스트에서 RevoScaleR을 사용하는 방법](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)의 "Apache Hadoop 클라이언트로 Microsoft Machine Learning Server 사용" 섹션을 참조하세요.
 
 ## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
@@ -195,17 +195,17 @@ rxSparkDisconnect(myHadoopCluster)
 
 1. [스크립트 작업을 사용하여 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)의 단계를 따르세요.
 
-3. **스크립트 작업 제출**에서 다음 정보를 제공합니다.
+3. **스크립트 작업 제출** 에서 다음 정보를 제공합니다.
 
-   * **스크립트 유형**에서 **사용자 지정**을 선택합니다.
+   * **스크립트 유형** 에서 **사용자 지정** 을 선택합니다.
 
-   * **이름**에서 스크립트 작업의 이름을 지정합니다.
+   * **이름** 에서 스크립트 작업의 이름을 지정합니다.
 
-     * **Bash 스크립트 URI**에서 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`를 입력합니다. 이 스크립트는 작업자 노드에 추가 R 패키지를 설치하는 스크립트입니다.
+     * **Bash 스크립트 URI** 에서 `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`를 입력합니다. 이 스크립트는 작업자 노드에 추가 R 패키지를 설치하는 스크립트입니다.
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수**: 설치할 R 패키지 예, `bitops stringr arules`
+   * **매개 변수** : 설치할 R 패키지 예, `bitops stringr arules`
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 
@@ -216,7 +216,7 @@ rxSparkDisconnect(myHadoopCluster)
 
    ![스크립트 동작 Azure Portal 제출](./media/r-server-hdinsight-manage/submit-script-action.png)
 
-4. **만들기**를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
+4. **만들기** 를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

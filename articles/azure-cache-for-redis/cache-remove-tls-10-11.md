@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496050"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545313"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Azure Cache for Redis 사용에서 TLS 1.0과 1.1 제거
 
@@ -65,7 +65,7 @@ Redis .NET 클라이언트는 .NET Framework 4.5.2 또는 이전 버전에서 �
 
 Redis .NET Core 클라이언트는 OS 자체에 따라 달라지는 OS 기본 TLS 버전으로 기본 설정됩니다. 
 
-적용 된 OS 버전 및 패치에 따라 유효한 기본 TLS 버전은 다를 수 있습니다. 이에 대 한 정보 소스가 하나 있지만 Windows 용 문서는 [다음과](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) 같습니다. 
+적용 된 OS 버전 및 패치에 따라 유효한 기본 TLS 버전은 다를 수 있습니다. 이에 대 한 정보 소스가 하나 있지만 Windows 용 문서는 [다음과](/dotnet/framework/network-programming/tls#support-for-tls-12) 같습니다. 
 
 그러나 이전 OS를 사용 하는 경우 또는 원하는 경우에는 클라이언트를 통해 기본 설정 된 TLS 버전을 수동으로 구성 하는 것이 좋습니다.
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c088188802590139ee895c45fb26959138db07e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: eba175eb831ef0c472c2e11d2d03f134a0d3b052
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939803"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547676"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버 관리
 
@@ -20,16 +20,16 @@ ms.locfileid: "91939803"
 
 이 문서에서는 Azure에 배포 된 유연한 서버를 관리 하는 방법을 보여 줍니다. 관리 작업에는 계산 및 저장소 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID**를 참조하는 **id** 속성을 기록해 둡니다.
+[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
 
 ```azurecli-interactive
 az login
 ```
 
-[az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list)를 사용합니다.
+[az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **id** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az-account-list)를 사용합니다.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -68,7 +68,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
    psql --host=<servername> --port=<port> --username=<user> --dbname=<dbname>
    ```
 
-   예를 들어, 다음 명령은 액세스 자격 증명을 사용하여 **mydemoserver.postgres.database.azure.com** PostgreSQL 서버의 **postgres**라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
+   예를 들어, 다음 명령은 액세스 자격 증명을 사용하여 **mydemoserver.postgres.database.azure.com** PostgreSQL 서버의 **postgres** 라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
   
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
@@ -101,7 +101,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     CREATE DATABASE postgresdb;
     ```
 
-3. 프롬프트에서 다음 명령을 실행 하 여 새로 만든 **postgresdb**데이터베이스에 대 한 연결을 전환 합니다.
+3. 프롬프트에서 다음 명령을 실행 하 여 새로 만든 **postgresdb** 데이터베이스에 대 한 연결을 전환 합니다.
 
     ```bash
     \c postgresdb

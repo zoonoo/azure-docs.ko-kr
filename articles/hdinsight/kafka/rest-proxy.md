@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 7d8d2c7d48dc0b77d3be0b9019d4bbf1da8a40c4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a99c6412650cac565414817c91752ae85b8ad37d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490274"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539601"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용하여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
@@ -21,17 +21,17 @@ Kafka REST 프록시를 사용하면 HTTP를 통해 REST API에서 Kafka 클러�
 
 ## <a name="rest-api-reference"></a>REST API 참조
 
-Kafka REST API에서 지원하는 작업의 경우 [HDInsight Kafka REST 프록시 API 참조](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)를 확인하세요.
+Kafka REST API에서 지원하는 작업의 경우 [HDInsight Kafka REST 프록시 API 참조](/rest/api/hdinsight-kafka-rest-proxy)를 확인하세요.
 
 ## <a name="background"></a>배경
 
 ![Kafka REST 프록시 설계](./media/rest-proxy/rest-proxy-architecture.png)
 
-API에서 지원되는 작업의 전체 사양은 [Apache Kafka REST 프록시 API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)를 참조하세요.
+API에서 지원되는 작업의 전체 사양은 [Apache Kafka REST 프록시 API](/rest/api/hdinsight-kafka-rest-proxy)를 참조하세요.
 
 ### <a name="rest-proxy-endpoint"></a>REST 프록시 엔드포인트
 
-REST 프록시를 사용하여 HDInsight Kafka 클러스터를 만들면 클러스터에 대한 새 퍼블릭 엔드포인트를 만듭니다. 이 엔드포인트는 Azure Portal의 HDInsight 클러스터 **속성**에서 찾을 수 있습니다.
+REST 프록시를 사용하여 HDInsight Kafka 클러스터를 만들면 클러스터에 대한 새 퍼블릭 엔드포인트를 만듭니다. 이 엔드포인트는 Azure Portal의 HDInsight 클러스터 **속성** 에서 찾을 수 있습니다.
 
 ### <a name="security"></a>보안
 
@@ -40,16 +40,16 @@ Kafka REST 프록시에 대한 액세스는 Azure Active Directory 보안 그룹
 REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이션은 OAuth 토큰을 가져와야 합니다. 해당 토큰은 보안 그룹 멤버 자격을 확인하는 데 사용됩니다. OAuth 토큰을 가져오는 방법을 보여 주는 아래 [클라이언트 애플리케이션 샘플](#client-application-sample)을 찾습니다. 클라이언트 애플리케이션은 HTTP 요청의 OAuth 토큰을 REST 프록시로 전달합니다.
 
 > [!NOTE]
-> AAD 보안 그룹에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리](../../active-directory/fundamentals/active-directory-manage-groups.md)를 참조하세요. OAuth 토큰이 작동하는 방법에 대한 자세한 내용은 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조하세요.
+> AAD 보안 그룹에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리](../../active-directory/fundamentals/active-directory-manage-groups.md)를 참조하세요. OAuth 토큰이 작동하는 방법에 대한 자세한 내용은 [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](../../active-directory/azuread-dev/v1-protocols-oauth-code.md)를 참조하세요.
 
 ## <a name="kafka-rest-proxy-with-network-security-groups"></a>네트워크 보안 그룹을 사용하는 kafka REST 프록시
-사용자 고유의 VNet을 가져오고 네트워크 보안 그룹을 사용하여 네트워크 트래픽을 제어하는 경우 포트 443 외에도 포트 **9400**에서 **인바운드** 트래픽을 허용합니다. 이로써 Kafka REST 프록시 서버에 도달할 수 있습니다.
+사용자 고유의 VNet을 가져오고 네트워크 보안 그룹을 사용하여 네트워크 트래픽을 제어하는 경우 포트 443 외에도 포트 **9400** 에서 **인바운드** 트래픽을 허용합니다. 이로써 Kafka REST 프록시 서버에 도달할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 1. Azure AD에 애플리케이션을 등록합니다. Kafka REST 프록시와 상호 작용하도록 작성하는 클라이언트 애플리케이션은 이 애플리케이션의 ID 및 비밀을 사용하여 Azure에 인증합니다.
 
-1. Azure AD 보안 그룹을 만듭니다. 그룹의 **구성원**으로 Azure AD를 사용하여 보안 그룹에 등록한 애플리케이션을 추가합니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 애플리케이션을 제어하는 데 사용됩니다. Azure AD 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+1. Azure AD 보안 그룹을 만듭니다. 그룹의 **구성원** 으로 Azure AD를 사용하여 보안 그룹에 등록한 애플리케이션을 추가합니다. 이 보안 그룹은 REST 프록시와 상호 작용할 수 있는 애플리케이션을 제어하는 데 사용됩니다. Azure AD 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
     그룹이 **보안** 유형인지 확인합니다.
     ![보안 그룹](./media/rest-proxy/rest-proxy-group.png)
@@ -65,11 +65,11 @@ REST 프록시 엔드포인트 요청의 경우 클라이언트 애플리케이�
 
      ![보안 + 네트워킹이 선택 된 H + 정보 클러스터 만들기 페이지를 보여 주는 스크린샷](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
-1. **보안 그룹 선택**을 클릭합니다. 보안 그룹 목록에서 REST 프록시에 액세스하려는 보안 그룹을 선택합니다. 검색 상자를 사용하여 적절한 보안 그룹을 찾을 수 있습니다. 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **보안 그룹 선택** 을 클릭합니다. 보안 그룹 목록에서 REST 프록시에 액세스하려는 보안 그룹을 선택합니다. 검색 상자를 사용하여 적절한 보안 그룹을 찾을 수 있습니다. 아래쪽에서 **선택** 단추를 클릭합니다.
 
      ![스크린샷에는 보안 그룹을 선택 하는 옵션이 포함 된 H D 정보 클러스터 만들기 페이지가 표시 됩니다.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
-1. [Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started)에 설명된 대로 클러스터를 만드는 나머지 단계를 완료합니다.
+1. [Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기](./apache-kafka-get-started.md)에 설명된 대로 클러스터를 만드는 나머지 단계를 완료합니다.
 
 1. 클러스터가 만들어지면 클러스터 속성으로 이동하여 Kafka REST 프록시 URL을 입력합니다.
 
@@ -269,4 +269,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Kafka REST 프록시 API 참조 문서](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)
+* [Kafka REST 프록시 API 참조 문서](/rest/api/hdinsight-kafka-rest-proxy/)

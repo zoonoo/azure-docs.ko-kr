@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767348"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547710"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -23,7 +23,7 @@ ms.locfileid: "91767348"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-메시지 라우팅을 사용하면 메시지 속성 및 메시지 본문뿐만 아니라 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해서도 쿼리할 수 있습니다. 메시지 본문이 JSON이 아닌 경우 메시지 라우팅에서 메시지를 계속 라우팅할 수 있지만 메시지 본문에 쿼리를 적용할 수는 없습니다.  쿼리는 부울 식으로 기술되는데, 부울 true는 쿼리가 모든 들어오는 데이터의 라우팅에 성공한 것이고, 부울 false는 쿼리에 실패하여 라우팅된 데이터가 없는 것입니다. 식이 null 또는 정의되지 않은 것으로 평가되면 false로 처리되고 실패한 경우 진단 로그에 오류가 생성됩니다. 저장하고 평가할 경로에 대해 올바른 쿼리 구문을 사용해야 합니다.  
+메시지 라우팅을 사용하면 메시지 속성 및 메시지 본문뿐만 아니라 디바이스 쌍 태그 및 디바이스 쌍 속성에 대해서도 쿼리할 수 있습니다. 메시지 본문이 JSON이 아닌 경우 메시지 라우팅에서 메시지를 계속 라우팅할 수 있지만 메시지 본문에 쿼리를 적용할 수는 없습니다.  쿼리는 부울 식으로 기술되는데, 부울 true는 쿼리가 모든 들어오는 데이터의 라우팅에 성공한 것이고, 부울 false는 쿼리에 실패하여 라우팅된 데이터가 없는 것입니다. 식이 null 또는 undefined로 계산 되는 경우 false로 처리 되 고 오류가 발생 하는 경우 [리소스 로그](monitor-iot-hub-reference.md#routes) 로그를 라우팅하는 IoT Hub에서 오류가 생성 됩니다. 저장하고 평가할 경로에 대해 올바른 쿼리 구문을 사용해야 합니다.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>메시지 속성에 따른 메시지 라우팅 쿼리 
 
@@ -53,7 +53,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 시스템 속성을 사용하면 메시지의 콘텐츠 및 소스를 식별할 수 있습니다. 
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
 | contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
@@ -62,7 +62,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 | dt-dataschema | 문자열 |  이 값은 장치-클라우드 메시지의 IoT hub에 의해 설정 됩니다. 장치 연결에 설정 된 장치 모델 ID를 포함 합니다. 쿼리하려면 `$dt-dataschema`을 사용합니다. |
 | dt-주체 | 문자열 | 장치-클라우드 메시지를 전송 하는 구성 요소의 이름입니다. 쿼리하려면 `$dt-subject`을 사용합니다. |
 
-[IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. 위의 표에 나와 있는 위의 속성 외에도 **Connectiondeviceid**, **connectionModuleId**를 쿼리할 수 있습니다.
+[IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. 위의 표에 나와 있는 위의 속성 외에도 **Connectiondeviceid** , **connectionModuleId** 를 쿼리할 수 있습니다.
 
 ### <a name="application-properties"></a>애플리케이션 속성
 
@@ -70,7 +70,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예를 들면 다음과 같습니다. 
+메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 다음은 그 예입니다. 
 
 시스템 속성 contentEncoding에서 쿼리 
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Javascript에서 본문의 인코딩을 처리 하는 방법을 보여 줍니다. C #에서 샘플을 보려는 경우 [Azure IoT c # 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드 합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice*의 Program.cs 파일은 메시지를 인코딩 및 전송 하 여 IoT Hub 하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명 된 것 처럼 메시지 라우팅을 테스트 하는 데 사용 되는 것과 동일한 샘플입니다. Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드 하 여 읽을 수 있도록 ASCII로 다시 쓸 수 있는 메서드가 있습니다. 
+> Javascript에서 본문의 인코딩을 처리 하는 방법을 보여 줍니다. C #에서 샘플을 보려는 경우 [Azure IoT c # 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드 합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice* 의 Program.cs 파일은 메시지를 인코딩 및 전송 하 여 IoT Hub 하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명 된 것 처럼 메시지 라우팅을 테스트 하는 데 사용 되는 것과 동일한 샘플입니다. Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드 하 여 읽을 수 있도록 ASCII로 다시 쓸 수 있는 메서드가 있습니다. 
 
 
 ### <a name="query-expressions"></a>쿼리 식

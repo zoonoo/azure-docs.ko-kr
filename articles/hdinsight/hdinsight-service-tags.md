@@ -7,16 +7,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399959"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535249"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
 
-NSGs (네트워크 보안 그룹)에 대 한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. [서비스 태그](../virtual-network/security-overview.md#service-tags) 를 사용 하 여 nsgs에 각 [관리 IP 주소](hdinsight-management-ip-addresses.md) 를 입력 하지 않고도 특정 ip에서 인바운드 트래픽을 허용 합니다.
+NSGs (네트워크 보안 그룹)에 대 한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) 를 사용 하 여 nsgs에 각 [관리 IP 주소](hdinsight-management-ip-addresses.md) 를 입력 하지 않고도 특정 ip에서 인바운드 트래픽을 허용 합니다.
 
 HDInsight 서비스는 이러한 서비스 태그를 관리 합니다. 사용자 고유의 서비스 태그를 만들거나 기존 태그를 수정할 수 없습니다. Microsoft는 서비스 태그와 일치 하는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
 
@@ -26,9 +26,9 @@ HDInsight 서비스는 이러한 서비스 태그를 관리 합니다. 사용자
 
 네트워크 보안 그룹에서 서비스 태그를 사용 하는 방법에는 두 가지가 있습니다.
 
-- **단일 글로벌 HDInsight 서비스 태그 사용**:이 옵션은 HDInsight 서비스가 모든 지역에서 클러스터를 모니터링 하는 데 사용 하는 모든 IP 주소에 대 한 가상 네트워크를 엽니다. 이 옵션은 가장 간단한 방법 이지만 보안 요구 사항을 제한 하는 경우에는 적합 하지 않을 수 있습니다.
+- **단일 글로벌 HDInsight 서비스 태그 사용** :이 옵션은 HDInsight 서비스가 모든 지역에서 클러스터를 모니터링 하는 데 사용 하는 모든 IP 주소에 대 한 가상 네트워크를 엽니다. 이 옵션은 가장 간단한 방법 이지만 보안 요구 사항을 제한 하는 경우에는 적합 하지 않을 수 있습니다.
 
-- **여러 지역 서비스 태그 사용**:이 옵션은 HDInsight가 해당 특정 지역에서 사용 하는 IP 주소에 대해서만 가상 네트워크를 엽니다. 그러나 여러 지역을 사용 하는 경우 가상 네트워크에 여러 서비스 태그를 추가 해야 합니다.
+- **여러 지역 서비스 태그 사용** :이 옵션은 HDInsight가 해당 특정 지역에서 사용 하는 IP 주소에 대해서만 가상 네트워크를 엽니다. 그러나 여러 지역을 사용 하는 경우 가상 네트워크에 여러 서비스 태그를 추가 해야 합니다.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>단일 글로벌 HDInsight 서비스 태그 사용
 
@@ -36,11 +36,11 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 1. [Azure Portal](https://portal.azure.com/)에서 네트워크 보안 그룹을 선택 합니다.
 
-1. **설정**에서 **인바운드 보안 규칙**을 선택 하 고 **+ 추가**를 선택 합니다.
+1. **설정** 에서 **인바운드 보안 규칙** 을 선택 하 고 **+ 추가** 를 선택 합니다.
 
-1. **원본** 드롭다운 목록에서 **서비스 태그**를 선택 합니다.
+1. **원본** 드롭다운 목록에서 **서비스 태그** 를 선택 합니다.
 
-1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight**를 선택 합니다.
+1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight** 를 선택 합니다.
 
     ![Azure Portal에서 서비스 태그를 추가 합니다.](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -108,7 +108,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | 유럽 | 북유럽 | NorthEurope |
 | &nbsp; | 서유럽| WestEurope |
 | 아시아 | 동아시아 | HDInsight. E한글 |
-| &nbsp; | 동남 아시아 | SoutheastAsia |
+| &nbsp; | 동남아시아 | SoutheastAsia |
 | 오스트레일리아 | 오스트레일리아 동부 | AustraliaEast |
 
 #### <a name="group-2"></a>그룹 2
@@ -125,5 +125,5 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 ## <a name="next-steps"></a>다음 단계
 
-- [네트워크 보안 그룹: 서비스 태그](../virtual-network/security-overview.md#security-rules)
+- [네트워크 보안 그룹: 서비스 태그](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)

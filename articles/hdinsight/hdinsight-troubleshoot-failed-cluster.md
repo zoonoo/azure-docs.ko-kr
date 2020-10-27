@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 98e062b159b2df639923cb3cd3aac286f6051016
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490903"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535096"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생하는 작업 문제 해결
 
@@ -82,7 +82,7 @@ Apache Ambari는 웹 UI와 REST API를 사용하여 HDInsight 클러스터를 �
 
 ![Apache Ambari 대시보드 개요](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
 
-서비스 보기 목록을 열려면 Azure Portal 페이지에서 **Ambari Views**를 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다. 예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  구성 및 서비스 정보를 볼 서비스 링크를 선택합니다.
+서비스 보기 목록을 열려면 Azure Portal 페이지에서 **Ambari Views** 를 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다. 예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  구성 및 서비스 정보를 볼 서비스 링크를 선택합니다.
 
 #### <a name="check-for-azure-service-outages"></a>Azure 서비스 중단 확인
 
@@ -90,8 +90,8 @@ HDInsight는 여러 Azure 서비스를 사용합니다. Azure HDInsight에서 �
 
 #### <a name="check-azure-service-usage-limits"></a>Azure 서비스 사용 제한 확인
 
-대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)을 참조 하세요.
-[리소스 관리자 코어 할당량 증가 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)을 통해 Microsoft에 사용 가능한 HDInsight 리소스(예: VM 코어 및 VM 인스턴스) 수를 늘려 달라고 요청할 수 있습니다.
+대규모 클러스터를 시작하거나 많은 클러스터를 동시에 시작한 경우 Azure 서비스 제한을 초과하면 클러스터가 실패할 수 있습니다. 서비스 제한은 Azure 구독에 따라 다릅니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
+[리소스 관리자 코어 할당량 증가 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md)을 통해 Microsoft에 사용 가능한 HDInsight 리소스(예: VM 코어 및 VM 인스턴스) 수를 늘려 달라고 요청할 수 있습니다.
 
 #### <a name="check-the-release-version"></a>릴리스 버전 확인
 
@@ -115,7 +115,7 @@ HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 �
 
 ### <a name="check-your-webhcat-service"></a>WebHCat 서비스 확인
 
-Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 시나리오 중 하나는 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)(또는 *Templeton*) 서비스 오류입니다. WebHCat은 Hive, Pig, Scoop, MapReduce 같은 원격 작업 실행을 위한 REST 인터페이스입니다. WebHCat은 작업 제출 요청을 Apache Hadoop YARN 애플리케이션으로 변환하고, YARN 애플리케이션 상태에서 파생된 상태를 반환합니다.  다음 섹션에서는 일반적인 WebHCat HTTP 상태 코드를 설명합니다.
+Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 시나리오 중 하나는 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)(또는 *Templeton* ) 서비스 오류입니다. WebHCat은 Hive, Pig, Scoop, MapReduce 같은 원격 작업 실행을 위한 REST 인터페이스입니다. WebHCat은 작업 제출 요청을 Apache Hadoop YARN 애플리케이션으로 변환하고, YARN 애플리케이션 상태에서 파생된 상태를 반환합니다.  다음 섹션에서는 일반적인 WebHCat HTTP 상태 코드를 설명합니다.
 
 #### <a name="badgateway-502-status-code"></a>잘못된 게이트웨이(502 상태 코드)
 
@@ -172,7 +172,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
     `/var/log/webhcat/webhcat.log` 로그 파일을 열고 "큐에 대기 중인 작업"을 검색하면 실행 시간이 지나치게 긴(> 2000ms) 항목이 여러 개 표시되고, 항목의 대기 시간이 점점 길어지는 것을 볼 수 있습니다.
 
-    새 작업이 제출되는 속도가 기존 작업이 완료되는 시간보다 빠르기 때문에 큐에 대기 중인 작업의 시간이 점점 길어집니다. YARN 메모리가 100% 사용되면 *joblauncher 큐*가 더 이상 *기본 큐*에서 용량을 빌릴 수 없습니다. 따라서 더 이상 joblauncher 큐에 새 작업을 수락할 수 없습니다. 이 동작 때문에 대기 시간이 점점 길어질 수 있으며, 일반적으로 여러 오류 후에 시간 제한 오류가 발생할 수 있습니다.
+    새 작업이 제출되는 속도가 기존 작업이 완료되는 시간보다 빠르기 때문에 큐에 대기 중인 작업의 시간이 점점 길어집니다. YARN 메모리가 100% 사용되면 *joblauncher 큐* 가 더 이상 *기본 큐* 에서 용량을 빌릴 수 없습니다. 따라서 더 이상 joblauncher 큐에 새 작업을 수락할 수 없습니다. 이 동작 때문에 대기 시간이 점점 길어질 수 있으며, 일반적으로 여러 오류 후에 시간 제한 오류가 발생할 수 있습니다.
 
     다음 이미지는 초과 사용률이 714.4%인 joblauncher 큐입니다. 기본 큐에 빌려올 수 있는 용량이 남아 있는 한 계속 허용됩니다. 그러나 클러스터가 남김 없이 사용되고 YARN 메모리가 100% 용량에 도달하면 새 작업은 대기해야 하고, 결국 시간 제한이 발생합니다.
 
@@ -206,7 +206,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>4단계: 환경 스택 및 버전 검토
 
-Ambari UI **스택 및 버전** 페이지는 클러스터 서비스 구성 및 서비스 버전 기록에 대한 정보를 제공합니다.  Hadoop 서비스 라이브러리 버전이 잘못되면 클러스터가 실패할 수 있습니다.  Ambari UI에서 **Admin** 메뉴를 선택한 다음 **스택 및 버전**을 선택합니다.  해당 페이지에서 **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
+Ambari UI **스택 및 버전** 페이지는 클러스터 서비스 구성 및 서비스 버전 기록에 대한 정보를 제공합니다.  Hadoop 서비스 라이브러리 버전이 잘못되면 클러스터가 실패할 수 있습니다.  Ambari UI에서 **Admin** 메뉴를 선택한 다음 **스택 및 버전** 을 선택합니다.  해당 페이지에서 **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
 
 ![Apache Ambari Stack 및 버전](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -262,7 +262,7 @@ HDInsight 클러스터는 기본 설정을 사용하여 Hadoop, Hive, HBase 등�
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-* [HDInsight 로그 분석](hdinsight-debug-jobs.md)
+* [HDInsight 로그 분석](./hdinsight-troubleshoot-guide.md)
 * [Linux 기반 HDInsight에 대 한 액세스 Apache Hadoop YARN 응용 프로그램 로그인](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight의 Apache Spark 클러스터에 대한 알려진 문제](hdinsight-apache-spark-known-issues.md)
+* [HDInsight의 Apache Spark 클러스터에 대한 알려진 문제](./spark/apache-spark-known-issues.md)

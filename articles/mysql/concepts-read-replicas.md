@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151182"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537969"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -71,7 +71,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 원본 서버에 기존 복제본 서버가 없는 경우 원본 서버는 복제를 위해 자신을 준비 하기 위해 먼저 다시 시작 됩니다.
 
-복제본 만들기 워크플로를 시작하면 빈 Azure Database for MySQL 서버가 만들어집니다. 새 서버는 원본 서버에 있던 데이터로 채워집니다. 생성 시간은 원본의 데이터 양과 마지막 주간 전체 백업 이후 시간에 따라 달라 집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다. 복제본 서버는 항상 원본 서버와 동일한 리소스 그룹 및 구독에 생성 됩니다. 다른 리소스 그룹 또는 다른 구독에 대한 복제본 서버를 만들려는 경우 복제본 서버를 만든 후 [이동](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)할 수 있습니다.
+복제본 만들기 워크플로를 시작하면 빈 Azure Database for MySQL 서버가 만들어집니다. 새 서버는 원본 서버에 있던 데이터로 채워집니다. 생성 시간은 원본의 데이터 양과 마지막 주간 전체 백업 이후 시간에 따라 달라 집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다. 복제본 서버는 항상 원본 서버와 동일한 리소스 그룹 및 구독에 생성 됩니다. 다른 리소스 그룹 또는 다른 구독에 대한 복제본 서버를 만들려는 경우 복제본 서버를 만든 후 [이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)할 수 있습니다.
 
 모든 복제본은 스토리지 [자동 증가](concepts-pricing-tiers.md#storage-auto-grow)에 대해 사용하도록 설정됩니다. 자동 증가 기능을 사용하면 복제본에 복제된 데이터를 유지하고 스토리지 부족 오류로 인한 복제 중단을 방지할 수 있습니다.
 
@@ -83,7 +83,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 복제본이 원본 서버에서 관리자 계정을 상속 합니다. 원본 서버의 모든 사용자 계정이 읽기 복제본에 복제 됩니다. 원본 서버에서 사용할 수 있는 사용자 계정을 사용 하 여 읽기 복제본에만 연결할 수 있습니다.
 
-일반 Azure Database for MySQL 서버에서처럼 같이 해당 호스트 이름 및 유효한 사용자 계정을 사용하여 복제본에 연결할 수 있습니다. 관리 사용자 이름이 **myadmin**인 **myreplica**라는 서버의 경우 mysql CLI를 사용하여 복제본에 연결할 수 있습니다.
+일반 Azure Database for MySQL 서버에서처럼 같이 해당 호스트 이름 및 유효한 사용자 계정을 사용하여 복제본에 연결할 수 있습니다. 관리 사용자 이름이 **myadmin** 인 **myreplica** 라는 서버의 경우 mysql CLI를 사용하여 복제본에 연결할 수 있습니다.
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -109,11 +109,11 @@ Azure Database for MySQL은 Azure Monitor에 **복제 지연 시간(초)** 메�
 
 [복제본에 대한 복제를 중지](howto-read-replicas-portal.md)하는 방법을 알아봅니다.
 
-## <a name="failover"></a>장애 조치
+## <a name="failover"></a>장애 조치 
 
 원본 서버와 복제 서버 간에는 자동화 된 장애 조치 (failover)가 없습니다. 
 
-복제는 비동기 이므로 원본과 복제본 사이에 지연이 발생 합니다. 지연 시간은 원본 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 시간 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연*시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
+복제는 비동기 이므로 원본과 복제본 사이에 지연이 발생 합니다. 지연 시간은 원본 서버에서 실행 되는 워크 로드의 양과 데이터 센터 간의 대기 시간 등 여러 가지 요소에 의해 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 시간 범위는 몇 초에서 몇 분 사이입니다. 각 복제본에 대해 사용 가능한 메트릭 *복제본 지연* 시간을 사용 하 여 실제 복제 지연 시간을 추적할 수 있습니다. 이 메트릭은 마지막으로 재생 된 트랜잭션 이후 경과 된 시간을 표시 합니다. 일정 기간 동안 복제본 지연 시간을 관찰 하 여 평균 지연 시간을 확인 하는 것이 좋습니다. 복제본 지연에 대 한 경고를 설정 하 여 예상 범위를 벗어나면 작업을 수행할 수 있습니다.
 
 > [!Tip]
 > 복제본으로 장애 조치 (failover) 하는 경우 원본에서 복제본을 연결 취소 하는 시간에 지연 시간이 발생 하면 손실 되는 데이터의 양이 표시 됩니다.

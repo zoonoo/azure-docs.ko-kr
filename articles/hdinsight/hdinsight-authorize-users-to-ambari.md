@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086537"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547931"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
@@ -24,11 +24,11 @@ ms.locfileid: "86086537"
 > [!WARNING]  
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.
 
-새 ESP 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](./domain-joined/apache-domain-joined-configure.md)에 따라 프로비전하세요.
+새 ESP 클러스터를 아직 프로비전하지 않은 경우 [다음 지침](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)에 따라 프로비전하세요.
 
 ## <a name="access-the-ambari-management-page"></a>Ambari 관리 페이지 액세스
 
-[Apache Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지**로 이동하려면 `https://CLUSTERNAME.azurehdinsight.net`으로 이동하세요. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
+[Apache Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지** 로 이동하려면 `https://CLUSTERNAME.azurehdinsight.net`으로 이동하세요. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리** 를 선택합니다
 
 ![Apache Ambari 대시보드 관리](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -36,13 +36,13 @@ ms.locfileid: "86086537"
 
 ### <a name="add-users-through-the-portal"></a>포털을 통해 사용자 추가
 
-1. 관리 페이지에서 **사용자**를 선택 합니다.
+1. 관리 페이지에서 **사용자** 를 선택 합니다.
 
     ![Apache Ambari 관리 페이지 사용자](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. **+ 로컬 사용자 만들기**를 선택 합니다.
+1. **+ 로컬 사용자 만들기** 를 선택 합니다.
 
-1. **사용자 이름** 및 **암호**를 제공 합니다. **저장**을 선택 합니다.
+1. **사용자 이름** 및 **암호** 를 제공 합니다. **저장** 을 선택 합니다.
 
 ### <a name="add-users-through-powershell"></a>PowerShell을 통해 사용자 추가
 
@@ -167,7 +167,7 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Apache Hive View에 대한 권한 부여
 
-Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://tez.apache.org/)에 대한 보기 인스턴스가 함께 제공됩니다. 하나 이상의 Hive 보기 인스턴스에 대한 액세스 권한을 부여하려면 **Ambari 관리 페이지**로 이동합니다.
+Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://tez.apache.org/)에 대한 보기 인스턴스가 함께 제공됩니다. 하나 이상의 Hive 보기 인스턴스에 대한 액세스 권한을 부여하려면 **Ambari 관리 페이지** 로 이동합니다.
 
 1. 관리 페이지에서, 왼쪽에 있는 **Views** 메뉴 머리글 아래에서 **보기** 연결을 선택합니다.
 
@@ -191,14 +191,14 @@ Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://te
 
    * 사용자 이름을 선택하거나 직접 입력합니다. 이 사용자 이름을 새 사용자로 추가하려면 **새로 만들기** 단추를 선택합니다.
 
-   * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
+   * 변경 내용을 저장하려면 **파란색 확인란** 을 선택합니다.
 
      ![Apache Ambari grant 사용자 권한](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. 그룹을 추가하려면 **그룹 추가** 단추를 선택합니다.
 
    * 그룹 이름 입력을 시작합니다. 기존 그룹 이름을 선택하거나 새 그룹을 추가하는 프로세스는 사용자를 추가하는 프로세스와 똑같습니다.
-   * 변경 내용을 저장하려면 **파란색 확인란**을 선택합니다.
+   * 변경 내용을 저장하려면 **파란색 확인란** 을 선택합니다.
 
      ![Apache Ambari grant 권한](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
@@ -224,7 +224,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 * 서비스 운영자
 * 클러스터 사용자
 
-역할을 관리하려면 **Ambari 관리 페이지**로 이동한 후 왼쪽에 있는 *클러스터* 메뉴 내에서 **역할** 연결을 선택합니다.
+역할을 관리하려면 **Ambari 관리 페이지** 로 이동한 후 왼쪽에 있는 *클러스터* 메뉴 내에서 **역할** 연결을 선택합니다.
 
 ![Apache Ambari 역할 메뉴 링크](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 

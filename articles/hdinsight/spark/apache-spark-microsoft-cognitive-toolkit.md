@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: 659e44ddc13cf093d7e571e904e177136ed21127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94a4858b4c4fa99a09acc2bec88f94a64686c2d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084497"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539142"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
 이 문서에서는 다음 단계를 수행합니다.
 
-1. 사용자 지정 스크립트를 실행하여 Azure HDInsight Spark 클러스터에 [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/)를 설치합니다.
+1. 사용자 지정 스크립트를 실행하여 Azure HDInsight Spark 클러스터에 [Microsoft Cognitive Toolkit](/cognitive-toolkit/)를 설치합니다.
 
 2. [Apache Spark](https://spark.apache.org/) 클러스터에 [Jupyter Notebook](https://jupyter.org/)을 업로드하여 [Spark Python API(PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)를 통해 Azure Blob Storage 계정의 파일에 학습된 Microsoft Cognitive Toolkit 딥러닝 모델을 적용하는 방법을 확인합니다.
 
@@ -82,7 +82,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 1. 노트북을 업로드 한 후에는 노트북의 이름을 클릭 한 다음, 데이터 집합을 로드 하 고 문서를 수행 하는 방법에 대 한 노트북 자체의 지침을 따릅니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 

@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c0f5d8cdc7dda72f21fc1cf372e3796b26a3054a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127423"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545925"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 가상 어플라이언스 구성
 
 > [!Important]
-> 다음 정보는 [Azure 방화벽](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic)이외의 nva (네트워크 가상 어플라이언스)를 구성 하려는 경우에 **만** 필요 합니다.
+> 다음 정보는 [Azure 방화벽](./hdinsight-restrict-outbound-traffic.md)이외의 nva (네트워크 가상 어플라이언스)를 구성 하려는 경우에 **만** 필요 합니다.
 
 Azure 방화벽 FQDN 태그는 여러 가지 중요 한 Fqdn에 대 한 트래픽을 허용 하도록 자동으로 구성 됩니다. 다른 네트워크 가상 어플라이언스를 사용 하려면 몇 가지 추가 기능을 구성 해야 합니다. 네트워크 가상 어플라이언스를 구성할 때 다음 요소를 염두에 두어야 합니다.
 
 * 서비스 끝점을 사용 하 여 서비스 끝점을 구성할 수 있습니다. 이러한 서비스 끝점은 일반적으로 비용 또는 성능 고려 사항에 대해 NVA를 우회 합니다.
-* ResourceProviderConnection이 *아웃 바운드*로 설정 된 경우 metastore에 대 한 저장소 및 SQL server에 대 한 개인 끝점을 사용할 수 있으며 nva에 추가 하지 않아도 됩니다.
+* ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 metastore에 대 한 저장소 및 SQL server에 대 한 개인 끝점을 사용할 수 있으며 nva에 추가 하지 않아도 됩니다.
 * IP 주소 종속성은 비 HTTP/S 트래픽 (TCP 및 UDP 트래픽 모두)을 위한 것입니다.
 * NVA 장치에서 FQDN HTTP/HTTPS 끝점을 승인할 수 있습니다.
 * 만든 경로 테이블을 HDInsight 서브넷에 할당 합니다.
@@ -41,7 +41,7 @@ Azure 방화벽 FQDN 태그는 여러 가지 중요 한 Fqdn에 대 한 트래�
 
 | **엔드포인트** | **세부 정보** |
 |---|---|
-| [여기](hdinsight-management-ip-addresses.md) 에 게시 된 ip | 이러한 Ip는 HDInsight 리소스 공급자를 위한 것 이며 비대칭 라우팅을 방지 하려면 UDR에 포함 되어야 합니다. 이 규칙은 ResourceProviderConnection이 *Inbound*로 설정 된 경우에만 필요 합니다. ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 이러한 IP는 udr에 필요 하지 않습니다.  |
+| [여기](hdinsight-management-ip-addresses.md) 에 게시 된 ip | 이러한 Ip는 HDInsight 리소스 공급자를 위한 것 이며 비대칭 라우팅을 방지 하려면 UDR에 포함 되어야 합니다. 이 규칙은 ResourceProviderConnection이 *Inbound* 로 설정 된 경우에만 필요 합니다. ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 이러한 IP는 udr에 필요 하지 않습니다.  |
 | AAD-DS 개인 Ip | Vnet이 피어 링가 아닌 경우에만 ESP 클러스터에 필요 합니다.|
 
 

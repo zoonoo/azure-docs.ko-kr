@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087608"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536337"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션
 
@@ -23,14 +23,14 @@ Azure HDInsight의 ML Services는 컴퓨팅 컨텍스트를 설정하여 호출�
 
 ## <a name="ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services
 
-[Azure HDInsight의 ML Services](r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") storage 계정, Data Lake Store 또는 로컬 Linux 파일 시스템의 Apache Hadoop HDFS 컨테이너에 저장 된 데이터를 사용할 수 있습니다. ML 서비스는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000 개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. ML Services에 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)의 루틴을 사용할 수도 있습니다.  
+[Azure HDInsight의 ML Services](r-server-overview.md)는 R 기반 분석을 위한 최신 기능을 제공합니다. [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") storage 계정, Data Lake Store 또는 로컬 Linux 파일 시스템의 Apache Hadoop HDFS 컨테이너에 저장 된 데이터를 사용할 수 있습니다. ML 서비스는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000 개 이상의 오픈 소스 R 패키지를 적용할 수 있습니다. ML Services에 포함된 Microsoft의 빅 데이터 분석 패키지인 [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler)의 루틴을 사용할 수도 있습니다.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>에지 노드에 대한 Compute 컨텍스트
 
 일반적으로 에지 노드의 ML Services에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 RevoScaleR 함수를 호출하는 단계입니다. RevoScaleR 호출은 RevoScaleR 컴퓨팅 컨텍스트를 설정하는 방법에 따라 결정된 컴퓨팅 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 컴퓨팅 컨텍스트의 가능한 값은 다음과 같습니다.
 
-- 로컬 순차(*local*)
-- 로컬 병렬(*localpar*)
+- 로컬 순차( *local* )
+- 로컬 병렬( *localpar* )
 - Map Reduce
 - Spark
 
@@ -60,11 +60,11 @@ Azure HDInsight의 ML Services는 컴퓨팅 컨텍스트를 설정하여 호출�
 ### <a name="local"></a>로컬
 
 - 분석할 데이터의 양이 작고 반복 되는 분석을 요구 하지 않는 경우 *로컬 또는 지역* 도를 사용 하 여 분석 루틴으로 직접 *스트리밍합니다.*
-- 분석할 데이터의 양이 적거나 중간 크기이고 반복 분석이 필요한 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 *local* 또는 *localpar*를 통해 분석합니다.
+- 분석할 데이터의 양이 적거나 중간 크기이고 반복 분석이 필요한 경우 로컬 파일 시스템에 복사하고 XDF로 가져와서 *local* 또는 *localpar* 를 통해 분석합니다.
 
 ### <a name="apache-spark"></a>Apache Spark
 
-- 분석할 데이터 양이 많은 경우 **RxHiveData** 또는 **RxParquetData**를 사용하여 Spark DataFrame으로 가져오거나 스토리지 문제가 아닌 한 HDFS의 XDF로 가져와서 Spark 컴퓨팅 컨텍스트를 사용하여 분석합니다.
+- 분석할 데이터 양이 많은 경우 **RxHiveData** 또는 **RxParquetData** 를 사용하여 Spark DataFrame으로 가져오거나 스토리지 문제가 아닌 한 HDFS의 XDF로 가져와서 Spark 컴퓨팅 컨텍스트를 사용하여 분석합니다.
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Map Reduce
 
@@ -77,7 +77,7 @@ Azure HDInsight의 ML Services는 컴퓨팅 컨텍스트를 설정하여 호출�
 > ?rxSetComputeContext
 ```
 
-[Machine Learning 서버 설명서](https://docs.microsoft.com/machine-learning-server/)에서 [분산 컴퓨팅 개요](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing)를 참조할 수도 있습니다.
+[Machine Learning 서버 설명서](/machine-learning-server/)에서 [분산 컴퓨팅 개요](/machine-learning-server/r/how-to-revoscaler-distributed-computing)를 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,18 +7,18 @@ ms.service: mysql
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 4589687593abbe5667aa4b21b1361b68e4bed07f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b2670862814495ab04f92d8f34a757d3ede6cf4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428128"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546877"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MySQL은 서버의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
-모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다.
@@ -61,6 +61,6 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 
 ## <a name="next-steps"></a>다음 단계
 - 메트릭에 대 한 경고를 만드는 방법에 대 한 지침은 [경고를 설정 하는 방법을](howto-alert-on-metric.md) 참조 하세요.
-- Azure Portal, REST API 또는 CLI를 사용하여 메트릭에 액세스하고 내보내는 방법에 대한 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+- Azure Portal, REST API 또는 CLI를 사용하여 메트릭에 액세스하고 내보내는 방법에 대한 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 - [서버 모니터링에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/)는 블로그를 참조하세요.
 - Azure Database for MySQL의 [계획 된 유지 관리 알림에](./concepts-planned-maintenance-notification.md) 대 한 자세한 내용은 단일 서버

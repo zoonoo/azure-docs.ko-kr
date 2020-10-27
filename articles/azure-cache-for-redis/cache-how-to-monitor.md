@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004855"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536745"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache for Redis를 모니터링하는 방법
 
@@ -34,13 +34,13 @@ Azure Cache for Redis 인스턴스의 메트릭은 Redis [INFO](https://redis.io
 
 ### <a name="monitoring-charts"></a>모니터링 차트
 
-**개요** 블레이드의 **모니터링** 섹션에는 **적중 및 누락**, **가져오기 및 설정** 및 **연결** 및 **총 명령** 차트가 있습니다.
+**개요** 블레이드의 **모니터링** 섹션에는 **적중 및 누락** , **가져오기 및 설정** 및 **연결** 및 **총 명령** 차트가 있습니다.
 
 ![모니터링 차트](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>사용 현황 차트
 
-**개요** 블레이드의 **사용 현황** 섹션에는 **Redis 서버 부하**, **메모리 사용량**, **네트워크 대역폭** 및 **CPU 사용량** 차트가 있으며 캐시 인스턴스의 **가격 책정 계층**도 표시됩니다.
+**개요** 블레이드의 **사용 현황** 섹션에는 **Redis 서버 부하** , **메모리 사용량** , **네트워크 대역폭** 및 **CPU 사용량** 차트가 있으며 캐시 인스턴스의 **가격 책정 계층** 도 표시됩니다.
 
 ![사용 현황 차트](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -48,27 +48,27 @@ Azure Cache for Redis 인스턴스의 메트릭은 Redis [INFO](https://redis.io
 
 ## <a name="view-metrics-with-azure-monitor"></a>Azure Monitor의 메트릭 보기
 
-Azure Monitor를 사용하여 Redis 메트릭을 보고 사용자 지정 차트를 만들려면 **리소스 메뉴**에서 **메트릭**을 클릭하고 원하는 메트릭, 보고 간격, 차트 종류 등을 사용하여 차트를 사용자 지정합니다.
+Azure Monitor를 사용하여 Redis 메트릭을 보고 사용자 지정 차트를 만들려면 **리소스 메뉴** 에서 **메트릭** 을 클릭하고 원하는 메트릭, 보고 간격, 차트 종류 등을 사용하여 차트를 사용자 지정합니다.
 
 ![Redis 메트릭](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
+Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>캐시 메트릭 내보내기
 
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [스토리지 계정을 지정](../azure-monitor/platform/archive-diagnostic-logs.md)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [스토리지 계정을 지정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
 
 캐시 메트릭에 대한 스토리지 계정을 구성하려면
 
-1. **Redis 용 Azure Cache** 페이지의 **모니터링** 제목에서 **진단**을 선택 합니다.
-2. **+ 진단 설정 추가**를 선택합니다.
+1. **Redis 용 Azure Cache** 페이지의 **모니터링** 제목에서 **진단** 을 선택 합니다.
+2. **+ 진단 설정 추가** 를 선택합니다.
 3. 설정의 이름을로 설정 합니다.
-4. **스토리지 계정에 보관**을 선택합니다. 스토리지 계정에 진단을 보내는 경우 스토리지 및 트랜잭션에 대해 표준 데이터 요금이 부과됩니다.
+4. **스토리지 계정에 보관** 을 선택합니다. 스토리지 계정에 진단을 보내는 경우 스토리지 및 트랜잭션에 대해 표준 데이터 요금이 부과됩니다.
 4. **구성** 을 선택 하 여 캐시 메트릭을 저장할 저장소 계정을 선택 합니다.
-5. 테이블 제목 **메트릭**아래에 **allmetrics**같이 저장 하려는 품목 옆의 확인란을 선택 합니다. **보존 (일)** 정책을 지정 합니다. 지정할 수 있는 최대 보존 기간 (일)은 **365 일**입니다. 그러나 메트릭 데이터를 영구적으로 보존 하려면 **보존 (일)** 을 **0**으로 설정 합니다.
-6. **Save**을 클릭합니다.
+5. 테이블 제목 **메트릭** 아래에 **allmetrics** 같이 저장 하려는 품목 옆의 확인란을 선택 합니다. **보존 (일)** 정책을 지정 합니다. 지정할 수 있는 최대 보존 기간 (일)은 **365 일** 입니다. 그러나 메트릭 데이터를 영구적으로 보존 하려면 **보존 (일)** 을 **0** 으로 설정 합니다.
+6. **Save** 을 클릭합니다.
 
 
 ![Redis 진단](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 
 ## <a name="available-metrics-and-reporting-intervals"></a>사용 가능한 메트릭 및 보고 간격
 
-캐시 메트릭은 **지난 시간**, **오늘**, **지난 주** 및 **사용자 지정**을 비롯한 몇 가지 보고 간격을 사용하여 보고됩니다. 각 메트릭 차트의 **메트릭** 블레이드에는 차트의 각 메트릭에 대한 평균, 최소값 및 최대값이 표시되고 일부 메트릭의 경우 보고 간격에 대한 총계가 표시됩니다. 
+캐시 메트릭은 **지난 시간** , **오늘** , **지난 주** 및 **사용자 지정** 을 비롯한 몇 가지 보고 간격을 사용하여 보고됩니다. 각 메트릭 차트의 **메트릭** 블레이드에는 차트의 각 메트릭에 대한 평균, 최소값 및 최대값이 표시되고 일부 메트릭의 경우 보고 간격에 대한 총계가 표시됩니다. 
 
 각 메트릭은 두 가지 버전을 포함합니다. 하나의 메트릭은 전체 캐시 및 [클러스터링](cache-how-to-premium-clustering.md)을 사용하는 캐시에 대한 성능을 측정합니다. 이름에 `(Shard 0-9)`를 포함하는 메트릭의 차기 버전은 캐시에서 단일 분할에 대한 성능을 측정합니다. 예를 들어 캐시에 4 개의 분할가 있는 경우 `Cache Hits` 은 전체 캐시에 대 한 총 적중 수이 고는 `Cache Hits (Shard 3)` 캐시의 해당 분할 된 항목에 대 한 적중만 발생 합니다.
 
@@ -125,11 +125,11 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 * 웹후크 호출
 * Azure 논리 앱 호출
 
-캐시에 대한 경고 규칙을 구성하려면 **리소스 메뉴**에서 **경고 규칙**을 클릭합니다.
+캐시에 대한 경고 규칙을 구성하려면 **리소스 메뉴** 에서 **경고 규칙** 을 클릭합니다.
 
 ![모니터링](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-경고 구성 및 사용에 대한 자세한 내용은 [경고 개요](../monitoring-and-diagnostics/insights-alerts-portal.md)를 참조하세요.
+경고 구성 및 사용에 대한 자세한 내용은 [경고 개요](../azure-monitor/platform/alerts-classic-portal.md)를 참조하세요.
 
 ## <a name="activity-logs"></a>활동 로그
 활동 로그는 Azure Cache for Redis 인스턴스에서 수행된 작업에 대한 정보를 제공합니다. 이전에는 이러한 로그를 "감사 로그" 또는 "작업 로그"라고도 했습니다. 활동 로그를 통해 Azure Cache for Redis 인스턴스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 "무엇을, 누가, 언제"를 판단할 수 있습니다. 
@@ -138,6 +138,6 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 > 활동 로그에는 읽기(GET) 작업은 포함되지 않습니다.
 >
 
-캐시에 대한 활동 로그를 보려면 **리소스 메뉴**에서 **활동 로그**를 클릭합니다.
+캐시에 대한 활동 로그를 보려면 **리소스 메뉴** 에서 **활동 로그** 를 클릭합니다.
 
 활동 로그에 대한 자세한 내용은 [Azure 활동 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.

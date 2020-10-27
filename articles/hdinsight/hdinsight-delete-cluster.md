@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d91161127b3fd3b63d7a5cc76df2fbeb33b62f34
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 97aa37d5bc99295de7b827467b8c6db551c34ef7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479836"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547540"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>브라우저, PowerShell 또는 Azure CLI를 사용하여 HDInsight 클러스터 삭제
 
-클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 청구는 분당 등급이 지정 되므로 더 이상 사용 하지 않을 때는 항상 클러스터를 삭제 해야 합니다. 이 문서에서는 [Azure Portal](https://portal.azure.com), [Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/)및 [Azure CLI](/cli/azure/)를 사용 하 여 클러스터를 삭제 하는 방법에 대해 알아봅니다.
+클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 청구는 분당 등급이 지정 되므로 더 이상 사용 하지 않을 때는 항상 클러스터를 삭제 해야 합니다. 이 문서에서는 [Azure Portal](https://portal.azure.com), [Azure PowerShell Az module](/powershell/azure/)및 [Azure CLI](/cli/azure/)를 사용 하 여 클러스터를 삭제 하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]  
 > HDInsight 클러스터를 삭제해도 클러스터와 연결된 Azure Storage 계정 또는 Data Lake Storage는 삭제되지 않습니다. 나중에 해당 서비스에 저장된 데이터를 다시 사용할 수 있습니다.
