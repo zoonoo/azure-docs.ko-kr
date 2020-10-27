@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c112896e78c07fafa2d714b0533db1f58dd57ffd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361639"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535606"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
@@ -228,7 +228,7 @@ Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으�
 
 Azure 인프라 고가용성 및 스토리지 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
-![Azure 인프라 고가용성을 활용하여 SAP 애플리케이션 "고가용성" 확보][planning-guide-figure-2900]
+![Azure 인프라 고가용성 및 저장소 계정을 사용 하는 SAP NetWeaver 시스템의 아키텍처를 보여 주는 다이어그램입니다.][planning-guide-figure-2900]
 
 Azure 인프라 고가용성 및 관리 디스크를 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 

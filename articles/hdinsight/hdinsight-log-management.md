@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487231"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546027"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -77,11 +77,11 @@ HDInsight 클러스터에서 실행 중인 워크로드 유형을 이해하여 �
 
 Apache Ambari는 웹 UI 및 REST API를 제공하므로 HDInsight 클러스터의 관리, 구성 및 모니터링이 간단합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있습니다. Azure Portal HDInsight 페이지에서 **클러스터 대시보드** 창을 선택 하 여 **클러스터 대시보드** 링크 페이지를 엽니다.  다음으로 **HDInsight 클러스터 대시보드** 창을 선택하여 Ambari UI를 엽니다.  클러스터 로그인 자격 증명을 입력 하 라는 메시지가 표시 됩니다.
 
-서비스 보기 목록을 열려면 HDInsight의 Azure Portal 페이지에서 **Ambari 보기** 창을 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다.  예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  아무 서비스 링크를 선택하여 구성 및 서비스 정보를 살펴봅니다.  Ambari UI **스택 및 버전** 페이지는 클러스터 서비스의 구성 및 서비스 버전 기록에 대한 정보를 제공합니다. Ambari UI에서 이 섹션으로 이동하려면 **관리자** 메뉴를 선택한 다음 **스택 및 버전**을 선택합니다.  **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
+서비스 보기 목록을 열려면 HDInsight의 Azure Portal 페이지에서 **Ambari 보기** 창을 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다.  예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  아무 서비스 링크를 선택하여 구성 및 서비스 정보를 살펴봅니다.  Ambari UI **스택 및 버전** 페이지는 클러스터 서비스의 구성 및 서비스 버전 기록에 대한 정보를 제공합니다. Ambari UI에서 이 섹션으로 이동하려면 **관리자** 메뉴를 선택한 다음 **스택 및 버전** 을 선택합니다.  **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
 
 ![Apache Ambari admin Stack 및 버전](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Ambari UI를 사용하여 클러스터의 특정 호스트(또는 노드)에서 실행 중인 특정 서비스 또는 모든 서비스에 대한 구성을 다운로드할 수 있습니다.  **호스트** 메뉴를 선택한 다음 원하는 호스트의 링크를 선택합니다. 해당 호스트의 페이지에서 **호스트 작업** 단추를 선택한 다음 **클라이언트 구성 다운로드**를 선택합니다.
+Ambari UI를 사용하여 클러스터의 특정 호스트(또는 노드)에서 실행 중인 특정 서비스 또는 모든 서비스에 대한 구성을 다운로드할 수 있습니다.  **호스트** 메뉴를 선택한 다음 원하는 호스트의 링크를 선택합니다. 해당 호스트의 페이지에서 **호스트 작업** 단추를 선택한 다음 **클라이언트 구성 다운로드** 를 선택합니다.
 
 ![Apache Ambari 다운로드 호스트 클라이언트 configs](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -109,9 +109,9 @@ log4j.logger.alerts=DEBUG,alerts
 
 ### <a name="access-the-hadoop-log-files"></a>Hadoop 로그 파일에 액세스
 
-HDInsight는 클러스터 파일 시스템에 로그 파일을 저장 하 고 Azure Storage에 저장 합니다. 클러스터에 대 한 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 연결을 열고 파일 시스템을 검색 하거나 원격 헤드 노드 서버에서 Hadoop YARN 상태 포털을 사용 하 여 클러스터의 로그 파일을 검사할 수 있습니다. Azure Storage에서 데이터에 액세스 하 고 다운로드할 수 있는 도구 중 하나를 사용 하 여 Azure Storage에서 로그 파일을 검사할 수 있습니다. 예는 [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)및 Visual Studio 서버 탐색기입니다. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
+HDInsight는 클러스터 파일 시스템에 로그 파일을 저장 하 고 Azure Storage에 저장 합니다. 클러스터에 대 한 [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 연결을 열고 파일 시스템을 검색 하거나 원격 헤드 노드 서버에서 Hadoop YARN 상태 포털을 사용 하 여 클러스터의 로그 파일을 검사할 수 있습니다. Azure Storage에서 데이터에 액세스 하 고 다운로드할 수 있는 도구 중 하나를 사용 하 여 Azure Storage에서 로그 파일을 검사할 수 있습니다. 예는 [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)및 Visual Studio 서버 탐색기입니다. PowerShell 및 Azure Storage 클라이언트 라이브러리를 사용하거나 Azure .NET SDK를 사용하여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
-Hadoop은 클러스터의 다양한 노드에서 작업을 *작업 시도*로 실행합니다. HDInsight는 추측 작업 시도를 시작 하 여 먼저 완료 되지 않는 다른 작업 시도를 종료할 수 있습니다. 이로 인해 컨트롤러, stderr 및 syslog 로그 파일에 즉시 기록되는 활동이 상당히 많이 생성됩니다. 뿐만 아니라 여러 작업 시도가 동시에 실행되지만 로그 파일은 결과를 선형적으로만 표시할 수 있습니다.
+Hadoop은 클러스터의 다양한 노드에서 작업을 *작업 시도* 로 실행합니다. HDInsight는 추측 작업 시도를 시작 하 여 먼저 완료 되지 않는 다른 작업 시도를 종료할 수 있습니다. 이로 인해 컨트롤러, stderr 및 syslog 로그 파일에 즉시 기록되는 활동이 상당히 많이 생성됩니다. 뿐만 아니라 여러 작업 시도가 동시에 실행되지만 로그 파일은 결과를 선형적으로만 표시할 수 있습니다.
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Azure Blob Storage에 기록된 HDInsight 로그
 
@@ -144,13 +144,13 @@ YARN ResourceManager UI는 클러스터 헤드 노드에서 실행되며 Ambari 
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 2. 왼쪽에 있는 서비스 목록에서 YARN을 선택합니다.
-3. 빠른 링크 드롭다운에서 클러스터 헤드 노드 중 하나를 선택한 다음 **ResourceManager 로그**를 선택합니다. YARN 로그에 대 한 링크 목록이 표시 됩니다.
+3. 빠른 링크 드롭다운에서 클러스터 헤드 노드 중 하나를 선택한 다음 **ResourceManager 로그** 를 선택합니다. YARN 로그에 대 한 링크 목록이 표시 됩니다.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4단계: 로그 볼륨 스토리지 크기 및 비용 예측
 
 이전 단계에서는 HDInsight 클러스터가 생성하는 로그 파일의 종류와 볼륨을 알아보았습니다.
 
-다음으로 일정 기간의 핵심 로그 스토리지 위치에 있는 로그 데이터 볼륨을 분석합니다. 예를 들어 30-60-90일의 볼륨 및 성장을 분석할 수 있습니다.  이 정보를 스프레드시트에 기록하거나 Visual Studio, Azure Storage Explorer, Microsoft Excel용 파워 쿼리 같은 다른 도구를 사용합니다. 자세한 내용은 [HDInsight 로그 분석](hdinsight-debug-jobs.md)을 참조하세요.  
+다음으로 일정 기간의 핵심 로그 스토리지 위치에 있는 로그 데이터 볼륨을 분석합니다. 예를 들어 30-60-90일의 볼륨 및 성장을 분석할 수 있습니다.  이 정보를 스프레드시트에 기록하거나 Visual Studio, Azure Storage Explorer, Microsoft Excel용 파워 쿼리 같은 다른 도구를 사용합니다. ```
 
 핵심 로그에 대한 로그 관리 전략을 만드는 데 필요한 정보가 충분히 수집되었습니다.  스프레드시트(또는 원하는 도구)를 사용하여 향후 Azure 서비스에서 감당할 로그 크기 증가 및 로그 스토리지를 예측합니다.  또한 조사 중인 로그 집합에 대 한 로그 보존 요구 사항도 고려해 야 합니다.  이제 로그 파일을 삭제할 수 있는 로그 파일 (있는 경우)을 확인 하 고 비용이 적게 드는 Azure Storage에 보관 하 고 보관 해야 하는 로그를 확인 한 후에 이후 로그 저장소 비용을 다시 예측할 수 있습니다.
 
@@ -186,6 +186,6 @@ Hadoop 용 .NET SDK를 사용 하 여 HDInsight 클러스터에 대 한 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 모니터링 및 로깅 연습](https://msdn.microsoft.com/library/dn749790.aspx)
+* [HDInsight의 모니터링 및 로깅 연습](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Linux 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스 Apache Hadoop](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [다양한 Apache Hadoop 구성 요소의 로그 파일 크기를 제어하는 방법](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

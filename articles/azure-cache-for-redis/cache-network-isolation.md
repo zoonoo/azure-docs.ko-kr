@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222909"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537476"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Redis 용 Azure Cache 네트워크 격리 옵션 
 이 문서에서는 사용자의 요구에 가장 적합 한 네트워크 격리 솔루션을 확인 하는 방법을 알아봅니다. Azure 개인 링크, Azure Virtual Network (VNet) 주입 및 Azure 방화벽 규칙에 대 한 기본 사항을 활용 하 여 장점과 제한 사항을 설명 합니다.  
@@ -21,7 +21,7 @@ Azure 개인 링크는 가상 네트워크에서 Azure PaaS 서비스로 개인 
 
 ### <a name="advantages"></a>장점
 * Redis 인스턴스에 대 한 Basic, Standard 및 Premium Azure Cache에서 지원 됩니다. 
-* [Azure 개인 링크](/azure/private-link/private-link-overview)를 사용 하 여 가상 네트워크 내의 서브넷에서 개인 IP 주소가 할당 된 개인 끝점을 통해 가상 네트워크에서 azure Cache 인스턴스에 연결할 수 있습니다. 이를 통해 캐시 인스턴스는 VNet 내에서 공개적으로 사용할 수 있습니다.  
+* [Azure 개인 링크](../private-link/private-link-overview.md)를 사용 하 여 가상 네트워크 내의 서브넷에서 개인 IP 주소가 할당 된 개인 끝점을 통해 가상 네트워크에서 azure Cache 인스턴스에 연결할 수 있습니다. 이를 통해 캐시 인스턴스는 VNet 내에서 공개적으로 사용할 수 있습니다.  
 * 개인 끝점을 만든 후에는 플래그를 통해 공용 네트워크에 대 한 액세스를 제한할 수 있습니다 `publicNetworkAccess` . 이 플래그는 기본적으로로 설정 되어 `Enabled` 있으며, 캐시에 대 한 공용 및 개인 링크 액세스를 모두 허용 하는 옵션을 제공 합니다. 로 설정 되 면 `Disabled` 개인 링크 액세스만 허용 됩니다. PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` . 자세한 내용은 azure [개인 링크를 사용 하는 Redis 용 Azure Cache (미리 보기)](cache-private-link.md)를 참조 하세요. 
 * 모든 외부 캐시 종속성은 VNet의 NSG 규칙에 영향을 주지 않습니다.
 
@@ -51,7 +51,7 @@ VNet은 Azure에서 개인 네트워크의 기본 구성 요소입니다. VNet�
 
 
 ## <a name="azure-firewall-rules"></a>Azure 방화벽 규칙
-[Azure 방화벽](/azure/firewall/overview) 은 azure VNet 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 되는 고가용성 및 무제한 클라우드 확장성을 갖춘 완벽 한 상태 저장 방화벽으로 서의 서비스입니다. 구독 및 가상 네트워크 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다.  
+[Azure 방화벽](../firewall/overview.md) 은 azure VNet 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 되는 고가용성 및 무제한 클라우드 확장성을 갖춘 완벽 한 상태 저장 방화벽으로 서의 서비스입니다. 구독 및 가상 네트워크 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다.  
 
 ### <a name="advantages"></a>장점
 * 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 구성된 경우에도 Azure Cache for Redis 모니터링 시스템의 연결은 항상 허용됩니다. 또한 사용자가 정의 하는 NSG 규칙이 허용 됩니다.  
@@ -63,4 +63,4 @@ VNet은 Azure에서 개인 네트워크의 기본 구성 요소입니다. VNet�
 ## <a name="next-steps"></a>다음 단계
 * [Redis 인스턴스에 대 한 프리미엄 Azure 캐시에 대해 VNet 삽입 캐시](cache-how-to-premium-vnet.md)를 구성 하는 방법에 대해 알아봅니다.  
 * [Redis 계층에 대 한 모든 Azure 캐시에 대 한 방화벽 규칙](cache-configure.md#firewall)을 구성 하는 방법을 알아봅니다. 
-* [Redis 계층에 대 한 모든 Azure 캐시에 대 한 개인 끝점을 구성](cache-private-link.md)하는 방법을 알아봅니다. 
+* [Redis 계층에 대 한 모든 Azure 캐시에 대 한 개인 끝점을 구성](cache-private-link.md)하는 방법을 알아봅니다.

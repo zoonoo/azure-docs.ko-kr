@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 583a5bcac71265596127c7860c0509963f76b2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080944"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534331"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "86080944"
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
-* Data Lake Storage Gen1을 스토리지로 사용하는 Azure HDInsight Spark 클러스터. [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)의 지침을 따르세요.
+* Data Lake Storage Gen1을 스토리지로 사용하는 Azure HDInsight Spark 클러스터. [빠른 시작: HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md)의 지침을 따르세요.
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
@@ -58,24 +58,24 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
     Copy Completed. 1 file copied.
     ```
 
-    데이터 파일(**HVAC.csv**)은 Data Lake Storage 계정의 **/hvac** 폴더에 복사됩니다.
+    데이터 파일( **HVAC.csv** )은 Data Lake Storage 계정의 **/hvac** 폴더에 복사됩니다.
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1을 포함한 HDInsight Spark 클러스터 사용
 
-1. [Azure Portal](https://portal.azure.com/)시작 보드에서 Apache Spark 클러스터 (시작 보드에 고정 한 경우)에 대 한 타일을 클릭 합니다. **모든**  >  **HDInsight 클러스터**찾아보기에서 클러스터로 이동할 수도 있습니다.
+1. [Azure Portal](https://portal.azure.com/)시작 보드에서 Apache Spark 클러스터 (시작 보드에 고정 한 경우)에 대 한 타일을 클릭 합니다. **모든**  >  **HDInsight 클러스터** 찾아보기에서 클러스터로 이동할 수도 있습니다.
 
-2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+2. Spark 클러스터 블레이드에서 **빠른 연결** 을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook** 을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]  
    > 또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-3. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 다음 **PySpark**를 클릭합니다.
+3. 새 Notebook을 만듭니다. **새로 만들기** 를 클릭한 다음 **PySpark** 를 클릭합니다.
 
     ![새 Jupyter 노트북 만들기](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "새 Jupyter 노트북 만들기")
 
-4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣고 **SHIFT + ENTER**를 누릅니다.
+4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣고 **SHIFT + ENTER** 를 누릅니다.
 
     ```scala
     from pyspark.sql.types import *
@@ -105,7 +105,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
         adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
         ```
 
-     빈 셀에 다음 코드 예제를 붙여넣습니다. 이때 **MYDATALAKESTORE**를 Data Lake Storage 계정 이름으로 바꾸고 **Shift+Enter**를 누릅니다. 이 코드 예제는 **hvac**라는 임시 테이블에 데이터로 등록됩니다.
+     빈 셀에 다음 코드 예제를 붙여넣습니다. 이때 **MYDATALAKESTORE** 를 Data Lake Storage 계정 이름으로 바꾸고 **Shift+Enter** 를 누릅니다. 이 코드 예제는 **hvac** 라는 임시 테이블에 데이터로 등록됩니다.
 
       ```scala
       # Load the data. The path below assumes Data Lake Storage is   default storage for the Spark cluster
@@ -124,7 +124,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
       hvacdf.registerTempTable("hvac")
       ```
 
-6. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
+6. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac** 에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
     ```sql
     %%sql
@@ -138,7 +138,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
      ![쿼리 결과의 영역 그래프](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "쿼리 결과의 영역 그래프")
 
-8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
+8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지** 를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 
 
 ## <a name="next-steps"></a>다음 단계

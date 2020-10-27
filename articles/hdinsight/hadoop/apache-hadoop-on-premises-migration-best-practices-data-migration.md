@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 9794dd47949dc7dea891893dbcf261808ab335fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a2c734b256ad934b7a17d7cefd1783b406e766
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521380"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537187"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
@@ -24,15 +24,15 @@ ms.locfileid: "86521380"
 온-프레미스에서 Azure 환경으로 데이터를 마이그레이션하는 두 가지 주요 옵션이 있습니다.
 
 * TLS를 사용하여 네트워크를 통해 데이터 전송
-    * 인터넷 - Azure Storage Explorer, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다. 자세한 내용은 [Azure Storage 간 데이터 이동](../../storage/common/storage-moving-data.md)을 참조 하세요.
+    * 인터넷 - Azure Storage Explorer, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다. 자세한 내용은 [Azure Storage 간 데이터 이동](../../storage/common/storage-choose-data-transfer-solution.md)을 참조 하세요.
 
     * Express Route - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 프라이빗 연결을 만들어 주는 Azure 서비스입니다. Express 경로 연결은 공용 인터넷을 사용 하지 않으며 인터넷을 통한 일반 연결 보다 더 높은 보안, 안정성 및 속도의 대기 시간을 제공 합니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
 
-    * Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 스토리지 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](https://docs.microsoft.com/azure/databox-online/)을 참조하세요.
+    * Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 스토리지 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](../../databox-online/index.yml)을 참조하세요.
 
 * 오프라인 데이터 배송
 
-    Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다. Data Box 오프 라인 전송 장치에 대 한 자세한 내용은 [Azure Data Box 설명서-오프 라인 전송](https://docs.microsoft.com/azure/databox/)을 참조 하세요. Hadoop 클러스터의 마이그레이션에 대 한 자세한 내용은 [Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)을 참조 하세요.
+    Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 디바이스는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 디바이스에서 데이터를 삭제합니다. Data Box 오프 라인 전송 장치에 대 한 자세한 내용은 [Azure Data Box 설명서-오프 라인 전송](../../databox/index.yml)을 참조 하세요. Hadoop 클러스터의 마이그레이션에 대 한 자세한 내용은 [Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md)을 참조 하세요.
 
 다음 표에는 데이터 볼륨 및 네트워크 대역폭에 따른 대략적인 데이터 전송 기간이 정리되어 있습니다. 데이터 마이그레이션 예상 시간이 3주를 초과하는 경우 Data Box를 사용합니다.
 

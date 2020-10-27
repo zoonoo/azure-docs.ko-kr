@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500507"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537697"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
@@ -26,13 +26,13 @@ Azure 클래식 CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를
 > [!NOTE]
 > 최신 Azure CLI 샘플 스크립트는 [Azure CLI Azure Cache for Redis 샘플](cli-samples.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들고 관리하려면 다음 단계를 완료해야 합니다.
 
 * Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
-* [Azure 클래식 CLI를 설치](../cli-install-nodejs.md)합니다.
+* [Azure 클래식 CLI를 설치](/cli/azure/install-classic-cli)합니다.
 * Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결하고 `azure login` 명령을 사용하여 클래식 CLI에서 로그인합니다.
-* 다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 클래식 CLI를 Resource Manager 모드로 전환합니다. 자세한 내용은 [Azure 리소스 및 리소스 그룹 관리를 위해 Azure 클래식 CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
+* 다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 클래식 CLI를 Resource Manager 모드로 전환합니다. 자세한 내용은 [Azure 리소스 및 리소스 그룹 관리를 위해 Azure 클래식 CLI 사용](../azure-resource-manager/management/manage-resources-cli.md)을 참조하세요.
 
 ## <a name="azure-cache-for-redis-properties"></a>Azure Cache for Redis 속성
 Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용되는 속성은 다음과 같습니다.

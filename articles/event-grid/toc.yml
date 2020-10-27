@@ -248,13 +248,13 @@
           href: move-partner-namespaces-across-regions.md
     - name: 보안
       items:
-        - name: 프라이빗 엔드포인트 구성
+        - name: 프라이빗 링크를 통해 안전하게 이벤트 게시
           href: configure-private-endpoints.md
         - name: IP 방화벽 구성
           href: configure-firewall.md
         - name: Azure Active Directory를 사용한 보안 웹후크
           href: secure-webhook-delivery.md
-        - name: 관리 ID를 사용하여 이벤트 전달
+        - name: '이벤트 전달, 관리 ID 및 프라이빗 링크'
           href: managed-service-identity.md
     - name: 문제 해결
       items:

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103342"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535470"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "92103342"
 
 HDInsight 클러스터는 일반적으로 가상 네트워크에 배포됩니다. 클러스터에는 해당 가상 네트워크 외부의 서비스에 대해 종속성이 있습니다.
 
-인바운드 관리 트래픽은 방화벽을 통해 전송할 수 없습니다. [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags)에 설명 된 대로 인바운드 트래픽에 대 한 nsg 서비스 태그를 사용할 수 있습니다. 
+인바운드 관리 트래픽은 방화벽을 통해 전송할 수 없습니다. [여기](./hdinsight-service-tags.md)에 설명 된 대로 인바운드 트래픽에 대 한 nsg 서비스 태그를 사용할 수 있습니다. 
 
 HDInsight 아웃바운드 트래픽 종속성은 FQDN으로 거의 완전히 정의되어 있습니다. 고정 IP 주소가 없는 경우가 여기에 해당합니다. 고정 주소가 없으면 NSG(네트워크 보안 그룹)에서 클러스터의 아웃바운드 트래픽을 잠글 수 없습니다. IP 주소가 변경 되 면 현재 이름 확인 및 사용에 따라 규칙을 설정할 수 없는 경우가 많습니다.
 
@@ -41,19 +41,19 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
 
 ### <a name="create-new-subnet"></a>새 서브넷 만들기
 
-클러스터가 있는 가상 네트워크에 **AzureFirewallSubnet**이라는 서브넷을 만듭니다.
+클러스터가 있는 가상 네트워크에 **AzureFirewallSubnet** 이라는 서브넷을 만듭니다.
 
 ### <a name="create-a-new-firewall-for-your-cluster"></a>클러스터에 대해 새 방화벽 만들기
 
-**방화벽 배포**의 단계를 사용하여 **Test-FW01**이라는 방화벽을 만듭니다. 이 단계는 [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)을 참조하세요.
+**방화벽 배포** 의 단계를 사용하여 **Test-FW01** 이라는 방화벽을 만듭니다. 이 단계는 [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall)을 참조하세요.
 
 ### <a name="configure-the-firewall-with-application-rules"></a>애플리케이션 규칙을 사용하여 방화벽 구성
 
 클러스터가 중요한 통신을 주고받을 수 있도록 하는 애플리케이션 규칙 컬렉션을 만듭니다.
 
-1. Azure Portal에서 새 방화벽 **Test-FW01**을 선택합니다.
+1. Azure Portal에서 새 방화벽 **Test-FW01** 을 선택합니다.
 
-1. **설정** > **규칙** > **애플리케이션 규칙 컬렉션** >  **+ 애플리케이션 규칙 컬렉션 추가**로 이동합니다.
+1. **설정** > **규칙** > **애플리케이션 규칙 컬렉션** >  **+ 애플리케이션 규칙 컬렉션 추가** 로 이동합니다.
 
     ![제목: 애플리케이션 규칙 컬렉션 추가](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -75,7 +75,7 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
 
     **대상 FQDN 섹션**
 
-    | 속성 | 원본 주소 | 프로토콜: 포트 | 대상 FQDN | 메모 |
+    | 속성 | 원본 주소 | 프로토콜:포트 | 대상 FQDN | 메모 |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Windows 로그인 작업을 허용합니다. |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용합니다. |
@@ -83,13 +83,13 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
 
    ![제목: 애플리케이션 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
 ### <a name="configure-the-firewall-with-network-rules"></a>네트워크 규칙을 사용하여 방화벽 구성
 
 HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙을 만듭니다.
 
-1. 이전 단계에서 계속해서 **네트워크 규칙 컬렉션** >  **+ 네트워크 규칙 컬렉션 추가**로 이동합니다.
+1. 이전 단계에서 계속해서 **네트워크 규칙 컬렉션** >  **+ 네트워크 규칙 컬렉션 추가** 로 이동합니다.
 
 1. **네트워크 규칙 컬렉션 추가** 화면에서 다음 정보를 제공합니다.
 
@@ -110,23 +110,23 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
     
    ![제목: 애플리케이션 규칙 컬렉션 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
 ### <a name="create-and-configure-a-route-table"></a>경로 테이블 만들기 및 구성
 
 다음 항목을 사용하여 경로 테이블을 만듭니다.
 
-* [상태 및 관리 서비스](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) 에서 다음 홉 유형의 **인터넷**을 사용 하는 모든 IP 주소입니다. 특정 지역에 대 한 두 개의 Ip 뿐만 아니라 일반 지역의 4 개의 Ip를 포함 해야 합니다. 이 규칙은 ResourceProviderConnection이 *Inbound*로 설정 된 경우에만 필요 합니다. ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 이러한 IP는 udr에 필요 하지 않습니다. 
+* [상태 및 관리 서비스](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) 에서 다음 홉 유형의 **인터넷** 을 사용 하는 모든 IP 주소입니다. 특정 지역에 대 한 두 개의 Ip 뿐만 아니라 일반 지역의 4 개의 Ip를 포함 해야 합니다. 이 규칙은 ResourceProviderConnection이 *Inbound* 로 설정 된 경우에만 필요 합니다. ResourceProviderConnection이 *아웃 바운드* 로 설정 된 경우 이러한 IP는 udr에 필요 하지 않습니다. 
 
 * 다음 홉이 Azure Firewall 프라이빗 IP 주소인 IP 주소 0.0.0.0/0에 대한 단일 가상 어플라이언스 경로
 
 예를 들어, 미국 지역 "미국 동부"에서 만든 클러스터에 대한 경로 테이블을 구성하려면 다음 단계를 사용합니다.
 
-1. Azure 방화벽 **Test-FW01**을 선택합니다. **개요** 페이지에 나열된**프라이빗 IP 주소**를 복사합니다. 이 예제에서는 **샘플 주소 10.0.2.4**를 사용합니다.
+1. Azure 방화벽 **Test-FW01** 을 선택합니다. **개요** 페이지에 나열된 **프라이빗 IP 주소** 를 복사합니다. 이 예제에서는 **샘플 주소 10.0.2.4** 를 사용합니다.
 
-1. 그런 다음, **모든 서비스** > **네트워킹** > **경로 테이블** 및 **경로 테이블 만들기**로 이동합니다.
+1. 그런 다음, **모든 서비스** > **네트워킹** > **경로 테이블** 및 **경로 테이블 만들기** 로 이동합니다.
 
-1. 새 경로에서 **설정** > **경로** >  **+ 추가**로 이동합니다. 다음 경로를 추가합니다.
+1. 새 경로에서 **설정** > **경로** >  **+ 추가** 로 이동합니다. 다음 경로를 추가합니다.
 
 | 경로 이름 | 주소 접두사 | 다음 홉 유형 | 다음 홉 주소 |
 |---|---|---|---|
@@ -140,13 +140,13 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
 
 경로 테이블 구성을 완료합니다.
 
-1. **설정**에서 **서브넷**를 선택하여 만든 경로 테이블을 HDInsight 서브넷에 할당합니다.
+1. **설정** 에서 **서브넷** 를 선택하여 만든 경로 테이블을 HDInsight 서브넷에 할당합니다.
 
-1. **+ 연결**을 선택합니다.
+1. **+ 연결** 을 선택합니다.
 
-1. **서브넷 연결** 화면에서 클러스터가 만들어진 가상 네트워크를 선택합니다. 또한 HDInsight 클러스터에 사용한 **서브넷**을 선택합니다.
+1. **서브넷 연결** 화면에서 클러스터가 만들어진 가상 네트워크를 선택합니다. 또한 HDInsight 클러스터에 사용한 **서브넷** 을 선택합니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ## <a name="edge-node-or-custom-application-traffic"></a>에지 노드 또는 사용자 지정 애플리케이션 트래픽
 
@@ -160,7 +160,7 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
 
 ## <a name="logging-and-scale"></a>로깅 및 크기 조정
 
-Azure Firewall은 일부 다른 스토리지 시스템에 로그를 보낼 수 있습니다. 방화벽에 대한 로깅을 구성하는 방법에 대한 지침은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](../firewall/tutorial-diagnostics.md)의 단계를 따릅니다.
+Azure Firewall은 일부 다른 스토리지 시스템에 로그를 보낼 수 있습니다. 방화벽에 대한 로깅을 구성하는 방법에 대한 지침은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](../firewall/firewall-diagnostics.md)의 단계를 따릅니다.
 
 로깅 설정을 완료한 후 Log Analytics를 사용하는 경우 다음과 같은 쿼리를 사용하여 차단된 트래픽을 볼 수 있습니다.
 

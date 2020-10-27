@@ -8,26 +8,26 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/13/2020
-ms.openlocfilehash: 0fbafd81fac1982f624adae9286000fb61db62c5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0b4a31b88c9a6fa8c2c6170fce38760c1a361f2e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474923"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533430"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell Az module을 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리 하는 방법에 대해 알아봅니다. HDInsight PowerShell cmdlet의 목록은 [Az. hdinsight 참조](https://docs.microsoft.com/powershell/module/az.hdinsight)를 참조 하세요.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell Az module을 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리 하는 방법에 대해 알아봅니다. HDInsight PowerShell cmdlet의 목록은 [Az. hdinsight 참조](/powershell/module/az.hdinsight)를 참조 하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell [Az 모듈](https://docs.microsoft.com/powershell/azure/)이 설치되었습니다.
+PowerShell [Az 모듈](/powershell/azure/)이 설치되었습니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
 
@@ -75,7 +75,7 @@ Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <New
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
 
-[AzHDInsightGatewayCredential](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) 는 Azure HDInsight 클러스터의 게이트웨이 HTTP 자격 증명을 설정 합니다.
+[AzHDInsightGatewayCredential](/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) 는 Azure HDInsight 클러스터의 게이트웨이 HTTP 자격 증명을 설정 합니다.
 
 ```powershell
 $clusterName = "CLUSTERNAME"
@@ -146,7 +146,7 @@ $resourceGroupName = $cluster.ResourceGroup
 
 ## <a name="see-also"></a>참고 항목
 
-* [Az cmdlet](https://docs.microsoft.com/powershell/module/az.hdinsight/#hdinsight)
+* [Az cmdlet](/powershell/module/az.hdinsight/#hdinsight)
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 * [명령줄 인터페이스를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)

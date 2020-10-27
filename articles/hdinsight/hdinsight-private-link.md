@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426395"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547421"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -25,7 +25,7 @@ ARM (Azure Resource Manager) 템플릿에서 특정 네트워크 속성을 구�
 
 ## <a name="remove-public-ip-addresses"></a>공용 IP 주소 제거
 
-기본적으로 HDInsight RP는 공용 Ip를 사용 하 여 클러스터에 대 한 *인바운드* 연결을 사용 합니다. `resourceProviderConnection`네트워크 속성이 *아웃 바운드*로 설정 되 면 연결이 항상 클러스터 내부에서 RP로 시작 되도록 HDInsight RP에 대 한 연결을 반대로 바꿉니다. 인바운드 연결이 없으면 인바운드 서비스 태그 또는 공용 IP 주소가 필요 하지 않습니다.
+기본적으로 HDInsight RP는 공용 Ip를 사용 하 여 클러스터에 대 한 *인바운드* 연결을 사용 합니다. `resourceProviderConnection`네트워크 속성이 *아웃 바운드* 로 설정 되 면 연결이 항상 클러스터 내부에서 RP로 시작 되도록 HDInsight RP에 대 한 연결을 반대로 바꿉니다. 인바운드 연결이 없으면 인바운드 서비스 태그 또는 공용 IP 주소가 필요 하지 않습니다.
 
 기본 가상 네트워크 아키텍처에서 사용 되는 기본 부하 분산 장치는 자동으로 공용 NAT (네트워크 주소 변환)를 제공 하 여 HDInsight RP와 같은 필요한 아웃 바운드 종속성에 액세스 합니다. 공용 인터넷에 대 한 아웃 바운드 연결을 제한 하려는 경우 방화벽을 [구성할](./hdinsight-restrict-outbound-traffic.md)수 있지만 반드시 필요한 것은 아닙니다.
 
@@ -54,13 +54,13 @@ Azure Key Vault에 대 한 전용 끝점은 지원 되지 않습니다. 미사�
 
 기본적으로 사용 하지 않도록 설정 된 개인 링크에는 클러스터를 만들기 전에 UDR (사용자 정의 경로) 및 방화벽 규칙을 제대로 설정 하는 데 필요한 광범위 한 네트워킹 정보가 필요 합니다. 클러스터에 대 한 개인 링크 액세스는 `resourceProviderConnection` 이전 섹션에서 설명한 대로 네트워크 속성이 *아웃 바운드* 로 설정 된 경우에만 사용할 수 있습니다.
 
-`privateLink`이 *사용*으로 설정 되 면 내부 [표준 부하 분산 장치](../load-balancer/load-balancer-overview.md) (SLB)가 만들어지고 각 Slb에 대해 Azure 개인 링크 서비스가 프로 비전 됩니다. 개인 링크 서비스를 사용 하면 개인 끝점에서 HDInsight 클러스터에 액세스할 수 있습니다.
+`privateLink`이 *사용* 으로 설정 되 면 내부 [표준 부하 분산 장치](../load-balancer/load-balancer-overview.md) (SLB)가 만들어지고 각 Slb에 대해 Azure 개인 링크 서비스가 프로 비전 됩니다. 개인 링크 서비스를 사용 하면 개인 끝점에서 HDInsight 클러스터에 액세스할 수 있습니다.
 
-표준 부하 분산 장치는 기본 부하 분산 장치 처럼 [공용 아웃 바운드 NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 를 자동으로 제공 하지 않습니다. 아웃 바운드 종속성을 위해 NAT 또는 [방화벽과](./hdinsight-restrict-outbound-traffic.md)같은 [VIRTUAL NETWORK](../virtual-network/nat-overview.md) 사용자 고유의 nat 솔루션을 제공 해야 합니다. HDInsight 클러스터는 여전히 아웃 바운드 종속성에 액세스할 수 있어야 합니다. 이러한 아웃 바운드 종속성을 사용할 수 없는 경우 클러스터 만들기가 실패할 수 있습니다.
+표준 부하 분산 장치는 기본 부하 분산 장치 처럼 [공용 아웃 바운드 NAT](../load-balancer/load-balancer-outbound-connections.md) 를 자동으로 제공 하지 않습니다. 아웃 바운드 종속성을 위해 NAT 또는 [방화벽과](./hdinsight-restrict-outbound-traffic.md)같은 [VIRTUAL NETWORK](../virtual-network/nat-overview.md) 사용자 고유의 nat 솔루션을 제공 해야 합니다. HDInsight 클러스터는 여전히 아웃 바운드 종속성에 액세스할 수 있어야 합니다. 이러한 아웃 바운드 종속성을 사용할 수 없는 경우 클러스터 만들기가 실패할 수 있습니다.
 
 ### <a name="prepare-your-environment"></a>환경 준비
 
-Successgfull 개인 링크 서비스를 만들려면 [개인 링크 서비스에 대 한 네트워크 정책을 명시적으로 사용 하지 않도록 설정](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)해야 합니다.
+Successgfull 개인 링크 서비스를 만들려면 [개인 링크 서비스에 대 한 네트워크 정책을 명시적으로 사용 하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)해야 합니다.
 
 다음 다이어그램에서는 클러스터를 만들기 전에 필요한 네트워킹 구성의 예를 보여 줍니다. 이 예제에서 모든 아웃 바운드 트래픽은 UDR을 사용 하 여 Azure 방화벽에 [강제](../firewall/forced-tunneling.md) 적용 되며 클러스터를 만들기 전에 방화벽에서 필요한 아웃 바운드 종속성이 "허용" 이어야 합니다. Enterprise Security Package 클러스터의 경우 VNet 피어 링에서 Azure Active Directory Domain Services에 대 한 네트워크 연결을 제공할 수 있습니다.
 

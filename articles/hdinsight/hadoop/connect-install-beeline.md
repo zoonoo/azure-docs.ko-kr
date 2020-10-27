@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754959"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547591"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>HDInsight의 Apache Beeline에 연결 하거나 로컬로 설치
 
@@ -104,7 +104,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ## <a name="install-beeline-client"></a>Beeline client 설치
 
-Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 좋습니다.  로컬 컴퓨터의 설치 단계는 [Linux 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10)을 기반으로 합니다.
+Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 좋습니다.  로컬 컴퓨터의 설치 단계는 [Linux 용 Windows 하위 시스템](/windows/wsl/install-win10)을 기반으로 합니다.
 
 1. 패키지 목록을 업데이트 합니다. Bash 셸에서 다음 명령을 입력 합니다.
 
@@ -128,7 +128,7 @@ Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 �
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        그런 다음 **ctrl + X**, **Y**를 차례로 누른 다음를 입력 합니다.
+        그런 다음 **ctrl + X** , **Y** 를 차례로 누른 다음를 입력 합니다.
 
 1. Hadoop 및 Beeline 보관 파일을 다운로드 하 고 다음 명령을 입력 합니다.
 
@@ -144,7 +144,7 @@ Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 �
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. .Bashrc 파일을 추가로 수정 합니다. 보관 파일의 압축을 푼 경로를 확인 해야 합니다. [Linux 용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10)을 사용 하 고 정확한 단계를 수행한 경우 경로는 `/mnt/c/Users/user/` `user` 입니다. 여기서는 사용자 이름입니다.
+1. .Bashrc 파일을 추가로 수정 합니다. 보관 파일의 압축을 푼 경로를 확인 해야 합니다. [Linux 용 Windows 하위 시스템](/windows/wsl/install-win10)을 사용 하 고 정확한 단계를 수행한 경우 경로는 `/mnt/c/Users/user/` `user` 입니다. 여기서는 사용자 이름입니다.
 
     1. 다음 파일을 엽니다. `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 �
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. 그런 다음 **ctrl + X**, **Y**를 차례로 누른 다음를 입력 합니다.
+    1. 그런 다음 **ctrl + X** , **Y** 를 차례로 누른 다음를 입력 합니다.
 
 1. Bash 세션을 닫았다가 다시 엽니다.
 

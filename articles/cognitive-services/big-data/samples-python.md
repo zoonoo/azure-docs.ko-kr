@@ -30,10 +30,10 @@ ms.locfileid: "86189330"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 1. [시작](getting-started.md)의 단계에 따라 Azure Databricks 및 Cognitive Services 환경을 설정합니다. 이 자습서에서는 MMLSpark를 설치하는 방법과 Databricks에서 Spark 클러스터를 만드는 방법을 보여 줍니다.
-1. Azure Databricks에서 새 Notebook이 만들어지면 아래의 **공유 코드**를 복사하여 Notebook의 새 셀에 붙여넣습니다.
+1. Azure Databricks에서 새 Notebook이 만들어지면 아래의 **공유 코드** 를 복사하여 Notebook의 새 셀에 붙여넣습니다.
 1. 아래에서 서비스 샘플을 선택하고, 이를 복사하여 Notebook의 두 번째 새 셀에 붙여넣습니다.
 1. 서비스 구독 키 자리 표시자를 사용자 고유의 키로 바꿉니다.
-1. 셀의 오른쪽 위 모서리에서 실행 단추(삼각형 아이콘)를 선택한 다음, **셀 실행**을 선택합니다.
+1. 셀의 오른쪽 위 모서리에서 실행 단추(삼각형 아이콘)를 선택한 다음, **셀 실행** 을 선택합니다.
 1. 결과가 테이블의 셀 아래에 표시됩니다.
 
 ## <a name="shared-code"></a>공유 코드

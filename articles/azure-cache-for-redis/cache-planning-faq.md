@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 13ba529dd3067ae16167f0d9c14c8f72b982f52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010842"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537408"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Azure Cache for Redis 계획 Faq
 
@@ -84,7 +84,7 @@ Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/det
 
 다른 클라우드에서 Azure Cache for Redis를 사용할 때 고려해야 할 사항에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Azure Government 데이터베이스 - Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure Government 데이터베이스 - Azure Cache for Redis](../azure-government/compare-azure-government-global-azure.md)
 - [Azure 중국 21Vianet 클라우드 - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 616e3e6c37faa3c085b8531173b557973e09fbf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c14e5537385b7518fd08d9d3599993bc6d82f88
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974569"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535504"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -27,16 +27,16 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 ### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>공용 IP 및 개인 링크가 없는 HDInsight 개인 클러스터 (미리 보기)
 이제 HDInsight는 미리 보기에서 클러스터에 대 한 공용 IP 및 개인 링크 액세스 권한이 없는 클러스터 만들기를 지원 합니다. 고객은 새 고급 네트워킹 설정을 사용 하 여 공용 IP가 없는 완전히 격리 된 클러스터를 만들고 자신의 개인 끝점을 사용 하 여 클러스터에 액세스할 수 있습니다. 
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
-이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
 
 ## <a name="deprecation"></a>사용 중단
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
-HDInsight 3.6 ML 서비스 클러스터 유형은 Dec 31 2020에서 지원 종료 됩니다. 이후 고객은 새 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
+HDInsight 3.6 ML 서비스 클러스터 유형은 Dec 31 2020에서 지원 종료 됩니다. 이후 고객은 새 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
 
 ## <a name="behavior-changes"></a>동작 변경 내용
 이 릴리스에 대 한 동작은 변경 되지 않습니다.
@@ -51,4 +51,4 @@ HDInsight 3.6 ML 서비스 클러스터 유형은 Dec 31 2020에서 지원 종�
 HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다. 
 
 ## <a name="component-version-change"></a>구성 요소 버전 변경
-이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.

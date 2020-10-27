@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 334eaa88ae927ae61ebb445343494cfdce570563
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b139e2f14379e0cd52ca72c347d49bcb4512c473
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167494"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542083"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 신축 서버에서 지원 되는 PostgreSQL 주 버전
 
@@ -30,7 +30,7 @@ Azure Database for PostgreSQL-유연한 서버는 현재 다음 주 버전을 �
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL 버전 10 이상
 
-Azure Database for PostgreSQL 유연한 서버에는 PostgreSQL 버전 10 및 이전 버전을 지원 하지 않습니다. 이전 버전이 필요한 경우에는 [단일 서버](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) 배포 옵션을 사용 하세요.
+Azure Database for PostgreSQL 유연한 서버에는 PostgreSQL 버전 10 및 이전 버전을 지원 하지 않습니다. 이전 버전이 필요한 경우에는 [단일 서버](../concepts-supported-versions.md) 배포 옵션을 사용 하세요.
 
 ## <a name="managing-upgrades"></a>업그레이드 관리
 

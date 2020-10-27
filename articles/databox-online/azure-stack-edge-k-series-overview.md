@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
 ms.openlocfilehash: 4bae9e28a22a99d092db2bf887f0cd790e04c52a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318565"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Azure Stack Edge Mini R이란?
@@ -38,7 +38,7 @@ Azure Stack Edge Mini R의 기능은 다음과 같습니다.
 |연결 해제 모드|  필요한 경우 Azure Stack Hub를 통해 디바이스와 서비스를 관리할 수 있습니다. 오프라인 모드에서 애플리케이션을 배포, 실행, 관리합니다. <br> 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |지원되는 파일 전송 프로토콜      |데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜을 지원합니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Mini R 시스템 요구 사항](azure-stack-edge-gpu-system-requirements.md)을 참조하세요.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
-|이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
+|이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
 
 ## <a name="use-cases"></a>사용 사례

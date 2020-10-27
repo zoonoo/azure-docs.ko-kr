@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081069"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546078"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -29,7 +29,7 @@ Apache Ambari는 [REST api](https://github.com/apache/ambari/blob/trunk/ambari-s
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* Windows 10에서 Ubuntu의 Bash  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
+* Windows 10에서 Ubuntu의 Bash  이 문서의 예제에서는 Windows 10의 Bash 셸을 사용합니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.  약간의 수정이 있는 예제는 Windows 명령 프롬프트에서 작동할 수 있습니다.  또는 Windows PowerShell을 사용할 수 있습니다.
 
 * 간단한 jq 명령줄 JSON 프로세서.  [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)을 참조하세요.
 
@@ -37,11 +37,11 @@ Apache Ambari는 [REST api](https://github.com/apache/ambari/blob/trunk/ambari-s
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Ambari Rest API에 대 한 기본 Uniform Resource Identifier
 
- HDInsight에서 Ambari REST API에 대 한 기본 URI (Uniform Resource Identifier)는 이며 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.  Uri의 클러스터 이름은 **대/소문자를 구분**합니다.  URI ()의 FQDN (정규화 된 도메인 이름) 부분에 있는 클러스터 이름은 `CLUSTERNAME.azurehdinsight.net` 대/소문자를 구분 하지 않지만 uri에서 다른 항목은 대/소문자를 구분 합니다.
+ HDInsight에서 Ambari REST API에 대 한 기본 URI (Uniform Resource Identifier)는 이며 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다.  Uri의 클러스터 이름은 **대/소문자를 구분** 합니다.  URI ()의 FQDN (정규화 된 도메인 이름) 부분에 있는 클러스터 이름은 `CLUSTERNAME.azurehdinsight.net` 대/소문자를 구분 하지 않지만 uri에서 다른 항목은 대/소문자를 구분 합니다.
 
 ## <a name="authentication"></a>인증
 
-HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 중 입력한 관리자 계정 이름(기본값은 **admin**) 및 암호를 사용합니다.
+HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 중 입력한 관리자 계정 이름(기본값은 **admin** ) 및 암호를 사용합니다.
 
 Enterprise Security Package 클러스터의 경우 대신 `admin` 와 같이 정규화 된 사용자 이름을 사용 `username@domain.onmicrosoft.com` 합니다.
 
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>JSON 데이터 구문 분석
 
-다음 예제에서는 [jq](https://stedolan.github.io/jq/) 또는 [convertfrom-csv-json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 을 사용 하 여 json 응답 문서를 구문 분석 하 고 `health_report` 결과의 정보만 표시 합니다.
+다음 예제에서는 [jq](https://stedolan.github.io/jq/) 또는 [convertfrom-csv-json](/powershell/module/microsoft.powershell.utility/convertfrom-json) 을 사용 하 여 json 응답 문서를 구문 분석 하 고 `health_report` 결과의 정보만 표시 합니다.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -253,7 +253,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     반환 값은 `/clusters/CLUSTERNAME/`과 비슷합니다. 이 값은 Data Lake Storage 계정 내의 경로입니다. 이 경로는 클러스터에 대한 HDFS 호환 파일 시스템의 루트입니다.  
 
 > [!NOTE]  
-> [Azure PowerShell](/powershell/azure/) 에서 제공 하는 [AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet은 클러스터에 대 한 저장소 정보를 반환 하기도 합니다.
+> [Azure PowerShell](/powershell/azure/) 에서 제공 하는 [AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) cmdlet은 클러스터에 대 한 저장소 정보를 반환 하기도 합니다.
 
 ### <a name="get-all-configurations"></a>모든 구성 가져오기
 

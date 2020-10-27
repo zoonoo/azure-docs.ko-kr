@@ -63,6 +63,7 @@
           href: protect-with-drm.md
         - name: Azure AD를 통해 콘텐츠 보호
           href: azure-ad-content-protection.md
+          displayName: 'AAD, Active Directory'
     - name: REST (영문)
       items:
         - name: 원격 파일 REST 인코딩 및 스트리밍
@@ -129,8 +130,8 @@
         - name: 개요
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: 변환 및 작업
-          href: transforms-jobs-concept.md
+    - name: 변환 및 작업
+      href: transforms-jobs-concept.md
     - name: 라이브 스트리밍
       items:
         - name: 개요
@@ -265,6 +266,8 @@
       items:
         - name: 변환 만들기
           href: cli-create-transform.md
+        - name: REST를 사용하여 기본 오디오 변환 만들기
+          href: how-to-create-basic-audio-transform.md
         - name: 작업 만들기
           href: cli-create-jobs.md
         - name: 로컬 파일 및 .NET을 사용하여 작업 입력 만들기

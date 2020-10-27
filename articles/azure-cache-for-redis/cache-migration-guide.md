@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4b196818ade1e703e24ed1ced6ebac1b44d0b083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5de4e1b465cfc3ced59f8fe34a7f397324b4a225
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372071"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537629"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Azure Cache for Redis로 마이그레이션
 이 문서에서는 온-프레미스 또는 다른 클라우드 서비스에서 실행 되는 기존 Redis cache를 Redis 용 Azure Cache로 마이그레이션하는 다양 한 방법을 설명 합니다.
@@ -64,12 +64,12 @@ ms.locfileid: "91372071"
 2. 기존 Redis cache의 스냅숏을 저장 합니다. [Redis를 구성 하 여 스냅숏을](https://redis.io/topics/persistence) 주기적으로 저장 하거나 [save](https://redis.io/commands/save) 또는 [BGSAVE](https://redis.io/commands/bgsave) 명령을 사용 하 여 수동으로 프로세스를 실행할 수 있습니다. RDB 파일의 이름은 기본적으로 "redis" 이며,이 파일은 *redis.conf* 구성 파일에 지정 된 경로에 배치 됩니다.
 
     > [!NOTE]
-    > Redis에 대 한 Azure 캐시 내에서 데이터를 마이그레이션하는 경우 RDB 파일을 내보내는 방법 또는 [PowerShell 내보내기 cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) 을 대신 사용 하 [는 방법에 대 한 다음 지침](cache-how-to-import-export-data.md) 을 참조 하세요.
+    > Redis에 대 한 Azure 캐시 내에서 데이터를 마이그레이션하는 경우 RDB 파일을 내보내는 방법 또는 [PowerShell 내보내기 cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) 을 대신 사용 하 [는 방법에 대 한 다음 지침](cache-how-to-import-export-data.md) 을 참조 하세요.
     >
 
 3. 새 캐시가 있는 지역의 Azure storage 계정에 RDB 파일을 복사 합니다. 이 작업에는 AzCopy를 사용할 수 있습니다.
 
-4. 이러한 [가져오기 명령](cache-how-to-import-export-data.md) 또는 [PowerShell import cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0)을 사용 하 여 새 캐시로 RDB 파일을 가져옵니다.
+4. 이러한 [가져오기 명령](cache-how-to-import-export-data.md) 또는 [PowerShell import cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0)을 사용 하 여 새 캐시로 RDB 파일을 가져옵니다.
 
 5. 새 캐시 인스턴스를 사용 하도록 응용 프로그램을 업데이트 합니다.
 

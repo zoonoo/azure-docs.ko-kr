@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f86b2166ea9bd2a547a29a777d6b709877036161
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163733"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542542"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>HDInsight에서 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -22,11 +22,11 @@ HDInsight 클러스터에는 쿼리 가능한 메트릭 및 로그 뿐만 아니
 
 Azure Monitor 로그를 사용 하면 HDInsight 클러스터와 같은 여러 리소스에 의해 생성 된 데이터를 한 곳에서 수집 하 고 집계 하 여 통합 모니터링 환경을 구현할 수 있습니다.
 
-필수 구성 요소로, 수집 된 데이터를 저장 하려면 Log Analytics 작업 영역이 필요 합니다. 아직 만들지 않은 경우 다음 지침 [에 따라 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)를 수행할 수 있습니다.
+필수 구성 요소로, 수집 된 데이터를 저장 하려면 Log Analytics 작업 영역이 필요 합니다. 아직 만들지 않은 경우 다음 지침 [에 따라 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 수행할 수 있습니다.
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>HDInsight Azure Monitor 로그 통합 사용
 
-포털의 HDInsight 클러스터 리소스 페이지에서 **Azure Monitor**를 선택 합니다. 그런 다음 **사용** 을 선택 하 고 드롭다운에서 Log Analytics 작업 영역을 선택 합니다.
+포털의 HDInsight 클러스터 리소스 페이지에서 **Azure Monitor** 를 선택 합니다. 그런 다음 **사용** 을 선택 하 고 드롭다운에서 Log Analytics 작업 영역을 선택 합니다.
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
@@ -34,7 +34,7 @@ Azure Monitor 로그를 사용 하면 HDInsight 클러스터와 같은 여러 �
 
 ## <a name="query-metrics-and-logs-tables"></a>메트릭 및 로그 테이블 쿼리
 
-Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 걸릴 수 있음) **Log Analytics 작업 영역** 리소스로 이동 하 여 **로그**를 선택 합니다.
+Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 걸릴 수 있음) **Log Analytics 작업 영역** 리소스로 이동 하 여 **로그** 를 선택 합니다.
 
 ![작업 영역 로그 Log Analytics](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
 
@@ -55,13 +55,13 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 > [!NOTE]  
 > 가용성 속도는 24 시간 동안 측정 되므로 정확한 가용성 요금은 표시 되기까지 최소 24 시간 동안 클러스터를 실행 해야 합니다.
 
-오른쪽 위 모서리에서 **고정** 을 클릭 하 여이 테이블을 공유 대시보드에 고정할 수 있습니다. 쓰기 가능한 공유 대시보드가 없으면 [Azure Portal에서 대시보드를 만들고 공유](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard)하는 방법을 확인할 수 있습니다.
+오른쪽 위 모서리에서 **고정** 을 클릭 하 여이 테이블을 공유 대시보드에 고정할 수 있습니다. 쓰기 가능한 공유 대시보드가 없으면 [Azure Portal에서 대시보드를 만들고 공유](../azure-portal/azure-portal-dashboards.md#publish-and-share-a-dashboard)하는 방법을 확인할 수 있습니다.
 
 ## <a name="azure-monitor-alerts"></a>Azure Monitor 경고
 
 메트릭 값 또는 쿼리 결과가 특정 조건에 맞을 때 트리거되는 Azure Monitor 경고를 설정할 수도 있습니다. 예를 들어 하나 이상의 노드가 5 시간 안에 하트 비트를 보내지 않은 경우 (즉, 사용할 수 없는 것으로 간주 됨) 전자 메일을 보내는 경고를 만들어 보겠습니다.
 
-**로그**에서 아래와 같이 해당 쿼리에서 **실행** 을 선택 하 여 **사용할 수 없는 computers** 샘플 쿼리를 실행 합니다.
+**로그** 에서 아래와 같이 해당 쿼리에서 **실행** 을 선택 하 여 **사용할 수 없는 computers** 샘플 쿼리를 실행 합니다.
 
 ![작업 영역 로그의 ' 사용할 수 없는 컴퓨터 ' 샘플 Log Analytics](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
 
@@ -70,11 +70,11 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 ![Log Analytics 작업 영역 새 경고 규칙](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
 
 경고에는 규칙을 만들 *리소스* (이 경우 Log Analytics 작업 영역), 경고를 트리거하는 *조건* 및 경고가 트리거될 때 발생 하는 동작을 결정 하는 *동작 그룹* 의 세 가지 구성 요소가 있습니다.
-아래와 같이 **조건 제목을**클릭 하 여 신호 논리 구성을 마칩니다.
+아래와 같이 **조건 제목을** 클릭 하 여 신호 논리 구성을 마칩니다.
 
 ![포털 경고 규칙 만들기 조건](media/cluster-availability-monitor-logs/portal-condition-title.png)
 
-그러면 **신호 논리 구성**이 열립니다.
+그러면 **신호 논리 구성** 이 열립니다.
 
 **경고 논리** 섹션을 다음과 같이 설정 합니다.
 
@@ -84,7 +84,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 **평가 기준** 섹션에서 사용할 수 없는 노드를 확인 하려는 빈도에 따라 **기간** 및 **빈도** 를 설정 합니다.
 
-이 경고의 목적을 위해 **Period = Frequency** 를 확인 하는 것이 좋습니다. 기간, 빈도 및 기타 경고 매개 변수에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log#log-search-alert-rule---definition-and-types)에서 찾을 수 있습니다.
+이 경고의 목적을 위해 **Period = Frequency** 를 확인 하는 것이 좋습니다. 기간, 빈도 및 기타 경고 매개 변수에 대 한 자세한 내용은 [여기](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition)에서 찾을 수 있습니다.
 
 신호 논리 구성이 완료 되 면 **완료** 를 선택 합니다.
 
@@ -94,16 +94,16 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 ![경고 규칙이 새 작업 그룹을 만듭니다.](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
 
-그러면 **작업 그룹 추가**가 열립니다. **작업 그룹 이름**, **약식 이름**, **구독**및 **리소스 그룹을 선택 합니다.** **작업 섹션에서** 작업 **이름을** 선택 하 고 **전자 메일/SMS/푸시/음성** 을 **작업 유형으로 선택 합니다.**
+그러면 **작업 그룹 추가** 가 열립니다. **작업 그룹 이름** , **약식 이름** , **구독** 및 **리소스 그룹을 선택 합니다.** **작업 섹션에서** 작업 **이름을** 선택 하 고 **전자 메일/SMS/푸시/음성** 을 **작업 유형으로 선택 합니다.**
 
 > [!NOTE]
-> Azure Function, LogicApp, Webhook, ITSM 및 Automation Runbook과 같은 전자 메일/a p i/푸시/음성 외에 경고에서 트리거할 수 있는 다른 작업은 여러 가지가 있습니다. [더 알아보세요.](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#action-specific-information)
+> Azure Function, LogicApp, Webhook, ITSM 및 Automation Runbook과 같은 전자 메일/a p i/푸시/음성 외에 경고에서 트리거할 수 있는 다른 작업은 여러 가지가 있습니다. [더 알아보세요.](../azure-monitor/platform/action-groups.md#action-specific-information)
 
-그러면 **이메일/SMS/푸시/음성이**열립니다. 받는 사람에 대 한 **이름을** 선택 하 고 **전자 메일** 상자 **를 선택 하** 고 경고를 보낼 전자 메일 주소를 입력 합니다. **이메일/SMS/푸시/음성**에서 **확인** 을 선택한 다음 **작업 그룹 추가** 에서 작업 그룹 구성을 완료 합니다.
+그러면 **이메일/SMS/푸시/음성이** 열립니다. 받는 사람에 대 한 **이름을** 선택 하 고 **전자 메일** 상자 **를 선택 하** 고 경고를 보낼 전자 메일 주소를 입력 합니다. **이메일/SMS/푸시/음성** 에서 **확인** 을 선택한 다음 **작업 그룹 추가** 에서 작업 그룹 구성을 완료 합니다.
 
 ![경고 규칙은 추가 작업 그룹을 만듭니다.](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 
-이러한 블레이드가 닫힌 **후 작업 그룹 섹션에** 나열 된 작업 그룹을 확인 해야 합니다. 마지막으로 **경고 규칙 이름과** **설명을** 입력 하 고 **심각도**를 선택 하 여 **경고 세부 정보** 섹션을 완료 합니다. **경고 규칙 만들기** 를 클릭 하 여 완료 합니다.
+이러한 블레이드가 닫힌 **후 작업 그룹 섹션에** 나열 된 작업 그룹을 확인 해야 합니다. 마지막으로 **경고 규칙 이름과** **설명을** 입력 하 고 **심각도** 를 선택 하 여 **경고 세부 정보** 섹션을 완료 합니다. **경고 규칙 만들기** 를 클릭 하 여 완료 합니다.
 
 ![포털에서 경고 규칙 만들기 완료](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
 
@@ -114,7 +114,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 ![Azure Monitor 경고 전자 메일 예제](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
 
-**Log Analytics 작업 영역**에서 **경고** 로 이동 하 여 발생 한 모든 경고를 심각도 별로 그룹화 하 여 볼 수도 있습니다.
+**Log Analytics 작업 영역** 에서 **경고** 로 이동 하 여 발생 한 모든 경고를 심각도 별로 그룹화 하 여 볼 수도 있습니다.
 
 ![Log Analytics 작업 영역 경고](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
 

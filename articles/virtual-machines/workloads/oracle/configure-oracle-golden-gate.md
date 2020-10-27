@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: c1890ab9f99999c88e28eb9a76d6270fa08fb87c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c480de6da0427b8eda212e02e08c7b3f5426941c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996663"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534144"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -24,7 +24,7 @@ ms.locfileid: "91996663"
 
 ## <a name="prepare-the-environment"></a>환경 준비
 
-Oracle Golden Gate 설치를 수행하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다. Vm을 만드는 데 사용 하는 Marketplace 이미지는 **oracle: oracle-Database-Ee: 12.1.0.2: 최신**입니다.
+Oracle Golden Gate 설치를 수행하려면 동일한 가용성 집합에서 두 개의 Azure VM을 만들어야 합니다. Vm을 만드는 데 사용 하는 Marketplace 이미지는 **oracle: oracle-Database-Ee: 12.1.0.2: 최신** 입니다.
 
 Unix 편집기 vi를 잘 알고 있고 x11(X Windows)을 기본적으로 이해해야 합니다.
 
@@ -389,9 +389,9 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
 3. PuTTY 키 생성기에서,
 
    - 키를 생성하려면 **생성** 단추를 선택합니다.
-   - 키의 콘텐츠를 복사 합니다 (**Ctrl + C**).
+   - 키의 콘텐츠를 복사 합니다 ( **Ctrl + C** ).
    - **프라이빗 키 저장** 단추를 선택합니다.
-   - 표시되는 경고를 무시하고 **확인**을 선택합니다.
+   - 표시되는 경고를 무시하고 **확인** 을 선택합니다.
 
    ![PuTTY 키 생성기 페이지의 스크린샷](./media/oracle-golden-gate/puttykeygen.png)
 
@@ -403,21 +403,21 @@ Oracle Golden Gate 소프트웨어를 다운로드 및 준비하려면 다음 �
    $ cd .ssh
    ```
 
-5. **authorized_keys**라는 파일을 만듭니다. 키의 콘텐츠를 이 파일에 붙여넣은 다음 파일을 저장합니다.
+5. **authorized_keys** 라는 파일을 만듭니다. 키의 콘텐츠를 이 파일에 붙여넣은 다음 파일을 저장합니다.
 
    > [!NOTE]
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증**을 선택 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
+6. PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증** 을 선택 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
 
    ![프라이빗 키 설정 페이지의 스크린샷](./media/oracle-golden-gate/setprivatekey.png)
 
-7. **범주** 창에서 **연결** > **SSH** > **X11**을 선택합니다. 그다음에 **X11 전달을 사용하도록 설정** 상자를 선택합니다.
+7. **범주** 창에서 **연결** > **SSH** > **X11** 을 선택합니다. 그다음에 **X11 전달을 사용하도록 설정** 상자를 선택합니다.
 
    ![X11 사용 페이지의 스크린샷](./media/oracle-golden-gate/enablex11.png)
 
-8. **카테고리** 창에서 **세션**으로 이동합니다. 호스트 정보를 입력한 다음 **열기**를 선택합니다.
+8. **카테고리** 창에서 **세션** 으로 이동합니다. 호스트 정보를 입력한 다음 **열기** 를 선택합니다.
 
    ![세션 페이지의 스크린샷](./media/oracle-golden-gate/puttysession.png)
 
@@ -436,25 +436,25 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. **다음**을 선택하여 계속합니다.
+3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. 계속하려면 **다음** 을 선택합니다.
 
    ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_02.png)
 
-4. 인벤토리 디렉터리를 변경하고 **다음**을 선택하여 계속합니다.
+4. 인벤토리 디렉터리를 변경하고 **다음** 을 선택하여 계속합니다.
 
-   ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![설치 디렉터리를 표시 하는 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-5. **요약** 화면에서 **설치**를 선택하여 계속합니다.
+5. **요약** 화면에서 **설치** 를 선택하여 계속합니다.
 
-   ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![설치 선택 페이지 및 설치 단추를 보여 주는 스크린샷](./media/oracle-golden-gate/golden_gate_install_04.png)
 
-6. 스크립트를 'root'로 실행할지 묻는 메시지가 표시될 수 있습니다. 메시지가 표시되면 별도의 세션, ssh를 VM으로, sudo를 root로 열고 스크립트를 실행합니다. **확인**을 선택하여 계속합니다.
+6. 스크립트를 'root'로 실행할지 묻는 메시지가 표시될 수 있습니다. 메시지가 표시되면 별도의 세션, ssh를 VM으로, sudo를 root로 열고 스크립트를 실행합니다. **확인** 을 선택하여 계속합니다.
 
-   ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![스크립트 위치와 구성 스크립트를 실행 하는 방법을 보여 주는 스크린샷](./media/oracle-golden-gate/golden_gate_install_05.png)
 
-7. 설치가 완료되면 **닫기**를 선택하여 프로세스를 완료합니다.
+7. 설치가 완료되면 **닫기** 를 선택하여 프로세스를 완료합니다.
 
-   ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![닫기 단추를 표시 하는 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>myVM1(기본)에서 서비스 설정
 

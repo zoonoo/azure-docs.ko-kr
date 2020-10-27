@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31d0d7f3ecb9ddb8a52c8ddda8a076e32283ae16
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564001"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545721"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -94,14 +94,16 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - 미국 동부
 - 미국 동부 2
 - 미국 중서부
+- 미국 서부
 - 미국 서부 2
 - 미국 중남부
 - 미국 중부
 - 북유럽
 - 서유럽
 - 영국 남부
-- 동남 아시아
+- 동남아시아
 - 오스트레일리아 동부
+- 오스트레일리아 남동부
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.

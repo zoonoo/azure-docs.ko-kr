@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308387"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534688"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 
@@ -39,7 +39,7 @@ HDInsight 3.6 및 HDInsight 4.0 ACID 테이블은 ACID 델타를 다르게 인�
 ### <a name="3-upgrade-metastore-schema"></a>3. metastore 스키마 업그레이드
 Metastore **복사가** 완료 되 면 기존 HDInsight 3.6 클러스터의 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md) 에서 스키마 업그레이드 스크립트를 실행 하 여 새 metastore을 Hive 3 스키마로 업그레이드 합니다. 이 단계에서는 새 metastore를 클러스터에 연결 하지 않아도 됩니다. 이를 통해 데이터베이스를 HDInsight 4.0 metastore에 연결할 수 있습니다.
 
-아래 표에 있는 값을 사용 합니다. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`공백으로 구분 된 Hive metastore **복사본**에 대 한 적절 한 값으로 대체 합니다. SQL server 이름을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
+아래 표에 있는 값을 사용 합니다. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`공백으로 구분 된 Hive metastore **복사본** 에 대 한 적절 한 값으로 대체 합니다. SQL server 이름을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
 
 |속성 | 값 |
 |---|---|
@@ -117,7 +117,7 @@ HDInsight 3.6 및 4.0 클러스터는 동일한 저장소 계정을 사용 해�
 
 1. [Secure Shell (SSH) 클라이언트](../hdinsight-hadoop-linux-use-ssh-unix.md)를 사용 하 여 HDInsight 3.6 클러스터에 연결 합니다.
 
-1. Open SSH 세션에서 다음 스크립트 파일을 다운로드 하 여 **alltables.sql. hql**라는 파일을 생성 합니다.
+1. Open SSH 세션에서 다음 스크립트 파일을 다운로드 하 여 **alltables.sql. hql** 라는 파일을 생성 합니다.
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -208,7 +208,7 @@ Hdinsight 3.6부터 hdinsight는 Enterprise Security Package (ESP)를 사용 하
 
 ## <a name="query-execution-across-hdinsight-versions"></a>HDInsight 버전 간 쿼리 실행
 
-HDInsight 3.6 클러스터 내에서 Hive/LLAP 쿼리를 실행 하 고 디버그 하는 방법에는 두 가지가 있습니다. HiveCLI는 명령줄 환경을 제공 하며 [Tez 뷰/Hive 보기](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) 는 GUI 기반 워크플로를 제공 합니다.
+HDInsight 3.6 클러스터 내에서 Hive/LLAP 쿼리를 실행 하 고 디버그 하는 방법에는 두 가지가 있습니다. HiveCLI는 명령줄 환경을 제공 하며 [Tez 뷰/Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md) 는 GUI 기반 워크플로를 제공 합니다.
 
 HDInsight 4.0에서 HiveCLI는 Beeline로 대체 되었습니다. Tez 뷰/Hive 보기는 GUI 기반 워크플로를 제공 합니다. HiveCLI은 Hiveserver 1의 thrift 클라이언트 이며, Beeline는 Hiveserver 2에 대 한 액세스를 제공 하는 JDBC 클라이언트입니다. Beeline를 사용 하 여 다른 JDBC 호환 데이터베이스 끝점에 연결할 수도 있습니다. Beeline는 설치 하지 않아도 HDInsight 4.0에서 기본 제공 됩니다.
 

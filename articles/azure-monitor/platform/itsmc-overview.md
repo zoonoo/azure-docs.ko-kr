@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461297"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547642"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -50,7 +50,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
    ![Azure 새 리소스](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Marketplace의 **IT 서비스 관리 커넥터**를 검색하고 **만들기**를 클릭합니다.
+2. Marketplace의 **IT 서비스 관리 커넥터** 를 검색하고 **만들기** 를 클릭합니다.
 
    ![ITSMC 솔루션 추가](media/itsmc-overview/add-itsmc-solution.png)
 
@@ -65,7 +65,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
    >[!NOTE]
    >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 
-5. **만들기**를 클릭합니다.
+5. **만들기** 를 클릭합니다.
 
 솔루션 리소스가 배포되면 창의 오른쪽 상단에 알림이 표시됩니다.
 
@@ -85,12 +85,12 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니다.
 
-1. **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
-2. 왼쪽 창의 **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
+1. **모든 리소스** 로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
+2. 왼쪽 창의 **작업 영역 데이터 원본** 에서 **ITSM 연결** 을 클릭합니다.
    ![ITSM 연결](media/itsmc-overview/itsm-connections.png)
 
    이 페이지에는 연결 목록이 표시됩니다.
-3. **연결 추가**를 클릭합니다.
+3. **연결 추가** 를 클릭합니다.
 
    ![ITSM 연결 추가](media/itsmc-overview/add-new-itsm-connection.png)
 
@@ -112,7 +112,7 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Azure Alerts에서 ITSM 작업 항목 만들기
 
-ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용하여 Azure 경고를 기반으로 ITSM 도구에서 작업 항목을 만들 수 있습니다.
+ITSM 연결이 만들어지면 **작업 그룹** 에서 **ITSM 작업** 을 사용하여 Azure 경고를 기반으로 ITSM 도구에서 작업 항목을 만들 수 있습니다.
 
 작업 그룹은 Azure Alerts를 위해 모듈 방식으로 다시 사용할 수 있는 방법을 제공합니다. Azure Portal에서 메트릭 경고, 활동 로그 경고 및 Azure Log Analytics 알림과 함께 작업 그룹을 사용할 수 있습니다.
 
@@ -122,17 +122,17 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
 
 이렇게 하려면 다음 절차를 수행합니다.
 
-1. Azure Portal에서 **모니터**를 클릭합니다.
-2. 왼쪽 창에서 **작업 그룹**을 클릭합니다. **작업 그룹 추가** 창이 나타납니다.
+1. Azure Portal에서 **모니터** 를 클릭합니다.
+2. 왼쪽 창에서 **작업 그룹** 을 클릭합니다. **작업 그룹 추가** 창이 나타납니다.
 
     ![작업 그룹](media/itsmc-overview/action-groups.png)
 
-3. 작업 그룹에 대해 **이름** 및 **짧은 이름**을 제공합니다. 작업 그룹을 만들려는 **리소스 그룹** 및 **구독**을 선택합니다.
+3. 작업 그룹에 대해 **이름** 및 **짧은 이름** 을 제공합니다. 작업 그룹을 만들려는 **리소스 그룹** 및 **구독** 을 선택합니다.
 
     ![작업 그룹 세부 정보](media/itsmc-overview/action-groups-details.png)
 
-4. 작업 목록의 **작업 유형** 드롭다운 메뉴에서 **ITSM**을 선택합니다. 해당 작업에 대한 **이름**을 제공하고 **세부 정보 편집**을 클릭합니다.
-5. Log Analytics 작업 영역이 있는 **구독**을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예를 들어 "MyITSMMConnector(MyWorkspace)"와 같습니다.
+4. 작업 목록의 **작업 유형** 드롭다운 메뉴에서 **ITSM** 을 선택합니다. 해당 작업에 대한 **이름** 을 제공하고 **세부 정보 편집** 을 클릭합니다.
+5. Log Analytics 작업 영역이 있는 **구독** 을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예를 들어 "MyITSMMConnector(MyWorkspace)"와 같습니다.
 
     ![ITSM 작업 세부 정보](media/itsmc-overview/itsm-action-details.png)
 
@@ -140,7 +140,10 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
 
 7. 고정 값으로 상자 필드를 입력 하려면 "사용자 지정 템플릿 사용" 확인란을 선택 해야 합니다. 그렇지 않으면 드롭다운 목록에서 기존 [템플릿을](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) 사용 하도록 선택 하 고 템플릿 필드에 고정 값을 입력 합니다.
 
-8. **확인**을 클릭합니다.
+8. **각 구성 항목에 대해 개별 작업 항목 만들기** 확인란을 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 즉, 구성 항목 마다 하나의 작업 항목이 있으며 생성 되는 경고에 따라 업데이트 됩니다.
+**각 구성 항목에 대해 개별 작업 항목 만들기** 확인란을 선택 취소 하는 경우 모든 경고는 새 작업 항목을 만듭니다. 즉, 구성 항목 마다 경고가 1 개 이상 있을 수 있습니다.
+
+9. **확인** 을 클릭합니다.
 
 Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작업 그룹을 사용합니다. 경고가 트리거되면 작업 항목이 ITSM 도구에 만들어지거나 업데이트됩니다.
 
@@ -183,7 +186,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 > [!NOTE]
 >
-> Log Analytics로 가져온 작업 항목 형식에 따라 **ServiceDesk_CL**에는 다음 필드가 포함됩니다.
+> Log Analytics로 가져온 작업 항목 형식에 따라 **ServiceDesk_CL** 에는 다음 필드가 포함됩니다.
 
 **작업 항목:** **인시던트**  
 ServiceDeskWorkItemType_s="Incident"
@@ -303,7 +306,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3. Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
-   -  ITSMC: 연결/작업 항목/컴퓨터 등에 대한 요약을 보여 줍니다. **커넥터 상태**를 보여 주는 타일을 클릭하면 관련 쿼리가 있는 **로그 검색**으로 이동됩니다. 자세한 정보는 LogType_S가 ERROR(오류)인 로그 레코드를 살펴봅니다.
+   -  ITSMC: 연결/작업 항목/컴퓨터 등에 대한 요약을 보여 줍니다. **커넥터 상태** 를 보여 주는 타일을 클릭하면 관련 쿼리가 있는 **로그 검색** 으로 이동됩니다. 자세한 정보는 LogType_S가 ERROR(오류)인 로그 레코드를 살펴봅니다.
    - **로그 검색** 페이지: `*`ServiceDeskLog_CL`*` 쿼리를 사용하여 오류/관련 정보를 직접 확인합니다.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결

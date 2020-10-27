@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe9ccc50d6196997863fbf228fbb76913a0d0330
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086265"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534382"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Azure HDInsight의 오픈 소스 소프트웨어 지원
 
@@ -40,7 +40,7 @@ HDInsight 서비스에서는 두 가지 유형의 오픈 소스 구성 요소를
 > [!WARNING]  
 > HDInsight 클러스터에 제공되는 구성 요소는 완벽히 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하도록 도와줍니다.
 >
-> 사용자 지정 구성 요소는 문제를 해결하는 데 도움이 되는 상업적으로 합리적인 지원을 받습니다. Microsoft 지원에서 이 문제를 해결할 수 있습니다. 또는 깊은 전문 지식이 있는 오픈 소스 기술에 사용할 수 있는 채널에 참여하도록 요청할 수도 있습니다. 다양한 커뮤니티 사이트를 사용할 수 있습니다. 예를 들어 [Microsoft HDInsight 관련 질문과 답변 페이지](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) 및 [Stack Overflow](https://stackoverflow.com)가 있습니다.
+> 사용자 지정 구성 요소는 문제를 해결하는 데 도움이 되는 상업적으로 합리적인 지원을 받습니다. Microsoft 지원에서 이 문제를 해결할 수 있습니다. 또는 깊은 전문 지식이 있는 오픈 소스 기술에 사용할 수 있는 채널에 참여하도록 요청할 수도 있습니다. 다양한 커뮤니티 사이트를 사용할 수 있습니다. 예를 들어 [Microsoft HDInsight 관련 질문과 답변 페이지](/answers/topics/azure-hdinsight.html) 및 [Stack Overflow](https://stackoverflow.com)가 있습니다.
 >
 > Apache 프로젝트에는 [Apache 웹 사이트](https://apache.org)의 프로젝트 사이트도 있습니다. 예를 들어 [Hadoop](https://hadoop.apache.org/)이 있습니다.
 

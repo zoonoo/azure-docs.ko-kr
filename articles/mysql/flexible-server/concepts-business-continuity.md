@@ -1,17 +1,17 @@
 ---
-title: 유연한 서버 Azure Database for MySQL의 비즈니스 연속성 개요
+title: 비즈니스 연속성-유연한 서버 Azure Database for MySQL 개요
 description: 유연한 서버 Azure Database for MySQL의 비즈니스 연속성 개념에 대해 알아봅니다.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107847"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546418"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)를 통한 비즈니스 연속성 개요
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107847"
 유연한 서버를 Azure Database for MySQL 계획 되거나 계획 되지 않은 중단 시 데이터베이스를 보호 하는 비즈니스 연속성 기능을 사용할 수 있습니다. 자동화 된 백업 및 고가용성과 같은 기능은 서로 다른 복구 시간 및 데이터 손실 노출을 통해 다양 한 장애 방지 수준을 제공 합니다. 응용 프로그램을 설계 하 여 오류 로부터 보호 하는 경우 각 응용 프로그램에 대 한 RTO (복구 시간 목표) 및 RPO (복구 지점 목표)를 고려해 야 합니다. RTO는 가동 중지 시간 허용 범위이 고 RPO는 데이터베이스 서비스 중단 후 데이터 손실 허용 오차입니다.
 
 다음 표에서는 유연한 서버에서 제공 하는 기능을 보여 줍니다.
-
 
 | **기능** | **설명** | **제한 사항** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ ms.locfileid: "92107847"
 > 미리 보기 기간 동안에는 작동 시간, RTO 및 RPO SLA가 제공 되지 않습니다. 정보 및 계획 목적 으로만이 페이지에 제공 되는 세부 정보입니다.
 
 ## <a name="planned-downtime-mitigation"></a>계획 된 가동 중지 시간 완화
+
 가동 중지 시간이 발생 하는 몇 가지 계획 된 유지 관리 시나리오는 다음과 같습니다.
 
 | **시나리오** | **Process**|
 | :------------ | :----------- |
 | **Compute 크기 조정 (사용자)**| 계산 크기 조정 작업을 수행할 때 크기가 조정 된 계산 구성을 사용 하 여 새 유연한 서버가 프로 비전 됩니다. 기존 데이터베이스 서버에서 활성 검사점을 완료할 수 있으며, 클라이언트 연결이 종료 되 고, 커밋되지 않은 트랜잭션이 취소 되 고 종료 됩니다. 그러면 저장소는 새 서버에 연결 되 고, 필요한 경우 클라이언트 연결을 허용 하기 전에 복구를 수행 하는 데이터베이스가 시작 됩니다. |
 | **새 소프트웨어 배포 (Azure)** | 새 기능 출시 또는 버그 수정은 서비스의 계획 된 유지 관리의 일부로 자동으로 수행 되며 이러한 활동이 발생 하는 시기를 예약할 수 있습니다. 자세한 내용은 [설명서](https://aka.ms/servicehealthpm)를 참조 하 고 [포털](https://aka.ms/servicehealthpm) 도 확인 하세요. |
-| **부 버전 업그레이드 (Azure)** | Azure에서 결정 하는 부 버전에 데이터베이스 서버를 자동으로 패치 Azure Database for MySQL 합니다. 서비스의 계획 된 유지 관리의 일환으로 발생 합니다. 이로 인해 몇 초 후에 짧은 가동 중지 시간이 발생 하 고 데이터베이스 서버가 새 부 버전으로 자동으로 다시 시작 됩니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification)를 참조 하 고 [포털](https://aka.ms/servicehealthpm)도 확인 하세요.|
+| **부 버전 업그레이드 (Azure)** | Azure에서 결정 하는 부 버전에 데이터베이스 서버를 자동으로 패치 Azure Database for MySQL 합니다. 서비스의 계획 된 유지 관리의 일환으로 발생 합니다. 이로 인해 몇 초 후에 짧은 가동 중지 시간이 발생 하 고 데이터베이스 서버가 새 부 버전으로 자동으로 다시 시작 됩니다. 자세한 내용은 [설명서](../concepts-monitoring.md#planned-maintenance-notification)를 참조 하 고 [포털](https://aka.ms/servicehealthpm)도 확인 하세요.|
 
-유연한 서버가 **영역 중복 고가용성**으로 구성 된 경우 유연한 서버는 먼저 대기 서버에서 작업을 수행 하 고 장애 조치 (failover) 없이 주 서버에서 작업을 수행 합니다. 자세한 내용은 [개념-](./concepts-high-availability.md) 고가용성을 참조 하세요.
+유연한 서버가 **영역 중복 고가용성** 으로 구성 된 경우 유연한 서버는 먼저 대기 서버에서 작업을 수행 하 고 장애 조치 (failover) 없이 주 서버에서 작업을 수행 합니다. 자세한 내용은 [개념-](./concepts-high-availability.md) 고가용성을 참조 하세요.
 
-##  <a name="unplanned-downtime-mitigation"></a>계획 되지 않은 가동 중지 시간 완화
+## <a name="unplanned-downtime-mitigation"></a>계획 되지 않은 가동 중지 시간 완화
 
 계획 되지 않은 가동 중지 시간 기본 하드웨어 오류, 네트워킹 문제 및 소프트웨어 버그를 포함 하 여 예측할 수 없는 실패의 결과로 발생할 수 있습니다. 데이터베이스 서버가 예기치 않게 중단 되 면 고가용성 [HA]를 사용 하 여 구성 된 경우 대기 복제본이 활성화 됩니다. 그렇지 않으면 새 데이터베이스 서버가 자동으로 프로 비전 됩니다. 계획 되지 않은 가동 중지 시간을 피할 수는 없지만 유연한 서버는 사용자 개입 없이 데이터베이스 서버와 저장소 계층에서 모두 복구 작업을 자동으로 수행 하 여 가동 중지 시간을 완화 합니다.
 
@@ -60,12 +60,10 @@ ms.locfileid: "92107847"
 | **가용성 영역 실패** | 드문 이벤트 이지만 영역 수준 오류 로부터 복구 하려는 경우 백업을 사용 하 여 지정 시간 복구를 수행 하 고 사용자 지정 복원 지점을 선택 하 여 최신 데이터를 가져올 수 있습니다. 새 유연한 서버는 다른 영역에 배포 됩니다. 복원 하는 데 걸리는 시간은 이전 백업 및 복구할 트랜잭션 로그의 수에 따라 달라 집니다. | 유연한 서버는 대기 사이트로 자동 장애 조치 (failover)를 수행 합니다. 자세한 내용은 [HA 개념 페이지](./concepts-high-availability.md) 를 참조 하세요. |
 | **지역 오류** | 영역 간 복제본 및 지역 복원 기능은 미리 보기에서 아직 지원 되지 않습니다. | |
 
-
 > [!IMPORTANT]
-> 삭제 된 서버는 복원할 수 **없습니다**   . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)사용   하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
-
+> 삭제된 서버는 복원할 수 **없습니다** . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금을](../../azure-resource-manager/management/lock-resources.md) 사용 하 여 실수로 서버를 삭제 하는 것을 방지 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
--    [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
--   [백업 및 복구](./concepts-backup-restore.md) 에 대 한 자세한 정보
+- [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
+- [백업 및 복구](./concepts-backup-restore.md) 에 대 한 자세한 정보

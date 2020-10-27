@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 978312c6238315cf836cf7c26a2ee63e452d3b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c7fe3db3f85824dc2cfbe87fc22b63a59e931ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884590"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546367"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Azure Database for MySQL로 최소 가동 중지 시간 마이그레이션
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
-새로 도입된 [Azure Database Migration Service](https://aka.ms/get-dms)(DMS)에 대한 **지속적인 동기화 기능**을 사용하여 최소 가동 중지 시간으로 Azure Database for MySQL로 MySQL 마이그레이션을 수행할 수 있습니다. 이 기능은 애플리케이션에서 발생하는 가동 중지 시간을 제한합니다.
+새로 도입된 [Azure Database Migration Service](https://aka.ms/get-dms)(DMS)에 대한 **지속적인 동기화 기능** 을 사용하여 최소 가동 중지 시간으로 Azure Database for MySQL로 MySQL 마이그레이션을 수행할 수 있습니다. 이 기능은 애플리케이션에서 발생하는 가동 중지 시간을 제한합니다.
 
 ## <a name="overview"></a>개요
 Azure DMS는 Azure Database for MySQL에 대한 온-프레미스 초기 로드를 수행한 다음, 애플리케이션이 실행되는 동안 계속해서 새 트랜잭션을 Azure에 지속적으로 동기화합니다. 데이터가 Azure 쪽 대상을 처리한 후 잠시(최소 가동 중지 시간) 동안 애플리케이션을 중지하고, 대상을 처리하기 위해 데이터의 마지막 일괄 처리(애플리케이션을 중지한 때부터 애플리케이션이 모든 새 트래픽을 효과적으로 사용할 수 없을 때까지)를 기다린 다음, Azure를 가리키도록 연결 문자열을 업데이트합니다. 완료하면 애플리케이션이 Azure에 게시됩니다!
@@ -25,4 +25,4 @@ Azure DMS는 Azure Database for MySQL에 대한 온-프레미스 초기 로드�
 
 ## <a name="next-steps"></a>다음 단계
 - Azure Database for MySQL에 MySQL 앱을 마이그레이션하는 방법을 보여주는 데모가 포함된 [MySQL/PostgreSQL 앱을 Azure 관리 서비스에 간편하게 마이그레이션하기](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201) 비디오를 시청합니다.
-- [DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) 자습서를 참조하세요.
+- [DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션](../dms/tutorial-mysql-azure-mysql-online.md) 자습서를 참조하세요.

@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: 7ec49ee4f07aff6e9b9f9d6fc43e37742d7e163a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afe92351fe82a4e07665789c2ed4d4631be8731f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085126"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547455"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
-SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리케이션을 디버그하는 것이 좋습니다. 자세한 내용은 [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh)를 참조하세요.
+SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리케이션을 디버그하는 것이 좋습니다. 자세한 내용은 [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](./apache-spark-intellij-tool-debug-remotely-through-ssh.md)를 참조하세요.
 
 이 문서에서는 IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark 클러스터에서 Spark 작업을 제출한 다음 데스크톱 컴퓨터에서 원격으로 디버그하는 방법에 대한 단계별 지침을 제공합니다. 이러한 작업을 완료하려면 다음과 같은 개략적인 단계를 수행해야 합니다.
 
@@ -29,13 +29,13 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
-* **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* **Oracle Java development kit**. [Oracle 웹 사이트](https://aka.ms/azure-jdks)에서 설치할 수 있습니다.
-* **INTELLIJ 아이디어**. 이 문서에서는 버전 2017.1을 사용합니다. [JetBrains 웹 사이트](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
-* **IntelliJ용 Azure 도구 키트의 HDInsight 도구** IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트에 포함되어 제공됩니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation)를 참조하세요.
-* **IntelliJ IDEA에서 Azure 구독에 로그인**. [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)의 지침을 따릅니다.
-* **예외 해결 방법**. Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 애플리케이션을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결 하려면 **C:\WinUtils\bin**와 같은 위치에 [Winutils.exe](https://github.com/steveloughran/winutils) 를 다운로드 해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils**로 설정합니다.
+* **Azure 구독** . 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
+* **HDInsight의 Apache Spark 클러스터** . 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* **Oracle Java development kit** . [Oracle 웹 사이트](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 설치할 수 있습니다.
+* **INTELLIJ 아이디어** . 이 문서에서는 버전 2017.1을 사용합니다. [JetBrains 웹 사이트](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
+* **IntelliJ용 Azure 도구 키트의 HDInsight 도구** IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트에 포함되어 제공됩니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](/java/azure/intellij/azure-toolkit-for-intellij-installation)를 참조하세요.
+* **IntelliJ IDEA에서 Azure 구독에 로그인** . [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)의 지침을 따릅니다.
+* **예외 해결 방법** . Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 애플리케이션을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결 하려면 **C:\WinUtils\bin** 와 같은 위치에 [Winutils.exe](https://github.com/steveloughran/winutils) 를 다운로드 해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils** 로 설정합니다.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>1단계: Azure Virtual Network 만들기
 
@@ -51,25 +51,25 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 ## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>3단계: 클러스터 헤드 노드 및 데스크톱 간의 연결 확인
 
-1. 헤드 노드의 IP 주소를 가져옵니다. 클러스터에 대한 Ambari UI를 엽니다. 클러스터 블레이드에서 **대시보드**를 선택합니다.
+1. 헤드 노드의 IP 주소를 가져옵니다. 클러스터에 대한 Ambari UI를 엽니다. 클러스터 블레이드에서 **대시보드** 를 선택합니다.
 
     ![Apache Ambari에서 대시보드를 선택 합니다.](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png)
 
-1. Ambari UI에서 **호스트**를 선택합니다.
+1. Ambari UI에서 **호스트** 를 선택합니다.
 
     ![Apache Ambari에서 호스트 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
-1. 헤드 노드, 작업자 노드 및 zookeeper 노드 목록이 표시됩니다. 헤드 노드에는 **hn*** 접두사가 붙습니다. 첫 번째 헤드 노드를 선택합니다.
+1. 헤드 노드, 작업자 노드 및 zookeeper 노드 목록이 표시됩니다. 헤드 노드에는 **hn** _ 접두사가 있습니다. 첫 번째 헤드 노드를 선택합니다.
 
     ![Apache Ambari에서 헤드 노드 찾기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
-1. 열리는 페이지 아래쪽의 **요약** 창에서 헤드 노드의 **IP 주소** 및 **호스트 이름**을 복사합니다.
+1. 열리는 페이지 맨 아래에 있는 _ *요약* * 창에서 헤드 노드의 **IP 주소** 와 **호스트 이름** 을 복사 합니다.
 
     ![Apache Ambari에서 IP 주소 찾기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
 
 1. 헤드 노드의 IP 주소 및 호스트 이름을 Spark 작업을 실행하고 원격으로 디버그하려는 컴퓨터의 **호스트** 파일에 추가합니다. 이렇게 하면 IP 주소뿐만 아니라 호스트 이름을 사용하여 헤드 노드와 통신할 수 있습니다.
 
-   a. 관리자 권한으로 메모장 파일을 엽니다. **파일** 메뉴에서 **열기**를 선택한 다음 hosts 파일의 위치를 찾습니다. Windows 컴퓨터에서 이 위치는 **C:\Windows\System32\Drivers\etc\hosts**입니다.
+   a. 관리자 권한으로 메모장 파일을 엽니다. **파일** 메뉴에서 **열기** 를 선택한 다음 hosts 파일의 위치를 찾습니다. Windows 컴퓨터에서 이 위치는 **C:\Windows\System32\Drivers\etc\hosts** 입니다.
 
    b. **hosts** 파일에 다음 정보를 추가합니다.
 
@@ -100,34 +100,34 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
-    b. **다음**을 선택합니다.
-1. 다음 **새 프로젝트** 대화 상자에서 다음을 수행한 후 **마침**을 선택합니다.
+    b. **다음** 을 선택합니다.
+1. 다음 **새 프로젝트** 대화 상자에서 다음을 수행한 후 **마침** 을 선택합니다.
 
     - 프로젝트 이름 및 위치를 입력합니다.
 
-    - **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
+    - **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8** 을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7** 을 선택합니다.
 
-    - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x**를 선택합니다. 그렇지 않으면 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
+    - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x** 를 선택합니다. 그렇지 않으면 **Spark2.x** 를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
   
    ![프로젝트 SDK 및 Spark 버전 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
 1. Spark 프로젝트가 자동으로 아티팩트를 만듭니다. 이 아티팩트를 보려면 다음을 수행합니다.
 
-    a. **파일** 메뉴에서 **프로젝트 구조**를 선택 합니다.
+    a. **파일** 메뉴에서 **프로젝트 구조** 를 선택 합니다.
 
-    b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만든 기본 아티팩트를 봅니다. 더하기 기호( **+** )를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
+    b. **프로젝트 구조** 대화 상자에서 **아티팩트** 를 선택하여 만든 기본 아티팩트를 봅니다. 더하기 기호( **+** )를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
    ![IntelliJ 아이디어 아티팩트 만들기 jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
 1. 프로젝트에 라이브러리를 추가합니다. 라이브러리를 추가하려면 다음을 수행합니다.
 
-    a. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기**를 선택합니다.
+    a. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기** 를 선택합니다.
 
-    b. **프로젝트 구조** 대화 상자에서 **라이브러리**를 선택하고 (**+**) 기호를 선택한 후 **Maven에서**를 선택합니다.
+    b. **프로젝트 구조** 대화 상자에서 **라이브러리** 를 선택하고 ( **+** ) 기호를 선택한 후 **Maven에서** 를 선택합니다.
 
     ![IntelliJ 아이디어 다운로드 라이브러리](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
-    다. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
+    c. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
@@ -177,13 +177,13 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
     </property>
     ```
 
-   다. 파일을 저장합니다.
+   c. 파일을 저장합니다.
 
-1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기**에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
+1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기** 에서 **src** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** 를 가리킨 다음 **Scala 클래스** 를 선택합니다.
 
     ![IntelliJ 아이디어 주 클래스를 선택 합니다.](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
-1. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체**를 선택한 다음 **확인**을 선택합니다.
+1. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체** 를 선택한 다음 **확인** 을 선택합니다.
 
     ![IntelliJ 아이디어 Create new Scala 클래스](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
@@ -205,7 +205,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
     }
     ```
 
-1. 8 및 9단계를 반복하여 `*SparkSample`이라는 새 Scala 개체를 추가합니다. 이 클래스에 다음 코드를 추가합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽습니다. 또한 CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 스토리지 컨테이너 아래의 **/HVACOut**에 씁니다.
+1. 8 및 9단계를 반복하여 `*SparkSample`이라는 새 Scala 개체를 추가합니다. 이 클래스에 다음 코드를 추가합니다. 이 코드는 HVAC.csv(모든 HDInsight Spark 클러스터에서 사용 가능)에서 데이터를 읽습니다. 또한 CSV 파일의 일곱 번째 열에 한 자리 수만 있는 행을 검색하고, 출력을 클러스터의 기본 스토리지 컨테이너 아래의 **/HVACOut** 에 씁니다.
 
     ```scala
     import org.apache.spark.SparkContext
@@ -255,11 +255,11 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
       * `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`의 경우 Spark 어셈블리 JAR를 지정된 경로의 클러스터 스토리지에서 사용할 수 있는지 확인합니다.
       * `setJars`에서 아티팩트 JAR을 만들 위치를 지정합니다. 일반적으로 `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`입니다.
 
-1. `*RemoteClusterDebugging` 클래스에서 마우스 오른쪽 단추로 `test` 키워드를 클릭하고 **RemoteClusterDebugging 구성 만들기**를 선택합니다.
+1. `*RemoteClusterDebugging` 클래스에서 마우스 오른쪽 단추로 `test` 키워드를 클릭하고 **RemoteClusterDebugging 구성 만들기** 를 선택합니다.
 
     ![IntelliJ 아이디어 원격 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
-1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind**를 **테스트 이름**으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용**을 선택한 다음 **확인**을 선택합니다.
+1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind** 를 **테스트 이름** 으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용** 을 선택한 다음 **확인** 을 선택합니다.
 
     ![고 remoteclusterdebugging 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 
@@ -269,7 +269,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 ## <a name="step-5-run-the-application-in-debug-mode"></a>5단계: 디버그 모드에서 애플리케이션 실행
 
-1. IntelliJ IDEA 프로젝트에서 `SparkSample.scala`를 열고 `val rdd1` 옆에 중단점을 만듭니다. **중단점 만들기** 팝업 메뉴에서 **함수 executeJob의 줄**을 선택합니다.
+1. IntelliJ IDEA 프로젝트에서 `SparkSample.scala`를 열고 `val rdd1` 옆에 중단점을 만듭니다. **중단점 만들기** 팝업 메뉴에서 **함수 executeJob의 줄** 을 선택합니다.
 
     ![IntelliJ 아이디어 중단점 추가](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
 
@@ -313,18 +313,18 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
 * [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](./apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행
 
-* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](../hdinsight-apache-spark-create-standalone-application.md)
+* [Scala를 사용하여 독립 실행형 애플리케이션 만들기](./apache-spark-create-standalone-application.md)
 * [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 
 * [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)
 * [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](./apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)

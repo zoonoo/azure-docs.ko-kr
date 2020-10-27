@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/11/2017
-ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 332233873bfbcb2ae77f5a70b4aaa5a6102cecec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213340"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537850"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -30,11 +30,11 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 캐시가 더 이상 애플리케이션 요구 사항을 충족시키지 못한다고 판단되면 애플리케이션에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 규모를 변경할 수 있습니다. 사용할 캐시 가격 책정 계층을 결정 하는 방법에 대 한 자세한 내용은 [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)을 참조 하세요.
 
 ## <a name="scale-a-cache"></a>캐시 크기 조정
-캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-azure-cache-for-redis-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴**에서 **크기 조정**을 클릭합니다.
+캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-azure-cache-for-redis-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴** 에서 **크기 조정** 을 클릭합니다.
 
 ![확장](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-**가격 책정 계층 선택** 블레이드에서 원하는 가격 책정 계층을 선택하고 **선택**을 클릭합니다.
+**가격 책정 계층 선택** 블레이드에서 원하는 가격 책정 계층을 선택하고 **선택** 을 클릭합니다.
 
 ![가격 책정 계층][redis-cache-pricing-tier-blade]
 
@@ -45,14 +45,14 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
   * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
   * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
-* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장합니다.
+* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장합니다.
 * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
  
 캐시의 크기를 새 가격 책정 계층으로 조정하는 동안에는 **Azure Cache for Redis** 블레이드에 **크기 조정 중** 상태가 표시됩니다.
 
 ![확장][redis-cache-scaling]
 
-크기 조정이 완료되면 상태가 **Scaling(크기 조정 중)** 에서 **실행 중**으로 변경됩니다.
+크기 조정이 완료되면 상태가 **Scaling(크기 조정 중)** 에서 **실행 중** 으로 변경됩니다.
 
 ## <a name="how-to-automate-a-scaling-operation"></a>크기 조정 작업을 자동화하는 방법
 Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 PowerShell cmdlet, Azure CLI를 사용하거나 MAML(Microsoft Azure Management Libraries)을 사용하여 크기를 조정할 수 있습니다. 
@@ -65,7 +65,7 @@ Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 P
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) `Size` , `Sku` 또는 속성이 수정 될 때 AzRedisCache cmdlet을 사용 하 여 PowerShell을 통해 Redis 인스턴스에 대 한 Azure 캐시의 크기를 조정할 수 있습니다 `ShardCount` . 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
+[Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) `Size` , `Sku` 또는 속성이 수정 될 때 AzRedisCache cmdlet을 사용 하 여 PowerShell을 통해 Redis 인스턴스에 대 한 Azure 캐시의 크기를 조정할 수 있습니다 `ShardCount` . 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
@@ -120,7 +120,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 ### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>프리미엄 캐시로 확장하거나, 이 캐시를 축소하거나 이 캐시 내에서 크기를 조정할 수 있나요?
 * **프리미엄** 캐시에서 **기본** 또는 **표준** 가격 책정 계층으로 축소할 수 없습니다.
 * 하나의 **프리미엄** 캐시 가격 책정 계층에서 다른 프리미엄 캐시 가격 책정 계층으로 크기를 조정할 수 있습니다.
-* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장합니다.
+* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장합니다.
 * **프리미엄** 캐시를 만들 때 클러스터링을 사용하도록 설정했으면 [클러스터 크기를 변경](cache-how-to-premium-clustering.md#cluster-size)할 수 있습니다. 클러스터를 사용하지 않고 캐시를 만든 경우 나중에 클러스터링를 구성할 수 있습니다.
   
   자세한 내용은 [프리미엄 Azure Cache for Redis에 대한 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
@@ -151,7 +151,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 
 ### <a name="will-my-cache-be-available-during-scaling"></a>크기를 조정하는 동안 내 캐시를 사용할 수 있나요?
 * **표준** 및 **프리미엄** 캐시는 크기 조정 작업을 수행하는 동안 사용할 수 있습니다. 그러나 표준 및 프리미엄 캐시 크기를 조정하는 동안 및 기본 에서 표준 캐시로 확장하는 동안 연결 블립이 발생할 수 있습니다. 이러한 연결 블립은 작을 것으로 예상되며 redis 클라이언트는 연결을 즉시 다시 설정할 수 있습니다.
-* 작업을 다른 크기로 확장하는 동안 **기본** 캐시는 오프라인 상태입니다. **기본**에서 **표준**으로 확장하는 동안 기본 캐시를 그대로 사용할 수 있지만 작은 연결 블립이 발생할 수도 있습니다. 연결 블립이 발생하는 경우 redis 클라이언트가 해당 연결을 즉시 다시 설정할 수 있습니다.
+* 작업을 다른 크기로 확장하는 동안 **기본** 캐시는 오프라인 상태입니다. **기본** 에서 **표준** 으로 확장하는 동안 기본 캐시를 그대로 사용할 수 있지만 작은 연결 블립이 발생할 수도 있습니다. 연결 블립이 발생하는 경우 redis 클라이언트가 해당 연결을 즉시 다시 설정할 수 있습니다.
 
 
 ### <a name="scaling-limitations-with-geo-replication"></a>지역 복제를 사용하여 제한 사항 크기 조정
@@ -164,7 +164,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
   * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
   * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
-* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 작업을 통해 **표준**에서 **프리미엄**으로 확장합니다.
+* **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 후속 작업을 통해 **표준** 에서 **프리미엄** 으로 확장합니다.
 * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
 
 크기 조정 작업이 실패하면 서비스는 작업을 되돌리려고 하며 캐시는 원래 크기로 되돌아갑니다.
@@ -174,7 +174,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 크기 조정 시간은 캐시에 있는 데이터의 양에 따라 달라 지 며 완료 하는 데 시간이 더 오래 걸립니다. 크기 조정에는 약 20 분이 걸립니다. 클러스터형 캐시의 경우 분할은 분할 당 약 20 분이 걸립니다.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>크기 조정이 완료되었는지 어떻게 알 수 있나요?
-Azure Portal에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중**으로 변경됩니다.
+Azure Portal에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중** 으로 변경됩니다.
 
 <!-- IMAGES -->
 

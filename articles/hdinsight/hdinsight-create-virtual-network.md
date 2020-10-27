@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4fcf7830250e5e6d2e4255ddb88867023606d0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484817"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547557"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기
 
@@ -27,7 +27,7 @@ Azure HDInsight에서 가상 네트워크를 사용 하는 방법에 대 한 배
 
 이 문서의 샘플에 대 한 다른 필수 구성 요소에는 다음 항목이 포함 됩니다.
 
-* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/)을 설치 해야 합니다.
+* PowerShell을 사용 하는 경우 [AZ Module](/powershell/azure/)을 설치 해야 합니다.
 * Azure CLI를 사용 하 고 아직 설치 하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 > [!IMPORTANT]  
@@ -377,6 +377,6 @@ az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protoc
 * Apache HBase 지리적 복제를 구성하려면 [Azure 가상 네트워크에서 Apache HBase 클러스터 복제 설정](hbase/apache-hbase-replication.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-* 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
+* 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
 * 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328567"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546673"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 개인 링크
 
@@ -53,10 +53,10 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 ![Azure Data Factory 아키텍처에 대 한 개인 링크 다이어그램](./media/data-factory-private-link/private-link-architecture.png)
 
 위의 각 통신 채널에 대해 개인 링크 서비스를 사용 하도록 설정 하면 다음과 같은 기능을 제공 합니다.
-- **지원 됨**:
+- **지원 됨** :
    - 모든 아웃 바운드 통신을 차단 하는 경우에도 가상 네트워크에서 데이터 팩터리를 작성 하 고 모니터링할 수 있습니다.
    - 자체 호스팅 통합 런타임과 Azure Data Factory 서비스 간의 명령 통신은 개인 네트워크 환경에서 안전 하 게 수행할 수 있습니다. 자체 호스팅 통합 런타임과 Azure Data Factory 서비스 간의 트래픽은 개인 링크를 통해 이동 합니다. 
-- **현재 지원 되지 않음**:
+- **현재 지원 되지 않음** :
    - 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기 및 데이터 미리 보기와 같은 자체 호스팅 통합 런타임을 사용 하는 대화형 작성은 개인 링크를 통해 이동 합니다.
    - 자동 업데이트를 사용 하도록 설정 하는 경우 자체 호스팅 통합 런타임의 새 버전이 Microsoft 다운로드 센터에서 자동으로 다운로드 될 수 있습니다.
 
@@ -67,7 +67,7 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 > 연결 된 서비스를 만들 때 자격 증명이 Azure key vault에 저장 되어 있는지 확인 합니다. 그렇지 않으면 Azure Data Factory에서 개인 링크를 사용 하도록 설정 하는 경우 자격 증명이 작동 하지 않습니다.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 개인 링크 설정
-[Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell 또는 Azure CLI를 사용 하 여 개인 끝점을 만들 수 있습니다.
+[Azure Portal를](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)사용 하 여 개인 끝점을 만들 수 있습니다.
 
 Azure Portal에서 Azure 데이터 팩터리로 이동 하 여 다음과 같이 개인 끝점을 만들 수도 있습니다.
 

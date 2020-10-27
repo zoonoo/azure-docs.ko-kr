@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dac56059455a75f4d64a698c416dc22793432bc8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000314"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545602"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
@@ -43,14 +43,14 @@ Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 
 
 이 예제에서는 다음 구성 요소가 사용됩니다.
 
-* __EventHubSpout__: Event Hubs에서 데이터를 읽습니다.
-* __EventHubBolt__: Event Hubs에 데이터를 씁니다.
-* __EventHubSpoutConfig__: EventHubSpout를 구성하는 데 사용됩니다.
-* __EventHubBoltConfig__: EventHubBolt를 구성하는 데 사용됩니다.
+* __EventHubSpout__ : Event Hubs에서 데이터를 읽습니다.
+* __EventHubBolt__ : Event Hubs에 데이터를 씁니다.
+* __EventHubSpoutConfig__ : EventHubSpout를 구성하는 데 사용됩니다.
+* __EventHubBoltConfig__ : EventHubBolt를 구성하는 데 사용됩니다.
 
 ### <a name="example-spout-usage"></a>예제 Spout 사용
 
-SCP.NET은 토폴로지에 EventHubSpout를 추가하기 위한 메서드를 제공합니다. 이러한 메서드를 사용하면 Java 구성 요소를 추가하기 위한 제네릭 메서드를 사용하는 것보다 더 쉽게 Spout를 추가할 수 있습니다. 다음 예제에서는 SCP.NET에서 제공하는 __SetEventHubSpout__ 및 **EventHubSpoutConfig**를 사용하여 Spout를 만드는 방법을 보여 줍니다.
+SCP.NET은 토폴로지에 EventHubSpout를 추가하기 위한 메서드를 제공합니다. 이러한 메서드를 사용하면 Java 구성 요소를 추가하기 위한 제네릭 메서드를 사용하는 것보다 더 쉽게 Spout를 추가할 수 있습니다. 다음 예제에서는 SCP.NET에서 제공하는 __SetEventHubSpout__ 및 **EventHubSpoutConfig** 를 사용하여 Spout를 만드는 방법을 보여 줍니다.
 
 ```csharp
  topologyBuilder.SetEventHubSpout(
@@ -64,11 +64,11 @@ SCP.NET은 토폴로지에 EventHubSpout를 추가하기 위한 메서드를 제
     eventHubPartitions);
 ```
 
-이전 예제에서는 __EventHubSpout__라는 새 spout 구성 요소를 만들고 이벤트 허브와 통신 하도록 구성 합니다. 구성 요소에 대한 병렬 처리 힌트는 이벤트 허브의 파티션 수로 설정됩니다. 이 설정을 통해 Storm은 각 파티션에 대한 구성 요소의 인스턴스를 만들 수 있습니다.
+이전 예제에서는 __EventHubSpout__ 라는 새 spout 구성 요소를 만들고 이벤트 허브와 통신 하도록 구성 합니다. 구성 요소에 대한 병렬 처리 힌트는 이벤트 허브의 파티션 수로 설정됩니다. 이 설정을 통해 Storm은 각 파티션에 대한 구성 요소의 인스턴스를 만들 수 있습니다.
 
 ### <a name="example-bolt-usage"></a>예제 Bolt 사용
 
-**JavaComponmentConstructor** 메서드를 사용 하 여 볼트의 인스턴스를 만듭니다. 다음 예제에서는 **EventHubBolt**의 새 인스턴스를 만들고 구성 하는 방법을 보여 줍니다.
+**JavaComponmentConstructor** 메서드를 사용 하 여 볼트의 인스턴스를 만듭니다. 다음 예제에서는 **EventHubBolt** 의 새 인스턴스를 만들고 구성 하는 방법을 보여 줍니다.
 
 ```csharp
 // Java construcvtor for the Event Hub Bolt
@@ -91,15 +91,15 @@ topologyBuilder.SetJavaBolt(
 ```
 
 > [!NOTE]  
-> 이 예제에서는 Spout 예제와 같이 **JavaComponentConstructor**를 사용하여 **EventHubBoltConfig**를 만드는 대신 문자열로 전달되는 Clojure 식을 사용합니다. 어떤 방법이든 작동합니다. 자신에게 가장 좋은 것을 사용하세요.
+> 이 예제에서는 Spout 예제와 같이 **JavaComponentConstructor** 를 사용하여 **EventHubBoltConfig** 를 만드는 대신 문자열로 전달되는 Clojure 식을 사용합니다. 어떤 방법이든 작동합니다. 자신에게 가장 좋은 것을 사용하세요.
 
 ## <a name="download-the-completed-project"></a>완성된 프로젝트 다운로드
 
 이 문서에서 만든 전체 버전의 프로젝트는 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 다운로드할 수 있습니다. 그러나이 문서의 단계에 따라 구성 설정을 제공 해야 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
-* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
+* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
 * [Azure 이벤트 허브](../../event-hubs/event-hubs-create.md).
 
@@ -107,7 +107,7 @@ topologyBuilder.SetJavaBolt(
 
 * [Visual Studio 용 HDInsight 도구](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](https://aka.ms/azure-jdks)에서 사용할 수 있습니다.
+* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 사용할 수 있습니다.
 
   * **JAVA_HOME** 환경 변수가 Java를 포함하고 있는 디렉터리를 가리켜야 합니다.
   * **% JAVA_HOME%** 의 디렉터리가 경로에 있어야 합니다.
@@ -122,9 +122,9 @@ topologyBuilder.SetJavaBolt(
 
 Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../../event-hubs/event-hubs-create.md)의 "이벤트 허브 만들기" 섹션에 있는 정보를 참조하세요.
 
-1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가** 를 선택 하 여 다음 정책을 만듭니다.
+1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책** 을 선택합니다. **+ 추가** 를 선택 하 여 다음 정책을 만듭니다.
 
-   | Name | 사용 권한 |
+   | 속성 | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |
@@ -139,11 +139,11 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 2. [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 솔루션을 다운로드합니다.
 
-3. **EventHubExample**를 엽니다. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
+3. **EventHubExample** 를 엽니다. **EventHubWriter** 프로젝트에서 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | Key | 값 |
+   | 키 | 값 |
    | --- | --- |
-   | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
+   | EventHubPolicyName |기록기( *보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |기록기 정책에 대한 키 |
    | EventHubNamespace |이벤트 허브가 포함된 네임스페이스 |
    | EventHubName |이벤트 허브 이름 |
@@ -155,11 +155,11 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. **EventHubReader** 프로젝트를 엽니다.
 
-2. **EventHubReader**에 대한 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
+2. **EventHubReader** 에 대한 **App.config** 파일을 엽니다. 앞에서 구성한 이벤트 허브에 대한 정보를 다음 키에 대한 값에 입력합니다.
 
-   | Key | 값 |
+   | 키 | 값 |
    | --- | --- |
-   | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
+   | EventHubPolicyName |판독기( *수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |판독기 정책에 대한 키 |
    | EventHubNamespace |이벤트 허브가 포함된 네임스페이스 |
    | EventHubName |이벤트 허브 이름 |
@@ -169,11 +169,11 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 ## <a name="deploy-the-topologies"></a>토폴로지 배포
 
-1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight에서 스톰에 제출을**선택 합니다.
+1. **솔루션 탐색기** 에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight에서 스톰에 제출을** 선택 합니다.
 
     ![HDInsight의 Storm에 제출이 강조 표시된 솔루션 탐색기 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
-2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
+2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터** 를 선택합니다. **추가 구성** 을 확장하고 **Java 파일 경로** , **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출** 을 클릭합니다.
 
     ![토폴로지 제출 대화 상자의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
@@ -181,13 +181,13 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
     ![Storm Topologies Viewer의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
 
-4. **솔루션 탐색기**에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight에서 스톰에 제출을**선택 합니다.
+4. **솔루션 탐색기** 에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight에서 스톰에 제출을** 선택 합니다.
 
-5. **토폴로지 제출** 대화 상자에서 **Storm 클러스터**를 선택합니다. **추가 구성**을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출**을 클릭합니다.
+5. **토폴로지 제출** 대화 상자에서 **Storm 클러스터** 를 선택합니다. **추가 구성** 을 확장하고 **Java 파일 경로** , **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출** 을 클릭합니다.
 
 6. 토폴로지가 제출되었으면 **Storm Topologies Viewer** 에서 토폴로지 목록을 새로 고쳐 두 토폴로지 모두 클러스터에서 실행되는지 확인합니다.
 
-7. **Storm Topologies Viewer**에서 **EventHubReader** 토폴로지를 선택합니다.
+7. **Storm Topologies Viewer** 에서 **EventHubReader** 토폴로지를 선택합니다.
 
 8. 볼트의 구성 요소 요약을 열려면 다이어그램에서 **Logbolt** 구성 요소를 두 번 클릭 합니다.
 
@@ -201,7 +201,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 ## <a name="stop-the-topologies"></a>토폴로지 중지
 
-토폴로지를 중지하려면 **Storm Topology Viewer**에서 각 토폴로지를 선택한 다음 **중단**을 클릭합니다.
+토폴로지를 중지하려면 **Storm Topology Viewer** 에서 각 토폴로지를 선택한 다음 **중단** 을 클릭합니다.
 
 ![종료 단추가 강조 표시된 Storm Topologies Viewer의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
 

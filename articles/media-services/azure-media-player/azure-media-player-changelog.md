@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315085"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370579"
 ---
 # <a name="changelog"></a>Changelog
 
@@ -198,7 +198,7 @@ Chromium Edge 브라우저의 DASH 재생을 위한 PlayReady 지원이 추가�
 
 ### <a name="changes"></a>변경 ###
 
-- [변경][라이브 캡션] CEA 캡션에 대한 API 이름이 608에서 708로 변경됨. 자세한 내용은 [CEA708 캡션 설정](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->을 참조하세요.
+- [변경][라이브 캡션] CEA 캡션에 대한 API 이름이 608에서 708로 변경됨. 자세한 내용은 [CEA708 캡션 설정](/javascript/api/azuremediaplayer/cea708captionssettings)-->을 참조하세요.
 
 ## <a name="220-official-release"></a>2.2.0(공식 릴리스) ##
 
@@ -727,7 +727,7 @@ Chromium Edge 브라우저의 DASH 재생을 위한 PlayReady 지원이 추가�
 - [버그 수정] UI 로드 환경이 자동 재생 모드로 업데이트됨
 - [버그 수정] AMD 로더 문제 및 메서드 충돌 정의
 - [버그 수정] WP 8.1 Cordova 앱 로드 문제
-- [버그 수정] 보호된 콘텐츠에서 플랫폼/기술 지원 ProtectionType을 쿼리하여 재생에 적합한 기술을 선택합니다.  이전에 '_Chrome(데스크톱)/Safari 8(OSX Yosemite)의 PlayReady 콘텐츠가 현재 Silverlight 플레이어로 대체되지 않습니다._ '라고 알려진 문제가 해결되었습니다.
+- [버그 수정] 보호된 콘텐츠에서 플랫폼/기술 지원 ProtectionType을 쿼리하여 재생에 적합한 기술을 선택합니다.  이전에 ' _Chrome(데스크톱)/Safari 8(OSX Yosemite)의 PlayReady 콘텐츠가 현재 Silverlight 플레이어로 대체되지 않습니다._ '라고 알려진 문제가 해결되었습니다.
 - [버그 수정] 해당 머신에 기본적으로 설치되지 않은 미디어 파운데이션으로 인해 WinServer 2012 R2에서 catch되지 않은 예외가 발생합니다.  구현되지 않은 HTML 비디오 태그 API를 사용하려고 하면 오류가 throw됩니다. 현재 완화 방법은 해당 오류를 catch하여 오류를 throw하는 대신 false를 반환하는 것입니다.
 - [버그 수정] 재생 중에 결함을 방지하기 위해 검색 또는 HTTP 실패 후에 항상 초기화 세그먼트를 가져옵니다.
 - [버그 수정] 오류가 발생한 경우 시뮬레이션된 진행률 및 시간 업데이트 추적을 해제합니다.

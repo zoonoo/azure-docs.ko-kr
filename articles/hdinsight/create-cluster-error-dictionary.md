@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816459"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543103"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
 
@@ -24,7 +24,7 @@ ms.locfileid: "88816459"
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>오류 코드: DeploymentDocument ' CsmDocument_2_0 '이 (가) 유효성 검사에 실패 했습니다.
 
-**오류**: "스크립트 작업 위치에는 URI를 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
+**오류** : "스크립트 작업 위치에는 URI를 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>오류 메시지 1
 
@@ -72,7 +72,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ## <a name="error-codeinvalidvirtualnetworkid"></a>오류 코드: InvalidVirtualNetworkId  
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 "VirtualNetworkId이 잘못 되었습니다. VirtualNetworkId ' \<USER_VIRTUALNETWORKID\> ' * "
 
@@ -96,7 +96,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ## <a name="error-code-customizationfailederrorcode"></a>오류 코드: CustomizationFailedErrorCode
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 "사용자 지정 스크립트 작업의 오류로 인해 클러스터를 배포 하지 못했습니다. 실패 한 작업:. \<SCRIPT_NAME\> AMBARI UI로 이동 하 여 오류를 추가로 디버그 하세요. "
 
@@ -112,7 +112,7 @@ HDInsight 서비스는 클러스터 만들기 요청의 일부로 제공한 스�
 
 ## <a name="error-codeinvaliddocumenterrorcode"></a>오류 코드: InvalidDocumentErrorCode
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 " \<META_STORE_TYPE\> 데이터베이스의 Metastore 스키마 버전이 \<METASTORE_MAJOR_VERSION\> \<DATABASE_NAME\> 클러스터 버전과 호환 되지 않습니다. \<CLUSTER_VERSION\> "
 
@@ -128,7 +128,7 @@ HDInsight 클러스터 버전에서 지 원하는 Metastore 버전만 사용 합
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>오류 코드: FailedToConnectWithClusterErrorCode 
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 "크기 조정 작업을 수행 하기 위해 클러스터 관리 끝점에 연결할 수 없습니다. 네트워크 보안 규칙에서 클러스터에 대 한 외부 액세스를 차단 하 고 있지 않고 클러스터 관리자 (Ambari) UI에 액세스할 수 있는지 확인 합니다. "
 
@@ -141,7 +141,7 @@ NSG (네트워크 보안 그룹)의 방화벽 규칙이 중요 한 Azure 상태 
 네트워크 보안 그룹을 사용 하 여 네트워크 트래픽을 제어 하려는 경우 HDInsight를 설치 하기 전에 다음 작업을 수행 합니다.
 
 - HDInsight에 대해 사용할 Azure 지역을 식별합니다.
-- HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조하세요.
+- HDInsight에 필요한 IP 주소를 식별합니다. 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조하세요.
   - HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다.
   - 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
@@ -149,7 +149,7 @@ NSG (네트워크 보안 그룹)의 방화벽 규칙이 중요 한 Azure 상태 
 
 ## <a name="error-code-storagepermissionsblockedformsi"></a>오류 코드: StoragePermissionsBlockedForMsi
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 "관리 Id에 저장소 계정에 대 한 권한이 없습니다. 저장소 계정에 대 한 관리 Id에 ' 저장소 Blob 데이터 소유자 ' 역할이 할당 되어 있는지 확인 하세요. 저장소:/subscriptions/ \<Subscription ID\> /Stgg/ \< Resource Group Name\> /Providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\> , 관리 id:/subscriptions/ \<Subscription ID\> /Sggg// \< Resource Group Name\> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> "
 
@@ -170,9 +170,9 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 ## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>오류 코드: InvalidNetworkSecurityGroupSecurityRules
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
-"네트워크 보안 그룹/subscriptions/ \<SubscriptionID\> /stggg/<리소스 그룹 이름에는 \> default/Providers/networkSecurityGroups//Subscriptions//RG-westeurope-vnet-tomtom-default//subnets// \<Network Security Group Name\> 를 사용 하 여 구성 하 고, \<SubscriptionID\> \<Resource Group name\> \<Virtual Network Name\> \<Subnet Name\> 필수 인바운드 및/또는 아웃 바운드 연결을 허용 하지 않습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)또는 지원 담당자에 게 문의 하세요. "를 참조 하세요.
+"네트워크 보안 그룹/subscriptions/ \<SubscriptionID\> /stggg/<리소스 그룹 이름에는 \> default/Providers/networkSecurityGroups//Subscriptions//RG-westeurope-vnet-tomtom-default//subnets// \<Network Security Group Name\> 를 사용 하 여 구성 하 고, \<SubscriptionID\> \<Resource Group name\> \<Virtual Network Name\> \<Subnet Name\> 필수 인바운드 및/또는 아웃 바운드 연결을 허용 하지 않습니다. 자세한 내용은 [Azure HDInsight에 대 한 가상 네트워크 계획](./hdinsight-plan-virtual-network-deployment.md)또는 지원 담당자에 게 문의 하세요. "를 참조 하세요.
 
 ### <a name="cause"></a>원인
 
@@ -182,15 +182,15 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 네트워크 보안 그룹을 사용 하 여 네트워크 트래픽을 제어 하려는 경우 HDInsight를 설치 하기 전에 다음 작업을 수행 합니다.
 
-- HDInsight에 사용할 Azure 지역을 식별 하 고 해당 지역의 IP 주소에 대 한 안전한 목록을 만듭니다. 자세한 내용은 [상태 및 관리 서비스: 특정 지역](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions)을 참조 하세요.
-- HDInsight에 필요한 IP 주소를 식별 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
+- HDInsight에 사용할 Azure 지역을 식별 하 고 해당 지역의 IP 주소에 대 한 안전한 목록을 만듭니다. 자세한 내용은 [상태 및 관리 서비스: 특정 지역](./hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions)을 참조 하세요.
+- HDInsight에 필요한 IP 주소를 식별 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조 하세요.
 - HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다. 네트워크 보안 그룹의 경우 IP 주소에서 포트 443에 대 한 인바운드 트래픽을 허용 합니다. 이 구성을 통해 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
 ---
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>오류 코드: 클러스터 설치에서 하나 이상의 호스트에 구성 요소를 설치 하지 못했습니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 "클러스터 설치 프로그램에서 하나 이상의 호스트에 구성 요소를 설치 하지 못했습니다. 요청을 다시 시도 하세요. "
 
@@ -206,7 +206,7 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>오류 코드: FailedToConnectWithClusterErrorCode
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 클러스터 관리 끝점에 연결할 수 없습니다. 나중에 다시 시도하십시오.
 
@@ -216,7 +216,7 @@ HDInsight 서비스에서 클러스터를 만드는 동안 클러스터에 연�
 
 ### <a name="resolution"></a>해결 방법
 
-사용자 지정 VNet NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로)를 사용 하는 경우 클러스터가 HDInsight 관리 서비스와 통신할 수 있는지 확인 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)를 참조 하세요.
+사용자 지정 VNet NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로)를 사용 하는 경우 클러스터가 HDInsight 관리 서비스와 통신할 수 있는지 확인 합니다. 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조 하세요.
 
 ---
 
@@ -240,4 +240,4 @@ HDInsight 클러스터를 만드는 동안 구독 기반 Azure Policy 할당을 
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 생성 오류 문제 해결에 대 한 자세한 내용은 [Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails)을 참조 하세요.
+클러스터 생성 오류 문제 해결에 대 한 자세한 내용은 [Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)을 참조 하세요.
