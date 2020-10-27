@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9bfdd2d03b3ab6edd04a641787475930435a9ffc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32530982bc2a9d1b5deb31b3bc71460462352258
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499605"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536422"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cache for Redis 관리
 
@@ -30,4 +30,4 @@ ms.locfileid: "87499605"
 |**캐시 삭제**| **설명** |
 | [캐시 삭제](./scripts/delete-cache.md) | Azure Cache for Redis 인스턴스 삭제  |
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 및 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.

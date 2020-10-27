@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756537"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545874"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 백업 및 복원 (미리 보기)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL 유연한 서버는 자동으로 서버 백업을 만�
 
 유연한 서버는 데이터 파일의 스냅숏 백업을 사용 하 여 로컬 중복 저장소에 저장 합니다. 또한 서버는 트랜잭션 로그 백업을 수행 하 고 로컬 중복 저장소에도 저장 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 데이터베이스 백업을 1 ~ 35 일로 구성할 수 있습니다. 모든 백업은 미사용 데이터에 대 한 AES 256 비트 암호화를 사용 하 여 암호화 됩니다.
 
-이러한 백업 파일은 내보낼 수 없습니다. 백업은 유연한 서버에서 복원 작업에만 사용할 수 있습니다. MySQL 클라이언트에서 [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)를 사용 하 여 데이터베이스를 복사할 수도 있습니다   .
+이러한 백업 파일은 내보낼 수 없습니다. 백업은 유연한 서버에서 복원 작업에만 사용할 수 있습니다. MySQL 클라이언트에서 [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) 를 사용 하 여 데이터베이스를 복사할 수도 있습니다.
 
 ## <a name="backup-frequency"></a>Backup 주기
 
@@ -40,9 +40,9 @@ Azure Database for MySQL 유연한 서버는 자동으로 서버 백업을 만�
 
 ## <a name="backup-storage-cost"></a>백업 스토리지 비용
 
-유연한 서버는 프로 비전 된 서버 저장소의 최대 100%를 추가 비용 없이 백업 저장소로 제공 합니다. 사용 되는 추가 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GB의 저장소 서버를 프로 비전 한 경우 추가 비용 없이 서버 백업에 250 GB의 저장소를 사용할 수 있습니다. 매일 백업 사용량이 25GB 인 경우 최대 10 일간의 무료 백업 저장소를 사용할 수 있습니다. 250 GB 보다 많은 백업에 사용 된 저장소는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/mysql/)에 따라 요금이 청구 됩니다.
+유연한 서버는 프로 비전 된 서버 저장소의 최대 100%를 추가 비용 없이 백업 저장소로 제공 합니다. 사용 되는 추가 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GB의 저장소 서버를 프로 비전 한 경우 추가 비용 없이 서버 백업에 250 GB의 저장소를 사용할 수 있습니다. 매일 백업 사용량이 25GB 인 경우 최대 10 일간의 무료 백업 저장소를 사용할 수 있습니다. 250 GB 보다 많은 백업에 사용 된 저장소는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/mysql/)에 따라 요금이 청구 됩니다.
 
-Azure Portal에서 사용할 수 있는 Azure Monitor [백업 저장소 사용](https://docs.microsoft.com/azure/mysql/concepts-monitoring)   메트릭을 사용 하 여 서버에서 사용 하는 백업 저장소를 모니터링할 수 있습니다. **백업 저장소** 사용 메트릭은 서버에 대해 설정 된 백업 보존 기간에 따라 유지 되는 모든 데이터베이스 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 서버에서 과도한 트랜잭션 작업을 수행하면 전체 데이터베이스 크기에 관계없이 백업 스토리지 사용량이 증가할 수 있습니다.
+Azure Portal에서 사용할 수 있는 Azure Monitor [백업 저장소 사용](../concepts-monitoring.md) 메트릭을 사용 하 여 서버에서 사용 하는 백업 저장소를 모니터링할 수 있습니다. **백업 저장소** 사용 메트릭은 서버에 대해 설정 된 백업 보존 기간에 따라 유지 되는 모든 데이터베이스 백업 및 로그 백업에서 사용 하는 저장소의 합계를 나타냅니다. 서버에서 과도한 트랜잭션 작업을 수행하면 전체 데이터베이스 크기에 관계없이 백업 스토리지 사용량이 증가할 수 있습니다.
 
 백업 저장소 비용을 제어 하는 기본적인 방법은 적절 한 백업 보존 기간을 설정 하는 것입니다. 1 ~ 007e; 35 일 사이의 보존 기간을 선택할 수 있습니다.
 
@@ -68,8 +68,8 @@ Azure Database for MySQL 유연한 서버에서 지정 시간 복원을 수행 �
 
 [Azure Portal](how-to-restore-server-portal.md)를 통해 최신 복원 지점과 사용자 지정 복원 지점 사이에서 선택할 수 있습니다.
 
--   **최신 복원 지점**: 최신 복원 지점을 사용 하면 원본 서버에서 수행 된 마지막 백업으로 서버를 복원할 수 있습니다. 복원 타임 스탬프도 포털에도 표시 됩니다. 이 옵션은 서버를 가장 많이 업데이트 된 상태로 신속 하 게 복원 하는 데 유용 합니다.
--   **사용자 지정 복원 지점**:이를 통해이 유연한 서버에 대해 정의 된 보존 기간 내의 특정 시점을 선택할 수 있습니다. 이 옵션은 정확한 시점에 서버를 복원 하 여 사용자 오류 로부터 복구 하는 데 유용 합니다.
+-   **최신 복원 지점** : 최신 복원 지점을 사용 하면 원본 서버에서 수행 된 마지막 백업으로 서버를 복원할 수 있습니다. 복원 타임 스탬프도 포털에도 표시 됩니다. 이 옵션은 서버를 가장 많이 업데이트 된 상태로 신속 하 게 복원 하는 데 유용 합니다.
+-   **사용자 지정 복원 지점** :이를 통해이 유연한 서버에 대해 정의 된 보존 기간 내의 특정 시점을 선택할 수 있습니다. 이 옵션은 정확한 시점에 서버를 복원 하 여 사용자 오류 로부터 복구 하는 데 유용 합니다.
 
 예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 백업 크기, SKU의 계산 크기 및 복원 시간도 포함 하 여 여러 가지 요인에 따라 달라 집니다. 트랜잭션 로그 복구는 복원 프로세스에서 가장 시간이 많이 소요 되는 부분입니다. 복원 시간이 전체 또는 차등 스냅숏 백업 일정에 더 가깝게 선택 된 경우 트랜잭션 로그 응용 프로그램이 최소화 되므로 복원이 더 빠릅니다. 서버에 대 한 정확한 복구 시간을 추정 하려면 환경에서 특정 변수를 너무 많이 포함 하 여 테스트 하는 것이 좋습니다.
 
@@ -77,7 +77,7 @@ Azure Database for MySQL 유연한 서버에서 지정 시간 복원을 수행 �
 > 영역 중복 고가용성을 사용 하 여 구성 된 유연한 서버를 복원 하는 경우 복원 된 서버는 주 서버와 동일한 지역 및 영역에 구성 되 고 비 HA 모드에서 단일 유연한 서버로 배포 됩니다. 유연한 서버는 [영역 중복 고가용성](concepts-high-availability.md) 을 참조 하세요.
 
 > [!IMPORTANT]
-> 삭제 된 서버는 복원할 수 **없습니다**   . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 서버 리소스를 보호 하기 위해 실수로 삭제 하거나 예기치 않은 변경에서 배포 후에는 관리자가 [관리 잠금을](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)활용할 수 있습니다.
+> 삭제된 서버는 복원할 수 **없습니다** . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](../../azure-resource-manager/management/lock-resources.md)을 활용할 수 있습니다.
 
 ## <a name="perform-post-restore-tasks"></a>복원 후 작업 수행
 
@@ -91,5 +91,5 @@ Azure Database for MySQL 유연한 서버에서 지정 시간 복원을 수행 �
 ## <a name="next-steps"></a>다음 단계
 
 -   [비즈니스 연속성](./concepts-business-continuity.md) 에 대 한 자세한 정보
--    [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
+-   [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
 -   [백업 및 복구](./concepts-backup-restore.md) 에 대 한 자세한 정보

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839693"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536881"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
@@ -63,7 +63,7 @@ ms.locfileid: "91839693"
 
     ![지역에서 복제 상황에 맞는 메뉴](./media/cache-how-to-geo-replication/cache-geo-location-select-link-context-menu.png)
 
-3. **링크**를 클릭하여 두 캐시를 함께 연결하고 복제 프로세스를 시작합니다.
+3. **링크** 를 클릭하여 두 캐시를 함께 연결하고 복제 프로세스를 시작합니다.
 
     ![캐시 연결](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
@@ -75,7 +75,7 @@ ms.locfileid: "91839693"
 
     ![기본 및 보조 캐시에 대 한 연결 상태를 확인 하는 방법을 보여 주는 스크린샷](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    복제 프로세스가 완료되면 **링크 상태**가 **성공**으로 바뀝니다.
+    복제 프로세스가 완료되면 **링크 상태** 가 **성공** 으로 바뀝니다.
 
     ![캐시 상태](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -145,8 +145,8 @@ ms.locfileid: "91839693"
 
 - 동일한 VNET에 있는 캐시 간의 지역에서 복제가 지원됩니다.
 - 서로 다른 Vnet 캐시 간의 지역에서 복제도 지원 됩니다.
-  - Vnet이 동일한 지역에 있는 경우 [vnet 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 또는 [VPN Gateway vnet 간 연결](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V)을 사용 하 여 연결할 수 있습니다.
-  - Vnet 서로 다른 지역에 있는 경우 VNET 피어 링을 사용 하는 지역에서 복제가 지원 되지만 VNET 1 (지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치를 포함 하는 제약 조건으로 인해 VNET 2 (지역 2)의 DNS 이름을 통해 해당 캐시에 액세스할 수 없습니다. VNET 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)을 참조 하세요. VPN Gateway VNET 간 연결을 사용 하는 것이 좋습니다.
+  - Vnet이 동일한 지역에 있는 경우 [vnet 피어 링](../virtual-network/virtual-network-peering-overview.md) 또는 [VPN Gateway vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용 하 여 연결할 수 있습니다.
+  - Vnet 서로 다른 지역에 있는 경우 VNET 피어 링을 사용 하는 지역에서 복제가 지원 되지만 VNET 1 (지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치를 포함 하는 제약 조건으로 인해 VNET 2 (지역 2)의 DNS 이름을 통해 해당 캐시에 액세스할 수 없습니다. VNET 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)을 참조 하세요. VPN Gateway VNET 간 연결을 사용 하는 것이 좋습니다.
   
 [이 Azure 템플릿을](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)사용 하 여 VPN Gateway vnet 간 연결로 연결 된 vnet에 두 개의 지역에서 복제 된 캐시를 신속 하 게 배포할 수 있습니다.
 
@@ -166,7 +166,7 @@ ms.locfileid: "91839693"
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있나요?
 
-예, Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있습니다. 자세한 내용은 [PowerShell 문서](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) 또는 [Azure CLI 문서](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest)를 참조 하세요.
+예, Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 지역에서 복제를 관리할 수 있습니다. 자세한 내용은 [PowerShell 문서](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) 또는 [Azure CLI 문서](/cli/azure/redis/server-link?view=azure-cli-latest)를 참조 하세요.
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?
 
@@ -188,7 +188,7 @@ Azure 지역 간 자동 장애 조치 (failover)는 지역에서 복제 된 캐�
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>지역에서 복제를 사용 하 여 방화벽을 구성할 수 있나요?
 
-예, 지역에서 복제를 사용 하 여 [방화벽](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) 을 구성할 수 있습니다. 지역에서 복제가 방화벽과 함께 작동 하려면 보조 캐시의 IP 주소가 기본 캐시의 방화벽 규칙에 추가 되었는지 확인 합니다.
+예, 지역에서 복제를 사용 하 여 [방화벽](./cache-configure.md#firewall) 을 구성할 수 있습니다. 지역에서 복제가 방화벽과 함께 작동 하려면 보조 캐시의 IP 주소가 기본 캐시의 방화벽 규칙에 추가 되었는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

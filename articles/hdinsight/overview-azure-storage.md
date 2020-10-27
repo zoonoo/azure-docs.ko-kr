@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851379"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539465"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>HDInsight의 Azure Storage 개요
 
@@ -21,7 +21,7 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 
 기본 클러스터 저장소 및 비즈니스 데이터에 별도의 저장소 컨테이너를 사용 하는 것이 좋습니다. 이러한 구분은 고유한 비즈니스 데이터에서 HDInsight 로그와 임시 파일을 분리 하는 것입니다. 또한 응용 프로그램 및 시스템 로그를 포함 하는 기본 blob 컨테이너를 삭제 하 여 저장소 비용을 줄이는 것이 좋습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
-**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하려면 **신뢰할 수 있는 Microsoft 서비스 허용**예외를 사용 하도록 설정 해야 합니다. 이 예외는 HDInsight에서 저장소 계정에 액세스할 수 있도록 하는 것입니다.
+**선택한 네트워크** 에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하려면 **신뢰할 수 있는 Microsoft 서비스 허용** 예외를 사용 하도록 설정 해야 합니다. 이 예외는 HDInsight에서 저장소 계정에 액세스할 수 있도록 하는 것입니다.
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 스토리지 아키텍처
 
@@ -44,7 +44,7 @@ HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 다음 원
 * **클러스터에 연결 되지 않은 저장소 계정의 공용 컨테이너 또는 공용 blob:** 컨테이너의 blob에 대 한 읽기 전용 권한이 있습니다.
   
   > [!NOTE]  
-  > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
+  > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/anonymous-read-access-configure.md)를 참조하세요.
 
 * **클러스터에 연결 되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의 하지 않는 한 컨테이너의 blob에 액세스할 수 없습니다.
 

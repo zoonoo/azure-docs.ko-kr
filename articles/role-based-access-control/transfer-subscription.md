@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 35c6d94ce69acf59ae6cd8b26b0ad75645eb526a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819716"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545347"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Azure 구독을 다른 Azure AD 디렉터리에 전송
 
@@ -75,7 +75,8 @@ ms.locfileid: "91819716"
 | Azure 파일 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 동기화 | 예 | 예 |  |  |
 | Azure Managed Disks | 예 | 예 |  |  디스크 암호화 집합을 사용 하 여 고객 관리 키를 사용 하 여 Managed Disks을 암호화 하는 경우 디스크 암호화 집합과 연결 된 시스템 할당 id를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 해야 합니다. 그리고 역할 할당을 다시 만들어야 합니다. 즉, 키 자격 증명 모음에서 디스크 암호화 집합에 필요한 사용 권한을 다시 부여 합니다. |
-| Kubernetes 용 Azure Container Service | 예 | 예 |  |  |
+| Azure Kubernetes Service | 예 | 예 |  |  |
+| Azure Policy | 예 | 아니요 | 사용자 지정 정의, 할당, 예외 및 규정 준수 데이터를 비롯 한 모든 Azure Policy 개체입니다. | 정의를 [내보내고](../governance/policy/how-to/export-resources.md), 가져오고, 다시 할당 해야 합니다. 그런 다음 새 정책 할당과 필요한 [정책 예외](../governance/policy/concepts/exemption-structure.md)를 만듭니다. |
 | Azure Active Directory Domain Services | 예 | 아니요 |  |  |
 | 앱 등록 | 예 | 예 |  |  |
 
@@ -108,9 +109,9 @@ ms.locfileid: "91819716"
     az account set --subscription "Marketing"
     ```
 
-### <a name="install-the-resource-graph-extension"></a>리소스 그래프 확장을 설치 합니다.
+### <a name="install-the-azure-resource-graph-extension"></a>Azure 리소스 그래프 확장을 설치 합니다.
 
- 리소스 그래프 확장을 사용 하면 [az graph](/cli/azure/ext/resource-graph/graph) 명령을 사용 하 여 Azure Resource Manager에서 관리 하는 리소스를 쿼리할 수 있습니다. 이후 단계에서이 명령을 사용 합니다.
+ [Azure 리소스 그래프](../governance/resource-graph/index.yml)의 Azure CLI 확장 인 *리소스 그래프* 를 사용 하면 [az Graph](/cli/azure/ext/resource-graph/graph) 명령을 사용 하 여 Azure Resource Manager에서 관리 하는 리소스를 쿼리할 수 있습니다. 이후 단계에서이 명령을 사용 합니다.
 
 1. [Az extension list](/cli/azure/extension#az_extension_list) 를 사용 하 여 *리소스 그래프* 확장이 설치 되어 있는지 확인 합니다.
 

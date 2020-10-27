@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988256"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547132"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Log Analytics 대시보드 시각화 업그레이드
 
@@ -47,7 +47,7 @@ Log Analytics 고정 된 파트를 업그레이드할 수 있는 경우 대시�
  
 ![사이드바](media/dashboard-upgrade/update-message-1.png)
  
-![사이드바](media/dashboard-upgrade/update-message-2.png)
+![타일 시각화를 업데이트 하는 방법을 보여 주는 스크린샷](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > 대시보드가 게시 된 후에는 업그레이드를 취소할 수 없습니다. 그러나 다시 게시 하지 않고 대시보드에서 다른 위치로 이동 하는 경우 변경 내용이 삭제 됩니다.  
@@ -56,7 +56,7 @@ Log Analytics 고정 된 파트를 업그레이드할 수 있는 경우 대시�
 
 시각화를 업그레이드 한 후에는 변경 내용을 적용 하기 위해 대시보드를 다시 게시 해야 합니다.
 
-![사이드바](media/dashboard-upgrade/update-message-3.png)
+![업그레이드 된 시각화를 보여 주는 스크린샷](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>2 단계-모든 대시보드의 마이그레이션
 
@@ -74,7 +74,7 @@ Log Analytics 고정 된 파트를 업그레이드할 수 있는 경우 대시�
 
 대시보드는 시각적으로 조밀한 및 복잡할 수 있습니다. 대시보드를 볼 때 인지 부하를 줄이기 위해 디스플레이를 25 개의 다른 데이터 형식으로 제한 하 여 시각화를 최적화 합니다. 25 개를 초과 하는 경우 Log Analytics는 데이터를 최적화 합니다. 이 예제에서는 대부분의 데이터가 포함 된 25 개의 형식을 개별적으로 표시 한 다음 나머지 값을 "other" 값으로 그룹화 합니다. 다음 차트는 이러한 경우를 보여 줍니다.  
 
-![사이드바](media/dashboard-upgrade/values-25-limit.png)
+![25 가지 다른 데이터 형식을 포함 하는 대시보드를 보여 주는 스크린샷](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>로드 시 대시보드 새로 고침
 

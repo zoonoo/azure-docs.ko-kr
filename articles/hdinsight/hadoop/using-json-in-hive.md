@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085449"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547608"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -129,7 +129,7 @@ get-json_object UDF에는 다음과 같은 제한 사항이 있습니다.
 * 쿼리의 각 필드는 쿼리를 다시 구문 분석하는 데 필요하므로 성능에 영향을 줍니다.
 * **GET\_JSON_OBJECT()** 는 배열의 문자열 표현을 반환합니다. 이 배열을 Hive 배열로 변환하려면 정규식을 사용하여 대괄호("[" 및 "]")를 바꾼 다음 분할된 호출을 통해 배열을 가져와야 합니다.
 
-이 변환은 Hive wiki에서 **json_tuple**사용을 권장 하는 이유입니다.  
+이 변환은 Hive wiki에서 **json_tuple** 사용을 권장 하는 이유입니다.  
 
 ### <a name="use-the-json_tuple-udf"></a>json_tupl UDF 사용
 
@@ -146,7 +146,7 @@ Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다
 
 ![Apache Hive json 쿼리 결과](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-`json_tuple`UDF는 Hive에서 [측면 보기](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용 합니다 .이를 통해 json \_ 튜플은 원래 테이블의 각 행에 UDT 함수를 적용 하 여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW**를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 json를 처리할 수 없습니다.
+`json_tuple`UDF는 Hive에서 [측면 보기](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용 합니다 .이를 통해 json \_ 튜플은 원래 테이블의 각 행에 UDT 함수를 적용 하 여 가상 테이블을 만들 수 있습니다. **LATERAL VIEW** 를 반복적으로 사용하기 때문에 복잡한 JSON을 다루기가 너무 어려워집니다. 또한 **JSON_TUPLE** 중첩 된 json를 처리할 수 없습니다.
 
 ### <a name="use-a-custom-serde"></a>사용자 지정 SerDe 사용
 
@@ -154,11 +154,11 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 
 ## <a name="summary"></a>요약
 
-선택한 Hive의 JSON 연산자 유형은 사용자의 시나리오에 따라 달라 집니다. 간단한 JSON 문서와 조회할 필드 하나를 사용 하 여 Hive UDF **get_json_object**를 선택 합니다. 조회할 키가 두 개 이상인 경우 **json_tuple**를 사용할 수 있습니다. 중첩 된 문서의 경우 **JSON SerDe**를 사용 합니다.
+선택한 Hive의 JSON 연산자 유형은 사용자의 시나리오에 따라 달라 집니다. 간단한 JSON 문서와 조회할 필드 하나를 사용 하 여 Hive UDF **get_json_object** 를 선택 합니다. 조회할 키가 두 개 이상인 경우 **json_tuple** 를 사용할 수 있습니다. 중첩 된 문서의 경우 **JSON SerDe** 를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 관련 문서는 다음을 참조하세요.
 
-* [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
+* [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](./hdinsight-use-hive.md)
 * [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150773"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538428"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub와의 연결 끊김 모니터링, 진단 및 문제 해결
 
@@ -28,25 +28,25 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 디바이스 연결이 끊어지면 Azure Monitor를 사용하여 경고를 받고 로그를 작성합니다.
 
-### <a name="turn-on-diagnostic-logs"></a>진단 로그 설정
+### <a name="turn-on-logs"></a>로그 설정
 
-디바이스 연결 이벤트 및 오류를 기록하려면 IoT Hub 진단을 켭니다. 진단 로그를 사용하도록 설정하지 않으면 디바이스 연결이 끊어질 때 문제를 해결할 정보가 없으므로 이러한 로그를 가능한 한 빨리 설정하는 것이 좋습니다.
+장치 연결 이벤트 및 오류를 기록 하려면 [IoT Hub 연결 리소스 로그](monitor-iot-hub-reference.md#connections)에 대 한 진단 설정을 만듭니다. 이러한 로그는 기본적으로 수집 되지 않으며, 발생 하는 경우 장치에서 연결을 끊는 문제를 해결 하는 정보가 없으므로 가능한 한 빨리이 설정을 만드는 것이 좋습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. IoT Hub로 이동합니다.
+1. IoT Hub로 이동합니다.
 
-3. **진단 설정**을 선택합니다.
+1. **진단 설정** 을 선택합니다.
 
-4. **진단 켜기**를 선택합니다.
+1. **진단 설정 추가** 를 선택 합니다.
 
-5. **연결** 로그가 수집되도록 설정합니다.
+1. **연결** 로그를 선택 합니다.
 
-6. 쉽게 분석하려면 **Log Analytics에 보내기**([가격 책정 참고](https://azure.microsoft.com/pricing/details/log-analytics/))를 켜야 합니다. [연결 오류 해결](#resolve-connectivity-errors)의 예제를 참조하세요.
+1. 보다 쉽게 분석 **하려면 Log Analytics 보내기를** 선택 합니다 ( [가격 책정 참조](https://azure.microsoft.com/pricing/details/log-analytics/)). [연결 오류 해결](#resolve-connectivity-errors)의 예제를 참조하세요.
 
    ![권장 설정](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-자세히 알아보려면 [Azure IoT Hub 상태 모니터링 및 신속한 문제 진단](iot-hub-monitor-resource-health.md)을 참조하세요.
+자세히 알아보려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요.
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>대규모로 디바이스 연결 끊기에 대한 경고 설정
 
@@ -56,11 +56,11 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 2. IoT Hub로 이동합니다.
 
-3. **경고**를 선택합니다.
+3. **경고** 를 선택합니다.
 
-4. **새 경고 규칙**을 선택합니다.
+4. **새 경고 규칙** 을 선택합니다.
 
-5. **조건 추가**를 선택한 다음, "연결된 디바이스(미리 보기)"를 선택합니다.
+5. **조건 추가** 를 선택한 다음, "연결된 디바이스(미리 보기)"를 선택합니다.
 
 6. 다음 프롬프트를 통해 임계값 및 경고를 설정합니다.
 
@@ -72,15 +72,15 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 ## <a name="resolve-connectivity-errors"></a>연결 오류 해결
 
-연결된 디바이스에 대한 진단 로그 및 경고가 켜져 있는 경우 오류가 발생하면 경고가 표시됩니다. 이 섹션에서는 경고를 받을 때 일반적인 문제를 찾는 방법을 설명합니다. 아래 단계에서는 진단 로그에 대해 Azure Monitor 로그를 설정했다고 가정합니다.
+연결 된 장치에 대 한 로그 및 경고를 켜면 오류가 발생할 때 경고가 표시 됩니다. 이 섹션에서는 경고를 받을 때 일반적인 문제를 찾는 방법을 설명합니다. 아래 단계에서는 IoT Hub 연결 로그를 Log Analytics 작업 영역으로 보내는 진단 설정을 이미 만들었다고 가정 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. IoT Hub로 이동합니다.
 
-1. **로그**를 선택합니다.
+1. **로그** 를 선택합니다.
 
-1. IoT Hub에 대한 연결 오류 로그를 격리하려면 다음 쿼리를 입력한 다음, **실행**을 선택합니다.
+1. IoT Hub에 대한 연결 오류 로그를 격리하려면 다음 쿼리를 입력한 다음, **실행** 을 선택합니다.
 
     ```kusto
     AzureDiagnostics

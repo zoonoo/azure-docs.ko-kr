@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 1f062a8f358ac311b53e657fb5714583458bd9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872585"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545466"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -22,15 +22,15 @@ Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) �
 > [!IMPORTANT]  
 > 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
+* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
 * 로컬 스톰 개발 환경 (선택 사항). 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](https://storm.apache.org/releases/current/Setting-up-development-environment.html)(영문)을 참조하세요.
 
 * [Python 2.7 이상](https://www.python.org/downloads/).
 
-* [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)입니다.
+* [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)입니다.
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
@@ -114,7 +114,7 @@ Flux에서는 토폴로지를 포함하는 jar 파일 내의 `/resources` 디렉
     storm kill wordcount
     ```
 
-    또는 스톰 UI를 사용할 수 있습니다. 토폴로지에 대 한 **토폴로지 작업** 에서 **중지**를 선택 합니다.
+    또는 스톰 UI를 사용할 수 있습니다. 토폴로지에 대 한 **토폴로지 작업** 에서 **중지** 를 선택 합니다.
 
 ## <a name="run-the-topology-locally"></a>로컬로 토폴로지 실행
 
@@ -141,7 +141,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 ```
 
-토폴로지를 중지하려면 __Ctrl + C__를 사용합니다.
+토폴로지를 중지하려면 __Ctrl + C__ 를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

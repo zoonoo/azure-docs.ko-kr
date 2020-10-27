@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 86933b324d7216a6097102cf237d0402d9f63234
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27cd1c9085771bd9ac2b18c37b73235d7f18ad5a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882678"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538088"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Azure Database for MySQL 계산 리소스에 대 한 선불
 
@@ -19,13 +19,13 @@ ms.locfileid: "90882678"
 
 특정 Azure Database for MySQL 서버에 예약을 할당할 필요가 없습니다. 이미 실행 중인 Azure Database for MySQL 또는 새로 배포 된는 예약 된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구입하면 1년 또는 3년 동안의 컴퓨팅 비용을 선결제하게 됩니다. 예약을 구매 하는 즉시, 예약 특성과 일치 하는 Azure database for MySQL 계산 요금은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 예약은 MySQL 데이터베이스 서버와 관련 된 소프트웨어, 네트워킹 또는 저장소 요금을 포함 하지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료 되 고 Azure Database for MySQL는 종 량 제 가격으로 청구 됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [Azure Database for MySQL 예약 된 용량 제공](https://azure.microsoft.com/pricing/details/mysql/)을 참조 하세요. </br>
 
-[Azure Portal](https://portal.azure.com/)에서 Azure Database for MySQL 예약 된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다. 예약 된 용량을 구입 하려면:
+[Azure Portal](https://portal.azure.com/)에서 Azure Database for MySQL 예약 된 용량을 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다. 예약 된 용량을 구입 하려면:
 
 * 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 소유자 역할에 속해야 합니다.
-* Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+* Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
 * CSP (클라우드 솔루션 공급자) 프로그램의 경우 관리 에이전트 또는 판매 에이전트만 Azure Database for MySQL 예약 된 용량을 구매할 수 있습니다. </br>
 
-엔터프라이즈 고객과 종 량 제 고객의 예약 구매 요금에 대 한 자세한 내용은 [기업 등록에 대 한 azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) 및 [종 량 제 구독에 대 한 azure 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)를 참조 하세요.
+엔터프라이즈 고객과 종 량 제 고객의 예약 구매 요금에 대 한 자세한 내용은 [기업 등록에 대 한 azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 및 [종 량 제 구독에 대 한 azure 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage.md)를 참조 하세요.
 
 
 ## <a name="determine-the-right-database-size-before-purchase"></a>구매 하기 전에 올바른 데이터베이스 크기 확인
@@ -38,7 +38,7 @@ ms.locfileid: "90882678"
 ## <a name="buy-azure-database-for-mysql-reserved-capacity"></a>Azure Database for MySQL 예약 된 용량 구입
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **모든 서비스** > **예약**을 선택합니다.
+2. **모든 서비스** > **예약** 을 선택합니다.
 3. **추가** 를 선택한 다음 구매 예약 창에서 **Azure Database for MySQL** 을 선택 하 여 MySQL 데이터베이스용 새 예약을 구매 합니다.
 4. Fill-필수 필드입니다. 선택한 특성과 일치 하는 기존 또는 새 데이터베이스는 예약 된 용량 할인을 얻기 위해 한정 됩니다. 할인을 받는 Azure Database for MySQL 서버의 실제 수는 선택한 범위와 수량에 따라 달라 집니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "90882678"
 | 필드 | 설명 |
 | :------------ | :------- |
 | Subscription   | 예약 된 Azure Database for MySQL 용량 예약에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 결제 방법은 Azure Database for MySQL 예약 된 용량 예약에 대 한 선행 비용으로 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
-| 범위 | VCore 예약의 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for MySQL 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**에서 vcore 예약 할인은이 구독의 Azure Database for MySQL 서버에 적용 됩니다. </br></br> **단일 리소스 그룹**-예약 할인이 선택한 구독의 Azure Database for MySQL 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
+| Scope | VCore 예약의 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: </br></br> **공유** , vcore 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Azure Database for MySQL 서버에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** 에서 vcore 예약 할인은이 구독의 Azure Database for MySQL 서버에 적용 됩니다. </br></br> **단일 리소스 그룹** -예약 할인이 선택한 구독의 Azure Database for MySQL 서버와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
 | 지역 | Azure Database for MySQL 예약 된 용량 예약이 적용 되는 Azure 지역입니다.
 | 배포 유형 | 예약을 구입할 Azure Database for MySQL 리소스 형식입니다.
 | 성능 계층 | Azure Database for MySQL 서버에 대 한 서비스 계층입니다.
@@ -60,7 +60,7 @@ ms.locfileid: "90882678"
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund)을 참조하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="vcore-size-flexibility"></a>vCore 크기 유연성
 
@@ -77,10 +77,9 @@ Azure Database for MySQL 예약 된 용량을 관리 하는 방법에 대 한 �
 
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Reservations 이란](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
-* [Azure Reservations 관리](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Azure 예약 할인 이해](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [종량제 구독의 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
-* [엔터프라이즈 등록에서 예약 사용량 이해](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
-
+* [Azure Reservations 이란](../cost-management-billing/reservations/save-compute-costs-reservations.md)?
+* [Azure Reservations 관리](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Azure 예약 할인 이해](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [종량제 구독의 예약 사용량 이해](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
+* [엔터프라이즈 등록에서 예약 사용량 이해](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](/partner-center/azure-reservations)

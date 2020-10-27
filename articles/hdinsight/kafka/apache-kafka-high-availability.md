@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
-ms.openlocfilehash: a90be471ca068869ee26fb02bba77dfdd476a44e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4504463fa35d5fececbb2ab5895de2965ca4e647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435284"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534416"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka를 통한 데이터 고가용성
 
@@ -23,7 +23,7 @@ ms.locfileid: "75435284"
 
 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
-Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 해당 도메인에 포함된 장애 도메인의 수에 대한 내용은 [가용성 집합](../../virtual-machines/windows/availability.md#availability-sets) 설명서를 참조하세요.
+Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 해당 도메인에 포함된 장애 도메인의 수에 대한 내용은 [가용성 집합](../../virtual-machines/availability.md#availability-sets) 설명서를 참조하세요.
 
 > [!IMPORTANT]  
 > Kafka는 장애 도메인을 인식하지 않습니다. Kafka에서 토픽을 만들 때 모든 파티션 복제본을 동일한 장애 도메인에 저장할 수 있습니다. 이 문제를 해결하기 위해 HDInsight는 [Kafka 파티션 리밸런스 도구](https://github.com/hdinsight/hdinsight-kafka-tools)(영문)를 제공합니다.

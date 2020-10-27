@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.openlocfilehash: 14a41365640439ff99861bbb22cc04a40f35da5e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 8573ba99b7aef13025b4f175640ac9583ad5a679
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222651"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545959"
 ---
 # <a name="security-options-for-hive-in-azure-hdinsight"></a>Azure HDInsight의 Hive에 대 한 보안 옵션
 
@@ -23,7 +23,7 @@ ms.locfileid: "92222651"
 
 ## <a name="hiveserver2-authentication"></a>HiveServer2 인증
 
-표준 클러스터의 경우 HiveServer2 authentication에 권장 되는 설정인 기본값은 none입니다. 인증을 사용 하도록 설정 하려면 [ESP](https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview) (Enterprise Security Package) 클러스터로 업그레이드 하는 것이 좋습니다. 
+표준 클러스터의 경우 HiveServer2 authentication에 권장 되는 설정인 기본값은 none입니다. 인증을 사용 하도록 설정 하려면 [ESP](../domain-joined/hdinsight-security-overview.md) (Enterprise Security Package) 클러스터로 업그레이드 하는 것이 좋습니다. 
 
 ESP 클러스터의 경우 [Kerberos](https://web.mit.edu/Kerberos/) 인증은 기본적으로 사용 하도록 설정 됩니다. PAM (플러그형 인증 모듈) 및 사용자 지정 인증 체계가 지원 되지 않습니다.
 
@@ -36,11 +36,11 @@ ESP 클러스터의 경우에는 기본적으로 레인저를 통한 권한 부�
 
 ## <a name="ssl-encryption-for-hiveserver2"></a>HiveServer2에 대 한 SSL 암호화
 
-표준 또는 ESP 클러스터의 경우 Hiveserver2 SSL을 사용 하지 않는 것이 좋습니다. 대신 SSL이 게이트웨이에서 사용 됩니다. [전송 중 암호화](https://docs.microsoft.com/azure/hdinsight/domain-joined/encryption-in-transit) 는 [IPSec (인터넷 프로토콜 보안)](https://en.wikipedia.org/wiki/IPsec)을 사용 하 여 클러스터 노드 간 통신을 암호화 하는 데 사용할 수 있습니다.
+표준 또는 ESP 클러스터의 경우 Hiveserver2 SSL을 사용 하지 않는 것이 좋습니다. 대신 SSL이 게이트웨이에서 사용 됩니다. [전송 중 암호화](../domain-joined/encryption-in-transit.md) 는 [IPSec (인터넷 프로토콜 보안)](https://en.wikipedia.org/wiki/IPsec)을 사용 하 여 클러스터 노드 간 통신을 암호화 하는 데 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 * [HiveServer2 인증 개요](https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2#SettingUpHiveServer2-Authentication/SecurityConfiguration)
 * [HiveServer2 권한 부여 개요](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
 * [SQL 표준 기반 Hive 권한 부여 사용](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
-* [Hive를 사용 하는 Apache 레인저](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive#:~:text=Create%20Hive%20ODBC%20data%20source%20%20%20,Enter%20hiveuser1%40contoso158.onmicrosoft.c%20...%20%205%20more%20rows%20)
+* [Hive를 사용 하는 Apache 레인저](../domain-joined/apache-domain-joined-run-hive.md)

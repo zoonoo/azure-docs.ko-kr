@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855670"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547438"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -27,7 +27,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 * HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 > [!IMPORTANT]  
-> 스토리지 계정 종류 **BlobStorage**는 HDInsight 클러스터의 보조 스토리지로만 사용할 수 있습니다.
+> 스토리지 계정 종류 **BlobStorage** 는 HDInsight 클러스터의 보조 스토리지로만 사용할 수 있습니다.
 
 | 스토리지 계정 종류 | 지원되는 서비스 | 지원되는 성능 계층 |지원되지 않는 성능 계층| 지원되는 액세스 계층 |
 |----------------------|--------------------|-----------------------------|---|------------------------|
@@ -44,23 +44,23 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 
 ## <a name="access-files-from-within-cluster"></a>클러스터 내에서 파일에 액세스
 
-HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 TLS로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
+HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스( *wasb:* 접두사가 있음)와 TLS로 암호화된 액세스( *wasbs* 가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs* 를 사용하는 것이 좋습니다.
 
-* **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
+* **정규화된 이름 사용** . 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
+* **줄인 경로 형식 사용** . 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **상대 경로 사용**. 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
+* **상대 경로 사용** . 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
 
     ```
     /<file.path>/
@@ -141,17 +141,17 @@ Microsoft는 Azure Storage에서 작업하는 데 필요한 다음과 같은 도
 
 * 구성된 기본 저장소의 전체 경로를 확인하려면
 
-    **HDFS** > **구성**으로 이동하고 필터 입력 상자에 `fs.defaultFS`를 입력합니다.
+    **HDFS** > **구성** 으로 이동하고 필터 입력 상자에 `fs.defaultFS`를 입력합니다.
 
 * wasb 저장소가 보조 스토리지로 구성되었는지 확인하려면 다음으로 이동합니다.
 
-    **HDFS** > **구성**으로 이동하고 필터 입력 상자에 `blob.core.windows.net`를 입력합니다.
+    **HDFS** > **구성** 으로 이동하고 필터 입력 상자에 `blob.core.windows.net`를 입력합니다.
 
 Ambari REST API를 사용하여 경로를 가져오려면 [기본 스토리지 가져오기](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage)를 참조하세요.
 
 ## <a name="blob-containers"></a>Blob 컨테이너
 
-Blob을 사용하려면 먼저 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)을 만듭니다. 이 단계의 일부로 스토리지 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 스토리지 계정은 동일한 지역에서 호스트되어야 합니다. Hive 메타스토어 SQL Server 데이터베이스 및 Apache Oozie 메타스토어 SQL Server 데이터베이스는 동일한 지역에 위치해야 합니다.
+Blob을 사용하려면 먼저 [Azure Storage 계정](../storage/common/storage-account-create.md)을 만듭니다. 이 단계의 일부로 스토리지 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 스토리지 계정은 동일한 지역에서 호스트되어야 합니다. Hive 메타스토어 SQL Server 데이터베이스 및 Apache Oozie 메타스토어 SQL Server 데이터베이스는 동일한 지역에 위치해야 합니다.
 
 어디에 있든, 만들어진 각 Blob은 Azure Storage 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에서 만든 기존 Blob일 수 있습니다. 또는 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 

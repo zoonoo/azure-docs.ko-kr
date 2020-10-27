@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871969"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535028"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop YARN 문제를 해결합니다.
 
@@ -24,24 +24,24 @@ Apache Ambari에서 Apache Hadoop YARN 페이로드를 사용할 때의 주요 �
 
 Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐에 용량이 균형 있게 할당되도록 조정합니다.
 
-이 예제에서는 기존 큐 두 개(**default** 및 **thriftsvr**) 모두 새 큐(spark)를 50% 용량으로 하여 50% 용량에서 25% 용량으로 변경됩니다.
+이 예제에서는 기존 큐 두 개( **default** 및 **thriftsvr** ) 모두 새 큐(spark)를 50% 용량으로 하여 50% 용량에서 25% 용량으로 변경됩니다.
 
 | 큐 | 용량 | 최대 용량 |
 | --- | --- | --- |
-| default | 25% | 50% |
+| 기본값 | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. **Ambari 뷰** 아이콘을 선택한 다음, 그리드 패턴을 선택합니다. 다음으로, **YARN 큐 관리자**를 선택합니다.
+1. **Ambari 뷰** 아이콘을 선택한 다음, 그리드 패턴을 선택합니다. 다음으로, **YARN 큐 관리자** 를 선택합니다.
 
     ![Apache Ambari 대시보드 YARN 큐 관리자](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. **default** 큐를 선택합니다.
 
     ![Apache Ambari YARN select 기본 큐](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
-3. **default** 큐의 경우 **용량**을 50%에서 25%로 변경합니다. **thriftsvr** 큐의 경우 **용량**을 25%로 변경합니다.
+3. **default** 큐의 경우 **용량** 을 50%에서 25%로 변경합니다. **thriftsvr** 큐의 경우 **용량** 을 25%로 변경합니다.
 
     ![default 및 thriftsvr 큐에 대해 용량을 25%로 변경](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. 새 큐를 만들려면 **큐 추가**를 선택합니다.
+4. 새 큐를 만들려면 **큐 추가** 를 선택합니다.
 
     ![Apache Ambari YARN dashboard 큐 추가](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -52,7 +52,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 6. **용량** 값을 50%로 두고 **작업** 단추를 선택합니다.
 
     ![Apache Ambari YARN select 작업](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. **큐 저장 및 새로 고침**을 선택합니다.
+7. **큐 저장 및 새로 고침** 을 선택합니다.
 
     ![큐 저장 및 새로 고침 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -129,9 +129,9 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
     containerlogs.txt라는 로그 파일이 만들어집니다.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>추가 자료
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>추가 참고 자료
 
-- [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN 개념 및 응용 프로그램](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>다음 단계
@@ -142,4 +142,4 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 - [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

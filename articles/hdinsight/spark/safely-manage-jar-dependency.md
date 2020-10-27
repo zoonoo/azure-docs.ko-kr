@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834d3512c95e77e6ce45472ff8f2e1b4b2ed456
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064153"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545585"
 ---
 # <a name="safely-manage-jar-dependencies"></a>안전하게 jar 종속성 관리
 
@@ -79,6 +79,6 @@ assemblyShadeRules in assembly := Seq(
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight IntelliJ 도구 사용](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [HDInsight IntelliJ 도구 사용](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* [IntelliJ에서 Spark 용 Scala Maven 응용 프로그램 만들기](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [IntelliJ에서 Spark 용 Scala Maven 응용 프로그램 만들기](./apache-spark-create-standalone-application.md)

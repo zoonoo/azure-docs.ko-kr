@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281392"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546163"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -52,13 +52,13 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 |항목 |설명 |
 |---|---|
 |Ambari 로고|클러스터를 모니터링 하는 데 사용할 수 있는 대시보드를 엽니다.|
-|클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops**를 선택하면 백그라운드 작업 목록이 표시됩니다.|
+|클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops** 를 선택하면 백그라운드 작업 목록이 표시됩니다.|
 |경고 개수|클러스터에 대 한 경고 또는 중요 한 알림 (있는 경우)을 표시 합니다.|
 |대시보드|대시보드를 표시 합니다.|
-|Services|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
+|서비스|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
 |호스트|클러스터의 노드에 대 한 정보 및 구성 설정입니다.|
 |경고|정보, 경고 및 중요 한 알림 로그입니다.|
-|관리자|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
+|Admin|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
 |관리 단추|Ambari 관리, 사용자 설정 및 로그 아웃입니다.|
 
 ## <a name="monitoring"></a>모니터링
@@ -72,27 +72,27 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 * **업무용**
 * **UNKNOWN**
 
-**확인**이 아닌 다른 경고는 페이지 위쪽의 **# alerts** 항목에 경고 수를 표시합니다. 이 항목을 선택하면 경고 및 해당 상태가 표시됩니다.
+**확인** 이 아닌 다른 경고는 페이지 위쪽의 **# alerts** 항목에 경고 수를 표시합니다. 이 항목을 선택하면 경고 및 해당 상태가 표시됩니다.
 
 경고는 여러 가지 기본 그룹으로 구성되며 **Alerts** 페이지에서 볼 수 있습니다.
 
 ![Apache Ambari 경고 페이지 요약](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
-**작업** 메뉴를 사용하고 **경고 그룹 관리**를 선택하여 그룹을 관리할 수 있습니다.
+**작업** 메뉴를 사용하고 **경고 그룹 관리** 를 선택하여 그룹을 관리할 수 있습니다.
 
 ![Apache Ambari 경고 그룹 관리](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-경고 메서드를 관리 하 고 __알림 관리__를 선택 하 여 **작업** 메뉴에서 경고 알림을 만듭니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만듭니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP**를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험**으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
+경고 메서드를 관리 하 고 __알림 관리__ 를 선택 하 여 **작업** 메뉴에서 경고 알림을 만듭니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만듭니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP** 를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험** 으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
 
 ![Apache Ambari 경고 만들기 알림](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-마지막으로, __작업__ 메뉴에서 __경고 설정 관리__를 선택하면 알림을 보내기 전에 경고가 발생해야 하는 횟수를 지정할 수 있습니다. 일시적인 오류에 대한 알림을 방지하는 데 이 설정을 사용할 수 있습니다.
+마지막으로, __작업__ 메뉴에서 __경고 설정 관리__ 를 선택하면 알림을 보내기 전에 경고가 발생해야 하는 횟수를 지정할 수 있습니다. 일시적인 오류에 대한 알림을 방지하는 데 이 설정을 사용할 수 있습니다.
 
-무료 [SendGrid 계정을](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)사용 하는 경고 알림에 대 한 자습서는 [Azure HDInsight에서 Apache Ambari 전자 메일 알림 구성](./apache-ambari-email.md)을 참조 하세요.
+무료 [SendGrid 계정을](../sendgrid-dotnet-how-to-send-email.md)사용 하는 경고 알림에 대 한 자습서는 [Azure HDInsight에서 Apache Ambari 전자 메일 알림 구성](./apache-ambari-email.md)을 참조 하세요.
 
 ### <a name="cluster"></a>클러스터
 
-대시보드의 **Metrics** 탭은 클러스터의 상태를 한 눈에 쉽게 모니터할 수 있는 일련의 위젯을 포함합니다. **CPU Usage**와 같은 여러 위젯은 클릭하면 추가 정보를 제공합니다.
+대시보드의 **Metrics** 탭은 클러스터의 상태를 한 눈에 쉽게 모니터할 수 있는 일련의 위젯을 포함합니다. **CPU Usage** 와 같은 여러 위젯은 클릭하면 추가 정보를 제공합니다.
 
 ![메트릭이 포함 된 Apache Ambari 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
@@ -100,11 +100,11 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 ![열 지도를 사용 하는 Apache Ambari 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-클러스터 내의 노드에 대한 자세한 내용은 **호스트**를 선택합니다. 그런 다음 관심 있는 특정 노드를 선택 합니다.
+클러스터 내의 노드에 대한 자세한 내용은 **호스트** 를 선택합니다. 그런 다음 관심 있는 특정 노드를 선택 합니다.
 
 ![Apache Ambari 호스트 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 대시보드의 **Services** 세로 막대는 클러스터에서 실행되는 서비스 상태에 대한 빠른 정보를 제공합니다. 다양한 아이콘은 수행해야 하는 상태 또는 작업을 나타내는 데 사용됩니다. 예를 들어 서비스가 재활용되어야 하는 경우 노란색 재활용 기호가 표시됩니다.
 
@@ -167,7 +167,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
     |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
 
-### <a name="services"></a><a id="service"></a>Services
+### <a name="services"></a><a id="service"></a>서비스
 
 **대시보드** 또는 **서비스** 페이지에서 서비스 목록 아래쪽의 **작업** 단추를 사용하여 모든 서비스를 중지하고 시작합니다.
 
@@ -185,12 +185,12 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
     ![Apache Ambari 개별 서비스 작업](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
    > [!NOTE]  
-   > 클러스터가 실행되는 동안 일부 서비스를 다시 시작하면 경고가 발생할 수 있습니다. 경고를 방지하려면 **서비스 작업** 단추를 사용하여 다시 시작하기 전에 서비스에 대한 **유지 관리 모드**를 사용하도록 설정합니다.
+   > 클러스터가 실행되는 동안 일부 서비스를 다시 시작하면 경고가 발생할 수 있습니다. 경고를 방지하려면 **서비스 작업** 단추를 사용하여 다시 시작하기 전에 서비스에 대한 **유지 관리 모드** 를 사용하도록 설정합니다.
 
 3. 동작이 선택되어 있고, 백그라운드 작업이 발생하면 페이지 위쪽에 있는 **# op** 항목의 숫자가 증가합니다. 백그라운드 작업 목록을 표시하도록 구성한 경우 백그라운드 작업 목록이 표시됩니다.
 
    > [!NOTE]  
-   > 서비스에 대한 **유지 관리 모드**를 사용하도록 설정하여 작업이 완료된 후에는 **서비스 작업** 단추를 사용하여 이 모드를 해제해야 합니다.
+   > 서비스에 대한 **유지 관리 모드** 를 사용하도록 설정하여 작업이 완료된 후에는 **서비스 작업** 단추를 사용하여 이 모드를 해제해야 합니다.
 
 서비스를 구성하려면 다음 단계를 사용합니다.
 
@@ -200,7 +200,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
     ![Apache Ambari 서비스 구성](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current** 를 선택하여 이전 설정으로 롤백할 수 있습니다.
+3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save** 를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current** 를 선택하여 이전 설정으로 롤백할 수 있습니다.
 
 ## <a name="ambari-views"></a>Ambari 뷰
 
@@ -214,7 +214,7 @@ Ambari Views를 사용하면 개발자가 Apache Ambari Views 프레임워크를
 
 다음 Ambari 작업은 HDInsight에서 지원 되지 않습니다.
 
-* __메트릭 수집기 서비스 이동__. 메트릭 수집기 서비스에 대한 정보를 볼 경우 서비스 작업 메뉴에서 사용할 수 있는 작업 중 하나는 __메트릭 수집기 이동__입니다. 이 작업은 HDInsight에서 지원 되지 않습니다.
+* __메트릭 수집기 서비스 이동__ . 메트릭 수집기 서비스에 대한 정보를 볼 경우 서비스 작업 메뉴에서 사용할 수 있는 작업 중 하나는 __메트릭 수집기 이동__ 입니다. 이 작업은 HDInsight에서 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

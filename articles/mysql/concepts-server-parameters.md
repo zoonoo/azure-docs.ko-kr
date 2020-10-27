@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627349"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545160"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -57,9 +57,9 @@ MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 �
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Azure Database for MySQL 이진 로그는 항상 사용 하도록 설정 되어 있습니다. 즉, `log_bin` 가 ON으로 설정 되어 있습니다. 트리거를 사용 하려는 경우에는 *슈퍼 권한이 없고 이진 로깅이 사용 하도록 설정 된 `log_bin_trust_function_creators` *것과 유사한 오류가 발생 합니다. 즉, 안전 하지 않은 변수를 사용 하는 것이 좋습니다. 
+Azure Database for MySQL 이진 로그는 항상 사용 하도록 설정 되어 있습니다. 즉, `log_bin` 가 ON으로 설정 되어 있습니다. 트리거를 사용 하려는 경우에는 *슈퍼 권한이 없고 이진 로깅이 사용 하도록 설정 된 `log_bin_trust_function_creators`* 것과 유사한 오류가 발생 합니다. 즉, 안전 하지 않은 변수를 사용 하는 것이 좋습니다. 
 
-이진 로깅 형식은 항상 **행** 이며 서버에 대 한 모든 연결은 **항상** 행 기반 이진 로깅을 사용 합니다. 행 기반 이진 로깅을 사용할 경우 보안 문제가 존재 하지 않으며 이진 로깅이 중단 되지 않으므로 안전 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 하 게를 **TRUE**로 설정할 수 있습니다.
+이진 로깅 형식은 항상 **행** 이며 서버에 대 한 모든 연결은 **항상** 행 기반 이진 로깅을 사용 합니다. 행 기반 이진 로깅을 사용할 경우 보안 문제가 존재 하지 않으며 이진 로깅이 중단 되지 않으므로 안전 [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) 하 게를 **TRUE** 로 설정할 수 있습니다.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -108,7 +108,7 @@ Azure Database for MySQL 이진 로그는 항상 사용 하도록 설정 되어 
 
 MySQL은 테이블을 만드는 동안 제공된 구성에 따라 InnoDB 테이블을 다른 테이블스페이스에 저장합니다. [시스템 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html)는 InnoDB 데이터 사전의 스토리지 영역입니다. [file-per-table 테이블스페이스](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html)에는 단일 InnoDB 테이블에 대한 데이터 및 인덱스를 포함하며 파일 시스템에 자체 데이터 파일로 저장됩니다. 이 동작은 `innodb_file_per_table` 서버 매개 변수에 의해 제어됩니다. `innodb_file_per_table`을 `OFF`로 설정하면 InnoDB가 시스템 테이블스페이스에 테이블을 만듭니다. 아니면 InnoDB가 file-per-table 테이블스페이스에 테이블을 만듭니다.
 
-Azure Database for MySQL는 단일 데이터 파일에서 최대 **1TB**를 지원합니다. 데이터베이스 크기가 1TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 1TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
+Azure Database for MySQL는 단일 데이터 파일에서 최대 **1TB** 를 지원합니다. 데이터베이스 크기가 1TB보다 큰 경우 [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) 테이블스페이스에 테이블을 만들어야 합니다. 단일 테이블 크기가 1TB보다 큰 경우에는 파티션 테이블을 사용해야 합니다.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -215,9 +215,9 @@ Lower_case_table_name은 기본적으로 1로 설정 되며 MySQL 5.6 및 MySQL 
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-"행 크기 너무 큼 (> 8126)"과 유사한 오류가 표시 되는 경우 매개 변수 **innodb_strict_mode**를 해제할 수 있습니다. 행 데이터 크기가 8k 보다 크면 서버 매개 변수 **innodb_strict_mode** 를 서버 수준에서 전역적으로 수정할 수 없습니다. 데이터가 손실 될 수 있으므로 오류가 발생 하지 않고 데이터가 잘립니다. 페이지 크기 제한에 맞게 스키마를 수정 하는 것이 좋습니다. 
+"행 크기 너무 큼 (> 8126)"과 유사한 오류가 표시 되는 경우 매개 변수 **innodb_strict_mode** 를 해제할 수 있습니다. 행 데이터 크기가 8k 보다 크면 서버 매개 변수 **innodb_strict_mode** 를 서버 수준에서 전역적으로 수정할 수 없습니다. 데이터가 손실 될 수 있으므로 오류가 발생 하지 않고 데이터가 잘립니다. 페이지 크기 제한에 맞게 스키마를 수정 하는 것이 좋습니다. 
 
-이 매개 변수는를 사용 하 여 세션 수준에서 설정할 수 있습니다 `init_connect` . 세션 수준에서 **innodb_strict_mode** 설정 하려면 [나열 되지 않은 매개 변수 설정](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed)을 참조 하세요.
+이 매개 변수는를 사용 하 여 세션 수준에서 설정할 수 있습니다 `init_connect` . 세션 수준에서 **innodb_strict_mode** 설정 하려면 [나열 되지 않은 매개 변수 설정](./howto-server-parameters.md#setting-parameters-not-listed)을 참조 하세요.
 
 > [!NOTE]
 > 복제 서버를 복제 하는 경우 원본 서버의 세션 수준에서 **innodb_strict_mode** 을 OFF로 설정 하면 복제가 중단 됩니다. 복제본을 읽은 경우 매개 변수를 OFF로 설정 하는 것이 좋습니다.

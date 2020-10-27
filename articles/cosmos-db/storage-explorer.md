@@ -4,23 +4,24 @@ description: Azure Storage Explorer를 사용하여 Azure Cosmos DB에 연결하
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: be37ab43db9b5b696a619cb1539981c064b4cb0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480601"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537799"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB 리소스 관리
 
 Azure Storage 탐색기를 사용 하 여 Azure Cosmos DB에 연결할 수 있습니다. Windows, macOS 또는 Linux에서 Azure 및 소 버린 클라우드에서 호스트 되는 Azure Cosmos DB 계정에 연결할 수 있습니다.
 
-동일한 도구를 사용 하 여 여러 Azure 엔터티를 한 곳에서 관리 합니다. 저장소 blob 및 큐와 같은 다른 Azure 엔터티와 함께 Azure Cosmos DB 엔터티를 관리 하 고, 데이터를 조작 하 고, 저장 프로시저 및 트리거를 업데이트할 수 있습니다.
+동일한 도구를 사용 하 여 여러 Azure 엔터티를 한 곳에서 관리 합니다. 저장소 blob 및 큐와 같은 다른 Azure 엔터티와 함께 Azure Cosmos DB 엔터티를 관리 하 고, 데이터를 조작 하 고, 저장 프로시저 및 트리거를 업데이트할 수 있습니다. Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table Api에 대해 구성 된 Cosmos 계정을 지원 합니다.
 
-Azure Storage 탐색기는 SQL, MongoDB, Graph 및 Table Api에 대해 구성 된 Cosmos 계정을 지원 합니다. 자세한 내용은 [Azure Storage 탐색기 Azure Cosmos DB]() 을 참조 하세요.
+> [!NOTE]
+> Storage 탐색기와 Azure Cosmos DB 통합은 더 이상 사용 되지 않습니다. 이 릴리스에서는 1 년 이상 기존 기능이 제거 되지 않습니다. 대신 [Azure portal](https://portal.azure.com/), [azure portal 데스크톱 앱](https://portal.azure.com/App/Download) 또는 독립 실행형 [azure Cosmos 탐색기](data-explorer.md) 를 사용 해야 합니다. 대체 옵션에는 Storage 탐색기에서 현재 지원 되지 않는 여러 가지 새로운 기능이 포함 되어 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,19 +33,19 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 
-1. **Azure Storage 탐색기**를 설치한 후 왼쪽 창에서 **플러그** 인 아이콘을 선택 합니다.
+1. **Azure Storage 탐색기** 를 설치한 후 왼쪽 창에서 **플러그** 인 아이콘을 선택 합니다.
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
-1. **Azure 계정 추가**를 선택한 다음, **로그인**을 선택합니다.
+1. **Azure 계정 추가** 를 선택한 다음, **로그인** 을 선택합니다.
 
    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
-1. **Azure 로그인** 대화 상자에서 **로그인**을 선택 하 고 Azure 자격 증명을 입력 합니다.
+1. **Azure 로그인** 대화 상자에서 **로그인** 을 선택 하 고 Azure 자격 증명을 입력 합니다.
 
     :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
-1. 목록에서 구독을 선택한 다음, **적용**을 선택합니다.
+1. 목록에서 구독을 선택한 다음, **적용** 을 선택합니다.
 
     :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -58,14 +59,14 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 연결 문자열을 사용 하 여 Azure Cosmos DB에 연결할 수 있습니다. 이 메서드는 SQL 및 Table Api만 지원 합니다. 연결 문자열을 사용 하 여 연결 하려면 다음 단계를 따르세요.
 
-1. 왼쪽 트리에서 **로컬 및 연결** 을 찾아 **Cosmos DB 계정**을 마우스 오른쪽 단추로 클릭 한 다음 **Cosmos DB에 연결**을 선택 합니다.
+1. 왼쪽 트리에서 **로컬 및 연결** 을 찾아 **Cosmos DB 계정** 을 마우스 오른쪽 단추로 클릭 한 다음 **Cosmos DB에 연결** 을 선택 합니다.
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
 2. Cosmos DB에 **연결** 창에서 다음을 수행 합니다.
    1. 드롭다운 메뉴에서 API를 선택 합니다.
    1. **연결 문자열 상자에** 연결 문자열을 붙여 넣습니다. 기본 연결 문자열을 검색 하는 방법은 [연결 문자열 가져오기](manage-with-powershell.md#list-keys)를 참조 하세요.
-   1. **계정 레이블을**입력 하 고 **다음** 을 선택 하 여 요약을 확인 합니다.
+   1. **계정 레이블을** 입력 하 고 **다음** 을 선택 하 여 요약을 확인 합니다.
    1. **연결** 을 선택 하 여 Azure Cosmos DB 계정을 연결 합니다.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
@@ -76,13 +77,13 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 1. Cosmos DB 에뮬레이터를 설치 하 고 엽니다. 에뮬레이터를 설치 하는 방법은 [Cosmos DB 에뮬레이터](./local-emulator.md)를 참조 하세요.
 
-1. 왼쪽 트리에서 **로컬 및 연결** 을 찾아 **Cosmos DB 계정**을 마우스 오른쪽 단추로 클릭 한 다음 **Cosmos DB 에뮬레이터에 연결**을 선택 합니다.
+1. 왼쪽 트리에서 **로컬 및 연결** 을 찾아 **Cosmos DB 계정** 을 마우스 오른쪽 단추로 클릭 한 다음 **Cosmos DB 에뮬레이터에 연결** 을 선택 합니다.
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
 1. Cosmos DB에 **연결** 창에서 다음을 수행 합니다.
    1. **연결 문자열 상자에** 연결 문자열을 붙여 넣습니다. 기본 연결 문자열을 검색 하는 방법에 대 한 자세한 내용은 [연결 문자열 가져오기](manage-with-powershell.md#list-keys)를 참조 하세요.
-   1. **계정 레이블을**입력 하 고 **다음** 을 선택 하 여 요약을 확인 합니다.
+   1. **계정 레이블을** 입력 하 고 **다음** 을 선택 하 여 요약을 확인 합니다.
    1. **연결** 을 선택 하 여 Azure Cosmos DB 계정을 연결 합니다.
 
       :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
@@ -117,7 +118,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="create-a-database"></a>데이터베이스 만들기
 
-1. Azure Cosmos DB 계정을 마우스 오른쪽 단추로 클릭 한 다음 **데이터베이스 만들기**를 선택 합니다.
+1. Azure Cosmos DB 계정을 마우스 오른쪽 단추로 클릭 한 다음 **데이터베이스 만들기** 를 선택 합니다.
 
    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -125,7 +126,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="delete-a-database"></a>데이터베이스 삭제
 
-1. 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **데이터베이스 삭제**를 선택 합니다. 
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **데이터베이스 삭제** 를 선택 합니다. 
 
    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -135,11 +136,11 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="create-a-collection"></a>컬렉션 만들기
 
-1. 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **컬렉션 만들기**를 선택 합니다.
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **컬렉션 만들기** 를 선택 합니다.
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
-1. 컬렉션 만들기 창에서 **컬렉션 ID** , **저장소 용량**등과 같은 요청 된 정보를 입력 합니다. **확인** 을 선택하여 작업을 마칩니다.
+1. 컬렉션 만들기 창에서 **컬렉션 ID** , **저장소 용량** 등과 같은 요청 된 정보를 입력 합니다. **확인** 을 선택하여 작업을 마칩니다.
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -152,7 +153,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="delete-a-collection"></a>컬렉션 삭제
 
-- 컬렉션을 마우스 오른쪽 단추로 클릭 하 고 **컬렉션 삭제**를 선택한 다음 팝업 창에서 **예** 를 선택 합니다.
+- 컬렉션을 마우스 오른쪽 단추로 클릭 하 고 **컬렉션 삭제** 를 선택한 다음 팝업 창에서 **예** 를 선택 합니다.
 
     컬렉션 노드가 삭제되고, 데이터베이스가 자동으로 새로 고쳐집니다.
 
@@ -162,8 +163,8 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="create-and-modify-documents"></a>문서 만들기 및 수정
 
-- 왼쪽 창에서 **문서** 를 열고 **새 문서**를 선택한 다음 오른쪽 창에서 콘텐츠를 편집 하 고 **저장**을 선택 합니다.
-- 기존 문서를 업데이트 한 후 **저장**을 선택할 수도 있습니다. 변경 내용을 취소 하려면 **취소**를 선택 합니다.
+- 왼쪽 창에서 **문서** 를 열고 **새 문서** 를 선택한 다음 오른쪽 창에서 콘텐츠를 편집 하 고 **저장** 을 선택 합니다.
+- 기존 문서를 업데이트 한 후 **저장** 을 선택할 수도 있습니다. 변경 내용을 취소 하려면 **취소** 를 선택 합니다.
 
   :::image type="content" source="./media/storage-explorer/document.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -173,7 +174,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="query-for-documents"></a>문서에 대한 쿼리
 
-* 문서 필터를 편집 하려면 [SQL 쿼리](./sql-query-getting-started.md)를 입력 한 다음 **적용**을 선택 합니다.
+* 문서 필터를 편집 하려면 [SQL 쿼리](./sql-query-getting-started.md)를 입력 한 다음 **적용** 을 선택 합니다.
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -181,7 +182,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="create-and-modify-a-vertex"></a>꼭 짓 점 만들기 및 수정
 
-* 새 꼭 짓 점을 만들려면 왼쪽 창에서 **그래프** 를 열고 **새 꼭 짓 점**을 선택 하 고 콘텐츠를 편집한 다음 **확인**을 선택 합니다.
+* 새 꼭 짓 점을 만들려면 왼쪽 창에서 **그래프** 를 열고 **새 꼭 짓 점** 을 선택 하 고 콘텐츠를 편집한 다음 **확인** 을 선택 합니다.
 * 기존 꼭 짓 점을 수정 하려면 오른쪽 창에서 펜 아이콘을 선택 합니다.
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
@@ -192,7 +193,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 #### <a name="filter-for-graph"></a>그래프에 대한 필터
 
-* 그래프 필터를 편집 하려면 [gremlin 쿼리](gremlin-support.md)를 입력 한 다음 **필터 적용**을 선택 합니다.
+* 그래프 필터를 편집 하려면 [gremlin 쿼리](gremlin-support.md)를 입력 한 다음 **필터 적용** 을 선택 합니다.
 
    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
@@ -201,14 +202,14 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 #### <a name="create-and-modify-a-table"></a>테이블 만들기 및 수정
 
 * 새 테이블을 만들려면 다음을 수행 합니다.
-   1. 왼쪽 창에서 **엔터티**를 열고 **추가**를 선택 합니다.
+   1. 왼쪽 창에서 **엔터티** 를 열고 **추가** 를 선택 합니다.
    1. **엔터티 추가** 대화 상자에서 콘텐츠를 편집 합니다.
    1. 속성 **추가** 단추를 선택 하 여 속성을 추가 합니다.
-   1. **삽입**을 선택합니다.
+   1. **삽입** 을 선택합니다.
 
       :::image type="content" source="./media/storage-explorer/table.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
 
-* 테이블을 수정 하려면 **편집**을 선택 하 고 콘텐츠를 수정한 다음 **업데이트**를 선택 합니다.
+* 테이블을 수정 하려면 **편집** 을 선택 하 고 콘텐츠를 수정한 다음 **업데이트** 를 선택 합니다.
 
    
 
@@ -234,15 +235,15 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>저장 프로시저, 트리거 및 UDF 관리
 
 * 저장 프로시저를 만들려면 다음을 수행 합니다.
-  1. 왼쪽 트리에서 **저장 프로시저**를 마우스 오른쪽 단추로 클릭 한 다음 **저장 프로시저 만들기**를 선택 합니다.
+  1. 왼쪽 트리에서 **저장 프로시저** 를 마우스 오른쪽 단추로 클릭 한 다음 **저장 프로시저 만들기** 를 선택 합니다.
   
      :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="왼쪽 창의 플러그 인 아이콘을 보여 주는 스크린샷":::
   
-  1. 왼쪽에 이름을 입력 하 고 오른쪽 창에 저장 프로시저 스크립트를 입력 한 다음 **만들기**를 선택 합니다.
+  1. 왼쪽에 이름을 입력 하 고 오른쪽 창에 저장 프로시저 스크립트를 입력 한 다음 **만들기** 를 선택 합니다.
   
 * 기존 저장 프로시저를 편집 하려면 해당 프로시저를 두 번 클릭 하 고 업데이트 한 다음 **업데이트** 를 선택 하 여 저장 합니다. **취소** 를 선택 하 여 변경을 취소할 수도 있습니다.
 
-* **트리거** 및 **UDF** 에 대 한 작업은 **저장 프로시저**와 비슷합니다.
+* **트리거** 및 **UDF** 에 대 한 작업은 **저장 프로시저** 와 비슷합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -256,7 +257,7 @@ MongoDB 용 Azure Cosmos DB API 또는 SQL API를 사용 하는 Cosmos 계정 �
 
 이 오류가 표시 될 수 있는 몇 가지 이유는 다음과 같습니다. 가장 일반적인 두 가지는 다음과 같습니다.
 
-* *투명 프록시*뒤에 있습니다. IT 부서와 같은 누군가가 HTTPS 트래픽을 가로채 고 암호를 해독 한 다음 자체 서명 된 인증서를 사용 하 여 암호화 합니다.
+* *투명 프록시* 뒤에 있습니다. IT 부서와 같은 누군가가 HTTPS 트래픽을 가로채 고 암호를 해독 한 다음 자체 서명 된 인증서를 사용 하 여 암호화 합니다.
 
 * 바이러스 백신 소프트웨어와 같은 소프트웨어를 실행 하 고 있습니다. 소프트웨어는 사용자가 받은 HTTPS 메시지에 자체 서명 된 TLS/SSL 인증서를 삽입 합니다.
 
@@ -268,12 +269,12 @@ Storage 탐색기 자체 서명 된 인증서를 찾으면 수신 하는 HTTPS �
      - macOS 및 Linux: 운영 체제에 포함 되어야 합니다.
 
 1. OpenSSL 실행:
-    * Windows: 설치 디렉터리로 이동한 다음 **///** 를 클릭 하 고 **openssl.exe**를 두 번 클릭 합니다.
+    * Windows: 설치 디렉터리로 이동한 다음 **///** 를 클릭 하 고 **openssl.exe** 를 두 번 클릭 합니다.
     * Mac 및 Linux: 터미널에서 **openssl** 를 실행 합니다.
 1. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
 1. 자체 서명된 인증서를 찾습니다. 자체 서명 된 것이 확실 하지 않은 경우 제목 ("s:")과 발급자 ("i:")가 동일한 위치에서 찾을 수 있습니다.
 1. 자체 서명 된 인증서가 있는 경우 **-----BEGIN certificate-----** 를 포함 하 여 모든 것을 복사 하 여 새에 **-----끝 인증서-----** 에 붙여넣습니다. 각 항목에 대 한 CER 파일.
-1. Storage 탐색기를 연 후 **Edit**  >  **SSL 인증서**편집  >  **인증서 가져오기**로 이동 합니다. 파일 선택기를 사용 하 여를 찾고 선택 하 고 엽니다. 만든 CER 파일.
+1. Storage 탐색기를 연 후 **Edit**  >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동 합니다. 파일 선택기를 사용 하 여를 찾고 선택 하 고 엽니다. 만든 CER 파일.
 
 자체 서명 된 인증서를 찾을 수 없는 경우 자세한 도움말은 사용자 의견을 보낼 수 있습니다.
 
@@ -321,7 +322,7 @@ Storage 탐색기 자체 서명 된 인증서를 찾으면 수신 하는 HTTPS �
   * Linux - ~/.config/StorageExplorer
   
   > [!NOTE]
-  > 이러한 파일을 삭제 하는 경우 **모든 자격 증명을 다시 입력 해야**합니다.
+  > 이러한 파일을 삭제 하는 경우 **모든 자격 증명을 다시 입력 해야** 합니다.
 
 ### <a name="httphttps-proxy-issue"></a>HTTP/HTTPS 프록시 문제
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 7cd368df1f2a94c8f49454530e7f5997f2659a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323777"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547914"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase에 대한 Java 애플리케이션 빌드
 
@@ -25,13 +25,13 @@ Java에서 [Apache HBase](https://hbase.apache.org/) 애플리케이션을 만�
 
 * HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-tutorial-get-started-linux.md)참조 하세요.
 
-* [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)입니다.
+* [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)입니다.
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/)이 필요 합니다.
+* PowerShell을 사용 하는 경우 [AZ Module](/powershell/azure/)이 필요 합니다.
 
 * 텍스트 편집기. 이 문서에서는 Microsoft 메모장을 사용 합니다.
 
@@ -48,7 +48,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
-1. 다음 명령을 입력 하 여 **hbaseapp**이라는 Maven 프로젝트를 만듭니다.
+1. 다음 명령을 입력 하 여 **hbaseapp** 이라는 Maven 프로젝트를 만듭니다.
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -415,7 +415,7 @@ public class DeleteTable {
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
     ```
 
-    이 명령은 **people**이라는 HBase 테이블을 만들고 데이터로 채웁니다.
+    이 명령은 **people** 이라는 HBase 테이블을 만들고 데이터로 채웁니다.
 
 4. 테이블에 저장된 이메일 주소를 검색하려면 다음 명령을 사용합니다.
 
@@ -442,7 +442,7 @@ public class DeleteTable {
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>JAR 업로드 및 작업 실행(PowerShell)
 
-다음 단계에서는 Azure PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 을 사용 하 여 Apache HBase 클러스터의 기본 저장소에 JAR을 업로드 합니다. HDInsight cmdlet은 예제를 원격으로 실행하는 데 사용됩니다.
+다음 단계에서는 Azure PowerShell [AZ module](/powershell/azure/new-azureps-module-az) 을 사용 하 여 Apache HBase 클러스터의 기본 저장소에 JAR을 업로드 합니다. HDInsight cmdlet은 예제를 원격으로 실행하는 데 사용됩니다.
 
 1. AZ module을 설치 하 고 구성한 후 라는 파일을 만듭니다 `hbase-runner.psm1` . 이 파일의 내용으로 다음 텍스트를 사용합니다.
 
@@ -674,7 +674,7 @@ public class DeleteTable {
 
     메시지가 표시되면 클러스터 로그인(관리자) 이름 및 암호를 입력합니다.
 
-    이 명령은 HDInsight 클러스터에 HBase의 **people**이라는 테이블을 만듭니다. 이 명령은 콘솔 창에 출력을 표시하지 않습니다.
+    이 명령은 HDInsight 클러스터에 HBase의 **people** 이라는 테이블을 만듭니다. 이 명령은 콘솔 창에 출력을 표시하지 않습니다.
 
 6. 테이블에서 항목을 검색하려면 다음 명령을 사용합니다.
 
@@ -695,7 +695,7 @@ public class DeleteTable {
     Gabriela Ingram - gabriela@contoso.com - ID: 6
     ```
 
-    `-emailRegex` 값에 **fabrikam.com**을 사용하면 메일 필드에 **fabrikam.com**을 포함하는 사용자가 반환됩니다. 검색 용어로 정규식을 사용할 수도 있습니다. 예를 들어, **^r**은 'r' 문자로 시작하는 전자 메일 주소를 반환합니다.
+    `-emailRegex` 값에 **fabrikam.com** 을 사용하면 메일 필드에 **fabrikam.com** 을 포함하는 사용자가 반환됩니다. 검색 용어로 정규식을 사용할 수도 있습니다. 예를 들어, **^r** 은 'r' 문자로 시작하는 전자 메일 주소를 반환합니다.
 
 7. 테이블을 삭제하려면 다음 명령을 사용합니다.
 

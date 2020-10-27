@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 402092f1667abb49da4521b91ba1f0e7d471f0d1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490257"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536235"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
-RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019&preserve-view=true)에서 사용할 수 없습니다.
+RTVS([Visual Studio용 R 도구](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019))는 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 및 [Visual Studio 2015 업데이트 3](https://go.microsoft.com/fwlink/?LinkId=691129) 이상의 Community(무료), Professional 및 Enterprise 버전에 대한 무료, 오픈 소스 확장입니다. RTVS는 [Visual Studio 2019](/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?preserve-view=true&view=vs-2019)에서 사용할 수 없습니다.
 
-RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https://docs.microsoft.com/visualstudio/rtvs/debugging) 등을 통해 [R 대화형 창](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl)(REPL), intellisense(코드 완성), [플롯 시각화](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data)와 같은 도구를 제공하여 R 워크플로를 개선합니다.
+RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visualstudio/rtvs/debugging) 등을 통해 [R 대화형 창](/visualstudio/rtvs/interactive-repl)(REPL), intellisense(코드 완성), [플롯 시각화](/visualstudio/rtvs/visualizing-data)와 같은 도구를 제공하여 R 워크플로를 개선합니다.
 
 ## <a name="set-up-your-environment"></a>환경 설정
 
@@ -27,17 +27,17 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
     ![Visual Studio 2017에서 RTVS 설치](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원**, **R 개발에 대한 런타임 지원** 및 ** Microsoft R Client** 옵션을 선택합니다.
+2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원** , **R 개발에 대한 런타임 지원** 및 **Microsoft R Client** 옵션을 선택합니다.
 
 3. SSH 인증에 대한 공용 및 프라이빗 키가 필요합니다.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. 컴퓨터에 [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 및 함수를 제공 `RxSpark` 합니다.
+4. 컴퓨터에 [ML Server](/previous-versions/machine-learning-server/install/r-server-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) 및 함수를 제공 `RxSpark` 합니다.
 
 5. [PuTTY](https://www.putty.org/)를 설치하여 로컬 클라이언트에서 HDInsight 클러스터로 `RevoScaleR` 함수를 실행하기 위한 컴퓨팅 컨텍스트를 제공합니다.
 
 6. Visual Studio 환경에 데이터 과학 설정을 적용하여 작업 영역에 R 도구를 위한 새 레이아웃을 제공하는 옵션이 제공됩니다.
-   1. 현재 Visual Studio 설정을 저장하려면 **도구 > 설정 가져오기 및 내보내기** 명령을 사용한 다음, **선택한 환경 설정 내보내기**를 선택하고 파일 이름을 지정합니다. 이러한 설정을 복원하려면 동일한 명령을 사용하고 **선택한 환경 설정 가져오기**를 선택합니다.
+   1. 현재 Visual Studio 설정을 저장하려면 **도구 > 설정 가져오기 및 내보내기** 명령을 사용한 다음, **선택한 환경 설정 내보내기** 를 선택하고 파일 이름을 지정합니다. 이러한 설정을 복원하려면 동일한 명령을 사용하고 **선택한 환경 설정 가져오기** 를 선택합니다.
 
    2. **R 도구** 메뉴 항목으로 이동한 후 **데이터 과학 설정...** 을 선택합니다.
 
@@ -49,7 +49,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 ## <a name="execute-local-r-methods"></a>로컬 R 메서드 실행
 
 1. HDInsight ML 서비스 클러스터를 만듭니다.
-2. [RTVS 확장](https://docs.microsoft.com/visualstudio/rtvs/installation)을 설치합니다.
+2. [RTVS 확장](/visualstudio/rtvs/installation)을 설치합니다.
 3. [샘플 zip 파일](https://github.com/Microsoft/RTVS-docs/archive/master.zip)을 다운로드합니다.
 4. Visual Studio에서 `examples/Examples.sln`을 열어 솔루션을 시작합니다.
 5. `A first look at R` 솔루션 폴더에서 `1-Getting Started with R.R` 파일을 엽니다.
@@ -111,17 +111,17 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
     ![Rx ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) 명령 실행 성공
 1. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
-    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정**을 선택합니다.
+    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정** 을 선택합니다.
 
         ![Azure HDInsight 저장소 계정](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
 
     2. 클러스터의 기본 스토리지 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 
-    3. 스토리지 계정 창의 왼쪽 메뉴에서 **컨테이너**를 선택합니다.
+    3. 스토리지 계정 창의 왼쪽 메뉴에서 **컨테이너** 를 선택합니다.
 
         ![Azure HDInsight 저장소 컨테이너](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드*를 클릭해야 할 수 있음)로 이동한 후 *RevoShare*, **newUser**를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
+    4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드* 를 클릭해야 할 수 있음)로 이동한 후 *RevoShare* , **newUser** 를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
 
         ![HDInsight에서 복사한 파일 폴더 위치](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 
