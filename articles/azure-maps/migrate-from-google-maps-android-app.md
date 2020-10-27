@@ -9,22 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873883"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503558"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>자습서 - Google Maps에서 Android 앱 마이그레이션
 
-Azure Maps Android SDK의 API 인터페이스는 웹 SDK와 비슷합니다. 이러한 SDK 중 하나로 앱을 개발하신 분들은 개념, 모범 사례 및 아키텍처가 상당히 많이 겹친다는 것을 알 수 있습니다.
+Azure Maps Android SDK의 API 인터페이스는 웹 SDK와 비슷합니다. 이러한 SDK 중 하나로 앱을 개발하신 분들은 개념, 모범 사례 및 아키텍처가 상당히 많이 겹친다는 것을 알 수 있습니다. 이 자습서에서는 다음 작업 방법을 배웁니다.
+
+> [!div class="checklist"]
+> * 맵 로드
+> * 맵 지역화
+> * 표식, 폴리라인 및 다각형 추가
+> * 타일 레이어 오버레이
+> * 트래픽 데이터 표시
 
 Azure Maps Android SDK는 Android 버전 API 21: Android 5.0.0(Lollipop) 이상을 지원합니다.
 
 모든 예제는 Java로 제공되지만, Azure Maps Android SDK에서는 Kotlin을 사용할 수 있습니다.
 
 Azure Maps에서 제공하는 Android SDK로 앱을 개발하는 방법에 대한 자세한 내용은 [Azure Maps Android SDK에 대한 방법 가이드](how-to-use-android-map-control-library.md)를 참조하세요.
+
+## <a name="prerequisites"></a>필수 조건 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="load-a-map"></a>맵 로드
 
@@ -158,9 +171,9 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
     }
     ```
 
-2. **app/build.gradle**을 업데이트하고 다음 코드를 추가합니다.
+2. **app/build.gradle** 을 업데이트하고 다음 코드를 추가합니다.
 
-    1. 프로젝트의 **minSdkVersion**이 API 21 이상인지 확인합니다.
+    1. 프로젝트의 **minSdkVersion** 이 API 21 이상인지 확인합니다.
 
     2. Android 섹션에 다음 코드를 추가합니다.
 
@@ -180,7 +193,7 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
         > [!Note]
         > Azure Maps Android SDK는 정기적으로 업그레이드되고 향상됩니다. [Android 지도 컨트롤 시작](how-to-use-android-map-control-library.md)을 확인하여 최신 Azure Maps 버전 번호를 가져올 수 있습니다. 또한 버전 번호를 "0.2"에서 "0+"로 설정하여 코드가 항상 최신 버전을 가리키게 할 수 있습니다.
 
-    4. 도구 모음에서 **파일**로 이동한 다음, **Gradle 파일과 프로젝트 동기화**를 클릭합니다.
+    4. 도구 모음에서 **파일** 로 이동한 다음, **Gradle 파일과 프로젝트 동기화** 를 클릭합니다.
 
 3. 다음과 같이 기본 작업에 맵 조각을 추가합니다(리소스 pwd\> 레이아웃 \> 작업\_main.xml):
 
@@ -309,7 +322,7 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
 Azure Maps 컨트롤은 보다 강력한 축소를 지원하고 더 많은 월드 보기를 제공합니다.
 
 > [!TIP]
-> Windows 머신에서 Android 에뮬레이터를 사용하는 경우 OpenGL 및 소프트웨어 가속 그래픽 렌더링과의 충돌로 인해 맵이 렌더링되지 않을 수 있습니다. 일부 사용자는 이 문제를 해결하기 위해 다음 작업을 수행했습니다. AVD 관리자를 열고 편집할 가상 디바이스를 선택합니다. **구성 확인** 패널에서 아래로 스크롤합니다. **에뮬레이트된 성능** 섹션에서 **그래픽** 옵션을 **하드웨어**로 설정합니다.
+> Windows 머신에서 Android 에뮬레이터를 사용하는 경우 OpenGL 및 소프트웨어 가속 그래픽 렌더링과의 충돌로 인해 맵이 렌더링되지 않을 수 있습니다. 일부 사용자는 이 문제를 해결하기 위해 다음 작업을 수행했습니다. AVD 관리자를 열고 편집할 가상 디바이스를 선택합니다. **구성 확인** 패널에서 아래로 스크롤합니다. **에뮬레이트된 성능** 섹션에서 **그래픽** 옵션을 **하드웨어** 로 설정합니다.
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
@@ -745,6 +758,18 @@ mapControl.onReady(map -> {
 
 ![Azure Maps 트래픽](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
+## <a name="next-steps"></a>다음 단계
+
 Azure Maps Android SDK에 대해 자세히 알아보세요.
 
-[Android 지도 컨트롤을 사용하는 방법](how-to-use-android-map-control-library.md)
+> [!div class="nextstepaction"]
+> [Android 지도 컨트롤을 사용하는 방법](how-to-use-android-map-control-library.md)
+
+> [!div class="nextstepaction"]
+> [Android 맵에 기호 계층 추가](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Android 맵에 도형 추가](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Android 맵에서 맵 스타일 변경](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

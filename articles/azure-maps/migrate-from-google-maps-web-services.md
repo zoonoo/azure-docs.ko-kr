@@ -9,16 +9,32 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5da42ebd31e4b09eb8bc223560aec976584c47e9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3e80ff90e47f45655761abd4c7e8fa9ed04b61ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874461"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518894"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>자습서 - Google Maps에서 웹 서비스 마이그레이션
 
 Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스할 수 있습니다. 이러한 플랫폼의 API 인터페이스는 비슷한 기능을 수행합니다. 하지만, 각각 다른 명명 규칙과 응답 개체를 사용합니다.
+
+이 자습서에서는 다음 작업 방법을 배웁니다.
+
+> * 정방향 및 역방향 지오코딩
+> * 관심 지점 검색
+> * 경로 및 방향 계산
+> * 맵 이미지 검색
+> * 거리 행렬 계산
+> * 표준 시간대 세부 정보 가져오기
+
+다음 내용도 알아봅니다. 
+
+> [!div class="checklist"]
+> * Google Maps 웹 서비스에서 마이그레이션할 때의 Azure Maps REST 서비스
+> * Azure Maps 서비스를 최대한 활용하는 방법에 대한 팁
+> * 기타 관련 Azure Maps 서비스에 대한 인사이트
 
 다음 표에는 나열된 Google Maps 서비스 API와 기능이 유사한 Azure Maps 서비스 API가 있습니다.
 
@@ -48,6 +64,12 @@ Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비
 
 - [공간 작업](https://docs.microsoft.com/rest/api/maps/spatial): 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
 - [트래픽](https://docs.microsoft.com/rest/api/maps/traffic): 실시간 트래픽 흐름 및 인시던트 데이터에 액세스합니다.
+
+## <a name="prerequisites"></a>필수 조건 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="geocoding-addresses"></a>주소 지오코딩
 
@@ -110,7 +132,7 @@ Azure Maps 역방향 지오코딩 API에는 Google Maps에서 사용할 수 없�
 관심 지점 데이터는 Places Search API를 사용하여 Google Maps에서 검색할 수 있습니다. 이 API는 관심 지점을 검색하는 다음 세 가지 방법을 제공합니다.
 
 - **텍스트에서 장소 찾기:** 이름, 주소 또는 전화 번호를 기반으로 관심 지점을 검색합니다.
-- **주변 검색**: 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다.
+- **주변 검색** : 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다.
 - **텍스트 검색:** 관심 지점 및 위치 정보가 포함된 자유 형식 텍스트를 사용하여 장소를 검색합니다. 예: "뉴욕의 피자 가게" 또는 "메인 스트리트 근처의 식당".
 
 Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.
@@ -334,7 +356,6 @@ Azure Maps에서 핀 위치는 "경도 위도" 형식이어야 합니다. Google
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Azure Maps 표식](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 레이블 값이 '1', '2' 및 '3'인 세 개의 핀을 추가합니다.
@@ -342,8 +363,6 @@ Azure Maps에서 핀 위치는 "경도 위도" 형식이어야 합니다. Google
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Azure Maps 여러 표식](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -468,13 +487,24 @@ Azure Maps는 다음 프로그래밍 언어를 위한 클라이언트 라이브�
 
 - .NET Standard 2.0 – [GitHub 프로젝트](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet 패키지](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="next-steps"></a>다음 단계
 
-다음은 Azure Maps REST 서비스에 대한 추가 설명서와 리소스입니다.
+Azure Maps REST 서비스에 대해 자세히 알아보세요.
 
-- [검색 관련 모범 사례](how-to-use-best-practices-for-search.md)
-- [주소 검색](how-to-search-for-address.md)
-- [라우팅 모범 사례](how-to-use-best-practices-for-routing.md)
-- [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
-- [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [검색 관련 모범 사례](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [주소 검색](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [라우팅 모범 사례](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)

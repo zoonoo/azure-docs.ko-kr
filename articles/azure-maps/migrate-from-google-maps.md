@@ -9,16 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3ece62e671caa0838bbf4713c0ad4a74f19fd6cb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876314"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518877"
 ---
 # <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>자습서 - Google Maps에서 Azure Maps로 마이그레이션
 
-이 문서에서는 웹, 모바일 및 서버 기반 애플리케이션을 Google Maps에서 Microsoft Azure Maps 플랫폼으로 마이그레이션하는 방법에 대한 인사이트를 제공합니다. 이 자습서에는 Azure Maps로 마이그레이션하기 위한 비교 코드 샘플, 마이그레이션 제안 사항 및 모범 사례가 포함되어 있습니다.
+이 문서에서는 웹, 모바일 및 서버 기반 애플리케이션을 Google Maps에서 Microsoft Azure Maps 플랫폼으로 마이그레이션하는 방법에 대한 인사이트를 제공합니다. 이 자습서에는 Azure Maps로 마이그레이션하기 위한 비교 코드 샘플, 마이그레이션 제안 사항 및 모범 사례가 포함되어 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * Azure Maps에서 사용할 수 있는 해당 Google Maps 기능에 대한 대략적인 비교
+> * 고려해야 할 라이선스 차이점
+> * 마이그레이션을 계획하는 방법
+> * 기술 리소스 및 지원을 찾을 수 있는 위치
+
+## <a name="prerequisites"></a>필수 조건 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="azure-maps-platform-overview"></a>Azure Maps 플랫폼 개요
 
@@ -107,10 +119,15 @@ Azure Maps 계정을 만들고 Azure Maps 플랫폼에 액세스하려면 다음
 
 개발자는 [포럼](https://aka.ms/AzureMapsForums) 또는 여러 Azure 지원 옵션([https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)) 중 하나를 통해 마이그레이션 지원을 검색할 수 있습니다.
 
-다음을 사용하여 Google Maps 애플리케이션을 마이그레이션하는 방법을 알아볼 수 있습니다. 
+## <a name="next-steps"></a>다음 단계
 
-[Android 앱 마이그레이션](migrate-from-google-maps-android-app.md) 
+다음 문서를 사용하여 Google Maps 애플리케이션을 마이그레이션하는 방법에 대해 자세히 알아봅니다.
 
-[웹 서비스 마이그레이션](migrate-from-google-maps-web-services.md) 
+> [!div class="nextstepaction"]
+> [웹앱 마이그레이션](migrate-from-google-maps-web-app.md)
 
-[웹앱 마이그레이션](migrate-from-google-maps-web-app.md)
+> [!div class="nextstepaction"]
+> [웹 서비스 마이그레이션](migrate-from-google-maps-web-services.md) 
+
+> [!div class="nextstepaction"]
+> [Android 앱 마이그레이션](migrate-from-google-maps-android-app.md) 

@@ -9,16 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fb99afef2d5e210b8aa166f016bd2b9ec409c2a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876501"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518962"
 ---
-# <a name="migrate-a-web-app-from-google-maps"></a>Google Maps에서 웹앱 마이그레이션
+# <a name="tutorial---migrate-a-web-app-from-google-maps"></a>자습서 - Google Maps에서 웹앱 마이그레이션
 
-Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK를 사용합니다. Azure Maps 웹 SDK는 마이그레이션에 적합한 Azure 기반 SDK입니다. Azure Maps 웹 SDK를 사용하면 고유한 콘텐츠와 이미지를 사용하여 대화형 맵을 사용자 지정할 수 있습니다. 웹 또는 모바일 애플리케이션 모두에서 앱을 실행할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 이 SDK로 개발하세요.
+Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK를 사용합니다. Azure Maps 웹 SDK는 마이그레이션에 적합한 Azure 기반 SDK입니다. Azure Maps 웹 SDK를 사용하면 고유한 콘텐츠와 이미지를 사용하여 대화형 맵을 사용자 지정할 수 있습니다. 웹 또는 모바일 애플리케이션 모두에서 앱을 실행할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 이 SDK로 개발하세요. 이 자습서에서는 다음 작업 방법을 배웁니다.
+
+> [!div class="checklist"]
+> * 맵 로드
+> * 맵 지역화
+> * 표식, 폴리라인 및 다각형 추가
+> * 팝업 또는 정보 창에 정보 표시
+> * KML 및 GeoJSON 데이터 로드 및 표시
+> * 클러스터 표식
+> * 타일 레이어 오버레이
+> * 트래픽 데이터 표시
+> * 그라운드 오버레이 추가
+
+다음 내용도 알아봅니다. 
+
+> [!div class="checklist"]
+> * Azure Maps 웹 SDK를 사용하여 일반적인 매핑 작업을 수행하는 방법
+> * 성능 및 사용자 환경을 향상시키기 위한 모범 사례
+> * Azure Maps에서 사용할 수 있는 더 많은 고급 기능을 사용하여 애플리케이션을 만드는 방법에 대한 팁
 
 기존 웹 애플리케이션을 마이그레이션하는 경우 오픈 소스 맵 컨트롤 라이브러리를 사용하고 있는지 확인하세요. 오픈 소스 맵 컨트롤 라이브러리의 예로 Cesium, Leaflet 및 OpenLayers가 있습니다. 오픈 소스 맵 컨트롤 라이브러리를 사용하고 Azure Maps 웹 SDK를 사용하지 않으려는 경우에도 애플리케이션을 계속 마이그레이션할 수 있습니다. 이 경우 애플리케이션을 Azure Maps 타일 서비스([도로 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [위성 타일](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile))에 연결합니다. 다음은 일반적으로 사용되는 오픈 소스 맵 컨트롤 라이브러리 중 일부에서 Azure Maps를 사용하는 방법에 대해 자세히 설명합니다.
 
@@ -33,6 +51,11 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 - [Azure Maps React 구성 요소](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 컨트롤의 반응 래퍼.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 애플리케이션용 Azure Maps 구성 요소.
 
+## <a name="prerequisites"></a>필수 조건 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+2. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+3. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account). Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](how-to-manage-authentication.md)를 참조하세요.
 
 ## <a name="key-features-support"></a>주요 기능 지원
 
@@ -72,7 +95,6 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 
 이 컬렉션에는 각 플랫폼에 대한 코드 샘플이 있으며, 각 샘플은 일반적인 사용 사례를 다룹니다. 웹 애플리케이션을 Google Maps V3 JavaScript SDK에서 Azure Maps 웹 SDK로 마이그레이션하는 데 도움이 됩니다. 웹 애플리케이션과 관련된 코드 샘플은 JavaScript로 제공됩니다. 그러나 Azure Maps는 [NPM 모듈](how-to-use-map-control.md)을 통해 TypeScript 정의를 추가 옵션으로 제공합니다.
 
-
 **토픽**
 
 - [맵 로드](#load-a-map)
@@ -90,7 +112,6 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 - [트래픽 데이터 표시](#show-traffic-data)
 - [그라운드 오버레이 추가](#add-a-ground-overlay)
 - [맵에 KML 데이터 추가](#add-kml-data-to-the-map)
-
 
 ### <a name="load-a-map"></a>맵 로드
 
@@ -1011,7 +1032,7 @@ MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다
 
 클러스터링을 사용하도록 설정하면 데이터 원본이 클러스터형 및 비클러스터형 데이터 요소를 렌더링하기 위해 레이어로 보냅니다. 데이터 원본은 수십만 개의 데이터 요소를 클러스터링할 수 있습니다. 클러스터링된 데이터 요소에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | Description   |
+| 속성 이름             | Type    | 설명   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |
@@ -1720,9 +1741,18 @@ Azure Maps 웹 SDK에는 개별적으로 로드할 수 있는 서비스 모듈�
 | 기하 도형 라이브러리      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | 시각화 라이브러리 | [열 지도 계층](map-add-heat-map-layer.md) |
 
-Google Maps 마이그레이션에 대한 자세한 정보:
+## <a name="next-steps"></a>다음 단계
 
-* [서비스 모듈을 사용하는 방법](how-to-use-services-module.md) 
-* [그리기 도구 모듈을 사용하는 방법](set-drawing-options.md)
-* [서비스 모듈을 사용하는 방법](how-to-use-services-module.md)
-* [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
+Azure Maps 웹 SDK에 대해 자세히 알아보세요.
+
+> [!div class="nextstepaction"]
+> [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [그리기 도구 모듈을 사용하는 방법](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [서비스 모듈을 사용하는 방법](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [공간 IO 모듈을 사용하는 방법](how-to-use-spatial-io-module.md)
