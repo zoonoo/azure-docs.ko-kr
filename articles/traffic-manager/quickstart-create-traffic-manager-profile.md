@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: HA 애플리케이션용 프로필 만들기 - Azure Portal - Azure Traffic Manager'
-description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
+title: '빠른 시작: 애플리케이션의 HA 프로필 만들기 - Azure Portal - Azure Traffic Manager'
+description: 이 빠른 시작 문서에서는 Azure Portal을 사용하여 고가용성 웹 애플리케이션을 빌드하기 위해 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
 author: duongau
 manager: twooley
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 10/15/2020
 ms.author: duau
-ms.openlocfilehash: 7a347d5cd72fcf955dae0aa8319632fdb43d3bf7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 45489d3500a4a744f2aeb34dc21122d180797133
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89400265"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101331"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Traffic Manager 프로필 만들기
 
@@ -27,85 +27,89 @@ ms.locfileid: "89400265"
 
 Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 지금 만드세요.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 동부* 및 *서유럽*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
+이 빠른 시작에는 두 개의 서로 다른 Azure 지역( *미국 동부* 및 *서유럽* )에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **웹** > **웹앱**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **웹앱 만들기**의 **기본 사항** 탭에서 다음 값을 입력하거나 선택합니다.
+1. 화면의 왼쪽 위에서 **리소스 만들기** 를 선택합니다. **웹앱** 을 검색하고 **만들기** 를 선택합니다.
 
-   - **구독** > **리소스 그룹**: **새로 만들기**를 선택한 다음, **myResourceGroupTM1**을 입력합니다.
-   - **인스턴스 세부 정보** > **이름**: *myWebAppEastUS*를 입력합니다.
-   - **인스턴스 세부 정보** > **게시**: **코드**를 선택합니다.
-   - **인스턴스 세부 정보** > **런타임 스택**: **ASP.NET V4.7**을 선택합니다.
-   - **인스턴스 세부 정보** > **운영 체제**: **Windows**를 선택합니다.
-   - **인스턴스 세부 정보** > **Azure 지역**:  **미국 동부**를 선택합니다.
-   - **App Service 플랜** > **Windows 플랜(미국 동부)** : **새로 만들기**를 선택하고 **myAppServicePlanEastUS**를 입력합니다.
-   - **App Service 플랜** > **SKU 및 크기**: **표준 S1**을 선택합니다.
+1. **웹앱 만들기** 의 **기본 사항** 탭에서 다음 값을 입력하거나 선택합니다.
+
+    | 설정                 | 값 |
+    | ---                     | --- |
+    | Subscription            | 구독을 선택합니다. |    
+    | Resource group          | **새로 만들기** 를 선택하고, 텍스트 상자에서 *myResourceGroupTM1* 을 입력합니다.|
+    | Name                    | 웹앱에 대한 고유한 **이름** 을 입력합니다. 이 예에서는 *myWebAppEastUS* 를 사용합니다. |
+    | 게시                 | **코드** 를 선택합니다. |
+    | 런타임 스택           | **ASP.NET V4.7** 을 선택합니다. |
+    | 운영 체제        | **Windows** 를 선택합니다. |
+    | 지역                  | **미국 동부** 를 선택합니다. |
+    | Windows 플랜            | **새로 만들기** 를 선택하고, 텍스트 상자에서 *myAppServicePlanEastUS* 를 입력합니다. |
+    | SKU 및 크기            | **Standard S1 100 총 ACU, 1.75GB 메모리** 를 선택합니다. |
    
-3. **모니터링** 탭을 선택하거나 **다음:모니터링**을 선택합니다.  **모니터링**에서 **Application Insights** > **Application Insights 사용**을 **아니요**로 설정합니다.
+1. **모니터링** 탭을 선택하거나 **다음: 모니터링** 을 선택합니다.  **모니터링** 에서 **Application Insights** > **Application Insights 사용** 을 **아니요** 로 설정합니다.
 
-4. **검토 및 만들기**를 선택합니다.
+1. **검토 및 만들기** 를 선택합니다.
 
-5. 설정을 검토한 다음, **만들기**를 클릭합니다.  웹앱이 성공적으로 배포되면, 그것은 기본 웹 사이트를 만듭니다.
+1. 설정을 검토한 다음, **만들기** 를 선택합니다.  웹앱이 성공적으로 배포되면, 그것은 기본 웹 사이트를 만듭니다.
 
-6. 단계에 따라 **리소스 그룹** 이름은 *myResourceGroupTM2*이고, **지역**은 *서유럽*이고, **App Service 플랜** 이름은 **myAppServicePlanWestEurope**이고, 다른 모든 설정은 *myWebAppEastUS*와 동일한 *myWebAppWestEurope*이라는 두 번째 웹앱을 만듭니다.
+1. 1-6단계를 수행하여 *myWebAppWestEurope* 이라는 두 번째 웹앱을 만듭니다. **리소스 그룹** 이름은 *myResourceGroupTM2* 이고, **지역** 은 *서유럽* 이고, **App Service 요금제** 이름은 **myAppServicePlanWestEurope** 입니다. 다른 모든 설정은 *myWebAppEastUS* 와 동일합니다.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 
 엔드포인트 우선 순위에 따라 사용자 트래픽을 보내는 Traffic Manager 프로필을 만듭니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필**을 차례로 선택합니다.
-2. **Traffic Manager 프로필 만들기**에서 다음 설정을 입력하거나 선택합니다.
+1. 화면의 왼쪽 위에서 **리소스 만들기** 를 선택합니다. 그런 다음, **Traffic Manager 프로필** 을 검색하고 **만들기** 를 선택합니다.
+1. **Traffic Manager 프로필 만들기** 에서 다음 설정을 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | --------| ----- |
-    | 속성 | Traffic Manager 프로필에 대한 고유한 이름을 입력합니다.|
-    | 라우팅 방법 | **우선 순위**를 선택합니다.|
-    | Subscription | Traffic Manager 프로필에 적용하려는 구독을 선택합니다. |
-    | Resource group | *myResourceGroupTM1*을 선택합니다.|
+    | Name | Traffic Manager 프로필에 대한 고유한 이름을 입력합니다.|
+    | 라우팅 방법 | **우선 순위** 를 선택합니다.|
+    | 구독 | Traffic Manager 프로필에 적용하려는 구독을 선택합니다. |
+    | 리소스 그룹 | *myResourceGroupTM1* 을 선택합니다.|
     | 위치 |이 설정은 리소스 그룹의 위치를 가리킵니다. 글로벌로 배포될 Traffic Manager 프로필에는 영향을 주지 않습니다.|
 
-3. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
-*미국 동부*에서 모든 사용자 트래픽을 라우팅할 기본 엔드포인트로 웹 사이트를 추가합니다. *서유럽*에 웹 사이트를 장애 조치 엔드포인트로 추가합니다. 기본 엔드포인트를 사용할 수 없으면 트래픽이 자동으로 장애 조치 엔드포인트로 라우팅됩니다.
+*미국 동부* 에서 모든 사용자 트래픽을 라우팅할 기본 엔드포인트로 웹 사이트를 추가합니다. *서유럽* 에 웹 사이트를 장애 조치 엔드포인트로 추가합니다. 기본 엔드포인트를 사용할 수 없으면 트래픽이 자동으로 장애 조치 엔드포인트로 라우팅됩니다.
 
 1. 포털의 검색 창에 이전 섹션에서 만든 Traffic Manager 프로필 이름을 입력합니다.
-2. 검색 결과에서 프로필을 선택합니다.
-3. **Traffic Manager 프로필**의 **설정** 섹션에서 **엔드포인트**를 선택한 다음, **추가**를 클릭합니다.
-4. 다음 설정을 입력하거나 선택합니다.
+1. 검색 결과에서 프로필을 선택합니다.
+1. **Traffic Manager 프로필** 의 **설정** 섹션에서 **엔드포인트** 를 선택한 다음, **추가** 를 클릭합니다.
+
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
+
+1. 다음 설정을 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ------|
-    | Type | **Azure 엔드포인트**를 선택합니다. |
-    | 속성 | *myPrimaryEndpoint*를 선택합니다. |
-    | 대상 리소스 종류 | **App Service**를 선택합니다. |
-    | 대상 리소스 | **앱 서비스 선택** > **미국 동부**를 차례로 선택합니다. |
-    | 우선 순위 | **1**을 선택합니다. 모든 트래픽이 정상 상태이면 엔드포인트로 이동합니다. |
+    | Type | **Azure 엔드포인트** 를 선택합니다. |
+    | Name | *myPrimaryEndpoint* 를 선택합니다. |
+    | 대상 리소스 종류 | **App Service** 를 선택합니다. |
+    | 대상 리소스 | **앱 서비스 선택** > **미국 동부** 를 차례로 선택합니다. |
+    | 우선순위 | **1** 을 선택합니다. 모든 트래픽이 정상 상태이면 엔드포인트로 이동합니다. |
 
-    ![Traffic Manager 프로필에 엔드포인트를 추가하는 위치에 대한 스크린샷](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
-
-5. **확인**을 선택합니다.
-6. 두 번째 Azure 지역에 대한 장애 조치 엔드포인트를 만들려면 다음 설정을 사용하여 3-4단계를 반복합니다.
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
+    
+1. **확인** 을 선택합니다.
+1. 두 번째 Azure 지역에 대한 장애 조치 엔드포인트를 만들려면 다음 설정을 사용하여 3-4단계를 반복합니다.
 
     | 설정 | 값 |
     | ------- | ------|
-    | Type | **Azure 엔드포인트**를 선택합니다. |
-    | 속성 | *myFailoverEndpoint*를 입력합니다. |
-    | 대상 리소스 종류 | **App Service**를 선택합니다. |
-    | 대상 리소스 | **앱 서비스 선택** > **서유럽**를 차례로 선택합니다. |
-    | 우선 순위 | **2**를 선택합니다. 기본 엔드포인트가 비정상 상태이면 모든 트래픽이 이 장애 조치 엔드포인트로 이동합니다. |
+    | Type | **Azure 엔드포인트** 를 선택합니다. |
+    | Name | *myFailoverEndpoint* 를 입력합니다. |
+    | 대상 리소스 종류 | **App Service** 를 선택합니다. |
+    | 대상 리소스 | **앱 서비스 선택** > **서유럽** 를 차례로 선택합니다. |
+    | 우선순위 | **2** 를 선택합니다. 기본 엔드포인트가 비정상 상태이면 모든 트래픽이 이 장애 조치 엔드포인트로 이동합니다. |
 
-7. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
-두 개의 엔드포인트가 추가되면 **Traffic Manager 프로필**에 표시됩니다. 이제 모니터링 상태는 **온라인**입니다.
+두 개의 엔드포인트가 추가되면 **Traffic Manager 프로필** 에 표시됩니다. 이제 모니터링 상태는 **온라인** 입니다.
 
 ## <a name="test-traffic-manager-profile"></a>Traffic Manager 프로필 테스트
 
@@ -114,32 +118,32 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 ### <a name="check-the-dns-name"></a>DNS 이름 확인
 
 1. 포털의 검색 창에서 이전 섹션에서 만든 **Traffic Manager 프로필** 이름을 검색합니다.
-2. Traffic Manager 프로필을 선택합니다. **개요**가 표시됩니다.
-3. **Traffic Manager 프로필**에 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다.
+1. Traffic Manager 프로필을 선택합니다. **개요** 가 표시됩니다.
+1. **Traffic Manager 프로필** 에 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다.
   
-   ![Traffic Manager DNS 이름의 위치에 대한 스크린샷](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
 
 ### <a name="view-traffic-manager-in-action"></a>실행 중인 Traffic Manager 보기
 
 1. 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 입력하여 웹앱의 기본 웹 사이트를 봅니다.
 
     > [!NOTE]
-    > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1**로 설정됩니다.
+    > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1** 로 설정됩니다.
 
-    ![Traffic Manager 프로필의 가용성을 확인하는 웹 페이지에 대한 스크린샷](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
 
-2. 실행 중인 Traffic Manager 장애 조치를 보려면 기본 사이트를 사용하지 않도록 설정합니다.
-    1. Traffic Manager 프로필 페이지의 **개요** 섹션에서 **myPrimaryEndpoint**를 선택합니다.
-    2. *myPrimaryEndpoint*에서 **사용 안 함** > **저장**을 차례로 선택합니다.
-    3. **myPrimaryEndpoint**를 닫습니다. 이제 상태는 **사용 안 함**입니다.
-3. 이전 단계에서 Traffic Manager 프로필의 DNS 이름을 복사하여 새 웹 브라우저 세션에서 웹 사이트를 봅니다.
-4. 웹앱을 계속 사용할 수 있는지 확인합니다.
+1. 실행 중인 Traffic Manager 장애 조치를 보려면 기본 사이트를 사용하지 않도록 설정합니다.
+    1. Traffic Manager 프로필 페이지의 **개요** 섹션에서 **myPrimaryEndpoint** 를 선택합니다.
+    1. *myPrimaryEndpoint* 에서 **사용 안 함** > **저장** 을 차례로 선택합니다.
+    1. **myPrimaryEndpoint** 를 닫습니다. 이제 상태는 **사용 안 함** 입니다.
+1. 이전 단계에서 Traffic Manager 프로필의 DNS 이름을 복사하여 새 웹 브라우저 세션에서 웹 사이트를 봅니다.
+1. 웹앱을 계속 사용할 수 있는지 확인합니다.
 
 기본 엔드포인트는 사용할 수 없으므로 장애 조치 엔드포인트로 라우팅됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-완료되면 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 대시보드에서 개별 항목을 각각 선택하고, 각 페이지의 위쪽에 있는 **삭제**를 선택합니다.
+완료되면 리소스 그룹, 웹 애플리케이션 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 대시보드에서 개별 항목을 각각 선택하고, 각 페이지의 위쪽에 있는 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

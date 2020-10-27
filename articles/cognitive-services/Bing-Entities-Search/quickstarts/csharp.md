@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 131c282ab61f04ffa94921c2816886a35ea4b7ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936829"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221233"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>빠른 시작: C#을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -28,21 +28,20 @@ ms.locfileid: "88936829"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)의 모든 버전.
-
-- NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크. Visual Studio에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
-
-   1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
-   2. **NuGet 패키지 관리**를 선택합니다.
-   3. *Newtonsoft.Json*을 검색하여 선택한 다음, 패키지를 설치합니다.
-
-- Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](https://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
+- 또는 Linux나 MacOS를 사용하는 경우 [Visual Studio Code](https://code.visualstudio.com/) 및 [.NET Core](/dotnet/core/install/macos)를 사용하여 이 빠른 시작을 수행할 수 있습니다.
+- [체험판 Azure 계정](https://azure.microsoft.com/free/dotnet)
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
-1. Visual Studio에서 새 C# 콘솔 솔루션을 만듭니다. 그런 다음, 주 코드 파일에 다음 네임스페이스를 추가합니다.
+1. Visual Studio에서 새 C# 콘솔 솔루션을 만듭니다. 
+1. [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet 패키지를 추가합니다.
+    1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
+    2. **NuGet 패키지 관리** 를 선택합니다.
+    3. *Newtonsoft.Json* 을 검색하여 선택한 다음, 패키지를 설치합니다.
+1. 그런 다음, 주 코드 파일에 다음 네임스페이스를 추가합니다.
     
     ```csharp
     using Newtonsoft.Json;

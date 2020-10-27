@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: bb2a58b76445f2cfd14a905de1fb66dbff3eee7e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371017"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203265"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -21,31 +21,31 @@ ms.locfileid: "91371017"
 
 이 기능은 [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)로 인증된 CSP 직접 청구 파트너에 대해서만 사용할 수 있습니다. Microsoft 거버넌스 및 정책의 영향을 받을 수 있으며 특정 고객에 대한 검토 및 승인이 필요할 수 있습니다.
 
-청구 소유권을 요청하려면 **글로벌 관리** 또는 **관리 에이전트** 역할이 있어야 합니다. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.
+청구 소유권을 요청하려면 **글로벌 관리** 또는 **관리 에이전트** 역할이 있어야 합니다. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조하세요.
 
 이 문서는 Microsoft 파트너 계약에 대한 청구 계정에 적용됩니다. 이러한 계정은 새 상거래 환경에서 고객에 대한 청구를 관리하기 위해 CSP(클라우드 솔루션 공급자)에 대해 만들어집니다. 새 환경은 MCA(Microsoft 고객 계약)를 수락하고 Azure 플랜이 있는 고객을 한 명 이상 보유한 파트너에만 사용할 수 있습니다. [Microsoft 파트너 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-partner-agreement).
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-1. 고객과 [재판매인 관계](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer)를 설정합니다. [CSP 지역 권한 부여 개요](https://docs.microsoft.com/partner-center/regional-authorization-overview)를 확인하여 고객과 파트너 테넌트가 동일한 권한 있는 지역 내에 있는지 확인합니다.
-1. [고객이 Microsoft 고객 계약에 동의했는지 확인합니다](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
-1. 고객에 대한 [Azure 플랜](https://docs.microsoft.com/partner-center/purchase-azure-plan)을 설정합니다. 고객이 여러 재판매인을 통해 구매하는 경우 고객과 재판매인의 각 조합에 대해 Azure 플랜을 설정해야 합니다.
+1. 고객과 [재판매인 관계](/partner-center/request-a-relationship-with-a-customer)를 설정합니다. [CSP 지역 권한 부여 개요](/partner-center/regional-authorization-overview)를 확인하여 고객과 파트너 테넌트가 동일한 권한 있는 지역 내에 있는지 확인합니다.
+1. [고객이 Microsoft 고객 계약에 동의했는지 확인합니다](/partner-center/confirm-customer-agreement).
+1. 고객에 대한 [Azure 플랜](/partner-center/purchase-azure-plan)을 설정합니다. 고객이 여러 재판매인을 통해 구매하는 경우 고객과 재판매인의 각 조합에 대해 Azure 플랜을 설정해야 합니다.
 
 ## <a name="request-billing-ownership"></a>청구 소유권 요청
 
 1. CSP 테넌트에서 CSP 관리 에이전트 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색합니다.  
+1. **Cost Management + 청구** 를 검색합니다.  
     ![Azure Portal에서 청구 소유권 요청을 위한 비용 관리 + 청구 검색을 보여 주는 스크린샷](./media/mpa-request-ownership/search-cmb.png)
-1. 왼쪽에서 **고객**을 선택한 다음, 목록에서 고객을 선택합니다.  
+1. 왼쪽에서 **고객** 을 선택한 다음, 목록에서 고객을 선택합니다.  
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
-1. 왼쪽 아래에서 **전송 요청**을 선택한 다음, **새 요청 추가**를 선택합니다.  
+1. 왼쪽 아래에서 **전송 요청** 을 선택한 다음, **새 요청 추가** 를 선택합니다.  
     [![전송 요청 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests.png)](./media/mpa-request-ownership/mpa-select-transfer-requests.png#lightbox)
-1. 고객 조직에서 전송 요청을 수락하는 사용자의 이메일 주소를 입력합니다. 사용자는 기업계약의 계정 소유자여야 합니다. **이전 요청 보내기**를 선택합니다.  
+1. 고객 조직에서 전송 요청을 수락하는 사용자의 이메일 주소를 입력합니다. 사용자는 기업계약의 계정 소유자여야 합니다. **이전 요청 보내기** 를 선택합니다.  
     [![전송 요청 전송을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-send-transfer-requests.png)](./media/mpa-request-ownership/mpa-send-transfer-requests.png#lightbox)
 1. 사용자는 이전 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-review-transfer-request-email.png)
 1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다.  
-    [![검토 전송 요청을 보여 주는 스크린샷](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) 사용자가 Azure 제품을 전송하려는 청구 계정을 선택할 수 있습니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. **참고:** 사용하지 않도록 설정된 구독은 전송할 수 없으며, 해당하는 경우 "이전할 수 없는 Azure 제품" 목록에 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사**를 선택합니다.
+    [![검토 전송 요청을 보여 주는 스크린샷](./media/mpa-request-ownership/review-transfer-requests.png)](./media/mpa-request-ownership/review-transfer-requests.png#lightbox) 사용자가 Azure 제품을 전송하려는 청구 계정을 선택할 수 있습니다. 이를 선택하면 전송할 수 있는 적격 제품이 표시됩니다. **참고:** 사용하지 않도록 설정된 구독은 전송할 수 없으며, 해당하는 경우 "이전할 수 없는 Azure 제품" 목록에 표시됩니다. 전송될 Azure 제품이 선택되면 **유효성 검사** 를 선택합니다.
 1. **전송 유효성 검사 결과** 영역에서는 전송할 Azure 제품의 영향을 보여 줍니다. 가능한 상태는 다음과 같습니다.
     * **통과** - 이 Azure 제품에 대한 유효성 검사가 통과되었으며 전송될 수 있습니다.
     * **경고** - 선택한 Azure 제품에 대한 경고가 있습니다. 제품을 계속 전송할 수 있지만 이렇게 하면 사용자가 완화 작업을 수행하려는 경우 사용자가 알고 있어야 하는 영향을 받을 수 있습니다. 예를 들어 전송되는 Azure 구독은 RI에서 혜택을 받고 있습니다. 전송 후에는 구독이 더 이상 해당 혜택을 받지 않습니다. 절감액을 최대화하려면 RI를 해당 혜택을 사용할 수 있는 다른 구독과 연결해야 합니다. 대신 사용자는 선택 페이지로 돌아가서 이 Azure 구독을 선택 취소하도록 선택할 수도 있습니다.
@@ -55,12 +55,12 @@ ms.locfileid: "91371017"
 ## <a name="check-the-transfer-request-status"></a>전송 요청 상태 확인
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Cost Management + 청구**를 검색합니다.  
+1. **Cost Management + 청구** 를 검색합니다.  
     ![Azure Portal에서 양도 상태 요청을 위한 비용 관리 + 청구 검색을 보여 주는 스크린샷](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
-1. 왼쪽에서 **고객**을 선택합니다.  
+1. 왼쪽에서 **고객** 을 선택합니다.  
     [![고객 선택을 보여 주는 스크린샷](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. 목록에서 전송 요청을 보낸 고객을 선택합니다.
-1. 왼쪽 아래에서 **전송 요청**을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다. [![전송 요청 목록을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
+1. 왼쪽 아래에서 **전송 요청** 을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다. [![전송 요청 목록을 보여주는 스크린샷](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png)](./media/mpa-request-ownership/mpa-select-transfer-requests-for-status.png#lightbox)
 
    |열|정의|
    |---------|---------|
@@ -115,7 +115,7 @@ ms.locfileid: "91371017"
 
 ### <a name="azure-resources-transfer"></a>Azure 리소스 이전
 
-VM, 디스크 및 웹 사이트와 같은 구독의 모든 리소스가 이전됩니다.
+VM, 디스크 및 웹 사이트와 같은 구독의 모든 리소스가 이전됩니다. 전송 시 구독 ID와 리소스 ID가 유지됩니다. 
 
 ### <a name="azure-marketplace-products-transfer"></a>Azure Marketplace 제품 이전
 
@@ -123,13 +123,13 @@ CSP(클라우드 솔루션 공급자)가 관리하는 구독에 사용할 수 �
 
 ### <a name="azure-reservations-transfer"></a>Azure Reservations 이전
 
-Azure Reservations는 구독과 함께 자동으로 이동되지 않습니다. 다른 구독의 EA에서 예약을 유지하거나 [예약을 취소하고](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) CSP에서 예약을 다시 구매할 수 있습니다.
+Azure Reservations는 구독과 함께 자동으로 이동되지 않습니다. 다른 구독의 EA에서 예약을 유지하거나 [예약을 취소하고](../reservations/exchange-and-refund-azure-reservations.md) CSP에서 예약을 다시 구매할 수 있습니다.
 
 ### <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 
 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 할당된 기존 사용자, 그룹 또는 서비스 사용자에 대한 액세스 권한은 전환 중에 영향을 받지 않습니다. 파트너는 구독에 대한 새 Azure RBAC 액세스 권한을 얻지 못합니다.
 
-파트너는 고객과 협력하여 구독에 대한 액세스 권한을 얻어야 합니다. 파트너는 [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 또는 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) 액세스 오픈 지원 티켓을 가져와야 합니다.
+파트너는 고객과 협력하여 구독에 대한 액세스 권한을 얻어야 합니다. 파트너는 [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) 또는 [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) 액세스 오픈 지원 티켓을 가져와야 합니다.
 
 ### <a name="azure-support-plan"></a>Azure 지원 플랜
 
@@ -155,13 +155,13 @@ SaaS 제품은 구독과 함께 전송되지 않습니다. [Azure 지원에 문�
 
 전송되는 Azure 구독의 디렉터리는 CSP 관계를 설정하는 동안 선택한 고객의 디렉터리와 일치해야 합니다.
 
-이러한 두 디렉터리가 일치하지 않으면 구독을 전송할 수 없습니다. Azure 구독의 디렉터리를 선택하여 고객과 새 CSP 재판매인 관계를 설정하거나 고객 CSP 관계 디렉터리와 일치하도록 Azure 구독의 디렉터리를 변경해야 합니다. 자세한 내용은 [Azure AD 디렉터리에 기존 구독 연결](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
+이러한 두 디렉터리가 일치하지 않으면 구독을 전송할 수 없습니다. Azure 구독의 디렉터리를 선택하여 고객과 새 CSP 재판매인 관계를 설정하거나 고객 CSP 관계 디렉터리와 일치하도록 Azure 구독의 디렉터리를 변경해야 합니다. 자세한 내용은 [Azure AD 디렉터리에 기존 구독 연결](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)을 참조하세요.
 
-### <a name="ea-subscription-in-the-non-orgnization-directory"></a>비조직 디렉터리의 EA 구독
+### <a name="ea-subscription-in-the-non-organization-directory"></a>비조직 디렉터리의 EA 구독
 
-비조직 디렉터리의 EA 구독은 해당 디렉터리에 CSP와의 재판매인 관계가 있는 한 전송될 수 있습니다. 디렉터리에 재판매인 관계가 없는 경우 디렉터리에 파트너 관계를 수락할 수 있는 *전역 관리자*로서의 조직 사용자가 있어야 합니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 "[도메인 이름]이어야 합니다. onmicrosoft.com" 또는 "contoso.com"과 같이 확인되고 페더레이션되지 않은 사용자 지정 도메인 이름  
+비조직 디렉터리의 EA 구독은 해당 디렉터리에 CSP와의 재판매인 관계가 있는 한 전송될 수 있습니다. 디렉터리에 재판매인 관계가 없는 경우 디렉터리에 파트너 관계를 수락할 수 있는 *전역 관리자* 로서의 조직 사용자가 있어야 합니다. 사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 "[도메인 이름]이어야 합니다. onmicrosoft.com" 또는 "contoso.com"과 같이 확인되고 페더레이션되지 않은 사용자 지정 도메인 이름  
 
-디렉터리에 새 사용자를 추가하려면 [빠른 시작: Azure Active Directory에 새 사용자를 추가하여 AAD 디렉터리에 새 사용자 추가](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)를 참조하세요.
+디렉터리에 새 사용자를 추가하려면 [빠른 시작: Azure Active Directory에 새 사용자를 추가하여 디렉터리에 새 사용자 추가](../../active-directory/fundamentals/add-users-azure-active-directory.md)를 참조하세요.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Microsoft 파트너 계약에 대한 액세스 확인
 
@@ -174,4 +174,4 @@ SaaS 제품은 구독과 함께 전송되지 않습니다. [Azure 지원에 문�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 구독의 청구 소유권이 사용자에게 이전됩니다. [Azure Portal](https://portal.azure.com)에서 이러한 구독에 대한 요금을 추적합니다.
-* 전송된 Azure 구독에 대한 액세스 권한을 얻으려면 고객에게 문의하세요. [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* 전송된 Azure 구독에 대한 액세스 권한을 얻으려면 고객에게 문의하세요. [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)

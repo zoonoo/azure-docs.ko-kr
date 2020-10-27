@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: db47849575c097cf56824b623dddbb6e0835d1b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5c641ce9b224aecc3d199427bf27b804f7dd2dd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543614"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102088"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>자습서: Azure Active Directory와 RunMyProcess 연결
 
@@ -47,14 +47,14 @@ RunMyProcess의 Azure AD 통합을 구성하려면 갤러리의 RunMyProcess를 
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에 **RunMyProcess**를 입력합니다.
-1. 결과 패널에서 **RunMyProcess**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **RunMyProcess** 를 입력합니다.
+1. 결과 패널에서 **RunMyProcess** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-**B.Simon**이라는 테스트 사용자를 사용하여 RunMyProcess에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 RunMyProcess의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 RunMyProcess에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 RunMyProcess의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 RunMyProcess에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -69,9 +69,9 @@ RunMyProcess에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **RunMyProcess** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **RunMyProcess** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [RunMyProcess 클라이언트 지원 팀](mailto:support@runmyprocess.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -94,21 +94,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 RunMyProcess 테넌트에 관리자로 로그인합니다.
 
-1. 왼쪽 탐색 패널에서 **계정**을 클릭하고 **구성**을 선택합니다.
+1. 왼쪽 탐색 패널에서 **계정** 을 클릭하고 **구성** 을 선택합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![스크린샷은 계정에서 선택한 구성을 보여줍니다.](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. **인증 방법** 섹션으로 이동하고 아래 단계를 수행합니다.
 
-    ![앱 쪽에서 Single Sign-On 구성](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 인증 방법 탭을 보여줍니다.](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
-    a. **메서드**로 **Samlv2를 사용한 SSO**를 선택합니다.
+    a. **메서드** 로 **Samlv2를 사용한 SSO** 를 선택합니다.
 
     b. **SSO 리디렉션** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
     다. **로그아웃 리디렉션** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
 
-    d. **이름 ID 형식** 텍스트 상자에 **이름 식별자 형식** 값을 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**로 입력합니다.
+    d. **이름 ID 형식** 텍스트 상자에 **이름 식별자 형식** 값을 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** 로 입력합니다.
 
     e. Azure Portal에서 다운로드한 인증서 파일을 메모장에서 열고 인증서 파일의 내용을 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
 
@@ -118,29 +118,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 RunMyProcess에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **RunMyProcess**를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **RunMyProcess** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
@@ -152,7 +152,7 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
 1. RunMyProcess 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 왼쪽 탐색 패널에서 **계정**을 클릭하고 **사용자**를 선택한 다음 **새 사용자**를 클릭합니다.
+1. 왼쪽 탐색 패널에서 **계정** 을 클릭하고 **사용자** 를 선택한 다음 **새 사용자** 를 클릭합니다.
 
     ![새 사용자](./media/runmyprocess-tutorial/tutorial_runmyprocess_003.png "새 사용자")
 
@@ -160,13 +160,13 @@ Azure AD 사용자가 RunMyProcess에 로그인할 수 있도록 하려면 RunMy
 
     ![프로필](./media/runmyprocess-tutorial/tutorial_runmyprocess_004.png "프로필")
   
-    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **이름** 및 **전자 메일**을 입력합니다.
+    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **이름** 및 **전자 메일** 을 입력합니다.
 
-    b. **IDE 언어**, **언어** 및 **프로필**을 선택합니다.
+    b. **IDE 언어** , **언어** 및 **프로필** 을 선택합니다.
 
-    다. **나에게 계정 만들기 메일 보내기**를 선택합니다.
+    다. **나에게 계정 만들기 메일 보내기** 를 선택합니다.
 
-    d. **저장**을 클릭합니다.
+    d. **저장** 을 클릭합니다.
 
     > [!NOTE]
     > RunMyProcess에서 제공하는 다른 RunMyProcess 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.

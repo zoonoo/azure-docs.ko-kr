@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938426"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313140"
 ---
 # <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 Azure DB for PostgreSQL - 단일 서버를 Azure DB for PostgreSQL - 단일 서버로 온라인 마이그레이션
 
@@ -60,8 +60,8 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 * Azure DB for PostgreSQL 원본에서 [논리적 복제를 사용](https://docs.microsoft.com/azure/postgresql/concepts-logical)합니다. 
 * 원본으로 사용되는 Azure Database for PostgreSQL 인스턴스에서 다음 서버 매개 변수를 설정합니다.
 
-  * max_replication_slots = [슬롯 수], **10개 슬롯**으로 설정하는 것이 좋습니다.
-  * max_wal_senders =[동시 작업 수] - max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. **10작업**으로 설정하는 것이 좋습니다.
+  * max_replication_slots = [슬롯 수], **10개 슬롯** 으로 설정하는 것이 좋습니다.
+  * max_wal_senders =[동시 작업 수] - max_wal_senders 매개 변수는 실행할 수 있는 동시 작업 수를 설정합니다. **10작업** 으로 설정하는 것이 좋습니다.
 
 > [!NOTE]
 > 위의 서버 매개 변수는 정적이며 Azure Database for PostgreSQL 인스턴스를 다시 부팅해야 적용됩니다. 서버 매개 변수 전환에 대한 자세한 내용은 [Azure Database for PostgreSQL 서버 매개 변수 구성](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal)을 참조하세요.
@@ -92,7 +92,7 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
     연결하고 데이터베이스를 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Azure Database for PostgreSQL 서버 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) 또는 [Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus) 서버 만들기](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal) 문서를 참조하세요.
 
     > [!NOTE]
-    > Azure Database for PostgreSQL - 하이퍼스케일(Citus) 인스턴스에는 데이터베이스가 하나(**citus**)만 있습니다.
+    > Azure Database for PostgreSQL - 하이퍼스케일(Citus) 인스턴스에는 데이터베이스가 하나( **citus** )만 있습니다.
 
 3. 스키마 덤프 파일을 복원하여 만든 대상 데이터베이스에 스키마를 가져옵니다.
 
@@ -148,7 +148,7 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 6. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 스크립트를 실행합니다.
 
    > [!IMPORTANT]
-   > 데이터의 트리거(삽입 또는 업데이트)는 원본에서 데이터가 복제되기 전에 대상에서 데이터 무결성을 적용합니다. 따라서, 마이그레이션 중에 **대상**의 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
+   > 데이터의 트리거(삽입 또는 업데이트)는 원본에서 데이터가 복제되기 전에 대상에서 데이터 무결성을 적용합니다. 따라서, 마이그레이션 중에 **대상** 의 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
 
     ```
     SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
@@ -157,25 +157,25 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
-1. Azure Portal에 로그인하고, **모든 서비스**를 선택한 다음, **구독**을 선택합니다.
+1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
 
    ![포털 구독 표시](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-subscriptions.png)
 
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자**를 선택합니다.
+2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
 
     ![리소스 공급자 보기](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
 
 ## <a name="create-a-dms-instance"></a>DMS 인스턴스 만들기
 
-1. Azure Portal에서 **+ 리소스 만들기**를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service**를 선택합니다.
+1. Azure Portal에서 **+ 리소스 만들기** 를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service** 를 선택합니다.
 
     ![Azure Marketplace](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/portal-marketplace.png)
 
-2. **Azure Database Migration Service** 화면에서 **만들기**를 선택합니다.
+2. **Azure Database Migration Service** 화면에서 **만들기** 를 선택합니다.
 
     ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-create1.png)
   
@@ -193,7 +193,7 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-settings4.png)
 
-6. **검토 + 만들기**를 선택하여 서비스를 만듭니다.
+6. **검토 + 만들기** 를 선택하여 서비스를 만듭니다.
 
    서비스 만들기는 약 10~15분 내에 완료됩니다.
 
@@ -201,24 +201,24 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 
 서비스가 생성된 후 Azure Portal에서 서비스를 찾아 연 다음, 새로운 마이그레이션 프로젝트를 만듭니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services**를 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services** 를 선택합니다.
 
       ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-search.png)
 
-2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색한 다음, 인스턴스를 선택한 후 + **새 마이그레이션 프로젝트**를 선택합니다.
+2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색한 다음, 인스턴스를 선택한 후 + **새 마이그레이션 프로젝트** 를 선택합니다.
 
-3. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **PostgreSQL**을 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure Database for PostgreSQL**을 선택합니다.
+3. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **PostgreSQL** 을 선택하고, **대상 서버 유형** 텍스트 상자에서 **Azure Database for PostgreSQL** 을 선택합니다.
     > [!NOTE]
-    > 원본 서버가 **Azure Database for PostgreSQL** 인스턴스인 경우에도 **원본 서버 유형**에서 **PostgreSQL**을 선택합니다.  
+    > 원본 서버가 **Azure Database for PostgreSQL** 인스턴스인 경우에도 **원본 서버 유형** 에서 **PostgreSQL** 을 선택합니다.  
 
-4. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택합니다.
+4. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션** 을 선택합니다.
 
     ![Azure Database Migration Service 프로젝트 만들기](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-create-project.png)
 
     > [!NOTE]
-    > 또는 **프로젝트만 만들기**를 선택하여 지금 마이그레이션 프로젝트를 만들고, 나중에 마이그레이션을 실행할 수도 있습니다.
+    > 또는 **프로젝트만 만들기** 를 선택하여 지금 마이그레이션 프로젝트를 만들고, 나중에 마이그레이션을 실행할 수도 있습니다.
 
-5. **저장**을 선택하고, Azure Database Migration Service를 사용하여 데이터 마이그레이션에 성공하기 위한 요구 사항을 기록한 다음, **활동 만들기 및 실행**을 선택합니다.
+5. **저장** 을 선택하고, Azure Database Migration Service를 사용하여 데이터 마이그레이션에 성공하기 위한 요구 사항을 기록한 다음, **활동 만들기 및 실행** 을 선택합니다.
 
 ## <a name="specify-source-details"></a>원본 세부 정보 지정
 
@@ -229,7 +229,7 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
     > [!NOTE]
     > **Azure Database for PostgreSQL** 포털에서 "서버 이름", "서버 포트", "데이터베이스 이름" 등과 같은 세부 정보를 찾을 수 있습니다.
 
-2. **저장**을 선택합니다.
+2. **저장** 을 선택합니다.
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
@@ -240,36 +240,47 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
     > [!NOTE]
     > Azure Database for PostgreSQL 인스턴스에서 다른 Azure Database for PostgreSQL 단일 서버 인스턴스 또는 하이퍼스케일(Citus) 서버로 마이그레이션할 수 있습니다.
 
-2. **저장**을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
+2. **저장** 을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 
     대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 이 대상 데이터베이스를 선택합니다.
 
     ![대상 데이터베이스에 매핑 화면](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases.png)
 
-3. **저장**을 선택한 다음, **마이그레이션 설정** 화면에서 기본 값을 적용합니다.
+3. **저장** 을 선택한 다음, **마이그레이션 설정** 화면에서 기본 값을 적용합니다.
 
     ![마이그레이션 설정 화면](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-migration-settings.png)
 
-4. **저장**을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
+4. **저장** 을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
 
     ![마이그레이션 요약 화면](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>마이그레이션 실행
 
-* **마이그레이션 실행**을 선택합니다.
+* **마이그레이션 실행** 을 선택합니다.
 
-    마이그레이션 작업 창이 나타나고 작업의 **상태**가 업데이트되어 **백업 진행 중**으로 표시됩니다.
+마이그레이션 작업 창이 나타나고 작업의 **상태** 가 업데이트되어 **백업 진행 중** 으로 표시됩니다. Azure DB for PostgreSQL 9.5 또는 9.6에서 업그레이드하는 경우 다음과 같은 오류가 발생할 수 있습니다.
+
+**시나리오에서 알 수 없는 오류를 보고했습니다. 28000: "40.121.141.121" 호스트, "sr" 사용자의 복제 연결에 대한 pg_hba.conf 항목이 없습니다.**
+
+이는 필요한 논리적 복제 아티팩트를 만들 수 있는 적절한 권한이 PostgreSQL에 없기 때문입니다. 필요한 권한을 사용하도록 설정하려면 다음을 수행할 수 있습니다.
+
+1. 마이그레이션/업그레이드하려는 원본 Azure DB for PostgreSQL 서버에 대한 "연결 보안" 설정을 엽니다.
+2. 이름이 "_replrule"로 끝나는 새 방화벽 규칙을 추가하고, 오류 메시지의 IP 주소를 시작 IP 및 끝 IP 필드에 추가합니다. 위 오류 예의 경우:
+> 방화벽 규칙 이름 = sr_replrule, 시작 IP = 40.121.141.121, 끝 IP = 40.121.141.121
+
+3. 저장을 클릭하고 변경을 완료합니다. 
+4. DMS 작업을 다시 시도합니다. 
 
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 
-1. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 마이그레이션 **상태**가 **완료**로 표시될 때까지 디스플레이를 업데이트합니다.
+1. 마이그레이션 작업 화면에서 **새로 고침** 을 선택하여 마이그레이션 **상태** 가 **완료** 로 표시될 때까지 디스플레이를 업데이트합니다.
 
      ![마이그레이션 프로세스 모니터링](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration.png)
 
-2. 마이그레이션이 완료되면 **데이터베이스 이름**에서 특정 데이터베이스를 선택하여 **전체 데이터 로드** 및 **증분 데이터 동기화** 작업에 대한 마이그레이션 상태를 얻습니다.
+2. 마이그레이션이 완료되면 **데이터베이스 이름** 에서 특정 데이터베이스를 선택하여 **전체 데이터 로드** 및 **증분 데이터 동기화** 작업에 대한 마이그레이션 상태를 얻습니다.
 
    > [!NOTE]
-   > **전체 데이터 로드**는 초기 로드 마이그레이션 상태를 보여주고, **증분 데이터 동기화**는 CDC(변경 데이터 캡처) 상태를 보여줍니다.
+   > **전체 데이터 로드** 는 초기 로드 마이그레이션 상태를 보여주고, **증분 데이터 동기화** 는 CDC(변경 데이터 캡처) 상태를 보여줍니다.
 
      ![전체 데이터 로드 세부 정보](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-full-data-load-details.png)
 
@@ -277,15 +288,15 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 
 ## <a name="perform-migration-cutover"></a>마이그레이션 중단 수행
 
-초기 전체 로드가 완료되면 데이터베이스가 **중단 준비 완료**로 표시됩니다.
+초기 전체 로드가 완료되면 데이터베이스가 **중단 준비 완료** 로 표시됩니다.
 
-1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
+1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작** 을 선택합니다.
 
-2. **보류 중인 변경 내용** 카운터에 **0**이 표시되어 원본 데이터베이스로 들어오는 모든 트랜잭션이 중지되었는지 확인하고 **확인** 확인란을 선택한 다음, **적용**을 선택합니다.
+2. **보류 중인 변경 내용** 카운터에 **0** 이 표시되어 원본 데이터베이스로 들어오는 모든 트랜잭션이 중지되었는지 확인하고 **확인** 확인란을 선택한 다음, **적용** 을 선택합니다.
 
     ![중단 완료 화면](media/tutorial-azure-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 [시퀀스를 다시 만들고](https://wiki.postgresql.org/wiki/Fixing_Sequences)(해당하는 경우) 애플리케이션을 Azure Database for PostgreSQL의 새 대상 인스턴스에 연결합니다.
+3. 데이터베이스 마이그레이션 상태가 **완료됨** 으로 표시되면 [시퀀스를 다시 만들고](https://wiki.postgresql.org/wiki/Fixing_Sequences)(해당하는 경우) 애플리케이션을 Azure Database for PostgreSQL의 새 대상 인스턴스에 연결합니다.
  
 > [!NOTE]
 > Azure Database Migration Service를 사용하면 Azure Database for PostgreSQL - 단일 서버에서 가동 중지 시간을 줄이면서 주 버전 업그레이드를 수행할 수 있습니다. 먼저 원하는 더 높은 PostgreSQL 버전, 네트워크 설정 및 매개 변수로 대상 데이터베이스를 구성합니다. 그런 다음, 위에서 설명한 절차를 사용하여 대상 데이터베이스로 마이그레이션을 시작할 수 있습니다. 대상 데이터베이스 서버로 전환한 후 대상 데이터베이스 서버를 가리키도록 애플리케이션 연결 문자열을 업데이트할 수 있습니다. 

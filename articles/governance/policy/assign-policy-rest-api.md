@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: REST API를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 REST API를 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88137094"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074008"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>빠른 시작: REST API를 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다.
 이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만들고 할당하는 과정을 단계별로 안내합니다.
 
-이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_합니다.
+이 과정이 끝나면 관리 디스크를 사용하지 않는 가상 머신이 식별됩니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
 REST API는 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 가이드에서는 REST API를 사용하여 Azure 환경 내에서 비규격 리소스를 식별하고 정책 할당을 만듭니다.
 
@@ -23,13 +23,13 @@ REST API는 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 �
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-- 아직 설치하지 않은 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. Azure Resource Manager 기반 REST API에 HTTP 요청을 전송하는 도구입니다. 또는 REST 설명서나 PowerShell의 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) 또는 [Postman](https://www.postman.com)과 같은 도구에서 "사용해보기" 기능을 사용할 수 있습니다.
+- 아직 설치하지 않은 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. Azure Resource Manager 기반 REST API에 HTTP 요청을 전송하는 도구입니다. REST 설명서나 PowerShell의 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) 또는 [Postman](https://www.postman.com)과 같은 도구에서 "사용해보기" 기능을 사용할 수도 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사**(`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
+이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사** (`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
 
 정책 할당을 만들려면 다음 명령을 실행합니다.
 
@@ -59,7 +59,7 @@ REST API URI:
   - 구독: `/subscriptions/{subscriptionId}`
   - 리소스 그룹: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - 리소스: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **이름** - 할당의 실제 이름입니다. 이 예제에서는 _audit-vm-manageddisks_가 사용되었습니다.
+- **이름** - 할당의 실제 이름입니다. 이 예제에서는 _audit-vm-manageddisks_ 가 사용되었습니다.
 
 요청 본문:
 - **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.

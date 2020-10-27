@@ -4,16 +4,16 @@ description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322230"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359767"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>v12 Java 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -453,4 +453,5 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 * .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
 * Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
 * JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
 * 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

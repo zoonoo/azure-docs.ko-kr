@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818034"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149110"
 ---
 # <a name="managed-hsm-role-management"></a>관리형 HSM 역할 관리
 
 > [!NOTE]
-> Key Vault는 자격 증명 모음과 관리형 HSM이라는 두 가지 유형의 리소스를 지원합니다. 이 문서는 **관리형 HSM**에 대한 것입니다. 자격 증명 모음을 관리하는 방법을 알아보려면 [Azure CLI를 사용하여 Key Vault 관리](../general/manage-with-cli2.md)를 참조하세요.
+> Key Vault는 자격 증명 모음과 관리형 HSM이라는 두 가지 유형의 리소스를 지원합니다. 이 문서는 **관리형 HSM** 에 대한 것입니다. 자격 증명 모음을 관리하는 방법을 알아보려면 [Azure CLI를 사용하여 Key Vault 관리](../general/manage-with-cli2.md)를 참조하세요.
 
 관리형 HSM의 개요는 [관리형 HSM이란?](overview.md)을 참조하세요. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -52,7 +52,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 ### <a name="assign-roles-for-all-keys"></a>모든 키에 역할 할당
 
-`az keyvault role assignment create` 명령을 사용하여 ContosoHSM의 모든 **키**(범위 `/keys`)에 대해 사용자 주체 이름 **user2\@contoso.com**으로 식별되는 사용자에게 **관리형 HSM Crypto 책임자** 역할을 할당합니다.
+`az keyvault role assignment create` 명령을 사용하여 ContosoHSM의 모든 **키** (범위 `/keys`)에 대해 사용자 주체 이름 **user2\@contoso.com** 으로 식별되는 사용자에게 **관리형 HSM Crypto 책임자** 역할을 할당합니다.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>특정 키에 대한 역할 할당
 
-`az keyvault role assignment create` 명령을 사용하여 **myrsakey**라는 특정 키에 대해 사용자 주체 이름 **user2\@contoso.com**으로 식별되는 사용자에게 **관리형 HSM Crypto 책임자** 역할을 할당합니다.
+`az keyvault role assignment create` 명령을 사용하여 **myrsakey** 라는 특정 키에 대해 사용자 주체 이름 **user2\@contoso.com** 으로 식별되는 사용자에게 **관리형 HSM Crypto 책임자** 역할을 할당합니다.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -70,7 +70,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 `az keyvault role assignment list`를 사용하여 역할 할당을 나열합니다.
 
-모든 사용자에 대한 범위 / (범위를 지정하지 않은 경우 기본값)의 모든 역할 할당(--담당자가 지정된 경우 기본값)
+모든 사용자에 대한 범위 / (범위를 지정하지 않은 경우 기본값)의 모든 역할 할당(--담당자가 지정되지 않은 경우 기본값)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM
@@ -82,13 +82,13 @@ az keyvault role assignment list --hsm-name ContosoMHSM
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
-특정 키 **myrsakey**에 대한 특정 사용자 **user2@contoso.com** 에 대한 모든 역할 할당.
+특정 키 **myrsakey** 에 대한 특정 사용자 **user2@contoso.com** 에 대한 모든 역할 할당.
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
 ```
 
-특정 키 **myrsakey**에 대한 특정 사용자 **user2@contoso.com** 의 역할 **관리형 HSM Crypto 책임자**에 대한 특정 역할 할당
+특정 키 **myrsakey** 에 대한 특정 사용자 **user2@contoso.com** 의 역할 **관리형 HSM Crypto 책임자** 에 대한 특정 역할 할당
 
 
 ```azurecli-interactive
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>역할 할당 삭제
 
-`az keyvault role assignment delete` 명령을 사용하여 **myrsakey2** 키에 대해 사용자 **user2\@contoso.com**에 할당된 **관리형 HSM Crypto 책임자** 역할을 삭제합니다.
+`az keyvault role assignment delete` 명령을 사용하여 **myrsakey2** 키에 대해 사용자 **user2\@contoso.com** 에 할당된 **관리형 HSM Crypto 책임자** 역할을 삭제합니다.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea69f1e634c66bff98462d41f3eeef19f8e15eb0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553617"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>자습서: Procore SSO와 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ Procore SSO가 Azure AD로 통합되도록 구성하려면 Procore SSO를 갤러
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Procore SSO가 Azure AD로 통합되도록 구성하려면 Procore SSO를 갤러
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에서 **Procore SSO**를 입력하고 결과 패널에서 **Procore SSO**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에서 **Procore SSO** 를 입력하고 결과 패널에서 **Procore SSO** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 Procore SSO](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Procore SSO에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Procore SSO에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Procore SSO의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Procore SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 Procore SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Procore SSO** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Procore SSO** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -101,7 +101,7 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Procore SSO 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -119,33 +119,33 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 1. **Procore SSO** 쪽에서 Single Sign-On을 구성하려면 Procore 회사 사이트에 관리자로 로그인합니다.
 
-2. 도구 상자 드롭다운에서 **관리**를 클릭하여 SSO 설정 페이지를 엽니다.
+2. 도구 상자 드롭다운에서 **관리** 를 클릭하여 SSO 설정 페이지를 엽니다.
 
-    ![Single Sign-on 구성](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![스크린샷은 디렉터리가 선택된 Procore 회사 사이트를 보여줍니다.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. 아래 설명에 따라 값을 상자에 붙여 넣습니다.
 
-    ![Single Sign-on 구성](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![스크린샷은 사용자 추가 대화 상자를 보여줍니다.](./media/procoresso-tutorial/procore_setting_admin.png) 
 
     a. **Single Sign On 발급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
     b. **SAML 로그온 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 식별자** 값을 붙여넣습니다.
 
-    다. 이제 Azure Portal에 위에서 다운로드한 **페더레이션 메타데이터 XML**을 열고 **X509Certificate**라는 태그에 인증서를 복사합니다. 복사한 값을 **Single Sign-On x509 인증서** 상자에 붙여 넣습니다.
+    다. 이제 Azure Portal에 위에서 다운로드한 **페더레이션 메타데이터 XML** 을 열고 **X509Certificate** 라는 태그에 인증서를 복사합니다. 복사한 값을 **Single Sign-On x509 인증서** 상자에 붙여 넣습니다.
 
-4. **변경 내용 저장**을 클릭합니다.
+4. **변경 내용 저장** 을 클릭합니다.
 
-5. 이러한 설정 후에 Procore에 로그인할 때 사용한 **도메인 이름**(예: **contoso.com**)을 [Procore 지원 팀](https://support.procore.com/)에 보내서 해당 도메인에 대해 페더레이션된 SSO를 활성화하도록 해야 합니다.
+5. 이러한 설정 후에 Procore에 로그인할 때 사용한 **도메인 이름** (예: **contoso.com** )을 [Procore 지원 팀](https://support.procore.com/)에 보내서 해당 도메인에 대해 페더레이션된 SSO를 활성화하도록 해야 합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -153,35 +153,35 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Procore SSO에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Procore SSO**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Procore SSO** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Procore SSO**를 선택합니다.
+2. 애플리케이션 목록에서 **Procore SSO** 를 선택합니다.
 
     ![애플리케이션 목록의 Procore SSO 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -193,31 +193,31 @@ Procore SSO 쪽에서 Procore 테스트 사용자를 만들려면 다음 단계�
 
 1. Procore 회사 사이트에 관리자로 로그인합니다.    
 
-2. 도구 상자 드롭다운에서 **디렉터리**를 클릭하여 회사 디렉터리 페이지를 엽니다.
+2. 도구 상자 드롭다운에서 **디렉터리** 를 클릭하여 회사 디렉터리 페이지를 엽니다.
 
-    ![Single Sign-on 구성](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![스크린샷은 도구 상자에서 디렉터리가 선택된 Procore 회사 사이트를 보여줍니다.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
-3. **Add a Person**(사람 추가) 옵션을 클릭하여 양식을 열고 다음 옵션을 입력합니다.
+3. **Add a Person** (사람 추가) 옵션을 클릭하여 양식을 열고 다음 옵션을 입력합니다.
 
-    ![Single Sign-on 구성](./media/procoresso-tutorial/Procore_user_add.png)
+    ![스크린샷은 사용자 정보를 입력할 수 있는 Boylan Construction에 사람 추가를 보여줍니다.](./media/procoresso-tutorial/Procore_user_add.png)
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta** )을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
 
     다. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소(예: BrittaSimon@contoso.com)를 입력합니다.
 
-    d. **Permission Template**(권한 템플릿)에 **Apply Permission Template Later**(권한 템플릿 나중에 적용)를 선택합니다.
+    d. **Permission Template** (권한 템플릿)에 **Apply Permission Template Later** (권한 템플릿 나중에 적용)를 선택합니다.
 
-    e. **만들기**를 클릭합니다.
+    e. **만들기** 를 클릭합니다.
 
 4. 새로 추가된 연락처에 대한 세부 정보를 확인하고 업데이트합니다.
 
-    ![Single Sign-on 구성](./media/procoresso-tutorial/Procore_user_check.png)
+    ![스크린샷은 사용자 설정을 확인할 수 있는 편집 페이지를 보여줍니다.](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. **Save and Send Invitiation**(저장 및 초대 보내기)(메일을 통한 초대가 필요한 경우) 또는 **저장**(바로 저장)을 클릭하여 사용자 등록을 완료합니다.
+5. **Save and Send Invitiation** (저장 및 초대 보내기)(메일을 통한 초대가 필요한 경우) 또는 **저장** (바로 저장)을 클릭하여 사용자 등록을 완료합니다.
     
-    ![Single Sign-on 구성](./media/procoresso-tutorial/Procore_user_save.png)
+    ![스크린샷을 초대를 저장하고 보낼 수 있는 현재 프로젝트 설정을 보여줍니다.](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

@@ -5,16 +5,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 3c176f103371bfb1b35231f222b2045f1f4a3ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327049"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320996"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
 #### <a name="windows-install"></a>[Windows 설치](#tab/windowsinstall)
+
+> [!NOTE]
+> Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 이 패키지를 처음 설치하면 Windows를 다시 시작해야 할 수 있습니다.
 
 Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 

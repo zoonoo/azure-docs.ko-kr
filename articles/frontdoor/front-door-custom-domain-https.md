@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: bac1d1e41cab4aa3be10fb226df57277db20c78e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030279"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368335"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -63,7 +63,7 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 
 2. 프런트 엔드 호스트 목록에서 사용자 지정 도메인을 포함하기 위해 HTTPS를 활성화하려는 사용자 지정 도메인을 선택합니다.
 
-3. **사용자 지정 도메인 HTTPS** 섹션에서 **사용**을 클릭하고 인증서 원본으로 **Front Door 관리**를 선택합니다.
+3. **사용자 지정 도메인 HTTPS** 섹션에서 **사용** 을 클릭하고 인증서 원본으로 **Front Door 관리** 를 선택합니다.
 
 4. 저장을 클릭합니다.
 
@@ -94,7 +94,7 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 PowerShell을 통해 Azure Active Directory에서 Azure Front Door의 서비스 사용자를 앱으로 등록합니다.
 
 > [!NOTE]
-> 이 작업을 수행하려면 글로벌 관리자 권한이 필요하며, 테넌트 당 **한 번**만 수행하면 됩니다.
+> 이 작업을 수행하려면 글로벌 관리자 권한이 필요하며, 테넌트 당 **한 번** 만 수행하면 됩니다.
 
 1. 필요한 경우 로컬 컴퓨터의 PowerShell에 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 
@@ -106,15 +106,15 @@ PowerShell을 통해 Azure Active Directory에서 Azure Front Door의 서비스 
  
 Azure Key Vault 계정의 인증서에 액세스하기 위한 Azure Front Door 사용 권한을 부여합니다.
 
-1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책**을 선택한 다음, **새로 추가**를 선택하여 새 정책을 만듭니다.
+1. 키 자격 증명 모음 계정의 설정에서 **액세스 정책** 을 선택한 다음, **새로 추가** 를 선택하여 새 정책을 만듭니다.
 
-2. **주체 선택**에서 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**을 검색하고 **Microsoft.Azure.Frontdoor**를 선택합니다. **선택**을 클릭합니다.
+2. **주체 선택** 에서 **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** 을 검색하고 **Microsoft.Azure.Frontdoor** 를 선택합니다. **선택** 을 클릭합니다.
 
-3. **비밀 사용 권한**에서 **가져오기**를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
+3. **비밀 사용 권한** 에서 **가져오기** 를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
 
-4. **인증서 사용 권한**에서 **가져오기**를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
+4. **인증서 사용 권한** 에서 **가져오기** 를 선택하여 Front Door가 인증서를 검색하도록 허용합니다.
 
-5. **확인**을 선택합니다. 
+5. **확인** 을 선택합니다. 
 
     Azure Front Door는 이제 이 Key Vault에 저장된 이 Key Vault 및 인증서에 액세스할 수 있습니다.
  
@@ -126,7 +126,7 @@ Azure Key Vault 계정의 인증서에 액세스하기 위한 Azure Front Door �
 
     **사용자 지정 도메인** 페이지가 나타납니다.
 
-3. 인증서 관리 유형에서 **내 인증서 사용**을 선택합니다. 
+3. 인증서 관리 유형에서 **내 인증서 사용** 을 선택합니다. 
 
 4. Azure Front Door를 사용하려면 Key Vault 계정의 구독이 Front Door와 동일해야 합니다. 키 자격 증명 모음, 인증서(비밀)및 인증서 버전을 선택합니다.
 
@@ -134,6 +134,11 @@ Azure Key Vault 계정의 인증서에 액세스하기 위한 Azure Front Door �
     - 구독 ID에 대한 키 자격 증명 모음 계정 
     - 선택한 키 자격 증명 모음의 인증서(비밀) 
     - 사용 가능한 인증서 버전 
+
+> [!NOTE]
+> 인증서 버전을 공백으로 두면 다음과 같은 결과가 발생합니다.
+> - 선택된 인증서의 최신 버전입니다.
+> - Key Vault에서 최신 버전의 인증서를 사용할 수 있는 경우 인증서를 최신 버전으로 자동 교체합니다.
  
 5. 사용자 고유의 인증서를 사용할 경우 도메인 유효성 검사가 필요하지 않습니다. [전파 대기](#wait-for-propagation)를 진행합니다.
 
@@ -148,13 +153,13 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 사용자 고유의 인증서를 사용 중인 경우 도메인 유효성 검사가 필요하지 않습니다.
 
-CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
+CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name* 은 사용자 지정 도메인 이름이고 *Value* 는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
 | 속성            | Type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)를 참조하세요.
+CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](../cdn/cdn-map-content-to-custom-domain.md)를 참조하세요.
 
 CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인 이름을 자동으로 확인하고 도메인 이름에 전용 인증서를 만듭니다. DigitCert는 확인 메일을 보내지 않으며 요청을 승인할 필요가 없습니다. 인증서는 1년 동안 유효하며 만료되기 전에 자동으로 갱신됩니다. [전파 대기](#wait-for-propagation)를 진행합니다. 
 
@@ -191,7 +196,7 @@ postmaster@&lt;your-domain-name.com&gt;
 
 ## <a name="wait-for-propagation"></a>전파 대기
 
-도메인 이름이 확인된 후 사용자 지정 도메인 HTTPS 기능이 활성 상태가 될 때까지는 최대 6-8시간 소요됩니다. 프로세스가 완료되면 Azure Portal에서 사용자 지정 HTTPS 상태가 **사용**으로 설정되고 사용자 지정 도메인 대화 상자의 네 가지 작업 단계가 '완료'로 표시됩니다. 사용자 지정 도메인은 이제 HTTPS를 활성화할 준비가 되었습니다.
+도메인 이름이 확인된 후 사용자 지정 도메인 HTTPS 기능이 활성 상태가 될 때까지는 최대 6-8시간 소요됩니다. 프로세스가 완료되면 Azure Portal에서 사용자 지정 HTTPS 상태가 **사용** 으로 설정되고 사용자 지정 도메인 대화 상자의 네 가지 작업 단계가 '완료'로 표시됩니다. 사용자 지정 도메인은 이제 HTTPS를 활성화할 준비가 되었습니다.
 
 ### <a name="operation-progress"></a>작업 진행 상태
 
@@ -251,11 +256,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 2. 프런트 엔드 호스트 목록에서 HTTPS를 비활성화하도록 설정할 사용자 지정 도메인을 클릭합니다.
 
-3. **사용 안 함**을 클릭하여 HTTPS를 비활성화한 다음, **저장**을 클릭합니다.
+3. **사용 안 함** 을 클릭하여 HTTPS를 비활성화한 다음, **저장** 을 클릭합니다.
 
 ### <a name="wait-for-propagation"></a>전파 대기
 
-사용자 지정 도메인 HTTPS 기능을 비활성화한 후 최대 6-8시간까지 걸릴 수 있습니다. 프로세스가 완료되면 Azure Portal에서 사용자 지정 HTTPS 상태가 **사용 안 함**으로 설정되고 사용자 지정 도메인 대화 상자의 세 가지 작업 단계가 '완료'로 표시됩니다. 사용자 지정 도메인은 더 이상 HTTPS를 사용할 수 없습니다.
+사용자 지정 도메인 HTTPS 기능을 비활성화한 후 최대 6-8시간까지 걸릴 수 있습니다. 프로세스가 완료되면 Azure Portal에서 사용자 지정 HTTPS 상태가 **사용 안 함** 으로 설정되고 사용자 지정 도메인 대화 상자의 세 가지 작업 단계가 '완료'로 표시됩니다. 사용자 지정 도메인은 더 이상 HTTPS를 사용할 수 없습니다.
 
 #### <a name="operation-progress"></a>작업 진행 상태
 

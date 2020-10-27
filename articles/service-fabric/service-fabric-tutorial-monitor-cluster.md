@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020119"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331994"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
@@ -55,9 +55,9 @@ Service Fabric 분석 솔루션에 액세스하려면 [Azure Portal](https://por
 
 **ServiceFabric(mysfomsworkspace)** 리소스를 선택합니다.
 
-**개요**에서 Service Fabric에 대한 타일을 포함하여 사용하도록 설정된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
+**개요** 에서 Service Fabric에 대한 타일을 포함하여 사용하도록 설정된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
 
-![Service Fabric 솔루션](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Service Fabric 그래프를 보여주는 스크린샷.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 다음 이미지에서는 Service Fabric 분석 솔루션의 홈페이지를 보여 줍니다. 이 홈페이지는 클러스터에서 수행되는 작업에 대한 스냅샷 보기를 제공합니다.
 
@@ -74,7 +74,7 @@ Service Fabric 분석 솔루션에 액세스하려면 [Azure Portal](https://por
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>노드에 대한 작업을 포함한 Service Fabric 이벤트 보기
 
-Service Fabric 분석 페이지에서 **클러스터 이벤트**에 대한 그래프를 클릭합니다.  수집된 모든 시스템 이벤트에 대한 로그가 표시됩니다. 참고로, 이러한 로그는 Azure Storage 계정의 **WADServiceFabricSystemEventsTable**에서 제공되며, 마찬가지로 다음에 표시되는 Reliable Services 및 Reliable Actors 이벤트는 해당 테이블에서 제공됩니다.
+Service Fabric 분석 페이지에서 **클러스터 이벤트** 에 대한 그래프를 클릭합니다.  수집된 모든 시스템 이벤트에 대한 로그가 표시됩니다. 참고로, 이러한 로그는 Azure Storage 계정의 **WADServiceFabricSystemEventsTable** 에서 제공되며, 마찬가지로 다음에 표시되는 Reliable Services 및 Reliable Actors 이벤트는 해당 테이블에서 제공됩니다.
     
 ![쿼리 조작 채널](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Service Fabric 애플리케이션 이벤트 보기
 
-클러스터에 배포된 Reliable Services 및 Reliable Actors 애플리케이션에 대한 이벤트를 볼 수 있습니다.  Service Fabric 분석 페이지에서 **애플리케이션 이벤트**에 대한 그래프를 클릭합니다.
+클러스터에 배포된 Reliable Services 및 Reliable Actors 애플리케이션에 대한 이벤트를 볼 수 있습니다.  Service Fabric 분석 페이지에서 **애플리케이션 이벤트** 에 대한 그래프를 클릭합니다.
 
 다음 쿼리를 실행하여 Reliable Services 애플리케이션의 이벤트를 봅니다.
 ```kusto
@@ -227,11 +227,11 @@ Reliable Actors에 대한 자세한 이벤트를 구성하려면 클러스터 �
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 성능 카운터 보기
 성능 카운터를 보려면 [Azure Portal](https://portal.azure.com) 및 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. 
 
-**ServiceFabric(mysfomsworkspace)** 리소스, **Log Analytics 작업 영역**, **고급 설정**을 차례로 선택합니다.
+**ServiceFabric(mysfomsworkspace)** 리소스, **Log Analytics 작업 영역** , **고급 설정** 을 차례로 선택합니다.
 
-**데이터**, **Windows 성능 카운터**를 차례로 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](/windows/desktop/PerfCtrs/specifying-a-counter-path) 설명되어 있습니다. **저장**을 클릭한 다음, **확인**을 클릭합니다.
+**데이터** , **Windows 성능 카운터** 를 차례로 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](/windows/desktop/PerfCtrs/specifying-a-counter-path) 설명되어 있습니다. **저장** 을 클릭한 다음, **확인** 을 클릭합니다.
 
-[고급 설정] 블레이드를 닫고, **일반** 제목 아래에서 **작업 영역 요약**을 선택합니다. 사용하도록 설정된 각 솔루션에는 Service Fabric에 대한 타일을 포함하여 그래픽 타일이 있습니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
+[고급 설정] 블레이드를 닫고, **일반** 제목 아래에서 **작업 영역 요약** 을 선택합니다. 사용하도록 설정된 각 솔루션에는 Service Fabric에 대한 타일을 포함하여 그래픽 타일이 있습니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
 
 작업 채널 및 Reliable Services 이벤트에 대한 그래픽 타일이 있습니다. 선택한 카운터에 들어오는 데이터 흐름의 그래픽 표현이 **노드 메트릭** 아래에 표시됩니다. 
 

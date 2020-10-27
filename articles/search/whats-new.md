@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948904"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102577"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -27,7 +27,7 @@ Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBA
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |------------------------------|----------|-------------|---------------|
 | [관리 서비스 ID](search-howto-managed-identities-data-sources.md) | 인덱서, 보안 | Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBAC 권한을 사용하여 Azure 데이터 원본에 대한 액세스 권한을 부여합니다. 이 방법을 사용하면 연결 문자열에 대한 자격 증명이 필요하지 않습니다. <br><br>IP 규칙이 옵션이 아닌 경우 관리 서비스 ID를 사용하는 추가 방법은 [신뢰할 수 있는 서비스 예외](search-indexer-howto-access-trusted-service-exception.md)를 사용하는 것입니다. | 일반 공급. api-version=2020-06-30에서 포털 또는 [데이터 원본(REST) 만들기](/rest/api/searchservice/create-data-source)를 사용할 때 이 기능에 액세스합니다. |
-| [프라이빗 링크를 사용하는 아웃바운드 요청](search-indexer-howto-access-private.md) | 인덱서, 보안 | 인덱서가 Azure Private Link를 통해 보안이 유지되는 Azure 리소스에 액세스할 때 사용할 수 있는 공유 프라이빗 링크 리소스를 만듭니다. 인덱서 연결을 보호할 수 있는 모든 방법에 대한 자세한 내용은 [Azure 네트워크 보안 기능을 사용하는 보안 인덱서 리소스](search-indexer-securing-resources.md)를 참조하세요. | 일반 공급. api-version=2020-08-01에서 포털 또는 [공유 Private Link 리소스](/rest/api/searchmanagement/sharedprivatelinkresources)를 사용할 때 이 기능에 액세스합니다. |
+| [프라이빗 링크를 사용하는 아웃바운드 요청](search-indexer-howto-access-private.md) | 인덱서, 보안 | 인덱서가 Azure Private Link를 통해 보안이 유지되는 Azure 리소스에 액세스할 때 사용할 수 있는 공유 프라이빗 링크 리소스를 만듭니다. 인덱서 연결을 보호할 수 있는 모든 방법에 대한 자세한 내용은 [Azure 네트워크 보안 기능을 통해 보호되는 콘텐츠에 대한 인덱서 액세스](search-indexer-securing-resources.md)를 참조하세요. | 일반 공급. api-version=2020-08-01에서 포털 또는 [공유 Private Link 리소스](/rest/api/searchmanagement/sharedprivatelinkresources)를 사용할 때 이 기능에 액세스합니다. |
 | [관리 REST API(2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST (영문) | 안정적인 새 REST API에는 공유 프라이빗 링크 리소스 만들기에 대한 지원이 추가되었습니다. | 일반 공급. |
 | [관리 REST API(2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST (영문) | Azure Functions 및 Azure SQL for MySQL Databases용 공유 프라이빗 링크 리소스를 추가합니다. | 공개 미리 보기. |
 | [관리 .NET SDK 4.0](/dotnet/api/overview/azure/search/management) | .NET SDK | 관리 SDK용 Azure SDK 업데이트, 대상 REST API 버전 2020-08-01. | 일반 공급. |
@@ -62,31 +62,31 @@ Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBA
 | [**디버그 세션**](cognitive-search-debug-session.md) | AI 보강 | 디버그 세션은 기존 기술 세트 관련 문제를 조사하고 해결할 수 있는 포털 기반 인터페이스를 제공합니다. 디버그 세션에서 만들어진 픽스는 프로덕션 기술 세트에 저장할 수 있습니다. [이 자습서](cognitive-search-tutorial-debug-sessions.md)를 시작합니다. | 포털의 공개 미리 보기. |
 | [**인바운드 방화벽 지원에 대한 IP 규칙**](service-configure-firewall.md) | 보안 | 검색 서비스 엔드포인트에 대한 액세스를 특정 IP 주소로 제한합니다. | 일반 공급. </br> [관리 REST API 2020-03-13](/rest/api/searchmanagement/) 이상 또는 포털을 사용합니다. |
 | [**프라이빗 검색 엔드포인에 대한 Azure Private Link**](service-create-private-endpoint.md) | 보안| 동일한 가상 네트워크의 클라이언트 앱 및 기타 Azure 서비스에만 액세스할 수 있는 프라이빗 링크 리소스로 실행하여 공용 인터넷에서 검색 서비스를 보호합니다. | 일반 공급. </br> [관리 REST API 2020-03-13](/rest/api/searchmanagement/) 이상 또는 포털을 사용합니다. |
-| [**시스템 관리 ID(미리 보기)** ](search-howto-managed-identities-data-sources.md) | 보안(인덱서) | 검색 서비스를 Azure Active Directory에 신뢰할 수 있는 서비스로 등록하여 인덱싱을 위해 지원되는 Azure 데이터 원본에 대한 연결을 설정합니다. Azure SQL Database, Azure Cosmos DB 및 Azure Storage와 같은 Azure 데이터 원본에서 콘텐츠를 수집하는 [인덱서](search-indexer-overview.md)에 적용됩니다. | 공개 미리 보기. </br> 포털을 사용하여 검색 서비스를 등록합니다. |
+| [**시스템 관리 ID(미리 보기)**](search-howto-managed-identities-data-sources.md) | 보안(인덱서) | 검색 서비스를 Azure Active Directory에 신뢰할 수 있는 서비스로 등록하여 인덱싱을 위해 지원되는 Azure 데이터 원본에 대한 연결을 설정합니다. Azure SQL Database, Azure Cosmos DB 및 Azure Storage와 같은 Azure 데이터 원본에서 콘텐츠를 수집하는 [인덱서](search-indexer-overview.md)에 적용됩니다. | 공개 미리 보기. </br> 포털을 사용하여 검색 서비스를 등록합니다. |
 | [**sessionId 쿼리 매개 변수**](index-similarity-and-scoring.md), [scoringStatistics=global 매개 변수](index-similarity-and-scoring.md#scoring-statistics) | 쿼리(관련성) | 보다 일관된 검색 점수 계산을 위해 모든 분할에서 점수를 수집하는 scoringStatistics=global을 사용하여 검색 점수 컴퓨팅을 위한 세션을 설정하는 sessionID를 추가합니다. | 일반 공급. </br> [Search REST API 2020-06-30](/rest/api/searchservice/) 이상 또는 REST API 2019-05-06을 사용합니다. |
-| [**featuresMode(미리 보기)** ](index-similarity-and-scoring.md#featuresMode-param) | 쿼리 | 이 쿼리 매개 변수를 추가하여 더 많은 세부 정보(필드별 유사성 점수, 필드별 용어 빈도, 필드별 일치하는 고유 토큰 수)를 표시하도록 관련성 점수를 확장합니다. 이러한 데이터 요소를 사용자 지정 채점 알고리즘에 사용할 수 있습니다. 이 기능을 보여주는 샘플은 [검색 관련성에 기계 학습(LearnToRank) 추가](https://github.com/Azure-Samples/search-ranking-tutorial)를 참조하세요. | 공개 미리 보기. </br> [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 또는 REST API 2019-05-06-Preview를 사용합니다. |
+| [**featuresMode(미리 보기)**](index-similarity-and-scoring.md#featuresMode-param) | 쿼리 | 이 쿼리 매개 변수를 추가하여 더 많은 세부 정보(필드별 유사성 점수, 필드별 용어 빈도, 필드별 일치하는 고유 토큰 수)를 표시하도록 관련성 점수를 확장합니다. 이러한 데이터 요소를 사용자 지정 채점 알고리즘에 사용할 수 있습니다. 이 기능을 보여주는 샘플은 [검색 관련성에 기계 학습(LearnToRank) 추가](https://github.com/Azure-Samples/search-ranking-tutorial)를 참조하세요. | 공개 미리 보기. </br> [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 또는 REST API 2019-05-06-Preview를 사용합니다. |
 
 ## <a name="march-2020"></a>2020년 3월
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [**네이티브 Blob 일시 삭제(미리 보기)** ](search-howto-index-changed-deleted-blobs.md) | 인덱서 | Azure Cognitive Search의 Azure Blob Storage 인덱서가 일시 삭제된 상태에 있는 Blob을 인식하고 인덱싱 중에 해당 검색 문서를 제거합니다. | 공개 미리 보기. </br> 기본 "일시 삭제"가 활성화된 Azure Blob 데이터 원본에 대해 인덱서를 실행하여 [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 및 REST API 2019-05-06-Preview를 사용합니다. |
-| [**관리 REST API(2020-03-13)** ](/rest/api/searchmanagement/management-api-versions) | REST (영문) | 검색 서비스를 만들고 관리하기 위한 안정적인 새 REST API입니다. IP 방화벽 및 Private Link 지원 추가 | 일반 공급. |
+| [**네이티브 Blob 일시 삭제(미리 보기)**](search-howto-index-changed-deleted-blobs.md) | 인덱서 | Azure Cognitive Search의 Azure Blob Storage 인덱서가 일시 삭제된 상태에 있는 Blob을 인식하고 인덱싱 중에 해당 검색 문서를 제거합니다. | 공개 미리 보기. </br> 기본 "일시 삭제"가 활성화된 Azure Blob 데이터 원본에 대해 인덱서를 실행하여 [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 및 REST API 2019-05-06-Preview를 사용합니다. |
+| [**관리 REST API(2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST (영문) | 검색 서비스를 만들고 관리하기 위한 안정적인 새 REST API입니다. IP 방화벽 및 Private Link 지원 추가 | 일반 공급. |
 
 ## <a name="february-2020"></a>2020년 2월
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [**PII 검색(미리 보기)** ](cognitive-search-skill-pii-detection.md) | AI 보강 | 인덱싱 중에 사용되는 새 인지 기술로서, 입력 텍스트에서 개인 정보를 추출하여 다양한 방법으로 해당 텍스트에서 마스킹할 수 있는 옵션을 제공합니다. | 공개 미리 보기. </br> 포털, [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 또는 REST API 2019-05-06-Preview를 사용합니다. |
-| [**사용자 지정 엔터티 조회(미리 보기)** ](cognitive-search-skill-custom-entity-lookup.md )| AI 보강 | 사용자 지정된 단어 및 구의 사용자 정의 목록에서 텍스트를 찾는 새 인지 기술입니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다. | 공개 미리 보기. </br> 포털, [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 또는 REST API 2019-05-06-Preview를 사용합니다. |
+| [**PII 검색(미리 보기)**](cognitive-search-skill-pii-detection.md) | AI 보강 | 인덱싱 중에 사용되는 새 인지 기술로서, 입력 텍스트에서 개인 정보를 추출하여 다양한 방법으로 해당 텍스트에서 마스킹할 수 있는 옵션을 제공합니다. | 공개 미리 보기. </br> 포털, [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 또는 REST API 2019-05-06-Preview를 사용합니다. |
+| [**사용자 지정 엔터티 조회(미리 보기)**](cognitive-search-skill-custom-entity-lookup.md )| AI 보강 | 사용자 지정된 단어 및 구의 사용자 정의 목록에서 텍스트를 찾는 새 인지 기술입니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다. | 공개 미리 보기. </br> 포털, [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) 또는 REST API 2019-05-06-Preview를 사용합니다. |
 
 ## <a name="january-2020"></a>2020년 1월
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
 | [**고객 관리형 암호화 키**](search-security-manage-encryption-keys.md) |보안 | 플랫폼의 기본 제공 암호화 외에 추가 암호화 계층을 추가합니다. 사용자가 만들고 관리하는 암호화 키를 사용하여 페이로드가 검색 서비스에 도달하기 전에 인덱스 콘텐츠와 동의어 맵을 암호화할 수 있습니다. | 일반 공급. </br> Search REST API 2019-05-06 이상을 사용합니다. 관리 코드의 경우 기능이 미리 보기 범위를 벗어나더라도 올바른 패키지는 여전히 [.NET SDK 버전 8.0-preview](search-dotnet-sdk-migration-version-9.md)입니다. |
-| [**인바운드 방화벽 지원에 대한 IP 규칙(미리 보기)** ](service-configure-firewall.md) | 보안 | 검색 서비스 엔드포인트에 대한 액세스를 특정 IP 주소로 제한합니다. 미리 보기 API의 [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service)에는 새로운 **IpRule** 및 **NetworkRuleSet** 속성이 있습니다. 이 미리 보기 기능은 선택한 지역에서 사용할 수 있습니다. |  api-version=2019-10-01-Preview를 사용하는 공개 미리 보기.  |
-| [**프라이빗 검색 엔드포인에 대한 Azure Private Link(미리 보기)** ](service-create-private-endpoint.md) | 보안| 동일한 가상 네트워크의 클라이언트 앱 및 기타 Azure 서비스에만 액세스할 수 있는 프라이빗 링크 리소스로 실행하여 공용 인터넷에서 검색 서비스를 보호합니다. | api-version=2019-10-01-Preview를 사용하는 공개 미리 보기.  |
+| [**인바운드 방화벽 지원에 대한 IP 규칙(미리 보기)**](service-configure-firewall.md) | 보안 | 검색 서비스 엔드포인트에 대한 액세스를 특정 IP 주소로 제한합니다. 미리 보기 API의 [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service)에는 새로운 **IpRule** 및 **NetworkRuleSet** 속성이 있습니다. 이 미리 보기 기능은 선택한 지역에서 사용할 수 있습니다. |  api-version=2019-10-01-Preview를 사용하는 공개 미리 보기.  |
+| [**프라이빗 검색 엔드포인에 대한 Azure Private Link(미리 보기)**](service-create-private-endpoint.md) | 보안| 동일한 가상 네트워크의 클라이언트 앱 및 기타 Azure 서비스에만 액세스할 수 있는 프라이빗 링크 리소스로 실행하여 공용 인터넷에서 검색 서비스를 보호합니다. | api-version=2019-10-01-Preview를 사용하는 공개 미리 보기.  |
 
 ## <a name="features-in-2019"></a>2019의 기능
 
@@ -119,7 +119,7 @@ Azure Active Directory에서 검색 서비스에 대한 ID를 만든 다음, RBA
 
 ## <a name="new-service-name"></a>새 서비스 이름
 
-핵심 작업에서 확장된 인지 기술과 AI 처리(아직 선택 사항)를 사용할 수 있도록 Azure Search의 이름이 이제 **Azure Cognitive Search**로 변경되었습니다. API 버전, NuGet 패키지, 네임스페이스 및 엔드포인트는 변경되지 않았습니다. 새 검색 솔루션과 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
+핵심 작업에서 확장된 인지 기술과 AI 처리(아직 선택 사항)를 사용할 수 있도록 Azure Search의 이름이 이제 **Azure Cognitive Search** 로 변경되었습니다. API 버전, NuGet 패키지, 네임스페이스 및 엔드포인트는 변경되지 않았습니다. 새 검색 솔루션과 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
 
 ## <a name="service-updates"></a>서비스 업데이트
 

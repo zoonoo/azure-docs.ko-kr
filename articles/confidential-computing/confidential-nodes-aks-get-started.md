@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998480"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122182"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS(Azure Kubernetes Service) 클러스터 배포(미리 보기)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 위의 요구 사항을 충족하는 AKS 클러스터가 이미 있는 경우 [기존 클러스터 섹션으로 건너뛰어](#existing-cluster) 새 기밀 컴퓨팅 노드 풀을 추가합니다.
 
-먼저, az group create 명령을 사용하여 클러스터에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹을 *westus2* 지역에 만듭니다.
+먼저, az group create 명령을 사용하여 클러스터에 대한 리소스 그룹을 만듭니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹을 *westus2* 지역에 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -119,6 +119,8 @@ kube-system     sgx-device-plugin-xxxx     1/1     Running
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
 
+![DCSv2 AKS 클러스터 만들기](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
+
 ## <a name="adding-confidential-computing-node-to-existing-aks-cluster"></a>기존 AKS 클러스터에 기밀 컴퓨팅 노드 추가<a id="existing-cluster"></a>
 
 이 섹션에서는 필수 구성 요소 섹션에 나열된 조건을 충족하는 AKS 클러스터가 이미 실행되고 있다고 가정합니다.
@@ -155,7 +157,7 @@ kube-system     sgx-quote-helper-xxxx      1/1     Running
 출력이 위와 일치하면 이제 AKS 클러스터에서 기밀 애플리케이션을 실행할 준비가 된 것입니다.
 
 ## <a name="hello-world-from-isolated-enclave-application"></a>격리된 enclave 애플리케이션에서 Hello World <a id="hello-world"></a>
-*hello-world-enclave.yaml*이라는 파일을 만들고, 다음 YAML 매니페스트를 붙여넣습니다. 이 Open Enclave 기반 샘플 애플리케이션 코드는 [Open Enclave 프로젝트](https://github.com/openenclave/openenclave/tree/master/samples/helloworld)에서 찾을 수 있습니다.
+*hello-world-enclave.yaml* 이라는 파일을 만들고, 다음 YAML 매니페스트를 붙여넣습니다. 이 Open Enclave 기반 샘플 애플리케이션 코드는 [Open Enclave 프로젝트](https://github.com/openenclave/openenclave/tree/master/samples/helloworld)에서 찾을 수 있습니다.
 
 ```yaml
 apiVersion: batch/v1

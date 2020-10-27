@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874019"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151015"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
-Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 원래 [SignalR for ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)을 기반으로 하지만 이제는 이후 버전을 지원합니다.
+Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 원래 [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1)을 기반으로 하지만 이제는 이후 버전을 지원합니다.
 
 이 문서에서는 Azure SignalR Service를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 ASP.NET Core MVC 웹앱을 사용하여 채팅 애플리케이션을 만듭니다. 이 앱은 Azure SignalR Service 리소스와 연결하여 실시간 콘텐츠 업데이트를 사용하도록 설정합니다. 웹 애플리케이션을 로컬로 호스팅하고 여러 브라우저 클라이언트에 연결합니다. 각 클라이언트는 다른 모든 클라이언트에 콘텐츠 업데이트 푸시할 수 있습니다. 
 
@@ -42,7 +42,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
-이 섹션에서는 [.NET Core CLI(명령줄 인터페이스)](https://docs.microsoft.com/dotnet/core/tools/)를 사용하여 새 ASP.NET Core MVC 웹앱 프로젝트를 만듭니다. Visual Studio 대신 .NET Core CLI를 사용하면 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있다는 이점이 있습니다. 
+이 섹션에서는 [.NET Core CLI(명령줄 인터페이스)](/dotnet/core/tools/)를 사용하여 새 ASP.NET Core MVC 웹앱 프로젝트를 만듭니다. Visual Studio 대신 .NET Core CLI를 사용하면 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있다는 이점이 있습니다. 
 
 1. 프로젝트 폴더를 만듭니다. 이 빠른 시작에서는 *E:\Testing\chattest* 폴더를 사용합니다.
 
@@ -56,9 +56,9 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
 ## <a name="add-secret-manager-to-the-project"></a>프로젝트에 암호 관리자 추가
 
-이 섹션에서는 [비밀 관리자 도구](https://docs.microsoft.com/aspnet/core/security/app-secrets)를 프로젝트에 추가합니다. 비밀 관리자 도구는 개발 작업용 중요 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드에서 앱 비밀을 실수로 공유하지 못하도록 방지할 수 있습니다.
+이 섹션에서는 [비밀 관리자 도구](/aspnet/core/security/app-secrets)를 프로젝트에 추가합니다. 비밀 관리자 도구는 개발 작업용 중요 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드에서 앱 비밀을 실수로 공유하지 못하도록 방지할 수 있습니다.
 
-1. *.csproj* 파일을 엽니다. *Microsoft.Extensions.SecretManager.Tools*를 포함할 `DotNetCliToolReference` 요소를 추가합니다. 또한 *chattest.csproj*에 대한 다음 코드와 같이 `UserSecretsId` 요소를 추가하고 파일을 저장합니다.
+1. *.csproj* 파일을 엽니다. *Microsoft.Extensions.SecretManager.Tools* 를 포함할 `DotNetCliToolReference` 요소를 추가합니다. 또한 *chattest.csproj* 에 대한 다음 코드와 같이 `UserSecretsId` 요소를 추가하고 파일을 저장합니다.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -92,9 +92,9 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     dotnet restore
     ```
 
-3. *Azure:SignalR:ConnectionString*이라는 암호를 암호 관리자에 추가합니다. 
+3. *Azure:SignalR:ConnectionString* 이라는 암호를 암호 관리자에 추가합니다. 
 
-    이 암호는 SignalR Service 리소스에 액세스하기 위한 연결 문자열을 포함합니다. *Azure:SignalR:ConnectionString*은 SignalR에서 연결을 설정하기 위해 찾는 기본 구성 키입니다. 다음 명령의 값을 SignalR Service 리소스에 대한 연결 문자열로 바꿉니다.
+    이 암호는 SignalR Service 리소스에 액세스하기 위한 연결 문자열을 포함합니다. *Azure:SignalR:ConnectionString* 은 SignalR에서 연결을 설정하기 위해 찾는 기본 구성 키입니다. 다음 명령의 값을 SignalR Service 리소스에 대한 연결 문자열로 바꿉니다.
 
     이 명령은 *.csproj* 파일과 동일한 디렉터리에서 실행해야 합니다.
 
@@ -107,18 +107,19 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼에서 구성 API를 통해 구성 이름에서 작동합니다. [환경별 구성](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider)을 참조하세요.
 
 
-4. *Startup.cs*를 열고, `AddSignalR()` 메서드를 호출하여 Azure SignalR 서비스를 사용하도록 `ConfigureServices` 메서드를 업데이트합니다.
+4. *Startup.cs* 를 열고, `AddSignalR()` 및 `AddAzureSignalR()` 메서드를 호출하여 Azure SignalR Service를 사용하도록 `ConfigureServices` 메서드를 업데이트합니다.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAzureSignalR();
+        services.AddSignalR()
+                .AddAzureSignalR();
     }
     ```
 
-    매개 변수를 `AddAzureSignalR()`에 전달하지 않으면 이 코드에서 SignalR Service 리소스 연결 문자열에 대한 기본 구성 키를 사용합니다. 기본 구성 키는 *Azure:SignalR:ConnectionString*입니다
+    매개 변수를 `AddAzureSignalR()`에 전달하지 않으면 이 코드에서 SignalR Service 리소스 연결 문자열에 대한 기본 구성 키를 사용합니다. 기본 구성 키는 *Azure:SignalR:ConnectionString* 입니다
 
-5. *Startup.cs*에서 `Configure` 메서드를 다음 코드로 바꿔서 업데이트합니다.
+5. *Startup.cs* 에서 `Configure` 메서드를 다음 코드로 바꿔서 업데이트합니다.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -141,11 +142,11 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 
 두 메서드는 모두 ASP.NET Core SignalR SDK에서 제공하는 `Clients` 인터페이스를 사용합니다. 이 인터페이스를 통해 연결된 모든 클라이언트에 액세스할 수 있으므로 콘텐츠를 클라이언트로 푸시할 수 있습니다.
 
-1. 프로젝트 디렉터리에서 *Hub*라는 새 폴더를 추가합니다. *ChatHub.cs*라는 새 허브 코드 파일을 새 폴더에 추가합니다.
+1. 프로젝트 디렉터리에서 *Hub* 라는 새 폴더를 추가합니다. *ChatHub.cs* 라는 새 허브 코드 파일을 새 폴더에 추가합니다.
 
-2. 다음 코드를 *ChatHub.cs*에 추가하여 허브 클래스를 정의하고 파일을 저장합니다.
+2. 다음 코드를 *ChatHub.cs* 에 추가하여 허브 클래스를 정의하고 파일을 저장합니다.
 
-    *SignalR.Mvc*와는 다른 프로젝트 이름을 사용한 경우 이 클래스에 대한 네임스페이스를 업데이트합니다.
+    *SignalR.Mvc* 와는 다른 프로젝트 이름을 사용한 경우 이 클래스에 대한 네임스페이스를 업데이트합니다.
 
     ```csharp
     using Microsoft.AspNetCore.SignalR;
@@ -169,11 +170,11 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 
 이 대화방 앱용 클라이언트 사용자 인터페이스는 *wwwroot* 디렉터리의 *index.html* 파일에 HTML 및 JavaScript로 구성됩니다.
 
-[샘플 리포지토리](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot)의 *wwwroot* 폴더에서 *css/site.css* 파일을 복사합니다. 프로젝트의 *css/site.css*를 복사한 것으로 바꿉니다.
+[샘플 리포지토리](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot)의 *wwwroot* 폴더에서 *css/site.css* 파일을 복사합니다. 프로젝트의 *css/site.css* 를 복사한 것으로 바꿉니다.
 
-*index.html*의 기본 코드는 다음과 같습니다.
+*index.html* 의 기본 코드는 다음과 같습니다.
 
-*index.html*이라는 *wwwroot* 디렉터리에 새 파일을 만들고, 다음 HTML을 새로 만든 파일에 복사하여 붙여넣습니다.
+*index.html* 이라는 *wwwroot* 디렉터리에 새 파일을 만들고, 다음 HTML을 새로 만든 파일에 복사하여 붙여넣습니다.
 
 ```html
 <!DOCTYPE html>
@@ -317,7 +318,7 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 </html>
 ```
 
-*index.html*의 코드는 `HubConnectionBuilder.build()`를 호출하여 Azure SignalR 리소스에 대한 HTTP 연결을 수행합니다.
+*index.html* 의 코드는 `HubConnectionBuilder.build()`를 호출하여 Azure SignalR 리소스에 대한 HTTP 연결을 수행합니다.
 
 연결이 성공적이면 해당 연결이 `bindConnectionMessage`로 전달되고, 들어오는 콘텐츠의 클라이언트 푸시를 위한 이벤트 처리기가 추가됩니다. 
 
@@ -325,11 +326,11 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 
 ## <a name="add-a-development-runtime-profile"></a>개발 런타임 프로필 추가
 
-이 섹션에서는 ASP.NET Core용 개발 런타임 환경을 추가합니다. 자세한 내용은 [ASP.NET Core에서 여러 환경 사용](https://docs.microsoft.com/aspnet/core/fundamentals/environments)을 참조하세요.
+이 섹션에서는 ASP.NET Core용 개발 런타임 환경을 추가합니다. 자세한 내용은 [ASP.NET Core에서 여러 환경 사용](/aspnet/core/fundamentals/environments)을 참조하세요.
 
-1. *Properties*라는 폴더를 프로젝트에 만듭니다.
+1. *Properties* 라는 폴더를 프로젝트에 만듭니다.
 
-2. 다음 내용이 포함된 *launchSettings.json*이라는 새 파일을 폴더에 추가하고 파일을 저장합니다.
+2. 다음 내용이 포함된 *launchSettings.json* 이라는 새 파일을 폴더에 추가하고 파일을 저장합니다.
 
     ```json
     {
@@ -392,13 +393,13 @@ SignalR에서 허브는 클라이언트에서 호출할 수 있는 메서드 세
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 되돌릴 수 없으며 해당 그룹의 모든 리소스가 포함됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹에 이 샘플을 호스팅하는 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹**을 선택합니다.
+[Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹** 을 선택합니다.
 
-**이름으로 필터링** 텍스트 상자에서 리소스 그룹의 이름을 입력합니다. 이 빠른 시작의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 줄임표( **...** ) > **리소스 그룹 삭제**를 차례로 선택합니다.
+**이름으로 필터링** 텍스트 상자에서 리소스 그룹의 이름을 입력합니다. 이 빠른 시작의 지침에서는 *SignalRTestResources* 라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 줄임표( **...** ) > **리소스 그룹 삭제** 를 차례로 선택합니다.
 
 ![리소스 그룹을 삭제하기 위한 선택 항목](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
-리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인하고 **삭제**를 선택합니다.
+리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인하고 **삭제** 를 선택합니다.
 
 잠시 후, 리소스 그룹 및 모든 해당 리소스가 삭제됩니다.
 

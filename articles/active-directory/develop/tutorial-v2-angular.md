@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611251"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096252"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -78,7 +78,7 @@ ng generate component page-name                  # To add a new page (such as a 
 
 ## <a name="configure-the-application"></a>애플리케이션 구성
 
-1. 아래와 같이 *src/app* 폴더에서 *app.module.ts*를 편집하고 `imports` 및 `isIE` 상수에 `MSALModule`을 추가합니다.
+1. 아래와 같이 *src/app* 폴더에서 *app.module.ts* 를 편집하고 `imports` 및 `isIE` 상수에 `MSALModule`을 추가합니다.
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -124,7 +124,7 @@ ng generate component page-name                  # To add a new page (such as a 
     |---------|---------|
     |Enter_the_Application_Id_Here|애플리케이션 등록의 **개요** 페이지에서 이는 **애플리케이션(클라이언트) ID** 값입니다. |
     |Enter_the_Cloud_Instance_Id_Here|Azure 클라우드의 인스턴스입니다. 기본 또는 글로벌 Azure 클라우드의 경우 **https://login.microsoftonline.com** 을 입력합니다. 국가별 클라우드(예: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.|
-    |Enter_the_Tenant_Info_Here| 다음 옵션 중 하나로 설정합니다. 애플리케이션이 *이 조직 디렉터리의 계정*을 지원하는 경우 이 값을 디렉터리(테넌트) ID 또는 테넌트 이름(예: **contoso.microsoft.com**)으로 바꿉니다. 애플리케이션이 *모든 조직 디렉터리의 계정*을 지원하는 경우 이 값을 **organizations**으로 바꿉니다. 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정*을 지원하는 경우 이 값을 **common**으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers**로 바꿉니다. |
+    |Enter_the_Tenant_Info_Here| 다음 옵션 중 하나로 설정합니다. 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 디렉터리(테넌트) ID 또는 테넌트 이름(예: **contoso.microsoft.com** )으로 바꿉니다. 애플리케이션이 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **organizations** 으로 바꿉니다. 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 **common** 으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers** 로 바꿉니다. |
     |Enter_the_Redirect_Uri_Here|**http://localhost:4200** 으로 바꿉니다.|
 
     사용할 수 있는 구성 가능한 옵션에 대한 자세한 내용은 [클라이언트 애플리케이션 초기화](msal-js-initializing-client-applications.md)를 참조하세요.
@@ -194,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-다음으로, 보호된 리소스의 맵을 `MsalModule.forRoot()`에 `protectedResourceMap`으로 제공하고 해당 범위를 `consentScopes`에 포함합니다.
+다음으로, 보호된 리소스의 맵을 `MsalModule.forRoot()`에 `protectedResourceMap`으로 제공하고 해당 범위를 `consentScopes`에 포함합니다. `protectedResourceMap` 컬렉션에서 제공하는 URL은 대/소문자를 구분합니다.
 
 ```javascript
 @NgModule({
@@ -318,7 +318,7 @@ Angular 재질 구성 요소 라이브러리를 사용하여 UI를 추가하는 
     npm install
     npm start
     ```
-1. 브라우저에서 **http://localhost:4200** 또는 **http://localhost:{port}** 를 입력합니다. 여기서 *port*는 웹 서버에서 수신 대기하는 포트입니다.
+1. 브라우저에서 **http://localhost:4200** 또는 **http://localhost:{port}** 를 입력합니다. 여기서 *port* 는 웹 서버에서 수신 대기하는 포트입니다.
 
 
 ### <a name="provide-consent-for-application-access"></a>애플리케이션 액세스에 대한 동의 제공
@@ -336,7 +336,7 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 >[!NOTE]
 >범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
 
-백 엔드 API에 범위가 필요하지 않은 경우(추천되지 않음) 토큰을 획득하기 위한 호출에서 *clientId*를 범위로 사용할 수 있습니다.
+백 엔드 API에 범위가 필요하지 않은 경우(추천되지 않음) 토큰을 획득하기 위한 호출에서 *clientId* 를 범위로 사용할 수 있습니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

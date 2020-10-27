@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998450"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125289"
 ---
 # <a name="enclave-aware-containers"></a>Enclave 인식 컨테이너
 
@@ -51,14 +51,19 @@ CCF(기밀 컨소시엄 프레임워크)는 다자간 컴퓨팅 및 데이터에
 
 ML 모델 리프트를 시작하고 [여기](https://aka.ms/confidentialinference)에서 ONNX 런타임으로 전환
 
-## <a name="container-samples-implementations"></a>컨테이너 샘플 구현
+### <a name="edgeless-rt"></a>Edgeless RT
 
-[AKS의 enclave 인식 컨테이너에 대한 Azure 샘플](https://github.com/Azure-Samples/enclave-aware-container-samples)
+Edgeless RT는 오픈 Enclave SDK를 기반으로 하는 오픈 소스 프로젝트입니다. Go 및 추가 C++ 기능에 대한 지원을 추가합니다. [여기](https://github.com/edgelesssys/edgelessrt)에서 익숙한 VS Code 환경을 사용하여 간단한 기밀 Go 애플리케이션을 시작하세요. AKS에 있는 Edgeless 애플리케이션의 경우 [여기](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)의 지침을 따르세요.
+
+
+## <a name="container-based-sample-implementations"></a>컨테이너 기반 샘플 구현
+
+[AKS의 enclave 인식 컨테이너에 대한 Azure 샘플](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[DC Virtual Machine](/confidential-computing/virtual-machine-solutions)
+[기밀 컨테이너](/confidential-computing/containercompute/confidential-containers)

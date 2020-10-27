@@ -7,21 +7,20 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940772"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125444"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Azure Kubernetes Service(공개 미리 보기)의 기밀 컴퓨팅 노드
 
-[Azure 기밀 컴퓨팅](overview.md)을 사용하면 사용 중인 중요한 데이터를 보호할 수 있습니다. 기본 인프라는 다른 애플리케이션, 관리자 및 클라우드 공급자로부터 이 데이터를 보호합니다. 
+[Azure 기밀 컴퓨팅](overview.md)을 사용하면 사용 중인 중요한 데이터를 보호할 수 있습니다. 기본 인프라는 하드웨어에서 지원되는 신뢰할 수 있는 실행 컨테이너 환경을 통해 다른 애플리케이션, 관리자 및 클라우드 공급자로부터 이 데이터를 보호합니다.
 
 ## <a name="overview"></a>개요
 
-AKS(Azure Kubernetes Service)는 Intel SGX에서 [DCsv2 기밀 컴퓨팅 노드](confidential-computing-enclaves.md) 추가를 지원합니다. 이러한 노드는 사용자 수준 코드에서 프라이빗 메모리 영역을 할당할 수 있도록 하여 하드웨어 기반 TEE(신뢰할 수 있는 실행 환경) 내에서 중요한 워크로드를 실행합니다. 이러한 프라이빗 메모리 영역을 enclave라고 합니다. enclave는 더 높은 권한으로 실행되는 프로세스로부터 코드와 데이터를 보호하도록 설계되었습니다. SGX 실행 모델은 게스트 OS 및 하이퍼바이저의 중간 계층을 제거합니다. 이렇게 하면 특수 메모리 블록을 암호화된 상태로 유지하면서 CPU를 기반으로 하여 컨테이너 애플리케이션을 직접 실행할 수 있습니다. 
-
+AKS(Azure Kubernetes Service)는 Intel SGX에서 제공되는 [DCsv2 기밀 컴퓨팅 노드](confidential-computing-enclaves.md) 추가를 지원합니다. 이러한 노드 실행은 사용자 수준 코드에서 프라이빗 메모리 영역을 할당할 수 있도록 하여 하드웨어 기반 TEE(신뢰할 수 있는 실행 환경) 내에서 중요한 워크로드를 실행할 수 있습니다. 이러한 프라이빗 메모리 영역을 enclave라고 합니다. enclave는 더 높은 권한으로 실행되는 프로세스로부터 코드와 데이터를 보호하도록 설계되었습니다. SGX 실행 모델은 게스트 OS, 호스트 OS 및 하이퍼바이저의 중간 계층을 제거합니다. *컨테이너 격리 실행별 하드웨어 기반* 모델을 사용하면 특수 메모리 블록을 암호화된 상태로 유지하면서 CPU로 애플리케이션을 직접 실행할 수 있습니다. 기밀 컴퓨팅 노드는 AKS에서 컨테이너 애플리케이션의 전반적인 보안 상태와 심층 방어 컨테이너 전략을 지원하는 데 도움이 됩니다. 
 
 ![SGX 노드 개요](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -36,7 +35,7 @@ AKS(Azure Kubernetes Service)는 Intel SGX에서 [DCsv2 기밀 컴퓨팅 노드]
 - AKS 디먼 집합을 통한 out-of-proc 증명 도우미
 - Ubuntu 18.04 Gen 2 VM 작업자 노드를 통한 Linux 컨테이너 지원
 
-## <a name="aks-provided-daemon-sets"></a>AKS에서 제공하는 디먼 집합
+## <a name="aks-provided-daemon-sets-addon"></a>AKS에서 제공하는 디먼 집합(추가 기능)
 
 #### <a name="sgx-device-plugin"></a>SGX 디바이스 플러그 인 <a id="sgx-plugin"></a>
 
@@ -54,7 +53,7 @@ SGX 디바이스 플러그 인은 EPC 메모리용 Kubernetes 디바이스 플�
 
 ### <a name="enclave-aware-containers"></a>enclave 인식 컨테이너
 
-AKS는 기밀 노드에서 실행되도록 프로그래밍된 애플리케이션을 지원하고, SDK 및 프레임워크를 통해 제공되는 **특수 명령 집합**을 활용합니다. 이 애플리케이션 모델은 가장 낮은 TCB(신뢰할 수 있는 컴퓨팅 기반)를 사용하여 애플리케이션에 대한 대부분의 제어를 제공합니다. enclave 인식 컨테이너에 대해 [자세히 참조하세요](enclave-aware-containers.md).
+AKS는 기밀 노드에서 실행되도록 프로그래밍된 애플리케이션을 지원하고, SDK 및 프레임워크를 통해 제공되는 **특수 명령 집합** 을 활용합니다. 이 애플리케이션 모델은 가장 낮은 TCB(신뢰할 수 있는 컴퓨팅 기반)를 사용하여 애플리케이션에 대한 대부분의 제어를 제공합니다. enclave 인식 컨테이너에 대해 [자세히 참조하세요](enclave-aware-containers.md).
 
 ## <a name="next-steps"></a>다음 단계
 

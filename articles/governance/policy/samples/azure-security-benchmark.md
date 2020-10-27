@@ -1,35 +1,35 @@
 ---
 title: Azure Security Benchmark에 대한 규정 준수 세부 정보
 description: Azure Security Benchmark 규정 준수 기본 제공 이니셔티브의 세부 정보 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932178"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311470"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Azure Security Benchmark 규정 준수 기본 제공 이니셔티브의 세부 정보
 
-다음 문서에서는 Azure Policy 규정 준수 기본 제공 이니셔티브 정의가 Azure Security Benchmark의 **규정 준수 도메인** 및 **컨트롤**에 매핑되는 방법을 자세히 설명합니다.
-이 규정 준수 표준에 대한 자세한 정보는 [Azure Security Benchmark](../../../security/benchmarks/overview.md)를 참조하세요. _소유권_을 이해하려면 [Azure Policy 정책 정의](../concepts/definition-structure.md#type) 및 [클라우드의 공동 책임](../../../security/fundamentals/shared-responsibility.md)을 참조하세요.
+다음 문서에서는 Azure Policy 규정 준수 기본 제공 이니셔티브 정의가 Azure Security Benchmark의 **규정 준수 도메인** 및 **컨트롤** 에 매핑되는 방법을 자세히 설명합니다.
+이 규정 준수 표준에 대한 자세한 정보는 [Azure Security Benchmark](../../../security/benchmarks/overview.md)를 참조하세요. _소유권_ 을 이해하려면 [Azure Policy 정책 정의](../concepts/definition-structure.md#type) 및 [클라우드의 공동 책임](../../../security/fundamentals/shared-responsibility.md)을 참조하세요.
 
-다음은 **Azure 보안 벤치마크** 제어에 대한 매핑입니다. 특정 **규정 준수 도메인**으로 바로 이동하려면 오른쪽의 탐색 기능을 사용하세요. 여러 컨트롤이 [Azure Policy](../overview.md) 이니셔티브 정의를 사용하여 구현됩니다. 전체 이니셔티브 정의를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다.
+다음은 **Azure 보안 벤치마크** 제어에 대한 매핑입니다. 특정 **규정 준수 도메인** 으로 바로 이동하려면 오른쪽의 탐색 기능을 사용하세요. 여러 컨트롤이 [Azure Policy](../overview.md) 이니셔티브 정의를 사용하여 구현됩니다. 전체 이니셔티브 정의를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다.
 그런 다음, **Azure Security Benchmark** 규정 준수 기본 제공 이니셔티브 정의를 찾아서 선택합니다.
 
 기본 제공 이니셔티브는 [Azure Security Benchmark 청사진 샘플](../../blueprints/samples/azure-security-benchmark.md)의 일부로 배포됩니다.
 
 > [!IMPORTANT]
 > 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../overview.md) 정의와 연결되어 있습니다.
-> 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 정의 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 표준에 대한 규정 준수 도메인, 컨트롤, Azure Policy 정의 간의 연결은 시간이 지나면 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json)을 참조하세요.
+> 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수** 는 정책 정의 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 표준에 대한 규정 준수 도메인, 컨트롤, Azure Policy 정의 간의 연결은 시간이 지나면 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json)을 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Virtual Network에서 네트워크 보안 그룹 또는 Azure Firewall을 사용하여 리소스 보호
 
-**ID**: Azure Security Benchmark 1.1 **소유권**: Customer
+**ID** : Azure Security Benchmark 1.1 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -58,7 +58,7 @@ ms.locfileid: "91932178"
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Vnet, 서브넷 및 NIC의 구성과 트래픽에 대한 모니터링 및 기록
 
-**ID**: Azure Security Benchmark 1.2 **소유권**: Customer
+**ID** : Azure Security Benchmark 1.2 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ ms.locfileid: "91932178"
 
 ### <a name="protect-critical-web-applications"></a>중요한 웹 애플리케이션 보호
 
-**ID**: Azure Security Benchmark 1.3 **소유권**: Customer
+**ID** : Azure Security Benchmark 1.3 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,7 +80,7 @@ ms.locfileid: "91932178"
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>알려진 악성 IP 주소와의 통신 거부
 
-**ID**: Azure Security Benchmark 1.4 **소유권**: Customer
+**ID** : Azure Security Benchmark 1.4 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -91,7 +91,7 @@ ms.locfileid: "91932178"
 
 ### <a name="record-network-packets-and-flow-logs"></a>네트워크 패킷 및 흐름 로그 기록
 
-**ID**: Azure Security Benchmark 1.5 **소유권**: Customer
+**ID** : Azure Security Benchmark 1.5 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
-**ID**: Azure Security Benchmark 1.11 **소유권**: Customer
+**ID** : Azure Security Benchmark 1.11 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ ms.locfileid: "91932178"
 
 ### <a name="configure-central-security-log-management"></a>중앙 보안 로그 관리 구성
 
-**ID**: Azure Security Benchmark 2.2 **소유권**: Customer
+**ID** : Azure Security Benchmark 2.2 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ ms.locfileid: "91932178"
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Azure 리소스에 대한 감사 로깅 사용
 
-**ID**: Azure Security Benchmark 2.3 **소유권**: Customer
+**ID** : Azure Security Benchmark 2.3 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ ms.locfileid: "91932178"
 
 ### <a name="collect-security-logs-from-operating-systems"></a>운영 체제에서 보안 로그 수집
 
-**ID**: Azure Security Benchmark 2.4 **소유권**: Customer
+**ID** : Azure Security Benchmark 2.4 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ ms.locfileid: "91932178"
 
 ### <a name="configure-security-log-storage-retention"></a>보안 로그 스토리지 보존 기간 구성
 
-**ID**: Azure Security Benchmark 2.5 **소유권**: Customer
+**ID** : Azure Security Benchmark 2.5 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ ms.locfileid: "91932178"
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>비정상 활동에 대한 경고 사용
 
-**ID**: Azure Security Benchmark 2.7 **소유권**: Customer
+**ID** : Azure Security Benchmark 2.7 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ ms.locfileid: "91932178"
 
 ### <a name="centralize-anti-malware-logging"></a>맬웨어 방지 로깅 중앙 집중화
 
-**ID**: Azure Security Benchmark 2.8 **소유권**: Customer
+**ID** : Azure Security Benchmark 2.8 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ ms.locfileid: "91932178"
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>관리 계정의 인벤토리 유지 관리
 
-**ID**: Azure Security Benchmark 3.1 **소유권**: Customer
+**ID** : Azure Security Benchmark 3.1 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-dedicated-administrative-accounts"></a>전용 관리 계정 사용
 
-**ID**: Azure Security Benchmark 3.3 **소유권**: Customer
+**ID** : Azure Security Benchmark 3.3 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>모든 Azure Active Directory 기반 액세스에 다단계 인증 사용
 
-**ID**: Azure Security Benchmark 3.5 **소유권**: Customer
+**ID** : Azure Security Benchmark 3.5 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-azure-active-directory"></a>Azure Active Directory 사용
 
-**ID**: Azure Security Benchmark 3.9 **소유권**: Customer
+**ID** : Azure Security Benchmark 3.9 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ ms.locfileid: "91932178"
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>정기적으로 사용자 액세스 검토 및 조정
 
-**ID**: Azure Security Benchmark 3.10 **소유권**: Customer
+**ID** : Azure Security Benchmark 3.10 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ ms.locfileid: "91932178"
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>중요한 정보의 인벤토리 유지 관리
 
-**ID**: Azure Security Benchmark 4.1 **소유권**: Customer
+**ID** : Azure Security Benchmark 4.1 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ ms.locfileid: "91932178"
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>전송 중인 모든 중요한 정보 암호화
 
-**ID**: Azure Security Benchmark 4.4 **소유권**: 공유됨
+**ID** : Azure Security Benchmark 4.4 **소유권** : 공유됨
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>활성 검색 도구를 사용하여 중요한 데이터 식별
 
-**ID**: Azure Security Benchmark 4.5 **소유권**: Customer
+**ID** : Azure Security Benchmark 4.5 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**ID**: Azure Security Benchmark 4.6 **소유권**: Customer
+**ID** : Azure Security Benchmark 4.6 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ ms.locfileid: "91932178"
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>중요한 저장 정보 암호화
 
-**ID**: Azure Security Benchmark 4.8 **소유권**: Customer
+**ID** : Azure Security Benchmark 4.8 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ ms.locfileid: "91932178"
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>중요한 Azure 리소스에 대한 변경 내용 기록 및 경고
 
-**ID**: Azure Security Benchmark 4.9 **소유권**: Customer
+**ID** : Azure Security Benchmark 4.9 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ ms.locfileid: "91932178"
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>자동화된 취약성 검사 도구 실행
 
-**ID**: Azure Security Benchmark 5.1 **소유권**: Customer
+**ID** : Azure Security Benchmark 5.1 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ ms.locfileid: "91932178"
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>자동화된 운영 체제 패치 관리 솔루션 배포
 
-**ID**: Azure Security Benchmark 5.2 **소유권**: Customer
+**ID** : Azure Security Benchmark 5.2 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,23 +336,23 @@ ms.locfileid: "91932178"
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>자동화된 타사 소프트웨어 패치 관리 솔루션 배포
 
-**ID**: Azure Security Benchmark 5.3 **소유권**: Customer
+**ID** : Azure Security Benchmark 5.3 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[API 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |보안 결함이 있거나 추가 기능을 포함하기 위해 Java에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API 앱에 최신 Python 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
-|[함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |보안 결함이 있거나 추가 기능을 포함하기 위해 Java 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 함수 앱에 최신 Java 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
-|[웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |보안 결함이 있거나 추가 기능을 포함하기 위해 Java 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 Java 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
-|[API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API Apps에 최신 PHP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 PHP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
-|[API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API 앱에 최신 Python 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 함수 앱에 최신 Python 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 Python 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[API 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |보안 결함이 있거나 추가 기능을 포함하기 위해 Java에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API 앱에 최신 Python 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
+|[함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |보안 결함이 있거나 추가 기능을 포함하기 위해 Java 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 함수 앱에 최신 Java 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
+|[웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |보안 결함이 있거나 추가 기능을 포함하기 위해 Java 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 Java 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
+|[API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API Apps에 최신 PHP 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 PHP 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API 앱에 최신 Python 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 함수 앱에 최신 Python 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 Python 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 |[Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |현재 Kubernetes 버전의 알려진 취약성으로부터 보호하려면 Kubernetes 서비스 클러스터를 최신 Kubernetes 버전으로 업그레이드하세요. 취약성 CVE-2019-9946이 Kubernetes 버전 1.11.9+, 1.12.7+, 1.13.5+ 및 1.14.0+에서 패치되었습니다. |감사, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>위험 등급 프로세스를 사용하여 검색된 취약성의 수정 우선 순위 지정
 
-**ID**: Azure Security Benchmark 5.5 **소유권**: Customer
+**ID** : Azure Security Benchmark 5.5 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -366,7 +366,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-only-approved-applications"></a>승인된 애플리케이션만 사용
 
-**ID**: Azure Security Benchmark 6.8 **소유권**: Customer
+**ID** : Azure Security Benchmark 6.8 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-only-approved-azure-services"></a>승인된 Azure 서비스만 사용
 
-**ID**: Azure Security Benchmark 6.9 **소유권**: Customer
+**ID** : Azure Security Benchmark 6.9 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ ms.locfileid: "91932178"
 
 ### <a name="implement-approved-application-list"></a>승인된 애플리케이션 목록 구현
 
-**ID**: Azure Security Benchmark 6.10 **소유권**: Customer
+**ID** : Azure Security Benchmark 6.10 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ ms.locfileid: "91932178"
 
 ### <a name="maintain-secure-operating-system-configurations"></a>보안 운영 체제 구성 유지 관리
 
-**ID**: Azure Security Benchmark 7.4 **소유권**: 공유됨
+**ID** : Azure Security Benchmark 7.4 **소유권** : 공유됨
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ ms.locfileid: "91932178"
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>운영 체제에 대한 자동화된 구성 모니터링 구현
 
-**ID**: Azure Security Benchmark 7.10 **소유권**: Customer
+**ID** : Azure Security Benchmark 7.10 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,7 +413,7 @@ ms.locfileid: "91932178"
 
 ### <a name="manage-azure-secrets-securely"></a>안전하게 Azure 비밀 관리
 
-**ID**: Azure Security Benchmark 7.11 **소유권**: Customer
+**ID** : Azure Security Benchmark 7.11 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -421,7 +421,7 @@ ms.locfileid: "91932178"
 
 ### <a name="manage-identities-securely-and-automatically"></a>안전하게 자동으로 ID 관리 
 
-**ID**: Azure Security Benchmark 7.12 **소유권**: Customer
+**ID** : Azure Security Benchmark 7.12 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ ms.locfileid: "91932178"
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>중앙 관리형 맬웨어 방지 소프트웨어 사용
 
-**ID**: Azure Security Benchmark 8.1 **소유권**: Customer
+**ID** : Azure Security Benchmark 8.1 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ ms.locfileid: "91932178"
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>맬웨어 방지 소프트웨어 및 서명이 업데이트되었는지 확인
 
-**ID**: Azure Security Benchmark 8.3 **소유권**: Customer
+**ID** : Azure Security Benchmark 8.3 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ ms.locfileid: "91932178"
 
 ### <a name="ensure-regular-automated-back-ups"></a>자동화된 정기 백업 보장
 
-**ID**: Azure Security Benchmark 9.1 **소유권**: Customer
+**ID** : Azure Security Benchmark 9.1 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ ms.locfileid: "91932178"
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>전체 시스템 백업 수행 및 고객 관리형 키 백업
 
-**ID**: Azure Security Benchmark 9.2 **소유권**: Customer
+**ID** : Azure Security Benchmark 9.2 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,7 +476,7 @@ ms.locfileid: "91932178"
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>백업 및 고객 관리형 키 보호 보장
 
-**ID**: Azure Security Benchmark 9.4 **소유권**: Customer
+**ID** : Azure Security Benchmark 9.4 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -486,7 +486,7 @@ ms.locfileid: "91932178"
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>보안 인시던트 연락처 세부 정보 제공 및 보안 인시던트에 대한 경고 알림 구성
 
-**ID**: Azure Security Benchmark 10.4 **소유권**: Customer
+**ID** : Azure Security Benchmark 10.4 **소유권** : Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

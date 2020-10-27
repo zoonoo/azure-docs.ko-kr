@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377055"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116659"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "91377055"
 
 ### <a name="configure-authentication-values"></a>인증 값 구성
 
-_Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사용자 비밀 관리**를 선택합니다. 그러면 _secrets.json_이라는 파일이 열립니다. 이 파일은 소스 제어에 체크 인되지 않습니다. [여기](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)를 참조하세요. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 _secrets.json_의 콘텐츠를 다음으로 바꿉니다.
+_Solution Explorer_ 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **사용자 비밀 관리** 를 선택합니다. 그러면 _secrets.json_ 이라는 파일이 열립니다. 이 파일은 소스 제어에 체크 인되지 않습니다. [여기](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true)를 참조하세요. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 _secrets.json_ 의 콘텐츠를 다음으로 바꿉니다.
 
 ```json
 {
@@ -53,11 +53,11 @@ _Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭�
 }
 ```
 
-### <a name="install-active-directory"></a>Active Directory 설치
+### <a name="install-active-directory-nuget-package"></a>Active Directory NuGet 패키지 설치
 
 다음 코드는 **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet 패키지의 개체를 사용하므로, 프로젝트에서 해당 패키지에 대한 참조를 추가해야 합니다.
 
-**도구 -> NuGet 패키지 관리자 - > 패키지 관리자 콘솔**에서 NuGet 패키지 관리자 콘솔을 열고 다음 명령을 실행합니다.
+**도구 -> NuGet 패키지 관리자 - > 패키지 관리자 콘솔** 에서 NuGet 패키지 관리자 콘솔을 열고 다음 명령을 실행합니다.
 
 ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.2.0
@@ -65,13 +65,13 @@ _Solution Explorer_에서 프로젝트를 마우스 오른쪽 단추로 클릭�
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>토큰을 획득하도록 컨트롤러 업데이트 
 
-_Controllers\HomeController.cs_를 열고 파일 맨 위에 있는 _using_ 문을 뒤에 다음 코드를 추가합니다.
+_Controllers\HomeController.cs_ 를 열고 파일 맨 위에 있는 _using_ 문을 뒤에 다음 코드를 추가합니다.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-이제 _secrets.json_에서 Azure AD 값을 가져오도록 컨트롤러를 구성합니다. _HomeController_ 클래스의 맨 위에서 ```public class HomeController : Controller {``` 뒤에 다음 코드를 추가합니다.
+이제 _secrets.json_ 에서 Azure AD 값을 가져오도록 컨트롤러를 구성합니다. _HomeController_ 클래스의 맨 위에서 ```public class HomeController : Controller {``` 뒤에 다음 코드를 추가합니다.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -142,13 +142,13 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>샘플 콘텐츠 추가
-먼저 _Views\Shared\Layout.cshtml_을 엽니다. ```</head>``` 줄 앞에 다음 코드를 추가합니다.
+먼저 _Views\Shared\Layout.cshtml_ 을 엽니다. ```</head>``` 줄 앞에 다음 코드를 추가합니다.
 
 ```html
 @RenderSection("Styles", required: false)
 ```
 
-이제 이 웹앱에 샘플 콘텐츠를 추가합니다. _Views\Home\Index.cshtml_을 열고 자동으로 생성된 모든 코드를 다음 샘플로 바꿉니다.
+이제 이 웹앱에 샘플 콘텐츠를 추가합니다. _Views\Home\Index.cshtml_ 을 열고 자동으로 생성된 모든 코드를 다음 샘플로 바꿉니다.
 
 ```html
 @{
@@ -220,7 +220,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 
 몰입형 판독기 라이브러리는 몰입형 판독기를 시작하고 몰입형 판독기 단추를 렌더링하는 등의 기능을 제공합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)를 참조하세요.
 
-_Views\Home\Index.cshtml_의 맨 아래에 다음 코드를 추가합니다.
+_Views\Home\Index.cshtml_ 의 맨 아래에 다음 코드를 추가합니다.
 
 ```html
 @section Scripts
@@ -292,7 +292,7 @@ _Views\Home\Index.cshtml_의 맨 아래에 다음 코드를 추가합니다.
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
-메뉴 모음에서 **디버그 > 디버깅 시작**을 선택하거나 **F5** 키를 눌러 애플리케이션을 시작합니다.
+메뉴 모음에서 **디버그 > 디버깅 시작** 을 선택하거나 **F5** 키를 눌러 애플리케이션을 시작합니다.
 
 브라우저에서 다음이 표시됩니다.
 

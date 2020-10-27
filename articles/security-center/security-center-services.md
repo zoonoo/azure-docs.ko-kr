@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858016"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342300"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -28,7 +28,7 @@ ms.locfileid: "91858016"
 
 ### <a name="windows-machines"></a>[**Windows 컴퓨터**](#tab/features-windows)
 
-|**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 머신**|**Azure Defender 필요**
+|**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc 지원 머신**|**Azure Defender 필요**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
 |[가상 머신 동작 분석(및 보안 경고)](alerts-reference.md)|✔|✔|✔|예|
@@ -42,9 +42,9 @@ ms.locfileid: "91858016"
 |[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|예|
 |[규정 준수 대시보드 및 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|예|
 |Docker에서 호스트되는 IaaS 컨테이너에 대한 권장 사항 및 위협 방지|-|-|-|예|
-|누락된 OS 패치 평가|✔|✔|✔|Azure: 예<br><br>비 Azure: 예|
-|잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>비 Azure: 예|
-|[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 예<br><br>비 Azure: 예|
+|누락된 OS 패치 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
+|잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
+|[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
 |디스크 암호화 평가|✔</br>([지원되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)에 해당)|✔|-|아니요|
 |제3자 취약성 평가|✔|-|-|아니요|
 |[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|아니요|
@@ -52,10 +52,10 @@ ms.locfileid: "91858016"
 
 ### <a name="linux-machines"></a>[**Linux 컴퓨터**](#tab/features-linux)
 
-|**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 머신**|**Azure Defender 필요**
+|**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc 지원 머신**|**Azure Defender 필요**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|예|
-|[가상 머신 동작 분석(및 보안 경고)](security-center-alerts-iaas.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
+|[가상 머신 동작 분석(및 보안 경고)](./azure-defender.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|예|
@@ -66,8 +66,8 @@ ms.locfileid: "91858016"
 |[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|예|
 |[규정 준수 대시보드 및 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|예|
 |Docker에서 호스트되는 IaaS 컨테이너에 대한 권장 사항 및 위협 방지|✔|✔|✔|예|
-|누락된 OS 패치 평가|✔|✔|✔|Azure: 예<br><br>비 Azure: 예|
-|잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>비 Azure: 예|
+|누락된 OS 패치 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
+|잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
 |[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|아니요|
 |디스크 암호화 평가|✔</br>([지원되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)에 해당)|✔|-|아니요|
 |제3자 취약성 평가|✔|-|-|아니요|
@@ -96,10 +96,10 @@ ms.locfileid: "91858016"
 | Trend Micro – Deep Security | Windows Server 제품군  | 아니요 | 예 |
 | Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
 | McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 **\*** |
-| Sophos V9+| Linux 서버 제품군  | 아니요 | 예  **\***  |
+| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 * *\** _ |
+| Sophos V9+| Linux 서버 제품군  | 아니요 | 예 _*\**_  |
 
- **\*** 현재는 보호된 구독과 연결된 Log Analytics 작업 영역에서만 적용 범위 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영되지 않습니다.
+ _ *\** * 현재는 보호된 구독과 연결된 Log Analytics 작업 영역에서만 적용 범위 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영되지 않습니다.
 
 > [!NOTE]
 > Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell(v3.0 이상)이 설치된 후 SCEP가 설치되어야 합니다.

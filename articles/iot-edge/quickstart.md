@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047015"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107796"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>빠른 시작: 가상 Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -68,8 +68,8 @@ IoT Edge 디바이스:
   가상 머신이 시작되면 가상 머신에 연결할 때 사용할 RDP 파일을 다운로드할 수 있습니다.
 
   1. Azure Portal에서 새 Windows 가상 머신으로 이동합니다.
-  1. **연결**을 선택합니다.
-  1. **RDP** 탭에서 **RDP 파일 다운로드**를 선택합니다.
+  1. **연결** 을 선택합니다.
+  1. **RDP** 탭에서 **RDP 파일 다운로드** 를 선택합니다.
 
   원격 데스크톱 연결을 통해 이 파일을 열어 `az vm create` 명령으로 지정한 관리자 이름과 암호를 사용하여 Windows 가상 머신에 연결합니다.
 
@@ -78,7 +78,7 @@ IoT Edge 디바이스:
 >
 > 이 빠른 시작에서는 간단하게 하기 위해 Windows 데스크톱 가상 머신을 사용합니다. 일반적으로 프로덕션 시나리오에 사용할 수 있는 Windows 운영 체제에 대한 정보는 [Azure IoT Edge 지원 시스템](support.md)을 참조하세요.
 >
-> IoT Edge에 대해 고유한 Windows 디바이스를 구성하려면 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 따르세요.
+> IoT Core를 실행하는 디바이스를 포함하여 IoT Edge에 대한 자체 Windows 디바이스를 구성하려면 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -94,7 +94,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요.
+   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1** 으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요.
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 디바이스 등록
 
@@ -105,7 +105,7 @@ IoT Hub와 통신할 수 있도록, 시뮬레이트된 디바이스의 디바이
 
 IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 디바이스를 허브에 만듭니다.
+1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice** 라는 디바이스를 허브에 만듭니다.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
@@ -128,7 +128,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 IoT Edge 디바이스에 Azure IoT Edge 런타임을 설치하고 디바이스 연결 문자열을 사용하여 구성합니다.
 ![다이어그램 - 디바이스에서 런타임 시작](./media/quickstart/start-runtime.png)
 
-IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. *IoT Edge 보안 디먼*은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. *IoT Edge 에이전트*는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에 모듈을 배포하고 모니터링하는 작업을 관리합니다. *IoT Edge 허브*는 IoT Edge 디바이스의 모듈 간 통신, 그리고 디바이스와 IoT Hub 간의 통신을 처리합니다.
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. *IoT Edge 보안 디먼* 은 IoT Edge 디바이스가 부팅되고 IoT Edge 에이전트를 시작하여 디바이스를 부트스트랩할 때마다 시작됩니다. *IoT Edge 에이전트* 는 IoT Edge 허브를 포함하여 IoT Edge 디바이스에 모듈을 배포하고 모니터링하는 작업을 관리합니다. *IoT Edge 허브* 는 IoT Edge 디바이스의 모듈 간 통신, 그리고 디바이스와 IoT Hub 간의 통신을 처리합니다.
 
 설치 스크립트에는 IoT Edge 디바이스의 컨테이너 이미지를 관리하는 Moby라는 컨테이너 엔진도 포함됩니다.
 
@@ -169,7 +169,7 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-6. **DeviceConnectionString**을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요.
+6. **DeviceConnectionString** 을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 

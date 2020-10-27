@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619154"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330124"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "91619154"
 > 
 > * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그 동기화
 > * 애플리케이션, 서버 및 풀로 구성된 대체 지역에서 복구 환경 설정
-> * _지역에서 복제_를 사용하여 카탈로그 및 테넌트 데이터베이스를 복구 지역으로 복제
+> * _지역에서 복제_ 를 사용하여 카탈로그 및 테넌트 데이터베이스를 복구 지역으로 복제
 > * 애플리케이션 및 카탈로그와 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover) 
 > * 나중에 애플리케이션, 카탈로그 및 테넌트 데이터베이스를 원래 지역으로 다시 장애 복구(Failback)
 > * 각 테넌트 데이터베이스가 장애 조치(Failover)될 때 카탈로그를 업데이트하여 각 테넌트 데이터베이스의 기본 위치 추적
@@ -85,7 +85,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 나중에, 별도의 송환 단계에서 복구 지역의 카탈로그 및 테넌트 데이터베이스를 원래 지역으로 장애 조치(Failover)합니다. 애플리케이션 및 데이터베이스는 송환이 진행되는 동안 계속 사용할 수 있습니다. 완료되면 애플리케이션은 원래 지역에서 완벽하게 작동합니다.
 
 > [!Note]
-> 애플리케이션은 해당 애플리케이션이 배포된 지역과 _쌍을 이루는 지역_에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
+> 애플리케이션은 해당 애플리케이션이 배포된 지역과 _쌍을 이루는 지역_ 에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
 
 ## <a name="review-the-healthy-state-of-the-application"></a>애플리케이션의 정상 상태 검토
 
@@ -108,13 +108,13 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 > [!IMPORTANT]
 > 편의상, 이러한 자습서에서는 동기화 프로세스 및 다른 장기 실행 복구/송환 프로세스가 클라이언트 사용자 로그인에서 실행되는 로컬 PowerShell 작업 또는 세션으로 구현됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)를 참조하세요.
 
-1. _PowerShell ISE_에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다.  파일을 저장합니다.
+1. _PowerShell ISE_ 에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다.  파일을 저장합니다.
 
-2. *PowerShell ISE*에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음을 설정합니다.
+2. *PowerShell ISE* 에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음을 설정합니다.
     * **$DemoScenario = 1** - 테넌트 서버를 동기화하는 백그라운드 작업을 시작하고 구성 정보를 카탈로그에 풀링합니다.
 
 3. **F5** 키를 눌러 동기화 스크립트를 실행합니다. 테넌트 리소스의 구성을 동기화하기 위해 새 PowerShell 세션이 열립니다.
-![동기화 프로세스](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![테넌트 리소스의 구성을 동기화하기 위해 열린 새 PowerShell 세션을 보여주는 스크린샷.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자습서의 나머지 부분을 계속 진행합니다. 
 
@@ -128,8 +128,8 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 > [!Note]
 > 이 자습서는 지역에서 복제 보호 기능을 Wingtip Tickets 샘플 애플리케이션에 추가합니다. 지역에서 복제를 사용하는 애플리케이션에 대한 프로덕션 시나리오에서 각 테넌트는 처음부터 지역에서 복제된 데이터베이스로 프로비전됩니다. [Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)을 참조하세요.
 
-1. *PowerShell ISE*에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 값을 설정합니다.
-    * **$DemoScenario = 2**, 미러 이미지 복구 환경을 만들고 카탈로그 및 테넌트 데이터베이스를 복제합니다.
+1. *PowerShell ISE* 에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 값을 설정합니다.
+    * **$DemoScenario = 2** , 미러 이미지 복구 환경을 만들고 카탈로그 및 테넌트 데이터베이스를 복제합니다.
 
 2. **F5** 키를 눌러 스크립트를 실행합니다. 복제본을 만들기 위해 새 PowerShell 세션이 열립니다.
 ![동기화 프로세스](./media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
@@ -181,12 +181,12 @@ Azure 지역 맵에서 원래 지역의 주 복제본과 복구 지역의 보조
 
 이제 애플리케이션이 배포되고 복구 스크립트를 실행 하는 지역에 가동 중단이 있다고 가정해 보겠습니다.
 
-1. *PowerShell ISE*에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 값을 설정합니다.
-    * **$DemoScenario = 3**, 복제본으로 장애 조치(Failover)하여 앱을 복구 지역으로 복구합니다.
+1. *PowerShell ISE* 에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 값을 설정합니다.
+    * **$DemoScenario = 3** , 복제본으로 장애 조치(Failover)하여 앱을 복구 지역으로 복구합니다.
 
 2. **F5** 키를 눌러 스크립트를 실행합니다.  
     * 스크립트가 새 PowerShell 창에서 열리고, 병렬로 실행되는 일련의 PowerShell 작업이 시작됩니다. 이러한 작업은 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover)합니다.
-    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 _쌍을 이루는 지역_입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. 
+    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 _쌍을 이루는 지역_ 입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요. 
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
     ![장애 조치(Failover) 프로세스](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -212,7 +212,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>복구 지역에 새 테넌트 프로비전
 기존의 모든 테넌트 데이터베이스가 장애 조치(Failover)되기 전에도 복구 지역에 새 테넌트를 프로비전할 수 있습니다.  
 
-1. *PowerShell ISE*에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 속성을 설정합니다.
+1. *PowerShell ISE* 에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 속성을 설정합니다.
     * **$DemoScenario = 3** - 복구 지역에 새 테넌트를 프로비전합니다.
 
 2. **F5** 키를 눌러 스크립트를 실행하고 새 테넌트를 프로비전합니다. 
@@ -239,7 +239,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
    * _-recovery_ 접미사가 있는 카탈로그 및 tenants1 서버의 복구 버전.  이러한 서버의 복원된 카탈로그 및 테넌트 데이터베이스에는 모두 원래 지역에서 사용된 이름이 있습니다.
 
    * _tenants2-dpt-&lt;user&gt;-recovery_ SQL 서버.  이 서버는 가동 중단 시 새 테넌트를 프로비전하는 데 사용됩니다.
-   * 이벤트 앱의 복구 인스턴스인 _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt_라는 이름의 App Service 
+   * 이벤트 앱의 복구 인스턴스인 _events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt_ 라는 이름의 App Service 
 
      ![Azure 복구 리소스](./media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
@@ -253,7 +253,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 이 작업에서는 테넌트 데이터베이스 중 하나를 업데이트합니다. 
 
 1. 브라우저에서 Contoso Concert Hall에 대한 이벤트 목록을 찾고, 마지막 이벤트 이름을 적어둡니다.
-2. *PowerShell ISE*의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트에서 다음 값을 설정합니다.
+2. *PowerShell ISE* 의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트에서 다음 값을 설정합니다.
     * **$DemoScenario = 4** - 복구 지역의 테넌트에서 이벤트를 삭제합니다.
 3. **F5** 키를 눌러 스크립트를 실행합니다.
 4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall - substitute &lt;user&gt;를 배포의 사용자 값으로 바꿈)를 새로 고치고 마지막 이벤트가 삭제된 것을 확인합니다.
@@ -278,7 +278,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 ### <a name="run-the-repatriation-script"></a>송환 스크립트 실행
 이제 가동 중단이 해결되었다고 가정하고 송환 스크립트를 실행하겠습니다.
 
-1. *PowerShell ISE*의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트에서
+1. *PowerShell ISE* 의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트에서
 
 2. 카탈로그 동기화 프로세스가 PowerShell 인스턴스에서 계속 실행 중인지 확인합니다.  필요한 경우 다음을 설정하여 다시 시작합니다.
     * **$DemoScenario = 1** - 카탈로그로의 테넌트 서버, 풀 및 데이터베이스 구성 정보 동기화를 시작합니다.
@@ -308,7 +308,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 > 
 > * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그 동기화
 > * 애플리케이션, 서버 및 풀로 구성된 대체 지역에서 복구 환경 설정
-> * _지역에서 복제_를 사용하여 카탈로그 및 테넌트 데이터베이스를 복구 지역으로 복제
+> * _지역에서 복제_ 를 사용하여 카탈로그 및 테넌트 데이터베이스를 복구 지역으로 복제
 > * 애플리케이션 및 카탈로그와 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover) 
 > * 애플리케이션, 카탈로그 및 테넌트 데이터베이스를 원래 지역으로 다시 장애 복구(Failback)
 

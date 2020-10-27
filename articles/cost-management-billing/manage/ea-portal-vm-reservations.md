@@ -3,17 +3,17 @@ title: Azure EA VM 예약 인스턴스
 description: 이 문서에서는 VM 예약 인스턴스에 대한 Azure 예약을 통해 엔터프라이즈 등록과 관련된 비용을 절감할 수 있는 방법을 요약합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4970852634039bddfb14be579db5dd355fff9740
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442448"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132536"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -22,6 +22,12 @@ ms.locfileid: "89442448"
 ## <a name="reservation-exchanges-and-refunds"></a>예약 변경 및 환불
 
 예약을 동일한 유형의 다른 예약으로 교환할 수 있습니다. 예약이 더 이상 필요 없는 경우 연간 50,000 USD까지 예약을 환불할 수 있습니다. Azure Portal을 통해 예약을 교환하거나 환불합니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
+
+### <a name="partial-refunds"></a>부분 환불
+
+EA 고객이 현금 약정 금액이 아닌 초과분을 사용하여 구매한 예약을 반환하면 부분 환불 처리됩니다.
+
+환불은 EA 포털에 전월의 마이너스 조정으로 표시되고 이번 달에 플러스 조정으로 표시됩니다. 예약 교환과 유사하게 표시됩니다. 크레딧 메모는 원래 청구서 번호를 참조합니다. 따라서 크레딧 메모로 초기 구매를 조정하려면 원래 청구서 번호를 참조하세요.
 
 ## <a name="reservation-costs-and-usage"></a>예약 비용 및 사용량
 
@@ -59,11 +65,11 @@ Azure API를 사용하여 프로그래밍 방식으로 Azure 서비스 또는 �
 
 Azure 예약 가상 머신 인스턴스를 구매하려면 Enterprise Azure 등록 관리자가 _예약 인스턴스_ 구매 옵션을 사용하도록 설정해야 합니다. 이 옵션은 [Azure EA Portal](https://ea.azure.com/)의 _등록_ 탭에 있는 _등록 세부 정보_ 섹션에 있습니다.
 
-EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면 EA 등록과 연결된 활성 구독이 있는 계정 소유자는 [Azure Portal](https://aka.ms/reservations)에서 예약 가상 머신 인스턴스를 구매할 수 있습니다. 자세한 내용은 [가상 머신에 대해 선불 결제하고 예약 가상 머신 인스턴스를 사용하여 비용 절감](https://go.microsoft.com/fwlink/?linkid=861721)을 참조하세요.
+EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면 EA 등록과 연결된 활성 구독이 있는 계정 소유자는 [Azure Portal](https://aka.ms/reservations)에서 예약 가상 머신 인스턴스를 구매할 수 있습니다. 자세한 내용은 [가상 머신에 대해 선불 결제하고 예약 가상 머신 인스턴스를 사용하여 비용 절감](../../virtual-machines/windows/prepay-reserved-vm-instances.md)을 참조하세요.
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>예약 인스턴스 구매 세부 정보를 보는 방법
 
-[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)의 왼쪽에 있는 _예약_ 메뉴를 통해 예약 인스턴스 구매 세부 정보를 볼 수 있습니다. 왼쪽 메뉴에서 **보고서**를 선택하고 _사용량 요약_ 탭에서 _서비스별 청구_ 섹션까지 아래로 스크롤합니다. 섹션의 아래쪽으로 스크롤하면 예약된 인스턴스 구매 및 사용량이 서비스 이름 옆에 `1 year` 또는 `3 years` 지정으로 표시된 것처럼 마지막에 나열됩니다(예: `Standard_DS1_v2 eastus 1 year` 또는 `Standard_D2s_v3 eastus2 3 years`).
+[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)의 왼쪽에 있는 _예약_ 메뉴를 통해 예약 인스턴스 구매 세부 정보를 볼 수 있습니다. 왼쪽 메뉴에서 **보고서** 를 선택하고 _사용량 요약_ 탭에서 _서비스별 청구_ 섹션까지 아래로 스크롤합니다. 섹션의 아래쪽으로 스크롤하면 예약된 인스턴스 구매 및 사용량이 서비스 이름 옆에 `1 year` 또는 `3 years` 지정으로 표시된 것처럼 마지막에 나열됩니다(예: `Standard_DS1_v2 eastus 1 year` 또는 `Standard_D2s_v3 eastus2 3 years`).
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>예약된 인스턴스와 연결된 구독을 변경하거나 예약 인스턴스 혜택을 동일한 계정의 구독에 전송하려면 어떻게 해야 하나요?
 
@@ -76,7 +82,7 @@ EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>예약 인스턴스 사용량 세부 정보를 보는 방법
 
-[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)(대금 청구 정보를 볼 수 있는 EA 고객용)에서 _보고서_ > _사용량 요약_ > _서비스별 청구_에 있는 예약 인스턴스 사용량 세부 정보를 볼 수 있습니다. 예약된 인스턴스는 '예약'을 포함하는 서비스 이름으로 식별할 수 있습니다(예: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`).
+[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)(대금 청구 정보를 볼 수 있는 EA 고객용)에서 _보고서_ > _사용량 요약_ > _서비스별 청구_ 에 있는 예약 인스턴스 사용량 세부 정보를 볼 수 있습니다. 예약된 인스턴스는 '예약'을 포함하는 서비스 이름으로 식별할 수 있습니다(예: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`).
 
 사용량 세부 정보 및 고급 보고서 다운로드 CSV에는 추가 예약 인스턴스 사용량 정보가 있습니다. _추가 정보_ 필드는 예약 인스턴스 사용량을 식별하는 데 도움이 됩니다.
 

@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: aee6e6d8ca505bfdcfd4a51e4693779f44b2b0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8c0aef1817581e2b09297d8807676cf0049e1d3e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226335"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169108"
 ---
 이 빠른 시작에서는 Linux용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
 
@@ -68,19 +68,19 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
 1. Eclipse를 시작합니다.
 
-1. **Eclipse IDE Launcher**의 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작**을 선택합니다.
+1. **Eclipse IDE Launcher** 의 **작업 영역** 필드에 새 작업 영역 디렉터리의 이름을 입력합니다. 그리고 **시작** 을 선택합니다.
 
-   ![Eclipse Launcher의 스크린샷](../media/speech-devices-sdk/eclipse-launcher-linux.png)
+   ![Eclipse Launcher를 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-launcher-linux.png)
 
 1. 잠시 후 Eclipse IDE의 주 창이 표시됩니다. 시작 화면이 표시되는 경우 시작 화면을 닫습니다.
 
-1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **Java 프로젝트**를 선택하여 새 프로젝트를 만듭니다. 사용할 수 없는 경우 **프로젝트**를 선택한 다음, **Java 프로젝트**를 선택합니다.
+1. Eclipse 메뉴 모음에서 **파일** > **새로 만들기** > **Java 프로젝트** 를 선택하여 새 프로젝트를 만듭니다. 사용할 수 없는 경우 **프로젝트** 를 선택한 다음, **Java 프로젝트** 를 선택합니다.
 
-1. **새 Java 프로젝트** 마법사가 시작됩니다. 샘플 프로젝트의 위치를 **찾아봅니다**. **마침**을 선택합니다.
+1. **새 Java 프로젝트** 마법사가 시작됩니다. 샘플 프로젝트의 위치를 **찾아봅니다** . **마침** 을 선택합니다.
 
    ![새 Java 프로젝트 마법사의 스크린샷](../media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
-1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **구성** > **Maven 프로젝트로 변환**을 선택합니다. **마침**을 선택합니다.
+1. **패키지 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. 바로 가기 메뉴에서 **구성** > **Maven 프로젝트로 변환** 을 선택합니다. **마침** 을 선택합니다.
 
    ![패키지 탐색기의 스크린샷](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -105,17 +105,17 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
     </dependencies>
    ```
 
-1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **속성**을 선택한 다음, **실행/디버그 설정** > **새로 만들기…** > **Java 애플리케이션**을 선택합니다. 
+1. **패키지 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **속성** 을 선택한 다음, **실행/디버그 설정** > **새로 만들기…** > **Java 애플리케이션** 을 선택합니다. 
 
-1. **구성 편집** 창이 나타납니다. **이름** 필드에 **Main**을 입력하고 **주 클래스**의 **검색**을 사용하여 **com.microsoft.cognitiveservices.speech.samples.FunctionsList**를 찾아서 선택합니다.
+1. **구성 편집** 창이 나타납니다. **이름** 필드에 **Main** 을 입력하고 **주 클래스** 의 **검색** 을 사용하여 **com.microsoft.cognitiveservices.speech.samples.FunctionsList** 를 찾아서 선택합니다.
 
    ![시작 구성 편집 스크린샷](../media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
-1. 대상 아키텍처에 대한 오디오 이진 파일을 **Linux-arm** 또는 **Linux-x64**에서 Java 프로젝트 위치(예: **/home/wcaltest/JRE-Sample-Release**)로 복사합니다.
+1. 대상 아키텍처에 대한 오디오 이진 파일을 **Linux-arm** 또는 **Linux-x64** 에서 Java 프로젝트 위치(예: **/home/wcaltest/JRE-Sample-Release** )로 복사합니다.
 
-1. 또한 **구성 편집** 창에서 **환경** 페이지와 **새로 만들기**를 선택합니다. **새 환경 변수** 창이 나타납니다. **이름** 필드에 **LD_LIBRARY_PATH**를 입력하고 **값** 필드에 *.so 파일이 포함된 폴더(예: **/home/wcaltest/JRE-Sample-Release**)를 입력합니다.
+1. 또한 **구성 편집** 창에서 **환경** 페이지와 **새로 만들기** 를 선택합니다. **새 환경 변수** 창이 나타납니다. **이름** 필드에 **LD_LIBRARY_PATH** 를 입력하고 **값** 필드에 *.so 파일이 포함된 폴더(예: **/home/wcaltest/JRE-Sample-Release** )를 입력합니다.
 
-1. `kws.table`, `participants.properties`를 프로젝트 폴더 **target/classes**로 복사합니다.
+1. `kws.table`, `participants.properties`를 프로젝트 폴더 **target/classes** 로 복사합니다.
 
 
 ## <a name="configure-the-sample-application"></a>샘플 애플리케이션 구성
@@ -157,26 +157,26 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Eclipse에서 샘플 애플리케이션 실행
 
-1. Eclipse 메뉴 모음에서 **실행** > **실행**을 선택합니다. 
+1. Eclipse 메뉴 모음에서 **실행** > **실행** 을 선택합니다. 
 
 1. Speech Devices SDK 예제 애플리케이션이 시작되고 다음 옵션이 표시됩니다.
 
-   ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](../media/speech-devices-sdk/java-sample-app-linux.png)
+   ![Speech Devices SDK 예제 애플리케이션 및 옵션을 보여주는 스크린샷.](../media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. 새로운 **대화 전사** 데모를 시도해봅니다. **Session** > **Start**를 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 프로젝트 폴더 **target/classes**의 `participants.properties`에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription-service.md)을 참조하세요.
+1. 새로운 **대화 전사** 데모를 시도해봅니다. **Session** > **Start** 를 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 프로젝트 폴더 **target/classes** 의 `participants.properties`에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription-service.md)을 참조하세요.
 
-   ![데모 대화 전사 애플리케이션](../media/speech-devices-sdk/cts-sample-app-linux.png)
+   ![데모 대화 전사 애플리케이션을 보여주는 스크린샷.](../media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>독립 실행형 애플리케이션 만들기 및 실행
 
-1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 선택합니다. 
-1. **내보내기** 창이 나타납니다. **Java**를 펼치고 **실행 가능한 JAR 파일**을 선택한 후, **다음**을 선택합니다.
+1. **패키지 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기** 를 선택합니다. 
+1. **내보내기** 창이 나타납니다. **Java** 를 펼치고 **실행 가능한 JAR 파일** 을 선택한 후, **다음** 을 선택합니다.
 
-   ![내보내기 창의 스크린샷](../media/speech-devices-sdk/eclipse-export-linux.png) 
+   ![내보내기 창을 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
-1. **실행 가능한 JAR 파일 내보내기** 창이 나타납니다. 애플리케이션에 대한 **내보내기 대상**을 선택한 다음, **마침**을 선택합니다.
+1. **실행 가능한 JAR 파일 내보내기** 창이 나타납니다. 애플리케이션에 대한 **내보내기 대상** 을 선택한 다음, **마침** 을 선택합니다.
  
-   ![실행 가능한 JAR 파일 내보내기 스크린샷](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
+   ![실행 가능한 JAR 파일 내보내기 창을 보여주는 스크린샷.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
 1. `kws.table`과 `participants.properties`는 애플리케이션에서 필요하므로 위에서 선택한 대상 폴더에 넣습니다.
 

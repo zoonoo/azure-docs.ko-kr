@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bdbb68e8d8748bc8851720588f8748d788e0cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8539f3f2a5882f12f131c95b0c17efd3acba3cf
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542584"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105178"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>자습서: RingCentral과 Azure Active Directory 통합
 
@@ -50,14 +50,14 @@ Azure AD에 대한 RingCentral 통합을 구성하려면 갤러리의 RingCentra
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
-1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에 **RingCentral**을 입력합니다.
-1. 결과 패널에서 **RingCentral**을 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **RingCentral** 을 입력합니다.
+1. 결과 패널에서 **RingCentral** 을 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-테스트 사용자 **Britta Simon**을 사용하여 RingCentral로 Azure AD SSO를 구성 및 테스트합니다. 즉, Azure AD 사용자와 RingCentral의 관련 사용자 간에 연결이 형성되어야 합니다.
+테스트 사용자 **Britta Simon** 을 사용하여 RingCentral로 Azure AD SSO를 구성 및 테스트합니다. 즉, Azure AD 사용자와 RingCentral의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 RingCentral에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
@@ -72,22 +72,22 @@ RingCentral에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **RingCentral** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On**을 선택합니다.
-1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **RingCentral** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **서비스 공급자 메타데이터 파일** 이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    1. **메타데이터 파일 업로드**를 클릭합니다.
-    1. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+    1. **메타데이터 파일 업로드** 를 클릭합니다.
+    1. **폴더 로고** 를 클릭하여 메타데이터 파일을 선택하고 **업로드** 를 클릭합니다.
     1. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 및 **회신 URL** 값이 **기본 SAML 구성** 섹션에 자동으로 채워집니다.
 
     > [!Note]
-    > **서비스 공급자 메타데이터 파일**은 RingCentral SSO 구성 페이지에서 제공됩니다. 이 페이지에 대해서는 자습서 뒷부분에서 설명합니다.
+    > **서비스 공급자 메타데이터 파일** 은 RingCentral SSO 구성 페이지에서 제공됩니다. 이 페이지에 대해서는 자습서 뒷부분에서 설명합니다.
 
-1. **서비스 공급자 메타데이터 파일**이 없는 경우 다음 필드의 값을 입력합니다.
+1. **서비스 공급자 메타데이터 파일** 이 없는 경우 다음 필드의 값을 입력합니다.
 
     a. **식별자** 텍스트 상자에 다음 URL을 입력합니다.
   
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
     | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
@@ -111,81 +111,81 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `BrittaSimon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 RingCentral 액세스 권한을 부여하여 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 설정합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
-1. 애플리케이션 목록에서 **RingCentral**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **RingCentral** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-ringcentral-sso"></a>RingCentral SSO 구성
 
-1. RingCentral 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+1. RingCentral 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
 
     ![내 앱 확장](common/install-myappssecure-extension.png)
 
-1. 브라우저에 확장을 추가한 후 **RingCentral 설정**을 클릭하면 RingCentral 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 RingCentral에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+1. 브라우저에 확장을 추가한 후 **RingCentral 설정** 을 클릭하면 RingCentral 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 RingCentral에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
 
     ![설정 구성](common/setup-sso.png)
 
 1. RingCentral을 수동으로 설정하려면 새 웹 브라우저 창을 열고 RingCentral 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
 
-1. 브라우저 위쪽의 **도구**를 클릭합니다.
+1. 브라우저 위쪽의 **도구** 를 클릭합니다.
 
-    ![이미지](./media/ringcentral-tutorial/ringcentral1.png)
+    ![스크린샷은 RingCentral 회사 사이트에서 선택한 도구를 보여줍니다.](./media/ringcentral-tutorial/ringcentral1.png)
 
-1. **Single Sign-On**으로 이동합니다.
+1. **Single Sign-On** 으로 이동합니다.
 
-    ![이미지](./media/ringcentral-tutorial/ringcentral2.png)
+    ![스크린샷은 도구 메뉴에서 선택한 Single Sign On을 보여줍니다.](./media/ringcentral-tutorial/ringcentral2.png)
 
-1. **Single Sign-On** 페이지의 **SSO 구성** 섹션 아래 **1단계**에서 **편집**을 클릭하고 다음 단계를 수행합니다.
+1. **Single Sign-On** 페이지의 **SSO 구성** 섹션 아래 **1단계** 에서 **편집** 을 클릭하고 다음 단계를 수행합니다.
 
-    ![이미지](./media/ringcentral-tutorial/ringcentral3.png)
+    ![스크린샷은 편집을 선택할 수 있는 SSO 구성 페이지를 보여줍니다.](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. **Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다.
 
-    ![이미지](./media/ringcentral-tutorial/ringcentral4.png)
+    ![스크린샷은 IDP 메타데이터를 업로드할 수 있는 Single Sign-On 설정 페이지를 보여줍니다.](./media/ringcentral-tutorial/ringcentral4.png)
 
-    a. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    a. **찾아보기** 를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
     b. 메타데이터를 업로드하면 **SSO 일반 정보** 섹션에 값이 자동으로 입력됩니다.
 
-    다. **특성 매핑** 섹션에서 **전자 메일 특성 매핑 대상**을 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`로 선택합니다.
+    다. **특성 매핑** 섹션에서 **전자 메일 특성 매핑 대상** 을 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`로 선택합니다.
 
-    d. **저장**을 클릭합니다.
+    d. **저장** 을 클릭합니다.
 
-    e. **2단계**에서 **다운로드**를 클릭하여 **서비스 공급자 메타데이터 파일**을 다운로드한 후 **기본 SAML 구성** 섹션에서 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 채워집니다.
+    e. **2단계** 에서 **다운로드** 를 클릭하여 **서비스 공급자 메타데이터 파일** 을 다운로드한 후 **기본 SAML 구성** 섹션에서 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 채워집니다.
 
-    ![이미지](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![스크린샷은 다운로드를 선택할 수 있는 SSO 구성 페이지를 보여줍니다.](./media/ringcentral-tutorial/ringcentral6.png) 
 
     f. 같은 페이지의 **SSO 사용** 섹션으로 이동하여 다음 단계를 수행합니다.
 
-    ![이미지](./media/ringcentral-tutorial/ringcentral5.png)
+    ![스크린샷은 구성을 완료할 수 있는 SSO 사용 섹션을 보여줍니다.](./media/ringcentral-tutorial/ringcentral5.png)
 
-    * **SSO 서비스 사용**을 선택합니다.
+    * **SSO 서비스 사용** 을 선택합니다.
 
-    * **사용자가 SSO 또는 RingCentral 자격 증명으로 로그인할 수 있도록 허용**을 선택합니다.
+    * **사용자가 SSO 또는 RingCentral 자격 증명으로 로그인할 수 있도록 허용** 을 선택합니다.
 
-    * **저장**을 클릭합니다.
+    * **저장** 을 클릭합니다.
 
 ### <a name="create-ringcentral-test-user"></a>RingCentral 테스트 사용자 만들기
 

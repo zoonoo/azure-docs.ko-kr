@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: baf80e3d543bee455dd8dfa5bc09bc5bf43c3453
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3ad0da1f910556c172c519faf953d4075647955
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945224"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109054"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터에서 프라이빗 엔드포인트 만들기 및 삭제
 
@@ -27,14 +27,14 @@ ms.locfileid: "90945224"
 
 1. Azure Portal에서 해당하는 Stream Analytics 클러스터를 찾아서 선택합니다.
 
-1. **설정**에서 **프라이빗 엔드포인트**를 선택합니다.
+1. **설정** 에서 **프라이빗 엔드포인트** 를 선택합니다.
 
-1. **프라이빗 엔드포인트 추가**를 선택하고 다음 정보를 입력하여 프라이빗 엔드포인트를 통해 안전하게 액세스하려는 리소스를 선택합니다.
+1. **프라이빗 엔드포인트 추가** 를 선택하고 다음 정보를 입력하여 프라이빗 엔드포인트를 통해 안전하게 액세스하려는 리소스를 선택합니다.
 
    |설정|값|
    |---|---|
    |속성|프라이빗 엔드포인트의 이름을 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
-   |연결 방법|**내 디렉터리의 Azure 리소스에 연결**을 선택합니다.<br><br>프라이빗 엔드포인트를 사용하여 안전하게 연결할 리소스 중 하나를 선택하거나, 다른 사람이 공유한 리소스 ID 또는 별칭을 사용하여 다른 사람의 리소스에 연결할 수 있습니다.|
+   |연결 방법|**내 디렉터리의 Azure 리소스에 연결** 을 선택합니다.<br><br>프라이빗 엔드포인트를 사용하여 안전하게 연결할 리소스 중 하나를 선택하거나, 다른 사람이 공유한 리소스 ID 또는 별칭을 사용하여 다른 사람의 리소스에 연결할 수 있습니다.|
    |Subscription|구독을 선택합니다.|
    |리소스 유형|[리소스에 매핑되는 리소스 종류](../private-link/private-endpoint-overview.md#private-link-resource)를 선택합니다.|
    |리소스|프라이빗 엔드포인트를 사용하여 연결하려는 리소스를 선택합니다.|
@@ -46,15 +46,15 @@ ms.locfileid: "90945224"
 
     ![프라이빗 엔드포인트 승인](./media/private-endpoints/approve-private-endpoint.png)
 
-1. Stream Analytics 클러스터로 돌아가면 몇 분 이내에 상태가 **고객 승인 보류 중**에서 **DNS 설정 보류 중**으로 변경되었다가 다시 **설치 완료**로 변경되는 것을 확인할 수 있습니다.
+1. Stream Analytics 클러스터로 돌아가면 몇 분 이내에 상태가 **고객 승인 보류 중** 에서 **DNS 설정 보류 중** 으로 변경되었다가 다시 **설치 완료** 로 변경되는 것을 확인할 수 있습니다.
 
 ## <a name="delete-a-private-endpoint-in-a-stream-analytics-cluster"></a>Stream Analytics 클러스터에서 프라이빗 엔드포인트 삭제
 
 1. Azure Portal에서 해당하는 Stream Analytics 클러스터를 찾아서 선택합니다.
 
-1. **설정**에서 **프라이빗 엔드포인트**를 선택합니다.
+1. **설정** 에서 **프라이빗 엔드포인트** 를 선택합니다.
 
-1. 삭제하려는 프라이빗 엔드포인트를 선택하고 **삭제**를 선택합니다.
+1. 삭제하려는 프라이빗 엔드포인트를 선택하고 **삭제** 를 선택합니다.
 
    ![프라이빗 엔드포인트 삭제](./media/private-endpoints/delete-private-endpoint.png)
 

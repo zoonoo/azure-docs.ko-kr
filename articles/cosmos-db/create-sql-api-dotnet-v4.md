@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: b639bc19620a07d9730066f98977080827f07ec0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 67ed8c54e32a301a50fa49b1ebba284b216d8664
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570469"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276308"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>빠른 시작: .NET V4 SDK를 사용하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 콘솔 앱을 빌드합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "91570469"
 
 .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 시작합니다. 이 문서의 단계에 따라 .NET V4(Azure.Cosmos) 패키지를 설치하고, 앱을 빌드하고, Azure Cosmos DB에 저장된 데이터에 대해 기본 CRUD 작업용 예제 코드를 사용해 봅니다. 
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 키/값, 문서 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 사용하여 다음 작업을 수행합니다.
+Azure Cosmos DB는 모든 규모의 개방형 API를 포함하는 Microsoft의 빠른 NoSQL 데이터베이스입니다. Azure Cosmos DB를 사용하여 키/값, 문서 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. .NET용 Azure Cosmos DB SQL API 클라이언트 라이브러리를 사용하여 다음 작업을 수행합니다.
 
 * Azure Cosmos 데이터베이스 및 컨테이너 만들기
 * 컨테이너에 샘플 데이터 추가
@@ -55,7 +55,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure Cloud Shell을 사용하여 Azure Cosmos 계정을 만들 수 있습니다. Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 액세스할 수 있는 인증된 대화형 셸입니다. Bash 또는 PowerShell 중에서 작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다. 이 빠른 시작에서는 **Bash** 모드를 선택합니다. Azure Cloud Shell은 스토리지 계정도 필요하므로, 메시지가 표시되면 계정을 만들 수 있습니다.
 
-다음 코드 옆에 있는 **Try It**(시도) 단추를 선택하고 **Bash** 모드를 선택한 다음, **스토리지 계정 만들기**를 선택하고 Cloud Shell에 로그인합니다. 다음 코드를 복사하여 Azure Cloud Shell에 붙여넣고 실행합니다. Azure Cosmos 계정 이름은 전역적으로 고유해야 하므로, 명령을 실행하기 전에 `mysqlapicosmosdb` 값을 업데이트합니다.
+다음 코드 옆에 있는 **Try It** (시도) 단추를 선택하고 **Bash** 모드를 선택한 다음, **스토리지 계정 만들기** 를 선택하고 Cloud Shell에 로그인합니다. 다음 코드를 복사하여 Azure Cloud Shell에 붙여넣고 실행합니다. Azure Cosmos 계정 이름은 전역적으로 고유해야 하므로, 명령을 실행하기 전에 `mysqlapicosmosdb` 값을 업데이트합니다.
 
 ```azurecli-interactive
 
@@ -128,7 +128,7 @@ Time Elapsed 00:00:34.17
 
 1. Azure Cosmos 계정으로 이동합니다.
 
-1. **키** 창을 열고 계정의 **URI** 및 **기본 키**를 복사합니다. 다음 단계에서 URI 및 키 값을 환경 변수에 추가합니다.
+1. **키** 창을 열고 계정의 **URI** 및 **기본 키** 를 복사합니다. 다음 단계에서 URI 및 키 값을 환경 변수에 추가합니다.
 
 ## <a name="object-model"></a><a id="object-model"></a>개체 모델
 
@@ -139,7 +139,7 @@ Time Elapsed 00:00:34.17
 * 컨테이너 
 * Items
 
-다른 엔터티의 계층 구조에 대해 자세히 알아보려면 [Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업](databases-containers-items.md) 문서를 참조하세요. 다음 .NET 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
+다른 엔터티의 계층 구조에 대해 자세히 알아보려면 [Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업](account-databases-containers-items.md) 문서를 참조하세요. 다음 .NET 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
 * CosmosClient - 이 클래스는 Azure Cosmos DB 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트 개체는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
 * CreateDatabaseIfNotExistsAsync - 이 메서드는 데이터베이스 리소스를 비동기 작업으로 만들거나(존재하지 않는 경우) 가져옵니다(존재하는 경우). 

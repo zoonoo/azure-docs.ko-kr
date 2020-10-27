@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e415cbec3b2e8c834ee02630d7f849ccf3e1e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548891"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>자습서: Recognize와 Azure Active Directory 통합
 
@@ -41,7 +41,7 @@ Recognize와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Recognize는 **SP**에서 시작된 SSO를 지원합니다.
+* Recognize는 **SP** 에서 시작된 SSO를 지원합니다.
 
 ## <a name="adding-recognize-from-the-gallery"></a>갤러리에서 Recognize 추가
 
@@ -53,7 +53,7 @@ Recognize의 Azure AD 통합을 구성하려면 갤러리의 Recognize를 관리
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Recognize의 Azure AD 통합을 구성하려면 갤러리의 Recognize를 관리
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Recognize**를 입력하고 결과 패널에서 **Recognize**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Recognize** 를 입력하고 결과 패널에서 **Recognize** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 Recognize](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 사용하여 Recognize에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 사용하여 Recognize에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Recognize의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Recognize에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ Recognize에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Recognize** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Recognize** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -97,16 +97,16 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **서비스 공급자 메타데이터 파일** 이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     >[!NOTE]
-    >본 자습서의 **Recognize Single Sign-On 구성** 섹션에서 **서비스 공급자 메타데이터 파일**을 받을 수 있습니다.
+    >본 자습서의 **Recognize Single Sign-On 구성** 섹션에서 **서비스 공급자 메타데이터 파일** 을 받을 수 있습니다.
 
-    a. **메타데이터 파일 업로드**를 클릭합니다.
+    a. **메타데이터 파일 업로드** 를 클릭합니다.
 
     ![메타데이터 파일 업로드](common/upload-metadata.png)
 
-    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
+    b. **폴더 로고** 를 클릭하여 메타데이터 파일을 선택하고 **업로드** 를 클릭합니다.
 
     ![메타데이터 파일 선택](common/browse-upload-metadata.png)
 
@@ -119,7 +119,7 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     > [!Note]
     > **식별자** 값이 자동으로 채워지지 않으면 본 자습서의 뒷부분에 있는 **Recognize Single Sign-On 구성** 섹션에서 설명할 SSO 설정 섹션에서 서비스 공급자 메타데이터 URL을 열어서 식별자 값을 확인할 수 있습니다. 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Recognize 클라이언트 지원 팀](mailto:support@recognizeapp.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -137,19 +137,19 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 1. 다른 웹 브라우저 창에서 Recognize 테넌트에 관리자로 로그인합니다.
 
-2. 오른쪽 위 모서리에서 **메뉴**를 클릭합니다. **회사 관리자**로 이동합니다.
+2. 오른쪽 위 모서리에서 **메뉴** 를 클릭합니다. **회사 관리자** 로 이동합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![스크린샷은 설정 메뉴에서 선택한 회사 관리자를 보여줍니다.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-3. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
+3. 왼쪽 탐색 창에서 **설정** 을 클릭합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![스크린샷은 탐색 페이지에서 선택한 설정을 보여줍니다.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. **SSO 설정** 섹션에서 다음 단계를 수행합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 SSO 설정을 보여줍니다.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-    a. **SSO 사용**에서 **켜기**를 선택합니다.
+    a. **SSO 사용** 에서 **켜기** 를 선택합니다.
 
     b. **IDP 엔터티 ID** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
     
@@ -161,23 +161,23 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     
     f. **설정 저장** 단추를 클릭합니다. 
 
-5. **SSO 설정** 섹션 옆의 **서비스 공급자 메타데이터 URL**에서 URL을 복사합니다.
+5. **SSO 설정** 섹션 옆의 **서비스 공급자 메타데이터 URL** 에서 URL을 복사합니다.
    
-    ![앱 쪽에서 Single Sign-On 구성](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![스크린샷은 서비스 공급자 메타데이터를 복사할 수 있는 메모를 보여줍니다.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-6. 빈 브라우저에서 **메타데이터 URL 링크**를 열어서 메타데이터 문서를 다운로드합니다. 그런 다음, 파일에서 EntityDescriptor 값(entityID)을 복사하여 Azure Portal **기본 SAML 구성**의 **식별자** 텍스트 상자에 붙여넣습니다.
+6. 빈 브라우저에서 **메타데이터 URL 링크** 를 열어서 메타데이터 문서를 다운로드합니다. 그런 다음, 파일에서 EntityDescriptor 값(entityID)을 복사하여 Azure Portal **기본 SAML 구성** 의 **식별자** 텍스트 상자에 붙여넣습니다.
     
-    ![앱 쪽에서 Single Sign-On 구성](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![스크린샷은 엔터티 ID를 가져올 수 있는 일반 텍스트 XML이 있는 텍스트 상자를 보여줍니다.](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -185,35 +185,35 @@ Recognize에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 brittasimon@yourcompanydomain.extension을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Recognize에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Recognize**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Recognize** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Recognize**를 선택합니다.
+2. 애플리케이션 목록에서 **Recognize** 를 선택합니다.
 
     ![애플리케이션 목록의 Recognize 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -229,19 +229,19 @@ Azure AD 사용자가 Recognize에 로그인할 수 있도록 하려면 Recogniz
 
 1. Recognize 회사 사이트에 관리자로 로그인합니다.
 
-2. 오른쪽 위 모서리에서 **메뉴**를 클릭합니다. **회사 관리자**로 이동합니다.
+2. 오른쪽 위 모서리에서 **메뉴** 를 클릭합니다. **회사 관리자** 로 이동합니다.
 
-3. 왼쪽 탐색 창에서 **설정**을 클릭합니다.
+3. 왼쪽 탐색 창에서 **설정** 을 클릭합니다.
 
 4. **사용자 동기화** 섹션에서 다음 단계를 수행합니다.
    
     ![새 사용자](./media/recognize-tutorial/tutorial_recognize_005.png "새 사용자")
    
-    a. **동기화 사용**에서 **켜기**를 선택합니다.
+    a. **동기화 사용** 에서 **켜기** 를 선택합니다.
    
-    b. **동기화 공급자 선택**에서 **Microsoft/Office 365**를 선택합니다.
+    b. **동기화 공급자 선택** 에서 **Microsoft/Office 365** 를 선택합니다.
    
-    다. **사용자 동기화 실행**을 클릭합니다.
+    다. **사용자 동기화 실행** 을 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

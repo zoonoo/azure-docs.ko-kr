@@ -3,16 +3,16 @@ title: .NET을 사용한 Azure Storage 샘플 | Microsoft Docs
 description: Azure Storage에 대한 샘플 코드 및 애플리케이션을 확인하고 다운로드하여 실행합니다. .NET 스토리지 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81010497"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359784"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>v12 .NET 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -336,4 +336,5 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 * Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
 * Python: [Python을 사용한 Azure Storage 샘플](storage-samples-python.md)
 * JavaScript/node.js: [JavaScript를 사용한 Azure Storage 샘플](storage-samples-javascript.md)
+* C++: [C++를 사용한 Azure Storage 샘플](storage-samples-c-plus-plus.md)
 * 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

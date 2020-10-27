@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 455cf921cfcd4ac5d0e81fb4e092ec165070a3f1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048511"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331569"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>빠른 시작 - ADT Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
-Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들어 이와 상호 작용할 수 있습니다. 이는 개별 요소를 **디지털 쌍**으로 모델링한 다음, 라이브 이벤트에 응답하고 정보를 쿼리할 수 있는 지식 **그래프**에 연결하여 수행됩니다.
+Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들어 이와 상호 작용할 수 있습니다. 이는 개별 요소를 **디지털 쌍** 으로 모델링한 다음, 라이브 이벤트에 응답하고 정보를 쿼리할 수 있는 지식 **그래프** 에 연결하여 수행됩니다.
 
 이 빠른 시작에서는 [**ADT(Azure Digital Twins) 탐색기**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)라는 샘플 애플리케이션의 지원을 통해 미리 작성된 Azure Digital Twins 그래프를 살펴봅니다. ADT Explorer를 사용하면 환경에 대한 디지털 표현을 업로드하고, Azure Digital Twins의 환경을 나타내기 위해 생성된 쌍 및 그래프의 시각적 이미지를 보고, 브라우저 기반 시각적 환경을 통해 다른 관리 작업을 수행할 수 있습니다.
 
@@ -35,41 +35,40 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 
 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 아직 없는 경우 지금 **[체험 구독을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** .
 
-또한 머신에 **Node.js**가 필요합니다. 이 링크에서 최신 버전을 가져올 수 있습니다. [Node.js](https://nodejs.org/).
+또한 머신에 **Node.js** 가 필요합니다. 이 링크에서 최신 버전을 가져올 수 있습니다. [Node.js](https://nodejs.org/).
 
 마지막으로 빠른 시작 중에 사용할 두 가지 샘플도 다운로드해야 합니다.
 * **ADT 탐색기** 샘플 애플리케이션. 이 샘플에는 빠른 시작에서 Azure Digital Twins 시나리오를 로드하고 살펴보는 데 사용하는 기본 앱이 포함되어 있습니다. 앱을 가져오려면 [ADT(Azure Digital Twins) 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)로 이동합니다. *ZIP 다운로드* 단추를 눌러 이 샘플 코드의 *.ZIP* 파일을 머신에 다운로드합니다. 그러면 .ZIP 폴더가 _**Azure_Digital_Twins__ADT__explorer.zip**_ 으로 머신에 다운로드됩니다. 폴더의 압축을 풀고 파일을 추출합니다.
-* **Azure Digital Twins 시나리오 예제**. 여기에는 사용할 ADT 탐색기에 로드할 미리 작성된 Azure Digital Twins 그래프가 포함되어 있습니다. 시나리오를 가져오려면 [Azure Digital Twins 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples)로 이동합니다. *ZIP 다운로드* 단추를 눌러 이 샘플 코드의 *.ZIP* 파일을 머신에 다운로드합니다. 그러면 .ZIP 폴더가 _**Azure_Digital_Twins_samples.zip**_ 으로 머신에 다운로드됩니다. 폴더의 압축을 풀고 파일을 추출합니다.
+* **Azure Digital Twins 시나리오 예제** . 여기에는 사용할 ADT 탐색기에 로드할 미리 작성된 Azure Digital Twins 그래프가 포함되어 있습니다. 시나리오를 가져오려면 [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). *ZIP 다운로드* 단추를 눌러 이 샘플 코드의 *.ZIP* 파일을 머신에 다운로드합니다. 그러면 .ZIP 폴더가 _**Azure_Digital_Twins_end_to_end_samples.zip**_ 으로 머신에 다운로드됩니다. 폴더의 압축을 풀고 파일을 추출합니다.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Azure Digital Twins 및 ADT 탐색기 설정
 
-Azure Digital Twins를 사용하는 첫 번째 단계는 **Azure Digital Twins 인스턴스**를 설정하는 것입니다. 서비스의 인스턴스가 만들어지면 나중에 빠른 시작에서 예제 데이터로 채울 수 있습니다.
+Azure Digital Twins를 사용하는 첫 번째 단계는 **Azure Digital Twins 인스턴스** 를 설정하는 것입니다. 서비스의 인스턴스가 만들어지면 나중에 빠른 시작에서 예제 데이터로 채울 수 있습니다.
 
 또한 ADT 탐색기가 컴퓨터에서 실행되고 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한을 설정합니다. 이렇게 하면 샘플 앱을 사용하여 인스턴스 및 해당 데이터를 검색할 수 있습니다.
 
-### <a name="set-up-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 설정
+### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Azure Digital Twins 인스턴스 및 앱 등록 설정
 
-먼저 Azure Digital Twins 인스턴스와 작업을 수행할 수 있는 필수 인증을 설정합니다. 그렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 선호하는 환경에 따라 설치 문서는 [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) 또는 [자동화 Cloud Shell 배포 스크립트 샘플](how-to-set-up-instance-scripted.md)에 대해 제공됩니다. 모든 버전의 지침에는 각 단계를 성공적으로 완료했으며 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
+먼저 **Azure Digital Twins 인스턴스를 설정** 하고 이를 사용하는 데 필요한 인증을 설정합니다. 그렇게 하려면 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 선호하는 환경에 따라 설치 문서는 [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md) 또는 [자동화 Cloud Shell 배포 스크립트 샘플](how-to-set-up-instance-scripted.md)에 대해 제공됩니다. 모든 버전의 지침에는 각 단계를 성공적으로 완료했으며 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
+* Azure Digital Twins 인스턴스가 설정되면 해당 인스턴스의 **_호스트 이름_** ([포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))이 필요합니다.
 
-이 빠른 시작에서는 인스턴스를 설정할 때 다음 값이 필요합니다. 이러한 값을 다시 수집해야 하는 경우 설정 문서의 해당 섹션에 대한 아래 링크를 사용하여 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
-* Azure Digital Twins 인스턴스 **_호스트 이름_**([포털에서 찾기](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure AD 앱 등록 **_애플리케이션(클라이언트) ID_**([포털에서 찾기](how-to-set-up-instance-portal.md#collect-important-values))
-* Azure AD 앱 등록 **_디렉터리(테넌트) ID_**([포털에서 찾기](how-to-set-up-instance-portal.md#collect-important-values))
+ADT 탐색기 애플리케이션을 인증하려면 **앱 등록** 도 설정해야 합니다. [*방법: 앱 등록 만들기*](how-to-create-app-registration.md)의 지침에 따라 설정합니다. 
+* 앱 등록이 있으면 등록의 **_애플리케이션(클라이언트) ID_** 및 **_디렉터리(테넌트) ID_** ([포털에서 이러한 ID 찾기](how-to-create-app-registration.md#collect-client-id-and-tenant-id))가 필요합니다.
 
 ### <a name="set-adt-explorer-permissions"></a>ADT 탐색기 권한 설정
 
-다음으로, 로컬로 호스팅되는 웹 애플리케이션인 ADT Explorer를 사용하도록 만든 Azure Digital Twins 인스턴스를 준비합니다. Azure Portal의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 페이지를 방문하여 목록에서 앱 등록 이름을 선택합니다.
+다음으로, 로컬로 호스팅되는 웹 애플리케이션인 ADT Explorer를 사용하도록 만든 Azure Digital Twins 인스턴스를 준비합니다. Azure Portal의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 페이지를 방문하여 목록에서 이전 섹션에서 만든 **앱 등록** 의 이름을 선택합니다.
 
-등록 메뉴에서 *인증*을 선택하고, *+ 플랫폼 추가*를 누릅니다.
+등록 메뉴에서 *인증* 을 선택하고, *+ 플랫폼 추가* 를 누릅니다.
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
-이어지는 *플랫폼 구성* 페이지에서 *웹*을 선택합니다.
+이어지는 *플랫폼 구성* 페이지에서 *웹* 을 선택합니다.
 구성 세부 정보를 다음과 같이 입력합니다.
-* **리디렉션 URI**: *http://localhost:3000* 이라는 리디렉션 URI를 추가합니다.
-* **암시적 허용**: *액세스 토큰* 확인란을 선택합니다.
+* **리디렉션 URI** : *http://localhost:3000* 이라는 리디렉션 URI를 추가합니다.
+* **암시적 허용** : *액세스 토큰* 확인란을 선택합니다.
 
-*구성*을 눌러 완료합니다.
+*구성* 을 눌러 완료합니다.
 
 :::row:::
     :::column:::
@@ -79,7 +78,7 @@ Azure Digital Twins를 사용하는 첫 번째 단계는 **Azure Digital Twins �
     :::column-end:::
 :::row-end:::
 
-이제 ADT 탐색기에서 사용할 웹 구성이 있습니다. 이는 Azure Portal의 [인증] 탭에 반영됩니다. 아래 섹션을 확인한 후 *저장*을 누릅니다.
+이제 ADT 탐색기에서 사용할 웹 구성이 있습니다. 이는 Azure Portal의 [인증] 탭에 반영됩니다. 아래 섹션을 확인한 후 *저장* 을 누릅니다.
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다.":::
 
@@ -118,13 +117,13 @@ Microsoft에서 *요청된 권한* 팝업 창을 표시하는 경우 이 애플�
 
 다음으로, 샘플 시나리오와 그래프를 ADT 탐색기로 가져옵니다.
 
-샘플 시나리오는 다운로드하여 압축을 푼 _**Azure_Digital_Twins_samples**_ 폴더에 있으므로 이제 폴더로 이동해야 합니다.
+샘플 시나리오는 다운로드하여 압축을 푼 _**Azure_Digital_Twins_end_to_end_samples**_ 폴더에 있으므로 이제 이 폴더로 이동해야 합니다.
 
 ### <a name="models"></a>모델
 
 Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를 정의하는 것입니다. 이는 사용자 환경에 있는 엔터티 형식을 설명하는 사용자 지정 [**모델**](concepts-models.md)을 만들어 수행됩니다. 
 
-각 모델은 **DTDL(디지털 쌍 정의 언어)** 이라는 JSON-LD와 유사한 언어로 작성되며, *속성*, *원격 분석*, *관계* 및 *구성 요소* 측면에서 단일 형식의 엔터티를 설명합니다. 나중에 이러한 형식의 특정 인스턴스를 나타내는 디지털 쌍의 기반으로 이러한 모델을 사용합니다.
+각 모델은 **DTDL(디지털 쌍 정의 언어)** 이라는 JSON-LD와 유사한 언어로 작성되며, *속성* , *원격 분석* , *관계* 및 *구성 요소* 측면에서 단일 형식의 엔터티를 설명합니다. 나중에 이러한 형식의 특정 인스턴스를 나타내는 디지털 쌍의 기반으로 이러한 모델을 사용합니다.
 
 일반적으로 모델을 만드는 경우 다음 세 가지 단계를 완료합니다.
 1. 모델 정의를 작성합니다(빠른 시작에서 이미 샘플 솔루션의 일부로 수행되었음).
@@ -141,8 +140,8 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. 표시되는 파일 선택기 상자에서 다운로드한 리포지토리의 *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/models* 폴더로 이동합니다.
-2. *Room.json* 및 *Floor.json*을 선택하고, [확인]을 누릅니다. (원하는 경우 다른 모델을 업로드할 수 있지만, 이 빠른 시작에서는 사용되지 않습니다.)
+1. 표시되는 파일 선택기 상자에서 다운로드한 리포지토리의 *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp/models* 폴더로 이동합니다.
+2. *Room.json* 및 *Floor.json* 을 선택하고, [확인]을 누릅니다. (원하는 경우 다른 모델을 업로드할 수 있지만, 이 빠른 시작에서는 사용되지 않습니다.)
 3. Azure 계정에 로그인하라는 팝업 대화 상자를 따릅니다.
 
 >[!NOTE]
@@ -165,7 +164,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
 
 이제 일부 모델이 Azure Digital Twins 인스턴스에 업로드되었으므로 모델 정의를 따르는 [**디지털 쌍**](concepts-twins-graph.md)을 추가할 수 있습니다. 
 
-디지털 쌍은 농장의 센서, 자동차의 조명 또는 이 빠른 시작의 건물 층에 있는 방과 같은 비즈니스 환경 내의 실제 엔터티를 나타냅니다. 지정된 모델 유형의 여러 쌍(예: 모두 *방* 모델을 사용하는 여러 개의 방)을 만들고, 관계를 사용하여 전체 환경을 나타내는 **쌍 그래프**에 연결할 수 있습니다.
+디지털 쌍은 농장의 센서, 자동차의 조명 또는 이 빠른 시작의 건물 층에 있는 방과 같은 비즈니스 환경 내의 실제 엔터티를 나타냅니다. 지정된 모델 유형의 여러 쌍(예: 모두 *방* 모델을 사용하는 여러 개의 방)을 만들고, 관계를 사용하여 전체 환경을 나타내는 **쌍 그래프** 에 연결할 수 있습니다.
 
 이 섹션에서는 미리 만들어진 그래프에 연결된 미리 만들어진 쌍을 업로드합니다. 그래프에는 다음 레이아웃으로 연결된 두 개의 층과 두 개의 방이 있습니다.
 * *Floor0*
@@ -179,11 +178,11 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-파일 선택기 상자에서 *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* 폴더로 이동하여 _**buildingScenario.xlsx**_ 스프레드시트 파일을 선택합니다. 이 파일에는 샘플 그래프에 대한 설명이 포함되어 있습니다. [확인]을 누릅니다.
+파일 선택기 상자에서 *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp* 폴더로 이동하여 _**buildingScenario.xlsx**_ 스프레드시트 파일을 선택합니다. 이 파일에는 샘플 그래프에 대한 설명이 포함되어 있습니다. [확인]을 누릅니다.
 
 몇 초 후 ADT 탐색기에서 로드될 그래프의 미리 보기를 표시하는 *가져오기* 보기를 엽니다.
 
-그래프 업로드를 확인하려면 *그래프 보기*의 오른쪽 위 모서리에서 *저장* 아이콘을 누릅니다.
+그래프 업로드를 확인하려면 *그래프 보기* 의 오른쪽 위 모서리에서 *저장* 아이콘을 누릅니다.
 
 :::row:::
     :::column:::
@@ -193,7 +192,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
     :::column-end:::
 :::row-end:::
 
-이제 ADT 탐색기에서 업로드된 파일을 사용하여 요청된 쌍 및 이러한 쌍들 간의 관계를 만듭니다. 완료되었음을 나타내는 대화 상자가 표시됩니다. *닫기*를 누릅니다.
+이제 ADT 탐색기에서 업로드된 파일을 사용하여 요청된 쌍 및 이러한 쌍들 간의 관계를 만듭니다. 완료되었음을 나타내는 대화 상자가 표시됩니다. *닫기* 를 누릅니다.
 
 :::row:::
     :::column:::
@@ -217,7 +216,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다.":::
 
-원(그래프 "노드")은 디지털 쌍을 나타내며, 선은 관계를 나타냅니다. *Floor0* 쌍에는 *Room0*이 포함되고 *Floor1* 쌍에는 *Room1*이 포함되어 있음을 알 수 있습니다.
+원(그래프 "노드")은 디지털 쌍을 나타내며, 선은 관계를 나타냅니다. *Floor0* 쌍에는 *Room0* 이 포함되고 *Floor1* 쌍에는 *Room1* 이 포함되어 있음을 알 수 있습니다.
 
 마우스를 사용하는 경우 그래프의 조각을 클릭하고 끌어서 이동할 수 있습니다.
 
@@ -225,7 +224,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
 
 쌍을 선택하여 *속성 탐색기* 상자에서 속성과 해당 값의 목록을 볼 수 있습니다. 
 
-*Room0*의 속성은 다음과 같습니다.
+*Room0* 의 속성은 다음과 같습니다.
 
 :::row:::
     :::column:::
@@ -235,9 +234,9 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
     :::column-end:::
 :::row-end:::
 
-*Room0*의 온도는 **70**입니다.
+*Room0* 의 온도는 **70** 입니다.
 
-*Room1*의 속성은 다음과 같습니다.
+*Room1* 의 속성은 다음과 같습니다.
 
 :::row:::
     :::column:::
@@ -247,13 +246,13 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
     :::column-end:::
 :::row-end:::
 
-*Room1*의 온도는 **80**입니다.
+*Room1* 의 온도는 **80** 입니다.
 
 ### <a name="query-the-graph"></a>그래프 쿼리
 
 Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 쉽고 효율적으로 트윈 그래프를 [쿼리](concepts-query-language.md)하는 기능입니다. 
 
-그래프에서 쌍을 쿼리하는 한 가지 방법은 *속성*을 사용하는 것입니다. 속성을 기반으로 하여 쿼리하면 주의가 필요한 환경에서 이상값을 찾는 것을 포함하여 다양한 질문에 대답할 수 있습니다.
+그래프에서 쌍을 쿼리하는 한 가지 방법은 *속성* 을 사용하는 것입니다. 속성을 기반으로 하여 쿼리하면 주의가 필요한 환경에서 이상값을 찾는 것을 포함하여 다양한 질문에 대답할 수 있습니다.
 
 이 섹션에서는 쿼리를 실행하여 _**내 환경에서 온도가 75를 초과하는 모든 쌍은 무엇인가요?**_ 라는 질문에 대답합니다.
 
@@ -263,7 +262,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-이전의 쌍 속성을 살펴보면 *Room0*의 온도가 **70**이고 *Room1*의 온도가 **80**입니다. 따라서 _**Room1**_ 만 결과에 표시됩니다.
+이전의 쌍 속성을 살펴보면 *Room0* 의 온도가 **70** 이고 *Room1* 의 온도가 **80** 입니다. 따라서 _**Room1**_ 만 결과에 표시됩니다.
     
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
@@ -272,11 +271,11 @@ SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 
 ## <a name="edit-data-in-the-graph"></a>그래프에서 데이터 편집
 
-ADT 탐색기를 사용하여 그래프에 표시된 쌍의 속성을 편집할 수 있습니다. 이 섹션에서는 **_Room0의 온도_를 76으로 높이겠습니다**.
+ADT 탐색기를 사용하여 그래프에 표시된 쌍의 속성을 편집할 수 있습니다. 이 섹션에서는 **_Room0의 온도_ 를 76으로 높이겠습니다** .
 
-이렇게 하려면 **Room0*을 선택하여 속성 탐색기* 상자에서 해당 속성 목록을 표시합니다.
+이렇게 하려면 **Room0* 을 선택하여 속성 탐색기* 상자에서 해당 속성 목록을 표시합니다.
 
-이 목록의 속성은 편집할 수 있습니다. 새 값을 입력하도록 설정하려면 온도 값으로 **70**을 선택합니다. **76**을 입력하고, *저장* 아이콘을 눌러 온도를 **76**으로 업데이트합니다.
+이 목록의 속성은 편집할 수 있습니다. 새 값을 입력하도록 설정하려면 온도 값으로 **70** 을 선택합니다. **76** 을 입력하고, *저장* 아이콘을 눌러 온도를 **76** 으로 업데이트합니다.
 
 :::row:::
     :::column:::
@@ -286,17 +285,17 @@ ADT 탐색기를 사용하여 그래프에 표시된 쌍의 속성을 편집할 
     :::column-end:::
 :::row-end:::
 
-성공적으로 저장되면 업데이트하기 위해 Azure Digital Twins [API](how-to-use-apis-sdks.md)를 사용하여 백그라운드에서 사용된 패치 코드를 표시하는 *패치 정보* 창이 표시됩니다. *닫기*를 누릅니다.
+성공적으로 저장되면 업데이트하기 위해 Azure Digital Twins [API](how-to-use-apis-sdks.md)를 사용하여 백그라운드에서 사용된 패치 코드를 표시하는 *패치 정보* 창이 표시됩니다. *닫기* 를 누릅니다.
 
 ### <a name="query-to-see-the-result"></a>결과를 확인하는 쿼리
 
-그래프가 *Room0*의 온도에 대한 업데이트를 성공적으로 등록했는지 확인하려면 이전 쿼리를 다시 실행하여 환경에서 **온도가 75를 초과하는 모든 쌍을 가져옵니다**.
+그래프가 *Room0* 의 온도에 대한 업데이트를 성공적으로 등록했는지 확인하려면 이전 쿼리를 다시 실행하여 환경에서 **온도가 75를 초과하는 모든 쌍을 가져옵니다** .
 
 ```SQL
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-이제 *Room0*의 온도가 **70**에서 **76**으로 변경되었으므로 두 쌍이 모두 결과에 표시됩니다.
+이제 *Room0* 의 온도가 **70** 에서 **76** 으로 변경되었으므로 두 쌍이 모두 결과에 표시됩니다.
 
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-after.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다." lightbox="media/quickstart-adt-explorer/result-query-property-after.png":::
 
@@ -321,7 +320,7 @@ Azure Digital Twins 자습서로 계속 진행하려면 이 빠른 시작에 사
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-마지막으로, 로컬 머신에 다운로드한 프로젝트 샘플 폴더(_**Azure_Digital_Twins__ADT__explorer**_ 및 _**Azure_Digital_Twins_samples**_)를 삭제합니다. 압축 및 압축을 푼 버전을 모두 삭제해야 할 수 있습니다.
+마지막으로 로컬 컴퓨터에 다운로드한 프로젝트 샘플 폴더( _**Azure_Digital_Twins__ADT__explorer**_ 및 _**Azure_Digital_Twins_end_to_end_samples**_ )를 삭제합니다. 압축 및 압축을 푼 버전을 모두 삭제해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

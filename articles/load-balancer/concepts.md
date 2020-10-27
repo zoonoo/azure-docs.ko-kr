@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 5c12b7d0bf9bed551e54ccb2e54a4674a8323a9c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 28c3e4ade2c78a1a77ef7263463803e40727ba8f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930920"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315300"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure Load Balancer 알고리즘
 
@@ -57,6 +57,7 @@ ms.locfileid: "91930920"
 
 ## <a name="next-steps"></a>다음 단계
 
+- Azure Load Balancer를 구성하는 [구성 요소](components.md)에 대해 알아봅니다.
 - Load Balancer를 사용하여 시작하려면 [공용 표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요. 하나의 부하 분산 장치를 만들고, 사용자 지정 IIS 확장이 설치된 VM을 만들고, VM 간에 웹앱의 부하를 분산시킵니다.
 - [Azure Load Balancer 아웃바운드 연결](load-balancer-outbound-connections.md)에 대해 자세히 알아보세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).

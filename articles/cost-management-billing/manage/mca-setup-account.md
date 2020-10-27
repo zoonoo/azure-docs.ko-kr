@@ -5,19 +5,21 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/20/2020
 ms.author: banders
-ms.openlocfilehash: 5498fd83efa0fa52f5f0861588eaa8cdeb0953ac
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 7e930ca938b2531fb001c327132f79f703b2ea74
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371799"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316405"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
-기업계약 등록이 만료되었거나 곧 만료되는 경우 Microsoft 고객 계약에 서명하여 등록을 갱신할 수 있습니다. 이 문서에서는 설정 후 기존 청구에서 변경되는 내용을 설명하고 새 청구 계정을 설정하는 과정을 안내합니다. 갱신 단계는 다음과 같습니다.
+직접 기업계약 등록이 만료되었거나 곧 만료되는 경우 Microsoft 고객 계약에 서명하여 등록을 갱신할 수 있습니다. 이 문서에서는 설정 후 기존 청구에서 변경되는 내용을 설명하고 새 청구 계정을 설정하는 과정을 안내합니다. 현재 간접 기업계약이 만료되는 경우 Microsoft 고객 계약으로 갱신할 수 없습니다.
+
+갱신 단계는 다음과 같습니다.
 
 1. 새 Microsoft 고객 계약을 수락합니다. Microsoft 현장 담당자와 협력하여 세부 정보를 이해하고 새 계약에 동의합니다.
 2. 새 Microsoft 고객 계약에 대해 만들어진 새 청구 계정을 설정합니다.
@@ -28,7 +30,7 @@ ms.locfileid: "91371799"
 - 요금에 대한 월별 디지털 청구서를 받게 됩니다. Azure Cost Management + 청구 페이지에서 청구서를 살펴보고 분석할 수 있습니다.
 - 기업계약 등록의 부서 및 계정 대신 새 계정의 청구 구조와 범위를 사용하여 청구를 관리하고 구성하게 됩니다.
 
-설정을 시작하기 전에 다음을 수행하는 것이 좋습니다.
+설정을 시작하기 전에 다음 작업을 수행하는 것이 좋습니다.
 
 - **새 청구 계정 이해**
   - 새 계정은 조직의 청구 방법이 간단합니다. [새 청구 계정에 대한 간략한 개요 보기](../understand/mca-overview.md)
@@ -65,7 +67,7 @@ ms.locfileid: "91371799"
 
    ![엔터프라이즈 관리자를 초대하는 방법을 보여주는 스크린샷](./media/mca-setup-account/ea-mca-invite-admins.png)
 
-4. **요청 보내기**를 선택합니다.
+4. **요청 보내기** 를 선택합니다.
 
    관리자는 설치 완료 지침이 포함된 이메일을 받게 됩니다.
 
@@ -98,9 +100,9 @@ Microsoft 고객 계약에 서명한 조직 내 사용자는 청구 프로필에
 
 Microsoft 고객 계약을 수락하는 동안 새 청구 계정에 대한 Azure AD(Active Directory) 테넌트가 선택됩니다. 조직의 테넌트가 없는 경우 새 테넌트가 만들어집니다. 테넌트는 Azure Active Directory 내에서 조직을 나타냅니다. 조직의 글로벌 테넌트 관리자는 테넌트를 사용하여 조직의 애플리케이션 및 데이터 액세스를 관리합니다.
 
-새 계정은 Microsoft 고객 계약에 서명할 때 선택된 테넌트의 사용자만 지원합니다. 기업계약에 대한 관리 권한이 있는 사용자가 테넌트에 포함된 경우 설정 과정에서 이들에게 새 청구 계정에 대한 액세스 권한이 부여됩니다. 이들이 테넌트에 포함되지 않은 경우에는 초대를 받아야만 새 청구 계정에 액세스할 수 있습니다.
+새 계정은 Microsoft 고객 계약에 서명할 때 선택된 테넌트의 사용자만 지원합니다. 기업계약에 대한 관리 권한이 있는 사용자가 테넌트에 포함된 경우 설정 과정에서 이들에게 새 청구 계정에 대한 액세스 권한이 부여됩니다. 사용자가 테넌트의 일부가 아닌 경우 초대를 받아야만 새 청구 계정에 액세스할 수 있습니다.
 
-사용자를 초대하면 해당 사용자는 테넌트에 게스트 사용자로 추가되고 청구 계정에 대한 액세스 권한을 얻게 됩니다. 사용자를 초대하려면 테넌트에 대한 게스트 액세스를 켜야 합니다. 자세한 내용은 [Azure Active Directory의 게스트 액세스 제어](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)를 참조하세요. 게스트 액세스가 꺼져 있는 경우 테넌트의 글로벌 관리자에게 연락하여 게스트 액세스를 켜 달라고 요청합니다. <!-- Todo - How can they find their global administrator -->
+사용자가 초대를 받으면 해당 사용자가 게스트 사용자로 테넌트에 추가되어 청구 계정에 액세스할 수 있습니다. 사용자를 초대하려면 테넌트에 대한 게스트 액세스를 켜야 합니다. 자세한 내용은 [Azure Active Directory의 게스트 액세스 제어](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory)를 참조하세요. 게스트 액세스가 꺼져 있는 경우 테넌트의 글로벌 관리자에게 연락하여 게스트 액세스를 켜 달라고 요청합니다. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-replaced-features"></a>바뀐 기능 보기
 
@@ -112,7 +114,7 @@ Microsoft 고객 계약을 수락하는 동안 새 청구 계정에 대한 Azure
 
 ### <a name="notification-contacts"></a>알림 연락처
 
-알림 연락처에게는 Azure 기업계약에 대한 이메일 통신문이 전달됩니다. 알림 연락처는 새 청구 계정에서 지원되지 않습니다. Azure 크레딧 및 청구서에 대한 이메일은 청구 계정의 청구 프로필에 대한 액세스 권한이 있는 사용자에게 전달됩니다.
+알림 연락처에게는 Azure 기업계약에 대한 이메일 통신문이 전달됩니다. 이는 새 청구 계정에서 지원되지 않습니다. Azure 크레딧 및 청구서에 대한 이메일은 청구 계정의 청구 프로필에 대한 액세스 권한이 있는 사용자에게 전달됩니다.
 
 ### <a name="spending-quotas"></a>지출 할당량
 
@@ -132,7 +134,7 @@ Microsoft 고객 계약을 수락하는 동안 새 청구 계정에 대한 Azure
 
 ### <a name="user-access-to-azure-resources"></a>Azure 리소스에 대한 사용자 액세스
 
-Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스에 대한 액세스 권한은 전환의 영향을 받지 않습니다.
+Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure 리소스에 대한 액세스는 전환 중에 영향을 받지 않습니다.
 
 ### <a name="azure-reservations"></a>Azure Reservations
 
@@ -164,7 +166,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
 ### <a name="closing-your-browser-during-setup"></a>설정 중에 브라우저 종료
 
-**전환 시작**을 클릭하기 전에는 브라우저를 닫아도 됩니다. 이메일에 포함된 링크를 사용하여 설정으로 돌아가서 전환을 시작할 수 있습니다. 전환이 시작된 후에는 브라우저를 닫아도 전환이 계속 실행됩니다. 전환 상태 페이지로 돌아가서 최신 전환 상태를 모니터링하세요. 전환이 완료되면 이메일을 받게 됩니다.
+브라우저는 **전환 시작** 을 선택하기 전에 닫을 수 있습니다. 이메일에 포함된 링크를 사용하여 설정으로 돌아가서 전환을 시작할 수 있습니다. 전환이 시작된 후에는 브라우저를 닫아도 전환이 계속 실행됩니다. 전환 상태 페이지로 돌아가서 최신 전환 상태를 모니터링하세요. 전환이 완료되면 이메일을 받게 됩니다.
 
 ## <a name="complete-the-setup-in-the-azure-portal"></a>Azure Portal에서 설정 완료
 
@@ -176,14 +178,14 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
    `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
 
-3. 설정의 마지막 단계에서 **전환 시작**을 선택합니다. 전환 시작을 선택하면 다음과 같은 작업이 수행됩니다.
+3. 설정의 마지막 단계에서 **전환 시작** 을 선택합니다. 전환 시작을 선택하면 다음과 같은 작업이 수행됩니다.
 
     ![설정 마법사를 보여주는 스크린샷](./media/mca-setup-account/ea-mca-set-up-wizard.png)
 
     - 기업계약 계층 구조에 해당하는 청구 계층 구조가 새 청구 계정에 생성됩니다. 자세한 내용은 [달라지는 청구 계층 구조 이해](#understand-changes-to-your-billing-hierarchy)를 참조하세요.
     - 기업계약 등록의 관리자에게는 조직의 요금 청구를 계속 관리할 수 있도록 새 청구 계정에 대한 액세스 권한이 제공됩니다.
-    - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **전환 중에 Azure 서비스에 영향을 주지 않습니다. 서비스는 중단 없이 계속 실행됩니다**.
-    - 기존에 보유한 Azure 예약은 혜택 또는 기간에 대한 변경 없이 새 청구 계정으로 이전됩니다.
+    - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **전환 중에 Azure 서비스에 영향을 주지 않습니다. 서비스는 중단 없이 계속 실행됩니다** .
+    - Azure Reservations가 있는 경우 혜택 또는 기간을 변경하지 않고 새 청구 계정으로 전환됩니다.
 
 4. **전환 상태** 페이지에서 전환 상태를 모니터링할 수 있습니다.
 
@@ -197,13 +199,13 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/mca-setup-account/search-cmb.png)
 
 3. 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이 됩니다.
 
-4. 왼쪽에서 **Azure 구독**을 선택합니다.
+4. 왼쪽에서 **Azure 구독** 을 선택합니다.
 
    ![구독 목록을 보여주는 스크린샷](./media/mca-setup-account/mca-subscriptions-post-transition.png)
 
@@ -217,11 +219,11 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/mca-setup-account/search-cmb.png)
 
-3. **Microsoft 고객 계약**에 대한 청구 계정을 선택합니다.
+3. **Microsoft 고객 계약** 에 대한 청구 계정을 선택합니다.
 
 4. 왼쪽에서 **액세스 제어(IAM)** 를 선택합니다.
 
@@ -233,7 +235,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/mca-setup-account/search-cmb.png)
 
@@ -249,11 +251,11 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/mca-setup-account/search-cmb.png).
 
-3. 청구서 섹션을 선택합니다. 청구서 섹션의 이름은 기업계약 등록의 해당 부서와 동일합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필**을 선택한 다음, **청구서 섹션**을 선택합니다. 청구서 섹션 목록에서 청구서 섹션을 선택합니다.
+3. 청구서 섹션을 선택합니다. 청구서 섹션의 이름은 기업계약 등록의 해당 부서와 동일합니다. 액세스 권한에 따라 청구 계정을 선택해야 할 수도 있습니다. 청구 계정에서 **청구 프로필** 을 선택한 다음, **청구서 섹션** 을 선택합니다. 청구서 섹션 목록에서 청구서 섹션을 선택합니다.
 
    ![전환 후 청구서 섹션 목록을 보여주는 스크린샷](./media/mca-setup-account/mca-invoice-sections-post-transition.png)
 
@@ -261,7 +263,7 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
     ![전환 후 부서 및 계정 관리자의 액세스 권한을 보여주는 스크린샷](./media/mca-setup-account/mca-department-account-admins-access-post-transition.png)
 
-엔터프라이즈 관리자 및 부서 관리자는 청구서 섹션 소유자 또는 청구서 섹션 읽기 권한자로 나열되고, 부서의 계정 소유자는 Azure 구독 작성자로 나열됩니다. 모든 청구서 섹션에 대해 같은 단계를 반복하여 기업계약 등록의 모든 부서에 대한 액세스 권한을 확인합니다. 부서에 속하지 않은 계정 소유자에게는 **기본 청구서 섹션**이라는 청구서 섹션에 대한 권한이 부여됩니다. 관리자의 액세스 권한이 누락되었다고 생각되면 Azure Portal에서 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
+엔터프라이즈 관리자 및 부서 관리자는 청구서 섹션 소유자 또는 청구서 섹션 읽기 권한자로 나열되고, 부서의 계정 소유자는 Azure 구독 작성자로 나열됩니다. 모든 청구서 섹션에 대해 같은 단계를 반복하여 기업계약 등록의 모든 부서에 대한 액세스 권한을 확인합니다. 부서에 속하지 않은 계정 소유자에게는 **기본 청구서 섹션** 이라는 청구서 섹션에 대한 권한이 부여됩니다. 관리자의 액세스 권한이 누락되었다고 생각되면 Azure Portal에서 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

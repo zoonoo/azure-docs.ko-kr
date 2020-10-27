@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449077"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370511"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -20,7 +20,7 @@ AKS(Azure Kubernetes Service)는 컨테이너화된 애플리케이션 개발, �
 
 Azure Security Center 및 AKS는 최고의 클라우드 네이티브 Kubernetes 보안 제품을 구성하고, 아래에 설명된 대로 환경 강화, 워크로드 보호 및 런타임 보호를 지원합니다.
 
-Kubernetes 클러스터에 대한 위협 탐지를 사용하려면 **Azure Defender for Kubernetes**를 사용하도록 설정하세요.
+Kubernetes 클러스터에 대한 위협 탐지를 사용하려면 **Azure Defender for Kubernetes** 를 사용하도록 설정하세요.
 
 [서버용 Azure Defender](defender-for-servers-introduction.md)를 사용하도록 설정 하면 Linux AKS 노드에 대한 호스트 수준 위협 탐지를 사용할 수 있습니다.
 
@@ -29,8 +29,8 @@ Kubernetes 클러스터에 대한 위협 탐지를 사용하려면 **Azure Defen
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|**Azure Defender for Kubernetes**는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
-|필요한 역할 및 권한:|**보안 관리자**는 경고를 해제할 수 있습니다.<br>**보안 읽기 권한자**는 발견 사항을 볼 수 있습니다.|
+|가격 책정:|**Azure Defender for Kubernetes** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
+|필요한 역할 및 권한:|**보안 관리자** 는 경고를 해제할 수 있습니다.<br>**보안 읽기 권한자** 는 발견 사항을 볼 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
@@ -72,7 +72,7 @@ Security Center에서 수신하고 분석한 항목에 다음이 포함된 것�
 - API 서버의 감사 로그
 - Log Analytics 에이전트의 원시 보안 이벤트
 - AKS 클러스터의 클러스터 구성 정보
-- **Kubernetes용 Azure Policy 추가 항목**을 통해 Azure Policy의 워크로드 구성. [Kubernetes 허용 제어를 사용한 워크로드 보호 모범 사례에 대한 자세한 정보](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- **Kubernetes용 Azure Policy 추가 항목** 을 통해 Azure Policy의 워크로드 구성. [Kubernetes 허용 제어를 사용한 워크로드 보호 모범 사례에 대한 자세한 정보](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Azure Security Center, Azure Kubernetes Service 및 Azure Policy 간의 상호 작용에 대한 개략적인 아키텍처" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
@@ -83,11 +83,28 @@ Security Center에서 수신하고 분석한 항목에 다음이 포함된 것�
 
 ### <a name="can-i-still-get-aks-protections-without-the-log-analytics-agent"></a>Log Analytics 에이전트가 없어도 여전히 AKS 보호를 이용할 수 있나요?
 
-위에서 설명한 것처럼, 선택적 **Azure Defender for Kubernetes** 요금제는 클러스터 수준에서 보호를 제공하며, **서버용 Azure Defender**의 Log Analytics 에이전트는 노드를 보호합니다. 
+위에서 설명한 것처럼, 선택적 **Azure Defender for Kubernetes** 요금제는 클러스터 수준에서 보호를 제공하며, **서버용 Azure Defender** 의 Log Analytics 에이전트는 노드를 보호합니다. 
 
 가능하면 가장 완전한 보호를 위해 둘 다 배포하는 것이 좋습니다.
 
 에이전트를 호스트에 설치하지 않도록 선택하는 경우 위협 방지 혜택 및 보안 경고를 일부만 받게 됩니다. 네트워크 분석 및 악의적인 서버와의 통신과 관련된 경고는 계속 받을 수 있습니다.
+
+
+### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>AKS를 사용하면 사용자 지정 VM 확장을 내 AKS 노드에 설치할 수 있나요?
+
+Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전트를 실행해야 합니다. 
+
+AKS는 관리형 서비스이며, Log Analytics 에이전트가 Microsoft에서 관리하는 확장이므로 AKS 클러스터에서도 지원됩니다.
+
+
+
+### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>내 클러스터에서 컨테이너 에이전트용 Azure Monitor를 이미 실행하고 있는 경우 Log Analytics 에이전트도 필요한가요?
+
+Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전트를 실행해야 합니다.
+
+클러스터에서 컨테이너용 Azure Monitor 에이전트를 이미 실행하고 있는 경우 Log Analytics 에이전트도 설치할 수 있으며 두 에이전트가 문제없이 서로 간에 함께 작업할 수 있습니다.
+
+[컨테이너 에이전트용 Azure Monitor에 대해 자세히 알아보세요](../azure-monitor/insights/container-insights-manage-agent.md).
 
 
 ## <a name="next-steps"></a>다음 단계

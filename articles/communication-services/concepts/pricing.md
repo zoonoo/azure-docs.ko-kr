@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761229"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126193"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Azure Communication Services의 가격은 선불 요금이 없는 종량제 모델을 기반으로 합니다. 서비스 사용량만큼만 요금이 청구됩니다.
+Azure Communication Services의 가격은 일반적으로 종량제 모델을 기반으로 합니다.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>음성/화상 통화 및 화면 공유
 
@@ -51,7 +46,7 @@ Alice는 동료 Bob 및 Charlie와 함께 그룹 통화를 했습니다. Alice�
 - 참가자 2명 x 60분 x 참가자별로 분당 $0.004 = $0.48[영상 통화와 음성 통화는 모두 동일한 요율로 청구됨]
 - 참가자 1명 x 43분 x 참가자별로 분당 $0.004 = $0.172[영상 통화와 음성 통화는 모두 동일한 요율로 청구됨]
 
-**그룹 통화의 총 비용**: $0.48 + $0.172 = $0.652
+**그룹 통화의 총 비용** : $0.48 + $0.172 = $0.652
 
 ## <a name="chat"></a>채팅
 
@@ -84,6 +79,16 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 ## <a name="price"></a>가격 
 
 전화 통신 서비스는 분당 가격이 책정되는 반면 SMS는 메시지별로 가격이 책정됩니다. 가격은 사용 중인 번호의 유형과 위치뿐만 아니라 통화 및 SMS 메시지의 대상에 따라 결정됩니다.
+
+### <a name="telephone-number-leasing"></a>전화 번호 임대
+
+전화 번호 임대 요금은 선불로 청구된 후 월 단위로 반복 부과됩니다.
+
+|숫자 형식   |월 요금제   |
+|--------------|-----------|
+|로컬(미국)     |$1/월        |
+|수신자 부담(미국) |$2/월 |
+
 
 ### <a name="telephone-calling"></a>전화 통화
 

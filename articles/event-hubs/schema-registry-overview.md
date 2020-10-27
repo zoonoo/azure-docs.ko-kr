@@ -4,20 +4,20 @@ description: 이 문서에서는 Azure Event Hubs(미리 보기)의 스키마 �
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938800"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330498"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Event Hubs의 Azure Schema Registry(미리 보기)
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드에는 Apache Avro와 같은 스키마 기반 형식을 사용하여 직렬화되거나 역직렬화되는 정형 데이터가 포함됩니다. 발신기와 수신기 모두에서 JSON 스키마와 마찬가지로 스키마 문서를 사용하여 데이터의 무결성을 확인하려고 할 수 있습니다. 스키마 기반 형식의 경우 메시지 소비자에서 스키마를 사용할 수 있도록 하는 것이 소비자를 통해 데이터를 역직렬화할 수 있는 필수 구성 요소입니다. 
 
-**Azure 스키마 레지스트리**는 스키마 문서에 대한 중앙 리포지토리를 이벤트 구동 및 메시징 중심 애플리케이션에 제공하는 Event Hubs의 기능입니다. 생산자 및 소비자 애플리케이션 간에 스키마를 관리하고 공유하지 않고도 데이터를 교환할 수 있는 유연성을 제공하며, 다른 속도로 발전할 수도 있습니다. 또한 스키마 레지스트리는 재사용 가능한 스키마에 대한 간단한 거버넌스 프레임워크를 제공하고, 그룹화 구문(스키마 그룹)을 통해 스키마 간의 관계를 정의합니다.
+**Azure 스키마 레지스트리** 는 스키마 문서에 대한 중앙 리포지토리를 이벤트 구동 및 메시징 중심 애플리케이션에 제공하는 Event Hubs의 기능입니다. 생산자 및 소비자 애플리케이션 간에 스키마를 관리하고 공유하지 않고도 데이터를 교환할 수 있는 유연성을 제공하며, 다른 속도로 발전할 수도 있습니다. 또한 스키마 레지스트리는 재사용 가능한 스키마에 대한 간단한 거버넌스 프레임워크를 제공하고, 그룹화 구문(스키마 그룹)을 통해 스키마 간의 관계를 정의합니다.
 
 > [!NOTE]
-> - **스키마 레지스트리** 기능은 현재 **미리 보기**에 있으므로 프로덕션 워크로드에는 추천되지 않습니다.
+> - **스키마 레지스트리** 기능은 현재 **미리 보기** 에 있으므로 프로덕션 워크로드에는 추천되지 않습니다.
 > - 이 기능은 **기본** 계층이 아닌 **표준** 및 **전용** 계층에서만 사용할 수 있습니다.
 
 Apache Avro와 같은 스키마 구동 직렬화 프레임워크를 사용하면 직렬화 메타데이터를 공유 스키마로 구체화하면 JSON과 같은 태그가 지정된 형식을 사용하는 경우처럼 모든 데이터 세트에 포함된 형식 정보 및 필드 이름의 메시지당 오버헤드를 크게 줄일 수 있습니다. 이벤트와 함께 이벤트 인프라 내에 스키마를 저장하면 직렬화/역직렬화하는 데 필요한 메타데이터가 항상 가까운 곳에 있고 스키마를 잘못 배치할 수 없습니다. 
@@ -50,8 +50,8 @@ Avro 직렬 변환기가 포함된 다음 라이브러리 중 하나를 사용�
 ## <a name="standard-vs-dedicated-limits"></a>표준 및 전용 제한
 Event Hubs의 표준 계층과 전용 계층에 대해 동일하거나 다른 제한(예: 네임스페이스의 스키마 그룹 수)은 [스키마 레지스트리 제한 사항](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)을 참조하세요.
 
-## <a name="role-based-access-control"></a>역할 기반 액세스 제어
-스키마 레지스트리에 프로그래밍 방식으로 액세스하는 경우 애플리케이션을 Azure AD(Azure Active Directory)에 등록하고 애플리케이션의 보안 주체를 RBAC(역할 기반 액세스 제어) 역할 중 하나에 추가해야 합니다.
+## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
+스키마 레지스트리에 프로그래밍 방식으로 액세스하는 경우 애플리케이션을 Azure AD(Azure Active Directory)에 등록하고 애플리케이션의 보안 주체를 Azure RBAC(Azure 역할 기반 액세스 제어) 역할 중 하나에 추가해야 합니다.
 
 | 역할 | 설명 | 
 | ---- | ----------- | 

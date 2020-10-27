@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243242"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093585"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -55,13 +55,13 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
 메트릭에 액세스하려면
 
-1. 페이지 맨 아래의 메뉴에서 **메트릭**을 선택합니다.
+1. 페이지 맨 아래의 메뉴에서 **메트릭** 을 선택합니다.
 
     ![메트릭](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
 2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다. 예: **Requests** 
 3. 차트에는 총 API 호출 수가 표시됩니다.
-4. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가**를 클릭하고 **백 엔드 응답 코드**를 선택하여 500을 값으로 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
+4. **요청** 메트릭의 차원을 사용하여 차트를 필터링할 수 있습니다. 예를 들어 **필터 추가** 를 클릭하고 **백 엔드 응답 코드** 를 선택하여 500을 값으로 입력합니다. 이제 차트에는 API 백 엔드에서 실패한 요청의 수가 표시됩니다.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>권한 없는 요청에 대한 경고 규칙 설정
 
@@ -73,27 +73,27 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
 경고를 구성하려면
 
-1. 페이지 맨 아래의 메뉴 모음에서 **경고**를 선택합니다.
+1. 페이지 맨 아래의 메뉴 모음에서 **경고** 를 선택합니다.
 
-    ![경고](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![페이지 하단에 있는 메뉴에 경고를 보여주는 스크린샷.](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. 이 경고의 **새로운 경고 규칙**을 클릭합니다.
-3. **조건 추가**를 선택합니다.
-4. 신호 유형 드롭다운에서 **메트릭**을 선택합니다.
-5. **무단 게이트웨이 요청**을 모니터링할 신호로 선택합니다.
+2. 이 경고의 **새로운 경고 규칙** 을 클릭합니다.
+3. **조건 추가** 를 선택합니다.
+4. 신호 유형 드롭다운에서 **메트릭** 을 선택합니다.
+5. **무단 게이트웨이 요청** 을 모니터링할 신호로 선택합니다.
 
-    ![경고](./media/api-management-azure-monitor/signal-type.png)
+    ![신호 유형 필드 및 권한이 없는 게이트웨이 요청 신호 이름을 강조 표시하는 스크린샷.](./media/api-management-azure-monitor/signal-type.png)
 
-6. **신호 논리 구성** 보기에서, 경고가 트리거되어야 하는 임계값을 지정하고 **완료**를 클릭합니다.
+6. **신호 논리 구성** 보기에서, 경고가 트리거되어야 하는 임계값을 지정하고 **완료** 를 클릭합니다.
 
-    ![경고](./media/api-management-azure-monitor/threshold.png)
+    ![신호 논리 구성 보기를 보여주는 스크린샷.](./media/api-management-azure-monitor/threshold.png)
 
 7. 기존 작업 그룹을 선택하거나 새 항목을 만듭니다. 아래 예제에서는 이메일이 관리자에게 전송됩니다. 
 
     ![경고](./media/api-management-azure-monitor/action-details.png)
 
 8. 경고 규칙의 이름과 설명을 입력하고, 심각도를 선택합니다. 
-9. **경고 규칙 만들기**를 누릅니다.
+9. **경고 규칙 만들기** 를 누릅니다.
 10. 이제, API 키를 사용하지 않고 회의 API를 호출해봅니다. 경고가 트리거되고 이메일이 관리자에게 전송됩니다. 
 
 ## <a name="activity-logs"></a>활동 로그
@@ -110,11 +110,11 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 활동 로그를 보려면
 
 1. APIM 서비스 인스턴스를 선택합니다.
-2. **활동 로그**를 클릭합니다.
+2. **활동 로그** 를 클릭합니다.
 
     ![활동 로그](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
 
-3. 원하는 필터링 범위를 선택하고 **적용**을 클릭합니다.
+3. 원하는 필터링 범위를 선택하고 **적용** 을 클릭합니다.
 
 ## <a name="resource-logs"></a>리소스 로그
 
@@ -123,11 +123,11 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 리소스 로그를 구성하려면 다음을 수행합니다.
 
 1. APIM 서비스 인스턴스를 선택합니다.
-2. **진단 설정**을 클릭합니다.
+2. **진단 설정** 을 클릭합니다.
 
     ![리소스 로그](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. **진단 켜기**를 클릭합니다. 리소스 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
+3. **진단 켜기** 를 클릭합니다. 리소스 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
 
 API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 리소스 로그(시간 단위로 일괄 처리됨)를 제공합니다.
 

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055854"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279012"
 ---
 # <a name="example-powershell-scripts"></a>예제 PowerShell 스크립트
 
@@ -22,18 +22,21 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 
 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering)에는 *Scripts* 폴더에 서비스의 REST API와 상호 작용하기 위한 샘플 스크립트가 포함되어 있습니다. 이 문서에서는 사용 방법을 설명합니다.
 
+> [!TIP]
+> 서비스와 상호 작용하는 [ARRT라는 UI 기반 도구](azure-remote-rendering-asset-tool.md)도 있습니다. 이는 스크립트 사용에 대한 편리한 대안입니다. ![ARRT](./media/azure-remote-rendering-asset-tool.png "ARRT 스크린샷")
+
 > [!CAUTION]
 > REST API 함수를 너무 자주 호출하면 서버가 제한되고 결국 오류가 반환됩니다. 이 경우 http 오류 코드 ID는 429("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-샘플 스크립트를 실행하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)의 기능을 설정해야 합니다.
+샘플 스크립트를 실행하려면 [Azure PowerShell](/powershell/azure/)의 기능을 설정해야 합니다.
 
 1. Azure PowerShell 설치:
     1. 관리자 권한으로 PowerShell 창을 엽니다.
     1. `Install-Module -Name Az -AllowClobber`를 실행합니다.
 
-1. 스크립트 실행에 대한 오류가 발생하면 [실행 정책](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)이 적절하게 설정되어 있는지 확인합니다.
+1. 스크립트 실행에 대한 오류가 발생하면 [실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)이 적절하게 설정되어 있는지 확인합니다.
     1. 관리자 권한으로 PowerShell 창을 엽니다.
     1. `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`를 실행합니다.
 
@@ -44,9 +47,9 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
     1. `Connect-AzAccount`를 실행하고 화면의 지시에 따릅니다.
 
     > [!NOTE]
-    > 조직에 둘 이상의 구독이 있는 경우 SubscriptionId 및 Tenant 인수를 지정해야 할 수 있습니다. [Connect-AzAccount 설명서](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)에서 세부 정보를 확인하세요.
+    > 조직에 둘 이상의 구독이 있는 경우 SubscriptionId 및 Tenant 인수를 지정해야 할 수 있습니다. [Connect-AzAccount 설명서](/powershell/module/az.accounts/connect-azaccount)에서 세부 정보를 확인하세요.
 
-1. [Azure Remote Rendering GithHub 리포지토리](https://github.com/Azure/azure-remote-rendering)에서 *Scripts* 폴더를 다운로드합니다.
+1. [Azure Remote Rendering GitHub 리포지토리](https://github.com/Azure/azure-remote-rendering)에서 *Scripts* 폴더를 다운로드합니다.
 
 ## <a name="configuration-file"></a>구성 파일
 
@@ -90,14 +93,14 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-**RenderingSession.ps1**을 실행하려면 이 구조를 입력해야 합니다.
+**RenderingSession.ps1** 을 실행하려면 이 구조를 입력해야 합니다.
 
 - **vmSize:** 가상 머신의 크기를 선택합니다. [*표준*](../reference/vm-sizes.md) 또는 [*프리미엄*](../reference/vm-sizes.md)을 선택합니다. 렌더링 세션이 더 이상 필요하지 않으면 종료하십시오.
 - **maxLeaseTime:** VM을 임대하려는 기간입니다. 임대가 만료되면 종료됩니다. 임대 시간은 나중에 연장할 수 있습니다(아래 참조).
 
 ### <a name="assetconversionsettings"></a>assetConversionSettings
 
-**Conversion.ps1**을 실행하려면 이 구조를 입력해야 합니다.
+**Conversion.ps1** 을 실행하려면 이 구조를 입력해야 합니다.
 
 자세한 내용은 [Azure Storage 계정 준비](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)를 참조하세요.
 
@@ -116,7 +119,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 .\RenderingSession.ps1
 ```
 
-이 스크립트는 [session management REST API](../how-tos/session-rest-api.md)를 호출하여 지정된 설정으로 렌더링 VM을 실행합니다. 성공하면 *sessionId*를 검색합니다. 그런 다음, 세션이 준비되거나 오류가 발생할 때까지 세션 속성을 폴링합니다.
+이 스크립트는 [session management REST API](../how-tos/session-rest-api.md)를 호출하여 지정된 설정으로 렌더링 VM을 실행합니다. 성공하면 *sessionId* 를 검색합니다. 그런 다음, 세션이 준비되거나 오류가 발생할 때까지 세션 속성을 폴링합니다.
 
 **다른 구성** 파일을 사용하려면:
 
@@ -124,7 +127,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-구성 파일에서 **개별 설정을 재정의**할 수 있습니다.
+구성 파일에서 **개별 설정을 재정의** 할 수 있습니다.
 
 ```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
@@ -136,7 +139,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 .\RenderingSession.ps1 -CreateSession
 ```
 
-스크립트가 검색한 *sessionId*는 대부분의 다른 세션 명령에 전달되어야 합니다.
+스크립트가 검색한 *sessionId* 는 대부분의 다른 세션 명령에 전달되어야 합니다.
 
 ### <a name="retrieve-session-properties"></a>세션 속성 검색
 
@@ -146,7 +149,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-세션이 준비되거나 오류가 발생할 때까지 대기하려면 `-Poll`을 사용합니다.**
+세션이 준비되거나 오류가 발생할 때까지 대기하려면 `-Poll`을 사용합니다. 
 
 ### <a name="list-active-sessions"></a>활성 세션 나열
 
@@ -165,7 +168,7 @@ Azure Remote Rendering은 다음 두 가지 REST API를 제공합니다.
 현재는 세션의 maxLeaseTime만 변경하도록 지원됩니다.
 
 > [!NOTE]
-> 임대 시간은 항상 세션 VM이 처음 생성된 시간부터 계산됩니다. 따라서 세션 임대를 1시간 연장하려면 *maxLeaseTime*을 한 시간 늘립니다.
+> 임대 시간은 항상 세션 VM이 처음 생성된 시간부터 계산됩니다. 따라서 세션 임대를 1시간 연장하려면 *maxLeaseTime* 을 한 시간 늘립니다.
 
 ```PowerShell
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
@@ -228,7 +231,7 @@ arrconfig.json을 완전히 입력하고 스토리지 계정을 연결하고 나
 .\Conversion.ps1 -ConvertAsset
 ```
 
-다음 명령줄 스위치를 사용하여 구성 파일에서 **개별 설정을 재정의**할 수 있습니다.
+다음 명령줄 스위치를 사용하여 구성 파일에서 **개별 설정을 재정의** 할 수 있습니다.
 
 * **Id:** GetConversionStatus와 사용되는 ConversionId
 * **ArrAccountId:** accountSettings의 arrAccountId
@@ -259,7 +262,7 @@ arrconfig.json을 완전히 입력하고 스토리지 계정을 연결하고 나
 .\Conversion.ps1 -Upload
 ```
 
-Blob Storage에 이미 업로드된 모델의 변환 프로세스만 시작합니다(업로드 실행 안 함, 변환 상태 폴링 안 함). 스크립트는 *conversionId*를 반환합니다.
+Blob Storage에 이미 업로드된 모델의 변환 프로세스만 시작합니다(업로드 실행 안 함, 변환 상태 폴링 안 함). 스크립트는 *conversionId* 를 반환합니다.
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset

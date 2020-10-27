@@ -4,12 +4,12 @@ description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware S
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776428"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152026"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
@@ -67,7 +67,7 @@ Azure의 배포 화면에서 가상 네트워크가 이미 정의된 경우 다�
 
 이전 단계에서 만든 점프 상자에 로그인합니다. 로그인되면 웹 브라우저를 열고, vCenter 및 NSX-T 관리 콘솔로 이동하여 로그인합니다.  
 
-Azure Portal에서 vCenter 및 NSX-T 관리 콘솔의 IP 주소와 자격 증명을 확인할 수 있습니다.  프라이빗 클라우드를 선택한 다음, **개요** 보기에서 **ID > 기본값**을 차례로 선택합니다. 
+Azure Portal에서 vCenter 및 NSX-T 관리 콘솔의 IP 주소와 자격 증명을 확인할 수 있습니다.  프라이빗 클라우드를 선택한 다음, **개요** 보기에서 **ID > 기본값** 을 차례로 선택합니다. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Azure VMware Solution에서 네트워크 세그먼트 만들기
 
@@ -82,7 +82,7 @@ NSX-T를 사용하여 Azure VMware Solution 환경에 새 네트워크 세그먼
 
 [보급된 네트워크 경로 확인](#verify-network-routes-advertised) 단계로 돌아갑니다. 이전 단계에서 만든 네트워크 세그먼트를 나타내는 추가 경로가 목록에 표시됩니다.  
 
-가상 머신의 경우 [보급된 NSX-T 세그먼트 확인](#verify-advertised-nsx-t-segment) 단계에서 만든 세그먼트를 할당합니다.  
+가상 머신의 경우 [Azure VMware Solution에서 네트워크 세그먼트 만들기](#create-a-network-segment-on-azure-vmware-solution) 단계에서 만든 세그먼트를 할당합니다.  
 
 DNS가 필요하므로 사용하려는 DNS 서버를 확인합니다.  
 

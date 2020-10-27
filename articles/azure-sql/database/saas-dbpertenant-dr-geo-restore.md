@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619036"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330107"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
 
-    ![복구 프로세스](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![복구 프로세스의 상태를 모니터링할 수 있는 PowerShell 창을 보여주는 스크린샷.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > 복구 작업 코드를 살펴보려면 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs 폴더에서 PowerShell 스크립트를 검토합니다.
@@ -202,7 +202,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
   * 테넌트가 오프라인 상태인 동안 테넌트의 이벤트 페이지를 직접 열면 해당 페이지에 테넌트 오프라인 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall을 열어 봅니다.
 
-    ![복구 프로세스](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![오프라인 이벤트 페이지를 보여주는 스크린샷.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>복구 지역에 새 테넌트 프로비전
 테넌트 데이터베이스가 복원되기 전에도 복구 지역에 새 테넌트를 프로비전할 수 있습니다. 복구 지역에 프로비전된 새 테넌트 데이터베이스는 나중에 복구된 데이터베이스와 함께 송환됩니다.   

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0023308c74d58b1c94bf13fcb47ffb8aa7ade1d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85557620"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329409"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정으로 데이터 마이그레이션
 
@@ -66,13 +66,13 @@ Azure Table Storage 또는 테이블 API 미리 보기를 마이그레이션 원
 * **/s.Filter:** (선택 사항) 적용할 필터 문자열
 * **/s.Projection:** (선택 사항) 선택할 열 목록
 
-Azure Table Storage에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **스토리지 계정** > **계정** > **액세스 키**를 클릭한 후 복사 단추를 사용하여 **연결 문자열**을 복사합니다.
+Azure Table Storage에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **스토리지 계정** > **계정** > **액세스 키** 를 클릭한 후 복사 단추를 사용하여 **연결 문자열** 을 복사합니다.
 
-:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="HBase 원본 옵션의 스크린샷":::
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="스토리지 계정 > 계정 > 액세스 키 옵션을 보여주고 복사 단추를 강조 표시하는 스크린샷.":::
 
-Azure Cosmos DB 테이블 API(미리 보기) 계정에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **Azure Cosmos DB** > **계정** > **연결 문자열**을 클릭하고 복사 단추를 사용하여 **연결 문자열**을 복사합니다.
+Azure Cosmos DB 테이블 API(미리 보기) 계정에서 가져올 때 원본 연결 문자열을 검색하려면 Azure Portal을 열고 **Azure Cosmos DB** > **계정** > **연결 문자열** 을 클릭하고 복사 단추를 사용하여 **연결 문자열** 을 복사합니다.
 
-:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="HBase 원본 옵션의 스크린샷":::
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="스토리지 계정 > 계정 > 액세스 키 옵션을 보여주고 복사 단추를 강조 표시하는 스크린샷.":::
 
 [Azure Table Storage 명령 예제](#azure-table-storage)
 

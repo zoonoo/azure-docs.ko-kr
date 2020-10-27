@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: 기본 Azure Digital Twins 인스턴스 및 앱 등록을 정리하기 위한 파일 포함
+description: 기본 Azure Digital Twins 인스턴스를 정리하기 위한 파일 포함
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: e8f167555434338416381aaf8978a3d551686fb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606617"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372323"
 ---
 이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 다음 절차에 따라 삭제합니다.
 
@@ -23,10 +23,4 @@ Azure Cloud Shell을 열고 다음 명령을 실행하여 리소스 그룹과 �
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-그리고 다음 명령을 사용하여 클라이언트 앱에 대해 만든 Azure Active Directory 앱 등록을 삭제합니다.
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```

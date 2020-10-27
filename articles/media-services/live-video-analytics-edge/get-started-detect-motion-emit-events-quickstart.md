@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 2d426952e92951185c43b68266196a6764f4f601
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825933"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125016"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -18,6 +18,10 @@ ms.locfileid: "91825933"
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="동작 감지를 기반으로 하는 Live Video Analytics":::
+
+IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 단계가 포함된 다음 비디오를 볼 수 있습니다.
+
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,8 +44,8 @@ ms.locfileid: "91825933"
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. [Azure Cloud Shell](https://shell.azure.com)로 이동합니다.
-1. Cloud Shell을 처음 사용하는 경우 스토리지 계정 및 Microsoft Azure Files 공유를 만들 구독을 선택하라는 메시지가 표시됩니다. **스토리지 만들기**를 선택하여 Cloud Shell 세션 정보에 대한 스토리지 계정을 만듭니다. 이 스토리지 계정은 Azure Media Services 계정에서 사용하기 위해 스크립트에서 만드는 계정과는 다릅니다.
-1. Cloud Shell 창 왼쪽의 드롭다운 메뉴에서 사용자 환경으로 **Bash**를 선택합니다.
+1. Cloud Shell을 처음 사용하는 경우 스토리지 계정 및 Microsoft Azure Files 공유를 만들 구독을 선택하라는 메시지가 표시됩니다. **스토리지 만들기** 를 선택하여 Cloud Shell 세션 정보에 대한 스토리지 계정을 만듭니다. 이 스토리지 계정은 Azure Media Services 계정에서 사용하기 위해 스크립트에서 만드는 계정과는 다릅니다.
+1. Cloud Shell 창 왼쪽의 드롭다운 메뉴에서 사용자 환경으로 **Bash** 를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="동작 감지를 기반으로 하는 Live Video Analytics"
@@ -73,7 +77,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 다음 지침에 따라 Azure IoT Tools 확장을 사용하여 IoT 허브에 연결합니다.
 
 1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
-1. 마우스 오른쪽 단추를 클릭하고 **확장 설정**을 선택합니다.
+1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="동작 감지를 기반으로 하는 Live Video Analytics":::
@@ -81,12 +85,12 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="동작 감지를 기반으로 하는 Live Video Analytics":::
-1. **보기** > **탐색기**를 선택합니다. 또는 Ctrl+Shift+E를 선택합니다.
-1. **탐색기** 탭의 왼쪽 아래 모서리에서 **Azure IoT Hub**를 선택합니다.
-1. **기타 옵션** 아이콘을 선택하여 상황에 맞는 메뉴를 표시합니다. 그런 다음, **IoT Hub 연결 문자열 설정**을 선택합니다.
-1. 입력 상자가 표시되면 IoT Hub 연결 문자열을 입력합니다. Cloud Shell에서는 *~/clouddrive/lva-sample/appsettings.json*에서 연결 문자열을 가져올 수 있습니다.
+1. **보기** > **탐색기** 를 선택합니다. 또는 Ctrl+Shift+E를 선택합니다.
+1. **탐색기** 탭의 왼쪽 아래 모서리에서 **Azure IoT Hub** 를 선택합니다.
+1. **기타 옵션** 아이콘을 선택하여 상황에 맞는 메뉴를 표시합니다. 그런 다음, **IoT Hub 연결 문자열 설정** 을 선택합니다.
+1. 입력 상자가 표시되면 IoT Hub 연결 문자열을 입력합니다. Cloud Shell에서는 *~/clouddrive/lva-sample/appsettings.json* 에서 연결 문자열을 가져올 수 있습니다.
 
-연결에 성공하면 에지 디바이스의 목록이 표시됩니다. **lva-sample-device**라는 하나 이상의 디바이스가 표시되어야 합니다. 이제 상황에 맞는 메뉴를 통해 IoT Edge 디바이스를 관리하고 Azure IoT Hub와 상호 작용할 수 있습니다. 에지 디바이스에 배포된 모듈을 보려면 **lva-sample-device** 아래에서 **모듈** 노드를 펼칩니다.
+연결에 성공하면 에지 디바이스의 목록이 표시됩니다. **lva-sample-device** 라는 하나 이상의 디바이스가 표시되어야 합니다. 이제 상황에 맞는 메뉴를 통해 IoT Edge 디바이스를 관리하고 Azure IoT Hub와 상호 작용할 수 있습니다. 에지 디바이스에 배포된 모듈을 보려면 **lva-sample-device** 아래에서 **모듈** 노드를 펼칩니다.
 
 ![lva-sample-device 노드](./media/quickstarts/lva-sample-device-node.png)
 
@@ -101,8 +105,8 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 모듈에서 모든 [그래프 토폴로지](media-graph-concept.md#media-graph-topologies-and-instances)를 열거하려면 다음을 수행합니다.
 
-1. Visual Studio Code에서 마우스 오른쪽 단추로 **lvaEdge** 모듈을 클릭하고, **모듈 직접 메서드 호출**을 선택합니다.
-1. 표시되는 상자에서 *GraphTopologyList*를 입력합니다.
+1. Visual Studio Code에서 마우스 오른쪽 단추로 **lvaEdge** 모듈을 클릭하고, **모듈 직접 메서드 호출** 을 선택합니다.
+1. 표시되는 상자에서 *GraphTopologyList* 를 입력합니다.
 1. 다음 JSON 페이로드를 복사한 다음, 상자에 붙여넣습니다. 그런 다음, Enter 키를 선택합니다.
 
     ```
@@ -520,9 +524,9 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 결과를 확인하려면 다음 단계를 수행합니다.
 
-1. Visual Studio Code에서 **탐색기** 창을 엽니다. 왼쪽 아래 모서리에서 **Azure IoT Hub**를 찾습니다.
+1. Visual Studio Code에서 **탐색기** 창을 엽니다. 왼쪽 아래 모서리에서 **Azure IoT Hub** 를 찾습니다.
 2. **디바이스** 노드를 펼칩니다.
-3. 마우스 오른쪽 단추로 **lva-sample-device**를 클릭한 다음, **기본 제공 이벤트 모니터링 시작**을 선택합니다.
+3. 마우스 오른쪽 단추로 **lva-sample-device** 를 클릭한 다음, **기본 제공 이벤트 모니터링 시작** 을 선택합니다.
 
     ![Iot Hub 이벤트 모니터링 시작](./media/quickstarts/start-monitoring-iothub-events.png)
     

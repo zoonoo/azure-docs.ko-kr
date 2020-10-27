@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: d148bc81e81c4afa32682fa1462ecfbf5427f164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079234"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147963"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>자습서: SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -43,22 +43,22 @@ ms.locfileid: "89079234"
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 ### <a name="azure-roles"></a>Azure 역할
-데이터 팩터리 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 *참가자* 또는 *소유자* 역할에 할당되거나 Azure 구독의 *관리자*여야 합니다.
+데이터 팩터리 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 *참가자* 또는 *소유자* 역할에 할당되거나 Azure 구독의 *관리자* 여야 합니다.
 
-구독에서 사용 권한을 보려면 Azure Portal로 이동하고, 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음 **사용 권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 역할에 사용자를 추가하는 방법에 대한 샘플 지침을 보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md) 문서를 참조하세요.
+구독에서 사용 권한을 보려면 Azure Portal로 이동하고, 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음 **사용 권한** 을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 역할에 사용자를 추가하는 방법에 대한 샘플 지침은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md) 문서를 참조하세요.
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 및 2017
-이 자습서에서는 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 Azure Blob 스토리지(싱크)로 데이터를 복사합니다. 그런 다음 SQL Server 데이터베이스에 **emp**라는 테이블을 만들고 테이블에 동일한 두 개의 샘플 항목을 삽입합니다.
+이 자습서에서는 SQL Server 데이터베이스를 *원본* 데이터 저장소로 사용합니다. 이 자습서에서 만든 데이터 팩터리의 파이프라인은 SQL Server 데이터베이스(원본)에서 Azure Blob 스토리지(싱크)로 데이터를 복사합니다. 그런 다음 SQL Server 데이터베이스에 **emp** 라는 테이블을 만들고 테이블에 동일한 두 개의 샘플 항목을 삽입합니다.
 
 1. SQL Server Management Studio를 시작합니다. 컴퓨터에 아직 설치되어 있지 않으면 [SQL Server Management Studio 다운로드](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)로 이동합니다.
 
 1. 자격 증명을 사용하여 SQL server 인스턴스에 연결합니다.
 
-1. 샘플 데이터베이스 만들기 트리 뷰에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭한 다음 **새 데이터베이스**를 선택합니다.
+1. 샘플 데이터베이스 만들기 트리 뷰에서 **데이터베이스** 를 마우스 오른쪽 단추로 클릭한 다음 **새 데이터베이스** 를 선택합니다.
 
-1. **새 데이터베이스** 창에서 데이터베이스의 이름을 입력하고 **확인**을 선택합니다.
+1. **새 데이터베이스** 창에서 데이터베이스의 이름을 입력하고 **확인** 을 선택합니다.
 
-1. **emp** 테이블을 만들고 일부 샘플 데이터를 이 테이블에 삽입하려면 데이터베이스에 대해 다음 쿼리 스크립트를 실행합니다. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. **emp** 테이블을 만들고 일부 샘플 데이터를 이 테이블에 삽입하려면 데이터베이스에 대해 다음 쿼리 스크립트를 실행합니다. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -83,32 +83,32 @@ ms.locfileid: "89079234"
 
 1. Azure 사용자 이름 및 암호를 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **추가 서비스**를 선택하고, **스토리지** 키워드를 사용하여 필터링한 다음 **스토리지 계정**을 선택합니다.
+1. 왼쪽 창에서 **추가 서비스** 를 선택하고, **스토리지** 키워드를 사용하여 필터링한 다음 **스토리지 계정** 을 선택합니다.
 
     ![스토리지 계정 검색](media/doc-common-process/search-storage-account.png)
 
 1. 스토리지 계정 목록에서 스토리지 계정(필요한 경우)을 필터링한 다음 스토리지 계정을 선택합니다.
 
-1. **스토리지 계정** 창에서 **액세스 키**를 선택합니다.
+1. **스토리지 계정** 창에서 **액세스 키** 를 선택합니다.
 
 1. **스토리지 계정 이름** 및 **key1** 상자에서 값을 복사한 다음 메모장 또는 나중에 자습서에서 사용할 다른 편집기에 붙여넣습니다.
 
 #### <a name="create-the-adftutorial-container"></a>adftutorial 컨테이너 만들기
-이 섹션에서는 Azure Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다.
+이 섹션에서는 Azure Blob Storage에 **adftutorial** 이라는 Blob 컨테이너를 만듭니다.
 
-1. **스토리지 계정** 창에서 **개요**로 전환한 다음, **Blob**을 선택합니다.
+1. **스토리지 계정** 창에서 **개요** 로 전환한 다음, **Blob** 을 선택합니다.
 
     ![Blob 옵션 선택](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. **Blob service** 창에서 **컨테이너**를 선택합니다.
+1. **Blob service** 창에서 **컨테이너** 를 선택합니다.
 
-1. **새 컨테이너** 창의 **이름** 상자에 **adftutorial**을 입력한 후 **확인**을 선택합니다.
+1. **새 컨테이너** 창의 **이름** 상자에 **adftutorial** 을 입력한 후 **확인** 을 선택합니다.
 
     ![컨테이너 이름 입력](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-1. 컨테이너 목록에서 **adftutorial**을 선택합니다.  
+1. 컨테이너 목록에서 **adftutorial** 을 선택합니다.  
 
-1. **adftutorial**의 **컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
+1. **adftutorial** 의 **컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
 
 
 ### <a name="windows-powershell"></a>Windows PowerShell
@@ -129,7 +129,7 @@ ms.locfileid: "89079234"
     Connect-AzAccount
     ```        
 
-1. 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
+1. 여러 Azure 구독이 있는 경우 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId** 를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
@@ -178,8 +178,8 @@ ms.locfileid: "89079234"
 >    ```
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
-> * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 *참여자* 또는 *소유자* 역할로 할당되거나 Azure 구독의 *관리자*여야 합니다.
-> * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+> * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 *참여자* 또는 *소유자* 역할로 할당되거나 Azure 구독의 *관리자* 여야 합니다.
+> * 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory** : [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 >
 >
 
@@ -239,7 +239,7 @@ ms.locfileid: "89079234"
     Id                        : /subscriptions/<subscription ID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/integrationruntimes/<integrationRuntimeName>
     ```
 
-1. 자체 호스팅 Integration Runtime을 클라우드의 Data Factory 서비스에 등록하기 위해 *인증 키*를 검색하려면 다음 명령을 실행합니다. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 Integration Runtime을 등록하기 위한 키(인용 부호 제외) 중 하나를 복사합니다.
+1. 자체 호스팅 Integration Runtime을 클라우드의 Data Factory 서비스에 등록하기 위해 *인증 키* 를 검색하려면 다음 명령을 실행합니다. 다음 단계에서 컴퓨터에 설치할 자체 호스팅된 Integration Runtime을 등록하기 위한 키(인용 부호 제외) 중 하나를 복사합니다.
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -257,21 +257,21 @@ ms.locfileid: "89079234"
 ## <a name="install-the-integration-runtime"></a>Integration Runtime 설치
 1. 로컬 Windows 컴퓨터에서 [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717)을 다운로드하고 설치를 실행합니다.
 
-1. **Microsoft Integration Runtime 설치 시작** 마법사에서 **다음**을 선택합니다.  
+1. **Microsoft Integration Runtime 설치 시작** 마법사에서 **다음** 을 선택합니다.  
 
-1. **최종 사용자 사용권 계약** 창에서 사용권 계약에 동의하고 **다음**을 선택합니다.
+1. **최종 사용자 사용권 계약** 창에서 사용권 계약에 동의하고 **다음** 을 선택합니다.
 
-1. **대상 폴더** 창에서 **다음**을 선택합니다.
+1. **대상 폴더** 창에서 **다음** 을 선택합니다.
 
-1. **Microsoft Integration Runtime을 설치할 준비가 됨** 창에서 **설치**를 선택합니다.
+1. **Microsoft Integration Runtime을 설치할 준비가 됨** 창에서 **설치** 를 선택합니다.
 
-1. **Microsoft Integration Runtime 설치 완료** 마법사에서 **마침**을 선택합니다.
+1. **Microsoft Integration Runtime 설치 완료** 마법사에서 **마침** 을 선택합니다.
 
-1. **Integration Runtime(자체 호스팅) 등록** 창에 이전 섹션에서 저장한 키를 붙여넣고 **등록**을 선택합니다.
+1. **Integration Runtime(자체 호스팅) 등록** 창에 이전 섹션에서 저장한 키를 붙여넣고 **등록** 을 선택합니다.
 
     ![통합 런타임 등록](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. **새로운 Integration Runtime(자체 호스팅) 노드** 창에서 **마침**을 선택합니다.
+1. **새로운 Integration Runtime(자체 호스팅) 노드** 창에서 **마침** 을 선택합니다.
 
     ![새 Integration Runtime 노드 창](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -279,7 +279,7 @@ ms.locfileid: "89079234"
 
     ![성공적으로 등록되었습니다.](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. **Integration Runtime(자체 호스팅) 등록** 창에서 **구성 관리자 시작**을 선택합니다.
+1. **Integration Runtime(자체 호스팅) 등록** 창에서 **구성 관리자 시작** 을 선택합니다.
 
 1. 노드가 클라우드 서비스에 연결되면 다음 메시지가 표시됩니다.
 
@@ -289,7 +289,7 @@ ms.locfileid: "89079234"
 
     a. **구성 관리자** 창에서 **진단** 탭으로 전환합니다.
 
-    b. **데이터 원본 형식** 상자에서 **SqlServer**를 선택합니다.
+    b. **데이터 원본 형식** 상자에서 **SqlServer** 를 선택합니다.
 
     다. 서버 이름을 입력합니다.
 
@@ -301,7 +301,7 @@ ms.locfileid: "89079234"
 
     g. 사용자 이름과 연결된 암호를 입력합니다.
 
-    h. Integration Runtime을 Microsoft SQL Server에 연결할 수 있는지 확인하려면 **테스트**를 선택합니다.  
+    h. Integration Runtime을 Microsoft SQL Server에 연결할 수 있는지 확인하려면 **테스트** 를 선택합니다.  
     ![연결 성공](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
 
     연결이 성공적인 경우 녹색 확인 표시 아이콘이 표시됩니다. 그렇지 않다면 실패와 관련된 오류 메시지가 나타납니다. 모든 문제를 해결하고 Integration Runtime을 SQL Server 인스턴스에 연결할 수 있는지 확인합니다.
@@ -314,7 +314,7 @@ ms.locfileid: "89079234"
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Azure Storage 연결된 서비스(대상/싱크) 만들기
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
 
-1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureStorageLinkedService.json*이라는 JSON 파일을 만듭니다. *ADFv2Tutorial* 폴더가 아직 없는 경우 만듭니다.  
+1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureStorageLinkedService.json* 이라는 JSON 파일을 만듭니다. *ADFv2Tutorial* 폴더가 아직 없는 경우 만듭니다.  
 
     > [!IMPORTANT]
     > 파일을 저장하기 전에 \<accountName>과 \<accountKey>를 Azure 스토리지 계정의 이름과 키로 바꿉니다. [필수 구성 요소](#get-storage-account-name-and-account-key) 섹션에 적어둡니다.
@@ -357,7 +357,7 @@ ms.locfileid: "89079234"
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>SQL Server 연결된 서비스(원본) 만들기 및 암호화
 이 단계에서는 SQL Server 인스턴스를 데이터 팩터리에 연결합니다.
 
-1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerLinkedService.json*이라는 JSON 파일을 만듭니다.
+1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerLinkedService.json* 이라는 JSON 파일을 만듭니다.
 
     > [!IMPORTANT]
     > Microsoft SQL Server에 연결하는 데 사용하는 인증에 기반한 섹션을 선택합니다.
@@ -415,10 +415,10 @@ ms.locfileid: "89079234"
     > - SQL Server 인스턴스에 연결하는 데 사용한 인증에 기반한 섹션을 선택합니다.
     > - **\<integration runtime name>** 를 통합 런타임의 이름으로 바꿉니다.
     > - 파일을 저장하기 전에 **\<servername>** , **\<databasename>** , **\<username>** 및 **\<password>** 를 SQL Server 인스턴스의 값으로 바꿉니다.
-    > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser*를 사용합니다.
+    > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser* 를 사용합니다.
 
 1. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  
-    이 암호화를 사용하면 DPAPI(데이터 보호 애플리케이션 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화합니다. 암호화된 자격 증명은 자체 호스팅 통합 런타임 노드(로컬 컴퓨터)에 로컬로 저장됩니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 *encryptedLinkedService.json*)로 리디렉션될 수 있습니다.
+    이 암호화를 사용하면 DPAPI(데이터 보호 애플리케이션 프로그래밍 인터페이스)를 사용하여 자격 증명을 암호화합니다. 암호화된 자격 증명은 자체 호스팅 통합 런타임 노드(로컬 컴퓨터)에 로컬로 저장됩니다. 출력 페이로드는 암호화된 자격 증명을 포함하는 다른 JSON 파일(이 경우 *encryptedLinkedService.json* )로 리디렉션될 수 있습니다.
 
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -437,7 +437,7 @@ ms.locfileid: "89079234"
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>원본 SQL Server 데이터베이스에 대한 데이터 세트 만들기
 이 단계에서는 SQL Server 데이터베이스 인스턴스에 있는 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 SqlServerTable 형식입니다. 이 데이터 집합은 이전 단계에서 만든 SQL Server 연결된 서비스를 참조합니다. 연결된 서비스에는 Data Factory 서비스가 런타임 시 SQL Server 인스턴스에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 데이터가 포함된 데이터베이스에 SQL 테이블을 지정합니다. 이 자습서에서 **emp** 테이블에는 원본 데이터가 포함됩니다.
 
-1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerDataset.json*이라는 JSON 파일을 만듭니다.  
+1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerDataset.json* 이라는 JSON 파일을 만듭니다.  
     ```json
     {  
         "name":"SqlServerDataset",
@@ -480,9 +480,9 @@ ms.locfileid: "89079234"
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Azure Blob Storage(싱크)에 대한 데이터 세트 만들기
 이 단계에서는 Azure Blob Storage에 복사될 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 AzureBlob 형식입니다. 이 데이터 집합은 이 자습서의 앞부분에서 만든 Azure Storage 연결된 서비스를 참조합니다.
 
-연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 `adftutorial`가 Blob 컨테이너이며, `fromonprem`이 폴더인 *adftutorial/fromonprem*입니다.
+연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 `adftutorial`가 Blob 컨테이너이며, `fromonprem`이 폴더인 *adftutorial/fromonprem* 입니다.
 
-1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureBlobDataset.json*이라는 JSON 파일을 만듭니다.
+1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureBlobDataset.json* 이라는 JSON 파일을 만듭니다.
 
     ```json
     {  
@@ -531,9 +531,9 @@ ms.locfileid: "89079234"
     ```
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
-이 자습서에서는 복사 활동을 사용하여 파이프라인을 만듭니다. 복사 작업은 SqlServerDataset을 입력 데이터 세트로 사용하고 AzureBlobDataset을 출력 데이터 세트로 사용합니다. 원본 형식은 *SqlSource*로 설정되고 싱크 형식은 *BlobSink*로 설정됩니다.
+이 자습서에서는 복사 활동을 사용하여 파이프라인을 만듭니다. 복사 작업은 SqlServerDataset을 입력 데이터 세트로 사용하고 AzureBlobDataset을 출력 데이터 세트로 사용합니다. 원본 형식은 *SqlSource* 로 설정되고 싱크 형식은 *BlobSink* 로 설정됩니다.
 
-1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerToBlobPipeline.json*이라는 JSON 파일을 만듭니다.
+1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerToBlobPipeline.json* 이라는 JSON 파일을 만듭니다.
 
     ```json
     {  
@@ -707,9 +707,9 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ```
 
 ## <a name="verify-the-output"></a>출력 확인
-파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다.
+파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem* 이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다.
 
-1. Azure Portal의 **adftutorial** 컨테이너 창에서 출력 폴더를 보려면 **새로 고침**을 선택합니다.
+1. Azure Portal의 **adftutorial** 컨테이너 창에서 출력 폴더를 보려면 **새로 고침** 을 선택합니다.
 1. 폴더 목록에서 `fromonprem`을 선택합니다.
 1. `dbo.emp.txt`이라는 파일이 표시됨을 확인합니다.
 

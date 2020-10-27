@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 10cf06a829b991bfe15d7b24c4fc61d0fe22eaaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ae5f01e23a7922f508c4a2674e1a3f29e354b8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653718"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166066"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
 
@@ -58,6 +58,7 @@ DSVM(Data Science Virtual Machine)은 데이터 과학 수행을 위해 특별�
 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks)을 살펴보고 Azure Machine Learning에서 제공하는 기능을 확인합니다.
 
 GitHub 샘플 프로젝트 및 예제는 다음 리포지토리를 참조하세요.
++ [Azure/azureml-examples](https://github.com/Azure/azureml-examples)
 + [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
 + [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 

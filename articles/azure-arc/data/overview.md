@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945728"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316980"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Azure Arc 지원 데이터 서비스(미리 보기)란?
 
@@ -41,7 +41,7 @@ Azure Arc 지원 SQL 관리형 인스턴스 및 Azure Arc 지원 PostgreSQL 하�
 
 ## <a name="unified-management"></a>통합 관리
 
-이제 Azure Portal, Azure Data Studio 및 Azure Data CLI와 같은 익숙한 도구를 사용하여 Azure Arc로 배포된 모든 데이터 자산에 대한 통합된 보기를 얻을 수 있습니다. 사용자 환경 및 Azure에서 다양한 관계형 데이터베이스를 보고 관리할 수 있을 뿐만 아니라, 기본 인프라 용량과 상태를 분석하기 위해 Kubernetes API에서 로그 및 원격 분석을 가져올 수 있습니다. 이제는 지역화된 로그 분석 및 성능 모니터링 외에도 전체 자산 전반에 걸친 종합적인 운영 인사이트에도 Azure Monitor를 활용할 수 있습니다.
+이제 Azure Portal, Azure Data Studio 및 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]와 같은 익숙한 도구를 사용하여 Azure Arc로 배포된 모든 데이터 자산에 대한 통합된 보기를 얻을 수 있습니다. 사용자 환경 및 Azure에서 다양한 관계형 데이터베이스를 보고 관리할 수 있을 뿐만 아니라, 기본 인프라 용량과 상태를 분석하기 위해 Kubernetes API에서 로그 및 원격 분석을 가져올 수 있습니다. 이제는 지역화된 로그 분석 및 성능 모니터링 외에도 전체 자산 전반에 걸친 종합적인 운영 인사이트에도 Azure Monitor를 활용할 수 있습니다.
 
 ## <a name="disconnected-scenario-support"></a>연결되지 않은 시나리오 지원
 

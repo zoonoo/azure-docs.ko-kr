@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98d94e9544e75f762d4532101a92d14106d6a575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931797"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150933"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="train-the-object-detector"></a>개체 감지기 학습
 
-왼쪽 창에서 **태그** 스위치를 **태그 있음**으로 설정하면 이미지가 표시됩니다. 그런 다음, 페이지 위쪽에서 모델을 학습하는 녹색 단추를 선택합니다. 알고리즘이 새 이미지에서 동일한 태그를 인식하도록 학습합니다. 또한 일부 기존 이미지의 모델을 테스트하여 정확도 점수를 생성합니다.
+왼쪽 창에서 **태그** 스위치를 **태그 있음** 으로 설정하면 이미지가 표시됩니다. 그런 다음, 페이지 위쪽에서 모델을 학습하는 녹색 단추를 선택합니다. 알고리즘이 새 이미지에서 동일한 태그를 인식하도록 학습합니다. 또한 일부 기존 이미지의 모델을 테스트하여 정확도 점수를 생성합니다.
 
 ![Custom Vision 웹 사이트의 [학습 이미지] 탭. 이 스크린샷에서는 [학습] 단추에 윤곽선이 그려져 있음](media/azure-logo-tutorial/train-model.png)
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?name=snippet_prediction)]
 
-이 결과는 자체적으로 **예측** 인스턴스 목록을 포함하는 **PredictionResult** 인스턴스 형태입니다. **예측**에는 이미지에서 감지된 태그와 해당 경계 상자 위치가 포함됩니다.
+이 결과는 자체적으로 **예측** 인스턴스 목록을 포함하는 **PredictionResult** 인스턴스 형태입니다. **예측** 에는 이미지에서 감지된 태그와 해당 경계 상자 위치가 포함됩니다.
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
@@ -104,7 +104,7 @@ Computer Vision 서비스를 구독하고 키 및 엔드포인트 URL을 가져�
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-Azure 구독에 서비스를 배포하려면 앱에 Azure 서비스 주체 계정이 필요합니다. 서비스 주체를 통해 역할 기반 액세스 제어를 사용하여 앱에 특정 권한을 위임할 수 있습니다. 자세한 내용은 [서비스 주체 가이드](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)를 참조하세요.
+Azure 구독에 서비스를 배포하려면 앱에 Azure 서비스 주체 계정이 필요합니다. 서비스 주체를 통해 Azure 역할 기반 액세스 제어를 사용하여 앱에 특정 권한을 위임할 수 있습니다. 자세한 내용은 [서비스 주체 가이드](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)를 참조하세요.
 
 다음과 같이 Azure Cloud Shell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수 있습니다. 시작하려면 로그인하고 사용할 구독을 선택합니다.
 
@@ -154,7 +154,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 1. 첫 번째 화면에서 서비스 주체 클라이언트 ID, 테넌트 ID 및 암호를 입력합니다. **로그인** 단추를 선택합니다.
 
     > [!NOTE]
-    > 일부 에뮬레이터는 이 단계에서 **로그인** 단추가 활성화되지 않을 수 있습니다. 이 경우 앱을 중지하고, *Source/VisualProvision/Pages/LoginPage.xaml* 파일을 열고, **LOGIN BUTTON**이라는 레이블이 지정된 `Button` 요소를 찾아서 다음 줄을 제거한 다음, 앱을 다시 실행합니다.
+    > 일부 에뮬레이터는 이 단계에서 **로그인** 단추가 활성화되지 않을 수 있습니다. 이 경우 앱을 중지하고, *Source/VisualProvision/Pages/LoginPage.xaml* 파일을 열고, **LOGIN BUTTON** 이라는 레이블이 지정된 `Button` 요소를 찾아서 다음 줄을 제거한 다음, 앱을 다시 실행합니다.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
@@ -176,7 +176,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
 이 시나리오의 모든 단계를 수행하고 앱을 사용하여 계정에 Azure 서비스를 배포한 경우 [Azure Portal](https://ms.portal.azure.com/)로 이동합니다. 여기서 사용하지 않을 서비스를 취소합니다.
 
-Custom Vision을 사용하여 자체적인 개체 검색 프로젝트를 만들 계획인 경우 이 자습서에서 만든 로고 감지 프로젝트를 삭제해도 됩니다. Custom Vision 체험 구독은 두 개의 프로젝트만 허용합니다. 로고 감지 프로젝트를 삭제하려면 [Custom Vision 웹 사이트](https://customvision.ai)에서 **프로젝트**를 연 다음, **내 새 프로젝트** 아래 휴지통 아이콘을 선택합니다.
+Custom Vision을 사용하여 자체적인 개체 검색 프로젝트를 만들 계획인 경우 이 자습서에서 만든 로고 감지 프로젝트를 삭제해도 됩니다. Custom Vision 체험 구독은 두 개의 프로젝트만 허용합니다. 로고 감지 프로젝트를 삭제하려면 [Custom Vision 웹 사이트](https://customvision.ai)에서 **프로젝트** 를 연 다음, **내 새 프로젝트** 아래 휴지통 아이콘을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

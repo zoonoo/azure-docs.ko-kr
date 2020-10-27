@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409615"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279839"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API 소개
 
@@ -48,9 +48,9 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
   Azure Cosmos DB는 데이터베이스 및 컴퓨터 리소스를 관리할 필요가 없습니다. 대부분의 기존 그래프 데이터베이스 플랫폼은 인프라의 제한 사항이 적용되며 운영을 보장하기 위해 높은 수준의 유지 관리가 필요합니다. 
   
-  완전 관리형 서비스인 Cosmos DB는 가상 머신을 관리하고, 런타임 소프트웨어를 업데이트하고, 분할 또는 복제를 관리하고, 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 이와 같은 보장을 통해 개발자는 그래프 데이터베이스를 운영하고 관리하는 대신 애플리케이션의 가치를 실현하는 데 집중할 수 있습니다. 
+  완전 관리형 서비스인 Cosmos DB는 가상 머신을 관리하고, 런타임 소프트웨어를 업데이트하고, 분할 또는 복제를 관리하고, 복잡한 데이터 계층 업그레이드를 처리할 필요가 없습니다. 모든 그래프가 자동으로 백업되고 지역적 실패로부터 보호됩니다. 이를 통해 개발자는 그래프 데이터베이스를 운영하고 관리하는 대신 애플리케이션의 가치를 실현하는 데 집중할 수 있습니다. 
 
-* **자동 인덱싱**:
+* **자동 인덱싱** :
 
   기본적으로 Azure Cosmos DB는 그래프에서 노드(꼭짓점이라고도 함) 및 에지 내의 모든 속성을 자동으로 인덱싱하고 스키마 또는 보조 인덱스 생성을 예상하거나 요구하지 않습니다. [Azure Cosmos DB의 인덱싱](https://docs.microsoft.com/azure/cosmos-db/index-overview)에 대해 자세히 알아봅니다.
 
@@ -110,19 +110,19 @@ Azure Cosmos DB Gremlin API에서 제공하는 차별화된 기능은 다음과 
 
 이 그래프에는 다음과 같은 *꼭짓점* 유형(Gremlin에서는 "레이블"이라고도 함)이 있습니다.
 
-* **사람**: 그래프에는 Robin, Thomas 및 Ben 세 사람이 있음
-* **관심 분야**: 관심 있는 분야로 이 예제에서는 축구 게임
-* **디바이스**: 사람들이 사용하는 디바이스
-* **운영 체제**: 디바이스가 실행되는 운영 체제
-* **Place**: 디바이스에 액세스하는 위치
+* **사람** : 그래프에는 Robin, Thomas 및 Ben 세 사람이 있음
+* **관심 분야** : 관심 있는 분야로 이 예제에서는 축구 게임
+* **디바이스** : 사람들이 사용하는 디바이스
+* **운영 체제** : 디바이스가 실행되는 운영 체제
+* **Place** : 디바이스에 액세스하는 위치
 
 이러한 엔터티 간 관계는 다음 *에지* 유형을 통해 나타냅니다.
 
-* **알고 있습니다**: 예: “Thomas knows Robin”
-* **관심 분야**: 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: “Ben is interested in Football”).
-* **OS 실행**: 노트북에서 Windows OS가 실행됩니다.
-* **사용**: 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
-* **located**: 디바이스에 액세스하는 위치를 나타내려면
+* **알고 있습니다** : 예: “Thomas knows Robin”
+* **관심 분야** : 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: “Ben is interested in Football”).
+* **OS 실행** : 노트북에서 Windows OS가 실행됩니다.
+* **사용** : 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
+* **located** : 디바이스에 액세스하는 위치를 나타내려면
 
 Gremlin 콘솔은 Apache TinkerPop에서 제공하는 대화형 터미널이며, 이 터미널은 그래프 데이터와 상호 작용하는 데 사용됩니다. 자세한 내용은 [Gremlin 콘솔을 사용하는 방법](create-graph-gremlin-console.md)의 빠른 시작 문서를 참조하세요. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다. 다음 예제에서는 Gremlin 콘솔을 사용하여 이 그래프 데이터에 대해 쿼리를 실행하는 방법을 보여줍니다.
 

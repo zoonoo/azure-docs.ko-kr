@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588928"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327419"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -51,17 +51,17 @@ DigiCert CertCentral 계정에서 위의 정보를 수집한 후에는 이제 �
 ### <a name="azure-portal"></a>Azure portal
 
 1.  DigiCert 인증 기관을 추가하려면 DigiCert를 추가하려는 키 자격 증명 모음으로 이동합니다. 
-2.  Key Vault 속성 페이지에서 **인증서**를 선택합니다.
-3.  **인증 기관** 탭을 선택합니다. ![인증서 속성](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+2.  Key Vault 속성 페이지에서 **인증서** 를 선택합니다.
+3.  **인증 기관** 탭을 선택합니다. ![인증 기관 선택](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.  **추가** 옵션을 선택합니다.
- ![인증서 속성](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![인증 기관 추가](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  **인증서 기관 만들기** 화면에서 다음 값을 선택합니다.
-    -   **Name**: 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
-    -   **공급자**: 메뉴에서 DigiCert를 선택합니다.
-    -   **계정 ID**: DigiCert CertCentral 계정 ID를 입력합니다.
-    -   **계정 암호**: DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
-    -   **조직 ID**: DigiCert CertCentral 계정에서 수집된 OrgID 입력 
-    -   **만들기**를 클릭합니다.
+    -   **Name** : 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
+    -   **공급자** : 메뉴에서 DigiCert를 선택합니다.
+    -   **계정 ID** : DigiCert CertCentral 계정 ID를 입력합니다.
+    -   **계정 암호** : DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
+    -   **조직 ID** : DigiCert CertCentral 계정에서 수집된 OrgID 입력 
+    -   **만들기** 를 클릭합니다.
    
 6.  이제 DigicertCA가 인증 기관 목록에 추가된 것을 볼 수 있습니다.
 
@@ -88,9 +88,9 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 키 자격 증명 모음에 고유한 이름을 사용해야 합니다. 여기서 "Contoso-Vaultname"은 이 가이드 전체에서 Key Vault의 이름입니다.
 
-- **자격 증명 모음 이름**은 Contoso-Vaultname입니다.
-- **리소스 그룹 이름**은 ContosoResourceGroup입니다.
-- **위치**는 EastUS입니다.
+- **자격 증명 모음 이름** 은 Contoso-Vaultname입니다.
+- **리소스 그룹 이름** 은 ContosoResourceGroup입니다.
+- **위치** 는 EastUS입니다.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS'
@@ -101,24 +101,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - **계정 ID** 변수 정의
 - **조직 ID** 변수 정의
 - **API 키** 변수 정의
-- **발급자 이름** 변수 정의
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. **발급자** 설정 키 자격 증명 모음에 Digicert를 인증 기관으로 추가합니다.
+4. **발급자** 설정 키 자격 증명 모음에 Digicert를 인증 기관으로 추가합니다. 매개 변수에 대한 자세한 내용은 [여기를 참조](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)하세요.
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
-5. Key Vault 내의 DigiCert에서 직접 **인증서에 대한 정책을 설정하고 인증서를 발급**합니다.
+5. Key Vault 내의 DigiCert에서 직접 **인증서에 대한 정책을 설정하고 인증서를 발급** 합니다.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertifica
 
 발급된 인증서가 Azure Portal의 '사용 안 함' 상태이면 **인증서 작업** 보기를 계속 진행하여 해당 인증서에 대한 DigiCert 오류 메시지를 검토합니다.
 
- ![인증서 속성](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![인증서 작업](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
@@ -136,8 +134,15 @@ Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertifica
 
 - KeyVault를 통해 digicert 와일드 카드 인증서를 생성할 수 있나요? 
    예. digicert 계정을 구성한 방법에 따라 달라집니다.
-- EV 인증서를 만들어야 하는 경우 어떻게 지정하나요? 
-   인증서를 만들 때 [고급 정책 구성]을 클릭한 다음, 인증서 유형을 지정합니다. 지원되는 값은 다음과 같습니다. OV-SSL, EV-SSL
+- DigiCert를 사용하여 **OV-SSL 또는 EV-SSL** 인증서를 어떻게 만들 수 있나요? 
+   키 자격 증명 모음은 OV 및 EV SSL 인증서 만들기를 지원합니다. 인증서를 만들 때 [고급 정책 구성]을 클릭한 다음, 인증서 유형을 지정합니다. 지원되는 값은 다음과 같습니다. OV-SSL, EV-SSL
+   
+   Digicert 계정에서 허용하는 경우 키 자격 증명 모음에서 이 유형의 인증서를 만들 수 있습니다. 이러한 유형의 인증서의 경우 유효성 검사는 DigiCert에서 수행되며, 유효성 검사에 실패하면 해당 지원 팀이 솔루션에 가장 적합한 도움을 줄 수 있습니다. 인증서 생성 시 subjectName에서 정의하여 추가 정보를 추가할 수 있습니다.
+
+예제
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - 통합을 통해 digicert 인증서를 만드는 방법과 digicert를 통해 직접 인증서를 획득하는 방법 간에 시간 차이가 있나요?
    아니요. 인증서를 만들 때 확인 프로세스를 완료하는 데 시간이 걸릴 수 있으며 확인은 DigiCert가 따르는 프로세스에 따라 달라집니다.
 

@@ -11,16 +11,16 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258917"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216534"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정
 
-이 자습서에서는 Azure AD B2C(Azure Active Directory B2C)를 사용하여 SPA(단일 페이지 애플리케이션)에서 사용자를 가입하고 로그인하는 방법을 보여줍니다.
+이 자습서에서는 OAuth 2.0 암시적 허용 흐름을 통해 Azure AD B2C(Azure Active Directory B2C)를 사용하여 SPA(단일 페이지 애플리케이션)에서 사용자를 가입하고 로그인하는 방법을 보여줍니다.
 
 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "91258917"
 이 자습서의 단계를 진행하려면 다음과 같은 Azure AD B2C 리소스가 있어야 합니다.
 
 * [Azure AD B2C 테넌트](tutorial-create-tenant.md)
-* 테넌트에서 [등록된 애플리케이션](tutorial-register-applications.md)
+* 테넌트에 [등록된 애플리케이션](tutorial-register-spa.md)(암시적 흐름 옵션 사용)
 * 테넌트에서 [만든 사용자 흐름](tutorial-create-user-flows.md)
 
 또한 로컬 개발 환경에서 다음 항목이 필요합니다.
@@ -57,22 +57,22 @@ Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록**을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** 을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
 1. **웹** 아래에서 **URI 추가** 링크를 선택하고 `http://localhost:6420`을 입력합니다.
-1. **암시적 부여**에서 **액세스 토큰** 및 **ID 토큰**에 대한 확인란을 선택한 다음, **저장**을 선택합니다.
-1. **개요**를 선택합니다.
-1. 단일 페이지의 웹 애플리케이션에서 코드를 업데이트하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+1. **암시적 허용** 에서 아직 선택하지 않은 경우 **액세스 토큰** 및 **ID 토큰** 에 대한 확인란을 선택한 다음, **저장** 을 선택합니다.
+1. **개요** 를 선택합니다.
+1. 단일 페이지의 웹 애플리케이션에서 코드를 업데이트하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 를 기록합니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **Azure AD B2C** 를 검색하여 선택합니다.
 1. **애플리케이션(레거시)** 을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
 1. **회신 URL** 아래에서 `http://localhost:6420`을 추가합니다.
-1. **저장**을 선택합니다.
-1. 속성 페이지에서 **애플리케이션 ID**를 기록해둡니다. 앱 ID는 나중에 나오는 단계에서 단일 페이지 웹 애플리케이션의 코드를 업데이트할 때 사용됩니다.
+1. **저장** 을 선택합니다.
+1. 속성 페이지에서 **애플리케이션 ID** 를 기록해둡니다. 앱 ID는 나중에 나오는 단계에서 단일 페이지 웹 애플리케이션의 코드를 업데이트할 때 사용됩니다.
 
 * * *
 
@@ -93,7 +93,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 1. *JavaScriptSPA* 폴더 안에서 *authConfig.js* 파일을 엽니다.
 1. `msalConfig` 개체에서 다음을 업데이트합니다.
     * `clientId`를 이전 단계에서 적어 둔 **애플리케이션(클라이언트) ID** 값으로 업데이트
-    * `authority` URI를 Azure AD B2C 이름 및 필수 구성 요소 중 하나로 만든 등록/로그인 사용자 흐름의 이름(예: *B2C_1_signupsignin1*)으로 업데이트
+    * `authority` URI를 Azure AD B2C 이름 및 필수 구성 요소 중 하나로 만든 등록/로그인 사용자 흐름의 이름(예: *B2C_1_signupsignin1* )으로 업데이트
 
     ```javascript
     const msalConfig = {
@@ -144,7 +144,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 이 샘플 애플리케이션은 가입, 로그인 및 암호 재설정을 지원합니다. 이 자습서에서는 이메일 주소를 사용하여 가입합니다.
 
-1. **로그인**을 선택하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
+1. **로그인** 을 선택하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
 1. Azure AD B2C에서 가입 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 선택합니다.
 1. 가입 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서는 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
@@ -152,13 +152,13 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     :::image type="content" source="media/tutorial-single-page-app/user-flow-sign-up-workflow-01.png" alt-text="로컬로 실행되는 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
 
-1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
+1. **만들기** 를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
-**만들기**를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
+**만들기** 를 선택하면 애플리케이션이 로그인한 사용자의 이름을 표시합니다.
 
 :::image type="content" source="media/tutorial-single-page-app/web-app-spa-02-logged-in.png" alt-text="로컬로 실행되는 단일 페이지 애플리케이션을 보여주는 웹 브라우저":::
 
-로그인을 테스트하려면 **로그아웃** 단추를 선택한 다음, **로그인**을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
+로그인을 테스트하려면 **로그아웃** 단추를 선택한 다음, **로그인** 을 선택하고 가입할 때 입력한 이메일 주소와 암호를 사용하여 로그인합니다.
 
 ### <a name="what-about-calling-the-api"></a>API 호출은 어떻게 할까요?
 

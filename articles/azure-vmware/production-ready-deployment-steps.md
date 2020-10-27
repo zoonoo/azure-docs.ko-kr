@@ -2,22 +2,23 @@
 title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055089"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147990"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
-이 문서에서는 배포 중에 사용되는 데이터를 식별하고 수집하기 위한 계획 프로세스를 제공합니다. [배포 전 검사 목록을 사용](pre-deployment-checklist.md)하여 정보를 문서화하고 배포 중에 쉽게 참조할 수 있습니다.  
+이 문서에서는 배포 중에 사용되는 데이터를 식별하고 수집하기 위한 계획 프로세스를 제공합니다. 배포를 계획할 때 배포 중에 쉽게 참조할 수 있도록 수집한 정보를 문서화해야 합니다.
 
 이 빠른 시작 프로세스는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비가 완료된 환경을 만듭니다. 
 
 >[!IMPORTANT]
->Azure VMware Solution 리소스를 만들기 전에 노드가 할당되도록 지원 티켓을 제출해야 합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 자세한 내용은 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md)을 참조하세요. 
+>Azure VMware Solution 리소스를 만들기 전에 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md) 문서에 따라 노드가 할당되도록 지원 티켓을 제출합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 노드를 할당하는 데 최대 5 영업일이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 
+
 
 ## <a name="subscription"></a>Subscription
 

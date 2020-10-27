@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397813"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327776"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -130,7 +130,7 @@ Azure와 온-프레미스 데이터 센터 간 및 Azure 내에서의 네트워�
 
 - Azure Content Delivery Network
 
-Azure 서비스에 대한 자세한 내용은 [Azure 서비스 설명서](https://docs.microsoft.com/azure)를 참조하세요.
+Azure 서비스에 대한 자세한 내용은 [Azure 서비스 설명서](/azure)를 참조하세요.
 
 ## <a name="azure-key-concepts"></a>Azure 주요 개념
 
@@ -142,7 +142,7 @@ Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 애플리케이션입니다. Azure Portal의 주소는 [portal.azure.com](https://portal.azure.com)입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
+Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 애플리케이션입니다. Azure Portal의 주소는 [portal.azure.com](https://portal.azure.com)입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](../../azure-resource-manager/management/manage-resources-portal.md)를 참조하세요.
 
 ### <a name="resources"></a>리소스
 
@@ -170,11 +170,11 @@ Azure 명령줄 인터페이스는 명령줄에서 Azure 리소스를 만들고 
 
 #### <a name="rest-apis"></a>REST API
 
-Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 앱을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 자세한 내용은 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/index)를 참조하세요.
+Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 앱을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 자세한 내용은 [Azure REST SDK 참조](/rest/api/index)를 참조하세요.
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-관리자는 Azure Cloud Shell이라는 브라우저에서 액세스할 수 있는 환경을 통해 Azure PowerShell 및 Azure CLI에 액세스할 수 있습니다. 이 대화형 인터페이스는 Linux 및 Windows 관리자가 Bash 또는 PowerShell 중에서 선택한 명령줄 인터페이스를 사용할 수 있도록 하는 유연한 도구를 제공합니다. Azure Cloud Shell은 포털을 통해, [shell.azure.com](https://shell.azure.com)에서 독립 실행형 웹 인터페이스로서 또는 여러 다른 액세스 지점을 통해 액세스할 수 있습니다. 자세한 내용은 [Azure Cloud Shell 개요](https://docs.microsoft.com/azure/cloud-shell/overview)를 참조하세요.
+관리자는 Azure Cloud Shell이라는 브라우저에서 액세스할 수 있는 환경을 통해 Azure PowerShell 및 Azure CLI에 액세스할 수 있습니다. 이 대화형 인터페이스는 Linux 및 Windows 관리자가 Bash 또는 PowerShell 중에서 선택한 명령줄 인터페이스를 사용할 수 있도록 하는 유연한 도구를 제공합니다. Azure Cloud Shell은 포털을 통해, [shell.azure.com](https://shell.azure.com)에서 독립 실행형 웹 인터페이스로서 또는 여러 다른 액세스 지점을 통해 액세스할 수 있습니다. 자세한 내용은 [Azure Cloud Shell 개요](../../cloud-shell/overview.md)를 참조하세요.
 
 ## <a name="azure-subscriptions"></a>Azure 구독
 
@@ -184,23 +184,23 @@ Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니�
 
 Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 구독 형식을 사용할 수 있습니다.
 
-**체험 계정**: [Azure 웹 사이트](https://azure.microsoft.com/)에 체험 계정을 등록할 수 있는 링크가 있습니다. 무료 계정을 등록하면 Azure의 리소스 조합을 사용해 볼 수 있는 30일 과정에 대한 크레딧이 부여됩니다. 크레딧 금액을 초과하면 계정이 일시 중지됩니다. 평가판이 끝나면 서비스가 해제되고 더 이상 사용할 수 없습니다. 언제든지 종량제 구독으로 업그레이드할 수 있습니다.
+**체험 계정** : [Azure 웹 사이트](https://azure.microsoft.com/)에 체험 계정을 등록할 수 있는 링크가 있습니다. 무료 계정을 등록하면 Azure의 리소스 조합을 사용해 볼 수 있는 30일 과정에 대한 크레딧이 부여됩니다. 크레딧 금액을 초과하면 계정이 일시 중지됩니다. 평가판이 끝나면 서비스가 해제되고 더 이상 사용할 수 없습니다. 언제든지 종량제 구독으로 업그레이드할 수 있습니다.
 
-**MSDN 구독**: MSDN 구독이 있는 경우 매달 Azure 크레딧으로 일정 금액이 제공됩니다. 예를 들어 Microsoft Visual Studio Enterprise with MSDN 구독이 있는 경우 Azure 크레딧으로 매달 \$150를 받게 됩니다.
+**MSDN 구독** : MSDN 구독이 있는 경우 매달 Azure 크레딧으로 일정 금액이 제공됩니다. 예를 들어 Microsoft Visual Studio Enterprise with MSDN 구독이 있는 경우 Azure 크레딧으로 매달 \$150를 받게 됩니다.
 
 크레딧 금액을 초과하면 다음 달이 시작될 때까지 서비스를 사용할 수 없습니다. 지출 한도를 해제하고 추가 비용으로 사용할 신용 카드를 추가할 수 있습니다. MSDN 계정에 대해서는 이러한 비용 중 일부가 할인됩니다. 예를 들어 Windows Server를 실행하는 VM에 대한 Linux 요금을 지불하면 Microsoft SQL Server와 같은 Microsoft 서버에 대한 추가 요금이 부과되지 않습니다. 따라서 MSDN 계정은 개발 및 테스트 시나리오에 적합합니다.
 
-**BizSpark 계정**: Microsoft BizSpark 프로그램은 스타트업에 많은 이점을 제공합니다. 이러한 이점 중 하나는 최대 5개 MSDN 계정의 개발 및 테스트 환경을 위해 모든 Microsoft 소프트웨어에 액세스할 수 있다는 것입니다. 5개의 각 MSDN 계정에 대해 Azure 크레딧으로 $150를 받고, Virtual Machines와 같은 여러 Azure 서비스를 할인된 요금으로 이용할 수 있습니다.
+**BizSpark 계정** : Microsoft BizSpark 프로그램은 스타트업에 많은 이점을 제공합니다. 이러한 이점 중 하나는 최대 5개 MSDN 계정의 개발 및 테스트 환경을 위해 모든 Microsoft 소프트웨어에 액세스할 수 있다는 것입니다. 5개의 각 MSDN 계정에 대해 Azure 크레딧으로 $150를 받고, Virtual Machines와 같은 여러 Azure 서비스를 할인된 요금으로 이용할 수 있습니다.
 
-**종량제**: 이 구독을 사용하면 신용 카드 또는 직불 카드를 계정에 연결하여 사용한 만큼 지불하게 됩니다. 조직인 경우 송장 승인을 받을 수도 있습니다.
+**종량제** : 이 구독을 사용하면 신용 카드 또는 직불 카드를 계정에 연결하여 사용한 만큼 지불하게 됩니다. 조직인 경우 송장 승인을 받을 수도 있습니다.
 
-**기업계약**: 기업계약을 체결하면 다음 해에 Azure에서 특정 수의 서비스를 사용한다는 약정을 하고, 해당 금액을 미리 지불합니다. 이 약정은 1년 동안 사용됩니다. 약정 금액을 초과하면 초과 비용을 후불로 지불할 수 있습니다. 약정 금액에 따라 Azure에서 서비스에 대한 할인을 받을 수 있습니다.
+**기업계약** : 기업계약을 체결하면 다음 해에 Azure에서 특정 수의 서비스를 사용한다는 약정을 하고, 해당 금액을 미리 지불합니다. 이 약정은 1년 동안 사용됩니다. 약정 금액을 초과하면 초과 비용을 후불로 지불할 수 있습니다. 약정 금액에 따라 Azure에서 서비스에 대한 할인을 받을 수 있습니다.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Azure 구독에 대한 관리 액세스 권한 부여
 
-RBAC에는 권한을 할당하는 데 사용할 수 있는 몇 가지 기본 제공 역할이 있습니다. 특정 사용자를 Azure 구독의 관리자로 지정하려면 해당 사용자에게 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다.
+Azure RBAC에는 권한을 할당하는 데 사용할 수 있는 몇 가지 기본 제공 역할이 있습니다. 특정 사용자를 Azure 구독의 관리자로 지정하려면 해당 사용자에게 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다.
 
-자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Azure Portal에서 청구 정보 보기
 
@@ -238,7 +238,7 @@ Resource Manager에는 관련 리소스의 사용자 지정 가능한 배포 및
 
 - 올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
 
-- RBAC가 기본적으로 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 액세스 제어를 적용할 수 있습니다.
+- Azure RBAC가 기본적으로 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 액세스 제어를 적용할 수 있습니다.
 
 - 리소스에 태그를 적용하여 구독에서 모든 리소스를 논리적으로 구성할 수 있습니다.
 
@@ -266,27 +266,27 @@ Resource Manager 템플릿은 단일 리소스 그룹에 배포될 리소스 및
 
 Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
-- **매개 변수**: 배포에 대한 입력입니다. 매개 변수 값은 사람 또는 자동화된 프로세스에 의해 제공될 수 있습니다. 매개 변수의 예로는 Windows VM에 대한 관리자의 사용자 이름과 암호를 들 수 있습니다. 매개 변수 값이 지정되면 배포 전체에서 사용됩니다.
+- **매개 변수** : 배포에 대한 입력입니다. 매개 변수 값은 사람 또는 자동화된 프로세스에 의해 제공될 수 있습니다. 매개 변수의 예로는 Windows VM에 대한 관리자의 사용자 이름과 암호를 들 수 있습니다. 매개 변수 값이 지정되면 배포 전체에서 사용됩니다.
 
-- **변수**: 이 값은 배포 전체에서 사용되는 값을 포함하는 데 사용됩니다. 매개 변수와 달리 변수 값은 배포 시 제공되지 않습니다. 대신 하드 코딩되거나 동적으로 생성됩니다.
+- **변수** : 이 값은 배포 전체에서 사용되는 값을 포함하는 데 사용됩니다. 매개 변수와 달리 변수 값은 배포 시 제공되지 않습니다. 대신 하드 코딩되거나 동적으로 생성됩니다.
 
 - **리소스:** 이 템플릿 섹션에서는 가상 머신, 스토리지 계정 및 가상 네트워크 등의 배포할 리소스를 정의합니다.
 
-- **출력**: 배포가 완료되면 Resource Manager에서 동적으로 생성된 연결 문자열과 같은 데이터를 반환할 수 있습니다.
+- **출력** : 배포가 완료되면 Resource Manager에서 동적으로 생성된 연결 문자열과 같은 데이터를 반환할 수 있습니다.
 
 배포 자동화의 경우 다음과 같은 메커니즘을 사용할 수 있습니다.
 
-- **함수**: Resource Manager 템플릿에서 여러 함수를 사용할 수 있습니다. 여기에는 문자열을 소문자로 변환, 정의된 리소스의 여러 인스턴스 배포 및 대상 리소스 그룹의 동적 반환 등의 작업이 포함됩니다. Resource Manager 함수를 사용하여 동적 배포를 빌드할 수 있습니다.
+- **함수** : Resource Manager 템플릿에서 여러 함수를 사용할 수 있습니다. 여기에는 문자열을 소문자로 변환, 정의된 리소스의 여러 인스턴스 배포 및 대상 리소스 그룹의 동적 반환 등의 작업이 포함됩니다. Resource Manager 함수를 사용하여 동적 배포를 빌드할 수 있습니다.
 
-- **리소스 종속성**: 여러 리소스를 배포할 때 일부 리소스는 다른 리소스에 대한 종속성이 있습니다. 배포를 용이하게 하기 위해 종속성 선언을 사용하여 종속 리소스가 다른 리소스보다 먼저 배포되도록 할 수 있습니다.
+- **리소스 종속성** : 여러 리소스를 배포할 때 일부 리소스는 다른 리소스에 대한 종속성이 있습니다. 배포를 용이하게 하기 위해 종속성 선언을 사용하여 종속 리소스가 다른 리소스보다 먼저 배포되도록 할 수 있습니다.
 
-- **템플릿 연결**: 하나의 Resource Manager 템플릿 내에서 다른 템플릿으로 연결할 수 있습니다. 이를 통해 대상으로 지정된 용도별 템플릿 집합으로 배포를 분해할 수 있습니다.
+- **템플릿 연결** : 하나의 Resource Manager 템플릿 내에서 다른 템플릿으로 연결할 수 있습니다. 이를 통해 대상으로 지정된 용도별 템플릿 집합으로 배포를 분해할 수 있습니다.
 
-모든 텍스트 편집기에서 Resource Manager 템플릿을 빌드할 수 있습니다. 그러나 Visual Studio용 Azure SDK에는 유용한 도구가 포함되어 있습니다. Visual Studio를 사용하면 마법사를 통해 템플릿에 리소스를 추가한 다음 Visual Studio에서 직접 템플릿을 배포하고 디버깅할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../resource-group-authoring-templates.md)을 참조하세요.
+모든 텍스트 편집기에서 Resource Manager 템플릿을 빌드할 수 있습니다. 그러나 Visual Studio용 Azure SDK에는 유용한 도구가 포함되어 있습니다. Visual Studio를 사용하면 마법사를 통해 템플릿에 리소스를 추가한 다음 Visual Studio에서 직접 템플릿을 배포하고 디버깅할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
 
 마지막으로 Azure Portal에서 기존 리소스 그룹을 재사용 가능한 템플릿으로 변환할 수 있습니다. 이는 기존 리소스 그룹의 배포 가능한 템플릿을 만들려는 경우 또는 기본 JSON을 검사하려는 경우에 유용할 수 있습니다. 리소스 그룹을 내보내려면 리소스 그룹 설정에서 **자동화 스크립트** 단추를 선택합니다.
 
-## <a name="security-of-azure-resources-rbac"></a>Azure 리소스 보안(RBAC)
+## <a name="security-of-azure-resources-azure-rbac"></a>Azure 리소스 보안(Azure RBAC)
 
 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)의 사용자 계정에 대한 운영 액세스 권한을 부여할 수 있습니다. 즉, 가상 머신 및 모든 관련 리소스와 같은 리소스 그룹에 리소스 집합을 배포하고 특정 사용자나 그룹에 사용 권한을 부여할 수 있습니다. 이 방법은 대상 리소스 그룹에 속한 리소스에 대한 액세스만 제한합니다. 가상 머신이나 가상 네트워크 등 단일 리소스에 대한 액세스 권한을 부여할 수도 있습니다.
 
@@ -294,19 +294,19 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 아래에는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)의 몇 가지 예가 나와 있습니다.
 
-- **소유자**: 이 역할의 사용자는 액세스를 비롯한 모든 사항을 관리할 수 있습니다.
+- **소유자** : 이 역할의 사용자는 액세스를 비롯한 모든 사항을 관리할 수 있습니다.
 
-- **읽기 권한자**: 이 역할의 사용자는 모든 유형의 리소스(비밀 제외)를 읽을 수는 있지만 변경할 수 없습니다.
+- **읽기 권한자** : 이 역할의 사용자는 모든 유형의 리소스(비밀 제외)를 읽을 수는 있지만 변경할 수 없습니다.
 
-- **가상 머신 기여자**: 이 역할의 사용자는 가상 머신을 관리할 수 있지만 가상 머신이 연결된 가상 네트워크나 VHD 파일이 있는 스토리지 계정은 관리할 수 없습니다.
+- **가상 머신 기여자** : 이 역할의 사용자는 가상 머신을 관리할 수 있지만 가상 머신이 연결된 가상 네트워크나 VHD 파일이 있는 스토리지 계정은 관리할 수 없습니다.
 
-- **SQL DB 기여자**: 이 역할의 사용자는 SQL Database를 관리할 수 있지만 보안 관련 정책은 관리할 수 없습니다.
+- **SQL DB 기여자** : 이 역할의 사용자는 SQL Database를 관리할 수 있지만 보안 관련 정책은 관리할 수 없습니다.
 
-- **SQL 보안 관리자**: 이 역할의 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
+- **SQL 보안 관리자** : 이 역할의 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
 
-- **스토리지 계정 기여자**: 이 역할의 사용자는 스토리지 계정을 관리할 수 있지만 스토리지 계정에 대한 액세스는 관리할 수 없습니다.
+- **스토리지 계정 기여자** : 이 역할의 사용자는 스토리지 계정을 관리할 수 있지만 스토리지 계정에 대한 액세스는 관리할 수 없습니다.
 
-자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
@@ -314,7 +314,7 @@ Azure Virtual Machines는 Azure의 중앙 IaaS 서비스 중 하나입니다. Az
 
 Azure VM을 배포할 때 Azure Marketplace에서 이미지를 선택하거나 자체 일반 이미지를 제공할 수 있습니다. 이 이미지는 운영 체제 및 초기 구성을 적용하는 데 사용됩니다. 배포하는 동안 Resource Manager는 컴퓨터 이름, 관리자 자격 증명 및 네트워크 구성 할당과 같은 일부 구성 설정을 처리합니다. Azure 가상 머신 확장을 사용하여 소프트웨어 설치, 바이러스 백신 구성 및 모니터링 솔루션과 같은 구성을 더욱 자동화할 수 있습니다.
 
-다양한 크기의 가상 머신을 만들 수 있습니다. 가상 머신의 크기는 처리, 메모리 및 스토리지 용량과 같은 리소스 할당을 나타냅니다. 경우에 따라 RDMA 지원 네트워크 어댑터 및 SSD 디스크와 같은 특정 기능은 특정 VM 크기에서만 사용할 수 있습니다. VM 크기와 기능의 전체 목록은 [Windows](../../virtual-machines/windows/sizes.md) 및 [Linux](../../virtual-machines/linux/sizes.md)에 대한 "Azure의 가상 머신 크기"를 참조하세요.
+다양한 크기의 가상 머신을 만들 수 있습니다. 가상 머신의 크기는 처리, 메모리 및 스토리지 용량과 같은 리소스 할당을 나타냅니다. 경우에 따라 RDMA 지원 네트워크 어댑터 및 SSD 디스크와 같은 특정 기능은 특정 VM 크기에서만 사용할 수 있습니다. VM 크기와 기능의 전체 목록은 [Windows](../../virtual-machines/sizes.md) 및 [Linux](../../virtual-machines/sizes.md)에 대한 "Azure의 가상 머신 크기"를 참조하세요.
 
 ### <a name="use-cases"></a>사용 사례
 
@@ -344,7 +344,7 @@ PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 �
 
 ### <a name="access-and-security-for-virtual-machines"></a>가상 머신의 액세스 및 보안
 
-인터넷에서 가상 머신에 액세스하려면 관련 네트워크 인터페이스 또는 부하 분산 장치가 있어야 하며(해당하는 경우) 공용 IP 주소로 구성되어야 합니다. 공용 IP 주소에는 가상 머신 또는 부하 분산 장치로 확인되는 DNS 이름이 포함됩니다. 자세한 내용은 [Azure의 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)를 참조하세요.
+인터넷에서 가상 머신에 액세스하려면 관련 네트워크 인터페이스 또는 부하 분산 장치가 있어야 하며(해당하는 경우) 공용 IP 주소로 구성되어야 합니다. 공용 IP 주소에는 가상 머신 또는 부하 분산 장치로 확인되는 DNS 이름이 포함됩니다. 자세한 내용은 [Azure의 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
 
 NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 통해 가상 머신에 대한 액세스를 관리합니다. NSG는 방화벽과 같은 역할을 하며 정의된 포트 집합의 네트워크 인터페이스 또는 서브넷에서 트래픽을 허용하거나 거부합니다. 예를 들어 Azure VM을 사용하여 원격 데스크톱 세션을 만들려면 포트 3389에서 인바운드 트래픽을 허용하도록 NSG를 구성해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure에서 VM으로 포트 열기](../../virtual-machines/windows/nsg-quickstart-portal.md)를 참조하세요.
 
@@ -356,11 +356,11 @@ Azure Storage는 내구성이 뛰어나고 확장 가능하며 중복 스토리�
 
 Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니다.
 
-- **로컬 중복 스토리지**는 모든 데이터의 3개 사본이 동기식으로 작성된 후에야 쓰기가 성공한 것으로 간주하여 가용성을 높입니다. 이러한 복사본은 단일 지역의 단일 시설에 저장됩니다. 복제본은 별도의 장애 도메인 및 업그레이드 도메인에 상주합니다. 즉, 데이터를 보유하고 있는 스토리지 노드에 장애가 발생하거나 업데이트를 위해 오프라인 상태가 된 경우에도 데이터를 사용할 수 있습니다.
+- **로컬 중복 스토리지** 는 모든 데이터의 3개 사본이 동기식으로 작성된 후에야 쓰기가 성공한 것으로 간주하여 가용성을 높입니다. 이러한 복사본은 단일 지역의 단일 시설에 저장됩니다. 복제본은 별도의 장애 도메인 및 업그레이드 도메인에 상주합니다. 즉, 데이터를 보유하고 있는 스토리지 노드에 장애가 발생하거나 업데이트를 위해 오프라인 상태가 된 경우에도 데이터를 사용할 수 있습니다.
 
-- **지역 중복 스토리지**는 고가용성을 위해 주 지역에 있는 데이터의 동기식 복사본을 3개 만들고 재해 복구를 위해 한 쌍의 지역에 3개의 비동기식 복제본을 만듭니다.
+- **지역 중복 스토리지** 는 고가용성을 위해 주 지역에 있는 데이터의 동기식 복사본을 3개 만들고 재해 복구를 위해 한 쌍의 지역에 3개의 비동기식 복제본을 만듭니다.
 
-- **읽기 액세스 지역 중복 스토리지**는 중복된 스토리지와 보조 지역의 데이터를 읽을 수 있는 기능입니다. 이 기능은 부분 재해 복구에 적합합니다. 주 지역에 문제가 있는 경우 쌍으로 된 지역에 대한 읽기 전용 액세스 권한을 가지도록 애플리케이션을 변경할 수 있습니다.
+- **읽기 액세스 지역 중복 스토리지** 는 중복된 스토리지와 보조 지역의 데이터를 읽을 수 있는 기능입니다. 이 기능은 부분 재해 복구에 적합합니다. 주 지역에 문제가 있는 경우 쌍으로 된 지역에 대한 읽기 전용 액세스 권한을 가지도록 애플리케이션을 변경할 수 있습니다.
 
 ### <a name="use-cases"></a>사용 사례
 
@@ -368,17 +368,17 @@ Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니
 
 #### <a name="blob-storage"></a>Blob Storage
 
-*Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob Storage는 문서, 미디어 파일 또는 애플리케이션 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
+*Blob* 이라는 단어는 *Binary Large Object* 의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob Storage는 문서, 미디어 파일 또는 애플리케이션 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob Storage를 개체 스토리지라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
 
 Azure Storage는 세 종류의 Blob을 지원합니다.
 
-- **블록 Blob**은 최대 195GB 크기(4MB×50,000 블록)의 일반 파일을 저장하는 데 사용됩니다. 블록 Blob에 대한 기본 사용 사례는 웹 사이트의 이미지 파일이나 미디어 파일과 같이 처음부터 끝까지 읽는 파일을 스토리지하는 것입니다. 64MB보다 큰 파일은 작은 블록으로 업로드해야 하기 때문에 이 파일을 블록 Blob이라고 합니다. 그런 다음 이러한 블록은 최종 Blob에 통합(또는 커밋)됩니다.
+- **블록 Blob** 은 최대 195GB 크기(4MB×50,000 블록)의 일반 파일을 저장하는 데 사용됩니다. 블록 Blob에 대한 기본 사용 사례는 웹 사이트의 이미지 파일이나 미디어 파일과 같이 처음부터 끝까지 읽는 파일을 스토리지하는 것입니다. 64MB보다 큰 파일은 작은 블록으로 업로드해야 하기 때문에 이 파일을 블록 Blob이라고 합니다. 그런 다음 이러한 블록은 최종 Blob에 통합(또는 커밋)됩니다.
 
-- **페이지 Blob**은 최대 1TB 크기의 임의 액세스 파일을 저장하는 데 사용됩니다. 페이지 Blob은 주로 Azure의 IaaS 컴퓨팅 서비스인 Azure Virtual Machines에 지속형 디스크를 제공하는 VHD의 백업 스토리지로 사용됩니다. 이들은 512바이트 페이지에 대한 임의의 읽기/쓰기 권한을 제공하기 때문에 페이지 Blob이라고 합니다.
+- **페이지 Blob** 은 최대 1TB 크기의 임의 액세스 파일을 저장하는 데 사용됩니다. 페이지 Blob은 주로 Azure의 IaaS 컴퓨팅 서비스인 Azure Virtual Machines에 지속형 디스크를 제공하는 VHD의 백업 스토리지로 사용됩니다. 이들은 512바이트 페이지에 대한 임의의 읽기/쓰기 권한을 제공하기 때문에 페이지 Blob이라고 합니다.
 
-- **추가 Blob**은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 애플리케이션에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GB까지 가능합니다.
+- **추가 Blob** 은 블록 Blob과 같이 블록으로 구성되지만 추가 작업에 최적화되어 있습니다. 이들은 하나 이상의 소스에서 동일한 Blob으로 정보를 기록하는 데 자주 사용됩니다. 예를 들어 여러 VM에서 실행 중인 애플리케이션에 대한 모든 추적 로깅을 동일한 추가 Blob에 기록할 수 있습니다. 하나의 추가 Blob은 최대 195GB까지 가능합니다.
 
-자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
 
 #### <a name="file-storage"></a>File Storage
 
@@ -394,7 +394,7 @@ Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하
 
 Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트을 저장할 수 있습니다. 엔터티를 원하는 수만큼 테이블에 저장할 수 있습니다. 스토리지 계정은 스토리지 계정의 최대 용량 한도 내에서 원하는 수의 테이블을 포함할 수 있습니다.
 
-자세한 내용은 [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
+자세한 내용은 [Azure Table Storage 시작](../../cosmos-db/tutorial-develop-table-dotnet.md)을 참조하세요.
 
 #### <a name="queue-storage"></a>Queue Storage
 
@@ -414,15 +414,15 @@ Azure Portal에서 스토리지 계정을 배포하는 것 외에도 포털에�
 
 #### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용하여 Azure storage 계정을 배포하면 스토리지 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](../../storage/common/storage-powershell-guide-full.md)을 참조하세요.
+PowerShell을 사용하여 Azure storage 계정을 배포하면 스토리지 계정을 완벽하게 배포 자동화할 수 있습니다. 자세한 내용은 [Azure Storage와 Azure PowerShelld 사용](/powershell/module/az.storage/)을 참조하세요.
 
 Azure 리소스를 개별적으로 배포하는 것 외에도 Azure PowerShell 모듈을 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
 
 #### <a name="command-line-interface-cli"></a>CLI(명령줄 인터페이스)
 
-PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 스토리지 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/common/storage-azure-cli.md)을 참조하세요.
+PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 자동화를 제공하며 Windows, OS X 또는 Linux 시스템에서 사용할 수 있습니다. Azure CLI **storage account create** 명령을 사용하여 스토리지 계정을 만들 수 있습니다. 자세한 내용은 [Azure Storage에서 Azure CLI 사용](../../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
 
-마찬가지로 Azure CLI를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../resource-group-template-deploy-cli.md)를 참조하세요.
+마찬가지로 Azure CLI를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
 ### <a name="access-and-security-for-azure-storage"></a>Azure Storage의 액세스 및 보안
 
@@ -446,7 +446,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 #### <a name="shared-access-signatures"></a>공유 액세스 서명
 
-스토리지 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 공유 액세스 서명을 만들 수 있습니다. 공유 액세스 서명은 스토리지 리소스에 대해 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+스토리지 리소스에 대한 제어된 액세스를 사용자에게 허용할 필요가 없는 경우 공유 액세스 서명을 만들 수 있습니다. 공유 액세스 서명은 스토리지 리소스에 대해 위임된 액세스를 허용하는 URL에 추가할 수 있는 토큰입니다. 토큰을 소유한 사람은 토큰 유효 기간 동안 토큰이 가리키는 리소스에 토큰이 지정하는 권한으로 액세스할 수 있습니다. 자세한 내용은 [공유 액세스 서명 사용](../../storage/common/storage-sas-overview.md)을 참조하세요.
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -456,7 +456,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 Azure Virtual network는 기본적으로 Azure에 저장된 리소스에만 액세스할 수 있습니다. 동일한 가상 네트워크에 연결된 리소스는 서로 통신할 수 있습니다. 가상 머신 네트워크 인터페이스 및 부하 분산 장치를 공용 IP 주소와 연결하여 인터넷을 통해 가상 머신에 액세스할 수 있습니다. 네트워크 보안 그룹을 사용하여 공개적으로 노출된 리소스에 대한 액세스를 보호할 수 있습니다.
 
-![2계층 웹 애플리케이션에 대한 Azure Virtual Network](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![2계층 웹 애플리케이션에 대한 Azure Virtual Network](/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>하이브리드 가상 네트워크
 
@@ -473,13 +473,13 @@ Azure virtual network가 온-프레미스 네트워크에 연결되어 있으므
 
 - Azure 리소스 관리자 템플릿
 
-> **사용 시기**: Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 프라이빗 서브넷으로 분할할 수 있습니다.
+> **사용 시기** : Azure에서 VM을 사용할 때면 언제든 가상 네트워크를 사용하게 됩니다. 이를 통해 VM을 온-프레미스 데이터 센터와 비슷한 공용 및 프라이빗 서브넷으로 분할할 수 있습니다.
 >
-> **시작**: Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 시작 및 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요.
+> **시작** : Azure Portal을 사용하여 Azure virtual network를 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 가상 네트워크를 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 포털에서 새 가상 시스템을 만들 때 기존 가상 네트워크를 선택하거나 새 가상 네트워크를 만들 수 있습니다. 시작 및 [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md)를 참조하세요.
 
 ### <a name="access-and-security-for-virtual-networks"></a>가상 네트워크의 액세스 및 보안
 
-네트워크 보안 그룹을 사용하여 Azure virtual network를 보호할 수 있습니다. NSG는 가상 네트워크의 VM 인스턴스에 대해 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙의 목록을 포함합니다. NSG를 서브넷 또는 서브넷 내의 개별 VM 인스턴스와 연결할 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 해당 VM에 직접 NSG를 연결하여 개별 VM에 대한 트래픽을 추가로 제한할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/security-overview.md)을 참조하세요.
+네트워크 보안 그룹을 사용하여 Azure virtual network를 보호할 수 있습니다. NSG는 가상 네트워크의 VM 인스턴스에 대해 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙의 목록을 포함합니다. NSG를 서브넷 또는 서브넷 내의 개별 VM 인스턴스와 연결할 수 있습니다. NSG를 서브넷과 연결한 경우 ACL 규칙은 해당 서브넷에 있는 모든 VM 인스턴스에 적용됩니다. 또한 해당 VM에 직접 NSG를 연결하여 개별 VM에 대한 트래픽을 추가로 제한할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

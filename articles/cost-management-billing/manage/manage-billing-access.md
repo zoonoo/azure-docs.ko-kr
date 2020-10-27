@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371816"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166219"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -51,19 +51,19 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. **Cost Management + 청구** 에서 검색합니다.
 
-    ![Azure Portal 검색을 보여 주는 스크린샷](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![서비스 섹션에서 Cost Management + Billing을 강조 표시하는 스크린샷.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. 왼쪽 창에서 **구독**을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독**을 선택해야 할 수 있습니다.
+1. 왼쪽 창에서 **구독** 을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독** 을 선택해야 할 수 있습니다.
 
     ![구독 선택을 보여 주는 스크린샷](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. **청구서**를 선택한 다음, **청구서에 액세스**를 선택합니다.
+1. **청구서** 를 선택한 다음, **청구서에 액세스** 를 선택합니다.
 
     ![청구서에 대한 액세스를 위임하는 방법을 보여 주는 스크린샷](./media/manage-billing-access/aa-optin01.png)
 
-1. **켬**을 선택하고 저장합니다.
+1. **켬** 을 선택하고 저장합니다.
 
     ![청구서 액세스에 대한 위임을 설정/해제하는 방법을 보여 주는 스크린샷](./media/manage-billing-access/aa-optinallow01.png)
 
@@ -77,24 +77,24 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Cost Management + 청구**에서 검색합니다.
+1. **Cost Management + 청구** 에서 검색합니다.
 
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. 왼쪽 창에서 **구독**을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독**을 선택해야 할 수 있습니다.
+1. 왼쪽 창에서 **구독** 을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독** 을 선택해야 할 수 있습니다.
 
     ![구독 선택을 보여 주는 스크린샷](./media/manage-billing-access/billing-select-subscriptions.png)
 
 1. **액세스 제어(IAM)** 를 선택합니다.
-1. 페이지 맨 위에서 **추가**를 선택합니다.
+1. 페이지 맨 위에서 **추가** 를 선택합니다.
 
     ![역할 할당 추가 클릭을 보여 주는 스크린샷](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. **역할** 드롭 다운 목록에서 **청구 읽기 권한자**를 선택합니다.
+1. **역할** 드롭 다운 목록에서 **청구 읽기 권한자** 를 선택합니다.
 1. **선택** 텍스트 상자에 추가하려는 사용자의 이름이나 이메일을 입력합니다.
 1. 사용자를 선택합니다.
-1. **저장**을 선택합니다.
-    ![역할 할당 추가 클릭을 보여 주는 스크린샷](./media/manage-billing-access/billing-save-role-assignment.png)
+1. **저장** 을 선택합니다.
+    ![저장 단추를 강조 표시하는 스크린샷.](./media/manage-billing-access/billing-save-role-assignment.png)
 
 1. 몇 분이 지나면 사용자에게는 구독의 청구 읽기 권한자 역할이 할당됩니다.
 

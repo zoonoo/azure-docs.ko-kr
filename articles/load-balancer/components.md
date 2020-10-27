@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 97b872c5fe0a155bb6e474f327f8d0c65e22b21f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930954"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317441"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -34,7 +34,7 @@ Azure Load Balancer의 IP 주소입니다. 클라이언트의 연락 지점입�
 - **공용 IP 주소**
 - **개인 IP 주소**
 
-IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식**이 결정됩니다. 개인 IP 주소를 선택하면 내부 부하 분산 장치를 만듭니다. 공용 IP 주소를 선택하면 공용 부하 분산 장치를 만듭니다.
+IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 결정됩니다. 개인 IP 주소를 선택하면 내부 부하 분산 장치를 만듭니다. 공용 IP 주소를 선택하면 공용 부하 분산 장치를 만듭니다.
 
 |  | 공용 Load Balancer  | 내부 부하 분산 장치 |
 | ---------- | ---------- | ---------- |
@@ -128,6 +128,7 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 ## <a name="limitations"></a>제한 사항
 
+- Load Balancer [제한](https://aka.ms/lblimits)에 대해 알아보기 
 - 부하 분산 장치는 특정 TCP 또는 UDP 프로토콜에 대한 부하 분산 및 포트 전달을 제공합니다. 부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP를 지원하지만 ICMP를 비롯한 다른 IP 프로토콜은 지원하지 않습니다.
 - 백 엔드 VM에서 내부 Load Balancer의 프런트 엔드로의 아웃바운드 흐름이 실패합니다.
 - 부하 분산 장치 규칙은 두 개의 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트 엔드 및 해당 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  

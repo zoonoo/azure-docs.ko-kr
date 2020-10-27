@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 GCP VM을 Azure�
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cd3bf225c6de0401aaa625cf3bb037b3beb58a35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2caebb5dda87a34d003f7f2bd208fff427c98431
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716422"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315878"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Azure로 마이그레이션할 GCP(Google Cloud Platform) VM 검색, 평가 및 마이그레이션
 
@@ -44,12 +44,12 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
         - Linux 컴퓨터의 경우:
             1. 각 Linux 머신에 로그인합니다.
             2. sshd_config file : vi /etc/ssh/sshd_config 열기
-            3. 파일에서 **PasswordAuthentication** 줄을 찾아 값을 **예**로 변경합니다.
+            3. 파일에서 **PasswordAuthentication** 줄을 찾아 값을 **예** 로 변경합니다.
             4. 파일을 저장하고 닫습니다. ssh 서비스를 다시 시작합니다.
     - 루트 사용자를 사용하여 Linux VM을 검색하는 경우 VM에서 루트 로그인이 허용되는지 확인합니다.
         1. 각 Linux 머신에 로그인
         2. sshd_config file : vi /etc/ssh/sshd_config 열기
-        3. 파일에서 **PermitRootLogin** 줄을 찾아 값을 **예**로 변경합니다.
+        3. 파일에서 **PermitRootLogin** 줄을 찾아 값을 **예** 로 변경합니다.
         4. 파일을 저장하고 닫습니다. ssh 서비스를 다시 시작합니다.
 
 2. 그런 다음, 이 [자습서](./tutorial-assess-gcp.md)에 따라 Azure Migrate 프로젝트 및 어플라이언스를 설정하여 GCP VM을 검색하고 평가합니다.
@@ -60,7 +60,7 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-- 마이그레이션하려는 GCP VM에서 지원되는 OS 버전을 실행하고 있는지 확인합니다. GCP VM은 마이그레이션을 위해 물리적 컴퓨터로 취급됩니다. 물리적 서버 마이그레이션 워크플로에 [지원되는 운영 체제 및 커널 버전](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)을 검토합니다. *hostnamectl* 또는 *uname -a*와 같은 표준 명령을 사용하여 Linux VM의 OS 및 커널 버전을 확인할 수 있습니다.  실제 마이그레이션을 진행하기 전에 테스트 마이그레이션을 수행하여 VM이 예상대로 작동하는지 확인하는 것이 좋습니다.
+- 마이그레이션하려는 GCP VM에서 지원되는 OS 버전을 실행하고 있는지 확인합니다. GCP VM은 마이그레이션을 위해 물리적 컴퓨터로 취급됩니다. 물리적 서버 마이그레이션 워크플로에 [지원되는 운영 체제 및 커널 버전](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)을 검토합니다. *hostnamectl* 또는 *uname -a* 와 같은 표준 명령을 사용하여 Linux VM의 OS 및 커널 버전을 확인할 수 있습니다.  실제 마이그레이션을 진행하기 전에 테스트 마이그레이션을 수행하여 VM이 예상대로 작동하는지 확인하는 것이 좋습니다.
 - GCP VM에서 Azure로 마이그레이션하는 데 [지원되는 구성](./migrate-support-matrix-physical-migration.md#physical-server-requirements)을 준수하는지 확인합니다.
 - Azure에 복제하는 GCP VM에서 [Azure VM 요구 사항](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수하는지 확인합니다.
 - VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변경해야 합니다.
@@ -80,7 +80,7 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
 1. Azure Portal에서 구독을 열고, **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
+2. **액세스 권한 확인** 에서 관련 계정을 찾아 클릭하여 권한을 확인합니다.
 3. **기여자** 또는 **소유자** 권한이 있어야 합니다.
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
@@ -105,8 +105,8 @@ GCP에서 Azure로의 마이그레이션을 준비하려면 마이그레이션�
 
 Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사용하여 컴퓨터를 Azure에 복제합니다. 복제 어플라이언스에서 실행하는 구성 요소는 다음과 같습니다.
 
-- **구성 서버**: 구성 서버는 GCP VM과 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다.
-- **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 받고, 캐싱, 압축 및 암호화를 사용하여 최적화하고, Azure의 캐시 스토리지 계정으로 보냅니다.
+- **구성 서버** : 구성 서버는 GCP VM과 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다.
+- **프로세스 서버** : 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 받고, 캐싱, 압축 및 암호화를 사용하여 최적화하고, Azure의 캐시 스토리지 계정으로 보냅니다.
 
 다음과 같이 어플라이언스 배포를 준비합니다.
 
@@ -127,25 +127,25 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해당 프로젝트에 추가합니다.
 
-1. Azure Portal > **모든 서비스**에서 **Azure Migrate**를 검색합니다.
-2. **서비스** 아래에서 **Azure Migrate**를 선택합니다.
-3. **개요**에서 **서버 평가 및 마이그레이션**을 클릭합니다.
-4. **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션**을 클릭합니다.
+1. Azure Portal > **모든 서비스** 에서 **Azure Migrate** 를 검색합니다.
+2. **서비스** 아래에서 **Azure Migrate** 를 선택합니다.
+3. **개요** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
+4. **서버 검색, 평가 및 마이그레이션** 아래에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
 
     ![서버 검색 및 평가](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
 
-5. **서버 검색, 평가 및 마이그레이션**에서 **도구 추가**를 클릭합니다.
-6. **프로젝트 마이그레이션**에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
-7. **프로젝트 세부 정보**에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음**을 클릭합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
+5. **서버 검색, 평가 및 마이그레이션** 에서 **도구 추가** 를 클릭합니다.
+6. **프로젝트 마이그레이션** 에서 Azure 구독을 선택하고, 아직 없는 경우 리소스 그룹을 만듭니다.
+7. **프로젝트 세부 정보** 에서 프로젝트 이름과 프로젝트를 만들려는 지역을 지정하고, **다음** 을 클릭합니다. [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
     - 지리적 프로젝트 위치는 GCP 머신에서 수집되는 메타데이터를 저장하는 데만 사용됩니다.
     - 대상 지역은 마이그레이션을 실행할 때 선택할 수 있습니다.
 
     ![Azure Migrate 프로젝트 만들기](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-8. **평가 도구 선택**에서 **평가 도구 추가 건너뛰기** > **다음**을 차례로 선택합니다.
-9. **마이그레이션 도구 선택**에서 **Azure Migrate: 서버 마이그레이션** > **다음**을 차례로 선택합니다.
-10. **검토 + 도구 추가**에서 설정을 검토하고, **도구 추가**를 클릭합니다.
-11. 도구가 추가되면 Azure Migrate 프로젝트 > **서버** > **마이그레이션 도구**에 표시됩니다.
+8. **평가 도구 선택** 에서 **평가 도구 추가 건너뛰기** > **다음** 을 차례로 선택합니다.
+9. **마이그레이션 도구 선택** 에서 **Azure Migrate: 서버 마이그레이션** > **다음** 을 차례로 선택합니다.
+10. **검토 + 도구 추가** 에서 설정을 검토하고, **도구 추가** 를 클릭합니다.
+11. 도구가 추가되면 Azure Migrate 프로젝트 > **서버** > **마이그레이션 도구** 에 표시됩니다.
 
 ## <a name="set-up-the-replication-appliance"></a>복제 어플라이언스 설정
 
@@ -153,39 +153,39 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 
 ### <a name="download-the-replication-appliance-installer"></a>복제 어플라이언스 설치 관리자 다운로드
 
-1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **검색**을 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버** , **Azure Migrate: 서버 마이그레이션** 에서 **검색** 을 클릭합니다.
 
     ![VM 검색](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
-2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타**를 클릭합니다.
-3. **대상 지역**에서 머신을 마이그레이션하려는 Azure 지역을 선택합니다.
+2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타** 를 클릭합니다.
+3. **대상 지역** 에서 머신을 마이그레이션하려는 Azure 지역을 선택합니다.
 4. **마이그레이션의 대상 지역이 <region-name>인지 확인합니다.** 를 선택합니다.
-5. **리소스 만들기**를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
+5. **리소스 만들기** 를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
     - 이미 Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션을 설정한 경우 이전에 리소스가 설정되었으므로 대상 옵션을 구성할 수 없습니다.
     - 이 단추를 클릭한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.
     - VM을 다른 지역으로 마이그레이션하려면 새롭거나 다른 Azure Migrate 프로젝트를 만들어야 합니다.
 
-6. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치**를 선택합니다.
+6. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
 7. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
 
     ![공급자 다운로드](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 8. 어플라이언스 설정 파일 및 키 파일을 복제 어플라이언스용으로 만든 Windows Server 2016 또는 Windows Server 2012 GCP VM에 복사합니다.
 9. 다음 절차에서 설명한 대로 복제 어플라이언스 설치 파일을 실행합니다.  
-    9.1. **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택한 후 **다음**을 선택합니다.   
-    9.2 **타사 소프트웨어 라이선스**에서 **타사 사용권 계약에 동의함**을 선택하고, **다음**을 선택합니다.   
-    9.3 **등록**에서 **찾아보기**를 선택한 다음, 자격 증명 모음 등록 키 파일을 저장한 위치로 이동합니다. **다음**을 선택합니다.  
-    9.4 **인터넷 설정**에서 **프록시 서버 없이 Azure Site Recovery에 직접 연결**을 선택하고, **다음**을 선택합니다.  
-    9.5 **필수 구성 요소 확인** 페이지에서 여러 항목에 대한 검사를 실행합니다. 완료되면 **다음**을 선택합니다.  
-    9.6 **MySQL 구성**에서 MySQL DB에 대한 암호를 제공하고, **다음**을 선택합니다.  
-    9.7 **환경 세부 정보**에서 **아니요**를 선택합니다. VM을 보호할 필요가 없습니다. 그다음에 **다음**을 선택합니다.  
-    9.8 **설치 위치**에서 **다음**을 선택하여 기본값을 적용합니다.  
-    9.9 **네트워크 선택**에서 **다음**을 선택하여 기본값을 적용합니다.  
-    9.10 **요약**에서 **설치**를 선택합니다.   
-    9.11 설치 프로세스에 대한 정보가 **설치 진행률**에 표시됩니다. 완료되면 **다음**을 선택합니다. 다시 부팅하는 방법에 대한 메시지가 창에 표시됩니다. **확인**을 선택합니다.   
+    9.1. **시작하기 전에** 에서 **구성 서버 및 프로세스 서버 설치** 를 선택한 후 **다음** 을 선택합니다.   
+    9.2 **타사 소프트웨어 라이선스** 에서 **타사 사용권 계약에 동의함** 을 선택하고, **다음** 을 선택합니다.   
+    9.3 **등록** 에서 **찾아보기** 를 선택한 다음, 자격 증명 모음 등록 키 파일을 저장한 위치로 이동합니다. **다음** 을 선택합니다.  
+    9.4 **인터넷 설정** 에서 **프록시 서버 없이 Azure Site Recovery에 직접 연결** 을 선택하고, **다음** 을 선택합니다.  
+    9.5 **필수 구성 요소 확인** 페이지에서 여러 항목에 대한 검사를 실행합니다. 완료되면 **다음** 을 선택합니다.  
+    9.6 **MySQL 구성** 에서 MySQL DB에 대한 암호를 제공하고, **다음** 을 선택합니다.  
+    9.7 **환경 세부 정보** 에서 **아니요** 를 선택합니다. VM을 보호할 필요가 없습니다. 그다음에 **다음** 을 선택합니다.  
+    9.8 **설치 위치** 에서 **다음** 을 선택하여 기본값을 적용합니다.  
+    9.9 **네트워크 선택** 에서 **다음** 을 선택하여 기본값을 적용합니다.  
+    9.10 **요약** 에서 **설치** 를 선택합니다.   
+    9.11 설치 프로세스에 대한 정보가 **설치 진행률** 에 표시됩니다. 완료되면 **다음** 을 선택합니다. 다시 부팅하는 방법에 대한 메시지가 창에 표시됩니다. **확인** 을 선택합니다.   
     9.12 그러면 구성 서버 연결 암호에 대한 메시지가 창에 표시됩니다. 암호를 클립보드에 복사하여 원본 VM의 임시 텍스트 파일에 저장합니다. 이 암호는 나중에 Mobility Service 설치 프로세스 중에 필요합니다.
 10. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 마법사의 계정 관리 탭을 사용하여 모바일 서비스의 푸시 설치에 사용할 계정 세부 정보를 추가합니다. 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
-11. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색**의 **구성 서버 선택**에서 새 어플라이언스를 선택하고 **등록 완료**를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
+11. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색** 의 **구성 서버 선택** 에서 새 어플라이언스를 선택하고 **등록 완료** 를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
 
     ![등록 완료](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
@@ -194,11 +194,11 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 마이그레이션할 원본 GCP VM에 Mobility Service 에이전트가 설치되어 있어야 합니다. 에이전트 설치 관리자는 복제 어플라이언스에서 사용할 수 있습니다. 올바른 설치 관리자를 찾고, 마이그레이션하려는 각 머신에 에이전트를 설치합니다. 다음과 같이 수행합니다.
 
 1. 복제 어플라이언스에 로그인합니다.
-2. **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**로 이동합니다.
+2. **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 로 이동합니다.
 3. 원본 GCP VM의 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토하세요.
 4. 설치 관리자 파일을 마이그레이션하려는 원본 GCP VM에 복사합니다.
 5. 복제 어플라이언스를 설치할 때 만들어지고 저장된 암호 텍스트 파일이 있는지 확인합니다.
-    - 암호를 저장하지 않은 경우 이 단계를 사용하여 복제 어플라이언스에서 암호를 확인할 수 있습니다. 명령줄에서 **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v**를 실행하여 현재 암호를 확인합니다.
+    - 암호를 저장하지 않은 경우 이 단계를 사용하여 복제 어플라이언스에서 암호를 확인할 수 있습니다. 명령줄에서 **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** 를 실행하여 현재 암호를 확인합니다.
     - 이제 이 암호를 클립보드에 복사하여 원본 VM의 임시 텍스트 파일에 저장합니다.
 
 ### <a name="installation-guide-for-windows-gcp-vms"></a>Windows GCP VM 설치 지침
@@ -246,62 +246,62 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 > [!NOTE]
 > 포털을 통해 복제할 VM을 한 번에 최대 10개까지 추가할 수 있습니다. 더 많은 VM을 동시에 복제하려면 VM을 10개씩 일괄 처리로 추가할 수 있습니다.
 
-1. Azure Migrate 프로젝트 > **서버**, **Azure Migrate: 서버 마이그레이션**에서 **복제**를 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버** , **Azure Migrate: 서버 마이그레이션** 에서 **복제** 를 클릭합니다.
 
     ![VM 복제](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. **복제** > **원본 설정** > **머신이 가상화되어 있나요?** 에서 **가상화되지 않음/기타**를 선택합니다.
-3. **온-프레미스 어플라이언스**에서 설정한 Azure Migrate 어플라이언스의 이름을 선택합니다.
-4. **프로세스 서버**에서 복제 어플라이언스의 이름을 선택합니다. 
-5. **게스트 자격 증명**에서, [복제 설치 관리자 설치](#download-the-replication-appliance-installer) 중에 만든 더미 계정을 선택하여 모바일 서비스를 수동으로 설치합니다(푸시 설치는 지원되지 않음). 그런 다음, **다음: 가상 머신**을 클릭합니다.   
+2. **복제** > **원본 설정** > **머신이 가상화되어 있나요?** 에서 **가상화되지 않음/기타** 를 선택합니다.
+3. **온-프레미스 어플라이언스** 에서 설정한 Azure Migrate 어플라이언스의 이름을 선택합니다.
+4. **프로세스 서버** 에서 복제 어플라이언스의 이름을 선택합니다. 
+5. **게스트 자격 증명** 에서, [복제 설치 관리자 설치](#download-the-replication-appliance-installer) 중에 만든 더미 계정을 선택하여 모바일 서비스를 수동으로 설치합니다(푸시 설치는 지원되지 않음). 그런 다음, **다음: 가상 머신** 을 클릭합니다.   
  
     ![설정 복제](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
-6. **Virtual Machines**의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정**을 그대로 유지합니다.
-7. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정**을 클릭합니다.
+6. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
+7. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 클릭합니다.
 
     ![VM 선택](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
-8. **대상 설정**에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
-9. **Virtual Network**에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.
-10. **가용성 옵션**에서 다음을 선택합니다.
+8. **대상 설정** 에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
+9. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.
+10. **가용성 옵션** 에서 다음을 선택합니다.
     -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
     -  마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다.
     - 마이그레이션된 머신에 대해 이러한 가용성 구성이 필요하지 않은 경우에는 인프라 중복이 필요하지 않습니다.
-11. **Azure 하이브리드 혜택**에서
-    - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
-    - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+11. **Azure 하이브리드 혜택** 에서
+    - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+    - 활성 Software Assurance 또는 Windows Server 구독이 적용되는 Windows Server 머신이 있고 마이그레이션할 머신에 이 혜택을 적용하려면 **예** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
     ![대상 설정](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. **Compute**에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
+12. **Compute** 에서 VM 이름, 크기, OS 디스크 유형 및 가용성 구성을 검토합니다(이전 단계에서 선택한 경우). VM은 [Azure 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
 
-    - **VM 크기**: 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기**에서 수동 크기를 선택합니다.
-    - **OS 디스크**: VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
-    - **가용성 영역**: 사용할 가용성 영역을 지정합니다.
-    - **가용성 집합**: 사용할 가용성 집합을 지정합니다.
+    - **VM 크기** : 평가 권장 사항을 사용하는 경우 VM 크기 드롭다운에서 권장 크기를 표시합니다. 그렇지 않으면 Azure Migrate는 Azure 구독에서 가장 일치하는 항목을 기준으로 크기를 선택합니다. 또는 **Azure VM 크기** 에서 수동 크기를 선택합니다.
+    - **OS 디스크** : VM에 맞는 OS(부팅) 디스크를 지정합니다. OS 디스크는 운영 체제 부팅 로더 및 설치 관리자가 있는 디스크입니다.
+    - **가용성 영역** : 사용할 가용성 영역을 지정합니다.
+    - **가용성 집합** : 사용할 가용성 집합을 지정합니다.
 
 ![컴퓨팅 설정](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. **디스크**에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
+13. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 디스크를 복제에서 제외할 수 있습니다.
     - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다. 
 
     ![디스크 설정](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-14. **검토 및 복제 시작**에서 설정을 검토하고, **복제**를 클릭하여 서버에 대한 초기 복제를 시작합니다.
+14. **검토 및 복제 시작** 에서 설정을 검토하고, **복제** 를 클릭하여 서버에 대한 초기 복제를 시작합니다.
 
 > [!NOTE]
-> 복제가 시작되기 전에 언제든지 **관리** > **머신 복제 중**에서 복제 설정을 업데이트할 수 있습니다. 복제가 시작된 후에는 설정을 변경할 수 없습니다.
+> 복제가 시작되기 전에 언제든지 **관리** > **머신 복제 중** 에서 복제 설정을 업데이트할 수 있습니다. 복제가 시작된 후에는 설정을 변경할 수 없습니다.
 
 ## <a name="track-and-monitor-replication-status"></a>복제 상태 추적 및 모니터링
 
-- **복제**를 클릭하면 복제 시작 작업이 시작됩니다.
+- **복제** 를 클릭하면 복제 시작 작업이 시작됩니다.
 - [복제 시작] 작업이 성공적으로 완료되면 VM에서 Azure로의 초기 복제를 시작합니다.
 - 초기 복제가 완료되면 델타 복제가 시작됩니다. GCP VM 디스크에 대한 증분 변경 내용이 Azure의 복제본 디스크에 주기적으로 복제됩니다.
 
 작업 상태는 포털 알림에서 추적할 수 있습니다.
 
-**서버 복제 중**을 **Azure Migrate: 서버 마이그레이션**에서 클릭하여 복제 상태를 모니터링할 수 있습니다.  
+**서버 복제 중** 을 **Azure Migrate: 서버 마이그레이션** 에서 클릭하여 복제 상태를 모니터링할 수 있습니다.  
 
 ![복제 모니터링](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
@@ -315,18 +315,18 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 
 다음과 같이 테스트 마이그레이션을 수행합니다.
 
-1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 마이그레이션**에서 **마이그레이션된 서버 테스트**를 클릭합니다.
+1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 마이그레이션** 에서 **마이그레이션된 서버 테스트** 를 클릭합니다.
 
      ![마이그레이션된 서버 테스트](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
-2. 마우스 오른쪽 단추로 테스트할 VM을 클릭하고, **테스트 마이그레이션**을 클릭합니다.
+2. 마우스 오른쪽 단추로 테스트할 VM을 클릭하고, **테스트 마이그레이션** 을 클릭합니다.
 
     ![테스트 마이그레이션](./media/tutorial-migrate-physical-virtual-machines/test-migrate.png)
 
-3. **테스트 마이그레이션**에서 마이그레이션 후 Azure VM이 위치할 Azure VNet을 선택합니다. 비프로덕션 VNet을 사용하는 것이 좋습니다.
+3. **테스트 마이그레이션** 에서 마이그레이션 후 Azure VM이 위치할 Azure VNet을 선택합니다. 비프로덕션 VNet을 사용하는 것이 좋습니다.
 4. **테스트 마이그레이션** 작업이 시작됩니다. 포털 알림에서 작업을 모니터링합니다.
-5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines**에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
-6. 테스트가 완료되면 **머신 복제 중**에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리**를 클릭합니다.
+5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines** 에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
+6. 테스트가 완료되면 **머신 복제 중** 에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리** 를 클릭합니다.
 
     ![마이그레이션 정리](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
@@ -335,19 +335,19 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 
 테스트 마이그레이션이 예상대로 작동하는지 확인한 후에는 GCP VM을 마이그레이션할 수 있습니다.
 
-1. Azure Migrate 프로젝트 > **서버** > **Azure Migrate: 서버 마이그레이션**에서 **서버 복제 중**을 클릭합니다.
+1. Azure Migrate 프로젝트 > **서버** > **Azure Migrate: 서버 마이그레이션** 에서 **서버 복제 중** 을 클릭합니다.
 
     ![서버 복제 중](./media/tutorial-migrate-physical-virtual-machines/replicate-servers.png)
 
-2. **머신 복제 중**에서 마우스 오른쪽 단추로 VM > **마이그레이션**을 차례로 클릭합니다.
-3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인**을 차례로 선택합니다.
-    - VM을 종료하지 않으려면 **아니요**를 선택합니다.
+2. **머신 복제 중** 에서 마우스 오른쪽 단추로 VM > **마이그레이션** 을 차례로 클릭합니다.
+3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인** 을 차례로 선택합니다.
+    - VM을 종료하지 않으려면 **아니요** 를 선택합니다.
 4. VM에 대한 마이그레이션 작업이 시작됩니다. 작업 상태는 포털 페이지의 오른쪽 위에서 알림 벨 아이콘을 클릭하거나 서버 마이그레이션 도구의 작업 페이지로 이동하여(도구 타일에서 [개요] 클릭 > 왼쪽 메뉴에서 [작업] 선택) 확인할 수 있습니다.
 5. 작업이 완료되면 Virtual Machines 페이지에서 VM을 보고 관리할 수 있습니다.
 
 ### <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지**를 차례로 클릭합니다. 다음을 수행합니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지** 를 차례로 클릭합니다. 다음을 수행합니다.
     - GCP VM 복제를 중지합니다.
     - Azure Migrate: 서버 마이그레이션의 **복제 중 서버** 수에서 GCP VM을 Server Migration에 연결합니다.
     - VM에 대한 복제 상태 정보를 정리합니다.
@@ -367,7 +367,7 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
     - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
-    - [네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
+    - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.
     - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
@@ -399,7 +399,7 @@ Azure Migrate 프로젝트를 설정한 다음, Server Migration 도구를 해�
 **답변:** EC2 VM을 Azure로 마이그레이션하기 전에 이러한 변경을 수행해야 할 수 있습니다.
 
 - VM 프로비저닝에 대해 클라우드 초기화를 사용하는 경우 Azure에 복제하기 전에 VM에서 클라우드 초기화를 사용하지 않도록 설정할 수 있습니다. VM의 클라우드 init에서 수행하는 프로비저닝 단계는 GCP에 따라 다를 수 있으며 Azure로 마이그레이션한 후에는 유효하지 않습니다.  
-- [필수 구성 요소](#prerequisites) 섹션을 검토하여 사용 중인 운영 체제에 필요한 변경 내용이 있는지 확인합니다.
+- Azure로 마이그레이션하기 전에 [필수 구성 요소](#prerequisites) 섹션을 검토하여 사용 중인 운영 체제에 필요한 변경 내용이 있는지 확인합니다.
 - 최종 마이그레이션 전에 테스트 마이그레이션을 실행하는 것이 좋습니다.  
 
 ## <a name="next-steps"></a>다음 단계
