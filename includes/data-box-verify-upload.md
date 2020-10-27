@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 08/27/2019
 ms.author: alkohli
 ms.openlocfilehash: 76b4f9982b8f1f5d435b1acde57ef218efbbe712
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70098835"
 ---
 1. Data Box 디바이스가 Azure 데이터 센터 네트워크에 연결되면 Azure에 데이터 업로드가 자동으로 시작됩니다. 

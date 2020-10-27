@@ -6,5 +6,5 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2020
 ms.locfileid: "90531043"
 ---
-<Token>**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics(미리 보기) </Token> 
+<Token>**적용 대상:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Synapse Analytics(미리 보기)</Token> 
 
