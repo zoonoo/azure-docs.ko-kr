@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959845"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542610"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에 저장 된 쿼리
 
@@ -38,7 +38,7 @@ Log Analytics 또는 KQL 쿼리 언어에 익숙하지 않은 경우 예제 쿼�
 
 ### <a name="example-query-dialog"></a>예제 쿼리 대화 상자
 
-Log Analytics 환경을 처음 입력할 때 *쿼리 예제 대화 상자가* 자동으로 표시 됩니다.  **예제 쿼리의**화면 오른쪽 위에 있는를 클릭 하 여 액세스할 수도 있습니다.
+Log Analytics 환경을 처음 입력할 때 *쿼리 예제 대화 상자가* 자동으로 표시 됩니다.  **예제 쿼리의** 화면 오른쪽 위에 있는를 클릭 하 여 액세스할 수도 있습니다.
 
 ![사이드바](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Log Analytics 환경을 처음 입력할 때 *쿼리 예제 대화 상자가* �
 
 Log Analytics의 왼쪽 세로 막대에 있는 쿼리 창에서 대화 상자 환경의 모든 기능에 액세스할 수 있습니다. 쿼리 이름을 마우스로 가리키면 쿼리 설명 및 추가 기능을 가져올 수 있습니다.
 
-![사이드바](media/saved-queries/sidebar-3.png)
+![쿼리 창을 보여 주는 스크린샷](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>쿼리 찾기 및 필터링
 
@@ -80,13 +80,13 @@ Log Analytics의 왼쪽 세로 막대에 있는 쿼리 창에서 대화 상자 �
 대화 상자는 다음을 기준으로 그룹화를 지원 합니다.
 
 - **리소스 종류** – 가상 머신과 같이 Azure에 정의 된 리소스입니다. Azure Monitor Logs/Log Analytics 테이블을 리소스 유형에 대 한 전체 매핑은 [Azure Monitor 테이블 참조](/azure/azure-monitor/reference/tables/tables-resourcetype) 를 참조 하세요.  
-- **범주** – *보안* 또는 *감사*와 같은 정보의 유형입니다. 범주는 테이블 측 창에 정의 된 범주와 동일 합니다. 전체 범주 목록은 [Azure Monitor 테이블 참조](/azure/azure-monitor/reference/tables/tables-category) 를 참조 하세요.  
+- **범주** – *보안* 또는 *감사* 와 같은 정보의 유형입니다. 범주는 테이블 측 창에 정의 된 범주와 동일 합니다. 전체 범주 목록은 [Azure Monitor 테이블 참조](/azure/azure-monitor/reference/tables/tables-category) 를 참조 하세요.  
 - **솔루션** – 쿼리와 연결 된 Azure Monitor 솔루션
-- **토픽** – *활동 로그* 또는 *앱 로그*와 같은 예제 쿼리 항목입니다. 토픽 속성은 예제 쿼리에 고유 하며 특정 리소스 종류에 따라 다를 수 있습니다.
+- **토픽** – *활동 로그* 또는 *앱 로그* 와 같은 예제 쿼리 항목입니다. 토픽 속성은 예제 쿼리에 고유 하며 특정 리소스 종류에 따라 다를 수 있습니다.
 
 또한 그룹화 값은 활성 목차의 역할을 합니다. 화면 왼쪽에 있는 값 중 하나를 클릭 하면 쿼리 보기가 클릭 된 항목으로 오른쪽으로 스크롤됩니다.
 
-### <a name="filter"></a>Assert
+### <a name="filter"></a>필터
 
 앞에서 설명한 groupby 값에 따라 쿼리를 필터링 할 수도 있습니다. 예제 쿼리 대화 상자에서 필터는 위쪽에 있습니다.
 

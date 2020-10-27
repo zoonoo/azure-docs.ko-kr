@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 11/20/2019
-ms.openlocfilehash: 15a86fd191eefc5882150fb276228d18efd6ff5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0c16ee7aa66847cc6f3f4618b8090b7ce86663
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323794"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533787"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
@@ -22,7 +22,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
-* [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
+* [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 * 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage, abfs://에 대 한 wasb://입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 

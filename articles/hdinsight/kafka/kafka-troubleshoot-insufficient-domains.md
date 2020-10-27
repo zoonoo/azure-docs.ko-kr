@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 8be7e05ac85ce0b1b10edf18d3885a07e016b9ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 070ba5ecb6f151099c13082eee650c5720e63b2a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895020"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532597"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>시나리오: `not sufficient fault domains in region` Azure HDInsight에서로 인해 클러스터를 만들지 못했습니다.
 
@@ -26,7 +26,7 @@ Apache Kafka 클러스터를 만들려고 할 때와 유사한 오류 메시지�
 
 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
-Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 여기에 포함 된 장애 도메인의 수에 대 한 자세한 내용은 [가용성 집합](../../virtual-machines/windows/manage-availability.md)에 대 한 설명서를 참조 하세요.
+Azure 지역마다 특정 수의 장애 도메인이 있습니다. 도메인 목록과 여기에 포함 된 장애 도메인의 수에 대 한 자세한 내용은 [가용성 집합](../../virtual-machines/manage-availability.md)에 대 한 설명서를 참조 하세요.
 
 HDInsight에서 Kafka 클러스터는 세 개 이상의 장애 도메인을 포함 하는 지역에서 프로 비전 해야 합니다.
 
@@ -42,4 +42,4 @@ HDInsight에서 Kafka 클러스터는 세 개 이상의 장애 도메인을 포�
 
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

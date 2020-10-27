@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ea1ac064799b0cede1de82851a514a2b389f20aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116710"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499068"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)의 할당량과 제한을 제공합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -46,6 +46,8 @@ ms.locfileid: "92116710"
 
 ### <a name="dedicated-tier"></a>전용 계층
 Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최소 사용량은 4시간입니다. Dedicated 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량 및 제한을 제공합니다. 
+
+Azure Portal을 사용하여 전용 Event Hubs 클러스터를 만드는 방법은 이 [문서](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal)를 참조하세요.
 
 | 기능 | 제한 |
 | --- | ---|

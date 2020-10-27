@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 8ae16e6799d1253b8b070d59414beaee3c7ff332
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479785"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533311"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -20,16 +20,16 @@ ms.locfileid: "92479785"
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
-이전에는 사용자가 사용 권한을 가진 모든 사용자가 사용할 수 있게 되었으므로 클러스터 사용자가 소유자, 참가자 또는 독자 [Azure 역할](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다 `*/read` . 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
+이전에는 사용자가 사용 권한을 가진 모든 사용자가 사용할 수 있게 되었으므로 클러스터 사용자가 소유자, 참가자 또는 독자 [Azure 역할](../role-based-access-control/rbac-and-directory-admin-roles.md)을 처리 개체로 HDInsight API를 통해 암호를 가져올 수 있었습니다 `*/read` . 비밀은 사용자의 역할이 허용 해야 하는 것 보다 높은 수준의 액세스를 얻는 데 사용할 수 있는 값으로 정의 됩니다. 여기에는 클러스터 게이트웨이 HTTP 자격 증명, 저장소 계정 키, 데이터베이스 자격 증명 등의 값이 포함 됩니다.
 
 2019 9 월 3 일부 터 이러한 비밀에 액세스 하려면 권한이 필요 합니다 `Microsoft.HDInsight/clusters/configurations/action` . 즉, 사용자가 읽기 권한자 역할을 사용 하 여 더 이상 액세스할 수 없습니다. 이 권한이 있는 역할은 참가자, 소유자 및 새 HDInsight 클러스터 운영자 역할 (아래 참조)입니다.
 
-또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약:
+또한 참가자 또는 소유자의 관리 권한을 부여 하지 않고도 암호를 검색할 수 있는 새 [HDInsight 클러스터 운영자](../role-based-access-control/built-in-roles.md#hdinsight-cluster-operator) 역할을 도입 하 고 있습니다. 요약:
 
-| Role                                  | 이전의                                                                                        | 앞으로 이동       |
+| 역할                                  | 이전의                                                                                        | 앞으로 이동       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | 판독기                                | -암호를 포함 한 읽기 권한입니다.                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
-| HDInsight 클러스터 운영자<br>(새 역할) | N/A                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
+| HDInsight 클러스터 운영자<br>(새 역할) | 해당 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
 | 참가자                           | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.<br>-스크립트 동작을 실행 합니다.     | 변경 내용 없음 |
 | 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 게 액세스 권한을 위임 합니다.<br>-스크립트 동작을 실행 합니다. | 변경 내용 없음 |
 
@@ -57,23 +57,23 @@ ms.locfileid: "92479785"
 
 다음 Api가 변경 되거나 더 이상 사용 되지 않습니다.
 
-- [**/Configurations/{configurationName} 가져오기**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (중요 한 정보 제거)
+- [**/Configurations/{configurationName} 가져오기**](/rest/api/hdinsight/hdinsight-cluster#get-configuration) (중요 한 정보 제거)
     - 이전에는 개별 구성 유형 (암호 포함)을 가져오는 데 사용 되었습니다.
     - 2019 년 9 월 3 일부 터이 API 호출은 암호가 생략 된 개별 구성 유형을 반환 합니다. 비밀을 비롯 한 모든 구성을 얻으려면 새 사후/구성 호출을 사용 합니다. 게이트웨이 설정만 가져오려면 새 POST/getGatewaySettings 호출을 사용 합니다.
-- [**/구성 가져오기**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (사용 되지 않음)
+- [**/구성 가져오기**](/rest/api/hdinsight/hdinsight-cluster#get-configuration) (사용 되지 않음)
     - 이전에 모든 구성 (암호 포함)을 가져오는 데 사용 됨
     - 2019 년 9 월 3 일부 터이 API 호출은 더 이상 지원 되지 않으며 더 이상 지원 되지 않습니다. 앞으로 진행 되는 모든 구성을 가져오려면 새 사후/구성 호출을 사용 합니다. 중요 한 매개 변수가 생략 된 구성을 얻으려면 GET/configurations/{configurationName} 호출을 사용 합니다.
-- [**POST/configurations/{configurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (사용 되지 않음)
+- [**POST/configurations/{configurationName}**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (사용 되지 않음)
     - 이전에 게이트웨이 자격 증명을 업데이트 하는 데 사용 되었습니다.
     - 2019 년 9 월 3 일부 터이 API 호출은 더 이상 지원 되지 않으며 더 이상 지원 되지 않습니다. 대신 새 POST/Vvgsettings를 사용 합니다.
 
 다음과 같은 대체 Api가 추가 되었습니다.</span>
 
-- [**사후/구성**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#list-configurations)
+- [**사후/구성**](/rest/api/hdinsight/hdinsight-cluster#list-configurations)
     - 이 API를 사용 하 여 암호를 비롯 한 모든 구성을 가져옵니다.
-- [**/GetGatewaySettings 게시**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
+- [**/GetGatewaySettings 게시**](/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
     - 이 API를 사용 하 여 게이트웨이 설정을 가져옵니다.
-- [**Rvgsettings 게시**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
+- [**Rvgsettings 게시**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
     - 이 API를 사용 하 여 게이트웨이 설정 (사용자 이름 및/또는 암호)을 업데이트 합니다.
 
 ### <a name="azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code 용 Azure HDInsight 도구
@@ -86,7 +86,7 @@ ms.locfileid: "92479785"
 
 ### <a name="azure-data-lake-and-stream-analytics-tools-for-visual-studio"></a>Visual Studio 용 Azure Data Lake 및 Stream Analytics 도구
 
-중단을 방지 하기 위해 Azure Data Lake의 버전 2.3.9000.1 이상 [및 Visual Studio 용 Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) 를 업데이트 합니다.  업데이트에 대 한 도움말은 [Visual Studio 용 업데이트 Data Lake 도구](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio)설명서를 참조 하세요.
+중단을 방지 하기 위해 Azure Data Lake의 버전 2.3.9000.1 이상 [및 Visual Studio 용 Stream Analytics 도구](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) 를 업데이트 합니다.  업데이트에 대 한 도움말은 [Visual Studio 용 업데이트 Data Lake 도구](./hadoop/apache-hadoop-visual-studio-tools-get-started.md#update-data-lake-tools-for-visual-studio)설명서를 참조 하세요.
 
 ### <a name="azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트
 
@@ -122,10 +122,10 @@ HDInsight SDK for .NET의 [2.1.0 버전](https://www.nuget.org/packages/Microsof
 
 Python 용 HDInsight SDK의 [버전 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) 이상으로 업데이트 합니다. 이러한 변경의 영향을 받는 메서드를 사용 하는 경우 최소한의 코드를 수정 해야 할 수 있습니다.
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
-    - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationsOperations.list`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
-    - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClusterOperations.get_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 합니다.
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperations.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) .
+- [`ConfigurationsOperations.get`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) 는 더 이상 저장소 키 (핵심 사이트) 또는 HTTP 자격 증명 (게이트웨이)과 같은 **중요 한 매개 변수를 반환 하지 않습니다** .
+    - 중요 한 매개 변수를 비롯 한 모든 구성을 검색 하려면 [`ConfigurationsOperations.list`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 앞으로를 사용 합니다.' Reader ' 역할이 있는 사용자는이 메서드를 사용할 수 없습니다. 이렇게 하면 클러스터에 대 한 중요 한 정보에 액세스할 수 있는 사용자를 세부적으로 제어할 수 있습니다. 
+    - HTTP 게이트웨이 자격 증명만 검색 하려면를 사용 [`ClusterOperations.get_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) 합니다.
+- [`ConfigurationsOperations.update`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) 는 이제 사용 되지 않으며로 대체 되었습니다 [`ClusterOperations.update_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) .
 
 ### <a name="sdk-for-java"></a>Java 용 SDK
 
@@ -154,7 +154,7 @@ Go 용 HDInsight SDK [버전 27.1.0](https://github.com/Azure/azure-sdk-for-go/t
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>사용자에 게 HDInsight 클러스터 운영자 역할 할당 추가
 
-[소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) 역할을 가진 사용자는 중요 한 hdinsight 클러스터 구성 값 (예: 클러스터 게이트웨이 자격 증명 및 저장소 계정 키)에 대 한 읽기/쓰기 권한을 부여 하려는 사용자에 게 [HDInsight 클러스터 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) 역할을 할당할 수 있습니다.
+[소유자](../role-based-access-control/built-in-roles.md#owner) 역할을 가진 사용자는 중요 한 hdinsight 클러스터 구성 값 (예: 클러스터 게이트웨이 자격 증명 및 저장소 계정 키)에 대 한 읽기/쓰기 권한을 부여 하려는 사용자에 게 [HDInsight 클러스터 운영자](../role-based-access-control/built-in-roles.md#hdinsight-cluster-operator) 역할을 할당할 수 있습니다.
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -183,7 +183,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [Azure Portal-역할 할당 추가를 사용 하 여 Azure 역할 할당 추가 또는 제거](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)설명서를 참조 하세요.
+또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [Azure Portal-역할 할당 추가를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)설명서를 참조 하세요.
 
 ## <a name="faq"></a>FAQ
 

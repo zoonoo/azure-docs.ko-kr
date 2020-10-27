@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: ab07da38c01b052a4220274fb059683a22950a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c90142330b0530f1127beae1624ff27d7eb6ca
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75750706"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541488"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Azure IoT Hub를 작업 모니터링에서 진단 설정으로 마이그레이션
 
 [작업 모니터링](iot-hub-operations-monitoring.md)을 사용하여 IoT Hub의 작업 상태를 추적하는 고객은 해당 워크플로를 Azure Monitor의 기능인 [Azure 진단 설정](../azure-monitor/platform/platform-logs-overview.md)으로 마이그레이션할 수 있습니다. 진단 설정은 여러 Azure 서비스에 대한 리소스 수준의 진단 정보를 제공합니다.
 
-**IoT Hub의 작업 모니터링 기능은 더 이상 사용**되지 않으며 포털에서 제거 되었습니다. 이 문서에서는 워크로드를 작업 모니터링에서 진단 설정으로 이동하는 단계를 설명합니다. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)을 참조하세요.
+**IoT Hub의 작업 모니터링 기능은 더 이상 사용** 되지 않으며 포털에서 제거 되었습니다. 이 문서에서는 워크로드를 작업 모니터링에서 진단 설정으로 이동하는 단계를 설명합니다. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)을 참조하세요.
 
 ## <a name="update-iot-hub"></a>IoT Hub 업데이트
 
@@ -34,9 +34,9 @@ Azure Portal에서 IoT Hub를 업데이트하려면 먼저 진단 설정을 켠 
 
 워크플로에서 새 진단 설정을 테스트 한 후에는 작업 모니터링 기능을 해제할 수 있습니다. 
 
-1. IoT Hub 메뉴에서 **작업 모니터링**을 선택합니다.
+1. IoT Hub 메뉴에서 **작업 모니터링** 을 선택합니다.
 
-2. 각 모니터링 범주에서 **없음**을 선택합니다.
+2. 각 모니터링 범주에서 **없음** 을 선택합니다.
 
 3. 작업 모니터링 변경 내용을 저장합니다.
 
@@ -52,7 +52,7 @@ Azure Portal에서 IoT Hub를 업데이트하려면 먼저 진단 설정을 켠 
 * 작업 연산
 * 직접 메서드
 
-특정 스키마 구조에 대한 자세한 내용은 [진단 설정에 대한 스키마의 이해](iot-hub-monitor-resource-health.md#understand-the-logs)를 참조하세요.
+특정 스키마 구조는 [리소스 로그](monitor-iot-hub-reference.md#resource-logs)를 참조 하세요.
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>디바이스 연결 모니터링 및 낮은 대기 시간을 사용하여 이벤트 연결 해제
 
@@ -60,4 +60,4 @@ Azure Portal에서 IoT Hub를 업데이트하려면 먼저 진단 설정을 켠 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure IoT Hub 상태 모니터링 및 신속한 문제 진단](iot-hub-monitor-resource-health.md)
+[모니터 IoT Hub](monitor-iot-hub.md)

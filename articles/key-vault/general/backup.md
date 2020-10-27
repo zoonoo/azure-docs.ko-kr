@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585936"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440521"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault 백업
 
@@ -30,6 +30,9 @@ Key Vault는 재해 시나리오에서 가용성을 유지하고 사용자의 �
 비밀을 실수로 또는 악의적으로 삭제하지 않도록 보호하려면 키 자격 증명 모음에서 일시 삭제 및 제거 보호 기능을 구성합니다. 자세한 내용은 [Azure Key Vault 일시 삭제 개요](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
+
+> [!IMPORTANT]
+> Key Vault는 키, 비밀 또는 인증서 개체의 500개가 넘는 이전 버전을 백업하는 기능을 지원하지 않습니다. 키, 비밀 또는 인증서 개체를 백업하려고 하면 오류가 발생할 수 있습니다. 이전 버전의 키, 비밀 또는 인증서는 삭제할 수 없습니다.
 
 Key Vault는 현재 단일 작업으로 전체 키 자격 증명 모음을 백업하는 방법을 제공하지 않습니다. 이 문서에 나열된 명령을 사용하여 키 자격 증명 모음의 자동 백업을 수행하려고 하면 오류가 발생하고 Microsoft 또는 Azure Key Vault 팀에서 지원되지 않습니다. 
 
@@ -64,11 +67,11 @@ Key Vault는 현재 단일 작업으로 전체 키 자격 증명 모음을 백�
     ![키 자격 증명 모음에서 키 설정과 개체를 선택할 수 있는 위치를 보여주는 스크린샷.](../media/backup-1.png)
 
 4. 개체를 선택합니다.
-5. **백업 다운로드**를 선택합니다.
+5. **백업 다운로드** 를 선택합니다.
 
     ![키 자격 증명 모음에서 백업 다운로드 단추를 선택할 수 있는 위치를 보여주는 스크린샷.](../media/backup-2.png)
     
-6. **다운로드**를 선택합니다.
+6. **다운로드** 를 선택합니다.
 
     ![키 자격 증명 모음에서 다운로드 단추를 선택할 수 있는 위치를 보여주는 스크린샷.](../media/backup-3.png)
     
@@ -79,12 +82,12 @@ Key Vault는 현재 단일 작업으로 전체 키 자격 증명 모음을 백�
 1. Azure Portal로 이동합니다.
 2. 키 자격 증명 모음을 선택합니다.
 3. 복원하려는 개체 유형(비밀, 키 또는 인증서)으로 이동합니다.
-4. **백업 복원**을 선택합니다.
+4. **백업 복원** 을 선택합니다.
 
     ![키 자격 증명 모음에서 백업 복원을 선택할 수 있는 위치를 보여주는 스크린샷.](../media/backup-4.png)
     
 5. 암호화된 Blob을 저장한 위치로 이동합니다.
-6. **확인**을 선택합니다.
+6. **확인** 을 선택합니다.
 
 ## <a name="back-up-and-restore-from-the-azure-cli"></a>Azure CLI에서 백업 및 복원
 

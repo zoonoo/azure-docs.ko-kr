@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fbfb2aef838dbef6e7403e635f5bce42bf9ec901
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487265"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542321"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 클러스터 관리 모범 사례
 
@@ -26,12 +26,12 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 | Azure 데이터 팩터리 | [Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | 사용자 지정 리소스 관리자 템플릿 | [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | 빠른 시작 템플릿 | [HDInsight 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Azure 샘플 | [HDInsight Azure 샘플](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Azure 샘플 | [HDInsight Azure 샘플](/samples/browse/?products=azure-hdinsight) |
 | Azure portal | [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](./spark/apache-spark-intellij-tool-plugin.md) |
 | Azure CLI | [Azure CLI를 사용하여 HDInsight 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| Sdk (.NET, Python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| Sdk (.NET, Python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > 클러스터를 만들고 이전에 만든 클러스터에서 클러스터 이름을 다시 사용 하는 경우 클러스터를 만들기 전에 이전 클러스터 삭제가 완료 될 때까지 기다립니다.
@@ -47,7 +47,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>클러스터를 만들 때 발생할 수 있는 몇 가지 오류는 무엇 인가요?
 
-| Error | 자세한 정보 |
+| 오류 | 자세한 정보 |
 |---|---|
 | 할당량 없음 | 각 지역에서 구독에 만들 수 있는 할당량 수에 대 한 할당량이 있습니다. 자세한 내용은 [용량 계획: 할당량](./hdinsight-capacity-planning.md)을 참조 하세요. |
 | 사용 가능한 IP 주소가 더 이상 없습니다. | 각 VNet에는 제한 된 수의 IP 주소가 있습니다. HDInsight 클러스터를 만들 때 각 노드 (사육 아웃 및 게이트웨이 노드 포함)는 할당 된 IP 주소 중 일부를 사용 합니다. 모든 IP 주소를 사용 중인 경우에는이 오류가 발생 합니다.  |
@@ -62,7 +62,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 | 수동 크기 조정 | [Azure HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md) |
 | Ambari를 사용 하 여 모니터링| [Azure HDInsight에서 클러스터 성능 모니터링](./hdinsight-key-scenarios-to-monitor.md) |
 | Azure Monitor 로그를 사용 하 여 모니터링 | [Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| 서비스 문제, 계획 된 유지 관리, 상태 & 보안 권고 | [구독 특정 서비스 상태 경고 구독](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+| 서비스 문제, 계획 된 유지 관리, 상태 & 보안 권고 | [구독 특정 서비스 상태 경고 구독](../service-health/alerts-activity-log-service-notifications-portal.md) |
 
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>삭제 된 HDInsight 클러스터를 확인 어떻게 할까요? 시겠습니까?

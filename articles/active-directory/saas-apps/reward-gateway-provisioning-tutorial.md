@@ -37,7 +37,7 @@ ms.locfileid: "92520781"
 
 ## <a name="assigning-users-to-reward-gateway"></a>사용자를 보상 게이트웨이에 할당 
 
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 게 보상 게이트웨이에 대 한 액세스가 필요한 지 여부를 결정 해야 합니다. 일단 결정 되 면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)의 지침에 따라 이러한 사용자 및/또는 그룹을 보상 게이트웨이에 할당할 수 있습니다.
 
@@ -51,15 +51,15 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 ## <a name="setup-reward-gateway--for-provisioning"></a>프로 비전을 위한 보상 게이트웨이 설정
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 보상 게이트웨이를 구성 하기 전에, 보상 게이트웨이에서 SCIM 프로 비전을 사용 하도록 설정 해야 합니다.
 
-1. [보상 게이트웨이 관리 콘솔](https://rewardgateway.photoshelter.com/login/)에 로그인 합니다. **통합**을 클릭합니다.
+1. [보상 게이트웨이 관리 콘솔](https://rewardgateway.photoshelter.com/login/)에 로그인 합니다. **통합** 을 클릭합니다.
 
     ![통합 옵션이 호출 된 보상 게이트웨이 관리 콘솔의 스크린샷](media/reward-gateway-provisioning-tutorial/image00.png)
 
-2.  **내 통합**을 선택 합니다.
+2.  **내 통합** 을 선택 합니다.
 
     ![내 통합 옵션이 out으로 호출 된 두 통합 옵션의 스크린샷](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.  **Scim URL (v2)** 및 **OAuth 전달자 토큰**의 값을 복사 합니다. 이러한 값은 Azure Portal에서 보상 게이트웨이 응용 프로그램의 프로 비전 탭에 있는 테 넌 트 URL 및 비밀 토큰 필드에 입력 됩니다.
+3.  **Scim URL (v2)** 및 **OAuth 전달자 토큰** 의 값을 복사 합니다. 이러한 값은 Azure Portal에서 보상 게이트웨이 응용 프로그램의 프로 비전 탭에 있는 테 넌 트 URL 및 비밀 토큰 필드에 입력 됩니다.
 
     ![OAuth 전달자 토큰 텍스트 상자를 호출 하는 내 통합 패널의 스크린샷](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -69,11 +69,11 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
 **Azure AD 응용 프로그램 갤러리에서 보상 게이트웨이를 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **보상 게이트웨이**를 입력 하 고, 결과 패널에서 **보상 게이트웨이** 를 선택 하 고, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **보상 게이트웨이** 를 입력 하 고, 결과 패널에서 **보상 게이트웨이** 를 선택 하 고, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록의 Reward Gateway](common/search-new-app.png)
 
@@ -94,11 +94,11 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Azure AD에서 보상 게이트웨이에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Reward Gateway**를 선택합니다.
+2. 애플리케이션 목록에서 **Reward Gateway** 를 선택합니다.
 
     ![애플리케이션 목록의 Reward Gateway 링크](common/all-applications.png)
 
@@ -106,7 +106,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
@@ -118,9 +118,9 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션에서 **사용자 Azure Active Directory 보상 게이트웨이에 동기화를**선택 합니다.
+8. **매핑** 섹션에서 **사용자 Azure Active Directory 보상 게이트웨이에 동기화를** 선택 합니다.
 
     ![Azure Active Directory 사용자에 게 보상 게이트웨이로 사용자 동기화 옵션을 호출 하는 매핑 섹션의 스크린샷](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
@@ -138,11 +138,11 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 보상 게이트웨이에서 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 보상 게이트웨이에서 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 

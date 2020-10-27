@@ -235,7 +235,7 @@
           displayName: policy
     - name: 작업 영역 만들기 및 관리
       items:
-        - name: Azure Portal 사용
+        - name: Azure Portal 또는 Python SDK 사용
           href: how-to-manage-workspace.md
         - name: Azure CLI 사용
           href: how-to-manage-workspace-cli.md

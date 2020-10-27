@@ -49,7 +49,7 @@ Azure Portal로 돌아가서 스토리지 계정을 선택합니다. 새 CORS �
 | 허용된 메서드     | delete, get, head, merge, post, options, put | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
 | 허용된 헤더 | * | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `*`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
 | 노출된 헤더 | * | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `*`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다.  |
-| 최대 기간(초) | 86400 | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간입니다. 값이 *86400*이면 하루 동안 캐시를 유지할 수 있습니다. |
+| 최대 기간(초) | 86400 | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간입니다. 값이 *86400* 이면 하루 동안 캐시를 유지할 수 있습니다. |
 
 > [!IMPORTANT]
 > 프로덕션 환경에서 사용하는 모든 설정이 보안 액세스를 유지하기 위해 스토리지 계정에 필요한 최소한의 액세스 권한을 공개하는지 확인하세요. 여기에 설명된 CORS 설정은 관대한 보안 정책을 정의하므로 빠른 시작에 적합합니다. 하지만 이러한 설정은 실제 컨텍스트에서는 적합하지 않습니다.
@@ -86,7 +86,7 @@ az storage account generate-sas \
 
 | 매개 변수        | 값   | 설명  |
 |------------------|---------|---------|
-| *사용 권한*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
+| *사용 권한*    | racwdl  | 이 SAS는 *읽기* , *추가* , *만들기* , *쓰기* , *삭제* 및 *나열* 기능을 허용합니다. |
 | *resource-types* | sco     | SAS의 영향을 받는 리소스는 서비스  , 컨테이너  및 개체  입니다. |
 | *services*       | b       | SAS의 영향을 받는 서비스는 *Blob* 서비스입니다. |
 
@@ -101,7 +101,7 @@ az storage account generate-sas \
 
 ### <a name="set-up-the-web-application"></a>웹 애플리케이션 설정
 
-먼저, *azure-blobs-javascript*라는 새 폴더를 만들고 VS Code에서 엽니다. 그런 다음, VS Code에서 새 파일을 만들고, 다음 HTML을 추가하고, *index.html*로 *azure-blobs-javascript* 폴더에 저장합니다.
+먼저, *azure-blobs-javascript* 라는 새 폴더를 만들고 VS Code에서 엽니다. 그런 다음, VS Code에서 새 파일을 만들고, 다음 HTML을 추가하고, *index.html* 로 *azure-blobs-javascript* 폴더에 저장합니다.
 
 ```html
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ az storage account generate-sas \
 
 ### <a name="configure-the-debugger"></a>디버거 구성
 
-VS Code에서 디버거 확장을 설정하려면 **디버그 > 구성 추가...** 를 차례로 선택한 다음, 앞서의 필수 조건 섹션에서 설치한 확장에 따라 **Chrome** 또는 **Edge**를 선택합니다. 이 작업은 *launch.json* 파일을 만들어 편집기에서 엽니다.
+VS Code에서 디버거 확장을 설정하려면 **디버그 > 구성 추가...** 를 차례로 선택한 다음, 앞서의 필수 조건 섹션에서 설치한 확장에 따라 **Chrome** 또는 **Edge** 를 선택합니다. 이 작업은 *launch.json* 파일을 만들어 편집기에서 엽니다.
 
 다음으로, 아래와 같이 `url` 값에 `/index.html`이 포함되도록 *launch.json* 파일을 수정합니다.
 
@@ -153,7 +153,7 @@ VS Code에서 디버거 확장을 설정하려면 **디버그 > 구성 추가...
 
 ### <a name="launch-the-web-server"></a>웹 서버 시작
 
-로컬 Node.js 웹 서버를 시작하려면 **보기 > 터미널**을 차례로 선택하여 VS Code 내에서 콘솔 창을 열고, 다음 명령을 입력합니다.
+로컬 Node.js 웹 서버를 시작하려면 **보기 > 터미널** 을 차례로 선택하여 VS Code 내에서 콘솔 창을 열고, 다음 명령을 입력합니다.
 
 ```console
 npx http-server
@@ -163,17 +163,17 @@ npx http-server
 
 ### <a name="start-debugging"></a>디버그 시작
 
-VS Code 디버거가 연결된 브라우저에서 *index.html*을 시작하려면 VS Code에서 **디버그 > 디버깅 시작**을 차례로 선택하거나 F5 키를 누릅니다.
+VS Code 디버거가 연결된 브라우저에서 *index.html* 을 시작하려면 VS Code에서 **디버그 > 디버깅 시작** 을 차례로 선택하거나 F5 키를 누릅니다.
 
 표시된 UI는 아직 아무 작업도 수행하지 않지만 다음 섹션에서 표시된 함수 각각을 구현하는 JavaScript 코드를 추가합니다. 그런 다음, 중단점을 설정하고, 코드에서 일시 중지하면 디버거와 상호 작용할 수 있습니다.
 
-*index.html*을 변경하는 경우 브라우저에서 페이지를 다시 로드하여 변경 내용을 확인해야 합니다. VS Code에서 **디버그 > 디버깅 다시 시작**을 차례로 선택하거나 Ctrl+Shift+F5를 누를 수도 있습니다.
+*index.html* 을 변경하는 경우 브라우저에서 페이지를 다시 로드하여 변경 내용을 확인해야 합니다. VS Code에서 **디버그 > 디버깅 다시 시작** 을 차례로 선택하거나 Ctrl+Shift+F5를 누를 수도 있습니다.
 
 ### <a name="add-the-blob-storage-client-library"></a>Blob 스토리지 클라이언트 라이브러리 추가
 
 Blob 스토리지 API에 대한 호출을 사용하도록 설정하려면 먼저 [JavaScript용 Azure Storage SDK - Blob 클라이언트 라이브러리를 다운로드](https://aka.ms/downloadazurestoragejsblob)하고, zip의 내용을 추출한 다음, *azure-storage-blob.js* 파일을 *azure-blobs-javascript* 폴더에 배치합니다.
 
-다음으로, 다음 HTML을 *index.html*의 닫는 `</body>` 태그 뒤에 붙여넣고 자리 표시자 주석을 바꿉니다.
+다음으로, 다음 HTML을 *index.html* 의 닫는 `</body>` 태그 뒤에 붙여넣고 자리 표시자 주석을 바꿉니다.
 
 ```html
 <script src="azure-storage-blob.js" charset="utf-8"></script>
@@ -187,7 +187,7 @@ Blob 스토리지 API에 대한 호출을 사용하도록 설정하려면 먼저
 
 각 Blob 스토리지 함수에 대한 자세한 내용은 [참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index)에서 확인할 수 있습니다. SDK의 일부 함수는 Node.js 또는 브라우저에서만 사용할 수 있습니다.
 
-*azure-storage-blob.js*의 코드는 JavaScript 코드에서 사용하여 Blob 스토리지 API에 액세스하는 데 사용할 수 있는 `azblob`이라는 글로벌 변수를 내보냅니다.
+*azure-storage-blob.js* 의 코드는 JavaScript 코드에서 사용하여 Blob 스토리지 API에 액세스하는 데 사용할 수 있는 `azblob`이라는 글로벌 변수를 내보냅니다.
 
 ### <a name="add-the-initial-javascript-code"></a>초기 JavaScript 코드 추가
 
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
+이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files** (파일) 목록을 업데이트합니다.
 
 ### <a name="upload-blobs"></a>Blob 업로드
 

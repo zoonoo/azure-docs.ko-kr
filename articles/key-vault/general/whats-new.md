@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac5fad51137cd08f2498db132768263a770430d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826914"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203877"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Azure Key Vault의 새 기능
 
@@ -27,7 +27,7 @@ Azure Key Vault의 새 기능은 다음과 같습니다. [Azure 업데이트 Key
 
 ### <a name="soft-delete-on-by-default"></a>기본적으로 일시 삭제 사용
 
-2020년이 종료되면 새 키 자격 증명 모음과 기존 키 자격 증명 모음을 포함한 **모든 키 자격 증명 모음에서 기본적으로 소프트 삭제가 사용**됩니다. 호환성이 손상될 수 있는 이 변경 내용에 대한 자세한 내용과 영향을 받는 키 자격 증명 모음을 찾아서 미리 업데이트하는 단계에 대한 자세한 내용은 [모든 키 자격 증명 모음에 대해 사용하도록 설정되는 일시 삭제](soft-delete-change.md) 문서를 참조하세요. 
+2020년이 종료되면 새 키 자격 증명 모음과 기존 키 자격 증명 모음을 포함한 **모든 키 자격 증명 모음에서 기본적으로 소프트 삭제가 사용** 됩니다. 호환성이 손상될 수 있는 이 변경 내용에 대한 자세한 내용과 영향을 받는 키 자격 증명 모음을 찾아서 미리 업데이트하는 단계에 대한 자세한 내용은 [모든 키 자격 증명 모음에 대해 사용하도록 설정되는 일시 삭제](soft-delete-change.md) 문서를 참조하세요. 
 
 ### <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
@@ -37,7 +37,7 @@ Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록
 
 - Azure AD([Azure Active Directory](/azure/active-directory)) 서비스는 2020년 7월 7일에 이 전환을 시작했습니다.
 - 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
-- 기존 Azure 엔드포인트는 2020년 8월 13일부터 단계별 전환을 시작하여 2020년 10월 26일에 완료할 예정입니다.
+- 기존 Azure 엔드포인트는 2020년 8월 13일부터 단계적으로 전환됩니다.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) 및 [DPS](/azure/iot-dps/)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경됩니다. 자세한 내용은 Blob 게시물 [Azure IoT TLS: 곧 변경됩니다!(...그리고 관심을 갖는 이유)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)를 참조하세요.
 - [Azure Storage](/azure/storage)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 CA는 변경됩니다. 자세한 내용은 Blob 게시물 [Azure Storage TLS: 곧 변경됩니다!(...그리고 관심을 갖는 이유)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)를 참조하세요.
 
@@ -65,13 +65,13 @@ Azure 서비스에서 사용하는 TLS 인증서는 다음과 같은 루트 CA �
 
 ### <a name="when-can-i-retire-the-old-intermediate-thumbprint"></a>기존의 중간 지문을 언제 사용 중지할 수 있나요?
 
-현재 CA 인증서는 2021년 2월 15일까지 해지되지 *않습니다*. 이 날짜가 지나면 코드에서 이전 지문을 제거할 수 있습니다.
+현재 CA 인증서는 2021년 2월 15일까지 해지되지 *않습니다* . 이 날짜가 지나면 코드에서 이전 지문을 제거할 수 있습니다.
 
 이 날짜가 변경될 경우 새로운 해지 날짜에 대한 알림이 제공됩니다.
 
 ### <a name="will-this-change-affect-me"></a>이 변경이 내게 영향을 주나요? 
 
-**대부분의 Azure 고객에게는 영향을 주지 않을 것**으로 예상됩니다.  그러나 허용되는 CA 목록을 명시적으로 지정하는 경우 애플리케이션에 영향을 줄 수 있습니다. 이 방법을 인증서 고정이라고 합니다.
+**대부분의 Azure 고객에게는 영향을 주지 않을 것** 으로 예상됩니다.  그러나 허용되는 CA 목록을 명시적으로 지정하는 경우 애플리케이션에 영향을 줄 수 있습니다. 이 방법을 인증서 고정이라고 합니다.
 
 다음과 같은 방법으로 애플리케이션이 영향을 받는지 알아볼 수 있습니다.
 
@@ -80,11 +80,11 @@ Azure 서비스에서 사용하는 TLS 인증서는 다음과 같은 루트 CA �
 - Azure API 또는 다른 Azure 서비스와 통합되는 애플리케이션이 있고 해당 애플리케이션이 인증서 고정을 사용하는지 확실하지 않은 경우 애플리케이션 공급업체에 확인하세요.
 
 - Azure 서비스와 통신하는 여러 운영 체제 및 언어 런타임은 다음과 같은 새 루트를 사용하여 인증서 체인을 올바르게 빌드하는 추가 단계가 필요할 수 있습니다.
-    - **Linux**: 여러 배포판에서는 /etc/ssl/certs에 CA를 추가해야 합니다. 자세한 지침은 해당 배포판의 설명서를 참조하세요.
-    - **Java**: 위에 나열된 CA가 Java 키 저장소에 들어 있어야 합니다.
-    - **연결이 끊어진 환경에서 실행되는 Windows**: 연결이 끊어진 환경에서 실행되는 시스템은 새로운 루트를 신뢰할 수 있는 루트 인증 기관 저장소에 추가하고, 중간 인증서를 중간 인증 기관 저장소에 추가해야 합니다.
-    - **Android**: 사용하는 디바이스의 설명서와 Android 버전을 확인합니다.
-    - **기타 하드웨어 디바이스, 특히 IoT**: 디바이스 제조업체에 문의하세요.
+    - **Linux** : 여러 배포판에서는 /etc/ssl/certs에 CA를 추가해야 합니다. 자세한 지침은 해당 배포판의 설명서를 참조하세요.
+    - **Java** : 위에 나열된 CA가 Java 키 저장소에 들어 있어야 합니다.
+    - **연결이 끊어진 환경에서 실행되는 Windows** : 연결이 끊어진 환경에서 실행되는 시스템은 새로운 루트를 신뢰할 수 있는 루트 인증 기관 저장소에 추가하고, 중간 인증서를 중간 인증 기관 저장소에 추가해야 합니다.
+    - **Android** : 사용하는 디바이스의 설명서와 Android 버전을 확인합니다.
+    - **기타 하드웨어 디바이스, 특히 IoT** : 디바이스 제조업체에 문의하세요.
 
 - 특정 CRL(인증서 해지 목록) 다운로드 및/또는 OCSP(온라인 인증서 상태 프로토콜) 확인 위치에 대한 아웃바운드 호출만 허용하도록 방화벽 규칙이 설정된 환경의 경우 다음 CRL 및 OCSP URL을 허용해야 합니다.
 

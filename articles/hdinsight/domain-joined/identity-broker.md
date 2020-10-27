@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999947"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543154"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID 브로커 (미리 보기)
 
@@ -43,7 +43,7 @@ HDInsight ID Broker는 Azure AD DS에 대 한 암호 해시를 동기화 할 필
 
 기본 인증 (즉, 사용자 이름 및 암호)만 지 원하는 많은 레거시 응용 프로그램이 있을 수 있습니다. 이러한 시나리오의 경우 여전히 HTTP 기본 인증을 사용 하 여 클러스터 게이트웨이에 연결할 수 있습니다. 이 설정에서는 게이트웨이 노드에서 직접 시야를 볼 수 있도록 게이트웨이 노드에서 Active Directory Federation Services (AD FS) 끝점으로의 네트워크 연결을 확인 해야 합니다.
 
-다음 다이어그램에서는 페더레이션된 사용자에 대 한 기본 인증 흐름을 보여 줍니다. 먼저 게이트웨이는 [Ropc flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)를 사용 하 여 인증을 완료 하려고 시도 합니다. Azure AD에 동기화 된 암호 해시가 없는 경우 AD FS 끝점을 검색 하 고 AD FS 끝점에 액세스 하 여 인증을 완료 하는 것으로 대체 됩니다.
+다음 다이어그램에서는 페더레이션된 사용자에 대 한 기본 인증 흐름을 보여 줍니다. 먼저 게이트웨이는 [Ropc flow](../../active-directory/develop/v2-oauth-ropc.md)를 사용 하 여 인증을 완료 하려고 시도 합니다. Azure AD에 동기화 된 암호 해시가 없는 경우 AD FS 끝점을 검색 하 고 AD FS 끝점에 액세스 하 여 인증을 완료 하는 것으로 대체 됩니다.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="HDInsight ID Broker의 인증 흐름을 보여 주는 다이어그램입니다.":::
 
@@ -54,7 +54,7 @@ HDInsight ID Broker를 사용 하 여 Enterprise Security Package 클러스터�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Enterprise Security Package 클러스터에 대 한 기본 만들기 단계를 수행 합니다. 자세한 내용은 [Enterprise Security Package를 사용 하 여 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)를 참조 하세요.
-1. **HDINSIGHT ID Broker 사용**을 선택 합니다.
+1. **HDINSIGHT ID Broker 사용** 을 선택 합니다.
 
 HDInsight ID Broker 기능은 클러스터에 추가 VM 하나를 추가 합니다. 이 VM은 HDInsight ID 브로커 노드 이며 인증을 지 원하는 서버 구성 요소를 포함 합니다. HDInsight ID 브로커 노드는 Azure AD DS 도메인에 가입 된 도메인입니다.
 
@@ -103,7 +103,7 @@ HDInsight ID Broker 기능은 클러스터에 추가 VM 하나를 추가 합니�
 
 ## <a name="tool-integration"></a>도구 통합
 
-HDInsight 도구는 기본적으로 OAuth를 지원 하도록 업데이트 됩니다. 이러한 도구를 사용 하 여 클러스터에 대 한 최신 OAuth 기반 액세스를 사용할 수 있습니다. HDInsight [IntelliJ 플러그](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) 인은 Scala와 같은 Java 기반 응용 프로그램에 사용할 수 있습니다. [Visual Studio Code에 대 한 Spark 및 Hive 도구](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) 를 사용 하 여 PySpark 및 hive 작업을 수행할 수 있습니다. 이 도구는 batch 및 대화형 작업을 모두 지원 합니다.
+HDInsight 도구는 기본적으로 OAuth를 지원 하도록 업데이트 됩니다. 이러한 도구를 사용 하 여 클러스터에 대 한 최신 OAuth 기반 액세스를 사용할 수 있습니다. HDInsight [IntelliJ 플러그](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) 인은 Scala와 같은 Java 기반 응용 프로그램에 사용할 수 있습니다. [Visual Studio Code에 대 한 Spark 및 Hive 도구](../hdinsight-for-vscode.md) 를 사용 하 여 PySpark 및 hive 작업을 수행할 수 있습니다. 이 도구는 batch 및 대화형 작업을 모두 지원 합니다.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Azure AD DS에서 암호 해시가 없는 SSH 액세스
 
@@ -117,11 +117,11 @@ HDInsight 도구는 기본적으로 OAuth를 지원 하도록 업데이트 됩�
 
 조직에서 Azure AD DS에 대 한 암호 해시를 동기화 하지 않는 경우 Azure AD에서 클라우드 전용 사용자 하나를 만드는 것이 가장 좋습니다. 그런 다음 클러스터를 만들 때이를 클러스터 관리자로 할당 하 고 관리 목적으로 사용 합니다. 이를 사용 하 여 SSH를 통해 Vm에 대 한 루트 액세스를 가져올 수 있습니다.
 
-인증 문제를 해결 하려면 [이 가이드](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues)를 참조 하세요.
+인증 문제를 해결 하려면 [이 가이드](./domain-joined-authentication-issues.md)를 참조 하세요.
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>OAuth를 사용 하 여 HDInsight ID Broker를 통해 HDInsight 게이트웨이에 연결 하는 클라이언트
 
-HDInsight ID Broker 설정에서 게이트웨이에 연결 하는 사용자 지정 앱 및 클라이언트를 업데이트 하 여 필요한 OAuth 토큰을 먼저 획득할 수 있습니다. [이 문서의](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) 단계에 따라 다음 정보를 사용 하 여 토큰을 가져옵니다.
+HDInsight ID Broker 설정에서 게이트웨이에 연결 하는 사용자 지정 앱 및 클라이언트를 업데이트 하 여 필요한 OAuth 토큰을 먼저 획득할 수 있습니다. [이 문서의](../../storage/common/storage-auth-aad-app.md) 단계에 따라 다음 정보를 사용 하 여 토큰을 가져옵니다.
 
 *   OAuth 리소스 uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a

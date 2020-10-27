@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539113"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533838"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari 부실 경고
 
@@ -46,17 +46,17 @@ Ambari 오래 된 경고와 관련 된 문제를 해결 하려면 다음 방법�
 
 1. Apache Ambari UI에서 **경고** 탭을 선택 합니다.
 1. 원하는 경고 정의 이름을 선택 합니다.
-1. 정의에서 **편집**을 선택 합니다.
-1. **확인 간격** 값을 늘리고 **저장**을 선택 합니다.
+1. 정의에서 **편집** 을 선택 합니다.
+1. **확인 간격** 값을 늘리고 **저장** 을 선택 합니다.
 
 ### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Ambari 서버 경고에 대 한 경고 간격 시간 늘리기
 
 1. Apache Ambari UI에서 **경고** 탭을 선택 합니다.
-1. **그룹** 드롭다운 목록에서 **AMBARI Default**를 선택 합니다.
+1. **그룹** 드롭다운 목록에서 **AMBARI Default** 를 선택 합니다.
 1. **Ambari 서버 경고** 경고를 선택 합니다.
-1. 정의에서 **편집**을 선택 합니다.
+1. 정의에서 **편집** 을 선택 합니다.
 1. **확인 간격** 값을 늘립니다.
-1. **간격 승수** 값을 늘리고 **저장**을 선택 합니다.
+1. **간격 승수** 값을 늘리고 **저장** 을 선택 합니다.
 
 ### <a name="disable-and-reenable-the-alert"></a>경고를 사용 하지 않도록 설정 하 고 다시 활성화
 
@@ -65,10 +65,10 @@ Ambari 오래 된 경고와 관련 된 문제를 해결 하려면 다음 방법�
 1. Apache Ambari UI에서 **경고** 탭을 선택 합니다.
 1. 원하는 경고 정의 이름을 선택 합니다.
 1. 정의에서 UI의 맨 오른쪽 부분에 있는 **사용** 을 선택 합니다.
-1. **확인** 팝업 창에서 **사용 안 함 확인**을 선택 합니다.
+1. **확인** 팝업 창에서 **사용 안 함 확인** 을 선택 합니다.
 1. 페이지에 표시 된 모든 경고 "인스턴스"를 지울 때까지 몇 초 정도 기다립니다.
 1. 정의에서 UI의 맨 오른쪽 부분에 있는 **사용 안 함** 을 선택 합니다.
-1. **확인** 팝업 창에서 **사용 확인**을 선택 합니다.
+1. **확인** 팝업 창에서 **사용 확인** 을 선택 합니다.
 
 ### <a name="increase-the-alert-grace-period"></a>경고 유예 기간 늘리기
 
@@ -84,6 +84,6 @@ Ambari 에이전트가 구성 된 경고가 해당 일정을 누락 하는 것�
 
 * Twitter를 사용 하 여 연결 [@AzureSupport](https://twitter.com/azuresupport) 합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출 합니다. 가져오려면 포털 메뉴에서 도움말 (**?**)을 선택 하거나 **도움말 + 지원** 창을 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출 합니다. 가져오려면 포털 메뉴에서 도움말 ( **?** )을 선택 하거나 **도움말 + 지원** 창을 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조 하세요. 
 
   구독 관리 및 청구에 대 한 지원이 Microsoft Azure 구독에 포함 되어 있습니다. 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 통해 제공 됩니다.

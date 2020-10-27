@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449043"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428113"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -70,18 +70,18 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 - **Security Center에 대한 AWS 사용자** - IAM을 사용하도록 설정하지 않을 경우 덜 안전한 옵션입니다.
 
 #### <a name="create-an-iam-role-for-security-center"></a>Security Center에 대한 IAM 역할 만들기
-1. Amazon Web Services 콘솔의 **보안, ID 및 규정 준수**에서 **IAM**을 선택합니다.
+1. Amazon Web Services 콘솔의 **보안, ID 및 규정 준수** 에서 **IAM** 을 선택합니다.
     :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
 
-1. **역할**을 선택하고 **역할 만들기**를 선택합니다.
-1. 다음 페이지에서 **다른 AWS 계정**을 선택합니다.
+1. **역할** 을 선택하고 **역할 만들기** 를 선택합니다.
+1. 다음 페이지에서 **다른 AWS 계정** 을 선택합니다.
 1. 다음 세부 정보를 입력합니다.
 
-    - **계정 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 Microsoft 계정 ID(**158177204117**)를 입력합니다.
+    - **계정 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 Microsoft 계정 ID( **158177204117** )를 입력합니다.
     - **필요한 외부 ID** - 선택해야 합니다.
     - **외부 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 구독 ID를 입력합니다. 
 
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 1. **권한 정책 연결** 섹션에서 다음 정책을 선택합니다.
 
     - SecurityAudit
@@ -89,25 +89,25 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
     - AWSSecurityHubReadOnlyAccess
 
 1. 필요에 따라 태그를 추가합니다. 사용자에게 태그를 추가해도 연결에 영향을 주지 않습니다.
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 
 1. 역할 목록에서, 이전에 만든 역할을 선택합니다.
 
 1. 나중에 사용할 수 있도록 ARN(Amazon Resource Name)을 저장합니다. 
 
 #### <a name="create-an-aws-user-for-security-center"></a>Security Center에 대한 AWS 사용자 만들기 
-1. **사용자** 탭을 열고 **사용자 추가**를 선택합니다.
-1. **세부 정보** 단계에서 Security Center의 사용자 이름을 입력하고 AWS 액세스 형식으로 **프로그래밍 방식 액세스**를 선택합니다. 
-1. **Next Permissions**(다음: 권한)를 클릭합니다.
-1. **기존 정책 직접 연결**을 선택하고 다음 정책을 적용합니다.
+1. **사용자** 탭을 열고 **사용자 추가** 를 선택합니다.
+1. **세부 정보** 단계에서 Security Center의 사용자 이름을 입력하고 AWS 액세스 형식으로 **프로그래밍 방식 액세스** 를 선택합니다. 
+1. **Next Permissions** (다음: 권한)를 클릭합니다.
+1. **기존 정책 직접 연결** 을 선택하고 다음 정책을 적용합니다.
     - SecurityAudit
     - AmazonSSMAutomationRole
     - AWSSecurityHubReadOnlyAccess
     
-1. 완료되면 **다음: 태그**를 선택합니다. 필요에 따라 태그를 추가합니다. 사용자에게 태그를 추가해도 연결에 영향을 주지 않습니다.
-1. **검토**를 선택합니다.
+1. 완료되면 **다음: 태그** 를 선택합니다. 필요에 따라 태그를 추가합니다. 사용자에게 태그를 추가해도 연결에 영향을 주지 않습니다.
+1. **검토** 를 선택합니다.
 1. 나중에 사용할 수 있도록 자동으로 생성된 **액세스 키 ID** 및 **비밀 액세스 키** CSV 파일을 저장합니다.
-1. 요약 정보를 검토하고 **사용자 만들기**를 클릭합니다.
+1. 요약 정보를 검토하고 **사용자 만들기** 를 클릭합니다.
 
 
 ### <a name="step-3-configure-the-ssm-agent"></a>3단계: SSM 에이전트 구성
@@ -118,37 +118,41 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 - [Amazon EC2 Linux 인스턴스에 SSM Agent 설치 및 구성](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>4단계. 대규모 온보딩을 위한 서비스 주체 만들기
+### <a name="step-4-complete-azure-arc-prerequisites"></a>4단계. Azure Arc 사전 요구 사항 완료
+1. 적절한 [Azure 리소스 공급자](../azure-arc/servers/agent-overview.md#register-azure-resource-providers)가 등록되었는지 확인합니다.
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
-온보딩에 사용하려는 구독의 **소유자**로서, [대규모 온보딩을 위한 서비스 주체 만들기](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)에 설명된 대로 Azure Arc 온보딩의 서비스 주체를 만듭니다.
+1. 대규모 온보딩을 위한 서비스 주체를 만듭니다. 온보딩에 사용하려는 구독의 **소유자** 로서, [대규모 온보딩을 위한 서비스 주체 만들기](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)에 설명된 대로 Azure Arc 온보딩의 서비스 주체를 만듭니다.
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>5단계. Security Center에 AWS 연결
 
-1. Security Center 메뉴에서 **다중 클라우드 커넥터**를 선택합니다.
-1. **AWS 계정 추가**를 선택합니다.
+1. Security Center 메뉴에서 **다중 클라우드 커넥터** 를 선택합니다.
+1. **AWS 계정 추가** 를 선택합니다.
     :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
 1. 다음과 같이 **AWS 인증** 탭에서 옵션을 구성합니다.
-    1. 커넥터의 **표시 이름**을 입력합니다.
+    1. 커넥터의 **표시 이름** 을 입력합니다.
     1. 구독이 올바른지 확인합니다. 커넥터 및 AWS Security Hub 권장 사항을 포함할 구독입니다.
     1. [2단계. AWS에서 Security Center 인증 설정](#step-2-set-up-authentication-for-security-center-in-aws)에서 선택한 인증 옵션에 따라 다음을 수행합니다.
-        - **역할 가정**을 선택하고 [Security Center에 대한 IAM 역할 만들기](#create-an-iam-role-for-security-center)의 ARN을 붙여넣습니다. :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
+        - **역할 맡기** 를 선택하고 [Security Center의 IAM 역할 만들기](#create-an-iam-role-for-security-center)에서 ARN을 붙여넣습니다.
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Security Center의 개요 대시보드에 나열된 3개 GCP 프로젝트":::
 
             또는
 
-        - **자격 증명**을 선택하고, [Security Center에 대한 AWS 사용자 만들기](#create-an-aws-user-for-security-center)에서 저장한 .csv 파일의 **액세스 키** 및 **비밀 키**를 붙여넣습니다.
-1. **다음**을 선택합니다.
+        - **자격 증명** 을 선택하고, [Security Center에 대한 AWS 사용자 만들기](#create-an-aws-user-for-security-center)에서 저장한 .csv 파일의 **액세스 키** 및 **비밀 키** 를 붙여넣습니다.
+1. **다음** 을 선택합니다.
 1. **Azure Arc 구성** 탭에서 옵션을 구성합니다.
 
     Security Center는 연결된 AWS 계정에서 EC2 인스턴스를 검색하고 SSM을 사용하여 Azure Arc에 온보딩합니다. 
 
     > [!TIP]
-    > 지원되는 운영 체제 목록은 아래 FAQ에 나와 있습니다.
+    > 지원되는 운영 체제 목록은 FAQ에서 [내 EC2 인스턴스에 어떤 운영 체제가 지원되나요?](#what-operating-systems-for-my-ec2-instances-are-supported)를 참조하세요.
 
-    1. 선택한 구독에서 검색된 AWS EC2를 온보딩할 **리소스 그룹** 및 **Azure 지역**을 선택합니다.
-    1. [대규모 온보딩을 위한 서비스 주체 만들기](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)에 설명된 대로 **서비스 주체 ID** 및 Azure Arc에 대한 **서비스 주체 클라이언트 암호**를 입력합니다.
+    1. 선택한 구독에서 검색된 AWS EC2를 온보딩할 **리소스 그룹** 및 **Azure 지역** 을 선택합니다.
+    1. [대규모 온보딩을 위한 서비스 주체 만들기](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)에 설명된 대로 **서비스 주체 ID** 및 Azure Arc에 대한 **서비스 주체 클라이언트 암호** 를 입력합니다.
     1. 머신이 프록시 서버를 통해 인터넷에 연결하는 경우 해당 머신이 프록시 서버와 통신하는 데 사용할 프록시 서버 IP 주소 또는 이름과 포트 번호를 지정합니다. 해당 값을 ```http://<proxyURL>:<proxyport>``` 형식으로 입력합니다.
-    1. **검토 + 만들기**를 선택합니다.
+    1. **검토 + 만들기** 를 선택합니다.
 
         요약 정보 검토
 

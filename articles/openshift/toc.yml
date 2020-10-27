@@ -18,6 +18,8 @@
   items:
     - name: 프라이빗 Azure Red Hat OpenShift 4 클러스터 만들기
       href: howto-create-private-cluster-4x.md
+    - name: Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
+      href: howto-create-a-storageclass.md
     - name: Azure Red Hat OpenShift 4 클러스터에 대한 끌어오기 비밀 업데이트
       href: howto-add-update-pull-secret.md
     - name: Azure Red Hat OpenShift 4 클러스터에 대한 DNS 전달 구성

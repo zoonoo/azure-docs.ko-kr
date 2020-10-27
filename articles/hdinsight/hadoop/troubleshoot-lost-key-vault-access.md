@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532565"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533413"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>시나리오: 디스크 암호화를 사용 하는 Azure HDInsight 클러스터 Key Vault 액세스 손실
 
@@ -26,7 +26,7 @@ Resource Health 센터 (RHC) 경고는 `The HDInsight cluster is unable to acces
 
 이 경고는 클러스터 노드에서 KV에 액세스할 수 있도록 하 여 네트워크 연결, KV 상태 및 사용자 할당 관리 Id에 대 한 액세스 정책을 보장 합니다. 이 경고는 이후에 노드가 다시 부팅 될 때 발생 한 broker 종료에 대 한 경고입니다. 노드가 다시 부팅 될 때까지 클러스터는 계속 작동 합니다.
 
-Apache Ambari UI로 이동 하 여 **디스크 암호화 Key Vault 상태**에서 경고에 대 한 자세한 정보를 확인 합니다. 이 경고는 확인 실패 이유에 대 한 세부 정보를 포함 합니다.
+Apache Ambari UI로 이동 하 여 **디스크 암호화 Key Vault 상태** 에서 경고에 대 한 자세한 정보를 확인 합니다. 이 경고는 확인 실패 이유에 대 한 세부 정보를 포함 합니다.
 
 ## <a name="resolution"></a>해결 방법
 
@@ -36,7 +36,7 @@ Apache Ambari UI로 이동 하 여 **디스크 암호화 Key Vault 상태**에�
 
 ### <a name="kv-accidental-deletion"></a>KV 실수로 삭제
 
-* KV의 삭제 된 키를 자동 복구로 복원 합니다. 자세한 내용은 [삭제 된 키 복구](https://docs.microsoft.com/rest/api/keyvault/recoverdeletedkey)를 참조 하세요.
+* KV의 삭제 된 키를 자동 복구로 복원 합니다. 자세한 내용은 [삭제 된 키 복구](/rest/api/keyvault/recoverdeletedkey)를 참조 하세요.
 * 실수로 인 한 삭제 로부터 복구 하려면 KV 팀에 문의 하세요.
 
 ### <a name="kv-access-policy-changed"></a>KV 액세스 정책이 변경 됨
@@ -88,4 +88,4 @@ BYOK 클러스터 노드가 KV에 액세스할 수 있도록 KV 방화벽 설정
 
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

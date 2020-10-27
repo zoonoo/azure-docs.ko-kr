@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436903"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532537"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight의 Apache Kafka에 대한 질문과 대답
 
@@ -68,7 +68,7 @@ Kafka 메시지에 사용할 수 있는 공간의 크기를 늘리려면 노드 
 
 ## <a name="can-a-kafka-cluster-work-with-databricks"></a>Kafka 클러스터가 Databricks에서 작동할 수 있나요? 
 
-예, Kafka 클러스터는 동일한 VNet에 있는 한 Databricks에서 작동할 수 있습니다. Databricks와 함께 Kafka 클러스터를 사용 하려면 HDInsight Kafka 클러스터를 사용 하 여 VNet을 만든 다음 Databricks 작업 영역을 만들고 VNet 주입을 사용할 때 VNet을 지정 합니다. 자세한 내용은 [Azure Virtual Network(VNet 삽입)에서 Azure Databricks 배포](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)를 참조하세요. Databricks 작업 영역을 만들 때 Kafka 클러스터의 부트스트랩 broker 이름을 제공 해야 합니다. Kafka broker 이름을 검색 하는 방법에 대 한 자세한 내용은 [Apache 사육 아웃 및 broker 호스트 정보 가져오기](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo)를 참조 하세요.
+예, Kafka 클러스터는 동일한 VNet에 있는 한 Databricks에서 작동할 수 있습니다. Databricks와 함께 Kafka 클러스터를 사용 하려면 HDInsight Kafka 클러스터를 사용 하 여 VNet을 만든 다음 Databricks 작업 영역을 만들고 VNet 주입을 사용할 때 VNet을 지정 합니다. 자세한 내용은 [Azure Virtual Network(VNet 삽입)에서 Azure Databricks 배포](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)를 참조하세요. Databricks 작업 영역을 만들 때 Kafka 클러스터의 부트스트랩 broker 이름을 제공 해야 합니다. Kafka broker 이름을 검색 하는 방법에 대 한 자세한 내용은 [Apache 사육 아웃 및 broker 호스트 정보 가져오기](./apache-kafka-get-started.md#getkafkainfo)를 참조 하세요.
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>데이터 내구성을 극대화 하려면 어떻게 해야 하나요?
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 2a6b324c4caf9619566ba335ab2e5a318ab68bb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079431"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542797"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Apache Zeppelin를 사용 하 여 Azure HDInsight에서 Apache HBase를 통해 Apache Phoenix 쿼리 실행
 
@@ -31,7 +31,7 @@ HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-
 
 1. `CLUSTERNAME`을 다음 URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`에서 클러스터의 이름으로 바꿉니다. 그런 다음, 웹 브라우저에 URL을 입력합니다. 클러스터 로그인 사용자 이름 및 암호를 입력합니다.
 
-1. Zeppelin 페이지에서 **새 노트 만들기**를 선택 합니다.
+1. Zeppelin 페이지에서 **새 노트 만들기** 를 선택 합니다.
 
     ![HDInsight 대화형 쿼리 zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
@@ -40,13 +40,13 @@ HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-
     - 참고 이름: 메모의 이름을 입력 합니다.
     - 기본 인터프리터: 드롭다운 목록에서 **jdbc** 를 선택 합니다.
 
-    그런 다음 **메모 만들기**를 선택 합니다.
+    그런 다음 **메모 만들기** 를 선택 합니다.
 
 1. 노트북 머리글이 연결 된 상태를 표시 하는지 확인 합니다. 오른쪽 위 모서리에 녹색 점으로 표시 됩니다.
 
     ![Zeppelin 노트북 상태](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Zeppelin 노트북 상태")
 
-1. HBase 테이블을 만듭니다. 다음 명령을 입력 하 고 **Shift + enter**를 누릅니다.
+1. HBase 테이블을 만듭니다. 다음 명령을 입력 하 고 **Shift + enter** 를 누릅니다.
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-
 
 ## <a name="next-steps"></a>다음 단계
 
-- [이제 Apache Phoenix는 Azure HDInsight에서 Zeppelin을 지원 합니다.](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [이제 Apache Phoenix는 Azure HDInsight에서 Zeppelin을 지원 합니다.](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Apache Phoenix 문법](https://phoenix.apache.org/language/index.html)

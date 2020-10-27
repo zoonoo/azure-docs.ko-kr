@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/25/2020
 ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91361214"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
@@ -58,23 +58,23 @@ ms.locfileid: "91361214"
 
    ![Visual Studio Code 도구 모음에서 Azure 아이콘을 선택합니다.](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. Azure 창의 **Logic Apps** 아래에서 **Azure에 로그인**을 선택합니다. Microsoft 로그인 페이지에서 로그인하라는 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. Azure 창의 **Logic Apps** 아래에서 **Azure에 로그인** 을 선택합니다. Microsoft 로그인 페이지에서 로그인하라는 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
    ![“Azure에 로그인” 선택](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   1. 로그인 시간이 평소보다 더 오래 걸리면 Visual Studio Code에서 디바이스 코드를 제공하여 Microsoft 인증 웹 사이트를 통해 로그인하라는 메시지를 표시합니다. 코드를 사용하여 대신 로그인하려면 **디바이스 코드 사용**을 선택합니다.
+   1. 로그인 시간이 평소보다 더 오래 걸리면 Visual Studio Code에서 디바이스 코드를 제공하여 Microsoft 인증 웹 사이트를 통해 로그인하라는 메시지를 표시합니다. 코드를 사용하여 대신 로그인하려면 **디바이스 코드 사용** 을 선택합니다.
 
       ![디바이스 코드를 대신 사용하여 계속](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
-   1. 코드를 복사하려면 **복사 후 열기**를 선택합니다.
+   1. 코드를 복사하려면 **복사 후 열기** 를 선택합니다.
 
       ![Azure 로그인 코드 복사](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   1. 새 브라우저 창을 열고 인증 웹 사이트로 이동하려면 **링크 열기**를 선택합니다.
+   1. 새 브라우저 창을 열고 인증 웹 사이트로 이동하려면 **링크 열기** 를 선택합니다.
 
       ![브라우저 열기 및 인증 웹 사이트로 이동 확인](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. **계정에 로그인** 페이지에서 인증 코드를 입력하고, **다음**을 선택합니다.
+   1. **계정에 로그인** 페이지에서 인증 코드를 입력하고, **다음** 을 선택합니다.
 
       ![Azure 로그인용 인증 코드 입력](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -82,7 +82,7 @@ ms.locfileid: "91361214"
 
    이제 Azure 창의 **Logic Apps** 및 **통합 계정** 섹션에서 계정과 연결된 Azure 구독이 표시됩니다. 그러나 원하는 구독이 표시되지 않거나 섹션에서 너무 많은 구독이 표시되는 경우 다음 단계를 수행합니다.
 
-   1. 포인터를 **Logic Apps** 레이블 위로 이동합니다. 도구 모음이 표시되면 **구독 선택**(필터 아이콘)을 선택합니다.
+   1. 포인터를 **Logic Apps** 레이블 위로 이동합니다. 도구 모음이 표시되면 **구독 선택** (필터 아이콘)을 선택합니다.
 
       ![Azure 구독 찾기 또는 필터링](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "91361214"
 
 1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
-1. Visual Studio Code의 **Logic Apps** 아래에서 구독의 바로 가기 메뉴를 열고 **로그 앱 만들기**를 선택합니다.
+1. Visual Studio Code의 **Logic Apps** 아래에서 구독의 바로 가기 메뉴를 열고 **로그 앱 만들기** 를 선택합니다.
 
    ![구독 메뉴에서 "논리 앱 만들기" 선택](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -194,7 +194,7 @@ ms.locfileid: "91361214"
 
 1. 완료되면 논리 앱의 워크플로 정의를 저장합니다. (파일 메뉴 > 저장 또는 Ctrl+S 누르기)
 
-1. 논리 앱을 Azure 구독에 업로드하라는 메시지가 표시되면 **업로드**를 선택합니다.
+1. 논리 앱을 Azure 구독에 업로드하라는 메시지가 표시되면 **업로드** 를 선택합니다.
 
    이 단계에서는 논리 앱을 [Azure Portal](https://portal.azure.com)에 게시합니다. 그러면 논리가 활성 상태가 되어 Azure에서 실행될 수 있습니다.
 
@@ -204,7 +204,7 @@ ms.locfileid: "91361214"
 
 Visual Studio Code에서는 논리 앱을 읽기 전용 디자인 보기에서 열 수 있습니다. 디자이너에서 논리 앱을 편집할 수는 없지만 디자이너 보기를 사용하여 논리 앱의 워크플로를 시각적으로 확인할 수 있습니다.
 
-Azure 창의 **Logic Apps** 아래에서 논리 앱의 바로 가기 메뉴를 열고 **디자이너에서 열기**를 선택합니다.
+Azure 창의 **Logic Apps** 아래에서 논리 앱의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택합니다.
 
 읽기 전용 디자이너가 별도의 창에서 열려 논리 앱의 워크플로가 표시됩니다. 예를 들어 다음과 같습니다.
 
@@ -224,17 +224,17 @@ Azure Portal에서 논리 앱을 검토하려면 다음 단계를 수행합니�
 
 ## <a name="disable-or-enable-logic-app"></a>논리 앱 사용 또는 사용 안 함
 
-Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다*. 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 비활성화합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
+Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용을 저장하는 경우 이미 배포된 앱을 *덮어씁니다* . 프로덕션에서 논리 앱이 중단되지 않도록 방지하고 중단을 최소화하려면 먼저 논리 앱을 비활성화합니다. 그런 다음, 논리 앱이 여전히 작동하는지 확인한 후에 논리 앱을 다시 활성화할 수 있습니다.
 
 1. Visual Studio Code 내에서 아직 Azure 계정 및 구독에 로그인하지 않은 경우 [이전 단계에 따라 지금 로그인합니다](#access-azure).
 
 1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
 
-   1. 원하는 논리 앱을 사용하지 않도록 설정하려면 논리 앱의 메뉴를 열고 **사용 안 함**을 선택합니다.
+   1. 원하는 논리 앱을 사용하지 않도록 설정하려면 논리 앱의 메뉴를 열고 **사용 안 함** 을 선택합니다.
 
       ![논리 앱 사용 안 함](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
 
-   1. 논리 앱을 다시 활성화할 준비가 되면 논리 앱의 메뉴를 열고 **사용**을 선택합니다.
+   1. 논리 앱을 다시 활성화할 준비가 되면 논리 앱의 메뉴를 열고 **사용** 을 선택합니다.
 
       ![논리 앱 사용](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
 
@@ -251,7 +251,7 @@ Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 �
 
 1. Azure 창의 **Logic Apps** 아래에서 Azure 구독을 확장하고 원하는 논리 앱을 선택합니다.
 
-1. 논리 앱의 메뉴를 열고, **편집기에서 열기**를 선택합니다. 또는 논리 앱의 이름 옆에 있는 편집 아이콘을 선택합니다.
+1. 논리 앱의 메뉴를 열고, **편집기에서 열기** 를 선택합니다. 또는 논리 앱의 이름 옆에 있는 편집 아이콘을 선택합니다.
 
    ![기존 논리 앱에 대한 편집기 열기](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -263,7 +263,7 @@ Visual Studio Code에서는 이미 배포된 Azure 논리 앱의 워크플로 �
 
 1. 완료되면 변경 사항을 저장합니다. (파일 메뉴 > 저장 또는 Ctrl+S 누르기)
 
-1. Azure Portal에서 변경 내용을 업로드하고 기존 논리 앱을 *덮어쓰라는* 메시지가 표시되면 **업로드**를 선택합니다.
+1. Azure Portal에서 변경 내용을 업로드하고 기존 논리 앱을 *덮어쓰라는* 메시지가 표시되면 **업로드** 를 선택합니다.
 
    이 단계에서는 [Azure Portal](https://portal.azure.com)에서 논리 앱에 대한 업데이트를 게시합니다.
 
@@ -278,7 +278,7 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 
 1. 해당 구독의 모든 논리 앱을 볼 수 있도록 Azure 창의 **Logic Apps** 아래에서 Azure 구독을 펼칩니다.
 
-1. 구독 아래에서 논리 앱, **버전**을 차례로 펼칩니다.
+1. 구독 아래에서 논리 앱, **버전** 을 차례로 펼칩니다.
 
    **버전** 목록에서 논리 앱의 이전 버전(있는 경우)이 표시됩니다.
 
@@ -286,19 +286,19 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 
 1. 이전 버전을 보려면 다음 단계 중 하나를 선택합니다.
 
-   * JSON 정의를 보려면 **버전** 아래에서 해당 정의의 버전 번호를 선택합니다. 또는 해당 버전의 바로 가기 메뉴를 열고 **편집기에서 열기**를 선택합니다.
+   * JSON 정의를 보려면 **버전** 아래에서 해당 정의의 버전 번호를 선택합니다. 또는 해당 버전의 바로 가기 메뉴를 열고 **편집기에서 열기** 를 선택합니다.
 
      로컬 컴퓨터에서 새 파일이 열리고 해당 버전의 JSON 정의가 표시됩니다.
 
-   * 읽기 전용 디자이너 보기에서 버전을 보려면 해당 버전의 바로 가기 메뉴를 열고 **디자이너에서 열기**를 선택합니다.
+   * 읽기 전용 디자이너 보기에서 버전을 보려면 해당 버전의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택합니다.
 
 1. 이전 버전을 현재 버전으로 승격하려면 다음 단계를 수행합니다.
 
-   1. **버전** 아래에서 이전 버전의 바로 가기 메뉴를 열고 **승격**을 선택합니다.
+   1. **버전** 아래에서 이전 버전의 바로 가기 메뉴를 열고 **승격** 을 선택합니다.
 
       ![이전 버전 승격](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
-   1. Visual Studio Code에서 확인을 요청하는 메시지가 표시된 후 계속하려면 **예**를 선택합니다.
+   1. Visual Studio Code에서 확인을 요청하는 메시지가 표시된 후 계속하려면 **예** 를 선택합니다.
 
       ![이전 버전 승격 확인](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 

@@ -32,14 +32,14 @@ ms.locfileid: "92132332"
 - 다른 인터넷 브라우저를 사용합니다.
 - 브라우저에 프라이빗 검색 모드를 사용합니다.
 
-   - **Edge:** **설정**(프로필 그림 옆에 있는 점 세 개)을 열고 **새 InPrivate 창**을 선택한 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)를 찾아 로그인합니다. 
+   - **Edge:** **설정** (프로필 그림 옆에 있는 점 세 개)을 열고 **새 InPrivate 창** 을 선택한 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)를 찾아 로그인합니다. 
    - **Chrome:** **Incognito** 모드를 선택합니다.
-   - **Safari:** **File**, **New Private Window**를 차례로 선택합니다.
+   - **Safari:** **File** , **New Private Window** 를 차례로 선택합니다.
 
 - 캐시를 제거하고 인터넷 쿠키를 삭제합니다.
 
-   - **Edge:** **설정**을 열고 **개인 정보 및 서비스**를 선택합니다. **검색 데이터 지우기**의 단계를 따릅니다. **검색 기록**, **다운로드 기록**, **캐시된 이미지 및 파일**을 선택하고 **삭제**를 선택합니다.
-   - **Chrome:** **Settings**를 선택하고, **개인 정보 및 보안**에서 **인터넷 사용 기록 삭제**를 선택합니다.
+   - **Edge:** **설정** 을 열고 **개인 정보 및 서비스** 를 선택합니다. **검색 데이터 지우기** 의 단계를 따릅니다. **검색 기록** , **다운로드 기록** , **캐시된 이미지 및 파일** 을 선택하고 **삭제** 를 선택합니다.
+   - **Chrome:** **Settings** 를 선택하고, **개인 정보 및 보안** 에서 **인터넷 사용 기록 삭제** 를 선택합니다.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>다른 사용자로 자동으로 로그인됨
 
@@ -49,13 +49,13 @@ ms.locfileid: "92132332"
 
 - 캐시의 선택을 취소하고 인터넷 쿠키를 삭제합니다.
 
-   - **Edge:** **설정**을 열고 **개인 정보 및 서비스**를 선택합니다. **검색 데이터 지우기**의 단계를 따릅니다. **검색 기록**, **다운로드 기록**, **쿠키**, **캐시된 이미지 및 파일**을 선택하고 **삭제**를 선택합니다.
-   - **Chrome:** **Settings**를 선택하고, **개인 정보 및 보안**에서 **인터넷 사용 기록 삭제**를 선택합니다.
+   - **Edge:** **설정** 을 열고 **개인 정보 및 서비스** 를 선택합니다. **검색 데이터 지우기** 의 단계를 따릅니다. **검색 기록** , **다운로드 기록** , **쿠키** , **캐시된 이미지 및 파일** 을 선택하고 **삭제** 를 선택합니다.
+   - **Chrome:** **Settings** 를 선택하고, **개인 정보 및 보안** 에서 **인터넷 사용 기록 삭제** 를 선택합니다.
 - 브라우저 설정을 기본값으로 초기화합니다.
 - 브라우저에 대해 프라이빗 검색 모드를 사용합니다. 
-   - **Edge:** **설정**(프로필 그림 옆에 있는 점 세 개)을 열고 **새 InPrivate 창**을 선택한 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)를 찾아 로그인합니다. 
+   - **Edge:** **설정** (프로필 그림 옆에 있는 점 세 개)을 열고 **새 InPrivate 창** 을 선택한 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)를 찾아 로그인합니다. 
    - **Chrome:** **Incognito** 모드를 선택합니다.
-   - **Safari:** **File**, **New Private Window**를 차례로 선택합니다.
+   - **Safari:** **File** , **New Private Window** 를 차례로 선택합니다.
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>로그인할 수 있지만 구독을 찾을 수 없다는 오류가 표시됨
 
@@ -73,8 +73,8 @@ ms.locfileid: "92132332"
 사용한 계정이 계정 관리자인지 확인합니다. 계정 관리자가 누구인지 확인하려면 다음 단계를 따르세요.
 
 1.  [Azure Portal의 구독 보기](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
-1.  확인하려는 구독을 선택한 다음 **설정**을 선택합니다.
-1.  **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
+1.  확인하려는 구독을 선택한 다음 **설정** 을 선택합니다.
+1.  **속성** 을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
 
 ## <a name="additional-help-resources"></a>추가 도움말 리소스
 

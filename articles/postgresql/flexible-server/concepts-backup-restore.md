@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937052"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532648"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 백업 및 복원
 
@@ -28,7 +28,7 @@ ms.locfileid: "90937052"
 > [!IMPORTANT]
 >중지 된 서버에 대해서는 백업이 수행 되지 않습니다. 그러나 데이터베이스가 7 일 후에 자동으로 시작 되거나 사용자에 의해 시작 되 면 백업이 다시 시작 됩니다.
 
-백업은 유연한 서버 내의 복원 작업에만 사용할 수 있습니다. 유연한 서버에 데이터를 내보내거나 가져오려면 [덤프 및 복원](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   방법을 사용 합니다.
+백업은 유연한 서버 내의 복원 작업에만 사용할 수 있습니다. 유연한 서버에 데이터를 내보내거나 가져오려면 [덤프 및 복원](../howto-migrate-using-dump-and-restore.md) 방법을 사용 합니다.
 
 
 ### <a name="backup-retention"></a>백업 보존
@@ -40,9 +40,9 @@ ms.locfileid: "90937052"
 
 ### <a name="backup-storage-cost"></a>백업 스토리지 비용
 
-유연한 서버는 프로 비전 된 서버 저장소의 최대 100%를 추가 비용 없이 백업 저장소로 제공 합니다. 사용 되는 추가 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GiB의 저장소를 제공 하는 서버를 프로 비전 한 경우 추가 비용 없이 250 GiB의 백업 저장소 용량을 사용할 수 있습니다. 매일 백업 사용량이 25 GiB 면 최대 10 일간의 무료 백업 저장소를 사용할 수 있습니다. 250 GiB을 초과 하는 백업 저장소 소비는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/postgresql/)에 따라 요금이 청구 됩니다.
+유연한 서버는 프로 비전 된 서버 저장소의 최대 100%를 추가 비용 없이 백업 저장소로 제공 합니다. 사용 되는 추가 백업 저장소는 매달 GB 단위로 요금이 청구 됩니다. 예를 들어 250 GiB의 저장소를 제공 하는 서버를 프로 비전 한 경우 추가 비용 없이 250 GiB의 백업 저장소 용량을 사용할 수 있습니다. 매일 백업 사용량이 25 GiB 면 최대 10 일간의 무료 백업 저장소를 사용할 수 있습니다. 250 GiB을 초과 하는 백업 저장소 소비는 [가격 책정 모델](https://azure.microsoft.com/pricing/details/postgresql/)에 따라 요금이 청구 됩니다.
 
-Azure Portal에서 [백업 저장소 사용](https://docs.microsoft.com/azure/postgresql/concepts-monitoring)메트릭을 사용 하 여   서버에서 사용 하는 백업 저장소를 모니터링할 수 있습니다. 사용된 백업 스토리지 메트릭은 서버에 대해 설정된 백업 보존 기간에 따라 유지되는 모든 데이터베이스 백업 및 로그 백업에서 사용하는 스토리지의 합계를 나타냅니다.  서버에서 과도한 트랜잭션 작업을 수행하면 전체 데이터베이스 크기에 관계없이 백업 스토리지 사용량이 증가할 수 있습니다.
+Azure Portal에서 [사용되는 백업 스토리지](../concepts-monitoring.md) 메트릭을 사용하여 서버에서 사용하는 백업 스토리지를 모니터링할 수 있습니다. 사용된 백업 스토리지 메트릭은 서버에 대해 설정된 백업 보존 기간에 따라 유지되는 모든 데이터베이스 백업 및 로그 백업에서 사용하는 스토리지의 합계를 나타냅니다.  서버에서 과도한 트랜잭션 작업을 수행하면 전체 데이터베이스 크기에 관계없이 백업 스토리지 사용량이 증가할 수 있습니다.
 
 백업 저장소 비용을 제어 하는 기본적인 방법은 적절 한 백업 보존 기간을 설정 하 고 원하는 복구 목표를 충족 하는 올바른 백업 중복성 옵션을 선택 하는 것입니다.
 
@@ -71,15 +71,15 @@ Azure Portal에서 [백업 저장소 사용](https://docs.microsoft.com/azure/p
 
 가장 빠른 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있습니다.
 
--   **가장 빠른 복원 지점**: 보존 기간에 따라 가장 이른 시간을 복원할 수 있습니다. 가장 오래 된 백업 시간은 자동으로 선택 되며 포털에 표시 됩니다. 이는 특정 시점을 시작 하는 일부 테스트를 조사 하거나 수행 하려는 경우에 유용 합니다.
+-   **가장 빠른 복원 지점** : 보존 기간에 따라 가장 이른 시간을 복원할 수 있습니다. 가장 오래 된 백업 시간은 자동으로 선택 되며 포털에 표시 됩니다. 이는 특정 시점을 시작 하는 일부 테스트를 조사 하거나 수행 하려는 경우에 유용 합니다.
 
--   **사용자 지정 복원 지점**:이 옵션을 사용 하면이 유연한 서버에 대해 정의 된 보존 기간 내의 특정 시점을 선택할 수 있습니다. 기본적으로 UTC의 최근 시간은 자동으로 선택 되며 테스트 목적으로 마지막으로 커밋된 트랜잭션으로 복원 하려는 경우에 유용 합니다. 필요에 따라 다른 날짜와 시간을 선택할 수 있습니다. 
+-   **사용자 지정 복원 지점** :이 옵션을 사용 하면이 유연한 서버에 대해 정의 된 보존 기간 내의 특정 시점을 선택할 수 있습니다. 기본적으로 UTC의 최근 시간은 자동으로 선택 되며 테스트 목적으로 마지막으로 커밋된 트랜잭션으로 복원 하려는 경우에 유용 합니다. 필요에 따라 다른 날짜와 시간을 선택할 수 있습니다. 
 
 복구에 소요 되는 예상 시간은 데이터베이스 크기, 처리할 트랜잭션 로그의 볼륨, 네트워크 대역폭 및 동일한 지역에서 동시에 복구 되는 총 데이터베이스 수를 비롯 한 여러 가지 요소에 따라 달라 집니다. 일반적으로 전체 복구 시간은 몇 분에서 몇 시간까지 소요 됩니다.
 
 
 > [!IMPORTANT]
-> 삭제 된 서버는 복원할 수 **없습니다**   . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 서버 리소스를 보호 하기 위해 실수로 삭제 하거나 예기치 않은 변경에서 배포 후에는 관리자가 [관리 잠금을](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)활용할 수 있습니다.
+> 삭제된 서버는 복원할 수 **없습니다** . 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](../../azure-resource-manager/management/lock-resources.md)을 활용할 수 있습니다.
 
 ## <a name="perform-post-restore-tasks"></a>복원 후 작업 수행
 
@@ -101,6 +101,5 @@ Azure Portal에서 [백업 저장소 사용](https://docs.microsoft.com/azure/p
 ## <a name="next-steps"></a>다음 단계
 
 -   [비즈니스 연속성](./concepts-business-continuity.md) 에 대 한 자세한 정보
--    [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
+-   [영역 중복 고가용성](./concepts-high-availability.md) 에 대해 알아보기
 -   [복원 하는 방법](./how-to-restore-server-portal.md) 알아보기
-

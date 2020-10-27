@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487282"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543239"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -45,7 +45,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-* PowerShell을 사용 하는 경우 [AZ Module](https://docs.microsoft.com/powershell/azure/)이 필요 합니다.
+* PowerShell을 사용 하는 경우 [AZ Module](/powershell/azure/)이 필요 합니다.
 * Azure CLI를 사용하려 하나 아직 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-virtual-network-configuration"></a>가상 네트워크 구성 만들기
@@ -65,7 +65,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
   
-1. 위쪽 메뉴에서 **+ 리소스 만들기**를 선택합니다.
+1. 위쪽 메뉴에서 **+ 리소스 만들기** 를 선택합니다.
 
     ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
@@ -77,14 +77,14 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     | --- | --- |
     |Subscription |내게 적합한 구독을 선택합니다.|
     |리소스 그룹 |앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.|
-    |가상 머신 이름 | 이 가상 머신을 식별하는 이름을 입력합니다. 이 예제에서는 **DNSProxy**를 사용합니다.|
+    |가상 머신 이름 | 이 가상 머신을 식별하는 이름을 입력합니다. 이 예제에서는 **DNSProxy** 를 사용합니다.|
     |지역 | 앞에서 만든 가상 네트워크와 동일한 지역을 선택합니다.  일부 VM 크기는 일부 지역에서 사용할 수 없습니다.  |
-    |가용성 옵션 |  원하는 가용성 수준을 선택합니다.  Azure에서는 애플리케이션 가용성과 복원력을 관리하는 다양한 옵션을 제공합니다.  가용성 영역 또는 가용성 집합에 복제된 VM을 사용하도록 솔루션을 설계하면 데이터 센터 중단 및 유지 관리 이벤트 시 앱과 데이터를 보호할 수 있습니다. 이 예제에서는 **인프라 중복이 필요하지 않습니다**를 사용합니다. |
-    |이미지 | **Ubuntu Server 18.04 LTS**에 그대로 둡니다. |
-    |인증 유형 | __암호__ 또는 __ssh 공개 키__: ssh 계정에 대 한 인증 방법입니다. 공개 키를 사용 하는 것이 더 안전 하므로 공개 키를 사용 하는 것이 좋습니다. 이 예제에서는 **암호**를 사용 합니다.  자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.|
-    |사용자 이름 |VM의 관리자 이름을 입력합니다.  이 예제에서는 **sshuser**를 사용합니다.|
-    |암호 또는 SSH 공개 키 | 사용 가능한 필드는 **인증 형식**에 대한 사용자의 선택에 따라 결정됩니다.  적절한 값을 입력합니다.|
-    |공용 인바운드 포트|**선택한 포트 허용**을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH (22)** 를 선택 합니다.|
+    |가용성 옵션 |  원하는 가용성 수준을 선택합니다.  Azure에서는 애플리케이션 가용성과 복원력을 관리하는 다양한 옵션을 제공합니다.  가용성 영역 또는 가용성 집합에 복제된 VM을 사용하도록 솔루션을 설계하면 데이터 센터 중단 및 유지 관리 이벤트 시 앱과 데이터를 보호할 수 있습니다. 이 예제에서는 **인프라 중복이 필요하지 않습니다** 를 사용합니다. |
+    |이미지 | **Ubuntu Server 18.04 LTS** 에 그대로 둡니다. |
+    |인증 유형 | __암호__ 또는 __ssh 공개 키__ : ssh 계정에 대 한 인증 방법입니다. 공개 키를 사용 하는 것이 더 안전 하므로 공개 키를 사용 하는 것이 좋습니다. 이 예제에서는 **암호** 를 사용 합니다.  자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.|
+    |사용자 이름 |VM의 관리자 이름을 입력합니다.  이 예제에서는 **sshuser** 를 사용합니다.|
+    |암호 또는 SSH 공개 키 | 사용 가능한 필드는 **인증 형식** 에 대한 사용자의 선택에 따라 결정됩니다.  적절한 값을 입력합니다.|
+    |공용 인바운드 포트|**선택한 포트 허용** 을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH (22)** 를 선택 합니다.|
 
     ![가상 컴퓨터 기본 구성](./media/connect-on-premises-network/virtual-machine-basics.png)
 
@@ -95,28 +95,28 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     | 필드 | 값 |
     | --- | --- |
     |가상 네트워크 | 이전에 만든 가상 네트워크를 선택합니다.|
-    |서브넷 | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__.|
+    |서브넷 | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__ .|
     |공용 IP | 자동으로 채워진 값을 사용합니다.  |
 
     ![HDInsight 가상 네트워크 설정](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    다른 항목은 기본값으로 두고 **검토 + 만들기**를 선택합니다.
+    다른 항목은 기본값으로 두고 **검토 + 만들기** 를 선택합니다.
 
-5. **검토 + 만들기** 탭에서 **만들기**를 선택하여 가상 머신을 만듭니다.
+5. **검토 + 만들기** 탭에서 **만들기** 를 선택하여 가상 머신을 만듭니다.
 
 ### <a name="review-ip-addresses"></a>IP 주소 검토
 
-가상 머신을 만든 후 **에는 리소스로 이동** 단추를 사용 하 여 **배포 성공** 알림을 받게 됩니다.  **리소스로 이동**을 선택하여 새 가상 머신으로 이동합니다.  새 가상 머신에 대한 기본 보기에서 다음 단계에 따라 연결된 IP 정보를 식별합니다.
+가상 머신을 만든 후 **에는 리소스로 이동** 단추를 사용 하 여 **배포 성공** 알림을 받게 됩니다.  **리소스로 이동** 을 선택하여 새 가상 머신으로 이동합니다.  새 가상 머신에 대한 기본 보기에서 다음 단계에 따라 연결된 IP 정보를 식별합니다.
 
-1. **설정**에서 **속성**을 선택합니다.
+1. **설정** 에서 **속성** 을 선택합니다.
 
-2. 나중에 사용할 수 있도록 **공용 IP 주소/DNS 이름 레이블**과 **개인 IP 주소** 값을 적어둡니다.
+2. 나중에 사용할 수 있도록 **공용 IP 주소/DNS 이름 레이블** 과 **개인 IP 주소** 값을 적어둡니다.
 
    ![공용 및 개인 IP 주소](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
 
 ### <a name="install-and-configure-bind-dns-software"></a>Bind(DNS 소프트웨어) 설치 및 구성
 
-1. SSH를 사용하여 가상 머신의 __공용 IP 주소__에 연결합니다. `sshuser`을 VM을 만들 때 지정한 SSH 사용자 계정으로 바꿉니다. 다음 예제에서는 40.68.254.142에서 가상 머신에 연결합니다.
+1. SSH를 사용하여 가상 머신의 __공용 IP 주소__ 에 연결합니다. `sshuser`을 VM을 만들 때 지정한 SSH 사용자 계정으로 바꿉니다. 다음 예제에서는 40.68.254.142에서 가상 머신에 연결합니다.
 
     ```bash
     ssh sshuser@40.68.254.142
@@ -168,7 +168,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     sudo nano /etc/bind/named.conf.options
     ```
 
-    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
+    파일을 저장하려면 __Ctrl+X__ , __Y__ 및 __Enter__ 키를 사용합니다.
 
 4. SSH 세션에서 다음 명령을 사용합니다.
 
@@ -182,7 +182,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__입니다. 이 값은 나중에 사용 되므로 저장 합니다.
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` 텍스트는 이 가상 네트워크에 대한 __DNS 접미사__ 입니다. 이 값은 나중에 사용 되므로 저장 합니다.
 
 5. 가상 네트워크 내에서 리소스의 DNS 이름을 확인하도록 바인딩을 구성하려면 `/etc/bind/named.conf.local` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
 
@@ -203,7 +203,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     sudo nano /etc/bind/named.conf.local
     ```
 
-    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
+    파일을 저장하려면 __Ctrl+X__ , __Y__ 및 __Enter__ 키를 사용합니다.
 
 6. Bind를 시작하려면 다음 명령을 사용합니다.
 
@@ -221,7 +221,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     > [!IMPORTANT]  
     > `dns.mynetwork.net`을 온-프레미스 네트워크에 있는 리소스의 FQDN(정규화된 도메인 이름)으로 바꿉니다.
     >
-    > `10.0.0.4`를 가상 네트워크에 있는 사용자 지정 DNS 서버의 __내부 IP 주소__로 바꿉니다.
+    > `10.0.0.4`를 가상 네트워크에 있는 사용자 지정 DNS 서버의 __내부 IP 주소__ 로 바꿉니다.
 
     응답은 다음 텍스트와 유사합니다.
 
@@ -238,15 +238,15 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 가상 네트워크를 구성하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 사용합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스**  >  **네트워킹**  >  **가상 네트워크**로 이동 합니다.
+1. 왼쪽 메뉴에서 **모든 서비스**  >  **네트워킹**  >  **가상 네트워크** 로 이동 합니다.
 
 2. 목록에서 가상 네트워크를 선택하면 가상 네트워크에 대한 기본 보기가 열립니다.  
 
-3. 기본 보기의 **설정** 아래에서 **DNS 서버**를 선택합니다.  
+3. 기본 보기의 **설정** 아래에서 **DNS 서버** 를 선택합니다.  
 
-4. __사용자 지정__을 선택하고 사용자 지정 DNS 서버의 **개인 IP 주소**를 입력합니다.
+4. __사용자 지정__ 을 선택하고 사용자 지정 DNS 서버의 **개인 IP 주소** 를 입력합니다.
 
-5. __저장__을 선택합니다.  <br />  
+5. __저장__ 을 선택합니다.  <br />  
 
     ![네트워크에 사용자 지정 DNS 서버 설정](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -254,7 +254,7 @@ Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 �
 
 이전 섹션에서 온-프레미스 DNS 서버에 요청을 전달하도록 사용자 지정 DNS 서버를 구성합니다. 다음으로 사용자 지정 DNS 서버에 요청을 전달하도록 온-프레미스 DNS 서버를 구성해야 합니다.
 
-DNS 서버를 구성하는 방법에 대한 특정 단계는 DNS 서버 소프트웨어에 대한 설명서를 참조하세요. __조건 전달자__를 구성하는 방법에 대한 단계를 확인합니다.
+DNS 서버를 구성하는 방법에 대한 특정 단계는 DNS 서버 소프트웨어에 대한 설명서를 참조하세요. __조건 전달자__ 를 구성하는 방법에 대한 단계를 확인합니다.
 
 조건부 전달은 특정 DNS 접미사에 대한 요청만을 전달합니다. 이 경우에 가상 네트워크의 DNS 접미사에 대한 전달자를 구성해야 합니다. 사용자 지정 DNS 서버의 IP 주소에 이 접미사에 대한 요청을 전달해야 합니다. 
 
@@ -267,7 +267,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-**Windows Server 2016**에서 DNS를 사용하는 방법에 대한 내용은 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 설명서를 참조하세요...
+**Windows Server 2016** 에서 DNS를 사용하는 방법에 대한 내용은 [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) 설명서를 참조하세요...
 
 온-프레미스 DNS 서버를 구성한 후 `nslookup` 온-프레미스 네트워크에서를 사용 하 여 가상 네트워크에서 이름을 확인할 수 있는지 확인할 수 있습니다. 다음 예제 
 
@@ -288,8 +288,8 @@ NSG(네트워크 보안 그룹) 또는 UDR(사용자 정의 경로)를 사용하
 
 2. 1단계에서 확인된 IP 주소의 경우, 해당 IP에서의 인바운드 트래픽을 허용합니다.
 
-   * __Nsg__를 사용 하는 경우: IP 주소에 대해 포트 __443__ 에서 __인바운드__ 트래픽을 허용 합니다.
-   * __Udr__을 사용 하는 경우: IP 주소에 대 한 경로의 __다음 홉__ 유형을 __인터넷__ 으로 설정 합니다.
+   * __Nsg__ 를 사용 하는 경우: IP 주소에 대해 포트 __443__ 에서 __인바운드__ 트래픽을 허용 합니다.
+   * __Udr__ 을 사용 하는 경우: IP 주소에 대 한 경로의 __다음 홉__ 유형을 __인터넷__ 으로 설정 합니다.
 
 Azure PowerShell 또는 Azure CLI를 사용하여 NSG를 만드는 예제는 [Azure Virtual Network에서 HDInsight 확장](hdinsight-create-virtual-network.md#hdinsight-nsg) 문서를 참조하세요.
 
@@ -347,6 +347,6 @@ HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터�
 
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
-* 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
+* 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 참조하세요.
 
 * 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 및 IP 전달](../virtual-network/virtual-networks-udr-overview.md)을 참조하세요.

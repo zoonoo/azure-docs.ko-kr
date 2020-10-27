@@ -68,7 +68,7 @@ Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 웹 애플리케이션에서 클라이언트의 Blob 스토리지에 액세스하려면 [CORS(원본 간 리소스 공유)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)를 사용하도록 계정을 구성해야 합니다.
 
-Azure Portal에서 스토리지 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 이동하여 **CORS**를 선택합니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
+Azure Portal에서 스토리지 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 이동하여 **CORS** 를 선택합니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
 ![Azure Blob Storage 계정 CORS 설정](media/quickstart-blobs-javascript-browser/azure-blob-storage-cors-settings.png)
 
@@ -77,10 +77,10 @@ Azure Portal에서 스토리지 계정을 선택합니다. 새 CORS 규칙을 �
 |설정  |값  | Description |
 |---------|---------|---------|
 | **허용된 원본** | **\*** | 허용 가능한 원본으로 설정된 도메인의 쉼표로 구분된 목록을 허용합니다. 값을 `*`로 설정하면 스토리지 계정에 대한 모든 도메인 액세스가 허용됩니다. |
-| **허용된 메서드** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS** 및 **PUT** | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
+| **허용된 메서드** | **DELETE** , **GET** , **HEAD** , **MERGE** , **POST** , **OPTIONS** 및 **PUT** | 스토리지 계정에 대해 실행하도록 허용된 HTTP 동사를 나열합니다. 이 빠른 시작에서는 사용 가능한 옵션을 모두 선택합니다. |
 | **허용된 헤더** | **\*** | 스토리지 계정에서 허용하는 요청 헤더(접두 헤더 포함)의 목록을 정의합니다. 값을 `*`로 설정하면 모든 헤더에 액세스할 수 있습니다. |
 | **노출된 헤더** | **\*** | 계정에서 허용되는 응답 헤더를 나열합니다. 값을 `*`로 설정하면 계정에서 모든 헤더를 보낼 수 있습니다. |
-| **최대 기간** | **86400** | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간(초)입니다. 값이 *86400*이면 하루 동안 캐시를 유지할 수 있습니다. |
+| **최대 기간** | **86400** | 브라우저에서 실행 전 OPTIONS 요청을 캐시하는 최대 시간(초)입니다. 값이 *86400* 이면 하루 동안 캐시를 유지할 수 있습니다. |
 
 필드가 이 표의 값으로 채워지면 **저장** 단추를 클릭합니다.
 
@@ -94,7 +94,7 @@ SAS(공유 액세스 서명)는 브라우저에서 실행되는 코드에서 Azu
 다음 단계에 따라 Blob service SAS URL을 가져옵니다.
 
 1. Azure Portal에서 스토리지 계정을 선택합니다.
-2. **설정** 섹션으로 이동하여 **공유 액세스 서명**을 선택합니다.
+2. **설정** 섹션으로 이동하여 **공유 액세스 서명** 을 선택합니다.
 3. 아래로 스크롤하여 **SAS 및 연결 문자열 생성** 단추를 클릭합니다.
 4. 더 아래로 스크롤하여 **Blob service SAS URL** 필드를 찾습니다.
 5. **Blob service SAS URL** 필드의 오른쪽 끝에 있는 **클립보드에 복사** 단추를 클릭합니다.
@@ -102,9 +102,9 @@ SAS(공유 액세스 서명)는 브라우저에서 실행되는 코드에서 Azu
 
 ### <a name="add-the-azure-blob-storage-client-library"></a>Azure Blob 스토리지 클라이언트 라이브러리 추가
 
-로컬 컴퓨터에서 *azure-blobs-js-browser*라는 새 폴더를 만들고 Visual Studio Code에서 엽니다.
+로컬 컴퓨터에서 *azure-blobs-js-browser* 라는 새 폴더를 만들고 Visual Studio Code에서 엽니다.
 
-**보기 > 터미널**을 차례로 선택하여 Visual Studio Code 내에서 콘솔 창을 엽니다. 터미널 창에서 다음 Node.js 패키지 관리자(npm) 명령을 실행하여 [package.json](https://docs.npmjs.com/files/package.json) 파일을 만듭니다.
+**보기 > 터미널** 을 차례로 선택하여 Visual Studio Code 내에서 콘솔 창을 엽니다. 터미널 창에서 다음 Node.js 패키지 관리자(npm) 명령을 실행하여 [package.json](https://docs.npmjs.com/files/package.json) 파일을 만듭니다.
 
 ```console
 npm init -y
@@ -138,7 +138,7 @@ JavaScript 내에서 Azure SDK 라이브러리를 사용하려면 `@azure/storag
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
-파일을 *index.js*로 *azure-blobs-js-browser* 디렉터리에 저장합니다.
+파일을 *index.js* 로 *azure-blobs-js-browser* 디렉터리에 저장합니다.
 
 ### <a name="implement-the-html-page"></a>HTML 페이지 구현
 
@@ -146,7 +146,7 @@ Visual Studio Code에서 새 파일을 만들고 다음 HTML 코드를 추가합
 
 :::code language="html" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.html":::
 
-파일을 *index.html*로 *azure-blobs-js-browser* 디렉터리에 저장합니다.
+파일을 *index.html* 로 *azure-blobs-js-browser* 디렉터리에 저장합니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -236,8 +236,8 @@ Azure Blob 스토리지 서비스와 상호 작용하기 위한 [BlobServiceClie
 
 Visual Studio Code에서 디버거 확장을 설정하려면 다음을 수행합니다.
 
-1. **실행 > 구성 추가**를 차례로 선택합니다.
-2. 이전의 [사전 요구 사항](#prerequisites) 섹션에서 설치한 확장에 따라 **Edge**, **Chrome** 또는 **Firefox**를 선택합니다.
+1. **실행 > 구성 추가** 를 차례로 선택합니다.
+2. 이전의 [사전 요구 사항](#prerequisites) 섹션에서 설치한 확장에 따라 **Edge** , **Chrome** 또는 **Firefox** 를 선택합니다.
 
 새 구성을 추가하면 *launch.json* 파일이 만들어지고 편집기에서 열립니다. 다음과 같이 `url` 값이 `http://localhost:1234/index.html`이 되도록 *launch.json* 파일을 수정합니다.
 
@@ -247,13 +247,13 @@ Visual Studio Code에서 디버거 확장을 설정하려면 다음을 수행합
 
 ### <a name="launch-the-web-server"></a>웹 서버 시작
 
-로컬 개발 웹 서버를 시작하려면 **보기 > 터미널**을 차례로 선택하여 Visual Studio Code 내에서 콘솔 창을 열고, 다음 명령을 입력합니다.
+로컬 개발 웹 서버를 시작하려면 **보기 > 터미널** 을 차례로 선택하여 Visual Studio Code 내에서 콘솔 창을 열고, 다음 명령을 입력합니다.
 
 ```console
 parcel index.html
 ```
 
-Parcel에서 코드를 번들로 묶고 `http://localhost:1234/index.html`의 페이지에 대한 로컬 개발 서버를 시작합니다. *index.js*에서 변경한 내용은 파일을 저장할 때마다 자동으로 빌드되어 개발 서버에 반영됩니다.
+Parcel에서 코드를 번들로 묶고 `http://localhost:1234/index.html`의 페이지에 대한 로컬 개발 서버를 시작합니다. *index.js* 에서 변경한 내용은 파일을 저장할 때마다 자동으로 빌드되어 개발 서버에 반영됩니다.
 
 **구성된 1234 포트를 사용할 수 없습니다.** 라는 메시지가 표시되면 `parcel -p <port#> index.html` 명령을 실행하여 포트를 변경할 수 있습니다. *launch.json* 파일에서 일치하도록 URL 경로의 포트를 업데이트합니다.
 
@@ -261,7 +261,7 @@ Parcel에서 코드를 번들로 묶고 `http://localhost:1234/index.html`의 �
 
 디버거에서 페이지를 실행하고, Blob 스토리지의 작동 방식을 확인합니다. 오류가 발생하면 웹 페이지의 **상태** 창에 수신된 오류 메시지가 표시됩니다.
 
-Visual Studio Code 디버거가 연결된 브라우저에서 *index.html*을 열려면 **실행 > 디버깅 시작**을 차례로 선택하거나 Visual Studio Code에서 F5 키를 누릅니다.
+Visual Studio Code 디버거가 연결된 브라우저에서 *index.html* 을 열려면 **실행 > 디버깅 시작** 을 차례로 선택하거나 Visual Studio Code에서 F5 키를 누릅니다.
 
 ### <a name="use-the-web-app"></a>웹앱 사용
 
@@ -269,27 +269,27 @@ Visual Studio Code 디버거가 연결된 브라우저에서 *index.html*을 열
 
 #### <a name="step-1---create-a-container"></a>1단계 - 컨테이너 만들기
 
-1. 웹앱에서 **컨테이너 만들기**를 선택합니다. 컨테이너가 만들어졌다는 상태가 표시됩니다.
-2. Azure Portal에서 확인하려면 스토리지 계정을 선택합니다. **Blob service** 아래에서 **컨테이너**를 선택합니다. 새 컨테이너가 표시되는지 확인합니다. (**새로 고침**을 선택해야 할 수도 있습니다.)
+1. 웹앱에서 **컨테이너 만들기** 를 선택합니다. 컨테이너가 만들어졌다는 상태가 표시됩니다.
+2. Azure Portal에서 확인하려면 스토리지 계정을 선택합니다. **Blob service** 아래에서 **컨테이너** 를 선택합니다. 새 컨테이너가 표시되는지 확인합니다. ( **새로 고침** 을 선택해야 할 수도 있습니다.)
 
 #### <a name="step-2---upload-a-blob-to-the-container"></a>2단계 - 컨테이너에 Blob 업로드
 
-1. 로컬 컴퓨터에서 테스트 파일(예: *test.txt*)을 만들어 저장합니다.
-2. 웹앱에서 **파일 선택 및 업로드**를 클릭합니다.
-3. 테스트 파일로 이동한 다음, **열기**를 선택합니다. 파일이 업로드되고 파일 목록이 검색되었다는 상태가 표시됩니다.
+1. 로컬 컴퓨터에서 테스트 파일(예: *test.txt* )을 만들어 저장합니다.
+2. 웹앱에서 **파일 선택 및 업로드** 를 클릭합니다.
+3. 테스트 파일로 이동한 다음, **열기** 를 선택합니다. 파일이 업로드되고 파일 목록이 검색되었다는 상태가 표시됩니다.
 4. Azure Portal에서 이전에 만든 새 컨테이너의 이름을 선택합니다. 테스트 파일이 표시되는지 확인합니다.
 
 #### <a name="step-3---delete-the-blob"></a>3단계 - Blob 삭제
 
 1. 웹앱의 **파일** 아래에서 테스트 파일을 선택합니다.
-2. **선택한 파일 삭제**를 선택합니다. 파일이 삭제되어 컨테이너에 파일이 없다는 상태가 표시됩니다.
-3. Azure Portal에서 **새로 고침**을 선택합니다. **Blob이 없습니다.** 라고 표시되는지 확인합니다.
+2. **선택한 파일 삭제** 를 선택합니다. 파일이 삭제되어 컨테이너에 파일이 없다는 상태가 표시됩니다.
+3. Azure Portal에서 **새로 고침** 을 선택합니다. **Blob이 없습니다.** 라고 표시되는지 확인합니다.
 
 #### <a name="step-4---delete-the-container"></a>4단계 - 컨테이너 삭제
 
-1. 웹앱에서 **컨테이너 삭제**를 선택합니다. 컨테이너가 삭제되었다는 상태가 표시됩니다.
+1. 웹앱에서 **컨테이너 삭제** 를 선택합니다. 컨테이너가 삭제되었다는 상태가 표시됩니다.
 2. Azure Portal에 있는 포털 창의 왼쪽 위에서 **\<account-name\> | 컨테이너** 링크를 선택합니다.
-3. **새로 고침**을 선택합니다. 새 컨테이너가 사라집니다.
+3. **새로 고침** 을 선택합니다. 새 컨테이너가 사라집니다.
 4. 웹앱을 닫습니다.
 
 ### <a name="clean-up-resources"></a>리소스 정리

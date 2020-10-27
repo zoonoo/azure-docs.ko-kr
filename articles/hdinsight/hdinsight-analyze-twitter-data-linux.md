@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086724"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533294"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
 
@@ -30,31 +30,31 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
 1. 웹 브라우저에서에 로그인 [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) 합니다. Twitter 계정이 없는 경우 **지금 등록** 링크를 선택 합니다.
 
-2. **새 앱 만들기**를 선택 합니다.
+2. **새 앱 만들기** 를 선택 합니다.
 
-3. **Name**, **Description**, **Website**를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
+3. **Name** , **Description** , **Website** 를 입력합니다. **Website** 필드의 URL을 구성할 수 있습니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
    | 필드 | 값 |
    |--- |--- |
-   | Name |MyHDInsightApp |
+   | 속성 |MyHDInsightApp |
    | 설명 |MyHDInsightApp |
    | 웹 사이트 |`https://www.myhdinsightapp.com` |
 
-4. **예, 동의 함**을 선택한 다음 **Twitter 응용 프로그램 만들기**를 선택 합니다.
+4. **예, 동의 함** 을 선택한 다음 **Twitter 응용 프로그램 만들기** 를 선택 합니다.
 
-5. **사용 권한** 탭을 선택 합니다. 기본 권한은 **읽기 전용**입니다.
+5. **사용 권한** 탭을 선택 합니다. 기본 권한은 **읽기 전용** 입니다.
 
 6. **Keys and Access Tokens** 탭을 선택합니다.
 
-7. **내 액세스 토큰 만들기**를 선택 합니다.
+7. **내 액세스 토큰 만들기** 를 선택 합니다.
 
 8. 페이지의 오른쪽 위 모서리에서 **테스트 OAuth** 를 선택 합니다.
 
-9. **consumer key**, **Consumer secret**, **Access token** 및 **Access token secret**을 기록해 둡니다.
+9. **consumer key** , **Consumer secret** , **Access token** 및 **Access token secret** 을 기록해 둡니다.
 
 ### <a name="download-tweets"></a>트윗 다운로드
 
-다음 Python 코드는 Twitter에서 10,000개의 트윗을 다운로드하고 **tweets.txt**라는 파일에 저장합니다.
+다음 Python 코드는 Twitter에서 10,000개의 트윗을 다운로드하고 **tweets.txt** 라는 파일에 저장합니다.
 
 > [!NOTE]  
 > 다음 단계는 Python이 이미 설치되어 있으므로 HDInsight 클러스터에서 수행됩니다.
@@ -78,7 +78,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-1. 다음 명령을 사용하여 **gettweets.py**라는 파일을 만듭니다.
+1. 다음 명령을 사용하여 **gettweets.py** 라는 파일을 만듭니다.
 
    ```bash
    nano gettweets.py
@@ -143,7 +143,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
     > [!TIP]  
     > 마지막 줄에서 토픽 필터를 조정하여 인기 키워드를 추적합니다. 스크립트를 실행할 때 인기 키워드를 사용하면 데이터를 더 빨리 캡처할 수 있습니다.
 
-1. **Ctrl + X**, **Y**를 차례로 사용하여 파일을 저장합니다.
+1. **Ctrl + X** , **Y** 를 차례로 사용하여 파일을 저장합니다.
 
 1. 다음 명령을 사용하여 파일을 실행하고 트윗을 다운로드합니다.
 
@@ -283,7 +283,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
    WHERE (length(json_response) > 500);
    ```
 
-1. **Ctrl + X**, **Y**를 차례로 누르고 파일을 저장합니다.
+1. **Ctrl + X** , **Y** 를 차례로 누르고 파일을 저장합니다.
 
 1. 다음 명령을 사용하여 파일에 포함된 HiveQL을 실행합니다.
 
@@ -303,14 +303,14 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
    ORDER BY cc DESC LIMIT 10;
    ```
 
-    이 쿼리는 메시지 텍스트에 단어 **Azure**를 포함하는 최대 10개의 트윗을 반환합니다.
+    이 쿼리는 메시지 텍스트에 단어 **Azure** 를 포함하는 최대 10개의 트윗을 반환합니다.
 
     > [!NOTE]  
-    > `gettweets.py` 스크립트에서 필터를 변경한 경우 **Azure**를 사용한 필터 중 하나로 대체합니다.
+    > `gettweets.py` 스크립트에서 필터를 변경한 경우 **Azure** 를 사용한 필터 중 하나로 대체합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 비구조적 JSON 데이터 집합을 구조적 [Apache Hive](https://hive.apache.org/) 테이블로 변환 하는 방법을 배웠습니다. HDInsight에서 Hive에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [HDInsight를 사용하여 비행 지연 데이터 분석](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [HDInsight를 사용하여 비행 지연 데이터 분석](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

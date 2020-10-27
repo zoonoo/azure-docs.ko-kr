@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
-ms.openlocfilehash: 162049c12c0618298695e43dae43f16e9fb50260
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d46f20f33e2627525f8f7f5b08bdaa2875626940
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372194"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541981"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
 
@@ -39,7 +39,7 @@ GOPATH 위치에서 `go get github.com/Azure/azure-sdk-for-go/tree/master/servic
 Azure 구독을 사용해서 SDK를 먼저 인증해야 합니다.  아래 예제에 따라 서비스 주체를 만들고 이를 인증에 사용합니다. 이 작업을 완료 한 후에는 `ClustersClient` 관리 작업을 수행 하는 데 사용할 수 있는 많은 함수 (아래 섹션에서 설명)를 포함 하는의 인스턴스를 갖게 됩니다.
 
 > [!NOTE]  
-> 아래 설명된 예제 외에도 사용자 요구에 더 적합할 수 있는 다른 인증 방법이 있습니다. 모든 함수는 [Go용 Azure SDK의 인증 함수](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)에 설명되어 있습니다.
+> 아래 설명된 예제 외에도 사용자 요구에 더 적합할 수 있는 다른 인증 방법이 있습니다. 모든 함수는 [Go용 Azure SDK의 인증 함수](/azure/go/azure-sdk-go-authorization)에 설명되어 있습니다.
 
 ### <a name="authentication-example-using-a-service-principal"></a>서비스 주체를 사용한 인증 예제
 
@@ -365,7 +365,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>OMS 모니터링 사용
 
 > [!NOTE]  
-> OMS 모니터링을 사용하려면 기존 Log Analytics 작업 영역이 있어야 합니다. 아직 만들지 않았으면 [Azure Portal에서 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)에서 이를 수행하는 방법을 확인할 수 있습니다.
+> OMS 모니터링을 사용하려면 기존 Log Analytics 작업 영역이 있어야 합니다. 아직 만들지 않았으면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)에서 이를 수행하는 방법을 확인할 수 있습니다.
 
 클러스터에서 OMS 모니터링을 사용하려면:
 
@@ -394,7 +394,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 HDInsight는 클러스터 사용자 지정을 위해 사용자 지정 스크립트를 호출하는 스크립트 작업이라고 부르는 구성 함수를 제공합니다.
 
 > [!NOTE]  
-> 스크립트 작업 사용 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)에서 확인할 수 있습니다.
+> 스크립트 작업 사용 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md)에서 확인할 수 있습니다.
 
 ### <a name="execute-script-actions"></a>스크립트 작업 실행
 

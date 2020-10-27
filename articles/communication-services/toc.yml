@@ -90,6 +90,8 @@
       href: samples/calling-hero-sample.md
     - name: 채팅 주인공 샘플
       href: samples/chat-hero-sample.md
+    - name: 웹 통화 샘플
+      href: samples/web-calling-sample.md
 - name: 참조
   items:
     - name: REST API 설명서

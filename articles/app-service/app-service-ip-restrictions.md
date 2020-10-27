@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168225"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533957"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한
 
@@ -61,7 +61,8 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 서비스 끝점을 사용 하면 응용 프로그램 게이트웨이 또는 기타 WAF 장치를 사용 하 여 앱을 구성할 수 있습니다. 또한 보안 백 엔드를 사용 하 여 다중 계층 응용 프로그램을 구성할 수 있습니다. 일부 가능성에 대 한 자세한 내용은 [네트워킹 기능 및 App Service](networking-features.md) 와 [서비스 끝점과의 통합 Application Gateway](networking/app-gateway-with-service-endpoints.md)을 참조 하세요.
 
 > [!NOTE]
-> 현재 서비스 끝점은 IP SSL VIP (가상 IP)를 사용 하는 웹 앱에 대해 지원 되지 않습니다. 
+> - 현재 서비스 끝점은 IP SSL VIP (가상 IP)를 사용 하는 웹 앱에 대해 지원 되지 않습니다.
+> - IP 또는 서비스 끝점 제한의 행은 512 개로 제한 됩니다. 512 행 이상의 제한이 필요한 경우 Azure Front 도어, Azure 앱 게이트웨이 또는 WAF (웹 응용 프로그램 방화벽)와 같은 독립 실행형 보안 제품을 살펴보는 것이 좋습니다.
 >
 
 ## <a name="managing-access-restriction-rules"></a>액세스 제한 규칙 관리
@@ -74,7 +75,7 @@ IP 주소 기반 규칙을 설정 하려면 IPv4 또는 IPv6 유형을 선택 �
 
 ![Virtual Network 규칙의 설정을 보여 주는 Azure Portal의 IP 제한 편집 대화 상자 스크린샷](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-규칙을 삭제 하려면 **규칙에서 ...를 클릭** 한 다음 **제거**를 클릭 합니다.
+규칙을 삭제 하려면 **규칙에서 ...를 클릭** 한 다음 **제거** 를 클릭 합니다.
 
 ![액세스 제한 규칙 삭제](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -111,7 +112,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
 
 Resource Manager에서 이 정보는 다음 위치에 제공됩니다.
 
-management.azure.com/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹**/providers/Microsoft.Web/sites/**웹앱 이름**/config/web?api-version=2018-02-01
+management.azure.com/subscriptions/ **구독 ID** /resourceGroups/ **리소스 그룹** /providers/Microsoft.Web/sites/ **웹앱 이름** /config/web?api-version=2018-02-01
 
 앞의 예제에 대한 JSON 구문은 다음과 같습니다.
 ```json

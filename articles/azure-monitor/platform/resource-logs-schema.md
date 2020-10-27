@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b9d3dafdf62bda2d07eb7f9d7c357f61ec913d44
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 791f95dc75c55c7a5c7c26d0719e186245713fba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144008"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543413"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그의 공통 및 서비스별 스키마
 
@@ -23,7 +23,7 @@ ms.locfileid: "92144008"
 
 ## <a name="top-level-common-schema"></a>최상위 공용 스키마
 
-| Name | 필수/선택 | 설명 |
+| 속성 | 필수/선택 | 설명 |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -70,7 +70,7 @@ ms.locfileid: "92144008"
 | Express 경로 | 스키마를 사용할 수 없음 |
 | Azure Firewall | 스키마를 사용할 수 없음 |
 | Front Door | [전면 도어에 대 한 로깅](../../frontdoor/front-door-diagnostics.md) |
-| IoT Hub | [IoT Hub 작업](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| IoT Hub | [IoT Hub 작업](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault 로깅](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes 로깅](../../aks/view-master-logs.md#log-event-schema) |
 | Load Balancer |[Azure Load Balancer에 대한 Log analytics](../../load-balancer/load-balancer-monitor-log.md) |
