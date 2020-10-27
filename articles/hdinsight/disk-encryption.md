@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487316"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548033"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -23,7 +23,7 @@ ms.locfileid: "92487316"
 
 ## <a name="introduction"></a>소개
 
-Azure에는 데이터 디스크, OS 디스크 및 임시 디스크의 세 가지 기본 관리 디스크 역할이 있습니다. 여러 유형의 관리 디스크에 대 한 자세한 내용은 [Azure managed Disks 소개](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)를 참조 하세요. 
+Azure에는 데이터 디스크, OS 디스크 및 임시 디스크의 세 가지 기본 관리 디스크 역할이 있습니다. 여러 유형의 관리 디스크에 대 한 자세한 내용은 [Azure managed Disks 소개](../virtual-machines/managed-disks-overview.md)를 참조 하세요. 
 
 HDInsight는 두 가지 계층에서 여러 유형의 암호화를 지원 합니다.
 
@@ -35,8 +35,8 @@ HDInsight는 두 가지 계층에서 여러 유형의 암호화를 지원 합니
 
 |클러스터 유형 |OS 디스크 (관리 디스크) |데이터 디스크 (관리 디스크) |임시 데이터 디스크 (로컬 SSD) |
 |---|---|---|---|
-|Kafka, 가속화 된 쓰기를 사용 하는 HBase|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) , Layer2: cmk를 사용 하 여 휴지 상태의 선택적 암호화|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
-|다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|N/A|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
+|Kafka, 가속화 된 쓰기를 사용 하는 HBase|Layer1: 기본적으로 [SSE 암호화](../virtual-machines/managed-disks-overview.md#encryption)|Layer1: 기본적으로 [SSE 암호화](../virtual-machines/managed-disks-overview.md#encryption) , Layer2: cmk를 사용 하 여 휴지 상태의 선택적 암호화|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
+|다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|Layer1: 기본적으로 [SSE 암호화](../virtual-machines/managed-disks-overview.md#encryption)|해당 없음|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
 
@@ -73,15 +73,15 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 키 자격 증명 모음을 만듭니다. 특정 단계는 [Azure Key Vault 만들기](../key-vault/secrets/quick-create-portal.md) 를 참조 하세요.
 
-HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 경우 Azure Key Vault로 키를 가져올 수 있습니다. 키 자격 증명 모음에서 **일시 삭제** 를 사용 하도록 설정 해야 합니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](../key-vault/about-keys-secrets-and-certificates.md)를 참조하세요.
+HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 경우 Azure Key Vault로 키를 가져올 수 있습니다. 키 자격 증명 모음에서 **일시 삭제** 를 사용 하도록 설정 해야 합니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](../key-vault/general/about-keys-secrets-certificates.md)를 참조하세요.
 
 ### <a name="create-key"></a>키 만들기
 
-1. 새 키 자격 증명 모음에서 **설정**  >  **키**  >  **+ 생성/가져오기**로 이동 합니다.
+1. 새 키 자격 증명 모음에서 **설정**  >  **키**  >  **+ 생성/가져오기** 로 이동 합니다.
 
     ![Azure Key Vault에 새 키 생성](./media/disk-encryption/create-new-key.png "Azure Key Vault에 새 키 생성")
 
-1. 이름을 입력 하 고 **만들기**를 선택 합니다. **RSA**의 기본 **키 유형을** 유지 합니다.
+1. 이름을 입력 하 고 **만들기** 를 선택 합니다. **RSA** 의 기본 **키 유형을** 유지 합니다.
 
     ![키 이름을 생성 합니다.](./media/disk-encryption/create-key.png "키 이름 생성")
 
@@ -89,13 +89,13 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
     ![키 자격 증명 모음 키 목록](./media/disk-encryption/key-vault-key-list.png)
 
-1. 버전을 선택 하 여 **키 버전** 페이지를 엽니다. HDInsight 클러스터 암호화를 위해 고유한 키를 사용 하는 경우 키 URI를 제공 해야 합니다. **키 식별자**를 복사하고 클러스터를 만들 준비가 될 때까지 어딘가에 저장합니다.
+1. 버전을 선택 하 여 **키 버전** 페이지를 엽니다. HDInsight 클러스터 암호화를 위해 고유한 키를 사용 하는 경우 키 URI를 제공 해야 합니다. **키 식별자** 를 복사하고 클러스터를 만들 준비가 될 때까지 어딘가에 저장합니다.
 
     ![키 식별자 가져오기](./media/disk-encryption/get-key-identifier.png)
 
 ### <a name="create-access-policy"></a>액세스 정책 만들기
 
-1. 새 키 자격 증명 모음에서 **설정**  >  **액세스 정책**  >  **+ 액세스 정책 추가**로 이동 합니다.
+1. 새 키 자격 증명 모음에서 **설정**  >  **액세스 정책**  >  **+ 액세스 정책 추가** 로 이동 합니다.
 
     ![새 Azure Key Vault 액세스 정책 만들기](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
     |속성 |설명|
     |---|---|
-    |키 권한|**가져오기**, **키 래핑**및 **키 래핑**을 선택 합니다.|
-    |비밀 권한|**가져오기**, **설정**및 **삭제**를 선택 합니다.|
+    |키 권한|**가져오기** , **키 래핑** 및 **키 래핑** 을 선택 합니다.|
+    |비밀 권한|**가져오기** , **설정** 및 **삭제** 를 선택 합니다.|
     |보안 주체 선택|이전에 만든 사용자 할당 관리 id를 선택 합니다.|
 
     ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
     ![Azure Key Vault 액세스 정책 저장](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 정의합니다(예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`). 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자** 를 제공 합니다. 정의합니다(예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`). 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
@@ -141,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-다음 예제에서는 Azure Resource Manager 템플릿을 사용 하 여 디스크 암호화를 사용 하도록 설정 된 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [ARM 템플릿 이란?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)을 참조 하세요.
+다음 예제에서는 Azure Resource Manager 템플릿을 사용 하 여 디스크 암호화를 사용 하도록 설정 된 새 Apache Spark 클러스터를 만드는 방법을 보여 줍니다. 자세한 내용은 [ARM 템플릿 이란?](../azure-resource-manager/templates/overview.md)을 참조 하세요.
 
 이 예제에서는 PowerShell을 사용 하 여 템플릿을 호출 합니다.
 
@@ -359,7 +359,7 @@ HDInsight 클러스터를 만든 후에 사용 되는 암호화 키를 변경 �
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-키를 회전 하려면 기본 키 자격 증명 모음 URI가 필요 합니다. 이 작업을 완료 한 후에는 포털에서 HDInsight 클러스터 속성 섹션으로 이동 하 고 **디스크 암호화 키 URL**에서 **키 변경** 을 클릭 합니다. 새 키 url을 입력 하 고 전송 하 여 키를 회전 합니다.
+키를 회전 하려면 기본 키 자격 증명 모음 URI가 필요 합니다. 이 작업을 완료 한 후에는 포털에서 HDInsight 클러스터 속성 섹션으로 이동 하 고 **디스크 암호화 키 URL** 에서 **키 변경** 을 클릭 합니다. 새 키 url을 입력 하 고 전송 하 여 키를 회전 합니다.
 
 ![디스크 암호화 키 회전](./media/disk-encryption/change-key.png)
 
@@ -420,7 +420,7 @@ Azure Portal에서 클러스터를 만드는 동안 호스트의 암호화를 �
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="호스트에서 암호화를 사용 하도록 설정 합니다.":::
 
-이 옵션은 PMK를 사용 하는 HDInsight Vm 임시 데이터 디스크의 [호스트에서 암호화](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) 를 사용 하도록 설정 합니다. 호스트의 암호화는 [제한 된 지역의 특정 VM sku 에서만 지원](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) 되며 HDInsight는 [다음 노드 구성 및 sku](./hdinsight-supported-node-configuration.md)를 지원 합니다.
+이 옵션은 PMK를 사용 하는 HDInsight Vm 임시 데이터 디스크의 [호스트에서 암호화](../virtual-machines/disks-enable-host-based-encryption-portal.md) 를 사용 하도록 설정 합니다. 호스트의 암호화는 [제한 된 지역의 특정 VM sku 에서만 지원](../virtual-machines/disks-enable-host-based-encryption-portal.md) 되며 HDInsight는 [다음 노드 구성 및 sku](./hdinsight-supported-node-configuration.md)를 지원 합니다.
 
 HDInsight 클러스터에 적합 한 VM 크기를 이해 하려면 [Azure hdinsight 클러스터에 적합 한 vm 크기 선택](hdinsight-selecting-vm-size.md)을 참조 하세요. 호스트에서의 암호화가 사용 하도록 설정 된 경우에는 아웃 청구 노드에 대 한 기본 VM SKU가 DS2V2 됩니다.
 

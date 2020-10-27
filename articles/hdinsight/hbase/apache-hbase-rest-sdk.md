@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504862"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540315"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase 용 .NET SDK 사용
 
@@ -23,7 +23,7 @@ C# 및 .NET 애플리케이션의 경우 [.NET용 Microsoft HBase REST 클라이
 
 ## <a name="install-the-sdk"></a>SDK 설치
 
-HBase .NET SDK는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔**에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
+HBase .NET SDK는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔** 에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
 
 ```console
 Install-Package Microsoft.HBase.Client
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 USERNAME 및 PASSWORD는 클러스터 만들기에 지정된 Apache Hadoop 자격 증명으로 바꿉니다. 기본 Hadoop 사용자 이름은 **admin**입니다.
+CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 USERNAME 및 PASSWORD는 클러스터 만들기에 지정된 Apache Hadoop 자격 증명으로 바꿉니다. 기본 Hadoop 사용자 이름은 **admin** 입니다.
 
 ## <a name="create-a-new-table"></a>새 테이블 만들기
 
-HBase는 테이블에 데이터를 저장합니다. 테이블은 *Rowkey*, 기본 키 및 *열 패밀리*라는 하나 이상의 열 그룹으로 구성됩니다. 각 테이블의 데이터는 Rowkey 범위에 의해 *영역*에 수평으로 배포됩니다. 각 영역에는 시작 및 종료 키가 있습니다. 테이블은 하나 이상의 영역을 포함할 수 있습니다. 테이블의 데이터가 확장하면서 HBase는 큰 영역을 더 작은 영역으로 분할합니다. 영역은 한 지역 서버가 여러 영역을 저장할 수 있는 *지역 서버*에 저장됩니다.
+HBase는 테이블에 데이터를 저장합니다. 테이블은 *Rowkey* , 기본 키 및 *열 패밀리* 라는 하나 이상의 열 그룹으로 구성됩니다. 각 테이블의 데이터는 Rowkey 범위에 의해 *영역* 에 수평으로 배포됩니다. 각 영역에는 시작 및 종료 키가 있습니다. 테이블은 하나 이상의 영역을 포함할 수 있습니다. 테이블의 데이터가 확장하면서 HBase는 큰 영역을 더 작은 영역으로 분할합니다. 영역은 한 지역 서버가 여러 영역을 저장할 수 있는 *지역 서버* 에 저장됩니다.
 
-데이터는 물리적으로 *HFiles*에 저장됩니다. 단일 HFile은 한 테이블과 한 영역, 하나의 열 패밀리용 데이터를 포함합니다. HFile의 행은 Rowkey를 기준으로 정렬 저장됩니다. 각 HFile에는 행의 빠른 검색용 *B+트리* 인덱스가 있습니다.
+데이터는 물리적으로 *HFiles* 에 저장됩니다. 단일 HFile은 한 테이블과 한 영역, 하나의 열 패밀리용 데이터를 포함합니다. HFile의 행은 Rowkey를 기준으로 정렬 저장됩니다. 각 HFile에는 행의 빠른 검색용 *B+트리* 인덱스가 있습니다.
 
 새 테이블을 만들려면 `TableSchema` 및 열을 지정하세요. 다음 코드는 'RestSDKTable' 테이블이 이미 존재하는 지 여부와 존재하지 않는 경우 테이블을 만들지 여부를 확인합니다.
 
@@ -190,4 +190,4 @@ finally
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Apache HBase 예제 시작](apache-hbase-tutorial-get-started-linux.md)
-* [Apache HBase를 사용하여 실시간 Twitter 감정 분석](../hdinsight-hbase-analyze-twitter-sentiment.md)을 통해 엔드투엔드 애플리케이션 빌드
+* [Apache HBase를 사용하여 실시간 Twitter 감정 분석](./apache-hbase-tutorial-get-started-linux.md)을 통해 엔드투엔드 애플리케이션 빌드

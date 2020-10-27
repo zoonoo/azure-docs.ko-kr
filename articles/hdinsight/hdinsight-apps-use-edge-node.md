@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086486"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547846"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -61,13 +61,13 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 > [!WARNING]
 > 에지 노드에 설치된 사용자 지정 구성 요소는 Microsoft에서 상업적으로 적절한 지원을 받습니다. 이를 통해 발생한 문제가 해결될 수도 있습니다. 또는 추가 지원을 위해 커뮤니티 리소스가 제공될 수 있습니다. 다음은 커뮤니티의 도움을 받을 수 있는 가장 활발한 사이트 중 일부입니다.
 >
-> * [HDInsight에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+> * [Microsoft Q&HDInsight에 대 한 질문 페이지] (/answers/topics/azure-hdinsight.html
 > * [https://stackoverflow.com](https://stackoverflow.com))를 참조하세요.
 >
 > Apache 기술을 사용하는 경우 [https://apache.org](https://apache.org)에서 [Apache Hadoop](https://hadoop.apache.org/) 사이트 등의 Apache 프로젝트 사이트를 통해 지원을 찾을 수도 있습니다.
 
 > [!IMPORTANT]
-> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터(에지 노드 포함)는 **자동 패치되지 않습니다**. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다.  자세한 내용은 [HDInsight의 OS 패치](./hdinsight-os-patching.md)를 참조하세요.
+> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터(에지 노드 포함)는 **자동 패치되지 않습니다** . 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다.  자세한 내용은 [HDInsight의 OS 패치](./hdinsight-os-patching.md)를 참조하세요.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>기존 클러스터에 에지 노드 추가
 
@@ -86,7 +86,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
     |위치|기존 HDInsight 클러스터의 위치를 선택합니다.|
     |클러스터 이름|기존 HDInsight 클러스터의 이름을 입력합니다.|
 
-1. **위에 명시된 사용 약관에 동의함**을 확인한 다음, **구매**를 클릭하여 에지 노드를 만듭니다.
+1. **위에 명시된 사용 약관에 동의함** 을 확인한 다음, **구매** 를 클릭하여 에지 노드를 만듭니다.
 
 > [!IMPORTANT]  
 > 기존 HDInsight 클러스터에 대한 Azure 리소스 그룹을 선택해야 합니다.  그렇지 않으면 "중첩된 리소스에서 요청한 작업을 수행할 수 없습니다. 부모 리소스 '&lt;ClusterName>' 찾을 수 없음"이라는 오류 메시지를 받습니다.
@@ -109,19 +109,19 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
     |Resource group|클러스터에 사용되는 새 리소스 그룹을 만듭니다.|
     |위치|리소스 그룹의 위치를 선택합니다.|
     |클러스터 이름|만들려는 새 클러스터의 이름을 입력합니다.|
-    |클러스터 로그인 사용자 이름|Hadoop HTTP 사용자 이름을 입력합니다.  기본 이름은 **admin**입니다.|
+    |클러스터 로그인 사용자 이름|Hadoop HTTP 사용자 이름을 입력합니다.  기본 이름은 **admin** 입니다.|
     |클러스터 로그인 암호|Hadoop HTTP 사용자 암호를 입력합니다.|
-    |SSH 사용자 이름|SSH 사용자 이름을 입력합니다. 기본 이름은 **sshuser**입니다.|
+    |SSH 사용자 이름|SSH 사용자 이름을 입력합니다. 기본 이름은 **sshuser** 입니다.|
     |SSH 암호|SSH 사용자 암호를 입력합니다.|
     |스크립트 동작 설치|이 문서를 진행하기 위한 기본값을 그대로 유지합니다.|
 
     일부 속성(클러스터 유형, 클러스터 작업자 노드 수, 에지 노드 크기 및 에지 노드 이름)이 템플릿에 하드 코드되었습니다.
 
-1. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택하여 에지 노드가 있는 클러스터를 만듭니다.
+1. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택하여 에지 노드가 있는 클러스터를 만듭니다.
 
 ## <a name="add-multiple-edge-nodes"></a>다중 에지 노드 추가
 
-HDInsight 클러스터에 다중 에지 노드를 추가할 수 있습니다.  다중 에지 노드 구성은 Azure Resource Manager 템플릿을 사용해서만 수행할 수 있습니다.  이 문서의 시작 부분에서 템플릿 샘플을 참조하세요.  만들려는 에지 노드 수를 반영하도록 **targetInstanceCount**를 업데이트합니다.
+HDInsight 클러스터에 다중 에지 노드를 추가할 수 있습니다.  다중 에지 노드 구성은 Azure Resource Manager 템플릿을 사용해서만 수행할 수 있습니다.  이 문서의 시작 부분에서 템플릿 샘플을 참조하세요.  만들려는 에지 노드 수를 반영하도록 **targetInstanceCount** 를 업데이트합니다.
 
 ## <a name="access-an-edge-node"></a>에지 노드 액세스
 
@@ -133,7 +133,7 @@ HDInsight 클러스터에 다중 에지 노드를 추가할 수 있습니다.  �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 에지 노드를 사용하여 HDInsight 클러스터를 엽니다.
-3. **애플리케이션**을 선택합니다. 에지 노드가 표시됩니다.  기본 이름은 **new-edgenode**입니다.
+3. **애플리케이션** 을 선택합니다. 에지 노드가 표시됩니다.  기본 이름은 **new-edgenode** 입니다.
 4. 에지 노드를 선택합니다. SSH 엔드포인트가 표시됩니다.
 
 **에지 노드에서 Hive를 사용하려면**
@@ -158,9 +158,9 @@ Azure Portal에서 에지 노드를 삭제할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 에지 노드를 사용하여 HDInsight 클러스터를 엽니다.
-3. **애플리케이션**을 선택합니다. 에지 노드의 목록이 표시됩니다.  
-4. 삭제할 에지 노드를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
-5. **예**를 선택하여 확인합니다.
+3. **애플리케이션** 을 선택합니다. 에지 노드의 목록이 표시됩니다.  
+4. 삭제할 에지 노드를 마우스 오른쪽 단추로 클릭하고 **삭제** 를 선택합니다.
+5. **예** 를 선택하여 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -169,6 +169,6 @@ Azure Portal에서 에지 노드를 삭제할 수 있습니다.
 * [HDInsight 애플리케이션 설치](hdinsight-apps-install-applications.md): 클러스터에 HDInsight 애플리케이션을 설치하는 방법을 알아봅니다.
 * [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md): HDInsight로 게시 취소된 HDInsight 애플리케이션을 배포하는 방법을 알아봅니다.
 * [HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법을 알아봅니다.
-* [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
+* [MSDN: HDInsight 애플리케이션 설치](/rest/api/hdinsight/hdinsight-application): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
 * [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 애플리케이션을 설치하는 방법을 알아봅니다.
 * [Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.

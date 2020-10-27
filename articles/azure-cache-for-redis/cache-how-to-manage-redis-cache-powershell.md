@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 478b53b78fb72a01ad028c7fb6b7683b34cbca14
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370800"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536762"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "92370800"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 항목에서는 Azure Cache for Redis 인스턴스 만들기, 업데이트 및 크기 조정과 같은 일반적인 작업을 수행하고 액세스 키를 다시 생성하며 캐시에 대한 정보를 보는 방법을 보여줍니다. Azure Cache for Redis PowerShell cmdlet의 전체 목록은 [Azure Cache for Redis cmdlet](https://docs.microsoft.com/powershell/module/az.rediscache)을 참조하세요.
+이 항목에서는 Azure Cache for Redis 인스턴스 만들기, 업데이트 및 크기 조정과 같은 일반적인 작업을 수행하고 액세스 키를 다시 생성하며 캐시에 대한 정보를 보는 방법을 보여줍니다. Azure Cache for Redis PowerShell cmdlet의 전체 목록은 [Azure Cache for Redis cmdlet](/powershell/module/az.rediscache)을 참조하세요.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -94,7 +94,7 @@ Azure Government 클라우드 내에 캐시를 만들려면 다음 위치 중 �
 * USGov 버지니아
 * USGov 아이오와
 
-Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](../azure-government-developer-guide.md)를 참조하세요.
+Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](../azure-government/documentation-government-developer-guide.md)를 참조하세요.
 
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Azure 중국 클라우드에 연결하려면
 Azure 중국 클라우드에 연결하려면 다음 명령 중 하나를 사용합니다.
@@ -172,7 +172,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | 데이터베이스 |데이터베이스 수를 구성합니다. 이 속성은 캐시 만들기에서만 구성할 수 있습니다. |표준 및 프리미엄 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Azure Cache for Redis를 만들려면
-[New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet을 사용하여 새 Azure Cache for Redis 인스턴스를 만듭니다.
+[New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) cmdlet을 사용하여 새 Azure Cache for Redis 인스턴스를 만듭니다.
 
 > [!IMPORTANT]
 > Azure Portal을 사용하여 구독에 처음으로 Azure Cache for Redis를 만들 때 포털은 해당 구독에 대해 `Microsoft.Cache` 네임스페이스를 등록합니다. PowerShell을 사용하여 구독에서 첫 번째 Azure Cache for Redis를 만드는 경우, 먼저 다음 명령을 사용하여 해당 네임스페이스를 등록해야 하며 그렇지 않은 경우 `New-AzRedisCache` 및 `Get-AzRedisCache`의 cmdlet이 실패합니다.
@@ -280,16 +280,16 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 <a name="databases"></a>
 
 ## <a name="to-configure-the-databases-setting-during-cache-creation"></a>캐시를 만드는 동안 데이터베이스 설정을 구성하려면
-`databases` 설정은 캐시를 만드는 동안에만 구성할 수 있습니다. 다음 예제에서는 [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCache) cmdlet를 사용하여 48 데이터베이스로 프리미엄 P3(26GB) 캐시를 만듭니다.
+`databases` 설정은 캐시를 만드는 동안에만 구성할 수 있습니다. 다음 예제에서는 [New-AzRedisCache](/powershell/module/az.rediscache/New-azRedisCache) cmdlet를 사용하여 48 데이터베이스로 프리미엄 P3(26GB) 캐시를 만듭니다.
 
 ```azurepowershell
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 ```
 
-`databases` 속성에 대한 자세한 내용은 [기본 Azure Cache for Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet를 사용하여 캐시를 만드는 방법에 대한 자세한 내용은 이전의 Azure Cache for Redis를 만들려면 섹션을 참조하세요.
+`databases` 속성에 대한 자세한 내용은 [기본 Azure Cache for Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) cmdlet를 사용하여 캐시를 만드는 방법에 대한 자세한 내용은 이전의 Azure Cache for Redis를 만들려면 섹션을 참조하세요.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Azure Cache for Redis를 업데이트하려면
-[Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache) cmdlet을 사용하여 Azure Cache for Redis 인스턴스를 업데이트합니다.
+[Set-AzRedisCache](/powershell/module/az.rediscache/Set-azRedisCache) cmdlet을 사용하여 Azure Cache for Redis 인스턴스를 업데이트합니다.
 
 `Set-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -367,7 +367,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 > * **프리미엄** 캐시에서 **표준** 또는 **기본** 캐시로 축소할 수 없습니다.
 > * **표준** 캐시에서 **기본** 캐시로 축소할 수 없습니다.
 > * **기본** 캐시에서 **표준** 캐시로 크기를 조정할 수 있지만 동시에 크기를 변경할 수는 없습니다. 다른 크기가 필요한 경우 후속 크기 조정 작업을 통해 원하는 크기로 조정할 수 있습니다.
-> * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본**에서 **표준**으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준**에서 **프리미엄**으로 확장해야 합니다.
+> * **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 후속 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장해야 합니다.
 > * 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다.
 > 
 > 자세한 내용은 [Azure Cache for Redis 크기를 조정하는 방법](cache-how-to-scale.md)을 참조하세요.
@@ -418,7 +418,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-get-information-about-an-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 정보를 가져오려면
-[Get-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/get-azrediscache) cmdlet을 사용하여 캐시에 대한 정보를 검색할 수 있습니다.
+[Get-AzRedisCache](/powershell/module/az.rediscache/get-azrediscache) cmdlet을 사용하여 캐시에 대한 정보를 검색할 수 있습니다.
 
 `Get-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -502,7 +502,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-retrieve-the-access-keys-for-an-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 액세스 키를 검색하려면
-캐시에 대한 액세스 키를 검색하려면 [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-azRedisCacheKey) cmdlet을 사용할 수 있습니다.
+캐시에 대한 액세스 키를 검색하려면 [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-azRedisCacheKey) cmdlet을 사용할 수 있습니다.
 
 `Get-AzRedisCacheKey`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -546,7 +546,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-regenerate-access-keys-for-your-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 액세스 키를 다시 생성하려면
-캐시에 대한 액세스 키를 다시 생성하려면 [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCacheKey) cmdlet을 사용할 수 있습니다.
+캐시에 대한 액세스 키를 다시 생성하려면 [Get-AzRedisCacheKey](/powershell/module/az.rediscache/New-azRedisCacheKey) cmdlet을 사용할 수 있습니다.
 
 `New-AzRedisCacheKey`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -600,7 +600,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-delete-an-azure-cache-for-redis"></a>Azure Cache for Redis를 삭제하려면
-Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/remove-azrediscache) cmdlet을 사용합니다.
+Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/module/az.rediscache/remove-azrediscache) cmdlet을 사용합니다.
 
 `Remove-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
 
@@ -848,10 +848,9 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](https://docs.micr
 ## <a name="next-steps"></a>다음 단계
 Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
-* [MSDN에 있는 Azure Cache for Redis cmdlet 설명서](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Azure Resource Manager cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765) Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
+* [MSDN에 있는 Azure Cache for Redis cmdlet 설명서](/powershell/module/az.rediscache)
+* [Azure Resource Manager cmdlet](/powershell/module/) Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
 * [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/templates/deploy-portal.md): Azure Portal에서 리소스 그룹을 만들고 관리하는 방법
 * [Azure 블로그](https://azure.microsoft.com/blog/): Azure의 새로운 기능에 대해 알아봅니다.
 * [Windows PowerShell 블로그](https://devblogs.microsoft.com/powershell/): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 * ["Hey, Scripting Guy!" 블로그](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
-

@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558519"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
@@ -122,7 +122,7 @@ FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 
 FHIR 용 Azure IoT 커넥터에 대 한 자주 묻는 질문을 확인 합니다.
 
 >[!div class="nextstepaction"]
->[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md)
 
 *Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
 

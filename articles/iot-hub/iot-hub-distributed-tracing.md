@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152156"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538581"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -29,13 +29,13 @@ IoT Hub는 분산 추적을 지원하기 위한 첫 번째 Azure 서비스 중 �
 IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능을 얻을 수 있습니다.
 
 - [추적 컨텍스트](https://github.com/w3c/trace-context)를 사용하여 IoT Hub를 통과하는 각 메시지의 흐름을 정확하게 모니터링합니다. 이 추적 컨텍스트는 상관 관계 특정 구성 요소의 이벤트과 다른 구성 요소의 이벤트 간 상관 관계를 파악할 수 있는 상관 관계 ID를 포함합니다. 이 컨텍스트를 [디바이스 쌍](iot-hub-devguide-device-twins.md)을 사용하여 IoT 디바이스 메시지 일부 또는 전체에 적용할 수 있습니다.
-- 추적 컨텍스트를 [Azure Monitor 진단 로그](iot-hub-monitor-resource-health.md)에 자동으로 기록합니다.
+- 추적 컨텍스트를 [Azure Monitor 로그](monitor-iot-hub.md)에 자동으로 기록 합니다.
 - 디바이스에서 IoT Hub 및 라우팅 엔드포인트로의 메시지 흐름과 대기 시간을 측정하고 이해합니다.
 - 먼저 IoT 솔루션에서 비 Azure 서비스에 대해 분산 추적을 구현하는 방법을 고려합니다.
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
@@ -55,25 +55,25 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 1. [Azure Portal](https://portal.azure.com/)에서 IoT hub로 이동 합니다.
 
-1. IoT Hub의 왼쪽 창에서 아래의 **모니터링** 섹션으로 스크롤하고 **진단 설정**을 클릭합니다.
+1. IoT Hub의 왼쪽 창에서 아래의 **모니터링** 섹션으로 스크롤하고 **진단 설정** 을 클릭합니다.
 
-1. 진단 설정을 아직 켜지 않은 경우 **진단 켜기**를 클릭합니다. 진단 설정을 이미 사용하도록 설정한 경우 **진단 설정 추가**를 클릭합니다.
+1. **진단 설정 추가** 를 클릭합니다.
 
-1. **이름** 필드에 새 진단 설정의 이름을 입력합니다. 예를 들면 **DistributedTracingSettings**와 같습니다.
+1. **이름** 필드에 새 진단 설정의 이름을 입력합니다. 예를 들면 **DistributedTracingSettings** 와 같습니다.
 
 1. 로깅 전송 위치를 결정하는 다음 옵션 중 하나 이상을 선택합니다.
 
-    - **저장소 계정에 보관**: 로깅 정보를 포함 하도록 저장소 계정을 구성 합니다.
-    - **이벤트 허브로 스트림**: 로깅 정보를 포함 하도록 이벤트 허브를 구성 합니다.
-    - **Log Analytics 보내기**: 로깅 정보를 포함 하도록 Log Analytics 작업 영역을 구성 합니다.
+    - **저장소 계정에 보관** : 로깅 정보를 포함 하도록 저장소 계정을 구성 합니다.
+    - **이벤트 허브로 스트림** : 로깅 정보를 포함 하도록 이벤트 허브를 구성 합니다.
+    - **Log Analytics 보내기** : 로깅 정보를 포함 하도록 Log Analytics 작업 영역을 구성 합니다.
 
 1. **로그** 섹션에서 로깅 정보를 사용하려는 작업을 선택합니다.
 
-    **DistributedTracing**을 포함하고 **보존**에서 로깅을 보존하려는 기간(일)을 구성합니다. 로그 보존은 스토리지 비용에 영향을 주지 않습니다.
+    **DistributedTracing** 을 포함하고 **보존** 에서 로깅을 보존하려는 기간(일)을 구성합니다. 로그 보존은 스토리지 비용에 영향을 주지 않습니다.
 
     ![IoT 진단 설정에 대해 DistributedTracing 범주가 지정된 것을 보여 주는 스크린샷](./media/iot-hub-distributed-tracing/diag-logs.png)
 
-1. 새 설정에 대해 **저장**을 클릭합니다.
+1. 새 설정에 대해 **저장** 을 클릭합니다.
 
 1. (선택 사항) 다른 위치에 대한 메시지 흐름을 보려면 [두 개 이상의 다른 엔드포인트에 대한 라우팅 규칙](iot-hub-devguide-messages-d2c.md)을 설정합니다.
 
@@ -83,7 +83,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 - 메시지가 IoT Hub에서 처리됩니다.
 - 메시지가 사용자 지정 엔드포인트로 라우팅됩니다. 라우팅을 사용하도록 설정해야 합니다.
 
-이러한 로그 및 해당 스키마에 대한 자세한 내용은 [IoT Hub 진단 로그에 분산 추적](iot-hub-monitor-resource-health.md#distributed-tracing-preview)을 참조하세요.
+이러한 로그 및 해당 스키마에 대 한 자세한 내용은 [IoT Hub 리소스 로그에서 IoT Hub 및 분산 추적](monitor-iot-hub-reference.md#distributed-tracing-preview) [모니터링](monitor-iot-hub.md) 을 참조 하세요.
 
 ## <a name="set-up-device"></a>디바이스 설정
 
@@ -183,7 +183,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습니다** . 따라서이 방법은 사용 하지 않는 것이 좋습니다.
 
-먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 `tracestate` **system 속성**으로 추가할 MQTT/amqp 메시지의 프로토콜 속성을 편집 합니다. 특히,
+먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 `tracestate` **system 속성** 으로 추가할 MQTT/amqp 메시지의 프로토콜 속성을 편집 합니다. 특히,
 
 * MQTT의 경우 `%24.tracestate=timestamp%3d1539243209` 메시지 항목에를 추가 합니다. 여기서는 `1539243209` unix 타임 스탬프 형식으로 메시지를 만든 시간으로 바꾸어야 합니다. 예를 들어 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 구현을 참조 하세요.
 * AMQP의 경우 `key("tracestate")` `value("timestamp=1539243209")` 메시지 주석으로 및를 추가 합니다. 참조 구현은 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)를 참조 하십시오.
@@ -196,19 +196,19 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 ### <a name="update-using-the-portal"></a>포털을 사용하여 업데이트
 
-1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동한 후 **IoT 디바이스**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동한 후 **IoT 디바이스** 를 클릭합니다.
 
 1. 디바이스를 클릭합니다.
 
-1. **분산 추적(미리 보기) 사용**을 찾은 후 **사용**을 선택합니다.
+1. **분산 추적(미리 보기) 사용** 을 찾은 후 **사용** 을 선택합니다.
 
     ![Azure Portal에서 분산 추적 사용](./media/iot-hub-distributed-tracing/azure-portal.png)
 
-1. 0%과 100% 사이의 **샘플링 주기**를 선택합니다.
+1. 0%과 100% 사이의 **샘플링 주기** 를 선택합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save** 을 클릭합니다.
 
-1. 몇 초 정도 기다렸다가 **새로 고침**을 누릅니다. 디바이스에서 성공적으로 승인하면 확인 표시가 있는 동기화 아이콘이 나타납니다.
+1. 몇 초 정도 기다렸다가 **새로 고침** 을 누릅니다. 디바이스에서 성공적으로 승인하면 확인 표시가 있는 동기화 아이콘이 나타납니다.
 
 1. 원격 분석 메시지 앱에 대한 콘솔 창으로 돌아갑니다. 애플리케이션 속성에서 `tracestate`와 함께 전송된 메시지를 볼 수 있습니다.
 
@@ -222,11 +222,11 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 1. VS Code를 열고 [IoT Hub 연결 문자열을 설정](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites)합니다.
 
-1. 디바이스를 확장하고 **분산 추적 설정(미리 보기)** 을 찾습니다. 이 설정 아래에서 하위 노드의 **분산 추적 설정(미리 보기) 업데이트**를 클릭합니다.
+1. 디바이스를 확장하고 **분산 추적 설정(미리 보기)** 을 찾습니다. 이 설정 아래에서 하위 노드의 **분산 추적 설정(미리 보기) 업데이트** 를 클릭합니다.
 
     ![Azure IoT Hub 확장에서 분산 추적 사용](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
-1. 팝업 창에서 **사용**을 선택한 후 Enter 키를 눌러 샘플링 비율이 100인지 확인합니다.
+1. 팝업 창에서 **사용** 을 선택한 후 Enter 키를 눌러 샘플링 비율이 100인지 확인합니다.
 
     ![샘플링 모드 업데이트](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
@@ -260,7 +260,7 @@ IoT Hub에서 기록된 모든 추적을 보려면 진단 설정에서 선택한
 
 ### <a name="query-using-log-analytics"></a>Log Analytics를 사용한 쿼리
 
-[진단 로그를 사용하여 Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 설정한 경우 `DistributedTracing` 범주에서 로그를 찾아 쿼리합니다. 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
+[리소스 로그를 사용 하 여 Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 설정한 경우 범주에서 로그를 검색 하 여 쿼리 합니다 `DistributedTracing` . 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
 
 ```Kusto
 // All distributed traces 
@@ -278,7 +278,7 @@ Log Analytics에 표시된 예제 로그:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
-다양한 유형의 로그를 이해하려면 [Azure IoT Hub 진단 로그](iot-hub-monitor-resource-health.md#distributed-tracing-preview)를 참조하세요.
+여러 유형의 로그를 이해 하려면 [분산 추적 로그 Azure IoT Hub](monitor-iot-hub-reference.md#distributed-tracing-preview)를 참조 하세요.
 
 ### <a name="application-map"></a>애플리케이션 맵
 
@@ -299,7 +299,7 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>마이크로 서비스 아키텍처의 분산 추적 패턴
 
-여러 서비스에서 IoT 메시지의 흐름을 다시 구성하려면 각 서비스가 메시지를 고유하게 식별하는 *상관 관계 ID*를 전파해야 합니다. 중앙 집중식 시스템에서 수집된 상관 관계 ID를 사용하면 메시지 흐름을 볼 수 있습니다. 이 방법을 [분산 추적 패턴](/azure/architecture/microservices/logging-monitoring#distributed-tracing)이라고 합니다.
+여러 서비스에서 IoT 메시지의 흐름을 다시 구성하려면 각 서비스가 메시지를 고유하게 식별하는 *상관 관계 ID* 를 전파해야 합니다. 중앙 집중식 시스템에서 수집된 상관 관계 ID를 사용하면 메시지 흐름을 볼 수 있습니다. 이 방법을 [분산 추적 패턴](/azure/architecture/microservices/logging-monitoring#distributed-tracing)이라고 합니다.
 
 분산 추적이 보다 광범위하게 채택되도록 하기 위해 Microsoft는 [분산 추적에 대한 W3C 표준 제안](https://w3c.github.io/trace-context/)에 참가하고 있습니다.
 
@@ -313,7 +313,7 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 1. IoT 디바이스는 IoT Hub에 메시지를 보냅니다.
 1. 메시지가 IoT Hub 게이트웨이에 도착합니다.
 1. IoT Hub는 `tracestate` 메시지 속성에서를 찾고 올바른 형식 인지 확인 합니다.
-1. 이 경우 IoT Hub는 메시지에 대해 전역적으로 고유한를 생성 하 `trace-id` `span-id` 고, "홉"에 대해를 생성 하 고, 작업에서 진단 로그를 Azure Monitor 하도록 기록 합니다 `DiagnosticIoTHubD2C` .
+1. 이 경우 IoT Hub는 메시지에 대해 전역적으로 고유한를 생성 하 `trace-id` `span-id` 고, "홉"에 대해를 생성 하 고, 작업 중에 [IoT Hub 분산 추적 로그](monitor-iot-hub-reference.md#distributed-tracing-preview) 에 기록 합니다 `DiagnosticIoTHubD2C` .
 1. 메시지 처리가 완료 되 면 IoT Hub 다른 작업을 생성 `span-id` 하 고 해당 작업 아래에 있는 기존과 함께 로그를 기록 합니다 `trace-id` `DiagnosticIoTHubIngress` .
 1. 메시지에 대해 라우팅을 사용하도록 설정하면, IoT Hub는 사용자 지정 엔드포인트에 쓰고, `DiagnosticIoTHubEgress` 범주 아래에 동일한 `trace-id`를 사용하여 다른 `span-id`를 기록합니다.
 1. 위 단계는 생성된 각 메시지에 대해 반복됩니다.
@@ -330,3 +330,4 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 - 마이크로 서비스의 일반 분산 추적 패턴에 대한 자세한 내용은 [마이크로 서비스 아키텍처 패턴: 분산 추적](https://microservices.io/patterns/observability/distributed-tracing.html)을 참조하세요.
 - 많은 수의 디바이스에 분산 추적 설정을 적용하는 구성을 설정하려면 [대규모로 IoT 디바이스 구성 및 모니터링](./iot-hub-automatic-device-management.md)을 참조하세요.
 - Azure Monitor에 대한 자세한 내용은 [Azure Monitor 란?](../azure-monitor/overview.md)을 참조하세요.
+- IoT HUb에서 Azure Monitor를 사용 하는 방법에 대 한 자세한 내용은 [Monitor IoT Hub](monitor-iot-hub.md) 를 참조 하세요.

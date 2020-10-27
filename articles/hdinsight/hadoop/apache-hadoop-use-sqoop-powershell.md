@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 3f8a5bdc9e1240303216df1dec31c78a560c55eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 781c19edb9261b13f31bebecb6bc74bf2b616b47
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086497"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546979"
 ---
 # <a name="run-apache-sqoop-jobs-with-azure-powershell-in-hdinsight"></a>HDInsight에서 Azure PowerShell을 사용하여 Apache Sqoop 작업 실행
 
@@ -23,7 +23,7 @@ Azure PowerShell를 사용 하 여 Azure HDInsight에서 Apache Sqoop 작업을 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure PowerShell [AZ 모듈](https://docs.microsoft.com/powershell/azure/)이 설치된 워크스테이션.
+* Azure PowerShell [AZ 모듈](/powershell/azure/)이 설치된 워크스테이션.
 
 * [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)에서 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 완료.
 

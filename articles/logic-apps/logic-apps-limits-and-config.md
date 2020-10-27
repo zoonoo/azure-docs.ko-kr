@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440657"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540723"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -47,39 +47,60 @@ ms.locfileid: "92440657"
 
 | 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
-| 실행 기간 | 90일 | 366일 | 실행 시간은 실행 시작 시간을 사용 하 여 계산 됩니다. |
-| 저장소에서 실행 기록 보존 | 90일 | 366일 | 실행 기간이 현재 실행 기록 보존 한도를 초과 하면 저장소의 실행 기록에서 실행이 제거 됩니다. 실행이 완료 되거나 제한 시간이 초과 되었는지 여부에 관계 없이 실행 기록 보존은 항상 실행의 시작 시간 및 워크플로 설정에 지정 된 현재 제한 [**(일 단위 실행)**](#change-retention)을 사용 하 여 계산 됩니다. 이전 제한과 상관 없이 현재 제한은 항상 보존을 계산 하는 데 사용 됩니다. <p><p>기본 한도를 변경 하 고 자세한 내용은 [저장소에서 실행 기록 보존 변경](#change-retention)을 참조 하세요. 최대 제한을 늘리려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요. |
+| 실행 기간 | 90일 | 366일 | 실행 지속 시간은 실행의 시작 시간 및 워크플로 설정에 지정 된 제한을 사용 하 여 계산 됩니다. 해당 시작 시간에 [**기록 보존 기간 (일)을 실행**](#change-duration) 합니다. <p><p>기본 제한을 변경 하려면 [저장소에서 실행 지속 시간 및 기록 보존](#change-duration)을 참조 하세요. |
+| 저장소에서 실행 기록 보존 | 90일 | 366일 | 실행 기간이 현재 실행 기록 보존 한도를 초과 하면 저장소의 실행 기록에서 실행이 제거 됩니다. 실행이 완료 되거나 제한 시간이 초과 되었는지 여부에 관계 없이 실행 기록 보존은 항상 실행의 시작 시간 및 워크플로 설정에 지정 된 현재 제한 [**(일 단위 실행)**](#change-retention)을 사용 하 여 계산 됩니다. 이전 제한과 상관 없이 현재 제한은 항상 보존을 계산 하는 데 사용 됩니다. <p><p>기본 제한을 변경 하 고 자세한 내용은 [저장소에서 기간 변경 및 실행 기록 보존](#change-retention)을 참조 하세요. 최대 제한을 늘리려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항을 확인하세요. |
 | 최소 되풀이 간격 | 1초 | 1초 ||
 | 최대 되풀이 간격 | 500일 | 500일 ||
 |||||
 
+<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-history-retention-in-storage"></a>저장소에서 실행 기록 보존 변경
+### <a name="change-run-duration-and-history-retention-in-storage"></a>저장소에서 실행 기간 및 기록 보존 기간 변경
 
-저장소의 실행 기록 보존에 대 한 기본 제한을 변경 하려면 다음 단계를 수행 합니다.
+동일한 설정은 워크플로가 실행 될 수 있는 최대 일 수와 저장소에 실행 기록을 유지 하는 것을 제어 합니다. 이러한 속성에 대 한 기본값 또는 현재 제한을 변경 하려면 다음 단계를 수행 합니다.
 
 * 다중 테넌트 Azure의 논리 앱은 기본 제한과 최대 제한이 똑같이 90일입니다. 이 값을 줄이는 것만 가능합니다.
 
 * 통합 서비스 환경의 논리 앱은 90일 기본 제한을 늘리거나 줄일 수 있습니다.
 
-예를 들어 보존 한도를 90 일에서 30 일로 줄일 수 있습니다. 60-일-이전 실행이 실행 기록에서 제거 되었습니다. 보존 기간을 30 일에서 60 일로 늘리면 20 일 이전 실행은 다른 40 일에 대 한 실행 기록에 유지 됩니다. 
-
+예를 들어 보존 한도를 90 일에서 30 일로 줄일 수 있습니다. 60-일-이전 실행이 실행 기록에서 제거 되었습니다. 보존 기간을 30 일에서 60 일로 늘리면 20 일 이전 실행은 다른 40 일에 대 한 실행 기록에 유지 됩니다.
 
 > [!IMPORTANT]
-> 실행 기록이 손실 되지 않도록 하기 위해 보존 한도는 *항상* 실행 가능한 가장 긴 기간 보다 더 많은 값이 되도록 해야 합니다. 그렇지 않으면 실행 기록이 손실 됩니다.
+> 실행 기간이 현재 실행 기록 보존 한도를 초과 하면 저장소의 실행 기록에서 실행이 제거 됩니다. 실행 기록이 손실 되지 않도록 하기 위해 보존 한도는 *항상* 실행 가능한 가장 긴 기간 보다 더 많은 값이 되도록 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 검색 상자에서 **논리 앱**을 찾아 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 검색 상자에서 **논리 앱** 을 찾아 선택 합니다.
 
 1. 논리 앱을 찾아 선택 합니다. 논리 앱 디자이너에서 논리 앱을 엽니다.
 
-1. 논리 앱 메뉴에서 **워크플로 설정**을 선택합니다.
+1. 논리 앱 메뉴에서 **워크플로 설정** 을 선택합니다.
 
-1. **런타임 옵션** 아래의 **실행 기록 보존 기간(일)** 목록에서 **사용자 지정**을 선택합니다.
+1. **런타임 옵션** 아래의 **실행 기록 보존 기간(일)** 목록에서 **사용자 지정** 을 선택합니다.
 
 1. 슬라이더를 끌어 원하는 일수로 변경합니다.
 
-1. 마쳤으면 **워크플로 설정** 도구 모음에서 **저장**을 선택합니다.
+1. 마쳤으면 **워크플로 설정** 도구 모음에서 **저장** 을 선택합니다.
+
+논리 앱에 대 한 Azure Resource Manager 템플릿을 생성 하는 경우이 설정은 워크플로의 리소스 정의에 속성으로 표시 됩니다 .이 속성은 [Microsoft 논리 워크플로 템플릿 참조](/templates/microsoft.logic/workflows)에 설명 되어 있습니다.
+
+```json
+{
+   "name": "{logic-app-name}",
+   "type": "Microsoft.Logic/workflows",
+   "location": "{Azure-region}",
+   "apiVersion": "2019-05-01",
+   "properties": {
+      "definition": {},
+      "parameters": {},
+      "runtimeConfiguration": {
+         "lifetime": {
+            "unit": "day",
+            "count": {number-of-days}
+         }
+      }
+   }
+}
+```
 
 <a name="looping-debatching-limits"></a>
 
@@ -89,11 +110,11 @@ ms.locfileid: "92440657"
 
 | 속성 | 제한 | 메모 |
 | ---- | ----- | ----- |
-| 트리거 동시성 | - 동시성 제어가 꺼지면 무제한 <p><p>- 동시성 제어가 켜지면 25가 기본 제한이며, 동시성을 켠 후에는 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고**: 동시성이 켜져 있으면 [배열 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)에 대한 SplitOn 제한이 100개 항목으로 축소됩니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
+| 트리거 동시성 | - 동시성 제어가 꺼지면 무제한 <p><p>- 동시성 제어가 켜지면 25가 기본 제한이며, 동시성을 켠 후에는 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>**참고** : 동시성이 켜져 있으면 [배열 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)에 대한 SplitOn 제한이 100개 항목으로 축소됩니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. |
 | 최대 대기 중인 실행 | - 동시성이 없으면 최소 대기 실행 수는 1이고, 최대 수는 50입니다. <p><p>- 동시성이 있으면 최소 대기 실행 수는 10 + 동시 실행 수입니다(트리거 동시성). 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. |
 | Foreach 배열 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](logic-apps-perform-data-operations.md#filter-array-action)을 사용하면 됩니다. |
 | Foreach 동시성 | 동시성 제어가 꺼지면 20이 기본 제한입니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. |
-| SplitOn 항목 | - 트리거 동시성이 없으면 100,000개 <p><p>- 트리거 동시성이 있으면 100개 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고**: 동시성이 켜져 있으면 SplitOn 제한이 100개 항목으로 축소됩니다. |
+| SplitOn 항목 | - 트리거 동시성이 없으면 100,000개 <p><p>- 트리거 동시성이 있으면 100개 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고** : 동시성이 켜져 있으면 SplitOn 제한이 100개 항목으로 축소됩니다. |
 | Until 반복 | - 기본값: 60 <p><p>- 최대: 5,000 | |
 ||||
 
@@ -149,8 +170,8 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 | 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
-| 아웃바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 아웃바운드 요청의 예로는 HTTP 트리거가 수행한 호출을 들 수 있습니다. <p><p>**팁**: 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. [호출 가능 엔드포인트](logic-apps-http-endpoint.md)가 있는 또 다른 논리 앱을 호출할 때 시간 제한을 피하려면 기본 제공 Azure Logic Apps 작업을 대신 사용하면 됩니다. 이 작업은 **기본 제공** 아래의 커넥터 선택에서 찾을 수 있습니다. |
-| 인바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 인바운드 요청의 예로는 요청 트리거와 웹후크 트리거가 수신한 호출을 들 수 있습니다. <p><p>**참고**: 원래 호출자가 응답을 받으려면 또 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 제한 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
+| 아웃바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 아웃바운드 요청의 예로는 HTTP 트리거가 수행한 호출을 들 수 있습니다. <p><p>**팁** : 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. [호출 가능 엔드포인트](logic-apps-http-endpoint.md)가 있는 또 다른 논리 앱을 호출할 때 시간 제한을 피하려면 기본 제공 Azure Logic Apps 작업을 대신 사용하면 됩니다. 이 작업은 **기본 제공** 아래의 커넥터 선택에서 찾을 수 있습니다. |
+| 인바운드 요청 | 120초 <br>(2분) | 240초 <br>(4분) | 인바운드 요청의 예로는 요청 트리거와 웹후크 트리거가 수신한 호출을 들 수 있습니다. <p><p>**참고** : 원래 호출자가 응답을 받으려면 또 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 제한 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
 |||||
 
 <a name="message-size-limits"></a>
@@ -203,7 +224,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 | 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
 | 사용자 지정 커넥터 수 | Azure 구독당 1,000개 | Azure 구독당 1,000개 ||
-| 사용자 지정 커넥터의 분당 요청 수 | 연결마다 분당 500개 요청 | *사용자 지정 커넥터*마다 분당 2,000개 요청 ||
+| 사용자 지정 커넥터의 분당 요청 수 | 연결마다 분당 500개 요청 | *사용자 지정 커넥터* 마다 분당 2,000개 요청 ||
 |||
 
 <a name="managed-identity"></a>
@@ -264,7 +285,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 | 아티팩트 | 제한 | 메모 |
 | -------- | ----- | ----- |
 | 어셈블리 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
-| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고**: 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#request-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
+| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate)를 사용합니다. <p><p>**참고** : 맵이 성공적으로 처리할 수 있는 데이터 또는 레코드의 양은 Azure Logic Apps의 메시지 크기와 작업 시간 제한에 따라 달라집니다. 예를 들어 [HTTP 메시지 크기 및 시간 제한](#request-limits)을 기준으로 HTTP 작업을 사용하는 경우 작업이 HTTP 시간 제한 내에 완료된다면 맵은 HTTP 메시지 크기 제한까지 데이터를 처리할 수 있습니다. |
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
 ||||
 
@@ -311,8 +332,8 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 > 보안 규칙을 만들 때 지역마다 Logic Apps IP 주소를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하면 복잡성을 줄일 수 있으며, 자세한 방법은 이 섹션의 뒷부분에서 설명합니다.
 > 이러한 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
 >
-> * **LogicAppsManagement**: Logic Apps 서비스의 인바운드 IP 주소 접두사를 나타냅니다.
-> * **LogicApps**: Logic Apps 서비스의 아웃바운드 IP 주소 접두사를 나타냅니다.
+> * **LogicAppsManagement** : Logic Apps 서비스의 인바운드 IP 주소 접두사를 나타냅니다.
+> * **LogicApps** : Logic Apps 서비스의 아웃바운드 IP 주소 접두사를 나타냅니다.
 
 * [Azure 중국 21Vianet](/azure/china/)의 경우 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 및 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)(예: Azure Storage, SQL Server, Office 365 Outlook 등)에 고정 또는 예약된 IP 주소를 사용할 수 없습니다.
 
@@ -333,7 +354,7 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 이 섹션에서는 Azure Logic Apps 서비스의 인바운드 IP 주소만 나열합니다. Azure Government를 보유한 경우 [Azure Government - 인바운드 IP 주소](#azure-government-inbound)를 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement**를 사용하면 복잡성을 줄일 수 있습니다.
+> 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement** 를 사용하면 복잡성을 줄일 수 있습니다.
 > 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
 
 <a name="multi-tenant-inbound"></a>
@@ -397,7 +418,7 @@ Azure Logic Apps가 들어오고 나가는 호출에 사용하는 IP 주소는 �
 이 섹션에서는 Azure Logic Apps 서비스 및 관리형 커넥터의 아웃바운드 IP 주소를 나열합니다. Azure Government를 보유한 경우 [Azure Government - 아웃바운드 IP 주소](#azure-government-outbound)를 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps**를 사용하면 복잡성을 줄일 수 있습니다.
+> 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps** 를 사용하면 복잡성을 줄일 수 있습니다.
 > 관리 되는 커넥터의 경우 필요에 따라 각 지역에 대해 아웃 바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 **azureconnectors** 서비스 태그를 사용할 수 있습니다. 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다. 
 
 <a name="multi-tenant-outbound"></a>

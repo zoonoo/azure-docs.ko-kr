@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076881"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545228"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
 
@@ -81,7 +81,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
     |필드 |값 |
     |---|---|
     |Subscription |드롭다운 목록에서 Azure 구독을 선택 합니다.|
-    |Resource group |드롭다운 목록에서 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다.|
+    |리소스 그룹 |드롭다운 목록에서 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다.|
     |위치 |드롭다운 목록에서 지역을 선택합니다.|
     |클러스터 이름 |Hadoop 클러스터에 사용할 이름을 입력합니다. 소문자만 사용 합니다.|
     |클러스터 로그인 사용자 이름 |미리 채워진 값을 유지 `admin` 합니다.|
@@ -97,9 +97,9 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
     [논리 SQL server](../../azure-sql/database/logical-servers.md) 이름은 `<ClusterName>dbserver` 입니다. 데이터베이스 이름은 `<ClusterName>db` 입니다. 기본 저장소 계정 이름은 `e6qhezrh2pdqu` 입니다.
 
-3. **위에 명시된 사용 약관에 동의함**을 선택합니다.
+3. **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
-4. **구매**를 선택합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
+4. **구매** 를 선택합니다. 템플릿 배포에 배포 제출 중이라는 제목의 새 타일이 표시됩니다. 클러스터 및 SQL 데이터베이스를 만들려면 20분 정도가 걸립니다.
 
 ## <a name="run-sqoop-jobs"></a>Sqoop 작업 실행
 
@@ -107,7 +107,7 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 
 | **이것을 사용** 하세요... | ... **대화형** 셸 | ... **일괄** 처리 | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X, 또는 Windows |
+| [S](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X, 또는 Windows |
 | [Hadoop용 .NET SDK](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows(당분간) |
 | [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 
@@ -120,6 +120,6 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 
 이제 Sqoop을 사용하는 방법에 대해 알아봤습니다. 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight에서 Apache Hive 사용](../hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hive 사용](./hdinsight-use-hive.md)
 * [HDInsight에 데이터 업로드](../hdinsight-upload-data.md): HDInsight/Azure Blob Storage에 데이터를 업로드하는 다른 방법을 찾습니다.
 * [Apache Sqoop을 사용하여 HDInsight의 Hadoop과 SQL Database 간에 데이터 가져오기 및 내보내기](./apache-hadoop-use-sqoop-mac-linux.md)

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: e0d1f9ad99e1b64560321312a22f61f5a2ef3dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34c6fe58873a614ee8502e052c2af5aaed898cd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016039"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547948"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -52,12 +52,12 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 **HDInsight 애플리케이션 설치**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스** > **Analytics** > **HDInsight 클러스터**로 이동합니다.
+2. 왼쪽 메뉴에서 **모든 서비스** > **Analytics** > **HDInsight 클러스터** 로 이동합니다.
 3. 목록에서 HDInsight 클러스터를 선택합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하세요.
-4. **설정** 범주에서 **애플리케이션**을 선택합니다. 주 창에서 설치된 애플리케이션 목록을 볼 수 있습니다. 
+4. **설정** 범주에서 **애플리케이션** 을 선택합니다. 주 창에서 설치된 애플리케이션 목록을 볼 수 있습니다. 
    
     ![HDInsight 애플리케이션 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
-5. 메뉴에서 **+추가**를 선택합니다. 사용 가능한 애플리케이션 목록을 볼 수 있습니다.  **+추가**가 회색으로 표시되면 이 버전의 HDInsight 클러스터용 애플리케이션이 없는 것입니다.
+5. 메뉴에서 **+추가** 를 선택합니다. 사용 가능한 애플리케이션 목록을 볼 수 있습니다.  **+추가** 가 회색으로 표시되면 이 버전의 HDInsight 클러스터용 애플리케이션이 없는 것입니다.
    
     ![HDInsight 애플리케이션 사용 가능한 애플리케이션](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
 6. 사용할 수 있는 애플리케이션 중 하나를 선택한 다음, 지침에 따라 약관에 동의합니다.
@@ -66,7 +66,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 ## <a name="install-applications-during-cluster-creation"></a>클러스터 생성 중에 애플리케이션 설치
 
-클러스터를 만들 때 HDInsight 애플리케이션을 설치하는 옵션이 있습니다. 클러스터가 만들어지고 실행 상태가 되면 프로세스 중에 HDInsight 애플리케이션이 설치됩니다. Azure Portal을 사용하여 클러스터를 만드는 동안 애플리케이션을 설치하려면 **구성 + 가격 책정** 탭에서 **+ 애플리케이션 추가**를 선택합니다.
+클러스터를 만들 때 HDInsight 애플리케이션을 설치하는 옵션이 있습니다. 클러스터가 만들어지고 실행 상태가 되면 프로세스 중에 HDInsight 애플리케이션이 설치됩니다. Azure Portal을 사용하여 클러스터를 만드는 동안 애플리케이션을 설치하려면 **구성 + 가격 책정** 탭에서 **+ 애플리케이션 추가** 를 선택합니다.
 
 ![Azure Portal 클러스터 구성 애플리케이션](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
@@ -76,9 +76,9 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 **HDInsight 애플리케이션 나열 및 속성 표시**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모든 서비스** > **Analytics** > **HDInsight 클러스터**로 이동합니다.
+2. 왼쪽 메뉴에서 **모든 서비스** > **Analytics** > **HDInsight 클러스터** 로 이동합니다.
 3. 목록에서 HDInsight 클러스터를 선택합니다.
-4. **설정** 범주에서 **애플리케이션**을 선택합니다. 주 창에서 설치된 애플리케이션 목록을 볼 수 있습니다. 
+4. **설정** 범주에서 **애플리케이션** 을 선택합니다. 주 창에서 설치된 애플리케이션 목록을 볼 수 있습니다. 
    
     ![HDInsight 애플리케이션 설치 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. 설치된 애플리케이션 중 하나를 선택하여 속성을 표시합니다. 속성 목록:
@@ -91,7 +91,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
     |SSH 엔드포인트 |SSH를 사용하여 에지 노드에 연결할 수 있습니다. SSH 자격 증명은 클러스터에 대해 구성한 SSH 사용자 자격 증명과 동일합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
     |Description | 애플리케이션 설명입니다. |
 
-6. 애플리케이션을 삭제하려면 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, 상황에 맞는 메뉴에서 **삭제**를 클릭합니다.
+6. 애플리케이션을 삭제하려면 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음, 상황에 맞는 메뉴에서 **삭제** 를 클릭합니다.
 
 ## <a name="connect-to-the-edge-node"></a>에지 노드에 연결
 HTTP 및 SSH를 사용하여 에지 노드에 연결할 수 있습니다. 엔드포인트 정보는 [포털](#list-installed-hdinsight-apps-and-properties)에서 찾을 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
@@ -104,8 +104,7 @@ HTTP 엔드포인트 자격 증명은 HDInsight 클러스터에 대해 구성한
 ## <a name="next-steps"></a>다음 단계
 * [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md): HDInsight로 게시 취소된 HDInsight 애플리케이션을 배포하는 방법을 알아봅니다.
 * [HDInsight 애플리케이션 게시](hdinsight-apps-publish-applications.md): 사용자 지정 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법을 알아봅니다.
-* [MSDN: HDInsight 애플리케이션 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
+* [MSDN: HDInsight 애플리케이션 설치](/rest/api/hdinsight/hdinsight-application): HDInsight 애플리케이션을 정의하는 방법을 알아봅니다.
 * [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md): 스크립트 작업을 사용하여 추가 애플리케이션을 설치하는 방법을 알아봅니다.
 * [Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Azure Resource Manager 템플릿을 호출하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 * [HDInsight에서 비어 있는 에지 노드 사용](hdinsight-apps-use-edge-node.md): HDInsight 클러스터에 액세스, HDInsight 애플리케이션 테스트 및 HDInsight 애플리케이션 호스팅하는 데 비어 있는 에지 노드를 사용하는 방법을 알아봅니다.
-

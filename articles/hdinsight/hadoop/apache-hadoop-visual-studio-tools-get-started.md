@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: how-to
 ms.date: 04/14/2020
-ms.openlocfilehash: 5fce1a8e2f4dda8ea84cfd66aa9dc13768ab17e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56154f7e5ebd71e1b6580bec55ca57520eb126ff
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077088"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548016"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -26,7 +26,7 @@ Apache Storm에 연결 하는 방법에 대 한 자세한 내용은 [Data Lake �
 
 Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 HDInsight에 액세스할 수 있습니다. Data Lake Tools에 대한 자세한 내용은 [Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료 하 고 Visual Studio 용 Data Lake 도구를 사용 하려면 다음 항목이 필요 합니다.
 
@@ -42,7 +42,7 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
     Visual Studio를 설치 하는 동안 **Azure 개발** 워크 로드 또는 **데이터 저장소 및 처리** 워크 로드를 포함 해야 합니다.  
 
-    기존 Visual Studio 설치의 경우 IDE 메뉴 모음으로 이동 하 고 **도구**  >  **도구 및 기능 가져오기** 를 선택 하 여 Visual Studio 설치 관리자을 엽니다. **작업** 탭에서 최소한 **Azure 개발** 워크 로드 ( **웹 & 클라우드**아래)를 선택 합니다. 또는 **데이터 저장소 및 처리** 워크 로드를 선택 합니다 ( **기타 도구 집합**).
+    기존 Visual Studio 설치의 경우 IDE 메뉴 모음으로 이동 하 고 **도구**  >  **도구 및 기능 가져오기** 를 선택 하 여 Visual Studio 설치 관리자을 엽니다. **작업** 탭에서 최소한 **Azure 개발** 워크 로드 ( **웹 & 클라우드** 아래)를 선택 합니다. 또는 **데이터 저장소 및 처리** 워크 로드를 선택 합니다 ( **기타 도구 집합** ).
 
   ![작업 선택, Visual Studio 설치 관리자](./media/apache-hadoop-visual-studio-tools-get-started/vs-installation.png)
 
@@ -56,19 +56,19 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 
 1. Visual Studio를 엽니다.
 
-2. **시작** 창에서 **코드를 제외**하 고 계속을 선택 합니다.
+2. **시작** 창에서 **코드를 제외** 하 고 계속을 선택 합니다.
 
-3. Visual Studio IDE 메뉴 모음에서 **확장**확장  >  **관리**를 선택 합니다.
+3. Visual Studio IDE 메뉴 모음에서 **확장** 확장  >  **관리** 를 선택 합니다.
 
 4. **확장 관리** 대화 상자에서 **업데이트** 노드를 확장 합니다.
 
-5. 사용 가능한 업데이트 목록에 **Azure Data Lake 및 Stream 분석 도구가**포함 되어 있는 경우 해당 업데이트를 선택 합니다. 그런 다음 해당 **업데이트** 단추를 선택 합니다. **다운로드 및 설치** 대화 상자가 표시 되 고 사라진 후 Visual Studio에서 **Azure Data Lake 및 Stream analytics 도구** 확장을 업데이트 일정에 추가 합니다.
+5. 사용 가능한 업데이트 목록에 **Azure Data Lake 및 Stream 분석 도구가** 포함 되어 있는 경우 해당 업데이트를 선택 합니다. 그런 다음 해당 **업데이트** 단추를 선택 합니다. **다운로드 및 설치** 대화 상자가 표시 되 고 사라진 후 Visual Studio에서 **Azure Data Lake 및 Stream analytics 도구** 확장을 업데이트 일정에 추가 합니다.
 
 6. 모든 Visual Studio 창을 닫습니다. **VSIX 설치 관리자** 대화 상자가 나타납니다.
 
 7. 라이선스 **를 선택 하** 여 사용 조건을 읽고, **닫기** 를 선택 하 여 **VSIX 설치 관리자** 대화 상자로 돌아갑니다.
 
-8. **수정**을 선택합니다. 확장 업데이트 설치가 시작 됩니다. 잠시 후에 대화 상자를 변경 하 여 수정 완료를 표시 합니다. **닫기**를 선택 하 고 Visual Studio를 다시 시작 하 여 설치를 완료 합니다.
+8. **수정** 을 선택합니다. 확장 업데이트 설치가 시작 됩니다. 잠시 후에 대화 상자를 변경 하 여 수정 완료를 표시 합니다. **닫기** 를 선택 하 고 Visual Studio를 다시 시작 하 여 설치를 완료 합니다.
 
 > [!NOTE]  
 > Data Lake Tools 버전 2.3.0.0 이상만 사용하여 대화형 쿼리 클러스터에 연결하고 대화형 Hive 쿼리를 실행할 수 있습니다.
@@ -78,7 +78,7 @@ Data Lake Tools for Visual Studio를 사용하여 Azure Data Lake Analytics 및 
 Visual Studio 용 Data Lake 도구를 사용 하 여 HDInsight 클러스터에 연결 하 고, 몇 가지 기본 관리 작업을 수행 하 고, Hive 쿼리를 실행할 수 있습니다.
 
 > [!NOTE]  
-> 일반 Hadoop 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Visual Studio를 사용 하 여 Hive 쿼리를 작성 및 제출 하는 방법](https://blogs.msdn.microsoft.com/xiaoyong/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio/)을 참조 하세요.
+> 일반 Hadoop 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Visual Studio를 사용 하 여 Hive 쿼리를 작성 및 제출 하는 방법](/archive/blogs/xiaoyong/how-to-write-and-submit-hive-queries-using-visual-studio)을 참조 하세요.
 
 ### <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
 
@@ -86,17 +86,17 @@ Azure 구독에 연결하려면,
 
 1. Visual Studio를 엽니다.
 
-2. **시작** 창에서 **코드를 제외**하 고 계속을 선택 합니다.
+2. **시작** 창에서 **코드를 제외** 하 고 계속을 선택 합니다.
 
-3. IDE 메뉴 모음에서 **뷰**  >  **서버 탐색기**를 선택 합니다.
+3. IDE 메뉴 모음에서 **뷰**  >  **서버 탐색기** 를 선택 합니다.
 
-4. **서버 탐색기**에서 **Azure**를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결**을 선택 하 여 인증 프로세스를 완료 합니다. **서버 탐색기**에서 **Azure**  >  **hdinsight** 를 확장 하 여 기존 HDInsight 클러스터 목록을 확인 합니다.
+4. **서버 탐색기** 에서 **Azure** 를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결** 을 선택 하 여 인증 프로세스를 완료 합니다. **서버 탐색기** 에서 **Azure**  >  **hdinsight** 를 확장 하 여 기존 HDInsight 클러스터 목록을 확인 합니다.
 
 5. 클러스터가 없는 경우 Azure Portal, Azure PowerShell 또는 HDInsight SDK를 사용 하 여 만듭니다. 자세한 내용은 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md)을 참조 하세요.
 
    ![HDInsight 클러스터 목록, 서버 탐색기, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-server-explorer.png)
 
-6. HDInsight 클러스터를 확장합니다. 클러스터에는 **Hive 데이터베이스용**노드가 포함 되어 있습니다. 또한 기본 저장소 계정, 추가 연결 된 저장소 계정 및 **Hadoop 서비스 로그**가 있습니다. 엔터티를 더 확장할 수 있습니다.
+6. HDInsight 클러스터를 확장합니다. 클러스터에는 **Hive 데이터베이스용** 노드가 포함 되어 있습니다. 또한 기본 저장소 계정, 추가 연결 된 저장소 계정 및 **Hadoop 서비스 로그** 가 있습니다. 엔터티를 더 확장할 수 있습니다.
 
 Azure 구독에 연결되면 다음 작업을 수행할 수 있습니다.
 
@@ -104,15 +104,15 @@ Azure 구독에 연결되면 다음 작업을 수행할 수 있습니다.
 
 Visual Studio에서 Azure Portal에 연결하려면,
 
-1. **서버 탐색기**에서 **Azure**  >  **HDInsight** 를 확장 하 고 클러스터를 선택 합니다.
+1. **서버 탐색기** 에서 **Azure**  >  **HDInsight** 를 확장 하 고 클러스터를 선택 합니다.
 
-2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Azure Portal에서 클러스터 관리**를 선택 합니다.
+2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Azure Portal에서 클러스터 관리** 를 선택 합니다.
 
 ### <a name="offer-questions-and-feedback-from-visual-studio"></a>Visual Studio의 질문과 의견 제공
 
 질문 하 고 Visual Studio에서 피드백을 제공 하려면 다음을 수행 합니다.
 
-1. 서버 탐색기에서 **Azure**  >  **HDInsight**를 선택 합니다.
+1. 서버 탐색기에서 **Azure**  >  **HDInsight** 를 선택 합니다.
 
 2. **HDInsight** 를 마우스 오른쪽 단추로 클릭 하 고 **MSDN 포럼** 을 선택 하 여 **질문 하거나 피드백을 제공 해** 주세요.
 
@@ -123,15 +123,15 @@ Visual Studio에서 Azure Portal에 연결하려면,
 
 HDInsight 클러스터를 연결 하려면:
 
-1. **Hdinsight**를 마우스 오른쪽 단추로 클릭 한 다음 Hdinsight **클러스터 연결** 을 선택 하 여 **hdinsight 클러스터 연결** 대화 상자를 표시 합니다.
+1. **Hdinsight** 를 마우스 오른쪽 단추로 클릭 한 다음 Hdinsight **클러스터 연결** 을 선택 하 여 **hdinsight 클러스터 연결** 대화 상자를 표시 합니다.
 
-2. 형식으로 **연결 Url** 을 입력 `https://CLUSTERNAME.azurehdinsight.net` 합니다. **클러스터 이름은** 다른 필드로 이동할 때 URL의 클러스터 이름 부분으로 자동으로 채워집니다. 그런 다음 **사용자 이름** 및 **암호**를 입력 하 고 **다음**을 선택 합니다.
+2. 형식으로 **연결 Url** 을 입력 `https://CLUSTERNAME.azurehdinsight.net` 합니다. **클러스터 이름은** 다른 필드로 이동할 때 URL의 클러스터 이름 부분으로 자동으로 채워집니다. 그런 다음 **사용자 이름** 및 **암호** 를 입력 하 고 **다음** 을 선택 합니다.
 
     ![클러스터, HDInsight, Visual Studio 연결](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-3. **마침**을 선택합니다. 클러스터가 성공적으로 연결 되 면 클러스터는 **HDInsight** 노드 아래에 나열 됩니다.
+3. **완료** 를 선택합니다. 클러스터가 성공적으로 연결 되 면 클러스터는 **HDInsight** 노드 아래에 나열 됩니다.
 
-연결 된 클러스터를 업데이트 하려면 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **편집**을 선택 합니다. 그런 다음 클러스터 정보를 업데이트할 수 있습니다.
+연결 된 클러스터를 업데이트 하려면 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **편집** 을 선택 합니다. 그런 다음 클러스터 정보를 업데이트할 수 있습니다.
 
 ![연결 된 클러스터, HDInsight, Visual Studio 편집](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
@@ -141,7 +141,7 @@ HDInsight 클러스터를 연결 하려면:
 
 ![서버 탐색기에서 Visual Studio 연결 된 리소스에 대 한 Data Lake 도구](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-linked-resources.png)
 
-컨테이너의 내용을 보려면 컨테이너를 마우스 오른쪽 단추로 클릭 하 고 **컨테이너 보기** 를 선택 합니다. 컨테이너를 연 후 도구 모음 단추를 사용 하 여 콘텐츠 목록을 **새로 고치고** , **blob을 업로드**하 고, 선택한 blob을 **삭제**하 고, blob을 **열고**, 선택한 blob을 다운로드 (다른**이름으로 저장**) 할 수 있습니다.
+컨테이너의 내용을 보려면 컨테이너를 마우스 오른쪽 단추로 클릭 하 고 **컨테이너 보기** 를 선택 합니다. 컨테이너를 연 후 도구 모음 단추를 사용 하 여 콘텐츠 목록을 **새로 고치고** , **blob을 업로드** 하 고, 선택한 blob을 **삭제** 하 고, blob을 **열고** , 선택한 blob을 다운로드 (다른 **이름으로 저장** ) 할 수 있습니다.
 
 ![컨테이너 목록 및 blob 작업, HDInsight 클러스터, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-blob-operations.png)
 
@@ -156,33 +156,33 @@ HDInsight 클러스터를 연결 하려면:
 
 Visual Studio 용 Data Lake 도구를 사용 하 여 Hive 작업 내부를 확인할 수도 있습니다. Data Lake Tools for Visual Studio는 특정 Hive 작업에 대한 YARN 로그를 수집하고 표시합니다.
 
-**서버 탐색기**에서 **Azure**  >  **HDInsight** 를 선택 하 고 클러스터를 선택 합니다.  이 노드는 수행할 섹션의 **서버 탐색기** 시작 지점입니다.
+**서버 탐색기** 에서 **Azure**  >  **HDInsight** 를 선택 하 고 클러스터를 선택 합니다.  이 노드는 수행할 섹션의 **서버 탐색기** 시작 지점입니다.
 
 ### <a name="view-hivesampletable"></a>hivesampletable 보기
 
 모든 HDInsight 클러스터에는 라는 기본 샘플 Hive 테이블이 있습니다 `hivesampletable` .  
 
-클러스터에서 **Hive 데이터베이스**  >  **기본**  >  **hivesampletable**를 선택 합니다.
+클러스터에서 **Hive 데이터베이스**  >  **기본**  >  **hivesampletable** 를 선택 합니다.
 
 * 스키마를 보려면 `hivesampletable` 다음을 수행 합니다.
 
-    **Hivesampletable**를 확장 합니다. 열의 이름 및 데이터 형식이 `hivesampletable` 표시 됩니다.
+    **Hivesampletable** 를 확장 합니다. 열의 이름 및 데이터 형식이 `hivesampletable` 표시 됩니다.
 
 * 데이터를 보려면 `hivesampletable` 다음을 수행 합니다.
 
-    **Hivesampletable**를 마우스 오른쪽 단추로 클릭 하 고 **상위 100 행 보기**를 선택 합니다. 100 결과 목록이 **Hive 테이블: hivesampletable** 창에 표시 됩니다. 이 작업은 Hive ODBC 드라이버를 사용 하 여 다음 Hive 쿼리를 실행 하는 것과 같습니다.
+    **Hivesampletable** 를 마우스 오른쪽 단추로 클릭 하 고 **상위 100 행 보기** 를 선택 합니다. 100 결과 목록이 **Hive 테이블: hivesampletable** 창에 표시 됩니다. 이 작업은 Hive ODBC 드라이버를 사용 하 여 다음 Hive 쿼리를 실행 하는 것과 같습니다.
 
     `SELECT * FROM hivesampletable LIMIT 100`
 
-    행 **수**를 변경 하 여 행 수를 사용자 지정할 수 있습니다. 드롭다운 목록에서 50, 100, 200 또는 1000 행을 선택할 수 있습니다.
+    행 **수** 를 변경 하 여 행 수를 사용자 지정할 수 있습니다. 드롭다운 목록에서 50, 100, 200 또는 1000 행을 선택할 수 있습니다.
 
 ### <a name="create-hive-tables"></a>Hive 테이블 만들기
 
 Hive 테이블을 만들려면 GUI를 사용하거나 Hive 쿼리를 사용할 수 있습니다. Hive 쿼리를 사용 하는 방법에 대 한 자세한 내용은 [hive 쿼리 만들기 및 실행](#create-and-run-hive-queries)을 참조 하세요.
 
-1. 클러스터에서 **Hive 데이터베이스**  >  **기본값**을 선택 합니다.
+1. 클러스터에서 **Hive 데이터베이스**  >  **기본값** 을 선택 합니다.
 
-2. **기본값**을 마우스 오른쪽 단추로 클릭 하 고 **테이블 만들기**를 선택 합니다.
+2. **기본값** 을 마우스 오른쪽 단추로 클릭 하 고 **테이블 만들기** 를 선택 합니다.
 
 3. 테이블을 구성합니다.
 
@@ -201,7 +201,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 임시 쿼리를 만들고 실행 하려면 다음을 수행 합니다.
 
-1. 쿼리를 실행 하려는 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Hive 쿼리 작성**을 선택 합니다.  
+1. 쿼리를 실행 하려는 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **Hive 쿼리 작성** 을 선택 합니다.  
 
 2. Hive 쿼리를 입력 합니다.
 
@@ -227,17 +227,17 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
     * **대화형**  
 
-        첫 번째 드롭다운 목록에서 **Interactive**를 선택 하 고 **실행**을 선택 합니다.
+        첫 번째 드롭다운 목록에서 **Interactive** 를 선택 하 고 **실행** 을 선택 합니다.
 
         ![대화형 모드, Hive 임시 쿼리, HDInsight 클러스터, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-execute.png)  
 
     * **Batch**  
 
-        첫 번째 드롭다운 목록에서 **Batch**를 선택 하 고 **제출**을 선택 합니다. 또는 **제출** 옆에 있는 드롭다운 아이콘을 선택 하 고 **고급**을 선택 합니다.
+        첫 번째 드롭다운 목록에서 **Batch** 를 선택 하 고 **제출** 을 선택 합니다. 또는 **제출** 옆에 있는 드롭다운 아이콘을 선택 하 고 **고급** 을 선택 합니다.
 
         ![일괄 처리 모드, Hive 임시 쿼리, HDInsight 클러스터, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-query-batch.png)
 
-        고급 제출 옵션을 선택 하면 **스크립트 제출** 대화 상자가 나타납니다. 스크립트에 대 한 **작업 이름**, **인수**, **추가 구성**및 **상태 디렉터리** 를 구성 합니다.
+        고급 제출 옵션을 선택 하면 **스크립트 제출** 대화 상자가 나타납니다. 스크립트에 대 한 **작업 이름** , **인수** , **추가 구성** 및 **상태 디렉터리** 를 구성 합니다.
 
         ![스크립트 제출 대화 상자, Hive 임시 쿼리, HDInsight 클러스터, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png)
 
@@ -248,15 +248,15 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 Hive 솔루션을 만들고 실행하려면,
 
-1. 메뉴 모음에서 **파일**  >  **새로 만들기**  >  **프로젝트**를 선택 합니다.
+1. 메뉴 모음에서 **파일**  >  **새로 만들기**  >  **프로젝트** 를 선택 합니다.
 
-2. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고 **Hive**를 입력 합니다. 그런 다음 **Hive 응용 프로그램** 을 선택 하 고 **다음**을 선택 합니다.
+2. **새 프로젝트 만들기** 창에서 검색 상자를 선택 하 고 **Hive** 를 입력 합니다. 그런 다음 **Hive 응용 프로그램** 을 선택 하 고 **다음** 을 선택 합니다.
 
-3. **새 프로젝트 구성** 창에서 **프로젝트 이름을**입력 하 고 프로젝트 **위치**를 선택한 다음 **만들기**를 선택 합니다.
+3. **새 프로젝트 구성** 창에서 **프로젝트 이름을** 입력 하 고 프로젝트 **위치** 를 선택한 다음 **만들기** 를 선택 합니다.
 
     ![새 Hive 응용 프로그램, 새 프로젝트 창 구성, HDInsight Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png)
 
-4. **솔루션 탐색기**에서 **Script.hql**을 두 번 클릭하여 이 스크립트를 엽니다.
+4. **솔루션 탐색기** 에서 **Script.hql** 을 두 번 클릭하여 이 스크립트를 엽니다.
 
 ### <a name="view-job-summary-and-output"></a>작업 요약 및 출력 보기
 
@@ -264,9 +264,9 @@ Hive 솔루션을 만들고 실행하려면,
 
 ![Hive 작업 요약 창, batch 및 대화형 모드, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-job-summary.png)
 
-작업 상태가 **완료**로 변경 될 때까지 **새로 고침** 아이콘을 사용 하 여 상태를 업데이트 합니다.  
+작업 상태가 **완료** 로 변경 될 때까지 **새로 고침** 아이콘을 사용 하 여 상태를 업데이트 합니다.  
 
-* **일괄 처리** 모드의 작업 세부 정보를 보려면 아래쪽의 링크를 선택 하 여 **작업 쿼리**, **작업 출력**또는 **작업 로그**를 확인 하거나 **Yarn 로그를 확인**합니다.
+* **일괄 처리** 모드의 작업 세부 정보를 보려면 아래쪽의 링크를 선택 하 여 **작업 쿼리** , **작업 출력** 또는 **작업 로그** 를 확인 하거나 **Yarn 로그를 확인** 합니다.
 
 * **대화형** 모드의 작업 세부 정보는 **Output** and **HiveServer2 output** pane을 참조 하세요.
 
@@ -296,7 +296,7 @@ Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로�
 
 Hive 작업을 보려면,
 
-1. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **작업 보기**를 선택 합니다.
+1. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭 하 고 **작업 보기** 를 선택 합니다.
 
     ![작업 보기, Apache Hive, HDInsight 클러스터, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-view-hive-jobs.png)
 
@@ -310,11 +310,11 @@ Hive 작업을 보려면,
 
 ## <a name="run-apache-pig-scripts"></a>Apache Pig 스크립트 실행
 
-1. 메뉴 모음에서 **파일**  >  **새로 만들기**  >  **프로젝트**를 선택 합니다.
+1. 메뉴 모음에서 **파일**  >  **새로 만들기**  >  **프로젝트** 를 선택 합니다.
 
-2. **시작** 창에서 검색 상자를 선택 하 고 **Pig**을 입력 합니다. 그런 다음 **Pig 응용 프로그램** 을 선택 하 고 **다음**을 선택 합니다.
+2. **시작** 창에서 검색 상자를 선택 하 고 **Pig** 을 입력 합니다. 그런 다음 **Pig 응용 프로그램** 을 선택 하 고 **다음** 을 선택 합니다.
 
-3. **새 프로젝트 구성** 창에서 **프로젝트 이름을**입력 하 고 프로젝트의 **위치** 를 선택 하거나 만듭니다. 그런 다음 **만들기**를 선택합니다.
+3. **새 프로젝트 구성** 창에서 **프로젝트 이름을** 입력 하 고 프로젝트의 **위치** 를 선택 하거나 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
 4. IDE **솔루션 탐색기** 창에서 **pig** 를 두 번 클릭 하 여 스크립트를 엽니다.
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022217"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547523"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -24,7 +24,7 @@ ms.locfileid: "84022217"
 
 ### <a name="how-do-i-provision-an-hdinsight-cluster"></a>HDInsight 클러스터를 프로 비전 할 어떻게 할까요? 있나요?
 
-HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apache Hadoop, Apache Spark, Apache Kafka 등을 사용 하 여 hdinsight에서 클러스터 설정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)을 참조 하세요.
+HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apache Hadoop, Apache Spark, Apache Kafka 등을 사용 하 여 hdinsight에서 클러스터 설정](./hdinsight-hadoop-provision-linux-clusters.md)을 참조 하세요.
 
 ### <a name="how-do-i-delete-an-existing-hdinsight-cluster"></a>기존 HDInsight 클러스터를 삭제 어떻게 할까요??
 
@@ -38,7 +38,7 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 
 적절 한 수의 코어 및 기타 구성 옵션은 다양 한 요인에 따라 달라 집니다.
 
-자세한 내용은 [HDInsight 클러스터에 대 한 용량 계획](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning)을 참조 하세요.
+자세한 내용은 [HDInsight 클러스터에 대 한 용량 계획](./hdinsight-capacity-planning.md)을 참조 하세요.
 
 ### <a name="what-are-the-various-types-of-nodes-in-an-hdinsight-cluster"></a>HDInsight 클러스터에는 다양 한 유형의 노드가 있나요?
 
@@ -46,11 +46,11 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 
 ### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>대량 HDInsight 클러스터를 만들기 위한 모범 사례는 무엇 인가요?
 
-1. 클러스터 확장성을 개선 하기 위해 [사용자 지정 AMBARI DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) 를 사용 하 여 HDInsight 클러스터를 설정 하는 것이 좋습니다.
-2. [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) 를 사용 하 여 HDInsight 클러스터를 만들어 Azure Data Lake Storage Gen2의 더 높은 대역폭과 기타 성능 특성을 활용할 수 있습니다.
+1. 클러스터 확장성을 개선 하기 위해 [사용자 지정 AMBARI DB](./hdinsight-custom-ambari-db.md) 를 사용 하 여 HDInsight 클러스터를 설정 하는 것이 좋습니다.
+2. [Azure Data Lake Storage Gen2](./hdinsight-hadoop-use-data-lake-storage-gen2.md) 를 사용 하 여 HDInsight 클러스터를 만들어 Azure Data Lake Storage Gen2의 더 높은 대역폭과 기타 성능 특성을 활용할 수 있습니다.
 3. 헤드 노드는 이러한 노드에서 실행 되는 여러 마스터 서비스를 수용할 만큼 충분히 커야 합니다.
 4. 대화형 쿼리와 같은 일부 특정 워크 로드에도 더 큰 아웃 청구 노드가 필요 합니다. 최소 8 개의 코어 Vm을 고려 하세요.
-5. Hive 및 Spark의 경우 [외부 Hive metastore](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores)를 사용 합니다.
+5. Hive 및 Spark의 경우 [외부 Hive metastore](./hdinsight-use-external-metadata-stores.md)를 사용 합니다.
 
 ## <a name="individual-components"></a>개별 구성 요소
 
@@ -58,11 +58,11 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 
 예. 추가 구성 요소를 설치 하거나 클러스터 구성을 사용자 지정 하려면 다음을 사용 합니다.
 
-- 스크립트를 생성 합니다. 스크립트는 [스크립트 작업](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)을 통해 호출 됩니다. 스크립트 작업은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 이 구성 옵션은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있습니다.
+- 스크립트를 생성 합니다. 스크립트는 [스크립트 작업](./hdinsight-hadoop-customize-cluster-linux.md)을 통해 호출 됩니다. 스크립트 작업은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 이 구성 옵션은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있습니다.
 
 - 응용 프로그램을 설치 하는 [HDInsight 응용 프로그램 플랫폼](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 입니다.
 
-지원 되는 구성 요소 목록은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions) 을 참조 하세요.
+지원 되는 구성 요소 목록은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) 을 참조 하세요.
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>클러스터에 미리 설치 된 개별 구성 요소를 업그레이드할 수 있나요?
 
@@ -129,11 +129,11 @@ Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [네트워크 트래픽 제어](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
+- [HDInsight의 Apache Hadoop 서비스에서 사용하는 포트](./hdinsight-hadoop-port-settings-for-services.md)
 
 - [개인 끝점을 사용 하 여 가상 네트워크에서 HDInsight 클러스터에 들어오는 트래픽 보안](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
 
-- [HDInsight 관리 IP 주소](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+- [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)
 
 ### <a name="can-i-deploy-an-additional-virtual-machine-within-the-same-subnet-as-an-hdinsight-cluster"></a>HDInsight 클러스터와 동일한 서브넷 내에 추가 가상 컴퓨터를 배포할 수 있나요?
 
@@ -186,7 +186,7 @@ Vm을 도메인에 가입 시키려면 도메인 컨트롤러가 있어야 합�
 
 ### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>레인저에 표시 된 로그인 작업을 어떻게 끌어올 수 있나요?
 
-감사 요구 사항에 대 한 자세한 내용은 [Azure Monitor 로그를 사용 하 여 HDInsight 클러스터 모니터링](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)에 설명 된 대로 Azure Monitor 로그를 사용 하도록 권장 합니다.
+감사 요구 사항에 대 한 자세한 내용은 [Azure Monitor 로그를 사용 하 여 HDInsight 클러스터 모니터링](./hdinsight-hadoop-oms-log-analytics-tutorial.md)에 설명 된 대로 Azure Monitor 로그를 사용 하도록 권장 합니다.
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>내 클러스터에서 사용 하지 않도록 설정할 수 `Clamscan` 있나요?
 
@@ -213,7 +213,7 @@ LLAP은 보안상의 이유로 활성화 됩니다 (Apache 레인저). 대규모
 이러한 목표를 달성 하는 방법에는 다음 두 가지가 있습니다. 1-클러스터를 만들 때 클러스터를 다시 만들고 추가 그룹을 추가할 수 있습니다. AAD에서 범위 동기화를 사용 하는 경우 그룹 B가 범위 지정 동기화에 포함 되어 있는지 확인 합니다.
 2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹을 사용 하 여 ESP 클러스터를 만든 경우 `A` 나중에 그룹을 중첩 된 하위 그룹으로 추가 하 `B` `A` 고 약 1 시간 후에 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>기존 HDInsight 클러스터에 Azure Data Lake Storage Gen2 추가 저장소 계정으로 추가할 수 있나요?
 
@@ -229,7 +229,7 @@ Azure Portal의 클러스터 속성에서 **Data Lake Storage Gen1 액세스** �
 
 - [PowerShell 사용](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
-- /User/hive/.의 크기를 확인 합니다. * * 다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
+- /User/hive/.의 크기를 확인 합니다.  다음 명령줄을 사용 하 여 HDInsight 클러스터의 휴지통/폴더:
   
   `hdfs dfs -du -h /user/hive/.Trash/`
 
@@ -258,7 +258,7 @@ done
 Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [Hive 또는 다른 서비스를 사용 하 여 Data Lake Storage Gen2에서 데이터를 쿼리할 수 있도록 Azure AD 사용자에 대 한 권한을 설정 어떻게 할까요??](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
-- [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+- [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](../storage/blobs/data-lake-storage-explorer.md)
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>작업자 노드의 디스크 크기를 늘리지 않고 클러스터에서 HDFS 저장소를 늘릴 수 있나요?
 
@@ -333,11 +333,11 @@ http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/component
 
 ### <a name="how-do-i-cancel-my-subscription"></a>내 구독을 취소 어떻게 할까요? 시겠습니까?
 
-구독을 취소 하는 방법에 대 한 자세한 내용은 [Azure 구독 취소](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription)를 참조 하세요.
+구독을 취소 하는 방법에 대 한 자세한 내용은 [Azure 구독 취소](../cost-management-billing/manage/cancel-azure-subscription.md)를 참조 하세요.
 
 ### <a name="for-pay-as-you-go-subscriptions-what-happens-after-i-cancel-my-subscription"></a>종 량 제 구독의 경우 구독을 취소 하면 어떻게 되나요?
 
-구독이 취소 된 후 구독에 대 한 자세한 내용은 [구독을 취소 하면 어떻게 되나요?](/azure/billing/billing-how-to-cancel-azure-subscription) 를 참조 하세요.
+구독이 취소 된 후 구독에 대 한 자세한 내용은 [구독을 취소 하면 어떻게 되나요?](../cost-management-billing/manage/cancel-azure-subscription.md) 를 참조 하세요.
 
 ## <a name="hive"></a>Hive
 

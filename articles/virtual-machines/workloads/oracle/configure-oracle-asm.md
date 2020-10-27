@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 2d112db720d8ad5a1cba1ec2f35fbb59670e1e92
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b9653cded11edd36602caea0ecd50cfb8dd05ebe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996730"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547183"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 머신에 Oracle ASM 설정  
 
-Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 머신 배포에 대해 설명합니다.  다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+Azure Virtual Machines는 완전하게 구성할 수 있고 유연한 컴퓨팅 환경을 제공합니다. 이 자습서에서는 Oracle ASM(Automated Storage Management) 설치 및 구성과 결합된 기본 Azure 가상 머신 배포에 대해 설명합니다.  다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Oracle 데이터베이스 VM 만들기 및 연결
@@ -32,7 +32,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+리소스 그룹을 만들려면 [az group create](/cli/azure/group) 명령을 사용합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 예제에서는 *eastus* 지역에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -144,7 +144,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
 ## <a name="set-up-oracle-asm"></a>Oracle ASM 설정
 
-이 자습서에서는 기본 사용자가 *grid*이며, 기본 그룹은 *asmadmin*입니다. *oracle* 사용자가 asmadmin 그룹의 구성원인지 확인합니다. Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
+이 자습서에서는 기본 사용자가 *grid* 이며, 기본 그룹은 *asmadmin* 입니다. *oracle* 사용자가 asmadmin 그룹의 구성원인지 확인합니다. Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 
 1. Oracle ASM 라이브러리 드라이버를 설정하는 작업에는 드라이브를 부팅하기 시작(y 선택)하고 부팅 시 디스크를 검색(y 선택)하도록 구성할 뿐만 아니라 기본 사용자(그리드) 및 기본 그룹(asmadmin)을 정의하는 작업이 포함됩니다. 다음 명령에서 표시되는 메시지에 답해야 합니다.
 
@@ -317,7 +317,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
     FRA
    ```
 
-9. 루트, oracle 및 그리드 사용자에 대한 암호를 변경합니다. 나중에 설치하는 동안 사용하도록 **이러한 새 암호를 기록**합니다.
+9. 루트, oracle 및 그리드 사용자에 대한 암호를 변경합니다. 나중에 설치하는 동안 사용하도록 **이러한 새 암호를 기록** 합니다.
 
    ```bash
    passwd oracle 
@@ -385,7 +385,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
    vi /etc/waagent.conf
    ```
 
-   `ResourceDisk.SwapSizeMB`를 검색하고 값을 **8192**로 변경합니다. `insert`를 눌러 삽입 모드를 입력하고 **8192** 값을 입력한 다음 `esc` 키를 눌러 명령 모드로 돌아가야 합니다. 변경 내용을 쓰고 파일을 종료하려면 `:wq`를 입력하고 `enter` 키를 누릅니다.
+   `ResourceDisk.SwapSizeMB`를 검색하고 값을 **8192** 로 변경합니다. `insert`를 눌러 삽입 모드를 입력하고 **8192** 값을 입력한 다음 `esc` 키를 눌러 명령 모드로 돌아가야 합니다. 변경 내용을 쓰고 파일을 종료하려면 `:wq`를 입력하고 `enter` 키를 누릅니다.
    
    > [!NOTE]
    > 성능을 최대화하기 위해 스왑 공간이 항상 로컬 사용 후 삭제 디스크(임시 디스크)에 만들어지도록 `WALinuxAgent`를 사용하여 스왑 공간을 구성하는 것이 좋습니다. 자세한 내용은 [Linux Azure Virtual Machines에 스왑 파일을 추가하는 방법](https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines)을 참조합니다.
@@ -420,15 +420,15 @@ Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페
    > 키에는 문자열 `ssh-rsa`가 포함되어야 합니다. 또한 키의 콘텐츠는 한 줄 텍스트여야 합니다.
    >  
 
-6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증**으로 이동 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
+6. 클라이언트 컴퓨터에서 PuTTY를 시작합니다. **범주** 창에서 **연결**  >  **SSH**  >  **인증** 으로 이동 합니다. **인증을 위한 개인 키 파일** 상자에서 이전에 생성 한 키를 찾습니다.
 
    ![SSH 인증 옵션의 스크린샷](./media/oracle-asm/setprivatekey.png)
 
-7. **카테고리** 창에서 **연결** > **SSH** > **X11**로 이동합니다. **X11 전달을 사용하도록 설정** 확인란을 선택합니다.
+7. **카테고리** 창에서 **연결** > **SSH** > **X11** 로 이동합니다. **X11 전달을 사용하도록 설정** 확인란을 선택합니다.
 
    ![SSH X11 전달 옵션의 스크린샷](./media/oracle-asm/enablex11.png)
 
-8. **카테고리** 창에서 **세션**으로 이동합니다. 호스트 이름 대화 상자에서 Oracle ASM VM `<publicIPaddress>`를 입력하고 새 `Saved Session` 이름을 채운 다음 `Save`을 클릭합니다.  저장하면 `open`를 클릭하여 Oracle ASM 가상 컴퓨터에 연결합니다.  처음 연결하면 원격 시스템이 레지스트리에서 캐시되지 않는다는 경고가 표시됩니다. `yes`를 클릭하고 계속 추가합니다.
+8. **카테고리** 창에서 **세션** 으로 이동합니다. 호스트 이름 대화 상자에서 Oracle ASM VM `<publicIPaddress>`를 입력하고 새 `Saved Session` 이름을 채운 다음 `Save`을 클릭합니다.  저장하면 `open`를 클릭하여 Oracle ASM 가상 컴퓨터에 연결합니다.  처음 연결하면 원격 시스템이 레지스트리에서 캐시되지 않는다는 경고가 표시됩니다. `yes`를 클릭하고 계속 추가합니다.
 
    ![PuTTY 세션 옵션의 스크린샷](./media/oracle-asm/puttysession.png)
 
@@ -436,7 +436,7 @@ Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페
 
 Grid Infrastructure를 설치하려면 다음 단계를 완료합니다.
 
-1. **그리드**로 로그인합니다. (로그인할 때 암호 입력 화면이 나타나지 않아야 합니다.) 
+1. **그리드** 로 로그인합니다. (로그인할 때 암호 입력 화면이 나타나지 않아야 합니다.) 
 
    > [!NOTE]
    > Windows를 실행하는 경우 설치를 시작하기 전에 Xming을 시작해야 합니다.
@@ -448,7 +448,7 @@ Grid Infrastructure를 설치하려면 다음 단계를 완료합니다.
 
    Oracle Grid Infrastructure 12c 릴리스 1 설치 관리자가 열립니다. (설치 관리자를 시작하는 데 몇 분 정도 걸릴 수 있습니다.)
 
-2. **설치 옵션 선택** 페이지에서 **독립 실행형 서버에 대한 Oracle Grid Infrastructure 설치 및 구성**을 선택합니다.
+2. **설치 옵션 선택** 페이지에서 **독립 실행형 서버에 대한 Oracle Grid Infrastructure 설치 및 구성** 을 선택합니다.
 
    ![설치 관리자 설치 옵션 선택 페이지의 스크린샷](./media/oracle-asm/install01.png)
 
@@ -456,9 +456,9 @@ Grid Infrastructure를 설치하려면 다음 단계를 완료합니다.
 
 4. **ASM 디스크 그룹 만들기** 페이지에서,
    - 디스크 그룹에 사용할 이름을 입력합니다.
-   - **중복**에서 **외부**를 선택합니다.
-   - **할당 단위 크기**에서 **4**를 선택합니다.
-   - **디스크 추가**에서 **ORCLASMSP**를 선택합니다.
+   - **중복** 에서 **외부** 를 선택합니다.
+   - **할당 단위 크기** 에서 **4** 를 선택합니다.
+   - **디스크 추가** 에서 **ORCLASMSP** 를 선택합니다.
    - `next`을 클릭합니다.
 
 5. **ASM 암호 지정** 페이지에서 **이러한 계정에 대해 동일한 암호 사용** 옵션을 선택하고 암호를 입력합니다.
@@ -495,7 +495,7 @@ Grid Infrastructure를 설치하려면 다음 단계를 완료합니다.
 
 Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 
-1. X11 세션에서 **그리드**로 로그인되었는지 확인합니다. `enter` 키를 눌러서 터미널을 복구할 수도 있습니다. Oracle Automated Storage Management Configuration Assistant를 시작합니다.
+1. X11 세션에서 **그리드** 로 로그인되었는지 확인합니다. `enter` 키를 눌러서 터미널을 복구할 수도 있습니다. Oracle Automated Storage Management Configuration Assistant를 시작합니다.
 
    ```bash
    cd /u01/app/grid/product/12.1.0/grid/bin
@@ -508,9 +508,9 @@ Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 
 3. **디스크 그룹 만들기** 대화 상자에서 다음을 수행합니다.
 
-   - 디스크 그룹 이름 **DATA**를 입력합니다.
-   - **멤버 디스크 선택**에서 **ORCL_DATA** 및 **ORCL_DATA1**을 선택합니다.
-   - **할당 단위 크기**에서 **4**를 선택합니다.
+   - 디스크 그룹 이름 **DATA** 를 입력합니다.
+   - **멤버 디스크 선택** 에서 **ORCL_DATA** 및 **ORCL_DATA1** 을 선택합니다.
+   - **할당 단위 크기** 에서 **4** 를 선택합니다.
    - `ok`을 클릭하여 디스크 그룹을 만듭니다.
    - `ok`을 클릭하여 확인 창을 닫습니다.
 
@@ -520,16 +520,16 @@ Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 
 5. **디스크 그룹 만들기** 대화 상자에서 다음을 수행합니다.
 
-   - 디스크 그룹 이름 **FRA**를 입력합니다.
-   - **중복**에서 **외부(없음)** 를 선택합니다.
-   - **멤버 디스크 선택**에서 **ORCL_FRA**를 선택합니다.
-   - **할당 단위 크기**에서 **4**를 선택합니다.
+   - 디스크 그룹 이름 **FRA** 를 입력합니다.
+   - **중복** 에서 **외부(없음)** 를 선택합니다.
+   - **멤버 디스크 선택** 에서 **ORCL_FRA** 를 선택합니다.
+   - **할당 단위 크기** 에서 **4** 를 선택합니다.
    - `ok`을 클릭하여 디스크 그룹을 만듭니다.
    - `ok`을 클릭하여 확인 창을 닫습니다.
 
-   ![디스크 그룹 만들기 대화 상자의 스크린샷](./media/oracle-asm/asm04.png)
+   ![디스크 그룹 만들기 대화 상자의 스크린샷 및 외부 (없음) 옵션을 강조 표시 합니다.](./media/oracle-asm/asm04.png)
 
-6. **끝내기**를 선택하여 ASM 구성 도우미를 닫습니다.
+6. **끝내기** 를 선택하여 ASM 구성 도우미를 닫습니다.
 
    ![끝내기 단추가 있는 ASM 구성: 디스크 그룹 대화 상자의 스크린샷](./media/oracle-asm/asm05.png)
 
@@ -547,15 +547,15 @@ Oracle 데이터베이스 소프트웨어는 이미 Azure Marketplace 이미지�
 
    데이터베이스 구성 도우미가 열립니다.
 
-2. **데이터베이스 작업 페이지**에서 `Create Database`를 클릭합니다.
+2. **데이터베이스 작업 페이지** 에서 `Create Database`를 클릭합니다.
 
 3. **생성 모드** 페이지에서,
 
    - 데이터베이스에 사용할 이름을 입력합니다.
-   - **스토리지 형식**의 경우 **ASM(자동 스토리지 관리)** 을 선택하도록 합니다.
-   - **데이터베이스 파일 위치**의 경우 위치를 제안하는 ASM 기본값을 사용합니다.
-   - **빠른 복구 영역**의 경우 위치를 제안하는 ASM 기본값을 사용합니다.
-   - **관리 암호** 및 **암호 확인**을 입력합니다.
+   - **스토리지 형식** 의 경우 **ASM(자동 스토리지 관리)** 을 선택하도록 합니다.
+   - **데이터베이스 파일 위치** 의 경우 위치를 제안하는 ASM 기본값을 사용합니다.
+   - **빠른 복구 영역** 의 경우 위치를 제안하는 ASM 기본값을 사용합니다.
+   - **관리 암호** 및 **암호 확인** 을 입력합니다.
    - `create as container database`를 선택했는지 확인합니다.
    - `pluggable database name` 값을 입력합니다.
 
@@ -563,7 +563,7 @@ Oracle 데이터베이스 소프트웨어는 이미 Azure Marketplace 이미지�
 
    ![요약 페이지의 스크린샷](./media/oracle-asm/createdb03.png)
 
-5. 데이터베이스가 생성되었습니다. **마침** 페이지에서는 추가 계정의 잠금을 해제하여 이 데이터베이스를 사용하고 암호를 변경하는 옵션이 있습니다. 작업을 수행하려는 경우 **암호 관리**를 선택하고 그렇지 않으면 `close`를 클릭합니다.
+5. 데이터베이스가 생성되었습니다. **마침** 페이지에서는 추가 계정의 잠금을 해제하여 이 데이터베이스를 사용하고 암호를 변경하는 옵션이 있습니다. 작업을 수행하려는 경우 **암호 관리** 를 선택하고 그렇지 않으면 `close`를 클릭합니다.
 
 ## <a name="delete-the-vm"></a>VM 삭제
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462244"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540383"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -25,13 +25,13 @@ Python2.7은 기본적으로 HDInsight 3.0 이상에 설치됩니다. 스트림 
 
 HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Jython은 Java Virtual Machine에서 직접 실행 되며 스트리밍을 사용 하지 않습니다. Jython는 Pig와 함께 Python을 사용할 때 권장되는 Python 인터프리터입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 * 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. `wasb://` `abfs://` Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는 wasbs://이 됩니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 * **저장소 구성이 변경 될 수 있습니다.**  저장소 계정 종류를 사용 하는 경우 [저장소 구성](#storage-configuration) 을 참조 하세요 `BlobStorage` .
-* (선택 사항)  PowerShell 사용을 계획 하는 경우 [AZ 모듈이](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 설치 되어 있어야 합니다.
+* 선택 사항입니다.  PowerShell 사용을 계획 하는 경우 [AZ 모듈이](/powershell/azure/new-azureps-module-az) 설치 되어 있어야 합니다.
 
 > [!NOTE]  
 > 이 문서에 사용 된 저장소 계정은 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 설정에 Azure Storage 되어 있으므로이 `wasbs` 문서 전체에서 사용 됩니다.
@@ -46,7 +46,7 @@ HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습
 > * 로컬 개발 환경에서 Python 스크립트를 만듭니다.
 > * 명령을 사용 하거나 제공 된 PowerShell 스크립트를 사용 하 여 HDInsight에 스크립트를 업로드 `scp` 합니다.
 >
-> [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) 를 사용 하 여 HDInsight에서 작업 하려는 경우 다음을 수행 해야 합니다.
+> [Azure Cloud Shell (bash)](../../cloud-shell/overview.md) 를 사용 하 여 HDInsight에서 작업 하려는 경우 다음을 수행 해야 합니다.
 >
 > * Cloud Shell 환경 내에서 스크립트를 만듭니다.
 > * `scp`를 사용하여 Cloud Shell에서 HDInsight로 파일을 업로드합니다.
@@ -100,7 +100,7 @@ while True:
 1. STDIN에서 데이터 줄을 읽습니다.
 2. `string.strip(line, "\n ")`를 사용하여 후행 줄 바꿈 문자를 제거합니다.
 3. 스트림 처리를 할 때 모든 값과 각 값 사이의 탭 문자가 한 줄에 포함됩니다. 따라서 `string.split(line, "\t")` 를 사용하여 각 탭의 입력을 분할하여 필드만 반환할 수 있습니다.
-4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예들 들어 `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`입니다.
+4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 정의합니다(예: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`).
 5. `while` 루프는 `line`이 읽히지 않을 때까지 반복됩니다.
 
 스크립트 출력은 `devicemake` 및 `devicemodel`의 입력 값과 연결된 값의 해시를 연결합니다.
@@ -300,8 +300,8 @@ Get-AzHDInsightJobOutput `
 
 Python 인터프리터를 지정하려면 Python 스크립트를 참조할 때 `register`를 사용합니다. 다음 예제에서는 Pig as `myfuncs`를 사용하여 스크립트를 등록합니다.
 
-* **Jython을 사용 하려면**: `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **C Python을 사용 하려면**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Jython을 사용 하려면** : `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **C Python을 사용 하려면** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Jython을 사용 하는 경우 pig_jython 파일의 경로는 로컬 경로 또는 WASBS://경로일 수 있습니다. 그러나 C Python을 사용할 경우에는 Pig 작업을 제출하는 데 사용하는 노드의 로컬 파일 시스템에 있는 파일을 참조해야 합니다.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 Pig 라틴어 예에서는 `LINE` 입력에 대해 일관 된 스키마가 없으므로 입력이 chararray로 정의 됩니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환합니다.
 
-1. `@outputSchema` 문은 Pig에 반환되는 데이터의 형식을 정의합니다. 이 경우 Pig 데이터 형식은 **데이터 모음**입니다. 모음에는 모두 chararray(문자열)인 다음과 같은 필드가 포함됩니다.
+1. `@outputSchema` 문은 Pig에 반환되는 데이터의 형식을 정의합니다. 이 경우 Pig 데이터 형식은 **데이터 모음** 입니다. 모음에는 모두 chararray(문자열)인 다음과 같은 필드가 포함됩니다.
 
    * date - 로그 항목이 생성된 날짜
    * time - 로그 항목이 생성된 시간
@@ -423,7 +423,7 @@ Pig 라틴어 예에서는 `LINE` 입력에 대해 일관 된 스키마가 없�
     #from pig_util import outputSchema
     ```
 
-    이 줄은 Jython 대신 C Python과 함께 작동하도록 Python 스크립트를 수정합니다. 변경이 완료 되 면 **Ctrl + X** 를 사용 하 여 편집기를 종료 합니다. **Y**를 선택한 다음 **Enter 키** 를 클릭 하 여 변경 내용을 저장 합니다.
+    이 줄은 Jython 대신 C Python과 함께 작동하도록 Python 스크립트를 수정합니다. 변경이 완료 되 면 **Ctrl + X** 를 사용 하 여 편집기를 종료 합니다. **Y** 를 선택한 다음 **Enter 키** 를 클릭 하 여 변경 내용을 저장 합니다.
 
 6. `pig` 명령을 사용하여 셸을 다시 시작합니다. `grunt>` 프롬프트에서 다음 문을 사용하여 Jython 인터프리터를 사용하는 Python 스크립트를 실행합니다.
 
@@ -594,7 +594,7 @@ Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An e
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 
-기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 [Azure HDInsight에 모듈을 배포하는 방법](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight)(영문)을 참조하세요.
+기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 [Azure HDInsight에 모듈을 배포하는 방법](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight)(영문)을 참조하세요.
 
 Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 

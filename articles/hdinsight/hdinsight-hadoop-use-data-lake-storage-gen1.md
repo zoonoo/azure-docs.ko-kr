@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e05e89cae8688162c6ac6ded5ad56c85394dc8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858772"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539839"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용
 
@@ -62,7 +62,7 @@ HDInsight가 Data Lake Storage Gen1을 기본 스토리지로 하여 배포되�
 * 클러스터1에 `adl://mydatalakestore/cluster1storage` 경로를 사용할 수 있습니다.
 * 클러스터2에 `adl://mydatalakestore/cluster2storage` 경로를 사용할 수 있습니다.
 
-두 클러스터 모두 동일한 Data Lake Storage Gen1 계정인 **mydatalakestore**를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Storage의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. Azure Portal 배포 환경에서는 루트 경로에 대 한 **/clusters/ \<clustername> ** 와 같은 폴더 이름을 사용 하 라는 메시지가 표시 됩니다.
+두 클러스터 모두 동일한 Data Lake Storage Gen1 계정인 **mydatalakestore** 를 사용하는 것에 유의하세요. 각 클러스터는 Data Lake Storage의 자체 루트 파일 시스템에 액세스 권한을 갖습니다. Azure Portal 배포 환경에서는 루트 경로에 대 한 **/clusters/ \<clustername>** 와 같은 폴더 이름을 사용 하 라는 메시지가 표시 됩니다.
 
 Data Lake Storage Gen1를 기본 저장소로 사용 하려면 서비스 사용자에 게 다음 경로에 대 한 액세스 권한을 부여 해야 합니다.
 
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>추가 스토리지로 Data Lake Storage Gen1 사용
 
-Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이러한 경우 클러스터 기본 저장소는 Azure Blob storage 또는 Azure Data Lake Storage Gen1 계정일 수 있습니다. Azure Data Lake Storage Gen1에 저장 된 데이터에 대해 HDInsight 작업을 추가 저장소로 실행 하는 경우 정규화 된 경로를 사용 합니다. 예를 들면 다음과 같습니다.
+Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이러한 경우 클러스터 기본 저장소는 Azure Blob storage 또는 Azure Data Lake Storage Gen1 계정일 수 있습니다. Azure Data Lake Storage Gen1에 저장 된 데이터에 대해 HDInsight 작업을 추가 저장소로 실행 하는 경우 정규화 된 경로를 사용 합니다. 예:
 
 `adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 지금은 URL에 **cluster_root_path** 없습니다. 이 경우 Data Lake Storage 기본 저장소가 아니기 때문입니다. 파일 경로를 제공 하기만 하면 됩니다.
 
-Data Lake Storage Gen1를 추가 저장소로 사용 하려면 파일이 저장 된 경로에 대 한 서비스 사용자 액세스 권한을 부여 합니다.  예를 들면 다음과 같습니다.
+Data Lake Storage Gen1를 추가 저장소로 사용 하려면 파일이 저장 된 경로에 대 한 서비스 사용자 액세스 권한을 부여 합니다.  예:
 
 `adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
@@ -126,7 +126,7 @@ Data Lake Storage 계정을 추가 하 고 둘 이상의 Data Lake Storage 계�
 
 ## <a name="configure-data-lake-storage-gen1-access"></a>Data Lake Storage Gen1 액세스 구성
 
-HDInsight 클러스터에서 Azure Data Lake Storage Gen1 액세스를 구성 하려면 Azure AD (Azure Active directory) 서비스 주체가 있어야 합니다. Azure AD 관리자만 서비스 주체를 만들 수 있습니다. 서비스 주체는 인증서로 만들어야 합니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) 및 [자체 서명된 인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+HDInsight 클러스터에서 Azure Data Lake Storage Gen1 액세스를 구성 하려면 Azure AD (Azure Active directory) 서비스 주체가 있어야 합니다. Azure AD 관리자만 서비스 주체를 만들 수 있습니다. 서비스 주체는 인증서로 만들어야 합니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](./hdinsight-hadoop-provision-linux-clusters.md) 및 [자체 서명된 인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
 > [!NOTE]  
 > Azure Data Lake Storage Gen1을 HDInsight 클러스터의 추가 스토리지로 사용하려는 경우 이 문서에서 설명한 대로 클러스터를 만드는 동안 이 작업을 수행하는 것이 좋습니다. 기존 HDInsight 클러스터에 Azure Data Lake Storage Gen1을 추가 스토리지로 추가하는 시나리오는 지원되지 않습니다.
@@ -137,19 +137,19 @@ HDInsight 클러스터에서 Azure Data Lake Storage Gen1 액세스를 구성 �
 
 HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다.
 
-* **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
+* **정규화된 이름 사용** . 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
+* **줄인 경로 형식 사용** . 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     adl:///<file path>
     ```
 
-* **상대 경로 사용**. 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
+* **상대 경로 사용** . 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
 
     ```
     /<file.path>/
@@ -220,7 +220,7 @@ LOCATION '/example/data/';
 
 Data Lake Storage Gen1에 대한 액세스로 HDInsight 클러스터를 만드는 방법에 대한 자세한 지침은 다음 링크를 사용하세요.
 
-* [포털 사용](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [포털 사용](./hdinsight-hadoop-provision-linux-clusters.md)
 * [PowerShell 사용(Data Lake Storage Gen1을 기본 스토리지로)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [PowerShell 사용(Data Lake Storage Gen1을 추가 스토리지로)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Azure 템플릿 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -305,7 +305,7 @@ Invoke-AzResourceAction `
 
 자세한 내용은 다음을 참조하세요.
 
-* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [빠른 시작: HDInsight에서 클러스터 설정](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Azure PowerShell을 사용하여 Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [HDInsight에 데이터 업로드](hdinsight-upload-data.md)
 * [Azure Blob storage 공유 액세스 서명을 사용 하 여 HDInsight에서 데이터에 대 한 액세스 제한](hdinsight-storage-sharedaccesssignature-permissions.md)

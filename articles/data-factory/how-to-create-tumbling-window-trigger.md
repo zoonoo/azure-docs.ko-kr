@@ -3,20 +3,20 @@ title: Azure Data Factory에서 연속 창 트리거 만들기
 description: 연속 창에 따라 파이프라인을 실행하는 Azure Data Factory에서 트리거를 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/25/2020
+ms.openlocfilehash: 3d02210559e3da0d42f7de96157cbbe886b16082
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856488"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558607"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,9 +27,9 @@ ms.locfileid: "91856488"
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 
-1. Data Factory UI에서 연속 창 트리거를 만들려면 **트리거** 탭을 선택한 다음 **새로 만들기**를 선택 합니다. 
-1. 트리거 구성 창이 열리면 **연속 창**을 선택한 다음 연속 창 트리거 속성을 정의 합니다. 
-1. 완료되면 **저장**을 선택합니다.
+1. Data Factory UI에서 연속 창 트리거를 만들려면 **트리거** 탭을 선택한 다음 **새로 만들기** 를 선택 합니다. 
+1. 트리거 구성 창이 열리면 **연속 창** 을 선택한 다음 연속 창 트리거 속성을 정의 합니다. 
+1. 완료되면 **저장** 을 선택합니다.
 
 ![Azure Portal에서 연속 창 트리거 만들기](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
@@ -96,17 +96,17 @@ ms.locfileid: "91856488"
 
 | JSON 요소 | 설명 | Type | 허용되는 값 | 필수 |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | 트리거의 유형입니다. 형식은 고정 값 "TumblingWindowTrigger"입니다. | String | "TumblingWindowTrigger" | 예 |
-| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**:이 요소는 \<readOnly> 입니다. | String | "시작된," "중지된," "사용 안 함" | 예 |
-| **주기와** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | String | "minute," "hour"  | 예 |
-| **간격은** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval**이 3이고 **frequency**가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. <br/>**참고**: 최소 창 간격은 5 분입니다. | 정수 | 양의 정수 | 예 |
-| **startTime**| 첫 번째 발생이며 과거일 수 있습니다. 첫 번째 트리거 간격은 (**startTime**, **startTime** + **interval**)입니다. | DateTime | DateTime 값입니다. | 예 |
+| **type** | 트리거의 유형입니다. 형식은 고정 값 "TumblingWindowTrigger"입니다. | 문자열 | "TumblingWindowTrigger" | 예 |
+| **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고** :이 요소는 \<readOnly> 입니다. | 문자열 | "시작된," "중지된," "사용 안 함" | 예 |
+| **주기와** | 트리거를 되풀이하는 빈도 단위(시간 또는 분)를 나타내는 문자열입니다. **startTime** 날짜 값이 **frequency** 값보다 더 세부적인 경우 **startTime** 날짜는 시간 경계를 계산할 때 고려됩니다. 예를 들어, **frequency** 값이 시간이고 **startTime** 값이 2017-09-01T10:10:10Z이면 첫 번째 기간은 (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z)입니다. | 문자열 | "minute," "hour"  | 예 |
+| **간격은** | 트리거가 실행되는 빈도를 결정하는 **frequency** 값에 대한 간격을 나타내는 양의 정수입니다. 예를 들어 **interval** 이 3이고 **frequency** 가 "시간"인 경우 트리거가 세 시간마다 되풀이됩니다. <br/>**참고** : 최소 창 간격은 5 분입니다. | 정수 | 양의 정수 | 예 |
+| **startTime**| 첫 번째 발생이며 과거일 수 있습니다. 첫 번째 트리거 간격은 ( **startTime** , **startTime** + **interval** )입니다. | DateTime | DateTime 값입니다. | 예 |
 | **endTime**| 마지막 발생이며 과거일 수 있습니다. | DateTime | DateTime 값입니다. | 예 |
-| **연기할** | 시간에서 데이터 처리의 시작 지점을 지연하는 시간입니다. 예상 실행 시간 및 **delay** 시간 후에 파이프라인이 실행되기 시작됩니다. **delay**는 새 실행을 트리거하기 전에 트리거가 기한 이후 대기하는 기간을 정의합니다. **delay**는 **startTime** 시간을 변경하지 않습니다. 예를 들어 00:10:00이라는 **delay** 값은 10분을 지연한다는 의미입니다. | Timespan<br/>(hh:mm:ss)  | 기본값이 00:00:00인 시간 범위 값입니다. | 아니요 |
+| **연기할** | 시간에서 데이터 처리의 시작 지점을 지연하는 시간입니다. 예상 실행 시간 및 **delay** 시간 후에 파이프라인이 실행되기 시작됩니다. **delay** 는 새 실행을 트리거하기 전에 트리거가 기한 이후 대기하는 기간을 정의합니다. **delay** 는 **startTime** 시간을 변경하지 않습니다. 예를 들어 00:10:00이라는 **delay** 값은 10분을 지연한다는 의미입니다. | Timespan<br/>(hh:mm:ss)  | 기본값이 00:00:00인 시간 범위 값입니다. | 아니요 |
 | **maxConcurrency** | 준비된 시간에 발생하는 동시 트리거 실행 수입니다. 예를 들어 채우기를 백업 하려면 24 windows에서 어제 결과 대 한 매시간 실행 됩니다. **maxConcurrency** = 10이면 처음 10개 시간(00:00-01:00 - 09:00-10:00)에만 트리거 이벤트가 발생합니다. 처음 10개의 트리거된 파이프라인 실행이 완료되면 다음 10개 시간(10:00-11:00 - 19:00-20:00)에 트리거 실행이 발생합니다. **maxConcurrency** = 10이라는 이 예제에서 10개 시간이 준비되면 총 10개의 파이프라인이 실행됩니다. 1개의 시간이 있는 경우 1개의 파이프라인만이 실행됩니다. | 정수 | 1~50 사이의 정수입니다. | 예 |
 | **retryPolicy: Count** | 파이프라인 실행이 "실패함"으로 표시되기 전에 다시 시도한 횟수입니다.  | 정수 | 기본값이 0(다시 시도 안 함)인 정수입니다. | 아니요 |
 | **retryPolicy: intervalInSeconds** | 시간(초)로 지정된 다시 시도 사이의 지연입니다. | 정수 | 기본값이 30인 시간(초)입니다. | 아니요 |
-| **dependsOn: 형식** | TumblingWindowTriggerReference의 형식입니다. 종속성이 설정 된 경우 필수 사항입니다. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 아니요 |
+| **dependsOn: 형식** | TumblingWindowTriggerReference의 형식입니다. 종속성이 설정 된 경우 필수 사항입니다. | 문자열 |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | 아니요 |
 | **dependsOn: 크기** | 종속성 연속 창의 크기입니다. | Timespan<br/>(hh:mm:ss)  | 기본값은 자식 트리거의 창 크기인 양의 timespan 값입니다.  | 아니요 |
 | **dependsOn: offset** | 종속성 트리거의 오프셋입니다. | Timespan<br/>(hh:mm:ss) |  자체 종속성에서 음수가 되어야 하는 timespan 값입니다. 값을 지정 하지 않으면 창은 트리거 자체와 동일 합니다. | 자체 종속성: 예<br/>기타: 아니요  |
 
@@ -154,7 +154,7 @@ StartTime 트리거가 과거 인 경우이 수식, M = (CurrentTime)/TumblingWi
 기존 **Triggerresource** 요소의 업데이트에는 다음 사항이 적용 됩니다.
 
 * 트리거를 만든 후에는 해당 트리거의 **frequency** **요소 (** 또는 창 크기) 값을 변경할 수 없습니다. TriggerRun 다시 수행 및 종속성 평가의 적절 한 작동을 위해 필요 합니다.
-* 트리거의 **endTime** 요소에 대한 값이 변경(추가 또는 업데이트)되는 경우 이미 처리된 시간 상태가 다시 설정되지 *않습니다*. 트리거는 새 **endTime** 값을 사용합니다. 시간 전에 새 **endTime** 값이 이미 실행되는 경우 트리거가 중지됩니다. 그렇지 않으면 새 **endTime** 값이 발견될 때 트리거가 중지됩니다.
+* 트리거의 **endTime** 요소에 대한 값이 변경(추가 또는 업데이트)되는 경우 이미 처리된 시간 상태가 다시 설정되지 *않습니다* . 트리거는 새 **endTime** 값을 사용합니다. 시간 전에 새 **endTime** 값이 이미 실행되는 경우 트리거가 중지됩니다. 그렇지 않으면 새 **endTime** 값이 발견될 때 트리거가 중지됩니다.
 
 ### <a name="user-assigned-retries-of-pipelines"></a>사용자가 파이프라인의 재시도를 할당
 
@@ -162,7 +162,20 @@ StartTime 트리거가 과거 인 경우이 수식, M = (CurrentTime)/TumblingWi
 
 ### <a name="tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성
 
-데이터 팩터리에서 다른 연속 창 트리거를 성공적으로 실행 한 후에만 연속 창 트리거가 실행 되도록 하려면 [연속 window 트리거 종속성을 만듭니다](tumbling-window-trigger-dependency.md). 
+데이터 팩터리에서 다른 연속 창 트리거를 성공적으로 실행 한 후에만 연속 창 트리거가 실행 되도록 하려면 [연속 window 트리거 종속성을 만듭니다](tumbling-window-trigger-dependency.md).
+
+### <a name="cancel-tumbling-window-run"></a>연속 창 실행 취소
+
+특정 창이 _대기_ 중이거나 _종속성 대기_ 중이거나 _실행_ 상태에 있는 경우 연속 창 트리거에 대 한 실행을 취소할 수 있습니다.
+
+* 창이 **실행 중** 상태 이면 연결 된 _파이프라인 실행_ 을 취소 하 고 트리거 실행은 나중에 _취소_ 됨으로 표시 됩니다.
+* 창이 **대기** 중이거나 종속성 상태를 **기다리고** 있는 경우 모니터링에서 창을 취소할 수 있습니다.
+
+![모니터링 페이지에서 연속 창 트리거 취소](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+취소 된 창을 다시 실행할 수도 있습니다. 다시 실행 하면 트리거의 _최신_ 게시 된 정의가 사용 되며, 다시 실행 시 지정 된 창에 대 한 종속성이 _다시 계산_ 됩니다.
+
+![이전에 취소 된 실행에 대 한 연속 창 트리거를 다시 실행 합니다.](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## <a name="sample-for-azure-powershell"></a>Azure PowerShell의 샘플
 

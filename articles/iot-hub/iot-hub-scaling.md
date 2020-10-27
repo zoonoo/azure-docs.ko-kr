@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: Operations'
-ms.openlocfilehash: c82f6eb37d542f80b6cb79ffb1fae6fe0cf0c233
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bd016fcfe377dc610d5918ad8128fff4f6473fe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144277"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538462"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -47,7 +47,7 @@ IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 �
 | [메시지 라우팅](iot-hub-devguide-messages-read-custom.md), [메시지 보강](iot-hub-message-enrichments-overview.md) 및 [Event Grid 통합](iot-hub-event-grid.md) | 예 | 예 |
 | [HTTP, AMQP 및 MQTT 프로토콜](iot-hub-devguide-protocols.md) | 예 | 예 |
 | [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md) | 예 | 예 |
-| [모니터링 및 진단](iot-hub-monitor-resource-health.md) | 예 | 예 |
+| [모니터링 및 진단](monitor-iot-hub.md) | 예 | 예 |
 | [클라우드-디바이스 메시징](iot-hub-devguide-c2d-guidance.md) |   | 예 |
 | [디바이스 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md) 및 [디바이스 관리](iot-hub-device-management-overview.md) |   | 예 |
 | [디바이스 스트림(미리 보기)](iot-hub-device-streams-overview.md) |   | 예 |

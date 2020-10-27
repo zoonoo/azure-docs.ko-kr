@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c05badb3b2292a29b8227c7f03b841474c97ad
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84792095"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548199"
 ---
-REST API [Endpoint Health 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 Health 상태 를 가져올 수 있습니다. 끝점이 이러한 상태 중 하나에 있을 때 대기 시간이 더 길어질 수 있으므로, 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](../articles/iot-hub/iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다.
-
+REST API [Endpoint Health 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 Health 상태 를 가져올 수 있습니다. 끝점이 이러한 상태 중 하나에 있을 때 대기 시간을 더 많이 사용 하는 것으로 간주 되므로, 라우팅 메시지 대기 시간과 관련 된 [IoT Hub 라우팅 메트릭을](../articles/iot-hub/monitor-iot-hub-reference.md#routing-metrics) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다. IoT Hub 메트릭을 사용 하는 방법에 대 한 자세한 내용은 [Monitor IoT Hub](../articles/iot-hub/monitor-iot-hub.md)를 참조 하세요.
 
 |상태|설명|
 |---|---|
