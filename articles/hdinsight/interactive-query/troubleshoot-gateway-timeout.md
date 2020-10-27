@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
-ms.openlocfilehash: 809b2e383eb57b730fd76ec2194764178aa810c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeedda5c26a2e9dc0fa2b228285cfda45d880d29
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895044"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547387"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari Hive 뷰에서 쿼리를 실행할 때 예외
 
@@ -54,13 +54,13 @@ Http 처리기 스레드는 신속 하 게 작업을 준비 하 고를 반환 �
 
 * 외부 hive metastore를 사용 하는 경우 DB 메트릭을 확인 하 고 데이터베이스가 오버 로드 되지 않았는지 확인 합니다. Metastore 데이터베이스 계층의 크기를 조정 하는 것이 좋습니다.
 
-* 병렬 ops가 설정 되어 있는지 확인 합니다. 이렇게 하면 HTTP 처리기 스레드를 병렬로 실행할 수 있습니다. 값을 확인 하려면 [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) 를 시작 하 고 **hive**  >  **Configs**  >  **Advanced**  >  **사용자 지정 hive 사이트로**이동 합니다. 값은 `hive.server2.parallel.ops.in.session` 이어야 `true` 합니다.
+* 병렬 ops가 설정 되어 있는지 확인 합니다. 이렇게 하면 HTTP 처리기 스레드를 병렬로 실행할 수 있습니다. 값을 확인 하려면 [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) 를 시작 하 고 **hive**  >  **Configs**  >  **Advanced**  >  **사용자 지정 hive 사이트로** 이동 합니다. 값은 `hive.server2.parallel.ops.in.session` 이어야 `true` 합니다.
 
 * 클러스터의 VM SKU가 부하에 비해 너무 크지 않은지 확인 하십시오. 여러 클러스터 간에 작업을 분할 하는 것이 좋습니다. 자세한 내용은 [클러스터 유형 선택](../hdinsight-capacity-planning.md#choose-a-cluster-type)을 참조 하세요.
 
 * 클러스터에 레인저가 설치 된 경우 각 쿼리에 대해 평가 해야 하는 너무 많은 레인저 정책이 있는지 확인 하세요. 중복 되거나 불필요 한 정책을 찾습니다.
 
-* Ambari에서 **HiveServer2 힙 크기** 값을 확인 합니다. **Hive**  >  **Configs**  >  **설정**  >  **최적화**로 이동 합니다. 값이 10gb 보다 큰지 확인 합니다. 성능을 최적화 하기 위해 필요에 따라 조정 합니다.
+* Ambari에서 **HiveServer2 힙 크기** 값을 확인 합니다. **Hive**  >  **Configs**  >  **설정**  >  **최적화** 로 이동 합니다. 값이 10gb 보다 큰지 확인 합니다. 성능을 최적화 하기 위해 필요에 따라 조정 합니다.
 
 * Hive 쿼리가 잘 조정 되었는지 확인 합니다. 자세한 내용은 [Azure HDInsight에서 Apache Hive 쿼리 최적화](../hdinsight-hadoop-optimize-hive-query.md)를 참조 하세요.
 
@@ -72,4 +72,4 @@ Http 처리기 스레드는 신속 하 게 작업을 준비 하 고를 반환 �
 
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

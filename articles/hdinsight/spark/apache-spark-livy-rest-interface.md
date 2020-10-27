@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb845904216fbe4cb05828877775ea2178c45e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084616"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539159"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
@@ -27,7 +27,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Apache Livy Spark 일괄 작업 제출
 
-배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 스토리지에 애플리케이션 jar을 업로드해야 합니다. [AzCopy](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이 작업을 수행할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+배치 작업을 제출하기 전에 클러스터와 연결된 클러스터 스토리지에 애플리케이션 jar을 업로드해야 합니다. [AzCopy](../../storage/common/storage-use-azcopy-v10.md) 명령줄 유틸리티를 사용하면 이 작업을 수행할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -75,7 +75,7 @@ curl -k --user "admin:password" -v -X GET "https://<spark_cluster_name>.azurehdi
 curl -k --user "admin:mypassword1!" -v -X DELETE "https://<spark_cluster_name>.azurehdinsight.net/livy/batches/{batchId}"
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 일괄 처리 ID를 사용 하 여 일괄 처리 작업을 삭제 `5` 합니다.
 
@@ -126,7 +126,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    출력의 마지막 줄이 실행 중인 배치가 없는 것을 나타내는 **total:0**을 말하는 방법을 확인합니다.
+    출력의 마지막 줄이 실행 중인 배치가 없는 것을 나타내는 **total:0** 을 말하는 방법을 확인합니다.
 
 1. 이제 배치 작업을 제출하도록 합니다. 다음 코드 조각은 입력 파일(input.txt)을 사용하여 매개 변수로 jar 이름 및 클래스 이름을 전달합니다. Windows 컴퓨터에서 이러한 단계를 실행 하는 경우에는 입력 파일을 사용 하는 것이 좋습니다.
 
@@ -155,7 +155,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    출력의 마지막 줄이 **state:starting**을 말하는 방법을 확인합니다. 또한 **id:0**을 말합니다. 여기서 **0**은 배치 ID입니다.
+    출력의 마지막 줄이 **state:starting** 을 말하는 방법을 확인합니다. 또한 **id:0** 을 말합니다. 여기서 **0** 은 배치 ID입니다.
 
 1. 이제 배치 ID를 사용하여 이 특정 배치의 상태를 검색할 수 있습니다.
 
@@ -177,7 +177,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    이제 출력은 작업이 성공적으로 완료됐음을 나타내는 **state:success**를 보여 줍니다.
+    이제 출력은 작업이 성공적으로 완료됐음을 나타내는 **state:success** 를 보여 줍니다.
 
 1. 원하는 경우 이제 배치를 삭제할 수 있습니다.
 
@@ -207,7 +207,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 클러스터에 대한 Livy 작업 제출
 
-Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경우 클러스터의 Livy에 직접 연결할 수 있습니다. 이러한 경우 Livy 엔드포인트의 URL은 `http://<IP address of the headnode>:8998/batches`입니다. 여기서 **8998**은 클러스터 헤드 노드에서 Livy가 실행되는 포트입니다. 비공용 포트의 서비스 액세스에 대한 자세한 내용은 [HDInsight의 Apache Hadoop 서비스에 사용되는 포트](../hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
+Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경우 클러스터의 Livy에 직접 연결할 수 있습니다. 이러한 경우 Livy 엔드포인트의 URL은 `http://<IP address of the headnode>:8998/batches`입니다. 여기서 **8998** 은 클러스터 헤드 노드에서 Livy가 실행되는 포트입니다. 비공용 포트의 서비스 액세스에 대한 자세한 내용은 [HDInsight의 Apache Hadoop 서비스에 사용되는 포트](../hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

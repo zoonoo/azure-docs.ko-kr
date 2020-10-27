@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dcb5d7ed75bda8422ba3bd461b08d3bfb2d974f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595787"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541012"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 
@@ -87,13 +87,13 @@ Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 
 비ESP HDInsight 클러스터에는 클러스터를 만드는 중에 생성되는 두 개의 사용자 계정이 있습니다.
 
-- **Ambari 관리자**: 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자*라고도 합니다. 이 계정은 Ambari at에 로그인 하는 데 사용할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net` . 또한 Ambari 뷰에서 쿼리를 실행 하 고, 외부 도구 (예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행 하 고, Hive ODBC 드라이버와 BI 도구 (예: Excel, Power BI 또는 Tableau)를 사용 하 여 인증 하는 데 사용할 수 있습니다.
+- **Ambari 관리자** : 이 계정을 *Hadoop 사용자* 또는 *HTTP 사용자* 라고도 합니다. 이 계정은 Ambari at에 로그인 하는 데 사용할 수 있습니다 `https://CLUSTERNAME.azurehdinsight.net` . 또한 Ambari 뷰에서 쿼리를 실행 하 고, 외부 도구 (예: PowerShell, Templeton, Visual Studio)를 통해 작업을 실행 하 고, Hive ODBC 드라이버와 BI 도구 (예: Excel, Power BI 또는 Tableau)를 사용 하 여 인증 하는 데 사용할 수 있습니다.
 
 ESP가 포함된 HDInsight 클러스터에는 Ambari 관리자 외에 세 명의 새로운 사용자가 있습니다.
 
-- **Ranger 관리자**: 이 계정은 로컬 Apache Ranger 관리자 계정입니다. Active directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin*이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
+- **Ranger 관리자** : 이 계정은 로컬 Apache Ranger 관리자 계정입니다. Active directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin* 이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
 
-- **클러스터 관리 도메인 사용자**: 이 계정은 Ambari 및 Ranger를 포함하여 Hadoop 클러스터 관리자로 지정된 Active Directory 도메인 사용자입니다. 클러스터를 만드는 동안 이 사용자의 자격 증명을 입력해야 합니다. 이 사용자는 다음과 같은 권한을 갖고 있습니다.
+- **클러스터 관리 도메인 사용자** : 이 계정은 Ambari 및 Ranger를 포함하여 Hadoop 클러스터 관리자로 지정된 Active Directory 도메인 사용자입니다. 클러스터를 만드는 동안 이 사용자의 자격 증명을 입력해야 합니다. 이 사용자는 다음과 같은 권한을 갖고 있습니다.
     - 컴퓨터를 도메인에 가입하고 클러스터를 만드는 동안 지정하는 OU 내에 배치합니다.
     - 클러스터를 만드는 동안 지정하는 OU 내에 서비스 사용자를 만듭니다.
     - 역방향 DNS 항목을 만듭니다.
@@ -102,7 +102,7 @@ ESP가 포함된 HDInsight 클러스터에는 Ambari 관리자 외에 세 명의
 
     클러스터 내의 끝점 (예: Templeton)이 레인저에서 관리 되지 않으므로 안전 하지 않습니다. 이러한 끝점은 클러스터 관리 도메인 사용자를 제외한 모든 사용자에게 잠겨 있습니다.
 
-- **일반**: 클러스터를 만들 때 여러 Active Directory 그룹을 제공할 수 있습니다. 이러한 그룹의 사용자는 Ranger 및 Ambari와 동기화됩니다. 이러한 사용자는 도메인 사용자이며 Ranger를 통해 관리되는 엔드포인트(예: Hiveserver2)에만 액세스할 수 있습니다. 이러한 사용자에게는 모든 RBAC 정책 및 감사가 적용됩니다.
+- **일반** : 클러스터를 만들 때 여러 Active Directory 그룹을 제공할 수 있습니다. 이러한 그룹의 사용자는 Ranger 및 Ambari와 동기화됩니다. 이러한 사용자는 도메인 사용자이며 Ranger를 통해 관리되는 엔드포인트(예: Hiveserver2)에만 액세스할 수 있습니다. 이러한 사용자에게는 모든 RBAC 정책 및 감사가 적용됩니다.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>ESP가 포함된 HDInsight 클러스터의 역할
 
@@ -117,7 +117,7 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 **이러한 역할의 사용 권한을 보려면**
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
-2. 왼쪽 메뉴에서 **역할**을 선택 합니다.
+2. 왼쪽 메뉴에서 **역할** 을 선택 합니다.
 3. 사용 권한을 보려면 파란색 물음표를 선택 합니다.
 
     ![ESP HDInsight 역할 사용 권한](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
@@ -126,7 +126,7 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 
 1. 로 이동 `https://CLUSTERNAME.azurehdinsight.net/` 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 1. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용 하 여 Ambari에 로그인 합니다.
-1. 오른쪽 위 모서리에서 **관리** 드롭다운 메뉴를 선택한 다음 **Ambari 관리**를 선택 합니다.
+1. 오른쪽 위 모서리에서 **관리** 드롭다운 메뉴를 선택한 다음 **Ambari 관리** 를 선택 합니다.
 
     ![ESP HDInsight의 Apache Ambari 관리](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
@@ -137,21 +137,21 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Active Directory에서 동기화된 도메인 사용자 나열
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
-2. 왼쪽 메뉴에서 **사용자**를 선택 합니다. Active Directory에서 HDInsight 클러스터로 동기화된 모든 사용자가 표시됩니다.
+2. 왼쪽 메뉴에서 **사용자** 를 선택 합니다. Active Directory에서 HDInsight 클러스터로 동기화된 모든 사용자가 표시됩니다.
 
     ![ESP HDInsight Ambari 관리 UI 사용자 나열](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Active Directory에서 동기화된 도메인 그룹 나열
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
-2. 왼쪽 메뉴에서 **그룹**을 선택 합니다. Active Directory에서 HDInsight 클러스터로 동기화된 모든 그룹이 표시됩니다.
+2. 왼쪽 메뉴에서 **그룹** 을 선택 합니다. Active Directory에서 HDInsight 클러스터로 동기화된 모든 그룹이 표시됩니다.
 
     ![ESP HDInsight Ambari 관리 UI 그룹 나열](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## <a name="configure-hive-views-permissions"></a>Hive 뷰 사용 권한 구성
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
-2. 왼쪽 메뉴에서 **보기**를 선택 합니다.
+2. 왼쪽 메뉴에서 **보기** 를 선택 합니다.
 3. **HIVE** 를 선택 하 여 세부 정보를 표시 합니다.
 
     ![ESP HDInsight Ambari 관리 UI Hive 뷰](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
@@ -161,17 +161,17 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 
     ![ESP HDInsight Ambari 관리 UI Hive 뷰 사용 권한 구성](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 
-6. **사용자 추가** 또는 **그룹 추가**를 선택 하 고 Hive 보기를 사용할 수 있는 사용자 또는 그룹을 지정 합니다.
+6. **사용자 추가** 또는 **그룹 추가** 를 선택 하 고 Hive 보기를 사용할 수 있는 사용자 또는 그룹을 지정 합니다.
 
 ## <a name="configure-users-for-the-roles"></a>역할에 대해 사용자 구성
 
  역할 및 해당 사용 권한의 목록을 보려면 ESP가 포함된 HDInsight 클러스터의 역할을 참조하세요.
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
-2. 왼쪽 메뉴에서 **역할**을 선택 합니다.
+2. 왼쪽 메뉴에서 **역할** 을 선택 합니다.
 3. **사용자 추가** 또는 **그룹 추가** 를 선택 하 여 사용자 및 그룹을 다른 역할에 할당 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Enterprise Security Package가 포함된 HDInsight 클러스터 구성에 대한 내용은 [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
+- Enterprise Security Package가 포함된 HDInsight 클러스터 구성에 대한 내용은 [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 - Hive 정책 구성 및 Hive 쿼리 실행에 대한 내용은 [ESP가 포함된 HDInsight 클러스터에 대한 Apache Hive 정책 구성](apache-domain-joined-run-hive.md)을 참조하세요.

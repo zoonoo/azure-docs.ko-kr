@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082278"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546044"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
-이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR**을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
+이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR** 을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
 
 두 패키지 모두 Apache Hadoop의 Spark 실행 엔진에서 실행 되지만 각각의 개별 Spark 세션이 필요 하므로 메모리 내 데이터 공유에서 차단 됩니다. ML Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "86082278"
 
 이 코드는 원래 Azure HDInsight 클러스터의 Spark에서 실행 중인 ML Server용으로 작성된 것입니다. 하지만 하나의 스크립트에서 SparkR과 ScaleR을 혼합하여 사용하는 개념도 온-프레미스 환경의 컨텍스트에서 유효합니다.
 
-이 문서의 단계에서는 사용자가 R 및 ML Server의 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 라이브러리에 대한 중간 수준의 지식을 보유하고 있다고 가정합니다. 이 시나리오를 진행 하는 동안 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) 에 도입 되었습니다.
+이 문서의 단계에서는 사용자가 R 및 ML Server의 [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) 라이브러리에 대한 중간 수준의 지식을 보유하고 있다고 가정합니다. 이 시나리오를 진행 하는 동안 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) 에 도입 되었습니다.
 
 ## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
@@ -535,7 +535,7 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="next-steps-and-more-information"></a>다음 단계 및 자세한 정보
 
-- Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)를 참조하세요.
+- Apache Spark에서 ML Server 사용에 대한 자세한 내용은 [시작 가이드](/machine-learning-server/r/how-to-revoscaler-spark)를 참조하세요.
 
 - HDInsight의 ML 서비스에 대 한 자세한 내용은 [hdinsight의 Ml 서비스 개요](r-server/r-server-overview.md)를 참조 하세요.
 
@@ -543,4 +543,4 @@ SparkR 사용에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Apache SparkR 문서](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- Databricks에서 [개요를 SparkR](https://docs.databricks.com/spark/latest/sparkr/overview.html) .
+- [SparkR 개요](/azure/databricks/spark/latest/sparkr/overview)

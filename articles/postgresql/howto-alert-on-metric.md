@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a221e3c32d458135111583885a0b9f97743d36ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f37dcc1d092de10c51c0492bbc8671047e4a90a3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490036"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546622"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭에 대 한 경고를 설정 합니다.
 
@@ -32,25 +32,25 @@ ms.locfileid: "92490036"
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 모니터링할 Azure Database for PostgreSQL 서버를 선택합니다.
 
-2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고**를 선택합니다.
+2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고** 를 선택합니다.
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="경고 규칙 선택":::
 
-3. **메트릭 경고 추가**(+ 아이콘)를 선택합니다.
+3. **메트릭 경고 추가** (+ 아이콘)를 선택합니다.
 
 4. 아래와 같이 **규칙 만들기** 페이지가 열립니다. 필수 정보를 입력합니다.
 
    :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="경고 규칙 선택":::
 
-5. **조건** 섹션에서 **조건 추가**를 선택합니다.
+5. **조건** 섹션에서 **조건 추가** 를 선택합니다.
 
 6. 신호 목록에서 경고를 발생할 메트릭을 선택합니다. 이 예제에서는 "스토리지 비율"을 선택합니다.
    
    :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="경고 규칙 선택":::
 
-7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분") 및 **Frequency**.
+7. **조건** (예: "보다 큼"), **임계값** (예: 85%), **시간 집계** , 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간** (예: "지난 30 분") 및 **Frequency** .
    
-   완료되면 **완료**를 선택합니다.
+   완료되면 **완료** 를 선택합니다.
 
    :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="경고 규칙 선택" 양식을 채웁니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "92490036"
    
     필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
-    완료되면 **확인**을 선택합니다.
+    완료되면 **확인** 을 선택합니다.
 
     :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="경고 규칙 선택":::
 
@@ -68,7 +68,7 @@ ms.locfileid: "92490036"
 
     :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="경고 규칙 선택"::: 
 
-12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
+12. **경고 규칙 만들기** 를 선택하여 경고를 만듭니다.
 
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
@@ -76,8 +76,8 @@ ms.locfileid: "92490036"
 경고를 만든 후 해당 경고를 선택하고 다음 작업을 수행할 수 있습니다.
 
 * 이 경고와 관련된 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 확인.
-* 경고 규칙을 **편집** 또는 **삭제**.
-* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용**으로 설정.
+* 경고 규칙을 **편집** 또는 **삭제** .
+* 알림 수신을 일시적으로 중지하거나 다시 시작하려면 경로를 **사용 안 함** 또는 **사용** 으로 설정.
 
 ## <a name="next-steps"></a>다음 단계
 * [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.

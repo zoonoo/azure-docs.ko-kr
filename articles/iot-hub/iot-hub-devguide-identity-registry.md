@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147720"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547761"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -58,7 +58,7 @@ IoT Hub ID 레지스트리는 다음과 같은 작업을 노출합니다.
 IoT Hub ID 레지스트리:
 
 * 애플리케이션 메타 데이터가 없습니다.
-* **deviceId** 또는 **moduleId**를 키로 사용하여 사전처럼 액세스할 수 있습니다.
+* **deviceId** 또는 **moduleId** 를 키로 사용하여 사전처럼 액세스할 수 있습니다.
 * 표현 쿼리를 지원하지 않습니다.
 
 IoT 솔루션에는 일반적으로 애플리케이션 관련 메타데이터가 포함된 별도의 솔루션 관련 저장소가 있습니다. 예를 들어 스마트 건물 솔루션의 솔루션 관련 저장소는 온도 센서가 배포된 방을 기록합니다.
@@ -94,25 +94,25 @@ API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub �
 
 ## <a name="device-heartbeat"></a>디바이스 하트비트
 
-IoT Hub ID 레지스트리는 **connectionState**라는 필드를 포함합니다. 개발 및 디버깅하는 동안 **connectionState** 필드만 사용합니다. IoT 솔루션은 런타임에 필드를 쿼리하면 안 됩니다. 예를 들어 클라우드-디바이스 메시지 또는 SMS를 보내기 전에 디바이스가 연결되었는지 확인하기 위해 **connectionState** 필드를 쿼리하지 마세요. 경고를 받고 디바이스 연결 상태를 모니터링하려면 Event Grid에서 [**디바이스 연결 끊김** 이벤트 ](iot-hub-event-grid.md#event-types)를 구독하는 것이 좋습니다. 이 [자습서](iot-hub-how-to-order-connection-state-events.md)를 사용하여 IoT 솔루션에서 IoT Hub의 디바이스 연결된 이벤트 및 디바이스 연결 해제된 이벤트를 통합하는 방법을 알아봅니다.
+IoT Hub ID 레지스트리는 **connectionState** 라는 필드를 포함합니다. 개발 및 디버깅하는 동안 **connectionState** 필드만 사용합니다. IoT 솔루션은 런타임에 필드를 쿼리하면 안 됩니다. 예를 들어 클라우드-디바이스 메시지 또는 SMS를 보내기 전에 디바이스가 연결되었는지 확인하기 위해 **connectionState** 필드를 쿼리하지 마세요. 경고를 받고 디바이스 연결 상태를 모니터링하려면 Event Grid에서 [**디바이스 연결 끊김** 이벤트](iot-hub-event-grid.md#event-types)를 구독하는 것이 좋습니다. 이 [자습서](iot-hub-how-to-order-connection-state-events.md)를 사용하여 IoT 솔루션에서 IoT Hub의 디바이스 연결된 이벤트 및 디바이스 연결 해제된 이벤트를 통합하는 방법을 알아봅니다.
 
-IoT 솔루션에서 디바이스 연결 여부를 파악해야 하는 경우 *하트비트 패턴*을 구현할 수 있습니다.
+IoT 솔루션에서 디바이스 연결 여부를 파악해야 하는 경우 *하트비트 패턴* 을 구현할 수 있습니다.
 하트비트 패턴에서 디바이스는 정해진 시간에 최소 한 번(예: 1시간마다 최소 한 번) 디바이스-클라우드 메시지를 보냅니다. 따라서 디바이스가 보낼 데이터가 없는 경우 빈 디바이스-클라우드 메시지(이를 하트비트로 식별하는 속성을 가짐)라도 보낸다는 의미입니다. 서비스 쪽에서 솔루션은 각 디바이스에 대해 받은 마지막 하트비트와 함께 맵을 유지 관리합니다. 솔루션은 예상된 시간 내에 디바이스에서 보낸 하트비트 메시지를 받지 않을 경우 디바이스에 문제가 있다고 가정합니다.
 
-좀 더 복잡한 구현에서는 연결 또는 통신을 시도했지만 실패한 디바이스를 식별하기 위해 [Azure Monitor](../azure-monitor/index.yml) 및 [Azure Resource Health](../service-health/resource-health-overview.md) 정보를 포함할 수 있습니다. [진단을 사용하여 모니터링](iot-hub-monitor-resource-health.md) 가이드를 확인하세요. 하트비트 패턴을 구현하는 경우 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 확인해야 합니다.
+더 복잡 한 구현에는 연결 또는 통신을 시도 하지만 실패 하는 장치를 식별 하기 위해 [Azure Monitor](../azure-monitor/index.yml) 및 [Azure Resource Health](../service-health/resource-health-overview.md) 정보를 포함할 수 있습니다. 자세히 알아보려면 [IoT Hub 모니터링](monitor-iot-hub.md) 및 [IoT Hub 리소스 상태 확인](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health)을 참조 하세요. 하트비트 패턴을 구현하는 경우 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 확인해야 합니다.
 
 > [!NOTE]
 > IoT 솔루션에서 연결 상태만 사용하여 클라우드-디바이스 메시지를 보낼지 여부를 결정해야 하고 메시지가 큰 디바이스 집합으로 브로드캐스트되지 않는 경우 단순한 *짧은 만료 시간* 패턴 사용을 고려하세요. 이렇게 하면 이 패턴은 더 효율적으로 유지되면서 하트비트 패턴을 사용하여 디바이스 연결 상태 레지스트리를 유지 관리하는 것과 동일한 결과를 얻을 수 있습니다. 메시지 승인을 요청하면 IoT Hub는 메시지를 수신할 수 있는 디바이스와 수신할 수 없는 디바이스에 대해 알릴 수 있습니다.
 
 ## <a name="device-and-module-lifecycle-notifications"></a>디바이스 및 모듈 수명 주기 알림
 
-ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하여 IoT 솔루션에 알릴 수 있습니다. 이를 수행하려면 IoT 솔루션이 경로를 만들고 데이터 원본을 *DeviceLifecycleEvents* 또는 *ModuleLifecycleEvents*와 동일하게 설정해야 합니다. 기본적으로 수명 주기 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 알림 메시지는 속성과 본문을 포함합니다.
+ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하여 IoT 솔루션에 알릴 수 있습니다. 이를 수행하려면 IoT 솔루션이 경로를 만들고 데이터 원본을 *DeviceLifecycleEvents* 또는 *ModuleLifecycleEvents* 와 동일하게 설정해야 합니다. 기본적으로 수명 주기 알림이 전송되지 않습니다. 즉, 이러한 경로는 미리 존재하지 않습니다. 알림 메시지는 속성과 본문을 포함합니다.
 
 속성: 메시지 시스템 속성 앞에 `$` 기호를 붙입니다.
 
 디바이스에 대한 알림 메시지:
 
-| Name | 값 |
+| 속성 | 값 |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -124,7 +124,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 |operationTimestamp | 작업의 ISO8601 타임스탬프 |
 |iothub-message-schema | deviceLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예를 들면
+본문: 이 섹션은 JSON 형식이며, 생성된 디바이스 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -148,7 +148,7 @@ ID가 생성 또는 삭제되면 IoT Hub에서 수명 주기 알림을 전송하
 ```
 모듈에 대한 알림 메시지:
 
-| Name | 값 |
+| 속성 | 값 |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -160,7 +160,7 @@ moduleId | 모듈의 ID |
 operationTimestamp | 작업의 ISO8601 타임스탬프 |
 iothub-message-schema | moduleLifecycleNotification |
 
-본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예를 들면
+본문: 이 섹션은 JSON 형식이며, 생성된 모듈 ID 쌍을 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -188,17 +188,17 @@ iothub-message-schema | moduleLifecycleNotification |
 
 디바이스 ID는 다음 속성을 사용하여 JSON 문서로 표시됩니다.
 
-| 속성 | 옵션 | Description |
+| 속성 | 옵션 | 설명 |
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
-| generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
+| generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId** 로 디바이스를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 대 한 장치 id의 weak ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
-| 상태 |필수 |액세스 표시기입니다. **사용** 하거나 사용 **하지 않도록**설정할 수 있습니다. **사용**이면 디바이스를 연결할 수 있습니다. **사용 안 함**이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
+| 상태 |필수 |액세스 표시기입니다. **사용** 하거나 사용 **하지 않도록** 설정할 수 있습니다. **사용** 이면 디바이스를 연결할 수 있습니다. **사용 안 함** 이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
 | statusReason |선택 사항 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
-| connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
+| connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김** . 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요** : 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
 | connectionStateUpdatedTime |읽기 전용 |연결 상태가 마지막으로 업데이트된 날짜 및 시간을 표시하는 임시 표시기입니다. |
 | lastActivityTime |읽기 전용 |디바이스 연결이 마지막으로 연결되거나 메시지를 받거나 보낸 날짜 및 시간을 표시하는 임시 표시기입니다. |
 
@@ -206,29 +206,29 @@ iothub-message-schema | moduleLifecycleNotification |
 > 연결 상태는 연결 상태의 IoT Hub 뷰만을 나타낼 수 있습니다. 이 상태에 대한 업데이트는 네트워크 상태 및 구성에 따라 지연될 수도 있습니다.
 
 > [!NOTE]
-> 현재 디바이스 SDK는 **deviceId**에서 `+` 및 `#` 문자를 지원하지 않습니다.
+> 현재 디바이스 SDK는 **deviceId** 에서 `+` 및 `#` 문자를 지원하지 않습니다.
 
 ## <a name="module-identity-properties"></a>모듈 ID 속성
 
 모듈 ID는 다음 속성을 사용하여 JSON 문서로 표현됩니다.
 
-| 속성 | 옵션 | Description |
+| 속성 | 옵션 | 설명 |
 | --- | --- | --- |
 | deviceId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
 | moduleId |필요한 경우 업데이트에서 읽기 전용입니다. |ASCII 7 비트 영숫자 문자 + 특정 특수 문자 `- . + % _ # * ? ! ( ) , : = @ $ '`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
-| generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId**로 디바이스를 구분하는 데 사용됩니다. |
+| generationId |필요한 경우 읽기 전용 |IoT Hub에서 생성된 최대 128자의 대/소문자 구분 문자열입니다. 이 값은 삭제되고 다시 만들 때와 동일한 **deviceId** 로 디바이스를 구분하는 데 사용됩니다. |
 | etag |필요한 경우 읽기 전용 |[RFC7232](https://tools.ietf.org/html/rfc7232)에 대 한 장치 id의 weak ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
-| 상태 |필수 |액세스 표시기입니다. **사용** 하거나 사용 **하지 않도록**설정할 수 있습니다. **사용**이면 디바이스를 연결할 수 있습니다. **사용 안 함**이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
+| 상태 |필수 |액세스 표시기입니다. **사용** 하거나 사용 **하지 않도록** 설정할 수 있습니다. **사용** 이면 디바이스를 연결할 수 있습니다. **사용 안 함** 이면 이 디바이스는 디바이스 연결 엔드포인트에 액세스할 수 없습니다. |
 | statusReason |선택 사항 |디바이스 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
-| connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
+| connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김** . 이 필드는 디바이스 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요** : 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 디바이스에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 디바이스와 같이 거짓 긍정이 있을 수 있습니다. |
 | connectionStateUpdatedTime |읽기 전용 |연결 상태가 마지막으로 업데이트된 날짜 및 시간을 표시하는 임시 표시기입니다. |
 | lastActivityTime |읽기 전용 |디바이스 연결이 마지막으로 연결되거나 메시지를 받거나 보낸 날짜 및 시간을 표시하는 임시 표시기입니다. |
 
 > [!NOTE]
-> 현재 디바이스 SDK는 **deviceId** 및 **moduleId**에서 `+` 및 `#` 문자를 지원하지 않습니다.
+> 현재 디바이스 SDK는 **deviceId** 및 **moduleId** 에서 `+` 및 `#` 문자를 지원하지 않습니다.
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 

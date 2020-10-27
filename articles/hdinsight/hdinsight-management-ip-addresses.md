@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: f9e52d931f8873cebf42534fd6bf03b144e61e23
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 35f2f82b4fe6862f0d023a70b32c964698b0c0eb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974671"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547812"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -55,7 +55,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | Direction |
 | ---- | ---- | ---- | ---- | ----- |
 | 아시아 | 동아시아 | 23.102.235.122</br>52.175.38.134 | \*: 443 | 인바운드 |
-| &nbsp; | 동남 아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |
+| &nbsp; | 동남아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |
 | 오스트레일리아 | 오스트레일리아 동부 | 104.210.84.115</br>13.75.152.195 | \*: 443 | 인바운드 |
 | &nbsp; | 오스트레일리아 남동부 | 13.77.2.56</br>13.77.2.94 | \*: 443 | 인바운드 |
 | 브라질 | 브라질 남부 | 191.235.84.104</br>191.235.87.113 | \*: 443 | 인바운드 |
@@ -87,7 +87,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 | &nbsp; | 아랍에미리트 북부 | 65.52.252.96</br>65.52.252.97 | \*: 443 | 인바운드 |
 | &nbsp; | 아랍에미리트 중부 | 20.37.76.96</br>20.37.76.99 | \*: 443 | 인바운드 |
 
-Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 문서를 참조하세요.
+Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](../azure-government/compare-azure-government-global-azure.md) 문서를 참조하세요.
 
 자세한 내용은 [네트워크 트래픽 제어](./control-network-traffic.md)를 참조 하세요.
 

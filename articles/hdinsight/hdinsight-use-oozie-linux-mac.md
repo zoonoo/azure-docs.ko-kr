@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085942"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534943"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -35,7 +35,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 * **SSH 클라이언트** [SSH를 사용 하 여 HDInsight에 연결 (Apache Hadoop)을](hdinsight-hadoop-linux-use-ssh-unix.md)참조 하세요.
 
-* **Azure SQL Database**입니다.  [Azure Portal에서 Azure SQL Database에서 데이터베이스 만들기](../sql-database/sql-database-get-started.md)를 참조 하세요.  이 문서에서는 **oozietest**라는 데이터베이스를 사용 합니다.
+* **Azure SQL Database** 입니다.  [Azure Portal에서 Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조 하세요.  이 문서에서는 **oozietest** 라는 데이터베이스를 사용 합니다.
 
 * 클러스터 기본 스토리지에 대한 URI 체계입니다. `wasb://` Azure Storage Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1에 대 한입니다 `abfs://` `adl://` . Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
@@ -130,7 +130,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 
      이 문서에서 workflow.xml 워크플로 정의 파일은 런타임에이 HiveQL 스크립트에 이러한 값을 전달 합니다.
 
-1. 파일을 저장 하려면 **Ctrl + X**를 선택 하 고 **Y**를 입력 한 다음 **enter**키를 선택 합니다.  
+1. 파일을 저장 하려면 **Ctrl + X** 를 선택 하 고 **Y** 를 입력 한 다음 **enter** 키를 선택 합니다.  
 
 1. 다음 명령을 사용 하 여에 복사 합니다 `useooziewf.hql` `wasbs:///tutorials/useoozie/useooziewf.hql` .
 
@@ -215,7 +215,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
      Sqoop 섹션의 `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` 항목도 있습니다. 이 항목은 이 동작을 실행할 때 이 보관 파일을 Sqoop에 사용할 수 있게 설정하도록 Oozie에 지시합니다.
 
-3. 파일을 저장 하려면 **Ctrl + X**를 선택 하 고 **Y**를 입력 한 다음 **enter**키를 선택 합니다.  
+3. 파일을 저장 하려면 **Ctrl + X** 를 선택 하 고 **Y** 를 입력 한 다음 **enter** 키를 선택 합니다.  
 
 4. 다음 명령을 사용하여 `workflow.xml` 파일을 `/tutorials/useoozie/workflow.xml`에 복사합니다.
 
@@ -382,7 +382,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
 4. Nano 편집기가 열리면 편집 된 XML을 파일의 내용으로 붙여넣습니다.
 
-5. 파일을 저장 하려면 **Ctrl + X**를 선택 하 고 **Y**를 입력 한 다음 **enter**키를 선택 합니다.
+5. 파일을 저장 하려면 **Ctrl + X** 를 선택 하 고 **Y** 를 입력 한 다음 **enter** 키를 선택 합니다.
 
 ## <a name="submit-and-manage-the-job"></a>작업 제출 및 관리
 
@@ -489,9 +489,9 @@ Oozie 명령에 대한 자세한 내용은 [Apache Oozie 명령줄 도구](https
 
 Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 도구를 빌드할 수 있습니다. Oozie REST API 사용에 대 한 다음 HDInsight 관련 정보는 다음과 같습니다.
 
-* **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
+* **URI** : `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들면 다음과 같습니다.
+* **인증** : 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 다음은 그 예입니다.
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -517,11 +517,11 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 2. 터널을 만든 후 URI를 사용 하 여 웹 브라우저에서 Ambari 웹 UI를 엽니다 `http://headnodehost:8080` .
 
-3. 페이지의 왼쪽에서 **Oozie**  >  **빠른 링크**  >  **Oozie 웹 UI**를 선택 합니다.
+3. 페이지의 왼쪽에서 **Oozie**  >  **빠른 링크**  >  **Oozie 웹 UI** 를 선택 합니다.
 
     ![Apache Ambari oozie 웹 ui 단계](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
-4. Oozie 웹 UI는 기본적으로 실행 중인 워크플로 작업을 표시합니다. 모든 워크플로 작업을 보려면 **모든 작업**을 선택합니다.
+4. Oozie 웹 UI는 기본적으로 실행 중인 워크플로 작업을 표시합니다. 모든 워크플로 작업을 보려면 **모든 작업** 을 선택합니다.
 
     ![Oozie 웹 콘솔 워크플로 작업](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
@@ -529,13 +529,13 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
     ![HDInsight Apache Oozie 작업 정보](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
-6. **작업 정보** 탭에서 기본 작업 정보 및 작업 내의 개별 동작을 볼 수 있습니다. 맨 위에 있는 탭을 사용하여 **작업 정의**, **작업 구성**을 보거나, **작업 로그**에 액세스하거나, **작업 DAG**에서 작업의 DAG(방향성 비순환 그래프)를 확인할 수 있습니다.
+6. **작업 정보** 탭에서 기본 작업 정보 및 작업 내의 개별 동작을 볼 수 있습니다. 맨 위에 있는 탭을 사용하여 **작업 정의** , **작업 구성** 을 보거나, **작업 로그** 에 액세스하거나, **작업 DAG** 에서 작업의 DAG(방향성 비순환 그래프)를 확인할 수 있습니다.
 
-   * **작업 로그**: **로그 가져오기** 단추를 선택하여 작업에 대한 모든 로그를 가져오거나 **검색 필터 입력** 필드를 사용하여 로그를 필터링합니다.
+   * **작업 로그** : **로그 가져오기** 단추를 선택하여 작업에 대한 모든 로그를 가져오거나 **검색 필터 입력** 필드를 사용하여 로그를 필터링합니다.
 
        ![HDInsight Apache Oozie 작업 로그](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **작업 DAG**: DAG는 워크플로를 통해 가져온 데이터 경로의 그래픽 개요입니다.
+   * **작업 DAG** : DAG는 워크플로를 통해 가져온 데이터 경로의 그래픽 개요입니다.
 
        ![' HDInsight Apache Oozie job dag '](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
@@ -549,7 +549,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 코디네이터를 사용하여 작업의 시작, 종료 및 발생 빈도를 지정할 수 있습니다. 워크플로 일정을 정의하려면 다음 단계를 완료합니다.
 
-1. 다음 명령을 사용하여 **coordinator.xml**이라는 파일을 만듭니다.
+1. 다음 명령을 사용하여 **coordinator.xml** 이라는 파일을 만듭니다.
 
     ```bash
     nano coordinator.xml
@@ -576,7 +576,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
     > * `${coordTimezone}`: 일광 절약 시간제(일반적으로 UTC를 사용하여 표시됨) 없이 고정된 표준 시간대에서 코디네이터 작업을 처리합니다. 이 표준 시간대를 *Oozie 처리 표준 시간대 라고 합니다.*
     > * `${wfPath}`: workflow.xml의 경로입니다.
 
-2. 파일을 저장 하려면 **Ctrl + X**를 선택 하 고 **Y**를 입력 한 다음 **enter**키를 선택 합니다.
+2. 파일을 저장 하려면 **Ctrl + X** 를 선택 하 고 **Y** 를 입력 한 다음 **enter** 키를 선택 합니다.
 
 3. 이 작업의 작업 디렉터리에 파일을 복사하려면 다음 명령을 사용합니다.
 
@@ -631,7 +631,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
        이러한 값은 시작 시간을 오후 10, 2018, 종료 시간을 12:00 년 5 월 12 일, 2018로 설정 합니다. 이 작업을 실행하는 간격은 매일로 설정됩니다. 빈도는 분 단위이므로 24시간 x 60분 = 1,440분입니다. 마지막으로, 표준 시간대는 UTC로 설정됩니다.
 
-5. 파일을 저장 하려면 **Ctrl + X**를 선택 하 고 **Y**를 입력 한 다음 **enter**키를 선택 합니다.
+5. 파일을 저장 하려면 **Ctrl + X** 를 선택 하 고 **Y** 를 입력 한 다음 **enter** 키를 선택 합니다.
 
 6. 작업을 제출 하 고 시작 하려면 다음 명령을 사용 합니다.
 

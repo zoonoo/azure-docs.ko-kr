@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329426"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545262"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -51,7 +51,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
     |LDAPS URL|예를 들면 `ldaps://contoso.onmicrosoft.com:636` 입니다.|
     |사용자 그룹 액세스|클러스터에 동기화할 사용자가 속하는 보안 그룹입니다(예: `HiveUsers`). 여러 사용자 그룹을 지정하려면 세미콜론 ‘;’으로 구분합니다. 그룹은 ESP 클러스터를 만들기 전에 디렉터리에 있어야 합니다.|
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](../domain-joined/hdinsight-security-overview.md)
 - [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](../domain-joined/apache-domain-joined-architecture.md)
@@ -81,10 +81,10 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
     - Microsoft 관리 키 또는 고객 관리 키를 사용하는 투명한 서버 쪽 암호화입니다.
     - Client-Side 암호화, https 및 TLS를 사용 하는 전송 암호화
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Virtual Networks 개요](../../virtual-network/virtual-networks-overview.md)
-- [Azure 네트워크 보안 그룹 개요](../../virtual-network/security-overview.md)
+- [Azure 네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md)
 - [Azure Virtual Network 피어링](../../virtual-network/virtual-network-peering-overview.md)
 - [Azure Storage 보안 가이드](../../storage/blobs/security-recommendations.md)
 - [Azure Storage 서비스 저장 데이터 암호화](../../storage/common/storage-service-encryption.md)
@@ -122,4 +122,4 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 ## <a name="next-steps"></a>다음 단계
 
-[HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction)에 대해 자세히 알아보기
+[HDInsight 4.0](./apache-hadoop-introduction.md)에 대해 자세히 알아보기

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 527d2d8cb8086ed6b5e87417e2bc80dd52aa6e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188415"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538802"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Azure HDInsight에서 리소스 만들기 오류 문제 해결
 
@@ -25,7 +25,7 @@ Azure의 할당량 한도는 리소스 그룹당 800개 배포입니다. 리소�
 
 이 문제를 해결 하려면 Azure Portal, CLI 또는 PowerShell을 사용 하 여 더 이상 필요 하지 않은 배포를 삭제 합니다.
 
-자세한 내용은 [리소스 할당량에 대한 오류 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors)을 참조하세요.
+자세한 내용은 [리소스 할당량에 대한 오류 해결](../azure-resource-manager/templates/error-resource-quota.md)을 참조하세요.
 
 ## <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>오류: 최대 노드가이 영역에서 사용 가능한 코어 수를 초과 했습니다.
 
@@ -33,15 +33,15 @@ Azure의 할당량 한도는 리소스 그룹당 800개 배포입니다. 리소�
 
 할당량 증가를 요청하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **도움말 + 지원**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **도움말 + 지원** 을 선택 합니다.
 
-1. **새 지원 요청**을 선택합니다.
+1. **새 지원 요청** 을 선택합니다.
 
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 정보를 제공 합니다.
 
    * **문제 유형:** **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
    * **구독:** 수정 하려는 구독을 선택 합니다.
-   * **할당량 유형:** **HDInsight**를 선택 합니다.
+   * **할당량 유형:** **HDInsight** 를 선택 합니다.
 
 자세한 내용은 [코어를 늘리기 위한 지원 티켓 만들기](hdinsight-capacity-planning.md#quotas)를 참조하세요.
 
@@ -53,4 +53,4 @@ Azure의 할당량 한도는 리소스 그룹당 800개 배포입니다. 리소�
 
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

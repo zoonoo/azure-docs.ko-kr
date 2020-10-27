@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
-ms.openlocfilehash: 20d39b1f5a11f20eb5d12f34337787b382c820f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b9be6fdb500d9f877659a12e6fdc0e206ea964
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81758748"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538224"
 ---
 # <a name="409002-linkcreationconflict"></a>409002 LinkCreationConflict
 
@@ -22,7 +22,7 @@ ms.locfileid: "81758748"
 
 ## <a name="symptoms"></a>증상
 
-장치 연결 끊기 또는 클라우드-장치 메시지 오류와 함께 진단 로그에 **LinkCreationConflict 오류 409002** 이 표시 됩니다. 
+장치 연결 끊기 또는 클라우드-장치 메시지 오류와 함께 로그에 **LinkCreationConflict 오류 409002** 이 표시 됩니다.
 
 <!-- When using AMQP? -->
 
@@ -38,6 +38,6 @@ ms.locfileid: "81758748"
 
 장치 측 논리에 결함이 있으면 장치가 이미 열려 있는 경우 연결을 설정 하 게 됩니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 오류는 대부분 다른 일시적인 문제의 부작용으로 나타나므로 추가로 문제를 해결하려면 로그에서 다른 오류를 검색합니다. 그렇지 않으면, 연결이 끊어질 경우만 새 연결 요청을 발급해야 합니다.

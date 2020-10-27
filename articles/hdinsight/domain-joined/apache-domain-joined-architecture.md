@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365787"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547982"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -57,7 +57,7 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 도메인에 대한 온-프레미스 Active Directory 인스턴스 또는 더 복잡한 Active Directory 설정이 있는 경우, Azure AD Connect를 사용하여 해당 ID를 Azure AD에 동기화할 수 있습니다. 그런 다음, 해당 Active Directory 테넌트에서 Azure AD DS를 사용하도록 설정할 수 있습니다.
 
-Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다.
+Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/tutorial-create-instance.md)해야 합니다.
 
 Active Directory Federation Services (AD FS)와 페더레이션을 사용 하는 경우 암호 해시 동기화를 사용 하도록 설정 해야 합니다. 권장 설정에 대해서는 [이 비디오](https://youtu.be/qQruArbu2Ew)를 참조 하세요. 암호 해시 동기화는 AD FS 인프라에 오류가 발생 하는 경우 재해 복구에 도움이 되며, 누출 된 자격 증명 보호를 제공 하는 데도 도움이 됩니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요.
 
@@ -65,7 +65,7 @@ Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM
 
 페더레이션을 사용 중이 고 암호 해시가 올바르게 동기화 되었지만 인증 오류가 발생 하는 경우 PowerShell 서비스 주체에 대해 클라우드 암호 인증을 사용 하도록 설정 했는지 확인 합니다. 그렇지 않은 경우 Azure AD 테넌트에 대해 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
 
-1. Preview [AZURE AD PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2)을 설치 합니다.
+1. Preview [AZURE AD PowerShell 모듈](/powershell/azure/active-directory/install-adv2)을 설치 합니다.
 
    ```powershell
    Install-Module AzureAD

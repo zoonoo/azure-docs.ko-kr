@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322876"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545500"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -24,9 +24,9 @@ Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅
 > [!NOTE]  
 > 이 문서에서 만든 스톰 토폴로지 예제의 전체 버전은에서 사용할 수 있습니다 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) .
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* [JDK (Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
+* [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Maven 프로젝트 만들기
 
-다음 명령을 입력 하 여 **WordCount**라는 Maven 프로젝트를 만듭니다.
+다음 명령을 입력 하 여 **WordCount** 라는 Maven 프로젝트를 만듭니다.
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -149,7 +149,7 @@ Storm 구성 요소에 대한 종속성을 추가합니다. 에서 `pom.xml` 섹
 컴파일 시간에 Maven은 이 정보를 사용하여 Maven 리포지토리에서 `storm-core`를 찾습니다. 먼저 로컬 컴퓨터의 리포지토리에서 찾습니다. 파일이 없으면 Maven은 공개 Maven 리포지토리에서 파일을 다운로드하여 로컬 리포지토리에 저장합니다.
 
 > [!NOTE]  
-> 이 섹션에서 `<scope>provided</scope>` 줄을 확인합니다. 이 설정은 Maven이 만든 JAR 파일에서 **storm-core**를 제외하도록 요청합니다. 시스템을 통해 제공되기 때문입니다.
+> 이 섹션에서 `<scope>provided</scope>` 줄을 확인합니다. 이 설정은 Maven이 만든 JAR 파일에서 **storm-core** 를 제외하도록 요청합니다. 시스템을 통해 제공되기 때문입니다.
 
 ## <a name="build-configuration"></a>빌드 구성
 
@@ -199,9 +199,9 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 
     또 다른 유용한 플러그 인은 [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) 컴파일 옵션을 변경 하는 데 사용 되는입니다. 응용 프로그램의 원본 및 대상에 Maven이 사용 하는 Java 버전을 변경 합니다.
 
-  * HDInsight __3.4 이하__의 경우 원본과 대상의 Java 버전을 __1.7__로 설정합니다.
+  * HDInsight __3.4 이하__ 의 경우 원본과 대상의 Java 버전을 __1.7__ 로 설정합니다.
 
-  * HDInsight __3.5__의 경우 원본과 대상의 Java 버전을 __1.8__로 설정합니다.
+  * HDInsight __3.5__ 의 경우 원본과 대상의 Java 버전을 __1.8__ 로 설정합니다.
 
   Apache Maven Compiler 플러그 인을 포함하려면 `pom.xml` 파일의 `<plugins>` 섹션에 다음 텍스트를 추가합니다. 이 예에서는 1.8을 지정하므로 대상 HDInsight 버전은 3.5가 됩니다.
 
@@ -237,11 +237,11 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 
 Java 기반 Apache Storm 토폴로지는 사용자가 작성자이거나 종속성으로 참조되는 세 개의 구성 요소로 이루어져 있습니다.
 
-* **Spout**: 외부 소스에서 데이터를 읽고 데이터의 스트림을 토폴로지로 내보냅니다.
+* **Spout** : 외부 소스에서 데이터를 읽고 데이터의 스트림을 토폴로지로 내보냅니다.
 
-* **볼트**: spout 또는 다른 볼트가 내보내는 스트림에서 처리 하 고 하나 이상의 스트림을 내보냅니다.
+* **볼트** : spout 또는 다른 볼트가 내보내는 스트림에서 처리 하 고 하나 이상의 스트림을 내보냅니다.
 
-* **토폴로지**: Spout 및 Bolt 배열 방식을 정의하고 토폴로지에 대한 진입점을 제공합니다.
+* **토폴로지** : Spout 및 Bolt 배열 방식을 정의하고 토폴로지에 대한 진입점을 제공합니다.
 
 ### <a name="create-the-spout"></a>Spout 만들기
 
@@ -327,9 +327,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Bolt는 데이터 처리를 다룹니다. Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 모든 작업을 수행할 수 있습니다. 이 토폴로지는 두 개의 bolt를 사용합니다.
 
-* **SplitSentence**: **RandomSentenceSpout**를 통해 내보낸 문장을 개별 단어로 분리합니다.
+* **SplitSentence** : **RandomSentenceSpout** 를 통해 내보낸 문장을 개별 단어로 분리합니다.
 
-* **WordCount**: 각각의 단어가 발생한 횟수를 계산합니다.
+* **WordCount** : 각각의 단어가 발생한 횟수를 계산합니다.
 
 #### <a name="splitsentence"></a>SplitSentence
 

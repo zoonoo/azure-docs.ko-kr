@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462278"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540400"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -34,7 +34,7 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 
 HDInsight에서 Hive를 사용하는 여러 가지 방법을 알아보려면 다음 표를 참조하세요.
 
-| 다음을 원하는 경우 **이 메서드를 사용**... | ...**대화형** 쿼리 | ... **일괄** 처리 | ... **클라이언트 운영 체제** |
+| 다음을 원하는 경우 **이 메서드를 사용** ... | ... **대화형** 쿼리 | ... **일괄** 처리 | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
 | [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X, 또는 Windows |
 | [Visual Studio용 HDInsight 도구](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -72,14 +72,14 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니다.
 
-* __내부__: 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 스토리지인 `/hive/warehouse/`에 있습니다.
+* __내부__ : 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 스토리지인 `/hive/warehouse/`에 있습니다.
 
     다음 조건 중 하나가 적용되는 경우 내부 테이블을 사용합니다.
 
     * 데이터가 일시적입니다.
     * Hive로 테이블 및 데이터의 수명 주기를 관리하고자 합니다.
 
-* __외부__: 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 스토리지에 데이터를 저장할 수 있습니다.
+* __외부__ : 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 스토리지에 데이터를 저장할 수 있습니다.
 
     다음 조건 중 하나가 적용되는 경우 외부 테이블을 사용합니다.
 
@@ -88,7 +88,7 @@ Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니�
     * 기본이 아닌 스토리지 계정과 같은 사용자 지정 위치가 필요합니다.
     * Hive 이외의 프로그램은 데이터 형식, 위치 등을 관리 합니다.
 
-자세한 내용은 [Hive 내부 및 외부 테이블 소개](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) 블로그 게시물을 참조하세요.
+자세한 내용은 [Hive 내부 및 외부 테이블 소개](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro) 블로그 게시물을 참조하세요.
 
 ## <a name="user-defined-functions-udf"></a>UDF(사용자 정의 함수)
 
@@ -100,7 +100,7 @@ Hive는 **사용자 정의 함수(UDF)** 를 통해 확장 될 수도 있습니�
 
 * [Apache Hive에서 C# 사용자 정의 함수 사용](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [HDInsight에 사용자 지정 Apache Hive 사용자 정의 함수를 추가하는 방법](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [HDInsight에 사용자 지정 Apache Hive 사용자 정의 함수를 추가하는 방법](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [날짜/시간 형식을 Hive 타임스탬프로 변환하는 Apache Hive 사용자 지정 함수 예제](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -197,11 +197,11 @@ Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부
 
 SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 수 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Hive 작업을 하는 다음 구성 요소를 제공합니다.
 
-* [Azure HDInsight 하이브 태스크](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Azure HDInsight 하이브 태스크](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Azure 구독 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Azure 구독 연결 관리자](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-자세한 내용은 [Azure 기능 팩](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) 설명서를 참조하세요.
+자세한 내용은 [Azure 기능 팩](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) 설명서를 참조하세요.
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

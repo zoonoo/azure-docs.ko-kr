@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747edfdb2a2709a842f767d2ace09662d139c827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ed68211d034a133b923b6a2eec20ad6f1a0ffe2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666435"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541029"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -35,8 +35,6 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 > [!Important]
 > 구독을 다른 디렉터리와 연결 하는 경우 [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
 >
-> 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
->
 > AKS (Azure Kubernetes Service) 클러스터를 다른 구독으로 이동 하거나 클러스터 소유 구독을 새 테 넌 트로 이동 하면 손실 된 역할 할당 및 서비스 주체 권한으로 인해 클러스터가 기능을 잃게 됩니다. AKS에 대 한 자세한 내용은 [Azure Kubernetes Service (AKS)](../../aks/index.yml)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -50,7 +48,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
   - 키 자격 증명 모음이 있는 경우 액세스할 수 없게 되며 연결 후 수정 해야 합니다.
   - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 관리 id가 있는 경우 연결 후 다시 사용 하도록 설정 하거나 다시 만들어야 합니다.
   - 등록 된 Azure Stack 있는 경우 연결 후 다시 등록 해야 합니다.
-  - 자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
+  - 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 
 - 다음 조건을 충족하는 계정을 사용하여 로그인해야 합니다.
 
@@ -65,11 +63,11 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 1. 로그인 하 고 [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 사용 하려는 구독을 선택 합니다.
 
-1. **디렉터리 변경**을 선택 합니다.
+1. **디렉터리 변경** 을 선택 합니다.
 
    ![디렉터리 변경 옵션이 강조 표시된 구독 페이지](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
 
-1. 표시 되는 경고를 검토 하 고 **변경**을 선택 합니다.
+1. 표시 되는 경고를 검토 하 고 **변경** 을 선택 합니다.
 
    ![디렉터리 페이지를 변경하여 변경 대상 디렉터리 표시](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
@@ -79,7 +77,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
    ![예제 정보가 포함 된 디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-   모든 것이 제대로 표시 되려면 몇 시간이 걸릴 수 있습니다. 너무 오래 걸리면 **전역 구독 필터**를 확인 합니다. 이동 된 구독이 숨겨지지 않았는지 확인 합니다. Azure Portal 로그 아웃 했다가 다시 로그인 하 여 새 디렉터리를 확인 해야 할 수 있습니다.
+   모든 것이 제대로 표시 되려면 몇 시간이 걸릴 수 있습니다. 너무 오래 걸리면 **전역 구독 필터** 를 확인 합니다. 이동 된 구독이 숨겨지지 않았는지 확인 합니다. Azure Portal 로그 아웃 했다가 다시 로그인 하 여 새 디렉터리를 확인 해야 할 수 있습니다.
 
 구독 디렉터리 변경은 서비스 수준 작업이므로 구독 청구 소유권에 영향을 주지 않습니다. 원본 디렉터리를 삭제 하려면 구독 청구 소유권을 새 계정 관리자에 게 양도 해야 합니다. 청구 소유권을 전송 하는 방법에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../cost-management-billing/manage/billing-subscription-transfer.md)을 참조 하세요.
 
@@ -93,7 +91,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 - 이 구독을 사용 하 여 Azure Stack를 등록 한 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure를 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)을 참조 하세요.
 
-- 자세한 내용은 [azure 구독을 다른 AZURE AD 디렉터리에 전송](../../role-based-access-control/transfer-subscription.md)을 참조 하세요.
+- 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

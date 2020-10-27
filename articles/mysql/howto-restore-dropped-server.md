@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 1de11a07bdbac153b6813915cfa52edfa6484aec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877007"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546724"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>삭제 된 Azure Database for MySQL 서버 복원
 
@@ -36,7 +36,7 @@ ms.locfileid: "91877007"
    
  3. 삭제 MySQL 서버 이벤트를 두 번 클릭 하 고 JSON 탭을 클릭 한 다음 JSON 출력의 "resourceId" 및 "submissionTimestamp" 특성을 확인 합니다. ResourceId는 다음 형식으로 되어 있습니다./subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
- 4. [서버 REST API 만들기 페이지로](https://docs.microsoft.com/rest/api/mysql/servers/create) 이동 하 고 녹색으로 강조 표시 된 "사용해 보세요." 탭을 클릭 하 고 Azure 계정으로 로그인 합니다.
+ 4. [서버 REST API 만들기 페이지로](/rest/api/mysql/servers/create) 이동 하 고 녹색으로 강조 표시 된 "사용해 보세요." 탭을 클릭 하 고 Azure 계정으로 로그인 합니다.
  
  5. 3 단계에서 캡처된 resourceId 특성에서 파생 된 resourceGroupName, serverName (deleted server name) 및 subscriptionId를 제공 하 고, api 버전은 이미지에 표시 된 것 처럼 미리 채워져 있습니다.
  

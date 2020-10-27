@@ -49,7 +49,7 @@
       href: tutorial-use-mqtt.md
     - name: MXChip 디바이스와 상호 작용(샘플)
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
-    - name: 디바이스를 모듈로 마이그레이션
+    - name: 디바이스 모듈 연결
       href: tutorial-migrate-device-to-module.md
 - name: 개념
   items:
@@ -85,8 +85,6 @@
       href: concepts-model-discovery.md
     - name: 모델 파서
       href: concepts-model-parser.md
-    - name: 한도 및 할당량
-      href: concepts-limits-quotas.md
     - name: 용어
       href: iot-plug-and-play-glossary.md
 - name: 방법 가이드

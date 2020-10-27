@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 501b609d745e0a86bc1e00bccae54bb4f6e49376
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147087"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545279"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -39,43 +39,43 @@ IoT Hub의 거부 IP 규칙에 일치하는 IP 주소에서 오는 모든 연결
 
 기본적으로 IoT Hub에 대한 포털의 **IP 필터** 그리드는 비어있습니다. 이러한 기본 설정은 허브가 모든 IP 주소의 연결을 수락한다는 것을 의미합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다.
 
-IP 필터 설정 페이지로 이동하려면 **네트워킹**, **공용 액세스**를 차례로 선택한 다음, **선택한 IP 범위**를 선택합니다.
+IP 필터 설정 페이지로 이동하려면 **네트워킹** , **공용 액세스** 를 차례로 선택한 다음, **선택한 IP 범위** 를 선택합니다.
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>IP 필터 규칙 추가 또는 편집
 
-IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가**를 선택합니다.
+IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가** 를 선택합니다.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
-**IP 필터 규칙 추가**를 선택한 후 필드를 입력합니다.
+**IP 필터 규칙 추가** 를 선택한 후 필드를 입력합니다.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
-* IP 필터 규칙의 **이름**을 제공합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
+* IP 필터 규칙의 **이름** 을 제공합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
 
 * 단일 IPv4 주소 또는 CIDR 표기법으로 IP 주소 블록을 제공합니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.
 
-* IP 필터 규칙에 대한 **작업**으로 **허용** 또는 **차단**을 선택합니다.
+* IP 필터 규칙에 대한 **작업** 으로 **허용** 또는 **차단** 을 선택합니다.
 
-필드를 채운 후 **저장**을 선택하여 규칙을 저장합니다. 업데이트가 진행 중임을 알리는 경고가 표시됩니다.
+필드를 채운 후 **저장** 을 선택하여 규칙을 저장합니다. 업데이트가 진행 중임을 알리는 경고가 표시됩니다.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
-기존 규칙을 편집하려면 변경하려는 데이터를 선택하고 변경 내용을 적용한 다음, **저장**을 선택하여 편집 내용을 저장합니다.
+기존 규칙을 편집하려면 변경하려는 데이터를 선택하고 변경 내용을 적용한 다음, **저장** 을 선택하여 편집 내용을 저장합니다.
 
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
-IP 필터 규칙을 삭제하려면 해당 행에서 휴지통 아이콘을 선택하고 **저장**을 선택합니다. 규칙이 제거되고 변경 내용이 저장됩니다.
+IP 필터 규칙을 삭제하려면 해당 행에서 휴지통 아이콘을 선택하고 **저장** 을 선택합니다. 규칙이 제거되고 변경 내용이 저장됩니다.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI를 사용하여 IP 필터 검색 및 업데이트
 
-IoT Hub의 IP 필터는 [Azure  CLI](/cli/azure/?view=azure-cli-latest)를 통해 검색 및 업데이트할 수 있습니다.
+IoT Hub의 IP 필터는 [Azure  CLI](/cli/azure/)를 통해 검색 및 업데이트할 수 있습니다.
 
 IoT Hub의 현재 IP 필터를 검색하려면 다음을 실행합니다.
 
@@ -159,7 +159,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 
 행의 시작 부분에 있는 세 개의 세로 점을 클릭하고 끌어서 놓기를 사용하여 그리드에서 IP 필터 규칙의 순서를 변경할 수 있습니다.
 
-새 IP 필터 규칙 순서를 저장하려면 **저장**을 클릭합니다.
+새 IP 필터 규칙 순서를 저장하려면 **저장** 을 클릭합니다.
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="IoT Hub 기본 IP 필터 설정":::
 
@@ -167,4 +167,4 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Hub 메트릭](iot-hub-metrics.md)
+* [모니터 IoT Hub](monitor-iot-hub.md)

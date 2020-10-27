@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79271942"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545636"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
@@ -25,31 +25,31 @@ Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 �
 
 1. `https://CLUSTERNAME.azurehdidnsight.net`클러스터 자격 증명을 사용 하 여 Ambari에 로그인 합니다. 초기 화면에 개요 대시보드가 표시 됩니다. HDInsight 3.6과 4.0 간에는 약간의 외관상 차이가 있습니다.
 
-1. **Spark2**  >  **Configs**로 이동 합니다.
+1. **Spark2**  >  **Configs** 로 이동 합니다.
 
     ![Configs 탭 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. 구성 목록에서 **spark2-defaults**를 선택 하 고 확장 합니다.
+1. 구성 목록에서 **spark2-defaults** 를 선택 하 고 확장 합니다.
 
-1. **spark.executor.memory**와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우에는 **9728m** 의 값이 너무 높습니다.
+1. **spark.executor.memory** 와 같이 조정해야 하는 값 설정을 찾습니다. 이 경우에는 **9728m** 의 값이 너무 높습니다.
 
     ![custom-spark-defaults 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. 값을 권장 설정으로 지정합니다. 이 설정에는 **2048m** 값이 권장됩니다.
 
-1. 값을 저장하고 구성을 저장합니다. **저장**을 선택합니다.
+1. 값을 저장하고 구성을 저장합니다. **저장** 을 선택합니다.
 
     ![값을 2048m으로 변경](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    구성 변경 내용에 대한 메모를 작성하고 **저장**을 선택합니다.
+    구성 변경 내용에 대한 메모를 작성하고 **저장** 을 선택합니다.
 
     ![변경 내용에 대한 메모 입력](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    주의할 필요가 있는 구성이면 알림이 표시됩니다. 항목을 확인한 후 **계속 진행**을 선택합니다.
+    주의할 필요가 있는 구성이면 알림이 표시됩니다. 항목을 확인한 후 **계속 진행** 을 선택합니다.
 
     ![계속 진행 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. 구성이 저장될 때마다 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작**을 선택합니다.
+1. 구성이 저장될 때마다 서비스를 다시 시작하라는 메시지가 표시됩니다. **다시 시작** 을 선택합니다.
 
     ![다시 시작 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 �
 
     ![실행 중인 프로세스 검토](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. 구성을 추가할 수 있습니다. 구성 목록에서 **Custom-spark2-defaults**를 선택하고 **속성 추가**를 선택합니다.
+1. 구성을 추가할 수 있습니다. 구성 목록에서 **Custom-spark2-defaults** 를 선택하고 **속성 추가** 를 선택합니다.
 
     ![속성 추가 선택](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. 새 속성을 정의합니다. 데이터 형식과 같은 특정 설정에 대한 대화 상자를 사용하여 단일 속성을 정의할 수 있습니다. 또는 줄당 하나의 정의를 사용하여 여러 속성을 정의할 수 있습니다.
 
-    이 예제에서 **spark.driver.memory** 속성의 값은 **4g**로 정의되었습니다.
+    이 예제에서 **spark.driver.memory** 속성의 값은 **4g** 로 정의되었습니다.
 
     ![새 속성 정의](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -107,10 +107,10 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 * [Spark 메모리 관리 개요](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [HDInsight 클러스터에서 Spark 응용 프로그램 디버깅](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+* [HDInsight 클러스터에서 Spark 응용 프로그램 디버깅](/archive/blogs/azuredatalake/spark-debugging-101)
 
 * [Azure 커뮤니티 지원](https://azure.microsoft.com/support/community/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 
 * [@AzureSupport](https://twitter.com/azuresupport)(고객 환경을 개선하기 위한 공식 Microsoft Azure 계정)에 연결합니다. Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. 구독 관리 및 청구 지원에 대한 액세스는 Microsoft Azure 구독에 포함되며 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.

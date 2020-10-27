@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887158"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547897"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase 성능 문제 해결
 
@@ -73,9 +73,9 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누
 
 - `memstore`크기를 기본 128 mb에서 256 mb로 늘립니다. 일반적으로이 설정은 많은 쓰기 시나리오에 권장 됩니다.
 
-- 기본 설정인 **1** 에서 **4**로 압축 전용 스레드 수를 늘립니다. 이 설정은 사소한 작업을 자주 관찰 하는 경우에 적합 합니다.
+- 기본 설정인 **1** 에서 **4** 로 압축 전용 스레드 수를 늘립니다. 이 설정은 사소한 작업을 자주 관찰 하는 경우에 적합 합니다.
 
-- `memstore`저장소 제한으로 인해 플러시를 차단 하지 않습니다. 이 버퍼를 제공 하려면 `Hbase.hstore.blockingStoreFiles` 설정을 **100**로 늘립니다.
+- `memstore`저장소 제한으로 인해 플러시를 차단 하지 않습니다. 이 버퍼를 제공 하려면 `Hbase.hstore.blockingStoreFiles` 설정을 **100** 로 늘립니다.
 
 - 플러시를 제어 하려면 다음 설정을 사용 합니다.
 
@@ -104,13 +104,13 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누
 - RPC 시간 제한: **3 분**
 
    - RPC 시간 제한에는 HBase RPC 시간 제한, HBase 클라이언트 스캐너 시간 제한 및 Phoenix 쿼리 제한 시간이 포함 됩니다. 
-   - `hbase.client.scanner.caching`매개 변수가 서버 end와 클라이언트 끝에서 같은 값으로 설정 되어 있는지 확인 합니다. 동일 하지 않은 경우이 설정에는와 관련 된 클라이언트 끝 오류가 발생 `OutOfOrderScannerException` 합니다. 이 설정은 대량 검색에 대해 낮은 값으로 설정 해야 합니다. 이 값은 **100**로 설정 됩니다.
+   - `hbase.client.scanner.caching`매개 변수가 서버 end와 클라이언트 끝에서 같은 값으로 설정 되어 있는지 확인 합니다. 동일 하지 않은 경우이 설정에는와 관련 된 클라이언트 끝 오류가 발생 `OutOfOrderScannerException` 합니다. 이 설정은 대량 검색에 대해 낮은 값으로 설정 해야 합니다. 이 값은 **100** 로 설정 됩니다.
 
 ## <a name="other-considerations"></a>기타 고려 사항
 
 다음은 튜닝을 고려 하는 추가 매개 변수입니다.
 
-- `Hbase.rs.cacheblocksonwrite` – HDI에서는 기본적으로이 설정이 **true**로 설정 됩니다.
+- `Hbase.rs.cacheblocksonwrite` – HDI에서는 기본적으로이 설정이 **true** 로 설정 됩니다.
 
 - 나중에 대 한 보조 압축을 연기할 수 있는 설정입니다.
 
@@ -124,4 +124,4 @@ HDInsight HBase에서 HFiles는 원격 저장소에 저장 됩니다. 캐시 누
 
 - [@AzureSupport](https://twitter.com/azuresupport)에 연결합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원**을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 참조하세요. Microsoft Azure 구독에는 구독 관리 및 청구 지원에 대 한 액세스 권한이 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.
+- 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조하세요. Microsoft Azure 구독에는 구독 관리 및 청구 지원에 대 한 액세스 권한이 포함 되며, [Azure 지원 계획](https://azure.microsoft.com/support/plans/)중 하나를 통해 기술 지원이 제공 됩니다.

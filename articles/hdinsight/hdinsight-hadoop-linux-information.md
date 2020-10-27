@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488115"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546112"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -81,7 +81,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
     >
     > 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **SSH** - CLUSTERNAME -포트 22 또는 23의 ssh.azurehdinsight.net. 포트 22는 기본 헤드 노드에 연결하는 데 사용되는 반면 포트 23은 보조 헤드 노드에 연결하는 데 사용됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
+* **SSH** - CLUSTERNAME -포트 22 또는 23의 ssh.azurehdinsight.net. 포트 22는 기본 헤드 노드에 연결하는 데 사용되는 반면 포트 23은 보조 헤드 노드에 연결하는 데 사용됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성](./hdinsight-business-continuity.md)을 참조하세요.
 
     > [!NOTE]  
     > 클라이언트 컴퓨터에서 SSH를 통해 클러스터 헤드 노드에 액세스할 수 있습니다. 연결한 후 헤드 노드에서 SSH를 사용하여 작업자 노드에 액세스할 수 있습니다.
@@ -92,8 +92,8 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* **2.6.5.3009-43**: 디렉터리 이름은 HDInsight에서 사용하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
-* **current**: 이 디렉터리에는 **2.6.5.3009-43** 디렉터리 아래의 하위 디렉터리에 대한 링크가 포함되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
+* **2.6.5.3009-43** : 디렉터리 이름은 HDInsight에서 사용하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
+* **current** : 이 디렉터리에는 **2.6.5.3009-43** 디렉터리 아래의 하위 디렉터리에 대한 링크가 포함되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
@@ -183,13 +183,13 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 1. [Azure 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
 
-2. **속성** 섹션에서 **Storage 계정**을 선택합니다. 클러스터에 대한 스토리지 정보가 표시됩니다.
+2. **속성** 섹션에서 **Storage 계정** 을 선택합니다. 클러스터에 대한 스토리지 정보가 표시됩니다.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>HDInsight 외부에서 파일에 액세스하는 방법
 
 HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방법이 있습니다. 다음은 데이터 작업에 사용할 수 있는 유틸리티 및 SDK에 대한 몇 가지 링크입니다.
 
-__Azure Blob storage__를 사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
+__Azure Blob storage__ 를 사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
 
 * [Azure CLI](/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 스토리지 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Azure Storage의 Blob 작업을 위한 Python 스크립트입니다.
@@ -201,9 +201,9 @@ __Azure Blob storage__를 사용 하는 경우 데이터에 액세스할 수 있
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Storage REST API](/rest/api/storageservices/Blob-Service-REST-API)
 
-__Azure Data Lake Storage Gen1__사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
+__Azure Data Lake Storage Gen1__ 사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
 
 * [웹 브라우저](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -245,7 +245,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 > [!IMPORTANT]
 > HDInsight 클러스터와 함께 제공되는 구성 요소는 완벽하게 지원되며 Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하는 데 도움이 됩니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/)).
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com) 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/)).
 
 ## <a name="next-steps"></a>다음 단계
 

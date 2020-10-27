@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759587"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538275"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -26,7 +26,7 @@ ms.locfileid: "81759587"
 
 ### <a name="symptom-1"></a>증상 1
 
-진단 로그에 **401003 IoTHubUnauthorized**와의 연결을 끊은 후 **404104 DeviceConnectionClosedRemotely**을 연결한 후 잠시 후에 성공적으로 연결 하는 장치 패턴이 표시 됩니다.
+로그에 **401003 IoTHubUnauthorized** 와의 연결을 끊은 후 **404104 DeviceConnectionClosedRemotely** 가 표시 된 후 잠시 후에 성공적으로 연결 하는 장치 패턴이 표시 됩니다.
 
 ### <a name="symptom-2"></a>증상 2
 
@@ -54,7 +54,7 @@ MQTT의 경우 일부 Sdk는 IoT Hub를 사용 하 여 SAS 토큰이 만료 될 
 
 IoT Hub 인증 헤더, 규칙 또는 키를 인증할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 ### <a name="solution-1"></a>해결 방법 1
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484766"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539703"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Windows PC에서 HDInsight의 Apache Hadoop 에코시스템 작업
 
@@ -31,17 +31,17 @@ PowerShell로 수행할 수 있는 작업의 예:
 * [PowerShell을 사용 하 여 Apache Hive 쿼리를 실행](hadoop/apache-hadoop-use-hive-powershell.md)합니다.
 * [PowerShell을 사용 하 여 클러스터를 관리](hdinsight-administer-use-powershell.md)합니다.
 
-[Azure Powershell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps) 단계에 따라 최신 버전을 가져옵니다.
+[Azure Powershell 설치 및 구성](/powershell/azure/install-az-ps) 단계에 따라 최신 버전을 가져옵니다.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>브라우저에서 실행할 수 있는 유틸리티
 
 다음 유틸리티는 브라우저에서 실행되는 웹 UI가 있습니다.
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** 은 브라우저에서 실행 되 고 Azure Portal 내에서 실행 되는 대화형 명령줄 셸입니다.
+* **[Azure Cloud Shell](../cloud-shell/overview.md)** 은 브라우저에서 실행 되 고 Azure Portal 내에서 실행 되는 대화형 명령줄 셸입니다.
 
 * **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** 는 다음과 같은 다양한 종류의 작업을 관리하는 데 사용할 수 있으며 Azure Portal에서 사용 가능한 관리 및 모니터링 유틸리티입니다.
     * [REST API로 Apache Ambari 사용](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Ambari에서 Apache Hive 보기](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Apache Ambari에서 Apache Tez 보기](hdinsight-debug-ambari-tez-view.md)
+    * [Apache Ambari에서 Apache Tez 보기](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Visual Studio용 Data Lake(Hadoop) 도구
 
@@ -84,8 +84,8 @@ HDInsight의 Apache Spark 클러스터는 Jupyter Notebook과 함께 사용할 �
 
 Linux 에서만 사용할 수 있는 도구 또는 기술을 사용 해야 하는 상황이 발생 하는 경우 다음 옵션을 고려 하십시오.
 
-* **Windows 10의 Ubuntu에 있는 Bash** 는 Windows에서 Linux 하위 시스템을 제공 합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](https://docs.microsoft.com/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.
-* **Windows용 Docker**는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
+* **Windows 10의 Ubuntu에 있는 Bash** 는 Windows에서 Linux 하위 시스템을 제공 합니다. Bash를 사용하면 전용 Linux 설치를 유지하지 않고도 Linux 유틸리티를 직접 실행할 수 있습니다. [Windows 10을 위한 Linux용 Windows 하위 시스템 설치 가이드](/windows/wsl/install-win10)에서 설치 단계를 참조하세요.  다른 [Unix 셸](https://www.gnu.org/software/bash/)도 작동합니다.
+* **Windows용 Docker** 는 대부분의 Linux 기반 도구에 대한 액세스를 제공하며 Windows에서 직접 실행할 수 있습니다. 예를 들어, Docker를 사용하여 Hive에 대한 Beeline 클라이언트를 Windows에서 직접 실행할 수 있습니다. 또한 Docker를 사용하여 로컬 Jupyter Notebook을 실행하고 HDInsight의 Spark에 원격으로 연결할 수 있습니다. [Windows용 Docker 시작](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** 을 사용하면 그래픽 방식으로 SSH 연결을 통해 클러스터 파일 시스템을 찾아볼 수 있습니다.
 
 ## <a name="cross-platform-tools"></a>플랫폼 간 도구

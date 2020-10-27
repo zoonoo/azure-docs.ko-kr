@@ -6,17 +6,17 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 2149d069ce9cb0b636e461d19963f413b162bc9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010898"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537527"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Azure Cache for Redis 모니터링 및 문제 해결 Faq
 이 문서에서는 Redis 용 Azure Cache를 모니터링 하 고 문제를 해결 하는 방법에 대 한 질문과 대답을 제공 합니다.
 
-## <a name="common-questions-and-answers"></a>일반적인 질문 및 답변
+## <a name="common-questions-and-answers"></a>일반적인 질문과 답변
 이 섹션에서는 다음 Faq를 다룹니다.
 
 * [내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
@@ -26,10 +26,10 @@ ms.locfileid: "88010898"
 ### <a name="how-do-i-monitor-the-health-and-performance-of-my-cache"></a>내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?
 Microsoft Azure Cache for Redis 인스턴스는 [Azure Portal](https://portal.azure.com)에서 모니터링할 수 있습니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 자세한 내용은 [Azure Cache for Redis 모니터링](cache-how-to-monitor.md)을 참조하세요.
 
-또한 Azure Cache for Redis **리소스 메뉴**에는 캐시를 모니터링하고 문제를 해결할 수 있는 몇 가지 도구가 포함되어 있습니다.
+또한 Azure Cache for Redis **리소스 메뉴** 에는 캐시를 모니터링하고 문제를 해결할 수 있는 몇 가지 도구가 포함되어 있습니다.
 
-* **문제 진단 및 해결**에서는 일반적인 문제 및 문제 해결 전략에 대한 정보를 제공합니다.
-* **리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../resource-health/resource-health-overview.md)를 참조하세요.
+* **문제 진단 및 해결** 에서는 일반적인 문제 및 문제 해결 전략에 대한 정보를 제공합니다.
+* **리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.
 * **새 지원 요청** 을 클릭하여 캐시에 대한 지원 요청을 엽니다.
 
 이러한 도구는 Azure Cache for Redis 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 애플리케이션 관리에 도움이 됩니다. 자세한 내용은 [Azure Cache for Redis를 구성하는 방법](cache-configure.md)의 "지원 및 문제 해결 설정" 섹션을 참조하세요.
