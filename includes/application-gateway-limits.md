@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 92ec7c0a1469c9f02855cd6191faa8514e54c8f0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829210"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92526135"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -39,6 +39,6 @@ ms.locfileid: "91829210"
 | 최대 파일 업로드 크기 WAF |V1 중간 WAF 게이트웨이, 100MB<br>V1 대형 WAF 게이트웨이, 500MB<br>V2 WAF, 750MB| |
 | WAF 본문 크기 제한(파일 제외)|128KB||
 | 최대 WAF 사용자 지정 규칙 수|100||
-| 최대 WAF 제외 수|100||
+| Application Gateway당 최대 WAF 제외 수|40||
 
 <sup>1</sup> WAF 기반 SKU의 경우 리소스 수를 40개로 제한해야 합니다.
