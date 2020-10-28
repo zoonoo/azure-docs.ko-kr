@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739233"
 ---
 # <a name="apply-transformation-module"></a>변환 모듈 적용
 
 이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
-이 모듈을 사용 하 여 이전에 계산 된 변환을 기반으로 입력 데이터 집합을 수정 합니다.
+이 모듈을 사용 하 여 이전에 계산 된 변환을 기반으로 입력 데이터 집합을 수정 합니다. 이 모듈은 유추 파이프라인에서 변환을 업데이트 해야 하는 경우에 필요 합니다.
 
 예를 들어 **데이터 정규화** 모듈을 사용 하 여 z 점수를 사용 하 여 학습 데이터를 정규화 한 경우 점수 매기기 단계 중에 학습에 대해 계산 된 z 점수 값을 사용 하는 것이 좋습니다. Azure Machine Learning에서는 정규화 방법을 변환으로 저장 한 다음 **변환 적용** 을 사용 하 여 점수 매기기 전에 입력 데이터에 z 점수를 적용할 수 있습니다.
 
@@ -46,7 +46,14 @@ ms.locfileid: "90898875"
   
 1. 원하는 모듈의 데이터 집합 출력을 **변환 적용** 모듈의 오른쪽 입력 포트에 연결 합니다.
   
-1. 새 데이터 집합에 변환을 적용 하려면 파이프라인을 실행 합니다.  
+1. 새 데이터 집합에 변환을 적용 하려면 파이프라인을 제출 합니다.  
+
+> [!IMPORTANT]
+> 학습 파이프라인에서 업데이트 된 변환도 유추 파이프라인에서 가능 하도록 하려면 학습 파이프라인에서 업데이트 된 변환이 있을 때마다 아래 단계를 수행 해야 합니다.
+> 1. 학습 파이프라인에서 [열 선택 변환](select-columns-transform.md) 의 출력을 데이터 집합으로 등록 합니다.
+> ![모듈 출력의 데이터 집합 등록](media/module/select-columns-transform-register-dataset.png)
+> 1. 유추 파이프라인에서 **TD** 모듈을 제거 하 고 이전 단계에서 등록 된 데이터 집합으로 바꿉니다.
+> ![TD module 바꾸기](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>다음 단계
 

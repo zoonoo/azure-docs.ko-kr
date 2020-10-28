@@ -48,22 +48,6 @@
           href: tutorial-dr-drill-azure.md
         - name: Azure로 장애 조치(failover)
           href: vmware-azure-tutorial-failover-failback.md
-    - name: Azure로 Azure VMware Solution 재해 복구
-      items:
-        - name: Azure 준비
-          href: avs-tutorial-prepare-azure.md
-        - name: Azure VMware Solution 준비
-          href: avs-tutorial-prepare-avs.md
-        - name: 복제 설정
-          href: avs-tutorial-replication.md
-        - name: 재해 복구 훈련 실행
-          href: avs-tutorial-dr-drill-azure.md
-        - name: Azure로 장애 조치(failover)
-          href: avs-tutorial-failover.md
-        - name: VM 다시 보호
-          href: avs-tutorial-reprotect.md
-        - name: Azure에서 장애 복구
-          href: avs-tutorial-failback.md
     - name: Azure로 Hyper-V VM 재해 복구
       items:
         - name: Azure 준비
@@ -164,7 +148,7 @@
       href: recovery-plan-overview.md
     - name: Azure로 마이그레이션 정보
       href: migrate-overview.md
-    - name: Site Recovery를 사용하는 Azure 역할 기반 액세스 제어 정보
+    - name: Site Recovery를 사용하는 역할 기반 액세스 제어 정보
       href: site-recovery-role-based-linked-access-control.md
     - name: 보조 온-프레미스 사이트로 재해 복구 정보
       items:
@@ -176,6 +160,10 @@
           href: hyper-v-vmm-secondary-support-matrix.md
         - name: 보조 사이트로 Hyper-V VM에 대한 아키텍처
           href: hyper-v-vmm-architecture.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: Azure 간 재해 복구
@@ -276,7 +264,7 @@
               href: vmware-azure-enable-replication.md
             - name: 복제에서 디스크 제외
               href: vmware-azure-exclude-disk.md
-            - name: 연습 - 다중 테넌트 및 CSP를 사용하여 VMware VM에 대한 복제 설정
+            - name: 연습 - 다중 테넌트 및 CSP를 사용하여 VMWare VM에 대한 복제 설정
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: 장애 조치(failover) 및 장애 복구(failback) 실행
           items:

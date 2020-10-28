@@ -3,13 +3,13 @@ title: 인증/인증의 고급 사용
 description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한 부여 기능을 사용자 지정 하 고 사용자 클레임 및 다른 토큰을 가져오는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 07/08/2020
-ms.custom: seodec18
-ms.openlocfilehash: 6120283ec240441cc62cad642bbeda0b735abc0f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ad83e7ad5e1ffc03bf7c62df9b28512e19a62100
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637329"
+ms.locfileid: "92739797"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 

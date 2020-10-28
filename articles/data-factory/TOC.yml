@@ -748,8 +748,6 @@
           href: connector-troubleshoot-guide.md
         - name: 데이터 흐름
           href: data-flow-troubleshoot-guide.md
-        - name: 데이터 복사 도구
-          href: copy-data-tool-troubleshoot-guide.md
         - name: 자체 호스팅 통합 런타임
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Azure SSIS 통합 런타임
@@ -783,7 +781,7 @@
     - name: 블로그
       href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
     - name: 질문하기 - Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: 질문하기 - 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: 기능 요청

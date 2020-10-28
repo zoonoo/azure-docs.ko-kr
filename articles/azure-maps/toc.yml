@@ -359,9 +359,9 @@
     - name: Azure IoT SDK
       items:
         - name: IoT 서비스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks
         - name: IoT 디바이스 SDK
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks
     - name: Azure Maps 사용 약관
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps 가격 책정

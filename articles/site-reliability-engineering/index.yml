@@ -11,12 +11,12 @@ metadata:
   author: dnblankedelman
   ms.author: dnb
   ms.date: 02/18/2020
-  ms.openlocfilehash: e5c1ef5e84f0170927d7fcac65b594d44ed33b93
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 1a7fff4aa1978afb1487717e63e21b0b750dc5cc
+  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85833437"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92676554"
 highlightedContent:
   items:
   - title: 'SRE 소개:  SRE란? (1/3)'
@@ -46,9 +46,9 @@ productDirectory:
   - title: SRE 온라인 과정
     imageSrc: ./media/index/learn.svg
     links:
-    - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
+    - url: /learn/modules/intro-to-site-reliability-engineering/
       text: 사이트 안정성 엔지니어링 소개
-    - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
+    - url: /learn/paths/improve-reliability-modern-operations/
       text: 최신 운영 관행으로 안정성 향상
   - title: SRE 리소스
     imageSrc: ./media/index/reference.svg
@@ -69,97 +69,97 @@ conceptualContent:
   items:
   - title: Architecture
     links:
-    - url: https://docs.microsoft.com/azure/architecture/framework/
+    - url: /azure/architecture/framework/
       itemType: reference
       text: Azure 아키텍처 프레임워크
-    - url: https://docs.microsoft.com/azure/architecture/guide
+    - url: /azure/architecture/guide
       itemType: reference
       text: Azure 애플리케이션 아키텍처 가이드
-    - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=reference-architecture
+    - url: /azure/architecture/architectures/?filter=reference-architecture
       itemType: reference
       text: 참조 아키텍처
-    - url: https://docs.microsoft.com/azure/architecture/cloud-adoption/
+    - url: /azure/architecture/cloud-adoption/
       itemType: reference
       text: Azure에 대한 Microsoft 클라우드 채택 프레임워크
-    - url: https://docs.microsoft.com/azure/architecture/architectures/?filter=example-workload
+    - url: /azure/architecture/architectures/?filter=example-workload
       itemType: reference
       text: 예제 워크로드
-    - url: https://docs.microsoft.com/azure/architecture/microservices
+    - url: /azure/architecture/microservices
       itemType: reference
       text: Azure에서 마이크로 서비스 구축
-    - url: https://docs.microsoft.com/azure/architecture/data-guide/
+    - url: /azure/architecture/data-guide/
       itemType: reference
       text: Azure Data Architecture 가이드
-    - url: https://docs.microsoft.com/azure/architecture/best-practices/
+    - url: /azure/architecture/best-practices/
       itemType: reference
       text: 클라우드 모범 사례
-    - url: https://docs.microsoft.com/azure/architecture/framework/resiliency/overview
+    - url: /azure/architecture/framework/resiliency/overview
       itemType: reference
       text: 신뢰할 수 있는 Azure 애플리케이션 디자인
-    - url: https://docs.microsoft.com/azure/architecture/patterns
+    - url: /azure/architecture/patterns
       itemType: reference
       text: 클라우드 디자인 패턴
-    - url: https://docs.microsoft.com/azure/architecture/aws-professional
+    - url: /azure/architecture/aws-professional
       itemType: reference
       text: AWS 전문가를 위한 Azure
-    - url: https://docs.microsoft.com/azure/architecture/performance
+    - url: /azure/architecture/performance
       itemType: reference
       text: 성능 튜닝
     footerLink:
-      url: https://docs.microsoft.com/azure/architecture/
+      url: /azure/architecture/
       text: Azure 아키텍처 센터에서 자세히 보기
   - title: 모니터링
     links:
-    - url: https://docs.microsoft.com/azure/azure-monitor/overview
+    - url: ../azure-monitor/overview.md
       itemType: get-started
       text: Azure Monitor 개요
-    - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics
+    - url: ../azure-monitor/platform/data-platform-metrics.md
       itemType: get-started
       text: Azure Monitor의 메트릭
-    - url: https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs
+    - url: ../azure-monitor/platform/data-platform-logs.md
       itemType: get-started
       text: Azure Monitor의 로그
-    - url: https://docs.microsoft.com/azure/azure-monitor/azure-monitor-app-hub
+    - url: ../azure-monitor/azure-monitor-app-hub.yml
       itemType: get-started
       text: Application Insights를 사용한 애플리케이션 성능 관리
-    - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+    - url: ../azure-monitor/app/distributed-tracing.md
       itemType: get-started
       text: Azure Monitor에서 분산 추적
     footerLink:
-      url: https://docs.microsoft.com/en-us/azure/azure-monitor/
+      url: ../azure-monitor/index.yml
       text: Azure Monitor에 대한 자세한 정보
   - title: 프로비전 및 배달
     links:
-    - url: https://docs.microsoft.com/azure/azure-resource-manager/
+    - url: ../azure-resource-manager/index.yml
       itemType: get-started
       text: Azure 리소스 관리자
-    - url: https://docs.microsoft.com/azure/terraform/
+    - url: /azure/terraform/
       itemType: get-started
       text: Azure의 Terraform
     - url: https://help.github.com/actions
       itemType: get-started
       text: GitHub 작업
-    - url: https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops
+    - url: /azure/devops/pipelines/index?view=azure-devops
       itemType: get-started
       text: Azure Pipelines
   - title: 확장
     links:
-    - url: https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview
+    - url: ../azure-monitor/platform/autoscale-overview.md
       itemType: get-started
       text: 자동 크기 조정 개요
-    - url: https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling
+    - url: /azure/architecture/best-practices/auto-scaling
       itemType: get-started
       text: 자동 크기 조정 지침
     - url: https://www.pluralsight.com/courses/microsoft-azure-autoscaling-developing
       itemType: get-started
       text: 자동 크기 조정 개발
-    - url: https://docs.microsoft.com/azure/architecture/framework/scalability/overview
+    - url: /azure/architecture/framework/scalability/overview
       itemType: get-started
       text: Azure 아키텍처 확장성 핵심 요소
-    - url: https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out
+    - url: /azure/architecture/guide/design-principles/scale-out
       itemType: get-started
       text: 규모 확장을 위한 디자인
-    - url: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
+    - url: /azure/architecture/patterns/category/performance-scalability
       itemType: get-started
       text: 성능 및 확장성 패턴
 additionalContent:

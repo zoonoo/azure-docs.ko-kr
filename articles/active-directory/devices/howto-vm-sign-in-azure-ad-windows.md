@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27ffc176fc890d90e4201069ec1728eed69d4011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826666"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740175"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -81,12 +81,12 @@ Windows Server 2019 Datacenter 또는 Windows 10 1809 이상 VM 이미지에 대
 
 Azure AD 로그온을 사용 하 여 Azure에서 Windows Server 2019 Datacenter VM을 만들려면 다음을 수행 합니다. 
 
-1. Vm을 만들 수 있는 권한이 있는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인 하 고 **+ 리소스 만들기**를 선택 합니다.
+1. Vm을 만들 수 있는 권한이 있는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인 하 고 **+ 리소스 만들기** 를 선택 합니다.
 1. Marketplace 검색 창에서 **Windows Server** 를 입력 합니다.
    1. **Windows server** 를 클릭 하 고 소프트웨어 계획 드롭다운 목록에서 **Windows server 2019 Datacenter** 를 선택 합니다.
-   1. **만들기**를 클릭 합니다.
-1. "관리" 탭에서 Azure Active Directory 섹션 아래의 **AAD 자격 증명으로 로그인 (미리 보기)** **옵션을 사용**하도록 설정 합니다.
-1. Id 섹션의 **시스템 할당 관리 id** 가 **켜기**로 설정 되어 있는지 확인 합니다. Azure AD 자격 증명으로 로그인을 사용 하도록 설정 하면이 작업이 자동으로 수행 됩니다.
+   1. **만들기** 를 클릭 합니다.
+1. "관리" 탭에서 Azure Active Directory 섹션 아래의 **AAD 자격 증명으로 로그인 (미리 보기)** **옵션을 사용** 하도록 설정 합니다.
+1. Id 섹션의 **시스템 할당 관리 id** 가 **켜기** 로 설정 되어 있는지 확인 합니다. Azure AD 자격 증명으로 로그인을 사용 하도록 설정 하면이 작업이 자동으로 수행 됩니다.
 1. 가상 컴퓨터를 만드는 과정의 나머지 단계를 진행 합니다. 이 미리 보기 중에 VM에 대 한 관리자 사용자 이름 및 암호를 만들어야 합니다.
 
 ![Azure AD 자격 증명을 사용 하 여 로그인 VM 만들기](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ az vm extension set \
 
 이제 VM을 만들었으므로 VM에 로그인 할 수 있는 사용자를 결정 하는 Azure RBAC 정책을 구성 해야 합니다. VM 로그인에 권한을 부여 하는 데 사용 되는 두 개의 Azure 역할:
 
-- **가상 컴퓨터 관리자 로그인**:이 역할이 할당 된 사용자는 관리자 권한으로 Azure 가상 컴퓨터에 로그인 할 수 있습니다.
-- **가상 머신 사용자 로그인**: 이 역할이 할당된 사용자는 일반 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.
+- **가상 컴퓨터 관리자 로그인** :이 역할이 할당 된 사용자는 관리자 권한으로 Azure 가상 컴퓨터에 로그인 할 수 있습니다.
+- **가상 머신 사용자 로그인** : 이 역할이 할당된 사용자는 일반 사용자 권한으로 Azure 가상 머신에 로그인할 수 있습니다.
 
 > [!NOTE]
 > 사용자가 RDP를 통해 VM에 로그인 할 수 있도록 하려면 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 역할을 할당 해야 합니다. VM에 대 한 소유자 또는 참가자 역할이 할당 된 Azure 사용자에 게는 RDP를 통해 VM에 로그인 할 수 있는 권한이 자동으로 부여 되지 않습니다. 가상 컴퓨터를 제어 하는 사용자 집합과 가상 컴퓨터에 액세스할 수 있는 사용자 집합 간에 감사 된 분리를 제공 하기 위한 것입니다.
@@ -163,10 +163,10 @@ Azure AD 사용 Windows Server 2019 Datacenter Vm에 대 한 역할 할당을 �
 
 1. 특정 가상 컴퓨터 개요 페이지로 이동 합니다.
 1. 메뉴 옵션에서 **액세스 제어 (IAM)** 를 선택 합니다.
-1. **추가**, **역할 할당 추가** 를 선택 하 여 역할 할당 추가 창을 엽니다.
-1. **역할** 드롭다운 목록에서 **가상 머신 관리자 로그인** 또는 **가상 머신 사용자 로그인**과 같은 역할을 선택 합니다.
+1. **추가** , **역할 할당 추가** 를 선택 하 여 역할 할당 추가 창을 엽니다.
+1. **역할** 드롭다운 목록에서 **가상 머신 관리자 로그인** 또는 **가상 머신 사용자 로그인** 과 같은 역할을 선택 합니다.
 1. **선택** 필드에서 사용자, 그룹, 서비스 주체 또는 관리 id를 선택 합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
-1. **저장**을 선택 하 여 역할을 할당 합니다.
+1. **저장** 을 선택 하 여 역할을 할당 합니다.
 
 몇 분이 지나면 선택한 범위에서 보안 주체에 역할이 할당됩니다.
 
@@ -214,7 +214,7 @@ Azure AD를 사용 하 여 Windows Server 2019 가상 컴퓨터에 로그인 하
 
 1. Azure AD 로그온을 사용 하도록 설정 된 가상 컴퓨터의 개요 페이지로 이동 합니다.
 1. **연결** 을 선택 하 여 가상 머신에 연결 블레이드를 엽니다.
-1. **RDP 파일 다운로드**를 선택합니다.
+1. **RDP 파일 다운로드** 를 선택합니다.
 1. **열기** 를 선택 하 여 원격 데스크톱 연결 클라이언트를 시작 합니다.
 1. **연결** 을 선택 하 여 Windows 로그온 대화 상자를 시작 합니다.
 1. Azure AD 자격 증명을 사용 하 여 로그온 합니다.

@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: ceb4a3356ef78d2129f76bd11f555a9ca5206d51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66edb1325d1c603e89f877f1d34f60c136eb1db
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87505836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740727"
 ---
 # <a name="azure-cli-script-sample---create-a-logic-app"></a>Azure CLI 스크립트 샘플-논리 앱 만들기
 
 이 스크립트는 [Azure CLI Logic Apps 확장](/cli/azure/ext/logic/logic?view=azure-cli-latest)()을 통해 샘플 논리 앱을 만듭니다 `az logic` . Azure CLI를 통해 논리 앱을 만들고 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI의 Logic Apps 빠른](quickstart-logic-apps-azure-cli.md)시작을 참조 하세요.
 
 > [!WARNING]
-> Azure CLI Logic Apps 확장은 현재 *실험 단계*이며 *고객 지원에서 다루지 않습니다*. 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
+> Azure CLI Logic Apps 확장은 현재 *실험 단계* 이며 *고객 지원에서 다루지 않습니다* . 특히 프로덕션 환경에서 이 확장을 사용하도록 선택하는 경우 이 CLI 확장을 주의해서 사용해야 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

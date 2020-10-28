@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 65357642d940453b5bbfabf2fbb726ca909ce6f5
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0eec1538814b93c024fe6a5aa34ee73c4c09184c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173119"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740416"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -52,11 +52,11 @@ PostgreSQL sslmode를 이해 하려면 PostgreSQL 설명서의 [SSL 모드 설�
 *   **Baltimorecybertrustroot.crt.pem** 및 **DigiCertGlobalRootG2** 인증서를 모두 포함 하는 결합 된 CA 인증서 저장소를 생성 합니다.
     *   DefaultJavaSSLFactory를 사용 하는 Java (PostgreSQL JDBC) 사용자의 경우 다음을 실행 합니다.
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias PostgreSQLServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias PostgreSQLServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -133,7 +133,7 @@ Azure Database for PostgreSQL에서 사용 하는 이러한 인증서는 신뢰�
 SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl 확인](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity)을 참조 하세요.
 
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. 인증서 파일에 DigiCertGlobalRootG2이 이미 있는 경우 필요한 작업이 있나요?
-아니요. 인증서 파일에 **DigiCertGlobalRootG2**이 이미 있는 경우에는 필요한 작업이 없습니다.
+아니요. 인증서 파일에 **DigiCertGlobalRootG2** 이 이미 있는 경우에는 필요한 작업이 없습니다.
 
 ### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. Microsoft에서 제공 하는 PgBouncer 사이드카의 docker 이미지를 어떻게 사용 하 고 있나요?
 [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 및 [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) 를 모두 지 원하는 새 docker 이미지는 [여기](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (최신 태그)에 게시 됩니다. 2021 2 월 15 일에 시작 하는 연결의 중단을 방지 하기 위해이 새 이미지를 끌어올 수 있습니다. 

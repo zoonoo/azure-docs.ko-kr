@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: dc8aa50c5c4ecb5e4b56a7e49453c266dad28818
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 4b0e54c434f68a8a26f49b6ba0c1010e93d36ad6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678093"
+ms.locfileid: "92739892"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal를 사용 하 여 SAP 솔루션에 대 한 Azure Monitor 배포
 
@@ -54,7 +54,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 4. 사용 하려는 데이터베이스 테 넌 트의 이름을 입력 합니다. 그러나 모든 테 넌 트를 선택할 수 있지만, 더 광범위 한 모니터링 영역을 사용 하도록 설정 하기 위해 **Systemdb** 를 사용 하는 것이 좋습니다. 
 
-5. HANA 데이터베이스와 연결 된 SQL 포트 번호를 입력 합니다. 포트 번호는 **[3]**  +  **[instance #]**  +  **[13]** 또는 **[3]**  +  **[instance #]**  +  **[15]** 형식 이어야 합니다. 예를 들면 30013 또는 30015입니다. 
+5. HANA 데이터베이스와 연결 된 SQL 포트 번호를 입력 합니다. 포트 번호는 **[3]**  +  **[instance #]**  +  **[13]** 형식 이어야 합니다. 예를 들면 30013입니다. 
 
 6. 사용 하려는 데이터베이스 사용자 이름을 입력 합니다. 데이터베이스 사용자에 게 **모니터링** 및 **카탈로그 읽기** 역할이 할당 되어 있는지 확인 하십시오. 
 

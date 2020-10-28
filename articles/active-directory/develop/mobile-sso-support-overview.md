@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 27a58fc66de31fef272ab2f2c2bfaa9896a07d4b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210157"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740147"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발 하는 mobile apps의 Single Sign-On 및 앱 보호 정책 지원
 
@@ -47,7 +47,7 @@ SSO (Single sign-on)는 앱 사용자에 게 쉽고 안전한 로그인을 제�
 
 IOS 응용 프로그램의 경우 MSAL을 사용 하 여 로그인을 설정 하는 방법 및 [다양 한 SSO 시나리오에 대 한 MSAL을 구성](single-sign-on-macos-ios.md)하는 지침을 보여 주는 [빠른](quickstart-v2-ios.md) 시작을 제공 합니다.
 
-Android 응용 프로그램의 경우 MSAL을 사용 하 여 로그인을 설정 하는 방법과 조정 된 [인증](brokered-auth.md) 또는 [권한 부여 에이전트](authorization-agents.md)사용에 대 한 지침을 보여 주는 [빠른](quickstart-v2-android.md) 시작을 제공 합니다.
+Android 응용 프로그램의 경우 MSAL을 사용 하 여 로그인을 설정 하는 방법과 [MSAL을 사용 하 여 android에서 앱 간 SSO를 사용 하도록](msal-android-single-sign-on.md)설정 하는 방법에 대 한 지침을 보여 주는 [빠른](quickstart-v2-android.md) 시작을 제공 합니다.
 
 ### <a name="use-the-system-web-browser"></a>시스템 웹 브라우저 사용
 
