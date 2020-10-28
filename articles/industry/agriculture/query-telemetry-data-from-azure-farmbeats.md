@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80349814"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677482"
 ---
 # <a name="query-ingested-telemetry-data"></a>수집된 원격 분석 데이터 쿼리
 
@@ -24,7 +24,7 @@ ms.locfileid: "80349814"
 
 센서 원격 분석 데이터를 수집 하려면 [기록 원격 분석 데이터 수집](ingest-historical-telemetry-data-in-azure-farmbeats.md) 을 참조 하세요.
 
-계속 하기 전에 Api를 사용 하 여 수집 원격 분석을 쿼리 하는 것 처럼 FarmBeats REST Api에 대해 잘 알고 있어야 합니다. FarmBeats Api에 대 한 자세한 내용은 [FARMBEATS REST api](rest-api-in-azure-farmbeats.md)를 참조 하세요. **FarmBeats Datahub 끝점에 대 한 API 요청을 수행할 수 있는지 확인**합니다.
+계속 하기 전에 Api를 사용 하 여 수집 원격 분석을 쿼리 하는 것 처럼 FarmBeats REST Api에 대해 잘 알고 있어야 합니다. FarmBeats Api에 대 한 자세한 내용은 [FARMBEATS REST api](rest-api-in-azure-farmbeats.md)를 참조 하세요. **FarmBeats Datahub 끝점에 대 한 API 요청을 수행할 수 있는지 확인** 합니다.
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>수집 센서 원격 분석 데이터 쿼리
 
@@ -111,12 +111,12 @@ FarmBeats REST Api를 사용 하 여 수집 센서 원격 분석 데이터를 �
 
 FarmBeats는 [TSI (Azure Time Series Insights)](https://azure.microsoft.com/services/time-series-insights/) 를 활용 하 여 데이터를 수집, 저장, 쿼리 및 시각화할 수 있습니다. 즉, 시계열에 대해 매우 까닭 되 고 최적화 된 데이터입니다.
 
-원격 분석 데이터는 EventHub에서 수신 된 다음 FarmBeats 리소스 그룹 내의 TSI 환경으로 처리 되 고 푸시됩니다. 그런 다음 TSI에서 직접 데이터를 쿼리할 수 있습니다. 자세한 내용은 [Tsi 설명서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer) 를 참조 하세요.
+원격 분석 데이터는 EventHub에서 수신 된 다음 FarmBeats 리소스 그룹 내의 TSI 환경으로 처리 되 고 푸시됩니다. 그런 다음 TSI에서 직접 데이터를 쿼리할 수 있습니다. 자세한 내용은 [Tsi 설명서](../../time-series-insights/time-series-insights-explorer.md) 를 참조 하세요.
 
 TSI에서 데이터를 시각화 하는 단계를 수행 합니다.
 
-1. **Azure Portal**  >  **FarmBeats datahub 리소스 그룹** > 선택 하 **Time Series Insights** 환경 (tsi-xxxx) > **데이터 액세스 정책**을 선택 합니다. 판독기 또는 참가자 액세스 권한이 있는 사용자를 추가 합니다.
-2. **Time Series Insights** 환경 (tsi-xxxx)의 **개요** 페이지로 이동 하 여 **Time Series Insights 탐색기 URL**을 선택 합니다. 이제 수집 원격 분석을 시각화할 수 있습니다.
+1. **Azure Portal**  >  **FarmBeats datahub 리소스 그룹** > 선택 하 **Time Series Insights** 환경 (tsi-xxxx) > **데이터 액세스 정책** 을 선택 합니다. 판독기 또는 참가자 액세스 권한이 있는 사용자를 추가 합니다.
+2. **Time Series Insights** 환경 (tsi-xxxx)의 **개요** 페이지로 이동 하 여 **Time Series Insights 탐색기 URL** 을 선택 합니다. 이제 수집 원격 분석을 시각화할 수 있습니다.
 
 TSI는 원격 분석을 저장, 쿼리 및 시각화 하는 것 외에도 Power BI 대시보드를 통합할 수 있도록 합니다. 자세한 내용은 [여기]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi) 를 참조 하세요.
 

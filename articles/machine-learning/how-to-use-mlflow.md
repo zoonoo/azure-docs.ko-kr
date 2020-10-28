@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3fb177afa804788632f22d24bbd376d64cbe1c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81e60e3bb7a1b0f34a29ccd9cebf3d82279027e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250694"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676658"
 ---
 # <a name="track-experiment-runs-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 실험 실행 추적 및 ML 모델 배포 (미리 보기)
 
@@ -347,19 +347,22 @@ webservice.wait_for_deployment()
 
 작업 영역에서 기록 된 메트릭과 아티팩트를 사용 하지 않으려는 경우에는 개별적으로 삭제할 수 있는 기능을 현재 사용할 수 없습니다. 대신, 저장소 계정 및 작업 영역을 포함 하는 리소스 그룹을 삭제 하 여 요금이 발생 하지 않도록 합니다.
 
-1. Azure Portal의 맨 왼쪽에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 맨 왼쪽에서 **리소스 그룹** 을 선택합니다.
 
    ![Azure Portal에서 삭제](./media/how-to-use-mlflow/delete-resources.png)
 
 1. 목록에서 만든 리소스 그룹을 선택합니다.
 
-1. **리소스 그룹 삭제**를 선택합니다.
+1. **리소스 그룹 삭제** 를 선택합니다.
 
-1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
+1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제** 를 선택합니다.
 
 ## <a name="example-notebooks"></a>노트북 예제
 
 [Azure ML을 사용한 MLflow 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow)은 이 문서에 나와 있는 개념을 시연하고 확장합니다.
+
+> [!NOTE]
+> Mlflow를 사용 하는 커뮤니티 중심 예제 리포지토리는에서 찾을 수 있습니다 https://github.com/Azure/azureml-examples .
 
 ## <a name="next-steps"></a>다음 단계
 

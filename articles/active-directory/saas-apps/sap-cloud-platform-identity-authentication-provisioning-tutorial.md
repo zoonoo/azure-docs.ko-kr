@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2a0c94dc4691c17eebe235055015a2853bacb4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273418"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677595"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SAP Cloud Platform Identity Authentication 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "91273418"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91273418"
 
 ## <a name="assigning-users-to-sap-cloud-platform-identity-authentication"></a>SAP Cloud Platform Identity Authentication에 사용자 할당
 
-Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
+Azure Active Directory는 *할당* 이라는 개념을 사용하여 어떤 사용자가 선택된 앱에 대한 액세스 권한을 부여받아야 하는지 판단합니다. 자동 사용자 프로 비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 할당 된 사용자 및/또는 그룹만 동기화 됩니다.
 
 자동 사용자 프로비저닝을 구성 하 고 사용 하도록 설정 하기 전에 Azure AD의 사용자 및/또는 그룹에 SAP Cloud Platform Identity Authentication에 대 한 액세스가 필요한 지 여부를 결정 해야 합니다. 일단 결정 되 면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 SAP Cloud Platform Identity Authentication에 할당할 수 있습니다.
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
@@ -50,22 +50,22 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 ## <a name="setup-sap-cloud-platform-identity-authentication-for-provisioning"></a>프로 비전을 위한 SAP Cloud Platform Identity Authentication 설정
 
-1. [SAP Cloud Platform Identity Authentication Admin Console](https://sapmsftintegration.accounts.ondemand.com/admin)에 로그인 합니다. **사용자 & 권한 부여 > 관리자**로 이동 합니다.
+1. [SAP Cloud Platform Identity Authentication Admin Console](https://sapmsftintegration.accounts.ondemand.com/admin)에 로그인 합니다. **사용자 & 권한 부여 > 관리자** 로 이동 합니다.
 
     ![SAP Cloud Platform Identity Authentication 관리 콘솔](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
 2.  새 관리자를 목록에 추가 하려면 왼쪽 패널에서 **+ 추가** 단추를 누릅니다. **시스템 추가** 를 선택 하 고 시스템의 이름을 입력 합니다.   
 
 > [!NOTE]
-> SAP Cloud Platform Identity Authentication의 관리자 사용자는 **시스템**유형 이어야 합니다. 일반 관리자 사용자를 만들면 프로 비전 하는 동안 *권한이 없는* 오류가 발생할 수 있습니다.   
+> SAP Cloud Platform Identity Authentication의 관리자 사용자는 **시스템** 유형 이어야 합니다. 일반 관리자 사용자를 만들면 프로 비전 하는 동안 *권한이 없는* 오류가 발생할 수 있습니다.   
 
-3.  권한 부여 구성에서 **사용자 관리** 및 **그룹 관리**에 대 한 토글 단추를 전환 합니다.
+3.  권한 부여 구성에서 **사용자 관리** 및 **그룹 관리** 에 대 한 토글 단추를 전환 합니다.
 
     ![SAP Cloud Platform Identity Authentication SCIM 추가](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
-4. 계정을 활성화 하 고 **SAP Cloud Platform Identity Authentication Service**에 대 한 암호를 설정 하는 전자 메일을 받게 됩니다.
+4. 계정을 활성화 하 고 **SAP Cloud Platform Identity Authentication Service** 에 대 한 암호를 설정 하는 전자 메일을 받게 됩니다.
 
-4.  **사용자 ID** 및 **암호**를 복사 합니다. 이러한 값은 Azure Portal의 SAP Cloud Platform Identity Authentication 응용 프로그램의 프로 비전 탭에서 각각 관리자 사용자 이름 및 관리자 암호 필드에 입력 됩니다.
+4.  **사용자 ID** 및 **암호** 를 복사 합니다. 이러한 값은 Azure Portal의 SAP Cloud Platform Identity Authentication 응용 프로그램의 프로 비전 탭에서 각각 관리자 사용자 이름 및 관리자 암호 필드에 입력 됩니다.
 
 ## <a name="add-sap-cloud-platform-identity-authentication-from-the-gallery"></a>갤러리에서 SAP Cloud Platform Identity Authentication 추가
 
@@ -73,11 +73,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
 **Azure AD 응용 프로그램 갤러리에서 SAP Cloud Platform Identity Authentication을 추가 하려면 다음 단계를 수행 합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택 합니다.
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택 합니다.
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -85,7 +85,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Sap Cloud Platform Identity authentication**을 입력 하 고, 결과 패널에서 **Sap Cloud platform identity authentication** 을 선택 하 고, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
+4. 검색 상자에 **Sap Cloud Platform Identity authentication** 을 입력 하 고, 결과 패널에서 **Sap Cloud platform identity authentication** 을 선택 하 고, **추가** 단추를 클릭 하 여 응용 프로그램을 추가 합니다.
 
     ![결과 목록에서 SAP Cloud Platform Identity Authentication](common/search-new-app.png)
 
@@ -94,15 +94,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당을 기반으로 SAP Cloud Platform Identity Authentication에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> Sap cloud [Platform Identity Authentication single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial)에 제공 된 지침에 따라 Sap Cloud Platform identity AUTHENTICATION에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
+> Sap cloud [Platform Identity Authentication single sign-on 자습서](./sap-hana-cloud-platform-identity-authentication-tutorial.md)에 제공 된 지침에 따라 Sap Cloud Platform identity AUTHENTICATION에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성 될 수 있지만,이 두 가지 기능은 서로 보완 됩니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Azure AD에서 SAP Cloud Platform Identity Authentication에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **SAP Cloud Platform Identity Authentication**을 선택합니다.
+2. 애플리케이션 목록에서 **SAP Cloud Platform Identity Authentication** 을 선택합니다.
 
     ![애플리케이션 목록에서 SAP Cloud Platform Identity Authentication 링크](common/all-applications.png)
 
@@ -110,11 +110,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
     ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
     ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 `https://<tenantID>.accounts.ondemand.com/service/scim ` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **관리자 사용자 이름** 및 **관리자 암호** 에서 각각 검색 된 **사용자 ID** 및 **암호** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에 `https://<tenantID>.accounts.ondemand.com/service/scim ` 있는 **테 넌 트 URL** 에 입력 합니다. 이전에 **관리자 사용자 이름** 및 **관리자 암호** 에서 각각 검색 된 **사용자 ID** 및 **암호** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![테넌트 URL + 토큰](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
@@ -122,9 +122,9 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장** 을 클릭합니다.
 
-8. **매핑** 섹션 아래에서 **SAP Cloud Platform Identity Authentication에 사용자 Azure Active Directory 동기화를**선택 합니다.
+8. **매핑** 섹션 아래에서 **SAP Cloud Platform Identity Authentication에 사용자 Azure Active Directory 동기화를** 선택 합니다.
 
     ![SAP Cloud Platform Identity Authentication 사용자 매핑](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/mapping.png)
 
@@ -142,11 +142,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
+13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 SAP Cloud Platform Identity Authentication의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 SAP Cloud Platform Identity Authentication의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
@@ -162,4 +162,3 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
-

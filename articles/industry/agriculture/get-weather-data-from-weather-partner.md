@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2705e3d724530e879dd02346392f17fda274913a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87429261"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675326"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>날씨 파트너의 날씨 데이터 가져오기
 
@@ -24,7 +24,7 @@ Azure FarmBeats는 Docker 기반 커넥터 프레임 워크를 사용 하 여 �
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-날씨 데이터를 얻으려면 [FarmBeats를 설치](https://aka.ms/farmbeatsinstalldocumentation)했는지 확인 합니다. 날씨 통합은 1.2.11 이상 버전에서 지원 됩니다. 
+날씨 데이터를 얻으려면 [FarmBeats를 설치](./install-azure-farmbeats.md)했는지 확인 합니다. 날씨 통합은 1.2.11 이상 버전에서 지원 됩니다. 
 
 ## <a name="enable-weather-integration-with-farmbeats"></a>FarmBeats와 날씨 통합 사용
 
@@ -94,18 +94,18 @@ FarmBeats Datahub에 대 한 날씨 데이터 가져오기를 시작 하려면:
 
    리소스를 프로 비전 하는 데 약 10 ~ 15 분이 걸립니다.
 
-3. 이전 단계에서 만든/Cpartner 개체의 상태를 확인 합니다. 상태를 확인 하려면/Spartner API에 대 한 GET 요청을 수행 하 고 파트너 개체의 상태를 확인 합니다. FarmBeats가 파트너를 성공적으로 프로 비전 하면 상태가 **활성**으로 설정 됩니다.
+3. 이전 단계에서 만든/Cpartner 개체의 상태를 확인 합니다. 상태를 확인 하려면/Spartner API에 대 한 GET 요청을 수행 하 고 파트너 개체의 상태를 확인 합니다. FarmBeats가 파트너를 성공적으로 프로 비전 하면 상태가 **활성** 으로 설정 됩니다.
 
-4. /JobType API에서 GET 요청을 수행 합니다. 파트너 추가 프로세스에서 이전에 만든 날씨 작업을 확인 합니다. 날씨 작업에서 **pipelineName** 필드의 형식은 다음과 같습니다. **파트너-name_partner-type_job-name**.
+4. /JobType API에서 GET 요청을 수행 합니다. 파트너 추가 프로세스에서 이전에 만든 날씨 작업을 확인 합니다. 날씨 작업에서 **pipelineName** 필드의 형식은 다음과 같습니다. **파트너-name_partner-type_job-name** .
 
       이제 FarmBeats 인스턴스에 활성 날씨 데이터 파트너가 있습니다. 작업을 실행 하 여 특정 위치 (위도 및 경도)와 날짜 범위에 대 한 날씨 데이터를 요청할 수 있습니다. 작업 유형은 날씨 작업을 실행 하는 데 필요한 매개 변수에 대 한 세부 정보를 포함 합니다.
 
       예를 들어 DTN의 경우 다음 작업 유형이 생성 됩니다.
    
-      - **get_dtn_daily_observations**: 위치 및 기간에 대 한 일일 관찰을 가져옵니다.
-      - **get_dtn_daily_forecasts**: 위치 및 기간에 대 한 일일 예측을 가져옵니다.
-      - **get_dtn_hourly_observations**: 위치 및 기간에 대 한 시간별 관찰을 가져옵니다.
-      - **get_dtn_hourly_forecasts**: 위치 및 기간에 대 한 시간별 예측을 가져옵니다.
+      - **get_dtn_daily_observations** : 위치 및 기간에 대 한 일일 관찰을 가져옵니다.
+      - **get_dtn_daily_forecasts** : 위치 및 기간에 대 한 일일 예측을 가져옵니다.
+      - **get_dtn_hourly_observations** : 위치 및 기간에 대 한 시간별 관찰을 가져옵니다.
+      - **get_dtn_hourly_forecasts** : 위치 및 기간에 대 한 시간별 예측을 가져옵니다.
 
 6. 작업 유형의 ID와 매개 변수를 적어 둡니다.
 
@@ -125,7 +125,7 @@ FarmBeats Datahub에 대 한 날씨 데이터 가져오기를 시작 하려면:
        }
    ```
 
-   예를 들어 **get_dtn_daily_observations**를 실행 하려면 다음 페이로드를 사용 합니다.
+   예를 들어 **get_dtn_daily_observations** 를 실행 하려면 다음 페이로드를 사용 합니다.
 
    ```json
    { 
@@ -141,7 +141,7 @@ FarmBeats Datahub에 대 한 날씨 데이터 가져오기를 시작 하려면:
    }
    ```
 
-8. 이전 단계에서는 파트너 Docker 및 수집 날씨 데이터에 정의 된 대로 날씨 작업을 FarmBeats에 실행 합니다. /Jobs.에서 GET 요청을 수행 하 여 작업의 상태를 확인할 수 있습니다. 응답에서 **currentState**를 찾습니다. 완료 되 면 **currentState** 가 **Succeeded**로 설정 됩니다.
+8. 이전 단계에서는 파트너 Docker 및 수집 날씨 데이터에 정의 된 대로 날씨 작업을 FarmBeats에 실행 합니다. /Jobs.에서 GET 요청을 수행 하 여 작업의 상태를 확인할 수 있습니다. 응답에서 **currentState** 를 찾습니다. 완료 되 면 **currentState** 가 **Succeeded** 로 설정 됩니다.
 
 ## <a name="query-ingested-weather-data"></a>수집 날씨 데이터 쿼리
 
@@ -221,7 +221,7 @@ FarmBeats REST API를 사용 하 여 날씨 데이터를 쿼리하려면:
 |     DockerDetails-imageName         |          Docker 이미지 이름입니다. 예를 들면 docker.io/mydockerimage (hub.docker.com의 이미지) 또는 myazureacr.azurecr.io/mydockerimage (이미지 Azure Container Registry의 이미지) 등이 있습니다. 레지스트리를 제공 하지 않으면 기본값은 hub.docker.com입니다.      |
 |          DockerDetails-imageTag             |         Docker 이미지의 태그 이름입니다. 기본값은 "최신"입니다.     |
 |  DockerDetails-자격 증명      |  개인 Docker에 액세스 하기 위한 자격 증명입니다. 파트너는 자격 증명을 제공 합니다.   |
-|  DockerDetails-azureBatchVMDetails-batchVMSKU     |    VM SKU를 Azure Batch 합니다. 자세한 내용은 [사용 가능한 모든 Linux 가상 컴퓨터](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조 하세요. <BR> <BR> 유효한 값은 ' Small ', ' ExtraLarge ', ' Large ', ' A8 ', ' A9 ', ' Medium ', ' A5 ', ' A6 ', ' A7 ', ' STANDARD_D1 ', ' STANDARD_D2 ', ' STANDARD_D3 ', '입니다. STANDARD_D4 ', ' STANDARD_D11 ', ' STANDARD_D12 ', ' STANDARD_D13 ', ' STANDARD_D14 ', ' A10 ', ' A11 ', ' STANDARD_D1_V2 ', ' STANDARD_D2_V2 ', ' STANDARD_D3_V2 ', ' STANDARD_D4_V2 ', ' STANDARD_D11_V2 ', ' STANDARD_D12_V2 ', ' STANDARD_D13_V2 ', ' STANDARD_D14_V2 ', ' STANDARD_G1 ', ' STANDARD_G2 ', ' STANDARD_G3 ', ' STANDARD_G4 ', ' ' , ' STANDARD_G5 ', ' STANDARD_D5_V2 ', ' BASIC_A1 ', ' BASIC_A2 ', ' BASIC_A3 ', ' BASIC_A4 ', ' STANDARD_A1 ', ' STANDARD_A2 ', ' STANDARD_A3 ', ' STANDARD_A4 ', ' STANDARD_A5 ', ' STANDARD_A6 ', ' STANDARD_A7 ', ' STANDARD_A8 ', ' STANDARD_A9 ', ' STANDARD_A10 ', ' STANDARD_A11 ', ' STANDARD_D15_V2 ', ' STANDARD_F1 ', ' STANDARD_F2 ', ' STANDARD_F4 ', ' STANDARD_F8 ', ' STANDARD_F16 ', ' STANDARD_NV6 ', ' STANDARD_NV12 ', ' STANDARD_NV24 ' , ' STANDARD_H8 ', ' STANDARD_H8m ', ' STANDARD_H16 ', ' STANDARD_H16m ', ' STANDARD_H16mr ', ' STANDARD_H16r ', ' STANDARD_A1_V2 ', ' STANDARD_A2_V2 ', ' STANDARD_A4_V2 ', ' STANDARD_A8_V2 ', ' STANDARD_A2m_V2 ', ' STANDARD_A4m_V2 ', ' STANDARD_A8m_V2 ', ' STANDARD_M64ms ', ' STANDARD_M128s ' 및 ' STANDARD_D2_V3 '. *기본값은 ' STANDARD_D2_V2 '입니다.*  |
+|  DockerDetails-azureBatchVMDetails-batchVMSKU     |    VM SKU를 Azure Batch 합니다. 자세한 내용은 [사용 가능한 모든 Linux 가상 컴퓨터](../../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json)를 참조 하세요. <BR> <BR> 유효한 값은 ' Small ', ' ExtraLarge ', ' Large ', ' A8 ', ' A9 ', ' Medium ', ' A5 ', ' A6 ', ' A7 ', ' STANDARD_D1 ', ' STANDARD_D2 ', ' STANDARD_D3 ', '입니다. STANDARD_D4 ', ' STANDARD_D11 ', ' STANDARD_D12 ', ' STANDARD_D13 ', ' STANDARD_D14 ', ' A10 ', ' A11 ', ' STANDARD_D1_V2 ', ' STANDARD_D2_V2 ', ' STANDARD_D3_V2 ', ' STANDARD_D4_V2 ', ' STANDARD_D11_V2 ', ' STANDARD_D12_V2 ', ' STANDARD_D13_V2 ', ' STANDARD_D14_V2 ', ' STANDARD_G1 ', ' STANDARD_G2 ', ' STANDARD_G3 ', ' STANDARD_G4 ', ' ' , ' STANDARD_G5 ', ' STANDARD_D5_V2 ', ' BASIC_A1 ', ' BASIC_A2 ', ' BASIC_A3 ', ' BASIC_A4 ', ' STANDARD_A1 ', ' STANDARD_A2 ', ' STANDARD_A3 ', ' STANDARD_A4 ', ' STANDARD_A5 ', ' STANDARD_A6 ', ' STANDARD_A7 ', ' STANDARD_A8 ', ' STANDARD_A9 ', ' STANDARD_A10 ', ' STANDARD_A11 ', ' STANDARD_D15_V2 ', ' STANDARD_F1 ', ' STANDARD_F2 ', ' STANDARD_F4 ', ' STANDARD_F8 ', ' STANDARD_F16 ', ' STANDARD_NV6 ', ' STANDARD_NV12 ', ' STANDARD_NV24 ' , ' STANDARD_H8 ', ' STANDARD_H8m ', ' STANDARD_H16 ', ' STANDARD_H16m ', ' STANDARD_H16mr ', ' STANDARD_H16r ', ' STANDARD_A1_V2 ', ' STANDARD_A2_V2 ', ' STANDARD_A4_V2 ', ' STANDARD_A8_V2 ', ' STANDARD_A2m_V2 ', ' STANDARD_A4m_V2 ', ' STANDARD_A8m_V2 ', ' STANDARD_M64ms ', ' STANDARD_M128s ' 및 ' STANDARD_D2_V3 '. *기본값은 ' STANDARD_D2_V2 '입니다.*  |
 |    DockerDetails-azureBatchVMDetails-dedicatedComputerNodes   |  Batch 풀 당 전용 컴퓨터 노드 수입니다. 기본값은 1입니다. |
 |    DockerDetails-azureBatchVMDetails-nodeAgentSKUID          |    노드 에이전트 SKU ID를 Azure Batch 합니다. 현재 "batch. ubuntu 18.04" 일괄 처리 노드 에이전트도 지원 됩니다.    |
 | DockerDetails-파트너 자격 증명 | Docker에서 파트너 API를 호출 하기 위한 자격 증명입니다. 파트너는 지원 되는 권한 부여 메커니즘을 기반으로이 정보를 제공 합니다. 예: 사용자 이름 및 암호 또는 API 키. |

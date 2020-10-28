@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: eb3acc9b30b9016ae33f223911cc01cbf8daea47
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 6aa08f91a9289984d15beac5fb215d112a5558da
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999115"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676039"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -39,9 +39,9 @@ Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사�
 * 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
+* Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
@@ -54,12 +54,12 @@ Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사�
 
 * Azure Machine Learning 작업 영역에 대해 만든 Azure Container Registry 또는 독립 실행형 Azure Container Registry을 사용 하나요?
 
-    __작업 영역에 대 한 컨테이너 레지스트리에__저장 된 이미지를 사용 하는 경우 레지스트리에 인증할 필요가 없습니다. 작업 영역에서 인증을 처리 합니다.
+    __작업 영역에 대 한 컨테이너 레지스트리에__ 저장 된 이미지를 사용 하는 경우 레지스트리에 인증할 필요가 없습니다. 작업 영역에서 인증을 처리 합니다.
 
     > [!WARNING]
     > 작업 영역에 대 한 Azure Container Registry는 처음으로 작업 영역을 사용 하 여 __모델을 학습 하거나 배포할 때 생성__ 됩니다. 새 작업 영역을 만들었지만 모델을 학습 하거나 만들지 않은 경우 작업 영역에 대 한 Azure Container Registry 없습니다.
 
-    __독립 실행형 컨테이너 레지스트리에__저장 된 이미지를 사용 하는 경우 최소한 읽기 액세스 권한이 있는 서비스 주체를 구성 해야 합니다. 그런 다음 레지스트리의 이미지를 사용 하는 모든 사용자에 게 서비스 주체 ID (사용자 이름) 및 암호를 제공 합니다. 컨테이너 레지스트리를 공개적으로 액세스할 수 있도록 설정 하는 경우는 예외입니다.
+    __독립 실행형 컨테이너 레지스트리에__ 저장 된 이미지를 사용 하는 경우 최소한 읽기 액세스 권한이 있는 서비스 주체를 구성 해야 합니다. 그런 다음 레지스트리의 이미지를 사용 하는 모든 사용자에 게 서비스 주체 ID (사용자 이름) 및 암호를 제공 합니다. 컨테이너 레지스트리를 공개적으로 액세스할 수 있도록 설정 하는 경우는 예외입니다.
 
     개인 Azure Container Registry을 만드는 방법에 대 한 자세한 내용은 [개인 컨테이너 레지스트리 만들기](/azure/container-registry/container-registry-get-started-azure-cli)를 참조 하세요.
 
@@ -197,14 +197,14 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 사용자 지정 이미지를 사용 하려면 다음 정보가 필요 합니다.
 
-* __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` 은 Microsoft에서 제공 하는 간단한 Docker 이미지에 대 한 경로입니다.
+* __이미지 이름__ 입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` 은 Microsoft에서 제공 하는 간단한 Docker 이미지에 대 한 경로입니다.
 
     > [!IMPORTANT]
     > 만든 사용자 지정 이미지의 경우 이미지에 사용 된 태그를 포함 해야 합니다. 예를 들어와 같은 특정 태그를 사용 하 여 이미지를 만든 경우 `:v1` 입니다. 이미지를 만들 때 특정 태그를 사용 하지 않은 경우의 태그가 `:latest` 적용 됩니다.
 
-* 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
+* 이미지가 __개인 리포지토리에__ 있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. `myregistry.azureecr.io`)을 입력합니다.
+    * 레지스트리 __주소__ 입니다. `myregistry.azureecr.io`)을 입력합니다.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.
@@ -231,7 +231,7 @@ ONNX 런타임 기본 이미지에 대 한 자세한 내용은 GitHub 리포지�
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 이미지 사용
 
-**작업 영역에 대 한 Azure Container Registry**에 저장 된 이미지 또는 **공개적으로 액세스할 수 있는 컨테이너 레지스트리**를 사용 하려면 다음과 같은 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 특성을 설정 합니다.
+**작업 영역에 대 한 Azure Container Registry** 에 저장 된 이미지 또는 **공개적으로 액세스할 수 있는 컨테이너 레지스트리** 를 사용 하려면 다음과 같은 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) 특성을 설정 합니다.
 
 + `docker.enabled=True`
 + `docker.base_image`: 레지스트리 및 이미지 경로로 설정 합니다.

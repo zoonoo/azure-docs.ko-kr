@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7d7dc8564ee35bcd8bfd92d996d07e1d0c365806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcf912f431d578a6e678801d3dc8f4e11484ea78
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776496"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678372"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -22,15 +22,15 @@ ms.locfileid: "91776496"
 
 ## <a name="turn-on-active-learning"></a>활성 학습 설정
 
-제안 된 질문을 보려면 QnA Maker 리소스에 대해 [활성 학습을 설정](use-active-learning.md) 해야 합니다.
+제안 된 질문을 보려면 QnA Maker 리소스에 대해 [활성 학습을 설정](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) 해야 합니다.
 
 ## <a name="view-suggested-questions"></a>제안 된 질문 보기
 
-1. 제안 된 질문을 보려면 기술 자료 **편집** 페이지에서 **보기 옵션**을 선택한 다음 **활성 학습 제안 표시**를 선택 합니다.
+1. 제안 된 질문을 보려면 기술 자료 **편집** 페이지에서 **보기 옵션** 을 선택한 다음 **활성 학습 제안 표시** 를 선택 합니다.
 
     [![포털의 편집 섹션에서 활성 학습의 새로운 질문을 확인 하기 위해 제안 표시를 선택 합니다.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. 질문과 대답 쌍으로 기술 자료를 필터링 하 여 제안 **별로 필터링**을 선택 하 여 제안을 표시 합니다.
+1. 질문과 대답 쌍으로 기술 자료를 필터링 하 여 제안 **별로 필터링** 을 선택 하 여 제안을 표시 합니다.
 
     [![제안 별 필터 설정/해제를 사용 하 여 활성 학습의 제안 된 질문에 대 한 대체 유형만 표시 합니다.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -40,7 +40,7 @@ ms.locfileid: "91776496"
 
     상황별 도구 모음에서 모두 **추가** 또는 **모두 거부** 를 선택 하 여 _모든 제안을_ 추가 하거나 삭제할 수 있습니다.
 
-1. **저장 및 학습**을 선택하여 기술 자료에 변경 내용을 저장합니다.
+1. **저장 및 학습** 을 선택하여 기술 자료에 변경 내용을 저장합니다.
 
 1. **게시** 를 선택 하 여 [generateanswer API](metadata-generateanswer-usage.md#generateanswer-request-configuration)에서 변경 내용을 사용할 수 있도록 허용 합니다.
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|Name|유형|목적|
+|HTTP 요청 속성|Name|Type|목적|
 |--|--|--|--|
 |URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
 |사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
@@ -143,8 +143,8 @@ JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 |JSON 본문 속성|형식|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
-|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
+|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
+|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 요소.|
 |`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
@@ -337,7 +337,7 @@ async callTrain(stepContext){
 
 
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 활성 학습 사용 시의 모범 사례는 [모범 사례](../Concepts/best-practices.md#active-learning)를 참조하세요.
 

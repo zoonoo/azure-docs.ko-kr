@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 7fee95a435b477639fe2b98cf2c9cbf500df5941
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/25/2020
+ms.openlocfilehash: cf8ce541c069f78adbb138fa38e2efc506e095ea
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310013"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675192"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
-논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 "글로벌" 다중 테넌트 Logic Apps 서비스와 별도로 유지되는 전용 스토리지 및 기타 리소스를 사용하는 전용 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 자체 고정 IP 주소를 제공합니다. 이러한 IP 주소는 공용 다중 테넌트 서비스에서 논리 앱이 공유하는 고정 IP 주소와는 별개입니다.
+논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE* (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 "글로벌" 다중 테넌트 Logic Apps 서비스와 별도로 유지되는 전용 스토리지 및 기타 리소스를 사용하는 전용 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 자체 고정 IP 주소를 제공합니다. 이러한 IP 주소는 공용 다중 테넌트 서비스에서 논리 앱이 공유하는 고정 IP 주소와는 별개입니다.
 
 ISE를 만들면 Azure는 ISE를 Azure 가상 네트워크에 삽입한 다음, Logic Apps 서비스를 가상 네트워크에 배포합니다. 논리 앱 또는 통합 계정을 만들 때 ISE를 해당 위치로 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다.
 
@@ -67,9 +67,9 @@ ISE는 [샘플 Azure Resource Manager 빠른 시작 템플릿](https://github.co
 
   * 를 사용 하거나 [강제 터널링](../firewall/forced-tunneling.md)과 함께 [express](../expressroute/expressroute-introduction.md) 경로를 사용 하려면 다음과 같은 특정 경로를 사용 하 여 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) ISE에서 사용 하는 각 서브넷에 경로 테이블을 연결 해야 합니다.
 
-    **이름**: <*경로-이름*><br>
-    **주소 접두사**: 0.0.0.0/0<br>
-    **다음 홉**: 인터넷
+    **이름** : < *경로-이름*><br>
+    **주소 접두사** : 0.0.0.0/0<br>
+    **다음 홉** : 인터넷
     
     Logic Apps 구성 요소가 Azure Storage 및 Azure SQL DB와 같은 다른 종속 Azure 서비스와 통신할 수 있도록이 특정 경로 테이블이 필요 합니다. 이 경로에 대 한 자세한 내용은 [0.0.0.0/0 주소 접두사](../virtual-network/virtual-networks-udr-overview.md#default-route)를 참조 하세요. Express 경로를 사용 하 여 강제 터널링을 사용 하지 않는 경우이 특정 경로 테이블이 필요 하지 않습니다.
     
@@ -99,7 +99,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 * 기존 가상 네트워크의 경우 선택적으로 [NSG(네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md#network-security-groups)를 설정하여 [서브넷 전체에서 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)할 수 있습니다. 이 경로로 이동하거나 이미 NSG를 사용하는 경우에는 해당 NSG에 대해 [이 표에 설명되어 있는 포트를 열어야](#network-ports-for-ise)합니다.
 
-  [NSG 보안 규칙](../virtual-network/network-security-groups-overview.md#security-rules)을 설정하는 경우 **TCP**와 **UDP** 프로토콜을 모두 사용해야 합니다. 그렇지 않으면 각 프로토콜에 대해 별도의 규칙을 만들 필요가 없도록 **임의**를 선택합니다. NSG 보안 규칙은 포트에 액세스해야 하는 IP 주소에 대해 열어야 하는 해당 포트를 설명합니다. 이러한 엔드포인트 사이에 존재하는 방화벽, 라우터 또는 기타 항목도 해당 포트가 IP 주소에 액세스할 수 있도록 유지해야 합니다.
+  [NSG 보안 규칙](../virtual-network/network-security-groups-overview.md#security-rules)을 설정하는 경우 **TCP** 와 **UDP** 프로토콜을 모두 사용해야 합니다. 그렇지 않으면 각 프로토콜에 대해 별도의 규칙을 만들 필요가 없도록 **임의** 를 선택합니다. NSG 보안 규칙은 포트에 액세스해야 하는 IP 주소에 대해 열어야 하는 해당 포트를 설명합니다. 이러한 엔드포인트 사이에 존재하는 방화벽, 라우터 또는 기타 항목도 해당 포트가 IP 주소에 액세스할 수 있도록 유지해야 합니다.
 
 * 방화벽을 통해 강제 터널링을 설정 하 여 인터넷 바인딩된 트래픽을 리디렉션하는 경우 [추가 강제 터널링 요구 사항을](#forced-tunneling)검토 합니다.
 
@@ -116,8 +116,8 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 | 목적 | 원본 서비스 태그 또는 IP 주소 | 원본 포트 | 대상 서비스 태그 또는 IP 주소 | 대상 포트 | 메모 |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
-| 가상 네트워크 내에서 서브넷 간 통신 | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | 가상 네트워크의 서브넷 간에 트래픽이 흐르는 데 필요합니다. <p><p>**중요**: 각 서브넷의 구성 요소 간에 트래픽이 흐르려면 각 서브넷 내에서 모든 포트를 열어야 합니다. |
-| 둘 다: <p>논리 앱으로 향하는 통신 <p><p>논리 앱의 실행 기록| 내부 ISE: <br>**VirtualNetwork** <p><p>외부 ISE: **Internet** 또는 **메모** 참조 | * | **VirtualNetwork** | 443 | **Internet** 서비스 태그를 사용하는 대신 다음 항목에 대한 소스 IP 주소를 지정할 수 있습니다. <p><p>- 논리 앱에서 요청 트리거 또는 웹후크를 호출하는 컴퓨터 또는 서비스 <p>- 로직 앱 실행 기록에 액세스하려는 컴퓨터 또는 서비스 <p><p>**중요**: 이 포트를 닫거나 차단하면 요청 트리거 또는 웹후크가 있는 논리 앱을 호출할 수 없습니다. 실행 기록의 각 단계에 대한 입력 및 출력에도 액세스 할 수 없습니다. 단, 논리 앱 실행 기록에는 액세스할 수 있습니다.|
+| 가상 네트워크 내에서 서브넷 간 통신 | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | 가상 네트워크의 서브넷 간에 트래픽이 흐르는 데 필요합니다. <p><p>**중요** : 각 서브넷의 구성 요소 간에 트래픽이 흐르려면 각 서브넷 내에서 모든 포트를 열어야 합니다. |
+| 둘 다: <p>논리 앱으로 향하는 통신 <p><p>논리 앱의 실행 기록| 내부 ISE: <br>**VirtualNetwork** <p><p>외부 ISE: **Internet** 또는 **메모** 참조 | * | **VirtualNetwork** | 443 | **Internet** 서비스 태그를 사용하는 대신 다음 항목에 대한 소스 IP 주소를 지정할 수 있습니다. <p><p>- 논리 앱에서 요청 트리거 또는 웹후크를 호출하는 컴퓨터 또는 서비스 <p>- 로직 앱 실행 기록에 액세스하려는 컴퓨터 또는 서비스 <p><p>**중요** : 이 포트를 닫거나 차단하면 요청 트리거 또는 웹후크가 있는 논리 앱을 호출할 수 없습니다. 실행 기록의 각 단계에 대한 입력 및 출력에도 액세스 할 수 없습니다. 단, 논리 앱 실행 기록에는 액세스할 수 있습니다.|
 | Logic Apps 디자이너 - 동적 속성 | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Logic Apps에서 오는 요청은 해당 지역에 대한 엔드포인트의 [인바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#inbound)에 액세스합니다. |
 | 커넥터 배포 | **AzureConnectors** | * | **VirtualNetwork** | 454 | 커넥터를 배포하고 업데이트하는 데 필요합니다. 이 포트를 닫거나 차단하면 ISE 배포가 실패하고 커넥터를 업데이트 및 수정할 수 없습니다. |
 | 네트워크 상태 검사 | **LogicApps** | * | **VirtualNetwork** | 454 | Logic Apps에서 오는 요청은 해당 지역에 대한 엔드포인트의 [인바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#inbound)와 [아웃바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)에 액세스합니다. |
@@ -131,7 +131,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 | 목적 | 원본 서비스 태그 또는 IP 주소 | 원본 포트 | 대상 서비스 태그 또는 IP 주소 | 대상 포트 | 메모 |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
-| 가상 네트워크 내에서 서브넷 간 통신 | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | 가상 네트워크의 서브넷 간에 트래픽이 흐르는 데 필요합니다. <p><p>**중요**: 각 서브넷의 구성 요소 간에 트래픽이 흐르려면 각 서브넷 내에서 모든 포트를 열어야 합니다. |
+| 가상 네트워크 내에서 서브넷 간 통신 | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | ISE 서브넷이 있는 가상 네트워크의 주소 공간 | * | 가상 네트워크의 서브넷 간에 트래픽이 흐르는 데 필요합니다. <p><p>**중요** : 각 서브넷의 구성 요소 간에 트래픽이 흐르려면 각 서브넷 내에서 모든 포트를 열어야 합니다. |
 | 논리 앱에서 오는 통신 | **VirtualNetwork** | * | 대상에 따라 다름 | 80, 443 | 대상은 논리 앱이 통신해야 하는 외부 서비스의 엔드포인트에 따라 다릅니다. |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
 | Azure Storage 종속성 | **VirtualNetwork** | * | **스토리지** | 80, 443, 445 ||
@@ -176,29 +176,29 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 ## <a name="create-your-ise"></a>ISE 만들기
 
-1. [Azure Portal](https://portal.azure.com)의 기본 Azure 검색 상자에서 `integration service environments`를 필터로 입력하고 **통합 서비스 환경**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)의 기본 Azure 검색 상자에서 `integration service environments`를 필터로 입력하고 **통합 서비스 환경** 을 선택합니다.
 
    !["통합 서비스 환경" 찾기 및 선택](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. **통합 서비스 환경** 창에서 **추가**를 선택합니다.
+1. **통합 서비스 환경** 창에서 **추가** 를 선택합니다.
 
    !["추가"를 선택 하 여 통합 서비스 환경 만들기](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
-1. 사용자 환경에 대한 세부 정보를 제공한 다음, **검토 + 만들기**를 선택합니다. 예:
+1. 사용자 환경에 대한 세부 정보를 제공한 다음, **검토 + 만들기** 를 선택합니다. 예:
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 신규 또는 기존 Azure 리소스 그룹 |
    | **통합 서비스 환경 이름** | 예 | <*environment-name*> | ISE 이름이며 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 마침표(`.`)만 포함할 수 있습니다. |
    | **위치** | 예 | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
-   | **SKU** | 예 | **프리미엄** 또는 **개발자(SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 SKU 간의 차이점은 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조하세요. <p><p>**중요**: 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에는 변경할 수 없습니다. |
+   | **SKU** | 예 | **프리미엄** 또는 **개발자(SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 SKU 간의 차이점은 [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조하세요. <p><p>**중요** : 이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에는 변경할 수 없습니다. |
    | **추가 용량** | 프리미엄: <br>예 <p><p>개발자: <br>해당 없음 | 프리미엄: <br>0~10 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위 수입니다. 만든 후 용량을 추가하려면 [ISE 용량 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)를 참조하세요. |
-   | **액세스 엔드포인트** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 엔드포인트의 유형입니다. 이러한 엔드포인트에 따라 ISE의 논리 앱에서 요청 또는 웹후크 트리거가 가상 네트워크 외부의 호출을 받을 수 있을지 여부가 결정됩니다. <p><p>선택한 사항은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요. <p><p>**중요**: 액세스 엔드포인트는 ISE를 만드는 동안에만 선택할 수 있고 나중에 이 옵션을 변경할 수 없습니다. |
-   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없으면 [먼저 Azure 가상 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). <p><p>**중요**: ISE를 만들 때*만* 이 삽입을 수행할 수 있습니다. |
-   | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. <p>**중요**: 서브넷을 [만들기 위해 이러한 단계를 계속 하기 전에 서브넷 요구 사항을 검토](#create-subnet)해야 합니다. |
+   | **액세스 엔드포인트** | 예 | **내부** 또는 **외부** | ISE에 사용할 액세스 엔드포인트의 유형입니다. 이러한 엔드포인트에 따라 ISE의 논리 앱에서 요청 또는 웹후크 트리거가 가상 네트워크 외부의 호출을 받을 수 있을지 여부가 결정됩니다. <p><p>선택한 사항은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방식에도 영향을 줍니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요. <p><p>**중요** : 액세스 엔드포인트는 ISE를 만드는 동안에만 선택할 수 있고 나중에 이 옵션을 변경할 수 없습니다. |
+   | **가상 네트워크** | 예 | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없으면 [먼저 Azure 가상 네트워크를 만듭니다](../virtual-network/quick-create-portal.md). <p><p>**중요** : ISE를 만들 때 *만* 이 삽입을 수행할 수 있습니다. |
+   | **서브넷** | 예 | <*subnet-resource-list*> | ISE에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 4 개의 *빈* 서브넷이 필요 하며 커넥터 및 성능 캐싱과 같은 내부 Logic Apps 구성 요소에서 사용 됩니다. <p>**중요** : 서브넷을 [만들기 위해 이러한 단계를 계속 하기 전에 서브넷 요구 사항을 검토](#create-subnet)해야 합니다. |
    |||||
 
    <a name="create-subnet"></a>
@@ -227,26 +227,26 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    * [ExpressRoute](../expressroute/expressroute-introduction.md)를 사용하는 경우 다음 경로를 포함하는 [경로 테이블을 만든](../virtual-network/manage-route-table.md) 다음, 이 테이블을 ISE에서 사용하는 각 서브넷과 연결해야 합니다.
 
-     **이름**: <*경로-이름*><br>
-     **주소 접두사**: 0.0.0.0/0<br>
-     **다음 홉**: 인터넷
+     **이름** : < *경로-이름*><br>
+     **주소 접두사** : 0.0.0.0/0<br>
+     **다음 홉** : 인터넷
 
-   1. **서브넷** 목록에서 **서브넷 구성 관리**를 선택합니다.
+   1. **서브넷** 목록에서 **서브넷 구성 관리** 를 선택합니다.
 
       ![서브넷 구성 관리](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet-configuration.png)
 
-   1. **서브넷** 창에서 **서브넷**을 선택합니다.
+   1. **서브넷** 창에서 **서브넷** 을 선택합니다.
 
       ![빈 서브넷 4개 추가](./media/connect-virtual-network-vnet-isolated-environment/add-empty-subnets.png)
 
    1. **서브넷 추가** 창에서 이 정보를 제공합니다.
 
-      * **Name**: 서브넷의 이름
+      * **Name** : 서브넷의 이름
       * **주소 범위(CIDR 블록)** : 가상 네트워크 및 CIDR 형식의 서브넷 범위
 
       ![서브넷 세부 정보 추가](./media/connect-virtual-network-vnet-isolated-environment/provide-subnet-details.png)
 
-   1. 완료되면 **확인**을 선택합니다.
+   1. 완료되면 **확인** 을 선택합니다.
 
    1. 세 개 이상의 서브넷에 대해 이 단계를 반복합니다.
 
@@ -255,7 +255,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    서브넷 만들기에 대한 자세한 내용은 [가상 네트워크 서브넷 추가](../virtual-network/virtual-network-manage-subnet.md)를 참조하세요.
 
-1. Azure에서 성공적으로 ISE 정보의 유효성 검사를 완료하면 **만들기**를 선택합니다. 예:
+1. Azure에서 성공적으로 ISE 정보의 유효성 검사를 완료하면 **만들기** 를 선택합니다. 예:
 
    ![유효성 검사에 성공하면 "만들기" 선택](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
@@ -276,29 +276,22 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
    > 가상 네트워크를 삭제할 때는 그 때까지 연결된 리소스가 없는지 확인해야 합니다. 
    > [가상 네트워크 삭제](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)를 참조하세요.
 
-1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동**을 선택합니다.
+1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동** 을 선택합니다.
 
 1. ISE의 네트워크 상태를 확인하려면 [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)를 참조하세요.
+
+   > [!CAUTION]
+   > ISE의 네트워크가 비정상 상태가 되 면 ISE에서 사용 하는 ASE (내부 App Service Environment)도 비정상 상태가 될 수 있습니다. ASE가 7 일 넘게 비정상 상태 이면 ASE가 일시 중단 됩니다. 이 상태를 확인 하려면 가상 네트워크 설정을 확인 하세요. 발견 된 문제를 해결 한 다음 ISE를 다시 시작 합니다. 그렇지 않으면 90 일 후 일시 중단 ASE가 삭제 되 고 ISE를 사용할 수 없게 됩니다. 따라서 필요한 트래픽을 허용 하기 위해 ISE를 정상적으로 유지 해야 합니다.
+   > 
+   > 자세한 내용은 다음 항목을 참조하세요.
+   >
+   > * [Azure App Service 진단 개요](../app-service/overview-diagnostics.md)
+   > * [Azure App Service Environment에 대 한 메시지 로깅](../app-service/environment/using-an-ase.md#logging)
 
 1. ISE에서 논리 앱 및 기타 아티팩트 만들기를 시작하려면 [통합 서비스 환경에 리소스 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md)를 참조하세요.
 
    > [!IMPORTANT]
-   > ISE를 만든 후 사용 가능한 관리형 ISE 커넥터는 Logic App 디자이너의 커넥터 선택기에 자동으로 나타나지 않습니다. ISE 커넥터를 사용하려면 먼저 [해당 커넥터를 ISE에 수동으로 추가](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment)하여 Logic App 디자이너에 나타나도록 해야 합니다.
-
-   > [!IMPORTANT]
-   > 관리 되는 ISE 커넥터는 현재 [태그](../azure-resource-manager/management/tag-support.md)를 지원 하지 않습니다. 태그 지정을 적용 하는 정책을 설정 하는 경우 ISE 커넥터를 추가 하려고 합니다.  
-   > 는 다음과 같은 오류와 함께 실패할 수 있습니다. 
-   > 
-   > ```json
-   > {
-   >    "error": { 
-   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
-   >       "message": "The tags are not supported in the managed API 'azureblob'."
-   >    }
-   > }
-   > ```
-   > ISE 커넥터를 추가 하려면 정책을 사용 하지 않도록 설정 하거나 제거 해야 합니다.
-   > 
+   > ISE를 만든 후에는 관리 되는 ISE 커넥터를 사용할 수 있지만 논리 앱 디자이너의 커넥터 선택에 자동으로 표시 되지 않습니다. 이러한 ISE 커넥터를 사용 하려면 먼저 이러한 커넥터를 수동으로 추가 하 고 해당 커넥터를 해당 [ise에 배포](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 하 여 논리 앱 디자이너에 표시 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: 주요 자격 증명 모음 설정
-description: 가상 컴퓨터에서 사용할 Key Vault를 설정 하는 방법
+title: PowerShell을 사용 하 여 Key Vault 설정
+description: PowerShell을 사용 하 여 가상 컴퓨터에 사용할 Key Vault를 설정 하는 방법
 author: mimckitt
 manager: vashan
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: d5e4bb1d3f62685c90e95eebf5f8f07720a23b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4a6ed5f57c536a9e40b2fd81b96d055702b425
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086996"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678314"
 ---
-# <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 머신에 대한 주요 자격 증명 모음 설정
+# <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 가상 머신에 대 한 Key Vault 설정
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 

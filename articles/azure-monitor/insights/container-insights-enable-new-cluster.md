@@ -3,13 +3,13 @@ title: 새 AKS (Azure Kubernetes Service) 클러스터 모니터링 | Microsoft 
 description: 컨테이너 구독에 대 한 Azure Monitor를 사용 하 여 새 AKS (Azure Kubernetes Service) 클러스터에 대 한 모니터링을 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320326"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735083"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>새 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -34,12 +34,12 @@ Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성�
 >[!NOTE]
 >Terraform을 사용하도록 선택하는 경우 Terraform Azure RM Provider 버전 1.17.0 이상을 실행해야 합니다.
 
-컨테이너용 Azure Monitor를 작업 영역에 추가하려면 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)을 참조하여 [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile)을 포함하고 **oms_agent**를 지정하여 프로필을 완료하세요. 
+컨테이너용 Azure Monitor를 작업 영역에 추가하려면 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)을 참조하여 [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile)을 포함하고 **oms_agent** 를 지정하여 프로필을 완료하세요. 
 
 모니터링을 사용하도록 설정하고 모든 구성 작업이 성공적으로 완료되면 다음 두 가지 방법 중 하나로 클러스터의 성능을 모니터링할 수 있습니다.
 
-* 왼쪽 창에서 **상태**를 선택하여 AKS 클러스터에서 직접 모니터링합니다.
-* 선택한 클러스터에 대한 AKS 클러스터 페이지에서 **컨테이너 정보 모니터링** 타일을 선택하고 Azure Monitor의 왼쪽 창에서 **상태**를 선택합니다. 
+* 왼쪽 창에서 **상태** 를 선택하여 AKS 클러스터에서 직접 모니터링합니다.
+* 선택한 클러스터에 대한 AKS 클러스터 페이지에서 **컨테이너 정보 모니터링** 타일을 선택하고 Azure Monitor의 왼쪽 창에서 **상태** 를 선택합니다. 
 
   ![AKS의 컨테이너에 대한 Azure Monitor 선택용 옵션](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 

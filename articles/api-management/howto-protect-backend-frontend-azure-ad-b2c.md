@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
-ms.custom: fasttrack-new
-ms.openlocfilehash: 60177dd00dc6326aae4cfdc0b658c85f2635f8c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-new, devx-track-js
+ms.openlocfilehash: aa3bce73d2a91538dff0fdeb9e0eb814d878459a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253697"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676030"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>OAuth 2.0, Azure Active Directory B2C 및 Azure API Management를 사용 하 여 SPA 백 엔드 보호
 
@@ -31,7 +31,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 
 심층 방어를 위해 EasyAuth를 사용 하 여 백 엔드 API 내에서 토큰의 유효성을 다시 검사 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 * 프런트 엔드 JS 단일 페이지 앱을 호스트 하는 Azure (StorageV2) 범용 V2 저장소 계정
 * Azure API Management 인스턴스 
@@ -180,7 +180,7 @@ IP 제한 패널에 CIDR 형식 주소 블록을 추가 해야 합니다. API Ma
    > 이제 API management 나 사용자의 주소를 제외한 모든 위치에서 함수 API를 호출할 수 없습니다.
    
 ## <a name="import-the-function-app-definition"></a>함수 앱 정의 가져오기
-1. *API Management 블레이드*를 연 후 *인스턴스*를 엽니다.
+1. *API Management 블레이드* 를 연 후 *인스턴스* 를 엽니다.
 1. 인스턴스의 API Management 섹션에서 Api 블레이드를 선택 합니다.
 1. ' 새 API 추가 ' 창에서 ' 함수 앱 '를 선택한 다음 팝업 위쪽에서 ' 전체 '를 선택 합니다.
 1. 찾아보기를 클릭 하 고 내에서 API를 호스트 하는 함수 앱을 선택한 다음 선택을 클릭 합니다.

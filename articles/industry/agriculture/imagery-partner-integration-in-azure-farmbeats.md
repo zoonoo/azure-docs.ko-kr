@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613288"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675939"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
 
@@ -43,9 +43,9 @@ API에는 Swagger 기술 문서가 포함되어 있습니다. Api 및 해당 요
 
 ## <a name="authentication"></a>인증
 
-FarmBeats는 Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD)를 사용 합니다.  Azure App Service는 기본 제공 인증 및 권한 부여를 지원합니다. 
+FarmBeats는 Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD)를 사용 합니다.  Azure App Service는 기본 제공 인증 및 권한 부여를 지원합니다. 
 
-Azure AD에 대한 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 참조하세요.   
+Azure AD에 대한 자세한 내용은 [Azure Active Directory](../../app-service/overview-authentication-authorization.md)를 참조하세요.   
 
 FarmBeats Datahub는 전달자 인증을 사용하며 다음 자격 증명이 필요합니다.
 
@@ -138,10 +138,10 @@ JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 �
 
 1.  업로드할 이미지 유형에 따라 다음 필드에 대해 새 확장 유형을 만듭니다.
 
-    - **장면 소스**: 예: drone_partner_name
-    - **장면 유형**(예: 드 론)
-    - **장면 파일 형식**(예: chlorophyll index)
-    - **장면 파일 콘텐츠 형식**(예: image/tiff)
+    - **장면 소스** : 예: drone_partner_name
+    - **장면 유형** (예: 드 론)
+    - **장면 파일 형식** (예: chlorophyll index)
+    - **장면 파일 콘텐츠 형식** (예: image/tiff)
 
 2.  /팜 API를 호출 하 여 Azure FarmBeats 시스템 내에서 팜 목록을 가져옵니다.
 3.  고객에 게 팜 목록에서 단일 팜을 선택할 수 있는 기능을 제공 합니다.

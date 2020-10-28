@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92d8c52ee9da1df67be27ea0867e788e2aaed37b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 217ccbcef28545710ea0875a318bcf5b4b555825
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222490"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677710"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -18,15 +18,18 @@ Azure Automation의 업데이트 관리를 사용하면 Azure, 온-프레미스 
 
 VM용 업데이트 관리는 다음과 같은 방법으로 사용하도록 설정할 수 있습니다.
 
-* 하나 이상의 Azure 및 비 Azure 컴퓨터에 대 한 [Azure Automation 계정](enable-from-automation-account.md) 에서
-* [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) (미리 보기)에 등록 된 컴퓨터 또는 서버를 포함 하 여 비 Azure 컴퓨터에 대해 수동으로
-* 단일 Azure VM의 경우 Azure Portal의 가상 머신 페이지에서. 이 시나리오는 [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) VM과 [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VM에서 지원됩니다.
-* [여러 Azure VM](enable-from-portal.md)의 경우 Azure Portal의 가상 머신 페이지에서 해당 VM을 선택.
+- 하나 이상의 Azure 및 비 Azure 컴퓨터에 대 한 [Azure Automation 계정](enable-from-automation-account.md) 에서
+
+- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 등록 된 컴퓨터 또는 서버를 포함 하 여 비 azure 컴퓨터의 경우 수동으로.
+
+- Azure Portal의 [가상 컴퓨터 페이지](enable-from-vm.md) 에서 단일 Azure VM의 경우 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
+
+- [여러 Azure VM](enable-from-portal.md)의 경우 Azure Portal의 가상 머신 페이지에서 해당 VM을 선택.
 
 > [!NOTE]
 > 업데이트 관리를 사용하려면 Log Analytics 작업 영역을 Automation 계정에 연결해야 합니다. 지원되는 지역 목록은 [Azure 작업 영역 매핑](../how-to/region-mappings.md)을 참조하세요. 지역 매핑은 Automation 계정과 별도의 지역에 있는 VM을 관리하는 기능에 영향을 주지 않습니다.
 
-신규 또는 기존 Automation 계정과 구독의 Log Analytics 작업 영역으로 업데이트 관리를 배포하는 데 도움이 되는 [Azure Resource Manager 템플릿](enable-from-template.md)이 있습니다.
+[Azure Resource Manager 템플릿을](enable-from-template.md) 사용 하 여 새 또는 기존 Automation 계정 및 구독의 Log Analytics 작업 영역에서 업데이트 관리 기능을 사용 하도록 설정할 수 있습니다. 기능을 사용 하 여 Azure 또는 비 Azure Vm을 사용 하도록 설정 하는 것이 아니라 앞에서 설명한 방법 중 하나를 사용 하 여 해당 단계가 나중에 수행 됩니다.
 
 > [!NOTE]
 > 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
@@ -106,7 +109,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 #### <a name="windows"></a>Windows
 
-Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. Windows용 Log Analytics 에이전트를 설치하는 방법은 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요.
+Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. Windows용 Log Analytics 에이전트를 설치하는 방법은 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [windows azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하 여 windows 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
 
 업데이트 관리를 Microsoft Endpoint Configuration Manager와 함께 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 To learn more about integration scenarios, see [Windows Endpoint Configuration Manager와 업데이트 관리 통합](mecmintegration.md)을 참조하세요. Configuration Manager 환경에서 사이트에 의해 관리되는 Windows 서버에는 [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md)가 필요합니다. 
 
@@ -122,7 +125,7 @@ Linux의 경우 머신에 업데이트 리포지토리에 대한 프라이빗 �
 > [!NOTE]
 > Linux 머신의 업데이트 평가는 특정 지역에서만 지원됩니다. Automation 계정 및 Log Analytics 작업 영역 [매핑 테이블](../how-to/region-mappings.md#supported-mappings)을 참조하세요.
 
-Linux용 Log Analytics 에이전트를 설치하고 최신 버전을 다운로드하는 방법은 [Linux용 Log Analytics 에이전트](../../azure-monitor/platform/agent-linux.md)를 참조하세요.
+Linux용 Log Analytics 에이전트를 설치하고 최신 버전을 다운로드하는 방법은 [Linux용 Log Analytics 에이전트](../../azure-monitor/platform/agent-linux.md)를 참조하세요. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [Linux Azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하 여 Windows 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
 
 Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../../virtual-machines/workloads/redhat/redhat-rhui.md) 에 액세스 하도록 등록 됩니다. 다른 모든 Linux 배포판은 해당 배포판에서 지원되는 방법을 사용하여 배포판의 온라인 파일 리포지토리에서 업데이트되어야 합니다.
 
@@ -191,7 +194,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
-Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor**를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](../how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
+Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor** 를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](../how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
 
 Windows 머신의 경우 Windows 업데이트에 필요한 모든 엔드포인트로도 트래픽을 허용해야 합니다. 필요한 엔드포인트의 업데이트된 목록은 [HTTP/프록시 관련 문제](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)에서 확인할 수 있습니다. 로컬 [Windows 업데이트 서버](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)가 있는 경우 [WSUS 키](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)에 지정된 서버로도 트래픽을 허용해야 합니다.
 

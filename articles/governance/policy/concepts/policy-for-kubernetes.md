@@ -3,12 +3,12 @@ title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1747e770da420a3448e97628806733459fe07a49
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366992"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676702"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -25,7 +25,7 @@ Kubernetes용 Azure Policy는 다음 클러스터 환경을 지원합니다.
 - [AKS 엔진](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> AKS 엔진과 Arc enabled Kubernetes의 추가 기능은 **미리 보기로**제공 됩니다. Kubernetes에 대 한 Azure Policy는 Linux 노드 풀 및 기본 제공 정책 정의만 지원 합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceOPAConstraint** 및 **EnforceRegoPolicy** 효과를 사용 하는 제한 된 미리 보기 정책 정의와 관련 **Kubernetes 서비스** 범주는 _사용 되지_않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
+> AKS 엔진과 Arc enabled Kubernetes의 추가 기능은 **미리 보기로** 제공 됩니다. Kubernetes에 대 한 Azure Policy는 Linux 노드 풀 및 기본 제공 정책 정의만 지원 합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceOPAConstraint** 및 **EnforceRegoPolicy** 효과를 사용 하는 제한 된 미리 보기 정책 정의와 관련 **Kubernetes 서비스** 범주는 _사용 되지_ 않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -62,7 +62,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
 
 - [AKS Pod 보안 정책](../../../aks/use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 자세한 내용은 [AKS pod 보안 제한](../../../aks/use-pod-security-on-azure-policy.md#limitations)을 참조 하세요.
-- _Kube_, _aks 및-periscope_ _를 평가_하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
+- _Kube_ , _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
 
 ## <a name="recommendations"></a>권장 사항
 
@@ -124,7 +124,7 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 
 - Azure portal
 
-  1. **모든 서비스**를 선택한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
+  1. **모든 서비스** 를 선택한 다음 **Kubernetes services** 를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
   1. AKS 클러스터 중 하나를 선택합니다.
 
@@ -160,7 +160,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-마지막으로 Azure CLI 명령을 실행하여 최신 추가 기능이 설치되어 있는지 확인하고 `<rg>`를 리소스 그룹 이름으로, `<cluster-name>`을 AKS 클러스터의 이름 `az aks show -g <rg> -n <cluster-name>`으로 바꿉니다. 결과는 다음 출력과 유사하게 표시되고 **config.version**은 `v2`여야 합니다.
+마지막으로 Azure CLI 명령을 실행하여 최신 추가 기능이 설치되어 있는지 확인하고 `<rg>`를 리소스 그룹 이름으로, `<cluster-name>`을 AKS 클러스터의 이름 `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`으로 바꿉니다. 결과는 다음 출력과 유사하게 표시되고 **config.version** 은 `v2`여야 합니다.
 
 ```output
 "addonProfiles": {
@@ -217,7 +217,7 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. ‘Policy Insights Data Writer(미리 보기)’ 역할 할당을 Azure Arc 지원 Kubernetes 클러스터에 할당합니다. `<subscriptionId>`를 구독 ID로, `<rg>`를 Azure Arc 지원 Kubernetes 클러스터의 리소스 그룹으로, `<clusterName>`을 Azure Arc 지원 Kubernetes 클러스터 이름으로 바꿉니다. 설치 단계에서 _appId_, _password_ 및 _tenant_에 대해 반환된 값을 추적합니다.
+1. ‘Policy Insights Data Writer(미리 보기)’ 역할 할당을 Azure Arc 지원 Kubernetes 클러스터에 할당합니다. `<subscriptionId>`를 구독 ID로, `<rg>`를 Azure Arc 지원 Kubernetes 클러스터의 리소스 그룹으로, `<clusterName>`을 Azure Arc 지원 Kubernetes 클러스터 이름으로 바꿉니다. 설치 단계에서 _appId_ , _password_ 및 _tenant_ 에 대해 반환된 값을 추적합니다.
 
    - Azure CLI
 
@@ -376,7 +376,7 @@ kubectl get pods -n gatekeeper-system
 
 Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. 의 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes) 에서는 `Microsoft.Kubernetes.Data` Kubernetes 클러스터를 관리 하는 데 효과 [감사](./effects.md#audit) 및 [거부가](./effects.md#deny) 사용 됩니다. _Audit_ 및 _Deny_ [는 Opa 제약 조건 프레임 워크](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 게이트 키퍼 v3 작업과 관련 된 **세부** 정보 속성을 제공 해야 합니다.
 
-정책 정의의 _details.constraintTemplate_ 및 _details.constraint_ 속성의 일부로, Azure Policy는 CRD([CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates))의 URI를 추가 기능에 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
+정책 정의의 _details.constraintTemplate_ 및 _details.constraint_ 속성의 일부로, Azure Policy는 CRD( [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates))의 URI를 추가 기능에 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
 
 ## <a name="assign-a-built-in-policy-definition"></a>기본 제공 정책 정의 할당
 
@@ -384,20 +384,20 @@ Kubernetes 클러스터에 정책 정의를 할당 하려면 적절 한 Azure RB
 
 다음 단계를 통해 Azure Portal을 사용하여 클러스터를 관리하기 위한 기본 제공 정책 정의를 찾습니다.
 
-1. Azure Portal에서 Azure Policy 서비스를 시작합니다. 왼쪽 창에서 **모든 서비스**를 선택한 다음, **정책**을 검색하여 선택합니다.
+1. Azure Portal에서 Azure Policy 서비스를 시작합니다. 왼쪽 창에서 **모든 서비스** 를 선택한 다음, **정책** 을 검색하여 선택합니다.
 
-1. Azure Policy 페이지의 왼쪽 창에서 **정의**를 선택합니다.
+1. Azure Policy 페이지의 왼쪽 창에서 **정의** 를 선택합니다.
 
-1. 범주 드롭다운 목록 상자에서 **모두 선택**을 사용하여 필터를 지운 다음, **Kubernetes**를 선택합니다.
+1. 범주 드롭다운 목록 상자에서 **모두 선택** 을 사용하여 필터를 지운 다음, **Kubernetes** 를 선택합니다.
 
 1. 정책 정의를 선택한 다음, **할당** 단추를 선택합니다.
 
-1. **범위**를 정책 할당이 적용될 관리 그룹, 구독 또는 Kubernetes 클러스터의 리소스 그룹으로 설정합니다.
+1. **범위** 를 정책 할당이 적용될 관리 그룹, 구독 또는 Kubernetes 클러스터의 리소스 그룹으로 설정합니다.
 
    > [!NOTE]
-   > Kubernetes 정의를 위해 Azure Policy를 할당할 경우 **범위**에 클러스터 리소스가 포함되어야 합니다. AKS 엔진 클러스터의 경우 **범위**는 클러스터의 리소스 그룹이어야 합니다.
+   > Kubernetes 정의를 위해 Azure Policy를 할당할 경우 **범위** 에 클러스터 리소스가 포함되어야 합니다. AKS 엔진 클러스터의 경우 **범위** 는 클러스터의 리소스 그룹이어야 합니다.
 
-1. 쉽게 식별할 수 있도록 정책 할당에 **이름**과 **설명**을 지정합니다.
+1. 쉽게 식별할 수 있도록 정책 할당에 **이름** 과 **설명** 을 지정합니다.
 
 1. [정책 적용](./assignment-structure.md#enforcement-mode) 을 아래 값 중 하나로 설정 합니다.
 
@@ -405,13 +405,13 @@ Kubernetes 클러스터에 정책 정의를 할당 하려면 적절 한 Azure RB
 
    - **사용 안 함** - 클러스터에서 정책을 적용하지 않습니다. 위반이 있는 Kubernetes 허용 요청이 거부되지 않습니다. 규정 준수 평가 결과는 계속 제공됩니다. 실행 중인 클러스터에 새 정책 정의를 롤아웃하는 경우 위반이 있는 허용 요청은 거부되지 않으므로 ‘사용 안 함’ 옵션이 정책 정의를 테스트하는 데 도움이 됩니다.
 
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 
 1. **매개 변수 값** 설정
 
-   - 정책 평가에서 Kubernetes 네임스페이스를 제외하려면 **네임 스페이스 제외** 매개 변수에 네임스페이스 목록을 지정합니다. _kube-system_, _gatekeeper-system_ 및 _azure-arc_를 제외하는 것이 좋습니다.
+   - 정책 평가에서 Kubernetes 네임스페이스를 제외하려면 **네임 스페이스 제외** 매개 변수에 네임스페이스 목록을 지정합니다. _kube-system_ , _gatekeeper-system_ 및 _azure-arc_ 를 제외하는 것이 좋습니다.
 
-1. **검토 + 만들기**를 선택합니다.
+1. **검토 + 만들기** 를 선택합니다.
 
 또는 [정책 할당 - 포털](../assign-policy-portal.md) 빠른 시작을 사용하여 Kubernetes 정책을 찾고 할당합니다. 샘플 ‘audit vms’ 대신 Kubernetes 정책 정의를 검색합니다.
 
@@ -461,7 +461,7 @@ AKS 클러스터에서 Azure Policy 추가 기능을 제거하려면 Azure Porta
 
 - Azure portal
 
-  1. **모든 서비스**를 선택한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
+  1. **모든 서비스** 를 선택한 다음 **Kubernetes services** 를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
   1. Azure Policy 추가 기능을 사용하지 않으려는 AKS 클러스터를 선택합니다.
 
@@ -491,7 +491,7 @@ AKS 엔진 클러스터에서 Azure Policy 추가 기능 및 Gatekeeper를 제�
 
 - AKS 엔진에 대한 클러스터 정의에서 **addons** 속성을 설정하여 설치된 경우:
 
-  _azure-policy_에 대한 **addons** 속성을 false로 변경한 후 클러스터 정의를 AKS 엔진에 다시 배포합니다.
+  _azure-policy_ 에 대한 **addons** 속성을 false로 변경한 후 클러스터 정의를 AKS 엔진에 다시 배포합니다.
 
 
   ```json

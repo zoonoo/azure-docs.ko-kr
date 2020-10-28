@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 48a2c00f7ff487def13e9872c4f43a3ca36809ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5202145af6f60f34bdce57aa94f4fec92a8b227f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444634"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677268"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance용 Azure Resource Manager 템플릿
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 | [SQL Database를 사용하는 Azure 웹앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | 이 샘플은 "기본" 서비스 수준에서 체험판 Azure 웹앱과 Azure SQL Database를 만듭니다.|
 | [SQL Database를 사용하는 Azure 웹앱 및 Redis Cache](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | 이 템플릿은 동일한 리소스 그룹에 웹앱, Redis Cache 및 데이터베이스를 만들고, 웹앱에 데이터베이스 및 Redis Cache에 대한 두 개의 연결 문자열을 만듭니다.|
 | [ADF V2를 사용하여 Blob 스토리지에서 데이터 가져오기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | 이 Azure Resource Manager 템플릿은 Azure Blob 스토리지에서 SQL Database로 데이터를 복사하는 Azure Data Factory V2 인스턴스를 만듭니다.|
-| [데이터베이스를 사용하는 HDInsight 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | 이 템플릿을 사용하면 HDInsight 클러스터, 논리적 SQL 서버, 데이터베이스 및 두 개의 테이블을 만들 수 있습니다. 이 템플릿은 [HDInsight에서 Hadoop과 Sqoop 사용 문서](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop)에서 사용됩니다. |
+| [데이터베이스를 사용하는 HDInsight 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | 이 템플릿을 사용하면 HDInsight 클러스터, 논리적 SQL 서버, 데이터베이스 및 두 개의 테이블을 만들 수 있습니다. 이 템플릿은 [HDInsight에서 Hadoop과 Sqoop 사용 문서](../../hdinsight/hadoop/hdinsight-use-sqoop.md)에서 사용됩니다. |
 | [일정에 따라 SQL 저장 프로시저를 실행하는 Azure 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | 이 템플릿을 사용하면 일정에 따라 SQL 저장 프로시저를 실행하는 논리 앱을 만들 수 있습니다. 프로시저에 대한 인수를 템플릿의 본문 섹션에 삽입할 수 있습니다.|
 
 ## <a name="azure-sql-managed-instance"></a>[Azure SQL Managed Instance](#tab/managed-instance)
@@ -54,4 +54,3 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 | [가상 머신을 사용하는 SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | 이 배포는 `ManagedInstance` 및 `Management` 서브넷이 있는 Azure 가상 네트워크를 만듭니다. SQL Managed Instance는 `ManagedInstance` 서브넷에 배포됩니다. 최신 버전의 SSMS(SQL Server Management Studio)가 설치된 가상 머신이 `Management` 서브넷에 배포됩니다. |
 
 ---
-

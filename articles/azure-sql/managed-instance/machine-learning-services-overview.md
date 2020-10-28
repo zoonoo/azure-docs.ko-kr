@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: d7a3c86f3d9cf083a8746f753b8c5287c774a93e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb584d999d48c7d29420db26daebf592790af2b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676827"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance (미리 보기)의 Machine Learning Services
 
@@ -54,21 +54,29 @@ Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 �
 
 미리 보기 프로그램에 참여 하 고 이러한 조건에 동의 하는 경우에서 Azure 지원 티켓을 만들어 등록을 요청할 수 있습니다 [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
 
+1. **지원 티켓 만들기** 페이지에서 **인시던트 만들기** 를 클릭 합니다.
+
+1. **도움말 + 지원** 페이지에서 **새 지원 요청** 을 클릭 하 여 새 티켓을 만듭니다.
+
 1. 다음 옵션을 선택합니다.
    - 문제 유형- **기술**
    - 구독- *구독 선택*
-   - 서비스- **SQL Database Managed Instance**
+   - 서비스- **SQL Managed Instance**
+   - 리소스- *관리 되는 인스턴스를 선택 합니다* .
    - 요약-요청에 대 한 *간단한 설명을 입력 합니다* .
    - 문제 유형- **SQL Managed Instance에 대 한 Machine Learning Services (미리 보기)**
    - 문제 하위 유형- **기타 문제 또는 "방법" 질문**
 
-1. **다음: 솔루션**을 클릭 합니다.
+1. **다음: 솔루션** 을 클릭 합니다.
 
-1. 미리 보기에 대 한 정보를 읽고 **자세히**를 클릭 합니다.
+1. 미리 보기에 대 한 정보를 읽고 **다음: 세부 정보** 를 클릭 합니다.
 
-1. 설명에 미리 보기에 등록할 논리 서버 이름, 지역 및 구독 ID를 포함 하 여 요청에 대 한 세부 **정보**를 입력 합니다. 다른 세부 정보를 적절 하 게 입력 합니다.
+1. 이 페이지에서 다음을 수행합니다.
+   - **미리 보기에 등록 하려고** 하는 질문에 대해 **예** 를 선택 합니다. 
+   - 설명에는 미리 보기에 등록할 논리 서버 이름, 지역 및 구독 ID를 포함 하 여 요청에 대 한 세부 **정보** 를 입력 합니다. 다른 세부 정보를 적절 하 게 입력 합니다.
+   - 선호 하는 연락 방법을 선택 합니다. 
 
-1. 작업이 완료 되 면 **다음: 검토 + 만들기**를 클릭 한 다음 **만들기**를 클릭 합니다.
+1. 작업이 완료 되 면 **다음: 검토 + 만들기** 를 클릭 한 다음 **만들기** 를 클릭 합니다.
 
 프로그램에 등록되면 Microsoft에서 사용자가 공개 미리 보기에 온보딩되고 기존 또는 새 데이터베이스에 대해 Machine Learning Services를 사용하도록 설정됩니다.
 

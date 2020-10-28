@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370222"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677060"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -52,6 +52,14 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 | \*.windows.net |HTTPS/443 |Azure AD에 로그인하는 데 사용됩니다. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |MFA에 사용됩니다. |
 | \*.microsoftonline.com |HTTPS/443 |Azure AD 디렉터리를 구성하고 데이터 가져오거나 내보내는 데 사용됩니다. |
+| \*. crl3.digicert.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. crl4.digicert.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. ocsp.digicert.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. www.d-trust.net |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. crl.microsoft.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. oneocsp.microsoft.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*. ocsp.msocsp.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
 
 ## <a name="errors-in-the-wizard"></a>마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](reference-connect-accounts-permissions.md#adsync-service-account)으로 변경합니다. 프록시 구성은 전역으로 적용되므로 문제가 있는 경우 해당 내용이 마법사의 **Azure AD에 연결** 페이지에 나올 것입니다.
@@ -66,14 +74,14 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 * 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity) 의 단계를 수행합니다.
 
 ### <a name="a-microsoft-account-is-used"></a>Microsoft 계정이 사용됨
-**학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하면 일반 오류가 발생합니다.
+**학교 또는 조직 계정** 이 아닌 **Microsoft 계정** 을 사용하면 일반 오류가 발생합니다.
 ![Microsoft 계정이 사용됨](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA 엔드포인트에 연결할 수 없음
 이 오류는 끝점에 **https://secure.aadcdn.microsoftonline-p.com** 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
-* 이 오류가 표시되는 경우 엔드포인트 **secure.aadcdn.microsoftonline-p.com**이 프록시에 추가되어 있는지 확인합니다.
+* 이 오류가 표시되는 경우 엔드포인트 **secure.aadcdn.microsoftonline-p.com** 이 프록시에 추가되어 있는지 확인합니다.
 
 ### <a name="the-password-cannot-be-verified"></a>암호를 확인할 수 없음
 설치 마법사가 Azure AD에 연결 하는 데 성공 했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시 됩니다. ![ 잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
@@ -87,13 +95,13 @@ PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사�
 
 프록시가 올바르게 구성 되 면 성공 상태 ( ![ 스크린샷)가 올바르게 구성 된 경우 성공 상태를 표시 하는 스크린샷을 받아야 합니다.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-**원격 서버에 연결할 수 없는**경우 PowerShell에서 프록시를 사용 하지 않고 직접 호출을 수행 하려고 하거나 DNS가 올바르게 구성 되지 않은 것입니다. **machine.config** 파일이 올바르게 구성 되어 있는지 확인 합니다.
+**원격 서버에 연결할 수 없는** 경우 PowerShell에서 프록시를 사용 하지 않고 직접 호출을 수행 하려고 하거나 DNS가 올바르게 구성 되지 않은 것입니다. **machine.config** 파일이 올바르게 구성 되어 있는지 확인 합니다.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)과 같은 오류가 표시됩니다.
 
-| Error | 오류 텍스트 | 의견 |
+| 오류 | 오류 텍스트 | 의견 |
 | --- | --- | --- |
 | 403 |사용할 수 없음 |요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 이 열려 있는지 확인합니다. |
 | 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우이 설정이 machine.config에 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
@@ -109,7 +117,7 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 * 엔드포인트 adminwebservice 및 provisioningapi는 검색 엔드포인트이며 사용할 실제 엔드포인트를 찾는 데 사용됩니다. 이러한 엔드포인트는 사용자의 하위 지역에 따라 다릅니다.
 
 ### <a name="reference-proxy-logs"></a>참조 프록시 로그
-다음은 실제 프록시 로그의 덤프 및 수행된 설치 마법사 페이지입니다(동일한 엔드포인트에 대한 중복 항목은 제거됨). 이 섹션은 고유한 프록시 및 네트워크 로그에 대한 참조로 사용할 수 있습니다. 실제 엔드포인트는 사용자 환경에서 다를 수 있습니다(특히 *기울임꼴*의 URL).
+다음은 실제 프록시 로그의 덤프 및 수행된 설치 마법사 페이지입니다(동일한 엔드포인트에 대한 중복 항목은 제거됨). 이 섹션은 고유한 프록시 및 네트워크 로그에 대한 참조로 사용할 수 있습니다. 실제 엔드포인트는 사용자 환경에서 다를 수 있습니다(특히 *기울임꼴* 의 URL).
 
 **Azure에 연결**
 
@@ -117,26 +125,26 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect:// *bba800-anchor* .microsoftonline.com:443 |
 | 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect:// *bwsc02-relay* .microsoftonline.com:443 |
 
 **구성**
 
 | Time | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect:// *bba800-anchor* .microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba900-anchor* .microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect:// *bba800-anchor* .microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect:// *bwsc02-relay* .microsoftonline.com:443 |
 
 **초기 동기화**
 
@@ -144,8 +152,8 @@ Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba900-anchor* .microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect:// *bba800-anchor* .microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>인증 오류
 이 섹션에서는 ADAL(Azure AD Connect에 의해 사용된 인증 라이브러리) 및 PowerShell에서 반환될 수 있는 오류를 다룹니다. 설명한 오류는 다음 단계를 이해하는 데 도움이 됩니다.
@@ -219,7 +227,7 @@ MFA (multi-factor authentication) 챌린지를 취소 했습니다.
 인증이 성공했습니다. Azure AD에서 도메인 정보를 검색할 수 없습니다.
 
 ### <a name="unspecified-authentication-failure"></a>지정되지 않은 인증 오류
-설치 마법사에서 예기치 않은 오류로 표시됩니다. **학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하려고 하면 발생할 수 있습니다.
+설치 마법사에서 예기치 않은 오류로 표시됩니다. **학교 또는 조직 계정** 이 아닌 **Microsoft 계정** 을 사용하려고 하면 발생할 수 있습니다.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>이전 릴리스에 대한 문제 해결 단계입니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.

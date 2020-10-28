@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 147247c663311cfb3e05a986c6fb2bffbb41158b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269746"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675205"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
 
@@ -34,7 +34,7 @@ ms.locfileid: "91269746"
 
 ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 다음 단계를 수행 합니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **논리 앱**  >  **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정** 에서 **논리 앱**  >  **추가** 를 선택 합니다.
 
    ![ISE에 새 논리 앱 추가](./media/add-artifacts-integration-service-environment-ise/add-logic-app-to-ise.png)
 
@@ -42,15 +42,15 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
    ![예제 정보가 입력 된 "논리 앱" "만들기" 창을 보여 주는 스크린샷](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **이름** | 예 | 만들 논리 앱의 이름 |
    | **구독** | 예 | 사용할 Azure 구독의 이름입니다. |
    | **리소스 그룹** | 예 | 사용할 Azure 리소스 그룹의 이름 (신규 또는 기존) |
-   | **위치** | 예 | **Integration service environment**에서 사용할 ISE를 선택 합니다 (아직 선택 하지 않은 경우). <p><p> **중요**: 논리 앱을 통합 계정으로 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
+   | **위치** | 예 | **Integration service environment** 에서 사용할 ISE를 선택 합니다 (아직 선택 하지 않은 경우). <p><p> **중요** : 논리 앱을 통합 계정으로 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
    ||||
 
-1. 완료되면 **만들기**를 선택합니다.
+1. 완료되면 **만들기** 를 선택합니다.
 
 1. [일반적인 방법으로 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 계속 만듭니다.
 
@@ -66,7 +66,7 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
 ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **통합 계정**  >  **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정** 에서 **통합 계정**  >  **추가** 를 선택 합니다.
 
    ![ISE에 새 통합 계정 추가](./media/add-artifacts-integration-service-environment-ise/add-integration-account-to-ise.png)
 
@@ -74,16 +74,16 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
    ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **이름** | 예 | 만들려는 통합 계정의 이름입니다. |
    | **구독** | 예 | 사용 하려는 Azure 구독의 이름입니다. |
    | **리소스 그룹** | 예 | 사용할 Azure 리소스 그룹의 이름 (신규 또는 기존) |
    | **가격 책정 계층** | 예 | 통합 계정에 사용할 가격 책정 계층입니다. |
-   | **위치** | 예 | **Integration service environment**에서 아직 선택 하지 않은 경우 논리 앱에서 사용 하는 것과 동일한 ISE를 선택 합니다. <p><p> **중요**: 논리 앱에서 통합 계정을 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
+   | **위치** | 예 | **Integration service environment** 에서 아직 선택 하지 않은 경우 논리 앱에서 사용 하는 것과 동일한 ISE를 선택 합니다. <p><p> **중요** : 논리 앱에서 통합 계정을 사용 하려면 둘 다 동일한 ISE를 사용 해야 합니다. |
    ||||
 
-1. 완료되면 **만들기**를 선택합니다.
+1. 완료되면 **만들기** 를 선택합니다.
 
 1. [일반적인 방법으로 통합 계정에 논리 앱을 연결](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account)합니다.
 
@@ -95,13 +95,27 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
 ## <a name="add-ise-connectors"></a>ISE 커넥터 추가
 
-ISE를 만든 후 사용할 수 있게 되는 Microsoft 관리 커넥터는 논리 앱 디자이너의 커넥터 선택에 자동으로 표시 되지 않습니다. 이러한 ISE 커넥터를 사용 하려면 먼저 이러한 커넥터를 수동으로 추가 하 고 해당 커넥터를 해당 ISE에 배포 하 여 논리 앱 디자이너에 표시 해야 합니다.
+ISE를 만든 후 관리 되는 ISE 커넥터가 논리 앱 디자이너의 커넥터 선택에 자동으로 표시 되지 않습니다. 이러한 ISE 커넥터를 사용 하려면 먼저 이러한 커넥터를 수동으로 추가 하 고 해당 커넥터를 해당 ISE에 배포 하 여 논리 앱 디자이너에 표시 해야 합니다.
 
-1. ISE 메뉴의 **설정**에서 **관리 되는 커넥터**를 선택 합니다. 도구 모음에서 **추가**를 선택합니다.
+> [!IMPORTANT]
+> 관리 되는 ISE 커넥터는 현재 [태그](../azure-resource-manager/management/tag-support.md)를 지원 하지 않습니다. 태그 지정을 적용 하는 정책을 설정 하는 경우 ISE 커넥터를 추가 하려고 하면 다음과 같은 오류와 함께 실패할 수 있습니다.
+> 
+> ```json
+> {
+>    "error": { 
+>       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+>       "message": "The tags are not supported in the managed API 'azureblob'."
+>    }
+> }
+> ```
+> 
+> 따라서 ISE 커넥터를 추가 하려면 정책을 사용 하지 않도록 설정 하거나 제거 해야 합니다. 
+
+1. ISE 메뉴의 **설정** 에서 **관리 되는 커넥터** 를 선택 합니다. 도구 모음에서 **추가** 를 선택합니다.
 
    ![관리 되는 커넥터 보기](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. **새 관리 커넥터 추가** 창에서 **커넥터 찾기** 목록을 엽니다. 사용할 ISE 커넥터를 선택 하지만 ISE에서 아직 배포 되지 않았습니다. **만들기**를 선택합니다.
+1. **새 관리 커넥터 추가** 창에서 **커넥터 찾기** 목록을 엽니다. 사용할 ISE 커넥터를 선택 하지만 ISE에서 아직 배포 되지 않았습니다. **만들기** 를 선택합니다.
 
    ![ISE에 배포할 ISE 커넥터를 선택 합니다.](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
@@ -113,17 +127,17 @@ ISE를 만든 후 사용할 수 있게 되는 Microsoft 관리 커넥터는 논�
 
 ISE에서 사용자 지정 커넥터를 사용 하려면 ISE 내에서 직접 사용자 지정 커넥터를 만듭니다.
 
-1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정**에서 **사용자 지정 커넥터**  >  **추가**를 선택 합니다.
+1. ISE를 찾아 엽니다 (아직 열지 않은 경우). ISE 메뉴의 **설정** 에서 **사용자 지정 커넥터**  >  **추가** 를 선택 합니다.
 
    ![사용자 지정 커넥터 만들기](./media/add-artifacts-integration-service-environment-ise/add-custom-connector-to-ise.png)
 
 1. 사용자 지정 커넥터에 사용할 이름, Azure 구독 및 Azure 리소스 그룹 (신규 또는 기존)을 제공 합니다.
 
-1. **위치** 목록의 **Integration service environment** 섹션에서 논리 앱이 사용 하는 동일한 ISE를 선택 하 고 **만들기**를 선택 합니다. 예를 들면 다음과 같습니다.
+1. **위치** 목록의 **Integration service environment** 섹션에서 논리 앱이 사용 하는 동일한 ISE를 선택 하 고 **만들기** 를 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![예제 정보를 선택한 상태로 "Logic Apps 사용자 지정 커넥터 만들기" 창을 보여 주는 스크린샷](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
-1. 새 사용자 지정 커넥터를 선택 하 고 **편집**을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 새 사용자 지정 커넥터를 선택 하 고 **편집** 을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![사용자 지정 커넥터 선택 및 편집](./media/add-artifacts-integration-service-environment-ise/edit-custom-connectors.png)
 

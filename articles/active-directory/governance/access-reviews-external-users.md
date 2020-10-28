@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505837"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677314"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Azure AD (Azure Active Directory) Id 거 버 넌 스를 사용 하 여 더 이상 리소스 액세스가 없는 외부 사용자를 검토 하 고 제거 합니다.
 
@@ -67,11 +67,11 @@ ms.locfileid: "89505837"
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Azure AD 액세스 검토 (미리 보기)를 사용 하 여 외부 id 비활성화 및 삭제
 
-그룹 또는 응용 프로그램과 같은 리소스에서 원치 않는 외부 id를 제거 하는 옵션 외에도, Azure AD 액세스 검토는 외부 id가 테 넌 트에 로그인 하는 것을 차단 하 고 30 일 후에 테 넌 트에서 외부 id를 삭제할 수 있습니다.
+그룹 또는 응용 프로그램과 같은 리소스에서 원치 않는 외부 id를 제거 하는 옵션 외에도, Azure AD 액세스 검토는 외부 id가 테 넌 트에 로그인 하는 것을 차단 하 고 30 일 후에 테 넌 트에서 외부 id를 삭제할 수 있습니다. **30 일 동안 사용자가 로그인 하지 못하도록 차단을 선택 하 고 나 서 테 넌 트에서 사용자를 제거** 하면 검토는 30 일 동안 "적용 중" 상태로 유지 됩니다. 이 기간 동안 현재 검토의 설정, 결과, 검토자 또는 감사 로그는 볼 수 없거나 구성할 수 없습니다. 
 
 ![완료 설정 시](media/access-reviews-external-users/upon-completion-settings.png)
 
-새 액세스 검토를 만들 때 "완료 후 설정" 섹션에서 **거부 된 사용자에 게 적용** 되는 작업의 경우 **사용자가 30 일간 로그인 하지 못하도록 차단을 정의한 다음 테 넌 트에서 사용자를 제거할**수 있습니다.
+새 액세스 검토를 만들 때 "완료 후 설정" 섹션에서 **거부 된 사용자에 게 적용** 되는 작업의 경우 **사용자가 30 일간 로그인 하지 못하도록 차단을 정의한 다음 테 넌 트에서 사용자를 제거할** 수 있습니다.
 현재 미리 보기로 제공 되는이 설정을 사용 하면 Azure AD 테 넌 트에서 외부 id를 식별, 차단 및 삭제할 수 있습니다. 검토자의 지속적인 액세스를 검토 하 고 거부 한 외부 id는 리소스 액세스 또는 그룹 멤버 자격에 관계 없이 차단 및 삭제 됩니다. 이 설정은 외부 사용자가 검토 한 후에 더 이상 리소스 액세스를 전달 하지 않으며 테 넌 트에서 안전 하 게 제거할 수 있는지 확인 한 후 또는 해당 사용자의 액세스에 관계 없이 제거 되었는지 확인 하는 마지막 단계로 사용 되는 것이 가장 좋습니다. "사용 안 함 및 삭제" 기능은 외부 사용자를 먼저 차단 하 여 테 넌 트에 로그인 하 고 리소스에 액세스 하는 기능을 제공 합니다. 이 단계에서는 리소스 액세스가 취소 되지 않으며, 외부 사용자를 다시 인스턴스화하 데 하는 경우에는 해당 로그온 기능을 다시 구성할 수 있습니다. 추가 작업을 수행 하지 않으면 30 일 후 차단 된 외부 id가 디렉터리에서 삭제 되 고 해당 액세스 뿐만 아니라 계정이 제거 됩니다.
 
 ## <a name="next-steps"></a>다음 단계

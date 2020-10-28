@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9189be5f2f513cd27fe8783d6a1825aac016522c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987478"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677744"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Azure에 TmaxSoft OpenFrame 설치
 
@@ -108,7 +108,7 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 - 아직 없는 경우 Azure 구독을 가져옵니다. 시작 하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만들 수도 있습니다.
 
-- (선택 사항) Azure VM에 대 한 액세스를 조직 내 허용 된 사용자로 제한 하는 사이트 간 VPN 터널 또는 jumpbox를 설정 합니다. 이 단계는 필요 하지 않지만 모범 사례입니다.
+- 선택 사항입니다. Azure VM에 대 한 액세스를 조직 내 허용 된 사용자로 제한 하는 사이트 간 VPN 터널 또는 jumpbox를 설정 합니다. 이 단계는 필요 하지 않지만 모범 사례입니다.
 
 ## <a name="set-up-a-vm-on-azure-for-openframe-and-tibero"></a>OpenFrame 및 Tibero에 대해 Azure에서 VM 설정
 
@@ -118,15 +118,15 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 1. 에서 Azure Portal로 이동 하 여 <https://portal.azure.com> 계정에 로그인 합니다.
 
-2. **가상 머신**을 클릭합니다.
+2. **가상 머신** 을 클릭합니다.
 
     ![Azure Portal의 리소스 목록](media/vm-01.png)
 
-3. **추가**를 클릭합니다.
+3. **추가** 를 클릭합니다.
 
     ![Azure Portal에서 옵션 추가](media/vm-02.png)
 
-4. **운영 체제**의 오른쪽에서 **자세히**를 클릭 합니다.
+4. **운영 체제** 의 오른쪽에서 **자세히** 를 클릭 합니다.
 
      ![Azure Portal의 추가 옵션](media/vm-03.png)
 
@@ -134,12 +134,12 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
      ![Azure Portal의 운영 체제 옵션](media/vm-04.png)
 
-6. **기본** 설정에서 **이름**, **사용자 이름**, **인증 유형**, **구독** (지불의 AWS 스타일) 및 **리소스 그룹** (기존 항목 사용 또는 tmaxsoft 그룹 만들기)을 입력 합니다.
+6. **기본** 설정에서 **이름** , **사용자 이름** , **인증 유형** , **구독** (지불의 AWS 스타일) 및 **리소스 그룹** (기존 항목 사용 또는 tmaxsoft 그룹 만들기)을 입력 합니다.
 
-7. **인증 유형에**대 한 공개/개인 키 쌍을 포함 하 여 완료 되 면 **제출**을 클릭 합니다.
+7. **인증 유형에** 대 한 공개/개인 키 쌍을 포함 하 여 완료 되 면 **제출** 을 클릭 합니다.
 
 > [!NOTE]
-> **인증 유형에**SSH 공개 키를 사용 하는 경우 다음 섹션의 단계를 참조 하 여 공개/개인 키 쌍을 생성 한 후 여기에서 단계를 다시 시작 합니다.
+> **인증 유형에** SSH 공개 키를 사용 하는 경우 다음 섹션의 단계를 참조 하 여 공개/개인 키 쌍을 생성 한 후 여기에서 단계를 다시 시작 합니다.
 
 ### <a name="generate-a-publicprivate-key-pair"></a>공개/개인 키 쌍을 생성 합니다.
 
@@ -162,9 +162,9 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
 
     ![PuTTY 인터페이스](media/puttygen-01.png)
 
-3.  **생성**을 클릭합니다.
+3.  **생성** 을 클릭합니다.
 
-    ![PuTTY 키 생성기 대화 상자](media/puttygen-02.png)
+    ![PuTTY 키 생성기 대화 상자를 표시 하 고 생성 단추를 강조 표시 하는 스크린샷](media/puttygen-02.png)
 
 4.  생성 후 공개 키와 개인 키를 모두 저장 합니다. **가상 머신 \> 기본 사항 만들기** 창의 **SSH 공개 키** 섹션 (이전 섹션의 6 단계 및 7 단계에 표시 됨)에 공개 키의 내용을 붙여넣습니다.
 
@@ -183,23 +183,23 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
 
 4. 선택 항목을 제출 합니다. Azure에서 VM 배포를 시작 합니다. 이 프로세스에는 일반적으로 몇 분 정도 걸립니다.
 
-5. VM을 배포 하면 구성 중에 선택한 모든 설정이 표시 되는 대시보드가 표시 됩니다. **공용 IP 주소**를 기록해 둡니다.
+5. VM을 배포 하면 구성 중에 선택한 모든 설정이 표시 되는 대시보드가 표시 됩니다. **공용 IP 주소** 를 기록해 둡니다.
 
     ![Azure 대시보드의 tmax](media/create-vm-03.png)
 
 6. PuTTY를 엽니다.
 
-7. **호스트 이름**에 사용자 이름 및 복사한 공용 IP 주소를 입력 합니다. 예: **사용자 이름 \@ publicip**.
+7. **호스트 이름** 에 사용자 이름 및 복사한 공용 IP 주소를 입력 합니다. 예: **사용자 이름 \@ publicip** .
 
-    ![PuTTY 구성 대화 상자](media/putty-01.png)
+    ![PuTTY 구성 대화 상자를 표시 하 고 호스트 이름 (또는 IP 주소) 필드를 강조 표시 하는 스크린샷](media/putty-01.png)
 
-8. **범주** 상자에서 **연결 \> SSH \> 인증**을 클릭 합니다. **개인 키** 파일에 대 한 경로를 제공 합니다.
+8. **범주** 상자에서 **연결 \> SSH \> 인증** 을 클릭 합니다. **개인 키** 파일에 대 한 경로를 제공 합니다.
 
     ![PuTTY 구성 대화 상자](media/putty-02.png)
 
 9. **열기** 를 클릭 하 여 PuTTY 창을 시작 합니다. 성공 하면 Azure에서 실행 되는 새 CentOS VM에 연결 됩니다.
 
-10. 루트 사용자로 로그온 하려면 **sudo bash**를 입력 합니다.
+10. 루트 사용자로 로그온 하려면 **sudo bash** 를 입력 합니다.
 
     ![명령 창의 루트 사용자 로그온](media/putty-03.png)
 
@@ -779,13 +779,13 @@ TACF Manager는 RACF security를 통해 시스템 및 리소스에 대 한 사�
      TACF_TABLE_CREATE=YES
      ```
 
-4. TACF 설치 관리자를 완료 한 후 TACF 환경 변수를 적용 합니다. 명령 프롬프트에서 다음을 입력합니다.
+4. TACF 설치 관리자를 완료 한 후 TACF 환경 변수를 적용 합니다. 명령 프롬프트에 다음을 입력합니다.
 
      ```
      source \~/.bash\_profile
      ```
 
-5. TACF 설치 관리자를 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
+5. TACF 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
 
      ```
      ./OpenFrame_Tacf7_0_Fix2_Linux_x86_64.bin -f tacf.properties
@@ -911,13 +911,13 @@ ProSort는 일괄 처리 트랜잭션에서 데이터를 정렬 하는 데 사�
 
 1. 일괄 설치에 성공 했는지 확인 한 다음 **prosort-bin-prosort \_ 2sp3-linux64-2123-opt. release.tar.gz** 설치 관리자 파일이 있는지 확인 합니다.
 
-2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
+2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
 
      ```
      tar -zxvf prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz
      ```
 
-3. Prosort 디렉터리를 홈 위치로 이동 합니다. 명령 프롬프트에서 다음을 입력합니다.
+3. Prosort 디렉터리를 홈 위치로 이동 합니다. 명령 프롬프트에 다음을 입력합니다.
 
      ```
      mv prosort /opt/tmaxapp/prosort
@@ -1018,7 +1018,7 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
      ```
 
 5. Vi ()에서 bash 프로필을 열고 `vi .bash_profile` 이 OFCOBOL 변수로 업데이트 되었는지 확인 합니다.
-6. Bash 프로필을 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
+6. Bash 프로필을 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
 
      ```
       source ~/.bash_profile
@@ -1359,7 +1359,7 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *선택 사항입니다*. JEUS 구성 요소를 쉽게 종료 하 고 부팅 하기 위한 별칭을 만듭니다.
+11. *선택 사항입니다* . JEUS 구성 요소를 쉽게 종료 하 고 부팅 하기 위한 별칭을 만듭니다.
 
      ```     
      # JEUS alias
@@ -1389,11 +1389,11 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      > [!NOTE]
      > 포트 보안 관련 문제가 발생 하는 경우 포트 9736을 열거나 방화벽을 사용 하지 않도록 설정 `systemctl stop firewall` 합니다 ().
 
-14. Server1에 대 한 호스트 이름을 변경 하려면 **& 편집**을 클릭 한 다음 **server1**을 클릭 합니다. 서버 창에서 다음과 같이 호스트 이름을 변경 합니다.
+14. Server1에 대 한 호스트 이름을 변경 하려면 **& 편집** 을 클릭 한 다음 **server1** 을 클릭 합니다. 서버 창에서 다음과 같이 호스트 이름을 변경 합니다.
 
-    1.  **Nodename** 을 **ofdemo**로 변경 합니다.
+    1.  **Nodename** 을 **ofdemo** 로 변경 합니다.
     2.  창의 오른쪽에서 **확인을** 클릭 합니다.
-    3.  창의 왼쪽 아래에 있는 **변경 내용 적용** 을 클릭 하 고 설명에 *호스트 이름 변경*을 입력 합니다.
+    3.  창의 왼쪽 아래에 있는 **변경 내용 적용** 을 클릭 하 고 설명에 *호스트 이름 변경* 을 입력 합니다.
 
     ![JEUS WebAdmin 화면](media/jeus-02.png)
 

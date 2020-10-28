@@ -5,18 +5,18 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/26/2020
-ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597783"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676291"
 ---
-# <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 또는 상태 비저장 워크플로 만들기
+# <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps(미리 보기) 확장을 사용하여 Visual Studio Code에서 상태 저장 또는 상태 비저장 워크플로 만들기
 
 > [!IMPORTANT]
-> 이 기능은 공개 미리 보기로 제공 되며 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 공개 미리 보기 상태이고 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 앱, 데이터, 클라우드 서비스 및 시스템 간에 통합 되는 논리 앱 워크플로를 만들기 위해 Visual Studio Code 및 Azure Logic Apps (미리 보기) 확장을 사용 하 여 개발 환경에서 [ *상태 저장* 및 *상태 비저장* 논리 앱 워크플로](#stateful-stateless) 를 빌드하고 로컬로 실행할 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 ## <a name="stateful-versus-stateless-logic-apps"></a>상태 저장 및 상태 비저장 논리 앱
 
-* *상태 저장*
+* *스테이트*
 
   이전 이벤트의 데이터를 유지, 검토 또는 참조 해야 할 때 상태 저장 논리 앱을 만듭니다. 이러한 논리 앱은 각 작업 및 해당 워크플로 상태에 대 한 입력 및 출력을 외부 저장소에 유지 합니다. 그러면 각 실행이 완료 된 후 가능한 실행 정보와 기록을 검토할 수 있습니다. 상태 저장 논리 앱은 정전 발생 시 또는 높은 복원 력을 제공 합니다. 서비스 및 시스템이 복원 된 후 중단 된 논리 앱 실행을 저장 된 상태에서 다시 작성 하 고 논리 앱을 다시 실행 하 여 완료할 수 있습니다. 상태 저장 워크플로는 최대 1 년 동안 계속 실행 될 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
   이후 검토를 위해 외부 저장소에서 이전 이벤트의 데이터를 저장, 검토 또는 참조할 필요가 없는 경우 상태 비저장 논리 앱을 만듭니다. 이러한 논리 앱은이 정보를 외부 저장소에 전송 하는 대신 각 작업 및 해당 워크플로 상태에 대 한 입력 및 출력을 메모리에만 유지 합니다. 그 결과, 상태 비저장 논리 앱은 일반적으로 5 분 보다 더 짧은 실행, 더 빠른 응답 시간으로 더 빠른 성능, 더 높은 처리량 및 실행 비용 절감, 실행 세부 정보 및 기록이 외부 저장소에 유지 되지 않기 때문입니다. 그러나 중단이 발생 하면 중단 된 실행이 자동으로 복원 되지 않으므로 호출자는 중단 된 실행을 수동으로 다시 전송 해야 합니다. 이러한 논리 앱은 동기적 으로만 실행할 수 있으며 디버깅을 용이 하 게 하기 위해 성능에 약간의 영향을 주는 [실행 기록을 사용 하도록 설정할](#run-history)수 있습니다.
 
-  상태 비저장 워크플로는 현재 instead of [관리 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대 한 동작만 지원 합니다. 워크플로를 시작 하려면 [기본 제공 요청, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md#built-ins)를 선택 합니다. 지원 되지 않는 트리거, 동작 및 커넥터에 대 한 자세한 내용은 [지원 되지 않는 기능](#unsupported)을 참조 하세요.
+  상태 비저장 워크플로는 현재 Azure에 배포 되 고 트리거가 아닌 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대 한 *동작만* 지원 합니다. 워크플로를 시작 하려면 Logic Apps 런타임에 기본적으로 실행 되는 [기본 제공 요청, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md#built-ins)를 선택 합니다. 지원 되지 않는 트리거, 작업 및 커넥터에 대 한 자세한 내용은 [지원 되지 않거나 사용할 수 없는 기능](#unsupported)을 참조 하세요.
 
 상태 저장 및 상태 비저장 논리 앱 간에 중첩 된 논리 앱이 다르게 동작 하는 방법에 대 한 자세한 내용은 [상태 저장 및 상태 비저장 논리 앱 간의 중첩 된 동작 차이점](#nested-behavior)을 참조 하세요.
 
@@ -104,9 +104,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 * 일부 Azure 지역은 아직 지원 되지 않습니다. 현재 사용 가능한 지역에 대해서는 [지역 목록을](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)확인 하세요.
 
-* 워크플로를 시작 하려면 [Request, HTTP, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 현재, [엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors), [온-프레미스 데이터 게이트웨이 트리거](../connectors/apis-list.md#on-premises-connectors), Webhook 기반 트리거, 슬라이딩 윈도우 트리거, [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors), 통합 계정, 해당 아티팩트 및 [커넥터는](../connectors/apis-list.md#integration-account-connectors) 이 미리 보기에서 지원 되지 않습니다. "Azure 함수 호출" 기능을 사용할 수 없으므로 지금은 HTTP *작업* 을 사용 하 여 azure function에 대 한 요청 URL을 호출 합니다.
+* 워크플로를 시작 하려면 Logic Apps 런타임에 기본적으로 실행 되는 [기본 제공 Request, HTTP, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 현재, [엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors), [온-프레미스 데이터 게이트웨이 트리거](../connectors/apis-list.md#on-premises-connectors), Webhook 기반 트리거, 슬라이딩 윈도우 트리거, [사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors), 통합 계정, 해당 아티팩트 및 [커넥터는](../connectors/apis-list.md#integration-account-connectors) 이 미리 보기에서 지원 되지 않습니다. "Azure 함수 호출" 기능을 사용할 수 없으므로 지금은 HTTP *작업* 을 사용 하 여 azure function에 대 한 요청 URL을 호출 합니다.
 
-  상태 비저장 논리 앱 워크플로는 트리거가 아니라 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대해서만 작업을 사용할 수 있습니다. 이전에 지정한 트리거를 제외 하 고, 상태 저장 워크플로는 관리 되는 커넥터에 대해 트리거와 작업을 모두 사용할 수 있습니다.
+  이전에 지정한 트리거를 제외 하 고, *상태 저장* 워크플로는 Azure에 배포 된 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대해 트리거와 작업을 모두 사용할 수 있습니다. 그러나 *상태 비저장* 워크플로는 현재 instead of 관리 커넥터에 대 한 *동작만* 지원 합니다. 상태 비저장 워크플로에 대해 Azure에서 커넥터를 사용 하도록 설정 하는 옵션이 있지만 사용자가 선택할 수 있는 관리 되는 커넥터 트리거가 디자이너에 표시 되지 않습니다.
 
 * 새 **논리 앱 (미리 보기)** 리소스 유형은 [Azure의 프리미엄 또는 App Service 호스팅 계획](#publish-azure) 에만 배포 하거나 [ISEs (통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)이 아닌 [Docker 컨테이너](#deploy-docker)에 배포할 수 있습니다. **소비** 호스팅 계획은이 리소스 종류를 배포 하는 데 지원 되지 않으며 사용할 수 없습니다.
 
@@ -171,9 +171,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
     **Azure Logic Apps (미리 보기)** 확장을 설치 하려면 다음 단계를 수행 합니다.
 
-    1. Visual Studio Code의 왼쪽 도구 모음에서 **확장**을 선택 합니다.
+    1. Visual Studio Code의 왼쪽 도구 모음에서 **확장** 을 선택 합니다.
 
-    1. 확장 검색 상자에을 입력 `azure logic apps preview` 합니다. 결과 목록에서 **Azure Logic Apps (미리 보기)** **>** **설치**를 선택 합니다.
+    1. 확장 검색 상자에을 입력 `azure logic apps preview` 합니다. 결과 목록에서 **Azure Logic Apps (미리 보기)** **>** **설치** 를 선택 합니다.
 
        설치가 완료 되 면 공용 미리 보기 확장이 **확장: 설치 됨** 목록에 표시 됩니다.
 
@@ -193,9 +193,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    이 설정을 확인하려면 다음 단계를 수행합니다.
 
-   1. **파일** 메뉴에서 **기본** **>** **설정 설정**으로 이동 합니다.
+   1. **파일** 메뉴에서 **기본** **>** **설정 설정** 으로 이동 합니다.
 
-   1. **사용자** 탭에서 **기능** **>** **확장**으로 이동 합니다.
+   1. **사용자** 탭에서 **기능** **>** **확장** 으로 이동 합니다.
 
    1. **업데이트 자동 확인** 및 **자동 업데이트** 가 선택 되어 있는지 확인 합니다.
 
@@ -204,11 +204,11 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    * **Azure Logic Apps V2: Panel 모드**
    * **Azure Logic Apps V2: 프로젝트 런타임**
 
-   1. **파일** 메뉴에서 **기본** **>** **설정 설정**으로 이동 합니다.
+   1. **파일** 메뉴에서 **기본** **>** **설정 설정** 으로 이동 합니다.
 
    1. **사용자** 탭에서 **>** **확장** **>** **Azure Logic Apps (미리 보기)** 로 이동 합니다.
 
-   1. **Azure Logic Apps V2: Panel 모드**에서 **패널 모드 사용** 이 선택 되어 있는지 확인 합니다. **Azure Logic Apps V2: Project Runtime**에서 이전에 설치한 [Azure Functions Core Tools 버전](#prerequisites) 에 따라 버전을 **~ 3** 또는 **~ 2**로 설정 합니다.
+   1. **Azure Logic Apps V2: Panel 모드** 에서 **패널 모드 사용** 이 선택 되어 있는지 확인 합니다. **Azure Logic Apps V2: Project Runtime** 에서 이전에 설치한 [Azure Functions Core Tools 버전](#prerequisites) 에 따라 버전을 **~ 3** 또는 **~ 2** 로 설정 합니다.
 
       > [!IMPORTANT]
       > JavaScript 코드를 실행 하기 위해 [ **인라인 코드** 작업](../logic-apps/logic-apps-add-run-inline-code.md) 을 사용 하려면 작업에서 버전 2를 지원 하지 않으므로 Project Runtime 버전 3을 사용 해야 합니다. 또한이 작업은 현재 Linux 운영 체제에서 지원 되지 않습니다.
@@ -223,11 +223,11 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    ![Visual Studio Code 도구 모음 및 선택한 Azure 아이콘을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. Azure 창의 **azure: Logic Apps (미리 보기)** 에서 **azure에 로그인**을 선택 합니다. Visual Studio Code 인증 페이지가 표시 되 면 Azure 계정으로 로그인 합니다.
+1. Azure 창의 **azure: Logic Apps (미리 보기)** 에서 **azure에 로그인** 을 선택 합니다. Visual Studio Code 인증 페이지가 표시 되 면 Azure 계정으로 로그인 합니다.
 
    ![Azure 로그인에 대 한 Azure 창 및 선택한 링크를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   로그인 한 후 Azure 창에는 Azure 계정에 구독이 표시 됩니다. 공개적으로 릴리스된 Logic Apps 확장을 사용 하는 경우 미리 보기 확장의 **Logic Apps (preview** 섹션이 아닌 릴리스된 확장의 **Logic Apps** 섹션에서 원래 확장을 사용 하 여 만든 원본 Logic Apps 리소스를 찾을 수 있습니다.
+   로그인 한 후 Azure 창에는 Azure 계정에 구독이 표시 됩니다. 공개적으로 릴리스된 Logic Apps 확장이 있는 경우 preview 확장의 **Logic Apps (미리 보기)** 섹션이 아닌 릴리스된 확장의 **Logic Apps** 섹션에서 원래 확장을 사용 하 여 만든 원본 Logic Apps 리소스를 찾을 수 있습니다.
    
    예상 되는 구독이 표시 되지 않거나이 창에 특정 구독만 표시 하려면 다음 단계를 수행 합니다.
 
@@ -237,7 +237,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
       또는 Visual Studio Code 상태 표시줄에서 Azure 계정을 선택 합니다. 
 
-   1. 다른 구독 목록이 표시 되 면 원하는 구독을 선택한 다음 **확인**을 선택 했는지 확인 합니다.
+   1. 다른 구독 목록이 표시 되 면 원하는 구독을 선택한 다음 **확인** 을 선택 했는지 확인 합니다.
 
 <a name="create-project"></a>
 
@@ -253,13 +253,13 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    !["새 프로젝트 만들기"가 선택 된 Azure 창 도구 모음을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
-1. Windows Defender 방화벽에서 Azure Functions Core Tools Visual Studio Code 된에 대 한 네트워크 액세스 권한을 부여 하 라는 메시지가 표시 되 면 `Code.exe` `func.exe` **홈 또는 회사 네트워크에서 액세스 허용과 같은 개인 네트워크를** 선택 **>** **Allow access**합니다.
+1. Windows Defender 방화벽에서 Azure Functions Core Tools Visual Studio Code 된에 대 한 네트워크 액세스 권한을 부여 하 라는 메시지가 표시 되 면 `Code.exe` `func.exe` **홈 또는 회사 네트워크에서 액세스 허용과 같은 개인 네트워크를** 선택 **>** **Allow access** 합니다.
 
 1. 프로젝트 폴더를 만든 위치로 이동 하 여 해당 폴더를 선택 하 고 계속 합니다.
 
    ![새로 만든 프로젝트 폴더와 "선택" 단추가 선택 된 "폴더 선택" 대화 상자를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-folder.png)
 
-1. 표시 되는 템플릿 목록에서 **상태 저장 워크플로** 또는 **상태 비저장 워크플로**를 선택 합니다. 이 예제에서는 **상태 저장 워크플로**를 선택 합니다.
+1. 표시 되는 템플릿 목록에서 **상태 저장 워크플로** 또는 **상태 비저장 워크플로** 를 선택 합니다. 이 예제에서는 **상태 저장 워크플로** 를 선택 합니다.
 
    !["상태 저장 워크플로"가 선택 된 워크플로 템플릿 목록을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
@@ -267,11 +267,11 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    !["새 상태 저장 워크플로 만들기 (3/4)" 상자와 "예제-워크플로"를 워크플로 이름으로 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
-1. 표시 되는 다음 목록에서 **현재 창에서 열기**를 선택 합니다.
+1. 표시 되는 다음 목록에서 **현재 창에서 열기** 를 선택 합니다.
 
    !["현재 창에서 열기"가 선택 된 목록을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
-   Visual Studio Code 다시 로드 하면 탐색기 창이 열리고 프로젝트가 자동으로 생성 된 프로젝트 파일을 포함 하는 프로젝트가 표시 됩니다. 예를 들어 프로젝트에 논리 앱 워크플로 이름을 표시 하는 폴더가 있습니다. 이 폴더 내에서 파일 ** 의workflow.js** 에는 논리 앱 워크플로의 기본 JSON 정의가 포함 되어 있습니다.
+   Visual Studio Code 다시 로드 하면 탐색기 창이 열리고 프로젝트가 자동으로 생성 된 프로젝트 파일을 포함 하는 프로젝트가 표시 됩니다. 예를 들어 프로젝트에 논리 앱 워크플로 이름을 표시 하는 폴더가 있습니다. 이 폴더 내에서 파일 **의workflow.js** 에는 논리 앱 워크플로의 기본 JSON 정의가 포함 되어 있습니다.
 
    ![프로젝트 폴더, 워크플로 폴더 및 "workflow.json" 파일을 포함 하는 탐색기 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
 
@@ -283,7 +283,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    `..\Users\{yourUserName}\dotnet --list-sdks`
 
-   .NET Core SDK 5.x를 사용 하는 경우이 버전을 사용 하면 디자이너에서 논리 앱의 기본 워크플로 정의를 열 수 없습니다. 이 버전을 제거 하는 대신, 프로젝트의 루트 위치에서 3.1.201 보다 이후 버전의 .NET Core 런타임 2.x 버전을 참조 하는 파일 ** 에global.js** 를 만듭니다. 예를 들면 다음과 같습니다.
+   .NET Core SDK 5.x를 사용 하는 경우이 버전을 사용 하면 디자이너에서 논리 앱의 기본 워크플로 정의를 열 수 없습니다. 이 버전을 제거 하는 대신, 프로젝트의 루트 위치에서 3.1.201 보다 이후 버전의 .NET Core 런타임 2.x 버전을 참조 하는 파일 **에global.js** 를 만듭니다. 예를 들면 다음과 같습니다.
 
    ```json
    {
@@ -294,11 +294,11 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    }
    ```
 
-   파일 ** 의global.js** Visual Studio Code 내부에서 루트 위치의 프로젝트에 추가 해야 합니다. 그렇지 않으면 디자이너가 열리지 않습니다.
+   Visual Studio Code 내부에서 루트 위치의 프로젝트에 해당 **global.js파일에** 명시적으로 추가 해야 합니다. 그렇지 않으면 디자이너가 열리지 않습니다.
 
 1. Visual Studio Code Windows 또는 Linux에서 실행 되는 경우 Azure Storage 에뮬레이터가 실행 중인지 확인 합니다. 자세한 내용은 [필수 구성 요소](#prerequisites)를 참조 하세요.
 
-1. 워크플로에 대 한 프로젝트 폴더를 확장 합니다. 파일의 바로 가기 메뉴에서 **workflow.js** 을 열고 **디자이너에서 열기**를 선택 합니다.
+1. 워크플로에 대 한 프로젝트 폴더를 확장 합니다. 파일의 바로 가기 메뉴에서 **workflow.js** 을 열고 **디자이너에서 열기** 를 선택 합니다.
 
    !["디자이너에서 열기"가 선택 된 파일에 대 한 workflow.js의 탐색기 창 및 바로 가기 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
@@ -306,7 +306,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    Visual Studio Code에서 preview 확장의 출력을 확인 합니다.
 
-   1. **보기** 메뉴에서 **출력**을 선택 합니다.
+   1. **보기** 메뉴에서 **출력** 을 선택 합니다.
 
    1. **출력** 제목 표시줄의 목록에서 **Azure Logic Apps** 을 선택 하 여 미리 보기 확장에 대 한 출력을 볼 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -326,13 +326,16 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
       Host shutdown completed.
       ```
 
-      이 오류는 이전에 디자이너를 열려고 시도한 다음 프로젝트를 중단 하거나 삭제 한 경우에 발생할 수 있습니다. 이 오류를 해결 하려면이 위치에서 **Extensionbundles** 폴더를 삭제 **합니다. ..\Users \\ {\AppData\Local\Temp\Functions\ExtensionBundles}** 를 열고 디자이너에서 파일 ** 에workflow.js** 를 다시 엽니다.
+      이 오류는 이전에 디자이너를 열려고 시도한 다음 프로젝트를 중단 하거나 삭제 한 경우에 발생할 수 있습니다. 이 오류를 해결 하려면이 위치에서 **Extensionbundles** 폴더를 삭제 **합니다. ..\Users \\ {\AppData\Local\Temp\Functions\ExtensionBundles}** 를 열고 디자이너에서 파일 **에workflow.js** 를 다시 엽니다.
 
-1. Azure **에서 커넥터** 사용 목록에서 azure 서비스에 대 한 커넥터 뿐만 아니라 Azure Portal에서 사용할 수 있는 모든 관리 되는 커넥터에 적용 되는 **Azure의 커넥터 사용**을 선택 합니다.
+1. Azure에서 **커넥터** 사용 목록에서 azure 서비스에 대 한 커넥터 뿐만 아니라 azure에서 사용 가능 하 고 배포 되는 모든 관리 되는 커넥터에 적용 되는 **Azure의 커넥터 사용** 을 선택 합니다.
 
    !["Azure에서 커넥터 사용" 목록과 "Azure에서 커넥터 사용"이 선택 된 탐색기 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
-1. 리소스 그룹 목록에서 **새 리소스 그룹 만들기**를 선택 합니다.
+   > [!NOTE]
+   > 상태 비저장 워크플로는 현재 Azure에 배포 되 고 트리거가 아닌 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)에 대 한 *동작만* 지원 합니다. 상태 비저장 워크플로에 대해 Azure에서 커넥터를 사용 하도록 설정 하는 옵션이 있지만 사용자가 선택할 수 있는 관리 되는 커넥터 트리거가 디자이너에 표시 되지 않습니다.
+
+1. 리소스 그룹 목록에서 **새 리소스 그룹 만들기** 를 선택 합니다.
 
    ![리소스 그룹 목록과 "새 리소스 그룹 만들기"가 선택 된 탐색기 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
 
@@ -340,7 +343,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    ![탐색기 창 및 리소스 그룹 이름 상자를 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. 위치 목록에서 리소스 그룹 및 리소스를 만드는 데 사용할 [지원 되는 Azure 지역을](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) 찾아 선택 합니다. 이 예제에서는 **미국 서 부**를 사용 합니다.
+1. 위치 목록에서 리소스 그룹 및 리소스를 만드는 데 사용할 [지원 되는 Azure 지역을](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) 찾아 선택 합니다. 이 예제에서는 **미국 서 부** 를 사용 합니다.
 
    > [!IMPORTANT]
    > 모든 지역이 현재 지원 되는 것은 아니지만 더 많은 지역을 추가 하기 위한 업데이트는 진행 중입니다. 지원 되지 않는 지역을 선택 하면 연결 만들기와 같은 문제가 발생할 수 있습니다. 현재 지원 되는 지역에 대 한 미리 보기 확장의 [알려진 문제 GitHub 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)를 검토 합니다.
@@ -350,7 +353,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    이 단계를 수행한 후 Visual Studio Code 논리 앱 디자이너를 엽니다.
 
    > [!NOTE]
-   > Visual Studio Code 워크플로 디자인 타임 API를 시작 하면 시작 시 몇 초 정도 걸릴 수 있습니다. 이 메시지를 무시 하거나 **확인을**선택할 수 있습니다.
+   > Visual Studio Code 워크플로 디자인 타임 API를 시작 하면 시작 시 몇 초 정도 걸릴 수 있습니다. 이 메시지를 무시 하거나 **확인을** 선택할 수 있습니다.
 
    논리 앱 디자이너가 표시 되 면 **작업 선택** 프롬프트가 디자이너에 표시 되며 기본적으로 선택 되어 **작업 추가** 창이 표시 됩니다.
 
@@ -366,9 +369,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 이 예제에서 논리 앱 워크플로는이 트리거와 다음 작업을 사용 합니다.
 
-* **HTTP 요청**을 받으면 인바운드 호출 또는 요청을 수신 하 고 다른 서비스 또는 논리 앱이 호출할 수 있는 끝점을 만드는 기본 제공 [요청 트리거입니다](../connectors/connectors-native-reqres.md).
+* **HTTP 요청** 을 받으면 인바운드 호출 또는 요청을 수신 하 고 다른 서비스 또는 논리 앱이 호출할 수 있는 끝점을 만드는 기본 제공 [요청 트리거입니다](../connectors/connectors-native-reqres.md).
 
-* [Office 365 Outlook 작업](../connectors/connectors-create-api-office365-outlook.md)에서 **전자 메일을 보냅니다**.
+* [Office 365 Outlook 작업](../connectors/connectors-create-api-office365-outlook.md)에서 **전자 메일을 보냅니다** .
 
 * 회신을 보내고 호출자에 게 데이터를 반환 하는 데 사용 하는 기본 제공 [응답 동작](../connectors/connectors-native-reqres.md)입니다.
 
@@ -376,7 +379,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 1. 디자이너 옆의 **트리거 추가** 창에 있는 **작업 선택** 검색 상자에서 **기본 제공** 이 선택 되어 있는지 확인 하 여 기본적으로 실행 되는 트리거를 선택할 수 있습니다.
 
-1. **작업 선택** 검색 상자에를 입력 하 `when a http request` 고 **HTTP 요청을 받을 때**이름이 지정 된 기본 제공 요청 트리거를 선택 합니다.
+1. **작업 선택** 검색 상자에를 입력 하 `when a http request` 고 **HTTP 요청을 받을 때** 이름이 지정 된 기본 제공 요청 트리거를 선택 합니다.
 
    ![논리 앱 디자이너를 보여 주는 스크린샷 및 "HTTP 요청을 받았을 때" 트리거가 선택 된 상태에서 * * 트리거 * * 창을 추가 합니다.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
 
@@ -391,15 +394,15 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    1. 디자이너에서 항목을 선택 하면 오른쪽의 세부 정보 창이 열립니다.
 
-   1. 트리거 또는 작업 이름 옆의 오른쪽 위 모서리에 줄임표 (**...**) 단추가 표시 되도록 충분히 Visual Studio Code 창을 확장 합니다. 
+   1. 트리거 또는 작업 이름 옆의 오른쪽 위 모서리에 줄임표 ( **...** ) 단추가 표시 되도록 충분히 Visual Studio Code 창을 확장 합니다. 
 
-   1. 줄임표 (**...**) 메뉴를 열고 **삭제**를 선택 합니다. 삭제를 확인 하려면 **확인**을 선택 합니다.
+   1. 줄임표 ( **...** ) 메뉴를 열고 **삭제** 를 선택 합니다. 삭제를 확인 하려면 **확인** 을 선택 합니다.
 
       ![디자이너에서 선택한 항목을 표시 하 고 선택 된 줄임표 단추와 "삭제" 옵션을 사용 하 여 선택한 항목을 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
 ### <a name="add-the-office-365-outlook-action"></a>Office 365 Outlook 작업 추가
 
-1. 디자이너에서 추가한 트리거에서 **새 단계**를 선택 합니다.
+1. 디자이너에서 추가한 트리거에서 **새 단계** 를 선택 합니다.
 
    **작업 선택** 프롬프트가 디자이너에 표시 되며 다음 작업을 선택할 수 있도록 **작업 추가 창이** 다시 열립니다.
 
@@ -416,7 +419,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    > [!NOTE]
    > 오류가 발생 하는 경우 `Failed to create connection...` 논리 앱에 대해 현재 지원 되지 않는 지역을 선택 했을 수 있습니다. 더 많은 지역을 추가 하기 위한 업데이트는 진행 중입니다. 현재 지원 되는 지역에 대해 미리 보기 확장의 [알려진 문제 GitHub 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)를 검토 합니다.
 
-1. Visual Studio Code 전자 메일 계정에 대 한 액세스에 대 한 동의를 묻는 메시지가 표시 되 면 **열기**를 선택 합니다.
+1. Visual Studio Code 전자 메일 계정에 대 한 액세스에 대 한 동의를 묻는 메시지가 표시 되 면 **열기** 를 선택 합니다.
 
    ![액세스를 허용 하는 Visual Studio Code 프롬프트를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
 
@@ -428,12 +431,12 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    > [!NOTE]
    > 메시지를 완료 하기 전에 너무 많은 시간이 경과 하면 인증 프로세스 시간이 초과 되 고 실패 합니다. 이 경우 디자이너로 돌아가서 로그인을 다시 시도 하 여 연결을 만듭니다.
 
-1. Azure Logic Apps preview 확장에서 전자 메일 계정에 대 한 액세스에 대 한 동의를 묻는 메시지가 표시 되 면 **열기**를 선택 합니다. 다음 프롬프트에 따라 액세스를 허용 합니다.
+1. Azure Logic Apps preview 확장에서 전자 메일 계정에 대 한 액세스에 대 한 동의를 묻는 메시지가 표시 되 면 **열기** 를 선택 합니다. 다음 프롬프트에 따라 액세스를 허용 합니다.
 
    ![액세스를 허용 하는 미리 보기 확장 메시지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 
    > [!TIP]
-   > 이후 메시지가 표시 되지 않도록 하려면 **이 확장에 대해 다시 묻지 않음**을 선택 합니다.
+   > 이후 메시지가 표시 되지 않도록 하려면 **이 확장에 대해 다시 묻지 않음** 을 선택 합니다.
 
    Visual Studio Code에서 연결을 만든 후 일부 커넥터는 `The connection will be valid for {n} days only.` Visual Studio Code에서 논리 앱을 작성 하는 동안에만이 시간 제한이 적용 되는 메시지를 표시 합니다. 배포 후에는 논리 앱이 자동으로 사용 하도록 설정 [된 시스템 할당 관리 id](../logic-apps/create-managed-service-identity.md)를 사용 하 여 런타임에 인증할 수 있으므로이 제한이 더 이상 적용 되지 않습니다. 이 관리 id는 연결을 만들 때 사용 하는 인증 자격 증명이 나 연결 문자열과 다릅니다. 이 시스템 할당 관리 id를 사용 하지 않도록 설정 하면 런타임에 연결이 작동 하지 않습니다.
 
@@ -451,9 +454,9 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
    ||||
 
    > [!NOTE]
-   > **설정**, **다음 이후에 실행**또는 **정적 결과** 탭의 세부 정보 창에서 변경 하려는 경우 탭을 전환 하거나 디자이너로 포커스를 변경 하기 전에 **완료** 를 선택 하 여 이러한 변경 내용을 커밋해야 합니다. 그렇지 않으면 Visual Studio Code 변경 내용을 유지 하지 않습니다. 자세한 내용은 preview 확장의 [알려진 문제 GitHub 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
+   > **설정** , **다음 이후에 실행** 또는 **정적 결과** 탭의 세부 정보 창에서 변경 하려는 경우 탭을 전환 하거나 디자이너로 포커스를 변경 하기 전에 **완료** 를 선택 하 여 이러한 변경 내용을 커밋해야 합니다. 그렇지 않으면 Visual Studio Code 변경 내용을 유지 하지 않습니다. 자세한 내용은 preview 확장의 [알려진 문제 GitHub 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
-1. 디자이너에서 **저장**을 선택 합니다.
+1. 디자이너에서 **저장** 을 선택 합니다.
 
 다음으로 Visual Studio Code에서 로컬로 워크플로를 실행 하 고 디버그 합니다.
 
@@ -473,7 +476,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    1. 프로젝트를 볼 수 있도록 탐색기 창을 다시 엽니다.
 
-   1. **workflow.js** 파일의 바로 가기 메뉴에서 **개요**를 선택 합니다.
+   1. **workflow.js** 파일의 바로 가기 메뉴에서 **개요** 를 선택 합니다.
 
       !["개요"가 선택 된 파일의 workflow.js에 대 한 탐색기 창 및 바로 가기 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/open-workflow-overview.png)
 
@@ -487,17 +490,17 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    이 예는 Postman을 사용 하 여 계속 합니다. 자세한 내용은 [Postman 시작](https://learning.postman.com/docs/getting-started/introduction/)을 참조 하세요.
 
-   1. Postman 도구 모음에서 **새로 만들기**를 선택 합니다.
+   1. Postman 도구 모음에서 **새로 만들기** 를 선택 합니다.
 
       ![새 단추가 선택 된 Postman을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/postman-create-request.png)
 
-   1. **새로 만들기** 창의 **구성 요소**아래에서 **요청**을 선택 합니다.
+   1. **새로 만들기** 창의 **구성 요소** 아래에서 **요청** 을 선택 합니다.
 
-   1. 요청 **저장** 창의 **요청 이름**에서 요청 이름을 제공 합니다 (예:) `Test workflow trigger` .
+   1. 요청 **저장** 창의 **요청 이름** 에서 요청 이름을 제공 합니다 (예:) `Test workflow trigger` .
 
-   1. **저장할 컬렉션 또는 폴더 선택**에서 **컬렉션 만들기**를 선택 합니다.
+   1. **저장할 컬렉션 또는 폴더 선택** 에서 **컬렉션 만들기** 를 선택 합니다.
 
-   1. **모든 컬렉션**아래에서 요청을 구성 하기 위해 만들 컬렉션의 이름을 입력 하 고 enter 키를 누른 다음 ** *컬렉션 이름* > <저장을**선택 합니다. 이 예제에서는 `Logic Apps requests` 를 컬렉션 이름으로 사용 합니다.
+   1. **모든 컬렉션** 아래에서 요청을 구성 하기 위해 만들 컬렉션의 이름을 입력 하 고 enter 키를 누른 다음 ***컬렉션 이름* > <저장을** 선택 합니다. 이 예제에서는 `Logic Apps requests` 를 컬렉션 이름으로 사용 합니다.
 
       요청 트리거에 대 한 콜백 URL에 요청을 보낼 수 있도록 postman의 요청 창이 열립니다.
 
@@ -505,7 +508,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
    1. Visual Studio Code로 돌아갑니다. 워크플로의 개요 페이지에서 **콜백 URL** 속성 값을 복사 합니다.
 
-   1. Postman으로 돌아갑니다. 요청 창에서 현재 기본 요청 메서드로 **가져오기를** 표시 하는 메서드 목록에서 이전에 주소 상자에 복사한 콜백 URL을 붙여넣은 다음 **보내기**를 선택 합니다.
+   1. Postman으로 돌아갑니다. 요청 창에서 현재 기본 요청 메서드로 **가져오기를** 표시 하는 메서드 목록에서 이전에 주소 상자에 복사한 콜백 URL을 붙여넣은 다음 **보내기** 를 선택 합니다.
 
       ![보내기 단추가 선택 된 주소 상자에 Postman 및 callback URL을 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/postman-test-call-back-url.png)
 
@@ -515,22 +518,62 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 1. Visual Studio Code에서 워크플로의 개요 페이지로 돌아갑니다.
 
-   상태 저장 워크플로를 만든 경우 전송한 요청이 워크플로를 트리거한 후 개요 페이지에 워크플로의 실행 상태 및 기록이 표시 됩니다. 실행 상태에 대 한 자세한 내용은 [실행 기록 검토](../logic-apps/monitor-logic-apps.md#review-runs-history)를 참조 하세요.
+   상태 저장 워크플로를 만든 경우 전송한 요청이 워크플로를 트리거한 후 개요 페이지에 워크플로의 실행 상태 및 기록이 표시 됩니다.
+
+   > [!TIP]
+   > 실행 상태가 표시 되지 않으면 **새로 고침** 을 선택 하 여 개요 페이지를 새로 고쳐 봅니다. 충족 되지 않은 조건으로 인해 건너뛴 트리거와 데이터를 찾을 수 없는 경우에는 실행 되지 않습니다.
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   > [!TIP]
-   > 실행 상태가 표시 되지 않으면 **새로 고침**을 선택 하 여 개요 페이지를 새로 고쳐 봅니다.
+   | 실행 상태 | Description |
+   |------------|-------------|
+   | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
+   | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
+   | **실패** | 실행에 하나 이상의 작업이 실패 했습니다. 워크플로의 후속 작업이 실패를 처리 하도록 설정 되지 않았습니다. |
+   | **실행 중** | 실행이 트리거 되었지만 진행 중이지만, [작업 제한](logic-apps-limits-and-config.md) 또는 [현재 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)로 인해 제한 된 실행에 대해서도이 상태가 표시 될 수 있습니다. <p><p>**팁** : [진단 로깅을](monitor-logic-apps-log-analytics.md)설정 하는 경우 발생 하는 스로틀 이벤트에 대 한 정보를 얻을 수 있습니다. |
+   | **성공함** | 실행이 성공 했습니다. 작업이 실패 하면 워크플로의 후속 작업에서 해당 실패를 처리 합니다. |
+   | **시간 초과됨** | 현재 기간이 실행 [ **기록 보존 기간 (일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 실행 기간 제한을 초과 하 여 실행 시간이 초과 되었습니다. 실행의 기간은 시작 시간에서 실행의 시작 시간 및 실행 기간 제한을 사용 하 여 계산 됩니다. <p><p>**참고** : 실행 기간이 현재 *실행 기록 보존* 한도를 초과 하는 경우에도 실행 기록 보존 기간 ( [ **일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 경우 매일 정리 작업을 통해 실행 기록에서 실행이 지워집니다. 실행 제한 시간이 초과 되거나 완료 되는지 여부는 항상 실행의 시작 시간 및 *현재* 보존 제한을 사용 하 여 계산 됩니다. 따라서 진행 중인 실행에 대 한 기간 제한을 줄이면 실행 제한 시간이 초과 됩니다. 그러나 실행 기간이 보존 한도를 초과 했는지 여부에 따라 실행 기록에서 실행이 유지 되거나 지워집니다. |
+   | **대기 중** | 예를 들어 아직 실행 중인 이전 워크플로 인스턴스로 인해 실행이 시작 되지 않았거나 일시 중지 되었습니다. |
+   |||
 
-1. 특정 실행의 각 단계에 대 한 상태와 단계의 입력 및 출력을 검토 하려면 해당 실행에 대 한 줄임표 (**...**) 단추를 선택 하 고 **실행 표시**를 선택 합니다.
+1. 특정 실행의 각 단계에 대 한 상태와 단계의 입력 및 출력을 검토 하려면 해당 실행에 대 한 줄임표 ( **...** ) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
 
    ![줄임표 단추와 "실행 표시"가 선택 된 워크플로의 실행 기록 행을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
-   Visual Studio Code 각 작업의 실행 상태를 표시 합니다.
+   Visual Studio Code 모니터링 보기를 열고 실행의 각 단계에 대 한 상태를 표시 합니다.
 
-1. 각 단계에 대 한 입력 및 출력을 검토 하려면 검사 하려는 단계를 확장 합니다. 해당 단계에 대 한 원시 입력 및 출력을 추가로 검토 하려면 **원시 입력 표시** 또는 **원시 출력 표시**를 선택 합니다.
+   ![워크플로 실행의 각 단계와 해당 상태를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   워크플로의 각 단계에 사용할 수 있는 상태는 다음과 같습니다.
+
+   | 작업 상태 | 아이콘 | Description |
+   |---------------|------|-------------|
+   | 중단됨 | !["중단 됨" 작업 상태 아이콘][aborted-icon] | 시스템이 중단 되었거나 Azure 구독이 중단 된 등의 외부 문제로 인해 작업이 중지 되었거나 완료 되지 않았습니다. |
+   | Cancelled | !["취소 됨" 작업 상태 아이콘][cancelled-icon] | 작업이 실행 중이지만 취소 요청이 수신 되었습니다. |
+   | Failed | !["실패" 작업 상태 아이콘][failed-icon] | 작업이 실패 했습니다. |
+   | 실행 중 | !["실행 중" 작업 상태 아이콘][running-icon] | 작업이 현재 실행 되 고 있습니다. |
+   | 건너뜀 | !["건너뜀" 작업 상태 아이콘][skipped-icon] | 바로 이전 작업이 실패 했으므로 작업을 건너뛰었습니다. 작업에는 `runAfter` 이전 작업이 성공적으로 완료 되어야 현재 작업을 실행할 수 있도록 하는 조건이 있습니다. |
+   | 성공 | !["성공" 작업 상태 아이콘][succeeded-icon] | 작업이 성공 했습니다. |
+   | 다시 시도 성공 | !["재시도 성공" 작업 상태 아이콘][succeeded-with-retries-icon] | 하나 이상의 재시도 후에만 작업이 성공 했습니다. 다시 시도 기록을 검토 하려면 실행 기록 세부 정보 보기에서 해당 작업을 선택 하 여 입력 및 출력을 볼 수 있습니다. |
+   | 시간 초과됨 | !["시간이 초과 되었습니다." 작업 상태 아이콘][timed-out-icon] | 해당 작업의 설정에 지정 된 제한 시간 제한으로 인해 작업이 중지 되었습니다. |
+   | 대기 중 | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
+   ||||
+
+   [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
+   [cancelled-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/cancelled.png
+   [failed-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/failed.png
+   [running-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/running.png
+   [skipped-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/skipped.png
+   [succeeded-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/timed-out.png
+   [waiting-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/waiting.png
+
+1. 각 단계에 대 한 입력 및 출력을 검토 하려면 검사 하려는 단계를 선택 합니다.
 
    ![워크플로의 각 단계에 대 한 상태와 확장 된 "전자 메일 보내기" 작업의 입력 및 출력을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
+
+1. 해당 단계에 대 한 원시 입력 및 출력을 추가로 검토 하려면 **원시 입력 표시** 또는 **원시 출력 표시** 를 선택 합니다.
 
 1. 디버깅 세션을 중지 하려면 **실행** 메뉴에서 **디버깅 중지** (Shift + F5)를 선택 합니다.
 
@@ -540,7 +583,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 논리 앱에 요청을 보낸 호출자에 게 응답을 반환 하려면 요청 트리거로 시작 하는 워크플로에 대 한 기본 제공 [응답 작업](../connectors/connectors-native-reqres.md) 을 사용할 수 있습니다.
 
-1. 논리 앱 디자이너의 **전자 메일 보내기** 작업에서 **새 단계**를 선택 합니다.
+1. 논리 앱 디자이너의 **전자 메일 보내기** 작업에서 **새 단계** 를 선택 합니다.
 
    **작업 선택** 프롬프트가 디자이너에 표시 되며 다음 작업을 선택할 수 있도록 **작업 추가 창이** 다시 열립니다.
 
@@ -560,7 +603,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
       ![동적 콘텐츠 목록이 표시 되도록 "Body" 속성 안에 마우스 포인터가 있는 "응답" 작업의 세부 정보 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
 
-   1. 동적 콘텐츠 목록의 **전자 메일 보내기**아래에서 **본문**을 선택 합니다.
+   1. 동적 콘텐츠 목록의 **전자 메일 보내기** 아래에서 **본문** 을 선택 합니다.
 
       ![동적 콘텐츠 열기 목록을 보여 주는 스크린샷 목록에서 "전자 메일 보내기" 헤더에 "Body" 출력 값이 선택 됩니다.](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
@@ -568,7 +611,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
       ![워크플로의 각 단계에 대 한 상태와 확장 된 "응답" 작업의 입력 및 출력을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details-body-property.png)
 
-1. 디자이너에서 **저장**을 선택 합니다.
+1. 디자이너에서 **저장** 을 선택 합니다.
 
 <a name="retest-workflow"></a>
 
@@ -580,7 +623,7 @@ Azure Logic Apps (미리 보기) 확장은 Visual Studio Code의 로컬 개발 �
 
 1. 요청을 만들고 전송 하는 Postman 또는 도구에서 워크플로를 트리거하기 위한 다른 요청을 보냅니다.
 
-1. 상태 저장 워크플로를 만든 경우 워크플로의 개요 페이지에서 가장 최근 실행에 대 한 상태를 확인 합니다. 해당 실행의 각 단계에 대 한 상태, 입력 및 출력을 보려면 해당 실행에 대 한 줄임표 (**...**) 단추를 선택 하 고 **실행 표시**를 선택 합니다.
+1. 상태 저장 워크플로를 만든 경우 워크플로의 개요 페이지에서 가장 최근 실행에 대 한 상태를 확인 합니다. 해당 실행의 각 단계에 대 한 상태, 입력 및 출력을 보려면 해당 실행에 대 한 줄임표 ( **...** ) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
 
    예를 들어 예제 워크플로가 응답 작업으로 업데이트 된 후 실행에 대 한 단계별 상태는 다음과 같습니다.
 
@@ -603,7 +646,7 @@ Visual Studio Code에서 Azure에 직접 프로젝트를 배포할 수 있습니
 
 1. Visual Studio Code 도구 모음에서 Azure 아이콘을 선택합니다.
 
-1. **Azure: Logic Apps (미리 보기)** 창 도구 모음에서 **논리 앱에 배포**를 선택 합니다.
+1. **Azure: Logic Apps (미리 보기)** 창 도구 모음에서 **논리 앱에 배포** 를 선택 합니다.
 
    !["논리 앱에 배포"가 선택 된 "Azure: Logic Apps (미리 보기)" 창과 창의 도구 모음을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
 
@@ -613,7 +656,7 @@ Visual Studio Code에서 Azure에 직접 프로젝트를 배포할 수 있습니
    * **Azure Advanced에서 새 논리 앱 (미리 보기) 만들기**
    * 이전에 배포 된 **논리 앱 (미리 보기) 리소스 (** 있는 경우)
 
-   이 예에서는 **Azure Advanced에서 새 논리 앱 (미리 보기) 만들기**를 계속 진행 합니다.
+   이 예에서는 **Azure Advanced에서 새 논리 앱 (미리 보기) 만들기** 를 계속 진행 합니다.
 
    !["Azure에서 새 논리 앱 만들기 (미리 보기)"가 선택 된 목록이 포함 된 "Azure: Logic Apps (미리 보기)" 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
 
@@ -623,11 +666,11 @@ Visual Studio Code에서 Azure에 직접 프로젝트를 배포할 수 있습니
 
       !["Azure: Logic Apps (미리 보기)" 창을 표시 하는 스크린샷 및 만들 새 논리 앱의 이름을 입력 하 라는 메시지가 표시 됩니다.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. 새 논리 앱에 대 한 호스팅 계획을 선택 합니다 ( [**App Service 계획**](../azure-functions/functions-scale.md#app-service-plan) 또는 [**프리미엄**](../azure-functions/functions-scale.md#premium-plan)). 이 예에서는 **App Service 계획**을 선택 합니다.
+   1. 새 논리 앱에 대 한 호스팅 계획을 선택 합니다 ( [**App Service 계획**](../azure-functions/functions-scale.md#app-service-plan) 또는 [**프리미엄**](../azure-functions/functions-scale.md#premium-plan)). 이 예에서는 **App Service 계획** 을 선택 합니다.
 
       !["Azure: Logic Apps (미리 보기)" 창을 표시 하 고 "App Service Plan" 또는 "Premium"을 선택 하 라는 메시지를 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
-   1. 새 App Service 계획을 만들거나 기존 계획을 선택 합니다. 이 예에서는 **새 App Service 계획 만들기**를 선택 합니다.
+   1. 새 App Service 계획을 만들거나 기존 계획을 선택 합니다. 이 예에서는 **새 App Service 계획 만들기** 를 선택 합니다.
 
       !["Azure: Logic Apps (미리 보기)" 창 및 "새 App Service 계획 만들기"에 대 한 프롬프트를 보여 주는 스크린샷 또는 기존 App Service 계획을 선택 합니다.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
@@ -644,7 +687,7 @@ Visual Studio Code에서 Azure에 직접 프로젝트를 배포할 수 있습니
 
       !["Azure: Logic Apps (미리 보기)" 창이 표시 되 고 저장소 계정을 만들거나 선택 하 라는 메시지가 표시 되는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/create-storage-account.png)
 
-   1. 더 쉬운 진단 로깅 및 추적 기능을 위해 기존 Application Insights 리소스를 선택할 수 있습니다. 그렇지 않으면 **새 Application Insights 리소스 만들기**를 선택 하거나 앱을 배포한 후 Azure Portal에서 Application Insights를 설정할 수 있습니다.
+   1. 더 쉬운 진단 로깅 및 추적 기능을 위해 기존 Application Insights 리소스를 선택할 수 있습니다. 그렇지 않으면 **새 Application Insights 리소스 만들기** 를 선택 하거나 앱을 배포한 후 Azure Portal에서 Application Insights를 설정할 수 있습니다.
 
       를 배포 하기 전에 `logLevel` `logging` 프로젝트의 루트 수준에 있는 파일의 **host.js** 개체에 개체를 추가 하 고를로 설정 해야 합니다 `Host.Triggers.Workflow` `Information` . 예를 들면 다음과 같습니다.
 
@@ -654,7 +697,7 @@ Visual Studio Code에서 Azure에 직접 프로젝트를 배포할 수 있습니
       },
       ```
 
-      파일 ** 의host.js** 표시 되는 방법은 다음과 같습니다.
+      파일 **의host.js** 표시 되는 방법은 다음과 같습니다.
 
       ```json
       {
@@ -675,7 +718,7 @@ Visual Studio Code에서 Azure에 직접 프로젝트를 배포할 수 있습니
 
    작업이 완료 되 면 논리 앱 Visual Studio Code을 게시 하는 데 필요한 리소스를 만들고 배포 하기 시작 합니다.
 
-1. 배포 프로세스를 검토 하 고 모니터링 하려면 **보기** 메뉴에서 **출력**을 선택 합니다. 출력 창 도구 모음 목록에서 **Azure Logic Apps**을 선택 합니다.
+1. 배포 프로세스를 검토 하 고 모니터링 하려면 **보기** 메뉴에서 **출력** 을 선택 합니다. 출력 창 도구 모음 목록에서 **Azure Logic Apps** 을 선택 합니다.
 
    ![배포 진행률 및 상태와 함께 도구 모음 목록에서 "Azure Logic Apps"가 선택 된 상태에서 출력 창을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
@@ -709,15 +752,15 @@ Visual Studio Code은 Azure 구독에서 배포 된 모든 논리 앱 (원래 **
 
 1. 논리 앱의 모든 워크플로를 보려면 논리 앱을 확장 한 다음 **워크플로** 노드를 확장 합니다.
 
-1. 특정 워크플로를 보려면 워크플로의 바로 가기 메뉴를 열고 **디자이너에서 열기**를 선택 하 여 읽기 전용 모드로 워크플로를 엽니다.
+1. 특정 워크플로를 보려면 워크플로의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택 하 여 읽기 전용 모드로 워크플로를 엽니다.
 
    워크플로를 편집 하려면 다음 옵션을 사용할 수 있습니다.
 
-   * Visual Studio Code에서 논리 앱 디자이너의 파일 ** 에 있는 프로젝트workflow.js** 를 열고, 편집 하 고, 논리 앱을 Azure에 다시 배포 합니다.
+   * Visual Studio Code에서 논리 앱 디자이너의 파일 **에 있는 프로젝트workflow.js** 를 열고, 편집 하 고, 논리 앱을 Azure에 다시 배포 합니다.
 
    * Azure Portal에서 [논리 앱을 찾아서 엽니다](#find-manage-deployed-workflows-portal). 워크플로를 찾고, 편집 하 고, 저장 합니다.
 
-1. Azure Portal에서 배포 된 논리 앱을 열려면 논리 앱의 바로 가기 메뉴를 열고 **포털에서 열기**를 선택 합니다.
+1. Azure Portal에서 배포 된 논리 앱을 열려면 논리 앱의 바로 가기 메뉴를 열고 **포털에서 열기** 를 선택 합니다.
 
    Azure Portal 브라우저에서 열리고 Visual Studio Code에 로그인 하 고 논리 앱을 표시 하는 경우 자동으로 포털에 로그인 합니다.
 
@@ -738,7 +781,7 @@ Azure Portal에서 Azure 구독에 있는 모든 배포 된 논리 앱 (원래 *
 
 **논리 앱 (미리 보기)** 리소스 종류를 포함 하는 논리 앱을 찾으려면 다음 단계를 수행 합니다.
 
-1. Azure Portal 검색 상자에을 입력 `logic app preview` 합니다. 결과 목록이 표시 되 면 **서비스**에서 **논리 앱 (미리 보기)** 을 선택 합니다.
+1. Azure Portal 검색 상자에을 입력 `logic app preview` 합니다. 결과 목록이 표시 되 면 **서비스** 에서 **논리 앱 (미리 보기)** 을 선택 합니다.
 
    !["논리 앱 미리 보기" 검색 텍스트를 사용 하 여 Azure Portal 검색 상자를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
@@ -750,7 +793,7 @@ Azure Portal에서 Azure 구독에 있는 모든 배포 된 논리 앱 (원래 *
 
    ![Azure Portal에서 논리 앱 워크플로의 리소스 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-workflow-azure-portal.png)
 
-1. 이 논리 앱에서 워크플로를 보려면 논리 앱의 메뉴에서 **워크플로**를 선택 합니다.
+1. 이 논리 앱에서 워크플로를 보려면 논리 앱의 메뉴에서 **워크플로** 를 선택 합니다.
 
    **워크플로** 창에는 현재 논리 앱의 모든 워크플로가 표시 됩니다. 이 예제에서는 Visual Studio Code에서 만든 워크플로를 보여 줍니다.
 
@@ -760,7 +803,7 @@ Azure Portal에서 Azure 구독에 있는 모든 배포 된 논리 앱 (원래 *
 
    워크플로 창이 열리고 해당 워크플로에서 수행할 수 있는 추가 정보 및 작업이 표시 됩니다.
 
-   예를 들어 워크플로의 단계를 보려면 **디자이너**를 선택 합니다.
+   예를 들어 워크플로의 단계를 보려면 **디자이너** 를 선택 합니다.
 
    ![선택한 워크플로의 "개요" 창을 보여 주는 스크린샷, 워크플로 메뉴에는 선택한 "Designer" 명령이 표시 됩니다.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
@@ -776,11 +819,11 @@ Azure Portal를 통해 Visual Studio Code에서 배포한 **논리 앱 (미리 �
 
 1. [Azure Portal](https://portal.azure.com)에서 배포 된 **논리 앱 (미리 보기)** 리소스를 찾아 선택 합니다.
 
-1. 논리 앱의 메뉴에서 **워크플로**를 선택 합니다. **워크플로** 창에서 **추가**를 선택 합니다.
+1. 논리 앱의 메뉴에서 **워크플로** 를 선택 합니다. **워크플로** 창에서 **추가** 를 선택 합니다.
 
    ![선택한 논리 앱의 "워크플로" 창 및 "추가" 명령이 선택 된 도구 모음을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. **새 워크플로** 창에서 워크플로의 이름을 입력 합니다. **상태 저장** 또는 **상태 비저장** **>** **만들기**를 선택 합니다.
+1. **새 워크플로** 창에서 워크플로의 이름을 입력 합니다. **상태 저장** 또는 **상태 비저장** **>** **만들기** 를 선택 합니다.
 
    Azure가 **워크플로 창에 표시 되는 새** 워크플로를 배포한 후 해당 워크플로를 선택 하 여 논리 앱 디자이너 또는 코드 보기 열기와 같은 관리 및 기타 작업을 수행 합니다.
 
@@ -800,7 +843,7 @@ Azure Portal를 통해 Visual Studio Code에서 배포한 **논리 앱 (미리 �
 
 Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 작업 하 고 실행 하는 경우 다음 단계를 수행 합니다.
 
-1. 프로젝트에서 **워크플로 designtime** 폴더를 찾아 확장 합니다. 파일 ** 에서local.settings.js** 를 찾아 엽니다.
+1. 프로젝트에서 **워크플로 designtime** 폴더를 찾아 확장 합니다. 파일 **에서local.settings.js** 를 찾아 엽니다.
 
 1. 속성을 추가 하 `Workflows.{yourWorkflowName}.operationOptions` 고 값을로 설정 합니다 `WithStatelessRunHistory` . 예를 들면 다음과 같습니다.
 
@@ -823,9 +866,9 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
 1. [Azure Portal](https://portal.azure.com)에서 **논리 앱 (미리 보기)** 리소스를 찾아 엽니다.
 
-1. 논리 앱 메뉴의 **설정**에서 **구성**을 선택 합니다.
+1. 논리 앱 메뉴의 **설정** 에서 **구성** 을 선택 합니다.
 
-1. **응용 프로그램 설정** 탭에서 **새 응용 프로그램 설정**을 선택 합니다.
+1. **응용 프로그램 설정** 탭에서 **새 응용 프로그램 설정** 을 선택 합니다.
 
 1. **응용 프로그램 설정 추가/편집** 창의 **이름** 상자에 다음 작업 옵션 이름을 입력 합니다. 
 
@@ -837,7 +880,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
    !["구성" > "새 응용 프로그램 설정" < "새 응용 프로그램 설정", "응용 프로그램 설정 추가/편집" 창이 열리고 "워크플로를 사용 하 여 Azure Portal 및 논리 앱 (미리 보기) 리소스를 보여 주는 스크린샷 {{Workflowname}. OperationOptions "옵션을" WithStatelessRunHistory "로 설정 합니다.](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
-1. 완료되면 **확인**을 선택합니다. **구성** 창에서 **저장**을 선택 합니다.
+1. 완료되면 **확인** 을 선택합니다. **구성** 창에서 **저장** 을 선택 합니다.
 
 배포 된 논리 앱 (미리 보기) 리소스에 대 한 모니터링을 사용 하도록 설정 하려면 다음 섹션을 계속 진행 합니다.
 
@@ -849,11 +892,11 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
 1. [Azure Portal](https://portal.azure.com)에서 배포 된 **논리 앱 (미리 보기)** 리소스를 찾아 선택 합니다.
 
-1. 해당 리소스의 메뉴에 있는 **API**에서 **CORS**를 선택 합니다.
+1. 해당 리소스의 메뉴에 있는 **API** 에서 **CORS** 를 선택 합니다.
 
-1. **CORS** 창의 **허용 된 원본**아래에서 와일드 카드 문자 (*)를 추가 합니다.
+1. **CORS** 창의 **허용 된 원본** 아래에서 와일드 카드 문자 (*)를 추가 합니다.
 
-1. 완료 되 면 **CORS** 도구 모음에서 **저장**을 선택 합니다.
+1. 완료 되 면 **CORS** 도구 모음에서 **저장** 을 선택 합니다.
 
    ![배포 된 Logic Apps (미리 보기) 리소스를 사용 하 여 Azure Portal를 보여 주는 스크린샷 [리소스] 메뉴에서 "CORS"는 와일드 카드 "*" 문자로 설정 된 "허용 된 원본"의 새 항목과 함께 선택 됩니다.](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
@@ -909,7 +952,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
    자세한 내용은 [docker 빌드](https://docs.docker.com/engine/reference/commandline/build/)를 참조 하세요.
 
-1. 나중에 Visual Studio Code에서 논리 앱을 만드는 데 사용 하는 프로젝트의 파일 ** 에local.settings.js** 문자열을 추가할 수 있도록 문자열을 안전한 위치에 저장 합니다.
+1. 나중에 Visual Studio Code에서 논리 앱을 만드는 데 사용 하는 프로젝트의 파일 **에local.settings.js** 문자열을 추가할 수 있도록 문자열을 안전한 위치에 저장 합니다.
 
 1. 다음 명령을 사용 하 여 컨테이너를 로컬로 실행 합니다.
 
@@ -921,7 +964,7 @@ Visual Studio Code에서 로컬로 상태 비저장 논리 앱 워크플로를 �
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   <*마스터 키*> 값은 `AzureWebJobsStorage` 이 섹션의 값을 찾을 수 있는 **azure-webjobs/{deployment-name} host.js/on**파일에서에 대해 설정한 azure storage 계정에 정의 됩니다.
+   < *마스터 키* > 값은 `AzureWebJobsStorage` 이 섹션의 값을 찾을 수 있는 **azure-webjobs/{deployment-name} host.js/on** 파일에서에 대해 설정한 azure storage 계정에 정의 됩니다.
 
    ```json
    {

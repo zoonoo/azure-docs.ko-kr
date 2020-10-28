@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979836"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676617"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>자습서: 사용자 프로 비전 Active Directory SAP SuccessFactors 구성 
 이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 
@@ -95,32 +95,32 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 ### <a name="create-an-api-permissions-role"></a>API 권한 역할 만들기
 
 * 관리 센터에 대 한 액세스 권한이 있는 사용자 계정을 사용 하 여 SAP SuccessFactors에 로그인 합니다.
-* *권한 역할 관리*를 검색 한 다음 검색 결과에서 **사용 권한 역할 관리** 를 선택 합니다.
+* *권한 역할 관리* 를 검색 한 다음 검색 결과에서 **사용 권한 역할 관리** 를 선택 합니다.
   ![권한 역할 관리](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* 권한 역할 목록에서 **새로 만들기**를 클릭 합니다.
+* 권한 역할 목록에서 **새로 만들기** 를 클릭 합니다.
   > [!div class="mx-imgBorder"]
   > ![새 권한 역할 만들기](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * 새 권한 역할에 대 한 **역할 이름** 및 **설명을** 추가 합니다. 이름 및 설명은 API 사용 권한에 대 한 역할 임을 나타내야 합니다.
   > [!div class="mx-imgBorder"]
   > ![권한 역할 정보](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* 권한 설정에서 사용 권한 **...** 을 클릭 한 다음 사용 권한 목록을 아래로 스크롤하고 **통합 도구 관리**를 클릭 합니다. **기본 인증을 통해 관리자가 ODATA API에 액세스할 수 있도록 허용**확인란을 선택 합니다.
+* 권한 설정에서 사용 권한 **...** 을 클릭 한 다음 사용 권한 목록을 아래로 스크롤하고 **통합 도구 관리** 를 클릭 합니다. **기본 인증을 통해 관리자가 ODATA API에 액세스할 수 있도록 허용** 확인란을 선택 합니다.
   > [!div class="mx-imgBorder"]
   > ![통합 도구 관리](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* 동일한 상자에서 아래로 스크롤하고 **Employee CENTRAL API**를 선택 합니다. ODATA API를 사용 하 여 읽고 ODATA API를 사용 하 여 편집 하려면 아래와 같이 사용 권한을 추가 합니다. SuccessFactors에 쓰기 저장 시나리오에 동일한 계정을 사용 하려는 경우 편집 옵션을 선택 합니다. 
+* 동일한 상자에서 아래로 스크롤하고 **Employee CENTRAL API** 를 선택 합니다. ODATA API를 사용 하 여 읽고 ODATA API를 사용 하 여 편집 하려면 아래와 같이 사용 권한을 추가 합니다. SuccessFactors에 쓰기 저장 시나리오에 동일한 계정을 사용 하려는 경우 편집 옵션을 선택 합니다. 
   > [!div class="mx-imgBorder"]
   > ![쓰기 권한 읽기](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >이 프로 비전 앱에서 검색 된 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md) 를 참조 하세요.
 
-* **완료**를 클릭합니다. **변경 내용 저장**을 클릭합니다.
+* **완료** 를 클릭합니다. **변경 내용 저장** 을 클릭합니다.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>API 사용자에 대 한 권한 그룹 만들기
 
-* SuccessFactors 관리 센터에서 *관리 권한 그룹*을 검색 한 다음 검색 결과에서 **권한 그룹 관리** 를 선택 합니다.
+* SuccessFactors 관리 센터에서 *관리 권한 그룹* 을 검색 한 다음 검색 결과에서 **권한 그룹 관리** 를 선택 합니다.
   > [!div class="mx-imgBorder"]
   > ![권한 그룹 관리](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* 권한 그룹 관리 창에서 **새로 만들기**를 클릭 합니다.
+* 권한 그룹 관리 창에서 **새로 만들기** 를 클릭 합니다.
   > [!div class="mx-imgBorder"]
   > ![새 그룹 추가](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * 새 그룹의 그룹 이름을 추가 합니다. 그룹 이름은 API 사용자에 대 한 그룹 임을 나타내야 합니다.
@@ -133,16 +133,16 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>권한 그룹에 권한 역할을 부여 합니다.
 
-* SuccessFactors 관리 센터에서 *관리 권한 역할*을 검색 한 다음 검색 결과에서 **권한 역할 관리** 를 선택 합니다.
-* **권한 역할 목록**에서 API 사용 권한에 대해 만든 역할을 선택 합니다.
-* **다음에이 역할 부여**...에서 **추가 ...** 단추를 클릭 합니다.
+* SuccessFactors 관리 센터에서 *관리 권한 역할* 을 검색 한 다음 검색 결과에서 **권한 역할 관리** 를 선택 합니다.
+* **권한 역할 목록** 에서 API 사용 권한에 대해 만든 역할을 선택 합니다.
+* **다음에이 역할 부여** ...에서 **추가 ...** 단추를 클릭 합니다.
 * 드롭다운 메뉴에서 **사용 권한 그룹 ...** 을 선택 하 고 **선택 ...** 을 클릭 하 여 그룹 창을 열고 위에서 만든 그룹을 검색 하 여 선택 합니다. 
   > [!div class="mx-imgBorder"]
   > ![권한 그룹 추가](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
 * 권한 그룹에 부여 된 권한 역할을 검토 합니다. 
   > [!div class="mx-imgBorder"]
   > ![권한 역할 및 그룹 정보](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* **변경 내용 저장**을 클릭합니다.
+* **변경 내용 저장** 을 클릭합니다.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>SuccessFactors에서 Active Directory로 사용자 프로 비전 구성
 
@@ -158,15 +158,15 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 **SuccessFactors를 Active Directory 프로 비전 하도록 구성 하려면:**
 
-1. [https://editor.swagger.io](<https://portal.azure.com> ) 으로 이동합니다.
+1. <https://portal.azure.com> 로 이동
 
-2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+2. 왼쪽 탐색 모음에서 **Azure Active Directory** 를 선택합니다.
 
-3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+3. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
-4. **애플리케이션 추가**를 선택하고 **모두** 범주를 선택합니다.
+4. **애플리케이션 추가** 를 선택하고 **모두** 범주를 선택합니다.
 
-5. **SuccessFactors를 검색 하 여 사용자 프로 비전을 Active Directory**하 고 갤러리에서 해당 앱을 추가 합니다.
+5. **SuccessFactors를 검색 하 여 사용자 프로 비전을 Active Directory** 하 고 갤러리에서 해당 앱을 추가 합니다.
 
 6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전** 을 선택 합니다.
 
@@ -182,7 +182,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7.1 이상이 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 Provisioning Agent를 설치해야 합니다.
 
 > [!TIP]
-> [여기](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
+> [여기](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
 > 서버에 .NET 4.7.1 이상이 설치되어 있지 않으면 [여기](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)에서 다운로드할 수 있습니다.  
 
 다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 아래에 제시된 단계에 따라 에이전트 구성을 완료합니다.
@@ -208,11 +208,11 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 
    ![디렉터리 추가](./media/workday-inbound-tutorial/pa_install_screen_4.png "디렉터리 추가")
   
-1. 이제 AD 도메인에 연결하는 데 필요한 자격 증명을 입력하라는 메시지가 표시됩니다. 동일한 화면에서 **도메인 컨트롤러 우선 순위 선택**을 사용하여 에이전트가 프로비전 요청을 보내는 데 사용할 도메인 컨트롤러를 지정할 수 있습니다.
+1. 이제 AD 도메인에 연결하는 데 필요한 자격 증명을 입력하라는 메시지가 표시됩니다. 동일한 화면에서 **도메인 컨트롤러 우선 순위 선택** 을 사용하여 에이전트가 프로비전 요청을 보내는 데 사용할 도메인 컨트롤러를 지정할 수 있습니다.
 
    ![도메인 자격 증명](./media/workday-inbound-tutorial/pa_install_screen_5.png)
    
-1. 도메인을 구성한 후 설치 관리자는 구성된 도메인 목록을 표시합니다. 이 화면에서 5 및 6단계를 반복하여 도메인을 더 추가하거나 **다음**을 클릭하여 에이전트 등록을 진행할 수 있습니다.
+1. 도메인을 구성한 후 설치 관리자는 구성된 도메인 목록을 표시합니다. 이 화면에서 5 및 6단계를 반복하여 도메인을 더 추가하거나 **다음** 을 클릭하여 에이전트 등록을 진행할 수 있습니다.
 
    ![구성된 도메인](./media/workday-inbound-tutorial/pa_install_screen_6.png "구성된 도메인")
 
@@ -220,7 +220,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    > 여러 AD 도메인이 있는 경우(예: na.contoso.com, emea.contoso.com) 각 도메인을 목록에 개별적으로 추가하세요.
    > 부모 도메인(예: contoso.com)만 추가하는 것은 충분하지 않습니다. 각 자식 도메인을 에이전트에 등록해야 합니다.
    
-1. 구성 세부 정보를 검토하고 **확인**을 클릭하여 에이전트를 등록합니다.
+1. 구성 세부 정보를 검토하고 **확인** 을 클릭하여 에이전트를 등록합니다.
   
    ![확인 화면](./media/workday-inbound-tutorial/pa_install_screen_7.png "확인 화면")
    
@@ -228,7 +228,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
   
    ![에이전트 등록](./media/workday-inbound-tutorial/pa_install_screen_8.png "에이전트 등록")
    
-1. 에이전트 등록이 완료되면 **종료**를 클릭하여 마법사를 끝낼 수 있습니다.
+1. 에이전트 등록이 완료되면 **종료** 를 클릭하여 마법사를 끝낼 수 있습니다.
   
    ![종료 화면](./media/workday-inbound-tutorial/pa_install_screen_9.png "종료 화면")
    
@@ -258,7 +258,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 
    * **알림 메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
     > [!NOTE]
-    > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
+    > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](../app-provisioning/application-provisioning-quarantine-status.md) 상태가 되면 이메일 알림을 보냅니다.
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패 하는 경우 에이전트 설치에 구성 된 SuccessFactors 자격 증명과 AD 자격 증명이 올바른지 다시 한 번 확인 합니다.
     >[!div class="mx-imgBorder"]
@@ -270,7 +270,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 
 이 섹션에서는 사용자 데이터가 SuccessFactors에서 Active Directory로 흐르는 방식을 구성 합니다.
 
-1. **매핑**아래의 프로 비전 탭에서 **SuccessFactors 사용자를 온-프레미스로 동기화 Active Directory**를 클릭 합니다.
+1. **매핑** 아래의 프로 비전 탭에서 **SuccessFactors 사용자를 온-프레미스로 동기화 Active Directory** 를 클릭 합니다.
 
 1. **원본 개체 범위** 필드에서 특성 기반 필터 집합을 정의 하 여 AD에 프로 비전 하는 범위 내에 SuccessFactors의 사용자 집합을 선택할 수 있습니다. 기본 범위는 "SuccessFactors의 모든 사용자"입니다. 예제 필터:
 
@@ -294,7 +294,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    > [!CAUTION] 
    > 프로비저닝 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용하지 않도록 설정/삭제하는 것입니다. SuccessFactors AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의하려면 범위를 [벗어난 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조하세요.
   
-1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
+1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트** 가 가장 일반적입니다.
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성을 Active Directory 특성에 매핑하는 방법을 정의할 수 있습니다.
 
@@ -302,7 +302,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
   >응용 프로그램에서 지 원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md) 를 참조 하세요.
 
 
-1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가**를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
+1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가** 를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
 
       * **매핑 유형**
 
@@ -329,7 +329,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 
          * **만들기 작업 시에만** - 사용자 만들기 작업 시에만 이 매핑을 적용합니다.
 
-1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
+1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장** 을 클릭합니다.
 
 특성 매핑 구성이 완료되면 이제 [사용자 프로비저닝 서비스를 사용하도록 설정하고 시작](#enable-and-launch-user-provisioning)할 수 있습니다.
 
@@ -340,9 +340,9 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 > [!TIP]
 > 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 또는 SuccessFactors 데이터 문제에 오류가 있는 경우 프로 비전 작업이 실패 하 고 격리 상태로 전환 될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
-1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
+1. **프로비전** 탭에서 **프로비전 상태** 를 **켜기** 로 설정합니다.
 
-2. **저장**을 클릭합니다.
+2. **저장** 을 클릭합니다.
 
 3. 이 작업을 수행 하면 초기 동기화가 시작 되며,이는 SuccessFactors 테 넌 트에 있는 사용자 수에 따라 시간이 많이 걸릴 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331297"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677883"
 ---
 # <a name="vm-certification-troubleshooting"></a>VM 인증 문제 해결
 
@@ -29,13 +29,16 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 
 이 오류는 다른 게시자에 속하는 기본 이미지를 사용 하 여 이미지를 업데이트 한 경우에 발생 합니다. 이 경우 이미지를 게시할 수 없습니다.
 
-이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 아티클을 참조하세요.
+이 문제를 해결 하려면 Azure Marketplace에서 이미지를 검색 하 고 변경 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [Linux 이미지](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows 이미지](azure-vm-create-using-approved-base.md)
 
 > [!Note]
 > Azure Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 첫 번째 파티션을 2048 KB로 오프셋할 수 있습니다. 이렇게 하면 포맷 되지 않은 공간을 새 청구 정보를 추가 하는 데 사용할 수 있으며, Azure는 Azure Marketplace에 VM을 게시 하는 데 사용할 수 있습니다.  
+
+> [!Note]
+> Marketplace에서 가져오지 않은 Linux 기본 이미지를 사용 하는 경우 첫 번째 파티션을 2048 KB로 오프셋할 수 있습니다. 이렇게 하면 포맷 되지 않은 공간을 새 청구 정보를 추가 하는 데 사용할 수 있으며 Azure에서 Marketplace에 VM을 게시 하도록 할 수 있습니다.  
 
 ## <a name="vm-extension-failure"></a>VM 확장 오류
 
@@ -44,18 +47,18 @@ VM (가상 컴퓨터) 이미지를 Azure Marketplace에 게시 하는 경우 Azu
 VM 확장을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
 1. Linux VM을 선택 합니다.
-1. **진단 설정**으로 이동 합니다.
-1. **저장소 계정을**업데이트 하 여 기본 행렬을 사용 하도록 설정 합니다.
-1. **저장**을 선택합니다.
+1. **진단 설정** 으로 이동 합니다.
+1. **저장소 계정을** 업데이트 하 여 기본 행렬을 사용 하도록 설정 합니다.
+1. **저장** 을 선택합니다.
 
    ![게스트 수준 모니터링 사용](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 합니다.
 
-1. VM에서 **vm 확장** 탭을 선택한 후 **Linux 진단 확장**의 상태를 확인 합니다.
+1. VM에서 **vm 확장** 탭을 선택한 후 **Linux 진단 확장** 의 상태를 확인 합니다.
 1. 
-    * 상태가 *프로 비전 성공*이면 확장 테스트 사례가 통과 한 것입니다.  
-    * 상태가 *프로 비전 실패*인 경우 확장 테스트 사례가 실패 하 고 확정 된 플래그를 설정 해야 합니다.
+    * 상태가 *프로 비전 성공* 이면 확장 테스트 사례가 통과 한 것입니다.  
+    * 상태가 *프로 비전 실패* 인 경우 확장 테스트 사례가 실패 하 고 확정 된 플래그를 설정 해야 합니다.
 
       ![프로 비전이 성공 했음을 보여 주는 스크린샷](./media/create-vm/vm-certification-issues-solutions-2.png)
 
@@ -67,7 +70,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면 다음을 수행 
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|Error|이유|해결 방법|
+|시나리오|오류|이유|해결 방법|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -99,7 +102,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|설명|
+|시나리오|테스트 사례|Description|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -120,14 +123,14 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 |---|---|---|---|
 |1|Linux 에이전트 버전 테스트 사례|최소 Linux 에이전트 버전은 2.2.41 이상입니다. 이 요구 사항은 2020 년 5 월 1 일 이후 필수입니다.|Linux 에이전트 버전을 업데이트 하 고 2.241 이상 이어야 합니다. 자세한 내용은 [Linux 에이전트 버전 업데이트 페이지](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)를 참조 하세요.|
 |2|Bash 기록 테스트 사례|제출 된 이미지의 bash 기록 크기가 1kb를 초과 하는 경우 오류가 표시 됩니다. 이 크기는 잠재적으로 중요 한 정보가 bash 기록 파일에 캡처되지 않도록 1kb로 제한 됩니다.|이 문제를 해결 하려면 다른 작업 중인 VM에 VHD를 탑재 하 고 원하는 변경 작업을 수행 합니다 (예: *bash* 기록 파일 삭제). 크기를 1kb 이하로 줄이기 위해|
-|3|필수 커널 매개 변수 테스트 사례|**콘솔** 의 값이 **ttyS0**로 설정 되어 있지 않으면이 오류가 표시 됩니다. 다음 명령을 실행 하 여 확인 합니다.<br>`cat /proc/cmdline`|**콘솔** 의 값을 **ttyS0**로 설정 하 고 요청을 다시 제출 합니다.|
-|4|ClientAlive 간격 테스트 사례|도구 키트 결과가이 테스트 사례에 대해 실패 한 결과를 제공 하는 경우 **ClientAliveInterval**에 적합 하지 않은 값이 있습니다.|**ClientAliveInterval** 의 값을 235 미만으로 설정 하 고 요청을 다시 제출 합니다.|
+|3|필수 커널 매개 변수 테스트 사례|**콘솔** 의 값이 **ttyS0** 로 설정 되어 있지 않으면이 오류가 표시 됩니다. 다음 명령을 실행 하 여 확인 합니다.<br>`cat /proc/cmdline`|**콘솔** 의 값을 **ttyS0** 로 설정 하 고 요청을 다시 제출 합니다.|
+|4|ClientAlive 간격 테스트 사례|도구 키트 결과가이 테스트 사례에 대해 실패 한 결과를 제공 하는 경우 **ClientAliveInterval** 에 적합 하지 않은 값이 있습니다.|**ClientAliveInterval** 의 값을 235 미만으로 설정 하 고 요청을 다시 제출 합니다.|
 
 ### <a name="windows-test-cases"></a>Windows 테스트 사례
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|설명|
+|시나리오 |테스트 사례|Description|
 |---|---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -148,7 +151,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 |17|무선 LAN 서비스|무선 LAN 서비스. 이 서버 기능은 아직 지원 되지 않습니다. 응용 프로그램은이 기능에 종속 되지 않아야 합니다.|
 |
 
-이전 테스트 사례와 관련 된 모든 오류를 발생 하는 경우 솔루션에 대 한 표의 **설명** 열을 참조 하세요. 자세한 정보가 필요한 경우 지원 팀에 문의 하세요.
+이전 테스트 사례와 관련 된 모든 오류를 발생 하는 경우 솔루션에 대 한 표의 **설명** 열을 참조 하세요. 자세한 정보가 필요한 경우 지원 팀에 문의 하세요. 
 
 ## <a name="data-disk-size-verification"></a>데이터 디스크 크기 확인
 
@@ -181,7 +184,7 @@ Vm에서 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크�
 
 WannaCry 바이러스와 관련 된 잠재적인 공격을 방지 하려면 모든 Windows 이미지 요청이 최신 패치로 업데이트 되었는지 확인 합니다.
 
-OS 세부 정보 및 지원 되는 최소 버전의 Windows Server 패치 버전을 확인 하려면 다음 표를 참조 하세요.
+OS 세부 정보 및 지원 되는 최소 버전의 Windows Server 패치 버전을 확인 하려면 다음 표를 참조 하세요. 
 
 이미지 파일 버전은 또는에서 확인할 수 `C:\windows\system32\drivers\srv.sys` 있습니다 `srv2.sys` .
 
@@ -205,20 +208,20 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 
 다음 커널 버전 중 하나를 사용 하 여 이미지를 설치 하지 않은 경우 올바른 패치로 업데이트 합니다. 이러한 필수 패치를 사용 하 여 이미지를 업데이트 한 후 지원 팀의 필요한 승인을 요청 합니다.
 
-- CVE-2019-11477
-- CVE-2019-11478
+- CVE-2019-11477 
+- CVE-2019-11478 
 - CVE-2019-11479
 
-|OS 제품군|Version|커널|
+|OS 제품군|버전|커널|
 |---|---|---|
-|Ubuntu|14.04 LTS|4.4.0|
+|Ubuntu|14.04 LTS|4.4.0| 
 ||14.04 LTS|4.15.0-1049-*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
-||18.10 |4.18.0-1023|
-||19.04 |5.0.0-1010|
-||19.04 |5.3.0-1004|
+||18.10|4.18.0-1023|
+||19.04|5.0.0-1010|
+||19.04|5.3.0-1004|
 |RHEL 및 운영 체제|6.10|2.6.32 커널을-754.15.3|
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
@@ -242,7 +245,7 @@ Linux 이미지를 제출할 때 커널 버전 문제로 인해 요청이 거부
 ||SLES15|4.12.14-5.30.1 (커널-azure)|
 ||SAP 용 SLES15|4.12.14-5.30.1 (커널-azure)|
 ||SLES15SP1|4.12.14-5.30.1 (커널-azure)|
-|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UNBREAKABLE 3.8.13-118.35.2<br>RHCK 2.6.32 커널을-754.15.3
+|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UNBREAKABLE 3.8.13-118.35.2<br>RHCK 2.6.32 커널을-754.15.3 
 ||7.0-7.5|UNBREAKABLE 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK는 위의 RHEL을 따릅니다.|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS 안정 2079.6.0|4.19.43*|
@@ -267,13 +270,22 @@ VM에서 테스트 사례를 실행 하는 동안 액세스 거부 문제가 발
 
 자체 테스트 사례가 실행 되 고 있는 계정에 대 한 적절 한 액세스를 사용 하도록 설정 했는지 확인 하십시오. 액세스를 사용할 수 없는 경우 테스트 사례를 실행할 수 있도록 설정 합니다. 액세스를 사용 하지 않으려면 자체 테스트 사례 결과를 지원 팀과 공유할 수 있습니다.
 
-## <a name="download-failure"></a>다운로드 실패
+인증 프로세스를 위해 SSH 사용 안 함 이미지를 사용 하 여 요청을 제출 하려면 아래 단계를 수행 하세요.
 
+1. 이미지에서 Azure 도구 키트를 실행 합니다. [최신 도구 키트](https://aka.ms/AzureCertificationTestTool) 를 다운로드 하세요.
+
+2. [지원 티켓](https://aka.ms/marketplacepublishersupport)을 생성 하 고, toolkit 보고서를 첨부 하 고, 제품 정보 (제품 이름, 게시자 이름, 요금제 ID/SKU 및 버전)를 제공 합니다.
+
+3. 인증 요청을 다시 제출 하세요.
+
+
+## <a name="download-failure"></a>다운로드 실패
+    
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드할 때 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|시나리오|Error|이유|해결 방법|
+|시나리오|오류|이유|해결 방법|
 |---|---|---|---|
-|1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.||
+|1|Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |2|사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
 |3|잘못 된 SAS URL|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
 |4|잘못 된 서명|VHD에 연결 된 SAS URL이 잘못 되었습니다.|올바른 SAS URL을 가져옵니다.|
@@ -288,13 +300,98 @@ VHD를 제출할 때 VHD의 첫 2048 KB가 비어 있는지 확인 합니다. �
 >[!NOTE]
 >* Azure Marketplace에서 가져온 Azure Windows 기본 이미지를 기반으로 하는 특정 이미지의 경우 청구 태그를 확인 하 고 청구 태그가 있고 내부 사용 가능한 값과 일치 하는 경우 MB 파티션을 무시 합니다.
 
+
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-on-an-empty-vhd"></a>빈 VHD에서 첫 MB (2048 KB) 파티션 (Linux의 경우에만)을 만드는 단계
+
+1 단계: 모든 종류의 VM을 만듭니다 (예: Ubuntu, 센트 OS 등). 필수 필드를 입력 하 고 "다음: 디스크>" \를 클릭 합니다.
+![다음: 디스크 명령](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+2 단계: 위의 VM에 대 한 관리 되지 않는 디스크를 만듭니다.
+![관리 되지 않는 디스크 만들기](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+기본값을 사용 하거나 NIC, NSG 및 공용 IP와 같은 필드에 대 한 값을 지정할 수 있습니다.
+
+3 단계: VM을 만든 후 왼쪽에 있는 "디스크"를 클릭 하 여 아래와 같이 ![ "디스크"를 클릭 합니다.](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+4 단계: 아래와 같이 파티션 테이블을 만들기 위해 VHD를 위의 VM에 데이터 디스크로 연결 하세요.
+![VHD 연결](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+DataDisk 추가-> 기존 Blob-> VHD 저장소 계정 검색-> 컨테이너-> VHD를 선택 하 > 아래와 같이 확인을 클릭 합니다.
+![VHD 선택](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+VHD가 데이터 디스크 LUN 0으로 추가 되 고 디스크를 추가한 후 VM을 다시 시작 하세요.
+
+5 단계: VM을 다시 시작한 후 Putty (또는 다른 클라이언트)를 사용 하 여 VM에 로그인 하 고 "sudo-i" 명령을 실행 하 여 루트 액세스 권한을 얻습니다.
+
+![VM에 로그인](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+6 단계: VHD에서 파티션을 만들려면 아래 단계를 따르세요.
+
+a) fdisk/sv/sv/sd 명령을 입력 합니다.
+
+b) VHD에서 기존 파티션 목록을 보려면 p를 입력 합니다.
+
+c) VHD에서 사용할 수 있는 기존 파티션을 모두 삭제 하려면 d를 입력 합니다 (필요 하지 않은 경우이 단계를 건너뛸 수 있음). ![ 기존 파티션을 모두 삭제 합니다.](./media/create-vm/vm-certification-issues-solutions-21.png)
+
+d) n을 입력 하 여 새 파티션을 만들고 (주 파티션)에 대해 p를 선택 합니다.
+
+e) 2048을 "첫 번째 섹터" 값으로 입력 하 고 "마지막 섹터"는 기본값을 사용 하므로 그대로 둘 수 있습니다. 데이터는 2048 KB까지 지워집니다.
+           
+>[!NOTE]
+>* 위와 같이 파티션을 만들면 기존 데이터는 2048 KB까지 지워집니다. 따라서 위의 명령을 실행 하기 전에 VHD의 백업을 수행 하는 것이 좋습니다.
+
+아래에서 참조에 대 한 스크린샷을 확인 하세요.
+![지운 데이터](./media/create-vm/vm-certification-issues-solutions-22.png)
+
+f) 파티션 생성을 확인 하려면 w를 입력 합니다. 
+
+![파티션 만들기](./media/create-vm/vm-certification-issues-solutions-23.png)
+
+g) 명령을 실행 하 여 파티션 테이블을 확인 하 고, p를 입력 하 고, p를 입력 하면 아래와 같이 2048 오프셋 값을 사용 하 여 해당 파티션을 만들 수 있습니다. 
+
+ ![2048 오프셋](./media/create-vm/vm-certification-issues-solutions-24.png)
+
+7 단계: VM에서 VHD를 분리 하 고 VM을 삭제 하세요.
+
+         
+## <a name="steps-for-creating-first-mb-2048-kb-partition-only-for-linux-by-moving-the-existing-data-on-vhd"></a>VHD에서 기존 데이터를 이동 하 여 첫 번째 MB (2048 KB) 파티션 (Linux의 경우에만)을 만드는 단계
+
+1 단계: 모든 종류의 VM을 만듭니다 (예: Ubuntu, 센트 OS 등). 필수 필드를 입력 하 고 "다음: 디스크>" \를 클릭 합니다.
+!["다음: 디스크>"을 클릭 합니다.](./media/create-vm/vm-certification-issues-solutions-15.png)
+
+2 단계: 위의 VM에 대 한 관리 되지 않는 디스크를 만듭니다.
+![관리 되지 않는 디스크 만들기](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+기본값을 사용 하거나 NIC, NSG 및 공용 IP와 같은 필드에 대 한 값을 지정할 수 있습니다.
+
+3 단계: VM을 만든 후 왼쪽에 있는 "디스크"를 클릭 하 여 아래와 같이 ![ "디스크"를 클릭 합니다.](./media/create-vm/vm-certification-issues-solutions-17.png)
+
+4 단계: 아래와 같이 파티션 테이블을 만들기 위해 VHD를 위의 VM에 데이터 디스크로 연결 하세요.
+![파티션 테이블](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+DataDisk 추가-> 기존 Blob-> VHD 저장소 계정 검색-> 컨테이너-> VHD를 선택 하 > 아래와 같이 확인을 클릭 합니다.
+![VHD 선택](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+VHD가 데이터 디스크 LUN 0으로 추가 되 고 디스크를 추가한 후 VM을 다시 시작 하세요.
+
+5 단계: VM을 다시 시작한 후 Putty를 사용 하 여 VM에 로그인 하 고 "sudo-i" 명령을 실행 하 여 루트 액세스 권한을 얻습니다. \
+![다시 시작한 후 로그인](./media/create-vm/vm-certification-issues-solutions-20.png)
+
+6 단계: echo ' + 1M, ' | 명령을 excute 하세요. sfdisk--데이터 이동/vv/sc-N 1 ![ Execute 명령](./media/create-vm/vm-certification-issues-solutions-25.png)
+
+>[!NOTE]
+>* 위의 명령을 완료 하는 데 시간이 더 오래 걸릴 수 있습니다 .이는 디스크의 크기에 따라 달라 집니다.
+
+7 단계: VM에서 VHD를 분리 하 고 VM을 삭제 하세요.
+
+
 ## <a name="default-credentials"></a>기본 자격 증명
 
 항상 기본 자격 증명이 전송 된 VHD와 함께 전송 되지 않도록 합니다. 기본 자격 증명을 추가 하면 VHD가 보안 위협에 더 취약해 집니다. 대신 VHD를 제출할 때 사용자 고유의 자격 증명을 만듭니다.
   
 ## <a name="datadisk-mapped-incorrectly"></a>DataDisk가 잘못 매핑 되었습니다.
 
-여러 데이터 디스크를 사용 하 여 요청을 제출 했지만 순서가 순서 대로 되어 있지 않은 경우 매핑 문제로 간주 됩니다. 예를 들어 데이터 디스크가 3 개인 경우 번호 매기기 순서는 *0, 1, 2*여야 합니다. 다른 모든 순서는 매핑 문제로 처리 됩니다.
+여러 데이터 디스크를 사용 하 여 요청을 제출 했지만 순서가 순서 대로 되어 있지 않은 경우 매핑 문제로 간주 됩니다. 예를 들어 데이터 디스크가 3 개인 경우 번호 매기기 순서는 *0, 1, 2* 여야 합니다. 다른 모든 순서는 매핑 문제로 처리 됩니다.
 
 적절 한 데이터 디스크 시퀀싱으로 요청을 다시 제출 합니다.
 
@@ -306,11 +403,11 @@ VHD를 제출할 때 VHD의 첫 2048 KB가 비어 있는지 확인 합니다. �
 
 Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경우 운영 체제 VHD를 일반화 해야 합니다.
 
-* **Linux**의 경우 다음 프로세스는 linux vm을 일반화 하 고 별도의 vm으로 다시 배포 합니다.
+* **Linux** 의 경우 다음 프로세스는 linux vm을 일반화 하 고 별도의 vm으로 다시 배포 합니다.
 
   SSH 창에서 다음 명령을 입력 합니다. `sudo waagent -deprovision+user`
 
-* **Windows**의 경우를 사용 하 여 windows 이미지를 일반화 `sysreptool` 합니다.
+* **Windows** 의 경우를 사용 하 여 windows 이미지를 일반화 `sysreptool` 합니다.
 
 이 도구에 대 한 자세한 내용은 [시스템 준비 (Sysprep) 개요]( https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조 하세요.
 
@@ -318,7 +415,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|Error|이유|해결 방법|
+|오류|이유|해결 방법|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 전송 될 때 LUN (논리 단위 번호)에 잘못 된 숫자가 지정 된 경우에 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 지정 된 SAS URL에서 데이터 디스크를 찾을 수 없기 때문에 발생할 수 있습니다.|데이터 디스크가 요청에 지정 된 SAS URL에 있는지 확인 합니다.|
@@ -326,7 +423,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 ## <a name="remote-access-issue"></a>원격 액세스 문제
 
-Windows 이미지에 RDP (원격 데스크톱 프로토콜) 옵션을 사용할 수 없는 경우이 오류가 표시 됩니다.
+Windows 이미지에 RDP (원격 데스크톱 프로토콜) 옵션을 사용할 수 없는 경우이 오류가 표시 됩니다. 
 
 Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설정 합니다.
 
@@ -336,14 +433,14 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 
 "Bash 기록"을 삭제 하는 단계는 다음과 같습니다.
 
-1단계. VM을 배포 하 고 Azure Portal에서 "명령 실행" 옵션을 클릭 합니다.
+1단계: VM을 배포 하 고 Azure Portal에서 "명령 실행" 옵션을 클릭 합니다.
 ![Azure Portal에서 명령 실행](./media/create-vm/vm-certification-issues-solutions-3.png)
 
 2단계. 첫 번째 옵션인 "RunShellScript"를 선택 하 고 아래 명령을 실행 합니다.
 
 명령: Azure Portal에 대 한 "cat/sv/null > ~/.bash_history && 기록-c" ![ Bash 기록 명령](./media/create-vm/vm-certification-issues-solutions-4.png)
 
-3단계. 명령을 성공적으로 실행 한 후 VM을 다시 시작 합니다.
+3단계: 명령을 성공적으로 실행 한 후 VM을 다시 시작 합니다.
 
 4단계. VM을 일반화 하 고 이미지 VHD를 사용 하 여 VM을 중지 합니다.
 
@@ -404,36 +501,36 @@ Windows 이미지를 제출 하기 전에 RDP 액세스를 사용 하도록 설�
 이러한 단계를 완료 하려면 추가 하려는 VM 이미지에 대 한 기술 자산을 준비 해야 합니다. 자세한 내용은 [승인 된 기본을 사용 하 여 가상 컴퓨터 만들기](azure-vm-create-using-approved-base.md) 또는 [고유한 이미지를 사용 하 여 가상 컴퓨터](azure-vm-create-using-own-image.md)만들기를 참조 하 고 [VM 이미지에 대 한 SAS URI를 생성](azure-vm-get-sas-uri.md)합니다.
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
+2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요** 를 선택 합니다.
 3. **제품 별칭** 열에서 제품을 선택 합니다.
 4. **계획 개요** 탭의 **이름** 열에서 VM을 추가 하려는 계획을 선택 합니다.
-5. **기술 구성** 탭의 **vm 이미지** 에서 **+ vm 이미지 추가**를 선택 합니다.
+5. **기술 구성** 탭의 **vm 이미지** 에서 **+ vm 이미지 추가** 를 선택 합니다.
 
 > [!NOTE]
 > 한 번에 하나의 계획에 VM 이미지를 하나만 추가할 수 있습니다. 여러 VM 이미지를 추가 하려면 다음 VM 이미지를 추가 하기 전에 먼저 라이브 이미지를 게시 합니다.
 
 6. 표시 되는 상자에 새 디스크 버전 및 가상 머신 이미지를 제공 합니다.
-7. **초안 저장**을 선택합니다.
+7. **초안 저장** 을 선택합니다.
 
 다음 섹션을 계속 진행 하 여 보안 취약성으로 VM 이미지를 제거 합니다.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>보안 취약성 또는 익스플로잇으로 VM 이미지 제거
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요**를 선택 합니다.
+2. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **개요** 를 선택 합니다.
 3. **제품 별칭** 열에서 제품을 선택 합니다.
 4. **계획 개요** 탭의 **이름** 열에서 제거 하려는 VM의 계획을 선택 합니다.
-5. **기술 구성** 탭의 **vm 이미지** 에서 제거 하려는 vm 이미지 옆에 있는 **vm 이미지 제거**를 선택 합니다.
-6. 표시 되는 대화 상자에서 **계속**을 선택 합니다.
-7. **초안 저장**을 선택합니다.
+5. **기술 구성** 탭의 **vm 이미지** 에서 제거 하려는 vm 이미지 옆에 있는 **vm 이미지 제거** 를 선택 합니다.
+6. 표시 되는 대화 상자에서 **계속** 을 선택 합니다.
+7. **초안 저장** 을 선택합니다.
 
 다음 섹션을 계속 진행 하 여 제품을 다시 게시 합니다.
 
 #### <a name="republish-the-offer"></a>제품 다시 게시
 
-1. **검토 및 게시**를 선택 합니다.
+1. **검토 및 게시** 를 선택 합니다.
 2. 인증 팀에 정보를 제공 해야 하는 경우 **인증에 대 한** 정보 상자에 추가 합니다.
-3. **게시**를 선택합니다.
+3. **게시** 를 선택합니다.
 
 게시 프로세스를 완료 하려면 [제안 검토 및 게시](review-publish-offer.md)를 참조 하세요.
 

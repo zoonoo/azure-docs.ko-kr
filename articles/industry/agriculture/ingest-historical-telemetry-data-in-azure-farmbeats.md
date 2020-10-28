@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 271d3c0ca44c500a6fd8ee50ed5f1698e46cd511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510269"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675825"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -33,7 +33,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 - 클라이언트 암호
 - EventHub 연결 문자열
 
-다음 단계를 수행합니다.
+다음 단계를 수행하세요.
 
 > [!NOTE]
 > 다음 단계를 수행 하려면 관리자 여야 합니다.
@@ -46,13 +46,13 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
       b. FarmBeats 배포의 일부로 만들어진 **앱 등록** 을 선택 합니다. FarmBeats datahub와 동일한 이름을 갖게 됩니다.
 
-      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위**를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
+      다. **API** 표시를 선택 하 > **클라이언트 응용 프로그램 추가** 를 선택 하 고 **04B07795-8ddb-461a-bbee-02f9e1bf7b46** 를 입력 한 다음 **권한 부여 범위** 를 확인 합니다. 그러면 다음 단계를 수행 하기 위해 Azure CLI (Cloud Shell)에 대 한 액세스 권한이 제공 됩니다.
 
 3. Cloud Shell을 엽니다. 이 옵션은 Azure Portal의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
     ![Azure Portal 도구 모음](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. 환경이 **PowerShell**로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
+4. 환경이 **PowerShell** 로 설정 되었는지 확인 합니다. 기본적으로 Bash로 설정 됩니다.
 
     ![PowerShell 도구 모음 설정](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -70,7 +70,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
 7. 다음 명령을 실행합니다. 그러면 홈 디렉터리에 스크립트가 다운로드 됩니다.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive 
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -84,7 +84,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
     ```
 
-9. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호**및 **EventHub 연결 문자열**의 값을 캡처합니다.
+9. 화면의 지시에 따라 **API 끝점** , **테 넌 트 ID** , **클라이언트 ID** , **클라이언트 암호** 및 **EventHub 연결 문자열** 의 값을 캡처합니다.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>장치 또는 센서 메타 데이터 만들기
@@ -96,10 +96,10 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
  > [!NOTE]
  > 파트너는 메타 데이터에 대 한 읽기, 만들기 및 업데이트에만 액세스할 수 있습니다. **삭제 옵션은 파트너 에게만 제한 됩니다.**
 
-- /**DeviceModel**: DeviceModel는 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 장치 메타 데이터에 해당 합니다.
-- /**Device**: Device는 팜에 있는 물리적 디바이스에 해당합니다.
-- /**SensorModel**: SensorModel 센서의 메타 데이터에 해당 합니다. 예를 들어 센서의 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 일치 합니다.
-- /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
+- /**DeviceModel** : DeviceModel는 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 장치 메타 데이터에 해당 합니다.
+- /**Device** : Device는 팜에 있는 물리적 디바이스에 해당합니다.
+- /**SensorModel** : SensorModel 센서의 메타 데이터에 해당 합니다. 예를 들어 센서의 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 일치 합니다.
+- /**Sensor** : Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
 
 |        DeviceModel   |  제안   |
@@ -192,9 +192,9 @@ access_token = token_response.get('access_token')
 
 FarmBeats Datahub에 대 한 API 호출을 수행할 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
-- **Content-type**: application/json
-- **권한 부여**: 전달자 <Access-Token>
-- **수락**: application/json
+- **Content-type** : application/json
+- **권한 부여** : 전달자 <Access-Token>
+- **수락** : application/json
 
 ### <a name="input-payload-to-create-metadata"></a>메타 데이터를 만들기 위한 입력 페이로드
 
@@ -336,7 +336,7 @@ response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=header
 
 ### <a name="create-a-telemetry-client"></a>원격 분석 클라이언트 만들기
 
-처리를 위해 Azure Event Hubs에 원격 분석을 보내야 합니다. Azure Event Hubs는 연결된 디바이스 및 애플리케이션으로부터 실시간 데이터(원격 분석) 수집을 가능하게 하는 서비스입니다. FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)를 참조 하세요.
+처리를 위해 Azure Event Hubs에 원격 분석을 보내야 합니다. Azure Event Hubs는 연결된 디바이스 및 애플리케이션으로부터 실시간 데이터(원격 분석) 수집을 가능하게 하는 서비스입니다. FarmBeats에 원격 분석 데이터를 보내려면 FarmBeats에서 이벤트 허브로 메시지를 보내는 클라이언트를 만듭니다. 원격 분석을 보내는 방법에 대 한 자세한 내용은 [Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)를 참조 하세요.
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>원격 분석 메시지를 클라이언트로 보내기
 
@@ -431,9 +431,9 @@ write_client.stop()
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집한 후 원격 분석 데이터를 볼 수 없음
 
-**증상**: 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+**증상** : 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
 
-**정정 작업**:
+**정정 작업** :
 
 1. 적절 한 파트너 등록을 완료 했는지 확인 합니다 .이를 확인 하려면 datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하면 됩니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
 

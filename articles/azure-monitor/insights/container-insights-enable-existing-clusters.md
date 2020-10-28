@@ -3,13 +3,13 @@ title: 배포 된 Azure Kubernetes 서비스 (AKS) 클러스터 모니터링 | M
 description: 구독에 이미 배포 된 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터의 모니터링을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 9f3b9240bc10f4eaa4c9967d8c7bbb956eeab4e1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165403"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735129"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "92165403"
 
 ## <a name="enable-using-azure-cli"></a>Azure CLI 사용
 
-다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만든 기본 작업 영역은 *defaultworkspace \<GUID> - \<Region> *의 형식과 유사 합니다.
+다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만든 기본 작업 영역은 *defaultworkspace \<GUID> - \<Region>* 의 형식과 유사 합니다.
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
@@ -58,7 +58,7 @@ provisioningState       : Succeeded
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    **SubscriptionId**의 값을 복사 합니다.
+    **SubscriptionId** 의 값을 복사 합니다.
 
 2. 다음 명령을 사용 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
 
@@ -72,7 +72,7 @@ provisioningState       : Succeeded
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
+    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
 
 4. 다음 명령을 실행 하 여 모니터링 추가 기능을 사용 하도록 설정 하 고 매개 변수의 값을 바꿉니다 `--workspace-resource-id` . 문자열 값은 큰따옴표로 묶어야 합니다.
 
@@ -105,13 +105,13 @@ provisioningState       : Succeeded
 
 Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **모니터**를 선택합니다.
+1. Azure Portal에서 **모니터** 를 선택합니다.
 
-2. 목록에서 **컨테이너**를 선택합니다.
+2. 목록에서 **컨테이너** 를 선택합니다.
 
-3. **모니터-컨테이너** 페이지에서 모니터링 되지 않는 **클러스터**를 선택 합니다.
+3. **모니터-컨테이너** 페이지에서 모니터링 되지 않는 **클러스터** 를 선택 합니다.
 
-4. 모니터링 되지 않는 클러스터 목록에서 목록에 있는 컨테이너를 찾고 **사용**을 클릭 합니다.
+4. 모니터링 되지 않는 클러스터 목록에서 목록에 있는 컨테이너를 찾고 **사용** 을 클릭 합니다.
 
 5. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.
     구독에서 AKS 컨테이너가 배포된 기본 작업 영역 및 위치가 미리 선택됩니다.
@@ -127,15 +127,15 @@ Azure Monitor의 Azure Portal에서 AKS 클러스터의 모니터링을 사용�
 
 Azure Portal에서 AKS 클러스터 중 하나에서 직접 모니터링을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택합니다.
 
 2. 리소스 목록에서 **컨테이너** 입력을 시작합니다.  입력한 내용을 기반으로 목록이 필터링됩니다.
 
-3. **Kubernetes 서비스**를 선택합니다.
+3. **Kubernetes 서비스** 를 선택합니다.
     
 4. Kubernetes services 목록에서 서비스를 선택 합니다.
 
-5. Kubernetes service 개요 페이지에서 **모니터링-정보**를 선택 합니다.
+5. Kubernetes service 개요 페이지에서 **모니터링-정보** 를 선택 합니다.
 
 6. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너용 Azure Monitor에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.
     구독에서 AKS 컨테이너가 배포된 기본 작업 영역 및 위치가 미리 선택됩니다.
@@ -226,7 +226,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-2. 이 파일을 **existingClusterOnboarding.json**으로 로컬 폴더에 저장합니다.
+2. 이 파일을 **existingClusterOnboarding.json** 으로 로컬 폴더에 저장합니다.
 
 3. 다음 JSON 구문을 파일에 붙여넣습니다.
 
@@ -259,7 +259,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
     **AksResourceTagValues** 에 대 한 값을 편집 하 여 AKS 클러스터에 지정 된 기존 태그 값과 일치 시킵니다.
 
-5. 이 파일을 **existingClusterParam.json**으로 로컬 폴더에 저장합니다.
+5. 이 파일을 **existingClusterParam.json** 으로 로컬 폴더에 저장합니다.
 
 6. 이제 이 템플릿을 배포할 수 있습니다.
 

@@ -2,13 +2,13 @@
 title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 8d033bb9ad1c841614ee1e48aa7edc6b8fe18550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372173"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676194"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -18,21 +18,19 @@ Azure CLI 버전 2.2.0에서 배포 명령이 변경 되었습니다. 이 문서
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-cloud-shell)을 사용할 수 있습니다.
+Azure CLI가 설치되어 있지 않으면 Cloud Shell을 사용할 수 있습니다. 자세한 내용은 [Cloud Shell에서 ARM 템플릿 배포](deploy-cloud-shell.md)를 참조 하세요.
 
 ## <a name="deployment-scope"></a>배포 범위
 
-리소스 그룹, 구독, 관리 그룹 또는 테 넌 트에 대 한 배포를 대상으로 지정할 수 있습니다. 대부분의 경우 리소스 그룹에 대 한 배포를 대상으로 합니다. 더 큰 범위에서 정책 및 역할 할당을 적용 하려면 구독, 관리 그룹 또는 테 넌 트 배포를 사용 합니다. 구독에 배포 하는 경우 리소스 그룹을 만들고 여기에 리소스를 배포할 수 있습니다.
+리소스 그룹, 구독, 관리 그룹 또는 테 넌 트에 대 한 배포를 대상으로 지정할 수 있습니다. 배포의 범위에 따라 다른 명령을 사용합니다.
 
-배포의 범위에 따라 다른 명령을 사용합니다.
-
-* **리소스 그룹**에 배포 하려면 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)를 사용 합니다.
+* **리소스 그룹** 에 배포 하려면 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* **구독**에 배포 하려면 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용 합니다.
+* **구독** 에 배포 하려면 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +38,7 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
   구독 수준 배포에 대한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조하세요.
 
-* **관리 그룹**에 배포 하려면 [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)를 사용 합니다.
+* **관리 그룹** 에 배포 하려면 [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +46,7 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
   관리 그룹 수준 배포에 대한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조하세요.
 
-* **테 넌 트**에 배포 하려면 [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)를 사용 합니다.
+* **테 넌 트** 에 배포 하려면 [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -56,26 +54,25 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
   테넌트 수준 배포에 대한 자세한 내용은 [테넌트 수준에서 리소스 만들기](deploy-to-tenant.md)를 참조하세요.
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용합니다.
+모든 범위에서 템플릿을 배포 하는 사용자에 게는 리소스를 만드는 데 필요한 권한이 있어야 합니다.
 
 ## <a name="deploy-local-template"></a>로컬 템플릿 배포
 
-Azure에 리소스를 배포할 때 다음을 수행합니다.
+로컬 컴퓨터 또는 외부에 저장 된 템플릿을 배포할 수 있습니다. 이 섹션에서는 로컬 템플릿 배포에 대해 설명 합니다.
 
-1. Azure 계정에 로그인
-2. 배포된 리소스에 대한 컨테이너 역할을 하는 리소스 그룹을 만듭니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 마침표로 끝날 수 없습니다.
-3. 만들 리소스를 정의 하는 템플릿을 리소스 그룹에 배포 합니다.
-
-템플릿에는 템플릿 배포를 사용자 지정할 수 있도록 하는 매개 변수가 포함될 수 있습니다. 예를 들어 특정 환경(예: 개발, 테스트 및 프로덕션)에 맞게 조정되는 값을 제공할 수 있습니다. 샘플 템플릿은 스토리지 계정 SKU에 대한 매개 변수를 정의합니다.
-
-다음 예제에서는 리소스 그룹을 만들고 로컬 컴퓨터에서 템플릿을 배포합니다.
+존재 하지 않는 리소스 그룹에 배포 하는 경우 리소스 그룹을 만듭니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 이름은 마침표로 끝날 수 없습니다.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
+```
+
+로컬 템플릿을 배포 하려면 `--template-file` 배포 명령의 매개 변수를 사용 합니다. 또한 다음 예제에서는 템플릿에서 제공 되는 매개 변수 값을 설정 하는 방법을 보여 줍니다.
+
+```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file azuredeploy.json \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -85,9 +82,31 @@ az deployment group create \
 "provisioningState": "Succeeded",
 ```
 
+## <a name="deploy-remote-template"></a>원격 템플릿 배포
+
+ARM 템플릿을 로컬 컴퓨터에 저장 하는 대신 외부 위치에 저장 하는 것이 좋습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
+
+존재 하지 않는 리소스 그룹에 배포 하는 경우 리소스 그룹을 만듭니다. 리소스 그룹의 이름은 영숫자, 마침표, 밑줄, 하이픈 및 괄호만 포함할 수 있습니다. 최대 90자까지 가능합니다. 이름은 마침표로 끝날 수 없습니다.
+
+```azurecli-interactive
+az group create --name ExampleGroup --location "Central US"
+```
+
+외부 템플릿을 배포하려면 `template-uri` 매개 변수를 사용합니다.
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+```
+
+앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 대 한 액세스를 관리 하려는 경우 [템플릿 사양을](#deploy-template-spec)사용 하는 것이 좋습니다.
+
 ## <a name="deployment-name"></a>배포 이름
 
-앞의 예제에서는 배포의 이름을 지정 `ExampleDeployment` 했습니다. 배포 이름을 제공 하지 않으면 템플릿 파일의 이름이 사용 됩니다. 예를 들어 이라는 템플릿을 배포 하 `azuredeploy.json` 고 배포 이름을 지정 하지 않는 경우 배포의 이름은 `azuredeploy` 입니다.
+ARM 템플릿을 배포할 때 배포에 이름을 지정할 수 있습니다. 이 이름은 배포 기록에서 배포를 검색 하는 데 도움이 될 수 있습니다. 배포 이름을 제공 하지 않으면 템플릿 파일의 이름이 사용 됩니다. 예를 들어 이라는 템플릿을 배포 하 `azuredeploy.json` 고 배포 이름을 지정 하지 않는 경우 배포의 이름은 `azuredeploy` 입니다.
 
 배포를 실행할 때마다 배포 이름으로 리소스 그룹의 배포 기록에 항목이 추가 됩니다. 다른 배포를 실행 하 고 동일한 이름을 지정 하는 경우 이전 항목이 현재 배포로 바뀝니다. 배포 기록에서 고유한 항목을 유지 하려면 각 배포에 고유한 이름을 지정 합니다.
 
@@ -110,23 +129,6 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 각 배포에 고유한 이름을 지정 하는 경우 충돌 없이 동시에 실행할 수 있습니다. 이라는 저장소 계정을 배포 하는 라는 배포를 실행 하는 경우 동시에 라는 `newStorage1` `storage1` 저장소 계정을 배포 하는 이라는 다른 배포를 실행 하는 경우 `newStorage2` `storage2` 두 개의 저장소 계정 및 두 개의 항목이 배포 기록에 있습니다.
 
 동시 배포와의 충돌을 방지 하 고 배포 기록에서 고유한 항목을 확인 하려면 각 배포에 고유한 이름을 지정 합니다.
-
-## <a name="deploy-remote-template"></a>원격 템플릿 배포
-
-ARM 템플릿을 로컬 컴퓨터에 저장 하는 대신 외부 위치에 저장 하는 것이 좋습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
-
-외부 템플릿을 배포하려면 **template-uri** 매개 변수를 사용합니다. 예제의 URI를 사용하여 GitHub에서 샘플 템플릿을 배포합니다.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 프라이빗 스토리지 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.
 
 ## <a name="deploy-template-spec"></a>템플릿 사양 배포
 
@@ -160,17 +162,6 @@ az deployment group create \
 ## <a name="preview-changes"></a>변경 내용 미리 보기
 
 템플릿을 배포 하기 전에 템플릿이 사용자 환경에 적용 되는 변경 내용을 미리 볼 수 있습니다. [가상 작업](template-deploy-what-if.md) 을 사용 하 여 템플릿이 필요한 변경을 수행 하는지 확인 합니다. 이 경우에서 템플릿의 오류도 확인 합니다.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Cloud Shell에서 다음 명령을 사용합니다.
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az deployment group create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
 
 ## <a name="parameters"></a>매개 변수
 
@@ -275,4 +266,3 @@ az deployment group create \
 - 리소스 그룹에 있지만 템플릿에 정의되지 않은 리소스를 처리하는 방법을 지정하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
 - 템플릿에서 매개 변수를 정의 하는 방법을 이해 하려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 - 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
-- SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.

@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124189"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675302"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -30,7 +30,7 @@ ms.locfileid: "92124189"
 
 ### <a name="backup-frequency"></a>Backup 주기
 
-SQL Database와 SQL Managed Instance는 모두 SQL Server 기술을 사용 하 여 매주 [전체 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) , 12-24 시간 마다 [차등 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) 및 5 ~ 10 분 마다 [트랜잭션 로그 백업을](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) 만듭니다. 트랜잭션 로그 백업의 빈도는 컴퓨팅 크기와 데이터베이스 작업의 양을 기준으로 합니다.
+SQL Database와 SQL Managed Instance는 모두 SQL Server 기술을 사용 하 여 매주 [전체 백업](/sql/relational-databases/backup-restore/full-database-backups-sql-server) , 12-24 시간 마다 [차등 백업](/sql/relational-databases/backup-restore/differential-backups-sql-server) 및 5 ~ 10 분 마다 [트랜잭션 로그 백업을](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) 만듭니다. 트랜잭션 로그 백업의 빈도는 컴퓨팅 크기와 데이터베이스 작업의 양을 기준으로 합니다.
 
 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 판단합니다.
 
@@ -56,7 +56,7 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 
 백업을 사용하여 다음을 수행할 수 있습니다.
 
-- **기존 데이터베이스**  -  의 지정 시간 복원 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 기존 데이터베이스를 보존 기간 내의 [특정 시점으로 복원](recovery-using-backups.md#point-in-time-restore) 합니다. SQL Database에서이 작업은 원본 데이터베이스와 동일한 서버에 새 데이터베이스를 만들지만 다른 이름을 사용 하 여 원본 데이터베이스를 덮어쓰지 않도록 합니다. 복원이 완료 된 후 원본 데이터베이스를 삭제할 수 있습니다. 또는 원래 데이터베이스의 [이름을 바꾼](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) 다음 복원 된 데이터베이스의 이름을 원래 데이터베이스 이름으로 바꿀 수 있습니다. 마찬가지로 SQL Managed Instance의 경우이 작업은 동일한 구독 및 동일한 지역에 있는 동일 하거나 다른 관리 되는 인스턴스에 데이터베이스의 복사본을 만듭니다.
+- **기존 데이터베이스**  -  의 지정 시간 복원 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 기존 데이터베이스를 보존 기간 내의 [특정 시점으로 복원](recovery-using-backups.md#point-in-time-restore) 합니다. SQL Database에서이 작업은 원본 데이터베이스와 동일한 서버에 새 데이터베이스를 만들지만 다른 이름을 사용 하 여 원본 데이터베이스를 덮어쓰지 않도록 합니다. 복원이 완료 된 후 원본 데이터베이스를 삭제할 수 있습니다. 또는 원래 데이터베이스의 [이름을 바꾼](/sql/relational-databases/databases/rename-a-database) 다음 복원 된 데이터베이스의 이름을 원래 데이터베이스 이름으로 바꿀 수 있습니다. 마찬가지로 SQL Managed Instance의 경우이 작업은 동일한 구독 및 동일한 지역에 있는 동일 하거나 다른 관리 되는 인스턴스에 데이터베이스의 복사본을 만듭니다.
 - **삭제 된 데이터베이스**  -  의 지정 시간 복원 삭제 된 [데이터베이스를 삭제 시간으로 복원](recovery-using-backups.md#deleted-database-restore) 하거나 보존 기간 내의 특정 시점으로 복원 합니다. 삭제 된 데이터베이스는 원래 데이터베이스가 만들어진 것과 동일한 서버 또는 관리 되는 인스턴스에서만 복원할 수 있습니다. 데이터베이스를 삭제 하는 경우 서비스는 데이터 손실을 방지 하기 위해 삭제 전에 최종 트랜잭션 로그 백업을 수행 합니다.
 - **지역 복원**  -  [데이터베이스를 다른 지역으로 복원](recovery-using-backups.md#geo-restore)합니다. 지역 복원 기능을 사용 하면 주 지역에서 데이터베이스 또는 백업에 액세스할 수 없는 경우 지리적 재해 로부터 복구할 수 있습니다. 모든 Azure 지역의 기존 서버 또는 관리 되는 인스턴스에 새 데이터베이스를 만듭니다.
    > [!IMPORTANT]
@@ -72,11 +72,11 @@ SQL Database 데이터베이스를 만들 때 백업 저장소 중복성을 구�
 
 | 작업(Operation) | Azure portal | Azure PowerShell |
 |---|---|---|
-| **백업 보존 변경** | [SQL 데이터베이스](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **백업 보존 변경** | [SQL 데이터베이스](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [SQL Managed Instance](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL 데이터베이스](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[SQL Managed Instance](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **장기 백업 보존 변경** | [SQL 데이터베이스](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance-해당 없음  | [SQL 데이터베이스](long-term-backup-retention-configure.md)<br/>[SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md)  |
-| **지정 시간에서 데이터베이스 복원** | [SQL 데이터베이스](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **삭제된 데이터베이스 복원** | [SQL 데이터베이스](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL 데이터베이스](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Azure Blob Storage에서 데이터베이스 복원** | SQL Database-해당 없음 <br/>SQL Managed Instance-해당 없음  | SQL Database-해당 없음 <br/>[SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **지정 시간에서 데이터베이스 복원** | [SQL 데이터베이스](recovery-using-backups.md#point-in-time-restore)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md) | [SQL 데이터베이스](/powershell/module/az.sql/restore-azsqldatabase) <br/> [SQL Managed Instance](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **삭제된 데이터베이스 복원** | [SQL 데이터베이스](recovery-using-backups.md)<br>[SQL Managed Instance](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL 데이터베이스](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [SQL Managed Instance](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Azure Blob Storage에서 데이터베이스 복원** | SQL Database-해당 없음 <br/>SQL Managed Instance-해당 없음  | SQL Database-해당 없음 <br/>[SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## <a name="backup-scheduling"></a>백업 일정
 
@@ -115,7 +115,7 @@ VCore 데이터베이스의 경우 각 백업 유형 (전체, 차등 및 로그)
 
 - [백업 보존 기간](#change-the-pitr-backup-retention-period-by-using-the-azure-portal)을 사용자 요구에 따라 가능한 최소 기간으로 줄입니다.
 - 인덱스 다시 빌드와 같은 대량 쓰기 작업은 수행하지 않는 것이 좋습니다.
-- 대량 데이터 로드 작업의 경우에는 [클러스터형 columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 와 관련 된 [모범 사례](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)를 사용 하 고 클러스터 되지 않은 인덱스의 수를 줄이는 것이 좋습니다.
+- 대량 데이터 로드 작업의 경우에는 [클러스터형 columnstore 인덱스](/sql/relational-databases/indexes/columnstore-indexes-overview) 와 관련 된 [모범 사례](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)를 사용 하 고 클러스터 되지 않은 인덱스의 수를 줄이는 것이 좋습니다.
 - 범용 서비스 계층에서 프로 비전 된 데이터 저장소는 백업 저장소의 가격 보다 저렴 합니다. 과도 한 백업 저장소 비용이 지속적으로 증가 하는 경우 백업 저장소에 저장 하기 위해 데이터 저장소를 늘릴 수 있습니다.
 - 임시 결과 및/또는 임시 데이터를 저장 하기 위해 응용 프로그램 논리에서 영구 테이블 대신 TempDB를 사용 합니다.
 - 가능 하면 항상 로컬 중복 백업 저장소 사용 (예: 개발/테스트 환경)
@@ -190,9 +190,9 @@ SQL Database 및 SQL Managed Instance은 모든 백업 파일에서 총 청구 �
 
 ### <a name="monitor-costs"></a>비용 모니터링
 
-백업 스토리지 비용을 이해하려면 Azure Portal의 **비용 관리 + 청구**로 이동하여 **비용 관리**를 선택한 다음, **비용 분석**을 선택합니다. 원하는 구독을 **범위**로 선택하고 관심 있는 기간 및 서비스를 필터링합니다.
+백업 스토리지 비용을 이해하려면 Azure Portal의 **비용 관리 + 청구** 로 이동하여 **비용 관리** 를 선택한 다음, **비용 분석** 을 선택합니다. 원하는 구독을 **범위** 로 선택하고 관심 있는 기간 및 서비스를 필터링합니다.
 
-**서비스 이름**에 대한 필터를 추가한 다음, 드롭다운 목록에서 **SQL 데이터베이스**를 선택합니다. **미터 하위 범주** 필터를 사용하여 서비스에 대한 청구 카운터를 선택합니다. 단일 데이터베이스 또는 탄력적 데이터베이스 풀의 경우 **단일/탄력적 풀 PITR 백업 저장소**를 선택 합니다. 관리 되는 인스턴스의 경우 **MI PITR backup storage**를 선택 합니다. **스토리지** 및 **계산** 하위 범주에도 관심이 갈지 모르지만, 이 둘은 백업 스토리지 비용과는 관련이 없습니다.
+**서비스 이름** 에 대한 필터를 추가한 다음, 드롭다운 목록에서 **SQL 데이터베이스** 를 선택합니다. **미터 하위 범주** 필터를 사용하여 서비스에 대한 청구 카운터를 선택합니다. 단일 데이터베이스 또는 탄력적 데이터베이스 풀의 경우 **단일/탄력적 풀 PITR 백업 저장소** 를 선택 합니다. 관리 되는 인스턴스의 경우 **MI PITR backup storage** 를 선택 합니다. **스토리지** 및 **계산** 하위 범주에도 관심이 갈지 모르지만, 이 둘은 백업 스토리지 비용과는 관련이 없습니다.
 
 ![백업 스토리지 비용 분석](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -239,7 +239,7 @@ SQL Database에 대 한 PITR 백업 보존에 대 한 변경 내용은 포털의
 
 #### <a name="sql-managed-instance"></a>[SQL Managed Instance](#tab/managed-instance)
 
-SQL Managed Instance에 대 한 PITR 백업 보존에 대 한 변경 내용은 개별 데이터베이스 수준에서 수행 됩니다. Azure Portal에서 인스턴스 데이터베이스의 PITR 백업 보존 기간을 변경하려면 개별 데이터베이스 개요 블레이드로 이동합니다. 그런 다음, 화면 맨 위에 있는 **백업 보존 구성**을 선택합니다.
+SQL Managed Instance에 대 한 PITR 백업 보존에 대 한 변경 내용은 개별 데이터베이스 수준에서 수행 됩니다. Azure Portal에서 인스턴스 데이터베이스의 PITR 백업 보존 기간을 변경하려면 개별 데이터베이스 개요 블레이드로 이동합니다. 그런 다음, 화면 맨 위에 있는 **백업 보존 구성** 을 선택합니다.
 
 ![PITR 보존 변경, 관리되는 인스턴스](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 
@@ -249,7 +249,7 @@ SQL Managed Instance에 대 한 PITR 백업 보존에 대 한 변경 내용은 �
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell AzureRM 모듈은 SQL Database 및 SQL Managed Instance에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 자세한 내용은 [AzureRM.SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈의 명령에 대한 인수는 AzureRm 모듈의 인수와 실질적으로 동일합니다.
+> PowerShell AzureRM 모듈은 SQL Database 및 SQL Managed Instance에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 자세한 내용은 [AzureRM.SQL](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈의 명령에 대한 인수는 AzureRm 모듈의 인수와 실질적으로 동일합니다.
 
 #### <a name="sql-database"></a>[SQL 데이터베이스](#tab/single-database)
 
@@ -333,7 +333,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-자세한 내용은 [백업 보존 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
+자세한 내용은 [백업 보존 REST API](/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
 
 #### <a name="sample-request"></a>샘플 요청
 
@@ -366,7 +366,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-자세한 내용은 [백업 보존 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
+자세한 내용은 [백업 보존 REST API](/rest/api/sql/backupshorttermretentionpolicies)를 참조하세요.
 
 ## <a name="configure-backup-storage-redundancy"></a>백업 저장소 중복성 구성
 
@@ -403,7 +403,7 @@ Azure Portal에서 백업 저장소 중복성을 변경 하는 옵션은 SQL Man
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
 ```
 
-자세한 내용은 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)를 참조 하세요.
+자세한 내용은 [AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)를 참조 하세요.
 
 기존 데이터베이스의 백업 저장소 중복성을 업데이트 하려면-BackupStorageRedundancy 매개 변수를 사용 하면 됩니다. 가능한 값은 지역, 영역 및 지역입니다.
 데이터베이스에 변경 내용을 적용 하는 데 최대 48 시간이 걸릴 수 있습니다. 지역 중복 백업 저장소에서 로컬 또는 영역 중복 저장소로 전환 하면 지역 복원을 사용할 수 없습니다. 
@@ -413,7 +413,7 @@ New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -D
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-자세한 내용은 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 를 참조 하세요.
+자세한 내용은 [AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) 를 참조 하세요.
 
 > [!NOTE]
 > 데이터베이스 복원, 데이터베이스 복사 또는 보조 작업 만들기에-BackupStorageRedundancy 매개 변수를 사용 하려면 Azure PowerShell 버전 Az. Sql 2.11.0를 사용 합니다. 
@@ -427,13 +427,13 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
 ```
 
-자세한 내용은 [AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)를 참조 하세요.
+자세한 내용은 [AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)를 참조 하세요.
 
 ---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Azure Policy를 사용 하 여 백업 저장소 중복성 적용
 
-모든 데이터를 단일 Azure 지역에 유지 해야 하는 데이터 상주 요구 사항이 있는 경우 Azure Policy를 사용 하 여 SQL Database 또는 Managed Instance에 대해 영역 중복 또는 로컬 중복 백업을 적용 하는 것이 좋습니다. Azure Policy은 Azure 리소스에 규칙을 적용 하는 정책을 만들고 할당 하 고 관리 하는 데 사용할 수 있는 서비스입니다. Azure Policy를 사용 하면 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수 하는 상태로 유지할 수 있습니다. 자세한 내용은 [Azure Policy 개요](https://docs.microsoft.com/azure/governance/policy/overview)를 참조하세요. 
+모든 데이터를 단일 Azure 지역에 유지 해야 하는 데이터 상주 요구 사항이 있는 경우 Azure Policy를 사용 하 여 SQL Database 또는 Managed Instance에 대해 영역 중복 또는 로컬 중복 백업을 적용 하는 것이 좋습니다. Azure Policy은 Azure 리소스에 규칙을 적용 하는 정책을 만들고 할당 하 고 관리 하는 데 사용할 수 있는 서비스입니다. Azure Policy를 사용 하면 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수 하는 상태로 유지할 수 있습니다. 자세한 내용은 [Azure Policy 개요](../../governance/policy/overview.md)를 참조하세요. 
 
 ### <a name="built-in-backup-storage-redundancy-policies"></a>기본 제공 백업 저장소 중복성 정책 
 
@@ -443,14 +443,14 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 
 [SQL Managed Instance는 GRS 백업 중복을 사용하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
-SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전체 목록은 [여기](https://docs.microsoft.com/azure/azure-sql/database/policy-reference)에서 찾을 수 있습니다.
+SQL Database 및 Managed Instance에 대 한 기본 제공 정책 정의의 전체 목록은 [여기](./policy-reference.md)에서 찾을 수 있습니다.
 
 조직 수준에서 데이터 상주 요구 사항을 적용 하기 위해 구독에 이러한 정책을 할당할 수 있습니다. 구독 수준에서 할당 된 후에는 지정 된 구독의 사용자가 Azure Portal 또는 Azure PowerShell를 통해 지역 중복 백업 저장소를 사용 하 여 데이터베이스 또는 관리 되는 인스턴스를 만들 수 없습니다. 
 
 > [!IMPORTANT]
-> T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. T-sql을 사용 하 여 데이터베이스를 만들 때 데이터 상주을 적용 하려면 [CREATE database 문에 ' LOCAL ' 또는 ' ZONE '을 입력으로 사용](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups)하 여 매개 변수를 BACKUP_STORAGE_REDUNDANCY 합니다.
+> T-sql을 통해 데이터베이스를 만들 때는 Azure 정책이 적용 되지 않습니다. T-sql을 사용 하 여 데이터베이스를 만들 때 데이터 상주을 적용 하려면 [CREATE database 문에 ' LOCAL ' 또는 ' ZONE '을 입력으로 사용](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups)하 여 매개 변수를 BACKUP_STORAGE_REDUNDANCY 합니다.
 
-[Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) 또는 [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell) 를 사용 하 여 정책을 할당 하는 방법을 알아봅니다.
+[Azure Portal](../../governance/policy/assign-policy-portal.md) 또는 [Azure PowerShell](../../governance/policy/assign-policy-powershell.md) 를 사용 하 여 정책을 할당 하는 방법을 알아봅니다.
 
 
 ## <a name="next-steps"></a>다음 단계

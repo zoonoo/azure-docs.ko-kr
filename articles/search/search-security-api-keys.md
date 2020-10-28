@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 918ba128eca8ebf8b452c0f1126e4b7e611542d8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 10/22/2020
+ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514472"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675588"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스에 대 한 api 키 만들기 및 관리
 
-검색 서비스에 대한 모든 요청에는 해당 서비스용으로 특별히 생성된 읽기 전용 api-key가 필요합니다. 이 api-key는 검색 서비스 엔드포인트에 대한 액세스를 인증하는 유일한 방법으로, 모든 요청에 포함되어야 합니다. [REST 솔루션](search-get-started-postman.md)에서 api-key는 일반적으로 요청 헤더에 지정됩니다. [.NET 솔루션](search-howto-dotnet-sdk.md#core-scenarios)에서 키는 종종 구성 설정으로 지정된 후 [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient)에서 [자격 증명](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials)(관리자 키) 또는 [SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials)(쿼리 키)로 전달됩니다.
+검색 서비스에 대 한 모든 요청에는 `api-key` 서비스에 대해 특별히 생성 된 읽기 전용이 필요 합니다. 는 `api-key` 검색 서비스 끝점에 대 한 액세스를 인증 하는 유일한 메커니즘 이며 모든 요청에 포함 되어야 합니다. 
+
++ [REST 솔루션](search-get-started-postman.md)에서 api 키는 일반적으로 요청 헤더에 지정 됩니다.
+
++ [.Net 솔루션](search-howto-dotnet-sdk.md)에서는 키가 구성 설정으로 지정 된 다음 [azurekeycredential](/dotnet/api/azure.azurekeycredential) 으로 전달 되는 경우가 많습니다.
 
 키는 서비스를 프로비전하는 동안 검색 서비스를 사용하여 생성됩니다. [Azure Portal](https://portal.azure.com)에서 키 값을 살펴보고 얻을 수 있습니다.
 
@@ -29,7 +33,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 
 검색 서비스에 액세스하는 데 사용되는 두 가지 키 유형은 다음과 같습니다. 관리자(읽기-쓰기) 및 쿼리(읽기 전용)
 
-|키|설명|제한|  
+|키|Description|제한|  
 |---------|-----------------|------------|  
 |Admin|서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다.<br /><br /> 포털에서 *기본* 및 *보조* 키라고 하는 두 개의 관리자 키는 서비스를 만들 때 생성되고 요청 시 개별적으로 다시 생성할 수 있습니다. 키가 두 개이면 서비스에 대해 액세스를 지속하는 데 하나의 키를 사용하는 동안 다른 키를 롤오버할 수 있습니다.<br /><br /> 관리자 키는 HTTP 요청 헤더에서만 지정됩니다. URL에 관리자 api-key를 배치할 수 없습니다.|서비스당 최대 2개|  
 |쿼리|인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 수행하는 클라이언트 애플리케이션에 배포됩니다.<br /><br /> 쿼리 키는 요청 시 생성됩니다. 포털에서 수동으로 만들거나 [관리 REST API](/rest/api/searchmanagement/)를 통해 프로그래밍 방식으로 만들 수 있습니다.<br /><br /> 검색, 제안 또는 조회 작업의 HTTP 요청 헤더에서 쿼리 키를 지정할 수 있습니다. 또는 쿼리 키를 URL에 매개 변수로 전달할 수 있습니다. 클라이언트 애플리케이션이 요청을 생성하는 방법에 따라 키를 쿼리 매개 변수로 전달하는 것이 쉬울 수 있습니다.<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|서비스당 50개|  
@@ -57,8 +61,8 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 구독에 대한 [검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 나열합니다.
-3. 서비스를 선택 하 고 개요 페이지에서 **설정**  > **키**를 클릭 합니다.
-4. **쿼리 키 관리**를 클릭 합니다.
+3. 서비스를 선택 하 고 개요 페이지에서 **설정**  > **키** 를 클릭 합니다.
+4. **쿼리 키 관리** 를 클릭 합니다.
 5. 서비스에 대해 이미 생성 된 쿼리 키를 사용 하거나 최대 50 개의 새 쿼리 키를 만듭니다. 기본 쿼리 키의 이름은 지정 되지 않지만 관리를 위해 추가 쿼리 키의 이름을 지정할 수 있습니다.
 
    :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="포털 페이지, 설정 검색, 키 섹션" border="false":::
@@ -86,7 +90,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 ## <a name="secure-api-keys"></a>api-key 보안
 키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
 
-+ 서비스 대시보드에서 **액세스 제어(IAM)**, **역할 할당** 탭을 차례로 클릭하여 서비스에 대한 역할 할당을 봅니다.
++ 서비스 대시보드에서 **액세스 제어(IAM)** , **역할 할당** 탭을 차례로 클릭하여 서비스에 대한 역할 할당을 봅니다.
 
 다음 역할의 멤버는 키를 보고 다시 생성할 수 있습니다. 소유자, 참가자 [Search Service 참가자](../role-based-access-control/built-in-roles.md#search-service-contributor)
 

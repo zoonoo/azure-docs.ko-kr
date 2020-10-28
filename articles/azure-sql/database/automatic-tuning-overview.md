@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: 4c2faa6f015a8c1ce8f360155abdc14367d3057b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 180f6e8902dc881c99a74a6491eeb3012bc03d0f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330743"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675227"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 자동 조정
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -46,7 +46,7 @@ Azure SQL Database의 데이터베이스에 적용 되는 튜닝 작업은 가�
 
 ![자동 조정 작동 방식](./media/automatic-tuning-overview/how-does-automatic-tuning-work.png)
 
-자동 조정 Azure SQL Database는 핵심 논리를 데이터베이스 엔진의 SQL Server 자동 조정 기능과 공유 합니다. 기본 제공 인텔리전스 메커니즘에 대한 추가 기술 정보는 [SQL Server 자동 조정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
+자동 조정 Azure SQL Database는 핵심 논리를 데이터베이스 엔진의 SQL Server 자동 조정 기능과 공유 합니다. 기본 제공 인텔리전스 메커니즘에 대한 추가 기술 정보는 [SQL Server 자동 조정](/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
 
 자동 조정이 작동하는 방법과 일반적인 사용 시나리오에 대한 개요는 다음에 포함된 비디오를 참조하세요.
 
@@ -54,8 +54,8 @@ Azure SQL Database의 데이터베이스에 적용 되는 튜닝 작업은 가�
 
 ## <a name="enable-automatic-tuning"></a>자동 조정 사용
 
-- Azure Portal 또는 [ALTER database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) t-sql 문을 사용 하 여 [Azure SQL Database에 대해 자동 조정을 사용 하도록 설정](automatic-tuning-enable.md) 합니다.
-- [ALTER database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) t-sql 문을 사용 하 여 Azure SQL Managed Instance에 대 한 자동 조정을 사용 하도록 설정 합니다.
+- Azure Portal 또는 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) t-sql 문을 사용 하 여 [Azure SQL Database에 대해 자동 조정을 사용 하도록 설정](automatic-tuning-enable.md) 합니다.
+- [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) t-sql 문을 사용 하 여 Azure SQL Managed Instance에 대 한 자동 조정을 사용 하도록 설정 합니다.
 
 ## <a name="automatic-tuning-options"></a>자동 조정 옵션
 
@@ -69,7 +69,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용할 수 있는 자
 
 ### <a name="automatic-tuning-for-sql-database"></a>SQL Database 자동 조정
 
-Azure SQL Database 자동 조정에서는 **인덱스 만들기**, **DROP INDEX**및 **마지막으로 성공한 계획** 데이터베이스 관리자 권장 사항을 사용 하 여 데이터베이스 성능을 최적화 합니다. 자세한 내용은 Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)의 [데이터베이스 관리자 권장 사항](database-advisor-find-recommendations-portal.md)을 참조 하세요.
+Azure SQL Database 자동 조정에서는 **인덱스 만들기** , **DROP INDEX** 및 **마지막으로 성공한 계획** 데이터베이스 관리자 권장 사항을 사용 하 여 데이터베이스 성능을 최적화 합니다. 자세한 내용은 Azure Portal, [PowerShell](/powershell/module/az.sql/get-azsqldatabaserecommendedaction)및 [REST API](/rest/api/sql/serverautomatictuning)의 [데이터베이스 관리자 권장 사항](database-advisor-find-recommendations-portal.md)을 참조 하세요.
 
 Azure Portal를 사용 하 여 튜닝 권장 구성을 수동으로 적용 하거나 자동 튜닝을 통해 조정 권장 구성을 자율적으로 적용할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
 
@@ -90,7 +90,7 @@ T-sql을 통해 튜닝 권장 사항을 적용 하는 경우 자동 성능 유�
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance 자동 조정
 
-SQL Managed Instance 자동 조정에서는 **마지막으로 성공한 요금제**만 지원 합니다. T-sql을 통한 자동 조정 옵션을 구성 하는 방법에 대 한 자세한 내용은 자동 [조정에서 자동 계획 수정](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [자동 계획 수정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction)을 도입 하는 방법을 참조 하세요.
+SQL Managed Instance 자동 조정에서는 **마지막으로 성공한 요금제** 만 지원 합니다. T-sql을 통한 자동 조정 옵션을 구성 하는 방법에 대 한 자세한 내용은 자동 [조정에서 자동 계획 수정](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [자동 계획 수정](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction)을 도입 하는 방법을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

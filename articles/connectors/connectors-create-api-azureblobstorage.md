@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284084"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677718"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Blob Storage에서 blob 만들기 및 관리
 
@@ -29,15 +29,15 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 
 ## <a name="limits"></a>제한
 
-* 기본적으로 Azure Blob Storage 작업은 *50 MB 미만의*파일을 읽거나 쓸 수 있습니다. 50 MB 보다 큰 파일을 처리 하기 위해 최대 1024 MB까지 Azure Blob Storage 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 합니다. **Blob 콘텐츠 가져오기** 작업은 청크를 암시적으로 사용 합니다.
+* 기본적으로 Azure Blob Storage 작업은 *50 MB 미만의* 파일을 읽거나 쓸 수 있습니다. 50 MB 보다 큰 파일을 처리 하기 위해 최대 1024 MB까지 Azure Blob Storage 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 합니다. **Blob 콘텐츠 가져오기** 작업은 청크를 암시적으로 사용 합니다.
 
 * Azure Blob Storage 트리거는 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 50 MB 미만의 파일만 선택 합니다. 50MB보다 큰 파일을 가져오려면 다음 패턴을 따릅니다.
 
-  * **Blob이 추가 되거나 수정**되는 경우와 같이 파일 속성을 반환 하는 Azure Blob Storage 트리거를 사용 합니다 (속성만).
+  * **Blob이 추가 되거나 수정** 되는 경우와 같이 파일 속성을 반환 하는 Azure Blob Storage 트리거를 사용 합니다 (속성만).
 
   * 전체 파일을 읽고 청크를 암시적으로 사용 하는 Azure Blob Storage **Blob 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -73,7 +73,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
    3. 트리거에서 변경 내용에 대한 폴더를 확인하려는 간격 및 빈도를 선택합니다.
 
-4. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
+4. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 5. 이제 트리거 결과와 함께 수행하려는 작업에 대한 논리 앱에 하나 이상의 작업을 계속해서 추가합니다.
 
@@ -85,11 +85,11 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다. 이 예에서는 Azure Portal을 사용합니다.
 
-2. 논리 앱 디자이너의 트리거 또는 작업에서 **새 단계**를 선택 합니다.
+2. 논리 앱 디자이너의 트리거 또는 작업에서 **새 단계** 를 선택 합니다.
 
    ![논리 앱 워크플로에 새 단계 추가](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
-   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가**를 선택 합니다.
+   기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호 ()를 선택 **+** 하 고 **작업 추가** 를 선택 합니다.
 
 3. 검색 상자에서 "azure blob"을 필터로 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
@@ -108,7 +108,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    2. Blob의 **ID** 번호를 기준으로 원하는 파일을 찾아서 선택 합니다. 이전에 설명한 blob storage 트리거에서 반환 하는 blob의 메타 데이터에서이 **ID** 번호를 찾을 수 있습니다.
 
-5. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
+5. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 논리 앱을 테스트하려면 선택한 폴더에 Blob이 포함되어 있는지 확인합니다.
 
 이 예제에서는 Blob에 대한 콘텐츠만을 가져옵니다. 콘텐츠를 보려면 다른 커넥터를 사용하여 Blob으로 파일을 만드는 다른 작업을 추가합니다. 예를 들어 Blob 콘텐츠에 따라 파일을 만드는 OneDrive 작업을 추가합니다.
@@ -121,7 +121,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결을 만들지 묻는 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 만들 이름 |
    | **Storage 계정** | 예 | <*저장소 계정*> | 목록에서 스토리지 계정을 선택합니다. |
@@ -183,9 +183,9 @@ Microsoft의 신뢰할 수 있는 서비스에 방화벽을 통해 저장소 계
 
 예외 및 관리 되는 id 지원을 설정 하려면 다음과 같은 일반적인 단계를 수행 합니다.
 
-1. 저장소 계정의 **설정**에서 **방화벽 및 가상 네트워크**를 선택 합니다. 다음 **에서 액세스 허용에서** **선택한 네트워크** 옵션을 선택 하 여 관련 설정이 표시 되도록 합니다.
+1. 저장소 계정의 **설정** 에서 **방화벽 및 가상 네트워크** 를 선택 합니다. 다음 **에서 액세스 허용에서** **선택한 네트워크** 옵션을 선택 하 여 관련 설정이 표시 되도록 합니다.
 
-1. **예외**에서 **신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용**을 선택 하 고 **저장**을 선택 합니다.
+1. **예외** 에서 **신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용** 을 선택 하 고 **저장** 을 선택 합니다.
 
    ![Microsoft 신뢰할 수 있는 서비스를 허용 하는 예외 선택](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
 
@@ -202,9 +202,8 @@ Microsoft의 신뢰할 수 있는 서비스에 방화벽을 통해 저장소 계
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Azure API Management를 통해 저장소 계정에 액세스
 
-[API Management](../api-management/api-management-key-concepts.md)에 전용 계층을 사용 하는 경우 API Management를 사용 하 고 방화벽을 통해 후자의 IP 주소를 허용 하 여 저장소 API를 앞으로 이동할 수 있습니다. 기본적으로 API Management에서 사용 하는 Azure 가상 네트워크를 저장소 계정의 방화벽 설정에 추가 합니다. 그런 다음 API Management 작업 또는 HTTP 작업을 사용 하 여 Azure Storage Api를 호출할 수 있습니다. 그러나이 옵션을 선택 하는 경우 인증 프로세스를 직접 처리 해야 합니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
+[API Management](../api-management/api-management-key-concepts.md)에 전용 계층을 사용 하는 경우 API Management를 사용 하 고 방화벽을 통해 후자의 IP 주소를 허용 하 여 저장소 API를 앞으로 이동할 수 있습니다. 기본적으로 API Management에서 사용 하는 Azure 가상 네트워크를 저장소 계정의 방화벽 설정에 추가 합니다. 그런 다음 API Management 작업 또는 HTTP 작업을 사용 하 여 Azure Storage Api를 호출할 수 있습니다. 그러나이 옵션을 선택 하는 경우 인증 프로세스를 직접 처리 해야 합니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.
-

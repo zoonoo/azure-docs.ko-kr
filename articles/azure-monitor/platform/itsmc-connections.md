@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7de9de7e1ba8028cbdb24744775294a4890afe40
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547744"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677161"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -350,7 +350,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한** : 120일. |
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본** : 사용하지 않도록 설정됩니다.|
 
-![Provance 연결](media/itsmc-connections/itsm-connections-provance-latest.png)
+![연결 이름 및 파트너 유형 목록을 강조 표시 하는 스크린샷](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **성공적으로 연결 및 동기화된 경우** :
 

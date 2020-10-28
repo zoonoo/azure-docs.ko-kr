@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257319"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675628"
 ---
-# <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 응용 프로그램
+# <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
 
 SPA (단일 페이지 응용 프로그램)를 빌드하는 데 필요한 모든 것을 알아보세요.
 
@@ -30,7 +30,7 @@ SPA (단일 페이지 응용 프로그램)를 빌드하는 데 필요한 모든 
 
 ## <a name="overview"></a>개요
 
-많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 개발자는 JavaScript를 사용 하 여, 또는의 SPA 프레임 워크 (예: 각도, Vue 및 반응)를 사용 하 여 작성 합니다. 이러한 응용 프로그램은 웹 브라우저에서 실행 되며 기존 서버 쪽 웹 응용 프로그램과는 다른 인증 특징이 있습니다.
+많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 개발자는 JavaScript 또는 Angular, Vue, React 같은 SPA 프레임워크를 사용하여 단일 페이지 애플리케이션을 작성합니다. 이러한 응용 프로그램은 웹 브라우저에서 실행 되며 기존 서버 쪽 웹 응용 프로그램과는 다른 인증 특징이 있습니다.
 
 Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 로그인 하 고 백 엔드 서비스 또는 웹 Api에 액세스 하는 토큰을 가져올 수 있도록 하는 **두 가지** 옵션을 제공 합니다.
 
@@ -38,7 +38,7 @@ Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 �
 
 ![단일 페이지 응용 프로그램-인증](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2.0 암시적 흐름](./v2-oauth2-implicit-grant-flow.md)입니다. 암시적 권한 부여 흐름을 사용 하면 응용 프로그램에서 **ID** 및 **액세스** 토큰을 가져올 수 있습니다. 권한 부여 코드 흐름과 달리 암시적 허용 흐름은 **새로 고침 토큰**을 반환 하지 않습니다.
+- [OAuth 2.0 암시적 흐름](./v2-oauth2-implicit-grant-flow.md)입니다. 암시적 권한 부여 흐름을 사용 하면 응용 프로그램에서 **ID** 및 **액세스** 토큰을 가져올 수 있습니다. 권한 부여 코드 흐름과 달리 암시적 허용 흐름은 **새로 고침 토큰** 을 반환 하지 않습니다.
 
 ![단일 페이지 응용 프로그램-암시적](./media/scenarios/spa-app.svg)
 

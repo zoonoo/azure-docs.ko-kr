@@ -4,12 +4,12 @@ description: Linux에서 런타임 및 SDK를 설치하고 로컬 개발 클러�
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168412"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675275"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168412"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-Linux 개발 컴퓨터에서 (Azure Service Fabric 응용 프로그램) [model.md]을 (를) 배포 하 고 실행 하려면 런타임 및 일반 SDK를 설치 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
+Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
-이 문서의 단계에서는 Linux에서 기본적으로를 설치 하거나 (Service Fabric OneBox 컨테이너 이미지) [] ()를 사용 하는 것으로 가정 합니다. https://hub.docker.com/_/microsoft-service-fabric-onebox `mcr.microsoft.com/service-fabric/onebox:u18`
+이 문서의 단계에서는 Linux에서 기본적으로를 설치 하거나 [Service Fabric OneBox 컨테이너 이미지](https://hub.docker.com/_/microsoft-service-fabric-onebox)를 사용 하는 것으로 가정 합니다 (예: `mcr.microsoft.com/service-fabric/onebox:u18` ).
 
 Azure Service Fabric CLI (명령줄 인터페이스)를 사용 하 여 클라우드 또는 온-프레미스에서 호스트 되는 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
@@ -298,21 +298,21 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한**도움말을 선택 하 여 설치 된 구성 요소의 버전을 확인  >  **Installation Details**합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 설치 된 구성 요소의 버전을 확인  >  **Installation Details** 합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 
-2. Service Fabric 플러그 인을 설치 하려면 **도움말**  >  **새 소프트웨어 설치**를 선택 합니다.
+2. Service Fabric 플러그 인을 설치 하려면 **도움말**  >  **새 소프트웨어 설치** 를 선택 합니다.
 
-3. **작업** 위치 상자에 **https: \/ /dl.microsoft.com/eclipse**를 입력 합니다.
+3. **작업** 위치 상자에 **https: \/ /dl.microsoft.com/eclipse** 를 입력 합니다.
 
-4. **추가**를 선택합니다.
+4. **추가** 를 선택합니다.
 
     ![사용 가능한 소프트웨어 페이지][sf-eclipse-plugin]
 
-5. **ServiceFabric** 플러그 인을 선택하고 **다음**을 선택합니다.
+5. **ServiceFabric** 플러그 인을 선택하고 **다음** 을 선택합니다.
 
 6. 설치 단계를 수행합니다. 최종 사용자 라이선스 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한**도움말을 선택 하 여 확인  >  **Installation Details**합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 확인  >  **Installation Details** 합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
 
 자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 

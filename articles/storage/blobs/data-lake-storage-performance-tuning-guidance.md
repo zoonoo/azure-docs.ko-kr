@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a1ae0971b016ed226351167cfabfca7d3cafd19f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87905408"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677357"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
@@ -27,7 +27,7 @@ Data Lake Storage Gen2는 모든 분석 시나리오에 필요한 처리량을 �
 
 원본 시스템의 데이터를 Data Lake Storage Gen2에 수집하는 경우 원본 하드웨어, 원본 네트워크 하드웨어 및 Data Lake Storage Gen2에 대한 네트워크 연결에서 병목 상태가 발생할 수 있다는 점을 고려해야 합니다.  
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
+![원본 시스템의 데이터를 Data Lake Storage Gen2 하는 경우 고려해 야 할 요소를 보여 주는 다이어그램 수집.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
 데이터 이동이 이러한 요인에 의해 영향을 받지 않도록 하는 것이 중요합니다.
 
@@ -107,7 +107,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **더 많은 노드 및/또는 더 큰 VM으로 클러스터를 실행합니다.**  더 큰 클러스터를 사용하면 아래 그림과 같이 더 많은 YARN 컨테이너를 실행할 수 있습니다.
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/VM.png)
+![더 큰 클러스터를 사용 하 여 더 많은 YARN 컨테이너를 실행 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-storage-performance-tuning-guidance/VM.png)
 
 **더 많은 네트워크 대역폭을 가진 VM을 사용합니다.**  네트워크 대역폭이 Data Lake Storage Gen2 처리량보다 작으면 네트워크 대역폭 크기로 인해 병목 상태가 발생할 수 있습니다.  VM마다 각기 다른 네트워크 대역폭 크기를 갖게 됩니다.  가능한 가장 큰 네트워크 대역폭을 가진 VM 유형을 선택합니다.
 
@@ -115,7 +115,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **더 작은 YARN 컨테이너를 사용합니다.**  각 YARN 컨테이너의 크기를 줄여 동일한 리소스 양으로 더 많은 컨테이너를 만듭니다.
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
+![컨테이너를 추가로 만들 수 있도록 각 YARN 컨테이너의 크기를 줄이는 경우의 결과를 보여 주는 다이어그램입니다.](./media/data-lake-storage-performance-tuning-guidance/small-containers.png)
 
 워크로드에 따라 항상 필요한 최소 YARN 컨테이너 크기가 있습니다. 너무 작은 컨테이너를 선택하면 작업에서 메모리 부족 문제가 발생합니다. 일반적으로 YARN 컨테이너는 1GB 이상이어야 합니다. 3GB YARN 컨테이너도 흔히 볼 수 있습니다. 일부 워크로드의 경우 더 큰 YARN 컨테이너가 필요할 수도 있습니다.  
 
@@ -125,7 +125,7 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 
 **사용 가능한 모든 컨테이너를 이용합니다.**  모든 리소스가 활용되도록 태스크 수를 사용 가능한 컨테이너 수보다 크거나 같도록 설정합니다.
 
-![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
+![모든 컨테이너를 사용 하는 방법을 보여 주는 다이어그램입니다.](./media/data-lake-storage-performance-tuning-guidance/use-containers.png)
 
 **실패한 태스크는 비용이 많이 듭니다.** 각 태스크에서 많은 양의 데이터를 처리하는 경우 태스크 실패 시 다시 시도하는 데 많은 비용이 듭니다.  따라서 각각 적은 양의 데이터를 처리하는 태스크를 더 많이 만드는 것이 좋습니다.
 
@@ -138,5 +138,5 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ecbbb9580a9a79ae52320ea53a4831ac8ef57f8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091409"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678177"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -104,7 +104,7 @@ Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당
 | 만든 이            | Azure Maps 데이터 기여자 |
 | 공간            | Azure Maps 데이터 기여자 |
 
-Azure RBAC 설정을 보는 방법에 대 한 자세한 내용은 [Azure Maps에 대해 AZURE rbac를 구성 하는 방법](https://aka.ms/amrbac)을 참조 하세요.
+Azure RBAC 설정을 보는 방법에 대 한 자세한 내용은 [Azure Maps에 대해 AZURE rbac를 구성 하는 방법](./how-to-manage-authentication.md)을 참조 하세요.
 
 #### <a name="custom-role-definitions"></a>사용자 지정 역할 정의
 

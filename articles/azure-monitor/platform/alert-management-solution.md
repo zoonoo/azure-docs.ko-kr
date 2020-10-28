@@ -6,25 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 26943971eeee96ed831c5d524868a2342891d594
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: adc29916c6b674531d7b0e8fcdd4e151b4a17bde
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108408"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677576"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/alert-management-solution/icon.png)
 
-> [!NOTE]
->  Azure Monitor는 [System Center Operations Manager, Zabbix 또는 Nagios와 같은 모니터링 도구](./alerts-managing-nagios-zabbix-scom.md?toc=%252fazure%252fazure-monitor%252ftoc.json)에서 생성 된 기능을 포함 하 여 [대규모 경고를 관리](./alerts-overview.md)하기 위한 향상 된 기능을 지원 합니다.
->  
-
-
 경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](./alerts-overview.md) 또는 [Nagios 또는 Zabbix에서 가져온](../learn/quick-collect-linux-computer.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](./om-agents.md)에서도 경고를 가져옵니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 솔루션은 Log Analytics 리포지토리에서 **경고** 유형의 모든 레코드를 사용하므로 이러한 레코드를 수집하는 데 필요한 구성을 모두 수행해야 합니다.
 
 - Log Analytics 경고의 경우 [경고 규칙을 만들어서](./alerts-overview.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
@@ -45,7 +40,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="agents"></a>에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원 | Description |
+| 연결된 소스 | Support(지원) | Description |
 |:--- |:--- |:--- |
 | [Windows 에이전트](agent-windows.md) | 아니요 |직접 Windows 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Windows 에이전트에서 성능 데이터를 수집할 수 있습니다. |
 | [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 |직접 Linux 에이전트는 경고를 생성하지 않습니다.  이벤트에서 Log Analytics 경고를 만들고 Linux 에이전트에서 성능 데이터를 수집할 수 있습니다.  Linux 에이전트가 필요한 해당 서버에서 Nagios 및 Zabbix 경고를 수집합니다. |
@@ -68,7 +63,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 | 중요한 알림 |경고 이름별로 그룹화된 중요 심각도를 가진 모든 경고.  경고 이름을 클릭하여 해당 경고에 대한 모든 레코드를 반환하는 로그 검색을 실행합니다. |
 | 경고 알림 |경고 이름별로 그룹화된 경고의 심각도를 가진 모든 경고입니다.  경고 이름을 클릭하여 해당 경고에 대한 모든 레코드를 반환하는 로그 검색을 실행합니다. |
 | 활성 System Center Operations Manager 경고 |경고를 생성한 원본별로 그룹화된 *닫힘* 이외의 상태인 Operations Manager에서 수집된 모든 경고입니다. |
-| 모든 활성 경고 |경고 이름별로 그룹화된 심각도를 가진 모든 경고입니다. *닫힘*이외의 상태를 가진 Operations Manager 경고만 포함합니다. |
+| 모든 활성 경고 |경고 이름별로 그룹화된 심각도를 가진 모든 경고입니다. *닫힘* 이외의 상태를 가진 Operations Manager 경고만 포함합니다. |
 
 오른쪽으로 스크롤하면 대시보드는 일반 쿼리 여러 개를 나열하며, 이 쿼리를 클릭하면 경고 데이터에 대한 [로그 검색](../log-query/log-query-overview.md) 을 수행할 수 있습니다.
 
@@ -76,9 +71,9 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-경고 관리 솔루션은 **경고**유형을 가진 모든 레코드를 분석합니다.  Log Analytics에서 생성되거나 Nagios 또는 Zabbix에서 수집되는 경고를 솔루션에서 직접 수집하지 않습니다.
+경고 관리 솔루션은 **경고** 유형을 가진 모든 레코드를 분석합니다.  Log Analytics에서 생성되거나 Nagios 또는 Zabbix에서 수집되는 경고를 솔루션에서 직접 수집하지 않습니다.
 
-솔루션은 System Center Operations Manager에서 경고를 가져오며 유형이 **경고**이고 SourceSystem이 **OpsManager**인 각 경고에 대해 해당 레코드를 만듭니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
+솔루션은 System Center Operations Manager에서 경고를 가져오며 유형이 **경고** 이고 SourceSystem이 **OpsManager** 인 각 경고에 대해 해당 레코드를 만듭니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
 | 속성 | Description |
 |:--- |:--- |
