@@ -12,19 +12,19 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9194b461cdceab889e1dfd20e3e70f3f69cb4369
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978257"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670672"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
-Azure에서는 SAP HANA를 실행하는 Azure VM에 적합한 다양한 스토리지 유형을 제공합니다. SAP HANA 배포에 고려할 수 있는 **SAP HANA 인증 Azure 스토리지 유형**은 다음과 같습니다. 
+Azure에서는 SAP HANA를 실행하는 Azure VM에 적합한 다양한 스토리지 유형을 제공합니다. SAP HANA 배포에 고려할 수 있는 **SAP HANA 인증 Azure 스토리지 유형** 은 다음과 같습니다. 
 
 - Azure premium SSD 또는 premium storage 
 - [Ultra Disk](../../disks-enable-ultra-ssd.md)
@@ -44,9 +44,9 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 
 - Azure [쓰기 가속기](../../how-to-enable-write-accelerator.md)에서 지원 되려면 azure premium storage- **/hana/log** 가 필요 합니다. **/Hana/data** 볼륨은 Azure 쓰기 가속기 또는 Ultra disk 없이 premium storage에 배치 될 수 있습니다.
 - 최소 **/hana/log** 볼륨에 대 한 Azure Ultra disk. **/Hana/data** 볼륨은 Azure 쓰기 가속기 없는 premium storage에 배치 하거나 Ultra disk를 더 빠르게 다시 시작 하는 데 사용할 수 있습니다.
-- **/Hana/log 및/hana/data**에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
+- **/Hana/log 및/hana/data** 에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
 
-일부 스토리지 유형은 결합할 수 있습니다. 예를 들어 **/hana/data** 를 premium storage에 배치 하 고 필요한 짧은 대기 시간을 얻기 위해 **/hana/log** 를 울트라 디스크 저장소에 배치할 수 있습니다. **/Hana/data**에 대해 anf를 기반으로 하는 볼륨을 사용 하는 경우 **/hana/log** 볼륨은 anf의 맨 위에 있는 NFS를 기반으로 해야 합니다. 볼륨 중 하나 (예:/hana/data) 및 Azure premium storage 또는 다른 볼륨에 대 한 Ultra disk (예: **/hana/log**)에 대해 ANF 위에 NFS를 사용 하는 것은 **지원 되지 않습니다**.
+일부 스토리지 유형은 결합할 수 있습니다. 예를 들어 **/hana/data** 를 premium storage에 배치 하 고 필요한 짧은 대기 시간을 얻기 위해 **/hana/log** 를 울트라 디스크 저장소에 배치할 수 있습니다. **/Hana/data** 에 대해 anf를 기반으로 하는 볼륨을 사용 하는 경우 **/hana/log** 볼륨은 anf의 맨 위에 있는 NFS를 기반으로 해야 합니다. 볼륨 중 하나 (예:/hana/data) 및 Azure premium storage 또는 다른 볼륨에 대 한 Ultra disk (예: **/hana/log** )에 대해 ANF 위에 NFS를 사용 하는 것은 **지원 되지 않습니다** .
 
 온-프레미스 환경의 경우 I/O 하위 시스템 및 해당 성능은 신경 쓸 필요가 거의 없었습니다. SAP HANA에 대한 최소 스토리지 요구 사항을 충족하는 것은 어플라이언스 공급업체의 몫이었기 때문입니다. 자체적으로 Azure 인프라를 빌드하는 동안에는 그러한 SAP 발행 요구 사항 몇 가지에 대해 알아야 합니다. SAP에서 권장 하는 최소 처리량 특성 중 일부는 다음과 같습니다.
 
@@ -68,11 +68,11 @@ HANA에 대 한 저장소 구성을 선택 하는 몇 가지 지침 원칙을 �
 > 저장소 구성에 대 한 제안 사항은부터 시작 하기 위한 지침을 의미 합니다. 워크 로드를 실행 하 고 저장소 사용률 패턴을 분석 하면 제공 된 모든 저장소 대역폭 또는 IOPS를 활용 하지 않는 것을 알 수 있습니다. 저장소에 대해 다운 크기 조정을 고려할 수 있습니다. 반대로, 워크 로드에는 이러한 구성으로 제안 된 것 보다 더 많은 저장소 처리량이 필요할 수 있습니다. 따라서 용량, IOPS 또는 처리량을 더 많이 배포 해야 할 수 있습니다. 필요한 저장소 용량, 저장소 대기 시간, 저장소 처리량 및 IOPS가 필요 하 고 비용이 많이 드는 구성의 필드에서 Azure는 다양 한 기능을 갖춘 다양 한 저장소 유형과 사용자의 HANA 워크 로드에 대 한 올바른 손상에 대 한 적절 한 손상에 대 한 다양 한 가격 점수를 제공 합니다.
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 스케줄러 모드
-Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 디스크 볼륨에 대한 I/O 스케줄러 모드를 **mq-deadline** 또는 **kyber** 모드에서 **noop**(non-multiqueue) 또는 **없음**(multiqueue) 모드로 다시 구성하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조했습니다. 
+Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 디스크 볼륨에 대한 I/O 스케줄러 모드를 **mq-deadline** 또는 **kyber** 모드에서 **noop** (non-multiqueue) 또는 **없음** (multiqueue) 모드로 다시 구성하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조했습니다. 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure M 시리즈 가상 머신에 대 한 premium storage 및 Azure 쓰기 가속기 솔루션
-Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에 따라 기능의 목적은 Azure premium storage에 대 한 쓰기의 i/o 대기 시간을 개선 하는 것입니다. SAP HANA의 경우 Write Accelerator는 **/hana/log** 볼륨에 대해서만 사용해야 합니다. 따라서 **/hana/data**와 **/hana/log**는 별개의 볼륨입니다(Azure 쓰기 가속기가 **/hana/log** 볼륨만 지원하기 때문). 
+Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에 따라 기능의 목적은 Azure premium storage에 대 한 쓰기의 i/o 대기 시간을 개선 하는 것입니다. SAP HANA의 경우 Write Accelerator는 **/hana/log** 볼륨에 대해서만 사용해야 합니다. 따라서 **/hana/data** 와 **/hana/log** 는 별개의 볼륨입니다(Azure 쓰기 가속기가 **/hana/log** 볼륨만 지원하기 때문). 
 
 > [!IMPORTANT]
 > Azure premium storage를 사용 하는 경우 **/hana/log** 볼륨에 대 한 azure [쓰기 가속기](../../how-to-enable-write-accelerator.md) 를 사용 하는 것은 필수입니다. 쓰기 가속기는 premium storage 및 M 시리즈 및 Mv2-Series Vm에만 사용할 수 있습니다. 쓰기 가속기 Esv3 또는 Edsv4와 같은 다른 Azure VM 제품군과 함께 작동 하지 않습니다.
@@ -93,9 +93,9 @@ Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에
 - **OS 디스크** -VM을 만들 때 Azure에서 설정 하는 기본 캐싱을 변경 하지 않습니다.
 
 
-LVM 또는 mdadm을 사용 하 여 여러 Azure premium 디스크에 스트라이프 세트를 빌드하려면 스트라이프 크기를 정의 해야 합니다. 이러한 크기는 **/hana/data** 과 **/hana/log**사이에 차이가 있습니다. **권장 사항: 스트라이프 크기를 사용 하는 것이 좋습니다.**
+LVM 또는 mdadm을 사용 하 여 여러 Azure premium 디스크에 스트라이프 세트를 빌드하려면 스트라이프 크기를 정의 해야 합니다. 이러한 크기는 **/hana/data** 과 **/hana/log** 사이에 차이가 있습니다. **권장 사항: 스트라이프 크기를 사용 하는 것이 좋습니다.**
 
-- **/hana/data**에 대해 256KB
+- **/hana/data** 에 대해 256KB
 - **/hana/log** 의 경우 64 KB
 
 > [!NOTE]
@@ -143,36 +143,36 @@ Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기
 
 SAP **/hana/data** 볼륨에 대 한 구성:
 
-| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
+| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data | 프로비전된 처리량 | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192GiB | 500MBps | 4 x P6 | 680 MBps | 960 | 14,000 |
-| M32ls | 256GiB | 500MBps | 4 x P6 | 680 MBps | 960 | 14,000 |
-| M64ls | 512GiB | 1,000MBps | 4 x P10 |  680 MBps | 2,000 | 14,000 |
-| M64s | 1,000GiB | 1,000MBps | 4 x P15 | 680 MBps | 4400 | 14,000 |
-| M64ms | 1,750GiB | 1,000MBps | 4 x P20 | 680 MBps | 9200 | 14,000 |  
-| M128s | 2,000GiB | 2000 MBps | 4 x P20 | 680 MBps | 9200| 14,000 | 
-| M128ms | 3,800GiB | 2000 MBps | 4 x P30 | 800 MBps (프로 비전 됨) | 20,000 | 버스트 없음 | 
-| M208s_v2 | 2,850GiB | 1,000MBps | 4 x P30 | 800 MBps (프로 비전 됨) | 20,000| 버스트 없음 | 
-| M208ms_v2 | 5,700GiB | 1,000MBps | 4 x P40 | 1000 MBps (프로 비전 됨) | 25,000 | 버스트 없음 |
-| M416s_v2 | 5,700GiB | 2000 MBps | 4 x P40 | 1000 MBps (프로 비전 됨) | 25,000 | 버스트 없음 |
-| M416ms_v2 | 11,400GiB | 2000 MBps | 4 x P50 | 2000 MBps (프로 비전 됨) | 25,000 | 버스트 없음 |
+| M32ts | 192GiB | 500MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14,000 |
+| M32ls | 256GiB | 500MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14,000 |
+| M64ls | 512GiB | 1,000MBps | 4 x P10 | 400MBps | 680 MBps | 2,000 | 14,000 |
+| M64s | 1,000GiB | 1,000MBps | 4 x P15 | 500MBps | 680 MBps | 4400 | 14,000 |
+| M64ms | 1,750GiB | 1,000MBps | 4 x P20 | 600MBps | 680 MBps | 9200 | 14,000 |  
+| M128s | 2,000GiB | 2000 MBps | 4 x P20 | 600MBps | 680 MBps | 9200| 14,000 | 
+| M128ms | 3,800GiB | 2000 MBps | 4 x P30 | 800MBps | 버스트 없음 | 20,000 | 버스트 없음 | 
+| M208s_v2 | 2,850GiB | 1,000MBps | 4 x P30 | 800MBps | 버스트 없음 | 20,000| 버스트 없음 | 
+| M208ms_v2 | 5,700GiB | 1,000MBps | 4 x P40 | 1,000MBps | 버스트 없음 | 30,000 | 버스트 없음 |
+| M416s_v2 | 5,700GiB | 2000 MBps | 4 x P40 | 1,000MBps | 버스트 없음 | 30,000 | 버스트 없음 |
+| M416ms_v2 | 11,400GiB | 2000 MBps | 4 x P50 | 2000 MBps | 버스트 없음 | 30,000 | 버스트 없음 |
 
 
 **/Hana/log** 볼륨의 경우. 구성은 다음과 같습니다.
 
-| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | **/hana/log** 볼륨 | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
+| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | **/hana/log** 볼륨 | 프로비전된 처리량 | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192GiB | 500MBps | 3 x P10 | 510 MBps | 1,500 | 10500 | 
-| M32ls | 256GiB | 500MBps | 3 x P10 | 510 MBps | 1,500 | 10500 | 
-| M64ls | 512GiB | 1,000MBps | 3 x P10 | 510 MBps | 1,500 | 10500 | 
-| M64s | 1,000GiB | 1,000MBps | 3 x P15 | 510 MBps | 3300 | 10500 | 
-| M64ms | 1,750GiB | 1,000MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M128s | 2,000GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500|  
-| M128ms | 3,800GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 | 
-| M208s_v2 | 2,850GiB | 1,000MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M208ms_v2 | 5,700GiB | 1,000MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M416s_v2 | 5,700GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 |  
-| M416ms_v2 | 11,400GiB | 2000 MBps | 3 x P15 | 510 MBps | 3300 | 10500 | 
+| M32ts | 192GiB | 500MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 | 
+| M32ls | 256GiB | 500MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 | 
+| M64ls | 512GiB | 1,000MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 | 
+| M64s | 1,000GiB | 1,000MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 | 
+| M64ms | 1,750GiB | 1,000MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M128s | 2,000GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500|  
+| M128ms | 3,800GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 | 
+| M208s_v2 | 2,850GiB | 1,000MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M208ms_v2 | 5,700GiB | 1,000MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M416s_v2 | 5,700GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 |  
+| M416ms_v2 | 11,400GiB | 2000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3300 | 10500 | 
 
 
 다른 볼륨에 대 한 구성은 다음과 같습니다.
@@ -192,19 +192,19 @@ SAP **/hana/data** 볼륨에 대 한 구성:
 | M416ms_v2 | 11,400GiB | 2000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
-제안된 다른 볼륨에 대한 스토리지 처리량이 실행하려는 워크로드를 충족하는지 여부를 확인합니다. 워크 로드에 **/hana/data** 및 **/hana/log**에 대 한 더 높은 볼륨이 필요한 경우 Azure premium storage vhd의 수를 늘려야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다.
+제안된 다른 볼륨에 대한 스토리지 처리량이 실행하려는 워크로드를 충족하는지 여부를 확인합니다. 워크 로드에 **/hana/data** 및 **/hana/log** 에 대 한 더 높은 볼륨이 필요한 경우 Azure premium storage vhd의 수를 늘려야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다.
 
 Azure Write Accelerator는 [Azure 관리 디스크](https://azure.microsoft.com/services/managed-disks/)와만 함께 작동합니다. 따라서 최소한 **/hana/log** 볼륨을 형성 하는 Azure premium storage 디스크를 관리 디스크로 배포 해야 합니다. Azure 쓰기 가속기에 대 한 자세한 지침 및 제한은 [쓰기 가속기](../../how-to-enable-write-accelerator.md)문서에서 찾을 수 있습니다.
 
 Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) 제품군 및 [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series)의 HANA 인증 vm에 대해 **/hana/data** 및 **/hana/log** 볼륨에 대해 anf를 수행 해야 합니다. 또는 **/hana/log** 볼륨에 대해서만 azure premium Storage 대신 azure Ultra disk storage를 활용 해야 합니다. 결과적으로, Azure premium storage의 **/hana/data** 볼륨에 대 한 구성은 다음과 같습니다.
 
-| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
+| VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data | 프로비전된 처리량 | 최대 버스트 처리량 | IOPS | 버스트 IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 510 MBps | 1,500 | 10500 |
-| E32ds_v4 | 256GiB | 768MBps | 3 x P10 |  510 MBps | 1,500 | 10500|
-| E48ds_v4 | 384 GiB | 1152 MBps | 3 x P15 |  510 MBps | 3300  | 10500 | 
-| E64ds_v4 | 504 GiB | 1,200MBps | 3 x P15 |  510 MBps | 3300 | 10500 | 
-| E64s_v3 | 432GiB | 1,200MB/s | 3 x P15 |  510 MBps | 3300 | 10500 | 
+| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 300 MBps | 510 MBps | 1,500 | 10500 |
+| E32ds_v4 | 256GiB | 768MBps | 3 x P10 |  300 MBps | 510 MBps | 1,500 | 10500|
+| E48ds_v4 | 384 GiB | 1152 MBps | 3 x P15 |  375 MBps |510 MBps | 3300  | 10500 | 
+| E64ds_v4 | 504 GiB | 1,200MBps | 3 x P15 |  375 MBps | 510 MBps | 3300 | 10500 | 
+| E64s_v3 | 432GiB | 1,200MB/s | 3 x P15 |  375 MBps | 510 MBps | 3300 | 10500 | 
 
 울트라 디스크의 **/hana/log** 를 비롯 한 다른 볼륨의 경우 구성은 다음과 같습니다.
 

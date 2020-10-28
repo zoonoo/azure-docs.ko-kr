@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: bbd274f6b039ef4492068d939c755ab279c2830a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 52c71e06b33ef29c2ef0628d651c7f72e41b87ff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069990"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671897"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 다시 구성
 이 자습서에서는 Azure AD에서 SAP SuccessFactors Employee Central으로 특성을 다시 작성 하는 단계를 보여 줍니다. 
@@ -57,11 +57,11 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 ### <a name="create-an-api-permissions-role"></a>API 권한 역할 만들기
 
 1. 관리 센터에 대 한 액세스 권한이 있는 사용자 계정을 사용 하 여 SAP SuccessFactors에 로그인 합니다.
-1. *권한 역할 관리*를 검색 한 다음 검색 결과에서 **사용 권한 역할 관리** 를 선택 합니다.
+1. *권한 역할 관리* 를 검색 한 다음 검색 결과에서 **사용 권한 역할 관리** 를 선택 합니다.
 
    ![권한 역할 관리](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
 
-1. 권한 역할 목록에서 **새로 만들기**를 클릭 합니다.
+1. 권한 역할 목록에서 **새로 만들기** 를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![새 권한 역할 만들기](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
@@ -71,26 +71,26 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    > [!div class="mx-imgBorder"]
    > ![권한 역할 정보](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
 
-1. 권한 설정에서 사용 권한 **...** 을 클릭 한 다음 사용 권한 목록을 아래로 스크롤하고 **통합 도구 관리**를 클릭 합니다. **기본 인증을 통해 관리자가 ODATA API에 액세스할 수 있도록 허용**확인란을 선택 합니다.
+1. 권한 설정에서 사용 권한 **...** 을 클릭 한 다음 사용 권한 목록을 아래로 스크롤하고 **통합 도구 관리** 를 클릭 합니다. **기본 인증을 통해 관리자가 ODATA API에 액세스할 수 있도록 허용** 확인란을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![통합 도구 관리](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
 
-1. 동일한 상자에서 아래로 스크롤하고 **Employee CENTRAL API**를 선택 합니다. ODATA API를 사용 하 여 읽고 ODATA API를 사용 하 여 편집 하려면 아래와 같이 사용 권한을 추가 합니다. SuccessFactors에 쓰기 다시 쓰기 시나리오에 동일한 계정을 사용 하려는 경우 편집 옵션을 선택 합니다. 
+1. 동일한 상자에서 아래로 스크롤하고 **Employee CENTRAL API** 를 선택 합니다. ODATA API를 사용 하 여 읽고 ODATA API를 사용 하 여 편집 하려면 아래와 같이 사용 권한을 추가 합니다. SuccessFactors에 쓰기 다시 쓰기 시나리오에 동일한 계정을 사용 하려는 경우 편집 옵션을 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![쓰기 권한 읽기](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
-1. **완료**를 클릭합니다. **변경 내용 저장**을 클릭합니다.
+1. **완료** 를 클릭합니다. **변경 내용 저장** 을 클릭합니다.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>API 사용자에 대 한 권한 그룹 만들기
 
-1. SuccessFactors 관리 센터에서 *관리 권한 그룹*을 검색 한 다음 검색 결과에서 **권한 그룹 관리** 를 선택 합니다.
+1. SuccessFactors 관리 센터에서 *관리 권한 그룹* 을 검색 한 다음 검색 결과에서 **권한 그룹 관리** 를 선택 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![권한 그룹 관리](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
 
-1. 권한 그룹 관리 창에서 **새로 만들기**를 클릭 합니다.
+1. 권한 그룹 관리 창에서 **새로 만들기** 를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![새 그룹 추가](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
@@ -109,9 +109,9 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>권한 그룹에 권한 역할을 부여 합니다.
 
-1. SuccessFactors 관리 센터에서 *관리 권한 역할*을 검색 한 다음 검색 결과에서 **권한 역할 관리** 를 선택 합니다.
-1. **권한 역할 목록**에서 API 사용 권한에 대해 만든 역할을 선택 합니다.
-1. **다음에이 역할 부여**...에서 **추가 ...** 단추를 클릭 합니다.
+1. SuccessFactors 관리 센터에서 *관리 권한 역할* 을 검색 한 다음 검색 결과에서 **권한 역할 관리** 를 선택 합니다.
+1. **권한 역할 목록** 에서 API 사용 권한에 대해 만든 역할을 선택 합니다.
+1. **다음에이 역할 부여** ...에서 **추가 ...** 단추를 클릭 합니다.
 1. 드롭다운 메뉴에서 **사용 권한 그룹 ...** 을 선택 하 고 **선택 ...** 을 클릭 하 여 그룹 창을 열고 위에서 만든 그룹을 검색 하 여 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
@@ -121,7 +121,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    > [!div class="mx-imgBorder"]
    > ![권한 역할 및 그룹 정보](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
 
-1. **변경 내용 저장**을 클릭합니다.
+1. **변경 내용 저장** 을 클릭합니다.
 
 ## <a name="preparing-for-successfactors-writeback"></a>SuccessFactors 쓰기 저장 준비
 
@@ -134,34 +134,34 @@ SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 특정 *코드* �
 
 SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵션의 구성 가능한 *집합입니다.* 여러 유형의 전자 메일 및 전화 번호 (예: 비즈니스, 개인, 기타)는 선택 목록을 사용 하 여 표시 됩니다. 이 단계에서는 전자 메일 및 전화 번호 값을 저장 하는 SuccessFactors 테 넌 트에 구성 된 선택 목록을 식별 합니다. 
  
-1. SuccessFactors 관리 센터에서 *비즈니스 구성 관리*를 검색 합니다. 
+1. SuccessFactors 관리 센터에서 *비즈니스 구성 관리* 를 검색 합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![비즈니스 구성 관리](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. **Hris 요소**아래에서 **emailinfo** 를 선택 하 고 **전자 메일 형식** 필드에 대 한 *세부 정보* 를 클릭 합니다.
+1. **Hris 요소** 아래에서 **emailinfo** 를 선택 하 고 **전자 메일 형식** 필드에 대 한 *세부 정보* 를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![전자 메일 정보 가져오기](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. **전자 메일 유형** 세부 정보 페이지에서이 필드와 연결 된 선택 목록의 이름을 적어 둡니다. 기본적으로 **Ecemailtype**입니다. 그러나 테 넌 트에서 다를 수 있습니다. 
+1. **전자 메일 유형** 세부 정보 페이지에서이 필드와 연결 된 선택 목록의 이름을 적어 둡니다. 기본적으로 **Ecemailtype** 입니다. 그러나 테 넌 트에서 다를 수 있습니다. 
 
    > [!div class="mx-imgBorder"]
    > ![전자 메일 선택 목록 식별](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
 
-1. **Hris 요소**아래에서 **phoneInfo** 을 선택 하 고 **전화 형식** 필드에 대 한 *세부 정보* 를 클릭 합니다.
+1. **Hris 요소** 아래에서 **phoneInfo** 을 선택 하 고 **전화 형식** 필드에 대 한 *세부 정보* 를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![휴대폰 정보 가져오기](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
 
-1. **전화 유형** 세부 정보 페이지에서이 필드와 연결 된 선택 목록의 이름을 적어 둡니다. 기본적으로 **ecPhoneType**입니다. 그러나 테 넌 트에서 다를 수 있습니다. 
+1. **전화 유형** 세부 정보 페이지에서이 필드와 연결 된 선택 목록의 이름을 적어 둡니다. 기본적으로 **ecPhoneType** 입니다. 그러나 테 넌 트에서 다를 수 있습니다. 
 
    > [!div class="mx-imgBorder"]
    > ![전화 선택 목록 확인](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### <a name="retrieve-constant-value-for-emailtype"></a>EmailType의 상수 값을 검색 합니다.
 
-1. SuccessFactors 관리 센터에서 *선택 목록 센터*를 검색 하 여 엽니다. 
+1. SuccessFactors 관리 센터에서 *선택 목록 센터* 를 검색 하 여 엽니다. 
 1. 이전 섹션에서 캡처된 메일 선택 목록 (예: ecEmailType)의 이름을 사용 하 여 전자 메일 선택 목록을 찾습니다. 
 
    > [!div class="mx-imgBorder"]
@@ -183,11 +183,11 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
    > ![전자 메일 형식 코드 가져오기](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
 
    > [!NOTE]
-   > 값을 복사할 때 쉼표 문자를 삭제 합니다. 예를 들어 **옵션 ID** 값이 *8448*인 경우 Azure AD의 *emailtype* 을 상수 번호 *8448* (쉼표 문자 제외)로 설정 합니다. 
+   > 값을 복사할 때 쉼표 문자를 삭제 합니다. 예를 들어 **옵션 ID** 값이 *8448* 인 경우 Azure AD의 *emailtype* 을 상수 번호 *8448* (쉼표 문자 제외)로 설정 합니다. 
 
 ### <a name="retrieve-constant-value-for-phonetype"></a>PhoneType에 대 한 상수 값 검색
 
-1. SuccessFactors 관리 센터에서 *선택 목록 센터*를 검색 하 여 엽니다. 
+1. SuccessFactors 관리 센터에서 *선택 목록 센터* 를 검색 하 여 엽니다. 
 1. 이전 섹션에서 캡처한 휴대폰 선택 목록 이름을 사용 하 여 전화 선택 목록을 찾습니다. 
 
    > [!div class="mx-imgBorder"]
@@ -198,7 +198,7 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
    > [!div class="mx-imgBorder"]
    > ![활성 휴대폰 유형 선택 목록 열기](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. 휴대폰 유형 선택 목록 페이지에서 **선택 목록 값**에 나열 된 다양 한 전화 유형을 검토 합니다.
+1. 휴대폰 유형 선택 목록 페이지에서 **선택 목록 값** 에 나열 된 다양 한 전화 유형을 검토 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![전화 유형 검토](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
@@ -214,7 +214,7 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
    > ![휴대폰 코드 가져오기](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
 
    > [!NOTE]
-   > 값을 복사할 때 쉼표 문자를 삭제 합니다. 예를 들어 **옵션 ID** 값이 *10606*인 경우 Azure AD의 *cellPhoneType* 을 상수 번호 *10606* (쉼표 문자 제외)로 설정 합니다. 
+   > 값을 복사할 때 쉼표 문자를 삭제 합니다. 예를 들어 **옵션 ID** 값이 *10606* 인 경우 Azure AD의 *cellPhoneType* 을 상수 번호 *10606* (쉼표 문자 제외)로 설정 합니다. 
 
 
 ## <a name="configuring-successfactors-writeback-app"></a>SuccessFactors 쓰기 저장 앱 구성
@@ -229,15 +229,15 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
 
 **SuccessFactors 쓰기 저장을 구성 하려면:**
 
-1. [https://editor.swagger.io](<https://portal.azure.com> ) 으로 이동합니다.
+1. <https://portal.azure.com> 로 이동
 
-2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+2. 왼쪽 탐색 모음에서 **Azure Active Directory** 를 선택합니다.
 
-3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+3. **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
 
-4. **애플리케이션 추가**를 선택하고 **모두** 범주를 선택합니다.
+4. **애플리케이션 추가** 를 선택하고 **모두** 범주를 선택합니다.
 
-5. **SuccessFactors 쓰기 저장**을 검색 하 고 갤러리에서 해당 앱을 추가 합니다.
+5. **SuccessFactors 쓰기 저장** 을 검색 하 고 갤러리에서 해당 앱을 추가 합니다.
 
 6. 앱이 추가 되 고 앱 세부 정보 화면이 표시 되 면 **프로 비전** 을 선택 합니다.
 
@@ -253,7 +253,7 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
 
    * **알림 메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
     > [!NOTE]
-    > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 상태가 되면 이메일 알림을 보냅니다.
+    > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](../app-provisioning/application-provisioning-quarantine-status.md) 상태가 되면 이메일 알림을 보냅니다.
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패 하면 SuccessFactors 자격 증명 및 URL이 올바른지 다시 한 번 확인 합니다.
     >[!div class="mx-imgBorder"]
@@ -265,7 +265,7 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
 
 이 섹션에서는 사용자 데이터가 SuccessFactors에서 Active Directory로 흐르는 방식을 구성 합니다.
 
-1. **매핑**아래의 프로 비전 탭에서 **사용자 Azure Active Directory 프로 비전**을 클릭 합니다.
+1. **매핑** 아래의 프로 비전 탭에서 **사용자 Azure Active Directory 프로 비전** 을 클릭 합니다.
 
 1. **원본 개체 범위** 필드에서 특성 기반 필터 집합을 정의 하 여 쓰기 복구에 대해 고려할 Azure AD의 사용자 집합을 선택할 수 있습니다. 기본 범위는 "Azure AD의 모든 사용자"입니다. 
    > [!TIP]
@@ -281,8 +281,8 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
    | 2 | mail | 이메일 | 전자 메일 특성 소스를 매핑합니다. 테스트를 위해 userPrincipalName를 전자 메일에 매핑할 수 있습니다. |
    | 3 | 8448 | emailType | 이 상수 값은 비즈니스 전자 메일과 연결 된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치 하도록이 값을 업데이트 합니다. 이 값을 설정 하는 단계는 [emailType의 상수 값 검색](#retrieve-constant-value-for-emailtype) 섹션을 참조 하세요. |
    | 4 | true | emailIsPrimary | 이 특성을 사용 하 여 SuccessFactors에서 비즈니스 전자 메일을 기본으로 설정 합니다. 비즈니스 전자 메일이 기본이 아니면이 플래그를 false로 설정 합니다. |
-   | 5 | userPrincipalName | [custom01 – custom15] | **새 매핑 추가**를 사용 하 여 필요에 따라 SuccessFactors User 개체에서 사용 가능한 사용자 지정 특성에 UserPrincipalName 또는 Azure AD 특성을 쓸 수 있습니다.  |
-   | 6 | 온-프레미스-samAccountName | 사용자 이름 | **새 매핑 추가**를 사용 하 여 필요에 따라 온-프레미스 SamAccountName을 SuccessFactors username 특성에 매핑할 수 있습니다. |
+   | 5 | userPrincipalName | [custom01 – custom15] | **새 매핑 추가** 를 사용 하 여 필요에 따라 SuccessFactors User 개체에서 사용 가능한 사용자 지정 특성에 UserPrincipalName 또는 Azure AD 특성을 쓸 수 있습니다.  |
+   | 6 | 온-프레미스-samAccountName | 사용자 이름 | **새 매핑 추가** 를 사용 하 여 필요에 따라 온-프레미스 SamAccountName을 SuccessFactors username 특성에 매핑할 수 있습니다. |
    | 7 | SSO | loginMethod | SuccessFactors 테 넌 트가 [부분 SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766)에 대해 설정 된 경우 새 매핑 추가를 사용 하 여 필요에 따라 loginMethod를 "SSO" 또는 "PWD"의 상수 값으로 설정할 수 있습니다. |
    | 8 | telephoneNumber | businessPhoneNumber | 이 매핑을 사용 하 여 Azure AD에서 SuccessFactors business/직장 전화 번호로 *telephoneNumber* 를 전달 합니다. |
    | 9 | 10605 | businessPhoneType | 이 상수 값은 회사 전화와 연결 된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치 하도록이 값을 업데이트 합니다. 이 값을 설정 하는 단계는 [phoneType 상수 값 검색](#retrieve-constant-value-for-phonetype) 섹션을 참조 하세요. |
@@ -297,18 +297,18 @@ SAP SuccessFactors에서 선택 목록은 사용자가 선택할 수 있는 옵�
     >![쓰기 저장 특성 매핑](./media/sap-successfactors-inbound-provisioning/writeback-attribute-mapping.png)
 
 1. **저장** 을 클릭 하 여 매핑을 저장 합니다. 다음으로 SuccessFactors 인스턴스의 phoneType 코드를 사용 하도록 JSON 경로 API 식을 업데이트 합니다. 
-1. **고급 옵션 표시**를 선택합니다. 
+1. **고급 옵션 표시** 를 선택합니다. 
 
     >[!div class="mx-imgBorder"]
     >![고급 옵션 표시](./media/sap-successfactors-inbound-provisioning/show-advanced-options.png)
 
-1. **SuccessFactors에 대 한 특성 목록 편집**을 클릭 합니다. 
+1. **SuccessFactors에 대 한 특성 목록 편집** 을 클릭 합니다. 
 
    > [!NOTE] 
    > **SuccessFactors에 대 한 특성 목록 편집** 옵션이 Azure Portal에 표시 되지 않으면 URL을 사용 하 여 *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* 페이지에 액세스 합니다. 
 
 1. 이 보기의 **API 식** 열에는 커넥터에서 사용 하는 JSON 경로 식이 표시 됩니다. 
-1. 회사 전화 및 휴대폰에 대 한 JSON 경로 식을 업데이트 하 여 사용자 환경에 해당 하는 ID 값 (*businessPhoneType* 및 *cellPhoneType*)을 사용 합니다. 
+1. 회사 전화 및 휴대폰에 대 한 JSON 경로 식을 업데이트 하 여 사용자 환경에 해당 하는 ID 값 ( *businessPhoneType* 및 *cellPhoneType* )을 사용 합니다. 
 
     >[!div class="mx-imgBorder"]
     >![Phone JSON 경로 변경](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
@@ -322,11 +322,11 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 > [!TIP]
 > 기본적으로 프로비전 서비스를 켜면 범위 내 모든 사용자의 프로비전 작업이 시작됩니다. 매핑 또는 데이터 문제에 오류가 있는 경우 프로 비전 작업이 실패 하 고 격리 상태로 전환 될 수 있습니다. 이를 방지하기 위해 **원본 개체 범위** 필터를 구성하고 모든 사용자의 전체 동기화를 시작하기 전에 몇몇 테스트 사용자로 특성 매핑을 테스트하는 것이 좋습니다. 매핑이 작동하고 원하는 결과를 제공하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
-1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
+1. **프로비전** 탭에서 **프로비전 상태** 를 **켜기** 로 설정합니다.
 
-1. **범위**를 선택 합니다. 다음 옵션 중 하나를 선택할 수 있습니다. 
-   * **모든 사용자 및 그룹 동기화**: **매핑**  ->  **원본 개체 범위**에 정의 된 범위 지정 규칙에 따라 Azure AD에서 SuccessFactors에 모든 사용자의 매핑된 특성을 기록 하려면이 옵션을 선택 합니다. 
-   * **할당 된 사용자 및 그룹만 동기화**: **응용**프로그램  ->  **Manage**  ->  **사용자 및 그룹** 관리 메뉴 옵션에서이 응용 프로그램에 할당 한 사용자의 매핑된 특성만 다시 쓰려면이 옵션을 선택 합니다. 이러한 사용자는 **매핑**  ->  **원본 개체 범위**에 정의 된 범위 지정 규칙도 적용 됩니다.
+1. **범위** 를 선택 합니다. 다음 옵션 중 하나를 선택할 수 있습니다. 
+   * **모든 사용자 및 그룹 동기화** : **매핑**  ->  **원본 개체 범위** 에 정의 된 범위 지정 규칙에 따라 Azure AD에서 SuccessFactors에 모든 사용자의 매핑된 특성을 기록 하려면이 옵션을 선택 합니다. 
+   * **할당 된 사용자 및 그룹만 동기화** : **응용** 프로그램  ->  **Manage**  ->  **사용자 및 그룹** 관리 메뉴 옵션에서이 응용 프로그램에 할당 한 사용자의 매핑된 특성만 다시 쓰려면이 옵션을 선택 합니다. 이러한 사용자는 **매핑**  ->  **원본 개체 범위** 에 정의 된 범위 지정 규칙도 적용 됩니다.
 
    > [!div class="mx-imgBorder"]
    > ![쓰기 저장 범위 선택](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
@@ -334,7 +334,7 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
    > [!NOTE]
    > SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 "그룹 할당"을 지원 하지 않습니다. "사용자 할당"만 지원 됩니다. 
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 1. 이 작업을 수행 하면 초기 동기화가 시작 되며, Azure AD 테 넌 트에 있는 사용자 수와 작업에 대해 정의 된 범위에 따라 시간이 달라질 수 있습니다. 진행률 표시줄을 확인 하 여 동기화 주기의 진행 상황을 추적할 수 있습니다. 
 
@@ -356,4 +356,3 @@ SAP SuccessFactors 통합 참조 가이드의 [쓰기 저장 시나리오 섹션
 * [SuccessFactors와 Azure Active Directory 간에 Single Sign-On를 구성 하는 방법에 대해 알아봅니다.](successfactors-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
 * [프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.](../app-provisioning/export-import-provisioning-configuration.md)
-

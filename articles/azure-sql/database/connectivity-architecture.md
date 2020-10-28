@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479088"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672503"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database 및 Azure Synapse Analytics 연결 아키텍처
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "92479088"
 이 문서에서는 Azure SQL Database 또는 Azure Synapse Analytics의 서버에 네트워크 트래픽을 전달 하는 다양 한 구성 요소의 아키텍처에 대해 설명 합니다. 또한 다양 한 연결 정책 및 azure 외부에서 연결 하는 클라이언트와 Azure 내에서 연결 하는 클라이언트에 영향을 주는 방법을 설명 합니다.
 
 > [!IMPORTANT]
-> 이 문서는 **Azure SQL Managed Instance**에 적용되지 *않습니다*. [관리 되는 인스턴스의 연결 아키텍처](../managed-instance/connectivity-architecture-overview.md)를 참조 하세요.
+> 이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다* . [관리 되는 인스턴스의 연결 아키텍처](../managed-instance/connectivity-architecture-overview.md)를 참조 하세요.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
@@ -51,7 +51,7 @@ SQL Database 및 Azure Synapse의 서버는 서버의 연결 정책 설정에 �
 
 - **기본값:** 이는 연결 정책을 또는로 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다 `Proxy` `Redirect` . 기본 정책은 `Redirect` azure 내부에서 시작 되는 모든 클라이언트 연결 (예: Azure 가상 머신) 및 외부에서 발생 하는 `Proxy` 모든 클라이언트 연결 (예: 로컬 워크스테이션의 연결)에 대 한 것입니다.
 
-가장 낮은 대기 시간 및 높은 처리량을 위해 `Proxy` 연결 정책을 통해 `Redirect` 연결 정책을 사용하는 것이 좋습니다. 그러나 위에서 설명한 대로 네트워크 트래픽을 허용 하기 위한 추가 요구 사항을 충족 해야 합니다. 클라이언트가 Azure Virtual Machine 인 경우 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 포함 하는 Nsg (네트워크 보안 그룹)를 사용 하 여이를 수행할 수 있습니다. 클라이언트가 온-프레미스의 워크스테이션에서 연결 하는 경우 네트워크 관리자와 협력 하 여 회사 방화벽을 통해 네트워크 트래픽을 허용 해야 할 수 있습니다.
+가장 낮은 대기 시간 및 높은 처리량을 위해 `Proxy` 연결 정책을 통해 `Redirect` 연결 정책을 사용하는 것이 좋습니다. 그러나 위에서 설명한 대로 네트워크 트래픽을 허용 하기 위한 추가 요구 사항을 충족 해야 합니다. 클라이언트가 Azure Virtual Machine 인 경우 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 포함 하는 Nsg (네트워크 보안 그룹)를 사용 하 여이를 수행할 수 있습니다. 클라이언트가 온-프레미스의 워크스테이션에서 연결 하는 경우 네트워크 관리자와 협력 하 여 회사 방화벽을 통해 네트워크 트래픽을 허용 해야 할 수 있습니다.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
@@ -66,7 +66,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 ![Azure SQL Database 게이트웨이를 통해 TCP 세션이 설정 되 고 모든 후속 패킷이 게이트웨이를 통해 전달 되는 방식을 보여 주는 다이어그램입니다.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> 또한 [DAC와의 연결](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 을 설정 하기 위해 TCP 포트 1434 및 14000-14999를 엽니다.
+> 또한 [DAC와의 연결](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 을 설정 하기 위해 TCP 포트 1434 및 14000-14999를 엽니다.
 
 ## <a name="gateway-ip-addresses"></a>게이트웨이 IP 주소
 
@@ -124,6 +124,6 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서버에 대 한 Azure SQL Database 연결 정책을 변경 하는 방법에 대 한 자세한 내용은 [conn 정책](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)을 참조 하십시오.
+- 서버에 대 한 Azure SQL Database 연결 정책을 변경 하는 방법에 대 한 자세한 내용은 [conn 정책](/cli/azure/sql/server/conn-policy)을 참조 하십시오.
 - ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대한 자세한 정보는 [ADO.NET 4.5에 대한 1433 이외 포트](adonet-v12-develop-direct-route-ports.md)를 참조하세요.
 - 일반 애플리케이션 개발 개요 정보는 [SQL Database 애플리케이션 개발 개요](develop-overview.md)를 참조하세요.

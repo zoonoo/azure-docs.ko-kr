@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342300"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425151"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -30,7 +30,7 @@ ms.locfileid: "92342300"
 
 |**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc 지원 머신**|**Azure Defender 필요**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
+|[엔드포인트용 Microsoft Defender 통합](security-center-wdatp.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
 |[가상 머신 동작 분석(및 보안 경고)](alerts-reference.md)|✔|✔|✔|예|
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|
@@ -54,7 +54,7 @@ ms.locfileid: "92342300"
 
 |**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc 지원 머신**|**Azure Defender 필요**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|예|
+|[엔드포인트용 Microsoft Defender 통합](security-center-wdatp.md)|-|-|-|예|
 |[가상 머신 동작 분석(및 보안 경고)](./azure-defender.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|

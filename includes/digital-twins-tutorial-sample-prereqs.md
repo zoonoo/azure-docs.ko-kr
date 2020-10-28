@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 062aa975deb71cdf7c76842d1e94152aff73b068
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2c20bce35a3b6effcdeea2b82d903db0895d42b2
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92321002"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495954"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -23,3 +23,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 그러면 *.ZIP* 폴더가 **Azure_Digital_Twins_end_to_end_samples.zip** 으로 머신에 다운로드됩니다. 폴더의 압축을 풀고 파일을 추출합니다.
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

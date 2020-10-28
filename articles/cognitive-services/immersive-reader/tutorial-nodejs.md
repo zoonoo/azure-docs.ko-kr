@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262283"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636445"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>자습서: 몰입형 판독기(Node.js) 시작
 
@@ -69,7 +69,7 @@ ClientSecret => Azure AD Application Service Principal password
 Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 ````
 
-값을 얻었으면 _.env_라는 새 파일을 만들고, 다음 코드를 이 파일에 붙여넣고, 위의 사용자 지정 속성 값을 입력합니다. 따옴표 또는 "{" 및 "}" 문자를 포함하지 마세요.
+값을 얻었으면 _.env_ 라는 새 파일을 만들고, 다음 코드를 이 파일에 붙여넣고, 위의 사용자 지정 속성 값을 입력합니다. 따옴표 또는 "{" 및 "}" 문자를 포함하지 마세요.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -80,7 +80,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 이 파일에는 공개되어서는 안 되는 비밀이 있으므로 이 파일을 소스 제어에 커밋하지 않아야 합니다.
 
-이제 _app.js_를 열고 파일 맨 위에 다음을 추가합니다. 이렇게 하면 env 파일에서 정의한 속성이 Node에 환경 변수로 로드됩니다.
+이제 _app.js_ 를 열고 파일 맨 위에 다음을 추가합니다. 이렇게 하면 env 파일에서 정의한 속성이 Node에 환경 변수로 로드됩니다.
 
 ```javascript
 require('dotenv').config();
@@ -133,14 +133,14 @@ module.exports = router;
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>샘플 콘텐츠를 사용하여 몰입형 판독기 시작
 
-1. _views\layout.pug_를 열고 `head` 태그 아래, `body` 태그 앞에 다음 코드를 추가합니다. 이 `script` 태그는 [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 jQuery를 로드합니다.
+1. _views\layout.pug_ 를 열고 `head` 태그 아래, `body` 태그 앞에 다음 코드를 추가합니다. 이 `script` 태그는 [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 jQuery를 로드합니다.
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
-2. _views\index.pug_를 열고 콘텐츠를 다음 코드로 바꿉니다. 이 코드는 일부 샘플 콘텐츠로 페이지를 입력하고, 몰입형 판독기를 시작하는 단추를 추가합니다.
+2. _views\index.pug_ 를 열고 콘텐츠를 다음 코드로 바꿉니다. 이 코드는 일부 샘플 콘텐츠로 페이지를 입력하고, 몰입형 판독기를 시작하는 단추를 추가합니다.
 
     ```pug
     extends layout
@@ -196,7 +196,7 @@ module.exports = router;
 
 몰입형 판독기는 여러 언어를 지원합니다. 아래의 단계에 따라 콘텐츠 언어를 지정할 수 있습니다.
 
-1. _views\index.pug_를 열고 이전 단계에서 추가한 `p(id=content)` 태그 아래에 다음 코드를 추가합니다. 이 코드는 페이지에 스페인어 콘텐츠를 추가합니다.
+1. _views\index.pug_ 를 열고 이전 단계에서 추가한 `p(id=content)` 태그 아래에 다음 코드를 추가합니다. 이 코드는 페이지에 스페인어 콘텐츠를 추가합니다.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.
@@ -211,13 +211,13 @@ module.exports = router;
     });
     ```
 
-3. _http://localhost:3000_ 으로 다시 이동합니다. 페이지에 스페인어 텍스트가 표시되며 **몰입형 판독기**를 클릭하면 몰입형 판독기도 표시됩니다.
+3. _http://localhost:3000_ 으로 다시 이동합니다. 페이지에 스페인어 텍스트가 표시되며 **몰입형 판독기** 를 클릭하면 몰입형 판독기도 표시됩니다.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>몰입형 판독기 인터페이스의 언어 지정
 
 기본적으로 몰입형 판독기 인터페이스의 언어는 브라우저의 언어 설정과 일치합니다. 다음 코드를 통해 몰입형 판독기 인터페이스의 언어를 지정할 수도 있습니다.
 
-1. _views\index.pug_에서 `ImmersiveReader.launchAsync(token, subdomain, content)` 호출을 아래 코드로 바꿉니다.
+1. _views\index.pug_ 에서 `ImmersiveReader.launchAsync(token, subdomain, content)` 호출을 아래 코드로 바꿉니다.
 
     ```javascript
     const options = {
@@ -232,7 +232,7 @@ module.exports = router;
 
 [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML)을 사용하여 몰입형 판독기에 수학 콘텐츠를 포함시킬 수 있습니다.
 
-1. `ImmersiveReader.launchAsync` 호출 위에 다음 코드를 포함하여 _views\index.pug_를 수정합니다.
+1. `ImmersiveReader.launchAsync` 호출 위에 다음 코드를 포함하여 _views\index.pug_ 를 수정합니다.
 
     ```javascript
     const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \

@@ -9,18 +9,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ded60f8c57d8c9db374bf77efe6dfd1a71690bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482930"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669826"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure SQL을 사용하는 Azure Active Directory 서비스 주체
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure ad 응용 프로그램 (서비스 사용자)을 대신 하 여 Azure SQL Database (SQL DB) 및 azure [Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에서 Azure Active Directory (azure ad) 사용자 생성은 현재 **공개 미리 보기로**제공 됩니다.
+Azure ad 응용 프로그램 (서비스 사용자)을 대신 하 여 Azure SQL Database (SQL DB) 및 azure [Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에서 Azure Active Directory (azure ad) 사용자 생성은 현재 **공개 미리 보기로** 제공 됩니다.
 
 > [!NOTE]
 > 이 기능은 SQL Managed Instance에 대해 이미 지원 됩니다.
@@ -34,7 +34,7 @@ Azure Portal 또는 PowerShell 명령을 사용 하 여 Azure AD 응용 프로�
 - 애플리케이션 개체
 - 서비스 주체 개체
 
-Azure AD 응용 프로그램에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../../active-directory/develop/app-objects-and-service-principals.md) 및 [Azure PowerShell를 사용 하 여 Azure 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)를 참조 하세요.
+Azure AD 응용 프로그램에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../../active-directory/develop/app-objects-and-service-principals.md) 및 [Azure PowerShell를 사용 하 여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조 하세요.
 
 SQL Database, Azure Synapse 및 SQL Managed Instance는 다음과 같은 Azure AD 개체를 지원 합니다.
 
@@ -59,7 +59,7 @@ Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에
     New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    자세한 내용은 [AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) 명령을 참조 하세요.
+    자세한 내용은 [AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 명령을 참조 하세요.
 
     - 기존 Azure SQL 논리 서버에 대해 다음 명령을 실행 합니다.
     
@@ -67,12 +67,12 @@ Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
     ```
 
-    자세한 내용은 [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) 명령을 참조하세요.
+    자세한 내용은 [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) 명령을 참조하세요.
 
     - 서버 id가 서버에 할당 되었는지 확인 하려면 Get-AzSqlServer 명령을 실행 합니다.
 
     > [!NOTE]
-    > CLI 명령을 사용 하 여 서버 id를 할당할 수도 있습니다. 자세한 내용은 [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) 및 [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true)를 참조 하십시오.
+    > CLI 명령을 사용 하 여 서버 id를 할당할 수도 있습니다. 자세한 내용은 [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) 및 [az sql server update](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true)를 참조 하십시오.
 
 2. 서버에 생성 되거나 할당 된 서버 id에 대 한 Azure AD [**디렉터리 판독기**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 부여 합니다.
     - 이 권한을 부여 하려면 [AZURE AD 관리자 프로 비전 (sql Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance) 문서에서 사용할 수 있는 sql Managed Instance에 사용 된 설명을 따르세요.
@@ -81,9 +81,9 @@ Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에
 > [!IMPORTANT]
 > 1 단계와 2 단계는 위의 순서 대로 실행 해야 합니다. 먼저 서버 id를 만들거나 할당 한 다음 [**디렉터리 판독기**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 부여 합니다. 이러한 단계 중 하나 또는 둘 다 생략 하면 azure AD 응용 프로그램을 대신 하 여 azure SQL에서 azure AD 개체를 만드는 동안 실행 오류가 발생 합니다.
 >
-> 서비스 주체를 사용 하 여 Azure AD 관리자를 설정 하거나 설정 해제 하는 경우에는 응용 프로그램에도 디렉터리가 있어야 합니다. Azure AD의 모든 application API 권한을 [참조 하세요](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) . Azure ad 관리자를 [설정 하는 데 필요한 사용 권한에](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin)대 한 자세한 내용 및 azure ad 응용 프로그램을 대신 하 여 azure ad 사용자를 만드는 단계별 지침은 [자습서: azure ad 응용 프로그램을 사용 하 여 Azure](authentication-aad-service-principal-tutorial.md)ad 사용자 만들기를 참조 하세요.
+> 서비스 주체를 사용 하 여 Azure AD 관리자를 설정 하거나 설정 해제 하는 경우에는 응용 프로그램에도 디렉터리가 있어야 합니다. Azure AD의 모든 application API 권한을 [참조 하세요](/graph/permissions-reference#application-permissions-18) . Azure ad 관리자를 [설정 하는 데 필요한 사용 권한에](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin)대 한 자세한 내용 및 azure ad 응용 프로그램을 대신 하 여 azure ad 사용자를 만드는 단계별 지침은 [자습서: azure ad 응용 프로그램을 사용 하 여 Azure](authentication-aad-service-principal-tutorial.md)ad 사용자 만들기를 참조 하세요.
 >
-> **공개 미리 보기**에서 Azure AD의 그룹에 **디렉터리 독자** 역할을 할당할 수 있습니다. 그런 다음 그룹 소유자는이 그룹의 구성원으로 관리 되는 id를 추가할 수 있습니다 .이 경우 **전역 관리자** 또는 권한 있는 **역할 관리자가** **디렉터리 구독자** 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
+> **공개 미리 보기** 에서 Azure AD의 그룹에 **디렉터리 독자** 역할을 할당할 수 있습니다. 그런 다음 그룹 소유자는이 그룹의 구성원으로 관리 되는 id를 추가할 수 있습니다 .이 경우 **전역 관리자** 또는 권한 있는 **역할 관리자가** **디렉터리 구독자** 역할을 부여할 필요가 없습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>공개 미리 보기에 대 한 문제 해결 및 제한 사항
 
@@ -94,7 +94,7 @@ Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에
       - 위의 오류에 대 한 단계를 수행 하 여 [AZURE sql 논리 서버에 id를 할당](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) 하 고 [sql 논리 서버 Id에 디렉터리 판독기 권한을 할당](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity)합니다.
     > [!NOTE]
     > 위에 표시 된 오류 메시지는 Azure AD 응용 프로그램 지원에 대 한 누락 된 설정 요구 사항을 명확 하 게 파악 하기 위해 기능 GA 이전에 변경 될 예정입니다.
-- Azure AD 응용 프로그램을 SQL Managed Instance에 대 한 Azure AD 관리자로 설정 하는 것은 CLI 명령을 사용 하 고 [Az. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) 이상을 사용 하는 PowerShell 명령을 사용 하는 경우에만 지원 됩니다. 자세한 내용은 [az sql mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create&preserve-view=true) 및 [AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) 명령을 참조 하세요. 
+- Azure AD 응용 프로그램을 SQL Managed Instance에 대 한 Azure AD 관리자로 설정 하는 것은 CLI 명령을 사용 하 고 [Az. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) 이상을 사용 하는 PowerShell 명령을 사용 하는 경우에만 지원 됩니다. 자세한 내용은 [az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin?view=azure-cli-latest&preserve-view=true#az-sql-mi-ad-admin-create) 및 [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) 명령을 참조 하세요. 
     - SQL Managed Instance에 대 한 Azure Portal를 사용 하 여 Azure AD 관리자를 설정 하려는 경우 Azure AD 그룹을 만드는 것이 좋습니다. 그런 다음 서비스 주체 (Azure AD 응용 프로그램)를이 그룹에 추가 하 고이 그룹을 SQL Managed Instance에 대 한 Azure AD 관리자로 설정 합니다.
     - SQL Database 및 Azure Synapse에 대 한 Azure AD 관리자로 서비스 주체 (Azure AD 응용 프로그램)를 설정 하는 것은 Azure Portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse)및 [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) 명령을 사용 하 여 지원 됩니다.
 - 다른 테 넌 트에서 서비스 사용자와 Azure AD 응용 프로그램을 사용 하면 다른 테 넌 트에서 만든 SQL Database 또는 SQL Managed Instance에 액세스할 수 없게 됩니다. 이 응용 프로그램에 할당 된 서비스 주체는 SQL 논리 서버와 같은 테 넌 트 또는 Managed Instance 이어야 합니다.
@@ -104,5 +104,3 @@ Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에
 
 > [!div class="nextstepaction"]
 > [자습서: Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기](authentication-aad-service-principal-tutorial.md)
-
-

@@ -3,14 +3,14 @@ title: Azure Automation 변경 내용 추적 및 인벤토리 개요
 description: 이 문서에서는 사용자 환경에서 소프트웨어 및 Microsoft 서비스 변경 내용을 식별 하는 데 도움이 되는 변경 내용 추적 및 인벤토리 기능을 설명 합니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9654529723b5b69c15358be9e06db4f8cbed35e3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210277"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670733"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -48,7 +48,7 @@ Log Analytics 작업 영역에 연결 된 컴퓨터는 [Log Analytics 에이전�
 - Windows 레지스트리 추적을 위한 재귀
 - 네트워크 파일 시스템
 - 다른 설치 방법
-- *Windows에 저장 된 **.exe** 파일
+- *Windows에 저장 된 *_.exe_* 파일
 - **최대 파일 크기** 열과 값은 현재 구현에서 사용되지 않습니다.
 - 30 분 컬렉션 주기에서 2500 개 이상의 파일을 수집 하려고 하면 변경 내용 추적 및 재고 성능이 저하 될 수 있습니다.
 - 네트워크 트래픽이 높으면 변경 레코드를 표시 하는 데 최대 6 시간이 걸릴 수 있습니다.
@@ -73,17 +73,19 @@ TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Auto
 |\*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |\* .azure-automation.net | *.azure-automation.us|
 
-Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor**를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](../how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
+Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor** 를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](../how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
-변경 내용 추적 및 인벤토리를 사용 하도록 설정 하 고 관리할 컴퓨터를 선택할 수 있는 방법은 다음과 같습니다.
+다음과 같은 방법으로 변경 내용 추적 및 인벤토리를 사용 하도록 설정할 수 있습니다.
 
-* [Azure 가상 컴퓨터에서](enable-from-vm.md).
-* [여러 Azure 가상 머신 검색에서](enable-from-portal.md).
-* [Azure Automation 계정에서](enable-from-automation-account.md)
-* Arc 사용 서버 또는 비 Azure 컴퓨터의 경우 [VM 확장](../../azure-arc/servers/manage-vm-extensions.md) 을 사용 하 여 Azure Arc 사용 서버에서 Log Analytics 에이전트를 설치 하 고 [작업 영역의 컴퓨터](enable-from-automation-account.md#enable-machines-in-the-workspace) 를 변경 내용 추적 및 인벤토리에 사용 하도록 설정 합니다.
-* [Automation Runbook 사용](enable-from-runbook.md).
+- 하나 이상의 Azure 및 비 Azure 컴퓨터에 대 한 [Automation 계정](enable-from-automation-account.md) 에서.
+
+- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 등록 된 컴퓨터 또는 서버를 포함 하 여 비 azure 컴퓨터의 경우 수동으로. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure Arc 사용 서버](../../azure-arc/servers/overview.md)에 연결한 다음 Azure Policy를 사용 하 여 [ *Linux* 또는 *Windows* Azure arc 컴퓨터](../../governance/policy/samples/built-in-policies.md#monitoring) 기본 제공 정책에 Log Analytics 에이전트 배포를 할당 하 여 Windows 용 Log Analytics 에이전트를 설치 하는 것이 좋습니다. VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
+
+- Azure Portal의 [가상 컴퓨터 페이지](enable-from-vm.md) 에서 단일 Azure VM의 경우 이 시나리오는 Linux VM과 Windows VM에서 지원됩니다.
+
+- [여러 Azure VM](enable-from-portal.md)의 경우 Azure Portal의 가상 머신 페이지에서 해당 VM을 선택.
 
 ## <a name="tracking-file-changes"></a>파일 변경 내용 추적
 
@@ -106,8 +108,8 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | 종료 시 실행되는 스크립트를 모니터링합니다.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | 사용자가 Windows 계정에 로그인하기 전에 로드되는 키를 모니터링합니다. 키는 64비트 컴퓨터에서 실행되는 32비트 애플리케이션에 사용됩니다.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | 애플리케이션 설정의 변경 내용을 모니터링합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결 되 고 일반적으로 **explorer.exe**를 사용 하 여 in-process로 실행 되는 상황에 맞는 메뉴 처리기를 모니터링 합니다.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Windows 탐색기에 직접 연결 되 고 일반적으로 **explorer.exe**를 사용 하 여 in-process로 실행 되는 복사 후크 처리기를 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결 되 고 일반적으로 **explorer.exe** 를 사용 하 여 in-process로 실행 되는 상황에 맞는 메뉴 처리기를 모니터링 합니다.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Windows 탐색기에 직접 연결 되 고 일반적으로 **explorer.exe** 를 사용 하 여 in-process로 실행 되는 복사 후크 처리기를 모니터링 합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 아이콘 오버레이 처리기 등록을 모니터링합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | 64비트 컴퓨터에서 실행되는 32비트 애플리케이션에 대한 아이콘 오버레이 처리기 등록을 모니터링합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Internet Explorer에 대한 새 브라우저 도우미 개체 플러그 인을 모니터링합니다. 현재 페이지의 DOM(문서 개체 모델)에 액세스하고 탐색을 제어하는 데 사용됩니다.
@@ -117,7 +119,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | wavemapper, wave1 및 wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. **system.ini** 파일의 [drivers] 섹션과 비슷합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | 64비트 컴퓨터에서 실행되는 32비트 애플리케이션에 대한 wavemapper, wave1 및 wave2, msacm.imaadpcm, .msadpcm, .msgsm610 및 vidc와 관련된 32비트 드라이버를 모니터링합니다. **system.ini** 파일의 [drivers] 섹션과 비슷합니다.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | 알려진 또는 일반적으로 사용되는 시스템 DLL 목록을 모니터링합니다. 모니터링을 통해 사용자는 트로이 목마 버전의 시스템 Dll을 삭제 하 여 취약 한 응용 프로그램 디렉터리 권한을 악용할 수 없습니다.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Windows에 대한 대화형 로그온 지원 모델인 **winlogon.exe**에서 이벤트 알림을 받을 수 있는 패키지 목록을 모니터링합니다.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Windows에 대한 대화형 로그온 지원 모델인 **winlogon.exe** 에서 이벤트 알림을 받을 수 있는 패키지 목록을 모니터링합니다.
 
 ## <a name="recursion-support"></a>재귀 지원
 
@@ -125,7 +127,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 
 - 와일드 카드는 여러 파일을 추적하는 데 필요합니다.
 
-- 와일드 카드는 파일 경로의 마지막 세그먼트 (예: **: c:\folder \\ file*** 또는 **/etc/*.**) 에서만 사용할 수 있습니다.
+- 파일 경로의 마지막 세그먼트에만 와일드 카드를 사용할 수 있습니다 (예: **: c:\folder \\ file** _ 또는 _ */etc/* * *).
 
 - 환경 변수에 잘못된 경로가 있는 경우 유효성 검사는 성공 하지만 실행 중 경로가 실패합니다.
 

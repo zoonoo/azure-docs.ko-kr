@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: d71f0396f453ceb7113d724b113fe5aacdc60e21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: f2d8c6e94638c01fb21e070a756c0c97c330fb26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078173"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671606"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -49,9 +49,9 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
 1. 일반적으로 [Azure Portal](https://portal.azure.com) 에서 App Services 인스턴스를 만듭니다. 포털에서 이동합니다.
 
-1. 왼쪽 창에서 **설정** 그룹까지 아래로 스크롤하고 **ID**를 선택합니다.
+1. 왼쪽 창에서 **설정** 그룹까지 아래로 스크롤하고 **ID** 를 선택합니다.
 
-1. **시스템 할당** 탭에서 **상태**를 **켜기**로 전환하고 **저장**을 선택합니다.
+1. **시스템 할당** 탭에서 **상태** 를 **켜기** 로 전환하고 **저장** 을 선택합니다.
 
 1. 시스템 할당 관리 id를 사용 하도록 설정 하 라는 메시지가 표시 되 면 **예** 를 대답 합니다.
 
@@ -63,13 +63,13 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
 1. **액세스 제어(IAM)** 를 선택합니다.
 
-1. **액세스 권한 확인** 탭의 **역할 할당 추가** 카드 UI에서 **추가**를 선택합니다.
+1. **액세스 권한 확인** 탭의 **역할 할당 추가** 카드 UI에서 **추가** 를 선택합니다.
 
-1. **역할**아래에서 **앱 구성 데이터 판독기**를 선택 합니다. **다음에 대한 액세스 할당**의 **시스템이 할당한 관리 ID** 아래에서 **App Service**를 선택합니다.
+1. **역할** 아래에서 **앱 구성 데이터 판독기** 를 선택 합니다. **다음에 대한 액세스 할당** 의 **시스템이 할당한 관리 ID** 아래에서 **App Service** 를 선택합니다.
 
 1. **구독** 아래에서 Azure 구독을 선택합니다. 앱의 App Service 리소스를 선택합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
     ![관리형 ID 추가](./media/add-managed-identity.png)
 
@@ -85,7 +85,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
 1. 앱 구성 저장소에 대 한 끝점을 찾습니다. 이 URL은 Azure Portal의 저장소에 대 한 **액세스 키** 탭에 나열 됩니다.
 
-1. *appsettings.json*을 열고 다음 스크립트를 추가합니다. 괄호를 포함 하 여 *\<service_endpoint>* 를 앱 구성 저장소에 대 한 URL로 바꿉니다.
+1. *appsettings.json* 을 열고 다음 스크립트를 추가합니다. 괄호를 포함 하 여 *\<service_endpoint>* 를 앱 구성 저장소에 대 한 URL로 바꿉니다.
 
     ```json
     "AppConfig": {
@@ -93,7 +93,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     }
     ```
 
-1. *Program.cs*을 열고 `Azure.Identity` 및 네임 스페이스에 대 한 참조를 추가 합니다 `Microsoft.Azure.Services.AppAuthentication` .
+1. *Program.cs* 을 열고 `Azure.Identity` 및 네임 스페이스에 대 한 참조를 추가 합니다 `Microsoft.Azure.Services.AppAuthentication` .
 
     ```csharp-interactive
     using Azure.Identity;
@@ -107,30 +107,32 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                    var settings = config.Build();
-                    config.AddAzureAppConfiguration(options =>
-                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   config.AddAzureAppConfiguration(options =>
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
             {
-                var settings = config.Build();
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
                     config.AddAzureAppConfiguration(options =>
                         options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()));
-                })
-                .UseStartup<Startup>());
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -139,46 +141,48 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
-            public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-                WebHost.CreateDefaultBuilder(args)
-                    .ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((hostingContext, config) =>
+               {
+                   var settings = config.Build();
+                   var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>();
+                   config.AddAzureAppConfiguration(options =>
+                   {
+                       options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                           .ConfigureKeyVault(kv =>
+                           {
+                              kv.SetCredential(credentials);
+                           });
+                   });
+               })
+               .UseStartup<Startup>();
     ```
 
     ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
-            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-                    {
-                        var settings = config.Build();
-                        var credentials = new ManagedIdentityCredential();
+            {
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    var credentials = new ManagedIdentityCredential();
 
-                        config.AddAzureAppConfiguration(options =>
-                        {
-                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
-                                    .ConfigureKeyVault(kv =>
-                                    {
-                                        kv.SetCredential(credentials);
-                                    });
-                        });
-                    })
-                    .UseStartup<Startup>());
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(credentials);
+                            });
+                    });
+                });
+            })
+            .UseStartup<Startup>());
     ```
     ---
 
@@ -222,7 +226,7 @@ az webapp deployment source config-local-git --name <app_name> --resource-group 
 
 ### <a name="deploy-your-project"></a>프로젝트 배포
 
-_로컬 터미널 창_에서 로컬 Git 리포지토리에 Azure 원격을 추가 합니다. _\<url>_ [Kudu를 사용 하 여 로컬 git 사용](#enable-local-git-with-kudu)에서 가져온 GIT 원격의 URL로 대체 합니다.
+_로컬 터미널 창_ 에서 로컬 Git 리포지토리에 Azure 원격을 추가 합니다. _\<url>_ [Kudu를 사용 하 여 로컬 git 사용](#enable-local-git-with-kudu)에서 가져온 GIT 원격의 URL로 대체 합니다.
 
 ```bash
 git remote add azure <url>

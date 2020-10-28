@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604175"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669937"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
 보안을 강조 하는 대기업은 Microsoft 365와 같은 클라우드 서비스로 이동 하려고 하지만, 사용자가 승인 된 리소스에만 액세스할 수 있다는 것을 알고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS(Software as a Service) 앱이 퍼블릭 클라우드에서 호스트되고 [outlook.office.com](https://outlook.office.com/) 및 [login.microsoftonline.com](https://login.microsoftonline.com/)과 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
 
-이러한 경우에 대한 Azure AD(Azure Active Directory) 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한을 사용하면 조직은 애플리케이션이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, SaaS 클라우드 애플리케이션에 대한 액세스를 제어할 수 있습니다. 예를 들어 조직의 Microsoft 365 응용 프로그램에 대 한 액세스를 허용 하는 동시에 이러한 동일한 응용 프로그램의 다른 조직 인스턴스에 대 한 액세스를 방지할 수 있습니다.  
+이러한 경우에 대한 Azure AD(Azure Active Directory) 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한을 사용하면 조직은 애플리케이션이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, SaaS 클라우드 애플리케이션에 대한 액세스를 제어할 수 있습니다. 예를 들어 조직의 Microsoft 365 응용 프로그램에 대 한 액세스를 허용 하는 동시에 이러한 동일한 응용 프로그램의 다른 조직 인스턴스에 대 한 액세스를 방지할 수 있습니다.  
 
 테넌트 제한을 사용하면 조직은 사용자에게 액세스가 허용된 테넌트 목록을 지정할 수 있습니다. 그러면 Azure AD는 이러한 허용된 테넌트에 대해서만 액세스를 허가합니다.
 
@@ -33,13 +33,13 @@ ms.locfileid: "90604175"
 
 전체 솔루션은 다음 구성 요소로 구성됩니다.
 
-1. **Azure AD**: `Restrict-Access-To-Tenants: <permitted tenant list>`가 있는 경우 Azure AD는 허용되는 테넌트에 대한 보안 토큰만 발급합니다.
+1. **Azure AD** : `Restrict-Access-To-Tenants: <permitted tenant list>`가 있는 경우 Azure AD는 허용되는 테넌트에 대한 보안 토큰만 발급합니다.
 
-2. **온-프레미스 프록시 서버 인프라**: 이 인프라는 TLS(전송 계층 보안) 검사를 수행할 수 있는 프록시 디바이스입니다. 허용되는 테넌트 목록을 포함하는 헤더를 Azure AD로 향하는 트래픽에 삽입하도록 프록시를 구성해야 합니다.
+2. **온-프레미스 프록시 서버 인프라** : 이 인프라는 TLS(전송 계층 보안) 검사를 수행할 수 있는 프록시 디바이스입니다. 허용되는 테넌트 목록을 포함하는 헤더를 Azure AD로 향하는 트래픽에 삽입하도록 프록시를 구성해야 합니다.
 
-3. **클라이언트 소프트웨어**: 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 현재 브라우저 기반 Microsoft 365 응용 프로그램은 최신 인증을 사용 하는 Office 클라이언트 (예: OAuth 2.0)와 같이 테 넌 트 제한을 지원 합니다.
+3. **클라이언트 소프트웨어** : 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 현재 브라우저 기반 Microsoft 365 응용 프로그램은 최신 인증을 사용 하는 Office 클라이언트 (예: OAuth 2.0)와 같이 테 넌 트 제한을 지원 합니다.
 
-4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하도록 Microsoft 365 cloud services를 구성 해야 합니다. 최신 인증에 대 한 Microsoft 365 지원에 대 한 최신 정보는 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조 하세요.
+4. **최신 인증** : 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하도록 Microsoft 365 cloud services를 구성 해야 합니다. 최신 인증에 대 한 Microsoft 365 지원에 대 한 최신 정보는 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조 하세요.
 
 다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테 넌 트 제한에는 Microsoft 365 cloud services가 아닌 Azure AD에 대 한 트래픽에만 TLS 검사가 필요 합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "90604175"
 
 ### <a name="urls-and-ip-addresses"></a>URL 및 IP 주소
 
-테넌트 제한을 사용하려면 클라이언트는 인증을 받기 위해 Azure AD URL [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) 및 [login.windows.net](https://login.windows.net/)에 연결할 수 있어야 합니다. 또한 Office 365에 액세스하려면 클라이언트는 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에 정의된 FQDN(정규화된 도메인 이름)/URL에 연결할 수 있어야 합니다. 
+테넌트 제한을 사용하려면 클라이언트는 인증을 받기 위해 Azure AD URL [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/) 및 [login.windows.net](https://login.windows.net/)에 연결할 수 있어야 합니다. 또한 Office 365에 액세스하려면 클라이언트는 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에 정의된 FQDN(정규화된 도메인 이름)/URL에 연결할 수 있어야 합니다. 
 
 ### <a name="proxy-configuration-and-requirements"></a>프록시 구성 및 요구 사항
 
@@ -67,7 +67,7 @@ ms.locfileid: "90604175"
 
 #### <a name="configuration"></a>구성
 
-login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들어오는 각 요청에 대해 두 개의 HTTP 헤더인 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context*를 삽입합니다.
+login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들어오는 각 요청에 대해 두 개의 HTTP 헤더인 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context* 를 삽입합니다.
 
 > [!NOTE]
 > SSL 가로채기 및 헤더 주입을 구성할 때에 대 한 트래픽이 https://device.login.microsoftonline.com 제외 되는지 확인 합니다. 이 URL은 장치 인증에 사용 되며 TLS 중단 및 검사는 클라이언트 인증서 인증을 방해할 수 있으며,이로 인해 장치 등록 및 장치 기반 조건부 액세스와 관련 된 문제가 발생할 수 있습니다.
@@ -76,12 +76,14 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 헤더에는 다음 요소가 포함되어야 합니다.
 
-- *-테 넌 트에 대 한 액세스 제한*의 경우 \<permitted tenant list\> 사용자에 게 액세스를 허용 하려는 테 넌 트의 쉼표로 구분 된 목록 값을 사용 합니다. 테넌트에 등록된 모든 도메인은 이 목록의 테넌트를 식별하는 데 사용할 수 있습니다. 예를 들어 Contoso 및 Fabrikam 테넌트 모두에 대한 액세스를 허용하기 위해 이름/값 쌍은 다음과 같이 지정됩니다.  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- *-테 넌 트에 대 한 액세스 제한* 의 경우 \<permitted tenant list\> 사용자에 게 액세스를 허용 하려는 테 넌 트의 쉼표로 구분 된 목록 값을 사용 합니다. 테 넌 트에 등록 된 모든 도메인은이 목록에서 테 넌 트를 식별 하는 데 사용할 수 있으며 디렉터리 ID 자체에도 사용할 수 있습니다. 테 넌 트를 설명 하는 세 가지 방법에 대 한 예제를 보려면 Contoso, Fabrikam 및 Microsoft를 허용 하는 이름/값 쌍은 다음과 같습니다. `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- *Restrict-Access-Context*의 경우 테넌트 제한을 설정하는 테넌트를 선언하는 단일 디렉터리 ID 값을 사용합니다. 예를 들어 Contoso를 테넌트 제한 정책을 설정하는 테넌트로 선언하기 위해 이름/값 쌍이 다음과 같이 지정됩니다.  `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+- *Restrict-Access-Context* 의 경우 테넌트 제한을 설정하는 테넌트를 선언하는 단일 디렉터리 ID 값을 사용합니다. 예를 들어 테 넌 트 제한 정책을 설정 하는 테 넌 트로 Contoso를 선언 하는 경우 이름/값 쌍은와 `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` 같습니다.  이 지점에서는 고유한 디렉터리 ID를 사용 **해야** 합니다.
 
 > [!TIP]
-> [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인한 후 **Azure Active Directory**를 선택하고 **속성**을 선택합니다.
+> [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인한 후 **Azure Active Directory** 를 선택하고 **속성** 을 선택합니다. 
+>
+> 디렉터리 ID 또는 도메인 이름이 동일한 테 넌 트를 참조 하는지 확인 하려면이 URL에서 대신 해당 ID 또는 도메인을 사용 <tenant> `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` 합니다.  도메인 및 ID를 포함 하는 결과는 동일한 테 넌 트를 참조 합니다. 
 
 사용자가 승인되지 않은 테넌트에 와 자체 HTTP 헤더를 삽입하지 못하도록 하기 위해 프록시는 *Restrict-Access-To-Tenants* 헤더가 들어오는 요청에 이미 있는 경우 바꾸어야 합니다.
 
@@ -104,14 +106,14 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에 로그인합니다. **Azure Active Directory 관리 센터** 대시보드가 표시됩니다.
 
-2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. Azure Active Directory 개요 페이지가 나타납니다.
+2. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. Azure Active Directory 개요 페이지가 나타납니다.
 
-3. 개요 페이지에서 **테 넌 트 제한**을 선택 합니다.
+3. 개요 페이지에서 **테 넌 트 제한** 을 선택 합니다.
 
 Restricted-Access-Context 테넌트로 지정된 테넌트의 관리자는 이 보고서를 사용하여 사용된 ID 및 대상 디렉터리 ID를 비롯하여 테넌트 제한 정책으로 인해 차단된 로그인을 확인할 수 있습니다. 이러한 제한을 설정하는 테넌트가 로그인에 대해 사용자 테넌트이거나 리소스 테넌트인 경우 로그인이 포함됩니다.
 
 > [!NOTE]
-> Restricted-Access-Context 테넌트 이외의 테넌트에 있는 사용자가 로그인하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한된 정보가 포함될 수 있습니다. 이 경우 다른 테넌트의 사용자 데이터를 보호하기 위해 이름, 사용자 계정 이름 등의 사용자 식별 가능 정보가 마스킹됩니다.
+> Restricted-Access-Context 테넌트 이외의 테넌트에 있는 사용자가 로그인하는 경우 보고서에는 대상 디렉터리 ID와 같은 제한된 정보가 포함될 수 있습니다. 이 경우 다른 테 넌 트의 사용자 데이터 ("")를 보호 하기 위해 이름, 사용자 계정 이름 등의 사용자 식별 가능 정보를 마스킹할 수 있습니다. 00000000-0000-0000-0000-00000000@domain.com 
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 애플리케이션, 클라이언트 또는 상태에 따라 필터링할 수 있습니다. **열** 단추를 선택하는 경우 다음 필드를 조합하여 데이터를 표시하도록 선택할 수 있습니다.
 
@@ -120,8 +122,8 @@ Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보�
 - **상태**
 - **Date**
 - **날짜(UTC)** (UTC는 협정 세계시임)
-- **MFA 인증 방법**(다단계 인증 방법)
-- **MFA 인증 세부 정보**(다단계 인증 세부 정보)
+- **MFA 인증 방법** (다단계 인증 방법)
+- **MFA 인증 세부 정보** (다단계 인증 세부 정보)
 - **MFA 결과**
 - **IP 주소**
 - **클라이언트**
@@ -180,7 +182,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
 
 4. CustomRules 파일을 저장한 후 닫습니다.
 
-Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처**를 선택하여 트래픽을 캡처할 수 있습니다.
+Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 를 선택하여 트래픽을 캡처할 수 있습니다.
 
 ### <a name="staged-rollout-of-proxy-settings"></a>프록시 설정의 단계별 롤아웃
 

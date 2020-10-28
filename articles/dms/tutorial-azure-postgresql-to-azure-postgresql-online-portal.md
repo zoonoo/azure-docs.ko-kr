@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313140"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460974"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 Azure DB for PostgreSQL - 단일 서버를 Azure DB for PostgreSQL - 단일 서버로 온라인 마이그레이션
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 Azure DB for PostgreSQL - 단일 서버를 Azure DB for PostgreSQL - 단일 서버로 온라인 마이그레이션/업그레이드
 
 Azure Database Migration Service를 사용하면 가동 중지 시간을 최소화하면서 [Azure Database for PostgreSQL - 단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) 인스턴스에서 Azure Database for PostgreSQL - 단일 서버 인스턴스 또는 Azure Database for PostgreSQL - 유연한 서버 인스턴스로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **DVD 대여** 샘플 데이터베이스를 Azure Database for PostgreSQL v10에서 Azure Database for PostgreSQL - 단일 서버로 마이그레이션합니다.
 
@@ -47,7 +47,7 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Azure Database Migration Service에서 지원하는 마이그레이션 시나리오의 상태](https://docs.microsoft.com/azure/dms/resource-scenario-status)에서 지원되는 마이그레이션과 버전 조합을 확인하세요. 
-* **DVD 대여** 데이터베이스가 있는 기존 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) 버전 10 이상 인스턴스. Azure DB for PostgreSQL 9.5 또는 9.6에서 마이그레이션은 Azure Database Migration Service에서 지원되지 않습니다.
+* **DVD 대여** 데이터베이스가 있는 기존 [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) 버전 10 이상 인스턴스. 
 
     또한 대상 Azure Database for PostgreSQL 버전이 온-프레미스 PostgreSQL 버전과 같거나 이후 버전이어야 합니다. 예를 들어 PostgreSQL 10은 Azure Database for PostgreSQL 10 또는 11로 마이그레이션할 수 있지만 Azure Database for PostgreSQL 9.6으로는 마이그레이션할 수 없습니다.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 99eea73add47b6498833de7bfd7728feb4c5c4ab
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516208"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671577"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database에서 트랜잭션 측면에서 일관 된 데이터베이스 복사본 복사
 
@@ -43,7 +43,7 @@ Azure SQL Database는 동일한 서버나 다른 서버에 기존 [데이터베�
 
 ## <a name="copy-using-the-azure-portal"></a>Azure Portal을 사용하여 복사
 
-Azure Portal을 사용하여 데이터베이스를 복사하려면 데이터베이스에 대한 페이지를 열고 **복사**를 클릭합니다.
+Azure Portal을 사용하여 데이터베이스를 복사하려면 데이터베이스에 대한 페이지를 열고 **복사** 를 클릭합니다.
 
    ![데이터베이스 복사](./media/database-copy/database-copy.png)
 
@@ -82,7 +82,7 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
 
 서버 관리자 로그인 또는 복사할 데이터베이스를 만든 로그인을 사용 하 여 master 데이터베이스에 로그인 합니다. 데이터베이스 복사가 성공 하려면 서버 관리자가 아닌 로그인이 역할의 멤버 여야 합니다 `dbmanager` . 서버에 로그인 및 연결하는 방법에 대한 자세한 내용은 [로그인 관리](logins-create-manage.md)를 참조하세요.
 
-CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작 합니다. [ 문을 복사](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) 합니다. T-sql 문은 데이터베이스 복사 작업이 완료 될 때까지 계속 실행 됩니다.
+CREATE DATABASE ...를 사용 하 여 원본 데이터베이스 복사를 시작 합니다. [ 문을 복사](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) 합니다. T-sql 문은 데이터베이스 복사 작업이 완료 될 때까지 계속 실행 됩니다.
 
 > [!NOTE]
 > T-sql 문을 종료 해도 데이터베이스 복사 작업은 종료 되지 않습니다. 작업을 종료 하려면 대상 데이터베이스를 삭제 합니다.
@@ -143,13 +143,13 @@ T-sql을 사용 하 여 다른 구독에 있는 서버에 데이터베이스를 
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링
 
-[Sys. 데이터베이스](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)및 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 뷰를 쿼리하여 복사 프로세스를 모니터링 합니다. 복사가 진행 되는 동안 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열은 **복사**로 설정 됩니다.
+[Sys. 데이터베이스](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)및 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 뷰를 쿼리하여 복사 프로세스를 모니터링 합니다. 복사가 진행 되는 동안 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열은 **복사** 로 설정 됩니다.
 
-* 복사가 실패 하면 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열이 **주의**대상으로 설정 됩니다. 새 데이터베이스에서 DROP 문을 실행하고 나중에 다시 시도합니다.
-* 복사에 성공 하면 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열이 **ONLINE**으로 설정 됩니다. 복사가 완료되었으며 새 데이터베이스가 원본 데이터베이스와는 독립적으로 변경 가능한 일반 데이터베이스가 됩니다.
+* 복사가 실패 하면 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열이 **주의** 대상으로 설정 됩니다. 새 데이터베이스에서 DROP 문을 실행하고 나중에 다시 시도합니다.
+* 복사에 성공 하면 새 데이터베이스에 대 한 sys. 데이터베이스 뷰의 **state_desc** 열이 **ONLINE** 으로 설정 됩니다. 복사가 완료되었으며 새 데이터베이스가 원본 데이터베이스와는 독립적으로 변경 가능한 일반 데이터베이스가 됩니다.
 
 > [!NOTE]
-> 진행 중인 복사를 취소하려면 새 데이터베이스에서 [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) 문을 실행합니다.
+> 진행 중인 복사를 취소하려면 새 데이터베이스에서 [DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql) 문을 실행합니다.
 
 > [!IMPORTANT]
 > 원본 보다 훨씬 더 작은 서비스 목표가 포함 된 복사본을 만들어야 하는 경우 대상 데이터베이스에는 시드 프로세스를 완료 하는 데 충분 한 리소스가 없을 수 있으며이로 인해 copy operaion가 실패할 수 있습니다. 이 시나리오에서는 지역 복원 요청을 사용 하 여 다른 서버 및/또는 다른 지역에 복사본을 만듭니다. 자세한 내용은 [데이터베이스 백업을 사용 하 여 Azure SQL Database 복구](recovery-using-backups.md#geo-restore) 를 참조 하세요.
@@ -182,7 +182,7 @@ Azure Portal를 사용 하 여 데이터베이스 복사를 관리 하려면 다
 
 ## <a name="resolve-logins"></a>로그인 확인
 
-대상 서버에서 새 데이터베이스가 온라인 상태가 되 면 [ALTER USER](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) 문을 사용 하 여 새 데이터베이스의 사용자를 대상 서버의 로그인에 다시 매핑합니다. 분리된 사용자를 확인하려면 [분리된 사용자 문제 해결](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)을 참조하세요. [재해 복구 후에도 Azure SQL Database 보안을 관리 하는 방법을](active-geo-replication-security-configure.md)참조 하세요.
+대상 서버에서 새 데이터베이스가 온라인 상태가 되 면 [ALTER USER](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) 문을 사용 하 여 새 데이터베이스의 사용자를 대상 서버의 로그인에 다시 매핑합니다. 분리된 사용자를 확인하려면 [분리된 사용자 문제 해결](/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server)을 참조하세요. [재해 복구 후에도 Azure SQL Database 보안을 관리 하는 방법을](active-geo-replication-security-configure.md)참조 하세요.
 
 새 데이터베이스의 모든 사용자가 원본 데이터베이스에서 가졌던 사용 권한을 그대로 유지합니다. 데이터베이스 복사본을 시작한 사용자는 새 데이터베이스의 데이터베이스 소유자가 됩니다. 복사가 성공 하 고 다른 사용자를 다시 매핑하기 전에는 데이터베이스 소유자만 새 데이터베이스에 로그인 할 수 있습니다.
 

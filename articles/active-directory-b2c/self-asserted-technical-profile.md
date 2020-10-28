@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4e76e3924b1b14660dce8a3b58f7dd5b2715eec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096218"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670122"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -53,7 +53,7 @@ ms.locfileid: "92096218"
 
 ## <a name="display-claims"></a>클레임 표시
 
-클레임 표시 기능은 현재 **미리 보기**상태입니다.
+클레임 표시 기능은 현재 **미리 보기** 상태입니다.
 
 **DisplayClaims** 요소에는 사용자 로부터 데이터를 수집 하기 위해 화면에 표시할 클레임 목록이 포함 되어 있습니다. 표시 클레임 값을 미리 채우려면 앞에서 설명한 입력 클레임을 사용 합니다. 이 요소는 기본값을 포함할 수도 있습니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "92096218"
 </TechnicalProfile>
 ```
 
-`age`기본 정책의 클레임은 사용자에 게 더 이상 화면에 표시 되지 않습니다. 실제로 "숨김"입니다. `age`사용자 로부터 클레임을 표시 하 고 age 값을 수집 하려면 DisplayClaim를 추가 해야 합니다 `age` **DisplayClaim**.
+`age`기본 정책의 클레임은 사용자에 게 더 이상 화면에 표시 되지 않습니다. 실제로 "숨김"입니다. `age`사용자 로부터 클레임을 표시 하 고 age 값을 수집 하려면 DisplayClaim를 추가 해야 합니다 `age` **DisplayClaim** .
 
 ## <a name="output-claims"></a>출력 클레임
 
@@ -133,10 +133,10 @@ ms.locfileid: "92096218"
 
 다음 경우에 출력 클레임을 사용 합니다.
 
-- **클레임은 출력 클레임 변환에 의해 출력 됩니다**.
+- **클레임은 출력 클레임 변환에 의해 출력 됩니다** .
 - 사용자 로부터 데이터를 수집 하거나 유효성 검사 기술 프로필의 데이터를 반환 하지 않고 **출력 클레임에 기본값을 설정** 합니다. `LocalAccountSignUpWithLogonEmail` 자체 어설션된 기술 프로필은 **executed-SelfAsserted-Input** 클레임을 `true`로 설정합니다.
 - **유효성 검사 기술 프로필이 출력 클레임 반환** - 기술 프로필이 일부 클레임을 반환하는 유효성 검사 기술 프로필을 호출할 수 있습니다. 해당 클레임을 확장하여 사용자 경험의 다음 오케스트레이션 단계로 반환할 수 있습니다. 로컬 계정으로 로그인할 때 자체 어설션된 기술 프로필 `SelfAsserted-LocalAccountSignin-Email`이 유효성 검사 기술 프로필 `login-NonInteractive`를 호출하는 경우를 예로 들어 보겠습니다. 이 기술 프로필은 사용자 자격 증명의 유효성을 검사하며 사용자 프로필도 반환합니다. 즉, 'userPrincipalName', 'displayName', 'givenName', 'surName' 등의 프로필을 반환할 수 있습니다.
-- **표시 컨트롤은 출력 클레임을 반환** 합니다. 기술 프로필에는 [표시 컨트롤](display-controls.md)에 대 한 참조가 있을 수 있습니다. 표시 컨트롤은 확인 된 전자 메일 주소와 같은 일부 클레임을 반환 합니다. 해당 클레임을 확장하여 사용자 경험의 다음 오케스트레이션 단계로 반환할 수 있습니다. 표시 컨트롤 기능은 현재 **미리 보기**상태입니다.
+- **표시 컨트롤은 출력 클레임을 반환** 합니다. 기술 프로필에는 [표시 컨트롤](display-controls.md)에 대 한 참조가 있을 수 있습니다. 표시 컨트롤은 확인 된 전자 메일 주소와 같은 일부 클레임을 반환 합니다. 해당 클레임을 확장하여 사용자 경험의 다음 오케스트레이션 단계로 반환할 수 있습니다. 표시 컨트롤 기능은 현재 **미리 보기** 상태입니다.
 
 다음 예제에서는 표시 클레임 및 출력 클레임을 모두 사용 하는 자체 어설션된 기술 프로필을 사용 하는 방법을 보여 줍니다.
 
@@ -175,6 +175,14 @@ ms.locfileid: "92096218"
 </TechnicalProfile>
 ```
 
+### <a name="output-claims-sign-up-or-sign-in-page"></a>출력 클레임 등록 또는 로그인 페이지
+
+결합 된 등록 및 로그인 페이지에서 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 요소를 사용할 때 다음 사항에 유의 하십시오 `unifiedssp` `unifiedssd` . 또는 페이지 유형을 지정 합니다.
+
+- 사용자 이름 및 암호 클레임만 렌더링 됩니다.
+- 처음 두 개의 출력 클레임은 사용자 이름과 암호 여야 합니다 (순서 대로). 
+- 다른 모든 클레임은 렌더링 되지 않습니다. 이러한 클레임의 경우를 설정 `defaultValue` 하거나 클레임 양식 유효성 검사 기술 프로필을 호출 해야 합니다. 
+
 ## <a name="persist-claims"></a>영구 클레임
 
 PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술 프로필은 Azure AD B2C 데이터를 유지 하지 않습니다. 대신 데이터 유지를 수행하는 유효성 검사 기술 프로필을 호출합니다. 등록 정책이 자체 어설션된 기술 프로필 `LocalAccountSignUpWithLogonEmail`을 사용하여 새 사용자 프로필을 수집하는 경우를 예로 들어 보겠습니다. `LocalAccountSignUpWithLogonEmail` 기술 프로필은 Azure AD B2C에 계정을 만들기 위해 유효성 검사 기술 프로필을 호출합니다.
@@ -203,7 +211,7 @@ PersistedClaims 요소는 사용 되지 않습니다. 자체 어설션된 기술
 | forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
 | enableRememberMe <sup>2</sup>| 아니요| [로그인 유지](custom-policy-keep-me-signed-in.md) 확인란을 표시 합니다. 가능한 값은 `true` , 또는 `false` (기본값)입니다. |
 | inputVerificationDelayTimeInMilliseconds <sup>3</sup>| 아니요| 사용자가 입력을 중지할 때까지 기다린 후 값의 유효성을 검사 하 여 사용자 환경을 개선 합니다. 기본값은 2000 밀리초입니다. |
-| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+| IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 
 참고:
 1. , 또는의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다 `unifiedssp` `unifiedssd` .

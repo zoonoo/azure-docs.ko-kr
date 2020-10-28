@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8019c049d830df0c2f3301a450eed60145c8eab3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02294d4832224f1c94a4c586f3dcc455255bfbbf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89570477"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670111"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 정책 키 개요
 
@@ -34,7 +34,7 @@ Azure Active Directory B2C (Azure AD B2C)는 암호 및 인증서를 정책 키 
 
 ## <a name="policy-keyset-and-keys"></a>정책 키 집합 및 키
 
-Azure AD B2C의 정책 키에 대 한 최상위 리소스는 **키 집합** 컨테이너입니다. 각 키 집합에는 하나 이상의 **키**가 포함 되어 있습니다. 키에는 다음과 같은 특성이 있습니다.
+Azure AD B2C의 정책 키에 대 한 최상위 리소스는 **키 집합** 컨테이너입니다. 각 키 집합에는 하나 이상의 **키** 가 포함 되어 있습니다. 키에는 다음과 같은 특성이 있습니다.
 
 | attribute |  필수 | 설명 |
 | --- | --- |--- |
@@ -58,7 +58,7 @@ PKI 표준에 따라 키 활성화 및 만료 값을 설정 하는 것이 좋습
 
 Azure AD B2C 키 집합에 여러 키가 있는 경우 다음 기준에 따라 한 번에 하나의 키만 활성화 됩니다.
 
-- 키 활성화는 **활성화 날짜**를 기반으로 합니다.
+- 키 활성화는 **활성화 날짜** 를 기반으로 합니다.
   - 키는 활성화 날짜를 기준으로 오름차순으로 정렬 됩니다. 활성화 날짜가 앞에 추가 된 키는 목록에서 더 아래에 나타납니다. 활성화 날짜가 없는 키는 목록의 맨 아래에 있습니다.
   - 현재 날짜와 시간이 키의 활성화 날짜 보다 크면 Azure AD B2C는 키를 활성화 하 고 이전 활성 키 사용을 중지 합니다.
 - 현재 키의 만료 시간이 경과 하 고 키 컨테이너에 유효 *하지 않음 이전* 및 *만료* 시간을 사용 하는 새 키가 포함 된 경우 새 키가 자동으로 활성화 됩니다.
@@ -73,11 +73,18 @@ Azure AD B2C 키 집합에 여러 키가 있는 경우 다음 기준에 따라 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
-1. 개요 페이지의 **정책**에서 **Identity Experience Framework**를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 개요 페이지의 **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키** 선택 
-    1. 새 키를 추가 하려면 **추가**를 선택 합니다.
-    1. 새 키를 제거 하려면 키를 선택 하 고 **삭제**를 선택 합니다. 키를 삭제 하려면 삭제할 키 컨테이너의 이름을 입력 합니다. 키를 삭제 하 고 suffix .bak를 사용 하 여 키의 복사본을 만듭니다 Azure AD B2C 합니다.
+    1. 새 키를 추가 하려면 **추가** 를 선택 합니다.
+    1. 새 키를 제거 하려면 키를 선택 하 고 **삭제** 를 선택 합니다. 키를 삭제 하려면 삭제할 키 컨테이너의 이름을 입력 합니다. 키를 삭제 하 고 suffix .bak를 사용 하 여 키의 복사본을 만듭니다 Azure AD B2C 합니다.
+
+### <a name="replace-a-key"></a>키 바꾸기
+
+키 집합의 키는 교체 하거나 제거할 수 없습니다. 기존 키를 변경 해야 하는 경우:
+
+- 현재 날짜 및 시간으로 설정 된 **활성화 날짜** 를 사용 하 여 새 키를 추가 하는 것이 좋습니다. Azure AD B2C 새 키를 활성화 하 고 이전 활성 키 사용을 중지 합니다.
+- 또는 올바른 키를 사용 하 여 새 키 집합을 만들 수 있습니다. 새 키 집합을 사용 하도록 정책을 업데이트 한 후 이전 키 집합을 제거 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

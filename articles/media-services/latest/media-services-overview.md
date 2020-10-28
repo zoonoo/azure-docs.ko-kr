@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019865"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220638"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -64,7 +64,7 @@ Media Services를 사용하여 클라우드에서 다양한 미디어 워크플�
 Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, 주문형 비디오 및 라이브 브로드캐스트를 스트리밍하고, 비디오를 분석하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
 > [!TIP]
-> 개발을 시작하기 전에 다음 사항을 검토합니다.<br/>* [기본 개념](concepts-overview.md)(중요 개념인 패키징, 인코딩 및 보호 포함)<br/>* [Media Services v3 API로 개발](media-services-apis-overview.md)(API 액세스, 명명 규칙 등에 대한 정보 포함)
+> 개발을 시작하기 전에 다음 사항을 검토합니다.<br/>* [기본 개념](concepts-overview.md)(패키징, 인코딩 및 보호와 같은 중요 개념 포함)<br/>* [Media Services v3 API로 개발](media-services-apis-overview.md)(API 액세스, 명명 규칙 등에 대한 정보 포함)
 
 ### <a name="sdks"></a>SDK
 

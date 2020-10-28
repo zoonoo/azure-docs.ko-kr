@@ -317,16 +317,10 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Azure CLI 사용
               href: iot-hub-configure-file-upload-cli.md
-        - name: Azure Monitor의 메트릭
-          href: iot-hub-metrics.md
-        - name: 진단 로그 설정
-          href: iot-hub-monitor-resource-health.md
         - name: X.509 인증서를 사용하여 허브 보호
           href: iot-hub-security-x509-get-started.md
         - name: IoT Hub 업그레이드
           href: iot-hub-upgrade.md
-        - name: 메시지 추적 사용
-          href: iot-hub-distributed-tracing.md
         - name: IP 필터링 구성
           href: iot-hub-ip-filtering.md
         - name: 공용 네트워크 액세스 관리
@@ -339,6 +333,16 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: IoT 디바이스 대량 가져오기 및 내보내기
           href: iot-hub-bulk-identity-mgmt.md
+    - name: 모니터
+      items:
+        - name: IoT Hub 모니터링
+          href: monitor-iot-hub.md
+        - name: 데이터 참조 모니터링
+          href: monitor-iot-hub-reference.md
+        - name: 메시지 추적 사용
+          href: iot-hub-distributed-tracing.md
+        - name: IoT Hub 서비스 및 리소스 상태
+          href: iot-hub-azure-service-health-integration.md
     - name: 실제 디바이스 사용
       items:
         - name: 온라인 시뮬레이터 사용

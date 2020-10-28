@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 017dabf16384e53d924ed69f36b64050fcacb5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934789"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504159"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -48,17 +48,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-custom-moderation-tags"></a>사용자 지정 조정 태그 만들기
 
-다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) 문서를 참조하세요.) 이 경우 **celebrity**, **USA**, **flag**, **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity**). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
+다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) 문서를 참조하세요.) 이 경우 **celebrity** , **USA** , **flag** , **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity** ). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
 
 ![사용자 지정 태그 구성](images/tutorial-ecommerce-tags2.PNG)
 
 ## <a name="create-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. Visual Studio에서 [새 프로젝트] 대화 상자를 엽니다. **설치된 항목**, **Visual C#** 을 차례로 확장한 다음, **콘솔 앱(.NET Framework)** 를 선택합니다.
-1. 애플리케이션 이름을 **EcommerceModeration**으로 지정하고 **확인**을 클릭합니다.
+1. Visual Studio에서 [새 프로젝트] 대화 상자를 엽니다. **설치된 항목** , **Visual C#** 을 차례로 확장한 다음, **콘솔 앱(.NET Framework)** 를 선택합니다.
+1. 애플리케이션 이름을 **EcommerceModeration** 으로 지정하고 **확인** 을 클릭합니다.
 1. 이 프로젝트를 기존 솔루션에 추가하는 경우 이 프로젝트를 단일 시작 프로젝트로 선택합니다.
 
-이 자습서에서는 프로젝트의 핵심 코드만 강조하며 모든 코드 행을 다루지는 않습니다. 샘플 프로젝트([전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration))에서 _Program.cs_의 전체 내용을 새 프로젝트의 _Program.cs_ 파일에 복사합니다. 그런 다음, 다음 섹션을 단계별로 실행하여 프로젝트가 작동하는 방법과 직접 사용하는 방법을 알아봅니다.
+이 자습서에서는 프로젝트의 핵심 코드만 강조하며 모든 코드 행을 다루지는 않습니다. 샘플 프로젝트( [전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration))에서 _Program.cs_ 의 전체 내용을 새 프로젝트의 _Program.cs_ 파일에 복사합니다. 그런 다음, 다음 섹션을 단계별로 실행하여 프로젝트가 작동하는 방법과 직접 사용하는 방법을 알아봅니다.
 
 ## <a name="define-api-keys-and-endpoints"></a>API 키 및 엔드포인트 정의
 
@@ -78,13 +78,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy 메서드
 
-**Program** 클래스의 **EvaluateAdultRacy** 메서드를 살펴봅니다. 이 메서드는 이미지 URL 및 키-값 쌍의 배열을 매개 변수로 사용합니다. Content Moderator의 이미지 API를 호출(REST 사용)하여 이미지의 성인 및 외설 점수를 가져옵니다. 점수가 0.4보다 큰 경우(범위는 0에서 1 사이임) **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
+**Program** 클래스의 **EvaluateAdultRacy** 메서드를 살펴봅니다. 이 메서드는 이미지 URL 및 키-값 쌍의 배열을 매개 변수로 사용합니다. Content Moderator의 이미지 API를 호출(REST 사용)하여 이미지의 성인 및 외설 점수를 가져옵니다. 점수가 0.4보다 큰 경우(범위는 0에서 1 사이임) **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
 ## <a name="evaluatecomputervisiontags-method"></a>EvaluateComputerVisionTags 메서드
 
-다음 메서드는 이미지 URL 및 Computer Vision 구독 정보를 사용하고 이미지에서 유명인 존재 여부를 분석합니다. 유명인이 한 명 이상 발견되면 **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
+다음 메서드는 이미지 URL 및 Computer Vision 구독 정보를 사용하고 이미지에서 유명인 존재 여부를 분석합니다. 유명인이 한 명 이상 발견되면 **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
@@ -94,13 +94,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ![펜, 장난감 및 국기 학습 이미지가 있는 Custom Vision 웹 페이지](images/tutorial-ecommerce-custom-vision.PNG)
 
-분류자를 학습했으면 예측 키와 예측 엔드포인트 URL(검색하는 데 도움이 필요한 경우 [URL 및 예측 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) 참조)을 가져오고 이러한 값을 `CustomVisionKey` 및 `CustomVisionUri`에 각각 할당합니다. 이 메서드는 이러한 값을 사용하여 분류자를 쿼리합니다. 분류자가 이미지에서 하나 이상의 사용자 지정 태그를 찾는 경우 이 메서드는 **ReviewTags** 배열의 해당 값을 **True**로 설정합니다.
+분류자를 학습했으면 예측 키와 예측 엔드포인트 URL(검색하는 데 도움이 필요한 경우 [URL 및 예측 키 가져오기](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) 참조)을 가져오고 이러한 값을 `CustomVisionKey` 및 `CustomVisionUri`에 각각 할당합니다. 이 메서드는 이러한 값을 사용하여 분류자를 쿼리합니다. 분류자가 이미지에서 하나 이상의 사용자 지정 태그를 찾는 경우 이 메서드는 **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
 ## <a name="create-reviews-for-review-tool"></a>검토 도구용 검토 만들기
 
-이전 섹션에서 앱이 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 들어오는 이미지를 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그(_Metadata_로 전달됨)와 함께 이미지를 Content Moderator 검토 도구에 업로드하는 **CreateReview** 메서드를 살펴봅니다.
+이전 섹션에서 앱이 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 들어오는 이미지를 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그( _Metadata_ 로 전달됨)와 함께 이미지를 Content Moderator 검토 도구에 업로드하는 **CreateReview** 메서드를 살펴봅니다.
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 

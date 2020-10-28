@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: a3ceb78a85546e5e75c4c484f131b67ff7fc9249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eecd4220cdda471807e4b84261d7f76c31b9ba70
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824151"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672328"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "91824151"
 이 문서에서는 Azure SQL Database 및 Azure Synapse Analytics 용 서버에 대 한 연결을 제어 하는 설정을 소개 합니다. 이러한 설정은 서버와 연결 된 **모든** SQL Database 및 Azure Synapse 데이터베이스에 적용 됩니다.
 
 > [!IMPORTANT]
-> 이 문서는 **Azure SQL Managed Instance**에 적용되지 *않습니다*.
+> 이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다* .
 
 연결 설정은 다음 스크린샷에 표시 된 것 처럼 **방화벽 및 가상 네트워크** 화면에서 액세스할 수 있습니다.
 
@@ -33,14 +33,14 @@ ms.locfileid: "91824151"
 
 ## <a name="deny-public-network-access"></a>퍼블릭 네트워크 액세스 거부
 
-**공용 네트워크 액세스 거부** 설정을 **예**로 설정 하면 개인 끝점을 통한 연결만 허용 됩니다. 이 설정이 **아니요** (기본값)로 설정 된 경우 클라이언트는 [네트워크 액세스 개요](network-access-controls-overview.md)에 설명 된 대로 공용 끝점 (IP 기반 방화벽 규칙, VNET 기반 방화벽 규칙) 또는 개인 끝점 (개인 링크 사용) 중 하나를 사용 하 여 연결할 수 있습니다. 
+**공용 네트워크 액세스 거부** 설정을 **예** 로 설정 하면 개인 끝점을 통한 연결만 허용 됩니다. 이 설정이 **아니요** (기본값)로 설정 된 경우 클라이언트는 [네트워크 액세스 개요](network-access-controls-overview.md)에 설명 된 대로 공용 끝점 (IP 기반 방화벽 규칙, VNET 기반 방화벽 규칙) 또는 개인 끝점 (개인 링크 사용) 중 하나를 사용 하 여 연결할 수 있습니다. 
 
  ![공용 네트워크 액세스 거부와의 연결 스크린샷][2]
 
 논리 서버에서 기존 개인 끝점 없이 **공용 네트워크 액세스 거부** 설정을 **예** 로 설정 하려고 하면 다음과 같은 오류 메시지와 함께 실패 합니다.  
 
 > [!NOTE]
-> 전용 끝점을 사용 하 여 이미 구성 된 논리 서버에서 가상 네트워크 방화벽 규칙을 정의 하려면 **공용 네트워크 액세스 거부** 를 **아니요**로 설정 합니다.
+> 전용 끝점을 사용 하 여 이미 구성 된 논리 서버에서 가상 네트워크 방화벽 규칙을 정의 하려면 **공용 네트워크 액세스 거부** 를 **아니요** 로 설정 합니다.
 
 ```output
 Error 42102
@@ -48,7 +48,7 @@ Unable to set Deny Public Network Access to Yes since there is no private endpoi
 Please set up private endpoints and retry the operation. 
 ```
 
-**공용 네트워크 액세스 거부** 설정을 **예**로 설정 하면 개인 끝점을 통한 연결만 허용 되며 다음과 유사한 오류 메시지와 함께 공용 끝점을 통한 모든 연결이 거부 됩니다.  
+**공용 네트워크 액세스 거부** 설정을 **예** 로 설정 하면 개인 끝점을 통한 연결만 허용 되며 다음과 유사한 오류 메시지와 함께 공용 끝점을 통한 모든 연결이 거부 됩니다.  
 
 ```output
 Error 47073
@@ -57,7 +57,7 @@ The public network interface on this server is not accessible.
 To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
-**공용 네트워크 액세스 거부** 설정이 **예**로 설정 된 경우 다음과 유사한 오류 메시지와 함께 방화벽 규칙을 추가 하거나 업데이트 하려고 하면 거부 됩니다.
+**공용 네트워크 액세스 거부** 설정이 **예** 로 설정 된 경우 다음과 유사한 오류 메시지와 함께 방화벽 규칙을 추가 하거나 업데이트 하려고 하면 거부 됩니다.
 
 ```output
 Error 42101
@@ -68,7 +68,7 @@ To manage server or database level firewall rules, please enable the public netw
 ## <a name="change-public-network-access-via-powershell"></a>PowerShell을 통해 공용 네트워크 액세스 변경
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트는 `Get` `Set` 서버 수준에서 및 **공용 네트워크 액세스** 속성을 보여 줍니다.
 
@@ -85,7 +85,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="change-public-network-access-via-cli"></a>CLI를 통해 공용 네트워크 액세스 변경
 
 > [!IMPORTANT]
-> 이 섹션의 모든 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)필요 합니다.
+> 이 섹션의 모든 스크립트에는 [Azure CLI](/cli/azure/install-azure-cli)필요 합니다.
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 Azure CLI
 
@@ -124,7 +124,7 @@ Login failed with invalid TLS version
 ## <a name="set-minimal-tls-version-via-powershell"></a>PowerShell을 통해 최소 TLS 버전 설정
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트는 `Get` `Set` 논리 서버 수준에서 및 **최소 TLS 버전** 속성을 보여 줍니다.
 
@@ -141,7 +141,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## <a name="set-minimal-tls-version-via-azure-cli"></a>Azure CLI를 통해 최소 TLS 버전 설정
 
 > [!IMPORTANT]
-> 이 섹션의 모든 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)필요 합니다.
+> 이 섹션의 모든 스크립트에는 [Azure CLI](/cli/azure/install-azure-cli)필요 합니다.
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 Azure CLI
 
@@ -164,7 +164,7 @@ az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVers
 ## <a name="change-connection-policy-via-powershell"></a>PowerShell을 통해 연결 정책 변경
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트는 PowerShell을 사용 하 여 연결 정책을 변경 하는 방법을 보여 줍니다.
 
@@ -185,7 +185,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## <a name="change-connection-policy-via-azure-cli"></a>Azure CLI를 통해 연결 정책 변경
 
 > [!IMPORTANT]
-> 이 섹션의 모든 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)필요 합니다.
+> 이 섹션의 모든 스크립트에는 [Azure CLI](/cli/azure/install-azure-cli)필요 합니다.
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 Azure CLI
 
@@ -223,7 +223,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ## <a name="next-steps"></a>다음 단계
 
 - Azure SQL Database에서 연결이 작동 하는 방식에 대 한 개요는 [연결 아키텍처](connectivity-architecture.md) 를 참조 하세요.
-- 서버에 대 한 연결 정책을 변경 하는 방법에 대 한 자세한 내용은 [conn 정책](https://docs.microsoft.com/cli/azure/sql/server/conn-policy)을 참조 하십시오.
+- 서버에 대 한 연결 정책을 변경 하는 방법에 대 한 자세한 내용은 [conn 정책](/cli/azure/sql/server/conn-policy)을 참조 하십시오.
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png

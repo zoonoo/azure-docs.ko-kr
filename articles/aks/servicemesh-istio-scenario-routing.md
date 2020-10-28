@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83799953"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670939"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio를 사용하여 인텔리전트 라우팅 및 카나리 릴리스 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "83799953"
 
 ## <a name="about-this-application-scenario"></a>이 애플리케이션 시나리오에 대한 정보
 
-샘플 AKS 투표 앱은 사용자에게 두 가지 투표 옵션(**고양이** 또는 **개**)을 제공합니다. 각 옵션에 대한 투표 수를 유지하는 스토리지 구성 요소가 있습니다. 또한 각 옵션의 득표에 대한 세부 정보를 제공하는 분석 구성 요소가 있습니다.
+샘플 AKS 투표 앱은 사용자에게 두 가지 투표 옵션( **고양이** 또는 **개** )을 제공합니다. 각 옵션에 대한 투표 수를 유지하는 스토리지 구성 요소가 있습니다. 또한 각 옵션의 득표에 대한 세부 정보를 제공하는 분석 구성 요소가 있습니다.
 
 이 애플리케이션 시나리오에서는 투표 앱 `1.0` 버전 및 분석 구성 요소의 `1.0` 버전을 먼저 배포합니다. 분석 구성 요소는 투표 수에 대한 간단한 수를 제공합니다. 투표 앱과 분석 구성 요소는 Redis에서 지원되는 스토리지 구성 요소의 `1.0` 버전과 상호작용합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "83799953"
 
 Azure Kubernetes Service(AKS) 클러스터에 애플리케이션을 배포합니다. 다음 다이어그램에서는 이 섹션의 끝부분에서 Istio 수신 게이트웨이를 통해 처리되는 인바운드 요청을 사용하여 모든 구성 요소의 버전 `1.0`을 어떻게 실행하는지 보여줍니다.
 
-![AKS Voting 앱 구성 요소 및 라우팅](media/servicemesh/istio/scenario-routing-components-01.png)
+![Istio 수신 게이트웨이를 통해 서비스를 제공 하는 인바운드 요청이 있는 모든 구성 요소의 버전 1.0을 보여 주는 다이어그램입니다.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 [Azure-Samples/aks-voting-app][github-azure-sample] GitHub 리포지토리에서 이 문서와 함께 수행해야 하는 아티팩트를 사용할 수 있습니다. 다음과 같이 아티팩트를 다운로드하거나 리포지토리를 복제할 수 있습니다.
 
@@ -139,9 +139,9 @@ Pod에 대한 정보를 보기 위해 [kubectl describe pod][kubectl-describe] �
 Istio [게이트웨이][istio-reference-gateway] 및 [가상 서비스][istio-reference-virtualservice]를 만들 때까지 투표 앱에 연결할 수 없습니다. 이러한 Istio 리소스는 기본 Istio 게이트웨이에서 애플리케이션으로 트래픽을 라우팅합니다.
 
 > [!NOTE]
-> **게이트웨이**는 인바운드 또는 아웃 바운드 HTTP 및 TCP 트래픽을 수신하는 서비스 메시의 가장자리에 있는 구성 요소입니다.
+> **게이트웨이** 는 인바운드 또는 아웃 바운드 HTTP 및 TCP 트래픽을 수신하는 서비스 메시의 가장자리에 있는 구성 요소입니다.
 > 
-> **가상 서비스**는 하나 이상의 대상 서비스에 대 한 라우팅 규칙 세트를 정의합니다.
+> **가상 서비스** 는 하나 이상의 대상 서비스에 대 한 라우팅 규칙 세트를 정의합니다.
 
 `kubectl apply` 명령을 사용하여 게이트웨이 및 가상 서비스 yaml을 배포합니다. 이러한 리소스에 배포되는 네임스페이스를 지정해야 합니다.
 
@@ -180,7 +180,7 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 
 다음 다이어그램은 이 섹션의 끝부분에서 `voting-analytics` 구성 요소의 버전 `1.1`만이 `voting-app` 구성 요소에서 트래픽이 어떻게 라우팅되는지 보여줍니다. `voting-analytics` 구성 요소의 버전 `1.0`이 계속 실행되고 `voting-analytics` 서비스에서 참조하는 데도 불구하고 Istio 프록시는 트래픽을 허용하지 않습니다.
 
-![AKS Voting 앱 구성 요소 및 라우팅](media/servicemesh/istio/scenario-routing-components-02.png)
+![투표 분석 구성 요소의 버전 1.1만 표시 하는 다이어그램에는 투표-앱 구성 요소에서 라우팅되는 트래픽이 있습니다.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 `voting-analytics` 구성 요소의 `1.1` 버전을 배포해 보겠습니다. `voting` 네임스페이스에서 이 구성 요소를 만듭니다.
 
@@ -236,9 +236,9 @@ deployment.apps/voting-analytics-1-1 created
 
 이제 `voting-analytics` 구성 요소의 버전 `1.1`과 `voting-storage` 구성 요소의 버전 `1.0`으로 트래픽을 잠급니다. 그런 다음, 모든 다른 구성 요소에 대한 라우팅 규칙을 정의합니다.
 
-> * **가상 서비스**는 하나 이상의 대상 서비스에 대 한 라우팅 규칙 세트를 정의합니다.
-> * **대상 규칙**은 트래픽 정책 및 특정 정책 버전을 정의합니다.
-> * **정책**은 어떤 인증 방법이 워크 로드에 승인될지 있는 지를 정의합니다.
+> * **가상 서비스** 는 하나 이상의 대상 서비스에 대 한 라우팅 규칙 세트를 정의합니다.
+> * **대상 규칙** 은 트래픽 정책 및 특정 정책 버전을 정의합니다.
+> * **정책** 은 어떤 인증 방법이 워크 로드에 승인될지 있는 지를 정의합니다.
 
 `kubectl apply` 명령을 사용하여 `voting-app`에서 가상 서비스 정의를 바꾸고 다른 구성 요소에 대한 [대상 규칙][istio-reference-destinationrule] 및 [가상 서비스][istio-reference-virtualservice]를 추가합니다. 또한 [정책][istio-reference-policy]을 `voting` 네임스페이스에 추가하여 서비스 간에 모든 통신이 상호 TLS 및 클라이언트 인증서를 사용하여 보호되는지 확인합니다.
 
@@ -361,7 +361,7 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 * `voting-app` 구성 요소의 버전 `2.0`, `voting-analytics` 구성 요소의 버전 `2.0` 및 `voting-storage` 구성 요소의 버전 `2.0`은 서로 통신할 수 있습니다.
 * `voting-app` 구성 요소의 버전 `2.0`은 특정 기능 플래그 집합을 사용하는 사용자에게 액세스만 할 수 있습니다. 이러한 변경은 쿠키를 통해 기능 플래그를 사용 하여 관리 됩니다.
 
-![AKS Voting 앱 구성 요소 및 라우팅](media/servicemesh/istio/scenario-routing-components-03.png)
+![이 섹션의 끝에서 실행 되는 항목을 보여 주는 다이어그램입니다.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 먼저 이러한 새 구성 요소에 부합하도록 Istio 대상 규칙 및 가상 서비스를 업데이트합니다. 이러한 업데이트는 새 구성 요소로 트래픽을 잘못 라우팅되지는 않는지 사용자가 예기치 않은 액세스를 하지 않는지 확인합니다.
 
@@ -415,7 +415,7 @@ kubectl get pods --namespace voting -w
 
 카나리 릴리스를 성공적으로 테스트한 경우 모든 트래픽을 `voting-app` 구성 요소의 버전 `2.0`으로 라우팅하도록 `voting-app` 가상 서비스를 업데이트합니다. 기능 플래그가 설정되어 있는지 여부에 관계없이 모든 사용자는 애플리케이션의 버전 `2.0`을 볼 수 있습니다.
 
-![AKS Voting 앱 구성 요소 및 라우팅](media/servicemesh/istio/scenario-routing-components-04.png)
+![기능 플래그가 설정 되었는지 여부에 관계 없이 사용자에 게 응용 프로그램의 버전 2.0이 표시 되는 것을 보여 주는 다이어그램입니다.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 대상 규칙을 업데이트하여 더 이상 사용하고 싶지 않은 구성 요소의 버전을 제거합니다. 그런 모든 가상 서비스를 업데이트하여 이 버전 참조를 중지합니다.
 

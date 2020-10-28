@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: fce4da9cc9577bc9805289473d3df7647b1b0934
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069848"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670927"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -57,7 +57,7 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
-1. **리소스 만들기**를 클릭하고, 마켓플레이스에서 사물 인터넷을 선택한 다음 **Stream Analytics 작업**을 클릭합니다.
+1. **리소스 만들기** 를 클릭하고, 마켓플레이스에서 사물 인터넷을 선택한 다음 **Stream Analytics 작업** 을 클릭합니다.
 
     ![새 Stream Analytics 작업](./media/iot-accelerators-integrate-data-lake/new-stream-analytics-job.png)
 
@@ -65,41 +65,41 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
 1. Data Lake Store와 가까운 또는 동일한 지역에서 위치를 선택합니다. 여기 우리는 미국 동부를 사용합니다.
 
-1. 호스팅 환경을 기본 ** 클라우드 **로 유지하도록 해야 합니다.
+1. 호스팅 환경을 기본 **클라우드** 로 유지하도록 해야 합니다.
 
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 
     ![Stream Analytics 작업 만들기](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 
 ## <a name="configure-the-stream-analytics-job"></a>Stream Analytics 작업 구성
 
-1. 원격 모니터링 솔루션 자원 그룹에 있는 **Stream Analytics 작업**으로 이동합니다.
+1. 원격 모니터링 솔루션 자원 그룹에 있는 **Stream Analytics 작업** 으로 이동합니다.
 
-1. 개요 페이지에서 **입력**을 클릭합니다.
+1. 개요 페이지에서 **입력** 을 클릭합니다.
 
     ![개요 페이지](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview.png)
 
-1. **스트림 입력 추가**를 클릭하고 드롭 다운에서 **IoT Hub**를 선택합니다.
+1. **스트림 입력 추가** 를 클릭하고 드롭 다운에서 **IoT Hub** 를 선택합니다.
 
     ![입력 추가](./media/iot-accelerators-integrate-data-lake/stream-analytics-add-input.png)
 
-1. 새 입력 탭에서 **IoTHub**의 입력 별칭을 입력합니다.
+1. 새 입력 탭에서 **IoTHub** 의 입력 별칭을 입력합니다.
 
-1. 소비자 그룹 드롭 다운에서 이전에 만든 소비자 그룹을 선택합니다. 여기에서는 **streamanalyticsjob**을 사용합니다.
+1. 소비자 그룹 드롭 다운에서 이전에 만든 소비자 그룹을 선택합니다. 여기에서는 **streamanalyticsjob** 을 사용합니다.
 
     ![입력 선택](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
-1. 개요 페이지에서 **Outputs**을 클릭합니다.
+1. 개요 페이지에서 **Outputs** 을 클릭합니다.
 
     ![Data Lake Store 추가](./media/iot-accelerators-integrate-data-lake/stream-analytics-overview-2.png)
 
-1. **추가**를 클릭하고 드롭 다운에서 **Data Lake Store**를 선택합니다.
+1. **추가** 를 클릭하고 드롭 다운에서 **Data Lake Store** 를 선택합니다.
 
     ![출력 추가](./media/iot-accelerators-integrate-data-lake/stream-analytics-output.png)
 
-1. 새 출력 탭에서 **DataLakeStore**의 출력 별칭을 입력합니다.
+1. 새 출력 탭에서 **DataLakeStore** 의 출력 별칭을 입력합니다.
 
 1. 이전 단계에서 만든 Data Lake Store 계정을 선택하고 폴더 구조를 제공하여 데이터를 저장소로 스트리밍합니다.
 
@@ -107,7 +107,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
     ![폴더 구조 제공](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 
-1. **권한 부여**를 클릭합니다.
+1. **권한 부여** 를 클릭합니다.
 
     Stream Analytics 작업에 파일 시스템에 대한 쓰기 권한을 부여하려면 Data Lake Store를 사용하여 권한을 부여해야합니다.
 
@@ -118,13 +118,13 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
     > [!NOTE]
     > 팝업 창에 오류가 표시되면 새 브라우저 창을 Incognito Mode로 열고 다시 시도합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 ## <a name="edit-the-stream-analytics-query"></a>Stream Analytics 쿼리 편집
 
 Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이터를 스트리밍하고, 원하는대로 데이터를 변환하고, 다양한 스토리지 또는 처리 대상에 출력하는 입력 소스를 지정합니다.
 
-1. 개요 탭에서 **쿼리 편집**을 클릭합니다.
+1. 개요 탭에서 **쿼리 편집** 을 클릭합니다.
 
     ![쿼리 편집](./media/iot-accelerators-integrate-data-lake/stream-analytics-edit-query.png)
 
@@ -141,20 +141,20 @@ Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이�
 
     ![Stream Analytics 쿼리](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. **저장**을 클릭합니다.
-1. **예**을 클릭하여 변경 내용을 허용합니다.
+1. **저장** 을 클릭합니다.
+1. **예** 을 클릭하여 변경 내용을 허용합니다.
 
 ## <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작
 
-1. 개요 탭에서 **시작**을 클릭합니다.
+1. 개요 탭에서 **시작** 을 클릭합니다.
 
     ![Stream Analytics 작업을 시작합니다.](./media/iot-accelerators-integrate-data-lake/stream-analytics-start.png)
 
-1. Start 작업 탭에서 **사용자 지정**을 클릭합니다.
+1. Start 작업 탭에서 **사용자 지정** 을 클릭합니다.
 
 1. 디바이스가 스트리밍을 시작한 때부터의 데이터를 선택하려면 시간을 몇 시간 전으로 되돌아가도록 사용자 지정할 수 있습니다.
 
-1. **시작**을 클릭합니다.
+1. **시작** 을 클릭합니다.
 
     ![사용자 지정 날짜 선택](./media/iot-accelerators-integrate-data-lake/stream-analytics-start-custom.png)
 
@@ -168,11 +168,11 @@ Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이�
 
 1. Data Lake Store로 이동
 
-1. 개요 탭에서 **데이터 탐색기**를 클릭합니다.
+1. 개요 탭에서 **데이터 탐색기** 를 클릭합니다.
 
-1. 데이터 탐색기에서 **/streaming** 폴더로 드릴다운합니다. YYYY/MM/DD/HH 형식으로 만들어진 폴더가 표시됩니다.
+1. 데이터 탐색기에서 **/streaming** 폴더로 드릴다운합니다. YYYY/MM/DD 형식으로 만든 폴더가 표시 됩니다.
 
-    ![스트리밍 데이터 탐색](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
+    ![/Streaming/YYYY/MM/DD/HH 폴더에 대 한 경로를 보여 주는 스크린샷](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
 
     json 파일이 시간당 한 파일 꼴로 나타납니다.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91652451"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281347"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>빠른 시작: 렌더링을 위해 모델 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "91652451"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 완료
-* Azure PowerShell 설치[(설명서)](https://docs.microsoft.com/powershell/azure/)
+* PowerShell 스크립트를 사용하여 변환하는 경우: Azure PowerShell 설치[(설명서)](/powershell/azure/)
   * 관리자 권한으로 PowerShell을 엽니다.
   * `Install-Module -Name Az -AllowClobber`를 실행합니다.
 
@@ -59,7 +59,7 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 
 ![Azure - 리소스 추가](media/azure-add-a-resource.png)
 
-새 화면의 왼쪽에서 **스토리지**를 선택하고, 다음 열에서 **스토리지 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
+새 화면의 왼쪽에서 **스토리지** 를 선택하고, 다음 열에서 **스토리지 계정 - Blob, 파일, 테이블, 큐** 를 선택합니다.
 
 ![Azure - 스토리지 추가](media/azure-add-storage.png)
 
@@ -69,13 +69,13 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 
 다음과 같은 방법으로 양식을 작성합니다.
 
-* 드롭다운 상자 아래의 링크에서 새 리소스 그룹을 만들고, **ARR_Tutorial**이라는 이름으로 지정합니다.
-* **스토리지 계정 이름**에는 고유한 이름을 입력합니다. **이 이름은 전역적으로 고유해야 합니다.** 그렇지 않으면 이름이 이미 사용되었음을 알리는 메시지가 표시됩니다. 이 빠른 시작의 범위에서는 **arrtutorialstorage**라는 이름으로 지정되었습니다. 이에 따라 이 빠른 시작에서 수행되는 모든 작업을 위해 사용자 이름으로 바꿔야 합니다.
-* 가까운 **위치**를 선택합니다. 다른 빠른 시작에서 렌더링을 설정하는 데 사용한 것과 동일한 위치를 사용하는 것이 좋습니다.
-* **성능**을 '표준'으로 설정
-* **계정 종류**를 'StorageV2(범용 v2)'로 설정
-* **복제**를 'RA-GRS(읽기 액세스 지역 중복 스토리지)'로 설정
-* **액세스 계층**을 'Hot'으로 설정합니다.
+* 드롭다운 상자 아래의 링크에서 새 리소스 그룹을 만들고, **ARR_Tutorial** 이라는 이름으로 지정합니다.
+* **스토리지 계정 이름** 에는 고유한 이름을 입력합니다. **이 이름은 전역적으로 고유해야 합니다.** 그렇지 않으면 이름이 이미 사용되었음을 알리는 메시지가 표시됩니다. 이 빠른 시작의 범위에서는 **arrtutorialstorage** 라는 이름으로 지정되었습니다. 이에 따라 이 빠른 시작에서 수행되는 모든 작업을 위해 사용자 이름으로 바꿔야 합니다.
+* 가까운 **위치** 를 선택합니다. 다른 빠른 시작에서 렌더링을 설정하는 데 사용한 것과 동일한 위치를 사용하는 것이 좋습니다.
+* **성능** 을 '표준'으로 설정
+* **계정 종류** 를 'StorageV2(범용 v2)'로 설정
+* **복제** 를 'RA-GRS(읽기 액세스 지역 중복 스토리지)'로 설정
+* **액세스 계층** 을 'Hot'으로 설정합니다.
 
 다른 탭의 속성을 변경할 필요가 없으므로 **"검토 + 만들기"** 로 진행한 다음, 단계에 따라 설정을 완료할 수 있습니다.
 
@@ -97,7 +97,7 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 * 이름 = arrinput
 * 퍼블릭 액세스 수준 = 프라이빗
 
-컨테이너가 만들어지면 **+ 컨테이너**를 다시 클릭하고, **출력** 컨테이너에 대해 다음 설정을 사용하여 반복합니다.
+컨테이너가 만들어지면 **+ 컨테이너** 를 다시 클릭하고, **출력** 컨테이너에 대해 다음 설정을 사용하여 반복합니다.
 
 * 이름 = arroutput
 * 퍼블릭 액세스 수준 = 프라이빗
@@ -108,7 +108,16 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 
 ## <a name="run-the-conversion"></a>변환 실행
 
-자산 전환 서비스를 더 쉽게 호출할 수 있도록 유틸리티 스크립트가 제공됩니다. 이는 *Scripts* 폴더에 있으며 **Conversion.ps1**이라고 합니다.
+모델 변환을 트리거하는 세 가지 고유한 방법이 있습니다.
+
+### <a name="1-conversion-via-the-arrt-tool"></a>1. ARRT 도구를 통한 변환
+
+변환을 시작하고 렌더링된 결과와 상호 작용하는 [ARRT라는 UI 기반 도구](./../samples/azure-remote-rendering-asset-tool.md)가 있습니다.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "ARRT 스크린샷")
+
+### <a name="2-conversion-via-a-powershell-script"></a>2. PowerShell 스크립트를 통한 변환
+
+자산 전환 서비스를 더 쉽게 호출할 수 있도록 유틸리티 스크립트가 제공됩니다. 이는 *Scripts* 폴더에 있으며 **Conversion.ps1** 이라고 합니다.
 
 특히, 이 스크립트는 다음을 수행합니다.
 
@@ -146,27 +155,27 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 
 **accountSettings** 그룹(계정 ID 및 키) 내의 구성은 [Unity를 사용하여 모델 렌더링 빠른 시작](render-model.md)의 자격 증명과 비슷하게 작성해야 합니다.
 
-**assetConversionSettings** 그룹 내에서 **resourceGroup**, **blobInputContainerName** 및 **blobOutputContainerName**을 위에서 표시한 대로 변경해야 합니다.
+**assetConversionSettings** 그룹 내에서 **resourceGroup** , **blobInputContainerName** 및 **blobOutputContainerName** 을 위에서 표시한 대로 변경해야 합니다.
 **arrtutorialstorage** 값은 스토리지 계정을 만드는 중에 선택한 고유 이름으로 바꿔야 합니다.
 
-변환하려는 모델이 포함된 디스크의 디렉터리를 가리키도록 **localAssetDirectoryPath**를 변경합니다. 경로에서 이중 백슬래시("\\\\")를 사용하여 백슬래시("\\")를 적절히 이스케이프해야 합니다.
+변환하려는 모델이 포함된 디스크의 디렉터리를 가리키도록 **localAssetDirectoryPath** 를 변경합니다. 경로에서 이중 백슬래시("\\\\")를 사용하여 백슬래시("\\")를 적절히 이스케이프해야 합니다.
 
-**localAssetDirectoryPath**에 지정된 경로의 모든 데이터는 **inputFolderPath**에서 지정된 하위 경로 아래에 있는 **blobInputContainerName** Blob 컨테이너에 업로드됩니다. 따라서 위의 예제 구성에서 "D:\\tmp\\robot" 디렉터리의 콘텐츠는 "robotConversion" 경로 아래에 있는 "arrtutorialstorage" 스토리지 계정의 "arrinput" Blob 컨테이너에 업로드됩니다. 이미 있는 기존 파일을 덮어씁니다.
+**localAssetDirectoryPath** 에 지정된 경로의 모든 데이터는 **inputFolderPath** 에서 지정된 하위 경로 아래에 있는 **blobInputContainerName** Blob 컨테이너에 업로드됩니다. 따라서 위의 예제 구성에서 "D:\\tmp\\robot" 디렉터리의 콘텐츠는 "robotConversion" 경로 아래에 있는 "arrtutorialstorage" 스토리지 계정의 "arrinput" Blob 컨테이너에 업로드됩니다. 이미 있는 기존 파일을 덮어씁니다.
 
-**inputAssetPath**를 변환할 모델의 경로로 변경합니다. 이 경로는 localAssetDirectoryPath를 기준으로 하는 상대 경로입니다. 경로 구분 기호로 "\\" 대신 "/"를 사용합니다. 따라서 "D:\\tmp\\robot"에 직접 배치된 "robot.fbx" 파일의 경우 "robot.fbx"를 사용합니다.
+**inputAssetPath** 를 변환할 모델의 경로로 변경합니다. 이 경로는 localAssetDirectoryPath를 기준으로 하는 상대 경로입니다. 경로 구분 기호로 "\\" 대신 "/"를 사용합니다. 따라서 "D:\\tmp\\robot"에 직접 배치된 "robot.fbx" 파일의 경우 "robot.fbx"를 사용합니다.
 
-모델이 변환되면 **blobOutputContainerName**에 지정된 스토리지 컨테이너에 다시 씁니다. 하위 경로는 선택적인 **outputFolderPath**를 제공하여 지정할 수 있습니다. 위의 예제에서 결과 "robot.arrAsset"은 "converted/robot" 아래의 출력 Blob 컨테이너에 복사됩니다.
+모델이 변환되면 **blobOutputContainerName** 에 지정된 스토리지 컨테이너에 다시 씁니다. 하위 경로는 선택적인 **outputFolderPath** 를 제공하여 지정할 수 있습니다. 위의 예제에서 결과 "robot.arrAsset"은 "converted/robot" 아래의 출력 Blob 컨테이너에 복사됩니다.
 
 **outputAssetFileName** 구성 설정에 따라 변환된 자산의 이름이 결정됩니다. 매개 변수는 선택적이며, 출력 파일 이름은 입력 파일 이름에서 추론됩니다.
 
-PowerShell을 열고, [사전 요구 사항](#prerequisites)에서 설명한 대로 *Azure PowerShell*을 설치했는지 확인합니다. 그런 다음, 다음 명령을 사용하여 구독에 로그인하고, 화면의 지시를 따릅니다.
+PowerShell을 열고, [사전 요구 사항](#prerequisites)에서 설명한 대로 *Azure PowerShell* 을 설치했는지 확인합니다. 그런 다음, 다음 명령을 사용하여 구독에 로그인하고, 화면의 지시를 따릅니다.
 
 ```PowerShell
 Connect-AzAccount
 ```
 
 > [!NOTE]
-> 조직에 둘 이상의 구독이 있는 경우 SubscriptionId 및 Tenant 인수를 지정해야 할 수 있습니다. [Connect-AzAccount 설명서](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)에서 세부 정보를 확인하세요.
+> 조직에 둘 이상의 구독이 있는 경우 SubscriptionId 및 Tenant 인수를 지정해야 할 수 있습니다. [Connect-AzAccount 설명서](/powershell/module/az.accounts/connect-azaccount)에서 세부 정보를 확인하세요.
 
 `azure-remote-rendering\Scripts` 디렉터리로 변경하고, 변환 스크립트를 실행합니다.
 
@@ -176,9 +185,16 @@ Connect-AzAccount
 
 다음과 유사한 결과가 표시됩니다. ![Conversion.ps1](./media/successful-conversion.png)
 
+### <a name="3-conversion-via-api-calls"></a>3. API 호출을 통한 변환
+
+C# 및 C++ API는 모두 서비스와 상호 작용할 수 있는 진입점을 제공합니다.
+* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
+* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+
+
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>빠른 시작 샘플 앱에 새 모델 삽입
 
-변환 스크립트는 변환된 모델에 대한 *SAS(공유 액세스 서명)* URI를 생성합니다. 이제 이 URI를 **Model Name(모델 이름)** 으로 빠른 시작 샘플 앱에 복사할 수 있습니다([빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 참조).
+변환 스크립트는 변환된 모델에 대한 *SAS(공유 액세스 서명)* URI를 생성합니다. 이제 이 URI를 **Model Name(모델 이름)** 으로 빠른 시작 샘플 앱에 복사할 수 있습니다( [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 참조).
 
 ![Unity에서 모델 바꾸기](./media/replace-model-in-unity.png)
 
@@ -190,8 +206,8 @@ Connect-AzAccount
 
 1. [Azure Portal](https://www.portal.azure.com)로 이동
 1. **스토리지 계정** 리소스를 클릭합니다. ![선택한 스토리지 계정 리소스를 강조 표시하는 스크린샷.](./media/portal-storage-accounts.png)
-1. 다음 화면의 왼쪽 패널에서 **Storage Explorer**를 클릭하고, *arroutput* Blob 스토리지 컨테이너에서 출력 모델( *.arrAsset* 파일)을 찾습니다. 마우스 오른쪽 단추로 파일을 클릭하고, 상황에 맞는 메뉴에서 **공유 액세스 서명 가져오기**를 선택합니다. ![서명 액세스](./media/portal-storage-explorer.png)
-1. 만료 날짜를 선택할 수 있는 새 화면이 열립니다. **만들기**를 누르고, 다음 대화 상자에 표시된 URI를 복사합니다. 이 새 URI는 스크립트에서 만든 임시 URI를 대체합니다.
+1. 다음 화면의 왼쪽 패널에서 **Storage Explorer** 를 클릭하고, *arroutput* Blob 스토리지 컨테이너에서 출력 모델( *.arrAsset* 파일)을 찾습니다. 마우스 오른쪽 단추로 파일을 클릭하고, 상황에 맞는 메뉴에서 **공유 액세스 서명 가져오기** 를 선택합니다. ![서명 액세스](./media/portal-storage-explorer.png)
+1. 만료 날짜를 선택할 수 있는 새 화면이 열립니다. **만들기** 를 누르고, 다음 대화 상자에 표시된 URI를 복사합니다. 이 새 URI는 스크립트에서 만든 임시 URI를 대체합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

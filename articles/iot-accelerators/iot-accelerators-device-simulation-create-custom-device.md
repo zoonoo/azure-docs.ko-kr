@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61450584"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165573"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>자습서: 사용자 지정 시뮬레이션된 디바이스 만들기
 
@@ -42,17 +42,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표시될 수 있습니다.
 
-그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작**을 클릭합니다.
+그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작** 을 클릭합니다.
 
 ## <a name="view-your-device-models"></a>디바이스 모델 보기
 
-메뉴 모음에서 **디바이스 모델**을 선택합니다. **디바이스 모델** 페이지는 이 디바이스 시뮬레이션의 인스턴스에 있는 사용 가능한 모든 디바이스 모델을 나열합니다.
+메뉴 모음에서 **디바이스 모델** 을 선택합니다. **디바이스 모델** 페이지는 이 디바이스 시뮬레이션의 인스턴스에 있는 사용 가능한 모든 디바이스 모델을 나열합니다.
 
 ![디바이스 모델](media/iot-accelerators-device-simulation-create-custom-device/devicemodelnav.png)
 
 ## <a name="create-a-device-model"></a>디바이스 모델 만들기
 
-페이지의 오른쪽 위 모서리에서 **+ 디바이스 모델 추가**를 클릭합니다.
+페이지의 오른쪽 위 모서리에서 **+ 디바이스 모델 추가** 를 클릭합니다.
 
 ![디바이스 모델 추가](media/iot-accelerators-device-simulation-create-custom-device/devicemodels.png)
 
@@ -69,30 +69,30 @@ Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표�
 > [!NOTE]
 > 디바이스 모델 이름은 고유해야 합니다.
 
-**+ 데이터 요소 추가**를 클릭하여 다음 값으로 온도 및 습도에 대한 데이터 요소를 추가합니다.
+**+ 데이터 요소 추가** 를 클릭하여 다음 값으로 온도 및 습도에 대한 데이터 요소를 추가합니다.
 
 | 데이터 요소          | 동작        | 최소값 | 최대값 | 단위 |
 | ------------------- | --------------- | --------- | --------- | ---- |
 | 온도         | 임의          | -50       | 100       | F    |
 | 습도            | 임의          | 0         | 100       | %    |
 
-**저장**을 클릭하여 디바이스 모델을 저장합니다.
+**저장** 을 클릭하여 디바이스 모델을 저장합니다.
 
 ![디바이스 모델 만들기](media/iot-accelerators-device-simulation-create-custom-device/adddevicemodel.png)
 
-이제 냉장고가 디바이스 모델 목록에 포함됩니다. 냉장고를 확인하려면 **다음**을 클릭하여 다른 페이지로 이동해야 할 수도 있습니다.
+이제 냉장고가 디바이스 모델 목록에 포함됩니다. 냉장고를 확인하려면 **다음** 을 클릭하여 다른 페이지로 이동해야 할 수도 있습니다.
 
 ## <a name="clone-a-device-model"></a>디바이스 모델 복제
 
 디바이스 모델을 복제하여 기존 디바이스 모델의 복사본을 만들 수 있습니다. 그런 다음, 특정 요구 사항에 맞게 복사본을 편집할 수 있습니다. 복제는 유사한 디바이스 모델을 생성해야 하는 경우 시간을 절약합니다.
 
-디바이스 모델을 복제하려면 모델 옆의 상자를 체크한 다음, 작업 모음에서 **복제**를 클릭합니다.
+디바이스 모델을 복제하려면 모델 옆의 상자를 체크한 다음, 작업 모음에서 **복제** 를 클릭합니다.
 
-![디바이스 모델 삭제](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![선택한 모델과 복제 단추를 강조 표시하는 스크린샷.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## <a name="delete-a-device-model"></a>디바이스 모델 삭제
 
-모든 사용자 지정 디바이스 모델을 삭제할 수 있습니다. 디바이스 모델을 삭제하려면 모델 옆의 상자를 체크한 다음, 작업 모음에서 **삭제**를 클릭합니다.
+모든 사용자 지정 디바이스 모델을 삭제할 수 있습니다. 디바이스 모델을 삭제하려면 모델 옆의 상자를 체크한 다음, 작업 모음에서 **삭제** 를 클릭합니다.
 
 ![디바이스 모델 삭제](media/iot-accelerators-device-simulation-create-custom-device/deletedevice.png)
 

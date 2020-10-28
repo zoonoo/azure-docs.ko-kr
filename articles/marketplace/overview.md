@@ -3,16 +3,16 @@ title: Microsoft 상업용 마켓플레이스란?
 description: Microsoft 상업용 마켓플레이스에서 솔루션을 나열하는 Microsoft 파트너의 혜택과 옵션에 대해 간략히 설명합니다.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
+ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
-ms.date: 10/01/2020
-ms.openlocfilehash: 91ae1ce8cb61a0bbc4907c21f0e5e6b869cedb85
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/15/2020
+ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654284"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107048"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
@@ -26,21 +26,41 @@ Microsoft 상업용 마켓플레이스에는 [Microsoft AppSource](https://appso
 
 파트너 센터에서 상업용 마켓플레이스 제품이 만들어지면 선택한 제안 유형, 범주 및 기타 옵션에 따라 온라인 스토어 중 하나 또는 둘 다에 나열될 수 있습니다. 드물지만 제안이 두 온라인 스토어 모두의 사용자와 관련되는 경우 둘 다에 표시될 수 있습니다. 자세한 내용은 [온라인 스토어 선택](determine-your-listing-type.md#selecting-an-online-store) 및 [Microsoft AppSource 및 Azure Marketplace 구매자 가이드](https://aka.ms/MarketplaceBuyerGuide)를 참조하세요.
 
-**Microsoft AppSource**는 SaaS(Software as a Service) 애플리케이션과 같은 비즈니스 솔루션과 Dynamics 365, Microsoft 365 및 Microsoft Power Platform으로 직접 확장되는 앱을 위한 스토어입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
+### <a name="microsoft-appsource"></a>Microsoft AppSource
+
+[Microsoft AppSource](https://appsource.microsoft.com/)는 SaaS(Software as a Service) 애플리케이션과 같은 비즈니스 솔루션과 Dynamics 365, Microsoft 365 및 Microsoft Power Platform으로 직접 확장되는 앱을 위한 스토어입니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
 AppSource의 제안 목록 페이지에 대한 예는 다음과 같습니다.
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다.":::
 
-**Azure Marketplace**는 IT 전문가 및 개발자를 위해 Azure를 기반으로 하거나 이를 위해 구축된 솔루션을 위한 스토어입니다. 여기에는 컨설팅 및 관리형 서비스 목록이 포함됩니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하는 데 도움이 되는 전문 서비스 제품입니다.
+####  <a name="appsource-in-product-experience"></a>AppSource 제품 내 환경
+
+고객은 Microsoft 365, Dynamics 365, Power Platform 및 Azure를 통해 AppSource 제안에 액세스할 수도 있습니다. 다음 예에서는 Power BI **파일** 메뉴에서 AppSource 추가 기능에 액세스하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/overview/power-bi.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다."::: 
+
+이 옵션을 사용하면 고객이 이름 또는 범주별로 Power BI 추가 기능을 검색할 수 있는 창이 열립니다. 
+
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다."::: 
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+[Azure Marketplace](https://azuremarketplace.microsoft.com/)는 IT 전문가 및 개발자를 위해 Azure를 기반으로 하거나 이를 위해 구축된 솔루션을 위한 스토어입니다. 여기에는 컨설팅 및 관리형 서비스 목록이 포함됩니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하는 데 도움이 되는 전문 서비스 제품입니다.
 
 Azure Marketplace의 제안 목록 페이지에 대한 예는 다음과 같습니다.
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다."::: 
 
-Azure Marketplace는 Azure를 기반으로 하므로 고객은 [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** 옵션을 통해 솔루션에 액세스할 수 있습니다.
+#### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Portal의 Azure Marketplace
+
+Azure 고객은 [Azure Portal](https://portal.azure.com/)의 **리소스 만들기** 옵션을 통해 Azure Marketplace 솔루션을 검색하고 배포할 수 있습니다.
 
 :::image type="content" source="media/overview/create-resource.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다."::: 
+
+이 옵션을 사용하면 Azure Portal 내에서 이름 또는 범주별로 솔루션을 검색할 수 있는 Azure Marketplace가 열립니다.
+
+:::image type="content" source="media/overview/search-portal.png" alt-text="Microsoft AppSource의 제안 목록 페이지를 보여 줍니다."::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Microsoft를 통한 판매 혜택
 

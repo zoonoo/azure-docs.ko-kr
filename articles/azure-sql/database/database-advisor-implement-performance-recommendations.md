@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284366"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672115"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Azure SQL Database에 대 한 Database Advisor 성능 권장 사항
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ Azure SQL Database는 실행 중인 쿼리를 지속적으로 모니터링 하 �
 
 Azure SQL Database는 시간이 지나면서 인덱스로 인한 성능 향상을 예상하여 신뢰도를 빌드합니다. 예상된 성능 향상에 따라 권장 사항은 높음, 보통, 낮음으로 분류됩니다.
 
-권장 사항을 사용하여 만든 인덱스에는 항상 자동 생성된 인덱스로 플래그가 지정됩니다. [Sys. 인덱스 뷰](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)를 살펴보면 자동으로 생성 되는 인덱스를 확인할 수 있습니다. 자동 생성 인덱스는 ALTER/RENAME 명령을 차단 하지 않습니다.
+권장 사항을 사용하여 만든 인덱스에는 항상 자동 생성된 인덱스로 플래그가 지정됩니다. [Sys. 인덱스 뷰](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)를 살펴보면 자동으로 생성 되는 인덱스를 확인할 수 있습니다. 자동 생성 인덱스는 ALTER/RENAME 명령을 차단 하지 않습니다.
 
 자동 생성된 인덱스가 있는 열을 삭제하려고 하면 명령이 성공합니다. 자동 생성된 인덱스도 이 명령으로 삭제됩니다. 일반 인덱스는 인덱싱된 열에 대한 ALTER/RENAME 명령을 차단합니다.
 
@@ -105,7 +105,7 @@ CPU, 데이터 IO 또는 로그 IO가 이전 30 분 동안 80% 보다 높은 경
 
 | SQL 오류 코드 | 메시지 |
 | --- | --- |
-| 201 |프로시저 또는 함수 '*'에서 매개 변수 '*'이(가) 필요하지만 제공되지 않았습니다. |
+| 201 |프로시저 또는 함수 ' *'에서 매개 변수 '* '이(가) 필요하지만 제공되지 않았습니다. |
 | 207 |잘못된 열 이름: '*'. |
 | 208 |잘못된 개체 이름: '*'. |
 | 213 |제공된 값의 개수나 열 이름이 테이블 정의와 일치하지 않습니다. |
@@ -114,7 +114,7 @@ CPU, 데이터 IO 또는 로그 IO가 이전 30 분 동안 80% 보다 높은 경
 
 ## <a name="custom-applications"></a>사용자 지정 애플리케이션
 
-개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램을 개발할 수 있습니다. 데이터베이스 포털에 나열 된 모든 권장 사항은 [AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API를 통해 액세스할 수 있습니다.
+개발자는 Azure SQL Database에 대 한 성능 권장 사항을 사용 하 여 사용자 지정 응용 프로그램을 개발할 수 있습니다. 데이터베이스 포털에 나열 된 모든 권장 사항은 [AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API를 통해 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

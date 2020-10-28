@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 29a07ffa917153c0cb062d34e2807d43d039a373
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372323"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494655"
 ---
 이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 다음 절차에 따라 삭제합니다.
 
@@ -21,6 +21,6 @@ ms.locfileid: "92372323"
 
 Azure Cloud Shell을 열고 다음 명령을 실행하여 리소스 그룹과 그 안에 포함된 모든 항목을 삭제합니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```

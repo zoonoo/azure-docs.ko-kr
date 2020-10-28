@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2359c762c9ad653ee2eed294709ad7bf6b2a31c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289874"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671106"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
@@ -34,19 +34,19 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CS
 
 2. 스토리지 계정을 찾아 계정 개요를 표시합니다.
 
-3. **정적 웹 사이트**를 선택하여 정적 웹 사이트에 대한 구성 페이지를 표시합니다.
+3. **정적 웹 사이트** 를 선택하여 정적 웹 사이트에 대한 구성 페이지를 표시합니다.
 
-4. **사용**을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
+4. **사용** 을 선택하여 스토리지 계정에서 정적 웹 사이트를 호스팅할 수 있습니다.
 
-5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html*)를 지정합니다. 
+5. **인덱스 문서 이름** 필드에서 기본 인덱스 페이지(예: *index.html* )를 지정합니다. 
 
    기본 인덱스 페이지는 사용자가 정적 웹 사이트의 루트로 이동할 때 표시됩니다.  
 
-6. **오류 문서 경로** 필드에서 기본 오류 페이지(예: *404.html*)를 지정합니다. 
+6. **오류 문서 경로** 필드에서 기본 오류 페이지(예: *404.html* )를 지정합니다. 
 
    기본 오류 페이지는 사용자가 정적 웹 사이트에서 존재하지 않는 페이지로 이동하려고 할 때 표시됩니다.
 
-7. **저장**을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다. 
+7. **저장** 을 클릭합니다. 이제 Azure Portal에는 정적 웹 사이트 엔드포인트가 표시됩니다. 
 
     ![스토리지 계정에서 정적 웹 사이트 호스팅 설정](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -151,7 +151,7 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
    ![콘텐츠 형식 확인](media/storage-blob-static-website/storage-blob-static-website-content-type.png)
 
    >[!NOTE]
-   > Storage Explorer는 `.html`과 같은 일반적으로 인식되는 확장에 대해 이 속성을 자동으로 `text/html`로 설정합니다. 그러나 이를 직접 설정해야 하는 경우도 있습니다. 이 속성을 `text/html`로 설정하지 않으면 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시합니다. 이 속성을 설정하려면 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 클릭합니다.
+   > Storage Explorer는 `.html`과 같은 일반적으로 인식되는 확장에 대해 이 속성을 자동으로 `text/html`로 설정합니다. 그러나 이를 직접 설정해야 하는 경우도 있습니다. 이 속성을 `text/html`로 설정하지 않으면 브라우저에서 사용자에게 콘텐츠를 렌더링하지 않고 파일을 다운로드하라는 메시지를 표시합니다. 이 속성을 설정하려면 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성** 을 클릭합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -204,7 +204,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
-스토리지 계정의 계정 개요 페이지 옆에 표시되는 창에서 **정적 웹 사이트**를 선택합니다. **기본 엔드포인트** 필드에 사이트의 URL이 표시됩니다.
+스토리지 계정의 계정 개요 페이지 옆에 표시되는 창에서 **정적 웹 사이트** 를 선택합니다. **기본 엔드포인트** 필드에 사이트의 URL이 표시됩니다.
 
 ![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
@@ -241,7 +241,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 메트릭을 사용하도록 설정하면 **$web** 컨테이너의 파일에 대한 트래픽 통계가 메트릭 대시보드에 보고됩니다.
 
-1. 스토리지 계정 메뉴의 **모니터** 섹션에서 **메트릭**을 클릭합니다.
+1. 스토리지 계정 메뉴의 **모니터** 섹션에서 **메트릭** 을 클릭합니다.
 
    > [!div class="mx-imgBorder"]
    > ![메트릭 링크](./media/storage-blob-static-website/metrics-link.png)
@@ -249,23 +249,23 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
    > [!NOTE]
    > 여러 메트릭 API에 연결하여 메트릭 데이터가 생성됩니다. 데이터를 반환하는 멤버에만 집중하기 위해 특정 시간 프레임에 사용된 API 멤버만 포털에 표시됩니다. 필요한 API 멤버를 선택할 수 있도록 가장 먼저 할 일은 시간 프레임을 확장하는 것입니다.
 
-2. 시간 프레임 단추를 클릭하고, 시간 프레임을 선택한 다음, **적용**을 클릭합니다.
+2. 시간 프레임 단추를 클릭하고, 시간 프레임을 선택한 다음, **적용** 을 클릭합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 시간 범위](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 
-3. *네임스페이스* 드롭다운에서 **Blob**을 선택합니다.
+3. *네임스페이스* 드롭다운에서 **Blob** 을 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 네임스페이스](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
 
 4. 그런 다음, **송신** 메트릭을 선택합니다.
 
-   ![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Azure Storage 정적 websites 송신 메트릭을 보여 주는 스크린샷](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. *집계* 선택기에서 **합계**를 선택합니다.
+5. *집계* 선택기에서 **합계** 를 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 집계](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
-6. **필터 추가** 단추를 클릭하고 *속성* 선택기에서 **API 이름**을 선택합니다.
+6. **필터 추가** 단추를 클릭하고 *속성* 선택기에서 **API 이름** 을 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 API 이름](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 

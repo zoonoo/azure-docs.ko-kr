@@ -11,27 +11,28 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968942"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331841"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Read v2.x에서 Read v3.x로 업그레이드
 
 이 가이드에서는 기존 컨테이너 또는 클라우드 API 코드를 Read v2.x에서 Read v3.0 및 v3.1 미리 보기로 업그레이드하는 방법을 보여 줍니다.
 
 ## <a name="determine-your-api-path"></a>API 경로 결정
-다음 표를 사용하여 마이그레이션하는 Read 3.x 버전에 따라 API 경로에서 **버전 문자열**을 확인할 수 있습니다.
+다음 표를 사용하여 마이그레이션하는 Read 3.x 버전에 따라 API 경로에서 **버전 문자열** 을 확인할 수 있습니다.
 
 |제품 유형| 버전 | 3\.x API 경로의 버전 문자열 |
 |:-----|:----|:----|
-|서비스 | Read 3.0 | **v3.0** |
-|컨테이너 | Read 3.0 미리 보기 | **v3.0** |
-|서비스/컨테이너 | Read 3.1 미리 보기 | **v3.1-preview.2** |
+|서비스 | Read 3.0 또는 3.1 | 각각 **v3.0** 또는 **v3.1** |
+|서비스 | Read 3.2 미리 보기 | **v3.2-preview.1** |
+|컨테이너 | Read 3.0 미리 보기 또는 Read 3.1 미리 보기 | 각각 **v3.0** 또는 **v3.1-preview.2** |
 
-다음으로 다음 섹션을 사용하여 작업 범위를 좁히고 API 경로의 **버전 문자열**을 테이블의 값으로 바꿉니다. 예를 들어 **Read v3.1 미리 보기** 클라우드 및 컨테이너 버전의 경우 API 경로를 **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]** 로 업데이트합니다.
+
+다음으로 다음 섹션을 사용하여 작업 범위를 좁히고 API 경로의 **버전 문자열** 을 테이블의 값으로 바꿉니다. 예를 들어 **Read v3.2 미리 보기** 클라우드 및 컨테이너 버전의 경우 API 경로를 **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]** 로 업데이트합니다.
 
 ## <a name="servicecontainer"></a>서비스/컨테이너
 
@@ -39,15 +40,15 @@ ms.locfileid: "91968942"
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
+|https://{endpoint}/vision/ **v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/< **version string** >/read/analyze[?language]|
     
-새로운 선택적 매개 변수 _language_를 사용할 수 있습니다. 문서 언어를 모르는 경우 또는 문서 언어가 다국어일 수도 있는 경우에는 이 매개 변수를 포함하지 마세요. 
+새로운 선택적 매개 변수 _language_ 를 사용할 수 있습니다. 문서 언어를 모르는 경우 또는 문서 언어가 다국어일 수도 있는 경우에는 이 매개 변수를 포함하지 마세요. 
 
 ### `Get Read Results`
 
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<**version string**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/ **v2.0/read/operations** /{operationId}     |https://{endpoint}/vision/< **version string** >/read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>`Get Read Operation Result` 상태 플래그
 
@@ -177,17 +178,17 @@ v3.0에서는 다음과 같이 조정되었습니다.
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recognizeText[?mode]**|https://{endpoint}/vision/<**version string**>/read/analyze[?language]|
+|https://{endpoint}/vision/ **v2.0/recognizeText[?mode]**|https://{endpoint}/vision/< **version string** >/read/analyze[?language]|
     
 _mode_ 매개 변수는 `Read`에서 지원되지 않습니다. 필기 텍스트와 인쇄된 텍스트가 모두 자동으로 지원됩니다.
     
-v3.0에서는 새로운 선택적 매개 변수 _language_를 사용할 수 있습니다. 문서 언어를 모르는 경우 또는 문서 언어가 다국어일 수도 있는 경우에는 이 매개 변수를 포함하지 마세요. 
+v3.0에서는 새로운 선택적 매개 변수 _language_ 를 사용할 수 있습니다. 문서 언어를 모르는 경우 또는 문서 언어가 다국어일 수도 있는 경우에는 이 매개 변수를 포함하지 마세요. 
 
 ### `Get Recognize Text Operation Result`
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/** {operationId}|https://{endpoint}/vision/<**version string**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/ **v2.0/textOperations/** {operationId}|https://{endpoint}/vision/< **version string** >/read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>`Get Recognize Text Operation Result` 상태 플래그
 `Get Recognize Text Operation Result` 호출이 성공하면 JSON 본문에 상태 문자열 필드가 반환됩니다. 
@@ -311,4 +312,4 @@ v3.x에서는 다음과 같이 조정되었습니다.
 
 |Read 2.0 |Read 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**version string**>/read/syncAnalyze[?language]|
+|https://{endpoint}/vision/ **v2.0/read/core/Analyze**     |https://{endpoint}/vision/< **version string** >/read/syncAnalyze[?language]|

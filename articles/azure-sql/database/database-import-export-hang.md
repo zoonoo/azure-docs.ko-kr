@@ -10,12 +10,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: f98cfcd49806061a969a9227f9ade05f70ce79ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69bba858ccf62f1b3a3b45b08771ddba71f11cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85982313"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671402"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database 및 Managed Instance Import/Export 서비스는 데이터베이스를 가져오거나 내보내는 데 시간이 오래 걸립니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "85982313"
 
 ## <a name="azure-sql-database-importexport-service"></a>Azure SQL Database Import/Export 서비스
 
-Azure SQL Database Import/Export 서비스는 모든 Azure 데이터 센터에서 실행 되는 REST 기반 웹 서비스입니다. 이 서비스는 [데이터베이스 가져오기](database-import.md#using-azure-portal) 또는 [내보내기](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) 옵션을 사용 하 여 Azure Portal에서 데이터베이스를 이동할 때 호출 됩니다. 서비스는 Azure SQL Database와 Azure Blob storage 간에 가져오기 및 내보내기를 수행 하는 무료 요청 큐 및 계산 서비스를 제공 합니다.
+Azure SQL Database Import/Export 서비스는 모든 Azure 데이터 센터에서 실행 되는 REST 기반 웹 서비스입니다. 이 서비스는 [데이터베이스 가져오기](database-import.md#using-azure-portal) 또는 [내보내기](./database-import.md#using-azure-portal) 옵션을 사용 하 여 Azure Portal에서 데이터베이스를 이동할 때 호출 됩니다. 서비스는 Azure SQL Database와 Azure Blob storage 간에 가져오기 및 내보내기를 수행 하는 무료 요청 큐 및 계산 서비스를 제공 합니다.
 
 가져오기 및 내보내기 작업은 기존 물리적 데이터베이스 백업을 나타내지 않고, 특수 BACPAC 형식을 사용 하는 데이터베이스의 논리적 백업입니다. BACPAC 형식을 사용 하면 Microsoft SQL Server, Azure SQL Database 및 Azure SQL Managed Instance의 버전 마다 다를 수 있는 물리적 형식을 사용 하지 않아도 됩니다.
 
@@ -40,20 +40,20 @@ Azure SQL Database 가져오기/내보내기 서비스는 가져오기 및 내�
 
 데이터베이스 내보내기가 실수로 인 한 데이터 삭제의 복구에만 사용 되는 경우 모든 Azure SQL Database 버전은 시스템 생성 백업에서 셀프 서비스 복원 기능을 제공 합니다. 그러나 다른 이유로 이러한 내보내기가 필요 하며 지속적으로 빠르고 예측 가능한 가져오기/내보내기 성능이 필요한 경우에는 다음 옵션을 고려 하십시오.
 
-* [SQLPackage 유틸리티를 사용 하 여 BACPAC 파일로 내보냅니다](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
-* [SSMS (SQL Server Management Studio)를 사용 하 여 BACPAC 파일로 내보냅니다](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
+* [SQLPackage 유틸리티를 사용 하 여 BACPAC 파일로 내보냅니다](./database-export.md#sqlpackage-utility).
+* [SSMS (SQL Server Management Studio)를 사용 하 여 BACPAC 파일로 내보냅니다](./database-export.md#sql-server-management-studio-ssms).
 * DacFx (Microsoft SQL Server Data-Tier 응용 프로그램 프레임 워크) API를 사용 하 여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행 합니다. 자세한 내용은 다음을 참조하세요.
-  * [데이터 계층 응용 프로그램 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
-  * [Microsoft SqlServer 네임 스페이스](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
+  * [데이터 계층 응용 프로그램 내보내기](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+  * [Microsoft SqlServer 네임 스페이스](/dotnet/api/microsoft.sqlserver.dac)
   * [다운로드 DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
 ## <a name="things-to-consider-when-you-export-or-import-a-database"></a>데이터베이스를 내보내거나 가져올 때 고려해 야 할 사항
 
-* 이 문서에서 설명 하는 모든 메서드는 DTU (데이터베이스 트랜잭션 단위) 할당량을 사용 하 여 Azure SQL Database 서비스에 의해 제한이 발생 합니다. [Azure Portal 데이터베이스에 대 한 DTU 통계를 볼](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring)수 있습니다. 데이터베이스가 리소스 제한에 도달 하면 [서비스 계층을 업그레이드](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) 하 여 더 많은 리소스를 추가 합니다.
+* 이 문서에서 설명 하는 모든 메서드는 DTU (데이터베이스 트랜잭션 단위) 할당량을 사용 하 여 Azure SQL Database 서비스에 의해 제한이 발생 합니다. [Azure Portal 데이터베이스에 대 한 DTU 통계를 볼](./monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring)수 있습니다. 데이터베이스가 리소스 제한에 도달 하면 [서비스 계층을 업그레이드](./scale-resources.md) 하 여 더 많은 리소스를 추가 합니다.
 * Sqlpackage 유틸리티 또는 사용자 지정 DAC 응용 프로그램과 같은 클라이언트 응용 프로그램을 데이터베이스와 동일한 지역에 있는 VM에서 실행 하는 것이 가장 좋습니다. 그렇지 않으면 네트워크 대기 시간과 관련 된 성능 문제가 발생할 수 있습니다.
 * 클러스터형 인덱스가 없는 큰 테이블을 내보내면 매우 느리거나 오류가 발생할 수 있습니다. 이 동작은 테이블을 병렬로 분할 하 고 내보낼 수 없기 때문에 발생 합니다. 대신 단일 트랜잭션으로 내보내야 하며 특히 내보내기 중에 성능이 저하 되 고 잠재적으로 오류가 발생 합니다. 특히 많은 테이블이 필요 합니다.
 
 
 ## <a name="related-documents"></a>관련 문서
 
-[데이터베이스를 내보낼 때의 고려 사항](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)
+[데이터베이스를 내보낼 때의 고려 사항](./database-export.md#considerations)

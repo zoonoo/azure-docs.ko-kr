@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2069d56b6bc0507478714eda575ab38fec41b8a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92207630"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479578"
 ---
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스, 서비스 및 문서 검색(G+/)** 에 **가상 네트워크 게이트웨이** 를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이** 를 찾아서 항목을 선택합니다.
 
-   ![Azure Portal에서 리소스 만들기](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
-1. **마켓플레이스 검색** 필드에서 '가상 네트워크 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이** 를 찾아서 항목을 선택합니다. **가상 네트워크 게이트웨이** 페이지에서 **만들기** 를 선택합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="검색 필드" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+
+1. **가상 네트워크 게이트웨이** 페이지에서 **+ 추가** 를 선택합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
+
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="검색 필드":::
 1. **기본** 탭에서 가상 네트워크 게이트웨이 값을 입력합니다.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="게이트웨이 필드":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="검색 필드":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="게이트웨이 필드":::
-
-   **프로젝트 세부 정보**
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="검색 필드":::
 
    * **구독** : 드롭다운 목록에서 사용하려는 구독을 선택합니다.
    * **리소스 그룹** : 이 페이지에서 가상 네트워크를 선택하면 이 설정이 자동으로 채워집니다.
@@ -48,10 +49,8 @@ ms.locfileid: "92207630"
      * **공용 IP 주소** : **새로 만들기** 를 선택한 상태로 둡니다.
      * **공용 IP 주소 이름** : 텍스트 상자에서 공용 IP 주소 인스턴스의 이름을 입력합니다.
      * **할당** : VPN 게이트웨이는 '동적'만 지원합니다.
-
-   **활성-활성 모드** : 활성-활성 게이트웨이 구성을 만드는 경우에만 **활성-활성 모드 활성화** 를 선택합니다. 그렇지 않은 경우 이 설정을 **사용 안 함** 상태로 둡니다.
-
-   구성에서 이 설정이 명시적으로 필요한 경우를 제외하고 **BGP ASN 구성** 을 **사용 안 함** 상태로 둡니다. 이 설정이 필요한 경우 기본 ASN은 65515이며 변경 가능합니다.
+     * **active-active 모드를 사용하도록 설정** : 활성-활성 게이트웨이 구성을 만드는 경우에만 **활성-활성 모드 활성화** 를 선택합니다. 그렇지 않은 경우 이 설정을 **사용 안 함** 상태로 둡니다.
+     * 구성에서 이 설정이 명시적으로 필요한 경우를 제외하고 **BGP 구성** 을 **사용 안 함** 상태로 둡니다. 이 설정이 필요한 경우 기본 ASN은 65515이며 변경 가능합니다.
 1. **검토 + 만들기** 를 선택하여 유효성 검사를 실행합니다.
 1. 유효성 검사를 통과하면 **만들기** 를 선택하여 VPN 게이트웨이를 배포합니다. 게이트웨이에서 완전히 만들고 배포하는 데 최대 45분이 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다.
 

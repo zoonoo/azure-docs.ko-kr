@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320996"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470968"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -107,7 +107,8 @@ Linux 또는 Mac에서 명령은 다음과 유사하게 시작됩니다.
 
 ## <a name="create-subscription-config"></a>구독 구성 만들기
 
-Speech CLI 사용을 시작하려면 먼저 Speech 구독 키 및 지역 정보를 입력해야 합니다. 지역 식별자를 찾으려면 [지역 지원](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) 페이지를 참조하세요. 구독 키와 지역 식별자가 있으면(예: `eastus`, `westus`) 다음 명령을 실행합니다.
+음성 CLI 사용을 시작하려면 음성 구독 키 및 지역 식별자를 입력해야 합니다. [음성 서비스 무료로 사용해 보기](../overview.md#try-the-speech-service-for-free)의 단계를 따라 이러한 자격 증명을 가져오세요.
+구독 키와 지역 식별자가 있으면(예: `eastus`, `westus`) 다음 명령을 실행합니다.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

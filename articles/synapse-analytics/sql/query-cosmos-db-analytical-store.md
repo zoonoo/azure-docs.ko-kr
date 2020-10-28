@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c5fa326fa05a34ae5b51054b867a766489b85c16
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474906"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670704"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Azure Synapse Link에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Azure Cosmos DB 데이터 쿼리 (미리 보기)
 
@@ -23,6 +23,9 @@ Synapse 서버를 사용 하지 않는 SQL 풀 (이전에는 SQL 요청 시)을 
 Azure Cosmos DB를 쿼리 하는 경우 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함 하 여 전체 [선택](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) 노출 영역이 [OPENROWSET](develop-openrowset.md) 함수를 통해 지원 됩니다. Azure Blob Storage Azure Data Lake Storage 또는 [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 데이터와 함께 Azure Cosmos DB에서 데이터를 읽는 쿼리 결과를 저장할 수도 있습니다. 현재 [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand)를 사용 하 여 Azure Cosmos DB에 서버 리스 SQL 풀 쿼리 결과를 저장할 수 없습니다.
 
 이 문서에서는 Synapse 링크를 사용 하는 Azure Cosmos DB 컨테이너에서 데이터를 쿼리 하는 서버를 사용 하지 않는 SQL 풀로 쿼리를 작성 하는 방법을 배웁니다. 그런 다음 Azure Cosmos DB 컨테이너를 통해 서버 리스 SQL 풀 뷰를 빌드하고 [이](./tutorial-data-analyst.md) 자습서의 Power BI 모델에 연결 하는 방법에 대해 자세히 알아볼 수 있습니다. 
+
+> [!IMPORTANT]
+> 이 자습서에서는 [Azure Cosmos DB 잘 정의 된 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation) 와 함께 컨테이너를 사용 하 여 나중에 지원 되는 쿼리 환경을 제공 합니다. 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 될 임시 동작입니다. `OPENROWSET`쿼리 experinece 변경 되 고 잘 정의 된 스키마를 사용 하 여 정렬 될 수 있으므로 공개 미리 보기 중에 함수에서 제공 하는 스키마에 의존 하지 마십시오. 의견을 제공 하려면 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 문의 하세요.
 
 ## <a name="overview"></a>개요
 
@@ -253,16 +256,81 @@ SQL (Core) API의 Azure Cosmos DB 계정은 숫자, 문자열, 부울, null, 중
 | Null | `any SQL type` 
 | 중첩 된 개체 또는 배열 | varchar (max) (UTF8 데이터베이스 데이터 정렬), JSON 텍스트로 직렬화 됨 |
 
+## <a name="full-fidelity-schema"></a>전체 충실도 스키마
+
+전체 충실도 스키마 Azure Cosmos DB 컨테이너의 모든 속성에 대해 값과 가장 일치 하는 항목을 모두 기록 합니다.
+`OPENROWSET` 전체 충실도 스키마를 사용 하는 컨테이너에 대 한 함수는 각 셀에 형식과 실제 값을 모두 제공 합니다. 다음 쿼리는 전체 충실도 스키마를 사용 하 여 컨테이너에서 항목을 읽는 것으로 가정 하겠습니다.
+
+```sql
+SELECT *
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) as rows
+```
+
+이 쿼리의 결과는 JSON 텍스트로 형식이 지정 된 형식 및 값을 반환 합니다. 
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| {"date": "2020-08-13"} | {"int32": "254"} | {"string": "RS"} |
+| {"date": "2020-08-12"} | {"int32": "235"}| {"string": "RS"} |
+| {"date": "2020-08-11"} | {"int32": "316"} | {"string": "RS"} |
+| {"date": "2020-08-10"} | {"int32": "281"} | {"string": "RS"} |
+| {"date": "2020-08-09"} | {"int32": "295"} | {"string": "RS"} |
+| {"string": "2020/08/08"} | {"int32": "312"} | {"string": "RS"} |
+| {"date": "2020-08-07"} | {"float64": "339.0"} | {"string": "RS"} |
+
+모든 값에 대해 Cosmos DB 컨테이너 항목에서 식별 된 형식을 확인할 수 있습니다. 속성에 대 한 대부분의 값은 `date_rep` `date` 값을 포함 하지만이 중 일부는 Cosmos DB의 문자열로 잘못 저장 됩니다. Full 충실도 스키마는 올바르게 형식화 된 `date` 값과 잘못 된 형식의 값을 모두 반환 `string` 합니다.
+사례 수는 값으로 저장 된 정보 `int32` 이지만 10 진수로 입력 된 값이 하나 있습니다. 이 값의 `float64` 형식은입니다. 가장 큰 수를 초과 하는 값이 있는 경우 `int32` 형식으로 저장 됩니다 `int64` . `geo_id`이 예제의 모든 값은 형식으로 저장 됩니다 `string` .
+
+> [!IMPORTANT]
+> Full 충실도 스키마는 예상 형식 및 형식이 잘못 입력 된 값을 모두 제공 합니다.
+> 전체 품질 분석 저장소에서 corection를 적용 하려면 Azure Cosmos DB 컨테이너에 잘못 된 형식의 값을 정리 해야 합니다. 
+
 Mongo DB API 종류의 Azure Cosmos DB 계정을 쿼리하려면 [여기](../../cosmos-db/analytical-store-introduction.md#analytical-schema)에서 사용할 확장 속성 이름 및 분석 저장소에서 전체 충실도 스키마 표현에 대해 자세히 알아볼 수 있습니다.
+
+Full 충실도 스키마를 쿼리 하는 동안 SQL 형식을 명시적으로 지정 하 고 절에 속성 유형 Cosmos DB 필요 `WITH` 합니다. 다음 예제에서는 속성에 대해 `string` 가 올바른 형식이 `geo_id` 고 `int32` 속성에 올바른 형식이 있다고 가정 합니다 `cases` .
+
+```sql
+SELECT geo_id, cases = SUM(cases)
+FROM OPENROWSET(
+      'CosmosDB'
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
+             cases INT '$.cases.int32'
+    ) as rows
+GROUP BY geo_id
+```
+
+다른 형식의 값은 및 열에 반환 되지 `geo_id` 않으며 `cases` 쿼리는 `NULL` 이러한 셀의 값을 반환 합니다. 이 쿼리는 `cases` 식에서 지정 된 형식의만 참조 합니다 ( `cases.int32` ). Cosmos DB 컨테이너에서 정리할 수 없는 다른 형식 (,)의 값이 있는 경우 `cases.int64` `cases.float64` 절에서 명시적으로 참조 하 `WITH` 고 결과를 결합 해야 합니다. 다음 쿼리는 `int32` `int64` `float64` 열에 저장 된, 및를 집계 합니다 `cases` .
+
+```sql
+SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
+             cases_int INT '$.cases.int32',
+             cases_bigint BIGINT '$.cases.int64',
+             cases_float FLOAT '$.cases.float64'
+    ) as rows
+GROUP BY geo_id
+```
+
+이 예에서 사례 수는 `int32` , 또는 값으로 저장 되며, `int64` `float64` 국가 당 사례 수를 계산 하기 위해 모든 값을 추출 해야 합니다. 
 
 ## <a name="known-issues"></a>알려진 문제
 
 - 함수 뒤에 별칭을 지정 **해야** 합니다 `OPENROWSET` (예: `OPENROWSET (...) AS function_alias` ). 별칭을 생략 하면 연결 문제가 발생할 수 있으며 서버를 사용 하지 않는 SQL 끝점은 일시적으로 사용할 수 없습니다 Synapse. 이 문제는 11 월 2020에 해결 될 예정입니다.
-- 서버를 사용 하지 않는 SQL 풀은 현재 [Azure Cosmos DB full 충실도 스키마](../../cosmos-db/analytical-store-introduction.md#schema-representation)를 지원 하지 않습니다. 서버를 사용 하지 않는 SQL 풀만 사용 하 Cosmos DB 잘 정의 된 스키마에 액세스할 수 있습니다.
+- 서버를 사용 하지 않는 SQL 풀에서 [Azure Cosmos DB 전체 충실도 스키마](#full-fidelity-schema) 를 제공 하는 쿼리 환경은 미리 보기 피드백에 따라 변경 되는 임시 동작입니다. `OPENROWSET`쿼리 환경이 잘 정의 된 스키마에 맞게 정렬 될 수 있으므로 공개 미리 보기 중에 함수에서 제공 하는 스키마를 사용 하지 마십시오. 의견을 제공 하려면 [Synapse 링크 제품 팀](mailto:cosmosdbsynapselink@microsoft.com) 에 문의 하세요.
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| Error | 근본 원인 |
+| 오류 | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> -' Openrowset ' 근처의 구문이 잘못 되었습니다.<br/> - `...` 은 (는) 인식할 수 없는 대량 OPENROWSET 공급자 옵션입니다.<br/> -근처의 구문이 잘못 되었습니다. `...` | 가능한 근본 원인<br/> -' CosmosDB '를 첫 번째 매개 변수로 사용 하지 않습니다.<br/> -세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용 합니다.<br/> -세 번째 매개 변수 (컨테이너 이름)를 지정 하지 않습니다. |
 | CosmosDB 연결 문자열에 오류가 있습니다. | -계정, 데이터베이스, 키가 지정 되지 않았습니다. <br/> -인식 되지 않는 연결 문자열에 옵션이 있습니다.<br/> -세미콜론 `;` 은 연결 문자열의 끝에 배치 됩니다. |
