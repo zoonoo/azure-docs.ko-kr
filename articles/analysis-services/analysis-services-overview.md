@@ -4,16 +4,16 @@ description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018800"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201514"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -35,11 +35,11 @@ Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 �
 
 ## <a name="the-right-tier-when-you-need-it"></a>필요할 때 적합한 계층
 
-Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서 사용할 수 있습니다. 각 계층 내에서 계획 비용은 처리 능력, QPU(쿼리 처리 단위) 및 메모리 크기에 따라 달라집니다. 서버를 만들 때 계층 내에서 계획을 선택합니다. 동일한 계층 내에서 계획을 위 또는 아래로 변경하거나 상위 계층으로 업그레이드할 수 있지만, 상위 계층에서 하위 계층으로 다운그레이드할 수는 없습니다.
+Azure Analysis Services는 **개발자** , **기본** 및 **표준** 계층에서 사용할 수 있습니다. 각 계층 내에서 계획 비용은 처리 능력, QPU(쿼리 처리 단위) 및 메모리 크기에 따라 달라집니다. 서버를 만들 때 계층 내에서 계획을 선택합니다. 동일한 계층 내에서 계획을 위 또는 아래로 변경하거나 상위 계층으로 업그레이드할 수 있지만, 상위 계층에서 하위 계층으로 다운그레이드할 수는 없습니다.
 
 ### <a name="developer-tier"></a>개발자 계층
 
-이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 이 계층에는 SLA를 제공하지 않습니다.
+이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다* . 이 계층에는 SLA를 제공하지 않습니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -48,7 +48,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="basic-tier"></a>기본 계층
 
-이 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
+이 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다* . 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다* .  
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -71,7 +71,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - 일부 지역에서 사용할 수 없습니다.   
-<a name="rec">2</a> - v2를 사용하는 것이 좋습니다.
+<a name="rec">2</a> - S8 및 S9는 [사용되지 않습니다](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2를 사용하는 것이 좋습니다. 
 
 ## <a name="availability-by-region"></a>지역별 가용성
 
@@ -85,7 +85,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|미국 동부 2     |     S8, S9, S8v2, S9v2   |    1    |
+|미국 동부 2     |     S8v2, S9v2   |    1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중북부     |     S8v2, S9v2    |    1     |
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -93,9 +93,9 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |미국 서부     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|미국 서부     |    S8, S9, S8v2, S9v2   |    2  |
+|미국 서부     |    S8v2, S9v2   |    2  |
 |미국 서부2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|미국 서부2    |    S8, S9, S8v2, S9v2  |    1     |
+|미국 서부2    |    S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>유럽
 
@@ -105,17 +105,18 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |북유럽     |    S8v2, S9v2      |    3     |
 |영국 남부     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |서유럽     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|서유럽    |   S8, S9, S8v2, S9v2  |  1  |
+|서유럽    |   S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4     |    3     |
-|오스트레일리아 동부     |    S8, S9, S8v2, S9v2    |    1     |
+|오스트레일리아 동부     |    S8v2, S9v2    |    1     |
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |일본 동부     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|동남아시아     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|동남아시아     |     S8v2, S9v2     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
@@ -126,7 +127,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>빠른 쿼리 응답에 대한 리소스 스케일 아웃
 
-스케일 아웃하면 클라이언트 쿼리가 쿼리 풀의 여러 *쿼리 복제본*에 배포됩니다. 쿼리 복제본은 테이블 형식 모델의 복사본을 동기화했습니다. 쿼리 작업을 확산하여 높은 쿼리 작업 동안 응답 시간을 줄일 수 있습니다. 모델 처리 작업은 클라이언트 쿼리가 작업 처리에 의해 부정적인 영향을 받지 않도록 쿼리 풀에서 구분될 수 있습니다. 
+스케일 아웃하면 클라이언트 쿼리가 쿼리 풀의 여러 *쿼리 복제본* 에 배포됩니다. 쿼리 복제본은 테이블 형식 모델의 복사본을 동기화했습니다. 쿼리 작업을 확산하여 높은 쿼리 작업 동안 응답 시간을 줄일 수 있습니다. 모델 처리 작업은 클라이언트 쿼리가 작업 처리에 의해 부정적인 영향을 받지 않도록 쿼리 풀에서 구분될 수 있습니다. 
 
 최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 풀에 있을 수 있는 쿼리 복제본의 수는 선택한 계획 및 지역에 따라 다릅니다. 쿼리 복제본은 서버의 지역 밖에 분배될 수 없습니다. 쿼리 복제본은 서버와 동일한 요금으로 청구됩니다.
 
@@ -138,7 +139,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 ## <a name="built-on-sql-server-analysis-services"></a>SQL Server Analysis Services 기반
 
-Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 유용한 기능과 호환됩니다. Azure Analysis Services는 1200 이상 [호환성 수준](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다*.
+Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 유용한 기능과 호환됩니다. Azure Analysis Services는 1200 이상 [호환성 수준](/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for SharePoint는 Azure Analysis Services에서 지원되지 *않습니다* .
 
 메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 세트 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 
 
@@ -238,7 +239,7 @@ Azure Analysis Services는 Azure Monitor 메트릭과 통합되어 서버의 성
 
 Azure Analysis Services는 [DMV(동적 관리 뷰)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 
 Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 문서를 찾습니다. 
 
@@ -250,7 +251,7 @@ Azure Analysis Services의 테이블 형식 모델은 SQL Server Analysis Servic
 
 이 문서와 같은 Analysis Services 설명서는 오픈 소스입니다. 기여할 수 있는 방법에 대한 자세한 내용은 [Docs 기여자 가이드](/contribute/)를 참조하세요. 
 
-Azure Analysis Services 설명서는 [GitHub 문제](/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 문서 맨 아래에서 **피드백**을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
+Azure Analysis Services 설명서는 [GitHub 문제](/teamblog/a-new-feedback-system-is-coming-to-docs)도 사용합니다. 제품 또는 설명서에 대한 피드백을 제공할 수 있습니다. 문서 맨 아래에서 **피드백** 을 사용합니다. GitHub 문제는 공유 Analysis Services 설명서에 사용하도록 설정되지 않았습니다. 
 
 ## <a name="blogs"></a>블로그
 

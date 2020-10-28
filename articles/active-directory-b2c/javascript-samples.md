@@ -9,15 +9,15 @@ ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9faca55f8440a28a845e892ee38df2de3489f97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b4fff4a58685873e99332b00864ee95f569416
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259495"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628595"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플
 
@@ -36,20 +36,20 @@ ms.locfileid: "91259495"
 > [!NOTE]
 > 사용자 흐름에 JavaScript를 사용 하도록 설정 하려면 [Azure Active Directory B2C의 javascript 및 페이지 레이아웃 버전](user-flow-javascript-overview.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
 
 * 응용 프로그램의 사용자 인터페이스 요소에 대 한 [페이지 레이아웃](contentdefinitions.md#select-a-page-layout) 을 선택 합니다.
 
-    JavaScript를 사용 하려는 경우 [define a page layout version](contentdefinitions.md#migrating-to-page-layout) `contract` 사용자 지정 정책의 *모든* 콘텐츠 정의에 대해 페이지 버전으로 페이지 레이아웃 버전을 정의 해야 합니다.
+    JavaScript를 사용 하려는 경우 [define a page layout version](contentdefinitions.md#migrating-to-page-layout) `contract` 사용자 지정 정책의 *모든* 콘텐츠 정의에 대해 페이지 버전으로 페이지 레이아웃 버전을 정의 해야 합니다. 페이지 버전으로 [페이지 레이아웃으로 마이그레이션하](contentdefinitions.md#migrating-to-page-layout) 는 방법에 대해 알아봅니다. 
 
 ## <a name="add-the-scriptexecution-element"></a>ScriptExecution 요소 추가
 
 [RelyingParty](relyingparty.md) 요소에 **ScriptExecution** 요소를 추가하여 스크립트 실행을 가능하게 합니다.
 
-1. 사용자 지정 정책 파일(예: *SignUpOrSignin.xml*)을 엽니다.
-2. **RelyingParty**의 **UserJourneyBehaviors** 요소에 **ScriptExecution** 요소를 추가합니다.
+1. 사용자 지정 정책 파일(예: *SignUpOrSignin.xml* )을 엽니다.
+2. **RelyingParty** 의 **UserJourneyBehaviors** 요소에 **ScriptExecution** 요소를 추가합니다.
 
     ```xml
     <RelyingParty>

@@ -48,8 +48,6 @@
           href: costs/manage-automation.md
         - name: 파트너용 Cost Management
           href: costs/get-started-partners.md
-        - name: Cost Management와 Cloudyn 중에서 선택
-          href: costs/choose-between-azure-cost-management-cloudyn.md
     - name: 예약
       items:
         - name: Azure Reservations란?
@@ -440,10 +438,6 @@
           href: cloudyn/overview.md
     - name: 빠른 시작
       items:
-        - name: 비용 데이터 보기
-          href: cloudyn/quick-register-azure-sub.md
-        - name: 비용 데이터 보기 - EA
-          href: cloudyn/quick-register-ea.md
         - name: 비용 데이터 보기 - CSP
           href: cloudyn/quick-register-csp.md
     - name: 자습서
@@ -468,8 +462,6 @@
           href: cloudyn/activate-subs-accounts.md
         - name: VM의 확장된 메트릭 추가
           href: cloudyn/azure-vm-extended-metrics.md
-        - name: Google 계정 연결
-          href: cloudyn/connect-google-account.md
         - name: AWS 계정 연결
           href: cloudyn/connect-aws-account.md
         - name: 스토리지 계정 구성

@@ -1,23 +1,24 @@
 ---
-title: Azure Cosmos DB Gremlin 지원
-description: Apache TinkerPop에서 Gremlin 언어를 알아봅니다. Azure Cosmos DB에서 어떤 기능과 단계를 사용할 수 있는지 알아보기
-author: jasonwhowell
+title: Azure Cosmos DB Gremlin 지원 및 TinkerPop 기능과의 호환성
+description: Apache TinkerPop에서 Gremlin 언어를 알아봅니다. Azure Cosmos DB에서 사용할 수 있는 기능 및 단계와 TinkerPop Graph 엔진 호환성의 차이점에 대해 알아봅니다.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 04/23/2020
-ms.author: jasonh
-ms.openlocfilehash: 2629cfc40a9f3c0745df78d9a22883be8476beb9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/13/2020
+ms.author: sngun
+ms.openlocfilehash: f435185d0f00d8f64425e3f2b7081e0ee9a393ce
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409747"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276221"
 ---
-# <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
-Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
+# <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 그래프 지원 및 TinkerPop 기능과의 호환성
 
-이 문서에서는 Gremlin을 간략히 연습해 볼 수 있는 과정을 제공하고 Gremlin API가 지원하는 Gremlin 기능을 나열합니다.
+Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프 순회 언어인 [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다.
+
+Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 순회 단계 사양을 철저하게 따르지만, Azure Cosmos DB에만 해당하는 구현의 차이점이 있습니다. 이 문서에서는 Gremlin을 간략히 연습해 볼 수 있는 과정을 제공하고 Gremlin API가 지원하는 Gremlin 기능을 나열합니다.
 
 ## <a name="compatible-client-libraries"></a>호환 가능한 클라이언트 라이브러리
 
@@ -33,6 +34,7 @@ Azure Cosmos DB는 [Apache Tinkerpop의](https://tinkerpop.apache.org) 그래프
 | [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 문서](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin 콘솔을 사용하여 그래프 만들기](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>지원되는 그래프 개체
+
 TinkerPop은 광범위한 그래프 기술을 지원하는 표준입니다. 따라서 그래프 공급자가 제공하는 기능을 설명하기 위한 표준 용어를 포함합니다. Azure Cosmos DB는 여러 서버 또는 클러스터에서 분할될 수 있는 지속적이고 높은 동시성을 갖는 쓰기 가능한 그래프 데이터베이스를 제공합니다. 
 
 다음 표에는 Azure Cosmos DB를 통해 구현되는 TinkerPop 기능이 나와 있습니다. 
@@ -114,6 +116,7 @@ JSON 형식에서 꼭짓점에 사용되는 속성은 다음과 같습니다.
 | `value` | 속성의 값입니다.
 
 ## <a name="gremlin-steps"></a>Gremlin 단계
+
 이제 Azure Cosmos DB에서 지원되는 Gremlin 단계를 살펴보겠습니다. Gremlin에 대한 전체 참조는 [TinkerPop 참조](https://tinkerpop.apache.org/docs/3.3.2/reference)를 참조하세요.
 
 | 단계 | Description | TinkerPop 3.2 설명서 |
@@ -162,6 +165,61 @@ JSON 형식에서 꼭짓점에 사용되는 속성은 다음과 같습니다.
 
 Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 꼭짓점 및 에지 내의 모든 속성에 대한 자동 인덱싱을 지원합니다. 따라서 필터가 있는 쿼리, 범위 쿼리, 속성에 대한 정렬 또는 집계가 인덱스에서 처리되고 효율적으로 제공됩니다. Azure Cosmos DB에서 인덱싱이 작동하는 방식에 대한 자세한 내용은 [스키마 독립적 인덱싱](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)을 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-* [SDK를 사용하여](create-graph-dotnet.md) 그래프 애플리케이션 빌드 시작 
-* Azure Cosmos DB에서 [그래프 지원](graph-introduction.md)에 대해 알아보기
+## <a name="behavior-differences"></a>동작 차이점
+
+* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 ***폭 우선*** 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
+
+## <a name="unsupported-features"></a>지원되지 않는 기능
+
+***[Gremlin 바이트 코드](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 는 프로그래밍 언어의 제약을 받지 않는 그래프 조회에 대한 사양입니다. Cosmos DB Graph는 아직 이 사양을 지원하지 않습니다. `GremlinClient.SubmitAsync()`를 사용하여 순회를 텍스트 문자열로 전달하세요.
+
+***`property(set, 'xyz', 1)`*** 세트 카디널리티는 현재 지원되지 않습니다. 대신 `property(list, 'xyz', 1)`를 사용하세요. 자세한 내용은 [TinkerPop을 사용하는 꼭짓점 속성](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)을 참조하세요.
+
+***`match()` 단계*** 는 현재 사용할 수 없습니다. 이 단계는 선언적 쿼리 기능을 제공합니다.
+
+꼭짓점 또는 에지에 대한 ***속성인 개체*** 는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
+
+***배열 속성 정렬*** `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
+
+***기본이 아닌 JSON 형식*** 은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
+
+***GraphSONv3*** 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
+
+**람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`, `.by{<expression>}` 및 `.filter{<expression>}` 함수가 포함됩니다. 자세한 내용을 알아보고 Gremlin 단계를 사용하여 다시 작성하는 방법에 대해 알아보려면 [람다에 대한 참고 사항](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)을 참조하세요.
+
+* ***트랜잭션*** 은 시스템의 분산 특성으로 인해 지원되지 않습니다.  "사용자 고유의 쓰기를 읽기"로 Gremlin 계정에서 적절한 일관성 모델을 구성하고, 낙관적 동시성을 사용하여 충돌하는 쓰기를 해결하세요.
+
+## <a name="known-limitations"></a>알려진 제한 사항
+
+**중간 순회 `.V()` 단계를 사용하는 Gremlin 쿼리의 인덱스 사용률** : 현재는 순회의 첫 번째 `.V()` 호출만 인덱스를 사용하여 연결된 필터 또는 조건자를 확인합니다. 후속 호출에서는 인덱스를 참조하지 않으므로 쿼리의 대기 시간과 비용이 늘어날 수 있습니다.
+    
+    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
+
+    ```java
+    g.V().has('category', 'A')
+    ```
+
+    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
+
+    ```java
+    g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
+    ```
+
+    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
+
+    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
+
+    ```java
+    // Query workaround using .map()
+    g.V().has('category', 'A').as('a').map(__.V().has('category', 'B')).as('b').select('a','b')
+
+    // Query workaround using .union()
+    g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
+    ```
+
+    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
+
+## <a name="next-steps"></a>기본 인덱싱을 사용하는 경우 `.V()` 단계로 시작하는 일반적인 읽기 Gremlin 쿼리는 연결된 필터링 단계에서 `.has()` 또는 `.where()` 같은 매개 변수를 사용하여 쿼리의 비용과 성능을 최적화합니다.
+
+* 예를 들면 다음과 같습니다. 
+* 그러나 Gremlin 쿼리에 `.V()` 단계가 여러 개 포함된 경우에는 쿼리에서 확인한 데이터가 최적의 데이터가 아닐 수 있습니다.

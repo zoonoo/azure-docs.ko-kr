@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522910"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634915"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>복사 활동의 데이터 일관성 확인(미리 보기)
 
@@ -79,7 +79,7 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 경로 | 로그 파일의 경로입니다. | 로그 파일을 저장할 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
 >[!NOTE]
->- 또는 Azure Blob 또는 Azure Data Lake Storage Gen2에서 이진 파일을 복사 하는 경우 ADF는 [Azure BLOB API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) 및 [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers)를 활용 하 여 수준 MD5 체크섬 확인을 차단 합니다. ContentMD5 on 파일이 Azure Blob에 있거나 데이터 원본으로 Azure Data Lake Storage Gen2 경우 ADF는 파일을 읽은 후에도 파일 수준 MD5 체크섬 확인을 수행 합니다. Azure Blob 또는 Azure Data Lake Storage Gen2 데이터 대상으로 파일을 복사 하 고 나면 ADF가 데이터 일관성 확인을 위해 다운스트림 응용 프로그램에서 추가로 사용 될 수 있는 Azure Blob 또는 Azure Data Lake Storage Gen2에 ContentMD5을 기록 합니다.
+>- 또는 Azure Blob 또는 Azure Data Lake Storage Gen2에서 이진 파일을 복사 하는 경우 ADF는 [Azure BLOB API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) 및 [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers)를 활용 하 여 수준 MD5 체크섬 확인을 차단 합니다. ContentMD5 on 파일이 Azure Blob에 있거나 데이터 원본으로 Azure Data Lake Storage Gen2 경우 ADF는 파일을 읽은 후에도 파일 수준 MD5 체크섬 확인을 수행 합니다. Azure Blob 또는 Azure Data Lake Storage Gen2 데이터 대상으로 파일을 복사 하 고 나면 ADF가 데이터 일관성 확인을 위해 다운스트림 응용 프로그램에서 추가로 사용 될 수 있는 Azure Blob 또는 Azure Data Lake Storage Gen2에 ContentMD5을 기록 합니다.
 >- ADF는 저장소 저장소 간에 이진 파일을 복사할 때 파일 크기를 확인 합니다.
 
 ## <a name="monitoring"></a>모니터링
@@ -107,14 +107,14 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
 “dataConsistencyVerification 속성”에서 데이터 일관성 확인의 세부 정보를 확인할 수 있습니다.
 
 **VerificationResult** 값: 
--   **Verified**:  복사된 데이터가 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되었습니다. 
--   **NotVerified**: 복사 활동에서 validateDataConsistency를 사용하도록 설정하지 않았으므로 복사된 데이터가 일관된 것으로 확인되지 않았습니다. 
--   **Unsupported**: 이 특정 복사 쌍의 경우 데이터 일관성 확인이 지원되지 않으므로 복사된 데이터가 일관된 것으로 확인되지 않았습니다. 
+-   **Verified** :  복사된 데이터가 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되었습니다. 
+-   **NotVerified** : 복사 활동에서 validateDataConsistency를 사용하도록 설정하지 않았으므로 복사된 데이터가 일관된 것으로 확인되지 않았습니다. 
+-   **Unsupported** : 이 특정 복사 쌍의 경우 데이터 일관성 확인이 지원되지 않으므로 복사된 데이터가 일관된 것으로 확인되지 않았습니다. 
 
 **InconsistentData** 값: 
--   **Found**: ADF 복사 활동이 일관되지 않은 데이터를 찾았습니다. 
--   **건너뜀**: ADF 복사 활동이 일관되지 않은 데이터를 찾고 건너뛰었습니다. 
--   **없음**: ADF 복사 활동이 일관되지 않은 데이터를 찾지 않았습니다. 데이터가 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되었거나 복사 활동에서 validateDataConsistency를 사용하지 않도록 설정했기 때문일 수 있습니다. 
+-   **Found** : ADF 복사 활동이 일관되지 않은 데이터를 찾았습니다. 
+-   **건너뜀** : ADF 복사 활동이 일관되지 않은 데이터를 찾고 건너뛰었습니다. 
+-   **없음** : ADF 복사 활동이 일관되지 않은 데이터를 찾지 않았습니다. 데이터가 원본 저장소와 대상 저장소 간에 일관된 것으로 확인되었거나 복사 활동에서 validateDataConsistency를 사용하지 않도록 설정했기 때문일 수 있습니다. 
 
 ### <a name="session-log-from-copy-activity"></a>복사 활동의 세션 로그
 
@@ -144,5 +144,3 @@ Timestamp, Level, OperationName, OperationItem, Message
 
 - [복사 작업 개요](copy-activity-overview.md)
 - [복사 작업 내결함성](copy-activity-fault-tolerance.md)
-
-

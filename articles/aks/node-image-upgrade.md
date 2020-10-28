@@ -1,17 +1,15 @@
 ---
 title: AKS (Azure Kubernetes Service) 노드 이미지 업그레이드
 description: AKS 클러스터 노드 및 노드 풀에서 이미지를 업그레이드 하는 방법에 대해 알아봅니다.
-author: laurenhughes
-ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6abb0eb98e2548e53ff67a943970613e6981c2b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055688"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631124"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>AKS (Azure Kubernetes Service) 노드 이미지 업그레이드
 

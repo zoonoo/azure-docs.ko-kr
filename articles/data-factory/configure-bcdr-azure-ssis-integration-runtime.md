@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/09/2020
-ms.openlocfilehash: e1b70e0e3eb54253972afded1bd37363d1a868e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761841c1f2146a33b35cdddc4adc4d3eb1a4b139
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195723"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635289"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS 통합 런타임 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "84195723"
 
 이 문서에서는 SSISDB 데이터베이스에 대해 Azure SQL Database 지역에서 복제를 사용하여 Azure-SSIS 통합 런타임(IR)을 구성하는 방법을 설명합니다. 장애 조치(Failover)가 발생하는 경우 Azure-SSIS IR이 보조 데이터베이스를 계속 사용하는지 확인할 수 있습니다.
 
-Microsoft SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세한 내용은 [개요: 활성 지역 복제 및 자동 장애 조치(Failover) 그룹](../sql-database/sql-database-geo-replication-overview.md)을 참조하세요.
+Microsoft SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세한 내용은 [개요: 활성 지역 복제 및 자동 장애 조치(Failover) 그룹](../azure-sql/database/auto-failover-group-overview.md)을 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ SMK는 장애 조치(failover) 그룹에 복제되지 않습니다. 장애 조�
 
 2. SQL Managed Instance에서 장애 조치 (failover) 그룹을 만듭니다.
 
-3. 새 암호화 암호를 사용하여 보조 인스턴스에서 **sp_control_dbmasterkey_password**를 실행합니다.
+3. 새 암호화 암호를 사용하여 보조 인스턴스에서 **sp_control_dbmasterkey_password** 를 실행합니다.
 
     ```sql
     EXEC sp_control_dbmasterkey_password @db_name = N'SSISDB',   
@@ -178,7 +178,7 @@ When failover occurs, take the following steps:
 이 시나리오는 다음과 같은 경우에 적합합니다.
 
 - Azure-SSIS IR이 장애 조치(Failover) 그룹의 읽기/쓰기 수신기 엔드포인트를 가리키고 있습니다.
-- SQL Database 서버가 가상 네트워크 서비스 엔드포인트의 규칙으로 구성되지 *않았습니다*.
+- SQL Database 서버가 가상 네트워크 서비스 엔드포인트의 규칙으로 구성되지 *않았습니다* .
 
 Azure-SSIS IR이 읽기/쓰기 수신기 엔드포인트를 가리키게 하려면 먼저 기본 서버 엔드포인트를 가리켜야 합니다. SSISDB를 장애 조치(failover) 그룹에 넣은 후 읽기/쓰기 수신지 엔드포인트로 변경하고 Azure-SSIS IR을 다시 시작할 수 있습니다.
 

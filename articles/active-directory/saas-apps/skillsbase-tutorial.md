@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e93827278fb501bc6d857d3cb39f9e0ba24d5d0a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552240"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>자습서: Skills Base와 Azure Active Directory 통합
 
@@ -44,7 +44,7 @@ Skills Base와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Skills Base는 **SP**에서 시작된 SSO 지원
+* Skills Base는 **SP** 에서 시작된 SSO 지원
 * Skills Base는 **Just In Time** 사용자 프로비전 지원
 
 ## <a name="adding-skills-base-from-the-gallery"></a>갤러리에서 Skills Base 추가
@@ -57,7 +57,7 @@ Skills Base의 Azure AD 통합을 구성하려면 갤러리의 Skills Base를 �
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -65,13 +65,13 @@ Skills Base의 Azure AD 통합을 구성하려면 갤러리의 Skills Base를 �
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Skills Base**를 입력하고 결과 창에서 **Skills Base**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Skills Base** 를 입력하고 결과 창에서 **Skills Base** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 Skills Base](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Skills Base의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -89,7 +89,7 @@ Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 Skills Base에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Skills Base** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Skills Base** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Skills Base에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     > [!NOTE]
     > Skills Base 애플리케이션에서 로그온 URL을 가져올 수 있습니다. 관리자로 로그인하여 관리자-> 설정-> 인스턴스 세부 사항 -> 바로 가기 링크로 이동하세요. 로그온 URL을 복사하여 위의 텍스트 상자에 붙여넣습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
@@ -128,34 +128,34 @@ Skills Base에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 1. 다른 웹 브라우저 창에서 Skills Base에 보안 관리자로 로그인합니다.
 
-2. 왼쪽 메뉴의 **관리자** 아래에서 **인증**을 클릭합니다.
+2. 왼쪽 메뉴의 **관리자** 아래에서 **인증** 을 클릭합니다.
 
     ![관리자](./media/skillsbase-tutorial/tutorial_skillsbase_auth.png)
 
-3. **인증** 페이지에서 Single Sign-On을 **SAML 2**로 선택합니다.
+3. **인증** 페이지에서 Single Sign-On을 **SAML 2** 로 선택합니다.
 
-    ![단일](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![스크린샷은 Single Sign-On에 대해 SAML 2가 선택된 인증 페이지를 보여줍니다.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. **인증** 페이지에서 다음 단계를 수행합니다.
 
-    ![단일](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 인증 페이지를 보여줍니다.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. **상태** 옵션 옆에 있는 **IdP 메타데이터 업데이트** 단추를 클릭하고 지정된 텍스트 상자에 Azure Portal에서 다운로드한 메타데이터 XML의 콘텐츠를 붙여넣습니다.
 
     > [!Note]
     > 위의 강조 표시된 스크린샷처럼 **메타데이터 유효성 검사기** 도구를 통해 Idp 메타데이터의 유효성을 검사할 수도 있습니다.
 
-    b. **저장**을 클릭합니다.
+    b. **저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -163,36 +163,36 @@ Skills Base에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Skills Base에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Skills Base**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Skills Base** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Skills Base**를 선택합니다.
+2. 애플리케이션 목록에서 **Skills Base** 를 선택합니다.
 
     ![애플리케이션 목록의 Skills Base 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 

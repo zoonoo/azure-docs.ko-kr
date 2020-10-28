@@ -10,17 +10,18 @@ ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8d847bd4e950ab17cc1f04b52be2589607f99c
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439013"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629496"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
+
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
@@ -35,8 +36,6 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 
 > [!NOTE]
 > Azure Blob에서 Azure SQL Database 테이블로 데이터를 복사하기 위한 샘플 파이프라인을 만드는 단계별 지침은 [복사 마법사 자습서](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
->
->
 
 마법사는 처음부터 빅 데이터를 염두에 두고 설계되었으며 다양한 데이터 및 개체 유형을 지원합니다. 수백 개의 폴더, 파일 또는 테이블을 이동하는 Data Factory 파이프라인을 만들 수 있습니다. 이 마법사는 자동 데이터 미리 보기, 스키마 캡처 및 매핑, 데이터 필터링을 지원합니다.
 
@@ -50,7 +49,6 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 
 > [!TIP]
 > SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 복사 하는 경우 대상 저장소에 테이블이 없는 경우 원본 스키마를 사용 하 여 자동 테이블 만들기를 지원 Data Factory. [Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간 데이터 이동](./data-factory-azure-sql-data-warehouse-connector.md)에서 자세히 알아보세요.
->
 
 드롭다운 목록을 사용하여 원본 스키마에서 대상 스키마의 열에 매핑할 열을 선택합니다. 복사 마법사는 열 매핑에 대한 패턴을 파악하려고 시도합니다. 나머지 열에도 동일한 패턴을 적용하므로 스키마 매핑을 완료하기 위해 각 열을 개별적으로 선택할 필요가 없습니다. 원하는 경우 드롭다운 목록을 사용하여 열을 하나씩 매핑하면 이러한 매핑을 무시할 수 있습니다. 열을 더 많이 매핑할수록 패턴이 더 정확하게 됩니다. 복사 마법사는 패턴을 지속적으로 업데이트하고, 궁극적으로는 도달하려는 열 매핑의 올바른 패턴에 도달합니다.     
 
@@ -65,7 +63,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다.
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** 및 **{custom}** 입니다. 예를 들어 inputfolder/{year}/{month}/{day}와 같습니다.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
@@ -76,7 +74,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 ...
 ```
 
-**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016**을 **{year}** 로, **03**을 **{month}** 로, **01**을 **{day}** 로, **02**를 **{hour}** 로 바꾼 다음 **탭** 키를 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
+**파일 또는 폴더** 의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택** 을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016** 을 **{year}** 로, **03** 을 **{month}** 로, **01** 을 **{day}** 로, **02** 를 **{hour}** 로 바꾼 다음 **탭** 키를 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
 
 ![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
@@ -90,6 +88,49 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 일 회 복사 작업을 통해 원본에서 대상으로 한 번만 데이터를 이동할 수 있습니다. 이는 모든 크기 및 지원되는 형식의 데이터에 적용됩니다. 예약 복사를 통해 미리 정해진 반복 주기에 따라 데이터를 복사할 수 있습니다. 다양한 설정(예: 재시도, 시간 제한, 경고 등)을 사용하여 예약 복사를 구성할 수 있습니다.
 
 ![일정 속성](./media/data-factory-copy-wizard/scheduling-properties.png)
+
+## <a name="troubleshooting"></a>문제 해결
+
+이 섹션에서는 Azure Data Factory의 복사 마법사에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
+
+> [!NOTE] 
+> 이러한 문제 해결 팁은 Data Factory 버전 1의 복사 마법사에 적용 됩니다. Data Factory v 2의 경우 문제 해결 가이드 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide)를 참조 하세요.
+
+### <a name="error-code-unable-to-validate-in-copy-wizard"></a>오류 코드: 복사 마법사에서 유효성을 검사할 수 없습니다.
+
+- **증상** : 복사 마법사의 첫 번째 단계에서 "유효성을 검사할 수 없습니다." 라는 경고 메시지가 표시 됩니다.
+- **원인** : 모든 타사 쿠키를 사용 하지 않도록 설정 하는 경우 발생할 수 있습니다.
+- **해결 방법** : 
+    - Internet Explorer 또는 Microsoft Edge 브라우저를 사용 합니다.
+    - Chrome 브라우저를 사용 하는 경우 아래 지침에 따라 *microsoftonline.com* 및 *windows.net* 에 대 한 쿠키 예외를 추가 합니다.
+        1.  Chrome 브라우저를 엽니다.
+        2.  오른쪽의 렌치 또는 세 줄을 클릭 합니다 (Google Chrome 사용자 지정 및 제어).
+        3.  **설정** 을 클릭합니다.
+        4.  **쿠키** 를 검색 하거나 고급 설정에서 **개인 정보** 로 이동 합니다.
+        5.  **콘텐츠 설정** 을 선택 합니다.    
+        6.  **로컬 데이터를 설정할 수 있도록** 쿠키를 설정 해야 합니다 (권장).
+        7.  **예외 관리** 를 클릭 합니다. **호스트 이름 패턴** 아래에 다음을 입력 하 고 **허용** 이 동작 집합 인지 확인 합니다.
+            - login.microsoftonline.com
+            - login.windows.net
+        8.  브라우저를 닫고 다시 합니다.
+    - Firefox 브라우저를 사용 하는 경우 아래 지침에 따라 쿠키 예외를 추가 합니다.
+        1. Firefox 메뉴에서 **도구**  >  **옵션** 으로 이동 합니다.
+        2. **개인정보 처리 방침** 에서  >  현재 설정이 **기록에 사용자 지정 설정을 사용** 하는 **것을** 볼 수 있습니다.
+        3. **타사 쿠키 수락** 에서 현재 설정이 **Never** 인 경우 오른쪽의 **예외** 를 클릭 하 여 다음 사이트를 추가 해야 합니다.
+            - https://login.microsoftonline.com
+            - https://login.windows.net
+        4.  브라우저를 닫고 다시 합니다. 
+
+
+### <a name="error-code-unable-to-open-login-page-and-enter-password"></a>오류 코드: 로그인 페이지를 열고 암호를 입력할 수 없습니다.
+
+- **증상** : 복사 마법사는 로그인 페이지로 리디렉션되고 로그인 페이지가 성공적으로 표시 되지 않습니다.
+- **원인** : 네트워크 환경을 office 네트워크에서 홈 네트워크로 변경한 경우이 문제가 발생할 수 있습니다. 브라우저에는 몇 가지 캐시가 있습니다. 
+- **해결 방법** : 
+    1.  브라우저를 닫고 다시 시도 하세요. 문제가 여전히 있는 경우 다음 단계로 이동 합니다.   
+    2.  Internet Explorer 브라우저를 사용 하는 경우 "Ctrl" + "Shift" + "P"를 눌러 개인 모드로 엽니다. Chrome 브라우저를 사용 하는 경우 incognito 모드에서 엽니다. ("Ctrl" + "shift" + "N")를 누릅니다. 문제가 여전히 있는 경우 다음 단계로 이동 합니다. 
+    3.  다른 브라우저를 사용 하십시오. 
+
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인을 만드는 방법은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.

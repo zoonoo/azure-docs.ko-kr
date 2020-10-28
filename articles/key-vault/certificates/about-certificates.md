@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923690"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126776"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
@@ -57,14 +57,14 @@ Key Vault 인증서에는 인증서 메타데이터, 주소 지정 가능한 키
 
 Key Vault 인증서에 포함되는 특성은 다음과 같습니다.  
 
--   *enabled*: 부울, 선택 사항, 기본값은 **true**입니다. 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. 또한 *nbf*과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp*와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
+-   *enabled* : 부울, 선택 사항, 기본값은 **true** 입니다. 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. 또한 *nbf* 과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp* 와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
 
 응답에 포함되는 추가 읽기 전용 특성은 다음과 같습니다.
 
--   *created*: IntDate: 이 버전의 인증서를 만든 시점을 나타냅니다.  
--   *updated*: IntDate: 이 버전의 인증서를 업데이트한 시점을 나타냅니다.  
--   *exp*: IntDate: x509 인증서의 만료 날짜 값을 포함합니다.  
--   *nbf*: IntDate: x509 인증서의 날짜 값을 포함합니다.  
+-   *created* : IntDate: 이 버전의 인증서를 만든 시점을 나타냅니다.  
+-   *updated* : IntDate: 이 버전의 인증서를 업데이트한 시점을 나타냅니다.  
+-   *exp* : IntDate: x509 인증서의 만료 날짜 값을 포함합니다.  
+-   *nbf* : IntDate: x509 인증서의 날짜 값을 포함합니다.  
 
 > [!Note] 
 > Key Vault 인증서가 만료되면 주소 지정 가능한 해당 키와 비밀이 작동하지 않게 됩니다.  
@@ -141,42 +141,11 @@ Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 
 
 ## <a name="certificate-contacts"></a>인증서 연락처
 
-인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다.  
-
-인증서를 자동으로 갱신하도록 정책이 설정되는 경우 알림을 보내는 이벤트는 다음과 같습니다.  
-
-- 인증서 갱신 전
-- 인증서 갱신 후 - 인증서가 성공적으로 갱신된 경우에 시작되거나, 오류가 있는 경우 인증서를 수동으로 갱신해야 합니다.  
-
-  인증서를 수동으로(이메일을 통해서만) 갱신하는 정책을 설정하는 경우 인증서를 갱신할 시간이 되면 알림이 전송됩니다.  
+인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다. 인증서 연락처를 설정하는 방법에 대한 자세한 내용은 [여기](overview-renew-certificate.md#steps-to-set-certificate-notifications)를 참조하세요.  
 
 ## <a name="certificate-access-control"></a>인증서 액세스 제어
 
- 인증서에 대한 액세스 제어는 Key Vault를 통해 관리되고, 해당 인증서를 포함하는 Key Vault를 통해 제공됩니다. 인증서에 대한 액세스 제어 정책은 동일한 Key Vault의 키 및 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 인증서를 보관할 하나 이상의 자격 증명 모음을 만들어서 시나리오를 적절하게 세분화하고 인증서를 관리할 수 있습니다.  
-
- 키 자격 증명 모음의 비밀 액세스 제어 항목에서 보안 주체별로 사용할 수 있고 비밀 개체에 허용되는 작업과 매우 비슷한 권한은 다음과 같습니다.  
-
-- 인증서 관리 작업에 필요한 권한
-  - *get*: 현재 인증서 버전 또는 모든 인증서 버전 가져오기 
-  - *list*: 현재 인증서 또는 인증서 버전 나열  
-  - *update*: 인증서 업데이트
-  - *create*: Key Vault 인증서 만들기
-  - *import*: 인증서 자료를 Key Vault 인증서로 가져오기
-  - *delete*: 인증서, 해당 정책 및 모든 해당 버전 삭제  
-  - *recover*: 삭제된 인증서 복구
-  - *backup*: 인증서를 키 자격 증명 모음에 백업
-  - *restore*: 키 자격 증명 모음에 백업된 인증서 복원
-  - *managecontacts*: Key Vault 인증서 연락처 관리  
-  - *manageissuers*: Key Vault 인증서 기관/발급자 관리
-  - *getissuers*: 인증서 기관/발급자 가져오기
-  - *listissuers*: 인증서 기관/발급자 나열  
-  - *setissuers*: Key Vault 인증서의 기관/발급자 만들기 또는 업데이트  
-  - *deleteissuers*: Key Vault 인증서의 기관/발급자 삭제  
- 
-- 권한 있는 작업에 필요한 권한
-  - *purge*: 삭제된 인증서 제거(영구적으로 삭제)
-
-자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
+ 인증서에 대한 액세스 제어는 Key Vault를 통해 관리되고, 해당 인증서를 포함하는 Key Vault를 통해 제공됩니다. 인증서에 대한 액세스 제어 정책은 동일한 Key Vault의 키 및 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 인증서를 보관할 하나 이상의 자격 증명 모음을 만들어서 시나리오를 적절하게 세분화하고 인증서를 관리할 수 있습니다.  인증서 액세스 제어에 대한 자세한 내용은 [여기](certificate-access-control.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

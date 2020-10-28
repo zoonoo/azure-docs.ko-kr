@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604413"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629462"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -63,6 +63,8 @@ Azure Machine Learning 리소스를 포함 하는 서브넷에 대 한 아웃 �
 | **mcr.microsoft.com** | 기본 docker 이미지용 Microsoft Container Registry |
 | **your-acr-server-name.azurecr.io** | Azure Container Registry 가상 네트워크 뒤에 있는 경우에만 필요 합니다. 이 구성에서는 Microsoft 환경에서 구독의 ACR 인스턴스로 개인 링크를 만듭니다. Azure Machine Learning 작업 영역에 ACR 서버 이름을 사용 합니다. |
 | **\*. notebooks.azure.net** | Azure Machine Learning studio에서 노트북에 필요 합니다. |
+| **\*. file.core.windows.net** | Azure Machine Learning studio의 파일 탐색기에 필요 합니다. |
+| **\*. dfs.core.windows.net** | Azure Machine Learning studio의 파일 탐색기에 필요 합니다. |
 | **graph.windows.net** | 노트북에 필요 |
 
 > [!TIP]
@@ -76,7 +78,7 @@ Azure Machine Learning 리소스를 포함 하는 서브넷에 대 한 아웃 �
 | ---- | ---- |
 | **anaconda.com**</br>**\*. anaconda.com** | 기본 패키지를 설치 하는 데 사용 됩니다. |
 | **\*. anaconda.org** | 리포지토리 데이터를 가져오는 데 사용 됩니다. |
-| **pypi.org** | 기본 인덱스에서 종속성을 나열 하는 데 사용 되며 (있는 경우) 사용자 설정에서 인덱스를 덮어쓰지 않습니다. 인덱스를 덮어쓰는 경우 ** \* pythonhosted.org**도 허용 해야 합니다. |
+| **pypi.org** | 기본 인덱스에서 종속성을 나열 하는 데 사용 되며 (있는 경우) 사용자 설정에서 인덱스를 덮어쓰지 않습니다. 인덱스를 덮어쓰는 경우 **\* pythonhosted.org** 도 허용 해야 합니다. |
 
 ## <a name="r-hosts"></a>R 호스트
 

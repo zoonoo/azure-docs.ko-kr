@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984871"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634167"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance 사용
 
@@ -41,7 +41,7 @@ ms.locfileid: "90984871"
     - 프라이빗 엔드포인트를 통해(기본 설정)
 
         1. 조인할 Azure-SSIS IR의 가상 네트워크를 선택합니다.
-            - **다른 서브넷**을 사용 하 여 관리 되는 인스턴스와 동일한 가상 네트워크 내에 있습니다.
+            - **다른 서브넷** 을 사용 하 여 관리 되는 인스턴스와 동일한 가상 네트워크 내에 있습니다.
             - 가상 네트워크 피어 링 (글로벌 VNet 피어 링 제약 조건으로 인해 동일한 지역으로 제한 됨) 또는 가상 네트워크에서 가상 네트워크로의 연결을 통해 관리 되는 인스턴스가 아닌 다른 가상 네트워크 내에 있습니다.
 
             SQL Managed Instance 연결에 대 한 자세한 내용은 [AZURE sql Managed Instance에 응용 프로그램 연결](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app)을 참조 하세요.
@@ -50,23 +50,23 @@ ms.locfileid: "90984871"
 
     - 퍼블릭 엔드포인트를 통해
 
-        Azure SQL 관리 되는 인스턴스는 [공용 끝점](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)을 통해 연결을 제공할 수 있습니다. SQL Managed Instance와 Azure-SSIS IR 간에 트래픽을 허용 하려면 인바운드 및 아웃 바운드 요구 사항이 충족 되어야 합니다.
+        Azure SQL 관리 되는 인스턴스는 [공용 끝점](../azure-sql/managed-instance/public-endpoint-configure.md)을 통해 연결을 제공할 수 있습니다. SQL Managed Instance와 Azure-SSIS IR 간에 트래픽을 허용 하려면 인바운드 및 아웃 바운드 요구 사항이 충족 되어야 합니다.
 
         - Azure-SSIS IR이 가상 네트워크 내부에 없는 경우(기본 설정)
 
-            Azure-SSIS IR에서 인바운드 트래픽을 허용 하는 **SQL Managed Instance의 인바운드 요구 사항**입니다.
+            Azure-SSIS IR에서 인바운드 트래픽을 허용 하는 **SQL Managed Instance의 인바운드 요구 사항** 입니다.
 
             | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 |
             |---|---|---|---|---|
             |TCP|Azure 클라우드 서비스 태그|*|VirtualNetwork|3342|
 
-            자세한 내용은 [네트워크 보안 그룹에서 퍼블릭 엔드포인트 트래픽 허용](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure#allow-public-endpoint-traffic-on-the-network-security-group)을 참조하세요.
+            자세한 내용은 [네트워크 보안 그룹에서 퍼블릭 엔드포인트 트래픽 허용](../azure-sql/managed-instance/public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group)을 참조하세요.
 
         - Azure-SSIS IR이 가상 네트워크 내부에 있는 경우
 
-            SQL Managed Instance이 Azure-SSIS IR 지원 하지 않는 지역에 있는 경우에는 글로벌 VNet 피어 링 제한으로 인해 VNet 피어 링 없이 가상 네트워크 내에 있는 Azure-SSIS IR 있습니다. 이 시나리오에서 **가상 네트워크 내의 Azure-SSIS IR** 는 **공용 끝점을 통해**SQL Managed Instance을 연결 합니다. 아래 NSG (네트워크 보안 그룹) 규칙을 사용 하 여 SQL Managed Instance와 Azure-SSIS IR 간의 트래픽을 허용 합니다.
+            SQL Managed Instance이 Azure-SSIS IR 지원 하지 않는 지역에 있는 경우에는 글로벌 VNet 피어 링 제한으로 인해 VNet 피어 링 없이 가상 네트워크 내에 있는 Azure-SSIS IR 있습니다. 이 시나리오에서 **가상 네트워크 내의 Azure-SSIS IR** 는 **공용 끝점을 통해** SQL Managed Instance을 연결 합니다. 아래 NSG (네트워크 보안 그룹) 규칙을 사용 하 여 SQL Managed Instance와 Azure-SSIS IR 간의 트래픽을 허용 합니다.
 
-            1. Azure-SSIS IR에서 인바운드 트래픽을 허용 하는 **SQL Managed Instance의 인바운드 요구 사항**입니다.
+            1. Azure-SSIS IR에서 인바운드 트래픽을 허용 하는 **SQL Managed Instance의 인바운드 요구 사항** 입니다.
 
                 | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 |대상 포트 범위 |
                 |---|---|---|---|---|
@@ -76,50 +76,50 @@ ms.locfileid: "90984871"
 
                 | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 |대상 포트 범위 |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL Managed Instance 공용 끝점 IP 주소](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[SQL Managed Instance 공용 끝점 IP 주소](../azure-sql/managed-instance/management-endpoint-find-ip-address.md)|3342|
 
 ### <a name="configure-virtual-network"></a>가상 네트워크 구성
 
-1. **사용자 권한**. Azure-SSIS IR를 만드는 사용자는 아래 옵션 중 하나를 사용하여 적어도 Azure Data Factory 리소스에서 [역할 할당](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope)이 있어야 합니다.
+1. **사용자 권한** . Azure-SSIS IR를 만드는 사용자는 아래 옵션 중 하나를 사용하여 적어도 Azure Data Factory 리소스에서 [역할 할당](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)이 있어야 합니다.
 
     - 기본 제공 네트워크 참가자 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
     - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 또한 Azure Resource Manager 가상 네트워크에 조인하는 동안 Azure-SSIS IR의 고유한 퍼블릭 IP 주소를 요구하려면 역할에 _Microsoft.Network/publicIPAddresses/*/join/action_ 권한도 포함합니다.
 
-1. **가상 네트워크**.
+1. **가상 네트워크** .
 
     1. 가상 네트워크의 리소스 그룹이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인합니다.
 
         Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 해당 리소스는 다음과 같습니다.
-        - 이름이 * \<Guid> -azurebatch-cloudserviceloadbalancer* 인 Azure 부하 분산 장치
+        - 이름이 *\<Guid> -azurebatch-cloudserviceloadbalancer* 인 Azure 부하 분산 장치
         - 이름이 * \<Guid> -azurebatch-cloudservicenetworksecuritygroup 인 네트워크 보안 그룹
         - 이름이 -azurebatch-cloudservicepublicip인 Azure 퍼블릭 IP 주소
 
         해당 리소스는 Azure-SSIS IR이 시작될 때 생성됩니다. Azure-SSIS IR이 중지될 때 삭제됩니다. Azure-SSIS IR 중지가 차단되지 않게 하려면 다른 리소스에서 해당 네트워크 리소스를 다시 사용하지 마세요.
 
-    1. 가상 네트워크가 속한 리소스 그룹/구독에 [리소스 잠금](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)이 없는지 확인합니다. 읽기 전용/삭제 잠금을 구성하는 경우 Azure-SSIS IR 시작 및 중지에 실패하거나 응답이 중지됩니다.
+    1. 가상 네트워크가 속한 리소스 그룹/구독에 [리소스 잠금](../azure-resource-manager/management/lock-resources.md)이 없는지 확인합니다. 읽기 전용/삭제 잠금을 구성하는 경우 Azure-SSIS IR 시작 및 중지에 실패하거나 응답이 중지됩니다.
 
     1. 가상 네트워크가 속한 리소스 그룹/구독에 다음 리소스를 만들 수 없도록 하는 Azure 정책이 없는지 확인합니다.
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
     1. NSG (네트워크 보안 그룹) 규칙에서 트래픽을 허용 하 여 SQL Managed Instance와 Azure-SSIS IR 간에 트래픽을 허용 하 고 Azure-SSIS IR에 필요한 트래픽을 허용 합니다.
-        1. Azure-SSIS IR에서 인바운드 트래픽을 허용 하는 **SQL Managed Instance의 인바운드 요구 사항**입니다.
+        1. Azure-SSIS IR에서 인바운드 트래픽을 허용 하는 **SQL Managed Instance의 인바운드 요구 사항** 입니다.
 
             | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 주석 |
             |---|---|---|---|---|---|
-            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|SQL Database 서버 연결 정책이 **리디렉션** 대신 **프록시**로 설정된 경우에는 포트 1433만 필요합니다.|
+            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|SQL Database 서버 연결 정책이 **리디렉션** 대신 **프록시** 로 설정된 경우에는 포트 1433만 필요합니다.|
 
-        1. **Azure-SSIS IR의 아웃 바운드 요구 사항은**SQL Managed Instance에 대 한 아웃 바운드 트래픽을 허용 하 고 Azure-SSIS IR에 필요한 기타 트래픽을 허용 합니다.
+        1. **Azure-SSIS IR의 아웃 바운드 요구 사항은** SQL Managed Instance에 대 한 아웃 바운드 트래픽을 허용 하 고 Azure-SSIS IR에 필요한 기타 트래픽을 허용 합니다.
 
         | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 주석 |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |SQL Managed Instance에 대 한 아웃 바운드 트래픽을 허용 합니다. 연결 정책이 **리디렉션** 대신 **프록시**로 설정된 경우에는 포트 1433만 필요합니다. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |SQL Managed Instance에 대 한 아웃 바운드 트래픽을 허용 합니다. 연결 정책이 **리디렉션** 대신 **프록시** 로 설정된 경우에는 포트 1433만 필요합니다. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
-        | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상 범위를 특정 FQDN으로 추가로 좁히려면 [Azure ExpressRoute 또는 UDR(사용자 정의 경로) 사용](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route)을 참조하세요.|
+        | TCP | VirtualNetwork | * | 인터넷 | 80 | (선택 사항) 가상 네트워크의 Azure-SSIS IR 노드는 이 포트를 사용하여 인터넷에서 인증서 해지 목록을 다운로드합니다. 이 트래픽을 차단하면 IR을 시작할 때 성능이 다운그레이드되고 인증서 사용을 위해 인증서 해지 목록을 확인하는 기능이 손실될 수 있습니다. 대상 범위를 특정 FQDN으로 추가로 좁히려면 [Azure ExpressRoute 또는 UDR(사용자 정의 경로) 사용](./join-azure-ssis-integration-runtime-virtual-network.md#route)을 참조하세요.|
         | TCP | VirtualNetwork | * | 스토리지 | 445 | (선택 사항) 이 규칙은 Azure Files에 저장된 SSIS 패키지를 실행하려는 경우에만 필요합니다. |
         |||||||
 
-        1. Azure-SSIS IR에 필요한 트래픽을 허용하기 위한 **Azure-SSIS IR의 인바운드 요구 사항**.
+        1. Azure-SSIS IR에 필요한 트래픽을 허용하기 위한 **Azure-SSIS IR의 인바운드 요구 사항** .
 
         | 전송 프로토콜 | 원본 | 원본 포트 범위 | 대상 | 대상 포트 범위 | 주석 |
         |---|---|---|---|---|---|
@@ -163,7 +163,7 @@ Azure-SSIS IR을 만드는 방법에 대한 자세한 정보는 [Azure Data Fact
 
 ## <a name="clean-up-ssisdb-logs"></a>SSISDB 로그 정리
 
-SSISDB 로그 보존 정책은 [catalog.catalog_properties](https://docs.microsoft.com/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15)에서 아래 속성을 통해 정의됩니다.
+SSISDB 로그 보존 정책은 [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15)에서 아래 속성을 통해 정의됩니다.
 
 - OPERATION_CLEANUP_ENABLED
 

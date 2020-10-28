@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight에서 Apache HBase를 쿼리 REST API
-description: ''
+description: 이 문서에서는 Azure HDInsight 클러스터에서 Apache HBase 구성 요소와 상호 작용할 때의 문제 해결 단계를 설명 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/08/2020
-ms.openlocfilehash: 361eefa9b0dce811533bb4da9c236c207e31c61c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1091366ac4d0445a465bc75913baf0f812e6a635
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547880"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629292"
 ---
 # <a name="rest-api-to-query-apache-hbase-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase를 쿼리 REST API
 

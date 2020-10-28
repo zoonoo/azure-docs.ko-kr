@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003208"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167188"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -63,6 +63,12 @@ Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에�
 AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단일 또는 여러 GPU 사용 VM을 제공합니다. GPU 사용 VM은 계산 집약적이며 그래픽 집약적인 시각화 워크로드용으로 설계되었습니다.
 
 자세한 내용은 [AKS에서 GPU 사용][aks-gpu]을 참조하세요.
+
+### <a name="confidential-computing-nodes-public-preview"></a>기밀 컴퓨팅 노드(공개 미리 보기)
+
+AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원합니다. 기밀 컴퓨팅 노드를 통해 하드웨어 기반의 신뢰할 수 있는 격리된 실행 환경(enclaves)에서 컨테이너를 실행할 수 있습니다. 증명을 통해 코드 무결성과 결합된 컨테이너 간의 격리는 심층 방어 컨테이너 보안 전략에 도움이 될 수 있습니다. 기밀 컴퓨팅 노드는 기밀 컨테이너(기존 docker 앱)와 enclave 인식 컨테이너를 모두 지원합니다.
+
+자세한 내용은 [AKS의 기밀 컴퓨팅 노드][conf-com-node]를 참조하세요.
 
 ### <a name="storage-volume-support"></a>스토리지 볼륨 지원
 
@@ -143,3 +149,4 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

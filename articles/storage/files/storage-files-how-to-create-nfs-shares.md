@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 293fc1bca47f7c58f89a8dac50cc636be8231d4f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220750"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633504"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 
@@ -86,7 +86,7 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 공유를 만들 수 있습니다. 이 프로세스는 SMB 공유를 만들 때와 유사 하며, 공유를 만들 때 **smb** 대신 **NFS** 를 선택 합니다.
 
-1. 스토리지 계정으로 이동하여 **파일 공유**를 선택합니다.
+1. 스토리지 계정으로 이동하여 **파일 공유** 를 선택합니다.
 1. **+ 파일 공유** 를 선택 하 여 새 파일 공유를 만듭니다.
 1. 파일 공유 이름을로 프로 비전 된 용량을 선택 합니다.
 1. **프로토콜** 의 경우 **NFS (미리 보기)** 를 선택 합니다.
@@ -96,7 +96,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
     - Root squash-Remote 수퍼유저 (root)는 root로 액세스를 수신 합니다.
     - 모든 squash-모든 사용자 액세스는 UID (65534) 및 GID (65534)에 매핑됩니다.
     
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="파일 공유 만들기 블레이드의 스크린샷":::
 
@@ -120,7 +120,7 @@ FileStorage 계정을 만들고 네트워킹을 구성 했으므로 NFS 파일 �
 
 1. PowerShell 콘솔을 닫았다가 다시 엽니다.
 
-1. **Az. Storage** preview module version **2.5.2-preview**를 설치 합니다.
+1. **Az. Storage** preview module version **2.5.2-preview** 를 설치 합니다.
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Azure CLI를 사용 하 여 프리미엄 파일 공유를 만들려면 [az stora
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

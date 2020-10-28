@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613495"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145044"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -37,7 +37,7 @@ ms.locfileid: "91613495"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. [Azure Portal - 앱 등록](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록**을 선택합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -47,16 +47,16 @@ ms.locfileid: "91613495"
 >
 > 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
-> 1. **Azure Active Directory**를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록**, **새 등록**을 차례로 선택합니다.
-> 1. 애플리케이션에 대한 **이름**을 입력합니다(예: `AspNetCore-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
-> 1. `https://localhost:44321/`의 **리디렉션 URI**를 입력합니다.
-> 1. **등록**을 선택합니다.
-> 1. **관리**에서 **인증**을 선택합니다.
-> 1. **리디렉션 URI**에서 **URI 추가**를 선택한 다음, `https://localhost:44321/signin-oidc`를 입력합니다.
-> 1. `https://localhost:44321/signout-oidc`의 **로그 아웃 URL**을 입력합니다.
-> 1. **암시적 허용**에서 **ID 토큰**을 선택합니다.
-> 1. **저장**을 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** , **새 등록** 을 차례로 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `AspNetCore-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. `https://localhost:44321/`의 **리디렉션 URI** 를 입력합니다.
+> 1. **등록** 을 선택합니다.
+> 1. **관리** 에서 **인증** 을 선택합니다.
+> 1. **리디렉션 URI** 에서 **URI 추가** 를 선택한 다음, `https://localhost:44321/signin-oidc`를 입력합니다.
+> 1. `https://localhost:44321/signout-oidc`의 **로그 아웃 URL** 을 입력합니다.
+> 1. **암시적 허용** 에서 **ID 토큰** 을 선택합니다.
+> 1. **저장** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
@@ -86,7 +86,7 @@ ms.locfileid: "91613495"
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-aspnet-core-project"></a>3단계: ASP.NET Core 프로젝트 구성
-> 1. 드라이브 루트 근처의 로컬 폴더로 .zip 보관 파일을 추출합니다. 예를 들어 *C:\Azure-Samples*입니다.
+> 1. 드라이브 루트 근처의 로컬 폴더로 .zip 보관 파일을 추출합니다. 예를 들어 *C:\Azure-Samples* 입니다.
 > 1. Visual Studio 2019에서 솔루션을 엽니다.
 > 1. *appsettings.json* 파일을 열고 다음을 수정합니다.
 >
@@ -95,19 +95,19 @@ ms.locfileid: "91613495"
 >    "TenantId": "common",
 >    ```
 >
->    - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 **애플리케이션(클라이언트) ID**로 바꿉니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID**를 찾을 수 있습니다.
+>    - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 로 바꿉니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 를 찾을 수 있습니다.
 >    - `common`을 다음 중 하나로 바꿉니다.
->       - 애플리케이션이 **이 조직 디렉터리의 계정만**을 지원하는 경우 이 값을 **디렉터리(테넌트) ID**(GUID) 또는 **테넌트 이름**(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID**를 찾을 수 있습니다.
->       - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->       - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 둡니다.
+>       - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 **디렉터리(테넌트) ID** (GUID) 또는 **테넌트 이름** (예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID** 를 찾을 수 있습니다.
+>       - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>       - 애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
 >
 > 이 빠른 시작에서는 *appsettings.json* 파일에서 다른 값을 변경하지 마세요.
 >
 > #### <a name="step-4-build-and-run-the-application"></a>4단계: 애플리케이션 빌드 및 실행
 >
-> **디버그** 메뉴 > **디버깅 시작**을 선택하거나 `F5` 키를 눌러 Visual Studio에서 앱을 빌드하고 실행합니다.
+> **디버그** 메뉴 > **디버깅 시작** 을 선택하거나 `F5` 키를 눌러 Visual Studio에서 앱을 빌드하고 실행합니다.
 >
-> 자격 증명을 입력하라는 메시지가 표시되고 앱에 필요한 권한에 동의하라는 메시지가 표시됩니다. 동의 프롬프트에서 **수락**을 선택합니다.
+> 자격 증명을 입력하라는 메시지가 표시되고 앱에 필요한 권한에 동의하라는 메시지가 표시됩니다. 동의 프롬프트에서 **수락** 을 선택합니다.
 >
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-01-consent.png" alt-text="앱이 > 사용자로부터 요청하는 권한을 보여주는 동의 대화 상자":::
 >
@@ -150,21 +150,26 @@ ms.locfileid: "91613495"
 
 | *appsettings.json* 키 | 설명                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ClientId`             | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다.                                                                                       |
+| `ClientId`             | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.                                                                                       |
 | `Instance`             | 사용자가 인증하는 STS(보안 토큰 서비스) 엔드포인트입니다. 이 값은 일반적으로 `https://login.microsoftonline.com/`이며, Azure 퍼블릭 클라우드를 나타냅니다. |
-| `TenantId`             | 회사 또는 학교 계정이나 Microsoft 개인 계정을 사용하여 사용자를 로그인하는 테넌트의 이름, 해당 테넌트 ID(GUID) 또는 *공용*입니다.                             |
+| `TenantId`             | 회사 또는 학교 계정이나 Microsoft 개인 계정을 사용하여 사용자를 로그인하는 테넌트의 이름, 해당 테넌트 ID(GUID) 또는 *공용* 입니다.                             |
 
-`Configure()` 메서드에는 명명된 기능을 사용할 수 있도록 설정하는 두 가지 중요한 메서드인 `app.UseCookiePolicy()` 및 `app.UseAuthentication()`이 포함되어 있습니다.
+`Configure()` 메서드에는 명명된 기능을 사용할 수 있도록 설정하는 두 가지 중요한 메서드인 `app.UseAuthentication()` 및 `app.UseAuthorization()`이 포함되어 있습니다. 또한 `Configure()` 메서드에서는 `endpoints.MapControllerRoute()`에 대한 호출 또는 `endpoints.MapControllers()`에 대한 호출을 하나 이상 사용하여 Microsoft Identity Web의 경로를 등록해야 합니다.
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
 {
-    // more code
-    app.UseAuthentication();
-    app.UseAuthorization();
-    // more code
-}
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+
+// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>컨트롤러 또는 컨트롤러 메서드 보호

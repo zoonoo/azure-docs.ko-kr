@@ -7,20 +7,20 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576860"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331688"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
 
 Azure Security Center의 기능은 다음과 같은 클라우드 보안의 두 가지 핵심 요소를 지원합니다.
 
-- **CSPM(클라우드 보안 태세 관리)** - Security Center은 모든 Azure 사용자가 **무료**로 사용할 수 있습니다. 무료 체험에는 보안 점수, Azure 머신에서 잘못된 보안 구성 검색, 자산 인벤토리 등과 같은 CSPM 기능이 포함됩니다. 이러한 CSPM 기능을 사용하여 하이브리드 클라우드 태세를 강화하고 기본 제공 정책의 준수 여부를 추적합니다.
+- **CSPM(클라우드 보안 태세 관리)** - Security Center은 모든 Azure 사용자가 **무료** 로 사용할 수 있습니다. 무료 체험에는 보안 점수, Azure 머신에서 잘못된 보안 구성 검색, 자산 인벤토리 등과 같은 CSPM 기능이 포함됩니다. 이러한 CSPM 기능을 사용하여 하이브리드 클라우드 태세를 강화하고 기본 제공 정책의 준수 여부를 추적합니다.
 
-- **CWP(클라우드 워크로드 보호)** - Security Center의 통합 CWPP(클라우드 워크로드 보호 플랫폼)인 **Azure Defender**는 Azure 및 하이브리드 리소스 및 워크로드에 고급 인텔리전트 보호 기능을 제공합니다. Azure Defender를 사용하면 이 페이지에 설명된 대로 다양한 추가 보안 기능이 제공됩니다. 기본 제공 정책 외에도 Azure Defender 플랜을 사용하는 경우 사용자 지정 정책 및 이니셔티브를 추가할 수 있습니다. 규정 준수에 대한 진정한 사용자 지정 보기를 위해 NIST 및 Azure CIS와 같은 규제 표준과 Azure 보안 벤치마크를 추가할 수 있습니다.
+- **CWP(클라우드 워크로드 보호)** - Security Center의 통합 CWPP(클라우드 워크로드 보호 플랫폼)인 **Azure Defender** 는 Azure 및 하이브리드 리소스 및 워크로드에 고급 인텔리전트 보호 기능을 제공합니다. Azure Defender를 사용하면 이 페이지에 설명된 대로 다양한 추가 보안 기능이 제공됩니다. 기본 제공 정책 외에도 Azure Defender 플랜을 사용하는 경우 사용자 지정 정책 및 이니셔티브를 추가할 수 있습니다. 규정 준수에 대한 진정한 사용자 지정 보기를 위해 NIST 및 Azure CIS와 같은 규제 표준과 Azure 보안 벤치마크를 추가할 수 있습니다.
 
 Security Center의 Azure Defender 대시보드는 사용자 환경에 대한 CWP 기능의 가시성 및 제어 기능을 제공합니다.
 
@@ -36,13 +36,14 @@ Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defende
 - [App Service용 Azure Defender](defender-for-app-service-introduction.md)
 - [스토리지용 Azure Defender](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [IoT용 Azure Defender](defender-for-iot-introduction.md)
 - [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)
 - [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)
 - [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)
 
 각 플랜은 Security Center 설명서에 별도로 설명되어 있습니다.
 
+> [!TIP]
+> Azure Defender for IoT(미리 보기)는 별도의 제품입니다. 모든 세부 정보는 [Azure Defender for IoT(미리 보기) 소개](../defender-for-iot/overview.md)에서 찾을 수 있습니다. 
 
 ## <a name="hybrid-cloud-protection"></a>하이브리드 클라우드 보호
 
@@ -50,7 +51,6 @@ Azure 환경을 방어할 수 있을 뿐 아니라, 하이브리드 클라우드
 
 - 비 Azure 서버 보호
 - 다른 클라우드의 가상 머신 보호(예: AWS 및 GCP)
-- IoT 디바이스 보호
 
 환경에 따라 사용자 지정된 위협 인텔리전스 및 우선 순위가 지정된 경고가 제공되므로 가장 중요한 문제에 집중할 수 있습니다.
 

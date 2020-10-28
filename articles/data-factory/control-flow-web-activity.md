@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280803"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635102"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,15 +73,15 @@ ms.locfileid: "87280803"
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
 name | 웹 작업의 이름입니다. | String | 예
-type | **WebActivity**로 설정해야 합니다. | String | 예
-메서드 | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
+type | **WebActivity** 로 설정해야 합니다. | String | 예
+method | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
 url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
 본문 | 엔드포인트에 전송된 페이로드를 나타냅니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | POST/PUT 메서드에 필요합니다.
 인증 | 엔드포인트를 호출하는 데 사용되는 인증 방법입니다. 지원되는 형식은 "Basic" 또는 "ClientCertificate"입니다. 자세한 내용은 [인증](#authentication) 섹션을 참조하세요. 인증이 필요 없는 경우 이 속성을 제외합니다. | 문자열(또는 resultType 문자열이 있는 식) | 아니요
 datasets | 엔드포인트에 전달되는 데이터 세트의 목록입니다. | 데이터 세트 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
 linkedServices | 엔드포인트에 전달되는 연결된 서비스 목록입니다. | 연결된 서비스 참조의 배열입니다. 빈 배열일 수 있습니다. | 예
-connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. | Integration runtime 참조입니다. | 아니요 
+connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](./concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. | Integration runtime 참조입니다. | 아니요 
 
 > [!NOTE]
 > 웹 작업이 호출하는 REST 엔드포인트는 JSON 형식의 응답을 반환해야 합니다. 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다.
@@ -104,7 +104,7 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임
 
 인증이 필요 없는 경우 "authentication" 속성을 포함하지 않습니다.
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>기본
 
 기본 인증에 사용할 사용자 이름 및 암호를 지정합니다.
 
@@ -130,7 +130,7 @@ PFX 파일의 base64로 인코딩된 콘텐츠 및 암호를 지정합니다.
 
 ### <a name="managed-identity"></a>관리 ID
 
-데이터 팩터리에 대한 관리 ID를 사용하여 요청되는 액세스 토큰에 대한 리소스 URI를 지정합니다. Azure Resource 관리 API를 호출하려면 `https://management.azure.com/`을 사용합니다. 관리 ID의 작동 방식에 대한 자세한 내용은 [Azure 리소스의 관리 ID 개요 페이지](/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
+데이터 팩터리에 대한 관리 ID를 사용하여 요청되는 액세스 토큰에 대한 리소스 URI를 지정합니다. Azure Resource 관리 API를 호출하려면 `https://management.azure.com/`을 사용합니다. 관리 ID의 작동 방식에 대한 자세한 내용은 [Azure 리소스의 관리 ID 개요 페이지](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 ```json
 "authentication": {
@@ -165,7 +165,7 @@ POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전�
 }
 ```
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용 하 여 논리 SQL server에 연결 하 고 SQL server 인스턴스의 이름을 반환 합니다.
 
 ### <a name="pipeline-definition"></a>파이프라인 정의
