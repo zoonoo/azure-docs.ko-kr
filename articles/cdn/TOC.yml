@@ -172,7 +172,7 @@
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/cdn/
 - name: 리소스
   items:
@@ -187,7 +187,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-cdn.html'
+      href: /answers/topics/azure-cdn.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: 요금 계산기

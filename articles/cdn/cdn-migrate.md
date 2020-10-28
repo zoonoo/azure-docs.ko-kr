@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: c1302822715a37ef1b85007130067ac02a8fd17a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58c1177fb3c4d241a3efe1759b3900abbd04ca1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887586"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778387"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Standard Verizon에서 Premium Verizon으로 Azure CDN 프로필 마이그레이션
 
@@ -42,7 +42,7 @@ Azure CDN(Content Delivery Network) 프로필을 만들어서 엔드포인트를
 
 **Verizon의 Azure CDN Premium** 프로필에는 다음과 같은 추가 기능이 포함되어 있습니다.
 - [토큰 인증](cdn-token-auth.md): 사용자가 토큰을 획득 및 사용하여 보안 리소스를 페치할 수 있습니다.
-- [규칙 엔진](cdn-rules-engine.md): HTTP 요청을 처리하는 방법을 사용자 지정할 수 있습니다.
+- [규칙 엔진](./cdn-verizon-premium-rules-engine.md): HTTP 요청을 처리하는 방법을 사용자 지정할 수 있습니다.
 - 고급 분석 도구:
    - [자세한 HTTP 분석](cdn-advanced-http-reports.md)
    - [에지 성능 분석](cdn-edge-performance.md)
@@ -50,5 +50,4 @@ Azure CDN(Content Delivery Network) 프로필을 만들어서 엔드포인트를
 
 
 ## <a name="next-steps"></a>다음 단계
-규칙 엔진에 대한 자세한 내용은 [Azure CDN 규칙 엔진 참조](cdn-rules-engine-reference.md)를 참조하세요.
-
+규칙 엔진에 대한 자세한 내용은 [Azure CDN 규칙 엔진 참조](./cdn-verizon-premium-rules-engine-reference.md)를 참조하세요.

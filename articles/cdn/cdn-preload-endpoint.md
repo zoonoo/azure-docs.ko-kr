@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fb414680b8ff64d057f9f68d7b97380baeaa551
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192572"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778197"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트에 자산 미리 로드
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -37,17 +37,17 @@ ms.locfileid: "88192572"
 1. [Azure Portal](https://portal.azure.com)에서 미리 로드하려는 엔드포인트를 포함하는 CDN 프로필로 이동합니다. 프로필 창이 열립니다.
     
 2. 목록에서 엔드포인트를 클릭합니다. 엔드포인트 창이 열립니다.
-3. CDN 엔드포인트 창에서 **로드**를 선택합니다.
+3. CDN 엔드포인트 창에서 **로드** 를 선택합니다.
    
     ![CDN 엔드포인트 창](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
     **로드** 창이 열립니다.
    
     ![CDN 로드 창](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. **콘텐츠 경로**에 로드하려는 각 자산의 전체 경로를 입력합니다(예: `/pictures/kitten.png`).
+4. **콘텐츠 경로** 에 로드하려는 각 자산의 전체 경로를 입력합니다(예: `/pictures/kitten.png`).
    
    > [!TIP]
-   > 텍스트를 입력한 후에는 여러 자산 목록을 빌드할 수 있도록 더 많은 **콘텐츠 경로** 텍스트 상자가 나타납니다. 목록에서 자산을 삭제하려면 줄임표(...) 버튼을 선택하고 **삭제**를 선택합니다.
+   > 텍스트를 입력한 후에는 여러 자산 목록을 빌드할 수 있도록 더 많은 **콘텐츠 경로** 텍스트 상자가 나타납니다. 목록에서 자산을 삭제하려면 줄임표(...) 버튼을 선택하고 **삭제** 를 선택합니다.
    > 
    > 각 콘텐츠 경로는 다음 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)에 맞는 상대 URL이어야 합니다.  
    > - 단일 파일 경로 로드: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
@@ -58,7 +58,7 @@ ms.locfileid: "88192572"
    > 
    
     ![로드 단추](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. 콘텐츠 경로를 입력했으면 **로드**를 선택합니다.
+5. 콘텐츠 경로를 입력했으면 **로드** 를 선택합니다.
    
 
 > [!NOTE]
@@ -66,8 +66,7 @@ ms.locfileid: "88192572"
 > 
 > 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Azure CDN 끝점을 제거 합니다.](cdn-purge-endpoint.md)
-* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
-
+* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 미리 로드](/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API 참조: 엔드포인트에서 콘텐츠 제거](/rest/api/cdn/endpoints/purgecontent)

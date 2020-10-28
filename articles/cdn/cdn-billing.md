@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191169"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779172"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -38,7 +38,7 @@ ms.locfileid: "88191169"
 
 - 영역 5: 인도
 
-POP(point-of-presence) 지역에 대한 정보는 [지역별 Azure CDN POP 위치](https://docs.microsoft.com/azure/cdn/cdn-pop-locations)를 참조하세요. 예를 들어 멕시코의 POP는 북아메리카 지역에 있고 따라서 영역 1에 포함됩니다. 
+POP(point-of-presence) 지역에 대한 정보는 [지역별 Azure CDN POP 위치](./cdn-pop-locations.md)를 참조하세요. 예를 들어 멕시코의 POP는 북아메리카 지역에 있고 따라서 영역 1에 포함됩니다. 
 
 Azure CDN 가격 책정에 대한 정보는 [Content Delivery Network 가격 책정](https://azure.microsoft.com/pricing/details/cdn/)을 참조하세요.
 
@@ -48,7 +48,7 @@ Azure CDN 청구 지역은 최종 사용자에게 콘텐츠를 배달하는 원�
 예를 들어 멕시코에 위치한 사용자가 요청을 발급하고 이 요청이 피어링 또는 트래픽 상황으로 인해 미국 POP에 있는 서버를 통해 처리되는 경우 청구 지역은 미국이 됩니다.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>청구 가능 Azure CDN 트랜잭션이란?
-CDN에서 종료되는 모든 HTTP(S) 요청은 청구 가능 이벤트로, 모든 응답 형식(성공, 실패 또는 기타)을 포함합니다. 그러나 응답에 따라 트래픽 양이 달라질 수 있습니다. 예를 들어 *304 수정되지 않음* 및 헤더에만 적용되는 기타 응답은 작은 헤더 응답이기 때문에 트래픽을 거의 생성하지 않습니다. 마찬가지로, 오류 응답(예: *404 찾을 수 없음*)은 청구 가능하지만 응답 페이로드가 아주 작기 때문에 적은 비용이 발생합니다.
+CDN에서 종료되는 모든 HTTP(S) 요청은 청구 가능 이벤트로, 모든 응답 형식(성공, 실패 또는 기타)을 포함합니다. 그러나 응답에 따라 트래픽 양이 달라질 수 있습니다. 예를 들어 *304 수정되지 않음* 및 헤더에만 적용되는 기타 응답은 작은 헤더 응답이기 때문에 트래픽을 거의 생성하지 않습니다. 마찬가지로, 오류 응답(예: *404 찾을 수 없음* )은 청구 가능하지만 응답 페이로드가 아주 작기 때문에 적은 비용이 발생합니다.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Azure CDN 사용과 관련된 기타 Azure 비용으로 어떤 것이 있나요?
 Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대한 사용 요금이 발생합니다. 이러한 비용은 일반적으로 전체 CDN 사용 비용의 일부입니다.
@@ -66,7 +66,7 @@ Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대�
 
 Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/)을 참조하세요.
 
-*호스팅된 서비스 배달*을 사용하는 경우 다음과 같이 요금이 발생합니다.
+*호스팅된 서비스 배달* 을 사용하는 경우 다음과 같이 요금이 발생합니다.
 
 - Azure 컴퓨팅 시간: 원점으로 작동하는 컴퓨팅 인스턴스.
 
@@ -74,7 +74,7 @@ Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 
 
 클라이언트에서 바이트 범위 요청을 사용하는 경우(원본 서비스에 관계없이) 다음과 같은 고려 사항이 적용됩니다.
 
-- *바이트 범위 요청*은 CDN에서 청구 가능 트랜잭션입니다. 클라이언트에서 바이트 범위 요청을 발급하는 경우 이 요청의 대상은 개체의 하위 집합(범위)입니다. CDN은 요청된 콘텐츠의 일부만 사용하여 응답합니다. 이 부분 응답은 청구 가능 트랜잭션이며 전송량은 범위 응답의 크기(더하기 헤더)로 제한됩니다.
+- *바이트 범위 요청* 은 CDN에서 청구 가능 트랜잭션입니다. 클라이언트에서 바이트 범위 요청을 발급하는 경우 이 요청의 대상은 개체의 하위 집합(범위)입니다. CDN은 요청된 콘텐츠의 일부만 사용하여 응답합니다. 이 부분 응답은 청구 가능 트랜잭션이며 전송량은 범위 응답의 크기(더하기 헤더)로 제한됩니다.
 
 - 개체의 일부분에만 해당하는(바이트 범위 헤더를 지정하여) 요청이 도착하면 CDN이 전체 개체를 캐시에 페치할 수도 있습니다. 결과적으로, CDN의 청구 가능 트랜잭션이 응답의 일부를 대상으로 하더라도 원본의 청구 가능 트랜잭션에 개체의 전체 크기가 포함될 수 있습니다.
 
@@ -105,7 +105,7 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Front Door Service
 - Azure Bastion
 - Azure App Service
-- Azure 기능
+- Azure Functions
 - Azure 데이터 팩터리
 - Azure API Management
 - Azure Batch 
@@ -119,4 +119,4 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Cache for Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>비용을 효과적으로 관리하는 방법
-콘텐츠에서 TTL을 최대한 길게 설정합니다. 
+콘텐츠에서 TTL을 최대한 길게 설정합니다.

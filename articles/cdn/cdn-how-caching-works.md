@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: aa3c190912c0fbd62b08182018c99b985354811b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86201796"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778625"
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
 
@@ -65,7 +65,7 @@ ms.locfileid: "86201796"
 ## <a name="cache-directive-headers"></a>캐시 지시문 헤더
 
 > [!IMPORTANT]
-> 기본적으로 DSA에 최적화된 Azure CDN 엔드포인트는 캐시 지시문 헤더를 무시하고 캐싱을 바이패스합니다. **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필의 경우 캐싱을 사용하도록 설정하는 [CDN 캐싱 규칙](cdn-caching-rules.md)을 사용하여 Azure CDN 엔드포인트가 이러한 헤더를 처리하는 방식을 조정할 수 있습니다. **Verizon의 Azure CDN 프리미엄** 프로필의 경우 [규칙 엔진](cdn-rules-engine.md)을 사용하여 캐싱을 사용하도록 설정합니다.
+> 기본적으로 DSA에 최적화된 Azure CDN 엔드포인트는 캐시 지시문 헤더를 무시하고 캐싱을 바이패스합니다. **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필의 경우 캐싱을 사용하도록 설정하는 [CDN 캐싱 규칙](cdn-caching-rules.md)을 사용하여 Azure CDN 엔드포인트가 이러한 헤더를 처리하는 방식을 조정할 수 있습니다. **Verizon의 Azure CDN 프리미엄** 프로필의 경우 [규칙 엔진](./cdn-verizon-premium-rules-engine.md)을 사용하여 캐싱을 사용하도록 설정합니다.
 
 Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTTP 캐시 지시문 헤더를 지원합니다.
 
@@ -74,9 +74,9 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 - `Expires` 헤더와 `Cache-Control`이 모두 정의 된 경우 전자의 헤더를 대체합니다.
 - 클라이언트에서 CDN POP으로의 HTTP 요청에 사용되는 경우 `Cache-Control`은 기본적으로 모든 Azure CDN 프로필에서 무시됩니다.
 - 클라이언트에서 CDN POP으로의 HTTP 응답에 사용되는 경우:
-     - **Verizon의 Azure CDN 표준/프리미엄** 및 **Microsoft의 Azure CDN 표준**은 둘 다 `Cache-Control` 지시문을 지원합니다.
-     - **Akamai의 Azure CDN 표준**은 다음과 같은 `Cache-Control` 지시문만 지원하고 나머지는 무시됩니다.
-         - `max-age`: 캐시는 지정된 시간(초)동안 콘텐츠를 저장할 수 있습니다. 예: `Cache-Control: max-age=5` 이 지시문은 콘텐츠가 최신으로 간주되는 최대 시간을 지정합니다.
+     - **Verizon의 Azure CDN 표준/프리미엄** 및 **Microsoft의 Azure CDN 표준** 은 둘 다 `Cache-Control` 지시문을 지원합니다.
+     - **Akamai의 Azure CDN 표준** 은 다음과 같은 `Cache-Control` 지시문만 지원하고 나머지는 무시됩니다.
+         - `max-age`: 캐시는 지정된 시간(초)동안 콘텐츠를 저장할 수 있습니다. `Cache-Control: max-age=5`)을 입력합니다. 이 지시문은 콘텐츠가 최신으로 간주되는 최대 시간을 지정합니다.
          - `no-cache`: 콘텐츠를 캐시하지만 캐시에서 전송할 때마다 그 전에 콘텐츠의 유효성을 검사합니다. `Cache-Control: max-age=0`와 같습니다.
          - `no-store`: 콘텐츠를 캐시하지 않습니다. 이전에 저장된 콘텐츠가 있으면 제거합니다.
 
@@ -94,23 +94,23 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 
 ## <a name="validators"></a>유효성 검사기
 
-캐시가 유효하지 않으면 HTTP 캐시 유효성 검사기를 사용하여 캐시된 버전의 파일을 원본 서버의 버전과 비교합니다. **Verizon의 Azure CDN 표준/프리미엄**은 기본적으로 `ETag` 및 `Last-Modified` 유효성 검사기를 지원하는 반면, **Microsoft의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준**은 기본적으로 `Last-Modified`만 지원합니다.
+캐시가 유효하지 않으면 HTTP 캐시 유효성 검사기를 사용하여 캐시된 버전의 파일을 원본 서버의 버전과 비교합니다. **Verizon의 Azure CDN 표준/프리미엄** 은 기본적으로 `ETag` 및 `Last-Modified` 유효성 검사기를 지원하는 반면, **Microsoft의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 은 기본적으로 `Last-Modified`만 지원합니다.
 
 **ETag**
-- **Verizon의 Azure CDN 표준/프리미엄**은 기본적으로 `ETag`를 지원하는 반면, **Microsoft의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준**은 지원하지 않습니다.
-- `ETag` 모든 파일 및 파일 버전에 대해 고유한 문자열을 정의합니다. 예: `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`
+- **Verizon의 Azure CDN 표준/프리미엄** 은 기본적으로 `ETag`를 지원하는 반면, **Microsoft의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 은 지원하지 않습니다.
+- `ETag` 모든 파일 및 파일 버전에 대해 고유한 문자열을 정의합니다. `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`)을 입력합니다.
 - HTTP 1.1에서 도입되었으며 `Last-Modified`보다 최신입니다. 마지막 수정 날짜를 확인하기 어려운 경우에 유용합니다.
 - 강력한 유효성 검사와 약한 유효성 검사 모두를 지원하지만 Azure CDN은 강력한 유효성 검사만 지원합니다. 강력한 유효성 검사의 경우 두 리소스 표현이 바이트 단위로 동일해야 합니다. 
-- 캐시는 요청에 하나 이상의 `ETag` 유효성 검사기가 있는 `If-None-Match` 헤더를 전송하여 `ETag`를 사용하는 파일의 유효성을 검사합니다. 예: `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"` 서버의 버전이 목록의 `ETag` 유효성 검사기와 일치하면 응답에 상태 코드 304(수정되지 않음)가 전송됩니다. 버전이 다른 경우 서버는 상태 코드 200(정상)과 업데이트된 리소스로 응답합니다.
+- 캐시는 요청에 하나 이상의 `ETag` 유효성 검사기가 있는 `If-None-Match` 헤더를 전송하여 `ETag`를 사용하는 파일의 유효성을 검사합니다. `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`)을 입력합니다. 서버의 버전이 목록의 `ETag` 유효성 검사기와 일치하면 응답에 상태 코드 304(수정되지 않음)가 전송됩니다. 버전이 다른 경우 서버는 상태 코드 200(정상)과 업데이트된 리소스로 응답합니다.
 
 **마지막으로 수정한 날짜:**
-- **Verizon의 Azure CDN 표준/프리미엄**의 경우에만 `ETag`가 HTTP 응답에 속하지 않으면 `Last-Modified`가 사용됩니다. 
-- 리소스가 마지막으로 수정된 것으로 원본 서버에서 확인된 날짜와 시간을 지정합니다. 예: `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`
+- **Verizon의 Azure CDN 표준/프리미엄** 의 경우에만 `ETag`가 HTTP 응답에 속하지 않으면 `Last-Modified`가 사용됩니다. 
+- 리소스가 마지막으로 수정된 것으로 원본 서버에서 확인된 날짜와 시간을 지정합니다. `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`)을 입력합니다.
 - 캐시는 요청에 날짜와 시간이 있는 `If-Modified-Since` 헤더를 보내어 `Last-Modified`를 사용하여 파일의 유효성을 검사합니다. 원본 서버는 해당 날짜를 최신 리소스의 `Last-Modified` 헤더와 비교합니다. 리소스가 지정된 시간 이후로 수정되지 않은 경우 서버는 응답에 상태 코드 304(수정되지 않음)를 반환합니다. 리소스가 수정된 경우에는 서버가 상태 코드 200(정상)과 업데이트된 리소스를 반환합니다.
 
 ## <a name="determining-which-files-can-be-cached"></a>캐시할 수 있는 파일 결정
 
-모든 리소스를 캐시할 수 있는 것은 아닙니다. 다음 테이블은 HTTP 응답 유형을 기반으로 어떤 리소스를 캐시할 수 있는지 보여줍니다. 이러한 조건을 모두 충족하지 않는 HTTP 응답과 함께 전송되는 리소스는 캐시할 수 없습니다. **Verizon의 Azure CDN 프리미엄**의 경우에만 규칙 엔진을 사용하여 이러한 조건 중 일부를 사용자 지정할 수 있습니다.
+모든 리소스를 캐시할 수 있는 것은 아닙니다. 다음 테이블은 HTTP 응답 유형을 기반으로 어떤 리소스를 캐시할 수 있는지 보여줍니다. 이러한 조건을 모두 충족하지 않는 HTTP 응답과 함께 전송되는 리소스는 캐시할 수 없습니다. **Verizon의 Azure CDN 프리미엄** 의 경우에만 규칙 엔진을 사용하여 이러한 조건 중 일부를 사용자 지정할 수 있습니다.
 
 |                       | Microsoft의 Azure CDN          | Verizon의 Azure CDN | Akamai의 Azure CDN        |
 |-----------------------|-----------------------------------|------------------------|------------------------------|
@@ -129,14 +129,11 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 | **원본 준수**       | 예    | 예   | 아니요   | 예    | 아니요   | 예   | 예    |
 | **CDN 캐시 기간** | 2일 |7 일 | 없음 | 7 일 | 없음 | 1일 | 1년 |
 
-**원본 사용**: 지원되는 캐시 지시문 헤더가 원본 서버의 HTTP 응답에 존재하는 경우 사용할지 여부를 지정합니다.
+**원본 사용** : 지원되는 캐시 지시문 헤더가 원본 서버의 HTTP 응답에 존재하는 경우 사용할지 여부를 지정합니다.
 
-**CDN 캐시 기간**: Azure CDN에 리소스가 캐시되는 시간의 길이를 지정합니다. 하지만 **원본 사용**이 예이고 원본 서버의 HTTP 응답에 캐시 지시문 헤더 `Expires` 또는 `Cache-Control: max-age`가 포함되어 있으면 Azure CDN은 헤더에 지정된 기간 값을 대신 사용합니다. 
+**CDN 캐시 기간** : Azure CDN에 리소스가 캐시되는 시간의 길이를 지정합니다. 하지만 **원본 사용** 이 예이고 원본 서버의 HTTP 응답에 캐시 지시문 헤더 `Expires` 또는 `Cache-Control: max-age`가 포함되어 있으면 Azure CDN은 헤더에 지정된 기간 값을 대신 사용합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 - 캐싱 규칙을 통해 CDN의 기본 캐싱 동작을 사용자 지정하고 재정의하는 방법을 알아보려면 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요. 
 - 쿼리 문자열을 사용하여 캐싱 동작을 제어하는 방법을 알아보려면 [쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어](cdn-query-string.md)를 참조하세요.
-
-
-

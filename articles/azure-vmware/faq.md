@@ -4,12 +4,12 @@ description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 �
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 91be1c51639aa3ae8acbf0c37f5c4a8174b5a592
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461654"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779444"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -19,7 +19,7 @@ Azure VMware 솔루션에 대 한 자주 묻는 질문에 대 한 대답입니�
 
 #### <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
-기업은 비즈니스 민첩성을 개선하고, 비용을 절감하고, 혁신을 가속화하는 IT 현대화 전략을 찾고 있으며, 고객의 디지털 변환을 가능하게 하는 핵심 요소로 하이브리드 클라우드 플랫폼이 등장했습니다. Azure VMware 솔루션은 VMware의 SDDC (소프트웨어 정의 데이터 센터) 소프트웨어와 Microsoft Azure 글로벌 클라우드 서비스 에코 시스템을 결합 합니다. Azure VMware 솔루션은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족 하도록 관리 됩니다.
+기업은 IT 현대화 전략을 활용 하 여 비즈니스 민첩성을 개선 하 고 비용을 절감 하며 혁신을 가속화 하는 하이브리드 클라우드 플랫폼은 고객의 디지털 변환의 핵심 핵심으로 등장 했습니다. Azure VMware 솔루션은 VMware의 SDDC (Software-Defined 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코 시스템과 결합 합니다. Azure VMware 솔루션은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족 하도록 관리 됩니다.
 
 ## <a name="azure-vmware-solution-service"></a>Azure VMware 솔루션 서비스
 
@@ -53,11 +53,11 @@ Azure VMware 솔루션은 시작 시 온-프레미스 및 사설 클라우드 �
 
 #### <a name="what-does-the-change-control-process-look-like"></a>변경 제어 프로세스는 어떻게 생겼나요?
 
-서비스 자체에 대한 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 워크로드 관리 작업 및 관련된 변경 관리 프로세스를 담당합니다.
+서비스 자체에 대 한 업데이트는 Microsoft Azure의 표준 변경 관리 프로세스를 따릅니다. 고객은 워크로드 관리 작업 및 관련된 변경 관리 프로세스를 담당합니다.
 
 #### <a name="how-is-this-different-from-azure-vmware-solution-by-cloudsimple"></a>Azure VMware Solution by CloudSimple과 어떻게 다른가요?
 
-새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새로운 솔루션은 Microsoft에서 완전히 설계, 구축 및 지원 되며 VMware에 의해 보증 됩니다. Azure 전용 인프라에서 실행되는 VMware 기술 스택을 사용하므로 솔루션의 아키텍처는 동일합니다.
+새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새로운 솔루션은 Microsoft에서 완전히 설계, 구축 및 지원 되며 VMware에 의해 보증 됩니다. 아키텍처는 전용 Azure 인프라에서 실행 되는 VMware 기술 스택을 사용 하 여 일관 된 솔루션입니다.
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Red Hat 솔루션은 Azure VMware 솔루션에서 지원 되나요?
 
@@ -68,7 +68,7 @@ Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시�
 VMware HCX EE(Enterprise Edition)는 Azure VMware Solution에서 *미리 보기* 기능/서비스로 사용할 수 있습니다. Azure VMware 솔루션에 대 한 VMware HCX EE는 미리 보기 상태 이지만 무료 기능/서비스 이며 미리 보기 서비스 사용 약관에 적용 됩니다. VMware HCX EE 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 서비스를 끄거나 옵트아웃 (opt out) 할 수 있습니다.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>VMRC를 통해 Azure VMware 솔루션 Vm을 관리할 수 있나요?
-예, 설치 되어 있는 시스템이 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인할 수 있습니다.
+예, 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인할 수 있습니다.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm과 함께 VMRC를 설치 하 고 사용 하기 위한 특별 지침이 있나요?
 아니요, [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 구성 요소를 충족 합니다. 
@@ -102,7 +102,7 @@ Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 �
 
 #### <a name="how-much-network-bandwidth-is-available-in-each-esxi-host"></a>각 ESXi 호스트에서 사용할 수 있는 네트워크 대역폭은 얼마나 되나요?
 
-각 ESXi 호스트는 ESXi 시스템 트래픽에 대해 프로 비전 된 두 개의 Nic와 워크 로드 트래픽에 대해 프로 비전 된 두 개의 nic를 사용 하 여 4 25-Gbps Nic로 구성 됩니다. 
+Azure VMware 솔루션의 각 ESXi 호스트는 4 25-Gbps Nic, ESXi 시스템 트래픽에 대해 프로 비전 된 두 개의 Nic, 워크 로드 트래픽에 대해 프로 비전 된 두 개의 Nic를 사용 하 여 구성 됩니다. 
 
 #### <a name="is-data-stored-on-the-vsan-datastores-encrypted-at-rest"></a>미사용 암호화 된 vSAN 데이터 저장소에 저장 된 데이터 입니까?
 
@@ -116,9 +116,9 @@ Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 �
 
 이러한 백업 솔루션은 고객에 의해 설치 되 고 관리 되므로 지원 하기 위해 각 ISV에 게 연락할 수 있습니다. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>중복 제거 설정에 대 한 올바른 저장소 정책은 무엇입니까?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>중복 제거 설치에 대 한 올바른 저장소 정책은 무엇 인가요?
 
-VM 템플릿에 대 한 *thin_provision* 저장소 정책을 사용 합니다.  기본값은 *thick_provision*입니다.
+VM 템플릿에 대 한 *thin_provision* 저장소 정책을 사용 합니다.  기본값은 *thick_provision* 입니다.
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>SNMP 인프라 로그가 공유 되나요?
 
@@ -130,13 +130,13 @@ VM 템플릿에 대 한 *thin_provision* 저장소 정책을 사용 합니다.  
 
 아니요, 프라이빗 클라우드 호스트와 클러스터는 전용이며 사용 전과 후에 안전하게 삭제됩니다.
 
-#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>클러스터당 최소/최대 호스트 수는 얼마인가요?
+#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>클러스터당 최소 및 최대 호스트 수는 얼마 인가요?
 
 ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
 
 #### <a name="can-i-scale-my-private-cloud-clusters"></a>프라이빗 클라우드 클러스터를 스케일링할 수 있나요?
 
-예, 최소~최대 ESXi 호스트 수 사이에서 클러스터를 스케일링할 수 있습니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
+예, 클러스터는 최소 및 최대 ESXi 호스트 수 사이에서 크기를 조정 합니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
 
 #### <a name="what-are-trial-clusters"></a>평가판 클러스터란 무엇인가요?
 
@@ -166,24 +166,24 @@ ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습�
 
 #### <a name="what-is-the-upgrade-and-update-schedule-for-vmware-software-in-a-private-cloud"></a>프라이빗 클라우드에서 VMware 소프트웨어를 업그레이드 및 업데이트하는 일정이 어떻게 되나요?
 
-사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 소프트웨어 번들의 최신 릴리스 중 한 버전의 소프트웨어를 유지 하기 위해 수행 됩니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, vSAN)과 다를 수 있습니다.
+사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 최신 소프트웨어 번들 릴리스의 한 버전 내에서 소프트웨어를 유지 하기 위해 수행 됩니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, vSAN)과 다를 수 있습니다.
 
 #### <a name="how-often-will-the-private-cloud-software-stack-be-updated"></a>프라이빗 클라우드 소프트웨어 스택은 얼마나 자주 업데이트되나요?
 
-프라이빗 클라우드 소프트웨어는 VMware의 소프트웨어 번들 릴리스를 따르는 일정에 따라 업그레이드 됩니다. 프라이빗 클라우드는 업그레이드로 인한 가동 중지 시간이 없습니다.
+사설 클라우드 소프트웨어는 VMware에서 소프트웨어 번들의 릴리스를 추적 하는 일정에 따라 업그레이드 됩니다. 프라이빗 클라우드는 업그레이드로 인한 가동 중지 시간이 없습니다.
 
 ## <a name="connectivity"></a>연결
 
 #### <a name="what-network-ip-address-planning-is-required-to-incorporate-private-clouds-with-on-premises-environments"></a>프라이빗 클라우드를 온-프레미스 환경과 통합하는 데 필요한 네트워크 IP 주소 계획은 무엇인가요?
 
-Azure VMware 솔루션 사설 클라우드를 배포 하려면 개인 네트워크/22 주소 공간이 필요 합니다. 이 프라이빗 주소 공간은 구독의 다른 가상 네트워크 또는 온-프레미스 네트워크와 겹치지 않아야 합니다.
+Azure VMware 솔루션 사설 클라우드를 배포 하려면 개인 네트워크/22 주소 공간이 필요 합니다. 이 개인 주소 공간은 구독의 다른 가상 네트워크 또는 온-프레미스 네트워크와 겹치지 않아야 합니다.
  
 #### <a name="how-do-i-connect-from-on-premises-environments-to-an-azure-vmware-solution-private-cloud"></a>온-프레미스 환경에서 Azure VMware 솔루션 사설 클라우드로 연결 어떻게 할까요??
 
 다음 두 가지 방법 중 하나로 서비스에 연결할 수 있습니다. 
 
 - ExpressRoute를 통해 프라이빗 클라우드에 피어링되는 Azure 가상 네트워크에 배포된 VM 또는 애플리케이션 게이트웨이를 사용합니다.
-- ExpressRoute Global Reach를 통해 온-프레미스 데이터 센터에서 Azure ExpressRoute 회로로 연결합니다.
+- Express 경로를 통해 온-프레미스 데이터 센터에서 Azure Express 경로 회로로 Global Reach 합니다.
 
 #### <a name="how-do-i-connect-a-workload-vm-to-the-internet-or-an-azure-service-endpoint"></a>워크로드 VM을 인터넷 또는 Azure 서비스 엔드포인트에 연결하려면 어떻게 할까요?
 
@@ -228,7 +228,7 @@ NSX-T에 대한 모든 관리자 권한이 부여되며 NSX-T 데이터 센터 �
 
 #### <a name="who-supports-azure-vmware-solution"></a>누가 Azure VMware 솔루션을 지원 하나요?
 
-Azure VMware 솔루션에 대 한 지원은 Microsoft에서 제공 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출할 수 있습니다.
+Microsoft는 Azure VMware 솔루션에 대 한 지원을 제공 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출할 수 있습니다.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드를 만들려면 어떤 계정이 필요 한가요?
 
@@ -239,10 +239,10 @@ Azure 구독의 Azure 계정이 필요합니다.
 * Microsoft와 함께 [Azure 기업계약 (EA)](../cost-management-billing/manage/ea-portal-agreements.md) 가 필요 합니다.
 * Azure 구독의 Azure 계정이 필요합니다.
 
-Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 지원 티켓을 제출 해야 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
+Azure VMware 솔루션 리소스를 만들기 전에 지원 티켓을 제출 하 여 노드를 할당 해야 합니다. 요청을 확인 하 고 노드를 할당 하는 데 최대 5 영업일까지 소요 됩니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 노드를 할당하려는 경우에도 동일한 프로세스를 진행합니다.
 
 
-1. Azure Portal의 **도움말 + 지원**에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.
+1. Azure Portal의 **도움말 + 지원** 에서 **[새 지원 요청](https://rc.portal.azure.com/#create/Microsoft.Support)** 을 만들고 티켓에 대 한 다음 정보를 제공 합니다.
    - **문제 유형:** 기술
    - **구독:** 구독 선택
    - **서비스:** Azure VMware 솔루션 > 모든 서비스
@@ -272,9 +272,9 @@ Azure VMware 솔루션 리소스를 만들기 전에 노드가 할당 되도록 
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   ```
+   `"
 
-   리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

@@ -12,23 +12,23 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676138"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780362"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 [Azure SQL Database](sql-database-paas-overview.md) 및 [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)를 사용 하 여 응용 프로그램의 데이터 계층을 보호 하는 기본 사항을 간략하게 설명 합니다. 여기서 설명하는 보안 전략은 아래 그림에 나와 있는 계층형 심층 방어 방식을 따르며 외부에서 내부로 적용됩니다.
+이 문서에서는 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)및 [azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)를 사용 하 여 응용 프로그램의 데이터 계층을 보호 하는 기본 사항을 간략하게 설명 합니다. 여기서 설명하는 보안 전략은 아래 그림에 나와 있는 계층형 심층 방어 방식을 따르며 외부에서 내부로 적용됩니다.
 
 ![계층화 된 심층 방어 다이어그램입니다. 고객 데이터는 네트워크 보안, 액세스 관리, 위협 및 정보 보호 계층으로 되어 있습니다.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>네트워크 보안
 
-Microsoft Azure SQL Database 및 SQL Managed Instance는 클라우드 및 엔터프라이즈 응용 프로그램에 대 한 관계형 데이터베이스 서비스를 제공 합니다. 방화벽은 고객 데이터를 보호 하기 위해 IP 주소 또는 Azure 가상 네트워크 트래픽 원본에 따라 액세스가 명시적으로 부여 될 때까지 서버에 대 한 네트워크 액세스를 차단 합니다.
+Microsoft Azure SQL Database, SQL Managed Instance 및 Azure Synapse Analytics는 클라우드 및 엔터프라이즈 응용 프로그램에 대 한 관계형 데이터베이스 서비스를 제공 합니다. 방화벽은 고객 데이터를 보호 하기 위해 IP 주소 또는 Azure 가상 네트워크 트래픽 원본에 따라 액세스가 명시적으로 부여 될 때까지 서버에 대 한 네트워크 액세스를 차단 합니다.
 
 ### <a name="ip-firewall-rules"></a>IP 방화벽 규칙
 
@@ -36,7 +36,7 @@ IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 
 
 ### <a name="virtual-network-firewall-rules"></a>Virtual Network 방화벽 규칙
 
-[가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)는 Azure 백본을 통해 가상 네트워크 연결을 확장하며, 트래픽이 생성되는 가상 네트워크 서브넷을 Azure SQL Database가 식별할 수 있도록 합니다. 트래픽이 Azure SQL Database로 전송되도록 하려면 SQL [서비스 태그](../../virtual-network/security-overview.md)를 사용해 네트워크 보안 그룹을 통한 아웃바운드 트래픽을 허용합니다.
+[가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)는 Azure 백본을 통해 가상 네트워크 연결을 확장하며, 트래픽이 생성되는 가상 네트워크 서브넷을 Azure SQL Database가 식별할 수 있도록 합니다. 트래픽이 Azure SQL Database로 전송되도록 하려면 SQL [서비스 태그](../../virtual-network/network-security-groups-overview.md)를 사용해 네트워크 보안 그룹을 통한 아웃바운드 트래픽을 허용합니다.
 
 Azure SQL Database는 [가상 네트워크 규칙](vnet-service-endpoint-rule-overview.md)을 통해 Virtual Network 내의 선택한 서브넷에서 전송된 통신만 수락할 수 있습니다.
 
@@ -99,7 +99,7 @@ Advanced Threat Protection은 로그를 분석 하 여 비정상적인 동작을
 
 [TLS (Transport Layer Security)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)를 사용 하 여 동작 중인 데이터를 암호화 하 여 고객 데이터를 보호 하는 SQL DATABASE, SQL Managed Instance 및 Azure Synapse 분석
 
-SQL Database, SQL Managed Instance 및 Azure Synapse는 모든 연결에 대해 항상 암호화 (SSL/TLS)를 적용 합니다. 이렇게 하면 연결 문자열에서 **Encrypt** 또는 **trustservercertificate** 의 설정에 관계 없이 모든 데이터가 클라이언트와 서버 간에 "전송 중"으로 암호화 됩니다.
+SQL Database, SQL Managed Instance 및 Azure Synapse Analytics는 모든 연결에 대해 항상 암호화 (SSL/TLS)를 적용 합니다. 이렇게 하면 연결 문자열에서 **Encrypt** 또는 **trustservercertificate** 의 설정에 관계 없이 모든 데이터가 클라이언트와 서버 간에 "전송 중"으로 암호화 됩니다.
 
 응용 프로그램에서 사용 하는 연결 문자열에서 암호화 된 연결을 지정 하 고 서버 인증서를 신뢰 _**하지**_ 않는 것이 좋습니다. 이렇게 하면 응용 프로그램이 서버 인증서를 확인 하 여 응용 프로그램이 중간 유형의 공격을 받을 수 없게 됩니다.
 

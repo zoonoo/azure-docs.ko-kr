@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7edf790e526329dd285d03a31137a26220e52ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85921156"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778934"
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS에서 Azure CDN 사용
 ## <a name="what-is-cors"></a>CORS는 무엇인가요?
 CORS(크로스 원본 자원 공유)는 특정 도메인에서 실행되는 웹 애플리케이션이 다른 도메인의 자원에 액세스할 수 있도록 하는 HTTP 기능입니다. 사이트 간 스크립팅 공격 가능성을 줄이기 위해 모든 최신 웹 브라우저는 [동일 원본 정책](https://www.w3.org/Security/wiki/Same_Origin_Policy)이라는 보안 제한을 구현합니다.  이 경우 웹 페이지는 다른 도메인의 API를 호출할 수 없습니다.  CORS는 한 도메인(원본 도메인)에서 다른 도메인의 API를 호출할 수 있는 안전한 방법을 제공합니다.
 
-## <a name="how-it-works"></a>작동 방법
-CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형이 있습니다.
+## <a name="how-it-works"></a>작동 방식
+CORS 요청에는 *간단한 요청* 과 *복잡한 요청* 의 두 가지 유형이 있습니다.
 
 ### <a name="for-simple-requests"></a>간단한 요청:
 
-1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트*로 정의됩니다.  Https \: //www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스 하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송 됩니다.
+1. 브라우저는 추가 **원본** HTTP 요청 헤더를 포함하여 CORS 요청을 보냅니다. 이 헤더의 값은 부모 페이지를 제공한 원본입니다. 이 값은 *프로토콜* *도메인* 및 *포트* 로 정의됩니다.  Https \: //www.contoso.com의 페이지가 fabrikam.com 원본의 사용자 데이터에 액세스 하려고 하면 다음 요청 헤더가 fabrikam.com으로 전송 됩니다.
 
    `Origin: https://www.contoso.com`
 
@@ -48,7 +48,7 @@ CORS 요청에는 *간단한 요청*과 *복잡한 요청*의 두 가지 유형�
 
 ### <a name="for-complex-requests"></a>복잡한 요청:
 
-복잡한 요청은 실제 CORS 요청을 전송하기 전에 브라우저가 *실행 전 요청*(즉, 예비 프로브)을 전송해야 하는 CORS 요청입니다. 실행 전 요청은 원래 CORS 요청을 진행할 수 있고 동일한 URL에 대한 `OPTIONS` 요청인 경우에 서버 승인을 요청합니다.
+복잡한 요청은 실제 CORS 요청을 전송하기 전에 브라우저가 *실행 전 요청* (즉, 예비 프로브)을 전송해야 하는 CORS 요청입니다. 실행 전 요청은 원래 CORS 요청을 진행할 수 있고 동일한 URL에 대한 `OPTIONS` 요청인 경우에 서버 승인을 요청합니다.
 
 > [!TIP]
 > CORS 흐름 및 일반적인 문제에 대한 자세한 내용은 [REST API에 대한 CORS 가이드](https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/)를 참조하세요.
@@ -69,13 +69,13 @@ Microsoft의 Azure CDN Standard에서는 [표준 규칙 엔진](cdn-standard-rul
 ![표준 규칙 엔진을 사용 하는 규칙 예제](./media/cdn-cors/cdn-standard-cors.png)
 
 > [!TIP]
-> 규칙에 추가 작업을 추가 하 여 **액세스 제어-허용 메서드와**같은 추가 응답 헤더를 수정할 수 있습니다.
+> 규칙에 추가 작업을 추가 하 여 **액세스 제어-허용 메서드와** 같은 추가 응답 헤더를 수정할 수 있습니다.
 > 
 
-**Akamai의 Azure CDN Standard**에서 와일드 카드 원본을 사용 하지 않고 여러 원본을 허용 하는 유일한 메커니즘은 [쿼리 문자열 캐싱](cdn-query-string.md)을 사용 하는 것입니다. CDN 엔드포인트에 대해 쿼리 문자열 설정을 사용하도록 지정하고 허용된 각 도메인의 요청에 대해 고유한 쿼리 문자열을 사용하도록 설정합니다. 이렇게 하면 CDN은 고유한 각 쿼리 문자열에 대해 별도의 개체를 캐싱합니다. 그렇지만 이 방법은 동일한 파일의 여러 복사본이 CDN에 캐시되므로 이상적이지 않습니다.  
+**Akamai의 Azure CDN Standard** 에서 와일드 카드 원본을 사용 하지 않고 여러 원본을 허용 하는 유일한 메커니즘은 [쿼리 문자열 캐싱](cdn-query-string.md)을 사용 하는 것입니다. CDN 엔드포인트에 대해 쿼리 문자열 설정을 사용하도록 지정하고 허용된 각 도메인의 요청에 대해 고유한 쿼리 문자열을 사용하도록 설정합니다. 이렇게 하면 CDN은 고유한 각 쿼리 문자열에 대해 별도의 개체를 캐싱합니다. 그렇지만 이 방법은 동일한 파일의 여러 복사본이 CDN에 캐시되므로 이상적이지 않습니다.  
 
 ### <a name="azure-cdn-premium-from-verizon"></a>Verizon의 Azure CDN Premium
-Verizon 프리미엄 규칙 엔진을 사용 하 여 요청에서 **원본** 헤더를 확인 하는 [규칙을 만들어야](cdn-rules-engine.md) 합니다.  유효한 원본인 경우 규칙은 요청에 제공된 원본을 사용하여 **Access-Control-Allow-Origin** 헤더를 설정합니다.  **원본** 헤더에 지정 된 원본이 허용 되지 않는 경우 규칙이 요청을 거부 하는 **액세스 제어 허용 원본** 헤더를 생략 해야 합니다. 
+Verizon 프리미엄 규칙 엔진을 사용 하 여 요청에서 **원본** 헤더를 확인 하는 [규칙을 만들어야](./cdn-verizon-premium-rules-engine.md) 합니다.  유효한 원본인 경우 규칙은 요청에 제공된 원본을 사용하여 **Access-Control-Allow-Origin** 헤더를 설정합니다.  **원본** 헤더에 지정 된 원본이 허용 되지 않는 경우 규칙이 요청을 거부 하는 **액세스 제어 허용 원본** 헤더를 생략 해야 합니다. 
 
 프리미엄 규칙 엔진을 사용 하 여이 작업을 수행 하는 방법에는 두 가지가 있습니다. 두 경우 모두 파일 원본 서버의 **Access-Control-Allow-Origin** 헤더가 무시되고 CDN의 규칙 엔진이 허용되는 CORS 원본을 완전하게 관리합니다.
 
@@ -87,11 +87,11 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 ```
 
 > [!TIP]
-> **Verizon의 Azure CDN Premium**은 [Perl 호환 정규식](https://pcre.org/)를 정규식에 대한 엔진으로 사용합니다.  [Regular Expressions 101](https://regex101.com/) 과 같은 도구를 사용하여 정규식이 유효한지 검사할 수 있습니다.  "/" 문자는 정규식에서 유효하며 이스케이프할 필요가 없지만 일부 정규식 유효성 검사기에서는 이 문자의 이스케이프를 모범 사례로 간주하고 예상합니다.
+> **Verizon의 Azure CDN Premium** 은 [Perl 호환 정규식](https://pcre.org/)를 정규식에 대한 엔진으로 사용합니다.  [Regular Expressions 101](https://regex101.com/) 과 같은 도구를 사용하여 정규식이 유효한지 검사할 수 있습니다.  "/" 문자는 정규식에서 유효하며 이스케이프할 필요가 없지만 일부 정규식 유효성 검사기에서는 이 문자의 이스케이프를 모범 사례로 간주하고 예상합니다.
 > 
 > 
 
-정규식이 일치하는 경우 규칙은 원본의 **Access-Control-Allow-Origin** 헤더(있는 경우)를 요청을 전송한 원본으로 바꿉니다.  **Access-Control-Allow-Methods**와 같은 CORS 헤더를 더 추가할 수도 있습니다.
+정규식이 일치하는 경우 규칙은 원본의 **Access-Control-Allow-Origin** 헤더(있는 경우)를 요청을 전송한 원본으로 바꿉니다.  **Access-Control-Allow-Methods** 와 같은 CORS 헤더를 더 추가할 수도 있습니다.
 
 ![정규식을 사용하는 규칙 예제](./media/cdn-cors/cdn-cors-regex.png)
 
@@ -103,7 +103,4 @@ https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.co
 > [!TIP]
 > 위 예제에서 와일드카드 문자 *가 사용되었으므로 규칙 엔진은 HTTP 및 HTTPS를 둘 다 일치 항목으로 검색합니다.
 > 
-> 
-
-
-
+>

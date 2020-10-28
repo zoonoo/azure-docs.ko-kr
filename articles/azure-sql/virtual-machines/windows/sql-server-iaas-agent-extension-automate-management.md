@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: df3e2ae2737aa8bfedd0e8d7daa9d42771f1937b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad1b68242e7cb8eba885c78ab62572d257198d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570350"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779716"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 Azure 가상 머신에서 관리 작업 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ SQL Server IaaS 에이전트 확장(SqlIaasExtension)은 관리 작업을 자동
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-이 문서의 클래식 버전을 보려면 [SQL Server VM에 대한 SQL Server IaaS 에이전트 확장(클래식)](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)을 참조하세요.
+이 문서의 클래식 버전을 보려면 [SQL Server VM에 대한 SQL Server IaaS 에이전트 확장(클래식)](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension)을 참조하세요.
 
 
 ## <a name="supported-services"></a>지원되는 서비스
@@ -51,7 +51,7 @@ SQL Server Iaas 에이전트 확장이 설치되고 실행되면 다음에서 �
 ## <a name="prerequisites"></a>필수 구성 요소
 다음은 VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사항입니다.
 
-**운영 체제**:
+**운영 체제** :
 
 * Windows Server 2008 R2
 * Windows Server 2012
@@ -59,7 +59,7 @@ SQL Server Iaas 에이전트 확장이 설치되고 실행되면 다음에서 �
 * Windows Server 2016
 * Windows Server 2019 
 
-**SQL Server 버전**:
+**SQL Server 버전** :
 
 * SQL Server 2008 
 * SQL Server 2008 R2
@@ -69,7 +69,7 @@ SQL Server Iaas 에이전트 확장이 설치되고 실행되면 다음에서 �
 * SQL Server 2017
 * SQL Server 2019
 
-**Azure PowerShell**:
+**Azure PowerShell** :
 
 * [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azure/)
 
@@ -101,7 +101,7 @@ SQL Server의 명명된 인스턴스를 사용하려면 다음 단계를 수행�
 
 
 ## <a name="get-the-status-of-the-sql-server-iaas-extension"></a>SQL Server IaaS 확장의 상태 확인
-확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure Portal에서 에이전트 상태를 확인하는 것입니다. 가상 머신 창에서 **모든 설정**을 선택하고 **확장**을 선택합니다. **SqlIaasExtension** 확장이 나열되어야 합니다.
+확장이 설치되어 있는지 확인하는 한 가지 방법은 Azure Portal에서 에이전트 상태를 확인하는 것입니다. 가상 머신 창에서 **모든 설정** 을 선택하고 **확장** 을 선택합니다. **SqlIaasExtension** 확장이 나열되어야 합니다.
 
 ![Azure Portal의 SQL Server IaaS 에이전트 확장 상태](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -120,7 +120,7 @@ SQL Server의 명명된 인스턴스를 사용하려면 다음 단계를 수행�
    ```
 
 ## <a name="removal"></a>제거
-Azure Portal에서 가상 머신 속성의 **확장** 창에서 줄임표를 선택하여 확장을 제거할 수 있습니다. 그런 다음, **삭제**를 선택합니다.
+Azure Portal에서 가상 머신 속성의 **확장** 창에서 줄임표를 선택하여 확장을 제거할 수 있습니다. 그런 다음, **삭제** 를 선택합니다.
 
 ![Azure Portal에서 SQL Server IaaS 에이전트 확장 제거](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
 

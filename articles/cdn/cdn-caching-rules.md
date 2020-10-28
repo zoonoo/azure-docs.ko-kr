@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
-ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778968"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
 
 > [!NOTE] 
-> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN**의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 **관리** 포털에서 [Verizon Premium 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
+> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN** 의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 **관리** 포털에서 [Verizon Premium 규칙 엔진](./cdn-verizon-premium-rules-engine.md)을 사용해야 합니다.
  
 Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 제어하는 방법이 두 가지입니다. 
 
@@ -42,7 +42,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 1. Azure Portal을 열고 CDN 프로필을 선택한 다음 엔드포인트를 선택합니다.
 
-2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+2. 설정 아래의 왼쪽 창에서 **캐싱 규칙** 을 선택합니다.
 
    ![CDN 캐싱 규칙 단추](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
@@ -54,11 +54,11 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 ## <a name="caching-behavior-settings"></a>캐싱 동작 설정
 전역 및 사용자 지정 캐싱 규칙의 경우 다음 **캐싱 동작** 설정을 지정할 수 있습니다.
 
-- **캐시 무시**: 캐시하지 않고 원본 제공 캐시 지시문 헤더를 무시합니다.
+- **캐시 무시** : 캐시하지 않고 원본 제공 캐시 지시문 헤더를 무시합니다.
 
-- **재정의**: 원본에서 제공 하는 캐시 기간을 무시 합니다. 제공 된 캐시 기간을 대신 사용 합니다. Cache-control: cache가 재정의 되지 않습니다.
+- **재정의** : 원본에서 제공 하는 캐시 기간을 무시 합니다. 제공 된 캐시 기간을 대신 사용 합니다. Cache-control: cache가 재정의 되지 않습니다.
 
-- **누락된 경우 설정**: 원본 제공 캐시 지시문 헤더가 존재하는 경우 해당 헤더를 사용하고 그렇지 않으면 제공된 캐시 기간을 사용합니다.
+- **누락된 경우 설정** : 원본 제공 캐시 지시문 헤더가 존재하는 경우 해당 헤더를 사용하고 그렇지 않으면 제공된 캐시 기간을 사용합니다.
 
 ![전역 캐싱 규칙](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -75,9 +75,9 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 사용자 지정 캐시 규칙의 경우 두 가지 일치 조건을 사용할 수 있습니다.
  
-- **경로**: 이 조건은 도메인 이름을 제외한 URL의 경로와 일치하며 와일드카드 기호(\*)를 지원합니다. 예를 들어 _/myfile.html_, _/my/folder/*_ 및 _/my/images/*.jpg_입니다. 최대 길이는 260자입니다.
+- **경로** : 이 조건은 도메인 이름을 제외한 URL의 경로와 일치하며 와일드카드 기호(\*)를 지원합니다. 예를 들어 _/myfile.html_ , _/my/folder/*_ 및 _/my/images/*.jpg_ 입니다. 최대 길이는 260자입니다.
 
-- **확장명**: 이 조건은 요청된 파일의 파일 확장명과 일치합니다. 일치시킬 파일 확장명을 쉼표로 구분된 목록으로 제공할 수 있습니다. 예를 들어 _.jpg_, _.mp3_ 또는 _.png_입니다. 최대 확장명 수는 50이고 확장명당 최대 문자 수는 16입니다. 
+- **확장명** : 이 조건은 요청된 파일의 파일 확장명과 일치합니다. 일치시킬 파일 확장명을 쉼표로 구분된 목록으로 제공할 수 있습니다. 예를 들어 _.jpg_ , _.mp3_ 또는 _.png_ 입니다. 최대 확장명 수는 50이고 확장명당 최대 문자 수는 16입니다. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>전역 및 사용자 지정 규칙 처리 순서
 전역 및 사용자 지정 캐싱 규칙은 다음 순서로 처리됩니다.
@@ -86,7 +86,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 - 사용자 지정 캐싱 규칙은 적용되는 위치에서 전역 캐싱 규칙보다 우선합니다. 사용자 지정 캐싱 규칙은 위에서 아래로 순서로 처리됩니다. 즉, 요청이 두 조건과 일치하면 목록 맨 아래에 있는 규칙이 목록 맨 위에 있는 규칙보다 우선합니다. 따라서, 보다 구체적인 규칙을 목록의 아래쪽에 넣어야 합니다.
 
-**예**:
+**예제** :
 - 전역 캐싱 규칙: 
    - 캐싱 동작: **재정의**
    - 캐시 만료 기간: 1일
@@ -103,7 +103,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
    - 캐싱 동작: **누락된 경우 설정**
    - 캐시 만료 기간: 3일
 
-이러한 규칙을 설정 하는 경우 azureedge.net/home/index.html _ &lt; 끝점 &gt; _에 대 한 요청은 사용자 지정 캐싱 규칙 #2를 트리거합니다 .이는 **누락 된 경우 설정** , 3 일 경우 설정입니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
+이러한 규칙을 설정 하는 경우 azureedge.net/home/index.html _&lt; 끝점 &gt;_ 에 대 한 요청은 사용자 지정 캐싱 규칙 #2를 트리거합니다 .이는 **누락 된 경우 설정** , 3 일 경우 설정입니다. 따라서 *index.html* 파일에 `Cache-Control` 또는 `Expires` HTTP 헤더가 있으면 해당 헤더가 사용되고 그렇지 않고 이러한 헤더가 설정되어 있지 않으면 파일은 3일간 캐시됩니다.
 
 > [!NOTE] 
 > 규칙을 변경하기 전에 캐시된 파일은 원본 캐시 기간 설정을 유지합니다. 캐시 기간을 다시 설정하려면 [파일을 제거](cdn-purge-endpoint.md)해야 합니다. 

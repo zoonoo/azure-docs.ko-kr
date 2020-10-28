@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 297190a99f9231cd07cffe1364202a1acbe75323
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490002"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777931"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Virtual Network 만들기
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 Virtual Network를 만듭니다. 다음 예제에서는 *mySubnet*이라는 하나의 서브넷이 있는 *myVirtualNetwork*라는 기본 Virtual Network를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet)를 사용하여 Virtual Network를 만듭니다. 다음 예제에서는 *mySubnet* 이라는 하나의 서브넷이 있는 *myVirtualNetwork* 라는 기본 Virtual Network를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포 하므로 개인 끝점 [네트워크 정책을](../private-link/disable-private-endpoint-network-policy.md)사용 하지 않도록 설정 하려면 서브넷을 만들거나 업데이트 해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -60,7 +60,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>VM 만들기 
-az vm create를 사용하여 VM을 만듭니다. 메시지가 표시되면 VM에 대한 로그인 자격 증명으로 사용할 암호를 제공합니다. 다음 예제에서는 *myVm*이라는 VM을 만듭니다. 
+az vm create를 사용하여 VM을 만듭니다. 메시지가 표시되면 VM에 대한 로그인 자격 증명으로 사용할 암호를 제공합니다. 다음 예제에서는 *myVm* 이라는 VM을 만듭니다. 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -70,7 +70,7 @@ az vm create \
  VM의 공용 IP 주소를 적어둡니다. 이 주소를 사용하여 다음 단계에서 인터넷을 통해 VM에 연결합니다.
 
 ## <a name="create-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버 만들기 
-Az postgres server create 명령을 사용 하 여 Azure Database for PostgreSQL를 만듭니다. PostgreSQL 서버의 이름은 Azure에서 고유 해야 하므로 괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다. 
+Az postgres server create 명령을 사용 하 여 Azure Database for PostgreSQL를 만듭니다. PostgreSQL 서버의 이름은 Azure에서 고유 해야 하므로 자리 표시자 값을 위에서 사용한 고유한 값으로 바꿉니다. 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -132,30 +132,30 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 다음과 같이 인터넷에서 *myVm* VM에 연결합니다.
 
-1. 포털의 검색 창에 *myVm*을 입력합니다.
+1. 포털의 검색 창에 *myVm* 을 입력합니다.
 
-1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
+1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결** 이 열립니다.
 
-1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드** 를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp* ) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
 1. *downloaded.rdp* 파일을 엽니다.
 
-    1. 메시지가 표시되면 **연결**을 선택합니다.
+    1. 메시지가 표시되면 **연결** 을 선택합니다.
 
     1. VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
 
         > [!NOTE]
-        > **추가 선택 사항** > **다른 계정 사용**을 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
+        > **추가 선택 사항** > **다른 계정 사용** 을 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
-1. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속**을 선택합니다.
+1. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 **예** 또는 **계속** 을 선택합니다.
 
 1. VM 데스크톱이 나타나면 최소화하여 로컬 데스크톱으로 돌아갑니다.  
 
 ## <a name="access-the-postgresql-server-privately-from-the-vm"></a>VM에서 개인적으로 PostgreSQL 서버에 액세스
 
-1. *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
+1. *myVM* 의 원격 데스크톱에서 PowerShell을 엽니다.
 
 2.  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`를 입력합니다. 
 
@@ -170,15 +170,15 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) 를 사용 하 여 작업을 수행 했습니다.
 
-4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
+4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 서버 유형| **PostgreSQL**를 선택 합니다.|
+    | 서버 유형| **PostgreSQL** 를 선택 합니다.|
     | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |
     | 사용자 이름 | username@servernamePostgreSQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
     |암호 |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
-    |SSL|**필수**를 선택 합니다.|
+    |SSL|**필수** 를 선택 합니다.|
     ||
 
 5. 연결을 선택합니다.

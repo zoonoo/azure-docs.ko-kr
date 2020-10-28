@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84886065"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779325"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석
 ## <a name="overview"></a>개요
@@ -33,7 +33,7 @@ ms.locfileid: "84886065"
     ![CDN 프로필 블레이드 관리 단추](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     CDN 관리 포털이 열립니다.
-2. **분석** 탭을 마우스로 가리킨 후 **고급 HTTP 보고서** 플라이아웃을 마우스로 가리킵니다.  **HTTP 큰 플랫폼**을 클릭합니다.
+2. **분석** 탭을 마우스로 가리킨 후 **고급 HTTP 보고서** 플라이아웃을 마우스로 가리킵니다.  **HTTP 큰 플랫폼** 을 클릭합니다.
    
     ![CDN 관리 포털 - 고급 보고서 메뉴](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -48,7 +48,7 @@ ms.locfileid: "84886065"
 
 맵 기반 지리 보고서의 각 유형에 대한 간략한 설명이 아래에 제공됩니다.
 
-| 보고서 이름 | 설명 |
+| 보고서 이름 | Description |
 | --- | --- |
 | 전 세계 맵 |이 보고서를 사용하면 CDN 콘텐츠에 대한 전 세계 수요를 볼 수 있습니다. 각 국가/지역은 세계 지도에서 색으로 구분 되어 해당 지역에서 시작 된 적중 항목의 백분율을 표시 합니다. |
 | 미국 맵 |이 보고서를 사용하면 미국에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 각 주가 이 맵에 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다. |
@@ -71,7 +71,7 @@ ms.locfileid: "84886065"
 
 아래에서 두 가지 유형의 보고서에 대한 간략한 설명을 제공합니다.
 
-| 보고서 이름 | 설명 |
+| 보고서 이름 | Description |
 | --- | --- |
 | 상위 도시 |이 보고서는 해당 지역에서 발생한 적중 횟수에 따라 도시의 순위를 매깁니다. |
 | 상위 국가 |이 보고서는 해당 국가/지역에서 발생 한 적중 횟수에 따라 국가/지역 순위를 매깁니다. |
@@ -202,6 +202,5 @@ ms.locfileid: "84886065"
 ## <a name="see-also"></a>참고 항목
 * [Azure CDN 개요](cdn-overview.md)
 * [Microsoft Azure CDN의 실시간 통계](cdn-real-time-stats.md)
-* [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](cdn-rules-engine.md)
+* [규칙 엔진을 사용하여 기본 HTTP 동작 재정의](./cdn-verizon-premium-rules-engine.md)
 * [에지 성능 분석](cdn-edge-performance.md)
-

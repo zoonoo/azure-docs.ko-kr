@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 13d4587a80cbbe66e18eb1bec8f3154221ac62b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b4bcaee447d84efa088e84340ccfc717fe2777
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192550"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778326"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 POP IP 목록을 검색 합니다.
 
 ## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 Verizon POP IP 목록을 검색 합니다.
 
-Verizon의 POP(point of presence) 서버용 IP 집합을 검색하려면 REST API를 사용할 수 있습니다. 이러한 POP 서버는 Verizon 프로필에서 Azure CDN(Content Delivery Network) 엔드포인트(**Verizon에서 Azure CDN 표준** 또는 **Verizon에서 Azure CDN 프리미엄**)와 연결된 원본 서버에 요청합니다. 이 IP 집합은 Pop에 요청할 때 클라이언트가 볼 수 있는 IP와 다른지 확인합니다. 
+Verizon의 POP(point of presence) 서버용 IP 집합을 검색하려면 REST API를 사용할 수 있습니다. 이러한 POP 서버는 Verizon 프로필에서 Azure CDN(Content Delivery Network) 엔드포인트( **Verizon에서 Azure CDN 표준** 또는 **Verizon에서 Azure CDN 프리미엄** )와 연결된 원본 서버에 요청합니다. 이 IP 집합은 Pop에 요청할 때 클라이언트가 볼 수 있는 IP와 다른지 확인합니다. 
 
-POP 목록을 검색하기 위한 REST API 작업의 구문은 [에지 노드 - 목록](https://docs.microsoft.com/rest/api/cdn/edgenodes/list)을 참조합니다.
+POP 목록을 검색하기 위한 REST API 작업의 구문은 [에지 노드 - 목록](/rest/api/cdn/edgenodes/list)을 참조합니다.
 
 ## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대 한 현재 Microsoft POP IP 목록을 검색 합니다.
 
@@ -48,4 +48,4 @@ Microsoft에서 Azure CDN 서비스 태그를 사용 하려면 Azure Front 도�
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API에 대한 정보는 [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/)를 참조하세요.
+REST API에 대한 정보는 [Azure CDN REST API](/rest/api/cdn/)를 참조하세요.

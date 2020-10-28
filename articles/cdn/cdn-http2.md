@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: ril
-ms.openlocfilehash: 698b1c7734882ea7f11114476b5e9a7f36a23a0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ed04185da251d9042f6b54a192d0e49ef20ede
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192628"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778547"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원
 
@@ -67,4 +67,4 @@ HTTP/2에 대한 자세한 내용은 다음 리소스를 참조하세요.
 *   [공식 HTTP/2 FAQ](https://http2.github.io/faq/)
 *   [Akamai HTTP/2 정보](https://http2.akamai.com/)
 
-Azure CDN의 제공되는 기능에 대한 자세한 내용은 [Azure CDN 개요](https://azure.microsoft.com/documentation/articles/cdn-overview/)를 참조하세요.
+Azure CDN의 제공되는 기능에 대한 자세한 내용은 [Azure CDN 개요](./cdn-overview.md)를 참조하세요.

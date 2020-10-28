@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c960a7b509f365ad7fd6b04267cfec6bf41c4e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542567"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>자습서: SmartRecruiters와 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ SmartRecruiters의 Azure AD 통합을 구성하려면 갤러리의 SmartRecruite
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ SmartRecruiters의 Azure AD 통합을 구성하려면 갤러리의 SmartRecruite
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **SmartRecruiters**를 입력하고 결과 패널에서 **SmartRecruiters**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **SmartRecruiters** 를 입력하고 결과 패널에서 **SmartRecruiters** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
      ![결과 목록의 SmartRecruiters](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 SmartRecruiters에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 SmartRecruiters에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 SmartRecruiters의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 SmartRecruiters에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ SmartRecruiters에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 SmartRecruiters에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **SmartRecruiters** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **SmartRecruiters** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -99,22 +99,22 @@ SmartRecruiters에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![SmartRecruiters 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 `https://www.smartrecruiters.com/web-sso/saml/<companyname>` 패턴을 사용하여 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback` 패턴을 사용하여 URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    ![SmartRecruiters 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
+    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그인 URL** 텍스트 상자에서 `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [SmartRecruiters 클라이언트 지원 팀](https://www.smartrecruiters.com/about-us/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -132,37 +132,37 @@ SmartRecruiters에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 1. 다른 웹 브라우저 창에서 SmartRecruiters 회사 사이트에 관리자로 로그인합니다.
 
-1. **설정/관리**로 이동합니다.
+1. **설정/관리** 로 이동합니다.
 
-    ![SmartRecruiters 구성](./media/smartrecruiters-tutorial/configure.png)
+    ![스크린샷은 메뉴에서 선택한 설정 / 관리를 보여줍니다.](./media/smartrecruiters-tutorial/configure.png)
 
-1. **구성** 섹션에서 **웹 SSO**를 클릭합니다.
+1. **구성** 섹션에서 **웹 SSO** 를 클릭합니다.
 
-    ![SmartRecruiters 구성](./media/smartrecruiters-tutorial/configure1.png)
+    ![스크린샷은 구성에서 선택한 웹 SSO를 보여줍니다.](./media/smartrecruiters-tutorial/configure1.png)
 
-1. **웹 SSO 사용**을 설정/해제합니다.
+1. **웹 SSO 사용** 을 설정/해제합니다.
 
-    ![SmartRecruiters 구성](./media/smartrecruiters-tutorial/configure2.png)
+    ![스크린샷은 웹 SSO 사용 컨트롤을 보여줍니다.](./media/smartrecruiters-tutorial/configure2.png)
 
-1. **ID 공급자 구성**에서 다음 단계를 수행합니다.
+1. **ID 공급자 구성** 에서 다음 단계를 수행합니다.
 
-    ![SmartRecruiters 구성](./media/smartrecruiters-tutorial/configure4.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 ID 공급자 구성을 보여줍니다.](./media/smartrecruiters-tutorial/configure4.png)
 
     a. **ID 공급 기업 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
     b. Azure Portal에서 다운로드한 **인증서(Base64)** 를 메모장으로 열고 콘텐츠를 복사한 후 **ID 공급 기업 인증서** 텍스트 상자에 붙여넣습니다.
 
-1. **웹 SSO 구성 저장**을 클릭합니다.
+1. **웹 SSO 구성 저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -170,36 +170,36 @@ SmartRecruiters에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 SmartRecruiters에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **SmartRecruiters**를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **SmartRecruiters** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **SmartRecruiters**를 선택합니다.
+2. 애플리케이션 목록에서 **SmartRecruiters** 를 선택합니다.
 
     ![애플리케이션 목록의 SmartRecruiters 연결](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 

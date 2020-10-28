@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
-ms.custom: subject-armqs
-ms.openlocfilehash: fc4804070e0fa4ca6e9e54dcf6e04aafcc17f91a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 24577fd110ce944e12750a7380192d1a2d3cb4cd
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053901"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736962"
 ---
 # <a name="create-a-nat-gateway---resource-manager-template"></a>NAT 게이트웨이 만들기 - Resource Manager 템플릿
 
@@ -111,7 +111,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 2. 왼쪽 패널에서 **리소스 그룹** 을 선택합니다.
 
-3. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **myResourceGroupNAT**입니다.
+3. 이전 섹션에서 만든 리소스 그룹을 선택합니다. 기본 리소스 그룹 이름은 **myResourceGroupNAT** 입니다.
 
 4. 다음 리소스가 리소스 그룹에서 만들어졌는지 확인합니다.
 
@@ -138,7 +138,7 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 
 **Azure Portal**
 
-더 이상 필요하지 않은 경우 리소스 그룹, NAT 게이트웨이 및 모든 관련 리소스를 삭제합니다. NAT 게이트웨이가 포함된**myResourceGroupNAT** 리소스 그룹을 선택한 다음, **삭제**를 선택합니다.
+더 이상 필요하지 않은 경우 리소스 그룹, NAT 게이트웨이 및 모든 관련 리소스를 삭제합니다. NAT 게이트웨이가 포함된 **myResourceGroupNAT** 리소스 그룹을 선택한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

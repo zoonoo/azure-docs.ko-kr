@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Azure PaaS 리소스에 대한 기능 적용 범위
           href: features-paas.md
-    - name: Security Center의 새로운 기능
-      displayName: release notes
-      href: release-notes.md
+    - name: 새로운 기능
+      items:
+        - name: 릴리스 정보
+          displayName: changelog
+          href: release-notes.md
+        - name: 예정된 중요한 변경 내용
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: 보관된 릴리스 정보(6개월 이상)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Security Center 기본 사항
       items:
         - name: Security Center 개요 페이지
@@ -131,10 +139,6 @@
           href: security-center-monitoring.md
         - name: 권장 사항 참조 목록
           href: recommendations-reference.md
-        - name: 네트워크 리소스 사용
-          href: security-center-network-recommendations.md
-        - name: ID 및 액세스 보호
-          href: security-center-identity-access.md
         - name: 보안 권장 사항 관리
           items:
             - name: 권장 사항에 대한 응답 자동화
@@ -142,6 +146,10 @@
               href: workflow-automation.md
             - name: 권장 사항에서 리소스 제외
               href: exempt-resource.md
+        - name: 네트워크 리소스 사용
+          href: security-center-network-recommendations.md
+        - name: ID 및 액세스 보호
+          href: security-center-identity-access.md
     - name: Azure Defender 경고
       items:
         - name: Azure Defender 경고 개요
@@ -170,7 +178,7 @@
         - name: 취약성 검색
           items:
             - name: 머신용 통합 VA 스캐너
-              displayName: 'qualys, vulnerability, arc'
+              displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: BYOL VA 솔루션을 사용하여 VM 검사
               displayName: 'qualys, rapid7, vulnerability'
@@ -179,7 +187,7 @@
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: 특정 취약점 발견 사용 안 함
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, rapid7'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Just-In-Time VM 액세스로 관리 포트 보호
           items:
@@ -187,20 +195,24 @@
               displayName: 'jit, management'
               href: just-in-time-explained.md
             - name: Just-In-Time 액세스 관리
-              displayName: 'jit, management'
+              displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: 통합된 Microsoft Defender for Endpoint 라이선스 사용
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
         - name: 적응형 애플리케이션 제어 관리
+          displayName: 'aac, whitelist, allowlist, reviewgroup'
           href: security-center-adaptive-application.md
         - name: 파일 무결성 모니터링 사용
           items:
             - name: 파일 무결성 모니터링 개요
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring.md
             - name: 파일 무결성 모니터링을 사용하는 기준 비교
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
         - name: 적응형 네트워크 강화 관리
+          displayName: anh
           href: security-center-adaptive-network-hardening.md
         - name: Docker 호스트 강화
           displayName: containers
@@ -213,8 +225,13 @@
         - name: 정보 보호 정책 사용자 지정
           href: security-center-info-protection-policy.md
     - name: 컨테이너 레지스트리용 Azure Defender 사용
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: 취약성에 대한 레지스트리 이미지 스캔
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: 특정 이미지 취약점 발견 사용 안 함
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: 경고 및 권장 사항 내보내기
       items:
         - name: 'SIEM, SOAR 또는 ITSM으로 내보내기'
@@ -268,8 +285,6 @@
           href: faq-vms.md
         - name: Azure Log Analytics 기존 사용자
           href: faq-azure-monitor-logs.md
-    - name: Security Center의 새로운 기능 보관
-      href: release-notes-archive.md
     - name: Azure 로드맵 블로그
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 엔드포인트 보호 평가 및 권장 사항

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627621"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779869"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **SQL Managed Instance를 프로 비전 하려면 어떻게 해야 하나요?**
 
-[Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) 및 [ARM 템플릿에서](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates)인스턴스를 프로 비전 할 수 있습니다.
+[Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) 및 [ARM 템플릿에서](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates)인스턴스를 프로 비전 할 수 있습니다.
 
 **기존 구독에서 관리 되는 인스턴스를 프로 비전 할 수 있나요?**
 
@@ -94,7 +94,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **관리 되는 인스턴스의 크기를 조정 하려면 어떻게 해야 하나요?**
 
-[Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) 또는 [ARM 템플릿에서](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)관리 되는 인스턴스를 확장할 수 있습니다.
+[Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) 또는 [ARM 템플릿에서](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)관리 되는 인스턴스를 확장할 수 있습니다.
 
 **내 Managed Instance을 한 지역에서 다른 지역으로 이동할 수 있나요?**
 
@@ -102,7 +102,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **내 Managed Instance을 삭제 하려면 어떻게 해야 하나요?**
 
-Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true) [AZURE CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) 또는 [리소스 관리자 REST Api](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
+Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0) [AZURE CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) 또는 [리소스 관리자 REST Api](/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
 
 **인스턴스를 만들거나 업데이트 하는 데 소요 되는 시간 또는 데이터베이스를 복원 하는 데 소요 되는 시간은 어느 정도 인가요?**
 
@@ -118,7 +118,7 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/r
 
 예, Managed Instance 기본 DNS 영역을 변경할 수 있습니다 *. database.windows.net* 를 변경할 수 있습니다. 
 
-기본값 대신 다른 DNS 영역을 사용 하려면 (예: *. contoso.com*) 
+기본값 대신 다른 DNS 영역을 사용 하려면 (예: *. contoso.com* ) 
 - CliConfig를 사용 하 여 별칭을 정의 합니다. 이 도구는 단지 레지스트리 설정 래퍼 이므로 그룹 정책 또는 스크립트를 사용 하 여 수행할 수 있습니다.
 - *Trustservercertificate = true* 옵션과 함께 *CNAME* 을 사용 합니다.
 
@@ -137,7 +137,7 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/r
 
 데이터베이스의 모든 테이블에 *기본* 키가 있고 데이터베이스에 메모리 내 OLTP 개체가 없는 경우 [트랜잭션 복제](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) 를 사용할 수 있습니다.
 
-관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 COPY_ONLY 백업을 SQL Server로 복원할 수 없습니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true)을 참조 하세요.
+관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 COPY_ONLY 백업을 SQL Server로 복원할 수 없습니다. 자세한 내용은 [복사 전용 백업](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)을 참조 하세요.
 
 **SQL Server 인스턴스를 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
 
@@ -180,15 +180,15 @@ SQL Server 인스턴스를 마이그레이션하려면 [SQL Server 인스턴스�
 
 **관리 되는 인스턴스를 모니터링 하 고 경고 하는 옵션은 무엇 인가요?**
 
-SQL Managed Instance 사용 및 성능을 모니터링 하 고이에 대 한 경고를 발생 시킬 수 있는 모든 옵션은 [AZURE sql Managed Instance 모니터링 옵션 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416)을 참조 하세요. SQL server에 대 한 실시간 성능 모니터링에 대 한 자세한 내용은 [AZURE SQL DB에 대 한 실시간 성능 모니터링 Managed Instance](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)을 참조 하세요.
+SQL Managed Instance 사용 및 성능을 모니터링 하 고이에 대 한 경고를 발생 시킬 수 있는 모든 옵션은 [AZURE sql Managed Instance 모니터링 옵션 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416)을 참조 하세요. SQL server에 대 한 실시간 성능 모니터링에 대 한 자세한 내용은 [AZURE SQL DB에 대 한 실시간 성능 모니터링 Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)을 참조 하세요.
 
 **성능 추적에 SQL 프로파일러를 사용할 수 있나요?**
 
-예, SQL 프로파일러가 지원 되거나 SQL Managed Instance. 자세한 내용은 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true)를 참조 하세요.
+예, SQL 프로파일러가 지원 되거나 SQL Managed Instance. 자세한 내용은 [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15)를 참조 하세요.
 
 **Managed Instance 데이터베이스에서 Database Advisor 되 고 Query Performance Insight 지원 되나요?**
 
-아니요, 지원 되지 않습니다. [Dmv](../database/monitoring-with-dmvs.md) 와 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) 를 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) 및 [xevent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) 와 함께 사용 하 여 데이터베이스를 모니터링할 수 있습니다.
+아니요, 지원 되지 않습니다. [Dmv](../database/monitoring-with-dmvs.md) 와 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) 를 [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) 및 [xevent](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) 와 함께 사용 하 여 데이터베이스를 모니터링할 수 있습니다.
 
 **SQL Managed Instance에서 메트릭 경고를 만들 수 있나요?**
 
@@ -228,11 +228,11 @@ Managed Instance에서 자동화 된 백업을 수행 하는 시기를 추적 �
 
 **주문형 백업이 지원 되나요?**
 
-예, Azure Blob Storage에서 복사 전용 전체 백업을 만들 수 있지만 Managed Instance 에서만 복원 가능한 됩니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true)을 참조 하세요. 그러나 암호화에 사용 되는 인증서에 액세스할 수 없으므로 서비스 관리 TDE로 데이터베이스를 암호화 하는 경우에는 복사 전용 백업을 수행할 수 없습니다. 이러한 경우에는 특정 시점 복원 기능을 사용 하 여 데이터베이스를 다른 SQL Managed Instance 이동 하거나 고객 관리 키로 전환 합니다.
+예, Azure Blob Storage에서 복사 전용 전체 백업을 만들 수 있지만 Managed Instance 에서만 복원 가능한 됩니다. 자세한 내용은 [복사 전용 백업](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)을 참조 하세요. 그러나 암호화에 사용 되는 인증서에 액세스할 수 없으므로 서비스 관리 TDE로 데이터베이스를 암호화 하는 경우에는 복사 전용 백업을 수행할 수 없습니다. 이러한 경우에는 특정 시점 복원 기능을 사용 하 여 데이터베이스를 다른 SQL Managed Instance 이동 하거나 고객 관리 키로 전환 합니다.
 
 **네이티브 복원 (.bak 파일에서)은 Managed Instance 지원 되나요?**
 
-예, SQL Server 2005 이상 버전에서 지원 되며 사용할 수 있습니다.  기본 복원을 사용 하려면 .bak 파일을 Azure blob 저장소에 업로드 하 고 T-sql 명령을 실행 합니다. 자세한 내용은 [URL에서 네이티브 복원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url)을 참조 하세요.
+예, SQL Server 2005 이상 버전에서 지원 되며 사용할 수 있습니다.  기본 복원을 사용 하려면 .bak 파일을 Azure blob 저장소에 업로드 하 고 T-sql 명령을 실행 합니다. 자세한 내용은 [URL에서 네이티브 복원](./migrate-to-instance-from-sql-server.md#native-restore-from-url)을 참조 하세요.
 
 ## <a name="business-continuity"></a>비즈니스 연속성
 
@@ -254,7 +254,7 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 
 **인바운드 관리 트래픽에 사용 되는 원본 IP 범위를 가져올 수 있나요?**
 
-예. [Network Watcher 흐름 로그를 구성](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group)하 여 네트워크 보안 그룹을 통해 들어오는 트래픽을 분석할 수 있습니다.
+예. [Network Watcher 흐름 로그를 구성](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group)하 여 네트워크 보안 그룹을 통해 들어오는 트래픽을 분석할 수 있습니다.
 
 **데이터 끝점 (포트 1433)에 대 한 액세스를 제어 하기 위해 NSG를 설정할 수 있나요?**
 
@@ -273,7 +273,7 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
  
 **Managed Instance에 필요한 IP 주소는 몇 개입니까?**
 
-서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. SQL Managed Instance에 대 한 VNet 서브넷 크기를 확인 하려면 [Managed Instance 필요한 서브넷 크기 및 범위 결정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet)을 참조 하세요. 
+서브넷에 사용 가능한 [IP 주소](connectivity-architecture-overview.md#network-requirements) 수가 충분해야 합니다. SQL Managed Instance에 대 한 VNet 서브넷 크기를 확인 하려면 [Managed Instance 필요한 서브넷 크기 및 범위 결정](./vnet-subnet-determine-size.md)을 참조 하세요. 
 
 **인스턴스 업데이트 작업을 수행 하는 데 충분 한 IP 주소가 없는 경우 어떻게 되나요?**
 
@@ -285,7 +285,7 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 
 **서브넷 주소 범위를 변경할 수 있나요?**
 
-내부에 관리 되는 인스턴스가 없으면입니다. 이것은 Azure 네트워킹 인프라의 제한 사항입니다. [빈 서브넷에 주소 공간을 더 추가할](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings)수 있습니다. 
+내부에 관리 되는 인스턴스가 없으면입니다. 이것은 Azure 네트워킹 인프라의 제한 사항입니다. [빈 서브넷에 주소 공간을 더 추가할](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings)수 있습니다. 
 
 **관리 되는 인스턴스를 다른 서브넷으로 이동할 수 있나요?**
 
@@ -293,7 +293,7 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 
 **Managed Instance를 만들기 위해 빈 가상 네트워크가 필요 한가요?**
 
-이 항목은 필수 항목이 아닙니다. [AZURE sql Managed Instance에 대 한 가상 네트워크를 만들거나](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) [azure sql Managed Instance에 대 한 기존 가상 네트워크를 구성할](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet)수 있습니다.
+이 항목은 필수 항목이 아닙니다. [AZURE sql Managed Instance에 대 한 가상 네트워크를 만들거나](./virtual-network-subnet-create-arm-template.md) [azure sql Managed Instance에 대 한 기존 가상 네트워크를 구성할](./vnet-existing-add-subnet.md)수 있습니다.
 
 **다른 서비스와 Managed Instance를 서브넷에 놓을 수 있나요?**
 
@@ -316,13 +316,13 @@ SQL Managed Instance 가상 클러스터 아키텍처에 대 한 자세한 내�
 
 **공용 끝점이 Managed Instance?**
 
-예. Managed Instance에는 기본적으로 서비스 관리에만 사용 되는 공용 끝점이 있지만, 고객은 데이터 액세스에도 사용할 수 있습니다. 자세한 내용은 [공용 끝점에서 SQL Managed Instance 사용](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely)을 참조 하세요. 공용 끝점을 구성 하려면 [SQL Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md)으로 이동 합니다.
+예. Managed Instance에는 기본적으로 서비스 관리에만 사용 되는 공용 끝점이 있지만, 고객은 데이터 액세스에도 사용할 수 있습니다. 자세한 내용은 [공용 끝점에서 SQL Managed Instance 사용](./public-endpoint-overview.md)을 참조 하세요. 공용 끝점을 구성 하려면 [SQL Managed Instance에서 공용 끝점 구성](public-endpoint-configure.md)으로 이동 합니다.
 
 **Managed Instance에서 공용 끝점에 대 한 액세스를 제어 하는 방법은 무엇입니까?**
 
 Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝점에 대 한 액세스를 제어 합니다.
 
-관리 및 배포 서비스는 외부 부하 분산 장치에 매핑되는 [관리 끝점](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) 을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 트래픽은 관리 되는 인스턴스의 관리 구성 요소만 사용 하는 미리 정의 된 포트 집합에서 수신 된 경우에만 노드에 라우팅됩니다. 노드의 기본 제공 방화벽은 Microsoft IP 범위의 트래픽만 허용 하도록 설정 됩니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 연결 아키텍처](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture)를 참조 하세요.
+관리 및 배포 서비스는 외부 부하 분산 장치에 매핑되는 [관리 끝점](./connectivity-architecture-overview.md#management-endpoint) 을 사용 하 여 관리 되는 인스턴스에 연결 합니다. 트래픽은 관리 되는 인스턴스의 관리 구성 요소만 사용 하는 미리 정의 된 포트 집합에서 수신 된 경우에만 노드에 라우팅됩니다. 노드의 기본 제공 방화벽은 Microsoft IP 범위의 트래픽만 허용 하도록 설정 됩니다. 인증서는 관리 구성 요소와 관리 평면 간의 모든 통신을 상호 인증 합니다. 자세한 내용은 [SQL Managed Instance에 대 한 연결 아키텍처](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture)를 참조 하세요.
 
 **공용 끝점을 사용 하 여 Managed Instance 데이터베이스의 데이터에 액세스할 수 있나요?**
 
@@ -337,9 +337,9 @@ Managed Instance는 네트워크 및 응용 프로그램 수준에서 공용 끝
 Express 경로 회로 피어 링은이 작업을 수행 하는 기본 방법입니다. 전역 가상 네트워크 피어 링은 아래 참고에 설명 된 제한 사항으로 지원 됩니다.  
 
 > [!IMPORTANT]
-> [9/22/2020에서는 새로 만든 가상 클러스터에 대 한 글로벌 가상 네트워크 피어 링을 발표 했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 글로벌 가상 네트워크 피어 링은 알림 날짜 이후에 빈 서브넷에 생성 된 SQL 관리 되는 인스턴스에 대해 지원 되며, 해당 서브넷에서 만들어진 모든 후속 관리 되는 인스턴스의 경우에도 지원 됩니다. 다른 모든 SQL 관리 되는 인스턴스의 경우에는 [글로벌 가상 네트워크 피어 링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크에 대 한 피어 링 지원이 제한 됩니다. 자세한 내용은 [Azure Virtual network faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
+> [9/22/2020에서는 새로 만든 가상 클러스터에 대 한 글로벌 가상 네트워크 피어 링을 발표 했습니다](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). 즉, 글로벌 가상 네트워크 피어 링은 알림 날짜 이후에 빈 서브넷에 생성 된 SQL 관리 되는 인스턴스에 대해 지원 되며, 해당 서브넷에서 만들어진 모든 후속 관리 되는 인스턴스의 경우에도 지원 됩니다. 다른 모든 SQL 관리 되는 인스턴스의 경우에는 [글로벌 가상 네트워크 피어 링의 제약 조건](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)으로 인해 동일한 지역의 네트워크에 대 한 피어 링 지원이 제한 됩니다. 자세한 내용은 [Azure Virtual network faq](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) (질문과 대답) 문서의 관련 단원을 참조 하세요. 
 
-Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), [Azure CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli))을 만드는 것입니다.
+Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을 사용할 수 없는 경우 다른 옵션은 사이트 간 VPN 연결 ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))을 만드는 것입니다.
 
 ## <a name="mitigate-data-exfiltration-risks"></a>데이터 반출 위험 완화  
 
@@ -347,19 +347,19 @@ Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을
 
 데이터 반출 위험을 완화 하기 위해 고객은 보안 설정 및 컨트롤 집합을 적용 하는 것이 좋습니다.
 
-- 모든 데이터베이스에서 [TDE (투명한 데이터 암호화)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) 를 설정 합니다.
+- 모든 데이터베이스에서 [TDE (투명한 데이터 암호화)](../database/transparent-data-encryption-tde-overview.md) 를 설정 합니다.
 - CLR (공용 언어 런타임)을 해제 합니다. 이는 온-프레미스에도 권장 됩니다.
 - Azure Active Directory (Azure AD) 인증만 사용 합니다.
 - 권한이 낮은 DBA 계정으로 인스턴스에 액세스 합니다.
 - Sysadmin 계정에 대 한 JIT jumpbox 액세스를 구성 합니다.
-- [SQL 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)를 켜고 경고 메커니즘과 통합 합니다.
-- [Azure Defender FOR SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) Suite에서 [위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) 를 켭니다.
+- [SQL 감사](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)를 켜고 경고 메커니즘과 통합 합니다.
+- [Azure Defender FOR SQL](../database/azure-defender-for-sql.md) Suite에서 [위협 감지](../database/threat-detection-configure.md) 를 켭니다.
 
 ## <a name="dns"></a>DNS
 
 **SQL Managed Instance에 대 한 사용자 지정 DNS를 구성할 수 있나요?**
 
-예. [AZURE SQL Managed Instance에 대 한 사용자 지정 DNS를 구성 하는 방법을](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns)참조 하세요.
+예. [AZURE SQL Managed Instance에 대 한 사용자 지정 DNS를 구성 하는 방법을](./custom-dns-configure.md)참조 하세요.
 
 **DNS 새로 고침을 수행할 수 있나요?**
 
@@ -378,22 +378,22 @@ DNS 구성은 결국 새로 고쳐집니다.
 
 관리 되는 인스턴스가 처음으로 프로 비전 되 면 표준 시간대 구성을 설정할 수 있습니다. 기존 관리 되는 인스턴스의 표준 시간대를 변경 하는 것은 지원 되지 않습니다. 자세한 내용은 [표준 시간대 제한 사항](timezones-overview.md#limitations)을 참조 하세요.
 
-해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만들고, 수동 백업 및 복원을 수행 하거나, [인스턴스 간 지정 시간 복원을](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)수행 하는 것이 포함 됩니다.
+해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만들고, 수동 백업 및 복원을 수행 하거나, [인스턴스 간 지정 시간 복원을](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance)수행 하는 것이 포함 됩니다.
 
 
 ## <a name="security-and-database-encryption"></a>보안 및 데이터베이스 암호화
 
 **SQL Managed Instance에 대 한 sysadmin 서버 역할을 사용할 수 있나요?**
 
-예, 고객은 sysadmin 역할의 멤버인 로그인을 만들 수 있습니다.  Sysadmin 권한을 전제로 하는 고객은 인스턴스 운영에 대 한 책임을 가정 하므로 SLA 약정에 부정적인 영향을 미칠 수 있습니다. Sysadmin 서버 역할에 로그인을 추가 하려면 [AZURE AD 인증](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication)을 참조 하세요.
+예, 고객은 sysadmin 역할의 멤버인 로그인을 만들 수 있습니다.  Sysadmin 권한을 전제로 하는 고객은 인스턴스 운영에 대 한 책임을 가정 하므로 SLA 약정에 부정적인 영향을 미칠 수 있습니다. Sysadmin 서버 역할에 로그인을 추가 하려면 [AZURE AD 인증](./aad-security-configure-tutorial.md#azure-ad-authentication)을 참조 하세요.
 
 **SQL Managed Instance에 대해 투명한 데이터 암호화 지원 되나요?**
 
-예, 투명한 데이터 암호화 SQL Managed Instance에 대해 지원 됩니다. 자세한 내용은 [SQL Managed Instance에 대 한 투명한 데이터 암호화](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)를 참조 하세요.
+예, 투명한 데이터 암호화 SQL Managed Instance에 대해 지원 됩니다. 자세한 내용은 [SQL Managed Instance에 대 한 투명한 데이터 암호화](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)를 참조 하세요.
 
 **TDE에 대 한 "자신의 키 가져오기" 모델을 활용할 수 있나요?**
 
-예, BYOK 시나리오에 대 한 Azure Key Vault는 Azure SQL Managed Instance에서 사용할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 투명한 데이터 암호화](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true)를 참조 하세요.
+예, BYOK 시나리오에 대 한 Azure Key Vault는 Azure SQL Managed Instance에서 사용할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 투명한 데이터 암호화](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)를 참조 하세요.
 
 **암호화 된 SQL Server 데이터베이스를 마이그레이션할 수 있나요?**
 
@@ -409,8 +409,8 @@ Azure Cloud Shell를 사용 하 여 Managed Instance에 대 한 TDE 보호기를
 
 예, 데이터베이스를 암호 해독 하 여 SQL Managed Instance로 복원할 필요가 없습니다. 암호화 된 백업 파일에서 데이터를 읽을 수 있으려면 원본 시스템의 암호화 키 보호기로 사용 되는 인증서/키를 SQL Managed Instance에 제공 해야 합니다. 입력하는 방법에는 다음 두 가지가 있습니다.
 
-- *인증서-보호기를 SQL Managed Instance에 업로드*합니다. PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. [샘플 스크립트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) 는 전체 프로세스를 설명 합니다.
-- *비대칭 키-보호기를 Azure Key Vault으로 업로드 하 고 SQL Managed Instance를 가리키도록*합니다. 이 방법은 Key Vault 통합을 사용 하 여 암호화 키를 저장 하는 BYOK (사용자 소유의 키) TDE 사용 사례와 비슷합니다. 키를 암호화 키 보호기로 사용 하지 않고 SQL Managed Instance에서 암호화 된 데이터베이스를 복원 하는 데 사용할 수 있는 키만 만들려면 [BYOK TDE를 설정](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)하는 방법에 대 한 지침을 따르고 **선택 된 키를 기본 tde 보호기**로 설정 확인란을 선택 하지 않습니다.
+- *인증서-보호기를 SQL Managed Instance에 업로드* 합니다. PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. [샘플 스크립트](./tde-certificate-migrate.md) 는 전체 프로세스를 설명 합니다.
+- *비대칭 키-보호기를 Azure Key Vault으로 업로드 하 고 SQL Managed Instance를 가리키도록* 합니다. 이 방법은 Key Vault 통합을 사용 하 여 암호화 키를 저장 하는 BYOK (사용자 소유의 키) TDE 사용 사례와 비슷합니다. 키를 암호화 키 보호기로 사용 하지 않고 SQL Managed Instance에서 암호화 된 데이터베이스를 복원 하는 데 사용할 수 있는 키만 만들려면 [BYOK TDE를 설정](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)하는 방법에 대 한 지침을 따르고 **선택 된 키를 기본 tde 보호기** 로 설정 확인란을 선택 하지 않습니다.
 
 SQL Managed Instance에서 암호화 보호기를 사용할 수 있도록 설정한 후 표준 데이터베이스 복원 절차를 진행할 수 있습니다.
 
@@ -423,17 +423,17 @@ SQL Managed Instance는 [Vcore 기반 구매 모델](sql-managed-instance-paas-o
 **SQL Managed Instance에 사용할 수 있는 비용 혜택은 무엇 인가요?**
 
 다음과 같은 방법으로 Azure SQL 혜택을 통해 비용을 절감할 수 있습니다.
--   온-프레미스 라이선스에 대 한 기존 투자를 극대화 하 고 [Azure 하이브리드 혜택](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell)하 여 최대 55%까지 비용을 절감할 수 있습니다. 
--   계산 리소스에 대 한 예약을 커밋하고 [예약 된 인스턴스 혜택](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity)으로 최대 33%까지 비용을 절감할 수 있습니다. 최대 82%까지 비용을 절감할 수 있도록이를 Azure 하이브리드 혜택과 결합 하세요. 
+-   온-프레미스 라이선스에 대 한 기존 투자를 극대화 하 고 [Azure 하이브리드 혜택](../azure-hybrid-benefit.md?tabs=azure-powershell)하 여 최대 55%까지 비용을 절감할 수 있습니다. 
+-   계산 리소스에 대 한 예약을 커밋하고 [예약 된 인스턴스 혜택](../database/reserved-capacity-overview.md)으로 최대 33%까지 비용을 절감할 수 있습니다. 최대 82%까지 비용을 절감할 수 있도록이를 Azure 하이브리드 혜택과 결합 하세요. 
 -   진행 중인 개발 및 테스트 워크 로드에 대 한 할인 된 요금을 제공 하는 [Azure 개발/테스트 가격 혜택](https://azure.microsoft.com/pricing/dev-test/) 을 통해 최대 55% 대비 가격을 절감할 수 있습니다.
 
 **예약 인스턴스 혜택을 받을 수 있는 사용자는 누구 인가요?**
 
-예약 인스턴스 혜택을 받을 수 있으려면 구독 유형이 기업 계약 (제품 번호: MS-MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. 예약에 대 한 자세한 내용은 [예약 된 인스턴스 혜택](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity)을 참조 하세요. 
+예약 인스턴스 혜택을 받을 수 있으려면 구독 유형이 기업 계약 (제품 번호: MS-MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. 예약에 대 한 자세한 내용은 [예약 된 인스턴스 혜택](../database/reserved-capacity-overview.md)을 참조 하세요. 
 
 **취소, 교환 또는 환불 예약을 수행할 수 있나요?**
 
-특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations)을 참조하세요.
+특정 제한 사항을 사용 하 여 예약을 취소, 교환 또는 환불 할 수 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>Managed Instance 및 백업 저장소에 대 한 청구
 
@@ -443,7 +443,7 @@ SQL Managed Instance는 [Vcore 기반 구매 모델](sql-managed-instance-paas-o
 
 **관리 되는 인스턴스의 청구 비용을 추적 하려면 어떻게 해야 하나요?**
 
-[Azure Cost Management 솔루션](https://docs.microsoft.com/azure/cost-management-billing/)을 사용 하 여이 작업을 수행할 수 있습니다. [Azure Portal](https://portal.azure.com) **구독** 으로 이동 하 여 **비용 분석**을 선택 합니다. 
+[Azure Cost Management 솔루션](../../cost-management-billing/index.yml)을 사용 하 여이 작업을 수행할 수 있습니다. [Azure Portal](https://portal.azure.com) **구독** 으로 이동 하 여 **비용 분석** 을 선택 합니다. 
 
 **누적 비용** 옵션을 사용한 다음 **리소스 유형** 으로을 필터링 `microsoft.sql/managedinstances` 합니다.
 
@@ -453,7 +453,7 @@ SQL Managed Instance는 [Vcore 기반 구매 모델](sql-managed-instance-paas-o
 
 **백업 저장소 소비에 대 한 청구 비용을 모니터링 하려면 어떻게 해야 하나요?**
 
-Azure Portal를 통해 백업 저장소에 대 한 비용을 모니터링할 수 있습니다. 지침은 [자동화 된 백업에 대 한 비용 모니터링](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs)을 참조 하세요. 
+Azure Portal를 통해 백업 저장소에 대 한 비용을 모니터링할 수 있습니다. 지침은 [자동화 된 백업에 대 한 비용 모니터링](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs)을 참조 하세요. 
 
 **관리 되는 인스턴스에서 백업 저장소 비용을 최적화 하려면 어떻게 해야 하나요?**
 
@@ -515,11 +515,11 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 **SQL Managed Instance & Azure SQL Database에 대 한 루트 CA 변경은 무엇입니까?**
 
-[SQL Managed Instance & Azure SQL Database에 대 한 인증서 회전을](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring)참조 하십시오. 
+[SQL Managed Instance & Azure SQL Database에 대 한 인증서 회전을](../updates/ssl-root-certificate-expiring.md)참조 하십시오. 
 
 **SQL Managed Instance에 대 한 계획 된 유지 관리 이벤트는 무엇 인가요?**
 
-[SQL Managed Instance에서 Azure 유지 관리 이벤트에 대 한 계획을](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance)참조 하세요. 
+[SQL Managed Instance에서 Azure 유지 관리 이벤트에 대 한 계획을](../database/planned-maintenance.md)참조 하세요. 
 
 
 ## <a name="azure-feedback-and-support"></a>Azure 사용자 의견 및 지원
@@ -530,5 +530,4 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 **Azure 지원 요청은 어떻게 만들 수 있나요?**
 
-Azure 지원 요청을 만드는 방법에 대 한 자세한 내용은 [azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요.
-
+Azure 지원 요청을 만드는 방법에 대 한 자세한 내용은 [azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조 하세요.

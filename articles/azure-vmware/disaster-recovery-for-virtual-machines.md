@@ -1,22 +1,22 @@
 ---
-title: 가상 컴퓨터의 재해 복구 완료
+title: 가상 컴퓨터의 전체 재해 복구
 description: 이 문서에서는 Azure VMware 솔루션을 사용 하 여 가상 머신의 재해 복구를 완료 하는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508437"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779614"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Azure VMware 솔루션을 사용 하 여 가상 머신의 재해 복구 완료
+# <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Azure VMware 솔루션을 사용 하 여 가상 머신의 전체 재해 복구
 
 이 문서에는 VMware HCX 솔루션을 사용 하는 Vm (가상 머신)의 재해 복구를 완료 하 고 Azure VMware Solution 사설 클라우드를 복구 또는 대상 사이트로 사용 하는 프로세스가 포함 되어 있습니다.
 
 VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제공 하는 다양 한 작업을 제공 합니다. 사용 가능한 작업은 다음과 같습니다.
 
-- **역방향** – 재해가 발생 한 후 역방향을 사용 하면 사이트 B가 원본 사이트 및 사이트 A를 사용 하 여 보호 된 VM이 유지 되도록 할 수 있습니다.
+- **역방향** – 재해가 발생 한 후 역방향을 사용 하면 사이트 B가 원본 사이트와 사이트 A를 사용 하 여 보호 된 VM이 현재 위치 하 게 됩니다.
 
 - **일시 중지** – 선택한 VM과 연결 된 현재 복제 정책을 일시 중지 합니다.
 
@@ -26,7 +26,7 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 - **지금 동기화** – 바인딩된 동기화 원본 vm을 보호 된 vm으로 체크 아웃 합니다.
 
-이 가이드에서 설명 하는 복제 시나리오는 다음과 같습니다.
+이 가이드에서는 다음과 같은 복제 시나리오에 대해 설명 합니다.
 
 - VM 또는 vm 그룹을 보호 합니다.
 
@@ -38,11 +38,11 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 ## <a name="protect-vms"></a>VM 보호
 
-1. 원본 사이트에서 **Vsphere 클라이언트** 에 로그인 하 고 **hcx 플러그 인**에 액세스 합니다.
+1. 원본 사이트에서 **Vsphere 클라이언트** 에 로그인 하 고 **hcx 플러그 인** 에 액세스 합니다.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="VSphere HCX 옵션" border="true":::
 
-1. **재해 복구** 영역을 입력 하 고 **vm 보호**를 선택 합니다.
+1. **재해 복구** 영역을 입력 하 고 **vm 보호** 를 선택 합니다.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
@@ -56,13 +56,13 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
    - **정지 사용:** VM을 일시 중지 하 여 일관 된 복사본이 원격 사이트와 동기화 되도록 합니다.
 
-   - **대상 저장소:** 보호 된 Vm 및 Azure VMware 솔루션 사설 클라우드의 원격 데이터 저장소는 vSAN 데이터 저장소 여야 합니다.
+   - **대상 저장소:** 보호 된 Vm 및 Azure VMware 솔루션 사설 클라우드의 원격 데이터 저장소 (vSAN 데이터 저장소)
 
    - **계산 컨테이너:** 원격 vSphere 클러스터 또는 리소스 풀.
 
-   - **대상 폴더:** 선택 사항인 원격 대상 폴더입니다. 폴더를 선택 하지 않은 경우 Vm은 선택한 클러스터 바로 아래에 배치 됩니다.
+   - **대상 폴더:** 선택 사항인 원격 대상 폴더입니다. 폴더를 선택 하지 않으면 Vm은 선택한 클러스터 바로 아래에 배치 됩니다.
 
-   - **RPO:** 원본 VM과 보호 된 VM 간의 동기화 간격은 5 분에서 24 시간 사이에 있을 수 있습니다.
+   - **RPO:** 원본 VM과 보호 된 VM 간의 동기화 간격입니다. 5 분에서 24 시간 사이에 있을 수 있습니다.
 
    - **스냅숏 간격:** 스냅숏 사이의 간격입니다.
 
@@ -84,14 +84,14 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="VSphere HCX 옵션" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
-   노란색 삼각형은 스냅숏 및 가상 테스트가 테스트 복구 작업에서 테스트 되지 않았음을 의미 합니다.
+   노란색 삼각형은 스냅숏 및 가상 컴퓨터가 테스트 복구 작업에서 테스트 되지 않았음을 의미 합니다.
 
-   전원이 꺼진 VM과 전원이 켜진 VM 간에는 중요 한 차이점이 있습니다. 이미지에는 VM에서 구동 되는의 동기화 프로세스가 표시 됩니다. VM의 전체 복사본 인 첫 번째 스냅숏이 완료 될 때까지 동기화 프로세스를 시작 하 고 구성 된 간격으로 다음 단계를 완료 합니다. 전원이 꺼진 VM의 경우 복사본을 동기화 한 다음 VM이 비활성으로 표시 되 고 보호 작업이 완료로 표시 됩니다.  VM이 켜지 면 원격 사이트에 대 한 동기화 프로세스를 시작 합니다.
+   전원이 꺼진 VM과 전원이 켜진 VM 간에는 중요 한 차이점이 있습니다. 이미지에는 전원이 켜진 VM에 대 한 동기화 프로세스가 표시 됩니다. VM의 전체 복사본 인 첫 번째 스냅숏이 완료 될 때까지 동기화 프로세스를 시작 하 고 구성 된 간격으로 다음 단계를 완료 합니다. 전원이 꺼진 VM에 대 한 복사본을 동기화 한 다음 VM이 비활성으로 표시 되 고 보호 작업이 완료로 표시 됩니다.  VM이 켜지 면 원격 사이트에 대 한 동기화 프로세스를 시작 합니다.
 
 ## <a name="complete-a-test-recover-of-vms"></a>Vm의 테스트 복구 완료
 
 1. Azure VMware 솔루션 사설 클라우드 인 원격 사이트의 **Vsphere 클라이언트** 에 로그인 합니다. 
-1. **Hcx 플러그 인**에서 재해 복구 영역에 있는 모든 vm의 세로 줄임표를 선택 하 여 작업 메뉴를 표시 한 후 **복구 vm 테스트**를 선택 합니다.
+1. **Hcx 플러그 인** 에서 재해 복구 영역에 있는 모든 vm의 세로 줄임표를 선택 하 여 작업 메뉴를 표시 한 후 **복구 vm 테스트** 를 선택 합니다.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="VSphere HCX 옵션" border="true":::
 
@@ -99,7 +99,7 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="VSphere HCX 옵션" border="true":::
 
-1. **테스트**를 선택 하면 복구 작업이 시작 됩니다.
+1. **테스트** 를 선택 하면 복구 작업이 시작 됩니다.
 
 1. 완료 되 면 Azure VMware 솔루션 사설 클라우드 vCenter에서 새 VM을 확인할 수 있습니다.
 
@@ -111,11 +111,11 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 ## <a name="recover-vms"></a>Vm 복구
 
-1. Azure VMware 솔루션 사설 클라우드 인 원격 사이트의 **Vsphere 클라이언트** 에 로그인 하 고 **hcx 플러그 인**에 액세스 합니다.
+1. Azure VMware 솔루션 사설 클라우드 인 원격 사이트의 **Vsphere 클라이언트** 에 로그인 하 고 **hcx 플러그 인** 에 액세스 합니다.
 
    복구 시나리오의 경우이 예제에 사용 되는 Vm 그룹입니다.
 
-1. 목록에서 복구할 VM을 선택 하 고 **작업** 메뉴를 연 다음 **복구 vm**을 선택 합니다.
+1. 목록에서 복구할 VM을 선택 하 고 **작업** 메뉴를 연 다음 **복구 vm** 을 선택 합니다.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="VSphere HCX 옵션" border="true":::
 
@@ -127,12 +127,12 @@ VMware HCX는 복제 정책에서 세밀 하 게 제어 하 고 세분성을 제
 
 ## <a name="complete-a-reverse-replication-on-vms"></a>Vm에서 역방향 복제 완료
 
-1. Azure VMware 솔루션 사설 클라우드의 **Vsphere 클라이언트** 에 로그인 하 고 **hcx 플러그 인**에 액세스 합니다.
+1. Azure VMware 솔루션 사설 클라우드의 **Vsphere 클라이언트** 에 로그인 하 고 **hcx 플러그 인** 에 액세스 합니다.
    
    >[!NOTE]
-   >역방향 복제를 시작 하기 전에 원본 사이트의 원래 Vm이 꺼져 있는지 확인 합니다. Vm의 전원이 꺼진 경우 작업이 실패 합니다.
+   > 역방향 복제를 시작 하기 전에 원본 사이트의 원래 Vm이 꺼져 있는지 확인 합니다. Vm의 전원이 꺼진 경우 작업이 실패 합니다.
 
-1. 목록에서 원본 사이트로 다시 복제할 Vm을 선택 하 고 **작업** 메뉴를 연 다음 **역방향**을 선택 합니다. 
+1. 목록에서 원본 사이트로 다시 복제할 Vm을 선택 하 고 **작업** 메뉴를 연 다음 **역방향** 을 선택 합니다. 
 1. **역방향** 을 선택 하 여 복제를 시작 합니다.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="VSphere HCX 옵션" border="true":::
@@ -241,4 +241,4 @@ JSON에서 복구 작업 페이로드의 예는 다음과 같습니다.
 ]
 ```
 
-이러한 Api를 사용 하 여 고객은 재해 복구 계획의 생성 및 실행을 자동화 하는 사용자 지정 메커니즘을 작성할 수 있습니다.
+이러한 Api를 사용 하 여 재해 복구 계획의 생성 및 실행을 자동화 하는 사용자 지정 메커니즘을 작성할 수 있습니다.

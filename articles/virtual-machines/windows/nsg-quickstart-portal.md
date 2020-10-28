@@ -1,18 +1,18 @@
 ---
 title: Azure Portal을 사용하여 VM에 포트 열기
-description: Azure 포털을 사용하여 Windows VM에 포털을 여는 방법/엔드포인트를 생성하는 방법에 대해 알아보기
+description: Azure Portal를 사용 하 여 VM에 대 한 포트를 열고 끝점을 만드는 방법에 대해 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973991"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777761"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -23,9 +23,9 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-1. VM에 대한 리소스 그룹을 검색하여 선택하고, **추가**를 선택한 다음, **네트워크 보안 그룹**을 검색하여 선택합니다.
+1. VM에 대한 리소스 그룹을 검색하여 선택하고, **추가** 를 선택한 다음, **네트워크 보안 그룹** 을 검색하여 선택합니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
     **네트워크 보안 그룹 만들기** 창이 열립니다.
 
@@ -35,35 +35,35 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. 리소스 그룹을 선택하거나 만들고 위치를 선택합니다.
 
-1. **만들기**를 선택하여 네트워크 보안 그룹을 만듭니다.
+1. **만들기** 를 선택하여 네트워크 보안 그룹을 만듭니다.
 
 ## <a name="create-an-inbound-security-rule"></a>인바운드 보안 규칙 만들기
 
 1. 새 네트워크 보안 그룹을 선택합니다. 
 
-1. 왼쪽 메뉴에서 **인바운드 보안 규칙**을 선택한 다음, **추가**를 선택합니다.
+1. 왼쪽 메뉴에서 **인바운드 보안 규칙** 을 선택한 다음, **추가** 를 선택합니다.
 
     ![고급 페이지로 전환](./media/nsg-quickstart-portal/advanced.png)
 
-1. **인바운드 보안 규칙 추가** 페이지 상단에서 **기본**을 **고급**으로 전환합니다. 
+1. **인바운드 보안 규칙 추가** 페이지 상단에서 **기본** 을 **고급** 으로 전환합니다. 
 
-1. 드롭다운 메뉴에서 공통 **서비스**를 선택합니다(예: **HTTP**). 사용할 특정 포트를 제공하려는 경우 **사용자 지정**을 선택할 수도 있습니다. 
+1. 드롭다운 메뉴에서 공통 **서비스** 를 선택합니다(예: **HTTP** ). 사용할 특정 포트를 제공하려는 경우 **사용자 지정** 을 선택할 수도 있습니다. 
 
-1. 선택적으로 **우선 순위** 또는 **이름**을 변경합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.
+1. 선택적으로 **우선 순위** 또는 **이름** 을 변경합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.
 
-1. **추가**를 선택하여 규칙을 만듭니다.
+1. **추가** 를 선택하여 규칙을 만듭니다.
 
 ## <a name="associate-your-network-security-group-with-a-subnet"></a>네트워크 보안 그룹을 서브넷에 연결
 
 마지막 단계는 네트워크 보안 그룹을 서브넷 또는 특정 네트워크 인터페이스에 연결하는 것입니다. 이 예제에서는 네트워크 보안 그룹을 서브넷에 연결합니다. 
 
-1. 왼쪽 메뉴에서 **서브넷**을 선택한 다음, **연결**을 선택합니다.
+1. 왼쪽 메뉴에서 **서브넷** 을 선택한 다음, **연결** 을 선택합니다.
 
 1. 가상 네트워크를 선택하고 적절한 서브넷을 선택합니다.
 
     ![가상 네트워킹에 네트워크 보안 그룹 연결](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-1. 완료되면 **확인**을 선택합니다.
+1. 완료되면 **확인** 을 선택합니다.
 
 ## <a name="additional-information"></a>추가 정보
 

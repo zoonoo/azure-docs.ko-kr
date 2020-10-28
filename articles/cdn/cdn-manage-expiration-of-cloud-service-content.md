@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936948"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778584"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "88936948"
 
 TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로 액세스할 수 있는 파일은 Azure CDN(콘텐츠 전송 네트워크)에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Microsoft Azure App Service, Azure Cloud Services, ASP.NET 애플리케이션 및 IIS(인터넷 정보 서비스) 사이트에 대한 웹앱 기능의 `Cache-Control` 헤더를 설정하는 방법을 설명하며, 이 헤더들은 모두 비슷하게 구성됩니다. 구성 파일을 사용하거나 프로그래밍 방식으로 `Cache-Control` 헤더를 설정할 수 있습니다. 
 
-[CDN 캐시 규칙](cdn-caching-rules.md)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 하나 이상의 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
+[CDN 캐시 규칙](cdn-caching-rules.md)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 하나 이상의 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시** 로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
 
 > [!TIP]
 > 파일에 TTL을 설정하지 않을 수도 있습니다. 이 경우 Azure CDN은 사용자가 Azure Portal에서 캐싱 규칙을 설정하지 않은 한, 7일의 기본 TTL을 자동으로 적용합니다. 이 기본 TTL은 일반 웹 배달 최적화에만 적용됩니다. 대용량 파일 최적화의 경우 기본 TTL은 1일이고 미디어 스트리밍 최적화의 경우 기본 TTL은 1년입니다.
@@ -42,13 +42,13 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 웹 서버 `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal에서 캐싱 규칙을 사용하는 것입니다. CDN 캐싱 규칙에 대한 자세한 내용은 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
 
 > [!NOTE] 
-> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Verizon의 Azure CDN 프리미엄** 프로필은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
+> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Verizon의 Azure CDN 프리미엄** 프로필은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](./cdn-verizon-premium-rules-engine.md)을 사용해야 합니다.
 
-**CDN 캐싱 규칙 페이지로 이동하려면**:
+**CDN 캐싱 규칙 페이지로 이동하려면** :
 
 1. Azure Portal에서 CDN 프로필을 선택한 다음, 웹 서버용 엔드포인트를 선택합니다.
 
-1. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+1. 설정 아래의 왼쪽 창에서 **캐싱 규칙** 을 선택합니다.
 
    ![CDN 캐싱 규칙 단추](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -59,29 +59,29 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 **전역 캐싱 규칙을 사용하여 웹 서버의 Cache-Control 헤더를 설정하려면:**
 
-1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정하고 **캐싱 동작**을 **재정의**로 설정합니다.
+1. **전역 캐싱 규칙** 에서 **쿼리 문자열 캐시 동작** 을 **쿼리 문자열 무시** 로 설정하고 **캐싱 동작** 을 **재정의** 로 설정합니다.
       
-1. **캐시 만료 기간**은 **초** 상자에 3600초를 입력하거나 **시간** 상자에 1시간을 입력합니다. 
+1. **캐시 만료 기간** 은 **초** 상자에 3600초를 입력하거나 **시간** 상자에 1시간을 입력합니다. 
 
    ![CDN 전역 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 엔드포인트에 대한 모든 요청에 영향을 줍니다. 엔드포인트에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 **사용자 지정 캐싱 규칙을 사용하여 웹 서버 파일의 Cache-Control 헤더를 설정하려면:**
 
-1. **사용자 지정 캐싱 규칙**에 따라 일치 조건 두 개를 만듭니다.
+1. **사용자 지정 캐싱 규칙** 에 따라 일치 조건 두 개를 만듭니다.
 
-     a. 첫 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/*`을 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 4시간을 입력합니다.
+     a. 첫 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/*`을 입력합니다. **캐싱 동작** 을 **재정의** 로 설정하고 **시간** 상자에 4시간을 입력합니다.
 
-     b. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
+     b. 두 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작** 을 **재정의** 로 설정하고 **시간** 상자에 2시간을 입력합니다.
 
     ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
     첫 번째 사용자 지정 캐싱 규칙은 엔드포인트에서 지정한 원본 서버의 `/webfolder1`폴더 내 모든 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `file1.txt` 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>구성 파일을 사용하여 Cache-Control 헤더 설정
@@ -129,7 +129,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Cache-Control 헤더 테스트
-웹 콘텐츠의 TTL 설정을 쉽게 확인할 수 있습니다. 브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 웹 콘텐츠에 `Cache-Control` 응답 헤더가 포함되어 있는지 테스트합니다. **wget**, [Postman](https://www.getpostman.com/) 또는 [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
+웹 콘텐츠의 TTL 설정을 쉽게 확인할 수 있습니다. 브라우저의 [개발자 도구](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)를 사용하여 웹 콘텐츠에 `Cache-Control` 응답 헤더가 포함되어 있는지 테스트합니다. **wget** , [Postman](https://www.getpostman.com/) 또는 [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 응답 헤더를 검사할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [**clientCache** 요소에 대한 자세한 내용](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)

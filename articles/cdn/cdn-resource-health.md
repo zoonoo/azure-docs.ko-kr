@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778171"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Azure CDN 리소스의 상태 모니터링
   
-Azure CDN 리소스 상태는 [Azure 리소스 상태](../resource-health/resource-health-overview.md)의 하위 집합입니다.  Azure 리소스 상태를 사용하여 CDN 리소스의 상태를 모니터링하고 문제 해결을 위한 실행 지침을 받을 수 있습니다.
+Azure CDN 리소스 상태는 [Azure 리소스 상태](../service-health/resource-health-overview.md)의 하위 집합입니다.  Azure 리소스 상태를 사용하여 CDN 리소스의 상태를 모니터링하고 문제 해결을 위한 실행 지침을 받을 수 있습니다.
 
 >[!IMPORTANT] 
 >Azure CDN 리소스 상태는 현재 글로벌 CDN 배달 및 API 기능의 상태만 고려합니다.  Azure CDN 리소스 상태는 개별 CDN 엔드포인트를 확인하지 않습니다.
@@ -38,12 +38,12 @@ Azure CDN 리소스 상태는 [Azure 리소스 상태](../resource-health/resour
 
     ![설정 단추](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. *지원 + 문제 해결*에서 **리소스 상태**를 클릭합니다.
+3. *지원 + 문제 해결* 에서 **리소스 상태** 를 클릭합니다.
 
     ![CDN 리소스 상태](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->*도움말 + 지원* 블레이드의 *리소스 상태* 타일에 나열된 CDN 리소스를 찾을 수도 있습니다.  포털 오른쪽 위에 있는 원 안에 표시된 **?** 를 클릭하여 *도움말 + 지원*으로 신속하게 이동할 수 있습니다.
+>*도움말 + 지원* 블레이드의 *리소스 상태* 타일에 나열된 CDN 리소스를 찾을 수도 있습니다.  포털 오른쪽 위에 있는 원 안에 표시된 **?** 를 클릭하여 *도움말 + 지원* 으로 신속하게 이동할 수 있습니다.
 >
 > ![도움말 + 지원](./media/cdn-resource-health/cdn-help-support.png)
 
@@ -51,7 +51,7 @@ Azure CDN 리소스 상태는 [Azure 리소스 상태](../resource-health/resour
 
 아래에서 Azure CDN 리소스 상태와 관련된 상태를 확인할 수 있습니다.
 
-|메시지 | 권장 작업 |
+|메시지 | 권장 작업 |
 |---|---|
 |하나 이상의 CDN 엔드포인트를 중지, 제거 또는 잘못 구성했을 수 있습니다. | 하나 이상의 CDN 엔드포인트를 중지, 제거 또는 잘못 구성했을 수 있습니다.|
 |죄송합니다. CDN 관리 서비스를 현재 사용할 수 없습니다. | 여기에서 상태 업데이트를 다시 확인하세요. 예상 해결 시간 이후에도 문제가 지속되는 경우 지원에 문의하세요.|
@@ -62,6 +62,6 @@ Azure CDN 리소스 상태는 [Azure 리소스 상태](../resource-health/resour
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 리소스 상태 개요 읽기](../resource-health/resource-health-overview.md)
+- [Azure 리소스 상태 개요 읽기](../service-health/resource-health-overview.md)
 - [CDN 압축 관련 문제 해결](./cdn-troubleshoot-compression.md)
 - [404 오류 관련 문제 해결](./cdn-troubleshoot-endpoint.md)
