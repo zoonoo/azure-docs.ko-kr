@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 63a9a0acc7a3cb7f5b5a5d451ab6199ec5f1390f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 74530b861b4dc7a35fa8b192ecc0e79ce5fa59c2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546741"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742996"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>관리 ID를 사용하여 Azure Database for MySQL에 연결
 

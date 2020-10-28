@@ -5,13 +5,13 @@ description: Azure CLI를 통해 가상 노드를 사용하여 Pod를 실행하�
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 96c47ed59fd904f1523347d9f0ef7bc00edb866f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543081"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745656"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -29,7 +29,7 @@ AKS(Azure Kubernetes Service) 클러스터에서 애플리케이션 워크로드
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-*Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered*로 보고됩니다.
+*Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered* 로 보고됩니다.
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -37,7 +37,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-공급자가 *NotRegistered*로 표시되는 경우 다음 예제에 나온 대로 [az provider register][az-provider-register]를 사용하여 공급자를 등록합니다.
+공급자가 *NotRegistered* 로 표시되는 경우 다음 예제에 나온 대로 [az provider register][az-provider-register]를 사용하여 공급자를 등록합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 이 문서에 따라 CLI를 로컬에서 설치하여 사용하려면 Azure CLI 버전 2.0.49 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create][az-network-vnet-create] 명령을 사용하여 가상 네트워크를 만듭니다. 다음 예제는 주소 접두사 *10.0.0.0/8*과 *myAKSSubnet*라는 서브넷을 사용하여 *myVnet*이라는 가상 네트워크를 만듭니다. 기본적으로 이 서브넷의 주소 접두사는 *10.240.0.0/16*입니다.
+[az network vnet create][az-network-vnet-create] 명령을 사용하여 가상 네트워크를 만듭니다. 다음 예제는 주소 접두사 *10.0.0.0/8* 과 *myAKSSubnet* 라는 서브넷을 사용하여 *myVnet* 이라는 가상 네트워크를 만듭니다. 기본적으로 이 서브넷의 주소 접두사는 *10.240.0.0/16* 입니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-이제 [az network vnet subnet create][az-network-vnet-subnet-create] 명령을 사용하여 가상 노드에 대해 추가 서브넷을 만듭니다. 다음 예제에서는 주소 접두사 *10.241.0.0/16*을 사용하여 *myVirtualNodeSubnet*이라는 서브넷을 만듭니다.
+이제 [az network vnet subnet create][az-network-vnet-subnet-create] 명령을 사용하여 가상 노드에 대해 추가 서브넷을 만듭니다. 다음 예제에서는 주소 접두사 *10.241.0.0/16* 을 사용하여 *myVirtualNodeSubnet* 이라는 서브넷을 만듭니다.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +132,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-*appId* 및 *암호*를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
+*appId* 및 *암호* 를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>가상 네트워크에 사용 권한 할당
 
@@ -158,7 +158,7 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. 을 `<subnetId>` 이전 단계에서 가져온 ID로 바꾸고,을 `<appId>` `<password>` 이전 섹션에서 수집한 값으로 바꿉니다.
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 을 `<subnetId>` 이전 단계에서 가져온 ID로 바꾸고,을 `<appId>` `<password>` 이전 섹션에서 수집한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az aks create \
@@ -178,7 +178,7 @@ az aks create \
 
 ## <a name="enable-virtual-nodes-addon"></a>가상 노드 추가 기능 사용
 
-가상 노드를 사용하도록 설정하려면 이제 [az aks enable-addons][az-aks-enable-addons] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 만든 *myVirtualNodeSubnet*이라는 서브넷을 사용합니다.
+가상 노드를 사용하도록 설정하려면 이제 [az aks enable-addons][az-aks-enable-addons] 명령을 사용합니다. 다음 예제에서는 이전 단계에서 만든 *myVirtualNodeSubnet* 이라는 서브넷을 사용합니다.
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -202,7 +202,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-다음 예제 출력은 생성된 단일 VM 노드를 보여준 후 Linux용 가상 노드 *virtual-node-aci-linux*를 보여 줍니다.
+다음 예제 출력은 생성된 단일 VM 노드를 보여준 후 Linux용 가상 노드 *virtual-node-aci-linux* 를 보여 줍니다.
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION

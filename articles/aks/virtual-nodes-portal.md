@@ -4,13 +4,13 @@ description: Azure Portal을 통해 가상 노드를 사용하여 Pod를 실행�
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: aaada79855b07e390ce3d30a20cd08dc484481c9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297572"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745474"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "89297572"
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-*Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered*로 보고됩니다.
+*Microsoft.ContainerInstance* 공급자는 다음 예제 출력에 나온 대로 *Registered* 로 보고됩니다.
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -36,7 +36,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-공급자가 *NotRegistered*로 표시되는 경우 다음 예제에 나온 대로 [az provider register][az-provider-register]를 사용하여 공급자를 등록합니다.
+공급자가 *NotRegistered* 로 표시되는 경우 다음 예제에 나온 대로 [az provider register][az-provider-register]를 사용하여 공급자를 등록합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -76,18 +76,18 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernetes Service**를 선택합니다.
+Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernetes Service** 를 선택합니다.
 
 **기본** 페이지에서 다음 옵션을 구성합니다.
 
-- *프로젝트 세부 정보*: Azure 구독을 선택하고 *myResourceGroup* 같은 Azure 리소스 그룹을 선택하거나 만듭니다. *myAKSCluster* 같은 **Kubernetes 클러스터 이름**을 입력합니다.
-- *클러스터 세부 정보*: AKS 클러스터의 지역, Kubernetes 버전 및 DNS 이름 접두사를 선택합니다.
-- *주 노드 풀*: AKS 노드의 VM 크기를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다**.
-     - 클러스터에 배포할 노드 수를 선택합니다. 이 문서에서는 **노드 수**를 *1*로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다**.
+- *프로젝트 세부 정보* : Azure 구독을 선택하고 *myResourceGroup* 같은 Azure 리소스 그룹을 선택하거나 만듭니다. *myAKSCluster* 같은 **Kubernetes 클러스터 이름** 을 입력합니다.
+- *클러스터 세부 정보* : AKS 클러스터의 지역, Kubernetes 버전 및 DNS 이름 접두사를 선택합니다.
+- *주 노드 풀* : AKS 노드의 VM 크기를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다** .
+     - 클러스터에 배포할 노드 수를 선택합니다. 이 문서에서는 **노드 수** 를 *1* 로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다** .
 
-**다음: 크기 조정**을 클릭합니다.
+**다음: 크기 조정** 을 클릭합니다.
 
-**크기 조정** 페이지의 **가상 노드**에서 *사용*을 선택합니다.
+**크기 조정** 페이지의 **가상 노드** 에서 *사용* 을 선택합니다.
 
 ![AKS 클러스터를 만들고 가상 노드를 사용하도록 설정](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +95,7 @@ Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernete
 
 고급 네트워킹에 대한 클러스터도 구성됩니다. 가상 노드는 자체 Azure 가상 네트워크 서브넷을 사용하도록 구성됩니다. 이 서브넷은 AKS 클러스터 간에 Azure 리소스를 연결할 수 있는 위임된 권한을 갖습니다. 위임된 서브넷이 아직 없는 경우 Azure Portal에서는 가상 노드에 사용할 Azure 가상 네트워크 및 서브넷을 만들고 구성합니다.
 
-**검토 + 만들기**를 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택합니다.
+**검토 + 만들기** 를 선택합니다. 유효성 검사가 완료되면 **만들기** 를 선택합니다.
 
 AKS 클러스터를 만들고 사용 준비를 마칠 때까지 몇 분 정도 걸립니다.
 
@@ -103,9 +103,9 @@ AKS 클러스터를 만들고 사용 준비를 마칠 때까지 몇 분 정도 �
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트인 [kubectl][kubectl]을 사용하세요. `kubectl` 클라이언트가 Azure Cloud Shell에 사전 설치됩니다.
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택합니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
-[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성합니다. 다음 예제는 *myResourceGroup*이라는 리소스 그룹에서 *myAKSCluster*라는 클러스터의 자격 증명을 가져옵니다.
+[az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성합니다. 다음 예제는 *myResourceGroup* 이라는 리소스 그룹에서 *myAKSCluster* 라는 클러스터의 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -117,7 +117,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-다음 예제 출력은 생성된 단일 VM 노드를 보여준 후 Linux용 가상 노드 *virtual-node-aci-linux*를 보여 줍니다.
+다음 예제 출력은 생성된 단일 VM 노드를 보여준 후 Linux용 가상 노드 *virtual-node-aci-linux* 를 보여 줍니다.
 
 ```output
 NAME                           STATUS    ROLES     AGE       VERSION

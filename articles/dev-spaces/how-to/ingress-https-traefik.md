@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: 사용자 지정 traefik 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: a30dae3b65a7e877dc20b4d6fae8de338024d3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746117"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
 
@@ -102,8 +102,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 [값 .yaml][values-yaml] 을 열고 다음을 업데이트 합니다.
-* *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 traefik로 바꿉니다 *. * *MY_CUSTOM_DOMAIN*에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
-* Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Traefik # Custom ingress*. 
+* *<REPLACE_ME_WITH_HOST_SUFFIX>* 모든 인스턴스를 traefik로 바꿉니다 *.* *MY_CUSTOM_DOMAIN* 에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 
+* Replace *kubernetes.io/ingress.class: traefik-azds # Dev Spaces only* with *kubernetes.io/ingress.class: Traefik # Custom ingress* . 
 
 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 
@@ -212,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> 테스트를 위해 *Clusterissuer*에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
+> 테스트를 위해 *Clusterissuer* 에 사용할 수 있는 [스테이징 서버][letsencrypt-staging-issuer] 도 있습니다.
 
 `kubectl`를 적용 하려면를 사용 `letsencrypt-clusterissuer.yaml` 합니다.
 
@@ -220,7 +220,7 @@ spec:
 kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 ```
 
-이전 *traefik* *ClusterRole* 및 *clusterrolebinding*을 제거한 다음를 사용 하 여 HTTPS를 사용 하도록 traefik를 업그레이드 `helm` 합니다.
+이전 *traefik* *ClusterRole* 및 *clusterrolebinding* 을 제거한 다음를 사용 하 여 HTTPS를 사용 하도록 traefik를 업그레이드 `helm` 합니다.
 
 > [!NOTE]
 > AKS 클러스터에서 RBAC를 사용 하도록 설정 하지 않은 경우 *--set RBAC. enabled = true* 매개 변수를 제거 합니다.
@@ -262,7 +262,7 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-위의 예제에서는 *PREVIOUS_EXTERNAL_IP*를 사용 하도록 *MY_CUSTOM_DOMAIN* DNS 영역에서 *A* 레코드를 업데이트 합니다.
+위의 예제에서는 *PREVIOUS_EXTERNAL_IP* 를 사용 하도록 *MY_CUSTOM_DOMAIN* DNS 영역에서 *A* 레코드를 업데이트 합니다.
 
 값을 업데이트 하 여 *인증서 관리자* 및 HTTPS 사용에 대 한 세부 정보를 포함 [합니다.][values-yaml] 업데이트 된 파일의 예는 `values.yaml` 다음과 같습니다.
 

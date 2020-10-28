@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5d0a86a966cacfdeac291c66fa245a613b383a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 52344b665b00329c80fb651657fbbd19d5ffd7a4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629526"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743094"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -26,11 +26,11 @@ ms.locfileid: "91629526"
 [HTTPS](https://en.wikipedia.org/wiki/HTTPS) 를 사용 하 여 웹 서비스에 대 한 액세스를 제한 하 고 클라이언트에서 제출 하는 데이터를 보호 합니다. HTTPS는 둘 간의 통신을 암호화 하 여 클라이언트와 웹 서비스 간의 통신을 보호 하는 데 도움이 됩니다. 암호화는 [TLS (전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security)를 사용 합니다. Tls는 TLS의 선행 작업 인 *SSL(Secure Sockets Layer)* (SSL) 라고도 합니다.
 
 > [!TIP]
-> Azure Machine Learning SDK는 보안 통신과 관련 된 속성에 "SSL" 이라는 용어를 사용 합니다. 이는 웹 서비스에서 *TLS*를 사용 하지 않는다는 의미는 아닙니다. SSL은 보다 일반적으로 인식 되는 용어입니다.
+> Azure Machine Learning SDK는 보안 통신과 관련 된 속성에 "SSL" 이라는 용어를 사용 합니다. 이는 웹 서비스에서 *TLS* 를 사용 하지 않는다는 의미는 아닙니다. SSL은 보다 일반적으로 인식 되는 용어입니다.
 >
 > 특히 Azure Machine Learning를 통해 배포 된 웹 서비스는 ACI 용 TLS 버전 1.1 및 AKS 용 TLS 버전 1.2만 지원 합니다.
 
-TLS 및 SSL은 모두 암호화 및 id 확인에 도움이 되는 *디지털 인증서*를 사용 합니다. 디지털 인증서의 작동 방식에 대 한 자세한 내용은 위키백과 토픽 [공개 키 인프라](https://en.wikipedia.org/wiki/Public_key_infrastructure)를 참조 하세요.
+TLS 및 SSL은 모두 암호화 및 id 확인에 도움이 되는 *디지털 인증서* 를 사용 합니다. 디지털 인증서의 작동 방식에 대 한 자세한 내용은 위키백과 토픽 [공개 키 인프라](https://en.wikipedia.org/wiki/Public_key_infrastructure)를 참조 하세요.
 
 > [!WARNING]
 > 웹 서비스에 HTTPS를 사용 하지 않는 경우 서비스로 전송 되는 데이터는 인터넷을 통해 다른 사용자에 게 표시 될 수 있습니다.
@@ -54,14 +54,14 @@ TLS 및 SSL은 모두 암호화 및 id 확인에 도움이 되는 *디지털 인
 
 ## <a name="get-a-domain-name"></a>도메인 이름 가져오기
 
-도메인 이름을 아직 소유 하 고 있지 않은 경우 *도메인 이름 등록 기관*에서 하나를 구입 합니다. 프로세스와 가격은 등록 기관 사이에서 다릅니다. 등록자는 도메인 이름을 관리 하는 도구를 제공 합니다. 이러한 도구를 사용 하 여 FQDN (정규화 된 도메인 이름) (예: www \. contoso.com)을 웹 서비스를 호스팅하는 IP 주소에 매핑합니다.
+도메인 이름을 아직 소유 하 고 있지 않은 경우 *도메인 이름 등록 기관* 에서 하나를 구입 합니다. 프로세스와 가격은 등록 기관 사이에서 다릅니다. 등록자는 도메인 이름을 관리 하는 도구를 제공 합니다. 이러한 도구를 사용 하 여 FQDN (정규화 된 도메인 이름) (예: www \. contoso.com)을 웹 서비스를 호스팅하는 IP 주소에 매핑합니다.
 
 ## <a name="get-a-tlsssl-certificate"></a>TLS/SSL 인증서 가져오기
 
 TLS/SSL 인증서 (디지털 인증서)를 가져오는 방법에는 여러 가지가 있습니다. 가장 일반적인 것은 CA ( *인증 기관* )에서 구입 하는 것입니다. 인증서를 가져오는 위치와 관계 없이 다음 파일이 필요 합니다.
 
-* **인증서**입니다. 인증서는 전체 인증서 체인을 포함 해야 하며 "PEM 인코딩" 이어야 합니다.
-* **키**. 키도 PEM으로 인코딩해야 합니다.
+* **인증서** 입니다. 인증서는 전체 인증서 체인을 포함 해야 하며 "PEM 인코딩" 이어야 합니다.
+* **키** . 키도 PEM으로 인코딩해야 합니다.
 
 인증서를 요청할 때 웹 서비스에 사용할 주소의 FQDN (예: www contoso.com)을 제공 해야 합니다 \. . 인증서에 스탬프 된 주소와 클라이언트에서 사용 하는 주소를 비교 하 여 웹 서비스의 id를 확인 합니다. 이러한 주소가 일치 하지 않으면 클라이언트에서 오류 메시지를 가져옵니다.
 
@@ -87,7 +87,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
 
 **Enable_ssl** 방법은 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
 
-  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 도메인 이름 "contoso \<six-random-characters> . \<azureregion> cloudapp.azure.com ", 여기서 \<azureregion> 은 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label*를 덮어쓸 수 있습니다.
+  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 도메인 이름 "contoso \<six-random-characters> . \<azureregion> cloudapp.azure.com ", 여기서 \<azureregion> 은 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label* 를 덮어쓸 수 있습니다.
 
     TLS를 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
 
@@ -115,7 +115,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
-  * *구매한 인증서*를 사용 하는 경우 *ssl_cert_pem_file*, *ssl_key_pem_file*및 *ssl_cname* 매개 변수를 사용 합니다. 다음 예제에서는 *pem* 파일을 사용 하 여 구매한 TLS/SSL 인증서를 사용 하는 구성을 만드는 방법을 보여 줍니다.
+  * *구매한 인증서* 를 사용 하는 경우 *ssl_cert_pem_file* , *ssl_key_pem_file* 및 *ssl_cname* 매개 변수를 사용 합니다. 다음 예제에서는 *pem* 파일을 사용 하 여 구매한 TLS/SSL 인증서를 사용 하는 구성을 만드는 방법을 보여 줍니다.
 
     ```python
     from azureml.core.compute import AksCompute
@@ -130,7 +130,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-*Enable_ssl*에 대 한 자세한 내용은 [AksProvisioningConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
+*Enable_ssl* 에 대 한 자세한 내용은 [AksProvisioningConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
 
 ### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에 배포
 

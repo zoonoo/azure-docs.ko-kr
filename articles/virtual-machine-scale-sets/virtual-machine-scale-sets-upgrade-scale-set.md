@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029300"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745827"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -348,7 +348,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>현재 값에 따라서만 변경할 수 있는 속성
 현재 값을 따른다는 점을 제외하고, 일부 속성을 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.
 
-- **singlePlacementGroup** - singlePlacementGroup이 true이면 false로 수정할 수 있습니다. 그러나 singlePlacementGroup이 false인 경우, true로 수정하지 **못할 수 있습니다**.
+- **singlePlacementGroup** - singlePlacementGroup이 true이면 false로 수정할 수 있습니다. 그러나 singlePlacementGroup이 false인 경우, true로 수정하지 **못할 수 있습니다** .
 - **서브넷** - 확장 집합의 서브넷은 원래 서브넷과 새 서브넷이 동일한 가상 네트워크에 있는 경우 수정할 수 있습니다.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>변경하기 위해 할당을 취소해야 하는 속성
@@ -364,22 +364,22 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 ## <a name="scenarios"></a>시나리오
 
 ### <a name="application-updates"></a>애플리케이션 업데이트
-애플리케이션이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 애플리케이션이 업데이트됩니다. 예를 들어 사용자 지정 스크립트 확장에서 실행할 스크립트의 새 버전이 있는 경우 새 스크립트를 가리키도록 *Fileuris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행 하도록 *Forceupdatetag* 를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *Forceupdatetag*에 대 한 자세한 내용은 [확장에 대 한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조 하세요. *forceUpdateTag*는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
+애플리케이션이 확장을 통해 확장 집합에 배포되는 경우, 확장 구성을 업데이트하면 업그레이드 정책에 따라 애플리케이션이 업데이트됩니다. 예를 들어 사용자 지정 스크립트 확장에서 실행할 스크립트의 새 버전이 있는 경우 새 스크립트를 가리키도록 *Fileuris* 속성을 업데이트할 수 있습니다. 경우에 따라, 확장 구성이 변경되지 않더라도 강제로 업데이트하려고 할 수 있습니다(예: 스크립트의 URI를 변경하지 않고 스크립트 업데이트). 이러한 경우 업데이트를 강제로 수행 하도록 *Forceupdatetag* 를 수정할 수 있습니다. Azure 플랫폼에서는 이 속성을 해석하지 않습니다. 값을 변경해도 확장이 실행되는 방식에 영향을 미치지 않습니다. 변경하면 확장이 강제로 다시 실행되기만 합니다. *Forceupdatetag* 에 대 한 자세한 내용은 [확장에 대 한 REST API 설명서](/rest/api/compute/virtualmachineextensions/createorupdate)를 참조 하세요. *forceUpdateTag* 는 사용자 지정 스크립트 확장뿐만 아니라 모든 확장에서 사용할 수 있습니다.
 
 애플리케이션을 사용자 지정 이미지를 통해 배포하는 것도 일반적입니다. 이 시나리오는 다음 섹션에서 설명됩니다.
 
 ### <a name="os-updates"></a>OS 업데이트
-Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
+Azure 플랫폼 이미지를 사용하는 경우 *imageReference* 를 수정하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 >[!NOTE]
-> 플랫폼 이미지를 사용하는 경우 이미지 참조 버전으로 "최신"을 지정하는 것이 일반적입니다. VM을 만들고 규모를 확장하고 이미지로 다시 설치하는 동안 VM은 사용 가능한 최신 버전으로 만들어집니다. 하지만 시간이 지나면서 새 이미지 버전이 릴리스되면 OS 이미지가 자동으로 업데이트된다는 의미는 **아닙니다**. 자동 OS 업그레이드를 제공하는 별도의 기능이 현재 미리 보기 상태에 있습니다. 자세한 내용은 [자동 OS 업그레이드 설명서](virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
+> 플랫폼 이미지를 사용하는 경우 이미지 참조 버전으로 "최신"을 지정하는 것이 일반적입니다. VM을 만들고 규모를 확장하고 이미지로 다시 설치하는 동안 VM은 사용 가능한 최신 버전으로 만들어집니다. 하지만 시간이 지나면서 새 이미지 버전이 릴리스되면 OS 이미지가 자동으로 업데이트된다는 의미는 **아닙니다** . 자동 OS 업그레이드를 제공하는 별도의 기능이 현재 미리 보기 상태에 있습니다. 자세한 내용은 [자동 OS 업그레이드 설명서](virtual-machine-scale-sets-automatic-upgrade.md)를 참조하세요.
 
 사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
 ## <a name="examples"></a>예
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>확장 집합에 대한 OS 이미지 업데이트
-이전 버전의 Ubuntu LTS 16.04를 실행하는 확장 집합이 있을 수도 있습니다. Ubuntu LTS 16.04의 최신 버전(예: 버전 *16.04.201801090*)으로 업데이트하려고 합니다. 이미지 참조 버전 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이러한 속성을 직접 수정할 수 있습니다.
+이전 버전의 Ubuntu LTS 16.04를 실행하는 확장 집합이 있을 수도 있습니다. Ubuntu LTS 16.04의 최신 버전(예: 버전 *16.04.201801090* )으로 업데이트하려고 합니다. 이미지 참조 버전 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이러한 속성을 직접 수정할 수 있습니다.
 
 - Azure PowerShell에서 [Update-AzVmss](/powershell/module/az.compute/update-azvmss), 아래 참조:
 
@@ -447,7 +447,7 @@ Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 
     ```
 
 >[!NOTE]
-> 이러한 명령은 확장 집합에 IP 구성 및 Load Balancer가 하나만 있다고 가정합니다. 여러 개가 있는 경우 *0*이 아닌 목록 인덱스를 사용 해야 할 수 있습니다.
+> 이러한 명령은 확장 집합에 IP 구성 및 Load Balancer가 하나만 있다고 가정합니다. 여러 개가 있는 경우 *0* 이 아닌 목록 인덱스를 사용 해야 할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

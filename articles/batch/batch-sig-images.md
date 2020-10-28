@@ -3,13 +3,13 @@ title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 �
 description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하도록 계산 노드를 구성 하는 효율적인 방법입니다.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605195"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745518"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -27,7 +27,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 
 - **지역에서 동일한 이미지 사용** 모든 풀에서 동일한 이미지를 사용하도록 여러 지역에 걸쳐 공유 이미지 복제본을 만들 수 있습니다.
 - **OS(운영 체제) 구성** 이미지의 운영 체제 디스크 구성을 사용자 지정할 수 있습니다.
-- **애플리케이션 미리 설치**. OS 디스크에 애플리케이션을 미리 설치하는 것은 시작 작업을 사용하여 컴퓨팅 노드를 프로비저닝한 후에 애플리케이션을 설치하는 것보다 효율성은 높고 오류 발생 가능성은 낮습니다.
+- **애플리케이션 미리 설치** . OS 디스크에 애플리케이션을 미리 설치하는 것은 시작 작업을 사용하여 컴퓨팅 노드를 프로비저닝한 후에 애플리케이션을 설치하는 것보다 효율성은 높고 오류 발생 가능성은 낮습니다.
 - **많은 데이터를 한 번에 복사** 관리되는 공유 이미지를 관리되는 이미지의 데이터 디스크에 복사하여 관리되는 공유 이미지의 정적 데이터 부분을 만듭니다. 이 작업은 한 번만 수행하며 풀의 각 노드에서 데이터를 사용할 수 있게 됩니다.
 - **풀을 더 큰 크기로 확장** Shared Image Gallery를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다.
 - **관리 되는 이미지만 사용자 지정 이미지로 사용 하는 것 보다 성능이 향상 됩니다.** 공유 이미지 사용자 지정 이미지 풀의 경우 안정 된 상태에 도달 하는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
@@ -206,11 +206,11 @@ client.pool.add(new_pool)
 다음 단계를 사용하여 Azure Portal의 공유 이미지에서 풀을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. **Batch 계정**으로 이동하여 계정을 선택합니다.
-1. **풀**을 선택한 다음, **추가**를 선택하여 새 풀을 만듭니다.
-1. **이미지 형식** 섹션에서 **Shared Image Gallery**를 선택합니다.
+1. **Batch 계정** 으로 이동하여 계정을 선택합니다.
+1. **풀** 을 선택한 다음, **추가** 를 선택하여 새 풀을 만듭니다.
+1. **이미지 형식** 섹션에서 **Shared Image Gallery** 를 선택합니다.
 1. 관리되는 이미지에 대한 정보를 사용하여 나머지 섹션을 완료합니다.
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
 ![포털을 사용하여 공유 이미지에서 풀을 만듭니다.](media/batch-sig-images/create-custom-pool.png)
 

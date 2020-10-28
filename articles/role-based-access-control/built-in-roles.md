@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 28de993f51b13e973edb0e42f138217cd35ab8dd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ed5d7c3007cf8471da453db93be0ab716805908c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636700"
+ms.locfileid: "92742953"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -207,6 +207,8 @@ ms.locfileid: "92636700"
 > | [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [태그 기여자](#tag-contributor) | 엔터티의 태그를 관리할 수 있으며, 엔터티 자체에 대한 액세스 권한은 없습니다. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
 > | **기타** |  |  |
+> | [Azure Digital Twins 데이터 소유자](#azure-digital-twins-data-owner) | 디지털 쌍 데이터 평면에 대 한 모든 권한 역할 | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+> | [Azure Digital Twins 데이터 판독기](#azure-digital-twins-data-reader) | Digital Twins 데이터 평면 속성에 대 한 읽기 전용 역할 | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [BizTalk 참가자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [데스크톱 가상화 사용자](#desktop-virtualization-user) | 사용자가 응용 프로그램 그룹에서 응용 프로그램을 사용할 수 있습니다. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
 > | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
@@ -9211,6 +9213,102 @@ Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 
 
 ## <a name="other"></a>기타
 
+
+### <a name="azure-digital-twins-data-owner"></a>Azure Digital Twins 데이터 소유자
+
+디지털 쌍 데이터 영역에 대 한 모든 권한 역할 [자세한 정보](../digital-twins/concepts-security.md)
+
+> [!div class="mx-tableFixed"]
+> | 작업 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access role for Digital Twins data-plane",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "name": "bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/eventroutes/*",
+        "Microsoft.DigitalTwins/digitaltwins/*",
+        "Microsoft.DigitalTwins/digitaltwins/commands/*",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/*",
+        "Microsoft.DigitalTwins/models/*",
+        "Microsoft.DigitalTwins/query/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-digital-twins-data-reader"></a>Azure Digital Twins 데이터 판독기
+
+디지털 Twins 데이터 평면 속성에 대 한 읽기 전용 역할 [자세한 정보](../digital-twins/concepts-security.md)
+
+> [!div class="mx-tableFixed"]
+> | 작업 | Description |
+> | --- | --- |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | 디지털 쌍 읽기 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | 디지털 쌍 관계 읽기 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | 이벤트 경로를 읽습니다. |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | 모델 읽기 |
+> | [DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | 모든 Digital Twins 그래프 쿼리 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only role for Digital Twins data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "name": "d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/digitaltwins/read",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/read",
+        "Microsoft.DigitalTwins/eventroutes/read",
+        "Microsoft.DigitalTwins/models/read",
+        "Microsoft.DigitalTwins/query/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ### <a name="biztalk-contributor"></a>BizTalk 참가자
 

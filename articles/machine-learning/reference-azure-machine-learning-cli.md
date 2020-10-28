@@ -9,13 +9,13 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
-ms.custom: seodec18
-ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8ce32ab1e7dac6fd1a154fc6e730113428a8291b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708274"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744492"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning용 CLI 확장 설치 및 사용
 
@@ -34,7 +34,7 @@ CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화
 
 * CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* **로컬 환경**에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)가 필요합니다.
+* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)가 필요합니다.
 
     [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)을 사용하는 경우 CLI는 브라우저를 통해 액세스하고 클라우드에 있습니다.
 
@@ -285,7 +285,7 @@ max_duration_minutes: 100 # The maximum length of time to run the experiment bef
 az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
 ```
 
-runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간*을 잘 보세요. 학습 스크립트에 전달할 명령줄 인수가 포함되어 있습니다. runconfig의 값은 각 반복에서 동일하게 유지되는 반면, HyperDrive 구성의 범위는 반복됩니다. 두 파일에서 같은 인수를 지정하지 마세요.
+runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 잘 보세요. 학습 스크립트에 전달할 명령줄 인수가 포함되어 있습니다. runconfig의 값은 각 반복에서 동일하게 유지되는 반면, HyperDrive 구성의 범위는 반복됩니다. 두 파일에서 같은 인수를 지정하지 마세요.
 
 ## <a name="dataset-management"></a>데이터 세트 관리
 
@@ -411,7 +411,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간*을 �
 
 | JSON 필드 | Type | Description |
 |---|---|---|
-| `name` | `string` | 환경의 이름입니다. 이름은 **Microsoft** 또는 **AzureML**로 시작하면 안 됩니다. |
+| `name` | `string` | 환경의 이름입니다. 이름은 **Microsoft** 또는 **AzureML** 로 시작하면 안 됩니다. |
 | `version` | `string` | 환경의 버전입니다. |
 | `environmentVariables` | `{string: string}` | 환경 변수 이름 및 값의 해시 맵입니다. |
 | `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)hat는 대상 계산 리소스에서 사용할 Python 환경 및 인터프리터를 정의 합니다. |

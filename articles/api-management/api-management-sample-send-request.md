@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2f4bd040d7e5858fd561444f56dbce7b3f940d9a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093279"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742400"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management 서비스에서 외부 서비스 사용
 Azure API Management 서비스에서 사용할 수 있는 정책은 순수하게 들어오는 요청, 보내는 응답 및 기본 구성 정보에 기반하여 다양한 범위의 유용한 작업을 수행할 수 있습니다. 그러나 API Management 정책에서 외부 서비스와 상호 작용할 수 있으면 더 많은 기회를 얻게 됩니다.

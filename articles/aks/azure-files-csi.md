@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078360"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745798"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 CSI (Azure Files Container Storage Interface) 드라이버 사용
 
@@ -33,13 +33,13 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>기본 제공 저장소 클래스를 사용 하 여 동적으로 Azure Files PVs 만들기
 
-저장소 클래스는 Azure Files 공유를 만드는 방법을 정의 하는 데 사용 됩니다. 저장소 계정은 Azure Files 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복 sku][storage-skus] *에 대해 다음 중 하나를 선택*합니다.
+저장소 클래스는 Azure Files 공유를 만드는 방법을 정의 하는 데 사용 됩니다. 저장소 계정은 Azure Files 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복 sku][storage-skus] *에 대해 다음 중 하나를 선택* 합니다.
 
-* **Standard_LRS**: 표준 로컬 중복 저장소
-* **Standard_GRS**: 표준 지역 중복 저장소
-* **Standard_ZRS**: 표준 영역 중복 저장소
-* **Standard_RAGRS**: 표준 읽기 액세스 지역 중복 저장소
-* **Premium_LRS**: 프리미엄 로컬 중복 저장소
+* **Standard_LRS** : 표준 로컬 중복 저장소
+* **Standard_GRS** : 표준 지역 중복 저장소
+* **Standard_ZRS** : 표준 영역 중복 저장소
+* **Standard_RAGRS** : 표준 읽기 액세스 지역 중복 저장소
+* **Premium_LRS** : 프리미엄 로컬 중복 저장소
 
 > [!NOTE]
 > Azure Files는 Azure Premium Storage를 지원 합니다. 최소 프리미엄 파일 공유는 100 GB입니다.
@@ -212,7 +212,7 @@ NFS 4.1를 활용 하는 파일 공유를 만들려면 `AllowNfsFileShares` 구�
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
+상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` [kubectl apply][kubectl-apply] .
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

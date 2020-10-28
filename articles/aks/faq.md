@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494534"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745766"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -31,7 +31,7 @@ ms.locfileid: "92494534"
 예. API 서버에 대한 액세스를 제한하는 옵션에는 다음 두 가지가 있습니다.
 
 - API 서버에 대한 퍼블릭 엔드포인트를 유지하지만 신뢰할 수 있는 IP 범위 세트로 액세스를 제한하려는 경우 [API Server 권한 있는 IP 범위][api-server-authorized-ip-ranges]를 사용합니다.
-- API 서버를 가상 네트워크 내에서*만* 액세스할 수 있도록 제한하려면 [프라이빗 클러스터][private-clusters]를 사용합니다.
+- API 서버를 가상 네트워크 내에서 *만* 액세스할 수 있도록 제한하려면 [프라이빗 클러스터][private-clusters]를 사용합니다.
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>단일 클러스터에서 다른 크기의 VM을 사용할 수 있나요?
 
@@ -57,12 +57,12 @@ AKS는 가상 머신 확장 집합, 가상 네트워크 및 Managed Disks를 포
 
 이 아키텍처를 지원하기 위해 각 AKS 배포는 다음 두 리소스 그룹에 걸쳐 있습니다.
 
-1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes 서비스 리소스만 포함됩니다. AKS 리소스 공급자는 배포하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus*입니다. 이 두 번째 리소스 그룹의 이름을 지정하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
-1. *노드 리소스 그룹*으로 알려져 있는 두 번째 리소스 그룹에는 클러스터와 연결된 인프라 리소스의 모든 항목이 포함됩니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹에는 *MC_myResourceGroup_myAKSCluster_eastus*와 같은 이름이 지정됩니다. AKS는 클러스터가 삭제될 때마다 노드 리소스를 자동으로 삭제하므로 클러스터의 수명 주기를 공유하는 리소스에만 사용해야 합니다.
+1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes 서비스 리소스만 포함됩니다. AKS 리소스 공급자는 배포하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus* 입니다. 이 두 번째 리소스 그룹의 이름을 지정하는 방법에 대한 자세한 내용은 다음 섹션을 참조하세요.
+1. *노드 리소스 그룹* 으로 알려져 있는 두 번째 리소스 그룹에는 클러스터와 연결된 인프라 리소스의 모든 항목이 포함됩니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹에는 *MC_myResourceGroup_myAKSCluster_eastus* 와 같은 이름이 지정됩니다. AKS는 클러스터가 삭제될 때마다 노드 리소스를 자동으로 삭제하므로 클러스터의 수명 주기를 공유하는 리소스에만 사용해야 합니다.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>AKS 노드 리소스 그룹에 고유한 이름을 지정할 수 있나요?
 
-예. 기본적으로 AKS는 노드 리소스 그룹 이름을 *MC_resourcegroupname_clustername_location*으로 지정하지만 사용자 고유의 이름을 제공할 수도 있습니다.
+예. 기본적으로 AKS는 노드 리소스 그룹 이름을 *MC_resourcegroupname_clustername_location* 으로 지정하지만 사용자 고유의 이름을 제공할 수도 있습니다.
 
 고유한 리소스 그룹 이름을 지정하려면 [aks-preview][aks-preview-cli] Azure CLI 확장 버전 0.3.2 이상을 설치합니다. [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만들 때 *--node-resource-group* 매개 변수를 사용하고 리소스 그룹의 이름을 지정합니다. [Azure Resource Manager 템플릿을 사용][aks-rm-template]하여 AKS 클러스터를 배포하는 경우 *nodeResourceGroup* 속성을 사용하여 리소스 그룹 이름을 정의할 수 있습니다.
 
@@ -95,12 +95,15 @@ AKS는 다음과 같은 [허용 컨트롤러][admission-controllers]를 지원�
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 현재, AKS에서 허용 컨트롤러 목록을 수정할 수 없습니다.
 
 ## <a name="can-i-use-admission-controller-webhooks-on-aks"></a>AKS에서 허용 컨트롤러 Webhook를 사용할 수 있나요?
 
-예, AKS에서 허용 컨트롤러 Webhook를 사용할 수 있습니다. **제어 평면 레이블**로 표시된 내부 AKS 네임스페이스를 제외하는 것이 좋습니다. 예를 들어, Webhook 구성에 아래 내용을 추가합니다.
+예, AKS에서 허용 컨트롤러 Webhook를 사용할 수 있습니다. **제어 평면 레이블** 로 표시된 내부 AKS 네임스페이스를 제외하는 것이 좋습니다. 예를 들어, Webhook 구성에 아래 내용을 추가합니다.
 
 ```
 namespaceSelector:
@@ -109,9 +112,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+AKS는 API 서버를 수신 합니다 .이는 허용 되는 컨트롤러 웹 후크는 클러스터 내에서 액세스할 수 있어야 합니다.
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>허용 컨트롤러 Webhook가 kube-system 및 내부 AKS 네임스페이스에 영향을 미칠 수 있나요?
 
-시스템의 안정성을 보호하고 사용자 지정 허용 컨트롤러가 kube-system의 내부 서비스에 영향을 주지 않도록 하기 위해 네임스페이스 AKS에는 kube-system 및 AKS 내부 네임스페이스를 자동으로 제외하는 **Admissions Enforcer**가 있습니다. 이 서비스는 사용자 지정 허용 컨트롤러가 kube-system에서 실행되는 서비스에 영향을 주지 않도록 합니다.
+시스템의 안정성을 보호하고 사용자 지정 허용 컨트롤러가 kube-system의 내부 서비스에 영향을 주지 않도록 하기 위해 네임스페이스 AKS에는 kube-system 및 AKS 내부 네임스페이스를 자동으로 제외하는 **Admissions Enforcer** 가 있습니다. 이 서비스는 사용자 지정 허용 컨트롤러가 kube-system에서 실행되는 서비스에 영향을 주지 않도록 합니다.
 
 사용자 지정 허용 webhook를 통해 적용해야 하는 기능을 kube-system에 배포하기(권장하지 않음) 위한 중요한 사용 사례가 있는 경우 Admissions Enforcer에서 무시하도록 아래 레이블 또는 주석을 추가할 수 있습니다.
 

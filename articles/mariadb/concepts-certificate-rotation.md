@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d1122d723058af7b11004589a9ebd14958cc4ef
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4744b974cd20c15d8abf22f52b64b8d3dc5a7f55
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173105"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743000"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -45,18 +45,18 @@ Azure Database for MariaDB sslmode를 이해 하려면 [SSL 모드 설명을](co
 
 인증서가 예기치 않게 취소 되어 응용 프로그램의 가용성이 중단 되지 않도록 하거나 해지 된 인증서를 업데이트 하려면 다음 단계를 수행 합니다. 현재 인증서와 새 pem 파일을 결합 하는 새 *pem* 파일을 만드는 것이 좋습니다 .이 파일은 허용 되는 값이 사용 되 면 SSL 인증서 유효성 검사 중에 사용 됩니다. 다음 단계를 참조 하세요.
 
-*   **BaltimoreCyberTrustRoot**  &  아래 링크에서 baltimorecybertrustroot.crt.pem**DigiCertGlobalRootG2** CA를 다운로드 합니다.
+*   **BaltimoreCyberTrustRoot**  &  아래 링크에서 baltimorecybertrustroot.crt.pem **DigiCertGlobalRootG2** CA를 다운로드 합니다.
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
 *   **Baltimorecybertrustroot.crt.pem** 및 **DigiCertGlobalRootG2** 인증서를 모두 포함 하는 결합 된 CA 인증서 저장소를 생성 합니다.
     *   Java (MariaDB 커넥터/J) 사용자의 경우 다음을 실행 합니다.
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MariaDBServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MariaDBServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -149,7 +149,7 @@ Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 
 SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl 확인](howto-configure-ssl.md#verify-the-ssl-connection)을 참조 하세요.
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. 인증서 파일에 DigiCertGlobalRootG2이 이미 있는 경우 필요한 작업이 있나요?
-아니요. 인증서 파일에 **DigiCertGlobalRootG2**이 이미 있는 경우에는 필요한 작업이 없습니다.
+아니요. 인증서 파일에 **DigiCertGlobalRootG2** 이 이미 있는 경우에는 필요한 작업이 없습니다.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. 추가 질문이 있으면 어떻게 하나요?
 질문이 있는 경우 [Microsoft Q&](mailto:AzureDatabaseformariadb@service.microsoft.com)의 커뮤니티 전문가 로부터 답변을 받으세요. 지원 계획이 있고 기술 도움말이 필요한 경우 [microsoft에 문의 하세요](mailto:AzureDatabaseformariadb@service.microsoft.com).

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332028"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744583"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -28,7 +28,7 @@ Data Lake Storage Gen2 사용 하 여 클러스터 만들기 옵션을 전체적
 Data Lake Storage Gen2는 거의 모든 Azure HDInsight 클러스터 형식에 대 한 저장소 옵션으로 기본 및 추가 저장소 계정으로 사용할 수 있습니다. 그러나 HBase에는 Data Lake Storage Gen2 있는 계정이 하나만 있을 수 있습니다.
 
 > [!Note]  
-> Data Lake Storage Gen2를 **기본 저장소 형식**으로 선택한 후에는 Data Lake Storage Gen1를 추가 저장소로 선택할 수 없습니다.
+> Data Lake Storage Gen2를 **기본 저장소 형식** 으로 선택한 후에는 Data Lake Storage Gen1를 추가 저장소로 선택할 수 없습니다.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터 만들기
 
@@ -66,19 +66,19 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
 
 여러 가지 방법으로 HDInsight 클러스터에서 Data Lake Storage Gen2 파일에 액세스할 수 있습니다.
 
-* **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
+* **정규화된 이름 사용** . 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
+* **줄인 경로 형식 사용** . 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     abfs:///<file.path>/
     ```
 
-* **상대 경로 사용**. 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
+* **상대 경로 사용** . 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
 
     ```
     /<file.path>/

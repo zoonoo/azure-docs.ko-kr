@@ -3,13 +3,13 @@ title: GitHub Actions를 사용하여 Resource Manager 템플릿 배포
 description: GitHub Actions를 사용하여 Azure Resource Manager 템플릿을 배포하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282854"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746097"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>GitHub Actions를 사용하여 Azure Resource Manager 템플릿 배포
 
@@ -28,17 +28,17 @@ ms.locfileid: "92282854"
 
 워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다.
 
-이 파일에는 두 개의 섹션이 있습니다.
+이 파일에는 다음 두 가지 섹션이 있습니다.
 
 |섹션  |작업  |
 |---------|---------|
-|**인증** | 1. 서비스 주체를 정의 합니다. <br /> 2. GitHub 비밀을 만듭니다. |
+|**인증** | 1. 서비스 주체를 정의합니다. <br /> 2. GitHub 비밀을 만듭니다. |
 |**배포** | 1. 리소스 관리자 템플릿을 배포 합니다. |
 
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용 하 여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/) 또는 **사용해 보기** 단추를 선택 하 여이 명령을 실행 합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 아직 없는 경우 리소스 그룹을 만듭니다. 
 
@@ -69,15 +69,15 @@ ms.locfileid: "92282854"
 
 
 
-## <a name="configure-the-github-secrets"></a>GitHub 암호 구성
+## <a name="configure-the-github-secrets"></a>GitHub 비밀 구성
 
 Azure 자격 증명, 리소스 그룹 및 구독에 대 한 암호를 만들어야 합니다. 
 
-1. [GitHub](https://github.com/)에서 리포지토리를 검색 합니다.
+1. [GitHub](https://github.com/)에서 리포지토리를 찾습니다.
 
-1. **설정 > 비밀 > 새 비밀**을 선택 합니다.
+1. **설정 > 비밀 > 새 비밀** 을 차례로 선택합니다.
 
-1. Azure CLI 명령의 전체 JSON 출력을 암호의 값 필드에 붙여넣습니다. 비밀에 이름을 지정 합니다 `AZURE_CREDENTIALS` .
+1. Azure CLI 명령의 전체 JSON 출력을 비밀의 값 필드에 붙여넣습니다. 비밀 이름을 `AZURE_CREDENTIALS`로 지정합니다.
 
 1. 이라는 다른 암호 `AZURE_RG` 를 만듭니다. 비밀의 값 필드에 리소스 그룹의 이름을 추가 합니다 (예: `myResourceGroup` ). 
 
@@ -91,16 +91,16 @@ GitHub 리포지토리에 리소스 관리자 템플릿을 추가 합니다. 이
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-파일을 리포지토리의 어디에나 배치할 수 있습니다. 다음 섹션의 workflow 샘플에서는 템플릿 파일의 이름이 **azuredeploy.js설정**된 것으로 가정 하 고 리포지토리의 루트에 저장 됩니다.
+파일을 리포지토리의 어디에나 배치할 수 있습니다. 다음 섹션의 workflow 샘플에서는 템플릿 파일의 이름이 **azuredeploy.js설정** 된 것으로 가정 하 고 리포지토리의 루트에 저장 됩니다.
 
 ## <a name="create-workflow"></a>워크플로 만들기
 
-워크플로 파일은 리포지토리의 루트에 있는 **github/** workflow 폴더에 저장 해야 합니다. 워크플로 파일 확장명은 **.yml** 또는 **.yaml**일 수 있습니다.
+워크플로 파일은 리포지토리의 루트에 있는 **github/** workflow 폴더에 저장 해야 합니다. 워크플로 파일 확장명은 **.yml** 또는 **.yaml** 일 수 있습니다.
 
-1. GitHub 리포지토리의 상단 메뉴에서 **작업**을 선택합니다.
-1. **새 워크플로**를 선택합니다.
-1. **워크플로 직접 설정**을 선택합니다.
-1. **main.yml**이 아닌 다른 이름을 선호하는 경우 워크플로 파일의 이름을 바꿉니다. 예: **deployStorageAccount.yml**.
+1. GitHub 리포지토리의 상단 메뉴에서 **작업** 을 선택합니다.
+1. **새 워크플로** 를 선택합니다.
+1. **워크플로 직접 설정** 을 선택합니다.
+1. **main.yml** 이 아닌 다른 이름을 선호하는 경우 워크플로 파일의 이름을 바꿉니다. 예: **deployStorageAccount.yml** .
 1. yml 파일의 내용을 다음으로 바꿉니다.
 
     ```yml
@@ -136,12 +136,12 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 
     워크플로 파일의 첫 번째 섹션에는 다음이 포함 됩니다.
 
-    - **name**: 워크플로의 이름입니다.
-    - **on**: 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. 마스터 분기에 지정된 두 파일 중 하나 이상을 수정하는 푸시 이벤트가 있는 경우 워크플로가 트리거됩니다. 두 파일은 워크플로 파일 및 템플릿 파일입니다.
+    - **name** : 워크플로의 이름입니다.
+    - **on** : 워크플로를 트리거하는 GitHub 이벤트의 이름입니다. 마스터 분기에 지정된 두 파일 중 하나 이상을 수정하는 푸시 이벤트가 있는 경우 워크플로가 트리거됩니다. 두 파일은 워크플로 파일 및 템플릿 파일입니다.
 
-1. **커밋 시작**을 선택합니다.
-1. **마스터 분기에 직접 커밋**을 선택합니다.
-1. **새 파일 커밋**(또는 **변경 내용 커밋**)을 선택합니다.
+1. **커밋 시작** 을 선택합니다.
+1. **마스터 분기에 직접 커밋** 을 선택합니다.
+1. **새 파일 커밋** (또는 **변경 내용 커밋** )을 선택합니다.
 
 업데이트되는 워크플로 파일이나 템플릿 파일에 의해 트리거되도록 워크플로를 구성했기 때문에 변경 내용을 커밋하면 워크플로가 바로 시작됩니다.
 

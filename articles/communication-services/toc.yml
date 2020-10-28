@@ -84,6 +84,8 @@
       href: concepts/logging-and-diagnostics.md
     - name: 메트릭
       href: concepts/metrics.md
+    - name: 문제 해결
+      href: concepts/troubleshooting-info.md
 - name: 샘플
   items:
     - name: 그룹 통화 주인공 샘플
@@ -105,4 +107,4 @@
 - name: 리소스
   items:
     - name: 릴리스 정보
-      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'

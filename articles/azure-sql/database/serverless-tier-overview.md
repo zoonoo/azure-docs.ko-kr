@@ -4,19 +4,19 @@ description: 이 문서에서는 서버를 사용 하지 않는 새 계산 계�
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321410"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743164"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 - **최소 vcores** 및 **최대 vcores** 는 데이터베이스에 사용할 수 있는 계산 용량의 범위를 정의 하는 구성 가능한 매개 변수입니다. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
 - **Autopause delay** 는 데이터베이스를 자동으로 일시 중지 하기 전에 비활성 상태로 유지 해야 하는 기간을 정의 하는 구성 가능한 매개 변수입니다. 데이터베이스는 다음 로그인 또는 다른 작업이 발생할 때 자동으로 다시 시작 됩니다.  또는 autopausing를 사용 하지 않도록 설정할 수 있습니다.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>비용
 
 - 서버를 사용 하지 않는 데이터베이스에 대 한 비용은 계산 비용 및 저장소 비용의 합계입니다.
 - 계산 사용법이 구성 된 최소 및 최대 한도 사이에 있는 경우 계산 비용은 vCore 및 사용 되는 메모리를 기반으로 합니다.
@@ -275,7 +275,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|설명|단위|
+|엔터티|메트릭|Description|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
@@ -314,17 +314,17 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 
-- **청구**되는 리소스: CPU 및 메모리
-- **청구 금액**: vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
-- **청구 빈도**: 초당
+- **청구** 되는 리소스: CPU 및 메모리
+- **청구 금액** : vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
+- **청구 빈도** : 초당
 
 VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
 
 요금이 청구되는 컴퓨팅 양은 다음 메트릭에서 공개됩니다.
 
-- **메트릭**: app_cpu_billed(vCore 시간(초))
-- **정의**: 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3)
-- **보고 빈도**: 분당
+- **메트릭** : app_cpu_billed(vCore 시간(초))
+- **정의** : 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3)
+- **보고 빈도** : 분당
 
 이 수량은 초 단위로 계산되어 1분 동안 집계됩니다.
 

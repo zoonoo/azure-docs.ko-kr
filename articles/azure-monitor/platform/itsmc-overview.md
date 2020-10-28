@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: f47a23a3b95975d98d3825bc5b14ed0522102a0c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547642"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745721"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -65,7 +65,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
    >[!NOTE]
    >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 
-5. **만들기** 를 클릭합니다.
+5. **확인** 을 클릭합니다.
 
 솔루션 리소스가 배포되면 창의 오른쪽 상단에 알림이 표시됩니다.
 
@@ -122,28 +122,29 @@ ITSM 연결이 만들어지면 **작업 그룹** 에서 **ITSM 작업** 을 사�
 
 이렇게 하려면 다음 절차를 수행합니다.
 
-1. Azure Portal에서 **모니터** 를 클릭합니다.
-2. 왼쪽 창에서 **작업 그룹** 을 클릭합니다. **작업 그룹 추가** 창이 나타납니다.
+1. Azure Portal에서  **경고** 를 클릭 합니다.
+2. 위쪽 창에서  **작업 관리** 를 클릭 합니다. **작업 그룹 추가** 창이 나타납니다.
 
-    ![작업 그룹](media/itsmc-overview/action-groups.png)
+    [![작업 그룹](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
-3. 작업 그룹에 대해 **이름** 및 **짧은 이름** 을 제공합니다. 작업 그룹을 만들려는 **리소스 그룹** 및 **구독** 을 선택합니다.
+3. 작업 그룹을 만들려는 **구독** 및 **리소스 그룹** 을 선택 합니다. 작업 그룹의 **작업 그룹 이름** 및 **표시 이름을** 제공 합니다. **다음: 알림** 을 클릭 합니다.
 
     ![작업 그룹 세부 정보](media/itsmc-overview/action-groups-details.png)
 
-4. 작업 목록의 **작업 유형** 드롭다운 메뉴에서 **ITSM** 을 선택합니다. 해당 작업에 대한 **이름** 을 제공하고 **세부 정보 편집** 을 클릭합니다.
-5. Log Analytics 작업 영역이 있는 **구독** 을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예를 들어 "MyITSMMConnector(MyWorkspace)"와 같습니다.
+4. 알림 목록에서 **중첩: 작업** 을 클릭 합니다.
+5. 작업 목록의 **작업 유형** 드롭다운 메뉴에서 **ITSM** 을 선택합니다. 작업 **이름을** 입력 하 고 **세부 정보 편집** 을 나타내는 펜을 클릭 합니다.
+6. Log Analytics 작업 영역이 있는 **구독** 을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예를 들어 "MyITSMMConnector(MyWorkspace)"와 같습니다.
 
-    ![ITSM 작업 세부 정보](media/itsmc-overview/itsm-action-details.png)
+    ![ITSM 작업 세부 정보](media/itsmc-overview/itsm-action-configuration.png)
 
-6. 드롭다운 메뉴에서 **작업 항목** 유형을 선택합니다.
+7. 드롭다운 메뉴에서 **작업 항목** 유형을 선택합니다.
 
-7. 고정 값으로 상자 필드를 입력 하려면 "사용자 지정 템플릿 사용" 확인란을 선택 해야 합니다. 그렇지 않으면 드롭다운 목록에서 기존 [템플릿을](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) 사용 하도록 선택 하 고 템플릿 필드에 고정 값을 입력 합니다.
+8. 고정 값으로 상자 필드를 입력 하려면 "사용자 지정 템플릿 사용" 확인란을 선택 해야 합니다. 그렇지 않으면 드롭다운 목록에서 기존 [템플릿을](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) 사용 하도록 선택 하 고 템플릿 필드에 고정 값을 입력 합니다.
 
-8. **각 구성 항목에 대해 개별 작업 항목 만들기** 확인란을 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 즉, 구성 항목 마다 하나의 작업 항목이 있으며 생성 되는 경고에 따라 업데이트 됩니다.
+9. **각 구성 항목에 대해 개별 작업 항목 만들기** 확인란을 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 즉, 구성 항목 마다 하나의 작업 항목이 있으며 생성 되는 경고에 따라 업데이트 됩니다.
 **각 구성 항목에 대해 개별 작업 항목 만들기** 확인란을 선택 취소 하는 경우 모든 경고는 새 작업 항목을 만듭니다. 즉, 구성 항목 마다 경고가 1 개 이상 있을 수 있습니다.
 
-9. **확인** 을 클릭합니다.
+10. **확인** 을 클릭합니다.
 
 Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작업 그룹을 사용합니다. 경고가 트리거되면 작업 항목이 ITSM 도구에 만들어지거나 업데이트됩니다.
 
@@ -162,7 +163,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 솔루션의 ITSM 커넥터 대시보드를 사용하여 인시던트 및 변경 요청 데이터를 시각화할 수 있습니다.
 
-![Log Analytics 화면](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![ITSM 커넥터 대시보드를 보여 주는 스크린샷](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 대시보드는 커넥터 상태에 대한 정보도 제공하며 연결 ​​상태와 관련된 모든 문제를 분석하는 출발점으로 사용할 수 있습니다.
 

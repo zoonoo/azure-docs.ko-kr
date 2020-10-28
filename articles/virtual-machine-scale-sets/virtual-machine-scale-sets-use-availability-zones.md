@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: c5ddd5846be91e9fc99a251d6ad45ade8bde2937
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89611914"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745842"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -22,21 +22,21 @@ ms.locfileid: "89611914"
 
 ## <a name="availability-considerations"></a>가용성 고려 사항
 
-지역 (비 영역) 확장 집합을 API 버전 *2017-12-01*에서 하나 이상의 영역에 배포 하는 경우 다음과 같은 가용성 옵션이 제공 됩니다.
+지역 (비 영역) 확장 집합을 API 버전 *2017-12-01* 에서 하나 이상의 영역에 배포 하는 경우 다음과 같은 가용성 옵션이 제공 됩니다.
 - 최대 분산 (platformFaultDomainCount = 1)
 - 정적 고정 분산 (platformFaultDomainCount = 5)
 - 저장소 디스크 장애 도메인에 맞게 분산 (platforFaultDomainCount = 2 또는 3)
 
 최대 확산을 사용하여 확장 집합은 각 영역 내에서 가능한 많은 장애 도메인에서 VM을 분산합니다. 이 분산은 영역당 5개의 장애 도메인보다 크거나 작을 수 있습니다. 고정 고정 분산을 사용 하는 경우 확장 집합은 영역 당 정확히 5 개의 장애 도메인에 Vm을 분산 합니다. 확장 집합이 할당 요청을 충족하는 영역당 5개의 개별 장애 도메인을 찾을 수 없으므로 요청이 실패합니다.
 
-이러한 방식은 대부분의 경우 최적의 분산을 제공하므로 **대부분의 워크로드에 대해 최대 분산을 사용하여 배포하는 것이 좋습니다**. 별개의 하드웨어 격리 단위에 복제본을 분산시켜야 하는 경우 가용성 영역에 전체적으로 분산시키고 각 영역 내에서 최대 분산을 활용하는 것이 좋습니다.
+이러한 방식은 대부분의 경우 최적의 분산을 제공하므로 **대부분의 워크로드에 대해 최대 분산을 사용하여 배포하는 것이 좋습니다** . 별개의 하드웨어 격리 단위에 복제본을 분산시켜야 하는 경우 가용성 영역에 전체적으로 분산시키고 각 영역 내에서 최대 분산을 활용하는 것이 좋습니다.
 
 > [!NOTE]
 > 최대 분산을 사용하면 VM이 분산되어 있는 장애 도메인의 수에 상관없이 확장 집합 VM 인스턴스 뷰 및 인스턴스 메타데이터에 하나의 장애 도메인만 표시됩니다. 각 영역 내 분산은 암시적입니다.
 
 ### <a name="placement-groups"></a>배치 그룹
 
-확장 집합을 배포할 때 가용성 영역당 하나의 [배치 그룹](./virtual-machine-scale-sets-placement-groups.md)으로 배포하거나 영역마다 여러 개의 배치 그룹으로 배포하는 옵션도 있습니다. 지역 (비 영역) 규모 집합의 경우 영역에 단일 배치 그룹을 포함 하거나 지역에 여러 개를 포함 하는 것이 좋습니다. 대부분 워크로드의 경우 더 큰 규모가 가능하도록 여러 배치 그룹을 사용하는 것이 좋습니다. API 버전 *2017-12-01*에서 확장 집합은 단일 영역 및 영역 간 확장 집합에 대해 여러 배치 그룹을 기본값으로 설정 하지만 지역 (비 영역) 확장 집합에 대 한 단일 배치 그룹을 기본값으로 설정 합니다.
+확장 집합을 배포할 때 가용성 영역당 하나의 [배치 그룹](./virtual-machine-scale-sets-placement-groups.md)으로 배포하거나 영역마다 여러 개의 배치 그룹으로 배포하는 옵션도 있습니다. 지역 (비 영역) 규모 집합의 경우 영역에 단일 배치 그룹을 포함 하거나 지역에 여러 개를 포함 하는 것이 좋습니다. 대부분 워크로드의 경우 더 큰 규모가 가능하도록 여러 배치 그룹을 사용하는 것이 좋습니다. API 버전 *2017-12-01* 에서 확장 집합은 단일 영역 및 영역 간 확장 집합에 대해 여러 배치 그룹을 기본값으로 설정 하지만 지역 (비 영역) 확장 집합에 대 한 단일 배치 그룹을 기본값으로 설정 합니다.
 
 > [!NOTE]
 > 최대 분산을 사용하는 경우 여러 배치 그룹을 사용해야 합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "89611914"
 
 최상의 영역 균형을 사용하면 확장 집합은 균형을 유지하면서 규모 확장 및 감축을 시도합니다. 그러나 어떤 이유로 든 가능 하지 않은 경우 (예: 한 영역이 중단 되 면 확장 집합에서 해당 영역에 새 VM을 만들 수 없는 경우) 확장 집합을 사용 하면 임시 불균형을 성공적으로 확장 하거나 축소할 수 있습니다. 이후 확장 시도에서 확장 집합은 확장 집합이 균형을 유지 하기 위해 더 많은 Vm이 필요한 영역에 Vm을 추가 합니다. 마찬가지로 후속 규모 축소 시도에서 확장 집합은 확장 집합이 균형을 이루기 위해 더 적은 VM이 필요한 영역에서 VM을 제거합니다. "엄격한 영역 균형"을 사용하면 확장 집합은 규모 확장 또는 축소 시도에 실패하고 그렇게 하는 경우 불균형이 발생합니다.
 
-최상의 영역 균형을 사용하려면 *zoneBalance*를 *false*로 설정합니다. 이 설정은 API 버전 *2017-12-01*에서 기본값입니다. 엄격한 영역 균형을 사용 하려면 *zoneBalance* 를 *true*로 설정 합니다.
+최상의 영역 균형을 사용하려면 *zoneBalance* 를 *false* 로 설정합니다. 이 설정은 API 버전 *2017-12-01* 에서 기본값입니다. 엄격한 영역 균형을 사용 하려면 *zoneBalance* 를 *true* 로 설정 합니다.
 
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>단일 영역 및 영역 중복 확장 집합
 
@@ -79,7 +79,7 @@ ms.locfileid: "89611914"
 
 가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-cli.md)에 자세히 설명된 프로세스와 같습니다. 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다.
 
-`--zones` 매개 변수를 [az vmss create](/cli/azure/vmss) 명령에 추가하고, 사용할 지역(예: 지역 *1*, *2* 또는 *3*)을 지정합니다. 다음 예제에서는 영역 *1*에 *myScaleSet*이라는 단일 영역 확장 집합을 만듭니다.
+`--zones` 매개 변수를 [az vmss create](/cli/azure/vmss) 명령에 추가하고, 사용할 지역(예: 지역 *1* , *2* 또는 *3* )을 지정합니다. 다음 예제에서는 영역 *1* 에 *myScaleSet* 이라는 단일 영역 확장 집합을 만듭니다.
 
 ```azurecli
 az vmss create \
@@ -98,7 +98,7 @@ az vmss create \
 
 영역 중복 확장 집합을 만들려면 *표준* SKU 공용 IP 주소 및 부하 분산 장치를 사용합니다. 향상된 중복성을 위해 *표준* SKU는 영역 중복 네트워크 리소스를 만듭니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../load-balancer/load-balancer-overview.md) 및 [표준 Load Balancer 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md)을 참조하세요.
 
-영역 중복 확장 집합을 만들려면 여러 영역을 `--zones` 매개 변수로 지정합니다. 다음 예제에서는 *1,2,3* 영역에 *myScaleSet*라는 영역 중복 확장 집합을 만듭니다.
+영역 중복 확장 집합을 만들려면 여러 영역을 `--zones` 매개 변수로 지정합니다. 다음 예제에서는 *1,2,3* 영역에 *myScaleSet* 라는 영역 중복 확장 집합을 만듭니다.
 
 ```azurecli
 az vmss create \
@@ -113,11 +113,11 @@ az vmss create \
 
 지정한 영역에 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다. 영역 중복 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 CLI 스크립트](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)를 참조하세요.
 
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
+## <a name="use-azure-powershell"></a>Azure Powershell 사용
 
-가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `-Zone` 매개 변수를 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) 명령에 추가하고, 사용할 지역(예: 영역 *1*, *2* 또는 *3*)을 지정합니다.
+가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `-Zone` 매개 변수를 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) 명령에 추가하고, 사용할 지역(예: 영역 *1* , *2* 또는 *3* )을 지정합니다.
 
-다음 예제에서는 *미국 동부 2* 영역 *1*에 *myScaleSet*이라는 단일 영역 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
+다음 예제에서는 *미국 동부 2* 영역 *1* 에 *myScaleSet* 이라는 단일 영역 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
 
 ```powershell
 New-AzVmss `
@@ -134,7 +134,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
 
-영역 중복 확장 집합을 만들려면 여러 영역을 `-Zone` 매개 변수로 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1, 2, 3*에 *myScaleSet*이라는 영역 중복 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 영역 중복 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
+영역 중복 확장 집합을 만들려면 여러 영역을 `-Zone` 매개 변수로 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1, 2, 3* 에 *myScaleSet* 이라는 영역 중복 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 영역 중복 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
 
 ```powershell
 New-AzVmss `
@@ -151,9 +151,9 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
-가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 자세히 설명된 프로세스와 같습니다. 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `zones` 속성을 템플릿의 *Microsoft.Compute/virtualMachineScaleSets* 리소스 종류에 추가하고 사용할 지역(예: 지역 *1*, *2* 또는 *3*)을 지정합니다.
+가용성 영역을 사용하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 자세히 설명된 프로세스와 같습니다. 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `zones` 속성을 템플릿의 *Microsoft.Compute/virtualMachineScaleSets* 리소스 종류에 추가하고 사용할 지역(예: 지역 *1* , *2* 또는 *3* )을 지정합니다.
 
-다음 예제에서는 *미국 동부 2* 영역 *1*에 *myScaleSet*이라는 Linux 단일 영역 확장 집합을 만듭니다.
+다음 예제에서는 *미국 동부 2* 영역 *1* 에 *myScaleSet* 이라는 Linux 단일 영역 확장 집합을 만듭니다.
 
 ```json
 {
@@ -197,7 +197,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>영역 중복 확장 집합
 
-영역 중복 확장 집합을 만들려면 *Microsoft.Compute/virtualMachineScaleSets* 리소스 종류에 대한 `zones` 속성에 여러 값을 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1,2,3*에 *myScaleSet*라는 영역 중복 확장 집합을 만듭니다.
+영역 중복 확장 집합을 만들려면 *Microsoft.Compute/virtualMachineScaleSets* 리소스 종류에 대한 `zones` 속성에 여러 값을 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1,2,3* 에 *myScaleSet* 라는 영역 중복 확장 집합을 만듭니다.
 
 ```json
 {

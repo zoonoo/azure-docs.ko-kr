@@ -7,13 +7,13 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 7803ac9009af1657e7f162d656898492a694e28f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84905870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743540"
 ---
 App Service의 애플리케이션 코드 내부에서 생성된 콘솔 로그에 액세스하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행하여 진단 로깅을 켭니다.
 

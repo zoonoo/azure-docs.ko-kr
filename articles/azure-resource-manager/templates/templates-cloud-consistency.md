@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356888"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744760"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 ARM 템플릿 개발
 
@@ -205,7 +205,7 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 }
 ```
 
-이 방법을 사용하면 구성 스크립트를 포함한 모든 배포 아티팩트를 템플릿 자체와 동일한 위치에 저장할 수 있습니다. 모든 링크의 위치를 변경하려면 _artifactsLocation 매개 변수_에 대해 다른 기준 URL을 지정하기만 하면 됩니다.
+이 방법을 사용하면 구성 스크립트를 포함한 모든 배포 아티팩트를 템플릿 자체와 동일한 위치에 저장할 수 있습니다. 모든 링크의 위치를 변경하려면 _artifactsLocation 매개 변수_ 에 대해 다른 기준 URL을 지정하기만 하면 됩니다.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>지역별 기능 차이 고려
 
@@ -295,7 +295,7 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 
 ### <a name="track-versions-using-api-profiles"></a>API 프로필을 사용하여 버전 추적
 
-Azure Stack에 있는 사용 가능한 모든 리소스 공급자 및 관련 API 버전을 추적하는 것은 매우 어려울 수 있습니다. 예를 들어, 이 문서를 작성할 당시, Azure의 **Microsoft.Compute/availabilitySets**에 대한 최신 API 버전은 `2018-04-01`이고 Azure 및 Azure Stack에 공통적으로 사용 가능한 API 버전은 `2016-03-30`입니다. 모든 Azure 및 Azure Stack 위치에서 공유되는, **Microsoft.Storage/storageAccounts**에 대한 공통 API 버전은 `2016-01-01`이고 Azure의 최신 API 버전은 `2018-02-01`입니다.
+Azure Stack에 있는 사용 가능한 모든 리소스 공급자 및 관련 API 버전을 추적하는 것은 매우 어려울 수 있습니다. 예를 들어, 이 문서를 작성할 당시, Azure의 **Microsoft.Compute/availabilitySets** 에 대한 최신 API 버전은 `2018-04-01`이고 Azure 및 Azure Stack에 공통적으로 사용 가능한 API 버전은 `2016-03-30`입니다. 모든 Azure 및 Azure Stack 위치에서 공유되는, **Microsoft.Storage/storageAccounts** 에 대한 공통 API 버전은 `2016-01-01`이고 Azure의 최신 API 버전은 `2018-02-01`입니다.
 
 따라서 리소스 관리자는 템플릿에 API 프로필 개념을 도입했습니다. API 프로필이 없으면 템플릿의 각 리소스가 해당 특정 리소스의 API 버전을 설명하는 `apiVersion` 요소로 구성됩니다.
 
@@ -641,7 +641,7 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
         ...
 ```
 
-특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
+특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation** 에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

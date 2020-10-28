@@ -2,15 +2,15 @@
 title: AKS(Azure Kubernetes Service)에서 가용성 영역 업그레이드
 description: AKS(Azure Kubernetes Service)의 가용성 영역에 노드를 배포하는 클러스터를 만드는 방법 알아보기
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165811"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745816"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -22,7 +22,7 @@ AKS(Azure Kubernetes Service) 클러스터는 기본 Azure 인프라의 논리�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure CLI 버전 2.0.76 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.76 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="limitations-and-region-availability"></a>제한 사항 및 지역 가용성
 
@@ -56,11 +56,11 @@ Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아�
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 클러스터의 가용성 영역 개요
 
-가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 영역이 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 한 지역 내에서 가용성 영역을 물리적으로 구분하면 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다.
+가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원 력을 보장 하기 위해 모든 영역 사용 지역에는 항상 둘 이상의 영역이 있습니다. 한 지역 내에서 가용성 영역을 물리적으로 구분하면 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다.
 
 자세한 내용은 [Azure에서 가용성 영역이란?][az-overview]을 참조하세요.
 
-가용성 영역을 사용하여 배포된 AKS 클러스터는 단일 지역 내의 여러 영역에 노드를 배포할 수 있습니다. 예를 들어  *미국 동부 2* 지역의 클러스터는 *미국 동부 2*의 모든 3개 가용성 영역에 노드를 만들 수 있습니다. 이 AKS 클러스터 리소스 배포는 특정 영역의 오류에 대한 복원력을 제공하므로 클러스터 가용성이 향상됩니다.
+가용성 영역을 사용하여 배포된 AKS 클러스터는 단일 지역 내의 여러 영역에 노드를 배포할 수 있습니다. 예를 들어  *미국 동부 2* 지역의 클러스터는 *미국 동부 2* 의 모든 3개 가용성 영역에 노드를 만들 수 있습니다. 이 AKS 클러스터 리소스 배포는 특정 영역의 오류에 대한 복원력을 제공하므로 클러스터 가용성이 향상됩니다.
 
 ![가용성 영역 간 AKS 노드 배포](media/availability-zones/aks-availability-zones.png)
 
@@ -68,11 +68,11 @@ Azure 관리형을 사용하는 볼륨은 현재 영역 중복 리소스가 아�
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>가용성 영역에 AKS 클러스터 만들기
 
-[az aks create][az-aks-create] 명령을 사용하여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의합니다. 클러스터를 만들 때 `--zones` 매개 변수를 정의할 경우 etcd와 같은 컨트롤 플레인 구성 요소가 3개 영역에 분산됩니다. 컨트롤 플레인 구성 요소가 분산된 특정 영역은 초기 노드 풀에 선택되는 명시적 영역과 별개입니다.
+[az aks create][az-aks-create] 명령을 사용하여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의합니다. 클러스터를 만들 때 매개 변수를 정의 하면 etcd 또는 API와 같은 제어 평면 구성 요소가 지역에서 사용 가능한 영역에 분산 됩니다 `--zones` . 컨트롤 플레인 구성 요소가 분산된 특정 영역은 초기 노드 풀에 선택되는 명시적 영역과 별개입니다.
 
 AKS 클러스터를 만들 때 기본 에이전트 풀에 대한 영역을 정의하지 않으면 컨트롤 플레인 구성 요소가 가용성 영역에 분산되지 않을 수 있습니다. [az aks nodepool add][az-aks-nodepool-add] 명령을 사용하여 노드 풀을 더 추가하고 새 노드에 `--zones`를 지정할 수 있지만, 컨트롤 플레인이 영역에 분산된 방식은 변경되지 않습니다. 가용성 영역 설정은 클러스터 또는 노드 풀 생성 시에만 정의할 수 있습니다.
 
-다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 AKS 클러스터를 만듭니다. 총 *3*개의 노드가 생성되는데, 영역 *1*, *2*, *3*에 에이전트가 하나씩 생성됩니다.
+다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster* 라는 AKS 클러스터를 만듭니다. 총 *3* 개의 노드가 생성되는데, 영역 *1* , *2* , *3* 에 에이전트가 하나씩 생성됩니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -107,7 +107,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
 ```
 
-다음 예제 출력은 첫 번째 가용성 영역에 대한 *eastus2-1*, 두 번째 가용성 영역에 대한 *eastus2-2*와 같이 지정된 지역 및 가용성 영역에 분산된 세 개의 노드를 보여 줍니다.
+다음 예제 출력은 첫 번째 가용성 영역에 대한 *eastus2-1* , 두 번째 가용성 영역에 대한 *eastus2-2* 와 같이 지정된 지역 및 가용성 영역에 분산된 세 개의 노드를 보여 줍니다.
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000

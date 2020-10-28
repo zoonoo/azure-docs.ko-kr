@@ -2,16 +2,16 @@
 title: ASP.NET Core 앱 구성
 description: Azure App Service에서 네이티브 Windows 인스턴스 또는 미리 빌드된 Linux 컨테이너의 ASP.NET Core 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961672"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744185"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET Core 앱 구성
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-예를 들어 App Service 및 *appsettings.js*에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *appsettings.js* 값 보다 우선 적용 됩니다. 로컬 *appsettings.json* value를 사용 하면 앱을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
+예를 들어 App Service 및 *appsettings.js* 에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *appsettings.js* 값 보다 우선 적용 됩니다. 로컬 *appsettings.json* value를 사용 하면 앱을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 참고 *appsettings.js* 의 [계층적 구성 데이터](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) 는 `:` .net Core에 대 한 표준 구분 기호를 사용 하 여 액세스할 수 있습니다. App Service에서 특정 계층적 구성 설정을 재정의 하려면 앱 설정 이름을 키에서 동일 하 게 분리 된 형식으로 설정 합니다. [Cloud Shell](https://shell.azure.com)에서 다음 예제를 실행할 수 있습니다.
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
-App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화 되었는지 여부를 응용 프로그램 논리에서 알고 있어야 하는 경우 *Startup.cs*에서 전달 된 헤더 미들웨어를 구성 합니다.
+App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화 되었는지 여부를 응용 프로그램 논리에서 알고 있어야 하는 경우 *Startup.cs* 에서 전달 된 헤더 미들웨어를 구성 합니다.
 
 - `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달하도록 [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)를 사용하여 미들웨어를 구성합니다.
 - 미들웨어가 App Service 부하 분산 장치를 신뢰할 수 있도록 개인 IP 주소 범위를 알려진 네트워크에 추가 합니다.

@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/28/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 383895f2cb5983abd68bfca67d2c8361ee094ea1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527424"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744839"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 자동 인스턴스 복구
 
@@ -62,13 +62,13 @@ Azure 가상 머신 확장 집합에 대 한 자동 인스턴스 복구를 사�
 
 ### <a name="grace-period"></a>유예 기간
 
-확장 집합에서 수행 되는 PUT, PATCH 또는 POST 작업으로 인해 인스턴스가 상태 변경 작업을 수행 하는 경우 (예: 이미지로 다시 설치, 재배포, 업데이트 등) 해당 인스턴스에 대 한 모든 복구 동작은 유예 기간을 기다린 후에만 수행 됩니다. 유예 기간은 인스턴스가 정상 상태로 돌아갈 수 있도록 하는 시간입니다. 유예 기간은 상태 변경이 완료 된 후에 시작 됩니다. 이렇게 하면 중간 또는 실수로 복구 작업을 방지할 수 있습니다. 이 유예 기간은 확장 집합에서 새로 생성 된 모든 인스턴스에 적용 됩니다 (복구 작업의 결과로 만들어진 항목 포함). 유예 기간은 ISO 8601 형식에서 분 단위로 지정 되며 *automaticRepairsPolicy. gracePeriod*속성을 사용 하 여 설정할 수 있습니다. 유예 기간은 30 분에서 90 분 사이로 설정할 수 있으며 기본값은 30 분입니다.
+확장 집합에서 수행 되는 PUT, PATCH 또는 POST 작업으로 인해 인스턴스가 상태 변경 작업을 수행 하는 경우 (예: 이미지로 다시 설치, 재배포, 업데이트 등) 해당 인스턴스에 대 한 모든 복구 동작은 유예 기간을 기다린 후에만 수행 됩니다. 유예 기간은 인스턴스가 정상 상태로 돌아갈 수 있도록 하는 시간입니다. 유예 기간은 상태 변경이 완료 된 후에 시작 됩니다. 이렇게 하면 중간 또는 실수로 복구 작업을 방지할 수 있습니다. 이 유예 기간은 확장 집합에서 새로 생성 된 모든 인스턴스에 적용 됩니다 (복구 작업의 결과로 만들어진 항목 포함). 유예 기간은 ISO 8601 형식에서 분 단위로 지정 되며 *automaticRepairsPolicy. gracePeriod* 속성을 사용 하 여 설정할 수 있습니다. 유예 기간은 30 분에서 90 분 사이로 설정할 수 있으며 기본값은 30 분입니다.
 
 ### <a name="suspension-of-repairs"></a>복구 일시 중단 
 
-가상 머신 확장 집합은 필요한 경우 자동 인스턴스 복구를 일시적으로 일시 중단 하는 기능을 제공 합니다. 가상 머신 확장 집합 인스턴스 보기의 *orchestrationServices* 속성에서 자동 복구의 *servicestate* 는 자동 복구의 현재 상태를 표시 합니다. 확장 집합이 자동 복구로 옵트인 되 면 매개 변수 *Servicestate* 의 값이 *실행 중*으로 설정 됩니다. 크기 집합에 대 한 자동 복구가 일시 중단 되 면 *Servicestate* 매개 변수가 *suspended*로 설정 됩니다. *AutomaticRepairsPolicy* 가 확장 집합에 정의 되어 있지만 자동 복구 기능이 사용 하도록 설정 되지 않은 경우 *Servicestate* 매개 변수가 *실행 중이 아닌*것으로 설정 됩니다.
+가상 머신 확장 집합은 필요한 경우 자동 인스턴스 복구를 일시적으로 일시 중단 하는 기능을 제공 합니다. 가상 머신 확장 집합 인스턴스 보기의 *orchestrationServices* 속성에서 자동 복구의 *servicestate* 는 자동 복구의 현재 상태를 표시 합니다. 확장 집합이 자동 복구로 옵트인 되 면 매개 변수 *Servicestate* 의 값이 *실행 중* 으로 설정 됩니다. 크기 집합에 대 한 자동 복구가 일시 중단 되 면 *Servicestate* 매개 변수가 *suspended* 로 설정 됩니다. *AutomaticRepairsPolicy* 가 확장 집합에 정의 되어 있지만 자동 복구 기능이 사용 하도록 설정 되지 않은 경우 *Servicestate* 매개 변수가 *실행 중이 아닌* 것으로 설정 됩니다.
 
-확장 집합에서 비정상 상태를 바꾸기 위해 새로 만든 인스턴스가 계속 해 서 복구 작업을 수행한 후에도 비정상 상태를 유지 하는 경우, 보안 조치로 플랫폼에서 자동 복구가 *일시 중단*되도록 *servicestate* 를 업데이트 합니다. 자동 복구를 *실행*하는 데 필요한 *servicestate* 값을 설정 하 여 자동 복구를 다시 시작할 수 있습니다. 자세한 지침은 확장 집합에 대 한 [자동 복구 정책의 서비스 상태를 보고 업데이트 하](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) 는 방법 섹션에 나와 있습니다. 
+확장 집합에서 비정상 상태를 바꾸기 위해 새로 만든 인스턴스가 계속 해 서 복구 작업을 수행한 후에도 비정상 상태를 유지 하는 경우, 보안 조치로 플랫폼에서 자동 복구가 *일시 중단* 되도록 *servicestate* 를 업데이트 합니다. 자동 복구를 *실행* 하는 데 필요한 *servicestate* 값을 설정 하 여 자동 복구를 다시 시작할 수 있습니다. 자세한 지침은 확장 집합에 대 한 [자동 복구 정책의 서비스 상태를 보고 업데이트 하](#viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy) 는 방법 섹션에 나와 있습니다. 
 
 자동 인스턴스 복구 프로세스는 다음과 같이 작동 합니다.
 
@@ -96,7 +96,7 @@ Azure 가상 머신 확장 집합에 대 한 자동 인스턴스 복구를 사�
  
 새 확장 집합을 만들 때 자동 복구 정책을 설정 하는 단계는 다음과 같습니다.
  
-1. **가상 머신 확장 집합**으로 이동 합니다.
+1. **가상 머신 확장 집합** 으로 이동 합니다.
 1. **+ 추가** 를 선택 하 여 새 확장 집합을 만듭니다.
 1. **상태** 탭으로 이동 합니다. 
 1. **상태** 섹션을 찾습니다.
@@ -156,7 +156,7 @@ az vmss create \
   --automatic-repairs-grace-period 30
 ```
 
-위의 예에서는 기존 부하 분산 장치 및 상태 프로브를 사용 하 여 인스턴스의 응용 프로그램 상태를 모니터링 합니다. 대신 응용 프로그램 상태 확장을 모니터링에 사용 하려는 경우에는 확장 집합을 만들고, 응용 프로그램 상태 확장을 구성한 다음, 다음 섹션에 설명 된 대로 *az vmss 업데이트*를 사용 하 여 자동 인스턴스 복구 정책을 사용 하도록 설정할 수 있습니다.
+위의 예에서는 기존 부하 분산 장치 및 상태 프로브를 사용 하 여 인스턴스의 응용 프로그램 상태를 모니터링 합니다. 대신 응용 프로그램 상태 확장을 모니터링에 사용 하려는 경우에는 확장 집합을 만들고, 응용 프로그램 상태 확장을 구성한 다음, 다음 섹션에 설명 된 대로 *az vmss 업데이트* 를 사용 하 여 자동 인스턴스 복구 정책을 사용 하도록 설정할 수 있습니다.
 
 ## <a name="enabling-automatic-repairs-policy-when-updating-an-existing-scale-set"></a>기존 확장 집합을 업데이트할 때 자동 복구 정책을 사용 하도록 설정
 
@@ -169,12 +169,12 @@ az vmss create \
 Azure Portal를 통해 기존 확장 집합의 자동 복구 정책을 수정할 수 있습니다. 
  
 1. 기존 가상 머신 확장 집합으로 이동합니다.
-1. 왼쪽 메뉴의 **설정** 에서 **상태 및 복구**를 선택 합니다.
+1. 왼쪽 메뉴의 **설정** 에서 **상태 및 복구** 를 선택 합니다.
 1. **응용 프로그램 상태 모니터링** 옵션을 사용 하도록 설정 합니다.
 1. **자동 복구 정책** 섹션을 찾습니다.
 1. **자동 복구** 옵션 **을 설정 합니다** .
 1. **유예 기간 (분)** 에서 유예 기간 (분)을 지정 합니다. 허용 되는 값은 30 분에서 90 분 사이입니다. 
-1. 작업이 완료되면 **저장**을 선택합니다. 
+1. 작업이 완료되면 **저장** 을 선택합니다. 
 
 ### <a name="rest-api"></a>REST API
 
@@ -223,7 +223,7 @@ az vmss update \
 
 ### <a name="rest-api"></a>REST API 
 
-*OrchestrationServices*속성을 사용 하 여 가상 머신 확장 집합에 대 한 API 버전 2019-12-01 이상으로 [인스턴스 보기 가져오기](/rest/api/compute/virtualmachinescalesets/getinstanceview) 를 사용 하 여 자동 복구의 *servicestate* 를 확인 합니다. 
+*OrchestrationServices* 속성을 사용 하 여 가상 머신 확장 집합에 대 한 API 버전 2019-12-01 이상으로 [인스턴스 보기 가져오기](/rest/api/compute/virtualmachinescalesets/getinstanceview) 를 사용 하 여 자동 복구의 *servicestate* 를 확인 합니다. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -309,7 +309,7 @@ Set-AzVmssOrchestrationServiceState `
 
 **확장 집합 인스턴스의 응용 프로그램 상태 보기**
 
-가상 머신 확장 집합의 인스턴스에 대 한 [인스턴스 뷰 가져오기 API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) 를 사용 하 여 응용 프로그램 상태를 볼 수 있습니다. Azure PowerShell에서 *-instanceview* 플래그와 함께 [AzVmssVM](/powershell/module/az.compute/get-azvmssvm) cmdlet을 사용할 수 있습니다. 응용 프로그램 상태는 *vmhealth*속성에 제공 됩니다.
+가상 머신 확장 집합의 인스턴스에 대 한 [인스턴스 뷰 가져오기 API](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) 를 사용 하 여 응용 프로그램 상태를 볼 수 있습니다. Azure PowerShell에서 *-instanceview* 플래그와 함께 [AzVmssVM](/powershell/module/az.compute/get-azvmssvm) cmdlet을 사용할 수 있습니다. 응용 프로그램 상태는 *vmhealth* 속성에 제공 됩니다.
 
 Azure Portal 에서도 상태를 볼 수 있습니다. 기존 확장 집합으로 이동 하 고, 왼쪽 메뉴에서 **인스턴스** 를 선택 하 고, 각 확장 집합 인스턴스의 상태에 대 한 **상태 열을 확인 합니다.** 
 

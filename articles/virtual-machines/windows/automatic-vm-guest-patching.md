@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842872"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744719"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>미리 보기: Azure에서 Windows VM에 대한 자동 VM 게스트 패치
 
@@ -67,7 +67,7 @@ VM을 주기적으로 평가 하 여 해당 VM에 대 한 해당 패치를 확�
 
 현재 지원 되는 플랫폼 Sku는 다음과 같습니다 .이는 주기적으로 추가 됩니다.
 
-| 게시자               | OS 제품      |  SKU               |
+| Publisher               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
@@ -80,17 +80,20 @@ VM을 주기적으로 평가 하 여 해당 VM에 대 한 해당 패치를 확�
 
 **자동 Byplatform:**
 - 이 모드는 Windows 가상 머신에 대 한 자동 VM 게스트 패치를 사용 하도록 설정 하 고 후속 패치 설치는 Azure에 의해 오케스트레이션 됩니다.
+- 이 모드는 가용성 우선 패치를 적용 하는 데 필요 합니다.
 - 이 모드를 설정 하면 중복을 방지 하기 위해 Windows 가상 머신에서 기본 자동 업데이트를 사용 하지 않도록 설정 됩니다.
 - 이 모드는 위의 지원 되는 OS 플랫폼 이미지를 사용 하 여 만든 Vm에 대해서만 지원 됩니다.
 - 이 모드를 사용 하려면 속성을 설정 하 `osProfile.windowsConfiguration.enableAutomaticUpdates=true` 고 VM 템플릿에서 속성을 설정 합니다  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` .
 
 **자동 Byos:**
 - 이 모드는 Windows 가상 머신에서 자동 업데이트를 사용 하도록 설정 하며, 패치는 자동 업데이트를 통해 VM에 설치 됩니다.
+- 이 모드는 가용성 우선 패치를 지원 하지 않습니다.
 - 이 모드는 다른 패치 모드가 지정 되지 않은 경우 기본적으로 설정 됩니다.
 - 이 모드를 사용 하려면 속성을 설정 하 `osProfile.windowsConfiguration.enableAutomaticUpdates=true` 고 VM 템플릿에서 속성을 설정 합니다  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` .
 
 **수동:**
 - 이 모드는 Windows 가상 머신에서 자동 업데이트를 사용 하지 않도록 설정 합니다.
+- 이 모드는 가용성 우선 패치를 지원 하지 않습니다.
 - 사용자 지정 패치 솔루션을 사용 하는 경우이 모드를 설정 해야 합니다.
 - 이 모드를 사용 하려면 속성을 설정 하 `osProfile.windowsConfiguration.enableAutomaticUpdates=false` 고 VM 템플릿에서 속성을 설정 합니다  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` .
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-새 VM을 만들 때 [az vm create](/cli/azure/vm#az-vm-create) 를 사용 하 여 자동 vm 게스트 패치를 사용 하도록 설정 합니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 vm에 대 한 자동 VM 게스트 패치를 구성 합니다.
+새 VM을 만들 때 [az vm create](/cli/azure/vm#az-vm-create) 를 사용 하 여 자동 vm 게스트 패치를 사용 하도록 설정 합니다. 다음 예제에서는 *Myvm* 이라는 리소스 그룹에서 *MYVM* 이라는 vm에 대 한 자동 VM 게스트 패치를 구성 합니다.
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

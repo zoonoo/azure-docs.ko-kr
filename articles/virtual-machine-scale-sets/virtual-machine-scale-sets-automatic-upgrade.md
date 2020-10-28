@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: b5f3305fc5d2595c8b7b08d78ff20edea01c195e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744739"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 
@@ -50,7 +50,7 @@ ms.locfileid: "89229840"
 
 현재 지원 되는 플랫폼 Sku는 다음과 같습니다 .이는 주기적으로 추가 됩니다.
 
-| 게시자               | OS 제품      |  SKU               |
+| Publisher               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
@@ -68,7 +68,7 @@ ms.locfileid: "89229840"
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>자동 OS 이미지 업그레이드 구성을 위한 요구 사항
 
-- 이미지의 *version* 속성을 *최신*으로 설정 해야 합니다.
+- 이미지의 *version* 속성을 *최신* 으로 설정 해야 합니다.
 - Service Fabric 이외의 확장 집합에는 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)을 사용합니다.
 - Compute API 버전 2018-10-01 이상을 사용 합니다.
 - 확장 집합 모델에 지정된 외부 리소스가 사용 가능하고 업데이트되었는지 확인합니다. VM 확장 속성의 페이로드, 스토리지 계정의 페이로드, 모델의 비밀에 대한 참조 등을 부트스트랩하기 위한 SAS URI를 예로 들 수 있습니다.
@@ -99,7 +99,7 @@ Service Fabric 클러스터와 Service Fabric 확장에서 내구성 설정이 �
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>자동 OS 이미지 업그레이드 구성
-자동 OS 이미지 업그레이드를 구성하려면 확장 집합 모델 정의에서 *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* 속성을 *true*로 설정해야 합니다.
+자동 OS 이미지 업그레이드를 구성하려면 확장 집합 모델 정의에서 *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* 속성을 *true* 로 설정해야 합니다.
 
 ### <a name="rest-api"></a>REST API
 다음 예제에서는 확장 집합 모델에서 자동 OS 업그레이드를 설정하는 방법을 설명합니다.
@@ -121,14 +121,14 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet을 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
+[AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet을 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[Az vmss update](/cli/azure/vmss#az-vmss-update) 를 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
+[Az vmss update](/cli/azure/vmss#az-vmss-update) 를 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
@@ -148,7 +148,7 @@ OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번�
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>확장 집합의 애플리케이션 상태 프로브로 사용자 지정 부하 분산 장치 구성
 모범 사례에 따라 확장 집합 상태에 대한 부하 분산 장치 프로브를 명시적으로 만듭니다. 기존 HTTP 프로브 또는 TCP 프로브에 대한 동일한 엔드포인트를 사용할 수 있지만, 상태 프로브에는 기존의 부하 분산 장치 프로브와 다른 동작이 필요할 수 있습니다. 예를 들어 기존의 부하 분산 장치 프로브는 인스턴스의 부하가 너무 높을 경우 비정상 상태를 반환하기도 하는데, 이 동작은 OS 자동 업그레이드 중에 인스턴스 상태를 확인하는 데 적합하지 않습니다. 검색 속도가 2분을 넘지 않도록 프로브를 구성하세요.
 
-부하 분산 장치 프로브는 다음과 같이 확장 집합의 *networkProfile*에서 참조할 수 있으며 내부 또는 공용 부하 분산 장치에 연결할 수 있습니다.
+부하 분산 장치 프로브는 다음과 같이 확장 집합의 *networkProfile* 에서 참조할 수 있으며 내부 또는 공용 부하 분산 장치에 연결할 수 있습니다.
 
 ```json
 "networkProfile": {
@@ -184,7 +184,7 @@ OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번�
 Azure PowerShell, Azure CLI 2.0 또는 REST API를 사용하여 확장 집합에서 수행된 가장 최근의 OS 업그레이드 기록을 확인할 수 있습니다. 지난 2개월 동안 마지막으로 시도한 OS 업그레이드 5개의 기록을 가져올 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
-다음 예제에서는 [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) 를 사용 하 여 *myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합의 상태를 확인 합니다.
+다음 예제에서는 [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) 를 사용 하 여 *myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합의 상태를 확인 합니다.
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -228,14 +228,14 @@ GET 호출은 다음 예제 출력과 비슷한 속성을 반환합니다.
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 OS 업그레이드 상태를 검토 하는 방법을 자세히 설명 합니다.
+[Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 OS 업그레이드 상태를 검토 하는 방법을 자세히 설명 합니다.
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history)를 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 OS 업그레이드 상태를 검토 하는 방법을 자세히 설명 합니다.
+[az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history)를 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 OS 업그레이드 상태를 검토 하는 방법을 자세히 설명 합니다.
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -269,21 +269,21 @@ Orchestrator가 최신 이미지를 적용할 때까지 기다리지 않으려�
 > OS 이미지 업그레이드의 수동 트리거는 자동 롤백 기능을 제공 하지 않습니다. 업그레이드 작업 후에 인스턴스가 상태를 복구 하지 않으면 이전 OS 디스크를 복원할 수 없습니다.
 
 ### <a name="rest-api"></a>REST API
-[OS 업그레이드 시작](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API 호출을 사용 하 여 롤링 업그레이드를 시작 하 고 모든 가상 머신 확장 집합 인스턴스를 사용 가능한 최신 이미지 OS 버전으로 이동 합니다. 사용 가능한 최신 OS 버전을 이미 실행 중인 인스턴스는 영향을 받지 않습니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
+[OS 업그레이드 시작](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API 호출을 사용 하 여 롤링 업그레이드를 시작 하 고 모든 가상 머신 확장 집합 인스턴스를 사용 가능한 최신 이미지 OS 버전으로 이동 합니다. 사용 가능한 최신 OS 버전을 이미 실행 중인 인스턴스는 영향을 받지 않습니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) cmdlet을 사용 하 여 확장 집합에 대 한 OS 업그레이드 기록을 확인 합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
+[AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) cmdlet을 사용 하 여 확장 집합에 대 한 OS 업그레이드 기록을 확인 합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[Az vmss 롤링 업그레이드 시작](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) 을 사용 하 여 확장 집합에 대 한 OS 업그레이드 기록을 확인 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
+[Az vmss 롤링 업그레이드 시작](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) 을 사용 하 여 확장 집합에 대 한 OS 업그레이드 기록을 확인 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

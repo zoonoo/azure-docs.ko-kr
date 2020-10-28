@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 2f1eddf33dc02b1afaffdc200ed8b79b18f77aa4
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 31c9f203a8602b6c078fe2e9c672c539140f9990
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999201"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744432"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 
@@ -56,7 +56,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 을 배포 하기 전에 모델을 웹 서비스로 실행 하는 데 필요한 작업을 정의 해야 합니다. 다음 목록에서는 배포에 필요한 주요 항목에 대해 설명 합니다.
 
-* __항목 스크립트__입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 생성 하 고, 결과를 반환 합니다.
+* __항목 스크립트__ 입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 생성 하 고, 결과를 반환 합니다.
 
     > [!IMPORTANT]
     > 항목 스크립트는 모델에 따라 다릅니다. 들어오는 요청 데이터의 형식, 모델에 필요한 데이터의 형식 및 클라이언트에 반환 되는 데이터 형식을 이해 해야 합니다.
@@ -72,7 +72,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 * 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**
 
-이러한 엔터티는 __유추 구성__에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
+이러한 엔터티는 __유추 구성__ 에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
 > Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
@@ -97,7 +97,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 유추 구성에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure App Service에 배포 하는 경우 __배포 구성을__만들 필요가 없습니다.
+> Azure App Service에 배포 하는 경우 __배포 구성을__ 만들 필요가 없습니다.
 
 ## <a name="create-the-image"></a>이미지 만들기
 
@@ -146,7 +146,7 @@ print(package.location)
     }
     ```
 
-    __사용자 이름__ 및 __암호__중 하나에 대 한 값을 저장 합니다.
+    __사용자 이름__ 및 __암호__ 중 하나에 대 한 값을 저장 합니다.
 
 1. 서비스를 배포 하기 위한 리소스 그룹 또는 app service 계획이 아직 없는 경우 다음 명령에서 두 가지를 모두 만드는 방법을 보여 줍니다.
 

@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4db53b806adc2e29ae9c9a950faf8fc822c9d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 5a7d33e163c10a6d56416ea474d7e3a9e8624219
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744420"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 
@@ -110,7 +110,7 @@ Docker를 사용 하도록 설정 하면 Azure Machine Learning는 Docker 이미
 myenv.docker.enabled = True
 ```
 
-기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결 된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_ \<uuid\> *입니다. 이름의 고유 식별자 (*uuid*) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이러한 대응을 통해 서비스는 지정 된 환경의 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
+기본적으로 새로 빌드된 Docker 이미지는 작업 영역과 연결 된 컨테이너 레지스트리에 나타납니다.  리포지토리 이름의 형식은 *azureml/azureml_ \<uuid\>* 입니다. 이름의 고유 식별자 ( *uuid* ) 부분은 환경 구성에서 계산 된 해시에 해당 합니다. 이러한 대응을 통해 서비스는 지정 된 환경의 이미지가 다시 사용 하기 위해 이미 있는지 여부를 확인할 수 있습니다.
 
 #### <a name="use-a-prebuilt-docker-image"></a>미리 빌드된 Docker 이미지 사용
 
@@ -259,7 +259,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]
-> 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 _at the time of environment creation_계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)을 참조 하세요.
+> 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 _at the time of environment creation_ 계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)을 참조 하세요.
 
 ### <a name="private-python-packages"></a>개인 Python 패키지
 

@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204985"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742466"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Azure Synapse Analytics (이전의 SQL DW) 용량 제한
 
@@ -61,8 +61,8 @@ Azure Synapse의 다양 한 구성 요소에 허용 되는 최대 값입니다.
 
 | Category | Description | 최대 |
 |:--- |:--- |:--- |
-| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1mb 보다 작은 행을 로드 합니다. CCI (클러스터형 Columnstore 인덱스)를 사용 하 여 LOB 데이터 형식을 테이블로 로드 하는 것은 지원 되지 않습니다.<br/><br/> |
-||||
+| Polybase 로드 |행당 MB |1<br/><br/>Polybase는 1mb 보다 작은 행을 로드 합니다. CCI (클러스터형 Columnstore 인덱스)를 사용 하 여 LOB 데이터 형식을 테이블로 로드 하는 것은 지원 되지 않습니다.<br/> |
+|Polybase 로드|총 파일 수|1,000,000<br/><br/>Polybase 로드는 1M 보다 많은 파일을 초과할 수 없습니다. 다음 오류가 발생할 수 있습니다. **분할 횟수가 100만의 상한을 초과 하므로 작업이 실패 했습니다** .|
 
 ## <a name="queries"></a>쿼리
 

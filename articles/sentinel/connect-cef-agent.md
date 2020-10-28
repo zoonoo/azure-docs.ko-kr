@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631497"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742840"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
 
 이 단계에서는 보안 솔루션에서 Azure 센티널 작업 영역으로 로그를 전달 하는 Linux 컴퓨터를 지정 하 고 구성 합니다. 이 컴퓨터는 온-프레미스 환경, Azure VM 또는 다른 클라우드의 VM에 있는 물리적 또는 가상 컴퓨터 일 수 있습니다. 제공 된 링크를 사용 하 여 다음 작업을 수행 하는 지정 된 컴퓨터에서 스크립트를 실행 합니다.
+
 - Linux 용 Log Analytics 에이전트 (OMS 에이전트 라고도 함)를 설치 하 고 다음과 같은 목적으로 구성 합니다.
     - TCP 포트 25226의 기본 제공 Linux Syslog 디먼에서 CEF 메시지 수신 대기
     - Azure 센티널 작업 영역에 TLS를 통해 안전 하 게 메시지 보내기 (구문 분석 및 보강)
@@ -36,18 +37,25 @@ ms.locfileid: "91631497"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
-- Linux 컴퓨터에 python이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
+
+- Linux 컴퓨터에 **python 2.7** 이 설치 되어 있어야 합니다.<br>명령을 사용 `python -version` 하 여 확인 합니다.
+
 - Log Analytics 에이전트를 설치 하기 전에 Linux 컴퓨터가 Azure 작업 영역에 연결 되어 있지 않아야 합니다.
+
+- 이 프로세스의 어느 시점에서 작업 영역 ID 및 작업 영역 기본 키가 필요할 수 있습니다. 작업 영역 리소스의 **에이전트 관리** 에서 찾을 수 있습니다.
 
 ## <a name="run-the-deployment-script"></a>배포 스크립트 실행
  
-1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터**를 클릭 합니다. 커넥터 목록에서 **CEF (일반 이벤트 형식)** 타일을 클릭 한 다음 오른쪽 아래에 있는 **커넥터 페이지 열기** 단추를 클릭 합니다. 
+1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터** 를 클릭 합니다. 커넥터 목록에서 **CEF (일반 이벤트 형식)** 타일을 클릭 한 다음 오른쪽 아래에 있는 **커넥터 페이지 열기** 단추를 클릭 합니다. 
 
-1. 1.2 아래에서 **Linux 컴퓨터에 cef 수집기를 설치**하 고, 다음 스크립트 실행에서 제공 된 링크를 복사 **하 여 cef 수집기를 설치 하 고 적용**하거나 아래 텍스트에서이를 적용 합니다.
+1. 1.2 아래에서 **Linux 컴퓨터에 CEF 수집기를 설치** 하 고, 다음 스크립트 실행에서 제공 된 링크를 복사 **하 여 cef 수집기를 설치 하 고 적용** 하거나 아래 텍스트에서 (자리 표시자 대신 작업 영역 ID 및 기본 키를 적용 합니다.)
 
-     `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```
 
 1. 스크립트를 실행 하는 동안 오류 또는 경고 메시지가 표시 되지 않는지 확인 합니다.
+    - 명령을 실행 하 여 *컴퓨터* 필드의 매핑에 대 한 문제를 해결 하도록 지시 하는 메시지가 표시 될 수 있습니다. 자세한 내용은 [배포 스크립트의 설명을](#mapping-command) 참조 하십시오.
 
 > [!NOTE]
 > **동일한 컴퓨터를 사용 하 여 일반 Syslog *및* cef 메시지 모두 전달**
@@ -122,12 +130,15 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
 1. **예상 대로 *컴퓨터* 필드의 매핑을 확인 하는 중:**
 
-    - 이 명령을 실행 하 고 에이전트를 다시 시작 하 여 syslog 원본의 *컴퓨터* 필드가 Log Analytics 에이전트에서 올바르게 매핑되는지 확인 합니다.
+    - 다음 명령을 사용 하 여 syslog 원본의 *컴퓨터* 필드가 Log Analytics 에이전트에서 올바르게 매핑되는지 확인 합니다. 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - <a name="mapping-command"></a>매핑에 문제가 있는 경우 스크립트는 **다음 명령을 수동으로 실행** 하는 오류 메시지를 생성 합니다 (자리 표시자 대신 작업 영역 ID 적용). 이 명령은 올바른 매핑을 확인 하 고 에이전트를 다시 시작 합니다.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # <a name="syslog-ng-daemon"></a>[syslog-기능 데몬](#tab/syslogng)
@@ -187,15 +198,16 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
 
 1. **예상 대로 *컴퓨터* 필드의 매핑을 확인 하는 중:**
 
-    - 이 명령을 실행 하 고 에이전트를 다시 시작 하 여 syslog 원본의 *컴퓨터* 필드가 Log Analytics 에이전트에서 올바르게 매핑되는지 확인 합니다.
+    - 다음 명령을 사용 하 여 syslog 원본의 *컴퓨터* 필드가 Log Analytics 에이전트에서 올바르게 매핑되는지 확인 합니다. 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-
-
+    - <a name="mapping-command"></a>매핑에 문제가 있는 경우 스크립트는 **다음 명령을 수동으로 실행** 하는 오류 메시지를 생성 합니다 (자리 표시자 대신 작업 영역 ID 적용). 이 명령은 올바른 매핑을 확인 하 고 에이전트를 다시 시작 합니다.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 CEF 어플라이언스를 Azure 센티널에 연결 하는 Log Analytics 에이전트를 배포 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

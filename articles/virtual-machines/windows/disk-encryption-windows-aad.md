@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836244"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742429"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Windows Vm 용 Azure AD Azure Disk Encryption (이전 릴리스)
 
@@ -31,9 +31,9 @@ ms.locfileid: "87836244"
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Marketplace에서 만든 새 IaaS VM에 대해 암호화를 사용하도록 설정합니다.
 Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS Windows VM에 디스크 암호화를 사용하도록 설정할 수 있습니다. 템플릿은 Windows Server 2012 갤러리 이미지를 사용하여 암호화된 새 Windows VM을 만듭니다.
 
-1. [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)에서 **Azure에 배포**를 클릭합니다.
+1. [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)에서 **Azure에 배포** 를 클릭합니다.
 
-2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **구매**를 클릭하여 암호화가 활성화된 새로운 IaaS VM을 배포합니다.
+2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **구매** 를 클릭하여 암호화가 활성화된 새로운 IaaS VM을 배포합니다.
 
 3. 템플릿이 배포되면 다음과 같은 기본 설정 방법을 사용하여 VM 암호화 상태를 확인합니다.
      - Azure CLI에서 [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) 명령을 사용하여 확인합니다. 
@@ -48,12 +48,12 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
          Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
          ```
 
-     -  포털에서 VM을 선택한 다음, **설정** 제목 아래에서 **디스크**를 클릭하여 암호화 상태를 확인합니다. **암호화**에 있는 차트에서 사용하도록 설정되어 있는 것을 볼 수 있습니다. 
+     -  포털에서 VM을 선택한 다음, **설정** 제목 아래에서 **디스크** 를 클릭하여 암호화 상태를 확인합니다. **암호화** 에 있는 차트에서 사용하도록 설정되어 있는 것을 볼 수 있습니다. 
            ![Azure Portal-디스크 암호화 사용](../media/disk-encryption/disk-encryption-fig2.png)
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 Marketplace 시나리오에서 새 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | 설명 | 
+| 매개 변수 | Description | 
 | --- | --- |
 | adminUserName | 가상 머신의 관리 사용자 이름 |
 | adminPassword | 가상 머신의 관리 사용자 암호 |
@@ -117,7 +117,7 @@ Resource Manager 템플릿을 사용하여 Azure에서 Marketplace의 새 IaaS W
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **디스크 암호화 사용 안 함: ** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 
+- **디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
@@ -156,19 +156,19 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-
 [실행 중인 Windows VM을 암호화하기 위해 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)을 사용하여 Azure에서 기존 또는 실행 중인 IaaS Windows VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
 
 
-1. Azure 빠른 시작 템플릿에서 **Azure에 배포**를 클릭합니다.
+1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
 
-2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **구매**를 클릭하여 기존 또는 실행 중인 IaaS VM에서 암호화를 사용하도록 설정합니다.
+2. 구독, 리소스 그룹, 리소스 그룹 위치, 매개 변수, 약관 및 규약을 선택합니다. **구매** 를 클릭하여 기존 또는 실행 중인 IaaS VM에서 암호화를 사용하도록 설정합니다.
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 기존 또는 실행 중인 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | AADClientID | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 ID |
 | AADClientSecret | Key Vault에 비밀을 쓸 수 있는 권한이 있는 Azure AD 애플리케이션의 클라이언트 비밀 |
 | keyVaultName | BitLocker 키가 업로드될 Key Vault의 이름. cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` 또는 Azure CLI 명령 `az keyvault list --resource-group "MySecureGroup"`을 사용하여 가져올 수 있습니다.|
-|  keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek**를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek**를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
-| volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_, _Data_ 및 _All_입니다. |
+|  keyEncryptionKeyURL | 생성된 BitLocker 키를 암호화하는 데 사용되는 주요 암호화 키의 URL. UseExistingKek 드롭다운 목록에서 **nokek** 를 선택하면 이 매개 변수가 선택 사항입니다. UseExistingKek 드롭다운 목록에서 **kek** 를 선택하면 _keyEncryptionKeyURL_ 값을 반드시 입력해야 합니다. |
+| volumeType | 암호화 작업을 수행할 볼륨의 유형. 유효한 값은 _OS_ , _Data_ 및 _All_ 입니다. |
 | sequenceVersion | BitLocker 작업의 시퀀스 버전. 동일한 VM에서 디스크 암호화 작업이 수행될 때마다 이 버전 번호가 증가합니다. |
 | vmName | 암호화 작업을 수행할 VM의 이름. |
 
@@ -313,7 +313,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -Aa
 ## <a name="disable-encryption"></a>암호화 사용 안 함
 Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 암호화를 사용하지 않도록 설정할 수 있습니다. 
 
-- **Azure PowerShell을 통한 디스크 암호화 사용 안 함: ** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 
+- **Azure PowerShell을 통한 디스크 암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [Disable-AzureRmVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet을 사용합니다. 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
@@ -326,7 +326,7 @@ Azure PowerShell, Azure CLI 또는 Resource Manager 템플릿을 사용하여 �
 
     1. Windows VM을 실행 하는 동안 [디스크 암호화 사용 안 함 템플릿을 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 하 여 **Azure에 배포를** 클릭 합니다.
     2. 구독, 리소스 그룹, 위치, VM, 약관 및 규약을 선택합니다.
-    3.  **구매**를 클릭하여 실행 중인 Windows VM에서 디스크 암호화를 사용하지 않도록 설정합니다. 
+    3.  **구매** 를 클릭하여 실행 중인 Windows VM에서 디스크 암호화를 사용하지 않도록 설정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

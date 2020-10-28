@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
-ms.custom: seodec18, devx-track-java
+ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 65b31bd39c85ea9073bb9415b9829df12b7d9e35
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171577"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744144"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Java 앱 구성
 
@@ -108,7 +108,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-아래 명령을 실행하여 JVM의 30초 기록을 시작합니다. 그러면 JVM을 프로파일링하고 홈 디렉터리에 *jfr_example.jfr*이라는 JFR 파일을 만듭니다. (116을 Java 앱의 PID로 대체합니다.)
+아래 명령을 실행하여 JVM의 30초 기록을 시작합니다. 그러면 JVM을 프로파일링하고 홈 디렉터리에 *jfr_example.jfr* 이라는 JFR 파일을 만듭니다. (116을 Java 앱의 PID로 대체합니다.)
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -191,7 +191,7 @@ App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리�
 
 ### <a name="turn-on-web-sockets"></a>웹 소켓 켜기
 
-애플리케이션의 Azure Portal **애플리케이션 설정**에서 웹 소켓을 켭니다. 설정을 적용하려면 애플리케이션을 다시 시작해야 합니다.
+애플리케이션의 Azure Portal **애플리케이션 설정** 에서 웹 소켓을 켭니다. 설정을 적용하려면 애플리케이션을 다시 시작해야 합니다.
 
 Azure CLI에서 다음 명령을 사용하여 웹 소켓 지원을 켭니다.
 
@@ -330,29 +330,29 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 ::: zone pivot="platform-windows"
 
 1. [NewRelic.com](https://newrelic.com/signup)에서 NewRelic 계정 만들기
-2. NewRelic에서 Java 에이전트를 다운로드합니다. 파일 이름은 *newrelic-java-x.x.x.zip*과 유사합니다.
+2. NewRelic에서 Java 에이전트를 다운로드합니다. 파일 이름은 *newrelic-java-x.x.x.zip* 과 유사합니다.
 3. 라이선스 키를 복사합니다. 이 키는 나중에 에이전트를 구성하는 데 필요합니다.
-4. [App Service 인스턴스에 대해 SSH를 실행](configure-linux-open-ssh-session.md)하고 새 디렉터리 */home/site/wwwroot/apm*을 만듭니다.
-5. 압축이 풀린 NewRelic Java 에이전트 파일을 */home/site/wwwroot/apm* 아래 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic*에 있어야 합니다.
-6. */home/site/wwwroot/apm/newrelic/newrelic.yml*에서 YAML 파일을 수정하고 자리 표시자 라이선스 값을 사용자의 라이선스 키로 바꿉니다.
+4. [App Service 인스턴스에 대해 SSH를 실행](configure-linux-open-ssh-session.md)하고 새 디렉터리 */home/site/wwwroot/apm* 을 만듭니다.
+5. 압축이 풀린 NewRelic Java 에이전트 파일을 */home/site/wwwroot/apm* 아래 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic* 에 있어야 합니다.
+6. */home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 YAML 파일을 수정하고 자리 표시자 라이선스 값을 사용자의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
 
     - **JAVA SE** 앱의 경우 `JAVA_OPTS` 값을 사용 하 여 라는 환경 변수를 만듭니다 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - **Tomcat**의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - **Tomcat** 의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
 1. [NewRelic.com](https://newrelic.com/signup)에서 NewRelic 계정 만들기
-2. NewRelic에서 Java 에이전트를 다운로드합니다. 파일 이름은 *newrelic-java-x.x.x.zip*과 유사합니다.
+2. NewRelic에서 Java 에이전트를 다운로드합니다. 파일 이름은 *newrelic-java-x.x.x.zip* 과 유사합니다.
 3. 라이선스 키를 복사합니다. 이 키는 나중에 에이전트를 구성하는 데 필요합니다.
-4. [App Service 인스턴스에 대해 SSH를 실행](configure-linux-open-ssh-session.md)하고 새 디렉터리 */home/site/wwwroot/apm*을 만듭니다.
-5. 압축이 풀린 NewRelic Java 에이전트 파일을 */home/site/wwwroot/apm* 아래 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic*에 있어야 합니다.
-6. */home/site/wwwroot/apm/newrelic/newrelic.yml*에서 YAML 파일을 수정하고 자리 표시자 라이선스 값을 사용자의 라이선스 키로 바꿉니다.
+4. [App Service 인스턴스에 대해 SSH를 실행](configure-linux-open-ssh-session.md)하고 새 디렉터리 */home/site/wwwroot/apm* 을 만듭니다.
+5. 압축이 풀린 NewRelic Java 에이전트 파일을 */home/site/wwwroot/apm* 아래 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic* 에 있어야 합니다.
+6. */home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 YAML 파일을 수정하고 자리 표시자 라이선스 값을 사용자의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
    
     - **JAVA SE** 앱의 경우 `JAVA_OPTS` 값을 사용 하 여 라는 환경 변수를 만듭니다 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - **Tomcat**의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - **Tomcat** 의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
 
 ::: zone-end
 
@@ -363,9 +363,9 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 ::: zone pivot="platform-windows"
 
 1. [AppDynamics.com](https://www.appdynamics.com/community/register/)에서 AppDynamics 계정 만들기
-2. AppDynamics 웹 사이트에서 Java 에이전트를 다운로드하면 파일 이름은 *AppServerAgent-x.x.x.xxxxx.zip*과 유사합니다.
-3. [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console) 을 사용 하 여 */home/site/wwwroot/apm*새 디렉터리를 만듭니다.
-4. Java 에이전트 파일을 */home/site/wwwroot/apm* 아래의 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics*에 있어야 합니다.
+2. AppDynamics 웹 사이트에서 Java 에이전트를 다운로드하면 파일 이름은 *AppServerAgent-x.x.x.xxxxx.zip* 과 유사합니다.
+3. [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console) 을 사용 하 여 */home/site/wwwroot/apm* 새 디렉터리를 만듭니다.
+4. Java 에이전트 파일을 */home/site/wwwroot/apm* 아래의 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics* 에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
 
    - **JAVA SE** 응용 프로그램의 경우 값으로 이라는 환경 변수를 만듭니다 `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` . 여기서는 App Service 이름입니다.
@@ -375,9 +375,9 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 ::: zone pivot="platform-linux"
 
 1. [AppDynamics.com](https://www.appdynamics.com/community/register/)에서 AppDynamics 계정 만들기
-2. AppDynamics 웹 사이트에서 Java 에이전트를 다운로드하면 파일 이름은 *AppServerAgent-x.x.x.xxxxx.zip*과 유사합니다.
-3. [App Service 인스턴스에 대해 SSH를 실행](configure-linux-open-ssh-session.md)하고 새 디렉터리 */home/site/wwwroot/apm*을 만듭니다.
-4. Java 에이전트 파일을 */home/site/wwwroot/apm* 아래의 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics*에 있어야 합니다.
+2. AppDynamics 웹 사이트에서 Java 에이전트를 다운로드하면 파일 이름은 *AppServerAgent-x.x.x.xxxxx.zip* 과 유사합니다.
+3. [App Service 인스턴스에 대해 SSH를 실행](configure-linux-open-ssh-session.md)하고 새 디렉터리 */home/site/wwwroot/apm* 을 만듭니다.
+4. Java 에이전트 파일을 */home/site/wwwroot/apm* 아래의 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics* 에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
 
    - **JAVA SE** 응용 프로그램의 경우 값으로 이라는 환경 변수를 만듭니다 `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` . 여기서는 App Service 이름입니다.
@@ -437,7 +437,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 1. 프로젝트의 *META-INF/* 디렉터리에 *context.xml* 파일을 만듭니다. *META-INF/* 디렉터리가 없으면 디렉터리를 만듭니다.
 
-2. *context.xml*에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 요소를 추가합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
+2. *context.xml* 에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 요소를 추가합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
 
     ```xml
     <Context>
@@ -452,7 +452,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
     </Context>
     ```
 
-3. 애플리케이션의 데이터 원본을 사용하도록 애플리케이션의 *web.xml*을 업데이트합니다.
+3. 애플리케이션의 데이터 원본을 사용하도록 애플리케이션의 *web.xml* 을 업데이트합니다.
 
     ```xml
     <resource-env-ref>
@@ -515,7 +515,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 1. 프로젝트의 *META-INF/* 디렉터리에 *context.xml* 파일을 만듭니다. *META-INF/* 디렉터리가 없으면 디렉터리를 만듭니다.
 
-2. *context.xml*에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 요소를 추가합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
+2. *context.xml* 에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 요소를 추가합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
 
     ```xml
     <Context>
@@ -530,7 +530,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
     </Context>
     ```
 
-3. 애플리케이션의 데이터 원본을 사용하도록 애플리케이션의 *web.xml*을 업데이트합니다.
+3. 애플리케이션의 데이터 원본을 사용하도록 애플리케이션의 *web.xml* 을 업데이트합니다.
 
     ```xml
     <resource-env-ref>
@@ -541,16 +541,16 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 #### <a name="shared-server-level-resources"></a>공유 서버 수준 리소스
 
-공유 서버 수준 데이터 원본을 추가하려면 Tomcat의 server.xml을 편집해야 합니다. 먼저 [시작 스크립트](faq-app-service-linux.md#built-in-images)를 업로드하고 **구성** > **시작 명령**의 스크립트에 대한 경로를 설정합니다. [FTP](deploy-ftp.md)를 사용하여 시작 스크립트를 업로드할 수 있습니다.
+공유 서버 수준 데이터 원본을 추가하려면 Tomcat의 server.xml을 편집해야 합니다. 먼저 [시작 스크립트](faq-app-service-linux.md#built-in-images)를 업로드하고 **구성** > **시작 명령** 의 스크립트에 대한 경로를 설정합니다. [FTP](deploy-ftp.md)를 사용하여 시작 스크립트를 업로드할 수 있습니다.
 
 시작 스크립트는 server.xml 파일의 [xsl 변환](https://www.w3schools.com/xml/xsl_intro.asp) 파일을 만들고 결과 xml 파일을 `/usr/local/tomcat/conf/server.xml`로 출력합니다. 시작 스크립트는 apk를 통해 libxslt를 설치해야 합니다. FTP를 통해 xsl 파일 및 시작 스크립트를 업로드할 수 있습니다. 다음은 예제 시작 스크립트입니다.
 
 ```sh
-# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
 apk add --update libxslt
 
-# Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 예제 xsl 파일은 아래에 제공됩니다. 예제 xsl 파일은 Tomcat server.xml에 새 커넥터 노드를 추가합니다.
@@ -678,7 +678,7 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl 
     ```
 
 1. 원하는 FTP 클라이언트를 사용 하 여 JDBC 드라이버, `jboss-cli-commands.cli` , `startup_script.sh` 및 모듈 정의를에 업로드 `/site/deployments/tools/` 합니다.
-2. 컨테이너가 시작 될 때 실행 되도록 사이트를 구성 `startup_script.sh` 합니다. Azure Portal에서 **구성**  >  **일반 설정**  >  **시작 명령**으로 이동 합니다. 시작 명령 필드를로 설정 `/home/site/deployments/tools/startup_script.sh` 합니다. 변경 내용을 **저장**합니다.
+2. 컨테이너가 시작 될 때 실행 되도록 사이트를 구성 `startup_script.sh` 합니다. Azure Portal에서 **구성**  >  **일반 설정**  >  **시작 명령** 으로 이동 합니다. 시작 명령 필드를로 설정 `/home/site/deployments/tools/startup_script.sh` 합니다. 변경 내용을 **저장** 합니다.
 
 데이터 원본이 JBoss 서버에 추가 되었는지 확인 하려면 webapp에 SSH를 실행 하 고를 실행 `$JBOSS_HOME/bin/jboss-cli.sh --connect` 합니다. JBoss에 연결 되 면를 실행 `/subsystem=datasources:read-resource` 하 여 데이터 원본 목록을 인쇄 합니다.
 

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631107"
+ms.locfileid: "92745130"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 리소스 공급자 작업
 
@@ -158,6 +158,7 @@ ms.locfileid: "92631107"
 | [Microsoft.Intune](#microsoftintune) |
 | **기타** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## <a name="general"></a>일반
@@ -9663,6 +9664,45 @@ Azure 서비스: [Bing 지도](https://docs.microsoft.com/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listSecrets/action | Microsoft. BingMaps/mapApis에 대 한 암호를 나열 합니다. |
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/action | Microsoft. BingMaps/mapApis에 대 한 메트릭을 나열 합니다. |
 > | Microsoft.BingMaps/Operations/read | Microsoft. BingMaps에 대 한 작업 나열 |
+
+### <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
+
+Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | 작업 | Description |
+> | --- | --- |
+> | DigitalTwins/register/action | 디지털 쌍 리소스 공급자에 대 한 구독을 등록 하 고 디지털 Twins 인스턴스를 만들도록 설정 합니다. |
+> | DigitalTwins/등록 취소/작업 | 디지털 Twins 리소스 공급자에 대 한 구독 등록 취소 |
+> | DigitalTwins/digitalTwinsInstances/읽기 | DigitalTwins/digitalTwinsInstances 리소스를 읽습니다. |
+> | DigitalTwins/digitalTwinsInstances/write | DigitalTwins/digitalTwinsInstances 리소스를 만들거나 업데이트 합니다. |
+> | DigitalTwins/digitalTwinsInstances/delete | DigitalTwins/digitalTwinsInstances 리소스를 삭제 합니다. |
+> | DigitalTwins/digitalTwinsInstances/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
+> | DigitalTwins/digitalTwinsInstances/diagnosticSettings/write | 리소스에 대 한 진단 설정을 설정 합니다. |
+> | DigitalTwins/digitalTwinsInstances/엔드포인트/delete | 디지털 Twins 리소스의 모든 끝점 삭제 |
+> | DigitalTwins/digitalTwinsInstances/끝점/읽기 | 디지털 Twins 리소스의 끝점을 읽습니다. |
+> | DigitalTwins/digitalTwinsInstances/엔드포인트/쓰기 | 디지털 Twins 리소스의 끝점을 만들거나 업데이트 합니다. |
+> | DigitalTwins/digitalTwinsInstances/logDefinitions/읽기 | 리소스의 Azure Monitor에 대 한 로그 설정을 가져옵니다. |
+> | DigitalTwins/digitalTwinsInstances/metricDefinitions/read | 리소스의 Azure Monitor에 대 한 메트릭 설정을 가져옵니다. |
+> | DigitalTwins/digitalTwinsInstances/operationsResults/read | 작업 결과를 읽습니다. |
+> | DigitalTwins/위치/checkNameAvailability/action | 디지털 Twins 리소스 공급자에서 리소스의 이름 사용 가능 여부 확인 |
+> | DigitalTwins/위치/operationsResults/읽기 | 작업 결과를 읽습니다. |
+> | DigitalTwins/작업/읽기 | 모든 작업 읽기 |
+> | **DataAction** | **설명** |
+> | DigitalTwins/쿼리/동작 | 모든 Digital Twins 그래프 쿼리 |
+> | DigitalTwins/DigitalTwins/읽기 | 디지털 쌍 읽기 |
+> | DigitalTwins/DigitalTwins/write | 디지털 쌍을 만들거나 업데이트 합니다. |
+> | DigitalTwins/DigitalTwins/delete | 디지털 쌍을 삭제 합니다. |
+> | DigitalTwins/DigitalTwins/명령/작업 | 디지털 쌍에서 명령 호출 |
+> | DigitalTwins/DigitalTwins/관계/읽기 | 디지털 쌍 관계 읽기 |
+> | DigitalTwins/DigitalTwins/관계/쓰기 | 디지털 쌍 관계 만들기 또는 업데이트 |
+> | DigitalTwins/DigitalTwins/관계/삭제 | 디지털 쌍 관계 삭제 |
+> | DigitalTwins/eventroutes/읽기 | 이벤트 경로를 읽습니다. |
+> | DigitalTwins/eventroutes/삭제 | 모든 이벤트 경로 삭제 |
+> | DigitalTwins/eventroutes/write | 이벤트 경로를 만들거나 업데이트 합니다. |
+> | DigitalTwins/모델/읽기 | 모델 읽기 |
+> | DigitalTwins/모델/쓰기 | 모델 만들기 또는 업데이트 |
+> | DigitalTwins/모델/삭제 | 모델 삭제 |
 
 ## <a name="next-steps"></a>다음 단계
 
